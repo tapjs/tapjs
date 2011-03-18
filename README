@@ -1,0 +1,15 @@
+A Very Simple test harness that outputs TAP-compliant results.
+
+Usage:
+
+1. Make a directory.  Maybe call it 'test'.  That'd be nice and obvious.
+2. Put a bunch of test scripts in there.  If they're node programs, then
+   they should be ".js".  Anything else is assumed to be some kind of shell
+   script, which should have a shebang line.
+3. `npm install tap`
+4. `tap ./tests`
+
+The output will be TAP-compliant.
+
+Programmatic usage isn't documented yet.  Poke around the "lib" and "test"
+directories for examples.
