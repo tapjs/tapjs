@@ -13,3 +13,5 @@ The output will be TAP-compliant.
 
 Programmatic usage isn't documented yet.  Poke around the "lib" and "test"
 directories for examples.
+
+Support for TODO/SKIP not done yet, but not terrifically hard.
