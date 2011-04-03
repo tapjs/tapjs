@@ -161,7 +161,7 @@ test("http server", function (t) {
 
 // yo dawg!
 test("meta-tests", function (t) {
-  t.plan(4)
+  t.plan(5)
 
   // t.fails() wraps a child test and succeeds if it fails.
   t.fails(t.test("this should fail", function (t) {
@@ -191,4 +191,46 @@ test("meta-tests", function (t) {
   t.bailsOut(t.test("this should bailout", function (t) {
     t.bailout("oh noes, bailing out!")
   }))
+
+  // low-level analysis of subtests
+  t.test("verifying test success/failure expectations", function (t) {
+    t.once("end", function () {
+      var res = t.results
+        , is = t.equal
+      // hijack!
+      t.clear()
+      is(res.ok,         false, "ok")
+
+      is(res.bailedOut,  false, "bailed out")
+
+      is(res.skip,       2, "skips")
+      is(res.skipPass,   1, "skip that passed")
+      is(res.skipFail,   1, "skip that failed")
+
+      is(res.todo,       2, "todos")
+      is(res.todoPass,   1, "todo that passed")
+      is(res.todoFail,   1, "todo that failed")
+
+      is(res.failTotal,  3, "failures total")
+      is(res.fail,       1, "relevant failure")
+
+      is(res.passTotal,  3, "passes total")
+      is(res.pass,       1, "relevant pass")
+
+      is(res.testsTotal, 6, "total tests")
+      is(res.tests,      2, "should be 2 relevant tests")
+
+      t.end()
+    })
+
+    // run the metatest.
+    // *this* is the actual SUT in this case.
+    t.ok(false, "failing todo #todo")
+    t.ok(true, "succeeding todo #todo")
+    t.ok(false, "failing skip #skip")
+    t.ok(true, "suceeding skip #skip")
+    t.ok(false, "failing test")
+    t.ok(true, "succeeding test")
+    t.end()
+  })
 })
