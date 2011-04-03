@@ -130,7 +130,7 @@ test("http server", function (t) {
   // to the next one.
   // The first not-parallel test encountered will cause it to wait for that
   // test, as well as all the parallel tests before it.
-  // A, B', C', D, E (where ' means "parallel")
+  // A, B', C', D', E (where ' means "parallel")
   // Runs A, and then B, C, and D in parallel, and then E.
   t.test("testing POST", true, function (t) {
     t.plan(1)
@@ -142,7 +142,7 @@ test("http server", function (t) {
     }).end()
   })
 
-  t.test("testing GET", function (t) {
+  t.test("testing GET", true, function (t) {
     t.plan(1)
     http.request("POST", { method: "GET"
                          , host: "localhost"
@@ -152,7 +152,7 @@ test("http server", function (t) {
     }).end()
   })
 
-  // wrap in a test so that 
+  // wrap in a test so that if this throws, it'll log as a failed test.
   t.test("teardown", function (t) {
     server.close()
     t.end()
