@@ -158,3 +158,37 @@ test("http server", function (t) {
     t.end()
   })
 })
+
+// yo dawg!
+test("meta-tests", function (t) {
+  t.plan(4)
+
+  // t.fails() wraps a child test and succeeds if it fails.
+  t.fails(t.test("this should fail", function (t) {
+    t.ok(false, "assert false")
+    t.end()
+  }))
+
+  // t.timesOut() wraps a child test and succeeds if it times out.
+  // if t.end() is called, or if a plan is completed, then it fails.
+  t.timesOut(t.test("this should timeout", function (t) {
+    // set the timeout really low so that it will not take forever.
+    t.timeout = 1
+    t.ok(true, "assert true")
+    // t.end() never called.
+  }))
+
+  // t.incomplete() wraps a child test and succeeds if it ends before
+  // the plan is finished.
+  t.incomplete(t.test("this should be incomplete", function (t) {
+    t.plan(100)
+    t.ok(true, "assert true")
+    // calling end prematurely.
+    t.end()
+  }))
+
+  // t.bailsOut() wraps a child test and succeeds if it calls bailout()
+  t.bailsOut(t.test("this should bailout", function (t) {
+    t.bailout("oh noes, bailing out!")
+  }))
+})
