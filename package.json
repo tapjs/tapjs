@@ -3,5 +3,6 @@
 , "author" : "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me)"
 , "description" : "A Test-Anything-Protocol library"
 , "bin" : "bin/tap.js"
+, "main" : "lib/main.js"
 , "dependencies" : { "slide" : ">=1.1.1" }
 , "scripts" : { "test" : "bin/tap.js test" } }
