@@ -1,5 +1,6 @@
 var tap = require("tap")
   , test = tap.test
+  , plan = tap.plan
   , math
 
 test("load sut", function (t) {
