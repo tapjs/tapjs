@@ -132,7 +132,7 @@ test("http server", function (t) {
   // test, as well as all the parallel tests before it.
   // A, B', C', D', E (where ' means "parallel")
   // Runs A, and then B, C, and D in parallel, and then E.
-  t.test("testing POST", true, function (t) {
+  t.test("testing POST", {parallel: true}, function (t) {
     t.plan(1)
     http.request("POST", { method: "POST"
                          , host: "localhost"
@@ -142,7 +142,7 @@ test("http server", function (t) {
     }).end()
   })
 
-  t.test("testing GET", true, function (t) {
+  t.test("testing GET", {parallel: true}, function (t) {
     t.plan(1)
     http.request("POST", { method: "GET"
                          , host: "localhost"
