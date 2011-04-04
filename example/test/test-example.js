@@ -226,8 +226,9 @@ test("meta-tests", function (t) {
     // run the metatest.
     // *this* is the actual SUT in this case.
     t.ok(false, "failing todo #todo")
-    t.ok(true, "succeeding todo #todo")
-    t.ok(false, "failing skip #skip")
+    // can also set #todo or #skip explicitly
+    t.ok(true, "succeeding todo", {todo: true})
+    t.ok(false, "failing skip #skip", {skip: true})
     t.ok(true, "suceeding skip #skip")
     t.ok(false, "failing test")
     t.ok(true, "succeeding test")
