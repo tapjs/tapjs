@@ -3,10 +3,10 @@
 var argv = process.argv.slice(2)
   , path = require("path")
   , dir = path.resolve(argv[0])
-  , testDir = require("../lib/test-dir")
-  , ts = testDir(dir)
+  , Runner = require("../lib/runner")
+  , r = new Runner(dir)
 
-ts.pipe(process.stdout)
-ts.on("end", function () {
-  process.exit(ts.results.tests - ts.results.pass)
+r.pipe(process.stdout)
+r.on("end", function () {
+  process.exit(r.results.tests - r.results.pass)
 })
