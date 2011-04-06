@@ -3,10 +3,10 @@
 // read a tap stream from stdin.
 
 var TapConsumer = require("../lib/tap-consumer")
-  , TapStream = require("../lib/tap-stream")
+  , TapProducer = require("../lib/tap-producer")
 
 var tc = new TapConsumer
-  , ts = new TapStream(!process.env.nodiag)
+  , tp = new TapProducer
 
 //process.stdin.pipe(tc)
 process.stdin.on("data", function (c) {
@@ -16,18 +16,18 @@ process.stdin.on("data", function (c) {
 })
 process.stdin.on("end", function () { tc.end() })
 process.stdin.resume()
-//tc.pipe(ts)
+//tc.pipe(tp)
 tc.on("data", function (c) {
-  ts.write(c)
+  tp.write(c)
 })
-tc.on("end", function () { ts.end() })
+tc.on("end", function () { tp.end() })
 
-ts.on("data", function (c) {
+tp.on("data", function (c) {
   console.error(["output write", c])
   process.stdout.write(c)
 })
 
-ts.on("end", function (er, total, ok) {
+tp.on("end", function (er, total, ok) {
   if (er) throw er
   process.exit(total - ok)
 })
