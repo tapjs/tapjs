@@ -1,0 +1,12 @@
+{ "name" : "tap-consumer"
+, "version" : "0.0.1"
+, "description" : "A module for consuming TAP output"
+, "main" : "./tap-consumer.js"
+, "author" : "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me/)"
+, "repository" : "https://github.com/isaacs/tap-consumer"
+, "dependencies" :
+  { "inherits" : "*"
+  , "tap-results" : "0.x"
+  , "yamlish" : "*"
+  }
+}
