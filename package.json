@@ -1,0 +1,14 @@
+{ "name" : "tap-harness"
+, "version" : "0.0.1"
+, "description" : "A harness for TAP Tests to use"
+, "main" : "./harness.js"
+, "author" : "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me/)"
+, "repository" : "https://github.com/isaacs/tap-harness"
+, "dependencies" :
+  { "inherits" : "*"
+  , "tap-results" : "0.x"
+  , "yamlish" : "*"
+  , "tap-producer" : "0.x"
+  , "tap-assert": "0.x"
+  }
+}
