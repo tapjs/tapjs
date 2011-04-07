@@ -1,0 +1,13 @@
+{ "name" : "tap-global-harness"
+, "version" : "0.0.1"
+, "description" : "A default harness for running TAP test"
+, "main" : "./global-harness.js"
+, "author" : "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me/)"
+, "repository" : "https://github.com/isaacs/tap-global-harness"
+, "dependencies" :
+  { "inherits" : "*"
+  , "tap-results" : "0.x"
+  , "tap-test": "0.x"
+  , "tap-harness" : "0.x"
+  }
+}
