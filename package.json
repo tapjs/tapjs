@@ -4,4 +4,9 @@
 , "main" : "./tap-producer.js"
 , "author" : "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me/)"
 , "repository" : "https://github.com/isaacs/tap-producer"
+, "dependencies" :
+  { "inherits" : "*"
+  , "tap-results" : "0.x"
+  , "yamlish" : "*"
+  }
 }
