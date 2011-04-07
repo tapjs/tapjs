@@ -61,10 +61,6 @@ this is very useful for CI systems and such.
 * tap-assert: A collection of assert functions that return TAP result
   objects.
 * tap-consumer: A stream interface for consuming TAP data.
-* tap-global-harness: A default harness that provides the top-level
-  support for running TAP tests.
-* tap-harness: A class that runs tests.  (Tests are also Harnesses,
-  which is how sub-tests run.)
 * tap-producer: A class that produces a TAP stream by taking in result
   objects.
 * tap-results: A class for keeping track of TAP result objects as they
@@ -73,5 +69,9 @@ this is very useful for CI systems and such.
   tests in it.  (Tests which may or may not be TAP-outputting tests.  But
   it's better if they are.)
 * tap-test: A class for actually running tests.
+* tap-harness: A class that runs tests.  (Tests are also Harnesses,
+  which is how sub-tests run.)
+* tap-global-harness: A default harness that provides the top-level
+  support for running TAP tests.
 
 More docs coming soon, hopefully.
