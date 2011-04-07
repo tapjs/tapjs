@@ -4,5 +4,28 @@
 , "description" : "A Test-Anything-Protocol library"
 , "bin" : "bin/tap.js"
 , "main" : "lib/main.js"
-, "dependencies" : { "slide" : ">=1.1.1" }
+, "dependencies" :
+  { "tap-global-harness" : "0.x"
+  , "tap-runner" : "0.x"
+  , "tap-assert" : "0.x"
+  , "tap-test" : "0.x"
+  , "tap-harness" : "0.x"
+  , "tap-results" : "0.x"
+  , "tap-consumer" : "0.x"
+  , "tap-producer" : "0.x"
+  , "inherits" : "*"
+  , "yamlish" : "*"
+  }
+, "bundledDependencies" :
+  [ "inherits"
+  , "tap-assert"
+  , "tap-consumer"
+  , "tap-global-harness"
+  , "tap-harness"
+  , "tap-producer"
+  , "tap-results"
+  , "tap-runner"
+  , "tap-test"
+  , "yamlish"
+  ]
 , "scripts" : { "test" : "bin/tap.js test" } }

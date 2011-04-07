@@ -3,7 +3,7 @@
 var argv = process.argv.slice(2)
   , path = require("path")
   , dir = path.resolve(argv[0])
-  , Runner = require("../lib/runner")
+  , Runner = require("tap-runner")
   , r = new Runner(dir)
 
 r.pipe(process.stdout)
