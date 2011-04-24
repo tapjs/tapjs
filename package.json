@@ -11,5 +11,6 @@
   , "slide" : "*"
   , "tap-producer" : "0.x"
   , "tap-consumer" : "0.x"
+  , "tap-assert" : "0.x"
   }
 }
