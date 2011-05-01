@@ -23,6 +23,14 @@ function Test (harness, name, conf) {
   this.harness.add(this)
 }
 
+// it's taking too long!
+Test.prototype.timeout = function () {
+  // detect false alarms
+  if (this._ended) return
+  this.fail("Timeout!")
+  this.end()
+}
+
 Test.prototype.clear = function () {
   this._started = false
   this._ended = false
