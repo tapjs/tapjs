@@ -172,9 +172,8 @@ test("meta-tests", function (t) {
 
   // t.timesOut() wraps a child test and succeeds if it times out.
   // if t.end() is called, or if a plan is completed, then it fails.
-  t.timesOut(t.test("this should timeout", function (t) {
-    // set the timeout really low so that it will not take forever.
-    t.timeout = 1
+  // set the timeout really low so that it will not take forever.
+  t.timesOut(t.test("this should timeout", { timeout: 1 }, function (t) {
     t.ok(true, "assert true")
     // t.end() never called.
   }))
