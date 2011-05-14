@@ -305,7 +305,7 @@ function diffString (f, w) {
   return diff(f, w, p)
 }
 
-function diffObj (f, w) {
+function diffObject (f, w) {
   var f = stringify(f)
     , w = stringify(w)
     , l = w.length
