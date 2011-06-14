@@ -341,10 +341,11 @@ function getCaller (er) {
       , line = +s[2]
       , col = +s[3]
     if (file.indexOf(__dirname) === 0) continue
+    if (file.match(/tap-test\/test.js$/)) continue
     else break
   }
   var res = {}
-  if (file && file !== __filename) {
+  if (file && file !== __filename && !file.match(/tap-test\/test.js$/)) {
     res.file = file
     res.line = line
     res.column = col
