@@ -28,6 +28,7 @@ Runner.prototype.run = function (dir) {
       return
     }
     files = files.sort(function (a,b) {return a>b ? 1 : -1})
+    files = files.filter(function (f) {return !f.match(/^\./)})
     chain(files.map(function (f) { return function (cb) {
       self.write(f)
       f = path.resolve(dir, f)
