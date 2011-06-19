@@ -1,16 +1,24 @@
-{ "name" : "tap-runner"
-, "version" : "0.0.2"
-, "description" : "A module for running all the tests in a directory"
-, "main" : "./runner.js"
-, "author" : "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me/)"
-, "repository" : "https://github.com/isaacs/tap-runner"
-, "dependencies" :
-  { "inherits" : "*"
-  , "tap-results" : "0.x"
-  , "yamlish" : "*"
-  , "slide" : "*"
-  , "tap-producer" : "0.x"
-  , "tap-consumer" : "0.x"
-  , "tap-assert" : "0.x"
+{
+  "name": "tap-runner",
+  "version": "0.0.3",
+  "description": "A module for running all the tests in a directory",
+  "main": "./runner.js",
+  "author": "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me/)",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/isaacs/tap-runner.git"
+  },
+  "dependencies": {
+    "inherits": "*",
+    "tap-results": "0.x",
+    "yamlish": "*",
+    "slide": "*",
+    "tap-producer": "0.x",
+    "tap-consumer": "0.x",
+    "tap-assert": "0.x"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": "*"
   }
 }
