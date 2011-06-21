@@ -306,11 +306,6 @@ function stringify (a) {
           return val.toString().split(/\n/)[0]
         }
         var proto = Object.getPrototypeOf(val)
-        if (proto && proto !== Object.prototype &&
-            !Array.isArray(val) &&
-            proto.constructor && proto.constructor.name) {
-          val.constructor = proto.constructor
-        }
       }
       return val
   }})())
