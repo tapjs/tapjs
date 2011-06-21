@@ -106,8 +106,8 @@ function throws (fn, wanted, message, extra) {
     if (wanted) message += ": "+wanted.name + " " + wanted.message
   }
 
-  if (wanted) assert.similar(found, wanted, message, extra)
-  else assert.ok(found, message, extra)
+  return (wanted) ? assert.similar(found, wanted, message, extra)
+                  : assert.ok(found, message, extra)
 }
 assert.throws = throws
 
