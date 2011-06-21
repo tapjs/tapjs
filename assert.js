@@ -351,7 +351,7 @@ function getCaller (er) {
     res.column = col
   }
 
-  res.stack = stack.slice(i).map(function (s) {
+  res.stack = stack.slice(1).map(function (s) {
     return s.replace(/^\s*at\s*/, "")
   })
 
