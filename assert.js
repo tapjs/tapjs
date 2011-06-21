@@ -62,6 +62,10 @@ function notOk (ok, message, extra) {
 }
 assert.notOk = notOk
 
+function pass (message, extra) {
+  return assert(true, message, extra)
+}
+assert.pass = pass
 
 function fail (message, extra) {
   //console.error("assert.fail", [message, extra])
@@ -228,21 +232,37 @@ syns.dissimilar = ["unsimilar"
 
 function type (thing, t, message, extra) {
   if (extra && extra.skip) return assert.skip(message, extra)
-  message = message || "type is "+t
+  var name = t
+  if (typeof name === "function") name = name.name || "(anonymous ctor)"
+  //console.error("name=%s", name)
+  message = message || "type is "+name
   var type = typeof thing
+  //console.error("type=%s", type)
   if (!thing && type === "object") type = "null"
   if (type === "object" && t !== "object") {
-    // check against classnames in prototype chain, as well.
+    if (typeof t === "function") {
+      //console.error("it is a function!")
+      extra = extra || {}
+      extra.found = Object.getPrototypeOf(thing).constructor.name
+      extra.wanted = name
+      //console.error(thing instanceof t, name)
+      return assert.ok(thing instanceof t, message, extra)
+    }
+
+    //console.error("check prototype chain")
+    // check against classnames or objects in prototype chain, as well.
     // type(new Error("asdf"), "Error")
+    // type(Object.create(foo), foo)
     var p = thing
     while (p = Object.getPrototypeOf(p)) {
-      if (p.constructor && p.constructor.name === t) {
-        type = t
+      if (p === t || p.constructor && p.constructor.name === t) {
+        type = name
         break
       }
     }
   }
-  return assert.equal(type, t, message, extra)
+  //console.error(type, name, type === name)
+  return assert.equal(type, name, message, extra)
 }
 assert.type = type
 syns.type = ["isa"]
