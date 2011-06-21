@@ -216,7 +216,7 @@ function dissimilar (a, b, message, extra) {
   return inequivalent(selectFields(a, b), b, message, extra)
 }
 assert.dissimilar = dissimilar
-syns.dissimilar = ["unsimilar",
+syns.dissimilar = ["unsimilar"
                   ,"notSimilar"
                   ,"unlike"
                   ,"isUnlike"
@@ -245,6 +245,7 @@ function type (thing, t, message, extra) {
   return assert.equal(type, t, message, extra)
 }
 assert.type = type
+syns.type = ["isa"]
 
 // synonyms are helpful.
 Object.keys(syns).forEach(function (c) {
