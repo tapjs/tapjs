@@ -1,5 +1,5 @@
 { "name" : "tap-test"
-, "version" : "0.0.1"
+, "version" : "0.0.2"
 , "description" : "A test framework for running TAP test"
 , "main" : "./test.js"
 , "author" : "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me/)"

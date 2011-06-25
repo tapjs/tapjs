@@ -49,6 +49,13 @@ Test.prototype.threw = function (ex) {
   this.end()
 }
 
+Test.prototype.comment = function (m) {
+  if (typeof m !== "string") {
+    return this.fail("Test.comment argument must be a string")
+  }
+  this.result("\n" + m.trim())
+}
+
 Test.prototype.result = function (res) {
   this.results.add(res)
   this._testCount ++
