@@ -41,7 +41,7 @@ Runner.prototype.runDir = function (dir, cb) {
     files = files.filter(function (f) {return !f.match(/^\./)})
     files = files.map(path.resolve.bind(path, dir))
 
-    self.runFiles(files, dir, cb)
+    self.runFiles(files, path.resolve(dir), cb)
   })
 }
 
@@ -68,7 +68,7 @@ Runner.prototype.runFiles = function (files, dir, cb) {
         args = [f]
       }
       if (st.isDirectory()) {
-        return self.runDir(dir, cb)
+        return self.runDir(f, cb)
       }
 
       var env = {}
@@ -91,7 +91,6 @@ Runner.prototype.runFiles = function (files, dir, cb) {
       cp.stderr.on("data", function (c) { err += c })
 
       cp.on("exit", function (code) {
-        //console.error(childTests)
         //childTests.forEach(function (c) { self.write(c) })
         var res = { name: fileName
                   , ok: !code }
