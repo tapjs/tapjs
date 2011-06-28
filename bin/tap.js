@@ -2,9 +2,8 @@
 
 var argv = process.argv.slice(2)
   , path = require("path")
-  , dir = path.resolve(argv[0])
   , Runner = require("tap-runner")
-  , r = new Runner(dir, process.cwd(), null)
+  , r = new Runner(argv, null)
   , TapProducer = require("tap-producer")
 
 if (process.env.TAP || process.env.TAP_DIAG) {
