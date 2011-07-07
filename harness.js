@@ -145,8 +145,15 @@ Harness.prototype.test = function test (name, conf, cb) {
 
   //console.error("making test", [name, conf, cb])
 
+  // timeout: value in milliseconds. Defaults to 30s
+  // Set to Infinity to have no timeout.
+  if (isNaN(conf.timeout)) conf.timeout = 30000
   var t = new this._Test(this, name, conf)
   if (cb) {
+    if (!isNaN(conf.timeout) && isFinite(conf.timeout)) {
+      var timer = setTimeout(t.timeout.bind(t), conf.timeout)
+      t.on("end", clearTimeout.bind(null, timer))
+    }
     //console.error("attaching cb to ready event")
     t.on("ready", cb.bind(t, t))
   }
