@@ -173,3 +173,9 @@ Harness.prototype.add = function (child) {
   this._children.push(child)
   if (!this._started) this.process()
 }
+
+// the tearDown function is *always* guaranteed to happen.
+// Even if there's a bailout.
+Harness.prototype.tearDown = function (fn) {
+  this.on("end", fn)
+}
