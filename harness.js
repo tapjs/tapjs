@@ -27,10 +27,6 @@ function Harness (Test) {
   this._planSum = 0
 
   this.results = new Results()
-  var me = this
-  this.results.on("result", function (res) {
-    me.emit("result", res, me)
-  })
 
   var p = this.process.bind(this)
   this.process = function () {
