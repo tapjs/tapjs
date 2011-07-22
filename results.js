@@ -2,6 +2,11 @@
 
 module.exports = Results
 
+var inherits = require("inherits")
+  , EventEmitter = require("events").EventEmitter
+
+inherits(Results, EventEmitter)
+
 function Results (r) {
   //console.error("result constructor", r)
   this.ok = true
@@ -30,6 +35,7 @@ Results.prototype.addSet = function (r) {
   this.ok = this.ok && r.ok && true
   this.bailedOut = this.bailedOut || r.bailedOut || false
   this.list = (this.list || []).concat(r.list || [])
+  this.emit("set", this.list)
   //console.error("after addSet", this)
 }
 
@@ -58,4 +64,5 @@ Results.prototype.add = function (r, addToList) {
   if (addToList === false) return
   this.list = this.list || []
   this.list.push(r)
+  this.emit("result", r)
 }
