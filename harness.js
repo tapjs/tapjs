@@ -160,6 +160,7 @@ Harness.prototype.test = function test (name, conf, cb) {
     }
     //console.error("attaching cb to ready event")
     t.on("ready", cb.bind(t, t))
+    t.on("result", this.emit.bind(this))
   }
   return t
 }
