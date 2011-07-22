@@ -1,5 +1,5 @@
 { "name" : "tap-harness"
-, "version" : "0.0.2"
+, "version" : "0.0.3"
 , "description" : "A harness for TAP Tests to use"
 , "main" : "./harness.js"
 , "author" : "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me/)"
