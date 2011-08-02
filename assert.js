@@ -57,12 +57,14 @@ function assert (ok, message, extra) {
   return res
 }
 assert.ok = assert
+syns.ok = [ "true" ]
 
 
 function notOk (ok, message, extra) {
   return assert(!ok, message, extra)
 }
 assert.notOk = notOk
+syns.notOk = [ "false", "notok" ]
 
 function pass (message, extra) {
   return assert(true, message, extra)
