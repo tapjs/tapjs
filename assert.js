@@ -57,7 +57,7 @@ function assert (ok, message, extra) {
   return res
 }
 assert.ok = assert
-syns.ok = [ "true" ]
+syns.ok = [ "true", "assert" ]
 
 
 function notOk (ok, message, extra) {
@@ -76,6 +76,7 @@ function error (er, message, extra) {
   extra.error = er
   return assert.fail(message, extra)
 }
+assert.error = error
 syns.error = [ "ifError", "ifErr", "iferror" ]
 
 
