@@ -356,9 +356,10 @@ function diff (f, w, p) {
   var pos = Math.max(0, i - 20)
   w = w.substr(pos, 40)
   f = f.substr(pos, 40)
+  var pointer = i - pos
   return "FOUND:  "+f+"\n"
        + "WANTED: "+w+"\n"
-       + (new Array(Math.min(20, pos) + 9).join(" "))
+       + (new Array(pointer + 9).join(" "))
        + "^ (at position = "+p+")"
 }
 
