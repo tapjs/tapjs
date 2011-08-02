@@ -11,6 +11,7 @@ function assert (ok, message, extra) {
   //console.error("assert %j", [ok, message, extra])
   //if (extra && extra.skip) return assert.skip(message, extra)
   //console.error("assert", [ok, message, extra])
+  ok = !!ok
   var res = { id : id ++, ok: ok }
 
   var caller = getCaller(extra && extra.error)
