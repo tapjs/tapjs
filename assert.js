@@ -66,6 +66,19 @@ function notOk (ok, message, extra) {
 assert.notOk = notOk
 syns.notOk = [ "false", "notok" ]
 
+function error (er, message, extra) {
+  if (!er) {
+    // just like notOk(er)
+    return assert(!er, message, extra)
+  }
+  message = message || er.message
+  extra = extra || {}
+  extra.error = er
+  return assert.fail(message, extra)
+}
+syns.error = [ "ifError", "ifErr", "iferror" ]
+
+
 function pass (message, extra) {
   return assert(true, message, extra)
 }
