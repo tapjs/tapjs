@@ -367,7 +367,7 @@ function diff (f, w, p) {
 function getCaller (er) {
   // get the first file/line that isn't this file.
   if (!er) er = new Error
-  var stack = er.stack
+  var stack = er.stack || ""
   stack = stack.split(/\n/)
   for (var i = 1, l = stack.length; i < l; i ++) {
     var s = stack[i].match(/\(([^):]+):([0-9]+):([0-9]+)\)$/)
