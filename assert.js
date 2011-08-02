@@ -6,6 +6,8 @@ var syns = {}
   , id = 1
 
 function assert (ok, message, extra) {
+  if (extra && extra.skip) return assert.skip(message, extra)
+
   //console.error("assert %j", [ok, message, extra])
   //if (extra && extra.skip) return assert.skip(message, extra)
   //console.error("assert", [ok, message, extra])
@@ -57,7 +59,6 @@ assert.ok = assert
 
 
 function notOk (ok, message, extra) {
-  if (extra && extra.skip) return assert.skip(message, extra)
   return assert(!ok, message, extra)
 }
 assert.notOk = notOk
