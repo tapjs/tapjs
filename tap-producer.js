@@ -89,7 +89,7 @@ function encodeResult (res, count, diag) {
   else if (diag === undefined) diag = !res.ok
 
   var output = ""
-  res.name = res.name && res.name.trim()
+  res.name = res.name && ("" + res.name).trim()
   output += ( !res.ok ? "not " : "") + "ok " + count
              + ( !res.name ? ""
                : " " + res.name.replace(/[\r\n]/, " ") )
