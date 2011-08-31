@@ -27,4 +27,5 @@
   , "tap-test"
   , "yamlish"
   ]
+, "repository" : "git://github.com/isaacs/node-tap.git"
 , "scripts" : { "test" : "bin/tap.js test" } }
