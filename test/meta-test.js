@@ -21,6 +21,7 @@ test("meta test", { skip: false }, function (t) {
   t.notOk(NaN, "NaN is notOk")
   t.notOk("", "empty string is notOk")
   t.throws(thr0w, "Thrower throws");
+  t.doesNotThrow(noop, "noop does not throw");
 
   // a few failures.
   t.ifError(new Error("this is an error"))
@@ -28,6 +29,7 @@ test("meta test", { skip: false }, function (t) {
   t.ok(false, "false is not ok")
   t.notOk(true, "true is not not ok")
   t.throws(noop, "noop does not throw");
+  t.doesNotThrow(thr0w, "thrower does throw");
   t.end()
 
   function section2 () {
@@ -35,9 +37,9 @@ test("meta test", { skip: false }, function (t) {
     t.clear()
     t.ok(true, "sanity check")
     t.notOk(results.ok, "not ok")
-    t.equal(results.tests, 18, "total test count")
-    t.equal(results.passTotal, 13, "tests passed")
-    t.equal(results.fail, 5, "tests failed")
+    t.equal(results.tests, 20, "total test count")
+    t.equal(results.passTotal, 14, "tests passed")
+    t.equal(results.fail, 6, "tests failed")
     t.type(results.ok, "boolean", "ok is boolean")
     t.type(results.skip, "number", "skip is number")
     t.type(results, "Results", "results isa Results")
