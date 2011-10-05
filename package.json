@@ -1,6 +1,6 @@
 {
   "name": "tap-assert",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "An assertion module that returns TAP result objects",
   "main": "./assert.js",
   "author": "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me/)",
