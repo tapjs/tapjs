@@ -144,7 +144,7 @@ function doesNotThrow (fn, message, extra) {
   }
   message = message || "Should not throw"
 
-  assert.equal(found, null, message, extra)
+  return assert.equal(found, null, message, extra)
 }
 assert.doesNotThrow = doesNotThrow
 
