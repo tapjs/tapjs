@@ -97,7 +97,13 @@ Runner.prototype.runFiles = function (files, dir, cb) {
         //childTests.forEach(function (c) { self.write(c) })
         var res = { name: fileName
                   , ok: !code }
-        if (err) res.stderr = err
+        if (err) {
+          res.stderr = err
+          if (tc.results.ok && tc.results.tests === 0) {
+            // perhaps a compilation error or something else failed...
+            console.error(err)
+          }
+        }
         res.command = [cmd].concat(args).map(JSON.stringify).join(" ")
         self.emit("result", res)
         self.emit("file", f, res, tc.results)
