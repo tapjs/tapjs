@@ -1,6 +1,6 @@
 {
   "name": "tap-runner",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A module for running all the tests in a directory",
   "main": "./runner.js",
   "author": "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me/)",
