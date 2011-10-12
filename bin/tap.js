@@ -24,6 +24,10 @@ if (process.env.TAP || process.env.TAP_DIAG) {
       console.log("    " + TapProducer.encode(details.list)
                   .split(/\n/).join("\n    "))
     }
+    if (results.stderr && details.ok && details.tests.pass === 0) {
+      // perhaps a compilation error or something else failed...
+      console.error(results.stderr)
+    }
   })
   r.on("end", function () {
     //console.log(r)
