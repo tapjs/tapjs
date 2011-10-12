@@ -50,7 +50,7 @@ Runner.prototype.runFiles = function (files, dir, cb) {
   var self = this
   chain(files.map(function (f) { return function (cb) {
     var relDir = dir || path.dirname(f)
-      , fileName = f.substr(relDir.length + 1)
+      , fileName = relDir === "." ? f : f.substr(relDir.length + 1)
 
     self.write(fileName)
     fs.lstat(f, function (er, st) {
@@ -75,7 +75,7 @@ Runner.prototype.runFiles = function (files, dir, cb) {
       for (var i in process.env) env[i] = process.env[i]
       env.TAP = 1
 
-      var cp = child_process.spawn(cmd, args, { env: env })
+      var cp = child_process.spawn(cmd, args, { env: env, cwd: relDir })
         , out = ""
         , err = ""
         , tc = new TapConsumer
