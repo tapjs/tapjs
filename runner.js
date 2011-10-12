@@ -66,6 +66,9 @@ Runner.prototype.runFiles = function (files, dir, cb) {
       if (path.extname(f) === ".js") {
         cmd = "node"
         args = [f]
+      } else if (path.extname(f) === ".coffee") {
+        cmd = "coffee"
+        args = [f]
       }
       if (st.isDirectory()) {
         return self.runDir(f, cb)
