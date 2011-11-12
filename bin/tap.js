@@ -1,14 +1,19 @@
 #!/usr/bin/env node
 
-var argv = process.argv.slice(2)
-  , path = require("path")
+var path = require("path")
   , Runner = require("tap-runner")
-  , r = new Runner(argv, null)
   , TapProducer = require("tap-producer")
-
+  , opts = require('nopt')({d: Boolean}, {d: ['--debug']}, process.argv, 2)
+  , argv = opts.argv.remain 
+  , r = new Runner(argv, null)
+ 
 if (process.env.TAP || process.env.TAP_DIAG) {
   r.pipe(process.stdout)
 } else {
+  if(opts.debug)
+    r.on('child_process', function (cp) {
+      cp.stderr.pipe(process.stderr, {end: false})
+    })
   r.on("file", function (file, results, details) {
     var s = (details.ok ? "" : "not ") + "ok "+results.name
       , n = details.pass + "/" + details.testsTotal

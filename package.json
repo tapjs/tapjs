@@ -13,6 +13,7 @@
   , "tap-results" : "0.x"
   , "tap-consumer" : "0.x"
   , "tap-producer" : "0.x"
+  , "nopt" : "1.0.x"
   , "inherits" : "*"
   , "yamlish" : "*"
   }

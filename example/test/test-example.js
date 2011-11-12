@@ -15,6 +15,7 @@ test("validate constants", function (t) {
   t.equal(math.E, 2.718281828459045, "e")
   t.equal(math.LOG10E, 0.4342944819032518, "log 10 e")
   t.equal(math.SQRT2, 1.4142135623730951, "sqrt 2")
+  console.error('STDERR!!!!!')
   t.equal(math.SQRT1_2, 0.7071067811865476, "sqrt 1/2")
   t.equal(math.LN2, 0.6931471805599453, "ln2")
   t.end()
