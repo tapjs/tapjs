@@ -22,6 +22,8 @@ test("meta test", { skip: false }, function (t) {
   t.notOk("", "empty string is notOk")
   t.throws(thr0w, "Thrower throws");
   t.doesNotThrow(noop, "noop does not throw");
+  t.similar({foo:"bar", bar:"foo"}, {foo:"bar"}, "similar objects are ok");
+  t.dissimilar({}, {mandatory:"value"}, "dissimilar objects are ok");
 
   // a few failures.
   t.ifError(new Error("this is an error"))
@@ -37,8 +39,8 @@ test("meta test", { skip: false }, function (t) {
     t.clear()
     t.ok(true, "sanity check")
     t.notOk(results.ok, "not ok")
-    t.equal(results.tests, 20, "total test count")
-    t.equal(results.passTotal, 14, "tests passed")
+    t.equal(results.tests, 22, "total test count")
+    t.equal(results.passTotal, 16, "tests passed")
     t.equal(results.fail, 6, "tests failed")
     t.type(results.ok, "boolean", "ok is boolean")
     t.type(results.skip, "number", "skip is number")
