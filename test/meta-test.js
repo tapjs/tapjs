@@ -30,7 +30,10 @@ test("meta test", { skip: false }, function (t) {
   t.ifError({ message: "this is a custom error" })
   t.ok(false, "false is not ok")
   t.notOk(true, "true is not not ok")
+  t.similar(null, {}, "Null is not similar to an object, even with no keys");
   t.throws(noop, "noop does not throw");
+  t.throws(noop, new Error("Whoops!"), "noop does not throw an Error");
+  t.throws(noop, {name:"MyError", message:"Whoops!"}, "noop does not throw a MyError");
   t.doesNotThrow(thr0w, "thrower does throw");
   t.end()
 
@@ -39,9 +42,9 @@ test("meta test", { skip: false }, function (t) {
     t.clear()
     t.ok(true, "sanity check")
     t.notOk(results.ok, "not ok")
-    t.equal(results.tests, 22, "total test count")
+    t.equal(results.tests, 25, "total test count")
     t.equal(results.passTotal, 16, "tests passed")
-    t.equal(results.fail, 6, "tests failed")
+    t.equal(results.fail, 9, "tests failed")
     t.type(results.ok, "boolean", "ok is boolean")
     t.type(results.skip, "number", "skip is number")
     t.type(results, "Results", "results isa Results")
