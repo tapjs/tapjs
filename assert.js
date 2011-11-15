@@ -322,8 +322,9 @@ function stringify (a) {
         keys.push(val["!"] || val.name || key || "<root>")
         if (typeof val === "function") {
           return val.toString().split(/\n/)[0]
+        } else if (val.toUTCString) {
+          return val.toUTCString()
         }
-        var proto = Object.getPrototypeOf(val)
       }
       return val
   }})())
