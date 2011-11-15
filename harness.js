@@ -18,6 +18,8 @@ var Results = require("tap-results")
 function Harness (Test) {
   if (!(this instanceof Harness)) return new Harness(Test)
 
+  //console.error("Test in "+this.constructor.name, Test)
+
   this._Test = Test
   this._plan = null
   this._children = []
@@ -27,6 +29,13 @@ function Harness (Test) {
   this._planSum = 0
 
   this.results = new Results()
+  // emit result events on the harness.
+  //this.results.on("result", function (res) {
+  //  console.error("proxying result ev from res to harness")
+  //  this.emit("result", res)
+  //}.bind(this))
+  var me = this
+  this.results.on("result", this.emit.bind(this, "result"))
 
   var p = this.process.bind(this)
   this.process = function () {
@@ -156,7 +165,11 @@ Harness.prototype.test = function test (name, conf, cb) {
     }
     //console.error("attaching cb to ready event")
     t.on("ready", cb.bind(t, t))
-    t.on("result", this.emit.bind(this))
+    // proxy the child results to this object.
+    //t.on("result", function (res) {
+    //  console.error("in harness, proxying result up")
+    //  t.results.add(res)
+    //})
   }
   return t
 }
