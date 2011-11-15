@@ -14,7 +14,7 @@ function Test (harness, name, conf) {
   //console.error("test ctor")
   if (!(this instanceof Test)) return new Test(harness, name, conf)
 
-  Test.super.call(this)
+  Test.super.call(this, Test)
 
   conf.name = name || conf.name || "(anonymous)"
   this.conf = conf
