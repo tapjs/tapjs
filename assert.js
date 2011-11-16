@@ -301,7 +301,13 @@ function selectFields (a, b) {
     if (!a.hasOwnProperty(k)) return
     var v = b[k]
       , av = a[k]
-    if (v && av && typeof v === "object" && typeof av === "object") {
+    if (v && av && typeof v === "object" && typeof av === "object"
+       && !(v instanceof Date)
+       && !(v instanceof RegExp)
+       && !(v instanceof String)
+       && !(v instanceof Boolean)
+       && !(v instanceof Number)
+       && !(Array.isArray(v))) {
       ret[k] = selectFields(av, v)
     } else ret[k] = av
   })
@@ -322,7 +328,7 @@ function stringify (a) {
         keys.push(val["!"] || val.name || key || "<root>")
         if (typeof val === "function") {
           return val.toString().split(/\n/)[0]
-        } else if (val.toUTCString) {
+        } else if (typeof val.toUTCString === "function") {
           return val.toUTCString()
         }
       }
