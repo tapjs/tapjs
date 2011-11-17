@@ -2,9 +2,9 @@
 
 var argv = process.argv.slice(2)
   , path = require("path")
-  , Runner = require("tap-runner")
+  , Runner = require("../lib/tap-runner")
   , r = new Runner(argv, null)
-  , TapProducer = require("tap-producer")
+  , TapProducer = require("../lib/tap-producer")
 
 if (process.env.TAP || process.env.TAP_DIAG) {
   r.pipe(process.stdout)

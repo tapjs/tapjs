@@ -5,7 +5,7 @@
 
 var argv = process.argv.slice(2)
   , path = require("path")
-  , Runner = require("tap-runner")
+  , Runner = require("../lib/tap-runner")
 
   , http = require("http")
   , server = http.createServer(function (req, res) {

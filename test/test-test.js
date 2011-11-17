@@ -1,7 +1,7 @@
 var tap = require("../")
   , test = tap.test
-  , Test = require("tap-test")
-  , Harness = require("tap-harness")
+  , Test = require("../lib/tap-test")
+  , Harness = require("../lib/tap-harness")
 
 test("testing the test object", function (t) {
 
