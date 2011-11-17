@@ -7,7 +7,6 @@
 , "dependencies" :
   { "tap-global-harness" : "0.x"
   , "tap-runner" : "0.x >=0.0.6"
-  , "tap-test" : "0.x"
   , "tap-harness" : "0.x"
   , "tap-results" : "0.x"
   , "tap-consumer" : "0.x"
@@ -22,14 +21,12 @@
   , "tap-harness"
   , "tap-producer"
   , "tap-results"
-  , "tap-test"
   , "yamlish"
   ]
 , "keywords" :
-  [
-    "assert",
-    "test",
-    "tap"
+  [ "assert"
+  , "test"
+  , "tap"
   ]
 , "contributors" :
   [
@@ -38,7 +35,8 @@
   ]
 , "license": {
     "type": "MIT",
-    "url": "https://github.com/isaacs/tap-assert/raw/master/LICENSE"
+    "url": "https://github.com/isaacs/node-tap/raw/master/LICENSE"
   }
 , "repository" : "git://github.com/isaacs/node-tap.git"
 , "scripts" : { "test" : "bin/tap.js test" } }
+
