@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 { "name" : "tap"
 , "version" : "0.0.13"
 , "author" : "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me)"
@@ -6,8 +5,7 @@
 , "bin" : "bin/tap.js"
 , "main" : "lib/main.js"
 , "dependencies" :
-  { "tap-global-harness" : "0.x"
-  , "tap-results" : "0.x"
+  { "tap-results" : "0.x"
   , "tap-consumer" : "0.x"
   , "inherits" : "*"
   , "yamlish" : "*"
@@ -16,7 +14,6 @@
 , "bundledDependencies" :
   [ "inherits"
   , "tap-consumer"
-  , "tap-global-harness"
   , "tap-results"
   , "yamlish"
   ]
