@@ -5,8 +5,7 @@
 , "bin" : "bin/tap.js"
 , "main" : "lib/main.js"
 , "dependencies" :
-  { "tap-consumer" : "0.x"
-  , "inherits" : "*"
+  { "inherits" : "*"
   , "yamlish" : "*"
   , "slide": "*"
   }
