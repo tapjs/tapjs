@@ -7,7 +7,6 @@
 , "dependencies" :
   { "tap-global-harness" : "0.x"
   , "tap-runner" : "0.x >=0.0.6"
-  , "tap-assert" : "0.x"
   , "tap-test" : "0.x"
   , "tap-harness" : "0.x"
   , "tap-results" : "0.x"
@@ -18,7 +17,6 @@
   }
 , "bundledDependencies" :
   [ "inherits"
-  , "tap-assert"
   , "tap-consumer"
   , "tap-global-harness"
   , "tap-harness"
@@ -27,5 +25,20 @@
   , "tap-test"
   , "yamlish"
   ]
+, "keywords" :
+  [
+    "assert",
+    "test",
+    "tap"
+  ]
+, "contributors" :
+  [
+    "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me)",
+    "baudehlo <helpme+github@gmail.com>"
+  ]
+, "license": {
+    "type": "MIT",
+    "url": "https://github.com/isaacs/tap-assert/raw/master/LICENSE"
+  }
 , "repository" : "git://github.com/isaacs/node-tap.git"
 , "scripts" : { "test" : "bin/tap.js test" } }
