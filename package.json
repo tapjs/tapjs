@@ -5,8 +5,7 @@
 , "bin" : "bin/tap.js"
 , "main" : "lib/main.js"
 , "dependencies" :
-  { "tap-results" : "0.x"
-  , "tap-consumer" : "0.x"
+  { "tap-consumer" : "0.x"
   , "inherits" : "*"
   , "yamlish" : "*"
   , "slide": "*"
@@ -14,7 +13,6 @@
 , "bundledDependencies" :
   [ "inherits"
   , "tap-consumer"
-  , "tap-results"
   , "yamlish"
   ]
 , "keywords" :
