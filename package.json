@@ -6,7 +6,6 @@
 , "main" : "lib/main.js"
 , "dependencies" :
   { "tap-global-harness" : "0.x"
-  , "tap-runner" : "0.x >=0.0.6"
   , "tap-results" : "0.x"
   , "tap-consumer" : "0.x"
   , "tap-producer" : "0.x"
