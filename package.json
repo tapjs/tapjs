@@ -12,6 +12,7 @@
   , "tap-producer" : "0.x"
   , "inherits" : "*"
   , "yamlish" : "*"
+  , "slide": "*"
   }
 , "bundledDependencies" :
   [ "inherits"
