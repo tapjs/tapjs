@@ -74,5 +74,9 @@ this is very useful for CI systems and such.
 * tap-global-harness: A default harness that provides the top-level
   support for running TAP tests.
 
+Code Coverage with runforcover & bunker:
+
+`TAP_COV=1 tap ./tests [--cover=./lib,foo.js] [--cover-dir=./coverage]`
+
 More docs coming soon, hopefully.
 
