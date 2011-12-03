@@ -32,6 +32,10 @@ if (process.env.TAP || process.env.TAP_DIAG) {
       , dots = new Array(60 - s.length - n.length).join(".")
       , ok = r.results.ok ? "ok" : "not ok"
     console.log("%s %s %s\n\n%s", s, dots, n, ok)
+    if (r.coverageOutDir) {
+      console.error( "\nCoverage: %s\n"
+                   , path.resolve(r.coverageOutDir, "index.html") )
+    }
     // process.stdout.flush()
   })
 }
