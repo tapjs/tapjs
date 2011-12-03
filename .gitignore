@@ -1,2 +1,3 @@
-node_modules/*
-coverage-example/coverage/*
+node_modules/
+coverage/
+coverage-example/coverage/
