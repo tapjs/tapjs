@@ -8,6 +8,7 @@
   { "inherits" : "*"
   , "yamlish" : "*"
   , "slide": "*"
+  , "runforcover": "0.0.1"
   }
 , "bundledDependencies" :
   [ "inherits"
