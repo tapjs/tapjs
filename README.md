@@ -44,7 +44,7 @@ For extra special bonus points, you can do something like this:
       t.end() // but it must match the plan!
     })
 
-Node-tap is actually a collection of several packages, any of which may be
+Node-tap is actually a collection of several modules, any of which may be
 mixed and matched however you please.
 
 If you don't like this test framework, and think you can do much much
@@ -52,8 +52,6 @@ better, *I strongly encourage you to do so!*  If you use this library,
 however, at least to output TAP-compliant results when `process.env.TAP`
 is set, then the data coming out of your framework will be much more
 consumable by machines.
-
-That matters.  Or rather, it will, very soon.
 
 You can also use this to build programs that *consume* the TAP data, so
 this is very useful for CI systems and such.
@@ -74,9 +72,11 @@ this is very useful for CI systems and such.
 * tap-global-harness: A default harness that provides the top-level
   support for running TAP tests.
 
-Code Coverage with runforcover & bunker:
+## Experimental Code Coverage with runforcover & bunker:
 
-`TAP_COV=1 tap ./tests [--cover=./lib,foo.js] [--cover-dir=./coverage]`
+```
+TAP_COV=1 tap ./tests [--cover=./lib,foo.js] [--cover-dir=./coverage]
+```
 
-More docs coming soon, hopefully.
-
+This feature is experimental, and will most likely change somewhat
+before being finalized.  Feedback welcome.
