@@ -24,6 +24,7 @@ if (process.env.TAP || process.env.TAP_DIAG) {
       console.log("    " + TapProducer.encode(details.list)
                   .split(/\n/).join("\n    "))
     }
+    if (results.stderr) console.error(results.stderr); //show stderr if exists 
   })
   r.on("end", function () {
     //console.log(r)
