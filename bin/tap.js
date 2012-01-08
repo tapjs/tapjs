@@ -42,6 +42,11 @@ var argv = process.argv.slice(2)
 
   , options = nopt(knownOpts, shorthands)
 
+if (options.version) {
+  console.log(require("../package.json").version)
+  process.exit(0)
+}
+
 Object.keys(defaults).forEach(function (k) {
   if (!options.hasOwnProperty(k)) options[k] = defaults[k]
 })
