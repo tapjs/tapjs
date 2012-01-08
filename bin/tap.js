@@ -3,10 +3,58 @@
 var argv = process.argv.slice(2)
   , path = require("path")
   , Runner = require("../lib/tap-runner")
-  , r = new Runner(argv, null)
+
+  , nopt = require("nopt")
+
+  , knownOpts =
+    { cover: [path, false]
+    , "cover-dir": path
+    , stderr: Boolean
+    , stdout: Boolean
+    , diag: Boolean
+    , version: Boolean
+    , tap: Boolean
+    , timeout: Number
+    }
+
+  , shorthands =
+    // debugging 1: show stderr
+    { d: ["--stderr"]
+    // debugging 2: show stderr and tap
+    , dd: ["--stderr", "--tap"]
+    // debugging 3: show stderr, tap, AND always show diagnostics.
+    , ddd: ["--stderr", "--tap", "--diag"]
+    , e: ["--stderr"]
+    , t: ["--timeout"]
+    , o: ["--tap"]
+    , c: ["--cover"]
+    , v: ["--version"]
+    }
+
+  , defaults =
+    { cover: "./lib"
+    , "cover-dir": "./coverage"
+    , stderr: process.env.TAP_STDERR
+    , tap: process.env.TAP
+    , diag: process.env.TAP_DIAG
+    , timeout: +process.env.TAP_TIMEOUT || 30
+    , version: false }
+
+  , options = nopt(knownOpts, shorthands)
+
+Object.keys(defaults).forEach(function (k) {
+  if (!options.hasOwnProperty(k)) options[k] = defaults[k]
+})
+
+// other tests that might rely on these
+if (options.diag) process.env.TAP_DIAG = true
+if (options.tap) process.env.TAP = true
+if (options.timeout) process.env.TAP_TIMEOUT = options.timeout
+
+var r = new Runner(options)
   , TapProducer = require("../lib/tap-producer")
 
-if (process.env.TAP || process.env.TAP_DIAG) {
+if (options.tap || options.diag) {
   r.pipe(process.stdout)
 } else {
   r.on("file", function (file, results, details) {
@@ -36,7 +84,6 @@ if (process.env.TAP || process.env.TAP_DIAG) {
       console.error( "\nCoverage: %s\n"
                    , path.resolve(r.coverageOutDir, "index.html") )
     }
-    // process.stdout.flush()
   })
 }
 
