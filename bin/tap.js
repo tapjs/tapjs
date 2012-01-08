@@ -29,6 +29,8 @@ var argv = process.argv.slice(2)
     , o: ["--tap"]
     , c: ["--cover"]
     , v: ["--version"]
+    , "?": ["--help"]
+    , h: ["--help"]
     }
 
   , defaults =
@@ -38,7 +40,8 @@ var argv = process.argv.slice(2)
     , tap: process.env.TAP
     , diag: process.env.TAP_DIAG
     , timeout: +process.env.TAP_TIMEOUT || 30
-    , version: false }
+    , version: false
+    , help: false }
 
   , options = nopt(knownOpts, shorthands)
 
@@ -46,6 +49,31 @@ if (options.version) {
   console.log(require("../package.json").version)
   process.exit(0)
 }
+
+if (options.help) {
+  console.log(function(){/*
+
+Usage:
+    tap <options> <files>
+
+    Run the files as tap tests, parse the output, and report the results
+
+Options:
+
+    --stderr    Print standard error output of tests to standard error.
+    --tap       Print raw tap output.
+    --diag      Print diagnostic output for passed tests, as well as failed.
+                (Implies --tap)
+    --timeout   Maximum time to wait for a subtest, in seconds. Default: 30
+    --version   Print the version of node tap
+    --help      Print this help
+
+Please report bugs!  https://github.com/isaacs/node-tap/issues
+
+*/}.toString().split(/\n/).slice(1, -1).join("\n"))
+  process.exit(0)
+}
+
 
 Object.keys(defaults).forEach(function (k) {
   if (!options.hasOwnProperty(k)) options[k] = defaults[k]
