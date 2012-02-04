@@ -11,7 +11,7 @@
     "slide": "*",
     "runforcover": "~0.0.2",
     "nopt": "~1.0.10",
-    "mkdirp": "~0.2.2"
+    "mkdirp": "~0.3.0"
   },
   "bundledDependencies": [
     "inherits",
