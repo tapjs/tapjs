@@ -3,10 +3,91 @@
 var argv = process.argv.slice(2)
   , path = require("path")
   , Runner = require("../lib/tap-runner")
-  , r = new Runner(argv, null)
+
+  , nopt = require("nopt")
+
+  , knownOpts =
+    { cover: [path, false]
+    , "cover-dir": path
+    , stderr: Boolean
+    , stdout: Boolean
+    , diag: Boolean
+    , version: Boolean
+    , tap: Boolean
+    , timeout: Number
+    }
+
+  , shorthands =
+    // debugging 1: show stderr
+    { d: ["--stderr"]
+    // debugging 2: show stderr and tap
+    , dd: ["--stderr", "--tap"]
+    // debugging 3: show stderr, tap, AND always show diagnostics.
+    , ddd: ["--stderr", "--tap", "--diag"]
+    , e: ["--stderr"]
+    , t: ["--timeout"]
+    , o: ["--tap"]
+    , c: ["--cover"]
+    , v: ["--version"]
+    , "?": ["--help"]
+    , h: ["--help"]
+    }
+
+  , defaults =
+    { cover: "./lib"
+    , "cover-dir": "./coverage"
+    , stderr: process.env.TAP_STDERR
+    , tap: process.env.TAP
+    , diag: process.env.TAP_DIAG
+    , timeout: +process.env.TAP_TIMEOUT || 30
+    , version: false
+    , help: false }
+
+  , options = nopt(knownOpts, shorthands)
+
+if (options.version) {
+  console.log(require("../package.json").version)
+  process.exit(0)
+}
+
+if (options.help) {
+  console.log(function(){/*
+
+Usage:
+    tap <options> <files>
+
+    Run the files as tap tests, parse the output, and report the results
+
+Options:
+
+    --stderr    Print standard error output of tests to standard error.
+    --tap       Print raw tap output.
+    --diag      Print diagnostic output for passed tests, as well as failed.
+                (Implies --tap)
+    --timeout   Maximum time to wait for a subtest, in seconds. Default: 30
+    --version   Print the version of node tap
+    --help      Print this help
+
+Please report bugs!  https://github.com/isaacs/node-tap/issues
+
+*/}.toString().split(/\n/).slice(1, -1).join("\n"))
+  process.exit(0)
+}
+
+
+Object.keys(defaults).forEach(function (k) {
+  if (!options.hasOwnProperty(k)) options[k] = defaults[k]
+})
+
+// other tests that might rely on these
+if (options.diag) process.env.TAP_DIAG = true
+if (options.tap) process.env.TAP = true
+if (options.timeout) process.env.TAP_TIMEOUT = options.timeout
+
+var r = new Runner(options)
   , TapProducer = require("../lib/tap-producer")
 
-if (process.env.TAP || process.env.TAP_DIAG) {
+if (options.tap || options.diag) {
   r.pipe(process.stdout)
 } else {
   r.on("file", function (file, results, details) {
@@ -36,7 +117,6 @@ if (process.env.TAP || process.env.TAP_DIAG) {
       console.error( "\nCoverage: %s\n"
                    , path.resolve(r.coverageOutDir, "index.html") )
     }
-    // process.stdout.flush()
   })
 }
 
