@@ -13,3 +13,31 @@ test("deepEquals shouldn't care about key order recursively", function (t) {
   )
   t.end()
 })
+
+test("deepEquals shoudn't care about key order but still might", function (t) {
+  t.deepEqual(
+    [ { foo:
+        { z: 100
+        , y: 200
+        , x: 300 } }
+    , "bar"
+    , 11
+    , { baz: 
+        { d : 4
+        , a: 1
+        , b: 2
+        , c: 3 } } ]
+  , [ { foo : 
+        { z: 100
+        , y: 200
+        , x: 300 } }
+    , "bar"
+    , 11
+    , { baz: 
+        { a: 1
+        , b: 2
+        , c: 3
+        , d: 4 } } ]
+  )
+  t.end()
+});
