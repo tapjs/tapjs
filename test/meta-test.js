@@ -36,6 +36,21 @@ test("meta test", { skip: false }, function (t) {
   t.throws(noop, new Error("Whoops!"), "noop does not throw an Error");
   t.throws(noop, {name:"MyError", message:"Whoops!"}, "noop does not throw a MyError");
   t.doesNotThrow(thr0w, "thrower does throw");
+
+  // things that are like other things
+  t.like("asdf", "asdf")
+  t.like("asdf", /^a.*f$/)
+  t.like(100, 100)
+  t.like(100, '100')
+  t.like(100, 100.0)
+  t.unlike("asdf", "fdsa")
+  t.unlike("asdf", /^you jelly, bro?/)
+  t.unlike(100, 100.1)
+  t.like(true, 1)
+  t.like(null, undefined)
+  t.like(true, [1])
+  t.like(false, [])
+  t.like('', [])
   t.end()
 
   function section2 () {
@@ -43,8 +58,8 @@ test("meta test", { skip: false }, function (t) {
     t.clear()
     t.ok(true, "sanity check")
     t.notOk(results.ok, "not ok")
-    t.equal(results.tests, 26, "total test count")
-    t.equal(results.passTotal, 17, "tests passed")
+    t.equal(results.tests, 39, "total test count")
+    t.equal(results.passTotal, 30, "tests passed")
     t.equal(results.fail, 9, "tests failed")
     t.type(results.ok, "boolean", "ok is boolean")
     t.type(results.skip, "number", "skip is number")
