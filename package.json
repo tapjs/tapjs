@@ -13,7 +13,8 @@
     "nopt": "~1.0.10",
     "mkdirp": "~0.3",
     "difflet" : "~0.2.0",
-    "deep-equal" : "~0.0.0"
+    "deep-equal" : "~0.0.0",
+    "buffer-equal" : "~0.0.0"
   },
   "bundledDependencies": [
     "inherits",
