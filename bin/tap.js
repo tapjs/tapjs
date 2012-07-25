@@ -15,6 +15,7 @@ var argv = process.argv.slice(2)
     , version: Boolean
     , tap: Boolean
     , timeout: Number
+    , gc: Boolean
     }
 
   , shorthands =
@@ -24,6 +25,8 @@ var argv = process.argv.slice(2)
     , dd: ["--stderr", "--tap"]
     // debugging 3: show stderr, tap, AND always show diagnostics.
     , ddd: ["--stderr", "--tap", "--diag"]
+    , "expose-gc": ["--gc"]
+    , g: ["--gc"]
     , e: ["--stderr"]
     , t: ["--timeout"]
     , o: ["--tap"]
@@ -40,6 +43,7 @@ var argv = process.argv.slice(2)
     , tap: process.env.TAP
     , diag: process.env.TAP_DIAG
     , timeout: +process.env.TAP_TIMEOUT || 30
+    , gc: false
     , version: false
     , help: false }
 
@@ -64,9 +68,10 @@ Options:
     --tap       Print raw tap output.
     --diag      Print diagnostic output for passed tests, as well as failed.
                 (Implies --tap)
+    --gc        Expose the garbage collector to tests.
     --timeout   Maximum time to wait for a subtest, in seconds. Default: 30
-    --version   Print the version of node tap
-    --help      Print this help
+    --version   Print the version of node tap.
+    --help      Print this help.
 
 Please report bugs!  https://github.com/isaacs/node-tap/issues
 
