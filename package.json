@@ -36,6 +36,6 @@
   },
   "repository": "git://github.com/isaacs/node-tap.git",
   "scripts": {
-    "test": "bin/tap.js test"
+    "test": "bin/tap.js test/*.js"
   }
 }
