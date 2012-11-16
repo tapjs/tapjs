@@ -12,7 +12,7 @@ Default Usage:
    they should be ".js".  Anything else is assumed to be some kind of shell
    script, which should have a shebang line.
 3. `npm install tap`
-4. `tap ./tests`
+4. `tap ./test`
 
 The output will be TAP-compliant.
 
@@ -75,7 +75,7 @@ this is very useful for CI systems and such.
 ## Experimental Code Coverage with runforcover & bunker:
 
 ```
-TAP_COV=1 tap ./tests [--cover=./lib,foo.js] [--cover-dir=./coverage]
+TAP_COV=1 tap ./test [--cover=./lib,foo.js] [--cover-dir=./coverage]
 ```
 
 This feature is experimental, and will most likely change somewhat
