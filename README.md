@@ -11,7 +11,7 @@ Default Usage:
 2. Put a bunch of test scripts in there.  If they're node programs, then
    they should be ".js".  Anything else is assumed to be some kind of shell
    script, which should have a shebang line.
-3. `npm install tap`
+3. `npm install tap -g`
 4. `tap ./test`
 
 The output will be TAP-compliant.
