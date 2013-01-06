@@ -12,7 +12,9 @@ Default Usage:
    they should be ".js".  Anything else is assumed to be some kind of shell
    script, which should have a shebang line.
 3. `npm install tap`
-4. `tap ./test`
+4. Update package.json scripts.test to include `tap ./test` [example
+   gist](https://gist.github.com/4469613)
+5. `npm test`
 
 The output will be TAP-compliant.
 
