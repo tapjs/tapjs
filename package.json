@@ -1,0 +1,32 @@
+{
+    "name" : "tap-parser",
+    "version" : "0.0.0",
+    "description" : "parse the test anything protocol",
+    "main" : "index.js",
+    "dependencies" : {
+        "split" : "~0.1.0"
+    },
+    "devDependencies" : {
+        "tap" : "~0.3.0",
+        "tape" : "~0.2.0"
+    },
+    "scripts" : {
+        "test" : "tap test/*.js"
+    },
+    "repository" : {
+        "type" : "git",
+        "url" : "git://github.com/substack/tap-parser.git"
+    },
+    "homepage" : "https://github.com/substack/tap-parser",
+    "keywords" : [
+        "tap",
+        "test",
+        "parser"
+    ],
+    "author" : {
+        "name" : "James Halliday",
+        "email" : "mail@substack.net",
+        "url" : "http://substack.net"
+    },
+    "license" : "MIT"
+}
