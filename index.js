@@ -37,6 +37,13 @@ module.exports = function (cb) {
         results.asserts.push(res);
         if (!res.ok) results.ok = false;
         (res.ok ? results.pass : results.fail).push(res);
+        
+        var prev = results.asserts[results.asserts.length - 2];
+        if (prev && prev.number + 1 !== res.number) {
+            stream.emit('parseError', {
+                message: 'assert out of order'
+            });
+        }
     });
     
     stream.on('plan', function (plan) {
@@ -44,9 +51,8 @@ module.exports = function (cb) {
             results.plan = plan;
         }
         else {
-            results.errors.push({
+            stream.emit('parseError', {
                 message: 'unexpected additional plan',
-                line: lineNumber
             });
         }
     });
@@ -72,7 +78,8 @@ module.exports = function (cb) {
         ended = true;
         
         if (results.asserts.length === 0) results.ok = false;
-        results.ok = results.ok === undefined ? true : results.ok;
+        if (results.errors.length > 0) results.ok = false;
+        if (results.ok === undefined) results.ok = true;
         
         if (results.plan === undefined) {
             results.ok = false;
