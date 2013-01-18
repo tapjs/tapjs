@@ -1,12 +1,12 @@
 var test = require('tape');
 
-test(function (t) {
+test('beep', function (t) {
     t.plan(2);
     t.equal(2+2,4);
     t.same({a:1,b:2},{a:1,b:1+1});
 });
 
-test(function (t) {
+test('boop', function (t) {
     t.plan(2);
     t.equal(1+1,2);
     

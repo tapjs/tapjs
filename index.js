@@ -96,7 +96,8 @@ module.exports = function (cb) {
         lineNum ++;
         
         if (m = re.version.exec(line)) {
-            stream.emit('version', m[1]);
+            var ver = /^\d+(\.\d*)?$/.test(m[1]) ? Number(m[1]) : m[1];
+            stream.emit('version', ver);
         }
         else if (m = re.comment.exec(line)) {
             stream.emit('comment', m[1]);
