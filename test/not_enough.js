@@ -4,13 +4,13 @@ var parser = require('../');
 var lines = [
     'TAP version 13',
     '# beep',
-    'ok 8 should be equal',
-    'ok 9 should be equivalent',
+    'ok 1 should be equal',
+    'ok 2 should be equivalent',
     '# boop',
-    'ok 10 should be equal',
-    'ok 11 (unnamed assert)',
+    'ok 3 should be equal',
+    'ok 4 (unnamed assert)',
     '',
-    '1..4',
+    '1..5',
     '# tests 4',
     '# pass  4',
     '',
@@ -23,27 +23,27 @@ expected.comments = [ 'beep', 'boop', 'tests 4', 'pass  4', 'ok' ];
 
 expected.asserts.push({
     ok: true,
-    number: 8,
+    number: 1,
     name: 'should be equal',
 });
 expected.asserts.push({
     ok: true,
-    number: 9,
+    number: 2,
     name: 'should be equivalent'
 });
 expected.asserts.push({
     ok: true,
-    number: 10,
+    number: 3,
     name: 'should be equal'
 });
 expected.asserts.push({ 
     ok: true,
-    number: 11,
+    number: 4,
     name: '(unnamed assert)'
 });
 
-test('non-1 offset mismatch', function (t) {
-    t.plan(5 + 1 + 4 + 5);
+test('not enough tests', function (t) {
+    t.plan(4 + 1 + 4 + 5);
     
     var p = parser(onresults);
     
@@ -54,7 +54,7 @@ test('non-1 offset mismatch', function (t) {
     });
     
     p.on('plan', function (plan) {
-        t.same(plan, { start: 1, end: 4 });
+        t.same(plan, { start: 1, end: 5 });
     });
     
     p.on('comment', function (c) {
@@ -70,9 +70,8 @@ test('non-1 offset mismatch', function (t) {
         t.equal(results.ok, false);
         t.equal(
             results.errors[0].message,
-            'plan range mismatch'
+            'not enough tests'
         );
-        t.equal(results.errors[0].line, 9);
         t.same(asserts.length, 4);
         t.same(results.asserts, asserts);
     }
