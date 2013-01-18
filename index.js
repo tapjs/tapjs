@@ -9,7 +9,8 @@ var re = {
         ')?'
     ].join('')),
     plan: /^(\d+)\.\.(\d+)\b/,
-    comment: /^#\s*(.+)/
+    comment: /^#\s*(.+)/,
+    version: /^TAP\s+version\s+(\d+)/i
 };
 
 function writable (s) {
@@ -26,7 +27,8 @@ module.exports = function (cb) {
     
     var results = stream.results = {
         ok: undefined,
-        asserts : []
+        asserts: [],
+        errors: []
     };
     
     stream.on('assert', function (res) {
@@ -35,9 +37,20 @@ module.exports = function (cb) {
     });
     
     stream.on('plan', function (plan) {
-        if (results.plan !== undefined) {
+        if (results.plan === undefined) {
             results.plan = plan;
         }
+        else {
+            results.errors.push({
+                message: 'unexpected additional plan',
+                line: lineNumber
+            });
+        }
+    });
+    
+    stream.on('parseError', function (err) {
+        err.line = lineNum;
+        results.errors.push(err);
     });
     
     var lineNum = 0;
@@ -54,12 +67,15 @@ module.exports = function (cb) {
     function onend () {
         if (ended) return;
         ended = true;
+        
         if (results.asserts.length === 0) results.ok = false;
         results.ok = results.ok === undefined ? true : results.ok;
         
         if (results.plan === undefined) {
             results.ok = false;
-            results.errors
+            stream.emit('parseError', {
+                message: 'no plan found'
+            });
         }
         
         stream.emit('results', results);
@@ -69,7 +85,10 @@ module.exports = function (cb) {
         var m;
         lineNum ++;
         
-        if (m = re.comment.exec(line)) {
+        if (m = re.version.exec(line)) {
+            stream.emit('version', m[1]);
+        }
+        else if (m = re.comment.exec(line)) {
             stream.emit('comment', m[1]);
         }
         else if (m = re.ok.exec(line)) {
@@ -78,19 +97,15 @@ module.exports = function (cb) {
             var name = m[3];
             
             if (num === undefined) {
-                return stream.emit('assert', {
-                    ok: false,
-                    number: num,
-                    error: 'assertion number not provided',
-                    line: line
+                return stream.emit('parseError', {
+                    message: 'assertion number not provided'
                 });
             }
             
             stream.emit('assert', {
                 ok: ok,
                 number: num,
-                name: name,
-                line: line
+                name: name
             });
         }
         else if (m = /^(\d+)\.\.(\d+)\b/.exec(line)) {
