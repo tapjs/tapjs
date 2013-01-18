@@ -107,7 +107,7 @@ module.exports = function (cb) {
         var last = results.asserts[results.asserts.length - 1].number;
         if (results.ok && last < results.plan.end) {
             stream.emit('parseError', {
-                message: 'not enough tests'
+                message: 'not enough asserts'
             });
         }
         

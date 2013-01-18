@@ -10,7 +10,7 @@ var lines = [
     'ok 3 should be equal',
     'ok 4 (unnamed assert)',
     '',
-    '1..5',
+    '1..3',
     '# tests 4',
     '# pass  4',
     '',
@@ -54,7 +54,7 @@ test('not enough tests', function (t) {
     });
     
     p.on('plan', function (plan) {
-        t.same(plan, { start: 1, end: 5 });
+        t.same(plan, { start: 1, end: 3 });
     });
     
     p.on('comment', function (c) {
@@ -70,7 +70,7 @@ test('not enough tests', function (t) {
         t.equal(results.ok, false);
         t.equal(
             results.errors[0].message,
-            'not enough asserts'
+            'too many assertions'
         );
         t.same(asserts.length, 4);
         t.same(results.asserts, asserts);
