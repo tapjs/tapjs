@@ -43,7 +43,7 @@ expected.asserts.push({
 });
 
 test('non-1 test offset', function (t) {
-    t.plan(4 + 1 + 4 + 5);
+    t.plan(5 + 1 + 4 + 5);
     
     var p = parser(onresults);
     

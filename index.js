@@ -47,15 +47,28 @@ module.exports = function (cb) {
     });
     
     stream.on('plan', function (plan) {
-        if (results.plan === undefined) {
-            results.plan = plan;
-        }
-        else {
+        if (results.plan !== undefined) {
             stream.emit('parseError', {
                 message: 'unexpected additional plan',
             });
+            return;
         }
+        results.plan = plan;
+        checkAssertionStart();
     });
+    
+    var planMismatch = false;
+    function checkAssertionStart () {
+        if (planMismatch) return;
+        if (!results.asserts[0]) return;
+        if (!results.plan) return;
+        if (results.asserts[0].number === results.plan.start) return;
+        
+        planMismatch = true;
+        stream.emit('parseError', {
+            message: 'plan range mismatch'
+        });
+    }
     
     stream.on('parseError', function (err) {
         err.line = lineNum;
@@ -77,16 +90,19 @@ module.exports = function (cb) {
         if (ended) return;
         ended = true;
         
-        if (results.asserts.length === 0) results.ok = false;
-        if (results.errors.length > 0) results.ok = false;
-        if (results.ok === undefined) results.ok = true;
+        if (results.asserts.length === 0) {
+            stream.emit('parseError', {
+                message: 'no assertions found'
+            });
+        }
         
         if (results.plan === undefined) {
-            results.ok = false;
             stream.emit('parseError', {
                 message: 'no plan found'
             });
         }
+        if (results.errors.length > 0) results.ok = false;
+        if (results.ok === undefined) results.ok = true;
         
         stream.emit('results', results);
     }
