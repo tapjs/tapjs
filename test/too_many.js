@@ -42,7 +42,7 @@ expected.asserts.push({
     name: '(unnamed assert)'
 });
 
-test('not enough tests', function (t) {
+test('too many asserts', function (t) {
     t.plan(4 + 1 + 4 + 5);
     
     var p = parser(onresults);
@@ -70,7 +70,7 @@ test('not enough tests', function (t) {
         t.equal(results.ok, false);
         t.equal(
             results.errors[0].message,
-            'too many assertions'
+            'too many asserts'
         );
         t.same(asserts.length, 4);
         t.same(results.asserts, asserts);

@@ -110,6 +110,11 @@ module.exports = function (cb) {
                 message: 'not enough asserts'
             });
         }
+        else if (results.ok && last > results.plan.end) {
+            stream.emit('parseError', {
+                message: 'too many asserts'
+            });
+        }
         
         stream.emit('results', results);
     }
