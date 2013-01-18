@@ -71,6 +71,7 @@ module.exports = function (cb) {
     }
     
     stream.on('parseError', function (err) {
+        results.ok = false;
         err.line = lineNum;
         results.errors.push(err);
     });
@@ -101,8 +102,14 @@ module.exports = function (cb) {
                 message: 'no plan found'
             });
         }
-        if (results.errors.length > 0) results.ok = false;
         if (results.ok === undefined) results.ok = true;
+        
+        var last = results.asserts[results.asserts.length - 1].number;
+        if (results.ok && last < results.plan.end) {
+            stream.emit('parseError', {
+                message: 'not enough tests'
+            });
+        }
         
         stream.emit('results', results);
     }
