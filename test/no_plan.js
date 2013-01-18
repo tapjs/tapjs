@@ -37,7 +37,7 @@ expected.asserts.push({
 });
 
 test('no plan', function (t) {
-    t.plan(4 * 2 + 4 + 2);
+    t.plan(5 * 2 + 4 + 2);
     
     var p = parser(onresults);
     p.on('results', onresults);
@@ -63,10 +63,8 @@ test('no plan', function (t) {
     
     function onresults (results) {
         t.equal(results.ok, false);
-        t.same(results.errors, [ {
-            message: 'no plan found',
-            line: lines.length + 1
-        } ]);
+        t.equal(results.errors[0].message, 'no plan found');
+        t.equal(results.errors[0].line, lines.length + 1);
         t.same(asserts.length, 4);
         t.same(results.asserts, asserts);
     }
