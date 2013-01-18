@@ -28,12 +28,15 @@ module.exports = function (cb) {
     var results = stream.results = {
         ok: undefined,
         asserts: [],
+        pass: [],
+        fail: [],
         errors: []
     };
     
     stream.on('assert', function (res) {
         results.asserts.push(res);
         if (!res.ok) results.ok = false;
+        (res.ok ? results.pass : results.fail).push(res);
     });
     
     stream.on('plan', function (plan) {
