@@ -4,6 +4,8 @@ parse the [test anything protocol](http://testanything.org/)
 
 [![build status](https://secure.travis-ci.org/substack/tap-parser.png)](http://travis-ci.org/substack/tap-parser)
 
+[![browser support](http://ci.testling.com/substack/tap-parser.png)](http://ci.testling.com/substack/tap-parser)
+
 # example
 
 ``` js
