@@ -9,17 +9,11 @@ var lines = [
     '# boop',
     'ok 3 should be equal',
     'ok 4 (unnamed assert)',
-    '',
-    '1..4',
-    '# tests 4',
-    '# pass  4',
-    '',
-    '# ok'
 ];
 
 var expected = { asserts: [], comments: [] };
 
-expected.comments = [ 'beep', 'boop', 'tests 4', 'pass  4', 'ok' ];
+expected.comments = [ 'beep', 'boop' ];
 
 expected.asserts.push({
     ok: true,
@@ -42,8 +36,8 @@ expected.asserts.push({
     name: '(unnamed assert)'
 });
 
-test('simple ok', function (t) {
-    t.plan(4 * 2 + 1 + 4 + 5);
+test('no plan', function (t) {
+    t.plan(4 * 2 + 4 + 2);
     
     var p = parser(onresults);
     p.on('results', onresults);
@@ -55,7 +49,7 @@ test('simple ok', function (t) {
     });
     
     p.on('plan', function (plan) {
-        t.same(plan, { start: 1, end: 4 });
+        t.fail('no plan provided');
     });
     
     p.on('comment', function (c) {
@@ -68,8 +62,11 @@ test('simple ok', function (t) {
     p.end();
     
     function onresults (results) {
-        t.ok(results.ok);
-        t.same(results.errors, []);
+        t.equal(results.ok, false);
+        t.same(results.errors, [ {
+            message: 'no plan found',
+            line: lines.length + 1
+        } ]);
         t.same(asserts.length, 4);
         t.same(results.asserts, asserts);
     }

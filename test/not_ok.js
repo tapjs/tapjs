@@ -41,7 +41,7 @@ expected.asserts.push({
     name: '(unnamed assert)'
 });
 
-test('simple ok test', function (t) {
+test('simple not ok', function (t) {
     t.plan(6 * 2 + 1 + 4 + 5);
     
     var p = parser(onresults);
