@@ -1,13 +1,18 @@
-var test = require('tape');
-var through = require('through');
-var parser = require('../')();
-
-test.stream.pipe(parser).pipe(through(function (res) {
-    console.dir(res);
-}));
+var test = require('tap').test;
 
 test(function (t) {
-    t.plan(2);
-    t.equal(2+2,4);
-    t.same({a:1,b:2},{a:1,b:1+1});
+    t.test(function (st) {
+        st.plan(2);
+        st.equal(2+2,4);
+        st.same({a:1,b:2},{a:1,b:1+1});
+    });
+    
+    t.test(function (st) {
+        st.plan(2);
+        st.equal(1+1,2);
+        
+        setTimeout(function () {
+            st.ok(true);
+        }, 1000);
+    });
 });
