@@ -4,7 +4,7 @@
     "description" : "parse the test anything protocol",
     "main" : "index.js",
     "dependencies" : {
-        "split" : "substack/split"
+        "split" : "git://github.com/substack/split.git"
     },
     "devDependencies" : {
         "tap" : "~0.3.0",
