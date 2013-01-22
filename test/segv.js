@@ -31,7 +31,9 @@ test('segv', function (t) {
   var r = new Runner({argv:{remain:['./segv']}})
   var tc = new TC()
   var expect =
-      [ { 'id': 1,
+      [ 'TAP version 13'
+      , './segv'
+      , { 'id': 1,
           'ok': false,
           'name': ' ././segv',
           'exit': null,

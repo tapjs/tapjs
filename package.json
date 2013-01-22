@@ -14,7 +14,8 @@
     "mkdirp": "~0.3",
     "difflet": "~0.2.0",
     "deep-equal": "~0.0.0",
-    "buffer-equal": "~0.0.0"
+    "buffer-equal": "~0.0.0",
+    "glob": "~3.1.14"
   },
   "bundledDependencies": [
     "inherits",
