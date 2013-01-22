@@ -24,7 +24,7 @@ expected.comments = [ 'beep', 'boop', 'tests 4', 'pass  4', 'ok' ];
 expected.asserts.push({
     ok: true,
     number: 8,
-    name: 'should be equal',
+    name: 'should be equal'
 });
 expected.asserts.push({
     ok: true,

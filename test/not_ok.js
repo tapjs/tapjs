@@ -13,7 +13,7 @@ var lines = [
     '1..4',
     '# tests 4',
     '# pass  3',
-    '# fail  1',
+    '# fail  1'
 ];
 
 var expected = { asserts: [], comments: [] };
@@ -23,7 +23,7 @@ expected.comments = [ 'beep', 'boop', 'tests 4', 'pass  3', 'fail  1' ];
 expected.asserts.push({
     ok: true,
     number: 1,
-    name: 'should be equal',
+    name: 'should be equal'
 });
 expected.asserts.push({
     ok: false,

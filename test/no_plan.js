@@ -8,7 +8,7 @@ var lines = [
     'ok 2 should be equivalent',
     '# boop',
     'ok 3 should be equal',
-    'ok 4 (unnamed assert)',
+    'ok 4 (unnamed assert)'
 ];
 
 var expected = { asserts: [], comments: [] };
@@ -18,7 +18,7 @@ expected.comments = [ 'beep', 'boop' ];
 expected.asserts.push({
     ok: true,
     number: 1,
-    name: 'should be equal',
+    name: 'should be equal'
 });
 expected.asserts.push({
     ok: true,
