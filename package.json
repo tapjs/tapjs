@@ -1,10 +1,10 @@
 {
     "name" : "tap-parser",
-    "version" : "0.0.1",
+    "version" : "0.0.2",
     "description" : "parse the test anything protocol",
     "main" : "index.js",
     "dependencies" : {
-        "split" : "git://github.com/substack/split.git"
+        "split" : "~0.1.2"
     },
     "devDependencies" : {
         "tap" : "~0.3.0",
