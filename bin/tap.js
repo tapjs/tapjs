@@ -16,6 +16,8 @@ var argv = process.argv.slice(2)
     , tap: Boolean
     , timeout: Number
     , gc: Boolean
+    , debug: Boolean
+    , "debug-brk": Boolean
     }
 
   , shorthands =
@@ -44,6 +46,8 @@ var argv = process.argv.slice(2)
     , diag: process.env.TAP_DIAG
     , timeout: +process.env.TAP_TIMEOUT || 30
     , gc: false
+    , debug: false
+    , "debug-brk": false
     , version: false
     , help: false }
 
@@ -64,14 +68,16 @@ Usage:
 
 Options:
 
-    --stderr    Print standard error output of tests to standard error.
-    --tap       Print raw tap output.
-    --diag      Print diagnostic output for passed tests, as well as failed.
-                (Implies --tap)
-    --gc        Expose the garbage collector to tests.
-    --timeout   Maximum time to wait for a subtest, in seconds. Default: 30
-    --version   Print the version of node tap.
-    --help      Print this help.
+    --stderr     Print standard error output of tests to standard error.
+    --tap        Print raw tap output.
+    --diag       Print diagnostic output for passed tests, as well as failed.
+                 (Implies --tap)
+    --gc         Expose the garbage collector to tests.
+    --timeout    Maximum time to wait for a subtest, in seconds. Default: 30
+    --debug      Pass the '--debug' flag to node for debugging
+    --debug-brk  Pass the '--debug-brk' flag to node for debugging
+    --version    Print the version of node tap.
+    --help       Print this help.
 
 Please report bugs!  https://github.com/isaacs/node-tap/issues
 
