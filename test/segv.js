@@ -38,7 +38,7 @@ test('segv', function (t) {
           'name': ' ././segv',
           'exit': null,
           'timedOut': true,
-          'signal': 'SIGBUS',
+          'signal': 'SIGSEGV',
           'command': '"./segv"' }
       , 'tests 1'
       , 'fail  1' ]
