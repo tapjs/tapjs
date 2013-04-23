@@ -79,7 +79,7 @@ this is very useful for CI systems and such.
 ## Experimental Code Coverage with runforcover & bunker:
 
 ```
-TAP_COV=1 tap ./test [--cover=./lib,foo.js] [--cover-dir=./coverage]
+TAP_COV=1 tap ./test [--cover=./lib,foo.js] [--coverage-dir=./coverage]
 ```
 
 This feature is experimental, and will most likely change somewhat
