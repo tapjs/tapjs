@@ -5,6 +5,9 @@
   "description": "A Test-Anything-Protocol library",
   "bin": "bin/tap.js",
   "main": "lib/main.js",
+  "engines": {
+    "node": ">=0.8"
+  },
   "dependencies": {
     "inherits": "*",
     "yamlish": "*",
