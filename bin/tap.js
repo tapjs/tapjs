@@ -18,6 +18,8 @@ var argv = process.argv.slice(2)
     , gc: Boolean
     , debug: Boolean
     , "debug-brk": Boolean
+    , strict: Boolean
+    , harmony: Boolean
     }
 
   , shorthands =
@@ -48,6 +50,8 @@ var argv = process.argv.slice(2)
     , gc: false
     , debug: false
     , "debug-brk": false
+    , strict: false
+    , harmony: false
     , version: false
     , help: false }
 
@@ -76,6 +80,8 @@ Options:
     --timeout    Maximum time to wait for a subtest, in seconds. Default: 30
     --debug      Pass the '--debug' flag to node for debugging
     --debug-brk  Pass the '--debug-brk' flag to node for debugging
+    --strict     Enforce strict mode when running tests.
+    --harmony    Enable harmony features for tests.
     --version    Print the version of node tap.
     --help       Print this help.
 
