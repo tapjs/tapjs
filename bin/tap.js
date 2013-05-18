@@ -16,6 +16,8 @@ var argv = process.argv.slice(2)
     , tap: Boolean
     , timeout: Number
     , gc: Boolean
+    , strict: Boolean
+    , harmony: Boolean
     }
 
   , shorthands =
@@ -44,6 +46,8 @@ var argv = process.argv.slice(2)
     , diag: process.env.TAP_DIAG
     , timeout: +process.env.TAP_TIMEOUT || 30
     , gc: false
+    , strict: false
+    , harmony: false
     , version: false
     , help: false }
 
@@ -69,6 +73,8 @@ Options:
     --diag      Print diagnostic output for passed tests, as well as failed.
                 (Implies --tap)
     --gc        Expose the garbage collector to tests.
+    --strict    Enforce strict mode when running tests.
+    --harmony   Enable harmony features for tests.
     --timeout   Maximum time to wait for a subtest, in seconds. Default: 30
     --version   Print the version of node tap.
     --help      Print this help.
