@@ -41,3 +41,8 @@ test("deepEquals shoudn't care about key order but still might", function (t) {
   )
   t.end()
 });
+
+test('deepEqual should pass on NaN', function (t) {
+  t.deepEqual({ value : NaN }, { value : NaN })
+  t.end();
+})
