@@ -37,6 +37,10 @@ test("meta test", { skip: false }, function (t) {
   t.throws(noop, {name:"MyError", message:"Whoops!"}, "noop does not throw a MyError");
   t.doesNotThrow(thr0w, "thrower does throw");
 
+  // NaN should equal NaN
+  t.equal(NaN, NaN, "NaN is equal to NaN")
+  t.like(NaN, NaN, "NaN is like NaN")
+
   // things that are like other things
   t.like("asdf", "asdf")
   t.like("asdf", /^a.*f$/)
@@ -58,8 +62,8 @@ test("meta test", { skip: false }, function (t) {
     t.clear()
     t.ok(true, "sanity check")
     t.notOk(results.ok, "not ok")
-    t.equal(results.tests, 39, "total test count")
-    t.equal(results.passTotal, 30, "tests passed")
+    t.equal(results.tests, 41, "total test count")
+    t.equal(results.passTotal, 32, "tests passed")
     t.equal(results.fail, 9, "tests failed")
     t.type(results.ok, "boolean", "ok is boolean")
     t.type(results.skip, "number", "skip is number")
