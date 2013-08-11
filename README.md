@@ -23,6 +23,7 @@ For extra special bonus points, you can do something like this:
     var test = require("tap").test
     test("make sure the thingie is a thing", function (t) {
       t.equal(thingie, "thing", "thingie should be thing")
+      t.deepEqual(someArray, [1,2,3], "specifically check someArray")
       t.type(thingie, "string", "type of thingie is string")
       t.ok(true, "this is always true")
       t.notOk(false, "this is never true")
