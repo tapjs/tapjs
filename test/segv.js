@@ -38,13 +38,20 @@ test('segv', function (t) {
           'name': ' ././segv',
           'exit': null,
           'timedOut': true,
-          'signal': 'SIGBUS',
+          'signal': 'SIGTERM',
           'command': '"./segv"' }
       , 'tests 1'
       , 'fail  1' ]
   r.pipe(tc)
   tc.on('data', function (d) {
-    t.same(d, expect.shift())
+    var e = expect.shift()
+
+    // specific signal can be either term or bus
+    if (d.signal && e.signal)
+      e.signal = d.signal === "SIGTERM" || d.signal === "SIGBUS" ?
+        d.signal : e.signal
+
+    t.same(d, e)
   })
   tc.on('end', function () {
     t.equal(expect.length, 0)
