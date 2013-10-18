@@ -53,6 +53,9 @@ module.exports = function (cb) {
             });
             return;
         }
+        if (plan.start === 1 && plan.end === 0) {
+            plan.skip_all = true;
+        }
         results.plan = plan;
         checkAssertionStart();
     });
@@ -91,12 +94,6 @@ module.exports = function (cb) {
         if (ended) return;
         ended = true;
         
-        if (results.asserts.length === 0) {
-            stream.emit('parseError', {
-                message: 'no assertions found'
-            });
-        }
-        
         if (results.plan === undefined) {
             stream.emit('parseError', {
                 message: 'no plan found'
@@ -104,6 +101,17 @@ module.exports = function (cb) {
         }
         if (results.ok === undefined) results.ok = true;
         
+        var skip_all = (results.plan && results.plan.skip_all);
+        if (results.asserts.length === 0 && ! skip_all) {
+            stream.emit('parseError', {
+                message: 'no assertions found'
+            });
+        } else if (skip_all && results.asserts.length !== 0) {
+            stream.emit('parseError', {
+                message: 'assertion found after skip_all plan'
+            });
+        }
+
         var last = results.asserts.length
             && results.asserts[results.asserts.length - 1].number
         ;

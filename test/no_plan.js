@@ -37,7 +37,7 @@ expected.asserts.push({
 });
 
 test('no plan', function (t) {
-    t.plan(5 * 2 + 4 + 2);
+    t.plan(6 * 2 + 4 + 2);
     
     var p = parser(onresults);
     p.on('results', onresults);
@@ -45,7 +45,7 @@ test('no plan', function (t) {
     var asserts = [];
     p.on('assert', function (assert) {
         asserts.push(assert);
-        t.same(assert, expected.asserts.shift());
+        t.same(assert, expected.asserts.shift(), 'next assert');
     });
     
     p.on('plan', function (plan) {
@@ -53,7 +53,7 @@ test('no plan', function (t) {
     });
     
     p.on('comment', function (c) {
-        t.equal(c, expected.comments.shift());
+        t.equal(c, expected.comments.shift(), 'next comment');
     });
     
     for (var i = 0; i < lines.length; i++) {
@@ -62,10 +62,11 @@ test('no plan', function (t) {
     p.end();
     
     function onresults (results) {
-        t.equal(results.ok, false);
+        t.equal(results.ok, false, 'onresults: ok');
         t.equal(results.errors[0].message, 'no plan found');
         t.equal(results.errors[0].line, lines.length + 1);
-        t.same(asserts.length, 4);
-        t.same(results.asserts, asserts);
+        t.same(asserts.length, 4, 'onresults: asserts.length');
+        t.same(results.asserts, asserts, 'onresults: asserts');
+        t.equal(expected.comments.length, 0, 'onresults: leftover comments');
     }
 });
