@@ -149,7 +149,7 @@ module.exports = function (cb) {
                 name: name
             });
         }
-        else if (m = /^(\d+)\.\.(\d+)\b/.exec(line)) {
+        else if (m = re.plan.exec(line)) {
             stream.emit('plan', {
                 start: Number(m[1]),
                 end: Number(m[2])
