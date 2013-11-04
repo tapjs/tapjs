@@ -30,7 +30,10 @@ test('simple ok', function (t) {
     });
     
     p.on('plan', function (plan) {
-        t.same(plan, { start: 1, end: 0, skip_all: true }, 'got plan');
+        t.same(plan, { start: 1, end: 0,
+                       skip_all: true,
+                       skip_reason: 'Insufficient skipping' },
+               'got plan');
     });
     
     p.on('comment', function (c) {

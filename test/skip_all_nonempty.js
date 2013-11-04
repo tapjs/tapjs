@@ -3,16 +3,22 @@ var parser = require('../');
 
 var lines = [
     '# TAP emitted by Test::More 0.98',
-    '1..0 # SKIP Insufficient positron flux',
+    '1..1 # SKIP Insufficient positron flux',
+    'ok 1 found some spare flux in bottom drawer',
 ];
 
 var expected = { asserts: [], comments: [] };
 
 expected.comments = [ 'TAP emitted by Test::More 0.98' ];
 
+expected.asserts.push({
+    ok: true,
+    number: 1,
+    name: 'found some spare flux in bottom drawer'
+});
 
-test('simple ok', function (t) {
-    t.plan(0 + 1 + 1 + 5 * 2);
+test('simple OK + skip_reason', function (t) {
+    t.plan(1 + 1 + 1 + 5 * 2);
     
     var p = parser(onresults);
     p.on('results', onresults);
@@ -24,8 +30,8 @@ test('simple ok', function (t) {
     });
     
     p.on('plan', function (plan) {
-        t.same(plan, { start: 1, end: 0,
-                       skip_all: true,
+        t.same(plan, { start: 1, end: 1,
+                       skip_all: false,
                        skip_reason: 'Insufficient positron flux' },
                'got plan');
     });
@@ -40,9 +46,13 @@ test('simple ok', function (t) {
     p.end();
     
     function onresults (results) {
-        t.ok(results.ok, 'onresults: ok');
-        t.same(results.errors, [], 'onresults: errors');
-        t.same(asserts.length, 0, 'onresults: asserts.length');
+        t.same(results.ok, false, 'onresults: fail');
+        t.same(results.errors,
+               [ { message: "plan is not empty, but has a SKIP reason",
+                   skip_reason: "Insufficient positron flux",
+                   line: 2 }],
+               'onresults: errors');
+        t.same(asserts.length, 1, 'onresults: asserts.length');
         t.same(results.asserts, asserts, 'onresults: asserts');
         t.equal(expected.comments.length, 0, 'onresults: leftover comments');
     }

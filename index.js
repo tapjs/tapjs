@@ -8,7 +8,7 @@ var re = {
         '\\s+(\\d+)(?:\\s+(?:(?:\\s*-\\s*)?(.*)))?',
         ')?'
     ].join('')),
-    plan: /^(\d+)\.\.(\d+)\b/,
+    plan: /^(\d+)\.\.(\d+)\b(?:\s+#\s+SKIP\s+(.*)$)?/,
     comment: /^#\s*(.+)/,
     version: /^TAP\s+version\s+(\d+)/i
 };
@@ -46,7 +46,7 @@ module.exports = function (cb) {
         }
     });
     
-    stream.on('plan', function (plan) {
+    stream.on('plan', function (plan, skip_reason) {
         if (results.plan !== undefined) {
             stream.emit('parseError', {
                 message: 'unexpected additional plan',
@@ -55,6 +55,15 @@ module.exports = function (cb) {
         }
         if (plan.start === 1 && plan.end === 0) {
             plan.skip_all = true;
+            plan.skip_reason = skip_reason; // could be undefined
+        } else if (skip_reason !== undefined) {
+            stream.emit('parseError', {
+                message: 'plan is not empty, but has a SKIP reason',
+                skip_reason: skip_reason,
+            });
+            plan.skip_all = false;
+            plan.skip_reason = skip_reason;
+            // continue to use the plan
         }
         results.plan = plan;
         checkAssertionStart();
@@ -160,8 +169,9 @@ module.exports = function (cb) {
         else if (m = re.plan.exec(line)) {
             stream.emit('plan', {
                 start: Number(m[1]),
-                end: Number(m[2])
-            });
+                end: Number(m[2]),
+            },
+            m[3]); // reason, if SKIP
         }
     }
 };
