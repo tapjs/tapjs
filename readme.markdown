@@ -15,7 +15,6 @@ var p = parser(function (results) {
 });
 
 process.stdin.pipe(p);
-process.stdin.resume();
 ```
 
 given some [TAP](http://testanything.org/)-formatted input:
