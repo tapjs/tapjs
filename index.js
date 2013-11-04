@@ -10,7 +10,8 @@ var re = {
     ].join('')),
     plan: /^(\d+)\.\.(\d+)\b(?:\s+#\s+SKIP\s+(.*)$)?/,
     comment: /^#\s*(.+)/,
-    version: /^TAP\s+version\s+(\d+)/i
+    version: /^TAP\s+version\s+(\d+)/i,
+    label_todo: /^(.*?)\s*#\s*TODO\s+(.*)$/,
 };
 
 function writable (s) {
@@ -30,13 +31,16 @@ module.exports = function (cb) {
         asserts: [],
         pass: [],
         fail: [],
+        todo: [],
         errors: []
     };
     
     stream.on('assert', function (res) {
         results.asserts.push(res);
-        if (!res.ok) results.ok = false;
-        (res.ok ? results.pass : results.fail).push(res);
+        if (!res.ok && !res.todo) results.ok = false;
+        var dest = (res.ok ? results.pass : results.fail);
+        if (res.todo) dest = results.todo;
+        dest.push(res);
         
         var prev = results.asserts[results.asserts.length - 2];
         if (prev && prev.number + 1 !== res.number) {
@@ -153,6 +157,11 @@ module.exports = function (cb) {
             var ok = !m[1];
             var num = m[2] && Number(m[2]);
             var name = m[3];
+            var asrt = {
+                ok: ok,
+                number: num,
+                name: name
+            };
             
             if (num === undefined) {
                 return stream.emit('parseError', {
@@ -160,11 +169,12 @@ module.exports = function (cb) {
                 });
             }
             
-            stream.emit('assert', {
-                ok: ok,
-                number: num,
-                name: name
-            });
+            if (m = re.label_todo.exec(name)) {
+                asrt.name = m[1];
+                asrt.todo = m[2];
+            }
+            
+            stream.emit('assert', asrt);
         }
         else if (m = re.plan.exec(line)) {
             stream.emit('plan', {
