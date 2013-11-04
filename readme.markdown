@@ -52,6 +52,7 @@ $ node test.js | node parse.js
      { ok: true, number: 3, name: 'should be equal' },
      { ok: true, number: 4, name: '(unnamed assert)' } ],
   fail: [],
+  todo: [],
   errors: [],
   plan: { start: 1, end: 4 } }
 ```
@@ -81,9 +82,17 @@ Every `/^(not )?ok\b/` line will emit an `'assert'` event.
 
 Every `assert` object has these keys:
 
-`assert.ok` - true if the assertion succeeded, false if failed
-`assert.number` - the assertion number
-`assert.name` - optional short description of the assertion
+* `assert.ok` - true if the assertion succeeded, false if failed
+* `assert.number` - the assertion number
+* `assert.name` - optional short description of the assertion
+
+and may also have
+
+* `assert.todo` - optional description of why the assertion failure is
+  not a problem.
+
+When `results` are returned, each `assert` object will have been
+appended to the list `asserts` and one of (`pass`, `fail`, `todo`).
 
 ## p.on('comment', function (comment) {})
 
