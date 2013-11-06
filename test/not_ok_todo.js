@@ -15,7 +15,11 @@ var lines = [
 
 var expected = { asserts: [], comments: [] };
 
-expected.comments = [ 'TAP emitted by Test::More 0.98', 'boop', 'Looks like you failed 1 test of 4.' ];
+expected.comments = [
+    'TAP emitted by Test::More 0.98',
+    'boop',
+    'Looks like you failed 1 test of 4.'
+];
 
 expected.asserts.push({
     ok: true,
