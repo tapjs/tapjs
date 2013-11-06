@@ -8,7 +8,7 @@ var re = {
         '\\s+(\\d+)(?:\\s+(?:(?:\\s*-\\s*)?(.*)))?',
         ')?'
     ].join('')),
-    plan: /^(\d+)\.\.(\d+)\b/,
+    plan: /^(\d+)\.\.(\d+)\b(?:\s+#\s+SKIP\s+(.*)$)?/,
     comment: /^#\s*(.+)/,
     version: /^TAP\s+version\s+(\d+)/i,
     label_todo: /^(.*?)\s*#\s*TODO\s+(.*)$/,
@@ -50,12 +50,24 @@ module.exports = function (cb) {
         }
     });
     
-    stream.on('plan', function (plan) {
+    stream.on('plan', function (plan, skip_reason) {
         if (results.plan !== undefined) {
             stream.emit('parseError', {
                 message: 'unexpected additional plan',
             });
             return;
+        }
+        if (plan.start === 1 && plan.end === 0) {
+            plan.skip_all = true;
+            plan.skip_reason = skip_reason; // could be undefined
+        } else if (skip_reason !== undefined) {
+            stream.emit('parseError', {
+                message: 'plan is not empty, but has a SKIP reason',
+                skip_reason: skip_reason,
+            });
+            plan.skip_all = false;
+            plan.skip_reason = skip_reason;
+            // continue to use the plan
         }
         results.plan = plan;
         checkAssertionStart();
@@ -95,12 +107,6 @@ module.exports = function (cb) {
         if (ended) return;
         ended = true;
         
-        if (results.asserts.length === 0) {
-            stream.emit('parseError', {
-                message: 'no assertions found'
-            });
-        }
-        
         if (results.plan === undefined) {
             stream.emit('parseError', {
                 message: 'no plan found'
@@ -108,6 +114,17 @@ module.exports = function (cb) {
         }
         if (results.ok === undefined) results.ok = true;
         
+        var skip_all = (results.plan && results.plan.skip_all);
+        if (results.asserts.length === 0 && ! skip_all) {
+            stream.emit('parseError', {
+                message: 'no assertions found'
+            });
+        } else if (skip_all && results.asserts.length !== 0) {
+            stream.emit('parseError', {
+                message: 'assertion found after skip_all plan'
+            });
+        }
+
         var last = results.asserts.length
             && results.asserts[results.asserts.length - 1].number
         ;
@@ -162,8 +179,9 @@ module.exports = function (cb) {
         else if (m = re.plan.exec(line)) {
             stream.emit('plan', {
                 start: Number(m[1]),
-                end: Number(m[2])
-            });
+                end: Number(m[2]),
+            },
+            m[3]); // reason, if SKIP
         }
     }
 };

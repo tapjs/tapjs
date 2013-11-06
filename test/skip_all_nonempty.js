@@ -2,42 +2,23 @@ var test = require('tape');
 var parser = require('../');
 
 var lines = [
-    'TAP version 13',
-    '# beep',
-    'ok 1 should be equal',
-    'ok 2 should be equivalent',
-    '# boop',
-    'ok 3 should be equal',
-    'ok 4 (unnamed assert)'
+    '# TAP emitted by Test::More 0.98',
+    '1..1 # SKIP Insufficient positron flux',
+    'ok 1 found some spare flux in bottom drawer',
 ];
 
 var expected = { asserts: [], comments: [] };
 
-expected.comments = [ 'beep', 'boop' ];
+expected.comments = [ 'TAP emitted by Test::More 0.98' ];
 
 expected.asserts.push({
     ok: true,
     number: 1,
-    name: 'should be equal'
-});
-expected.asserts.push({
-    ok: true,
-    number: 2,
-    name: 'should be equivalent'
-});
-expected.asserts.push({
-    ok: true,
-    number: 3,
-    name: 'should be equal'
-});
-expected.asserts.push({ 
-    ok: true,
-    number: 4,
-    name: '(unnamed assert)'
+    name: 'found some spare flux in bottom drawer'
 });
 
-test('no plan', function (t) {
-    t.plan(6 * 2 + 4 + 2);
+test('simple OK + skip_reason', function (t) {
+    t.plan(1 + 1 + 1 + 5 * 2);
     
     var p = parser(onresults);
     p.on('results', onresults);
@@ -49,7 +30,10 @@ test('no plan', function (t) {
     });
     
     p.on('plan', function (plan) {
-        t.fail('no plan provided');
+        t.same(plan, { start: 1, end: 1,
+                       skip_all: false,
+                       skip_reason: 'Insufficient positron flux' },
+               'got plan');
     });
     
     p.on('comment', function (c) {
@@ -62,10 +46,13 @@ test('no plan', function (t) {
     p.end();
     
     function onresults (results) {
-        t.equal(results.ok, false, 'onresults: ok');
-        t.equal(results.errors[0].message, 'no plan found');
-        t.equal(results.errors[0].line, lines.length + 1);
-        t.same(asserts.length, 4, 'onresults: asserts.length');
+        t.same(results.ok, false, 'onresults: fail');
+        t.same(results.errors,
+               [ { message: "plan is not empty, but has a SKIP reason",
+                   skip_reason: "Insufficient positron flux",
+                   line: 2 }],
+               'onresults: errors');
+        t.same(asserts.length, 1, 'onresults: asserts.length');
         t.same(results.asserts, asserts, 'onresults: asserts');
         t.equal(expected.comments.length, 0, 'onresults: leftover comments');
     }

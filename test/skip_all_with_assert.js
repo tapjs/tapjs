@@ -2,42 +2,23 @@ var test = require('tape');
 var parser = require('../');
 
 var lines = [
-    'TAP version 13',
-    '# beep',
-    'ok 1 should be equal',
-    'ok 2 should be equivalent',
-    '# boop',
-    'ok 3 should be equal',
-    'ok 4 (unnamed assert)'
+    '# TAP emitted by Test::More 0.98',
+    '1..0 # SKIP Insufficient skipping',
+    'ok 1 - should not be asserting'
 ];
 
 var expected = { asserts: [], comments: [] };
 
-expected.comments = [ 'beep', 'boop' ];
+expected.comments = [ 'TAP emitted by Test::More 0.98' ];
 
 expected.asserts.push({
     ok: true,
     number: 1,
-    name: 'should be equal'
-});
-expected.asserts.push({
-    ok: true,
-    number: 2,
-    name: 'should be equivalent'
-});
-expected.asserts.push({
-    ok: true,
-    number: 3,
-    name: 'should be equal'
-});
-expected.asserts.push({ 
-    ok: true,
-    number: 4,
-    name: '(unnamed assert)'
+    name: 'should not be asserting'
 });
 
-test('no plan', function (t) {
-    t.plan(6 * 2 + 4 + 2);
+test('simple ok', function (t) {
+    t.plan(1 + 1 + 1 + 7 * 2);
     
     var p = parser(onresults);
     p.on('results', onresults);
@@ -49,7 +30,10 @@ test('no plan', function (t) {
     });
     
     p.on('plan', function (plan) {
-        t.fail('no plan provided');
+        t.same(plan, { start: 1, end: 0,
+                       skip_all: true,
+                       skip_reason: 'Insufficient skipping' },
+               'got plan');
     });
     
     p.on('comment', function (c) {
@@ -63,9 +47,10 @@ test('no plan', function (t) {
     
     function onresults (results) {
         t.equal(results.ok, false, 'onresults: ok');
-        t.equal(results.errors[0].message, 'no plan found');
+        t.equal(results.errors.length, 1, 'onresults: errors');
+        t.equal(results.errors[0].message, 'assertion found after skip_all plan');
         t.equal(results.errors[0].line, lines.length + 1);
-        t.same(asserts.length, 4, 'onresults: asserts.length');
+        t.same(asserts.length, 1, 'onresults: asserts.length');
         t.same(results.asserts, asserts, 'onresults: asserts');
         t.equal(expected.comments.length, 0, 'onresults: leftover comments');
     }

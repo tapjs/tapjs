@@ -103,6 +103,21 @@ Every `/^# (.+)/` line will emit the string contents of `comment`.
 Every `/^\d+\.\.\d+/` line emits a `'plan'` event for the test numbers
 `plan.start` through `plan.end`, inclusive.
 
+If the test is [completely skipped](http://podwiki.hexten.net/TAP/TAP.html?page=TAP#Skippingeverything) the result will look like
+
+```
+{ ok: true,
+  asserts: [],
+  pass: [],
+  fail: [],
+  errors: [],
+  plan: 
+   { start: 1,
+     end: 0,
+     skip_all: true,
+     skip_reason: 'This code has no seat belt' } }
+```
+
 ## p.on('version', function (version) {})
 
 A `/^TAP version (\d+)/` line emits a `'version'` event with a version number or
