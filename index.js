@@ -60,7 +60,7 @@ module.exports = function (cb) {
         if (plan.start === 1 && plan.end === 0) {
             plan.skip_all = true;
             plan.skip_reason = skip_reason; // could be undefined
-        } else if (skip_reason !== undefined) {
+        } else if (skip_reason) {
             stream.emit('parseError', {
                 message: 'plan is not empty, but has a SKIP reason',
                 skip_reason: skip_reason,
