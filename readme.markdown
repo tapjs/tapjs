@@ -123,6 +123,10 @@ If the test is [completely skipped](http://podwiki.hexten.net/TAP/TAP.html?page=
 A `/^TAP version (\d+)/` line emits a `'version'` event with a version number or
 string.
 
+## p.on('extra', function (extra) {})
+
+All other lines will trigger an `'extra'` event with the line text.
+
 # install
 
 With [npm](https://npmjs.org) do:

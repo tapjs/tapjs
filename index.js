@@ -137,6 +137,7 @@ Parser.prototype._online = function (line) {
         },
         m[3]); // reason, if SKIP
     }
+    else this.emit('extra', line)
 };
 
 Parser.prototype._checkAssertionStart = function () {
