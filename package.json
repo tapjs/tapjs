@@ -4,13 +4,11 @@
   "description": "parse the test anything protocol",
   "main": "index.js",
   "dependencies": {
-    "split": "~0.1.2",
-    "stream-combiner": "0.0.4",
-    "through2": "~0.2.3"
+    "inherits": "~2.0.1"
   },
   "devDependencies": {
-    "tap": "~0.4.6",
-    "tape": "~2.3.0"
+    "tape": "~2.3.2",
+    "tap": "~0.4.6"
   },
   "scripts": {
     "test": "tap test/*.js"
