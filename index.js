@@ -1,4 +1,7 @@
-var Stream = require('stream');
+var Writable = require('stream').Writable;
+var combine = require('stream-combiner');
+var through2 = require('through2');
+
 var EventEmitter = require('events').EventEmitter;
 var split = require('split');
 
@@ -14,17 +17,8 @@ var re = {
     label_todo: /^(.*?)\s*#\s*TODO\s+(.*)$/,
 };
 
-function writable (s) {
-    var stream = new Stream;
-    stream.writable = true;
-    stream.write = function (buf) { return s.write(buf) };
-    stream.end = function (buf) { return s.end(buf) };
-    return stream;
-}
-
 module.exports = function (cb) {
-    var sp = split();
-    var stream = writable(sp);
+    var stream = combine(split(), through2(write, end));
     
     var results = stream.results = {
         ok: undefined,
@@ -93,20 +87,11 @@ module.exports = function (cb) {
     });
     
     var lineNum = 0;
-    var ended = false;
-    
-    sp.on('data', ondata);
-    sp.on('end', onend);
-    sp.on('close', onend);
     
     if (cb) stream.on('results', cb);
-    
     return stream;
     
-    function onend () {
-        if (ended) return;
-        ended = true;
-        
+    function end () {
         if (results.plan === undefined) {
             stream.emit('parseError', {
                 message: 'no plan found'
@@ -142,7 +127,7 @@ module.exports = function (cb) {
         stream.emit('results', results);
     }
     
-    function ondata (line) {
+    function write (line, enc, next) {
         var m;
         lineNum ++;
         
@@ -183,5 +168,7 @@ module.exports = function (cb) {
             },
             m[3]); // reason, if SKIP
         }
+        
+        next();
     }
 };

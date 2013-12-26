@@ -1,40 +1,45 @@
 {
-    "name" : "tap-parser",
-    "version" : "0.2.1",
-    "description" : "parse the test anything protocol",
-    "main" : "index.js",
-    "dependencies" : {
-        "split" : "~0.1.2"
-    },
-    "devDependencies" : {
-        "tap" : "~0.4.6",
-        "tape" : "~2.3.0"
-    },
-    "scripts" : {
-        "test" : "tap test/*.js"
-    },
-    "testling" : {
-        "files" : "test/*.js",
-        "browsers" : [
-            "ie/8", "ie/9",
-            "chrome/23", "firefox/17",
-            "opera/12", "safari/5.1"
-        ]
-    },
-    "repository" : {
-        "type" : "git",
-        "url" : "git://github.com/substack/tap-parser.git"
-    },
-    "homepage" : "https://github.com/substack/tap-parser",
-    "keywords" : [
-        "tap",
-        "test",
-        "parser"
-    ],
-    "author" : {
-        "name" : "James Halliday",
-        "email" : "mail@substack.net",
-        "url" : "http://substack.net"
-    },
-    "license" : "MIT"
+  "name": "tap-parser",
+  "version": "0.2.1",
+  "description": "parse the test anything protocol",
+  "main": "index.js",
+  "dependencies": {
+    "split": "~0.1.2",
+    "stream-combiner": "0.0.4",
+    "through2": "~0.2.3"
+  },
+  "devDependencies": {
+    "tap": "~0.4.6",
+    "tape": "~2.3.0"
+  },
+  "scripts": {
+    "test": "tap test/*.js"
+  },
+  "testling": {
+    "files": "test/*.js",
+    "browsers": [
+      "ie/8",
+      "ie/9",
+      "chrome/23",
+      "firefox/17",
+      "opera/12",
+      "safari/5.1"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/substack/tap-parser.git"
+  },
+  "homepage": "https://github.com/substack/tap-parser",
+  "keywords": [
+    "tap",
+    "test",
+    "parser"
+  ],
+  "author": {
+    "name": "James Halliday",
+    "email": "mail@substack.net",
+    "url": "http://substack.net"
+  },
+  "license": "MIT"
 }
