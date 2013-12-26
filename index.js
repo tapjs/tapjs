@@ -29,7 +29,7 @@ function Parser (cb) {
         todo: [],
         errors: []
     };
-    this._lineNum = 0;
+    this._lineNum = 1;
     this._line = '';
     this._planMismatch = false;
     
