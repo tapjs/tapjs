@@ -30,7 +30,7 @@ expected.asserts.push({
     ok: false,
     number: 2,
     name: 'should be equivalent',
-    todo: 'but we will fix it later',
+    todo: 'but we will fix it later'
 });
 expected.asserts.push({
     ok: true,
