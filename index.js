@@ -10,7 +10,7 @@ var re = {
     plan: /^(\d+)\.\.(\d+)\b(?:\s+#\s+SKIP\s+(.*)$)?/,
     comment: /^#\s*(.+)/,
     version: /^TAP\s+version\s+(\d+)/i,
-    label_todo: /^(.*?)\s*#\s*TODO\s+(.*)$/,
+    label_todo: /^(.*?)\s*#\s*TODO\s+(.*)$/
 };
 
 module.exports = Parser;
@@ -78,7 +78,7 @@ Parser.prototype._onplan = function (plan, skip_reason) {
     
     if (results.plan !== undefined) {
         this.emit('parseError', {
-            message: 'unexpected additional plan',
+            message: 'unexpected additional plan'
         });
         return;
     }
@@ -88,7 +88,7 @@ Parser.prototype._onplan = function (plan, skip_reason) {
     } else if (skip_reason) {
         this.emit('parseError', {
             message: 'plan is not empty, but has a SKIP reason',
-            skip_reason: skip_reason,
+            skip_reason: skip_reason
         });
         plan.skip_all = false;
         plan.skip_reason = skip_reason;
@@ -133,7 +133,7 @@ Parser.prototype._online = function (line) {
     else if (m = re.plan.exec(line)) {
         this.emit('plan', {
             start: Number(m[1]),
-            end: Number(m[2]),
+            end: Number(m[2])
         },
         m[3]); // reason, if SKIP
     }
