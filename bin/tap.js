@@ -20,6 +20,7 @@ var argv = process.argv.slice(2)
     , "debug-brk": Boolean
     , strict: Boolean
     , harmony: Boolean
+    , exec: String
     }
 
   , shorthands =
@@ -38,6 +39,7 @@ var argv = process.argv.slice(2)
     , v: ["--version"]
     , "?": ["--help"]
     , h: ["--help"]
+    , e: ["--exec"]
     }
 
   , defaults =
@@ -53,7 +55,8 @@ var argv = process.argv.slice(2)
     , strict: false
     , harmony: false
     , version: false
-    , help: false }
+    , help: false
+    , exec: null }
 
   , options = nopt(knownOpts, shorthands)
 
