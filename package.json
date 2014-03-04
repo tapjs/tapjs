@@ -1,11 +1,11 @@
 {
   "name": "tap-parser",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "parse the test anything protocol",
   "main": "index.js",
   "dependencies": {
     "inherits": "~2.0.1",
-    "readable-stream": "~1.0.25"
+    "readable-stream": "~1.1.11"
   },
   "devDependencies": {
     "tape": "~2.3.2",
