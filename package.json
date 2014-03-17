@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "buffer-equal": "~0.0.0",
-    "deep-equal": "~0.0.0",
+    "deep-equal": "~0.2.1",
     "difflet": "~0.2.0",
     "glob": "~3.2.1",
     "inherits": "*",
