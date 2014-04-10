@@ -4,7 +4,7 @@ var inherits = require('inherits');
 var re = {
     ok: new RegExp([
         '^(not )?ok\\b(?:',
-        '\\s+(\\d+)(?:\\s+(?:(?:\\s*-\\s*)?(.*)))?',
+        '(?:\\s+(\\d+))?(?:\\s+(?:(?:\\s*-\\s*)?(.*)))?',
         ')?'
     ].join('')),
     plan: /^(\d+)\.\.(\d+)\b(?:\s+#\s+SKIP\s+(.*)$)?/,
@@ -66,6 +66,12 @@ Parser.prototype._onassert = function (res) {
     dest.push(res);
     
     var prev = results.asserts[results.asserts.length - 2];
+
+    if (!res.number) {
+        if (prev) res.number = prev.number + 1;
+        else res.number = 1;
+    }
+
     if (prev && prev.number + 1 !== res.number) {
         this.emit('parseError', {
             message: 'assert out of order'
@@ -116,12 +122,6 @@ Parser.prototype._online = function (line) {
             number: num,
             name: name
         };
-        
-        if (num === undefined) {
-            return this.emit('parseError', {
-                message: 'assertion number not provided'
-            });
-        }
         
         if (m = re.label_todo.exec(name)) {
             asrt.name = m[1];
