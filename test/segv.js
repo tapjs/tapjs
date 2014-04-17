@@ -3,6 +3,7 @@ var Runner = require('../lib/tap-runner.js')
 var TC = require('../lib/tap-consumer.js')
 
 var fs = require('fs')
+var path = require('path')
 var spawn = require('child_process').spawn
 var segv =
     'int main (void) {\n' +
@@ -39,7 +40,7 @@ test('segv', function (t) {
           'exit': null,
           'timedOut': true,
           'signal': process.platform === 'linux' ? 'SIGSEGV' : 'SIGTERM',
-          'command': '"./segv"' }
+          'command': '"' + path.resolve('./segv') + '"' }
       , 'tests 1'
       , 'fail  1' ]
   r.pipe(tc)
