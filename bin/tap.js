@@ -43,7 +43,7 @@ var argv = process.argv.slice(2)
   , defaults =
     { cover: "./lib"
     , "cover-dir": "./coverage"
-    , stderr: process.env.TAP_STDERR || process.env.TAP
+    , stderr: true
     , tap: process.env.TAP
     , diag: process.env.TAP_DIAG
     , timeout: +process.env.TAP_TIMEOUT || 30
