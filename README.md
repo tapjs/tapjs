@@ -24,7 +24,7 @@ For extra special bonus points, you can do something like this:
     test("make sure the thingie is a thing", function (t) {
       t.equal(thingie, "thing", "thingie should be thing")
       t.deepEqual(array, ["foo", "bar"], "array has foo and bar elements")
-      t.deepEqual(object, {foo: 42}, "object has foo property")
+      t.strictDeepEqual(object, {foo: 42, bar: "thingie"}, "object has foo (Number) and bar (String) property")
       t.type(thingie, "string", "type of thingie is string")
       t.ok(true, "this is always true")
       t.notOk(false, "this is never true")
