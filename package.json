@@ -18,7 +18,8 @@
     "difflet": "~0.2.0",
     "deep-equal": "~0.0.0",
     "buffer-equal": "~0.0.0",
-    "glob": "~3.2.1"
+    "glob": "~3.2.1",
+    "shell-quote": "~1.4.1"
   },
   "bundledDependencies": [
     "inherits",
