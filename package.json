@@ -9,16 +9,16 @@
     "node": ">=0.8"
   },
   "dependencies": {
-    "inherits": "*",
-    "yamlish": "*",
-    "slide": "*",
-    "runforcover": "~0.0.2",
-    "nopt": "~2",
-    "mkdirp": "~0.3",
-    "difflet": "~0.2.0",
-    "deep-equal": "~0.0.0",
     "buffer-equal": "~0.0.0",
-    "glob": "~3.2.1"
+    "deep-equal": "~0.0.0",
+    "difflet": "~0.2.0",
+    "glob": "~3.2.1",
+    "inherits": "*",
+    "mkdirp": "~0.3",
+    "nopt": "~2",
+    "runforcover": "~0.0.2",
+    "slide": "*",
+    "yamlish": "*"
   },
   "bundledDependencies": [
     "inherits",
@@ -41,5 +41,6 @@
   "repository": "git://github.com/isaacs/node-tap.git",
   "scripts": {
     "test": "bin/tap.js test/*.js"
-  }
+  },
+  "devDependencies": {}
 }

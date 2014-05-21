@@ -5,6 +5,7 @@ var TC = require('../lib/tap-consumer.js')
 test('valid command', function (t) {
   var r = new Runner({argv:{remain:['./end-exception/t.js']}})
   var tc = new TC()
+  var node = process.execPath
   var expect =
       [ 'TAP version 13'
       , 't.js'
@@ -14,7 +15,7 @@ test('valid command', function (t) {
           'exit': null,
           'timedOut': true,
           'signal': 'SIGTERM',
-          'command': '"node t.js"' }
+          'command': '"' + node + ' t.js"' }
       , 'tests 1'
       , 'fail  1' ]
   r.pipe(tc)
