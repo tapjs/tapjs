@@ -5,10 +5,15 @@ var parser = require('../');
 var fs = require('fs');
 
 var argv = minimist(process.argv.slice(2), {
-    alias: { v: 'verbose', o: 'outfile', i: 'infile', r: 'results' },
+    alias: { h: 'help', o: 'outfile', i: 'infile', r: 'results' },
     default: { outfile: '-', infile: '-' },
     boolean: [ 'results' ]
 });
+if (argv.help) {
+    return fs.createReadStream(__dirname + '/usage.txt')
+        .pipe(process.stdout)
+    ;
+}
 
 var input = argv.infile === '-'
     ? process.stdin
