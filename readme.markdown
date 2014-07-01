@@ -57,6 +57,26 @@ $ node test.js | node parse.js
   plan: { start: 1, end: 4 } }
 ```
 
+# usage
+
+This package also has a `tap-parser` command.
+
+```
+usage: tap-parser OPTIONS
+
+  Parse TAP from INPUT. If there are any failures, exits with
+  a non-zero status code.
+
+OPTIONS are:
+
+  -i, --input    Read from INPUT. Default: stdin.
+  -o, --output   Write to OUTPUT. Default: stdout.
+  -r, --results  Print results as json. Otherwise pass INPUT
+                 through to OUTPUT.
+  -h, --help     Show this help message.
+
+```
+
 # methods
 
 ``` js
