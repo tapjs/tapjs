@@ -30,7 +30,8 @@ input.pipe(parser(function (results) {
     });
     
     if (argv.results) {
-        output.end(JSON.stringify(results, null, 2) + '\n');
+        output.write(JSON.stringify(results, null, 2) + '\n');
+        if (output !== process.stdout) output.end();
     }
 }));
 
