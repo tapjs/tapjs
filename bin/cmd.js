@@ -26,7 +26,7 @@ var output = argv.outfile === '-'
 
 input.pipe(parser(function (results) {
     process.on('exit', function (code) {
-        if (code !== 0) process.exit(results.ok ? 0 : 1);
+        if (code === 0) process.exit(results.ok ? 0 : 1);
     });
     
     if (argv.results) {
