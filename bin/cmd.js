@@ -5,7 +5,10 @@ var parser = require('../');
 var fs = require('fs');
 
 var argv = minimist(process.argv.slice(2), {
-    alias: { h: 'help', o: 'outfile', i: 'infile', r: 'results' },
+    alias: {
+        h: 'help', v: 'version',
+        o: 'outfile', i: 'infile', r: 'results'
+    },
     default: { outfile: '-', infile: '-' },
     boolean: [ 'results' ]
 });
@@ -13,6 +16,10 @@ if (argv.help) {
     return fs.createReadStream(__dirname + '/usage.txt')
         .pipe(process.stdout)
     ;
+}
+if (argv.version) {
+    console.log(require('../package.json').version);
+    return;
 }
 
 var input = argv.infile === '-'

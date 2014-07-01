@@ -73,7 +73,9 @@ OPTIONS are:
   -o, --output   Write to OUTPUT. Default: stdout.
   -r, --results  Print results as json. Otherwise pass INPUT
                  through to OUTPUT.
+
   -h, --help     Show this help message.
+  -v, --version  Print the current version of tap-parser.
 
 ```
 
