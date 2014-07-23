@@ -14,7 +14,7 @@
     "difflet": "~0.2.0",
     "glob": "~3.2.1",
     "inherits": "*",
-    "mkdirp": "~0.3",
+    "mkdirp": "~0.3 || 0.4 || 0.5",
     "nopt": "~2",
     "runforcover": "~0.0.2",
     "slide": "*",
