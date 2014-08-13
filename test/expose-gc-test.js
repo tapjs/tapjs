@@ -2,45 +2,49 @@ var tap = require("../")
   , fs = require("fs")
   , cp = require("child_process")
 
-fs.writeFileSync("gc-script.js", "console.log(!!global.gc)", "utf8")
+function makeScript (gc) {
+  var fn = gc ? "ok" : "notOk"
+  return [
+    "var tap = require(\"../\")",
+    "tap.test(\"gc\", function (t) {",
+    "  t.plan(1)",
+    "  t." + fn + "(!!global.gc)",
+    "})"
+  ].join("\n");
+}
 
-tap.test("gc test when the gc isn't there", function (t) {
-  console.error("gc test")
-  t.plan(1)
-  console.error("t.plan="+t._plan)
+function makeOutput (filename) {
+  return [
+    "ok ./" + filename + " " + Array(52 - filename.length).join(".") + " 2/2",
+    "total ................................................... 2/2",
+    "",
+    "ok",
+    ""
+  ].join("\n")
+}
 
-  cp.exec("../bin/tap.js ./gc-script", function (err, stdo, stde) {
-    console.error("assert gc does not exist")
-    t.ok("false", stdo)
-  })
-})
+function runTest(label, args, filename) {
+  args.push(filename);
+  tap.test(label, function (t) {
+    t.plan(3)
 
-tap.test("gc test when the gc should be there", function (t) {
-  console.error("gc test")
-  t.plan(2)
-  console.error("t.plan="+t._plan)
-
-  t.test("test for gc using --gc", function (t) {
-    console.error("gc test using --gc")
-    t.plan(1)
-    console.error("t.plan="+t._plan)
-
-    cp.exec("../bin/tap.js --gc ./gc-script", function (err, stdo, stde) {
-      console.error("assert gc exists")
-      t.ok("true", stdo)
+    cp.execFile("../bin/tap.js", args, function (err, stdo, stde) {
+      t.error(err, "No error")
+      t.equal(stdo, makeOutput(filename), "Correct stardard output")
+      t.equal(stde, "", "No output on stderr")
     })
   })
+}
 
-  t.test("test for gc using --expose-gc", function (t) {
-    console.error("gc test using --expose-gc")
-    t.plan(1)
-    console.error("t.plan="+t._plan)
+fs.writeFileSync("gc-script.js", makeScript(true), "utf8")
+fs.writeFileSync("no-gc-script.js", makeScript(false), "utf8")
 
-    cp.exec("../bin/tap.js --expose-gc ./gc-script", function (err, stdo) {
-      console.error("assert gc exists")
-      t.ok("true", stdo)
-    })
-  })
-})
+runTest("global.gc falsy w/o --gc or --expose-gc flag", [], "no-gc-script.js")
+runTest("global.gc truthy w/ --gc flag", ["--gc"] , "gc-script.js")
+runTest("global.gc truthy w/ --expose-gc flag", ["--expose-gc"], "gc-script.js")
 
-fs.unlinkSync("gc-script.js");
+// Cannot unlink test files until all tests are done. 
+setTimeout(function(){
+  fs.unlinkSync("gc-script.js");
+  fs.unlinkSync("no-gc-script.js");
+}, 600)
