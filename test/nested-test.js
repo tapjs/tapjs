@@ -1,6 +1,5 @@
 var tap = require("../"),
-    test = tap.test,
-    util = require('util');
+    test = tap.test;
 
 test("parent", function (t) {
   // TODO: Make grandchildren tests count?
