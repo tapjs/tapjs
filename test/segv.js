@@ -38,7 +38,7 @@ test('segv', function (t) {
           'name': ' ././segv',
           'exit': null,
           'timedOut': true,
-          'signal': 'SIGTERM',
+          'signal': process.platform === 'linux' ? 'SIGSEGV' : 'SIGTERM',
           'command': '"./segv"' }
       , 'tests 1'
       , 'fail  1' ]

@@ -6,16 +6,23 @@ test('valid command', function (t) {
   var r = new Runner({argv:{remain:['./end-exception/t.js']}})
   var tc = new TC()
   var node = process.execPath
+  var expectObj ={
+    'id': 1,
+    'ok': false,
+    'name': ' ./end-exception/t.js',
+    'timedOut': true,
+    'command': '"' + node + ' t.js"',
+    exit: null
+  }
+  if (process.platform === 'linux') {
+    expectObj.exit = 143
+  } else {
+    expectObj.signal = 'SIGTERM'
+  }
   var expect =
       [ 'TAP version 13'
       , 't.js'
-      , { 'id': 1,
-          'ok': false,
-          'name': ' ./end-exception/t.js',
-          'exit': null,
-          'timedOut': true,
-          'signal': 'SIGTERM',
-          'command': '"' + node + ' t.js"' }
+      , expectObj
       , 'tests 1'
       , 'fail  1' ]
   r.pipe(tc)
