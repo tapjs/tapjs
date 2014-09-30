@@ -20,11 +20,6 @@
     "slide": "*",
     "yamlish": "*"
   },
-  "bundledDependencies": [
-    "inherits",
-    "tap-consumer",
-    "yamlish"
-  ],
   "keywords": [
     "assert",
     "test",
