@@ -1,18 +1,13 @@
 var tap = require("../")
 
-tap.test("trap result #TODO", function (t0) {
-
-  console.log("not ok 1 result event trapping #TODO")
-  return t0.end()
-
-  t0.plan(3)
+tap.test("trap result", function (t0) {
 
   var t1 = new(tap.Harness)(tap.Test).test()
 
-  t1.plan(1)
-
+  var emitted = false
   t1.on("result", function (res) {
-    if (res.wanted === 4) {
+    if (!emitted) {
+      emitted = true
       t0.equal(res.found, 3)
       t0.equal(res.wanted, 4)
 
