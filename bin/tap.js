@@ -140,5 +140,5 @@ if (options.tap || options.diag) {
 
 
 r.on("end", function () {
-  process.exit(r.results.tests - r.results.pass)
+  process.exit(r.results.ok ? 0 : 1)
 })
