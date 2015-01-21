@@ -10,12 +10,12 @@
   },
   "dependencies": {
     "buffer-equal": "~0.0.0",
-    "deep-equal": "~0.0.0",
+    "deep-equal": "~0.2.1",
     "difflet": "~0.2.0",
-    "glob": "~3.2.1",
+    "glob": "~4.0.6",
     "inherits": "*",
     "mkdirp": "~0.3 || 0.4 || 0.5",
-    "nopt": "~2",
+    "nopt": "~3.0.1",
     "runforcover": "~0.0.2",
     "slide": "*",
     "yamlish": "*"
