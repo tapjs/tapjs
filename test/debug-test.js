@@ -9,8 +9,8 @@ tap.test("debug test", function (t) {
   console.error("t.plan="+t._plan)
 
   cp.exec("../bin/tap.js --debug meta-test.js", function (err, stdo, stde) {
-    console.error(util.inspect(stde)) 
-    t.notEqual(stde.indexOf("debugger listening on port"), -1, "Should output debugger message")
+    console.error(util.inspect(stde))
+    t.assert(/debugger listening on port/gi.test(stde), "Should output debugger message")
     t.end();
   })
 })
