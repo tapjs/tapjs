@@ -14,7 +14,7 @@ test('valid command', function (t) {
     'command': '"' + node + ' t.js"',
     exit: null
   }
-  if (process.platform === 'linux') {
+  if (process.platform === 'linux' && process.version < 'v0.11.0') {
     expectObj.exit = 143
   } else {
     expectObj.signal = 'SIGTERM'
