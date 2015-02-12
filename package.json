@@ -35,7 +35,7 @@
   },
   "repository": "git://github.com/isaacs/node-tap.git",
   "scripts": {
-    "test": "bin/tap.js test/*.*"
+    "test": "node --use_strict bin/tap.js test/*.*"
   },
   "devDependencies": {}
 }
