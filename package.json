@@ -33,7 +33,7 @@
     "type": "MIT",
     "url": "https://github.com/isaacs/node-tap/raw/master/LICENSE"
   },
-  "repository": "git://github.com/isaacs/node-tap.git",
+  "repository": "https://github.com/isaacs/node-tap.git",
   "scripts": {
     "test": "node --use_strict bin/tap.js test/*.*"
   },
