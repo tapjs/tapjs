@@ -7,6 +7,7 @@ var fixtures = path.resolve(__dirname, 'fixtures')
 
 test('captures test descriptions', function (t) {
   var useConsole = path.resolve(fixtures, 'todo-skip-descriptions.js')
+  var useTap = require.resolve('./test-assert-todo-skip.js')
 
   t.test('raw TAP > TAP consumer > TAP producer', function(t) {
     var args = [bin, '--tap', useConsole]
@@ -16,6 +17,11 @@ test('captures test descriptions', function (t) {
   t.test('raw TAP > TAP consumer > summary', function(t) {
     var args = [bin, '--no-tap', useConsole]
     execFile(node, args, assertDirectivesSummary.bind(this, t))
+  })
+
+  t.test('TAP producer via require("tap")', function(t) {
+    var args = [useTap]
+    execFile(node, args, assertTapDirectives.bind(this, t))
   })
 
   function assertTapDirectives(t, err, stdout, stderr) {
