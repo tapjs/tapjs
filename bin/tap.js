@@ -114,7 +114,7 @@ if (options.tap || options.diag) {
     console.log("%s %s %s", s, dots, n)
     if (details.ok) {
       if (details.skip) {
-        console.log("  skipped: %s", details.skipTotal)
+        console.log("  skipped: %s", details.skip)
       }
     } else {
       // console.error(details)
