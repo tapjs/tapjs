@@ -116,6 +116,9 @@ if (options.tap || options.diag) {
       if (details.skip) {
         console.log("  skipped: %s", details.skip)
       }
+      if (details.todo) {
+        console.log("  todo: %s", details.todo)
+      }
     } else {
       // console.error(details)
       console.log("    Command: %s", results.command)
