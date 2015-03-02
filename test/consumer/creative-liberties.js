@@ -1,0 +1,30 @@
+module.exports =
+[ [ 'version', '13' ],
+  [ 'result', { id: 0, ok: true, name: 'created Board' } ],
+  [ 'result', { id: 1, ok: true } ],
+  [ 'result', { id: 2, ok: true } ],
+  [ 'result', { id: 3, ok: true } ],
+  [ 'result', { id: 4, ok: true } ],
+  [ 'result', { id: 5, ok: true } ],
+  [ 'result', { id: 6, ok: true } ],
+  [ 'result',
+    { id: 7,
+      ok: true,
+      diag: 
+       { message: 'Board layout',
+         severity: 'comment',
+         dump: 
+          { board: 
+             [ '      16G         05C        ',
+               '      G N C       C C G      ',
+               '        G           C  +     ',
+               '10C   01G         03C        ',
+               'R N G G A G       C C C      ',
+               '  R     G           C  +     ',
+               '      01G   17C   00C        ',
+               '      G A G G N R R N R      ',
+               '        G     R     G        ' ] } } } ],
+  [ 'result',
+    { id: 8, ok: true, name: 'board has 7 tiles + starter tile' } ],
+  [ 'plan', 9 ],
+  [ 'complete', { plan: 9, count: 9, pass: 9, ok: true } ] ]

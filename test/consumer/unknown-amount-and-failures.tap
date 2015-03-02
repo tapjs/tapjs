@@ -1,0 +1,18 @@
+TAP version 13
+ok 1 - retrieving servers from the database
+# need to ping 6 servers
+ok 2 - pinged diamond
+ok 3 - pinged ruby
+not ok 4 - pinged saphire
+  ---
+  message: 'hostname "saphire" unknown'
+  severity: fail
+  ...
+ok 5 - pinged onyx
+not ok 6 - pinged quartz
+  ---
+  message: 'timeout'
+  severity: fail
+  ...
+ok 7 - pinged gold
+1..7
