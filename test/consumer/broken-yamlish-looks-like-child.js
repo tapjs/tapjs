@@ -1,0 +1,17 @@
+module.exports =
+[ [ 'plan', 3 ],
+  [ 'result', { id: 1, ok: true, name: 'callback happened' } ],
+  [ 'child',
+    [ [ 'result', { id: 0, ok: true, name: ':' } ],
+      [ 'child',
+        [ [ 'garbage', '- I wished for a bailout!\n' ],
+          [ 'garbage',
+            '- lots of other shapes here can look like valid tap\n' ],
+          [ 'complete', { plan: -1, count: 0, pass: 0, ok: false } ] ] ],
+      [ 'complete', { plan: -1, count: 1, pass: 1, ok: false } ] ] ],
+  [ 'child',
+    [ [ 'garbage', '...\n' ],
+      [ 'complete', { plan: -1, count: 0, pass: 0, ok: false } ] ] ],
+  [ 'result', { id: 2, ok: true, name: 'child test' } ],
+  [ 'result', { id: 3, ok: true, name: 'should come last' } ],
+  [ 'complete', { plan: 3, count: 3, pass: 3, ok: false } ] ]
