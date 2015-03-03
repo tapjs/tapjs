@@ -1,4 +1,4 @@
-module.exports =
+module.exports=
 [ [ 'version', '13' ],
   [ 'plan', 4 ],
   [ 'result', { id: 1, ok: true, name: 'Creating test program' } ],
@@ -7,14 +7,12 @@ module.exports =
   [ 'result',
     { id: 3,
       ok: true,
-      todo: true,
-      explanation: 'halting problem unsolved',
+      todo: 'halting problem unsolved',
       name: 'infinite loop' } ],
   [ 'result',
     { id: 4,
       ok: true,
-      todo: true,
-      explanation: 'halting problem unsolved',
+      todo: 'halting problem unsolved',
       name: 'infinite loop 2' } ],
   [ 'complete',
     { plan: 4, count: 4, pass: 4, ok: true, todo: 2 } ] ]

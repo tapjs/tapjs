@@ -1,4 +1,4 @@
-module.exports =
+module.exports=
 [ [ 'version', '13' ],
   [ 'plan', 2 ],
   [ 'comment', '# nesting\n' ],
@@ -13,11 +13,7 @@ module.exports =
       [ 'child',
         [ [ 'plan', 3 ],
           [ 'result',
-            { id: 0,
-              ok: true,
-              skip: true,
-              explanation: 'for no raisin',
-              name: 'granddaughter' } ],
+            { id: 0, ok: true, skip: 'for no raisin', name: 'granddaughter' } ],
           [ 'result',
             { id: 1,
               ok: true,
