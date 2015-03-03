@@ -1,6 +1,13 @@
+# node-tap
+
+A TAP test framework utility library for Node.js.
+
 This is a mix-and-match set of utilities that you can use to write test
 harnesses and frameworks that communicate with one another using the
 Test Anything Protocol.
+
+It is also a test runner for consuming TAP-generating test scripts,
+and a framework for writing such scripts.
 
 If you don't yet know what TAP is, [you better ask
 somebody](http://testanything.org/).
