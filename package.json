@@ -12,6 +12,7 @@
     "buffer-equal": "~0.0.0",
     "deep-equal": "^1.0.0",
     "difflet": "~0.2.0",
+    "events-to-array": "^1.0.1",
     "glob": "^4.3.5",
     "inherits": "*",
     "js-yaml": "^3.2.7",
@@ -36,7 +37,10 @@
   },
   "repository": "https://github.com/isaacs/node-tap.git",
   "scripts": {
-    "test": "node --use_strict bin/tap.js test/*.*"
+    "test": "node --use_strict bin/tap.js test/*.*",
+    "lint": "standard lib/*.js"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "standard": "^2.10.0"
+  }
 }
