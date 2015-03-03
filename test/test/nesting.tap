@@ -1,0 +1,23 @@
+TAP version 13
+# nesting
+    1..2
+    # first
+        1..2
+        ok 1 true is ok
+        ok 2 doag is also okay
+    ok 1 first
+    # second
+        ok 1 but that is ok
+        ok 2 this passes
+        1..2
+    ok 2 second
+ok 1 nesting
+ok 2 this passes
+not ok 3 this fails
+# async kid
+    1..2
+    ok 1 second timeout
+    ok 2 first timeout
+ok 4 async kid
+ok 5 pass after async kid
+1..5
