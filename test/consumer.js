@@ -3,7 +3,7 @@ var etoa = require('events-to-array')
 
 var ignore = [ 'pipe', 'unpipe', 'prefinish', 'finish' ]
 var glob = require('glob')
-var test = require('../').test
+var test = require('../lib/root.js').test
 var path = require('path')
 var fs = require('fs')
 
