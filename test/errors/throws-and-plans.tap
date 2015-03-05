@@ -1,0 +1,91 @@
+TAP version 13
+ok 1 
+# plans of 1
+    ok 1 before child
+    # sync thrower
+        1..1
+        ok 1 before the bomb
+    not ok 2 sync thrower
+    not ok 3 Error: pwnSync
+      ---
+      stack:
+        - "Error: pwnSync"
+      message: pwnSync
+      ...
+    # async thrower
+        1..1
+        ok 1 before set the bomb
+    not ok 4 async thrower
+    ok 5 after child
+    1..5
+not ok 2 plans of 1
+# no assert only throw
+    not ok 1 AssertionError: false is truthy right?
+      ---
+      name: AssertionError
+      actual: false
+      expected: true
+      operator: ==
+      message: false is truthy right?
+      generatedMessage: false
+      stack:
+        - "AssertionError: false is truthy right?"
+      ...
+    1..1
+not ok 3 no assert only throw
+# plans of 8
+    ok 1 before child
+    # sync thrower
+        1..8
+        ok 1 before the bomb
+        not ok 2 Error: pwnSync
+          ---
+          stack:
+            - "Error: pwnSync"
+          message: pwnSync
+          ...
+        not ok 3 missing test
+        not ok 4 missing test
+        not ok 5 missing test
+        not ok 6 missing test
+        not ok 7 missing test
+        not ok 8 missing test
+    not ok 2 sync thrower
+    # async thrower
+        1..8
+        ok 1 before set the bomb
+        ok 2 after set the bomb
+        ok 3 before the bomb
+        not ok 4 Error: pwn
+          ---
+          message: pwn
+          stack:
+            - "Error: pwn"
+          ...
+        not ok 5 missing test
+        not ok 6 missing test
+        not ok 7 missing test
+        not ok 8 missing test
+    not ok 3 async thrower
+    ok 4 after child
+    1..4
+not ok 4 plans of 8
+not ok 5 Error: test count exceeds plan
+  ---
+  count: 6
+  plan: 5
+  test: plans of 1 < ROOT
+  message: test count exceeds plan
+  stack:
+    - "Error: test count exceeds plan"
+  ...
+not ok 6 Error: test count exceeds plan
+  ---
+  count: 3
+  plan: 1
+  test: async thrower < plans of 1 < ROOT
+  message: test count exceeds plan
+  stack:
+    - "Error: test count exceeds plan"
+  ...
+1..6
