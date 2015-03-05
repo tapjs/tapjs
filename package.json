@@ -3,7 +3,10 @@
   "version": "0.7.1",
   "author": "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me)",
   "description": "A Test-Anything-Protocol library",
-  "bin": "bin/tap.js",
+  "bin": {
+    "tap": "bin/tap.js",
+    "tap-parse": "bin/parse.js"
+  },
   "main": "lib/main.js",
   "engines": {
     "node": ">=0.8"
@@ -13,7 +16,7 @@
     "deep-equal": "^1.0.0",
     "difflet": "~0.2.0",
     "events-to-array": "^1.0.1",
-    "glob": "^4.3.5",
+    "glob": "^4.4.1",
     "inherits": "*",
     "js-yaml": "^3.2.7",
     "mkdirp": "^0.5.0",
