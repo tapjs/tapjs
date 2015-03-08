@@ -6,6 +6,10 @@
 var t = require('../../lib/test.js')()
 t.pipe(process.stdout)
 
+process.on('exit', function () {
+  t.end()
+})
+
 t._name = 'ROOT'
 
 t.ok('true')
@@ -43,6 +47,8 @@ t.test('no assert only throw', function (t) {
   assert(false, 'false is truthy right?')
 })
 
+return
+
 t.test('plans of 8', function (t) {
   t.pass('before child')
 
@@ -69,9 +75,5 @@ t.test('plans of 8', function (t) {
     tt.pass('after set the bomb')
   })
   t.pass('after child')
-  t.end()
-})
-
-process.on('exit', function () {
   t.end()
 })

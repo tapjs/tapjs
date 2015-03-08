@@ -19,7 +19,6 @@ not ok 6 - this fails
     file: {{{/.*/}}}
     line: {{{/[0-9]+/}}}
     column: {{{/[0-9]+/}}}
-    type: Object
   stack:
 {{{STACK}}}
   ...

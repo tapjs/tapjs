@@ -1,0 +1,79 @@
+TAP version 13
+ok 1 - expect truthy value
+# plans of 1
+    ok 1 - before child
+    # sync thrower
+        1..1
+        ok 1 - before the bomb
+    not ok 4 - sync thrower
+      ---
+      at:
+        file: {{{/.*/}}}/throws-and-plans.js
+        line: 20
+        column: 5
+      ...
+    not ok 5 - Error: pwnSync
+      ---
+      stack:
+        - "{{{/.*/}}}:24:11"
+{{{STACK}}}
+      at:
+        file: {{{/.*/}}}/throws-and-plans.js
+        line: 24
+        column: 11
+      ...
+    # async thrower
+        1..1
+        ok 1 - before set the bomb
+    not ok 7 - async thrower
+      ---
+      at:
+        file: {{{/.*/}}}/throws-and-plans.js
+        line: 29
+        column: 5
+      ...
+    ok 8 - after child
+    1..8
+not ok 2 - plans of 1
+  ---
+  at:
+    file: {{{/.*/}}}/throws-and-plans.js
+    line: 17
+    column: 3
+  ...
+# no assert only throw
+    not ok 1 - AssertionError: false is truthy right?
+      ---
+      stack:
+        - "{{{/.*/}}}/throws-and-plans.js:47:3"
+{{{STACK}}}
+      at:
+        file: {{{/.*/}}}/throws-and-plans.js
+        line: 47
+        column: 3
+      name: AssertionError
+      actual: false
+      expected: true
+      operator: ==
+      generatedMessage: false
+      ...
+    1..1
+not ok 3 - no assert only throw
+  ---
+  at:
+    file: {{{/.*/}}}/throws-and-plans.js
+    line: 44
+    column: 3
+  ...
+not ok 4 - Error: pwn
+  ---
+  stack:
+    - "null._onTimeout ({{{/.*/}}}/throws-and-plans.js:34:13)"
+{{{STACK}}}
+  at:
+    file: {{{/.*/}}}/throws-and-plans.js
+    line: 34
+    column: 13
+    function: null._onTimeout
+  ...
+1..4
