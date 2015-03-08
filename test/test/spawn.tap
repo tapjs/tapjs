@@ -1,0 +1,181 @@
+TAP version 13
+# {{{/.*(iojs|node) .*/}}}/spawn.js child
+    TAP version 13
+    # nesting
+        1..2
+        # first
+            1..2
+            ok 1 - true is ok
+            ok 2 - doag is also okay
+        ok 1 - first
+        # second
+            ok 1 - but that is ok
+            ok 2 - this passes
+            not ok 3 - nested failure
+              ---
+              found: 1
+              wanted: "1"
+              compare: ===
+              at:
+                file: {{{/.*/}}}/spawn.js
+                line: 22
+                column: 10
+                function: foo
+              stack:
+                - "foo ({{{/.*/}}}/spawn.js:22:10)"
+                - "bar ({{{/.*/}}}/spawn.js:26:14)"
+                - "baz ({{{/.*/}}}/spawn.js:29:14)"
+                - "{{{/.*/}}}/spawn.js:31:5"
+{{{STACK}}}
+              ...
+            1..3
+        not ok 2 - second
+          ---
+          at:
+            file: {{{/.*/}}}/spawn.js
+            line: 18
+            column: 5
+          ...
+    not ok 4 - nesting
+      ---
+      at:
+        file: {{{/.*/}}}/spawn.js
+        line: 11
+        column: 3
+      ...
+    ok 5 - this passes
+    not ok 6 - this fails
+      ---
+      at:
+        file: {{{/.*/}}}/spawn.js
+        line: 36
+        column: 3
+      stack:
+        - "Object.<anonymous> ({{{/.*/}}}/spawn.js:36:3)"
+{{{STACK}}}
+      ...
+    # async kid
+        1..2
+        ok 1 - second timeout
+        not ok 2 - first timeout
+          ---
+          foo: blz
+          at:
+            file: {{{/.*/}}}/spawn.js
+            line: 41
+            column: 7
+            method: _onTimeout
+          stack:
+            - "null._onTimeout ({{{/.*/}}}/spawn.js:41:7)"
+{{{STACK}}}
+          ...
+    not ok 7 - async kid
+      ---
+      at:
+        file: {{{/.*/}}}/spawn.js
+        line: 38
+        column: 3
+      ...
+    ok 8 - pass after async kid
+    1..8
+not ok 4 - {{{/.*(iojs|node) .*/}}}/spawn.js child
+  ---
+  at:
+    file: {{{/.*/}}}/spawn.js
+    line: 8
+    column: 5
+  command: {{{/.*(iojs|node)/}}}
+  arguments:
+    - {{{/.*/}}}/spawn.js
+    - child
+  options: {}
+  results:
+    plan: 8
+    count: 5
+    pass: 2
+    ok: false
+    fail: 3
+  ...
+# nesting
+    1..2
+    # first
+        1..2
+        ok 1 - true is ok
+        ok 2 - doag is also okay
+    ok 1 - first
+    # second
+        ok 1 - but that is ok
+        ok 2 - this passes
+        not ok 3 - nested failure
+          ---
+          found: 1
+          wanted: "1"
+          compare: ===
+          at:
+            file: {{{/.*/}}}/spawn.js
+            line: 22
+            column: 10
+            function: foo
+          stack:
+            - "foo ({{{/.*/}}}/spawn.js:22:10)"
+            - "bar ({{{/.*/}}}/spawn.js:26:14)"
+            - "baz ({{{/.*/}}}/spawn.js:29:14)"
+            - "{{{/.*/}}}/spawn.js:31:5"
+{{{STACK}}}
+          ...
+        1..3
+    not ok 2 - second
+      ---
+      at:
+        file: {{{/.*/}}}/spawn.js
+        line: 18
+        column: 5
+      ...
+not ok 5 - nesting
+  ---
+  at:
+    file: {{{/.*/}}}/spawn.js
+    line: 11
+    column: 3
+  ...
+ok 6 - this passes
+not ok 7 - this fails
+  ---
+  at:
+    file: {{{/.*/}}}/spawn.js
+    line: 36
+    column: 3
+  stack:
+    - "Object.<anonymous> ({{{/.*/}}}/spawn.js:36:3)"
+    - "Module._compile (module.js:444:26)"
+    - "Object.Module._extensions..js (module.js:462:10)"
+    - "Module.load (module.js:339:32)"
+    - "Function.Module._load (module.js:294:12)"
+    - "Function.Module.runMain (module.js:485:10)"
+    - "startup (node.js:112:16)"
+    - "node.js:863:3"
+  ...
+# async kid
+    1..2
+    ok 1 - second timeout
+    not ok 2 - first timeout
+      ---
+      foo: blz
+      at:
+        file: {{{/.*/}}}/spawn.js
+        line: 41
+        column: 7
+        method: _onTimeout
+      stack:
+        - "null._onTimeout ({{{/.*/}}}/spawn.js:41:7)"
+        - "Timer.listOnTimeout (timers.js:88:15)"
+      ...
+not ok 8 - async kid
+  ---
+  at:
+    file: {{{/.*/}}}/spawn.js
+    line: 38
+    column: 3
+  ...
+ok 9 - pass after async kid
+1..9
