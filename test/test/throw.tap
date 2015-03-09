@@ -10,20 +10,20 @@ TAP version 13
         not ok 1 - Error: THINK FAST! and also lines so many
           ---
           stack:
-            - "null._onTimeout ({{{/.*/}}}/throw.js:12:16)"
 {{{STACK}}}
           at:
-            file: {{{/.*/}}}/throw.js
+            file: {{{/.*/}}}throw.js
             line: 12
             column: 16
             function: null._onTimeout
           jerk: true
           ...
         1..1
+        # failed 1 of 1 tests
     not ok 2 - async thrower
       ---
       at:
-        file: {{{/.*/}}}/throw.js
+        file: {{{/.*/}}}throw.js
         line: 10
         column: 5
       ...
@@ -31,26 +31,27 @@ TAP version 13
         not ok 1 - Error: here hold this for a second
           ---
           stack:
-            - "{{{/.*/}}}/throw.js:18:14"
 {{{STACK}}}
           at:
-            file: {{{/.*/}}}/throw.js
+            file: {{{/.*/}}}throw.js
             line: 18
             column: 14
           syscall: ring ring
           ...
         1..1
+        # failed 1 of 1 tests
     not ok 3 - thrower
       ---
       at:
-        file: {{{/.*/}}}/throw.js
+        file: {{{/.*/}}}throw.js
         line: 17
         column: 5
       ...
+    # failed 2 of 3 tests
 not ok 4 - nesting
   ---
   at:
-    file: {{{/.*/}}}/throw.js
+    file: {{{/.*/}}}throw.js
     line: 3
     column: 3
   ...
@@ -58,11 +59,10 @@ ok 5 - this passes
 not ok 6 - this fails
   ---
   at:
-    file: {{{/.*/}}}/throw.js
+    file: {{{/.*/}}}throw.js
     line: 25
     column: 3
   stack:
-    - "Object.<anonymous> ({{{/.*/}}}/throw.js:25:3)"
 {{{STACK}}}
   ...
 # async kid
