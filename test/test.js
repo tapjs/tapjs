@@ -63,7 +63,6 @@ function runTest (file) {
           continue
         } else {
           var wmatch = wline.match(/\{\{\{\/(.*?)\/\}\}\}/)
-          var ok
           if (wmatch) {
             t.match(fline, new RegExp(
               regEsc(wline.slice(0, wmatch.index)) +
@@ -73,6 +72,8 @@ function runTest (file) {
           } else {
             t.equal(fline, wline, 'line ' + f + ' ' + wline)
           }
+          if (!t.passing())
+            return t.end()
         }
       }
       t.end()
