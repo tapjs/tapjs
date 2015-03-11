@@ -1,0 +1,6 @@
+TAP version 13
+1..4
+ok 1 - Creating test program
+ok 2 - Test program runs, no error
+not ok 3 - infinite loop # TODO halting problem unsolved
+not ok 4 - infinite loop 2 # TODO halting problem unsolved

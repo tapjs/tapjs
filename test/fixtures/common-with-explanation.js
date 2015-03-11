@@ -1,0 +1,17 @@
+module.exports =
+[ [ 'version', '13' ],
+  [ 'plan', { start: 1, end: 6 } ],
+  [ 'comment', '#\n' ],
+  [ 'comment', '# Create a new Board and Tile, then place\n' ],
+  [ 'comment', '# the Tile onto the board.\n' ],
+  [ 'comment', '#\n' ],
+  [ 'assert', { ok: true, id: 1, name: 'The object isa Board' } ],
+  [ 'assert', { ok: true, id: 2, name: 'Board size is zero' } ],
+  [ 'assert', { ok: true, id: 3, name: 'The object isa Tile' } ],
+  [ 'assert',
+    { ok: true, id: 4, name: 'Get possible places to put the Tile' } ],
+  [ 'assert',
+    { ok: true, id: 5, name: 'Placing the tile produces no error' } ],
+  [ 'assert', { ok: true, id: 6, name: 'Board size is 1' } ],
+  [ 'complete',
+    { ok: true, count: 6, pass: 6, plan: { start: 1, end: 6 } } ] ]

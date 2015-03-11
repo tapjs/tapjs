@@ -1,0 +1,13 @@
+TAP version 13
+# beep
+ok should be equal
+ok should be equivalent
+# boop
+ok should be equal
+ok (unnamed assert)
+
+1..4
+# tests 4
+# pass  4
+
+# ok

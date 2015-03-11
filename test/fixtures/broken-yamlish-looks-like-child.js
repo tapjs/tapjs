@@ -1,0 +1,18 @@
+module.exports =
+[ [ 'plan', { start: 1, end: 3 } ],
+  [ 'assert', { ok: true, id: 1, name: 'callback happened' } ],
+  [ 'child',
+    [ [ 'assert', { ok: true, id: 1, name: ':' } ],
+      [ 'child',
+        [ [ 'extra', '- I wished for a bailout!\n' ],
+          [ 'extra',
+            '- lots of other shapes here can look like valid tap\n' ],
+          [ 'complete', { ok: false, count: 0, pass: 0 } ] ] ],
+      [ 'complete', { ok: false, count: 1, pass: 1 } ] ] ],
+  [ 'child',
+    [ [ 'extra', '...\n' ],
+      [ 'complete', { ok: false, count: 0, pass: 0 } ] ] ],
+  [ 'assert', { ok: true, id: 2, name: 'child test' } ],
+  [ 'assert', { ok: true, id: 3, name: 'should come last' } ],
+  [ 'complete',
+    { ok: false, count: 3, pass: 3, plan: { start: 1, end: 3 } } ] ]

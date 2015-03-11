@@ -1,0 +1,9 @@
+# TAP emitted by Test::More 0.98
+ok 1 - should be equal
+not ok 2 - should be equivalent # TODO but we will fix it later
+# boop
+ok 3 - should be equal
+ok 4 - (unnamed assert)
+
+1..4
+# Looks like you failed 1 test of 4.

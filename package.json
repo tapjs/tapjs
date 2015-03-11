@@ -7,13 +7,16 @@
     "tap-parser": "bin/cmd.js"
   },
   "dependencies": {
+    "events-to-array": "^1.0.1",
     "inherits": "~2.0.1",
+    "js-yaml": "^3.2.7",
     "minimist": "^0.2.0",
     "readable-stream": "~1.1.11"
   },
   "devDependencies": {
-    "tape": "~2.3.2",
-    "tap": "~0.4.6"
+    "glob": "^5.0.2",
+    "tap": "~0.4.6",
+    "tape": "^3.5.0"
   },
   "scripts": {
     "test": "tap test/*.js"
