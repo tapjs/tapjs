@@ -40,21 +40,7 @@ parse the output:
 
 ```
 $ node test.js | node parse.js
-{ ok: true,
-  asserts: 
-   [ { ok: true, number: 1, name: 'should be equal' },
-     { ok: true, number: 2, name: 'should be equivalent' },
-     { ok: true, number: 3, name: 'should be equal' },
-     { ok: true, number: 4, name: '(unnamed assert)' } ],
-  pass: 
-   [ { ok: true, number: 1, name: 'should be equal' },
-     { ok: true, number: 2, name: 'should be equivalent' },
-     { ok: true, number: 3, name: 'should be equal' },
-     { ok: true, number: 4, name: '(unnamed assert)' } ],
-  fail: [],
-  todo: [],
-  errors: [],
-  plan: { start: 1, end: 4 } }
+{ ok: true, count: 4, pass: 4, plan: { start: 1, end: 4 } }
 ```
 
 # usage
@@ -62,21 +48,18 @@ $ node test.js | node parse.js
 This package also has a `tap-parser` command.
 
 ```
-usage: tap-parser OPTIONS
+Usage:
+  tap-parser [-j [<indent>] | --json[=indent]]
 
-  Parse TAP from INPUT. If there are any failures, exits with
-  a non-zero status code.
+Parses TAP data from stdin, and outputs an object representing
+the data found in the TAP stream to stdout.
 
-OPTIONS are:
+If there are any failures in the TAP stream, then exits with a
+non-zero status code.
 
-  -i, --input    Read from INPUT. Default: stdin.
-  -o, --output   Write to OUTPUT. Default: stdout.
-  -r, --results  Print results as json. Otherwise pass INPUT
-                 through to OUTPUT.
-
-  -h, --help     Show this help message.
-  -v, --version  Print the current version of tap-parser.
-
+Data is output by default using node's `util.format()` method, but
+JSON can be specified using the `-j` or `--json` flag with a number
+of spaces to use as the indent (default=2).
 ```
 
 # methods
@@ -89,14 +72,16 @@ var parser = require('tap-parser')
 
 Return a writable stream `p` that emits parse events.
 
-If `cb` is given it will listen for the `'results'` event.
+If `cb` is given it will listen for the `'complete'` event.
 
 # events
 
-## p.on('results', function (results) {})
+## p.on('complete', function (results) {})
 
-`results.errors` is an array containing any parse errors, such as out of order
-assertions or missing plans.
+The `results` object contains a summary of the number of tests
+skipped, failed, passed, etc., as well as a boolean `ok` member which
+is true if and only if the planned test were all found, and either
+"ok" or marked as "TODO".
 
 ## p.on('assert', function (assert) {})
 
@@ -105,16 +90,17 @@ Every `/^(not )?ok\b/` line will emit an `'assert'` event.
 Every `assert` object has these keys:
 
 * `assert.ok` - true if the assertion succeeded, false if failed
-* `assert.number` - the assertion number
+* `assert.id` - the assertion number
 * `assert.name` - optional short description of the assertion
 
 and may also have
 
 * `assert.todo` - optional description of why the assertion failure is
-  not a problem.
-
-When `results` are returned, each `assert` object will have been
-appended to the list `asserts` and one of (`pass`, `fail`, `todo`).
+  not a problem.  (Boolean `true` if no explaination provided)
+* `assert.skip` - optional description of why this assertion was
+  skipped (boolean `true` if no explanation provided)
+* `assert.diag` - a diagnostic object with additional information
+  about the test point.
 
 ## p.on('comment', function (comment) {})
 
@@ -125,25 +111,49 @@ Every `/^# (.+)/` line will emit the string contents of `comment`.
 Every `/^\d+\.\.\d+/` line emits a `'plan'` event for the test numbers
 `plan.start` through `plan.end`, inclusive.
 
-If the test is [completely skipped](http://podwiki.hexten.net/TAP/TAP.html?page=TAP#Skippingeverything) the result will look like
+If the test is [completely
+skipped](http://podwiki.hexten.net/TAP/TAP.html?page=TAP#Skippingeverything)
+the result will look like
 
 ```
 { ok: true,
-  asserts: [],
-  pass: [],
-  fail: [],
-  errors: [],
-  plan: 
+  count: 0,
+  pass: 0,
+  plan:
    { start: 1,
      end: 0,
-     skip_all: true,
-     skip_reason: 'This code has no seat belt' } }
+     skipAll: true,
+     skipReason: 'This code has no seat belt' } }
 ```
 
 ## p.on('version', function (version) {})
 
-A `/^TAP version (\d+)/` line emits a `'version'` event with a version number or
-string.
+A `/^TAP version (\d+)/` line emits a `'version'` event with a version
+number or string.
+
+## p.on('child', function (childParser) {})
+
+If a child test set is embedded in the stream like this:
+
+```
+TAP Version 13
+1..2
+# nesting
+    1..2
+    ok 1 - true is ok
+    ok 2 - doag is also okay
+ok 1 - nesting
+ok 2 - second
+```
+
+then the child stream will be parsed and events will be raised on the
+`childParser` object.
+
+Since TAP streams with child tests *should* follow child test sets
+with a pass or fail assert based on the child test's results, failing
+to handle child tests should always result in the same end result.
+However, additional information from those child tests will obviously
+be lost.
 
 ## p.on('extra', function (extra) {})
 

@@ -23,10 +23,13 @@ args.forEach(function (arg, i) {
 function usage () {
   console.log(function () {/*
 Usage:
-  tap-parse [-j [<indent>] | --json[=indent]]
+  tap-parser [-j [<indent>] | --json[=indent]]
 
 Parses TAP data from stdin, and outputs an object representing
 the data found in the TAP stream to stdout.
+
+If there are any failures in the TAP stream, then exits with a
+non-zero status code.
 
 Data is output by default using node's `util.format()` method, but
 JSON can be specified using the `-j` or `--json` flag with a number
@@ -52,4 +55,6 @@ var events = etoa(parser, [ 'pipe', 'unpipe', 'prefinish', 'finish' ])
 process.stdin.pipe(parser)
 process.on('exit', function () {
   console.log(format(events))
+  if (!parser.ok)
+    process.exit(1)
 })

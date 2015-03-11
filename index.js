@@ -94,6 +94,7 @@ function Parser (options, onComplete) {
   this.bailedOut = false
   this.planStart = -1
   this.planEnd = -1
+  this.planComment = ''
   this.yamlish = ''
   this.yind = ''
   this.child = null
@@ -182,15 +183,20 @@ Parser.prototype.end = function (chunk, encoding, cb) {
 
   this.emitResult()
 
-  if (this.count !== (this.planEnd - this.planStart + 1))
+  var skipAll
+
+  if (this.planEnd === 0 && this.planStart === 1) {
+    this.ok = true
+    skipAll = true
+  } else if (this.count !== (this.planEnd - this.planStart + 1))
     this.ok = false
 
 
-  if (this.ok && this.first !== this.planStart)
+  if (this.ok && !skipAll && this.first !== this.planStart)
     this.ok = false
 
 
-  if (this.ok && this.last !== this.planEnd)
+  if (this.ok && !skipAll && this.last !== this.planEnd)
     this.ok = false
 
   var final = {
@@ -211,8 +217,14 @@ Parser.prototype.end = function (chunk, encoding, cb) {
   if (this.skip)
     final.skip = this.skip
 
-  if (this.planStart !== -1)
+  if (this.planStart !== -1) {
     final.plan = { start: this.planStart, end: this.planEnd }
+    if (skipAll) {
+      final.plan.skipAll = true
+      if (this.planComment)
+        final.plan.skipReason = this.planComment
+    }
+  }
 
   this.emit('complete', final)
 
@@ -381,7 +393,7 @@ Parser.prototype._parse = function (line) {
 
   this.emitResult()
 
-  var plan = line.match(/^([0-9]+)\.\.([0-9]+)(?:\s+(#.*))?\n$/)
+  var plan = line.match(/^([0-9]+)\.\.([0-9]+)(?:\s+(?:#\s*(.*)))?\n$/)
   if (plan) {
     if (this.planStart !== -1) {
       // this is not valid tap, just garbage
@@ -394,9 +406,11 @@ Parser.prototype._parse = function (line) {
     var comment = plan[3]
     this.planStart = start
     this.planEnd = end
-    this.emit('plan', { start: this.planStart, end: this.planEnd })
+    var p = { start: start, end: end }
     if (comment)
-      this.emit('comment', comment + '\n')
+      this.planComment = p.comment = comment
+
+    this.emit('plan', p)
 
     // This means that the plan is coming at the END of all the tests
     // Plans MUST be either at the beginning or the very end.  We treat
