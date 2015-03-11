@@ -5,14 +5,14 @@ ok 1 - expect truthy value
     # sync thrower
         1..1
         ok 1 - before the bomb
-    not ok 4 - sync thrower
+    not ok 2 - sync thrower
       ---
       at:
         file: {{{/.*/}}}throws-and-plans.js
         line: 20
         column: 5
       ...
-    not ok 5 - Error: pwnSync
+    not ok 3 - Error: pwnSync
       ---
       stack:
 {{{STACK}}}
@@ -24,16 +24,16 @@ ok 1 - expect truthy value
     # async thrower
         1..1
         ok 1 - before set the bomb
-    not ok 7 - async thrower
+    not ok 4 - async thrower
       ---
       at:
         file: {{{/.*/}}}throws-and-plans.js
         line: 29
         column: 5
       ...
-    ok 8 - after child
-    1..8
-    # failed 5 of 8 tests
+    ok 5 - after child
+    1..5
+    # failed 5 of 5 tests
 not ok 2 - plans of 1
   ---
   at:

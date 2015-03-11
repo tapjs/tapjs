@@ -32,15 +32,15 @@ TAP version 13
         column: 5
       ...
     # failed 1 of 2 tests
-not ok 4 - nesting
+not ok 1 - nesting
   ---
   at:
     file: {{{/.*/}}}nesting.js
     line: 3
     column: 3
   ...
-ok 5 - this passes
-not ok 6 - this fails
+ok 2 - this passes
+not ok 3 - this fails
   ---
   at:
     file: {{{/.*/}}}nesting.js
@@ -64,13 +64,13 @@ not ok 6 - this fails
 {{{STACK}}}
       ...
     # failed 1 of 2 tests
-not ok 7 - async kid
+not ok 4 - async kid
   ---
   at:
     file: {{{/.*/}}}nesting.js
     line: 30
     column: 3
   ...
-ok 8 - pass after async kid
-1..8
-# failed 4 of 8 tests
+ok 5 - pass after async kid
+1..5
+# failed 4 of 5 tests

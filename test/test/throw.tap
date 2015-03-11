@@ -48,15 +48,15 @@ TAP version 13
         column: 5
       ...
     # failed 2 of 3 tests
-not ok 4 - nesting
+not ok 1 - nesting
   ---
   at:
     file: {{{/.*/}}}throw.js
     line: 3
     column: 3
   ...
-ok 5 - this passes
-not ok 6 - this fails
+ok 2 - this passes
+not ok 3 - this fails
   ---
   at:
     file: {{{/.*/}}}throw.js
