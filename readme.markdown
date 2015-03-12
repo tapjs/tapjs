@@ -131,6 +131,11 @@ the result will look like
 A `/^TAP version (\d+)/` line emits a `'version'` event with a version
 number or string.
 
+## p.on('bailout', function (reason) {})
+
+A `bail out!` line will cause the parser to completely stop doing
+anything.  Child parser bailouts will bail out their parents as well.
+
 ## p.on('child', function (childParser) {})
 
 If a child test set is embedded in the stream like this:
