@@ -4,8 +4,7 @@
   "author": "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me)",
   "description": "A Test-Anything-Protocol library",
   "bin": {
-    "tap": "bin/tap.js",
-    "tap-parse": "bin/parse.js"
+    "tap": "bin/tap.js"
   },
   "main": "lib/main.js",
   "engines": {
@@ -23,6 +22,7 @@
     "nopt": "^3.0.1",
     "runforcover": "~0.0.2",
     "slide": "*",
+    "tap-parser": "^1.0.0",
     "yamlish": "*"
   },
   "keywords": [
