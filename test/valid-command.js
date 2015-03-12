@@ -2,6 +2,7 @@ var test = require('../').test
 var Runner = require('../lib/tap-runner.js')
 var TC = require('../lib/tap-consumer.js')
 
+process.chdir(__dirname)
 test('valid command', function (t) {
   var r = new Runner({argv:{remain:['./end-exception/t.js']}})
   var tc = new TC()
