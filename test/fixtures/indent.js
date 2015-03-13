@@ -25,7 +25,7 @@ module.exports =
           [ 'assert',
             { ok: false, id: 3, todo: true, name: 'grandchild' } ],
           [ 'complete',
-            { ok: false,
+            { ok: true,
               count: 3,
               pass: 1,
               fail: 2,
@@ -35,7 +35,7 @@ module.exports =
       [ 'assert', { ok: true, id: 2, name: 'this passes' } ],
       [ 'plan', { start: 1, end: 2 } ],
       [ 'complete',
-        { ok: false, count: 2, pass: 2, plan: { start: 1, end: 2 } } ] ] ],
+        { ok: true, count: 2, pass: 2, plan: { start: 1, end: 2 } } ] ] ],
   [ 'assert', { ok: true, id: 2, name: 'second' } ],
   [ 'complete',
-    { ok: false, count: 2, pass: 2, plan: { start: 1, end: 2 } } ] ]
+    { ok: true, count: 2, pass: 2, plan: { start: 1, end: 2 } } ] ]

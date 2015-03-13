@@ -257,7 +257,7 @@ Parser.prototype.emitResult = function () {
     this.pass++
   } else {
     this.fail++
-    if (!res.todo)
+    if (!res.todo && !res.skip)
       this.ok = false
   }
 
