@@ -82,6 +82,14 @@ not ok 1 - {{{/.*(node|iojs).*/}}}spawn.js child
     file: {{{/.*/}}}spawn.js
     line: 8
     column: 5
+  results:
+    ok: false
+    count: 5
+    pass: 2
+    fail: 3
+    plan:
+      start: 1
+      end: 5
   command: {{{/.*(node|iojs)/}}}
   arguments:
     - {{{/.*/}}}spawn.js
