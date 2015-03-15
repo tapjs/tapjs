@@ -7,4 +7,4 @@ module.exports =
       id: 1,
       name: 'found some spare flux in bottom drawer' } ],
   [ 'complete',
-    { ok: false, count: 1, pass: 1, plan: { start: 1, end: 1 } } ] ]
+    { ok: true, count: 1, pass: 1, plan: { start: 1, end: 1 } } ] ]

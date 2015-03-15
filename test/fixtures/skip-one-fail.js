@@ -1,0 +1,15 @@
+module.exports =
+[ [ 'version', '13' ],
+  [ 'assert',
+    { ok: false,
+      id: 1,
+      skip: true,
+      name: 'does not count as failure' } ],
+  [ 'plan', { start: 1, end: 1 } ],
+  [ 'complete',
+    { ok: true,
+      count: 1,
+      pass: 0,
+      fail: 1,
+      skip: 1,
+      plan: { start: 1, end: 1 } } ] ]

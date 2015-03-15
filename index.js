@@ -432,7 +432,7 @@ Parser.prototype._parse = function (line) {
   if (res.id) {
     if (!this.first || res.id < this.first)
       this.first = res.id
-    else if (!this.last || res.id > this.last)
+    if (!this.last || res.id > this.last)
       this.last = res.id
   }
 
