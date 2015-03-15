@@ -1,5 +1,5 @@
 TAP version 13
-# {{{/.*(node|iojs).*/}}}spawn.js child
+    # Subtest: {{{/.*/}}}spawn.js child
     TAP version 13
         # Subtest: nesting
         1..2
@@ -76,7 +76,7 @@ TAP version 13
     ok 5 - pass after async kid
     1..5
     # failed 4 of 5 tests
-not ok 1 - {{{/.*(node|iojs).*/}}}spawn.js child
+not ok 1 - {{{/.*/}}}spawn.js child
   ---
   at:
     file: {{{/.*/}}}spawn.js
