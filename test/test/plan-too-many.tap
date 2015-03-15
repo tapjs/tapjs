@@ -17,7 +17,7 @@ TAP version 13
     not ok 3 - grandchild
       ---
       at:
-        file: /Users/isaacs/dev/js/tap/test/test/plan-too-many.js
+        file: {{{/.*/}}}plan-too-many.js
         line: 7
         column: 5
       ...
@@ -31,7 +31,7 @@ TAP version 13
 not ok 1 - children plan too big
   ---
   at:
-    file: /Users/isaacs/dev/js/tap/test/test/plan-too-many.js
+    file: {{{/.*/}}}plan-too-many.js
     line: 3
     column: 3
   ...

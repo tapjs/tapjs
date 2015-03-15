@@ -41,9 +41,6 @@ function runTest (file) {
       found += c
     })
     child.on('close', function (er) {
-      if (er)
-        throw er
-
       found = found.split('\n')
       // walk line by line so {{{STACK}}} can be handled
       // otherwise making any changes in this lib would hurt
