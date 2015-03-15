@@ -301,8 +301,9 @@ Parser.prototype._parse = function (line) {
   if (this.bailedOut)
     return
 
-  // comment
-  if (line.match(/^\s*#/)) {
+  // comment, but let "# Subtest:" comments start a child
+  var c = line.match(/^(\s+)?#(.*)/)
+  if (c && !(c[1] && /^ Subtest: /.test(c[2]))) {
     this.emit('comment', line)
     return
   }
