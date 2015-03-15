@@ -116,8 +116,32 @@ test('notSame is deep inequivalence', function (t) {
   t.end()
 })
 
-test('strictSame is deep strict equality')
-test('strictNotSame is deep strict inequality')
+test('strictSame is deep strict equality', function (t) {
+  var tt = new Test()
+  t.strictSame({ x: 1 }, { x: 1 })
+  t.notOk(tt.strictSame({ x: '1' }, { x: 1 }))
+  t.not_ok(tt.strict_same([1, 2], '1,2'))
+  t.not_ok(tt.strict_same({ x: 1, y: 2 }, { x: 1 }))
+  t.not_ok(tt.strict_same({ x: 1 }, { x: 1, y: 2 }))
+  t.not_ok(tt.strict_same([1, 2], ['1', '2']))
+  t.notOk(tt.strict_same([1, '2'], ['1', 2]))
+  t.strictSame([1, 2], [1, 2])
+  t.end()
+})
+
+test('strictNotSame is deep strict inequality', function (t) {
+  var tt = new Test()
+  t.notOk(tt.notStrictSame({ x: 1 }, { x: 1 }))
+  t.notStrictSame({ x: '1' }, { x: 1 })
+  t.not_strict_same([1, 2], '1,2')
+  t.not_strict_same({ x: 1, y: 2 }, { x: 1 })
+  t.not_strict_same({ x: 1 }, { x: 1, y: 2 })
+  t.not_strict_same([1, 2], ['1', '2'])
+  t.not_strict_same([1, '2'], ['1', 2])
+  t.notOk(tt.not_strict_same([1, 2], [1, 2]))
+  t.end()
+})
+
 test('match is pattern matching', function (t) {
   var tt = new Test()
   t.match('asdf', /sd./)
