@@ -1,11 +1,11 @@
 TAP version 13
-# a set of tests to be done later
+    # Subtest: a set of tests to be done later
     ok 1 - should have a thingie # TODO
     ok 2 - should have a second whoosits also # TODO
-    # the subset
+        # Subtest: the subset
         ok 1 - should be a child thingie # TODO
         ok 2 - should also be a whoosits # TODO
-        # has some of these things
+            # Subtest: has some of these things
             ok 1 - true is truthy
             ok 2 - ten is also truthy
             1..2
@@ -14,7 +14,7 @@ TAP version 13
     ok 3 - the subset
     1..3
 ok 1 - a set of tests to be done later
-# another set of tests
+    # Subtest: another set of tests
     ok 1 - is a second set # TODO
     ok 2 - looks like english # TODO
     ok 3 - is marked TODO # TODO

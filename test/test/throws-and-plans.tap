@@ -1,8 +1,8 @@
 TAP version 13
 ok 1 - expect truthy value
-# plans of 1
+    # Subtest: plans of 1
     ok 1 - before child
-    # sync thrower
+        # Subtest: sync thrower
         1..1
         ok 1 - before the bomb
     not ok 2 - sync thrower
@@ -21,7 +21,7 @@ ok 1 - expect truthy value
         line: 24
         column: 11
       ...
-    # async thrower
+        # Subtest: async thrower
         1..1
         ok 1 - before set the bomb
     not ok 4 - async thrower
@@ -41,7 +41,7 @@ not ok 2 - plans of 1
     line: 17
     column: 3
   ...
-# no assert only throw
+    # Subtest: no assert only throw
     not ok 1 - AssertionError: false is truthy right?
       ---
       stack:

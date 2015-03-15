@@ -1,12 +1,12 @@
 TAP version 13
-# nesting
+    # Subtest: nesting
     1..2
-    # first
+        # Subtest: first
         1..2
         ok 1 - true is ok
         ok 2 - doag is also okay
     ok 1 - first
-    # second
+        # Subtest: second
         ok 1 - but that is ok
         ok 2 - this passes
         ok 3 - nested ok
@@ -15,7 +15,7 @@ TAP version 13
 ok 1 - nesting
 ok 2 - this passes
 ok 3 - this passes too
-# async kid
+    # Subtest: async kid
     1..2
     ok 1 - second timeout
     ok 2 - first timeout
