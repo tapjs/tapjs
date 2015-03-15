@@ -1,0 +1,39 @@
+TAP version 13
+    # Subtest: children plan too big
+    1..9
+    ok 1 - this is ok
+    ok 2 - i am ok with how this is proceeding
+        # Subtest: grandchild
+        1..8
+        ok 1 - i am planning big things
+        not ok 2 - missing test
+        not ok 3 - missing test
+        not ok 4 - missing test
+        not ok 5 - missing test
+        not ok 6 - missing test
+        not ok 7 - missing test
+        not ok 8 - missing test
+        # failed 7 of 8 tests
+    not ok 3 - grandchild
+      ---
+      at:
+        file: /Users/isaacs/dev/js/tap/test/test/plan-too-many.js
+        line: 7
+        column: 5
+      ...
+    not ok 4 - missing test
+    not ok 5 - missing test
+    not ok 6 - missing test
+    not ok 7 - missing test
+    not ok 8 - missing test
+    not ok 9 - missing test
+    # failed 7 of 9 tests
+not ok 1 - children plan too big
+  ---
+  at:
+    file: /Users/isaacs/dev/js/tap/test/test/plan-too-many.js
+    line: 3
+    column: 3
+  ...
+1..1
+# failed 1 of 1 tests
