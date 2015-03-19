@@ -67,7 +67,7 @@ function runTest (file) {
               regEsc(wline.slice(wmatch.index + wmatch[0].length))
             ), 'line ' + f + ' ' + wline)
           } else {
-            t.equal(fline, wline, 'line ' + f + ' ' + wline)
+            t.equal(fline, wline, 'line ' + f + ' ' + wline.replace(/# (todo|skip)/gi, '- $1'))
           }
           if (!t.passing())
             return t.end()
