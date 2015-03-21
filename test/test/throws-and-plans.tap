@@ -11,6 +11,12 @@ ok 1 - expect truthy value
         file: {{{/.*/}}}throws-and-plans.js
         line: 20
         column: 5
+      results:
+        plan: 1
+        count: 1
+        pass: 1
+        ok: true
+        {{{/time: [0-9.]+(ms)?/}}}
       ...
     not ok 3 - Error: pwnSync
       ---
@@ -30,16 +36,29 @@ ok 1 - expect truthy value
         file: {{{/.*/}}}throws-and-plans.js
         line: 29
         column: 5
+      results:
+        plan: 1
+        count: 1
+        pass: 1
+        ok: true
+        {{{/time: [0-9.]+(ms)?/}}}
       ...
     ok 5 - after child
     1..5
-    # failed 5 of 5 tests
+    # failed 3 of 5 tests
 not ok 2 - plans of 1
   ---
   at:
     file: {{{/.*/}}}throws-and-plans.js
     line: 17
     column: 3
+  results:
+    plan: 5
+    count: 5
+    pass: 2
+    ok: false
+    fail: 3
+    {{{/time: [0-9.]+(ms)?/}}}
   ...
     # Subtest: no assert only throw
     not ok 1 - AssertionError: false is truthy right?
@@ -64,6 +83,13 @@ not ok 3 - no assert only throw
     file: {{{/.*/}}}throws-and-plans.js
     line: 44
     column: 3
+  results:
+    plan: 1
+    count: 1
+    pass: 0
+    ok: false
+    fail: 1
+    {{{/time: [0-9.]+(ms)?/}}}
   ...
 not ok 4 - Error: pwn
   ---

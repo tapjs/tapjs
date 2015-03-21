@@ -1,19 +1,49 @@
 TAP version 13
-    # Subtest: timeout test
-        # Subtest: this never completes
-        ok 1 - expect truthy value
-        ok 2 - ok done
+    # Subtest: parent of timeout test
+        # Subtest: timeout test
+            # Subtest: this never completes
+            ok 1 - expect truthy value
+            1..1
+        ok 1 - this never completes
+        not ok 2 - timeout!
+          ---
+          at:
+            file: {{{/.*/}}}timeout.js
+            line: 8
+            column: 5
+          ...
         1..2
-    ok 1 - this never completes
+        # failed 1 of 2 tests
+    not ok 1 - timeout test
+      ---
+      timeout: 50
+      at:
+        file: {{{/.*/}}}timeout.js
+        line: 8
+        column: 5
+      results:
+        plan: 2
+        count: 2
+        pass: 1
+        ok: false
+        fail: 1
+        {{{/time: [0-9.]+(ms)?/}}}
+      ...
     1..1
     # failed 1 of 1 tests
-not ok 1 - timeout test
+not ok 1 - parent of timeout test
   ---
-  timeout: 50
   at:
     file: {{{/.*/}}}timeout.js
     line: 7
     column: 3
+  results:
+    plan: 1
+    count: 1
+    pass: 0
+    ok: false
+    fail: 1
+    {{{/time: [0-9.]+(ms)?/}}}
   ...
 1..1
 # failed 1 of 1 tests

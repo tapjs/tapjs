@@ -30,6 +30,13 @@ TAP version 13
         file: {{{/.*/}}}nesting.js
         line: 10
         column: 5
+      results:
+        plan: 3
+        count: 3
+        pass: 2
+        ok: false
+        fail: 1
+        {{{/time: [0-9.]+(ms)?/}}}
       ...
     # failed 1 of 2 tests
 not ok 1 - nesting
@@ -38,6 +45,13 @@ not ok 1 - nesting
     file: {{{/.*/}}}nesting.js
     line: 3
     column: 3
+  results:
+    plan: 2
+    count: 2
+    pass: 1
+    ok: false
+    fail: 1
+    {{{/time: [0-9.]+(ms)?/}}}
   ...
 ok 2 - this passes
 not ok 3 - this fails
@@ -70,7 +84,14 @@ not ok 4 - async kid
     file: {{{/.*/}}}nesting.js
     line: 30
     column: 3
+  results:
+    plan: 2
+    count: 2
+    pass: 1
+    ok: false
+    fail: 1
+    {{{/time: [0-9.]+(ms)?/}}}
   ...
 ok 5 - pass after async kid
 1..5
-# failed 4 of 5 tests
+# failed 3 of 5 tests

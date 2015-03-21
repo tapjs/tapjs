@@ -24,6 +24,14 @@ function generate(file) {
     output += d
   })
   c.on('close', function () {
+    var timep = 'time: [0-9.]+(ms)?'
+    var timere = new RegExp(timep, 'g')
+    output = output.replace(timere, '{{{/' + timep + '/}}}')
+
+    timep = '# time=[0-9.]+(ms)?'
+    timere = new RegExp(timep, 'g')
+    output = output.replace(timere, '{{{/' + timep + '/}}}')
+
     output = output.split(file).join('{{{/.*/}}}' + path.basename(file))
     output = output.split(f).join('{{{/.*/}}}' + path.basename(f))
 

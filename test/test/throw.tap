@@ -26,6 +26,13 @@ TAP version 13
         file: {{{/.*/}}}throw.js
         line: 10
         column: 5
+      results:
+        plan: 1
+        count: 1
+        pass: 0
+        ok: false
+        fail: 1
+        {{{/time: [0-9.]+(ms)?/}}}
       ...
         # Subtest: thrower
         not ok 1 - Error: here hold this for a second
@@ -46,6 +53,13 @@ TAP version 13
         file: {{{/.*/}}}throw.js
         line: 17
         column: 5
+      results:
+        plan: 1
+        count: 1
+        pass: 0
+        ok: false
+        fail: 1
+        {{{/time: [0-9.]+(ms)?/}}}
       ...
     # failed 2 of 3 tests
 not ok 1 - nesting
@@ -54,6 +68,13 @@ not ok 1 - nesting
     file: {{{/.*/}}}throw.js
     line: 3
     column: 3
+  results:
+    plan: 3
+    count: 3
+    pass: 1
+    ok: false
+    fail: 2
+    {{{/time: [0-9.]+(ms)?/}}}
   ...
 ok 2 - this passes
 not ok 3 - this fails

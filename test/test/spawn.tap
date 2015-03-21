@@ -32,6 +32,13 @@ TAP version 13
             file: {{{/.*/}}}spawn.js
             line: 18
             column: 5
+          results:
+            plan: 3
+            count: 3
+            pass: 2
+            ok: false
+            fail: 1
+            {{{/time: [0-9.]+(ms)?/}}}
           ...
         # failed 1 of 2 tests
     not ok 1 - nesting
@@ -40,6 +47,13 @@ TAP version 13
         file: {{{/.*/}}}spawn.js
         line: 11
         column: 3
+      results:
+        plan: 2
+        count: 2
+        pass: 1
+        ok: false
+        fail: 1
+        {{{/time: [0-9.]+(ms)?/}}}
       ...
     ok 2 - this passes
     not ok 3 - this fails
@@ -72,10 +86,17 @@ TAP version 13
         file: {{{/.*/}}}spawn.js
         line: 38
         column: 3
+      results:
+        plan: 2
+        count: 2
+        pass: 1
+        ok: false
+        fail: 1
+        {{{/time: [0-9.]+(ms)?/}}}
       ...
     ok 5 - pass after async kid
     1..5
-    # failed 4 of 5 tests
+    # failed 3 of 5 tests
 not ok 1 - {{{/.*/}}}spawn.js child
   ---
   at:
@@ -127,6 +148,13 @@ not ok 1 - {{{/.*/}}}spawn.js child
         file: {{{/.*/}}}spawn.js
         line: 18
         column: 5
+      results:
+        plan: 3
+        count: 3
+        pass: 2
+        ok: false
+        fail: 1
+        {{{/time: [0-9.]+(ms)?/}}}
       ...
     # failed 1 of 2 tests
 not ok 2 - nesting
@@ -135,6 +163,13 @@ not ok 2 - nesting
     file: {{{/.*/}}}spawn.js
     line: 11
     column: 3
+  results:
+    plan: 2
+    count: 2
+    pass: 1
+    ok: false
+    fail: 1
+    {{{/time: [0-9.]+(ms)?/}}}
   ...
 ok 3 - this passes
 not ok 4 - this fails
@@ -167,7 +202,14 @@ not ok 5 - async kid
     file: {{{/.*/}}}spawn.js
     line: 38
     column: 3
+  results:
+    plan: 2
+    count: 2
+    pass: 1
+    ok: false
+    fail: 1
+    {{{/time: [0-9.]+(ms)?/}}}
   ...
 ok 6 - pass after async kid
 1..6
-# failed 5 of 6 tests
+# failed 4 of 6 tests
