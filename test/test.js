@@ -31,7 +31,7 @@ function runTest (file) {
 
   t.test(file.substr(dir.length), function (t) {
     var child = spawn(node, [file], {
-      stdio: [ 0, 'pipe', 2 ]
+      stdio: [ 0, 'pipe', 'pipe' ]
     })
 
     var found = ''
