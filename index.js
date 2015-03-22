@@ -19,12 +19,19 @@ function createResult (line, count) {
 
 function parseDirective (line) {
   line = line.trim()
-  var re = /^(todo|skip)\b/i
-  var type = line.match(re)
+  var time = line.match(/^time=((?:[1-9][0-9]*|0)(?:\.[0-9]+)?)(ms|s)$/i)
+  if (time) {
+    var n = +time[1]
+    if (time[2] === 's')
+      n *= 1000
+    return [ 'time', n ]
+  }
+
+  var type = line.match(/^(todo|skip)\b/i)
   if (!type)
     return false
 
-  return [ type[0].toLowerCase(), line.replace(re, '').trim() || true ]
+  return [ type[1].toLowerCase(), line.substr(type[1].length).trim() || true ]
 }
 
 function Result (line, count) {
