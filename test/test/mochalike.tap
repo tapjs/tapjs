@@ -6,18 +6,122 @@ TAP version 13
         ok 1 - should be a child thingie # TODO
         ok 2 - should also be a whoosits # TODO
             # Subtest: has some of these things
-            ok 1 - true is truthy
-            ok 2 - ten is also truthy
-            1..2
-        ok 3 - has some of these things
+            1..0
+        ok 3 - has some of these things {{{/# time=[0-9.]+(ms)?/}}}
         1..3
-    ok 3 - the subset
+    ok 3 - the subset {{{/# time=[0-9.]+(ms)?/}}}
     1..3
-ok 1 - a set of tests to be done later
+ok 1 - a set of tests to be done later {{{/# time=[0-9.]+(ms)?/}}}
     # Subtest: another set of tests
     ok 1 - is a second set # TODO
     ok 2 - looks like english # TODO
     ok 3 - is marked TODO # TODO
     1..3
-ok 2 - another set of tests
-1..2
+ok 2 - another set of tests {{{/# time=[0-9.]+(ms)?/}}}
+    # Subtest: reasonably indented things
+        # Subtest: first subset
+        ok 1 - has no asserts, only fails to throw
+        ok 2 - is todo # TODO
+            # Subtest: is async
+            1..0
+        ok 3 - is async {{{/# time=[0-9.]+(ms)?/}}}
+        1..3
+    ok 1 - first subset {{{/# time=[0-9.]+(ms)?/}}}
+        # Subtest: second subset
+        1..0
+    ok 2 - second subset {{{/# time=[0-9.]+(ms)?/}}}
+    1..2
+ok 3 - reasonably indented things {{{/# time=[0-9.]+(ms)?/}}}
+    # Subtest: failing indented things
+        # Subtest: first subset
+        not ok 1 - has no asserts, only throws
+          ---
+          at:
+            file: {{{/.*/}}}mochalike.js
+            line: 50
+            column: 7
+          stack:
+{{{STACK}}}
+          name: AssertionError
+          actual: false
+          expected: true
+          operator: ==
+          generatedMessage: false
+          message: "AssertionError: false is not true on line 86"
+          ...
+        ok 2 - does not throw # TODO
+        1..2
+        # failed 1 of 2 tests
+        # todo: 2
+    not ok 1 - first subset {{{/# time=[0-9.]+(ms)?/}}}
+      ---
+      at:
+        file: {{{/.*/}}}mochalike.js
+        line: 47
+        column: 3
+      results:
+        plan:
+          start: 1
+          end: 2
+        count: 2
+        pass: 1
+        ok: false
+        fail: 1
+        todo: 2
+        {{{/time: [0-9.]+(ms)?/}}}
+      ...
+        # Subtest: second subset
+        not ok 1 - AssertionError: objectify the truthiness
+          ---
+          stack:
+{{{STACK}}}
+          at:
+            file: {{{/.*/}}}mochalike.js
+            line: 56
+            column: 5
+          name: AssertionError
+          actual: false
+          expected: true
+          operator: ==
+          generatedMessage: false
+          message: "AssertionError: objectify the truthiness"
+          ...
+        1..1
+        # failed 1 of 1 tests
+    not ok 2 - second subset {{{/# time=[0-9.]+(ms)?/}}}
+      ---
+      at:
+        file: {{{/.*/}}}mochalike.js
+        line: 54
+        column: 3
+      results:
+        plan:
+          start: 1
+          end: 1
+        count: 1
+        pass: 0
+        ok: false
+        fail: 1
+        {{{/time: [0-9.]+(ms)?/}}}
+      ...
+    1..2
+    # failed 2 of 2 tests
+not ok 4 - failing indented things {{{/# time=[0-9.]+(ms)?/}}}
+  ---
+  at:
+    file: {{{/.*/}}}mochalike.js
+    line: 46
+    column: 1
+  results:
+    plan:
+      start: 1
+      end: 2
+    count: 2
+    pass: 0
+    ok: false
+    fail: 2
+    {{{/time: [0-9.]+(ms)?/}}}
+  ...
+1..4
+# failed 1 of 4 tests
+{{{/# time=[0-9.]+(ms)?/}}}

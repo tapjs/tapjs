@@ -14,14 +14,16 @@ TAP version 13
         not ok 7 - missing test
         not ok 8 - missing test
         # failed 7 of 8 tests
-    not ok 3 - grandchild
+    not ok 3 - grandchild {{{/# time=[0-9.]+(ms)?/}}}
       ---
       at:
         file: {{{/.*/}}}plan-too-many.js
         line: 7
         column: 5
       results:
-        plan: 8
+        plan:
+          start: 1
+          end: 8
         count: 8
         pass: 1
         ok: false
@@ -35,14 +37,16 @@ TAP version 13
     not ok 8 - missing test
     not ok 9 - missing test
     # failed 7 of 9 tests
-not ok 1 - children plan too big
+not ok 1 - children plan too big {{{/# time=[0-9.]+(ms)?/}}}
   ---
   at:
     file: {{{/.*/}}}plan-too-many.js
     line: 3
     column: 3
   results:
-    plan: 9
+    plan:
+      start: 1
+      end: 9
     count: 9
     pass: 2
     ok: false
@@ -51,3 +55,4 @@ not ok 1 - children plan too big
   ...
 1..1
 # failed 1 of 1 tests
+{{{/# time=[0-9.]+(ms)?/}}}

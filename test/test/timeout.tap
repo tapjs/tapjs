@@ -4,7 +4,7 @@ TAP version 13
             # Subtest: this never completes
             ok 1 - expect truthy value
             1..1
-        ok 1 - this never completes
+        ok 1 - this never completes {{{/# time=[0-9.]+(ms)?/}}}
         not ok 2 - timeout!
           ---
           at:
@@ -14,7 +14,7 @@ TAP version 13
           ...
         1..2
         # failed 1 of 2 tests
-    not ok 1 - timeout test
+    not ok 1 - timeout test {{{/# time=[0-9.]+(ms)?/}}}
       ---
       timeout: 50
       at:
@@ -22,7 +22,9 @@ TAP version 13
         line: 8
         column: 5
       results:
-        plan: 2
+        plan:
+          start: 1
+          end: 2
         count: 2
         pass: 1
         ok: false
@@ -31,14 +33,16 @@ TAP version 13
       ...
     1..1
     # failed 1 of 1 tests
-not ok 1 - parent of timeout test
+not ok 1 - parent of timeout test {{{/# time=[0-9.]+(ms)?/}}}
   ---
   at:
     file: {{{/.*/}}}timeout.js
     line: 7
     column: 3
   results:
-    plan: 1
+    plan:
+      start: 1
+      end: 1
     count: 1
     pass: 0
     ok: false
@@ -47,3 +51,4 @@ not ok 1 - parent of timeout test
   ...
 1..1
 # failed 1 of 1 tests
+{{{/# time=[0-9.]+(ms)?/}}}

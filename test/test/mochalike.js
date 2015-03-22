@@ -1,18 +1,9 @@
-var t = require('../../lib/root.js')
-
-var it = describe
-function describe (name, fn) {
-  var c = t.current()
-  c.test(name, fn)
+if (typeof define !== 'function') {
+  var t = require('../../lib/root.js')
+  t.mochaGlobals()
 }
 
-function done () {
-  t.current().end()
-}
-
-function ok (val, m, e) {
-  t.current().ok(val, m, e)
-}
+var ok = require('assert')
 
 describe('a set of tests to be done later', function () {
   it('should have a thingie')
@@ -20,19 +11,48 @@ describe('a set of tests to be done later', function () {
   describe('the subset', function () {
     it('should be a child thingie')
     it('should also be a whoosits')
-    it('has some of these things', function () {
+    it('has some of these things', function (done) {
       ok(true, 'true is truthy')
       ok(10, 'ten is also truthy')
-      done()
+      setTimeout(function () {
+        done()
+      })
     })
-    done()
   })
-  done()
 })
 
 describe('another set of tests', function () {
   it('is a second set')
   it('looks like english')
   it('is marked TODO')
-  done()
+})
+
+describe('reasonably indented things', function () {
+  describe('first subset', function () {
+    it('has no asserts, only fails to throw', function () {
+      // no throwing here
+    })
+    it('is todo')
+    it('is async', function (done) {
+      setTimeout(done)
+    })
+  })
+  describe('second subset', function () {
+    ok(true, 'true is truly truthy')
+    ok({}, 'objectify the truthiness')
+  })
+})
+
+describe('failing indented things', function () {
+  describe('first subset', function () {
+    'just some line breaks'
+    it('has no asserts, only throws', function () {
+      ok(false, 'false is not true on line 86')
+    })
+    it('does not throw')
+  })
+  describe('second subset', function () {
+    ok(true, 'true is truly truthy')
+    ok(!{}, 'objectify the truthiness')
+  })
 })
