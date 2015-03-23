@@ -59,13 +59,18 @@ function runTest (file) {
 
           continue
         } else {
-          var wmatch = wline.match(/\{\{\{\/(.*?)\/\}\}\}/)
+          var re = /\{\{\{\/(.*?)\/\}\}\}/
+          var wmatch = wline.match(re)
           if (wmatch) {
-            t.match(fline, new RegExp(
-              regEsc(wline.slice(0, wmatch.index)) +
-              wmatch[1] +
-              regEsc(wline.slice(wmatch.index + wmatch[0].length))
-            ), 'line ' + f + ' ' + wline)
+            var wl = wline.split('{{{/')
+            var p = '^' + regEsc(wl.shift())
+            wl.forEach(function (wlpart) {
+              var wlp = wlpart.split('/}}}')
+              p += wlp.shift()
+              p += regEsc(wlp.join('/}}}'))
+            })
+            p += '$'
+            t.match(fline, new RegExp(p), 'line ' + f + ' ' + wline)
           } else {
             t.equal(fline, wline, 'line ' + f + ' ' + wline.replace(/# (todo|skip)/gi, '- $1'))
           }
