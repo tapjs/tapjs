@@ -104,7 +104,7 @@ TAP version 13
     1..5
     # failed 3 of 5 tests
     {{{/# time=[0-9.]+(ms)?/}}}
-not ok 1 - {{{/.*/}}}spawn.js child{{{/# time=[0-9.]+(ms)?/}}}
+not ok 1 - {{{/.*/}}}spawn.js child {{{/# time=[0-9.]+(ms)?/}}}
   ---
   at:
     file: {{{/.*/}}}spawn.js
