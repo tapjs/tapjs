@@ -3,6 +3,7 @@ var tap = require("../")
   , cp = require("child_process")
   , util = require("util")
 
+process.chdir(__dirname)
 tap.test("debug test", function (t) {
   console.error("debug test")
   t.plan(1)
