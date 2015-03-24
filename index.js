@@ -10,12 +10,6 @@ util.inherits(Parser, Writable)
 module.exports = Parser
 
 var testPointRE = /^(not )?ok(?: ([0-9]+))?(?:(?: - )?(.*))?\n$/
-function createResult (line, count) {
-  if (!testPointRE.test(line))
-    return null
-
-  return new Result(line, count)
-}
 
 function parseDirective (line) {
   line = line.trim()
@@ -115,6 +109,14 @@ function Parser (options, onComplete) {
   this.ok = true
 
   this.postPlan = false
+}
+
+Parser.prototype.createResult = function (line) {
+  if (!testPointRE.test(line))
+    return null
+
+  this.emitResult()
+  return new Result(line, this.count)
 }
 
 Parser.prototype.processYamlish = function () {
@@ -399,8 +401,6 @@ Parser.prototype._parse = function (line) {
     this.yind = ''
   }
 
-  this.emitResult()
-
   var plan = line.match(/^([0-9]+)\.\.([0-9]+)(?:\s+(?:#\s*(.*)))?\n$/)
   if (plan) {
     if (this.planStart !== -1) {
@@ -408,6 +408,8 @@ Parser.prototype._parse = function (line) {
       this.emit('extra', line)
       return
     }
+
+    this.emitResult()
 
     var start = +(plan[1])
     var end = +(plan[2])
@@ -430,7 +432,7 @@ Parser.prototype._parse = function (line) {
     return
   }
 
-  var res = createResult(line, this.count)
+  var res = this.createResult(line)
   if (!res) {
     this.emit('extra', line)
     return
