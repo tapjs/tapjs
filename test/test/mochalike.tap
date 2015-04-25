@@ -64,7 +64,7 @@ ok 3 - reasonably indented things ___/# time=[0-9.]+(ms)?/~~~
         # failed 1 of 1 tests
     not ok 2 - second subset ___/# time=[0-9.]+(ms)?/~~~
       ---
-      {"at":{"file":"___/.*/~~~mochalike.js","line":54,"column":3},"error":{"name":"AssertionError","actual":false,"expected":true,"operator":"==","message":"objectify the truthiness","generatedMessage":false},"results":{"plan":{"start":1,"end":1},"count":1,"pass":0,"ok":false,"fail":1}}
+      {"at":{"file":"___/.*/~~~mochalike.js","line":54,"column":3},"results":{"plan":{"start":1,"end":1},"count":1,"pass":0,"ok":false,"fail":1}}
       ...
     
     1..2

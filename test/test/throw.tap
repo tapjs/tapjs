@@ -16,7 +16,7 @@ TAP version 13
         # failed 1 of 1 tests
     not ok 2 - async thrower ___/# time=[0-9.]+(ms)?/~~~
       ---
-      {"at":{"file":"___/.*/~~~throw.js","line":10,"column":5},"error":{"message":"THINK FAST!\nand also lines\nso many","jerk":true},"results":{"plan":{"start":1,"end":1},"count":1,"pass":0,"ok":false,"fail":1}}
+      {"at":{"file":"___/.*/~~~throw.js","line":10,"column":5},"results":{"plan":{"start":1,"end":1},"count":1,"pass":0,"ok":false,"fail":1}}
       ...
     
         # Subtest: thrower
@@ -28,7 +28,7 @@ TAP version 13
         # failed 1 of 1 tests
     not ok 3 - thrower ___/# time=[0-9.]+(ms)?/~~~
       ---
-      {"at":{"file":"___/.*/~~~throw.js","line":17,"column":5},"error":{"message":"here hold this for a second","syscall":"ring ring"},"results":{"plan":{"start":1,"end":1},"count":1,"pass":0,"ok":false,"fail":1}}
+      {"at":{"file":"___/.*/~~~throw.js","line":17,"column":5},"results":{"plan":{"start":1,"end":1},"count":1,"pass":0,"ok":false,"fail":1}}
       ...
     # failed 2 of 3 tests
 not ok 1 - nesting ___/# time=[0-9.]+(ms)?/~~~
