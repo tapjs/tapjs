@@ -1,6 +1,6 @@
 // https://github.com/isaacs/node-tap/issues/24
 
-var tap = require("../")
+var tap = require("../lib/main.js")
   , test = tap.test
 
 var config = {foo: "bar"}

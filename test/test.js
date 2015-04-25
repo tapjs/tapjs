@@ -5,6 +5,8 @@ var node = process.execPath
 var fs = require('fs')
 var dir = __dirname + '/test/'
 var path = require('path')
+var stackre = new RegExp('^\\s*.*(\([^:]:[0-9]+:[0-9]+\)|[^:]:[0-9]+:[0-9]+)$')
+var yaml = require('js-yaml')
 
 function regEsc(str) {
   return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
@@ -42,43 +44,77 @@ function runTest (file) {
     })
     child.on('close', function (er) {
       found = found.split('\n')
-      // walk line by line so {{{STACK}}} can be handled
+      var inyaml = false
+      var y = ''
+
+      // walk line by line so yamlish (json) can be handled
       // otherwise making any changes in this lib would hurt
       for (var f = 0, w = 0;
            f < found.length && w < want.length;
            f++, w++) {
         var wline = want[w]
         var fline = found[f]
-        if (wline === '{{{STACK}}}') {
-          var fstack = new RegExp('^\\s*\\- "').test(fline)
+        var wdata = false
+        var startlen = 0
 
-          if (fstack)
-            w--
-          else
+        if (inyaml) {
+          if (fline.match(/^\s*\.\.\.$/) && fline.length === startlen) {
+            var data = yaml.safeLoad(y)
+            inyaml = false
+            y = ''
+            patternify(wdata)
+            t.has(data, wdata)
             f--
-
-          continue
-        } else {
-          var re = /\{\{\{\/(.*?)\/\}\}\}/
-          var wmatch = wline.match(re)
-          if (wmatch) {
-            var wl = wline.split('{{{/')
-            var p = '^' + regEsc(wl.shift())
-            wl.forEach(function (wlpart) {
-              var wlp = wlpart.split('/}}}')
-              p += wlp.shift()
-              p += regEsc(wlp.join('/}}}'))
-            })
-            p += '$'
-            t.match(fline, new RegExp(p), 'line ' + f + ' ' + wline)
           } else {
-            t.equal(fline, wline, 'line ' + f + ' ' + wline.replace(/# (todo|skip)/gi, '- $1'))
+            y += fline + '\n'
+            w--
           }
-          if (!t.passing())
-            return t.end()
+          continue
+
+        } else {
+          t.match(fline, patternify(wline),
+                  'line ' + f + ' ' +
+                  wline.replace(/# (todo|skip)/gi, '- $1'))
+
+          if (fline.match(/^\s*\-\-\-$/)) {
+            startlen = fline.length
+            inyaml = true
+            y = ''
+          }
         }
+
+        if (!t.passing())
+          return t.end()
       }
       t.end()
     })
   })
+}
+
+function patternify (pattern) {
+  if (typeof pattern === 'object' && pattern) {
+    Object.keys(pattern).forEach(function (k) {
+      pattern[k] = patternify(pattern[k])
+    })
+    return
+  }
+
+  if (typeof pattern !== 'string')
+    return pattern
+
+  var re = /___\/(.*?)\/~~~/
+  var match = pattern.match(re)
+  if (!match)
+    return pattern
+
+  var pl = pattern.split('___/')
+  var p = '^' + regEsc(pl.shift())
+
+  pl.forEach(function (wlpart) {
+    var wlp = wlpart.split('/~~~')
+    p += wlp.shift()
+    p += regEsc(wlp.join('/~~~'))
+  })
+  p += '$'
+  return new RegExp(p)
 }

@@ -5,113 +5,48 @@ ok 1 - expect truthy value
         # Subtest: sync thrower
         1..1
         ok 1 - before the bomb
-    not ok 2 - sync thrower {{{/# time=[0-9.]+(ms)?/}}}
+    not ok 2 - sync thrower ___/# time=[0-9.]+(ms)?/~~~
       ---
-      at:
-        file: {{{/.*/}}}throws-and-plans.js
-        line: 20
-        column: 5
-      results:
-        plan:
-          start: 1
-          end: 1
-        count: 1
-        pass: 1
-        ok: true
-        {{{/time: [0-9.]+(ms)?/}}}
+      {"at":{"file":"___/.*/~~~throws-and-plans.js","line":20,"column":5},"error":{"message":"pwnSync"},"results":{"plan":{"start":1,"end":1},"count":1,"pass":1,"ok":true}}
       ...
+    
     not ok 3 - Error: pwnSync
       ---
-      stack:
-{{{STACK}}}
-      at:
-        file: {{{/.*/}}}throws-and-plans.js
-        line: 24
-        column: 11
-      message: "Error: pwnSync"
+      {"at":{"file":"___/.*/~~~throws-and-plans.js","line":24,"column":11},"message":"Error: pwnSync"}
       ...
         # Subtest: async thrower
         1..1
         ok 1 - before set the bomb
-    not ok 4 - async thrower {{{/# time=[0-9.]+(ms)?/}}}
+    not ok 4 - async thrower ___/# time=[0-9.]+(ms)?/~~~
       ---
-      at:
-        file: {{{/.*/}}}throws-and-plans.js
-        line: 29
-        column: 5
-      results:
-        plan:
-          start: 1
-          end: 1
-        count: 1
-        pass: 1
-        ok: true
-        {{{/time: [0-9.]+(ms)?/}}}
+      {"at":{"file":"___/.*/~~~throws-and-plans.js","line":29,"column":5},"error":{"message":"test count exceeds plan","test":"async thrower < plans of 1 < ROOT","count":2,"plan":1},"results":{"plan":{"start":1,"end":1},"count":1,"pass":1,"ok":true}}
       ...
+    
     ok 5 - after child
     1..5
     # failed 3 of 5 tests
-not ok 2 - plans of 1 {{{/# time=[0-9.]+(ms)?/}}}
+not ok 2 - plans of 1 ___/# time=[0-9.]+(ms)?/~~~
   ---
-  at:
-    file: {{{/.*/}}}throws-and-plans.js
-    line: 17
-    column: 3
-  results:
-    plan:
-      start: 1
-      end: 5
-    count: 5
-    pass: 2
-    ok: false
-    fail: 3
-    {{{/time: [0-9.]+(ms)?/}}}
+  {"at":{"file":"___/.*/~~~throws-and-plans.js","line":17,"column":3},"error":{"message":"pwnSync"},"results":{"plan":{"start":1,"end":5},"count":5,"pass":2,"ok":false,"fail":3}}
   ...
+
     # Subtest: no assert only throw
     not ok 1 - AssertionError: false is truthy right?
       ---
-      stack:
-{{{STACK}}}
-      at:
-        file: {{{/.*/}}}throws-and-plans.js
-        line: 47
-        column: 3
-      name: AssertionError
-      actual: false
-      expected: true
-      operator: ==
-      generatedMessage: false
-      message: "AssertionError: false is truthy right?"
+      {"at":{"file":"___/.*/~~~throws-and-plans.js","line":47,"column":3},"name":"AssertionError","actual":false,"expected":true,"operator":"==","generatedMessage":false,"message":"AssertionError: false is truthy right?"}
       ...
     1..1
     # failed 1 of 1 tests
-not ok 3 - no assert only throw {{{/# time=[0-9.]+(ms)?/}}}
+not ok 3 - no assert only throw ___/# time=[0-9.]+(ms)?/~~~
   ---
-  at:
-    file: {{{/.*/}}}throws-and-plans.js
-    line: 44
-    column: 3
-  results:
-    plan:
-      start: 1
-      end: 1
-    count: 1
-    pass: 0
-    ok: false
-    fail: 1
-    {{{/time: [0-9.]+(ms)?/}}}
+  {"at":{"file":"___/.*/~~~throws-and-plans.js","line":44,"column":3},"error":{"name":"AssertionError","actual":false,"expected":true,"operator":"==","message":"false is truthy right?","generatedMessage":false},"results":{"plan":{"start":1,"end":1},"count":1,"pass":0,"ok":false,"fail":1}}
   ...
+
 not ok 4 - Error: pwn
   ---
-  stack:
-{{{STACK}}}
-  at:
-    file: {{{/.*/}}}throws-and-plans.js
-    line: 34
-    column: 13
-    function: null._onTimeout
-  message: "Error: pwn"
+  {"at":{"file":"___/.*/~~~throws-and-plans.js","line":34,"column":13,"function":"null._onTimeout"},"message":"Error: pwn"}
   ...
 1..4
 # failed 3 of 4 tests
-{{{/# time=[0-9.]+(ms)?/}}}
+___/# time=[0-9.]+(ms)?/~~~
+

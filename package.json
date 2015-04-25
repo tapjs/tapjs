@@ -17,7 +17,7 @@
     "events-to-array": "^1.0.1",
     "glob": "^4.4.1",
     "inherits": "*",
-    "js-yaml": "^3.2.7",
+    "js-yaml": "git://github.com/isaacs/js-yaml",
     "mkdirp": "^0.5.0",
     "nopt": "^3.0.1",
     "runforcover": "~0.0.2",

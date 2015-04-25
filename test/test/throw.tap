@@ -5,96 +5,44 @@ TAP version 13
         1..2
         ok 1 - true is ok
         ok 2 - doag is also okay
-    ok 1 - first {{{/# time=[0-9.]+(ms)?/}}}
+    ok 1 - first ___/# time=[0-9.]+(ms)?/~~~
+    
         # Subtest: async thrower
         not ok 1 - Error: THINK FAST! and also lines so many
           ---
-          stack:
-{{{STACK}}}
-          at:
-            file: {{{/.*/}}}throw.js
-            line: 12
-            column: 16
-            function: null._onTimeout
-          jerk: true
-          message: "Error: THINK FAST!\nand also lines\nso many"
+          {"at":{"file":"___/.*/~~~throw.js","line":12,"column":16,"function":"null._onTimeout"},"jerk":true,"message":"Error: THINK FAST!\nand also lines\nso many"}
           ...
         1..1
         # failed 1 of 1 tests
-    not ok 2 - async thrower {{{/# time=[0-9.]+(ms)?/}}}
+    not ok 2 - async thrower ___/# time=[0-9.]+(ms)?/~~~
       ---
-      at:
-        file: {{{/.*/}}}throw.js
-        line: 10
-        column: 5
-      results:
-        plan:
-          start: 1
-          end: 1
-        count: 1
-        pass: 0
-        ok: false
-        fail: 1
-        {{{/time: [0-9.]+(ms)?/}}}
+      {"at":{"file":"___/.*/~~~throw.js","line":10,"column":5},"error":{"message":"THINK FAST!\nand also lines\nso many","jerk":true},"results":{"plan":{"start":1,"end":1},"count":1,"pass":0,"ok":false,"fail":1}}
       ...
+    
         # Subtest: thrower
         not ok 1 - Error: here hold this for a second
           ---
-          stack:
-{{{STACK}}}
-          at:
-            file: {{{/.*/}}}throw.js
-            line: 18
-            column: 14
-          syscall: ring ring
-          message: "Error: here hold this for a second"
+          {"at":{"file":"___/.*/~~~throw.js","line":18,"column":14},"syscall":"ring ring","message":"Error: here hold this for a second"}
           ...
         1..1
         # failed 1 of 1 tests
-    not ok 3 - thrower {{{/# time=[0-9.]+(ms)?/}}}
+    not ok 3 - thrower ___/# time=[0-9.]+(ms)?/~~~
       ---
-      at:
-        file: {{{/.*/}}}throw.js
-        line: 17
-        column: 5
-      results:
-        plan:
-          start: 1
-          end: 1
-        count: 1
-        pass: 0
-        ok: false
-        fail: 1
-        {{{/time: [0-9.]+(ms)?/}}}
+      {"at":{"file":"___/.*/~~~throw.js","line":17,"column":5},"error":{"message":"here hold this for a second","syscall":"ring ring"},"results":{"plan":{"start":1,"end":1},"count":1,"pass":0,"ok":false,"fail":1}}
       ...
     # failed 2 of 3 tests
-not ok 1 - nesting {{{/# time=[0-9.]+(ms)?/}}}
+not ok 1 - nesting ___/# time=[0-9.]+(ms)?/~~~
   ---
-  at:
-    file: {{{/.*/}}}throw.js
-    line: 3
-    column: 3
-  results:
-    plan:
-      start: 1
-      end: 3
-    count: 3
-    pass: 1
-    ok: false
-    fail: 2
-    {{{/time: [0-9.]+(ms)?/}}}
+  {"at":{"file":"___/.*/~~~throw.js","line":3,"column":3},"results":{"plan":{"start":1,"end":3},"count":3,"pass":1,"ok":false,"fail":2}}
   ...
+
 ok 2 - this passes
 not ok 3 - this fails
   ---
-  at:
-    file: {{{/.*/}}}throw.js
-    line: 25
-    column: 3
-  stack:
-{{{STACK}}}
+  {"at":{"file":"___/.*/~~~throw.js","line":25,"column":3}}
   ...
     # Subtest: async kid
     1..2
     Bail out! # cannot continue
 Bail out! # cannot continue
+

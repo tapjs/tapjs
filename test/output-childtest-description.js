@@ -1,9 +1,9 @@
-var tap  =  require("../")
+var tap  =  require("../lib/main.js")
   , fs   =  require("fs")
   , path =  require('path')
   , cp   =  require("child_process")
   , nestedTests = 
-      [ "var test = require('..').test"
+      [ "var test = require('../lib/main.js').test"
       , "test('parent test description', function (t) {"
       , " t.plan(2)"
       , " t.ok(true, 'test in parent')"

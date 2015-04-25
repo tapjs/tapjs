@@ -1,4 +1,4 @@
-var tap = require("../")
+var tap = require("../lib/main.js")
   , test = tap.test
 
 test("meta test", { skip: false }, function (t) {

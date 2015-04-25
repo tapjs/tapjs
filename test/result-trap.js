@@ -1,4 +1,4 @@
-var tap = require("../")
+var tap = require("../lib/main.js")
 
 tap.test("trap result", function (t0) {
 

@@ -1,4 +1,4 @@
-var tap = require("../")
+var tap = require("../lib/main.js")
 
 tap.test("consume yaml", function (t) {
   t.plan(1)

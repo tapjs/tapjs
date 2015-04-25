@@ -1,4 +1,4 @@
-var tap = require("../")
+var tap = require("../lib/main.js")
   , test = tap.test
   , Test = require("../lib/tap-test")
   , Harness = require("../lib/tap-harness")

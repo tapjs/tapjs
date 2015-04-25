@@ -5,24 +5,22 @@ TAP version 13
         1..2
         ok 1 - true is ok
         ok 2 - doag is also okay
-    ok 1 - first {{{/# time=[0-9.]+(ms)?/}}}
+    ok 1 - first ___/# time=[0-9.]+(ms)?/~~~
+    
         # Subtest: second
         ok 1 - but that is ok
         ok 2 - this passes
         1..2
-    ok 2 - second {{{/# time=[0-9.]+(ms)?/}}}
-ok 1 - nesting {{{/# time=[0-9.]+(ms)?/}}}
+    ok 2 - second ___/# time=[0-9.]+(ms)?/~~~
+ok 1 - nesting ___/# time=[0-9.]+(ms)?/~~~
+
 ok 2 - this passes
 not ok 3 - this fails
   ---
-  at:
-    file: {{{/.*/}}}bailout.js
-    line: 18
-    column: 3
-  stack:
-{{{STACK}}}
+  {"at":{"file":"___/.*/~~~bailout.js","line":18,"column":3}}
   ...
     # Subtest: async kid
     1..2
     Bail out! # cannot continue
 Bail out! # cannot continue
+

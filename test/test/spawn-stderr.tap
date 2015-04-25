@@ -1,10 +1,12 @@
 TAP version 13
-    # Subtest: {{{/.*/}}}spawn-stderr.js child
+    # Subtest: ___/.*/~~~spawn-stderr.js child
     stdout
     TAP version 13
     ok 1 - this is ok
     1..1
-    {{{/# time=[0-9.]+(ms)?/}}}
-ok 1 - {{{/.*/}}}spawn-stderr.js child {{{/# time=[0-9.]+(ms)?/}}}
+    ___/# time=[0-9.]+(ms)?/~~~
+ok 1 - ___/.*/~~~spawn-stderr.js child ___/# time=[0-9.]+(ms)?/~~~
+
 1..1
-{{{/# time=[0-9.]+(ms)?/}}}
+___/# time=[0-9.]+(ms)?/~~~
+
