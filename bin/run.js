@@ -45,8 +45,16 @@ if (process.platform == "win32") {
 var tap = require('../lib/root.js')
 var fs = require('fs')
 for (var i = 0; i < args.length; i++) {
-  if (args[i].match(/\.js$/))
-    tap.spawn(process.execPath, [ args[i] ])
-  else if (isExe(fs.statSync(args[i])))
+  var file = args[i]
+  var st = fs.statSync(args[i])
+
+  if (file.match(/\.js$/))
+    tap.spawn(process.execPath, [ file ])
+  else if (st.isDirectory()) {
+    args.push.apply(args, fs.readdirSync(file).map(function (f) {
+      return file + '/' + f
+    }))
+  }
+  else if (isExe(st))
     tap.spawn(args[i], [])
 }
