@@ -6,16 +6,128 @@ if (!args.length) {
   process.exit(1)
 }
 
-if (args.indexOf('-h') !== -1)
-  return console.log(usage())
+
+// defaults
+var nodeArgs = []
+
+var timeout = process.env.TAP_TIMEOUT || 120
+var color = require('supports-color')
+var reporter
+var files = []
+
+for (var i = 0; i < args.length; i++) {
+  var arg = args[i]
+  if (arg.charAt(0) !== '-') {
+    files.push(arg)
+    continue
+  }
+
+  // support -Rspec as well as --reporter=spec
+  arg = arg.replace(/^-R/, '--reporter=')
+
+  var key = arg
+  var val
+  if (key.match(/^--/) && arg.indexOf('=') !== -1) {
+    var kv = arg.split('=')
+    key = kv.shift()
+    val = kv.join('=')
+  }
+
+  switch (key) {
+    case '-h': case '--help': case '-?':
+      return console.log(usage())
+
+    case '-v': case '--version':
+      return console.log(require('../package.json').version)
+
+    case '--reporter':
+      val = val || args[++i]
+      reporter = val
+      continue
+
+    case '--gc': case '-gc': case '--expose-gc':
+      nodeArgs.push('--expose-gc')
+      continue
+
+    case '--strict':
+      nodeArgs.push('--strict')
+      continue
+
+    case '--debug':
+      nodeArgs.push('--debug')
+      continue
+
+    case '--debug-brk':
+      nodeArgs.push('--debug-brk')
+      continue
+
+    case '--harmony':
+      nodeArgs.push('--harmony')
+      continue
+
+    case '-c': case '--color':
+      color = true
+      continue
+
+    case '-C': case '--no-color':
+      color = false
+      continue
+
+    case '-t': case '--timeout':
+      val = val || args[++i]
+      timeout = +val
+      continue
+
+    case '--':
+      files = files.concat(args.slice(i + 1))
+      i = args.length
+      continue
+
+    default:
+      throw new Error('Unknown argument: ' + arg)
+  }
+}
+
+// default to tap for non-tty envs
+if (!reporter)
+  reporter = color ? 'classic' : 'tap'
+
 
 function usage () {
   return function () {/*
 Usage:
-  tap <files>
+  tap [options] <files>
 
 Executes all the files and interprets their output as TAP
 formatted test result data.
+
+Options:
+
+  -c --color                  Force use of colors
+
+  -C --no-color               Force no use of colors
+
+  -R<type> --reporter=<type>  Use the specified reporter.  Defaults to
+                              'classic' when colors are in use, or 'tap'
+                              when printing to a non-fancy TTY.
+
+  -gc --expose-gc             Expose the gc() function to Node tests
+
+  --debug                     Run JavaScript tests with node --debug
+
+  --debug-brk                 Run JavaScript tests with node --debug-brk
+
+  --harmony                   Enable all Harmony flags in JavaScript tests
+
+  --strict                    Run JS tests in 'use strict' mode
+
+  -t<n> --timeout=<n>         Time out tests after this many seconds.
+                              Defaults to 120, or the value of the
+                              TAP_TIMEOUT environment variable.
+
+  -h --help                   print this thing you're looking at
+
+  -v --version                show the version of this program
 */}.toString().split('\n').slice(1, -1).join('\n')
 }
 
@@ -44,17 +156,26 @@ if (process.platform == "win32") {
 
 var tap = require('../lib/root.js')
 var fs = require('fs')
-for (var i = 0; i < args.length; i++) {
-  var file = args[i]
-  var st = fs.statSync(args[i])
+process.env.TAP_TIMEOUT = timeout
+
+if (reporter !== 'tap') {
+  var TSR = require('tap-mocha-reporter')
+  tap.unpipe(process.stdout)
+  reporter = new TSR(reporter)
+  tap.pipe(reporter)
+}
+
+for (var i = 0; i < files.length; i++) {
+  var file = files[i]
+  var st = fs.statSync(files[i])
 
   if (file.match(/\.js$/))
-    tap.spawn(process.execPath, [ file ])
+    tap.spawn(process.execPath, nodeArgs.concat(file))
   else if (st.isDirectory()) {
-    args.push.apply(args, fs.readdirSync(file).map(function (f) {
+    files.push.apply(files, fs.readdirSync(file).map(function (f) {
       return file + '/' + f
     }))
   }
   else if (isExe(st))
-    tap.spawn(args[i], [])
+    tap.spawn(files[i], [])
 }
