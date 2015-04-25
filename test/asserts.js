@@ -57,6 +57,20 @@ test('error tests for errorness', function (t) {
 test('throws expects to catch', function (t) {
   var tt = new Test()
   t.throws(function () { throw 'x' })
+  t.throws('message first', function () { throw new Error('x') })
+
+  t.throws(function () { throw new Error('x') },
+           new Error('x'), 'test thrown result')
+
+  t.notOk(tt.throws(function () { throw new Error('x') },
+           new Error('y'), 'test thrown result'))
+
+  t.throws('test thrown result',
+           function () { throw new Error('x') },
+           new Error('x'), { foo: 'bar' })
+  t.notOk(tt.throws('test thrown result',
+           function () { throw new Error('x') },
+           new Error('y'), { foo: 'bar' }))
   t.notOk(tt.throws(function () {}))
   t.end()
 })
