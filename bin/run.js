@@ -157,6 +157,10 @@ if (process.platform == "win32") {
 var tap = require('../lib/root.js')
 var fs = require('fs')
 process.env.TAP_TIMEOUT = timeout
+if (color)
+  process.env.TAP_COLORS = 1
+else
+  process.env.TAP_COLORS = 0
 
 if (reporter !== 'tap') {
   var TSR = require('tap-mocha-reporter')
@@ -179,3 +183,5 @@ for (var i = 0; i < files.length; i++) {
   else if (isExe(st))
     tap.spawn(files[i], [])
 }
+
+tap.end()
