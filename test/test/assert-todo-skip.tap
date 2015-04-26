@@ -5,14 +5,14 @@ TAP version 13
     ok 3 - bonus # TODO remove todo directive
     not ok 4 - expected # TODO implement a thing
       ---
-      {"at":{"file":"___/.*/~~~assert-todo-skip.js","line":7,"column":5}}
+      {"at":{"file":"test/test/assert-todo-skip.js","line":7,"column":5}}
       ...
     ok 5 - always passes without explanation # SKIP
     not ok 6 - false without explanation # SKIP
     ok 7 - bonus without explanation # TODO
     not ok 8 - expected without explanation # TODO
       ---
-      {"at":{"file":"___/.*/~~~assert-todo-skip.js","line":11,"column":5}}
+      {"at":{"file":"test/test/assert-todo-skip.js","line":11,"column":5}}
       ...
     1..8
 ok 1 - not much ___/# time=[0-9.]+(ms)?/~~~

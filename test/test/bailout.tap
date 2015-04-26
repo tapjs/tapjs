@@ -17,7 +17,7 @@ ok 1 - nesting ___/# time=[0-9.]+(ms)?/~~~
 ok 2 - this passes
 not ok 3 - this fails
   ---
-  {"at":{"file":"___/.*/~~~bailout.js","line":18,"column":3}}
+  {"at":{"file":"test/test/bailout.js","line":18,"column":3}}
   ...
     # Subtest: async kid
     1..2

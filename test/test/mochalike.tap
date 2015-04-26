@@ -52,7 +52,7 @@ ok 3 - reasonably indented things ___/# time=[0-9.]+(ms)?/~~~
         # todo: 2
     not ok 1 - first subset ___/# time=[0-9.]+(ms)?/~~~
       ---
-      {"at":{"file":"___/.*/~~~mochalike.js","line":47,"column":3},"results":{"plan":{"start":1,"end":2},"count":2,"pass":1,"ok":false,"fail":1,"todo":2}}
+      {"at":{"file":"test/test/mochalike.js","line":47,"column":3},"results":{"plan":{"start":1,"end":2},"count":2,"pass":1,"ok":false,"fail":1,"todo":2}}
       ...
     
         # Subtest: second subset
@@ -64,14 +64,14 @@ ok 3 - reasonably indented things ___/# time=[0-9.]+(ms)?/~~~
         # failed 1 of 1 tests
     not ok 2 - second subset ___/# time=[0-9.]+(ms)?/~~~
       ---
-      {"at":{"file":"___/.*/~~~mochalike.js","line":54,"column":3},"results":{"plan":{"start":1,"end":1},"count":1,"pass":0,"ok":false,"fail":1}}
+      {"at":{"file":"test/test/mochalike.js","line":54,"column":3},"results":{"plan":{"start":1,"end":1},"count":1,"pass":0,"ok":false,"fail":1}}
       ...
     
     1..2
     # failed 2 of 2 tests
 not ok 4 - failing indented things ___/# time=[0-9.]+(ms)?/~~~
   ---
-  {"at":{"file":"___/.*/~~~mochalike.js","line":46,"column":1},"results":{"plan":{"start":1,"end":2},"count":2,"pass":0,"ok":false,"fail":2}}
+  {"at":{"file":"test/test/mochalike.js","line":46,"column":1},"results":{"plan":{"start":1,"end":2},"count":2,"pass":0,"ok":false,"fail":2}}
   ...
 
 1..4
