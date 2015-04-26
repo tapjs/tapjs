@@ -20,8 +20,8 @@ ok 2 - this passes
 ok 3 - this passes too
     # Subtest: async kid
     1..2
-    ok 1 - second timeout
-    ok 2 - first timeout
+    ok 1 - timeout
+    ok 2 - timeout
 ok 4 - async kid ___/# time=[0-9.]+(ms)?/~~~
 
 ok 5 - pass after async kid

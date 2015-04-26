@@ -1,4 +1,4 @@
-var test = require('../lib/root.js').test
+var test = require('../../lib/root.js').test
 
 test('not much', function(t) {
   t.ok(true, 'always passes', {skip: 'skip it good'})
