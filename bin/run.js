@@ -10,7 +10,6 @@ if (!args.length) {
 // defaults
 var nodeArgs = []
 
-var TMR = require('tap-mocha-reporter')
 var timeout = process.env.TAP_TIMEOUT || 120
 var color = require('supports-color')
 var reporter
@@ -167,6 +166,7 @@ if (files.length === 0) {
   files.push('-')
 }
 
+var TMR = require('tap-mocha-reporter')
 if (files.length === 1 && files[0] === '-') {
   // if we didn't specify any files, then just passthrough
   // to the reporter, so we don't get '/dev/stdin' in the suite list.
