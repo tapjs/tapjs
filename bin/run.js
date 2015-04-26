@@ -10,6 +10,7 @@ if (!args.length) {
 // defaults
 var nodeArgs = []
 
+var TMR = require('tap-mocha-reporter')
 var timeout = process.env.TAP_TIMEOUT || 120
 var color = require('supports-color')
 var reporter
@@ -17,7 +18,7 @@ var files = []
 
 for (var i = 0; i < args.length; i++) {
   var arg = args[i]
-  if (arg.charAt(0) !== '-') {
+  if (arg.charAt(0) !== '-' || arg === '-') {
     files.push(arg)
     continue
   }
@@ -154,7 +155,6 @@ if (process.platform == "win32") {
   }
 }
 
-var tap = require('../lib/root.js')
 var fs = require('fs')
 process.env.TAP_TIMEOUT = timeout
 if (color)
@@ -162,15 +162,37 @@ if (color)
 else
   process.env.TAP_COLORS = 0
 
+if (files.length === 0) {
+  console.error('Reading TAP data from stdin (use "-" argument to suppress)')
+  files.push('-')
+}
+
+if (files.length === 1 && files[0] === '-') {
+  // if we didn't specify any files, then just passthrough
+  // to the reporter, so we don't get '/dev/stdin' in the suite list.
+  reporter = new TMR(reporter)
+  process.stdin.pipe(reporter)
+  return
+}
+
+// At this point, we know we need to use the tap root,
+// because there are 1 or more files to spawn.
+var tap = require('../lib/root.js')
 if (reporter !== 'tap') {
-  var TSR = require('tap-mocha-reporter')
   tap.unpipe(process.stdout)
-  reporter = new TSR(reporter)
+  reporter = new TMR(reporter)
   tap.pipe(reporter)
 }
 
 for (var i = 0; i < files.length; i++) {
   var file = files[i]
+
+  // Pick up stdin after all the other files are handled.
+  if (file === '-') {
+    tap.stdin()
+    continue
+  }
+
   var st = fs.statSync(files[i])
 
   if (file.match(/\.js$/))

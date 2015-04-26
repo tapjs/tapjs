@@ -24,7 +24,7 @@
     "runforcover": "~0.0.2",
     "slide": "*",
     "supports-color": "^1.3.1",
-    "tap-mocha-reporter": "0.0.3",
+    "tap-mocha-reporter": "0.0 || 1",
     "tap-parser": "^1.0.1",
     "yamlish": "*"
   },
