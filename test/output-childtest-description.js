@@ -16,7 +16,6 @@ var tap  =  require("../lib/main.js")
   , nestedTestsFile = path.join(__dirname, "nested-tests-fixture.js")
 
 fs.writeFileSync(nestedTestsFile, nestedTests, "utf8")
-console.log(nestedTestsFile);
 
 tap.test("nested tests, parent and child pass", function (t) {
   /*
