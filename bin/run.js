@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 var args = process.argv.slice(2)
 
-if (!args.length) {
+if (!args.length && process.stdin.isTTY) {
   console.error(usage())
   process.exit(1)
 }
@@ -101,6 +101,8 @@ Usage:
 Executes all the files and interprets their output as TAP
 formatted test result data.
 
+To parse TAP data from stdin, specify "-" as a filename.
+
 Options:
 
   -c --color                  Force use of colors
@@ -109,7 +111,10 @@ Options:
 
   -R<type> --reporter=<type>  Use the specified reporter.  Defaults to
                               'classic' when colors are in use, or 'tap'
-                              when printing to a non-fancy TTY.
+                              when colors are disabled.
+
+                              Available reporters:
+@@REPORTERS@@
 
   -gc --expose-gc             Expose the gc() function to Node tests
 
@@ -128,7 +133,24 @@ Options:
   -h --help                   print this thing you're looking at
 
   -v --version                show the version of this program
+
+  --                          Stop parsing flags, and treat any additional
+                              command line arguments as filenames.
 */}.toString().split('\n').slice(1, -1).join('\n')
+  .split('@@REPORTERS@@').join(getReporters())
+}
+
+function getReporters () {
+  var types = require('tap-mocha-reporter').types
+  types = types.reduce(function (str, t) {
+    var ll = str.split('\n').pop().length + t.length
+    if (ll < 40)
+      return str + ' ' + t
+    else
+      return str + '\n' + t
+  }, '').trim()
+  var ind = '                              '
+  return ind + types.split('\n').join('\n' + ind)
 }
 
 var isExe
