@@ -6,6 +6,13 @@ if (!args.length && process.stdin.isTTY) {
   process.exit(1)
 }
 
+process.stdout.on('error', function (er) {
+  if (er.code === 'EPIPE')
+    process.exit()
+  else
+    throw er
+})
+
 
 // defaults
 var nodeArgs = []
