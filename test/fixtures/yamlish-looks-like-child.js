@@ -1,5 +1,13 @@
 module.exports =
-[ [ 'plan', { start: 1, end: 3 } ],
+[ [ 'line', '1..3\n' ],
+  [ 'plan', { start: 1, end: 3 } ],
+  [ 'line', 'ok 1 -  callback happened\n' ],
+  [ 'line', '  ---\n' ],
+  [ 'line', '  ok:\n' ],
+  [ 'line', '    - I wished for a bailout!\n' ],
+  [ 'line',
+    '    - lots of other shapes here can look like valid tap\n' ],
+  [ 'line', '  ...\n' ],
   [ 'assert',
     { ok: true,
       id: 1,
@@ -8,6 +16,8 @@ module.exports =
        { ok: 
           [ 'I wished for a bailout!',
             'lots of other shapes here can look like valid tap' ] } } ],
+  [ 'line', 'ok 2 -  child test\n' ],
+  [ 'line', 'ok 3 -  should come last\n' ],
   [ 'assert', { ok: true, id: 2, name: 'child test' } ],
   [ 'assert', { ok: true, id: 3, name: 'should come last' } ],
   [ 'complete',

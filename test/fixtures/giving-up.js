@@ -1,6 +1,10 @@
 module.exports =
-[ [ 'version', '13' ],
+[ [ 'line', 'TAP version 13\n' ],
+  [ 'version', '13' ],
+  [ 'line', '1..573\n' ],
   [ 'plan', { start: 1, end: 573 } ],
+  [ 'line', 'not ok 1 - database handle\n' ],
+  [ 'line', 'Bail out! Couldn\'t connect to database.\n' ],
   [ 'bailout', 'Couldn\'t connect to database.' ],
   [ 'assert', { ok: false, id: 1, name: 'database handle' } ],
   [ 'complete',

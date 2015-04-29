@@ -1,5 +1,8 @@
 module.exports =
-[ [ 'version', '13' ],
+[ [ 'line', 'TAP version 13\n' ],
+  [ 'version', '13' ],
+  [ 'line', 'not ok 1 does not count as failure # SKIP\n' ],
+  [ 'line', '1..1\n' ],
   [ 'assert',
     { ok: false,
       id: 1,

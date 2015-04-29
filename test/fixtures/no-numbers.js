@@ -1,6 +1,10 @@
 module.exports =
-[ [ 'plan', { start: 1, end: 3 } ],
+[ [ 'line', '1..3\n' ],
+  [ 'plan', { start: 1, end: 3 } ],
+  [ 'line', 'ok we are good\n' ],
+  [ 'line', 'not ok 2 we are bad\n' ],
   [ 'assert', { ok: true, id: 1, name: 'we are good' } ],
+  [ 'line', 'ok we are zesty!\n' ],
   [ 'assert', { ok: false, id: 2, name: 'we are bad' } ],
   [ 'assert', { ok: true, id: 3, name: 'we are zesty!' } ],
   [ 'complete',
