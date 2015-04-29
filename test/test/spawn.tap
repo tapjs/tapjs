@@ -52,7 +52,7 @@ TAP version 13
     ___/# time=[0-9.]+(ms)?/~~~
 not ok 1 - ___/.*/~~~spawn.js child ___/# time=[0-9.]+(ms)?/~~~
   ---
-  {"at":{"file":"test/test/spawn.js","line":8,"column":5},"results":{"ok":false,"count":5,"pass":2,"fail":3,"plan":{"start":1,"end":5}},"command":"___/.*(node|iojs)/~~~","arguments":["___/.*/~~~spawn.js","child"],"options":{}}
+  {"at":{"file":"test/test/spawn.js","line":8,"column":5},"results":{"ok":false,"count":5,"pass":2,"fail":3,"plan":{"start":1,"end":5}},"command":"___/.*(node|iojs)/~~~","arguments":["___/.*/~~~spawn.js","child"]}
   ...
 
     # Subtest: nesting
