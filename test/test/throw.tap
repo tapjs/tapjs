@@ -10,36 +10,36 @@ TAP version 13
         # Subtest: async thrower
         not ok 1 - Error: THINK FAST! and also lines so many
           ---
-          {"at":{"file":"___/.*/~~~throw.js","line":12,"column":16,"function":"null._onTimeout"},"jerk":true,"message":"Error: THINK FAST!\nand also lines\nso many"}
+          {"at":{"file":"___/.*/~~~throw.js","line":12,"column":16,"function":"null._onTimeout"},"jerk":true,"message":"Error: THINK FAST!\nand also lines\nso many","source":"var er = new Error('THINK FAST!\\nand also lines\\nso many')\n"}
           ...
         1..1
         # failed 1 of 1 tests
     not ok 2 - async thrower ___/# time=[0-9.]+(ms)?/~~~
       ---
-      {"at":{"file":"test/test/throw.js","line":10,"column":5},"results":{"plan":{"start":1,"end":1},"count":1,"pass":0,"ok":false,"fail":1}}
+      {"at":{"file":"test/test/throw.js","line":10,"column":5},"source":"function (tt) {\n    setTimeout(function () {\n      var er = new Error('THINK FAST!\\nand also lines\\nso many')\n      er.jerk = true\n      throw er\n    })\n  }","results":{"plan":{"start":1,"end":1},"count":1,"pass":0,"ok":false,"fail":1}}
       ...
 
         # Subtest: thrower
         not ok 1 - Error: here hold this for a second
           ---
-          {"at":{"file":"___/.*/~~~throw.js","line":18,"column":14},"syscall":"ring ring","message":"Error: here hold this for a second"}
+          {"at":{"file":"___/.*/~~~throw.js","line":18,"column":14},"syscall":"ring ring","message":"Error: here hold this for a second","source":"var er = new Error('here hold this for a second')\n"}
           ...
         1..1
         # failed 1 of 1 tests
     not ok 3 - thrower ___/# time=[0-9.]+(ms)?/~~~
       ---
-      {"at":{"file":"test/test/throw.js","line":17,"column":5},"results":{"plan":{"start":1,"end":1},"count":1,"pass":0,"ok":false,"fail":1}}
+      {"at":{"file":"test/test/throw.js","line":17,"column":5},"source":"function (tt) {\n    var er = new Error('here hold this for a second')\n    er.syscall = 'ring ring'\n    throw er\n  }","results":{"plan":{"start":1,"end":1},"count":1,"pass":0,"ok":false,"fail":1}}
       ...
     # failed 2 of 3 tests
 not ok 1 - nesting ___/# time=[0-9.]+(ms)?/~~~
   ---
-  {"at":{"file":"test/test/throw.js","line":3,"column":3},"results":{"plan":{"start":1,"end":3},"count":3,"pass":1,"ok":false,"fail":2}}
+  {"at":{"file":"test/test/throw.js","line":3,"column":3},"source":"function (t) {\n  t.plan(3)\n  t.test('first', function (tt) {\n    tt.plan(2)\n    tt.ok(true, 'true is ok')\n    tt.ok('doeg', 'doag is also okay')\n  })\n  t.test('async thrower', function (tt) {\n    setTimeout(function () {\n      var er = new Error('THINK FAST!\\nand also lines\\nso many')\n      er.jerk = true\n      throw er\n    })\n  })\n  t.test('thrower', function (tt) {\n    var er = new Error('here hold this for a second')\n    er.syscall = 'ring ring'\n    throw er\n  })\n}","results":{"plan":{"start":1,"end":3},"count":3,"pass":1,"ok":false,"fail":2}}
   ...
 
 ok 2 - this passes
 not ok 3 - this fails
   ---
-  {"at":{"file":"test/test/throw.js","line":25,"column":3}}
+  {"at":{"file":"test/test/throw.js","line":25,"column":3},"source":"t.fail('this fails')\n"}
   ...
     # Subtest: async kid
     1..2

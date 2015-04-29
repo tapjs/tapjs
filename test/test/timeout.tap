@@ -8,20 +8,20 @@ TAP version 13
 
         not ok 2 - timeout!
           ---
-          {"at":{"file":"test/test/timeout.js","line":8,"column":5}}
+          {"at":{"file":"test/test/timeout.js","line":8,"column":5},"source":"t.test('timeout test', { timeout: 50 }, function (t) {\n"}
           ...
         1..2
         # failed 1 of 2 tests
     not ok 1 - timeout test ___/# time=[0-9.]+(ms)?/~~~
       ---
-      {"timeout":50,"at":{"file":"test/test/timeout.js","line":8,"column":5},"results":{"plan":{"start":1,"end":2},"count":2,"pass":1,"ok":false,"fail":1}}
+      {"timeout":50,"at":{"file":"test/test/timeout.js","line":8,"column":5},"source":"function (t) {\n    t.test('this never completes', function (tt) {\n      tt.ok('wait a sec...')\n      setTimeout(function () {\n        tt.pass('ok done')\n        tt.end()\n      }, 100)\n    })\n    t.end()\n  }","results":{"plan":{"start":1,"end":2},"count":2,"pass":1,"ok":false,"fail":1}}
       ...
 
     1..1
     # failed 1 of 1 tests
 not ok 1 - parent of timeout test ___/# time=[0-9.]+(ms)?/~~~
   ---
-  {"at":{"file":"test/test/timeout.js","line":7,"column":3},"results":{"plan":{"start":1,"end":1},"count":1,"pass":0,"ok":false,"fail":1}}
+  {"at":{"file":"test/test/timeout.js","line":7,"column":3},"source":"function (t) {\n  t.test('timeout test', { timeout: 50 }, function (t) {\n    t.test('this never completes', function (tt) {\n      tt.ok('wait a sec...')\n      setTimeout(function () {\n        tt.pass('ok done')\n        tt.end()\n      }, 100)\n    })\n    t.end()\n  })\n  t.end()\n}","results":{"plan":{"start":1,"end":1},"count":1,"pass":0,"ok":false,"fail":1}}
   ...
 
 1..1

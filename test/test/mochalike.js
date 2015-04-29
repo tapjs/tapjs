@@ -47,7 +47,7 @@ describe('failing indented things', function () {
   describe('first subset', function () {
     'just some line breaks'
     it('has no asserts, only throws', function () {
-      ok(false, 'false is not true on line 86')
+      ok(false, 'false is not true on line 50')
     })
     it('does not throw')
   })
