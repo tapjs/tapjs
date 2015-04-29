@@ -19,6 +19,7 @@ var nodeArgs = []
 
 var timeout = process.env.TAP_TIMEOUT || 120
 var color = require('supports-color')
+var bail = false
 var reporter
 var files = []
 
@@ -72,6 +73,14 @@ for (var i = 0; i < args.length; i++) {
       nodeArgs.push('--harmony')
       continue
 
+    case '-b': case '--bail':
+      bail = true
+      continue
+
+    case '-B': case '--no-bail':
+      bail = false
+      continue
+
     case '-c': case '--color':
       color = true
       continue
@@ -119,6 +128,10 @@ Options:
   -R<type> --reporter=<type>  Use the specified reporter.  Defaults to
                               'classic' when colors are in use, or 'tap'
                               when colors are disabled.
+
+  -b --bail                   Bail out on first failure.
+
+  -B --no-bail                Do not bail out on first failure.
 
                               Available reporters:
 @@REPORTERS@@
@@ -212,6 +225,8 @@ if (reporter !== 'tap') {
   reporter = new TMR(reporter)
   tap.pipe(reporter)
 }
+
+tap._bailOnFail = bail
 
 for (var i = 0; i < files.length; i++) {
   var file = files[i]

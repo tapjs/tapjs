@@ -147,6 +147,10 @@ Options:
                               'classic' when colors are in use, or 'tap'
                               when colors are disabled.
 
+  -b --bail                   Bail out on first failure.
+
+  -B --no-bail                Do not bail out on first failure.
+
                               Available reporters:
                               classic doc dot dump html htmlcov json
                               jsoncov jsonstream landing list markdown
@@ -210,7 +214,16 @@ Create a subtest.
 If the function is omitted, then it will be marked as a "todo" or
 "pending" test.
 
-The options object is the same as would be passed to any assert.
+The options object can include the following fields:
+
+* `todo` Mark this test as a "todo" item, and do not run it.
+* `skip` Mark this test as a "skip" item, and do not run it.
+* `bailOnFail` Respond to any assertion failure by bailing out.
+* `timeout` Time in ms before this test should complete.  (Defaults to
+  30000.)
+
+Any additional data will be printed as diagnostic information if the
+test fails.
 
 #### t.plan(number)
 
