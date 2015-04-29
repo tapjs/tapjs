@@ -8,7 +8,7 @@ TAP version 13
             ok 1 - true is ok
             ok 2 - doag is also okay
         ok 1 - first ___/# time=[0-9.]+(ms)?/~~~
-        
+
             # Subtest: second
             ok 1 - but that is ok
             ok 2 - this passes
@@ -27,7 +27,7 @@ TAP version 13
       ---
       {"at":{"file":"test/test/spawn.js","line":11,"column":3},"results":{"plan":{"start":1,"end":2},"count":2,"pass":1,"ok":false,"fail":1}}
       ...
-    
+
     ok 2 - this passes
     not ok 3 - this fails
       ---
@@ -45,7 +45,7 @@ TAP version 13
       ---
       {"at":{"file":"test/test/spawn.js","line":38,"column":3},"results":{"plan":{"start":1,"end":2},"count":2,"pass":1,"ok":false,"fail":1}}
       ...
-    
+
     ok 5 - pass after async kid
     1..5
     # failed 3 of 5 tests
@@ -62,7 +62,7 @@ not ok 1 - ___/.*/~~~spawn.js child ___/# time=[0-9.]+(ms)?/~~~
         ok 1 - true is ok
         ok 2 - doag is also okay
     ok 1 - first ___/# time=[0-9.]+(ms)?/~~~
-    
+
         # Subtest: second
         ok 1 - but that is ok
         ok 2 - this passes

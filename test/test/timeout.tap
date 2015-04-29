@@ -5,7 +5,7 @@ TAP version 13
             ok 1 - expect truthy value
             1..1
         ok 1 - this never completes ___/# time=[0-9.]+(ms)?/~~~
-        
+
         not ok 2 - timeout!
           ---
           {"at":{"file":"test/test/timeout.js","line":8,"column":5}}
@@ -16,7 +16,7 @@ TAP version 13
       ---
       {"timeout":50,"at":{"file":"test/test/timeout.js","line":8,"column":5},"results":{"plan":{"start":1,"end":2},"count":2,"pass":1,"ok":false,"fail":1}}
       ...
-    
+
     1..1
     # failed 1 of 1 tests
 not ok 1 - parent of timeout test ___/# time=[0-9.]+(ms)?/~~~

@@ -8,7 +8,7 @@ an object is { a: 'thing', to: [ 'inspect' ] }
         ok 2 - doag is also okay
         ok 3 - doag is very okay
     ok 1 - first ___/# time=[0-9.]+(ms)?/~~~
-    
+
         # Subtest: second
         ok 1 - but that is ok
         ok 2 - this passes

@@ -9,7 +9,7 @@ ok 1 - expect truthy value
       ---
       {"at":{"file":"test/test/throws-and-plans.js","line":20,"column":5},"results":{"plan":{"start":1,"end":1},"count":1,"pass":1,"ok":true}}
       ...
-    
+
     not ok 3 - Error: pwnSync
       ---
       {"at":{"file":"___/.*/~~~throws-and-plans.js","line":24,"column":11},"message":"Error: pwnSync"}
@@ -21,7 +21,7 @@ ok 1 - expect truthy value
       ---
       {"at":{"file":"test/test/throws-and-plans.js","line":29,"column":5},"results":{"plan":{"start":1,"end":1},"count":1,"pass":1,"ok":true}}
       ...
-    
+
     ok 5 - after child
     1..5
     # failed 3 of 5 tests

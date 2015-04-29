@@ -6,7 +6,7 @@ TAP version 13
         ok 1 - true is ok
         ok 2 - doag is also okay
     ok 1 - first ___/# time=[0-9.]+(ms)?/~~~
-    
+
         # Subtest: async thrower
         not ok 1 - Error: THINK FAST! and also lines so many
           ---
@@ -18,7 +18,7 @@ TAP version 13
       ---
       {"at":{"file":"test/test/throw.js","line":10,"column":5},"results":{"plan":{"start":1,"end":1},"count":1,"pass":0,"ok":false,"fail":1}}
       ...
-    
+
         # Subtest: thrower
         not ok 1 - Error: here hold this for a second
           ---

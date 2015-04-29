@@ -18,7 +18,7 @@ TAP version 13
       ---
       {"at":{"file":"test/test/plan-too-many.js","line":7,"column":5},"results":{"plan":{"start":1,"end":8},"count":8,"pass":1,"ok":false,"fail":7}}
       ...
-    
+
     not ok 4 - missing test
     not ok 5 - missing test
     not ok 6 - missing test
