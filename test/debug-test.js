@@ -1,15 +1,25 @@
-var tap = require("../")
-  , fs = require("fs")
-  , cp = require("child_process")
-  , util = require("util")
+var t = require('../')
+var fs = require('fs')
+var cp = require('child_process')
+var util = require('util')
+var main = require.resolve('../bin/run.js')
+var ok = require.resolve('./test/ok.js')
+var node = process.execPath
+var fs = require('fs')
 
-process.chdir(__dirname)
-tap.test("debug test", function (t) {
-  t.plan(1)
-
-  cp.exec("../bin/tap.js --debug meta-test.js", function (err, stdo, stde) {
-    // node 0.10 print "debugger", 0.12 and iojs are printing "Debugger"
-    t.notEqual(stde.indexOf("ebugger listening on port"), -1, "Should output debugger message")
-    t.end();
-  })
+t.plan(1)
+var child = cp.spawn(node, [main, '--debug', ok])
+var stde = ''
+var done = false
+child.stderr.on('data', function (c) {
+  stde += c
+  if (stde.indexOf('ebugger listening on port') !== -1) {
+    t.pass('Should output debugger message')
+    done = true
+    child.kill()
+  }
+})
+child.stderr.on('end', function () {
+  if (!done)
+    throw new Error('did not find debugger message')
 })
