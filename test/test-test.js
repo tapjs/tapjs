@@ -1,13 +1,10 @@
-var tap = require("../lib/main.js")
+var tap = require("../")
   , test = tap.test
-  , Test = require("../lib/tap-test")
-  , Harness = require("../lib/tap-harness")
+  , Test = tap.Test
 
 test("testing the test object", function (t) {
 
   t.isa(t, Test, "test object should be instanceof Test")
-  t.isa(t, Harness, "test object should be instanceof Harness")
-  t.is(t._Test, Test, "test._Test should be the Test class")
 
   // now test all the methods.
   ; [ "isNotDeepEqual"
@@ -29,8 +26,6 @@ test("testing the test object", function (t) {
     , "deepEqual"
     , "deepEquals"
     , "pass"
-    , "length"
-    , "skip"
     , "isNotEqual"
     , "looseEquals"
     , "false"
@@ -52,18 +47,14 @@ test("testing the test object", function (t) {
     , "isNot"
     , "same"
     , "isInequal"
-    , "_endNice"
     , "ifError"
     , "iferror"
-    , "clear"
     , "has"
     , "not"
-    , "timeout"
     , "notSimilar"
     , "isUnlike"
     , "notEquals"
     , "unsimilar"
-    , "result"
     , "doesNotThrow"
     , "error"
     , "constructor"
@@ -88,4 +79,3 @@ test("testing the test object", function (t) {
     })
     t.end()
 })
-
