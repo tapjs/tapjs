@@ -21,5 +21,5 @@ child.stderr.on('data', function (c) {
 })
 child.stderr.on('end', function () {
   if (!done)
-    throw new Error('did not find debugger message')
+    t.fail('did not find debugger message')
 })
