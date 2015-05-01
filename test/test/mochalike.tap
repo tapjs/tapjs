@@ -44,7 +44,7 @@ ok 3 - reasonably indented things ___/# time=[0-9.]+(ms)?/~~~
         # Subtest: first subset
         not ok 1 - has no asserts, only throws
           ---
-          {"at":{"file":"___/.*/~~~mochalike.js","line":50,"column":7},"name":"AssertionError","actual":false,"expected":true,"operator":"==","generatedMessage":false,"message":"AssertionError: false is not true on line 50","source":"ok(false, 'false is not true on line 50')\n"}
+          {"at":{"file":"test/test/mochalike.js","line":50,"column":7},"name":"AssertionError","actual":false,"expected":true,"operator":"==","generatedMessage":false,"message":"AssertionError: false is not true on line 50","source":"ok(false, 'false is not true on line 50')\n"}
           ...
         ok 2 - does not throw # TODO
         1..2
@@ -58,7 +58,7 @@ ok 3 - reasonably indented things ___/# time=[0-9.]+(ms)?/~~~
         # Subtest: second subset
         not ok 1 - AssertionError: objectify the truthiness
           ---
-          {"at":{"file":"___/.*/~~~mochalike.js","line":56,"column":5},"name":"AssertionError","actual":false,"expected":true,"operator":"==","generatedMessage":false,"message":"AssertionError: objectify the truthiness","source":"ok(!{}, 'objectify the truthiness')\n"}
+          {"at":{"file":"test/test/mochalike.js","line":56,"column":5},"name":"AssertionError","actual":false,"expected":true,"operator":"==","generatedMessage":false,"message":"AssertionError: objectify the truthiness","source":"ok(!{}, 'objectify the truthiness')\n"}
           ...
         1..1
         # failed 1 of 1 tests

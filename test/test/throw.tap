@@ -10,7 +10,7 @@ TAP version 13
         # Subtest: async thrower
         not ok 1 - Error: THINK FAST! and also lines so many
           ---
-          {"at":{"file":"___/.*/~~~throw.js","line":12,"column":16,"function":"null._onTimeout"},"jerk":true,"message":"Error: THINK FAST!\nand also lines\nso many","source":"var er = new Error('THINK FAST!\\nand also lines\\nso many')\n"}
+          {"at":{"file":"test/test/throw.js","line":12,"column":16,"function":"null._onTimeout"},"jerk":true,"message":"Error: THINK FAST!\nand also lines\nso many","source":"var er = new Error('THINK FAST!\\nand also lines\\nso many')\n"}
           ...
         1..1
         # failed 1 of 1 tests
@@ -22,7 +22,7 @@ TAP version 13
         # Subtest: thrower
         not ok 1 - Error: here hold this for a second
           ---
-          {"at":{"file":"___/.*/~~~throw.js","line":18,"column":14},"syscall":"ring ring","message":"Error: here hold this for a second","source":"var er = new Error('here hold this for a second')\n"}
+          {"at":{"file":"test/test/throw.js","line":18,"column":14},"syscall":"ring ring","message":"Error: here hold this for a second","source":"var er = new Error('here hold this for a second')\n"}
           ...
         1..1
         # failed 1 of 1 tests
