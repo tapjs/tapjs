@@ -58,7 +58,7 @@ ok 3 - reasonably indented things ___/# time=[0-9.]+(ms)?/~~~
         # Subtest: second subset
         not ok 1 - AssertionError: objectify the truthiness
           ---
-          {"at":{"file":"test/test/mochalike.js","line":56,"column":5},"name":"AssertionError","actual":false,"expected":true,"operator":"==","generatedMessage":false,"message":"AssertionError: objectify the truthiness","source":"ok(!{}, 'objectify the truthiness')\n"}
+          {"at":{"file":"test/test/mochalike.js","line":56,"column":5},"name":"AssertionError","actual":false,"expected":true,"operator":"==","generatedMessage":false,"test":"second subset","message":"AssertionError: objectify the truthiness","source":"ok(!{}, 'objectify the truthiness')\n"}
           ...
         1..1
         # failed 1 of 1 tests
