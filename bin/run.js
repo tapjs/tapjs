@@ -22,11 +22,46 @@ var color = require('supports-color')
 var reporter
 var files = []
 
+var singleFlags = {
+  b: 'bailout',
+  B: 'no-bailout',
+  c: 'color',
+  C: 'no-color',
+  h: 'help',
+  '?': 'help',
+  v: 'version'
+}
+var singleOpts = {
+  R: 'reporter',
+  t: 'timeout'
+}
+
 for (var i = 0; i < args.length; i++) {
   var arg = args[i]
   if (arg.charAt(0) !== '-' || arg === '-') {
     files.push(arg)
     continue
+  }
+
+  // short-flags
+  if (arg.charAt(1) !== '-' && arg !== '-gc') {
+    var expand = []
+    for (var f = 1; f < arg.length; f++) {
+      var fc = arg.charAt(f)
+      var sf = singleFlags[fc]
+      var so = singleOpts[fc]
+      if (sf)
+        expand.push('--' + sf)
+      else if (so) {
+        expand.push('--' + so + '=' + arg.slice(f + 1))
+        f = arg.length
+      }
+    }
+    if (expand.length) {
+      args.splice.apply(args, [i, 1].concat(expand))
+      i --
+      continue
+    }
   }
 
   // support -Rspec as well as --reporter=spec
@@ -41,10 +76,10 @@ for (var i = 0; i < args.length; i++) {
   }
 
   switch (key) {
-    case '-h': case '--help': case '-?':
+    case '--help':
       return console.log(usage())
 
-    case '-v': case '--version':
+    case '--version':
       return console.log(require('../package.json').version)
 
     case '--reporter':
@@ -72,15 +107,15 @@ for (var i = 0; i < args.length; i++) {
       nodeArgs.push('--harmony')
       continue
 
-    case '-c': case '--color':
+    case '--color':
       color = true
       continue
 
-    case '-C': case '--no-color':
+    case '--no-color':
       color = false
       continue
 
-    case '-t': case '--timeout':
+    case '--timeout':
       val = val || args[++i]
       timeout = +val
       continue
