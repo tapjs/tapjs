@@ -5,6 +5,7 @@ var t = require('../..')
 t.test('bail fail', { bail: true }, function (t) {
   t.test('failer', function (t) {
     t.fail('this fails')
+    t.ok('should not see this')
     t.end()
   })
   t.end()
