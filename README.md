@@ -143,6 +143,10 @@ Options:
 
   -C --no-color               Force no use of colors
 
+  -b --bail                   Bail out on first failure
+
+  -B --no-bail                Do not bail out on first failure (Default)
+
   -R<type> --reporter=<type>  Use the specified reporter.  Defaults to
                               'classic' when colors are in use, or 'tap'
                               when colors are disabled.
@@ -210,7 +214,11 @@ Create a subtest.
 If the function is omitted, then it will be marked as a "todo" or
 "pending" test.
 
-The options object is the same as would be passed to any assert.
+The options object is the same as would be passed to any assert, with
+two additional fields that are only relevant for child tests:
+
+* `timeout`: The number of ms to allow the test to run.
+* `bail`: Set to `true` to bail out on the first test failure.
 
 #### t.plan(number)
 
@@ -278,6 +286,20 @@ That's what this method does.
 
 It is primarily used by the executable runner, to run all of the
 filename arguments provided on the command line.
+
+The `options` object is passed to `child_process.spawn`, and can
+contain stuff like stdio directives and environment vars.
+
+The `extra` arg is the same that would be passed to any assertion or
+child test, with the addition of the following fields:
+
+* `bail`: Set to `true` to bail out on the first failure.  This is
+  done by checking the output and then forcibly killing the process,
+  but also sets the `TAP_BAIL` environment variable, which node-tap
+  uses to set this field internally as well.
+* `timeout`: The number of ms to allow the child process to continue.
+  If it goes beyond this time, the child process will be forcibly
+  killed.
 
 #### t.addAssert(name, length, fn)
 

@@ -1,4 +1,3 @@
-- bail on first failure (with -B -b --bail --no-bail cli args)
 - save tests that failed, and re-run just those (mostly just the files
   themselves for the run.js bin, not individual test points)
 - fix the markdown reporter

@@ -21,10 +21,11 @@ var timeout = process.env.TAP_TIMEOUT || 30
 var color = require('supports-color')
 var reporter
 var files = []
+var bail = false
 
 var singleFlags = {
-  b: 'bailout',
-  B: 'no-bailout',
+  b: 'bail',
+  B: 'no-bail',
   c: 'color',
   C: 'no-color',
   h: 'help',
@@ -120,6 +121,14 @@ for (var i = 0; i < args.length; i++) {
       timeout = +val
       continue
 
+    case '--bail':
+      bail = true
+      continue
+
+    case '--no-bail':
+      bail = false
+      continue
+
     case '--':
       files = files.concat(args.slice(i + 1))
       i = args.length
@@ -147,9 +156,13 @@ To parse TAP data from stdin, specify "-" as a filename.
 
 Options:
 
-  -c --color                  Force use of colors
+  -c --color                  Use colors (Default for TTY)
 
-  -C --no-color               Force no use of colors
+  -C --no-color               Do not use colors (Default for non-TTY)
+
+  -b --bail                   Bail out on first failure
+
+  -B --no-bail                Do not bail out on first failure (Default)
 
   -R<type> --reporter=<type>  Use the specified reporter.  Defaults to
                               'classic' when colors are in use, or 'tap'
@@ -168,8 +181,8 @@ Options:
 
   --strict                    Run JS tests in 'use strict' mode
 
-  -t<n> --timeout=<n>         Time out tests after this many seconds.
-                              Defaults to 120, or the value of the
+  -t<n> --timeout=<n>         Time out test files after this many seconds.
+                              Defaults to 30, or the value of the
                               TAP_TIMEOUT environment variable.
 
   -h --help                   print this thing you're looking at
@@ -225,6 +238,9 @@ if (color)
 else
   process.env.TAP_COLORS = 0
 
+if (bail)
+  process.env.TAP_BAIL = '1'
+
 if (files.length === 0) {
   console.error('Reading TAP data from stdin (use "-" argument to suppress)')
   files.push('-')
@@ -247,6 +263,7 @@ if (reporter !== 'tap') {
   reporter = new TMR(reporter)
   tap.pipe(reporter)
 }
+
 
 for (var i = 0; i < files.length; i++) {
   var file = files[i]
