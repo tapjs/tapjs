@@ -30,10 +30,10 @@ t.pass('this passes too')
 t.test('async kid', function (t) {
   t.plan(2)
   setTimeout(function () {
-    t.ok(true, 'first timeout', { foo: 'blz' })
-  }, 50)
+    t.ok(true, 'timeout', { foo: 'blz' })
+  })
   setTimeout(function () {
-    t.pass('second timeout')
+    t.pass('timeout')
   })
 })
 
