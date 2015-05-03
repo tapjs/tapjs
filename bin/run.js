@@ -139,6 +139,9 @@ for (var i = 0; i < args.length; i++) {
   }
 }
 
+if (process.env.TAP === '1')
+  reporter = 'tap'
+
 // default to tap for non-tty envs
 if (!reporter)
   reporter = color ? 'classic' : 'tap'
