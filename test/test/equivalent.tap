@@ -28,7 +28,7 @@ TAP version 13
     # failed 6 of 6 tests
 not ok 1 - child test ___/# time=[0-9.]+(ms)?/~~~
   ---
-  {"at":{"file":"test/test/equivalent.js","line":2,"column":3},"source":"function (t) {\n  t.equal('foo\\nbaz\\nbar\\n', 'foo\\nblerb\\nbar\\n')\n  t.equal('foo', 'foople')\n  t.equal(1, '1')\n  t.same({foo:'bar', bar:1, extra: 9}, {bar:1, foo:'baz', missing: true})\n  t.same({foop:2, foo:'bar', bar:1, extra: 9},\n         {bar:1, foo:'baz', foop:2, missing: true})\n  t.same({foo:'baz', bar:1, extra: 9,x:[1,2],prop:1}, {prop:1,bar:1, foo:'baz', missing: true,x:[1,2],z:1})\n\n\n  t.end()\n}","results":{"plan":{"start":1,"end":6},"count":6,"pass":0,"ok":false,"fail":6}}
+  {"at":{"file":"test/test/equivalent.js","line":2,"column":3},"results":{"plan":{"start":1,"end":6},"count":6,"pass":0,"ok":false,"fail":6},"source":"t.test('child test', function (t) {\n"}
   ...
 
 1..1

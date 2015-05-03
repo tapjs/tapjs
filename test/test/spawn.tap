@@ -20,12 +20,12 @@ TAP version 13
             # failed 1 of 3 tests
         not ok 2 - second ___/# time=[0-9.]+(ms)?/~~~
           ---
-          {"at":{"file":"test/test/spawn.js","line":18,"column":5},"source":"function (tt) {\n    function foo() {\n      tt.ok('no plan', 'but that is ok')\n      tt.pass('this passes')\n      tt.equal(1, '1', 'nested failure')\n      tt.end()\n    }\n    function bar() {\n      return foo()\n    }\n    function baz() {\n      return bar()\n    }\n    baz()\n  }","results":{"plan":{"start":1,"end":3},"count":3,"pass":2,"ok":false,"fail":1}}
+          {"at":{"file":"test/test/spawn.js","line":18,"column":5},"results":{"plan":{"start":1,"end":3},"count":3,"pass":2,"ok":false,"fail":1},"source":"t.test('second', function (tt) {\n"}
           ...
         # failed 1 of 2 tests
     not ok 1 - nesting ___/# time=[0-9.]+(ms)?/~~~
       ---
-      {"at":{"file":"test/test/spawn.js","line":11,"column":3},"source":"function (t) {\n  t.plan(2)\n  t.test('first', function (tt) {\n    tt.plan(2)\n    tt.ok(true, 'true is ok')\n    tt.assert('doeg', 'doag is also okay')\n  })\n  t.test('second', function (tt) {\n    function foo() {\n      tt.ok('no plan', 'but that is ok')\n      tt.pass('this passes')\n      tt.equal(1, '1', 'nested failure')\n      tt.end()\n    }\n    function bar() {\n      return foo()\n    }\n    function baz() {\n      return bar()\n    }\n    baz()\n  })\n}","results":{"plan":{"start":1,"end":2},"count":2,"pass":1,"ok":false,"fail":1}}
+      {"at":{"file":"test/test/spawn.js","line":11,"column":3},"results":{"plan":{"start":1,"end":2},"count":2,"pass":1,"ok":false,"fail":1},"source":"t.test('nesting', function (t) {\n"}
       ...
 
     ok 2 - this passes
@@ -43,7 +43,7 @@ TAP version 13
         # failed 1 of 2 tests
     not ok 4 - async kid ___/# time=[0-9.]+(ms)?/~~~
       ---
-      {"at":{"file":"test/test/spawn.js","line":38,"column":3},"source":"function (t) {\n  t.plan(2)\n  setTimeout(function () {\n    t.ok(false, 'first timeout', { foo: 'blz' })\n  }, 50)\n  setTimeout(function () {\n    t.pass('second timeout')\n  })\n}","results":{"plan":{"start":1,"end":2},"count":2,"pass":1,"ok":false,"fail":1}}
+      {"at":{"file":"test/test/spawn.js","line":38,"column":3},"results":{"plan":{"start":1,"end":2},"count":2,"pass":1,"ok":false,"fail":1},"source":"t.test('async kid', function (t) {\n"}
       ...
 
     ok 5 - pass after async kid
@@ -74,12 +74,12 @@ not ok 1 - ___/.*/~~~spawn.js child ___/# time=[0-9.]+(ms)?/~~~
         # failed 1 of 3 tests
     not ok 2 - second ___/# time=[0-9.]+(ms)?/~~~
       ---
-      {"at":{"file":"test/test/spawn.js","line":18,"column":5},"source":"function (tt) {\n    function foo() {\n      tt.ok('no plan', 'but that is ok')\n      tt.pass('this passes')\n      tt.equal(1, '1', 'nested failure')\n      tt.end()\n    }\n    function bar() {\n      return foo()\n    }\n    function baz() {\n      return bar()\n    }\n    baz()\n  }","results":{"plan":{"start":1,"end":3},"count":3,"pass":2,"ok":false,"fail":1}}
+      {"at":{"file":"test/test/spawn.js","line":18,"column":5},"results":{"plan":{"start":1,"end":3},"count":3,"pass":2,"ok":false,"fail":1},"source":"t.test('second', function (tt) {\n"}
       ...
     # failed 1 of 2 tests
 not ok 2 - nesting ___/# time=[0-9.]+(ms)?/~~~
   ---
-  {"at":{"file":"test/test/spawn.js","line":11,"column":3},"source":"function (t) {\n  t.plan(2)\n  t.test('first', function (tt) {\n    tt.plan(2)\n    tt.ok(true, 'true is ok')\n    tt.assert('doeg', 'doag is also okay')\n  })\n  t.test('second', function (tt) {\n    function foo() {\n      tt.ok('no plan', 'but that is ok')\n      tt.pass('this passes')\n      tt.equal(1, '1', 'nested failure')\n      tt.end()\n    }\n    function bar() {\n      return foo()\n    }\n    function baz() {\n      return bar()\n    }\n    baz()\n  })\n}","results":{"plan":{"start":1,"end":2},"count":2,"pass":1,"ok":false,"fail":1}}
+  {"at":{"file":"test/test/spawn.js","line":11,"column":3},"results":{"plan":{"start":1,"end":2},"count":2,"pass":1,"ok":false,"fail":1},"source":"t.test('nesting', function (t) {\n"}
   ...
 
 ok 3 - this passes
@@ -97,7 +97,7 @@ not ok 4 - this fails
     # failed 1 of 2 tests
 not ok 5 - async kid ___/# time=[0-9.]+(ms)?/~~~
   ---
-  {"at":{"file":"test/test/spawn.js","line":38,"column":3},"source":"function (t) {\n  t.plan(2)\n  setTimeout(function () {\n    t.ok(false, 'first timeout', { foo: 'blz' })\n  }, 50)\n  setTimeout(function () {\n    t.pass('second timeout')\n  })\n}","results":{"plan":{"start":1,"end":2},"count":2,"pass":1,"ok":false,"fail":1}}
+  {"at":{"file":"test/test/spawn.js","line":38,"column":3},"results":{"plan":{"start":1,"end":2},"count":2,"pass":1,"ok":false,"fail":1},"source":"t.test('async kid', function (t) {\n"}
   ...
 
 ok 6 - pass after async kid

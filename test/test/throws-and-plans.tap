@@ -23,7 +23,7 @@ ok 1 - expect truthy value
     # failed 1 of 5 tests
 not ok 2 - plans of 1 ___/# time=[0-9.]+(ms)?/~~~
   ---
-  {"at":{"file":"test/test/throws-and-plans.js","line":17,"column":3},"source":"function (t) {\n  t.pass('before sync thrower')\n\n  t.test('sync thrower', function (tt) {\n    tt.plan(1)\n    tt.pass('before the bomb')\n    throw new Error('pwnSync')\n  })\n\n  t.test('async thrower', function (tt) {\n    tt.plan(3)\n    tt.pass('before set the bomb')\n    setTimeout(function () {\n      tt.pass('before the bomb')\n      throw new Error('pwn')\n    })\n    tt.pass('after set the bomb')\n  })\n  t.pass('after child')\n  t.end()\n}","results":{"plan":{"start":1,"end":5},"count":5,"pass":4,"ok":false,"fail":1}}
+  {"at":{"file":"test/test/throws-and-plans.js","line":17,"column":3},"results":{"plan":{"start":1,"end":5},"count":5,"pass":4,"ok":false,"fail":1},"source":"t.test('plans of 1', function (t) {\n"}
   ...
 
     # Subtest: no assert only throw
@@ -35,7 +35,7 @@ not ok 2 - plans of 1 ___/# time=[0-9.]+(ms)?/~~~
     # failed 1 of 1 tests
 not ok 3 - no assert only throw ___/# time=[0-9.]+(ms)?/~~~
   ---
-  {"at":{"file":"test/test/throws-and-plans.js","line":39,"column":3},"source":"function (t) {\n  var assert = require('assert')\n  assert(true, 'true is truthy')\n  assert(false, 'false is truthy right?')\n}","results":{"plan":{"start":1,"end":1},"count":1,"pass":0,"ok":false,"fail":1}}
+  {"at":{"file":"test/test/throws-and-plans.js","line":39,"column":3},"results":{"plan":{"start":1,"end":1},"count":1,"pass":0,"ok":false,"fail":1},"source":"t.test('no assert only throw', function (t) {\n"}
   ...
 
     # Subtest: plans of 8
@@ -56,7 +56,7 @@ not ok 3 - no assert only throw ___/# time=[0-9.]+(ms)?/~~~
         # failed 7 of 8 tests
     not ok 2 - sync thrower ___/# time=[0-9.]+(ms)?/~~~
       ---
-      {"at":{"file":"test/test/throws-and-plans.js","line":48,"column":5},"source":"function (tt) {\n    tt.plan(8)\n    tt.pass('before the bomb')\n\n    throw new Error('pwnSync')\n    tt.pass('after the bomb')\n    tt.end()\n  }","results":{"plan":{"start":1,"end":8},"count":8,"pass":1,"ok":false,"fail":7}}
+      {"at":{"file":"test/test/throws-and-plans.js","line":48,"column":5},"results":{"plan":{"start":1,"end":8},"count":8,"pass":1,"ok":false,"fail":7},"source":"t.test('sync thrower', function (tt) {\n"}
       ...
 
         # Subtest: async thrower
@@ -75,7 +75,7 @@ not ok 3 - no assert only throw ___/# time=[0-9.]+(ms)?/~~~
         # failed 5 of 8 tests
     not ok 3 - async thrower ___/# time=[0-9.]+(ms)?/~~~
       ---
-      {"at":{"file":"test/test/throws-and-plans.js","line":59,"column":5},"source":"function (tt) {\n    tt.plan(8)\n    tt.pass('before set the bomb')\n    setTimeout(function () {\n      tt.pass('before the bomb')\n      throw new Error('pwn')\n      tt.pass('after the bomb')\n      tt.end()\n    })\n    tt.pass('after set the bomb')\n  }","results":{"plan":{"start":1,"end":8},"count":8,"pass":3,"ok":false,"fail":5}}
+      {"at":{"file":"test/test/throws-and-plans.js","line":59,"column":5},"results":{"plan":{"start":1,"end":8},"count":8,"pass":3,"ok":false,"fail":5},"source":"t.test('async thrower', function (tt) {\n"}
       ...
 
     ok 4 - after child
@@ -83,7 +83,7 @@ not ok 3 - no assert only throw ___/# time=[0-9.]+(ms)?/~~~
     # failed 2 of 4 tests
 not ok 4 - plans of 8 ___/# time=[0-9.]+(ms)?/~~~
   ---
-  {"at":{"file":"test/test/throws-and-plans.js","line":45,"column":3},"source":"function (t) {\n  t.pass('before child')\n\n  t.test('sync thrower', function (tt) {\n    tt.plan(8)\n    tt.pass('before the bomb')\n\n    throw new Error('pwnSync')\n    tt.pass('after the bomb')\n    tt.end()\n  })\n\n  //return t.end()\n\n  t.test('async thrower', function (tt) {\n    tt.plan(8)\n    tt.pass('before set the bomb')\n    setTimeout(function () {\n      tt.pass('before the bomb')\n      throw new Error('pwn')\n      tt.pass('after the bomb')\n      tt.end()\n    })\n    tt.pass('after set the bomb')\n  })\n  t.pass('after child')\n  t.end()\n}","results":{"plan":{"start":1,"end":4},"count":4,"pass":2,"ok":false,"fail":2}}
+  {"at":{"file":"test/test/throws-and-plans.js","line":45,"column":3},"results":{"plan":{"start":1,"end":4},"count":4,"pass":2,"ok":false,"fail":2},"source":"t.test('plans of 8', function (t) {\n"}
   ...
 
 not ok 5 - Error: pwn
