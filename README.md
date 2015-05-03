@@ -33,6 +33,36 @@ tap.test('first stuff', function (t) {
   t.end()
 })
 
+// If you have a bunch of setup stuff that MUST work or else
+// the rest of the tests are not worth running, then you can
+// pass `{ bail: true }` to make it bail out on failure.
+
+tap.test('must succeed or all is lost', { bail: true }, function (t) {
+  db = new DataBorscht()
+  t.ok(db, 'borscht setup must succeed')
+  t.end()
+})
+
+// You can also bail out based on specific conditions, or with a
+// different error message of your choosing.
+tap.test('must mostly succeed or all is lost', function (t) {
+  db = new DataBorscht()
+
+  t.ok(db, 'borscht setup')
+  if (!db) {
+    t.bailout('the borscht is lost.  I cannot continue.')
+    return
+  }
+
+  t.ok(db.connection, 'db must have connection')
+  t.ok(db.username, 'db must have username')
+  t.equal(db.color, 'red', 'borscht should be red')
+  if (!t.passing())
+    t.bailout('something weird with the data borscht.')
+
+  t.end()
+})
+
 // you can specify a 'plan' if you know how many
 // tests there will be in advance. Handy when
 // order is irrelevant and things happen in parallel.
@@ -72,7 +102,7 @@ test('parent', function (t) {
 // thrown errors just fail the current test, so you can
 // also use your own assert library if you like.
 // Of course, this means it won't be able to print out the
-// number of passing asserts, since passes are silent.
+// number of passing asserts, since passes will be silent.
 
 test('my favorite assert lib', function (t) {
   var assert = require('assert')
