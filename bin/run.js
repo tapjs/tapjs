@@ -17,7 +17,7 @@ process.stdout.on('error', function (er) {
 // defaults
 var nodeArgs = []
 
-var timeout = process.env.TAP_TIMEOUT || 120
+var timeout = process.env.TAP_TIMEOUT || 30
 var color = require('supports-color')
 var reporter
 var files = []
@@ -258,16 +258,30 @@ for (var i = 0; i < files.length; i++) {
   }
 
   var st = fs.statSync(files[i])
+  var opt = {
+    env: Object.keys(process.env).reduce(function (env, k) {
+      if (!env[k])
+        env[k] = process.env[k]
+      return env
+    }, {
+      TAP: 1
+    })
+  }
+
+  var extra = {}
+  if (timeout) {
+    extra.timeout = timeout * 1000
+  }
 
   if (file.match(/\.js$/))
-    tap.spawn(process.execPath, nodeArgs.concat(file))
+    tap.spawn(process.execPath, nodeArgs.concat(file), opt, file, extra)
   else if (st.isDirectory()) {
     files.push.apply(files, fs.readdirSync(file).map(function (f) {
       return file + '/' + f
     }))
   }
   else if (isExe(st))
-    tap.spawn(files[i], [])
+    tap.spawn(files[i], [], opt, file, extra)
 }
 
 tap.end()
