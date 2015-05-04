@@ -31,7 +31,12 @@ function runTest (file) {
     return
   }
 
-  t.test(file.substr(dir.length), function (t) {
+  var f = file.substr(dir.length)
+  if ((f === 'console-log.js' || f === 'end-exception.js') &&
+      process.version.match(/^v0\./))
+    return t.test(f, { skip: 'streams are wrong on node 0.x' })
+
+  t.test(f, function (t) {
     var child = spawn(node, [file], {
       stdio: [ 0, 'pipe', 'pipe' ]
     })
@@ -74,7 +79,8 @@ function runTest (file) {
         } else {
           t.match(fline, patternify(wline),
                   'line ' + f + ' ' +
-                  wline.replace(/# (todo|skip)/gi, '- $1'))
+                  wline.replace(/# (todo|skip)/gi, '- $1'),
+                  { test: f })
 
           if (fline.match(/^\s*\-\-\-$/)) {
             startlen = fline.length
