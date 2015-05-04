@@ -7,3 +7,4 @@
 - make diff colors configurable
 - tests for reporter output
 - tests for cli flags and options
+- split lib/stack.js out into a separate module
