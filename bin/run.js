@@ -102,7 +102,7 @@ for (var i = 0; i < args.length; i++) {
       continue
 
     case '--strict':
-      nodeArgs.push('--strict')
+      nodeArgs.push('--use_strict')
       continue
 
     case '--debug':
