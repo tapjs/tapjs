@@ -1,6 +1,15 @@
 // Transforms a stream of TAP into a stream of result objects
 // and string comments.  Emits "results" event with summary.
 var Writable = require('stream').Writable
+if (!Writable) {
+  try {
+    Writale = require('readable-stream').Writable
+  } catch (er) {
+    throw new Error('Please install "readable-stream" to use this module ' +
+                    'with Node.js v0.8 and before')
+  }
+}
+
 var yaml = require('js-yaml')
 var util = require('util')
 var assert = require('assert')
