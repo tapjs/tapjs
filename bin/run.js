@@ -19,6 +19,8 @@ var nodeArgs = []
 
 var timeout = process.env.TAP_TIMEOUT || 30
 var color = require('supports-color')
+if (process.env.TAP_COLORS !== undefined)
+  color = !!(+process.env.TAP_COLORS)
 var reporter
 var files = []
 var bail = false
@@ -145,7 +147,6 @@ if (process.env.TAP === '1')
 // default to tap for non-tty envs
 if (!reporter)
   reporter = color ? 'classic' : 'tap'
-
 
 function usage () {
   return function () {/*
