@@ -5,10 +5,12 @@ t.test('parent of timeout test', function (t) {
     t.test('this never completes', function (tt) {
       tt.test('baby', function (tt) {
         tt.ok('wait a sec...')
-        setTimeout(function () {
+        var timer = setTimeout(function () {
           tt.pass('ok done')
           tt.end()
-        }, 1000).unref()
+        }, 1000)
+        if (timer.unref)
+          timer.unref()
       })
       tt.pass('p')
       tt.pass('a')

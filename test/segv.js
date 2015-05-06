@@ -14,8 +14,10 @@ var segv =
 
 // omit some stuff from the ends of lines that will differ
 // we slice the actual output later to just compare the fronts
+// also sort the lines, because Node v0.8 sets keys on objects
+// in different order.
 var expect =
-    'TAP version 13\n'+
+   ('TAP version 13\n'+
     '    # Subtest: ./segv\n'+
     'not ok 1 - ./segv  # time=\n'+
     '  ---\n'+
@@ -36,7 +38,7 @@ var expect =
     '\n'+
     '1..1\n' +
     '# failed 1 of 1 tests\n' +
-    '# time=\n'
+    '# time=\n').trim().split('\n').sort()
 
 var compiled = false
 
@@ -64,8 +66,7 @@ test('segv', function (t) {
     res += c
   })
   tt.on('end', function () {
-    res = res.split('\n')
-    expect = expect.split('\n')
+    res = res.trim().split('\n').sort()
     expect.forEach(function (line, i) {
       t.equal(res[i].substr(0, line.length), line)
     })

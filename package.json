@@ -43,7 +43,7 @@
   },
   "repository": "https://github.com/isaacs/node-tap.git",
   "scripts": {
-    "test": "node --use_strict bin/run.js test/*.*",
+    "test": "node bin/run.js test/*.*",
     "lint": "standard lib/*.js"
   },
   "devDependencies": {
