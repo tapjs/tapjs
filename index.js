@@ -3,7 +3,7 @@
 var Writable = require('stream').Writable
 if (!Writable) {
   try {
-    Writale = require('readable-stream').Writable
+    Writable = require('readable-stream').Writable
   } catch (er) {
     throw new Error('Please install "readable-stream" to use this module ' +
                     'with Node.js v0.8 and before')
