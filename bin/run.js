@@ -24,6 +24,7 @@ if (process.env.TAP_COLORS !== undefined)
 var reporter
 var files = []
 var bail = false
+var saveFile = null
 
 var singleFlags = {
   b: 'bail',
@@ -36,7 +37,8 @@ var singleFlags = {
 }
 var singleOpts = {
   R: 'reporter',
-  t: 'timeout'
+  t: 'timeout',
+  s: 'save'
 }
 
 for (var i = 0; i < args.length; i++) {
@@ -84,6 +86,11 @@ for (var i = 0; i < args.length; i++) {
 
     case '--version':
       return console.log(require('../package.json').version)
+
+    case '--save':
+      val = val || args[++i]
+      saveFile = val
+      continue
 
     case '--reporter':
       val = val || args[++i]
@@ -158,6 +165,9 @@ formatted test result data.
 
 To parse TAP data from stdin, specify "-" as a filename.
 
+Short options are parsed gnu-style, so for example '-bCRspec' would be
+equivalent to '--bail --no-color --reporter=spec'
+
 Options:
 
   -c --color                  Use colors (Default for TTY)
@@ -175,6 +185,31 @@ Options:
                               Available reporters:
 @@REPORTERS@@
 
+  -s<file> --save=<file>      If <file> exists, then it should be a line-
+                              delimited list of test files to run.  If
+                              <file> is not present, then all command-line
+                              positional arguments are run.
+
+                              After the set of test files are run, any
+                              failed test files are written back to the
+                              save file.
+
+                              This way, repeated runs with -s<file> will
+                              re-run failures until all the failures are
+                              passing, and then once again run all tests.
+
+                              It's a good idea to .gitignore the file
+                              used for this purpose, as it will churn a
+                              lot.
+
+  -t<n> --timeout=<n>         Time out test files after this many seconds.
+                              Defaults to 30, or the value of the
+                              TAP_TIMEOUT environment variable.
+
+  -h --help                   print this thing you're looking at
+
+  -v --version                show the version of this program
+
   -gc --expose-gc             Expose the gc() function to Node tests
 
   --debug                     Run JavaScript tests with node --debug
@@ -184,14 +219,6 @@ Options:
   --harmony                   Enable all Harmony flags in JavaScript tests
 
   --strict                    Run JS tests in 'use strict' mode
-
-  -t<n> --timeout=<n>         Time out test files after this many seconds.
-                              Defaults to 30, or the value of the
-                              TAP_TIMEOUT environment variable.
-
-  -h --help                   print this thing you're looking at
-
-  -v --version                show the version of this program
 
   --                          Stop parsing flags, and treat any additional
                               command line arguments as filenames.
@@ -259,6 +286,13 @@ if (files.length === 1 && files[0] === '-') {
   return
 }
 
+var saved = files
+if (saveFile) {
+  try {
+    saved = fs.readFileSync(saveFile, 'utf8').trim().split('\n')
+  } catch (er) {}
+}
+
 // At this point, we know we need to use the tap root,
 // because there are 1 or more files to spawn.
 var tap = require('../lib/root.js')
@@ -268,9 +302,32 @@ if (reporter !== 'tap') {
   tap.pipe(reporter)
 }
 
+if (saveFile) {
+  var fails = []
+  tap.on('result', function (res) {
+    // we will continue to re-run todo tests, even though they're
+    // not technically "failures".
+    if (!res.ok && !res.extra.skip) {
+      fails.push(res.extra.file)
+    }
+  })
+
+  tap.on('end', function () {
+    if (!fails.length)
+      try {
+        fs.unlinkSync(saveFile)
+      } catch (er) {}
+    else
+      try {
+        fs.writeFileSync(saveFile, fails.join('\n')+'\n')
+      } catch (er){}
+  })
+}
 
 for (var i = 0; i < files.length; i++) {
   var file = files[i]
+  if (saved.indexOf(file) === -1)
+    continue
 
   // Pick up stdin after all the other files are handled.
   if (file === '-') {
@@ -290,9 +347,10 @@ for (var i = 0; i < files.length; i++) {
   }
 
   var extra = {}
-  if (timeout) {
+  if (timeout)
     extra.timeout = timeout * 1000
-  }
+
+  extra.file = file
 
   if (file.match(/\.js$/))
     tap.spawn(process.execPath, nodeArgs.concat(file), opt, file, extra)

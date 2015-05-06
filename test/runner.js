@@ -7,6 +7,8 @@ var notok = require.resolve('./test/not-ok.js')
 var colorRe = new RegExp('\u001b\\[[0-9;]+m')
 var bailRe = new RegExp('^Bail out! # this is not ok$', 'm')
 var okre = new RegExp('test[\\\\/]test[/\\\\]ok\\.js \\.+ 10/10$', 'm')
+var notokre = new RegExp('test[\\\\/]test[/\\\\]not-ok\\.js \\.+ 0/1$', 'm')
+var fs = require('fs')
 
 t.test('colors', function (t) {
   function colorTest(args, env, hasColor) { return function (t) {
@@ -93,6 +95,63 @@ t.test('bailout args', function (t) {
     t.test('--no-bail', bailTest(['--no-bail'], {}, false))
     t.test('--bail --no-bail', bailTest(['--bail', '--no-bail'], {}, false))
     t.test('TAP_BAIL=0', bailTest([], { TAP_BAIL: 0 }, false))
+    t.end()
+  })
+
+  t.end()
+})
+
+t.test('save-file', function (t) {
+  var saveFile = 'runner-save-test'
+  function saveFileTest(cb) {
+    var args = [run, '-s' + saveFile, ok, notok, '-CRclassic']
+    var child = spawn(node, args, { env: { TAP: 0 } })
+    var out = ''
+    child.stdout.on('data', function (c) {
+      out += c
+    })
+    child.on('close', function (code) {
+      cb(code, out)
+    })
+  }
+
+  t.test('run with "ok.js" in save file', function (t) {
+    fs.writeFileSync(saveFile, ok + '\n')
+    saveFileTest(function (code, out) {
+      t.equal(code, 0, 'should exit successfully')
+      t.match(out, okre, 'should run ok.js test')
+      t.notMatch(out, notokre, 'should not run not-ok.js test')
+      t.throws(function () {
+        fs.statSync(saveFile)
+      }, 'should delete save file')
+      t.end()
+    })
+  })
+
+  t.test('run with empty save file', function (t) {
+    saveFileTest(function (code, out) {
+      t.equal(code, 1, 'should fail test')
+      t.match(out, okre, 'should run ok.js test')
+      t.match(out, notokre, 'should run not-ok.js test')
+      t.equal(fs.readFileSync(saveFile, 'utf8'), notok + '\n',
+              'should save not-ok.js')
+      t.end()
+    })
+  })
+
+  t.test('run with "not-ok.js" in save file', function (t) {
+    saveFileTest(function (code, out) {
+      t.equal(code, 1, 'should fail test')
+      t.notMatch(out, okre, 'should not run ok.js test')
+      t.match(out, notokre, 'should run not-ok.js test')
+      t.equal(fs.readFileSync(saveFile, 'utf8'), notok + '\n',
+              'should save not-ok.js')
+      t.end()
+    })
+  })
+
+  t.test('cleanup', function (t) {
+    fs.unlinkSync(saveFile)
     t.end()
   })
 
