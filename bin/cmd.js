@@ -50,7 +50,7 @@ function format (msg) {
 }
 
 var parser = new Parser()
-var events = etoa(parser, [ 'pipe', 'unpipe', 'prefinish', 'finish' ])
+var events = etoa(parser, [ 'pipe', 'unpipe', 'prefinish', 'finish', 'line' ])
 
 process.stdin.pipe(parser)
 process.on('exit', function () {
