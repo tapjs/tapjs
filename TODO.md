@@ -6,3 +6,4 @@
 - tests for reporter output
 - tests for cli flags and options
 - split lib/stack.js out into a separate module
+- write a coverage lib that works for child processes
