@@ -1,15 +1,45 @@
-var test = require('../').test
-var Runner = require('../lib/tap-runner.js')
-var TC = require('../lib/tap-consumer.js')
-
+var tap = require('../')
+var test = tap.test
+var bin = require.resolve('../bin/run.js')
+var Test = tap.Test
 var fs = require('fs')
 var path = require('path')
 var spawn = require('child_process').spawn
+
 var segv =
     'int main (void) {\n' +
     '   char *s = "hello world";\n' +
     '   *s = \'H\';\n' +
     '}\n'
+
+// omit some stuff from the ends of lines that will differ
+// we slice the actual output later to just compare the fronts
+// also sort the lines, because Node v0.8 sets keys on objects
+// in different order.
+var expect =
+   ('TAP version 13\n'+
+    '    # Subtest: ./segv\n'+
+    'not ok 1 - ./segv  # time=\n'+
+    '  ---\n'+
+    '  at:\n'+
+    '    file: test/segv.js\n'+
+    '    line: \n'+
+    '    column: \n'+
+    '  results:\n'+
+    '    ok: false\n'+
+    '    count: 0\n'+
+    '    pass: 0\n'+
+    '  signal: SIG\n'+
+    '  command: ./segv\n'+
+    '  arguments: []\n'+
+    '  source: |\n'+
+    '    tt.spawn(\'./segv\')\n'+
+    '  ...\n'+
+    '\n'+
+    '1..1\n' +
+    '# failed 1 of 1 tests\n' +
+    '# time=\n').trim().split('\n').sort()
+
 var compiled = false
 
 test('setup', function (t) {
@@ -29,35 +59,20 @@ test('setup', function (t) {
 })
 
 test('segv', function (t) {
-  var r = new Runner({argv:{remain:['./segv']}})
-  var tc = new TC()
-  var expect =
-      [ 'TAP version 13'
-      , './segv'
-      , { 'id': 1,
-          'ok': false,
-          'name': ' ././segv',
-          'exit': null,
-          'timedOut': true,
-          'signal': process.platform === 'linux' ? 'SIGSEGV' : 'SIGTERM',
-          'command': '"' + path.resolve('./segv') + '"' }
-      , 'tests 1'
-      , 'fail  1' ]
-  r.pipe(tc)
-  tc.on('data', function (d) {
-    var e = expect.shift()
-
-    // specific signal can be either term or bus
-    if (d.signal && e.signal)
-      e.signal = d.signal === "SIGTERM" || d.signal === "SIGBUS" ?
-        d.signal : e.signal
-
-    t.same(d, e)
+  var tt = new Test()
+  tt.spawn('./segv')
+  var res = ''
+  tt.on('data', function (c) {
+    res += c
   })
-  tc.on('end', function () {
-    t.equal(expect.length, 0)
+  tt.on('end', function () {
+    res = res.trim().split('\n').sort()
+    expect.forEach(function (line, i) {
+      t.equal(res[i].substr(0, line.length), line)
+    })
     t.end()
   })
+  tt.end()
 })
 
 test('cleanup', function (t) {

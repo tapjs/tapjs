@@ -1,0 +1,96 @@
+TAP version 13
+ok 1 - expect truthy value
+    # Subtest: plans of 1
+    ok 1 - before sync thrower
+        # Subtest: sync thrower
+        1..1
+        ok 1 - before the bomb
+    ok 2 - sync thrower ___/# time=[0-9.]+(ms)?/~~~
+
+    not ok 3 - Error: pwnSync
+      ---
+      {"at":{"file":"test/test/throws-and-plans.js","line":23,"column":11},"test":"sync thrower","message":"Error: pwnSync","source":"throw new Error('pwnSync')\n"}
+      ...
+        # Subtest: async thrower
+        1..3
+        ok 1 - before set the bomb
+        ok 2 - after set the bomb
+        ok 3 - before the bomb
+    ok 4 - async thrower ___/# time=[0-9.]+(ms)?/~~~
+
+    ok 5 - after child
+    1..5
+    # failed 1 of 5 tests
+not ok 2 - plans of 1 ___/# time=[0-9.]+(ms)?/~~~
+  ---
+  {"at":{"file":"test/test/throws-and-plans.js","line":17,"column":3},"results":{"plan":{"start":1,"end":5},"count":5,"pass":4,"ok":false,"fail":1},"source":"t.test('plans of 1', function (t) {\n"}
+  ...
+
+    # Subtest: no assert only throw
+    not ok 1 - AssertionError: false is truthy right?
+      ---
+      {"at":{"file":"test/test/throws-and-plans.js","line":42,"column":3},"name":"AssertionError","actual":false,"expected":true,"operator":"==","generatedMessage":false,"test":"no assert only throw","message":"AssertionError: false is truthy right?","source":"assert(false, 'false is truthy right?')\n"}
+      ...
+    1..1
+    # failed 1 of 1 tests
+not ok 3 - no assert only throw ___/# time=[0-9.]+(ms)?/~~~
+  ---
+  {"at":{"file":"test/test/throws-and-plans.js","line":39,"column":3},"results":{"plan":{"start":1,"end":1},"count":1,"pass":0,"ok":false,"fail":1},"source":"t.test('no assert only throw', function (t) {\n"}
+  ...
+
+    # Subtest: plans of 8
+    ok 1 - before child
+        # Subtest: sync thrower
+        1..8
+        ok 1 - before the bomb
+        not ok 2 - Error: pwnSync
+          ---
+          {"at":{"file":"test/test/throws-and-plans.js","line":52,"column":11},"test":"sync thrower","message":"Error: pwnSync","source":"throw new Error('pwnSync')\n"}
+          ...
+        not ok 3 - missing test
+        not ok 4 - missing test
+        not ok 5 - missing test
+        not ok 6 - missing test
+        not ok 7 - missing test
+        not ok 8 - missing test
+        # failed 7 of 8 tests
+    not ok 2 - sync thrower ___/# time=[0-9.]+(ms)?/~~~
+      ---
+      {"at":{"file":"test/test/throws-and-plans.js","line":48,"column":5},"results":{"plan":{"start":1,"end":8},"count":8,"pass":1,"ok":false,"fail":7},"source":"t.test('sync thrower', function (tt) {\n"}
+      ...
+
+        # Subtest: async thrower
+        1..8
+        ok 1 - before set the bomb
+        ok 2 - after set the bomb
+        ok 3 - before the bomb
+        not ok 4 - Error: pwn
+          ---
+          {"at":{"file":"test/test/throws-and-plans.js","line":64,"column":13,"function":"null._onTimeout"},"test":"async thrower","message":"Error: pwn","source":"throw new Error('pwn')\n"}
+          ...
+        not ok 5 - missing test
+        not ok 6 - missing test
+        not ok 7 - missing test
+        not ok 8 - missing test
+        # failed 5 of 8 tests
+    not ok 3 - async thrower ___/# time=[0-9.]+(ms)?/~~~
+      ---
+      {"at":{"file":"test/test/throws-and-plans.js","line":59,"column":5},"results":{"plan":{"start":1,"end":8},"count":8,"pass":3,"ok":false,"fail":5},"source":"t.test('async thrower', function (tt) {\n"}
+      ...
+
+    ok 4 - after child
+    1..4
+    # failed 2 of 4 tests
+not ok 4 - plans of 8 ___/# time=[0-9.]+(ms)?/~~~
+  ---
+  {"at":{"file":"test/test/throws-and-plans.js","line":45,"column":3},"results":{"plan":{"start":1,"end":4},"count":4,"pass":2,"ok":false,"fail":2},"source":"t.test('plans of 8', function (t) {\n"}
+  ...
+
+not ok 5 - Error: pwn
+  ---
+  {"at":{"file":"test/test/throws-and-plans.js","line":31,"column":13,"function":"null._onTimeout"},"test":"async thrower","message":"Error: pwn","source":"throw new Error('pwn')\n"}
+  ...
+1..5
+# failed 4 of 5 tests
+___/# time=[0-9.]+(ms)?/~~~
+

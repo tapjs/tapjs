@@ -1,0 +1,37 @@
+TAP version 13
+    # Subtest: child test
+    not ok 1 - should be equal
+      ---
+      {"found":"foo\nbaz\nbar\n","wanted":"foo\nblerb\nbar\n","compare":"===","at":{"file":"test/test/equivalent.js","line":3,"column":5},"source":"t.equal('foo\\nbaz\\nbar\\n', 'foo\\nblerb\\nbar\\n')\n"}
+      ...
+    not ok 2 - should be equal
+      ---
+      {"found":"foo","wanted":"foople","compare":"===","at":{"file":"test/test/equivalent.js","line":4,"column":5},"source":"t.equal('foo', 'foople')\n"}
+      ...
+    not ok 3 - should be equal
+      ---
+      {"found":1,"wanted":"1","compare":"===","at":{"file":"test/test/equivalent.js","line":5,"column":5},"source":"t.equal(1, '1')\n"}
+      ...
+    not ok 4 - should be equivalent
+      ---
+      {"found":{"foo":"bar","bar":1,"extra":9},"wanted":{"bar":1,"foo":"baz","missing":true},"at":{"file":"test/test/equivalent.js","line":6,"column":5},"source":"t.same({foo:'bar', bar:1, extra: 9}, {bar:1, foo:'baz', missing: true})\n"}
+      ...
+    not ok 5 - should be equivalent
+      ---
+      {"found":{"foop":2,"foo":"bar","bar":1,"extra":9},"wanted":{"bar":1,"foo":"baz","foop":2,"missing":true},"at":{"file":"test/test/equivalent.js","line":7,"column":5},"source":"t.same({foop:2, foo:'bar', bar:1, extra: 9},\n"}
+      ...
+    not ok 6 - should be equivalent
+      ---
+      {"found":{"foo":"baz","bar":1,"extra":9,"x":[1,2],"prop":1},"wanted":{"prop":1,"bar":1,"foo":"baz","missing":true,"x":[1,2],"z":1},"at":{"file":"test/test/equivalent.js","line":9,"column":5},"source":"t.same({foo:'baz', bar:1, extra: 9,x:[1,2],prop:1}, {prop:1,bar:1, foo:'baz', missing: true,x:[1,2],z:1})\n"}
+      ...
+    1..6
+    # failed 6 of 6 tests
+not ok 1 - child test ___/# time=[0-9.]+(ms)?/~~~
+  ---
+  {"at":{"file":"test/test/equivalent.js","line":2,"column":3},"results":{"plan":{"start":1,"end":6},"count":6,"pass":0,"ok":false,"fail":6},"source":"t.test('child test', function (t) {\n"}
+  ...
+
+1..1
+# failed 1 of 1 tests
+___/# time=[0-9.]+(ms)?/~~~
+

@@ -1,6 +1,6 @@
 var spawn = require('child_process').spawn
 var node = process.execPath
-var bin = require.resolve('../bin/tap.js')
+var bin = require.resolve('../bin/run.js')
 var test = require('../').test
 var path = require('path')
 var fixtures = path.resolve(__dirname, 'fixtures')
@@ -49,7 +49,7 @@ test('successes exit 0', function (t) {
     t.plan(2)
     var file = path.resolve(fixtures, 'trivial-success.js')
     spawn(node, [bin, file]).on('exit', function (code) {
-      t.equal(code, 0)
+      t.equal(code, 1)
     })
     spawn(node, [file]).on('exit', function (code) {
       t.equal(code, 0)
