@@ -353,10 +353,18 @@ Parser.prototype._parse = function (line) {
   }
 
   // still belongs to the child.
-  if (this.child && line.indexOf(this.child.indent) === 0) {
-    line = line.substr(this.child.indent.length)
-    this.child.write(line)
-    return
+  if (this.child) {
+    if (line.indexOf(this.child.indent) === 0) {
+      line = line.substr(this.child.indent.length)
+      this.child.write(line)
+      return
+    }
+    // a child test can only end when we get an test point line.
+    // anything else is extra.
+    if (!/^(not )?ok/.test(line)) {
+      this.emit('extra', line)
+      return
+    }
   }
 
   var indent = line.match(/^[ \t]+/)

@@ -1,0 +1,46 @@
+TAP version 13
+    # Subtest: test/01c-user-updates.js
+    TAP version 13
+        # Subtest: update profile
+        ok 1 - should be equivalent
+        ok 2 - should be equivalent
+        1..2
+    ok 1 - update profile # time=43.094ms
+
+        # Subtest: update email
+    null { _id: 'org.couchdb.user:user',
+      _rev: '21-3d786fbf7428194ca288abe40c50cd0c',
+      password_scheme: 'pbkdf2',
+      iterations: 10,
+      name: 'user',
+      email: 'new@email.com',
+      type: 'user',
+      roles: [],
+      date: '2015-05-07T18:04:07.589Z',
+      derived_key: 'efcfbc73438a9d122290e5d0c82d1ca7d0a9ba1f',
+      salt: '74e7dea17bfe520bb84dd9642f072549',
+      github: 'user',
+      homepage: 'http://www.user.com' }
+    { _id: 'org.couchdb.user:user',
+      _rev: '22-97703c62ab1f01ea691d40aa8a756cbf',
+      password_scheme: 'pbkdf2',
+      iterations: 10,
+      name: 'user',
+      email: 'new@email.com',
+      type: 'user',
+      roles: [],
+      date: '2015-05-07T18:04:07.589Z',
+      derived_key: 'efcfbc73438a9d122290e5d0c82d1ca7d0a9ba1f',
+      salt: '74e7dea17bfe520bb84dd9642f072549',
+      github: 'user',
+      homepage: 'http://www.user.com' }
+        ok 1 - should be equivalent
+        1..1
+    ok 2 - update email # time=24.16ms
+
+    1..2
+    # time=174.236ms
+ok 1 - test/01c-user-updates.js # time=339.14ms
+
+1..1
+# time=343.487ms
