@@ -1,4 +1,4 @@
-if (typeof define !== 'function') {
+if (typeof describe !== 'function') {
   var t = require('../../lib/root.js')
   t.mochaGlobals()
 }
