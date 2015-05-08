@@ -19,6 +19,7 @@ var segv =
 var expect =
    ('TAP version 13\n'+
     '    # Subtest: ./segv\n'+
+    '    1..0\n'+
     'not ok 1 - ./segv  # time=\n'+
     '  ---\n'+
     '  at:\n'+
@@ -29,6 +30,10 @@ var expect =
     '    ok: false\n'+
     '    count: 0\n'+
     '    pass: 0\n'+
+    '    plan:\n'+
+    '      start: 1\n'+
+    '      end: 0\n'+
+    '      skipAll: true\n'+
     '  signal: SIG\n'+
     '  command: ./segv\n'+
     '  arguments: []\n'+
@@ -38,7 +43,7 @@ var expect =
     '\n'+
     '1..1\n' +
     '# failed 1 of 1 tests\n' +
-    '# time=\n').trim().split('\n').sort()
+    '# time=\n').trim().split('\n')
 
 var compiled = false
 
@@ -66,9 +71,13 @@ test('segv', function (t) {
     res += c
   })
   tt.on('end', function () {
-    res = res.trim().split('\n').sort()
+    res = res.trim().split('\n')
+    res = res.sort()
+    expect = expect.sort()
+    var ok = true
     expect.forEach(function (line, i) {
-      t.equal(res[i].substr(0, line.length), line)
+      if (ok)
+        ok = t.equal(res[i].substr(0, line.length), line)
     })
     t.end()
   })
