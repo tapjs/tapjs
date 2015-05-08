@@ -49,7 +49,7 @@ test('successes exit 0', function (t) {
     t.plan(2)
     var file = path.resolve(fixtures, 'trivial-success.js')
     spawn(node, [bin, file]).on('exit', function (code) {
-      t.equal(code, 1)
+      t.equal(code, 0)
     })
     spawn(node, [file]).on('exit', function (code) {
       t.equal(code, 0)
