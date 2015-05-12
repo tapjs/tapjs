@@ -272,6 +272,15 @@ else
 if (bail)
   process.env.TAP_BAIL = '1'
 
+var glob = require('glob')
+files = files.reduce(function(acc, f) {
+  // glob claims patterns MUST not include any '\'s
+  if (!/\\/.test(f)) {
+    f = glob.sync(f) || f
+  }
+  return acc.concat(f)
+}, [])
+
 if (files.length === 0) {
   console.error('Reading TAP data from stdin (use "-" argument to suppress)')
   files.push('-')
