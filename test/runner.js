@@ -101,6 +101,21 @@ t.test('bailout args', function (t) {
   t.end()
 })
 
+t.test('path globbing', function (t) {
+  var glob = 'fixtures/*-success.js'
+  var opt = { env: { TAP: 1 }, cwd: __dirname }
+  var child = spawn(node, [run, glob], opt)
+  var out = ''
+  child.stdout.on('data', function (c) {
+    out += c
+  })
+  child.on('close', function (code) {
+    t.equal(code, 0, 'exits successfully')
+    t.match(out, /trivial-success.js/g, 'includes a matched file')
+    t.end()
+  })
+})
+
 t.test('save-file', function (t) {
   var saveFile = 'runner-save-test'
   function saveFileTest(cb) {
