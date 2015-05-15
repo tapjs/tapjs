@@ -1,4 +1,4 @@
-var t = require('../../lib/test.js')()
+var t = require('../..')
 
 t.test('nesting', function (t) {
   t.plan(2)
@@ -38,7 +38,3 @@ t.test('async kid', function (t) {
 })
 
 t.pass('pass after async kid')
-
-t.end()
-
-t.pipe(process.stdout)
