@@ -274,6 +274,11 @@ if (bail)
 
 var glob = require('glob')
 files = files.reduce(function(acc, f) {
+  if (f === '-') {
+    acc.push(f)
+    return acc
+  }
+
   // glob claims patterns MUST not include any '\'s
   if (!/\\/.test(f)) {
     f = glob.sync(f) || f
