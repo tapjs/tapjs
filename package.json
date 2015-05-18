@@ -37,10 +37,7 @@
     "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me)",
     "baudehlo <helpme+github@gmail.com>"
   ],
-  "license": {
-    "type": "MIT",
-    "url": "https://github.com/isaacs/node-tap/raw/master/LICENSE"
-  },
+  "license": "ISC",
   "repository": "https://github.com/isaacs/node-tap.git",
   "scripts": {
     "test": "node bin/run.js test/*.*",
