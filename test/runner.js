@@ -6,8 +6,8 @@ var ok = require.resolve('./test/ok.js')
 var notok = require.resolve('./test/not-ok.js')
 var colorRe = new RegExp('\u001b\\[[0-9;]+m')
 var bailRe = new RegExp('^Bail out! # this is not ok$', 'm')
-var okre = new RegExp('test[\\\\/]test[/\\\\]ok\\.js \\.+ 10/10$', 'm')
-var notokre = new RegExp('test[\\\\/]test[/\\\\]not-ok\\.js \\.+ 0/1$', 'm')
+var okre = new RegExp('test[\\\\/]test[/\\\\]ok\\.js \\.+ 10/10( [0-9\.]+ms)?$', 'm')
+var notokre = new RegExp('test[\\\\/]test[/\\\\]not-ok\\.js \\.+ 0/1( [0-9\.]+ms)?$', 'm')
 var fs = require('fs')
 
 t.test('colors', function (t) {
