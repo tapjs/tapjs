@@ -10,6 +10,47 @@ var okre = new RegExp('test[\\\\/]test[/\\\\]ok\\.js \\.+ 10/10( [0-9\.]+ms)?$',
 var notokre = new RegExp('test[\\\\/]test[/\\\\]not-ok\\.js \\.+ 0/1( [0-9\.]+ms)?$', 'm')
 var fs = require('fs')
 
+t.test('usage', function (t) {
+  function usageTest (t, child, c) {
+    var out = ''
+    var std = c === 0 ? 'stdout' : 'stderr'
+    child[std].on('data', function (o) {
+      out += o
+    })
+    child.on('close', function (code) {
+      t.equal(code, c, 'code should be '+c)
+      t.match(out, /^Usage:\n/, 'should print usage')
+      t.end()
+    })
+  }
+
+  var stdin = 0
+  if (!process.stdin.isTTY) {
+    try {
+      stdin = fs.openSync('/dev/tty', 'r')
+    } catch (er) {
+      stdin = null
+    }
+  }
+  var opt = { skip: stdin === null ? 'could not load tty' : false }
+  t.test('shows usage when stdin is a tty', opt, function (t) {
+    var child = spawn(node, [run], { stdio: [ stdin, 'pipe', 'pipe' ] })
+    usageTest(t, child, 1)
+  })
+
+  t.test('shows usage with -h (even with file)', function (t) {
+    var child = spawn(node, [run, '-h', __filename])
+    usageTest(t, child, 0)
+  })
+
+  t.test('shows usage with --help (even with file)', function (t) {
+    var child = spawn(node, [run, '--help', __filename])
+    usageTest(t, child, 0)
+  })
+
+  t.end()
+})
+
 t.test('colors', function (t) {
   function colorTest(args, env, hasColor) { return function (t) {
     var out = ''
