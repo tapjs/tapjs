@@ -1,2 +1,4 @@
 test/
 example/
+coverage/
+nyc_output/
