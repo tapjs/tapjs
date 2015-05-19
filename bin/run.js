@@ -18,6 +18,10 @@ process.stdout.on('error', function (er) {
 var nodeArgs = []
 
 var timeout = process.env.TAP_TIMEOUT || 30
+// coverage tools run slow.
+if (global.__coverage__ || global.coverage)
+  timeout = 240
+
 var color = require('supports-color')
 if (process.env.TAP_COLORS !== undefined)
   color = !!(+process.env.TAP_COLORS)
