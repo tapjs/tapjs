@@ -156,74 +156,73 @@ if (!reporter)
   reporter = color ? 'classic' : 'tap'
 
 function usage () {
-  return function () {/*
-Usage:
-  tap [options] <files>
-
-Executes all the files and interprets their output as TAP
-formatted test result data.
-
-To parse TAP data from stdin, specify "-" as a filename.
-
-Short options are parsed gnu-style, so for example '-bCRspec' would be
-equivalent to '--bail --no-color --reporter=spec'
-
-Options:
-
-  -c --color                  Use colors (Default for TTY)
-
-  -C --no-color               Do not use colors (Default for non-TTY)
-
-  -b --bail                   Bail out on first failure
-
-  -B --no-bail                Do not bail out on first failure (Default)
-
-  -R<type> --reporter=<type>  Use the specified reporter.  Defaults to
-                              'classic' when colors are in use, or 'tap'
-                              when colors are disabled.
-
-                              Available reporters:
-@@REPORTERS@@
-
-  -s<file> --save=<file>      If <file> exists, then it should be a line-
-                              delimited list of test files to run.  If
-                              <file> is not present, then all command-line
-                              positional arguments are run.
-
-                              After the set of test files are run, any
-                              failed test files are written back to the
-                              save file.
-
-                              This way, repeated runs with -s<file> will
-                              re-run failures until all the failures are
-                              passing, and then once again run all tests.
-
-                              It's a good idea to .gitignore the file
-                              used for this purpose, as it will churn a
-                              lot.
-
-  -t<n> --timeout=<n>         Time out test files after this many seconds.
-                              Defaults to 30, or the value of the
-                              TAP_TIMEOUT environment variable.
-
-  -h --help                   print this thing you're looking at
-
-  -v --version                show the version of this program
-
-  -gc --expose-gc             Expose the gc() function to Node tests
-
-  --debug                     Run JavaScript tests with node --debug
-
-  --debug-brk                 Run JavaScript tests with node --debug-brk
-
-  --harmony                   Enable all Harmony flags in JavaScript tests
-
-  --strict                    Run JS tests in 'use strict' mode
-
-  --                          Stop parsing flags, and treat any additional
-                              command line arguments as filenames.
-*/}.toString().split('\n').slice(1, -1).join('\n')
-  .split('@@REPORTERS@@').join(getReporters())
+  return (
+"Usage:\n"+
+"  tap [options] <files>\n"+
+"\n"+
+"Executes all the files and interprets their output as TAP\n"+
+"formatted test result data.\n"+
+"\n"+
+"To parse TAP data from stdin, specify \"-\" as a filename.\n"+
+"\n"+
+"Short options are parsed gnu-style, so for example '-bCRspec' would be\n"+
+"equivalent to '--bail --no-color --reporter=spec'\n"+
+"\n"+
+"Options:\n"+
+"\n"+
+"  -c --color                  Use colors (Default for TTY)\n"+
+"\n"+
+"  -C --no-color               Do not use colors (Default for non-TTY)\n"+
+"\n"+
+"  -b --bail                   Bail out on first failure\n"+
+"\n"+
+"  -B --no-bail                Do not bail out on first failure (Default)\n"+
+"\n"+
+"  -R<type> --reporter=<type>  Use the specified reporter.  Defaults to\n"+
+"                              'classic' when colors are in use, or 'tap'\n"+
+"                              when colors are disabled.\n"+
+"\n"+
+"                              Available reporters:\n"+
+"@@REPORTERS@@\n"+
+"\n"+
+"  -s<file> --save=<file>      If <file> exists, then it should be a line-\n"+
+"                              delimited list of test files to run.  If\n"+
+"                              <file> is not present, then all command-line\n"+
+"                              positional arguments are run.\n"+
+"\n"+
+"                              After the set of test files are run, any\n"+
+"                              failed test files are written back to the\n"+
+"                              save file.\n"+
+"\n"+
+"                              This way, repeated runs with -s<file> will\n"+
+"                              re-run failures until all the failures are\n"+
+"                              passing, and then once again run all tests.\n"+
+"\n"+
+"                              It's a good idea to .gitignore the file\n"+
+"                              used for this purpose, as it will churn a\n"+
+"                              lot.\n"+
+"\n"+
+"  -t<n> --timeout=<n>         Time out test files after this many seconds.\n"+
+"                              Defaults to 30, or the value of the\n"+
+"                              TAP_TIMEOUT environment variable.\n"+
+"\n"+
+"  -h --help                   print this thing you're looking at\n"+
+"\n"+
+"  -v --version                show the version of this program\n"+
+"\n"+
+"  -gc --expose-gc             Expose the gc() function to Node tests\n"+
+"\n"+
+"  --debug                     Run JavaScript tests with node --debug\n"+
+"\n"+
+"  --debug-brk                 Run JavaScript tests with node --debug-brk\n"+
+"\n"+
+"  --harmony                   Enable all Harmony flags in JavaScript tests\n"+
+"\n"+
+"  --strict                    Run JS tests in 'use strict' mode\n"+
+"\n"+
+"  --                          Stop parsing flags, and treat any additional\n"+
+"                              command line arguments as filenames.\n"
+    ).split('@@REPORTERS@@').join(getReporters())
 }
 
 function getReporters () {
