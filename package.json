@@ -26,17 +26,15 @@
     "test",
     "tap"
   ],
-  "contributors": [
-    "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me)",
-    "baudehlo <helpme+github@gmail.com>"
-  ],
   "license": "ISC",
   "repository": "https://github.com/isaacs/node-tap.git",
   "scripts": {
     "test": "node bin/run.js test/*.*",
-    "lint": "standard lib/*.js"
+    "lint": "standard lib/*.js",
+    "coverage": "nyc bin/run.js test/*.* -t240"
   },
   "devDependencies": {
+    "nyc": "^2.0.4",
     "standard": "^2.10.0"
   },
   "optionalDependencies": {
