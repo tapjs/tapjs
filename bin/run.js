@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 var args = process.argv.slice(2)
 
+var fs = require('fs')
 if (!args.length && process.stdin.isTTY) {
   console.error(usage())
   process.exit(1)
@@ -248,73 +249,9 @@ if (!reporter)
   reporter = color ? 'classic' : 'tap'
 
 function usage () {
-  return (
-"Usage:\n"+
-"  tap [options] <files>\n"+
-"\n"+
-"Executes all the files and interprets their output as TAP\n"+
-"formatted test result data.\n"+
-"\n"+
-"To parse TAP data from stdin, specify \"-\" as a filename.\n"+
-"\n"+
-"Short options are parsed gnu-style, so for example '-bCRspec' would be\n"+
-"equivalent to '--bail --no-color --reporter=spec'\n"+
-"\n"+
-"Options:\n"+
-"\n"+
-"  -c --color                  Use colors (Default for TTY)\n"+
-"\n"+
-"  -C --no-color               Do not use colors (Default for non-TTY)\n"+
-"\n"+
-"  -b --bail                   Bail out on first failure\n"+
-"\n"+
-"  -B --no-bail                Do not bail out on first failure (Default)\n"+
-"\n"+
-"  -R<type> --reporter=<type>  Use the specified reporter.  Defaults to\n"+
-"                              'classic' when colors are in use, or 'tap'\n"+
-"                              when colors are disabled.\n"+
-"\n"+
-"                              Available reporters:\n"+
-"@@REPORTERS@@\n"+
-"\n"+
-"  -s<file> --save=<file>      If <file> exists, then it should be a line-\n"+
-"                              delimited list of test files to run.  If\n"+
-"                              <file> is not present, then all command-line\n"+
-"                              positional arguments are run.\n"+
-"\n"+
-"                              After the set of test files are run, any\n"+
-"                              failed test files are written back to the\n"+
-"                              save file.\n"+
-"\n"+
-"                              This way, repeated runs with -s<file> will\n"+
-"                              re-run failures until all the failures are\n"+
-"                              passing, and then once again run all tests.\n"+
-"\n"+
-"                              It's a good idea to .gitignore the file\n"+
-"                              used for this purpose, as it will churn a\n"+
-"                              lot.\n"+
-"\n"+
-"  -t<n> --timeout=<n>         Time out test files after this many seconds.\n"+
-"                              Defaults to 30, or the value of the\n"+
-"                              TAP_TIMEOUT environment variable.\n"+
-"\n"+
-"  -h --help                   print this thing you're looking at\n"+
-"\n"+
-"  -v --version                show the version of this program\n"+
-"\n"+
-"  -gc --expose-gc             Expose the gc() function to Node tests\n"+
-"\n"+
-"  --debug                     Run JavaScript tests with node --debug\n"+
-"\n"+
-"  --debug-brk                 Run JavaScript tests with node --debug-brk\n"+
-"\n"+
-"  --harmony                   Enable all Harmony flags in JavaScript tests\n"+
-"\n"+
-"  --strict                    Run JS tests in 'use strict' mode\n"+
-"\n"+
-"  --                          Stop parsing flags, and treat any additional\n"+
-"                              command line arguments as filenames.\n"
-    ).split('@@REPORTERS@@').join(getReporters())
+  return fs.readFileSync(__dirname + '/usage.txt', 'utf8')
+    .split('@@REPORTERS@@')
+    .join(getReporters())
 }
 
 function getReporters () {
@@ -353,7 +290,6 @@ if (process.platform == "win32") {
   }
 }
 
-var fs = require('fs')
 process.env.TAP_TIMEOUT = timeout
 if (color)
   process.env.TAP_COLORS = 1
