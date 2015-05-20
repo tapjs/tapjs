@@ -17,6 +17,11 @@ process.stdout.on('error', function (er) {
 // defaults
 var nodeArgs = []
 
+var spawn = require('child_process').spawn
+var fg = require('foreground-child')
+var signalExit = require('signal-exit')
+var opener = require('opener')
+
 var timeout = process.env.TAP_TIMEOUT || 30
 // coverage tools run slow.
 if (global.__coverage__ || global.coverage)
@@ -44,6 +49,15 @@ var singleOpts = {
   t: 'timeout',
   s: 'save'
 }
+
+// If we're running under Travis-CI with a Coveralls.io token,
+// then it's a safe bet that we ought to output coverage.
+var coverage = !!process.env.COVERALLS_REPO_TOKEN
+
+var coverageReport
+
+var nycBin = require.resolve('nyc/bin/nyc.js')
+var coverallsBin = require.resolve('coveralls/bin/coveralls.js')
 
 for (var i = 0; i < args.length; i++) {
   var arg = args[i]
@@ -90,6 +104,24 @@ for (var i = 0; i < args.length; i++) {
 
     case '--version':
       return console.log(require('../package.json').version)
+
+    case '--coverage-report':
+      coverageReport = val || args[++i]
+      if (!coverageReport) {
+        if (!!process.env.COVERALLS_REPO_TOKEN)
+          coverageReport = 'text-lcov'
+        else
+          coverageReport = 'text'
+      }
+      continue
+
+    case '--no-cov': case '--no-coverage':
+      coverage = false
+      continue
+
+    case '--cov': case '--coverage':
+      coverage = true
+      continue
 
     case '--save':
       val = val || args[++i]
@@ -150,6 +182,62 @@ for (var i = 0; i < args.length; i++) {
     default:
       throw new Error('Unknown argument: ' + arg)
   }
+}
+
+if (coverage && !global.__coverage__) {
+  // Re-spawn with coverage
+  var node = process.execPath
+  var args = [nycBin].concat(process.execArgv, process.argv.slice(1))
+  var child = fg(node, args)
+  child.removeAllListeners('close')
+  child.on('close', function (code, signal) {
+    if (signal)
+      return process.kill(process.pid, signal)
+    if (code)
+      return process.exit(code)
+    args = [__filename, '--no-coverage', '--coverage-report']
+    if (coverageReport)
+      args.push(coverageReport)
+    fg(node, args)
+  })
+  return
+}
+
+if (coverageReport && !global.__coverage__ && files.length === 0) {
+  var node = process.execPath
+  var args = [nycBin, 'report', '--reporter', coverageReport]
+  var child
+
+  // automatically hook into coveralls
+  if (coverageReport === 'text-lcov' && process.env.COVERALLS_REPO_TOKEN) {
+    child = spawn(node, args)
+    var ca = spawn(node, [coverallsBin], {
+      stdio: [ 'pipe', 1, 2 ],
+      env: process.env
+    })
+    child.stdout.pipe(ca.stdin)
+    ca.on('close', function (code, signal) {
+      if (signal)
+        process.kill(process.pid, signal)
+      else if (code)
+        process.exit(code)
+      else
+        console.log('Successfully piped to Coveralls')
+    })
+    signalExit(function (code, signal) {
+      child.kill('SIGHUP')
+      ca.kill('SIGHUP')
+    })
+  } else {
+    // otherwise just run the reporter
+    var child = fg(node, args)
+    if (coverageReport === 'lcov') {
+      child.on('exit', function () {
+        opener('coverage/lcov-report/index.html')
+      })
+    }
+  }
+  return
 }
 
 if (process.env.TAP === '1')

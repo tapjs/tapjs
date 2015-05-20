@@ -12,11 +12,16 @@
   },
   "dependencies": {
     "buffer-equal": "~0.0.0",
+    "coveralls": "^2.11.2",
     "deep-equal": "^1.0.0",
     "exit-code": "^1.0.1",
+    "foreground-child": "^1.1.0",
     "glob": "^5.0.6",
     "js-yaml": "^3.3.1",
     "mkdirp": "^0.5.0",
+    "nyc": "^2.0.5",
+    "opener": "^1.4.1",
+    "signal-exit": "^1.3.1",
     "supports-color": "^1.3.1",
     "tap-mocha-reporter": "0.0 || 1",
     "tap-parser": "^1.0.1"
@@ -29,14 +34,10 @@
   "license": "ISC",
   "repository": "https://github.com/isaacs/node-tap.git",
   "scripts": {
-    "test": "node bin/run.js test/*.*",
-    "lint": "standard lib/*.js",
-    "coverage": "nyc bin/run.js test/*.*",
-    "coverall": "nyc report --reporter=text-lcov | coveralls"
+    "test": "node bin/run.js test/*.* --coverage",
+    "lint": "standard lib/*.js"
   },
   "devDependencies": {
-    "coveralls": "^2.11.2",
-    "nyc": "^2.0.4",
     "standard": "^2.10.0"
   },
   "optionalDependencies": {
