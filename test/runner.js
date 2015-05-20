@@ -158,7 +158,7 @@ t.test('path globbing', function (t) {
 })
 
 t.test('save-file', function (t) {
-  var saveFile = 'runner-save-test'
+  var saveFile = 'runner-save-test-' + process.pid
   function saveFileTest(cb) {
     var args = [run, '-s' + saveFile, ok, notok, '-CRclassic']
     var child = spawn(node, args, { env: { TAP: 0 } })
