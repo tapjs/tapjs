@@ -31,9 +31,11 @@
   "scripts": {
     "test": "node bin/run.js test/*.*",
     "lint": "standard lib/*.js",
-    "coverage": "nyc bin/run.js test/*.* -t240"
+    "coverage": "nyc bin/run.js test/*.*",
+    "coverall": "nyc report --reporter=text-lcov | coveralls"
   },
   "devDependencies": {
+    "coveralls": "^2.11.2",
     "nyc": "^2.0.4",
     "standard": "^2.10.0"
   },

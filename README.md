@@ -9,6 +9,8 @@ Test Anything Protocol.
 It is also a test runner for consuming TAP-generating test scripts,
 and a framework for writing such scripts.
 
+[![Coverage Status](https://coveralls.io/repos/isaacs/node-tap/badge.svg?branch=master)](https://coveralls.io/r/isaacs/node-tap?branch=master)
+
 ## USAGE
 
 Write your tests in JavaScript
