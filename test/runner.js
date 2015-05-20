@@ -213,3 +213,24 @@ t.test('save-file', function (t) {
 
   t.end()
 })
+
+t.test('version', function (t) {
+  var version = require('../package.json').version
+  function versionTest (arg) { return function (t) {
+    var child = spawn(node, [run].concat(arg))
+    var out = ''
+    child.stdout.on('data', function (o) {
+      out += o
+    })
+    child.on('close', function (code, signal) {
+      t.equal(code, 0)
+      t.equal(signal, null)
+      t.equal(out, version + '\n')
+      t.end()
+    })
+  }}
+  t.test('-v', versionTest('-v'))
+  t.test('--version', versionTest('--version'))
+  t.test('--version', versionTest(['--version', __filename]))
+  t.end()
+})
