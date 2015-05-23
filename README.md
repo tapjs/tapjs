@@ -439,6 +439,27 @@ Expect the function to throw an error.  If an expected error is
 provided, then also verify that the thrown error matches the expected
 error.
 
+Caveat: if you pass a `extra` object to t.throws, then you MUST also
+pass in an expected error, or else it will read the diag object as the
+expected error, and get upset when your thrown error doesn't match
+`{skip:true}` or whatever.
+
+For example, this will not work as expected:
+
+```javascript
+t.throws(function() {throw new Error('x')}, { skip: true })
+```
+
+But this is fine:
+
+```javascript
+// note the empty 'expected error' object.
+// since it has no fields, it'll only verify that the thrown thing is
+// an object, not the value of any properties
+t.throws(function() {throw new Error('x')}, {}, { skip: true })
+```
+
+
 Synonyms: `t.throw`
 
 #### doesNotThrow(fn, message, extra)

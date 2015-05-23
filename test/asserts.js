@@ -71,6 +71,13 @@ test('throws expects to catch', function (t) {
   t.notOk(tt.throws('test thrown result',
            function () { throw new Error('x') },
            new Error('y'), { foo: 'bar' }))
+
+  t.throws('test thrown non-Error object',
+           function () { throw { ok: 'yup' } },
+           { ok: 'yup' })
+  t.notOk(tt.throws('test thrown non-Error object',
+           function () { throw { ok: 'yup' } },
+           { ok: 'nope' }))
   t.notOk(tt.throws(function () {}))
   t.end()
 })
