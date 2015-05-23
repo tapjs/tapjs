@@ -199,7 +199,7 @@ Options:
   --strict                    Run JS tests in 'use strict' mode
 
   -t<n> --timeout=<n>         Time out tests after this many seconds.
-                              Defaults to 120, or the value of the
+                              Defaults to 30, or the value of the
                               TAP_TIMEOUT environment variable.
 
   -h --help                   print this thing you're looking at
