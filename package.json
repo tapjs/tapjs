@@ -19,9 +19,9 @@
     "glob": "^5.0.6",
     "js-yaml": "^3.3.1",
     "mkdirp": "^0.5.0",
-    "nyc": "^2.0.5",
+    "nyc": "^2.0.6",
     "opener": "^1.4.1",
-    "signal-exit": "^1.3.1",
+    "signal-exit": "^2.0.0",
     "supports-color": "^1.3.1",
     "tap-mocha-reporter": "0.0 || 1",
     "tap-parser": "^1.0.1"
