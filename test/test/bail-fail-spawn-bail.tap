@@ -19,7 +19,6 @@ TAP version 13
                   ...
                 Bail out! # nested failure
             Bail out! # nested failure
-
         Bail out! # nested failure
     Bail out! # nested failure
 Bail out! # nested failure

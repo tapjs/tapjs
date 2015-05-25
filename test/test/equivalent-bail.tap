@@ -1,0 +1,9 @@
+TAP version 13
+    # Subtest: child test
+    not ok 1 - should be equal
+      ---
+      {"found":"foo\nbaz\nbar\n","wanted":"foo\nblerb\nbar\n","compare":"===","at":{"file":"test/test/equivalent.js","line":3,"column":5},"source":"t.equal('foo\\nbaz\\nbar\\n', 'foo\\nblerb\\nbar\\n')\n"}
+      ...
+    Bail out! # should be equal
+Bail out! # should be equal
+

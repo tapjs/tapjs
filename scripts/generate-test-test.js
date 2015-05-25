@@ -7,20 +7,35 @@ var stackre = new RegExp('^\\s*.*(\([^:]:[0-9]+:[0-9]+\)|[^:]:[0-9]+:[0-9]+)$')
 var fs = require('fs')
 var yaml = require('js-yaml')
 
+var queue = []
+var running = false
+
 for (var i = 2; i < process.argv.length; i++) {
-  generate(process.argv[i])
+  generate(process.argv[i], false)
+  generate(process.argv[i], true)
 }
 
-function generate(file) {
+function generate(file, bail) {
+  if (running) {
+    queue.push([file, bail])
+    return
+  }
+  running = true
+
   file = path.resolve(file)
   var f = file
   if (f.indexOf(process.cwd()) === 0)
     f = './' + file.substr(process.cwd().length + 1)
 
-  console.error(f)
-  var outfile = file.replace(/\.js$/, '.tap')
+  var outfile = file.replace(/\.js$/, (bail ? '-bail' : '') + '.tap')
+  console.error(outfile)
   var output = ''
-  var c = spawn(node, [file])
+  var c = spawn(node, [file], {
+    env: {
+      TAP_BAIL: bail ? 1 : 0
+    }
+  })
+
   c.stdout.on('data', function (d) {
     output += d
   })
@@ -44,6 +59,12 @@ function generate(file) {
     output = yamlishToJson(output)
 
     fs.writeFileSync(outfile, output)
+
+    running = false
+    if (queue.length) {
+      var q = queue.shift()
+      generate(q[0], q[1])
+    }
   })
 }
 

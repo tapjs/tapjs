@@ -12,16 +12,19 @@ function regEsc(str) {
   return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
 }
 
-if (process.argv[2])
-  runTest(path.resolve(dir, process.argv[2]))
-else {
+if (process.argv[2]) {
+  var file = path.resolve(dir, process.argv[2])
+  runTest(file, false)
+  runTest(file, true)
+} else {
   glob.sync(dir + '*.js').forEach(function (file) {
-    runTest(file)
+    runTest(file, false)
+    runTest(file, true)
   })
 }
 
-function runTest (file) {
-  var resfile = file.replace(/\.js$/, '\.tap')
+function runTest (file, bail) {
+  var resfile = file.replace(/\.js$/, (bail ? '-bail':'') + '.tap')
   try {
     var want = fs.readFileSync(resfile, 'utf8').split('\n')
   } catch (er) {
@@ -36,9 +39,12 @@ function runTest (file) {
       process.version.match(/^v0\./))
     return t.test(f, { skip: 'streams are wrong on node 0.x' })
 
-  t.test(f, function (t) {
+  t.test(f + (bail ? ' bail' : ''), function (t) {
     var child = spawn(node, [file], {
-      stdio: [ 0, 'pipe', 'pipe' ]
+      stdio: [ 0, 'pipe', 'pipe' ],
+      env: {
+        TAP_BAIL: bail ? 1 : 0
+      }
     })
 
     var found = ''

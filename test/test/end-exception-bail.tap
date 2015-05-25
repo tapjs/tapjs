@@ -1,0 +1,13 @@
+TAP version 13
+    # Subtest: (unnamed test)
+    1..1
+    ok 1 - should be equal
+ok 1 - (unnamed test) ___/# time=[0-9.]+(ms)?/~~~
+
+end()
+not ok 2 - Error: beep
+  ---
+  {"at":{"file":"test/test/end-exception.js","line":8,"column":11,"function":"Test.<anonymous>"},"test":"(unnamed test)","message":"Error: beep","source":"throw new Error('beep')\n"}
+  ...
+Bail out! # Error: beep
+
