@@ -9,6 +9,7 @@ var bailRe = new RegExp('^Bail out! # this is not ok$', 'm')
 var okre = new RegExp('test[\\\\/]test[/\\\\]ok\\.js \\.+ 10/10( [0-9\.]+ms)?$', 'm')
 var notokre = new RegExp('test[\\\\/]test[/\\\\]not-ok\\.js \\.+ 0/1( [0-9\.]+ms)?$', 'm')
 var fs = require('fs')
+var which = require('which')
 
 t.test('usage', function (t) {
   function usageTest (t, child, c) {
@@ -159,9 +160,18 @@ t.test('path globbing', function (t) {
 
 t.test('save-file', function (t) {
   var saveFile = 'runner-save-test-' + process.pid
+  var n = 0
   function saveFileTest(cb) {
     var args = [run, '-s' + saveFile, ok, notok, '-CRclassic']
-    var child = spawn(node, args, { env: { TAP: 0 } })
+    // also test the expanded versions for added coverage
+    if (++n === 1) {
+      args = [
+        run, '--save', saveFile,
+        ok, notok, '-C', '--reporter', 'classic'
+      ]
+    }
+
+    var child = spawn(node, args, { env: { TAP: 0 }, stdio: [0, 'pipe', 2] })
     var out = ''
     child.stdout.on('data', function (c) {
       out += c
@@ -232,5 +242,181 @@ t.test('version', function (t) {
   t.test('-v', versionTest('-v'))
   t.test('--version', versionTest('--version'))
   t.test('--version', versionTest(['--version', __filename]))
+  t.end()
+})
+
+;(function () {
+  try {
+    var headBin = which.sync('head')
+  } catch (er) {}
+
+  var skip = false
+  if (!headBin)
+    skip = 'head program not available'
+
+  t.test('handle EPIPE gracefully', { skip: skip }, function (t) {
+    var head = spawn(headBin, ['-5'])
+    var child = spawn(node, [run, ok], {
+      stdio: [ 0, head.stdin, 'pipe' ]
+    })
+    var err = ''
+    child.stderr.on('data', function (c) {
+      err += c
+    })
+    child.on('close', function (code, signal) {
+      t.equal(err, '', 'should not spew errors')
+      t.end()
+    })
+  })
+})()
+
+t.test('--no-cov args', function (t) {
+  // this is a weird test, because we want to cover the
+  // --no-cov case, but still get coverage for it, so
+  // we test with --no-cov --coverage so it switches back.
+  var args = [
+    run, ok,
+    '--no-cov', '--no-coverage',
+    '--cov', '--coverage'
+  ]
+  spawn(node, args).on('close', function (code, signal) {
+    t.equal(code, 0)
+    t.equal(signal, null)
+    t.end()
+  })
+})
+
+t.test('unknown arg throws', function (t) {
+  var child = spawn(node, [run, '--wtf'])
+  var err = ''
+  child.stderr.on('data', function (c) {
+    err += c
+  })
+  child.on('close', function (code, signal) {
+    t.match(err, /Error: Unknown argument: --wtf/)
+    t.equal(code, 1)
+    t.equal(signal, null)
+    t.end()
+  })
+})
+
+t.test('read from stdin', function (t) {
+  function stripTime (s) {
+    return s.split(ok).join('test/test/ok.js')
+      .replace(/[0-9\.]+m?s/g, '{{TIME}}')
+      .replace(/\n\r/g, '\n')
+  }
+
+  var expect = ''
+  t.test('generated expected output', function (t) {
+    var args = [run, ok, '--reporter', 'spec']
+    var child = spawn(node, args, {
+      env: {
+        TAP: 0
+      }
+    })
+    child.stdout.on('data', function (c) {
+      expect += c
+    })
+    child.on('close', function (code, signal) {
+      expect = stripTime(expect)
+      t.equal(code, 0)
+      t.equal(signal, null)
+      t.end()
+    })
+  })
+
+  function pipeTest (t, warn, repArgs) {
+    var args = [run, ok]
+    var err = ''
+    var out = ''
+    var expectError = ''
+    if (warn) {
+      expectError = 'Reading TAP data from stdin (use "-" argument to suppress)\n'
+    }
+
+    var repClosed = false
+    var runClosed = true
+    var repChild = spawn(node, repArgs, {
+      env: {
+        TAP: 0
+      }
+    })
+    var runChild = spawn(node, args, {
+      stdio: [ 0, repChild.stdin, 2 ]
+    })
+    repChild.stderr.on('data', function (c) {
+      err += c
+    })
+    repChild.stdout.on('data', function (c) {
+      out += c
+    })
+    runChild.on('exit', function (code, signal) {
+      t.equal(code, 0)
+      t.equal(signal, null)
+      t.notOk(repClosed)
+      repChild.stdin.end()
+      runClosed = true
+    })
+    repChild.on('close', function (code, signal) {
+      repClosed = true
+      t.ok(runClosed)
+      t.equal(code, 0)
+      t.equal(signal, null)
+      t.equal(err, expectError)
+      t.equal(stripTime(out), expect)
+      t.end()
+    })
+  }
+
+  t.test('warns if - is not an arg', function (t) {
+    pipeTest(t, true, [run, '--reporter=spec'])
+  })
+
+  t.test('does not warn if - is present', function (t) {
+    pipeTest(t, false, [run, '--reporter=spec', '-'])
+  })
+
+  t.test('stdin along with files', function (t) {
+    expect = '\n' +
+      'test/test/ok.js\n' +
+      '  nesting\n' +
+      '    first\n' +
+      '      ✓ true is ok\n' +
+      '      ✓ doag is also okay\n' +
+      '    second\n' +
+      '      ✓ but that is ok\n' +
+      '      ✓ this passes\n' +
+      '      ✓ nested ok\n' +
+      '\n' +
+      '  ✓ this passes\n' +
+      '  ✓ this passes too\n' +
+      '  async kid\n' +
+      '    ✓ timeout\n' +
+      '    ✓ timeout\n' +
+      '\n' +
+      '  ✓ pass after async kid\n' +
+      '/dev/stdin\n' +
+      '  test/test/ok.js\n' +
+      '    nesting\n' +
+      '      first\n' +
+      '        ✓ true is ok\n' +
+      '        ✓ doag is also okay\n' +
+      '      second\n' +
+      '        ✓ but that is ok\n' +
+      '        ✓ this passes\n' +
+      '        ✓ nested ok\n' +
+      '    ✓ this passes\n' +
+      '    ✓ this passes too\n' +
+      '    async kid\n' +
+      '      ✓ timeout\n' +
+      '      ✓ timeout\n' +
+      '    ✓ pass after async kid\n' +
+      '\n' +
+      '\n' +
+      '  20 passing ({{TIME}})\n'
+
+    pipeTest(t, false, [run, '--reporter', 'spec', '-', ok])
+  })
   t.end()
 })

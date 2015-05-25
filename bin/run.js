@@ -14,7 +14,6 @@ process.stdout.on('error', function (er) {
     throw er
 })
 
-
 // defaults
 var nodeArgs = []
 
@@ -25,7 +24,7 @@ var opener = require('opener')
 
 var timeout = process.env.TAP_TIMEOUT || 30
 // coverage tools run slow.
-if (global.__coverage__ || global.coverage)
+if (global.__coverage__)
   timeout = 240
 
 var color = require('supports-color')
@@ -88,11 +87,8 @@ for (var i = 0; i < args.length; i++) {
     }
   }
 
-  // support -Rspec as well as --reporter=spec
-  arg = arg.replace(/^-R/, '--reporter=')
-
   var key = arg
-  var val
+  var val = null
   if (key.match(/^--/) && arg.indexOf('=') !== -1) {
     var kv = arg.split('=')
     key = kv.shift()
@@ -185,6 +181,9 @@ for (var i = 0; i < args.length; i++) {
   }
 }
 
+// By definition, the next two blocks cannot be covered, becuase
+// they are only relevant when coverage is turned off.
+/* istanbul ignore if */
 if (coverage && !global.__coverage__) {
   // Re-spawn with coverage
   var node = process.execPath
@@ -204,6 +203,7 @@ if (coverage && !global.__coverage__) {
   return
 }
 
+/* istanbul ignore if */
 if (coverageReport && !global.__coverage__ && files.length === 0) {
   var node = process.execPath
   var args = [nycBin, 'report', '--reporter', coverageReport]
@@ -365,6 +365,7 @@ if (saveFile) {
   })
 }
 
+var doStdin = false
 for (var i = 0; i < files.length; i++) {
   var file = files[i]
   if (saved.indexOf(file) === -1)
@@ -372,7 +373,7 @@ for (var i = 0; i < files.length; i++) {
 
   // Pick up stdin after all the other files are handled.
   if (file === '-') {
-    tap.stdin()
+    doStdin = true
     continue
   }
 
@@ -403,5 +404,8 @@ for (var i = 0; i < files.length; i++) {
   else if (isExe(st))
     tap.spawn(files[i], [], opt, file, extra)
 }
+
+if (doStdin)
+  tap.stdin()
 
 tap.end()
