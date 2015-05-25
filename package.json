@@ -34,11 +34,9 @@
   "license": "ISC",
   "repository": "https://github.com/isaacs/node-tap.git",
   "scripts": {
-    "test": "node bin/run.js test/*.* --coverage",
-    "lint": "standard lib/*.js"
+    "test": "node bin/run.js test/*.* --coverage"
   },
   "devDependencies": {
-    "standard": "^3.11.0",
     "which": "^1.1.1"
   },
   "optionalDependencies": {
