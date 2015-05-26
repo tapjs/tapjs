@@ -41,5 +41,16 @@
   },
   "optionalDependencies": {
     "readable-stream": "^1.1.13"
-  }
+  },
+  "files": [
+    "lib/assert.js",
+    "lib/mocha.js",
+    "lib/root.js",
+    "lib/stack.js",
+    "lib/synonyms.js",
+    "lib/test.js",
+    "bin/mochatap.js",
+    "bin/run.js",
+    "bin/usage.txt"
+  ]
 }
