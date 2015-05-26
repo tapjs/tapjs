@@ -328,7 +328,8 @@ t.test('read from stdin', function (t) {
     var args = [run, ok, '--reporter', 'spec']
     var child = spawn(node, args, {
       env: {
-        TAP: 0
+        TAP: 0,
+        TAP_BAIL: 0
       }
     })
     child.stdout.on('data', function (c) {
@@ -355,11 +356,15 @@ t.test('read from stdin', function (t) {
     var runClosed = true
     var repChild = spawn(node, repArgs, {
       env: {
-        TAP: 0
+        TAP: 0,
+        TAP_BAIL: 0
       }
     })
     var runChild = spawn(node, args, {
-      stdio: [ 0, repChild.stdin, 2 ]
+      stdio: [ 0, repChild.stdin, 2 ],
+      env: {
+        TAP_BAIL: 0
+      }
     })
     repChild.stderr.on('data', function (c) {
       err += c
