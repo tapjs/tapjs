@@ -10,6 +10,7 @@ var okre = new RegExp('test[\\\\/]test[/\\\\]ok\\.js \\.+ 10/10( [0-9\.]+ms)?$',
 var notokre = new RegExp('test[\\\\/]test[/\\\\]not-ok\\.js \\.+ 0/1( [0-9\.]+ms)?$', 'm')
 var fs = require('fs')
 var which = require('which')
+var path = require('path')
 
 t.test('usage', function (t) {
   function usageTest (t, child, c) {
@@ -287,17 +288,32 @@ t.test('--no-cov args', function (t) {
 })
 
 t.test('unknown arg throws', function (t) {
-  var child = spawn(node, [run, '--wtf'])
-  var err = ''
-  child.stderr.on('data', function (c) {
-    err += c
+  // { arg: unknown }
+  var cases = {
+    '--wtf': '--wtf',
+    '-Bcav': '-a',
+    '-wtf': '-w'
+  }
+  Object.keys(cases).forEach(function (c) {
+    t.test(c, function (t) {
+      badArgTest(t, c, cases[c])
+    })
   })
-  child.on('close', function (code, signal) {
-    t.match(err, /Error: Unknown argument: --wtf/)
-    t.equal(code, 1)
-    t.equal(signal, null)
-    t.end()
-  })
+  t.end()
+
+  function badArgTest (t, arg, error) {
+    var child = spawn(node, [run, arg])
+    var err = ''
+    child.stderr.on('data', function (c) {
+      err += c
+    })
+    child.on('close', function (code, signal) {
+      t.match(err, new RegExp('Error: Unknown argument: ' + error))
+      t.equal(code, 1)
+      t.equal(signal, null)
+      t.end()
+    })
+  }
 })
 
 t.test('read from stdin', function (t) {
@@ -417,6 +433,38 @@ t.test('read from stdin', function (t) {
       '  20 passing ({{TIME}})\n'
 
     pipeTest(t, false, [run, '--reporter', 'spec', '-', ok])
+  })
+  t.end()
+})
+
+t.test('separate filename args with --', function (t) {
+  var args = [ run, '--', '-xyz', ok ]
+  var child = spawn(node, args)
+  child.on('close', function (code, signal) {
+    t.equal(code, 0)
+    t.equal(signal, null)
+    t.end()
+  })
+})
+
+t.test('-t or --timeout to set timeout', function (t) {
+  var nf = require.resolve('./fixtures/never-finish.js')
+  var args = [run, nf]
+  var timers = ['-t.2',['-t', '0.2'],'-t=.2','--timeout=.2',['--timeout','.2']]
+  timers.forEach(function (timer) {
+    t.test([].concat(timer).join(' '), function (t) {
+      var child = spawn(node, args.concat(timer))
+      var out = ''
+      child.stdout.on('data', function (c) {
+        out += c
+      })
+      child.on('close', function (code, signal) {
+        t.equal(code, 1)
+        t.equal(signal, null)
+        t.match(out, /^\s*not ok - timeout$/m)
+        t.end()
+      })
+    })
   })
   t.end()
 })

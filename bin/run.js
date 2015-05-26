@@ -76,8 +76,13 @@ for (var i = 0; i < args.length; i++) {
       if (sf)
         expand.push('--' + sf)
       else if (so) {
-        expand.push('--' + so + '=' + arg.slice(f + 1))
+        var soval = arg.slice(f + 1)
+        if (soval.charAt(0) !== '=')
+          soval = '=' + soval
+        expand.push('--' + so + soval)
         f = arg.length
+      } else if (arg !== '-' + fc) {
+        expand.push('-' + fc)
       }
     }
     if (expand.length) {
