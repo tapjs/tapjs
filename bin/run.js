@@ -107,6 +107,12 @@ for (var i = 0; i < args.length; i++) {
     case '--version':
       return console.log(require('../package.json').version)
 
+    case '--__coverage__':
+      // NYC will not wrap a module in node_modules.
+      // So, we need to tell the child proc when it's been added.
+      global.__coverage__ = global.__coverage__ || {}
+      continue
+
     case '--coverage-report':
       coverageReport = val || args[++i]
       if (!coverageReport) {
@@ -192,7 +198,11 @@ for (var i = 0; i < args.length; i++) {
 if (coverage && !global.__coverage__) {
   // Re-spawn with coverage
   var node = process.execPath
-  var args = [nycBin].concat(process.execArgv, process.argv.slice(1))
+  var args = [nycBin].concat(
+    process.execArgv,
+    process.argv.slice(1),
+    '--__coverage__'
+  )
   var child = fg(node, args)
   child.removeAllListeners('close')
   child.on('close', function (code, signal) {
