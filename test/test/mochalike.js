@@ -59,3 +59,11 @@ describe('failing indented things', function () {
     ok(!{}, 'objectify the truthiness')
   })
 })
+
+describe('a test passing an error to done() callback', function() {
+  it('is marked as failed', function(done) {
+    process.nextTick(function() {
+      done(new Error('error arg'))
+    });
+  });
+});
