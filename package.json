@@ -14,7 +14,6 @@
     "buffer-equal": "~0.0.0",
     "coveralls": "^2.11.2",
     "deep-equal": "^1.0.0",
-    "exit-code": "^1.0.1",
     "foreground-child": "^1.2.0",
     "glob": "^5.0.6",
     "js-yaml": "^3.3.1",
