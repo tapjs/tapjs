@@ -21,10 +21,13 @@ describe('a set of tests to be done later', function () {
   })
 })
 
-describe('another set of tests', function () {
+describe('describe todo')
+
+describe('another set of tests', function (done) {
   it('is a second set')
   it('looks like english')
   it('is marked TODO')
+  done()
 })
 
 describe('reasonably indented things', function () {
