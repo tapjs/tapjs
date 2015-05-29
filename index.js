@@ -97,6 +97,7 @@ function Parser (options, onComplete) {
   if (onComplete)
     this.on('complete', onComplete)
 
+  this.sawValidTap = false
   this.indent = options.indent || ''
   this.level = options.level || 0
   Writable.call(this)
@@ -244,6 +245,13 @@ Parser.prototype.end = function (chunk, encoding, cb) {
     }
   }
 
+  // We didn't get any actual tap, so just treat this like a
+  // 1..0 test, because it was probably just console.log junk
+  if (!this.sawValidTap) {
+    final.plan = { start: 1, end: 0 }
+    final.ok = true
+  }
+
   this.emit('complete', final)
 
   Writable.prototype.end.call(this, null, null, cb)
@@ -289,6 +297,11 @@ Parser.prototype.emitResult = function () {
 }
 
 Parser.prototype.startChild = function (indent, line) {
+  if (!line.substr(indent.length).match(/^# Subtest:/)) {
+    this.emit('extra', line)
+    return
+  }
+
   this.emitResult()
 
   this.child = new Parser({
@@ -301,7 +314,7 @@ Parser.prototype.startChild = function (indent, line) {
   this.child.on('bailout', this.bailout.bind(this))
   var self = this
   this.child.on('complete', function (results) {
-    if (!results.ok)
+    if (this.sawValidTap && !results.ok)
       self.ok = false
   })
   this.child.write(line.substr(indent.length))
@@ -330,6 +343,7 @@ Parser.prototype._parse = function (line) {
 
   var bailout = line.match(/^bail out!(.*)\n$/i)
   if (bailout) {
+    this.sawValidTap = true
     var reason = bailout[1].trim()
     this.bailout(reason)
     return
@@ -361,7 +375,7 @@ Parser.prototype._parse = function (line) {
     }
     // a child test can only end when we get an test point line.
     // anything else is extra.
-    if (!/^(not )?ok/.test(line)) {
+    if (this.child.sawValidTap && !/^(not )?ok/.test(line)) {
       this.emit('extra', line)
       return
     }
@@ -371,8 +385,8 @@ Parser.prototype._parse = function (line) {
   if (indent) {
     indent = indent[0]
 
-    // if we don't have a current res, then it can't be yamlish,
-    // must be a child result set
+    // if we don't have a current res, then it can't be yamlish.
+    // If it is a subtest command, then it's a child test.
     if (!this.current) {
       this.startChild(indent, line)
       return
@@ -428,6 +442,7 @@ Parser.prototype._parse = function (line) {
       return
     }
 
+    this.sawValidTap = true
     this.emitResult()
 
     var start = +(plan[1])
@@ -457,6 +472,7 @@ Parser.prototype._parse = function (line) {
     return
   }
 
+  this.sawValidTap = true
   if (res.id) {
     if (!this.first || res.id < this.first)
       this.first = res.id

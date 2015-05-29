@@ -1,0 +1,81 @@
+TAP version 13
+    # Subtest: index.js
+    TAP version 13
+        # Subtest: boom
+    # package - Easy package.json exports.
+
+    ## Intro
+
+    This module provides an easy way to export package.json data.
+    It contains auto-discovery functionality, which means that it will
+    find your package.json file automatically. Cool, ugh?
+
+    ## Installation
+
+            # Subtest: npm install package line
+            $ npm install package
+
+    ## Usage
+
+            var package = require('package')(); // contains package.json data.
+        
+            var yourAwesomeModule = {};
+        
+            yourAwesomeModule.version = package.version;
+
+    ## Contribution
+
+    Bug fixes and features are welcomed.
+
+    ## Other similar modules
+
+    - pkginfo (https://github.com/indexzero/node-pkginfo) by indexzero.
+    - JSON.parse + fs.readFile
+
+    ## License
+
+    MIT License
+
+    Copyright (C) 2011 Veselin Todorov
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy of
+    this software and associated documentation files (the "Software"), to deal in
+    the Software without restriction, including without limitation the rights to
+    use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+    of the Software, and to permit persons to whom the Software is furnished to do
+    so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE.
+        1..0
+    ok 1 - boom # time=5.26ms
+
+    1..1
+    # time=12.555ms
+not ok 1 - index.js # time=201.609ms
+  ---
+  arguments:
+    - index.js
+  timeout: 30000
+  results:
+    ok: false
+    count: 1
+    pass: 1
+    plan:
+      start: 1
+      end: 1
+  command: /usr/local/bin/iojs
+  file: index.js
+  ...
+
+1..1
+# failed 1 of 1 tests
+# time=209.666ms
