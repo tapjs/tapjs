@@ -12,7 +12,7 @@ t.test('nesting', function (t) {
       tt.ok('no plan', 'but that is ok')
       tt.pass('this passes')
       tt.equal(1, 1, 'nested ok')
-      tt.end()
+      tt.done()
     }
     function bar() {
       return foo()
