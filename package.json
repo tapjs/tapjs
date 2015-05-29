@@ -51,5 +51,13 @@
     "bin/mochatap.js",
     "bin/run.js",
     "bin/usage.txt"
-  ]
+  ],
+  "config": {
+    "nyc": {
+      "exclude": [
+        "\\bnode_modules\\b",
+        "\\btest[\\/]"
+      ]
+    }
+  }
 }
