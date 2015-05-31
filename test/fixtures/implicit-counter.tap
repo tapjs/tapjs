@@ -1,10 +1,11 @@
 TAP version 13
-# beep
-ok should be equal
-ok should be equivalent
-# boop
-ok should be equal
-ok (unnamed assert)
+# before 1
+ok one
+ok two
+# before 3
+ok three
+ok four
+# after 4
 
 1..4
 # tests 4

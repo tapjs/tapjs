@@ -110,6 +110,7 @@ function Parser (options, onComplete) {
   this.yind = ''
   this.child = null
   this.current = null
+  this.commentQueue = []
 
   this.count = 0
   this.pass = 0
@@ -263,6 +264,13 @@ Parser.prototype.bailout = function (reason) {
   this.emit('bailout', reason)
 }
 
+Parser.prototype.clearCommentQueue = function () {
+  for (var c = 0; c < this.commentQueue.length; c++) {
+    this.emit('comment', this.commentQueue[c])
+  }
+  this.commentQueue.length = 0
+}
+
 Parser.prototype.emitResult = function () {
   if (this.child) {
     this.child.end()
@@ -273,7 +281,7 @@ Parser.prototype.emitResult = function () {
   this.yind = ''
 
   if (!this.current)
-    return
+    return this.clearCommentQueue()
 
   var res = this.current
   this.current = null
@@ -294,6 +302,7 @@ Parser.prototype.emitResult = function () {
     this.todo++
 
   this.emit('assert', res)
+  this.clearCommentQueue()
 }
 
 Parser.prototype.startChild = function (indent, line) {
@@ -320,6 +329,13 @@ Parser.prototype.startChild = function (indent, line) {
   this.child.write(line.substr(indent.length))
 }
 
+Parser.prototype.emitComment = function (line) {
+  if (this.current || this.commentQueue.length)
+    this.commentQueue.push(line)
+  else
+    this.emit('comment', line)
+}
+
 Parser.prototype._parse = function (line) {
   // normalize line endings
   line = line.replace(/\r\n$/, '\n')
@@ -337,7 +353,7 @@ Parser.prototype._parse = function (line) {
   // comment, but let "# Subtest:" comments start a child
   var c = line.match(/^(\s+)?#(.*)/)
   if (c && !(c[1] && /^ Subtest: /.test(c[2]))) {
-    this.emit('comment', line)
+    this.emitComment(line)
     return
   }
 
