@@ -350,13 +350,6 @@ Parser.prototype._parse = function (line) {
 
   this.emit('line', line)
 
-  // comment, but let "# Subtest:" comments start a child
-  var c = line.match(/^(\s+)?#(.*)/)
-  if (c && !(c[1] && /^ Subtest: /.test(c[2]))) {
-    this.emitComment(line)
-    return
-  }
-
   var bailout = line.match(/^bail out!(.*)\n$/i)
   if (bailout) {
     this.sawValidTap = true
@@ -375,18 +368,15 @@ Parser.prototype._parse = function (line) {
     return
   }
 
-  // if we got a plan at the end, or a 1..0 plan, then we can't
-  // have any more results, yamlish, or child sets.
-  if (this.postPlan) {
-    this.emit('extra', line)
-    return
-  }
-
   // still belongs to the child.
   if (this.child) {
     if (line.indexOf(this.child.indent) === 0) {
       line = line.substr(this.child.indent.length)
       this.child.write(line)
+      return
+    }
+    if (line.trim().charAt(0) === '#') {
+      this.emitComment(line)
       return
     }
     // a child test can only end when we get an test point line.
@@ -395,6 +385,20 @@ Parser.prototype._parse = function (line) {
       this.emit('extra', line)
       return
     }
+  }
+
+  // comment, but let "# Subtest:" comments start a child
+  var c = line.match(/^(\s+)?#(.*)/)
+  if (c && !(c[1] && /^ Subtest: /.test(c[2]))) {
+    this.emitComment(line)
+    return
+  }
+
+  // if we got a plan at the end, or a 1..0 plan, then we can't
+  // have any more results, yamlish, or child sets.
+  if (this.postPlan) {
+    this.emit('extra', line)
+    return
   }
 
   var indent = line.match(/^[ \t]+/)

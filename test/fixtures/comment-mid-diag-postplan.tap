@@ -1,0 +1,21 @@
+# before version
+TAP version 13
+# after version, before result
+not ok 1 - please keep my diags
+  # before diag
+  ---
+  # mid diag
+  after: comment
+  ...
+  # after diag
+    # Subtest: child
+    1..2
+    # before 1
+    ok 1
+    # before 2
+    ok 2
+# before 2
+ok 2 - child
+# after 2, brefore plan
+1..2
+# after plan
