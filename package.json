@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "glob": "^5.0.2",
-    "tap": "~0.4.6",
+    "tap": "^1.2.0",
     "tape": "^3.5.0"
   },
   "scripts": {
