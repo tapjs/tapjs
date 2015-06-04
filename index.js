@@ -340,9 +340,17 @@ Parser.prototype._parse = function (line) {
   // normalize line endings
   line = line.replace(/\r\n$/, '\n')
 
-  // ignore empty lines
-  if (line === '\n')
+  // ignore empty lines, except if they are (or could be) part of yaml
+  // >\nfoo\n\nbar\n is yaml for `"foo\nbar"`
+  // >\nfoo\nbar\n is yaml for `"foo bar"`
+  if (line === '\n' || line.trim() === '') {
+    if (this.child) {
+      this.child.write('\n')
+    } else if (this.yind) {
+      this.yamlish += '\n'
+    }
     return
+  }
 
   // After a bailout, everything is ignored
   if (this.bailedOut)
