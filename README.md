@@ -223,6 +223,13 @@ slight modifications.
    dumps the TAP data for inspection.
 3. Various other things are hung onto it for convenience, since it is
    the main package export.
+4. The test ends automatically when `process.on('exit')` fires, so
+   there is no need to call `tap.end()` explicitly.
+5. Adding a `teardown` function triggers `autoend` behavior.
+   Otherwise, the `end` would potentially never arrive, if for example
+   `teardown` is used to close a server or cancel some long-running
+   process, because `process.on('exit')` would never fire of its own
+   accord.
 
 ### tap.Test
 
@@ -251,6 +258,31 @@ two additional fields that are only relevant for child tests:
 
 * `timeout`: The number of ms to allow the test to run.
 * `bail`: Set to `true` to bail out on the first test failure.
+* `autoend`: Automatically `end()` the test on the next turn of the
+  event loop after its internal queue is drained.
+
+#### t.tearDown(function)
+
+Run the supplied function when `t.end()` is called, or when the `plan`
+is met.
+
+Note that when called on the root `tap` export, this also triggers
+`autoend` behavior.
+
+**Alias**: `t.afterAll(function)`
+
+#### t.autoend()
+
+Automatically end the test as soon as there is nothing pending in its
+queue.
+
+The automatic end is deferred with a `setTimeout`, and any new action
+will cancel and re-schedule the timer.  Nonetheless, calling this
+method means that any slow asynchronous behavior may be lost, if it
+comes after the `end()` is auto-triggered.
+
+This behavior is triggered on the root `tap` object when
+`tap.tearDown()` is called.
 
 #### t.plan(number)
 
