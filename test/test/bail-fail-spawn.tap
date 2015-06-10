@@ -1,7 +1,6 @@
 TAP version 13
     # Subtest: bail fail
         # Subtest: ./test/test/nesting.js
-        TAP version 13
             # Subtest: nesting
             1..2
                 # Subtest: first

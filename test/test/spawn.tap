@@ -1,6 +1,5 @@
 TAP version 13
     # Subtest: ___/.*/~~~spawn.js child
-    TAP version 13
         # Subtest: nesting
         1..2
             # Subtest: first

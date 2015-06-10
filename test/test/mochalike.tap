@@ -79,7 +79,7 @@ not ok 5 - failing indented things ___/# time=[0-9.]+(ms)?/~~~
         # Subtest: is marked as failed
         not ok 1 - Error: error arg
           ---
-          {"at":{"file":"test/test/mochalike.js","line":66,"column":12},"test":"is marked as failed","message":"Error: error arg","source":"done(new Error('error arg'));\n"}
+          {"at":{"file":"test/test/mochalike.js","line":66,"column":12},"test":"is marked as failed","message":"Error: error arg","source":"done(new Error('error arg'))\n"}
           ...
         1..1
         # failed 1 of 1 tests
