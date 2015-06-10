@@ -15,8 +15,7 @@ TAP version 13
               ---
               {"found":1,"wanted":"1","compare":"===","at":{"file":"test/test/spawn.js","line":22,"column":10,"function":"foo"},"source":"tt.equal(1, '1', 'nested failure')\n"}
               ...
-            Bail out! # nested failure
-        Bail out! # nested failure
+
     Bail out! # nested failure
 Bail out! # nested failure
 

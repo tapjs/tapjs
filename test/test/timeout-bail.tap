@@ -9,8 +9,5 @@ TAP version 13
                   {"expired":"timeout test","timeout":50,"at":{"file":"test/test/timeout.js","line":4,"column":5},"source":"t.test('timeout test', { timeout: 50 }, function (t) {\n"}
                   ...
                 Bail out! # timeout!
-            Bail out! # timeout!
-        Bail out! # timeout!
-    Bail out! # timeout!
 Bail out! # timeout!
 
