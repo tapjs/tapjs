@@ -48,6 +48,5 @@ ok 4 - reasonably indented things ___/# time=[0-9.]+(ms)?/~~~
           {"at":{"file":"test/test/mochalike.js","line":53,"column":7},"name":"AssertionError","actual":false,"expected":true,"operator":"==","generatedMessage":false,"message":"AssertionError: false is not true on line 50","source":"ok(false, 'false is not true on line 50')\n"}
           ...
         Bail out! # has no asserts, only throws
-    Bail out! # has no asserts, only throws
 Bail out! # has no asserts, only throws
 
