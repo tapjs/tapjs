@@ -1,18 +1,28 @@
 var t = require('../..')
+var test = t.test
 
-t.test('nesting', function (t) {
-  t.plan(2)
-  t.test('first', function (tt) {
-    tt.plan(2)
-    tt.ok(true, 'true is ok')
-    tt.assert('doeg', 'doag is also okay')
+test('nesting', function (t) {
+  var plan = t.plan
+  var test= t.test
+  plan(2)
+  test('first', function (tt) {
+    var plan = tt.plan
+    var ok = tt.ok
+    var assert = tt.assert
+    plan(2)
+    ok(true, 'true is ok')
+    assert('doeg', 'doag is also okay')
   })
-  t.test('second', function (tt) {
+  test('second', function (tt) {
+    var pass = tt.pass
+    var ok = tt.ok
+    var equal = tt.equal
+    var done = tt.done
     function foo() {
-      tt.ok('no plan', 'but that is ok')
-      tt.pass('this passes')
-      tt.equal(1, 1, 'nested ok')
-      tt.done()
+      ok('no plan', 'but that is ok')
+      pass('this passes')
+      equal(1, 1, 'nested ok')
+      done()
     }
     function bar() {
       return foo()
