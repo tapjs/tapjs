@@ -5,21 +5,6 @@ var util = require('util')
 var truthies = [ true, 1, 'ok', Infinity, function () {}, {}, [], /./ ]
 var falsies = [ false, 0, '', NaN, null, undefined ]
 
-test('all synonyms present on test object', function (t) {
-  for (var i in synonyms) {
-    // if it's not present, mark as TODO, don't bother failing noisily
-    t.test(i, { todo: !t[i] }, function (t) {
-      t.type(t[i], 'function' )
-      for (var s = 0; s < synonyms[i].length; s++) {
-        t.equal(t[i], t[synonyms[i][s]], 'synonym ' + synonyms[i][s])
-      }
-      t.end()
-    })
-  }
-
-  t.end()
-})
-
 test('ok finds truthiness, notOk finds falsiness', function (t) {
   var tt = new Test()
   truthies.forEach(function (truthy) {
