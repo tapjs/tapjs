@@ -30,6 +30,11 @@ test('error tests for errorness', function (t) {
   tt.on('data', function (chunk) { c += chunk })
 
   t.notOk(tt.error(er), 'fails when presented error')
+
+  var circular = {};
+  circular.circular = circular;
+  t.notOk(tt.error(circular), 'fails when presented circular object')
+
   falsies.forEach(function (falsey) {
     t.error(falsey, 'passes with ' + util.inspect(falsey))
   })
