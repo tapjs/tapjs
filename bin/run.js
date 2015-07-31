@@ -339,6 +339,7 @@ if (files.length === 1 && files[0] === '-') {
   // to the reporter, so we don't get '/dev/stdin' in the suite list.
   reporter = new TMR(reporter)
   process.stdin.pipe(reporter)
+  process.stdin.resume()
   return
 }
 
