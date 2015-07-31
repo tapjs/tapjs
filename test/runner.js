@@ -302,7 +302,7 @@ t.test('unknown arg throws', function (t) {
   t.end()
 
   function badArgTest (t, arg, error) {
-    var expectCode = process.version.match(/^v0\.(8|10)/) ? 8 : 1
+    var expectCode = process.version.match(/^v0\.10/) ? 8 : 1
     var child = spawn(node, [run, arg])
     var err = ''
     child.stderr.on('data', function (c) {
