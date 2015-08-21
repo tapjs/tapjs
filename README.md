@@ -195,6 +195,8 @@ Options:
   --debug-brk                 Run JavaScript tests with node --debug-brk
 
   --harmony                   Enable all Harmony flags in JavaScript tests
+  
+  --harmony_arrow_functions   Enable Harmony arrow functions (in progress)
 
   --strict                    Run JS tests in 'use strict' mode
 
