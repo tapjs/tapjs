@@ -160,6 +160,10 @@ for (var i = 0; i < args.length; i++) {
     case '--harmony':
       nodeArgs.push('--harmony')
       continue
+      
+    case '--harmony_arrow_functions':
+      nodeArgs.push('--harmony_arrow_functions')
+      continue
 
     case '--color':
       color = true
