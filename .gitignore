@@ -1,5 +1,4 @@
 node_modules/
-!node_modules/deep-equal/
 coverage/
 .nyc_output/
 nyc_output/

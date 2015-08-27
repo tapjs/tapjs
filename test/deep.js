@@ -14,7 +14,7 @@ test("deepEquals shouldn't care about key order recursively and types", function
   t.end()
 })
 
-test("deepEquals shoudn't care about key order (but still might) and types", function (t) {
+test("deepEquals shouldn't care about key order (but still might) and types", function (t) {
   t.deepEqual(
     [ { foo:
         { z: 100
@@ -40,4 +40,17 @@ test("deepEquals shoudn't care about key order (but still might) and types", fun
         , d: "4" } } ]
   )
   t.end()
-});
+})
+
+test("deepEquals shouldn't blow up on circular data structures", function (t) {
+  var x1 = { z: 4 }
+  var y1 = { x: x1 }
+  x1.y = y1
+
+  var x2 = { z: 4 }
+  var y2 = { x: x2 }
+  x2.y = y2
+
+  t.deepEquals(x1, x2)
+  t.end()
+})
