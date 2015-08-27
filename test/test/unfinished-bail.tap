@@ -1,7 +1,11 @@
 TAP version 13
     # Subtest: t1
         # Subtest: t11
-        not ok 1 - test left unfinished: no end(), no plan()
-        Bail out! # test left unfinished: no end(), no plan()
-Bail out! # test left unfinished: no end(), no plan()
+        1..1
+        not ok 1 - test unfinished: t11
+          ---
+          {"at":{"file":"test/test/unfinished.js","line":4,"column":5},"plan":1,"count":0,"source":"t.test('t11', function (t) {\n"}
+          ...
+        Bail out! # test unfinished: t11
+Bail out! # test unfinished: t11
 

@@ -1,50 +1,61 @@
 TAP version 13
     # Subtest: t1
         # Subtest: t11
-        not ok 1 - test left unfinished: no end(), no plan()
         1..1
+        not ok 1 - test unfinished: t11
+          ---
+          {"at":{"file":"test/test/unfinished.js","line":4,"column":5},"plan":1,"count":0,"source":"t.test('t11', function (t) {\n"}
+          ...
         # failed 1 of 1 tests
     not ok 1 - t11 ___/# time=[0-9.]+(ms)?/~~~
       ---
       {"at":{"file":"test/test/unfinished.js","line":4,"column":5},"results":{"plan":{"start":1,"end":1},"count":1,"pass":0,"ok":false,"fail":1},"source":"t.test('t11', function (t) {\n"}
       ...
 
-    1..1
-    # failed 1 of 1 tests
+    not ok 2 - test point left in queue: ok - this would be ok if it ever happened
+      ---
+      {"at":{"file":"test/test/unfinished.js","line":17,"column":5},"test":"t1","source":"t.ok(true, 'this would be ok if it ever happened')\n"}
+      ...
+    1..2
+    # failed 2 of 2 tests
 not ok 1 - t1 ___/# time=[0-9.]+(ms)?/~~~
   ---
-  {"at":{"file":"test/test/unfinished.js","line":3,"column":5},"results":{"plan":{"start":1,"end":1},"count":1,"pass":0,"ok":false,"fail":1},"source":"tap.test('t1', function(t) {\n"}
+  {"at":{"file":"test/test/unfinished.js","line":3,"column":5},"results":{"plan":{"start":1,"end":2},"count":2,"pass":0,"ok":false,"fail":2},"source":"tap.test('t1', function(t) {\n"}
   ...
 
 not ok 2 - test point left in queue: ok - 1 === 1
   ---
-  {"at":{"file":"test/test/unfinished.js","line":12,"column":5},"source":"tap.equal(1, 1, '1 === 1')\n"}
+  {"at":{"file":"test/test/unfinished.js","line":21,"column":5},"source":"tap.equal(1, 1, '1 === 1')\n"}
   ...
 not ok 3 - test point left in queue: ok - expect truthy value
   ---
-  {"at":{"file":"test/test/unfinished.js","line":13,"column":5},"source":"tap.ok('this is ok')\n"}
+  {"at":{"file":"test/test/unfinished.js","line":22,"column":5},"source":"tap.ok('this is ok')\n"}
   ...
 not ok 4 - test point left in queue: not ok - failsome
   ---
-  {"hoo":"hah","at":{"file":"test/test/unfinished.js","line":14,"column":5},"source":"tap.fail('failsome', { hoo: 'hah' })\n"}
+  {"hoo":"hah","at":{"file":"test/test/unfinished.js","line":23,"column":5},"source":"tap.fail('failsome', { hoo: 'hah' })\n"}
   ...
-not ok 5 - spawn left in queue
+not ok 5 - spawn left in queue: spawny
   ---
-  {"rar":"grr","at":{"file":"test/test/unfinished.js","line":16,"column":5},"command":"node","args":["___/.*/~~~unfinished.js"],"options":{},"name":"spawny","source":"tap.spawn('node', [__filename], {}, 'spawny', { rar: 'grr' })\n"}
+  {"rar":"grr","at":{"file":"test/test/unfinished.js","line":25,"column":5},"command":"node","args":["___/.*/~~~unfinished.js"],"options":{},"source":"tap.spawn('node', [__filename], {}, 'spawny', { rar: 'grr' })\n"}
   ...
-not ok 6 - child test left in queue
+not ok 6 - spawn left in queue: node --version
   ---
-  {"at":{"file":"test/test/unfinished.js","line":18,"column":5},"source":"tap.test(function(t) {\n"}
+  {"rar":"grr","at":{"file":"test/test/unfinished.js","line":26,"column":5},"command":"node","args":["--version"],"options":{},"source":"tap.spawn('node', ['--version'], {}, '', { rar: 'grr' })\n"}
   ...
-not ok 7 - child test left in queue
+not ok 7 - child test left in queue: (unnamed)
   ---
-  {"at":{"file":"test/test/unfinished.js","line":24,"column":5},"source":"tap.test('', function(t) {\n"}
+  {"at":{"file":"test/test/unfinished.js","line":28,"column":5},"source":"tap.test(function(t) {\n"}
   ...
-not ok 8 - child test left in queue
+not ok 8 - child test left in queue: (unnamed)
   ---
-  {"at":{"file":"test/test/unfinished.js","line":30,"column":5},"name":"t2","source":"tap.test('t2', function(t) {\n"}
+  {"at":{"file":"test/test/unfinished.js","line":32,"column":5},"source":"tap.test('', function(t) {\n"}
   ...
-1..8
-# failed 8 of 8 tests
+not ok 9 - child test left in queue: t2
+  ---
+  {"at":{"file":"test/test/unfinished.js","line":36,"column":5},"source":"tap.test('t2', function(t) {\n"}
+  ...
+1..9
+# failed 9 of 9 tests
 ___/# time=[0-9.]+(ms)?/~~~
 
