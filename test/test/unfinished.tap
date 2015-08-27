@@ -1,17 +1,50 @@
 TAP version 13
-    # Subtest: parent
-        # Subtest: child 1
-            # Subtest: grandchild 1
-            ok 1 - 1
-            1..1
-        ok 1 - grandchild 1 ___/# time=[0-9.]+(ms)?/~~~
-
+    # Subtest: t1
+        # Subtest: t11
+        not ok 1 - test left unfinished: no end(), no plan()
         1..1
-    ok 1 - child 1 ___/# time=[0-9.]+(ms)?/~~~
+        # failed 1 of 1 tests
+    not ok 1 - t11 ___/# time=[0-9.]+(ms)?/~~~
+      ---
+      {"at":{"file":"test/test/unfinished.js","line":4,"column":5},"results":{"plan":{"start":1,"end":1},"count":1,"pass":0,"ok":false,"fail":1},"source":"t.test('t11', function (t) {\n"}
+      ...
 
     1..1
-ok 1 - parent ___/# time=[0-9.]+(ms)?/~~~
+    # failed 1 of 1 tests
+not ok 1 - t1 ___/# time=[0-9.]+(ms)?/~~~
+  ---
+  {"at":{"file":"test/test/unfinished.js","line":3,"column":5},"results":{"plan":{"start":1,"end":1},"count":1,"pass":0,"ok":false,"fail":1},"source":"tap.test('t1', function(t) {\n"}
+  ...
 
-1..1
+not ok 2 - test point left in queue: ok - 1 === 1
+  ---
+  {"at":{"file":"test/test/unfinished.js","line":12,"column":5},"source":"tap.equal(1, 1, '1 === 1')\n"}
+  ...
+not ok 3 - test point left in queue: ok - expect truthy value
+  ---
+  {"at":{"file":"test/test/unfinished.js","line":13,"column":5},"source":"tap.ok('this is ok')\n"}
+  ...
+not ok 4 - test point left in queue: not ok - failsome
+  ---
+  {"hoo":"hah","at":{"file":"test/test/unfinished.js","line":14,"column":5},"source":"tap.fail('failsome', { hoo: 'hah' })\n"}
+  ...
+not ok 5 - spawn left in queue
+  ---
+  {"rar":"grr","at":{"file":"test/test/unfinished.js","line":16,"column":5},"command":"node","args":["___/.*/~~~unfinished.js"],"options":{},"name":"spawny","source":"tap.spawn('node', [__filename], {}, 'spawny', { rar: 'grr' })\n"}
+  ...
+not ok 6 - child test left in queue
+  ---
+  {"at":{"file":"test/test/unfinished.js","line":18,"column":5},"source":"tap.test(function(t) {\n"}
+  ...
+not ok 7 - child test left in queue
+  ---
+  {"at":{"file":"test/test/unfinished.js","line":24,"column":5},"source":"tap.test('', function(t) {\n"}
+  ...
+not ok 8 - child test left in queue
+  ---
+  {"at":{"file":"test/test/unfinished.js","line":30,"column":5},"name":"t2","source":"tap.test('t2', function(t) {\n"}
+  ...
+1..8
+# failed 8 of 8 tests
 ___/# time=[0-9.]+(ms)?/~~~
 
