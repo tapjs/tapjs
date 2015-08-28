@@ -337,6 +337,8 @@ var TMR = require('tap-mocha-reporter')
 if (files.length === 1 && files[0] === '-') {
   // if we didn't specify any files, then just passthrough
   // to the reporter, so we don't get '/dev/stdin' in the suite list.
+  // We have to pause() before piping to switch streams2 into old-mode
+  process.stdin.pause()
   reporter = new TMR(reporter)
   process.stdin.pipe(reporter)
   process.stdin.resume()

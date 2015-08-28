@@ -1,17 +1,11 @@
 TAP version 13
-    # Subtest: parent
-        # Subtest: child 1
-            # Subtest: grandchild 1
-            ok 1 - 1
-            1..1
-        ok 1 - grandchild 1 ___/# time=[0-9.]+(ms)?/~~~
-
+    # Subtest: t1
+        # Subtest: t11
         1..1
-    ok 1 - child 1 ___/# time=[0-9.]+(ms)?/~~~
-
-    1..1
-ok 1 - parent ___/# time=[0-9.]+(ms)?/~~~
-
-1..1
-___/# time=[0-9.]+(ms)?/~~~
+        not ok 1 - test unfinished: t11
+          ---
+          {"at":{"file":"test/test/unfinished.js","line":4,"column":5},"plan":1,"count":0,"source":"t.test('t11', function (t) {\n"}
+          ...
+        Bail out! # test unfinished: t11
+Bail out! # test unfinished: t11
 

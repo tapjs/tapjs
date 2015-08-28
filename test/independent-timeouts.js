@@ -17,6 +17,7 @@ test("finishes in time too", {timeout: 100}, function(t) {
 })
 
 test('does not finish in time', function (t) {
+  t.plan(1)
   var tt = new Test()
   tt.test('timeout', { timeout: 50 }, function (ttt) {
     setTimeout(function () {
