@@ -199,6 +199,7 @@ if (coverage && !global.__coverage__) {
   // Re-spawn with coverage
   var node = process.execPath
   var args = [nycBin].concat(
+    '--silent',
     process.execArgv,
     process.argv.slice(1),
     '--__coverage__'
