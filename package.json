@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "coveralls": "^2.11.2",
-    "deeper": "^2.0.0",
+    "deeper": "^2.1.0",
     "foreground-child": "^1.2.0",
     "glob": "^5.0.6",
     "js-yaml": "^3.3.1",
