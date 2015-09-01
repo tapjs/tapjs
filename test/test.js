@@ -35,10 +35,6 @@ function runTest (file, bail) {
   }
 
   var f = file.substr(dir.length)
-  if ((f === 'console-log.js' || f === 'end-exception.js') &&
-      process.version.match(/^v0\./))
-    return t.test(f, { skip: 'streams are wrong on node 0.x' })
-
   t.test(f + (bail ? ' bail' : ''), function (t) {
     var child = spawn(node, [file], {
       stdio: [ 0, 'pipe', 'pipe' ],
