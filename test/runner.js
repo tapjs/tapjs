@@ -474,3 +474,20 @@ t.test('-t or --timeout to set timeout', function (t) {
   })
   t.end()
 })
+
+t.test('non-zero exit is reported as failure', function (t) {
+  var file = require.resolve('./test/ok-exit-fail.js')
+  var args = [run, file, '-Rclassic']
+  var child = spawn(node, args, { env: { TAP: 0 } })
+  var out = ''
+  child.stdout.on('data', function (c) {
+    out += c
+  })
+  child.on('close', function (code, signal) {
+    t.equal(code, 1)
+    t.equal(signal, null)
+    t.match(out, '  not ok ' + file)
+    t.match(out, /\n+\s+exitCode: 1\n/)
+    t.end()
+  })
+})
