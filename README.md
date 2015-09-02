@@ -616,6 +616,9 @@ Verify that the found object matches the pattern provided.
 If pattern is a regular expression, and found is a string, then verify
 that the string matches the pattern.
 
+If the pattern is a string, and found is a string, then verify that
+the pattern occurs within the string somewhere.
+
 If pattern is an object, the verify that the found object contains all
 the keys in the pattern, and that all of the found object's values
 match the corresponding fields in the pattern.
@@ -625,7 +628,7 @@ set of required fields, but additional fields are ok.
 
 
 Synonyms: `t.has`, `t.hasFields`, `t.matches`, `t.similar`, `t.like`,
-`t.isLike`, `t.includes`, `t.include`
+`t.isLike`, `t.includes`, `t.include`, `t.contains`
 
 #### notMatch(found, pattern, message, extra)
 
