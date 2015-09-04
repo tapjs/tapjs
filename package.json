@@ -41,6 +41,7 @@
     "test": "node bin/run.js test/*.* --coverage"
   },
   "devDependencies": {
+    "bluebird": "^2.9.34",
     "which": "^1.1.1"
   },
   "files": [
