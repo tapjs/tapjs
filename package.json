@@ -46,6 +46,7 @@
   },
   "files": [
     "lib/assert.js",
+    "lib/babel-wrap.js",
     "lib/mocha.js",
     "lib/root.js",
     "lib/stack.js",
