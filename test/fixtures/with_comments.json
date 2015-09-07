@@ -1,0 +1,134 @@
+[
+  [
+    "line",
+    "# and stuff\n"
+  ],
+  [
+    "comment",
+    "# and stuff\n"
+  ],
+  [
+    "line",
+    "1..5 todo 1 2 4 5;\n"
+  ],
+  [
+    "extra",
+    "1..5 todo 1 2 4 5;\n"
+  ],
+  [
+    "line",
+    "# yeah, that\n"
+  ],
+  [
+    "comment",
+    "# yeah, that\n"
+  ],
+  [
+    "line",
+    "not ok 1\n"
+  ],
+  [
+    "line",
+    "# Failed test 1 in t/todo.t at line 9 *TODO*\n"
+  ],
+  [
+    "line",
+    "ok 2 # (t/todo.t at line 10 TODO?!)\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": false,
+      "id": 1
+    }
+  ],
+  [
+    "comment",
+    "# Failed test 1 in t/todo.t at line 9 *TODO*\n"
+  ],
+  [
+    "line",
+    "ok 3\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 2,
+      "name": "# (t/todo.t at line 10 TODO?!)"
+    }
+  ],
+  [
+    "line",
+    "not ok 4\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 3
+    }
+  ],
+  [
+    "line",
+    "# Test 4 got: '0' (t/todo.t at line 12 *TODO*)\n"
+  ],
+  [
+    "line",
+    "#   Expected: '1' (need more tuits)\n"
+  ],
+  [
+    "line",
+    "ok 5 # (t/todo.t at line 13 TODO?!)\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": false,
+      "id": 4
+    }
+  ],
+  [
+    "comment",
+    "# Test 4 got: '0' (t/todo.t at line 12 *TODO*)\n"
+  ],
+  [
+    "comment",
+    "#   Expected: '1' (need more tuits)\n"
+  ],
+  [
+    "line",
+    "# woo\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 5,
+      "name": "# (t/todo.t at line 13 TODO?!)"
+    }
+  ],
+  [
+    "comment",
+    "# woo\n"
+  ],
+  [
+    "complete",
+    {
+      "ok": false,
+      "count": 5,
+      "pass": 3,
+      "fail": 2,
+      "failures": [
+        {
+          "ok": false,
+          "id": 1
+        },
+        {
+          "ok": false,
+          "id": 4
+        }
+      ]
+    }
+  ]
+]

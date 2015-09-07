@@ -1,0 +1,78 @@
+[
+  [
+    "line",
+    "1..5 \n"
+  ],
+  [
+    "extra",
+    "1..5 \n"
+  ],
+  [
+    "line",
+    "ok 1 \n"
+  ],
+  [
+    "line",
+    "ok 2 \n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 1,
+      "name": ""
+    }
+  ],
+  [
+    "line",
+    "ok 3 \n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 2,
+      "name": ""
+    }
+  ],
+  [
+    "line",
+    "ok 4 \n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 3,
+      "name": ""
+    }
+  ],
+  [
+    "line",
+    "ok 5 \n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 4,
+      "name": ""
+    }
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 5,
+      "name": ""
+    }
+  ],
+  [
+    "complete",
+    {
+      "ok": false,
+      "count": 5,
+      "pass": 5
+    }
+  ]
+]

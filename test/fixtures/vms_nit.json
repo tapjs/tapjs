@@ -1,0 +1,55 @@
+[
+  [
+    "line",
+    "1..2\n"
+  ],
+  [
+    "plan",
+    {
+      "start": 1,
+      "end": 2
+    }
+  ],
+  [
+    "line",
+    "not \n"
+  ],
+  [
+    "extra",
+    "not \n"
+  ],
+  [
+    "line",
+    "ok 1\n"
+  ],
+  [
+    "line",
+    "ok 2\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 1
+    }
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 2
+    }
+  ],
+  [
+    "complete",
+    {
+      "ok": true,
+      "count": 2,
+      "pass": 2,
+      "plan": {
+        "start": 1,
+        "end": 2
+      }
+    }
+  ]
+]

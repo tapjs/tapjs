@@ -1,0 +1,88 @@
+[
+  [
+    "line",
+    "1..5\n"
+  ],
+  [
+    "plan",
+    {
+      "start": 1,
+      "end": 5
+    }
+  ],
+  [
+    "line",
+    "TAP version 13\n"
+  ],
+  [
+    "extra",
+    "TAP version 13\n"
+  ],
+  [
+    "line",
+    "ok 1\n"
+  ],
+  [
+    "line",
+    "ok 2\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 1
+    }
+  ],
+  [
+    "line",
+    "ok 3\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 2
+    }
+  ],
+  [
+    "line",
+    "ok 4\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 3
+    }
+  ],
+  [
+    "line",
+    "ok 5\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 4
+    }
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 5
+    }
+  ],
+  [
+    "complete",
+    {
+      "ok": true,
+      "count": 5,
+      "pass": 5,
+      "plan": {
+        "start": 1,
+        "end": 5
+      }
+    }
+  ]
+]

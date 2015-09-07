@@ -1,0 +1,94 @@
+[
+  [
+    "line",
+    "1..5\n"
+  ],
+  [
+    "plan",
+    {
+      "start": 1,
+      "end": 5
+    }
+  ],
+  [
+    "line",
+    "ok 1 - One\n"
+  ],
+  [
+    "line",
+    "ok 2 - Two\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 1,
+      "name": "One"
+    }
+  ],
+  [
+    "line",
+    "ok - Three\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 2,
+      "name": "Two"
+    }
+  ],
+  [
+    "line",
+    "ok 0 - Four\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 3,
+      "name": "Three"
+    }
+  ],
+  [
+    "line",
+    "ok 5 - Five\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 0,
+      "name": "Four",
+      "tapError": "id less than plan start"
+    }
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 5,
+      "name": "Five"
+    }
+  ],
+  [
+    "complete",
+    {
+      "ok": false,
+      "count": 5,
+      "pass": 5,
+      "plan": {
+        "start": 1,
+        "end": 5
+      },
+      "failures": [
+        {
+          "ok": true,
+          "id": 0,
+          "name": "Four",
+          "tapError": "id less than plan start"
+        }
+      ]
+    }
+  ]
+]

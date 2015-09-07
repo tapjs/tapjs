@@ -1,7 +1,0 @@
-module.exports =
-[ [ 'line', 'one\n' ],
-  [ 'extra', 'one\n' ],
-  [ 'line', 'three\n' ],
-  [ 'extra', 'three\n' ],
-  [ 'complete',
-    { ok: true, count: 0, pass: 0, plan: { start: 1, end: 0 } } ] ]

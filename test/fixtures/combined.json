@@ -1,0 +1,160 @@
+[
+  [
+    "line",
+    "1..10\n"
+  ],
+  [
+    "plan",
+    {
+      "start": 1,
+      "end": 10
+    }
+  ],
+  [
+    "line",
+    "ok 1\n"
+  ],
+  [
+    "line",
+    "ok 2 basset hounds got long ears\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 1
+    }
+  ],
+  [
+    "line",
+    "not ok 3        all hell broke loose\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 2,
+      "name": "basset hounds got long ears"
+    }
+  ],
+  [
+    "line",
+    "not ok 4  # TODO if I heard a voice from heaven ...\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": false,
+      "id": 3,
+      "name": "all hell broke loose"
+    }
+  ],
+  [
+    "line",
+    "ok say \"live without loving\",\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": false,
+      "id": 4,
+      "todo": "if I heard a voice from heaven ...",
+      "name": ""
+    }
+  ],
+  [
+    "line",
+    "ok 6 I'd beg off.\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 5,
+      "name": "say \"live without loving\","
+    }
+  ],
+  [
+    "line",
+    "ok 7            # Skip contract negotiations\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 6,
+      "name": "I'd beg off."
+    }
+  ],
+  [
+    "line",
+    "ok 8 Girls are such exquisite hell\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 7,
+      "skip": "contract negotiations",
+      "name": ""
+    }
+  ],
+  [
+    "line",
+    "ok 9 Elegy 9B           # TOdO\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 8,
+      "name": "Girls are such exquisite hell"
+    }
+  ],
+  [
+    "line",
+    "not ok 10\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 9,
+      "todo": true,
+      "name": "Elegy 9B"
+    }
+  ],
+  [
+    "assert",
+    {
+      "ok": false,
+      "id": 10
+    }
+  ],
+  [
+    "complete",
+    {
+      "ok": false,
+      "count": 10,
+      "pass": 7,
+      "fail": 3,
+      "todo": 2,
+      "skip": 1,
+      "plan": {
+        "start": 1,
+        "end": 10
+      },
+      "failures": [
+        {
+          "ok": false,
+          "id": 3,
+          "name": "all hell broke loose"
+        },
+        {
+          "ok": false,
+          "id": 10
+        }
+      ]
+    }
+  ]
+]

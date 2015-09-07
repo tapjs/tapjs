@@ -1,0 +1,83 @@
+[
+  [
+    "line",
+    "1..2\n"
+  ],
+  [
+    "plan",
+    {
+      "start": 1,
+      "end": 2
+    }
+  ],
+  [
+    "line",
+    "ok 1\n"
+  ],
+  [
+    "line",
+    "ok 2\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 1
+    }
+  ],
+  [
+    "line",
+    "ok 136211425\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 2
+    }
+  ],
+  [
+    "line",
+    "ok 136211426\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 136211425,
+      "tapError": "id greater than plan end"
+    }
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 136211426,
+      "tapError": "id greater than plan end"
+    }
+  ],
+  [
+    "complete",
+    {
+      "ok": false,
+      "count": 4,
+      "pass": 4,
+      "plan": {
+        "start": 1,
+        "end": 2
+      },
+      "failures": [
+        {
+          "ok": true,
+          "id": 136211425,
+          "tapError": "id greater than plan end"
+        },
+        {
+          "ok": true,
+          "id": 136211426,
+          "tapError": "id greater than plan end"
+        }
+      ]
+    }
+  ]
+]

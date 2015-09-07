@@ -9,7 +9,7 @@ var fs = require('fs')
 
 glob.sync(__dirname + '/fixtures/*.tap').forEach(function (tapfile) {
   try {
-    var wanted = require(tapfile.replace(/\.tap$/, '.js'))
+    var wanted = require(tapfile.replace(/\.tap$/, '.json'))
   } catch (er) {
     console.error(tapfile)
     return

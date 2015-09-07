@@ -14,7 +14,7 @@ for (var i = 2; i < process.argv.length; i++) {
 function generate(file) {
   file = path.resolve(file)
   console.error(file)
-  var outfile = file.replace(/\.tap$/, '.js')
+  var outfile = file.replace(/\.tap$/, '.json')
   if (outfile === file)
     throw new Error('incorrect file (should end in .tap) ' + file)
 
@@ -23,7 +23,7 @@ function generate(file) {
   fs.createReadStream(file, { encoding: 'utf8' }).pipe(p)
   var events = etoa(p, [ 'pipe', 'unpipe', 'prefinish', 'finish' ])
   p.on('complete', function () {
-    var f = util.inspect(events, null, Infinity)
-    fs.writeFileSync(outfile, 'module.exports =\n' + f + '\n')
+    var f = JSON.stringify(events, null, 2) + '\n'
+    fs.writeFileSync(outfile, f)
   })
 }

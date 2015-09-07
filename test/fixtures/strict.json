@@ -1,0 +1,77 @@
+[
+  [
+    "line",
+    "TAP version 13\n"
+  ],
+  [
+    "version",
+    "13"
+  ],
+  [
+    "line",
+    "1..1\n"
+  ],
+  [
+    "plan",
+    {
+      "start": 1,
+      "end": 1
+    }
+  ],
+  [
+    "line",
+    "pragma +strict\n"
+  ],
+  [
+    "extra",
+    "pragma +strict\n"
+  ],
+  [
+    "line",
+    "Nonsense!\n"
+  ],
+  [
+    "extra",
+    "Nonsense!\n"
+  ],
+  [
+    "line",
+    "pragma -strict\n"
+  ],
+  [
+    "extra",
+    "pragma -strict\n"
+  ],
+  [
+    "line",
+    "Doesn't matter.\n"
+  ],
+  [
+    "extra",
+    "Doesn't matter.\n"
+  ],
+  [
+    "line",
+    "ok 1 All OK\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 1,
+      "name": "All OK"
+    }
+  ],
+  [
+    "complete",
+    {
+      "ok": true,
+      "count": 1,
+      "pass": 1,
+      "plan": {
+        "start": 1,
+        "end": 1
+      }
+    }
+  ]
+]

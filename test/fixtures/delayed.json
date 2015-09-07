@@ -1,0 +1,89 @@
+[
+  [
+    "line",
+    "1..5\n"
+  ],
+  [
+    "plan",
+    {
+      "start": 1,
+      "end": 5
+    }
+  ],
+  [
+    "line",
+    "ok 1 00000\n"
+  ],
+  [
+    "line",
+    "ok 2\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 1,
+      "name": "00000"
+    }
+  ],
+  [
+    "line",
+    "not ok 3\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 2
+    }
+  ],
+  [
+    "line",
+    "ok 4\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": false,
+      "id": 3
+    }
+  ],
+  [
+    "line",
+    "ok 5 00000\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 4
+    }
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 5,
+      "name": "00000"
+    }
+  ],
+  [
+    "complete",
+    {
+      "ok": false,
+      "count": 5,
+      "pass": 4,
+      "fail": 1,
+      "plan": {
+        "start": 1,
+        "end": 5
+      },
+      "failures": [
+        {
+          "ok": false,
+          "id": 3
+        }
+      ]
+    }
+  ]
+]

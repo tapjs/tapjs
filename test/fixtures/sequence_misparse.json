@@ -1,0 +1,97 @@
+[
+  [
+    "line",
+    "1..5\n"
+  ],
+  [
+    "plan",
+    {
+      "start": 1,
+      "end": 5
+    }
+  ],
+  [
+    "line",
+    "ok 1\n"
+  ],
+  [
+    "line",
+    "ok 2\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 1
+    }
+  ],
+  [
+    "line",
+    "ok 3 # skipped on foobar system\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 2
+    }
+  ],
+  [
+    "line",
+    "# 1234567890123456789012345678901234567890\n"
+  ],
+  [
+    "line",
+    "ok 4\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 3,
+      "name": "# skipped on foobar system"
+    }
+  ],
+  [
+    "comment",
+    "# 1234567890123456789012345678901234567890\n"
+  ],
+  [
+    "line",
+    "# 1234567890123456789012345678901234567890\n"
+  ],
+  [
+    "line",
+    "ok 5\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 4
+    }
+  ],
+  [
+    "comment",
+    "# 1234567890123456789012345678901234567890\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 5
+    }
+  ],
+  [
+    "complete",
+    {
+      "ok": true,
+      "count": 5,
+      "pass": 5,
+      "plan": {
+        "start": 1,
+        "end": 5
+      }
+    }
+  ]
+]

@@ -1,0 +1,45 @@
+[
+  [
+    "line",
+    "1..1\n"
+  ],
+  [
+    "plan",
+    {
+      "start": 1,
+      "end": 1
+    }
+  ],
+  [
+    "line",
+    "not ok 1 Hamlette # TODOORNOTTODO\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": false,
+      "id": 1,
+      "name": "Hamlette # TODOORNOTTODO"
+    }
+  ],
+  [
+    "complete",
+    {
+      "ok": false,
+      "count": 1,
+      "pass": 0,
+      "fail": 1,
+      "plan": {
+        "start": 1,
+        "end": 1
+      },
+      "failures": [
+        {
+          "ok": false,
+          "id": 1,
+          "name": "Hamlette # TODOORNOTTODO"
+        }
+      ]
+    }
+  ]
+]

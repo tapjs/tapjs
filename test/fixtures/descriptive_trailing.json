@@ -1,0 +1,85 @@
+[
+  [
+    "line",
+    "ok 1    Interlock activated\n"
+  ],
+  [
+    "line",
+    "ok 2    Megathrusters are go\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 1,
+      "name": "Interlock activated"
+    }
+  ],
+  [
+    "line",
+    "ok 3    Head formed\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 2,
+      "name": "Megathrusters are go"
+    }
+  ],
+  [
+    "line",
+    "ok 4    Blazing sword formed\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 3,
+      "name": "Head formed"
+    }
+  ],
+  [
+    "line",
+    "ok 5    Robeast destroyed\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 4,
+      "name": "Blazing sword formed"
+    }
+  ],
+  [
+    "line",
+    "1..5\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 5,
+      "name": "Robeast destroyed"
+    }
+  ],
+  [
+    "plan",
+    {
+      "start": 1,
+      "end": 5
+    }
+  ],
+  [
+    "complete",
+    {
+      "ok": true,
+      "count": 5,
+      "pass": 5,
+      "plan": {
+        "start": 1,
+        "end": 5
+      }
+    }
+  ]
+]

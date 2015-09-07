@@ -1,0 +1,185 @@
+[
+  [
+    "line",
+    "ok 2 - Test that argument passing works\n"
+  ],
+  [
+    "line",
+    "ok 3 - Test that passing arguments as references work\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 2,
+      "name": "Test that argument passing works"
+    }
+  ],
+  [
+    "line",
+    "ok 4 - Test a normal sub\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 3,
+      "name": "Test that passing arguments as references work"
+    }
+  ],
+  [
+    "line",
+    "ok 6 - Detach test\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 4,
+      "name": "Test a normal sub"
+    }
+  ],
+  [
+    "line",
+    "ok 8 - Nested thread test\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 6,
+      "name": "Detach test"
+    }
+  ],
+  [
+    "line",
+    "ok 9 - Nested thread test\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 8,
+      "name": "Nested thread test"
+    }
+  ],
+  [
+    "line",
+    "ok 10 - Wanted 7, got 7\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 9,
+      "name": "Nested thread test"
+    }
+  ],
+  [
+    "line",
+    "ok 11 - Wanted 7, got 7\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 10,
+      "name": "Wanted 7, got 7"
+    }
+  ],
+  [
+    "line",
+    "ok 12 - Wanted 8, got 8\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 11,
+      "name": "Wanted 7, got 7"
+    }
+  ],
+  [
+    "line",
+    "ok 13 - Wanted 8, got 8\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 12,
+      "name": "Wanted 8, got 8"
+    }
+  ],
+  [
+    "line",
+    "1..15\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 13,
+      "name": "Wanted 8, got 8"
+    }
+  ],
+  [
+    "plan",
+    {
+      "start": 1,
+      "end": 15
+    }
+  ],
+  [
+    "line",
+    "ok 1\n"
+  ],
+  [
+    "extra",
+    "ok 1\n"
+  ],
+  [
+    "line",
+    "ok 5 - Check that Config::threads is true\n"
+  ],
+  [
+    "extra",
+    "ok 5 - Check that Config::threads is true\n"
+  ],
+  [
+    "line",
+    "ok 7 - Detach test\n"
+  ],
+  [
+    "extra",
+    "ok 7 - Detach test\n"
+  ],
+  [
+    "line",
+    "ok 14 - Check so that tid for threads work for main thread\n"
+  ],
+  [
+    "extra",
+    "ok 14 - Check so that tid for threads work for main thread\n"
+  ],
+  [
+    "line",
+    "ok 15 - Check so that tid for threads work for main thread\n"
+  ],
+  [
+    "extra",
+    "ok 15 - Check so that tid for threads work for main thread\n"
+  ],
+  [
+    "complete",
+    {
+      "ok": false,
+      "count": 10,
+      "pass": 10,
+      "plan": {
+        "start": 1,
+        "end": 15
+      }
+    }
+  ]
+]

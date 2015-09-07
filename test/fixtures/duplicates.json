@@ -1,0 +1,146 @@
+[
+  [
+    "line",
+    "1..10\n"
+  ],
+  [
+    "plan",
+    {
+      "start": 1,
+      "end": 10
+    }
+  ],
+  [
+    "line",
+    "ok 1\n"
+  ],
+  [
+    "line",
+    "ok 2\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 1
+    }
+  ],
+  [
+    "line",
+    "ok 3\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 2
+    }
+  ],
+  [
+    "line",
+    "ok 4\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 3
+    }
+  ],
+  [
+    "line",
+    "ok 4\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 4
+    }
+  ],
+  [
+    "line",
+    "ok 5\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 4
+    }
+  ],
+  [
+    "line",
+    "ok 6\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 5
+    }
+  ],
+  [
+    "line",
+    "ok 7\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 6
+    }
+  ],
+  [
+    "line",
+    "ok 8\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 7
+    }
+  ],
+  [
+    "line",
+    "ok 9\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 8
+    }
+  ],
+  [
+    "line",
+    "ok 10\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 9
+    }
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 10
+    }
+  ],
+  [
+    "complete",
+    {
+      "ok": false,
+      "count": 11,
+      "pass": 11,
+      "plan": {
+        "start": 1,
+        "end": 10
+      }
+    }
+  ]
+]

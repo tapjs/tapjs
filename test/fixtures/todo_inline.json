@@ -1,0 +1,65 @@
+[
+  [
+    "line",
+    "1..3\n"
+  ],
+  [
+    "plan",
+    {
+      "start": 1,
+      "end": 3
+    }
+  ],
+  [
+    "line",
+    "not ok 1 - Foo # TODO Just testing the todo interface.\n"
+  ],
+  [
+    "line",
+    "ok 2 - Unexpected success # TODO Just testing the todo interface.\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": false,
+      "id": 1,
+      "todo": "Just testing the todo interface.",
+      "name": "Foo"
+    }
+  ],
+  [
+    "line",
+    "ok 3 - This is not todo\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 2,
+      "todo": "Just testing the todo interface.",
+      "name": "Unexpected success"
+    }
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 3,
+      "name": "This is not todo"
+    }
+  ],
+  [
+    "complete",
+    {
+      "ok": true,
+      "count": 3,
+      "pass": 2,
+      "fail": 1,
+      "todo": 2,
+      "plan": {
+        "start": 1,
+        "end": 3
+      }
+    }
+  ]
+]

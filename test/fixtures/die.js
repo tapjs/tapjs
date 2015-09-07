@@ -1,3 +1,0 @@
-module.exports =
-[ [ 'complete',
-    { ok: true, count: 0, pass: 0, plan: { start: 1, end: 0 } } ] ]
