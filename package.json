@@ -49,5 +49,10 @@
   "license": "MIT",
   "optionalDependencies": {
     "readable-stream": "^2"
-  }
+  },
+  "files": [
+    "index.js",
+    "bin/cmd.js",
+    "bin/usage.txt"
+  ]
 }
