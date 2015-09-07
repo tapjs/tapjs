@@ -23,8 +23,10 @@
     "pragma +strict\n"
   ],
   [
-    "extra",
-    "pragma +strict\n"
+    "pragma",
+    {
+      "strict": true
+    }
   ],
   [
     "line",
@@ -39,8 +41,10 @@
     "pragma -strict\n"
   ],
   [
-    "extra",
-    "pragma -strict\n"
+    "pragma",
+    {
+      "strict": false
+    }
   ],
   [
     "line",
@@ -65,13 +69,19 @@
   [
     "complete",
     {
-      "ok": true,
+      "ok": false,
       "count": 1,
       "pass": 1,
       "plan": {
         "start": 1,
         "end": 1
-      }
+      },
+      "failures": [
+        {
+          "tapError": "Non-TAP data encountered in strict mode",
+          "data": "Nonsense!\n"
+        }
+      ]
     }
   ]
 ]

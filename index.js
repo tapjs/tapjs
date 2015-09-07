@@ -120,6 +120,8 @@ function Parser (options, onComplete) {
   this.skip = 0
   this.ok = true
 
+  this.strict = false
+
   this.postPlan = false
 }
 
@@ -131,20 +133,31 @@ Parser.prototype.createResult = function (line) {
   return new Result(line, this.count)
 }
 
+Parser.prototype.nonTap = function (data) {
+  if (this.strict) {
+    this.failures.push({
+      tapError: 'Non-TAP data encountered in strict mode',
+      data: data
+    })
+    this.ok = false
+  }
+  this.emit('extra', data)
+}
+
 Parser.prototype.processYamlish = function () {
   var yamlish = this.yamlish
   this.yamlish = ''
   this.yind = ''
 
   if (!this.current) {
-    this.emit('extra', yamlish)
+    this.nonTap(yamlish)
     return
   }
 
   try {
     var diags = yaml.safeLoad(yamlish)
   } catch (er) {
-    this.emit('extra', yamlish)
+    this.nonTap(yamlish)
     return
   }
 
@@ -200,7 +213,7 @@ Parser.prototype.end = function (chunk, encoding, cb) {
 
   // if we have yamlish, means we didn't finish with a ...
   if (this.yamlish)
-    this.emit('extra', this.yamlish)
+    this.nonTap(this.yamlish)
 
   this.emitResult()
 
@@ -313,7 +326,7 @@ Parser.prototype.emitResult = function () {
 
 Parser.prototype.startChild = function (indent, line) {
   if (!line.substr(indent.length).match(/^# Subtest:/)) {
-    this.emit('extra', line)
+    this.nonTap(line)
     return
   }
 
@@ -364,6 +377,14 @@ Parser.prototype._parse = function (line) {
 
   this.emit('line', line)
 
+  // The only Pragma supported is strict. Others may be added.
+  var pragma = line.match(/^pragma ([+-])strict\n$/)
+  if (pragma) {
+    this.strict = pragma[1] === '+'
+    this.emit('pragma', { strict: this.strict })
+    return
+  }
+
   var bailout = line.match(/^bail out!(.*)\n$/i)
   if (bailout) {
     this.sawValidTap = true
@@ -378,7 +399,7 @@ Parser.prototype._parse = function (line) {
     if (this.planStart === -1 && this.count === 0)
       this.emit('version', version[1])
     else
-      this.emit('extra', line)
+      this.nonTap(line)
     return
   }
 
@@ -396,7 +417,7 @@ Parser.prototype._parse = function (line) {
     // a child test can only end when we get an test point line.
     // anything else is extra.
     if (this.child.sawValidTap && !/^(not )?ok/.test(line)) {
-      this.emit('extra', line)
+      this.nonTap(line)
       return
     }
   }
@@ -411,7 +432,7 @@ Parser.prototype._parse = function (line) {
   // if we got a plan at the end, or a 1..0 plan, then we can't
   // have any more results, yamlish, or child sets.
   if (this.postPlan) {
-    this.emit('extra', line)
+    this.nonTap(line)
     return
   }
 
@@ -444,7 +465,7 @@ Parser.prototype._parse = function (line) {
     if (indent.indexOf(this.yind) !== 0) {
       // oops!  was not actually yamlish, I guess.
       // treat as garbage
-      this.emit('extra', this.yamlish + line)
+      this.nonTap(this.yamlish + line)
       this.emitResult()
       return
     }
@@ -463,7 +484,7 @@ Parser.prototype._parse = function (line) {
 
   // not indented.  if we were doing yamlish, then it didn't go good
   if (this.yind) {
-    this.emit('extra', this.yamlish)
+    this.nonTap(this.yamlish)
     this.yamlish = ''
     this.yind = ''
   }
@@ -472,7 +493,7 @@ Parser.prototype._parse = function (line) {
   if (plan) {
     if (this.planStart !== -1) {
       // this is not valid tap, just garbage
-      this.emit('extra', line)
+      this.nonTap(line)
       return
     }
 
@@ -502,7 +523,7 @@ Parser.prototype._parse = function (line) {
 
   var res = this.createResult(line)
   if (!res) {
-    this.emit('extra', line)
+    this.nonTap(line)
     return
   }
 
