@@ -33,7 +33,14 @@ module.exports =
           count: 1,
           pass: 0,
           fail: 1,
-          plan: { start: 1, end: 1 } } ] ] ],
+          plan: { start: 1, end: 1 },
+          failures: 
+           [ { ok: false,
+               id: 1,
+               name: 'should be equivalent',
+               diag: 
+                { found: [ 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy' ],
+                  wanted: [ 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy' ] } } ] } ] ] ],
   [ 'line', '    not ok 1 - should be equivalent\n' ],
   [ 'line', '      ---\n' ],
   [ 'line', '      found:\n' ],
@@ -84,4 +91,17 @@ module.exports =
       count: 1,
       pass: 0,
       fail: 1,
-      plan: { start: 1, end: 1 } } ] ]
+      plan: { start: 1, end: 1 },
+      failures: 
+       [ { ok: false,
+           id: 1,
+           time: 13.457,
+           name: 'foo',
+           diag: 
+            { results: 
+               { plan: { start: 1, end: 1 },
+                 count: 1,
+                 pass: 0,
+                 ok: false,
+                 fail: 1,
+                 time: 13.457 } } } ] } ] ]

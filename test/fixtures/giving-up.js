@@ -13,4 +13,5 @@ module.exports =
       pass: 0,
       fail: 1,
       bailout: 'Couldn\'t connect to database.',
-      plan: { start: 1, end: 573 } } ] ]
+      plan: { start: 1, end: 573 },
+      failures: [ { ok: false, id: 1, name: 'database handle' } ] } ] ]

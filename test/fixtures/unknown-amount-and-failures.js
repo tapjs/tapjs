@@ -41,4 +41,13 @@ module.exports =
       count: 7,
       pass: 5,
       fail: 2,
-      plan: { start: 1, end: 7 } } ] ]
+      plan: { start: 1, end: 7 },
+      failures: 
+       [ { ok: false,
+           id: 4,
+           name: 'pinged saphire',
+           diag: { message: 'hostname "saphire" unknown', severity: 'fail' } },
+         { ok: false,
+           id: 6,
+           name: 'pinged quartz',
+           diag: { message: 'timeout', severity: 'fail' } } ] } ] ]

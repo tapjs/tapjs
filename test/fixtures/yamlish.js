@@ -31,4 +31,14 @@ module.exports =
       count: 1,
       pass: 0,
       fail: 1,
-      plan: { start: 1, end: 1 } } ] ]
+      plan: { start: 1, end: 1 },
+      failures: 
+       [ { ok: false,
+           id: 1,
+           name: 'Resolve address',
+           diag: 
+            { message: 'Failed with error \'hostname peebles.example.com not found\'',
+              severity: 'fail',
+              data: 
+               { got: { hostname: 'peebles.example.com', address: null },
+                 expected: { hostname: 'peebles.example.com', address: '85.193.201.85' } } } } ] } ] ]

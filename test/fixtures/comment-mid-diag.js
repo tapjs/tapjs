@@ -35,4 +35,9 @@ module.exports =
       count: 2,
       pass: 1,
       fail: 1,
-      plan: { start: 1, end: 2 } } ] ]
+      plan: { start: 1, end: 2 },
+      failures: 
+       [ { ok: false,
+           id: 1,
+           name: 'please keep my diags',
+           diag: { after: 'comment' } } ] } ] ]

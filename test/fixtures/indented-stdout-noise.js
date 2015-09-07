@@ -244,4 +244,15 @@ module.exports =
       count: 1,
       pass: 0,
       fail: 1,
-      plan: { start: 1, end: 1 } } ] ]
+      plan: { start: 1, end: 1 },
+      failures: 
+       [ { ok: false,
+           id: 1,
+           time: 201.609,
+           name: 'index.js',
+           diag: 
+            { arguments: [ 'index.js' ],
+              timeout: 30000,
+              results: { ok: false, count: 1, pass: 1, plan: { start: 1, end: 1 } },
+              command: '/usr/local/bin/iojs',
+              file: 'index.js' } } ] } ] ]

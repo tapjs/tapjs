@@ -98,6 +98,7 @@ function Parser (options, onComplete) {
     this.on('complete', onComplete)
 
   this.sawValidTap = false
+  this.failures = []
   this.indent = options.indent || ''
   this.level = options.level || 0
   Writable.call(this)
@@ -253,6 +254,9 @@ Parser.prototype.end = function (chunk, encoding, cb) {
     final.ok = true
   }
 
+  if (this.failures.length)
+    final.failures = this.failures
+
   this.emit('complete', final)
 
   Writable.prototype.end.call(this, null, null, cb)
@@ -291,8 +295,10 @@ Parser.prototype.emitResult = function () {
     this.pass++
   } else {
     this.fail++
-    if (!res.todo && !res.skip)
+    if (!res.todo && !res.skip) {
       this.ok = false
+      this.failures.push(res)
+    }
   }
 
   if (res.skip)
@@ -498,6 +504,19 @@ Parser.prototype._parse = function (line) {
   if (!res) {
     this.emit('extra', line)
     return
+  }
+
+  if (this.planStart !== -1) {
+    var lessThanStart = +res.id < this.planStart
+    var greaterThanEnd = +res.id > this.planEnd
+    if (lessThanStart || greaterThanEnd) {
+      this.ok = false
+      if (lessThanStart)
+        res.tapError = 'id less than plan start'
+      else
+        res.tapError = 'id greater than plan end'
+      this.failures.push(res)
+    }
   }
 
   this.sawValidTap = true

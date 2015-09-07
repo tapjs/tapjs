@@ -12,4 +12,5 @@ module.exports =
       count: 3,
       pass: 2,
       fail: 1,
-      plan: { start: 1, end: 3 } } ] ]
+      plan: { start: 1, end: 3 },
+      failures: [ { ok: false, id: 2, name: 'we are bad' } ] } ] ]
