@@ -394,10 +394,11 @@ Parser.prototype._parse = function (line) {
   }
 
   // If version is specified, must be at the very beginning.
-  var version = line.match(/^TAP Version ([0-9]+)\n$/i)
+  var version = line.match(/^TAP version ([0-9]+)\n$/i)
   if (version) {
-    if (this.planStart === -1 && this.count === 0)
-      this.emit('version', version[1])
+    version = parseInt(version[1], 10)
+    if (version >= 13 && this.planStart === -1 && this.count === 0)
+      this.emit('version', version)
     else
       this.nonTap(line)
     return

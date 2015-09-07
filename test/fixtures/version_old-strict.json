@@ -1,6 +1,16 @@
 [
   [
     "line",
+    "pragma +strict\n"
+  ],
+  [
+    "pragma",
+    {
+      "strict": true
+    }
+  ],
+  [
+    "line",
     "TAP version 12\n"
   ],
   [
@@ -76,13 +86,19 @@
   [
     "complete",
     {
-      "ok": true,
+      "ok": false,
       "count": 5,
       "pass": 5,
       "plan": {
         "start": 1,
         "end": 5
-      }
+      },
+      "failures": [
+        {
+          "tapError": "Non-TAP data encountered in strict mode",
+          "data": "TAP version 12\n"
+        }
+      ]
     }
   ]
 ]
