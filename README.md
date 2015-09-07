@@ -374,6 +374,22 @@ building blocks of all fancier assertions.
 Emit a passing test point.  This method, and `fail()`, are the basic
 building blocks of all fancier assertions.
 
+#### t.pragma(set)
+
+Sets a `pragma` switch for a set of boolean keys in the argument.
+
+The only pragma currently supported by the TAP parser is `strict`,
+which tells the parser to treat non-TAP output as a failure.
+
+Example:
+
+```
+var t = require('tap')
+console.log('this non-TAP output is ok')
+t.pragma({ strict: true })
+console.log('but this will cause a failure')
+```
+
 ### Advanced Usage
 
 These methods are primarily for internal use, but can be handy in some
