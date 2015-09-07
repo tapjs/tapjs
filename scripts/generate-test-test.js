@@ -69,14 +69,17 @@ function generate(file, bail) {
 }
 
 function deStackify (data) {
-  Object.keys(data).forEach(function (k) {
+  return Object.keys(data).sort().reduce(function (res, k) {
     if (k === 'stack' && typeof data[k] === 'string')
-      delete data[k]
+      return res
     else if (k === 'time' && typeof data[k] === 'number')
-      delete data[k]
+      return res
     else if (typeof data[k] === 'object' && data[k])
-      deStackify(data[k])
-  })
+      res[k] = deStackify(data[k])
+    else
+      res[k] = data[k]
+    return res
+  }, {})
 }
 
 function yamlishToJson (output) {
@@ -90,7 +93,7 @@ function yamlishToJson (output) {
     if (inyaml) {
       if (line.match(/^\s+\.\.\.$/) && line.length === startlen) {
         var data = yaml.safeLoad(y)
-        deStackify(data)
+        data = deStackify(data)
         data = JSON.stringify(data)
         ret += new Array(startlen - 2).join(' ') +
           data + '\n' + line + '\n'

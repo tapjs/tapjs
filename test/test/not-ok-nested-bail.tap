@@ -5,7 +5,7 @@ TAP version 13
         1..1
         not ok 1 - fail
           ---
-          {"at":{"file":"test/test/not-ok-nested.js","line":7,"column":7},"source":"t.fail('fail')\n"}
+          {"at":{"column":7,"file":"test/test/not-ok-nested.js","line":7},"source":"t.fail('fail')\n"}
           ...
         Bail out! # fail
 Bail out! # fail

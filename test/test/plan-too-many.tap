@@ -8,7 +8,7 @@ TAP version 13
         ok 1 - i am planning big things
         not ok 2 - test unfinished: grandchild
           ---
-          {"at":{"file":"test/test/plan-too-many.js","line":7,"column":5},"plan":8,"count":1,"source":"t.test('grandchild', function (tt) {\n"}
+          {"at":{"column":5,"file":"test/test/plan-too-many.js","line":7},"count":1,"plan":8,"source":"t.test('grandchild', function (tt) {\n"}
           ...
         not ok 3 - missing test
         not ok 4 - missing test
@@ -19,7 +19,7 @@ TAP version 13
         # failed 7 of 8 tests
     not ok 3 - grandchild ___/# time=[0-9.]+(ms)?/~~~
       ---
-      {"at":{"file":"test/test/plan-too-many.js","line":7,"column":5},"results":{"plan":{"start":1,"end":8},"count":8,"pass":1,"ok":false,"fail":7},"source":"t.test('grandchild', function (tt) {\n"}
+      {"at":{"column":5,"file":"test/test/plan-too-many.js","line":7},"results":{"count":8,"fail":7,"ok":false,"pass":1,"plan":{"end":8,"start":1}},"source":"t.test('grandchild', function (tt) {\n"}
       ...
 
     not ok 4 - missing test
@@ -31,7 +31,7 @@ TAP version 13
     # failed 7 of 9 tests
 not ok 1 - children plan too big ___/# time=[0-9.]+(ms)?/~~~
   ---
-  {"at":{"file":"test/test/plan-too-many.js","line":3,"column":3},"results":{"plan":{"start":1,"end":9},"count":9,"pass":2,"ok":false,"fail":7},"source":"t.test('children plan too big', function (t) {\n"}
+  {"at":{"column":3,"file":"test/test/plan-too-many.js","line":3},"results":{"count":9,"fail":7,"ok":false,"pass":2,"plan":{"end":9,"start":1}},"source":"t.test('children plan too big', function (t) {\n"}
   ...
 
 1..1

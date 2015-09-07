@@ -10,7 +10,7 @@ TAP version 13
         # Subtest: async thrower
         not ok 1 - Error: THINK FAST! and also lines so many
           ---
-          {"at":{"file":"test/test/throw.js","line":12,"column":16,"function":"null._onTimeout"},"jerk":true,"test":"async thrower","message":"Error: THINK FAST!\nand also lines\nso many","source":"var er = new Error('THINK FAST!\\nand also lines\\nso many')\n"}
+          {"at":{"column":16,"file":"test/test/throw.js","function":"null._onTimeout","line":12},"jerk":true,"message":"Error: THINK FAST!\nand also lines\nso many","source":"var er = new Error('THINK FAST!\\nand also lines\\nso many')\n","test":"async thrower"}
           ...
         Bail out! # Error: THINK FAST! and also lines so many
 Bail out! # Error: THINK FAST! and also lines so many
