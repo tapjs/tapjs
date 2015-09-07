@@ -48,6 +48,6 @@
   },
   "license": "MIT",
   "optionalDependencies": {
-    "readable-stream": "^1.1.13"
+    "readable-stream": "^2"
   }
 }
