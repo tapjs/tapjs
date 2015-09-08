@@ -11,6 +11,7 @@
     "node": ">=0.8"
   },
   "dependencies": {
+    "babel": "^5.8.23",
     "coveralls": "^2.11.2",
     "deeper": "^2.1.0",
     "foreground-child": "^1.2.0",
@@ -22,6 +23,7 @@
     "opener": "^1.4.1",
     "readable-stream": "^2.0.2",
     "signal-exit": "^2.0.0",
+    "source-map-support": "^0.3.2",
     "supports-color": "^1.3.1",
     "tap-mocha-reporter": "0.0 || 1",
     "tap-parser": "^1.2.2"
@@ -44,6 +46,7 @@
   },
   "files": [
     "lib/assert.js",
+    "lib/babel-wrap.js",
     "lib/mocha.js",
     "lib/root.js",
     "lib/stack.js",

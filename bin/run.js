@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 var args = process.argv.slice(2)
 
+var path = require('path')
 var fs = require('fs')
 if (!args.length && process.stdin.isTTY) {
   console.error(usage())
@@ -34,6 +35,7 @@ var reporter
 var files = []
 var bail = false
 var saveFile = null
+var useBabel = false
 
 var singleFlags = {
   b: 'bail',
@@ -161,6 +163,10 @@ for (var i = 0; i < args.length; i++) {
       nodeArgs.push('--harmony')
       continue
 
+    case '--babel':
+      useBabel = true
+      continue
+      
     case '--color':
       color = true
       continue
@@ -413,8 +419,10 @@ for (var i = 0; i < files.length; i++) {
 
   extra.file = file
 
+  target = useBabel ? [path.resolve(__dirname, '../lib/babel-wrap.js'), file] : file
+  
   if (file.match(/\.js$/))
-    tap.spawn(process.execPath, nodeArgs.concat(file), opt, file, extra)
+    tap.spawn(process.execPath, nodeArgs.concat(target), opt, file, extra)
   else if (st.isDirectory()) {
     files.push.apply(files, fs.readdirSync(file).map(function (f) {
       return file + '/' + f
