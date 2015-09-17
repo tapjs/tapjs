@@ -467,7 +467,7 @@ t.test('-t or --timeout to set timeout', function (t) {
       child.on('close', function (code, signal) {
         t.equal(code, 1)
         t.equal(signal, null)
-        t.match(out, /^\s*not ok - timeout$/m)
+        t.match(out, /received SIGTERM with pending event queue activity/)
         t.end()
       })
     })

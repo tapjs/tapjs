@@ -1,0 +1,10 @@
+TAP version 13
+    # Subtest: ___/.*/~~~pending-handles.js child
+    ok 1 - this is ok
+    not ok 2 - received SIGTERM with pending event queue activity
+      ---
+      {"handles":{"0":{"msecs":100000,"type":"Timer"},"1":{"connectionKey":"6::::8000","events":{"0":"request","1":"connection","2":"clientError"},"type":"Server"},"2":{"events":{"0":"end","1":"finish","2":"_socketEnd","3":"free","4":"close","5":"agentRemove","6":"drain","7":"error","8":"data"},"type":"Socket"},"3":{"events":{"0":"end","1":"finish","2":"_socketEnd","3":"drain","4":"timeout","5":"error","6":"close","7":"data","8":"resume","9":"pause"},"type":"Socket"}},"requests":{"0":{"type":"FSReqWrap"}}}
+      ...
+    Bail out! # received SIGTERM with pending event queue activity
+Bail out! # received SIGTERM with pending event queue activity
+
