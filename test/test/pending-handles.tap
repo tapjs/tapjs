@@ -1,19 +1,47 @@
 TAP version 13
-    # Subtest: ___/.*/~~~pending-handles.js child
+    # Subtest: ___/.*/~~~pending-handles.js child timer
     ok 1 - this is ok
     not ok 2 - received SIGTERM with pending event queue activity
       ---
-      {"handles":{"0":{"msecs":100000,"type":"Timer"},"1":{"connectionKey":"6::::8000","events":{"0":"request","1":"connection","2":"clientError"},"type":"Server"},"2":{"events":{"0":"end","1":"finish","2":"_socketEnd","3":"free","4":"close","5":"agentRemove","6":"drain","7":"error","8":"data"},"type":"Socket"},"3":{"events":{"0":"end","1":"finish","2":"_socketEnd","3":"drain","4":"timeout","5":"error","6":"close","7":"data","8":"resume","9":"pause"},"type":"Socket"}},"requests":{"0":{"type":"FSReqWrap"}}}
+      {"handles":[{"msecs":100000,"type":"Timer"}],"requests":[]}
       ...
     1..2
     # failed 1 of 2 tests
     ___/# time=[0-9.]+(ms)?/~~~
-not ok 1 - ___/.*/~~~pending-handles.js child ___/# time=[0-9.]+(ms)?/~~~
+not ok 1 - ___/.*/~~~pending-handles.js child timer ___/# time=[0-9.]+(ms)?/~~~
   ---
-  {"arguments":{"0":"___/.*/~~~pending-handles.js","1":"child"},"at":{"column":3,"file":"test/test/pending-handles.js","line":21},"command":"___/.*(node|iojs)/~~~","failure":"timeout","results":{"count":2,"fail":1,"ok":false,"pass":1,"plan":{"end":2,"start":1}},"signal":"SIGTERM","source":"t.spawn(process.execPath, [__filename, 'child'], {}, '', { timeout: 200 })\n","timeout":200}
+  {"arguments":["___/.*/~~~pending-handles.js","child","timer"],"at":{"column":5,"file":"test/test/pending-handles.js","line":40},"command":"___/.*(node|iojs)/~~~","failure":"timeout","results":{"count":2,"fail":1,"ok":false,"pass":1,"plan":{"end":2,"start":1}},"signal":"SIGTERM","source":"t.spawn(process.execPath, [__filename, 'child', a], {}, '', {\n","timeout":500}
   ...
 
-1..1
-# failed 1 of 1 tests
+    # Subtest: ___/.*/~~~pending-handles.js child server
+    ok 1 - this is ok
+    not ok 2 - received SIGTERM with pending event queue activity
+      ---
+      {"handles":[{"connectionKey":"6::::8000","events":["request","connection","clientError"],"type":"Server"},{"events":["end","finish","_socketEnd","free","close","agentRemove","drain","error","data"],"type":"Socket"},{"events":["end","finish","_socketEnd","drain","timeout","error","close","data","resume","pause"],"type":"Socket"}],"requests":[]}
+      ...
+    1..2
+    # failed 1 of 2 tests
+    ___/# time=[0-9.]+(ms)?/~~~
+not ok 2 - ___/.*/~~~pending-handles.js child server ___/# time=[0-9.]+(ms)?/~~~
+  ---
+  {"arguments":["___/.*/~~~pending-handles.js","child","server"],"at":{"column":5,"file":"test/test/pending-handles.js","line":40},"command":"___/.*(node|iojs)/~~~","failure":"timeout","results":{"count":2,"fail":1,"ok":false,"pass":1,"plan":{"end":2,"start":1}},"signal":"SIGTERM","source":"t.spawn(process.execPath, [__filename, 'child', a], {}, '', {\n","timeout":500}
+  ...
+
+    # Subtest: ___/.*/~~~pending-handles.js child fs
+    ok 1 - this is ok
+    not ok 2 - received SIGTERM with pending event queue activity
+      ---
+      {"handles":[],"requests":[{"type":"FSReqWrap"}]}
+      ...
+    1..2
+    # failed 1 of 2 tests
+    ___/# time=[0-9.]+(ms)?/~~~
+not ok 3 - ___/.*/~~~pending-handles.js child fs ___/# time=[0-9.]+(ms)?/~~~
+  ---
+  {"arguments":["___/.*/~~~pending-handles.js","child","fs"],"at":{"column":5,"file":"test/test/pending-handles.js","line":40},"command":"___/.*(node|iojs)/~~~","failure":"timeout","results":{"count":2,"fail":1,"ok":false,"pass":1,"plan":{"end":2,"start":1}},"signal":"SIGTERM","source":"t.spawn(process.execPath, [__filename, 'child', a], {}, '', {\n","timeout":500}
+  ...
+
+1..3
+# failed 3 of 3 tests
 ___/# time=[0-9.]+(ms)?/~~~
 
