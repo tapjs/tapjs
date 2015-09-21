@@ -456,7 +456,16 @@ t.test('separate filename args with --', function (t) {
 t.test('-t or --timeout to set timeout', function (t) {
   var nf = require.resolve('./fixtures/never-finish.js')
   var args = [run, nf]
-  var timers = ['-t.2',['-t', '0.2'],'-t=.2','--timeout=.2',['--timeout','.2']]
+  var dur = '.2'
+  if (global.__coverage__)
+    dur = '.5'
+  var timers = [
+    '-t' + dur,
+    ['-t', '0' + dur],
+    '-t=' + dur,
+    '--timeout=' + dur,
+    ['--timeout',dur]
+  ]
   timers.forEach(function (timer) {
     t.test([].concat(timer).join(' '), function (t) {
       var child = spawn(node, args.concat(timer))
