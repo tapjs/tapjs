@@ -10,7 +10,7 @@ TAP version 13
     ___/# time=[0-9.]+(ms)?/~~~
 not ok 1 - ___/.*/~~~pending-handles.js child timer ___/# time=[0-9.]+(ms)?/~~~
   ---
-  {"arguments":["___/.*/~~~pending-handles.js","child","timer"],"at":{"column":5,"file":"test/test/pending-handles.js","line":40},"command":"___/.*(node|iojs)/~~~","failure":"timeout","results":{"count":2,"fail":1,"ok":false,"pass":1,"plan":{"end":2,"start":1}},"signal":"SIGTERM","source":"t.spawn(process.execPath, [__filename, 'child', a], {}, '', {\n","timeout":500}
+  {"arguments":["___/.*/~~~pending-handles.js","child","timer"],"at":{"column":5,"file":"test/test/pending-handles.js","line":40},"command":"___/.*(node|iojs)/~~~","failure":"timeout","results":{"count":2,"fail":1,"ok":false,"pass":1,"plan":{"end":2,"start":1}},"signal":"SIGTERM","source":"t.spawn(process.execPath, [__filename, 'child', a], {}, '', {\n","timeout":900}
   ...
 
     # Subtest: ___/.*/~~~pending-handles.js child server
@@ -24,7 +24,7 @@ not ok 1 - ___/.*/~~~pending-handles.js child timer ___/# time=[0-9.]+(ms)?/~~~
     ___/# time=[0-9.]+(ms)?/~~~
 not ok 2 - ___/.*/~~~pending-handles.js child server ___/# time=[0-9.]+(ms)?/~~~
   ---
-  {"arguments":["___/.*/~~~pending-handles.js","child","server"],"at":{"column":5,"file":"test/test/pending-handles.js","line":40},"command":"___/.*(node|iojs)/~~~","failure":"timeout","results":{"count":2,"fail":1,"ok":false,"pass":1,"plan":{"end":2,"start":1}},"signal":"SIGTERM","source":"t.spawn(process.execPath, [__filename, 'child', a], {}, '', {\n","timeout":500}
+  {"arguments":["___/.*/~~~pending-handles.js","child","server"],"at":{"column":5,"file":"test/test/pending-handles.js","line":40},"command":"___/.*(node|iojs)/~~~","failure":"timeout","results":{"count":2,"fail":1,"ok":false,"pass":1,"plan":{"end":2,"start":1}},"signal":"SIGTERM","source":"t.spawn(process.execPath, [__filename, 'child', a], {}, '', {\n","timeout":900}
   ...
 
     # Subtest: ___/.*/~~~pending-handles.js child fs
@@ -38,7 +38,7 @@ not ok 2 - ___/.*/~~~pending-handles.js child server ___/# time=[0-9.]+(ms)?/~~~
     ___/# time=[0-9.]+(ms)?/~~~
 not ok 3 - ___/.*/~~~pending-handles.js child fs ___/# time=[0-9.]+(ms)?/~~~
   ---
-  {"arguments":["___/.*/~~~pending-handles.js","child","fs"],"at":{"column":5,"file":"test/test/pending-handles.js","line":40},"command":"___/.*(node|iojs)/~~~","failure":"timeout","results":{"count":2,"fail":1,"ok":false,"pass":1,"plan":{"end":2,"start":1}},"signal":"SIGTERM","source":"t.spawn(process.execPath, [__filename, 'child', a], {}, '', {\n","timeout":500}
+  {"arguments":["___/.*/~~~pending-handles.js","child","fs"],"at":{"column":5,"file":"test/test/pending-handles.js","line":40},"command":"___/.*(node|iojs)/~~~","failure":"timeout","results":{"count":2,"fail":1,"ok":false,"pass":1,"plan":{"end":2,"start":1}},"signal":"SIGTERM","source":"t.spawn(process.execPath, [__filename, 'child', a], {}, '', {\n","timeout":900}
   ...
 
 1..3

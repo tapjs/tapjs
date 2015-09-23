@@ -38,6 +38,6 @@ var args = [
 
 args.forEach(function (a) {
   t.spawn(process.execPath, [__filename, 'child', a], {}, '', {
-    timeout: 500
+    timeout: 900
   })
 })

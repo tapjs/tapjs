@@ -458,7 +458,7 @@ t.test('-t or --timeout to set timeout', function (t) {
   var args = [run, nf]
   var dur = '.2'
   if (global.__coverage__)
-    dur = '.5'
+    dur = '.9'
   var timers = [
     '-t' + dur,
     ['-t', '0' + dur],

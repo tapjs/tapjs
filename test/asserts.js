@@ -162,9 +162,10 @@ test('match is pattern matching', function (t) {
   t.match({ x: 1, y: 2 }, { x: 1 })
   t.notOk(tt.match({ x: 1, y: 2 }, { x: 2 }))
   t.match('asdf', 'asdf')
+  t.match('1', 1)
+  t.match(1, '1')
 
   // XXX debatable?
-  t.notOk(tt.match('1', 1))
   t.notOk(tt.match(1, [1]))
   t.notOk(tt.match([1, 2, 3], 1))
 
@@ -180,9 +181,10 @@ test('notMatch is pattern unmatching', function (t) {
   t.not_ok(tt.not_match({ x: 1, y: 2 }, { x: 1 }))
   t.not_match({ x: 1, y: 2 }, { x: 2 })
   t.not_ok(tt.not_match('asdf', 'asdf'))
+  t.not_ok(tt.not_match('1', 1))
+  t.not_ok(tt.not_match(1, '1'))
 
   // XXX debatable?
-  t.not_match('1', 1)
   t.not_match(1, [1])
   t.not_match([1, 2, 3], 1)
 
