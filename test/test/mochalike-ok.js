@@ -3,7 +3,7 @@ if (typeof describe !== 'function') {
   t.mochaGlobals()
 }
 
-var ok = require('assert')
+var ok = require('../fixtures/assert.js')
 
 describe('a set of tests to be done later', function () {
   it('should have a thingie')

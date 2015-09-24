@@ -37,7 +37,7 @@ t.test('plans of 1', function (t) {
 })
 
 t.test('no assert only throw', function (t) {
-  var assert = require('assert')
+  var assert = require('../fixtures/assert.js')
   assert(true, 'true is truthy')
   assert(false, 'false is truthy right?')
 })
