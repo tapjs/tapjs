@@ -1,5 +1,5 @@
 TAP version 13
-    # Subtest: ___/.*/~~~pending-handles.js child timer
+    # Subtest: ___/.*/~~~pending-handles.js child
     ok 1 - this is ok
     not ok 2 - received SIGTERM with pending event queue activity
       ---
@@ -8,40 +8,12 @@ TAP version 13
     1..2
     # failed 1 of 2 tests
     ___/# time=[0-9.]+(ms)?/~~~
-not ok 1 - ___/.*/~~~pending-handles.js child timer ___/# time=[0-9.]+(ms)?/~~~
+not ok 1 - ___/.*/~~~pending-handles.js child ___/# time=[0-9.]+(ms)?/~~~
   ---
-  {"arguments":["___/.*/~~~pending-handles.js","child","timer"],"at":{"column":5,"file":"test/test/pending-handles.js","line":40},"command":"___/.*(node|iojs)/~~~","failure":"timeout","results":{"count":2,"fail":1,"ok":false,"pass":1,"plan":{"end":2,"start":1}},"signal":"SIGTERM","source":"t.spawn(process.execPath, [__filename, 'child', a], {}, '', {\n","timeout":900}
+  {"arguments":["___/.*/~~~pending-handles.js","child"],"at":{"column":3,"file":"test/test/pending-handles.js","line":9},"command":"___/.*(node|iojs)/~~~","failure":"timeout","results":{"count":2,"fail":1,"ok":false,"pass":1,"plan":{"end":2,"start":1}},"signal":"SIGTERM","source":"t.spawn(process.execPath, [__filename, 'child'], {}, '', {\n","timeout":900}
   ...
 
-    # Subtest: ___/.*/~~~pending-handles.js child server
-    ok 1 - this is ok
-    not ok 2 - received SIGTERM with pending event queue activity
-      ---
-      {"handles":[{"connectionKey":"6::::8000","events":["request","connection","clientError"],"type":"Server"},{"events":["end","finish","_socketEnd","free","close","agentRemove","drain","error","data"],"type":"Socket"},{"events":["end","finish","_socketEnd","drain","timeout","error","close","data","resume","pause"],"type":"Socket"}],"requests":[]}
-      ...
-    1..2
-    # failed 1 of 2 tests
-    ___/# time=[0-9.]+(ms)?/~~~
-not ok 2 - ___/.*/~~~pending-handles.js child server ___/# time=[0-9.]+(ms)?/~~~
-  ---
-  {"arguments":["___/.*/~~~pending-handles.js","child","server"],"at":{"column":5,"file":"test/test/pending-handles.js","line":40},"command":"___/.*(node|iojs)/~~~","failure":"timeout","results":{"count":2,"fail":1,"ok":false,"pass":1,"plan":{"end":2,"start":1}},"signal":"SIGTERM","source":"t.spawn(process.execPath, [__filename, 'child', a], {}, '', {\n","timeout":900}
-  ...
-
-    # Subtest: ___/.*/~~~pending-handles.js child fs
-    ok 1 - this is ok
-    not ok 2 - received SIGTERM with pending event queue activity
-      ---
-      {"handles":[],"requests":[{"type":"FSReqWrap"}]}
-      ...
-    1..2
-    # failed 1 of 2 tests
-    ___/# time=[0-9.]+(ms)?/~~~
-not ok 3 - ___/.*/~~~pending-handles.js child fs ___/# time=[0-9.]+(ms)?/~~~
-  ---
-  {"arguments":["___/.*/~~~pending-handles.js","child","fs"],"at":{"column":5,"file":"test/test/pending-handles.js","line":40},"command":"___/.*(node|iojs)/~~~","failure":"timeout","results":{"count":2,"fail":1,"ok":false,"pass":1,"plan":{"end":2,"start":1}},"signal":"SIGTERM","source":"t.spawn(process.execPath, [__filename, 'child', a], {}, '', {\n","timeout":900}
-  ...
-
-1..3
-# failed 3 of 3 tests
+1..1
+# failed 1 of 1 tests
 ___/# time=[0-9.]+(ms)?/~~~
 
