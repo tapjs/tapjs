@@ -52,6 +52,7 @@ function runTest (file, bail) {
     child.on('close', function (er) {
       found = found.split('\n')
       var inyaml = false
+      var startlen = 0
       var y = ''
 
       // walk line by line so yamlish (json) can be handled
@@ -62,15 +63,15 @@ function runTest (file, bail) {
         var wline = want[w]
         var fline = found[f]
         var wdata = false
-        var startlen = 0
 
         if (inyaml) {
           if (fline.match(/^\s*\.\.\.$/) && fline.length === startlen) {
             var data = yaml.safeLoad(y)
             inyaml = false
             y = ''
+            wdata = JSON.parse(wline)
             patternify(wdata)
-            t.has(data, wdata)
+            t.match(data, wdata)
             f--
           } else {
             y += fline + '\n'
@@ -104,7 +105,7 @@ function patternify (pattern) {
     Object.keys(pattern).forEach(function (k) {
       pattern[k] = patternify(pattern[k])
     })
-    return
+    return pattern
   }
 
   if (typeof pattern !== 'string')

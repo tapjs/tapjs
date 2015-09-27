@@ -14,7 +14,7 @@
     "coveralls": "^2.11.2",
     "deeper": "^2.1.0",
     "foreground-child": "^1.2.0",
-    "glob": "^5.0.6",
+    "glob": "^5.0.15",
     "js-yaml": "^3.3.1",
     "mkdirp": "^0.5.0",
     "nyc": "^3.1.0",
@@ -24,7 +24,8 @@
     "signal-exit": "^2.0.0",
     "supports-color": "^1.3.1",
     "tap-mocha-reporter": "0.0 || 1",
-    "tap-parser": "^1.2.2"
+    "tap-parser": "^1.2.2",
+    "tmatch": "^1.0.2"
   },
   "bundleDependencies": [
     "deep-equal"

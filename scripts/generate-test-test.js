@@ -79,7 +79,7 @@ function deStackify (data) {
     else
       res[k] = data[k]
     return res
-  }, {})
+  }, Array.isArray(data) ? [] : {})
 }
 
 function yamlishToJson (output) {

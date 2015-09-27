@@ -1,0 +1,10 @@
+TAP version 13
+    # Subtest: ___/.*/~~~pending-handles.js child
+    ok 1 - this is ok
+    not ok 2 - received SIGTERM with pending event queue activity
+      ---
+      {"handles":[{"msecs":100000,"type":"Timer"}],"requests":[]}
+      ...
+    Bail out! # received SIGTERM with pending event queue activity
+Bail out! # received SIGTERM with pending event queue activity
+

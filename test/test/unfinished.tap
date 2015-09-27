@@ -37,11 +37,11 @@ not ok 4 - test point left in queue: not ok - failsome
   ...
 not ok 5 - spawn left in queue: spawny
   ---
-  {"args":{"0":"___/.*/~~~unfinished.js"},"at":{"column":5,"file":"test/test/unfinished.js","line":25},"command":"node","options":{},"rar":"grr","source":"tap.spawn('node', [__filename], {}, 'spawny', { rar: 'grr' })\n"}
+  {"args":["___/.*/~~~unfinished.js"],"at":{"column":5,"file":"test/test/unfinished.js","line":25},"command":"___/.*(node|iojs)/~~~","options":{},"rar":"grr","source":"tap.spawn('___/.*(node|iojs)/~~~', [__filename], {}, 'spawny', { rar: 'grr' })\n"}
   ...
-not ok 6 - spawn left in queue: node --version
+not ok 6 - spawn left in queue: ___/.*(node|iojs)/~~~ --version
   ---
-  {"args":{"0":"--version"},"at":{"column":5,"file":"test/test/unfinished.js","line":26},"command":"node","options":{},"rar":"grr","source":"tap.spawn('node', ['--version'], {}, '', { rar: 'grr' })\n"}
+  {"args":["--version"],"at":{"column":5,"file":"test/test/unfinished.js","line":26},"command":"___/.*(node|iojs)/~~~","options":{},"rar":"grr","source":"tap.spawn('___/.*(node|iojs)/~~~', ['--version'], {}, '', { rar: 'grr' })\n"}
   ...
 not ok 7 - child test left in queue: (unnamed)
   ---

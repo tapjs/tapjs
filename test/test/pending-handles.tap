@@ -1,0 +1,19 @@
+TAP version 13
+    # Subtest: ___/.*/~~~pending-handles.js child
+    ok 1 - this is ok
+    not ok 2 - received SIGTERM with pending event queue activity
+      ---
+      {"handles":[{"msecs":100000,"type":"Timer"}],"requests":[]}
+      ...
+    1..2
+    # failed 1 of 2 tests
+    ___/# time=[0-9.]+(ms)?/~~~
+not ok 1 - ___/.*/~~~pending-handles.js child ___/# time=[0-9.]+(ms)?/~~~
+  ---
+  {"arguments":["___/.*/~~~pending-handles.js","child"],"at":{"column":3,"file":"test/test/pending-handles.js","line":9},"command":"___/.*(node|iojs)/~~~","failure":"timeout","results":{"count":2,"fail":1,"ok":false,"pass":1,"plan":{"end":2,"start":1}},"signal":"SIGTERM","source":"t.spawn(process.execPath, [__filename, 'child'], {}, '', {\n","timeout":900}
+  ...
+
+1..1
+# failed 1 of 1 tests
+___/# time=[0-9.]+(ms)?/~~~
+
