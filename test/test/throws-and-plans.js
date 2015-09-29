@@ -1,17 +1,4 @@
-//var t = require('./lib/root.js')
-
-//var t = require('./lib/test.js')()
-//t.pipe(process.stdout)
-
-var t = require('../../lib/test.js')()
-t.pipe(process.stdout)
-
-process.on('exit', function () {
-  t.end()
-})
-
-t._name = 'ROOT'
-
+var t = require('../..')
 t.ok('true')
 
 t.test('plans of 1', function (t) {
