@@ -12,7 +12,7 @@ tap.test('child test', function (t) {
   t.pass('this is ok')
   setTimeout(function () {
     t.end()
-  }, 10)
+  }, 100)
 })
 
 tap.pass('one')
