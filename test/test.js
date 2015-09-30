@@ -24,6 +24,10 @@ if (process.argv[2]) {
 }
 
 function runTest (file, bail) {
+  var skip = false
+  if (file.match(/\bpending-handles.js$/) && process.env.TRAVIS)
+    skip = 'pending handles test is too timing dependent for Travis'
+
   var resfile = file.replace(/\.js$/, (bail ? '-bail':'') + '.tap')
   try {
     var want = fs.readFileSync(resfile, 'utf8').split('\n')
@@ -35,7 +39,7 @@ function runTest (file, bail) {
   }
 
   var f = file.substr(dir.length)
-  t.test(f + (bail ? ' bail' : ''), function (t) {
+  t.test(f + (bail ? ' bail' : ''), { skip: skip }, function (t) {
     var child = spawn(node, [file], {
       stdio: [ 0, 'pipe', 'pipe' ],
       env: {
