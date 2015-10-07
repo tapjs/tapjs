@@ -6,7 +6,7 @@ var path = require('path')
 var fixtures = path.resolve(__dirname, 'fixtures')
 
 test('exit code 1 when tap results show failure', function (t) {
-  t.plan(3)
+  t.plan(4)
 
   t.test('test exits 0, has failures', function (t) {
     t.plan(2)
@@ -38,6 +38,21 @@ test('exit code 1 when tap results show failure', function (t) {
     })
     spawn(node, [file]).on('exit', function (code) {
       t.equal(code, 1)
+    })
+  })
+
+  t.test('test sets custom exit code (2) in process#exit handler', function (t) {
+    if (!/^v(0\.12|[1-9])/.test(process.version)) {
+      t.comment('Skip on node 0.x because process.exitCode isn\'t supported')
+      return t.end()
+    }
+
+    t.plan(1)
+    var file = path.resolve(fixtures, 'fail-custom-exit-code.js')
+    spawn(node, [file]).on('exit', function (code) {
+      // The exit code is just a proxy for the fact that the process.on('exit')
+      // handler was executed.
+      t.equal(code, 2, 'executes the exit handler')
     })
   })
 })
