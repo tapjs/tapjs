@@ -303,6 +303,15 @@ Create a subtest.
 If the function is omitted, then it will be marked as a "todo" or
 "pending" test.
 
+The function gets a Test object as its only argument.  From there, you
+can call the `t.end()` method on that object to end the test, or use
+the `t.plan()` method to specify how many child tests or asserts the
+test will have.
+
+If the function returns a `Promise` object (that is, an object with a
+`then` method), then when the promise is rejected or fulfilled, the
+test will be either ended or failed.
+
 The options object is the same as would be passed to any assert, with
 two additional fields that are only relevant for child tests:
 
