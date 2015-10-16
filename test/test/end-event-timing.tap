@@ -5,9 +5,9 @@ TAP version 13
     1..0
 ok 1 - first ___/# time=[0-9.]+(ms)?/~~~
 
+> first end event
     # Subtest: second
 > start second
-> first end event
 > after ending first
 > before ending second
     1..0
