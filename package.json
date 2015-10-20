@@ -11,6 +11,7 @@
     "node": ">=0.8"
   },
   "dependencies": {
+    "codecov.io": "^0.1.6",
     "coveralls": "^2.11.2",
     "deeper": "^2.1.0",
     "foreground-child": "^1.2.0",
