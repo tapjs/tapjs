@@ -52,12 +52,15 @@ var singleOpts = {
 
 // If we're running under Travis-CI with a Coveralls.io token,
 // then it's a safe bet that we ought to output coverage.
-var coverage = !!process.env.COVERALLS_REPO_TOKEN
+var pipeToService = !!process.env.COVERALLS_REPO_TOKEN
+  || !!process.env.CODECOV_TOKEN
+var coverage = pipeToService
 
 var coverageReport
 
 var nycBin = require.resolve('nyc/bin/nyc.js')
 var coverallsBin = require.resolve('coveralls/bin/coveralls.js')
+var codecovBin = require.resolve('codecov.io/bin/codecov.io.js')
 
 for (var i = 0; i < args.length; i++) {
   var arg = args[i]
@@ -116,7 +119,7 @@ for (var i = 0; i < args.length; i++) {
     case '--coverage-report':
       coverageReport = val || args[++i]
       if (!coverageReport) {
-        if (!!process.env.COVERALLS_REPO_TOKEN)
+        if (pipeToService)
           coverageReport = 'text-lcov'
         else
           coverageReport = 'text'
@@ -226,9 +229,19 @@ if (coverageReport && !global.__coverage__ && files.length === 0) {
   var child
 
   // automatically hook into coveralls
-  if (coverageReport === 'text-lcov' && process.env.COVERALLS_REPO_TOKEN) {
+  if (coverageReport === 'text-lcov' && pipeToService) {
     child = spawn(node, args)
-    var ca = spawn(node, [coverallsBin], {
+    var covBin, covName
+
+    if (process.env.COVERALLS_REPO_TOKEN) {
+      covBin = coverallsBin
+      covName = 'Coveralls'
+    } else if (process.env.CODECOV_TOKEN) {
+      covBin = codecovBin
+      covName = 'Codecov'
+    }
+
+    var ca = spawn(node, [covBin], {
       stdio: [ 'pipe', 1, 2 ],
       env: process.env
     })
@@ -239,7 +252,7 @@ if (coverageReport && !global.__coverage__ && files.length === 0) {
       else if (code)
         process.exit(code)
       else
-        console.log('Successfully piped to Coveralls')
+        console.log('Successfully piped to ' + covName)
     })
     signalExit(function (code, signal) {
       child.kill('SIGHUP')
