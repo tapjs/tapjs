@@ -1,13 +1,10 @@
 # node-tap
 
-A TAP test framework for Node.js.
+A <abbr title="Test Anything Protocol">TAP</abbr> test framework for
+Node.js.
 
-This is a mix-and-match set of utilities that you can use to write test
-harnesses and frameworks that communicate with one another using the
-Test Anything Protocol.
-
-It is also a test runner for consuming TAP-generating test scripts,
-and a framework for writing such scripts.
+It includes a command line test runner for consuming TAP-generating
+test scripts, and a JavaScript framework for writing such scripts.
 
 [![Coverage Status](https://coveralls.io/repos/isaacs/node-tap/badge.svg?branch=master)](https://coveralls.io/r/isaacs/node-tap?branch=master)
 
@@ -169,11 +166,14 @@ formatted test result data.
 
 To parse TAP data from stdin, specify "-" as a filename.
 
+Short options are parsed gnu-style, so for example '-bCRspec' would be
+equivalent to '--bail --no-color --reporter=spec'
+
 Options:
 
-  -c --color                  Force use of colors
+  -c --color                  Use colors (Default for TTY)
 
-  -C --no-color               Force no use of colors
+  -C --no-color               Do not use colors (Default for non-TTY)
 
   -b --bail                   Bail out on first failure
 
@@ -188,6 +188,58 @@ Options:
                               jsoncov jsonstream landing list markdown
                               min nyan progress silent spec tap xunit
 
+  -s<file> --save=<file>      If <file> exists, then it should be a line-
+                              delimited list of test files to run.  If
+                              <file> is not present, then all command-line
+                              positional arguments are run.
+
+                              After the set of test files are run, any
+                              failed test files are written back to the
+                              save file.
+
+                              This way, repeated runs with -s<file> will
+                              re-run failures until all the failures are
+                              passing, and then once again run all tests.
+
+                              It's a good idea to .gitignore the file
+                              used for this purpose, as it will churn a
+                              lot.
+
+  --coverage --cov            Capture coverage information using 'nyc'
+
+                              If a COVERALLS_REPO_TOKEN environment
+                              variable is set, then coverage is
+                              captured by default and sent to the
+                              coveralls.io service. If a CODECOV_TOKEN
+                              environment variable is set, then coverage is
+                              captured by default and sent to the
+                              codecov.io service.
+
+  --no-coverage --no-cov      Do not capture coverage information.
+                              Note that if nyc is already loaded, then
+                              the coverage info will still be captured.
+
+  --coverage-report=<type>    Output coverage information using the
+                              specified istanbul/nyc reporter type.
+
+                              Default is 'text' when running on the
+                              command line, or 'text-lcov' when piping
+                              to coveralls or codecov.
+
+                              If 'lcov' is used, then the report will
+                              be opened in a web browser after running.
+
+                              This can be run on its own at any time
+                              after a test run that included coverage.
+
+  -t<n> --timeout=<n>         Time out test files after <n> seconds.
+                              Defaults to 30, or the value of the
+                              TAP_TIMEOUT environment variable.
+
+  -h --help                   print this thing you're looking at
+
+  -v --version                show the version of this program
+
   -gc --expose-gc             Expose the gc() function to Node tests
 
   --debug                     Run JavaScript tests with node --debug
@@ -197,14 +249,6 @@ Options:
   --harmony                   Enable all Harmony flags in JavaScript tests
 
   --strict                    Run JS tests in 'use strict' mode
-
-  -t<n> --timeout=<n>         Time out tests after this many seconds.
-                              Defaults to 30, or the value of the
-                              TAP_TIMEOUT environment variable.
-
-  -h --help                   print this thing you're looking at
-
-  -v --version                show the version of this program
 
   --                          Stop parsing flags, and treat any additional
                               command line arguments as filenames.
@@ -228,7 +272,7 @@ attempt to open a web browser to view the report after the test run.
 If you use this a lot, you may want to add `coverage` and
 `.nyc_output` to your `.gitignore` and/or `.npmignore` files.
 
-### Travis-CI and Coveralls.io Integration
+### Travis-CI and Coveralls.io/CodeCov.io Integration
 
 You can very easily take advantage of continuous test coverage reports
 by using [Travis-CI](https://travis-ci.org) and
@@ -238,14 +282,15 @@ by using [Travis-CI](https://travis-ci.org) and
    adding a `.travis.yml` file to your repo.  You can use [this
    module's .travis.yml file as an
    example](https://github.com/isaacs/node-tap/blob/master/.travis.yml)
-2. Enable Coveralls.io by signing up, and adding the repo.  Note the
-   repo API token.
+2. Enable Coveralls.io or CodeCov.io by signing up, and adding the
+   repo.  Note the repo API token.
 3. Back at Travis-CI, add a private environment variable.  The name of
-   the environment variable is `COVERALLS_REPO_TOKEN` and the value is
-   the token you got from coveralls.
+   the environment variable is `COVERALLS_REPO_TOKEN` for Coveralls,
+   or `CODECOV_TOKEN` for CodeCov.io, and the value is the token you
+   got from Coveralls or CodeCov.
 4. When that token is set in the environment variable, `tap` will
-   automatically generate coverage information and send it to
-   coveralls.
+   automatically generate coverage information and send it to the
+   appropriate place.
 
 ## API
 
