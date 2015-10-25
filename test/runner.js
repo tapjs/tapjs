@@ -500,3 +500,13 @@ t.test('non-zero exit is reported as failure', function (t) {
     t.end()
   })
 })
+
+t.test('testing piping to Coveralls and Codecov', function (t) {
+  process.env.COVERALLS_REPO_TOKEN = 'something'
+  process.env.CODECOV_TOKEN = 'something'
+
+  // I guess this is the right place for the test
+  // But I need some help to write it
+
+  t.end()
+})
