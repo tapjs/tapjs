@@ -59,8 +59,6 @@ var coverage = pipeToService
 var coverageReport
 
 var nycBin = require.resolve('nyc/bin/nyc.js')
-var coverallsBin = require.resolve('coveralls/bin/coveralls.js')
-var codecovBin = require.resolve('codecov.io/bin/codecov.io.js')
 
 for (var i = 0; i < args.length; i++) {
   var arg = args[i]
@@ -228,39 +226,44 @@ if (coverageReport && !global.__coverage__ && files.length === 0) {
   var args = [nycBin, 'report', '--reporter', coverageReport]
   var child
 
-  // automatically hook into coveralls
+  // automatically hook into coveralls and/or codecov
   if (coverageReport === 'text-lcov' && pipeToService) {
     child = spawn(node, args)
     var covBin, covName
 
-    if (process.env.COVERALLS_REPO_TOKEN) {
-      covBin = coverallsBin
-      covName = 'Coveralls'
-    } else if (process.env.CODECOV_TOKEN) {
-      covBin = codecovBin
-      covName = 'Codecov'
-    }
+    var services = [
+      process.env.COVERALLS_REPO_TOKEN && {
+        covBin: require.resolve('coveralls/bin/coveralls.js')
+      , covName: 'Coveralls'
+      }
+    , process.env.CODECOV_TOKEN && {
+        covBin: require.resolve('codecov.io/bin/codecov.io.js')
+      , covName: 'Codecov'
+      }
+    ]
 
-    var ca = spawn(node, [covBin], {
-      stdio: [ 'pipe', 1, 2 ],
-      env: process.env
-    })
-    child.stdout.pipe(ca.stdin)
-    ca.on('close', function (code, signal) {
-      if (signal)
-        process.kill(process.pid, signal)
-      else if (code)
-        process.exit(code)
-      else
-        console.log('Successfully piped to ' + covName)
-    })
-    signalExit(function (code, signal) {
-      child.kill('SIGHUP')
-      ca.kill('SIGHUP')
+    services.forEach(function(s) {
+      var ca = spawn(node, [s.covBin], {
+        stdio: [ 'pipe', 1, 2 ],
+        env: process.env
+      })
+      child.stdout.pipe(ca.stdin)
+      ca.on('close', function (code, signal) {
+        if (signal)
+          process.kill(process.pid, signal)
+        else if (code)
+          process.exit(code)
+        else
+          console.log('Successfully piped to ' + s.covName)
+      })
+      signalExit(function (code, signal) {
+        child.kill('SIGHUP')
+        ca.kill('SIGHUP')
+      })
     })
   } else {
     // otherwise just run the reporter
-    var child = fg(node, args)
+    child = fg(node, args)
     if (coverageReport === 'lcov') {
       child.on('exit', function () {
         opener('coverage/lcov-report/index.html')
