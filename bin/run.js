@@ -229,6 +229,8 @@ if (coverageReport && !global.__coverage__ && files.length === 0) {
   // automatically hook into coveralls and/or codecov
   if (coverageReport === 'text-lcov' && pipeToService) {
     child = spawn(node, args)
+    var covBin, covName
+
     var services = [
       process.env.COVERALLS_REPO_TOKEN && {
         covBin: require.resolve('coveralls/bin/coveralls.js')
@@ -261,7 +263,7 @@ if (coverageReport && !global.__coverage__ && files.length === 0) {
     })
   } else {
     // otherwise just run the reporter
-    var child = fg(node, args)
+    child = fg(node, args)
     if (coverageReport === 'lcov') {
       child.on('exit', function () {
         opener('coverage/lcov-report/index.html')
