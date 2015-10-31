@@ -220,7 +220,7 @@ if (coverage && !global.__coverage__) {
   return
 }
 
-/* istanbul ignore if */
+
 if (coverageReport && !global.__coverage__ && files.length === 0) {
   var node = process.execPath
   var args = [nycBin, 'report', '--reporter', coverageReport]
@@ -232,22 +232,33 @@ if (coverageReport && !global.__coverage__ && files.length === 0) {
 
     var services = [
       process.env.COVERALLS_REPO_TOKEN && {
-        covBin: require.resolve('coveralls/bin/coveralls.js')
-      , covName: 'Coveralls'
+        bin: require.resolve('coveralls/bin/coveralls.js')
+      , name: 'Coveralls'
+      , token: process.env.COVERALLS_REPO_TOKEN
       }
     , process.env.CODECOV_TOKEN && {
-        covBin: require.resolve('codecov.io/bin/codecov.io.js')
-      , covName: 'Codecov'
+        bin: require.resolve('codecov.io/bin/codecov.io.js')
+      , name: 'Codecov'
+      , token: process.env.CODECOV_TOKEN
       }
     ].filter(function(s) {
       return !!s // remove undefined services
     })
 
+    // Test artifact
+    if(process.env.COVERAGE_SERVICE_TEST === 'true')
+      process.stdout.write('COVERAGE_SERVICE_TEST')
+
     services.forEach(function(s) {
-      var ca = spawn(node, [s.covBin], {
+      var ca = spawn(node, [s.bin], {
         stdio: [ 'pipe', 1, 2 ],
         env: process.env
       })
+
+      // Test artifact
+      if(process.env.COVERAGE_SERVICE_TEST === 'true')
+        process.stdout.write(s.name + s.token)
+
       child.stdout.pipe(ca.stdin)
       ca.on('close', function (code, signal) {
         if (signal)
@@ -255,7 +266,7 @@ if (coverageReport && !global.__coverage__ && files.length === 0) {
         else if (code)
           process.exit(code)
         else
-          console.log('Successfully piped to ' + s.covName)
+          console.log('Successfully piped to ' + s.name)
       })
       signalExit(function (code, signal) {
         child.kill('SIGHUP')
