@@ -22,31 +22,45 @@ t.test('testing piping to Coveralls and Codecov', function (t) {
       tt.end()
     })
   })
-  t.test('coverage should be exported to Coveralls', function(tt) {
-    tt.plan(1)
+  t.test('coverage should be exported to Coveralls', { bail: true }, function(tt) {
+    tt.plan(2)
     var env = createEnvironment(environments[0])
     doTest(env, function(actual) {
-      var expected = /COVERAGE_SERVICE_TESTCoverallssomething/g
-      tt.ok(expected.test(actual), 'COVERAGE_SERVICE_TESTCoverallssomething should be in output')
+      var expected = /COVERAGE_SERVICE_TEST/g
+      tt.ok(expected.test(actual), 'COVERAGE_SERVICE_TEST expected - test is valid')
+
+      expected = /Coverallssomething/g
+      tt.ok(expected.test(actual), 'Coverallssomething should be in output')
+
       tt.end()
-      console.log("DEBUG-INFO:", actual);
+      //console.log("DEBUG-INFO:", actual);
     })
   })
   t.test('coverage should be exported to Codecov', function(tt) {
-    tt.plan(1)
+    tt.plan(2)
     var env = createEnvironment(environments[1])
     doTest(env, function(actual) {
-      var expected = /COVERAGE_SERVICE_TESTCodecovsomething/g
-      tt.ok(expected.test(actual), 'COVERAGE_SERVICE_TESTCodecovsomething should be in output')
+      var expected = /COVERAGE_SERVICE_TEST/g
+      tt.ok(expected.test(actual), 'COVERAGE_SERVICE_TEST expected - test is valid')
+
+      expected = /Codecovsomething/g
+      tt.ok(expected.test(actual), 'Codecovsomething should be in output')
+
       tt.end()
     })
   })
   t.test('coverage should be exported to both Codecov and Coveralls', function(tt) {
-    tt.plan(1)
+    tt.plan(3)
     var env = createEnvironment(environments.reduce(assign))
     doTest(env, function(actual) {
-      var expected = /COVERAGE_SERVICE_TESTCoverallssomethingCodecovsomething/g
-      tt.ok(expected.test(actual), 'COVERAGE_SERVICE_TESTCoverallssomethingCodecovsomething should be in output')
+      var expected = /COVERAGE_SERVICE_TEST/g
+      tt.ok(expected.test(actual), 'COVERAGE_SERVICE_TEST expected - test is valid')
+
+      expected = /Coverallssomething/g
+      tt.ok(expected.test(actual), 'Coverallssomethingshould be in output')
+
+      expected = /Codecovsomething/g
+      tt.ok(expected.test(actual), 'Codecovsomething be in output')
       tt.end()
     })
   })
