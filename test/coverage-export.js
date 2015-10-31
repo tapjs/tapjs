@@ -29,6 +29,7 @@ t.test('testing piping to Coveralls and Codecov', function (t) {
       var expected = /COVERAGE_SERVICE_TESTCoverallssomething/g
       tt.ok(expected.test(actual), 'COVERAGE_SERVICE_TESTCoverallssomething should be in output')
       tt.end()
+      console.log("DEBUG-INFO:", actual);
     })
   })
   t.test('coverage should be exported to Codecov', function(tt) {
@@ -37,7 +38,6 @@ t.test('testing piping to Coveralls and Codecov', function (t) {
     doTest(env, function(actual) {
       var expected = /COVERAGE_SERVICE_TESTCodecovsomething/g
       tt.ok(expected.test(actual), 'COVERAGE_SERVICE_TESTCodecovsomething should be in output')
-      //console.log(actual);
       tt.end()
     })
   })
@@ -80,17 +80,17 @@ t.test('testing piping to Coveralls and Codecov', function (t) {
 
   function doTest(env, cb) {
     var output = ''
-    var timer
+    //var timer
     var child = createTestProcess(env)
     child.stdout.setEncoding('utf-8')
     child.stdout.on('data', function(data) {
       output += data
 
-      if(timer)
+      /*if(timer)
         clearTimeout(timer)
       timer = setTimeout(function() {
         closeChild(child)
-      }, 500)
+      }, 500)*/
     })
     child.on('close', function() {
       cb(output)
