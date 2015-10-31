@@ -22,11 +22,11 @@ t.test('testing piping to Coveralls and Codecov', function (t) {
       tt.end()
     })
   })
-  t.test('coverage should be exported to Coveralls', { bail: true }, function(tt) {
+  t.test('coverage should be exported to Coveralls', function(tt) {
     tt.plan(2)
     var env = createEnvironment(environments[0])
     doTest(env, function(actual) {
-      console.log("DEBUG-INFO:", actual);
+      //console.log("DEBUG-INFO:", actual);
       var expected = /COVERAGE_SERVICE_TEST/g
       tt.ok(expected.test(actual), 'COVERAGE_SERVICE_TEST expected or test is not valid')
 
