@@ -229,7 +229,6 @@ if (coverageReport && !global.__coverage__ && files.length === 0) {
   // automatically hook into coveralls and/or codecov
   if (coverageReport === 'text-lcov' && pipeToService) {
     child = spawn(node, args)
-    var covBin, covName
 
     var services = [
       process.env.COVERALLS_REPO_TOKEN && {
@@ -240,7 +239,9 @@ if (coverageReport && !global.__coverage__ && files.length === 0) {
         covBin: require.resolve('codecov.io/bin/codecov.io.js')
       , covName: 'Codecov'
       }
-    ]
+    ].filter(function(s) {
+      return !!s // remove undefined services
+    })
 
     services.forEach(function(s) {
       var ca = spawn(node, [s.covBin], {
