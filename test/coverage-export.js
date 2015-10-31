@@ -26,14 +26,14 @@ t.test('testing piping to Coveralls and Codecov', function (t) {
     tt.plan(2)
     var env = createEnvironment(environments[0])
     doTest(env, function(actual) {
+      console.log("DEBUG-INFO:", actual);
       var expected = /COVERAGE_SERVICE_TEST/g
-      tt.ok(expected.test(actual), 'COVERAGE_SERVICE_TEST expected - test is valid')
+      tt.ok(expected.test(actual), 'COVERAGE_SERVICE_TEST expected or test is not valid')
 
       expected = /Coverallssomething/g
       tt.ok(expected.test(actual), 'Coverallssomething should be in output')
 
       tt.end()
-      //console.log("DEBUG-INFO:", actual);
     })
   })
   t.test('coverage should be exported to Codecov', function(tt) {
@@ -41,7 +41,7 @@ t.test('testing piping to Coveralls and Codecov', function (t) {
     var env = createEnvironment(environments[1])
     doTest(env, function(actual) {
       var expected = /COVERAGE_SERVICE_TEST/g
-      tt.ok(expected.test(actual), 'COVERAGE_SERVICE_TEST expected - test is valid')
+      tt.ok(expected.test(actual), 'COVERAGE_SERVICE_TEST expected or test is not valid')
 
       expected = /Codecovsomething/g
       tt.ok(expected.test(actual), 'Codecovsomething should be in output')
@@ -54,7 +54,7 @@ t.test('testing piping to Coveralls and Codecov', function (t) {
     var env = createEnvironment(environments.reduce(assign))
     doTest(env, function(actual) {
       var expected = /COVERAGE_SERVICE_TEST/g
-      tt.ok(expected.test(actual), 'COVERAGE_SERVICE_TEST expected - test is valid')
+      tt.ok(expected.test(actual), 'COVERAGE_SERVICE_TEST expected or test is not valid')
 
       expected = /Coverallssomething/g
       tt.ok(expected.test(actual), 'Coverallssomethingshould be in output')
