@@ -500,26 +500,3 @@ t.test('non-zero exit is reported as failure', function (t) {
     t.end()
   })
 })
-
-t.test('testing piping to Coveralls and Codecov', function (t) {
-  var args = [run, ok]
-  var child = spawn(node, args, {
-    env: {
-      TAP: 0
-    , COVERALLS_REPO_TOKEN: 'something'
-    , CODECOV_TOKEN: 'something'
-    }
-  })
-  var out = ''
-
-  // I guess this is the right place for the test
-  // But I need some help to write it
-  child.stdout.on('data', function (c) {
-    out += c
-  })
-  child.on('close', function (code, signal) {
-    t.equal(code, 1) //TODO: should be zero?
-    t.equal(signal, null)
-    t.end()
-  })
-})
