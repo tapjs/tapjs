@@ -1,11 +1,11 @@
 TAP version 13
     # Subtest: throws should match a regex
     1..2
-    ok 1 - expected to throw
-    not ok 2 - expected to throw
+    ok 1 - passing_thrower
+    not ok 2 - failing_thrower
       ---
-      {"at":{"column":5,"file":"test/test/throws.js","line":9},"found":"test","pattern":"/fasdfsadf/","source":"t.throws(function() {\n"}
+      {"at":{"column":5,"file":"test/test/throws.js","line":9},"found":"test","pattern":"/fasdfsadf/","source":"t.throws(function failing_thrower () {\n"}
       ...
-    Bail out! # expected to throw
-Bail out! # expected to throw
+    Bail out! # failing_thrower
+Bail out! # failing_thrower
 

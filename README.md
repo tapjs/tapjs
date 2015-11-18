@@ -66,7 +66,8 @@ tap.test('must mostly succeed or all is lost', function (t) {
 // tests there will be in advance. Handy when
 // order is irrelevant and things happen in parallel.
 
-tap.test('planned test', function (t) {
+// Note that the function name is used if no name is provided!
+tap.test(function planned (t) {
   t.plan(2)
   setTimeout(function () {
     t.ok(true, 'a timeout')
@@ -82,15 +83,16 @@ tap.test('planned test', function (t) {
 var test = require('tap').test
 
 // subtests can have subtests
-test('parent', function (t) {
-  t.test('child', function (tt) {
+test(function parent (t) {
+  t.test(function child (tt) {
     tt.throws(function () {
       throw new Error('fooblz')
     }, {
       message: 'fooblz'
     }, 'throw a fooblz')
 
-    tt.throws(function () { throw 1 }, 'throw whatever')
+    // throws also uses function name if no name provided
+    tt.throws(function throw_whatever () { throw 1 })
 
     tt.end()
   })
@@ -341,12 +343,16 @@ their data to their parent, and the root `require('tap')` object pipes
 to stdout by default.  However, you can instantiate a `Test` object
 and then pipe it wherever you like.  The only limit is your imagination.
 
-#### t.test(name, [options], [function])
+#### t.test([name], [options], [function])
 
 Create a subtest.
 
 If the function is omitted, then it will be marked as a "todo" or
 "pending" test.
+
+If the function has a name, and no name is provided, then the function
+name will be used as the test name.  If no test name is provided, then
+the name will be `(unnamed test)`.
 
 The function gets a Test object as its only argument.  From there, you
 can call the `t.end()` method on that object to end the test, or use
@@ -491,6 +497,9 @@ Expect the function to throw an error.  If an expected error is
 provided, then also verify that the thrown error matches the expected
 error.
 
+If the function has a name, and the message is not provided, then the
+function name will be used as the message.
+
 Caveat: if you pass a `extra` object to t.throws, then you MUST also
 pass in an expected error, or else it will read the diag object as the
 expected error, and get upset when your thrown error doesn't match
@@ -521,6 +530,9 @@ Synonyms: `t.throw`
 #### t.doesNotThrow(fn, message, extra)
 
 Verify that the provided function does not throw.
+
+If the function has a name, and the message is not provided, then the
+function name will be used as the message.
 
 Note: if an error is encountered unexpectedly, it's often better to
 simply throw it.  The Test object will handle this as a failure.

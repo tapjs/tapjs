@@ -1,7 +1,7 @@
 var t = require('../..')
 var test = t.test
 
-test('nesting', function (t) {
+test(function nesting (t) {
   var plan = t.plan
   var test= t.test
   plan(2)
