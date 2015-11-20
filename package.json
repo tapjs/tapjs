@@ -28,9 +28,6 @@
     "tap-parser": "^1.2.2",
     "tmatch": "^1.0.2"
   },
-  "bundleDependencies": [
-    "deep-equal"
-  ],
   "keywords": [
     "assert",
     "test",
