@@ -301,7 +301,7 @@ by using [Travis-CI](https://travis-ci.org) and
 The root `tap` object is an instance of the Test class with a few
 slight modifications.
 
-1. The `teardown()`, `plan()`, and `test()` methods are pre-bound onto
+1. The `tearDown()`, `plan()`, and `test()` methods are pre-bound onto
    the root object, so that you don't have to call them as methods.
 2. By default, it pipes to stdout, so running a test directly just
    dumps the TAP data for inspection.  (You can of course
@@ -310,9 +310,9 @@ slight modifications.
    the main package export.
 4. The test ends automatically when `process.on('exit')` fires, so
    there is no need to call `tap.end()` explicitly.
-5. Adding a `teardown` function triggers `autoend` behavior.
+5. Adding a `tearDown` function triggers `autoend` behavior.
    Otherwise, the `end` would potentially never arrive, if for example
-   `teardown` is used to close a server or cancel some long-running
+   `tearDown` is used to close a server or cancel some long-running
    process, because `process.on('exit')` would never fire of its own
    accord.
 
