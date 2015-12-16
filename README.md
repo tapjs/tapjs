@@ -6,7 +6,7 @@ Node.js.
 It includes a command line test runner for consuming TAP-generating
 test scripts, and a JavaScript framework for writing such scripts.
 
-[![Coverage Status](https://coveralls.io/repos/isaacs/node-tap/badge.svg?branch=master)](https://coveralls.io/r/isaacs/node-tap?branch=master)
+[![Build Status](https://travis-ci.org/isaacs/node-tap.svg?branch=master)](https://travis-ci.org/isaacs/node-tap) [![Coverage Status](https://coveralls.io/repos/isaacs/node-tap/badge.svg?branch=master)](https://coveralls.io/r/isaacs/node-tap?branch=master)
 
 ## USAGE
 
