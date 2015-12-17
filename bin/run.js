@@ -164,6 +164,11 @@ for (var i = 0; i < args.length; i++) {
       nodeArgs.push('--harmony')
       continue
 
+    case '--flags':
+      val = val || args[++i]
+      nodeArgs = nodeArgs.concat(val.split(' '))
+      continue
+
     case '--color':
       color = true
       continue
