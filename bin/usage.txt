@@ -86,6 +86,8 @@ Options:
 
   --harmony                   Enable all Harmony flags in JavaScript tests
 
+  --flags                     Pass flags to the node process
+
   --strict                    Run JS tests in 'use strict' mode
 
   --                          Stop parsing flags, and treat any additional
