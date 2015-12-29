@@ -41,7 +41,7 @@ test('error tests for errorness', function (t) {
   truthies.forEach(function (truthy) {
     t.notOk(tt.error(truthy), 'fails with ' + util.inspect(truthy))
   })
-  tt.end()
+  t.end()
 })
 
 test('throws expects to catch', function (t) {
