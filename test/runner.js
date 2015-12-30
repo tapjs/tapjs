@@ -4,13 +4,12 @@ var node = process.execPath
 var run = require.resolve('../bin/run.js')
 var ok = require.resolve('./test/ok.js')
 var notok = require.resolve('./test/not-ok.js')
-var colorRe = new RegExp('\u001b\\[[0-9;]+m')
+var colorRe = new RegExp('\u001b\\[[0-9;]+m') // eslint-disable-line
 var bailRe = new RegExp('^Bail out! # this is not ok$', 'm')
 var okre = new RegExp('test[\\\\/]test[/\\\\]ok\\.js \\.+ 10/10( [0-9\.]+m?s)?$', 'm')
 var notokre = new RegExp('test[\\\\/]test[/\\\\]not-ok\\.js \\.+ 0/1( [0-9\.]+m?s)?$', 'm')
 var fs = require('fs')
 var which = require('which')
-var path = require('path')
 
 t.test('usage', function (t) {
   function usageTest (t, child, c) {
@@ -20,7 +19,7 @@ t.test('usage', function (t) {
       out += o
     })
     child.on('close', function (code) {
-      t.equal(code, c, 'code should be '+c)
+      t.equal(code, c, 'code should be ' + c)
       t.match(out, /^Usage:\n/, 'should print usage')
       t.end()
     })
@@ -54,27 +53,30 @@ t.test('usage', function (t) {
 })
 
 t.test('colors', function (t) {
-  function colorTest(args, env, hasColor) { return function (t) {
-    var out = ''
-    env = env || {}
-    env.TAP = 0
-    args = [run, ok].concat(args || [])
-    var child = spawn(node, args, { env: env })
-    child.stdout.on('data', function (o) {
-      out += o
-    })
-    child.on('close', function (code) {
-      t.equal(code, 0, 'code should be 0')
-      if (hasColor)
-        t.match(out, colorRe)
-      else
-        t.notMatch(out, colorRe)
-      t.end()
-    })
-  }}
+  function colorTest (args, env, hasColor) {
+    return function (t) {
+      var out = ''
+      env = env || {}
+      env.TAP = 0
+      args = [run, ok].concat(args || [])
+      var child = spawn(node, args, { env: env })
+      child.stdout.on('data', function (o) {
+        out += o
+      })
+      child.on('close', function (code) {
+        t.equal(code, 0, 'code should be 0')
+        if (hasColor) {
+          t.match(out, colorRe)
+        } else {
+          t.notMatch(out, colorRe)
+        }
+        t.end()
+      })
+    }
+  }
 
   t.test('no colors by default for non-TTY',
-         colorTest([], {}, false))
+    colorTest([], {}, false))
 
   t.test('force colors with -c or --color', function (t) {
     ;[ '-c', '--color' ].forEach(function (c) {
@@ -100,28 +102,30 @@ t.test('colors', function (t) {
 })
 
 t.test('bailout args', function (t) {
-  function bailTest(args, env, bail) { return function (t) {
-    var out = ''
-    env = env || {}
-    env.TAP = 0
-    env.TAP_COLORS = 0
-    args = [run, notok, ok, '-C', '-Rclassic'].concat(args || [])
-    var child = spawn(node, args, { env: env })
-    child.stdout.on('data', function (o) {
-      out += o
-    })
-    child.on('close', function (code) {
-      t.equal(code, 1, 'code should be 1')
-      if (bail) {
-        t.match(out, bailRe, 'should show bail out')
-        t.notMatch(out, okre, 'should not run second test')
-      } else {
-        t.notMatch(out, bailRe, 'should not bail out')
-        t.match(out, okre, 'should run second test')
-      }
-      t.end()
-    })
-  }}
+  function bailTest (args, env, bail) {
+    return function (t) {
+      var out = ''
+      env = env || {}
+      env.TAP = 0
+      env.TAP_COLORS = 0
+      args = [run, notok, ok, '-C', '-Rclassic'].concat(args || [])
+      var child = spawn(node, args, { env: env })
+      child.stdout.on('data', function (o) {
+        out += o
+      })
+      child.on('close', function (code) {
+        t.equal(code, 1, 'code should be 1')
+        if (bail) {
+          t.match(out, bailRe, 'should show bail out')
+          t.notMatch(out, okre, 'should not run second test')
+        } else {
+          t.notMatch(out, bailRe, 'should not bail out')
+          t.match(out, okre, 'should run second test')
+        }
+        t.end()
+      })
+    }
+  }
 
   t.test('force bailout with -b or --bail', function (t) {
     t.test('-b', bailTest(['-b'], {}, true))
@@ -162,7 +166,7 @@ t.test('path globbing', function (t) {
 t.test('save-file', function (t) {
   var saveFile = 'runner-save-test-' + process.pid
   var n = 0
-  function saveFileTest(cb) {
+  function saveFileTest (cb) {
     var args = [run, '-s' + saveFile, ok, notok, '-CRclassic']
     // also test the expanded versions for added coverage
     if (++n === 1) {
@@ -201,7 +205,7 @@ t.test('save-file', function (t) {
       t.match(out, okre, 'should run ok.js test')
       t.match(out, notokre, 'should run not-ok.js test')
       t.equal(fs.readFileSync(saveFile, 'utf8'), notok + '\n',
-              'should save not-ok.js')
+        'should save not-ok.js')
       t.end()
     })
   })
@@ -212,7 +216,7 @@ t.test('save-file', function (t) {
       t.notMatch(out, okre, 'should not run ok.js test')
       t.match(out, notokre, 'should run not-ok.js test')
       t.equal(fs.readFileSync(saveFile, 'utf8'), notok + '\n',
-              'should save not-ok.js')
+        'should save not-ok.js')
       t.end()
     })
   })
@@ -227,19 +231,21 @@ t.test('save-file', function (t) {
 
 t.test('version', function (t) {
   var version = require('../package.json').version
-  function versionTest (arg) { return function (t) {
-    var child = spawn(node, [run].concat(arg))
-    var out = ''
-    child.stdout.on('data', function (o) {
-      out += o
-    })
-    child.on('close', function (code, signal) {
-      t.equal(code, 0)
-      t.equal(signal, null)
-      t.equal(out, version + '\n')
-      t.end()
-    })
-  }}
+  function versionTest (arg) {
+    return function (t) {
+      var child = spawn(node, [run].concat(arg))
+      var out = ''
+      child.stdout.on('data', function (o) {
+        out += o
+      })
+      child.on('close', function (code, signal) {
+        t.equal(code, 0)
+        t.equal(signal, null)
+        t.equal(out, version + '\n')
+        t.end()
+      })
+    }
+  }
   t.test('-v', versionTest('-v'))
   t.test('--version', versionTest('--version'))
   t.test('--version', versionTest(['--version', __filename]))
@@ -252,8 +258,9 @@ t.test('version', function (t) {
   } catch (er) {}
 
   var skip = false
-  if (!headBin)
+  if (!headBin) {
     skip = 'head program not available'
+  }
 
   t.test('handle EPIPE gracefully', { skip: skip }, function (t) {
     var head = spawn(headBin, ['-5'])
@@ -457,14 +464,15 @@ t.test('-t or --timeout to set timeout', function (t) {
   var nf = require.resolve('./fixtures/never-finish.js')
   var args = [run, nf]
   var dur = '.2'
-  if (global.__coverage__)
+  if (global.__coverage__) {
     dur = '.9'
+  }
   var timers = [
     '-t' + dur,
     ['-t', '0' + dur],
     '-t=' + dur,
     '--timeout=' + dur,
-    ['--timeout',dur]
+    ['--timeout', dur]
   ]
   timers.forEach(function (timer) {
     t.test([].concat(timer).join(' '), function (t) {

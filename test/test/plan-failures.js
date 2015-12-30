@@ -1,11 +1,13 @@
 var t = require('../..')
 
 function test (t, first, second, plan) {
-  if (plan)
+  if (plan) {
     t.plan(1)
+  }
   t[first]('ok')
-  if (!plan)
+  if (!plan) {
     t.end()
+  }
   t[second]('extra')
 }
 

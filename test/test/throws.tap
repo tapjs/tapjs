@@ -9,7 +9,7 @@ TAP version 13
     # failed 1 of 2 tests
 not ok 1 - throws should match a regex ___/# time=[0-9.]+(ms)?/~~~
   ---
-  {"at":{"column":3,"file":"test/test/throws.js","line":3},"results":{"count":2,"fail":1,"ok":false,"pass":1,"plan":{"end":2,"start":1}},"source":"t.test('throws should match a regex', function(t) {\n"}
+  {"at":{"column":3,"file":"test/test/throws.js","line":3},"results":{"count":2,"fail":1,"ok":false,"pass":1,"plan":{"end":2,"start":1}},"source":"t.test('throws should match a regex', function (t) {\n"}
   ...
 
 1..1

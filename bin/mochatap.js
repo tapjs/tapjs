@@ -7,9 +7,8 @@ if (args.length === 1) {
   var file = path.resolve(args[0])
   tap.mochaGlobals()
   require(file)
-  return
-}
-
-for (var i = 0; i < args.length; i++) {
-  tap.spawn(process.execPath, [ __filename, args[i] ])
+} else {
+  for (var i = 0; i < args.length; i++) {
+    tap.spawn(process.execPath, [__filename, args[i]])
+  }
 }

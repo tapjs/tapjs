@@ -3,6 +3,8 @@ if (typeof describe !== 'function') {
   t.mochaGlobals()
 }
 
+/* global describe, it */
+
 var ok = require('../fixtures/assert.js')
 
 describe('a set of tests to be done later', function () {

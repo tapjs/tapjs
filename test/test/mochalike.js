@@ -3,6 +3,8 @@ if (typeof describe !== 'function') {
   t.mochaGlobals()
 }
 
+/* global describe, it */
+
 var ok = require('../fixtures/assert.js')
 
 describe('a set of tests to be done later', function () {
@@ -60,10 +62,10 @@ describe('failing indented things', function () {
   })
 })
 
-describe('a test passing an error to done() callback', function() {
-  it('is marked as failed', function(done) {
-    process.nextTick(function() {
+describe('a test passing an error to done() callback', function () {
+  it('is marked as failed', function (done) {
+    process.nextTick(function () {
       done(new Error('error arg'))
-    });
-  });
-});
+    })
+  })
+})

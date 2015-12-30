@@ -9,10 +9,10 @@ m.filename = filename
 m.paths = Module._nodeModulePaths(path.dirname(filename))
 m._compile('(' + runTapTest.toString() + ')()', filename)
 
-function runTapTest() {
-  var tap = require('../..');
+function runTapTest () {
+  var tap = require('../..')
 
-  tap.test(function(t) {
+  tap.test(function (t) {
     t.plan(1)
     t.equal(1, 2) // failing test so tap tries to find the source code
   })

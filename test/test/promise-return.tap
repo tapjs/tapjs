@@ -13,7 +13,7 @@ ok 1 - auto-end on resolve ___/# time=[0-9.]+(ms)?/~~~
     # failed 1 of 1 tests
 not ok 2 - rejected ___/# time=[0-9.]+(ms)?/~~~
   ---
-  {"at":{"column":3,"file":"test/test/promise-return.js","line":20},"results":{"count":1,"fail":1,"ok":false,"pass":0,"plan":{"end":1,"start":1}},"source":"t.test('rejected', function(t) {\n"}
+  {"at":{"column":3,"file":"test/test/promise-return.js","line":20},"results":{"count":1,"fail":1,"ok":false,"pass":0,"plan":{"end":1,"start":1}},"source":"t.test('rejected', function (t) {\n"}
   ...
 
 1..2

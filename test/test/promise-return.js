@@ -8,17 +8,17 @@ if (typeof Promise === 'undefined') {
 
 var t = require('../..')
 
-t.test("auto-end on resolve", function(t) {
-  return new P(function(resolve) {
-    setTimeout(function() {
+t.test('auto-end on resolve', function (t) {
+  return new P(function (resolve) {
+    setTimeout(function () {
       t.ok(true, 'true is ok')
       resolve()
     }, 150)
   })
 })
 
-t.test('rejected', function(t) {
-  return new P(function(resolve, reject) {
+t.test('rejected', function (t) {
+  return new P(function (resolve, reject) {
     setTimeout(reject.bind(null, new Error('expected error'), 150))
   })
 })
