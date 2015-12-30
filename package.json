@@ -53,7 +53,8 @@
     "lib/test.js",
     "bin/mochatap.js",
     "bin/run.js",
-    "bin/usage.txt"
+    "bin/usage.txt",
+    "bin/is-exe.js"
   ],
   "config": {
     "nyc": {
