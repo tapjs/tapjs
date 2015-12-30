@@ -6,6 +6,22 @@ Node.js.
 It includes a command line test runner for consuming TAP-generating
 test scripts, and a JavaScript framework for writing such scripts.
 
+Built-in support for code coverage (including instrumenting child
+processes).  Coverage is printed to the command line in a terse table
+by default, but tap can also open up your web browser to a pretty
+report if you add `--coverage-report=lcov` to the command.
+
+Works with all exception-throwing assertion libraries (chai, should,
+node's built-in `require('assert')`, or just throwing yourself) but
+also has a [huge library of built-in assertions](#asserts) that you
+can use if you want to have each one reported as successes.
+
+Outputs in a wide variety of formats using the
+[tap-mocha-reporter](http://npm.im/tap-mocha-reporter) module.  (That
+is, you can get spec output by doing `-Rspec`.  The default output is
+called 'classic', based on tap 0.x's output, but with color and timing
+info.)
+
 [![Build Status](https://travis-ci.org/isaacs/node-tap.svg?branch=master)](https://travis-ci.org/isaacs/node-tap) [![Coverage Status](https://coveralls.io/repos/isaacs/node-tap/badge.svg?branch=master)](https://coveralls.io/r/isaacs/node-tap?branch=master)
 
 ## USAGE
