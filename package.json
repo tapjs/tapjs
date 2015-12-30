@@ -1,6 +1,6 @@
 {
   "name": "tap",
-  "version": "2.3.5",
+  "version": "3.0.0",
   "author": "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me)",
   "description": "A Test-Anything-Protocol library",
   "bin": {
