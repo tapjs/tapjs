@@ -3,7 +3,7 @@ var tap = require('..')
 var EE = require('events').EventEmitter
 
 function testFunction (t) {
-  var ee = new EE
+  var ee = new EE()
 
   t.throws(function () {
     ee.emit('error', new Error('one'))

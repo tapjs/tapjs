@@ -3,7 +3,7 @@ var test = t.test
 
 test(function nesting (t) {
   var plan = t.plan
-  var test= t.test
+  var test = t.test
   plan(2)
   test('first', function (tt) {
     var plan = tt.plan
@@ -18,16 +18,16 @@ test(function nesting (t) {
     var ok = tt.ok
     var equal = tt.equal
     var done = tt.done
-    function foo() {
+    function foo () {
       ok('no plan', 'but that is ok')
       pass('this passes')
       equal(1, 1, 'nested ok')
       done()
     }
-    function bar() {
+    function bar () {
       return foo()
     }
-    function baz() {
+    function baz () {
       return bar()
     }
     baz()

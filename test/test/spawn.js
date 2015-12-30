@@ -16,16 +16,16 @@ t.test('nesting', function (t) {
     tt.assert('doeg', 'doag is also okay')
   })
   t.test('second', function (tt) {
-    function foo() {
+    function foo () {
       tt.ok('no plan', 'but that is ok')
       tt.pass('this passes')
       tt.equal(1, '1', 'nested failure')
       tt.end()
     }
-    function bar() {
+    function bar () {
       return foo()
     }
-    function baz() {
+    function baz () {
       return bar()
     }
     baz()

@@ -1,5 +1,4 @@
 var test = require('../lib/root.js').test
-var synonyms = require('../lib/synonyms.js')
 var Test = require('../lib/test.js')
 var util = require('util')
 var truthies = [ true, 1, 'ok', Infinity, function () {}, {}, [], /./ ]
@@ -18,7 +17,6 @@ test('ok finds truthiness, notOk finds falsiness', function (t) {
   t.end()
 })
 
-
 test('error tests for errorness', function (t) {
   var er = new Error('ok')
   var tt = new Test()
@@ -31,8 +29,8 @@ test('error tests for errorness', function (t) {
 
   t.notOk(tt.error(er), 'fails when presented error')
 
-  var circular = {};
-  circular.circular = circular;
+  var circular = {}
+  circular.circular = circular
   t.notOk(tt.error(circular), 'fails when presented circular object')
 
   falsies.forEach(function (falsey) {
@@ -41,40 +39,48 @@ test('error tests for errorness', function (t) {
   truthies.forEach(function (truthy) {
     t.notOk(tt.error(truthy), 'fails with ' + util.inspect(truthy))
   })
-  tt.end()
+  t.end()
 })
 
 test('throws expects to catch', function (t) {
   var tt = new Test()
-  t.throws(function () { throw 'x' })
+  t.throws(function () {
+    throw 'x' // eslint-disable-line
+  })
   t.throws('message first', function () { throw new Error('x') })
 
   t.throws(function () { throw new Error('x') },
-           new Error('x'), 'test thrown result')
+    new Error('x'), 'test thrown result')
 
   t.notOk(tt.throws(function () { throw new Error('x') },
-           new Error('y'), 'test thrown result'))
+    new Error('y'), 'test thrown result'))
 
   t.throws('test thrown result',
-           function () { throw new Error('x') },
-           new Error('x'), { foo: 'bar' })
+    function () { throw new Error('x') },
+    new Error('x'), { foo: 'bar' })
   t.notOk(tt.throws('test thrown result',
-           function () { throw new Error('x') },
-           new Error('y'), { foo: 'bar' }))
+    function () { throw new Error('x') },
+    new Error('y'), { foo: 'bar' }))
 
   t.throws('test thrown non-Error object',
-           function () { throw { ok: 'yup' } },
-           { ok: 'yup' })
+    function () {
+      throw { ok: 'yup' } // eslint-disable-line
+    },
+    { ok: 'yup' })
   t.notOk(tt.throws('test thrown non-Error object',
-           function () { throw { ok: 'yup' } },
-           { ok: 'nope' }))
+    function () {
+      throw { ok: 'yup' } // eslint-disable-line
+    },
+    { ok: 'nope' }))
   t.notOk(tt.throws(function () {}))
   t.end()
 })
 
 test('doesNotThrow expects not to catch', function (t) {
   var tt = new Test()
-  t.notOk(tt.doesNotThrow(function () { throw 'x' }))
+  t.notOk(tt.doesNotThrow(function () {
+    throw 'x' // eslint-disable-line
+  }))
   t.doesNotThrow(function () {})
   t.end()
 })
@@ -84,9 +90,9 @@ test('equal is strict equality', function (t) {
   t.equal(1, 1, 'number 1')
   t.equal('a', 'a', 'letter a')
   t.notOk(tt.equal('1', 1), 'number 1 !== letter 1')
-  t.notOk(tt.equal({x:1}, {x:1}), 'similar objects not ===')
+  t.notOk(tt.equal({x: 1}, {x: 1}), 'similar objects not ===')
   t.notOk(tt.equal(NaN, NaN), 'NaN cat')
-  var o = {x:1}
+  var o = {x: 1}
   t.equal(o, o, 'object identity')
   t.end()
 })
@@ -96,9 +102,9 @@ test('not is strict inequality', function (t) {
   t.notOk(tt.not(1, 1), 'number 1')
   t.notOk(tt.not('a', 'a'), 'letter a')
   t.not('1', 1, 'number 1 !== letter 1')
-  t.not({x:1}, {x:1}, 'similar objects not ===')
+  t.not({x: 1}, {x: 1}, 'similar objects not ===')
   t.not(NaN, NaN, 'NaN cat')
-  var o = {x:1}
+  var o = {x: 1}
   t.notOk(tt.not(o, o), 'object identity')
   t.end()
 })
@@ -196,8 +202,8 @@ test('type is type checking', function (t) {
 
   t.type(fn, 'function')
   t.type(fn, fn)
-  //t.type(fn, 'Function')
-  //t.type(fn, Function)
+  // t.type(fn, 'Function')
+  // t.type(fn, Function)
 
   t.type(new Date(), 'object')
   t.type(new Date(), 'Date')
@@ -209,14 +215,14 @@ test('type is type checking', function (t) {
 
   t.type('.', 'string')
 
-  function Parent() {}
-  function Child() {}
+  function Parent () {}
+  function Child () {}
   Child.prototype = Object.create(Parent.prototype, {
     constructor: {
       value: Child
     }
   })
-  var c = new Child
+  var c = new Child()
   t.type(c, 'object')
   t.type(c, 'Child')
   t.type(c, 'Parent')
