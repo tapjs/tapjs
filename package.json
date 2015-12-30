@@ -42,6 +42,7 @@
   },
   "devDependencies": {
     "bluebird": "^2.9.34",
+    "standard": "^5.4.1",
     "which": "^1.1.1"
   },
   "files": [
