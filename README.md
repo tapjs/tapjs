@@ -379,6 +379,9 @@ If the function returns a `Promise` object (that is, an object with a
 `then` method), then when the promise is rejected or fulfilled, the
 test will be either ended or failed.
 
+If the function is not provided, then this will be treated as a `todo`
+test.
+
 The options object is the same as would be passed to any assert, with
 two additional fields that are only relevant for child tests:
 
@@ -516,6 +519,9 @@ error.
 If the function has a name, and the message is not provided, then the
 function name will be used as the message.
 
+If the function is not provided, then this will be treated as a `todo`
+test.
+
 Caveat: if you pass a `extra` object to t.throws, then you MUST also
 pass in an expected error, or else it will read the diag object as the
 expected error, and get upset when your thrown error doesn't match
@@ -549,6 +555,9 @@ Verify that the provided function does not throw.
 
 If the function has a name, and the message is not provided, then the
 function name will be used as the message.
+
+If the function is not provided, then this will be treated as a `todo`
+test.
 
 Note: if an error is encountered unexpectedly, it's often better to
 simply throw it.  The Test object will handle this as a failure.
