@@ -10,6 +10,16 @@ var nycBin = require.resolve('nyc/bin/nyc.js')
 var glob = require('glob')
 var isExe = require('./is-exe.js')
 
+var coverageServiceTest = process.env.COVERAGE_SERVICE_TEST === 'true'
+
+// console.error(process.argv.join(' '))
+// console.error('CST=%j', process.env.COVERAGE_SERVICE_TEST)
+// console.error('CRT=%j', process.env.COVERALLS_REPO_TOKEN)
+// console.error('CCT=%j', process.env.CODECOV_TOKEN)
+if (coverageServiceTest) {
+  console.log('COVERAGE_SERVICE_TEST')
+}
+
 // Add new coverage services here.
 // it'll check for the environ named and pipe appropriately.
 var coverageServices = [
@@ -59,8 +69,8 @@ function main () {
 
   /* istanbul ignore if */
   if (options.coverageReport &&
-      !global.__coverage__ &&
-      options.files.length === 0) {
+    (!global.__coverage__ || coverageServiceTest) &&
+    options.files.length === 0) {
     runCoverageReport(options)
     return
   }
@@ -188,7 +198,7 @@ function parseArgs (args) {
       case '--coverage-report':
         options.coverageReport = val || args[++i]
         if (!options.coverageReport) {
-          if (options.pipeToService) {
+          if (options.pipeToService || coverageServiceTest) {
             options.coverageReport = 'text-lcov'
           } else {
             options.coverageReport = 'text'
@@ -279,6 +289,7 @@ function parseArgs (args) {
 
 /* istanbul ignore function */
 function respawnWithCoverage (options) {
+  // console.error('respawn with coverage')
   // Re-spawn with coverage
   var args = [nycBin].concat(
     '--silent',
@@ -295,6 +306,7 @@ function respawnWithCoverage (options) {
     if (code) {
       return process.exit(code)
     }
+    // console.error('run coverage report')
     args = [__filename, '--no-coverage', '--coverage-report']
     if (options.coverageReport) {
       args.push(options.coverageReport)
@@ -304,21 +316,31 @@ function respawnWithCoverage (options) {
 }
 
 function pipeToCoverageServices (options, child) {
+  // console.error('pipe to services')
+  var piped = false
   for (var i = 0; i < coverageServices.length; i++) {
+    // console.error('pipe to service?', coverageServices[i].env)
     if (process.env[coverageServices[i].env]) {
       pipeToCoverageService(coverageServices[i], options, child)
+      piped = true
     }
+  }
+
+  /* istanbul ignore if */
+  if (!piped) {
+    throw new Error('unknown service, internal error')
   }
 }
 
 function pipeToCoverageService (service, options, child) {
+  // console.error('pipe to service yes', service.env)
   var bin = service.bin
 
-  if (process.env.COVERAGE_SERVICE_TEST === 'true') {
+  if (coverageServiceTest) {
+    // console.error('use fakey test bin')
     // test scaffolding.
     // don't actually send stuff to the service
     bin = require.resolve('../test/fixtures/cat.js')
-    console.log('COVERAGE_SERVICE_TEST')
     console.log('%s:%s', service.name, process.env[service.env])
   }
 
@@ -347,9 +369,11 @@ function pipeToCoverageService (service, options, child) {
 /* istanbul ignore function */
 function runCoverageReport (options) {
   var args = [nycBin, 'report', '--reporter', options.coverageReport]
+  // console.error('run coverage report', args)
 
   // automatically hook into coveralls and/or codecov
   if (options.coverageReport === 'text-lcov' && options.pipeToService) {
+    // console.error('pipeToService')
     var child = spawn(node, args, { stdio: [ 0, 'pipe', 2 ] })
 
     pipeToCoverageServices(options, child)
