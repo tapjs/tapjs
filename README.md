@@ -3,6 +3,8 @@
 A <abbr title="Test Anything Protocol">TAP</abbr> test framework for
 Node.js.
 
+[![Build Status](https://travis-ci.org/isaacs/node-tap.svg?branch=master)](https://travis-ci.org/isaacs/node-tap/) [![Build Status](https://ci.appveyor.com/api/projects/status/913p1ypf21gf4leu?svg=true)](https://ci.appveyor.com/project/isaacs/node-tap) [![Coverage Status](https://coveralls.io/repos/isaacs/node-tap/badge.svg?branch=master&service=github)](https://coveralls.io/github/isaacs/node-tap?branch=master)
+
 It includes a command line test runner for consuming TAP-generating
 test scripts, and a JavaScript framework for writing such scripts.
 
