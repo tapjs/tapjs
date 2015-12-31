@@ -13,9 +13,9 @@ not ok 2 - Error: test count exceeds plan
     1..1
 ok 3 - pass then pass end() ___/# time=[0-9.]+(ms)?/~~~
 
-not ok 4 - Error: test count exceeds plan
+not ok 4 - Error: test after end() was called
   ---
-  {"at":{"column":12,"file":"test/test/plan-failures.js","function":"test","line":11},"count":2,"message":"Error: test count exceeds plan","plan":1,"source":"t[second]('extra')\n","test":"pass then pass end()"}
+  {"at":{"column":12,"file":"test/test/plan-failures.js","function":"test","line":11},"count":2,"message":"Error: test after end() was called","plan":1,"source":"t[second]('extra')\n","test":"pass then pass end()"}
   ...
     # Subtest: pass then fail plan()
     1..1
@@ -31,9 +31,9 @@ not ok 6 - Error: test count exceeds plan
     1..1
 ok 7 - pass then fail end() ___/# time=[0-9.]+(ms)?/~~~
 
-not ok 8 - Error: test count exceeds plan
+not ok 8 - Error: test after end() was called
   ---
-  {"at":{"column":12,"file":"test/test/plan-failures.js","function":"test","line":11},"count":2,"message":"Error: test count exceeds plan","plan":1,"source":"t[second]('extra')\n","test":"pass then fail end()"}
+  {"at":{"column":12,"file":"test/test/plan-failures.js","function":"test","line":11},"count":2,"message":"Error: test after end() was called","plan":1,"source":"t[second]('extra')\n","test":"pass then fail end()"}
   ...
     # Subtest: fail then pass plan()
     1..1
