@@ -24,8 +24,6 @@ is, you can get spec output by doing `-Rspec`.  The default output is
 called 'classic', based on tap 0.x's output, but with color and timing
 info.)
 
-[![Build Status](https://travis-ci.org/isaacs/node-tap.svg?branch=master)](https://travis-ci.org/isaacs/node-tap) [![Coverage Status](https://coveralls.io/repos/isaacs/node-tap/badge.svg?branch=master)](https://coveralls.io/r/isaacs/node-tap?branch=master)
-
 ## USAGE
 
 Write your tests in JavaScript
