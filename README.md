@@ -420,7 +420,10 @@ This may only be called *before* running any asserts or child tests.
 #### t.end()
 
 Call when tests are done running.  This is not necessary if `t.plan()`
-was used.
+was used, or if the test function returns a Promise.
+
+If you call `t.end()` explicitly more than once, an error will be
+raised.
 
 #### t.bailout([reason])
 
