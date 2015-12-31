@@ -1,3 +1,11 @@
+## 4.0
+
+Raise an error if `t.end()` is explicitly called more than once.  This
+is a breaking change, because it can cause previously-passing tests to
+fail, if they did `t.end()` in multiple places.
+
+Support promises returned by mochalike functions.
+
 ## 3.1
 
 Support sending coverage output to both codecov.io and coveralls.io.
