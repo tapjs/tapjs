@@ -1,9 +1,9 @@
-var tap = require('../..');
+var tap = require('../..')
 
 // tap failures should be uncatchable
 
 tap.test(function exceed_plan (t) {
-  t.plan(1);
+  t.plan(1)
   try {
     t.pass()
     t.pass()
