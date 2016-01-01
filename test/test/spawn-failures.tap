@@ -1,0 +1,30 @@
+TAP version 13
+    # Subtest: spawn that throws
+    not ok 1 - Error: now is fine
+      ---
+      {"at":{"column":14,"file":"test/test/spawn-failures.js","line":25},"message":"Error: now is fine","source":"throwNow = new Error('now is fine')\n","test":"spawn that throws"}
+      ...
+    1..1
+    # failed 1 of 1 tests
+not ok 1 - spawn that throws ___/# time=[0-9.]+(ms)?/~~~
+  ---
+  {"at":{"column":3,"file":"test/test/spawn-failures.js","line":24},"results":{"count":1,"fail":1,"ok":false,"pass":0,"plan":{"end":1,"start":1}},"source":"t.test('spawn that throws', function (t) {\n"}
+  ...
+
+    # Subtest: spawn that throws
+        # Subtest: ./test/test/ok.js
+    not ok 1 - Error: later is fine
+      ---
+      {"at":{"column":16,"file":"test/test/spawn-failures.js","line":34},"message":"Error: later is fine","source":"throwLater = new Error('later is fine')\n","test":"spawn that throws"}
+      ...
+    1..1
+    # failed 1 of 1 tests
+not ok 2 - spawn that throws ___/# time=[0-9.]+(ms)?/~~~
+  ---
+  {"at":{"column":3,"file":"test/test/spawn-failures.js","line":33},"results":{"count":1,"fail":1,"ok":false,"pass":0,"plan":{"end":1,"start":1}},"source":"t.test('spawn that throws', function (t) {\n"}
+  ...
+
+1..2
+# failed 2 of 2 tests
+___/# time=[0-9.]+(ms)?/~~~
+
