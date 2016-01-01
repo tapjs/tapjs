@@ -26,7 +26,8 @@
     "supports-color": "^1.3.1",
     "tap-mocha-reporter": "0.0 || 1",
     "tap-parser": "^1.2.2",
-    "tmatch": "^1.0.2"
+    "tmatch": "^1.0.2",
+    "win-spawn": "^2.0.0"
   },
   "keywords": [
     "assert",
