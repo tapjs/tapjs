@@ -20,7 +20,7 @@ t.test('usage', function (t) {
     })
     child.on('close', function (code) {
       t.equal(code, c, 'code should be ' + c)
-      t.match(out, /^Usage:\n/, 'should print usage')
+      t.match(out, /^Usage:\r?\n/, 'should print usage')
       t.end()
     })
   }

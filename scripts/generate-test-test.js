@@ -53,8 +53,8 @@ function generate (file, bail) {
     output = output.split(node).join('\0N2\0')
     output = output.split(path.basename(node)).join('\0N2\0')
 
-    output = output.split('\0N1\0').join('___/.*(node|iojs)')
-    output = output.split('\0N2\0').join('___/.*(node|iojs)/~~~')
+    output = output.split('\0N1\0').join('___/.*(node|iojs)(\.exe)?')
+    output = output.split('\0N2\0').join('___/.*(node|iojs)(\.exe)?/~~~')
 
     output = yamlishToJson(output)
 

@@ -30,7 +30,7 @@ function runTest (file, bail) {
 
   var resfile = file.replace(/\.js$/, (bail ? '-bail' : '') + '.tap')
   try {
-    var want = fs.readFileSync(resfile, 'utf8').split('\n')
+    var want = fs.readFileSync(resfile, 'utf8').split(/\r?\n/)
   } catch (er) {
     console.error(er)
     console.error(file)
@@ -54,7 +54,7 @@ function runTest (file, bail) {
       found += c
     })
     child.on('close', function (er) {
-      found = found.split('\n')
+      found = found.split(/\r?\n/)
       var inyaml = false
       var startlen = 0
       var y = ''
