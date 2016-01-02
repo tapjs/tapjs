@@ -20,7 +20,7 @@ if (process.argv[2] === 'child') {
     t.has(tt._skips, [
       {
         ok: true,
-        message: './test/only-non-tap-output.js child',
+        message: /\.[\\\/]test[\\\/]only-non-tap-output.js child/,
         extra: {
           at: {},
           results: {},
@@ -31,7 +31,7 @@ if (process.argv[2] === 'child') {
       },
       {
         ok: true,
-        message: './test/only-non-tap-output.js silent',
+        message: /\.[\\\/]test[\\\/]only-non-tap-output.js silent/,
         extra: {
           at: {},
           results: {},
