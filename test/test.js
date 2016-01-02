@@ -24,8 +24,12 @@ if (process.argv[2]) {
 
 function runTest (file, bail) {
   var skip = false
-  if (file.match(/\bpending-handles.js$/) && process.env.TRAVIS) {
-    skip = 'pending handles test is too timing dependent for Travis'
+  if (file.match(/\bpending-handles.js$/)) {
+    if (process.env.TRAVIS) {
+      skip = 'pending handles test is too timing dependent for Travis'
+    } else if (process.platform === 'win32') {
+      skip = 'pending handles relies on sinals windows cannot do'
+    }
   }
 
   var resfile = file.replace(/\.js$/, (bail ? '-bail' : '') + '.tap')
