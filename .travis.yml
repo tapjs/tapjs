@@ -1,7 +1,16 @@
 sudo: false
-language: node_js
-node_js:
-  - '0.10'
-  - '0.12'
-  - '4'
-  - '5'
+osx:
+  - linux
+  - osx
+env:
+  - NODE_VERSION='0.10'
+  - NODE_VERSION='0.12'
+  - NODE_VERSION='4'
+  - NODE_VERSION='5'
+install:
+  - curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.30.1/install.sh | bash
+  - nvm install $NODE_VERSION
+  - npm install
+
+script:
+  - npm test
