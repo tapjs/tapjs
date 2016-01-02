@@ -1,4 +1,8 @@
 var tap = require('../')
+if (process.platform === 'windows') {
+  tap.plan(0, 'skip on windows')
+  process.exit()
+}
 var test = tap.test
 var Test = tap.Test
 var fs = require('fs')
