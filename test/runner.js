@@ -484,9 +484,14 @@ t.test('-t or --timeout to set timeout', function (t) {
         out += c
       })
       child.on('close', function (code, signal) {
+        var skip = process.platform === 'win32' && 'SIGTERM on windows is weird'
         t.equal(code, 1)
         t.equal(signal, null)
-        t.match(out, /received SIGTERM with pending event queue activity/)
+        t.match(
+          out,
+          /received SIGTERM with pending event queue activity/,
+          { skip: skip }
+        )
         t.end()
       })
     })
