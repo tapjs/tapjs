@@ -14,7 +14,7 @@ test('compile-to-js require hook', function (t) {
 
     function verifyOutput (err, stdout, stderr) {
       t.ok(!!err, 'Should have failed to run')
-      t.match(stdout, /file: "?test[\\\/]fixtures[\\\/]using-require-hook\.faux/,
+      t.match(stdout, /file: .*[\\\/]using-require-hook\.faux/,
         'error happened in the *.faux file')
       t.notMatch(stdout, 'source:',
         'omits the source because the line cannot be resolved')
