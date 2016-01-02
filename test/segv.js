@@ -1,5 +1,5 @@
 var tap = require('../')
-if (process.platform === 'windows') {
+if (process.platform === 'win32') {
   tap.plan(0, 'skip on windows')
   process.exit()
 }
