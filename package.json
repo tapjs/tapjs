@@ -18,7 +18,7 @@
     "glob": "^6.0.1",
     "js-yaml": "^3.3.1",
     "mkdirp": "^0.5.0",
-    "nyc": "^5.1.0",
+    "nyc": "github:isaacs/nyc",
     "only-shallow": "^1.0.2",
     "opener": "^1.4.1",
     "readable-stream": "^2.0.2",
