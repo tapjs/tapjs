@@ -8,7 +8,7 @@ env:
   - NODE_VERSION='4'
   - NODE_VERSION='5'
 install:
-  - curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.30.1/install.sh | bash
+  - rm -rf ~/.nvm && git clone https://github.com/creationix/nvm.git ~/.nvm && (cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`) && source ~/.nvm/nvm.sh
   - nvm install $NODE_VERSION
   - npm install
 
