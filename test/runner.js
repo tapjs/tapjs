@@ -260,6 +260,8 @@ t.test('version', function (t) {
   var skip = false
   if (!headBin) {
     skip = 'head program not available'
+  } else if (process.platform === 'win32') {
+    skip = 'signals on windows are weird'
   }
 
   t.test('handle EPIPE gracefully', { skip: skip }, function (t) {
