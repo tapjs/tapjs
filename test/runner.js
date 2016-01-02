@@ -326,7 +326,7 @@ t.test('unknown arg throws', function (t) {
   }
 })
 
-t.test('read from stdin', function (t) {
+t.test('read from stdin', { skip: process.platform === 'win32' && 'skip stdin test on windows' }, function (t) {
   function stripTime (s) {
     return s.split(ok).join('test/test/ok.js')
       .replace(/[0-9\.]+m?s/g, '{{TIME}}')
