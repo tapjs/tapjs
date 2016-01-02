@@ -13,7 +13,6 @@
   "dependencies": {
     "codecov.io": "^0.1.6",
     "coveralls": "^2.11.2",
-    "cross-spawn-async": "^2.1.1",
     "deeper": "^2.1.0",
     "foreground-child": "^1.2.0",
     "glob": "^6.0.1",
