@@ -24,13 +24,17 @@ if (process.argv[2]) {
 
 function runTest (file, bail) {
   var skip = false
-  if (file.match(/\bpending-handles.js$/) && process.env.TRAVIS) {
-    skip = 'pending handles test is too timing dependent for Travis'
+  if (file.match(/\bpending-handles.js$/)) {
+    if (process.env.TRAVIS) {
+      skip = 'pending handles test is too timing dependent for Travis'
+    } else if (process.platform === 'win32') {
+      skip = 'pending handles relies on sinals windows cannot do'
+    }
   }
 
   var resfile = file.replace(/\.js$/, (bail ? '-bail' : '') + '.tap')
   try {
-    var want = fs.readFileSync(resfile, 'utf8').split('\n')
+    var want = fs.readFileSync(resfile, 'utf8').split(/\r?\n/)
   } catch (er) {
     console.error(er)
     console.error(file)
@@ -54,7 +58,7 @@ function runTest (file, bail) {
       found += c
     })
     child.on('close', function (er) {
-      found = found.split('\n')
+      found = found.split(/\r?\n/)
       var inyaml = false
       var startlen = 0
       var y = ''
