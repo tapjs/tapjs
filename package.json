@@ -34,7 +34,7 @@
     "tap"
   ],
   "license": "ISC",
-  "repository": "https://github.com/isaacs/node-tap.git",
+  "repository": "https://github.com/tapjs/node-tap.git",
   "scripts": {
     "regen-fixtures": "node scripts/generate-test-test.js test/test/*.js",
     "test": "node bin/run.js test/*.* --coverage",
