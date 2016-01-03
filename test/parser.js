@@ -1,7 +1,7 @@
 var Parser = require('../')
 var etoa = require('events-to-array')
 
-var ignore = [ 'pipe', 'unpipe', 'prefinish', 'finish' ]
+var ignore = [ 'pipe', 'unpipe', 'prefinish', 'finish', 'newListener' ]
 var glob = require('glob')
 var test = require('tape')
 var path = require('path')
