@@ -153,11 +153,6 @@ Parser.prototype.processYamlish = function () {
   this.yamlish = ''
   this.yind = ''
 
-  if (!this.current) {
-    this.nonTap(yamlish)
-    return
-  }
-
   try {
     var diags = yaml.safeLoad(yamlish)
   } catch (er) {
