@@ -191,9 +191,9 @@ $ npm test -- --cov --coverage-report=lcov
 ```
 
 This runs the tests and opens a [pretty coverage
-report](/basics/coverage-example-1/lcov-report/index.html) in a web
-browser.  This shows that the second half of our function isn't being
-called.
+report](/basics/coverage-example-1/lcov-report/root/index.html) in a
+web browser.  This shows that the second half of our function isn't
+being called.
 
 Ok, add some more tests then:
 
