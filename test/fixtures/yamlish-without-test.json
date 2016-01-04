@@ -1,0 +1,77 @@
+[
+  [
+    "line",
+    "TAP Version 13\n"
+  ],
+  [
+    "version",
+    13
+  ],
+  [
+    "line",
+    "  ---\n"
+  ],
+  [
+    "extra",
+    "  ---\n"
+  ],
+  [
+    "line",
+    "  this: is yaml\n"
+  ],
+  [
+    "extra",
+    "  this: is yaml\n"
+  ],
+  [
+    "line",
+    "  but: no test here\n"
+  ],
+  [
+    "extra",
+    "  but: no test here\n"
+  ],
+  [
+    "line",
+    "  ...\n"
+  ],
+  [
+    "extra",
+    "  ...\n"
+  ],
+  [
+    "line",
+    "ok - this is fine\n"
+  ],
+  [
+    "line",
+    "1..1\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 1,
+      "name": "this is fine"
+    }
+  ],
+  [
+    "plan",
+    {
+      "start": 1,
+      "end": 1
+    }
+  ],
+  [
+    "complete",
+    {
+      "ok": true,
+      "count": 1,
+      "pass": 1,
+      "plan": {
+        "start": 1,
+        "end": 1
+      }
+    }
+  ]
+]
