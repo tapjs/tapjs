@@ -177,7 +177,7 @@
           ],
           [
             "line",
-            "ok grandson # time=1.001ms\n"
+            "ok grandson # time=1.001s\n"
           ],
           [
             "assert",
@@ -213,7 +213,7 @@
             {
               "ok": true,
               "id": 2,
-              "time": 1.001,
+              "time": 1001,
               "name": "grandson",
               "diag": {
                 "ok": 1,
@@ -282,7 +282,7 @@
       ],
       [
         "line",
-        "    ok grandson # time=1.001ms\n"
+        "    ok grandson # time=1.001s\n"
       ],
       [
         "line",
@@ -326,7 +326,7 @@
       ],
       [
         "line",
-        "ok 2 - this passes # time=1.200ms\n"
+        "ok 2 - this passes # time=1.200s\n"
       ],
       [
         "line",
@@ -337,7 +337,7 @@
         {
           "ok": true,
           "id": 2,
-          "time": 1.2,
+          "time": 1200,
           "name": "this passes"
         }
       ],
@@ -380,7 +380,7 @@
   ],
   [
     "line",
-    "        ok grandson # time=1.001ms\n"
+    "        ok grandson # time=1.001s\n"
   ],
   [
     "line",
@@ -424,7 +424,7 @@
   ],
   [
     "line",
-    "    ok 2 - this passes # time=1.200ms\n"
+    "    ok 2 - this passes # time=1.200s\n"
   ],
   [
     "line",

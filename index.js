@@ -25,8 +25,12 @@ function parseDirective (line) {
   var time = line.match(/^time=((?:[1-9][0-9]*|0)(?:\.[0-9]+)?)(ms|s)$/i)
   if (time) {
     var n = +time[1]
-    if (time[2] === 's')
-      n *= 1000
+    if (time[2] === 's') {
+      // JS does weird things with floats.  Round it off a bit.
+      n *= 1000000
+      n = Math.round(n)
+      n /= 1000
+    }
     return [ 'time', n ]
   }
 
