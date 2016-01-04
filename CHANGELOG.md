@@ -1,3 +1,19 @@
+## 5.0
+
+Make it impossible to `try/catch` out of plan/end abuses.  Calling
+`t.end()` more than once, or having a number of tests that doesn't
+match the `plan()` number, is always a failure.
+
+Push thrown errors to the front of the action queue.  This means that,
+even if other things are pending, an uncaught exception or a plan/end
+bug, will always take the highest priority in what gets output.
+
+Many updates to nyc, spawn-wrap, and foreground-child, so that tap now
+reliably works on Windows (and a [ci to prove
+it](https://ci.appveyor.com/project/isaacs/node-tap).)
+
+Moved into the [tapjs org](https://github.com/tapjs).
+
 ## 4.0
 
 Raise an error if `t.end()` is explicitly called more than once.  This
