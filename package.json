@@ -17,7 +17,7 @@
     "tape": "^3.5.0"
   },
   "scripts": {
-    "test": "tap test/*.js"
+    "test": "tap test/*.js --cov",
     "regen-fixtures": "node scripts/generate-test.js test/fixtures/*.tap"
   },
   "testling": {
