@@ -1,0 +1,135 @@
+[
+  [
+    "line",
+    "TAP Version 13\n"
+  ],
+  [
+    "version",
+    13
+  ],
+  [
+    "line",
+    "not ok 1 de-indenting the yamlish wrongly.\n"
+  ],
+  [
+    "line",
+    "  ---\n"
+  ],
+  [
+    "line",
+    "  message: \"Failed with error 'hostname peebles.example.com not found'\"\n"
+  ],
+  [
+    "line",
+    "  severity: fail\n"
+  ],
+  [
+    "line",
+    " this is not valid yamlish\n"
+  ],
+  [
+    "extra",
+    "  ---\n  message: \"Failed with error 'hostname peebles.example.com not found'\"\n  severity: fail\n this is not valid yamlish\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": false,
+      "id": 1,
+      "name": "de-indenting the yamlish wrongly."
+    }
+  ],
+  [
+    "line",
+    "ok 2 But this is not garbage\n"
+  ],
+  [
+    "line",
+    "not ok 3 truncating the yamlish\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 2,
+      "name": "But this is not garbage"
+    }
+  ],
+  [
+    "line",
+    "  ---\n"
+  ],
+  [
+    "line",
+    "  here: is some yaml\n"
+  ],
+  [
+    "line",
+    "  i: guess\n"
+  ],
+  [
+    "line",
+    "not ok 4 this is truncated weirdly\n"
+  ],
+  [
+    "extra",
+    "  ---\n  here: is some yaml\n  i: guess\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": false,
+      "id": 3,
+      "name": "truncating the yamlish"
+    }
+  ],
+  [
+    "line",
+    "1..4\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": false,
+      "id": 4,
+      "name": "this is truncated weirdly"
+    }
+  ],
+  [
+    "plan",
+    {
+      "start": 1,
+      "end": 4
+    }
+  ],
+  [
+    "complete",
+    {
+      "ok": false,
+      "count": 4,
+      "pass": 1,
+      "fail": 3,
+      "plan": {
+        "start": 1,
+        "end": 4
+      },
+      "failures": [
+        {
+          "ok": false,
+          "id": 1,
+          "name": "de-indenting the yamlish wrongly."
+        },
+        {
+          "ok": false,
+          "id": 3,
+          "name": "truncating the yamlish"
+        },
+        {
+          "ok": false,
+          "id": 4,
+          "name": "this is truncated weirdly"
+        }
+      ]
+    }
+  ]
+]

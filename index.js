@@ -469,8 +469,9 @@ Parser.prototype._parse = function (line) {
     // The whole yamlish chunk is garbage.
     if (indent.indexOf(this.yind) !== 0) {
       // oops!  was not actually yamlish, I guess.
+      // this is a case where the indent is shortened mid-yamlish block
       // treat as garbage
-      this.nonTap(this.yamlish + line)
+      this.nonTap(this.yind + '---\n' + this.yamlish + line)
       this.emitResult()
       return
     }
@@ -489,7 +490,7 @@ Parser.prototype._parse = function (line) {
 
   // not indented.  if we were doing yamlish, then it didn't go good
   if (this.yind) {
-    this.nonTap(this.yamlish)
+    this.nonTap(this.yind + '---\n' + this.yamlish)
     this.yamlish = ''
     this.yind = ''
   }
