@@ -1,0 +1,22 @@
+title: "Node Tap"
+description: A Test-Anything-Protocol library for Node.js
+links:
+  - name: "Index"
+    url: "/"
+  - name: "Getting Started"
+    url: "/basics/"
+  - name: "API"
+    url: "/api/"
+  - name: "Coverage"
+    url: "/coverage/"
+  - name: "Change Log"
+    url: "/changelog/"
+  - name: "GitHub Repo"
+    url: "https://github.com/tapjs/node-tap"
+
+# Build settings
+markdown: redcarpet
+markdown_ext:  md
+
+redcarpet:
+  extensions: ["tables", "autolink", "strikethrough", "space_after_headers", "with_toc_data", "fenced_code_blocks"]
