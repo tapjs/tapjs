@@ -1,7 +1,16 @@
 sudo: false
-language: node_js
-node_js:
-  - '0.10'
-  - '0.12'
-  - '4'
-  - '5'
+os:
+  - linux
+  - osx
+env:
+  - NODE_VERSION='0.10'
+  - NODE_VERSION='0.12'
+  - NODE_VERSION='4'
+  - NODE_VERSION='5'
+install:
+  - rm -rf ~/.nvm && git clone https://github.com/creationix/nvm.git ~/.nvm && (cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`) && source ~/.nvm/nvm.sh
+  - nvm install $NODE_VERSION
+  - npm install
+
+script:
+  - npm test
