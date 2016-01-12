@@ -3,7 +3,6 @@ var node = process.execPath
 var fs = require('fs')
 var spawn = require('child_process').spawn
 var fg = require('foreground-child')
-var signalExit = require('signal-exit')
 var opener = require('opener')
 var supportsColor = require('supports-color')
 var nycBin = require.resolve('nyc/bin/nyc.js')
@@ -46,6 +45,7 @@ function main () {
   }
 
   var options = parseArgs(args)
+
   if (!options) {
     return
   }
@@ -58,6 +58,27 @@ function main () {
     }
   })
 
+  options.files = globFiles(options.files)
+
+  if ((options.coverageReport || options.checkCoverage) &&
+      options.files.length === 0) {
+    runCoverageReport(options)
+    return
+  }
+
+  if (options.files.length === 0) {
+    console.error('Reading TAP data from stdin (use "-" argument to suppress)')
+    options.files.push('-')
+  }
+
+  if (options.files.length === 1 && options.files[0] === '-') {
+    if (options.coverage) {
+      console.error('Coverage disabled because stdin cannot be instrumented')
+    }
+    stdinOnly(options)
+    return
+  }
+
   // By definition, the next block cannot be covered, because
   // they are only relevant when coverage is turned off.
 
@@ -67,27 +88,7 @@ function main () {
     return
   }
 
-  /* istanbul ignore if */
-  if (options.coverageReport &&
-    (!global.__coverage__ || coverageServiceTest) &&
-    options.files.length === 0) {
-    runCoverageReport(options)
-    return
-  }
-
   setupTapEnv(options)
-
-  options.files = globFiles(options.files)
-
-  if (options.files.length === 0) {
-    console.error('Reading TAP data from stdin (use "-" argument to suppress)')
-    options.files.push('-')
-  }
-
-  if (options.files.length === 1 && options.files[0] === '-') {
-    stdinOnly(options)
-    return
-  }
 
   runTests(options)
 }
@@ -137,7 +138,6 @@ function parseArgs (args) {
   }
 
   var defaultCoverage = options.pipeToService
-  var defaultCheckCoverage = false
 
   options.coverageReport = null
 
@@ -208,13 +208,11 @@ function parseArgs (args) {
 
       case '--coverage-report':
         options.coverageReport = val || args[++i]
-        if (!options.coverageReport) {
-          if (options.pipeToService || coverageServiceTest) {
-            options.coverageReport = 'text-lcov'
-          } else {
-            options.coverageReport = 'text'
-          }
-        }
+        defaultCoverage = true
+        continue
+
+      case '--no-coverage-report':
+        options.coverageReport = false
         continue
 
       case '--no-cov': case '--no-coverage':
@@ -264,7 +262,7 @@ function parseArgs (args) {
 
       case '--check-coverage':
         defaultCoverage = true
-        options.checkCoverage = true
+        options.checkCoverage = options.checkCoverage || []
         continue
 
       case '--nyc-arg':
@@ -279,9 +277,9 @@ function parseArgs (args) {
       case '--lines':
       case '--statements':
         defaultCoverage = true
-        defaultCheckCoverage = true
         val = val || args[++i]
-        options.nycArgs.push(key, val)
+        options.checkCoverage = options.checkCoverage || []
+        options.checkCoverage.push(key, val)
         continue
 
       case '--color':
@@ -319,14 +317,6 @@ function parseArgs (args) {
     options.coverage = defaultCoverage
   }
 
-  if (options.checkCoverage === undefined) {
-    options.checkCoverage = defaultCheckCoverage
-  }
-
-  if (options.checkCoverage) {
-    options.nycArgs.push('--check-coverage')
-  }
-
   if (process.env.TAP === '1') {
     options.reporter = 'tap'
   }
@@ -354,22 +344,7 @@ function respawnWithCoverage (options) {
   var child = fg(node, args)
   child.removeAllListeners('close')
   child.on('close', function (code, signal) {
-    // console.error('run coverage report')
-    args = [__filename, '--no-coverage', '--coverage-report']
-    if (options.coverageReport) {
-      args.push(options.coverageReport)
-    }
-    child = fg(node, args)
-    child.removeAllListeners('close')
-    child.on('close', function (c, s) {
-      if (signal || s) {
-        setTimeout(function () {}, 200)
-        return process.kill(process.pid, signal || s)
-      }
-      if (code || c) {
-        return process.exit(code || c)
-      }
-    })
+    runCoverageReport(options, code, signal)
   })
 }
 
@@ -417,23 +392,37 @@ function pipeToCoverageService (service, options, child) {
       console.log('Successfully piped to ' + service.name)
     }
   })
-
-  signalExit(function (code, signal) {
-    child.kill('SIGHUP')
-    ca.kill('SIGHUP')
-  })
 }
 
-/* istanbul ignore function */
-function runCoverageReport (options) {
+function runCoverageReport (options, code, signal) {
+  if (options.checkCoverage) {
+    runCoverageCheck(options, code, signal)
+  } else {
+    runCoverageReportOnly(options, code, signal)
+  }
+}
+
+function runCoverageReportOnly (options, code, signal) {
+  if (options.coverageReport === false) {
+    return close(code, signal)
+  }
+
+  if (!options.coverageReport) {
+    if (options.pipeToService || coverageServiceTest) {
+      options.coverageReport = 'text-lcov'
+    } else {
+      options.coverageReport = 'text'
+    }
+  }
+
   var args = [nycBin, 'report', '--reporter', options.coverageReport]
   // console.error('run coverage report', args)
 
+  var child
   // automatically hook into coveralls and/or codecov
   if (options.coverageReport === 'text-lcov' && options.pipeToService) {
     // console.error('pipeToService')
-    var child = spawn(node, args, { stdio: [ 0, 'pipe', 2 ] })
-
+    child = spawn(node, args, { stdio: [ 0, 'pipe', 2 ] })
     pipeToCoverageServices(options, child)
   } else {
     // otherwise just run the reporter
@@ -444,6 +433,31 @@ function runCoverageReport (options) {
       })
     }
   }
+
+  if (code || signal) {
+    child.removeAllListeners('close')
+    child.on('close', close)
+  }
+
+  function close (c, s) {
+    if (signal || s) {
+      setTimeout(function () {}, 200)
+      return process.kill(process.pid, signal || s)
+    }
+    if (code || c) {
+      return process.exit(code || c)
+    }
+  }
+}
+
+function runCoverageCheck (options, code, signal) {
+  var args = [nycBin, 'check-coverage'].concat(options.checkCoverage)
+
+  var child = fg(node, args)
+  child.removeAllListeners('close')
+  child.on('close', function (c, s) {
+    runCoverageReportOnly(options, code || c, signal || s)
+  })
 }
 
 function usage () {

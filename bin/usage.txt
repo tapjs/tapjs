@@ -9,6 +9,12 @@ To parse TAP data from stdin, specify "-" as a filename.
 Short options are parsed gnu-style, so for example '-bCRspec' would be
 equivalent to '--bail --no-color --reporter=spec'
 
+If the --check-coverage or --coverage-report options are provided, but
+no test files are specified, then a coverage report or coverage check
+will be run on the data from the last test run.
+
+Coverage is never enabled for stdin.
+
 Options:
 
   -c --color                  Use colors (Default for TTY)
@@ -70,6 +76,8 @@ Options:
                               This can be run on its own at any time
                               after a test run that included coverage.
 
+  --no-coverage-report        Do not output a coverage report.
+
   -t<n> --timeout=<n>         Time out test files after <n> seconds.
                               Defaults to 30, or the value of the
                               TAP_TIMEOUT environment variable.
@@ -103,6 +111,9 @@ Options:
                               thresholds provided.  Setting this
                               explicitly will default --coverage to
                               true.
+
+                              This can be run on its own any time
+                              after a test run that included coverage.
 
   --branches                  what % of branches must be covered?
                               Setting this will default both
