@@ -96,6 +96,7 @@ function parseArgs (args) {
   var options = {}
 
   options.nodeArgs = []
+  options.nycArgs = []
   options.timeout = process.env.TAP_TIMEOUT || 30
   // coverage tools run slow.
   if (global.__coverage__) {
@@ -134,7 +135,9 @@ function parseArgs (args) {
       options.pipeToService = true
     }
   }
-  options.coverage = options.pipeToService
+
+  var defaultCoverage = options.pipeToService
+  var defaultCheckCoverage = false
 
   options.coverageReport = null
 
@@ -183,6 +186,14 @@ function parseArgs (args) {
     switch (key) {
       case '--help':
         console.log(usage())
+        return null
+
+      case '--nyc-help':
+        nycHelp()
+        return null
+
+      case '--nyc-version':
+        nycVersion()
         return null
 
       case '--version':
@@ -251,6 +262,28 @@ function parseArgs (args) {
         }
         continue
 
+      case '--check-coverage':
+        defaultCoverage = true
+        options.checkCoverage = true
+        continue
+
+      case '--nyc-arg':
+        val = val || args[++i]
+        if (val !== undefined) {
+          options.nycArgs.push(val)
+        }
+        continue
+
+      case '--branches':
+      case '--functions':
+      case '--lines':
+      case '--statements':
+        defaultCoverage = true
+        defaultCheckCoverage = true
+        val = val || args[++i]
+        options.nycArgs.push(key, val)
+        continue
+
       case '--color':
         options.color = true
         continue
@@ -282,6 +315,18 @@ function parseArgs (args) {
     }
   }
 
+  if (options.coverage === undefined) {
+    options.coverage = defaultCoverage
+  }
+
+  if (options.checkCoverage === undefined) {
+    options.checkCoverage = defaultCheckCoverage
+  }
+
+  if (options.checkCoverage) {
+    options.nycArgs.push('--check-coverage')
+  }
+
   if (process.env.TAP === '1') {
     options.reporter = 'tap'
   }
@@ -300,6 +345,8 @@ function respawnWithCoverage (options) {
   // Re-spawn with coverage
   var args = [nycBin].concat(
     '--silent',
+    options.nycArgs,
+    '--',
     process.execArgv,
     process.argv.slice(1),
     '--__coverage__'
@@ -307,18 +354,22 @@ function respawnWithCoverage (options) {
   var child = fg(node, args)
   child.removeAllListeners('close')
   child.on('close', function (code, signal) {
-    if (signal) {
-      return process.kill(process.pid, signal)
-    }
-    if (code) {
-      return process.exit(code)
-    }
     // console.error('run coverage report')
     args = [__filename, '--no-coverage', '--coverage-report']
     if (options.coverageReport) {
       args.push(options.coverageReport)
     }
-    fg(node, args)
+    child = fg(node, args)
+    child.removeAllListeners('close')
+    child.on('close', function (c, s) {
+      if (signal || s) {
+        setTimeout(function () {}, 200)
+        return process.kill(process.pid, signal || s)
+      }
+      if (code || c) {
+        return process.exit(code || c)
+      }
+    })
   })
 }
 
@@ -399,6 +450,14 @@ function usage () {
   return fs.readFileSync(__dirname + '/usage.txt', 'utf8')
     .split('@@REPORTERS@@')
     .join(getReporters())
+}
+
+function nycHelp () {
+  fg(node, [nycBin, '--help'])
+}
+
+function nycVersion () {
+  console.log(require('nyc/package.json').version)
 }
 
 function getReporters () {

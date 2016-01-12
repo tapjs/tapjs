@@ -94,6 +94,40 @@ Options:
 
   --strict                    Run JS tests in 'use strict' mode
 
+  --nyc-arg=<arg>             Pass an argument to nyc when running
+                              child processes with coverage enabled.
+                              This can be specified multiple times to
+                              pass multiple args to nyc.
+
+  --check-coverage            Check whether coverage is within
+                              thresholds provided.  Setting this
+                              explicitly will default --coverage to
+                              true.
+
+  --branches                  what % of branches must be covered?
+                              Setting this will default both
+                              --check-coverage and --coverage to true.
+                              [default: 0]
+
+  --functions                 what % of functions must be covered?
+                              Setting this explicitly will default both
+                              --check-coverage and --coverage to true.
+                              [default: 0]
+
+  --lines                     what % of lines must be covered?
+                              Setting this explicitly will default both
+                              --check-coverage and --coverage to true.
+                              [default: 90]
+
+  --statements                what % of statements must be covered?
+                              Setting this explicitly will default both
+                              --check-coverage and --coverage to true.
+                              [default: 0]
+
+  --nyc-help                  Print nyc usage banner.  Useful for
+                              viewing options for --nyc-arg.
+
+  --nyc-version               Print version of nyc used by tap.
+
   --                          Stop parsing flags, and treat any additional
                               command line arguments as filenames.
-
