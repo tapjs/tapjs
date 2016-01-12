@@ -1,4 +1,5 @@
 var tap = require('../')
+var Test = tap.Test
 
 tap.test('timeout test with plan only', function (t) {
   t.plan(2)
@@ -25,5 +26,44 @@ tap.test('timeout test with plan and end', function (t) {
     if (--tc === 0) {
       t.end()
     }
+  }, 100)
+})
+
+tap.test('t.setTimeout()', function (t) {
+  t.throws(function () {
+    var tt = new Test()
+    tt.setTimeout(-1)
+  }, {}, { message: 'setTimeout: number > 0 required' })
+
+  t.throws(function () {
+    var tt = new Test()
+    tt.setTimeout('not a number')
+  }, {}, { message: 'setTimeout: number > 0 required' })
+
+  var expect = new RegExp('^TAP version 13\n' +
+    '    # Subtest: child test\n' +
+    '    ok 1 - this is fine\n' +
+    '    not ok 2 - timeout!\n' +
+    '      ---\n' +
+    '(      expired: some name\n|' +
+    '      timeout: 1\n){2}' +
+    '      \\.\\.\\.\n' +
+    '    1..2\n' +
+    '    # failed 1 of 2 tests\n' +
+    'not ok 1 - child test # time=')
+
+  var tt = new Test({ name: 'some name' })
+  tt.test('child test', function (tt) {
+    tt.pass('this is fine')
+  })
+  tt.setTimeout(1)
+  var out = ''
+  tt.on('data', function (c) {
+    out += c
+  })
+  setTimeout(function () {
+    t.notOk(tt.passing())
+    t.match(out, expect)
+    t.end()
   }, 100)
 })
