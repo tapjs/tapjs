@@ -78,6 +78,12 @@ Options:
 
   -v --version                show the version of this program
 
+  --node-arg=<arg>            Pass an argument to Node binary in all
+                              child processes.  Run 'node --help' to
+                              see a list of all relevant arguments.
+                              This can be specified multiple times to
+                              pass multiple args to Node.
+
   -gc --expose-gc             Expose the gc() function to Node tests
 
   --debug                     Run JavaScript tests with node --debug

@@ -244,6 +244,13 @@ function parseArgs (args) {
         options.nodeArgs.push('--harmony')
         continue
 
+      case '--node-arg':
+        val = val || args[++i]
+        if (val !== undefined) {
+          options.nodeArgs.push(val)
+        }
+        continue
+
       case '--color':
         options.color = true
         continue
