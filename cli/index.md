@@ -18,6 +18,12 @@ To parse TAP data from stdin, specify "-" as a filename.
 Short options are parsed gnu-style, so for example '-bCRspec' would be
 equivalent to '--bail --no-color --reporter=spec'
 
+If the --check-coverage or --coverage-report options are provided, but
+no test files are specified, then a coverage report or coverage check
+will be run on the data from the last test run.
+
+Coverage is never enabled for stdin.
+
 Options:
 
   -c --color                  Use colors (Default for TTY)
@@ -81,6 +87,8 @@ Options:
                               This can be run on its own at any time
                               after a test run that included coverage.
 
+  --no-coverage-report        Do not output a coverage report.
+
   -t<n> --timeout=<n>         Time out test files after <n> seconds.
                               Defaults to 30, or the value of the
                               TAP_TIMEOUT environment variable.
@@ -88,6 +96,12 @@ Options:
   -h --help                   print this thing you're looking at
 
   -v --version                show the version of this program
+
+  --node-arg=<arg>            Pass an argument to Node binary in all
+                              child processes.  Run 'node --help' to
+                              see a list of all relevant arguments.
+                              This can be specified multiple times to
+                              pass multiple args to Node.
 
   -gc --expose-gc             Expose the gc() function to Node tests
 
@@ -99,6 +113,45 @@ Options:
 
   --strict                    Run JS tests in 'use strict' mode
 
+  --nyc-arg=<arg>             Pass an argument to nyc when running
+                              child processes with coverage enabled.
+                              This can be specified multiple times to
+                              pass multiple args to nyc.
+
+  --check-coverage            Check whether coverage is within
+                              thresholds provided.  Setting this
+                              explicitly will default --coverage to
+                              true.
+
+                              This can be run on its own any time
+                              after a test run that included coverage.
+
+  --branches                  what % of branches must be covered?
+                              Setting this will default both
+                              --check-coverage and --coverage to true.
+                              [default: 0]
+
+  --functions                 what % of functions must be covered?
+                              Setting this explicitly will default both
+                              --check-coverage and --coverage to true.
+                              [default: 0]
+
+  --lines                     what % of lines must be covered?
+                              Setting this explicitly will default both
+                              --check-coverage and --coverage to true.
+                              [default: 90]
+
+  --statements                what % of statements must be covered?
+                              Setting this explicitly will default both
+                              --check-coverage and --coverage to true.
+                              [default: 0]
+
+  --nyc-help                  Print nyc usage banner.  Useful for
+                              viewing options for --nyc-arg.
+
+  --nyc-version               Print version of nyc used by tap.
+
   --                          Stop parsing flags, and treat any additional
                               command line arguments as filenames.
+
 ```
