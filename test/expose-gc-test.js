@@ -17,24 +17,22 @@ tap.test("gc test when the gc isn't there", function (t) {
 })
 
 tap.test('gc test when the gc should be there', function (t) {
-  t.plan(2)
-  t.test('test for gc using --gc', function (t) {
-    t.plan(1)
+  var options = [
+    '--gc',
+    '--expose-gc',
+    '--node-arg=--expose_gc'
+  ]
 
-    var args = [run, '--gc', gcScript]
-    cp.execFile(node, args, opt, function (err, stdo, stde) {
-      if (err) throw err
-      t.equal(stde, 'true\n')
-    })
-  })
+  t.plan(options.length)
+  options.forEach(function (option) {
+    t.test('test for gc using ' + option, function (t) {
+      t.plan(1)
 
-  t.test('test for gc using --expose-gc', function (t) {
-    t.plan(1)
-
-    var args = [run, '--expose-gc', gcScript]
-    cp.execFile(node, args, opt, function (err, stdo, stde) {
-      if (err) throw err
-      t.equal(stde, 'true\n')
+      var args = [run, option, gcScript]
+      cp.execFile(node, args, opt, function (err, stdo, stde) {
+        if (err) throw err
+        t.equal(stde, 'true\n')
+      })
     })
   })
 })

@@ -3,12 +3,11 @@ var node = process.execPath
 var fs = require('fs')
 var spawn = require('child_process').spawn
 var fg = require('foreground-child')
-var signalExit = require('signal-exit')
 var opener = require('opener')
 var supportsColor = require('supports-color')
 var nycBin = require.resolve('nyc/bin/nyc.js')
 var glob = require('glob')
-var isExe = require('./is-exe.js')
+var isexe = require('isexe')
 
 var coverageServiceTest = process.env.COVERAGE_SERVICE_TEST === 'true'
 
@@ -46,6 +45,7 @@ function main () {
   }
 
   var options = parseArgs(args)
+
   if (!options) {
     return
   }
@@ -58,6 +58,27 @@ function main () {
     }
   })
 
+  options.files = globFiles(options.files)
+
+  if ((options.coverageReport || options.checkCoverage) &&
+      options.files.length === 0) {
+    runCoverageReport(options)
+    return
+  }
+
+  if (options.files.length === 0) {
+    console.error('Reading TAP data from stdin (use "-" argument to suppress)')
+    options.files.push('-')
+  }
+
+  if (options.files.length === 1 && options.files[0] === '-') {
+    if (options.coverage) {
+      console.error('Coverage disabled because stdin cannot be instrumented')
+    }
+    stdinOnly(options)
+    return
+  }
+
   // By definition, the next block cannot be covered, because
   // they are only relevant when coverage is turned off.
 
@@ -67,27 +88,7 @@ function main () {
     return
   }
 
-  /* istanbul ignore if */
-  if (options.coverageReport &&
-    (!global.__coverage__ || coverageServiceTest) &&
-    options.files.length === 0) {
-    runCoverageReport(options)
-    return
-  }
-
   setupTapEnv(options)
-
-  options.files = globFiles(options.files)
-
-  if (options.files.length === 0) {
-    console.error('Reading TAP data from stdin (use "-" argument to suppress)')
-    options.files.push('-')
-  }
-
-  if (options.files.length === 1 && options.files[0] === '-') {
-    stdinOnly(options)
-    return
-  }
 
   runTests(options)
 }
@@ -96,8 +97,10 @@ function parseArgs (args) {
   var options = {}
 
   options.nodeArgs = []
+  options.nycArgs = []
   options.timeout = process.env.TAP_TIMEOUT || 30
   // coverage tools run slow.
+  /* istanbul ignore else */
   if (global.__coverage__) {
     options.timeout = 240
   }
@@ -134,7 +137,8 @@ function parseArgs (args) {
       options.pipeToService = true
     }
   }
-  options.coverage = options.pipeToService
+
+  var defaultCoverage = options.pipeToService
 
   options.coverageReport = null
 
@@ -185,6 +189,14 @@ function parseArgs (args) {
         console.log(usage())
         return null
 
+      case '--nyc-help':
+        nycHelp()
+        return null
+
+      case '--nyc-version':
+        nycVersion()
+        return null
+
       case '--version':
         console.log(require('../package.json').version)
         return null
@@ -197,13 +209,11 @@ function parseArgs (args) {
 
       case '--coverage-report':
         options.coverageReport = val || args[++i]
-        if (!options.coverageReport) {
-          if (options.pipeToService || coverageServiceTest) {
-            options.coverageReport = 'text-lcov'
-          } else {
-            options.coverageReport = 'text'
-          }
-        }
+        defaultCoverage = true
+        continue
+
+      case '--no-coverage-report':
+        options.coverageReport = false
         continue
 
       case '--no-cov': case '--no-coverage':
@@ -244,6 +254,35 @@ function parseArgs (args) {
         options.nodeArgs.push('--harmony')
         continue
 
+      case '--node-arg':
+        val = val || args[++i]
+        if (val !== undefined) {
+          options.nodeArgs.push(val)
+        }
+        continue
+
+      case '--check-coverage':
+        defaultCoverage = true
+        options.checkCoverage = options.checkCoverage || []
+        continue
+
+      case '--nyc-arg':
+        val = val || args[++i]
+        if (val !== undefined) {
+          options.nycArgs.push(val)
+        }
+        continue
+
+      case '--branches':
+      case '--functions':
+      case '--lines':
+      case '--statements':
+        defaultCoverage = true
+        val = val || args[++i]
+        options.checkCoverage = options.checkCoverage || []
+        options.checkCoverage.push(key, val)
+        continue
+
       case '--color':
         options.color = true
         continue
@@ -275,6 +314,10 @@ function parseArgs (args) {
     }
   }
 
+  if (options.coverage === undefined) {
+    options.coverage = defaultCoverage
+  }
+
   if (process.env.TAP === '1') {
     options.reporter = 'tap'
   }
@@ -287,12 +330,14 @@ function parseArgs (args) {
   return options
 }
 
-/* istanbul ignore function */
+/* istanbul ignore next */
 function respawnWithCoverage (options) {
   // console.error('respawn with coverage')
   // Re-spawn with coverage
   var args = [nycBin].concat(
     '--silent',
+    options.nycArgs,
+    '--',
     process.execArgv,
     process.argv.slice(1),
     '--__coverage__'
@@ -300,18 +345,7 @@ function respawnWithCoverage (options) {
   var child = fg(node, args)
   child.removeAllListeners('close')
   child.on('close', function (code, signal) {
-    if (signal) {
-      return process.kill(process.pid, signal)
-    }
-    if (code) {
-      return process.exit(code)
-    }
-    // console.error('run coverage report')
-    args = [__filename, '--no-coverage', '--coverage-report']
-    if (options.coverageReport) {
-      args.push(options.coverageReport)
-    }
-    fg(node, args)
+    runCoverageReport(options, code, signal)
   })
 }
 
@@ -359,23 +393,37 @@ function pipeToCoverageService (service, options, child) {
       console.log('Successfully piped to ' + service.name)
     }
   })
-
-  signalExit(function (code, signal) {
-    child.kill('SIGHUP')
-    ca.kill('SIGHUP')
-  })
 }
 
-/* istanbul ignore function */
-function runCoverageReport (options) {
+function runCoverageReport (options, code, signal) {
+  if (options.checkCoverage) {
+    runCoverageCheck(options, code, signal)
+  } else {
+    runCoverageReportOnly(options, code, signal)
+  }
+}
+
+function runCoverageReportOnly (options, code, signal) {
+  if (options.coverageReport === false) {
+    return close(code, signal)
+  }
+
+  if (!options.coverageReport) {
+    if (options.pipeToService || coverageServiceTest) {
+      options.coverageReport = 'text-lcov'
+    } else {
+      options.coverageReport = 'text'
+    }
+  }
+
   var args = [nycBin, 'report', '--reporter', options.coverageReport]
   // console.error('run coverage report', args)
 
+  var child
   // automatically hook into coveralls and/or codecov
   if (options.coverageReport === 'text-lcov' && options.pipeToService) {
     // console.error('pipeToService')
-    var child = spawn(node, args, { stdio: [ 0, 'pipe', 2 ] })
-
+    child = spawn(node, args, { stdio: [ 0, 'pipe', 2 ] })
     pipeToCoverageServices(options, child)
   } else {
     // otherwise just run the reporter
@@ -386,12 +434,45 @@ function runCoverageReport (options) {
       })
     }
   }
+
+  if (code || signal) {
+    child.removeAllListeners('close')
+    child.on('close', close)
+  }
+
+  function close (c, s) {
+    if (signal || s) {
+      setTimeout(function () {}, 200)
+      return process.kill(process.pid, signal || s)
+    }
+    if (code || c) {
+      return process.exit(code || c)
+    }
+  }
+}
+
+function runCoverageCheck (options, code, signal) {
+  var args = [nycBin, 'check-coverage'].concat(options.checkCoverage)
+
+  var child = fg(node, args)
+  child.removeAllListeners('close')
+  child.on('close', function (c, s) {
+    runCoverageReportOnly(options, code || c, signal || s)
+  })
 }
 
 function usage () {
   return fs.readFileSync(__dirname + '/usage.txt', 'utf8')
     .split('@@REPORTERS@@')
     .join(getReporters())
+}
+
+function nycHelp () {
+  fg(node, [nycBin, '--help'])
+}
+
+function nycVersion () {
+  console.log(require('nyc/package.json').version)
 }
 
 function getReporters () {
@@ -522,7 +603,7 @@ function runAllFiles (options, saved, tap) {
         return file + '/' + f
       })
       options.files.push.apply(options.files, dir)
-    } else if (isExe(st)) {
+    } else if (isexe.sync(options.files[i])) {
       tap.spawn(options.files[i], [], opt, file, extra)
     }
   }
