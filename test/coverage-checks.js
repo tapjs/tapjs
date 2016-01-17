@@ -16,45 +16,58 @@ t.test('generate some coverage data', function (tt) {
   })
 })
 
-t.test('--lines 100', function (t) {
-  var args = [run, '--lines=100']
-  exec(node, args, { env: {} }, function (err, stdout, stderr) {
-    t.ok(err)
-    t.equal(err.code, 1)
-    var pattern = new RegExp(
-      'ERROR: Coverage for lines \\([0-9\.]+%\\) ' +
-      'does not meet global threshold \\(100%\\)'
-    )
-    t.match(stderr, pattern)
-    var banner =
-      '--------------|----------|----------|----------|' +
-      '----------|----------------|\n' +
-      'File          |  % Stmts | % Branch |  % Funcs |' +
-      '  % Lines |Uncovered Lines |\n' +
-      '--------------|----------|----------|----------|' +
-      '----------|----------------|\n'
-    t.match(stdout, banner)
-    t.end()
+var passes = [
+  '--lines=1',
+  '--lines=1 --check-coverage',
+  '--lines 1 --statements 1 --functions 1 --branches 1'
+]
+
+var fails = [
+  '--branches 1', // default lines is 90
+  '--branches=100 --lines=0',
+  '--check-coverage'
+]
+
+var failPattern = new RegExp(
+  'ERROR: Coverage for (lines|branches|statements|functions) ' +
+  '\\([0-9\.]+%\\) ' +
+  'does not meet global threshold \\([0-9]+%\\)'
+)
+var banner =
+  '--------------|----------|----------|----------|' +
+  '----------|----------------|\n' +
+  'File          |  % Stmts | % Branch |  % Funcs |' +
+  '  % Lines |Uncovered Lines |\n' +
+  '--------------|----------|----------|----------|' +
+  '----------|----------------|\n'
+
+t.test('fails', function (t) {
+  t.plan(fails.length)
+  fails.forEach(function (f) {
+    var args = [run].concat(f.split(' '))
+    t.test(f, function (t) {
+      exec(node, args, { env: {} }, function (err, stdout, stderr) {
+        t.ok(err)
+        t.equal(err.code, 1)
+        t.match(stderr, failPattern)
+        t.match(stdout, banner)
+        t.end()
+      })
+    })
   })
 })
 
-t.test('--lines 1', function (t) {
-  var args = [run, '--lines=1']
-  exec(node, args, { env: {} }, function (err, stdout, stderr) {
-    t.notOk(err)
-    var pattern = new RegExp(
-      'ERROR: Coverage for lines \\([0-9\.]+%\\) ' +
-      'does not meet global threshold \\(100%\\)'
-    )
-    t.notMatch(stderr, pattern)
-    var banner =
-      '--------------|----------|----------|----------|' +
-      '----------|----------------|\n' +
-      'File          |  % Stmts | % Branch |  % Funcs |' +
-      '  % Lines |Uncovered Lines |\n' +
-      '--------------|----------|----------|----------|' +
-      '----------|----------------|\n'
-    t.match(stdout, banner)
-    t.end()
+t.test('passes', function (t) {
+  t.plan(passes.length)
+  passes.forEach(function (p) {
+    t.test(p, function (t) {
+      var args = [run].concat(p.split(' '))
+      exec(node, args, { env: {} }, function (err, stdout, stderr) {
+        t.notOk(err)
+        t.notMatch(stderr, failPattern)
+        t.match(stdout, banner)
+        t.end()
+      })
+    })
   })
 })
