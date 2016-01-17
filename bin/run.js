@@ -100,6 +100,7 @@ function parseArgs (args) {
   options.nycArgs = []
   options.timeout = process.env.TAP_TIMEOUT || 30
   // coverage tools run slow.
+  /* istanbul ignore else */
   if (global.__coverage__) {
     options.timeout = 240
   }
@@ -329,7 +330,7 @@ function parseArgs (args) {
   return options
 }
 
-/* istanbul ignore function */
+/* istanbul ignore next */
 function respawnWithCoverage (options) {
   // console.error('respawn with coverage')
   // Re-spawn with coverage

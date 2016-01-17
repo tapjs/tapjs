@@ -1,5 +1,7 @@
 var t = require('../')
-var spawn = require('child_process').spawn
+var cp = require('child_process')
+var spawn = cp.spawn
+var execFile = cp.execFile
 var node = process.execPath
 var run = require.resolve('../bin/run.js')
 var ok = require.resolve('./test/ok.js')
@@ -514,4 +516,50 @@ t.test('non-zero exit is reported as failure', function (t) {
     t.match(out, /\n+\s+exitCode: 1\n/)
     t.end()
   })
+})
+
+t.test('warns when tring to cover stdin', function (t) {
+  var args = [run, '-', '--coverage']
+  var out = ''
+  var err = ''
+  var expect = 'Coverage disabled because stdin cannot be instrumented\n'
+  var child = spawn(node, args)
+  child.stdout.on('data', function (c) {
+    out += c
+  })
+  child.stderr.on('data', function (c) {
+    err += c
+  })
+  child.on('close', function (code, signal) {
+    t.equal(err, expect)
+    t.end()
+  })
+  child.stdin.end()
+})
+
+t.test('--nyc stuff', function (t) {
+  t.test('--nyc-version', function (t) {
+    var expect = require('nyc/package.json').version + '\n'
+    execFile(node, [run, '--nyc-version'], function (err, stdout, stderr) {
+      if (err) {
+        throw err
+      }
+      t.equal(stderr, '')
+      t.equal(stdout, expect)
+      t.end()
+    })
+  })
+
+  t.test('--nyc-help', function (t) {
+    execFile(node, [run, '--nyc-help'], function (err, stdout, stderr) {
+      if (err) {
+        throw err
+      }
+      t.equal(stderr, '')
+      t.match(stdout, /check-coverage/)
+      t.end()
+    })
+  })
+
+  t.end()
 })
