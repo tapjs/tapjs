@@ -7,7 +7,7 @@ var opener = require('opener')
 var supportsColor = require('supports-color')
 var nycBin = require.resolve('nyc/bin/nyc.js')
 var glob = require('glob')
-var isExe = require('./is-exe.js')
+var isexe = require('isexe')
 
 var coverageServiceTest = process.env.COVERAGE_SERVICE_TEST === 'true'
 
@@ -603,7 +603,7 @@ function runAllFiles (options, saved, tap) {
         return file + '/' + f
       })
       options.files.push.apply(options.files, dir)
-    } else if (isExe(st)) {
+    } else if (isexe.sync(options.files[i])) {
       tap.spawn(options.files[i], [], opt, file, extra)
     }
   }
