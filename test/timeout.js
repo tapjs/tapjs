@@ -58,7 +58,7 @@ tap.test('t.setTimeout()', function (t) {
     '    # failed 1 of 2 tests\n' +
     'not ok 1 - child test # time=')
 
-  var tt = new Test({ name: 'some name' })
+  tt = new Test({ name: 'some name' })
   tt.test('child test', function (tt) {
     tt.pass('this is fine')
   })
