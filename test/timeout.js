@@ -40,6 +40,12 @@ tap.test('t.setTimeout()', function (t) {
     tt.setTimeout('not a number')
   }, {}, { message: 'setTimeout: number > 0 required' })
 
+  var tt = new Test({ timeout: 1000 })
+  tt.setTimeout(2000)
+  tt.setTimeout(Infinity)
+  t.notOk(tt._timeout)
+  t.notOk(tt._timer)
+
   var expect = new RegExp('^TAP version 13\n' +
     '    # Subtest: child test\n' +
     '    ok 1 - this is fine\n' +
