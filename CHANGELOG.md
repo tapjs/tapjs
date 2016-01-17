@@ -1,3 +1,13 @@
+## 5.1
+
+All about the cli flags!
+
+Support `--node-arg=...` and `--nyc-arg=...` command line flags.
+
+Add support for coverage checking using `--statements=95` etc.
+
+Test for executable-ness more consistently across platforms.
+
 ## 5.0
 
 Make it impossible to `try/catch` out of plan/end abuses.  Calling
