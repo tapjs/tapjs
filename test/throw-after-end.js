@@ -6,7 +6,7 @@ tt.pass('this is fine')
 tt.end()
 t.throws(function () {
   tt.threw(new Error('whoops'))
-})
+}, { message: 'whoops', stack: /^Error: whoops\n/ })
 
 var out = ''
 tt = new Test()
