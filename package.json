@@ -40,7 +40,7 @@
   "scripts": {
     "regen-fixtures": "node scripts/generate-test-test.js test/test/*.js",
     "test": "node bin/run.js test/*.* --coverage",
-    "posttest": "standard"
+    "posttest": "standard lib test"
   },
   "devDependencies": {
     "bluebird": "^2.9.34",

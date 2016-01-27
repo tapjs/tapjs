@@ -1,3 +1,4 @@
+/* standard ignore next */
 describe('parent', function () {
 
   before('name', function () {
