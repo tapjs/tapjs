@@ -1,3 +1,7 @@
+## 5.2
+
+Adds `t.beforeEach()` and `t.afterEach()`.
+
 ## 5.1
 
 All about the cli flags!
