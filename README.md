@@ -451,6 +451,20 @@ is met.
 Note that when called on the root `tap` export, this also triggers
 `autoend` behavior.
 
+#### t.beforeEach(function (done) {})
+
+Call the supplied function before every subsequent descendent test.
+
+The `done` callback is a function to call when finished.  You can also
+return a Promise rather than using the `done` callback.
+
+#### t.afterEach(function (done) {})
+
+Call the supplied function after every subsequent descendent test.
+
+The `done` callback is a function to call when finished.  You can also
+return a Promise rather than using the `done` callback.
+
 #### t.autoend()
 
 Automatically end the test as soon as there is nothing pending in its
