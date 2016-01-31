@@ -378,5 +378,7 @@ total ................................................. 7/7
 You can do these things for extra credit.
 
 1. Put `--cov` in your package.json test script to always run tests
-   with coverage.
-2. Install `tap` globally to run it directly.
+   with [coverage](/coverage/).
+2. Install `tap` globally to [run it](/cli/) directly.
+
+See the [API reference](/api/) to learn more.
