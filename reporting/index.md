@@ -18,8 +18,10 @@ ports many of the report styles built into
 You can specify a reporter using the `--reporter` or `-R` argument.
 The following options are available:
 
-- classic: The default.  Show a summary of each test file being run,
-  along with reporting each failure and pending test.
+- classic: The default when stdout is a terminal.  Show a summary of
+  each test file being run, along with reporting each failure and
+  pending test.
+- tap: Just the raw TAP.  Default when stdout is not a terminal.
 - doc: Output heirarchical HTML.
 - dot: Output a dot for each pass and failure.
 - dump: Mostly for debugging tap-mocha-reporter, dumping out the TAP
@@ -35,5 +37,4 @@ The following options are available:
 - silent: Output absolutely nothing
 - spec: Output based on rspec, with heirarchical indentation and
   unicode red and green checks and X's.
-- tap: Just the raw TAP.  Default when stdout is not a terminal.
 - xunit: XML output popular in .NET land.
