@@ -49,6 +49,10 @@ Expect the function to throw an error.  If an expected error is
 provided, then also verify that the thrown error matches the expected
 error.
 
+If the expected error is an object, then it's matched against the
+thrown error using `t.match(er, expectedEror)`.  If it's a function,
+then the error is asserted to be a member of that class.
+
 If the function has a name, and the message is not provided, then the
 function name will be used as the message.
 

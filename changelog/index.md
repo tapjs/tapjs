@@ -2,6 +2,11 @@
 layout: layout
 ---
 
+## 5.4
+
+Support passing in a class to `t.throws`, rather than an Error
+sample object.
+
 ## 5.3
 
 Return a `Promise` object from `t.test()`, `t.spawn()`, and
