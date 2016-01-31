@@ -16,6 +16,10 @@ body {
   margin: 0;
 }
 
+a:hover, a:active, a:focus {
+  color: red;
+}
+
 code, pre, kbd {
   font-family: monospace;
 }
@@ -33,7 +37,16 @@ section.side {
 }
 
 section.side li {
-  display: inline-block;
+  display: inline;
+}
+
+section.side ul {
+  display: block;
+  overflow:auto;
+}
+
+section.side li ul {
+  display: inline;
 }
 
 .side ul {
@@ -43,12 +56,19 @@ section.side li {
 
 .side img {
   display: block;
-  float: left;
   margin-right: 1em;
+  margin-top: 1em;
 }
 
 section.main {
   display: block;
+}
+
+@media only screen and (min-width: 240px) {
+  .side img {
+    float:left;
+    margin: 0 1em 0 0;
+  }
 }
 
 @media only screen and (min-width: 800px) {
@@ -66,13 +86,31 @@ section.main {
     float:none;
   }
 
+  section.side ul {
+    overflow: none;
+    display: block;
+  }
+
   section.side li {
     display: block;
   }
+
+  section.side a {
+    display: block;
+  }
+
+  section.side li ul {
+    margin: 0;
+    display: block;
+  }
+
+  section.side li li {
+    margin-left: 1em;
+  }
+
   .side h2, .side p {
     margin-top: 1em;
   }
-
 
   section.main {
     float: right;
@@ -90,6 +128,13 @@ section.main {
   {% for link in site.links %}
     <li>
       <a href="{{ link.url }}">{{ link.name }}</a>
+      {% if link.links %}
+      <ul>
+        {% for sublink in link.links %}
+        <li><a href="{{ sublink.url }}">{{ sublink.name }}</a></li>
+        {% endfor %}
+      </ul>
+      {% endif %}
     </li>
   {% endfor %}
   </ul>
