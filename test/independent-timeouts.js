@@ -4,27 +4,44 @@ var tap = require('../')
 var test = tap.test
 var Test = tap.Test
 
-test('finishes in time', {timeout: 100}, function (t) {
+var isCI = !!process.env.CI
+var long = 100
+var med = 60
+var short = 50
+
+if (process.env.CI) {
+  long *= 10
+  med *= 10
+  short *= 10
+}
+
+if (process.env.APPVEYOR) {
+  long *= 2
+  med *= 2
+  short *= 2
+}
+
+test('finishes in time', {timeout: long}, function (t) {
   setTimeout(function () {
     t.end()
-  }, 60)
+  }, med)
 })
 
-test('finishes in time too', {timeout: 100}, function (t) {
+test('finishes in time too', {timeout: long}, function (t) {
   setTimeout(function () {
     t.end()
-  }, 60)
+  }, med)
 })
 
 test('does not finish in time', function (t) {
   t.plan(1)
   var tt = new Test()
-  tt.test('timeout', { timeout: 50 }, function (ttt) {
+  tt.test('timeout', { timeout: short }, function (ttt) {
     setTimeout(function () {
       ttt.fail('shouldve timed out')
       ttt.end()
       t.notOk(tt._ok)
-    }, 60)
+    }, med)
   })
   tt.end()
 })
