@@ -9,18 +9,16 @@ across subprocess boundaries.  It is included by default, and there's
 nothing you need to do but enable it.  Adding coverage *will* make
 your tests run slightly slower, but that's to be expected.
 
+Nyc in turn uses [istanbul](http://npm.im/istanbul) to do the actual
+coverage code transformation and reporting.
+
 To generate coverage information, run your tests with the `--cov`
 argument.
-
-To specify a report format, you can use `--coverage-report=<type>`.
-The default type is `text`, which produces a pretty text-only table on
-the terminal.  If you specify `--coverage-report=lcov`, then tap will
-attempt to open a web browser to view the report after the test run.
 
 If you use this a lot, you may want to add `coverage` and
 `.nyc_output` to your `.gitignore` and/or `.npmignore` files.
 
-### Travis-CI and Coveralls.io/CodeCov.io Integration
+## Travis-CI and Coveralls.io/CodeCov.io Integration
 
 You can very easily take advantage of continuous test coverage reports
 by using [Travis-CI](https://travis-ci.org) and
@@ -39,3 +37,26 @@ by using [Travis-CI](https://travis-ci.org) and
 4. When that token is set in the environment variable, `tap` will
    automatically generate coverage information and send it to the
    appropriate place.
+
+## Coverage Reporting
+
+Printing out a coverage report can be done along with tests, or after
+any covered test run, using the `--coverage-report=<type>` argument.
+
+The most popular types are `text` and `html`, but any report style
+supported by istanbul is available, including:
+
+- clover
+- cobertura
+- html
+- json
+- json-summary
+- teamcity
+- text
+- text-lcov
+- text-summary
+
+To specify a report format, you can use `--coverage-report=<type>`.
+The default type is `text`, which produces a pretty text-only table on
+the terminal.  If you specify `--coverage-report=html`, then tap will
+attempt to open a web browser to view the report after the test run.
