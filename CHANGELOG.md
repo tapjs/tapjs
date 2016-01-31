@@ -1,3 +1,8 @@
+## 5.3
+
+Return a `Promise` object from `t.test()`, `t.spawn()`, and
+`t.stdin()`.
+
 ## 5.2
 
 Adds `t.beforeEach()` and `t.afterEach()`.
