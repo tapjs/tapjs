@@ -70,7 +70,7 @@ Options:
                               command line, or 'text-lcov' when piping
                               to coveralls or codecov.
 
-                              If 'lcov' is used, then the report will
+                              If 'html' is used, then the report will
                               be opened in a web browser after running.
 
                               This can be run on its own at any time
