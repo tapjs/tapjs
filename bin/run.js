@@ -209,6 +209,9 @@ function parseArgs (args) {
 
       case '--coverage-report':
         options.coverageReport = val || args[++i]
+        if (options.coverageReport === 'html') {
+          options.coverageReport = 'lcov'
+        }
         defaultCoverage = true
         continue
 

@@ -11,7 +11,7 @@ test scripts, and a JavaScript framework for writing such scripts.
 Built-in support for code coverage (including instrumenting child
 processes).  Coverage is printed to the command line in a terse table
 by default, but tap can also open up your web browser to a pretty
-report if you add `--coverage-report=lcov` to the command.
+report if you add `--coverage-report=html` to the command.
 
 Works with all exception-throwing assertion libraries (chai, should,
 node's built-in `require('assert')`, or just throwing yourself) but
@@ -250,7 +250,7 @@ Options:
                               command line, or 'text-lcov' when piping
                               to coveralls or codecov.
 
-                              If 'lcov' is used, then the report will
+                              If 'html' is used, then the report will
                               be opened in a web browser after running.
 
                               This can be run on its own at any time
@@ -337,7 +337,7 @@ argument.
 
 To specify a report format, you can use `--coverage-report=<type>`.
 The default type is `text`, which produces a pretty text-only table on
-the terminal.  If you specify `--coverage-report=lcov`, then tap will
+the terminal.  If you specify `--coverage-report=html`, then tap will
 attempt to open a web browser to view the report after the test run.
 
 If you use this a lot, you may want to add `coverage` and
