@@ -124,3 +124,28 @@ test('test misuse', function (t) {
 
   t.end()
 })
+
+test('throws type', function (t)  {
+  t.throws(function() {
+    throw new TypeError('some type error');
+  }, TypeError, 'should throw a TypeError');
+
+  var tt = new Test()
+  t.notOk(tt.throws(function () {
+    throw new RangeError('x')
+  }, TypeError))
+
+  t.notOk(tt.throws(function () {
+    throw new RangeError('x')
+  }, new TypeError('x')))
+
+  t.throws(function () {
+    throw new SyntaxError('y')
+  }, { message: 'y' })
+
+  t.throws(function () {
+    throw new RangeError('x')
+  }, new Error('x'))
+
+  t.end()
+})
