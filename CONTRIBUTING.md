@@ -12,3 +12,4 @@
 - Prefer adding cases to an existing test rather than writing a new
   one from scratch.  For example, add a new test in `test/test/*.js`
   rather than create a new test that validates test output.
+- Docs should be changed on the `gh-pages` branch
