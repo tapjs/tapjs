@@ -8,6 +8,10 @@ var supportsColor = require('supports-color')
 var nycBin = require.resolve('nyc/bin/nyc.js')
 var glob = require('glob')
 var isexe = require('isexe')
+var osHomedir = require('os-homedir')
+var extend = require('deep-extend')
+var yaml = require('js-yaml')
+var parseRcFile = require('./utils').parseRcFile
 
 var coverageServiceTest = process.env.COVERAGE_SERVICE_TEST === 'true'
 
@@ -44,7 +48,17 @@ function main () {
     process.exit(1)
   }
 
-  var options = parseArgs(args)
+  // set default args
+  var defaults = constructDefaultArgs()
+
+  // parse dotfile
+  var rcOptions = parseRcFile(osHomedir() + '/.taprc')
+
+  // supplement defaults with parsed rc options
+  defaults = extend(defaults, rcOptions)
+
+  // parse args
+  var options = parseArgs(args, defaults)
 
   if (!options) {
     return
@@ -93,26 +107,37 @@ function main () {
   runTests(options)
 }
 
-function parseArgs (args) {
-  var options = {}
+function constructDefaultArgs () {
+  var defaultArgs = {
+    nodeArgs: [],
+    nycArgs: [],
+    timeout: process.env.TAP_TIMEOUT || 30,
+    color: supportsColor,
+    reporter: null,
+    files: [],
+    bail: false,
+    saveFile: null,
+    pipeToService: false,
+    coverageReport: null,
+  }
 
-  options.nodeArgs = []
-  options.nycArgs = []
-  options.timeout = process.env.TAP_TIMEOUT || 30
-  // coverage tools run slow.
-  /* istanbul ignore else */
   if (global.__coverage__) {
-    options.timeout = 240
+    defaultArgs.timeout = 240
   }
 
-  options.color = supportsColor
   if (process.env.TAP_COLORS !== undefined) {
-    options.color = !!(+process.env.TAP_COLORS)
+    defaultArgs.color = !!(+process.env.TAP_COLORS)
   }
-  options.reporter = null
-  options.files = []
-  options.bail = false
-  options.saveFile = null
+
+  if (process.env.TAP === '1') {
+    defaultArgs.reporter = 'tap'
+  }
+
+  return defaultArgs
+}
+
+function parseArgs (args, defaults) {
+  var options = defaults || {}
 
   var singleFlags = {
     b: 'bail',
@@ -131,7 +156,6 @@ function parseArgs (args) {
 
   // If we're running under Travis-CI with a Coveralls.io token,
   // then it's a safe bet that we ought to output coverage.
-  options.pipeToService = false
   for (var i = 0; i < coverageServices.length && !options.pipeToService; i++) {
     if (process.env[coverageServices[i].env]) {
       options.pipeToService = true
@@ -139,8 +163,6 @@ function parseArgs (args) {
   }
 
   var defaultCoverage = options.pipeToService
-
-  options.coverageReport = null
 
   for (i = 0; i < args.length; i++) {
     var arg = args[i]
@@ -319,10 +341,6 @@ function parseArgs (args) {
 
   if (options.coverage === undefined) {
     options.coverage = defaultCoverage
-  }
-
-  if (process.env.TAP === '1') {
-    options.reporter = 'tap'
   }
 
   // default to tap for non-tty envs
