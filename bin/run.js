@@ -8,29 +8,31 @@ var supportsColor = require('supports-color')
 var nycBin = require.resolve('nyc/bin/nyc.js')
 var glob = require('glob')
 var isexe = require('isexe')
+var osHomedir = require('os-homedir')
+var extend = require('deep-extend')
+var yaml = require('js-yaml')
+var parseRcFile = require('./utils').parseRcFile
 
 var coverageServiceTest = process.env.COVERAGE_SERVICE_TEST === 'true'
 
 // console.error(process.argv.join(' '))
 // console.error('CST=%j', process.env.COVERAGE_SERVICE_TEST)
 // console.error('CRT=%j', process.env.COVERALLS_REPO_TOKEN)
-// console.error('CCT=%j', process.env.CODECOV_TOKEN)
 if (coverageServiceTest) {
   console.log('COVERAGE_SERVICE_TEST')
 }
 
 // Add new coverage services here.
 // it'll check for the environ named and pipe appropriately.
+//
+// Currently only Coveralls is supported, but the infrastructure
+// is left in place in case some noble soul fixes the codecov
+// module in the future.  See https://github.com/tapjs/node-tap/issues/270
 var coverageServices = [
   {
     env: 'COVERALLS_REPO_TOKEN',
     bin: require.resolve('coveralls/bin/coveralls.js'),
     name: 'Coveralls'
-  },
-  {
-    env: 'CODECOV_TOKEN',
-    bin: require.resolve('codecov.io/bin/codecov.io.js'),
-    name: 'Codecov'
   }
 ]
 
@@ -44,7 +46,17 @@ function main () {
     process.exit(1)
   }
 
-  var options = parseArgs(args)
+  // set default args
+  var defaults = constructDefaultArgs()
+
+  // parse dotfile
+  var rcOptions = parseRcFile(osHomedir() + '/.taprc')
+
+  // supplement defaults with parsed rc options
+  defaults = extend(defaults, rcOptions)
+
+  // parse args
+  var options = parseArgs(args, defaults)
 
   if (!options) {
     return
@@ -93,26 +105,34 @@ function main () {
   runTests(options)
 }
 
-function parseArgs (args) {
-  var options = {}
+function constructDefaultArgs () {
+  var defaultArgs = {
+    nodeArgs: [],
+    nycArgs: [],
+    timeout: process.env.TAP_TIMEOUT || 30,
+    color: supportsColor,
+    reporter: null,
+    files: [],
+    bail: false,
+    saveFile: null,
+    pipeToService: false,
+    coverageReport: null,
+    openBrowser: true
+  }
 
-  options.nodeArgs = []
-  options.nycArgs = []
-  options.timeout = process.env.TAP_TIMEOUT || 30
-  // coverage tools run slow.
-  /* istanbul ignore else */
   if (global.__coverage__) {
-    options.timeout = 240
+    defaultArgs.timeout = 240
   }
 
-  options.color = supportsColor
   if (process.env.TAP_COLORS !== undefined) {
-    options.color = !!(+process.env.TAP_COLORS)
+    defaultArgs.color = !!(+process.env.TAP_COLORS)
   }
-  options.reporter = null
-  options.files = []
-  options.bail = false
-  options.saveFile = null
+
+  return defaultArgs
+}
+
+function parseArgs (args, defaults) {
+  var options = defaults || {}
 
   var singleFlags = {
     b: 'bail',
@@ -131,7 +151,6 @@ function parseArgs (args) {
 
   // If we're running under Travis-CI with a Coveralls.io token,
   // then it's a safe bet that we ought to output coverage.
-  options.pipeToService = false
   for (var i = 0; i < coverageServices.length && !options.pipeToService; i++) {
     if (process.env[coverageServices[i].env]) {
       options.pipeToService = true
@@ -139,9 +158,6 @@ function parseArgs (args) {
   }
 
   var defaultCoverage = options.pipeToService
-
-  options.coverageReport = null
-  options.openBrowser = true
 
   for (i = 0; i < args.length; i++) {
     var arg = args[i]
@@ -428,7 +444,7 @@ function runCoverageReportOnly (options, code, signal) {
   // console.error('run coverage report', args)
 
   var child
-  // automatically hook into coveralls and/or codecov
+  // automatically hook into coveralls
   if (options.coverageReport === 'text-lcov' && options.pipeToService) {
     // console.error('pipeToService')
     child = spawn(node, args, { stdio: [ 0, 'pipe', 2 ] })
