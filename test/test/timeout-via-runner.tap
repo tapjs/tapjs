@@ -1,0 +1,27 @@
+TAP version 13
+    # Subtest: child
+        # Subtest: child test
+        1..2
+        ok 1 - this is fine
+        not ok 2 - timeout!
+          ---
+          {"handles":[{"msecs":20000,"type":"Timer"}],"signal":"SIGTERM"}
+          ...
+        # failed 1 of 2 tests
+    not ok 1 - child test ___/# time=[0-9.]+(ms)?/~~~
+      ---
+      {"at":{"column":5,"file":"test/test/timeout-via-runner.js","line":4},"results":{"count":2,"fail":1,"ok":false,"pass":1,"plan":{"end":2,"start":1}},"source":"t.test('child test', function (t) {\n"}
+      ...
+
+    1..1
+    # failed 1 of 1 tests
+    ___/# time=[0-9.]+(ms)?/~~~
+not ok 1 - child ___/# time=[0-9.]+(ms)?/~~~
+  ---
+  {"arguments":["___/.*/~~~timeout-via-runner.js","child"],"at":{"column":5,"file":"test/test/timeout-via-runner.js","line":12},"command":"___/.*(node|iojs)(.exe)?/~~~","failure":"timeout","results":{"count":1,"fail":1,"ok":false,"pass":0,"plan":{"end":1,"start":1}},"signal":"SIGTERM","source":"t.spawn(process.execPath, [__filename, 'child'], {}, 'child', { timeout: 1000 })\n","timeout":1000}
+  ...
+
+1..1
+# failed 1 of 1 tests
+___/# time=[0-9.]+(ms)?/~~~
+

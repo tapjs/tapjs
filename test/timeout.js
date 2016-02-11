@@ -40,7 +40,7 @@ tap.test('t.setTimeout()', function (t) {
     tt.setTimeout('not a number')
   }, {}, { message: 'setTimeout: number > 0 required' })
 
-  var tt = new Test({ timeout: 1000 })
+  var tt = new Test({ timeout: 1000, bail: false })
   tt.setTimeout(2000)
   tt.setTimeout(Infinity)
   t.notOk(tt._timeout)
@@ -51,15 +51,14 @@ tap.test('t.setTimeout()', function (t) {
     '    ok 1 - this is fine\n' +
     '    not ok 2 - timeout!\n' +
     '      ---\n' +
-    '(      expired: some name\n|' +
-    '      timeout: 1\n){2}' +
+    '      timeout: 1\n' +
     '      \\.\\.\\.\n' +
     '    1..2\n' +
     '    # failed 1 of 2 tests\n' +
     'not ok 1 - child test # time=')
 
-  tt = new Test({ name: 'some name' })
-  tt.test('child test', function (tt) {
+  tt = new Test({ name: 'some name', bail: false })
+  tt.test('child test', { bail: false }, function (tt) {
     tt.pass('this is fine')
   })
   tt.setTimeout(1)
