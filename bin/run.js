@@ -29,7 +29,7 @@ var coverageServices = [
   },
   {
     env: 'CODECOV_TOKEN',
-    bin: require.resolve('codecov/bin/codecov'),
+    bin: require.resolve('codecov.io/bin/codecov.io.js'),
     name: 'Codecov'
   }
 ]
