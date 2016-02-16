@@ -2,6 +2,11 @@
 layout: layout
 ---
 
+## 5.5
+
+Add the `t.assertAt` and `t.assertStack` properties, to override where
+an assertion was effectively called from.
+
 ## 5.4
 
 Support passing in a class to `t.throws`, rather than an Error
