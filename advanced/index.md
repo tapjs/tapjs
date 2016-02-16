@@ -109,3 +109,33 @@ Call the `end()` method on all child tests, and then on this one.
 ## t.current()
 
 Return the currently active test.
+
+## t.assertAt, t.assertStack, extra.at, extra.stack
+
+The Test object will try to work out the most useful `stack` and `at`
+options to tell you where a failing assertion was made.
+
+In very rare and interesting cases, you _may_ wish to override this
+for some reason.  For example, you may be wrapping tap.Test object
+methods, and wish to show the user where they called your method,
+rather than showing where your method called into tap.
+
+You can do this in two possible ways:
+
+1. Set the `at` and/or `stack` properties on the `extra` object passed to
+   assert methods.
+2. Set the `t.assertAt` and/or `t.assertStack` properties on the
+   Test object immediately before calling the assertion method.  The
+   values are consumed and deleted when the next assertion is called.
+
+The `at` property should be an object with the following properties at
+minimum:
+
+* `file` - The file name where the assertion is called
+* `line` - The line number where the assertion is called
+
+The `stack` property should be a string stack trace similar to those
+found on `Error` objects.
+
+For best results, calculate these values using the
+[stack-utils](http://npm.im/stack-utils) module.
