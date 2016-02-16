@@ -13,16 +13,12 @@ function regEsc (str) {
 
 if (process.argv[2]) {
   var file = path.resolve(dir, process.argv[2])
-  runTest(file, false)
-  runTest(file, true)
+  runTests(file)
 } else {
-  glob.sync(dir + '*.js').forEach(function (file) {
-    runTest(file, false)
-    runTest(file, true)
-  })
+  glob.sync(dir + '*.js').forEach(runTests)
 }
 
-function runTest (file, bail) {
+function runTests (file) {
   var skip = false
   if (file.match(/\bpending-handles.js$/)) {
     if (process.env.TRAVIS) {
@@ -32,79 +28,82 @@ function runTest (file, bail) {
     }
   }
 
-  var resfile = file.replace(/\.js$/, (bail ? '-bail' : '') + '.tap')
-  try {
-    var want = fs.readFileSync(resfile, 'utf8').split(/\r?\n/)
-  } catch (er) {
-    console.error(er)
-    console.error(file)
-    console.error(resfile)
-    return
-  }
-
   var f = file.substr(dir.length)
-  t.test(f + (bail ? ' bail' : ''), { skip: skip }, function (t) {
-    var child = spawn(node, [file], {
-      stdio: [ 0, 'pipe', 'pipe' ],
-      env: {
-        TAP_BAIL: bail ? 1 : 0
-      }
+  t.test(f, { skip: skip }, function (t) {
+    t.test('bail=false', function (t) {
+      runTest(t, false, file)
     })
-
-    var found = ''
-
-    child.stdout.setEncoding('utf8')
-    child.stdout.on('data', function (c) {
-      found += c
+    t.test('bail=true', function (t) {
+      runTest(t, true, file)
     })
-    child.on('close', function (er) {
-      found = found.split(/\r?\n/)
-      var inyaml = false
-      var startlen = 0
-      var y = ''
+    t.end()
+  })
+}
 
-      // walk line by line so yamlish (json) can be handled
-      // otherwise making any changes in this lib would hurt
-      for (var f = 0, w = 0;
-           f < found.length && w < want.length;
-           f++, w++) {
-        var wline = want[w]
-        var fline = found[f]
-        var wdata = false
+function runTest (t, bail, file) {
+  var resfile = file.replace(/\.js$/, (bail ? '-bail' : '') + '.tap')
+  var want = fs.readFileSync(resfile, 'utf8').split(/\r?\n/)
 
-        if (inyaml) {
-          if (fline.match(/^\s*\.\.\.$/) && fline.length === startlen) {
-            var data = yaml.safeLoad(y)
-            inyaml = false
-            y = ''
-            wdata = JSON.parse(wline)
-            patternify(wdata)
-            t.match(data, wdata)
-            f--
-          } else {
-            y += fline + '\n'
-            w--
-          }
-          continue
+  var child = spawn(node, [file], {
+    stdio: [ 0, 'pipe', 'pipe' ],
+    env: {
+      TAP_BAIL: bail ? 1 : 0
+    }
+  })
+
+  var found = ''
+
+  child.stdout.setEncoding('utf8')
+  child.stdout.on('data', function (c) {
+    found += c
+  })
+  child.on('close', function (er) {
+    found = found.split(/\r?\n/)
+    var inyaml = false
+    var startlen = 0
+    var y = ''
+
+    // walk line by line so yamlish (json) can be handled
+    // otherwise making any changes in this lib would hurt
+    for (var f = 0, w = 0;
+         f < found.length && w < want.length;
+         f++, w++) {
+      var wline = want[w]
+      var fline = found[f]
+      var wdata = false
+
+      if (inyaml) {
+        if (fline.match(/^\s*\.\.\.$/) && fline.length === startlen) {
+          var data = yaml.safeLoad(y)
+          inyaml = false
+          y = ''
+          wdata = JSON.parse(wline)
+          patternify(wdata)
+          t.match(data, wdata)
+          f--
         } else {
-          t.match(fline, patternify(wline),
-                  'line ' + f + ' ' +
-                  wline.replace(/# (todo|skip)/gi, '- $1'),
-                  { test: f })
-
-          if (fline.match(/^\s*\-\-\-$/)) {
-            startlen = fline.length
-            inyaml = true
-            y = ''
-          }
+          y += fline + '\n'
+          w--
         }
+        continue
+      } else {
+        t.match(fline, patternify(wline),
+                'line ' + f + ' ' +
+                wline.replace(/# (todo|skip)/gi, '- $1'),
+                { test: f })
 
-        if (!t.passing()) {
-          return t.end()
+        if (fline.match(/^\s*\-\-\-$/)) {
+          startlen = fline.length
+          inyaml = true
+          y = ''
         }
       }
-      t.end()
-    })
+
+      if (!t.passing()) {
+        return t.end()
+      }
+    }
+    t.end()
   })
 }
 
