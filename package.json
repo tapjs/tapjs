@@ -12,7 +12,7 @@
     "node": ">=0.8"
   },
   "dependencies": {
-    "bluebird": "^2.9.34",
+    "bluebird": "^3.3.1",
     "clean-yaml-object": "^0.1.0",
     "codecov.io": "^0.1.6",
     "coveralls": "^2.11.2",
