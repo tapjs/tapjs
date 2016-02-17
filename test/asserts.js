@@ -170,6 +170,8 @@ test('match is pattern matching', function (t) {
   t.match('asdf', 'asdf')
   t.match('1', 1)
   t.match(1, '1')
+  t.match([1, 2, 3], [1])
+  t.match([1, 2, 3], [1, Number, '3'])
 
   // XXX debatable?
   t.notOk(tt.match(1, [1]))
