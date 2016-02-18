@@ -179,6 +179,9 @@ would successfully match `{x:'asdf',y:'z'}`.
 This is useful when you want to verify that an object has a certain
 set of required fields, but additional fields are ok.
 
+See [tmatch](http://npm.im/tmatch) for the full details on how this
+works.
+
 Synonyms: `t.has`, `t.hasFields`, `t.matches`, `t.similar`, `t.like`,
 `t.isLike`, `t.includes`, `t.include`, `t.contains`
 

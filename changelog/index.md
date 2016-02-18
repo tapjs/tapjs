@@ -2,6 +2,12 @@
 layout: layout
 ---
 
+## 5.6
+
+Update `tmatch` to version 2.  You can now test objects by supplying
+their constructor, so `t.match(x, { foo: Function, name: String })`
+would verify that the object has a `name` string and a `foo` method.
+
 ## 5.5
 
 Add the `t.assertAt` and `t.assertStack` properties, to override where
