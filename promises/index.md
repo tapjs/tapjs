@@ -51,3 +51,6 @@ t.test('get thing', function (t) {
 
 If this sort of style offends you, you are welcome to ignore it.  It's
 not mandatory.
+
+If you want to pass Promises to [assertions](/asserts/) and have them
+auto-resolve, then check out [tapromise](http://npm.im/tapromise).
