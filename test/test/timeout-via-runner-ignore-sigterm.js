@@ -1,6 +1,9 @@
 var t = require('../..')
 
 if (process.argv[2] === 'child') {
+  process.on('SIGTERM', function () {
+    console.log('yolo')
+  })
   t.pass('this is fine 1')
   t.pass('this is fine 2')
   t.pass('this is fine 3')

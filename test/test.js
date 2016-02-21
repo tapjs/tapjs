@@ -20,11 +20,15 @@ if (process.argv[2]) {
 
 function runTests (file) {
   var skip = false
-  if (file.match(/\bpending-handles.js$/)) {
+  if (file.match(/\bpending-handles\.js$/)) {
     if (process.env.TRAVIS) {
       skip = 'pending handles test is too timing dependent for Travis'
     } else if (process.platform === 'win32') {
       skip = 'pending handles relies on sinals windows cannot do'
+    }
+  } else if (file.match(/\btimeout-via-runner.*\.js$/)) {
+    if (process.platform === 'win32') {
+      skip = 'SIGERM on win32 is not catchable'
     }
   }
 
