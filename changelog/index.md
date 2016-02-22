@@ -2,6 +2,19 @@
 layout: layout
 ---
 
+## 5.7
+
+Report timeout errors in child test scripts much more diligently.
+
+On Unix systems, the child process handles `SIGTERM` signals by
+assuming that things are taking too long, dumping a report of all
+active handles and requests in process, and exiting in error.
+
+On Windows systems (where `SIGTERM` is always uncatchably fatal), or
+if a Unix child test process doesn't exit within 1 second (causing a
+fatal `SIGKILL` to be sent), the parent generates more comprehensive
+output to indicate that the child test exited due to a timeout.
+
 ## 5.6
 
 Update `tmatch` to version 2.  You can now test objects by supplying
