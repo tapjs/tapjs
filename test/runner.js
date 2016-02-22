@@ -491,7 +491,7 @@ t.test('-t or --timeout to set timeout', function (t) {
         t.equal(signal, null)
         t.match(
           out,
-          /received SIGTERM with pending event queue activity/,
+          /signal: SIGTERM/,
           { skip: skip }
         )
         t.end()
