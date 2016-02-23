@@ -5,7 +5,7 @@ function parseYaml (contents) {
   try {
     var parsed = yaml.safeLoad(contents)
 
-    // js-yaml parses an empty file as undefined, and one with only comments as
+    // js-yaml parses an empty file as undefined, one with only comments as
     // null. We want to return an empty object in these cases.
     if (!parsed) {
       parsed = {}
@@ -13,7 +13,8 @@ function parseYaml (contents) {
 
     return parsed
   } catch(er) {
-    return null
+    // invalid yaml, fail gracefully
+    return {}
   }
 }
 

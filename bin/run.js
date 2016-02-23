@@ -129,10 +129,6 @@ function constructDefaultArgs () {
     defaultArgs.color = !!(+process.env.TAP_COLORS)
   }
 
-  if (process.env.TAP === '1') {
-    defaultArgs.reporter = 'tap'
-  }
-
   return defaultArgs
 }
 
@@ -341,6 +337,10 @@ function parseArgs (args, defaults) {
 
   if (options.coverage === undefined) {
     options.coverage = defaultCoverage
+  }
+
+  if (process.env.TAP === '1') {
+    options.reporter = 'tap'
   }
 
   // default to tap for non-tty envs
