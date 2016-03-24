@@ -116,11 +116,109 @@ test('do nothing after bailout', function (t) {
   t.end()
 })
 
-test('test misuse', function (t) {
+test('subtest without arguments', function (t) {
+  var tt = new Test()
+  var out = ''
+  tt.on('data', function (c) {
+    out += c
+  })
+  tt.test()
+  tt.end()
+
+  t.match(out, /^TAP version 13\nok 1 - \(unnamed test\) # TODO\n1\.\.1\n# time=[^\n]+\n$/)
+
+  t.end()
+})
+
+test('subtest with only a name', function (t) {
+  var tt = new Test()
+  var out = ''
+  tt.on('data', function (c) {
+    out += c
+  })
+  tt.test('name only')
+  tt.end()
+
+  t.match(out, /^TAP version 13\nok 1 - name only # TODO\n1\.\.1\n# time=[^\n]+\n$/)
+
+  t.end()
+})
+
+test('subtest with only options', function (t) {
+  var tt = new Test()
+  var out = ''
+  tt.on('data', function (c) {
+    out += c
+  })
+  tt.test({skip: true})
+  tt.end()
+
+  t.match(out, /^TAP version 13\nok 1 - \(unnamed test\) # SKIP\n1\.\.1\n# time=[^\n]+\n$/)
+
+  t.end()
+})
+
+test('subtest with only a function', function (t) {
+  var tt = new Test()
+  var out = ''
+  tt.on('data', function (c) {
+    out += c
+  })
+  tt.test(function (){})
+  tt.end()
+  
+  t.equal(out, 'TAP version 13\n    # Subtest: (unnamed test)\n');
+
+  t.end()
+})
+
+test('subtest with name and options', function (t) {
+  var tt = new Test()
+  var out = ''
+  tt.on('data', function (c) {
+    out += c
+  })
+  tt.test('name', {skip: false})
+  tt.end()
+  
+  t.match(out, /^TAP version 13\nok 1 - name # TODO\n1\.\.1\n# time=[^\n]+\n$/)
+
+  t.end()
+})
+
+test('subtest with name and function', function (t) {
+  var tt = new Test()
+  var out = ''
+  tt.on('data', function (c) {
+    out += c
+  })
+  tt.test('name', function (){})
+  tt.end()
+
+  t.equal(out, 'TAP version 13\n    # Subtest: name\n');
+
+  t.end()
+})
+
+test('subtest with options and function', function (t) {
+  var tt = new Test()
+  var out = ''
+  tt.on('data', function (c) {
+    out += c
+  })
+  tt.test({skip: false}, function (){})
+  tt.end()
+
+  t.equal(out, 'TAP version 13\n    # Subtest: (unnamed test)\n');
+
+  t.end()
+})
+
+test('invalid test arguments', function (t) {
   t.throws(function () {
     var tt = new Test()
     tt.test('name', { skip: false }, 'not a function')
-  }, new Error('test() requires a callback'))
+  }, new Error('invalid test argument(s)'))
 
   t.end()
 })
