@@ -50,7 +50,7 @@ not ok 1 - one ___/# time=[0-9.]+(ms)?/~~~
     # Subtest: three
     not ok 1 - Error: fail 3
       ---
-      {"at":{"column":13,"file":"test/test/promise-fails.js","function":"null._onTimeout","line":18},"message":"Error: fail 3","source":"throw new Error('fail 3')\n","test":"three"}
+      {"at":{"column":13,"file":"test/test/promise-fails.js","line":18},"message":"Error: fail 3","source":"throw new Error('fail 3')\n","test":"three"}
       ...
     1..1
     # failed 1 of 1 tests

@@ -9,7 +9,7 @@ TAP version 13
         ok 2 - this is fine 5
         not ok 3 - timeout!
           ---
-          {"handles":[{"msecs":20000,"type":"Timer"}],"signal":"SIGTERM"}
+          {"handles":[{"type":"Timer"}],"signal":"SIGTERM"}
           ...
         Bail out! # timeout!
 Bail out! # timeout!

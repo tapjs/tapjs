@@ -65,7 +65,7 @@ not ok 3 - no assert only throw ___/# time=[0-9.]+(ms)?/~~~
         ok 2 - after set the bomb
         not ok 3 - Error: pwn
           ---
-          {"at":{"column":13,"file":"test/test/throws-and-plans.js","function":"null._onTimeout","line":18},"message":"Error: pwn","source":"throw new Error('pwn')\n","test":"async thrower"}
+          {"at":{"column":13,"file":"test/test/throws-and-plans.js","line":18},"message":"Error: pwn","source":"throw new Error('pwn')\n","test":"async thrower"}
           ...
         not ok 4 - missing test
         not ok 5 - missing test
@@ -88,7 +88,7 @@ not ok 4 - plans of 8 ___/# time=[0-9.]+(ms)?/~~~
 
 not ok 5 - Error: pwn
   ---
-  {"at":{"column":13,"file":"test/test/throws-and-plans.js","function":"null._onTimeout","line":51},"message":"Error: pwn","source":"throw new Error('pwn')\n","test":"TAP"}
+  {"at":{"column":13,"file":"test/test/throws-and-plans.js","line":51},"message":"Error: pwn","source":"throw new Error('pwn')\n","test":"TAP"}
   ...
 1..5
 # failed 4 of 5 tests

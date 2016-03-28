@@ -70,9 +70,15 @@ function generate (file, bail) {
 
 function deStackify (data) {
   return Object.keys(data).sort().reduce(function (res, k) {
+    // a few keys vary across node versions, or based on the machine
+    // or specific run.  Just throw those out.
     if (k === 'stack' && typeof data[k] === 'string') {
       return res
     } else if (k === 'time' && typeof data[k] === 'number') {
+      return res
+    } else if (k === 'msecs' && typeof data[k] === 'number') {
+      return res
+    } else if (k === 'function' && typeof data[k] === 'string' && data[k].indexOf('._onTimeout') !== -1) {
       return res
     } else if (typeof data[k] === 'object' && data[k]) {
       res[k] = deStackify(data[k])
