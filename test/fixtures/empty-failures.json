@@ -38,6 +38,7 @@
       "ok": true,
       "count": 2,
       "pass": 2,
+      "fail": 0,
       "plan": {
         "start": 1,
         "end": 2
