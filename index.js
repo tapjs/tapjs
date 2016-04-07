@@ -266,8 +266,11 @@ Parser.prototype.end = function (chunk, encoding, cb) {
     final.ok = true
   }
 
-  if (this.failures.length)
+  if (this.failures.length) {
     final.failures = this.failures
+  } else {
+    final.failures = []
+  }
 
   this.emit('complete', final)
 
