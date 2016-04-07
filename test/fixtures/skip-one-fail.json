@@ -39,6 +39,7 @@
       "pass": 0,
       "fail": 1,
       "skip": 1,
+      "failures": [],
       "plan": {
         "start": 1,
         "end": 1

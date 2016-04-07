@@ -17,6 +17,7 @@
       "ok": true,
       "count": 0,
       "pass": 0,
+      "failures": [],
       "plan": {
         "start": 1,
         "end": 0,

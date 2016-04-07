@@ -74,6 +74,7 @@
       "count": 5,
       "pass": 5,
       "skip": 1,
+      "failures": [],
       "plan": {
         "start": 1,
         "end": 5

@@ -176,6 +176,7 @@
       "ok": false,
       "count": 10,
       "pass": 10,
+      "failures": [],
       "plan": {
         "start": 1,
         "end": 15

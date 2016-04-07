@@ -131,7 +131,8 @@
       "plan": {
         "start": 1,
         "end": 6
-      }
+      },
+      "failures": []
     }
   ]
 ]

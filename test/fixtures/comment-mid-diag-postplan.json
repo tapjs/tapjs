@@ -147,7 +147,8 @@
           "plan": {
             "start": 1,
             "end": 2
-          }
+          },
+          "failures": []
         }
       ]
     ]

@@ -72,7 +72,8 @@
     {
       "ok": false,
       "count": 5,
-      "pass": 5
+      "pass": 5,
+      "failures": []
     }
   ]
 ]
