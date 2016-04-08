@@ -43,11 +43,11 @@ not ok 6 - spawn left in queue: ___/.*(node|iojs)(.exe)?/~~~ --version
   ---
   {"args":["--version"],"at":{"column":5,"file":"test/test/unfinished.js","line":26},"command":"___/.*(node|iojs)(.exe)?/~~~","options":{},"rar":"grr","source":"tap.spawn('___/.*(node|iojs)(.exe)?/~~~', ['--version'], {}, '', { rar: 'grr' })\n"}
   ...
-not ok 7 - child test left in queue: (unnamed)
+not ok 7 - child test left in queue: (unnamed test)
   ---
   {"at":{"column":5,"file":"test/test/unfinished.js","line":28},"source":"tap.test(function (t) {\n"}
   ...
-not ok 8 - child test left in queue: (unnamed)
+not ok 8 - child test left in queue: (unnamed test)
   ---
   {"at":{"column":5,"file":"test/test/unfinished.js","line":32},"source":"tap.test('', function (t) {\n"}
   ...
