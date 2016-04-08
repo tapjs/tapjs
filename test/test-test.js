@@ -89,11 +89,11 @@ test('plan stuff', function (t) {
   t.throws(function () {
     var tt = new Test()
     tt.plan('foo')
-  }, new Error('plan must be a number'))
+  }, new TypeError('plan must be a number'))
   t.throws(function () {
     var tt = new Test()
     tt.plan(-1)
-  }, new Error('plan must be a number'))
+  }, new TypeError('plan must be a number'))
 
   t.end()
 })
