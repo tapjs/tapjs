@@ -12,6 +12,7 @@ TAP version 13
       ---
       {"at":{"column":5,"file":"test/test/not-ok-nested.js","line":5},"results":{"count":1,"fail":1,"ok":false,"pass":0,"plan":{"end":1,"start":1}},"source":"t.test('parent', function (t) {\n"}
       ...
+
     # failed 1 of 1 tests
 not ok 1 - gp ___/# time=[0-9.]+(ms)?/~~~
   ---

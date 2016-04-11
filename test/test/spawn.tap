@@ -21,6 +21,7 @@ TAP version 13
           ---
           {"at":{"column":5,"file":"test/test/spawn.js","line":18},"results":{"count":3,"fail":1,"ok":false,"pass":2,"plan":{"end":3,"start":1}},"source":"t.test('second', function (tt) {\n"}
           ...
+
         # failed 1 of 2 tests
     not ok 1 - nesting ___/# time=[0-9.]+(ms)?/~~~
       ---
@@ -75,6 +76,7 @@ not ok 1 - ___/.*/~~~spawn.js child ___/# time=[0-9.]+(ms)?/~~~
       ---
       {"at":{"column":5,"file":"test/test/spawn.js","line":18},"results":{"count":3,"fail":1,"ok":false,"pass":2,"plan":{"end":3,"start":1}},"source":"t.test('second', function (tt) {\n"}
       ...
+
     # failed 1 of 2 tests
 not ok 2 - nesting ___/# time=[0-9.]+(ms)?/~~~
   ---
