@@ -1,0 +1,26 @@
+TAP version 13
+    # Subtest: one
+running one
+    1..1
+    ok 1 - done one
+after plan fulfilled
+after one block
+one promise was fulfilled
+ok 1 - one ___/# time=[0-9.]+(ms)?/~~~
+
+one end
+    # Subtest: two
+running two
+    1..1
+    ok 1 - done two
+two promise was fulfilled
+ok 2 - two ___/# time=[0-9.]+(ms)?/~~~
+
+    # Subtest: three
+running three
+    1..0
+ok 3 - three ___/# time=[0-9.]+(ms)?/~~~
+
+1..3
+___/# time=[0-9.]+(ms)?/~~~
+
