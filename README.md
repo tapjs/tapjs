@@ -11,7 +11,7 @@ test scripts, and a JavaScript framework for writing such scripts.
 * [Getting started guide](http://www.node-tap.org/basics/)
 * Built-in [test coverage](http://www.node-tap.org/coverage/)
 * Many [reporter formats](http://www.node-tap.org/reporting/)
-* Extensive [api](http://www.node-tap.org/api/) featuring:
+* Extensive [API](http://www.node-tap.org/api/) featuring:
   * Great [promise support](http://www.node-tap.org/promises/)
   * Comprehensive [assert library](http://www.node-tap.org/asserts/)
   * Other [advanced stuff](http://www.node-tap.org/advanced/)
