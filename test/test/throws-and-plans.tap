@@ -5,7 +5,10 @@ ok 1 - expect truthy value
         # Subtest: sync thrower
         1..1
         ok 1 - before the bomb
-    ok 2 - sync thrower ___/# time=[0-9.]+(ms)?/~~~
+    not ok 2 - sync thrower ___/# time=[0-9.]+(ms)?/~~~
+      ---
+      {"at":{"column":5,"file":"test/test/throws-and-plans.js","line":7},"error":"pwnSync","results":{"count":1,"ok":false,"pass":1,"plan":{"end":1,"start":1}},"source":"t.test('sync thrower', function (tt) {\n"}
+      ...
 
     not ok 3 - Error: pwnSync
       ---
@@ -20,10 +23,10 @@ ok 1 - expect truthy value
 
     ok 5 - after child
     1..5
-    # failed 1 of 5 tests
+    # failed 2 of 5 tests
 not ok 2 - plans of 1 ___/# time=[0-9.]+(ms)?/~~~
   ---
-  {"at":{"column":3,"file":"test/test/throws-and-plans.js","line":4},"results":{"count":5,"fail":1,"ok":false,"pass":4,"plan":{"end":5,"start":1}},"source":"t.test('plans of 1', function (t) {\n"}
+  {"at":{"column":3,"file":"test/test/throws-and-plans.js","line":4},"error":"pwnSync","results":{"count":5,"fail":2,"ok":false,"pass":3,"plan":{"end":5,"start":1}},"source":"t.test('plans of 1', function (t) {\n"}
   ...
 
     # Subtest: no assert only throw
@@ -35,7 +38,7 @@ not ok 2 - plans of 1 ___/# time=[0-9.]+(ms)?/~~~
     # failed 1 of 1 tests
 not ok 3 - no assert only throw ___/# time=[0-9.]+(ms)?/~~~
   ---
-  {"at":{"column":3,"file":"test/test/throws-and-plans.js","line":26},"results":{"count":1,"fail":1,"ok":false,"pass":0,"plan":{"end":1,"start":1}},"source":"t.test('no assert only throw', function (t) {\n"}
+  {"at":{"column":3,"file":"test/test/throws-and-plans.js","line":26},"error":"false is truthy right?","results":{"count":1,"fail":1,"ok":false,"pass":0,"plan":{"end":1,"start":1}},"source":"t.test('no assert only throw', function (t) {\n"}
   ...
 
     # Subtest: plans of 8
@@ -56,7 +59,7 @@ not ok 3 - no assert only throw ___/# time=[0-9.]+(ms)?/~~~
         # failed 7 of 8 tests
     not ok 2 - sync thrower ___/# time=[0-9.]+(ms)?/~~~
       ---
-      {"at":{"column":5,"file":"test/test/throws-and-plans.js","line":35},"results":{"count":8,"fail":7,"ok":false,"pass":1,"plan":{"end":8,"start":1}},"source":"t.test('sync thrower', function (tt) {\n"}
+      {"at":{"column":5,"file":"test/test/throws-and-plans.js","line":35},"error":"pwnSync","results":{"count":8,"fail":7,"ok":false,"pass":1,"plan":{"end":8,"start":1}},"source":"t.test('sync thrower', function (tt) {\n"}
       ...
 
         # Subtest: async thrower
@@ -75,7 +78,7 @@ not ok 3 - no assert only throw ___/# time=[0-9.]+(ms)?/~~~
         # failed 6 of 8 tests
     not ok 3 - async thrower ___/# time=[0-9.]+(ms)?/~~~
       ---
-      {"at":{"column":5,"file":"test/test/throws-and-plans.js","line":46},"results":{"count":8,"fail":6,"ok":false,"pass":2,"plan":{"end":8,"start":1}},"source":"t.test('async thrower', function (tt) {\n"}
+      {"at":{"column":5,"file":"test/test/throws-and-plans.js","line":46},"error":"pwn","results":{"count":8,"fail":6,"ok":false,"pass":2,"plan":{"end":8,"start":1}},"source":"t.test('async thrower', function (tt) {\n"}
       ...
 
     ok 4 - after child

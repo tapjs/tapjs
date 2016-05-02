@@ -12,6 +12,8 @@ tap.test(function exceed_plan (t) {
   }
 })
 
+return
+
 tap.test(function multiple_end (t) {
   try {
     t.pass()

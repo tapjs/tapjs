@@ -5,12 +5,10 @@ ok 1 - expect truthy value
         # Subtest: sync thrower
         1..1
         ok 1 - before the bomb
-    ok 2 - sync thrower ___/# time=[0-9.]+(ms)?/~~~
-
-    not ok 3 - Error: pwnSync
+    not ok 2 - sync thrower ___/# time=[0-9.]+(ms)?/~~~
       ---
-      {"at":{"column":11,"file":"test/test/throws-and-plans.js","line":10},"message":"Error: pwnSync","source":"throw new Error('pwnSync')\n","test":"sync thrower"}
+      {"at":{"column":5,"file":"test/test/throws-and-plans.js","line":7},"error":"pwnSync","results":{"count":1,"ok":false,"pass":1,"plan":{"end":1,"start":1}},"source":"t.test('sync thrower', function (tt) {\n"}
       ...
-    Bail out! # Error: pwnSync
-Bail out! # Error: pwnSync
+    Bail out! # sync thrower ___/# time=[0-9.]+(ms)?/~~~
+Bail out! # sync thrower ___/# time=[0-9.]+(ms)?/~~~
 

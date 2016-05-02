@@ -2,7 +2,10 @@ TAP version 13
     # Subtest: pass then pass plan()
     1..1
     ok 1 - ok
-ok 1 - pass then pass plan() ___/# time=[0-9.]+(ms)?/~~~
+not ok 1 - pass then pass plan() ___/# time=[0-9.]+(ms)?/~~~
+  ---
+  {"at":{"column":7,"file":"test/test/plan-failures.js","line":18},"error":"test count exceeds plan","results":{"count":1,"ok":false,"pass":1,"plan":{"end":1,"start":1}},"source":"t.test(first + ' then ' + second + ' plan()', function (t) {\n"}
+  ...
 
 not ok 2 - Error: test count exceeds plan
   ---
@@ -10,31 +13,35 @@ not ok 2 - Error: test count exceeds plan
   ...
     # Subtest: pass then pass end()
     ok 1 - ok
-    1..1
+    ok 2 - extra
+    1..2
 ok 3 - pass then pass end() ___/# time=[0-9.]+(ms)?/~~~
 
-not ok 4 - Error: test after end() was called
-  ---
-  {"at":{"column":12,"file":"test/test/plan-failures.js","function":"test","line":11},"count":2,"message":"Error: test after end() was called","plan":1,"source":"t[second]('extra')\n","test":"pass then pass end()"}
-  ...
     # Subtest: pass then fail plan()
     1..1
     ok 1 - ok
-ok 5 - pass then fail plan() ___/# time=[0-9.]+(ms)?/~~~
+not ok 4 - pass then fail plan() ___/# time=[0-9.]+(ms)?/~~~
+  ---
+  {"at":{"column":7,"file":"test/test/plan-failures.js","line":18},"error":"test count exceeds plan","results":{"count":1,"ok":false,"pass":1,"plan":{"end":1,"start":1}},"source":"t.test(first + ' then ' + second + ' plan()', function (t) {\n"}
+  ...
 
-not ok 6 - Error: test count exceeds plan
+not ok 5 - Error: test count exceeds plan
   ---
   {"at":{"column":12,"file":"test/test/plan-failures.js","function":"test","line":11},"count":2,"message":"Error: test count exceeds plan","plan":1,"source":"t[second]('extra')\n","test":"pass then fail plan()"}
   ...
     # Subtest: pass then fail end()
     ok 1 - ok
-    1..1
-ok 7 - pass then fail end() ___/# time=[0-9.]+(ms)?/~~~
-
-not ok 8 - Error: test after end() was called
+    not ok 2 - extra
+      ---
+      {"at":{"column":12,"file":"test/test/plan-failures.js","function":"test","line":11},"source":"t[second]('extra')\n"}
+      ...
+    1..2
+    # failed 1 of 2 tests
+not ok 6 - pass then fail end() ___/# time=[0-9.]+(ms)?/~~~
   ---
-  {"at":{"column":12,"file":"test/test/plan-failures.js","function":"test","line":11},"count":2,"message":"Error: test after end() was called","plan":1,"source":"t[second]('extra')\n","test":"pass then fail end()"}
+  {"at":{"column":7,"file":"test/test/plan-failures.js","line":21},"results":{"count":2,"fail":1,"ok":false,"pass":1,"plan":{"end":2,"start":1}},"source":"t.test(first + ' then ' + second + ' end()', function (t) {\n"}
   ...
+
     # Subtest: fail then pass plan()
     1..1
     not ok 1 - ok
@@ -42,7 +49,7 @@ not ok 8 - Error: test after end() was called
       {"at":{"column":11,"file":"test/test/plan-failures.js","function":"test","line":7},"source":"t[first]('ok')\n"}
       ...
     # failed 1 of 1 tests
-not ok 9 - fail then pass plan() ___/# time=[0-9.]+(ms)?/~~~
+not ok 7 - fail then pass plan() ___/# time=[0-9.]+(ms)?/~~~
   ---
   {"at":{"column":7,"file":"test/test/plan-failures.js","line":18},"results":{"count":1,"fail":1,"ok":false,"pass":0,"plan":{"end":1,"start":1}},"source":"t.test(first + ' then ' + second + ' plan()', function (t) {\n"}
   ...
@@ -52,11 +59,12 @@ not ok 9 - fail then pass plan() ___/# time=[0-9.]+(ms)?/~~~
       ---
       {"at":{"column":11,"file":"test/test/plan-failures.js","function":"test","line":7},"source":"t[first]('ok')\n"}
       ...
-    1..1
-    # failed 1 of 1 tests
-not ok 10 - fail then pass end() ___/# time=[0-9.]+(ms)?/~~~
+    ok 2 - extra
+    1..2
+    # failed 1 of 2 tests
+not ok 8 - fail then pass end() ___/# time=[0-9.]+(ms)?/~~~
   ---
-  {"at":{"column":7,"file":"test/test/plan-failures.js","line":21},"results":{"count":1,"fail":1,"ok":false,"pass":0,"plan":{"end":1,"start":1}},"source":"t.test(first + ' then ' + second + ' end()', function (t) {\n"}
+  {"at":{"column":7,"file":"test/test/plan-failures.js","line":21},"results":{"count":2,"fail":1,"ok":false,"pass":1,"plan":{"end":2,"start":1}},"source":"t.test(first + ' then ' + second + ' end()', function (t) {\n"}
   ...
 
     # Subtest: fail then fail plan()
@@ -66,7 +74,7 @@ not ok 10 - fail then pass end() ___/# time=[0-9.]+(ms)?/~~~
       {"at":{"column":11,"file":"test/test/plan-failures.js","function":"test","line":7},"source":"t[first]('ok')\n"}
       ...
     # failed 1 of 1 tests
-not ok 11 - fail then fail plan() ___/# time=[0-9.]+(ms)?/~~~
+not ok 9 - fail then fail plan() ___/# time=[0-9.]+(ms)?/~~~
   ---
   {"at":{"column":7,"file":"test/test/plan-failures.js","line":18},"results":{"count":1,"fail":1,"ok":false,"pass":0,"plan":{"end":1,"start":1}},"source":"t.test(first + ' then ' + second + ' plan()', function (t) {\n"}
   ...
@@ -76,14 +84,18 @@ not ok 11 - fail then fail plan() ___/# time=[0-9.]+(ms)?/~~~
       ---
       {"at":{"column":11,"file":"test/test/plan-failures.js","function":"test","line":7},"source":"t[first]('ok')\n"}
       ...
-    1..1
-    # failed 1 of 1 tests
-not ok 12 - fail then fail end() ___/# time=[0-9.]+(ms)?/~~~
+    not ok 2 - extra
+      ---
+      {"at":{"column":12,"file":"test/test/plan-failures.js","function":"test","line":11},"source":"t[second]('extra')\n"}
+      ...
+    1..2
+    # failed 2 of 2 tests
+not ok 10 - fail then fail end() ___/# time=[0-9.]+(ms)?/~~~
   ---
-  {"at":{"column":7,"file":"test/test/plan-failures.js","line":21},"results":{"count":1,"fail":1,"ok":false,"pass":0,"plan":{"end":1,"start":1}},"source":"t.test(first + ' then ' + second + ' end()', function (t) {\n"}
+  {"at":{"column":7,"file":"test/test/plan-failures.js","line":21},"results":{"count":2,"fail":2,"ok":false,"pass":0,"plan":{"end":2,"start":1}},"source":"t.test(first + ' then ' + second + ' end()', function (t) {\n"}
   ...
 
-1..12
-# failed 8 of 12 tests
+1..10
+# failed 9 of 10 tests
 ___/# time=[0-9.]+(ms)?/~~~
 

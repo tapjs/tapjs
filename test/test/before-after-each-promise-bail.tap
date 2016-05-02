@@ -10,10 +10,10 @@ before 1 grandchild
 before 2 grandchild
             ok 1 - the only actual assertion
 after 2 undefined
-            not ok 2 - Error: this is fine
+            not ok 2 - test unfinished: grandchild
               ---
-              {"at":{"column":23,"file":"test/test/before-after-each-promise.js","line":28},"message":"Error: this is fine","source":"return reject(new Error('this is fine'))\n","test":"grandchild"}
+              {"at":{"column":7,"file":"test/test/before-after-each-promise.js","line":35},"source":"t.test('grandchild', function (t) {\n"}
               ...
-            Bail out! # Error: this is fine
-Bail out! # Error: this is fine
+            Bail out! # test unfinished: grandchild
+Bail out! # test unfinished: grandchild
 
