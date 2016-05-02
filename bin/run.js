@@ -391,7 +391,7 @@ function pipeToCoverageService (service, options, child) {
     if (signal) {
       process.kill(process.pid, signal)
     } else if (code) {
-      process.exit(code)
+      console.log('Error piping coverage to ' + service.name)
     } else {
       console.log('Successfully piped to ' + service.name)
     }
