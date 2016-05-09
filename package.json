@@ -4,6 +4,7 @@
   "author": "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me)",
   "description": "A Test-Anything-Protocol library",
   "homepage": "http://node-tap.org/",
+  "typings": "./tap.d.ts",
   "bin": {
     "tap": "bin/run.js"
   },
