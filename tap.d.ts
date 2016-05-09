@@ -22,16 +22,13 @@ declare class Test {
   stdin(name: string, extra?: Options.Bag): Promise
   spawn(cmd: string, args: string, options?: Options.Bag, name?: string, extra?: Options.Spawn): Promise
   done()
-  autoend()
-  printResult(ok: boolean, message: string, extra: Options.Assert)
-  writeDiags(extra: Options.Bag)
   passing()
   pass(message?: string, extra?: Options.Assert)
   fail(message?: string, extra?: Options.Assert)
   addAssert(name: string, length: number, fn: (...args) => boolean)
   comment(message: string, ...args)
   bailout(message?: string)
-  beforeEach(fn: (cb: () => any) => void)
+  beforeEach(fn: (cb: () => any) => Promise | void)
   afterEach(fn: (cb: () => any) => Promise | void)
 
   // Assertions
