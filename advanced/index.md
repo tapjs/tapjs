@@ -61,7 +61,7 @@ can be used to create application-specific assertions in your tests.
 
 The name is the method name that will be created.  The length is the
 number of arguments the assertion operates on.  (The `message` and
-`extra` arguments will alwasy be appended to the end.)
+`extra` arguments will always be appended to the end.)
 
 For example, you could have a file at `test/setup.js` that does the
 following:
