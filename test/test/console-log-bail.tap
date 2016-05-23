@@ -18,9 +18,10 @@ TAP version 13
         ok 4 - nested ok second
         1..4
     ok 2 - second ___/# time=[0-9.]+(ms)?/~~~
-ok 1 - nesting ___/# time=[0-9.]+(ms)?/~~~
 
 >>>> after second child
+ok 1 - nesting ___/# time=[0-9.]+(ms)?/~~~
+
 >>>> after child test
 ok 2 - this passes
 ok 3 - this passes too
