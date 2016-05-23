@@ -46,7 +46,7 @@
     "posttest": "standard lib test"
   },
   "devDependencies": {
-    "standard": "^5.4.1",
+    "standard": "^7.1.0",
     "which": "^1.1.1"
   },
   "files": [
