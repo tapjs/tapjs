@@ -141,6 +141,7 @@ function parseArgs (args) {
   var defaultCoverage = options.pipeToService
 
   options.coverageReport = null
+  options.openBrowser = true
 
   for (i = 0; i < args.length; i++) {
     var arg = args[i]
@@ -213,6 +214,10 @@ function parseArgs (args) {
           options.coverageReport = 'lcov'
         }
         defaultCoverage = true
+        continue
+
+      case '--no-browser':
+        options.openBrowser = false
         continue
 
       case '--no-coverage-report':
@@ -431,7 +436,7 @@ function runCoverageReportOnly (options, code, signal) {
   } else {
     // otherwise just run the reporter
     child = fg(node, args)
-    if (options.coverageReport === 'lcov') {
+    if (options.coverageReport === 'lcov' && options.openBrowser) {
       child.on('exit', function () {
         opener('coverage/lcov-report/index.html')
       })
