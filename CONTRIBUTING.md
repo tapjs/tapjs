@@ -1,4 +1,4 @@
-- Check the [issues](https://github.com/taprc/node-tap/issues) to see
+- Check the [issues](https://github.com/tapjs/node-tap/issues) to see
   stuff that is likely to be accepted.
 - Every patch should have a new test that fails without the patch and
   passes with the patch.
