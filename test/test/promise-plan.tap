@@ -21,6 +21,51 @@ running three
     1..0
 ok 3 - three ___/# time=[0-9.]+(ms)?/~~~
 
-1..3
+    # Subtest: broken promises
+    1..2
+        # Subtest: end()
+        1..0
+    not ok 1 - end() ___/# time=[0-9.]+(ms)?/~~~
+      ---
+      {"at":{"column":5,"file":"test/test/promise-plan.js","line":42},"results":{"count":0,"ok":false,"pass":0,"plan":{"end":0,"start":1}},"source":"t.test('end()', function (t) {\n"}
+      ...
+
+        # Subtest: plan
+        1..1
+        ok 1 - this is fine
+    not ok 2 - plan ___/# time=[0-9.]+(ms)?/~~~
+      ---
+      {"at":{"column":5,"file":"test/test/promise-plan.js","line":48},"results":{"count":1,"ok":false,"pass":1,"plan":{"end":1,"start":1}},"source":"t.test('plan', function (t) {\n"}
+      ...
+    # failed 2 of 2 tests
+not ok 4 - broken promises ___/# time=[0-9.]+(ms)?/~~~
+  ---
+  {"at":{"column":3,"file":"test/test/promise-plan.js","line":40},"results":{"count":2,"fail":2,"ok":false,"pass":0,"plan":{"end":2,"start":1}},"source":"t.test('broken promises', function (t) {\n"}
+  ...
+
+    # Subtest: thrown with timeouts
+    1..2
+        # Subtest: end()
+        1..0
+    not ok 1 - end() ___/# time=[0-9.]+(ms)?/~~~
+      ---
+      {"at":{"column":5,"file":"test/test/promise-plan.js","line":59},"results":{"count":0,"ok":false,"pass":0,"plan":{"end":0,"start":1}},"source":"t.test('end()', function (t) {\n"}
+      ...
+
+        # Subtest: plan
+        1..1
+        ok 1 - this is fine
+    not ok 2 - plan ___/# time=[0-9.]+(ms)?/~~~
+      ---
+      {"at":{"column":5,"file":"test/test/promise-plan.js","line":67},"results":{"count":1,"ok":false,"pass":1,"plan":{"end":1,"start":1}},"source":"t.test('plan', function (t) {\n"}
+      ...
+    # failed 2 of 2 tests
+not ok 5 - thrown with timeouts ___/# time=[0-9.]+(ms)?/~~~
+  ---
+  {"at":{"column":3,"file":"test/test/promise-plan.js","line":57},"results":{"count":2,"fail":2,"ok":false,"pass":0,"plan":{"end":2,"start":1}},"source":"t.test('thrown with timeouts', function (t) {\n"}
+  ...
+
+1..5
+# failed 2 of 5 tests
 ___/# time=[0-9.]+(ms)?/~~~
 

@@ -21,6 +21,14 @@ running three
     1..0
 ok 3 - three ___/# time=[0-9.]+(ms)?/~~~
 
-1..3
-___/# time=[0-9.]+(ms)?/~~~
+    # Subtest: broken promises
+    1..2
+        # Subtest: end()
+        1..0
+    not ok 1 - end() ___/# time=[0-9.]+(ms)?/~~~
+      ---
+      {"at":{"column":5,"file":"test/test/promise-plan.js","line":42},"results":{"count":0,"ok":false,"pass":0,"plan":{"end":0,"start":1}},"source":"t.test('end()', function (t) {\n"}
+      ...
+    Bail out! # end() ___/# time=[0-9.]+(ms)?/~~~
+Bail out! # end() ___/# time=[0-9.]+(ms)?/~~~
 

@@ -36,3 +36,41 @@ t.test('three', function (t) {
   console.log('running three')
   t.end()
 })
+
+t.test('broken promises', function (t) {
+  t.plan(2)
+  t.test('end()', function (t) {
+    t.end()
+    return new P(function () {
+      throw new Error('wtf')
+    })
+  })
+  t.test('plan', function (t) {
+    t.plan(1)
+    t.pass('this is fine')
+    return new P(function () {
+      throw new Error('wtf')
+    })
+  })
+})
+
+t.test('thrown with timeouts', function (t) {
+  t.plan(2)
+  t.test('end()', function (t) {
+    t.end()
+    return new P(function () {
+      setTimeout(function () {
+        throw new Error('wtf')
+      })
+    })
+  })
+  t.test('plan', function (t) {
+    t.plan(1)
+    t.pass('this is fine')
+    return new P(function () {
+      setTimeout(function () {
+        throw new Error('wtf')
+      })
+    })
+  })
+})
