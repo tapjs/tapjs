@@ -1,4 +1,5 @@
 TAP version 13
+pragma +child
     # Subtest: ___/.*/~~~pragma.js child
     this is not tap but it is ok
     ok 1 - an ok test
@@ -11,10 +12,11 @@ TAP version 13
     ___/# time=[0-9.]+(ms)?/~~~
 not ok 1 - ___/.*/~~~pragma.js child ___/# time=[0-9.]+(ms)?/~~~
   ---
-  {"arguments":["___/.*/~~~pragma.js","child"],"at":{"column":5,"file":"test/test/pragma.js","line":4},"command":"___/.*(node|iojs)(.exe)?/~~~","results":{"count":2,"failures":[{"data":"this is not tap and it is not ok\n","tapError":"Non-TAP data encountered in strict mode"}],"ok":false,"pass":2,"plan":{"end":2,"start":1}},"source":"t.spawn(process.execPath, [__filename, 'child'])\n"}
+  {"arguments":["___/.*/~~~pragma.js","child"],"at":{"column":5,"file":"test/test/pragma.js","line":6},"command":"___/.*(node|iojs)(.exe)?/~~~","results":{"count":2,"failures":[{"data":"this is not tap and it is not ok\n","tapError":"Non-TAP data encountered in strict mode"}],"ok":false,"pass":2,"plan":{"end":2,"start":1}},"source":"t.spawn(process.execPath, [__filename, 'child'])\n"}
   ...
 
-1..1
-# failed 1 of 1 tests
-___/# time=[0-9.]+(ms)?/~~~
+pragma -child
+    # Subtest: ___/.*/~~~pragma.js child bailout
+    Bail out! # no pragmas come after bailout
+Bail out! # no pragmas come after bailout
 
