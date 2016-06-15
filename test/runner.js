@@ -264,6 +264,8 @@ t.test('version', function (t) {
     skip = 'head program not available'
   } else if (process.platform === 'win32') {
     skip = 'signals on windows are weird'
+  } else if (process.version.match(/^v5\./)) {
+    skip = 'this is broken on node 5 for some reason'
   }
 
   t.test('handle EPIPE gracefully', { skip: skip }, function (t) {
