@@ -1,0 +1,5 @@
+# this is a comment
+timeout: 9999
+coverage: false
+coverageReport: false
+reporter: 'classic'
