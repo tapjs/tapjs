@@ -21,7 +21,7 @@
     "glob": "^7.0.0",
     "isexe": "^1.0.0",
     "js-yaml": "^3.3.1",
-    "nyc": "^6.4.0",
+    "nyc": "^6.6.1",
     "only-shallow": "^1.0.2",
     "opener": "^1.4.1",
     "readable-stream": "^2.0.2",
