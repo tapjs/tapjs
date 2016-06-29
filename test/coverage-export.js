@@ -19,7 +19,6 @@ t.test('generate some coverage data', function (tt) {
 
 t.test('no coverage export when no tokens in env', function (tt) {
   doTest(tt, {}, function (actual) {
-    tt.notMatch(actual, /Codecov:codecov_token\n/)
     tt.notMatch(actual, /Coveralls:coveralls_token\n/)
     tt.end()
   })
@@ -30,30 +29,6 @@ t.test('coverage to Coveralls', function (tt) {
     COVERALLS_REPO_TOKEN: 'coveralls_token'
   }
   doTest(tt, env, function (actual) {
-    tt.notMatch(actual, /Codecov:codecov_token\n/)
-    tt.match(actual, /Coveralls:coveralls_token\n/)
-    tt.end()
-  })
-})
-
-t.test('coverage to Codecov', function (tt) {
-  var env = {
-    CODECOV_TOKEN: 'codecov_token'
-  }
-  doTest(tt, env, function (actual) {
-    tt.match(actual, /Codecov:codecov_token\n/)
-    tt.notMatch(actual, /Coveralls:coveralls_token\n/)
-    tt.end()
-  })
-})
-
-t.test('coverage to both Codecov and Coveralls', function (tt) {
-  var env = {
-    COVERALLS_REPO_TOKEN: 'coveralls_token',
-    CODECOV_TOKEN: 'codecov_token'
-  }
-  doTest(tt, env, function (actual) {
-    tt.match(actual, /Codecov:codecov_token\n/)
     tt.match(actual, /Coveralls:coveralls_token\n/)
     tt.end()
   })

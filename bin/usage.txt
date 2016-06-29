@@ -54,10 +54,7 @@ Options:
                               If a COVERALLS_REPO_TOKEN environment
                               variable is set, then coverage is
                               captured by default and sent to the
-                              coveralls.io service. If a CODECOV_TOKEN
-                              environment variable is set, then coverage is
-                              captured by default and sent to the
-                              codecov.io service.
+                              coveralls.io service.
 
   --no-coverage --no-cov      Do not capture coverage information.
                               Note that if nyc is already loaded, then
@@ -68,7 +65,7 @@ Options:
 
                               Default is 'text' when running on the
                               command line, or 'text-lcov' when piping
-                              to coveralls or codecov.
+                              to coveralls.
 
                               If 'html' is used, then the report will
                               be opened in a web browser after running.
