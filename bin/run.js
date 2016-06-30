@@ -9,7 +9,6 @@ var nycBin = require.resolve('nyc/bin/nyc.js')
 var glob = require('glob')
 var isexe = require('isexe')
 var osHomedir = require('os-homedir')
-var extend = require('deep-extend')
 var yaml = require('js-yaml')
 var parseRcFile = require('./utils').parseRcFile
 
@@ -53,7 +52,11 @@ function main () {
   var rcOptions = parseRcFile(osHomedir() + '/.taprc')
 
   // supplement defaults with parsed rc options
-  defaults = extend(defaults, rcOptions)
+  if (rcOptions) {
+    Object.keys(rcOptions).forEach(function (k) {
+      defaults[k] = rcOptions[k]
+    })
+  }
 
   // parse args
   var options = parseArgs(args, defaults)
