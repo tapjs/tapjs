@@ -208,9 +208,9 @@ Options:
                               when colors are disabled.
 
                               Available reporters:
-                              classic doc dot dump html htmlcov json
-                              jsoncov jsonstream landing list markdown
-                              min nyan progress silent spec tap xunit
+                              classic doc dot dump json jsonstream
+                              landing list markdown min nyan progress
+                              silent spec tap xunit
 
   -s<file> --save=<file>      If <file> exists, then it should be a line-
                               delimited list of test files to run.  If
@@ -234,10 +234,7 @@ Options:
                               If a COVERALLS_REPO_TOKEN environment
                               variable is set, then coverage is
                               captured by default and sent to the
-                              coveralls.io service. If a CODECOV_TOKEN
-                              environment variable is set, then coverage is
-                              captured by default and sent to the
-                              codecov.io service.
+                              coveralls.io service.
 
   --no-coverage --no-cov      Do not capture coverage information.
                               Note that if nyc is already loaded, then
@@ -248,9 +245,9 @@ Options:
 
                               Default is 'text' when running on the
                               command line, or 'text-lcov' when piping
-                              to coveralls or codecov.
+                              to coveralls.
 
-                              If 'lcov' is used, then the report will
+                              If 'html' is used, then the report will
                               be opened in a web browser after running.
 
                               This can be run on its own at any time
@@ -320,9 +317,29 @@ Options:
 
   --nyc-version               Print version of nyc used by tap.
 
+  --dump-config               Dump the config options in JSON format.
+
   --                          Stop parsing flags, and treat any additional
                               command line arguments as filenames.
 
+Environment Variables:
+
+  TAP_RCFILE                  A yaml formatted file which can set any
+                              of the above options.  Defaults to
+                              $HOME/.taprc
+
+  TAP_TIMEOUT                 Default value for --timeout option.
+
+  TAP_COLORS                  Set to '1' to force color output, or '0'
+                              to prevent color output.
+
+  TAP_BAIL                    Bail out on the first test failure.
+                              Used internally when '--bailout' is set.
+
+  TAP                         Set to '1' to force standard TAP output,
+                              and suppress any reporters.  Used when
+                              running child tests so that their output
+                              is parseable by the test harness.
 ```
 
 ## Coverage
@@ -343,7 +360,7 @@ attempt to open a web browser to view the report after the test run.
 If you use this a lot, you may want to add `coverage` and
 `.nyc_output` to your `.gitignore` and/or `.npmignore` files.
 
-### Travis-CI and Coveralls.io/CodeCov.io Integration
+### Travis-CI and Coveralls.io Integration
 
 You can very easily take advantage of continuous test coverage reports
 by using [Travis-CI](https://travis-ci.org) and
@@ -353,12 +370,11 @@ by using [Travis-CI](https://travis-ci.org) and
    adding a `.travis.yml` file to your repo.  You can use [this
    module's .travis.yml file as an
    example](https://github.com/isaacs/node-tap/blob/master/.travis.yml)
-2. Enable Coveralls.io or CodeCov.io by signing up, and adding the
+2. Enable Coveralls.io by signing up, and adding the
    repo.  Note the repo API token.
 3. Back at Travis-CI, add a private environment variable.  The name of
-   the environment variable is `COVERALLS_REPO_TOKEN` for Coveralls,
-   or `CODECOV_TOKEN` for CodeCov.io, and the value is the token you
-   got from Coveralls or CodeCov.
+   the environment variable is `COVERALLS_REPO_TOKEN`,, and the value
+   is the token you got from Coveralls.
 4. When that token is set in the environment variable, `tap` will
    automatically generate coverage information and send it to the
    appropriate place.

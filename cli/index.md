@@ -39,9 +39,9 @@ Options:
                               when colors are disabled.
 
                               Available reporters:
-                              classic doc dot dump html htmlcov json
-                              jsoncov jsonstream landing list markdown
-                              min nyan progress silent spec tap xunit
+                              classic doc dot dump json jsonstream
+                              landing list markdown min nyan progress
+                              silent spec tap xunit
 
   -s<file> --save=<file>      If <file> exists, then it should be a line-
                               delimited list of test files to run.  If
@@ -65,10 +65,7 @@ Options:
                               If a COVERALLS_REPO_TOKEN environment
                               variable is set, then coverage is
                               captured by default and sent to the
-                              coveralls.io service. If a CODECOV_TOKEN
-                              environment variable is set, then coverage is
-                              captured by default and sent to the
-                              codecov.io service.
+                              coveralls.io service.
 
   --no-coverage --no-cov      Do not capture coverage information.
                               Note that if nyc is already loaded, then
@@ -79,9 +76,9 @@ Options:
 
                               Default is 'text' when running on the
                               command line, or 'text-lcov' when piping
-                              to coveralls or codecov.
+                              to coveralls.
 
-                              If 'lcov' is used, then the report will
+                              If 'html' is used, then the report will
                               be opened in a web browser after running.
 
                               This can be run on its own at any time
@@ -151,7 +148,28 @@ Options:
 
   --nyc-version               Print version of nyc used by tap.
 
+  --dump-config               Dump the config options in JSON format.
+
   --                          Stop parsing flags, and treat any additional
                               command line arguments as filenames.
+
+Environment Variables:
+
+  TAP_RCFILE                  A yaml formatted file which can set any
+                              of the above options.  Defaults to
+                              $HOME/.taprc
+
+  TAP_TIMEOUT                 Default value for --timeout option.
+
+  TAP_COLORS                  Set to '1' to force color output, or '0'
+                              to prevent color output.
+
+  TAP_BAIL                    Bail out on the first test failure.
+                              Used internally when '--bailout' is set.
+
+  TAP                         Set to '1' to force standard TAP output,
+                              and suppress any reporters.  Used when
+                              running child tests so that their output
+                              is parseable by the test harness.
 
 ```

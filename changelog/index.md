@@ -2,6 +2,16 @@
 layout: layout
 ---
 
+## 5.8
+
+Make coverage piping errors non-fatal.
+
+Clean up argument ordering logic in `t.throws()`.  This now works for
+almost any ordering of arguments, which is unfortunately necessary for
+historical reasons.  Additionally, you can now pass in an `Error`
+class to verify the type, which would previously not work properly in
+some cases.
+
 ## 5.7
 
 Report timeout errors in child test scripts much more diligently.
