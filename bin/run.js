@@ -122,7 +122,7 @@ function constructDefaultArgs () {
     saveFile: null,
     pipeToService: false,
     coverageReport: null,
-    openBrowser: true,
+    browser: true,
     coverage: undefined,
     checkCoverage: false,
     branches: 0,
@@ -249,7 +249,7 @@ function parseArgs (args, defaults) {
         continue
 
       case '--no-browser':
-        options.openBrowser = false
+        options.browser = false
         continue
 
       case '--no-coverage-report':
@@ -473,7 +473,7 @@ function runCoverageReportOnly (options, code, signal) {
   } else {
     // otherwise just run the reporter
     child = fg(node, args)
-    if (options.coverageReport === 'lcov' && options.openBrowser) {
+    if (options.coverageReport === 'lcov' && options.browser) {
       child.on('exit', function () {
         opener('coverage/lcov-report/index.html')
       })

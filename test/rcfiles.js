@@ -20,7 +20,7 @@ var defaults = {
   saveFile: null,
   pipeToService: false,
   coverageReport: null,
-  openBrowser: true,
+  browser: true,
   coverage: false,
   checkCoverage: false,
   branches: 0,
