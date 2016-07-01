@@ -3,6 +3,10 @@ var t = require('../')
 var spawn = require('child_process').spawn
 var node = process.execPath
 var run = require.resolve('../bin/run.js')
+
+// fake this one in case you have some weird stuff in ~/.taprc
+var path = require('path')
+process.env.HOME = path.resolve(__dirname, 'fixtures')
 var osHomedir = require('os-homedir')
 
 var defaults = {
@@ -27,7 +31,7 @@ var defaults = {
 }
 
 function runTest (rcFile, expect) { return function (t) {
-  var env = {}
+  var env = { HOME: process.env.HOME }
 
   if (rcFile) {
     env.TAP_RCFILE = rcFile
