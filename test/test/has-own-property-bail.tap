@@ -1,9 +1,0 @@
-TAP version 13
-    # Subtest: obj.hasOwnProperty(key) checks
-    ok 1 - this fails without internal checks
-    1..1
-ok 1 - obj.hasOwnProperty(key) checks ___/# time=[0-9.]+(ms)?/~~~
-
-1..1
-___/# time=[0-9.]+(ms)?/~~~
-
