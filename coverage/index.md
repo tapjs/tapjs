@@ -18,7 +18,7 @@ argument.
 If you use this a lot, you may want to add `coverage` and
 `.nyc_output` to your `.gitignore` and/or `.npmignore` files.
 
-## Travis-CI and Coveralls.io/CodeCov.io Integration
+## Travis-CI and Coveralls.io Integration
 
 You can very easily take advantage of continuous test coverage reports
 by using [Travis-CI](https://travis-ci.org) and
@@ -28,17 +28,38 @@ by using [Travis-CI](https://travis-ci.org) and
    adding a `.travis.yml` file to your repo.  You can use [this
    module's .travis.yml file as an
    example](https://github.com/tapjs/node-tap/blob/master/.travis.yml)
-2. Enable Coveralls.io or CodeCov.io by signing up, and adding the
+2. Enable Coveralls.io by signing up, and adding the
    repo.  Note the repo API token.
 3. Back at Travis-CI, add a private environment variable.  The name of
-   the environment variable is `COVERALLS_REPO_TOKEN` for Coveralls,
-   or `CODECOV_TOKEN` for CodeCov.io, and the value is the token you
-   got from Coveralls or CodeCov.
+   the environment variable is `COVERALLS_REPO_TOKEN`, and the value
+   is the token you got from Coveralls.
 4. When that token is set in the environment variable, `tap` will
    automatically generate coverage information and send it to the
    appropriate place.
 
-## Coverage Reporting
+## Uploading Coverage to Other Services
+
+There's no requirement that you use Coveralls!  Any coverage service
+that understands `lcov` can be used as well.
+
+For example, using [CodeCov](https://codecov.io), you can do the
+following:
+
+1. Add `codecov` as a devDependency in your project with this command:
+
+        npm install codecov --save-dev
+
+2. Add a `test` script that generates coverage information, and a
+   `posttest` that uploads it to codecov:
+
+        {
+          "scripts": {
+            "test": "tap test/*.js --coverage",
+            "posttest": "tap --coverage-report=lcov | codecov"
+          }
+        }
+
+## Local Coverage Reporting
 
 Printing out a coverage report can be done along with tests, or after
 any covered test run, using the `--coverage-report=<type>` argument.
