@@ -111,10 +111,15 @@ function main () {
 }
 
 function constructDefaultArgs () {
+  var defaultTimeout = 30
+  if (global.__coverage__) {
+    defaultTimeout = 240
+  }
+
   var defaultArgs = {
     nodeArgs: [],
     nycArgs: [],
-    timeout: process.env.TAP_TIMEOUT || 30,
+    timeout: +process.env.TAP_TIMEOUT || defaultTimeout,
     color: supportsColor,
     reporter: null,
     files: [],
@@ -129,10 +134,6 @@ function constructDefaultArgs () {
     functions: 0,
     lines: 0,
     statements: 0
-  }
-
-  if (global.__coverage__) {
-    defaultArgs.timeout = 240
   }
 
   if (process.env.TAP_COLORS !== undefined) {

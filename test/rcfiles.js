@@ -31,7 +31,10 @@ var defaults = {
 }
 
 function runTest (rcFile, expect) { return function (t) {
-  var env = { HOME: process.env.HOME }
+  var env = {
+    HOME: process.env.HOME,
+    TAP_TIMEOUT: 30
+  }
 
   if (rcFile) {
     env.TAP_RCFILE = rcFile
