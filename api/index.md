@@ -77,13 +77,20 @@ test will be either ended or failed.
 If the function is not provided, then this will be treated as a `todo`
 test.
 
-The options object is the same as would be passed to any assert, with
-two additional fields that are only relevant for child tests:
+The options object is the same as would be passed to [any
+assert](/asserts/), with two additional fields that are only relevant
+for child tests:
 
+* `todo` Set to boolean `true` or a String to mark this as pending.
+  (Note that this is always the case if no function is provided.)
+* `skip` Set to boolean `true` or a String to mark this as skipped.
 * `timeout`: The number of ms to allow the test to run.
 * `bail`: Set to `true` to bail out on the first test failure.
 * `autoend`: Automatically `end()` the test on the next turn of the
   event loop after its internal queue is drained.
+* `diagnostic` Set to boolean `true` to show a yaml diagnostic block
+  even if the test passes.  (Failing tests always show yaml
+  diagnostics.)
 
 ### t.tearDown(function)
 

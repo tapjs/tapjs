@@ -2,9 +2,15 @@
 layout: layout
 ---
 
+## 6.1
+
+Add support for `{diagnostic: true}` in test and assert options, to
+force a YAML diagnostic block after passing child tests and
+assertions.
+
 ## 6.0
 
-Only product output on stdout if the root TAP test object is
+Only produce output on stdout if the root TAP test object is
 interacted with in some way.  Simply doing `require('tap')` no longer
 prints out the minimum TAP output, which means that you can interact
 with, for example, `var Test = require('tap').Test` without causing
