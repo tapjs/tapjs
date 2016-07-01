@@ -10,7 +10,6 @@ var glob = require('glob')
 var isexe = require('isexe')
 var osHomedir = require('os-homedir')
 var yaml = require('js-yaml')
-var parseRcFile = require('./utils').parseRcFile
 
 var coverageServiceTest = process.env.COVERAGE_SERVICE_TEST === 'true'
 
@@ -49,7 +48,8 @@ function main () {
   var defaults = constructDefaultArgs()
 
   // parse dotfile
-  var rcOptions = parseRcFile(osHomedir() + '/.taprc')
+  var rcFile = process.env.TAP_RCFILE || (osHomedir() + '/.taprc')
+  var rcOptions = parseRcFile(rcFile)
 
   // supplement defaults with parsed rc options
   if (rcOptions) {
@@ -57,6 +57,8 @@ function main () {
       defaults[k] = rcOptions[k]
     })
   }
+
+  defaults.rcFile = rcFile
 
   // parse args
   var options = parseArgs(args, defaults)
@@ -120,7 +122,13 @@ function constructDefaultArgs () {
     saveFile: null,
     pipeToService: false,
     coverageReport: null,
-    openBrowser: true
+    openBrowser: true,
+    coverage: undefined,
+    checkCoverage: false,
+    branches: 0,
+    functions: 0,
+    lines: 0,
+    statements: 0
   }
 
   if (global.__coverage__) {
@@ -161,6 +169,7 @@ function parseArgs (args, defaults) {
   }
 
   var defaultCoverage = options.pipeToService
+  var dumpConfig = false
 
   for (i = 0; i < args.length; i++) {
     var arg = args[i]
@@ -208,6 +217,10 @@ function parseArgs (args, defaults) {
       case '--help':
         console.log(usage())
         return null
+
+      case '--dump-config':
+        dumpConfig = true
+        continue
 
       case '--nyc-help':
         nycHelp()
@@ -290,7 +303,7 @@ function parseArgs (args, defaults) {
 
       case '--check-coverage':
         defaultCoverage = true
-        options.checkCoverage = options.checkCoverage || []
+        options.checkCoverage = true
         continue
 
       case '--nyc-arg':
@@ -306,8 +319,8 @@ function parseArgs (args, defaults) {
       case '--statements':
         defaultCoverage = true
         val = val || args[++i]
-        options.checkCoverage = options.checkCoverage || []
-        options.checkCoverage.push(key, val)
+        options.checkCoverage = true
+        options[key.slice(2)] = val
         continue
 
       case '--color':
@@ -352,6 +365,11 @@ function parseArgs (args, defaults) {
   // default to tap for non-tty envs
   if (!options.reporter) {
     options.reporter = options.color ? 'classic' : 'tap'
+  }
+
+  if (dumpConfig) {
+    console.log(JSON.stringify(options, null, 2))
+    return false
   }
 
   return options
@@ -478,8 +496,26 @@ function runCoverageReportOnly (options, code, signal) {
   }
 }
 
+function coverageCheckArgs (options) {
+  var args = []
+  if (options.branches) {
+    args.push('branches', options.branches)
+  }
+  if (options.functions) {
+    args.push('functions', options.functions)
+  }
+  if (options.lines) {
+    args.push('lines', options.lines)
+  }
+  if (options.statements) {
+    args.push('statements', options.statements)
+  }
+
+  return args
+}
+
 function runCoverageCheck (options, code, signal) {
-  var args = [nycBin, 'check-coverage'].concat(options.checkCoverage)
+  var args = [nycBin, 'check-coverage'].concat(coverageCheckArgs(options))
 
   var child = fg(node, args)
   child.removeAllListeners('close')
@@ -659,4 +695,14 @@ function runTests (options) {
   runAllFiles(options, saved, tap)
 
   tap.end()
+}
+
+function parseRcFile (path) {
+  try {
+    var contents = fs.readFileSync(path, 'utf8')
+    return yaml.safeLoad(contents) || {}
+  } catch(er) {
+    // if no dotfile exists, or invalid yaml, fail gracefully
+    return {}
+  }
 }
