@@ -2,6 +2,32 @@
 layout: layout
 ---
 
+## 6.0
+
+Only product output on stdout if the root TAP test object is
+interacted with in some way.  Simply doing `require('tap')` no longer
+prints out the minimum TAP output, which means that you can interact
+with, for example, `var Test = require('tap').Test` without causing
+output side effects.
+
+Add `~/.taprc` yaml config file support.
+
+Add the `--dump-config` command line flag to print out the config
+options.
+
+Document environment variables used.
+
+Built-in CodeCov.io support has been removed.  If you were relying on
+this, you can add `codecov` as a devDependency, and then add this to
+the scripts block in your `package.json` file:
+
+    {
+      "scripts": {
+        "test": "tap test/*.js --coverage",
+        "posttest": "tap --coverage-report=lcov | codecov"
+      }
+    }
+
 ## 5.8
 
 Make coverage piping errors non-fatal.
