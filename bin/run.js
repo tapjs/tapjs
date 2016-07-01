@@ -499,16 +499,16 @@ function runCoverageReportOnly (options, code, signal) {
 function coverageCheckArgs (options) {
   var args = []
   if (options.branches) {
-    args.push('branches', options.branches)
+    args.push('--branches', options.branches)
   }
   if (options.functions) {
-    args.push('functions', options.functions)
+    args.push('--functions', options.functions)
   }
   if (options.lines) {
-    args.push('lines', options.lines)
+    args.push('--lines', options.lines)
   }
   if (options.statements) {
-    args.push('statements', options.statements)
+    args.push('--statements', options.statements)
   }
 
   return args
