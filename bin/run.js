@@ -119,6 +119,7 @@ function constructDefaultArgs () {
   var defaultArgs = {
     nodeArgs: [],
     nycArgs: [],
+    testArgs: [],
     timeout: +process.env.TAP_TIMEOUT || defaultTimeout,
     color: supportsColor,
     reporter: null,
@@ -305,6 +306,13 @@ function parseArgs (args, defaults) {
       case '--check-coverage':
         defaultCoverage = true
         options.checkCoverage = true
+        continue
+
+      case '--test-arg':
+        val = val || args[++i]
+        if (val !== undefined) {
+          options.testArgs.push(val)
+        }
         continue
 
       case '--nyc-arg':
@@ -661,14 +669,15 @@ function runAllFiles (options, saved, tap) {
     extra.file = file
 
     if (file.match(/\.js$/)) {
-      tap.spawn(node, options.nodeArgs.concat(file), opt, file, extra)
+      var args = options.nodeArgs.concat(file).concat(options.testArgs)
+      tap.spawn(node, args, opt, file, extra)
     } else if (st.isDirectory()) {
       var dir = fs.readdirSync(file).map(function (f) {
         return file + '/' + f
       })
       options.files.push.apply(options.files, dir)
     } else if (isexe.sync(options.files[i])) {
-      tap.spawn(options.files[i], [], opt, file, extra)
+      tap.spawn(options.files[i], options.testArgs, opt, file, extra)
     }
   }
 

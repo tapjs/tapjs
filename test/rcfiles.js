@@ -12,6 +12,7 @@ var osHomedir = require('os-homedir')
 var defaults = {
   nodeArgs: [],
   nycArgs: [],
+  testArgs: [],
   timeout: 30,
   color: false,
   reporter: 'tap',

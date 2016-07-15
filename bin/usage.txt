@@ -102,6 +102,11 @@ Options:
 
   --strict                    Run JS tests in 'use strict' mode
 
+  --test-arg=<arg>            Pass an argument to test files spawned
+                              by the tap command line executable.
+                              This can be specified multiple times to
+                              pass multiple args to test scripts.
+
   --nyc-arg=<arg>             Pass an argument to nyc when running
                               child processes with coverage enabled.
                               This can be specified multiple times to
