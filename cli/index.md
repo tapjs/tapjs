@@ -86,6 +86,9 @@ Options:
 
   --no-coverage-report        Do not output a coverage report.
 
+  --no-browser                Do not open a web browser after
+                              generating an html coverage report.
+
   -t<n> --timeout=<n>         Time out test files after <n> seconds.
                               Defaults to 30, or the value of the
                               TAP_TIMEOUT environment variable.
@@ -109,6 +112,11 @@ Options:
   --harmony                   Enable all Harmony flags in JavaScript tests
 
   --strict                    Run JS tests in 'use strict' mode
+
+  --test-arg=<arg>            Pass an argument to test files spawned
+                              by the tap command line executable.
+                              This can be specified multiple times to
+                              pass multiple args to test scripts.
 
   --nyc-arg=<arg>             Pass an argument to nyc when running
                               child processes with coverage enabled.
@@ -171,5 +179,14 @@ Environment Variables:
                               and suppress any reporters.  Used when
                               running child tests so that their output
                               is parseable by the test harness.
+
+Config Files:
+
+You can create a yaml file with any of the options above.  By default,
+the file at ~/.taprc will be loaded, but the TAP_RCFILE environment
+variable can modify this.
+
+Run 'tap --dump-config' for a listing of what can be set in that file.
+Each of the keys corresponds to one of the options above.
 
 ```
