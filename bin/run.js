@@ -4,7 +4,7 @@ var fs = require('fs')
 var spawn = require('child_process').spawn
 var fg = require('foreground-child')
 var opener = require('opener')
-var supportsColor = require('supports-color')
+var colorSupport = require('color-support')
 var nycBin = require.resolve('nyc/bin/nyc.js')
 var glob = require('glob')
 var isexe = require('isexe')
@@ -121,7 +121,7 @@ function constructDefaultArgs () {
     nycArgs: [],
     testArgs: [],
     timeout: +process.env.TAP_TIMEOUT || defaultTimeout,
-    color: supportsColor,
+    color: !!colorSupport.level,
     reporter: null,
     files: [],
     bail: false,
@@ -589,13 +589,17 @@ function globFiles (files) {
   }, [])
 }
 
-function stdinOnly (options) {
+function makeReporter (options) {
   var TMR = require('tap-mocha-reporter')
+  return new TMR(options.reporter)
+}
+
+function stdinOnly (options) {
   // if we didn't specify any files, then just passthrough
   // to the reporter, so we don't get '/dev/stdin' in the suite list.
   // We have to pause() before piping to switch streams2 into old-mode
   process.stdin.pause()
-  var reporter = new TMR(options.reporter)
+  var reporter = makeReporter(options)
   process.stdin.pipe(reporter)
   process.stdin.resume()
 }
@@ -695,9 +699,8 @@ function runTests (options) {
 
   // if not -Rtap, then output what the user wants.
   if (options.reporter !== 'tap') {
-    var TMR = require('tap-mocha-reporter')
     tap.unpipe(process.stdout)
-    tap.pipe(new TMR(options.reporter))
+    tap.pipe(makeReporter(options))
   }
 
   saveFails(options, tap)
