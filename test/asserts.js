@@ -82,6 +82,7 @@ test('doesNotThrow expects not to catch', function (t) {
     throw 'x' // eslint-disable-line
   }))
   t.doesNotThrow(function () {})
+  t.doesNotThrow('this does not throw', function () {})
   t.end()
 })
 
