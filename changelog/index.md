@@ -2,6 +2,18 @@
 layout: layout
 ---
 
+## 6.3
+
+Let `t.doesNotThrow` take a string as the first argument.
+
+Bump `nyc` up to version 7.
+
+The tap `lib/` folder is excluded from all stack traces.
+
+## 6.2
+
+Add the `--test-arg=<argument>` option.
+
 ## 6.1
 
 Add support for `{diagnostic: true}` in test and assert options, to
