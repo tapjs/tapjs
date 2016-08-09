@@ -1,4 +1,4 @@
-var test = require('tape');
+var test = require('tap').test;
 
 test('beep', function (t) {
     t.plan(2);

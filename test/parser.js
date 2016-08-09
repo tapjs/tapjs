@@ -3,7 +3,7 @@ var etoa = require('events-to-array')
 
 var ignore = [ 'pipe', 'unpipe', 'prefinish', 'finish', 'newListener' ]
 var glob = require('glob')
-var test = require('tape')
+var test = require('tap').test
 var path = require('path')
 var fs = require('fs')
 
