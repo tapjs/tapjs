@@ -1,6 +1,7 @@
 // Transforms a stream of TAP into a stream of result objects
 // and string comments.  Emits "results" event with summary.
 var Writable = require('stream').Writable
+/* istanbul ignore if */
 if (!Writable) {
   try {
     Writable = require('readable-stream').Writable
