@@ -1,5 +1,5 @@
 TAP version 13
-    # Subtest: t.end()
+# Subtest: t.end()
     ok 1 - did not timeout
     not ok 2 - timeout!
       ---
@@ -13,7 +13,7 @@ not ok 1 - t.end() ___/# time=[0-9.]+(ms)?/~~~
   ...
 
     # failed 1 of 2 tests
-    # Subtest: plan()
+# Subtest: plan()
     1..1
     ok 1 - did not time out
 not ok 2 - plan() ___/# time=[0-9.]+(ms)?/~~~

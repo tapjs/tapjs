@@ -1,5 +1,5 @@
 TAP version 13
-    # Subtest: ___/.*/~~~spawn-empty.js child
+# Subtest: ___/.*/~~~spawn-empty.js child
     1..0
 ok 1 - ___/.*/~~~spawn-empty.js child # SKIP No tests found
 

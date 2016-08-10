@@ -1,5 +1,5 @@
 TAP version 13
-    # Subtest: t.end()
+# Subtest: t.end()
     ok 1 - did not timeout
     not ok 2 - timeout!
       ---

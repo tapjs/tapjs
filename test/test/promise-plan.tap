@@ -1,5 +1,5 @@
 TAP version 13
-    # Subtest: one
+# Subtest: one
 running one
     1..1
     ok 1 - done one
@@ -9,28 +9,28 @@ one promise was fulfilled
 ok 1 - one ___/# time=[0-9.]+(ms)?/~~~
 
 one end
-    # Subtest: two
+# Subtest: two
 running two
     1..1
     ok 1 - done two
 two promise was fulfilled
 ok 2 - two ___/# time=[0-9.]+(ms)?/~~~
 
-    # Subtest: three
+# Subtest: three
 running three
     1..0
 ok 3 - three ___/# time=[0-9.]+(ms)?/~~~
 
-    # Subtest: broken promises
+# Subtest: broken promises
     1..2
-        # Subtest: end()
+    # Subtest: end()
         1..0
     not ok 1 - end() ___/# time=[0-9.]+(ms)?/~~~
       ---
       {"at":{"column":5,"file":"test/test/promise-plan.js","line":42},"results":{"count":0,"ok":false,"pass":0,"plan":{"end":0,"start":1}},"source":"t.test('end()', function (t) {\n"}
       ...
 
-        # Subtest: plan
+    # Subtest: plan
         1..1
         ok 1 - this is fine
     not ok 2 - plan ___/# time=[0-9.]+(ms)?/~~~
@@ -43,16 +43,16 @@ not ok 4 - broken promises ___/# time=[0-9.]+(ms)?/~~~
   {"at":{"column":3,"file":"test/test/promise-plan.js","line":40},"results":{"count":2,"fail":2,"ok":false,"pass":0,"plan":{"end":2,"start":1}},"source":"t.test('broken promises', function (t) {\n"}
   ...
 
-    # Subtest: thrown with timeouts
+# Subtest: thrown with timeouts
     1..2
-        # Subtest: end()
+    # Subtest: end()
         1..0
     not ok 1 - end() ___/# time=[0-9.]+(ms)?/~~~
       ---
       {"at":{"column":5,"file":"test/test/promise-plan.js","line":59},"results":{"count":0,"ok":false,"pass":0,"plan":{"end":0,"start":1}},"source":"t.test('end()', function (t) {\n"}
       ...
 
-        # Subtest: plan
+    # Subtest: plan
         1..1
         ok 1 - this is fine
     not ok 2 - plan ___/# time=[0-9.]+(ms)?/~~~

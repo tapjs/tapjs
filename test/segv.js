@@ -20,7 +20,7 @@ var segv =
 // in different order.
 var expect =
 ('TAP version 13\n' +
-'    # Subtest: ./segv\n' +
+'# Subtest: ./segv\n' +
 '    1..0\n' +
 'not ok 1 - ./segv  # time=\n' +
 '  ---\n' +

@@ -47,7 +47,7 @@ tap.test('t.setTimeout()', function (t) {
   t.notOk(tt._timer)
 
   var expect = new RegExp('^TAP version 13\n' +
-    '    # Subtest: child test\n' +
+    '# Subtest: child test\n' +
     '    ok 1 - this is fine\n' +
     '    not ok 2 - timeout!\n' +
     '      ---\n' +

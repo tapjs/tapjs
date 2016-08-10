@@ -167,7 +167,7 @@ test('subtest with only a function', function (t) {
   tt.test(function (){})
   tt.end()
   
-  t.equal(out, 'TAP version 13\n    # Subtest: (unnamed test)\n');
+  t.equal(out, 'TAP version 13\n# Subtest: (unnamed test)\n');
 
   t.end()
 })
@@ -195,7 +195,7 @@ test('subtest with name and function', function (t) {
   tt.test('name', function (){})
   tt.end()
 
-  t.equal(out, 'TAP version 13\n    # Subtest: name\n');
+  t.equal(out, 'TAP version 13\n# Subtest: name\n');
 
   t.end()
 })
@@ -209,7 +209,7 @@ test('subtest with options and function', function (t) {
   tt.test({skip: false}, function (){})
   tt.end()
 
-  t.equal(out, 'TAP version 13\n    # Subtest: (unnamed test)\n');
+  t.equal(out, 'TAP version 13\n# Subtest: (unnamed test)\n');
 
   t.end()
 })
