@@ -297,10 +297,6 @@
     ]
   ],
   [
-    "extra",
-    "# Subtest: my_streamy_test\n"
-  ],
-  [
     "line",
     "    ok 1 - subtest event A\n"
   ],
@@ -388,10 +384,6 @@
         }
       ]
     ]
-  ],
-  [
-    "extra",
-    "# Subtest: my_streamy_test_plan\n"
   ],
   [
     "line",

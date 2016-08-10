@@ -473,6 +473,7 @@ Parser.prototype._parse = function (line) {
   // handle this by calling it a zero-width indent for now.
   if (isChildTest && !indent) {
     this.startChild('', line)
+    return
   }
 
   if (indent) {
