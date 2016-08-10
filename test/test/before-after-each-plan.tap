@@ -1,13 +1,13 @@
 TAP version 13
 1..1
-    # Subtest: parent
+# Subtest: parent
 before 1 parent
     1..1
-        # Subtest: child
+    # Subtest: child
 before 1 child
 before 2 child
         1..1
-            # Subtest: grandchild
+        # Subtest: grandchild
 before 1 grandchild
 before 2 grandchild
             1..1

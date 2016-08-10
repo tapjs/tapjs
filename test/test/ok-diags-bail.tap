@@ -1,0 +1,16 @@
+TAP version 13
+ok 1 - this is fine
+  ---
+  {"foo":{"bar":"baz"}}
+  ...
+# Subtest: child
+    1..1
+    ok 1 - this is fine
+ok 2 - child ___/# time=[0-9.]+(ms)?/~~~
+  ---
+  {"at":{"column":3,"file":"test/test/ok-diags.js","line":10},"results":{"count":1,"ok":true,"pass":1,"plan":{"end":1,"start":1}},"source":"t.test('child', { diagnostic: true }, function (t) {\n"}
+  ...
+
+1..2
+___/# time=[0-9.]+(ms)?/~~~
+

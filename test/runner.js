@@ -565,3 +565,25 @@ t.test('--nyc stuff', function (t) {
 
   t.end()
 })
+
+t.test('--test-args', function (t) {
+  var file = require.resolve('./fixtures/dump-args.js')
+  var args = [
+    run,
+    '--test-arg=--x=y',
+    '--test-arg=-q',
+    '--test-arg=x',
+    file
+  ]
+
+  execFile(node, args, function (err, stdout, stderr) {
+    if (err) {
+      throw err
+    }
+    t.equal(stderr, '')
+    var re = /ok 1 - .*[\/\\]node ".*[\\\/]dump-args.js" "--x=y" "-q" "x"$/im
+    t.match(stdout, re)
+    t.match(stdout, /^ok 1 - .*[\\\/]dump-args.js/m)
+    t.end()
+  })
+})
