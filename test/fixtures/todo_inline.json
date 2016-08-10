@@ -56,11 +56,11 @@
       "pass": 2,
       "fail": 1,
       "todo": 2,
-      "failures": [],
       "plan": {
         "start": 1,
         "end": 3
-      }
+      },
+      "failures": []
     }
   ]
 ]

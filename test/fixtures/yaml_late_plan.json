@@ -75,11 +75,11 @@
       "ok": true,
       "count": 3,
       "pass": 3,
-      "failures": [],
       "plan": {
         "start": 1,
         "end": 3
-      }
+      },
+      "failures": []
     }
   ]
 ]

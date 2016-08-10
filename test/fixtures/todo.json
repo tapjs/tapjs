@@ -145,11 +145,11 @@
                   "ok": true,
                   "count": 2,
                   "pass": 2,
-                  "failures": [],
                   "plan": {
                     "start": 1,
                     "end": 2
-                  }
+                  },
+                  "failures": []
                 }
               ]
             ]
@@ -196,11 +196,11 @@
               "count": 3,
               "pass": 3,
               "todo": 2,
-              "failures": [],
               "plan": {
                 "start": 1,
                 "end": 3
-              }
+              },
+              "failures": []
             }
           ]
         ]
@@ -267,11 +267,11 @@
           "count": 3,
           "pass": 3,
           "todo": 2,
-          "failures": [],
           "plan": {
             "start": 1,
             "end": 3
-          }
+          },
+          "failures": []
         }
       ]
     ]
@@ -412,11 +412,11 @@
           "count": 3,
           "pass": 3,
           "todo": 3,
-          "failures": [],
           "plan": {
             "start": 1,
             "end": 3
-          }
+          },
+          "failures": []
         }
       ]
     ]
@@ -466,11 +466,11 @@
       "ok": true,
       "count": 2,
       "pass": 2,
-      "failures": [],
       "plan": {
         "start": 1,
         "end": 2
-      }
+      },
+      "failures": []
     }
   ]
 ]
