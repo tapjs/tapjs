@@ -1,8 +1,8 @@
 TAP version 13
-    # Subtest: parent of timeout test
-        # Subtest: timeout test
-            # Subtest: this never completes
-                # Subtest: baby
+# Subtest: parent of timeout test
+    # Subtest: timeout test
+        # Subtest: this never completes
+            # Subtest: baby
                 ok 1 - expect truthy value
                 not ok 2 - timeout!
                   ---

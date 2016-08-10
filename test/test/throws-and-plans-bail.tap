@@ -1,8 +1,8 @@
 TAP version 13
 ok 1 - expect truthy value
-    # Subtest: plans of 1
+# Subtest: plans of 1
     ok 1 - before sync thrower
-        # Subtest: sync thrower
+    # Subtest: sync thrower
         1..1
         ok 1 - before the bomb
     ok 2 - sync thrower ___/# time=[0-9.]+(ms)?/~~~

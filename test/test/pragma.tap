@@ -1,6 +1,6 @@
 TAP version 13
 pragma +child
-    # Subtest: ___/.*/~~~pragma.js child
+# Subtest: ___/.*/~~~pragma.js child
     this is not tap but it is ok
     ok 1 - an ok test
     pragma +strict
@@ -16,7 +16,7 @@ not ok 1 - ___/.*/~~~pragma.js child ___/# time=[0-9.]+(ms)?/~~~
   ...
 
 pragma -child
-    # Subtest: ___/.*/~~~pragma.js child bailout
+# Subtest: ___/.*/~~~pragma.js child bailout
     Bail out! # no pragmas come after bailout
 Bail out! # no pragmas come after bailout
 

@@ -1,8 +1,8 @@
 TAP version 13
-    # Subtest: one
-        # Subtest: two
-            # Subtest: child of 2
-                # Subtest: grandchild of 2
+# Subtest: one
+    # Subtest: two
+        # Subtest: child of 2
+            # Subtest: grandchild of 2
                 not ok 1 - Error: fail 1
                   ---
                   {"at":{"column":15,"file":"test/test/promise-fails.js","line":7},"message":"Error: fail 1","source":"throw new Error('fail 1')\n","test":"grandchild of 2"}
@@ -28,7 +28,7 @@ TAP version 13
       {"at":{"column":12,"file":"test/test/promise-fails.js","line":4},"results":{"count":1,"fail":1,"ok":false,"pass":0,"plan":{"end":1,"start":1}},"source":"return t.test('two', function (t) {\n"}
       ...
 
-        # Subtest: second child of 2
+    # Subtest: second child of 2
         not ok 1 - Error: fail 2
           ---
           {"at":{"column":13,"file":"test/test/promise-fails.js","line":12},"message":"Error: fail 2","source":"throw new Error('fail 2')\n","test":"second child of 2"}
@@ -47,7 +47,7 @@ not ok 1 - one ___/# time=[0-9.]+(ms)?/~~~
   {"at":{"column":3,"file":"test/test/promise-fails.js","line":3},"results":{"count":2,"fail":2,"ok":false,"pass":0,"plan":{"end":2,"start":1}},"source":"t.test('one', function (t) {\n"}
   ...
 
-    # Subtest: three
+# Subtest: three
     not ok 1 - Error: fail 3
       ---
       {"at":{"column":13,"file":"test/test/promise-fails.js","line":18},"message":"Error: fail 3","source":"throw new Error('fail 3')\n","test":"three"}
@@ -59,7 +59,7 @@ not ok 2 - three ___/# time=[0-9.]+(ms)?/~~~
   {"at":{"column":12,"file":"test/test/promise-fails.js","line":16},"results":{"count":1,"fail":1,"ok":false,"pass":0,"plan":{"end":1,"start":1}},"source":"return t.test('three', function (t) {\n"}
   ...
 
-    # Subtest: some_function_name
+# Subtest: some_function_name
     not ok 1 - Error: fail 4
       ---
       {"at":{"column":15,"file":"test/test/promise-fails.js","line":29},"message":"Error: fail 4","source":"throw new Error('fail 4')\n","test":"some_function_name"}
