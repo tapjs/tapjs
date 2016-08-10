@@ -1,0 +1,12 @@
+# Seeded srand with seed '20160809' from local date.
+# Subtest: my_streamy_test
+    ok 1 - subtest event A
+    ok 2 - subtest event B
+    1..2
+ok 1 - Subtest: my_streamy_test
+# Subtest: my_streamy_test_plan
+    1..2
+    ok 1 - subtest event A
+    ok 2 - subtest event B
+ok 2 - Subtest: my_streamy_test_plan
+1..2

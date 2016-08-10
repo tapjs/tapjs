@@ -327,7 +327,7 @@ Parser.prototype.emitResult = function () {
 }
 
 Parser.prototype.startChild = function (indent, line) {
-  if (!line.substr(indent.length).match(/^# Subtest:/)) {
+  if (0 !== line.indexOf(indent + '# Subtest:')) {
     this.nonTap(line)
     return
   }
@@ -347,7 +347,10 @@ Parser.prototype.startChild = function (indent, line) {
     if (this.sawValidTap && !results.ok)
       self.ok = false
   })
-  this.child.write(line.substr(indent.length))
+
+  line = line.substr(indent.length)
+  this.child.emit('line', line)
+  this.child.emitComment(line)
 }
 
 Parser.prototype.emitComment = function (line) {
@@ -355,6 +358,10 @@ Parser.prototype.emitComment = function (line) {
     this.commentQueue.push(line)
   else
     this.emit('comment', line)
+}
+
+function maybeEnd (child, line) {
+  return /^(not )?ok/.test(line)
 }
 
 Parser.prototype._parse = function (line) {
@@ -407,7 +414,11 @@ Parser.prototype._parse = function (line) {
   }
 
   // still belongs to the child.
+  var indent = line.match(/^[ \t]*/)[0]
   if (this.child) {
+    if (indent && !this.child.indent) {
+      this.child.indent = indent
+    }
     if (line.indexOf(this.child.indent) === 0) {
       line = line.substr(this.child.indent.length)
       this.child.write(line)
@@ -417,17 +428,19 @@ Parser.prototype._parse = function (line) {
       this.emitComment(line)
       return
     }
+
     // a child test can only end when we get an test point line.
     // anything else is extra.
-    if (this.child.sawValidTap && !/^(not )?ok/.test(line)) {
+    if (this.child.sawValidTap && !maybeEnd(this.child, line)) {
       this.nonTap(line)
       return
     }
   }
 
-  // comment, but let "# Subtest:" comments start a child
+  // comment, but let "# Subtest:" comments start a streamed child
   var c = line.match(/^(\s+)?#(.*)/)
-  if (c && !(c[1] && /^ Subtest: /.test(c[2]))) {
+  var isChildTest = c && /^ Subtest: /.test(c[2])
+  if (c && !isChildTest) {
     this.emitComment(line)
     return
   }
@@ -439,10 +452,13 @@ Parser.prototype._parse = function (line) {
     return
   }
 
-  var indent = line.match(/^[ \t]+/)
-  if (indent) {
-    indent = indent[0]
+  // the `# Subtest: <name>` comment is not guaranteed to be indented
+  // handle this by calling it a zero-width indent for now.
+  if (isChildTest && !indent) {
+    this.startChild('', line)
+  }
 
+  if (indent) {
     // if we don't have a current res, then it can't be yamlish.
     // If it is a subtest command, then it's a child test.
     if (!this.current) {
