@@ -1,0 +1,451 @@
+[
+  [
+    "line",
+    "# Seeded srand with seed '20160810' from local date.\n"
+  ],
+  [
+    "comment",
+    "# Seeded srand with seed '20160810' from local date.\n"
+  ],
+  [
+    "line",
+    "not ok 1 - empty {\n"
+  ],
+  [
+    "line",
+    "    1..0\n"
+  ],
+  [
+    "child",
+    [
+      [
+        "comment",
+        "# Subtest: empty"
+      ],
+      [
+        "line",
+        "1..0\n"
+      ],
+      [
+        "plan",
+        {
+          "start": 1,
+          "end": 0
+        }
+      ],
+      [
+        "complete",
+        {
+          "ok": true,
+          "count": 0,
+          "pass": 0,
+          "plan": {
+            "start": 1,
+            "end": 0,
+            "skipAll": true
+          },
+          "failures": []
+        }
+      ]
+    ]
+  ],
+  [
+    "line",
+    "}\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": false,
+      "id": 1,
+      "name": "empty"
+    }
+  ],
+  [
+    "line",
+    "ok 2 - my_test {\n"
+  ],
+  [
+    "line",
+    "    ok 1 - subtest event A\n"
+  ],
+  [
+    "child",
+    [
+      [
+        "comment",
+        "# Subtest: my_test"
+      ],
+      [
+        "line",
+        "ok 1 - subtest event A\n"
+      ],
+      [
+        "line",
+        "ok 2 - subtest event B\n"
+      ],
+      [
+        "assert",
+        {
+          "ok": true,
+          "id": 1,
+          "name": "subtest event A"
+        }
+      ],
+      [
+        "line",
+        "1..2\n"
+      ],
+      [
+        "assert",
+        {
+          "ok": true,
+          "id": 2,
+          "name": "subtest event B"
+        }
+      ],
+      [
+        "plan",
+        {
+          "start": 1,
+          "end": 2
+        }
+      ],
+      [
+        "complete",
+        {
+          "ok": true,
+          "count": 2,
+          "pass": 2,
+          "plan": {
+            "start": 1,
+            "end": 2
+          },
+          "failures": []
+        }
+      ]
+    ]
+  ],
+  [
+    "line",
+    "    ok 2 - subtest event B\n"
+  ],
+  [
+    "line",
+    "    1..2\n"
+  ],
+  [
+    "line",
+    "}\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 2,
+      "name": "my_test"
+    }
+  ],
+  [
+    "line",
+    "ok 3 - my_test_plan {\n"
+  ],
+  [
+    "line",
+    "    1..2\n"
+  ],
+  [
+    "child",
+    [
+      [
+        "comment",
+        "# Subtest: my_test_plan"
+      ],
+      [
+        "line",
+        "1..2\n"
+      ],
+      [
+        "plan",
+        {
+          "start": 1,
+          "end": 2
+        }
+      ],
+      [
+        "line",
+        "ok 1 - subtest event A\n"
+      ],
+      [
+        "line",
+        "ok 2 - subtest event B\n"
+      ],
+      [
+        "assert",
+        {
+          "ok": true,
+          "id": 1,
+          "name": "subtest event A"
+        }
+      ],
+      [
+        "assert",
+        {
+          "ok": true,
+          "id": 2,
+          "name": "subtest event B"
+        }
+      ],
+      [
+        "complete",
+        {
+          "ok": true,
+          "count": 2,
+          "pass": 2,
+          "plan": {
+            "start": 1,
+            "end": 2
+          },
+          "failures": []
+        }
+      ]
+    ]
+  ],
+  [
+    "line",
+    "    ok 1 - subtest event A\n"
+  ],
+  [
+    "line",
+    "    ok 2 - subtest event B\n"
+  ],
+  [
+    "line",
+    "}\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 3,
+      "name": "my_test_plan"
+    }
+  ],
+  [
+    "line",
+    "# Subtest: my_streamy_test\n"
+  ],
+  [
+    "child",
+    [
+      [
+        "line",
+        "# Subtest: my_streamy_test\n"
+      ],
+      [
+        "comment",
+        "# Subtest: my_streamy_test\n"
+      ],
+      [
+        "line",
+        "ok 1 - subtest event A\n"
+      ],
+      [
+        "line",
+        "ok 2 - subtest event B\n"
+      ],
+      [
+        "assert",
+        {
+          "ok": true,
+          "id": 1,
+          "name": "subtest event A"
+        }
+      ],
+      [
+        "line",
+        "1..2\n"
+      ],
+      [
+        "assert",
+        {
+          "ok": true,
+          "id": 2,
+          "name": "subtest event B"
+        }
+      ],
+      [
+        "plan",
+        {
+          "start": 1,
+          "end": 2
+        }
+      ],
+      [
+        "complete",
+        {
+          "ok": true,
+          "count": 2,
+          "pass": 2,
+          "plan": {
+            "start": 1,
+            "end": 2
+          },
+          "failures": []
+        }
+      ]
+    ]
+  ],
+  [
+    "extra",
+    "# Subtest: my_streamy_test\n"
+  ],
+  [
+    "line",
+    "    ok 1 - subtest event A\n"
+  ],
+  [
+    "line",
+    "    ok 2 - subtest event B\n"
+  ],
+  [
+    "line",
+    "    1..2\n"
+  ],
+  [
+    "line",
+    "ok 4 - Subtest: my_streamy_test\n"
+  ],
+  [
+    "line",
+    "# Subtest: my_streamy_test_plan\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 4,
+      "name": "Subtest: my_streamy_test"
+    }
+  ],
+  [
+    "child",
+    [
+      [
+        "line",
+        "# Subtest: my_streamy_test_plan\n"
+      ],
+      [
+        "comment",
+        "# Subtest: my_streamy_test_plan\n"
+      ],
+      [
+        "line",
+        "1..2\n"
+      ],
+      [
+        "plan",
+        {
+          "start": 1,
+          "end": 2
+        }
+      ],
+      [
+        "line",
+        "ok 1 - subtest event A\n"
+      ],
+      [
+        "line",
+        "ok 2 - subtest event B\n"
+      ],
+      [
+        "assert",
+        {
+          "ok": true,
+          "id": 1,
+          "name": "subtest event A"
+        }
+      ],
+      [
+        "assert",
+        {
+          "ok": true,
+          "id": 2,
+          "name": "subtest event B"
+        }
+      ],
+      [
+        "complete",
+        {
+          "ok": true,
+          "count": 2,
+          "pass": 2,
+          "plan": {
+            "start": 1,
+            "end": 2
+          },
+          "failures": []
+        }
+      ]
+    ]
+  ],
+  [
+    "extra",
+    "# Subtest: my_streamy_test_plan\n"
+  ],
+  [
+    "line",
+    "    1..2\n"
+  ],
+  [
+    "line",
+    "    ok 1 - subtest event A\n"
+  ],
+  [
+    "line",
+    "    ok 2 - subtest event B\n"
+  ],
+  [
+    "line",
+    "ok 5 - Subtest: my_streamy_test_plan\n"
+  ],
+  [
+    "line",
+    "1..5\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 5,
+      "name": "Subtest: my_streamy_test_plan"
+    }
+  ],
+  [
+    "plan",
+    {
+      "start": 1,
+      "end": 5
+    }
+  ],
+  [
+    "complete",
+    {
+      "ok": false,
+      "count": 5,
+      "pass": 4,
+      "fail": 1,
+      "plan": {
+        "start": 1,
+        "end": 5
+      },
+      "failures": [
+        {
+          "ok": false,
+          "id": 1,
+          "name": "empty"
+        }
+      ]
+    }
+  ]
+]

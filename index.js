@@ -117,6 +117,7 @@ function Parser (options, onComplete) {
   this.child = null
   this.current = null
   this.commentQueue = []
+  this.buffered = options.buffered || null
 
   this.count = 0
   this.pass = 0
@@ -328,17 +329,22 @@ Parser.prototype.emitResult = function () {
 }
 
 Parser.prototype.startChild = function (indent, line) {
-  if (0 !== line.indexOf(indent + '# Subtest:')) {
+  var maybeBuffered = this.current && this.current.name.match(/{$/)
+  var streamComment = 0 === line.indexOf(indent + '# Subtest:')
+
+  if (!maybeBuffered && !streamComment) {
     this.nonTap(line)
     return
   }
 
-  this.emitResult()
+  if (streamComment)
+    this.emitResult()
 
   this.child = new Parser({
     indent: indent,
     parent: this,
-    level: this.level + 1
+    level: this.level + 1,
+    buffered: this.current
   })
 
   this.emit('child', this.child)
@@ -350,8 +356,14 @@ Parser.prototype.startChild = function (indent, line) {
   })
 
   line = line.substr(indent.length)
-  this.child.emit('line', line)
-  this.child.emitComment(line)
+  if (streamComment) {
+    this.child.emit('line', line)
+    this.child.emitComment(line)
+  } else {
+    this.current.name = this.current.name.replace(/{$/, '').trim()
+    this.child.emitComment('# Subtest: ' + this.current.name)
+    this.child._parse(line)
+  }
 }
 
 Parser.prototype.emitComment = function (line) {
@@ -362,7 +374,10 @@ Parser.prototype.emitComment = function (line) {
 }
 
 function maybeEnd (child, line) {
-  return /^(not )?ok/.test(line)
+  if (child.buffered)
+    return line.trim() === '}'
+  else
+    return /^(not )?ok/.test(line)
 }
 
 Parser.prototype._parse = function (line) {
@@ -430,7 +445,8 @@ Parser.prototype._parse = function (line) {
       return
     }
 
-    // a child test can only end when we get an test point line.
+    // a buffered child test can only end on }
+    // streamed child test can only end when we get an test point line.
     // anything else is extra.
     if (this.child.sawValidTap && !maybeEnd(this.child, line)) {
       this.nonTap(line)
@@ -539,6 +555,11 @@ Parser.prototype._parse = function (line) {
     if (this.count !== 0 || this.planEnd === 0)
       this.postPlan = true
 
+    return
+  }
+
+  if (this.child && this.child.buffered && line.trim() === '}') {
+    this.emitResult()
     return
   }
 
