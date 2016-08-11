@@ -1,6 +1,6 @@
 TAP version 13
 pragma +child
-# Subtest: ___/.*/~~~pragma.js child
+    # Subtest: ___/.*/~~~pragma.js child
     this is not tap but it is ok
     ok 1 - an ok test
     pragma +strict

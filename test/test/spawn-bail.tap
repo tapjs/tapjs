@@ -1,14 +1,14 @@
 TAP version 13
-# Subtest: ___/.*/~~~spawn.js child
-    # Subtest: nesting
+    # Subtest: ___/.*/~~~spawn.js child
+        # Subtest: nesting
         1..2
-        # Subtest: first
+            # Subtest: first
             1..2
             ok 1 - true is ok
             ok 2 - doag is also okay
         ok 1 - first ___/# time=[0-9.]+(ms)?/~~~
 
-        # Subtest: second
+            # Subtest: second
             ok 1 - but that is ok
             ok 2 - this passes
             not ok 3 - nested failure

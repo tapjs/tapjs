@@ -1,11 +1,11 @@
 TAP version 13
-# Subtest: parent
+    # Subtest: parent
 before 1 parent
 done
-    # Subtest: child
+        # Subtest: child
 before 1 child
 before 2 child
-        # Subtest: grandchild
+            # Subtest: grandchild
 before 1 grandchild
 before 2 grandchild
             ok 1 - the only actual assertion

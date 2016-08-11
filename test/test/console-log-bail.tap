@@ -1,8 +1,8 @@
 >>>> before any tests
 TAP version 13
-# Subtest: nesting
+    # Subtest: nesting
     1..2
-    # Subtest: first
+        # Subtest: first
         1..3
         ok 1 - true is ok
 >>>> an object is { a: 'thing', to: [ 'inspect' ] }
@@ -11,7 +11,7 @@ TAP version 13
     ok 1 - first ___/# time=[0-9.]+(ms)?/~~~
 
 >>>> after first child
-    # Subtest: second
+        # Subtest: second
         ok 1 - but that is ok
         ok 2 - this passes
         ok 3 - nested ok
@@ -26,7 +26,7 @@ ok 1 - nesting ___/# time=[0-9.]+(ms)?/~~~
 ok 2 - this passes
 ok 3 - this passes too
 >>>> after pass() calls
-# Subtest: async kid
+    # Subtest: async kid
 >>>> in async kid, before plan
     1..2
 >>>> in async kid, after plan
