@@ -1,12 +1,12 @@
 TAP version 13
-# Subtest: first
+    # Subtest: first
 > start first
 > before ending first
     1..0
 ok 1 - first ___/# time=[0-9.]+(ms)?/~~~
 
 > first end event
-# Subtest: second
+    # Subtest: second
 > start second
 > after ending first
 > before ending second
