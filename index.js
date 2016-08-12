@@ -459,13 +459,6 @@ Parser.prototype.emitComment = function (line) {
     this.emit('comment', line)
 }
 
-function maybeEnd (child, line) {
-  if (child.buffered)
-    return line.trim() === '}'
-  else
-    return /^(not )?ok/.test(line)
-}
-
 Parser.prototype._parse = function (line) {
   // normalize line endings
   line = line.replace(/\r\n$/, '\n')
