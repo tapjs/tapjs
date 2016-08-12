@@ -1,0 +1,111 @@
+[
+  [
+    "line",
+    "tap version 13\n"
+  ],
+  [
+    "version",
+    13
+  ],
+  [
+    "line",
+    "pragma +strict\n"
+  ],
+  [
+    "line",
+    "1..1\n"
+  ],
+  [
+    "plan",
+    {
+      "start": 1,
+      "end": 1
+    }
+  ],
+  [
+    "line",
+    "  1..1\n"
+  ],
+  [
+    "child",
+    [
+      [
+        "line",
+        "1..1\n"
+      ],
+      [
+        "plan",
+        {
+          "start": 1,
+          "end": 1
+        }
+      ],
+      [
+        "line",
+        "ok\n"
+      ],
+      [
+        "assert",
+        {
+          "ok": true,
+          "id": 1
+        }
+      ],
+      [
+        "complete",
+        {
+          "ok": true,
+          "count": 1,
+          "pass": 1,
+          "plan": {
+            "start": 1,
+            "end": 1
+          },
+          "failures": []
+        }
+      ]
+    ]
+  ],
+  [
+    "line",
+    "pragma +strict\n"
+  ],
+  [
+    "extra",
+    "pragma +strict\n"
+  ],
+  [
+    "line",
+    "  ok\n"
+  ],
+  [
+    "line",
+    "ok\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 1
+    }
+  ],
+  [
+    "complete",
+    {
+      "ok": false,
+      "count": 1,
+      "pass": 1,
+      "fail": 1,
+      "plan": {
+        "start": 1,
+        "end": 1
+      },
+      "failures": [
+        {
+          "tapError": "Non-TAP data encountered in strict mode",
+          "data": "pragma +strict\n"
+        }
+      ]
+    }
+  ]
+]

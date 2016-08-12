@@ -180,7 +180,7 @@ Parser.prototype.plan = function (start, end, comment, line) {
   }
 
   // can't put a plan in a child or yaml block
-  if (this.child || this.yind) {
+  if (this.child) {
     this.nonTap(line)
     return
   }
@@ -291,7 +291,7 @@ Parser.prototype.end = function (chunk, encoding, cb) {
     } else {
       this.tapError('Plan of 1..0, but test points encountered')
     }
-  } else if (this.planStart === -1) {
+  } else if (!this.bailedOut && this.planStart === -1) {
     this.tapError('no plan')
   } else if (this.ok && this.count !== (this.planEnd - this.planStart + 1)) {
     this.tapError('incorrect number of tests')
@@ -462,10 +462,6 @@ Parser.prototype.emitComment = function (line) {
 Parser.prototype._parse = function (line) {
   // normalize line endings
   line = line.replace(/\r\n$/, '\n')
-
-  // After a bailout, everything is ignored
-  if (this.bailedOut)
-    return
 
   // this is a line we are processing, so emit it.
   this.emit('line', line)

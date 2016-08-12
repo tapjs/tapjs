@@ -1,0 +1,7 @@
+tap version 13
+pragma +strict
+1..1
+  1..1
+pragma +strict
+  ok
+ok

@@ -1,0 +1,97 @@
+[
+  [
+    "line",
+    "pragma +foo\n"
+  ],
+  [
+    "line",
+    "1..1\n"
+  ],
+  [
+    "plan",
+    {
+      "start": 1,
+      "end": 1
+    }
+  ],
+  [
+    "line",
+    "  1..1\n"
+  ],
+  [
+    "child",
+    [
+      [
+        "line",
+        "1..1\n"
+      ],
+      [
+        "plan",
+        {
+          "start": 1,
+          "end": 1
+        }
+      ],
+      [
+        "line",
+        "ok\n"
+      ],
+      [
+        "assert",
+        {
+          "ok": true,
+          "id": 1
+        }
+      ],
+      [
+        "complete",
+        {
+          "ok": true,
+          "count": 1,
+          "pass": 1,
+          "plan": {
+            "start": 1,
+            "end": 1
+          },
+          "failures": []
+        }
+      ]
+    ]
+  ],
+  [
+    "line",
+    "pragma +foo\n"
+  ],
+  [
+    "extra",
+    "pragma +foo\n"
+  ],
+  [
+    "line",
+    "  ok\n"
+  ],
+  [
+    "line",
+    "ok\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 1
+    }
+  ],
+  [
+    "complete",
+    {
+      "ok": true,
+      "count": 1,
+      "pass": 1,
+      "plan": {
+        "start": 1,
+        "end": 1
+      },
+      "failures": []
+    }
+  ]
+]
