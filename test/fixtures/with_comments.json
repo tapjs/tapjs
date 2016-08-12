@@ -118,7 +118,7 @@
       "ok": false,
       "count": 5,
       "pass": 3,
-      "fail": 2,
+      "fail": 3,
       "failures": [
         {
           "ok": false,
@@ -127,6 +127,9 @@
         {
           "ok": false,
           "id": 4
+        },
+        {
+          "tapError": "no plan"
         }
       ]
     }

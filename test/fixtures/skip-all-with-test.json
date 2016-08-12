@@ -9,22 +9,11 @@
   ],
   [
     "line",
-    "1..5\n"
-  ],
-  [
-    "plan",
-    {
-      "start": 1,
-      "end": 5
-    }
+    "ok\n"
   ],
   [
     "line",
-    "ok 1\n"
-  ],
-  [
-    "line",
-    "ok 2\n"
+    "1..0\n"
   ],
   [
     "assert",
@@ -34,26 +23,27 @@
     }
   ],
   [
-    "assert",
+    "plan",
     {
-      "ok": true,
-      "id": 2
+      "start": 1,
+      "end": 0
     }
   ],
   [
     "complete",
     {
       "ok": false,
-      "count": 2,
-      "pass": 2,
+      "count": 1,
+      "pass": 1,
       "fail": 1,
       "plan": {
         "start": 1,
-        "end": 5
+        "end": 0,
+        "skipAll": true
       },
       "failures": [
         {
-          "tapError": "incorrect number of tests"
+          "tapError": "Plan of 1..0, but test points encountered"
         }
       ]
     }

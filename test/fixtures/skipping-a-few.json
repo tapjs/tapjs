@@ -51,7 +51,8 @@
     {
       "ok": true,
       "id": 2,
-      "skip": "no /sys directory"
+      "skip": "no /sys directory",
+      "name": ""
     }
   ],
   [
@@ -63,7 +64,8 @@
     {
       "ok": true,
       "id": 3,
-      "skip": "no /sys directory"
+      "skip": "no /sys directory",
+      "name": ""
     }
   ],
   [
@@ -75,7 +77,8 @@
     {
       "ok": true,
       "id": 4,
-      "skip": "no /sys directory"
+      "skip": "no /sys directory",
+      "name": ""
     }
   ],
   [
@@ -83,7 +86,8 @@
     {
       "ok": true,
       "id": 5,
-      "skip": "no /sys directory"
+      "skip": "no /sys directory",
+      "name": ""
     }
   ],
   [

@@ -65,6 +65,10 @@
   ],
   [
     "line",
+    "\n"
+  ],
+  [
+    "line",
     "1..3\n"
   ],
   [
@@ -100,6 +104,10 @@
   ],
   [
     "line",
+    "\n"
+  ],
+  [
+    "line",
     "# ok\n"
   ],
   [
@@ -112,11 +120,16 @@
       "ok": false,
       "count": 4,
       "pass": 4,
+      "fail": 1,
       "plan": {
         "start": 1,
         "end": 3
       },
-      "failures": []
+      "failures": [
+        {
+          "tapError": "incorrect number of tests"
+        }
+      ]
     }
   ]
 ]

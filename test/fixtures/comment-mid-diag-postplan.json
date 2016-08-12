@@ -79,16 +79,16 @@
     "    # Subtest: child\n"
   ],
   [
+    "comment",
+    "    # Subtest: child\n"
+  ],
+  [
+    "line",
+    "    1..2\n"
+  ],
+  [
     "child",
     [
-      [
-        "line",
-        "# Subtest: child\n"
-      ],
-      [
-        "comment",
-        "# Subtest: child\n"
-      ],
       [
         "line",
         "1..2\n"
@@ -152,10 +152,6 @@
         }
       ]
     ]
-  ],
-  [
-    "line",
-    "    1..2\n"
   ],
   [
     "line",

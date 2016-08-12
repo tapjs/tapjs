@@ -23,12 +23,6 @@
     "pragma +strict\n"
   ],
   [
-    "pragma",
-    {
-      "strict": true
-    }
-  ],
-  [
     "line",
     "Nonsense!\n"
   ],
@@ -39,12 +33,6 @@
   [
     "line",
     "pragma -strict\n"
-  ],
-  [
-    "pragma",
-    {
-      "strict": false
-    }
   ],
   [
     "line",
@@ -72,6 +60,7 @@
       "ok": false,
       "count": 1,
       "pass": 1,
+      "fail": 1,
       "plan": {
         "start": 1,
         "end": 1

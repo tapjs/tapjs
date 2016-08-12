@@ -12,16 +12,40 @@
     "    # Subtest: test/debug-test.js\n"
   ],
   [
+    "comment",
+    "    # Subtest: test/debug-test.js\n"
+  ],
+  [
+    "line",
+    "debug test\n"
+  ],
+  [
+    "extra",
+    "debug test\n"
+  ],
+  [
+    "line",
+    "t.plan=1\n"
+  ],
+  [
+    "extra",
+    "t.plan=1\n"
+  ],
+  [
+    "line",
+    "'Debugger listening on port 5858\\n'\n"
+  ],
+  [
+    "extra",
+    "'Debugger listening on port 5858\\n'\n"
+  ],
+  [
+    "line",
+    "    TAP version 13\n"
+  ],
+  [
     "child",
     [
-      [
-        "line",
-        "# Subtest: test/debug-test.js\n"
-      ],
-      [
-        "comment",
-        "# Subtest: test/debug-test.js\n"
-      ],
       [
         "line",
         "TAP version 13\n"
@@ -41,6 +65,10 @@
       [
         "line",
         "ok 1 Should output debugger message\n"
+      ],
+      [
+        "line",
+        "\n"
       ],
       [
         "line",
@@ -79,6 +107,10 @@
       ],
       [
         "line",
+        "\n"
+      ],
+      [
+        "line",
         "# ok\n"
       ],
       [
@@ -102,39 +134,15 @@
   ],
   [
     "line",
-    "debug test\n"
-  ],
-  [
-    "extra",
-    "debug test\n"
-  ],
-  [
-    "line",
-    "t.plan=1\n"
-  ],
-  [
-    "extra",
-    "t.plan=1\n"
-  ],
-  [
-    "line",
-    "'Debugger listening on port 5858\\n'\n"
-  ],
-  [
-    "extra",
-    "'Debugger listening on port 5858\\n'\n"
-  ],
-  [
-    "line",
-    "    TAP version 13\n"
-  ],
-  [
-    "line",
     "    # debug test\n"
   ],
   [
     "line",
     "    ok 1 Should output debugger message\n"
+  ],
+  [
+    "line",
+    "    \n"
   ],
   [
     "line",
@@ -147,6 +155,10 @@
   [
     "line",
     "    # pass  1\n"
+  ],
+  [
+    "line",
+    "    \n"
   ],
   [
     "line",
