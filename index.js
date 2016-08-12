@@ -52,24 +52,11 @@ function parseDirective (line) {
   return [ type[1].toLowerCase(), line.substr(type[1].length).trim() || true ]
 }
 
-function Result (line, count) {
-  var parsed = line.match(lineTypes.testPoint)
-  assert(parsed, 'invalid line to Result')
-
+function Result (parsed, count) {
   var ok = !parsed[1]
   var id = +(parsed[2] || count + 1)
   this.ok = ok
   this.id = id
-
-  var src = line
-  Object.defineProperty(this, 'src', {
-    value: line,
-    writable: true,
-    enumerable: false,
-    configurable: false
-  })
-
-  this.src = line
 
   var rest = parsed[3] || ''
   var name
@@ -89,15 +76,6 @@ function Result (line, count) {
 
   return this
 }
-
-Object.defineProperty(Result.prototype, 'toString', {
-  value: function () {
-    return this.src
-  },
-  enumerable: false,
-  writable: true,
-  configurable: true
-})
 
 function Parser (options, onComplete) {
   if (typeof options === 'function') {
@@ -153,11 +131,11 @@ Parser.prototype.tapError = function (error) {
   this.failures.push(error)
 }
 
-Parser.prototype.parseTestPoint = function (line) {
+Parser.prototype.parseTestPoint = function (testPoint) {
   // TODO dry the double-parse, pass the parsed data to Result ctor
   this.emitResult()
 
-  var res = new Result(line, this.count)
+  var res = new Result(testPoint, this.count)
   if (this.planStart !== -1) {
     var lessThanStart = +res.id < this.planStart
     var greaterThanEnd = +res.id > this.planEnd
@@ -249,7 +227,6 @@ Parser.prototype.processYamlish = function () {
     return
   }
 
-  this.current.src += yamlish
   this.current.diag = diags
   this.emitResult()
 }
@@ -582,7 +559,7 @@ Parser.prototype._parse = function (line) {
     // to buffer up everything and do a multi-line parse.  This is
     // rare and weird, and a multi-line parse would be a bigger
     // rewrite, so I'm allowing it as it currently is.
-    this.parseTestPoint(line)
+    this.parseTestPoint(testPoint)
     return
   }
 
