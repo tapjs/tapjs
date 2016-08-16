@@ -450,6 +450,11 @@ Parser.prototype.emitResult = function () {
   this.clearCommentQueue()
 }
 
+// TODO: We COULD say that any "relevant tap" line that's indented
+// by 4 spaces starts a child test, and just call it 'unnamed' if
+// it does not have a prefix comment.  In that case, any number of
+// 4-space indents can be plucked off to try to find a relevant
+// TAP line type, and if so, start the unnamed child.
 Parser.prototype.startChild = function (line) {
   var maybeBuffered = this.current && this.current.name && this.current.name.substr(-1) === '{'
   var unindentStream = !maybeBuffered  && this.maybeChild
@@ -670,6 +675,12 @@ Parser.prototype.parseIndent = function (line, indent) {
       this.startChild(line)
       return
     }
+
+    // TODO: We COULD say that any "relevant tap" line that's indented
+    // by 4 spaces starts a child test, and just call it 'unnamed' if
+    // it does not have a prefix comment.  In that case, any number of
+    // 4-space indents can be plucked off to try to find a relevant
+    // TAP line type, and if so, start the unnamed child.
   }
 
   // at this point, it's either a non-subtest comment, or garbage.
