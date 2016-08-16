@@ -570,7 +570,6 @@ Parser.prototype._parse = function (line) {
     this.emitComment(this.maybeChild)
     this.maybeChild = null
   }
-  this.maybeChild = null
 
   // nothing but comments can come after a trailing plan
   if (this.postPlan) {
