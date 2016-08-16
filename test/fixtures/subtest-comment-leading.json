@@ -8,6 +8,10 @@
     "TAP version 13\n"
   ],
   [
+    "comment",
+    "# Subtest: test/test/ok.js\n"
+  ],
+  [
     "version",
     13
   ],

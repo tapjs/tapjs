@@ -566,6 +566,10 @@ Parser.prototype._parse = function (line) {
 
   // If it's anything other than a comment or garbage, then any
   // maybeChild is just an unsatisfied promise.
+  if (this.maybeChild) {
+    this.emitComment(this.maybeChild)
+    this.maybeChild = null
+  }
   this.maybeChild = null
 
   // nothing but comments can come after a trailing plan

@@ -46,6 +46,10 @@
             "ok 1 - ypoint\n"
           ],
           [
+            "comment",
+            "# Subtest: y\n"
+          ],
+          [
             "line",
             "1..1\n"
           ],
