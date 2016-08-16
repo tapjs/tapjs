@@ -144,7 +144,6 @@ Parser.prototype.tapError = function (error) {
 }
 
 Parser.prototype.parseTestPoint = function (testPoint) {
-  // TODO dry the double-parse, pass the parsed data to Result ctor
   this.emitResult()
 
   var res = new Result(testPoint, this.count)
@@ -172,8 +171,6 @@ Parser.prototype.parseTestPoint = function (testPoint) {
   this.current = res
 }
 
-// TODO: nonTap should get a buffer like comments, so that
-// it can be ordered properly with the result data, yamlish, etc.
 Parser.prototype.nonTap = function (data) {
   if (this.strict) {
     this.tapError({
