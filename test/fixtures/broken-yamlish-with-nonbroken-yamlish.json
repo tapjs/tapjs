@@ -20,6 +20,10 @@
   ],
   [
     "line",
+    "    # comment here too, why not?\n"
+  ],
+  [
+    "line",
     "    - I wished for a bailout!\n"
   ],
   [
@@ -32,14 +36,29 @@
   ],
   [
     "line",
-    "ok 2 -  child test\n"
+    " ---\n"
+  ],
+  [
+    "line",
+    " # also this is a comment\n"
+  ],
+  [
+    "line",
+    " ok: this time I mean it\n"
+  ],
+  [
+    "line",
+    " ...\n"
   ],
   [
     "assert",
     {
       "ok": true,
       "id": 1,
-      "name": "callback happened"
+      "name": "callback happened",
+      "diag": {
+        "ok": "this time I mean it"
+      }
     }
   ],
   [
@@ -47,6 +66,10 @@
     "  ok:\n"
   ],
   [
+    "comment",
+    "    # comment here too, why not?\n"
+  ],
+  [
     "extra",
     "    - I wished for a bailout!\n"
   ],
@@ -57,6 +80,14 @@
   [
     "extra",
     " ...\n"
+  ],
+  [
+    "comment",
+    " # also this is a comment\n"
+  ],
+  [
+    "line",
+    "ok 2 -  child test\n"
   ],
   [
     "line",

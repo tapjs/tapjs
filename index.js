@@ -116,7 +116,7 @@ function Parser (options, onComplete) {
   this.child = null
   this.current = null
   this.maybeSubtest = null
-  this.commentQueue = []
+  this.extraQueue = []
   this.buffered = options.buffered || null
 
   this.count = 0
@@ -181,7 +181,11 @@ Parser.prototype.nonTap = function (data) {
       data: data
     })
   }
-  this.emit('extra', data)
+
+  if (this.current || this.extraQueue.length)
+    this.extraQueue.push(['extra', data])
+  else
+    this.emit('extra', data)
 }
 
 Parser.prototype.plan = function (start, end, comment, line) {
@@ -405,11 +409,11 @@ Parser.prototype.bailout = function (reason) {
   this.emit('bailout', reason)
 }
 
-Parser.prototype.clearCommentQueue = function () {
-  for (var c = 0; c < this.commentQueue.length; c++) {
-    this.emit('comment', this.commentQueue[c])
+Parser.prototype.clearExtraQueue = function () {
+  for (var c = 0; c < this.extraQueue.length; c++) {
+    this.emit(this.extraQueue[c][0], this.extraQueue[c][1])
   }
-  this.commentQueue.length = 0
+  this.extraQueue.length = 0
 }
 
 Parser.prototype.endChild = function () {
@@ -424,7 +428,7 @@ Parser.prototype.emitResult = function () {
   this.resetYamlish()
 
   if (!this.current)
-    return this.clearCommentQueue()
+    return this.clearExtraQueue()
 
   var res = this.current
   this.current = null
@@ -447,7 +451,7 @@ Parser.prototype.emitResult = function () {
     this.todo++
 
   this.emit('assert', res)
-  this.clearCommentQueue()
+  this.clearExtraQueue()
 }
 
 // TODO: We COULD say that any "relevant tap" line that's indented
@@ -503,8 +507,8 @@ Parser.prototype.startChild = function (line) {
 }
 
 Parser.prototype.emitComment = function (line) {
-  if (this.current || this.commentQueue.length)
-    this.commentQueue.push(line)
+  if (this.current || this.extraQueue.length)
+    this.extraQueue.push(['comment', line])
   else
     this.emit('comment', line)
 }

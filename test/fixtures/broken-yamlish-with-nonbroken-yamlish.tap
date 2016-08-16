@@ -1,0 +1,13 @@
+1..3
+ok 1 -  callback happened
+  ok:
+    # comment here too, why not?
+    - I wished for a bailout!
+    - lots of other shapes here can look like valid tap
+ ...
+ ---
+ # also this is a comment
+ ok: this time I mean it
+ ...
+ok 2 -  child test
+ok 3 -  should come last

@@ -232,10 +232,6 @@
             "  it: is garbage\n"
           ],
           [
-            "extra",
-            "  ok: 1\n  this: is not tap or yaml\n  it: is garbage\n"
-          ],
-          [
             "assert",
             {
               "ok": false,
@@ -243,6 +239,10 @@
               "todo": true,
               "name": "grandchild"
             }
+          ],
+          [
+            "extra",
+            "  ok: 1\n  this: is not tap or yaml\n  it: is garbage\n"
           ],
           [
             "complete",
