@@ -4,6 +4,11 @@
     "pragma +strict\n"
   ],
   [
+    "pragma",
+    "strict",
+    true
+  ],
+  [
     "line",
     "TAP version 12\n"
   ],

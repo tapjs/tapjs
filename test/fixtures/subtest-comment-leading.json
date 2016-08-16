@@ -1,6 +1,10 @@
 [
   [
     "line",
+    "# Subtest: test/test/ok.js\n"
+  ],
+  [
+    "line",
     "TAP version 13\n"
   ],
   [
@@ -9,11 +13,11 @@
   ],
   [
     "line",
-    "ok 1 - nesting {\n"
+    "# Subtest: nesting\n"
   ],
   [
     "line",
-    "    1..2\n"
+    "    # Subtest: first\n"
   ],
   [
     "child",
@@ -24,18 +28,7 @@
       ],
       [
         "line",
-        "1..2\n"
-      ],
-      [
-        "plan",
-        {
-          "start": 1,
-          "end": 2
-        }
-      ],
-      [
-        "line",
-        "ok 1 - first {\n"
+        "# Subtest: first\n"
       ],
       [
         "line",
@@ -108,23 +101,24 @@
       ],
       [
         "line",
-        "}\n"
+        "ok 1 - first # time=8.987ms\n"
+      ],
+      [
+        "line",
+        "# Subtest: second\n"
+      ],
+      [
+        "line",
+        "    ok 1 - but that is ok\n"
       ],
       [
         "assert",
         {
           "ok": true,
           "id": 1,
+          "time": 8.987,
           "name": "first"
         }
-      ],
-      [
-        "line",
-        "ok 2 - second {\n"
-      ],
-      [
-        "line",
-        "    ok 1 - but that is ok\n"
       ],
       [
         "child",
@@ -209,14 +203,26 @@
       ],
       [
         "line",
-        "}\n"
+        "ok 2 - second # time=5.988ms\n"
+      ],
+      [
+        "line",
+        "1..2\n"
       ],
       [
         "assert",
         {
           "ok": true,
           "id": 2,
+          "time": 5.988,
           "name": "second"
+        }
+      ],
+      [
+        "plan",
+        {
+          "start": 1,
+          "end": 2
         }
       ],
       [
@@ -236,10 +242,6 @@
   ],
   [
     "line",
-    "    ok 1 - first {\n"
-  ],
-  [
-    "line",
     "        1..2\n"
   ],
   [
@@ -252,11 +254,11 @@
   ],
   [
     "line",
-    "    }\n"
+    "    ok 1 - first # time=8.987ms\n"
   ],
   [
     "line",
-    "    ok 2 - second {\n"
+    "    # Subtest: second\n"
   ],
   [
     "line",
@@ -276,23 +278,28 @@
   ],
   [
     "line",
-    "    }\n"
+    "    ok 2 - second # time=5.988ms\n"
   ],
   [
     "line",
-    "}\n"
+    "    1..2\n"
+  ],
+  [
+    "line",
+    "ok 1 - nesting # time=28.647ms\n"
+  ],
+  [
+    "line",
+    "ok 2 - this passes\n"
   ],
   [
     "assert",
     {
       "ok": true,
       "id": 1,
+      "time": 28.647,
       "name": "nesting"
     }
-  ],
-  [
-    "line",
-    "ok 2 - this passes\n"
   ],
   [
     "line",
@@ -315,11 +322,11 @@
   ],
   [
     "line",
-    "# time=66.857ms\n"
+    "# time=55.292ms\n"
   ],
   [
     "comment",
-    "# time=66.857ms\n"
+    "# time=55.292ms\n"
   ],
   [
     "complete",

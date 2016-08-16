@@ -12,16 +12,12 @@
     "    # Subtest: index.js\n"
   ],
   [
-    "comment",
-    "    # Subtest: index.js\n"
-  ],
-  [
-    "line",
-    "    TAP version 13\n"
-  ],
-  [
     "child",
     [
+      [
+        "comment",
+        "# Subtest: index.js\n"
+      ],
       [
         "line",
         "TAP version 13\n"
@@ -35,8 +31,118 @@
         "    # Subtest: boom\n"
       ],
       [
-        "comment",
-        "    # Subtest: boom\n"
+        "child",
+        [
+          [
+            "comment",
+            "# Subtest: boom\n"
+          ],
+          [
+            "line",
+            "    # Subtest: npm install package line\n"
+          ],
+          [
+            "child",
+            [
+              [
+                "comment",
+                "# Subtest: npm install package line\n"
+              ],
+              [
+                "line",
+                "$ npm install package\n"
+              ],
+              [
+                "extra",
+                "$ npm install package\n"
+              ],
+              [
+                "line",
+                "var package = require('package')(); // contains package.json data.\n"
+              ],
+              [
+                "extra",
+                "var package = require('package')(); // contains package.json data.\n"
+              ],
+              [
+                "line",
+                "var yourAwesomeModule = {};\n"
+              ],
+              [
+                "extra",
+                "var yourAwesomeModule = {};\n"
+              ],
+              [
+                "line",
+                "yourAwesomeModule.version = package.version;\n"
+              ],
+              [
+                "extra",
+                "yourAwesomeModule.version = package.version;\n"
+              ],
+              [
+                "complete",
+                {
+                  "ok": true,
+                  "count": 0,
+                  "pass": 0,
+                  "fail": 1,
+                  "plan": {
+                    "start": 1,
+                    "end": 0
+                  },
+                  "failures": [
+                    {
+                      "tapError": "no plan"
+                    }
+                  ]
+                }
+              ]
+            ]
+          ],
+          [
+            "line",
+            "    $ npm install package\n"
+          ],
+          [
+            "line",
+            "    var package = require('package')(); // contains package.json data.\n"
+          ],
+          [
+            "line",
+            "    var yourAwesomeModule = {};\n"
+          ],
+          [
+            "line",
+            "    yourAwesomeModule.version = package.version;\n"
+          ],
+          [
+            "line",
+            "1..0\n"
+          ],
+          [
+            "extra",
+            "1..0\n"
+          ],
+          [
+            "complete",
+            {
+              "ok": true,
+              "count": 0,
+              "pass": 0,
+              "fail": 1,
+              "plan": {
+                "start": 1,
+                "end": 0
+              },
+              "failures": [
+                {
+                  "tapError": "no plan"
+                }
+              ]
+            }
+          ]
+        ]
       ],
       [
         "line",
@@ -48,19 +154,11 @@
       ],
       [
         "line",
-        "\n"
-      ],
-      [
-        "line",
         "## Intro\n"
       ],
       [
         "comment",
         "## Intro\n"
-      ],
-      [
-        "line",
-        "\n"
       ],
       [
         "line",
@@ -88,10 +186,6 @@
       ],
       [
         "line",
-        "\n"
-      ],
-      [
-        "line",
         "## Installation\n"
       ],
       [
@@ -100,27 +194,11 @@
       ],
       [
         "line",
-        "\n"
-      ],
-      [
-        "line",
-        "        # Subtest: npm install package line\n"
-      ],
-      [
-        "comment",
         "        # Subtest: npm install package line\n"
       ],
       [
         "line",
         "        $ npm install package\n"
-      ],
-      [
-        "extra",
-        "        $ npm install package\n"
-      ],
-      [
-        "line",
-        "\n"
       ],
       [
         "line",
@@ -132,51 +210,15 @@
       ],
       [
         "line",
-        "\n"
-      ],
-      [
-        "line",
         "        var package = require('package')(); // contains package.json data.\n"
-      ],
-      [
-        "extra",
-        "        var package = require('package')(); // contains package.json data.\n"
-      ],
-      [
-        "line",
-        "    \n"
-      ],
-      [
-        "extra",
-        "    \n"
       ],
       [
         "line",
         "        var yourAwesomeModule = {};\n"
       ],
       [
-        "extra",
-        "        var yourAwesomeModule = {};\n"
-      ],
-      [
-        "line",
-        "    \n"
-      ],
-      [
-        "extra",
-        "    \n"
-      ],
-      [
         "line",
         "        yourAwesomeModule.version = package.version;\n"
-      ],
-      [
-        "extra",
-        "        yourAwesomeModule.version = package.version;\n"
-      ],
-      [
-        "line",
-        "\n"
       ],
       [
         "line",
@@ -188,10 +230,6 @@
       ],
       [
         "line",
-        "\n"
-      ],
-      [
-        "line",
         "Bug fixes and features are welcomed.\n"
       ],
       [
@@ -200,19 +238,11 @@
       ],
       [
         "line",
-        "\n"
-      ],
-      [
-        "line",
         "## Other similar modules\n"
       ],
       [
         "comment",
         "## Other similar modules\n"
-      ],
-      [
-        "line",
-        "\n"
       ],
       [
         "line",
@@ -232,10 +262,6 @@
       ],
       [
         "line",
-        "\n"
-      ],
-      [
-        "line",
         "## License\n"
       ],
       [
@@ -244,10 +270,6 @@
       ],
       [
         "line",
-        "\n"
-      ],
-      [
-        "line",
         "MIT License\n"
       ],
       [
@@ -256,19 +278,11 @@
       ],
       [
         "line",
-        "\n"
-      ],
-      [
-        "line",
         "Copyright (C) 2011 Veselin Todorov\n"
       ],
       [
         "extra",
         "Copyright (C) 2011 Veselin Todorov\n"
-      ],
-      [
-        "line",
-        "\n"
       ],
       [
         "line",
@@ -320,10 +334,6 @@
       ],
       [
         "line",
-        "\n"
-      ],
-      [
-        "line",
         "The above copyright notice and this permission notice shall be included in all\n"
       ],
       [
@@ -337,10 +347,6 @@
       [
         "extra",
         "copies or substantial portions of the Software.\n"
-      ],
-      [
-        "line",
-        "\n"
       ],
       [
         "line",
@@ -403,42 +409,8 @@
         "    1..0\n"
       ],
       [
-        "child",
-        [
-          [
-            "line",
-            "1..0\n"
-          ],
-          [
-            "plan",
-            {
-              "start": 1,
-              "end": 0
-            }
-          ],
-          [
-            "complete",
-            {
-              "ok": true,
-              "count": 0,
-              "pass": 0,
-              "plan": {
-                "start": 1,
-                "end": 0,
-                "skipAll": true
-              },
-              "failures": []
-            }
-          ]
-        ]
-      ],
-      [
         "line",
         "ok 1 - boom # time=5.26ms\n"
-      ],
-      [
-        "line",
-        "\n"
       ],
       [
         "line",
@@ -485,6 +457,10 @@
   ],
   [
     "line",
+    "    TAP version 13\n"
+  ],
+  [
+    "line",
     "        # Subtest: boom\n"
   ],
   [
@@ -493,15 +469,7 @@
   ],
   [
     "line",
-    "\n"
-  ],
-  [
-    "line",
     "    ## Intro\n"
-  ],
-  [
-    "line",
-    "\n"
   ],
   [
     "line",
@@ -517,15 +485,7 @@
   ],
   [
     "line",
-    "\n"
-  ],
-  [
-    "line",
     "    ## Installation\n"
-  ],
-  [
-    "line",
-    "\n"
   ],
   [
     "line",
@@ -537,15 +497,7 @@
   ],
   [
     "line",
-    "\n"
-  ],
-  [
-    "line",
     "    ## Usage\n"
-  ],
-  [
-    "line",
-    "\n"
   ],
   [
     "line",
@@ -553,15 +505,7 @@
   ],
   [
     "line",
-    "        \n"
-  ],
-  [
-    "line",
     "            var yourAwesomeModule = {};\n"
-  ],
-  [
-    "line",
-    "        \n"
   ],
   [
     "line",
@@ -569,15 +513,7 @@
   ],
   [
     "line",
-    "\n"
-  ],
-  [
-    "line",
     "    ## Contribution\n"
-  ],
-  [
-    "line",
-    "\n"
   ],
   [
     "line",
@@ -585,15 +521,7 @@
   ],
   [
     "line",
-    "\n"
-  ],
-  [
-    "line",
     "    ## Other similar modules\n"
-  ],
-  [
-    "line",
-    "\n"
   ],
   [
     "line",
@@ -605,15 +533,7 @@
   ],
   [
     "line",
-    "\n"
-  ],
-  [
-    "line",
     "    ## License\n"
-  ],
-  [
-    "line",
-    "\n"
   ],
   [
     "line",
@@ -621,15 +541,7 @@
   ],
   [
     "line",
-    "\n"
-  ],
-  [
-    "line",
     "    Copyright (C) 2011 Veselin Todorov\n"
-  ],
-  [
-    "line",
-    "\n"
   ],
   [
     "line",
@@ -657,19 +569,11 @@
   ],
   [
     "line",
-    "\n"
-  ],
-  [
-    "line",
     "    The above copyright notice and this permission notice shall be included in all\n"
   ],
   [
     "line",
     "    copies or substantial portions of the Software.\n"
-  ],
-  [
-    "line",
-    "\n"
   ],
   [
     "line",
@@ -706,10 +610,6 @@
   [
     "line",
     "    ok 1 - boom # time=5.26ms\n"
-  ],
-  [
-    "line",
-    "\n"
   ],
   [
     "line",
@@ -804,10 +704,6 @@
         "file": "index.js"
       }
     }
-  ],
-  [
-    "line",
-    "\n"
   ],
   [
     "line",

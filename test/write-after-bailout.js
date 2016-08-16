@@ -26,7 +26,8 @@ t.test('child calling _parse after bailout', function (t) {
   var expect = [
     [ 'version', 13 ],
     [ 'child',
-      [ [ 'plan', { start: 1, end: 1 } ],
+      [ [ 'comment', '# Subtest\n' ],
+        [ 'plan', { start: 1, end: 1 } ],
         [ 'bailout', 'child' ],
         [ 'complete',
           { ok: false,
@@ -47,6 +48,7 @@ t.test('child calling _parse after bailout', function (t) {
   })
   p.end([
     'TAP version 13',
+    '    # Subtest',
     '    1..1',
     '    Bail out! child',
     '    ok 1',

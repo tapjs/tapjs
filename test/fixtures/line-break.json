@@ -12,16 +12,12 @@
     "    # Subtest: foo\n"
   ],
   [
-    "comment",
-    "    # Subtest: foo\n"
-  ],
-  [
-    "line",
-    "    not ok 1 - should be equivalent\n"
-  ],
-  [
     "child",
     [
+      [
+        "comment",
+        "# Subtest: foo\n"
+      ],
       [
         "line",
         "not ok 1 - should be equivalent\n"
@@ -49,10 +45,6 @@
       [
         "line",
         "      xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n"
-      ],
-      [
-        "line",
-        "\n"
       ],
       [
         "line",
@@ -129,6 +121,10 @@
   ],
   [
     "line",
+    "    not ok 1 - should be equivalent\n"
+  ],
+  [
+    "line",
     "      ---\n"
   ],
   [
@@ -150,10 +146,6 @@
   [
     "line",
     "          xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n"
-  ],
-  [
-    "line",
-    "\n"
   ],
   [
     "line",
@@ -240,10 +232,6 @@
         }
       }
     }
-  ],
-  [
-    "line",
-    "\n"
   ],
   [
     "line",

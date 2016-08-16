@@ -4,10 +4,6 @@
     "# Subtest: ok.js\n"
   ],
   [
-    "comment",
-    "# Subtest: ok.js\n"
-  ],
-  [
     "line",
     "TAP version 13\n"
   ],
@@ -20,16 +16,12 @@
     "    # Subtest: nesting\n"
   ],
   [
-    "comment",
-    "    # Subtest: nesting\n"
-  ],
-  [
-    "line",
-    "    1..2\n"
-  ],
-  [
     "child",
     [
+      [
+        "comment",
+        "# Subtest: nesting\n"
+      ],
       [
         "line",
         "1..2\n"
@@ -46,16 +38,12 @@
         "    # Subtest: first\n"
       ],
       [
-        "comment",
-        "    # Subtest: first\n"
-      ],
-      [
-        "line",
-        "    1..2\n"
-      ],
-      [
         "child",
         [
+          [
+            "comment",
+            "# Subtest: first\n"
+          ],
           [
             "line",
             "1..2\n"
@@ -108,6 +96,10 @@
       ],
       [
         "line",
+        "    1..2\n"
+      ],
+      [
+        "line",
         "    ok 1 - true is ok\n"
       ],
       [
@@ -120,15 +112,7 @@
       ],
       [
         "line",
-        "\n"
-      ],
-      [
-        "line",
         "    # Subtest: second\n"
-      ],
-      [
-        "line",
-        "    ok 1 - but that is ok\n"
       ],
       [
         "assert",
@@ -140,12 +124,12 @@
         }
       ],
       [
-        "comment",
-        "    # Subtest: second\n"
-      ],
-      [
         "child",
         [
+          [
+            "comment",
+            "# Subtest: second\n"
+          ],
           [
             "line",
             "ok 1 - but that is ok\n"
@@ -161,10 +145,6 @@
               "id": 1,
               "name": "but that is ok"
             }
-          ],
-          [
-            "line",
-            "\n"
           ],
           [
             "line",
@@ -214,11 +194,11 @@
       ],
       [
         "line",
-        "    ok 2 - this passes\n"
+        "    ok 1 - but that is ok\n"
       ],
       [
         "line",
-        "    \n"
+        "    ok 2 - this passes\n"
       ],
       [
         "line",
@@ -231,10 +211,6 @@
       [
         "line",
         "ok 2 - second # time=3.613ms\n"
-      ],
-      [
-        "line",
-        "\n"
       ],
       [
         "assert",
@@ -262,6 +238,10 @@
   ],
   [
     "line",
+    "    1..2\n"
+  ],
+  [
+    "line",
     "        # Subtest: first\n"
   ],
   [
@@ -282,10 +262,6 @@
   ],
   [
     "line",
-    "\n"
-  ],
-  [
-    "line",
     "        # Subtest: second\n"
   ],
   [
@@ -295,10 +271,6 @@
   [
     "line",
     "        ok 2 - this passes\n"
-  ],
-  [
-    "line",
-    "        \n"
   ],
   [
     "line",
@@ -314,15 +286,7 @@
   ],
   [
     "line",
-    "\n"
-  ],
-  [
-    "line",
     "ok 1 - nesting # time=36.045ms\n"
-  ],
-  [
-    "line",
-    "\n"
   ],
   [
     "line",

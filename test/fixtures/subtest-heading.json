@@ -1,0 +1,176 @@
+[
+  [
+    "line",
+    "# Subtest: heading.js\n"
+  ],
+  [
+    "line",
+    "TAP version 13\n"
+  ],
+  [
+    "version",
+    13
+  ],
+  [
+    "line",
+    "    # Subtest: x\n"
+  ],
+  [
+    "child",
+    [
+      [
+        "comment",
+        "# Subtest: x\n"
+      ],
+      [
+        "line",
+        "    # Subtest: y\n"
+      ],
+      [
+        "child",
+        [
+          [
+            "comment",
+            "# Subtest: y\n"
+          ],
+          [
+            "line",
+            "ok 1 - ypoint\n"
+          ],
+          [
+            "line",
+            "1..1\n"
+          ],
+          [
+            "assert",
+            {
+              "ok": true,
+              "id": 1,
+              "name": "ypoint"
+            }
+          ],
+          [
+            "plan",
+            {
+              "start": 1,
+              "end": 1
+            }
+          ],
+          [
+            "complete",
+            {
+              "ok": true,
+              "count": 1,
+              "pass": 1,
+              "plan": {
+                "start": 1,
+                "end": 1
+              },
+              "failures": []
+            }
+          ]
+        ]
+      ],
+      [
+        "line",
+        "    ok 1 - ypoint\n"
+      ],
+      [
+        "line",
+        "    1..1\n"
+      ],
+      [
+        "line",
+        "ok 1 - y\n"
+      ],
+      [
+        "line",
+        "1..1\n"
+      ],
+      [
+        "assert",
+        {
+          "ok": true,
+          "id": 1,
+          "name": "y"
+        }
+      ],
+      [
+        "plan",
+        {
+          "start": 1,
+          "end": 1
+        }
+      ],
+      [
+        "complete",
+        {
+          "ok": true,
+          "count": 1,
+          "pass": 1,
+          "plan": {
+            "start": 1,
+            "end": 1
+          },
+          "failures": []
+        }
+      ]
+    ]
+  ],
+  [
+    "line",
+    "        # Subtest: y\n"
+  ],
+  [
+    "line",
+    "        ok 1 - ypoint\n"
+  ],
+  [
+    "line",
+    "        1..1\n"
+  ],
+  [
+    "line",
+    "    ok 1 - y\n"
+  ],
+  [
+    "line",
+    "    1..1\n"
+  ],
+  [
+    "line",
+    "ok 1 - x\n"
+  ],
+  [
+    "line",
+    "1..1\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 1,
+      "name": "x"
+    }
+  ],
+  [
+    "plan",
+    {
+      "start": 1,
+      "end": 1
+    }
+  ],
+  [
+    "complete",
+    {
+      "ok": true,
+      "count": 1,
+      "pass": 1,
+      "plan": {
+        "start": 1,
+        "end": 1
+      },
+      "failures": []
+    }
+  ]
+]

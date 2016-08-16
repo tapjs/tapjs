@@ -1,0 +1,159 @@
+[
+  [
+    "line",
+    "TAP version 13\n"
+  ],
+  [
+    "version",
+    13
+  ],
+  [
+    "line",
+    "        # Subtest: nesting\n"
+  ],
+  [
+    "comment",
+    "        # Subtest: nesting\n"
+  ],
+  [
+    "line",
+    "            1..2\n"
+  ],
+  [
+    "extra",
+    "            1..2\n"
+  ],
+  [
+    "line",
+    "            ok 1 - true is ok\n"
+  ],
+  [
+    "extra",
+    "            ok 1 - true is ok\n"
+  ],
+  [
+    "line",
+    "            ok 2 - doag is also okay\n"
+  ],
+  [
+    "extra",
+    "            ok 2 - doag is also okay\n"
+  ],
+  [
+    "line",
+    "        ok 1 - first # time=8.987ms\n"
+  ],
+  [
+    "extra",
+    "        ok 1 - first # time=8.987ms\n"
+  ],
+  [
+    "line",
+    "            ok 1 - but that is ok\n"
+  ],
+  [
+    "extra",
+    "            ok 1 - but that is ok\n"
+  ],
+  [
+    "line",
+    "            ok 2 - this passes\n"
+  ],
+  [
+    "extra",
+    "            ok 2 - this passes\n"
+  ],
+  [
+    "line",
+    "            ok 3 - nested ok\n"
+  ],
+  [
+    "extra",
+    "            ok 3 - nested ok\n"
+  ],
+  [
+    "line",
+    "            1..3\n"
+  ],
+  [
+    "extra",
+    "            1..3\n"
+  ],
+  [
+    "line",
+    "        ok 2 - second # time=5.988ms\n"
+  ],
+  [
+    "extra",
+    "        ok 2 - second # time=5.988ms\n"
+  ],
+  [
+    "line",
+    "        1..2\n"
+  ],
+  [
+    "extra",
+    "        1..2\n"
+  ],
+  [
+    "line",
+    "    ok 1 - nesting # time=28.647ms\n"
+  ],
+  [
+    "extra",
+    "    ok 1 - nesting # time=28.647ms\n"
+  ],
+  [
+    "line",
+    "    ok 2 - this passes\n"
+  ],
+  [
+    "extra",
+    "    ok 2 - this passes\n"
+  ],
+  [
+    "line",
+    "    1..2\n"
+  ],
+  [
+    "extra",
+    "    1..2\n"
+  ],
+  [
+    "line",
+    "ok 1 - ../tap/test/test/ok.js # time=205.826ms\n"
+  ],
+  [
+    "line",
+    "1..1\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 1,
+      "time": 205.826,
+      "name": "../tap/test/test/ok.js"
+    }
+  ],
+  [
+    "plan",
+    {
+      "start": 1,
+      "end": 1
+    }
+  ],
+  [
+    "complete",
+    {
+      "ok": true,
+      "count": 1,
+      "pass": 1,
+      "plan": {
+        "start": 1,
+        "end": 1
+      },
+      "failures": []
+    }
+  ]
+]

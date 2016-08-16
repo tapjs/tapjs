@@ -12,16 +12,12 @@
     "    # Subtest: test/01c-user-updates.js\n"
   ],
   [
-    "comment",
-    "    # Subtest: test/01c-user-updates.js\n"
-  ],
-  [
-    "line",
-    "    TAP version 13\n"
-  ],
-  [
     "child",
     [
+      [
+        "comment",
+        "# Subtest: test/01c-user-updates.js\n"
+      ],
       [
         "line",
         "TAP version 13\n"
@@ -35,16 +31,12 @@
         "    # Subtest: update profile\n"
       ],
       [
-        "comment",
-        "    # Subtest: update profile\n"
-      ],
-      [
-        "line",
-        "    ok 1 - should be equivalent\n"
-      ],
-      [
         "child",
         [
+          [
+            "comment",
+            "# Subtest: update profile\n"
+          ],
           [
             "line",
             "ok 1 - should be equivalent\n"
@@ -97,6 +89,10 @@
       ],
       [
         "line",
+        "    ok 1 - should be equivalent\n"
+      ],
+      [
+        "line",
         "    ok 2 - should be equivalent\n"
       ],
       [
@@ -109,11 +105,61 @@
       ],
       [
         "line",
-        "\n"
+        "    # Subtest: update email\n"
       ],
       [
-        "line",
-        "    # Subtest: update email\n"
+        "assert",
+        {
+          "ok": true,
+          "id": 1,
+          "time": 43.094,
+          "name": "update profile"
+        }
+      ],
+      [
+        "child",
+        [
+          [
+            "comment",
+            "# Subtest: update email\n"
+          ],
+          [
+            "line",
+            "ok 1 - should be equivalent\n"
+          ],
+          [
+            "line",
+            "1..1\n"
+          ],
+          [
+            "assert",
+            {
+              "ok": true,
+              "id": 1,
+              "name": "should be equivalent"
+            }
+          ],
+          [
+            "plan",
+            {
+              "start": 1,
+              "end": 1
+            }
+          ],
+          [
+            "complete",
+            {
+              "ok": true,
+              "count": 1,
+              "pass": 1,
+              "plan": {
+                "start": 1,
+                "end": 1
+              },
+              "failures": []
+            }
+          ]
+        ]
       ],
       [
         "line",
@@ -328,70 +374,12 @@
         "    ok 1 - should be equivalent\n"
       ],
       [
-        "assert",
-        {
-          "ok": true,
-          "id": 1,
-          "time": 43.094,
-          "name": "update profile"
-        }
-      ],
-      [
-        "comment",
-        "    # Subtest: update email\n"
-      ],
-      [
-        "child",
-        [
-          [
-            "line",
-            "ok 1 - should be equivalent\n"
-          ],
-          [
-            "line",
-            "1..1\n"
-          ],
-          [
-            "assert",
-            {
-              "ok": true,
-              "id": 1,
-              "name": "should be equivalent"
-            }
-          ],
-          [
-            "plan",
-            {
-              "start": 1,
-              "end": 1
-            }
-          ],
-          [
-            "complete",
-            {
-              "ok": true,
-              "count": 1,
-              "pass": 1,
-              "plan": {
-                "start": 1,
-                "end": 1
-              },
-              "failures": []
-            }
-          ]
-        ]
-      ],
-      [
         "line",
         "    1..1\n"
       ],
       [
         "line",
         "ok 2 - update email # time=24.16ms\n"
-      ],
-      [
-        "line",
-        "\n"
       ],
       [
         "line",
@@ -438,6 +426,10 @@
   ],
   [
     "line",
+    "    TAP version 13\n"
+  ],
+  [
+    "line",
     "        # Subtest: update profile\n"
   ],
   [
@@ -455,10 +447,6 @@
   [
     "line",
     "    ok 1 - update profile # time=43.094ms\n"
-  ],
-  [
-    "line",
-    "\n"
   ],
   [
     "line",
@@ -582,10 +570,6 @@
   ],
   [
     "line",
-    "\n"
-  ],
-  [
-    "line",
     "    1..2\n"
   ],
   [
@@ -595,10 +579,6 @@
   [
     "line",
     "ok 1 - test/01c-user-updates.js # time=339.14ms\n"
-  ],
-  [
-    "line",
-    "\n"
   ],
   [
     "line",

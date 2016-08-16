@@ -93,10 +93,6 @@
   ],
   [
     "line",
-    "\n"
-  ],
-  [
-    "line",
     "# common.js\n"
   ],
   [
@@ -126,10 +122,6 @@
       "id": 4,
       "name": "just setup, nothing relevant"
     }
-  ],
-  [
-    "line",
-    "\n"
   ],
   [
     "line",
@@ -285,10 +277,6 @@
   ],
   [
     "line",
-    "\n"
-  ],
-  [
-    "line",
     "# debug-test.js\n"
   ],
   [
@@ -382,10 +370,6 @@
   [
     "comment",
     "# ok\n"
-  ],
-  [
-    "line",
-    "\n"
   ],
   [
     "line",
@@ -501,10 +485,6 @@
   ],
   [
     "line",
-    "\n"
-  ],
-  [
-    "line",
     "# deep.js\n"
   ],
   [
@@ -617,10 +597,6 @@
   ],
   [
     "line",
-    "\n"
-  ],
-  [
-    "line",
     "# executed.sh\n"
   ],
   [
@@ -650,10 +626,6 @@
       "id": 22,
       "name": "File with executable bit should be executed"
     }
-  ],
-  [
-    "line",
-    "\n"
   ],
   [
     "line",
@@ -885,10 +857,6 @@
   ],
   [
     "line",
-    "\n"
-  ],
-  [
-    "line",
     "# expose-gc-test.js\n"
   ],
   [
@@ -1105,10 +1073,6 @@
   ],
   [
     "line",
-    "\n"
-  ],
-  [
-    "line",
     "# global-harness-async.js\n"
   ],
   [
@@ -1205,10 +1169,6 @@
   ],
   [
     "line",
-    "\n"
-  ],
-  [
-    "line",
     "# independent-timeouts.js\n"
   ],
   [
@@ -1266,10 +1226,6 @@
   [
     "comment",
     "# ok\n"
-  ],
-  [
-    "line",
-    "\n"
   ],
   [
     "line",
@@ -1386,10 +1342,6 @@
   [
     "comment",
     "# ok\n"
-  ],
-  [
-    "line",
-    "\n"
   ],
   [
     "line",
@@ -1573,10 +1525,6 @@
   ],
   [
     "line",
-    "\n"
-  ],
-  [
-    "line",
     "# nested-async.js\n"
   ],
   [
@@ -1737,10 +1685,6 @@
   ],
   [
     "line",
-    "\n"
-  ],
-  [
-    "line",
     "# nested-test.js\n"
   ],
   [
@@ -1873,10 +1817,6 @@
   ],
   [
     "line",
-    "\n"
-  ],
-  [
-    "line",
     "# non-tap-output.js\n"
   ],
   [
@@ -2002,10 +1942,6 @@
       "id": 73,
       "name": "done now, exiting"
     }
-  ],
-  [
-    "line",
-    "\n"
   ],
   [
     "line",
@@ -2145,10 +2081,6 @@
   ],
   [
     "line",
-    "\n"
-  ],
-  [
-    "line",
     "# result-trap.js\n"
   ],
   [
@@ -2230,10 +2162,6 @@
   [
     "comment",
     "# ok\n"
-  ],
-  [
-    "line",
-    "\n"
   ],
   [
     "line",
@@ -2409,10 +2337,6 @@
   ],
   [
     "line",
-    "\n"
-  ],
-  [
-    "line",
     "# simple-harness-test-with-plan.js\n"
   ],
   [
@@ -2517,10 +2441,6 @@
   ],
   [
     "line",
-    "\n"
-  ],
-  [
-    "line",
     "# simple-harness-test.js\n"
   ],
   [
@@ -2622,10 +2542,6 @@
   [
     "comment",
     "# ok\n"
-  ],
-  [
-    "line",
-    "\n"
   ],
   [
     "line",
@@ -2790,10 +2706,6 @@
   [
     "comment",
     "# todo  4\n"
-  ],
-  [
-    "line",
-    "\n"
   ],
   [
     "line",
@@ -3498,10 +3410,6 @@
   ],
   [
     "line",
-    "\n"
-  ],
-  [
-    "line",
     "# test-directives.js\n"
   ],
   [
@@ -3842,10 +3750,6 @@
   ],
   [
     "line",
-    "\n"
-  ],
-  [
-    "line",
     "# test-skip.js\n"
   ],
   [
@@ -3900,10 +3804,6 @@
   [
     "comment",
     "# skip  1\n"
-  ],
-  [
-    "line",
-    "\n"
   ],
   [
     "line",
@@ -5731,10 +5631,6 @@
   ],
   [
     "line",
-    "\n"
-  ],
-  [
-    "line",
     "# timeout.js\n"
   ],
   [
@@ -5915,10 +5811,6 @@
   ],
   [
     "line",
-    "\n"
-  ],
-  [
-    "line",
     "# trivial-success.js\n"
   ],
   [
@@ -5936,10 +5828,6 @@
   [
     "comment",
     "# trivial-success.js\n"
-  ],
-  [
-    "line",
-    "\n"
   ],
   [
     "line",
@@ -6012,10 +5900,6 @@
   [
     "comment",
     "# ok\n"
-  ],
-  [
-    "line",
-    "\n"
   ],
   [
     "line",
@@ -6148,14 +6032,6 @@
   [
     "comment",
     "# ok\n"
-  ],
-  [
-    "line",
-    "\n"
-  ],
-  [
-    "line",
-    "\n"
   ],
   [
     "line",

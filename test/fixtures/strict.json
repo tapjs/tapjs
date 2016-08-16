@@ -23,6 +23,11 @@
     "pragma +strict\n"
   ],
   [
+    "pragma",
+    "strict",
+    true
+  ],
+  [
     "line",
     "Nonsense!\n"
   ],
@@ -33,6 +38,11 @@
   [
     "line",
     "pragma -strict\n"
+  ],
+  [
+    "pragma",
+    "strict",
+    false
   ],
   [
     "line",

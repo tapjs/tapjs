@@ -19,6 +19,10 @@
     "child",
     [
       [
+        "comment",
+        "# Subtest: empty\n"
+      ],
+      [
         "line",
         "1..0\n"
       ],
@@ -68,6 +72,10 @@
   [
     "child",
     [
+      [
+        "comment",
+        "# Subtest: my_test\n"
+      ],
       [
         "line",
         "ok 1 - subtest event A\n"
@@ -150,6 +158,10 @@
     "child",
     [
       [
+        "comment",
+        "# Subtest: my_test_plan\n"
+      ],
+      [
         "line",
         "1..2\n"
       ],
@@ -224,16 +236,16 @@
     "# Subtest: my_streamy_test\n"
   ],
   [
-    "comment",
-    "# Subtest: my_streamy_test\n"
-  ],
-  [
     "line",
     "    ok 1 - subtest event A\n"
   ],
   [
     "child",
     [
+      [
+        "comment",
+        "# Subtest: my_streamy_test\n"
+      ],
       [
         "line",
         "ok 1 - subtest event A\n"
@@ -313,12 +325,12 @@
     }
   ],
   [
-    "comment",
-    "# Subtest: my_streamy_test_plan\n"
-  ],
-  [
     "child",
     [
+      [
+        "comment",
+        "# Subtest: my_streamy_test_plan\n"
+      ],
       [
         "line",
         "1..2\n"

@@ -1,9 +1,9 @@
 tap version 13
 ok subtest {
-  tap version 13
-  1..1
+    tap version 13
+    1..1
 1..99
-  ok
+    ok
 }
 ok yaml
   ---

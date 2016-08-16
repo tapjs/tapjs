@@ -1,12 +1,11 @@
 [
   [
     "line",
-    "pragma +foo\n"
+    "TAP version 13\n"
   ],
   [
-    "pragma",
-    "foo",
-    true
+    "version",
+    13
   ],
   [
     "line",
@@ -21,18 +20,25 @@
   ],
   [
     "line",
-    "# Subtest\n"
+    "ok\n"
   ],
   [
     "line",
-    "    1..1\n"
+    "    # Subtest: unfinished\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 1
+    }
   ],
   [
     "child",
     [
       [
         "comment",
-        "# Subtest\n"
+        "# Subtest: unfinished\n"
       ],
       [
         "line",
@@ -73,26 +79,11 @@
   ],
   [
     "line",
-    "pragma +foo\n"
-  ],
-  [
-    "extra",
-    "pragma +foo\n"
+    "    1..1\n"
   ],
   [
     "line",
     "    ok\n"
-  ],
-  [
-    "line",
-    "ok\n"
-  ],
-  [
-    "assert",
-    {
-      "ok": true,
-      "id": 1
-    }
   ],
   [
     "complete",

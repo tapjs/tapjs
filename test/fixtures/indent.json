@@ -31,16 +31,12 @@
     "    # Subtest: first\n"
   ],
   [
-    "comment",
-    "    # Subtest: first\n"
-  ],
-  [
-    "line",
-    "    1..2\n"
-  ],
-  [
     "child",
     [
+      [
+        "comment",
+        "# Subtest: first\n"
+      ],
       [
         "line",
         "1..2\n"
@@ -95,6 +91,10 @@
   ],
   [
     "line",
+    "    1..2\n"
+  ],
+  [
+    "line",
     "    ok 1 - true is ok # time=1.234ms\n"
   ],
   [
@@ -110,10 +110,6 @@
     "    # Subtest: second\n"
   ],
   [
-    "line",
-    "    ok 1 - no plan # time=1.001ms\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
@@ -123,12 +119,12 @@
     }
   ],
   [
-    "comment",
-    "    # Subtest: second\n"
-  ],
-  [
     "child",
     [
+      [
+        "comment",
+        "# Subtest: second\n"
+      ],
       [
         "line",
         "ok 1 - no plan # time=1.001ms\n"
@@ -136,10 +132,6 @@
       [
         "line",
         "    # Subtest: this passes\n"
-      ],
-      [
-        "line",
-        "    1..3\n"
       ],
       [
         "assert",
@@ -151,12 +143,12 @@
         }
       ],
       [
-        "comment",
-        "    # Subtest: this passes\n"
-      ],
-      [
         "child",
         [
+          [
+            "comment",
+            "# Subtest: this passes\n"
+          ],
           [
             "line",
             "1..3\n"
@@ -272,6 +264,10 @@
       ],
       [
         "line",
+        "    1..3\n"
+      ],
+      [
+        "line",
         "    not ok granddaughter # SKIP for no raisin\n"
       ],
       [
@@ -356,6 +352,10 @@
         }
       ]
     ]
+  ],
+  [
+    "line",
+    "    ok 1 - no plan # time=1.001ms\n"
   ],
   [
     "line",

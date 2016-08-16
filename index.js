@@ -26,10 +26,22 @@ var lineTypes = {
   pragma: /^pragma ([+-])([a-z]+)\n$/,
   bailout: /^bail out!(.*)\n$/i,
   version: /^TAP version ([0-9]+)\n$/i,
-  plan: /^([0-9]+)\.\.([0-9]+)(?:\s+(?:#\s*(.*)))?\n$/
+  plan: /^([0-9]+)\.\.([0-9]+)(?:\s+(?:#\s*(.*)))?\n$/,
+  subtest: /^# Subtest(?:: (.*))?\n$/,
+  subtestIndent: /^    # Subtest(?:: (.*))?\n$/,
+  comment: /^\s*#.*\n$/
 }
 
 var lineTypeNames = Object.keys(lineTypes)
+
+function lineType (line) {
+  for (var t in lineTypes) {
+    var match = line.match(lineTypes[t])
+    if (match)
+      return [t, match]
+  }
+  return null
+}
 
 function parseDirective (line) {
   line = line.trim()
@@ -92,7 +104,6 @@ function Parser (options, onComplete) {
 
   this.sawValidTap = false
   this.failures = []
-  this.indent = options.indent || ''
   this.level = options.level || 0
   Writable.call(this)
   this.buffer = ''
@@ -104,6 +115,7 @@ function Parser (options, onComplete) {
   this.yind = ''
   this.child = null
   this.current = null
+  this.maybeSubtest = null
   this.commentQueue = []
   this.buffered = options.buffered || null
 
@@ -179,8 +191,8 @@ Parser.prototype.plan = function (start, end, comment, line) {
     return
   }
 
-  // can't put a plan in a child or yaml block
-  if (this.child) {
+  // can't put a plan in a child.
+  if (this.child || this.yind) {
     this.nonTap(line)
     return
   }
@@ -210,10 +222,21 @@ Parser.prototype.resetYamlish = function () {
 }
 
 // that moment when you realize it's not what you thought it was
-Parser.prototype.yamlGarbage = function (line) {
-  var yamlGarbage = this.yind + '---\n' + this.yamlish + (line || '')
+Parser.prototype.yamlGarbage = function () {
+  var yamlGarbage = this.yind + '---\n' + this.yamlish
   this.emitResult()
   this.nonTap(yamlGarbage)
+}
+
+Parser.prototype.yamlishLine = function (line) {
+  if (line === this.yind + '...\n') {
+    // end the yaml block
+    this.processYamlish()
+  } else if (lineTypes.comment.test(line)) {
+    this.emitComment(line)
+  } else {
+    this.yamlish += line
+  }
 }
 
 Parser.prototype.processYamlish = function () {
@@ -360,7 +383,7 @@ Parser.prototype.version = function (version, line) {
 
 Parser.prototype.pragma = function (key, value, line) {
   // can't put a pragma in a child or yaml block
-  if (this.child || this.yind) {
+  if (this.child) {
     this.nonTap(line)
     return
   }
@@ -371,6 +394,7 @@ Parser.prototype.pragma = function (key, value, line) {
     this.strict = value
   }
   this.pragmas[key] = value
+  this.emit('pragma', key, value)
 }
 
 Parser.prototype.bailout = function (reason) {
@@ -426,17 +450,22 @@ Parser.prototype.emitResult = function () {
   this.clearCommentQueue()
 }
 
-Parser.prototype.startChild = function (indent, line) {
-  var maybeBuffered = this.current && this.current.name.match(/{$/)
+Parser.prototype.startChild = function (line) {
+  var maybeBuffered = this.current && this.current.name && this.current.name.substr(-1) === '{'
+  var unindentStream = !maybeBuffered  && this.maybeChild
+  var indentStream = !maybeBuffered && !unindentStream &&
+    lineTypes.subtestIndent.test(line)
 
+  // If we have any other result waiting in the wings, we need to emit
+  // that now.  A buffered test emits its test point at the *end* of
+  // the child subtest block, so as to match streamed test semantics.
   if (!maybeBuffered)
     this.emitResult()
 
   this.child = new Parser({
-    indent: indent,
     parent: this,
     level: this.level + 1,
-    buffered: this.current
+    buffered: maybeBuffered
   })
 
   this.emit('child', this.child)
@@ -447,7 +476,23 @@ Parser.prototype.startChild = function (indent, line) {
       self.ok = false
   })
 
-  line = line.substr(indent.length)
+  // if it's a buffered subtest or a non-indented Subtest directive,
+  // then we need to synthetically emit the comment on the child.
+  line = line.substr(4)
+  if (indentStream) {
+    this.child.emitComment(line)
+    return
+  }
+
+  if (maybeBuffered) {
+    var n = this.current.name.trim().replace(/{$/, '').trim()
+    var c = '# Subtest: ' + n + '\n'
+    this.child.emitComment(c)
+  } else {
+    var mc = this.maybeChild
+    this.maybeChild = null
+    this.child.emitComment(mc)
+  }
 
   this.child._parse(line)
 }
@@ -463,68 +508,27 @@ Parser.prototype._parse = function (line) {
   // normalize line endings
   line = line.replace(/\r\n$/, '\n')
 
-  // this is a line we are processing, so emit it.
-  this.emit('line', line)
-
   // sometimes empty lines get trimmed, but are still part of
   // a subtest or a yaml block.  Otherwise, nothing to parse!
   if (line === '\n') {
     if (this.child)
-      line = this.child.indent + line
+      line = '    ' + line
     else if (this.yind)
       line = this.yind + line
     else
       return
   }
 
+  // this is a line we are processing, so emit it, but don't
+  // emit all the whitespace, because that's just annoyingly noisy.
+  if (line.trim())
+    this.emit('line', line)
+
   // check to see if the line is indented.
   // if it is, then it's either a subtest, yaml, or garbage.
   var indent = line.match(/^[ \t]*/)[0]
   if (indent) {
     this.parseIndent(line, indent)
-    return
-  }
-
-  // not indented
-
-  if (line.charAt(0) === '#') {
-    this.emitComment(line)
-    return
-  }
-
-  // nothing but comments can come after a trailing plan
-  if (this.postPlan) {
-    this.nonTap(line)
-    return
-  }
-
-  // now it's maybe a thing
-
-  var bailout = line.match(lineTypes.bailout)
-  if (bailout) {
-    this.bailout(bailout[1].trim())
-    return
-  }
-
-  // if we have any yamlish, it's garbage now
-  if (this.yind)
-    this.yamlGarbage()
-
-  var pragma = line.match(lineTypes.pragma)
-  if (pragma) {
-    this.pragma(pragma[2], pragma[1] === '+', line)
-    return
-  }
-
-  var version = line.match(lineTypes.version)
-  if (version) {
-    this.version(parseInt(version[1], 10), line)
-    return
-  }
-
-  var plan = line.match(lineTypes.plan)
-  if (plan) {
-    this.plan(+plan[1], +plan[2], (plan[3] || '').trim(), line)
     return
   }
 
@@ -535,9 +539,63 @@ Parser.prototype._parse = function (line) {
     return
   }
 
+  // now we know it's not indented, so if it's either valid tap
+  // or garbage.  Get the type of line.
+  var type = lineType(line)
+  if (!type) {
+    this.nonTap(line)
+    return
+  }
+
+  if (type[0] === 'comment') {
+    this.emitComment(line)
+    return
+  }
+
+  // if we have any yamlish, it's garbage now.  We tolerate non-TAP and
+  // comments in the midst of yaml (though, perhaps, that's questionable
+  // behavior), but any actual TAP means that the yaml block was just
+  // not valid.
+  if (this.yind)
+    this.yamlGarbage()
+
+  // If it's anything other than a comment or garbage, then any
+  // maybeChild is just an unsatisfied promise.
+  this.maybeChild = null
+
+  // nothing but comments can come after a trailing plan
+  if (this.postPlan) {
+    this.nonTap(line)
+    return
+  }
+
+  // ok, now it's maybe a thing
+  if (type[0] === 'bailout') {
+    this.bailout(type[1][1].trim())
+    return
+  }
+
+  if (type[0] === 'pragma') {
+    var pragma = type[1]
+    this.pragma(pragma[2], pragma[1] === '+', line)
+    return
+  }
+
+  if (type[0] === 'version') {
+    var version = type[1]
+    this.version(parseInt(version[1], 10), line)
+    return
+  }
+
+  if (type[0] === 'plan') {
+    var plan = type[1]
+    this.plan(+plan[1], +plan[2], (plan[3] || '').trim(), line)
+    return
+  }
+
+
   // streamed subtests will end when this test point is emitted
-  var testPoint = line.match(lineTypes.testPoint)
-  if (testPoint) {
+  if (type[0] === 'testPoint') {
     // note: it's weird, but possible, to have a testpoint ending in
     // { before a streamed subtest which ends with a test point
     // instead of a }.  In this case, the parser gets confused, but
@@ -548,70 +606,77 @@ Parser.prototype._parse = function (line) {
     // to buffer up everything and do a multi-line parse.  This is
     // rare and weird, and a multi-line parse would be a bigger
     // rewrite, so I'm allowing it as it currently is.
-    this.parseTestPoint(testPoint)
+    this.parseTestPoint(type[1])
     return
   }
 
-  // at this point, anything else is not TAP data
-  this.nonTap(line)
-  return
+  // We already detected nontap up above, so the only case left
+  // should be a `# Subtest:` comment.  Ignore for coverage, but
+  // include the error here just for good measure.
+  /* istanbul ignore else */
+  if (type[0] === 'subtest') {
+    // this is potentially a subtest.  Not indented.
+    // hold until later.
+    this.maybeChild = line
+  } else {
+    throw new Error('Unhandled case: ' + type[0])
+  }
 }
 
 Parser.prototype.parseIndent = function (line, indent) {
-  // a child in progress, pass it on.
-  if (this.child && line.indexOf(this.child.indent) === 0) {
-    line = line.substr(this.child.indent.length)
+  // still belongs to the child, so pass it along.
+  if (this.child && line.substr(0, 4) === '    ') {
+    line = line.substr(4)
     this.child.write(line)
     return
   }
 
-  // just a comment.  We no longer treat Subtest comments as magical
-  // this has to be before the yaml parsing, because # comments are
-  // not valid yaml, but they are valid to have in yaml blocks in tap
-  if (line.trim().charAt(0) === '#') {
-    this.emitComment(line)
-    return
-  }
+  // one of:
+  // - continuing yaml block
+  // - starting yaml block
+  // - ending yaml block
+  // - body of a new child subtest that was previously introduced
+  // - An indented subtest directive
+  // - A comment, or garbage
 
-  // already yaml block in progress
+  // continuing/ending yaml block
   if (this.yind) {
     if (line.indexOf(this.yind) === 0) {
-      if (line === this.yind + '...\n') {
-        // end the yaml block
-        this.processYamlish()
-        return
-      }
-      this.yamlish += line
+      this.yamlishLine(line)
+      return
     } else {
-      // oops!  was not actually yamlish, I guess.
+      // oops!  that was not actually yamlish, I guess.
       // this is a case where the indent is shortened mid-yamlish block
-      // treat as garbage
-      this.yamlGarbage(line)
+      // treat existing yaml as garbage, continue parsing this line
+      this.yamlGarbage()
     }
-    return
   }
 
-  // stat a yaml block under a test point
+
+  // start a yaml block under a test point
   if (this.current && !this.yind && line === indent + '---\n') {
     this.yind = indent
     return
   }
 
-
-  // child test, or garbage.  to be a child test, it has to be a known
-  // line type.  garbage is allowed, but ignored.  If we've already
-  // seen a trailing plan, then it's definitely garbage.
-  var garbage
-  if (this.postPlan) {
-    garbage = true
-  } else {
-    garbage = !lineTypeNames.some(function (type) {
-      return lineTypes[type].test(line.substr(indent.length))
-    })
+  // at this point, not yamlish, and not an existing child test.
+  // We may have already seen an unindented Subtest directive, or
+  // a test point that ended in { indicating a buffered subtest
+  // Child tests are always indented 4 spaces.
+  if (line.substr(0, 4) === '    ') {
+    if (this.maybeChild ||
+        this.current && this.current.name && this.current.name.substr(-1) === '{' ||
+        lineTypes.subtestIndent.test(line)) {
+      this.startChild(line)
+      return
+    }
   }
 
-  if (garbage)
-    this.nonTap(line)
-  else
-    this.startChild(indent, line)
+  // at this point, it's either a non-subtest comment, or garbage.
+  if (lineTypes.comment.test(line)) {
+    this.emitComment(line)
+    return
+  }
+
+  this.nonTap(line)
 }
