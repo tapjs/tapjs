@@ -10,4 +10,5 @@ not ok 3 truncating the yamlish
   here: is some yaml
   i: guess
 not ok 4 this is truncated weirdly
+     not ok 99 this is not a child test
 1..4

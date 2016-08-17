@@ -89,6 +89,10 @@
   ],
   [
     "line",
+    "     not ok 99 this is not a child test\n"
+  ],
+  [
+    "line",
     "1..4\n"
   ],
   [
@@ -98,6 +102,10 @@
       "id": 4,
       "name": "this is truncated weirdly"
     }
+  ],
+  [
+    "extra",
+    "     not ok 99 this is not a child test\n"
   ],
   [
     "plan",
