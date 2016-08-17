@@ -690,16 +690,10 @@ Parser.prototype.parseIndent = function (line, indent) {
     // middle of them, which may or may not be considered "indented"
     // See the subtest-no-comment-mid-comment fixture for an example
     // of this.  As it happens, the preference is towards an indented
-    // Subtest comment as the interpretation, which I would like to
-    // change, but since no subtest-emitting tap producer ever has a
-    // mix of prefixed and not-prefixed subtests, it's purely a matter
-    // of esthetics, and not practically relevant at all.
-    //
-    // For v3, I'd like to move the Subtest comment up to the parent,
-    // so that un-indented Subtest comments are the de facto standard.
-    // However, this is a much more breaking change, and requires
-    // changing the way that tap-mocha-reporter interprets these things
-    // as suites.
+    // Subtest comment as the interpretation, which is the only possible
+    // way to resolve this, since otherwise there's no way to distinguish
+    // between an anonymous subtest with a non-indented Subtest comment,
+    // and an indented Subtest comment.
     var s = line.match(/( {4})+(.*\n)$/)
     if (s[2].charAt(0) !== ' ') {
       // integer number of indentations.
