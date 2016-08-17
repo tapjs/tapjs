@@ -27,15 +27,220 @@
         "        1..2\n"
       ],
       [
-        "extra",
-        "        1..2\n"
+        "child",
+        [
+          [
+            "comment",
+            "# Subtest: (anonymous)\n"
+          ],
+          [
+            "line",
+            "    1..2\n"
+          ],
+          [
+            "child",
+            [
+              [
+                "comment",
+                "# Subtest: (anonymous)\n"
+              ],
+              [
+                "line",
+                "1..2\n"
+              ],
+              [
+                "plan",
+                {
+                  "start": 1,
+                  "end": 2
+                }
+              ],
+              [
+                "line",
+                "ok 1 - true is ok\n"
+              ],
+              [
+                "line",
+                "ok 2 - doag is also okay\n"
+              ],
+              [
+                "assert",
+                {
+                  "ok": true,
+                  "id": 1,
+                  "name": "true is ok"
+                }
+              ],
+              [
+                "assert",
+                {
+                  "ok": true,
+                  "id": 2,
+                  "name": "doag is also okay"
+                }
+              ],
+              [
+                "complete",
+                {
+                  "ok": true,
+                  "count": 2,
+                  "pass": 2,
+                  "plan": {
+                    "start": 1,
+                    "end": 2
+                  },
+                  "failures": []
+                }
+              ]
+            ]
+          ],
+          [
+            "line",
+            "    ok 1 - true is ok\n"
+          ],
+          [
+            "line",
+            "    ok 2 - doag is also okay\n"
+          ],
+          [
+            "line",
+            "ok 1 - first # time=8.987ms\n"
+          ],
+          [
+            "line",
+            "    ok 1 - but that is ok\n"
+          ],
+          [
+            "assert",
+            {
+              "ok": true,
+              "id": 1,
+              "time": 8.987,
+              "name": "first"
+            }
+          ],
+          [
+            "child",
+            [
+              [
+                "comment",
+                "# Subtest: (anonymous)\n"
+              ],
+              [
+                "line",
+                "ok 1 - but that is ok\n"
+              ],
+              [
+                "line",
+                "ok 2 - this passes\n"
+              ],
+              [
+                "assert",
+                {
+                  "ok": true,
+                  "id": 1,
+                  "name": "but that is ok"
+                }
+              ],
+              [
+                "line",
+                "ok 3 - nested ok\n"
+              ],
+              [
+                "assert",
+                {
+                  "ok": true,
+                  "id": 2,
+                  "name": "this passes"
+                }
+              ],
+              [
+                "line",
+                "1..3\n"
+              ],
+              [
+                "assert",
+                {
+                  "ok": true,
+                  "id": 3,
+                  "name": "nested ok"
+                }
+              ],
+              [
+                "plan",
+                {
+                  "start": 1,
+                  "end": 3
+                }
+              ],
+              [
+                "complete",
+                {
+                  "ok": true,
+                  "count": 3,
+                  "pass": 3,
+                  "plan": {
+                    "start": 1,
+                    "end": 3
+                  },
+                  "failures": []
+                }
+              ]
+            ]
+          ],
+          [
+            "line",
+            "    ok 2 - this passes\n"
+          ],
+          [
+            "line",
+            "    ok 3 - nested ok\n"
+          ],
+          [
+            "line",
+            "    1..3\n"
+          ],
+          [
+            "line",
+            "ok 2 - second # time=5.988ms\n"
+          ],
+          [
+            "line",
+            "1..2\n"
+          ],
+          [
+            "assert",
+            {
+              "ok": true,
+              "id": 2,
+              "time": 5.988,
+              "name": "second"
+            }
+          ],
+          [
+            "plan",
+            {
+              "start": 1,
+              "end": 2
+            }
+          ],
+          [
+            "complete",
+            {
+              "ok": true,
+              "count": 2,
+              "pass": 2,
+              "plan": {
+                "start": 1,
+                "end": 2
+              },
+              "failures": []
+            }
+          ]
+        ]
       ],
       [
         "line",
-        "        ok 1 - true is ok\n"
-      ],
-      [
-        "extra",
         "        ok 1 - true is ok\n"
       ],
       [
@@ -43,15 +248,7 @@
         "        ok 2 - doag is also okay\n"
       ],
       [
-        "extra",
-        "        ok 2 - doag is also okay\n"
-      ],
-      [
         "line",
-        "    ok 1 - first # time=8.987ms\n"
-      ],
-      [
-        "extra",
         "    ok 1 - first # time=8.987ms\n"
       ],
       [
@@ -59,15 +256,7 @@
         "        ok 1 - but that is ok\n"
       ],
       [
-        "extra",
-        "        ok 1 - but that is ok\n"
-      ],
-      [
         "line",
-        "        ok 2 - this passes\n"
-      ],
-      [
-        "extra",
         "        ok 2 - this passes\n"
       ],
       [
@@ -75,15 +264,7 @@
         "        ok 3 - nested ok\n"
       ],
       [
-        "extra",
-        "        ok 3 - nested ok\n"
-      ],
-      [
         "line",
-        "        1..3\n"
-      ],
-      [
-        "extra",
         "        1..3\n"
       ],
       [
@@ -91,15 +272,7 @@
         "    ok 2 - second # time=5.988ms\n"
       ],
       [
-        "extra",
-        "    ok 2 - second # time=5.988ms\n"
-      ],
-      [
         "line",
-        "    1..2\n"
-      ],
-      [
-        "extra",
         "    1..2\n"
       ],
       [

@@ -461,6 +461,7 @@ Parser.prototype.startChild = function (line) {
   var unindentStream = !maybeBuffered  && this.maybeChild
   var indentStream = !maybeBuffered && !unindentStream &&
     lineTypes.subtestIndent.test(line)
+  var unnamed = !maybeBuffered && !unindentStream && !indentStream
 
   // If we have any other result waiting in the wings, we need to emit
   // that now.  A buffered test emits its test point at the *end* of
@@ -495,7 +496,7 @@ Parser.prototype.startChild = function (line) {
     var c = '# Subtest: ' + n + '\n'
     this.child.emitComment(c)
   } else {
-    var mc = this.maybeChild
+    var mc = this.maybeChild || '# Subtest: (anonymous)\n'
     this.maybeChild = null
     this.child.emitComment(mc)
   }
@@ -680,11 +681,39 @@ Parser.prototype.parseIndent = function (line, indent) {
       return
     }
 
-    // TODO: We COULD say that any "relevant tap" line that's indented
-    // by 4 spaces starts a child test, and just call it 'unnamed' if
-    // it does not have a prefix comment.  In that case, any number of
-    // 4-space indents can be plucked off to try to find a relevant
-    // TAP line type, and if so, start the unnamed child.
+    // It's _something_ indented, if the indentation is divisible by
+    // 4 spaces, and the result is actual TAP of some sort, then do
+    // a child subtest for it as well.
+    //
+    // This will lead to some ambiguity in cases where there are multiple
+    // levels of non-signaled subtests, but a Subtest comment in the
+    // middle of them, which may or may not be considered "indented"
+    // See the subtest-no-comment-mid-comment fixture for an example
+    // of this.  As it happens, the preference is towards an indented
+    // Subtest comment as the interpretation, which I would like to
+    // change, but since no subtest-emitting tap producer ever has a
+    // mix of prefixed and not-prefixed subtests, it's purely a matter
+    // of esthetics, and not practically relevant at all.
+    //
+    // For v3, I'd like to move the Subtest comment up to the parent,
+    // so that un-indented Subtest comments are the de facto standard.
+    // However, this is a much more breaking change, and requires
+    // changing the way that tap-mocha-reporter interprets these things
+    // as suites.
+    var s = line.match(/( {4})+(.*\n)$/)
+    if (s[2].charAt(0) !== ' ') {
+      // integer number of indentations.
+      var type = lineType(s[2])
+      if (type) {
+        if (type[0] === 'comment') {
+          this.emitComment(line)
+        } else {
+          // it's relevant!  start as an "unnamed" child subtest
+          this.startChild(line)
+        }
+        return
+      }
+    }
   }
 
   // at this point, it's either a non-subtest comment, or garbage.
