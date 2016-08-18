@@ -498,6 +498,7 @@ Parser.prototype.startChild = function (line) {
   }
 
   this.maybeChild = null
+  this.child.name = subtestComment.substr('# Subtest: '.length).trim()
 
   // at some point, we may wish to move 100% to preferring
   // the Subtest comment on the parent level.  If so, uncomment
