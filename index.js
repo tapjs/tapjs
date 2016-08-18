@@ -475,7 +475,6 @@ Parser.prototype.startChild = function (line) {
     buffered: maybeBuffered
   })
 
-  this.emit('child', this.child)
   this.child.on('bailout', this.bailout.bind(this))
   var self = this
   this.child.on('complete', function (results) {
@@ -483,25 +482,31 @@ Parser.prototype.startChild = function (line) {
       self.ok = false
   })
 
+  // Canonicalize the parsing result of any kind of subtest
   // if it's a buffered subtest or a non-indented Subtest directive,
-  // then we need to synthetically emit the comment on the child.
+  // then synthetically emit the Subtest comment
   line = line.substr(4)
+  var subtestComment
   if (indentStream) {
-    this.child.emitComment(line)
-    return
-  }
-
-  if (maybeBuffered) {
+    subtestComment = line
+    line = null
+  } else if (maybeBuffered) {
     var n = this.current.name.trim().replace(/{$/, '').trim()
-    var c = '# Subtest: ' + n + '\n'
-    this.child.emitComment(c)
+    subtestComment = '# Subtest: ' + n + '\n'
   } else {
-    var mc = this.maybeChild || '# Subtest: (anonymous)\n'
-    this.maybeChild = null
-    this.child.emitComment(mc)
+    subtestComment = this.maybeChild || '# Subtest: (anonymous)\n'
   }
 
-  this.child._parse(line)
+  this.maybeChild = null
+
+  // at some point, we may wish to move 100% to preferring
+  // the Subtest comment on the parent level.  If so, uncomment
+  // this line, and remove the child.emitComment below.
+  // this.emit('comment', subtestComment)
+  this.emit('child', this.child)
+  this.child.emitComment(subtestComment)
+  if (line)
+    this.child._parse(line)
 }
 
 Parser.prototype.emitComment = function (line) {
