@@ -19,15 +19,7 @@
     "  ok:\n"
   ],
   [
-    "extra",
-    "  ok:\n"
-  ],
-  [
     "line",
-    "    - I wished for a bailout!\n"
-  ],
-  [
-    "extra",
     "    - I wished for a bailout!\n"
   ],
   [
@@ -35,15 +27,7 @@
     "    - lots of other shapes here can look like valid tap\n"
   ],
   [
-    "extra",
-    "    - lots of other shapes here can look like valid tap\n"
-  ],
-  [
     "line",
-    " ...\n"
-  ],
-  [
-    "extra",
     " ...\n"
   ],
   [
@@ -57,6 +41,22 @@
       "id": 1,
       "name": "callback happened"
     }
+  ],
+  [
+    "extra",
+    "  ok:\n"
+  ],
+  [
+    "extra",
+    "    - I wished for a bailout!\n"
+  ],
+  [
+    "extra",
+    "    - lots of other shapes here can look like valid tap\n"
+  ],
+  [
+    "extra",
+    " ...\n"
   ],
   [
     "line",

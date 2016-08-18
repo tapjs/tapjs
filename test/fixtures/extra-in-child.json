@@ -15,10 +15,6 @@
     "child",
     [
       [
-        "line",
-        "# Subtest: test/01c-user-updates.js\n"
-      ],
-      [
         "comment",
         "# Subtest: test/01c-user-updates.js\n"
       ],
@@ -37,10 +33,6 @@
       [
         "child",
         [
-          [
-            "line",
-            "# Subtest: update profile\n"
-          ],
           [
             "comment",
             "# Subtest: update profile\n"
@@ -127,10 +119,6 @@
       [
         "child",
         [
-          [
-            "line",
-            "# Subtest: update email\n"
-          ],
           [
             "comment",
             "# Subtest: update email\n"

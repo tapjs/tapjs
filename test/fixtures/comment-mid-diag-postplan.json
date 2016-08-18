@@ -82,10 +82,6 @@
     "child",
     [
       [
-        "line",
-        "# Subtest: child\n"
-      ],
-      [
         "comment",
         "# Subtest: child\n"
       ],

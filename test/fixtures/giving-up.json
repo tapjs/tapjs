@@ -27,16 +27,16 @@
     "Bail out! Couldn't connect to database.\n"
   ],
   [
-    "bailout",
-    "Couldn't connect to database."
-  ],
-  [
     "assert",
     {
       "ok": false,
       "id": 1,
       "name": "database handle"
     }
+  ],
+  [
+    "bailout",
+    "Couldn't connect to database."
   ],
   [
     "complete",

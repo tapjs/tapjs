@@ -1,0 +1,84 @@
+[
+  [
+    "line",
+    "pragma +foo\n"
+  ],
+  [
+    "pragma",
+    "foo",
+    true
+  ],
+  [
+    "line",
+    "1..1\n"
+  ],
+  [
+    "plan",
+    {
+      "start": 1,
+      "end": 1
+    }
+  ],
+  [
+    "line",
+    "ok 1 - some yaml\n"
+  ],
+  [
+    "line",
+    "  ---\n"
+  ],
+  [
+    "line",
+    "  ok: true\n"
+  ],
+  [
+    "line",
+    "pragma +foo\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 1,
+      "name": "some yaml"
+    }
+  ],
+  [
+    "extra",
+    "  ---\n  ok: true\n"
+  ],
+  [
+    "pragma",
+    "foo",
+    true
+  ],
+  [
+    "line",
+    "  name: some yaml\n"
+  ],
+  [
+    "extra",
+    "  name: some yaml\n"
+  ],
+  [
+    "line",
+    "  ...\n"
+  ],
+  [
+    "extra",
+    "  ...\n"
+  ],
+  [
+    "complete",
+    {
+      "ok": true,
+      "count": 1,
+      "pass": 1,
+      "plan": {
+        "start": 1,
+        "end": 1
+      },
+      "failures": []
+    }
+  ]
+]

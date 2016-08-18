@@ -41,15 +41,15 @@
     "Bail out!  GERONIMMMOOOOOO!!!\n"
   ],
   [
-    "bailout",
-    "GERONIMMMOOOOOO!!!"
-  ],
-  [
     "assert",
     {
       "ok": true,
       "id": 3
     }
+  ],
+  [
+    "bailout",
+    "GERONIMMMOOOOOO!!!"
   ],
   [
     "complete",

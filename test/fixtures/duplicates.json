@@ -137,11 +137,16 @@
       "ok": false,
       "count": 11,
       "pass": 11,
+      "fail": 1,
       "plan": {
         "start": 1,
         "end": 10
       },
-      "failures": []
+      "failures": [
+        {
+          "tapError": "incorrect number of tests"
+        }
+      ]
     }
   ]
 ]

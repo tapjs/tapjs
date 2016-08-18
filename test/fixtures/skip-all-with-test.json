@@ -1,0 +1,51 @@
+[
+  [
+    "line",
+    "TAP version 13\n"
+  ],
+  [
+    "version",
+    13
+  ],
+  [
+    "line",
+    "ok\n"
+  ],
+  [
+    "line",
+    "1..0\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 1
+    }
+  ],
+  [
+    "plan",
+    {
+      "start": 1,
+      "end": 0
+    }
+  ],
+  [
+    "complete",
+    {
+      "ok": false,
+      "count": 1,
+      "pass": 1,
+      "fail": 1,
+      "plan": {
+        "start": 1,
+        "end": 0,
+        "skipAll": true
+      },
+      "failures": [
+        {
+          "tapError": "Plan of 1..0, but test points encountered"
+        }
+      ]
+    }
+  ]
+]

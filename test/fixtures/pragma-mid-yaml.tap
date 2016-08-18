@@ -1,0 +1,8 @@
+pragma +foo
+1..1
+ok 1 - some yaml
+  ---
+  ok: true
+pragma +foo
+  name: some yaml
+  ...

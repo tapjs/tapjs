@@ -62,6 +62,7 @@
       "ok": false,
       "count": 3,
       "pass": 3,
+      "fail": 2,
       "plan": {
         "start": 1,
         "end": 3

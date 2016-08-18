@@ -8,6 +8,18 @@ t.test('passing no options and cb works fine', function (t) {
   p.emit('complete')
 })
 
+t.test('end() can take chunk', function (t) {
+  t.plan(2)
+  t.test('string', function (t) {
+    var p = Parser()
+    p.end('1..0\n', t.end)
+  })
+  t.test('encoding', function (t) {
+    var p = Parser()
+    p.end(new Buffer('1..0\n').toString('hex'), 'hex',  t.end)
+  })
+})
+
 t.test('takes a buffer just fine', function (t) {
   var p = Parser(theEnd)
   p.write(new Buffer('TAP version 13\n'))

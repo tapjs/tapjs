@@ -15,10 +15,6 @@
     "child",
     [
       [
-        "line",
-        "# Subtest: test/debug-test.js\n"
-      ],
-      [
         "comment",
         "# Subtest: test/debug-test.js\n"
       ],

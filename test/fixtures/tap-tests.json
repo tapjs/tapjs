@@ -284,23 +284,11 @@
     "debug test\n"
   ],
   [
-    "extra",
-    "debug test\n"
-  ],
-  [
     "line",
     "t.plan=1\n"
   ],
   [
-    "extra",
-    "t.plan=1\n"
-  ],
-  [
     "line",
-    "'Debugger listening on port 5858\\n'\n"
-  ],
-  [
-    "extra",
     "'Debugger listening on port 5858\\n'\n"
   ],
   [
@@ -326,6 +314,18 @@
   [
     "comment",
     "# debug-test.js\n"
+  ],
+  [
+    "extra",
+    "debug test\n"
+  ],
+  [
+    "extra",
+    "t.plan=1\n"
+  ],
+  [
+    "extra",
+    "'Debugger listening on port 5858\\n'\n"
   ],
   [
     "comment",
@@ -864,23 +864,11 @@
     "gc test\n"
   ],
   [
-    "extra",
-    "gc test\n"
-  ],
-  [
     "line",
     "t.plan=1\n"
   ],
   [
-    "extra",
-    "t.plan=1\n"
-  ],
-  [
     "line",
-    "assert gc does not exist\n"
-  ],
-  [
-    "extra",
     "assert gc does not exist\n"
   ],
   [
@@ -896,15 +884,7 @@
     "gc test\n"
   ],
   [
-    "extra",
-    "gc test\n"
-  ],
-  [
     "line",
-    "t.plan=2\n"
-  ],
-  [
-    "extra",
     "t.plan=2\n"
   ],
   [
@@ -912,23 +892,11 @@
     "gc test using --gc\n"
   ],
   [
-    "extra",
-    "gc test using --gc\n"
-  ],
-  [
     "line",
     "t.plan=1\n"
   ],
   [
-    "extra",
-    "t.plan=1\n"
-  ],
-  [
     "line",
-    "assert gc exists\n"
-  ],
-  [
-    "extra",
     "assert gc exists\n"
   ],
   [
@@ -936,23 +904,11 @@
     "gc test using --expose-gc\n"
   ],
   [
-    "extra",
-    "gc test using --expose-gc\n"
-  ],
-  [
     "line",
     "t.plan=1\n"
   ],
   [
-    "extra",
-    "t.plan=1\n"
-  ],
-  [
     "line",
-    "assert gc exists\n"
-  ],
-  [
-    "extra",
     "assert gc exists\n"
   ],
   [
@@ -972,12 +928,56 @@
     "# expose-gc-test.js\n"
   ],
   [
+    "extra",
+    "gc test\n"
+  ],
+  [
+    "extra",
+    "t.plan=1\n"
+  ],
+  [
+    "extra",
+    "assert gc does not exist\n"
+  ],
+  [
     "comment",
     "# TAP version 13\n"
   ],
   [
     "comment",
     "# gc test when the gc isn't there\n"
+  ],
+  [
+    "extra",
+    "gc test\n"
+  ],
+  [
+    "extra",
+    "t.plan=2\n"
+  ],
+  [
+    "extra",
+    "gc test using --gc\n"
+  ],
+  [
+    "extra",
+    "t.plan=1\n"
+  ],
+  [
+    "extra",
+    "assert gc exists\n"
+  ],
+  [
+    "extra",
+    "gc test using --expose-gc\n"
+  ],
+  [
+    "extra",
+    "t.plan=1\n"
+  ],
+  [
+    "extra",
+    "assert gc exists\n"
   ],
   [
     "line",
@@ -5638,15 +5638,7 @@
     "timeout test\n"
   ],
   [
-    "extra",
-    "timeout test\n"
-  ],
-  [
     "line",
-    "t.plan=2\n"
-  ],
-  [
-    "extra",
     "t.plan=2\n"
   ],
   [
@@ -5654,15 +5646,7 @@
     "a assert\n"
   ],
   [
-    "extra",
-    "a assert\n"
-  ],
-  [
     "line",
-    "b assert\n"
-  ],
-  [
-    "extra",
     "b assert\n"
   ],
   [
@@ -5690,6 +5674,22 @@
     "# timeout.js\n"
   ],
   [
+    "extra",
+    "timeout test\n"
+  ],
+  [
+    "extra",
+    "t.plan=2\n"
+  ],
+  [
+    "extra",
+    "a assert\n"
+  ],
+  [
+    "extra",
+    "b assert\n"
+  ],
+  [
     "comment",
     "# TAP version 13\n"
   ],
@@ -5702,15 +5702,7 @@
     "timeout test\n"
   ],
   [
-    "extra",
-    "timeout test\n"
-  ],
-  [
     "line",
-    "t.plan=2\n"
-  ],
-  [
-    "extra",
     "t.plan=2\n"
   ],
   [
@@ -5718,15 +5710,7 @@
     "a assert\n"
   ],
   [
-    "extra",
-    "a assert\n"
-  ],
-  [
     "line",
-    "b assert\n"
-  ],
-  [
-    "extra",
     "b assert\n"
   ],
   [
@@ -5740,6 +5724,22 @@
       "id": 297,
       "name": "a"
     }
+  ],
+  [
+    "extra",
+    "timeout test\n"
+  ],
+  [
+    "extra",
+    "t.plan=2\n"
+  ],
+  [
+    "extra",
+    "a assert\n"
+  ],
+  [
+    "extra",
+    "b assert\n"
   ],
   [
     "line",

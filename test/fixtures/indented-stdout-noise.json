@@ -15,10 +15,6 @@
     "child",
     [
       [
-        "line",
-        "# Subtest: index.js\n"
-      ],
-      [
         "comment",
         "# Subtest: index.js\n"
       ],
@@ -38,10 +34,6 @@
         "child",
         [
           [
-            "line",
-            "# Subtest: boom\n"
-          ],
-          [
             "comment",
             "# Subtest: boom\n"
           ],
@@ -52,10 +44,6 @@
           [
             "child",
             [
-              [
-                "line",
-                "# Subtest: npm install package line\n"
-              ],
               [
                 "comment",
                 "# Subtest: npm install package line\n"
@@ -98,11 +86,16 @@
                   "ok": true,
                   "count": 0,
                   "pass": 0,
+                  "fail": 1,
                   "plan": {
                     "start": 1,
                     "end": 0
                   },
-                  "failures": []
+                  "failures": [
+                    {
+                      "tapError": "no plan"
+                    }
+                  ]
                 }
               ]
             ]
@@ -128,11 +121,8 @@
             "1..0\n"
           ],
           [
-            "plan",
-            {
-              "start": 1,
-              "end": 0
-            }
+            "extra",
+            "1..0\n"
           ],
           [
             "complete",
@@ -140,12 +130,16 @@
               "ok": true,
               "count": 0,
               "pass": 0,
+              "fail": 1,
               "plan": {
                 "start": 1,
-                "end": 0,
-                "skipAll": true
+                "end": 0
               },
-              "failures": []
+              "failures": [
+                {
+                  "tapError": "no plan"
+                }
+              ]
             }
           ]
         ]

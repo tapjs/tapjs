@@ -1,0 +1,7 @@
+pragma +foo
+1..1
+# Subtest
+    1..1
+pragma +foo
+    ok
+ok

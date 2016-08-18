@@ -77,7 +77,12 @@
       "ok": false,
       "count": 4,
       "pass": 4,
-      "failures": []
+      "fail": 1,
+      "failures": [
+        {
+          "tapError": "no plan"
+        }
+      ]
     }
   ]
 ]

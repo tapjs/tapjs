@@ -15,10 +15,6 @@
     "child",
     [
       [
-        "line",
-        "# Subtest: foo\n"
-      ],
-      [
         "comment",
         "# Subtest: foo\n"
       ],

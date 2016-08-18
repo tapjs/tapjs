@@ -17,3 +17,42 @@ t.notOk(called)
 setTimeout(function () {
   t.ok(called)
 })
+
+t.test('child calling _parse after bailout', function (t) {
+  var p = Parser()
+  var etoa = require('events-to-array')
+
+  var events = etoa(p, [ 'pipe', 'unpipe', 'prefinish', 'finish', 'line' ])
+  var expect = [
+    [ 'version', 13 ],
+    [ 'child',
+      [ [ 'comment', '# Subtest\n' ],
+        [ 'plan', { start: 1, end: 1 } ],
+        [ 'bailout', 'child' ],
+        [ 'complete',
+          { ok: false,
+            count: 0,
+            pass: 0,
+            bailout: 'child',
+            plan: { start: 1, end: 1 },
+            failures: [] } ] ] ],
+    [ 'bailout', 'child' ],
+    [ 'complete',
+      { ok: false, count: 0, pass: 0, bailout: 'child', failures: [] } ]
+  ]
+
+  p.on('assert', t.fail)
+  p.on('complete', function () {
+    t.same(events, expect)
+    t.end()
+  })
+  p.end([
+    'TAP version 13',
+    '    # Subtest',
+    '    1..1',
+    '    Bail out! child',
+    '    ok 1',
+    'ok 1',
+    '1..1'
+  ].join('\n'))
+})

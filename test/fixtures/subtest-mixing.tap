@@ -1,0 +1,77 @@
+TAP version 13
+
+# All of these should be semantically equivalent
+
+ok 1 - x1 {
+    ok 1 - y {
+        ok 1 - ypoint
+        1..1
+    }
+    1..1
+}
+
+ok 2 - x2 {
+    # Subtest: y
+        ok 1 - ypoint
+        1..1
+    ok 1 - y
+    1..1
+}
+
+ok 3 - x3 {
+        # Subtest: y
+        ok 1 - ypoint
+        1..1
+    ok 1 - y
+    1..1
+}
+
+# Subtest: x4
+    ok 1 - y {
+        ok 1 - ypoint
+        1..1
+    }
+    1..1
+ok 4 - x4
+
+# Subtest: x5
+    # Subtest: y
+        ok 1 - ypoint
+        1..1
+    ok 1 - y
+    1..1
+ok 5 - x5
+
+# Subtest: x6
+        # Subtest: y
+        ok 1 - ypoint
+        1..1
+    ok 1 - y
+    1..1
+ok 6 - x6
+
+    # Subtest: x7
+    ok 1 - y {
+        ok 1 - ypoint
+        1..1
+    }
+    1..1
+ok 7 - x7
+
+    # Subtest: x8
+    # Subtest: y
+        ok 1 - ypoint
+        1..1
+    ok 1 - y
+    1..1
+ok 8 - x8
+
+    # Subtest: x9
+        # Subtest: y
+        ok 1 - ypoint
+        1..1
+    ok 1 - y
+    1..1
+ok 9 - x9
+
+1..9

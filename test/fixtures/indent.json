@@ -34,10 +34,6 @@
     "child",
     [
       [
-        "line",
-        "# Subtest: first\n"
-      ],
-      [
         "comment",
         "# Subtest: first\n"
       ],
@@ -126,10 +122,6 @@
     "child",
     [
       [
-        "line",
-        "# Subtest: second\n"
-      ],
-      [
         "comment",
         "# Subtest: second\n"
       ],
@@ -153,10 +145,6 @@
       [
         "child",
         [
-          [
-            "line",
-            "# Subtest: this passes\n"
-          ],
           [
             "comment",
             "# Subtest: this passes\n"
@@ -244,10 +232,6 @@
             "  it: is garbage\n"
           ],
           [
-            "extra",
-            "  ok: 1\n  this: is not tap or yaml\n  it: is garbage\n"
-          ],
-          [
             "assert",
             {
               "ok": false,
@@ -255,6 +239,10 @@
               "todo": true,
               "name": "grandchild"
             }
+          ],
+          [
+            "extra",
+            "  ok: 1\n  this: is not tap or yaml\n  it: is garbage\n"
           ],
           [
             "complete",

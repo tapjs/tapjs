@@ -28,16 +28,20 @@
     " this is not valid yamlish\n"
   ],
   [
-    "extra",
-    "  ---\n  message: \"Failed with error 'hostname peebles.example.com not found'\"\n  severity: fail\n this is not valid yamlish\n"
-  ],
-  [
     "assert",
     {
       "ok": false,
       "id": 1,
       "name": "de-indenting the yamlish wrongly."
     }
+  ],
+  [
+    "extra",
+    "  ---\n  message: \"Failed with error 'hostname peebles.example.com not found'\"\n  severity: fail\n"
+  ],
+  [
+    "extra",
+    " this is not valid yamlish\n"
   ],
   [
     "line",
@@ -72,16 +76,20 @@
     "not ok 4 this is truncated weirdly\n"
   ],
   [
-    "extra",
-    "  ---\n  here: is some yaml\n  i: guess\n"
-  ],
-  [
     "assert",
     {
       "ok": false,
       "id": 3,
       "name": "truncating the yamlish"
     }
+  ],
+  [
+    "extra",
+    "  ---\n  here: is some yaml\n  i: guess\n"
+  ],
+  [
+    "line",
+    "     not ok 99 this is not a child test\n"
   ],
   [
     "line",
@@ -94,6 +102,10 @@
       "id": 4,
       "name": "this is truncated weirdly"
     }
+  ],
+  [
+    "extra",
+    "     not ok 99 this is not a child test\n"
   ],
   [
     "plan",

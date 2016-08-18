@@ -15,10 +15,6 @@
     "child",
     [
       [
-        "line",
-        "# Subtest: a set of tests to be done later\n"
-      ],
-      [
         "comment",
         "# Subtest: a set of tests to be done later\n"
       ],
@@ -56,10 +52,6 @@
         "child",
         [
           [
-            "line",
-            "# Subtest: the subset\n"
-          ],
-          [
             "comment",
             "# Subtest: the subset\n"
           ],
@@ -96,10 +88,6 @@
           [
             "child",
             [
-              [
-                "line",
-                "# Subtest: has some of these things\n"
-              ],
               [
                 "comment",
                 "# Subtest: has some of these things\n"
@@ -347,10 +335,6 @@
   [
     "child",
     [
-      [
-        "line",
-        "# Subtest: another set of tests\n"
-      ],
       [
         "comment",
         "# Subtest: another set of tests\n"

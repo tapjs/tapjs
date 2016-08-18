@@ -97,6 +97,7 @@
       "ok": false,
       "count": 7,
       "pass": 7,
+      "fail": 4,
       "plan": {
         "start": 1,
         "end": 3
