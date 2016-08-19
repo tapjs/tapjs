@@ -618,15 +618,28 @@ function saveFails (options, tap) {
     return
   }
   var fails = []
+  var successes = []
   tap.on('result', function (res) {
     // we will continue to re-run todo tests, even though they're
     // not technically "failures".
     if (!res.ok && !res.extra.skip) {
       fails.push(res.extra.file)
+    } else {
+      successes.push(res.extra.file)
     }
   })
 
-  tap.on('end', function () {
+  tap.on('bailout', function (reason) {
+    // add any pending test files to the fails list.
+    fails.push.apply(fails, options.files.filter(function (file) {
+      return successes.indexOf(file) === -1
+    }))
+    save()
+  })
+
+  tap.on('end', save)
+
+  function save () {
     if (!fails.length) {
       try {
         fs.unlinkSync(options.saveFile)
@@ -636,7 +649,7 @@ function saveFails (options, tap) {
         fs.writeFileSync(options.saveFile, fails.join('\n') + '\n')
       } catch (er) {}
     }
-  })
+  }
 }
 
 function runAllFiles (options, saved, tap) {
@@ -652,11 +665,12 @@ function runAllFiles (options, saved, tap) {
     })
   }
 
+  options.files = options.files.filter(function (file) {
+    return saved.indexOf(file) !== -1
+  })
+
   for (var i = 0; i < options.files.length; i++) {
     var file = options.files[i]
-    if (saved.indexOf(file) === -1) {
-      continue
-    }
 
     // Pick up stdin after all the other files are handled.
     if (file === '-') {
