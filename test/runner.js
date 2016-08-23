@@ -280,35 +280,39 @@ t.test('version', function (t) {
   t.end()
 })
 
-;(function () {
-  try {
-    var headBin = which.sync('head')
-  } catch (er) {}
-
-  var skip = false
-  if (!headBin) {
-    skip = 'head program not available'
-  } else if (process.platform === 'win32') {
-    skip = 'signals on windows are weird'
-  } else if (process.version.match(/^v5\./)) {
-    skip = 'this is broken on node 5 for some reason'
+t.test('handle EPIPE gracefully', function (t) {
+  if (process.platform === 'win32') {
+    t.plan(0, 'signals on windows are weird')
+    return
   }
 
-  t.test('handle EPIPE gracefully', { skip: skip }, function (t) {
-    var head = spawn(headBin, ['-5'])
-    var child = spawn(node, [run, ok], {
-      stdio: [ 0, head.stdin, 'pipe' ]
-    })
-    var err = ''
-    child.stderr.on('data', function (c) {
-      err += c
-    })
-    child.on('close', function (code, signal) {
-      t.equal(err, '', 'should not spew errors')
-      t.end()
-    })
+  var nodeHead = [
+    'var lines = 0',
+    'process.stdin.on("data", function (c) {',
+    '  c = c.toString()',
+    '  lines += c.split("\\n").length - 1',
+    '  if (lines > 5) {',
+    '    process.exit()',
+    '  }',
+    '})'
+  ].join('\n')
+  var head = spawn(node, ['-e', nodeHead], {
+    stdio: [ 'pipe', 'pipe', 2 ]
   })
-})()
+  var child = spawn(node, [run, ok], {
+    stdio: [ 0, head.stdin, 'pipe' ]
+  })
+  var err = ''
+  child.stderr.on('data', function (c) {
+    console.error('got er data', c+'')
+    err += c
+  })
+  child.on('close', function (code, signal) {
+    t.equal(err, '', 'should not spew errors')
+    head.kill('SIGKILL')
+    t.end()
+  })
+})
 
 t.test('--no-cov args', function (t) {
   // this is a weird test, because we want to cover the
