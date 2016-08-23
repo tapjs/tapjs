@@ -286,6 +286,7 @@ t.test('handle EPIPE gracefully', function (t) {
     return
   }
 
+  t.comment('start epipe test')
   var nodeHead = [
     'var lines = 0',
     'process.stdin.on("data", function (c) {',
@@ -299,9 +300,14 @@ t.test('handle EPIPE gracefully', function (t) {
   var head = spawn(node, ['-e', nodeHead], {
     stdio: [ 'pipe', 'pipe', 2 ]
   })
-  var child = spawn(node, [run, ok], {
-    stdio: [ 0, head.stdin, 'pipe' ]
+  head.stdout.on('data', function (c) {
+    t.comment('got output from head bin: %j', c.toString())
   })
+  t.comment('start child')
+  var child = spawn(node, [run, ok], {
+    stdio: [ 0, 'pipe', 'pipe' ]
+  })
+  child.stdout.pipe(head.stdin)
   var err = ''
   child.stderr.on('data', function (c) {
     console.error('got er data', c+'')
