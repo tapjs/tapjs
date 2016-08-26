@@ -322,6 +322,15 @@ function parseArgs (args, defaults) {
         }
         continue
 
+      case '--100':
+        defaultCoverage = true
+        options.checkCoverage = true
+        options.branches = 100
+        options.functions = 100
+        options.lines = 100
+        options.statements = 100
+        continue
+
       case '--branches':
       case '--functions':
       case '--lines':

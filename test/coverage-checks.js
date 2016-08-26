@@ -23,6 +23,7 @@ var passes = [
 ]
 
 var fails = [
+  '--100',
   '--branches 1', // default lines is 90
   '--branches=100 --lines=0',
   '--check-coverage'
