@@ -151,6 +151,10 @@ Options:
                               --check-coverage and --coverage to true.
                               [default: 0]
 
+  --100                       Full coverage, 100%.
+                              Sets branches, statements, functions,
+                              and lines to 100.
+
   --nyc-help                  Print nyc usage banner.  Useful for
                               viewing options for --nyc-arg.
 

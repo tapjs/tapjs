@@ -2,6 +2,33 @@
 layout: layout
 ---
 
+## 7.0
+
+Move `# Subtest` commands to the parent level rather than the child
+level, more like Perl's `Test2` family of modules.  This is more
+readable for humans.
+
+Update to version 2 of the tap parser.  (This adds support for putting
+the `# Subtest` commands at the parent level.)
+
+Support use of a `--save` and `--bail` together.  Any test files that
+were skipped due to a bailout are considered "not yet passed", and so
+get put in the save file.
+
+Forcibly kill any spawned child process tests when the root test
+exits the parent process, preventing zombie test processes.
+
+Handle `SIGTERM` signals sent to the main process after the root test
+has ended.  This provides more useful output in the cases where the
+root test object has explicitly ended or satisfied its plan, but a
+timeout still occurs because of pending event loop activity.
+
+Prevent `for..in` loops from iterating inherited keys in many cases,
+providing resilience against `Object.prototype` mutations.
+
+Add the `--100` flag to set statements, functions, lines, and branches
+to 100% coverage required.
+
 ## 6.3
 
 Let `t.doesNotThrow` take a string as the first argument.
