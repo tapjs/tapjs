@@ -40,7 +40,7 @@ t.test('-t or --timeout to set timeout', function (t) {
         t.equal(signal, null)
         t.match(
           out,
-          /signal: SIGTERM/,
+          /signal: SIG(TERM|KILL)/,
           { skip: skip }
         )
         t.end()
