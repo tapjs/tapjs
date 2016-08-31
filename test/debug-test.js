@@ -10,14 +10,7 @@ var stde = ''
 var done = false
 child.stderr.on('data', function (c) {
   stde += c
-  if (stde.indexOf('ebugger listening on port') !== -1) {
-    t.pass('Should output debugger message')
-    done = true
-    child.kill()
-  }
 })
 child.stderr.on('end', function () {
-  if (!done) {
-    t.fail('did not find debugger message')
-  }
+  t.match(stde, /debugger listening on/i, 'got debugger message')
 })
