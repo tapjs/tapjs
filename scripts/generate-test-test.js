@@ -81,6 +81,9 @@ function deStackify (data) {
     } else if (k === 'function' && typeof data[k] === 'string' && data[k].indexOf('._onTimeout') !== -1) {
       return res
     } else if (typeof data[k] === 'object' && data[k]) {
+      if (k === 'at') {
+        delete data[k].type
+      }
       res[k] = deStackify(data[k])
     } else {
       res[k] = data[k]
