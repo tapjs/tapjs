@@ -55,7 +55,7 @@ following:
         {
           "scripts": {
             "test": "tap test/*.js --coverage",
-            "posttest": "tap --coverage-report=lcov | codecov"
+            "posttest": "tap --coverage-report=lcov && codecov"
           }
         }
 
