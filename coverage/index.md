@@ -18,6 +18,20 @@ argument.
 If you use this a lot, you may want to add `coverage` and
 `.nyc_output` to your `.gitignore` and/or `.npmignore` files.
 
+## Maximal Coverage 💯
+
+As of version 7, node-tap lets you easily enforce 100% coverage of all
+lines, branches, functions, and statements with one easy flag, if
+that's your thing:
+
+```json
+{
+  "scripts": {
+    "test": "tap test/*.js --100"
+  }
+}
+```
+
 ## Travis-CI and Coveralls.io Integration
 
 You can very easily take advantage of continuous test coverage reports
