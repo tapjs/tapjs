@@ -173,6 +173,17 @@ function parseArgs (args, defaults) {
   var defaultCoverage = options.pipeToService
   var dumpConfig = false
 
+  if (args.indexOf('--__coverage__') !== -1) {
+    // NYC will not wrap a module in node_modules.
+    // So, we need to tell the child proc when it's been added.
+    global.__coverage__ = global.__coverage__ || {}
+
+    // Make sure that --__coverage__ is newer processed as argument.
+    args = args.filter(function (arg) {
+      return arg !== '--__coverage__'
+    })
+  }
+
   for (i = 0; i < args.length; i++) {
     var arg = args[i]
     if (arg.charAt(0) !== '-' || arg === '-') {
@@ -235,12 +246,6 @@ function parseArgs (args, defaults) {
       case '--version':
         console.log(require('../package.json').version)
         return null
-
-      case '--__coverage__':
-        // NYC will not wrap a module in node_modules.
-        // So, we need to tell the child proc when it's been added.
-        global.__coverage__ = global.__coverage__ || {}
-        continue
 
       case '--coverage-report':
         options.coverageReport = val || args[++i]
