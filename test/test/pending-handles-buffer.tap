@@ -1,0 +1,17 @@
+TAP version 13
+not ok 1 - ___/.*/~~~pending-handles.js child {
+    ok 1 - this is ok
+    not ok 2 - timeout!
+      ---
+      {"handles":[{"type":"Timer"}],"signal":"SIGTERM"}
+      ...
+    1..2
+    # failed 1 of 2 tests
+    ___/# time=[0-9.]+(ms)?/~~~
+    ___/# time=[0-9.]+(ms)?/~~~
+}
+
+1..1
+# failed 1 of 1 tests
+___/# time=[0-9.]+(ms)?/~~~
+

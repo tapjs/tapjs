@@ -1,0 +1,5 @@
+TAP version 13
+pragma +child
+not ok 1 - ___/.*/~~~pragma.js child {
+Bail out! # ___/.*/~~~pragma.js child {
+

@@ -1,0 +1,4 @@
+TAP version 13
+not ok 1 - child {
+Bail out! # child {
+

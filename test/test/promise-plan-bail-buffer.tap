@@ -1,0 +1,37 @@
+running one
+after plan fulfilled
+after one block
+one promise was fulfilled
+TAP version 13
+ok 1 - one {
+    1..1
+    ok 1 - done one
+    ___/# time=[0-9.]+(ms)?/~~~
+}
+
+one end
+running two
+two promise was fulfilled
+ok 2 - two {
+    1..1
+    ok 1 - done two
+    ___/# time=[0-9.]+(ms)?/~~~
+}
+
+running three
+ok 3 - three {
+    1..0
+    ___/# time=[0-9.]+(ms)?/~~~
+}
+
+not ok 4 - broken promises {
+    1..2
+    not ok 1 - end() {
+        1..0
+        ___/# time=[0-9.]+(ms)?/~~~
+    }
+    Bail out! # end()
+}
+
+Bail out! # end()
+

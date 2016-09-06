@@ -1,0 +1,17 @@
+TAP version 13
+not ok 1 - child {
+    ok 1 - this is fine 1
+    ok 2 - this is fine 2
+    ok 3 - this is fine 3
+    yolo
+
+    not ok 4 - timeout
+
+    1..4 # timeout
+    ___/# time=[0-9.]+(ms)?/~~~
+}
+
+1..1
+# failed 1 of 1 tests
+___/# time=[0-9.]+(ms)?/~~~
+

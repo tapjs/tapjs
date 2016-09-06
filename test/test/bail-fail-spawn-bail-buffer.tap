@@ -1,0 +1,8 @@
+TAP version 13
+not ok 1 - bail fail {
+    not ok 1 - ./test/test/nesting.js {
+    Bail out! # ./test/test/nesting.js {
+}
+
+Bail out! # ./test/test/nesting.js {
+

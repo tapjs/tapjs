@@ -10,13 +10,15 @@ var queue = []
 var running = false
 
 for (var i = 2; i < process.argv.length; i++) {
-  generate(process.argv[i], false)
-  generate(process.argv[i], true)
+  generate(process.argv[i], false, false)
+  generate(process.argv[i], true, false)
+  generate(process.argv[i], false, true)
+  generate(process.argv[i], true, true)
 }
 
-function generate (file, bail) {
+function generate (file, bail, buffer) {
   if (running) {
-    queue.push([file, bail])
+    queue.push([file, bail, buffer])
     return
   }
   running = true
@@ -27,12 +29,17 @@ function generate (file, bail) {
     f = './' + file.substr(process.cwd().length + 1)
   }
 
-  var outfile = file.replace(/\.js$/, (bail ? '-bail' : '') + '.tap')
+  var outfile = file.replace(/\.js$/,
+   (bail ? '-bail' : '') +
+   (buffer ? '-buffer' : '') +
+   '.tap')
   console.error(outfile)
+
   var output = ''
   var c = spawn(node, [file], {
     env: {
-      TAP_BAIL: bail ? 1 : 0
+      TAP_BAIL: bail ? 1 : 0,
+      TAP_BUFFER: buffer ? 1 : 0
     }
   })
 
@@ -63,7 +70,7 @@ function generate (file, bail) {
     running = false
     if (queue.length) {
       var q = queue.shift()
-      generate(q[0], q[1])
+      generate(q[0], q[1], q[2])
     }
   })
 }
