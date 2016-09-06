@@ -12,10 +12,10 @@
   },
   "devDependencies": {
     "glob": "^7.0.5",
-    "tap": "^6.3.0"
+    "tap": "^7.0.0"
   },
   "scripts": {
-    "test": "tap test/*.js --cov",
+    "test": "tap test/*.js --100",
     "regen-fixtures": "node scripts/generate-test.js test/fixtures/*.tap"
   },
   "testling": {
