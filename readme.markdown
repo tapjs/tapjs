@@ -76,13 +76,21 @@ Return a writable stream `p` that emits parse events.
 
 If `cb` is given it will listen for the `'complete'` event.
 
-If `options` is given, it may contain a `preserveWhitespace` boolean
-which is `false` by default and will cause the parser to emit `line`
-events even for lines containing only whitespace.  (Whitespace lines
-in yaml blocks are always emitted, because whitespace is semantically
-relevant for yaml.)
+If `options` is given, it may contain the following flags:
 
-The `level` and `buffered` options are reserved for internal use.
+- `preserveWhitespace` boolean which is `false` by default and will
+  cause the parser to emit `line` events even for lines containing
+  only whitespace.  (Whitespace lines in yaml blocks are always
+  emitted, because whitespace is semantically relevant for yaml.)
+
+- `strict` boolean which is `false` by default and causes the parser
+  to treat non-TAP input as a failure.  Strictness is heritable to
+  child subtests.  You can also turn strictness on or off by using the
+  `pragma +strict` line in the TAP data to turn strictness on, or
+  `pragma -strict` to turn strictness off.
+
+The `parent`, `level` and `buffered` options are reserved for internal
+use.
 
 # events
 

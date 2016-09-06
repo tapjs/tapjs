@@ -102,6 +102,7 @@ function Parser (options, onComplete) {
   if (onComplete)
     this.on('complete', onComplete)
 
+  this.parent = options.parent || null
   this.sawValidTap = false
   this.failures = []
   this.level = options.level || 0
@@ -128,8 +129,8 @@ function Parser (options, onComplete) {
   this.skip = 0
   this.ok = true
 
-  this.strict = false
-  this.pragmas = { strict: false }
+  this.strict = options.strict || false
+  this.pragmas = { strict: this.strict }
 
   this.postPlan = false
 }
@@ -179,6 +180,8 @@ Parser.prototype.nonTap = function (data) {
       tapError: 'Non-TAP data encountered in strict mode',
       data: data
     })
+    if (this.parent)
+      this.parent.nonTap(data)
   }
 
   if (this.current || this.extraQueue.length)
@@ -475,7 +478,8 @@ Parser.prototype.startChild = function (line) {
     parent: this,
     level: this.level + 1,
     buffered: maybeBuffered,
-    preserveWhitespace: this.preserveWhitespace
+    preserveWhitespace: this.preserveWhitespace,
+    strict: this.strict
   })
 
   this.child.on('bailout', this.bailout.bind(this))
