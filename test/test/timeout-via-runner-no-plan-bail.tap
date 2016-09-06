@@ -10,6 +10,5 @@ TAP version 13
           ---
           {"handles":[{"type":"Timer"}],"signal":"SIGTERM"}
           ...
-        Bail out! # timeout!
 Bail out! # timeout!
 

@@ -12,6 +12,5 @@ TAP version 13
         not ok 3 - timeout
 
     not ok 4 - timeout
-        Bail out! # timeout
 Bail out! # timeout
 
