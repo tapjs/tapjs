@@ -70,11 +70,19 @@ of spaces to use as the indent (default=2).
 var parser = require('tap-parser')
 ```
 
-## var p = parser(cb)
+## var p = parser(options, cb)
 
 Return a writable stream `p` that emits parse events.
 
 If `cb` is given it will listen for the `'complete'` event.
+
+If `options` is given, it may contain a `preserveWhitespace` boolean
+which is `false` by default and will cause the parser to emit `line`
+events even for lines containing only whitespace.  (Whitespace lines
+in yaml blocks are always emitted, because whitespace is semantically
+relevant for yaml.)
+
+The `level` and `buffered` options are reserved for internal use.
 
 # events
 

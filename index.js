@@ -119,6 +119,8 @@ function Parser (options, onComplete) {
   this.extraQueue = []
   this.buffered = options.buffered || null
 
+  this.preserveWhitespace = options.preserveWhitespace || false
+
   this.count = 0
   this.pass = 0
   this.fail = 0
@@ -472,7 +474,8 @@ Parser.prototype.startChild = function (line) {
   this.child = new Parser({
     parent: this,
     level: this.level + 1,
-    buffered: maybeBuffered
+    buffered: maybeBuffered,
+    preserveWhitespace: this.preserveWhitespace
   })
 
   this.child.on('bailout', this.bailout.bind(this))
@@ -528,14 +531,14 @@ Parser.prototype._parse = function (line) {
       line = '    ' + line
     else if (this.yind)
       line = this.yind + line
-    else
-      return
   }
 
-  // this is a line we are processing, so emit it, but don't
-  // emit all the whitespace, because that's just annoyingly noisy.
-  if (line.trim())
+  // this is a line we are processing, so emit it
+  if (this.preserveWhitespace || line.trim() || this.yind)
     this.emit('line', line)
+
+  if (line === '\n')
+    return
 
   // check to see if the line is indented.
   // if it is, then it's either a subtest, yaml, or garbage.
