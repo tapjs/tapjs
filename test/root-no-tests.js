@@ -1,6 +1,6 @@
 // verify that just loading tap doesn't cause it to
 // print out some TAP stuff, unless an actual thing happens.
-var t = require('tap')
+var t = require('../')
 var spawn = require('child_process').spawn
 
 switch (process.argv[2]) {
