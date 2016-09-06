@@ -43,24 +43,31 @@ function runTests (file) {
 
   var f = file.substr(dir.length)
   t.test(f, { skip: skip }, function (t) {
-    t.test('bail=false', function (t) {
-      runTest(t, false, file)
+    var bails = [ true, false ]
+    var buffs = [ true, false ]
+    t.plan(4)
+    bails.forEach(function (bail) {
+      buffs.forEach(function (buff) {
+        t.test('bail=' + bail + ' buffer=' + buff, function (t) {
+          runTest(t, bail, buff, file)
+        })
+      })
     })
-    t.test('bail=true', function (t) {
-      runTest(t, true, file)
-    })
-    t.end()
   })
 }
 
-function runTest (t, bail, file) {
-  var resfile = file.replace(/\.js$/, (bail ? '-bail' : '') + '.tap')
+function runTest (t, bail, buffer, file) {
+  var resfile = file.replace(/\.js$/,
+   (bail ? '-bail' : '') +
+   (buffer ? '-buffer' : '') +
+   '.tap')
   var want = fs.readFileSync(resfile, 'utf8').split(/\r?\n/)
 
   var child = spawn(node, [file], {
     stdio: [ 0, 'pipe', 'pipe' ],
     env: {
-      TAP_BAIL: bail ? 1 : 0
+      TAP_BAIL: bail ? 1 : 0,
+      TAP_BUFFER: buffer ? 1 : 0
     }
   })
 
