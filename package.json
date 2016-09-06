@@ -46,6 +46,8 @@
     "posttest": "standard lib test"
   },
   "devDependencies": {
+    "mkdirp": "^0.5.1",
+    "rimraf": "^2.5.4",
     "standard": "^7.1.0",
     "which": "^1.1.1"
   },
