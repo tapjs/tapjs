@@ -89,8 +89,8 @@ for child tests:
 * `autoend`: Automatically `end()` the test on the next turn of the
   event loop after its internal queue is drained.
 * `diagnostic` Set to boolean `true` to show a yaml diagnostic block
-  even if the test passes.  (Failing tests always show yaml
-  diagnostics.)
+  even if the test passes.  Set to `false` to never show a yaml
+  diagnostic block.  (Failing tests show yaml diagnostics by default.)
 
 ### t.tearDown(function)
 

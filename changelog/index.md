@@ -2,6 +2,21 @@
 layout: layout
 ---
 
+## 7.1
+
+Remove a race condition in how `Bail out!` messages got printed when
+setting the "bail on failure" option in child tests.  Now, whether
+it's a child process or just a nested subtest, it'll always print
+`Bail out!` at the failure level, then again at the top level, with
+nothing in between.
+
+Support `{ diagnostic: false }` in the options object for failing
+tests to suppress yaml diagnostics.
+
+Diagnostics are now shown when a synthetic `timeout` failure is
+generated for child test processes that ignore `SIGTERM` and must be
+killed with `SIGKILL`.
+
 ## 7.0
 
 Move `# Subtest` commands to the parent level rather than the child
