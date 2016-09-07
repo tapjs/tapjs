@@ -69,7 +69,7 @@ function tapFormat (msg, indent) {
         return 'pragma ' + (item[2] ? '+' : '-') + item[1] + '\n'
 
       case 'bailout':
-        var r = item[1] === true ? '' : item[1]
+        var r = item[1] === true ? '' : (' ' + item[1])
         return 'Bail out!' + r + '\n'
 
       case 'assert':
