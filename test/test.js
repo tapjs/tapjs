@@ -11,17 +11,16 @@ function regEsc (str) {
   return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&')
 }
 
+module.exports = function (pattern) {
+  glob.sync(dir + pattern).forEach(runTests)
+}
+
 if (module === require.main) {
   if (process.argv[2]) {
-    var file = path.resolve(dir, process.argv[2])
-    runTests(file)
+    module.exports(process.argv[2])
   } else {
     t.pass('just a common file')
   }
-}
-
-module.exports = function (pattern) {
-  glob.sync(dir + pattern).forEach(runTests)
 }
 
 function runTests (file) {
