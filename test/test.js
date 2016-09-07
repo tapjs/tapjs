@@ -33,6 +33,10 @@ function runTests (file) {
     }
   }
 
+  if (file.match(/\bsigterm\b/) && process.version.match(/^v0\.10\./)) {
+    skip = 'sigterm handling test does not work on 0.10'
+  }
+
   var f = file.substr(dir.length)
   t.test(f, { skip: skip }, function (t) {
     t.test('bail=false', function (t) {

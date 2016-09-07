@@ -6,6 +6,11 @@ var run = require.resolve('../bin/run.js')
 var ok = require.resolve('./test/ok.js')
 var t = require('../')
 
+if (process.version.match(/^v0\.10\./)) {
+  t.plan(0, 'coverage check failure exit does not work on 0.10')
+  process.exit()
+}
+
 t.test('generate some coverage data', function (tt) {
   spawn(node, [run, ok, '--coverage', '--no-coverage-report'], {
     stdio: 'ignore'
