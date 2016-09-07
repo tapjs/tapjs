@@ -10,8 +10,14 @@ TAP version 13
     yolo
 
         not ok 3 - timeout
+          ---
+          {"at":{"column":5,"file":"test/test/timeout-via-runner-ignore-sigterm.js","line":19},"failure":"timeout","timeout":1000}
+          ...
 
     not ok 4 - timeout
+      ---
+      {"at":{"column":5,"file":"test/test/timeout-via-runner-ignore-sigterm.js","line":19},"failure":"timeout","timeout":1000}
+      ...
 
     1..4 # timeout
 not ok 1 - child ___/# time=[0-9.]+(ms)?/~~~

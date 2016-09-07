@@ -10,7 +10,9 @@ TAP version 13
     yolo
 
         not ok 3 - timeout
-
-    not ok 4 - timeout
+          ---
+          {"at":{"column":5,"file":"test/test/timeout-via-runner-ignore-sigterm.js","line":19},"failure":"timeout","timeout":1000}
+          ...
+        Bail out! # timeout
 Bail out! # timeout
 
