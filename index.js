@@ -409,6 +409,8 @@ Parser.prototype.bailout = function (reason) {
   this.bailedOut = reason || true
   this.ok = false
   this.emit('bailout', reason)
+  if (this.parent)
+    this.parent.bailout(reason)
 }
 
 Parser.prototype.clearExtraQueue = function () {
@@ -482,7 +484,6 @@ Parser.prototype.startChild = function (line) {
     strict: this.strict
   })
 
-  this.child.on('bailout', this.bailout.bind(this))
   var self = this
   this.child.on('complete', function (results) {
     if (this.sawValidTap && !results.ok)
