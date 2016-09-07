@@ -1,4 +1,10 @@
 var t = require('../')
+
+if (process.version.match(/^0\.1[02]\./)) {
+  t.plan(0, 'skip on old versions of node where child proc fds are flaky')
+  process.exit()
+}
+
 var cp = require('child_process')
 var spawn = cp.spawn
 var execFile = cp.execFile
@@ -22,11 +28,15 @@ t.test('handle EPIPE gracefully', function (t) {
   t.comment('start epipe test')
   var nodeHead = [
     'var lines = 0',
+    'var buf = ""',
     'process.stdin.on("data", function (c) {',
-    '  c = c.toString()',
-    '  lines += c.split("\\n").length - 1',
-    '  if (lines > 5) {',
-    '    process.exit()',
+    '  c = (buf + c).split(/\\n|\\r/)',
+    '  buf += c.pop()',
+    '  for (var i = 0; i < c.length; i++) {',
+    '    console.log(c[i])',
+    '    if (++lines > 5) {',
+    '      process.exit()',
+    '    }',
     '  }',
     '})'
   ].join('\n')
