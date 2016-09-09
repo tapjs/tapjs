@@ -173,6 +173,8 @@ Environment Variables:
                               running child tests so that their output
                               is parseable by the test harness.
 
+  _TAP_COVERAGE_              Reserved for internal use.
+
 Config Files:
 
 You can create a yaml file with any of the options above.  By default,

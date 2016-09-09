@@ -13,6 +13,12 @@ var yaml = require('js-yaml')
 
 var coverageServiceTest = process.env.COVERAGE_SERVICE_TEST === 'true'
 
+if (process.env._TAP_COVERAGE_ === '1') {
+  // NYC will not wrap a module in node_modules.
+  // So, we need to tell the child proc when it's been added.
+  global.__coverage__ = global.__coverage__ || {}
+}
+
 // console.error(process.argv.join(' '))
 // console.error('CST=%j', process.env.COVERAGE_SERVICE_TEST)
 // console.error('CRT=%j', process.env.COVERALLS_REPO_TOKEN)
@@ -236,12 +242,6 @@ function parseArgs (args, defaults) {
         console.log(require('../package.json').version)
         return null
 
-      case '--__coverage__':
-        // NYC will not wrap a module in node_modules.
-        // So, we need to tell the child proc when it's been added.
-        global.__coverage__ = global.__coverage__ || {}
-        continue
-
       case '--coverage-report':
         options.coverageReport = val || args[++i]
         if (options.coverageReport === 'html') {
@@ -402,9 +402,9 @@ function respawnWithCoverage (options) {
     options.nycArgs,
     '--',
     process.execArgv,
-    process.argv.slice(1),
-    '--__coverage__'
+    process.argv.slice(1)
   )
+  process.env._TAP_COVERAGE_ = '1'
   var child = fg(node, args)
   child.removeAllListeners('close')
   child.on('close', function (code, signal) {
