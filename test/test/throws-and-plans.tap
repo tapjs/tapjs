@@ -48,6 +48,9 @@ not ok 3 - no assert only throw ___/# time=[0-9.]+(ms)?/~~~
           {"at":{"column":11,"file":"test/test/throws-and-plans.js","line":39},"message":"Error: pwnSync","source":"throw new Error('pwnSync')\n","test":"sync thrower"}
           ...
         not ok 3 - missing test
+          ---
+          {"count":2,"missing":6,"plan":8}
+          ...
         not ok 4 - missing test
         not ok 5 - missing test
         not ok 6 - missing test
@@ -68,6 +71,9 @@ not ok 3 - no assert only throw ___/# time=[0-9.]+(ms)?/~~~
           {"at":{"column":13,"file":"test/test/throws-and-plans.js","line":18},"message":"Error: pwn","source":"throw new Error('pwn')\n","test":"async thrower"}
           ...
         not ok 4 - missing test
+          ---
+          {"count":3,"missing":5,"plan":8}
+          ...
         not ok 5 - missing test
         not ok 6 - missing test
         not ok 7 - missing test
