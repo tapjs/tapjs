@@ -6,6 +6,9 @@ not ok 1 - child {
     yolo
 
     not ok 4 - timeout
+      ---
+      {"at":{"column":5,"file":"test/test/timeout-via-runner-ignore-sigterm.js","line":19},"failure":"timeout","timeout":1000}
+      ...
 
     1..4 # timeout
     ___/# time=[0-9.]+(ms)?/~~~
