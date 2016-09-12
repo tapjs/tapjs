@@ -33,8 +33,12 @@ function runTests (file) {
     }
   }
 
-  if (file.match(/\bsigterm\b/) && process.version.match(/^v0\.10\./)) {
-    skip = 'sigterm handling test does not work on 0.10'
+  if (file.match(/\bsigterm\b/)) {
+    if (process.version.match(/^v0\.10\./)) {
+      skip = 'sigterm handling test does not work on 0.10'
+    } else if (process.platform === 'win32') {
+      skip = 'sigterm handling is weird on windows'
+    }
   }
 
   var f = file.substr(dir.length)
