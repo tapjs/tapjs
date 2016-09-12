@@ -80,8 +80,20 @@ function Result (parsed, count) {
   var dir = parseDirective(rest.trim())
   if (!dir)
     name += rest ? '#' + rest : ''
-  else
-    this[dir[0]] = dir[1]
+  else {
+    // handle buffered subtests with todo/skip on them, like
+    // ok 1 - bar # todo foo {\n
+    var dirKey = dir[0]
+    var dirValue = dir[1]
+    if (typeof dirValue === 'string' && dirValue.slice(-1) === '{') {
+      name += ' {'
+      dirValue = dirValue.slice(0, -1).trim()
+      if (!dirValue) {
+        dirValue = true
+      }
+    }
+    this[dirKey] = dirValue
+  }
 
   if (name)
     this.name = name.trim()
