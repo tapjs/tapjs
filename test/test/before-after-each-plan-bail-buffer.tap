@@ -11,6 +11,18 @@ after 2 child
 after 1 child
 after 1 parent
 ok 1 - parent {
+    1..1
+    ok 1 - child {
+        1..1
+        ok 1 - grandchild {
+            1..1
+            ok 1 - the only actual assertion
+            ___/# time=[0-9.]+(ms)?/~~~
+        }
+        ___/# time=[0-9.]+(ms)?/~~~
+    }
+    ___/# time=[0-9.]+(ms)?/~~~
+}
 ___/# time=[0-9.]+(ms)?/~~~
 done
 

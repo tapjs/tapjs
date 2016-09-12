@@ -19,6 +19,14 @@ not ok 1 - nesting {
     }
 
     not ok 3 - thrower {
+        not ok 1 - Error: here hold this for a second
+          ---
+          {"at":{"column":14,"file":"test/test/throw.js","line":18},"message":"Error: here hold this for a second","source":"var er = new Error('here hold this for a second')\n","syscall":"ring ring","test":"thrower"}
+          ...
+        1..1
+        # failed 1 of 1 tests
+        ___/# time=[0-9.]+(ms)?/~~~
+    }
     # failed 2 of 3 tests
     ___/# time=[0-9.]+(ms)?/~~~
 }

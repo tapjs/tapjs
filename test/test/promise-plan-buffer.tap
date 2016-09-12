@@ -32,6 +32,10 @@ not ok 4 - broken promises {
     }
 
     not ok 2 - plan {
+        1..1
+        ok 1 - this is fine
+        ___/# time=[0-9.]+(ms)?/~~~
+    }
     # failed 2 of 2 tests
     ___/# time=[0-9.]+(ms)?/~~~
 }
@@ -44,6 +48,10 @@ not ok 5 - thrown with timeouts {
     }
 
     not ok 2 - plan {
+        1..1
+        ok 1 - this is fine
+        ___/# time=[0-9.]+(ms)?/~~~
+    }
     # failed 2 of 2 tests
     ___/# time=[0-9.]+(ms)?/~~~
 }
