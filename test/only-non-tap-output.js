@@ -3,7 +3,7 @@ if (process.argv[2] === 'child') {
 } else if (process.argv[2] !== 'silent') {
   var t = require('../')
   var Test = t.Test
-  var tt = new Test()
+  var tt = new Test({ buffered: false })
 
   var out = ''
   tt.on('data', function (c) {
