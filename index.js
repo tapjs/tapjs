@@ -115,7 +115,6 @@ function Parser (options, onComplete) {
     this.on('complete', onComplete)
 
   this.parent = options.parent || null
-  this.sawValidTap = false
   this.failures = []
   this.level = options.level || 0
   Writable.call(this)
@@ -174,7 +173,6 @@ Parser.prototype.parseTestPoint = function (testPoint) {
     }
   }
 
-  this.sawValidTap = true
   if (res.id) {
     if (!this.first || res.id < this.first)
       this.first = res.id
@@ -215,7 +213,6 @@ Parser.prototype.plan = function (start, end, comment, line) {
     return
   }
 
-  this.sawValidTap = true
   this.emitResult()
 
   this.planStart = start
@@ -335,8 +332,7 @@ Parser.prototype.end = function (chunk, encoding, cb) {
   } else if (!this.bailedOut && this.planStart === -1) {
     if (this.count === 0) {
       this.emit('line', '1..0\n')
-      this.planStart = 1
-      this.planEnd = 0
+      this.plan(1, 0, '', '1..0\n')
       skipAll = true
     } else {
       this.tapError('no plan')
@@ -380,13 +376,6 @@ Parser.prototype.end = function (chunk, encoding, cb) {
     }
   }
 
-  // We didn't get any actual tap, so just treat this like a
-  // 1..0 test, because it was probably just console.log junk
-  if (!this.sawValidTap) {
-    final.plan = { start: 1, end: 0 }
-    final.ok = true
-  }
-
   if (this.failures.length) {
     final.failures = this.failures
   } else {
@@ -423,7 +412,6 @@ Parser.prototype.pragma = function (key, value, line) {
 }
 
 Parser.prototype.bailout = function (reason) {
-  this.sawValidTap = true
   this.emitResult()
   this.bailedOut = reason || true
   this.ok = false
@@ -505,7 +493,7 @@ Parser.prototype.startChild = function (line) {
 
   var self = this
   this.child.on('complete', function (results) {
-    if (this.sawValidTap && !results.ok)
+    if (!results.ok)
       self.ok = false
   })
 
