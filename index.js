@@ -334,6 +334,7 @@ Parser.prototype.end = function (chunk, encoding, cb) {
     }
   } else if (!this.bailedOut && this.planStart === -1) {
     if (this.count === 0) {
+      this.emit('line', '1..0\n')
       this.planStart = 1
       this.planEnd = 0
       skipAll = true
