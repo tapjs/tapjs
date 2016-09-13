@@ -21,16 +21,11 @@
       "ok": true,
       "count": 0,
       "pass": 0,
-      "fail": 1,
       "plan": {
         "start": 1,
         "end": 0
       },
-      "failures": [
-        {
-          "tapError": "no plan"
-        }
-      ]
+      "failures": []
     }
   ]
 ]

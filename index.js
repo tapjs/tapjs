@@ -333,7 +333,13 @@ Parser.prototype.end = function (chunk, encoding, cb) {
       this.tapError('Plan of 1..0, but test points encountered')
     }
   } else if (!this.bailedOut && this.planStart === -1) {
-    this.tapError('no plan')
+    if (this.count === 0) {
+      this.planStart = 1
+      this.planEnd = 0
+      skipAll = true
+    } else {
+      this.tapError('no plan')
+    }
   } else if (this.ok && this.count !== (this.planEnd - this.planStart + 1)) {
     this.tapError('incorrect number of tests')
   }
