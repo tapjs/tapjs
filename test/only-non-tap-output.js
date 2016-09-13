@@ -3,7 +3,14 @@ if (process.argv[2] === 'child') {
 } else if (process.argv[2] !== 'silent') {
   var t = require('../')
   var Test = t.Test
-  var tt = new Test({ buffered: false })
+
+  t.test('buffered', { buffered: true }, runTest)
+  t.test('unbuffered', { buffered: false }, runTest)
+}
+
+function runTest (t) {
+  t.plan(3)
+  var tt = new Test()
 
   var out = ''
   tt.on('data', function (c) {
