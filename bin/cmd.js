@@ -82,9 +82,9 @@ function tapFormat (msg, indent) {
             (res.todo === true ? '' : ' ' + res.todo) : '') +
           (res.time ? ' # time=' + res.time + 's' : '') +
           '\n' +
-          (res.diags ?
+          (res.diag ?
              '  ---\n  ' +
-             yaml.safeDump(res.diags).split('\n').join('\n  ').trim() +
+             yaml.safeDump(res.diag).split('\n').join('\n  ').trim() +
              '\n  ...\n'
              : '')
 
