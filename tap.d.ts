@@ -10,26 +10,26 @@ declare interface Tap extends Test {
 
 declare class Test {
   constructor (options?: Options.Test)
-  tearDown(fn: (any) => any)
-  setTimeout(n: number)
-  endAll()
-  threw(er: Error, extra?: Error, proxy?: Test)
-  pragma(set: Options.Pragma)
-  plan(n: number, comment?: string)
+  tearDown(fn:(a:any) => any):void
+  setTimeout(n: number):void
+  endAll():void
+  threw(er: Error, extra?: Error, proxy?: Test):void
+  pragma(set: Options.Pragma):void
+  plan(n: number, comment?: string):void
   test(name: string, extra?: Options.Test, cb?: (t: Test) => Promise | void): Promise
   test(name: string, cb?: (t: Test) => Promise | void): Promise
-  current()
+  current(): Test
   stdin(name: string, extra?: Options.Bag): Promise
   spawn(cmd: string, args: string, options?: Options.Bag, name?: string, extra?: Options.Spawn): Promise
-  done()
-  passing()
-  pass(message?: string, extra?: Options.Assert)
-  fail(message?: string, extra?: Options.Assert)
-  addAssert(name: string, length: number, fn: (...args) => boolean)
-  comment(message: string, ...args)
-  bailout(message?: string)
-  beforeEach(fn: (cb: () => any) => Promise | void)
-  afterEach(fn: (cb: () => any) => Promise | void)
+  done():void
+  passing():boolean
+  pass(message?: string, extra?: Options.Assert):boolean
+  fail(message?: string, extra?: Options.Assert):boolean
+  addAssert(name: string, length: number, fn: (...args:any[]) => boolean): boolean
+  comment(message: string, ...args:any[]):void
+  bailout(message?: string):void
+  beforeEach(fn: (cb: () => any) => Promise | void):void
+  afterEach(fn: (cb: () => any) => Promise | void):void
 
   // Assertions
   ok: Assertions.Basic
@@ -165,10 +165,10 @@ declare namespace Assertions {
     (obj: any, message?: string, extra?: Options.Assert) => boolean
 
   export type Throws =
-    (fn?: (any) => any, expectedError?: Error, message?: string, extra?: Options.Assert) => boolean
+    (fn?: (a:any) => any, expectedError?: Error, message?: string, extra?: Options.Assert) => boolean
 
   export type DoesNotThrow =
-    (fn?: (any) => any, message?: string, extra?: Options.Assert) => boolean
+    (fn?: (a:any) => any, message?: string, extra?: Options.Assert) => boolean
 
   export type Equal =
     (found: any, wanted: any, message?: string, extra?: Options.Assert) => boolean
@@ -180,7 +180,7 @@ declare namespace Assertions {
     (found: any, pattern: any, message?: string, extra?: Options.Assert) => boolean
 
   export type Type =
-    (found: any, type: string | ((any) => any), message?: string, extra?: Options.Assert) => boolean
+    (found: any, type: string | ((a:any) => any), message?: string, extra?: Options.Assert) => boolean
 }
 
 // Super minimal description of returned Promise (which are really Bluebird promises)
@@ -191,8 +191,8 @@ declare interface Promise {
 }
 
 declare interface Mocha {
-  it: (name?: string, fn?: (any) => any) => void
-  describe: (name?: string, fn?: (any) => any) => void
+  it: (name?: string, fn?: (a:any) => any) => void
+  describe: (name?: string, fn?: (a:any) => any) => void
   global: () => void
 }
 
@@ -203,3 +203,4 @@ declare interface TestConstructor {
 }
 
 export = tap;
+
