@@ -32,6 +32,7 @@
     "own-or-env": "^1.0.0",
     "readable-stream": "^2.0.2",
     "signal-exit": "^3.0.0",
+    "source-map-support": "^0.4.3",
     "stack-utils": "^1.0.0",
     "tap-mocha-reporter": "^3.0.1",
     "tap-parser": "^5.3.1",
