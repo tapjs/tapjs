@@ -27,6 +27,7 @@
     "os-homedir": "1.0.1",
     "readable-stream": "^2.0.2",
     "signal-exit": "^3.0.0",
+    "source-map-support": "^0.4.3",
     "stack-utils": "^0.4.0",
     "tap-mocha-reporter": "^2.0.0",
     "tap-parser": "^2.2.0",
