@@ -72,12 +72,14 @@ expected error, and get upset when your thrown error doesn't match
 For example, this will not work as expected:
 
 ```javascript
+// anti-example, do not use!
 t.throws(function() {throw new Error('x')}, { skip: true })
 ```
 
 But this is fine:
 
 ```javascript
+// this example is ok to use.
 // note the empty 'expected error' object.
 // since it has no fields, it'll only verify that the thrown thing is
 // an object, not the value of any properties

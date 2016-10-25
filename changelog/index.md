@@ -2,6 +2,21 @@
 layout: layout
 ---
 
+## 8.0
+
+Update `tmatch` to version 3.  This makes regular expressions test
+against the stringified versions of the test object in all `t.match()`
+methods.  It's a breaking change because it can cause tests to pass
+that would have failed previously, or vice versa.  However, it is more
+expected, and strongly recommended.
+
+Handle unfinished promise-awaiting tests when the process exits.
+
+Show yaml diagnostics for the first "missing test" failure when a plan
+is not met, so that the plan can be more easily debugged.
+(Diagnostics are still excluded for the additional "missing test"
+failures that are generated, to reduce unnecessary noise.)
+
 ## 7.1
 
 Remove a race condition in how `Bail out!` messages got printed when
