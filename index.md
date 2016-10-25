@@ -15,6 +15,7 @@ Node.js.
 3. [Support for test-coverage](/coverage/), including coverage of
    child processes, and integration with Coveralls.io and Codecov.io.
 
-Or just get started with [the basics](/basics/).
+See [the changelog](/changelog/) for recent updates, or just get
+started with [the basics](/basics/).
 
 [![Build Status](https://travis-ci.org/tapjs/node-tap.svg?branch=master)](https://travis-ci.org/tapjs/node-tap) [![Build Status](https://ci.appveyor.com/api/projects/status/913p1ypf21gf4leu?svg=true)](https://ci.appveyor.com/project/isaacs/node-tap) [![Coverage Status](https://coveralls.io/repos/tapjs/node-tap/badge.svg?branch=master&service=github)](https://coveralls.io/github/tapjs/node-tap?branch=master)
