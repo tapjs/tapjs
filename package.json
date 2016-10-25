@@ -30,7 +30,7 @@
     "stack-utils": "^0.4.0",
     "tap-mocha-reporter": "^2.0.0",
     "tap-parser": "^2.2.0",
-    "tmatch": "^2.0.1"
+    "tmatch": "^3.0.0"
   },
   "keywords": [
     "assert",
@@ -52,16 +52,15 @@
     "which": "^1.1.1"
   },
   "files": [
+    "bin/mochatap.js",
+    "bin/run.js",
+    "bin/usage.txt",
     "lib/assert.js",
     "lib/mocha.js",
     "lib/root.js",
     "lib/stack.js",
     "lib/synonyms.js",
-    "lib/test.js",
-    "bin/mochatap.js",
-    "bin/run.js",
-    "bin/usage.txt",
-    "bin/is-exe.js"
+    "lib/test.js"
   ],
   "config": {
     "nyc": {
