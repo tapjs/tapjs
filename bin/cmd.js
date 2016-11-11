@@ -40,6 +40,9 @@ args.forEach(function (arg, i) {
     usage()
   else
     console.error('Unrecognized arg: %j', arg)
+
+  if (arg === '-v' || arg === '--version')
+    console.log(require('../package.json').version)
 })
 
 function usage () {
