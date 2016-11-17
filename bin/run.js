@@ -399,6 +399,7 @@ function respawnWithCoverage (options) {
   // Re-spawn with coverage
   var args = [nycBin].concat(
     '--silent',
+    '--cache=true',
     options.nycArgs,
     '--',
     process.execArgv,
