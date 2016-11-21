@@ -355,17 +355,35 @@ Parser.prototype.end = function (chunk, encoding, cb) {
     pass: this.pass
   }
 
-  if (this.fail)
+  if (this.fail) {
     final.fail = this.fail
+  } else {
+    final.fail = 0
+  }
 
-  if (this.bailedOut)
+  if (this.bailedOut) {
     final.bailout = this.bailedOut
+  } else {
+    final.bailout = false
+  }
 
-  if (this.todo)
+  if (this.todo) {
     final.todo = this.todo
+  } else {
+    final.todo = 0
+  }
 
-  if (this.skip)
-    final.skip = this.skip
+  // if they were all skipped, then skip = count
+  if (skipAll) {
+    final.skip = this.count;
+  } else {
+    // otherwise either get the skip count, or emit 0
+    if (this.skip) {
+      final.skip = this.skip
+    } else {
+      final.skip = 0
+    }
+  }
 
   if (this.planStart !== -1) {
     final.plan = { start: this.planStart, end: this.planEnd }
@@ -376,7 +394,7 @@ Parser.prototype.end = function (chunk, encoding, cb) {
     }
   }
 
-  if (this.failures.length) {
+  if (this.failures && this.failures.length) {
     final.failures = this.failures
   } else {
     final.failures = []
