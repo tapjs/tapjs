@@ -84,6 +84,9 @@
         "start": 1,
         "end": 5
       },
+      "todo": 0,
+      "skip": 0,
+      "bailout": false,
       "failures": [
         {
           "tapError": "last test id does not match plan end"

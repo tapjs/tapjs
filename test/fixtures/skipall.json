@@ -16,6 +16,7 @@
     {
       "ok": true,
       "count": 0,
+      "skip": 0,
       "pass": 0,
       "plan": {
         "start": 1,
@@ -23,6 +24,9 @@
         "skipAll": true,
         "skipReason": "skipping: rope"
       },
+      "todo": 0,
+      "bailout": false,
+      "fail": 0,
       "failures": []
     }
   ]

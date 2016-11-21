@@ -33,12 +33,15 @@ t.test('child calling _parse after bailout', function (t) {
           { ok: false,
             count: 0,
             pass: 0,
+            fail: 0,
+            skip: 0,
+            todo: 0,
             bailout: 'child',
             plan: { start: 1, end: 1 },
             failures: [] } ] ] ],
     [ 'bailout', 'child' ],
     [ 'complete',
-      { ok: false, count: 0, pass: 0, bailout: 'child', failures: [] } ]
+      { ok: false, count: 0, pass: 0, fail: 0, skip: 0, todo: 0, bailout: 'child', failures: [] } ]
   ]
 
   p.on('assert', t.fail)

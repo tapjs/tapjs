@@ -74,6 +74,9 @@
       "count": 5,
       "pass": 5,
       "fail": 1,
+      "todo": 0,
+      "skip": 0,
+      "bailout": false,
       "failures": [
         {
           "tapError": "no plan"

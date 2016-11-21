@@ -41,6 +41,9 @@
         "end": 0,
         "skipAll": true
       },
+      "todo": 0,
+      "skip": 1,
+      "bailout": false,
       "failures": [
         {
           "tapError": "Plan of 1..0, but test points encountered"

@@ -119,6 +119,9 @@
       "count": 5,
       "pass": 3,
       "fail": 3,
+      "todo": 0,
+      "skip": 0,
+      "bailout": false,
       "failures": [
         {
           "ok": false,

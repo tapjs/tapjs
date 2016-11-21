@@ -62,6 +62,10 @@
             "start": 1,
             "end": 1
           },
+          "todo": 0,
+          "skip": 0,
+          "bailout": false,
+          "fail": 0,
           "failures": []
         }
       ]
@@ -165,6 +169,9 @@
         "start": 1,
         "end": 99
       },
+      "todo": 0,
+      "skip": 0,
+      "bailout": false,
       "failures": [
         {
           "tapError": "incorrect number of tests"

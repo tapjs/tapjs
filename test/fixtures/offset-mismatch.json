@@ -117,6 +117,9 @@
         "start": 1,
         "end": 4
       },
+      "todo": 0,
+      "skip": 0,
+      "bailout": false,
       "failures": [
         {
           "tapError": "first test id does not match plan start"

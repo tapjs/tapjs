@@ -82,6 +82,9 @@
         "start": 1,
         "end": 5
       },
+      "bailout": false,
+      "skip": 0,
+      "todo": 0,
       "failures": [
         {
           "ok": true,

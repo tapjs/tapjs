@@ -129,6 +129,8 @@
       "pass": 7,
       "fail": 4,
       "skip": 1,
+      "todo": 0,
+      "bailout": false,
       "failures": [
         {
           "ok": false,

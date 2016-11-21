@@ -132,6 +132,10 @@
         "start": 1,
         "end": 6
       },
+      "todo": 0,
+      "skip": 0,
+      "bailout": false,
+      "fail": 0,
       "failures": []
     }
   ]

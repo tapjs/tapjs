@@ -50,6 +50,8 @@
         "start": 1,
         "end": 573
       },
+      "todo": 0,
+      "skip": 0,
       "failures": [
         {
           "ok": false,
