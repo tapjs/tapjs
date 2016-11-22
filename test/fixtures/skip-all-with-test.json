@@ -36,14 +36,16 @@
       "count": 1,
       "pass": 1,
       "fail": 1,
+      "bailout": false,
+      "todo": 0,
+      "skip": 1,
       "plan": {
         "start": 1,
         "end": 0,
-        "skipAll": true
+        "skipAll": true,
+        "skipReason": "",
+        "comment": ""
       },
-      "todo": 0,
-      "skip": 1,
-      "bailout": false,
       "failures": [
         {
           "tapError": "Plan of 1..0, but test points encountered"

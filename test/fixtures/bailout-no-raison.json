@@ -57,14 +57,17 @@
       "ok": false,
       "count": 3,
       "pass": 3,
+      "fail": 0,
+      "bailout": true,
       "todo": 0,
       "skip": 0,
-      "bailout": true,
       "plan": {
         "start": 1,
-        "end": 5
+        "end": 5,
+        "skipAll": false,
+        "skipReason": "",
+        "comment": ""
       },
-      "fail": 0,
       "failures": []
     }
   ]

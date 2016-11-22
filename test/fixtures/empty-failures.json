@@ -38,14 +38,17 @@
       "ok": true,
       "count": 2,
       "pass": 2,
-      "plan": {
-        "start": 1,
-        "end": 2
-      },
+      "fail": 0,
+      "bailout": false,
       "todo": 0,
       "skip": 0,
-      "bailout": false,
-      "fail": 0,
+      "plan": {
+        "start": 1,
+        "end": 2,
+        "skipAll": false,
+        "skipReason": "",
+        "comment": ""
+      },
       "failures": []
     }
   ]

@@ -97,15 +97,17 @@
                   "ok": true,
                   "count": 0,
                   "pass": 0,
+                  "fail": 0,
+                  "bailout": false,
+                  "todo": 0,
+                  "skip": 0,
                   "plan": {
                     "start": 1,
                     "end": 0,
-                    "skipAll": true
+                    "skipAll": true,
+                    "skipReason": "",
+                    "comment": ""
                   },
-                  "todo": 0,
-                  "skip": 0,
-                  "bailout": false,
-                  "fail": 0,
                   "failures": []
                 }
               ]
@@ -152,15 +154,17 @@
               "ok": true,
               "count": 0,
               "pass": 0,
+              "fail": 0,
+              "bailout": false,
+              "todo": 0,
+              "skip": 0,
               "plan": {
                 "start": 1,
                 "end": 0,
-                "skipAll": true
+                "skipAll": true,
+                "skipReason": "",
+                "comment": ""
               },
-              "todo": 0,
-              "skip": 0,
-              "bailout": false,
-              "fail": 0,
               "failures": []
             }
           ]
@@ -468,14 +472,17 @@
           "ok": true,
           "count": 1,
           "pass": 1,
-          "plan": {
-            "start": 1,
-            "end": 1
-          },
+          "fail": 0,
+          "bailout": false,
           "todo": 0,
           "skip": 0,
-          "bailout": false,
-          "fail": 0,
+          "plan": {
+            "start": 1,
+            "end": 1,
+            "skipAll": false,
+            "skipReason": "",
+            "comment": ""
+          },
           "failures": []
         }
       ]
@@ -765,13 +772,16 @@
       "count": 1,
       "pass": 0,
       "fail": 1,
-      "plan": {
-        "start": 1,
-        "end": 1
-      },
+      "bailout": false,
       "todo": 0,
       "skip": 0,
-      "bailout": false,
+      "plan": {
+        "start": 1,
+        "end": 1,
+        "skipAll": false,
+        "skipReason": "",
+        "comment": ""
+      },
       "failures": [
         {
           "ok": false,

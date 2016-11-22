@@ -5943,13 +5943,16 @@
       "count": 312,
       "pass": 307,
       "fail": 5,
+      "bailout": false,
       "todo": 4,
       "skip": 5,
       "plan": {
         "start": 1,
-        "end": 312
+        "end": 312,
+        "skipAll": false,
+        "skipReason": "",
+        "comment": ""
       },
-      "bailout": false,
       "failures": [
         {
           "ok": false,

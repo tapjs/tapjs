@@ -6099,13 +6099,16 @@
       "count": 311,
       "pass": 306,
       "fail": 5,
+      "bailout": false,
       "todo": 4,
       "skip": 5,
       "plan": {
         "start": 1,
-        "end": 311
+        "end": 311,
+        "skipAll": false,
+        "skipReason": "",
+        "comment": ""
       },
-      "bailout": false,
       "failures": [
         {
           "ok": false,

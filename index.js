@@ -349,60 +349,31 @@ Parser.prototype.end = function (chunk, encoding, cb) {
     this.tapError('last test id does not match plan end')
   }
 
-  var final = {
-    ok: this.ok,
-    count: this.count,
-    pass: this.pass
-  }
-
-  if (this.fail) {
-    final.fail = this.fail
-  } else {
-    final.fail = 0
-  }
-
-  if (this.bailedOut) {
-    final.bailout = this.bailedOut
-  } else {
-    final.bailout = false
-  }
-
-  if (this.todo) {
-    final.todo = this.todo
-  } else {
-    final.todo = 0
-  }
-
-  // if they were all skipped, then skip = count
-  if (skipAll) {
-    final.skip = this.count;
-  } else {
-    // otherwise either get the skip count, or emit 0
-    if (this.skip) {
-      final.skip = this.skip
-    } else {
-      final.skip = 0
-    }
-  }
-
-  if (this.planStart !== -1) {
-    final.plan = { start: this.planStart, end: this.planEnd }
-    if (skipAll) {
-      final.plan.skipAll = true
-      if (this.planComment)
-        final.plan.skipReason = this.planComment
-    }
-  }
-
-  if (this.failures && this.failures.length) {
-    final.failures = this.failures
-  } else {
-    final.failures = []
-  }
+  var final = new FinalResults(!!skipAll, this)
 
   this.emit('complete', final)
 
   Writable.prototype.end.call(this, null, null, cb)
+}
+
+function FinalResults (skipAll, self) {
+  this.ok = self.ok
+  this.count = self.count
+  this.pass = self.pass
+  this.fail = self.fail || 0
+  this.bailout = self.bailedOut || false
+  this.todo = self.todo || 0
+  this.skip = skipAll ? self.count : self.skip || 0
+  this.plan = new FinalPlan(skipAll, self)
+  this.failures = self.failures
+}
+
+function FinalPlan (skipAll, self) {
+  this.start = self.planStart === -1 ? null : self.planStart
+  this.end = self.planStart === -1 ? null : self.planEnd
+  this.skipAll = skipAll
+  this.skipReason = skipAll ? self.planComment : ''
+  this.comment = self.planComment || ''
 }
 
 Parser.prototype.version = function (version, line) {

@@ -74,9 +74,16 @@
       "count": 5,
       "pass": 5,
       "fail": 1,
+      "bailout": false,
       "todo": 0,
       "skip": 0,
-      "bailout": false,
+      "plan": {
+        "start": null,
+        "end": null,
+        "skipAll": false,
+        "skipReason": "",
+        "comment": ""
+      },
       "failures": [
         {
           "tapError": "no plan"

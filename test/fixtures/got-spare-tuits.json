@@ -75,13 +75,16 @@
       "count": 4,
       "pass": 2,
       "fail": 2,
+      "bailout": false,
       "todo": 2,
+      "skip": 0,
       "plan": {
         "start": 1,
-        "end": 4
+        "end": 4,
+        "skipAll": false,
+        "skipReason": "",
+        "comment": ""
       },
-      "skip": 0,
-      "bailout": false,
       "failures": []
     }
   ]

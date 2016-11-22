@@ -74,14 +74,17 @@
               "ok": true,
               "count": 1,
               "pass": 1,
-              "plan": {
-                "start": 1,
-                "end": 1
-              },
+              "fail": 0,
+              "bailout": false,
               "todo": 0,
               "skip": 0,
-              "bailout": false,
-              "fail": 0,
+              "plan": {
+                "start": 1,
+                "end": 1,
+                "skipAll": false,
+                "skipReason": "",
+                "comment": ""
+              },
               "failures": []
             }
           ]
@@ -120,14 +123,17 @@
           "ok": true,
           "count": 1,
           "pass": 1,
-          "plan": {
-            "start": 1,
-            "end": 1
-          },
+          "fail": 0,
+          "bailout": false,
           "todo": 0,
           "skip": 0,
-          "bailout": false,
-          "fail": 0,
+          "plan": {
+            "start": 1,
+            "end": 1,
+            "skipAll": false,
+            "skipReason": "",
+            "comment": ""
+          },
           "failures": []
         }
       ]
@@ -220,14 +226,17 @@
               "ok": true,
               "count": 1,
               "pass": 1,
-              "plan": {
-                "start": 1,
-                "end": 1
-              },
+              "fail": 0,
+              "bailout": false,
               "todo": 0,
               "skip": 0,
-              "bailout": false,
-              "fail": 0,
+              "plan": {
+                "start": 1,
+                "end": 1,
+                "skipAll": false,
+                "skipReason": "",
+                "comment": ""
+              },
               "failures": []
             }
           ]
@@ -266,14 +275,17 @@
           "ok": true,
           "count": 1,
           "pass": 1,
-          "plan": {
-            "start": 1,
-            "end": 1
-          },
+          "fail": 0,
+          "bailout": false,
           "todo": 0,
           "skip": 0,
-          "bailout": false,
-          "fail": 0,
+          "plan": {
+            "start": 1,
+            "end": 1,
+            "skipAll": false,
+            "skipReason": "",
+            "comment": ""
+          },
           "failures": []
         }
       ]
@@ -362,14 +374,17 @@
               "ok": true,
               "count": 1,
               "pass": 1,
-              "plan": {
-                "start": 1,
-                "end": 1
-              },
+              "fail": 0,
+              "bailout": false,
               "todo": 0,
               "skip": 0,
-              "bailout": false,
-              "fail": 0,
+              "plan": {
+                "start": 1,
+                "end": 1,
+                "skipAll": false,
+                "skipReason": "",
+                "comment": ""
+              },
               "failures": []
             }
           ]
@@ -412,14 +427,17 @@
           "ok": true,
           "count": 1,
           "pass": 1,
-          "plan": {
-            "start": 1,
-            "end": 1
-          },
+          "fail": 0,
+          "bailout": false,
           "todo": 0,
           "skip": 0,
-          "bailout": false,
-          "fail": 0,
+          "plan": {
+            "start": 1,
+            "end": 1,
+            "skipAll": false,
+            "skipReason": "",
+            "comment": ""
+          },
           "failures": []
         }
       ]
@@ -512,14 +530,17 @@
               "ok": true,
               "count": 1,
               "pass": 1,
-              "plan": {
-                "start": 1,
-                "end": 1
-              },
+              "fail": 0,
+              "bailout": false,
               "todo": 0,
               "skip": 0,
-              "bailout": false,
-              "fail": 0,
+              "plan": {
+                "start": 1,
+                "end": 1,
+                "skipAll": false,
+                "skipReason": "",
+                "comment": ""
+              },
               "failures": []
             }
           ]
@@ -558,14 +579,17 @@
           "ok": true,
           "count": 1,
           "pass": 1,
-          "plan": {
-            "start": 1,
-            "end": 1
-          },
+          "fail": 0,
+          "bailout": false,
           "todo": 0,
           "skip": 0,
-          "bailout": false,
-          "fail": 0,
+          "plan": {
+            "start": 1,
+            "end": 1,
+            "skipAll": false,
+            "skipReason": "",
+            "comment": ""
+          },
           "failures": []
         }
       ]
@@ -658,14 +682,17 @@
               "ok": true,
               "count": 1,
               "pass": 1,
-              "plan": {
-                "start": 1,
-                "end": 1
-              },
+              "fail": 0,
+              "bailout": false,
               "todo": 0,
               "skip": 0,
-              "bailout": false,
-              "fail": 0,
+              "plan": {
+                "start": 1,
+                "end": 1,
+                "skipAll": false,
+                "skipReason": "",
+                "comment": ""
+              },
               "failures": []
             }
           ]
@@ -704,14 +731,17 @@
           "ok": true,
           "count": 1,
           "pass": 1,
-          "plan": {
-            "start": 1,
-            "end": 1
-          },
+          "fail": 0,
+          "bailout": false,
           "todo": 0,
           "skip": 0,
-          "bailout": false,
-          "fail": 0,
+          "plan": {
+            "start": 1,
+            "end": 1,
+            "skipAll": false,
+            "skipReason": "",
+            "comment": ""
+          },
           "failures": []
         }
       ]
@@ -800,14 +830,17 @@
               "ok": true,
               "count": 1,
               "pass": 1,
-              "plan": {
-                "start": 1,
-                "end": 1
-              },
+              "fail": 0,
+              "bailout": false,
               "todo": 0,
               "skip": 0,
-              "bailout": false,
-              "fail": 0,
+              "plan": {
+                "start": 1,
+                "end": 1,
+                "skipAll": false,
+                "skipReason": "",
+                "comment": ""
+              },
               "failures": []
             }
           ]
@@ -850,14 +883,17 @@
           "ok": true,
           "count": 1,
           "pass": 1,
-          "plan": {
-            "start": 1,
-            "end": 1
-          },
+          "fail": 0,
+          "bailout": false,
           "todo": 0,
           "skip": 0,
-          "bailout": false,
-          "fail": 0,
+          "plan": {
+            "start": 1,
+            "end": 1,
+            "skipAll": false,
+            "skipReason": "",
+            "comment": ""
+          },
           "failures": []
         }
       ]
@@ -946,14 +982,17 @@
               "ok": true,
               "count": 1,
               "pass": 1,
-              "plan": {
-                "start": 1,
-                "end": 1
-              },
+              "fail": 0,
+              "bailout": false,
               "todo": 0,
               "skip": 0,
-              "bailout": false,
-              "fail": 0,
+              "plan": {
+                "start": 1,
+                "end": 1,
+                "skipAll": false,
+                "skipReason": "",
+                "comment": ""
+              },
               "failures": []
             }
           ]
@@ -992,14 +1031,17 @@
           "ok": true,
           "count": 1,
           "pass": 1,
-          "plan": {
-            "start": 1,
-            "end": 1
-          },
+          "fail": 0,
+          "bailout": false,
           "todo": 0,
           "skip": 0,
-          "bailout": false,
-          "fail": 0,
+          "plan": {
+            "start": 1,
+            "end": 1,
+            "skipAll": false,
+            "skipReason": "",
+            "comment": ""
+          },
           "failures": []
         }
       ]
@@ -1092,14 +1134,17 @@
               "ok": true,
               "count": 1,
               "pass": 1,
-              "plan": {
-                "start": 1,
-                "end": 1
-              },
+              "fail": 0,
+              "bailout": false,
               "todo": 0,
               "skip": 0,
-              "bailout": false,
-              "fail": 0,
+              "plan": {
+                "start": 1,
+                "end": 1,
+                "skipAll": false,
+                "skipReason": "",
+                "comment": ""
+              },
               "failures": []
             }
           ]
@@ -1138,14 +1183,17 @@
           "ok": true,
           "count": 1,
           "pass": 1,
-          "plan": {
-            "start": 1,
-            "end": 1
-          },
+          "fail": 0,
+          "bailout": false,
           "todo": 0,
           "skip": 0,
-          "bailout": false,
-          "fail": 0,
+          "plan": {
+            "start": 1,
+            "end": 1,
+            "skipAll": false,
+            "skipReason": "",
+            "comment": ""
+          },
           "failures": []
         }
       ]
@@ -1234,14 +1282,17 @@
               "ok": true,
               "count": 1,
               "pass": 1,
-              "plan": {
-                "start": 1,
-                "end": 1
-              },
+              "fail": 0,
+              "bailout": false,
               "todo": 0,
               "skip": 0,
-              "bailout": false,
-              "fail": 0,
+              "plan": {
+                "start": 1,
+                "end": 1,
+                "skipAll": false,
+                "skipReason": "",
+                "comment": ""
+              },
               "failures": []
             }
           ]
@@ -1284,14 +1335,17 @@
           "ok": true,
           "count": 1,
           "pass": 1,
-          "plan": {
-            "start": 1,
-            "end": 1
-          },
+          "fail": 0,
+          "bailout": false,
           "todo": 0,
           "skip": 0,
-          "bailout": false,
-          "fail": 0,
+          "plan": {
+            "start": 1,
+            "end": 1,
+            "skipAll": false,
+            "skipReason": "",
+            "comment": ""
+          },
           "failures": []
         }
       ]
@@ -1346,14 +1400,17 @@
       "ok": true,
       "count": 9,
       "pass": 9,
-      "plan": {
-        "start": 1,
-        "end": 9
-      },
+      "fail": 0,
+      "bailout": false,
       "todo": 0,
       "skip": 0,
-      "bailout": false,
-      "fail": 0,
+      "plan": {
+        "start": 1,
+        "end": 9,
+        "skipAll": false,
+        "skipReason": "",
+        "comment": ""
+      },
       "failures": []
     }
   ]

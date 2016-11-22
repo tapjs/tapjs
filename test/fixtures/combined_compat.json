@@ -128,9 +128,16 @@
       "count": 10,
       "pass": 7,
       "fail": 4,
-      "skip": 1,
-      "todo": 0,
       "bailout": false,
+      "todo": 0,
+      "skip": 1,
+      "plan": {
+        "start": null,
+        "end": null,
+        "skipAll": false,
+        "skipReason": "",
+        "comment": ""
+      },
       "failures": [
         {
           "ok": false,

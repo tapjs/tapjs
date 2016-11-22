@@ -60,14 +60,17 @@
       "ok": true,
       "count": 4,
       "pass": 4,
-      "plan": {
-        "start": 1,
-        "end": 4
-      },
+      "fail": 0,
+      "bailout": false,
       "todo": 0,
       "skip": 0,
-      "bailout": false,
-      "fail": 0,
+      "plan": {
+        "start": 1,
+        "end": 4,
+        "skipAll": false,
+        "skipReason": "",
+        "comment": ""
+      },
       "failures": []
     }
   ]

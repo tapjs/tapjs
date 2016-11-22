@@ -128,14 +128,17 @@
       "ok": true,
       "count": 6,
       "pass": 6,
-      "plan": {
-        "start": 1,
-        "end": 6
-      },
+      "fail": 0,
+      "bailout": false,
       "todo": 0,
       "skip": 0,
-      "bailout": false,
-      "fail": 0,
+      "plan": {
+        "start": 1,
+        "end": 6,
+        "skipAll": false,
+        "skipReason": "",
+        "comment": ""
+      },
       "failures": []
     }
   ]

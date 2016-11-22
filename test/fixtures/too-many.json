@@ -113,13 +113,16 @@
       "count": 4,
       "pass": 4,
       "fail": 1,
-      "plan": {
-        "start": 1,
-        "end": 3
-      },
+      "bailout": false,
       "todo": 0,
       "skip": 0,
-      "bailout": false,
+      "plan": {
+        "start": 1,
+        "end": 3,
+        "skipAll": false,
+        "skipReason": "",
+        "comment": ""
+      },
       "failures": [
         {
           "tapError": "incorrect number of tests"

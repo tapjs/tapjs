@@ -16,17 +16,18 @@
     {
       "ok": true,
       "count": 0,
-      "skip": 0,
       "pass": 0,
+      "fail": 0,
+      "bailout": false,
+      "todo": 0,
+      "skip": 0,
       "plan": {
         "start": 1,
         "end": 0,
         "skipAll": true,
-        "skipReason": "skipping: rope"
+        "skipReason": "skipping: rope",
+        "comment": "skipping: rope"
       },
-      "todo": 0,
-      "bailout": false,
-      "fail": 0,
       "failures": []
     }
   ]
