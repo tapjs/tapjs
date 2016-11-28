@@ -49,7 +49,7 @@
     "mkdirp": "^0.5.1",
     "rimraf": "^2.5.4",
     "standard": "^7.1.0",
-    "which": "^1.1.1"
+    "which": "^1.2.11"
   },
   "files": [
     "bin/mochatap.js",
