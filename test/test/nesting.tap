@@ -37,7 +37,7 @@ not ok 3 - this fails
     ok 1 - second timeout
     not ok 2 - first timeout
       ---
-      {"at":{"column":7,"file":"test/test/nesting.js","line":33,"method":"_onTimeout"},"foo":"blz","source":"t.ok(false, 'first timeout', { foo: 'blz' })\n"}
+      {"at":{"column":7,"file":"test/test/nesting.js","line":33,"method":"_onTimeout","type":"Timeout"},"foo":"blz","source":"t.ok(false, 'first timeout', { foo: 'blz' })\n"}
       ...
     # failed 1 of 2 tests
 not ok 4 - async kid ___/# time=[0-9.]+(ms)?/~~~
