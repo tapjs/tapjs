@@ -75,7 +75,7 @@ function tapFormat (msg, indent) {
       case 'assert':
         var res = item[1]
         return (res.ok ? '' : 'not ') + 'ok ' + res.id +
-          (res.name ? ' - ' + res.name : '') +
+          (res.name ? ' - ' + res.name.replace(/ \{$/, '') : '') +
           (res.skip ? ' # SKIP' +
             (res.skip === true ? '' : ' ' + res.skip) : '') +
           (res.todo ? ' # TODO' +
