@@ -1,2 +1,2 @@
 var runTests = require('./test.js')
-runTests('[n-z]*.js')
+runTests('*.js', true, true)
