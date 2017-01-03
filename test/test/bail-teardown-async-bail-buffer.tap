@@ -1,7 +1,6 @@
 TAP version 13
 ok 1 - foobar test {
     1..0
-    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 not ok 2 - barfoo {
@@ -10,14 +9,8 @@ not ok 2 - barfoo {
             not ok 1 - b3rf {
                 Bail out! # teardown fail
             }
-
-            Bail out! # teardown fail
         }
-
-        Bail out! # teardown fail
     }
-
-    Bail out! # teardown fail
 }
 
 Bail out! # teardown fail

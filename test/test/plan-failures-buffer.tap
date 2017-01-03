@@ -2,7 +2,6 @@ TAP version 13
 ok 1 - pass then pass plan() {
     1..1
     ok 1 - ok
-    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 not ok 2 - Error: test count exceeds plan
@@ -12,7 +11,6 @@ not ok 2 - Error: test count exceeds plan
 ok 3 - pass then pass end() {
     ok 1 - ok
     1..1
-    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 not ok 4 - Error: test after end() was called
@@ -22,7 +20,6 @@ not ok 4 - Error: test after end() was called
 ok 5 - pass then fail plan() {
     1..1
     ok 1 - ok
-    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 not ok 6 - Error: test count exceeds plan
@@ -32,7 +29,6 @@ not ok 6 - Error: test count exceeds plan
 ok 7 - pass then fail end() {
     ok 1 - ok
     1..1
-    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 not ok 8 - Error: test after end() was called
@@ -46,7 +42,6 @@ not ok 9 - fail then pass plan() {
       {"at":{"column":11,"file":"test/test/plan-failures.js","function":"test","line":7},"source":"t[first]('ok')\n"}
       ...
     # failed 1 of 1 tests
-    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 not ok 10 - fail then pass end() {
@@ -56,7 +51,6 @@ not ok 10 - fail then pass end() {
       ...
     1..1
     # failed 1 of 1 tests
-    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 not ok 11 - fail then fail plan() {
@@ -66,7 +60,6 @@ not ok 11 - fail then fail plan() {
       {"at":{"column":11,"file":"test/test/plan-failures.js","function":"test","line":7},"source":"t[first]('ok')\n"}
       ...
     # failed 1 of 1 tests
-    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 not ok 12 - fail then fail end() {
@@ -76,7 +69,6 @@ not ok 12 - fail then fail end() {
       ...
     1..1
     # failed 1 of 1 tests
-    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 1..12

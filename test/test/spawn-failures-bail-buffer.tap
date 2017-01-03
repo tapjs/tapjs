@@ -6,6 +6,5 @@ not ok 1 - spawn that throws {
       ...
     Bail out! # Error: now is fine
 }
-
 Bail out! # Error: now is fine
 

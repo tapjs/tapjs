@@ -4,7 +4,6 @@ not ok 2 - not ok subtest {
     not ok 1 - diagnostics not ok
     1..1
     # failed 1 of 1 tests
-    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 1..2

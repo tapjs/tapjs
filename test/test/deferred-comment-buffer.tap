@@ -1,7 +1,6 @@
 TAP version 13
 ok 1 - child {
     1..0
-    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 # this is {"some":true} json

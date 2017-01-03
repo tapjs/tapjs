@@ -9,14 +9,8 @@ not ok 1 - one {
                   ...
                 Bail out! # Error: fail 1
             }
-
-            Bail out! # Error: fail 1
         }
-
-        Bail out! # Error: fail 1
     }
-
-    Bail out! # Error: fail 1
 }
 
 Bail out! # Error: fail 1

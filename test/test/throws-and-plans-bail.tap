@@ -6,7 +6,7 @@ ok 1 - expect truthy value
         1..1
         ok 1 - before the bomb
     ok 2 - sync thrower ___/# time=[0-9.]+(ms)?/~~~
-
+    
     not ok 3 - Error: pwnSync
       ---
       {"at":{"column":11,"file":"test/test/throws-and-plans.js","line":10},"message":"Error: pwnSync","source":"throw new Error('pwnSync')\n","test":"sync thrower"}

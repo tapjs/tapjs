@@ -5,9 +5,8 @@ not ok 2 - plans of 1 {
     ok 2 - sync thrower {
         1..1
         ok 1 - before the bomb
-        ___/# time=[0-9.]+(ms)?/~~~
     }
-
+    
     not ok 3 - Error: pwnSync
       ---
       {"at":{"column":11,"file":"test/test/throws-and-plans.js","line":10},"message":"Error: pwnSync","source":"throw new Error('pwnSync')\n","test":"sync thrower"}
@@ -17,13 +16,11 @@ not ok 2 - plans of 1 {
         ok 1 - before set the bomb
         ok 2 - after set the bomb
         ok 3 - before the bomb
-        ___/# time=[0-9.]+(ms)?/~~~
     }
-
+    
     ok 5 - after child
     1..5
     # failed 1 of 5 tests
-    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 not ok 3 - no assert only throw {
@@ -33,7 +30,6 @@ not ok 3 - no assert only throw {
       ...
     1..1
     # failed 1 of 1 tests
-    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 not ok 4 - plans of 8 {
@@ -55,9 +51,8 @@ not ok 4 - plans of 8 {
         not ok 7 - missing test
         not ok 8 - missing test
         # failed 7 of 8 tests
-        ___/# time=[0-9.]+(ms)?/~~~
     }
-
+    
     not ok 3 - async thrower {
         1..8
         ok 1 - before set the bomb
@@ -75,13 +70,11 @@ not ok 4 - plans of 8 {
         not ok 7 - missing test
         not ok 8 - missing test
         # failed 6 of 8 tests
-        ___/# time=[0-9.]+(ms)?/~~~
     }
-
+    
     ok 4 - after child
     1..4
     # failed 2 of 4 tests
-    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 not ok 5 - Error: pwn

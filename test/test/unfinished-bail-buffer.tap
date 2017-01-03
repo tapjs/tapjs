@@ -8,8 +8,6 @@ not ok 1 - t1 {
           ...
         Bail out! # test unfinished: t11
     }
-
-    Bail out! # test unfinished: t11
 }
 
 Bail out! # test unfinished: t11

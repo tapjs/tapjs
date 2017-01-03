@@ -15,7 +15,6 @@ ok 1 - not much {
       {"at":{"column":5,"file":"test/test/assert-todo-skip.js","line":11},"source":"t.ok(false, 'expected without explanation', {todo: true})\n"}
       ...
     1..8
-    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 1..1

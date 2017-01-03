@@ -2,7 +2,6 @@ TAP version 13
 ok 1 - fine {
     ok 1 - fine
     1..1
-    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 not ok 2 - Error: this one

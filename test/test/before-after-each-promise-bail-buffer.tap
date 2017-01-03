@@ -16,11 +16,7 @@ not ok 1 - parent {
               ...
             Bail out! # Error: this is fine
         }
-
-        Bail out! # Error: this is fine
     }
-
-    Bail out! # Error: this is fine
 }
 
 Bail out! # Error: this is fine

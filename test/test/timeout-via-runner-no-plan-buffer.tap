@@ -12,12 +12,10 @@ not ok 1 - child {
           ...
         1..3
         # failed 1 of 3 tests
-        ___/# time=[0-9.]+(ms)?/~~~
     }
-
+    
     1..4
     # failed 1 of 4 tests
-    ___/# time=[0-9.]+(ms)?/~~~
     ___/# time=[0-9.]+(ms)?/~~~
 }
 

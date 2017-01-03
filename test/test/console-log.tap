@@ -9,7 +9,7 @@ TAP version 13
         ok 2 - doag is also okay
         ok 3 - doag is very okay
     ok 1 - first ___/# time=[0-9.]+(ms)?/~~~
-
+    
 >>>> after first child
     # Subtest: second
         ok 1 - but that is ok
@@ -18,7 +18,7 @@ TAP version 13
         ok 4 - nested ok second
         1..4
     ok 2 - second ___/# time=[0-9.]+(ms)?/~~~
-
+    
 >>>> after second child
 ok 1 - nesting ___/# time=[0-9.]+(ms)?/~~~
 

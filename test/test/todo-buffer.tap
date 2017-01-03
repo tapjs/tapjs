@@ -9,15 +9,12 @@ ok 1 - a set of tests to be done later {
             ok 1 - true is truthy
             ok 2 - ten is also truthy
             1..2
-            ___/# time=[0-9.]+(ms)?/~~~
         }
-
+        
         1..3
-        ___/# time=[0-9.]+(ms)?/~~~
     }
-
+    
     1..3
-    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 ok 2 - (unnamed test) # TODO
@@ -26,7 +23,6 @@ ok 3 - another set of tests {
     ok 2 - looks like english # TODO
     ok 3 - is marked TODO # TODO
     1..3
-    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 1..3

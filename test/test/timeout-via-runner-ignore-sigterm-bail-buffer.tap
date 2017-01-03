@@ -1,4 +1,16 @@
 TAP version 13
 not ok 1 - child {
-Bail out! # child {
+    ok 1 - this is fine 1
+    ok 2 - this is fine 2
+    ok 3 - this is fine 3
+    yolo
+    
+    not ok 4 - timeout
+      ---
+      {"at":{"column":5,"file":"test/test/timeout-via-runner-ignore-sigterm.js","line":19},"failure":"timeout","timeout":1000}
+      ...
+    
+    1..4 # timeout
+}
+Bail out! # child
 

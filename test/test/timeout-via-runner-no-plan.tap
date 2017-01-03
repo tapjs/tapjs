@@ -16,13 +16,13 @@ TAP version 13
       ---
       {"at":{"column":5,"file":"test/test/timeout-via-runner-no-plan.js","line":7},"results":{"count":3,"fail":1,"ok":false,"pass":2,"plan":{"end":3,"start":1}},"source":"t.test('child test', function (t) {\n"}
       ...
-
+    
     1..4
     # failed 1 of 4 tests
     ___/# time=[0-9.]+(ms)?/~~~
 not ok 1 - child ___/# time=[0-9.]+(ms)?/~~~
   ---
-  {"arguments":["___/.*/~~~timeout-via-runner-no-plan.js","child"],"at":{"column":5,"file":"test/test/timeout-via-runner-no-plan.js","line":16},"command":"___/.*(node|iojs)(.exe)?/~~~","failure":"timeout","results":{"count":4,"fail":1,"ok":false,"pass":3,"plan":{"end":4,"start":1}},"signal":"SIGTERM","source":"t.spawn(process.execPath, [__filename, 'child'], {}, 'child', { timeout: 1000 })\n","timeout":1000}
+  {"arguments":["___/.*/~~~timeout-via-runner-no-plan.js","child"],"at":{"column":5,"file":"test/test/timeout-via-runner-no-plan.js","line":16},"command":"___/.*(node|iojs)(.exe)?/~~~","failure":"timeout","results":{"bailout":false,"count":4,"fail":1,"ok":false,"pass":3,"plan":{"comment":"","end":4,"skipAll":false,"skipReason":"","start":1},"skip":0,"todo":0},"signal":"SIGTERM","source":"t.spawn(process.execPath, [__filename, 'child'], {}, 'child', { timeout: 1000 })\n","timeout":1000}
   ...
 
 1..1

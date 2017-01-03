@@ -2,7 +2,6 @@ TAP version 13
 ok 1 - exceed_plan {
     1..1
     ok 1 - (unnamed test)
-    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 not ok 2 - Error: test count exceeds plan

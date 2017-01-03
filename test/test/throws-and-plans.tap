@@ -6,7 +6,7 @@ ok 1 - expect truthy value
         1..1
         ok 1 - before the bomb
     ok 2 - sync thrower ___/# time=[0-9.]+(ms)?/~~~
-
+    
     not ok 3 - Error: pwnSync
       ---
       {"at":{"column":11,"file":"test/test/throws-and-plans.js","line":10},"message":"Error: pwnSync","source":"throw new Error('pwnSync')\n","test":"sync thrower"}
@@ -17,7 +17,7 @@ ok 1 - expect truthy value
         ok 2 - after set the bomb
         ok 3 - before the bomb
     ok 4 - async thrower ___/# time=[0-9.]+(ms)?/~~~
-
+    
     ok 5 - after child
     1..5
     # failed 1 of 5 tests
@@ -61,7 +61,7 @@ not ok 3 - no assert only throw ___/# time=[0-9.]+(ms)?/~~~
       ---
       {"at":{"column":5,"file":"test/test/throws-and-plans.js","line":35},"results":{"count":8,"fail":7,"ok":false,"pass":1,"plan":{"end":8,"start":1}},"source":"t.test('sync thrower', function (tt) {\n"}
       ...
-
+    
     # Subtest: async thrower
         1..8
         ok 1 - before set the bomb
@@ -83,7 +83,7 @@ not ok 3 - no assert only throw ___/# time=[0-9.]+(ms)?/~~~
       ---
       {"at":{"column":5,"file":"test/test/throws-and-plans.js","line":46},"results":{"count":8,"fail":6,"ok":false,"pass":2,"plan":{"end":8,"start":1}},"source":"t.test('async thrower', function (tt) {\n"}
       ...
-
+    
     ok 4 - after child
     1..4
     # failed 2 of 4 tests

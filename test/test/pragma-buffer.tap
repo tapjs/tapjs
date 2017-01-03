@@ -10,17 +10,12 @@ not ok 1 - ___/.*/~~~pragma.js child {
     ok 2 - ending now
     1..2
     ___/# time=[0-9.]+(ms)?/~~~
-    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 pragma -child
 not ok 2 - ___/.*/~~~pragma.js child bailout {
     Bail out! # no pragmas come after bailout
-    ___/# time=[0-9.]+(ms)?/~~~
 }
 
-pragma +bailedout
-1..2
-# failed 2 of 2 tests
-___/# time=[0-9.]+(ms)?/~~~
+Bail out! # no pragmas come after bailout
 

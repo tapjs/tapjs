@@ -6,7 +6,6 @@ ok 1 - this is fine
 ok 2 - child {
     1..1
     ok 1 - this is fine
-    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 1..2

@@ -2,7 +2,6 @@ TAP version 13
 ok 1 - auto-end on resolve {
     ok 1 - true is ok
     1..1
-    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 not ok 2 - rejected {
@@ -12,7 +11,6 @@ not ok 2 - rejected {
       ...
     1..1
     # failed 1 of 1 tests
-    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 1..2

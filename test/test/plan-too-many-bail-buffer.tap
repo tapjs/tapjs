@@ -12,8 +12,6 @@ not ok 1 - children plan too big {
           ...
         Bail out! # test unfinished: grandchild
     }
-
-    Bail out! # test unfinished: grandchild
 }
 
 Bail out! # test unfinished: grandchild

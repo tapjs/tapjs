@@ -7,16 +7,14 @@ not ok 1 - t1 {
           {"at":{"column":5,"file":"test/test/unfinished.js","line":4},"count":0,"plan":1,"source":"t.test('t11', function (t) {\n"}
           ...
         # failed 1 of 1 tests
-        ___/# time=[0-9.]+(ms)?/~~~
     }
-
+    
     not ok 2 - test point left in queue: ok - this would be ok if it ever happened
       ---
       {"at":{"column":5,"file":"test/test/unfinished.js","line":17},"source":"t.ok(true, 'this would be ok if it ever happened')\n","test":"t1"}
       ...
     1..2
     # failed 2 of 2 tests
-    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 not ok 2 - test point left in queue: ok - 1 === 1

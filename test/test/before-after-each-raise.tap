@@ -19,7 +19,7 @@ after 2 grandchild
           ---
           {"at":{"column":7,"file":"test/test/before-after-each-raise.js","line":28},"results":{"count":2,"fail":1,"ok":false,"pass":1,"plan":{"end":2,"start":1}},"source":"t.test('grandchild', function (t) {\n"}
           ...
-
+        
 after 2 child
 after 1 child
         1..1
@@ -28,7 +28,7 @@ after 1 child
       ---
       {"at":{"column":5,"file":"test/test/before-after-each-raise.js","line":27},"results":{"count":1,"fail":1,"ok":false,"pass":0,"plan":{"end":1,"start":1}},"source":"t.test('child', function (t) {\n"}
       ...
-
+    
 after 1 parent
     1..1
     # failed 1 of 1 tests

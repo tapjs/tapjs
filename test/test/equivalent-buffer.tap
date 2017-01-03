@@ -26,7 +26,6 @@ not ok 1 - child test {
       ...
     1..6
     # failed 6 of 6 tests
-    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 1..1

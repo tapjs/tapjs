@@ -13,12 +13,12 @@ after 2 grandchild
 after 1 grandchild
             1..1
         ok 1 - grandchild ___/# time=[0-9.]+(ms)?/~~~
-
+        
 after 2 child
 after 1 child
         1..1
     ok 1 - child ___/# time=[0-9.]+(ms)?/~~~
-
+    
 after 1 parent
     1..1
 ok 1 - parent ___/# time=[0-9.]+(ms)?/~~~

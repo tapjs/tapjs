@@ -1,5 +1,15 @@
 TAP version 13
 pragma +child
 not ok 1 - ___/.*/~~~pragma.js child {
-Bail out! # ___/.*/~~~pragma.js child {
+    this is not tap but it is ok
+    ok 1 - an ok test
+    pragma +strict
+    this is not tap and it is not ok
+    pragma -strict
+    more ok non-tap
+    ok 2 - ending now
+    1..2
+    ___/# time=[0-9.]+(ms)?/~~~
+}
+Bail out! # ___/.*/~~~pragma.js child
 

@@ -7,6 +7,5 @@ not ok 1 - t.end() {
       ...
     Bail out! # timeout!
 }
-
 Bail out! # timeout!
 

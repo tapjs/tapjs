@@ -3,7 +3,6 @@
 TAP version 13
 ok 1 - first {
     1..0
-    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 > first end event
@@ -12,7 +11,6 @@ ok 1 - first {
 > before ending second
 ok 2 - second {
     1..0
-    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 > second end event

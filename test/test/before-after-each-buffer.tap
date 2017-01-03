@@ -14,15 +14,12 @@ ok 1 - parent {
         ok 1 - grandchild {
             ok 1 - the only actual assertion
             1..1
-            ___/# time=[0-9.]+(ms)?/~~~
         }
-
+        
         1..1
-        ___/# time=[0-9.]+(ms)?/~~~
     }
-
+    
     1..1
-    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 done

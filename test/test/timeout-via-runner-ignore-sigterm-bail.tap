@@ -8,7 +8,7 @@ TAP version 13
         ok 1 - this is fine 4
         ok 2 - this is fine 5
     yolo
-
+        
         not ok 3 - timeout
           ---
           {"at":{"column":5,"file":"test/test/timeout-via-runner-ignore-sigterm.js","line":19},"failure":"timeout","timeout":1000}

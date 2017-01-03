@@ -1,12 +1,10 @@
 TAP version 13
 ok 1 - auto-end on resolve {
     1..0
-    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 ok 2 - auto-end on resolve without cb {
     1..0
-    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 not ok 3 - rejected {
@@ -16,6 +14,5 @@ not ok 3 - rejected {
       ...
     Bail out! # Error: expected error
 }
-
 Bail out! # Error: expected error
 

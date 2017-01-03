@@ -3,14 +3,12 @@ ok 1 - unbuffered {
     ok 1 - fine
     ok 2 - also fine
     1..2
-    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 ok 2 - buffered {
     ok 1 - fine
     ok 2 - also fine
     1..2
-    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 ok 3 - unbuffered spawn {
@@ -18,18 +16,15 @@ ok 3 - unbuffered spawn {
         ok 1 - fine
         ok 2 - also fine
         1..2
-        ___/# time=[0-9.]+(ms)?/~~~
     }
-
+    
     ok 2 - buffered {
         ok 1 - fine
         ok 2 - also fine
         1..2
-        ___/# time=[0-9.]+(ms)?/~~~
     }
-
+    
     1..2
-    ___/# time=[0-9.]+(ms)?/~~~
     ___/# time=[0-9.]+(ms)?/~~~
 }
 
@@ -38,18 +33,15 @@ ok 4 - buffered spawn {
         ok 1 - fine
         ok 2 - also fine
         1..2
-        ___/# time=[0-9.]+(ms)?/~~~
     }
-
+    
     ok 2 - buffered {
         ok 1 - fine
         ok 2 - also fine
         1..2
-        ___/# time=[0-9.]+(ms)?/~~~
     }
-
+    
     1..2
-    ___/# time=[0-9.]+(ms)?/~~~
     ___/# time=[0-9.]+(ms)?/~~~
 }
 

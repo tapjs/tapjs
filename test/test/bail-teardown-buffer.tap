@@ -3,7 +3,6 @@ ok 1 - this is fine
 ok 2 - child {
     ok 1 - child test point
     1..1
-    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 Bail out! # i did not want to be torn down

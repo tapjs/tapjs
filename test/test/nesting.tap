@@ -6,7 +6,7 @@ TAP version 13
         ok 1 - true is ok
         ok 2 - doag is also okay
     ok 1 - first ___/# time=[0-9.]+(ms)?/~~~
-
+    
     # Subtest: second
         ok 1 - but that is ok
         ok 2 - this passes
@@ -20,7 +20,7 @@ TAP version 13
       ---
       {"at":{"column":5,"file":"test/test/nesting.js","line":10},"results":{"count":3,"fail":1,"ok":false,"pass":2,"plan":{"end":3,"start":1}},"source":"t.test('second', function (tt) {\n"}
       ...
-
+    
     # failed 1 of 2 tests
 not ok 1 - nesting ___/# time=[0-9.]+(ms)?/~~~
   ---

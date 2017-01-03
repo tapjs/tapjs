@@ -9,19 +9,16 @@ not ok 1 - one {
                   ...
                 1..1
                 # failed 1 of 1 tests
-                ___/# time=[0-9.]+(ms)?/~~~
             }
-
+            
             1..1
             # failed 1 of 1 tests
-            ___/# time=[0-9.]+(ms)?/~~~
         }
-
+        
         1..1
         # failed 1 of 1 tests
-        ___/# time=[0-9.]+(ms)?/~~~
     }
-
+    
     not ok 2 - second child of 2 {
         not ok 1 - Error: fail 2
           ---
@@ -29,12 +26,10 @@ not ok 1 - one {
           ...
         1..1
         # failed 1 of 1 tests
-        ___/# time=[0-9.]+(ms)?/~~~
     }
-
+    
     1..2
     # failed 2 of 2 tests
-    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 not ok 2 - three {
@@ -44,7 +39,6 @@ not ok 2 - three {
       ...
     1..1
     # failed 1 of 1 tests
-    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 not ok 3 - some_function_name {
@@ -54,7 +48,6 @@ not ok 3 - some_function_name {
       ...
     1..1
     # failed 1 of 1 tests
-    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 not ok 4 - Error: fail 5

@@ -4,14 +4,13 @@ not ok 1 - child {
     ok 2 - this is fine 2
     ok 3 - this is fine 3
     yolo
-
+    
     not ok 4 - timeout
       ---
       {"at":{"column":5,"file":"test/test/timeout-via-runner-ignore-sigterm.js","line":19},"failure":"timeout","timeout":1000}
       ...
-
+    
     1..4 # timeout
-    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 1..1

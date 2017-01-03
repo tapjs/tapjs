@@ -10,14 +10,8 @@ not ok 1 - parent of timeout test {
                   ...
                 Bail out! # timeout!
             }
-
-            Bail out! # timeout!
         }
-
-        Bail out! # timeout!
     }
-
-    Bail out! # timeout!
 }
 
 Bail out! # timeout!

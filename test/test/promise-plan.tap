@@ -29,7 +29,7 @@ ok 3 - three ___/# time=[0-9.]+(ms)?/~~~
       ---
       {"at":{"column":5,"file":"test/test/promise-plan.js","line":42},"results":{"count":0,"ok":false,"pass":0,"plan":{"end":0,"start":1}},"source":"t.test('end()', function (t) {\n"}
       ...
-
+    
     # Subtest: plan
         1..1
         ok 1 - this is fine
@@ -51,7 +51,7 @@ not ok 4 - broken promises ___/# time=[0-9.]+(ms)?/~~~
       ---
       {"at":{"column":5,"file":"test/test/promise-plan.js","line":59},"results":{"count":0,"ok":false,"pass":0,"plan":{"end":0,"start":1}},"source":"t.test('end()', function (t) {\n"}
       ...
-
+    
     # Subtest: plan
         1..1
         ok 1 - this is fine

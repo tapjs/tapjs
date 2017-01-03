@@ -2,7 +2,6 @@ TAP version 13
 ok 1 - auto-end on resolve {
     ok 1 - true is ok
     1..1
-    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 not ok 2 - rejected {
@@ -12,6 +11,5 @@ not ok 2 - rejected {
       ...
     Bail out! # Error: expected error
 }
-
 Bail out! # Error: expected error
 

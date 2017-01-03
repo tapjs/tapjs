@@ -4,7 +4,6 @@ ok 1 - ___/.*/~~~spawn-stderr.js child {
     ok 1 - this is ok
     1..1
     ___/# time=[0-9.]+(ms)?/~~~
-    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 1..1

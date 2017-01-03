@@ -6,7 +6,6 @@ not ok 1 - spawn that throws {
       ...
     1..1
     # failed 1 of 1 tests
-    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 not ok 2 - spawn that throws {
@@ -16,7 +15,6 @@ not ok 2 - spawn that throws {
       ...
     1..1
     # failed 1 of 1 tests
-    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 1..2

@@ -11,7 +11,7 @@ TAP version 13
       ---
       {"at":{"column":5,"file":"test/test/unfinished.js","line":4},"results":{"count":1,"fail":1,"ok":false,"pass":0,"plan":{"end":1,"start":1}},"source":"t.test('t11', function (t) {\n"}
       ...
-
+    
     not ok 2 - test point left in queue: ok - this would be ok if it ever happened
       ---
       {"at":{"column":5,"file":"test/test/unfinished.js","line":17},"source":"t.ok(true, 'this would be ok if it ever happened')\n","test":"t1"}

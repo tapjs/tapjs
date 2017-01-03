@@ -10,11 +10,7 @@ not ok 1 - parent {
               ...
             Bail out! # test unfinished: grandchild
         }
-
-        Bail out! # test unfinished: grandchild
     }
-
-    Bail out! # test unfinished: grandchild
 }
 
 Bail out! # test unfinished: grandchild

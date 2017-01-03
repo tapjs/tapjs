@@ -20,9 +20,8 @@ not ok 1 - children plan too big {
         not ok 7 - missing test
         not ok 8 - missing test
         # failed 7 of 8 tests
-        ___/# time=[0-9.]+(ms)?/~~~
     }
-
+    
     not ok 4 - missing test
       ---
       {"count":3,"missing":6,"plan":9}
@@ -33,7 +32,6 @@ not ok 1 - children plan too big {
     not ok 8 - missing test
     not ok 9 - missing test
     # failed 7 of 9 tests
-    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 1..1
