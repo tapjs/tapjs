@@ -281,16 +281,10 @@ Parser.prototype.write = function (chunk, encoding, cb) {
     encoding = null
   }
 
-  if (this.bailedOut) {
-    if (cb)
-      process.nextTick(cb)
-    return true
-  }
-
   this.buffer += chunk
   do {
     var match = this.buffer.match(/^.*\r?\n/)
-    if (!match || this.bailedOut)
+    if (!match)
       break
 
     this.buffer = this.buffer.substr(match[0].length)
@@ -537,6 +531,9 @@ Parser.prototype._parse = function (line) {
   // this is a line we are processing, so emit it
   if (this.preserveWhitespace || line.trim() || this.yind)
     this.emit('line', line)
+
+  if (this.bailedOut)
+    return
 
   if (line === '\n')
     return
