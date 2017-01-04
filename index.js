@@ -119,6 +119,7 @@ function Parser (options, onComplete) {
   this.level = options.level || 0
   Writable.call(this)
   this.buffer = ''
+  this.bailingOut = false
   this.bailedOut = false
   this.planStart = -1
   this.planEnd = -1
@@ -395,8 +396,14 @@ Parser.prototype.pragma = function (key, value, line) {
 }
 
 Parser.prototype.bailout = function (reason) {
+  if (this.bailingOut)
+    return
+
+  // Guard because emitting a result can trigger a forced bailout
+  // if the harness decides that failures should be bailouts.
+  this.bailingOut = reason || true
   this.emitResult()
-  this.bailedOut = reason || true
+  this.bailedOut = this.bailingOut
   this.ok = false
   this.emit('bailout', reason)
   if (this.parent)
