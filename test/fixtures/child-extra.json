@@ -20,14 +20,6 @@
       ],
       [
         "line",
-        "TAP version 13\n"
-      ],
-      [
-        "version",
-        13
-      ],
-      [
-        "line",
         "# debug test\n"
       ],
       [
@@ -126,10 +118,6 @@
   [
     "extra",
     "'Debugger listening on port 5858\\n'\n"
-  ],
-  [
-    "line",
-    "    TAP version 13\n"
   ],
   [
     "line",

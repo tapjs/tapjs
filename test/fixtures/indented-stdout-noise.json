@@ -20,14 +20,6 @@
       ],
       [
         "line",
-        "TAP version 13\n"
-      ],
-      [
-        "version",
-        13
-      ],
-      [
-        "line",
         "    # Subtest: boom\n"
       ],
       [
@@ -487,10 +479,6 @@
         }
       ]
     ]
-  ],
-  [
-    "line",
-    "    TAP version 13\n"
   ],
   [
     "line",

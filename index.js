@@ -26,6 +26,7 @@ var lineTypes = {
   pragma: /^pragma ([+-])([a-z]+)\n$/,
   bailout: /^bail out!(.*)\n$/i,
   version: /^TAP version ([0-9]+)\n$/i,
+  childVersion: /^(    )+TAP version ([0-9]+)\n$/i,
   plan: /^([0-9]+)\.\.([0-9]+)(?:\s+(?:#\s*(.*)))?\n$/,
   subtest: /^# Subtest(?:: (.*))?\n$/,
   subtestIndent: /^    # Subtest(?:: (.*))?\n$/,
@@ -121,6 +122,7 @@ function Parser (options, onComplete) {
   this.buffer = ''
   this.bailingOut = false
   this.bailedOut = false
+  this.omitVersion = !!options.omitVersion
   this.planStart = -1
   this.planEnd = -1
   this.planComment = ''
@@ -478,6 +480,7 @@ Parser.prototype.startChild = function (line) {
     level: this.level + 1,
     buffered: maybeBuffered,
     preserveWhitespace: this.preserveWhitespace,
+    omitVersion: true,
     strict: this.strict
   })
 
@@ -534,6 +537,16 @@ Parser.prototype._parse = function (line) {
     else if (this.yind)
       line = this.yind + line
   }
+
+  // This allows omitting even parsing the version if the test is
+  // an indented child test.  Several parsers get upset when they
+  // see an indented version field.
+  if (this.omitVersion && lineTypes.version.test(line))
+    return
+
+  // likewise, we ALWAYS skip the version for child tests.
+  if (lineTypes.childVersion.test(line))
+    return
 
   // this is a line we are processing, so emit it
   if (this.preserveWhitespace || line.trim() || this.yind)

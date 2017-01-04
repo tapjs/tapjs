@@ -20,14 +20,6 @@
       ],
       [
         "line",
-        "TAP version 13\n"
-      ],
-      [
-        "version",
-        13
-      ],
-      [
-        "line",
         "    # Subtest: update profile\n"
       ],
       [
@@ -444,10 +436,6 @@
         }
       ]
     ]
-  ],
-  [
-    "line",
-    "    TAP version 13\n"
   ],
   [
     "line",

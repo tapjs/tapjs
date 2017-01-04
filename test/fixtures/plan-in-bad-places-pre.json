@@ -32,7 +32,7 @@
   ],
   [
     "line",
-    "    tap version 13\n"
+    "    1..1\n"
   ],
   [
     "child",
@@ -40,14 +40,6 @@
       [
         "comment",
         "# Subtest: subtest\n"
-      ],
-      [
-        "line",
-        "tap version 13\n"
-      ],
-      [
-        "version",
-        13
       ],
       [
         "line",
@@ -92,10 +84,6 @@
         }
       ]
     ]
-  ],
-  [
-    "line",
-    "    1..1\n"
   ],
   [
     "line",
