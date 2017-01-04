@@ -120,8 +120,10 @@ function Parser (options, onComplete) {
   this.level = options.level || 0
   Writable.call(this)
   this.buffer = ''
+  this.bail = !!options.bail
   this.bailingOut = false
   this.bailedOut = false
+  this.syntheticBailout = false
   this.omitVersion = !!options.omitVersion
   this.planStart = -1
   this.planEnd = -1
@@ -317,6 +319,15 @@ Parser.prototype.end = function (chunk, encoding, cb) {
 
   this.emitResult()
 
+  if (this.syntheticBailout) {
+    var reason = this.bailedOut
+    if (reason === true)
+      reason = ''
+    else
+      reason = ' ' + reason
+    this.emit('line', 'Bail out!' + reason + '\n')
+  }
+
   var skipAll
 
   if (this.planEnd === 0 && this.planStart === 1) {
@@ -397,19 +408,22 @@ Parser.prototype.pragma = function (key, value, line) {
   this.emit('pragma', key, value)
 }
 
-Parser.prototype.bailout = function (reason) {
+Parser.prototype.bailout = function (reason, synthetic) {
+  this.syntheticBailout = synthetic
+
   if (this.bailingOut)
     return
 
   // Guard because emitting a result can trigger a forced bailout
   // if the harness decides that failures should be bailouts.
   this.bailingOut = reason || true
+
   this.emitResult()
   this.bailedOut = this.bailingOut
   this.ok = false
   this.emit('bailout', reason)
   if (this.parent)
-    this.parent.bailout(reason)
+    this.parent.bailout(reason, true)
 }
 
 Parser.prototype.clearExtraQueue = function () {
@@ -454,6 +468,12 @@ Parser.prototype.emitResult = function () {
     this.todo++
 
   this.emit('assert', res)
+  if (this.bail && !res.ok && !res.todo && !res.skip && !this.bailingOut) {
+    var ind = new Array(this.level + 1).join('    ')
+    for (var p = this; p.parent; p = p.parent);
+    var bailName = res.name ? ' # ' + res.name : ''
+    p._parse(ind + 'Bail out!' + bailName + '\n')
+  }
   this.clearExtraQueue()
 }
 
@@ -476,6 +496,7 @@ Parser.prototype.startChild = function (line) {
     this.emitResult()
 
   this.child = new Parser({
+    bail: this.bail,
     parent: this,
     level: this.level + 1,
     buffered: maybeBuffered,
@@ -537,6 +558,11 @@ Parser.prototype._parse = function (line) {
     else if (this.yind)
       line = this.yind + line
   }
+
+  // If we're bailing out, then the only thing we want to see is the
+  // end of a buffered child test.  Anything else should be ignored.
+  if (this.bailingOut && !/^\s*}\n$/.test(line))
+    return
 
   // This allows omitting even parsing the version if the test is
   // an indented child test.  Several parsers get upset when they
@@ -608,7 +634,7 @@ Parser.prototype._parse = function (line) {
 
   // ok, now it's maybe a thing
   if (type[0] === 'bailout') {
-    this.bailout(type[1][1].trim())
+    this.bailout(type[1][1].trim(), false)
     return
   }
 
