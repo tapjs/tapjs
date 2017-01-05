@@ -8,10 +8,6 @@
     13
   ],
   [
-    "line",
-    "    1..2\n"
-  ],
-  [
     "child",
     [
       [
@@ -28,10 +24,6 @@
           "start": 1,
           "end": 2
         }
-      ],
-      [
-        "line",
-        "    1..2\n"
       ],
       [
         "child",
@@ -99,6 +91,10 @@
       ],
       [
         "line",
+        "    1..2\n"
+      ],
+      [
+        "line",
         "    ok 1 - true is ok\n"
       ],
       [
@@ -108,10 +104,6 @@
       [
         "line",
         "ok 1 - first # time=11.345ms\n"
-      ],
-      [
-        "line",
-        "    ok 1 - but that is ok\n"
       ],
       [
         "assert",
@@ -200,6 +192,10 @@
       ],
       [
         "line",
+        "    ok 1 - but that is ok\n"
+      ],
+      [
+        "line",
         "    ok 2 - this passes\n"
       ],
       [
@@ -244,6 +240,10 @@
         }
       ]
     ]
+  ],
+  [
+    "line",
+    "    1..2\n"
   ],
   [
     "line",

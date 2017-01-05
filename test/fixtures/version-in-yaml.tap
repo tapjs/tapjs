@@ -1,0 +1,45 @@
+TAP version 13
+    # Subtest: child indented
+    not ok - some yaml
+      ---
+      version: |-
+
+        TAP version 13
+
+      ...
+    1..1
+not ok 1 - child indented
+
+# Subtest: child unindented
+    not ok - some yaml
+      ---
+      version: |-
+
+        TAP version 13
+
+      ...
+    1..1
+not ok 2 - child unindented
+
+    not ok - some yaml
+      ---
+      version: |-
+
+        TAP version 13
+
+      ...
+    1..1
+not ok 3 - child unnamed
+
+not ok 4 - child buffered {
+    not ok - some yaml
+      ---
+      version: |-
+
+        TAP version 13
+
+      ...
+    1..1
+}
+
+1..4

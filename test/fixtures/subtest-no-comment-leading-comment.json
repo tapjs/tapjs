@@ -12,10 +12,6 @@
     "# Subtest: ../tap/test/test/ok.js\n"
   ],
   [
-    "line",
-    "            1..2\n"
-  ],
-  [
     "child",
     [
       [
@@ -23,19 +19,11 @@
         "# Subtest: ../tap/test/test/ok.js\n"
       ],
       [
-        "line",
-        "        1..2\n"
-      ],
-      [
         "child",
         [
           [
             "comment",
             "# Subtest: (anonymous)\n"
-          ],
-          [
-            "line",
-            "    1..2\n"
           ],
           [
             "child",
@@ -103,6 +91,10 @@
           ],
           [
             "line",
+            "    1..2\n"
+          ],
+          [
+            "line",
             "    ok 1 - true is ok\n"
           ],
           [
@@ -112,10 +104,6 @@
           [
             "line",
             "ok 1 - first # time=8.987ms\n"
-          ],
-          [
-            "line",
-            "    ok 1 - but that is ok\n"
           ],
           [
             "assert",
@@ -204,6 +192,10 @@
           ],
           [
             "line",
+            "    ok 1 - but that is ok\n"
+          ],
+          [
+            "line",
             "    ok 2 - this passes\n"
           ],
           [
@@ -259,6 +251,10 @@
             }
           ]
         ]
+      ],
+      [
+        "line",
+        "        1..2\n"
       ],
       [
         "line",
@@ -353,6 +349,10 @@
         }
       ]
     ]
+  ],
+  [
+    "line",
+    "            1..2\n"
   ],
   [
     "line",

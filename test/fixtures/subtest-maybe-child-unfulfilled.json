@@ -20,10 +20,6 @@
     "# just a comment\n"
   ],
   [
-    "line",
-    "    # Subtest: fake\n"
-  ],
-  [
     "child",
     [
       [
@@ -45,10 +41,6 @@
       [
         "line",
         "# Subtest: y\n"
-      ],
-      [
-        "line",
-        "    ok 1 - ypoint\n"
       ],
       [
         "assert",
@@ -112,6 +104,10 @@
       ],
       [
         "line",
+        "    ok 1 - ypoint\n"
+      ],
+      [
+        "line",
         "    1..1\n"
       ],
       [
@@ -158,6 +154,10 @@
         }
       ]
     ]
+  ],
+  [
+    "line",
+    "    # Subtest: fake\n"
   ],
   [
     "line",

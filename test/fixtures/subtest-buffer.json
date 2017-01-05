@@ -12,10 +12,6 @@
     "ok 1 - nesting {\n"
   ],
   [
-    "line",
-    "    1..2\n"
-  ],
-  [
     "child",
     [
       [
@@ -36,10 +32,6 @@
       [
         "line",
         "ok 1 - first {\n"
-      ],
-      [
-        "line",
-        "    1..2\n"
       ],
       [
         "child",
@@ -107,6 +99,10 @@
       ],
       [
         "line",
+        "    1..2\n"
+      ],
+      [
+        "line",
         "    ok 1 - true is ok\n"
       ],
       [
@@ -128,10 +124,6 @@
       [
         "line",
         "ok 2 - second {\n"
-      ],
-      [
-        "line",
-        "    ok 1 - but that is ok\n"
       ],
       [
         "child",
@@ -211,6 +203,10 @@
       ],
       [
         "line",
+        "    ok 1 - but that is ok\n"
+      ],
+      [
+        "line",
         "    ok 2 - this passes\n"
       ],
       [
@@ -254,6 +250,10 @@
         }
       ]
     ]
+  ],
+  [
+    "line",
+    "    1..2\n"
   ],
   [
     "line",

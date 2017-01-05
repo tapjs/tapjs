@@ -12,10 +12,6 @@
     "# Subtest: my_streamy_test\n"
   ],
   [
-    "line",
-    "    ok 1 - subtest event A\n"
-  ],
-  [
     "child",
     [
       [
@@ -81,6 +77,10 @@
   ],
   [
     "line",
+    "    ok 1 - subtest event A\n"
+  ],
+  [
+    "line",
     "    ok 2 - subtest event B\n"
   ],
   [
@@ -94,10 +94,6 @@
   [
     "line",
     "# Subtest: my_streamy_test_plan\n"
-  ],
-  [
-    "line",
-    "    1..2\n"
   ],
   [
     "assert",
@@ -170,6 +166,10 @@
         }
       ]
     ]
+  ],
+  [
+    "line",
+    "    1..2\n"
   ],
   [
     "line",

@@ -12,10 +12,6 @@
     "ok 1 - tbd # TODO foo {\n"
   ],
   [
-    "line",
-    "    ok 1\n"
-  ],
-  [
     "child",
     [
       [
@@ -68,6 +64,10 @@
   ],
   [
     "line",
+    "    ok 1\n"
+  ],
+  [
+    "line",
     "    1..1\n"
   ],
   [
@@ -86,10 +86,6 @@
   [
     "line",
     "ok 2 - skippy # skip {\n"
-  ],
-  [
-    "line",
-    "    ok 1\n"
   ],
   [
     "child",
@@ -141,6 +137,10 @@
         }
       ]
     ]
+  ],
+  [
+    "line",
+    "    ok 1\n"
   ],
   [
     "line",

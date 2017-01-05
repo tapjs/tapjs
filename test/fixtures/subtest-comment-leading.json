@@ -20,10 +20,6 @@
     "# Subtest: nesting\n"
   ],
   [
-    "line",
-    "    # Subtest: first\n"
-  ],
-  [
     "child",
     [
       [
@@ -33,10 +29,6 @@
       [
         "line",
         "# Subtest: first\n"
-      ],
-      [
-        "line",
-        "    1..2\n"
       ],
       [
         "child",
@@ -104,6 +96,10 @@
       ],
       [
         "line",
+        "    1..2\n"
+      ],
+      [
+        "line",
         "    ok 1 - true is ok\n"
       ],
       [
@@ -117,10 +113,6 @@
       [
         "line",
         "# Subtest: second\n"
-      ],
-      [
-        "line",
-        "    ok 1 - but that is ok\n"
       ],
       [
         "assert",
@@ -209,6 +201,10 @@
       ],
       [
         "line",
+        "    ok 1 - but that is ok\n"
+      ],
+      [
+        "line",
         "    ok 2 - this passes\n"
       ],
       [
@@ -264,6 +260,10 @@
         }
       ]
     ]
+  ],
+  [
+    "line",
+    "    # Subtest: first\n"
   ],
   [
     "line",

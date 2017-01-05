@@ -14,7 +14,7 @@ var data = [
   '',
   '# passed 1 of 1 tests',
   ''
-].join('\n')
+]
 
 t.test('preserve whitespace', function (t) {
   var p = new Parser({ preserveWhitespace: true })
@@ -23,10 +23,10 @@ t.test('preserve whitespace', function (t) {
     lines.push(l)
   })
   p.on('complete', function () {
-    t.equal(lines.join(''), data)
+    t.same(lines.join('').split('\n'), data)
     t.end()
   })
-  p.end(data)
+  p.end(data.join('\n'))
 })
 
 t.test('drop whitespace', function (t) {
@@ -36,10 +36,10 @@ t.test('drop whitespace', function (t) {
     lines.push(l)
   })
   p.on('complete', function () {
-    t.equal(lines.join(''), data.split('\n').filter(function (line) {
+    t.equal(lines.join(''), data.filter(function (line) {
       return line.trim()
     }).join('\n') + '\n')
     t.end()
   })
-  p.end(data)
+  p.end(data.join('\n'))
 })

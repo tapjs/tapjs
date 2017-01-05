@@ -20,10 +20,6 @@
     "ok 1 - x1 {\n"
   ],
   [
-    "line",
-    "    ok 1 - y {\n"
-  ],
-  [
     "child",
     [
       [
@@ -33,10 +29,6 @@
       [
         "line",
         "ok 1 - y {\n"
-      ],
-      [
-        "line",
-        "    ok 1 - ypoint\n"
       ],
       [
         "child",
@@ -89,6 +81,10 @@
             }
           ]
         ]
+      ],
+      [
+        "line",
+        "    ok 1 - ypoint\n"
       ],
       [
         "line",
@@ -141,6 +137,10 @@
   ],
   [
     "line",
+    "    ok 1 - y {\n"
+  ],
+  [
+    "line",
     "        ok 1 - ypoint\n"
   ],
   [
@@ -172,10 +172,6 @@
     "ok 2 - x2 {\n"
   ],
   [
-    "line",
-    "    # Subtest: y\n"
-  ],
-  [
     "child",
     [
       [
@@ -185,10 +181,6 @@
       [
         "line",
         "# Subtest: y\n"
-      ],
-      [
-        "line",
-        "    ok 1 - ypoint\n"
       ],
       [
         "child",
@@ -244,6 +236,10 @@
       ],
       [
         "line",
+        "    ok 1 - ypoint\n"
+      ],
+      [
+        "line",
         "    1..1\n"
       ],
       [
@@ -293,6 +289,10 @@
   ],
   [
     "line",
+    "    # Subtest: y\n"
+  ],
+  [
+    "line",
     "        ok 1 - ypoint\n"
   ],
   [
@@ -322,10 +322,6 @@
   [
     "line",
     "ok 3 - x3 {\n"
-  ],
-  [
-    "line",
-    "        # Subtest: y\n"
   ],
   [
     "child",
@@ -445,6 +441,10 @@
   ],
   [
     "line",
+    "        # Subtest: y\n"
+  ],
+  [
+    "line",
     "        ok 1 - ypoint\n"
   ],
   [
@@ -476,10 +476,6 @@
     "# Subtest: x4\n"
   ],
   [
-    "line",
-    "    ok 1 - y {\n"
-  ],
-  [
     "child",
     [
       [
@@ -489,10 +485,6 @@
       [
         "line",
         "ok 1 - y {\n"
-      ],
-      [
-        "line",
-        "    ok 1 - ypoint\n"
       ],
       [
         "child",
@@ -545,6 +537,10 @@
             }
           ]
         ]
+      ],
+      [
+        "line",
+        "    ok 1 - ypoint\n"
       ],
       [
         "line",
@@ -597,6 +593,10 @@
   ],
   [
     "line",
+    "    ok 1 - y {\n"
+  ],
+  [
+    "line",
     "        ok 1 - ypoint\n"
   ],
   [
@@ -620,10 +620,6 @@
     "# Subtest: x5\n"
   ],
   [
-    "line",
-    "    # Subtest: y\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
@@ -641,10 +637,6 @@
       [
         "line",
         "# Subtest: y\n"
-      ],
-      [
-        "line",
-        "    ok 1 - ypoint\n"
       ],
       [
         "child",
@@ -700,6 +692,10 @@
       ],
       [
         "line",
+        "    ok 1 - ypoint\n"
+      ],
+      [
+        "line",
         "    1..1\n"
       ],
       [
@@ -749,6 +745,10 @@
   ],
   [
     "line",
+    "    # Subtest: y\n"
+  ],
+  [
+    "line",
     "        ok 1 - ypoint\n"
   ],
   [
@@ -770,10 +770,6 @@
   [
     "line",
     "# Subtest: x6\n"
-  ],
-  [
-    "line",
-    "        # Subtest: y\n"
   ],
   [
     "assert",
@@ -901,6 +897,10 @@
   ],
   [
     "line",
+    "        # Subtest: y\n"
+  ],
+  [
+    "line",
     "        ok 1 - ypoint\n"
   ],
   [
@@ -941,10 +941,6 @@
       [
         "line",
         "ok 1 - y {\n"
-      ],
-      [
-        "line",
-        "    ok 1 - ypoint\n"
       ],
       [
         "child",
@@ -997,6 +993,10 @@
             }
           ]
         ]
+      ],
+      [
+        "line",
+        "    ok 1 - ypoint\n"
       ],
       [
         "line",
@@ -1095,10 +1095,6 @@
         "# Subtest: y\n"
       ],
       [
-        "line",
-        "    ok 1 - ypoint\n"
-      ],
-      [
         "child",
         [
           [
@@ -1149,6 +1145,10 @@
             }
           ]
         ]
+      ],
+      [
+        "line",
+        "    ok 1 - ypoint\n"
       ],
       [
         "line",

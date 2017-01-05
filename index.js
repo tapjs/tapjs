@@ -124,6 +124,7 @@ function Parser (options, onComplete) {
   this.bailingOut = false
   this.bailedOut = false
   this.syntheticBailout = false
+  this.syntheticPlan = false
   this.omitVersion = !!options.omitVersion
   this.planStart = -1
   this.planEnd = -1
@@ -319,7 +320,7 @@ Parser.prototype.end = function (chunk, encoding, cb) {
 
   this.emitResult()
 
-  if (this.syntheticBailout) {
+  if (this.syntheticBailout && this.level === 0) {
     var reason = this.bailedOut
     if (reason === true)
       reason = ''
@@ -339,6 +340,7 @@ Parser.prototype.end = function (chunk, encoding, cb) {
     }
   } else if (!this.bailedOut && this.planStart === -1) {
     if (this.count === 0) {
+      this.syntheticPlan = true
       this.emit('line', '1..0\n')
       this.plan(1, 0, '', '1..0\n')
       skipAll = true
@@ -489,6 +491,9 @@ Parser.prototype.startChild = function (line) {
     lineTypes.subtestIndent.test(line)
   var unnamed = !maybeBuffered && !unindentStream && !indentStream
 
+  if (indentStream)
+    this.emit('line', line)
+
   // If we have any other result waiting in the wings, we need to emit
   // that now.  A buffered test emits its test point at the *end* of
   // the child subtest block, so as to match streamed test semantics.
@@ -509,6 +514,15 @@ Parser.prototype.startChild = function (line) {
   this.child.on('complete', function (results) {
     if (!results.ok)
       self.ok = false
+  })
+
+  this.child.on('line', function (l) {
+    if (this.syntheticPlan)
+      return
+
+    if (l.trim() || self.preserveWhitespace)
+      l = '    ' + l
+    self.emit('line', l)
   })
 
   // Canonicalize the parsing result of any kind of subtest
@@ -567,21 +581,7 @@ Parser.prototype._parse = function (line) {
   // This allows omitting even parsing the version if the test is
   // an indented child test.  Several parsers get upset when they
   // see an indented version field.
-  if (this.omitVersion && lineTypes.version.test(line))
-    return
-
-  // likewise, we ALWAYS skip the version for child tests.
-  if (lineTypes.childVersion.test(line))
-    return
-
-  // this is a line we are processing, so emit it
-  if (this.preserveWhitespace || line.trim() || this.yind)
-    this.emit('line', line)
-
-  if (this.bailedOut)
-    return
-
-  if (line === '\n')
+  if (this.omitVersion && lineTypes.version.test(line) && !this.yind)
     return
 
   // check to see if the line is indented.
@@ -591,6 +591,13 @@ Parser.prototype._parse = function (line) {
     this.parseIndent(line, indent)
     return
   }
+
+  // this is a line we are processing, so emit it
+  if (this.preserveWhitespace || line.trim() || this.yind)
+    this.emit('line', line)
+
+  if (line === '\n')
+    return
 
   // buffered subtests must end with a }
   if (this.child && this.child.buffered && line === '}\n') {
@@ -705,6 +712,7 @@ Parser.prototype.parseIndent = function (line, indent) {
   // continuing/ending yaml block
   if (this.yind) {
     if (line.indexOf(this.yind) === 0) {
+      this.emit('line', line)
       this.yamlishLine(line)
       return
     } else {
@@ -719,6 +727,7 @@ Parser.prototype.parseIndent = function (line, indent) {
   // start a yaml block under a test point
   if (this.current && !this.yind && line === indent + '---\n') {
     this.yind = indent
+    this.emit('line', line)
     return
   }
 
@@ -753,6 +762,7 @@ Parser.prototype.parseIndent = function (line, indent) {
       var type = lineType(s[2])
       if (type) {
         if (type[0] === 'comment') {
+          this.emit('line', line)
           this.emitComment(line)
         } else {
           // it's relevant!  start as an "unnamed" child subtest
@@ -764,6 +774,8 @@ Parser.prototype.parseIndent = function (line, indent) {
   }
 
   // at this point, it's either a non-subtest comment, or garbage.
+  this.emit('line', line)
+
   if (lineTypes.comment.test(line)) {
     this.emitComment(line)
     return
