@@ -17,6 +17,8 @@ is not met, so that the plan can be more easily debugged.
 (Diagnostics are still excluded for the additional "missing test"
 failures that are generated, to reduce unnecessary noise.)
 
+Make coverage MUCH FASTER by turning on nyc caching.
+
 ## 7.1
 
 Remove a race condition in how `Bail out!` messages got printed when
