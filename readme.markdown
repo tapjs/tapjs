@@ -89,6 +89,14 @@ If `options` is given, it may contain the following flags:
   `pragma +strict` line in the TAP data to turn strictness on, or
   `pragma -strict` to turn strictness off.
 
+- `bail` boolean which is `false` by default and will cause the parser
+  to bail out (including emitting a synthetic `Bail out!` line)
+  whenever a failed test point is encountered.
+
+- `omitVersion` boolean which is `false` by default and will cause the
+  parser to ignore `TAP version 13` lines.  Version lines in subtests
+  cause problems with some parsers, so they are always ignored.
+
 The `parent`, `level` and `buffered` options are reserved for internal
 use.
 
