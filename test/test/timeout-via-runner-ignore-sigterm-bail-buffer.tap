@@ -9,8 +9,8 @@ not ok 1 - child {
       ---
       {"at":{"column":5,"file":"test/test/timeout-via-runner-ignore-sigterm.js","line":19},"failure":"timeout","timeout":1000}
       ...
-    
-    1..4 # timeout
+    Bail out! # timeout
 }
-Bail out! # child
+
+Bail out! # timeout
 

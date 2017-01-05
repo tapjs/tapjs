@@ -19,7 +19,6 @@ not ok 1 - bail fail {
                 Bail out! # nested failure
             }
         }
-        
         Bail out! # nested failure
     }
 }
