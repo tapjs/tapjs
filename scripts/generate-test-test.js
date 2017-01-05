@@ -30,8 +30,8 @@ function generate (file, bail, buffer) {
   }
 
   var outfile = file.replace(/\.js$/,
-   (bail ? '-bail' : '') +
-   (buffer ? '-buffer' : '') +
+   (bail ? '--bail' : '') +
+   (buffer ? '--buffer' : '') +
    '.tap')
   console.error(outfile)
 

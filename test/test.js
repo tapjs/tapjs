@@ -78,8 +78,8 @@ function runTests (file, bail, buffer) {
 
 function runTest (t, bail, buffer, file) {
   var resfile = file.replace(/\.js$/,
-   (bail ? '-bail' : '') +
-   (buffer ? '-buffer' : '') +
+   (bail ? '--bail' : '') +
+   (buffer ? '--buffer' : '') +
    '.tap')
   var want = fs.readFileSync(resfile, 'utf8').split(/\r?\n/)
 
