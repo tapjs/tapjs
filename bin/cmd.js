@@ -6,6 +6,14 @@ var util = require('util')
 
 var args = process.argv.slice(2)
 var json = null
+var bail = false
+var preserveWhitespace = true
+var omitVersion = false
+
+function version () {
+  console.log(require('../package.json').version)
+  process.exit(0)
+}
 
 args.forEach(function (arg, i) {
   if (arg === '-j') {
@@ -16,31 +24,52 @@ args.forEach(function (arg, i) {
       json = +m[1] || args[i + 1] || 2
   }
 
-  if (arg === '-t' || arg === '--tap')
+  if (arg === '-v' || arg === '--version')
+    version()
+  else if (arg === '-o' || arg === '--omit-version')
+    omitVersion = true
+  else if (arg === '-w' || arg === '--ignore-all-whitespace')
+    preserveWhitespace = false
+  else if (arg === '-b' || arg === '--bail')
+    bail = true
+  else if (arg === '-t' || arg === '--tap')
     json = 'tap'
-
-  if (arg === '-h' || arg === '--help')
+  else if (arg === '-l' || arg === '--lines')
+    json = 'lines'
+  else if (arg === '-h' || arg === '--help')
     usage()
+  else
+    console.error('Unrecognized arg: %j', arg)
 })
 
 function usage () {
   console.log(function () {/*
 Usage:
-  tap-parser [-j [<indent>] | --json[=indent] | -t | --tap]
+  tap-parser <options>
 
-Parses TAP data from stdin, and outputs an object representing
-the data found in the TAP stream to stdout.
+Parses TAP data from stdin, and outputs the parsed result
+in the format specified by the options.  Default output is
+uses node's `util.format()` method.
 
-If there are any failures in the TAP stream, then exits with a
-non-zero status code.
+Options:
 
-Data is output by default using node's `util.format()` method, but
-JSON can be specified using the `-j` or `--json` flag with a number
-of spaces to use as the indent (default=2).
+  -j [<indent>] | --json[=indent]
+    Output event data as JSON with the specified indentation (default=2)
 
-If you pass -t or --tap as an argument, then the output will be a
-re-imagined synthesized purified idealized manufactured TAP stream,
-rather than JSON or util.format.
+  -t | --tap
+    Output data as reconstituted TAP based on parsed results
+
+  -l | --lines
+    Output each parsed line as it is recognized by the parser
+
+  -b | --bail
+    Emit a `Bail out!` at the first failed test point encountered
+
+  -w | --ignore-all-whitespace
+    Skip over blank lines outside of YAML blocks
+
+  -o | --omit-version
+    Ignore the `TAP version 13` line at the start of tests
 */}.toString().split('\n').slice(1, -1).join('\n'))
 
   if (!process.stdin.isTTY)
@@ -104,12 +133,23 @@ function format (msg) {
     return util.inspect(events, null, Infinity)
 }
 
-var parser = new Parser()
+var options = {
+  bail: bail,
+  preserveWhitespace: preserveWhitespace,
+  omitVersion: omitVersion
+}
+
+var parser = new Parser(options)
 var events = etoa(parser, [ 'pipe', 'unpipe', 'prefinish', 'finish', 'line' ])
 
 process.stdin.pipe(parser)
-process.on('exit', function () {
-  console.log(format(events))
-  if (!parser.ok)
-    process.exit(1)
-})
+if (json === 'lines')
+  parser.on('line', function (l) {
+    process.stdout.write(l)
+  })
+else
+  process.on('exit', function () {
+    console.log(format(events))
+    if (!parser.ok)
+      process.exit(1)
+  })

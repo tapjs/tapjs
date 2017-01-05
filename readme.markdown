@@ -51,17 +51,31 @@ This package also has a `tap-parser` command.
 
 ```
 Usage:
-  tap-parser [-j [<indent>] | --json[=indent]]
+  tap-parser <options>
 
-Parses TAP data from stdin, and outputs an object representing
-the data found in the TAP stream to stdout.
+Parses TAP data from stdin, and outputs the parsed result
+in the format specified by the options.  Default output is
+uses node's `util.format()` method.
 
-If there are any failures in the TAP stream, then exits with a
-non-zero status code.
+Options:
 
-Data is output by default using node's `util.format()` method, but
-JSON can be specified using the `-j` or `--json` flag with a number
-of spaces to use as the indent (default=2).
+  -j [<indent>] | --json[=indent]
+    Output event data as JSON with the specified indentation (default=2)
+
+  -t | --tap
+    Output data as reconstituted TAP based on parsed results
+
+  -l | --lines
+    Output each parsed line as it is recognized by the parser
+
+  -b | --bail
+    Emit a `Bail out!` at the first failed test point encountered
+
+  -w | --ignore-all-whitespace
+    Skip over blank lines outside of YAML blocks
+
+  -o | --omit-version
+    Ignore the `TAP version 13` line at the start of tests
 ```
 
 # methods
