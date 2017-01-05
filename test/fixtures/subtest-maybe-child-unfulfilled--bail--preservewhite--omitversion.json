@@ -1,0 +1,221 @@
+[
+  [
+    "line",
+    "# Subtest: x\n"
+  ],
+  [
+    "line",
+    "# just a comment\n"
+  ],
+  [
+    "comment",
+    "# just a comment\n"
+  ],
+  [
+    "child",
+    [
+      [
+        "comment",
+        "# Subtest: x\n"
+      ],
+      [
+        "line",
+        "# Subtest: fake\n"
+      ],
+      [
+        "line",
+        "ok 1 - not a subtest\n"
+      ],
+      [
+        "comment",
+        "# Subtest: fake\n"
+      ],
+      [
+        "line",
+        "# Subtest: y\n"
+      ],
+      [
+        "assert",
+        {
+          "ok": true,
+          "id": 1,
+          "name": "not a subtest"
+        }
+      ],
+      [
+        "child",
+        [
+          [
+            "comment",
+            "# Subtest: y\n"
+          ],
+          [
+            "line",
+            "ok 1 - ypoint\n"
+          ],
+          [
+            "line",
+            "1..1\n"
+          ],
+          [
+            "assert",
+            {
+              "ok": true,
+              "id": 1,
+              "name": "ypoint"
+            }
+          ],
+          [
+            "plan",
+            {
+              "start": 1,
+              "end": 1
+            }
+          ],
+          [
+            "complete",
+            {
+              "ok": true,
+              "count": 1,
+              "pass": 1,
+              "fail": 0,
+              "bailout": false,
+              "todo": 0,
+              "skip": 0,
+              "plan": {
+                "start": 1,
+                "end": 1,
+                "skipAll": false,
+                "skipReason": "",
+                "comment": ""
+              },
+              "failures": []
+            }
+          ]
+        ]
+      ],
+      [
+        "line",
+        "    ok 1 - ypoint\n"
+      ],
+      [
+        "line",
+        "    1..1\n"
+      ],
+      [
+        "line",
+        "ok 2 - y\n"
+      ],
+      [
+        "line",
+        "1..2\n"
+      ],
+      [
+        "assert",
+        {
+          "ok": true,
+          "id": 2,
+          "name": "y"
+        }
+      ],
+      [
+        "plan",
+        {
+          "start": 1,
+          "end": 2
+        }
+      ],
+      [
+        "complete",
+        {
+          "ok": true,
+          "count": 2,
+          "pass": 2,
+          "fail": 0,
+          "bailout": false,
+          "todo": 0,
+          "skip": 0,
+          "plan": {
+            "start": 1,
+            "end": 2,
+            "skipAll": false,
+            "skipReason": "",
+            "comment": ""
+          },
+          "failures": []
+        }
+      ]
+    ]
+  ],
+  [
+    "line",
+    "    # Subtest: fake\n"
+  ],
+  [
+    "line",
+    "    ok 1 - not a subtest\n"
+  ],
+  [
+    "line",
+    "    # Subtest: y\n"
+  ],
+  [
+    "line",
+    "        ok 1 - ypoint\n"
+  ],
+  [
+    "line",
+    "        1..1\n"
+  ],
+  [
+    "line",
+    "    ok 2 - y\n"
+  ],
+  [
+    "line",
+    "    1..2\n"
+  ],
+  [
+    "line",
+    "ok 1 - x\n"
+  ],
+  [
+    "line",
+    "1..1\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 1,
+      "name": "x"
+    }
+  ],
+  [
+    "plan",
+    {
+      "start": 1,
+      "end": 1
+    }
+  ],
+  [
+    "complete",
+    {
+      "ok": true,
+      "count": 1,
+      "pass": 1,
+      "fail": 0,
+      "bailout": false,
+      "todo": 0,
+      "skip": 0,
+      "plan": {
+        "start": 1,
+        "end": 1,
+        "skipAll": false,
+        "skipReason": "",
+        "comment": ""
+      },
+      "failures": []
+    }
+  ]
+]

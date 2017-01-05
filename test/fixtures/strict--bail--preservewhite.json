@@ -1,0 +1,92 @@
+[
+  [
+    "line",
+    "TAP version 13\n"
+  ],
+  [
+    "version",
+    13
+  ],
+  [
+    "line",
+    "1..1\n"
+  ],
+  [
+    "plan",
+    {
+      "start": 1,
+      "end": 1
+    }
+  ],
+  [
+    "line",
+    "pragma +strict\n"
+  ],
+  [
+    "pragma",
+    "strict",
+    true
+  ],
+  [
+    "line",
+    "Nonsense!\n"
+  ],
+  [
+    "extra",
+    "Nonsense!\n"
+  ],
+  [
+    "line",
+    "pragma -strict\n"
+  ],
+  [
+    "pragma",
+    "strict",
+    false
+  ],
+  [
+    "line",
+    "Doesn't matter.\n"
+  ],
+  [
+    "extra",
+    "Doesn't matter.\n"
+  ],
+  [
+    "line",
+    "ok 1 All OK\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 1,
+      "name": "All OK"
+    }
+  ],
+  [
+    "complete",
+    {
+      "ok": false,
+      "count": 1,
+      "pass": 1,
+      "fail": 1,
+      "bailout": false,
+      "todo": 0,
+      "skip": 0,
+      "plan": {
+        "start": 1,
+        "end": 1,
+        "skipAll": false,
+        "skipReason": "",
+        "comment": ""
+      },
+      "failures": [
+        {
+          "tapError": "Non-TAP data encountered in strict mode",
+          "data": "Nonsense!\n"
+        }
+      ]
+    }
+  ]
+]

@@ -1,0 +1,116 @@
+[
+  [
+    "line",
+    "ok 1 - retrieving servers from the database\n"
+  ],
+  [
+    "line",
+    "# need to ping 6 servers\n"
+  ],
+  [
+    "line",
+    "ok 2 - pinged diamond\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 1,
+      "name": "retrieving servers from the database"
+    }
+  ],
+  [
+    "comment",
+    "# need to ping 6 servers\n"
+  ],
+  [
+    "line",
+    "ok 3 - pinged ruby\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 2,
+      "name": "pinged diamond"
+    }
+  ],
+  [
+    "line",
+    "not ok 4 - pinged saphire\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 3,
+      "name": "pinged ruby"
+    }
+  ],
+  [
+    "line",
+    "  ---\n"
+  ],
+  [
+    "line",
+    "  message: 'hostname \"saphire\" unknown'\n"
+  ],
+  [
+    "line",
+    "  severity: fail\n"
+  ],
+  [
+    "line",
+    "  ...\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": false,
+      "id": 4,
+      "name": "pinged saphire",
+      "diag": {
+        "message": "hostname \"saphire\" unknown",
+        "severity": "fail"
+      }
+    }
+  ],
+  [
+    "line",
+    "Bail out! # pinged saphire\n"
+  ],
+  [
+    "bailout",
+    "# pinged saphire"
+  ],
+  [
+    "complete",
+    {
+      "ok": false,
+      "count": 4,
+      "pass": 3,
+      "fail": 1,
+      "bailout": "# pinged saphire",
+      "todo": 0,
+      "skip": 0,
+      "plan": {
+        "start": null,
+        "end": null,
+        "skipAll": false,
+        "skipReason": "",
+        "comment": ""
+      },
+      "failures": [
+        {
+          "ok": false,
+          "id": 4,
+          "name": "pinged saphire",
+          "diag": {
+            "message": "hostname \"saphire\" unknown",
+            "severity": "fail"
+          }
+        }
+      ]
+    }
+  ]
+]

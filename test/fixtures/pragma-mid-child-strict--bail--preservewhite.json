@@ -1,0 +1,137 @@
+[
+  [
+    "line",
+    "tap version 13\n"
+  ],
+  [
+    "version",
+    13
+  ],
+  [
+    "line",
+    "pragma +strict\n"
+  ],
+  [
+    "pragma",
+    "strict",
+    true
+  ],
+  [
+    "line",
+    "1..1\n"
+  ],
+  [
+    "plan",
+    {
+      "start": 1,
+      "end": 1
+    }
+  ],
+  [
+    "line",
+    "    # Subtest\n"
+  ],
+  [
+    "child",
+    [
+      [
+        "comment",
+        "# Subtest\n"
+      ],
+      [
+        "line",
+        "1..1\n"
+      ],
+      [
+        "plan",
+        {
+          "start": 1,
+          "end": 1
+        }
+      ],
+      [
+        "line",
+        "ok\n"
+      ],
+      [
+        "assert",
+        {
+          "ok": true,
+          "id": 1
+        }
+      ],
+      [
+        "complete",
+        {
+          "ok": true,
+          "count": 1,
+          "pass": 1,
+          "fail": 0,
+          "bailout": false,
+          "todo": 0,
+          "skip": 0,
+          "plan": {
+            "start": 1,
+            "end": 1,
+            "skipAll": false,
+            "skipReason": "",
+            "comment": ""
+          },
+          "failures": []
+        }
+      ]
+    ]
+  ],
+  [
+    "line",
+    "    1..1\n"
+  ],
+  [
+    "line",
+    "pragma +strict\n"
+  ],
+  [
+    "extra",
+    "pragma +strict\n"
+  ],
+  [
+    "line",
+    "    ok\n"
+  ],
+  [
+    "line",
+    "ok\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 1
+    }
+  ],
+  [
+    "complete",
+    {
+      "ok": false,
+      "count": 1,
+      "pass": 1,
+      "fail": 1,
+      "bailout": false,
+      "todo": 0,
+      "skip": 0,
+      "plan": {
+        "start": 1,
+        "end": 1,
+        "skipAll": false,
+        "skipReason": "",
+        "comment": ""
+      },
+      "failures": [
+        {
+          "tapError": "Non-TAP data encountered in strict mode",
+          "data": "pragma +strict\n"
+        }
+      ]
+    }
+  ]
+]

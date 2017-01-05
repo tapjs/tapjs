@@ -1,0 +1,172 @@
+[
+  [
+    "line",
+    "tap version 13\n"
+  ],
+  [
+    "version",
+    13
+  ],
+  [
+    "line",
+    "1..2\n"
+  ],
+  [
+    "plan",
+    {
+      "start": 1,
+      "end": 2
+    }
+  ],
+  [
+    "line",
+    "1..2\n"
+  ],
+  [
+    "extra",
+    "1..2\n"
+  ],
+  [
+    "line",
+    "ok subtest {\n"
+  ],
+  [
+    "child",
+    [
+      [
+        "comment",
+        "# Subtest: subtest\n"
+      ],
+      [
+        "line",
+        "1..1\n"
+      ],
+      [
+        "plan",
+        {
+          "start": 1,
+          "end": 1
+        }
+      ],
+      [
+        "line",
+        "ok\n"
+      ],
+      [
+        "assert",
+        {
+          "ok": true,
+          "id": 1
+        }
+      ],
+      [
+        "complete",
+        {
+          "ok": true,
+          "count": 1,
+          "pass": 1,
+          "fail": 0,
+          "bailout": false,
+          "todo": 0,
+          "skip": 0,
+          "plan": {
+            "start": 1,
+            "end": 1,
+            "skipAll": false,
+            "skipReason": "",
+            "comment": ""
+          },
+          "failures": []
+        }
+      ]
+    ]
+  ],
+  [
+    "line",
+    "    1..1\n"
+  ],
+  [
+    "line",
+    "1..99\n"
+  ],
+  [
+    "line",
+    "    ok\n"
+  ],
+  [
+    "line",
+    "}\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 1,
+      "name": "subtest"
+    }
+  ],
+  [
+    "extra",
+    "1..99\n"
+  ],
+  [
+    "line",
+    "ok yaml\n"
+  ],
+  [
+    "line",
+    "  ---\n"
+  ],
+  [
+    "line",
+    "  ok: lamy\n"
+  ],
+  [
+    "line",
+    "1..99\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 2,
+      "name": "yaml"
+    }
+  ],
+  [
+    "extra",
+    "  ---\n  ok: lamy\n"
+  ],
+  [
+    "extra",
+    "1..99\n"
+  ],
+  [
+    "line",
+    "  ...\n"
+  ],
+  [
+    "extra",
+    "  ...\n"
+  ],
+  [
+    "complete",
+    {
+      "ok": true,
+      "count": 2,
+      "pass": 2,
+      "fail": 0,
+      "bailout": false,
+      "todo": 0,
+      "skip": 0,
+      "plan": {
+        "start": 1,
+        "end": 2,
+        "skipAll": false,
+        "skipReason": "",
+        "comment": ""
+      },
+      "failures": []
+    }
+  ]
+]

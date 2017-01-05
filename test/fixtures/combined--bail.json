@@ -1,0 +1,95 @@
+[
+  [
+    "line",
+    "1..10\n"
+  ],
+  [
+    "plan",
+    {
+      "start": 1,
+      "end": 10
+    }
+  ],
+  [
+    "line",
+    "ok 1\n"
+  ],
+  [
+    "line",
+    "ok 2 basset hounds got long ears\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 1
+    }
+  ],
+  [
+    "line",
+    "not ok 3        all hell broke loose\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 2,
+      "name": "basset hounds got long ears"
+    }
+  ],
+  [
+    "line",
+    "not ok 4  # TODO if I heard a voice from heaven ...\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": false,
+      "id": 3,
+      "name": "all hell broke loose"
+    }
+  ],
+  [
+    "line",
+    "Bail out! # all hell broke loose\n"
+  ],
+  [
+    "bailout",
+    "# all hell broke loose"
+  ],
+  [
+    "assert",
+    {
+      "ok": false,
+      "id": 4,
+      "todo": "if I heard a voice from heaven ...",
+      "name": ""
+    }
+  ],
+  [
+    "complete",
+    {
+      "ok": false,
+      "count": 4,
+      "pass": 2,
+      "fail": 2,
+      "bailout": "# all hell broke loose",
+      "todo": 1,
+      "skip": 0,
+      "plan": {
+        "start": 1,
+        "end": 10,
+        "skipAll": false,
+        "skipReason": "",
+        "comment": ""
+      },
+      "failures": [
+        {
+          "ok": false,
+          "id": 3,
+          "name": "all hell broke loose"
+        }
+      ]
+    }
+  ]
+]

@@ -1,0 +1,1417 @@
+[
+  [
+    "line",
+    "TAP version 13\n"
+  ],
+  [
+    "version",
+    13
+  ],
+  [
+    "line",
+    "# All of these should be semantically equivalent\n"
+  ],
+  [
+    "comment",
+    "# All of these should be semantically equivalent\n"
+  ],
+  [
+    "line",
+    "ok 1 - x1 {\n"
+  ],
+  [
+    "child",
+    [
+      [
+        "comment",
+        "# Subtest: x1\n"
+      ],
+      [
+        "line",
+        "ok 1 - y {\n"
+      ],
+      [
+        "child",
+        [
+          [
+            "comment",
+            "# Subtest: y\n"
+          ],
+          [
+            "line",
+            "ok 1 - ypoint\n"
+          ],
+          [
+            "line",
+            "1..1\n"
+          ],
+          [
+            "assert",
+            {
+              "ok": true,
+              "id": 1,
+              "name": "ypoint"
+            }
+          ],
+          [
+            "plan",
+            {
+              "start": 1,
+              "end": 1
+            }
+          ],
+          [
+            "complete",
+            {
+              "ok": true,
+              "count": 1,
+              "pass": 1,
+              "fail": 0,
+              "bailout": false,
+              "todo": 0,
+              "skip": 0,
+              "plan": {
+                "start": 1,
+                "end": 1,
+                "skipAll": false,
+                "skipReason": "",
+                "comment": ""
+              },
+              "failures": []
+            }
+          ]
+        ]
+      ],
+      [
+        "line",
+        "    ok 1 - ypoint\n"
+      ],
+      [
+        "line",
+        "    1..1\n"
+      ],
+      [
+        "line",
+        "}\n"
+      ],
+      [
+        "assert",
+        {
+          "ok": true,
+          "id": 1,
+          "name": "y"
+        }
+      ],
+      [
+        "line",
+        "1..1\n"
+      ],
+      [
+        "plan",
+        {
+          "start": 1,
+          "end": 1
+        }
+      ],
+      [
+        "complete",
+        {
+          "ok": true,
+          "count": 1,
+          "pass": 1,
+          "fail": 0,
+          "bailout": false,
+          "todo": 0,
+          "skip": 0,
+          "plan": {
+            "start": 1,
+            "end": 1,
+            "skipAll": false,
+            "skipReason": "",
+            "comment": ""
+          },
+          "failures": []
+        }
+      ]
+    ]
+  ],
+  [
+    "line",
+    "    ok 1 - y {\n"
+  ],
+  [
+    "line",
+    "        ok 1 - ypoint\n"
+  ],
+  [
+    "line",
+    "        1..1\n"
+  ],
+  [
+    "line",
+    "    }\n"
+  ],
+  [
+    "line",
+    "    1..1\n"
+  ],
+  [
+    "line",
+    "}\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 1,
+      "name": "x1"
+    }
+  ],
+  [
+    "line",
+    "ok 2 - x2 {\n"
+  ],
+  [
+    "child",
+    [
+      [
+        "comment",
+        "# Subtest: x2\n"
+      ],
+      [
+        "line",
+        "# Subtest: y\n"
+      ],
+      [
+        "child",
+        [
+          [
+            "comment",
+            "# Subtest: y\n"
+          ],
+          [
+            "line",
+            "ok 1 - ypoint\n"
+          ],
+          [
+            "line",
+            "1..1\n"
+          ],
+          [
+            "assert",
+            {
+              "ok": true,
+              "id": 1,
+              "name": "ypoint"
+            }
+          ],
+          [
+            "plan",
+            {
+              "start": 1,
+              "end": 1
+            }
+          ],
+          [
+            "complete",
+            {
+              "ok": true,
+              "count": 1,
+              "pass": 1,
+              "fail": 0,
+              "bailout": false,
+              "todo": 0,
+              "skip": 0,
+              "plan": {
+                "start": 1,
+                "end": 1,
+                "skipAll": false,
+                "skipReason": "",
+                "comment": ""
+              },
+              "failures": []
+            }
+          ]
+        ]
+      ],
+      [
+        "line",
+        "    ok 1 - ypoint\n"
+      ],
+      [
+        "line",
+        "    1..1\n"
+      ],
+      [
+        "line",
+        "ok 1 - y\n"
+      ],
+      [
+        "line",
+        "1..1\n"
+      ],
+      [
+        "assert",
+        {
+          "ok": true,
+          "id": 1,
+          "name": "y"
+        }
+      ],
+      [
+        "plan",
+        {
+          "start": 1,
+          "end": 1
+        }
+      ],
+      [
+        "complete",
+        {
+          "ok": true,
+          "count": 1,
+          "pass": 1,
+          "fail": 0,
+          "bailout": false,
+          "todo": 0,
+          "skip": 0,
+          "plan": {
+            "start": 1,
+            "end": 1,
+            "skipAll": false,
+            "skipReason": "",
+            "comment": ""
+          },
+          "failures": []
+        }
+      ]
+    ]
+  ],
+  [
+    "line",
+    "    # Subtest: y\n"
+  ],
+  [
+    "line",
+    "        ok 1 - ypoint\n"
+  ],
+  [
+    "line",
+    "        1..1\n"
+  ],
+  [
+    "line",
+    "    ok 1 - y\n"
+  ],
+  [
+    "line",
+    "    1..1\n"
+  ],
+  [
+    "line",
+    "}\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 2,
+      "name": "x2"
+    }
+  ],
+  [
+    "line",
+    "ok 3 - x3 {\n"
+  ],
+  [
+    "child",
+    [
+      [
+        "comment",
+        "# Subtest: x3\n"
+      ],
+      [
+        "line",
+        "    # Subtest: y\n"
+      ],
+      [
+        "child",
+        [
+          [
+            "comment",
+            "# Subtest: y\n"
+          ],
+          [
+            "line",
+            "ok 1 - ypoint\n"
+          ],
+          [
+            "line",
+            "1..1\n"
+          ],
+          [
+            "assert",
+            {
+              "ok": true,
+              "id": 1,
+              "name": "ypoint"
+            }
+          ],
+          [
+            "plan",
+            {
+              "start": 1,
+              "end": 1
+            }
+          ],
+          [
+            "complete",
+            {
+              "ok": true,
+              "count": 1,
+              "pass": 1,
+              "fail": 0,
+              "bailout": false,
+              "todo": 0,
+              "skip": 0,
+              "plan": {
+                "start": 1,
+                "end": 1,
+                "skipAll": false,
+                "skipReason": "",
+                "comment": ""
+              },
+              "failures": []
+            }
+          ]
+        ]
+      ],
+      [
+        "line",
+        "    ok 1 - ypoint\n"
+      ],
+      [
+        "line",
+        "    1..1\n"
+      ],
+      [
+        "line",
+        "ok 1 - y\n"
+      ],
+      [
+        "line",
+        "1..1\n"
+      ],
+      [
+        "assert",
+        {
+          "ok": true,
+          "id": 1,
+          "name": "y"
+        }
+      ],
+      [
+        "plan",
+        {
+          "start": 1,
+          "end": 1
+        }
+      ],
+      [
+        "complete",
+        {
+          "ok": true,
+          "count": 1,
+          "pass": 1,
+          "fail": 0,
+          "bailout": false,
+          "todo": 0,
+          "skip": 0,
+          "plan": {
+            "start": 1,
+            "end": 1,
+            "skipAll": false,
+            "skipReason": "",
+            "comment": ""
+          },
+          "failures": []
+        }
+      ]
+    ]
+  ],
+  [
+    "line",
+    "        # Subtest: y\n"
+  ],
+  [
+    "line",
+    "        ok 1 - ypoint\n"
+  ],
+  [
+    "line",
+    "        1..1\n"
+  ],
+  [
+    "line",
+    "    ok 1 - y\n"
+  ],
+  [
+    "line",
+    "    1..1\n"
+  ],
+  [
+    "line",
+    "}\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 3,
+      "name": "x3"
+    }
+  ],
+  [
+    "line",
+    "# Subtest: x4\n"
+  ],
+  [
+    "child",
+    [
+      [
+        "comment",
+        "# Subtest: x4\n"
+      ],
+      [
+        "line",
+        "ok 1 - y {\n"
+      ],
+      [
+        "child",
+        [
+          [
+            "comment",
+            "# Subtest: y\n"
+          ],
+          [
+            "line",
+            "ok 1 - ypoint\n"
+          ],
+          [
+            "line",
+            "1..1\n"
+          ],
+          [
+            "assert",
+            {
+              "ok": true,
+              "id": 1,
+              "name": "ypoint"
+            }
+          ],
+          [
+            "plan",
+            {
+              "start": 1,
+              "end": 1
+            }
+          ],
+          [
+            "complete",
+            {
+              "ok": true,
+              "count": 1,
+              "pass": 1,
+              "fail": 0,
+              "bailout": false,
+              "todo": 0,
+              "skip": 0,
+              "plan": {
+                "start": 1,
+                "end": 1,
+                "skipAll": false,
+                "skipReason": "",
+                "comment": ""
+              },
+              "failures": []
+            }
+          ]
+        ]
+      ],
+      [
+        "line",
+        "    ok 1 - ypoint\n"
+      ],
+      [
+        "line",
+        "    1..1\n"
+      ],
+      [
+        "line",
+        "}\n"
+      ],
+      [
+        "assert",
+        {
+          "ok": true,
+          "id": 1,
+          "name": "y"
+        }
+      ],
+      [
+        "line",
+        "1..1\n"
+      ],
+      [
+        "plan",
+        {
+          "start": 1,
+          "end": 1
+        }
+      ],
+      [
+        "complete",
+        {
+          "ok": true,
+          "count": 1,
+          "pass": 1,
+          "fail": 0,
+          "bailout": false,
+          "todo": 0,
+          "skip": 0,
+          "plan": {
+            "start": 1,
+            "end": 1,
+            "skipAll": false,
+            "skipReason": "",
+            "comment": ""
+          },
+          "failures": []
+        }
+      ]
+    ]
+  ],
+  [
+    "line",
+    "    ok 1 - y {\n"
+  ],
+  [
+    "line",
+    "        ok 1 - ypoint\n"
+  ],
+  [
+    "line",
+    "        1..1\n"
+  ],
+  [
+    "line",
+    "    }\n"
+  ],
+  [
+    "line",
+    "    1..1\n"
+  ],
+  [
+    "line",
+    "ok 4 - x4\n"
+  ],
+  [
+    "line",
+    "# Subtest: x5\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 4,
+      "name": "x4"
+    }
+  ],
+  [
+    "child",
+    [
+      [
+        "comment",
+        "# Subtest: x5\n"
+      ],
+      [
+        "line",
+        "# Subtest: y\n"
+      ],
+      [
+        "child",
+        [
+          [
+            "comment",
+            "# Subtest: y\n"
+          ],
+          [
+            "line",
+            "ok 1 - ypoint\n"
+          ],
+          [
+            "line",
+            "1..1\n"
+          ],
+          [
+            "assert",
+            {
+              "ok": true,
+              "id": 1,
+              "name": "ypoint"
+            }
+          ],
+          [
+            "plan",
+            {
+              "start": 1,
+              "end": 1
+            }
+          ],
+          [
+            "complete",
+            {
+              "ok": true,
+              "count": 1,
+              "pass": 1,
+              "fail": 0,
+              "bailout": false,
+              "todo": 0,
+              "skip": 0,
+              "plan": {
+                "start": 1,
+                "end": 1,
+                "skipAll": false,
+                "skipReason": "",
+                "comment": ""
+              },
+              "failures": []
+            }
+          ]
+        ]
+      ],
+      [
+        "line",
+        "    ok 1 - ypoint\n"
+      ],
+      [
+        "line",
+        "    1..1\n"
+      ],
+      [
+        "line",
+        "ok 1 - y\n"
+      ],
+      [
+        "line",
+        "1..1\n"
+      ],
+      [
+        "assert",
+        {
+          "ok": true,
+          "id": 1,
+          "name": "y"
+        }
+      ],
+      [
+        "plan",
+        {
+          "start": 1,
+          "end": 1
+        }
+      ],
+      [
+        "complete",
+        {
+          "ok": true,
+          "count": 1,
+          "pass": 1,
+          "fail": 0,
+          "bailout": false,
+          "todo": 0,
+          "skip": 0,
+          "plan": {
+            "start": 1,
+            "end": 1,
+            "skipAll": false,
+            "skipReason": "",
+            "comment": ""
+          },
+          "failures": []
+        }
+      ]
+    ]
+  ],
+  [
+    "line",
+    "    # Subtest: y\n"
+  ],
+  [
+    "line",
+    "        ok 1 - ypoint\n"
+  ],
+  [
+    "line",
+    "        1..1\n"
+  ],
+  [
+    "line",
+    "    ok 1 - y\n"
+  ],
+  [
+    "line",
+    "    1..1\n"
+  ],
+  [
+    "line",
+    "ok 5 - x5\n"
+  ],
+  [
+    "line",
+    "# Subtest: x6\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 5,
+      "name": "x5"
+    }
+  ],
+  [
+    "child",
+    [
+      [
+        "comment",
+        "# Subtest: x6\n"
+      ],
+      [
+        "line",
+        "    # Subtest: y\n"
+      ],
+      [
+        "child",
+        [
+          [
+            "comment",
+            "# Subtest: y\n"
+          ],
+          [
+            "line",
+            "ok 1 - ypoint\n"
+          ],
+          [
+            "line",
+            "1..1\n"
+          ],
+          [
+            "assert",
+            {
+              "ok": true,
+              "id": 1,
+              "name": "ypoint"
+            }
+          ],
+          [
+            "plan",
+            {
+              "start": 1,
+              "end": 1
+            }
+          ],
+          [
+            "complete",
+            {
+              "ok": true,
+              "count": 1,
+              "pass": 1,
+              "fail": 0,
+              "bailout": false,
+              "todo": 0,
+              "skip": 0,
+              "plan": {
+                "start": 1,
+                "end": 1,
+                "skipAll": false,
+                "skipReason": "",
+                "comment": ""
+              },
+              "failures": []
+            }
+          ]
+        ]
+      ],
+      [
+        "line",
+        "    ok 1 - ypoint\n"
+      ],
+      [
+        "line",
+        "    1..1\n"
+      ],
+      [
+        "line",
+        "ok 1 - y\n"
+      ],
+      [
+        "line",
+        "1..1\n"
+      ],
+      [
+        "assert",
+        {
+          "ok": true,
+          "id": 1,
+          "name": "y"
+        }
+      ],
+      [
+        "plan",
+        {
+          "start": 1,
+          "end": 1
+        }
+      ],
+      [
+        "complete",
+        {
+          "ok": true,
+          "count": 1,
+          "pass": 1,
+          "fail": 0,
+          "bailout": false,
+          "todo": 0,
+          "skip": 0,
+          "plan": {
+            "start": 1,
+            "end": 1,
+            "skipAll": false,
+            "skipReason": "",
+            "comment": ""
+          },
+          "failures": []
+        }
+      ]
+    ]
+  ],
+  [
+    "line",
+    "        # Subtest: y\n"
+  ],
+  [
+    "line",
+    "        ok 1 - ypoint\n"
+  ],
+  [
+    "line",
+    "        1..1\n"
+  ],
+  [
+    "line",
+    "    ok 1 - y\n"
+  ],
+  [
+    "line",
+    "    1..1\n"
+  ],
+  [
+    "line",
+    "ok 6 - x6\n"
+  ],
+  [
+    "line",
+    "    # Subtest: x7\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 6,
+      "name": "x6"
+    }
+  ],
+  [
+    "child",
+    [
+      [
+        "comment",
+        "# Subtest: x7\n"
+      ],
+      [
+        "line",
+        "ok 1 - y {\n"
+      ],
+      [
+        "child",
+        [
+          [
+            "comment",
+            "# Subtest: y\n"
+          ],
+          [
+            "line",
+            "ok 1 - ypoint\n"
+          ],
+          [
+            "line",
+            "1..1\n"
+          ],
+          [
+            "assert",
+            {
+              "ok": true,
+              "id": 1,
+              "name": "ypoint"
+            }
+          ],
+          [
+            "plan",
+            {
+              "start": 1,
+              "end": 1
+            }
+          ],
+          [
+            "complete",
+            {
+              "ok": true,
+              "count": 1,
+              "pass": 1,
+              "fail": 0,
+              "bailout": false,
+              "todo": 0,
+              "skip": 0,
+              "plan": {
+                "start": 1,
+                "end": 1,
+                "skipAll": false,
+                "skipReason": "",
+                "comment": ""
+              },
+              "failures": []
+            }
+          ]
+        ]
+      ],
+      [
+        "line",
+        "    ok 1 - ypoint\n"
+      ],
+      [
+        "line",
+        "    1..1\n"
+      ],
+      [
+        "line",
+        "}\n"
+      ],
+      [
+        "assert",
+        {
+          "ok": true,
+          "id": 1,
+          "name": "y"
+        }
+      ],
+      [
+        "line",
+        "1..1\n"
+      ],
+      [
+        "plan",
+        {
+          "start": 1,
+          "end": 1
+        }
+      ],
+      [
+        "complete",
+        {
+          "ok": true,
+          "count": 1,
+          "pass": 1,
+          "fail": 0,
+          "bailout": false,
+          "todo": 0,
+          "skip": 0,
+          "plan": {
+            "start": 1,
+            "end": 1,
+            "skipAll": false,
+            "skipReason": "",
+            "comment": ""
+          },
+          "failures": []
+        }
+      ]
+    ]
+  ],
+  [
+    "line",
+    "    ok 1 - y {\n"
+  ],
+  [
+    "line",
+    "        ok 1 - ypoint\n"
+  ],
+  [
+    "line",
+    "        1..1\n"
+  ],
+  [
+    "line",
+    "    }\n"
+  ],
+  [
+    "line",
+    "    1..1\n"
+  ],
+  [
+    "line",
+    "ok 7 - x7\n"
+  ],
+  [
+    "line",
+    "    # Subtest: x8\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 7,
+      "name": "x7"
+    }
+  ],
+  [
+    "child",
+    [
+      [
+        "comment",
+        "# Subtest: x8\n"
+      ],
+      [
+        "line",
+        "# Subtest: y\n"
+      ],
+      [
+        "child",
+        [
+          [
+            "comment",
+            "# Subtest: y\n"
+          ],
+          [
+            "line",
+            "ok 1 - ypoint\n"
+          ],
+          [
+            "line",
+            "1..1\n"
+          ],
+          [
+            "assert",
+            {
+              "ok": true,
+              "id": 1,
+              "name": "ypoint"
+            }
+          ],
+          [
+            "plan",
+            {
+              "start": 1,
+              "end": 1
+            }
+          ],
+          [
+            "complete",
+            {
+              "ok": true,
+              "count": 1,
+              "pass": 1,
+              "fail": 0,
+              "bailout": false,
+              "todo": 0,
+              "skip": 0,
+              "plan": {
+                "start": 1,
+                "end": 1,
+                "skipAll": false,
+                "skipReason": "",
+                "comment": ""
+              },
+              "failures": []
+            }
+          ]
+        ]
+      ],
+      [
+        "line",
+        "    ok 1 - ypoint\n"
+      ],
+      [
+        "line",
+        "    1..1\n"
+      ],
+      [
+        "line",
+        "ok 1 - y\n"
+      ],
+      [
+        "line",
+        "1..1\n"
+      ],
+      [
+        "assert",
+        {
+          "ok": true,
+          "id": 1,
+          "name": "y"
+        }
+      ],
+      [
+        "plan",
+        {
+          "start": 1,
+          "end": 1
+        }
+      ],
+      [
+        "complete",
+        {
+          "ok": true,
+          "count": 1,
+          "pass": 1,
+          "fail": 0,
+          "bailout": false,
+          "todo": 0,
+          "skip": 0,
+          "plan": {
+            "start": 1,
+            "end": 1,
+            "skipAll": false,
+            "skipReason": "",
+            "comment": ""
+          },
+          "failures": []
+        }
+      ]
+    ]
+  ],
+  [
+    "line",
+    "    # Subtest: y\n"
+  ],
+  [
+    "line",
+    "        ok 1 - ypoint\n"
+  ],
+  [
+    "line",
+    "        1..1\n"
+  ],
+  [
+    "line",
+    "    ok 1 - y\n"
+  ],
+  [
+    "line",
+    "    1..1\n"
+  ],
+  [
+    "line",
+    "ok 8 - x8\n"
+  ],
+  [
+    "line",
+    "    # Subtest: x9\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 8,
+      "name": "x8"
+    }
+  ],
+  [
+    "child",
+    [
+      [
+        "comment",
+        "# Subtest: x9\n"
+      ],
+      [
+        "line",
+        "    # Subtest: y\n"
+      ],
+      [
+        "child",
+        [
+          [
+            "comment",
+            "# Subtest: y\n"
+          ],
+          [
+            "line",
+            "ok 1 - ypoint\n"
+          ],
+          [
+            "line",
+            "1..1\n"
+          ],
+          [
+            "assert",
+            {
+              "ok": true,
+              "id": 1,
+              "name": "ypoint"
+            }
+          ],
+          [
+            "plan",
+            {
+              "start": 1,
+              "end": 1
+            }
+          ],
+          [
+            "complete",
+            {
+              "ok": true,
+              "count": 1,
+              "pass": 1,
+              "fail": 0,
+              "bailout": false,
+              "todo": 0,
+              "skip": 0,
+              "plan": {
+                "start": 1,
+                "end": 1,
+                "skipAll": false,
+                "skipReason": "",
+                "comment": ""
+              },
+              "failures": []
+            }
+          ]
+        ]
+      ],
+      [
+        "line",
+        "    ok 1 - ypoint\n"
+      ],
+      [
+        "line",
+        "    1..1\n"
+      ],
+      [
+        "line",
+        "ok 1 - y\n"
+      ],
+      [
+        "line",
+        "1..1\n"
+      ],
+      [
+        "assert",
+        {
+          "ok": true,
+          "id": 1,
+          "name": "y"
+        }
+      ],
+      [
+        "plan",
+        {
+          "start": 1,
+          "end": 1
+        }
+      ],
+      [
+        "complete",
+        {
+          "ok": true,
+          "count": 1,
+          "pass": 1,
+          "fail": 0,
+          "bailout": false,
+          "todo": 0,
+          "skip": 0,
+          "plan": {
+            "start": 1,
+            "end": 1,
+            "skipAll": false,
+            "skipReason": "",
+            "comment": ""
+          },
+          "failures": []
+        }
+      ]
+    ]
+  ],
+  [
+    "line",
+    "        # Subtest: y\n"
+  ],
+  [
+    "line",
+    "        ok 1 - ypoint\n"
+  ],
+  [
+    "line",
+    "        1..1\n"
+  ],
+  [
+    "line",
+    "    ok 1 - y\n"
+  ],
+  [
+    "line",
+    "    1..1\n"
+  ],
+  [
+    "line",
+    "ok 9 - x9\n"
+  ],
+  [
+    "line",
+    "1..9\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 9,
+      "name": "x9"
+    }
+  ],
+  [
+    "plan",
+    {
+      "start": 1,
+      "end": 9
+    }
+  ],
+  [
+    "complete",
+    {
+      "ok": true,
+      "count": 9,
+      "pass": 9,
+      "fail": 0,
+      "bailout": false,
+      "todo": 0,
+      "skip": 0,
+      "plan": {
+        "start": 1,
+        "end": 9,
+        "skipAll": false,
+        "skipReason": "",
+        "comment": ""
+      },
+      "failures": []
+    }
+  ]
+]

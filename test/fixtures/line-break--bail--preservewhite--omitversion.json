@@ -1,0 +1,185 @@
+[
+  [
+    "line",
+    "    # Subtest: foo\n"
+  ],
+  [
+    "child",
+    [
+      [
+        "comment",
+        "# Subtest: foo\n"
+      ],
+      [
+        "line",
+        "not ok 1 - should be equivalent\n"
+      ],
+      [
+        "line",
+        "  ---\n"
+      ],
+      [
+        "line",
+        "  found:\n"
+      ],
+      [
+        "line",
+        "    - xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy\n"
+      ],
+      [
+        "line",
+        "  wanted:\n"
+      ],
+      [
+        "line",
+        "    - >-\n"
+      ],
+      [
+        "line",
+        "      xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n"
+      ],
+      [
+        "line",
+        "  \n"
+      ],
+      [
+        "line",
+        "      yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy\n"
+      ],
+      [
+        "line",
+        "  ...\n"
+      ],
+      [
+        "assert",
+        {
+          "ok": false,
+          "id": 1,
+          "name": "should be equivalent",
+          "diag": {
+            "found": [
+              "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"
+            ],
+            "wanted": [
+              "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"
+            ]
+          }
+        }
+      ],
+      [
+        "line",
+        "Bail out! # should be equivalent\n"
+      ],
+      [
+        "bailout",
+        "# should be equivalent"
+      ],
+      [
+        "complete",
+        {
+          "ok": false,
+          "count": 1,
+          "pass": 0,
+          "fail": 1,
+          "bailout": "# should be equivalent",
+          "todo": 0,
+          "skip": 0,
+          "plan": {
+            "start": null,
+            "end": null,
+            "skipAll": false,
+            "skipReason": "",
+            "comment": ""
+          },
+          "failures": [
+            {
+              "ok": false,
+              "id": 1,
+              "name": "should be equivalent",
+              "diag": {
+                "found": [
+                  "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"
+                ],
+                "wanted": [
+                  "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    ]
+  ],
+  [
+    "line",
+    "    not ok 1 - should be equivalent\n"
+  ],
+  [
+    "line",
+    "      ---\n"
+  ],
+  [
+    "line",
+    "      found:\n"
+  ],
+  [
+    "line",
+    "        - xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy\n"
+  ],
+  [
+    "line",
+    "      wanted:\n"
+  ],
+  [
+    "line",
+    "        - >-\n"
+  ],
+  [
+    "line",
+    "          xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n"
+  ],
+  [
+    "line",
+    "  \n"
+  ],
+  [
+    "line",
+    "          yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy\n"
+  ],
+  [
+    "line",
+    "      ...\n"
+  ],
+  [
+    "line",
+    "    Bail out! # should be equivalent\n"
+  ],
+  [
+    "bailout",
+    "# should be equivalent"
+  ],
+  [
+    "line",
+    "Bail out! # should be equivalent\n"
+  ],
+  [
+    "complete",
+    {
+      "ok": false,
+      "count": 0,
+      "pass": 0,
+      "fail": 0,
+      "bailout": "# should be equivalent",
+      "todo": 0,
+      "skip": 0,
+      "plan": {
+        "start": null,
+        "end": null,
+        "skipAll": false,
+        "skipReason": "",
+        "comment": ""
+      },
+      "failures": []
+    }
+  ]
+]

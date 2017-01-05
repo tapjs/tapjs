@@ -1,0 +1,2966 @@
+[
+  [
+    "line",
+    "# buffer_compare.js\n"
+  ],
+  [
+    "comment",
+    "# buffer_compare.js\n"
+  ],
+  [
+    "line",
+    "# TAP version 13\n"
+  ],
+  [
+    "comment",
+    "# TAP version 13\n"
+  ],
+  [
+    "line",
+    "# same buffers\n"
+  ],
+  [
+    "comment",
+    "# same buffers\n"
+  ],
+  [
+    "line",
+    "ok 1 should be equivalent\n"
+  ],
+  [
+    "line",
+    "# not same buffers\n"
+  ],
+  [
+    "line",
+    "ok 2 should not be equivalent\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 1,
+      "name": "should be equivalent"
+    }
+  ],
+  [
+    "comment",
+    "# not same buffers\n"
+  ],
+  [
+    "line",
+    "# tests 2\n"
+  ],
+  [
+    "line",
+    "# pass  2\n"
+  ],
+  [
+    "line",
+    "# ok\n"
+  ],
+  [
+    "line",
+    "ok 3 test/buffer_compare.js\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 2,
+      "name": "should not be equivalent"
+    }
+  ],
+  [
+    "comment",
+    "# tests 2\n"
+  ],
+  [
+    "comment",
+    "# pass  2\n"
+  ],
+  [
+    "comment",
+    "# ok\n"
+  ],
+  [
+    "line",
+    "# common.js\n"
+  ],
+  [
+    "line",
+    "ok 4 just setup, nothing relevant\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 3,
+      "name": "test/buffer_compare.js"
+    }
+  ],
+  [
+    "comment",
+    "# common.js\n"
+  ],
+  [
+    "line",
+    "ok 5 test/common.js\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 4,
+      "name": "just setup, nothing relevant"
+    }
+  ],
+  [
+    "line",
+    "# consumer.js\n"
+  ],
+  [
+    "line",
+    "# TAP version 13\n"
+  ],
+  [
+    "line",
+    "# basic.tap\n"
+  ],
+  [
+    "line",
+    "ok 6 should be equivalent\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 5,
+      "name": "test/common.js"
+    }
+  ],
+  [
+    "comment",
+    "# consumer.js\n"
+  ],
+  [
+    "comment",
+    "# TAP version 13\n"
+  ],
+  [
+    "comment",
+    "# basic.tap\n"
+  ],
+  [
+    "line",
+    "# indent.tap\n"
+  ],
+  [
+    "line",
+    "ok 7 should be equivalent\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 6,
+      "name": "should be equivalent"
+    }
+  ],
+  [
+    "comment",
+    "# indent.tap\n"
+  ],
+  [
+    "line",
+    "# missing.tap\n"
+  ],
+  [
+    "line",
+    "ok 8 should be equivalent\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 7,
+      "name": "should be equivalent"
+    }
+  ],
+  [
+    "comment",
+    "# missing.tap\n"
+  ],
+  [
+    "line",
+    "# skip-all.tap\n"
+  ],
+  [
+    "line",
+    "ok 9 should be equivalent\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 8,
+      "name": "should be equivalent"
+    }
+  ],
+  [
+    "comment",
+    "# skip-all.tap\n"
+  ],
+  [
+    "line",
+    "# yamlish.tap\n"
+  ],
+  [
+    "line",
+    "ok 10 should be equivalent\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 9,
+      "name": "should be equivalent"
+    }
+  ],
+  [
+    "comment",
+    "# yamlish.tap\n"
+  ],
+  [
+    "line",
+    "# tests 5\n"
+  ],
+  [
+    "line",
+    "# pass  5\n"
+  ],
+  [
+    "line",
+    "# ok\n"
+  ],
+  [
+    "line",
+    "ok 11 test/consumer.js\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 10,
+      "name": "should be equivalent"
+    }
+  ],
+  [
+    "comment",
+    "# tests 5\n"
+  ],
+  [
+    "comment",
+    "# pass  5\n"
+  ],
+  [
+    "comment",
+    "# ok\n"
+  ],
+  [
+    "line",
+    "# debug-test.js\n"
+  ],
+  [
+    "line",
+    "debug test\n"
+  ],
+  [
+    "line",
+    "t.plan=1\n"
+  ],
+  [
+    "line",
+    "'Debugger listening on port 5858\\n'\n"
+  ],
+  [
+    "line",
+    "# TAP version 13\n"
+  ],
+  [
+    "line",
+    "# debug test\n"
+  ],
+  [
+    "line",
+    "ok 12 Should output debugger message\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 11,
+      "name": "test/consumer.js"
+    }
+  ],
+  [
+    "comment",
+    "# debug-test.js\n"
+  ],
+  [
+    "extra",
+    "debug test\n"
+  ],
+  [
+    "extra",
+    "t.plan=1\n"
+  ],
+  [
+    "extra",
+    "'Debugger listening on port 5858\\n'\n"
+  ],
+  [
+    "comment",
+    "# TAP version 13\n"
+  ],
+  [
+    "comment",
+    "# debug test\n"
+  ],
+  [
+    "line",
+    "# tests 1\n"
+  ],
+  [
+    "line",
+    "# pass  1\n"
+  ],
+  [
+    "line",
+    "# ok\n"
+  ],
+  [
+    "line",
+    "ok 13 test/debug-test.js\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 12,
+      "name": "Should output debugger message"
+    }
+  ],
+  [
+    "comment",
+    "# tests 1\n"
+  ],
+  [
+    "comment",
+    "# pass  1\n"
+  ],
+  [
+    "comment",
+    "# ok\n"
+  ],
+  [
+    "line",
+    "# deep-strict.js\n"
+  ],
+  [
+    "line",
+    "# TAP version 13\n"
+  ],
+  [
+    "line",
+    "# strictDeepEquals shouldn't care about key order\n"
+  ],
+  [
+    "line",
+    "ok 14 should be strictly equal\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 13,
+      "name": "test/debug-test.js"
+    }
+  ],
+  [
+    "comment",
+    "# deep-strict.js\n"
+  ],
+  [
+    "comment",
+    "# TAP version 13\n"
+  ],
+  [
+    "comment",
+    "# strictDeepEquals shouldn't care about key order\n"
+  ],
+  [
+    "line",
+    "# strictDeepEquals shouldn't care about key order recursively\n"
+  ],
+  [
+    "line",
+    "ok 15 should be strictly equal\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 14,
+      "name": "should be strictly equal"
+    }
+  ],
+  [
+    "comment",
+    "# strictDeepEquals shouldn't care about key order recursively\n"
+  ],
+  [
+    "line",
+    "# strictDeepEquals shoudn't care about key order (but still might)\n"
+  ],
+  [
+    "line",
+    "ok 16 should be strictly equal\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 15,
+      "name": "should be strictly equal"
+    }
+  ],
+  [
+    "comment",
+    "# strictDeepEquals shoudn't care about key order (but still might)\n"
+  ],
+  [
+    "line",
+    "# tests 3\n"
+  ],
+  [
+    "line",
+    "# pass  3\n"
+  ],
+  [
+    "line",
+    "# ok\n"
+  ],
+  [
+    "line",
+    "ok 17 test/deep-strict.js\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 16,
+      "name": "should be strictly equal"
+    }
+  ],
+  [
+    "comment",
+    "# tests 3\n"
+  ],
+  [
+    "comment",
+    "# pass  3\n"
+  ],
+  [
+    "comment",
+    "# ok\n"
+  ],
+  [
+    "line",
+    "# deep.js\n"
+  ],
+  [
+    "line",
+    "# TAP version 13\n"
+  ],
+  [
+    "line",
+    "# deepEquals shouldn't care about key order and types\n"
+  ],
+  [
+    "line",
+    "ok 18 should be equivalent\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 17,
+      "name": "test/deep-strict.js"
+    }
+  ],
+  [
+    "comment",
+    "# deep.js\n"
+  ],
+  [
+    "comment",
+    "# TAP version 13\n"
+  ],
+  [
+    "comment",
+    "# deepEquals shouldn't care about key order and types\n"
+  ],
+  [
+    "line",
+    "# deepEquals shouldn't care about key order recursively and types\n"
+  ],
+  [
+    "line",
+    "ok 19 should be equivalent\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 18,
+      "name": "should be equivalent"
+    }
+  ],
+  [
+    "comment",
+    "# deepEquals shouldn't care about key order recursively and types\n"
+  ],
+  [
+    "line",
+    "# deepEquals shoudn't care about key order (but still might) and types\n"
+  ],
+  [
+    "line",
+    "ok 20 should be equivalent\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 19,
+      "name": "should be equivalent"
+    }
+  ],
+  [
+    "comment",
+    "# deepEquals shoudn't care about key order (but still might) and types\n"
+  ],
+  [
+    "line",
+    "# tests 3\n"
+  ],
+  [
+    "line",
+    "# pass  3\n"
+  ],
+  [
+    "line",
+    "# ok\n"
+  ],
+  [
+    "line",
+    "ok 21 test/deep.js\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 20,
+      "name": "should be equivalent"
+    }
+  ],
+  [
+    "comment",
+    "# tests 3\n"
+  ],
+  [
+    "comment",
+    "# pass  3\n"
+  ],
+  [
+    "comment",
+    "# ok\n"
+  ],
+  [
+    "line",
+    "# executed.sh\n"
+  ],
+  [
+    "line",
+    "ok 22 File with executable bit should be executed\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 21,
+      "name": "test/deep.js"
+    }
+  ],
+  [
+    "comment",
+    "# executed.sh\n"
+  ],
+  [
+    "line",
+    "ok 23 test/executed.sh\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 22,
+      "name": "File with executable bit should be executed"
+    }
+  ],
+  [
+    "line",
+    "# exit-code.js\n"
+  ],
+  [
+    "line",
+    "# TAP version 13\n"
+  ],
+  [
+    "line",
+    "# exit code 1 when tap results show failure\n"
+  ],
+  [
+    "line",
+    "# test exits 0, has failures\n"
+  ],
+  [
+    "line",
+    "ok 24 should be equal\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 23,
+      "name": "test/executed.sh"
+    }
+  ],
+  [
+    "comment",
+    "# exit-code.js\n"
+  ],
+  [
+    "comment",
+    "# TAP version 13\n"
+  ],
+  [
+    "comment",
+    "# exit code 1 when tap results show failure\n"
+  ],
+  [
+    "comment",
+    "# test exits 0, has failures\n"
+  ],
+  [
+    "line",
+    "ok 25 should be equal\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 24,
+      "name": "should be equal"
+    }
+  ],
+  [
+    "line",
+    "# test exits 1, has failures\n"
+  ],
+  [
+    "line",
+    "ok 26 should be equal\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 25,
+      "name": "should be equal"
+    }
+  ],
+  [
+    "comment",
+    "# test exits 1, has failures\n"
+  ],
+  [
+    "line",
+    "ok 27 should be equal\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 26,
+      "name": "should be equal"
+    }
+  ],
+  [
+    "line",
+    "# test exits 1, has no failures\n"
+  ],
+  [
+    "line",
+    "ok 28 should be equal\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 27,
+      "name": "should be equal"
+    }
+  ],
+  [
+    "comment",
+    "# test exits 1, has no failures\n"
+  ],
+  [
+    "line",
+    "ok 29 should be equal\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 28,
+      "name": "should be equal"
+    }
+  ],
+  [
+    "line",
+    "# successes exit 0\n"
+  ],
+  [
+    "line",
+    "# test that does nothing, but exits 0\n"
+  ],
+  [
+    "line",
+    "ok 30 should be equal\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 29,
+      "name": "should be equal"
+    }
+  ],
+  [
+    "comment",
+    "# successes exit 0\n"
+  ],
+  [
+    "comment",
+    "# test that does nothing, but exits 0\n"
+  ],
+  [
+    "line",
+    "ok 31 should be equal\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 30,
+      "name": "should be equal"
+    }
+  ],
+  [
+    "line",
+    "# test that succeeds, and exits 0\n"
+  ],
+  [
+    "line",
+    "ok 32 should be equal\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 31,
+      "name": "should be equal"
+    }
+  ],
+  [
+    "comment",
+    "# test that succeeds, and exits 0\n"
+  ],
+  [
+    "line",
+    "ok 33 should be equal\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 32,
+      "name": "should be equal"
+    }
+  ],
+  [
+    "line",
+    "# tests 10\n"
+  ],
+  [
+    "line",
+    "# pass  10\n"
+  ],
+  [
+    "line",
+    "# ok\n"
+  ],
+  [
+    "line",
+    "ok 34 test/exit-code.js\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 33,
+      "name": "should be equal"
+    }
+  ],
+  [
+    "comment",
+    "# tests 10\n"
+  ],
+  [
+    "comment",
+    "# pass  10\n"
+  ],
+  [
+    "comment",
+    "# ok\n"
+  ],
+  [
+    "line",
+    "# expose-gc-test.js\n"
+  ],
+  [
+    "line",
+    "gc test\n"
+  ],
+  [
+    "line",
+    "t.plan=1\n"
+  ],
+  [
+    "line",
+    "assert gc does not exist\n"
+  ],
+  [
+    "line",
+    "# TAP version 13\n"
+  ],
+  [
+    "line",
+    "# gc test when the gc isn't there\n"
+  ],
+  [
+    "line",
+    "gc test\n"
+  ],
+  [
+    "line",
+    "t.plan=2\n"
+  ],
+  [
+    "line",
+    "gc test using --gc\n"
+  ],
+  [
+    "line",
+    "t.plan=1\n"
+  ],
+  [
+    "line",
+    "assert gc exists\n"
+  ],
+  [
+    "line",
+    "gc test using --expose-gc\n"
+  ],
+  [
+    "line",
+    "t.plan=1\n"
+  ],
+  [
+    "line",
+    "assert gc exists\n"
+  ],
+  [
+    "line",
+    "ok 35 should be equal\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 34,
+      "name": "test/exit-code.js"
+    }
+  ],
+  [
+    "comment",
+    "# expose-gc-test.js\n"
+  ],
+  [
+    "extra",
+    "gc test\n"
+  ],
+  [
+    "extra",
+    "t.plan=1\n"
+  ],
+  [
+    "extra",
+    "assert gc does not exist\n"
+  ],
+  [
+    "comment",
+    "# TAP version 13\n"
+  ],
+  [
+    "comment",
+    "# gc test when the gc isn't there\n"
+  ],
+  [
+    "extra",
+    "gc test\n"
+  ],
+  [
+    "extra",
+    "t.plan=2\n"
+  ],
+  [
+    "extra",
+    "gc test using --gc\n"
+  ],
+  [
+    "extra",
+    "t.plan=1\n"
+  ],
+  [
+    "extra",
+    "assert gc exists\n"
+  ],
+  [
+    "extra",
+    "gc test using --expose-gc\n"
+  ],
+  [
+    "extra",
+    "t.plan=1\n"
+  ],
+  [
+    "extra",
+    "assert gc exists\n"
+  ],
+  [
+    "line",
+    "# gc test when the gc should be there\n"
+  ],
+  [
+    "line",
+    "# test for gc using --gc\n"
+  ],
+  [
+    "line",
+    "ok 36 should be equal\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 35,
+      "name": "should be equal"
+    }
+  ],
+  [
+    "comment",
+    "# gc test when the gc should be there\n"
+  ],
+  [
+    "comment",
+    "# test for gc using --gc\n"
+  ],
+  [
+    "line",
+    "# test for gc using --expose-gc\n"
+  ],
+  [
+    "line",
+    "ok 37 should be equal\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 36,
+      "name": "should be equal"
+    }
+  ],
+  [
+    "comment",
+    "# test for gc using --expose-gc\n"
+  ],
+  [
+    "line",
+    "# cleanup\n"
+  ],
+  [
+    "line",
+    "# tests 3\n"
+  ],
+  [
+    "line",
+    "# pass  3\n"
+  ],
+  [
+    "line",
+    "# ok\n"
+  ],
+  [
+    "line",
+    "ok 38 test/expose-gc-test.js\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 37,
+      "name": "should be equal"
+    }
+  ],
+  [
+    "comment",
+    "# cleanup\n"
+  ],
+  [
+    "comment",
+    "# tests 3\n"
+  ],
+  [
+    "comment",
+    "# pass  3\n"
+  ],
+  [
+    "comment",
+    "# ok\n"
+  ],
+  [
+    "line",
+    "# global-harness-async.js\n"
+  ],
+  [
+    "line",
+    "# TAP version 13\n"
+  ],
+  [
+    "line",
+    "# outer\n"
+  ],
+  [
+    "line",
+    "# inner 1\n"
+  ],
+  [
+    "line",
+    "ok 39 1-1\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 38,
+      "name": "test/expose-gc-test.js"
+    }
+  ],
+  [
+    "comment",
+    "# global-harness-async.js\n"
+  ],
+  [
+    "comment",
+    "# TAP version 13\n"
+  ],
+  [
+    "comment",
+    "# outer\n"
+  ],
+  [
+    "comment",
+    "# inner 1\n"
+  ],
+  [
+    "line",
+    "# inner 2\n"
+  ],
+  [
+    "line",
+    "ok 40 2-1\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 39,
+      "name": "1-1"
+    }
+  ],
+  [
+    "comment",
+    "# inner 2\n"
+  ],
+  [
+    "line",
+    "# inner 3\n"
+  ],
+  [
+    "line",
+    "ok 41 3-1\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 40,
+      "name": "2-1"
+    }
+  ],
+  [
+    "comment",
+    "# inner 3\n"
+  ],
+  [
+    "line",
+    "ok 42 test/global-harness-async.js\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 41,
+      "name": "3-1"
+    }
+  ],
+  [
+    "line",
+    "# independent-timeouts.js\n"
+  ],
+  [
+    "line",
+    "# TAP version 13\n"
+  ],
+  [
+    "line",
+    "# finishes in time\n"
+  ],
+  [
+    "line",
+    "# finishes in time too\n"
+  ],
+  [
+    "line",
+    "# tests 0\n"
+  ],
+  [
+    "line",
+    "# ok\n"
+  ],
+  [
+    "line",
+    "ok 43 test/independent-timeouts.js\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 42,
+      "name": "test/global-harness-async.js"
+    }
+  ],
+  [
+    "comment",
+    "# independent-timeouts.js\n"
+  ],
+  [
+    "comment",
+    "# TAP version 13\n"
+  ],
+  [
+    "comment",
+    "# finishes in time\n"
+  ],
+  [
+    "comment",
+    "# finishes in time too\n"
+  ],
+  [
+    "comment",
+    "# tests 0\n"
+  ],
+  [
+    "comment",
+    "# ok\n"
+  ],
+  [
+    "line",
+    "# isolated-conf-test.js\n"
+  ],
+  [
+    "line",
+    "# TAP version 13\n"
+  ],
+  [
+    "line",
+    "# one\n"
+  ],
+  [
+    "line",
+    "ok 44 should be equal\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 43,
+      "name": "test/independent-timeouts.js"
+    }
+  ],
+  [
+    "comment",
+    "# isolated-conf-test.js\n"
+  ],
+  [
+    "comment",
+    "# TAP version 13\n"
+  ],
+  [
+    "comment",
+    "# one\n"
+  ],
+  [
+    "line",
+    "ok 45 should be equal\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 44,
+      "name": "should be equal"
+    }
+  ],
+  [
+    "line",
+    "# two\n"
+  ],
+  [
+    "line",
+    "ok 46 should be equal\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 45,
+      "name": "should be equal"
+    }
+  ],
+  [
+    "comment",
+    "# two\n"
+  ],
+  [
+    "line",
+    "ok 47 should be equal\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 46,
+      "name": "should be equal"
+    }
+  ],
+  [
+    "line",
+    "# tests 4\n"
+  ],
+  [
+    "line",
+    "# pass  4\n"
+  ],
+  [
+    "line",
+    "# ok\n"
+  ],
+  [
+    "line",
+    "ok 48 test/isolated-conf-test.js\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 47,
+      "name": "should be equal"
+    }
+  ],
+  [
+    "comment",
+    "# tests 4\n"
+  ],
+  [
+    "comment",
+    "# pass  4\n"
+  ],
+  [
+    "comment",
+    "# ok\n"
+  ],
+  [
+    "line",
+    "# meta-test.js\n"
+  ],
+  [
+    "line",
+    "# TAP version 13\n"
+  ],
+  [
+    "line",
+    "# meta test\n"
+  ],
+  [
+    "line",
+    "ok 49 sanity check\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 48,
+      "name": "test/isolated-conf-test.js"
+    }
+  ],
+  [
+    "comment",
+    "# meta-test.js\n"
+  ],
+  [
+    "comment",
+    "# TAP version 13\n"
+  ],
+  [
+    "comment",
+    "# meta test\n"
+  ],
+  [
+    "line",
+    "ok 50 not ok\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 49,
+      "name": "sanity check"
+    }
+  ],
+  [
+    "line",
+    "ok 51 total test count\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 50,
+      "name": "not ok"
+    }
+  ],
+  [
+    "line",
+    "ok 52 tests passed\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 51,
+      "name": "total test count"
+    }
+  ],
+  [
+    "line",
+    "ok 53 tests failed\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 52,
+      "name": "tests passed"
+    }
+  ],
+  [
+    "line",
+    "ok 54 ok is boolean\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 53,
+      "name": "tests failed"
+    }
+  ],
+  [
+    "line",
+    "ok 55 skip is number\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 54,
+      "name": "ok is boolean"
+    }
+  ],
+  [
+    "line",
+    "ok 56 results isa Results\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 55,
+      "name": "skip is number"
+    }
+  ],
+  [
+    "line",
+    "ok 57 test isa Test\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 56,
+      "name": "results isa Results"
+    }
+  ],
+  [
+    "line",
+    "ok 58 test isa Harness\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 57,
+      "name": "test isa Test"
+    }
+  ],
+  [
+    "line",
+    "# tests 10\n"
+  ],
+  [
+    "line",
+    "# pass  10\n"
+  ],
+  [
+    "line",
+    "# ok\n"
+  ],
+  [
+    "line",
+    "ok 59 test/meta-test.js\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 58,
+      "name": "test isa Harness"
+    }
+  ],
+  [
+    "comment",
+    "# tests 10\n"
+  ],
+  [
+    "comment",
+    "# pass  10\n"
+  ],
+  [
+    "comment",
+    "# ok\n"
+  ],
+  [
+    "line",
+    "# nested-async.js\n"
+  ],
+  [
+    "line",
+    "# TAP version 13\n"
+  ],
+  [
+    "line",
+    "# Harness async test support\n"
+  ],
+  [
+    "line",
+    "ok 60 sync child A\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 59,
+      "name": "test/meta-test.js"
+    }
+  ],
+  [
+    "comment",
+    "# nested-async.js\n"
+  ],
+  [
+    "comment",
+    "# TAP version 13\n"
+  ],
+  [
+    "comment",
+    "# Harness async test support\n"
+  ],
+  [
+    "line",
+    "# sync child B\n"
+  ],
+  [
+    "line",
+    "# async grandchild A\n"
+  ],
+  [
+    "line",
+    "ok 61 (unnamed assert)\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 60,
+      "name": "sync child A"
+    }
+  ],
+  [
+    "comment",
+    "# sync child B\n"
+  ],
+  [
+    "comment",
+    "# async grandchild A\n"
+  ],
+  [
+    "line",
+    "# async grandchild B\n"
+  ],
+  [
+    "line",
+    "ok 62 (unnamed assert)\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 61,
+      "name": "(unnamed assert)"
+    }
+  ],
+  [
+    "comment",
+    "# async grandchild B\n"
+  ],
+  [
+    "line",
+    "# async child\n"
+  ],
+  [
+    "line",
+    "ok 63 sync grandchild in async child A\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 62,
+      "name": "(unnamed assert)"
+    }
+  ],
+  [
+    "comment",
+    "# async child\n"
+  ],
+  [
+    "line",
+    "# sync grandchild in async child B\n"
+  ],
+  [
+    "line",
+    "ok 64 (unnamed assert)\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 63,
+      "name": "sync grandchild in async child A"
+    }
+  ],
+  [
+    "comment",
+    "# sync grandchild in async child B\n"
+  ],
+  [
+    "line",
+    "# tests 5\n"
+  ],
+  [
+    "line",
+    "# pass  5\n"
+  ],
+  [
+    "line",
+    "# ok\n"
+  ],
+  [
+    "line",
+    "ok 65 test/nested-async.js\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 64,
+      "name": "(unnamed assert)"
+    }
+  ],
+  [
+    "comment",
+    "# tests 5\n"
+  ],
+  [
+    "comment",
+    "# pass  5\n"
+  ],
+  [
+    "comment",
+    "# ok\n"
+  ],
+  [
+    "line",
+    "# nested-test.js\n"
+  ],
+  [
+    "line",
+    "# TAP version 13\n"
+  ],
+  [
+    "line",
+    "# parent\n"
+  ],
+  [
+    "line",
+    "ok 66 p test\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 65,
+      "name": "test/nested-async.js"
+    }
+  ],
+  [
+    "comment",
+    "# nested-test.js\n"
+  ],
+  [
+    "comment",
+    "# TAP version 13\n"
+  ],
+  [
+    "comment",
+    "# parent\n"
+  ],
+  [
+    "line",
+    "# subtest\n"
+  ],
+  [
+    "line",
+    "ok 67 ch test\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 66,
+      "name": "p test"
+    }
+  ],
+  [
+    "comment",
+    "# subtest\n"
+  ],
+  [
+    "line",
+    "# nested subtest\n"
+  ],
+  [
+    "line",
+    "ok 68 grch test\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 67,
+      "name": "ch test"
+    }
+  ],
+  [
+    "comment",
+    "# nested subtest\n"
+  ],
+  [
+    "line",
+    "# another subtest\n"
+  ],
+  [
+    "line",
+    "ok 69 ch test 2\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 68,
+      "name": "grch test"
+    }
+  ],
+  [
+    "comment",
+    "# another subtest\n"
+  ],
+  [
+    "line",
+    "# tests 4\n"
+  ],
+  [
+    "line",
+    "# pass  4\n"
+  ],
+  [
+    "line",
+    "# ok\n"
+  ],
+  [
+    "line",
+    "ok 70 test/nested-test.js\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 69,
+      "name": "ch test 2"
+    }
+  ],
+  [
+    "comment",
+    "# tests 4\n"
+  ],
+  [
+    "comment",
+    "# pass  4\n"
+  ],
+  [
+    "comment",
+    "# ok\n"
+  ],
+  [
+    "line",
+    "# non-tap-output.js\n"
+  ],
+  [
+    "line",
+    "# everything is fine\n"
+  ],
+  [
+    "line",
+    "# there are no errors\n"
+  ],
+  [
+    "line",
+    "# this output is not haiku.\n"
+  ],
+  [
+    "line",
+    "# is 8 ok?\n"
+  ],
+  [
+    "line",
+    "ok 71 , 8 can stay.\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 70,
+      "name": "test/nested-test.js"
+    }
+  ],
+  [
+    "comment",
+    "# non-tap-output.js\n"
+  ],
+  [
+    "comment",
+    "# everything is fine\n"
+  ],
+  [
+    "comment",
+    "# there are no errors\n"
+  ],
+  [
+    "comment",
+    "# this output is not haiku.\n"
+  ],
+  [
+    "comment",
+    "# is 8 ok?\n"
+  ],
+  [
+    "line",
+    "# but: nevertheless, here we are\n"
+  ],
+  [
+    "line",
+    "# this: is indented\n"
+  ],
+  [
+    "line",
+    "# and: it\n"
+  ],
+  [
+    "line",
+    "# might: ~\n"
+  ],
+  [
+    "line",
+    "# be: yaml?\n"
+  ],
+  [
+    "line",
+    "ok 72 might be confusing\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 71,
+      "name": ", 8 can stay."
+    }
+  ],
+  [
+    "comment",
+    "# but: nevertheless, here we are\n"
+  ],
+  [
+    "comment",
+    "# this: is indented\n"
+  ],
+  [
+    "comment",
+    "# and: it\n"
+  ],
+  [
+    "comment",
+    "# might: ~\n"
+  ],
+  [
+    "comment",
+    "# be: yaml?\n"
+  ],
+  [
+    "line",
+    "ok 73 done now, exiting\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 72,
+      "name": "might be confusing"
+    }
+  ],
+  [
+    "line",
+    "ok 74 test/non-tap-output.js\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 73,
+      "name": "done now, exiting"
+    }
+  ],
+  [
+    "line",
+    "# not-executed.sh\n"
+  ],
+  [
+    "line",
+    "# output-childtest-description.js\n"
+  ],
+  [
+    "line",
+    "# /Users/isaacs/dev/js/tap/test/nested-tests-fixture.js\n"
+  ],
+  [
+    "line",
+    "# TAP version 13\n"
+  ],
+  [
+    "line",
+    "# nested tests, parent and child pass\n"
+  ],
+  [
+    "line",
+    "ok 75 outputs parent description\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 74,
+      "name": "test/non-tap-output.js"
+    }
+  ],
+  [
+    "comment",
+    "# not-executed.sh\n"
+  ],
+  [
+    "comment",
+    "# output-childtest-description.js\n"
+  ],
+  [
+    "comment",
+    "# /Users/isaacs/dev/js/tap/test/nested-tests-fixture.js\n"
+  ],
+  [
+    "comment",
+    "# TAP version 13\n"
+  ],
+  [
+    "comment",
+    "# nested tests, parent and child pass\n"
+  ],
+  [
+    "line",
+    "ok 76 outputs child description\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 75,
+      "name": "outputs parent description"
+    }
+  ],
+  [
+    "line",
+    "ok 77 outputs parent description before parent result\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 76,
+      "name": "outputs child description"
+    }
+  ],
+  [
+    "line",
+    "ok 78 outputs parent result before child description\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 77,
+      "name": "outputs parent description before parent result"
+    }
+  ],
+  [
+    "line",
+    "ok 79 outputs child description before child result\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 78,
+      "name": "outputs parent result before child description"
+    }
+  ],
+  [
+    "line",
+    "# tests 5\n"
+  ],
+  [
+    "line",
+    "# pass  5\n"
+  ],
+  [
+    "line",
+    "# ok\n"
+  ],
+  [
+    "line",
+    "ok 80 test/output-childtest-description.js\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 79,
+      "name": "outputs child description before child result"
+    }
+  ],
+  [
+    "comment",
+    "# tests 5\n"
+  ],
+  [
+    "comment",
+    "# pass  5\n"
+  ],
+  [
+    "comment",
+    "# ok\n"
+  ],
+  [
+    "line",
+    "# result-trap.js\n"
+  ],
+  [
+    "line",
+    "# TAP version 13\n"
+  ],
+  [
+    "line",
+    "# trap result\n"
+  ],
+  [
+    "line",
+    "ok 81 should be equal\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 80,
+      "name": "test/output-childtest-description.js"
+    }
+  ],
+  [
+    "comment",
+    "# result-trap.js\n"
+  ],
+  [
+    "comment",
+    "# TAP version 13\n"
+  ],
+  [
+    "comment",
+    "# trap result\n"
+  ],
+  [
+    "line",
+    "ok 82 should be equal\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 81,
+      "name": "should be equal"
+    }
+  ],
+  [
+    "line",
+    "# tests 2\n"
+  ],
+  [
+    "line",
+    "# pass  2\n"
+  ],
+  [
+    "line",
+    "# ok\n"
+  ],
+  [
+    "line",
+    "ok 83 test/result-trap.js\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 82,
+      "name": "should be equal"
+    }
+  ],
+  [
+    "comment",
+    "# tests 2\n"
+  ],
+  [
+    "comment",
+    "# pass  2\n"
+  ],
+  [
+    "comment",
+    "# ok\n"
+  ],
+  [
+    "line",
+    "# segv.js\n"
+  ],
+  [
+    "line",
+    "# TAP version 13\n"
+  ],
+  [
+    "line",
+    "# setup\n"
+  ],
+  [
+    "line",
+    "ok 84 compiled seg faulter\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 83,
+      "name": "test/result-trap.js"
+    }
+  ],
+  [
+    "comment",
+    "# segv.js\n"
+  ],
+  [
+    "comment",
+    "# TAP version 13\n"
+  ],
+  [
+    "comment",
+    "# setup\n"
+  ],
+  [
+    "line",
+    "# segv\n"
+  ],
+  [
+    "line",
+    "ok 85 should be equivalent\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 84,
+      "name": "compiled seg faulter"
+    }
+  ],
+  [
+    "comment",
+    "# segv\n"
+  ],
+  [
+    "line",
+    "ok 86 should be equivalent\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 85,
+      "name": "should be equivalent"
+    }
+  ],
+  [
+    "line",
+    "ok 87 should be equivalent\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 86,
+      "name": "should be equivalent"
+    }
+  ],
+  [
+    "line",
+    "ok 88 should be equivalent\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 87,
+      "name": "should be equivalent"
+    }
+  ],
+  [
+    "line",
+    "ok 89 should be equivalent\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 88,
+      "name": "should be equivalent"
+    }
+  ],
+  [
+    "line",
+    "ok 90 should be equal\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 89,
+      "name": "should be equivalent"
+    }
+  ],
+  [
+    "line",
+    "# cleanup\n"
+  ],
+  [
+    "line",
+    "ok 91 cleaned up\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 90,
+      "name": "should be equal"
+    }
+  ],
+  [
+    "comment",
+    "# cleanup\n"
+  ],
+  [
+    "line",
+    "# tests 8\n"
+  ],
+  [
+    "line",
+    "# pass  8\n"
+  ],
+  [
+    "line",
+    "# ok\n"
+  ],
+  [
+    "line",
+    "ok 92 test/segv.js\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 91,
+      "name": "cleaned up"
+    }
+  ],
+  [
+    "comment",
+    "# tests 8\n"
+  ],
+  [
+    "comment",
+    "# pass  8\n"
+  ],
+  [
+    "comment",
+    "# ok\n"
+  ],
+  [
+    "line",
+    "# simple-harness-test-with-plan.js\n"
+  ],
+  [
+    "line",
+    "# TAP version 13\n"
+  ],
+  [
+    "line",
+    "# trivial success\n"
+  ],
+  [
+    "line",
+    "ok 93 it works\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 92,
+      "name": "test/segv.js"
+    }
+  ],
+  [
+    "comment",
+    "# simple-harness-test-with-plan.js\n"
+  ],
+  [
+    "comment",
+    "# TAP version 13\n"
+  ],
+  [
+    "comment",
+    "# trivial success\n"
+  ],
+  [
+    "line",
+    "# two tests\n"
+  ],
+  [
+    "line",
+    "ok 94 math should work\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 93,
+      "name": "it works"
+    }
+  ],
+  [
+    "comment",
+    "# two tests\n"
+  ],
+  [
+    "line",
+    "ok 95 false should not be ok\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 94,
+      "name": "math should work"
+    }
+  ],
+  [
+    "line",
+    "# tests 3\n"
+  ],
+  [
+    "line",
+    "# pass  3\n"
+  ],
+  [
+    "line",
+    "# ok\n"
+  ],
+  [
+    "line",
+    "ok 96 test/simple-harness-test-with-plan.js\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 95,
+      "name": "false should not be ok"
+    }
+  ],
+  [
+    "comment",
+    "# tests 3\n"
+  ],
+  [
+    "comment",
+    "# pass  3\n"
+  ],
+  [
+    "comment",
+    "# ok\n"
+  ],
+  [
+    "line",
+    "# simple-harness-test.js\n"
+  ],
+  [
+    "line",
+    "# TAP version 13\n"
+  ],
+  [
+    "line",
+    "# trivial success\n"
+  ],
+  [
+    "line",
+    "ok 97 it works\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 96,
+      "name": "test/simple-harness-test-with-plan.js"
+    }
+  ],
+  [
+    "comment",
+    "# simple-harness-test.js\n"
+  ],
+  [
+    "comment",
+    "# TAP version 13\n"
+  ],
+  [
+    "comment",
+    "# trivial success\n"
+  ],
+  [
+    "line",
+    "# two tests\n"
+  ],
+  [
+    "line",
+    "ok 98 math should work\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 97,
+      "name": "it works"
+    }
+  ],
+  [
+    "comment",
+    "# two tests\n"
+  ],
+  [
+    "line",
+    "ok 99 false should not be ok\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 98,
+      "name": "math should work"
+    }
+  ],
+  [
+    "line",
+    "# tests 3\n"
+  ],
+  [
+    "line",
+    "# pass  3\n"
+  ],
+  [
+    "line",
+    "# ok\n"
+  ],
+  [
+    "line",
+    "ok 100 test/simple-harness-test.js\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 99,
+      "name": "false should not be ok"
+    }
+  ],
+  [
+    "comment",
+    "# tests 3\n"
+  ],
+  [
+    "comment",
+    "# pass  3\n"
+  ],
+  [
+    "comment",
+    "# ok\n"
+  ],
+  [
+    "line",
+    "# test-assert-todo-skip.js\n"
+  ],
+  [
+    "line",
+    "# TAP version 13\n"
+  ],
+  [
+    "line",
+    "# not much\n"
+  ],
+  [
+    "line",
+    "ok 101 always passes # SKIP skip it good\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 100,
+      "name": "test/simple-harness-test.js"
+    }
+  ],
+  [
+    "comment",
+    "# test-assert-todo-skip.js\n"
+  ],
+  [
+    "comment",
+    "# TAP version 13\n"
+  ],
+  [
+    "comment",
+    "# not much\n"
+  ],
+  [
+    "line",
+    "ok 102 false # SKIP always fails\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 101,
+      "skip": "skip it good",
+      "name": "always passes"
+    }
+  ],
+  [
+    "line",
+    "ok 103 bonus # TODO remove todo directive\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 102,
+      "skip": "always fails",
+      "name": "false"
+    }
+  ],
+  [
+    "line",
+    "ok 104 expected # TODO implement a thing\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 103,
+      "todo": "remove todo directive",
+      "name": "bonus"
+    }
+  ],
+  [
+    "line",
+    "ok 105 always passes without explanation # SKIP\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 104,
+      "todo": "implement a thing",
+      "name": "expected"
+    }
+  ],
+  [
+    "line",
+    "ok 106 false without explanation # SKIP\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 105,
+      "skip": true,
+      "name": "always passes without explanation"
+    }
+  ],
+  [
+    "line",
+    "ok 107 bonus without explanation # TODO\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 106,
+      "skip": true,
+      "name": "false without explanation"
+    }
+  ],
+  [
+    "line",
+    "ok 108 expected without explanation # TODO\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 107,
+      "todo": true,
+      "name": "bonus without explanation"
+    }
+  ],
+  [
+    "line",
+    "# tests 8\n"
+  ],
+  [
+    "line",
+    "# skip  4\n"
+  ],
+  [
+    "line",
+    "# todo  4\n"
+  ],
+  [
+    "line",
+    "ok 109 test/test-assert-todo-skip.js\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 108,
+      "todo": true,
+      "name": "expected without explanation"
+    }
+  ],
+  [
+    "comment",
+    "# tests 8\n"
+  ],
+  [
+    "comment",
+    "# skip  4\n"
+  ],
+  [
+    "comment",
+    "# todo  4\n"
+  ],
+  [
+    "line",
+    "# test-descriptions.js\n"
+  ],
+  [
+    "line",
+    "# TAP version 13\n"
+  ],
+  [
+    "line",
+    "# captures test descriptions\n"
+  ],
+  [
+    "line",
+    "ok 110 exit cleanly\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 109,
+      "name": "test/test-assert-todo-skip.js"
+    }
+  ],
+  [
+    "comment",
+    "# test-descriptions.js\n"
+  ],
+  [
+    "comment",
+    "# TAP version 13\n"
+  ],
+  [
+    "comment",
+    "# captures test descriptions\n"
+  ],
+  [
+    "line",
+    "ok 111 captures SKIP description\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 110,
+      "name": "exit cleanly"
+    }
+  ],
+  [
+    "line",
+    "ok 112 skip summary is not from file\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 111,
+      "name": "captures SKIP description"
+    }
+  ],
+  [
+    "line",
+    "ok 113 todo summary is not from file\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 112,
+      "name": "skip summary is not from file"
+    }
+  ],
+  [
+    "line",
+    "not ok 114 captures TODO description\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 113,
+      "name": "todo summary is not from file"
+    }
+  ],
+  [
+    "line",
+    "  ---\n"
+  ],
+  [
+    "line",
+    "    file:   child_process.js\n"
+  ],
+  [
+    "line",
+    "    line:   707\n"
+  ],
+  [
+    "line",
+    "    column: 7\n"
+  ],
+  [
+    "line",
+    "    stack:\n"
+  ],
+  [
+    "line",
+    "      - |\n"
+  ],
+  [
+    "line",
+    "        getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\n"
+  ],
+  [
+    "line",
+    "      - |\n"
+  ],
+  [
+    "line",
+    "        Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\n"
+  ],
+  [
+    "line",
+    "      - |\n"
+  ],
+  [
+    "line",
+    "        Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\n"
+  ],
+  [
+    "line",
+    "      - |\n"
+  ],
+  [
+    "line",
+    "        /Users/isaacs/dev/js/tap/test/test-descriptions.js:32:7\n"
+  ],
+  [
+    "line",
+    "      - |\n"
+  ],
+  [
+    "line",
+    "        ChildProcess.exithandler (child_process.js:707:7)\n"
+  ],
+  [
+    "line",
+    "      - |\n"
+  ],
+  [
+    "line",
+    "        emitTwo (events.js:87:13)\n"
+  ],
+  [
+    "line",
+    "      - |\n"
+  ],
+  [
+    "line",
+    "        ChildProcess.emit (events.js:169:7)\n"
+  ],
+  [
+    "line",
+    "      - |\n"
+  ],
+  [
+    "line",
+    "        maybeClose (child_process.js:984:16)\n"
+  ],
+  [
+    "line",
+    "      - |\n"
+  ],
+  [
+    "line",
+    "        Socket.<anonymous> (child_process.js:1153:11)\n"
+  ],
+  [
+    "line",
+    "      - |\n"
+  ],
+  [
+    "line",
+    "        emitOne (events.js:77:13)\n"
+  ],
+  [
+    "line",
+    "  ...\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": false,
+      "id": 114,
+      "name": "captures TODO description",
+      "diag": {
+        "file": "child_process.js",
+        "line": 707,
+        "column": 7,
+        "stack": [
+          "getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\n",
+          "Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\n",
+          "Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\n",
+          "/Users/isaacs/dev/js/tap/test/test-descriptions.js:32:7\n",
+          "ChildProcess.exithandler (child_process.js:707:7)\n",
+          "emitTwo (events.js:87:13)\n",
+          "ChildProcess.emit (events.js:169:7)\n",
+          "maybeClose (child_process.js:984:16)\n",
+          "Socket.<anonymous> (child_process.js:1153:11)\n",
+          "emitOne (events.js:77:13)\n"
+        ]
+      }
+    }
+  ],
+  [
+    "line",
+    "Bail out! # captures TODO description\n"
+  ],
+  [
+    "bailout",
+    "# captures TODO description"
+  ],
+  [
+    "complete",
+    {
+      "ok": false,
+      "count": 114,
+      "pass": 113,
+      "fail": 1,
+      "bailout": "# captures TODO description",
+      "todo": 4,
+      "skip": 4,
+      "plan": {
+        "start": null,
+        "end": null,
+        "skipAll": false,
+        "skipReason": "",
+        "comment": ""
+      },
+      "failures": [
+        {
+          "ok": false,
+          "id": 114,
+          "name": "captures TODO description",
+          "diag": {
+            "file": "child_process.js",
+            "line": 707,
+            "column": 7,
+            "stack": [
+              "getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\n",
+              "Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\n",
+              "Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\n",
+              "/Users/isaacs/dev/js/tap/test/test-descriptions.js:32:7\n",
+              "ChildProcess.exithandler (child_process.js:707:7)\n",
+              "emitTwo (events.js:87:13)\n",
+              "ChildProcess.emit (events.js:169:7)\n",
+              "maybeClose (child_process.js:984:16)\n",
+              "Socket.<anonymous> (child_process.js:1153:11)\n",
+              "emitOne (events.js:77:13)\n"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+]

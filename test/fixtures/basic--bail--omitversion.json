@@ -1,0 +1,68 @@
+[
+  [
+    "line",
+    "1..6\n"
+  ],
+  [
+    "plan",
+    {
+      "start": 1,
+      "end": 6
+    }
+  ],
+  [
+    "line",
+    "not ok\n"
+  ],
+  [
+    "line",
+    "ok\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": false,
+      "id": 1
+    }
+  ],
+  [
+    "line",
+    "Bail out!\n"
+  ],
+  [
+    "bailout",
+    ""
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 2
+    }
+  ],
+  [
+    "complete",
+    {
+      "ok": false,
+      "count": 2,
+      "pass": 1,
+      "fail": 1,
+      "bailout": true,
+      "todo": 0,
+      "skip": 0,
+      "plan": {
+        "start": 1,
+        "end": 6,
+        "skipAll": false,
+        "skipReason": "",
+        "comment": ""
+      },
+      "failures": [
+        {
+          "ok": false,
+          "id": 1
+        }
+      ]
+    }
+  ]
+]

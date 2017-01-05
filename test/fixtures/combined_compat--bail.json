@@ -1,0 +1,90 @@
+[
+  [
+    "line",
+    "1..10 todo 4 10\n"
+  ],
+  [
+    "extra",
+    "1..10 todo 4 10\n"
+  ],
+  [
+    "line",
+    "ok 1\n"
+  ],
+  [
+    "line",
+    "ok 2 basset hounds got long ears\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 1
+    }
+  ],
+  [
+    "line",
+    "not ok 3        all hell broke lose\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 2,
+      "name": "basset hounds got long ears"
+    }
+  ],
+  [
+    "line",
+    "ok 4\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": false,
+      "id": 3,
+      "name": "all hell broke lose"
+    }
+  ],
+  [
+    "line",
+    "Bail out! # all hell broke lose\n"
+  ],
+  [
+    "bailout",
+    "# all hell broke lose"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 4
+    }
+  ],
+  [
+    "complete",
+    {
+      "ok": false,
+      "count": 4,
+      "pass": 3,
+      "fail": 1,
+      "bailout": "# all hell broke lose",
+      "todo": 0,
+      "skip": 0,
+      "plan": {
+        "start": null,
+        "end": null,
+        "skipAll": false,
+        "skipReason": "",
+        "comment": ""
+      },
+      "failures": [
+        {
+          "ok": false,
+          "id": 3,
+          "name": "all hell broke lose"
+        }
+      ]
+    }
+  ]
+]
