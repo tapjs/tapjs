@@ -1,0 +1,90 @@
+[
+  [
+    "line",
+    "# and stuff\n"
+  ],
+  [
+    "comment",
+    "# and stuff\n"
+  ],
+  [
+    "line",
+    "1..5 todo 1 2 4 5;\n"
+  ],
+  [
+    "extra",
+    "1..5 todo 1 2 4 5;\n"
+  ],
+  [
+    "line",
+    "# yeah, that\n"
+  ],
+  [
+    "comment",
+    "# yeah, that\n"
+  ],
+  [
+    "line",
+    "not ok 1\n"
+  ],
+  [
+    "line",
+    "# Failed test 1 in t/todo.t at line 9 *TODO*\n"
+  ],
+  [
+    "line",
+    "ok 2 # (t/todo.t at line 10 TODO?!)\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": false,
+      "id": 1
+    }
+  ],
+  [
+    "line",
+    "Bail out!\n"
+  ],
+  [
+    "comment",
+    "# Failed test 1 in t/todo.t at line 9 *TODO*\n"
+  ],
+  [
+    "bailout",
+    ""
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 2,
+      "name": "# (t/todo.t at line 10 TODO?!)"
+    }
+  ],
+  [
+    "complete",
+    {
+      "ok": false,
+      "count": 2,
+      "pass": 1,
+      "fail": 1,
+      "bailout": true,
+      "todo": 0,
+      "skip": 0,
+      "plan": {
+        "start": null,
+        "end": null,
+        "skipAll": false,
+        "skipReason": "",
+        "comment": ""
+      },
+      "failures": [
+        {
+          "ok": false,
+          "id": 1
+        }
+      ]
+    }
+  ]
+]

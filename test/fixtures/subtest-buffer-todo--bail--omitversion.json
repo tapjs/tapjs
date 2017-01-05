@@ -1,0 +1,185 @@
+[
+  [
+    "line",
+    "ok 1 - tbd # TODO foo {\n"
+  ],
+  [
+    "child",
+    [
+      [
+        "comment",
+        "# Subtest: tbd\n"
+      ],
+      [
+        "line",
+        "ok 1\n"
+      ],
+      [
+        "line",
+        "1..1\n"
+      ],
+      [
+        "assert",
+        {
+          "ok": true,
+          "id": 1
+        }
+      ],
+      [
+        "plan",
+        {
+          "start": 1,
+          "end": 1
+        }
+      ],
+      [
+        "complete",
+        {
+          "ok": true,
+          "count": 1,
+          "pass": 1,
+          "fail": 0,
+          "bailout": false,
+          "todo": 0,
+          "skip": 0,
+          "plan": {
+            "start": 1,
+            "end": 1,
+            "skipAll": false,
+            "skipReason": "",
+            "comment": ""
+          },
+          "failures": []
+        }
+      ]
+    ]
+  ],
+  [
+    "line",
+    "    ok 1\n"
+  ],
+  [
+    "line",
+    "    1..1\n"
+  ],
+  [
+    "line",
+    "}\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 1,
+      "todo": "foo",
+      "name": "tbd"
+    }
+  ],
+  [
+    "line",
+    "ok 2 - skippy # skip {\n"
+  ],
+  [
+    "child",
+    [
+      [
+        "comment",
+        "# Subtest: skippy\n"
+      ],
+      [
+        "line",
+        "ok 1\n"
+      ],
+      [
+        "line",
+        "1..1\n"
+      ],
+      [
+        "assert",
+        {
+          "ok": true,
+          "id": 1
+        }
+      ],
+      [
+        "plan",
+        {
+          "start": 1,
+          "end": 1
+        }
+      ],
+      [
+        "complete",
+        {
+          "ok": true,
+          "count": 1,
+          "pass": 1,
+          "fail": 0,
+          "bailout": false,
+          "todo": 0,
+          "skip": 0,
+          "plan": {
+            "start": 1,
+            "end": 1,
+            "skipAll": false,
+            "skipReason": "",
+            "comment": ""
+          },
+          "failures": []
+        }
+      ]
+    ]
+  ],
+  [
+    "line",
+    "    ok 1\n"
+  ],
+  [
+    "line",
+    "    1..1\n"
+  ],
+  [
+    "line",
+    "}\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 2,
+      "skip": true,
+      "name": "skippy"
+    }
+  ],
+  [
+    "line",
+    "1..2\n"
+  ],
+  [
+    "plan",
+    {
+      "start": 1,
+      "end": 2
+    }
+  ],
+  [
+    "complete",
+    {
+      "ok": true,
+      "count": 2,
+      "pass": 2,
+      "fail": 0,
+      "bailout": false,
+      "todo": 1,
+      "skip": 1,
+      "plan": {
+        "start": 1,
+        "end": 2,
+        "skipAll": false,
+        "skipReason": "",
+        "comment": ""
+      },
+      "failures": []
+    }
+  ]
+]

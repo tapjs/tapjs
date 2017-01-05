@@ -1,0 +1,594 @@
+[
+  [
+    "line",
+    "    # Subtest: child indented\n"
+  ],
+  [
+    "child",
+    [
+      [
+        "comment",
+        "# Subtest: child indented\n"
+      ],
+      [
+        "line",
+        "not ok - some yaml\n"
+      ],
+      [
+        "line",
+        "  ---\n"
+      ],
+      [
+        "line",
+        "  version: |-\n"
+      ],
+      [
+        "line",
+        "  \n"
+      ],
+      [
+        "line",
+        "    TAP version 13\n"
+      ],
+      [
+        "line",
+        "  \n"
+      ],
+      [
+        "line",
+        "  ...\n"
+      ],
+      [
+        "assert",
+        {
+          "ok": false,
+          "id": 1,
+          "name": "some yaml",
+          "diag": {
+            "version": "\nTAP version 13"
+          }
+        }
+      ],
+      [
+        "line",
+        "1..1\n"
+      ],
+      [
+        "plan",
+        {
+          "start": 1,
+          "end": 1
+        }
+      ],
+      [
+        "complete",
+        {
+          "ok": false,
+          "count": 1,
+          "pass": 0,
+          "fail": 1,
+          "bailout": false,
+          "todo": 0,
+          "skip": 0,
+          "plan": {
+            "start": 1,
+            "end": 1,
+            "skipAll": false,
+            "skipReason": "",
+            "comment": ""
+          },
+          "failures": [
+            {
+              "ok": false,
+              "id": 1,
+              "name": "some yaml",
+              "diag": {
+                "version": "\nTAP version 13"
+              }
+            }
+          ]
+        }
+      ]
+    ]
+  ],
+  [
+    "line",
+    "    not ok - some yaml\n"
+  ],
+  [
+    "line",
+    "      ---\n"
+  ],
+  [
+    "line",
+    "      version: |-\n"
+  ],
+  [
+    "line",
+    "  \n"
+  ],
+  [
+    "line",
+    "        TAP version 13\n"
+  ],
+  [
+    "line",
+    "  \n"
+  ],
+  [
+    "line",
+    "      ...\n"
+  ],
+  [
+    "line",
+    "    1..1\n"
+  ],
+  [
+    "line",
+    "not ok 1 - child indented\n"
+  ],
+  [
+    "line",
+    "# Subtest: child unindented\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": false,
+      "id": 1,
+      "name": "child indented"
+    }
+  ],
+  [
+    "child",
+    [
+      [
+        "comment",
+        "# Subtest: child unindented\n"
+      ],
+      [
+        "line",
+        "not ok - some yaml\n"
+      ],
+      [
+        "line",
+        "  ---\n"
+      ],
+      [
+        "line",
+        "  version: |-\n"
+      ],
+      [
+        "line",
+        "  \n"
+      ],
+      [
+        "line",
+        "    TAP version 13\n"
+      ],
+      [
+        "line",
+        "  \n"
+      ],
+      [
+        "line",
+        "  ...\n"
+      ],
+      [
+        "assert",
+        {
+          "ok": false,
+          "id": 1,
+          "name": "some yaml",
+          "diag": {
+            "version": "\nTAP version 13"
+          }
+        }
+      ],
+      [
+        "line",
+        "1..1\n"
+      ],
+      [
+        "plan",
+        {
+          "start": 1,
+          "end": 1
+        }
+      ],
+      [
+        "complete",
+        {
+          "ok": false,
+          "count": 1,
+          "pass": 0,
+          "fail": 1,
+          "bailout": false,
+          "todo": 0,
+          "skip": 0,
+          "plan": {
+            "start": 1,
+            "end": 1,
+            "skipAll": false,
+            "skipReason": "",
+            "comment": ""
+          },
+          "failures": [
+            {
+              "ok": false,
+              "id": 1,
+              "name": "some yaml",
+              "diag": {
+                "version": "\nTAP version 13"
+              }
+            }
+          ]
+        }
+      ]
+    ]
+  ],
+  [
+    "line",
+    "    not ok - some yaml\n"
+  ],
+  [
+    "line",
+    "      ---\n"
+  ],
+  [
+    "line",
+    "      version: |-\n"
+  ],
+  [
+    "line",
+    "  \n"
+  ],
+  [
+    "line",
+    "        TAP version 13\n"
+  ],
+  [
+    "line",
+    "  \n"
+  ],
+  [
+    "line",
+    "      ...\n"
+  ],
+  [
+    "line",
+    "    1..1\n"
+  ],
+  [
+    "line",
+    "not ok 2 - child unindented\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": false,
+      "id": 2,
+      "name": "child unindented"
+    }
+  ],
+  [
+    "child",
+    [
+      [
+        "comment",
+        "# Subtest: (anonymous)\n"
+      ],
+      [
+        "line",
+        "not ok - some yaml\n"
+      ],
+      [
+        "line",
+        "  ---\n"
+      ],
+      [
+        "line",
+        "  version: |-\n"
+      ],
+      [
+        "line",
+        "  \n"
+      ],
+      [
+        "line",
+        "    TAP version 13\n"
+      ],
+      [
+        "line",
+        "  \n"
+      ],
+      [
+        "line",
+        "  ...\n"
+      ],
+      [
+        "assert",
+        {
+          "ok": false,
+          "id": 1,
+          "name": "some yaml",
+          "diag": {
+            "version": "\nTAP version 13"
+          }
+        }
+      ],
+      [
+        "line",
+        "1..1\n"
+      ],
+      [
+        "plan",
+        {
+          "start": 1,
+          "end": 1
+        }
+      ],
+      [
+        "complete",
+        {
+          "ok": false,
+          "count": 1,
+          "pass": 0,
+          "fail": 1,
+          "bailout": false,
+          "todo": 0,
+          "skip": 0,
+          "plan": {
+            "start": 1,
+            "end": 1,
+            "skipAll": false,
+            "skipReason": "",
+            "comment": ""
+          },
+          "failures": [
+            {
+              "ok": false,
+              "id": 1,
+              "name": "some yaml",
+              "diag": {
+                "version": "\nTAP version 13"
+              }
+            }
+          ]
+        }
+      ]
+    ]
+  ],
+  [
+    "line",
+    "    not ok - some yaml\n"
+  ],
+  [
+    "line",
+    "      ---\n"
+  ],
+  [
+    "line",
+    "      version: |-\n"
+  ],
+  [
+    "line",
+    "  \n"
+  ],
+  [
+    "line",
+    "        TAP version 13\n"
+  ],
+  [
+    "line",
+    "  \n"
+  ],
+  [
+    "line",
+    "      ...\n"
+  ],
+  [
+    "line",
+    "    1..1\n"
+  ],
+  [
+    "line",
+    "not ok 3 - child unnamed\n"
+  ],
+  [
+    "line",
+    "not ok 4 - child buffered {\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": false,
+      "id": 3,
+      "name": "child unnamed"
+    }
+  ],
+  [
+    "child",
+    [
+      [
+        "comment",
+        "# Subtest: child buffered\n"
+      ],
+      [
+        "line",
+        "not ok - some yaml\n"
+      ],
+      [
+        "line",
+        "  ---\n"
+      ],
+      [
+        "line",
+        "  version: |-\n"
+      ],
+      [
+        "line",
+        "  \n"
+      ],
+      [
+        "line",
+        "    TAP version 13\n"
+      ],
+      [
+        "line",
+        "  \n"
+      ],
+      [
+        "line",
+        "  ...\n"
+      ],
+      [
+        "assert",
+        {
+          "ok": false,
+          "id": 1,
+          "name": "some yaml",
+          "diag": {
+            "version": "\nTAP version 13"
+          }
+        }
+      ],
+      [
+        "line",
+        "1..1\n"
+      ],
+      [
+        "plan",
+        {
+          "start": 1,
+          "end": 1
+        }
+      ],
+      [
+        "complete",
+        {
+          "ok": false,
+          "count": 1,
+          "pass": 0,
+          "fail": 1,
+          "bailout": false,
+          "todo": 0,
+          "skip": 0,
+          "plan": {
+            "start": 1,
+            "end": 1,
+            "skipAll": false,
+            "skipReason": "",
+            "comment": ""
+          },
+          "failures": [
+            {
+              "ok": false,
+              "id": 1,
+              "name": "some yaml",
+              "diag": {
+                "version": "\nTAP version 13"
+              }
+            }
+          ]
+        }
+      ]
+    ]
+  ],
+  [
+    "line",
+    "    not ok - some yaml\n"
+  ],
+  [
+    "line",
+    "      ---\n"
+  ],
+  [
+    "line",
+    "      version: |-\n"
+  ],
+  [
+    "line",
+    "  \n"
+  ],
+  [
+    "line",
+    "        TAP version 13\n"
+  ],
+  [
+    "line",
+    "  \n"
+  ],
+  [
+    "line",
+    "      ...\n"
+  ],
+  [
+    "line",
+    "    1..1\n"
+  ],
+  [
+    "line",
+    "}\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": false,
+      "id": 4,
+      "name": "child buffered"
+    }
+  ],
+  [
+    "line",
+    "1..4\n"
+  ],
+  [
+    "plan",
+    {
+      "start": 1,
+      "end": 4
+    }
+  ],
+  [
+    "complete",
+    {
+      "ok": false,
+      "count": 4,
+      "pass": 0,
+      "fail": 4,
+      "bailout": false,
+      "todo": 0,
+      "skip": 0,
+      "plan": {
+        "start": 1,
+        "end": 4,
+        "skipAll": false,
+        "skipReason": "",
+        "comment": ""
+      },
+      "failures": [
+        {
+          "ok": false,
+          "id": 1,
+          "name": "child indented"
+        },
+        {
+          "ok": false,
+          "id": 2,
+          "name": "child unindented"
+        },
+        {
+          "ok": false,
+          "id": 3,
+          "name": "child unnamed"
+        },
+        {
+          "ok": false,
+          "id": 4,
+          "name": "child buffered"
+        }
+      ]
+    }
+  ]
+]

@@ -1,0 +1,98 @@
+[
+  [
+    "line",
+    "# before version\n"
+  ],
+  [
+    "comment",
+    "# before version\n"
+  ],
+  [
+    "line",
+    "# after version, before result\n"
+  ],
+  [
+    "comment",
+    "# after version, before result\n"
+  ],
+  [
+    "line",
+    "not ok 1 - please keep my diags\n"
+  ],
+  [
+    "line",
+    "  # before diag\n"
+  ],
+  [
+    "line",
+    "  ---\n"
+  ],
+  [
+    "line",
+    "  # mid diag\n"
+  ],
+  [
+    "line",
+    "  after: comment\n"
+  ],
+  [
+    "line",
+    "  ...\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": false,
+      "id": 1,
+      "name": "please keep my diags",
+      "diag": {
+        "after": "comment"
+      }
+    }
+  ],
+  [
+    "line",
+    "Bail out! # please keep my diags\n"
+  ],
+  [
+    "comment",
+    "  # before diag\n"
+  ],
+  [
+    "comment",
+    "  # mid diag\n"
+  ],
+  [
+    "bailout",
+    "# please keep my diags"
+  ],
+  [
+    "complete",
+    {
+      "ok": false,
+      "count": 1,
+      "pass": 0,
+      "fail": 1,
+      "bailout": "# please keep my diags",
+      "todo": 0,
+      "skip": 0,
+      "plan": {
+        "start": null,
+        "end": null,
+        "skipAll": false,
+        "skipReason": "",
+        "comment": ""
+      },
+      "failures": [
+        {
+          "ok": false,
+          "id": 1,
+          "name": "please keep my diags",
+          "diag": {
+            "after": "comment"
+          }
+        }
+      ]
+    }
+  ]
+]

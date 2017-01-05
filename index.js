@@ -26,6 +26,7 @@ var lineTypes = {
   pragma: /^pragma ([+-])([a-z]+)\n$/,
   bailout: /^bail out!(.*)\n$/i,
   version: /^TAP version ([0-9]+)\n$/i,
+  childVersion: /^(    )+TAP version ([0-9]+)\n$/i,
   plan: /^([0-9]+)\.\.([0-9]+)(?:\s+(?:#\s*(.*)))?\n$/,
   subtest: /^# Subtest(?:: (.*))?\n$/,
   subtestIndent: /^    # Subtest(?:: (.*))?\n$/,
@@ -119,7 +120,12 @@ function Parser (options, onComplete) {
   this.level = options.level || 0
   Writable.call(this)
   this.buffer = ''
+  this.bail = !!options.bail
+  this.bailingOut = false
   this.bailedOut = false
+  this.syntheticBailout = false
+  this.syntheticPlan = false
+  this.omitVersion = !!options.omitVersion
   this.planStart = -1
   this.planEnd = -1
   this.planComment = ''
@@ -314,6 +320,15 @@ Parser.prototype.end = function (chunk, encoding, cb) {
 
   this.emitResult()
 
+  if (this.syntheticBailout && this.level === 0) {
+    var reason = this.bailedOut
+    if (reason === true)
+      reason = ''
+    else
+      reason = ' ' + reason
+    this.emit('line', 'Bail out!' + reason + '\n')
+  }
+
   var skipAll
 
   if (this.planEnd === 0 && this.planStart === 1) {
@@ -325,6 +340,7 @@ Parser.prototype.end = function (chunk, encoding, cb) {
     }
   } else if (!this.bailedOut && this.planStart === -1) {
     if (this.count === 0) {
+      this.syntheticPlan = true
       this.emit('line', '1..0\n')
       this.plan(1, 0, '', '1..0\n')
       skipAll = true
@@ -394,13 +410,22 @@ Parser.prototype.pragma = function (key, value, line) {
   this.emit('pragma', key, value)
 }
 
-Parser.prototype.bailout = function (reason) {
+Parser.prototype.bailout = function (reason, synthetic) {
+  this.syntheticBailout = synthetic
+
+  if (this.bailingOut)
+    return
+
+  // Guard because emitting a result can trigger a forced bailout
+  // if the harness decides that failures should be bailouts.
+  this.bailingOut = reason || true
+
   this.emitResult()
-  this.bailedOut = reason || true
+  this.bailedOut = this.bailingOut
   this.ok = false
   this.emit('bailout', reason)
   if (this.parent)
-    this.parent.bailout(reason)
+    this.parent.bailout(reason, true)
 }
 
 Parser.prototype.clearExtraQueue = function () {
@@ -445,6 +470,12 @@ Parser.prototype.emitResult = function () {
     this.todo++
 
   this.emit('assert', res)
+  if (this.bail && !res.ok && !res.todo && !res.skip && !this.bailingOut) {
+    var ind = new Array(this.level + 1).join('    ')
+    for (var p = this; p.parent; p = p.parent);
+    var bailName = res.name ? ' # ' + res.name : ''
+    p._parse(ind + 'Bail out!' + bailName + '\n')
+  }
   this.clearExtraQueue()
 }
 
@@ -460,6 +491,9 @@ Parser.prototype.startChild = function (line) {
     lineTypes.subtestIndent.test(line)
   var unnamed = !maybeBuffered && !unindentStream && !indentStream
 
+  if (indentStream)
+    this.emit('line', line)
+
   // If we have any other result waiting in the wings, we need to emit
   // that now.  A buffered test emits its test point at the *end* of
   // the child subtest block, so as to match streamed test semantics.
@@ -467,10 +501,12 @@ Parser.prototype.startChild = function (line) {
     this.emitResult()
 
   this.child = new Parser({
+    bail: this.bail,
     parent: this,
     level: this.level + 1,
     buffered: maybeBuffered,
     preserveWhitespace: this.preserveWhitespace,
+    omitVersion: true,
     strict: this.strict
   })
 
@@ -478,6 +514,15 @@ Parser.prototype.startChild = function (line) {
   this.child.on('complete', function (results) {
     if (!results.ok)
       self.ok = false
+  })
+
+  this.child.on('line', function (l) {
+    if (this.syntheticPlan)
+      return
+
+    if (l.trim() || self.preserveWhitespace)
+      l = '    ' + l
+    self.emit('line', l)
   })
 
   // Canonicalize the parsing result of any kind of subtest
@@ -528,14 +573,15 @@ Parser.prototype._parse = function (line) {
       line = this.yind + line
   }
 
-  // this is a line we are processing, so emit it
-  if (this.preserveWhitespace || line.trim() || this.yind)
-    this.emit('line', line)
-
-  if (this.bailedOut)
+  // If we're bailing out, then the only thing we want to see is the
+  // end of a buffered child test.  Anything else should be ignored.
+  if (this.bailingOut && !/^\s*}\n$/.test(line))
     return
 
-  if (line === '\n')
+  // This allows omitting even parsing the version if the test is
+  // an indented child test.  Several parsers get upset when they
+  // see an indented version field.
+  if (this.omitVersion && lineTypes.version.test(line) && !this.yind)
     return
 
   // check to see if the line is indented.
@@ -545,6 +591,13 @@ Parser.prototype._parse = function (line) {
     this.parseIndent(line, indent)
     return
   }
+
+  // this is a line we are processing, so emit it
+  if (this.preserveWhitespace || line.trim() || this.yind)
+    this.emit('line', line)
+
+  if (line === '\n')
+    return
 
   // buffered subtests must end with a }
   if (this.child && this.child.buffered && line === '}\n') {
@@ -588,7 +641,7 @@ Parser.prototype._parse = function (line) {
 
   // ok, now it's maybe a thing
   if (type[0] === 'bailout') {
-    this.bailout(type[1][1].trim())
+    this.bailout(type[1][1].trim(), false)
     return
   }
 
@@ -659,6 +712,7 @@ Parser.prototype.parseIndent = function (line, indent) {
   // continuing/ending yaml block
   if (this.yind) {
     if (line.indexOf(this.yind) === 0) {
+      this.emit('line', line)
       this.yamlishLine(line)
       return
     } else {
@@ -673,6 +727,7 @@ Parser.prototype.parseIndent = function (line, indent) {
   // start a yaml block under a test point
   if (this.current && !this.yind && line === indent + '---\n') {
     this.yind = indent
+    this.emit('line', line)
     return
   }
 
@@ -707,6 +762,7 @@ Parser.prototype.parseIndent = function (line, indent) {
       var type = lineType(s[2])
       if (type) {
         if (type[0] === 'comment') {
+          this.emit('line', line)
           this.emitComment(line)
         } else {
           // it's relevant!  start as an "unnamed" child subtest
@@ -718,6 +774,8 @@ Parser.prototype.parseIndent = function (line, indent) {
   }
 
   // at this point, it's either a non-subtest comment, or garbage.
+  this.emit('line', line)
+
   if (lineTypes.comment.test(line)) {
     this.emitComment(line)
     return

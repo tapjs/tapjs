@@ -1,0 +1,144 @@
+[
+  [
+    "line",
+    "# before version\n"
+  ],
+  [
+    "comment",
+    "# before version\n"
+  ],
+  [
+    "line",
+    "# after version, before plan\n"
+  ],
+  [
+    "comment",
+    "# after version, before plan\n"
+  ],
+  [
+    "line",
+    "1..2\n"
+  ],
+  [
+    "plan",
+    {
+      "start": 1,
+      "end": 2
+    }
+  ],
+  [
+    "line",
+    "# before result\n"
+  ],
+  [
+    "comment",
+    "# before result\n"
+  ],
+  [
+    "line",
+    "not ok 1 - please keep my diags\n"
+  ],
+  [
+    "line",
+    "  # before diag\n"
+  ],
+  [
+    "line",
+    "  ---\n"
+  ],
+  [
+    "line",
+    "  # mid diag\n"
+  ],
+  [
+    "line",
+    "  after: comment\n"
+  ],
+  [
+    "line",
+    "  ...\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": false,
+      "id": 1,
+      "name": "please keep my diags",
+      "diag": {
+        "after": "comment"
+      }
+    }
+  ],
+  [
+    "comment",
+    "  # before diag\n"
+  ],
+  [
+    "comment",
+    "  # mid diag\n"
+  ],
+  [
+    "line",
+    "  # after diag\n"
+  ],
+  [
+    "comment",
+    "  # after diag\n"
+  ],
+  [
+    "line",
+    "# before 2\n"
+  ],
+  [
+    "comment",
+    "# before 2\n"
+  ],
+  [
+    "line",
+    "ok 2\n"
+  ],
+  [
+    "line",
+    "# after 2\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 2
+    }
+  ],
+  [
+    "comment",
+    "# after 2\n"
+  ],
+  [
+    "complete",
+    {
+      "ok": false,
+      "count": 2,
+      "pass": 1,
+      "fail": 1,
+      "bailout": false,
+      "todo": 0,
+      "skip": 0,
+      "plan": {
+        "start": 1,
+        "end": 2,
+        "skipAll": false,
+        "skipReason": "",
+        "comment": ""
+      },
+      "failures": [
+        {
+          "ok": false,
+          "id": 1,
+          "name": "please keep my diags",
+          "diag": {
+            "after": "comment"
+          }
+        }
+      ]
+    }
+  ]
+]

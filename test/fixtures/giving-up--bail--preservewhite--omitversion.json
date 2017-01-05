@@ -1,0 +1,59 @@
+[
+  [
+    "line",
+    "1..573\n"
+  ],
+  [
+    "plan",
+    {
+      "start": 1,
+      "end": 573
+    }
+  ],
+  [
+    "line",
+    "not ok 1 - database handle\n"
+  ],
+  [
+    "line",
+    "Bail out! Couldn't connect to database.\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": false,
+      "id": 1,
+      "name": "database handle"
+    }
+  ],
+  [
+    "bailout",
+    "Couldn't connect to database."
+  ],
+  [
+    "complete",
+    {
+      "ok": false,
+      "count": 1,
+      "pass": 0,
+      "fail": 1,
+      "bailout": "Couldn't connect to database.",
+      "todo": 0,
+      "skip": 0,
+      "plan": {
+        "start": 1,
+        "end": 573,
+        "skipAll": false,
+        "skipReason": "",
+        "comment": ""
+      },
+      "failures": [
+        {
+          "ok": false,
+          "id": 1,
+          "name": "database handle"
+        }
+      ]
+    }
+  ]
+]

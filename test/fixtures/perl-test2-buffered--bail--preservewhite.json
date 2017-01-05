@@ -1,0 +1,120 @@
+[
+  [
+    "line",
+    "# Seeded srand with seed '20160810' from local date.\n"
+  ],
+  [
+    "comment",
+    "# Seeded srand with seed '20160810' from local date.\n"
+  ],
+  [
+    "line",
+    "not ok 1 - empty {\n"
+  ],
+  [
+    "child",
+    [
+      [
+        "comment",
+        "# Subtest: empty\n"
+      ],
+      [
+        "line",
+        "1..0\n"
+      ],
+      [
+        "plan",
+        {
+          "start": 1,
+          "end": 0
+        }
+      ],
+      [
+        "complete",
+        {
+          "ok": true,
+          "count": 0,
+          "pass": 0,
+          "fail": 0,
+          "bailout": false,
+          "todo": 0,
+          "skip": 0,
+          "plan": {
+            "start": 1,
+            "end": 0,
+            "skipAll": true,
+            "skipReason": "",
+            "comment": ""
+          },
+          "failures": []
+        }
+      ]
+    ]
+  ],
+  [
+    "line",
+    "    1..0\n"
+  ],
+  [
+    "line",
+    "}\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": false,
+      "id": 1,
+      "name": "empty"
+    }
+  ],
+  [
+    "line",
+    "Bail out! # empty\n"
+  ],
+  [
+    "bailout",
+    "# empty"
+  ],
+  [
+    "line",
+    "}\n"
+  ],
+  [
+    "extra",
+    "}\n"
+  ],
+  [
+    "line",
+    "}\n"
+  ],
+  [
+    "extra",
+    "}\n"
+  ],
+  [
+    "complete",
+    {
+      "ok": false,
+      "count": 1,
+      "pass": 0,
+      "fail": 1,
+      "bailout": "# empty",
+      "todo": 0,
+      "skip": 0,
+      "plan": {
+        "start": null,
+        "end": null,
+        "skipAll": false,
+        "skipReason": "",
+        "comment": ""
+      },
+      "failures": [
+        {
+          "ok": false,
+          "id": 1,
+          "name": "empty"
+        }
+      ]
+    }
+  ]
+]

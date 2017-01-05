@@ -1,0 +1,84 @@
+[
+  [
+    "line",
+    "ok - test suite started\n"
+  ],
+  [
+    "line",
+    "ok - bogomips\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 1,
+      "name": "test suite started"
+    }
+  ],
+  [
+    "line",
+    "  ---\n"
+  ],
+  [
+    "line",
+    "  Bogomips: 5226.88\n"
+  ],
+  [
+    "line",
+    "  ...\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 2,
+      "name": "bogomips",
+      "diag": {
+        "Bogomips": 5226.88
+      }
+    }
+  ],
+  [
+    "line",
+    "ok - test suite finished\n"
+  ],
+  [
+    "line",
+    "1..3\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 3,
+      "name": "test suite finished"
+    }
+  ],
+  [
+    "plan",
+    {
+      "start": 1,
+      "end": 3
+    }
+  ],
+  [
+    "complete",
+    {
+      "ok": true,
+      "count": 3,
+      "pass": 3,
+      "fail": 0,
+      "bailout": false,
+      "todo": 0,
+      "skip": 0,
+      "plan": {
+        "start": 1,
+        "end": 3,
+        "skipAll": false,
+        "skipReason": "",
+        "comment": ""
+      },
+      "failures": []
+    }
+  ]
+]
