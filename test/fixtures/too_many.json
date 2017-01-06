@@ -56,7 +56,11 @@
     {
       "ok": true,
       "id": 4,
-      "tapError": "id greater than plan end"
+      "tapError": "id greater than plan end",
+      "plan": {
+        "start": 1,
+        "end": 3
+      }
     }
   ],
   [
@@ -68,7 +72,11 @@
     {
       "ok": true,
       "id": 5,
-      "tapError": "id greater than plan end"
+      "tapError": "id greater than plan end",
+      "plan": {
+        "start": 1,
+        "end": 3
+      }
     }
   ],
   [
@@ -80,7 +88,11 @@
     {
       "ok": true,
       "id": 6,
-      "tapError": "id greater than plan end"
+      "tapError": "id greater than plan end",
+      "plan": {
+        "start": 1,
+        "end": 3
+      }
     }
   ],
   [
@@ -88,7 +100,11 @@
     {
       "ok": true,
       "id": 7,
-      "tapError": "id greater than plan end"
+      "tapError": "id greater than plan end",
+      "plan": {
+        "start": 1,
+        "end": 3
+      }
     }
   ],
   [
@@ -112,22 +128,38 @@
         {
           "ok": true,
           "id": 4,
-          "tapError": "id greater than plan end"
+          "tapError": "id greater than plan end",
+          "plan": {
+            "start": 1,
+            "end": 3
+          }
         },
         {
           "ok": true,
           "id": 5,
-          "tapError": "id greater than plan end"
+          "tapError": "id greater than plan end",
+          "plan": {
+            "start": 1,
+            "end": 3
+          }
         },
         {
           "ok": true,
           "id": 6,
-          "tapError": "id greater than plan end"
+          "tapError": "id greater than plan end",
+          "plan": {
+            "start": 1,
+            "end": 3
+          }
         },
         {
           "ok": true,
           "id": 7,
-          "tapError": "id greater than plan end"
+          "tapError": "id greater than plan end",
+          "plan": {
+            "start": 1,
+            "end": 3
+          }
         }
       ]
     }

@@ -60,7 +60,11 @@
       "ok": true,
       "id": 0,
       "name": "Four",
-      "tapError": "id less than plan start"
+      "tapError": "id less than plan start",
+      "plan": {
+        "start": 1,
+        "end": 5
+      }
     }
   ],
   [
@@ -93,7 +97,11 @@
           "ok": true,
           "id": 0,
           "name": "Four",
-          "tapError": "id less than plan start"
+          "tapError": "id less than plan start",
+          "plan": {
+            "start": 1,
+            "end": 5
+          }
         }
       ]
     }

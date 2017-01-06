@@ -71,7 +71,11 @@
     {
       "ok": true,
       "id": 6,
-      "tapError": "id greater than plan end"
+      "tapError": "id greater than plan end",
+      "plan": {
+        "start": 1,
+        "end": 5
+      }
     }
   ],
   [
@@ -95,7 +99,11 @@
         {
           "ok": true,
           "id": 6,
-          "tapError": "id greater than plan end"
+          "tapError": "id greater than plan end",
+          "plan": {
+            "start": 1,
+            "end": 5
+          }
         }
       ]
     }

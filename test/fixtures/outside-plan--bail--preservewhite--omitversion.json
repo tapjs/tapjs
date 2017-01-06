@@ -24,7 +24,11 @@
       "ok": true,
       "id": 234,
       "name": "pretty big",
-      "tapError": "id greater than plan end"
+      "tapError": "id greater than plan end",
+      "plan": {
+        "start": 1,
+        "end": 3
+      }
     }
   ],
   [
@@ -37,7 +41,11 @@
       "ok": true,
       "id": 5,
       "name": "less big",
-      "tapError": "id greater than plan end"
+      "tapError": "id greater than plan end",
+      "plan": {
+        "start": 1,
+        "end": 3
+      }
     }
   ],
   [
@@ -70,13 +78,21 @@
           "ok": true,
           "id": 234,
           "name": "pretty big",
-          "tapError": "id greater than plan end"
+          "tapError": "id greater than plan end",
+          "plan": {
+            "start": 1,
+            "end": 3
+          }
         },
         {
           "ok": true,
           "id": 5,
           "name": "less big",
-          "tapError": "id greater than plan end"
+          "tapError": "id greater than plan end",
+          "plan": {
+            "start": 1,
+            "end": 3
+          }
         }
       ]
     }

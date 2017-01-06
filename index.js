@@ -175,6 +175,7 @@ Parser.prototype.parseTestPoint = function (testPoint) {
         res.tapError = 'id less than plan start'
       else
         res.tapError = 'id greater than plan end'
+      res.plan = { start: this.planStart, end: this.planEnd }
       this.tapError(res)
     }
   }
@@ -220,6 +221,21 @@ Parser.prototype.plan = function (start, end, comment, line) {
   }
 
   this.emitResult()
+
+  // 1..0 is a special case. Otherwise, end must be >= start
+  if (end < start && end !== 0 && start !== 1) {
+    if (this.strict)
+      this.tapError({
+        tapError: 'plan end cannot be less than plan start',
+        plan: {
+          start: start,
+          end: end
+        }
+      })
+    else
+      this.nonTap(line)
+    return
+  }
 
   this.planStart = start
   this.planEnd = end
