@@ -201,6 +201,9 @@ Parser.prototype.parseTestPoint = function (testPoint) {
 }
 
 Parser.prototype.nonTap = function (data) {
+  if (this.bailingOut && /^( {4})*\}\n$/.test(data))
+    return
+
   if (this.strict) {
     this.tapError({
       tapError: 'Non-TAP data encountered in strict mode',
@@ -655,9 +658,6 @@ Parser.prototype._parse = function (line) {
     return
   }
 
-  if (line === '}\n' && this.bailingOut)
-    return
-
   // buffered subtest with diagnostics
   if (this.current && line === '{\n' &&
       !this.current.buffered &&
@@ -665,7 +665,6 @@ Parser.prototype._parse = function (line) {
     this.current.buffered = true
     return
   }
-
 
   // now we know it's not indented, so if it's either valid tap
   // or garbage.  Get the type of line.
