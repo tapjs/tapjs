@@ -67,18 +67,6 @@
     "  ...\n"
   ],
   [
-    "line",
-    "  # after diag\n"
-  ],
-  [
-    "line",
-    "# before 2\n"
-  ],
-  [
-    "line",
-    "ok 2\n"
-  ],
-  [
     "assert",
     {
       "ok": false,
@@ -100,14 +88,6 @@
   [
     "comment",
     "  # mid diag\n"
-  ],
-  [
-    "comment",
-    "  # after diag\n"
-  ],
-  [
-    "comment",
-    "# before 2\n"
   ],
   [
     "bailout",

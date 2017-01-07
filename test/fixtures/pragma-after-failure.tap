@@ -1,0 +1,4 @@
+not ok
+pragma +custom
+ok
+1..2

@@ -51,7 +51,7 @@
   [
     "complete",
     {
-      "ok": true,
+      "ok": false,
       "count": 3,
       "pass": 2,
       "fail": 1,

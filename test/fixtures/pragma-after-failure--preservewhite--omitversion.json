@@ -1,0 +1,69 @@
+[
+  [
+    "line",
+    "not ok\n"
+  ],
+  [
+    "line",
+    "pragma +custom\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": false,
+      "id": 1
+    }
+  ],
+  [
+    "pragma",
+    "custom",
+    true
+  ],
+  [
+    "line",
+    "ok\n"
+  ],
+  [
+    "line",
+    "1..2\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 2
+    }
+  ],
+  [
+    "plan",
+    {
+      "start": 1,
+      "end": 2
+    }
+  ],
+  [
+    "complete",
+    {
+      "ok": false,
+      "count": 2,
+      "pass": 1,
+      "fail": 1,
+      "bailout": false,
+      "todo": 0,
+      "skip": 0,
+      "plan": {
+        "start": 1,
+        "end": 2,
+        "skipAll": false,
+        "skipReason": "",
+        "comment": ""
+      },
+      "failures": [
+        {
+          "ok": false,
+          "id": 1
+        }
+      ]
+    }
+  ]
+]

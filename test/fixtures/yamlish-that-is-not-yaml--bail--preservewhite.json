@@ -128,13 +128,6 @@
     "# expected yaml, got a sea turtle"
   ],
   [
-    "plan",
-    {
-      "start": 1,
-      "end": 1
-    }
-  ],
-  [
     "complete",
     {
       "ok": false,
@@ -145,8 +138,8 @@
       "todo": 0,
       "skip": 0,
       "plan": {
-        "start": 1,
-        "end": 1,
+        "start": null,
+        "end": null,
         "skipAll": false,
         "skipReason": "",
         "comment": ""

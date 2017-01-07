@@ -66,13 +66,14 @@
               ],
               [
                 "line",
-                "1..0\n"
+                "1..0 # no tests found\n"
               ],
               [
                 "plan",
                 {
                   "start": 1,
-                  "end": 0
+                  "end": 0,
+                  "comment": "no tests found"
                 }
               ],
               [
@@ -89,8 +90,8 @@
                     "start": 1,
                     "end": 0,
                     "skipAll": true,
-                    "skipReason": "",
-                    "comment": ""
+                    "skipReason": "no tests found",
+                    "comment": "no tests found"
                   },
                   "failures": []
                 }
@@ -123,13 +124,14 @@
           ],
           [
             "line",
-            "1..0\n"
+            "1..0 # no tests found\n"
           ],
           [
             "plan",
             {
               "start": 1,
-              "end": 0
+              "end": 0,
+              "comment": "no tests found"
             }
           ],
           [
@@ -146,8 +148,8 @@
                 "start": 1,
                 "end": 0,
                 "skipAll": true,
-                "skipReason": "",
-                "comment": ""
+                "skipReason": "no tests found",
+                "comment": "no tests found"
               },
               "failures": []
             }
@@ -693,10 +695,6 @@
     "  ...\n"
   ],
   [
-    "line",
-    "1..1\n"
-  ],
-  [
     "assert",
     {
       "ok": false,
@@ -731,13 +729,6 @@
     "# index.js"
   ],
   [
-    "plan",
-    {
-      "start": 1,
-      "end": 1
-    }
-  ],
-  [
     "complete",
     {
       "ok": false,
@@ -748,8 +739,8 @@
       "todo": 0,
       "skip": 0,
       "plan": {
-        "start": 1,
-        "end": 1,
+        "start": null,
+        "end": null,
         "skipAll": false,
         "skipReason": "",
         "comment": ""

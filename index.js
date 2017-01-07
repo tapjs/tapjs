@@ -194,6 +194,8 @@ Parser.prototype.parseTestPoint = function (testPoint) {
       this.last = res.id
   }
 
+  this.ok = this.ok && res.ok
+
   // hold onto it, because we might get yamlish diagnostics
   this.current = res
 }
@@ -309,6 +311,10 @@ Parser.prototype.processYamlish = function () {
   //     1..1
   //     ok
   // }
+  // unless it's failure, and we're going to bail anyway.
+  if (!this.current.ok && this.bail) {
+    this.emitResult()
+  }
 }
 
 Parser.prototype.write = function (chunk, encoding, cb) {
@@ -355,8 +361,6 @@ Parser.prototype.end = function (chunk, encoding, cb) {
     this.nonTap(this.yamlish)
 
   this.emitResult()
-  if (this.bailedOut)
-    return
 
   if (this.syntheticBailout && this.level === 0) {
     var reason = this.bailedOut
@@ -638,7 +642,8 @@ Parser.prototype._parse = function (line) {
   }
 
   // this is a line we are processing, so emit it
-  if (this.preserveWhitespace || line.trim() || this.yind)
+  var validLine = this.preserveWhitespace || line.trim() || this.yind
+  if (validLine)
     this.emit('line', line)
 
   if (line === '\n')

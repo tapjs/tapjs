@@ -31,7 +31,7 @@ function runTest (bail) { return function (t) {
         comment: ''
       },
       failures: [
-        { ok: false, id: 1, name: 'parent {' }
+        { ok: false, id: 1, name: 'parent' }
       ]
     }, 'should get expected results')
   })

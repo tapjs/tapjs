@@ -246,7 +246,7 @@
           [
             "complete",
             {
-              "ok": true,
+              "ok": false,
               "count": 3,
               "pass": 1,
               "fail": 2,
@@ -344,7 +344,7 @@
       [
         "complete",
         {
-          "ok": true,
+          "ok": false,
           "count": 2,
           "pass": 2,
           "fail": 0,
@@ -447,7 +447,7 @@
   [
     "complete",
     {
-      "ok": true,
+      "ok": false,
       "count": 2,
       "pass": 2,
       "fail": 0,

@@ -40,14 +40,6 @@
     "  ...\n"
   ],
   [
-    "line",
-    "  # after diag\n"
-  ],
-  [
-    "line",
-    "    # Subtest: child\n"
-  ],
-  [
     "assert",
     {
       "ok": false,
@@ -69,10 +61,6 @@
   [
     "comment",
     "  # mid diag\n"
-  ],
-  [
-    "comment",
-    "  # after diag\n"
   ],
   [
     "bailout",
