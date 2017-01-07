@@ -5,6 +5,7 @@ TAP version 13
           ---
           {"at":{"column":7,"file":"test/test/bail-child.js","line":7},"source":"t.fail('this fails')\n"}
           ...
+        
         Bail out! # this fails
 Bail out! # this fails
 

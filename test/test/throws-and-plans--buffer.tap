@@ -11,6 +11,7 @@ not ok 2 - plans of 1 {
       ---
       {"at":{"column":11,"file":"test/test/throws-and-plans.js","line":10},"message":"Error: pwnSync","source":"throw new Error('pwnSync')\n","test":"sync thrower"}
       ...
+    
     ok 4 - async thrower {
         1..3
         ok 1 - before set the bomb
@@ -28,6 +29,7 @@ not ok 3 - no assert only throw {
       ---
       {"actual":false,"at":{"column":3,"file":"test/test/throws-and-plans.js","line":29},"expected":true,"generatedMessage":false,"message":"AssertionError: false is truthy right?","name":"AssertionError","operator":"==","source":"assert(false, 'false is truthy right?')\n","test":"no assert only throw"}
       ...
+    
     1..1
     # failed 1 of 1 tests
 }
@@ -41,10 +43,12 @@ not ok 4 - plans of 8 {
           ---
           {"at":{"column":11,"file":"test/test/throws-and-plans.js","line":39},"message":"Error: pwnSync","source":"throw new Error('pwnSync')\n","test":"sync thrower"}
           ...
+        
         not ok 3 - missing test
           ---
           {"count":2,"missing":6,"plan":8}
           ...
+        
         not ok 4 - missing test
         not ok 5 - missing test
         not ok 6 - missing test
@@ -61,10 +65,12 @@ not ok 4 - plans of 8 {
           ---
           {"at":{"column":13,"file":"test/test/throws-and-plans.js","line":18},"message":"Error: pwn","source":"throw new Error('pwn')\n","test":"async thrower"}
           ...
+        
         not ok 4 - missing test
           ---
           {"count":3,"missing":5,"plan":8}
           ...
+        
         not ok 5 - missing test
         not ok 6 - missing test
         not ok 7 - missing test
@@ -81,6 +87,7 @@ not ok 5 - Error: pwn
   ---
   {"at":{"column":13,"file":"test/test/throws-and-plans.js","line":51},"message":"Error: pwn","source":"throw new Error('pwn')\n","test":"TAP"}
   ...
+
 1..5
 # failed 4 of 5 tests
 ___/# time=[0-9.]+(ms)?/~~~

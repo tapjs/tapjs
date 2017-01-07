@@ -6,6 +6,7 @@ TAP version 13
           ---
           {"at":{"column":5,"file":"test/test/unfinished.js","line":4},"count":0,"plan":1,"source":"t.test('t11', function (t) {\n"}
           ...
+        
         Bail out! # test unfinished: t11
 Bail out! # test unfinished: t11
 

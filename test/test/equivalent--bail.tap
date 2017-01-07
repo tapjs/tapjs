@@ -4,6 +4,7 @@ TAP version 13
       ---
       {"at":{"column":5,"file":"test/test/equivalent.js","line":3},"compare":"===","found":"foo\nbaz\nbar\n","source":"t.equal('foo\\nbaz\\nbar\\n', 'foo\\nblerb\\nbar\\n')\n","wanted":"foo\nblerb\nbar\n"}
       ...
+    
     Bail out! # should be equal
 Bail out! # should be equal
 

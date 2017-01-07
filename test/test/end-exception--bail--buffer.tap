@@ -9,5 +9,6 @@ not ok 2 - Error: beep
   ---
   {"at":{"column":11,"file":"test/test/end-exception.js","function":"Test.<anonymous>","line":8},"message":"Error: beep","source":"throw new Error('beep')\n","test":"(unnamed test)"}
   ...
+
 Bail out! # Error: beep
 

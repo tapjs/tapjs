@@ -12,7 +12,9 @@ not ok 3 - rejected {
       ---
       {"at":{"column":34,"file":"test/test/promise-return-mocha.js","line":31},"message":"Error: expected error","source":"setTimeout(reject.bind(null, new Error('expected error'), 150))\n","test":"rejected"}
       ...
+    
     Bail out! # Error: expected error
 }
+
 Bail out! # Error: expected error
 

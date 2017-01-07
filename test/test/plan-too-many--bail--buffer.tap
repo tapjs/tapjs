@@ -10,6 +10,7 @@ not ok 1 - children plan too big {
           ---
           {"at":{"column":5,"file":"test/test/plan-too-many.js","line":7},"count":1,"plan":8,"source":"t.test('grandchild', function (tt) {\n"}
           ...
+        
         Bail out! # test unfinished: grandchild
     }
 }

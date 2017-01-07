@@ -8,6 +8,7 @@ not ok 1 - parent {
               ---
               {"at":{"column":14,"file":"test/test/unfinished-promise.js","line":4},"count":1,"plan":2,"source":"return t.test('grandchild', function (t) {\n"}
               ...
+            
             Bail out! # test unfinished: grandchild
         }
     }

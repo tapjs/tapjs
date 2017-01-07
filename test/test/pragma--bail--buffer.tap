@@ -11,5 +11,6 @@ not ok 1 - ___/.*/~~~pragma.js child {
     1..2
     ___/# time=[0-9.]+(ms)?/~~~
 }
+
 Bail out! # ___/.*/~~~pragma.js child
 

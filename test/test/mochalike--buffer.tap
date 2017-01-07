@@ -47,6 +47,7 @@ not ok 5 - failing indented things {
           ---
           {"actual":false,"at":{"column":7,"file":"test/test/mochalike.js","line":55},"expected":true,"generatedMessage":false,"message":"AssertionError: false is not true on line 50","name":"AssertionError","operator":"==","source":"ok(false, 'false is not true on line 50')\n"}
           ...
+        
         ok 2 - does not throw # TODO
         1..2
         # failed 1 of 2 tests
@@ -58,6 +59,7 @@ not ok 5 - failing indented things {
           ---
           {"actual":false,"at":{"column":5,"file":"test/test/mochalike.js","line":61},"expected":true,"generatedMessage":false,"message":"AssertionError: objectify the truthiness","name":"AssertionError","operator":"==","source":"ok(!{}, 'objectify the truthiness')\n","test":"second subset"}
           ...
+        
         1..1
         # failed 1 of 1 tests
     }
@@ -72,6 +74,7 @@ not ok 6 - a test passing an error to done() callback {
           ---
           {"at":{"column":12,"file":"test/test/mochalike.js","line":68},"message":"Error: error arg","source":"done(new Error('error arg'))\n","test":"is marked as failed"}
           ...
+        
         1..1
         # failed 1 of 1 tests
     }

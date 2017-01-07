@@ -8,6 +8,7 @@ TAP version 13
                   ---
                   {"at":{"column":5,"file":"test/test/timeout.js","line":4},"expired":"timeout test","source":"t.test('timeout test', { timeout: 50 }, function (t) {\n","timeout":50}
                   ...
+                
                 1..2
                 # failed 1 of 2 tests
             not ok 1 - baby ___/# time=[0-9.]+(ms)?/~~~

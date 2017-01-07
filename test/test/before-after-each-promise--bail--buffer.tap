@@ -14,6 +14,7 @@ not ok 1 - parent {
               ---
               {"at":{"column":23,"file":"test/test/before-after-each-promise.js","line":28},"message":"Error: this is fine","source":"return reject(new Error('this is fine'))\n","test":"grandchild"}
               ...
+            
             Bail out! # Error: this is fine
         }
     }

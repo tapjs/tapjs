@@ -6,6 +6,7 @@ TAP version 13
       ---
       {"at":{"column":5,"file":"test/test/throws.js","line":9},"found":"test","pattern":"/fasdfsadf/","source":"t.throws(function failing_thrower () {\n"}
       ...
+    
     # failed 1 of 2 tests
 not ok 1 - throws should match a regex ___/# time=[0-9.]+(ms)?/~~~
 

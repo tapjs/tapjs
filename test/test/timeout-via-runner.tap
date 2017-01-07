@@ -11,6 +11,7 @@ TAP version 13
           ---
           {"handles":[{"type":"Timer"}],"signal":"SIGTERM"}
           ...
+        
         # failed 1 of 3 tests
     not ok 4 - child test ___/# time=[0-9.]+(ms)?/~~~
     

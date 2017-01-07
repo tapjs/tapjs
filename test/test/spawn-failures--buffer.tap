@@ -4,6 +4,7 @@ not ok 1 - spawn that throws {
       ---
       {"at":{"column":14,"file":"test/test/spawn-failures.js","line":25},"message":"Error: now is fine","source":"throwNow = new Error('now is fine')\n","test":"spawn that throws"}
       ...
+    
     1..1
     # failed 1 of 1 tests
 }
@@ -13,6 +14,7 @@ not ok 2 - spawn that throws {
       ---
       {"at":{"column":16,"file":"test/test/spawn-failures.js","line":34},"message":"Error: later is fine","source":"throwLater = new Error('later is fine')\n","test":"spawn that throws"}
       ...
+    
     1..1
     # failed 1 of 1 tests
 }

@@ -7,6 +7,7 @@ TAP version 13
           ---
           {"at":{"column":7,"file":"test/test/not-ok-nested.js","line":7},"source":"t.fail('fail')\n"}
           ...
+        
         # failed 1 of 1 tests
     not ok 1 - parent ___/# time=[0-9.]+(ms)?/~~~
     

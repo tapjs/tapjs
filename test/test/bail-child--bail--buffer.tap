@@ -5,6 +5,7 @@ not ok 1 - bail fail {
           ---
           {"at":{"column":7,"file":"test/test/bail-child.js","line":7},"source":"t.fail('this fails')\n"}
           ...
+        
         Bail out! # this fails
     }
 }

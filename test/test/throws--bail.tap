@@ -6,6 +6,7 @@ TAP version 13
       ---
       {"at":{"column":5,"file":"test/test/throws.js","line":9},"found":"test","pattern":"/fasdfsadf/","source":"t.throws(function failing_thrower () {\n"}
       ...
+    
     Bail out! # failing_thrower
 Bail out! # failing_thrower
 

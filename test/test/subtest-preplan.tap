@@ -6,6 +6,7 @@ TAP version 13
         ok 1 - this is fine
         ok 2 - i am ok with how things are proceeding
     ok 1 - child test ___/# time=[0-9.]+(ms)?/~~~
+    
 ok 1 - with timeout ___/# time=[0-9.]+(ms)?/~~~
 
 # Subtest: no timeout

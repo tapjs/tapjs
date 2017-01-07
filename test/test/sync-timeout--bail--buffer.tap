@@ -5,7 +5,9 @@ not ok 1 - t.end() {
       ---
       {"at":{"column":3,"file":"test/test/sync-timeout.js","line":15},"expired":"t.end()","source":"t.test('t.end()', opt, function (t) {\n","timeout":50}
       ...
+    
     Bail out! # timeout!
 }
+
 Bail out! # timeout!
 

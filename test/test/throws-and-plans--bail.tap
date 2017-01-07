@@ -11,6 +11,7 @@ ok 1 - expect truthy value
       ---
       {"at":{"column":11,"file":"test/test/throws-and-plans.js","line":10},"message":"Error: pwnSync","source":"throw new Error('pwnSync')\n","test":"sync thrower"}
       ...
+    
     Bail out! # Error: pwnSync
 Bail out! # Error: pwnSync
 

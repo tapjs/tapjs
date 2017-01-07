@@ -11,6 +11,7 @@ not ok 1 - child {
           ---
           {"handles":[{"type":"Timer"}],"signal":"SIGTERM"}
           ...
+        
         # failed 1 of 3 tests
     }
     

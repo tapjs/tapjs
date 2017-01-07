@@ -47,6 +47,7 @@ not ok 5 - failing indented things {
           ---
           {"actual":false,"at":{"column":7,"file":"test/test/mochalike.js","line":55},"expected":true,"generatedMessage":false,"message":"AssertionError: false is not true on line 50","name":"AssertionError","operator":"==","source":"ok(false, 'false is not true on line 50')\n"}
           ...
+        
         Bail out! # has no asserts, only throws
     }
 }

@@ -8,5 +8,6 @@ not ok 2 - Error: test count exceeds plan
   ---
   {"at":{"column":12,"file":"test/test/plan-failures.js","function":"test","line":11},"count":2,"message":"Error: test count exceeds plan","plan":1,"source":"t[second]('extra')\n","test":"pass then pass plan()"}
   ...
+
 Bail out! # Error: test count exceeds plan
 

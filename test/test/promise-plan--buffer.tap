@@ -31,6 +31,7 @@ not ok 4 - broken promises {
         1..1
         ok 1 - this is fine
     }
+    
     # failed 2 of 2 tests
 }
 
@@ -44,6 +45,7 @@ not ok 5 - thrown with timeouts {
         1..1
         ok 1 - this is fine
     }
+    
     # failed 2 of 2 tests
 }
 

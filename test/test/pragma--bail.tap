@@ -14,5 +14,6 @@ not ok 1 - ___/.*/~~~pragma.js child ___/# time=[0-9.]+(ms)?/~~~
   ---
   {"arguments":["___/.*/~~~pragma.js","child"],"command":"___/.*(node|iojs)(.exe)?/~~~","failures":[{"data":"this is not tap and it is not ok\n","tapError":"Non-TAP data encountered in strict mode"}]}
   ...
+
 Bail out! # ___/.*/~~~pragma.js child ___/# time=[0-9.]+(ms)?/~~~
 

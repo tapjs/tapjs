@@ -7,6 +7,7 @@ ok 1 - not much {
       ---
       {"at":{"column":5,"file":"test/test/assert-todo-skip.js","line":7},"source":"t.ok(false, 'expected', {todo: 'implement a thing'})\n"}
       ...
+    
     ok 5 - always passes without explanation # SKIP
     not ok 6 - false without explanation # SKIP
     ok 7 - bonus without explanation # TODO
@@ -14,6 +15,7 @@ ok 1 - not much {
       ---
       {"at":{"column":5,"file":"test/test/assert-todo-skip.js","line":11},"source":"t.ok(false, 'expected without explanation', {todo: true})\n"}
       ...
+    
     1..8
 }
 

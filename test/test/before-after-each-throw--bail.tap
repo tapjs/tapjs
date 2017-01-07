@@ -13,6 +13,7 @@ after 2 grandchild
               ---
               {"at":{"column":16,"file":"test/test/before-after-each-throw.js","function":"Test.<anonymous>","line":22},"message":"Error: this is fine","source":"var er = new Error('this is fine')\n","test":"grandchild"}
               ...
+            
             Bail out! # Error: this is fine
 Bail out! # Error: this is fine
 

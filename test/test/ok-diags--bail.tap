@@ -3,6 +3,7 @@ ok 1 - this is fine
   ---
   {"foo":{"bar":"baz"}}
   ...
+
 # Subtest: child
     1..1
     ok 1 - this is fine

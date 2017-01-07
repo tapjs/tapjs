@@ -12,6 +12,7 @@ TAP version 13
           ---
           {"at":{"column":16,"file":"test/test/throw.js","line":12},"jerk":true,"message":"Error: THINK FAST!\nand also lines\nso many","source":"var er = new Error('THINK FAST!\\nand also lines\\nso many')\n","test":"async thrower"}
           ...
+        
         Bail out! # Error: THINK FAST! and also lines so many
 Bail out! # Error: THINK FAST! and also lines so many
 

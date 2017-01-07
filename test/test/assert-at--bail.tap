@@ -4,6 +4,7 @@ TAP version 13
       ---
       {"at":{"column":3,"file":"test/test/assert-at.js","function":"baz","line":14},"source":"blo(t)\n"}
       ...
+    
     Bail out! # baz
 Bail out! # baz
 
