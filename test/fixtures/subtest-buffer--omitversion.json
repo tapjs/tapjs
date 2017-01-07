@@ -110,6 +110,7 @@
         {
           "ok": true,
           "id": 1,
+          "buffered": true,
           "name": "first"
         }
       ],
@@ -218,6 +219,7 @@
         {
           "ok": true,
           "id": 2,
+          "buffered": true,
           "name": "second"
         }
       ],
@@ -300,6 +302,7 @@
     {
       "ok": true,
       "id": 1,
+      "buffered": true,
       "name": "nesting"
     }
   ],

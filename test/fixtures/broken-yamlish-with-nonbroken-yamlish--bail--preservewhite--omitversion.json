@@ -51,6 +51,10 @@
     " ...\n"
   ],
   [
+    "line",
+    "ok 2 -  child test\n"
+  ],
+  [
     "assert",
     {
       "ok": true,
@@ -84,10 +88,6 @@
   [
     "comment",
     " # also this is a comment\n"
-  ],
-  [
-    "line",
-    "ok 2 -  child test\n"
   ],
   [
     "line",

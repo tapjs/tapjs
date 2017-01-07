@@ -72,6 +72,7 @@
       "ok": true,
       "id": 1,
       "todo": "foo",
+      "buffered": true,
       "name": "tbd"
     }
   ],
@@ -148,6 +149,7 @@
       "ok": true,
       "id": 2,
       "skip": true,
+      "buffered": true,
       "name": "skippy"
     }
   ],

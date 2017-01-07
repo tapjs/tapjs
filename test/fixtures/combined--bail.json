@@ -58,23 +58,14 @@
     "# all hell broke loose"
   ],
   [
-    "assert",
-    {
-      "ok": false,
-      "id": 4,
-      "todo": "if I heard a voice from heaven ...",
-      "name": ""
-    }
-  ],
-  [
     "complete",
     {
       "ok": false,
-      "count": 4,
+      "count": 3,
       "pass": 2,
-      "fail": 2,
+      "fail": 1,
       "bailout": "# all hell broke loose",
-      "todo": 1,
+      "todo": 0,
       "skip": 0,
       "plan": {
         "start": 1,

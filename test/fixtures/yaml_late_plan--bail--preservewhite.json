@@ -36,6 +36,10 @@
     "  ...\n"
   ],
   [
+    "line",
+    "ok - test suite finished\n"
+  ],
+  [
     "assert",
     {
       "ok": true,
@@ -45,10 +49,6 @@
         "Bogomips": 5226.88
       }
     }
-  ],
-  [
-    "line",
-    "ok - test suite finished\n"
   ],
   [
     "line",

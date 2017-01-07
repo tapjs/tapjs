@@ -35,6 +35,10 @@
     "  ...\n"
   ],
   [
+    "line",
+    "ok 2 -  child test\n"
+  ],
+  [
     "assert",
     {
       "ok": true,
@@ -47,10 +51,6 @@
         ]
       }
     }
-  ],
-  [
-    "line",
-    "ok 2 -  child test\n"
   ],
   [
     "line",

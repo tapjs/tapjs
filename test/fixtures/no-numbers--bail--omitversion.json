@@ -47,19 +47,11 @@
     "# we are bad"
   ],
   [
-    "assert",
-    {
-      "ok": true,
-      "id": 3,
-      "name": "we are zesty!"
-    }
-  ],
-  [
     "complete",
     {
       "ok": false,
-      "count": 3,
-      "pass": 2,
+      "count": 2,
+      "pass": 1,
       "fail": 1,
       "bailout": "# we are bad",
       "todo": 0,

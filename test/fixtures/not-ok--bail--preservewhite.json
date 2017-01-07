@@ -60,19 +60,11 @@
     "# should be equivalent"
   ],
   [
-    "assert",
-    {
-      "ok": true,
-      "id": 3,
-      "name": "should be equal"
-    }
-  ],
-  [
     "complete",
     {
       "ok": false,
-      "count": 3,
-      "pass": 2,
+      "count": 2,
+      "pass": 1,
       "fail": 1,
       "bailout": "# should be equivalent",
       "todo": 0,

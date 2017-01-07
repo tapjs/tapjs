@@ -42,18 +42,11 @@
     ""
   ],
   [
-    "assert",
-    {
-      "ok": true,
-      "id": 3
-    }
-  ],
-  [
     "complete",
     {
       "ok": false,
-      "count": 3,
-      "pass": 2,
+      "count": 2,
+      "pass": 1,
       "fail": 1,
       "bailout": true,
       "todo": 0,

@@ -64,6 +64,7 @@
     {
       "ok": false,
       "id": 1,
+      "buffered": true,
       "name": "empty"
     }
   ],
@@ -112,6 +113,7 @@
         {
           "ok": false,
           "id": 1,
+          "buffered": true,
           "name": "empty"
         }
       ]

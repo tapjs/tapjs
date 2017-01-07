@@ -99,6 +99,7 @@
         {
           "ok": true,
           "id": 1,
+          "buffered": true,
           "name": "y"
         }
       ],
@@ -164,6 +165,7 @@
     {
       "ok": true,
       "id": 1,
+      "buffered": true,
       "name": "x1"
     }
   ],
@@ -316,6 +318,7 @@
     {
       "ok": true,
       "id": 2,
+      "buffered": true,
       "name": "x2"
     }
   ],
@@ -468,6 +471,7 @@
     {
       "ok": true,
       "id": 3,
+      "buffered": true,
       "name": "x3"
     }
   ],
@@ -555,6 +559,7 @@
         {
           "ok": true,
           "id": 1,
+          "buffered": true,
           "name": "y"
         }
       ],
@@ -1011,6 +1016,7 @@
         {
           "ok": true,
           "id": 1,
+          "buffered": true,
           "name": "y"
         }
       ],

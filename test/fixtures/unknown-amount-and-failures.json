@@ -72,6 +72,10 @@
     "  ...\n"
   ],
   [
+    "line",
+    "ok 5 - pinged onyx\n"
+  ],
+  [
     "assert",
     {
       "ok": false,
@@ -82,10 +86,6 @@
         "severity": "fail"
       }
     }
-  ],
-  [
-    "line",
-    "ok 5 - pinged onyx\n"
   ],
   [
     "line",
@@ -116,6 +116,10 @@
     "  ...\n"
   ],
   [
+    "line",
+    "ok 7 - pinged gold\n"
+  ],
+  [
     "assert",
     {
       "ok": false,
@@ -126,10 +130,6 @@
         "severity": "fail"
       }
     }
-  ],
-  [
-    "line",
-    "ok 7 - pinged gold\n"
   ],
   [
     "line",

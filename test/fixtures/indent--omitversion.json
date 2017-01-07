@@ -197,6 +197,10 @@
             "  ...\n"
           ],
           [
+            "line",
+            "not ok grandchild # TODO\n"
+          ],
+          [
             "assert",
             {
               "ok": true,
@@ -209,10 +213,6 @@
                 "it": "is yaml"
               }
             }
-          ],
-          [
-            "line",
-            "not ok grandchild # TODO\n"
           ],
           [
             "line",

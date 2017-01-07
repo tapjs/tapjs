@@ -172,7 +172,8 @@
     {
       "ok": true,
       "id": 1,
-      "name": "a brace looks like this {"
+      "buffered": true,
+      "name": "a brace looks like this"
     }
   ],
   [

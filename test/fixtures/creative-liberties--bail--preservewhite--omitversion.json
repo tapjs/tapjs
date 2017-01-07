@@ -142,6 +142,10 @@
     "  ...\n"
   ],
   [
+    "line",
+    "ok - board has 7 tiles + starter tile\n"
+  ],
+  [
     "assert",
     {
       "ok": true,
@@ -164,10 +168,6 @@
         }
       }
     }
-  ],
-  [
-    "line",
-    "ok - board has 7 tiles + starter tile\n"
   ],
   [
     "line",

@@ -96,6 +96,11 @@ function Result (parsed, count) {
     this[dirKey] = dirValue
   }
 
+  if (/\{$/.test(name)) {
+    name = name.slice(0, -1).trim()
+    this.buffered = true
+  }
+
   if (name)
     this.name = name.trim()
 
@@ -165,6 +170,8 @@ Parser.prototype.tapError = function (error) {
 
 Parser.prototype.parseTestPoint = function (testPoint) {
   this.emitResult()
+  if (this.bailedOut)
+    return
 
   var res = new Result(testPoint, this.count)
   if (this.planStart !== -1) {
@@ -221,6 +228,8 @@ Parser.prototype.plan = function (start, end, comment, line) {
   }
 
   this.emitResult()
+  if (this.bailedOut)
+    return
 
   // 1..0 is a special case. Otherwise, end must be >= start
   if (end < start && end !== 0 && start !== 1) {
@@ -262,6 +271,8 @@ Parser.prototype.resetYamlish = function () {
 Parser.prototype.yamlGarbage = function () {
   var yamlGarbage = this.yind + '---\n' + this.yamlish
   this.emitResult()
+  if (this.bailedOut)
+    return
   this.nonTap(yamlGarbage)
 }
 
@@ -288,7 +299,16 @@ Parser.prototype.processYamlish = function () {
   }
 
   this.current.diag = diags
-  this.emitResult()
+  // we still don't emit the result here yet, to support:
+  //
+  // ok 1 - child
+  //   ---
+  //   some: diags
+  //   ...
+  // {
+  //     1..1
+  //     ok
+  // }
 }
 
 Parser.prototype.write = function (chunk, encoding, cb) {
@@ -335,6 +355,8 @@ Parser.prototype.end = function (chunk, encoding, cb) {
     this.nonTap(this.yamlish)
 
   this.emitResult()
+  if (this.bailedOut)
+    return
 
   if (this.syntheticBailout && this.level === 0) {
     var reason = this.bailedOut
@@ -418,6 +440,8 @@ Parser.prototype.pragma = function (key, value, line) {
   }
 
   this.emitResult()
+  if (this.bailedOut)
+    return
   // only the 'strict' pragma is currently relevant
   if (key === 'strict') {
     this.strict = value
@@ -459,6 +483,9 @@ Parser.prototype.endChild = function () {
 }
 
 Parser.prototype.emitResult = function () {
+  if (this.bailedOut)
+    return
+
   this.endChild()
   this.resetYamlish()
 
@@ -501,7 +528,7 @@ Parser.prototype.emitResult = function () {
 // 4-space indents can be plucked off to try to find a relevant
 // TAP line type, and if so, start the unnamed child.
 Parser.prototype.startChild = function (line) {
-  var maybeBuffered = this.current && this.current.name && this.current.name.substr(-1) === '{'
+  var maybeBuffered = this.current && this.current.buffered
   var unindentStream = !maybeBuffered  && this.maybeChild
   var indentStream = !maybeBuffered && !unindentStream &&
     lineTypes.subtestIndent.test(line)
@@ -515,6 +542,9 @@ Parser.prototype.startChild = function (line) {
   // the child subtest block, so as to match streamed test semantics.
   if (!maybeBuffered)
     this.emitResult()
+
+  if (this.bailedOut)
+    return
 
   this.child = new Parser({
     bail: this.bail,
@@ -550,8 +580,7 @@ Parser.prototype.startChild = function (line) {
     subtestComment = line
     line = null
   } else if (maybeBuffered) {
-    var n = this.current.name.trim().replace(/{$/, '').trim()
-    subtestComment = '# Subtest: ' + n + '\n'
+    subtestComment = '# Subtest: ' + this.current.name + '\n'
   } else {
     subtestComment = this.maybeChild || '# Subtest: (anonymous)\n'
   }
@@ -617,10 +646,18 @@ Parser.prototype._parse = function (line) {
 
   // buffered subtests must end with a }
   if (this.child && this.child.buffered && line === '}\n') {
-    this.current.name = this.current.name.replace(/{$/, '').trim()
     this.emitResult()
     return
   }
+
+  // buffered subtest with diagnostics
+  if (this.current && line === '{\n' &&
+      !this.current.buffered &&
+      !this.child) {
+    this.current.buffered = true
+    return
+  }
+
 
   // now we know it's not indented, so if it's either valid tap
   // or garbage.  Get the type of line.
@@ -753,7 +790,7 @@ Parser.prototype.parseIndent = function (line, indent) {
   // Child tests are always indented 4 spaces.
   if (line.substr(0, 4) === '    ') {
     if (this.maybeChild ||
-        this.current && this.current.name && this.current.name.substr(-1) === '{' ||
+        this.current && this.current.buffered ||
         lineTypes.subtestIndent.test(line)) {
       this.startChild(line)
       return

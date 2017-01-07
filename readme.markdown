@@ -123,6 +123,21 @@ skipped, failed, passed, etc., as well as a boolean `ok` member which
 is true if and only if the planned test were all found, and either
 "ok" or marked as "TODO".
 
+## p.on('line', function (line) {})
+
+As each line of input is parsed, a `line` event is emitted.  Note
+that this occurs *before* any other actions based on that line, so
+in some instances, the `line` events will appear to come in advance of
+something relating to a previous line.  See `Ordering of Events`
+below.
+
+"Synthetic" line events will be emitted to support the `bail`
+behavior, and to inject `1..0` plan lines in subtests that have no
+test points.  They can be used as a sort of "passthrough stream" to
+sanitize and filter a TAP stream, with the caveat that, while `line`
+events will be semantically equivalent to the TAP input, they will not
+be a perfect replica of the input.
+
 ## p.on('assert', function (assert) {})
 
 Every `/^(not )?ok\b/` line will emit an `'assert'` event.
@@ -194,11 +209,14 @@ ok 2 - second
 then the child stream will be parsed and events will be raised on the
 `childParser` object.
 
-Since TAP streams with child tests *should* follow child test sets
+Since TAP streams with child tests *must* follow child test sets
 with a pass or fail assert based on the child test's results, failing
 to handle child tests should always result in the same end result.
 However, additional information from those child tests will obviously
 be lost.
+
+See `Subtests` below for more information on which sorts of subtest
+formats are supported by this parser.
 
 ## p.on('extra', function (extra) {})
 
@@ -218,3 +236,170 @@ the browser.
 # license
 
 MIT
+
+# subtests
+
+5 flavors of Subtests are suppored by this parser.
+
+1. Unadorned.
+   Indented TAP data with no comment, followed by a test
+   point at the parent level.
+
+    ```
+        ok 1
+        1..1
+    ok 1 - child test
+    1..1
+    ```
+
+2. Indented comment.
+   An indented `# Subtest: <name>` comment, followed by indented TAP
+   data, and then a not-indented test point with a matching name.
+   The summary test point may have yaml diagnostics.
+
+    ```
+        # Subtest: child test
+        ok 1
+        1..1
+    ok 1 - child test
+    1..1
+    ```
+
+3. Unindented comment.
+   A not-indented `# Subtest: <name>` comment, followed by indented TAP
+   content, followed by a test point with a matching name.
+   The summary test point may have yaml diagnostics.
+
+    ```
+    # Subtest: child test
+        ok 1
+        1..1
+    ok 1 - child test
+    1..1
+    ```
+
+4. Buffered, without diagnostics.
+   A test point line ending in {, followed by indented TAP content, ended
+   with a } to close the block.  todo/skip directives may come *either*
+   before or after the `{` character.  Yaml diagnostics are not allowed.
+
+    ```
+    ok 1 - child test {
+        ok 1
+        1..1
+    }
+    1..1
+    ```
+
+5. Buffered, with diagnostics.
+   A test point line with yaml diagnostics, followed by `{` alone on a
+   line, indented TAP data, and then a `}`.
+
+    ```
+    ok 1 - child test
+      ---
+      some: diagnostic
+      data: true
+      ...
+    {
+        ok 1
+        1..1
+    }
+    ```
+
+In all cases, the parsed behavior is identical:
+
+1. The parent emits a `child` event with the `childParser` as an
+   argument.
+2. The `childParser` emits a `comment` with `# Subtest: <name>` (or
+   `(anonymous)` for Unadorned subtests.)
+3. When the test is over, the closing test point is emitted on parent
+   test.
+
+That is, buffered and nonindented/indented comment subtests are parsed
+as if they are identical input, since their semantics are the same.  This
+simplifies implementation of test harness and reporter modules.
+
+Since unadorned subtests have no introduction, a child event is not
+emitted until the first "relevant tap" line is encountered.  This can
+cause confusion if the test output contains a spurious "    1..2" line
+or something, but such cases are rare.
+
+Similarly, this means that a test point ending in `{` needs to wait to
+emit *either* the 'assert' or 'child' events until an indented line is
+encountered.  *Any* test point with yaml diagnostics needs to wait to
+see if it will be followed by a `{` indicating a subtest.  This has an
+effect on the specific ordering of `assert` and `child` events with
+respect to the `line` events.
+
+# Ordering of Events
+
+While TAP is *mostly* parseable in a deterministically line-by-line
+fashion, subtests and yaml diagnostics require that the parser analyze
+the next line before making a decision in some cases about what event
+to emit.
+
+For example:
+
+```tap
+ok 1 - this is fine
+  ---
+  some: diags
+  ...
+1..1
+```
+
+The parser will emit the following events in this order:
+
+```
+line "ok 1 - this is fine\n"
+line "  ---\n"
+line "  some: diags\n"
+line "  ...\n"
+line "1..1\n"
+assert {"ok":true,"id":1,"name":"this is fine","diag":{"some":"diags"}}
+plan {"start":1,"end":1}
+complete {"ok":true,"count":1,"pass":1,"plan":{"start":1,"end":1}}
+```
+
+The `1..1` line comes *ahead* of the `assert` event, because it's not
+until that line is encountered that the parser knows that the assert
+is completed, and not the introduction of a subtest.
+
+Another interesting case is comments that may occur within a yaml
+diagnostic block.  In this case, the comments are held until _after_
+the `assert` event, even though the technically occur while the test
+point is being parsed.
+
+```tap
+ok 1 - this is fine
+# before the yaml
+  ---
+  # just a comment
+  some: diags
+# nothing to worry about
+  ...
+# more commentary
+1..1
+```
+
+In this case, the events will be emitted in this order:
+
+```
+line "ok 1 - this is fine\n"
+line "# before the yaml\n"
+line "  ---\n"
+line "  # just a comment\n"
+line "  some: diags\n"
+line "# nothing to worry about\n"
+line "  ...\n"
+line "# more commentary\n"
+line "1..1\n"
+assert {"ok":true,"id":1,"name":"this is fine","diag":{"some":"diags"}}
+comment "# before the yaml\n"
+comment "  # just a comment\n"
+comment "# nothing to worry about\n"
+comment "# more commentary\n"
+plan {"start":1,"end":1}
+complete {"ok":true,"count":1,"pass":1,"plan":{"start":1,"end":1}}
+```

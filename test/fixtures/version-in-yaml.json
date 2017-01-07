@@ -47,6 +47,10 @@
         "  ...\n"
       ],
       [
+        "line",
+        "1..1\n"
+      ],
+      [
         "assert",
         {
           "ok": false,
@@ -56,10 +60,6 @@
             "version": "\nTAP version 13"
           }
         }
-      ],
-      [
-        "line",
-        "1..1\n"
       ],
       [
         "plan",
@@ -183,6 +183,10 @@
         "  ...\n"
       ],
       [
+        "line",
+        "1..1\n"
+      ],
+      [
         "assert",
         {
           "ok": false,
@@ -192,10 +196,6 @@
             "version": "\nTAP version 13"
           }
         }
-      ],
-      [
-        "line",
-        "1..1\n"
       ],
       [
         "plan",
@@ -315,6 +315,10 @@
         "  ...\n"
       ],
       [
+        "line",
+        "1..1\n"
+      ],
+      [
         "assert",
         {
           "ok": false,
@@ -324,10 +328,6 @@
             "version": "\nTAP version 13"
           }
         }
-      ],
-      [
-        "line",
-        "1..1\n"
       ],
       [
         "plan",
@@ -451,6 +451,10 @@
         "  ...\n"
       ],
       [
+        "line",
+        "1..1\n"
+      ],
+      [
         "assert",
         {
           "ok": false,
@@ -460,10 +464,6 @@
             "version": "\nTAP version 13"
           }
         }
-      ],
-      [
-        "line",
-        "1..1\n"
       ],
       [
         "plan",
@@ -544,6 +544,7 @@
     {
       "ok": false,
       "id": 4,
+      "buffered": true,
       "name": "child buffered"
     }
   ],
@@ -594,6 +595,7 @@
         {
           "ok": false,
           "id": 4,
+          "buffered": true,
           "name": "child buffered"
         }
       ]

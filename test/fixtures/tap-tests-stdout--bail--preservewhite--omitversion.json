@@ -2796,6 +2796,10 @@
     "  ...\n"
   ],
   [
+    "line",
+    "ok 116 exit cleanly\n"
+  ],
+  [
     "assert",
     {
       "ok": false,

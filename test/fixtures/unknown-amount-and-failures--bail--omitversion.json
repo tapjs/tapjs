@@ -64,6 +64,10 @@
     "  ...\n"
   ],
   [
+    "line",
+    "ok 5 - pinged onyx\n"
+  ],
+  [
     "assert",
     {
       "ok": false,

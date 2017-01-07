@@ -64,6 +64,7 @@
     {
       "ok": false,
       "id": 1,
+      "buffered": true,
       "name": "empty"
     }
   ],
@@ -156,6 +157,7 @@
     {
       "ok": true,
       "id": 2,
+      "buffered": true,
       "name": "my_test"
     }
   ],
@@ -248,6 +250,7 @@
     {
       "ok": true,
       "id": 3,
+      "buffered": true,
       "name": "my_test_plan"
     }
   ],
@@ -467,6 +470,7 @@
         {
           "ok": false,
           "id": 1,
+          "buffered": true,
           "name": "empty"
         }
       ]

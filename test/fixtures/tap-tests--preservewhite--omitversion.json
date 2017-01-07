@@ -2888,6 +2888,10 @@
     "  ...\n"
   ],
   [
+    "line",
+    "ok 115 exit cleanly\n"
+  ],
+  [
     "assert",
     {
       "ok": false,
@@ -2911,10 +2915,6 @@
         ]
       }
     }
-  ],
-  [
-    "line",
-    "ok 115 exit cleanly\n"
   ],
   [
     "line",
@@ -3061,6 +3061,10 @@
     "  ...\n"
   ],
   [
+    "line",
+    "ok 120 exit cleanly\n"
+  ],
+  [
     "assert",
     {
       "ok": false,
@@ -3083,10 +3087,6 @@
         ]
       }
     }
-  ],
-  [
-    "line",
-    "ok 120 exit cleanly\n"
   ],
   [
     "line",
@@ -3197,6 +3197,10 @@
     "  ...\n"
   ],
   [
+    "line",
+    "not ok 122 summarizes todo count\n"
+  ],
+  [
     "assert",
     {
       "ok": false,
@@ -3219,10 +3223,6 @@
         ]
       }
     }
-  ],
-  [
-    "line",
-    "not ok 122 summarizes todo count\n"
   ],
   [
     "line",
@@ -3321,6 +3321,22 @@
     "  ...\n"
   ],
   [
+    "line",
+    "# tests 13\n"
+  ],
+  [
+    "line",
+    "# pass  9\n"
+  ],
+  [
+    "line",
+    "# fail  4\n"
+  ],
+  [
+    "line",
+    "not ok 123 test/test-descriptions.js\n"
+  ],
+  [
     "assert",
     {
       "ok": false,
@@ -3345,32 +3361,16 @@
     }
   ],
   [
-    "line",
-    "# tests 13\n"
-  ],
-  [
     "comment",
     "# tests 13\n"
-  ],
-  [
-    "line",
-    "# pass  9\n"
   ],
   [
     "comment",
     "# pass  9\n"
   ],
   [
-    "line",
-    "# fail  4\n"
-  ],
-  [
     "comment",
     "# fail  4\n"
-  ],
-  [
-    "line",
-    "not ok 123 test/test-descriptions.js\n"
   ],
   [
     "line",
@@ -3389,6 +3389,26 @@
     "  ...\n"
   ],
   [
+    "line",
+    "# test-directives.js\n"
+  ],
+  [
+    "line",
+    "# TAP version 13\n"
+  ],
+  [
+    "line",
+    "# captures test descriptions\n"
+  ],
+  [
+    "line",
+    "# raw TAP > TAP consumer > TAP producer\n"
+  ],
+  [
+    "line",
+    "ok 124 overall result is PASS\n"
+  ],
+  [
     "assert",
     {
       "ok": false,
@@ -3401,40 +3421,20 @@
     }
   ],
   [
-    "line",
-    "# test-directives.js\n"
-  ],
-  [
     "comment",
     "# test-directives.js\n"
-  ],
-  [
-    "line",
-    "# TAP version 13\n"
   ],
   [
     "comment",
     "# TAP version 13\n"
   ],
   [
-    "line",
-    "# captures test descriptions\n"
-  ],
-  [
     "comment",
     "# captures test descriptions\n"
   ],
   [
-    "line",
-    "# raw TAP > TAP consumer > TAP producer\n"
-  ],
-  [
     "comment",
     "# raw TAP > TAP consumer > TAP producer\n"
-  ],
-  [
-    "line",
-    "ok 124 overall result is PASS\n"
   ],
   [
     "line",

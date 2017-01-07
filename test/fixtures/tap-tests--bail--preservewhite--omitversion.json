@@ -2888,6 +2888,10 @@
     "  ...\n"
   ],
   [
+    "line",
+    "ok 115 exit cleanly\n"
+  ],
+  [
     "assert",
     {
       "ok": false,
