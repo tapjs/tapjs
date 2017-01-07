@@ -1,5 +1,9 @@
 TAP version 13
-not ok 1 - ___/.*/~~~spawn.js child {
+not ok 1 - ___/.*/~~~spawn.js child
+  ---
+  {"arguments":["___/.*/~~~spawn.js","child"],"command":"___/.*(node|iojs)(.exe)?/~~~"}
+  ...
+{
     not ok 1 - nesting {
         1..2
         ok 1 - first {

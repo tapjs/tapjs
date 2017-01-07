@@ -13,7 +13,7 @@ TAP version 13
         
         not ok 3 - missing test
           ---
-          {"count":2,"missing":6,"plan":8}
+          {"at":{"column":5,"file":"test/test/plan-too-many.js","line":7},"count":2,"missing":6,"plan":8,"source":"t.test('grandchild', function (tt) {\n"}
           ...
         
         not ok 4 - missing test
@@ -26,7 +26,7 @@ TAP version 13
     
     not ok 4 - missing test
       ---
-      {"count":3,"missing":6,"plan":9}
+      {"at":{"column":3,"file":"test/test/plan-too-many.js","line":3},"count":3,"missing":6,"plan":9,"source":"t.test('children plan too big', function (t) {\n"}
       ...
     
     not ok 5 - missing test

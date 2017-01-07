@@ -1,5 +1,9 @@
 TAP version 13
-not ok 1 - t.end() {
+not ok 1 - t.end()
+  ---
+  {"timeout":50}
+  ...
+{
     ok 1 - did not timeout
     not ok 2 - timeout!
       ---

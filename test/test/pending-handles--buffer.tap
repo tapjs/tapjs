@@ -1,5 +1,9 @@
 TAP version 13
-not ok 1 - ___/.*/~~~pending-handles.js child {
+not ok 1 - ___/.*/~~~pending-handles.js child
+  ---
+  {"arguments":["___/.*/~~~pending-handles.js","child"],"command":"___/.*(node|iojs)(.exe)?/~~~","failure":"timeout","signal":"SIGTERM","timeout":900}
+  ...
+{
     ok 1 - this is ok
     not ok 2 - timeout!
       ---

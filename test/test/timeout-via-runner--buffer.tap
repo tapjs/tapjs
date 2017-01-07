@@ -1,5 +1,9 @@
 TAP version 13
-not ok 1 - child {
+not ok 1 - child
+  ---
+  {"arguments":["___/.*/~~~timeout-via-runner.js","child"],"command":"___/.*(node|iojs)(.exe)?/~~~","failure":"timeout","signal":"SIGTERM","timeout":1000}
+  ...
+{
     ok 1 - this is fine 1
     ok 2 - this is fine 2
     ok 3 - this is fine 3

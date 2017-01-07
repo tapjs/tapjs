@@ -1,6 +1,10 @@
 TAP version 13
 pragma +child
-not ok 1 - ___/.*/~~~pragma.js child {
+not ok 1 - ___/.*/~~~pragma.js child
+  ---
+  {"arguments":["___/.*/~~~pragma.js","child"],"command":"___/.*(node|iojs)(.exe)?/~~~","failures":[{"data":"this is not tap and it is not ok\n","tapError":"Non-TAP data encountered in strict mode"}]}
+  ...
+{
     this is not tap but it is ok
     ok 1 - an ok test
     pragma +strict

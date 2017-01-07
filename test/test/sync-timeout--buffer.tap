@@ -1,5 +1,9 @@
 TAP version 13
-not ok 1 - t.end() {
+not ok 1 - t.end()
+  ---
+  {"timeout":50}
+  ...
+{
     ok 1 - did not timeout
     not ok 2 - timeout!
       ---
@@ -10,7 +14,11 @@ not ok 1 - t.end() {
     # failed 1 of 2 tests
 }
 
-not ok 2 - plan() {
+not ok 2 - plan()
+  ---
+  {"timeout":50}
+  ...
+{
     1..1
     ok 1 - did not time out
 }

@@ -29,22 +29,18 @@ function runTest (t) {
         ok: true,
         message: /\.[\\\/]test[\\\/]only-non-tap-output.js child/,
         extra: {
-          at: {},
-          results: {},
           command: process.execPath,
           arguments: {},
-          skip: 'No tests found'
+          skip: 'no tests found'
         }
       },
       {
         ok: true,
         message: /\.[\\\/]test[\\\/]only-non-tap-output.js silent/,
         extra: {
-          at: {},
-          results: {},
           command: process.execPath,
           arguments: {},
-          skip: 'No tests found'
+          skip: 'no tests found'
         }
       }
     ])

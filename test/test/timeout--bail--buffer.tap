@@ -1,6 +1,10 @@
 TAP version 13
 not ok 1 - parent of timeout test {
-    not ok 1 - timeout test {
+    not ok 1 - timeout test
+      ---
+      {"timeout":50}
+      ...
+    {
         not ok 1 - this never completes {
             not ok 1 - baby {
                 ok 1 - expect truthy value

@@ -53,6 +53,7 @@ tap.test('t.setTimeout()', function (t) {
     '      ---\n' +
     '      timeout: 1\n' +
     '      \\.\\.\\.\n' +
+    '\\s*\n' +
     '    1..2\n' +
     '    # failed 1 of 2 tests\n' +
     'not ok 1 - child test # time=')
