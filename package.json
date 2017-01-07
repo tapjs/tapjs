@@ -16,7 +16,8 @@
   },
   "scripts": {
     "test": "tap test/*.js --100",
-    "regen-fixtures": "node scripts/generate-test.js test/fixtures/*.tap"
+    "regen-fixtures": "node scripts/generate-test.js test/fixtures/*.tap",
+    "preversion": "npm test"
   },
   "testling": {
     "files": "test/*.js",
