@@ -379,8 +379,8 @@ Parser.prototype.end = function (chunk, encoding, cb) {
   } else if (!this.bailedOut && this.planStart === -1) {
     if (this.count === 0) {
       this.syntheticPlan = true
-      this.emit('line', '1..0\n')
-      this.plan(1, 0, '', '1..0\n')
+      this.emit('line', '1..0 # no tests found\n')
+      this.plan(1, 0, 'no tests found', '1..0 # no tests found\n')
       skipAll = true
     } else {
       this.tapError('no plan')

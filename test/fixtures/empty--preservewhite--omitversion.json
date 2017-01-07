@@ -1,13 +1,14 @@
 [
   [
     "line",
-    "1..0\n"
+    "1..0 # no tests found\n"
   ],
   [
     "plan",
     {
       "start": 1,
-      "end": 0
+      "end": 0,
+      "comment": "no tests found"
     }
   ],
   [
@@ -24,8 +25,8 @@
         "start": 1,
         "end": 0,
         "skipAll": true,
-        "skipReason": "",
-        "comment": ""
+        "skipReason": "no tests found",
+        "comment": "no tests found"
       },
       "failures": []
     }
