@@ -655,6 +655,9 @@ Parser.prototype._parse = function (line) {
     return
   }
 
+  if (line === '}\n' && this.bailingOut)
+    return
+
   // buffered subtest with diagnostics
   if (this.current && line === '{\n' &&
       !this.current.buffered &&
