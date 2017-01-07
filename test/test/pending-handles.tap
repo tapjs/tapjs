@@ -10,7 +10,7 @@ TAP version 13
     ___/# time=[0-9.]+(ms)?/~~~
 not ok 1 - ___/.*/~~~pending-handles.js child ___/# time=[0-9.]+(ms)?/~~~
   ---
-  {"arguments":["___/.*/~~~pending-handles.js","child"],"at":{"column":5,"file":"test/test/pending-handles.js","line":7},"command":"___/.*(node|iojs)(.exe)?/~~~","failure":"timeout","results":{"bailout":false,"count":2,"fail":1,"ok":false,"pass":1,"plan":{"comment":"","end":2,"skipAll":false,"skipReason":"","start":1},"skip":0,"todo":0},"signal":"SIGTERM","source":"t.spawn(process.execPath, [__filename, 'child'], {}, '', {\n","timeout":900}
+  {"arguments":["___/.*/~~~pending-handles.js","child"],"command":"___/.*(node|iojs)(.exe)?/~~~","failure":"timeout","signal":"SIGTERM","timeout":900}
   ...
 
 1..1

@@ -22,7 +22,7 @@ TAP version 13
     1..4 # timeout
 not ok 1 - child ___/# time=[0-9.]+(ms)?/~~~
   ---
-  {"arguments":["___/.*/~~~timeout-via-runner-ignore-sigterm.js","child"],"at":{"column":5,"file":"test/test/timeout-via-runner-ignore-sigterm.js","line":19},"command":"___/.*(node|iojs)(.exe)?/~~~","failure":"timeout","results":{"bailout":false,"count":4,"fail":1,"ok":false,"pass":3,"plan":{"comment":"timeout","end":4,"skipAll":false,"skipReason":"","start":1},"skip":0,"todo":0},"signal":"SIGKILL","source":"t.spawn(process.execPath, [__filename, 'child'], {}, 'child', { timeout: 1000 })\n","timeout":1000}
+  {"arguments":["___/.*/~~~timeout-via-runner-ignore-sigterm.js","child"],"command":"___/.*(node|iojs)(.exe)?/~~~","failure":"timeout","signal":"SIGKILL","timeout":1000}
   ...
 
 1..1

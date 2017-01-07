@@ -17,15 +17,9 @@ TAP version 13
         1..3
         # failed 1 of 3 tests
     not ok 2 - second ___/# time=[0-9.]+(ms)?/~~~
-      ---
-      {"at":{"column":5,"file":"test/test/nesting.js","line":10},"results":{"count":3,"fail":1,"ok":false,"pass":2,"plan":{"end":3,"start":1}},"source":"t.test('second', function (tt) {\n"}
-      ...
     
     # failed 1 of 2 tests
 not ok 1 - nesting ___/# time=[0-9.]+(ms)?/~~~
-  ---
-  {"at":{"column":3,"file":"test/test/nesting.js","line":3},"results":{"count":2,"fail":1,"ok":false,"pass":1,"plan":{"end":2,"start":1}},"source":"t.test('nesting', function (t) {\n"}
-  ...
 
 ok 2 - this passes
 not ok 3 - this fails
@@ -41,9 +35,6 @@ not ok 3 - this fails
       ...
     # failed 1 of 2 tests
 not ok 4 - async kid ___/# time=[0-9.]+(ms)?/~~~
-  ---
-  {"at":{"column":3,"file":"test/test/nesting.js","line":30},"results":{"count":2,"fail":1,"ok":false,"pass":1,"plan":{"end":2,"start":1}},"source":"t.test('async kid', function (t) {\n"}
-  ...
 
 ok 5 - pass after async kid
 1..5

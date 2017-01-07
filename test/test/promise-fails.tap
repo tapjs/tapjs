@@ -10,23 +10,14 @@ TAP version 13
                 1..1
                 # failed 1 of 1 tests
             not ok 1 - grandchild of 2 ___/# time=[0-9.]+(ms)?/~~~
-              ---
-              {"at":{"column":16,"file":"test/test/promise-fails.js","line":6},"results":{"count":1,"fail":1,"ok":false,"pass":0,"plan":{"end":1,"start":1}},"source":"return t.test('grandchild of 2', function (t) {\n"}
-              ...
             
             1..1
             # failed 1 of 1 tests
         not ok 1 - child of 2 ___/# time=[0-9.]+(ms)?/~~~
-          ---
-          {"at":{"column":14,"file":"test/test/promise-fails.js","line":5},"results":{"count":1,"fail":1,"ok":false,"pass":0,"plan":{"end":1,"start":1}},"source":"return t.test('child of 2', function (t) {\n"}
-          ...
         
         1..1
         # failed 1 of 1 tests
     not ok 1 - two ___/# time=[0-9.]+(ms)?/~~~
-      ---
-      {"at":{"column":12,"file":"test/test/promise-fails.js","line":4},"results":{"count":1,"fail":1,"ok":false,"pass":0,"plan":{"end":1,"start":1}},"source":"return t.test('two', function (t) {\n"}
-      ...
     
     # Subtest: second child of 2
         not ok 1 - Error: fail 2
@@ -36,16 +27,10 @@ TAP version 13
         1..1
         # failed 1 of 1 tests
     not ok 2 - second child of 2 ___/# time=[0-9.]+(ms)?/~~~
-      ---
-      {"at":{"column":14,"file":"test/test/promise-fails.js","line":11},"results":{"count":1,"fail":1,"ok":false,"pass":0,"plan":{"end":1,"start":1}},"source":"return t.test('second child of 2', function (t) {\n"}
-      ...
     
     1..2
     # failed 2 of 2 tests
 not ok 1 - one ___/# time=[0-9.]+(ms)?/~~~
-  ---
-  {"at":{"column":3,"file":"test/test/promise-fails.js","line":3},"results":{"count":2,"fail":2,"ok":false,"pass":0,"plan":{"end":2,"start":1}},"source":"t.test('one', function (t) {\n"}
-  ...
 
 # Subtest: three
     not ok 1 - Error: fail 3
@@ -55,9 +40,6 @@ not ok 1 - one ___/# time=[0-9.]+(ms)?/~~~
     1..1
     # failed 1 of 1 tests
 not ok 2 - three ___/# time=[0-9.]+(ms)?/~~~
-  ---
-  {"at":{"column":12,"file":"test/test/promise-fails.js","line":16},"results":{"count":1,"fail":1,"ok":false,"pass":0,"plan":{"end":1,"start":1}},"source":"return t.test('three', function (t) {\n"}
-  ...
 
 # Subtest: some_function_name
     not ok 1 - Error: fail 4
@@ -67,9 +49,6 @@ not ok 2 - three ___/# time=[0-9.]+(ms)?/~~~
     1..1
     # failed 1 of 1 tests
 not ok 3 - some_function_name ___/# time=[0-9.]+(ms)?/~~~
-  ---
-  {"at":{"column":14,"file":"test/test/promise-fails.js","line":27},"results":{"count":1,"fail":1,"ok":false,"pass":0,"plan":{"end":1,"start":1}},"source":"return t.test(function some_function_name (t) {\n"}
-  ...
 
 not ok 4 - Error: fail 5
   ---

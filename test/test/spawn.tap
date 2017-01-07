@@ -18,15 +18,9 @@ TAP version 13
             1..3
             # failed 1 of 3 tests
         not ok 2 - second ___/# time=[0-9.]+(ms)?/~~~
-          ---
-          {"at":{"column":5,"file":"test/test/spawn.js","line":18},"results":{"count":3,"fail":1,"ok":false,"pass":2,"plan":{"end":3,"start":1}},"source":"t.test('second', function (tt) {\n"}
-          ...
         
         # failed 1 of 2 tests
     not ok 1 - nesting ___/# time=[0-9.]+(ms)?/~~~
-      ---
-      {"at":{"column":3,"file":"test/test/spawn.js","line":11},"results":{"count":2,"fail":1,"ok":false,"pass":1,"plan":{"end":2,"start":1}},"source":"t.test('nesting', function (t) {\n"}
-      ...
     
     ok 2 - this passes
     not ok 3 - this fails
@@ -42,9 +36,6 @@ TAP version 13
           ...
         # failed 1 of 2 tests
     not ok 4 - async kid ___/# time=[0-9.]+(ms)?/~~~
-      ---
-      {"at":{"column":3,"file":"test/test/spawn.js","line":38},"results":{"count":2,"fail":1,"ok":false,"pass":1,"plan":{"end":2,"start":1}},"source":"t.test('async kid', function (t) {\n"}
-      ...
     
     ok 5 - pass after async kid
     1..5
@@ -52,7 +43,7 @@ TAP version 13
     ___/# time=[0-9.]+(ms)?/~~~
 not ok 1 - ___/.*/~~~spawn.js child ___/# time=[0-9.]+(ms)?/~~~
   ---
-  {"arguments":["___/.*/~~~spawn.js","child"],"at":{"column":5,"file":"test/test/spawn.js","line":8},"command":"___/.*(node|iojs)(.exe)?/~~~","results":{"bailout":false,"count":5,"fail":3,"ok":false,"pass":2,"plan":{"comment":"","end":5,"skipAll":false,"skipReason":"","start":1},"skip":0,"todo":0},"source":"t.spawn(process.execPath, [__filename, 'child'])\n"}
+  {"arguments":["___/.*/~~~spawn.js","child"],"command":"___/.*(node|iojs)(.exe)?/~~~"}
   ...
 
 # Subtest: nesting
@@ -73,15 +64,9 @@ not ok 1 - ___/.*/~~~spawn.js child ___/# time=[0-9.]+(ms)?/~~~
         1..3
         # failed 1 of 3 tests
     not ok 2 - second ___/# time=[0-9.]+(ms)?/~~~
-      ---
-      {"at":{"column":5,"file":"test/test/spawn.js","line":18},"results":{"count":3,"fail":1,"ok":false,"pass":2,"plan":{"end":3,"start":1}},"source":"t.test('second', function (tt) {\n"}
-      ...
     
     # failed 1 of 2 tests
 not ok 2 - nesting ___/# time=[0-9.]+(ms)?/~~~
-  ---
-  {"at":{"column":3,"file":"test/test/spawn.js","line":11},"results":{"count":2,"fail":1,"ok":false,"pass":1,"plan":{"end":2,"start":1}},"source":"t.test('nesting', function (t) {\n"}
-  ...
 
 ok 3 - this passes
 not ok 4 - this fails
@@ -97,9 +82,6 @@ not ok 4 - this fails
       ...
     # failed 1 of 2 tests
 not ok 5 - async kid ___/# time=[0-9.]+(ms)?/~~~
-  ---
-  {"at":{"column":3,"file":"test/test/spawn.js","line":38},"results":{"count":2,"fail":1,"ok":false,"pass":1,"plan":{"end":2,"start":1}},"source":"t.test('async kid', function (t) {\n"}
-  ...
 
 ok 6 - pass after async kid
 1..6

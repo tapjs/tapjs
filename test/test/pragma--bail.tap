@@ -12,7 +12,7 @@ pragma +child
     ___/# time=[0-9.]+(ms)?/~~~
 not ok 1 - ___/.*/~~~pragma.js child ___/# time=[0-9.]+(ms)?/~~~
   ---
-  {"arguments":["___/.*/~~~pragma.js","child"],"at":{"column":5,"file":"test/test/pragma.js","line":6},"command":"___/.*(node|iojs)(.exe)?/~~~","results":{"bailout":false,"count":2,"fail":1,"failures":[{"data":"this is not tap and it is not ok\n","tapError":"Non-TAP data encountered in strict mode"}],"ok":false,"pass":2,"plan":{"comment":"","end":2,"skipAll":false,"skipReason":"","start":1},"skip":0,"todo":0},"source":"t.spawn(process.execPath, [__filename, 'child'])\n"}
+  {"arguments":["___/.*/~~~pragma.js","child"],"command":"___/.*(node|iojs)(.exe)?/~~~","failures":[{"data":"this is not tap and it is not ok\n","tapError":"Non-TAP data encountered in strict mode"}]}
   ...
 Bail out! # ___/.*/~~~pragma.js child ___/# time=[0-9.]+(ms)?/~~~
 

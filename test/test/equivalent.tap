@@ -27,9 +27,6 @@ TAP version 13
     1..6
     # failed 6 of 6 tests
 not ok 1 - child test ___/# time=[0-9.]+(ms)?/~~~
-  ---
-  {"at":{"column":3,"file":"test/test/equivalent.js","line":2},"results":{"count":6,"fail":6,"ok":false,"pass":0,"plan":{"end":6,"start":1}},"source":"t.test('child test', function (t) {\n"}
-  ...
 
 1..1
 # failed 1 of 1 tests
