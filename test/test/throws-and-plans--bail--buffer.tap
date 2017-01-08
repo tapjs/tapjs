@@ -1,0 +1,19 @@
+TAP version 13
+ok 1 - expect truthy value
+not ok 2 - plans of 1 {
+    ok 1 - before sync thrower
+    ok 2 - sync thrower {
+        1..1
+        ok 1 - before the bomb
+    }
+    
+    not ok 3 - Error: pwnSync
+      ---
+      {"at":{"column":11,"file":"test/test/throws-and-plans.js","line":10},"message":"Error: pwnSync","source":"throw new Error('pwnSync')\n","test":"sync thrower"}
+      ...
+    
+    Bail out! # Error: pwnSync
+}
+
+Bail out! # Error: pwnSync
+

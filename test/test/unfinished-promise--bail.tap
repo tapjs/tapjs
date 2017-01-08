@@ -1,0 +1,14 @@
+TAP version 13
+# Subtest: parent
+    # Subtest: child
+        # Subtest: grandchild
+            1..2
+            ok 1 - ok
+            not ok 2 - test unfinished: grandchild
+              ---
+              {"at":{"column":14,"file":"test/test/unfinished-promise.js","line":4},"count":1,"plan":2,"source":"return t.test('grandchild', function (t) {\n"}
+              ...
+            
+            Bail out! # test unfinished: grandchild
+Bail out! # test unfinished: grandchild
+

@@ -1,0 +1,55 @@
+running one
+after plan fulfilled
+after one block
+one promise was fulfilled
+TAP version 13
+ok 1 - one {
+    1..1
+    ok 1 - done one
+}
+
+one end
+running two
+two promise was fulfilled
+ok 2 - two {
+    1..1
+    ok 1 - done two
+}
+
+running three
+ok 3 - three {
+    1..0
+}
+
+not ok 4 - broken promises {
+    1..2
+    not ok 1 - end() {
+        1..0
+    }
+    
+    not ok 2 - plan {
+        1..1
+        ok 1 - this is fine
+    }
+    
+    # failed 2 of 2 tests
+}
+
+not ok 5 - thrown with timeouts {
+    1..2
+    not ok 1 - end() {
+        1..0
+    }
+    
+    not ok 2 - plan {
+        1..1
+        ok 1 - this is fine
+    }
+    
+    # failed 2 of 2 tests
+}
+
+1..5
+# failed 2 of 5 tests
+___/# time=[0-9.]+(ms)?/~~~
+

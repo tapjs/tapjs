@@ -1,0 +1,29 @@
+TAP version 13
+ok 1 - nesting {
+    1..2
+    ok 1 - first {
+        1..2
+        ok 1 - true is ok
+        ok 2 - doag is also okay
+    }
+    
+    ok 2 - second {
+        ok 1 - but that is ok
+        ok 2 - this passes
+        1..2
+    }
+}
+
+ok 2 - this passes
+not ok 3 - this fails
+  ---
+  {"at":{"column":3,"file":"test/test/bailout.js","line":18},"source":"t.fail('this fails')\n"}
+  ...
+
+not ok 4 - async kid {
+    1..2
+    Bail out! # cannot continue
+}
+
+Bail out! # cannot continue
+

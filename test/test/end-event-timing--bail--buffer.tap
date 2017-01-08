@@ -1,0 +1,20 @@
+> start first
+> before ending first
+TAP version 13
+ok 1 - first {
+    1..0
+}
+
+> first end event
+> start second
+> after ending first
+> before ending second
+ok 2 - second {
+    1..0
+}
+
+> second end event
+> after ending second
+1..2
+___/# time=[0-9.]+(ms)?/~~~
+

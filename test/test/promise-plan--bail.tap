@@ -1,0 +1,32 @@
+TAP version 13
+# Subtest: one
+running one
+    1..1
+    ok 1 - done one
+after plan fulfilled
+after one block
+one promise was fulfilled
+ok 1 - one ___/# time=[0-9.]+(ms)?/~~~
+
+one end
+# Subtest: two
+running two
+    1..1
+    ok 1 - done two
+two promise was fulfilled
+ok 2 - two ___/# time=[0-9.]+(ms)?/~~~
+
+# Subtest: three
+running three
+    1..0
+ok 3 - three ___/# time=[0-9.]+(ms)?/~~~
+
+# Subtest: broken promises
+    1..2
+    # Subtest: end()
+        1..0
+    not ok 1 - end() ___/# time=[0-9.]+(ms)?/~~~
+    
+    Bail out! # end() ___/# time=[0-9.]+(ms)?/~~~
+Bail out! # end() ___/# time=[0-9.]+(ms)?/~~~
+

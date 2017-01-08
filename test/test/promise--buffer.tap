@@ -1,0 +1,80 @@
+TAP version 13
+ok 1 - one {
+    ok 1 - two {
+        ok 1 - child of 2 {
+            ok 1 - grandchild of 2 {
+                ok 1 - this is fine
+                1..1
+            }
+            
+            1..1
+        }
+        
+        1..1
+    }
+    
+    ok 2 - second child of 2 {
+        1..0
+    }
+    
+    1..2
+}
+
+ok 2 - three {
+    1..0
+}
+
+ok 3 - some_function_name {
+    ok 1 - resolved to 1
+    1..1
+}
+
+ok 4 - ___/.*/~~~promise.js child {
+    ok 1 - one {
+        ok 1 - two {
+            ok 1 - child of 2 {
+                ok 1 - grandchild of 2 {
+                    ok 1 - this is fine
+                    1..1
+                }
+                
+                1..1
+            }
+            
+            1..1
+        }
+        
+        ok 2 - second child of 2 {
+            1..0
+        }
+        
+        1..2
+    }
+    
+    ok 2 - three {
+        1..0
+    }
+    
+    ok 3 - some_function_name {
+        ok 1 - resolved to 1
+        1..1
+    }
+    
+    ok 4 - spawned {
+        ok 1 - in the spawned child
+        1..1
+    }
+    
+    ok 5 - is root tap test
+    ok 6 - has no parent
+    ok 7 - this is fine
+    1..7
+    ___/# time=[0-9.]+(ms)?/~~~
+}
+
+ok 5 - is root tap test
+ok 6 - has no parent
+ok 7 - this is fine
+1..7
+___/# time=[0-9.]+(ms)?/~~~
+

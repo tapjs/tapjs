@@ -8,21 +8,21 @@ TAP version 13
         ok 1 - this is fine 4
         ok 2 - this is fine 5
     yolo
-
+        
         not ok 3 - timeout
           ---
           {"at":{"column":5,"file":"test/test/timeout-via-runner-ignore-sigterm.js","line":19},"failure":"timeout","timeout":1000}
           ...
-
+        
     not ok 4 - timeout
       ---
       {"at":{"column":5,"file":"test/test/timeout-via-runner-ignore-sigterm.js","line":19},"failure":"timeout","timeout":1000}
       ...
-
+    
     1..4 # timeout
 not ok 1 - child ___/# time=[0-9.]+(ms)?/~~~
   ---
-  {"arguments":["___/.*/~~~timeout-via-runner-ignore-sigterm.js","child"],"at":{"column":5,"file":"test/test/timeout-via-runner-ignore-sigterm.js","line":19},"command":"___/.*(node|iojs)(.exe)?/~~~","failure":"timeout","results":{"count":4,"fail":1,"ok":false,"pass":3,"plan":{"end":4,"start":1}},"signal":"SIGKILL","source":"t.spawn(process.execPath, [__filename, 'child'], {}, 'child', { timeout: 1000 })\n","timeout":1000}
+  {"arguments":["___/.*/~~~timeout-via-runner-ignore-sigterm.js","child"],"command":"___/.*(node|iojs)(.exe)?/~~~","failure":"timeout","signal":"SIGKILL","timeout":1000}
   ...
 
 1..1

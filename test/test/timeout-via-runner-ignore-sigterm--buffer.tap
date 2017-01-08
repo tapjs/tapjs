@@ -1,0 +1,23 @@
+TAP version 13
+not ok 1 - child
+  ---
+  {"arguments":["___/.*/~~~timeout-via-runner-ignore-sigterm.js","child"],"command":"___/.*(node|iojs)(.exe)?/~~~","failure":"timeout","signal":"SIGKILL","timeout":1000}
+  ...
+{
+    ok 1 - this is fine 1
+    ok 2 - this is fine 2
+    ok 3 - this is fine 3
+    yolo
+    
+    not ok 4 - timeout
+      ---
+      {"at":{"column":5,"file":"test/test/timeout-via-runner-ignore-sigterm.js","line":19},"failure":"timeout","timeout":1000}
+      ...
+    
+    1..4 # timeout
+}
+
+1..1
+# failed 1 of 1 tests
+___/# time=[0-9.]+(ms)?/~~~
+

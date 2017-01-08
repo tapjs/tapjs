@@ -1,0 +1,20 @@
+TAP version 13
+not ok 1 - gp {
+    1..1
+    not ok 1 - parent {
+        1..1
+        not ok 1 - fail
+          ---
+          {"at":{"column":7,"file":"test/test/not-ok-nested.js","line":7},"source":"t.fail('fail')\n"}
+          ...
+        
+        # failed 1 of 1 tests
+    }
+    
+    # failed 1 of 1 tests
+}
+
+1..1
+# failed 1 of 1 tests
+___/# time=[0-9.]+(ms)?/~~~
+

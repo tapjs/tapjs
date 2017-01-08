@@ -1,0 +1,17 @@
+TAP version 13
+not ok 1 - ___/.*/~~~child-text-buffer.js buffer {
+    not ok 1 - parent {
+        not ok 1 - child {
+            not ok 1 - grandchild {
+                ok 1 - this is fine
+                not ok 2 - burn
+                1..2
+                Bail out! # burn
+            }
+        }
+    }
+    Bail out! # burn
+}
+
+Bail out! # burn
+

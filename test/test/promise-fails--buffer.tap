@@ -1,0 +1,65 @@
+TAP version 13
+not ok 1 - one {
+    not ok 1 - two {
+        not ok 1 - child of 2 {
+            not ok 1 - grandchild of 2 {
+                not ok 1 - Error: fail 1
+                  ---
+                  {"at":{"column":15,"file":"test/test/promise-fails.js","line":7},"message":"Error: fail 1","source":"throw new Error('fail 1')\n","test":"grandchild of 2"}
+                  ...
+                
+                1..1
+                # failed 1 of 1 tests
+            }
+            
+            1..1
+            # failed 1 of 1 tests
+        }
+        
+        1..1
+        # failed 1 of 1 tests
+    }
+    
+    not ok 2 - second child of 2 {
+        not ok 1 - Error: fail 2
+          ---
+          {"at":{"column":13,"file":"test/test/promise-fails.js","line":12},"message":"Error: fail 2","source":"throw new Error('fail 2')\n","test":"second child of 2"}
+          ...
+        
+        1..1
+        # failed 1 of 1 tests
+    }
+    
+    1..2
+    # failed 2 of 2 tests
+}
+
+not ok 2 - three {
+    not ok 1 - Error: fail 3
+      ---
+      {"at":{"column":13,"file":"test/test/promise-fails.js","line":18},"message":"Error: fail 3","source":"throw new Error('fail 3')\n","test":"three"}
+      ...
+    
+    1..1
+    # failed 1 of 1 tests
+}
+
+not ok 3 - some_function_name {
+    not ok 1 - Error: fail 4
+      ---
+      {"at":{"column":15,"file":"test/test/promise-fails.js","line":29},"message":"Error: fail 4","source":"throw new Error('fail 4')\n","test":"some_function_name"}
+      ...
+    
+    1..1
+    # failed 1 of 1 tests
+}
+
+not ok 4 - Error: fail 5
+  ---
+  {"at":{"column":9,"file":"test/test/promise-fails.js","line":34},"message":"Error: fail 5","source":"throw new Error('fail 5')\n","test":"TAP"}
+  ...
+
+1..4
+# failed 4 of 4 tests
+___/# time=[0-9.]+(ms)?/~~~
+

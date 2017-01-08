@@ -1,0 +1,35 @@
+TAP version 13
+not ok 1 - parent of timeout test {
+    not ok 1 - timeout test
+      ---
+      {"timeout":50}
+      ...
+    {
+        not ok 1 - this never completes {
+            not ok 1 - baby {
+                ok 1 - expect truthy value
+                not ok 2 - timeout!
+                  ---
+                  {"at":{"column":5,"file":"test/test/timeout.js","line":4},"expired":"timeout test","source":"t.test('timeout test', { timeout: 50 }, function (t) {\n","timeout":50}
+                  ...
+                
+                1..2
+                # failed 1 of 2 tests
+            }
+            
+            1..1
+            # failed 1 of 1 tests
+        }
+        
+        1..1
+        # failed 1 of 1 tests
+    }
+    
+    1..1
+    # failed 1 of 1 tests
+}
+
+1..1
+# failed 1 of 1 tests
+___/# time=[0-9.]+(ms)?/~~~
+

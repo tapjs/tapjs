@@ -1,0 +1,18 @@
+TAP version 13
+not ok 1 - one {
+    not ok 1 - two {
+        not ok 1 - child of 2 {
+            not ok 1 - grandchild of 2 {
+                not ok 1 - Error: fail 1
+                  ---
+                  {"at":{"column":15,"file":"test/test/promise-fails.js","line":7},"message":"Error: fail 1","source":"throw new Error('fail 1')\n","test":"grandchild of 2"}
+                  ...
+                
+                Bail out! # Error: fail 1
+            }
+        }
+    }
+}
+
+Bail out! # Error: fail 1
+

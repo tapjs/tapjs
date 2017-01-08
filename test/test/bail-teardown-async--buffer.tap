@@ -1,0 +1,17 @@
+TAP version 13
+ok 1 - foobar test {
+    1..0
+}
+
+not ok 2 - barfoo {
+    not ok 1 - barfoo2 {
+        not ok 1 - barf3 {
+            not ok 1 - b3rf {
+                Bail out! # teardown fail
+            }
+        }
+    }
+}
+
+Bail out! # teardown fail
+

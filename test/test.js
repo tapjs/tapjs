@@ -11,19 +11,41 @@ function regEsc (str) {
   return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&')
 }
 
-module.exports = function (pattern) {
-  glob.sync(dir + pattern).forEach(runTests)
+module.exports = function (pattern, bail, buffer) {
+  glob.sync(dir + pattern).forEach(function (f) {
+    runTests(f, bail, buffer)
+  })
 }
 
 if (module === require.main) {
   if (process.argv[2]) {
-    module.exports(process.argv[2])
+    var bail, buffer
+    process.argv.slice(3).forEach(function (x) {
+      switch (x) {
+        case 'bail': return bail = true
+        case 'buffer': return buffer = true
+        case 'nobail': return bail = false
+        case 'nobuffer': return buffer = false
+      }
+    })
+    module.exports(process.argv[2], bail, buffer)
   } else {
-    t.pass('just a common file')
+    module.exports('*.js', false, false)
   }
 }
 
-function runTests (file) {
+function runTests (file, bail, buffer) {
+  var bails = [ !!bail ]
+  var buffs = [ !!buffer ]
+
+  if (bail === undefined) {
+    bails = [ true, false ]
+  }
+
+  if (buffer === undefined) {
+    buffs = [ true, false ]
+  }
+
   var skip = false
   if (file.match(/\b(timeout.*|pending-handles)\.js$/)) {
     if (process.env.TRAVIS) {
@@ -43,24 +65,29 @@ function runTests (file) {
 
   var f = file.substr(dir.length)
   t.test(f, { skip: skip }, function (t) {
-    t.test('bail=false', function (t) {
-      runTest(t, false, file)
+    t.plan(bails.length * buffs.length)
+    bails.forEach(function (bail) {
+      buffs.forEach(function (buff) {
+        t.test('bail=' + bail + ' buffer=' + buff, function (t) {
+          runTest(t, bail, buff, file)
+        })
+      })
     })
-    t.test('bail=true', function (t) {
-      runTest(t, true, file)
-    })
-    t.end()
   })
 }
 
-function runTest (t, bail, file) {
-  var resfile = file.replace(/\.js$/, (bail ? '-bail' : '') + '.tap')
+function runTest (t, bail, buffer, file) {
+  var resfile = file.replace(/\.js$/,
+   (bail ? '--bail' : '') +
+   (buffer ? '--buffer' : '') +
+   '.tap')
   var want = fs.readFileSync(resfile, 'utf8').split(/\r?\n/)
 
   var child = spawn(node, [file], {
     stdio: [ 0, 'pipe', 'pipe' ],
     env: {
-      TAP_BAIL: bail ? 1 : 0
+      TAP_BAIL: bail ? 1 : 0,
+      TAP_BUFFER: buffer ? 1 : 0
     }
   })
 

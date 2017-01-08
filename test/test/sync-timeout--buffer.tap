@@ -1,0 +1,29 @@
+TAP version 13
+not ok 1 - t.end()
+  ---
+  {"timeout":50}
+  ...
+{
+    ok 1 - did not timeout
+    not ok 2 - timeout!
+      ---
+      {"at":{"column":3,"file":"test/test/sync-timeout.js","line":15},"expired":"t.end()","source":"t.test('t.end()', opt, function (t) {\n","timeout":50}
+      ...
+    
+    1..2
+    # failed 1 of 2 tests
+}
+
+not ok 2 - plan()
+  ---
+  {"timeout":50}
+  ...
+{
+    1..1
+    ok 1 - did not time out
+}
+
+1..2
+# failed 2 of 2 tests
+___/# time=[0-9.]+(ms)?/~~~
+

@@ -3,6 +3,13 @@ if (process.argv[2] === 'child') {
 } else if (process.argv[2] !== 'silent') {
   var t = require('../')
   var Test = t.Test
+
+  t.test('buffered', { buffered: true }, runTest)
+  t.test('unbuffered', { buffered: false }, runTest)
+}
+
+function runTest (t) {
+  t.plan(3)
   var tt = new Test()
 
   var out = ''
@@ -22,22 +29,18 @@ if (process.argv[2] === 'child') {
         ok: true,
         message: /\.[\\\/]test[\\\/]only-non-tap-output.js child/,
         extra: {
-          at: {},
-          results: {},
           command: process.execPath,
           arguments: {},
-          skip: 'No tests found'
+          skip: 'no tests found'
         }
       },
       {
         ok: true,
         message: /\.[\\\/]test[\\\/]only-non-tap-output.js silent/,
         extra: {
-          at: {},
-          results: {},
           command: process.execPath,
           arguments: {},
-          skip: 'No tests found'
+          skip: 'no tests found'
         }
       }
     ])

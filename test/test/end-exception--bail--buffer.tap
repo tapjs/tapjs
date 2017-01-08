@@ -1,0 +1,14 @@
+TAP version 13
+ok 1 - (unnamed test) {
+    1..1
+    ok 1 - should be equal
+}
+
+end()
+not ok 2 - Error: beep
+  ---
+  {"at":{"column":11,"file":"test/test/end-exception.js","function":"Test.<anonymous>","line":8},"message":"Error: beep","source":"throw new Error('beep')\n","test":"(unnamed test)"}
+  ...
+
+Bail out! # Error: beep
+

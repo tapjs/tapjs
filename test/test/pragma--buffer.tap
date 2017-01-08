@@ -1,0 +1,29 @@
+TAP version 13
+pragma +child
+not ok 1 - ___/.*/~~~pragma.js child
+  ---
+  {"arguments":["___/.*/~~~pragma.js","child"],"command":"___/.*(node|iojs)(.exe)?/~~~","failures":[{"data":"this is not tap and it is not ok\n","tapError":"Non-TAP data encountered in strict mode"}]}
+  ...
+{
+    this is not tap but it is ok
+    ok 1 - an ok test
+    pragma +strict
+    this is not tap and it is not ok
+    pragma -strict
+    more ok non-tap
+    ok 2 - ending now
+    1..2
+    ___/# time=[0-9.]+(ms)?/~~~
+}
+
+pragma -child
+not ok 2 - ___/.*/~~~pragma.js child bailout
+  ---
+  {"arguments":["___/.*/~~~pragma.js","child","bailout"],"command":"___/.*(node|iojs)(.exe)?/~~~","exitCode":1}
+  ...
+{
+    Bail out! # no pragmas come after bailout
+}
+
+Bail out! # no pragmas come after bailout
+

@@ -1,0 +1,26 @@
+TAP version 13
+not ok 1 - parent {
+    not ok 1 - child {
+        not ok 1 - grandchild {
+            1..2
+            ok 1 - ok
+            not ok 2 - test unfinished: grandchild
+              ---
+              {"at":{"column":14,"file":"test/test/unfinished-promise.js","line":4},"count":1,"plan":2,"source":"return t.test('grandchild', function (t) {\n"}
+              ...
+            
+            # failed 1 of 2 tests
+        }
+        
+        1..1
+        # failed 1 of 1 tests
+    }
+    
+    1..1
+    # failed 1 of 1 tests
+}
+
+1..1
+# failed 1 of 1 tests
+___/# time=[0-9.]+(ms)?/~~~
+

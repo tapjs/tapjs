@@ -1,0 +1,36 @@
+before 1 parent
+before 1 child
+before 2 child
+before 1 grandchild
+before 2 grandchild
+after 2 grandchild
+after 2 child
+after 1 child
+after 1 parent
+TAP version 13
+not ok 1 - parent {
+    not ok 1 - child {
+        not ok 1 - grandchild {
+            ok 1 - the only actual assertion
+            not ok 2 - Error: this is fine
+              ---
+              {"at":{"column":16,"file":"test/test/before-after-each-throw.js","function":"Test.<anonymous>","line":22},"message":"Error: this is fine","source":"var er = new Error('this is fine')\n","test":"grandchild"}
+              ...
+            
+            1..2
+            # failed 1 of 2 tests
+        }
+        
+        1..1
+        # failed 1 of 1 tests
+    }
+    
+    1..1
+    # failed 1 of 1 tests
+}
+
+done
+1..1
+# failed 1 of 1 tests
+___/# time=[0-9.]+(ms)?/~~~
+

@@ -9,7 +9,7 @@ var fs = require('fs')
 var spawn = require('child_process').spawn
 
 var segv =
-'int main (void) {\n' +
+  'int main (void) {\n' +
   '   char *s = "hello world";\n' +
   "   *s = 'H';\n" +
   '}\n'
@@ -18,34 +18,21 @@ var segv =
 // we slice the actual output later to just compare the fronts
 // also sort the lines, because Node v0.8 sets keys on objects
 // in different order.
-var expect =
-('TAP version 13\n' +
-'# Subtest: ./segv\n' +
-'    1..0\n' +
-'not ok 1 - ./segv  # time=\n' +
-'  ---\n' +
-'  at:\n' +
-'    file: test/segv.js\n' +
-'    line: \n' +
-'    column: \n' +
-'  results:\n' +
-'    ok: false\n' +
-'    count: 0\n' +
-'    pass: 0\n' +
-'    plan:\n' +
-'      start: 1\n' +
-'      end: 0\n' +
-'      skipAll: true\n' +
-'  signal: SIG\n' +
-'  command: ./segv\n' +
-'  arguments: []\n' +
-'  source: |\n' +
-"    tt.spawn('./segv')\n" +
-'  ...\n' +
-'\n' +
-'1..1\n' +
-'# failed 1 of 1 tests\n' +
-'# time=\n').trim().split('\n')
+var expect = [
+  'TAP version 13',
+  '# Subtest: ./segv ',
+  '    1..0 # no tests found',
+  'not ok 1 - ./segv  # time=',
+  '  ---',
+  '  signal: SIG',
+  '  command: ./segv',
+  '  arguments: []',
+  '  ...',
+  '',
+  '1..1',
+  '# failed 1 of 1 tests',
+  '# time='
+]
 
 test('setup', function (t) {
   fs.writeFile('segv.c', segv, 'utf8', function (er) {
@@ -72,21 +59,29 @@ test('segv', function (t) {
     res += c
   })
   tt.on('end', function () {
+    // TODO: parse the yaml and test it against an object pattern
+    // much more future-proof than this string monkeybusiness.
     res = res.trim().split('\n')
     res = res.sort()
     expect = expect.sort()
     var ok = true
-    expect.forEach(function (line, i) {
-      if (ok) {
-        ok = t.equal(res[i].substr(0, line.length), line)
+    for (var e = 0, r = 0;
+        e < expect.length && r < res.length && ok;
+        e++, r++) {
+      // skip the type: global that newer nodes add to the error.
+      if (res[r].match(/^\s*type: global$/)) {
+        e --
+        continue
       }
-    })
+      ok = t.equal(res[r].substr(0, expect[e].length), expect[e])
+    }
     t.end()
   })
   tt.end()
 })
 
 test('cleanup', function (t) {
+  return t.end()
   t.plan(2)
   fs.unlink('segv', function (er) {
     t.ifError(er, 'clean up segv')

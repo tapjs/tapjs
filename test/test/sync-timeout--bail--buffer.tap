@@ -1,0 +1,17 @@
+TAP version 13
+not ok 1 - t.end()
+  ---
+  {"timeout":50}
+  ...
+{
+    ok 1 - did not timeout
+    not ok 2 - timeout!
+      ---
+      {"at":{"column":3,"file":"test/test/sync-timeout.js","line":15},"expired":"t.end()","source":"t.test('t.end()', opt, function (t) {\n","timeout":50}
+      ...
+    
+    Bail out! # timeout!
+}
+
+Bail out! # timeout!
+
