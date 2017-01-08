@@ -14,6 +14,10 @@ This sets the stage for parallel tests, coming in v10.  Mostly, it's
 just an update to [tap-parser](http://npm.im/tap-parser), and a lot of
 internal clean-up.
 
+Update [nyc](http://npm.im/nyc) to v10, which includes some fixes for
+covering newer JavaScript language features, and support for implicit
+function names.
+
 Also: remove a lot of excess noise and repetitive stack traces in yaml
 diagnostics.
 
