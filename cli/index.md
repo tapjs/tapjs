@@ -184,6 +184,17 @@ Environment Variables:
                               running child tests so that their output
                               is parseable by the test harness.
 
+  TAP_DIAG                    Set to '1' to show diagnostics by
+                              default for passing tests.  Set to '0'
+                              to NOT show diagnostics by default for
+                              failing tests.  If not one of these two
+                              values, then diagnostics are printed by
+                              default for failing tests, and not for
+                              passing tests.
+
+  TAP_BUFFER                  Set to '1' to run subtests in buffered
+                              mode by default.
+
   _TAP_COVERAGE_              Reserved for internal use.
 
 Config Files:
@@ -194,4 +205,5 @@ variable can modify this.
 
 Run 'tap --dump-config' for a listing of what can be set in that file.
 Each of the keys corresponds to one of the options above.
+
 ```
