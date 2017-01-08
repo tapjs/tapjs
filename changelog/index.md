@@ -2,6 +2,21 @@
 layout: layout
 ---
 
+## 9.0
+
+Buffered subtests!
+
+This adds support for outputting subtests in the
+[buffered](/subtests/) format, where the summary test point _precedes_
+the indented subtest output, rather than coming afterwards.
+
+This sets the stage for parallel tests, coming in v10.  Mostly, it's
+just an update to [tap-parser](http://npm.im/tap-parser), and a lot of
+internal clean-up.
+
+Also: remove a lot of excess noise and repetitive stack traces in yaml
+diagnostics.
+
 ## 8.0
 
 Update `tmatch` to version 3.  This makes regular expressions test
