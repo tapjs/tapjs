@@ -54,3 +54,37 @@ not mandatory.
 
 If you want to pass Promises to [assertions](/asserts/) and have them
 auto-resolve, then check out [tapromise](http://npm.im/tapromise).
+
+## `async`/`await`
+
+Because `async` functions return a Promise, you can use them out of
+the box with node-tap.  If you pass an `async` function as the
+`t.test()` callback, then tap will detect the promise return and move
+onto the next test once the async function has completely resolved.
+
+Because subtests return promises, you can also `await` them to do
+things in between subtests.
+
+For example:
+
+```js
+var t = require('tap')
+await t.test('get thing', function (t) {
+  return getSomeThing().then(function (result) {
+    return t.test('check result', function (t) {
+      t.equal(result.foo, 'bar')
+      t.end()
+    })
+  })
+})
+var things = await getTwoThings()
+var otherPromiseResult = await t.test('got two things', function (t) {
+  t.equal(things.length, 2)
+  return makeSomeOtherPromise()
+})
+await t.test('check other promise thing', function (t) {
+  t.equal(otherPromiseResult, 7, 'it should be seven')
+  t.end()
+})
+console.log('tests are all done!')
+```

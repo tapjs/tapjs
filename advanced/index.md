@@ -50,6 +50,15 @@ child test, with the addition of the following fields:
 * `timeout`: The number of ms to allow the child process to continue.
   If it goes beyond this time, the child process will be forcibly
   killed.
+* `todo` Set to boolean `true` or a String to mark this as pending.
+* `skip` Set to boolean `true` or a String to mark this as skipped.
+* `bail` Set to boolean `true` to bail out on the first test failure.
+* `diagnostic` Set to `true` to show a yaml diagnostic block even if
+  the test passes.  Set to `false` to never show a yaml diagnostic
+  block.
+* `buffered` Set to `true` to run as a buffered [subtest](/subtests/).
+  Set to `false` to run as an indented subtest.  The default is
+  `false` unless `TAP_BUFFER=1` is set in the environment.
 
 ## t.addAssert(name, length, fn)
 

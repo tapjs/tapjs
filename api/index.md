@@ -12,6 +12,7 @@ See also:
 - [Getting Started](/basics/)
 - [Asserts](/asserts/)
 - [Promises](/promises/)
+- [Subtests](/subtests/)
 - [Advanced Usage](/advanced/)
 
 ## tap = require('tap')
@@ -54,8 +55,8 @@ Test object.
 
 ### t.test([name], [options], [function])
 
-Create a subtest.  Returns a [Promise](/promises/) which resolves with the parent
-when the child test is completed.
+Create a subtest.  Returns a [Promise](/promises/) which resolves with
+the parent when the child test is completed.
 
 If the function is omitted, then it will be marked as a "todo" or
 "pending" test.
@@ -67,18 +68,19 @@ the name will be `(unnamed test)`.
 The function gets a Test object as its only argument.  From there, you
 can call the `t.end()` method on that object to end the test, or use
 the `t.plan()` method to specify how many child tests or
-[asserts](/asserts/) the
-test will have.
+[asserts](/asserts/) the test will have.
 
-If the function returns a [Promise](/promises/) object (that is, an object with a
-`then` method), then when the promise is rejected or fulfilled, the
-test will be either ended or failed.
+If the function returns a [Promise](/promises/) object (that is, an
+object with a `then` method), then when the promise is rejected or
+fulfilled, the test will be either ended or failed.  Note that this
+means that an `async` function will automatically end when it's done,
+because of the implicit promise.
 
 If the function is not provided, then this will be treated as a `todo`
 test.
 
 The options object is the same as would be passed to [any
-assert](/asserts/), with two additional fields that are only relevant
+assert](/asserts/), with some additional fields that are only relevant
 for child tests:
 
 * `todo` Set to boolean `true` or a String to mark this as pending.
@@ -91,6 +93,9 @@ for child tests:
 * `diagnostic` Set to boolean `true` to show a yaml diagnostic block
   even if the test passes.  Set to `false` to never show a yaml
   diagnostic block.  (Failing tests show yaml diagnostics by default.)
+* `buffered` Set to `true` to run as a buffered [subtest](/subtests/).
+  Set to `false` to run as an indented subtest.  The default is
+  `false` unless `TAP_BUFFER=1` is set in the environment.
 
 ### t.tearDown(function)
 
