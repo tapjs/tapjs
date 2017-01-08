@@ -54,6 +54,9 @@ function generate (file, bail, buffer) {
     output = output.split(file).join('___/.*/~~~' + path.basename(file))
     output = output.split(f).join('___/.*/~~~' + path.basename(f))
 
+    var dir = path.dirname(file)
+    output = output.split(dir).join('___/.*/~~~' + path.basename(dir))
+
     output = output.split(node + ' ___/').join('\0N1\0')
     output = output.split(path.basename(node) + ' ___/').join('\0N1\0')
 

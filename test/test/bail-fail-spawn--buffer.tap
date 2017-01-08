@@ -2,7 +2,7 @@ TAP version 13
 not ok 1 - bail fail {
     not ok 1 - ./test/test/nesting.js
       ---
-      {"arguments":["/Users/isaacs/dev/js/tap/test/test/nesting.js"],"command":"___/.*(node|iojs)(.exe)?/~~~"}
+      {"arguments":["___/.*/~~~test/nesting.js"],"command":"___/.*(node|iojs)(.exe)?/~~~"}
       ...
     {
         not ok 1 - nesting {
