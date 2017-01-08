@@ -373,6 +373,20 @@ total ................................................. 7/7
     ok
 ```
 
+Tap's [promise](/promises/) support means it plays great with
+async/await.  Stuff like this will Just Work out of the box if you
+have a JS engine that supports async functions:
+
+```js
+var tap = require('tap')
+tap.test(async function (t) {
+  var result = await doSomethingAsync()
+  t.match(result, { ok: true, message: /dogs/ }, 'dogs are ok')
+  // Or you can use any assertion lib you like.  as long as this
+  // code doesn't throw an error, it's a pass!
+})
+```
+
 ## bonus points
 
 You can do these things for extra credit.
