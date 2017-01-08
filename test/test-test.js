@@ -82,16 +82,16 @@ test('testing the test object', function (t) {
 
 test('plan stuff', function (t) {
   t.throws(function () {
-    var tt = new Test()
+    var tt = new Test({ buffered: false })
     tt.plan(1)
     tt.plan(1)
   }, new Error('Cannot set plan more than once'))
   t.throws(function () {
-    var tt = new Test()
+    var tt = new Test({ buffered: false })
     tt.plan('foo')
   }, new TypeError('plan must be a number'))
   t.throws(function () {
-    var tt = new Test()
+    var tt = new Test({ buffered: false })
     tt.plan(-1)
   }, new TypeError('plan must be a number'))
 
@@ -99,7 +99,7 @@ test('plan stuff', function (t) {
 })
 
 test('do nothing after bailout', function (t) {
-  var tt = new Test()
+  var tt = new Test({ buffered: false })
   var out = ''
   tt.on('data', function (c) {
     out += c
@@ -117,7 +117,7 @@ test('do nothing after bailout', function (t) {
 })
 
 test('subtest without arguments', function (t) {
-  var tt = new Test()
+  var tt = new Test({ buffered: false })
   var out = ''
   tt.on('data', function (c) {
     out += c
@@ -131,7 +131,7 @@ test('subtest without arguments', function (t) {
 })
 
 test('subtest with only a name', function (t) {
-  var tt = new Test()
+  var tt = new Test({ buffered: false })
   var out = ''
   tt.on('data', function (c) {
     out += c
@@ -145,7 +145,7 @@ test('subtest with only a name', function (t) {
 })
 
 test('subtest with only options', function (t) {
-  var tt = new Test()
+  var tt = new Test({ buffered: false })
   var out = ''
   tt.on('data', function (c) {
     out += c
@@ -159,7 +159,7 @@ test('subtest with only options', function (t) {
 })
 
 test('subtest with only a function', function (t) {
-  var tt = new Test()
+  var tt = new Test({ buffered: false })
   var out = ''
   tt.on('data', function (c) {
     out += c
@@ -173,7 +173,7 @@ test('subtest with only a function', function (t) {
 })
 
 test('subtest with name and options', function (t) {
-  var tt = new Test()
+  var tt = new Test({ buffered: false })
   var out = ''
   tt.on('data', function (c) {
     out += c
@@ -187,7 +187,7 @@ test('subtest with name and options', function (t) {
 })
 
 test('subtest with name and function', function (t) {
-  var tt = new Test()
+  var tt = new Test({ buffered: false })
   var out = ''
   tt.on('data', function (c) {
     out += c
@@ -201,7 +201,7 @@ test('subtest with name and function', function (t) {
 })
 
 test('subtest with options and function', function (t) {
-  var tt = new Test()
+  var tt = new Test({ buffered: false })
   var out = ''
   tt.on('data', function (c) {
     out += c
@@ -216,7 +216,7 @@ test('subtest with options and function', function (t) {
 
 test('invalid test arguments', function (t) {
   t.throws(function () {
-    var tt = new Test()
+    var tt = new Test({ buffered: false })
     tt.test('name', { skip: false }, 'not a function')
   }, new TypeError('test() callback must be function if provided'))
 
@@ -228,7 +228,7 @@ test('throws type', function (t)  {
     throw new TypeError('some type error');
   }, TypeError, 'should throw a TypeError');
 
-  var tt = new Test()
+  var tt = new Test({ buffered: false })
   t.notOk(tt.throws(function () {
     throw new RangeError('x')
   }, TypeError))

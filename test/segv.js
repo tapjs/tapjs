@@ -52,7 +52,7 @@ test('setup', function (t) {
 })
 
 test('segv', function (t) {
-  var tt = new Test({ bail: false })
+  var tt = new Test({ bail: false, buffered: false })
   tt.spawn('./segv')
   var res = ''
   tt.on('data', function (c) {
@@ -81,7 +81,6 @@ test('segv', function (t) {
 })
 
 test('cleanup', function (t) {
-  return t.end()
   t.plan(2)
   fs.unlink('segv', function (er) {
     t.ifError(er, 'clean up segv')
