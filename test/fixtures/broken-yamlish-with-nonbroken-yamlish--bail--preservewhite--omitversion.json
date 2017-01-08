@@ -86,10 +86,6 @@
     " ...\n"
   ],
   [
-    "comment",
-    " # also this is a comment\n"
-  ],
-  [
     "line",
     "ok 3 -  should come last\n"
   ],

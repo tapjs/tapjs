@@ -1,0 +1,26 @@
+TAP version 13
+# Subtest: -t 0.2
+    not ok 1 - should match pattern provided
+      ---
+      found: >
+
+        # Subtest: nope
+
+            not ok 1 - nope
+              ---
+              still: the string
+              ...
+
+            1..1 # nope
+        not ok 1 - nope #
+        time=123
+          ---
+          this: is fine
+          ...
+
+        1..1
+      pattern: '/SIGTERM/'
+      ...
+    1..1
+not ok 1 - -t 0.2
+1..1

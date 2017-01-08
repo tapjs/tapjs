@@ -37,11 +37,15 @@
   ],
   [
     "line",
-    "  # mid diag\n"
+    "  # mid diag indent\n"
   ],
   [
     "line",
     "  after: comment\n"
+  ],
+  [
+    "line",
+    "# mid diag\n"
   ],
   [
     "line",
@@ -68,7 +72,7 @@
   ],
   [
     "comment",
-    "  # mid diag\n"
+    "# mid diag\n"
   ],
   [
     "bailout",

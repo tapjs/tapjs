@@ -1,0 +1,273 @@
+[
+  [
+    "line",
+    "TAP version 13\n"
+  ],
+  [
+    "version",
+    13
+  ],
+  [
+    "line",
+    "# Subtest: -t 0.2\n"
+  ],
+  [
+    "child",
+    [
+      [
+        "comment",
+        "# Subtest: -t 0.2\n"
+      ],
+      [
+        "line",
+        "not ok 1 - should match pattern provided\n"
+      ],
+      [
+        "line",
+        "  ---\n"
+      ],
+      [
+        "line",
+        "  found: >\n"
+      ],
+      [
+        "line",
+        "  \n"
+      ],
+      [
+        "line",
+        "    # Subtest: nope\n"
+      ],
+      [
+        "line",
+        "  \n"
+      ],
+      [
+        "line",
+        "        not ok 1 - nope\n"
+      ],
+      [
+        "line",
+        "          ---\n"
+      ],
+      [
+        "line",
+        "          still: the string\n"
+      ],
+      [
+        "line",
+        "          ...\n"
+      ],
+      [
+        "line",
+        "  \n"
+      ],
+      [
+        "line",
+        "        1..1 # nope\n"
+      ],
+      [
+        "line",
+        "    not ok 1 - nope #\n"
+      ],
+      [
+        "line",
+        "    time=123\n"
+      ],
+      [
+        "line",
+        "      ---\n"
+      ],
+      [
+        "line",
+        "      this: is fine\n"
+      ],
+      [
+        "line",
+        "      ...\n"
+      ],
+      [
+        "line",
+        "  \n"
+      ],
+      [
+        "line",
+        "    1..1\n"
+      ],
+      [
+        "line",
+        "  pattern: '/SIGTERM/'\n"
+      ],
+      [
+        "line",
+        "  ...\n"
+      ],
+      [
+        "assert",
+        {
+          "ok": false,
+          "id": 1,
+          "name": "should match pattern provided",
+          "diag": {
+            "found": "\n# Subtest: nope\n\n    not ok 1 - nope\n      ---\n      still: the string\n      ...\n\n    1..1 # nope\nnot ok 1 - nope # time=123\n  ---\n  this: is fine\n  ...\n\n1..1\n",
+            "pattern": "/SIGTERM/"
+          }
+        }
+      ],
+      [
+        "line",
+        "Bail out! # should match pattern provided\n"
+      ],
+      [
+        "bailout",
+        "# should match pattern provided"
+      ],
+      [
+        "complete",
+        {
+          "ok": false,
+          "count": 1,
+          "pass": 0,
+          "fail": 1,
+          "bailout": "# should match pattern provided",
+          "todo": 0,
+          "skip": 0,
+          "plan": {
+            "start": null,
+            "end": null,
+            "skipAll": false,
+            "skipReason": "",
+            "comment": ""
+          },
+          "failures": [
+            {
+              "ok": false,
+              "id": 1,
+              "name": "should match pattern provided",
+              "diag": {
+                "found": "\n# Subtest: nope\n\n    not ok 1 - nope\n      ---\n      still: the string\n      ...\n\n    1..1 # nope\nnot ok 1 - nope # time=123\n  ---\n  this: is fine\n  ...\n\n1..1\n",
+                "pattern": "/SIGTERM/"
+              }
+            }
+          ]
+        }
+      ]
+    ]
+  ],
+  [
+    "line",
+    "    not ok 1 - should match pattern provided\n"
+  ],
+  [
+    "line",
+    "      ---\n"
+  ],
+  [
+    "line",
+    "      found: >\n"
+  ],
+  [
+    "line",
+    "  \n"
+  ],
+  [
+    "line",
+    "        # Subtest: nope\n"
+  ],
+  [
+    "line",
+    "  \n"
+  ],
+  [
+    "line",
+    "            not ok 1 - nope\n"
+  ],
+  [
+    "line",
+    "              ---\n"
+  ],
+  [
+    "line",
+    "              still: the string\n"
+  ],
+  [
+    "line",
+    "              ...\n"
+  ],
+  [
+    "line",
+    "  \n"
+  ],
+  [
+    "line",
+    "            1..1 # nope\n"
+  ],
+  [
+    "line",
+    "        not ok 1 - nope #\n"
+  ],
+  [
+    "line",
+    "        time=123\n"
+  ],
+  [
+    "line",
+    "          ---\n"
+  ],
+  [
+    "line",
+    "          this: is fine\n"
+  ],
+  [
+    "line",
+    "          ...\n"
+  ],
+  [
+    "line",
+    "  \n"
+  ],
+  [
+    "line",
+    "        1..1\n"
+  ],
+  [
+    "line",
+    "      pattern: '/SIGTERM/'\n"
+  ],
+  [
+    "line",
+    "      ...\n"
+  ],
+  [
+    "line",
+    "    Bail out! # should match pattern provided\n"
+  ],
+  [
+    "bailout",
+    "# should match pattern provided"
+  ],
+  [
+    "line",
+    "Bail out! # should match pattern provided\n"
+  ],
+  [
+    "complete",
+    {
+      "ok": false,
+      "count": 0,
+      "pass": 0,
+      "fail": 0,
+      "bailout": "# should match pattern provided",
+      "todo": 0,
+      "skip": 0,
+      "plan": {
+        "start": null,
+        "end": null,
+        "skipAll": false,
+        "skipReason": "",
+        "comment": ""
+      },
+      "failures": []
+    }
+  ]
+]

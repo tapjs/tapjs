@@ -285,8 +285,6 @@ Parser.prototype.yamlishLine = function (line) {
   if (line === this.yind + '...\n') {
     // end the yaml block
     this.processYamlish()
-  } else if (lineTypes.comment.test(line)) {
-    this.emitComment(line)
   } else {
     this.yamlish += line
   }
