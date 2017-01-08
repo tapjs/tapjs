@@ -49,6 +49,7 @@
     "mkdirp": "^0.5.1",
     "rimraf": "^2.5.4",
     "standard": "^7.1.0",
+    "tap-parser": "^4.2.3",
     "which": "^1.1.1"
   },
   "files": [
