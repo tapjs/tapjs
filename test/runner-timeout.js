@@ -35,7 +35,10 @@ t.test('-t or --timeout to set timeout', function (t) {
         out += c
       })
       child.on('close', function (code, signal) {
-        var skip = process.platform === 'win32' && 'SIGTERM on windows is weird'
+        var skip =
+          process.platform === 'win32' ? 'SIGTERM on windows is weird'
+        : process.version.match(/^v0\.10\./) ? 'v0.10 reports signals wrong'
+        : false
         t.equal(code, 1)
         t.equal(signal, null)
         t.match(
