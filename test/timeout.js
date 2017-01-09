@@ -52,6 +52,15 @@ tap.test('t.setTimeout()', function (t) {
     '    not ok 2 - timeout!\n' +
     '      ---\n' +
     '      timeout: 1\n' +
+    '      at:\n' +
+    '        line: [\\d]+\n' +
+    '        column: [\\d]+\n' +
+    '        file: test.timeout\\.js\n' +
+    '(        type: global\n)?' +
+    '      source: |\n' +
+    '        tt = new Test\\([^\\)]+\\)\n' +
+    '      \\.\\.\\.\n' +
+    '      timeout: 1\n' +
     '      \\.\\.\\.\n' +
     '\\s*\n' +
     '    1..2\n' +

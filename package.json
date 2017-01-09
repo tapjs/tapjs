@@ -43,7 +43,8 @@
     "regen-fixtures": "node scripts/generate-test-test.js test/test/*.js",
     "test": "node bin/run.js test/*.* --coverage -t3600",
     "smoke": "node test/test.js \"*.js\" | node bin/run.js -",
-    "posttest": "standard lib test"
+    "posttest": "standard lib test",
+    "t": "node bin/run.js test/*.* -sfails.txt"
   },
   "devDependencies": {
     "mkdirp": "^0.5.1",
