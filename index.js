@@ -337,7 +337,7 @@ Parser.prototype.write = function (chunk, encoding, cb) {
       break
 
     this.buffer = this.buffer.substr(match[0].length)
-    this._parse(match[0])
+    this.parse(match[0])
   } while (this.buffer.length)
 
   if (cb)
@@ -522,7 +522,7 @@ Parser.prototype.emitResult = function () {
     var ind = new Array(this.level + 1).join('    ')
     for (var p = this; p.parent; p = p.parent);
     var bailName = res.name ? ' # ' + res.name : ''
-    p._parse(ind + 'Bail out!' + bailName + '\n')
+    p.parse(ind + 'Bail out!' + bailName + '\n')
   }
   this.clearExtraQueue()
 }
@@ -600,7 +600,7 @@ Parser.prototype.startChild = function (line) {
   this.emit('child', this.child)
   this.child.emitComment(subtestComment)
   if (line)
-    this.child._parse(line)
+    this.child.parse(line)
 }
 
 Parser.prototype.emitComment = function (line) {
@@ -610,7 +610,7 @@ Parser.prototype.emitComment = function (line) {
     this.emit('comment', line)
 }
 
-Parser.prototype._parse = function (line) {
+Parser.prototype.parse = function (line) {
   // normalize line endings
   line = line.replace(/\r\n$/, '\n')
 
