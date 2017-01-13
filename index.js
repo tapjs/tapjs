@@ -120,6 +120,7 @@ function Parser (options, onComplete) {
   if (onComplete)
     this.on('complete', onComplete)
 
+  this.braceLevel = null
   this.parent = options.parent || null
   this.failures = []
   this.level = options.level || 0
@@ -625,8 +626,17 @@ Parser.prototype.parse = function (line) {
 
   // If we're bailing out, then the only thing we want to see is the
   // end of a buffered child test.  Anything else should be ignored.
-  if (this.bailingOut && !/^\s*}\n$/.test(line))
-    return
+  // But!  if we're bailing out a nested child, and ANOTHER nested child
+  // comes after that one, then we don't want the second child's } to
+  // also show up, or it looks weird.
+  if (this.bailingOut) {
+    if (!/^\s*}\n$/.test(line))
+      return
+    else if (!this.braceLevel || line.length < this.braceLevel)
+      this.braceLevel = line.length
+    else
+      return
+  }
 
   // This allows omitting even parsing the version if the test is
   // an indented child test.  Several parsers get upset when they
