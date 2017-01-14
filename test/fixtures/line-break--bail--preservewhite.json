@@ -171,6 +171,10 @@
     "# should be equivalent"
   ],
   [
+    "line",
+    "Bail out! # should be equivalent\n"
+  ],
+  [
     "complete",
     {
       "ok": false,

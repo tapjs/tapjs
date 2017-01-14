@@ -113,6 +113,14 @@
     "# no they aren't"
   ],
   [
+    "line",
+    "}\n"
+  ],
+  [
+    "line",
+    "Bail out! # no they aren't\n"
+  ],
+  [
     "complete",
     {
       "ok": false,

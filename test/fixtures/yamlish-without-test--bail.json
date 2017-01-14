@@ -12,10 +12,6 @@
     "  ---\n"
   ],
   [
-    "line",
-    "  ---\n"
-  ],
-  [
     "extra",
     "  ---\n"
   ],
@@ -24,10 +20,6 @@
     "  this: is yaml\n"
   ],
   [
-    "line",
-    "  this: is yaml\n"
-  ],
-  [
     "extra",
     "  this: is yaml\n"
   ],
@@ -36,16 +28,8 @@
     "  but: no test here\n"
   ],
   [
-    "line",
-    "  but: no test here\n"
-  ],
-  [
     "extra",
     "  but: no test here\n"
-  ],
-  [
-    "line",
-    "  ...\n"
   ],
   [
     "line",

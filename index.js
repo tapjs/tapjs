@@ -205,7 +205,7 @@ Parser.prototype.parseTestPoint = function (testPoint, line) {
   this.current = res
 }
 
-Parser.prototype.nonTap = function (data) {
+Parser.prototype.nonTap = function (data, didLine) {
   if (this.bailingOut && /^( {4})*\}\n$/.test(data))
     return
 
@@ -219,13 +219,14 @@ Parser.prototype.nonTap = function (data) {
   }
 
   // emit each line, then the extra as a whole
-  data.split('\n').slice(0, -1).forEach(function (line) {
-    line += '\n'
-    if (this.current || this.extraQueue.length)
-      this.extraQueue.push(['line', line])
-    else
-      this.emit('line', line)
-  }, this)
+  if (!didLine)
+    data.split('\n').slice(0, -1).forEach(function (line) {
+      line += '\n'
+      if (this.current || this.extraQueue.length)
+        this.extraQueue.push(['line', line])
+      else
+        this.emit('line', line)
+    }, this)
 
   if (this.current || this.extraQueue.length)
     this.extraQueue.push(['extra', data])
@@ -293,7 +294,7 @@ Parser.prototype.yamlGarbage = function () {
   this.emitResult()
   if (this.bailedOut)
     return
-  this.nonTap(yamlGarbage)
+  this.nonTap(yamlGarbage, true)
 }
 
 Parser.prototype.yamlishLine = function (line) {
@@ -312,7 +313,7 @@ Parser.prototype.processYamlish = function () {
   try {
     var diags = yaml.safeLoad(yamlish)
   } catch (er) {
-    this.nonTap(yamlish)
+    this.nonTap(this.yind + '---\n' + yamlish + this.yind + '...\n', true)
     return
   }
 
@@ -362,7 +363,7 @@ Parser.prototype.end = function (chunk, encoding, cb) {
 
   // if we have yamlish, means we didn't finish with a ...
   if (this.yamlish)
-    this.nonTap(this.yamlish)
+    this.yamlGarbage()
 
   this.emitResult()
 
@@ -405,9 +406,8 @@ Parser.prototype.end = function (chunk, encoding, cb) {
     this.tapError('last test id does not match plan end')
   }
 
-  this.emitComplete(skipAll)
-
   Writable.prototype.end.call(this, null, null, cb)
+  this.emitComplete(skipAll)
 }
 
 Parser.prototype.emitComplete = function (skipAll) {
@@ -493,9 +493,10 @@ Parser.prototype.bailout = function (reason, synthetic) {
     this.emit('line', line + '\n')
   }
   this.emit('bailout', reason)
-  this.emitComplete(false)
-  if (this.parent)
+  if (this.parent) {
+    this.end()
     this.parent.bailout(reason, true)
+  }
 }
 
 Parser.prototype.clearExtraQueue = function () {
@@ -878,7 +879,6 @@ Parser.prototype.parseIndent = function (line, indent) {
   }
 
   // at this point, it's either a non-subtest comment, or garbage.
-  this.emit('line', line)
 
   if (lineTypes.comment.test(line)) {
     this.emitComment(line)

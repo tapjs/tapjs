@@ -21,10 +21,6 @@
   ],
   [
     "line",
-    "  # before diag\n"
-  ],
-  [
-    "line",
     "  ---\n"
   ],
   [
@@ -38,10 +34,6 @@
   [
     "line",
     "  ...\n"
-  ],
-  [
-    "line",
-    "  # after diag\n"
   ],
   [
     "line",

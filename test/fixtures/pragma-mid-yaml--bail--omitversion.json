@@ -40,14 +40,6 @@
     }
   ],
   [
-    "line",
-    "  ---\n"
-  ],
-  [
-    "line",
-    "  ok: true\n"
-  ],
-  [
     "extra",
     "  ---\n  ok: true\n"
   ],
@@ -65,16 +57,8 @@
     "  name: some yaml\n"
   ],
   [
-    "line",
-    "  name: some yaml\n"
-  ],
-  [
     "extra",
     "  name: some yaml\n"
-  ],
-  [
-    "line",
-    "  ...\n"
   ],
   [
     "line",

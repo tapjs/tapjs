@@ -247,6 +247,10 @@
     "# should match pattern provided"
   ],
   [
+    "line",
+    "Bail out! # should match pattern provided\n"
+  ],
+  [
     "complete",
     {
       "ok": false,

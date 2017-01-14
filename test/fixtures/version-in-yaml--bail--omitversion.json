@@ -129,6 +129,10 @@
     "# some yaml"
   ],
   [
+    "line",
+    "Bail out! # some yaml\n"
+  ],
+  [
     "complete",
     {
       "ok": false,

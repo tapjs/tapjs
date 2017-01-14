@@ -1,0 +1,114 @@
+[
+  [
+    "line",
+    "1..1\n"
+  ],
+  [
+    "plan",
+    {
+      "start": 1,
+      "end": 1
+    }
+  ],
+  [
+    "line",
+    "ok 1 - my kids are fine {\n"
+  ],
+  [
+    "child",
+    [
+      [
+        "comment",
+        "# Subtest: my kids are fine\n"
+      ],
+      [
+        "line",
+        "1..1\n"
+      ],
+      [
+        "plan",
+        {
+          "start": 1,
+          "end": 1
+        }
+      ],
+      [
+        "line",
+        "not ok\n"
+      ],
+      [
+        "assert",
+        {
+          "ok": false,
+          "id": 1
+        }
+      ],
+      [
+        "complete",
+        {
+          "ok": false,
+          "count": 1,
+          "pass": 0,
+          "fail": 1,
+          "bailout": false,
+          "todo": 0,
+          "skip": 0,
+          "plan": {
+            "start": 1,
+            "end": 1,
+            "skipAll": false,
+            "skipReason": "",
+            "comment": ""
+          },
+          "failures": [
+            {
+              "ok": false,
+              "id": 1
+            }
+          ]
+        }
+      ]
+    ]
+  ],
+  [
+    "line",
+    "    1..1\n"
+  ],
+  [
+    "line",
+    "    not ok\n"
+  ],
+  [
+    "line",
+    "}\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 1,
+      "buffered": true,
+      "name": "my kids are fine"
+    }
+  ],
+  [
+    "complete",
+    {
+      "ok": false,
+      "count": 1,
+      "pass": 1,
+      "fail": 0,
+      "bailout": false,
+      "todo": 0,
+      "skip": 0,
+      "plan": {
+        "start": 1,
+        "end": 1,
+        "skipAll": false,
+        "skipReason": "",
+        "comment": ""
+      },
+      "failures": []
+    }
+  ]
+]

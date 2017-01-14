@@ -244,20 +244,8 @@
             }
           ],
           [
-            "line",
-            "  ok: 1\n"
-          ],
-          [
-            "line",
-            "  this: is not tap or yaml\n"
-          ],
-          [
-            "line",
-            "  it: is garbage\n"
-          ],
-          [
             "extra",
-            "  ok: 1\n  this: is not tap or yaml\n  it: is garbage\n"
+            "  ---\n  ok: 1\n  this: is not tap or yaml\n  it: is garbage\n"
           ],
           [
             "complete",
@@ -324,18 +312,6 @@
       [
         "line",
         "      ---\n"
-      ],
-      [
-        "line",
-        "      ok: 1\n"
-      ],
-      [
-        "line",
-        "      this: is not tap or yaml\n"
-      ],
-      [
-        "line",
-        "      it: is garbage\n"
       ],
       [
         "line",
@@ -450,18 +426,6 @@
   [
     "line",
     "          ---\n"
-  ],
-  [
-    "line",
-    "          ok: 1\n"
-  ],
-  [
-    "line",
-    "          this: is not tap or yaml\n"
-  ],
-  [
-    "line",
-    "          it: is garbage\n"
   ],
   [
     "line",
