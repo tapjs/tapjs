@@ -4,14 +4,6 @@
     "ok 1 - retrieving servers from the database\n"
   ],
   [
-    "line",
-    "# need to ping 6 servers\n"
-  ],
-  [
-    "line",
-    "ok 2 - pinged diamond\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
@@ -20,12 +12,16 @@
     }
   ],
   [
+    "line",
+    "# need to ping 6 servers\n"
+  ],
+  [
     "comment",
     "# need to ping 6 servers\n"
   ],
   [
     "line",
-    "ok 3 - pinged ruby\n"
+    "ok 2 - pinged diamond\n"
   ],
   [
     "assert",
@@ -37,7 +33,7 @@
   ],
   [
     "line",
-    "not ok 4 - pinged saphire\n"
+    "ok 3 - pinged ruby\n"
   ],
   [
     "assert",
@@ -46,6 +42,10 @@
       "id": 3,
       "name": "pinged ruby"
     }
+  ],
+  [
+    "line",
+    "not ok 4 - pinged saphire\n"
   ],
   [
     "line",

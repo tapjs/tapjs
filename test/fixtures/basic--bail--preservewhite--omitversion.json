@@ -15,10 +15,6 @@
     "not ok\n"
   ],
   [
-    "line",
-    "ok\n"
-  ],
-  [
     "assert",
     {
       "ok": false,

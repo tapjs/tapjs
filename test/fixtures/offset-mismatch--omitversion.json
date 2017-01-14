@@ -12,10 +12,6 @@
     "ok 8 should be equal\n"
   ],
   [
-    "line",
-    "ok 9 should be equivalent\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
@@ -25,11 +21,7 @@
   ],
   [
     "line",
-    "# boop\n"
-  ],
-  [
-    "line",
-    "ok 10 should be equal\n"
+    "ok 9 should be equivalent\n"
   ],
   [
     "assert",
@@ -40,12 +32,16 @@
     }
   ],
   [
+    "line",
+    "# boop\n"
+  ],
+  [
     "comment",
     "# boop\n"
   ],
   [
     "line",
-    "ok 11 (unnamed assert)\n"
+    "ok 10 should be equal\n"
   ],
   [
     "assert",
@@ -57,7 +53,7 @@
   ],
   [
     "line",
-    "1..4\n"
+    "ok 11 (unnamed assert)\n"
   ],
   [
     "assert",
@@ -66,6 +62,10 @@
       "id": 11,
       "name": "(unnamed assert)"
     }
+  ],
+  [
+    "line",
+    "1..4\n"
   ],
   [
     "plan",

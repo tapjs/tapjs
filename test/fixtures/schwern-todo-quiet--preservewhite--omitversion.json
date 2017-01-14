@@ -15,10 +15,6 @@
     "ok 1\n"
   ],
   [
-    "line",
-    "not ok 2\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
@@ -27,19 +23,7 @@
   ],
   [
     "line",
-    "#   Failed test at ../../andy/schwern.pl line 17.\n"
-  ],
-  [
-    "line",
-    "#          got: '23'\n"
-  ],
-  [
-    "line",
-    "#     expected: '42'\n"
-  ],
-  [
-    "line",
-    "not ok 3 # TODO Roman numerials still not a built in type\n"
+    "not ok 2\n"
   ],
   [
     "assert",
@@ -49,12 +33,24 @@
     }
   ],
   [
-    "comment",
+    "line",
     "#   Failed test at ../../andy/schwern.pl line 17.\n"
   ],
   [
     "comment",
+    "#   Failed test at ../../andy/schwern.pl line 17.\n"
+  ],
+  [
+    "line",
     "#          got: '23'\n"
+  ],
+  [
+    "comment",
+    "#          got: '23'\n"
+  ],
+  [
+    "line",
+    "#     expected: '42'\n"
   ],
   [
     "comment",
@@ -62,19 +58,7 @@
   ],
   [
     "line",
-    "#   Failed (TODO) test at ../../andy/schwern.pl line 20.\n"
-  ],
-  [
-    "line",
-    "#          got: 'XXIII'\n"
-  ],
-  [
-    "line",
-    "#     expected: '23'\n"
-  ],
-  [
-    "line",
-    "# Looks like you failed 1 test of 3.\n"
+    "not ok 3 # TODO Roman numerials still not a built in type\n"
   ],
   [
     "assert",
@@ -86,16 +70,32 @@
     }
   ],
   [
+    "line",
+    "#   Failed (TODO) test at ../../andy/schwern.pl line 20.\n"
+  ],
+  [
     "comment",
     "#   Failed (TODO) test at ../../andy/schwern.pl line 20.\n"
+  ],
+  [
+    "line",
+    "#          got: 'XXIII'\n"
   ],
   [
     "comment",
     "#          got: 'XXIII'\n"
   ],
   [
+    "line",
+    "#     expected: '23'\n"
+  ],
+  [
     "comment",
     "#     expected: '23'\n"
+  ],
+  [
+    "line",
+    "# Looks like you failed 1 test of 3.\n"
   ],
   [
     "comment",

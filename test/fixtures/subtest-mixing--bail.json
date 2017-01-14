@@ -42,16 +42,16 @@
             "ok 1 - ypoint\n"
           ],
           [
-            "line",
-            "1..1\n"
-          ],
-          [
             "assert",
             {
               "ok": true,
               "id": 1,
               "name": "ypoint"
             }
+          ],
+          [
+            "line",
+            "1..1\n"
           ],
           [
             "plan",
@@ -181,10 +181,6 @@
         "# Subtest: x2\n"
       ],
       [
-        "line",
-        "# Subtest: y\n"
-      ],
-      [
         "child",
         [
           [
@@ -196,16 +192,16 @@
             "ok 1 - ypoint\n"
           ],
           [
-            "line",
-            "1..1\n"
-          ],
-          [
             "assert",
             {
               "ok": true,
               "id": 1,
               "name": "ypoint"
             }
+          ],
+          [
+            "line",
+            "1..1\n"
           ],
           [
             "plan",
@@ -238,6 +234,10 @@
       ],
       [
         "line",
+        "# Subtest: y\n"
+      ],
+      [
+        "line",
         "    ok 1 - ypoint\n"
       ],
       [
@@ -249,16 +249,16 @@
         "ok 1 - y\n"
       ],
       [
-        "line",
-        "1..1\n"
-      ],
-      [
         "assert",
         {
           "ok": true,
           "id": 1,
           "name": "y"
         }
+      ],
+      [
+        "line",
+        "1..1\n"
       ],
       [
         "plan",
@@ -349,16 +349,16 @@
             "ok 1 - ypoint\n"
           ],
           [
-            "line",
-            "1..1\n"
-          ],
-          [
             "assert",
             {
               "ok": true,
               "id": 1,
               "name": "ypoint"
             }
+          ],
+          [
+            "line",
+            "1..1\n"
           ],
           [
             "plan",
@@ -391,6 +391,10 @@
       ],
       [
         "line",
+        "# Subtest: y\n"
+      ],
+      [
+        "line",
         "    ok 1 - ypoint\n"
       ],
       [
@@ -402,16 +406,16 @@
         "ok 1 - y\n"
       ],
       [
-        "line",
-        "1..1\n"
-      ],
-      [
         "assert",
         {
           "ok": true,
           "id": 1,
           "name": "y"
         }
+      ],
+      [
+        "line",
+        "1..1\n"
       ],
       [
         "plan",
@@ -448,6 +452,10 @@
   ],
   [
     "line",
+    "    # Subtest: y\n"
+  ],
+  [
+    "line",
     "        ok 1 - ypoint\n"
   ],
   [
@@ -476,10 +484,6 @@
     }
   ],
   [
-    "line",
-    "# Subtest: x4\n"
-  ],
-  [
     "child",
     [
       [
@@ -502,16 +506,16 @@
             "ok 1 - ypoint\n"
           ],
           [
-            "line",
-            "1..1\n"
-          ],
-          [
             "assert",
             {
               "ok": true,
               "id": 1,
               "name": "ypoint"
             }
+          ],
+          [
+            "line",
+            "1..1\n"
           ],
           [
             "plan",
@@ -598,6 +602,10 @@
   ],
   [
     "line",
+    "# Subtest: x4\n"
+  ],
+  [
+    "line",
     "    ok 1 - y {\n"
   ],
   [
@@ -621,10 +629,6 @@
     "ok 4 - x4\n"
   ],
   [
-    "line",
-    "# Subtest: x5\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
@@ -640,10 +644,6 @@
         "# Subtest: x5\n"
       ],
       [
-        "line",
-        "# Subtest: y\n"
-      ],
-      [
         "child",
         [
           [
@@ -655,16 +655,16 @@
             "ok 1 - ypoint\n"
           ],
           [
-            "line",
-            "1..1\n"
-          ],
-          [
             "assert",
             {
               "ok": true,
               "id": 1,
               "name": "ypoint"
             }
+          ],
+          [
+            "line",
+            "1..1\n"
           ],
           [
             "plan",
@@ -697,6 +697,10 @@
       ],
       [
         "line",
+        "# Subtest: y\n"
+      ],
+      [
+        "line",
         "    ok 1 - ypoint\n"
       ],
       [
@@ -708,16 +712,16 @@
         "ok 1 - y\n"
       ],
       [
-        "line",
-        "1..1\n"
-      ],
-      [
         "assert",
         {
           "ok": true,
           "id": 1,
           "name": "y"
         }
+      ],
+      [
+        "line",
+        "1..1\n"
       ],
       [
         "plan",
@@ -750,6 +754,10 @@
   ],
   [
     "line",
+    "# Subtest: x5\n"
+  ],
+  [
+    "line",
     "    # Subtest: y\n"
   ],
   [
@@ -771,10 +779,6 @@
   [
     "line",
     "ok 5 - x5\n"
-  ],
-  [
-    "line",
-    "# Subtest: x6\n"
   ],
   [
     "assert",
@@ -807,16 +811,16 @@
             "ok 1 - ypoint\n"
           ],
           [
-            "line",
-            "1..1\n"
-          ],
-          [
             "assert",
             {
               "ok": true,
               "id": 1,
               "name": "ypoint"
             }
+          ],
+          [
+            "line",
+            "1..1\n"
           ],
           [
             "plan",
@@ -849,6 +853,10 @@
       ],
       [
         "line",
+        "# Subtest: y\n"
+      ],
+      [
+        "line",
         "    ok 1 - ypoint\n"
       ],
       [
@@ -860,16 +868,16 @@
         "ok 1 - y\n"
       ],
       [
-        "line",
-        "1..1\n"
-      ],
-      [
         "assert",
         {
           "ok": true,
           "id": 1,
           "name": "y"
         }
+      ],
+      [
+        "line",
+        "1..1\n"
       ],
       [
         "plan",
@@ -902,7 +910,15 @@
   ],
   [
     "line",
+    "# Subtest: x6\n"
+  ],
+  [
+    "line",
     "        # Subtest: y\n"
+  ],
+  [
+    "line",
+    "    # Subtest: y\n"
   ],
   [
     "line",
@@ -959,16 +975,16 @@
             "ok 1 - ypoint\n"
           ],
           [
-            "line",
-            "1..1\n"
-          ],
-          [
             "assert",
             {
               "ok": true,
               "id": 1,
               "name": "ypoint"
             }
+          ],
+          [
+            "line",
+            "1..1\n"
           ],
           [
             "plan",
@@ -1055,6 +1071,10 @@
   ],
   [
     "line",
+    "# Subtest: x7\n"
+  ],
+  [
+    "line",
     "    ok 1 - y {\n"
   ],
   [
@@ -1097,10 +1117,6 @@
         "# Subtest: x8\n"
       ],
       [
-        "line",
-        "# Subtest: y\n"
-      ],
-      [
         "child",
         [
           [
@@ -1112,16 +1128,16 @@
             "ok 1 - ypoint\n"
           ],
           [
-            "line",
-            "1..1\n"
-          ],
-          [
             "assert",
             {
               "ok": true,
               "id": 1,
               "name": "ypoint"
             }
+          ],
+          [
+            "line",
+            "1..1\n"
           ],
           [
             "plan",
@@ -1154,6 +1170,10 @@
       ],
       [
         "line",
+        "# Subtest: y\n"
+      ],
+      [
+        "line",
         "    ok 1 - ypoint\n"
       ],
       [
@@ -1165,16 +1185,16 @@
         "ok 1 - y\n"
       ],
       [
-        "line",
-        "1..1\n"
-      ],
-      [
         "assert",
         {
           "ok": true,
           "id": 1,
           "name": "y"
         }
+      ],
+      [
+        "line",
+        "1..1\n"
       ],
       [
         "plan",
@@ -1204,6 +1224,10 @@
         }
       ]
     ]
+  ],
+  [
+    "line",
+    "# Subtest: x8\n"
   ],
   [
     "line",
@@ -1264,16 +1288,16 @@
             "ok 1 - ypoint\n"
           ],
           [
-            "line",
-            "1..1\n"
-          ],
-          [
             "assert",
             {
               "ok": true,
               "id": 1,
               "name": "ypoint"
             }
+          ],
+          [
+            "line",
+            "1..1\n"
           ],
           [
             "plan",
@@ -1306,6 +1330,10 @@
       ],
       [
         "line",
+        "# Subtest: y\n"
+      ],
+      [
+        "line",
         "    ok 1 - ypoint\n"
       ],
       [
@@ -1317,16 +1345,16 @@
         "ok 1 - y\n"
       ],
       [
-        "line",
-        "1..1\n"
-      ],
-      [
         "assert",
         {
           "ok": true,
           "id": 1,
           "name": "y"
         }
+      ],
+      [
+        "line",
+        "1..1\n"
       ],
       [
         "plan",
@@ -1359,7 +1387,15 @@
   ],
   [
     "line",
+    "# Subtest: x9\n"
+  ],
+  [
+    "line",
     "        # Subtest: y\n"
+  ],
+  [
+    "line",
+    "    # Subtest: y\n"
   ],
   [
     "line",
@@ -1382,16 +1418,16 @@
     "ok 9 - x9\n"
   ],
   [
-    "line",
-    "1..9\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
       "id": 9,
       "name": "x9"
     }
+  ],
+  [
+    "line",
+    "1..9\n"
   ],
   [
     "plan",

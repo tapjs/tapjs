@@ -27,15 +27,15 @@
         "ok\n"
       ],
       [
-        "line",
-        "1..1\n"
-      ],
-      [
         "assert",
         {
           "ok": true,
           "id": 1
         }
+      ],
+      [
+        "line",
+        "1..1\n"
       ],
       [
         "plan",
@@ -68,6 +68,10 @@
   ],
   [
     "line",
+    "# Subtest: child\n"
+  ],
+  [
+    "line",
     "    ok\n"
   ],
   [
@@ -79,16 +83,16 @@
     "ok 2 - child\n"
   ],
   [
-    "line",
-    "1..2\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
       "id": 2,
       "name": "child"
     }
+  ],
+  [
+    "line",
+    "1..2\n"
   ],
   [
     "plan",

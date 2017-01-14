@@ -15,16 +15,16 @@
     "ok 1    Should parse as literal backslash --> \\\n"
   ],
   [
-    "line",
-    "ok 2    Not a continuation line\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
       "id": 1,
       "name": "Should parse as literal backslash --> \\"
     }
+  ],
+  [
+    "line",
+    "ok 2    Not a continuation line\n"
   ],
   [
     "assert",

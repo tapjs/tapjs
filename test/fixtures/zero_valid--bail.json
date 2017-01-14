@@ -15,10 +15,6 @@
     "ok 1 - One\n"
   ],
   [
-    "line",
-    "ok 2 - Two\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
@@ -28,7 +24,7 @@
   ],
   [
     "line",
-    "ok - Three\n"
+    "ok 2 - Two\n"
   ],
   [
     "assert",
@@ -40,7 +36,7 @@
   ],
   [
     "line",
-    "ok 0 - Four\n"
+    "ok - Three\n"
   ],
   [
     "assert",
@@ -52,7 +48,7 @@
   ],
   [
     "line",
-    "ok 5 - Five\n"
+    "ok 0 - Four\n"
   ],
   [
     "assert",
@@ -66,6 +62,10 @@
         "end": 5
       }
     }
+  ],
+  [
+    "line",
+    "ok 5 - Five\n"
   ],
   [
     "assert",

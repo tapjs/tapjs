@@ -15,10 +15,6 @@
     "ok 1\n"
   ],
   [
-    "line",
-    "ok 2\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
@@ -27,7 +23,7 @@
   ],
   [
     "line",
-    "ok 3\n"
+    "ok 2\n"
   ],
   [
     "assert",
@@ -38,7 +34,7 @@
   ],
   [
     "line",
-    "Bail out!  GERONIMMMOOOOOO!!!\n"
+    "ok 3\n"
   ],
   [
     "assert",
@@ -46,6 +42,10 @@
       "ok": true,
       "id": 3
     }
+  ],
+  [
+    "line",
+    "Bail out! GERONIMMMOOOOOO!!!\n"
   ],
   [
     "bailout",

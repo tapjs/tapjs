@@ -15,15 +15,15 @@
     "ok\n"
   ],
   [
-    "line",
-    "ok\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
       "id": 1
     }
+  ],
+  [
+    "line",
+    "ok\n"
   ],
   [
     "assert",

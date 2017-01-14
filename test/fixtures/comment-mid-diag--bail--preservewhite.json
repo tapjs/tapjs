@@ -64,11 +64,11 @@
   ],
   [
     "line",
-    "# mid diag\n"
+    "  ...\n"
   ],
   [
     "line",
-    "  ...\n"
+    "  # after diag\n"
   ],
   [
     "assert",
@@ -83,15 +83,39 @@
   ],
   [
     "line",
-    "Bail out! # please keep my diags\n"
+    "  # before diag\n"
   ],
   [
     "comment",
     "  # before diag\n"
   ],
   [
+    "line",
+    "# mid diag\n"
+  ],
+  [
     "comment",
     "# mid diag\n"
+  ],
+  [
+    "line",
+    "  # after diag\n"
+  ],
+  [
+    "comment",
+    "  # after diag\n"
+  ],
+  [
+    "line",
+    "# before 2\n"
+  ],
+  [
+    "comment",
+    "# before 2\n"
+  ],
+  [
+    "line",
+    "Bail out! # please keep my diags\n"
   ],
   [
     "bailout",

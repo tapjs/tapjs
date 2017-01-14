@@ -15,10 +15,6 @@
     "ok\n"
   ],
   [
-    "line",
-    "ok\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
@@ -57,6 +53,10 @@
       "ok": true,
       "id": 4
     }
+  ],
+  [
+    "line",
+    "ok\n"
   ],
   [
     "assert",

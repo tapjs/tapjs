@@ -125,11 +125,7 @@ is true if and only if the planned test were all found, and either
 
 ## p.on('line', function (line) {})
 
-As each line of input is parsed, a `line` event is emitted.  Note
-that this occurs *before* any other actions based on that line, so
-in some instances, the `line` events will appear to come in advance of
-something relating to a previous line.  See `Ordering of Events`
-below.
+As each line of input is parsed, a `line` event is emitted.
 
 "Synthetic" line events will be emitted to support the `bail`
 behavior, and to inject `1..0` plan lines in subtests that have no
@@ -328,78 +324,4 @@ or something, but such cases are rare.
 Similarly, this means that a test point ending in `{` needs to wait to
 emit *either* the 'assert' or 'child' events until an indented line is
 encountered.  *Any* test point with yaml diagnostics needs to wait to
-see if it will be followed by a `{` indicating a subtest.  This has an
-effect on the specific ordering of `assert` and `child` events with
-respect to the `line` events.
-
-# Ordering of Events
-
-While TAP is *mostly* parseable in a deterministically line-by-line
-fashion, subtests and yaml diagnostics require that the parser analyze
-the next line before making a decision in some cases about what event
-to emit.
-
-For example:
-
-```tap
-ok 1 - this is fine
-  ---
-  some: diags
-  ...
-1..1
-```
-
-The parser will emit the following events in this order:
-
-```
-line "ok 1 - this is fine\n"
-line "  ---\n"
-line "  some: diags\n"
-line "  ...\n"
-line "1..1\n"
-assert {"ok":true,"id":1,"name":"this is fine","diag":{"some":"diags"}}
-plan {"start":1,"end":1}
-complete {"ok":true,"count":1,"pass":1,"plan":{"start":1,"end":1}}
-```
-
-The `1..1` line comes *ahead* of the `assert` event, because it's not
-until that line is encountered that the parser knows that the assert
-is completed, and not the introduction of a subtest.
-
-Another interesting case is comments that may occur within a yaml
-diagnostic block.  In this case, the comments are held until _after_
-the `assert` event, even though the technically occur while the test
-point is being parsed.
-
-```tap
-ok 1 - this is fine
-# before the yaml
-  ---
-  # just a comment
-  some: diags
-# nothing to worry about
-  ...
-# more commentary
-1..1
-```
-
-In this case, the events will be emitted in this order:
-
-```
-line "ok 1 - this is fine\n"
-line "# before the yaml\n"
-line "  ---\n"
-line "  # just a comment\n"
-line "  some: diags\n"
-line "# nothing to worry about\n"
-line "  ...\n"
-line "# more commentary\n"
-line "1..1\n"
-assert {"ok":true,"id":1,"name":"this is fine","diag":{"some":"diags"}}
-comment "# before the yaml\n"
-comment "  # just a comment\n"
-comment "# nothing to worry about\n"
-comment "# more commentary\n"
-plan {"start":1,"end":1}
-complete {"ok":true,"count":1,"pass":1,"plan":{"start":1,"end":1}}
-```
+see if it will be followed by a `{` indicating a subtest.

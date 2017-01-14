@@ -15,10 +15,6 @@
     "ok 1\n"
   ],
   [
-    "line",
-    "ok 2 basset hounds got long ears\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
@@ -27,7 +23,7 @@
   ],
   [
     "line",
-    "not ok 3        all hell broke loose\n"
+    "ok 2 basset hounds got long ears\n"
   ],
   [
     "assert",
@@ -39,7 +35,7 @@
   ],
   [
     "line",
-    "not ok 4  # TODO if I heard a voice from heaven ...\n"
+    "not ok 3        all hell broke loose\n"
   ],
   [
     "assert",
@@ -51,7 +47,7 @@
   ],
   [
     "line",
-    "ok say \"live without loving\",\n"
+    "not ok 4  # TODO if I heard a voice from heaven ...\n"
   ],
   [
     "assert",
@@ -64,7 +60,7 @@
   ],
   [
     "line",
-    "ok 6 I'd beg off.\n"
+    "ok say \"live without loving\",\n"
   ],
   [
     "assert",
@@ -76,7 +72,7 @@
   ],
   [
     "line",
-    "ok 7            # Skip contract negotiations\n"
+    "ok 6 I'd beg off.\n"
   ],
   [
     "assert",
@@ -88,7 +84,7 @@
   ],
   [
     "line",
-    "ok 8 Girls are such exquisite hell\n"
+    "ok 7            # Skip contract negotiations\n"
   ],
   [
     "assert",
@@ -101,7 +97,7 @@
   ],
   [
     "line",
-    "ok 9 Elegy 9B           # TOdO\n"
+    "ok 8 Girls are such exquisite hell\n"
   ],
   [
     "assert",
@@ -113,7 +109,7 @@
   ],
   [
     "line",
-    "not ok 10\n"
+    "ok 9 Elegy 9B           # TOdO\n"
   ],
   [
     "assert",
@@ -123,6 +119,10 @@
       "todo": true,
       "name": "Elegy 9B"
     }
+  ],
+  [
+    "line",
+    "not ok 10\n"
   ],
   [
     "assert",

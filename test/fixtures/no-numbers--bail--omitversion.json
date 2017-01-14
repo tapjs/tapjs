@@ -15,10 +15,6 @@
     "ok we are good\n"
   ],
   [
-    "line",
-    "not ok 2 we are bad\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
@@ -28,7 +24,7 @@
   ],
   [
     "line",
-    "ok we are zesty!\n"
+    "not ok 2 we are bad\n"
   ],
   [
     "assert",

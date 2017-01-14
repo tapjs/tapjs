@@ -1,18 +1,10 @@
 [
   [
-    "line",
-    "# Subtest: heading.js\n"
-  ],
-  [
     "child",
     [
       [
         "comment",
         "# Subtest: heading.js\n"
-      ],
-      [
-        "line",
-        "# Subtest: x\n"
       ],
       [
         "child",
@@ -26,16 +18,12 @@
             "# Subtest: y\n"
           ],
           [
-            "line",
-            "ok 1 - ypoint\n"
-          ],
-          [
             "comment",
             "# Subtest: y\n"
           ],
           [
             "line",
-            "1..1\n"
+            "ok 1 - ypoint\n"
           ],
           [
             "assert",
@@ -44,6 +32,10 @@
               "id": 1,
               "name": "ypoint"
             }
+          ],
+          [
+            "line",
+            "1..1\n"
           ],
           [
             "plan",
@@ -76,6 +68,10 @@
       ],
       [
         "line",
+        "# Subtest: x\n"
+      ],
+      [
+        "line",
         "    # Subtest: y\n"
       ],
       [
@@ -91,16 +87,16 @@
         "ok 1 - y\n"
       ],
       [
-        "line",
-        "1..1\n"
-      ],
-      [
         "assert",
         {
           "ok": true,
           "id": 1,
           "name": "y"
         }
+      ],
+      [
+        "line",
+        "1..1\n"
       ],
       [
         "plan",
@@ -133,6 +129,10 @@
   ],
   [
     "line",
+    "# Subtest: heading.js\n"
+  ],
+  [
+    "line",
     "    # Subtest: x\n"
   ],
   [
@@ -160,16 +160,16 @@
     "ok 1 - x\n"
   ],
   [
-    "line",
-    "1..1\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
       "id": 1,
       "name": "x"
     }
+  ],
+  [
+    "line",
+    "1..1\n"
   ],
   [
     "plan",

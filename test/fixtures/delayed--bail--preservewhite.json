@@ -15,10 +15,6 @@
     "ok 1 00000\n"
   ],
   [
-    "line",
-    "ok 2\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
@@ -28,7 +24,7 @@
   ],
   [
     "line",
-    "not ok 3\n"
+    "ok 2\n"
   ],
   [
     "assert",
@@ -39,7 +35,7 @@
   ],
   [
     "line",
-    "ok 4\n"
+    "not ok 3\n"
   ],
   [
     "assert",

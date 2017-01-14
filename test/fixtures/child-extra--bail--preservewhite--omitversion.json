@@ -23,16 +23,16 @@
         "ok 1 Should output debugger message\n"
       ],
       [
-        "line",
-        "1..1\n"
-      ],
-      [
         "assert",
         {
           "ok": true,
           "id": 1,
           "name": "Should output debugger message"
         }
+      ],
+      [
+        "line",
+        "1..1\n"
       ],
       [
         "plan",
@@ -89,6 +89,10 @@
   ],
   [
     "line",
+    "# Subtest: test/debug-test.js\n"
+  ],
+  [
+    "line",
     "debug test\n"
   ],
   [
@@ -140,10 +144,6 @@
     "ok 1 - test/debug-test.js # time=537.383ms\n"
   ],
   [
-    "line",
-    "1..1\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
@@ -151,6 +151,10 @@
       "time": 537.383,
       "name": "test/debug-test.js"
     }
+  ],
+  [
+    "line",
+    "1..1\n"
   ],
   [
     "plan",

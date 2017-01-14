@@ -34,10 +34,6 @@
             "ok 1 - should be equivalent\n"
           ],
           [
-            "line",
-            "ok 2 - should be equivalent\n"
-          ],
-          [
             "assert",
             {
               "ok": true,
@@ -47,7 +43,7 @@
           ],
           [
             "line",
-            "1..2\n"
+            "ok 2 - should be equivalent\n"
           ],
           [
             "assert",
@@ -56,6 +52,10 @@
               "id": 2,
               "name": "should be equivalent"
             }
+          ],
+          [
+            "line",
+            "1..2\n"
           ],
           [
             "plan",
@@ -85,6 +85,10 @@
             }
           ]
         ]
+      ],
+      [
+        "line",
+        "# Subtest: update profile\n"
       ],
       [
         "line",
@@ -127,16 +131,16 @@
             "ok 1 - should be equivalent\n"
           ],
           [
-            "line",
-            "1..1\n"
-          ],
-          [
             "assert",
             {
               "ok": true,
               "id": 1,
               "name": "should be equivalent"
             }
+          ],
+          [
+            "line",
+            "1..1\n"
           ],
           [
             "plan",
@@ -169,11 +173,19 @@
       ],
       [
         "line",
+        "# Subtest: update email\n"
+      ],
+      [
+        "line",
         "null { _id: 'org.couchdb.user:user',\n"
       ],
       [
         "extra",
         "null { _id: 'org.couchdb.user:user',\n"
+      ],
+      [
+        "line",
+        "  _rev: '21-3d786fbf7428194ca288abe40c50cd0c',\n"
       ],
       [
         "line",
@@ -188,6 +200,10 @@
         "  password_scheme: 'pbkdf2',\n"
       ],
       [
+        "line",
+        "  password_scheme: 'pbkdf2',\n"
+      ],
+      [
         "extra",
         "  password_scheme: 'pbkdf2',\n"
       ],
@@ -196,6 +212,10 @@
         "  iterations: 10,\n"
       ],
       [
+        "line",
+        "  iterations: 10,\n"
+      ],
+      [
         "extra",
         "  iterations: 10,\n"
       ],
@@ -204,6 +224,10 @@
         "  name: 'user',\n"
       ],
       [
+        "line",
+        "  name: 'user',\n"
+      ],
+      [
         "extra",
         "  name: 'user',\n"
       ],
@@ -212,6 +236,10 @@
         "  email: 'new@email.com',\n"
       ],
       [
+        "line",
+        "  email: 'new@email.com',\n"
+      ],
+      [
         "extra",
         "  email: 'new@email.com',\n"
       ],
@@ -220,6 +248,10 @@
         "  type: 'user',\n"
       ],
       [
+        "line",
+        "  type: 'user',\n"
+      ],
+      [
         "extra",
         "  type: 'user',\n"
       ],
@@ -228,6 +260,10 @@
         "  roles: [],\n"
       ],
       [
+        "line",
+        "  roles: [],\n"
+      ],
+      [
         "extra",
         "  roles: [],\n"
       ],
@@ -236,6 +272,10 @@
         "  date: '2015-05-07T18:04:07.589Z',\n"
       ],
       [
+        "line",
+        "  date: '2015-05-07T18:04:07.589Z',\n"
+      ],
+      [
         "extra",
         "  date: '2015-05-07T18:04:07.589Z',\n"
       ],
@@ -244,6 +284,10 @@
         "  derived_key: 'efcfbc73438a9d122290e5d0c82d1ca7d0a9ba1f',\n"
       ],
       [
+        "line",
+        "  derived_key: 'efcfbc73438a9d122290e5d0c82d1ca7d0a9ba1f',\n"
+      ],
+      [
         "extra",
         "  derived_key: 'efcfbc73438a9d122290e5d0c82d1ca7d0a9ba1f',\n"
       ],
@@ -252,6 +296,10 @@
         "  salt: '74e7dea17bfe520bb84dd9642f072549',\n"
       ],
       [
+        "line",
+        "  salt: '74e7dea17bfe520bb84dd9642f072549',\n"
+      ],
+      [
         "extra",
         "  salt: '74e7dea17bfe520bb84dd9642f072549',\n"
       ],
@@ -260,8 +308,16 @@
         "  github: 'user',\n"
       ],
       [
+        "line",
+        "  github: 'user',\n"
+      ],
+      [
         "extra",
         "  github: 'user',\n"
+      ],
+      [
+        "line",
+        "  homepage: 'http://www.user.com' }\n"
       ],
       [
         "line",
@@ -284,6 +340,10 @@
         "  _rev: '22-97703c62ab1f01ea691d40aa8a756cbf',\n"
       ],
       [
+        "line",
+        "  _rev: '22-97703c62ab1f01ea691d40aa8a756cbf',\n"
+      ],
+      [
         "extra",
         "  _rev: '22-97703c62ab1f01ea691d40aa8a756cbf',\n"
       ],
@@ -292,6 +352,10 @@
         "  password_scheme: 'pbkdf2',\n"
       ],
       [
+        "line",
+        "  password_scheme: 'pbkdf2',\n"
+      ],
+      [
         "extra",
         "  password_scheme: 'pbkdf2',\n"
       ],
@@ -300,6 +364,10 @@
         "  iterations: 10,\n"
       ],
       [
+        "line",
+        "  iterations: 10,\n"
+      ],
+      [
         "extra",
         "  iterations: 10,\n"
       ],
@@ -308,6 +376,10 @@
         "  name: 'user',\n"
       ],
       [
+        "line",
+        "  name: 'user',\n"
+      ],
+      [
         "extra",
         "  name: 'user',\n"
       ],
@@ -316,6 +388,10 @@
         "  email: 'new@email.com',\n"
       ],
       [
+        "line",
+        "  email: 'new@email.com',\n"
+      ],
+      [
         "extra",
         "  email: 'new@email.com',\n"
       ],
@@ -324,6 +400,10 @@
         "  type: 'user',\n"
       ],
       [
+        "line",
+        "  type: 'user',\n"
+      ],
+      [
         "extra",
         "  type: 'user',\n"
       ],
@@ -332,6 +412,10 @@
         "  roles: [],\n"
       ],
       [
+        "line",
+        "  roles: [],\n"
+      ],
+      [
         "extra",
         "  roles: [],\n"
       ],
@@ -340,6 +424,10 @@
         "  date: '2015-05-07T18:04:07.589Z',\n"
       ],
       [
+        "line",
+        "  date: '2015-05-07T18:04:07.589Z',\n"
+      ],
+      [
         "extra",
         "  date: '2015-05-07T18:04:07.589Z',\n"
       ],
@@ -348,6 +436,10 @@
         "  derived_key: 'efcfbc73438a9d122290e5d0c82d1ca7d0a9ba1f',\n"
       ],
       [
+        "line",
+        "  derived_key: 'efcfbc73438a9d122290e5d0c82d1ca7d0a9ba1f',\n"
+      ],
+      [
         "extra",
         "  derived_key: 'efcfbc73438a9d122290e5d0c82d1ca7d0a9ba1f',\n"
       ],
@@ -356,6 +448,10 @@
         "  salt: '74e7dea17bfe520bb84dd9642f072549',\n"
       ],
       [
+        "line",
+        "  salt: '74e7dea17bfe520bb84dd9642f072549',\n"
+      ],
+      [
         "extra",
         "  salt: '74e7dea17bfe520bb84dd9642f072549',\n"
       ],
@@ -364,8 +460,16 @@
         "  github: 'user',\n"
       ],
       [
+        "line",
+        "  github: 'user',\n"
+      ],
+      [
         "extra",
         "  github: 'user',\n"
+      ],
+      [
+        "line",
+        "  homepage: 'http://www.user.com' }\n"
       ],
       [
         "line",
@@ -388,10 +492,6 @@
         "ok 2 - update email # time=24.16ms\n"
       ],
       [
-        "line",
-        "1..2\n"
-      ],
-      [
         "assert",
         {
           "ok": true,
@@ -399,6 +499,10 @@
           "time": 24.16,
           "name": "update email"
         }
+      ],
+      [
+        "line",
+        "1..2\n"
       ],
       [
         "plan",
@@ -439,7 +543,15 @@
   ],
   [
     "line",
+    "# Subtest: test/01c-user-updates.js\n"
+  ],
+  [
+    "line",
     "        # Subtest: update profile\n"
+  ],
+  [
+    "line",
+    "    # Subtest: update profile\n"
   ],
   [
     "line",
@@ -463,7 +575,15 @@
   ],
   [
     "line",
+    "    # Subtest: update email\n"
+  ],
+  [
+    "line",
     "    null { _id: 'org.couchdb.user:user',\n"
+  ],
+  [
+    "line",
+    "      _rev: '21-3d786fbf7428194ca288abe40c50cd0c',\n"
   ],
   [
     "line",
@@ -475,7 +595,19 @@
   ],
   [
     "line",
+    "      password_scheme: 'pbkdf2',\n"
+  ],
+  [
+    "line",
     "      iterations: 10,\n"
+  ],
+  [
+    "line",
+    "      iterations: 10,\n"
+  ],
+  [
+    "line",
+    "      name: 'user',\n"
   ],
   [
     "line",
@@ -487,7 +619,19 @@
   ],
   [
     "line",
+    "      email: 'new@email.com',\n"
+  ],
+  [
+    "line",
     "      type: 'user',\n"
+  ],
+  [
+    "line",
+    "      type: 'user',\n"
+  ],
+  [
+    "line",
+    "      roles: [],\n"
   ],
   [
     "line",
@@ -499,6 +643,14 @@
   ],
   [
     "line",
+    "      date: '2015-05-07T18:04:07.589Z',\n"
+  ],
+  [
+    "line",
+    "      derived_key: 'efcfbc73438a9d122290e5d0c82d1ca7d0a9ba1f',\n"
+  ],
+  [
+    "line",
     "      derived_key: 'efcfbc73438a9d122290e5d0c82d1ca7d0a9ba1f',\n"
   ],
   [
@@ -507,7 +659,19 @@
   ],
   [
     "line",
+    "      salt: '74e7dea17bfe520bb84dd9642f072549',\n"
+  ],
+  [
+    "line",
     "      github: 'user',\n"
+  ],
+  [
+    "line",
+    "      github: 'user',\n"
+  ],
+  [
+    "line",
+    "      homepage: 'http://www.user.com' }\n"
   ],
   [
     "line",
@@ -523,7 +687,19 @@
   ],
   [
     "line",
+    "      _rev: '22-97703c62ab1f01ea691d40aa8a756cbf',\n"
+  ],
+  [
+    "line",
     "      password_scheme: 'pbkdf2',\n"
+  ],
+  [
+    "line",
+    "      password_scheme: 'pbkdf2',\n"
+  ],
+  [
+    "line",
+    "      iterations: 10,\n"
   ],
   [
     "line",
@@ -535,7 +711,19 @@
   ],
   [
     "line",
+    "      name: 'user',\n"
+  ],
+  [
+    "line",
     "      email: 'new@email.com',\n"
+  ],
+  [
+    "line",
+    "      email: 'new@email.com',\n"
+  ],
+  [
+    "line",
+    "      type: 'user',\n"
   ],
   [
     "line",
@@ -547,7 +735,19 @@
   ],
   [
     "line",
+    "      roles: [],\n"
+  ],
+  [
+    "line",
     "      date: '2015-05-07T18:04:07.589Z',\n"
+  ],
+  [
+    "line",
+    "      date: '2015-05-07T18:04:07.589Z',\n"
+  ],
+  [
+    "line",
+    "      derived_key: 'efcfbc73438a9d122290e5d0c82d1ca7d0a9ba1f',\n"
   ],
   [
     "line",
@@ -559,7 +759,19 @@
   ],
   [
     "line",
+    "      salt: '74e7dea17bfe520bb84dd9642f072549',\n"
+  ],
+  [
+    "line",
     "      github: 'user',\n"
+  ],
+  [
+    "line",
+    "      github: 'user',\n"
+  ],
+  [
+    "line",
+    "      homepage: 'http://www.user.com' }\n"
   ],
   [
     "line",
@@ -590,10 +802,6 @@
     "ok 1 - test/01c-user-updates.js # time=339.14ms\n"
   ],
   [
-    "line",
-    "1..1\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
@@ -601,6 +809,10 @@
       "time": 339.14,
       "name": "test/01c-user-updates.js"
     }
+  ],
+  [
+    "line",
+    "1..1\n"
   ],
   [
     "plan",

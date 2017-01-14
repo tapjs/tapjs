@@ -1,9 +1,5 @@
 [
   [
-    "line",
-    "# Subtest: -t 0.2\n"
-  ],
-  [
     "child",
     [
       [
@@ -95,10 +91,6 @@
         "  ...\n"
       ],
       [
-        "line",
-        "1..1\n"
-      ],
-      [
         "assert",
         {
           "ok": false,
@@ -109,6 +101,10 @@
             "pattern": "/SIGTERM/"
           }
         }
+      ],
+      [
+        "line",
+        "1..1\n"
       ],
       [
         "plan",
@@ -148,6 +144,10 @@
         }
       ]
     ]
+  ],
+  [
+    "line",
+    "# Subtest: -t 0.2\n"
   ],
   [
     "line",
@@ -242,16 +242,16 @@
     "not ok 1 - -t 0.2\n"
   ],
   [
-    "line",
-    "1..1\n"
-  ],
-  [
     "assert",
     {
       "ok": false,
       "id": 1,
       "name": "-t 0.2"
     }
+  ],
+  [
+    "line",
+    "1..1\n"
   ],
   [
     "plan",

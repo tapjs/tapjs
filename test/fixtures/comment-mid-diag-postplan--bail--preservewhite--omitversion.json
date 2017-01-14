@@ -37,11 +37,15 @@
   ],
   [
     "line",
-    "# mid diag\n"
+    "  ...\n"
   ],
   [
     "line",
-    "  ...\n"
+    "  # after diag\n"
+  ],
+  [
+    "line",
+    "    # Subtest: child\n"
   ],
   [
     "assert",
@@ -56,15 +60,31 @@
   ],
   [
     "line",
-    "Bail out! # please keep my diags\n"
+    "  # before diag\n"
   ],
   [
     "comment",
     "  # before diag\n"
   ],
   [
+    "line",
+    "# mid diag\n"
+  ],
+  [
     "comment",
     "# mid diag\n"
+  ],
+  [
+    "line",
+    "  # after diag\n"
+  ],
+  [
+    "comment",
+    "  # after diag\n"
+  ],
+  [
+    "line",
+    "Bail out! # please keep my diags\n"
   ],
   [
     "bailout",

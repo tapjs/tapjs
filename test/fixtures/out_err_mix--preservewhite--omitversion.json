@@ -20,6 +20,10 @@
     "1..0 # no tests found\n"
   ],
   [
+    "line",
+    "1..0 # no tests found\n"
+  ],
+  [
     "plan",
     {
       "start": 1,

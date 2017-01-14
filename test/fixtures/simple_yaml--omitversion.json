@@ -15,15 +15,15 @@
     "ok 1\n"
   ],
   [
-    "line",
-    "ok 2\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
       "id": 1
     }
+  ],
+  [
+    "line",
+    "ok 2\n"
   ],
   [
     "line",
@@ -58,10 +58,6 @@
     "  ...\n"
   ],
   [
-    "line",
-    "ok 3\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
@@ -80,7 +76,7 @@
   ],
   [
     "line",
-    "ok 4\n"
+    "ok 3\n"
   ],
   [
     "assert",
@@ -88,6 +84,10 @@
       "ok": true,
       "id": 3
     }
+  ],
+  [
+    "line",
+    "ok 4\n"
   ],
   [
     "line",
@@ -130,10 +130,6 @@
     "  ...\n"
   ],
   [
-    "line",
-    "ok 5\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
@@ -151,6 +147,10 @@
         ]
       }
     }
+  ],
+  [
+    "line",
+    "ok 5\n"
   ],
   [
     "assert",

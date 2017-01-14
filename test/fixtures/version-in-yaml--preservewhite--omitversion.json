@@ -39,10 +39,6 @@
         "  ...\n"
       ],
       [
-        "line",
-        "1..1\n"
-      ],
-      [
         "assert",
         {
           "ok": false,
@@ -52,6 +48,10 @@
             "version": "\nTAP version 13"
           }
         }
+      ],
+      [
+        "line",
+        "1..1\n"
       ],
       [
         "plan",
@@ -93,6 +93,10 @@
   ],
   [
     "line",
+    "# Subtest: child indented\n"
+  ],
+  [
+    "line",
     "    not ok - some yaml\n"
   ],
   [
@@ -126,10 +130,6 @@
   [
     "line",
     "not ok 1 - child indented\n"
-  ],
-  [
-    "line",
-    "# Subtest: child unindented\n"
   ],
   [
     "assert",
@@ -175,10 +175,6 @@
         "  ...\n"
       ],
       [
-        "line",
-        "1..1\n"
-      ],
-      [
         "assert",
         {
           "ok": false,
@@ -188,6 +184,10 @@
             "version": "\nTAP version 13"
           }
         }
+      ],
+      [
+        "line",
+        "1..1\n"
       ],
       [
         "plan",
@@ -226,6 +226,10 @@
         }
       ]
     ]
+  ],
+  [
+    "line",
+    "# Subtest: child unindented\n"
   ],
   [
     "line",
@@ -307,10 +311,6 @@
         "  ...\n"
       ],
       [
-        "line",
-        "1..1\n"
-      ],
-      [
         "assert",
         {
           "ok": false,
@@ -320,6 +320,10 @@
             "version": "\nTAP version 13"
           }
         }
+      ],
+      [
+        "line",
+        "1..1\n"
       ],
       [
         "plan",
@@ -361,6 +365,10 @@
   ],
   [
     "line",
+    "# Subtest: (anonymous)\n"
+  ],
+  [
+    "line",
     "    not ok - some yaml\n"
   ],
   [
@@ -396,16 +404,16 @@
     "not ok 3 - child unnamed\n"
   ],
   [
-    "line",
-    "not ok 4 - child buffered {\n"
-  ],
-  [
     "assert",
     {
       "ok": false,
       "id": 3,
       "name": "child unnamed"
     }
+  ],
+  [
+    "line",
+    "not ok 4 - child buffered {\n"
   ],
   [
     "child",
@@ -443,10 +451,6 @@
         "  ...\n"
       ],
       [
-        "line",
-        "1..1\n"
-      ],
-      [
         "assert",
         {
           "ok": false,
@@ -456,6 +460,10 @@
             "version": "\nTAP version 13"
           }
         }
+      ],
+      [
+        "line",
+        "1..1\n"
       ],
       [
         "plan",

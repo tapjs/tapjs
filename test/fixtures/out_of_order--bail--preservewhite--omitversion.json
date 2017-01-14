@@ -4,10 +4,6 @@
     "ok 2 - Test that argument passing works\n"
   ],
   [
-    "line",
-    "ok 3 - Test that passing arguments as references work\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
@@ -17,7 +13,7 @@
   ],
   [
     "line",
-    "ok 4 - Test a normal sub\n"
+    "ok 3 - Test that passing arguments as references work\n"
   ],
   [
     "assert",
@@ -29,7 +25,7 @@
   ],
   [
     "line",
-    "ok 6 - Detach test\n"
+    "ok 4 - Test a normal sub\n"
   ],
   [
     "assert",
@@ -41,7 +37,7 @@
   ],
   [
     "line",
-    "ok 8 - Nested thread test\n"
+    "ok 6 - Detach test\n"
   ],
   [
     "assert",
@@ -53,7 +49,7 @@
   ],
   [
     "line",
-    "ok 9 - Nested thread test\n"
+    "ok 8 - Nested thread test\n"
   ],
   [
     "assert",
@@ -65,7 +61,7 @@
   ],
   [
     "line",
-    "ok 10 - Wanted 7, got 7\n"
+    "ok 9 - Nested thread test\n"
   ],
   [
     "assert",
@@ -77,7 +73,7 @@
   ],
   [
     "line",
-    "ok 11 - Wanted 7, got 7\n"
+    "ok 10 - Wanted 7, got 7\n"
   ],
   [
     "assert",
@@ -89,7 +85,7 @@
   ],
   [
     "line",
-    "ok 12 - Wanted 8, got 8\n"
+    "ok 11 - Wanted 7, got 7\n"
   ],
   [
     "assert",
@@ -101,7 +97,7 @@
   ],
   [
     "line",
-    "ok 13 - Wanted 8, got 8\n"
+    "ok 12 - Wanted 8, got 8\n"
   ],
   [
     "assert",
@@ -113,7 +109,7 @@
   ],
   [
     "line",
-    "1..15\n"
+    "ok 13 - Wanted 8, got 8\n"
   ],
   [
     "assert",
@@ -122,6 +118,10 @@
       "id": 13,
       "name": "Wanted 8, got 8"
     }
+  ],
+  [
+    "line",
+    "1..15\n"
   ],
   [
     "plan",

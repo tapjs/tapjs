@@ -4,6 +4,10 @@
     "  ---\n"
   ],
   [
+    "line",
+    "  ---\n"
+  ],
+  [
     "extra",
     "  ---\n"
   ],
@@ -12,6 +16,10 @@
     "  this: is yaml\n"
   ],
   [
+    "line",
+    "  this: is yaml\n"
+  ],
+  [
     "extra",
     "  this: is yaml\n"
   ],
@@ -20,8 +28,16 @@
     "  but: no test here\n"
   ],
   [
+    "line",
+    "  but: no test here\n"
+  ],
+  [
     "extra",
     "  but: no test here\n"
+  ],
+  [
+    "line",
+    "  ...\n"
   ],
   [
     "line",
@@ -36,16 +52,16 @@
     "ok - this is fine\n"
   ],
   [
-    "line",
-    "1..1\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
       "id": 1,
       "name": "this is fine"
     }
+  ],
+  [
+    "line",
+    "1..1\n"
   ],
   [
     "plan",

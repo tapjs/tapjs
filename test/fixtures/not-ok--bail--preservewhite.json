@@ -20,10 +20,6 @@
     "ok 1 should be equal\n"
   ],
   [
-    "line",
-    "not ok 2 should be equivalent\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
@@ -33,11 +29,7 @@
   ],
   [
     "line",
-    "# boop\n"
-  ],
-  [
-    "line",
-    "ok 3 should be equal\n"
+    "not ok 2 should be equivalent\n"
   ],
   [
     "assert",
@@ -49,11 +41,15 @@
   ],
   [
     "line",
-    "Bail out! # should be equivalent\n"
+    "# boop\n"
   ],
   [
     "comment",
     "# boop\n"
+  ],
+  [
+    "line",
+    "Bail out! # should be equivalent\n"
   ],
   [
     "bailout",

@@ -20,10 +20,6 @@
     "ok one\n"
   ],
   [
-    "line",
-    "ok two\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
@@ -33,11 +29,7 @@
   ],
   [
     "line",
-    "# before 3\n"
-  ],
-  [
-    "line",
-    "ok three\n"
+    "ok two\n"
   ],
   [
     "assert",
@@ -48,12 +40,16 @@
     }
   ],
   [
+    "line",
+    "# before 3\n"
+  ],
+  [
     "comment",
     "# before 3\n"
   ],
   [
     "line",
-    "ok four\n"
+    "ok three\n"
   ],
   [
     "assert",
@@ -65,11 +61,7 @@
   ],
   [
     "line",
-    "# after 4\n"
-  ],
-  [
-    "line",
-    "1..4\n"
+    "ok four\n"
   ],
   [
     "assert",
@@ -80,8 +72,16 @@
     }
   ],
   [
+    "line",
+    "# after 4\n"
+  ],
+  [
     "comment",
     "# after 4\n"
+  ],
+  [
+    "line",
+    "1..4\n"
   ],
   [
     "plan",

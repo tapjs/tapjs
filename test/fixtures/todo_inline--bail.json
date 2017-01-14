@@ -15,10 +15,6 @@
     "not ok 1 - Foo # TODO Just testing the todo interface.\n"
   ],
   [
-    "line",
-    "ok 2 - Unexpected success # TODO Just testing the todo interface.\n"
-  ],
-  [
     "assert",
     {
       "ok": false,
@@ -29,7 +25,7 @@
   ],
   [
     "line",
-    "ok 3 - This is not todo\n"
+    "ok 2 - Unexpected success # TODO Just testing the todo interface.\n"
   ],
   [
     "assert",
@@ -39,6 +35,10 @@
       "todo": "Just testing the todo interface.",
       "name": "Unexpected success"
     }
+  ],
+  [
+    "line",
+    "ok 3 - This is not todo\n"
   ],
   [
     "assert",

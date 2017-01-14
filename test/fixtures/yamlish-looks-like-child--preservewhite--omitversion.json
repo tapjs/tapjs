@@ -35,10 +35,6 @@
     "  ...\n"
   ],
   [
-    "line",
-    "ok 2 -  child test\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
@@ -54,7 +50,7 @@
   ],
   [
     "line",
-    "ok 3 -  should come last\n"
+    "ok 2 -  child test\n"
   ],
   [
     "assert",
@@ -63,6 +59,10 @@
       "id": 2,
       "name": "child test"
     }
+  ],
+  [
+    "line",
+    "ok 3 -  should come last\n"
   ],
   [
     "assert",

@@ -9,10 +9,6 @@
   ],
   [
     "line",
-    "# Subtest: x\n"
-  ],
-  [
-    "line",
     "# just a comment\n"
   ],
   [
@@ -31,16 +27,12 @@
         "# Subtest: fake\n"
       ],
       [
-        "line",
-        "ok 1 - not a subtest\n"
-      ],
-      [
         "comment",
         "# Subtest: fake\n"
       ],
       [
         "line",
-        "# Subtest: y\n"
+        "ok 1 - not a subtest\n"
       ],
       [
         "assert",
@@ -62,16 +54,16 @@
             "ok 1 - ypoint\n"
           ],
           [
-            "line",
-            "1..1\n"
-          ],
-          [
             "assert",
             {
               "ok": true,
               "id": 1,
               "name": "ypoint"
             }
+          ],
+          [
+            "line",
+            "1..1\n"
           ],
           [
             "plan",
@@ -104,6 +96,10 @@
       ],
       [
         "line",
+        "# Subtest: y\n"
+      ],
+      [
+        "line",
         "    ok 1 - ypoint\n"
       ],
       [
@@ -115,16 +111,16 @@
         "ok 2 - y\n"
       ],
       [
-        "line",
-        "1..2\n"
-      ],
-      [
         "assert",
         {
           "ok": true,
           "id": 2,
           "name": "y"
         }
+      ],
+      [
+        "line",
+        "1..2\n"
       ],
       [
         "plan",
@@ -154,6 +150,10 @@
         }
       ]
     ]
+  ],
+  [
+    "line",
+    "# Subtest: x\n"
   ],
   [
     "line",
@@ -188,16 +188,16 @@
     "ok 1 - x\n"
   ],
   [
-    "line",
-    "1..1\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
       "id": 1,
       "name": "x"
     }
+  ],
+  [
+    "line",
+    "1..1\n"
   ],
   [
     "plan",

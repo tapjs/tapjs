@@ -68,10 +68,6 @@
   ],
   [
     "line",
-    "1..99\n"
-  ],
-  [
-    "line",
     "    ok\n"
   ],
   [
@@ -86,6 +82,10 @@
       "buffered": true,
       "name": "subtest"
     }
+  ],
+  [
+    "line",
+    "1..99\n"
   ],
   [
     "extra",
@@ -104,10 +104,6 @@
     "  ok: lamy\n"
   ],
   [
-    "line",
-    "1..99\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
@@ -116,8 +112,20 @@
     }
   ],
   [
+    "line",
+    "  ---\n"
+  ],
+  [
+    "line",
+    "  ok: lamy\n"
+  ],
+  [
     "extra",
     "  ---\n  ok: lamy\n"
+  ],
+  [
+    "line",
+    "1..99\n"
   ],
   [
     "plan",
@@ -125,6 +133,10 @@
       "start": 1,
       "end": 99
     }
+  ],
+  [
+    "line",
+    "  ...\n"
   ],
   [
     "line",

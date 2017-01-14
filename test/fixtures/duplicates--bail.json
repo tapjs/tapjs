@@ -15,10 +15,6 @@
     "ok 1\n"
   ],
   [
-    "line",
-    "ok 2\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
@@ -27,7 +23,7 @@
   ],
   [
     "line",
-    "ok 3\n"
+    "ok 2\n"
   ],
   [
     "assert",
@@ -38,7 +34,7 @@
   ],
   [
     "line",
-    "ok 4\n"
+    "ok 3\n"
   ],
   [
     "assert",
@@ -60,7 +56,7 @@
   ],
   [
     "line",
-    "ok 5\n"
+    "ok 4\n"
   ],
   [
     "assert",
@@ -71,7 +67,7 @@
   ],
   [
     "line",
-    "ok 6\n"
+    "ok 5\n"
   ],
   [
     "assert",
@@ -82,7 +78,7 @@
   ],
   [
     "line",
-    "ok 7\n"
+    "ok 6\n"
   ],
   [
     "assert",
@@ -93,7 +89,7 @@
   ],
   [
     "line",
-    "ok 8\n"
+    "ok 7\n"
   ],
   [
     "assert",
@@ -104,7 +100,7 @@
   ],
   [
     "line",
-    "ok 9\n"
+    "ok 8\n"
   ],
   [
     "assert",
@@ -115,7 +111,7 @@
   ],
   [
     "line",
-    "ok 10\n"
+    "ok 9\n"
   ],
   [
     "assert",
@@ -123,6 +119,10 @@
       "ok": true,
       "id": 9
     }
+  ],
+  [
+    "line",
+    "ok 10\n"
   ],
   [
     "assert",

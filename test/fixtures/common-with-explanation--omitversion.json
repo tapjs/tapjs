@@ -47,10 +47,6 @@
     "ok 1 - The object isa Board\n"
   ],
   [
-    "line",
-    "ok 2 - Board size is zero\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
@@ -60,7 +56,7 @@
   ],
   [
     "line",
-    "ok 3 - The object isa Tile\n"
+    "ok 2 - Board size is zero\n"
   ],
   [
     "assert",
@@ -72,7 +68,7 @@
   ],
   [
     "line",
-    "ok 4 - Get possible places to put the Tile\n"
+    "ok 3 - The object isa Tile\n"
   ],
   [
     "assert",
@@ -84,7 +80,7 @@
   ],
   [
     "line",
-    "ok 5 - Placing the tile produces no error\n"
+    "ok 4 - Get possible places to put the Tile\n"
   ],
   [
     "assert",
@@ -96,7 +92,7 @@
   ],
   [
     "line",
-    "ok 6 - Board size is 1\n"
+    "ok 5 - Placing the tile produces no error\n"
   ],
   [
     "assert",
@@ -105,6 +101,10 @@
       "id": 5,
       "name": "Placing the tile produces no error"
     }
+  ],
+  [
+    "line",
+    "ok 6 - Board size is 1\n"
   ],
   [
     "assert",

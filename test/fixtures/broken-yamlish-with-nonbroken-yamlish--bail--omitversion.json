@@ -51,10 +51,6 @@
     " ...\n"
   ],
   [
-    "line",
-    "ok 2 -  child test\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
@@ -66,20 +62,40 @@
     }
   ],
   [
+    "line",
+    "  ok:\n"
+  ],
+  [
     "extra",
     "  ok:\n"
+  ],
+  [
+    "line",
+    "    # comment here too, why not?\n"
   ],
   [
     "comment",
     "    # comment here too, why not?\n"
   ],
   [
-    "extra",
+    "line",
     "    - I wished for a bailout!\n"
   ],
   [
     "extra",
+    "    - I wished for a bailout!\n"
+  ],
+  [
+    "line",
     "    - lots of other shapes here can look like valid tap\n"
+  ],
+  [
+    "extra",
+    "    - lots of other shapes here can look like valid tap\n"
+  ],
+  [
+    "line",
+    " ...\n"
   ],
   [
     "extra",
@@ -87,7 +103,7 @@
   ],
   [
     "line",
-    "ok 3 -  should come last\n"
+    "ok 2 -  child test\n"
   ],
   [
     "assert",
@@ -96,6 +112,10 @@
       "id": 2,
       "name": "child test"
     }
+  ],
+  [
+    "line",
+    "ok 3 -  should come last\n"
   ],
   [
     "assert",

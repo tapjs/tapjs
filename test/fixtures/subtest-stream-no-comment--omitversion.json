@@ -40,16 +40,16 @@
             "ok 1 - true is ok\n"
           ],
           [
-            "line",
-            "ok 2 - doag is also okay\n"
-          ],
-          [
             "assert",
             {
               "ok": true,
               "id": 1,
               "name": "true is ok"
             }
+          ],
+          [
+            "line",
+            "ok 2 - doag is also okay\n"
           ],
           [
             "assert",
@@ -80,6 +80,10 @@
             }
           ]
         ]
+      ],
+      [
+        "line",
+        "# Subtest: (anonymous)\n"
       ],
       [
         "line",
@@ -118,10 +122,6 @@
             "ok 1 - but that is ok\n"
           ],
           [
-            "line",
-            "ok 2 - this passes\n"
-          ],
-          [
             "assert",
             {
               "ok": true,
@@ -131,7 +131,7 @@
           ],
           [
             "line",
-            "ok 3 - nested ok\n"
+            "ok 2 - this passes\n"
           ],
           [
             "assert",
@@ -143,7 +143,7 @@
           ],
           [
             "line",
-            "1..3\n"
+            "ok 3 - nested ok\n"
           ],
           [
             "assert",
@@ -152,6 +152,10 @@
               "id": 3,
               "name": "nested ok"
             }
+          ],
+          [
+            "line",
+            "1..3\n"
           ],
           [
             "plan",
@@ -181,6 +185,10 @@
             }
           ]
         ]
+      ],
+      [
+        "line",
+        "# Subtest: (anonymous)\n"
       ],
       [
         "line",
@@ -235,7 +243,15 @@
   ],
   [
     "line",
+    "# Subtest: (anonymous)\n"
+  ],
+  [
+    "line",
     "    1..2\n"
+  ],
+  [
+    "line",
+    "    # Subtest: (anonymous)\n"
   ],
   [
     "line",
@@ -252,6 +268,10 @@
   [
     "line",
     "    ok 1 - first # time=11.345ms\n"
+  ],
+  [
+    "line",
+    "    # Subtest: (anonymous)\n"
   ],
   [
     "line",
@@ -278,10 +298,6 @@
     "ok 1 - nesting # time=36.045ms\n"
   ],
   [
-    "line",
-    "ok 2 - this passes\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
@@ -292,7 +308,7 @@
   ],
   [
     "line",
-    "1..2\n"
+    "ok 2 - this passes\n"
   ],
   [
     "assert",
@@ -301,6 +317,10 @@
       "id": 2,
       "name": "this passes"
     }
+  ],
+  [
+    "line",
+    "1..2\n"
   ],
   [
     "plan",

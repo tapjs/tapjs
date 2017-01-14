@@ -4,15 +4,15 @@
     "not ok\n"
   ],
   [
-    "line",
-    "pragma +custom\n"
-  ],
-  [
     "assert",
     {
       "ok": false,
       "id": 1
     }
+  ],
+  [
+    "line",
+    "pragma +custom\n"
   ],
   [
     "pragma",
@@ -24,15 +24,15 @@
     "ok\n"
   ],
   [
-    "line",
-    "1..2\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
       "id": 2
     }
+  ],
+  [
+    "line",
+    "1..2\n"
   ],
   [
     "plan",

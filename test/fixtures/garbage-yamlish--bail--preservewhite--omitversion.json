@@ -32,14 +32,6 @@
     "# de-indenting the yamlish wrongly."
   ],
   [
-    "line",
-    " this is not valid yamlish\n"
-  ],
-  [
-    "extra",
-    " this is not valid yamlish\n"
-  ],
-  [
     "complete",
     {
       "ok": false,

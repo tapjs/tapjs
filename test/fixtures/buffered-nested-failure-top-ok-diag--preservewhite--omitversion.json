@@ -1,0 +1,135 @@
+[
+  [
+    "line",
+    "1..1\n"
+  ],
+  [
+    "plan",
+    {
+      "start": 1,
+      "end": 1
+    }
+  ],
+  [
+    "line",
+    "ok 1 - my kids are fine\n"
+  ],
+  [
+    "line",
+    "  ---\n"
+  ],
+  [
+    "line",
+    "  some: diag\n"
+  ],
+  [
+    "line",
+    "  ...\n"
+  ],
+  [
+    "line",
+    "{\n"
+  ],
+  [
+    "child",
+    [
+      [
+        "comment",
+        "# Subtest: my kids are fine\n"
+      ],
+      [
+        "line",
+        "1..1\n"
+      ],
+      [
+        "plan",
+        {
+          "start": 1,
+          "end": 1
+        }
+      ],
+      [
+        "line",
+        "not ok - no they aren't\n"
+      ],
+      [
+        "assert",
+        {
+          "ok": false,
+          "id": 1,
+          "name": "no they aren't"
+        }
+      ],
+      [
+        "complete",
+        {
+          "ok": false,
+          "count": 1,
+          "pass": 0,
+          "fail": 1,
+          "bailout": false,
+          "todo": 0,
+          "skip": 0,
+          "plan": {
+            "start": 1,
+            "end": 1,
+            "skipAll": false,
+            "skipReason": "",
+            "comment": ""
+          },
+          "failures": [
+            {
+              "ok": false,
+              "id": 1,
+              "name": "no they aren't"
+            }
+          ]
+        }
+      ]
+    ]
+  ],
+  [
+    "line",
+    "    1..1\n"
+  ],
+  [
+    "line",
+    "    not ok - no they aren't\n"
+  ],
+  [
+    "line",
+    "}\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 1,
+      "name": "my kids are fine",
+      "diag": {
+        "some": "diag"
+      },
+      "buffered": true
+    }
+  ],
+  [
+    "complete",
+    {
+      "ok": false,
+      "count": 1,
+      "pass": 1,
+      "fail": 0,
+      "bailout": false,
+      "todo": 0,
+      "skip": 0,
+      "plan": {
+        "start": 1,
+        "end": 1,
+        "skipAll": false,
+        "skipReason": "",
+        "comment": ""
+      },
+      "failures": []
+    }
+  ]
+]

@@ -1,0 +1,10 @@
+TAP version 13
+1..1
+not ok 1 - please sir, my son, he is sick
+  ---
+  some: diag
+  ...
+{
+    1..1
+    ok - i got better
+}

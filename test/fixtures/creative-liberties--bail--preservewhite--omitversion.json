@@ -4,10 +4,6 @@
     "ok - created Board\n"
   ],
   [
-    "line",
-    "ok\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
@@ -83,6 +79,10 @@
   ],
   [
     "line",
+    "ok\n"
+  ],
+  [
+    "line",
     "  ---\n"
   ],
   [
@@ -142,10 +142,6 @@
     "  ...\n"
   ],
   [
-    "line",
-    "ok - board has 7 tiles + starter tile\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
@@ -171,7 +167,7 @@
   ],
   [
     "line",
-    "1..9\n"
+    "ok - board has 7 tiles + starter tile\n"
   ],
   [
     "assert",
@@ -180,6 +176,10 @@
       "id": 9,
       "name": "board has 7 tiles + starter tile"
     }
+  ],
+  [
+    "line",
+    "1..9\n"
   ],
   [
     "plan",

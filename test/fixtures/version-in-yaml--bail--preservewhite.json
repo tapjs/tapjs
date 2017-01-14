@@ -98,6 +98,10 @@
   ],
   [
     "line",
+    "# Subtest: child indented\n"
+  ],
+  [
+    "line",
     "    not ok - some yaml\n"
   ],
   [
@@ -131,14 +135,6 @@
   [
     "bailout",
     "# some yaml"
-  ],
-  [
-    "line",
-    "}\n"
-  ],
-  [
-    "line",
-    "Bail out! # some yaml\n"
   ],
   [
     "complete",

@@ -12,10 +12,6 @@
     "ok 1\n"
   ],
   [
-    "line",
-    "ok 2\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
@@ -24,7 +20,7 @@
   ],
   [
     "line",
-    "ok 3\n"
+    "ok 2\n"
   ],
   [
     "assert",
@@ -35,7 +31,7 @@
   ],
   [
     "line",
-    "ok 4\n"
+    "ok 3\n"
   ],
   [
     "assert",
@@ -46,11 +42,7 @@
   ],
   [
     "line",
-    "# comment\n"
-  ],
-  [
-    "line",
-    "1..4\n"
+    "ok 4\n"
   ],
   [
     "assert",
@@ -60,8 +52,16 @@
     }
   ],
   [
+    "line",
+    "# comment\n"
+  ],
+  [
     "comment",
     "# comment\n"
+  ],
+  [
+    "line",
+    "1..4\n"
   ],
   [
     "plan",

@@ -15,10 +15,6 @@
     "ok 234 - pretty big\n"
   ],
   [
-    "line",
-    "ok 5 - less big\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
@@ -33,7 +29,7 @@
   ],
   [
     "line",
-    "ok 3 - three\n"
+    "ok 5 - less big\n"
   ],
   [
     "assert",
@@ -47,6 +43,10 @@
         "end": 3
       }
     }
+  ],
+  [
+    "line",
+    "ok 3 - three\n"
   ],
   [
     "assert",

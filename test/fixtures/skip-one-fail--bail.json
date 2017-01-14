@@ -12,10 +12,6 @@
     "not ok 1 does not count as failure # SKIP\n"
   ],
   [
-    "line",
-    "1..1\n"
-  ],
-  [
     "assert",
     {
       "ok": false,
@@ -23,6 +19,10 @@
       "skip": true,
       "name": "does not count as failure"
     }
+  ],
+  [
+    "line",
+    "1..1\n"
   ],
   [
     "plan",

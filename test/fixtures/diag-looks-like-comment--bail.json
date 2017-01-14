@@ -8,10 +8,6 @@
     13
   ],
   [
-    "line",
-    "# Subtest: -t 0.2\n"
-  ],
-  [
     "child",
     [
       [
@@ -156,6 +152,10 @@
   ],
   [
     "line",
+    "# Subtest: -t 0.2\n"
+  ],
+  [
+    "line",
     "    not ok 1 - should match pattern provided\n"
   ],
   [
@@ -245,10 +245,6 @@
   [
     "bailout",
     "# should match pattern provided"
-  ],
-  [
-    "line",
-    "Bail out! # should match pattern provided\n"
   ],
   [
     "complete",

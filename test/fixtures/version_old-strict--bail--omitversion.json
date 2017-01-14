@@ -24,10 +24,6 @@
     "ok 1\n"
   ],
   [
-    "line",
-    "ok 2\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
@@ -36,7 +32,7 @@
   ],
   [
     "line",
-    "ok 3\n"
+    "ok 2\n"
   ],
   [
     "assert",
@@ -47,7 +43,7 @@
   ],
   [
     "line",
-    "ok 4\n"
+    "ok 3\n"
   ],
   [
     "assert",
@@ -58,7 +54,7 @@
   ],
   [
     "line",
-    "ok 5\n"
+    "ok 4\n"
   ],
   [
     "assert",
@@ -66,6 +62,10 @@
       "ok": true,
       "id": 4
     }
+  ],
+  [
+    "line",
+    "ok 5\n"
   ],
   [
     "assert",

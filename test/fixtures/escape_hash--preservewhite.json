@@ -15,10 +15,6 @@
     "ok 1    Not a \\# TODO\n"
   ],
   [
-    "line",
-    "ok 2    Not a \\# SKIP\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
@@ -28,7 +24,7 @@
   ],
   [
     "line",
-    "ok 3    Escaped \\\\\\#\n"
+    "ok 2    Not a \\# SKIP\n"
   ],
   [
     "assert",
@@ -37,6 +33,10 @@
       "id": 2,
       "name": "Not a \\# SKIP"
     }
+  ],
+  [
+    "line",
+    "ok 3    Escaped \\\\\\#\n"
   ],
   [
     "assert",

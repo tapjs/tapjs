@@ -69,6 +69,10 @@
                 "1..0 # no tests found\n"
               ],
               [
+                "line",
+                "1..0 # no tests found\n"
+              ],
+              [
                 "plan",
                 {
                   "start": 1,
@@ -100,6 +104,10 @@
           ],
           [
             "line",
+            "# Subtest: npm install package line\n"
+          ],
+          [
+            "line",
             "    $ npm install package\n"
           ],
           [
@@ -121,6 +129,10 @@
           [
             "extra",
             "1..0\n"
+          ],
+          [
+            "line",
+            "1..0 # no tests found\n"
           ],
           [
             "line",
@@ -155,6 +167,10 @@
             }
           ]
         ]
+      ],
+      [
+        "line",
+        "# Subtest: boom\n"
       ],
       [
         "line",
@@ -207,6 +223,10 @@
       [
         "line",
         "        # Subtest: npm install package line\n"
+      ],
+      [
+        "line",
+        "    # Subtest: npm install package line\n"
       ],
       [
         "line",
@@ -425,10 +445,6 @@
         "ok 1 - boom # time=5.26ms\n"
       ],
       [
-        "line",
-        "1..1\n"
-      ],
-      [
         "assert",
         {
           "ok": true,
@@ -436,6 +452,10 @@
           "time": 5.26,
           "name": "boom"
         }
+      ],
+      [
+        "line",
+        "1..1\n"
       ],
       [
         "plan",
@@ -476,7 +496,15 @@
   ],
   [
     "line",
+    "# Subtest: index.js\n"
+  ],
+  [
+    "line",
     "        # Subtest: boom\n"
+  ],
+  [
+    "line",
+    "    # Subtest: boom\n"
   ],
   [
     "line",
@@ -505,6 +533,10 @@
   [
     "line",
     "            # Subtest: npm install package line\n"
+  ],
+  [
+    "line",
+    "        # Subtest: npm install package line\n"
   ],
   [
     "line",

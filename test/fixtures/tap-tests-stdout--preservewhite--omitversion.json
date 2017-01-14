@@ -28,7 +28,19 @@
     "ok 1 should be equivalent\n"
   ],
   [
+    "assert",
+    {
+      "ok": true,
+      "id": 1,
+      "name": "should be equivalent"
+    }
+  ],
+  [
     "line",
+    "# not same buffers\n"
+  ],
+  [
+    "comment",
     "# not same buffers\n"
   ],
   [
@@ -39,16 +51,16 @@
     "assert",
     {
       "ok": true,
-      "id": 1,
-      "name": "should be equivalent"
+      "id": 2,
+      "name": "should not be equivalent"
     }
   ],
   [
-    "comment",
-    "# not same buffers\n"
+    "line",
+    "# tests 2\n"
   ],
   [
-    "line",
+    "comment",
     "# tests 2\n"
   ],
   [
@@ -56,7 +68,15 @@
     "# pass  2\n"
   ],
   [
+    "comment",
+    "# pass  2\n"
+  ],
+  [
     "line",
+    "# ok\n"
+  ],
+  [
+    "comment",
     "# ok\n"
   ],
   [
@@ -67,45 +87,21 @@
     "assert",
     {
       "ok": true,
-      "id": 2,
-      "name": "should not be equivalent"
-    }
-  ],
-  [
-    "comment",
-    "# tests 2\n"
-  ],
-  [
-    "comment",
-    "# pass  2\n"
-  ],
-  [
-    "comment",
-    "# ok\n"
-  ],
-  [
-    "line",
-    "# common.js\n"
-  ],
-  [
-    "line",
-    "ok 4 just setup, nothing relevant\n"
-  ],
-  [
-    "assert",
-    {
-      "ok": true,
       "id": 3,
       "name": "test/buffer_compare.js"
     }
   ],
   [
+    "line",
+    "# common.js\n"
+  ],
+  [
     "comment",
     "# common.js\n"
   ],
   [
     "line",
-    "ok 5 test/common.js\n"
+    "ok 4 just setup, nothing relevant\n"
   ],
   [
     "assert",
@@ -117,19 +113,7 @@
   ],
   [
     "line",
-    "# consumer.js\n"
-  ],
-  [
-    "line",
-    "# TAP version 13\n"
-  ],
-  [
-    "line",
-    "# basic.tap\n"
-  ],
-  [
-    "line",
-    "ok 6 should be equivalent\n"
+    "ok 5 test/common.js\n"
   ],
   [
     "assert",
@@ -140,12 +124,24 @@
     }
   ],
   [
-    "comment",
+    "line",
     "# consumer.js\n"
   ],
   [
     "comment",
+    "# consumer.js\n"
+  ],
+  [
+    "line",
     "# TAP version 13\n"
+  ],
+  [
+    "comment",
+    "# TAP version 13\n"
+  ],
+  [
+    "line",
+    "# basic.tap\n"
   ],
   [
     "comment",
@@ -153,11 +149,7 @@
   ],
   [
     "line",
-    "# indent.tap\n"
-  ],
-  [
-    "line",
-    "ok 7 should be equivalent\n"
+    "ok 6 should be equivalent\n"
   ],
   [
     "assert",
@@ -168,16 +160,16 @@
     }
   ],
   [
+    "line",
+    "# indent.tap\n"
+  ],
+  [
     "comment",
     "# indent.tap\n"
   ],
   [
     "line",
-    "# missing.tap\n"
-  ],
-  [
-    "line",
-    "ok 8 should be equivalent\n"
+    "ok 7 should be equivalent\n"
   ],
   [
     "assert",
@@ -188,16 +180,16 @@
     }
   ],
   [
+    "line",
+    "# missing.tap\n"
+  ],
+  [
     "comment",
     "# missing.tap\n"
   ],
   [
     "line",
-    "# skip-all.tap\n"
-  ],
-  [
-    "line",
-    "ok 9 should be equivalent\n"
+    "ok 8 should be equivalent\n"
   ],
   [
     "assert",
@@ -208,16 +200,16 @@
     }
   ],
   [
+    "line",
+    "# skip-all.tap\n"
+  ],
+  [
     "comment",
     "# skip-all.tap\n"
   ],
   [
     "line",
-    "# tap-tests.tap\n"
-  ],
-  [
-    "line",
-    "ok 10 should be equivalent\n"
+    "ok 9 should be equivalent\n"
   ],
   [
     "assert",
@@ -228,16 +220,16 @@
     }
   ],
   [
+    "line",
+    "# tap-tests.tap\n"
+  ],
+  [
     "comment",
     "# tap-tests.tap\n"
   ],
   [
     "line",
-    "# yamlish.tap\n"
-  ],
-  [
-    "line",
-    "ok 11 should be equivalent\n"
+    "ok 10 should be equivalent\n"
   ],
   [
     "assert",
@@ -248,24 +240,16 @@
     }
   ],
   [
+    "line",
+    "# yamlish.tap\n"
+  ],
+  [
     "comment",
     "# yamlish.tap\n"
   ],
   [
     "line",
-    "# tests 6\n"
-  ],
-  [
-    "line",
-    "# pass  6\n"
-  ],
-  [
-    "line",
-    "# ok\n"
-  ],
-  [
-    "line",
-    "ok 12 test/consumer.js\n"
+    "ok 11 should be equivalent\n"
   ],
   [
     "assert",
@@ -276,12 +260,24 @@
     }
   ],
   [
-    "comment",
+    "line",
     "# tests 6\n"
   ],
   [
     "comment",
+    "# tests 6\n"
+  ],
+  [
+    "line",
     "# pass  6\n"
+  ],
+  [
+    "comment",
+    "# pass  6\n"
+  ],
+  [
+    "line",
+    "# ok\n"
   ],
   [
     "comment",
@@ -289,19 +285,7 @@
   ],
   [
     "line",
-    "# debug-test.js\n"
-  ],
-  [
-    "line",
-    "# TAP version 13\n"
-  ],
-  [
-    "line",
-    "# debug test\n"
-  ],
-  [
-    "line",
-    "ok 13 Should output debugger message\n"
+    "ok 12 test/consumer.js\n"
   ],
   [
     "assert",
@@ -312,12 +296,24 @@
     }
   ],
   [
-    "comment",
+    "line",
     "# debug-test.js\n"
   ],
   [
     "comment",
+    "# debug-test.js\n"
+  ],
+  [
+    "line",
     "# TAP version 13\n"
+  ],
+  [
+    "comment",
+    "# TAP version 13\n"
+  ],
+  [
+    "line",
+    "# debug test\n"
   ],
   [
     "comment",
@@ -325,19 +321,7 @@
   ],
   [
     "line",
-    "# tests 1\n"
-  ],
-  [
-    "line",
-    "# pass  1\n"
-  ],
-  [
-    "line",
-    "# ok\n"
-  ],
-  [
-    "line",
-    "ok 14 test/debug-test.js\n"
+    "ok 13 Should output debugger message\n"
   ],
   [
     "assert",
@@ -348,12 +332,24 @@
     }
   ],
   [
-    "comment",
+    "line",
     "# tests 1\n"
   ],
   [
     "comment",
+    "# tests 1\n"
+  ],
+  [
+    "line",
     "# pass  1\n"
+  ],
+  [
+    "comment",
+    "# pass  1\n"
+  ],
+  [
+    "line",
+    "# ok\n"
   ],
   [
     "comment",
@@ -361,19 +357,7 @@
   ],
   [
     "line",
-    "# deep-strict.js\n"
-  ],
-  [
-    "line",
-    "# TAP version 13\n"
-  ],
-  [
-    "line",
-    "# strictDeepEquals shouldn't care about key order\n"
-  ],
-  [
-    "line",
-    "ok 15 should be strictly equal\n"
+    "ok 14 test/debug-test.js\n"
   ],
   [
     "assert",
@@ -384,12 +368,24 @@
     }
   ],
   [
-    "comment",
+    "line",
     "# deep-strict.js\n"
   ],
   [
     "comment",
+    "# deep-strict.js\n"
+  ],
+  [
+    "line",
     "# TAP version 13\n"
+  ],
+  [
+    "comment",
+    "# TAP version 13\n"
+  ],
+  [
+    "line",
+    "# strictDeepEquals shouldn't care about key order\n"
   ],
   [
     "comment",
@@ -397,11 +393,7 @@
   ],
   [
     "line",
-    "# strictDeepEquals shouldn't care about key order recursively\n"
-  ],
-  [
-    "line",
-    "ok 16 should be strictly equal\n"
+    "ok 15 should be strictly equal\n"
   ],
   [
     "assert",
@@ -412,16 +404,16 @@
     }
   ],
   [
+    "line",
+    "# strictDeepEquals shouldn't care about key order recursively\n"
+  ],
+  [
     "comment",
     "# strictDeepEquals shouldn't care about key order recursively\n"
   ],
   [
     "line",
-    "# strictDeepEquals shoudn't care about key order (but still might)\n"
-  ],
-  [
-    "line",
-    "ok 17 should be strictly equal\n"
+    "ok 16 should be strictly equal\n"
   ],
   [
     "assert",
@@ -432,24 +424,16 @@
     }
   ],
   [
+    "line",
+    "# strictDeepEquals shoudn't care about key order (but still might)\n"
+  ],
+  [
     "comment",
     "# strictDeepEquals shoudn't care about key order (but still might)\n"
   ],
   [
     "line",
-    "# tests 3\n"
-  ],
-  [
-    "line",
-    "# pass  3\n"
-  ],
-  [
-    "line",
-    "# ok\n"
-  ],
-  [
-    "line",
-    "ok 18 test/deep-strict.js\n"
+    "ok 17 should be strictly equal\n"
   ],
   [
     "assert",
@@ -460,12 +444,24 @@
     }
   ],
   [
-    "comment",
+    "line",
     "# tests 3\n"
   ],
   [
     "comment",
+    "# tests 3\n"
+  ],
+  [
+    "line",
     "# pass  3\n"
+  ],
+  [
+    "comment",
+    "# pass  3\n"
+  ],
+  [
+    "line",
+    "# ok\n"
   ],
   [
     "comment",
@@ -473,19 +469,7 @@
   ],
   [
     "line",
-    "# deep.js\n"
-  ],
-  [
-    "line",
-    "# TAP version 13\n"
-  ],
-  [
-    "line",
-    "# deepEquals shouldn't care about key order and types\n"
-  ],
-  [
-    "line",
-    "ok 19 should be equivalent\n"
+    "ok 18 test/deep-strict.js\n"
   ],
   [
     "assert",
@@ -496,12 +480,24 @@
     }
   ],
   [
-    "comment",
+    "line",
     "# deep.js\n"
   ],
   [
     "comment",
+    "# deep.js\n"
+  ],
+  [
+    "line",
     "# TAP version 13\n"
+  ],
+  [
+    "comment",
+    "# TAP version 13\n"
+  ],
+  [
+    "line",
+    "# deepEquals shouldn't care about key order and types\n"
   ],
   [
     "comment",
@@ -509,11 +505,7 @@
   ],
   [
     "line",
-    "# deepEquals shouldn't care about key order recursively and types\n"
-  ],
-  [
-    "line",
-    "ok 20 should be equivalent\n"
+    "ok 19 should be equivalent\n"
   ],
   [
     "assert",
@@ -524,16 +516,16 @@
     }
   ],
   [
+    "line",
+    "# deepEquals shouldn't care about key order recursively and types\n"
+  ],
+  [
     "comment",
     "# deepEquals shouldn't care about key order recursively and types\n"
   ],
   [
     "line",
-    "# deepEquals shoudn't care about key order (but still might) and types\n"
-  ],
-  [
-    "line",
-    "ok 21 should be equivalent\n"
+    "ok 20 should be equivalent\n"
   ],
   [
     "assert",
@@ -544,24 +536,16 @@
     }
   ],
   [
+    "line",
+    "# deepEquals shoudn't care about key order (but still might) and types\n"
+  ],
+  [
     "comment",
     "# deepEquals shoudn't care about key order (but still might) and types\n"
   ],
   [
     "line",
-    "# tests 3\n"
-  ],
-  [
-    "line",
-    "# pass  3\n"
-  ],
-  [
-    "line",
-    "# ok\n"
-  ],
-  [
-    "line",
-    "ok 22 test/deep.js\n"
+    "ok 21 should be equivalent\n"
   ],
   [
     "assert",
@@ -572,12 +556,24 @@
     }
   ],
   [
-    "comment",
+    "line",
     "# tests 3\n"
   ],
   [
     "comment",
+    "# tests 3\n"
+  ],
+  [
+    "line",
     "# pass  3\n"
+  ],
+  [
+    "comment",
+    "# pass  3\n"
+  ],
+  [
+    "line",
+    "# ok\n"
   ],
   [
     "comment",
@@ -585,11 +581,7 @@
   ],
   [
     "line",
-    "# executed.sh\n"
-  ],
-  [
-    "line",
-    "ok 23 File with executable bit should be executed\n"
+    "ok 22 test/deep.js\n"
   ],
   [
     "assert",
@@ -600,12 +592,16 @@
     }
   ],
   [
+    "line",
+    "# executed.sh\n"
+  ],
+  [
     "comment",
     "# executed.sh\n"
   ],
   [
     "line",
-    "ok 24 test/executed.sh\n"
+    "ok 23 File with executable bit should be executed\n"
   ],
   [
     "assert",
@@ -617,23 +613,7 @@
   ],
   [
     "line",
-    "# exit-code.js\n"
-  ],
-  [
-    "line",
-    "# TAP version 13\n"
-  ],
-  [
-    "line",
-    "# exit code 1 when tap results show failure\n"
-  ],
-  [
-    "line",
-    "# test exits 0, has failures\n"
-  ],
-  [
-    "line",
-    "ok 25 should be equal\n"
+    "ok 24 test/executed.sh\n"
   ],
   [
     "assert",
@@ -644,16 +624,32 @@
     }
   ],
   [
+    "line",
+    "# exit-code.js\n"
+  ],
+  [
     "comment",
     "# exit-code.js\n"
+  ],
+  [
+    "line",
+    "# TAP version 13\n"
   ],
   [
     "comment",
     "# TAP version 13\n"
   ],
   [
+    "line",
+    "# exit code 1 when tap results show failure\n"
+  ],
+  [
     "comment",
     "# exit code 1 when tap results show failure\n"
+  ],
+  [
+    "line",
+    "# test exits 0, has failures\n"
   ],
   [
     "comment",
@@ -661,7 +657,7 @@
   ],
   [
     "line",
-    "ok 26 should be equal\n"
+    "ok 25 should be equal\n"
   ],
   [
     "assert",
@@ -673,11 +669,7 @@
   ],
   [
     "line",
-    "# test exits 1, has failures\n"
-  ],
-  [
-    "line",
-    "ok 27 should be equal\n"
+    "ok 26 should be equal\n"
   ],
   [
     "assert",
@@ -688,12 +680,16 @@
     }
   ],
   [
+    "line",
+    "# test exits 1, has failures\n"
+  ],
+  [
     "comment",
     "# test exits 1, has failures\n"
   ],
   [
     "line",
-    "ok 28 should be equal\n"
+    "ok 27 should be equal\n"
   ],
   [
     "assert",
@@ -705,11 +701,7 @@
   ],
   [
     "line",
-    "# test exits 1, has no failures\n"
-  ],
-  [
-    "line",
-    "ok 29 should be equal\n"
+    "ok 28 should be equal\n"
   ],
   [
     "assert",
@@ -720,12 +712,16 @@
     }
   ],
   [
+    "line",
+    "# test exits 1, has no failures\n"
+  ],
+  [
     "comment",
     "# test exits 1, has no failures\n"
   ],
   [
     "line",
-    "ok 30 should be equal\n"
+    "ok 29 should be equal\n"
   ],
   [
     "assert",
@@ -737,15 +733,7 @@
   ],
   [
     "line",
-    "# successes exit 0\n"
-  ],
-  [
-    "line",
-    "# test that does nothing, but exits 0\n"
-  ],
-  [
-    "line",
-    "ok 31 should be equal\n"
+    "ok 30 should be equal\n"
   ],
   [
     "assert",
@@ -756,8 +744,16 @@
     }
   ],
   [
+    "line",
+    "# successes exit 0\n"
+  ],
+  [
     "comment",
     "# successes exit 0\n"
+  ],
+  [
+    "line",
+    "# test that does nothing, but exits 0\n"
   ],
   [
     "comment",
@@ -765,7 +761,7 @@
   ],
   [
     "line",
-    "ok 32 should be equal\n"
+    "ok 31 should be equal\n"
   ],
   [
     "assert",
@@ -777,11 +773,7 @@
   ],
   [
     "line",
-    "# test that succeeds, and exits 0\n"
-  ],
-  [
-    "line",
-    "ok 33 should be equal\n"
+    "ok 32 should be equal\n"
   ],
   [
     "assert",
@@ -792,12 +784,16 @@
     }
   ],
   [
+    "line",
+    "# test that succeeds, and exits 0\n"
+  ],
+  [
     "comment",
     "# test that succeeds, and exits 0\n"
   ],
   [
     "line",
-    "ok 34 should be equal\n"
+    "ok 33 should be equal\n"
   ],
   [
     "assert",
@@ -809,19 +805,7 @@
   ],
   [
     "line",
-    "# tests 10\n"
-  ],
-  [
-    "line",
-    "# pass  10\n"
-  ],
-  [
-    "line",
-    "# ok\n"
-  ],
-  [
-    "line",
-    "ok 35 test/exit-code.js\n"
+    "ok 34 should be equal\n"
   ],
   [
     "assert",
@@ -832,12 +816,24 @@
     }
   ],
   [
-    "comment",
+    "line",
     "# tests 10\n"
   ],
   [
     "comment",
+    "# tests 10\n"
+  ],
+  [
+    "line",
     "# pass  10\n"
+  ],
+  [
+    "comment",
+    "# pass  10\n"
+  ],
+  [
+    "line",
+    "# ok\n"
   ],
   [
     "comment",
@@ -845,19 +841,7 @@
   ],
   [
     "line",
-    "# expose-gc-test.js\n"
-  ],
-  [
-    "line",
-    "# TAP version 13\n"
-  ],
-  [
-    "line",
-    "# gc test when the gc isn't there\n"
-  ],
-  [
-    "line",
-    "ok 36 should be equal\n"
+    "ok 35 test/exit-code.js\n"
   ],
   [
     "assert",
@@ -868,12 +852,24 @@
     }
   ],
   [
-    "comment",
+    "line",
     "# expose-gc-test.js\n"
   ],
   [
     "comment",
+    "# expose-gc-test.js\n"
+  ],
+  [
+    "line",
     "# TAP version 13\n"
+  ],
+  [
+    "comment",
+    "# TAP version 13\n"
+  ],
+  [
+    "line",
+    "# gc test when the gc isn't there\n"
   ],
   [
     "comment",
@@ -881,15 +877,7 @@
   ],
   [
     "line",
-    "# gc test when the gc should be there\n"
-  ],
-  [
-    "line",
-    "# test for gc using --gc\n"
-  ],
-  [
-    "line",
-    "ok 37 should be equal\n"
+    "ok 36 should be equal\n"
   ],
   [
     "assert",
@@ -900,8 +888,16 @@
     }
   ],
   [
+    "line",
+    "# gc test when the gc should be there\n"
+  ],
+  [
     "comment",
     "# gc test when the gc should be there\n"
+  ],
+  [
+    "line",
+    "# test for gc using --gc\n"
   ],
   [
     "comment",
@@ -909,11 +905,7 @@
   ],
   [
     "line",
-    "# test for gc using --expose-gc\n"
-  ],
-  [
-    "line",
-    "ok 38 should be equal\n"
+    "ok 37 should be equal\n"
   ],
   [
     "assert",
@@ -924,28 +916,16 @@
     }
   ],
   [
+    "line",
+    "# test for gc using --expose-gc\n"
+  ],
+  [
     "comment",
     "# test for gc using --expose-gc\n"
   ],
   [
     "line",
-    "# cleanup\n"
-  ],
-  [
-    "line",
-    "# tests 3\n"
-  ],
-  [
-    "line",
-    "# pass  3\n"
-  ],
-  [
-    "line",
-    "# ok\n"
-  ],
-  [
-    "line",
-    "ok 39 test/expose-gc-test.js\n"
+    "ok 38 should be equal\n"
   ],
   [
     "assert",
@@ -956,16 +936,32 @@
     }
   ],
   [
+    "line",
+    "# cleanup\n"
+  ],
+  [
     "comment",
     "# cleanup\n"
+  ],
+  [
+    "line",
+    "# tests 3\n"
   ],
   [
     "comment",
     "# tests 3\n"
   ],
   [
+    "line",
+    "# pass  3\n"
+  ],
+  [
     "comment",
     "# pass  3\n"
+  ],
+  [
+    "line",
+    "# ok\n"
   ],
   [
     "comment",
@@ -973,23 +969,7 @@
   ],
   [
     "line",
-    "# global-harness-async.js\n"
-  ],
-  [
-    "line",
-    "# TAP version 13\n"
-  ],
-  [
-    "line",
-    "# outer\n"
-  ],
-  [
-    "line",
-    "# inner 1\n"
-  ],
-  [
-    "line",
-    "ok 40 1-1\n"
+    "ok 39 test/expose-gc-test.js\n"
   ],
   [
     "assert",
@@ -1000,16 +980,32 @@
     }
   ],
   [
+    "line",
+    "# global-harness-async.js\n"
+  ],
+  [
     "comment",
     "# global-harness-async.js\n"
+  ],
+  [
+    "line",
+    "# TAP version 13\n"
   ],
   [
     "comment",
     "# TAP version 13\n"
   ],
   [
+    "line",
+    "# outer\n"
+  ],
+  [
     "comment",
     "# outer\n"
+  ],
+  [
+    "line",
+    "# inner 1\n"
   ],
   [
     "comment",
@@ -1017,11 +1013,7 @@
   ],
   [
     "line",
-    "# inner 2\n"
-  ],
-  [
-    "line",
-    "ok 41 2-1\n"
+    "ok 40 1-1\n"
   ],
   [
     "assert",
@@ -1032,16 +1024,16 @@
     }
   ],
   [
+    "line",
+    "# inner 2\n"
+  ],
+  [
     "comment",
     "# inner 2\n"
   ],
   [
     "line",
-    "# inner 3\n"
-  ],
-  [
-    "line",
-    "ok 42 3-1\n"
+    "ok 41 2-1\n"
   ],
   [
     "assert",
@@ -1052,12 +1044,16 @@
     }
   ],
   [
+    "line",
+    "# inner 3\n"
+  ],
+  [
     "comment",
     "# inner 3\n"
   ],
   [
     "line",
-    "ok 43 test/global-harness-async.js\n"
+    "ok 42 3-1\n"
   ],
   [
     "assert",
@@ -1069,31 +1065,7 @@
   ],
   [
     "line",
-    "# independent-timeouts.js\n"
-  ],
-  [
-    "line",
-    "# TAP version 13\n"
-  ],
-  [
-    "line",
-    "# finishes in time\n"
-  ],
-  [
-    "line",
-    "# finishes in time too\n"
-  ],
-  [
-    "line",
-    "# tests 0\n"
-  ],
-  [
-    "line",
-    "# ok\n"
-  ],
-  [
-    "line",
-    "ok 44 test/independent-timeouts.js\n"
+    "ok 43 test/global-harness-async.js\n"
   ],
   [
     "assert",
@@ -1104,24 +1076,48 @@
     }
   ],
   [
+    "line",
+    "# independent-timeouts.js\n"
+  ],
+  [
     "comment",
     "# independent-timeouts.js\n"
+  ],
+  [
+    "line",
+    "# TAP version 13\n"
   ],
   [
     "comment",
     "# TAP version 13\n"
   ],
   [
+    "line",
+    "# finishes in time\n"
+  ],
+  [
     "comment",
     "# finishes in time\n"
+  ],
+  [
+    "line",
+    "# finishes in time too\n"
   ],
   [
     "comment",
     "# finishes in time too\n"
   ],
   [
+    "line",
+    "# tests 0\n"
+  ],
+  [
     "comment",
     "# tests 0\n"
+  ],
+  [
+    "line",
+    "# ok\n"
   ],
   [
     "comment",
@@ -1129,19 +1125,7 @@
   ],
   [
     "line",
-    "# isolated-conf-test.js\n"
-  ],
-  [
-    "line",
-    "# TAP version 13\n"
-  ],
-  [
-    "line",
-    "# one\n"
-  ],
-  [
-    "line",
-    "ok 45 should be equal\n"
+    "ok 44 test/independent-timeouts.js\n"
   ],
   [
     "assert",
@@ -1152,12 +1136,24 @@
     }
   ],
   [
-    "comment",
+    "line",
     "# isolated-conf-test.js\n"
   ],
   [
     "comment",
+    "# isolated-conf-test.js\n"
+  ],
+  [
+    "line",
     "# TAP version 13\n"
+  ],
+  [
+    "comment",
+    "# TAP version 13\n"
+  ],
+  [
+    "line",
+    "# one\n"
   ],
   [
     "comment",
@@ -1165,7 +1161,7 @@
   ],
   [
     "line",
-    "ok 46 should be equal\n"
+    "ok 45 should be equal\n"
   ],
   [
     "assert",
@@ -1177,11 +1173,7 @@
   ],
   [
     "line",
-    "# two\n"
-  ],
-  [
-    "line",
-    "ok 47 should be equal\n"
+    "ok 46 should be equal\n"
   ],
   [
     "assert",
@@ -1192,12 +1184,16 @@
     }
   ],
   [
+    "line",
+    "# two\n"
+  ],
+  [
     "comment",
     "# two\n"
   ],
   [
     "line",
-    "ok 48 should be equal\n"
+    "ok 47 should be equal\n"
   ],
   [
     "assert",
@@ -1209,19 +1205,7 @@
   ],
   [
     "line",
-    "# tests 4\n"
-  ],
-  [
-    "line",
-    "# pass  4\n"
-  ],
-  [
-    "line",
-    "# ok\n"
-  ],
-  [
-    "line",
-    "ok 49 test/isolated-conf-test.js\n"
+    "ok 48 should be equal\n"
   ],
   [
     "assert",
@@ -1232,12 +1216,24 @@
     }
   ],
   [
-    "comment",
+    "line",
     "# tests 4\n"
   ],
   [
     "comment",
+    "# tests 4\n"
+  ],
+  [
+    "line",
     "# pass  4\n"
+  ],
+  [
+    "comment",
+    "# pass  4\n"
+  ],
+  [
+    "line",
+    "# ok\n"
   ],
   [
     "comment",
@@ -1245,19 +1241,7 @@
   ],
   [
     "line",
-    "# meta-test.js\n"
-  ],
-  [
-    "line",
-    "# TAP version 13\n"
-  ],
-  [
-    "line",
-    "# meta test\n"
-  ],
-  [
-    "line",
-    "ok 50 sanity check\n"
+    "ok 49 test/isolated-conf-test.js\n"
   ],
   [
     "assert",
@@ -1268,12 +1252,24 @@
     }
   ],
   [
-    "comment",
+    "line",
     "# meta-test.js\n"
   ],
   [
     "comment",
+    "# meta-test.js\n"
+  ],
+  [
+    "line",
     "# TAP version 13\n"
+  ],
+  [
+    "comment",
+    "# TAP version 13\n"
+  ],
+  [
+    "line",
+    "# meta test\n"
   ],
   [
     "comment",
@@ -1281,7 +1277,7 @@
   ],
   [
     "line",
-    "ok 51 not ok\n"
+    "ok 50 sanity check\n"
   ],
   [
     "assert",
@@ -1293,7 +1289,7 @@
   ],
   [
     "line",
-    "ok 52 total test count\n"
+    "ok 51 not ok\n"
   ],
   [
     "assert",
@@ -1305,7 +1301,7 @@
   ],
   [
     "line",
-    "ok 53 tests passed\n"
+    "ok 52 total test count\n"
   ],
   [
     "assert",
@@ -1317,7 +1313,7 @@
   ],
   [
     "line",
-    "ok 54 tests failed\n"
+    "ok 53 tests passed\n"
   ],
   [
     "assert",
@@ -1329,7 +1325,7 @@
   ],
   [
     "line",
-    "ok 55 ok is boolean\n"
+    "ok 54 tests failed\n"
   ],
   [
     "assert",
@@ -1341,7 +1337,7 @@
   ],
   [
     "line",
-    "ok 56 skip is number\n"
+    "ok 55 ok is boolean\n"
   ],
   [
     "assert",
@@ -1353,7 +1349,7 @@
   ],
   [
     "line",
-    "ok 57 results isa Results\n"
+    "ok 56 skip is number\n"
   ],
   [
     "assert",
@@ -1365,7 +1361,7 @@
   ],
   [
     "line",
-    "ok 58 test isa Test\n"
+    "ok 57 results isa Results\n"
   ],
   [
     "assert",
@@ -1377,7 +1373,7 @@
   ],
   [
     "line",
-    "ok 59 test isa Harness\n"
+    "ok 58 test isa Test\n"
   ],
   [
     "assert",
@@ -1389,19 +1385,7 @@
   ],
   [
     "line",
-    "# tests 10\n"
-  ],
-  [
-    "line",
-    "# pass  10\n"
-  ],
-  [
-    "line",
-    "# ok\n"
-  ],
-  [
-    "line",
-    "ok 60 test/meta-test.js\n"
+    "ok 59 test isa Harness\n"
   ],
   [
     "assert",
@@ -1412,12 +1396,24 @@
     }
   ],
   [
-    "comment",
+    "line",
     "# tests 10\n"
   ],
   [
     "comment",
+    "# tests 10\n"
+  ],
+  [
+    "line",
     "# pass  10\n"
+  ],
+  [
+    "comment",
+    "# pass  10\n"
+  ],
+  [
+    "line",
+    "# ok\n"
   ],
   [
     "comment",
@@ -1425,19 +1421,7 @@
   ],
   [
     "line",
-    "# nested-async.js\n"
-  ],
-  [
-    "line",
-    "# TAP version 13\n"
-  ],
-  [
-    "line",
-    "# Harness async test support\n"
-  ],
-  [
-    "line",
-    "ok 61 sync child A\n"
+    "ok 60 test/meta-test.js\n"
   ],
   [
     "assert",
@@ -1448,12 +1432,24 @@
     }
   ],
   [
-    "comment",
+    "line",
     "# nested-async.js\n"
   ],
   [
     "comment",
+    "# nested-async.js\n"
+  ],
+  [
+    "line",
     "# TAP version 13\n"
+  ],
+  [
+    "comment",
+    "# TAP version 13\n"
+  ],
+  [
+    "line",
+    "# Harness async test support\n"
   ],
   [
     "comment",
@@ -1461,15 +1457,7 @@
   ],
   [
     "line",
-    "# sync child B\n"
-  ],
-  [
-    "line",
-    "# async grandchild A\n"
-  ],
-  [
-    "line",
-    "ok 62 (unnamed assert)\n"
+    "ok 61 sync child A\n"
   ],
   [
     "assert",
@@ -1480,8 +1468,16 @@
     }
   ],
   [
+    "line",
+    "# sync child B\n"
+  ],
+  [
     "comment",
     "# sync child B\n"
+  ],
+  [
+    "line",
+    "# async grandchild A\n"
   ],
   [
     "comment",
@@ -1489,11 +1485,7 @@
   ],
   [
     "line",
-    "# async grandchild B\n"
-  ],
-  [
-    "line",
-    "ok 63 (unnamed assert)\n"
+    "ok 62 (unnamed assert)\n"
   ],
   [
     "assert",
@@ -1504,16 +1496,16 @@
     }
   ],
   [
+    "line",
+    "# async grandchild B\n"
+  ],
+  [
     "comment",
     "# async grandchild B\n"
   ],
   [
     "line",
-    "# async child\n"
-  ],
-  [
-    "line",
-    "ok 64 sync grandchild in async child A\n"
+    "ok 63 (unnamed assert)\n"
   ],
   [
     "assert",
@@ -1524,16 +1516,16 @@
     }
   ],
   [
+    "line",
+    "# async child\n"
+  ],
+  [
     "comment",
     "# async child\n"
   ],
   [
     "line",
-    "# sync grandchild in async child B\n"
-  ],
-  [
-    "line",
-    "ok 65 (unnamed assert)\n"
+    "ok 64 sync grandchild in async child A\n"
   ],
   [
     "assert",
@@ -1544,24 +1536,16 @@
     }
   ],
   [
+    "line",
+    "# sync grandchild in async child B\n"
+  ],
+  [
     "comment",
     "# sync grandchild in async child B\n"
   ],
   [
     "line",
-    "# tests 5\n"
-  ],
-  [
-    "line",
-    "# pass  5\n"
-  ],
-  [
-    "line",
-    "# ok\n"
-  ],
-  [
-    "line",
-    "ok 66 test/nested-async.js\n"
+    "ok 65 (unnamed assert)\n"
   ],
   [
     "assert",
@@ -1572,12 +1556,24 @@
     }
   ],
   [
-    "comment",
+    "line",
     "# tests 5\n"
   ],
   [
     "comment",
+    "# tests 5\n"
+  ],
+  [
+    "line",
     "# pass  5\n"
+  ],
+  [
+    "comment",
+    "# pass  5\n"
+  ],
+  [
+    "line",
+    "# ok\n"
   ],
   [
     "comment",
@@ -1585,19 +1581,7 @@
   ],
   [
     "line",
-    "# nested-test.js\n"
-  ],
-  [
-    "line",
-    "# TAP version 13\n"
-  ],
-  [
-    "line",
-    "# parent\n"
-  ],
-  [
-    "line",
-    "ok 67 p test\n"
+    "ok 66 test/nested-async.js\n"
   ],
   [
     "assert",
@@ -1608,12 +1592,24 @@
     }
   ],
   [
-    "comment",
+    "line",
     "# nested-test.js\n"
   ],
   [
     "comment",
+    "# nested-test.js\n"
+  ],
+  [
+    "line",
     "# TAP version 13\n"
+  ],
+  [
+    "comment",
+    "# TAP version 13\n"
+  ],
+  [
+    "line",
+    "# parent\n"
   ],
   [
     "comment",
@@ -1621,11 +1617,7 @@
   ],
   [
     "line",
-    "# subtest\n"
-  ],
-  [
-    "line",
-    "ok 68 ch test\n"
+    "ok 67 p test\n"
   ],
   [
     "assert",
@@ -1636,16 +1628,16 @@
     }
   ],
   [
+    "line",
+    "# subtest\n"
+  ],
+  [
     "comment",
     "# subtest\n"
   ],
   [
     "line",
-    "# nested subtest\n"
-  ],
-  [
-    "line",
-    "ok 69 grch test\n"
+    "ok 68 ch test\n"
   ],
   [
     "assert",
@@ -1656,16 +1648,16 @@
     }
   ],
   [
+    "line",
+    "# nested subtest\n"
+  ],
+  [
     "comment",
     "# nested subtest\n"
   ],
   [
     "line",
-    "# another subtest\n"
-  ],
-  [
-    "line",
-    "ok 70 ch test 2\n"
+    "ok 69 grch test\n"
   ],
   [
     "assert",
@@ -1676,24 +1668,16 @@
     }
   ],
   [
+    "line",
+    "# another subtest\n"
+  ],
+  [
     "comment",
     "# another subtest\n"
   ],
   [
     "line",
-    "# tests 4\n"
-  ],
-  [
-    "line",
-    "# pass  4\n"
-  ],
-  [
-    "line",
-    "# ok\n"
-  ],
-  [
-    "line",
-    "ok 71 test/nested-test.js\n"
+    "ok 70 ch test 2\n"
   ],
   [
     "assert",
@@ -1704,12 +1688,24 @@
     }
   ],
   [
-    "comment",
+    "line",
     "# tests 4\n"
   ],
   [
     "comment",
+    "# tests 4\n"
+  ],
+  [
+    "line",
     "# pass  4\n"
+  ],
+  [
+    "comment",
+    "# pass  4\n"
+  ],
+  [
+    "line",
+    "# ok\n"
   ],
   [
     "comment",
@@ -1717,27 +1713,7 @@
   ],
   [
     "line",
-    "# non-tap-output.js\n"
-  ],
-  [
-    "line",
-    "# everything is fine\n"
-  ],
-  [
-    "line",
-    "# there are no errors\n"
-  ],
-  [
-    "line",
-    "# this output is not haiku.\n"
-  ],
-  [
-    "line",
-    "# is 8 ok?\n"
-  ],
-  [
-    "line",
-    "ok 72 , 8 can stay.\n"
+    "ok 71 test/nested-test.js\n"
   ],
   [
     "assert",
@@ -1748,20 +1724,40 @@
     }
   ],
   [
+    "line",
+    "# non-tap-output.js\n"
+  ],
+  [
     "comment",
     "# non-tap-output.js\n"
+  ],
+  [
+    "line",
+    "# everything is fine\n"
   ],
   [
     "comment",
     "# everything is fine\n"
   ],
   [
-    "comment",
+    "line",
     "# there are no errors\n"
   ],
   [
     "comment",
+    "# there are no errors\n"
+  ],
+  [
+    "line",
     "# this output is not haiku.\n"
+  ],
+  [
+    "comment",
+    "# this output is not haiku.\n"
+  ],
+  [
+    "line",
+    "# is 8 ok?\n"
   ],
   [
     "comment",
@@ -1769,27 +1765,7 @@
   ],
   [
     "line",
-    "# but: nevertheless, here we are\n"
-  ],
-  [
-    "line",
-    "# this: is indented\n"
-  ],
-  [
-    "line",
-    "# and: it\n"
-  ],
-  [
-    "line",
-    "# might: ~\n"
-  ],
-  [
-    "line",
-    "# be: yaml?\n"
-  ],
-  [
-    "line",
-    "ok 73 might be confusing\n"
+    "ok 72 , 8 can stay.\n"
   ],
   [
     "assert",
@@ -1800,20 +1776,40 @@
     }
   ],
   [
+    "line",
+    "# but: nevertheless, here we are\n"
+  ],
+  [
     "comment",
     "# but: nevertheless, here we are\n"
+  ],
+  [
+    "line",
+    "# this: is indented\n"
   ],
   [
     "comment",
     "# this: is indented\n"
   ],
   [
-    "comment",
+    "line",
     "# and: it\n"
   ],
   [
     "comment",
+    "# and: it\n"
+  ],
+  [
+    "line",
     "# might: ~\n"
+  ],
+  [
+    "comment",
+    "# might: ~\n"
+  ],
+  [
+    "line",
+    "# be: yaml?\n"
   ],
   [
     "comment",
@@ -1821,7 +1817,7 @@
   ],
   [
     "line",
-    "ok 74 done now, exiting\n"
+    "ok 73 might be confusing\n"
   ],
   [
     "assert",
@@ -1833,7 +1829,7 @@
   ],
   [
     "line",
-    "ok 75 test/non-tap-output.js\n"
+    "ok 74 done now, exiting\n"
   ],
   [
     "assert",
@@ -1845,27 +1841,7 @@
   ],
   [
     "line",
-    "# not-executed.sh\n"
-  ],
-  [
-    "line",
-    "# output-childtest-description.js\n"
-  ],
-  [
-    "line",
-    "# /Users/isaacs/dev/js/tap/test/nested-tests-fixture.js\n"
-  ],
-  [
-    "line",
-    "# TAP version 13\n"
-  ],
-  [
-    "line",
-    "# nested tests, parent and child pass\n"
-  ],
-  [
-    "line",
-    "ok 76 outputs parent description\n"
+    "ok 75 test/non-tap-output.js\n"
   ],
   [
     "assert",
@@ -1876,20 +1852,40 @@
     }
   ],
   [
+    "line",
+    "# not-executed.sh\n"
+  ],
+  [
     "comment",
     "# not-executed.sh\n"
+  ],
+  [
+    "line",
+    "# output-childtest-description.js\n"
   ],
   [
     "comment",
     "# output-childtest-description.js\n"
   ],
   [
-    "comment",
+    "line",
     "# /Users/isaacs/dev/js/tap/test/nested-tests-fixture.js\n"
   ],
   [
     "comment",
+    "# /Users/isaacs/dev/js/tap/test/nested-tests-fixture.js\n"
+  ],
+  [
+    "line",
     "# TAP version 13\n"
+  ],
+  [
+    "comment",
+    "# TAP version 13\n"
+  ],
+  [
+    "line",
+    "# nested tests, parent and child pass\n"
   ],
   [
     "comment",
@@ -1897,7 +1893,7 @@
   ],
   [
     "line",
-    "ok 77 outputs child description\n"
+    "ok 76 outputs parent description\n"
   ],
   [
     "assert",
@@ -1909,7 +1905,7 @@
   ],
   [
     "line",
-    "ok 78 outputs parent description before parent result\n"
+    "ok 77 outputs child description\n"
   ],
   [
     "assert",
@@ -1921,7 +1917,7 @@
   ],
   [
     "line",
-    "ok 79 outputs parent result before child description\n"
+    "ok 78 outputs parent description before parent result\n"
   ],
   [
     "assert",
@@ -1933,7 +1929,7 @@
   ],
   [
     "line",
-    "ok 80 outputs child description before child result\n"
+    "ok 79 outputs parent result before child description\n"
   ],
   [
     "assert",
@@ -1945,19 +1941,7 @@
   ],
   [
     "line",
-    "# tests 5\n"
-  ],
-  [
-    "line",
-    "# pass  5\n"
-  ],
-  [
-    "line",
-    "# ok\n"
-  ],
-  [
-    "line",
-    "ok 81 test/output-childtest-description.js\n"
+    "ok 80 outputs child description before child result\n"
   ],
   [
     "assert",
@@ -1968,12 +1952,24 @@
     }
   ],
   [
-    "comment",
+    "line",
     "# tests 5\n"
   ],
   [
     "comment",
+    "# tests 5\n"
+  ],
+  [
+    "line",
     "# pass  5\n"
+  ],
+  [
+    "comment",
+    "# pass  5\n"
+  ],
+  [
+    "line",
+    "# ok\n"
   ],
   [
     "comment",
@@ -1981,19 +1977,7 @@
   ],
   [
     "line",
-    "# result-trap.js\n"
-  ],
-  [
-    "line",
-    "# TAP version 13\n"
-  ],
-  [
-    "line",
-    "# trap result\n"
-  ],
-  [
-    "line",
-    "ok 82 should be equal\n"
+    "ok 81 test/output-childtest-description.js\n"
   ],
   [
     "assert",
@@ -2004,12 +1988,24 @@
     }
   ],
   [
-    "comment",
+    "line",
     "# result-trap.js\n"
   ],
   [
     "comment",
+    "# result-trap.js\n"
+  ],
+  [
+    "line",
     "# TAP version 13\n"
+  ],
+  [
+    "comment",
+    "# TAP version 13\n"
+  ],
+  [
+    "line",
+    "# trap result\n"
   ],
   [
     "comment",
@@ -2017,7 +2013,7 @@
   ],
   [
     "line",
-    "ok 83 should be equal\n"
+    "ok 82 should be equal\n"
   ],
   [
     "assert",
@@ -2029,19 +2025,7 @@
   ],
   [
     "line",
-    "# tests 2\n"
-  ],
-  [
-    "line",
-    "# pass  2\n"
-  ],
-  [
-    "line",
-    "# ok\n"
-  ],
-  [
-    "line",
-    "ok 84 test/result-trap.js\n"
+    "ok 83 should be equal\n"
   ],
   [
     "assert",
@@ -2052,12 +2036,24 @@
     }
   ],
   [
-    "comment",
+    "line",
     "# tests 2\n"
   ],
   [
     "comment",
+    "# tests 2\n"
+  ],
+  [
+    "line",
     "# pass  2\n"
+  ],
+  [
+    "comment",
+    "# pass  2\n"
+  ],
+  [
+    "line",
+    "# ok\n"
   ],
   [
     "comment",
@@ -2065,19 +2061,7 @@
   ],
   [
     "line",
-    "# segv.js\n"
-  ],
-  [
-    "line",
-    "# TAP version 13\n"
-  ],
-  [
-    "line",
-    "# setup\n"
-  ],
-  [
-    "line",
-    "ok 85 compiled seg faulter\n"
+    "ok 84 test/result-trap.js\n"
   ],
   [
     "assert",
@@ -2088,12 +2072,24 @@
     }
   ],
   [
-    "comment",
+    "line",
     "# segv.js\n"
   ],
   [
     "comment",
+    "# segv.js\n"
+  ],
+  [
+    "line",
     "# TAP version 13\n"
+  ],
+  [
+    "comment",
+    "# TAP version 13\n"
+  ],
+  [
+    "line",
+    "# setup\n"
   ],
   [
     "comment",
@@ -2101,11 +2097,7 @@
   ],
   [
     "line",
-    "# segv\n"
-  ],
-  [
-    "line",
-    "ok 86 should be equivalent\n"
+    "ok 85 compiled seg faulter\n"
   ],
   [
     "assert",
@@ -2116,12 +2108,16 @@
     }
   ],
   [
+    "line",
+    "# segv\n"
+  ],
+  [
     "comment",
     "# segv\n"
   ],
   [
     "line",
-    "ok 87 should be equivalent\n"
+    "ok 86 should be equivalent\n"
   ],
   [
     "assert",
@@ -2133,7 +2129,7 @@
   ],
   [
     "line",
-    "ok 88 should be equivalent\n"
+    "ok 87 should be equivalent\n"
   ],
   [
     "assert",
@@ -2145,7 +2141,7 @@
   ],
   [
     "line",
-    "ok 89 should be equivalent\n"
+    "ok 88 should be equivalent\n"
   ],
   [
     "assert",
@@ -2157,7 +2153,7 @@
   ],
   [
     "line",
-    "ok 90 should be equivalent\n"
+    "ok 89 should be equivalent\n"
   ],
   [
     "assert",
@@ -2169,7 +2165,7 @@
   ],
   [
     "line",
-    "ok 91 should be equal\n"
+    "ok 90 should be equivalent\n"
   ],
   [
     "assert",
@@ -2181,11 +2177,7 @@
   ],
   [
     "line",
-    "# cleanup\n"
-  ],
-  [
-    "line",
-    "ok 92 cleaned up\n"
+    "ok 91 should be equal\n"
   ],
   [
     "assert",
@@ -2196,24 +2188,16 @@
     }
   ],
   [
+    "line",
+    "# cleanup\n"
+  ],
+  [
     "comment",
     "# cleanup\n"
   ],
   [
     "line",
-    "# tests 8\n"
-  ],
-  [
-    "line",
-    "# pass  8\n"
-  ],
-  [
-    "line",
-    "# ok\n"
-  ],
-  [
-    "line",
-    "ok 93 test/segv.js\n"
+    "ok 92 cleaned up\n"
   ],
   [
     "assert",
@@ -2224,12 +2208,24 @@
     }
   ],
   [
-    "comment",
+    "line",
     "# tests 8\n"
   ],
   [
     "comment",
+    "# tests 8\n"
+  ],
+  [
+    "line",
     "# pass  8\n"
+  ],
+  [
+    "comment",
+    "# pass  8\n"
+  ],
+  [
+    "line",
+    "# ok\n"
   ],
   [
     "comment",
@@ -2237,19 +2233,7 @@
   ],
   [
     "line",
-    "# simple-harness-test-with-plan.js\n"
-  ],
-  [
-    "line",
-    "# TAP version 13\n"
-  ],
-  [
-    "line",
-    "# trivial success\n"
-  ],
-  [
-    "line",
-    "ok 94 it works\n"
+    "ok 93 test/segv.js\n"
   ],
   [
     "assert",
@@ -2260,12 +2244,24 @@
     }
   ],
   [
-    "comment",
+    "line",
     "# simple-harness-test-with-plan.js\n"
   ],
   [
     "comment",
+    "# simple-harness-test-with-plan.js\n"
+  ],
+  [
+    "line",
     "# TAP version 13\n"
+  ],
+  [
+    "comment",
+    "# TAP version 13\n"
+  ],
+  [
+    "line",
+    "# trivial success\n"
   ],
   [
     "comment",
@@ -2273,11 +2269,7 @@
   ],
   [
     "line",
-    "# two tests\n"
-  ],
-  [
-    "line",
-    "ok 95 math should work\n"
+    "ok 94 it works\n"
   ],
   [
     "assert",
@@ -2288,12 +2280,16 @@
     }
   ],
   [
+    "line",
+    "# two tests\n"
+  ],
+  [
     "comment",
     "# two tests\n"
   ],
   [
     "line",
-    "ok 96 false should not be ok\n"
+    "ok 95 math should work\n"
   ],
   [
     "assert",
@@ -2305,19 +2301,7 @@
   ],
   [
     "line",
-    "# tests 3\n"
-  ],
-  [
-    "line",
-    "# pass  3\n"
-  ],
-  [
-    "line",
-    "# ok\n"
-  ],
-  [
-    "line",
-    "ok 97 test/simple-harness-test-with-plan.js\n"
+    "ok 96 false should not be ok\n"
   ],
   [
     "assert",
@@ -2328,12 +2312,24 @@
     }
   ],
   [
-    "comment",
+    "line",
     "# tests 3\n"
   ],
   [
     "comment",
+    "# tests 3\n"
+  ],
+  [
+    "line",
     "# pass  3\n"
+  ],
+  [
+    "comment",
+    "# pass  3\n"
+  ],
+  [
+    "line",
+    "# ok\n"
   ],
   [
     "comment",
@@ -2341,19 +2337,7 @@
   ],
   [
     "line",
-    "# simple-harness-test.js\n"
-  ],
-  [
-    "line",
-    "# TAP version 13\n"
-  ],
-  [
-    "line",
-    "# trivial success\n"
-  ],
-  [
-    "line",
-    "ok 98 it works\n"
+    "ok 97 test/simple-harness-test-with-plan.js\n"
   ],
   [
     "assert",
@@ -2364,12 +2348,24 @@
     }
   ],
   [
-    "comment",
+    "line",
     "# simple-harness-test.js\n"
   ],
   [
     "comment",
+    "# simple-harness-test.js\n"
+  ],
+  [
+    "line",
     "# TAP version 13\n"
+  ],
+  [
+    "comment",
+    "# TAP version 13\n"
+  ],
+  [
+    "line",
+    "# trivial success\n"
   ],
   [
     "comment",
@@ -2377,11 +2373,7 @@
   ],
   [
     "line",
-    "# two tests\n"
-  ],
-  [
-    "line",
-    "ok 99 math should work\n"
+    "ok 98 it works\n"
   ],
   [
     "assert",
@@ -2392,12 +2384,16 @@
     }
   ],
   [
+    "line",
+    "# two tests\n"
+  ],
+  [
     "comment",
     "# two tests\n"
   ],
   [
     "line",
-    "ok 100 false should not be ok\n"
+    "ok 99 math should work\n"
   ],
   [
     "assert",
@@ -2409,19 +2405,7 @@
   ],
   [
     "line",
-    "# tests 3\n"
-  ],
-  [
-    "line",
-    "# pass  3\n"
-  ],
-  [
-    "line",
-    "# ok\n"
-  ],
-  [
-    "line",
-    "ok 101 test/simple-harness-test.js\n"
+    "ok 100 false should not be ok\n"
   ],
   [
     "assert",
@@ -2432,12 +2416,24 @@
     }
   ],
   [
-    "comment",
+    "line",
     "# tests 3\n"
   ],
   [
     "comment",
+    "# tests 3\n"
+  ],
+  [
+    "line",
     "# pass  3\n"
+  ],
+  [
+    "comment",
+    "# pass  3\n"
+  ],
+  [
+    "line",
+    "# ok\n"
   ],
   [
     "comment",
@@ -2445,19 +2441,7 @@
   ],
   [
     "line",
-    "# test-assert-todo-skip.js\n"
-  ],
-  [
-    "line",
-    "# TAP version 13\n"
-  ],
-  [
-    "line",
-    "# not much\n"
-  ],
-  [
-    "line",
-    "ok 102 always passes # SKIP skip it good\n"
+    "ok 101 test/simple-harness-test.js\n"
   ],
   [
     "assert",
@@ -2468,12 +2452,24 @@
     }
   ],
   [
-    "comment",
+    "line",
     "# test-assert-todo-skip.js\n"
   ],
   [
     "comment",
+    "# test-assert-todo-skip.js\n"
+  ],
+  [
+    "line",
     "# TAP version 13\n"
+  ],
+  [
+    "comment",
+    "# TAP version 13\n"
+  ],
+  [
+    "line",
+    "# not much\n"
   ],
   [
     "comment",
@@ -2481,7 +2477,7 @@
   ],
   [
     "line",
-    "ok 103 false # SKIP always fails\n"
+    "ok 102 always passes # SKIP skip it good\n"
   ],
   [
     "assert",
@@ -2494,7 +2490,7 @@
   ],
   [
     "line",
-    "ok 104 bonus # TODO remove todo directive\n"
+    "ok 103 false # SKIP always fails\n"
   ],
   [
     "assert",
@@ -2507,7 +2503,7 @@
   ],
   [
     "line",
-    "ok 105 expected # TODO implement a thing\n"
+    "ok 104 bonus # TODO remove todo directive\n"
   ],
   [
     "assert",
@@ -2520,7 +2516,7 @@
   ],
   [
     "line",
-    "ok 106 always passes without explanation # SKIP \n"
+    "ok 105 expected # TODO implement a thing\n"
   ],
   [
     "assert",
@@ -2533,7 +2529,7 @@
   ],
   [
     "line",
-    "ok 107 false without explanation # SKIP \n"
+    "ok 106 always passes without explanation # SKIP \n"
   ],
   [
     "assert",
@@ -2546,7 +2542,7 @@
   ],
   [
     "line",
-    "ok 108 bonus without explanation # TODO \n"
+    "ok 107 false without explanation # SKIP \n"
   ],
   [
     "assert",
@@ -2559,7 +2555,7 @@
   ],
   [
     "line",
-    "ok 109 expected without explanation # TODO \n"
+    "ok 108 bonus without explanation # TODO \n"
   ],
   [
     "assert",
@@ -2572,19 +2568,7 @@
   ],
   [
     "line",
-    "# tests 8\n"
-  ],
-  [
-    "line",
-    "# skip  4\n"
-  ],
-  [
-    "line",
-    "# todo  4\n"
-  ],
-  [
-    "line",
-    "ok 110 test/test-assert-todo-skip.js\n"
+    "ok 109 expected without explanation # TODO \n"
   ],
   [
     "assert",
@@ -2596,12 +2580,24 @@
     }
   ],
   [
-    "comment",
+    "line",
     "# tests 8\n"
   ],
   [
     "comment",
+    "# tests 8\n"
+  ],
+  [
+    "line",
     "# skip  4\n"
+  ],
+  [
+    "comment",
+    "# skip  4\n"
+  ],
+  [
+    "line",
+    "# todo  4\n"
   ],
   [
     "comment",
@@ -2609,19 +2605,7 @@
   ],
   [
     "line",
-    "# test-descriptions.js\n"
-  ],
-  [
-    "line",
-    "# TAP version 13\n"
-  ],
-  [
-    "line",
-    "# captures test descriptions\n"
-  ],
-  [
-    "line",
-    "ok 111 exit cleanly\n"
+    "ok 110 test/test-assert-todo-skip.js\n"
   ],
   [
     "assert",
@@ -2632,12 +2616,24 @@
     }
   ],
   [
-    "comment",
+    "line",
     "# test-descriptions.js\n"
   ],
   [
     "comment",
+    "# test-descriptions.js\n"
+  ],
+  [
+    "line",
     "# TAP version 13\n"
+  ],
+  [
+    "comment",
+    "# TAP version 13\n"
+  ],
+  [
+    "line",
+    "# captures test descriptions\n"
   ],
   [
     "comment",
@@ -2645,7 +2641,7 @@
   ],
   [
     "line",
-    "ok 112 captures SKIP description\n"
+    "ok 111 exit cleanly\n"
   ],
   [
     "assert",
@@ -2657,7 +2653,7 @@
   ],
   [
     "line",
-    "ok 113 skip summary is not from file\n"
+    "ok 112 captures SKIP description\n"
   ],
   [
     "assert",
@@ -2669,7 +2665,7 @@
   ],
   [
     "line",
-    "ok 114 todo summary is not from file\n"
+    "ok 113 skip summary is not from file\n"
   ],
   [
     "assert",
@@ -2681,7 +2677,7 @@
   ],
   [
     "line",
-    "not ok 115 captures TODO description\n"
+    "ok 114 todo summary is not from file\n"
   ],
   [
     "assert",
@@ -2690,6 +2686,10 @@
       "id": 114,
       "name": "todo summary is not from file"
     }
+  ],
+  [
+    "line",
+    "not ok 115 captures TODO description\n"
   ],
   [
     "line",
@@ -2796,10 +2796,6 @@
     "  ...\n"
   ],
   [
-    "line",
-    "ok 116 exit cleanly\n"
-  ],
-  [
     "assert",
     {
       "ok": false,
@@ -2826,7 +2822,7 @@
   ],
   [
     "line",
-    "ok 117 captures SKIP description\n"
+    "ok 116 exit cleanly\n"
   ],
   [
     "assert",
@@ -2838,7 +2834,7 @@
   ],
   [
     "line",
-    "ok 118 skip summary is not in TAP output\n"
+    "ok 117 captures SKIP description\n"
   ],
   [
     "assert",
@@ -2850,7 +2846,7 @@
   ],
   [
     "line",
-    "ok 119 todo summary is not in TAP output\n"
+    "ok 118 skip summary is not in TAP output\n"
   ],
   [
     "assert",
@@ -2862,7 +2858,7 @@
   ],
   [
     "line",
-    "not ok 120 captures TODO description\n"
+    "ok 119 todo summary is not in TAP output\n"
   ],
   [
     "assert",
@@ -2871,6 +2867,10 @@
       "id": 119,
       "name": "todo summary is not in TAP output"
     }
+  ],
+  [
+    "line",
+    "not ok 120 captures TODO description\n"
   ],
   [
     "line",
@@ -2969,10 +2969,6 @@
     "  ...\n"
   ],
   [
-    "line",
-    "ok 121 exit cleanly\n"
-  ],
-  [
     "assert",
     {
       "ok": false,
@@ -2998,7 +2994,7 @@
   ],
   [
     "line",
-    "not ok 122 summarizes skipped count\n"
+    "ok 121 exit cleanly\n"
   ],
   [
     "assert",
@@ -3007,6 +3003,10 @@
       "id": 121,
       "name": "exit cleanly"
     }
+  ],
+  [
+    "line",
+    "not ok 122 summarizes skipped count\n"
   ],
   [
     "line",
@@ -3105,10 +3105,6 @@
     "  ...\n"
   ],
   [
-    "line",
-    "not ok 123 summarizes todo count\n"
-  ],
-  [
     "assert",
     {
       "ok": false,
@@ -3131,6 +3127,10 @@
         ]
       }
     }
+  ],
+  [
+    "line",
+    "not ok 123 summarizes todo count\n"
   ],
   [
     "line",
@@ -3229,22 +3229,6 @@
     "  ...\n"
   ],
   [
-    "line",
-    "# tests 13\n"
-  ],
-  [
-    "line",
-    "# pass  9\n"
-  ],
-  [
-    "line",
-    "# fail  4\n"
-  ],
-  [
-    "line",
-    "not ok 124 test/test-descriptions.js\n"
-  ],
-  [
     "assert",
     {
       "ok": false,
@@ -3269,16 +3253,32 @@
     }
   ],
   [
+    "line",
+    "# tests 13\n"
+  ],
+  [
     "comment",
     "# tests 13\n"
+  ],
+  [
+    "line",
+    "# pass  9\n"
   ],
   [
     "comment",
     "# pass  9\n"
   ],
   [
+    "line",
+    "# fail  4\n"
+  ],
+  [
     "comment",
     "# fail  4\n"
+  ],
+  [
+    "line",
+    "not ok 124 test/test-descriptions.js\n"
   ],
   [
     "line",
@@ -3297,26 +3297,6 @@
     "  ...\n"
   ],
   [
-    "line",
-    "# test-directives.js\n"
-  ],
-  [
-    "line",
-    "# TAP version 13\n"
-  ],
-  [
-    "line",
-    "# captures test descriptions\n"
-  ],
-  [
-    "line",
-    "# raw TAP > TAP consumer > TAP producer\n"
-  ],
-  [
-    "line",
-    "ok 125 overall result is PASS\n"
-  ],
-  [
     "assert",
     {
       "ok": false,
@@ -3329,16 +3309,32 @@
     }
   ],
   [
+    "line",
+    "# test-directives.js\n"
+  ],
+  [
     "comment",
     "# test-directives.js\n"
+  ],
+  [
+    "line",
+    "# TAP version 13\n"
   ],
   [
     "comment",
     "# TAP version 13\n"
   ],
   [
+    "line",
+    "# captures test descriptions\n"
+  ],
+  [
     "comment",
     "# captures test descriptions\n"
+  ],
+  [
+    "line",
+    "# raw TAP > TAP consumer > TAP producer\n"
   ],
   [
     "comment",
@@ -3346,7 +3342,7 @@
   ],
   [
     "line",
-    "ok 126 captures ok SKIP\n"
+    "ok 125 overall result is PASS\n"
   ],
   [
     "assert",
@@ -3358,7 +3354,7 @@
   ],
   [
     "line",
-    "ok 127 captures not ok SKIP\n"
+    "ok 126 captures ok SKIP\n"
   ],
   [
     "assert",
@@ -3370,7 +3366,7 @@
   ],
   [
     "line",
-    "ok 128 skip summary not in TAP output\n"
+    "ok 127 captures not ok SKIP\n"
   ],
   [
     "assert",
@@ -3382,7 +3378,7 @@
   ],
   [
     "line",
-    "ok 129 captures ok TODO\n"
+    "ok 128 skip summary not in TAP output\n"
   ],
   [
     "assert",
@@ -3394,7 +3390,7 @@
   ],
   [
     "line",
-    "ok 130 captures not ok TODO\n"
+    "ok 129 captures ok TODO\n"
   ],
   [
     "assert",
@@ -3406,7 +3402,7 @@
   ],
   [
     "line",
-    "ok 131 todo summary is not in TAP output\n"
+    "ok 130 captures not ok TODO\n"
   ],
   [
     "assert",
@@ -3418,7 +3414,7 @@
   ],
   [
     "line",
-    "ok 132 no ugly \"undefined\" in output\n"
+    "ok 131 todo summary is not in TAP output\n"
   ],
   [
     "assert",
@@ -3430,11 +3426,7 @@
   ],
   [
     "line",
-    "# raw TAP > TAP consumer > summary\n"
-  ],
-  [
-    "line",
-    "ok 133 overall result is PASS\n"
+    "ok 132 no ugly \"undefined\" in output\n"
   ],
   [
     "assert",
@@ -3445,12 +3437,16 @@
     }
   ],
   [
+    "line",
+    "# raw TAP > TAP consumer > summary\n"
+  ],
+  [
     "comment",
     "# raw TAP > TAP consumer > summary\n"
   ],
   [
     "line",
-    "ok 134 no SKIP in summary\n"
+    "ok 133 overall result is PASS\n"
   ],
   [
     "assert",
@@ -3462,7 +3458,7 @@
   ],
   [
     "line",
-    "ok 135 skip summary is not in TAP output\n"
+    "ok 134 no SKIP in summary\n"
   ],
   [
     "assert",
@@ -3474,7 +3470,7 @@
   ],
   [
     "line",
-    "ok 136 no TODO in summary\n"
+    "ok 135 skip summary is not in TAP output\n"
   ],
   [
     "assert",
@@ -3486,7 +3482,7 @@
   ],
   [
     "line",
-    "ok 137 todo summary is not in TAP output\n"
+    "ok 136 no TODO in summary\n"
   ],
   [
     "assert",
@@ -3498,7 +3494,7 @@
   ],
   [
     "line",
-    "ok 138 no ugly \"undefined\" in output\n"
+    "ok 137 todo summary is not in TAP output\n"
   ],
   [
     "assert",
@@ -3510,11 +3506,7 @@
   ],
   [
     "line",
-    "# TAP producer via require(\"tap\")\n"
-  ],
-  [
-    "line",
-    "ok 139 overall result is PASS\n"
+    "ok 138 no ugly \"undefined\" in output\n"
   ],
   [
     "assert",
@@ -3525,12 +3517,16 @@
     }
   ],
   [
+    "line",
+    "# TAP producer via require(\"tap\")\n"
+  ],
+  [
     "comment",
     "# TAP producer via require(\"tap\")\n"
   ],
   [
     "line",
-    "ok 140 captures ok SKIP\n"
+    "ok 139 overall result is PASS\n"
   ],
   [
     "assert",
@@ -3542,7 +3538,7 @@
   ],
   [
     "line",
-    "ok 141 captures not ok SKIP\n"
+    "ok 140 captures ok SKIP\n"
   ],
   [
     "assert",
@@ -3554,7 +3550,7 @@
   ],
   [
     "line",
-    "ok 142 skip summary not in TAP output\n"
+    "ok 141 captures not ok SKIP\n"
   ],
   [
     "assert",
@@ -3566,7 +3562,7 @@
   ],
   [
     "line",
-    "ok 143 captures ok TODO\n"
+    "ok 142 skip summary not in TAP output\n"
   ],
   [
     "assert",
@@ -3578,7 +3574,7 @@
   ],
   [
     "line",
-    "ok 144 captures not ok TODO\n"
+    "ok 143 captures ok TODO\n"
   ],
   [
     "assert",
@@ -3590,7 +3586,7 @@
   ],
   [
     "line",
-    "ok 145 todo summary is not in TAP output\n"
+    "ok 144 captures not ok TODO\n"
   ],
   [
     "assert",
@@ -3602,7 +3598,7 @@
   ],
   [
     "line",
-    "ok 146 no ugly \"undefined\" in output\n"
+    "ok 145 todo summary is not in TAP output\n"
   ],
   [
     "assert",
@@ -3614,19 +3610,7 @@
   ],
   [
     "line",
-    "# tests 22\n"
-  ],
-  [
-    "line",
-    "# pass  22\n"
-  ],
-  [
-    "line",
-    "# ok\n"
-  ],
-  [
-    "line",
-    "ok 147 test/test-directives.js\n"
+    "ok 146 no ugly \"undefined\" in output\n"
   ],
   [
     "assert",
@@ -3637,12 +3621,24 @@
     }
   ],
   [
-    "comment",
+    "line",
     "# tests 22\n"
   ],
   [
     "comment",
+    "# tests 22\n"
+  ],
+  [
+    "line",
     "# pass  22\n"
+  ],
+  [
+    "comment",
+    "# pass  22\n"
+  ],
+  [
+    "line",
+    "# ok\n"
   ],
   [
     "comment",
@@ -3650,15 +3646,7 @@
   ],
   [
     "line",
-    "# test-skip.js\n"
-  ],
-  [
-    "line",
-    "# TAP version 13\n"
-  ],
-  [
-    "line",
-    "ok 148 does not count as failure # SKIP \n"
+    "ok 147 test/test-directives.js\n"
   ],
   [
     "assert",
@@ -3669,8 +3657,16 @@
     }
   ],
   [
+    "line",
+    "# test-skip.js\n"
+  ],
+  [
     "comment",
     "# test-skip.js\n"
+  ],
+  [
+    "line",
+    "# TAP version 13\n"
   ],
   [
     "comment",
@@ -3678,15 +3674,7 @@
   ],
   [
     "line",
-    "# tests 1\n"
-  ],
-  [
-    "line",
-    "# skip  1\n"
-  ],
-  [
-    "line",
-    "ok 149 test/test-skip.js\n"
+    "ok 148 does not count as failure # SKIP \n"
   ],
   [
     "assert",
@@ -3698,8 +3686,16 @@
     }
   ],
   [
+    "line",
+    "# tests 1\n"
+  ],
+  [
     "comment",
     "# tests 1\n"
+  ],
+  [
+    "line",
+    "# skip  1\n"
   ],
   [
     "comment",
@@ -3707,19 +3703,7 @@
   ],
   [
     "line",
-    "# test-test.js\n"
-  ],
-  [
-    "line",
-    "# TAP version 13\n"
-  ],
-  [
-    "line",
-    "# testing the test object\n"
-  ],
-  [
-    "line",
-    "ok 150 test object should be instanceof Test\n"
+    "ok 149 test/test-skip.js\n"
   ],
   [
     "assert",
@@ -3730,12 +3714,24 @@
     }
   ],
   [
-    "comment",
+    "line",
     "# test-test.js\n"
   ],
   [
     "comment",
+    "# test-test.js\n"
+  ],
+  [
+    "line",
     "# TAP version 13\n"
+  ],
+  [
+    "comment",
+    "# TAP version 13\n"
+  ],
+  [
+    "line",
+    "# testing the test object\n"
   ],
   [
     "comment",
@@ -3743,7 +3739,7 @@
   ],
   [
     "line",
-    "ok 151 test object should be instanceof Harness\n"
+    "ok 150 test object should be instanceof Test\n"
   ],
   [
     "assert",
@@ -3755,7 +3751,7 @@
   ],
   [
     "line",
-    "ok 152 test._Test should be the Test class\n"
+    "ok 151 test object should be instanceof Harness\n"
   ],
   [
     "assert",
@@ -3767,7 +3763,7 @@
   ],
   [
     "line",
-    "ok 153 should have isNotDeepEqual method\n"
+    "ok 152 test._Test should be the Test class\n"
   ],
   [
     "assert",
@@ -3779,7 +3775,7 @@
   ],
   [
     "line",
-    "ok 154 isNotDeepEqual method should be a function\n"
+    "ok 153 should have isNotDeepEqual method\n"
   ],
   [
     "assert",
@@ -3791,7 +3787,7 @@
   ],
   [
     "line",
-    "ok 155 should have equals method\n"
+    "ok 154 isNotDeepEqual method should be a function\n"
   ],
   [
     "assert",
@@ -3803,7 +3799,7 @@
   ],
   [
     "line",
-    "ok 156 equals method should be a function\n"
+    "ok 155 should have equals method\n"
   ],
   [
     "assert",
@@ -3815,7 +3811,7 @@
   ],
   [
     "line",
-    "ok 157 should have inequivalent method\n"
+    "ok 156 equals method should be a function\n"
   ],
   [
     "assert",
@@ -3827,7 +3823,7 @@
   ],
   [
     "line",
-    "ok 158 inequivalent method should be a function\n"
+    "ok 157 should have inequivalent method\n"
   ],
   [
     "assert",
@@ -3839,7 +3835,7 @@
   ],
   [
     "line",
-    "ok 159 should have threw method\n"
+    "ok 158 inequivalent method should be a function\n"
   ],
   [
     "assert",
@@ -3851,7 +3847,7 @@
   ],
   [
     "line",
-    "ok 160 threw method should be a function\n"
+    "ok 159 should have threw method\n"
   ],
   [
     "assert",
@@ -3863,7 +3859,7 @@
   ],
   [
     "line",
-    "ok 161 should have strictEqual method\n"
+    "ok 160 threw method should be a function\n"
   ],
   [
     "assert",
@@ -3875,7 +3871,7 @@
   ],
   [
     "line",
-    "ok 162 strictEqual method should be a function\n"
+    "ok 161 should have strictEqual method\n"
   ],
   [
     "assert",
@@ -3887,7 +3883,7 @@
   ],
   [
     "line",
-    "ok 163 should have emit method\n"
+    "ok 162 strictEqual method should be a function\n"
   ],
   [
     "assert",
@@ -3899,7 +3895,7 @@
   ],
   [
     "line",
-    "ok 164 emit method should be a function\n"
+    "ok 163 should have emit method\n"
   ],
   [
     "assert",
@@ -3911,7 +3907,7 @@
   ],
   [
     "line",
-    "ok 165 should have fail method\n"
+    "ok 164 emit method should be a function\n"
   ],
   [
     "assert",
@@ -3923,7 +3919,7 @@
   ],
   [
     "line",
-    "ok 166 fail method should be a function\n"
+    "ok 165 should have fail method\n"
   ],
   [
     "assert",
@@ -3935,7 +3931,7 @@
   ],
   [
     "line",
-    "ok 167 should have strictEquals method\n"
+    "ok 166 fail method should be a function\n"
   ],
   [
     "assert",
@@ -3947,7 +3943,7 @@
   ],
   [
     "line",
-    "ok 168 strictEquals method should be a function\n"
+    "ok 167 should have strictEquals method\n"
   ],
   [
     "assert",
@@ -3959,7 +3955,7 @@
   ],
   [
     "line",
-    "ok 169 should have notLike method\n"
+    "ok 168 strictEquals method should be a function\n"
   ],
   [
     "assert",
@@ -3971,7 +3967,7 @@
   ],
   [
     "line",
-    "ok 170 notLike method should be a function\n"
+    "ok 169 should have notLike method\n"
   ],
   [
     "assert",
@@ -3983,7 +3979,7 @@
   ],
   [
     "line",
-    "ok 171 should have dissimilar method\n"
+    "ok 170 notLike method should be a function\n"
   ],
   [
     "assert",
@@ -3995,7 +3991,7 @@
   ],
   [
     "line",
-    "ok 172 dissimilar method should be a function\n"
+    "ok 171 should have dissimilar method\n"
   ],
   [
     "assert",
@@ -4007,7 +4003,7 @@
   ],
   [
     "line",
-    "ok 173 should have true method\n"
+    "ok 172 dissimilar method should be a function\n"
   ],
   [
     "assert",
@@ -4019,7 +4015,7 @@
   ],
   [
     "line",
-    "ok 174 true method should be a function\n"
+    "ok 173 should have true method\n"
   ],
   [
     "assert",
@@ -4031,7 +4027,7 @@
   ],
   [
     "line",
-    "ok 175 should have assert method\n"
+    "ok 174 true method should be a function\n"
   ],
   [
     "assert",
@@ -4043,7 +4039,7 @@
   ],
   [
     "line",
-    "ok 176 assert method should be a function\n"
+    "ok 175 should have assert method\n"
   ],
   [
     "assert",
@@ -4055,7 +4051,7 @@
   ],
   [
     "line",
-    "ok 177 should have is method\n"
+    "ok 176 assert method should be a function\n"
   ],
   [
     "assert",
@@ -4067,7 +4063,7 @@
   ],
   [
     "line",
-    "ok 178 is method should be a function\n"
+    "ok 177 should have is method\n"
   ],
   [
     "assert",
@@ -4079,7 +4075,7 @@
   ],
   [
     "line",
-    "ok 179 should have ok method\n"
+    "ok 178 is method should be a function\n"
   ],
   [
     "assert",
@@ -4091,7 +4087,7 @@
   ],
   [
     "line",
-    "ok 180 ok method should be a function\n"
+    "ok 179 should have ok method\n"
   ],
   [
     "assert",
@@ -4103,7 +4099,7 @@
   ],
   [
     "line",
-    "ok 181 should have isEqual method\n"
+    "ok 180 ok method should be a function\n"
   ],
   [
     "assert",
@@ -4115,7 +4111,7 @@
   ],
   [
     "line",
-    "ok 182 isEqual method should be a function\n"
+    "ok 181 should have isEqual method\n"
   ],
   [
     "assert",
@@ -4127,7 +4123,7 @@
   ],
   [
     "line",
-    "ok 183 should have isDeeply method\n"
+    "ok 182 isEqual method should be a function\n"
   ],
   [
     "assert",
@@ -4139,7 +4135,7 @@
   ],
   [
     "line",
-    "ok 184 isDeeply method should be a function\n"
+    "ok 183 should have isDeeply method\n"
   ],
   [
     "assert",
@@ -4151,7 +4147,7 @@
   ],
   [
     "line",
-    "ok 185 should have deepEqual method\n"
+    "ok 184 isDeeply method should be a function\n"
   ],
   [
     "assert",
@@ -4163,7 +4159,7 @@
   ],
   [
     "line",
-    "ok 186 deepEqual method should be a function\n"
+    "ok 185 should have deepEqual method\n"
   ],
   [
     "assert",
@@ -4175,7 +4171,7 @@
   ],
   [
     "line",
-    "ok 187 should have deepEquals method\n"
+    "ok 186 deepEqual method should be a function\n"
   ],
   [
     "assert",
@@ -4187,7 +4183,7 @@
   ],
   [
     "line",
-    "ok 188 deepEquals method should be a function\n"
+    "ok 187 should have deepEquals method\n"
   ],
   [
     "assert",
@@ -4199,7 +4195,7 @@
   ],
   [
     "line",
-    "ok 189 should have pass method\n"
+    "ok 188 deepEquals method should be a function\n"
   ],
   [
     "assert",
@@ -4211,7 +4207,7 @@
   ],
   [
     "line",
-    "ok 190 pass method should be a function\n"
+    "ok 189 should have pass method\n"
   ],
   [
     "assert",
@@ -4223,7 +4219,7 @@
   ],
   [
     "line",
-    "ok 191 should have length method\n"
+    "ok 190 pass method should be a function\n"
   ],
   [
     "assert",
@@ -4235,7 +4231,7 @@
   ],
   [
     "line",
-    "ok 192 length method should be a function\n"
+    "ok 191 should have length method\n"
   ],
   [
     "assert",
@@ -4247,7 +4243,7 @@
   ],
   [
     "line",
-    "ok 193 should have skip method\n"
+    "ok 192 length method should be a function\n"
   ],
   [
     "assert",
@@ -4259,7 +4255,7 @@
   ],
   [
     "line",
-    "ok 194 skip method should be a function\n"
+    "ok 193 should have skip method\n"
   ],
   [
     "assert",
@@ -4271,7 +4267,7 @@
   ],
   [
     "line",
-    "ok 195 should have isNotEqual method\n"
+    "ok 194 skip method should be a function\n"
   ],
   [
     "assert",
@@ -4283,7 +4279,7 @@
   ],
   [
     "line",
-    "ok 196 isNotEqual method should be a function\n"
+    "ok 195 should have isNotEqual method\n"
   ],
   [
     "assert",
@@ -4295,7 +4291,7 @@
   ],
   [
     "line",
-    "ok 197 should have looseEquals method\n"
+    "ok 196 isNotEqual method should be a function\n"
   ],
   [
     "assert",
@@ -4307,7 +4303,7 @@
   ],
   [
     "line",
-    "ok 198 looseEquals method should be a function\n"
+    "ok 197 should have looseEquals method\n"
   ],
   [
     "assert",
@@ -4319,7 +4315,7 @@
   ],
   [
     "line",
-    "ok 199 should have false method\n"
+    "ok 198 looseEquals method should be a function\n"
   ],
   [
     "assert",
@@ -4331,7 +4327,7 @@
   ],
   [
     "line",
-    "ok 200 false method should be a function\n"
+    "ok 199 should have false method\n"
   ],
   [
     "assert",
@@ -4343,7 +4339,7 @@
   ],
   [
     "line",
-    "ok 201 should have notDeeply method\n"
+    "ok 200 false method should be a function\n"
   ],
   [
     "assert",
@@ -4355,7 +4351,7 @@
   ],
   [
     "line",
-    "ok 202 notDeeply method should be a function\n"
+    "ok 201 should have notDeeply method\n"
   ],
   [
     "assert",
@@ -4367,7 +4363,7 @@
   ],
   [
     "line",
-    "ok 203 should have ifErr method\n"
+    "ok 202 notDeeply method should be a function\n"
   ],
   [
     "assert",
@@ -4379,7 +4375,7 @@
   ],
   [
     "line",
-    "ok 204 ifErr method should be a function\n"
+    "ok 203 should have ifErr method\n"
   ],
   [
     "assert",
@@ -4391,7 +4387,7 @@
   ],
   [
     "line",
-    "ok 205 should have hasFields method\n"
+    "ok 204 ifErr method should be a function\n"
   ],
   [
     "assert",
@@ -4403,7 +4399,7 @@
   ],
   [
     "line",
-    "ok 206 hasFields method should be a function\n"
+    "ok 205 should have hasFields method\n"
   ],
   [
     "assert",
@@ -4415,7 +4411,7 @@
   ],
   [
     "line",
-    "ok 207 should have isNotDeeply method\n"
+    "ok 206 hasFields method should be a function\n"
   ],
   [
     "assert",
@@ -4427,7 +4423,7 @@
   ],
   [
     "line",
-    "ok 208 isNotDeeply method should be a function\n"
+    "ok 207 should have isNotDeeply method\n"
   ],
   [
     "assert",
@@ -4439,7 +4435,7 @@
   ],
   [
     "line",
-    "ok 209 should have like method\n"
+    "ok 208 isNotDeeply method should be a function\n"
   ],
   [
     "assert",
@@ -4451,7 +4447,7 @@
   ],
   [
     "line",
-    "ok 210 like method should be a function\n"
+    "ok 209 should have like method\n"
   ],
   [
     "assert",
@@ -4463,7 +4459,7 @@
   ],
   [
     "line",
-    "ok 211 should have similar method\n"
+    "ok 210 like method should be a function\n"
   ],
   [
     "assert",
@@ -4475,7 +4471,7 @@
   ],
   [
     "line",
-    "ok 212 similar method should be a function\n"
+    "ok 211 should have similar method\n"
   ],
   [
     "assert",
@@ -4487,7 +4483,7 @@
   ],
   [
     "line",
-    "ok 213 should have notOk method\n"
+    "ok 212 similar method should be a function\n"
   ],
   [
     "assert",
@@ -4499,7 +4495,7 @@
   ],
   [
     "line",
-    "ok 214 notOk method should be a function\n"
+    "ok 213 should have notOk method\n"
   ],
   [
     "assert",
@@ -4511,7 +4507,7 @@
   ],
   [
     "line",
-    "ok 215 should have isDissimilar method\n"
+    "ok 214 notOk method should be a function\n"
   ],
   [
     "assert",
@@ -4523,7 +4519,7 @@
   ],
   [
     "line",
-    "ok 216 isDissimilar method should be a function\n"
+    "ok 215 should have isDissimilar method\n"
   ],
   [
     "assert",
@@ -4535,7 +4531,7 @@
   ],
   [
     "line",
-    "ok 217 should have isEquivalent method\n"
+    "ok 216 isDissimilar method should be a function\n"
   ],
   [
     "assert",
@@ -4547,7 +4543,7 @@
   ],
   [
     "line",
-    "ok 218 isEquivalent method should be a function\n"
+    "ok 217 should have isEquivalent method\n"
   ],
   [
     "assert",
@@ -4559,7 +4555,7 @@
   ],
   [
     "line",
-    "ok 219 should have doesNotEqual method\n"
+    "ok 218 isEquivalent method should be a function\n"
   ],
   [
     "assert",
@@ -4571,7 +4567,7 @@
   ],
   [
     "line",
-    "ok 220 doesNotEqual method should be a function\n"
+    "ok 219 should have doesNotEqual method\n"
   ],
   [
     "assert",
@@ -4583,7 +4579,7 @@
   ],
   [
     "line",
-    "ok 221 should have isSimilar method\n"
+    "ok 220 doesNotEqual method should be a function\n"
   ],
   [
     "assert",
@@ -4595,7 +4591,7 @@
   ],
   [
     "line",
-    "ok 222 isSimilar method should be a function\n"
+    "ok 221 should have isSimilar method\n"
   ],
   [
     "assert",
@@ -4607,7 +4603,7 @@
   ],
   [
     "line",
-    "ok 223 should have notDeepEqual method\n"
+    "ok 222 isSimilar method should be a function\n"
   ],
   [
     "assert",
@@ -4619,7 +4615,7 @@
   ],
   [
     "line",
-    "ok 224 notDeepEqual method should be a function\n"
+    "ok 223 should have notDeepEqual method\n"
   ],
   [
     "assert",
@@ -4631,7 +4627,7 @@
   ],
   [
     "line",
-    "ok 225 should have type method\n"
+    "ok 224 notDeepEqual method should be a function\n"
   ],
   [
     "assert",
@@ -4643,7 +4639,7 @@
   ],
   [
     "line",
-    "ok 226 type method should be a function\n"
+    "ok 225 should have type method\n"
   ],
   [
     "assert",
@@ -4655,7 +4651,7 @@
   ],
   [
     "line",
-    "ok 227 should have notok method\n"
+    "ok 226 type method should be a function\n"
   ],
   [
     "assert",
@@ -4667,7 +4663,7 @@
   ],
   [
     "line",
-    "ok 228 notok method should be a function\n"
+    "ok 227 should have notok method\n"
   ],
   [
     "assert",
@@ -4679,7 +4675,7 @@
   ],
   [
     "line",
-    "ok 229 should have isInequivalent method\n"
+    "ok 228 notok method should be a function\n"
   ],
   [
     "assert",
@@ -4691,7 +4687,7 @@
   ],
   [
     "line",
-    "ok 230 isInequivalent method should be a function\n"
+    "ok 229 should have isInequivalent method\n"
   ],
   [
     "assert",
@@ -4703,7 +4699,7 @@
   ],
   [
     "line",
-    "ok 231 should have isNot method\n"
+    "ok 230 isInequivalent method should be a function\n"
   ],
   [
     "assert",
@@ -4715,7 +4711,7 @@
   ],
   [
     "line",
-    "ok 232 isNot method should be a function\n"
+    "ok 231 should have isNot method\n"
   ],
   [
     "assert",
@@ -4727,7 +4723,7 @@
   ],
   [
     "line",
-    "ok 233 should have same method\n"
+    "ok 232 isNot method should be a function\n"
   ],
   [
     "assert",
@@ -4739,7 +4735,7 @@
   ],
   [
     "line",
-    "ok 234 same method should be a function\n"
+    "ok 233 should have same method\n"
   ],
   [
     "assert",
@@ -4751,7 +4747,7 @@
   ],
   [
     "line",
-    "ok 235 should have isInequal method\n"
+    "ok 234 same method should be a function\n"
   ],
   [
     "assert",
@@ -4763,7 +4759,7 @@
   ],
   [
     "line",
-    "ok 236 isInequal method should be a function\n"
+    "ok 235 should have isInequal method\n"
   ],
   [
     "assert",
@@ -4775,7 +4771,7 @@
   ],
   [
     "line",
-    "ok 237 should have _endNice method\n"
+    "ok 236 isInequal method should be a function\n"
   ],
   [
     "assert",
@@ -4787,7 +4783,7 @@
   ],
   [
     "line",
-    "ok 238 _endNice method should be a function\n"
+    "ok 237 should have _endNice method\n"
   ],
   [
     "assert",
@@ -4799,7 +4795,7 @@
   ],
   [
     "line",
-    "ok 239 should have ifError method\n"
+    "ok 238 _endNice method should be a function\n"
   ],
   [
     "assert",
@@ -4811,7 +4807,7 @@
   ],
   [
     "line",
-    "ok 240 ifError method should be a function\n"
+    "ok 239 should have ifError method\n"
   ],
   [
     "assert",
@@ -4823,7 +4819,7 @@
   ],
   [
     "line",
-    "ok 241 should have iferror method\n"
+    "ok 240 ifError method should be a function\n"
   ],
   [
     "assert",
@@ -4835,7 +4831,7 @@
   ],
   [
     "line",
-    "ok 242 iferror method should be a function\n"
+    "ok 241 should have iferror method\n"
   ],
   [
     "assert",
@@ -4847,7 +4843,7 @@
   ],
   [
     "line",
-    "ok 243 should have clear method\n"
+    "ok 242 iferror method should be a function\n"
   ],
   [
     "assert",
@@ -4859,7 +4855,7 @@
   ],
   [
     "line",
-    "ok 244 clear method should be a function\n"
+    "ok 243 should have clear method\n"
   ],
   [
     "assert",
@@ -4871,7 +4867,7 @@
   ],
   [
     "line",
-    "ok 245 should have has method\n"
+    "ok 244 clear method should be a function\n"
   ],
   [
     "assert",
@@ -4883,7 +4879,7 @@
   ],
   [
     "line",
-    "ok 246 has method should be a function\n"
+    "ok 245 should have has method\n"
   ],
   [
     "assert",
@@ -4895,7 +4891,7 @@
   ],
   [
     "line",
-    "ok 247 should have not method\n"
+    "ok 246 has method should be a function\n"
   ],
   [
     "assert",
@@ -4907,7 +4903,7 @@
   ],
   [
     "line",
-    "ok 248 not method should be a function\n"
+    "ok 247 should have not method\n"
   ],
   [
     "assert",
@@ -4919,7 +4915,7 @@
   ],
   [
     "line",
-    "ok 249 should have timeout method\n"
+    "ok 248 not method should be a function\n"
   ],
   [
     "assert",
@@ -4931,7 +4927,7 @@
   ],
   [
     "line",
-    "ok 250 timeout method should be a function\n"
+    "ok 249 should have timeout method\n"
   ],
   [
     "assert",
@@ -4943,7 +4939,7 @@
   ],
   [
     "line",
-    "ok 251 should have notSimilar method\n"
+    "ok 250 timeout method should be a function\n"
   ],
   [
     "assert",
@@ -4955,7 +4951,7 @@
   ],
   [
     "line",
-    "ok 252 notSimilar method should be a function\n"
+    "ok 251 should have notSimilar method\n"
   ],
   [
     "assert",
@@ -4967,7 +4963,7 @@
   ],
   [
     "line",
-    "ok 253 should have isUnlike method\n"
+    "ok 252 notSimilar method should be a function\n"
   ],
   [
     "assert",
@@ -4979,7 +4975,7 @@
   ],
   [
     "line",
-    "ok 254 isUnlike method should be a function\n"
+    "ok 253 should have isUnlike method\n"
   ],
   [
     "assert",
@@ -4991,7 +4987,7 @@
   ],
   [
     "line",
-    "ok 255 should have notEquals method\n"
+    "ok 254 isUnlike method should be a function\n"
   ],
   [
     "assert",
@@ -5003,7 +4999,7 @@
   ],
   [
     "line",
-    "ok 256 notEquals method should be a function\n"
+    "ok 255 should have notEquals method\n"
   ],
   [
     "assert",
@@ -5015,7 +5011,7 @@
   ],
   [
     "line",
-    "ok 257 should have unsimilar method\n"
+    "ok 256 notEquals method should be a function\n"
   ],
   [
     "assert",
@@ -5027,7 +5023,7 @@
   ],
   [
     "line",
-    "ok 258 unsimilar method should be a function\n"
+    "ok 257 should have unsimilar method\n"
   ],
   [
     "assert",
@@ -5039,7 +5035,7 @@
   ],
   [
     "line",
-    "ok 259 should have result method\n"
+    "ok 258 unsimilar method should be a function\n"
   ],
   [
     "assert",
@@ -5051,7 +5047,7 @@
   ],
   [
     "line",
-    "ok 260 result method should be a function\n"
+    "ok 259 should have result method\n"
   ],
   [
     "assert",
@@ -5063,7 +5059,7 @@
   ],
   [
     "line",
-    "ok 261 should have doesNotThrow method\n"
+    "ok 260 result method should be a function\n"
   ],
   [
     "assert",
@@ -5075,7 +5071,7 @@
   ],
   [
     "line",
-    "ok 262 doesNotThrow method should be a function\n"
+    "ok 261 should have doesNotThrow method\n"
   ],
   [
     "assert",
@@ -5087,7 +5083,7 @@
   ],
   [
     "line",
-    "ok 263 should have error method\n"
+    "ok 262 doesNotThrow method should be a function\n"
   ],
   [
     "assert",
@@ -5099,7 +5095,7 @@
   ],
   [
     "line",
-    "ok 264 error method should be a function\n"
+    "ok 263 should have error method\n"
   ],
   [
     "assert",
@@ -5111,7 +5107,7 @@
   ],
   [
     "line",
-    "ok 265 should have constructor method\n"
+    "ok 264 error method should be a function\n"
   ],
   [
     "assert",
@@ -5123,7 +5119,7 @@
   ],
   [
     "line",
-    "ok 266 constructor method should be a function\n"
+    "ok 265 should have constructor method\n"
   ],
   [
     "assert",
@@ -5135,7 +5131,7 @@
   ],
   [
     "line",
-    "ok 267 should have notEqual method\n"
+    "ok 266 constructor method should be a function\n"
   ],
   [
     "assert",
@@ -5147,7 +5143,7 @@
   ],
   [
     "line",
-    "ok 268 notEqual method should be a function\n"
+    "ok 267 should have notEqual method\n"
   ],
   [
     "assert",
@@ -5159,7 +5155,7 @@
   ],
   [
     "line",
-    "ok 269 should have throws method\n"
+    "ok 268 notEqual method should be a function\n"
   ],
   [
     "assert",
@@ -5171,7 +5167,7 @@
   ],
   [
     "line",
-    "ok 270 throws method should be a function\n"
+    "ok 269 should have throws method\n"
   ],
   [
     "assert",
@@ -5183,7 +5179,7 @@
   ],
   [
     "line",
-    "ok 271 should have isLike method\n"
+    "ok 270 throws method should be a function\n"
   ],
   [
     "assert",
@@ -5195,7 +5191,7 @@
   ],
   [
     "line",
-    "ok 272 isLike method should be a function\n"
+    "ok 271 should have isLike method\n"
   ],
   [
     "assert",
@@ -5207,7 +5203,7 @@
   ],
   [
     "line",
-    "ok 273 should have isNotSimilar method\n"
+    "ok 272 isLike method should be a function\n"
   ],
   [
     "assert",
@@ -5219,7 +5215,7 @@
   ],
   [
     "line",
-    "ok 274 isNotSimilar method should be a function\n"
+    "ok 273 should have isNotSimilar method\n"
   ],
   [
     "assert",
@@ -5231,7 +5227,7 @@
   ],
   [
     "line",
-    "ok 275 should have isNotEquivalent method\n"
+    "ok 274 isNotSimilar method should be a function\n"
   ],
   [
     "assert",
@@ -5243,7 +5239,7 @@
   ],
   [
     "line",
-    "ok 276 isNotEquivalent method should be a function\n"
+    "ok 275 should have isNotEquivalent method\n"
   ],
   [
     "assert",
@@ -5255,7 +5251,7 @@
   ],
   [
     "line",
-    "ok 277 should have inequal method\n"
+    "ok 276 isNotEquivalent method should be a function\n"
   ],
   [
     "assert",
@@ -5267,7 +5263,7 @@
   ],
   [
     "line",
-    "ok 278 inequal method should be a function\n"
+    "ok 277 should have inequal method\n"
   ],
   [
     "assert",
@@ -5279,7 +5275,7 @@
   ],
   [
     "line",
-    "ok 279 should have notEquivalent method\n"
+    "ok 278 inequal method should be a function\n"
   ],
   [
     "assert",
@@ -5291,7 +5287,7 @@
   ],
   [
     "line",
-    "ok 280 notEquivalent method should be a function\n"
+    "ok 279 should have notEquivalent method\n"
   ],
   [
     "assert",
@@ -5303,7 +5299,7 @@
   ],
   [
     "line",
-    "ok 281 should have isNotLike method\n"
+    "ok 280 notEquivalent method should be a function\n"
   ],
   [
     "assert",
@@ -5315,7 +5311,7 @@
   ],
   [
     "line",
-    "ok 282 isNotLike method should be a function\n"
+    "ok 281 should have isNotLike method\n"
   ],
   [
     "assert",
@@ -5327,7 +5323,7 @@
   ],
   [
     "line",
-    "ok 283 should have equivalent method\n"
+    "ok 282 isNotLike method should be a function\n"
   ],
   [
     "assert",
@@ -5339,7 +5335,7 @@
   ],
   [
     "line",
-    "ok 284 equivalent method should be a function\n"
+    "ok 283 should have equivalent method\n"
   ],
   [
     "assert",
@@ -5351,7 +5347,7 @@
   ],
   [
     "line",
-    "ok 285 should have looseEqual method\n"
+    "ok 284 equivalent method should be a function\n"
   ],
   [
     "assert",
@@ -5363,7 +5359,7 @@
   ],
   [
     "line",
-    "ok 286 looseEqual method should be a function\n"
+    "ok 285 should have looseEqual method\n"
   ],
   [
     "assert",
@@ -5375,7 +5371,7 @@
   ],
   [
     "line",
-    "ok 287 should have equal method\n"
+    "ok 286 looseEqual method should be a function\n"
   ],
   [
     "assert",
@@ -5387,7 +5383,7 @@
   ],
   [
     "line",
-    "ok 288 equal method should be a function\n"
+    "ok 287 should have equal method\n"
   ],
   [
     "assert",
@@ -5399,7 +5395,7 @@
   ],
   [
     "line",
-    "ok 289 should have unlike method\n"
+    "ok 288 equal method should be a function\n"
   ],
   [
     "assert",
@@ -5411,7 +5407,7 @@
   ],
   [
     "line",
-    "ok 290 unlike method should be a function\n"
+    "ok 289 should have unlike method\n"
   ],
   [
     "assert",
@@ -5423,7 +5419,7 @@
   ],
   [
     "line",
-    "ok 291 should have doesNotHave method\n"
+    "ok 290 unlike method should be a function\n"
   ],
   [
     "assert",
@@ -5435,7 +5431,7 @@
   ],
   [
     "line",
-    "ok 292 doesNotHave method should be a function\n"
+    "ok 291 should have doesNotHave method\n"
   ],
   [
     "assert",
@@ -5447,7 +5443,7 @@
   ],
   [
     "line",
-    "ok 293 should have comment method\n"
+    "ok 292 doesNotHave method should be a function\n"
   ],
   [
     "assert",
@@ -5459,7 +5455,7 @@
   ],
   [
     "line",
-    "ok 294 comment method should be a function\n"
+    "ok 293 should have comment method\n"
   ],
   [
     "assert",
@@ -5471,7 +5467,7 @@
   ],
   [
     "line",
-    "ok 295 should have isa method\n"
+    "ok 294 comment method should be a function\n"
   ],
   [
     "assert",
@@ -5483,7 +5479,7 @@
   ],
   [
     "line",
-    "ok 296 isa method should be a function\n"
+    "ok 295 should have isa method\n"
   ],
   [
     "assert",
@@ -5495,19 +5491,7 @@
   ],
   [
     "line",
-    "# tests 147\n"
-  ],
-  [
-    "line",
-    "# pass  147\n"
-  ],
-  [
-    "line",
-    "# ok\n"
-  ],
-  [
-    "line",
-    "ok 297 test/test-test.js\n"
+    "ok 296 isa method should be a function\n"
   ],
   [
     "assert",
@@ -5518,12 +5502,24 @@
     }
   ],
   [
-    "comment",
+    "line",
     "# tests 147\n"
   ],
   [
     "comment",
+    "# tests 147\n"
+  ],
+  [
+    "line",
     "# pass  147\n"
+  ],
+  [
+    "comment",
+    "# pass  147\n"
+  ],
+  [
+    "line",
+    "# ok\n"
   ],
   [
     "comment",
@@ -5531,19 +5527,7 @@
   ],
   [
     "line",
-    "# timeout.js\n"
-  ],
-  [
-    "line",
-    "# TAP version 13\n"
-  ],
-  [
-    "line",
-    "# timeout test with plan only\n"
-  ],
-  [
-    "line",
-    "ok 298 a\n"
+    "ok 297 test/test-test.js\n"
   ],
   [
     "assert",
@@ -5554,12 +5538,24 @@
     }
   ],
   [
-    "comment",
+    "line",
     "# timeout.js\n"
   ],
   [
     "comment",
+    "# timeout.js\n"
+  ],
+  [
+    "line",
     "# TAP version 13\n"
+  ],
+  [
+    "comment",
+    "# TAP version 13\n"
+  ],
+  [
+    "line",
+    "# timeout test with plan only\n"
   ],
   [
     "comment",
@@ -5567,7 +5563,7 @@
   ],
   [
     "line",
-    "ok 299 b\n"
+    "ok 298 a\n"
   ],
   [
     "assert",
@@ -5579,11 +5575,7 @@
   ],
   [
     "line",
-    "# timeout test with plan and end\n"
-  ],
-  [
-    "line",
-    "ok 300 a\n"
+    "ok 299 b\n"
   ],
   [
     "assert",
@@ -5594,12 +5586,16 @@
     }
   ],
   [
+    "line",
+    "# timeout test with plan and end\n"
+  ],
+  [
     "comment",
     "# timeout test with plan and end\n"
   ],
   [
     "line",
-    "ok 301 b\n"
+    "ok 300 a\n"
   ],
   [
     "assert",
@@ -5611,19 +5607,7 @@
   ],
   [
     "line",
-    "# tests 4\n"
-  ],
-  [
-    "line",
-    "# pass  4\n"
-  ],
-  [
-    "line",
-    "# ok\n"
-  ],
-  [
-    "line",
-    "ok 302 test/timeout.js\n"
+    "ok 301 b\n"
   ],
   [
     "assert",
@@ -5634,12 +5618,24 @@
     }
   ],
   [
-    "comment",
+    "line",
     "# tests 4\n"
   ],
   [
     "comment",
+    "# tests 4\n"
+  ],
+  [
+    "line",
     "# pass  4\n"
+  ],
+  [
+    "comment",
+    "# pass  4\n"
+  ],
+  [
+    "line",
+    "# ok\n"
   ],
   [
     "comment",
@@ -5647,11 +5643,7 @@
   ],
   [
     "line",
-    "# trivial-success.js\n"
-  ],
-  [
-    "line",
-    "ok 303 test/trivial-success.js\n"
+    "ok 302 test/timeout.js\n"
   ],
   [
     "assert",
@@ -5662,24 +5654,16 @@
     }
   ],
   [
+    "line",
+    "# trivial-success.js\n"
+  ],
+  [
     "comment",
     "# trivial-success.js\n"
   ],
   [
     "line",
-    "# undefined_indented.js\n"
-  ],
-  [
-    "line",
-    "# TAP version 13\n"
-  ],
-  [
-    "line",
-    "# consume yaml\n"
-  ],
-  [
-    "line",
-    "ok 304 should be equivalent\n"
+    "ok 303 test/trivial-success.js\n"
   ],
   [
     "assert",
@@ -5690,12 +5674,24 @@
     }
   ],
   [
-    "comment",
+    "line",
     "# undefined_indented.js\n"
   ],
   [
     "comment",
+    "# undefined_indented.js\n"
+  ],
+  [
+    "line",
     "# TAP version 13\n"
+  ],
+  [
+    "comment",
+    "# TAP version 13\n"
+  ],
+  [
+    "line",
+    "# consume yaml\n"
   ],
   [
     "comment",
@@ -5703,19 +5699,7 @@
   ],
   [
     "line",
-    "# tests 1\n"
-  ],
-  [
-    "line",
-    "# pass  1\n"
-  ],
-  [
-    "line",
-    "# ok\n"
-  ],
-  [
-    "line",
-    "ok 305 test/undefined_indented.js\n"
+    "ok 304 should be equivalent\n"
   ],
   [
     "assert",
@@ -5726,12 +5710,24 @@
     }
   ],
   [
-    "comment",
+    "line",
     "# tests 1\n"
   ],
   [
     "comment",
+    "# tests 1\n"
+  ],
+  [
+    "line",
     "# pass  1\n"
+  ],
+  [
+    "comment",
+    "# pass  1\n"
+  ],
+  [
+    "line",
+    "# ok\n"
   ],
   [
     "comment",
@@ -5739,19 +5735,7 @@
   ],
   [
     "line",
-    "# valid-command.js\n"
-  ],
-  [
-    "line",
-    "# TAP version 13\n"
-  ],
-  [
-    "line",
-    "# valid command\n"
-  ],
-  [
-    "line",
-    "ok 306 should be equivalent\n"
+    "ok 305 test/undefined_indented.js\n"
   ],
   [
     "assert",
@@ -5762,12 +5746,24 @@
     }
   ],
   [
-    "comment",
+    "line",
     "# valid-command.js\n"
   ],
   [
     "comment",
+    "# valid-command.js\n"
+  ],
+  [
+    "line",
     "# TAP version 13\n"
+  ],
+  [
+    "comment",
+    "# TAP version 13\n"
+  ],
+  [
+    "line",
+    "# valid command\n"
   ],
   [
     "comment",
@@ -5775,7 +5771,7 @@
   ],
   [
     "line",
-    "ok 307 should be equivalent\n"
+    "ok 306 should be equivalent\n"
   ],
   [
     "assert",
@@ -5787,7 +5783,7 @@
   ],
   [
     "line",
-    "ok 308 should be equivalent\n"
+    "ok 307 should be equivalent\n"
   ],
   [
     "assert",
@@ -5799,7 +5795,7 @@
   ],
   [
     "line",
-    "ok 309 should be equivalent\n"
+    "ok 308 should be equivalent\n"
   ],
   [
     "assert",
@@ -5811,7 +5807,7 @@
   ],
   [
     "line",
-    "ok 310 should be equivalent\n"
+    "ok 309 should be equivalent\n"
   ],
   [
     "assert",
@@ -5823,7 +5819,7 @@
   ],
   [
     "line",
-    "ok 311 should be equal\n"
+    "ok 310 should be equivalent\n"
   ],
   [
     "assert",
@@ -5835,19 +5831,7 @@
   ],
   [
     "line",
-    "# tests 6\n"
-  ],
-  [
-    "line",
-    "# pass  6\n"
-  ],
-  [
-    "line",
-    "# ok\n"
-  ],
-  [
-    "line",
-    "ok 312 test/valid-command.js\n"
+    "ok 311 should be equal\n"
   ],
   [
     "assert",
@@ -5858,12 +5842,24 @@
     }
   ],
   [
-    "comment",
+    "line",
     "# tests 6\n"
   ],
   [
     "comment",
+    "# tests 6\n"
+  ],
+  [
+    "line",
     "# pass  6\n"
+  ],
+  [
+    "comment",
+    "# pass  6\n"
+  ],
+  [
+    "line",
+    "# ok\n"
   ],
   [
     "comment",
@@ -5871,7 +5867,7 @@
   ],
   [
     "line",
-    "1..312\n"
+    "ok 312 test/valid-command.js\n"
   ],
   [
     "assert",
@@ -5880,6 +5876,10 @@
       "id": 312,
       "name": "test/valid-command.js"
     }
+  ],
+  [
+    "line",
+    "1..312\n"
   ],
   [
     "plan",

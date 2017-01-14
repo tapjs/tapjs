@@ -45,10 +45,6 @@
   ],
   [
     "line",
-    "# mid diag\n"
-  ],
-  [
-    "line",
     "  ...\n"
   ],
   [
@@ -71,12 +67,24 @@
     }
   ],
   [
-    "comment",
+    "line",
     "  # before diag\n"
   ],
   [
     "comment",
+    "  # before diag\n"
+  ],
+  [
+    "line",
     "# mid diag\n"
+  ],
+  [
+    "comment",
+    "# mid diag\n"
+  ],
+  [
+    "line",
+    "  # after diag\n"
   ],
   [
     "comment",
@@ -113,14 +121,6 @@
         "ok 1\n"
       ],
       [
-        "line",
-        "# before 2\n"
-      ],
-      [
-        "line",
-        "ok 2\n"
-      ],
-      [
         "assert",
         {
           "ok": true,
@@ -128,8 +128,16 @@
         }
       ],
       [
+        "line",
+        "# before 2\n"
+      ],
+      [
         "comment",
         "# before 2\n"
+      ],
+      [
+        "line",
+        "ok 2\n"
       ],
       [
         "assert",
@@ -159,6 +167,10 @@
         }
       ]
     ]
+  ],
+  [
+    "line",
+    "# Subtest: child\n"
   ],
   [
     "line",
@@ -193,14 +205,6 @@
     "ok 2 - child\n"
   ],
   [
-    "line",
-    "# after 2, brefore plan\n"
-  ],
-  [
-    "line",
-    "1..2\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
@@ -209,8 +213,16 @@
     }
   ],
   [
+    "line",
+    "# after 2, brefore plan\n"
+  ],
+  [
     "comment",
     "# after 2, brefore plan\n"
+  ],
+  [
+    "line",
+    "1..2\n"
   ],
   [
     "plan",

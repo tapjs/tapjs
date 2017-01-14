@@ -53,10 +53,6 @@
         "ok 1 - true is ok # time=1.234ms\n"
       ],
       [
-        "line",
-        "ok 2 - doag is also okay # time=1.234ms\n"
-      ],
-      [
         "assert",
         {
           "ok": true,
@@ -64,6 +60,10 @@
           "time": 1.234,
           "name": "true is ok"
         }
+      ],
+      [
+        "line",
+        "ok 2 - doag is also okay # time=1.234ms\n"
       ],
       [
         "assert",
@@ -95,6 +95,10 @@
         }
       ]
     ]
+  ],
+  [
+    "line",
+    "# Subtest: first\n"
   ],
   [
     "line",
@@ -172,10 +176,6 @@
             "not ok granddaughter # SKIP for no raisin\n"
           ],
           [
-            "line",
-            "ok grandson # time=1.001s\n"
-          ],
-          [
             "assert",
             {
               "ok": false,
@@ -183,6 +183,10 @@
               "skip": "for no raisin",
               "name": "granddaughter"
             }
+          ],
+          [
+            "line",
+            "ok grandson # time=1.001s\n"
           ],
           [
             "line",
@@ -205,10 +209,6 @@
             "  ...\n"
           ],
           [
-            "line",
-            "not ok grandchild # TODO\n"
-          ],
-          [
             "assert",
             {
               "ok": true,
@@ -221,6 +221,10 @@
                 "it": "is yaml"
               }
             }
+          ],
+          [
+            "line",
+            "not ok grandchild # TODO\n"
           ],
           [
             "line",
@@ -248,6 +252,18 @@
             }
           ],
           [
+            "line",
+            "  ok: 1\n"
+          ],
+          [
+            "line",
+            "  this: is not tap or yaml\n"
+          ],
+          [
+            "line",
+            "  it: is garbage\n"
+          ],
+          [
             "extra",
             "  ok: 1\n  this: is not tap or yaml\n  it: is garbage\n"
           ],
@@ -272,6 +288,10 @@
             }
           ]
         ]
+      ],
+      [
+        "line",
+        "# Subtest: this passes\n"
       ],
       [
         "line",
@@ -327,11 +347,19 @@
       ],
       [
         "line",
-        "ok 2 - this passes # time=1.200s\n"
+        "      ok: 1\n"
       ],
       [
         "line",
-        "1..2\n"
+        "      this: is not tap or yaml\n"
+      ],
+      [
+        "line",
+        "      it: is garbage\n"
+      ],
+      [
+        "line",
+        "ok 2 - this passes # time=1.200s\n"
       ],
       [
         "assert",
@@ -341,6 +369,10 @@
           "time": 1200,
           "name": "this passes"
         }
+      ],
+      [
+        "line",
+        "1..2\n"
       ],
       [
         "plan",
@@ -373,11 +405,19 @@
   ],
   [
     "line",
+    "# Subtest: second\n"
+  ],
+  [
+    "line",
     "    ok 1 - no plan # time=1.001ms\n"
   ],
   [
     "line",
     "        # Subtest: this passes\n"
+  ],
+  [
+    "line",
+    "    # Subtest: this passes\n"
   ],
   [
     "line",
@@ -418,6 +458,18 @@
   [
     "line",
     "          ---\n"
+  ],
+  [
+    "line",
+    "          ok: 1\n"
+  ],
+  [
+    "line",
+    "          this: is not tap or yaml\n"
+  ],
+  [
+    "line",
+    "          it: is garbage\n"
   ],
   [
     "line",

@@ -23,10 +23,6 @@
     "ok 1 - Creating test program\n"
   ],
   [
-    "line",
-    "ok 2 - Test program runs, no error\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
@@ -36,7 +32,7 @@
   ],
   [
     "line",
-    "not ok 3 - infinite loop # TODO halting problem unsolved\n"
+    "ok 2 - Test program runs, no error\n"
   ],
   [
     "assert",
@@ -48,7 +44,7 @@
   ],
   [
     "line",
-    "not ok 4 - infinite loop 2 # TODO halting problem unsolved\n"
+    "not ok 3 - infinite loop # TODO halting problem unsolved\n"
   ],
   [
     "assert",
@@ -58,6 +54,10 @@
       "todo": "halting problem unsolved",
       "name": "infinite loop"
     }
+  ],
+  [
+    "line",
+    "not ok 4 - infinite loop 2 # TODO halting problem unsolved\n"
   ],
   [
     "assert",

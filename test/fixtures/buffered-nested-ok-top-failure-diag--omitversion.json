@@ -1,0 +1,139 @@
+[
+  [
+    "line",
+    "1..1\n"
+  ],
+  [
+    "plan",
+    {
+      "start": 1,
+      "end": 1
+    }
+  ],
+  [
+    "line",
+    "not ok 1 - please sir, my son, he is sick\n"
+  ],
+  [
+    "line",
+    "  ---\n"
+  ],
+  [
+    "line",
+    "  some: diag\n"
+  ],
+  [
+    "line",
+    "  ...\n"
+  ],
+  [
+    "line",
+    "{\n"
+  ],
+  [
+    "child",
+    [
+      [
+        "comment",
+        "# Subtest: please sir, my son, he is sick\n"
+      ],
+      [
+        "line",
+        "1..1\n"
+      ],
+      [
+        "plan",
+        {
+          "start": 1,
+          "end": 1
+        }
+      ],
+      [
+        "line",
+        "ok - i got better\n"
+      ],
+      [
+        "assert",
+        {
+          "ok": true,
+          "id": 1,
+          "name": "i got better"
+        }
+      ],
+      [
+        "complete",
+        {
+          "ok": true,
+          "count": 1,
+          "pass": 1,
+          "fail": 0,
+          "bailout": false,
+          "todo": 0,
+          "skip": 0,
+          "plan": {
+            "start": 1,
+            "end": 1,
+            "skipAll": false,
+            "skipReason": "",
+            "comment": ""
+          },
+          "failures": []
+        }
+      ]
+    ]
+  ],
+  [
+    "line",
+    "    1..1\n"
+  ],
+  [
+    "line",
+    "    ok - i got better\n"
+  ],
+  [
+    "line",
+    "}\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": false,
+      "id": 1,
+      "name": "please sir, my son, he is sick",
+      "diag": {
+        "some": "diag"
+      },
+      "buffered": true
+    }
+  ],
+  [
+    "complete",
+    {
+      "ok": false,
+      "count": 1,
+      "pass": 0,
+      "fail": 1,
+      "bailout": false,
+      "todo": 0,
+      "skip": 0,
+      "plan": {
+        "start": 1,
+        "end": 1,
+        "skipAll": false,
+        "skipReason": "",
+        "comment": ""
+      },
+      "failures": [
+        {
+          "ok": false,
+          "id": 1,
+          "name": "please sir, my son, he is sick",
+          "diag": {
+            "some": "diag"
+          },
+          "buffered": true
+        }
+      ]
+    }
+  ]
+]

@@ -4,10 +4,6 @@
     "not ok\n"
   ],
   [
-    "line",
-    "pragma +custom\n"
-  ],
-  [
     "assert",
     {
       "ok": false,

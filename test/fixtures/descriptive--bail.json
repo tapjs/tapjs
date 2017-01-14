@@ -15,10 +15,6 @@
     "ok 1    Interlock activated\n"
   ],
   [
-    "line",
-    "ok 2    Megathrusters are go\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
@@ -28,7 +24,7 @@
   ],
   [
     "line",
-    "ok 3    Head formed\n"
+    "ok 2    Megathrusters are go\n"
   ],
   [
     "assert",
@@ -40,7 +36,7 @@
   ],
   [
     "line",
-    "ok 4    Blazing sword formed\n"
+    "ok 3    Head formed\n"
   ],
   [
     "assert",
@@ -52,7 +48,7 @@
   ],
   [
     "line",
-    "ok 5    Robeast destroyed\n"
+    "ok 4    Blazing sword formed\n"
   ],
   [
     "assert",
@@ -61,6 +57,10 @@
       "id": 4,
       "name": "Blazing sword formed"
     }
+  ],
+  [
+    "line",
+    "ok 5    Robeast destroyed\n"
   ],
   [
     "assert",

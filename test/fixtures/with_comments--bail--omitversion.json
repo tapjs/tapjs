@@ -28,14 +28,6 @@
     "not ok 1\n"
   ],
   [
-    "line",
-    "# Failed test 1 in t/todo.t at line 9 *TODO*\n"
-  ],
-  [
-    "line",
-    "ok 2 # (t/todo.t at line 10 TODO?!)\n"
-  ],
-  [
     "assert",
     {
       "ok": false,
@@ -44,11 +36,15 @@
   ],
   [
     "line",
-    "Bail out!\n"
+    "# Failed test 1 in t/todo.t at line 9 *TODO*\n"
   ],
   [
     "comment",
     "# Failed test 1 in t/todo.t at line 9 *TODO*\n"
+  ],
+  [
+    "line",
+    "Bail out!\n"
   ],
   [
     "bailout",

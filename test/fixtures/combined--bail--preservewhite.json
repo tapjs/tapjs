@@ -15,10 +15,6 @@
     "ok 1\n"
   ],
   [
-    "line",
-    "ok 2 basset hounds got long ears\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
@@ -27,7 +23,7 @@
   ],
   [
     "line",
-    "not ok 3        all hell broke loose\n"
+    "ok 2 basset hounds got long ears\n"
   ],
   [
     "assert",
@@ -39,7 +35,7 @@
   ],
   [
     "line",
-    "not ok 4  # TODO if I heard a voice from heaven ...\n"
+    "not ok 3        all hell broke loose\n"
   ],
   [
     "assert",

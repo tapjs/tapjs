@@ -112,6 +112,10 @@
   ],
   [
     "line",
+    "# Subtest: foo\n"
+  ],
+  [
+    "line",
     "    not ok 1 - should be equivalent\n"
   ],
   [
@@ -157,10 +161,6 @@
   [
     "bailout",
     "# should be equivalent"
-  ],
-  [
-    "line",
-    "Bail out! # should be equivalent\n"
   ],
   [
     "complete",

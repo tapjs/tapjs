@@ -15,14 +15,6 @@
     "ok 1 - approved operating system\n"
   ],
   [
-    "line",
-    "# $^0 is solaris\n"
-  ],
-  [
-    "line",
-    "ok 2 - # SKIP no /sys directory\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
@@ -31,12 +23,16 @@
     }
   ],
   [
+    "line",
+    "# $^0 is solaris\n"
+  ],
+  [
     "comment",
     "# $^0 is solaris\n"
   ],
   [
     "line",
-    "ok 3 - # SKIP no /sys directory\n"
+    "ok 2 - # SKIP no /sys directory\n"
   ],
   [
     "assert",
@@ -49,7 +45,7 @@
   ],
   [
     "line",
-    "ok 4 - # SKIP no /sys directory\n"
+    "ok 3 - # SKIP no /sys directory\n"
   ],
   [
     "assert",
@@ -62,7 +58,7 @@
   ],
   [
     "line",
-    "ok 5 - # SKIP no /sys directory\n"
+    "ok 4 - # SKIP no /sys directory\n"
   ],
   [
     "assert",
@@ -72,6 +68,10 @@
       "skip": "no /sys directory",
       "name": ""
     }
+  ],
+  [
+    "line",
+    "ok 5 - # SKIP no /sys directory\n"
   ],
   [
     "assert",

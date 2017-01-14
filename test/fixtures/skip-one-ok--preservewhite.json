@@ -12,10 +12,6 @@
     "ok 1 totally fine # SKIP\n"
   ],
   [
-    "line",
-    "1..1\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
@@ -23,6 +19,10 @@
       "skip": true,
       "name": "totally fine"
     }
+  ],
+  [
+    "line",
+    "1..1\n"
   ],
   [
     "plan",

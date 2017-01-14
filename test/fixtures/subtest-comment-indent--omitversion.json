@@ -48,16 +48,16 @@
                 "ok 1 - true is ok\n"
               ],
               [
-                "line",
-                "ok 2 - doag is also okay\n"
-              ],
-              [
                 "assert",
                 {
                   "ok": true,
                   "id": 1,
                   "name": "true is ok"
                 }
+              ],
+              [
+                "line",
+                "ok 2 - doag is also okay\n"
               ],
               [
                 "assert",
@@ -88,6 +88,10 @@
                 }
               ]
             ]
+          ],
+          [
+            "line",
+            "# Subtest: first\n"
           ],
           [
             "line",
@@ -130,10 +134,6 @@
                 "ok 1 - but that is ok\n"
               ],
               [
-                "line",
-                "ok 2 - this passes\n"
-              ],
-              [
                 "assert",
                 {
                   "ok": true,
@@ -143,7 +143,7 @@
               ],
               [
                 "line",
-                "ok 3 - nested ok\n"
+                "ok 2 - this passes\n"
               ],
               [
                 "assert",
@@ -155,7 +155,7 @@
               ],
               [
                 "line",
-                "1..3\n"
+                "ok 3 - nested ok\n"
               ],
               [
                 "assert",
@@ -164,6 +164,10 @@
                   "id": 3,
                   "name": "nested ok"
                 }
+              ],
+              [
+                "line",
+                "1..3\n"
               ],
               [
                 "plan",
@@ -196,6 +200,10 @@
           ],
           [
             "line",
+            "# Subtest: second\n"
+          ],
+          [
+            "line",
             "    ok 1 - but that is ok\n"
           ],
           [
@@ -215,10 +223,6 @@
             "ok 2 - second # time=5.988ms\n"
           ],
           [
-            "line",
-            "1..2\n"
-          ],
-          [
             "assert",
             {
               "ok": true,
@@ -226,6 +230,10 @@
               "time": 5.988,
               "name": "second"
             }
+          ],
+          [
+            "line",
+            "1..2\n"
           ],
           [
             "plan",
@@ -258,7 +266,15 @@
       ],
       [
         "line",
+        "# Subtest: nesting\n"
+      ],
+      [
+        "line",
         "        # Subtest: first\n"
+      ],
+      [
+        "line",
+        "    # Subtest: first\n"
       ],
       [
         "line",
@@ -279,6 +295,10 @@
       [
         "line",
         "        # Subtest: second\n"
+      ],
+      [
+        "line",
+        "    # Subtest: second\n"
       ],
       [
         "line",
@@ -309,10 +329,6 @@
         "ok 1 - nesting # time=28.647ms\n"
       ],
       [
-        "line",
-        "ok 2 - this passes\n"
-      ],
-      [
         "assert",
         {
           "ok": true,
@@ -323,7 +339,7 @@
       ],
       [
         "line",
-        "1..2\n"
+        "ok 2 - this passes\n"
       ],
       [
         "assert",
@@ -332,6 +348,10 @@
           "id": 2,
           "name": "this passes"
         }
+      ],
+      [
+        "line",
+        "1..2\n"
       ],
       [
         "plan",
@@ -372,11 +392,23 @@
   ],
   [
     "line",
+    "# Subtest: ../tap/test/test/ok.js\n"
+  ],
+  [
+    "line",
     "        # Subtest: nesting\n"
   ],
   [
     "line",
+    "    # Subtest: nesting\n"
+  ],
+  [
+    "line",
     "            # Subtest: first\n"
+  ],
+  [
+    "line",
+    "        # Subtest: first\n"
   ],
   [
     "line",
@@ -397,6 +429,10 @@
   [
     "line",
     "            # Subtest: second\n"
+  ],
+  [
+    "line",
+    "        # Subtest: second\n"
   ],
   [
     "line",
@@ -443,10 +479,6 @@
     "ok 1 - ../tap/test/test/ok.js # time=205.826ms\n"
   ],
   [
-    "line",
-    "1..1\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
@@ -454,6 +486,10 @@
       "time": 205.826,
       "name": "../tap/test/test/ok.js"
     }
+  ],
+  [
+    "line",
+    "1..1\n"
   ],
   [
     "plan",

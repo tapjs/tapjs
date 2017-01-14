@@ -12,10 +12,6 @@
     "ok 1\n"
   ],
   [
-    "line",
-    "ok 2 basset hounds got long ears\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
@@ -24,7 +20,7 @@
   ],
   [
     "line",
-    "not ok 3        all hell broke lose\n"
+    "ok 2 basset hounds got long ears\n"
   ],
   [
     "assert",
@@ -36,7 +32,7 @@
   ],
   [
     "line",
-    "ok 4\n"
+    "not ok 3        all hell broke lose\n"
   ],
   [
     "assert",
@@ -48,7 +44,7 @@
   ],
   [
     "line",
-    "ok\n"
+    "ok 4\n"
   ],
   [
     "assert",
@@ -59,7 +55,7 @@
   ],
   [
     "line",
-    "ok 6\n"
+    "ok\n"
   ],
   [
     "assert",
@@ -70,7 +66,7 @@
   ],
   [
     "line",
-    "ok 7            # Skip contract negociations\n"
+    "ok 6\n"
   ],
   [
     "assert",
@@ -81,7 +77,7 @@
   ],
   [
     "line",
-    "ok 8\n"
+    "ok 7            # Skip contract negociations\n"
   ],
   [
     "assert",
@@ -94,7 +90,7 @@
   ],
   [
     "line",
-    "not ok 9\n"
+    "ok 8\n"
   ],
   [
     "assert",
@@ -105,7 +101,7 @@
   ],
   [
     "line",
-    "not ok 10\n"
+    "not ok 9\n"
   ],
   [
     "assert",
@@ -113,6 +109,10 @@
       "ok": false,
       "id": 9
     }
+  ],
+  [
+    "line",
+    "not ok 10\n"
   ],
   [
     "assert",

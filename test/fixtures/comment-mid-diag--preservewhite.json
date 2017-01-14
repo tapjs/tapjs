@@ -64,23 +64,11 @@
   ],
   [
     "line",
-    "# mid diag\n"
-  ],
-  [
-    "line",
     "  ...\n"
   ],
   [
     "line",
     "  # after diag\n"
-  ],
-  [
-    "line",
-    "# before 2\n"
-  ],
-  [
-    "line",
-    "ok 2\n"
   ],
   [
     "assert",
@@ -94,16 +82,32 @@
     }
   ],
   [
+    "line",
+    "  # before diag\n"
+  ],
+  [
     "comment",
     "  # before diag\n"
+  ],
+  [
+    "line",
+    "# mid diag\n"
   ],
   [
     "comment",
     "# mid diag\n"
   ],
   [
+    "line",
+    "  # after diag\n"
+  ],
+  [
     "comment",
     "  # after diag\n"
+  ],
+  [
+    "line",
+    "# before 2\n"
   ],
   [
     "comment",
@@ -111,7 +115,7 @@
   ],
   [
     "line",
-    "# after 2\n"
+    "ok 2\n"
   ],
   [
     "assert",
@@ -119,6 +123,10 @@
       "ok": true,
       "id": 2
     }
+  ],
+  [
+    "line",
+    "# after 2\n"
   ],
   [
     "comment",

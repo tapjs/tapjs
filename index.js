@@ -120,6 +120,7 @@ function Parser (options, onComplete) {
   if (onComplete)
     this.on('complete', onComplete)
 
+  this.results = null
   this.braceLevel = null
   this.parent = options.parent || null
   this.failures = []
@@ -158,7 +159,9 @@ function Parser (options, onComplete) {
   this.postPlan = false
 }
 
-Parser.prototype.tapError = function (error) {
+Parser.prototype.tapError = function (error, line) {
+  if (line)
+    this.emit('line', line)
   this.ok = false
   this.fail ++
   if (typeof error === 'string') {
@@ -169,11 +172,12 @@ Parser.prototype.tapError = function (error) {
   this.failures.push(error)
 }
 
-Parser.prototype.parseTestPoint = function (testPoint) {
+Parser.prototype.parseTestPoint = function (testPoint, line) {
   this.emitResult()
   if (this.bailedOut)
     return
 
+  this.emit('line', line)
   var res = new Result(testPoint, this.count)
   if (this.planStart !== -1) {
     var lessThanStart = +res.id < this.planStart
@@ -214,6 +218,15 @@ Parser.prototype.nonTap = function (data) {
       this.parent.nonTap(data)
   }
 
+  // emit each line, then the extra as a whole
+  data.split('\n').slice(0, -1).forEach(function (line) {
+    line += '\n'
+    if (this.current || this.extraQueue.length)
+      this.extraQueue.push(['line', line])
+    else
+      this.emit('line', line)
+  }, this)
+
   if (this.current || this.extraQueue.length)
     this.extraQueue.push(['extra', data])
   else
@@ -246,7 +259,7 @@ Parser.prototype.plan = function (start, end, comment, line) {
           start: start,
           end: end
         }
-      })
+      }, line)
     else
       this.nonTap(line)
     return
@@ -265,6 +278,7 @@ Parser.prototype.plan = function (start, end, comment, line) {
   if (this.count !== 0 || this.planEnd === 0)
     this.postPlan = true
 
+  this.emit('line', line)
   this.emit('plan', p)
 }
 
@@ -303,20 +317,8 @@ Parser.prototype.processYamlish = function () {
   }
 
   this.current.diag = diags
-  // we still don't emit the result here yet, to support:
-  //
-  // ok 1 - child
-  //   ---
-  //   some: diags
-  //   ...
-  // {
-  //     1..1
-  //     ok
-  // }
-  // unless it's failure, and we're going to bail anyway.
-  if (!this.current.ok && this.bail) {
-    this.emitResult()
-  }
+  // we still don't emit the result here yet, to support diags
+  // that come ahead of buffered subtests.
 }
 
 Parser.prototype.write = function (chunk, encoding, cb) {
@@ -403,11 +405,16 @@ Parser.prototype.end = function (chunk, encoding, cb) {
     this.tapError('last test id does not match plan end')
   }
 
-  var final = new FinalResults(!!skipAll, this)
-
-  this.emit('complete', final)
+  this.emitComplete(skipAll)
 
   Writable.prototype.end.call(this, null, null, cb)
+}
+
+Parser.prototype.emitComplete = function (skipAll) {
+  if (!this.results) {
+    this.results = new FinalResults(!!skipAll, this)
+    this.emit('complete', this.results)
+  }
 }
 
 function FinalResults (skipAll, self) {
@@ -432,9 +439,13 @@ function FinalPlan (skipAll, self) {
 
 Parser.prototype.version = function (version, line) {
   // If version is specified, must be at the very beginning.
-  if (version >= 13 && this.planStart === -1 && this.count === 0)
+  if (version >= 13 &&
+      this.planStart === -1 &&
+      this.count === 0 &&
+      !this.current) {
+    this.emit('line', line)
     this.emit('version', version)
-  else
+  } else
     this.nonTap(line)
 }
 
@@ -453,6 +464,7 @@ Parser.prototype.pragma = function (key, value, line) {
     this.strict = value
   }
   this.pragmas[key] = value
+  this.emit('line', line)
   this.emit('pragma', key, value)
 }
 
@@ -466,10 +478,22 @@ Parser.prototype.bailout = function (reason, synthetic) {
   // if the harness decides that failures should be bailouts.
   this.bailingOut = reason || true
 
-  this.emitResult()
+  if (!synthetic)
+    this.emitResult()
+  else
+    this.current = null
+
   this.bailedOut = this.bailingOut
   this.ok = false
+  if (!synthetic) {
+    // synthetic bailouts get emitted on end
+    var line = 'Bail out!'
+    if (reason)
+      line += ' ' + reason
+    this.emit('line', line + '\n')
+  }
   this.emit('bailout', reason)
+  this.emitComplete(false)
   if (this.parent)
     this.parent.bailout(reason, true)
 }
@@ -599,16 +623,23 @@ Parser.prototype.startChild = function (line) {
   // this line, and remove the child.emitComment below.
   // this.emit('comment', subtestComment)
   this.emit('child', this.child)
-  this.child.emitComment(subtestComment)
+  if (!this.child.buffered)
+    this.emit('line', subtestComment)
+  this.child.emitComment(subtestComment, true)
   if (line)
     this.child.parse(line)
 }
 
-Parser.prototype.emitComment = function (line) {
-  if (this.current || this.extraQueue.length)
+Parser.prototype.emitComment = function (line, skipLine) {
+  if (this.current || this.extraQueue.length) {
+    // no way to get here with skipLine being true
+    this.extraQueue.push(['line', line])
     this.extraQueue.push(['comment', line])
-  else
+  } else {
+    if (!skipLine)
+      this.emit('line', line)
     this.emit('comment', line)
+  }
 }
 
 Parser.prototype.parse = function (line) {
@@ -652,24 +683,30 @@ Parser.prototype.parse = function (line) {
     return
   }
 
-  // this is a line we are processing, so emit it
-  var validLine = this.preserveWhitespace || line.trim() || this.yind
-  if (validLine)
-    this.emit('line', line)
-
-  if (line === '\n')
-    return
+  // In any case where we're going to emitResult, that can trigger
+  // a bailout, so we need to only emit the line once we know that
+  // isn't happening, to prevent cases where there's a bailout, and
+  // then one more line of output.  That'll also prevent the case
+  // where the test point is emitted AFTER the line that follows it.
 
   // buffered subtests must end with a }
   if (this.child && this.child.buffered && line === '}\n') {
+    this.endChild()
+    this.emit('line', line)
     this.emitResult()
     return
   }
+
+  // just a \n, emit only if we care about whitespace
+  var validLine = this.preserveWhitespace || line.trim() || this.yind
+  if (line === '\n')
+    return validLine && this.emit('line', line)
 
   // buffered subtest with diagnostics
   if (this.current && line === '{\n' &&
       !this.current.buffered &&
       !this.child) {
+    this.emit('line', line)
     this.current.buffered = true
     return
   }
@@ -731,7 +768,6 @@ Parser.prototype.parse = function (line) {
     return
   }
 
-
   // streamed subtests will end when this test point is emitted
   if (type[0] === 'testPoint') {
     // note: it's weird, but possible, to have a testpoint ending in
@@ -744,7 +780,7 @@ Parser.prototype.parse = function (line) {
     // to buffer up everything and do a multi-line parse.  This is
     // rare and weird, and a multi-line parse would be a bigger
     // rewrite, so I'm allowing it as it currently is.
-    this.parseTestPoint(type[1])
+    this.parseTestPoint(type[1], line)
     return
   }
 

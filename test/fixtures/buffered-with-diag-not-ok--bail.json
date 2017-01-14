@@ -16,6 +16,73 @@
     "  ...\n"
   ],
   [
+    "line",
+    "{\n"
+  ],
+  [
+    "child",
+    [
+      [
+        "comment",
+        "# Subtest: child\n"
+      ],
+      [
+        "line",
+        "ok 1\n"
+      ],
+      [
+        "assert",
+        {
+          "ok": true,
+          "id": 1
+        }
+      ],
+      [
+        "line",
+        "1..1\n"
+      ],
+      [
+        "plan",
+        {
+          "start": 1,
+          "end": 1
+        }
+      ],
+      [
+        "complete",
+        {
+          "ok": true,
+          "count": 1,
+          "pass": 1,
+          "fail": 0,
+          "bailout": false,
+          "todo": 0,
+          "skip": 0,
+          "plan": {
+            "start": 1,
+            "end": 1,
+            "skipAll": false,
+            "skipReason": "",
+            "comment": ""
+          },
+          "failures": []
+        }
+      ]
+    ]
+  ],
+  [
+    "line",
+    "    ok 1\n"
+  ],
+  [
+    "line",
+    "    1..1\n"
+  ],
+  [
+    "line",
+    "}\n"
+  ],
+  [
     "assert",
     {
       "ok": false,
@@ -23,7 +90,8 @@
       "name": "child",
       "diag": {
         "some": "diagnostics"
-      }
+      },
+      "buffered": true
     }
   ],
   [
@@ -33,10 +101,6 @@
   [
     "bailout",
     "# child"
-  ],
-  [
-    "line",
-    "}\n"
   ],
   [
     "complete",
@@ -62,7 +126,8 @@
           "name": "child",
           "diag": {
             "some": "diagnostics"
-          }
+          },
+          "buffered": true
         }
       ]
     }

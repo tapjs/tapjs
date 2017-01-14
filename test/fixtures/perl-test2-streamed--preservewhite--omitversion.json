@@ -8,10 +8,6 @@
     "# Seeded srand with seed '20160809' from local date.\n"
   ],
   [
-    "line",
-    "# Subtest: my_streamy_test\n"
-  ],
-  [
     "child",
     [
       [
@@ -23,10 +19,6 @@
         "ok 1 - subtest event A\n"
       ],
       [
-        "line",
-        "ok 2 - subtest event B\n"
-      ],
-      [
         "assert",
         {
           "ok": true,
@@ -36,7 +28,7 @@
       ],
       [
         "line",
-        "1..2\n"
+        "ok 2 - subtest event B\n"
       ],
       [
         "assert",
@@ -45,6 +37,10 @@
           "id": 2,
           "name": "subtest event B"
         }
+      ],
+      [
+        "line",
+        "1..2\n"
       ],
       [
         "plan",
@@ -77,6 +73,10 @@
   ],
   [
     "line",
+    "# Subtest: my_streamy_test\n"
+  ],
+  [
+    "line",
     "    ok 1 - subtest event A\n"
   ],
   [
@@ -90,10 +90,6 @@
   [
     "line",
     "ok 1 - Subtest: my_streamy_test\n"
-  ],
-  [
-    "line",
-    "# Subtest: my_streamy_test_plan\n"
   ],
   [
     "assert",
@@ -126,16 +122,16 @@
         "ok 1 - subtest event A\n"
       ],
       [
-        "line",
-        "ok 2 - subtest event B\n"
-      ],
-      [
         "assert",
         {
           "ok": true,
           "id": 1,
           "name": "subtest event A"
         }
+      ],
+      [
+        "line",
+        "ok 2 - subtest event B\n"
       ],
       [
         "assert",
@@ -169,6 +165,10 @@
   ],
   [
     "line",
+    "# Subtest: my_streamy_test_plan\n"
+  ],
+  [
+    "line",
     "    1..2\n"
   ],
   [
@@ -184,16 +184,16 @@
     "ok 2 - Subtest: my_streamy_test_plan\n"
   ],
   [
-    "line",
-    "1..2\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
       "id": 2,
       "name": "Subtest: my_streamy_test_plan"
     }
+  ],
+  [
+    "line",
+    "1..2\n"
   ],
   [
     "plan",
