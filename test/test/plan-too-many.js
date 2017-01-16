@@ -1,4 +1,4 @@
-var t = require('../../lib/root.js')
+var t = require('../..')
 
 t.test('children plan too big', function (t) {
   t.plan(9)

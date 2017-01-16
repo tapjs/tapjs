@@ -1,4 +1,4 @@
-var t = require('../../lib/root.js')
+var t = require('../..')
 
 t.test('a set of tests to be done later', function (t) {
   t.test('should have a thingie')

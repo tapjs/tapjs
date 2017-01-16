@@ -1,4 +1,4 @@
-var t = require('../../lib/root.js')
+var t = require('../..')
 
 console.log('>>>> before any tests')
 

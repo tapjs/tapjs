@@ -719,7 +719,7 @@ function runTests (options) {
 
   // At this point, we know we need to use the tap root,
   // because there are 1 or more files to spawn.
-  var tap = require('../lib/root.js')
+  var tap = require('../lib/tap.js')
 
   // if not -Rtap, then output what the user wants.
   if (options.reporter !== 'tap') {

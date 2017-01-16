@@ -7,7 +7,7 @@
   "bin": {
     "tap": "bin/run.js"
   },
-  "main": "lib/root.js",
+  "main": "lib/tap.js",
   "engines": {
     "node": ">=0.8"
   },
@@ -29,7 +29,7 @@
     "signal-exit": "^3.0.0",
     "stack-utils": "^0.4.0",
     "tap-mocha-reporter": "^3.0.1",
-    "tap-parser": "^4.2.2",
+    "tap-parser": "5",
     "tmatch": "^3.0.0"
   },
   "keywords": [
@@ -50,19 +50,11 @@
     "mkdirp": "^0.5.1",
     "rimraf": "^2.5.4",
     "standard": "^7.1.0",
-    "tap-parser": "^4.2.3",
     "which": "^1.1.1"
   },
   "files": [
-    "bin/mochatap.js",
-    "bin/run.js",
-    "bin/usage.txt",
-    "lib/assert.js",
-    "lib/mocha.js",
-    "lib/root.js",
-    "lib/stack.js",
-    "lib/synonyms.js",
-    "lib/test.js"
+    "bin/*",
+    "lib/*"
   ],
   "config": {
     "nyc": {

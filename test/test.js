@@ -1,5 +1,5 @@
 var glob = require('glob')
-var t = require('../lib/root.js')
+var t = require('../')
 var spawn = require('child_process').spawn
 var node = process.execPath
 var fs = require('fs')

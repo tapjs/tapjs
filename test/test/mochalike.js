@@ -1,5 +1,5 @@
 if (typeof describe !== 'function') {
-  var t = require('../../lib/root.js')
+  var t = require('../..')
   t.mochaGlobals()
 }
 

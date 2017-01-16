@@ -1,4 +1,4 @@
-var t = require('../../lib/root.js')
+var t = require('../..')
 
 t.test('parent of timeout test', function (t) {
   t.test('timeout test', { timeout: 50 }, function (t) {
