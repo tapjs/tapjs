@@ -143,7 +143,7 @@ function Parser (options, onComplete) {
   this.maybeSubtest = null
   this.extraQueue = []
   this.buffered = options.buffered || null
-
+  this.aborted = false
   this.preserveWhitespace = options.preserveWhitespace || false
 
   this.count = 0
@@ -323,6 +323,9 @@ Parser.prototype.processYamlish = function () {
 }
 
 Parser.prototype.write = function (chunk, encoding, cb) {
+  if (this.aborted)
+    return
+
   if (typeof encoding === 'string' && encoding !== 'utf8')
     chunk = new Buffer(chunk, encoding)
 
@@ -629,6 +632,49 @@ Parser.prototype.startChild = function (line) {
   this.child.emitComment(subtestComment, true)
   if (line)
     this.child.parse(line)
+}
+
+Parser.prototype.abort = function (message, extra) {
+  if (this.child) {
+    var b = this.child.buffered
+    this.child.abort(message, extra)
+    if (b)
+      this.write('\n}\n')
+  }
+
+  var dump
+  if (extra && Object.keys(extra).length) {
+    try {
+      dump = yaml.safeDump(extra).trimRight()
+    } catch (er) {}
+  }
+
+  var y
+  if (dump)
+    y = '  ---\n  ' + dump.split('\n').join('\n  ') + '\n  ...\n'
+  else
+    y = '\n'
+  var n = (this.count || 0) + 1
+  if (this.current)
+    n += 1
+
+  if (this.planEnd !== -1 && this.planEnd < n && this.parent) {
+    // skip it, let the parent do this.
+    this.aborted = true
+    return
+  }
+
+  var ind = '' // new Array(this.level + 1).join('    ')
+  message = message.replace(/[\n\r\s\t]/g, ' ')
+  var point = '\nnot ok ' + n + ' - ' + message + '\n' + y
+  // point = ind + point.trimRight().split('\n').join('\n' + ind) + '\n'
+
+  if (this.planEnd === -1)
+    point += '1..' + n + '\n'
+
+  this.write(point)
+  this.aborted = true
+  this.end()
 }
 
 Parser.prototype.emitComment = function (line, skipLine) {
