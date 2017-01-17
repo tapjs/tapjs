@@ -29,7 +29,7 @@
     "signal-exit": "^3.0.0",
     "stack-utils": "^0.4.0",
     "tap-mocha-reporter": "^3.0.1",
-    "tap-parser": "5",
+    "tap-parser": "^5.1",
     "tmatch": "^3.0.0"
   },
   "keywords": [
