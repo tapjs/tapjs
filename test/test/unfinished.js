@@ -22,7 +22,7 @@ tap.equal(1, 1, '1 === 1')
 tap.ok('this is ok')
 tap.fail('failsome', { hoo: 'hah' })
 
-tap.spawn('node', [__filename], {}, 'spawny', { rar: 'grr' })
+tap.spawn('cat', [__filename], {}, 'spawny', { rar: 'grr' })
 tap.spawn('node', ['--version'], {}, '', { rar: 'grr' })
 
 tap.test(function (t) {
