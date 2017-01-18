@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+
 var node = process.execPath
 var fs = require('fs')
 var spawn = require('child_process').spawn
@@ -140,7 +141,8 @@ function constructDefaultArgs () {
     branches: 0,
     functions: 0,
     lines: 0,
-    statements: 0
+    statements: 0,
+    jobs: 1
   }
 
   if (process.env.TAP_COLORS !== undefined) {
@@ -163,6 +165,7 @@ function parseArgs (args, defaults) {
     v: 'version'
   }
   var singleOpts = {
+    j: 'jobs',
     R: 'reporter',
     t: 'timeout',
     s: 'save'
@@ -241,6 +244,11 @@ function parseArgs (args, defaults) {
       case '--version':
         console.log(require('../package.json').version)
         return null
+
+      case '--jobs':
+        val = val || args[++i]
+        options.jobs = +val
+        continue
 
       case '--coverage-report':
         options.coverageReport = val || args[++i]
@@ -664,22 +672,13 @@ function saveFails (options, tap) {
 
 function runAllFiles (options, saved, tap) {
   var doStdin = false
-  var opt = {
-    env: Object.keys(process.env).reduce(function (env, k) {
-      if (!env[k]) {
-        env[k] = process.env[k]
-      }
-      return env
-    }, {
-      TAP: 1
-    })
-  }
 
   options.files = options.files.filter(function (file) {
     return saved.indexOf(file) !== -1
   })
 
   for (var i = 0; i < options.files.length; i++) {
+    var opt = {}
     var file = options.files[i]
 
     // Pick up stdin after all the other files are handled.
@@ -689,23 +688,24 @@ function runAllFiles (options, saved, tap) {
     }
 
     var st = fs.statSync(options.files[i])
-    var extra = {}
     if (options.timeout) {
-      extra.timeout = options.timeout * 1000
+      opt.timeout = options.timeout * 1000
     }
 
-    extra.file = file
+    opt.file = file
+    if (options.jobs > 1)
+      opt.buffered = true
 
     if (file.match(/\.js$/)) {
       var args = options.nodeArgs.concat(file).concat(options.testArgs)
-      tap.spawn(node, args, opt, file, extra)
+      tap.spawn(node, args, opt, file)
     } else if (st.isDirectory()) {
       var dir = fs.readdirSync(file).map(function (f) {
         return file + '/' + f
       })
       options.files.push.apply(options.files, dir)
     } else if (isexe.sync(options.files[i])) {
-      tap.spawn(options.files[i], options.testArgs, opt, file, extra)
+      tap.spawn(options.files[i], options.testArgs, opt, file)
     }
   }
 
@@ -720,6 +720,8 @@ function runTests (options) {
   // At this point, we know we need to use the tap root,
   // because there are 1 or more files to spawn.
   var tap = require('../lib/tap.js')
+
+  tap.jobs = options.jobs
 
   // if not -Rtap, then output what the user wants.
   if (options.reporter !== 'tap') {
