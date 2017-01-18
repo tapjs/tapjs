@@ -160,6 +160,7 @@ function parseArgs (args, defaults) {
     B: 'no-bail',
     c: 'color',
     C: 'no-color',
+    T: 'no-timeout',
     h: 'help',
     '?': 'help',
     v: 'version'
@@ -355,6 +356,10 @@ function parseArgs (args, defaults) {
 
       case '--no-color':
         options.color = false
+        continue
+
+      case '--no-timeout':
+        options.timeout = 0
         continue
 
       case '--timeout':
@@ -688,9 +693,8 @@ function runAllFiles (options, saved, tap) {
     }
 
     var st = fs.statSync(options.files[i])
-    if (options.timeout) {
+    if (options.timeout)
       opt.timeout = options.timeout * 1000
-    }
 
     opt.file = file
     if (options.jobs > 1)
