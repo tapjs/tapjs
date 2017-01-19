@@ -25,7 +25,7 @@
     "only-shallow": "^1.0.2",
     "opener": "^1.4.1",
     "os-homedir": "1.0.1",
-    "readable-stream": "^2.0.2",
+    "readable-stream": "^2.1.5",
     "signal-exit": "^3.0.0",
     "stack-utils": "^0.4.0",
     "tap-mocha-reporter": "^3.0.1",
