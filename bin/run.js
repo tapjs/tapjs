@@ -12,7 +12,7 @@ var isexe = require('isexe')
 var osHomedir = require('os-homedir')
 var yaml = require('js-yaml')
 var path = require('path')
-var exists = require('../lib/exists.js')
+var exists = require('fs-exists-cached').sync
 
 var coverageServiceTest = process.env.COVERAGE_SERVICE_TEST === 'true'
 
