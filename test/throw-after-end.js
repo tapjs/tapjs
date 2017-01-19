@@ -2,7 +2,7 @@ var t = require('../')
 var Test = t.Test
 
 var tt = new Test({ bail: false })
-tt._name = 'one'
+tt.name = 'one'
 tt.pass('this is fine')
 tt.end()
 t.throws(function () {
@@ -11,7 +11,7 @@ t.throws(function () {
 
 var out = ''
 tt = new Test({ bail: false })
-tt._name = 'two'
+tt.name = 'two'
 
 tt.on('data', function (c) {
   out += c

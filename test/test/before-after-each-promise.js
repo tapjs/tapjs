@@ -4,27 +4,27 @@ var Promise = require('bluebird')
 t.beforeEach(function (cb) {
   var self = this
   return new Promise(function (resolve, reject) {
-    console.log('before 1', self._name)
+    console.log('before 1', self.name)
     process.nextTick(resolve)
   })
 })
 
 t.afterEach(function (cb) {
-  console.log('after 1', this._name)
+  console.log('after 1', this.name)
   cb()
 })
 
 t.test('parent', function (t) {
   t.beforeEach(function (cb) {
-    console.log('before 2', this._name)
+    console.log('before 2', this.name)
     cb()
   })
 
   t.afterEach(function (cb) {
     var self = this
     return new Promise(function (resolve, reject) {
-      console.log('after 2', this._name)
-      if (self._name === 'grandchild') {
+      console.log('after 2', this.name)
+      if (self.name === 'grandchild') {
         return reject(new Error('this is fine'))
       }
       resolve()
