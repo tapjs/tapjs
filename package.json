@@ -35,6 +35,7 @@
     "tap-mocha-reporter": "^3.0.1",
     "tap-parser": "^5.1",
     "tmatch": "^3.0.0",
+    "trivial-deferred": "^1.0.0",
     "yapool": "^1.0.0"
   },
   "keywords": [
