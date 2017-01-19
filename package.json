@@ -12,7 +12,7 @@
     "node": ">=0.8"
   },
   "dependencies": {
-    "bluebird": "^3.3.1",
+    "bluebird": "^3.4.3",
     "clean-yaml-object": "^0.1.0",
     "color-support": "^1.1.0",
     "coveralls": "^2.11.2",
