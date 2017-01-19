@@ -12,6 +12,7 @@
     "node": ">=0.8"
   },
   "dependencies": {
+    "bind-obj-methods": "^1.0.0",
     "bluebird": "^3.3.1",
     "clean-yaml-object": "^0.1.0",
     "color-support": "^1.1.0",
@@ -25,12 +26,15 @@
     "only-shallow": "^1.0.2",
     "opener": "^1.4.1",
     "os-homedir": "1.0.1",
+    "own-or": "^1.0.0",
+    "own-or-env": "^1.0.0",
     "readable-stream": "^2.0.2",
     "signal-exit": "^3.0.0",
     "stack-utils": "^0.4.0",
     "tap-mocha-reporter": "^3.0.1",
     "tap-parser": "^5.1",
-    "tmatch": "^3.0.0"
+    "tmatch": "^3.0.0",
+    "yapool": "^1.0.0"
   },
   "keywords": [
     "assert",
