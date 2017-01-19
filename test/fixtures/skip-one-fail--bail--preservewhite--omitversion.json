@@ -26,7 +26,7 @@
   [
     "complete",
     {
-      "ok": false,
+      "ok": true,
       "count": 1,
       "pass": 0,
       "fail": 1,

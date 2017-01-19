@@ -199,7 +199,8 @@ Parser.prototype.parseTestPoint = function (testPoint, line) {
       this.last = res.id
   }
 
-  this.ok = this.ok && res.ok
+  if (!res.skip && !res.todo)
+    this.ok = this.ok && res.ok
 
   // hold onto it, because we might get yamlish diagnostics
   this.current = res
