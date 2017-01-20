@@ -1,7 +1,7 @@
 [
   [
     "line",
-    "    # Subtest: child indented\n"
+    "# Subtest: child indented\n"
   ],
   [
     "child",
@@ -87,10 +87,6 @@
         }
       ]
     ]
-  ],
-  [
-    "line",
-    "# Subtest: child indented\n"
   ],
   [
     "line",

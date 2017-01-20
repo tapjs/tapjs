@@ -1,7 +1,7 @@
 [
   [
     "line",
-    "    # Subtest: ../tap/test/test/ok.js\n"
+    "# Subtest: ../tap/test/test/ok.js\n"
   ],
   [
     "child",
@@ -12,7 +12,7 @@
       ],
       [
         "line",
-        "    # Subtest: nesting\n"
+        "# Subtest: nesting\n"
       ],
       [
         "child",
@@ -23,7 +23,7 @@
           ],
           [
             "line",
-            "    # Subtest: first\n"
+            "# Subtest: first\n"
           ],
           [
             "child",
@@ -91,10 +91,6 @@
           ],
           [
             "line",
-            "# Subtest: first\n"
-          ],
-          [
-            "line",
             "    1..2\n"
           ],
           [
@@ -110,10 +106,6 @@
             "ok 1 - first # time=8.987ms\n"
           ],
           [
-            "line",
-            "    # Subtest: second\n"
-          ],
-          [
             "assert",
             {
               "ok": true,
@@ -121,6 +113,10 @@
               "time": 8.987,
               "name": "first"
             }
+          ],
+          [
+            "line",
+            "# Subtest: second\n"
           ],
           [
             "child",
@@ -200,10 +196,6 @@
           ],
           [
             "line",
-            "# Subtest: second\n"
-          ],
-          [
-            "line",
             "    ok 1 - but that is ok\n"
           ],
           [
@@ -266,14 +258,6 @@
       ],
       [
         "line",
-        "# Subtest: nesting\n"
-      ],
-      [
-        "line",
-        "        # Subtest: first\n"
-      ],
-      [
-        "line",
         "    # Subtest: first\n"
       ],
       [
@@ -291,10 +275,6 @@
       [
         "line",
         "    ok 1 - first # time=8.987ms\n"
-      ],
-      [
-        "line",
-        "        # Subtest: second\n"
       ],
       [
         "line",
@@ -392,19 +372,7 @@
   ],
   [
     "line",
-    "# Subtest: ../tap/test/test/ok.js\n"
-  ],
-  [
-    "line",
-    "        # Subtest: nesting\n"
-  ],
-  [
-    "line",
     "    # Subtest: nesting\n"
-  ],
-  [
-    "line",
-    "            # Subtest: first\n"
   ],
   [
     "line",
@@ -425,10 +393,6 @@
   [
     "line",
     "        ok 1 - first # time=8.987ms\n"
-  ],
-  [
-    "line",
-    "            # Subtest: second\n"
   ],
   [
     "line",

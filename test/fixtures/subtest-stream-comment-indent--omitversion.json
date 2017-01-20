@@ -1,5 +1,9 @@
 [
   [
+    "line",
+    "# Subtest: ok.js\n"
+  ],
+  [
     "child",
     [
       [
@@ -27,7 +31,7 @@
       ],
       [
         "line",
-        "    # Subtest: first\n"
+        "# Subtest: first\n"
       ],
       [
         "child",
@@ -95,10 +99,6 @@
       ],
       [
         "line",
-        "# Subtest: first\n"
-      ],
-      [
-        "line",
         "    1..2\n"
       ],
       [
@@ -114,10 +114,6 @@
         "ok 1 - first # time=11.345ms\n"
       ],
       [
-        "line",
-        "    # Subtest: second\n"
-      ],
-      [
         "assert",
         {
           "ok": true,
@@ -125,6 +121,10 @@
           "time": 11.345,
           "name": "first"
         }
+      ],
+      [
+        "line",
+        "# Subtest: second\n"
       ],
       [
         "child",
@@ -204,10 +204,6 @@
       ],
       [
         "line",
-        "# Subtest: second\n"
-      ],
-      [
-        "line",
         "    ok 1 - but that is ok\n"
       ],
       [
@@ -259,19 +255,11 @@
   ],
   [
     "line",
-    "# Subtest: ok.js\n"
-  ],
-  [
-    "line",
     "    # Subtest: nesting\n"
   ],
   [
     "line",
     "    1..2\n"
-  ],
-  [
-    "line",
-    "        # Subtest: first\n"
   ],
   [
     "line",
@@ -292,10 +280,6 @@
   [
     "line",
     "    ok 1 - first # time=11.345ms\n"
-  ],
-  [
-    "line",
-    "        # Subtest: second\n"
   ],
   [
     "line",

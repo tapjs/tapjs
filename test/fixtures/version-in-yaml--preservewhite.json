@@ -9,7 +9,7 @@
   ],
   [
     "line",
-    "    # Subtest: child indented\n"
+    "# Subtest: child indented\n"
   ],
   [
     "child",
@@ -101,10 +101,6 @@
   ],
   [
     "line",
-    "# Subtest: child indented\n"
-  ],
-  [
-    "line",
     "    not ok - some yaml\n"
   ],
   [
@@ -146,6 +142,10 @@
       "id": 1,
       "name": "child indented"
     }
+  ],
+  [
+    "line",
+    "# Subtest: child unindented\n"
   ],
   [
     "child",
@@ -237,10 +237,6 @@
   ],
   [
     "line",
-    "# Subtest: child unindented\n"
-  ],
-  [
-    "line",
     "    not ok - some yaml\n"
   ],
   [
@@ -282,6 +278,10 @@
       "id": 2,
       "name": "child unindented"
     }
+  ],
+  [
+    "line",
+    "# Subtest: (anonymous)\n"
   ],
   [
     "child",
@@ -370,10 +370,6 @@
         }
       ]
     ]
-  ],
-  [
-    "line",
-    "# Subtest: (anonymous)\n"
   ],
   [
     "line",

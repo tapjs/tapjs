@@ -181,6 +181,10 @@
         "# Subtest: x2\n"
       ],
       [
+        "line",
+        "# Subtest: y\n"
+      ],
+      [
         "child",
         [
           [
@@ -231,10 +235,6 @@
             }
           ]
         ]
-      ],
-      [
-        "line",
-        "# Subtest: y\n"
       ],
       [
         "line",
@@ -335,7 +335,7 @@
       ],
       [
         "line",
-        "    # Subtest: y\n"
+        "# Subtest: y\n"
       ],
       [
         "child",
@@ -388,10 +388,6 @@
             }
           ]
         ]
-      ],
-      [
-        "line",
-        "# Subtest: y\n"
       ],
       [
         "line",
@@ -448,10 +444,6 @@
   ],
   [
     "line",
-    "        # Subtest: y\n"
-  ],
-  [
-    "line",
     "    # Subtest: y\n"
   ],
   [
@@ -482,6 +474,10 @@
       "buffered": true,
       "name": "x3"
     }
+  ],
+  [
+    "line",
+    "# Subtest: x4\n"
   ],
   [
     "child",
@@ -602,10 +598,6 @@
   ],
   [
     "line",
-    "# Subtest: x4\n"
-  ],
-  [
-    "line",
     "    ok 1 - y {\n"
   ],
   [
@@ -637,11 +629,19 @@
     }
   ],
   [
+    "line",
+    "# Subtest: x5\n"
+  ],
+  [
     "child",
     [
       [
         "comment",
         "# Subtest: x5\n"
+      ],
+      [
+        "line",
+        "# Subtest: y\n"
       ],
       [
         "child",
@@ -697,10 +697,6 @@
       ],
       [
         "line",
-        "# Subtest: y\n"
-      ],
-      [
-        "line",
         "    ok 1 - ypoint\n"
       ],
       [
@@ -751,10 +747,6 @@
         }
       ]
     ]
-  ],
-  [
-    "line",
-    "# Subtest: x5\n"
   ],
   [
     "line",
@@ -789,6 +781,10 @@
     }
   ],
   [
+    "line",
+    "# Subtest: x6\n"
+  ],
+  [
     "child",
     [
       [
@@ -797,7 +793,7 @@
       ],
       [
         "line",
-        "    # Subtest: y\n"
+        "# Subtest: y\n"
       ],
       [
         "child",
@@ -850,10 +846,6 @@
             }
           ]
         ]
-      ],
-      [
-        "line",
-        "# Subtest: y\n"
       ],
       [
         "line",
@@ -910,14 +902,6 @@
   ],
   [
     "line",
-    "# Subtest: x6\n"
-  ],
-  [
-    "line",
-    "        # Subtest: y\n"
-  ],
-  [
-    "line",
     "    # Subtest: y\n"
   ],
   [
@@ -941,16 +925,16 @@
     "ok 6 - x6\n"
   ],
   [
-    "line",
-    "    # Subtest: x7\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
       "id": 6,
       "name": "x6"
     }
+  ],
+  [
+    "line",
+    "# Subtest: x7\n"
   ],
   [
     "child",
@@ -1071,10 +1055,6 @@
   ],
   [
     "line",
-    "# Subtest: x7\n"
-  ],
-  [
-    "line",
     "    ok 1 - y {\n"
   ],
   [
@@ -1098,10 +1078,6 @@
     "ok 7 - x7\n"
   ],
   [
-    "line",
-    "    # Subtest: x8\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
@@ -1110,11 +1086,19 @@
     }
   ],
   [
+    "line",
+    "# Subtest: x8\n"
+  ],
+  [
     "child",
     [
       [
         "comment",
         "# Subtest: x8\n"
+      ],
+      [
+        "line",
+        "# Subtest: y\n"
       ],
       [
         "child",
@@ -1170,10 +1154,6 @@
       ],
       [
         "line",
-        "# Subtest: y\n"
-      ],
-      [
-        "line",
         "    ok 1 - ypoint\n"
       ],
       [
@@ -1224,10 +1204,6 @@
         }
       ]
     ]
-  ],
-  [
-    "line",
-    "# Subtest: x8\n"
   ],
   [
     "line",
@@ -1254,16 +1230,16 @@
     "ok 8 - x8\n"
   ],
   [
-    "line",
-    "    # Subtest: x9\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
       "id": 8,
       "name": "x8"
     }
+  ],
+  [
+    "line",
+    "# Subtest: x9\n"
   ],
   [
     "child",
@@ -1274,7 +1250,7 @@
       ],
       [
         "line",
-        "    # Subtest: y\n"
+        "# Subtest: y\n"
       ],
       [
         "child",
@@ -1330,10 +1306,6 @@
       ],
       [
         "line",
-        "# Subtest: y\n"
-      ],
-      [
-        "line",
         "    ok 1 - ypoint\n"
       ],
       [
@@ -1384,14 +1356,6 @@
         }
       ]
     ]
-  ],
-  [
-    "line",
-    "# Subtest: x9\n"
-  ],
-  [
-    "line",
-    "        # Subtest: y\n"
   ],
   [
     "line",

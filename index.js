@@ -565,13 +565,10 @@ Parser.prototype.emitResult = function () {
 // TAP line type, and if so, start the unnamed child.
 Parser.prototype.startChild = function (line) {
   var maybeBuffered = this.current && this.current.buffered
-  var unindentStream = !maybeBuffered  && this.maybeChild
+  var unindentStream = !maybeBuffered && this.maybeChild
   var indentStream = !maybeBuffered && !unindentStream &&
     lineTypes.subtestIndent.test(line)
   var unnamed = !maybeBuffered && !unindentStream && !indentStream
-
-  if (indentStream)
-    this.emit('line', line)
 
   // If we have any other result waiting in the wings, we need to emit
   // that now.  A buffered test emits its test point at the *end* of
@@ -628,9 +625,9 @@ Parser.prototype.startChild = function (line) {
   // the Subtest comment on the parent level.  If so, uncomment
   // this line, and remove the child.emitComment below.
   // this.emit('comment', subtestComment)
-  this.emit('child', this.child)
   if (!this.child.buffered)
     this.emit('line', subtestComment)
+  this.emit('child', this.child)
   this.child.emitComment(subtestComment, true)
   if (line)
     this.child.parse(line)

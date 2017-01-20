@@ -16,6 +16,10 @@
     "# just a comment\n"
   ],
   [
+    "line",
+    "# Subtest: x\n"
+  ],
+  [
     "child",
     [
       [
@@ -41,6 +45,10 @@
           "id": 1,
           "name": "not a subtest"
         }
+      ],
+      [
+        "line",
+        "# Subtest: y\n"
       ],
       [
         "child",
@@ -96,10 +104,6 @@
       ],
       [
         "line",
-        "# Subtest: y\n"
-      ],
-      [
-        "line",
         "    ok 1 - ypoint\n"
       ],
       [
@@ -150,10 +154,6 @@
         }
       ]
     ]
-  ],
-  [
-    "line",
-    "# Subtest: x\n"
   ],
   [
     "line",

@@ -36,10 +36,6 @@
     "  ...\n"
   ],
   [
-    "line",
-    "    # Subtest: child\n"
-  ],
-  [
     "assert",
     {
       "ok": false,

@@ -43,6 +43,10 @@
     "  ---\n"
   ],
   [
+    "line",
+    "# Subtest: maybe a child\n"
+  ],
+  [
     "child",
     [
       [
@@ -92,10 +96,6 @@
         }
       ]
     ]
-  ],
-  [
-    "line",
-    "# Subtest: maybe a child\n"
   ],
   [
     "line",

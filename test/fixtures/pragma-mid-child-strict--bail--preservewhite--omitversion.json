@@ -21,7 +21,7 @@
   ],
   [
     "line",
-    "    # Subtest\n"
+    "# Subtest\n"
   ],
   [
     "child",
@@ -73,10 +73,6 @@
         }
       ]
     ]
-  ],
-  [
-    "line",
-    "# Subtest\n"
   ],
   [
     "line",

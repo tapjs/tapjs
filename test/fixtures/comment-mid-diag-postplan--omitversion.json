@@ -36,10 +36,6 @@
     "  ...\n"
   ],
   [
-    "line",
-    "    # Subtest: child\n"
-  ],
-  [
     "assert",
     {
       "ok": false,
@@ -73,6 +69,10 @@
   [
     "comment",
     "  # after diag\n"
+  ],
+  [
+    "line",
+    "# Subtest: child\n"
   ],
   [
     "child",
@@ -151,10 +151,6 @@
         }
       ]
     ]
-  ],
-  [
-    "line",
-    "# Subtest: child\n"
   ],
   [
     "line",

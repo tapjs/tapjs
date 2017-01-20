@@ -9,7 +9,7 @@
   ],
   [
     "line",
-    "    # Subtest: test/debug-test.js\n"
+    "# Subtest: test/debug-test.js\n"
   ],
   [
     "child",
@@ -94,10 +94,6 @@
         }
       ]
     ]
-  ],
-  [
-    "line",
-    "# Subtest: test/debug-test.js\n"
   ],
   [
     "line",

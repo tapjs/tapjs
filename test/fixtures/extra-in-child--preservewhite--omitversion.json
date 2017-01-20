@@ -1,7 +1,7 @@
 [
   [
     "line",
-    "    # Subtest: test/01c-user-updates.js\n"
+    "# Subtest: test/01c-user-updates.js\n"
   ],
   [
     "child",
@@ -12,7 +12,7 @@
       ],
       [
         "line",
-        "    # Subtest: update profile\n"
+        "# Subtest: update profile\n"
       ],
       [
         "child",
@@ -80,10 +80,6 @@
       ],
       [
         "line",
-        "# Subtest: update profile\n"
-      ],
-      [
-        "line",
         "    ok 1 - should be equivalent\n"
       ],
       [
@@ -99,10 +95,6 @@
         "ok 1 - update profile # time=43.094ms\n"
       ],
       [
-        "line",
-        "    # Subtest: update email\n"
-      ],
-      [
         "assert",
         {
           "ok": true,
@@ -110,6 +102,10 @@
           "time": 43.094,
           "name": "update profile"
         }
+      ],
+      [
+        "line",
+        "# Subtest: update email\n"
       ],
       [
         "child",
@@ -162,10 +158,6 @@
             }
           ]
         ]
-      ],
-      [
-        "line",
-        "# Subtest: update email\n"
       ],
       [
         "line",
@@ -439,14 +431,6 @@
   ],
   [
     "line",
-    "# Subtest: test/01c-user-updates.js\n"
-  ],
-  [
-    "line",
-    "        # Subtest: update profile\n"
-  ],
-  [
-    "line",
     "    # Subtest: update profile\n"
   ],
   [
@@ -464,10 +448,6 @@
   [
     "line",
     "    ok 1 - update profile # time=43.094ms\n"
-  ],
-  [
-    "line",
-    "        # Subtest: update email\n"
   ],
   [
     "line",

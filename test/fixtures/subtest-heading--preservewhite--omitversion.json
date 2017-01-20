@@ -1,10 +1,18 @@
 [
   [
+    "line",
+    "# Subtest: heading.js\n"
+  ],
+  [
     "child",
     [
       [
         "comment",
         "# Subtest: heading.js\n"
+      ],
+      [
+        "line",
+        "# Subtest: x\n"
       ],
       [
         "child",
@@ -68,10 +76,6 @@
       ],
       [
         "line",
-        "# Subtest: x\n"
-      ],
-      [
-        "line",
         "    # Subtest: y\n"
       ],
       [
@@ -126,10 +130,6 @@
         }
       ]
     ]
-  ],
-  [
-    "line",
-    "# Subtest: heading.js\n"
   ],
   [
     "line",

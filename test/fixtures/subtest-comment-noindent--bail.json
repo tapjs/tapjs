@@ -8,6 +8,10 @@
     13
   ],
   [
+    "line",
+    "# Subtest: ../tap/test/test/ok.js\n"
+  ],
+  [
     "child",
     [
       [
@@ -15,11 +19,19 @@
         "# Subtest: ../tap/test/test/ok.js\n"
       ],
       [
+        "line",
+        "# Subtest: nesting\n"
+      ],
+      [
         "child",
         [
           [
             "comment",
             "# Subtest: nesting\n"
+          ],
+          [
+            "line",
+            "# Subtest: first\n"
           ],
           [
             "child",
@@ -87,10 +99,6 @@
           ],
           [
             "line",
-            "# Subtest: first\n"
-          ],
-          [
-            "line",
             "    1..2\n"
           ],
           [
@@ -113,6 +121,10 @@
               "time": 8.987,
               "name": "first"
             }
+          ],
+          [
+            "line",
+            "# Subtest: second\n"
           ],
           [
             "child",
@@ -192,10 +204,6 @@
           ],
           [
             "line",
-            "# Subtest: second\n"
-          ],
-          [
-            "line",
             "    ok 1 - but that is ok\n"
           ],
           [
@@ -255,10 +263,6 @@
             }
           ]
         ]
-      ],
-      [
-        "line",
-        "# Subtest: nesting\n"
       ],
       [
         "line",
@@ -373,10 +377,6 @@
         }
       ]
     ]
-  ],
-  [
-    "line",
-    "# Subtest: ../tap/test/test/ok.js\n"
   ],
   [
     "line",

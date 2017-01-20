@@ -9,7 +9,7 @@
   ],
   [
     "line",
-    "    # Subtest: a set of tests to be done later\n"
+    "# Subtest: a set of tests to be done later\n"
   ],
   [
     "child",
@@ -36,10 +36,6 @@
         "ok 2 - should have a second whoosits also # TODO\n"
       ],
       [
-        "line",
-        "    # Subtest: the subset\n"
-      ],
-      [
         "assert",
         {
           "ok": true,
@@ -47,6 +43,10 @@
           "todo": true,
           "name": "should have a second whoosits also"
         }
+      ],
+      [
+        "line",
+        "# Subtest: the subset\n"
       ],
       [
         "child",
@@ -73,10 +73,6 @@
             "ok 2 - should also be a whoosits # TODO\n"
           ],
           [
-            "line",
-            "    # Subtest: has some of these things\n"
-          ],
-          [
             "assert",
             {
               "ok": true,
@@ -84,6 +80,10 @@
               "todo": true,
               "name": "should also be a whoosits"
             }
+          ],
+          [
+            "line",
+            "# Subtest: has some of these things\n"
           ],
           [
             "child",
@@ -151,10 +151,6 @@
           ],
           [
             "line",
-            "# Subtest: has some of these things\n"
-          ],
-          [
-            "line",
             "    ok 1 - true is truthy\n"
           ],
           [
@@ -212,19 +208,11 @@
       ],
       [
         "line",
-        "# Subtest: the subset\n"
-      ],
-      [
-        "line",
         "    ok 1 - should be a child thingie # TODO\n"
       ],
       [
         "line",
         "    ok 2 - should also be a whoosits # TODO\n"
-      ],
-      [
-        "line",
-        "        # Subtest: has some of these things\n"
       ],
       [
         "line",
@@ -297,19 +285,11 @@
   ],
   [
     "line",
-    "# Subtest: a set of tests to be done later\n"
-  ],
-  [
-    "line",
     "    ok 1 - should have a thingie # TODO\n"
   ],
   [
     "line",
     "    ok 2 - should have a second whoosits also # TODO\n"
-  ],
-  [
-    "line",
-    "        # Subtest: the subset\n"
   ],
   [
     "line",
@@ -322,10 +302,6 @@
   [
     "line",
     "        ok 2 - should also be a whoosits # TODO\n"
-  ],
-  [
-    "line",
-    "            # Subtest: has some of these things\n"
   ],
   [
     "line",
@@ -364,16 +340,16 @@
     "ok 1 - a set of tests to be done later\n"
   ],
   [
-    "line",
-    "    # Subtest: another set of tests\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
       "id": 1,
       "name": "a set of tests to be done later"
     }
+  ],
+  [
+    "line",
+    "# Subtest: another set of tests\n"
   ],
   [
     "child",
@@ -453,10 +429,6 @@
         }
       ]
     ]
-  ],
-  [
-    "line",
-    "# Subtest: another set of tests\n"
   ],
   [
     "line",

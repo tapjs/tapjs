@@ -255,6 +255,10 @@
     }
   ],
   [
+    "line",
+    "# Subtest: my_streamy_test\n"
+  ],
+  [
     "child",
     [
       [
@@ -320,10 +324,6 @@
   ],
   [
     "line",
-    "# Subtest: my_streamy_test\n"
-  ],
-  [
-    "line",
     "    ok 1 - subtest event A\n"
   ],
   [
@@ -345,6 +345,10 @@
       "id": 4,
       "name": "Subtest: my_streamy_test"
     }
+  ],
+  [
+    "line",
+    "# Subtest: my_streamy_test_plan\n"
   ],
   [
     "child",
@@ -409,10 +413,6 @@
         }
       ]
     ]
-  ],
-  [
-    "line",
-    "# Subtest: my_streamy_test_plan\n"
   ],
   [
     "line",

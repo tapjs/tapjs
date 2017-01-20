@@ -8,6 +8,10 @@
     "# Seeded srand with seed '20160809' from local date.\n"
   ],
   [
+    "line",
+    "# Subtest: my_streamy_test\n"
+  ],
+  [
     "child",
     [
       [
@@ -73,10 +77,6 @@
   ],
   [
     "line",
-    "# Subtest: my_streamy_test\n"
-  ],
-  [
-    "line",
     "    ok 1 - subtest event A\n"
   ],
   [
@@ -98,6 +98,10 @@
       "id": 1,
       "name": "Subtest: my_streamy_test"
     }
+  ],
+  [
+    "line",
+    "# Subtest: my_streamy_test_plan\n"
   ],
   [
     "child",
@@ -162,10 +166,6 @@
         }
       ]
     ]
-  ],
-  [
-    "line",
-    "# Subtest: my_streamy_test_plan\n"
   ],
   [
     "line",

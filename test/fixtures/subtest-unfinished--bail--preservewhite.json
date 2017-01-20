@@ -23,15 +23,15 @@
     "ok\n"
   ],
   [
-    "line",
-    "    # Subtest: unfinished\n"
-  ],
-  [
     "assert",
     {
       "ok": true,
       "id": 1
     }
+  ],
+  [
+    "line",
+    "# Subtest: unfinished\n"
   ],
   [
     "child",
@@ -83,10 +83,6 @@
         }
       ]
     ]
-  ],
-  [
-    "line",
-    "# Subtest: unfinished\n"
   ],
   [
     "line",

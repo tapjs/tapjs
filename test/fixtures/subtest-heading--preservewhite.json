@@ -17,7 +17,7 @@
   ],
   [
     "line",
-    "    # Subtest: x\n"
+    "# Subtest: x\n"
   ],
   [
     "child",
@@ -28,7 +28,7 @@
       ],
       [
         "line",
-        "    # Subtest: y\n"
+        "# Subtest: y\n"
       ],
       [
         "child",
@@ -84,10 +84,6 @@
       ],
       [
         "line",
-        "# Subtest: y\n"
-      ],
-      [
-        "line",
         "    ok 1 - ypoint\n"
       ],
       [
@@ -138,14 +134,6 @@
         }
       ]
     ]
-  ],
-  [
-    "line",
-    "# Subtest: x\n"
-  ],
-  [
-    "line",
-    "        # Subtest: y\n"
   ],
   [
     "line",

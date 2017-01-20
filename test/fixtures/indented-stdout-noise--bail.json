@@ -9,7 +9,7 @@
   ],
   [
     "line",
-    "    # Subtest: index.js\n"
+    "# Subtest: index.js\n"
   ],
   [
     "child",
@@ -20,7 +20,7 @@
       ],
       [
         "line",
-        "    # Subtest: boom\n"
+        "# Subtest: boom\n"
       ],
       [
         "child",
@@ -31,7 +31,7 @@
           ],
           [
             "line",
-            "    # Subtest: npm install package line\n"
+            "# Subtest: npm install package line\n"
           ],
           [
             "child",
@@ -112,10 +112,6 @@
           ],
           [
             "line",
-            "# Subtest: npm install package line\n"
-          ],
-          [
-            "line",
             "    $ npm install package\n"
           ],
           [
@@ -178,10 +174,6 @@
       ],
       [
         "line",
-        "# Subtest: boom\n"
-      ],
-      [
-        "line",
         "# package - Easy package.json exports.\n"
       ],
       [
@@ -227,10 +219,6 @@
       [
         "comment",
         "## Installation\n"
-      ],
-      [
-        "line",
-        "        # Subtest: npm install package line\n"
       ],
       [
         "line",
@@ -504,14 +492,6 @@
   ],
   [
     "line",
-    "# Subtest: index.js\n"
-  ],
-  [
-    "line",
-    "        # Subtest: boom\n"
-  ],
-  [
-    "line",
     "    # Subtest: boom\n"
   ],
   [
@@ -537,10 +517,6 @@
   [
     "line",
     "    ## Installation\n"
-  ],
-  [
-    "line",
-    "            # Subtest: npm install package line\n"
   ],
   [
     "line",

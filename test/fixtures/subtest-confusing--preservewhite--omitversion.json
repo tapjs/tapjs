@@ -11,6 +11,10 @@
         "# Subtest: a brace looks like this\n"
       ],
       [
+        "line",
+        "# Subtest: x\n"
+      ],
+      [
         "child",
         [
           [
@@ -69,10 +73,6 @@
             }
           ]
         ]
-      ],
-      [
-        "line",
-        "# Subtest: x\n"
       ],
       [
         "line",

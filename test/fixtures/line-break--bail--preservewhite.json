@@ -9,7 +9,7 @@
   ],
   [
     "line",
-    "    # Subtest: foo\n"
+    "# Subtest: foo\n"
   ],
   [
     "child",
@@ -117,10 +117,6 @@
         }
       ]
     ]
-  ],
-  [
-    "line",
-    "# Subtest: foo\n"
   ],
   [
     "line",

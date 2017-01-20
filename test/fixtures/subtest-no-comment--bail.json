@@ -8,6 +8,10 @@
     13
   ],
   [
+    "line",
+    "# Subtest: (anonymous)\n"
+  ],
+  [
     "child",
     [
       [
@@ -15,10 +19,18 @@
         "# Subtest: (anonymous)\n"
       ],
       [
+        "line",
+        "# Subtest: (anonymous)\n"
+      ],
+      [
         "child",
         [
           [
             "comment",
+            "# Subtest: (anonymous)\n"
+          ],
+          [
+            "line",
             "# Subtest: (anonymous)\n"
           ],
           [
@@ -87,10 +99,6 @@
           ],
           [
             "line",
-            "# Subtest: (anonymous)\n"
-          ],
-          [
-            "line",
             "    1..2\n"
           ],
           [
@@ -113,6 +121,10 @@
               "time": 8.987,
               "name": "first"
             }
+          ],
+          [
+            "line",
+            "# Subtest: (anonymous)\n"
           ],
           [
             "child",
@@ -192,10 +204,6 @@
           ],
           [
             "line",
-            "# Subtest: (anonymous)\n"
-          ],
-          [
-            "line",
             "    ok 1 - but that is ok\n"
           ],
           [
@@ -255,10 +263,6 @@
             }
           ]
         ]
-      ],
-      [
-        "line",
-        "# Subtest: (anonymous)\n"
       ],
       [
         "line",
@@ -365,10 +369,6 @@
         }
       ]
     ]
-  ],
-  [
-    "line",
-    "# Subtest: (anonymous)\n"
   ],
   [
     "line",
