@@ -1,0 +1,116 @@
+[
+  [
+    "line",
+    "not ok\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": false,
+      "id": 1
+    }
+  ],
+  [
+    "child",
+    [
+      [
+        "comment",
+        "# Subtest: maybe a child\n"
+      ],
+      [
+        "line",
+        "1..1\n"
+      ],
+      [
+        "plan",
+        {
+          "start": 1,
+          "end": 1
+        }
+      ],
+      [
+        "line",
+        "ok\n"
+      ],
+      [
+        "assert",
+        {
+          "ok": true,
+          "id": 1
+        }
+      ],
+      [
+        "complete",
+        {
+          "ok": true,
+          "count": 1,
+          "pass": 1,
+          "fail": 0,
+          "bailout": false,
+          "todo": 0,
+          "skip": 0,
+          "plan": {
+            "start": 1,
+            "end": 1,
+            "skipAll": false,
+            "skipReason": "",
+            "comment": ""
+          },
+          "failures": []
+        }
+      ]
+    ]
+  ],
+  [
+    "line",
+    "# Subtest: maybe a child\n"
+  ],
+  [
+    "line",
+    "    1..1\n"
+  ],
+  [
+    "line",
+    "    ok\n"
+  ],
+  [
+    "line",
+    "ok maybe a child\n"
+  ],
+  [
+    "assert",
+    {
+      "ok": true,
+      "id": 2,
+      "name": "maybe a child"
+    }
+  ],
+  [
+    "complete",
+    {
+      "ok": false,
+      "count": 2,
+      "pass": 1,
+      "fail": 2,
+      "bailout": false,
+      "todo": 0,
+      "skip": 0,
+      "plan": {
+        "start": null,
+        "end": null,
+        "skipAll": false,
+        "skipReason": "",
+        "comment": ""
+      },
+      "failures": [
+        {
+          "ok": false,
+          "id": 1
+        },
+        {
+          "tapError": "no plan"
+        }
+      ]
+    }
+  ]
+]

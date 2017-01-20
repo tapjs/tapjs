@@ -1,0 +1,9 @@
+TAP version 13
+not ok
+  ...
+  some: diags
+  ---
+# Subtest: maybe a child
+    1..1
+    ok
+ok maybe a child

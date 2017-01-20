@@ -549,6 +549,7 @@ Parser.prototype.emitResult = function () {
 
   this.emit('assert', res)
   if (this.bail && !res.ok && !res.todo && !res.skip && !this.bailingOut) {
+    this.maybeChild = null
     var ind = new Array(this.level + 1).join('    ')
     for (var p = this; p.parent; p = p.parent);
     var bailName = res.name ? ' # ' + res.name : ''
