@@ -9,6 +9,5 @@ not ok 1 - bail fail {
         Bail out! # this fails
     }
 }
-
 Bail out! # this fails
 

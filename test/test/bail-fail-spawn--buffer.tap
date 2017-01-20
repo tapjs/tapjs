@@ -1,8 +1,8 @@
 TAP version 13
 not ok 1 - bail fail {
-    not ok 1 - ./test/test/nesting.js
+    not ok 1 - ___/.*(node|iojs)(.exe)?/~~~ ./test/test/nesting.js
       ---
-      {"arguments":["___/.*/~~~nesting.js"],"command":"___/.*(node|iojs)(.exe)?/~~~"}
+      {"args":["___/.*/~~~nesting.js"],"command":"___/.*(node|iojs)(.exe)?/~~~","cwd":"___/.*/~~~","exitCode":1}
       ...
     {
         not ok 1 - nesting {
@@ -20,12 +20,11 @@ not ok 1 - bail fail {
                   ---
                   {"at":{"column":10,"file":"test/test/nesting.js","function":"foo","line":14},"compare":"===","found":1,"source":"tt.equal(1, '1', 'nested failure')\n","wanted":"1"}
                   ...
+                
                 Bail out! # nested failure
             }
         }
-        Bail out! # nested failure
     }
 }
-
 Bail out! # nested failure
 

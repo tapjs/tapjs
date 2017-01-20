@@ -17,8 +17,7 @@ TAP version 13
       ...
     
     1..8
-ok 1 - not much ___/# time=[0-9.]+(ms)?/~~~
+ok 1 - not much
 
 1..1
-___/# time=[0-9.]+(ms)?/~~~
 

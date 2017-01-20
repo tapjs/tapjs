@@ -24,9 +24,10 @@ function generate (file, bail, buffer) {
   running = true
 
   file = path.resolve(file)
+  var cwd = process.cwd()
   var f = file
-  if (f.indexOf(process.cwd()) === 0) {
-    f = './' + file.substr(process.cwd().length + 1)
+  if (f.indexOf(cwd) === 0) {
+    f = './' + file.substr(cwd.length + 1)
   }
 
   var outfile = file.replace(/\.js$/,
@@ -57,6 +58,9 @@ function generate (file, bail, buffer) {
     var dir = path.dirname(file)
     output = output.split(dir + '/').join('___/.*/~~~')
     output = output.split(dir).join('___/.*/~~~' + path.basename(dir))
+
+    output = output.split(cwd + '/').join('___/.*/~~~')
+    output = output.split(cwd).join('___/.*/~~~')
 
     output = output.split(node + ' ___/').join('\0N1\0')
     output = output.split(path.basename(node) + ' ___/').join('\0N1\0')

@@ -7,6 +7,5 @@ not ok 1 - foo {
     
     Bail out! # baz
 }
-
 Bail out! # baz
 

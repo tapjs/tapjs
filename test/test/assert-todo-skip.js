@@ -1,6 +1,6 @@
-var test = require('../..').test
+var t = require('../..')
 
-test('not much', function (t) {
+t.test('not much', function (t) {
   t.ok(true, 'always passes', {skip: 'skip it good'})
   t.ok(false, 'false', {skip: 'always fails'})
   t.ok(true, 'bonus', {todo: 'remove todo directive'})

@@ -21,10 +21,7 @@ not ok 1 - foo {
       ...
     
     1..4
-    # failed 4 of 4 tests
 }
 
 1..1
-# failed 1 of 1 tests
-___/# time=[0-9.]+(ms)?/~~~
 

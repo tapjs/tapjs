@@ -10,5 +10,4 @@ ok 2 - second test (async) {
 }
 
 1..2
-___/# time=[0-9.]+(ms)?/~~~
 
