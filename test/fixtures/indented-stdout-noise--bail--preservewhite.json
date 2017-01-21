@@ -77,10 +77,6 @@
                 "1..0 # no tests found\n"
               ],
               [
-                "line",
-                "1..0 # no tests found\n"
-              ],
-              [
                 "plan",
                 {
                   "start": 1,
@@ -133,10 +129,6 @@
           [
             "extra",
             "1..0\n"
-          ],
-          [
-            "line",
-            "1..0 # no tests found\n"
           ],
           [
             "line",
