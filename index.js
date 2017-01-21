@@ -211,12 +211,13 @@ Parser.prototype.nonTap = function (data, didLine) {
     return
 
   if (this.strict) {
-    this.tapError({
+    var err = {
       tapError: 'Non-TAP data encountered in strict mode',
       data: data
-    })
+    }
+    this.tapError(err)
     if (this.parent)
-      this.parent.nonTap(data)
+      this.parent.tapError(err)
   }
 
   // emit each line, then the extra as a whole
