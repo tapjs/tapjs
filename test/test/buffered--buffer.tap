@@ -25,7 +25,6 @@ ok 3 - unbuffered spawn {
     }
     
     1..2
-    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 ok 4 - buffered spawn {
@@ -42,9 +41,7 @@ ok 4 - buffered spawn {
     }
     
     1..2
-    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 1..4
-___/# time=[0-9.]+(ms)?/~~~
 

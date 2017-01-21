@@ -24,6 +24,5 @@ not ok 4 - async kid {
     1..2
     Bail out! # cannot continue
 }
-
 Bail out! # cannot continue
 

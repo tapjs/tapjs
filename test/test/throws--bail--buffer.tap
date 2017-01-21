@@ -9,6 +9,5 @@ not ok 1 - throws should match a regex {
     
     Bail out! # failing_thrower
 }
-
 Bail out! # failing_thrower
 

@@ -1,14 +1,14 @@
+TAP version 13
 running one
+one end
 after plan fulfilled
 after one block
 one promise was fulfilled
-TAP version 13
 ok 1 - one {
     1..1
     ok 1 - done one
 }
 
-one end
 running two
 two promise was fulfilled
 ok 2 - two {
@@ -23,12 +23,16 @@ ok 3 - three {
 
 not ok 4 - broken promises {
     1..2
-    not ok 1 - end() {
+    ok 1 - end() {
         1..0
     }
     
-    Bail out! # end()
+    not ok 2 - Error: wtf
+      ---
+      {"at":{"column":13,"file":"test/test/promise-plan.js","line":45},"message":"Error: wtf","source":"throw new Error('wtf')\n","test":"end()"}
+      ...
+    
+    Bail out! # Error: wtf
 }
-
-Bail out! # end()
+Bail out! # Error: wtf
 

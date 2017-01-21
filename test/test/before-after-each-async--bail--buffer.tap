@@ -1,3 +1,4 @@
+TAP version 13
 before 1 parent
 done
 before 1 child
@@ -9,7 +10,6 @@ after 1 grandchild
 after 2 child
 after 1 child
 after 1 parent
-TAP version 13
 ok 1 - parent {
     ok 1 - child {
         ok 1 - grandchild {
@@ -24,5 +24,4 @@ ok 1 - parent {
 }
 
 1..1
-___/# time=[0-9.]+(ms)?/~~~
 

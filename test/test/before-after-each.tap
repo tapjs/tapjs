@@ -13,23 +13,23 @@ before 2 grandchild
         # Subtest: grandchild
             ok 1 - the only actual assertion
 5
-            1..1
-6
 after 2 grandchild
 after 1 grandchild
+            1..1
+6
         ok 1 - grandchild
         
 7
-        1..1
-8
 after 2 child
 after 1 child
+        1..1
+8
     ok 1 - child
     
 9
+after 1 parent
     1..1
 10
-after 1 parent
 ok 1 - parent
 
 done

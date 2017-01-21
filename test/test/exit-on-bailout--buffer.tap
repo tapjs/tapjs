@@ -1,12 +1,13 @@
 log in root, before child
+TAP version 13
 log in child, before grandchild
 log in grandchild, before bailout
-TAP version 13
+log in grandchild, after bailout
+log in child, after grandchild
 not ok 1 - child {
     not ok 1 - grandchild {
         Bail out! # cannot continue
     }
 }
-
 Bail out! # cannot continue
 

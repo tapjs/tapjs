@@ -9,5 +9,4 @@ ok 1 - post-plan async {
 }
 
 1..1
-___/# time=[0-9.]+(ms)?/~~~
 

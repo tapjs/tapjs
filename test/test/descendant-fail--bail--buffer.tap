@@ -12,6 +12,5 @@ not ok 1 - parent {
         Bail out! # nope
     }
 }
-
 Bail out! # nope
 

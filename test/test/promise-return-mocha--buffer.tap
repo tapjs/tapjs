@@ -7,27 +7,23 @@ ok 2 - auto-end on resolve without cb {
     1..0
 }
 
-not ok 3 - rejected {
-    not ok 1 - Error: expected error
-      ---
-      {"at":{"column":34,"file":"test/test/promise-return-mocha.js","line":31},"message":"Error: expected error","source":"setTimeout(reject.bind(null, new Error('expected error'), 150))\n","test":"rejected"}
-      ...
-    
-    1..1
-    # failed 1 of 1 tests
+ok 3 - rejected {
+    1..0
 }
 
-not ok 4 - rejected without cb {
-    not ok 1 - Error: expected error
-      ---
-      {"at":{"column":34,"file":"test/test/promise-return-mocha.js","line":37},"message":"Error: expected error","source":"setTimeout(reject.bind(null, new Error('expected error'), 150))\n","test":"rejected without cb"}
-      ...
-    
-    1..1
-    # failed 1 of 1 tests
+ok 4 - rejected without cb {
+    1..0
 }
 
-1..4
-# failed 2 of 4 tests
-___/# time=[0-9.]+(ms)?/~~~
+not ok 5 - Error: expected error
+  ---
+  {"at":{"column":34,"file":"test/test/promise-return-mocha.js","line":31},"message":"Error: expected error","source":"setTimeout(reject.bind(null, new Error('expected error'), 150))\n","test":"rejected"}
+  ...
+
+not ok 6 - Error: expected error
+  ---
+  {"at":{"column":34,"file":"test/test/promise-return-mocha.js","line":37},"message":"Error: expected error","source":"setTimeout(reject.bind(null, new Error('expected error'), 150))\n","test":"rejected without cb"}
+  ...
+
+1..6
 

@@ -16,6 +16,5 @@ not ok 1 - nesting {
         Bail out! # Error: THINK FAST! and also lines so many
     }
 }
-
 Bail out! # Error: THINK FAST! and also lines so many
 

@@ -5,7 +5,7 @@ TAP version 13
         1..2
         ok 1 - true is ok
         ok 2 - doag is also okay
-    ok 1 - first ___/# time=[0-9.]+(ms)?/~~~
+    ok 1 - first
     
     # Subtest: async thrower
         not ok 1 - Error: THINK FAST! and also lines so many
@@ -14,21 +14,18 @@ TAP version 13
           ...
         
         1..1
-        # failed 1 of 1 tests
-    not ok 2 - async thrower ___/# time=[0-9.]+(ms)?/~~~
+    not ok 2 - async thrower
     
     # Subtest: thrower
         not ok 1 - Error: here hold this for a second
           ---
-          {"at":{"column":14,"file":"test/test/throw.js","line":18},"message":"Error: here hold this for a second","source":"var er = new Error('here hold this for a second')\n","syscall":"ring ring","test":"thrower"}
+          {"at":{"column":14,"file":"test/test/throw.js","function":"Test.<anonymous>","line":18},"message":"Error: here hold this for a second","source":"var er = new Error('here hold this for a second')\n","syscall":"ring ring","test":"thrower"}
           ...
         
         1..1
-        # failed 1 of 1 tests
-    not ok 3 - thrower ___/# time=[0-9.]+(ms)?/~~~
+    not ok 3 - thrower
     
-    # failed 2 of 3 tests
-not ok 1 - nesting ___/# time=[0-9.]+(ms)?/~~~
+not ok 1 - nesting
 
 ok 2 - this passes
 not ok 3 - this fails

@@ -9,11 +9,10 @@ not ok 2 - plans of 1 {
     
     not ok 3 - Error: pwnSync
       ---
-      {"at":{"column":11,"file":"test/test/throws-and-plans.js","line":10},"message":"Error: pwnSync","source":"throw new Error('pwnSync')\n","test":"sync thrower"}
+      {"at":{"column":11,"file":"test/test/throws-and-plans.js","function":"Test.<anonymous>","line":10},"message":"Error: pwnSync","source":"throw new Error('pwnSync')\n","test":"sync thrower"}
       ...
     
     Bail out! # Error: pwnSync
 }
-
 Bail out! # Error: pwnSync
 

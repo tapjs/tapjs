@@ -7,6 +7,5 @@ not ok 1 - child test {
     
     Bail out! # should be equal
 }
-
 Bail out! # should be equal
 

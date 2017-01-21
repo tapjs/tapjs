@@ -12,6 +12,5 @@ not ok 2 - rejected {
     
     Bail out! # Error: expected error
 }
-
 Bail out! # Error: expected error
 

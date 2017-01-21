@@ -7,14 +7,18 @@ ok 2 - auto-end on resolve without cb {
     1..0
 }
 
-not ok 3 - rejected {
-    not ok 1 - Error: expected error
-      ---
-      {"at":{"column":34,"file":"test/test/promise-return-mocha.js","line":31},"message":"Error: expected error","source":"setTimeout(reject.bind(null, new Error('expected error'), 150))\n","test":"rejected"}
-      ...
-    
-    Bail out! # Error: expected error
+ok 3 - rejected {
+    1..0
 }
+
+ok 4 - rejected without cb {
+    1..0
+}
+
+not ok 5 - Error: expected error
+  ---
+  {"at":{"column":34,"file":"test/test/promise-return-mocha.js","line":31},"message":"Error: expected error","source":"setTimeout(reject.bind(null, new Error('expected error'), 150))\n","test":"rejected"}
+  ...
 
 Bail out! # Error: expected error
 

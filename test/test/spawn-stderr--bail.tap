@@ -1,11 +1,9 @@
 TAP version 13
-# Subtest: ___/.*/~~~spawn-stderr.js child
+# Subtest: ___/.*(node|iojs)(.exe)?.*/~~~spawn-stderr.js child
     stdout
     ok 1 - this is ok
     1..1
-    ___/# time=[0-9.]+(ms)?/~~~
-ok 1 - ___/.*/~~~spawn-stderr.js child ___/# time=[0-9.]+(ms)?/~~~
+ok 1 - ___/.*(node|iojs)(.exe)?.*/~~~spawn-stderr.js child
 
 1..1
-___/# time=[0-9.]+(ms)?/~~~
 

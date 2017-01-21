@@ -18,5 +18,5 @@ t.test('buffered', { buffered: true }, function (t) {
 
 if (process.argv[2] !== 'child') {
   t.spawn(process.execPath, [__filename, 'child'], 'unbuffered spawn')
-  t.spawn(process.execPath, [__filename, 'child'], 'buffered spawn', { buffered: true })
+  t.spawn(process.execPath, [__filename, 'child'], { buffered: true }, 'buffered spawn')
 }

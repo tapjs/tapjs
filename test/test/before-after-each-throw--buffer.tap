@@ -1,3 +1,4 @@
+TAP version 13
 before 1 parent
 before 1 child
 before 2 child
@@ -7,7 +8,6 @@ after 2 grandchild
 after 2 child
 after 1 child
 after 1 parent
-TAP version 13
 not ok 1 - parent {
     not ok 1 - child {
         not ok 1 - grandchild {
@@ -18,19 +18,14 @@ not ok 1 - parent {
               ...
             
             1..2
-            # failed 1 of 2 tests
         }
         
         1..1
-        # failed 1 of 1 tests
     }
     
     1..1
-    # failed 1 of 1 tests
 }
 
 done
 1..1
-# failed 1 of 1 tests
-___/# time=[0-9.]+(ms)?/~~~
 

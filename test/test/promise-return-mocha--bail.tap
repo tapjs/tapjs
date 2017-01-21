@@ -1,18 +1,24 @@
 TAP version 13
 # Subtest: auto-end on resolve
     1..0
-ok 1 - auto-end on resolve ___/# time=[0-9.]+(ms)?/~~~
+ok 1 - auto-end on resolve
 
 # Subtest: auto-end on resolve without cb
     1..0
-ok 2 - auto-end on resolve without cb ___/# time=[0-9.]+(ms)?/~~~
+ok 2 - auto-end on resolve without cb
 
 # Subtest: rejected
-    not ok 1 - Error: expected error
-      ---
-      {"at":{"column":34,"file":"test/test/promise-return-mocha.js","line":31},"message":"Error: expected error","source":"setTimeout(reject.bind(null, new Error('expected error'), 150))\n","test":"rejected"}
-      ...
-    
-    Bail out! # Error: expected error
+    1..0
+ok 3 - rejected
+
+# Subtest: rejected without cb
+    1..0
+ok 4 - rejected without cb
+
+not ok 5 - Error: expected error
+  ---
+  {"at":{"column":34,"file":"test/test/promise-return-mocha.js","line":31},"message":"Error: expected error","source":"setTimeout(reject.bind(null, new Error('expected error'), 150))\n","test":"rejected"}
+  ...
+
 Bail out! # Error: expected error
 

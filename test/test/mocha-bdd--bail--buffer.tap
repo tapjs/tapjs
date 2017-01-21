@@ -1,0 +1,42 @@
+TAP version 13
+before
+beforeEach should not throw an error
+during should not throw an error
+afterEach should not throw an error
+beforeEach should return -1
+during should return -1
+afterEach should return -1
+beforeEach should return the index where the element first appears in the array
+during should return the index where the element first appears in the array
+afterEach should return the index where the element first appears in the array
+after
+ok 1 - Array {
+    ok 1 - #indexOf() {
+        ok 1 - when not present {
+            ok 1 - should not throw an error {
+                1..0
+            }
+            
+            ok 2 - should return -1 {
+                1..0
+            }
+            
+            1..2
+        }
+        
+        ok 2 - when present {
+            ok 1 - should return the index where the element first appears in the array {
+                1..0
+            }
+            
+            1..1
+        }
+        
+        1..2
+    }
+    
+    1..1
+}
+
+1..1
+

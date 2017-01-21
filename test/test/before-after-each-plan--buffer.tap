@@ -21,6 +21,5 @@ ok 1 - parent {
     }
 }
 
-___/# time=[0-9.]+(ms)?/~~~
 done
 

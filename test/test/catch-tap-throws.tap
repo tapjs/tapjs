@@ -1,35 +1,90 @@
 TAP version 13
-# Subtest: exceed_plan
+11
+# Subtest: exceed_plan_sync
     1..1
-    ok 1 - (unnamed test)
-ok 1 - exceed_plan ___/# time=[0-9.]+(ms)?/~~~
+12
+    ok 1 - 1
+13
+14
+ok 1 - exceed_plan_sync
 
 not ok 2 - Error: test count exceeds plan
   ---
-  {"at":{"column":7,"file":"test/test/catch-tap-throws.js","function":"exceed_plan","line":9},"count":2,"message":"Error: test count exceeds plan","plan":1,"source":"t.pass()\n","test":"exceed_plan"}
+  {"at":{"column":7,"file":"test/test/catch-tap-throws.js","function":"Test.exceed_plan_sync","line":12},"message":"Error: test count exceeds plan","plan":1,"source":"t.pass(2)\n","test":"exceed_plan_sync"}
   ...
 
-# Subtest: multiple_end
-    ok 1 - (unnamed test)
+21
+# Subtest: exceed_plan_async
     1..1
-ok 3 - multiple_end ___/# time=[0-9.]+(ms)?/~~~
+22
+    ok 1 - 3
+22.5
+ok 3 - exceed_plan_async
 
-not ok 4 - Error: test end() method called more than once
-  ---
-  {"message":"Error: test end() method called more than once","test":"multiple_end"}
-  ...
-
-# Subtest: assert_after_end
-    ok 1 - (unnamed test)
+31
+# Subtest: multiple_end_sync
+    ok 1 - 5
+32
     1..1
-ok 5 - assert_after_end ___/# time=[0-9.]+(ms)?/~~~
+33
+34
+ok 4 - multiple_end_sync
 
-not ok 6 - Error: test after end() was called
+not ok 5 - Error: test end() method called more than once
   ---
-  {"at":{"column":7,"file":"test/test/catch-tap-throws.js","function":"assert_after_end","line":29},"count":2,"message":"Error: test after end() was called","plan":1,"source":"t.pass()\n","test":"assert_after_end"}
+  {"message":"Error: test end() method called more than once","test":"multiple_end_sync"}
   ...
 
-1..6
-# failed 3 of 6 tests
-___/# time=[0-9.]+(ms)?/~~~
+41
+# Subtest: multiple_end_async
+    ok 1 - 6
+42
+    1..1
+42.5
+ok 6 - multiple_end_async
+
+51
+# Subtest: assert_after_end_sync
+    ok 1 - 7
+52
+    1..1
+53
+54
+ok 7 - assert_after_end_sync
+
+not ok 8 - Error: test after end() was called
+  ---
+  {"at":{"column":7,"file":"test/test/catch-tap-throws.js","function":"Test.assert_after_end_sync","line":74},"message":"Error: test after end() was called","plan":1,"source":"t.pass(8)\n","test":"assert_after_end_sync"}
+  ...
+
+61
+# Subtest: assert_after_end_async
+    ok 1 - 9
+62
+    1..1
+62.5
+ok 9 - assert_after_end_async
+
+23
+not ok 10 - Error: test count exceeds plan
+  ---
+  {"at":{"column":9,"file":"test/test/catch-tap-throws.js","line":28},"message":"Error: test count exceeds plan","plan":1,"source":"t.pass(4)\n","test":"exceed_plan_async"}
+  ...
+
+24
+43
+not ok 11 - Error: test end() method called more than once
+  ---
+  {"message":"Error: test end() method called more than once","test":"multiple_end_async"}
+  ...
+
+44
+63
+not ok 12 - Error: test after end() was called
+  ---
+  {"at":{"column":9,"file":"test/test/catch-tap-throws.js","line":91},"message":"Error: test after end() was called","plan":1,"source":"t.pass(10)\n","test":"assert_after_end_async"}
+  ...
+
+64
+1..12
 

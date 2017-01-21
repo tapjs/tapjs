@@ -4,31 +4,34 @@ TAP version 13
         # Subtest: this never completes
             # Subtest: baby
                 ok 1 - expect truthy value
-                not ok 2 - timeout!
+                not ok 2 - test unfinished
                   ---
-                  {"at":{"column":5,"file":"test/test/timeout.js","line":4},"expired":"timeout test","source":"t.test('timeout test', { timeout: 50 }, function (t) {\n","timeout":50}
+                  {"at":{"column":10,"file":"test/test/timeout.js","function":"Test.<anonymous>","line":6},"source":"tt.test('baby', function (tt) {\n","test":"baby"}
                   ...
                 
-                1..2
-                # failed 1 of 2 tests
-            not ok 1 - baby ___/# time=[0-9.]+(ms)?/~~~
+            not ok 1 - baby
+              ---
+              {"failures":[{"tapError":"no plan"}]}
+              ...
             
-            1..1
-            # failed 1 of 1 tests
-        not ok 1 - this never completes ___/# time=[0-9.]+(ms)?/~~~
+            ok 2 - p
+            ok 3 - a
+            ok 4 - s
+            ok 5 - s
+        not ok 1 - this never completes
+          ---
+          {"failures":[{"tapError":"no plan"}]}
+          ...
         
-        1..1
-        # failed 1 of 1 tests
-    not ok 1 - timeout test ___/# time=[0-9.]+(ms)?/~~~
+    not ok 1 - timeout test
       ---
-      {"timeout":50}
+      {"failures":[{"tapError":"no plan"}],"timeout":50}
       ...
     
-    1..1
-    # failed 1 of 1 tests
-not ok 1 - parent of timeout test ___/# time=[0-9.]+(ms)?/~~~
+not ok 1 - parent of timeout test
+  ---
+  {"failures":[{"tapError":"no plan"}]}
+  ...
 
 1..1
-# failed 1 of 1 tests
-___/# time=[0-9.]+(ms)?/~~~
 

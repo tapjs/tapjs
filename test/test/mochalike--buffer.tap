@@ -25,7 +25,10 @@ ok 3 - another set of tests {
 
 ok 4 - reasonably indented things {
     ok 1 - first subset {
-        ok 1 - has no asserts, only fails to throw
+        ok 1 - has no asserts, only fails to throw {
+            1..0
+        }
+        
         ok 2 - is todo # TODO
         ok 3 - is async {
             1..0
@@ -45,46 +48,49 @@ not ok 5 - failing indented things {
     not ok 1 - first subset {
         not ok 1 - has no asserts, only throws
           ---
-          {"actual":false,"at":{"column":7,"file":"test/test/mochalike.js","line":55},"expected":true,"generatedMessage":false,"message":"AssertionError: false is not true on line 50","name":"AssertionError","operator":"==","source":"ok(false, 'false is not true on line 50')\n"}
+          {"mochaTest":true}
           ...
+        {
+            not ok 1 - AssertionError: false is not true on line 50
+              ---
+              {"actual":false,"at":{"column":7,"file":"test/test/mochalike.js","function":"Test.<anonymous>","line":54},"expected":true,"generatedMessage":false,"message":"AssertionError: false is not true on line 50","mochaTest":true,"operator":"==","source":"ok(false, 'false is not true on line 50')\n","test":"has no asserts, only throws"}
+              ...
+            
+            1..1
+        }
         
         ok 2 - does not throw # TODO
         1..2
-        # failed 1 of 2 tests
-        # todo: 2
     }
     
     not ok 2 - second subset {
         not ok 1 - AssertionError: objectify the truthiness
           ---
-          {"actual":false,"at":{"column":5,"file":"test/test/mochalike.js","line":61},"expected":true,"generatedMessage":false,"message":"AssertionError: objectify the truthiness","name":"AssertionError","operator":"==","source":"ok(!{}, 'objectify the truthiness')\n","test":"second subset"}
+          {"actual":false,"at":{"column":5,"file":"test/test/mochalike.js","function":"Suite.fn","line":60},"expected":true,"generatedMessage":false,"message":"AssertionError: objectify the truthiness","operator":"==","source":"ok(!{}, 'objectify the truthiness')\n","test":"second subset"}
           ...
         
         1..1
-        # failed 1 of 1 tests
     }
     
     1..2
-    # failed 2 of 2 tests
 }
 
 not ok 6 - a test passing an error to done() callback {
-    not ok 1 - is marked as failed {
+    not ok 1 - is marked as failed
+      ---
+      {"mochaTest":true}
+      ...
+    {
         not ok 1 - Error: error arg
           ---
-          {"at":{"column":12,"file":"test/test/mochalike.js","line":68},"message":"Error: error arg","source":"done(new Error('error arg'))\n","test":"is marked as failed"}
+          {"at":{"column":12,"file":"test/test/mochalike.js","line":67},"message":"Error: error arg","mochaTest":true,"source":"done(new Error('error arg'))\n","test":"is marked as failed"}
           ...
         
         1..1
-        # failed 1 of 1 tests
     }
     
     1..1
-    # failed 1 of 1 tests
 }
 
 1..6
-# failed 2 of 6 tests
-# todo: 2
-___/# time=[0-9.]+(ms)?/~~~
 

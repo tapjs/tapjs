@@ -25,7 +25,10 @@ ok 3 - another set of tests {
 
 ok 4 - reasonably indented things {
     ok 1 - first subset {
-        ok 1 - has no asserts, only fails to throw
+        ok 1 - has no asserts, only fails to throw {
+            1..0
+        }
+        
         ok 2 - is todo # TODO
         ok 3 - is async {
             1..0
@@ -42,5 +45,4 @@ ok 4 - reasonably indented things {
 }
 
 1..4
-___/# time=[0-9.]+(ms)?/~~~
 

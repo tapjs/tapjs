@@ -14,20 +14,16 @@ not ok 1 - nesting {
           ...
         
         1..1
-        # failed 1 of 1 tests
     }
     
     not ok 3 - thrower {
         not ok 1 - Error: here hold this for a second
           ---
-          {"at":{"column":14,"file":"test/test/throw.js","line":18},"message":"Error: here hold this for a second","source":"var er = new Error('here hold this for a second')\n","syscall":"ring ring","test":"thrower"}
+          {"at":{"column":14,"file":"test/test/throw.js","function":"Test.<anonymous>","line":18},"message":"Error: here hold this for a second","source":"var er = new Error('here hold this for a second')\n","syscall":"ring ring","test":"thrower"}
           ...
         
         1..1
-        # failed 1 of 1 tests
     }
-    
-    # failed 2 of 3 tests
 }
 
 ok 2 - this passes
@@ -40,6 +36,5 @@ not ok 4 - async kid {
     1..2
     Bail out! # cannot continue
 }
-
 Bail out! # cannot continue
 

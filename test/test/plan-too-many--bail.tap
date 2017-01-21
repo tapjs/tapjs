@@ -6,11 +6,11 @@ TAP version 13
     # Subtest: grandchild
         1..8
         ok 1 - i am planning big things
-        not ok 2 - test unfinished: grandchild
+        not ok 2 - test unfinished
           ---
-          {"at":{"column":5,"file":"test/test/plan-too-many.js","line":7},"count":1,"plan":8,"source":"t.test('grandchild', function (tt) {\n"}
+          {"at":{"column":5,"file":"test/test/plan-too-many.js","function":"Test.<anonymous>","line":7},"source":"t.test('grandchild', function (tt) {\n","test":"grandchild"}
           ...
         
-        Bail out! # test unfinished: grandchild
-Bail out! # test unfinished: grandchild
+        Bail out! # test unfinished
+Bail out! # test unfinished
 

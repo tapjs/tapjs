@@ -23,7 +23,7 @@ t.test('parent', function (t) {
   t.afterEach(function (cb) {
     var self = this
     return new Promise(function (resolve, reject) {
-      console.log('after 2', this.name)
+      console.log('after 2', self.name)
       if (self.name === 'grandchild') {
         return reject(new Error('this is fine'))
       }

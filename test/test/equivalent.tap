@@ -31,10 +31,7 @@ TAP version 13
       ...
     
     1..6
-    # failed 6 of 6 tests
-not ok 1 - child test ___/# time=[0-9.]+(ms)?/~~~
+not ok 1 - child test
 
 1..1
-# failed 1 of 1 tests
-___/# time=[0-9.]+(ms)?/~~~
 

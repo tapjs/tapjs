@@ -5,7 +5,7 @@ TAP version 13
         1..2
         ok 1 - true is ok
         ok 2 - doag is also okay
-    ok 1 - first ___/# time=[0-9.]+(ms)?/~~~
+    ok 1 - first
     
     # Subtest: second
         ok 1 - but that is ok
@@ -16,11 +16,9 @@ TAP version 13
           ...
         
         1..3
-        # failed 1 of 3 tests
-    not ok 2 - second ___/# time=[0-9.]+(ms)?/~~~
+    not ok 2 - second
     
-    # failed 1 of 2 tests
-not ok 1 - nesting ___/# time=[0-9.]+(ms)?/~~~
+not ok 1 - nesting
 
 ok 2 - this passes
 not ok 3 - this fails
@@ -36,11 +34,8 @@ not ok 3 - this fails
       {"at":{"column":7,"file":"test/test/nesting.js","line":33,"method":"_onTimeout"},"foo":"blz","source":"t.ok(false, 'first timeout', { foo: 'blz' })\n"}
       ...
     
-    # failed 1 of 2 tests
-not ok 4 - async kid ___/# time=[0-9.]+(ms)?/~~~
+not ok 4 - async kid
 
 ok 5 - pass after async kid
 1..5
-# failed 3 of 5 tests
-___/# time=[0-9.]+(ms)?/~~~
 

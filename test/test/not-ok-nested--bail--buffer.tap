@@ -11,6 +11,5 @@ not ok 1 - gp {
         Bail out! # fail
     }
 }
-
 Bail out! # fail
 

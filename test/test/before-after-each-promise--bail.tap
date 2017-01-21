@@ -1,15 +1,15 @@
 TAP version 13
-# Subtest: parent
 before 1 parent
 done
-    # Subtest: child
+# Subtest: parent
 before 1 child
 before 2 child
-        # Subtest: grandchild
 before 1 grandchild
 before 2 grandchild
+    # Subtest: child
+        # Subtest: grandchild
             ok 1 - the only actual assertion
-after 2 undefined
+after 2 grandchild
             not ok 2 - Error: this is fine
               ---
               {"at":{"column":23,"file":"test/test/before-after-each-promise.js","line":28},"message":"Error: this is fine","source":"return reject(new Error('this is fine'))\n","test":"grandchild"}

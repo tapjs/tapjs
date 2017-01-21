@@ -8,13 +8,7 @@ not ok 1 - parent {
           ---
           {"at":{"column":7,"file":"test/test/descendant-fail.js","line":7},"source":"t.fail('nope')\n"}
           ...
-        
-        # failed 1 of 1 tests
     }
-    
-    # failed 1 of 1 tests
 }
 
-# failed 1 of 1 tests
-___/# time=[0-9.]+(ms)?/~~~
 

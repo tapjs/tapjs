@@ -5,7 +5,7 @@ TAP version 13
         1..2
         ok 1 - true is ok
         ok 2 - doag is also okay
-    ok 1 - first ___/# time=[0-9.]+(ms)?/~~~
+    ok 1 - first
     
     # Subtest: second
         ok 1 - but that is ok

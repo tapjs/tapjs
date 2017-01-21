@@ -1,7 +1,7 @@
 TAP version 13
-not ok 1 - ___/.*/~~~spawn.js child
+not ok 1 - ___/.*(node|iojs)(.exe)?.*/~~~spawn.js child
   ---
-  {"arguments":["___/.*/~~~spawn.js","child"],"command":"___/.*(node|iojs)(.exe)?/~~~"}
+  {"args":["___/.*/~~~spawn.js","child"],"command":"___/.*(node|iojs)(.exe)?/~~~","cwd":"___/.*/~~~","exitCode":0}
   ...
 {
     not ok 1 - nesting {
@@ -17,13 +17,12 @@ not ok 1 - ___/.*/~~~spawn.js child
             ok 2 - this passes
             not ok 3 - nested failure
               ---
-              {"at":{"column":10,"file":"test/test/spawn.js","function":"foo","line":22},"compare":"===","found":1,"source":"tt.equal(1, '1', 'nested failure')\n","wanted":"1"}
+              {"at":{"column":10,"file":"test/test/spawn.js","function":"foo","line":21},"compare":"===","found":1,"source":"tt.equal(1, '1', 'nested failure')\n","wanted":"1"}
               ...
+            
             Bail out! # nested failure
         }
     }
-    Bail out! # nested failure
 }
-
 Bail out! # nested failure
 
