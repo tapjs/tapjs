@@ -10,10 +10,8 @@ TAP version 13
     not ok 1 - t11
     
     ok 2 - this would be ok if it ever happened
+    1..2
 not ok 1 - t1
-  ---
-  {"failures":[{"tapError":"no plan"}]}
-  ...
 
 ok 2 - 1 === 1
 ok 3 - expect truthy value

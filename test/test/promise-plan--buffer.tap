@@ -35,18 +35,17 @@ not ok 4 - broken promises {
 
 not ok 5 - thrown with timeouts
   ---
-  {"failures":[{"id":3,"name":"Error: wtf","plan":{"end":2,"start":1},"tapError":"id greater than plan end"},{"id":3,"name":"Error: wtf","plan":{"end":2,"start":1},"tapError":"id greater than plan end"},{"id":4,"name":"Error: test after end() was called","plan":{"end":2,"start":1},"tapError":"id greater than plan end"},{"id":4,"name":"Error: test after end() was called","plan":{"end":2,"start":1},"tapError":"id greater than plan end"}]}
+  {"failures":[{"id":3,"name":"Error: test after end() was called","plan":{"end":2,"start":1},"tapError":"id greater than plan end"},{"id":3,"name":"Error: test after end() was called","plan":{"end":2,"start":1},"tapError":"id greater than plan end"}]}
   ...
 {
     1..2
-    not ok 1 - child test left in queue Test: end()
-    not ok 2 - child test left in queue Test: plan
-    not ok 3 - Error: wtf
+    not ok 1 - child test left in queue Test: plan
+    not ok 2 - Error: wtf
       ---
       {"at":{"column":15,"file":"test/test/promise-plan.js","line":63},"message":"Error: wtf","source":"throw new Error('wtf')\n","test":"end()"}
       ...
     
-    not ok 4 - Error: test after end() was called
+    not ok 3 - Error: test after end() was called
       ---
       {"message":"Error: test after end() was called","plan":0,"test":"end()"}
       ...

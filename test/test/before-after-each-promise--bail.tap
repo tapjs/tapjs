@@ -16,5 +16,7 @@ after 2 grandchild
               ...
             
             Bail out! # Error: this is fine
+after 2 child
+after 1 parent
 Bail out! # Error: this is fine
 

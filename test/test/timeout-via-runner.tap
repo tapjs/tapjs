@@ -13,9 +13,7 @@ TAP version 13
           {"expired":"TAP","handles":[{"type":"Timer"}],"signal":"SIGTERM"}
           ...
     not ok 4 - timeout!
-      ---
-      {"expired":"TAP","handles":[{"type":"Timer"}],"signal":"SIGTERM"}
-      ...
+    
     1..4
 not ok 1 - ___/.*(node|iojs)(.exe)?.*/~~~timeout-via-runner.js child
   ---

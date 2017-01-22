@@ -2,17 +2,16 @@ TAP version 13
 not ok 1 - parent {
     not ok 1 - child {
         not ok 1 - grandchild {
-            1..2
+            1..3
             ok 1 - ok
-            not ok 2 - test unfinished: grandchild
+            not ok 2 - test unfinished
               ---
-              {"at":{"column":14,"file":"test/test/unfinished-promise.js","line":4},"count":1,"plan":2,"source":"return t.test('grandchild', function (t) {\n"}
+              {"at":{"column":14,"file":"test/test/unfinished-promise.js","function":"Test.<anonymous>","line":4},"source":"return t.test('grandchild', function (t) {\n","test":"grandchild"}
               ...
             
-            Bail out! # test unfinished: grandchild
+            Bail out! # test unfinished
         }
     }
 }
-
-Bail out! # test unfinished: grandchild
+Bail out! # test unfinished
 

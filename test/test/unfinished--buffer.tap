@@ -1,9 +1,5 @@
 TAP version 13
-not ok 1 - t1
-  ---
-  {"failures":[{"tapError":"no plan"}]}
-  ...
-{
+not ok 1 - t1 {
     not ok 1 - t11 {
         1..1
         not ok 1 - test unfinished
@@ -13,6 +9,7 @@ not ok 1 - t1
     }
     
     ok 2 - this would be ok if it ever happened
+    1..2
 }
 
 ok 2 - 1 === 1
