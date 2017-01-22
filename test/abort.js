@@ -68,9 +68,6 @@ function bufferedTest (d) { return function (t) {
     '    }\n',
     '}\n',
     'not ok 2 - nope\n',
-    d && d.some ? '  ---\n' : '',
-    d && d.some ? '  some: diags\n' : '',
-    d && d.some ? '  ...\n' : '',
     '1..2'
   ].join('').split('\n').map(function (l) { return l + '\n' })
   var expectResults = {
@@ -96,7 +93,6 @@ function bufferedTest (d) { return function (t) {
       }
     ]
   }
-  if (d && d.some) expectResults.failures[0].diag = d
   p.on('line', lines.push.bind(lines))
   p.on('complete', function (results) {
     t.same(lines, expectLines)
@@ -126,14 +122,8 @@ function unbufferedTest (d) { return function (t) {
     d && d.some ? '          some: diags\n' : '',
     d && d.some ? '          ...\n' : '',
     '    not ok 1 - nope\n',
-    d && d.some ? '      ---\n' : '',
-    d && d.some ? '      some: diags\n' : '',
-    d && d.some ? '      ...\n' : '',
     '}\n',
     'not ok 2 - nope\n',
-    d && d.some ? '  ---\n' : '',
-    d && d.some ? '  some: diags\n' : '',
-    d && d.some ? '  ...\n' : '',
     '1..2'
   ].join('').split('\n').map(function (l) { return l + '\n' })
 
@@ -160,7 +150,6 @@ function unbufferedTest (d) { return function (t) {
       }
     ]
   }
-  if (d && d.some) expectResults.failures[0].diag = d
   p.on('line', lines.push.bind(lines))
   p.on('complete', function (results) {
     t.same(lines, expectLines)

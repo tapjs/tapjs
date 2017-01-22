@@ -637,6 +637,7 @@ Parser.prototype.abort = function (message, extra) {
   if (this.child) {
     var b = this.child.buffered
     this.child.abort(message, extra)
+    extra = null
     if (b)
       this.write('\n}\n')
   }
@@ -666,7 +667,6 @@ Parser.prototype.abort = function (message, extra) {
   var ind = '' // new Array(this.level + 1).join('    ')
   message = message.replace(/[\n\r\s\t]/g, ' ')
   var point = '\nnot ok ' + n + ' - ' + message + '\n' + y
-  // point = ind + point.trimRight().split('\n').join('\n' + ind) + '\n'
 
   if (this.planEnd === -1)
     point += '1..' + n + '\n'
