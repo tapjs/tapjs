@@ -33,6 +33,19 @@ runTest([fn], {name: /\(unnamed test\)|fn/, cb: fn})
 runTest([namedFunction], { name: 'namedFunction', cb: namedFunction })
 runTest([], { name: /\(unnamed test\)|fn/, todo: true })
 
+var dn = 'defaultName'
+var _ = undefined
+runTest(['name', obj, fn, dn], c(obj, {name: 'name', cb: fn}))
+runTest(['name', fn, _, dn], { name: 'name', cb: fn })
+runTest([obj, fn, _, dn], c(obj, { name: /defaultName|fn/, cb: fn }))
+runTest([obj, namedFunction, _, dn], c(obj, { name: 'namedFunction', cb: namedFunction }))
+runTest(['name', obj, _, dn], c(objTodo, { name: 'name' }))
+runTest(['name', _, _, dn], { name: 'name', todo: true })
+runTest([obj, _, _, dn], c(objTodo, { name: /defaultName|fn/ }))
+runTest([fn, _, _, dn], {name: /defaultName|fn/, cb: fn})
+runTest([namedFunction, _, _, dn], { name: 'namedFunction', cb: namedFunction })
+runTest([_, _, _, dn], { name: /defaultName|fn/, todo: true })
+
 t.throws(function () {
-  runTest(['name', obj, 99], [])
+  runTest(['name', obj, 99], {})
 })
