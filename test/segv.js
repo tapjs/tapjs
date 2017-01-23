@@ -26,7 +26,7 @@ var expect = [
   '  ---',
   '  signal: SIG',
   '  command: ./segv',
-  '  arguments: []',
+  '  args: []',
   '  ...',
   '',
   '1..1',
