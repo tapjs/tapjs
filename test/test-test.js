@@ -125,7 +125,7 @@ test('subtest without arguments', function (t) {
   tt.test()
   tt.end()
 
-  t.match(out, /^TAP version 13\nok 1 - \(unnamed test\) # TODO\n1\.\.1\n# time=[^\n]+\n$/)
+  t.match(out, /^TAP version 13\nok 1 - \(unnamed test\) # TODO\n1\.\.1\n$/)
 
   t.end()
 })
@@ -139,7 +139,7 @@ test('subtest with only a name', function (t) {
   tt.test('name only')
   tt.end()
 
-  t.match(out, /^TAP version 13\nok 1 - name only # TODO\n1\.\.1\n# time=[^\n]+\n$/)
+  t.match(out, /^TAP version 13\nok 1 - name only # TODO\n1\.\.1\n$/)
 
   t.end()
 })
@@ -153,7 +153,7 @@ test('subtest with only options', function (t) {
   tt.test({skip: true})
   tt.end()
 
-  t.match(out, /^TAP version 13\nok 1 - \(unnamed test\) # SKIP\n1\.\.1\n# time=[^\n]+\n$/)
+  t.match(out, /^TAP version 13\nok 1 - \(unnamed test\) # SKIP\n1\.\.1\n$/)
 
   t.end()
 })
@@ -164,10 +164,10 @@ test('subtest with only a function', function (t) {
   tt.on('data', function (c) {
     out += c
   })
-  tt.test(function (){})
+  tt.test(function (t){t.end()})
   tt.end()
-  
-  t.equal(out, 'TAP version 13\n# Subtest: (unnamed test)\n');
+
+  t.equal(out, 'TAP version 13\n# Subtest: (unnamed test)\n    1..0\nok 1 - (unnamed test)\n\n1..1\n');
 
   t.end()
 })
@@ -180,8 +180,8 @@ test('subtest with name and options', function (t) {
   })
   tt.test('name', {skip: false})
   tt.end()
-  
-  t.match(out, /^TAP version 13\nok 1 - name # TODO\n1\.\.1\n# time=[^\n]+\n$/)
+
+  t.match(out, /^TAP version 13\nok 1 - name # TODO\n1\.\.1\n$/)
 
   t.end()
 })
@@ -192,11 +192,10 @@ test('subtest with name and function', function (t) {
   tt.on('data', function (c) {
     out += c
   })
-  tt.test('name', function (){})
+  tt.test('name', function (t){t.end()})
   tt.end()
 
-  t.equal(out, 'TAP version 13\n# Subtest: name\n');
-
+  t.equal(out, 'TAP version 13\n# Subtest: name\n    1..0\nok 1 - name\n\n1..1\n');
   t.end()
 })
 
@@ -206,10 +205,10 @@ test('subtest with options and function', function (t) {
   tt.on('data', function (c) {
     out += c
   })
-  tt.test({skip: false}, function (){})
+  tt.test({skip: false}, function (t){t.end()})
   tt.end()
 
-  t.equal(out, 'TAP version 13\n# Subtest: (unnamed test)\n');
+  t.equal(out, 'TAP version 13\n# Subtest: (unnamed test)\n    1..0\nok 1 - (unnamed test)\n\n1..1\n');
 
   t.end()
 })
