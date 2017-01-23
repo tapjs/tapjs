@@ -3,9 +3,9 @@ ok 1 - end end {
     1..0
 }
 
-not ok 2 - Error: test end() method called more than once
+not ok 2 - test end() method called more than once
   ---
-  {"message":"Error: test end() method called more than once","test":"end end"}
+  {"test":"end end"}
   ...
 
 ok 3 - end then async end {
@@ -31,19 +31,19 @@ ok 7 - plan end end {
     ok 1 - this is fine
 }
 
-not ok 8 - Error: test end() method called more than once
+not ok 8 - test end() method called more than once
   ---
-  {"message":"Error: test end() method called more than once","test":"end then async end"}
+  {"test":"end then async end"}
   ...
 
-not ok 9 - Error: test end() method called more than once
+not ok 9 - test end() method called more than once
   ---
-  {"message":"Error: test end() method called more than once","test":"plan end end"}
+  {"test":"plan end end"}
   ...
 
-not ok 10 - Error: test end() method called more than once
+not ok 10 - test end() method called more than once
   ---
-  {"message":"Error: test end() method called more than once","test":"double async end"}
+  {"test":"double async end"}
   ...
 
 1..10

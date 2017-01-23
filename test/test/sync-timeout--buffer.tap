@@ -1,35 +1,23 @@
 TAP version 13
-ok 1 - t.end()
-  ---
-  {"expired":"t.end()","message":"Error: timeout!","test":"t.end()","timeout":50}
-  ...
-{
+ok 1 - t.end() {
     ok 1 - did not timeout
     1..1
 }
 
-not ok 2 - Error: timeout!
+not ok 2 - timeout!
   ---
-  {"expired":"t.end()","message":"Error: timeout!","test":"t.end()","timeout":50}
+  {"expired":"t.end()","test":"t.end()","timeout":50}
   ...
 
-ok 3 - plan()
-  ---
-  {"expired":"plan()","message":"Error: timeout!","test":"plan()","timeout":50}
-  ...
-{
+ok 3 - plan() {
     1..1
     ok 1 - did not time out
 }
 
-not ok 4 - Error: timeout!
+not ok 4 - timeout!
   ---
-  {"expired":"plan()","message":"Error: timeout!","test":"plan()","timeout":50}
+  {"expired":"plan()","test":"plan()","timeout":50}
   ...
-{
-    ok 1 - did not timeout
-    1..1
-}
 
 1..4
 

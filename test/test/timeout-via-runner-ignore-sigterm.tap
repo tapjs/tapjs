@@ -11,14 +11,14 @@ TAP version 13
         
         not ok 3 - timeout!
           ---
-          {"args":["___/.*/~~~timeout-via-runner-ignore-sigterm.js","child"],"at":{"column":5,"file":"test/test/timeout-via-runner-ignore-sigterm.js","function":"Object.<anonymous>","line":19},"command":"___/.*(node|iojs)(.exe)?/~~~","cwd":"___/.*/~~~","expired":"___/.*(node|iojs)(.exe)?.*/~~~timeout-via-runner-ignore-sigterm.js child","source":"t.spawn(process.execPath, [__filename, 'child'], { timeout: 1000 })\n","timeout":1000}
+          {"expired":"___/.*(node|iojs)(.exe)?.*/~~~timeout-via-runner-ignore-sigterm.js child"}
           ...
     not ok 4 - timeout!
     
     1..4
 not ok 1 - ___/.*(node|iojs)(.exe)?.*/~~~timeout-via-runner-ignore-sigterm.js child
   ---
-  {"args":["___/.*/~~~timeout-via-runner-ignore-sigterm.js","child"],"at":{"column":5,"file":"test/test/timeout-via-runner-ignore-sigterm.js","function":"Object.<anonymous>","line":19},"command":"___/.*(node|iojs)(.exe)?/~~~","cwd":"___/.*/~~~","exitCode":null,"expired":"___/.*(node|iojs)(.exe)?.*/~~~timeout-via-runner-ignore-sigterm.js child","signal":"SIGKILL","source":"t.spawn(process.execPath, [__filename, 'child'], { timeout: 1000 })\n","timeout":1000}
+  {"args":["___/.*/~~~timeout-via-runner-ignore-sigterm.js","child"],"command":"___/.*(node|iojs)(.exe)?/~~~","cwd":"___/.*/~~~","timeout":1000}
   ...
 
 1..1

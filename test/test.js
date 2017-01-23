@@ -12,6 +12,7 @@ function regEsc (str) {
 }
 
 module.exports = function (pattern, bail, buffer) {
+  pattern = path.basename(pattern)
   glob.sync(dir + pattern).forEach(function (f) {
     runTests(f, bail, buffer)
   })

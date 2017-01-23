@@ -5,9 +5,9 @@ TAP version 13
 end()
 ok 1 - (unnamed test)
 
-not ok 2 - Error: beep
+not ok 2 - beep
   ---
-  {"at":{"column":11,"file":"test/test/end-exception.js","function":"Test.<anonymous>","line":8},"message":"Error: beep","source":"throw new Error('beep')\n","test":"(unnamed test)"}
+  {"at":{"column":11,"file":"test/test/end-exception.js","function":"Test.<anonymous>","line":8},"source":"throw new Error('beep')\n","test":"(unnamed test)"}
   ...
 
 1..2

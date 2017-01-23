@@ -46,14 +46,10 @@ ok 4 - reasonably indented things {
 
 not ok 5 - failing indented things {
     not ok 1 - first subset {
-        not ok 1 - has no asserts, only throws
-          ---
-          {"mochaTest":true}
-          ...
-        {
-            not ok 1 - AssertionError: false is not true on line 50
+        not ok 1 - has no asserts, only throws {
+            not ok 1 - false is not true on line 50
               ---
-              {"actual":false,"at":{"column":7,"file":"test/test/mochalike.js","function":"Test.<anonymous>","line":54},"expected":true,"generatedMessage":false,"message":"AssertionError: false is not true on line 50","mochaTest":true,"operator":"==","source":"ok(false, 'false is not true on line 50')\n","test":"has no asserts, only throws"}
+              {"actual":false,"at":{"column":7,"file":"test/test/mochalike.js","function":"Test.<anonymous>","line":54},"expected":true,"generatedMessage":false,"operator":"==","source":"ok(false, 'false is not true on line 50')\n","test":"has no asserts, only throws","type":"AssertionError"}
               ...
             
             1..1
@@ -64,9 +60,9 @@ not ok 5 - failing indented things {
     }
     
     not ok 2 - second subset {
-        not ok 1 - AssertionError: objectify the truthiness
+        not ok 1 - objectify the truthiness
           ---
-          {"actual":false,"at":{"column":5,"file":"test/test/mochalike.js","function":"Suite.fn","line":60},"expected":true,"generatedMessage":false,"message":"AssertionError: objectify the truthiness","operator":"==","source":"ok(!{}, 'objectify the truthiness')\n","test":"second subset"}
+          {"actual":false,"at":{"column":5,"file":"test/test/mochalike.js","function":"Suite.fn","line":60},"expected":true,"generatedMessage":false,"operator":"==","source":"ok(!{}, 'objectify the truthiness')\n","test":"second subset","type":"AssertionError"}
           ...
         
         1..1
@@ -76,14 +72,10 @@ not ok 5 - failing indented things {
 }
 
 not ok 6 - a test passing an error to done() callback {
-    not ok 1 - is marked as failed
-      ---
-      {"mochaTest":true}
-      ...
-    {
-        not ok 1 - Error: error arg
+    not ok 1 - is marked as failed {
+        not ok 1 - error arg
           ---
-          {"at":{"column":12,"file":"test/test/mochalike.js","line":67},"message":"Error: error arg","mochaTest":true,"source":"done(new Error('error arg'))\n","test":"is marked as failed"}
+          {"at":{"column":12,"file":"test/test/mochalike.js","line":67},"source":"done(new Error('error arg'))\n","test":"is marked as failed"}
           ...
         
         1..1

@@ -27,12 +27,12 @@ not ok 4 - broken promises {
         1..0
     }
     
-    not ok 2 - Error: wtf
+    not ok 2 - wtf
       ---
-      {"at":{"column":13,"file":"test/test/promise-plan.js","line":45},"message":"Error: wtf","source":"throw new Error('wtf')\n","test":"end()"}
+      {"at":{"column":13,"file":"test/test/promise-plan.js","line":45},"source":"throw new Error('wtf')\n","test":"end()"}
       ...
     
-    Bail out! # Error: wtf
+    Bail out! # wtf
 }
-Bail out! # Error: wtf
+Bail out! # wtf
 

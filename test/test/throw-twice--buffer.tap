@@ -6,12 +6,12 @@ ok 1 - fine {
 
 not ok 2 - Error: this one
   ---
-  {"at":{"column":20,"file":"test/test/throw-twice.js","line":7},"message":"Error: this one","source":"throw { stack: new Error('this one').stack }\n","test":"fine"}
+  {"at":{"column":20,"file":"test/test/throw-twice.js","line":7},"source":"throw { stack: new Error('this one').stack }\n","test":"fine"}
   ...
 
-not ok 3 - Error: not this one
+not ok 3 - not this one
   ---
-  {"at":{"column":11,"file":"test/test/throw-twice.js","line":10},"message":"Error: not this one","source":"throw new Error('not this one')\n","test":"fine"}
+  {"at":{"column":11,"file":"test/test/throw-twice.js","line":10},"source":"throw new Error('not this one')\n","test":"fine"}
   ...
 
 1..3

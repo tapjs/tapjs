@@ -8,18 +8,18 @@ TAP version 13
     ok 1 - first
     
     # Subtest: async thrower
-        not ok 1 - Error: THINK FAST! and also lines so many
+        not ok 1 - THINK FAST! and also lines so many
           ---
-          {"at":{"column":16,"file":"test/test/throw.js","line":12},"jerk":true,"message":"Error: THINK FAST!\nand also lines\nso many","source":"var er = new Error('THINK FAST!\\nand also lines\\nso many')\n","test":"async thrower"}
+          {"at":{"column":16,"file":"test/test/throw.js","line":12},"jerk":true,"source":"var er = new Error('THINK FAST!\\nand also lines\\nso many')\n","test":"async thrower"}
           ...
         
         1..1
     not ok 2 - async thrower
     
     # Subtest: thrower
-        not ok 1 - Error: here hold this for a second
+        not ok 1 - here hold this for a second
           ---
-          {"at":{"column":14,"file":"test/test/throw.js","function":"Test.<anonymous>","line":18},"message":"Error: here hold this for a second","source":"var er = new Error('here hold this for a second')\n","syscall":"ring ring","test":"thrower"}
+          {"at":{"column":14,"file":"test/test/throw.js","function":"Test.<anonymous>","line":18},"source":"var er = new Error('here hold this for a second')\n","syscall":"ring ring","test":"thrower"}
           ...
         
         1..1

@@ -47,11 +47,11 @@ ok 4 - reasonably indented things
 # Subtest: failing indented things
     # Subtest: first subset
         # Subtest: has no asserts, only throws
-            not ok 1 - AssertionError: false is not true on line 50
+            not ok 1 - false is not true on line 50
               ---
-              {"actual":false,"at":{"column":7,"file":"test/test/mochalike.js","function":"Test.<anonymous>","line":54},"expected":true,"generatedMessage":false,"message":"AssertionError: false is not true on line 50","mochaTest":true,"operator":"==","source":"ok(false, 'false is not true on line 50')\n","test":"has no asserts, only throws"}
+              {"actual":false,"at":{"column":7,"file":"test/test/mochalike.js","function":"Test.<anonymous>","line":54},"expected":true,"generatedMessage":false,"operator":"==","source":"ok(false, 'false is not true on line 50')\n","test":"has no asserts, only throws","type":"AssertionError"}
               ...
             
-            Bail out! # AssertionError: false is not true on line 50
-Bail out! # AssertionError: false is not true on line 50
+            Bail out! # false is not true on line 50
+Bail out! # false is not true on line 50
 

@@ -8,7 +8,8 @@ t.test('parent of timeout test', function (t) {
         var timer = setTimeout(function () {
           tt.pass('ok done')
           tt.end()
-        }, 100)
+        }, 10000)
+        tt.on('end', clearTimeout.bind(null, timer))
       })
       tt.pass('p')
       tt.pass('a')

@@ -7,29 +7,27 @@ not ok 1 - parent of timeout test {
     {
         not ok 1 - this never completes {
             not ok 1 - baby {
-                ok 1 - expect truthy value
+                ok 1 - wait a sec...
                 not ok 2 - timeout!
                   ---
-                  {"at":{"column":5,"file":"test/test/timeout.js","line":4},"expired":"timeout test","source":"t.test('timeout test', { timeout: 50 }, function (t) {\n","timeout":50}
+                  {"expired":"timeout test","test":"baby"}
                   ...
                 
                 1..2
-                # failed 1 of 2 tests
             }
             
-            1..1
-            # failed 1 of 1 tests
+            ok 2 - p
+            ok 3 - a
+            ok 4 - s
+            ok 5 - s
+            1..5
         }
         
         1..1
-        # failed 1 of 1 tests
     }
     
     1..1
-    # failed 1 of 1 tests
 }
 
 1..1
-# failed 1 of 1 tests
-___/# time=[0-9.]+(ms)?/~~~
 

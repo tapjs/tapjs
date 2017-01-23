@@ -4,21 +4,25 @@ TAP version 13
         # Subtest: this never completes
             # Subtest: baby
                 ok 1 - wait a sec...
-                
                 not ok 2 - timeout!
                   ---
-                  {"at":{"column":5,"file":"test/test/timeout.js","function":"Test.<anonymous>","line":4},"expired":"timeout test","source":"t.test('timeout test', { timeout: 50 }, function (t) {\n","timeout":50}
+                  {"expired":"timeout test","test":"baby"}
                   ...
+                
                 1..2
-            not ok 1 - timeout!
+            not ok 1 - baby
             
-            1..1
-        not ok 1 - timeout!
+            ok 2 - p
+            ok 3 - a
+            ok 4 - s
+            ok 5 - s
+            1..5
+        not ok 1 - this never completes
         
         1..1
     not ok 1 - timeout test
       ---
-      {"at":{"column":5,"file":"test/test/timeout.js","function":"Test.<anonymous>","line":4},"expired":"timeout test","source":"t.test('timeout test', { timeout: 50 }, function (t) {\n","timeout":50}
+      {"timeout":50}
       ...
     
     1..1

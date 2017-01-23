@@ -3,10 +3,10 @@ ok 1 - end end {
     1..0
 }
 
-not ok 2 - Error: test end() method called more than once
+not ok 2 - test end() method called more than once
   ---
-  {"message":"Error: test end() method called more than once","test":"end end"}
+  {"test":"end end"}
   ...
 
-Bail out! # Error: test end() method called more than once
+Bail out! # test end() method called more than once
 

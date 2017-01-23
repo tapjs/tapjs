@@ -3,14 +3,11 @@ TAP version 13
     ok 1 - did not timeout
     1..1
 ok 1 - t.end()
+
+not ok 2 - timeout!
   ---
-  {"expired":"t.end()","message":"Error: timeout!","test":"t.end()","timeout":50}
+  {"expired":"t.end()","test":"t.end()","timeout":50}
   ...
 
-not ok 2 - Error: timeout!
-  ---
-  {"expired":"t.end()","message":"Error: timeout!","test":"t.end()","timeout":50}
-  ...
-
-Bail out! # Error: timeout!
+Bail out! # timeout!
 

@@ -15,14 +15,14 @@ ok 4 - rejected without cb {
     1..0
 }
 
-not ok 5 - Error: expected error
+not ok 5 - expected error
   ---
-  {"at":{"column":34,"file":"test/test/promise-return-mocha.js","line":31},"message":"Error: expected error","source":"setTimeout(reject.bind(null, new Error('expected error'), 150))\n","test":"rejected"}
+  {"at":{"column":34,"file":"test/test/promise-return-mocha.js","line":31},"source":"setTimeout(reject.bind(null, new Error('expected error'), 150))\n","test":"rejected"}
   ...
 
-not ok 6 - Error: expected error
+not ok 6 - expected error
   ---
-  {"at":{"column":34,"file":"test/test/promise-return-mocha.js","line":37},"message":"Error: expected error","source":"setTimeout(reject.bind(null, new Error('expected error'), 150))\n","test":"rejected without cb"}
+  {"at":{"column":34,"file":"test/test/promise-return-mocha.js","line":37},"source":"setTimeout(reject.bind(null, new Error('expected error'), 150))\n","test":"rejected without cb"}
   ...
 
 1..6

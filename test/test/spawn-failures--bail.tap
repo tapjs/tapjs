@@ -4,7 +4,7 @@ TAP version 13
         
         not ok 1 - now is fine
           ---
-          {"args":["___/.*/~~~ok.js"],"at":{"column":14,"file":"test/test/spawn-failures.js","function":"Test.<anonymous>","line":25},"command":"___/.*(node|iojs)(.exe)?/~~~","cwd":"___/.*/~~~","message":"Error: now is fine","source":"throwNow = new Error('now is fine')\n","test":"___/.*(node|iojs)(.exe)?/~~~ ./test/test/ok.js"}
+          {"args":["___/.*/~~~ok.js"],"at":{"column":14,"file":"test/test/spawn-failures.js","function":"Test.<anonymous>","line":25},"command":"___/.*(node|iojs)(.exe)?/~~~","cwd":"___/.*/~~~","source":"throwNow = new Error('now is fine')\n","test":"___/.*(node|iojs)(.exe)?/~~~ ./test/test/ok.js"}
           ...
         Bail out! # now is fine
 Bail out! # now is fine

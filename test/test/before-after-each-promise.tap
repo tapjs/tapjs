@@ -10,9 +10,9 @@ before 2 grandchild
         # Subtest: grandchild
             ok 1 - the only actual assertion
 after 2 grandchild
-            not ok 2 - Error: this is fine
+            not ok 2 - this is fine
               ---
-              {"at":{"column":23,"file":"test/test/before-after-each-promise.js","line":28},"message":"Error: this is fine","source":"return reject(new Error('this is fine'))\n","test":"grandchild"}
+              {"at":{"column":23,"file":"test/test/before-after-each-promise.js","line":28},"source":"return reject(new Error('this is fine'))\n","test":"grandchild"}
               ...
             
             1..2

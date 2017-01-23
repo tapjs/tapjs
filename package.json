@@ -49,7 +49,7 @@
   "scripts": {
     "regen-fixtures": "node scripts/generate-test-test.js test/test/*.js",
     "test": "node bin/run.js test/*.* --coverage -t3600",
-    "smoke": "node test/test.js \"*.js\" | node bin/run.js -",
+    "smoke": "node bin/run.js --node-arg=test/test.js test/test/*.js",
     "posttest": "standard lib test",
     "t": "node bin/run.js test/*.* -sfails.txt"
   },

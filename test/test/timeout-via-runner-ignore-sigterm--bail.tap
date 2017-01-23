@@ -11,7 +11,7 @@ TAP version 13
         
         not ok 3 - timeout!
           ---
-          {"args":["___/.*/~~~timeout-via-runner-ignore-sigterm.js","child"],"at":{"column":5,"file":"test/test/timeout-via-runner-ignore-sigterm.js","function":"Object.<anonymous>","line":19},"command":"___/.*(node|iojs)(.exe)?/~~~","cwd":"___/.*/~~~","expired":"___/.*(node|iojs)(.exe)?.*/~~~timeout-via-runner-ignore-sigterm.js child","source":"t.spawn(process.execPath, [__filename, 'child'], { timeout: 1000 })\n","timeout":1000}
+          {"expired":"___/.*(node|iojs)(.exe)?.*/~~~timeout-via-runner-ignore-sigterm.js child"}
           ...
         Bail out! # timeout!
 Bail out! # timeout!

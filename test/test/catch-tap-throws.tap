@@ -8,9 +8,9 @@ TAP version 13
 14
 ok 1 - exceed_plan_sync
 
-not ok 2 - Error: test count exceeds plan
+not ok 2 - test count exceeds plan
   ---
-  {"at":{"column":7,"file":"test/test/catch-tap-throws.js","function":"Test.exceed_plan_sync","line":12},"message":"Error: test count exceeds plan","plan":1,"source":"t.pass(2)\n","test":"exceed_plan_sync"}
+  {"at":{"column":7,"file":"test/test/catch-tap-throws.js","function":"Test.exceed_plan_sync","line":12},"plan":1,"source":"t.pass(2)\n","test":"exceed_plan_sync"}
   ...
 
 21
@@ -30,9 +30,9 @@ ok 3 - exceed_plan_async
 34
 ok 4 - multiple_end_sync
 
-not ok 5 - Error: test end() method called more than once
+not ok 5 - test end() method called more than once
   ---
-  {"message":"Error: test end() method called more than once","test":"multiple_end_sync"}
+  {"test":"multiple_end_sync"}
   ...
 
 41
@@ -52,9 +52,9 @@ ok 6 - multiple_end_async
 54
 ok 7 - assert_after_end_sync
 
-not ok 8 - Error: test after end() was called
+not ok 8 - test after end() was called
   ---
-  {"at":{"column":7,"file":"test/test/catch-tap-throws.js","function":"Test.assert_after_end_sync","line":74},"message":"Error: test after end() was called","plan":1,"source":"t.pass(8)\n","test":"assert_after_end_sync"}
+  {"at":{"column":7,"file":"test/test/catch-tap-throws.js","function":"Test.assert_after_end_sync","line":74},"plan":1,"source":"t.pass(8)\n","test":"assert_after_end_sync"}
   ...
 
 61
@@ -66,23 +66,23 @@ not ok 8 - Error: test after end() was called
 ok 9 - assert_after_end_async
 
 23
-not ok 10 - Error: test count exceeds plan
+not ok 10 - test count exceeds plan
   ---
-  {"at":{"column":9,"file":"test/test/catch-tap-throws.js","line":28},"message":"Error: test count exceeds plan","plan":1,"source":"t.pass(4)\n","test":"exceed_plan_async"}
+  {"at":{"column":9,"file":"test/test/catch-tap-throws.js","line":28},"plan":1,"source":"t.pass(4)\n","test":"exceed_plan_async"}
   ...
 
 24
 43
-not ok 11 - Error: test end() method called more than once
+not ok 11 - test end() method called more than once
   ---
-  {"message":"Error: test end() method called more than once","test":"multiple_end_async"}
+  {"test":"multiple_end_async"}
   ...
 
 44
 63
-not ok 12 - Error: test after end() was called
+not ok 12 - test after end() was called
   ---
-  {"at":{"column":9,"file":"test/test/catch-tap-throws.js","line":91},"message":"Error: test after end() was called","plan":1,"source":"t.pass(10)\n","test":"assert_after_end_async"}
+  {"at":{"column":9,"file":"test/test/catch-tap-throws.js","line":91},"plan":1,"source":"t.pass(10)\n","test":"assert_after_end_async"}
   ...
 
 64
