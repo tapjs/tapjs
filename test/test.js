@@ -7,6 +7,9 @@ var dir = __dirname + '/test/'
 var path = require('path')
 var yaml = require('js-yaml')
 
+process.env.TAP_BUFFER = 1
+t.jobs = 2
+
 function regEsc (str) {
   return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&')
 }
