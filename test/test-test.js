@@ -217,7 +217,7 @@ test('invalid test arguments', function (t) {
   t.throws(function () {
     var tt = new Test({ buffered: false })
     tt.test('name', { skip: false }, 'not a function')
-  }, new TypeError('test() callback must be function if provided'))
+  }, new TypeError('unknown argument passed to parseTestArgs: string'))
 
   t.end()
 })

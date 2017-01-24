@@ -628,6 +628,12 @@ function saveFails (options, tap) {
   tap.on('end', save)
 
   function save () {
+    fails = fails.reduce(function (set, f) {
+      if (set.indexOf(f) === -1)
+        set.push(f)
+      return set
+    }, [])
+
     if (!fails.length)
       try {
         fs.unlinkSync(options.saveFile)
