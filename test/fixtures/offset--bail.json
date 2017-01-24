@@ -107,6 +107,14 @@
     "# ok\n"
   ],
   [
+    "line",
+    "# test count(4) != plan(11)\n"
+  ],
+  [
+    "comment",
+    "# test count(4) != plan(11)\n"
+  ],
+  [
     "complete",
     {
       "ok": true,

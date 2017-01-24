@@ -244,6 +244,22 @@
             "  ---\n  ok: 1\n  this: is not tap or yaml\n  it: is garbage\n"
           ],
           [
+            "line",
+            "# todo: 1\n"
+          ],
+          [
+            "comment",
+            "# todo: 1\n"
+          ],
+          [
+            "line",
+            "# skip: 1\n"
+          ],
+          [
+            "comment",
+            "# skip: 1\n"
+          ],
+          [
             "complete",
             {
               "ok": true,
@@ -316,6 +332,14 @@
       [
         "line",
         "      it: is garbage\n"
+      ],
+      [
+        "line",
+        "    # todo: 1\n"
+      ],
+      [
+        "line",
+        "    # skip: 1\n"
       ],
       [
         "line",
@@ -422,6 +446,14 @@
   [
     "line",
     "          it: is garbage\n"
+  ],
+  [
+    "line",
+    "        # todo: 1\n"
+  ],
+  [
+    "line",
+    "        # skip: 1\n"
   ],
   [
     "line",

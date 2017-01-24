@@ -108,6 +108,22 @@
     }
   ],
   [
+    "line",
+    "# test count(7) != plan(3)\n"
+  ],
+  [
+    "comment",
+    "# test count(7) != plan(3)\n"
+  ],
+  [
+    "line",
+    "# failed 4 of 7 tests\n"
+  ],
+  [
+    "comment",
+    "# failed 4 of 7 tests\n"
+  ],
+  [
     "complete",
     {
       "ok": false,

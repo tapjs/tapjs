@@ -120,6 +120,7 @@ function Parser (options, onComplete) {
   if (onComplete)
     this.on('complete', onComplete)
 
+  this.comments = []
   this.results = null
   this.braceLevel = null
   this.parent = options.parent || null
@@ -416,7 +417,26 @@ Parser.prototype.end = function (chunk, encoding, cb) {
 
 Parser.prototype.emitComplete = function (skipAll) {
   if (!this.results) {
-    this.results = new FinalResults(!!skipAll, this)
+    var res = this.results = new FinalResults(!!skipAll, this)
+
+    // comment a bit at the end so we know what happened.
+    // but don't repeat these comments if they're already present.
+    if (res.plan.end !== res.count && !res.bailout)
+      this.emitComment('test count(' + res.count +
+                       ') != plan(' + res.plan.end + ')', false, true)
+
+    if (res.fail > 0 && !res.ok)
+      this.emitComment('failed ' + res.fail +
+                       (res.count > 1 ? ' of ' + res.count + ' tests'
+                        : ' test'),
+                       false, true)
+
+    if (res.todo > 0)
+      this.emitComment('todo: ' + res.todo, false, true)
+
+    if (res.skip > 0)
+      this.emitComment('skip: ' + res.skip, false, true)
+
     this.emit('complete', this.results)
   }
 }
@@ -676,7 +696,17 @@ Parser.prototype.abort = function (message, extra) {
   this.end()
 }
 
-Parser.prototype.emitComment = function (line, skipLine) {
+Parser.prototype.emitComment = function (line, skipLine, noDuplicate) {
+  if (line.trim().charAt(0) !== '#')
+    line = '# ' + line
+
+  if (line.slice(-1) !== '\n')
+    line += '\n'
+
+  if (noDuplicate && this.comments.indexOf(line) !== -1)
+    return
+
+  this.comments.push(line)
   if (this.current || this.extraQueue.length) {
     // no way to get here with skipLine being true
     this.extraQueue.push(['line', line])

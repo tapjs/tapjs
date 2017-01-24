@@ -29,7 +29,7 @@ ok 5 - pass after async kid
 1..5
 */}.toString().split('\n').slice(1, -1).join('\n') + '\n'
 
-t.test('bufferd abort', function (t) {
+t.test('buffered abort', function (t) {
   t.test('with diags', bufferedTest({some: 'diags'}))
   t.test('empty diags', bufferedTest({}))
   t.test('no diags', bufferedTest())
@@ -93,7 +93,11 @@ function bufferedTest (d) { return function (t) {
       }
     ]
   }
-  p.on('line', lines.push.bind(lines))
+  p.on('line', function (line) {
+    if (line.trim().match(/^# [^S]/))
+      return
+    lines.push(line)
+  })
   p.on('complete', function (results) {
     t.same(lines, expectLines)
     t.same(results, expectResults)
@@ -150,7 +154,11 @@ function unbufferedTest (d) { return function (t) {
       }
     ]
   }
-  p.on('line', lines.push.bind(lines))
+  p.on('line', function (line) {
+    if (line.trim().match(/^# [^S]/))
+      return
+    lines.push(line)
+  })
   p.on('complete', function (results) {
     t.same(lines, expectLines)
     t.same(results, expectResults)

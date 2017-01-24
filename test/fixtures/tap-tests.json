@@ -6093,6 +6093,30 @@
     "# todo  4\n"
   ],
   [
+    "line",
+    "# failed 5 of 311 tests\n"
+  ],
+  [
+    "comment",
+    "# failed 5 of 311 tests\n"
+  ],
+  [
+    "line",
+    "# todo: 4\n"
+  ],
+  [
+    "comment",
+    "# todo: 4\n"
+  ],
+  [
+    "line",
+    "# skip: 5\n"
+  ],
+  [
+    "comment",
+    "# skip: 5\n"
+  ],
+  [
     "complete",
     {
       "ok": false,

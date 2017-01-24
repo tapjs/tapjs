@@ -173,6 +173,22 @@
     }
   ],
   [
+    "line",
+    "# todo: 1\n"
+  ],
+  [
+    "comment",
+    "# todo: 1\n"
+  ],
+  [
+    "line",
+    "# skip: 1\n"
+  ],
+  [
+    "comment",
+    "# skip: 1\n"
+  ],
+  [
     "complete",
     {
       "ok": true,

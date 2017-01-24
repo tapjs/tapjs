@@ -58,6 +58,14 @@
         "# some yaml"
       ],
       [
+        "line",
+        "# failed 1 test\n"
+      ],
+      [
+        "comment",
+        "# failed 1 test\n"
+      ],
+      [
         "complete",
         {
           "ok": false,
@@ -119,6 +127,10 @@
   [
     "line",
     "    Bail out! # some yaml\n"
+  ],
+  [
+    "line",
+    "    # failed 1 test\n"
   ],
   [
     "bailout",

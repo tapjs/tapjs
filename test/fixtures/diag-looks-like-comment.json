@@ -126,6 +126,14 @@
         }
       ],
       [
+        "line",
+        "# failed 1 test\n"
+      ],
+      [
+        "comment",
+        "# failed 1 test\n"
+      ],
+      [
         "complete",
         {
           "ok": false,
@@ -247,6 +255,10 @@
   ],
   [
     "line",
+    "    # failed 1 test\n"
+  ],
+  [
+    "line",
     "not ok 1 - -t 0.2\n"
   ],
   [
@@ -267,6 +279,14 @@
       "start": 1,
       "end": 1
     }
+  ],
+  [
+    "line",
+    "# failed 1 test\n"
+  ],
+  [
+    "comment",
+    "# failed 1 test\n"
   ],
   [
     "complete",

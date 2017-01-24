@@ -102,6 +102,22 @@
     "# Looks like you failed 1 test of 3.\n"
   ],
   [
+    "line",
+    "# failed 2 of 3 tests\n"
+  ],
+  [
+    "comment",
+    "# failed 2 of 3 tests\n"
+  ],
+  [
+    "line",
+    "# todo: 1\n"
+  ],
+  [
+    "comment",
+    "# todo: 1\n"
+  ],
+  [
     "complete",
     {
       "ok": false,

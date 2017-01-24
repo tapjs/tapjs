@@ -22,6 +22,30 @@
     }
   ],
   [
+    "line",
+    "# test count(1) != plan(0)\n"
+  ],
+  [
+    "comment",
+    "# test count(1) != plan(0)\n"
+  ],
+  [
+    "line",
+    "# failed 1 test\n"
+  ],
+  [
+    "comment",
+    "# failed 1 test\n"
+  ],
+  [
+    "line",
+    "# skip: 1\n"
+  ],
+  [
+    "comment",
+    "# skip: 1\n"
+  ],
+  [
     "complete",
     {
       "ok": false,

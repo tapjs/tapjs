@@ -41,6 +41,22 @@
     }
   ],
   [
+    "line",
+    "# test count(2) != plan(5)\n"
+  ],
+  [
+    "comment",
+    "# test count(2) != plan(5)\n"
+  ],
+  [
+    "line",
+    "# failed 1 of 2 tests\n"
+  ],
+  [
+    "comment",
+    "# failed 1 of 2 tests\n"
+  ],
+  [
     "complete",
     {
       "ok": false,

@@ -61,6 +61,14 @@
     }
   ],
   [
+    "line",
+    "# todo: 2\n"
+  ],
+  [
+    "comment",
+    "# todo: 2\n"
+  ],
+  [
     "complete",
     {
       "ok": true,

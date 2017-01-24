@@ -118,6 +118,22 @@
     }
   ],
   [
+    "line",
+    "# test count(2) != plan(null)\n"
+  ],
+  [
+    "comment",
+    "# test count(2) != plan(null)\n"
+  ],
+  [
+    "line",
+    "# failed 2 of 2 tests\n"
+  ],
+  [
+    "comment",
+    "# failed 2 of 2 tests\n"
+  ],
+  [
     "complete",
     {
       "ok": false,

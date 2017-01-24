@@ -151,6 +151,22 @@
     "1..2\n"
   ],
   [
+    "line",
+    "# test count(2) != plan(99)\n"
+  ],
+  [
+    "comment",
+    "# test count(2) != plan(99)\n"
+  ],
+  [
+    "line",
+    "# failed 1 of 2 tests\n"
+  ],
+  [
+    "comment",
+    "# failed 1 of 2 tests\n"
+  ],
+  [
     "complete",
     {
       "ok": false,

@@ -185,6 +185,14 @@
             }
           ],
           [
+            "line",
+            "# todo: 2\n"
+          ],
+          [
+            "comment",
+            "# todo: 2\n"
+          ],
+          [
             "complete",
             {
               "ok": true,
@@ -240,6 +248,10 @@
       ],
       [
         "line",
+        "    # todo: 2\n"
+      ],
+      [
+        "line",
         "ok 3 - the subset\n"
       ],
       [
@@ -260,6 +272,14 @@
           "start": 1,
           "end": 3
         }
+      ],
+      [
+        "line",
+        "# todo: 2\n"
+      ],
+      [
+        "comment",
+        "# todo: 2\n"
       ],
       [
         "complete",
@@ -329,11 +349,19 @@
   ],
   [
     "line",
+    "        # todo: 2\n"
+  ],
+  [
+    "line",
     "    ok 3 - the subset\n"
   ],
   [
     "line",
     "    1..3\n"
+  ],
+  [
+    "line",
+    "    # todo: 2\n"
   ],
   [
     "line",
@@ -409,6 +437,14 @@
         }
       ],
       [
+        "line",
+        "# todo: 3\n"
+      ],
+      [
+        "comment",
+        "# todo: 3\n"
+      ],
+      [
         "complete",
         {
           "ok": true,
@@ -445,6 +481,10 @@
   [
     "line",
     "    1..3\n"
+  ],
+  [
+    "line",
+    "    # todo: 3\n"
   ],
   [
     "line",

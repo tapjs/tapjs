@@ -86,6 +86,14 @@
         "# failed 1 of 1 tests\n"
       ],
       [
+        "line",
+        "# failed 1 test\n"
+      ],
+      [
+        "comment",
+        "# failed 1 test\n"
+      ],
+      [
         "complete",
         {
           "ok": false,
@@ -168,6 +176,10 @@
   [
     "line",
     "    # failed 1 of 1 tests\n"
+  ],
+  [
+    "line",
+    "    # failed 1 test\n"
   ],
   [
     "line",
@@ -265,6 +277,14 @@
   [
     "comment",
     "# time=22.566ms\n"
+  ],
+  [
+    "line",
+    "# failed 1 test\n"
+  ],
+  [
+    "comment",
+    "# failed 1 test\n"
   ],
   [
     "complete",

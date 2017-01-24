@@ -107,6 +107,22 @@
     "# ok\n"
   ],
   [
+    "line",
+    "# test count(4) != plan(5)\n"
+  ],
+  [
+    "comment",
+    "# test count(4) != plan(5)\n"
+  ],
+  [
+    "line",
+    "# failed 1 of 4 tests\n"
+  ],
+  [
+    "comment",
+    "# failed 1 of 4 tests\n"
+  ],
+  [
     "complete",
     {
       "ok": false,

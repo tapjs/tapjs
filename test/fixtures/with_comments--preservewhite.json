@@ -113,6 +113,22 @@
     "# woo\n"
   ],
   [
+    "line",
+    "# test count(5) != plan(null)\n"
+  ],
+  [
+    "comment",
+    "# test count(5) != plan(null)\n"
+  ],
+  [
+    "line",
+    "# failed 3 of 5 tests\n"
+  ],
+  [
+    "comment",
+    "# failed 3 of 5 tests\n"
+  ],
+  [
     "complete",
     {
       "ok": false,

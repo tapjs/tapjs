@@ -171,6 +171,22 @@
     "ok 15 - Check so that tid for threads work for main thread\n"
   ],
   [
+    "line",
+    "# test count(10) != plan(15)\n"
+  ],
+  [
+    "comment",
+    "# test count(10) != plan(15)\n"
+  ],
+  [
+    "line",
+    "# failed 1 of 10 tests\n"
+  ],
+  [
+    "comment",
+    "# failed 1 of 10 tests\n"
+  ],
+  [
     "complete",
     {
       "ok": false,

@@ -61,6 +61,14 @@
         }
       ],
       [
+        "line",
+        "# failed 1 test\n"
+      ],
+      [
+        "comment",
+        "# failed 1 test\n"
+      ],
+      [
         "complete",
         {
           "ok": false,
@@ -122,6 +130,10 @@
   [
     "line",
     "    1..1\n"
+  ],
+  [
+    "line",
+    "    # failed 1 test\n"
   ],
   [
     "line",
@@ -197,6 +209,14 @@
         }
       ],
       [
+        "line",
+        "# failed 1 test\n"
+      ],
+      [
+        "comment",
+        "# failed 1 test\n"
+      ],
+      [
         "complete",
         {
           "ok": false,
@@ -258,6 +278,10 @@
   [
     "line",
     "    1..1\n"
+  ],
+  [
+    "line",
+    "    # failed 1 test\n"
   ],
   [
     "line",
@@ -333,6 +357,14 @@
         }
       ],
       [
+        "line",
+        "# failed 1 test\n"
+      ],
+      [
+        "comment",
+        "# failed 1 test\n"
+      ],
+      [
         "complete",
         {
           "ok": false,
@@ -394,6 +426,10 @@
   [
     "line",
     "    1..1\n"
+  ],
+  [
+    "line",
+    "    # failed 1 test\n"
   ],
   [
     "line",
@@ -469,6 +505,14 @@
         }
       ],
       [
+        "line",
+        "# failed 1 test\n"
+      ],
+      [
+        "comment",
+        "# failed 1 test\n"
+      ],
+      [
         "complete",
         {
           "ok": false,
@@ -533,6 +577,10 @@
   ],
   [
     "line",
+    "    # failed 1 test\n"
+  ],
+  [
+    "line",
     "}\n"
   ],
   [
@@ -554,6 +602,14 @@
       "start": 1,
       "end": 4
     }
+  ],
+  [
+    "line",
+    "# failed 4 of 4 tests\n"
+  ],
+  [
+    "comment",
+    "# failed 4 of 4 tests\n"
   ],
   [
     "complete",

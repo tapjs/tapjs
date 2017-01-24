@@ -143,6 +143,14 @@
     }
   ],
   [
+    "line",
+    "# failed 2 of 7 tests\n"
+  ],
+  [
+    "comment",
+    "# failed 2 of 7 tests\n"
+  ],
+  [
     "complete",
     {
       "ok": false,

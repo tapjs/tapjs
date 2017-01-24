@@ -450,6 +450,14 @@
     }
   ],
   [
+    "line",
+    "# failed 1 of 5 tests\n"
+  ],
+  [
+    "comment",
+    "# failed 1 of 5 tests\n"
+  ],
+  [
     "complete",
     {
       "ok": false,

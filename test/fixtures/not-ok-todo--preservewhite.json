@@ -84,6 +84,14 @@
     "# Looks like you failed 1 test of 4.\n"
   ],
   [
+    "line",
+    "# todo: 1\n"
+  ],
+  [
+    "comment",
+    "# todo: 1\n"
+  ],
+  [
     "complete",
     {
       "ok": true,

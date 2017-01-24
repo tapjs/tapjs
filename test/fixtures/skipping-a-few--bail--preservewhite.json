@@ -91,6 +91,14 @@
     }
   ],
   [
+    "line",
+    "# skip: 4\n"
+  ],
+  [
+    "comment",
+    "# skip: 4\n"
+  ],
+  [
     "complete",
     {
       "ok": true,

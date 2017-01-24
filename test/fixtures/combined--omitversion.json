@@ -132,6 +132,30 @@
     }
   ],
   [
+    "line",
+    "# failed 3 of 10 tests\n"
+  ],
+  [
+    "comment",
+    "# failed 3 of 10 tests\n"
+  ],
+  [
+    "line",
+    "# todo: 2\n"
+  ],
+  [
+    "comment",
+    "# todo: 2\n"
+  ],
+  [
+    "line",
+    "# skip: 1\n"
+  ],
+  [
+    "comment",
+    "# skip: 1\n"
+  ],
+  [
     "complete",
     {
       "ok": false,

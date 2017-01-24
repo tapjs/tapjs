@@ -115,6 +115,14 @@
         "# should match pattern provided"
       ],
       [
+        "line",
+        "# failed 1 test\n"
+      ],
+      [
+        "comment",
+        "# failed 1 test\n"
+      ],
+      [
         "complete",
         {
           "ok": false,
@@ -233,6 +241,10 @@
   [
     "line",
     "    Bail out! # should match pattern provided\n"
+  ],
+  [
+    "line",
+    "    # failed 1 test\n"
   ],
   [
     "bailout",

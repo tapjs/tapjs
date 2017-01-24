@@ -40,6 +40,10 @@ var expect = [
     "# saw that coming"
   ],
   [
+    "comment",
+    "# failed 1 of 2 tests\n"
+  ],
+  [
     "complete",
     {
       "ok": false,

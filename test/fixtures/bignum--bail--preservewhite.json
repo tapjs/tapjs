@@ -65,6 +65,22 @@
     }
   ],
   [
+    "line",
+    "# test count(4) != plan(2)\n"
+  ],
+  [
+    "comment",
+    "# test count(4) != plan(2)\n"
+  ],
+  [
+    "line",
+    "# failed 2 of 4 tests\n"
+  ],
+  [
+    "comment",
+    "# failed 2 of 4 tests\n"
+  ],
+  [
     "complete",
     {
       "ok": false,

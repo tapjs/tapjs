@@ -77,6 +77,14 @@
         "# no they aren't"
       ],
       [
+        "line",
+        "# failed 1 test\n"
+      ],
+      [
+        "comment",
+        "# failed 1 test\n"
+      ],
+      [
         "complete",
         {
           "ok": false,
@@ -115,6 +123,10 @@
   [
     "line",
     "    Bail out! # no they aren't\n"
+  ],
+  [
+    "line",
+    "    # failed 1 test\n"
   ],
   [
     "bailout",

@@ -115,6 +115,14 @@
     }
   ],
   [
+    "line",
+    "# failed 3 of 4 tests\n"
+  ],
+  [
+    "comment",
+    "# failed 3 of 4 tests\n"
+  ],
+  [
     "complete",
     {
       "ok": false,

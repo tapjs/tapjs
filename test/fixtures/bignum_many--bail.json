@@ -177,6 +177,22 @@
     }
   ],
   [
+    "line",
+    "# test count(11) != plan(2)\n"
+  ],
+  [
+    "comment",
+    "# test count(11) != plan(2)\n"
+  ],
+  [
+    "line",
+    "# failed 9 of 11 tests\n"
+  ],
+  [
+    "comment",
+    "# failed 9 of 11 tests\n"
+  ],
+  [
     "complete",
     {
       "ok": false,

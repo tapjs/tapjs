@@ -66,6 +66,14 @@
     }
   ],
   [
+    "line",
+    "# failed 2 of 5 tests\n"
+  ],
+  [
+    "comment",
+    "# failed 2 of 5 tests\n"
+  ],
+  [
     "complete",
     {
       "ok": false,
