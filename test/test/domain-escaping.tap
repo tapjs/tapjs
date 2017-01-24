@@ -1,0 +1,115 @@
+TAP version 13
+# Subtest: thisPasses
+    ok 1 - expected to throw: Error one
+    ok 2 - threw expected error
+    1..2
+ok 1 - thisPasses
+
+ok 2 - expected to throw: Error one
+ok 3 - threw expected error
+not ok 4 - one {
+    # Subtest: one-sub
+        not ok 1 - er one-sub
+          ---
+          {"test":"one-sub"}
+          ...
+        
+        1..1
+    not ok 1 - one-sub
+    
+    1..1
+}
+
+not ok 5 - two {
+    # Subtest: two-sub
+        not ok 1 - er two-sub
+          ---
+          {"test":"two-sub"}
+          ...
+        
+        1..1
+    not ok 1 - two-sub
+    
+    1..1
+}
+
+not ok 6 - tre {
+    # Subtest: tre-sub
+        not ok 1 - er tre-sub
+          ---
+          {"test":"tre-sub"}
+          ...
+        
+        1..1
+    not ok 1 - tre-sub
+    
+    1..1
+}
+
+not ok 7 - for {
+    # Subtest: for-sub
+        not ok 1 - er for-sub
+          ---
+          {"test":"for-sub"}
+          ...
+        
+        1..1
+    not ok 1 - for-sub
+    
+    1..1
+}
+
+not ok 8 - fiv {
+    # Subtest: fiv-sub
+        not ok 1 - er fiv-sub
+          ---
+          {"test":"fiv-sub"}
+          ...
+        
+        1..1
+    not ok 1 - fiv-sub
+    
+    1..1
+}
+
+not ok 9 - six {
+    # Subtest: six-sub
+        not ok 1 - er six-sub
+          ---
+          {"test":"six-sub"}
+          ...
+        
+        1..1
+    not ok 1 - six-sub
+    
+    1..1
+}
+
+not ok 10 - svn {
+    # Subtest: svn-sub
+        not ok 1 - er svn-sub
+          ---
+          {"test":"svn-sub"}
+          ...
+        
+        1..1
+    not ok 1 - svn-sub
+    
+    1..1
+}
+
+not ok 11 - eit {
+    # Subtest: eit-sub
+        not ok 1 - er eit-sub
+          ---
+          {"test":"eit-sub"}
+          ...
+        
+        1..1
+    not ok 1 - eit-sub
+    
+    1..1
+}
+
+1..11
+
