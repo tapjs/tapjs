@@ -1,7 +1,7 @@
 TAP version 13
 not ok 1 - ___/.*(node|iojs)(.exe)?.*/~~~timeout-via-runner.js child
   ---
-  {"args":["___/.*/~~~timeout-via-runner.js","child"],"command":"___/.*(node|iojs)(.exe)?/~~~","cwd":"___/.*/~~~","exitCode":null,"failures":[{"tapError":"no plan"}],"signal":"SIGTERM","timeout":1000}
+  {"args":["___/.*/~~~timeout-via-runner.js","child"],"command":"___/.*(node|iojs)(.exe)?/~~~","cwd":"___/.*/~~~","exitCode":null,"signal":"SIGTERM","timeout":1000}
   ...
 {
     ok 1 - this is fine 1
@@ -16,6 +16,8 @@ not ok 1 - ___/.*(node|iojs)(.exe)?.*/~~~timeout-via-runner.js child
           {"expired":"TAP","handles":[{"type":"Timer"}],"signal":"SIGTERM","test":"child test"}
           ...
     }
+    
+    1..4
 }
 
 1..1
