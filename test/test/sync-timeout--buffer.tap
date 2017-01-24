@@ -20,4 +20,5 @@ not ok 4 - timeout!
   ...
 
 1..4
+# failed 2 of 4 tests
 

@@ -14,6 +14,7 @@ not ok 1 - nesting {
           ...
         
         1..1
+        # failed 1 test
     }
     
     not ok 3 - thrower {
@@ -23,7 +24,10 @@ not ok 1 - nesting {
           ...
         
         1..1
+        # failed 1 test
     }
+    
+    # failed 2 of 3 tests
 }
 
 ok 2 - this passes

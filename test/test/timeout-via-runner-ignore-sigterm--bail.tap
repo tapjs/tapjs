@@ -13,6 +13,7 @@ TAP version 13
           ---
           {"expired":"___/.*(node|iojs)(.exe)?.*/~~~timeout-via-runner-ignore-sigterm.js child"}
           ...
+        # failed 1 of 3 tests
         Bail out! # timeout!
 Bail out! # timeout!
 

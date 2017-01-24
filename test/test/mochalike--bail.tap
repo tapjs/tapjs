@@ -10,9 +10,11 @@ TAP version 13
         ok 3 - has some of these things
         
         1..3
+        # todo: 2
     ok 3 - the subset
     
     1..3
+    # todo: 2
 ok 1 - a set of tests to be done later
 
 ok 2 - describe todo # TODO
@@ -21,6 +23,7 @@ ok 2 - describe todo # TODO
     ok 2 - looks like english # TODO
     ok 3 - is marked TODO # TODO
     1..3
+    # todo: 3
 ok 3 - another set of tests
 
 # Subtest: reasonably indented things
@@ -35,6 +38,7 @@ ok 3 - another set of tests
         ok 3 - is async
         
         1..3
+        # todo: 1
     ok 1 - first subset
     
     # Subtest: second subset

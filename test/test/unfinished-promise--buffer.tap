@@ -8,13 +8,19 @@ not ok 1 - parent {
               ---
               {"at":{"column":14,"file":"test/test/unfinished-promise.js","function":"Test.<anonymous>","line":4},"source":"return t.test('grandchild', function (t) {\n","test":"grandchild"}
               ...
+            
+            # test count(2) != plan(3)
+            # failed 1 of 2 tests
         }
         
         1..1
+        # failed 1 test
     }
     
     1..1
+    # failed 1 test
 }
 
 1..1
+# failed 1 test
 

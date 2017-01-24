@@ -15,9 +15,11 @@ not ok 4 - one {
           ...
         
         1..1
+        # failed 1 test
     not ok 1 - one-sub
     
     1..1
+    # failed 1 test
 }
 
 not ok 5 - two {
@@ -28,9 +30,11 @@ not ok 5 - two {
           ...
         
         1..1
+        # failed 1 test
     not ok 1 - two-sub
     
     1..1
+    # failed 1 test
 }
 
 not ok 6 - tre {
@@ -41,9 +45,11 @@ not ok 6 - tre {
           ...
         
         1..1
+        # failed 1 test
     not ok 1 - tre-sub
     
     1..1
+    # failed 1 test
 }
 
 not ok 7 - for {
@@ -54,9 +60,11 @@ not ok 7 - for {
           ...
         
         1..1
+        # failed 1 test
     not ok 1 - for-sub
     
     1..1
+    # failed 1 test
 }
 
 not ok 8 - fiv {
@@ -67,9 +75,11 @@ not ok 8 - fiv {
           ...
         
         1..1
+        # failed 1 test
     not ok 1 - fiv-sub
     
     1..1
+    # failed 1 test
 }
 
 not ok 9 - six {
@@ -80,9 +90,11 @@ not ok 9 - six {
           ...
         
         1..1
+        # failed 1 test
     not ok 1 - six-sub
     
     1..1
+    # failed 1 test
 }
 
 not ok 10 - svn {
@@ -93,9 +105,11 @@ not ok 10 - svn {
           ...
         
         1..1
+        # failed 1 test
     not ok 1 - svn-sub
     
     1..1
+    # failed 1 test
 }
 
 not ok 11 - eit {
@@ -106,10 +120,13 @@ not ok 11 - eit {
           ...
         
         1..1
+        # failed 1 test
     not ok 1 - eit-sub
     
     1..1
+    # failed 1 test
 }
 
 1..11
+# failed 8 of 11 tests
 

@@ -9,12 +9,15 @@ not ok 1 - one {
                   ...
                 
                 1..1
+                # failed 1 test
             }
             
             1..1
+            # failed 1 test
         }
         
         1..1
+        # failed 1 test
     }
     
     not ok 2 - second child of 2 {
@@ -24,9 +27,11 @@ not ok 1 - one {
           ...
         
         1..1
+        # failed 1 test
     }
     
     1..2
+    # failed 2 of 2 tests
 }
 
 not ok 2 - three {
@@ -36,6 +41,7 @@ not ok 2 - three {
       ...
     
     1..1
+    # failed 1 test
 }
 
 not ok 3 - some_function_name {
@@ -45,6 +51,7 @@ not ok 3 - some_function_name {
       ...
     
     1..1
+    # failed 1 test
 }
 
 not ok 4 - fail 5
@@ -53,4 +60,5 @@ not ok 4 - fail 5
   ...
 
 1..4
+# failed 4 of 4 tests
 

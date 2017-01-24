@@ -9,12 +9,15 @@ TAP version 13
                   ...
                 
                 1..1
+                # failed 1 test
             not ok 1 - grandchild of 2
             
             1..1
+            # failed 1 test
         not ok 1 - child of 2
         
         1..1
+        # failed 1 test
     not ok 1 - two
     
     # Subtest: second child of 2
@@ -24,9 +27,11 @@ TAP version 13
           ...
         
         1..1
+        # failed 1 test
     not ok 2 - second child of 2
     
     1..2
+    # failed 2 of 2 tests
 not ok 1 - one
 
 # Subtest: three
@@ -36,6 +41,7 @@ not ok 1 - one
       ...
     
     1..1
+    # failed 1 test
 not ok 2 - three
 
 # Subtest: some_function_name
@@ -45,6 +51,7 @@ not ok 2 - three
       ...
     
     1..1
+    # failed 1 test
 not ok 3 - some_function_name
 
 not ok 4 - fail 5
@@ -53,4 +60,5 @@ not ok 4 - fail 5
   ...
 
 1..4
+# failed 4 of 4 tests
 

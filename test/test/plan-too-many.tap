@@ -11,9 +11,14 @@ TAP version 13
           {"at":{"column":5,"file":"test/test/plan-too-many.js","function":"Test.<anonymous>","line":7},"source":"t.test('grandchild', function (tt) {\n","test":"grandchild"}
           ...
         
+        # test count(2) != plan(8)
+        # failed 1 of 2 tests
     not ok 3 - grandchild
     
+    # test count(3) != plan(9)
+    # failed 1 of 3 tests
 not ok 1 - children plan too big
 
 1..1
+# failed 1 test
 

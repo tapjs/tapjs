@@ -7,10 +7,12 @@ TAP version 13
           {"at":{"column":5,"file":"test/test/unfinished.js","function":"Test.<anonymous>","line":4},"source":"t.test('t11', function (t) {\n","test":"t11"}
           ...
         
+        # failed 1 test
     not ok 1 - t11
     
     ok 2 - this would be ok if it ever happened
     1..2
+    # failed 1 of 2 tests
 not ok 1 - t1
 
 ok 2 - 1 === 1
@@ -26,4 +28,6 @@ not ok 7 - child test left in queue Test: (unnamed test)
 not ok 8 - child test left in queue Test: (unnamed test)
 not ok 9 - child test left in queue Test: t2
 1..4
+# test count(9) != plan(4)
+# failed 7 of 9 tests
 

@@ -31,7 +31,9 @@ not ok 1 - child test {
       ...
     
     1..6
+    # failed 6 of 6 tests
 }
 
 1..1
+# failed 1 test
 

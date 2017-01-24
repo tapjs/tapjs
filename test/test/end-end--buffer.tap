@@ -47,4 +47,5 @@ not ok 10 - test end() method called more than once
   ...
 
 1..10
+# failed 4 of 10 tests
 

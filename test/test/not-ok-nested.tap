@@ -8,9 +8,12 @@ TAP version 13
           {"at":{"column":7,"file":"test/test/not-ok-nested.js","line":7},"source":"t.fail('fail')\n"}
           ...
         
+        # failed 1 test
     not ok 1 - parent
     
+    # failed 1 test
 not ok 1 - gp
 
 1..1
+# failed 1 test
 

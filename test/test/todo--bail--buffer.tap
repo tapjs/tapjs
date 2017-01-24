@@ -12,9 +12,11 @@ ok 1 - a set of tests to be done later {
         }
         
         1..3
+        # todo: 2
     }
     
     1..3
+    # todo: 2
 }
 
 ok 2 - (unnamed test) # TODO
@@ -23,7 +25,9 @@ ok 3 - another set of tests {
     ok 2 - looks like english # TODO
     ok 3 - is marked TODO # TODO
     1..3
+    # todo: 3
 }
 
 1..3
+# todo: 1
 

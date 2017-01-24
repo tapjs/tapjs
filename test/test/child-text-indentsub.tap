@@ -10,13 +10,17 @@ TAP version 13
             not ok 1 - grandchild
             1..1
             # failed 1 of 1 tests
+            # failed 1 test
         not ok 1 - child
         1..1
         # failed 1 of 1 tests
+        # failed 1 test
     not ok 1 - parent
     1..1
     # failed 1 of 1 tests
+    # failed 1 test
 not ok 1 - ___/.*(node|iojs)(.exe)?.*/~~~child-text-indentsub.js indentsub
 
 1..1
+# failed 1 test
 

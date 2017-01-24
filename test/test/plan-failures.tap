@@ -46,6 +46,7 @@ not ok 8 - test after end() was called
       {"at":{"column":11,"file":"test/test/plan-failures.js","function":"test","line":7},"source":"t[first]('ok')\n"}
       ...
     
+    # failed 1 test
 not ok 9 - fail then pass plan()
 
 # Subtest: fail then pass end()
@@ -55,6 +56,7 @@ not ok 9 - fail then pass plan()
       ...
     
     1..1
+    # failed 1 test
 not ok 10 - fail then pass end()
 
 # Subtest: fail then fail plan()
@@ -64,6 +66,7 @@ not ok 10 - fail then pass end()
       {"at":{"column":11,"file":"test/test/plan-failures.js","function":"test","line":7},"source":"t[first]('ok')\n"}
       ...
     
+    # failed 1 test
 not ok 11 - fail then fail plan()
 
 # Subtest: fail then fail end()
@@ -73,7 +76,9 @@ not ok 11 - fail then fail plan()
       ...
     
     1..1
+    # failed 1 test
 not ok 12 - fail then fail end()
 
 1..12
+# failed 8 of 12 tests
 

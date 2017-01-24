@@ -16,10 +16,13 @@ not ok 1 - ___/.*(node|iojs)(.exe)?.*/~~~timeout-via-runner-no-plan.js child
           ...
         
         1..3
+        # failed 1 of 3 tests
     }
     
     1..4
+    # failed 1 of 4 tests
 }
 
 1..1
+# failed 1 test
 

@@ -21,7 +21,9 @@ not ok 1 - foo {
       ...
     
     1..4
+    # failed 4 of 4 tests
 }
 
 1..1
+# failed 1 test
 

@@ -16,8 +16,10 @@ TAP version 13
           ...
         
         1..3
+        # failed 1 of 3 tests
     not ok 2 - second
     
+    # failed 1 of 2 tests
 not ok 1 - nesting
 
 ok 2 - this passes
@@ -34,8 +36,10 @@ not ok 3 - this fails
       {"at":{"column":7,"file":"test/test/nesting.js","line":33,"method":"_onTimeout"},"foo":"blz","source":"t.ok(false, 'first timeout', { foo: 'blz' })\n"}
       ...
     
+    # failed 1 of 2 tests
 not ok 4 - async kid
 
 ok 5 - pass after async kid
 1..5
+# failed 3 of 5 tests
 

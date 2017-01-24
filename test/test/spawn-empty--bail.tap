@@ -4,4 +4,5 @@ TAP version 13
 ok 1 - ___/.*(node|iojs)(.exe)?.*/~~~spawn-empty.js child # SKIP no tests found
 
 1..1
+# skip: 1
 

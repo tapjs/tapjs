@@ -21,6 +21,7 @@ ok 1 - expect truthy value
     
     ok 5 - after child
     1..5
+    # failed 1 of 5 tests
 not ok 2 - plans of 1
 
 # Subtest: no assert only throw
@@ -30,6 +31,7 @@ not ok 2 - plans of 1
       ...
     
     1..1
+    # failed 1 test
 not ok 3 - no assert only throw
 
 # Subtest: plans of 8
@@ -42,6 +44,8 @@ not ok 3 - no assert only throw
           {"at":{"column":11,"file":"test/test/throws-and-plans.js","function":"Test.<anonymous>","line":39},"source":"throw new Error('pwnSync')\n","test":"sync thrower"}
           ...
         
+        # test count(2) != plan(8)
+        # failed 1 of 2 tests
     not ok 2 - sync thrower
     
     # Subtest: async thrower
@@ -54,10 +58,13 @@ not ok 3 - no assert only throw
           {"at":{"column":13,"file":"test/test/throws-and-plans.js","line":51},"source":"throw new Error('pwn')\n","test":"async thrower"}
           ...
         
+        # test count(4) != plan(8)
+        # failed 1 of 4 tests
     not ok 3 - async thrower
     
     ok 4 - after child
     1..4
+    # failed 2 of 4 tests
 not ok 4 - plans of 8
 
 not ok 5 - pwn
@@ -66,4 +73,5 @@ not ok 5 - pwn
   ...
 
 1..5
+# failed 4 of 5 tests
 

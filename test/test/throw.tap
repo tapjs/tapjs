@@ -14,6 +14,7 @@ TAP version 13
           ...
         
         1..1
+        # failed 1 test
     not ok 2 - async thrower
     
     # Subtest: thrower
@@ -23,8 +24,10 @@ TAP version 13
           ...
         
         1..1
+        # failed 1 test
     not ok 3 - thrower
     
+    # failed 2 of 3 tests
 not ok 1 - nesting
 
 ok 2 - this passes

@@ -12,13 +12,16 @@ TAP version 13
           {"expired":"TAP","handles":[{"type":"Timer"}],"signal":"SIGTERM","test":"child test"}
           ...
         
+        # failed 1 of 3 tests
     not ok 4 - child test
     
     1..4
+    # failed 1 of 4 tests
 not ok 1 - ___/.*(node|iojs)(.exe)?.*/~~~timeout-via-runner.js child
   ---
   {"args":["___/.*/~~~timeout-via-runner.js","child"],"command":"___/.*(node|iojs)(.exe)?/~~~","cwd":"___/.*/~~~","exitCode":null,"signal":"SIGTERM","timeout":1000}
   ...
 
 1..1
+# failed 1 test
 

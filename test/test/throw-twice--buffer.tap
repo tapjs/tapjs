@@ -15,4 +15,5 @@ not ok 3 - not this one
   ...
 
 1..3
+# failed 2 of 3 tests
 

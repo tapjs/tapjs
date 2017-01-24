@@ -87,4 +87,5 @@ not ok 12 - test after end() was called
 
 64
 1..12
+# failed 6 of 12 tests
 

@@ -7,12 +7,14 @@ TAP version 13
           {"args":["___/.*/~~~ok.js"],"at":{"column":14,"file":"test/test/spawn-failures.js","function":"Test.<anonymous>","line":25},"command":"___/.*(node|iojs)(.exe)?/~~~","cwd":"___/.*/~~~","source":"throwNow = new Error('now is fine')\n","test":"___/.*(node|iojs)(.exe)?/~~~ ./test/test/ok.js"}
           ...
         1..1
+        # failed 1 test
     not ok 1 - ___/.*(node|iojs)(.exe)?/~~~ ./test/test/ok.js
       ---
       {"args":["___/.*/~~~ok.js"],"command":"___/.*(node|iojs)(.exe)?/~~~","cwd":"___/.*/~~~"}
       ...
     
     1..1
+    # failed 1 test
 not ok 1 - spawn that throws
 
 # Subtest: spawn that throws
@@ -23,13 +25,16 @@ not ok 1 - spawn that throws
           {"args":["___/.*/~~~ok.js"],"at":{"column":16,"file":"test/test/spawn-failures.js","function":"Test.<anonymous>","line":34},"command":"___/.*(node|iojs)(.exe)?/~~~","cwd":"___/.*/~~~","source":"throwLater = new Error('later is fine')\n","test":"___/.*(node|iojs)(.exe)?/~~~ ./test/test/ok.js"}
           ...
         1..1
+        # failed 1 test
     not ok 1 - ___/.*(node|iojs)(.exe)?/~~~ ./test/test/ok.js
       ---
       {"args":["___/.*/~~~ok.js"],"command":"___/.*(node|iojs)(.exe)?/~~~","cwd":"___/.*/~~~"}
       ...
     
     1..1
+    # failed 1 test
 not ok 2 - spawn that throws
 
 1..2
+# failed 2 of 2 tests
 
