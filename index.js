@@ -419,23 +419,25 @@ Parser.prototype.emitComplete = function (skipAll) {
   if (!this.results) {
     var res = this.results = new FinalResults(!!skipAll, this)
 
-    // comment a bit at the end so we know what happened.
-    // but don't repeat these comments if they're already present.
-    if (res.plan.end !== res.count && !res.bailout)
-      this.emitComment('test count(' + res.count +
-                       ') != plan(' + res.plan.end + ')', false, true)
+    if (!res.bailout) {
+      // comment a bit at the end so we know what happened.
+      // but don't repeat these comments if they're already present.
+      if (res.plan.end !== res.count)
+        this.emitComment('test count(' + res.count +
+                         ') != plan(' + res.plan.end + ')', false, true)
 
-    if (res.fail > 0 && !res.ok)
-      this.emitComment('failed ' + res.fail +
-                       (res.count > 1 ? ' of ' + res.count + ' tests'
-                        : ' test'),
-                       false, true)
+      if (res.fail > 0 && !res.ok)
+        this.emitComment('failed ' + res.fail +
+                         (res.count > 1 ? ' of ' + res.count + ' tests'
+                          : ' test'),
+                         false, true)
 
-    if (res.todo > 0)
-      this.emitComment('todo: ' + res.todo, false, true)
+      if (res.todo > 0)
+        this.emitComment('todo: ' + res.todo, false, true)
 
-    if (res.skip > 0)
-      this.emitComment('skip: ' + res.skip, false, true)
+      if (res.skip > 0)
+        this.emitComment('skip: ' + res.skip, false, true)
+    }
 
     this.emit('complete', this.results)
   }

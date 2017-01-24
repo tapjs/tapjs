@@ -2829,30 +2829,6 @@
     "# captures TODO description"
   ],
   [
-    "line",
-    "# failed 1 of 115 tests\n"
-  ],
-  [
-    "comment",
-    "# failed 1 of 115 tests\n"
-  ],
-  [
-    "line",
-    "# todo: 4\n"
-  ],
-  [
-    "comment",
-    "# todo: 4\n"
-  ],
-  [
-    "line",
-    "# skip: 4\n"
-  ],
-  [
-    "comment",
-    "# skip: 4\n"
-  ],
-  [
     "complete",
     {
       "ok": false,

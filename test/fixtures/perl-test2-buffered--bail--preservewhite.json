@@ -77,14 +77,6 @@
     "# empty"
   ],
   [
-    "line",
-    "# failed 1 test\n"
-  ],
-  [
-    "comment",
-    "# failed 1 test\n"
-  ],
-  [
     "complete",
     {
       "ok": false,

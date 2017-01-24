@@ -52,14 +52,6 @@
     ""
   ],
   [
-    "line",
-    "# failed 1 of 3 tests\n"
-  ],
-  [
-    "comment",
-    "# failed 1 of 3 tests\n"
-  ],
-  [
     "complete",
     {
       "ok": false,

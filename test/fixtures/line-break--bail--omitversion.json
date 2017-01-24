@@ -75,14 +75,6 @@
         "# should be equivalent"
       ],
       [
-        "line",
-        "# failed 1 test\n"
-      ],
-      [
-        "comment",
-        "# failed 1 test\n"
-      ],
-      [
         "complete",
         {
           "ok": false,
@@ -161,10 +153,6 @@
   [
     "line",
     "    Bail out! # should be equivalent\n"
-  ],
-  [
-    "line",
-    "    # failed 1 test\n"
   ],
   [
     "bailout",
