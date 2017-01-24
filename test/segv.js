@@ -3,6 +3,7 @@ if (process.platform === 'win32') {
   tap.plan(0, 'skip on windows')
   process.exit()
 }
+
 var test = tap.test
 var Test = tap.Test
 var fs = require('fs')
@@ -22,16 +23,16 @@ var expect = [
   'TAP version 13',
   '# Subtest: ./segv ',
   '    1..0 # no tests found',
-  'not ok 1 - ./segv  # time=',
+  'not ok 1 - ./segv',
   '  ---',
-  '  signal: SIG',
   '  command: ./segv',
   '  args: []',
+  '  cwd: ',
+  '  exitCode: null',
+  '  signal: SIG',
   '  ...',
   '',
-  '1..1',
-  '# failed 1 of 1 tests',
-  '# time='
+  '1..1'
 ]
 
 test('setup', function (t) {
