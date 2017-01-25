@@ -1,0 +1,7 @@
+TAP version 13
+# Subtest: name
+    1..0
+ok 1 - name
+
+1..1
+

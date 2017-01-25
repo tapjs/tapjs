@@ -98,94 +98,6 @@ test('plan stuff', function (t) {
   t.end()
 })
 
-test('do nothing after bailout', function (t) {
-  var tt = new Test({ buffered: false })
-  var out = ''
-  tt.on('data', function (c) {
-    out += c
-  })
-  tt.bailout('this is fine')
-  tt.plan(9999)
-  tt.test('nope', function (t) {
-    throw new Error('should not get here')
-  })
-  tt.throws(function () {}, 'did not throw')
-  tt.end()
-  tt.plan(100)
-  t.equal(out, 'TAP version 13\nBail out! # this is fine\n')
-  t.end()
-})
-
-test('subtest without arguments', function (t) {
-  var tt = new Test({ buffered: false })
-  var out = ''
-  tt.on('data', function (c) {
-    out += c
-  })
-  tt.test()
-  tt.end()
-
-  t.match(out, /^TAP version 13\nok 1 - \(unnamed test\) # TODO\n1\.\.1\n$/)
-
-  t.end()
-})
-
-test('subtest with only a name', function (t) {
-  var tt = new Test({ buffered: false })
-  var out = ''
-  tt.on('data', function (c) {
-    out += c
-  })
-  tt.test('name only')
-  tt.end()
-
-  t.match(out, /^TAP version 13\nok 1 - name only # TODO\n1\.\.1\n$/)
-
-  t.end()
-})
-
-test('subtest with only options', function (t) {
-  var tt = new Test({ buffered: false })
-  var out = ''
-  tt.on('data', function (c) {
-    out += c
-  })
-  tt.test({skip: true})
-  tt.end()
-
-  t.match(out, /^TAP version 13\nok 1 - \(unnamed test\) # SKIP\n1\.\.1\n$/)
-
-  t.end()
-})
-
-test('subtest with only a function', function (t) {
-  var tt = new Test({ buffered: false })
-  var out = ''
-  tt.on('data', function (c) {
-    out += c
-  })
-  tt.test(function (t){t.end()})
-  tt.end()
-
-  t.equal(out, 'TAP version 13\n# Subtest: (unnamed test)\n    1..0\nok 1 - (unnamed test)\n\n1..1\n');
-
-  t.end()
-})
-
-test('subtest with name and options', function (t) {
-  var tt = new Test({ buffered: false })
-  var out = ''
-  tt.on('data', function (c) {
-    out += c
-  })
-  tt.test('name', {skip: false})
-  tt.end()
-
-  t.match(out, /^TAP version 13\nok 1 - name # TODO\n1\.\.1\n$/)
-
-  t.end()
-})
-
 test('subtest with name and function', function (t) {
   var tt = new Test({ buffered: false })
   var out = ''
@@ -196,20 +108,6 @@ test('subtest with name and function', function (t) {
   tt.end()
 
   t.equal(out, 'TAP version 13\n# Subtest: name\n    1..0\nok 1 - name\n\n1..1\n');
-  t.end()
-})
-
-test('subtest with options and function', function (t) {
-  var tt = new Test({ buffered: false })
-  var out = ''
-  tt.on('data', function (c) {
-    out += c
-  })
-  tt.test({skip: false}, function (t){t.end()})
-  tt.end()
-
-  t.equal(out, 'TAP version 13\n# Subtest: (unnamed test)\n    1..0\nok 1 - (unnamed test)\n\n1..1\n');
-
   t.end()
 })
 
