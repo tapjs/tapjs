@@ -1,0 +1,54 @@
+TAP version 13
+# before
+# Subtest: fake stdin
+    1..3
+    ok 1 - child {
+        1..1
+        ok
+    }
+    ok 2 - empty {
+        
+    }
+    ok 3
+ok 1 - fake stdin
+
+# between
+#### TAP version 13
+#### 1..3
+#### ok 1 - child {
+####     1..1
+####     ok
+#### }
+#### ok 2 - empty {
+####     
+#### }
+#### ok 3
+# after
+# Subtest: /dev/stdin
+    1..3
+    ok 1 - child {
+        1..1
+        ok
+    }
+    ok 2 - empty {
+        
+    }
+    ok 3
+    
+    not ok 4 - test unfinished
+    
+    # test count(4) != plan(3)
+    # failed 2 of 4 tests
+not ok 2 - /dev/stdin
+  ---
+  {"at":{"column":17,"file":"test/test/stdin.js","function":"Object.<anonymous>","line":60},"failures":[{"id":4,"name":"test unfinished","plan":{"end":3,"start":1},"tapError":"id greater than plan end"},{"id":4,"name":"test unfinished","plan":{"end":3,"start":1},"tapError":"id greater than plan end"}],"source":"p.emit('error', new Error('expect to throw this'))\n","test":"/dev/stdin"}
+  ...
+
+not ok 3 - Cannot read property 'replace' of undefined
+  ---
+  {"at":{"column":20,"file":"___/.*/~~~-parser/index.js","function":"Parser.abort","line":690},"source":"message = message.replace(/[\\n\\r\\s\\t]/g, ' ')\n","test":"TAP","type":"TypeError"}
+  ...
+
+1..3
+# failed 2 of 3 tests
+

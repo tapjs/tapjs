@@ -10,6 +10,7 @@ beforeEach should return the index where the element first appears in the array
 during should return the index where the element first appears in the array
 afterEach should return the index where the element first appears in the array
 after
+after named
 ok 1 - Array {
     ok 1 - #indexOf() {
         ok 1 - when not present {

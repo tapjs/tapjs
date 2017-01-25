@@ -143,4 +143,3 @@ t.test('read from stdin', { skip: process.platform === 'win32' && 'skip stdin te
 
   t.end()
 })
-

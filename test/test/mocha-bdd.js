@@ -11,6 +11,10 @@ describe('Array', function () {
     console.log('after')
   })
 
+  after('named', function () {
+    console.log('after named')
+  })
+
   beforeEach(function () {
     console.log('beforeEach', this.name)
     return new Promise(function (res) {

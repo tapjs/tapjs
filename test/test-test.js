@@ -1,8 +1,7 @@
-var tap = require('../')
-var test = tap.test
-var Test = tap.Test
+var t = require('../')
+var Test = t.Test
 
-test('testing the test object', function (t) {
+t.test('testing the test object', function (t) {
   t.isa(t, Test, 'test object should be instanceof Test')
 
   // now test all the methods.
@@ -80,7 +79,7 @@ test('testing the test object', function (t) {
   t.end()
 })
 
-test('plan stuff', function (t) {
+t.test('plan stuff', function (t) {
   t.throws(function () {
     var tt = new Test({ buffered: false })
     tt.plan(1)
@@ -98,20 +97,7 @@ test('plan stuff', function (t) {
   t.end()
 })
 
-test('subtest with name and function', function (t) {
-  var tt = new Test({ buffered: false })
-  var out = ''
-  tt.on('data', function (c) {
-    out += c
-  })
-  tt.test('name', function (t){t.end()})
-  tt.end()
-
-  t.equal(out, 'TAP version 13\n# Subtest: name\n    1..0\nok 1 - name\n\n1..1\n');
-  t.end()
-})
-
-test('invalid test arguments', function (t) {
+t.test('invalid test arguments', function (t) {
   t.throws(function () {
     var tt = new Test({ buffered: false })
     tt.test('name', { skip: false }, 'not a function')
@@ -120,7 +106,7 @@ test('invalid test arguments', function (t) {
   t.end()
 })
 
-test('throws type', function (t)  {
+t.test('throws type', function (t)  {
   t.throws(function() {
     throw new TypeError('some type error');
   }, TypeError, 'should throw a TypeError');
@@ -141,6 +127,32 @@ test('throws type', function (t)  {
   t.throws(function () {
     throw new RangeError('x')
   }, new Error('x'))
+
+  t.end()
+})
+
+t.test('test-point', function (t) {
+  var TestPoint = require('../lib/point.js')
+  t.throws(function () {
+    new TestPoint(100, 'century!', { flerg: 'blooze' })
+  }, new TypeError('ok must be boolean'))
+
+  var tp = TestPoint(true, 'msg', { a: 1 })
+  t.isa(tp, TestPoint)
+  t.match(tp, {
+    ok: 'ok ',
+    message: '- msg\n'
+  })
+
+  t.match(TestPoint(true, 'msg', { a: 1, diagnostic: true }), {
+    ok: 'ok ',
+    message: ' - msg\n  ---\n  a: 1\n  ...\n\n'
+  })
+
+  t.match(TestPoint(true, 'msg', { a: 1, tapChildBuffer: 'subtest output' }), {
+    ok: 'ok ',
+    message: ' - msg {\nsubtest output\n}\n\n'
+  })
 
   t.end()
 })

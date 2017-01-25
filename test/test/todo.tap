@@ -6,9 +6,12 @@ TAP version 13
         ok 1 - should be a child thingie # TODO
         ok 2 - should also be a whoosits # TODO
         # Subtest: has some of these things
-            ok 1 - true is truthy
-            ok 2 - ten is also truthy
-            1..2
+            ok 1 - someday this will be a function that throws # TODO
+            ok 2 - someday this will be a function that knows # TODO
+            ok 3 - true is truthy
+            ok 4 - ten is also truthy
+            1..4
+            # todo: 2
         ok 3 - has some of these things
         
         1..3

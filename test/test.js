@@ -8,7 +8,10 @@ var path = require('path')
 var yaml = require('js-yaml')
 
 process.env.TAP_BUFFER = 1
-t.jobs = 2
+// don't turn on parallelization for `npm test`, because it also
+// has coverage and this makes the spawn timeouts stuff break.
+if (process.env.npm_lifecycle_event !== 'test')
+  t.jobs = 2
 
 function regEsc (str) {
   return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&')

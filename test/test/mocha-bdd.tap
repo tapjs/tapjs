@@ -35,6 +35,7 @@ afterEach should return the index where the element first appears in the array
     ok 1 - #indexOf()
     
 after
+after named
     1..1
 ok 1 - Array
 
