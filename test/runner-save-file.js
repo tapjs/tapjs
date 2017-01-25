@@ -12,6 +12,7 @@ var okre = new RegExp('test[\\\\/]test[/\\\\]ok\\.js \\.+ 10/10( [0-9\.]+m?s)?$'
 var notokre = new RegExp('test[\\\\/]test[/\\\\]not-ok\\.js \\.+ 0/[12]( [0-9\.]+m?s)?$', 'm')
 var fs = require('fs')
 var which = require('which')
+var saveFile = 'runner-save-test-' + process.pid
 
 t.test('save-file', function (t) {
   var bailoutOpts = [true, false]
@@ -22,7 +23,6 @@ t.test('save-file', function (t) {
   })
 
   function runTest (bailout, t) {
-    var saveFile = 'runner-save-test-' + process.pid
     var n = 0
     function saveFileTest (cb) {
       var args = [run, '-s' + saveFile, notok, ok, '-CRclassic']
@@ -103,4 +103,9 @@ t.test('save-file', function (t) {
 
     t.end()
   }
+})
+
+t.test('cleanup', function (t) {
+  try { fs.unlinkSync(saveFile) } catch (er) {}
+  t.end()
 })
