@@ -111,7 +111,7 @@ function tapFormat (msg, indent) {
             (res.skip === true ? '' : ' ' + res.skip) : '') +
           (res.todo ? ' # TODO' +
             (res.todo === true ? '' : ' ' + res.todo) : '') +
-          (res.time ? ' # time=' + res.time + 's' : '') +
+          (res.time ? ' # time=' + res.time + 'ms' : '') +
           '\n' +
           (res.diag ?
              '  ---\n  ' +
