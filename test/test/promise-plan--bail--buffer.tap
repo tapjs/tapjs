@@ -4,26 +4,26 @@ one end
 after plan fulfilled
 after one block
 one promise was fulfilled
-ok 1 - one {
+ok 1 - one ___/# time=[0-9.]+(ms)?/~~~ {
     1..1
     ok 1 - done one
 }
 
 running two
 two promise was fulfilled
-ok 2 - two {
+ok 2 - two ___/# time=[0-9.]+(ms)?/~~~ {
     1..1
     ok 1 - done two
 }
 
 running three
-ok 3 - three {
+ok 3 - three ___/# time=[0-9.]+(ms)?/~~~ {
     1..0
 }
 
-not ok 4 - broken promises {
+not ok 4 - broken promises ___/# time=[0-9.]+(ms)?/~~~ {
     1..2
-    ok 1 - end() {
+    ok 1 - end() ___/# time=[0-9.]+(ms)?/~~~ {
         1..0
     }
     

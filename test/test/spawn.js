@@ -1,7 +1,4 @@
-// var t = require('../..')
-var T = require('../../lib/test.js')
-var t = new T()
-t.pipe(process.stdout)
+var t = require('../..')
 
 if (process.argv[2] !== 'child') {
   t.spawn(process.execPath, [__filename, 'child'])
@@ -45,5 +42,3 @@ t.test('async kid', function (t) {
 })
 
 t.pass('pass after async kid')
-
-t.end()

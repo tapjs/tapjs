@@ -1,8 +1,8 @@
 TAP version 13
 ok 1 - expect truthy value
-not ok 2 - plans of 1 {
+not ok 2 - plans of 1 ___/# time=[0-9.]+(ms)?/~~~ {
     ok 1 - before sync thrower
-    ok 2 - sync thrower {
+    ok 2 - sync thrower ___/# time=[0-9.]+(ms)?/~~~ {
         1..1
         ok 1 - before the bomb
     }

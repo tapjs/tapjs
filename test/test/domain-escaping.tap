@@ -3,11 +3,11 @@ TAP version 13
     ok 1 - expected to throw: Error one
     ok 2 - threw expected error
     1..2
-ok 1 - thisPasses
+ok 1 - thisPasses ___/# time=[0-9.]+(ms)?/~~~
 
 ok 2 - expected to throw: Error one
 ok 3 - threw expected error
-not ok 4 - one {
+not ok 4 - one ___/# time=[0-9.]+(ms)?/~~~ {
     # Subtest: one-sub
         not ok 1 - er one-sub
           ---
@@ -16,13 +16,13 @@ not ok 4 - one {
         
         1..1
         # failed 1 test
-    not ok 1 - one-sub
+    not ok 1 - one-sub ___/# time=[0-9.]+(ms)?/~~~
     
     1..1
     # failed 1 test
 }
 
-not ok 5 - two {
+not ok 5 - two ___/# time=[0-9.]+(ms)?/~~~ {
     # Subtest: two-sub
         not ok 1 - er two-sub
           ---
@@ -31,13 +31,13 @@ not ok 5 - two {
         
         1..1
         # failed 1 test
-    not ok 1 - two-sub
+    not ok 1 - two-sub ___/# time=[0-9.]+(ms)?/~~~
     
     1..1
     # failed 1 test
 }
 
-not ok 6 - tre {
+not ok 6 - tre ___/# time=[0-9.]+(ms)?/~~~ {
     # Subtest: tre-sub
         not ok 1 - er tre-sub
           ---
@@ -46,13 +46,13 @@ not ok 6 - tre {
         
         1..1
         # failed 1 test
-    not ok 1 - tre-sub
+    not ok 1 - tre-sub ___/# time=[0-9.]+(ms)?/~~~
     
     1..1
     # failed 1 test
 }
 
-not ok 7 - for {
+not ok 7 - for ___/# time=[0-9.]+(ms)?/~~~ {
     # Subtest: for-sub
         not ok 1 - er for-sub
           ---
@@ -61,13 +61,13 @@ not ok 7 - for {
         
         1..1
         # failed 1 test
-    not ok 1 - for-sub
+    not ok 1 - for-sub ___/# time=[0-9.]+(ms)?/~~~
     
     1..1
     # failed 1 test
 }
 
-not ok 8 - fiv {
+not ok 8 - fiv ___/# time=[0-9.]+(ms)?/~~~ {
     # Subtest: fiv-sub
         not ok 1 - er fiv-sub
           ---
@@ -76,13 +76,13 @@ not ok 8 - fiv {
         
         1..1
         # failed 1 test
-    not ok 1 - fiv-sub
+    not ok 1 - fiv-sub ___/# time=[0-9.]+(ms)?/~~~
     
     1..1
     # failed 1 test
 }
 
-not ok 9 - six {
+not ok 9 - six ___/# time=[0-9.]+(ms)?/~~~ {
     # Subtest: six-sub
         not ok 1 - er six-sub
           ---
@@ -91,13 +91,13 @@ not ok 9 - six {
         
         1..1
         # failed 1 test
-    not ok 1 - six-sub
+    not ok 1 - six-sub ___/# time=[0-9.]+(ms)?/~~~
     
     1..1
     # failed 1 test
 }
 
-not ok 10 - svn {
+not ok 10 - svn ___/# time=[0-9.]+(ms)?/~~~ {
     # Subtest: svn-sub
         not ok 1 - er svn-sub
           ---
@@ -106,13 +106,13 @@ not ok 10 - svn {
         
         1..1
         # failed 1 test
-    not ok 1 - svn-sub
+    not ok 1 - svn-sub ___/# time=[0-9.]+(ms)?/~~~
     
     1..1
     # failed 1 test
 }
 
-not ok 11 - eit {
+not ok 11 - eit ___/# time=[0-9.]+(ms)?/~~~ {
     # Subtest: eit-sub
         not ok 1 - er eit-sub
           ---
@@ -121,7 +121,7 @@ not ok 11 - eit {
         
         1..1
         # failed 1 test
-    not ok 1 - eit-sub
+    not ok 1 - eit-sub ___/# time=[0-9.]+(ms)?/~~~
     
     1..1
     # failed 1 test

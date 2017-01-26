@@ -6,7 +6,7 @@ TAP version 13
     ok 1 - 1
 13
 14
-ok 1 - exceed_plan_sync
+ok 1 - exceed_plan_sync ___/# time=[0-9.]+(ms)?/~~~
 
 not ok 2 - test count exceeds plan
   ---

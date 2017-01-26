@@ -9,9 +9,9 @@ after 2 grandchild
 after 2 child
 after 1 child
 after 1 parent
-not ok 1 - parent {
-    not ok 1 - child {
-        not ok 1 - grandchild {
+not ok 1 - parent ___/# time=[0-9.]+(ms)?/~~~ {
+    not ok 1 - child ___/# time=[0-9.]+(ms)?/~~~ {
+        not ok 1 - grandchild ___/# time=[0-9.]+(ms)?/~~~ {
             ok 1 - the only actual assertion
             not ok 2 - this is fine
               ---

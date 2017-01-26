@@ -9,10 +9,10 @@ TAP version 13
           ...
         
         # failed 1 test
-    not ok 1 - parent
+    not ok 1 - parent ___/# time=[0-9.]+(ms)?/~~~
     
     # failed 1 test
-not ok 1 - gp
+not ok 1 - gp ___/# time=[0-9.]+(ms)?/~~~
 
 1..1
 # failed 1 test

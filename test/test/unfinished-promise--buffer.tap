@@ -1,7 +1,7 @@
 TAP version 13
-not ok 1 - parent {
-    not ok 1 - child {
-        not ok 1 - grandchild {
+not ok 1 - parent ___/# time=[0-9.]+(ms)?/~~~ {
+    not ok 1 - child ___/# time=[0-9.]+(ms)?/~~~ {
+        not ok 1 - grandchild ___/# time=[0-9.]+(ms)?/~~~ {
             1..3
             ok 1 - ok
             not ok 2 - test unfinished

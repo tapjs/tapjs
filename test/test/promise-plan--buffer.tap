@@ -4,26 +4,26 @@ one end
 after plan fulfilled
 after one block
 one promise was fulfilled
-ok 1 - one {
+ok 1 - one ___/# time=[0-9.]+(ms)?/~~~ {
     1..1
     ok 1 - done one
 }
 
 running two
 two promise was fulfilled
-ok 2 - two {
+ok 2 - two ___/# time=[0-9.]+(ms)?/~~~ {
     1..1
     ok 1 - done two
 }
 
 running three
-ok 3 - three {
+ok 3 - three ___/# time=[0-9.]+(ms)?/~~~ {
     1..0
 }
 
-not ok 4 - broken promises {
+not ok 4 - broken promises ___/# time=[0-9.]+(ms)?/~~~ {
     1..2
-    ok 1 - end() {
+    ok 1 - end() ___/# time=[0-9.]+(ms)?/~~~ {
         1..0
     }
     
@@ -35,7 +35,7 @@ not ok 4 - broken promises {
     # failed 1 of 2 tests
 }
 
-not ok 5 - thrown with timeouts
+not ok 5 - thrown with timeouts ___/# time=[0-9.]+(ms)?/~~~
   ---
   {"failures":[{"id":3,"name":"test after end() was called","plan":{"end":2,"start":1},"tapError":"id greater than plan end"},{"id":3,"name":"test after end() was called","plan":{"end":2,"start":1},"tapError":"id greater than plan end"}]}
   ...

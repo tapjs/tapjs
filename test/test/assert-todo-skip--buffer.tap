@@ -1,5 +1,5 @@
 TAP version 13
-ok 1 - not much {
+ok 1 - not much ___/# time=[0-9.]+(ms)?/~~~ {
     ok 1 - always passes # SKIP skip it good
     not ok 2 - false # SKIP always fails
     ok 3 - bonus # TODO remove todo directive

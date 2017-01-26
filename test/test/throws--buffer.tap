@@ -1,5 +1,5 @@
 TAP version 13
-not ok 1 - throws should match a regex {
+not ok 1 - throws should match a regex ___/# time=[0-9.]+(ms)?/~~~ {
     1..2
     ok 1 - passing_thrower
     not ok 2 - failing_thrower

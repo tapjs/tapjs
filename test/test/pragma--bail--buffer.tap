@@ -1,6 +1,6 @@
 TAP version 13
 pragma +child
-not ok 1 - ___/.*(node|iojs)(.exe)?.*/~~~pragma.js child
+not ok 1 - ___/.*(node|iojs)(.exe)?.*/~~~pragma.js child ___/# time=[0-9.]+(ms)?/~~~
   ---
   {"args":["___/.*/~~~pragma.js","child"],"command":"___/.*(node|iojs)(.exe)?/~~~","cwd":"___/.*/~~~","exitCode":0,"failures":[{"data":"this is not tap and it is not ok\n","tapError":"Non-TAP data encountered in strict mode"}]}
   ...

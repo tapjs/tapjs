@@ -1,5 +1,5 @@
 TAP version 13
-not ok 1 - ___/.*(node|iojs)(.exe)?.*/~~~timeout-via-runner-ignore-sigterm.js child
+not ok 1 - ___/.*(node|iojs)(.exe)?.*/~~~timeout-via-runner-ignore-sigterm.js child ___/# time=[0-9.]+(ms)?/~~~
   ---
   {"args":["___/.*/~~~timeout-via-runner-ignore-sigterm.js","child"],"command":"___/.*(node|iojs)(.exe)?/~~~","cwd":"___/.*/~~~","timeout":1000}
   ...

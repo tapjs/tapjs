@@ -10,7 +10,7 @@ TAP version 13
         
     }
     ok 3
-ok 1 - fake stdin
+ok 1 - fake stdin ___/# time=[0-9.]+(ms)?/~~~
 
 # between
 #### TAP version 13
@@ -39,7 +39,7 @@ ok 1 - fake stdin
     
     # test count(4) != plan(3)
     # failed 2 of 4 tests
-not ok 2 - /dev/stdin
+not ok 2 - /dev/stdin ___/# time=[0-9.]+(ms)?/~~~
   ---
   {"at":{"column":17,"file":"test/test/stdin.js","function":"Object.<anonymous>","line":60},"failures":[{"id":4,"name":"expect to throw this","plan":{"end":3,"start":1},"tapError":"id greater than plan end"},{"id":4,"name":"expect to throw this","plan":{"end":3,"start":1},"tapError":"id greater than plan end"}],"source":"p.emit('error', new Error('expect to throw this'))\n","test":"/dev/stdin"}
   ...

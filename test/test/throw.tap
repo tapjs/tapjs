@@ -5,7 +5,7 @@ TAP version 13
         1..2
         ok 1 - true is ok
         ok 2 - doag is also okay
-    ok 1 - first
+    ok 1 - first ___/# time=[0-9.]+(ms)?/~~~
     
     # Subtest: async thrower
         not ok 1 - THINK FAST! and also lines so many
@@ -15,7 +15,7 @@ TAP version 13
         
         1..1
         # failed 1 test
-    not ok 2 - async thrower
+    not ok 2 - async thrower ___/# time=[0-9.]+(ms)?/~~~
     
     # Subtest: thrower
         not ok 1 - here hold this for a second
@@ -25,10 +25,10 @@ TAP version 13
         
         1..1
         # failed 1 test
-    not ok 3 - thrower
+    not ok 3 - thrower ___/# time=[0-9.]+(ms)?/~~~
     
     # failed 2 of 3 tests
-not ok 1 - nesting
+not ok 1 - nesting ___/# time=[0-9.]+(ms)?/~~~
 
 ok 2 - this passes
 not ok 3 - this fails

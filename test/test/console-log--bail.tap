@@ -8,7 +8,7 @@ TAP version 13
 >>>> an object is { a: 'thing', to: [ 'inspect' ] }
         ok 2 - doag is also okay
         ok 3 - doag is very okay
-    ok 1 - first
+    ok 1 - first ___/# time=[0-9.]+(ms)?/~~~
     
 >>>> after first child
     # Subtest: second
@@ -17,10 +17,10 @@ TAP version 13
         ok 3 - nested ok
         ok 4 - nested ok second
         1..4
-    ok 2 - second
+    ok 2 - second ___/# time=[0-9.]+(ms)?/~~~
     
 >>>> after second child
-ok 1 - nesting
+ok 1 - nesting ___/# time=[0-9.]+(ms)?/~~~
 
 >>>> after child test
 ok 2 - this passes
@@ -35,7 +35,7 @@ ok 3 - this passes too
 >>>> after end() called
     ok 1 - timeout
     ok 2 - timeout
-ok 4 - async kid
+ok 4 - async kid ___/# time=[0-9.]+(ms)?/~~~
 
 ok 5 - pass after async kid
 1..5

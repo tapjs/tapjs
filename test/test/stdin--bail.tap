@@ -10,7 +10,7 @@ TAP version 13
         
     }
     ok 3
-ok 1 - fake stdin
+ok 1 - fake stdin ___/# time=[0-9.]+(ms)?/~~~
 
 # between
 #### TAP version 13

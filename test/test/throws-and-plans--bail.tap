@@ -5,7 +5,7 @@ ok 1 - expect truthy value
     # Subtest: sync thrower
         1..1
         ok 1 - before the bomb
-    ok 2 - sync thrower
+    ok 2 - sync thrower ___/# time=[0-9.]+(ms)?/~~~
     
     not ok 3 - pwnSync
       ---

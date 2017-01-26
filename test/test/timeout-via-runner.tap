@@ -13,11 +13,11 @@ TAP version 13
           ...
         
         # failed 1 of 3 tests
-    not ok 4 - child test
+    not ok 4 - child test ___/# time=[0-9.]+(ms)?/~~~
     
     1..4
     # failed 1 of 4 tests
-not ok 1 - ___/.*(node|iojs)(.exe)?.*/~~~timeout-via-runner.js child
+not ok 1 - ___/.*(node|iojs)(.exe)?.*/~~~timeout-via-runner.js child ___/# time=[0-9.]+(ms)?/~~~
   ---
   {"args":["___/.*/~~~timeout-via-runner.js","child"],"command":"___/.*(node|iojs)(.exe)?/~~~","cwd":"___/.*/~~~","exitCode":null,"signal":"SIGTERM","timeout":1000}
   ...

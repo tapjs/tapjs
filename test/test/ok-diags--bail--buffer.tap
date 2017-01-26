@@ -4,7 +4,7 @@ ok 1 - this is fine
   {"foo":{"bar":"baz"}}
   ...
 
-ok 2 - child {
+ok 2 - child ___/# time=[0-9.]+(ms)?/~~~ {
     1..1
     ok 1 - this is fine
 }

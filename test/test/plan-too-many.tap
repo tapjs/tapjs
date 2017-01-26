@@ -13,11 +13,11 @@ TAP version 13
         
         # test count(2) != plan(8)
         # failed 1 of 2 tests
-    not ok 3 - grandchild
+    not ok 3 - grandchild ___/# time=[0-9.]+(ms)?/~~~
     
     # test count(3) != plan(9)
     # failed 1 of 3 tests
-not ok 1 - children plan too big
+not ok 1 - children plan too big ___/# time=[0-9.]+(ms)?/~~~
 
 1..1
 # failed 1 test

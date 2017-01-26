@@ -10,15 +10,15 @@ TAP version 13
                 
                 1..1
                 # failed 1 test
-            not ok 1 - grandchild of 2
+            not ok 1 - grandchild of 2 ___/# time=[0-9.]+(ms)?/~~~
             
             1..1
             # failed 1 test
-        not ok 1 - child of 2
+        not ok 1 - child of 2 ___/# time=[0-9.]+(ms)?/~~~
         
         1..1
         # failed 1 test
-    not ok 1 - two
+    not ok 1 - two ___/# time=[0-9.]+(ms)?/~~~
     
     # Subtest: second child of 2
         not ok 1 - fail 2
@@ -28,11 +28,11 @@ TAP version 13
         
         1..1
         # failed 1 test
-    not ok 2 - second child of 2
+    not ok 2 - second child of 2 ___/# time=[0-9.]+(ms)?/~~~
     
     1..2
     # failed 2 of 2 tests
-not ok 1 - one
+not ok 1 - one ___/# time=[0-9.]+(ms)?/~~~
 
 # Subtest: three
     not ok 1 - fail 3
@@ -42,7 +42,7 @@ not ok 1 - one
     
     1..1
     # failed 1 test
-not ok 2 - three
+not ok 2 - three ___/# time=[0-9.]+(ms)?/~~~
 
 # Subtest: some_function_name
     not ok 1 - fail 4
@@ -52,7 +52,7 @@ not ok 2 - three
     
     1..1
     # failed 1 test
-not ok 3 - some_function_name
+not ok 3 - some_function_name ___/# time=[0-9.]+(ms)?/~~~
 
 not ok 4 - fail 5
   ---

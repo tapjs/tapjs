@@ -1,8 +1,8 @@
 TAP version 13
 1..1
-not ok 1 - parent {
+not ok 1 - parent ___/# time=[0-9.]+(ms)?/~~~ {
     1..1
-    not ok 1 - child {
+    not ok 1 - child ___/# time=[0-9.]+(ms)?/~~~ {
         1..1
         not ok 1 - nope
           ---

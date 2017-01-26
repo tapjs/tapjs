@@ -3,9 +3,9 @@ TAP version 13
     ok 1 - fine
     ok 2 - also fine
     1..2
-ok 1 - unbuffered
+ok 1 - unbuffered ___/# time=[0-9.]+(ms)?/~~~
 
-ok 2 - buffered {
+ok 2 - buffered ___/# time=[0-9.]+(ms)?/~~~ {
     ok 1 - fine
     ok 2 - also fine
     1..2
@@ -16,25 +16,25 @@ ok 2 - buffered {
         ok 1 - fine
         ok 2 - also fine
         1..2
-    ok 1 - unbuffered
+    ok 1 - unbuffered ___/# time=[0-9.]+(ms)?/~~~
     
-    ok 2 - buffered {
+    ok 2 - buffered ___/# time=[0-9.]+(ms)?/~~~ {
         ok 1 - fine
         ok 2 - also fine
         1..2
     }
     
     1..2
-ok 3 - unbuffered spawn
+ok 3 - unbuffered spawn ___/# time=[0-9.]+(ms)?/~~~
 
-ok 4 - buffered spawn {
+ok 4 - buffered spawn ___/# time=[0-9.]+(ms)?/~~~ {
     # Subtest: unbuffered
         ok 1 - fine
         ok 2 - also fine
         1..2
-    ok 1 - unbuffered
+    ok 1 - unbuffered ___/# time=[0-9.]+(ms)?/~~~
     
-    ok 2 - buffered {
+    ok 2 - buffered ___/# time=[0-9.]+(ms)?/~~~ {
         ok 1 - fine
         ok 2 - also fine
         1..2

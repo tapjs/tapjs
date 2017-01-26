@@ -1,11 +1,11 @@
 TAP version 13
-ok 1 - a set of tests to be done later {
+ok 1 - a set of tests to be done later ___/# time=[0-9.]+(ms)?/~~~ {
     ok 1 - should have a thingie # TODO
     ok 2 - should have a second whoosits also # TODO
-    ok 3 - the subset {
+    ok 3 - the subset ___/# time=[0-9.]+(ms)?/~~~ {
         ok 1 - should be a child thingie # TODO
         ok 2 - should also be a whoosits # TODO
-        ok 3 - has some of these things {
+        ok 3 - has some of these things ___/# time=[0-9.]+(ms)?/~~~ {
             1..0
         }
         
@@ -18,7 +18,7 @@ ok 1 - a set of tests to be done later {
 }
 
 ok 2 - describe todo # TODO
-ok 3 - another set of tests {
+ok 3 - another set of tests ___/# time=[0-9.]+(ms)?/~~~ {
     ok 1 - is a second set # TODO
     ok 2 - looks like english # TODO
     ok 3 - is marked TODO # TODO
@@ -26,14 +26,14 @@ ok 3 - another set of tests {
     # todo: 3
 }
 
-ok 4 - reasonably indented things {
-    ok 1 - first subset {
-        ok 1 - has no asserts, only fails to throw {
+ok 4 - reasonably indented things ___/# time=[0-9.]+(ms)?/~~~ {
+    ok 1 - first subset ___/# time=[0-9.]+(ms)?/~~~ {
+        ok 1 - has no asserts, only fails to throw ___/# time=[0-9.]+(ms)?/~~~ {
             1..0
         }
         
         ok 2 - is todo # TODO
-        ok 3 - is async {
+        ok 3 - is async ___/# time=[0-9.]+(ms)?/~~~ {
             1..0
         }
         
@@ -41,16 +41,16 @@ ok 4 - reasonably indented things {
         # todo: 1
     }
     
-    ok 2 - second subset {
+    ok 2 - second subset ___/# time=[0-9.]+(ms)?/~~~ {
         1..0
     }
     
     1..2
 }
 
-not ok 5 - failing indented things {
-    not ok 1 - first subset {
-        not ok 1 - has no asserts, only throws {
+not ok 5 - failing indented things ___/# time=[0-9.]+(ms)?/~~~ {
+    not ok 1 - first subset ___/# time=[0-9.]+(ms)?/~~~ {
+        not ok 1 - has no asserts, only throws ___/# time=[0-9.]+(ms)?/~~~ {
             not ok 1 - false is not true on line 50
               ---
               {"actual":false,"at":{"column":7,"file":"test/test/mochalike.js","function":"Test.<anonymous>","line":54},"expected":true,"generatedMessage":false,"operator":"==","source":"ok(false, 'false is not true on line 50')\n","test":"has no asserts, only throws","type":"AssertionError"}
@@ -66,7 +66,7 @@ not ok 5 - failing indented things {
         # todo: 1
     }
     
-    not ok 2 - second subset {
+    not ok 2 - second subset ___/# time=[0-9.]+(ms)?/~~~ {
         not ok 1 - objectify the truthiness
           ---
           {"actual":false,"at":{"column":5,"file":"test/test/mochalike.js","function":"Suite.fn","line":60},"expected":true,"generatedMessage":false,"operator":"==","source":"ok(!{}, 'objectify the truthiness')\n","test":"second subset","type":"AssertionError"}
@@ -80,8 +80,8 @@ not ok 5 - failing indented things {
     # failed 2 of 2 tests
 }
 
-not ok 6 - a test passing an error to done() callback {
-    not ok 1 - is marked as failed {
+not ok 6 - a test passing an error to done() callback ___/# time=[0-9.]+(ms)?/~~~ {
+    not ok 1 - is marked as failed ___/# time=[0-9.]+(ms)?/~~~ {
         not ok 1 - error arg
           ---
           {"at":{"column":12,"file":"test/test/mochalike.js","line":67},"source":"done(new Error('error arg'))\n","test":"is marked as failed"}

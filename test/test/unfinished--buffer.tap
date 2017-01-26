@@ -1,6 +1,6 @@
 TAP version 13
-not ok 1 - t1 {
-    not ok 1 - t11 {
+not ok 1 - t1 ___/# time=[0-9.]+(ms)?/~~~ {
+    not ok 1 - t11 ___/# time=[0-9.]+(ms)?/~~~ {
         1..1
         not ok 1 - test unfinished
           ---

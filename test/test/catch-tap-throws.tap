@@ -6,7 +6,7 @@ TAP version 13
     ok 1 - 1
 13
 14
-ok 1 - exceed_plan_sync
+ok 1 - exceed_plan_sync ___/# time=[0-9.]+(ms)?/~~~
 
 not ok 2 - test count exceeds plan
   ---
@@ -19,7 +19,7 @@ not ok 2 - test count exceeds plan
 22
     ok 1 - 3
 22.5
-ok 3 - exceed_plan_async
+ok 3 - exceed_plan_async ___/# time=[0-9.]+(ms)?/~~~
 
 31
 # Subtest: multiple_end_sync
@@ -28,7 +28,7 @@ ok 3 - exceed_plan_async
     1..1
 33
 34
-ok 4 - multiple_end_sync
+ok 4 - multiple_end_sync ___/# time=[0-9.]+(ms)?/~~~
 
 not ok 5 - test end() method called more than once
   ---
@@ -41,7 +41,7 @@ not ok 5 - test end() method called more than once
 42
     1..1
 42.5
-ok 6 - multiple_end_async
+ok 6 - multiple_end_async ___/# time=[0-9.]+(ms)?/~~~
 
 51
 # Subtest: assert_after_end_sync
@@ -50,7 +50,7 @@ ok 6 - multiple_end_async
     1..1
 53
 54
-ok 7 - assert_after_end_sync
+ok 7 - assert_after_end_sync ___/# time=[0-9.]+(ms)?/~~~
 
 not ok 8 - test after end() was called
   ---
@@ -63,24 +63,24 @@ not ok 8 - test after end() was called
 62
     1..1
 62.5
-ok 9 - assert_after_end_async
+ok 9 - assert_after_end_async ___/# time=[0-9.]+(ms)?/~~~
 
 23
-not ok 10 - test count exceeds plan
+not ok 10 - test count exceeds plan ___/# time=[0-9.]+(ms)?/~~~
   ---
   {"at":{"column":9,"file":"test/test/catch-tap-throws.js","line":28},"plan":1,"source":"t.pass(4)\n","test":"exceed_plan_async"}
   ...
 
 24
 43
-not ok 11 - test end() method called more than once
+not ok 11 - test end() method called more than once ___/# time=[0-9.]+(ms)?/~~~
   ---
   {"test":"multiple_end_async"}
   ...
 
 44
 63
-not ok 12 - test after end() was called
+not ok 12 - test after end() was called ___/# time=[0-9.]+(ms)?/~~~
   ---
   {"at":{"column":9,"file":"test/test/catch-tap-throws.js","line":91},"plan":1,"source":"t.pass(10)\n","test":"assert_after_end_async"}
   ...

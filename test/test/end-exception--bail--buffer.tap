@@ -1,6 +1,6 @@
 TAP version 13
 end()
-ok 1 - (unnamed test) {
+ok 1 - (unnamed test) ___/# time=[0-9.]+(ms)?/~~~ {
     1..1
     ok 1 - should be equal
 }

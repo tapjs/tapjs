@@ -1,6 +1,6 @@
 TAP version 13
 not ok 1 - this is not ok
-not ok 2 - not ok subtest {
+not ok 2 - not ok subtest ___/# time=[0-9.]+(ms)?/~~~ {
     not ok 1 - diagnostics not ok
     1..1
     # failed 1 test

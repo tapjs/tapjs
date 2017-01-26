@@ -1,7 +1,7 @@
 TAP version 13
 # Subtest: child
     1..0
-ok 1 - child
+ok 1 - child ___/# time=[0-9.]+(ms)?/~~~
 
 # this is {"some":true} json
 1..1

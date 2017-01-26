@@ -5,7 +5,7 @@ ok 1 - expect truthy value
     # Subtest: sync thrower
         1..1
         ok 1 - before the bomb
-    ok 2 - sync thrower
+    ok 2 - sync thrower ___/# time=[0-9.]+(ms)?/~~~
     
     not ok 3 - pwnSync
       ---
@@ -17,12 +17,12 @@ ok 1 - expect truthy value
         ok 1 - before set the bomb
         ok 2 - after set the bomb
         ok 3 - before the bomb
-    ok 4 - async thrower
+    ok 4 - async thrower ___/# time=[0-9.]+(ms)?/~~~
     
     ok 5 - after child
     1..5
     # failed 1 of 5 tests
-not ok 2 - plans of 1
+not ok 2 - plans of 1 ___/# time=[0-9.]+(ms)?/~~~
 
 # Subtest: no assert only throw
     not ok 1 - false is truthy right?
@@ -32,7 +32,7 @@ not ok 2 - plans of 1
     
     1..1
     # failed 1 test
-not ok 3 - no assert only throw
+not ok 3 - no assert only throw ___/# time=[0-9.]+(ms)?/~~~
 
 # Subtest: plans of 8
     ok 1 - before child
@@ -46,7 +46,7 @@ not ok 3 - no assert only throw
         
         # test count(2) != plan(8)
         # failed 1 of 2 tests
-    not ok 2 - sync thrower
+    not ok 2 - sync thrower ___/# time=[0-9.]+(ms)?/~~~
     
     # Subtest: async thrower
         1..8
@@ -60,14 +60,14 @@ not ok 3 - no assert only throw
         
         # test count(4) != plan(8)
         # failed 1 of 4 tests
-    not ok 3 - async thrower
+    not ok 3 - async thrower ___/# time=[0-9.]+(ms)?/~~~
     
     ok 4 - after child
     1..4
     # failed 2 of 4 tests
-not ok 4 - plans of 8
+not ok 4 - plans of 8 ___/# time=[0-9.]+(ms)?/~~~
 
-not ok 5 - pwn
+not ok 5 - pwn ___/# time=[0-9.]+(ms)?/~~~
   ---
   {"at":{"column":13,"file":"test/test/throws-and-plans.js","line":18},"source":"throw new Error('pwn')\n","test":"async thrower"}
   ...

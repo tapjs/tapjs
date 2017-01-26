@@ -1,6 +1,6 @@
 TAP version 13
-not ok 1 - spawn that throws {
-    not ok 1 - ___/.*(node|iojs)(.exe)?/~~~ ./test/test/ok.js
+not ok 1 - spawn that throws ___/# time=[0-9.]+(ms)?/~~~ {
+    not ok 1 - ___/.*(node|iojs)(.exe)?/~~~ ./test/test/ok.js ___/# time=[0-9.]+(ms)?/~~~
       ---
       {"args":["___/.*/~~~ok.js"],"command":"___/.*(node|iojs)(.exe)?/~~~","cwd":"___/.*/~~~"}
       ...
@@ -18,8 +18,8 @@ not ok 1 - spawn that throws {
     # failed 1 test
 }
 
-not ok 2 - spawn that throws {
-    not ok 1 - ___/.*(node|iojs)(.exe)?/~~~ ./test/test/ok.js
+not ok 2 - spawn that throws ___/# time=[0-9.]+(ms)?/~~~ {
+    not ok 1 - ___/.*(node|iojs)(.exe)?/~~~ ./test/test/ok.js ___/# time=[0-9.]+(ms)?/~~~
       ---
       {"args":["___/.*/~~~ok.js"],"command":"___/.*(node|iojs)(.exe)?/~~~","cwd":"___/.*/~~~"}
       ...

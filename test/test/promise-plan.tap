@@ -7,25 +7,25 @@ one end
 after plan fulfilled
 after one block
 one promise was fulfilled
-ok 1 - one
+ok 1 - one ___/# time=[0-9.]+(ms)?/~~~
 
 running two
 # Subtest: two
     1..1
     ok 1 - done two
 two promise was fulfilled
-ok 2 - two
+ok 2 - two ___/# time=[0-9.]+(ms)?/~~~
 
 running three
 # Subtest: three
     1..0
-ok 3 - three
+ok 3 - three ___/# time=[0-9.]+(ms)?/~~~
 
 # Subtest: broken promises
     1..2
     # Subtest: end()
         1..0
-    ok 1 - end()
+    ok 1 - end() ___/# time=[0-9.]+(ms)?/~~~
     
     # Subtest: plan
         1..1
@@ -36,7 +36,7 @@ ok 3 - three
       ...
     
     # failed 1 of 2 tests
-not ok 4 - broken promises
+not ok 4 - broken promises ___/# time=[0-9.]+(ms)?/~~~
 
 # Subtest: thrown with timeouts
     1..2
@@ -55,7 +55,7 @@ not ok 4 - broken promises
     
     # test count(3) != plan(2)
     # failed 4 of 3 tests
-not ok 5 - thrown with timeouts
+not ok 5 - thrown with timeouts ___/# time=[0-9.]+(ms)?/~~~
   ---
   {"failures":[{"id":3,"name":"test after end() was called","plan":{"end":2,"start":1},"tapError":"id greater than plan end"},{"id":3,"name":"test after end() was called","plan":{"end":2,"start":1},"tapError":"id greater than plan end"}]}
   ...

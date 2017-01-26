@@ -2,7 +2,7 @@ TAP version 13
 # Subtest: auto-end on resolve
     ok 1 - true is ok
     1..1
-ok 1 - auto-end on resolve
+ok 1 - auto-end on resolve ___/# time=[0-9.]+(ms)?/~~~
 
 # Subtest: rejected
     not ok 1 - expected error
@@ -12,7 +12,7 @@ ok 1 - auto-end on resolve
     
     1..1
     # failed 1 test
-not ok 2 - rejected
+not ok 2 - rejected ___/# time=[0-9.]+(ms)?/~~~
 
 1..2
 # failed 1 of 2 tests

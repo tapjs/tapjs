@@ -22,7 +22,7 @@ TAP version 13
     
     1..4
     # failed 4 of 4 tests
-not ok 1 - foo
+not ok 1 - foo ___/# time=[0-9.]+(ms)?/~~~
 
 1..1
 # failed 1 test

@@ -2,7 +2,7 @@ TAP version 13
 # Subtest: pass then pass plan()
     1..1
     ok 1 - ok
-ok 1 - pass then pass plan()
+ok 1 - pass then pass plan() ___/# time=[0-9.]+(ms)?/~~~
 
 not ok 2 - test count exceeds plan
   ---
@@ -12,7 +12,7 @@ not ok 2 - test count exceeds plan
 # Subtest: pass then pass end()
     ok 1 - ok
     1..1
-ok 3 - pass then pass end()
+ok 3 - pass then pass end() ___/# time=[0-9.]+(ms)?/~~~
 
 not ok 4 - test after end() was called
   ---
@@ -22,7 +22,7 @@ not ok 4 - test after end() was called
 # Subtest: pass then fail plan()
     1..1
     ok 1 - ok
-ok 5 - pass then fail plan()
+ok 5 - pass then fail plan() ___/# time=[0-9.]+(ms)?/~~~
 
 not ok 6 - test count exceeds plan
   ---
@@ -32,7 +32,7 @@ not ok 6 - test count exceeds plan
 # Subtest: pass then fail end()
     ok 1 - ok
     1..1
-ok 7 - pass then fail end()
+ok 7 - pass then fail end() ___/# time=[0-9.]+(ms)?/~~~
 
 not ok 8 - test after end() was called
   ---
@@ -47,7 +47,7 @@ not ok 8 - test after end() was called
       ...
     
     # failed 1 test
-not ok 9 - fail then pass plan()
+not ok 9 - fail then pass plan() ___/# time=[0-9.]+(ms)?/~~~
 
 # Subtest: fail then pass end()
     not ok 1 - ok
@@ -57,7 +57,7 @@ not ok 9 - fail then pass plan()
     
     1..1
     # failed 1 test
-not ok 10 - fail then pass end()
+not ok 10 - fail then pass end() ___/# time=[0-9.]+(ms)?/~~~
 
 # Subtest: fail then fail plan()
     1..1
@@ -67,7 +67,7 @@ not ok 10 - fail then pass end()
       ...
     
     # failed 1 test
-not ok 11 - fail then fail plan()
+not ok 11 - fail then fail plan() ___/# time=[0-9.]+(ms)?/~~~
 
 # Subtest: fail then fail end()
     not ok 1 - ok
@@ -77,7 +77,7 @@ not ok 11 - fail then fail plan()
     
     1..1
     # failed 1 test
-not ok 12 - fail then fail end()
+not ok 12 - fail then fail end() ___/# time=[0-9.]+(ms)?/~~~
 
 1..12
 # failed 8 of 12 tests

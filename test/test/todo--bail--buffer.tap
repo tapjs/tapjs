@@ -1,11 +1,11 @@
 TAP version 13
-ok 1 - a set of tests to be done later {
+ok 1 - a set of tests to be done later ___/# time=[0-9.]+(ms)?/~~~ {
     ok 1 - should have a thingie # TODO
     ok 2 - should have a second whoosits also # TODO
-    ok 3 - the subset {
+    ok 3 - the subset ___/# time=[0-9.]+(ms)?/~~~ {
         ok 1 - should be a child thingie # TODO
         ok 2 - should also be a whoosits # TODO
-        ok 3 - has some of these things {
+        ok 3 - has some of these things ___/# time=[0-9.]+(ms)?/~~~ {
             ok 1 - someday this will be a function that throws # TODO
             ok 2 - someday this will be a function that knows # TODO
             ok 3 - true is truthy
@@ -23,7 +23,7 @@ ok 1 - a set of tests to be done later {
 }
 
 ok 2 - (unnamed test) # TODO
-ok 3 - another set of tests {
+ok 3 - another set of tests ___/# time=[0-9.]+(ms)?/~~~ {
     ok 1 - is a second set # TODO
     ok 2 - looks like english # TODO
     ok 3 - is marked TODO # TODO

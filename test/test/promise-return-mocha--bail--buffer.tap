@@ -1,17 +1,17 @@
 TAP version 13
-ok 1 - auto-end on resolve {
+ok 1 - auto-end on resolve ___/# time=[0-9.]+(ms)?/~~~ {
     1..0
 }
 
-ok 2 - auto-end on resolve without cb {
+ok 2 - auto-end on resolve without cb ___/# time=[0-9.]+(ms)?/~~~ {
     1..0
 }
 
-ok 3 - rejected {
+ok 3 - rejected ___/# time=[0-9.]+(ms)?/~~~ {
     1..0
 }
 
-ok 4 - rejected without cb {
+ok 4 - rejected without cb ___/# time=[0-9.]+(ms)?/~~~ {
     1..0
 }
 

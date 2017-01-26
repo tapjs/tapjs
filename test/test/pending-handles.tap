@@ -8,7 +8,7 @@ TAP version 13
     
     1..2
     # failed 1 of 2 tests
-not ok 1 - ___/.*(node|iojs)(.exe)?.*/~~~pending-handles.js child
+not ok 1 - ___/.*(node|iojs)(.exe)?.*/~~~pending-handles.js child ___/# time=[0-9.]+(ms)?/~~~
   ---
   {"args":["___/.*/~~~pending-handles.js","child"],"command":"___/.*(node|iojs)(.exe)?/~~~","cwd":"___/.*/~~~","exitCode":null,"signal":"SIGTERM","timeout":900}
   ...
