@@ -21,5 +21,5 @@ not ok 1 - parent
 } else {
   var t = require('../..')
   var extra = { diagnostic: false }
-  t.spawn(process.execPath, [__filename, 'sub'], '', {}, extra)
+  t.spawn(process.execPath, [__filename, 'sub'], extra)
 }

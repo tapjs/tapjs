@@ -1,15 +1,15 @@
 TAP version 13
 1..1
-# Subtest: parent
 before 1 parent
+# Subtest: parent
     1..1
-    # Subtest: child
 before 1 child
 before 2 child
+    # Subtest: child
         1..1
-        # Subtest: grandchild
 before 1 grandchild
 before 2 grandchild
+        # Subtest: grandchild
             1..1
             ok 1 - the only actual assertion
 after 2 grandchild
@@ -23,6 +23,5 @@ after 1 child
 after 1 parent
 ok 1 - parent ___/# time=[0-9.]+(ms)?/~~~
 
-___/# time=[0-9.]+(ms)?/~~~
 done
 

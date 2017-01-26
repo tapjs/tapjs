@@ -33,7 +33,7 @@ t.test('one', function (t) {
 }).then(function (t) {
   throw new Error('fail 5')
 }).then(function (t) {
-  t.equal(t._name, 'TAP', 'is root tap test')
+  t.equal(t.name, 'TAP', 'is root tap test')
   t.notOk(t._parent, 'has no parent')
   t.pass('this is fine')
   t.end()

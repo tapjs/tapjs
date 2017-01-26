@@ -1,5 +1,5 @@
 TAP version 13
-not ok 1 - child test {
+not ok 1 - child test ___/# time=[0-9.]+(ms)?/~~~ {
     not ok 1 - should be equal
       ---
       {"at":{"column":5,"file":"test/test/equivalent.js","line":3},"compare":"===","found":"foo\nbaz\nbar\n","source":"t.equal('foo\\nbaz\\nbar\\n', 'foo\\nblerb\\nbar\\n')\n","wanted":"foo\nblerb\nbar\n"}
@@ -35,6 +35,5 @@ not ok 1 - child test {
 }
 
 1..1
-# failed 1 of 1 tests
-___/# time=[0-9.]+(ms)?/~~~
+# failed 1 test
 

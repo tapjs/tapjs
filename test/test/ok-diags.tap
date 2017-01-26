@@ -10,5 +10,4 @@ ok 1 - this is fine
 ok 2 - child ___/# time=[0-9.]+(ms)?/~~~
 
 1..2
-___/# time=[0-9.]+(ms)?/~~~
 

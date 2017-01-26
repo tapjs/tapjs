@@ -2,11 +2,11 @@ TAP version 13
 # Subtest: t1
     # Subtest: t11
         1..1
-        not ok 1 - test unfinished: t11
+        not ok 1 - test unfinished
           ---
-          {"at":{"column":5,"file":"test/test/unfinished.js","line":4},"count":0,"plan":1,"source":"t.test('t11', function (t) {\n"}
+          {"at":{"column":5,"file":"test/test/unfinished.js","function":"Test.<anonymous>","line":4},"source":"t.test('t11', function (t) {\n","test":"t11"}
           ...
         
-        Bail out! # test unfinished: t11
-Bail out! # test unfinished: t11
+        Bail out! # test unfinished
+Bail out! # test unfinished
 

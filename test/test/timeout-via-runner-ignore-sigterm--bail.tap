@@ -1,5 +1,5 @@
 TAP version 13
-# Subtest: child
+# Subtest: ___/.*(node|iojs)(.exe)?.*/~~~timeout-via-runner-ignore-sigterm.js child
     ok 1 - this is fine 1
     ok 2 - this is fine 2
     ok 3 - this is fine 3
@@ -9,10 +9,11 @@ TAP version 13
         ok 2 - this is fine 5
     yolo
         
-        not ok 3 - timeout
+        not ok 3 - timeout!
           ---
-          {"at":{"column":5,"file":"test/test/timeout-via-runner-ignore-sigterm.js","line":19},"failure":"timeout","timeout":1000}
+          {"expired":"___/.*(node|iojs)(.exe)?.*/~~~timeout-via-runner-ignore-sigterm.js child"}
           ...
-        Bail out! # timeout
-Bail out! # timeout
+        # failed 1 of 3 tests
+        Bail out! # timeout!
+Bail out! # timeout!
 

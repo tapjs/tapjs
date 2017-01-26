@@ -1,5 +1,5 @@
 TAP version 13
-not ok 1 - foo {
+not ok 1 - foo ___/# time=[0-9.]+(ms)?/~~~ {
     not ok 1 - baz
       ---
       {"at":{"column":3,"file":"test/test/assert-at.js","function":"baz","line":14},"source":"blo(t)\n"}
@@ -25,6 +25,5 @@ not ok 1 - foo {
 }
 
 1..1
-# failed 1 of 1 tests
-___/# time=[0-9.]+(ms)?/~~~
+# failed 1 test
 

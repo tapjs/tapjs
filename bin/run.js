@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+
 var node = process.execPath
 var fs = require('fs')
 var spawn = require('child_process').spawn
@@ -10,21 +11,21 @@ var glob = require('glob')
 var isexe = require('isexe')
 var osHomedir = require('os-homedir')
 var yaml = require('js-yaml')
+var path = require('path')
+var exists = require('fs-exists-cached').sync
 
 var coverageServiceTest = process.env.COVERAGE_SERVICE_TEST === 'true'
 
-if (process.env._TAP_COVERAGE_ === '1') {
-  // NYC will not wrap a module in node_modules.
-  // So, we need to tell the child proc when it's been added.
+// NYC will not wrap a module in node_modules.
+// So, we need to tell the child proc when it's been added.
+if (process.env._TAP_COVERAGE_ === '1')
   global.__coverage__ = global.__coverage__ || {}
-}
 
 // console.error(process.argv.join(' '))
 // console.error('CST=%j', process.env.COVERAGE_SERVICE_TEST)
 // console.error('CRT=%j', process.env.COVERALLS_REPO_TOKEN)
-if (coverageServiceTest) {
+if (coverageServiceTest)
   console.log('COVERAGE_SERVICE_TEST')
-}
 
 // Add new coverage services here.
 // it'll check for the environ named and pipe appropriately.
@@ -58,36 +59,31 @@ function main () {
   var rcOptions = parseRcFile(rcFile)
 
   // supplement defaults with parsed rc options
-  if (rcOptions) {
+  if (rcOptions)
     Object.keys(rcOptions).forEach(function (k) {
       defaults[k] = rcOptions[k]
     })
-  }
 
   defaults.rcFile = rcFile
 
   // parse args
   var options = parseArgs(args, defaults)
 
-  if (!options) {
+  if (!options)
     return
-  }
 
   process.stdout.on('error', function (er) {
-    if (er.code === 'EPIPE') {
+    if (er.code === 'EPIPE')
       process.exit()
-    } else {
+    else
       throw er
-    }
   })
 
   options.files = globFiles(options.files)
 
   if ((options.coverageReport || options.checkCoverage) &&
-      options.files.length === 0) {
-    runCoverageReport(options)
-    return
-  }
+      options.files.length === 0)
+    return runCoverageReport(options)
 
   if (options.files.length === 0) {
     console.error('Reading TAP data from stdin (use "-" argument to suppress)')
@@ -95,9 +91,8 @@ function main () {
   }
 
   if (options.files.length === 1 && options.files[0] === '-') {
-    if (options.coverage) {
+    if (options.coverage)
       console.error('Coverage disabled because stdin cannot be instrumented')
-    }
     stdinOnly(options)
     return
   }
@@ -106,10 +101,8 @@ function main () {
   // they are only relevant when coverage is turned off.
 
   /* istanbul ignore if */
-  if (options.coverage && !global.__coverage__) {
-    respawnWithCoverage(options)
-    return
-  }
+  if (options.coverage && !global.__coverage__)
+    return respawnWithCoverage(options)
 
   setupTapEnv(options)
 
@@ -118,9 +111,8 @@ function main () {
 
 function constructDefaultArgs () {
   var defaultTimeout = 30
-  if (global.__coverage__) {
+  if (global.__coverage__)
     defaultTimeout = 240
-  }
 
   var defaultArgs = {
     nodeArgs: [],
@@ -140,12 +132,12 @@ function constructDefaultArgs () {
     branches: 0,
     functions: 0,
     lines: 0,
-    statements: 0
+    statements: 0,
+    jobs: 1
   }
 
-  if (process.env.TAP_COLORS !== undefined) {
+  if (process.env.TAP_COLORS !== undefined)
     defaultArgs.color = !!(+process.env.TAP_COLORS)
-  }
 
   return defaultArgs
 }
@@ -158,11 +150,14 @@ function parseArgs (args, defaults) {
     B: 'no-bail',
     c: 'color',
     C: 'no-color',
+    T: 'no-timeout',
     h: 'help',
     '?': 'help',
     v: 'version'
   }
+
   var singleOpts = {
+    j: 'jobs',
     R: 'reporter',
     t: 'timeout',
     s: 'save'
@@ -171,9 +166,8 @@ function parseArgs (args, defaults) {
   // If we're running under Travis-CI with a Coveralls.io token,
   // then it's a safe bet that we ought to output coverage.
   for (var i = 0; i < coverageServices.length && !options.pipeToService; i++) {
-    if (process.env[coverageServices[i].env]) {
+    if (process.env[coverageServices[i].env])
       options.pipeToService = true
-    }
   }
 
   var defaultCoverage = options.pipeToService
@@ -193,18 +187,17 @@ function parseArgs (args, defaults) {
         var fc = arg.charAt(f)
         var sf = singleFlags[fc]
         var so = singleOpts[fc]
-        if (sf) {
+        if (sf)
           expand.push('--' + sf)
-        } else if (so) {
+        else if (so) {
           var soval = arg.slice(f + 1)
           if (soval.charAt(0) !== '=') {
             soval = '=' + soval
           }
           expand.push('--' + so + soval)
           f = arg.length
-        } else if (arg !== '-' + fc) {
+        } else if (arg !== '-' + fc)
           expand.push('-' + fc)
-        }
       }
       if (expand.length) {
         args.splice.apply(args, [i, 1].concat(expand))
@@ -242,11 +235,15 @@ function parseArgs (args, defaults) {
         console.log(require('../package.json').version)
         return null
 
+      case '--jobs':
+        val = val || args[++i]
+        options.jobs = +val
+        continue
+
       case '--coverage-report':
         options.coverageReport = val || args[++i]
-        if (options.coverageReport === 'html') {
+        if (options.coverageReport === 'html')
           options.coverageReport = 'lcov'
-        }
         defaultCoverage = true
         continue
 
@@ -298,9 +295,8 @@ function parseArgs (args, defaults) {
 
       case '--node-arg':
         val = val || args[++i]
-        if (val !== undefined) {
+        if (val !== undefined)
           options.nodeArgs.push(val)
-        }
         continue
 
       case '--check-coverage':
@@ -310,16 +306,14 @@ function parseArgs (args, defaults) {
 
       case '--test-arg':
         val = val || args[++i]
-        if (val !== undefined) {
+        if (val !== undefined)
           options.testArgs.push(val)
-        }
         continue
 
       case '--nyc-arg':
         val = val || args[++i]
-        if (val !== undefined) {
+        if (val !== undefined)
           options.nycArgs.push(val)
-        }
         continue
 
       case '--100':
@@ -349,6 +343,10 @@ function parseArgs (args, defaults) {
         options.color = false
         continue
 
+      case '--no-timeout':
+        options.timeout = 0
+        continue
+
       case '--timeout':
         val = val || args[++i]
         options.timeout = +val
@@ -372,23 +370,18 @@ function parseArgs (args, defaults) {
     }
   }
 
-  if (options.coverage === undefined) {
+  if (options.coverage === undefined)
     options.coverage = defaultCoverage
-  }
 
-  if (process.env.TAP === '1') {
+  if (process.env.TAP === '1')
     options.reporter = 'tap'
-  }
 
   // default to tap for non-tty envs
-  if (!options.reporter) {
+  if (!options.reporter)
     options.reporter = options.color ? 'classic' : 'tap'
-  }
 
-  if (dumpConfig) {
-    console.log(JSON.stringify(options, null, 2))
-    return false
-  }
+  if (dumpConfig)
+    return console.log(JSON.stringify(options, null, 2))
 
   return options
 }
@@ -425,9 +418,8 @@ function pipeToCoverageServices (options, child) {
   }
 
   /* istanbul ignore if */
-  if (!piped) {
+  if (!piped)
     throw new Error('unknown service, internal error')
-  }
 }
 
 function pipeToCoverageService (service, options, child) {
@@ -449,35 +441,31 @@ function pipeToCoverageService (service, options, child) {
   child.stdout.pipe(ca.stdin)
 
   ca.on('close', function (code, signal) {
-    if (signal) {
+    if (signal)
       process.kill(process.pid, signal)
-    } else if (code) {
+    else if (code)
       console.log('Error piping coverage to ' + service.name)
-    } else {
+    else
       console.log('Successfully piped to ' + service.name)
-    }
   })
 }
 
 function runCoverageReport (options, code, signal) {
-  if (options.checkCoverage) {
+  if (options.checkCoverage)
     runCoverageCheck(options, code, signal)
-  } else {
+  else
     runCoverageReportOnly(options, code, signal)
-  }
 }
 
 function runCoverageReportOnly (options, code, signal) {
-  if (options.coverageReport === false) {
+  if (options.coverageReport === false)
     return close(code, signal)
-  }
 
   if (!options.coverageReport) {
-    if (options.pipeToService || coverageServiceTest) {
+    if (options.pipeToService || coverageServiceTest)
       options.coverageReport = 'text-lcov'
-    } else {
+    else
       options.coverageReport = 'text'
-    }
   }
 
   var args = [nycBin, 'report', '--reporter', options.coverageReport]
@@ -492,11 +480,10 @@ function runCoverageReportOnly (options, code, signal) {
   } else {
     // otherwise just run the reporter
     child = fg(node, args)
-    if (options.coverageReport === 'lcov' && options.browser) {
+    if (options.coverageReport === 'lcov' && options.browser)
       child.on('exit', function () {
         opener('coverage/lcov-report/index.html')
       })
-    }
   }
 
   if (code || signal) {
@@ -509,26 +496,21 @@ function runCoverageReportOnly (options, code, signal) {
       setTimeout(function () {}, 200)
       return process.kill(process.pid, signal || s)
     }
-    if (code || c) {
+    if (code || c)
       return process.exit(code || c)
-    }
   }
 }
 
 function coverageCheckArgs (options) {
   var args = []
-  if (options.branches) {
+  if (options.branches)
     args.push('--branches', options.branches)
-  }
-  if (options.functions) {
+  if (options.functions)
     args.push('--functions', options.functions)
-  }
-  if (options.lines) {
+  if (options.lines)
     args.push('--lines', options.lines)
-  }
-  if (options.statements) {
+  if (options.statements)
     args.push('--statements', options.statements)
-  }
 
   return args
 }
@@ -561,11 +543,10 @@ function getReporters () {
   var types = require('tap-mocha-reporter').types
   types = types.reduce(function (str, t) {
     var ll = str.split('\n').pop().length + t.length
-    if (ll < 40) {
+    if (ll < 40)
       return str + ' ' + t
-    } else {
+    else
       return str + '\n' + t
-    }
   }, '').trim()
   var ind = '                              '
   return ind + types.split('\n').join('\n' + ind)
@@ -573,15 +554,13 @@ function getReporters () {
 
 function setupTapEnv (options) {
   process.env.TAP_TIMEOUT = options.timeout
-  if (options.color) {
+  if (options.color)
     process.env.TAP_COLORS = 1
-  } else {
+  else
     process.env.TAP_COLORS = 0
-  }
 
-  if (options.bail) {
+  if (options.bail)
     process.env.TAP_BAIL = '1'
-  }
 }
 
 function globFiles (files) {
@@ -592,9 +571,9 @@ function globFiles (files) {
     }
 
     // glob claims patterns MUST not include any '\'s
-    if (!/\\/.test(f)) {
+    if (!/\\/.test(f))
       f = glob.sync(f) || f
-    }
+
     return acc.concat(f)
   }, [])
 }
@@ -615,28 +594,27 @@ function stdinOnly (options) {
 }
 
 function readSaveFile (options) {
-  if (options.saveFile) {
+  if (options.saveFile)
     try {
       return fs.readFileSync(options.saveFile, 'utf8').trim().split('\n')
     } catch (er) {}
-  }
-  return options.files
+
+  return null
 }
 
 function saveFails (options, tap) {
-  if (!options.saveFile) {
+  if (!options.saveFile)
     return
-  }
+
   var fails = []
   var successes = []
   tap.on('result', function (res) {
     // we will continue to re-run todo tests, even though they're
     // not technically "failures".
-    if (!res.ok && !res.extra.skip) {
+    if (!res.ok && !res.extra.skip)
       fails.push(res.extra.file)
-    } else {
+    else
       successes.push(res.extra.file)
-    }
   })
 
   tap.on('bailout', function (reason) {
@@ -650,36 +628,58 @@ function saveFails (options, tap) {
   tap.on('end', save)
 
   function save () {
-    if (!fails.length) {
+    fails = fails.reduce(function (set, f) {
+      if (set.indexOf(f) === -1)
+        set.push(f)
+      return set
+    }, [])
+
+    if (!fails.length)
       try {
         fs.unlinkSync(options.saveFile)
       } catch (er) {}
-    } else {
+    else
       try {
         fs.writeFileSync(options.saveFile, fails.join('\n') + '\n')
       } catch (er) {}
-    }
   }
+}
+
+function filterFiles (files, saved, parallelOk) {
+  return files.filter(function (file) {
+    if (path.basename(file) === 'tap-parallel-ok')
+      parallelOk[path.resolve(path.dirname(file))] = true
+    else if (path.basename(file) === 'tap-parallel-not-ok')
+      parallelOk[path.resolve(path.dirname(file))] = false
+    else
+      return saved === null || saved.indexOf(file) !== -1
+  })
+}
+
+function isParallelOk (parallelOk, file) {
+  var dir = path.resolve(path.dirname(file))
+
+  if (dir in parallelOk)
+    return parallelOk[dir]
+
+  if (exists(dir + '/tap-parallel-ok'))
+    return parallelOk[dir] = true
+
+  if (exists(dir + '/tap-parallel-not-ok'))
+    return parallelOk[dir] = false
+
+  if (dir.length >= process.cwd().length)
+    return isParallelOk(parallelOk, dir)
 }
 
 function runAllFiles (options, saved, tap) {
   var doStdin = false
-  var opt = {
-    env: Object.keys(process.env).reduce(function (env, k) {
-      if (!env[k]) {
-        env[k] = process.env[k]
-      }
-      return env
-    }, {
-      TAP: 1
-    })
-  }
+  var parallelOk = Object.create(null)
 
-  options.files = options.files.filter(function (file) {
-    return saved.indexOf(file) !== -1
-  })
+  options.files = filterFiles(options.files, saved, parallelOk)
 
   for (var i = 0; i < options.files.length; i++) {
+    var opt = {}
     var file = options.files[i]
 
     // Pick up stdin after all the other files are handled.
@@ -689,29 +689,27 @@ function runAllFiles (options, saved, tap) {
     }
 
     var st = fs.statSync(options.files[i])
-    var extra = {}
-    if (options.timeout) {
-      extra.timeout = options.timeout * 1000
-    }
+    if (options.timeout)
+      opt.timeout = options.timeout * 1000
 
-    extra.file = file
+    opt.file = file
+    if (options.jobs > 1)
+      opt.buffered = isParallelOk(parallelOk, file) !== false
 
     if (file.match(/\.js$/)) {
       var args = options.nodeArgs.concat(file).concat(options.testArgs)
-      tap.spawn(node, args, opt, file, extra)
+      tap.spawn(node, args, opt, file)
     } else if (st.isDirectory()) {
-      var dir = fs.readdirSync(file).map(function (f) {
+      var dir = filterFiles(fs.readdirSync(file).map(function (f) {
         return file + '/' + f
-      })
+      }), saved, parallelOk)
       options.files.push.apply(options.files, dir)
-    } else if (isexe.sync(options.files[i])) {
-      tap.spawn(options.files[i], options.testArgs, opt, file, extra)
-    }
+    } else if (isexe.sync(options.files[i]))
+      tap.spawn(options.files[i], options.testArgs, opt, file)
   }
 
-  if (doStdin) {
+  if (doStdin)
     tap.stdin()
-  }
 }
 
 function runTests (options) {
@@ -719,7 +717,9 @@ function runTests (options) {
 
   // At this point, we know we need to use the tap root,
   // because there are 1 or more files to spawn.
-  var tap = require('../lib/root.js')
+  var tap = require('../lib/tap.js')
+
+  tap.jobs = options.jobs
 
   // if not -Rtap, then output what the user wants.
   if (options.reporter !== 'tap') {
@@ -738,7 +738,7 @@ function parseRcFile (path) {
   try {
     var contents = fs.readFileSync(path, 'utf8')
     return yaml.safeLoad(contents) || {}
-  } catch(er) {
+  } catch (er) {
     // if no dotfile exists, or invalid yaml, fail gracefully
     return {}
   }

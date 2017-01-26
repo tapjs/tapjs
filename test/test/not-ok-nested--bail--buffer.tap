@@ -1,7 +1,7 @@
 TAP version 13
-not ok 1 - gp {
+not ok 1 - gp ___/# time=[0-9.]+(ms)?/~~~ {
     1..1
-    not ok 1 - parent {
+    not ok 1 - parent ___/# time=[0-9.]+(ms)?/~~~ {
         1..1
         not ok 1 - fail
           ---
@@ -11,6 +11,5 @@ not ok 1 - gp {
         Bail out! # fail
     }
 }
-
 Bail out! # fail
 

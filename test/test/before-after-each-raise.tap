@@ -1,17 +1,17 @@
 TAP version 13
-# Subtest: parent
 before 1 parent
-    # Subtest: child
+# Subtest: parent
 before 1 child
 before 2 child
-        # Subtest: grandchild
 before 1 grandchild
 before 2 grandchild
+    # Subtest: child
+        # Subtest: grandchild
             ok 1 - the only actual assertion
 after 2 grandchild
-            not ok 2 - Error: this is fine
+            not ok 2 - this is fine
               ---
-              {"at":{"column":17,"file":"test/test/before-after-each-raise.js","function":"Test.<anonymous>","line":22},"message":"Error: this is fine","source":"return cb(new Error('this is fine'))\n","test":"grandchild"}
+              {"at":{"column":17,"file":"test/test/before-after-each-raise.js","function":"Test.<anonymous>","line":22},"source":"return cb(new Error('this is fine'))\n","test":"grandchild"}
               ...
             
             1..2
@@ -21,16 +21,15 @@ after 2 grandchild
 after 2 child
 after 1 child
         1..1
-        # failed 1 of 1 tests
+        # failed 1 test
     not ok 1 - child ___/# time=[0-9.]+(ms)?/~~~
     
 after 1 parent
     1..1
-    # failed 1 of 1 tests
+    # failed 1 test
 not ok 1 - parent ___/# time=[0-9.]+(ms)?/~~~
 
 done
 1..1
-# failed 1 of 1 tests
-___/# time=[0-9.]+(ms)?/~~~
+# failed 1 test
 

@@ -1,5 +1,5 @@
 TAP version 13
-# Subtest: ___/.*/~~~child-text-buffer.js buffer
+# Subtest: ___/.*(node|iojs)(.exe)?.*/~~~child-text-buffer.js buffer
     not ok 1 - parent {
         not ok 1 - child {
             not ok 1 - grandchild {
@@ -10,15 +10,17 @@ TAP version 13
             }
             1..1
             # failed 1 of 1 tests
+            # failed 1 test
         }
         1..1
         # failed 1 of 1 tests
+        # failed 1 test
     }
     1..1
     # failed 1 of 1 tests
-not ok 1 - ___/.*/~~~child-text-buffer.js buffer ___/# time=[0-9.]+(ms)?/~~~
+    # failed 1 test
+not ok 1 - ___/.*(node|iojs)(.exe)?.*/~~~child-text-buffer.js buffer ___/# time=[0-9.]+(ms)?/~~~
 
 1..1
-# failed 1 of 1 tests
-___/# time=[0-9.]+(ms)?/~~~
+# failed 1 test
 

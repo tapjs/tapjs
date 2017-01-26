@@ -1,29 +1,28 @@
 TAP version 13
-not ok 1 - ___/.*/~~~spawn.js child
+not ok 1 - ___/.*(node|iojs)(.exe)?.*/~~~spawn.js child ___/# time=[0-9.]+(ms)?/~~~
   ---
-  {"arguments":["___/.*/~~~spawn.js","child"],"command":"___/.*(node|iojs)(.exe)?/~~~"}
+  {"args":["___/.*/~~~spawn.js","child"],"command":"___/.*(node|iojs)(.exe)?/~~~","cwd":"___/.*/~~~","exitCode":1}
   ...
 {
-    not ok 1 - nesting {
+    not ok 1 - nesting ___/# time=[0-9.]+(ms)?/~~~ {
         1..2
-        ok 1 - first {
+        ok 1 - first ___/# time=[0-9.]+(ms)?/~~~ {
             1..2
             ok 1 - true is ok
             ok 2 - doag is also okay
         }
         
-        not ok 2 - second {
+        not ok 2 - second ___/# time=[0-9.]+(ms)?/~~~ {
             ok 1 - but that is ok
             ok 2 - this passes
             not ok 3 - nested failure
               ---
-              {"at":{"column":10,"file":"test/test/spawn.js","function":"foo","line":22},"compare":"===","found":1,"source":"tt.equal(1, '1', 'nested failure')\n","wanted":"1"}
+              {"at":{"column":10,"file":"test/test/spawn.js","function":"foo","line":18},"compare":"===","found":1,"source":"tt.equal(1, '1', 'nested failure')\n","wanted":"1"}
               ...
+            
             Bail out! # nested failure
         }
     }
-    Bail out! # nested failure
 }
-
 Bail out! # nested failure
 

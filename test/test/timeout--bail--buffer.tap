@@ -1,16 +1,16 @@
 TAP version 13
-not ok 1 - parent of timeout test {
-    not ok 1 - timeout test
+not ok 1 - parent of timeout test ___/# time=[0-9.]+(ms)?/~~~ {
+    not ok 1 - timeout test ___/# time=[0-9.]+(ms)?/~~~
       ---
       {"timeout":50}
       ...
     {
-        not ok 1 - this never completes {
-            not ok 1 - baby {
-                ok 1 - expect truthy value
+        not ok 1 - this never completes ___/# time=[0-9.]+(ms)?/~~~ {
+            not ok 1 - baby ___/# time=[0-9.]+(ms)?/~~~ {
+                ok 1 - wait a sec...
                 not ok 2 - timeout!
                   ---
-                  {"at":{"column":5,"file":"test/test/timeout.js","line":4},"expired":"timeout test","source":"t.test('timeout test', { timeout: 50 }, function (t) {\n","timeout":50}
+                  {"expired":"timeout test","test":"baby"}
                   ...
                 
                 Bail out! # timeout!
@@ -18,6 +18,5 @@ not ok 1 - parent of timeout test {
         }
     }
 }
-
 Bail out! # timeout!
 

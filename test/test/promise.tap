@@ -29,7 +29,7 @@ ok 2 - three ___/# time=[0-9.]+(ms)?/~~~
     1..1
 ok 3 - some_function_name ___/# time=[0-9.]+(ms)?/~~~
 
-# Subtest: ___/.*/~~~promise.js child
+# Subtest: ___/.*(node|iojs)(.exe)?.*/~~~promise.js child
     # Subtest: one
         # Subtest: two
             # Subtest: child of 2
@@ -69,12 +69,10 @@ ok 3 - some_function_name ___/# time=[0-9.]+(ms)?/~~~
     ok 6 - has no parent
     ok 7 - this is fine
     1..7
-    ___/# time=[0-9.]+(ms)?/~~~
-ok 4 - ___/.*/~~~promise.js child ___/# time=[0-9.]+(ms)?/~~~
+ok 4 - ___/.*(node|iojs)(.exe)?.*/~~~promise.js child ___/# time=[0-9.]+(ms)?/~~~
 
 ok 5 - is root tap test
 ok 6 - has no parent
 ok 7 - this is fine
 1..7
-___/# time=[0-9.]+(ms)?/~~~
 

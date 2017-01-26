@@ -1,5 +1,9 @@
 var tap = require('../..')
 
+setInterval(function () {
+  console.log('this should not happen')
+}, 1000)
+
 console.log('log in root, before child')
 tap.test('child', function (t) {
   console.log('log in child, before grandchild')

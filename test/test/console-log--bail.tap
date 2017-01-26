@@ -26,8 +26,8 @@ ok 1 - nesting ___/# time=[0-9.]+(ms)?/~~~
 ok 2 - this passes
 ok 3 - this passes too
 >>>> after pass() calls
-# Subtest: async kid
 >>>> in async kid, before plan
+# Subtest: async kid
     1..2
 >>>> in async kid, after plan
 >>>> after async kid
@@ -39,5 +39,4 @@ ok 4 - async kid ___/# time=[0-9.]+(ms)?/~~~
 
 ok 5 - pass after async kid
 1..5
-___/# time=[0-9.]+(ms)?/~~~
 

@@ -26,6 +26,7 @@ var defaults = {
   checkCoverage: false,
   branches: 0,
   functions: 0,
+  jobs: 1,
   lines: 0,
   statements: 0,
   rcFile: osHomedir() + '/.taprc'

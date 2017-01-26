@@ -5,6 +5,5 @@ not ok 1 - should be equivalent
   ...
 
 1..1
-# failed 1 of 1 tests
-___/# time=[0-9.]+(ms)?/~~~
+# failed 1 test
 

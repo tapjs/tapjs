@@ -1,5 +1,5 @@
 var glob = require('glob')
-var t = require('../lib/root.js')
+var t = require('../')
 var spawn = require('child_process').spawn
 var node = process.execPath
 var fs = require('fs')
@@ -7,11 +7,18 @@ var dir = __dirname + '/test/'
 var path = require('path')
 var yaml = require('js-yaml')
 
+process.env.TAP_BUFFER = 1
+// don't turn on parallelization for `npm test`, because it also
+// has coverage and this makes the spawn timeouts stuff break.
+if (process.env.npm_lifecycle_event !== 'test')
+  t.jobs = 2
+
 function regEsc (str) {
   return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&')
 }
 
 module.exports = function (pattern, bail, buffer) {
+  pattern = path.basename(pattern)
   glob.sync(dir + pattern).forEach(function (f) {
     runTests(f, bail, buffer)
   })
@@ -55,6 +62,13 @@ function runTests (file, bail, buffer) {
     }
   }
 
+  if (file.match(/\bsegv\b/)) {
+    if (process.platform === 'win32')
+      skip = 'skip segv on windows'
+    else if (process.env.TRAVIS)
+      skip = 'skip segv on CI'
+  }
+
   if (file.match(/\bsigterm\b/)) {
     if (process.version.match(/^v0\.10\./)) {
       skip = 'sigterm handling test does not work on 0.10'
@@ -87,7 +101,8 @@ function runTest (t, bail, buffer, file) {
     stdio: [ 0, 'pipe', 'pipe' ],
     env: {
       TAP_BAIL: bail ? 1 : 0,
-      TAP_BUFFER: buffer ? 1 : 0
+      TAP_BUFFER: buffer ? 1 : 0,
+      PATH: process.env.PATH
     }
   })
 
@@ -147,10 +162,14 @@ function runTest (t, bail, buffer, file) {
   })
 }
 
-function patternify (pattern) {
+function patternify (pattern, key) {
+  var root = !key
   if (typeof pattern === 'object' && pattern) {
     Object.keys(pattern).forEach(function (k) {
-      pattern[k] = patternify(pattern[k])
+      pattern[k] = patternify(pattern[k], k)
+      // sigbus an sigsegv are more or less the same thing.
+      if (root && k === 'signal' && pattern[k] === 'SIGBUS')
+        pattern[k] = /^SIG(BUS|SEGV)$/
     })
     return pattern
   }

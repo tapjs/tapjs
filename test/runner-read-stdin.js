@@ -14,14 +14,18 @@ var fs = require('fs')
 var which = require('which')
 
 t.test('read from stdin', { skip: process.platform === 'win32' && 'skip stdin test on windows' }, function (t) {
+  t.jobs = 4
+
   function stripTime (s) {
     return s.split(ok).join('test/test/ok.js')
       .replace(/[0-9\.]+m?s/g, '{{TIME}}')
       .replace(/\n\r/g, '\n')
   }
 
-  var expect = ''
-  t.test('generated expected output', function (t) {
+  var opt = { buffered: true }
+
+  var defaultExpect = ''
+  t.test('generated expected output', { buffered: false }, function (t) {
     var args = [run, ok, '--reporter', 'spec']
     var child = spawn(node, args, {
       env: {
@@ -30,17 +34,17 @@ t.test('read from stdin', { skip: process.platform === 'win32' && 'skip stdin te
       }
     })
     child.stdout.on('data', function (c) {
-      expect += c
+      defaultExpect += c
     })
     child.on('close', function (code, signal) {
-      expect = stripTime(expect)
+      defaultExpect = stripTime(defaultExpect)
       t.equal(code, 0)
       t.equal(signal, null)
       t.end()
     })
   })
 
-  function pipeTest (t, warn, repArgs) {
+  function pipeTest (t, warn, repArgs, expect) {
     var args = [run, ok]
     var err = ''
     var out = ''
@@ -82,21 +86,21 @@ t.test('read from stdin', { skip: process.platform === 'win32' && 'skip stdin te
       t.equal(code, 0)
       t.equal(signal, null)
       t.equal(err, expectError)
-      t.equal(stripTime(out), expect)
+      t.equal(stripTime(out), expect || defaultExpect)
       t.end()
     })
   }
 
-  t.test('warns if - is not an arg', function (t) {
+  t.test('warns if - is not an arg', opt, function (t) {
     pipeTest(t, true, [run, '--reporter=spec'])
   })
 
-  t.test('does not warn if - is present', function (t) {
+  t.test('does not warn if - is present', opt, function (t) {
     pipeTest(t, false, [run, '--reporter=spec', '-'])
   })
 
-  t.test('stdin along with files', function (t) {
-    expect = '\n' +
+  t.test('stdin along with files', opt, function (t) {
+    var expect = '\n' +
       'test/test/ok.js\n' +
       '  nesting\n' +
       '    first\n' +
@@ -134,8 +138,8 @@ t.test('read from stdin', { skip: process.platform === 'win32' && 'skip stdin te
       '\n' +
       '  20 passing ({{TIME}})\n'
 
-    pipeTest(t, false, [run, '--reporter', 'spec', '-', ok])
+    pipeTest(t, false, [run, '--reporter', 'spec', '-', ok], expect)
   })
+
   t.end()
 })
-
