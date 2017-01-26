@@ -156,3 +156,7 @@ t.test('test-point', function (t) {
 
   t.end()
 })
+
+t.throws(function () {
+  t.current()
+}, new Error('Test.current() as been removed and is no more'))
