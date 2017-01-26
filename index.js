@@ -22,7 +22,7 @@ module.exports = Parser
 // every line outside of a yaml block is one of these things, or
 // a comment, or garbage.
 var lineTypes = {
-  testPoint: /^(not )?ok(?: ([0-9]+))?(?:(?: -)?( .*))?\n$/,
+  testPoint: /^(not )?ok(?: ([0-9]+))?(?:(?: -)?( .*?))?(\{?)\n$/,
   pragma: /^pragma ([+-])([a-z]+)\n$/,
   bailout: /^bail out!(.*)\n$/i,
   version: /^TAP version ([0-9]+)\n$/i,
@@ -45,7 +45,10 @@ function lineType (line) {
 }
 
 function parseDirective (line) {
-  line = line.trim()
+  if (!line.trim())
+    return false
+
+  line = line.replace(/\{\s*$/, '').trim()
   var time = line.match(/^time=((?:[1-9][0-9]*|0)(?:\.[0-9]+)?)(ms|s)$/i)
   if (time) {
     var n = +time[1]
@@ -68,6 +71,7 @@ function parseDirective (line) {
 function Result (parsed, count) {
   var ok = !parsed[1]
   var id = +(parsed[2] || count + 1)
+  var buffered = parsed[4]
   this.ok = ok
   this.id = id
 
@@ -80,26 +84,22 @@ function Result (parsed, count) {
   // now, let's see if there's a directive in there.
   var dir = parseDirective(rest.trim())
   if (!dir)
-    name += rest ? '#' + rest : ''
+    name += (rest ? '#' + rest : '') + buffered
   else {
     // handle buffered subtests with todo/skip on them, like
     // ok 1 - bar # todo foo {\n
     var dirKey = dir[0]
     var dirValue = dir[1]
-    if (typeof dirValue === 'string' && dirValue.slice(-1) === '{') {
-      name += ' {'
-      dirValue = dirValue.slice(0, -1).trim()
-      if (!dirValue) {
-        dirValue = true
-      }
-    }
     this[dirKey] = dirValue
   }
 
-  if (/\{$/.test(name)) {
-    name = name.slice(0, -1).trim()
-    this.buffered = true
+  if (/\{\s*$/.test(name)) {
+    name = name.replace(/\{\s*$/, '')
+    buffered = '{'
   }
+
+  if (buffered === '{')
+    this.buffered = true
 
   if (name)
     this.name = name.trim()
