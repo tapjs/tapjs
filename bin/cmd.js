@@ -83,7 +83,9 @@ function tapFormat (msg, indent) {
   return indent + msg.map(function (item) {
     switch (item[0]) {
       case 'child':
-        return tapFormat(item[1], '    ')
+        var comment = item[1][0]
+        var child = item[1].slice(1)
+        return tapFormat([comment], '') + tapFormat(child, '    ')
 
       case 'version':
         return 'TAP version ' + item[1] + '\n'
