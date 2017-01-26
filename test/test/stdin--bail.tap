@@ -35,8 +35,8 @@ ok 1 - fake stdin
     }
     ok 3
     
-    not ok 4 - test unfinished
+    not ok 4 - expect to throw this
     
-    Bail out! # test unfinished
-Bail out! # test unfinished
+    Bail out! # expect to throw this
+Bail out! # expect to throw this
 
