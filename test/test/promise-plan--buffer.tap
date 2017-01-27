@@ -58,4 +58,5 @@ not ok 5 - thrown with timeouts ___/# time=[0-9.]+(ms)?/~~~
 
 1..5
 # failed 2 of 5 tests
+___/# time=[0-9.]+(ms)?/~~~
 

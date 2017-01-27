@@ -30,4 +30,5 @@ not ok 9 - child test left in queue Test: t2
 1..4
 # test count(9) != plan(4)
 # failed 7 of 9 tests
+___/# time=[0-9.]+(ms)?/~~~
 

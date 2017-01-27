@@ -42,4 +42,5 @@ not ok 4 - async kid ___/# time=[0-9.]+(ms)?/~~~
 ok 5 - pass after async kid
 1..5
 # failed 3 of 5 tests
+___/# time=[0-9.]+(ms)?/~~~
 

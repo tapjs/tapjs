@@ -5,4 +5,5 @@ ok 1 - ___/.*(node|iojs)(.exe)?.*/~~~spawn-empty.js child # SKIP no tests found 
 
 1..1
 # skip: 1
+___/# time=[0-9.]+(ms)?/~~~
 

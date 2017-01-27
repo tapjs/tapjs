@@ -21,8 +21,10 @@ not ok 1 - ___/.*(node|iojs)(.exe)?.*/~~~timeout-via-runner.js child ___/# time=
     
     1..4
     # failed 1 of 4 tests
+    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 1..1
 # failed 1 test
+___/# time=[0-9.]+(ms)?/~~~
 

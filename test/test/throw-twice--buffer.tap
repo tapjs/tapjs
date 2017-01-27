@@ -16,4 +16,5 @@ not ok 3 - not this one ___/# time=[0-9.]+(ms)?/~~~
 
 1..3
 # failed 2 of 3 tests
+___/# time=[0-9.]+(ms)?/~~~
 

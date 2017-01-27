@@ -26,4 +26,5 @@ not ok 1 - foo ___/# time=[0-9.]+(ms)?/~~~
 
 1..1
 # failed 1 test
+___/# time=[0-9.]+(ms)?/~~~
 

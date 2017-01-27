@@ -61,4 +61,5 @@ not ok 4 - fail 5
 
 1..4
 # failed 4 of 4 tests
+___/# time=[0-9.]+(ms)?/~~~
 

@@ -43,6 +43,7 @@ TAP version 13
     ok 5 - pass after async kid
     1..5
     # failed 3 of 5 tests
+    ___/# time=[0-9.]+(ms)?/~~~
 not ok 1 - ___/.*(node|iojs)(.exe)?.*/~~~spawn.js child ___/# time=[0-9.]+(ms)?/~~~
   ---
   {"args":["___/.*/~~~spawn.js","child"],"command":"___/.*(node|iojs)(.exe)?/~~~","cwd":"___/.*/~~~","exitCode":1}
@@ -91,4 +92,5 @@ not ok 5 - async kid ___/# time=[0-9.]+(ms)?/~~~
 ok 6 - pass after async kid
 1..6
 # failed 4 of 6 tests
+___/# time=[0-9.]+(ms)?/~~~
 

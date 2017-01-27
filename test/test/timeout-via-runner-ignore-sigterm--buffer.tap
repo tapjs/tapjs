@@ -19,4 +19,5 @@ not ok 1 - ___/.*(node|iojs)(.exe)?.*/~~~timeout-via-runner-ignore-sigterm.js ch
 
 1..1
 # failed 1 test
+___/# time=[0-9.]+(ms)?/~~~
 

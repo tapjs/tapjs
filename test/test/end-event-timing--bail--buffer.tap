@@ -16,4 +16,5 @@ ok 2 - second ___/# time=[0-9.]+(ms)?/~~~ {
 
 > after ending second
 1..2
+___/# time=[0-9.]+(ms)?/~~~
 

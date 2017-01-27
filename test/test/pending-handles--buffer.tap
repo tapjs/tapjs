@@ -12,8 +12,10 @@ not ok 1 - ___/.*(node|iojs)(.exe)?.*/~~~pending-handles.js child ___/# time=[0-
     
     1..2
     # failed 1 of 2 tests
+    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 1..1
 # failed 1 test
+___/# time=[0-9.]+(ms)?/~~~
 

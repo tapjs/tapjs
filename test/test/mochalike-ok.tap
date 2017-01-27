@@ -50,4 +50,5 @@ ok 4 - reasonably indented things ___/# time=[0-9.]+(ms)?/~~~
 
 1..4
 # todo: 1
+___/# time=[0-9.]+(ms)?/~~~
 

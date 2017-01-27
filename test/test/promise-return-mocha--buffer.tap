@@ -27,4 +27,5 @@ not ok 6 - expected error
 
 1..6
 # failed 2 of 6 tests
+___/# time=[0-9.]+(ms)?/~~~
 

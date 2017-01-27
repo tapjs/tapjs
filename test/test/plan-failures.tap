@@ -81,4 +81,5 @@ not ok 12 - fail then fail end() ___/# time=[0-9.]+(ms)?/~~~
 
 1..12
 # failed 8 of 12 tests
+___/# time=[0-9.]+(ms)?/~~~
 

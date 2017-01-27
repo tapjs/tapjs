@@ -10,4 +10,5 @@ ok 1 - first test ___/# time=[0-9.]+(ms)?/~~~
 ok 2 - second test (async) ___/# time=[0-9.]+(ms)?/~~~
 
 1..2
+___/# time=[0-9.]+(ms)?/~~~
 

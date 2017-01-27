@@ -74,4 +74,5 @@ not ok 5 - pwn ___/# time=[0-9.]+(ms)?/~~~
 
 1..5
 # failed 4 of 5 tests
+___/# time=[0-9.]+(ms)?/~~~
 

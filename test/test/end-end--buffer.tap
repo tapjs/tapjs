@@ -48,4 +48,5 @@ not ok 10 - test end() method called more than once ___/# time=[0-9.]+(ms)?/~~~
 
 1..10
 # failed 4 of 10 tests
+___/# time=[0-9.]+(ms)?/~~~
 

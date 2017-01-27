@@ -88,4 +88,5 @@ not ok 12 - test after end() was called ___/# time=[0-9.]+(ms)?/~~~
 64
 1..12
 # failed 6 of 12 tests
+___/# time=[0-9.]+(ms)?/~~~
 

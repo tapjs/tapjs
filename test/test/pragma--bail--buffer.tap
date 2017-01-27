@@ -13,6 +13,7 @@ not ok 1 - ___/.*(node|iojs)(.exe)?.*/~~~pragma.js child ___/# time=[0-9.]+(ms)?
     more ok non-tap
     ok 2 - ending now
     1..2
+    ___/# time=[0-9.]+(ms)?/~~~
     # failed 1 of 2 tests
 }
 Bail out! # ___/.*(node|iojs)(.exe)?.*/~~~pragma.js child

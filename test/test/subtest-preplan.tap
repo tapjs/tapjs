@@ -20,4 +20,5 @@ ok 1 - with timeout ___/# time=[0-9.]+(ms)?/~~~
 ok 2 - no timeout ___/# time=[0-9.]+(ms)?/~~~
 
 1..2
+___/# time=[0-9.]+(ms)?/~~~
 

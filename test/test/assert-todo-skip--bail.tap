@@ -22,4 +22,5 @@ TAP version 13
 ok 1 - not much ___/# time=[0-9.]+(ms)?/~~~
 
 1..1
+___/# time=[0-9.]+(ms)?/~~~
 

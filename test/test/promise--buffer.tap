@@ -69,10 +69,12 @@ ok 4 - ___/.*(node|iojs)(.exe)?.*/~~~promise.js child ___/# time=[0-9.]+(ms)?/~~
     ok 6 - has no parent
     ok 7 - this is fine
     1..7
+    ___/# time=[0-9.]+(ms)?/~~~
 }
 
 ok 5 - is root tap test
 ok 6 - has no parent
 ok 7 - this is fine
 1..7
+___/# time=[0-9.]+(ms)?/~~~
 

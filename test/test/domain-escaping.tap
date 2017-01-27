@@ -129,4 +129,5 @@ not ok 11 - eit ___/# time=[0-9.]+(ms)?/~~~ {
 
 1..11
 # failed 8 of 11 tests
+___/# time=[0-9.]+(ms)?/~~~
 

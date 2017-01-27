@@ -98,4 +98,5 @@ not ok 6 - a test passing an error to done() callback ___/# time=[0-9.]+(ms)?/~~
 1..6
 # failed 2 of 6 tests
 # todo: 1
+___/# time=[0-9.]+(ms)?/~~~
 

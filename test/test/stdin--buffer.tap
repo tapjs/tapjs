@@ -47,4 +47,5 @@ not ok 2 - /dev/stdin ___/# time=[0-9.]+(ms)?/~~~
 
 1..2
 # failed 1 of 2 tests
+___/# time=[0-9.]+(ms)?/~~~
 

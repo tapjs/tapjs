@@ -23,4 +23,5 @@ not ok 1 - ___/.*(node|iojs)(.exe)?.*/~~~child-text-sub.js sub ___/# time=[0-9.]
 
 1..1
 # failed 1 test
+___/# time=[0-9.]+(ms)?/~~~
 
