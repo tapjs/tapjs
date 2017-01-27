@@ -13,7 +13,7 @@ TAP version 13
             ok 2 - this passes
             not ok 3 - nested failure
               ---
-              {"at":{"column":10,"file":"test/test/spawn.js","function":"foo","line":18},"compare":"===","found":1,"source":"tt.equal(1, '1', 'nested failure')\n","wanted":"1"}
+              {"at":{"column":10,"file":"test/test/spawn.js","line":18},"compare":"===","found":1,"source":"tt.equal(1, '1', 'nested failure')\n","wanted":"1"}
               ...
             
             Bail out! # nested failure

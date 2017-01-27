@@ -20,7 +20,7 @@ TAP version 13
     # Subtest: thrower
         not ok 1 - here hold this for a second
           ---
-          {"at":{"column":14,"file":"test/test/throw.js","function":"Test.<anonymous>","line":18},"source":"var er = new Error('here hold this for a second')\n","syscall":"ring ring","test":"thrower"}
+          {"at":{"column":14,"file":"test/test/throw.js","line":18},"source":"var er = new Error('here hold this for a second')\n","syscall":"ring ring","test":"thrower"}
           ...
         
         1..1

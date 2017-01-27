@@ -1,5 +1,7 @@
 if (typeof describe === 'undefined')
   require('../..').mochaGlobals()
+if (typeof Promise === 'undefined')
+  Promise = require('bluebird')
 
 describe('Array', function () {
   before('name', function (cb) {

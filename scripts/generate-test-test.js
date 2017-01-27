@@ -93,7 +93,7 @@ function deStackify (data) {
       return res
     } else if (k === 'msecs' && typeof data[k] === 'number') {
       return res
-    } else if (k === 'function' && typeof data[k] === 'string' && data[k].indexOf('._onTimeout') !== -1) {
+    } else if (k === 'function' && typeof data[k] === 'string') {
       return res
     } else if (typeof data[k] === 'object' && data[k]) {
       if (k === 'at') {

@@ -7,7 +7,7 @@ ok 1 - (unnamed test) ___/# time=[0-9.]+(ms)?/~~~
 
 not ok 2 - beep
   ---
-  {"at":{"column":11,"file":"test/test/end-exception.js","function":"Test.<anonymous>","line":8},"source":"throw new Error('beep')\n","test":"(unnamed test)"}
+  {"at":{"column":11,"file":"test/test/end-exception.js","line":8},"source":"throw new Error('beep')\n","test":"(unnamed test)"}
   ...
 
 1..2

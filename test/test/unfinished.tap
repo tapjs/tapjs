@@ -4,7 +4,7 @@ TAP version 13
         1..1
         not ok 1 - test unfinished
           ---
-          {"at":{"column":5,"file":"test/test/unfinished.js","function":"Test.<anonymous>","line":4},"source":"t.test('t11', function (t) {\n","test":"t11"}
+          {"at":{"column":5,"file":"test/test/unfinished.js","line":4},"source":"t.test('t11', function (t) {\n","test":"t11"}
           ...
         
         # failed 1 test

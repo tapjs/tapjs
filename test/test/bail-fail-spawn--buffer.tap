@@ -18,7 +18,7 @@ not ok 1 - bail fail ___/# time=[0-9.]+(ms)?/~~~ {
                 ok 2 - this passes
                 not ok 3 - nested failure
                   ---
-                  {"at":{"column":10,"file":"test/test/nesting.js","function":"foo","line":14},"compare":"===","found":1,"source":"tt.equal(1, '1', 'nested failure')\n","wanted":"1"}
+                  {"at":{"column":10,"file":"test/test/nesting.js","line":14},"compare":"===","found":1,"source":"tt.equal(1, '1', 'nested failure')\n","wanted":"1"}
                   ...
                 
                 Bail out! # nested failure

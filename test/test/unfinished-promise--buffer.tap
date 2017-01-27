@@ -6,7 +6,7 @@ not ok 1 - parent ___/# time=[0-9.]+(ms)?/~~~ {
             ok 1 - ok
             not ok 2 - test unfinished
               ---
-              {"at":{"column":14,"file":"test/test/unfinished-promise.js","function":"Test.<anonymous>","line":4},"source":"return t.test('grandchild', function (t) {\n","test":"grandchild"}
+              {"at":{"column":14,"file":"test/test/unfinished-promise.js","line":4},"source":"return t.test('grandchild', function (t) {\n","test":"grandchild"}
               ...
             
             # test count(2) != plan(3)

@@ -10,7 +10,7 @@ ok 1 - exceed_plan_sync ___/# time=[0-9.]+(ms)?/~~~ {
 
 not ok 2 - test count exceeds plan
   ---
-  {"at":{"column":7,"file":"test/test/catch-tap-throws.js","function":"Test.exceed_plan_sync","line":12},"plan":1,"source":"t.pass(2)\n","test":"exceed_plan_sync"}
+  {"at":{"column":7,"file":"test/test/catch-tap-throws.js","line":12},"plan":1,"source":"t.pass(2)\n","test":"exceed_plan_sync"}
   ...
 
 21
@@ -54,7 +54,7 @@ ok 7 - assert_after_end_sync ___/# time=[0-9.]+(ms)?/~~~ {
 
 not ok 8 - test after end() was called
   ---
-  {"at":{"column":7,"file":"test/test/catch-tap-throws.js","function":"Test.assert_after_end_sync","line":74},"plan":1,"source":"t.pass(8)\n","test":"assert_after_end_sync"}
+  {"at":{"column":7,"file":"test/test/catch-tap-throws.js","line":74},"plan":1,"source":"t.pass(8)\n","test":"assert_after_end_sync"}
   ...
 
 61
