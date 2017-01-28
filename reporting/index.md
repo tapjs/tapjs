@@ -7,7 +7,7 @@ layout: layout
 Tests can be reported in a variety of different ways.
 
 When you run a test script directly, it'll always output
-[TAP](http://testanything.org/).  The tap runner will interpret this
+[TAP](/tap-format/).  The tap runner will interpret this
 output, and can format it in a variety of different ways.
 
 These are done programmatically using the
