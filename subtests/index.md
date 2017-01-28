@@ -9,8 +9,9 @@ blocks".  Tests can be grouped into subtests with this test framework
 in a few different ways.
 
 The first is by using the
-[`t.test()`](/api/#ttestname-options-function)
-method.
+[`t.test()`](/api/#ttestname-options-function) method.  This is also
+what's used under the hood when you use the [mochalike](/mochalike/)
+API.
 
 The second way to run a subtest is by using the
 [`t.spawn()`](/advanced/#tspawncommand-arguments-options-name-extra)
@@ -40,6 +41,10 @@ example:
 
 ```tap
 TAP version 13
+ok - blerggy blerg
+  ---
+  some: diags
+  ...
 # Subtest: foo
     # Subtest: bar
         1..1
@@ -122,9 +127,9 @@ harder to notice when watching tests in real time.
 
 ## Parallelism
 
-Subtests are run in serial.
+Subtests are run in serial by default.
 
-A future version of node-tap will provide a `parallel` option to allow
-running tests in a parallel mode.  Parallel tests will always be
-output as buffered subtests, because their data must be buffered in
-memory while other tests are potentially running.
+By setting a `jobs` value, you can tell tap to run subtests in
+parallel.  Only buffered tests can be run in parallel.
+
+See [Parallel Tests](/parallel/) for more on this.

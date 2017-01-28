@@ -13,6 +13,8 @@ See also:
 - [Asserts](/asserts/)
 - [Promises](/promises/)
 - [Subtests](/subtests/)
+- [Parallel Tests](/parallel/)
+- [Mocha-like DSL](/mochalike/)
 - [Advanced Usage](/advanced/)
 
 ## tap = require('tap')
@@ -20,16 +22,16 @@ See also:
 The root `tap` object is an instance of the Test class with a few
 slight modifications.
 
-1. The `tearDown()`, `plan()`, and `test()` methods are pre-bound onto
-   the root object, so that you don't have to call them as methods.
-2. By default, it pipes to stdout, so running a test directly just
-   dumps the TAP data for inspection.  (You can of course
-   `tap.unpipe(process.stdout)` if you want to direct it elsewhere.)
-3. Various other things are hung onto it for convenience, since it is
+1. By default, it pipes to stdout, so running a test directly just
+   dumps the TAP data for inspection.  This piping behavior is a
+   _little_ bit magic -- it only pipes when you do something that
+   triggers output, so there's no need to manually unpipe if you never
+   actually use it to run tests.
+2. Various other things are hung onto it for convenience, since it is
    the main package export.
-4. The test ends automatically when `process.on('exit')` fires, so
+3. The test ends automatically when `process.on('exit')` fires, so
    there is no need to call `tap.end()` explicitly.
-5. Adding a `tearDown` function triggers `autoend` behavior.
+4. Adding a `tearDown` function triggers `autoend` behavior.
    Otherwise, the `end` would potentially never arrive, if for example
    `tearDown` is used to close a server or cancel some long-running
    process, because `process.on('exit')` would never fire of its own
@@ -51,7 +53,7 @@ to stdout by default.  However, you can instantiate a `Test` object
 and then pipe it wherever you like.  The only limit is your imagination.
 
 Whenever you see `t.<whatever>` in this documentation, it refers to a
-Test object.
+Test object, but applies equally well in most cases to the root test.
 
 ### t.test([name], [options], [function])
 
@@ -96,6 +98,13 @@ for child tests:
 * `buffered` Set to `true` to run as a buffered [subtest](/subtests/).
   Set to `false` to run as an indented subtest.  The default is
   `false` unless `TAP_BUFFER=1` is set in the environment.
+* `jobs` Set to an integer to assign the `t.jobs` property.
+
+### t.jobs
+
+If you set the `t.jobs` property to a number greater than 1, then it
+will enable [parallel execution](/parallel/) of all of this test's
+children.
 
 ### t.tearDown(function)
 
@@ -123,7 +132,8 @@ return a [Promise](/promises/) rather than using the `done` callback.
 
 Specify that a given number of tests are going to be run.
 
-This may only be called *before* running any [asserts](/asserts/) or child tests.
+This may only be called *before* running any [asserts](/asserts/) or
+child tests.
 
 ### t.end()
 
@@ -135,7 +145,7 @@ raised.
 
 ### t.bailout([reason])
 
-Pull the proverbial ejector seat.
+Fire the proverbial ejector seat.
 
 Use this when things are severely broken, and cannot be reasonably
 handled.  Immediately terminates the entire test run.

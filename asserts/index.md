@@ -27,6 +27,13 @@ the following fields are "special".
   where the assertion was called.  Do not set this field unless you
   know what you are doing.
 
+**Note**: There's no requirement that you use tap's built-in
+assertions.  You can also use any Error-throwing assertion library,
+including Node.js's built-in `assert` module.  A throw fails a test,
+so not-throwing passes.  That does, however, mean that you won't
+generate a test point in your output for each assertion run.  You do
+you.
+
 ## t.ok(obj, message, extra)
 
 Verifies that the object is truthy.

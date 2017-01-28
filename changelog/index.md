@@ -2,6 +2,27 @@
 layout: layout
 ---
 
+## 10.0
+
+Full rewrite to support [parallel tests](/parallel/).  Pass `-j4` on
+[the command-line](/cli/) to run 4 test files at once in parallel.
+
+This also refactors a lot of the grimier bits of the codebase, splits
+the one mega-Test class into a proper OOP hierarchy, and pulls a bunch
+of reusable stuff out into modules.
+
+Somehow, in the process, it also fixed an odd timing bug with
+`beforeEach` functions that returned promises.
+
+It truly is a luxury to have a massive pile of tests when it's time to
+refactor.
+
+The [mocha-like DSL](/mochalike/) is now much more functional, and
+documented.
+
+Now supports passng `-T` or `--timeout=0` to the [CLI](/cli/) to not
+impose a timeout on tests.
+
 ## 9.0
 
 Buffered subtests!

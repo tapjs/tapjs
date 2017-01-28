@@ -13,6 +13,18 @@ Please [let us know](https://github.com/isaacs/node-tap/issues) if you
 frequently encounter situations requiring advanced usage, because this
 may indicate a shortcoming in the "non-advanced" [API](/api/).
 
+## Class: t.Spawn()
+
+Similar to the `Test` class, but instead of a callback that gets a
+object with assertion methods, it starts a child process and parses its
+output.
+
+## Class: t.Stdin()
+
+Similar to the `Test` class, but instead of a callback that gets a
+object with assertion methods, it reads the process standard input,
+and parses that as [TAP](/tap-format)-formatted data.
+
 ## t.stdin()
 
 Parse standard input as if it was a child test named `/dev/stdin`.
@@ -23,7 +35,7 @@ is completed.
 This is primarily for use in the test runner, so that you can do
 `some-tap-emitting-program | tap other-file.js - -Rnyan`.
 
-## t.spawn(command, arguments, [options], [name], [extra])
+## t.spawn(command, arguments, [options], [name])
 
 Sometimes, instead of running a child test directly inline, you might
 want to run a TAP producting test as a child process, and treat its
@@ -38,10 +50,9 @@ It is primarily used by the executable runner, to run all of the
 filename arguments provided on the command line.
 
 The `options` object is passed to `child_process.spawn`, and can
-contain stuff like stdio directives and environment vars.
-
-The `extra` arg is the same that would be passed to any assertion or
-child test, with the addition of the following fields:
+contain stuff like stdio directives and environment vars.  It's also
+where you put the same fields that would be passed to any assertion or
+child test:
 
 * `bail`: Set to `true` to bail out on the first failure.  This is
   done by checking the output and then forcibly killing the process,
@@ -114,10 +125,6 @@ tap.titleCase('however, tHis tOTaLLy faILS')
 ## t.endAll()
 
 Call the `end()` method on all child tests, and then on this one.
-
-## t.current()
-
-Return the currently active test.
 
 ## t.assertAt, t.assertStack, extra.at, extra.stack
 

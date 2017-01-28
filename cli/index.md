@@ -26,6 +26,12 @@ Coverage is never enabled for stdin.
 
 Options:
 
+  -j<n> --jobs=<n>            Run up to <n> test files in parallel
+                              Note that this causes tests to be run in
+                              "buffered" mode, so line-by-line results
+                              cannot be reported, and older TAP
+                              parsers may get upset.
+
   -c --color                  Use colors (Default for TTY)
 
   -C --no-color               Do not use colors (Default for non-TTY)
@@ -92,6 +98,11 @@ Options:
   -t<n> --timeout=<n>         Time out test files after <n> seconds.
                               Defaults to 30, or the value of the
                               TAP_TIMEOUT environment variable.
+                              Setting to 0 allows tests to run
+                              forever.
+
+  -T --no-timeout             Do not time out tests.
+                              Equivalent to --timeout=0
 
   -h --help                   print this thing you're looking at
 
@@ -205,5 +216,4 @@ variable can modify this.
 
 Run 'tap --dump-config' for a listing of what can be set in that file.
 Each of the keys corresponds to one of the options above.
-
 ```

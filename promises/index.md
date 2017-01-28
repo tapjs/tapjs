@@ -34,7 +34,7 @@ t.test('get thing', function (t) {
       t.end()
     })
   })
-}).then('get two things', function (t) {
+}).then(function (t) {
   return getTwoThings().then(function (things) {
     return t.test('the things', function (t) {
       t.equal(things.length, 2)
@@ -61,6 +61,29 @@ Because `async` functions return a Promise, you can use them out of
 the box with node-tap.  If you pass an `async` function as the
 `t.test()` callback, then tap will detect the promise return and move
 onto the next test once the async function has completely resolved.
+
+The above example could be written like this:
+
+```js
+var t = require('tap')
+t.test('get thing', async function (t) {
+  var result = await getSomeThing()
+  await t.test('check result', function (t) {
+    t.equal(result.foo, 'bar')
+    t.end()
+  })
+}).then(async function (t) {
+  var things = await getTwoThings()
+  var otherPromiseResult = await t.test('the things', function (t) {
+    t.equal(things.length, 2)
+    return makeSomeOtherPromise()
+  })
+  await t.test('check other promise thing', function (t) {
+    t.equal(otherPromiseResult, 7, 'it should be seven')
+    t.end()
+  })
+}).catch(t.threw)
+```
 
 Because subtests return promises, you can also `await` them to do
 things in between subtests.

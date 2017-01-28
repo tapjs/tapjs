@@ -68,6 +68,9 @@ If we run this with node, we'll see the raw TAP output:
 
 ```bash
 $ node test/hello-world.js
+```
+
+```tap
 TAP version 13
 ok 1 - this is fine
 1..1
@@ -336,18 +339,21 @@ tap.test('this waits until after', function (childTest) {
 })
 ```
 
-If you run this test with Node, you'll see that the child tests are
-indented:
+If you run this test with Node, you'll see that the [child
+tests](/subtests/) are indented:
 
-```
+```bash
 $ node test/async.js
+```
+
+```tap
 TAP version 13
-    # Subtest: some async stuff
+# Subtest: some async stuff
     ok 1 - should match pattern provided
     1..1
 ok 1 - some async stuff # time=9.647ms
 
-    # Subtest: this waits until after
+# Subtest: this waits until after
     1..0
 ok 2 - this waits until after # time=6ms
 
@@ -357,7 +363,7 @@ ok 2 - this waits until after # time=6ms
 
 If you run it with tap, it'll look just like the others
 
-```
+```bash
 $ npm t
 
 > my-awesome-module@1.2.3 test /home/isaacs/my-awesome-module
