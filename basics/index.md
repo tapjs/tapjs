@@ -11,7 +11,7 @@ tap in your Node.js programs.
 
 Use npm to install tap:
 
-```
+```bash
 npm install tap --save-dev
 ```
 
@@ -25,7 +25,7 @@ Next, update your package.json so that the test script invokes tap:
   "name": "my-awesome-module",
   "version": "1.2.3",
   "devDependencies": {
-    "tap": "^5.0.0"
+    "tap": "^10.0.0"
   },
 
   "scripts": {
@@ -58,7 +58,7 @@ has all the same properties as child tests.
 
 Here's a very basic test program:
 
-```
+```javascript
 // test/hello-world.js
 var tap = require('tap')
 tap.pass('this is fine')
@@ -66,7 +66,7 @@ tap.pass('this is fine')
 
 If we run this with node, we'll see the raw TAP output:
 
-```
+```bash
 $ node test/hello-world.js
 TAP version 13
 ok 1 - this is fine
@@ -86,7 +86,7 @@ prettier for us.  Because we installed tap as a devDependency, and
 added it as a script in package.json, we can run `npm test` to run all
 our tests with the `tap` built-in cli.
 
-```
+```bash
 $ npm test
 
 > my-awesome-module@1.2.3 test /home/isaacs/my-awesome-module
@@ -143,7 +143,7 @@ tap.equal(mam(2), 'even')
 
 Looks good to me!
 
-```
+```bash
 $ npm test
 
 > my-awesome-module@1.2.3 test /home/isaacs/my-awesome-module
@@ -160,7 +160,7 @@ total ................................................. 3/3
 
 Let's run with test coverage turned on, just to be sure:
 
-```
+```bash
 $ npm test -- --cov
 
 > my-awesome-module@1.2.3 test /home/isaacs/my-awesome-module
@@ -186,7 +186,7 @@ All files              |    55.56 |     37.5 |      100 |    55.56 |            
 Ouch, only 50% coverage.  That's not very good.  Let's see what lines
 are covered:
 
-```
+```bash
 $ npm test -- --cov --coverage-report=lcov
 ```
 
@@ -197,7 +197,7 @@ being called.
 
 Ok, add some more tests then:
 
-```
+```js
 // test/basic.js
 var tap = require('tap')
 var mam = require('../my-awesome-module.js')
@@ -211,7 +211,7 @@ tap.equal(mam(-10), 'negative')
 
 Now the test output gets a lot more interesting:
 
-```
+```bash
 $ npm t
 
 > my-awesome-module@1.2.3 test /home/isaacs/my-awesome-module
@@ -262,7 +262,7 @@ npm ERR! Test failed.  See above for more details.
 
 Let's update our code so that it makes our tests pass:
 
-```
+```js
 // my-awesome-module.js
 module.exports = function (x) {
   if (x > 100) {
@@ -279,7 +279,7 @@ module.exports = function (x) {
 
 And now our coverage report is much happier:
 
-```
+```bash
 $ npm t -- --cov
 
 > my-awesome-module@1.2.3 test /home/isaacs/my-awesome-module
