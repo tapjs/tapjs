@@ -23,6 +23,6 @@ not ok 3 - this fails
 
 # Subtest: async kid
     1..2
-    Bail out! # cannot continue
-Bail out! # cannot continue
+    Bail out! # # # cannot continue
+Bail out! # # # cannot continue
 

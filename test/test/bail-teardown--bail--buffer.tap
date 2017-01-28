@@ -5,5 +5,5 @@ ok 2 - child ___/# time=[0-9.]+(ms)?/~~~ {
     1..1
 }
 
-Bail out! # i did not want to be torn down
+Bail out! i did not want to be torn down
 

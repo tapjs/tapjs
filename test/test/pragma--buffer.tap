@@ -23,7 +23,7 @@ not ok 2 - ___/.*(node|iojs)(.exe)?.*/~~~pragma.js child bailout ___/# time=[0-9
   {"args":["___/.*/~~~pragma.js","child","bailout"],"command":"___/.*(node|iojs)(.exe)?/~~~","cwd":"___/.*/~~~","exitCode":1}
   ...
 {
-    Bail out! # no pragmas come after bailout
+    Bail out! no pragmas come after bailout
 }
-Bail out! # no pragmas come after bailout
+Bail out! no pragmas come after bailout
 

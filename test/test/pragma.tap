@@ -18,6 +18,6 @@ not ok 1 - ___/.*(node|iojs)(.exe)?.*/~~~pragma.js child ___/# time=[0-9.]+(ms)?
 
 pragma -child
 # Subtest: ___/.*(node|iojs)(.exe)?.*/~~~pragma.js child bailout
-    Bail out! # no pragmas come after bailout
-Bail out! # no pragmas come after bailout
+    Bail out! no pragmas come after bailout
+Bail out! no pragmas come after bailout
 

@@ -4,5 +4,5 @@ TAP version 13
 ok 1 - foobar test ___/# time=[0-9.]+(ms)?/~~~
 
 # Subtest: barfoo
-Bail out! # teardown fail
+Bail out! teardown fail
 

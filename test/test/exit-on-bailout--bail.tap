@@ -4,6 +4,6 @@ log in child, before grandchild
 # Subtest: child
 log in grandchild, before bailout
     # Subtest: grandchild
-        Bail out! # cannot continue
-Bail out! # cannot continue
+        Bail out! cannot continue
+Bail out! cannot continue
 

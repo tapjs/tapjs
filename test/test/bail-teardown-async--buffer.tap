@@ -3,5 +3,5 @@ ok 1 - foobar test ___/# time=[0-9.]+(ms)?/~~~ {
     1..0
 }
 
-Bail out! # teardown fail
+Bail out! teardown fail
 
