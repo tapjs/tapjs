@@ -8,6 +8,8 @@ html {
   padding: 0 1em;
   margin: 0 auto;
   border-top: 10px solid #f7df1e;
+  line-height:1.5;
+  color:#333;
   position:relative;
 }
 
@@ -32,7 +34,8 @@ a:hover, a:active, a:focus {
 }
 
 code, pre, kbd {
-  font-family: monospace;
+  font-size: 100%;
+  font-family: Triplicate T4, Fira Mono OT, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospacek;
 }
 
 section.side {
@@ -131,6 +134,7 @@ section.main {
   }
 }
 </style>
+<link href="/static/prism.css" rel="stylesheet">
 
 <body>
 
@@ -157,4 +161,5 @@ section.main {
 <section class='main'>
 {{ content }}
 </section>
+<script src="/static/prism.js"></script>
 </body>
