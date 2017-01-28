@@ -41,10 +41,6 @@ example:
 
 ```tap
 TAP version 13
-ok - blerggy blerg
-  ---
-  some: diags
-  ...
 # Subtest: foo
     # Subtest: bar
         1..1
