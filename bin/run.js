@@ -13,6 +13,7 @@ var osHomedir = require('os-homedir')
 var yaml = require('js-yaml')
 var path = require('path')
 var exists = require('fs-exists-cached').sync
+var os = require('os');
 
 var coverageServiceTest = process.env.COVERAGE_SERVICE_TEST === 'true'
 
@@ -158,6 +159,7 @@ function parseArgs (args, defaults) {
 
   var singleOpts = {
     j: 'jobs',
+    J: 'jobs-auto',
     R: 'reporter',
     t: 'timeout',
     s: 'save'
@@ -237,6 +239,11 @@ function parseArgs (args, defaults) {
 
       case '--jobs':
         val = val || args[++i]
+        options.jobs = +val
+        continue
+
+      case '--jobs-auto':
+        val = os.cpus().length;
         options.jobs = +val
         continue
 
