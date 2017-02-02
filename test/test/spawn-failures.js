@@ -8,7 +8,7 @@ function hijackedSpawn (cmd, args, options) {
   if (throwNow) {
     throw throwNow
   }
-  var child = spawn.call(cp, cmd, args, options)
+  var child = spawn.apply(this, arguments)
   if (throwLater) {
     setTimeout(function () {
       child.emit('error', throwLater)

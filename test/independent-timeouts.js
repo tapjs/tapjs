@@ -22,13 +22,17 @@ if (process.env.APPVEYOR) {
 }
 
 test('finishes in time', {timeout: long}, function (t) {
+  var start = Date.now()
   setTimeout(function () {
+    t.comment(Date.now() - start)
     t.end()
   }, med)
 })
 
 test('finishes in time too', {timeout: long}, function (t) {
+  var start = Date.now()
   setTimeout(function () {
+    t.comment(Date.now() - start)
     t.end()
   }, med)
 })

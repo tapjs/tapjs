@@ -1,0 +1,14 @@
+TAP version 13
+ok 1 - first test ___/# time=[0-9.]+(ms)?/~~~ {
+    ok 1 - this is ok
+    1..1
+}
+
+ok 2 - second test (async) ___/# time=[0-9.]+(ms)?/~~~ {
+    ok 1 - this is ok
+    1..1
+}
+
+1..2
+___/# time=[0-9.]+(ms)?/~~~
+

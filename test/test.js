@@ -1,5 +1,5 @@
 var glob = require('glob')
-var t = require('../lib/root.js')
+var t = require('../')
 var spawn = require('child_process').spawn
 var node = process.execPath
 var fs = require('fs')
@@ -7,23 +7,52 @@ var dir = __dirname + '/test/'
 var path = require('path')
 var yaml = require('js-yaml')
 
+process.env.TAP_BUFFER = 1
+// don't turn on parallelization for `npm test`, because it also
+// has coverage and this makes the spawn timeouts stuff break.
+if (process.env.npm_lifecycle_event !== 'test')
+  t.jobs = 2
+
 function regEsc (str) {
   return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&')
 }
 
-module.exports = function (pattern) {
-  glob.sync(dir + pattern).forEach(runTests)
+module.exports = function (pattern, bail, buffer) {
+  pattern = path.basename(pattern)
+  glob.sync(dir + pattern).forEach(function (f) {
+    runTests(f, bail, buffer)
+  })
 }
 
 if (module === require.main) {
   if (process.argv[2]) {
-    module.exports(process.argv[2])
+    var bail, buffer
+    process.argv.slice(3).forEach(function (x) {
+      switch (x) {
+        case 'bail': return bail = true
+        case 'buffer': return buffer = true
+        case 'nobail': return bail = false
+        case 'nobuffer': return buffer = false
+      }
+    })
+    module.exports(process.argv[2], bail, buffer)
   } else {
-    t.pass('just a common file')
+    module.exports('*.js', false, false)
   }
 }
 
-function runTests (file) {
+function runTests (file, bail, buffer) {
+  var bails = [ !!bail ]
+  var buffs = [ !!buffer ]
+
+  if (bail === undefined) {
+    bails = [ true, false ]
+  }
+
+  if (buffer === undefined) {
+    buffs = [ true, false ]
+  }
+
   var skip = false
   if (file.match(/\b(timeout.*|pending-handles)\.js$/)) {
     if (process.env.TRAVIS) {
@@ -31,6 +60,13 @@ function runTests (file) {
     } else if (process.platform === 'win32') {
       skip = 'timeout and handles tests rely on sinals windows cannot do'
     }
+  }
+
+  if (file.match(/\bsegv\b/)) {
+    if (process.platform === 'win32')
+      skip = 'skip segv on windows'
+    else if (process.env.TRAVIS)
+      skip = 'skip segv on CI'
   }
 
   if (file.match(/\bsigterm\b/)) {
@@ -43,24 +79,30 @@ function runTests (file) {
 
   var f = file.substr(dir.length)
   t.test(f, { skip: skip }, function (t) {
-    t.test('bail=false', function (t) {
-      runTest(t, false, file)
+    t.plan(bails.length * buffs.length)
+    bails.forEach(function (bail) {
+      buffs.forEach(function (buff) {
+        t.test('bail=' + bail + ' buffer=' + buff, function (t) {
+          runTest(t, bail, buff, file)
+        })
+      })
     })
-    t.test('bail=true', function (t) {
-      runTest(t, true, file)
-    })
-    t.end()
   })
 }
 
-function runTest (t, bail, file) {
-  var resfile = file.replace(/\.js$/, (bail ? '-bail' : '') + '.tap')
+function runTest (t, bail, buffer, file) {
+  var resfile = file.replace(/\.js$/,
+   (bail ? '--bail' : '') +
+   (buffer ? '--buffer' : '') +
+   '.tap')
   var want = fs.readFileSync(resfile, 'utf8').split(/\r?\n/)
 
   var child = spawn(node, [file], {
     stdio: [ 0, 'pipe', 'pipe' ],
     env: {
-      TAP_BAIL: bail ? 1 : 0
+      TAP_BAIL: bail ? 1 : 0,
+      TAP_BUFFER: buffer ? 1 : 0,
+      PATH: process.env.PATH
     }
   })
 
@@ -120,10 +162,14 @@ function runTest (t, bail, file) {
   })
 }
 
-function patternify (pattern) {
+function patternify (pattern, key) {
+  var root = !key
   if (typeof pattern === 'object' && pattern) {
     Object.keys(pattern).forEach(function (k) {
-      pattern[k] = patternify(pattern[k])
+      pattern[k] = patternify(pattern[k], k)
+      // sigbus an sigsegv are more or less the same thing.
+      if (root && k === 'signal' && pattern[k] === 'SIGBUS')
+        pattern[k] = /^SIG(BUS|SEGV)$/
     })
     return pattern
   }

@@ -1,0 +1,28 @@
+TAP version 13
+before 1 parent
+done
+before 1 child
+before 2 child
+before 1 grandchild
+before 2 grandchild
+after 2 grandchild
+after 1 grandchild
+after 2 child
+after 1 child
+after 1 parent
+ok 1 - parent ___/# time=[0-9.]+(ms)?/~~~ {
+    ok 1 - child ___/# time=[0-9.]+(ms)?/~~~ {
+        ok 1 - grandchild ___/# time=[0-9.]+(ms)?/~~~ {
+            ok 1 - the only actual assertion
+            1..1
+        }
+        
+        1..1
+    }
+    
+    1..1
+}
+
+1..1
+___/# time=[0-9.]+(ms)?/~~~
+

@@ -1,0 +1,4 @@
+TAP version 13
+not ok 1 - this is not ok
+Bail out! # this is not ok
+

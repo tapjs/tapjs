@@ -1,0 +1,13 @@
+TAP version 13
+ok 1 - t.end() ___/# time=[0-9.]+(ms)?/~~~ {
+    ok 1 - did not timeout
+    1..1
+}
+
+not ok 2 - timeout!
+  ---
+  {"expired":"t.end()","test":"t.end()","timeout":50}
+  ...
+
+Bail out! # timeout!
+

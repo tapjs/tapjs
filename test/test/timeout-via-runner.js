@@ -13,5 +13,5 @@ if (process.argv[2] === 'child') {
     }, 20000)
   })
 } else {
-  t.spawn(process.execPath, [__filename, 'child'], {}, 'child', { timeout: 1000 })
+  t.spawn(process.execPath, [__filename, 'child'], { timeout: 1000 })
 }

@@ -3,6 +3,13 @@ if (process.argv[2] === 'child') {
 } else if (process.argv[2] !== 'silent') {
   var t = require('../')
   var Test = t.Test
+
+  t.test('buffered', { buffered: true }, runTest)
+  t.test('unbuffered', { buffered: false }, runTest)
+}
+
+function runTest (t) {
+  t.plan(2)
   var tt = new Test()
 
   var out = ''
@@ -11,40 +18,27 @@ if (process.argv[2] === 'child') {
   })
   tt.on('complete', function (res) {
     t.has(res, {
-      plan: { start: 1, end: 2 },
+      ok: true,
       count: 2,
       pass: 2,
-      ok: true,
-      skip: 2
-    })
-    t.has(tt._skips, [
-      {
-        ok: true,
-        message: /\.[\\\/]test[\\\/]only-non-tap-output.js child/,
-        extra: {
-          at: {},
-          results: {},
-          command: process.execPath,
-          arguments: {},
-          skip: 'No tests found'
-        }
+      fail: 0,
+      bailout: false,
+      todo: 0,
+      skip: 2,
+      plan: {
+        start: 1,
+        end: 2,
+        skipAll: false,
+        skipReason: '',
+        comment: ''
       },
-      {
-        ok: true,
-        message: /\.[\\\/]test[\\\/]only-non-tap-output.js silent/,
-        extra: {
-          at: {},
-          results: {},
-          command: process.execPath,
-          arguments: {},
-          skip: 'No tests found'
-        }
-      }
-    ])
+      failures: []
+    })
     t.ok(tt.passing(), 'should still be passing')
   })
 
-  tt.spawn(process.execPath, [__filename, 'child'])
-  tt.spawn(process.execPath, [__filename, 'silent'])
+  var opt = { buffered: t.buffered }
+  tt.spawn(process.execPath, [__filename, 'child'], opt)
+  tt.spawn(process.execPath, [__filename, 'silent'], opt)
   tt.end()
 }

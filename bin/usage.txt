@@ -17,6 +17,12 @@ Coverage is never enabled for stdin.
 
 Options:
 
+  -j<n> --jobs=<n>            Run up to <n> test files in parallel
+                              Note that this causes tests to be run in
+                              "buffered" mode, so line-by-line results
+                              cannot be reported, and older TAP
+                              parsers may get upset.
+
   -c --color                  Use colors (Default for TTY)
 
   -C --no-color               Do not use colors (Default for non-TTY)
@@ -81,6 +87,11 @@ Options:
   -t<n> --timeout=<n>         Time out test files after <n> seconds.
                               Defaults to 30, or the value of the
                               TAP_TIMEOUT environment variable.
+                              Setting to 0 allows tests to run
+                              forever.
+
+  -T --no-timeout             Do not time out tests.
+                              Equivalent to --timeout=0
 
   -h --help                   print this thing you're looking at
 
@@ -172,6 +183,29 @@ Environment Variables:
                               and suppress any reporters.  Used when
                               running child tests so that their output
                               is parseable by the test harness.
+
+  TAP_DIAG                    Set to '1' to show diagnostics by
+                              default for passing tests.  Set to '0'
+                              to NOT show diagnostics by default for
+                              failing tests.  If not one of these two
+                              values, then diagnostics are printed by
+                              default for failing tests, and not for
+                              passing tests.
+
+  TAP_BUFFER                  Set to '1' to run subtests in buffered
+                              mode by default.
+
+  TAP_DEV_LONGSTACK           Set to '1' to include node-tap internals
+                              in stack traces.  By default, these are
+                              included only when the current working
+                              directory is the tap project itself.
+                              Note that node internals are always
+                              excluded.
+
+  TAP_DEV_SHORTSTACK          Set to '1' to exclude node-tap internals
+                              in stack traces, even if the current
+                              working directory is the tap project
+                              itself.
 
   _TAP_COVERAGE_              Reserved for internal use.
 

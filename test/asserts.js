@@ -1,4 +1,4 @@
-var test = require('../lib/root.js').test
+var test = require('../').test
 var Test = require('../lib/test.js')
 var util = require('util')
 var truthies = [ true, 1, 'ok', Infinity, function () {}, {}, [], /./ ]
