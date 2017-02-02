@@ -206,6 +206,18 @@ Environment Variables:
   TAP_BUFFER                  Set to '1' to run subtests in buffered
                               mode by default.
 
+  TAP_DEV_LONGSTACK           Set to '1' to include node-tap internals
+                              in stack traces.  By default, these are
+                              included only when the current working
+                              directory is the tap project itself.
+                              Note that node internals are always
+                              excluded.
+
+  TAP_DEV_SHORTSTACK          Set to '1' to exclude node-tap internals
+                              in stack traces, even if the current
+                              working directory is the tap project
+                              itself.
+
   _TAP_COVERAGE_              Reserved for internal use.
 
 Config Files:
