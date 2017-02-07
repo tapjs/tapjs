@@ -2,6 +2,14 @@
 layout: layout
 ---
 
+## 10.1
+
+Added support for source maps.  Stack traces in your jsx and
+coffeescript files will now be helpful!
+
+Added the `-J` option to auto-calculate the number of cores on your
+system, and run that many parallel jobs.
+
 ## 10.0
 
 Full rewrite to support [parallel tests](/parallel/).  Pass `-j4` on

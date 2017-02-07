@@ -32,6 +32,12 @@ Options:
                               cannot be reported, and older TAP
                               parsers may get upset.
 
+  -J --jobs-auto              Run test files in parallel (auto calculated)
+                              Note that this causes tests to be run in
+                              "buffered" mode, so line-by-line results
+                              cannot be reported, and older TAP
+                              parsers may get upset.
+
   -c --color                  Use colors (Default for TTY)
 
   -C --no-color               Do not use colors (Default for non-TTY)
