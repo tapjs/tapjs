@@ -215,6 +215,10 @@ Environment Variables:
 
   _TAP_COVERAGE_              Reserved for internal use.
 
+  TAP_DEBUG                   Set to '1' to turn on debug mode.
+
+  NODE_DEBUG                  Include 'tap' to turn on debug mode.
+
 Config Files:
 
 You can create a yaml file with any of the options above.  By default,
