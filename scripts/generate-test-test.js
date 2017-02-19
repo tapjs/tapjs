@@ -52,6 +52,11 @@ function generate (file, bail, buffer) {
     var timere = new RegExp(timep, 'g')
     output = output.replace(timere, '___/' + timep + '/~~~')
 
+    // strip out un-pretty-ified error stack lines
+    output = output.replace(
+      /^    at .*?:[0-9]+:[0-9]+\)?$/mg,
+      '___/^    at .*?:[0-9]+:[0-9]+\\)?$/~~~')
+
     output = output.split(file).join('___/.*/~~~' + path.basename(file))
     output = output.split(f).join('___/.*/~~~' + path.basename(f))
 
