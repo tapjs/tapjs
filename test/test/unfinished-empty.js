@@ -1,9 +1,9 @@
 var t = require('tap')
 
-t.teardown(() => console.log('ok'))
+t.teardown(function () { console.log('ok') })
 
-t.test('a', t => {
-  t.test('b', t => {
-    // t.pass('ok')
+t.test('a', function (t) {
+  t.test('b', function (t) {
+    // nothing here
   })
 })

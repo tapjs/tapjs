@@ -3,7 +3,7 @@ TAP version 13
     # Subtest: b
         not ok 1 - test unfinished
           ---
-          {"at":{"column":5,"file":"test/test/unfinished-empty.js","line":6},"source":"t.test('b', t => {\n","test":"b"}
+          {"at":{"column":5,"file":"test/test/unfinished-empty.js","line":6},"source":"t.test('b', function (t) {\n","test":"b"}
           ...
         
         Bail out! # test unfinished
