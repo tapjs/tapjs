@@ -125,6 +125,8 @@ function Parser (options, onComplete) {
   this.braceLevel = null
   this.parent = options.parent || null
   this.failures = []
+  if (options.passes)
+    this.passes = []
   this.level = options.level || 0
   Writable.call(this)
   this.buffer = ''
@@ -453,6 +455,8 @@ function FinalResults (skipAll, self) {
   this.skip = skipAll ? self.count : self.skip || 0
   this.plan = new FinalPlan(skipAll, self)
   this.failures = self.failures
+  if (self.passes)
+    this.passes = self.passes
 }
 
 function FinalPlan (skipAll, self) {
@@ -555,6 +559,8 @@ Parser.prototype.emitResult = function () {
   this.count++
   if (res.ok) {
     this.pass++
+    if (this.passes)
+      this.passes.push(res)
   } else {
     this.fail++
     if (!res.todo && !res.skip) {

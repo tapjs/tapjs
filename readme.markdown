@@ -111,6 +111,8 @@ If `options` is given, it may contain the following flags:
   parser to ignore `TAP version 13` lines.  Version lines in subtests
   cause problems with some parsers, so they are always ignored.
 
+- `passes` boolean which is false by default and will add "passes" property for that contains the result of all passed tests
+
 The `parent`, `level` and `buffered` options are reserved for internal
 use.
 
