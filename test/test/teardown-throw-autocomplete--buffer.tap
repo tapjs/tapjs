@@ -16,7 +16,7 @@ not ok 1 - child ___/# time=[0-9.]+(ms)?/~~~ {
 
 not ok 2 - child teardown
   ---
-  {"at":{"column":11,"file":"test/test/teardown-throw-autocomplete.js","line":12},"autoend":true,"source":"throw new Error('child teardown')\n","test":"TAP"}
+  {"at":{"column":11,"file":"test/test/teardown-throw-autocomplete.js","line":12},"source":"throw new Error('child teardown')\n","test":"child"}
   ...
 
 1..2
