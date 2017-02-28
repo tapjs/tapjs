@@ -134,7 +134,12 @@ function runTest (t, bail, buffer, file) {
           y = ''
           wdata = JSON.parse(wline)
           patternify(wdata)
-          t.match(data, wdata)
+          var msg = 'line ' + f + ' '
+          if (wline.length < 50)
+            msg += wline
+          else
+            msg += wline.substr(0, 45) + '...'
+          t.match(data, wdata, msg)
           f--
         } else {
           y += fline + '\n'
