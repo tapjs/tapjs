@@ -1,4 +1,4 @@
-var t = require('tap')
+var t = require('../..')
 
 t.teardown(function () { console.log('ok') })
 
