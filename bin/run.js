@@ -152,6 +152,7 @@ function parseArgs (args, defaults) {
     c: 'color',
     C: 'no-color',
     T: 'no-timeout',
+    J: 'jobs-auto',
     h: 'help',
     '?': 'help',
     v: 'version'
@@ -159,7 +160,6 @@ function parseArgs (args, defaults) {
 
   var singleOpts = {
     j: 'jobs',
-    J: 'jobs-auto',
     R: 'reporter',
     t: 'timeout',
     s: 'save'
