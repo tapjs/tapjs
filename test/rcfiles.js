@@ -29,7 +29,8 @@ var defaults = {
   jobs: 1,
   lines: 0,
   statements: 0,
-  rcFile: osHomedir() + '/.taprc'
+  rcFile: osHomedir() + '/.taprc',
+  outputFile: null
 }
 
 function runTest (rcFile, expect) { return function (t) {

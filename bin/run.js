@@ -134,7 +134,8 @@ function constructDefaultArgs () {
     functions: 0,
     lines: 0,
     statements: 0,
-    jobs: 1
+    jobs: 1,
+    outputFile: null
   }
 
   if (process.env.TAP_COLORS !== undefined)
@@ -162,7 +163,8 @@ function parseArgs (args, defaults) {
     j: 'jobs',
     R: 'reporter',
     t: 'timeout',
-    s: 'save'
+    s: 'save',
+    o: 'output-file'
   }
 
   // If we're running under Travis-CI with a Coveralls.io token,
@@ -348,6 +350,12 @@ function parseArgs (args, defaults) {
 
       case '--no-color':
         options.color = false
+        continue
+
+      case '--output-file':
+        val = val || args[++i]
+        if (val !== undefined)
+          options.outputFile = val
         continue
 
       case '--no-timeout':
@@ -727,12 +735,16 @@ function runTests (options) {
   var tap = require('../lib/tap.js')
 
   tap.jobs = options.jobs
+  tap.patchProcess()
 
   // if not -Rtap, then output what the user wants.
-  if (options.reporter !== 'tap') {
-    tap.unpipe(process.stdout)
-    tap.pipe(makeReporter(options))
-  }
+  // otherwise just dump to stdout
+  tap.pipe(options.reporter === 'tap' ? process.stdout: makeReporter(options))
+
+  // need to replay the first version line, because the previous
+  // line will have flushed it out to stdout or the reporter already.
+  if (options.outputFile !== null)
+    tap.pipe(fs.createWriteStream(options.outputFile)).write('TAP version 13\n')
 
   saveFails(options, tap)
 
