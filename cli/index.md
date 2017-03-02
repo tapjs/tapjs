@@ -55,6 +55,12 @@ Options:
                               landing list markdown min nyan progress
                               silent spec tap xunit
 
+  -o<file>                    Send the raw TAP output to the specified
+  --output-file=<file>        file.  Reporter output will still be
+                              printed to stdout, but the file will
+                              contain the raw TAP for later reply or
+                              analysis.
+
   -s<file> --save=<file>      If <file> exists, then it should be a line-
                               delimited list of test files to run.  If
                               <file> is not present, then all command-line
@@ -225,6 +231,10 @@ Environment Variables:
                               itself.
 
   _TAP_COVERAGE_              Reserved for internal use.
+
+  TAP_DEBUG                   Set to '1' to turn on debug mode.
+
+  NODE_DEBUG                  Include 'tap' to turn on debug mode.
 
 Config Files:
 
