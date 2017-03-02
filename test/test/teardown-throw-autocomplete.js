@@ -1,4 +1,8 @@
-console.error = console.log
+console.error = function (msg) {
+  return (/^    at /.test(msg))
+    ? console.log('>>some stack junk<<')
+    : console.log.apply(this, arguments)
+}
 var t = require('../..')
 t.tearDown(function () {
   throw new Error('TAP teardown')

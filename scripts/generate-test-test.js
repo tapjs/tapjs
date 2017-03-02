@@ -52,10 +52,11 @@ function generate (file, bail, buffer) {
     var timere = new RegExp(timep, 'g')
     output = output.replace(timere, '___/' + timep + '/~~~')
 
-    // strip out un-pretty-ified error stack lines
+    // raw stack traces vary in depth between node versions, and always
+    // cause problems.  Replace them with an obvious failure.
     output = output.replace(
       /^    at .*?:[0-9]+:[0-9]+\)?$/mg,
-      '___/^    at .*?:[0-9]+:[0-9]+\\)?$/~~~')
+      'ERROR: stacks will cause problems, please fix this in the test')
 
     output = output.split(file).join('___/.*/~~~' + path.basename(file))
     output = output.split(f).join('___/.*/~~~' + path.basename(f))
