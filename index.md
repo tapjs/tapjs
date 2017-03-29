@@ -35,26 +35,30 @@ they're the greatest.  I'm not going to do that.
 
 ### <i lang="it">tutti i gusti, sono gusti</i>
 
+Software testing is a software and user experience design challenge
+that balances on the intersection of many conflicting demands.
+
 Node-tap is based on [my](http://izs.me) opinions about how a test
 framework should work, and what it should let you do.  I do _not_ have
-any opinion about whether or not you share those opinions.
+any opinion about whether or not you share those opinions.  If you do
+share them, you will probably enjoy this test library.
 
 1. **Test files should be "normal" programs that can be run
    directly.**
 
-   That means that it can't require a special runner that
-   puts magic functions into a global space.  `node test.js` is a
-   perfectly reasonable way to run a test, and it ought to function
-   exactly the same as when it's run by the fancy runner with
-   reporting and such.  JavaScript tests should be JavaScript
-   programs; not english-language poems with weird punctuation.
+   That means that it can't require a special runner that puts magic
+   functions into a global space.  `node test.js` is a perfectly ok
+   way to run a test, and it ought to function exactly the same as
+   when it's run by the fancy runner with reporting and such.
+   JavaScript tests should be JavaScript programs; not
+   english-language poems with weird punctuation.
 
-2. **Test output should be sensibly connected to the structure of the
-   test file.**
+2. **Test output should be connected to the structure of the test file
+   that is easy to determine.**
 
-   That means not unnecessarily deferring test functions
-   until `nextTick`, because that would shift the order of
-   `console.log` output.  Synchronous tests should be synchronous.
+   That means not unnecessarily deferring test functions until
+   `nextTick`, because that would shift the order of `console.log`
+   output.  Synchronous tests should be synchronous.
 
 3. **Test files should be run in separate processes.**
 
@@ -68,12 +72,11 @@ any opinion about whether or not you share those opinions.
 4. **Assertions should not normally throw (but throws MUST be handled
    nicely).**
 
-   I frequently write programs that have many hundreds of
-   assertions based on some list of test cases.  If the first failure
-   throws, then I don't know if I've failed 100 tests or 1, without
-   wrapping everything in a try-catch.  Furthermore, I usually want to
-   see some kind of output or reporting to verify that each one
-   actually ran.
+   I frequently write programs that have many hundreds of assertions
+   based on some list of test cases.  If the first failure throws,
+   then I don't know if I've failed 100 tests or 1, without wrapping
+   everything in a try-catch.  Furthermore, I usually want to see some
+   kind of output or reporting to verify that each one actually ran.
 
    Basically, it should be your decision whether you want to throw or
    not.  The test framework shouldn't force that on you, and should
@@ -99,7 +102,7 @@ any opinion about whether or not you share those opinions.
 
    That being said, if the you returns a Promise, or use a DSL that
    throws a decorated error, then the test framework should Just Work
-   in a way that is reasonable.
+   in a way that helps a human being understand the situation.
 
 7. **Tests should output enough data to diagnose a failure, and no
    more or less.**
