@@ -39,22 +39,26 @@ they're the greatest.  I'm not going to do that.
 
 ### <i lang="it">tutti i gusti, sono gusti</i>
 
+Software testing is a software and user experience design challenge
+that balances on the intersection of many conflicting demands.
+
 Node-tap is based on [my](http://izs.me) opinions about how a test
 framework should work, and what it should let you do.  I do _not_ have
-any opinion about whether or not you share those opinions.
+any opinion about whether or not you share those opinions.  If you do
+share them, you will probably enjoy this test library.
 
 1. **Test files should be "normal" programs that can be run
    directly.**
 
    That means that it can't require a special runner that
    puts magic functions into a global space.  `node test.js` is a
-   perfectly reasonable way to run a test, and it ought to function
+   perfectly ok way to run a test, and it ought to function
    exactly the same as when it's run by the fancy runner with
    reporting and such.  JavaScript tests should be JavaScript
    programs; not english-language poems with weird punctuation.
 
-2. **Test output should be sensibly connected to the structure of the
-   test file.**
+2. **Test output should be connected to the structure of the
+   test file that is easy to determine.**
 
    That means not unnecessarily deferring test functions
    until `nextTick`, because that would shift the order of
@@ -86,12 +90,12 @@ any opinion about whether or not you share those opinions.
 5. **Test reporting should be separate from the test process, included
    in the framework, and enabled by default for humans.**
 
-   The [raw test output](http://www.node-tap.org/tap-format/) should be machine-parseable and
-   human-intelligible, and a separate process should consume test
-   output and turn it into a [pretty summarized
-   report](http://www.node-tap.org/reporting/).
-   This means that test data can be stored and parsed later, dug into
-   for additional details, and so on.  Also: nyan cat.
+   The [raw test output](http://www.node-tap.org/tap-format/) should
+   be machine-parseable and human-intelligible, and a separate process
+   should consume test output and turn it into a [pretty summarized
+   report](http://www.node-tap.org/reporting/).  This means that test
+   data can be stored and parsed later, dug into for additional
+   details, and so on.  Also: nyan cat.
 
 6. **Writing tests should be easy, maybe even fun.**
 
@@ -104,7 +108,7 @@ any opinion about whether or not you share those opinions.
 
    That being said, if the you returns a Promise, or use a DSL that
    throws a decorated error, then the test framework should Just Work
-   in a way that is reasonable.
+   in a way that helps a human being understand the situation.
 
 7. **Tests should output enough data to diagnose a failure, and no
    more or less.**
@@ -138,8 +142,9 @@ any opinion about whether or not you share those opinions.
 
     Babel and Webpack are lovely and fine.  But if your code doesn't
     require compilation, then I think your tests shouldn't either.
-    Tap is extremely [promise-aware](http://www.node-tap.org/promises/), but works on any
-    version of Node.js back to v0.10.
+    Tap is extremely
+    [promise-aware](http://www.node-tap.org/promises/), but works on
+    any version of Node.js back to v0.10.
 
 Software testing should help you build software.  It should be a
 security blanket and a quality ratchet, giving you the support to
