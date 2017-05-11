@@ -60,7 +60,7 @@
   "devDependencies": {
     "mkdirp": "^0.5.1",
     "rimraf": "^2.5.4",
-    "standard": "^7.1.0",
+    "standard": "^8.1.0",
     "which": "^1.1.1"
   },
   "files": [
