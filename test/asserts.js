@@ -144,6 +144,7 @@ test('strictSame is deep strict equality', function (t) {
   t.not_ok(tt.strict_same([1, 2], ['1', '2']))
   t.notOk(tt.strict_same([1, '2'], ['1', 2]))
   t.strictSame([1, 2], [1, 2])
+  t.strictSame({ nan: { nan: NaN } }, { nan: { nan: NaN } })
   t.end()
 })
 
