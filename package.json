@@ -15,7 +15,7 @@
     "tap": "^9.0.3"
   },
   "scripts": {
-    "test": "tap test/*.js --100",
+    "test": "tap test/*.js --100 -J",
     "regen-fixtures": "node scripts/generate-test.js test/fixtures/*.tap",
     "preversion": "npm test",
     "postversion": "npm publish",
