@@ -394,6 +394,10 @@ function parseArgs (args, defaults) {
         options.bail = false
         continue
 
+      case '--only':
+        options.only = true
+        continue
+
       case '--':
         options.files = options.files.concat(args.slice(i + 1))
         i = args.length
@@ -603,6 +607,9 @@ function setupTapEnv (options) {
     process.env.TAP_GREP = options.grep.map(function (pattern) {
       return pattern.toString()
     }).join('\n')
+
+  if (options.only)
+    process.env.TAP_ONLY = '1'
 }
 
 function globFiles (files) {
