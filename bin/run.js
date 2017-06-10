@@ -375,6 +375,10 @@ function parseArgs (args, defaults) {
         options.bail = false
         continue
 
+      case '--only':
+        options.only = true
+        continue
+
       case '--':
         options.files = options.files.concat(args.slice(i + 1))
         i = args.length
@@ -576,6 +580,9 @@ function setupTapEnv (options) {
 
   if (options.bail)
     process.env.TAP_BAIL = '1'
+
+  if (options.only)
+    process.env.TAP_ONLY = '1'
 }
 
 function globFiles (files) {
