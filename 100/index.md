@@ -18,6 +18,7 @@ to add it to the docs.
 * [fs-exists-cached](https://www.npmjs.com/package/fs-exists-cached)
 * [fs-readstream-seek](https://www.npmjs.com/package/fs-readstream-seek)
 * [function-loop](https://www.npmjs.com/package/function-loop)
+* [hoodie](https://www.npmjs.com/package/hoodie)
 * [ignore-walk](https://www.npmjs.com/package/ignore-walk)
 * [inflight](https://www.npmjs.com/package/inflight)
 * [isexe](https://www.npmjs.com/package/isexe)
