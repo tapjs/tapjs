@@ -37,6 +37,8 @@ Options:
 
   -B --no-bail                Do not bail out on first failure (Default)
 
+  -O --only                   Only run tests with {only: true} option
+
   -R<type> --reporter=<type>  Use the specified reporter.  Defaults to
                               'classic' when colors are in use, or 'tap'
                               when colors are disabled.

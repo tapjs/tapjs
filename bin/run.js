@@ -154,6 +154,7 @@ function parseArgs (args, defaults) {
     C: 'no-color',
     T: 'no-timeout',
     J: 'jobs-auto',
+    O: 'only',
     h: 'help',
     '?': 'help',
     v: 'version'
