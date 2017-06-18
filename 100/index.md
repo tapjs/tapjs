@@ -34,6 +34,7 @@ to add it to the docs.
 * [tapromise](https://www.npmjs.com/package/tapromise)
 * [tar](https://www.npmjs.com/package/tar)
 * [tmatch](https://www.npmjs.com/package/tmatch)
+* [tsame](https://www.npmjs.com/package/tsame)
 * [trivial-deferred](https://www.npmjs.com/package/trivial-deferred)
 * [yallist](https://www.npmjs.com/package/yallist)
 * [yapool](https://www.npmjs.com/package/yapool)
