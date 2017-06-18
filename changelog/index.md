@@ -2,11 +2,30 @@
 layout: layout
 ---
 
-## 10.2
+## 10.4
 
 Add
 [`t.rejects()`](/asserts/#trejectspromise--fn-expectederror-message-extra)
 assertion.
+
+## 10.3
+
+* Add `-o` `--output-file` to put the raw TAP to a file.
+* Never print Domain objects in YAML.  They're humongous.
+* Don't lose error messages in doesNotThrow
+
+## 10.2
+
+Variety of minor cleanup fixes, and a debug mode.
+
+* Respond to TAP_DEBUG and NODE_DEBUG environs
+* Catch errors thrown in teardown handlers
+* Improve root-level thrown error reporting
+* don't let an occupied test slip past endAll
+* Handle unhandledRejection as a root TAP error
+* better inspect data
+* If results are synthetically set, don't clobber when parser ends
+* monkeypatch exit as well as reallyExit
 
 ## 10.1
 
