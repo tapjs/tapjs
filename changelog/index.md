@@ -2,6 +2,12 @@
 layout: layout
 ---
 
+## 10.2
+
+Add
+[`t.rejects()`](/asserts/#trejectspromise--fn-expectederror-message-extra)
+assertion.
+
 ## 10.1
 
 Added support for source maps.  Stack traces in your jsx and
