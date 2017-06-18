@@ -34,7 +34,7 @@
     "signal-exit": "^3.0.0",
     "source-map-support": "^0.4.3",
     "stack-utils": "^1.0.0",
-    "tap-mocha-reporter": "^3.0.1",
+    "tap-mocha-reporter": "^3.0.5",
     "tap-parser": "^5.3.1",
     "tmatch": "^3.0.0",
     "trivial-deferred": "^1.0.1",
