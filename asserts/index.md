@@ -55,6 +55,17 @@ simply throw it.  The Test object will handle this as a failure.
 
 Synonyms: `t.ifErr`, `t.ifError`
 
+## t.rejects(promise | fn, [expectedError], message, extra)
+
+Verifies that the promise (or promise-returning function) rejects.  If
+an expected error is provided, then also verify that the rejection
+matches the expected error.
+
+Note: since promises always reject and resolve asynchronously, this
+assertion is actually implemented using a subtest.  As such, it does
+not return a boolean to indicate its passing status.  Instead, it
+returns a Promise that resolves when it is completed.
+
 ## t.throws(fn, [expectedError], message, extra)
 
 Expect the function to throw an error.  If an expected error is

@@ -55,6 +55,12 @@ not mandatory.
 If you want to pass Promises to [assertions](/asserts/) and have them
 auto-resolve, then check out [tapromise](http://npm.im/tapromise).
 
+## Rejected promise
+
+To verify that a promise is rejected, you can use the
+[`t.rejects()`](/asserts/#trejectspromise--fn-expectederror-message-extra)
+function.
+
 ## `async`/`await`
 
 Because `async` functions return a Promise, you can use them out of
