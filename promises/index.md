@@ -92,28 +92,33 @@ t.test('get thing', async function (t) {
 ```
 
 Because subtests return promises, you can also `await` them to do
-things in between subtests.
+things in between subtests.  However, this requires a top-level async
+function.
 
 For example:
 
 ```js
 var t = require('tap')
-await t.test('get thing', function (t) {
-  return getSomeThing().then(function (result) {
-    return t.test('check result', function (t) {
-      t.equal(result.foo, 'bar')
-      t.end()
+
+async function main () {
+  await t.test('get thing', function (t) {
+    return getSomeThing().then(function (result) {
+      return t.test('check result', function (t) {
+        t.equal(result.foo, 'bar')
+        t.end()
+      })
     })
   })
-})
-var things = await getTwoThings()
-var otherPromiseResult = await t.test('got two things', function (t) {
-  t.equal(things.length, 2)
-  return makeSomeOtherPromise()
-})
-await t.test('check other promise thing', function (t) {
-  t.equal(otherPromiseResult, 7, 'it should be seven')
-  t.end()
-})
-console.log('tests are all done!')
+  var things = await getTwoThings()
+  var otherPromiseResult = await t.test('got two things', function (t) {
+    t.equal(things.length, 2)
+    return makeSomeOtherPromise()
+  })
+  await t.test('check other promise thing', function (t) {
+    t.equal(otherPromiseResult, 7, 'it should be seven')
+    t.end()
+  })
+  console.log('tests are all done!')
+}
+main()
 ```
