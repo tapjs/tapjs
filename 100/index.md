@@ -33,6 +33,7 @@ to add it to the docs.
 * [tap-parser](https://www.npmjs.com/package/tap-parser)
 * [tapromise](https://www.npmjs.com/package/tapromise)
 * [tar](https://www.npmjs.com/package/tar)
+* [t-up](https://www.npmjs.com/package/t-up)
 * [tmatch](https://www.npmjs.com/package/tmatch)
 * [tsame](https://www.npmjs.com/package/tsame)
 * [trivial-deferred](https://www.npmjs.com/package/trivial-deferred)
