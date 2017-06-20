@@ -4,6 +4,13 @@ var util = require('util')
 var truthies = [ true, 1, 'ok', Infinity, function () {}, {}, [], /./ ]
 var falsies = [ false, 0, '', NaN, null, undefined ]
 
+test('NaN', function (t) {
+  t.same(NaN, NaN)
+  t.strictSame(NaN, NaN)
+  t.match(NaN, NaN)
+  t.end()
+})
+
 test('ok finds truthiness, notOk finds falsiness', function (t) {
   var tt = new Test()
   truthies.forEach(function (truthy) {
