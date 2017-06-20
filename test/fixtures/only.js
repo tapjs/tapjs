@@ -5,7 +5,7 @@ test('normal', function (t) {
   t.end()
 })
 
-test('only', {skip: true}, function (t) {
+test('only', {todo: true}, function (t) {
   t.pass('ok')
   t.end()
 })
