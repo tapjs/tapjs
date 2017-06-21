@@ -768,6 +768,7 @@ function runTests (options) {
   // At this point, we know we need to use the tap root,
   // because there are 1 or more files to spawn.
   var tap = require('../lib/tap.js')
+  tap.runOnly = false
 
   // greps are passed to children, but not the runner itself
   tap.grep = []
