@@ -28,7 +28,7 @@
     "os-homedir": "1.0.1",
     "own-or": "^1.0.0",
     "own-or-env": "^1.0.0",
-    "readable-stream": "^2.0.2",
+    "readable-stream": "^2.3.2",
     "signal-exit": "^3.0.0",
     "source-map-support": "^0.4.3",
     "stack-utils": "^1.0.0",
