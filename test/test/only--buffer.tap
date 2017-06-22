@@ -1,0 +1,11 @@
+TAP version 13
+ok 1 - normal ___/# time=[0-9.]+(ms)?/~~~ {
+    ok 1 - will log an error when run without TAP_ONLY=1
+    1..1
+}
+
+ok 2 - only # SKIP
+1..2
+# skip: 1
+___/# time=[0-9.]+(ms)?/~~~
+
