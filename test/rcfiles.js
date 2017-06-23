@@ -10,6 +10,8 @@ process.env.HOME = path.resolve(__dirname, 'fixtures')
 var osHomedir = require('os-homedir')
 
 var defaults = {
+  grep: [],
+  grepInvert: false,
   nodeArgs: [],
   nycArgs: [],
   testArgs: [],
