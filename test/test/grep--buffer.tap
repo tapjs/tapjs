@@ -94,18 +94,18 @@ ok 4 - a ___/# time=[0-9.]+(ms)?/~~~ {
     ok 1 - x # SKIP filter out: /[^z]/
     ok 2 - y # SKIP filter out: /[^z]/
     ok 3 - z ___/# time=[0-9.]+(ms)?/~~~ {
-        ok 1 - abc ___/# time=[0-9.]+(ms)?/~~~ {
-            ok 1 - 123 ___/# time=[0-9.]+(ms)?/~~~ {
+        ok 1 - abc # SKIP filter out: /b/
+        ok 2 - xyz ___/# time=[0-9.]+(ms)?/~~~ {
+            ok 1 - 123 # SKIP filter out: /[246]+/
+            ok 2 - ijk ___/# time=[0-9.]+(ms)?/~~~ {
                 ok 1 - this is fine
                 1..1
             }
             
-            ok 2 - ijk # SKIP filter: /[246]+/
             1..2
             # skip: 1
         }
         
-        ok 2 - xyz # SKIP filter: /b/
         1..2
         # skip: 1
     }

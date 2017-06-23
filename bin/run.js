@@ -124,6 +124,7 @@ function constructDefaultArgs () {
     reporter: null,
     files: [],
     grep: [],
+    grepInvert: false,
     bail: false,
     saveFile: null,
     pipeToService: false,
