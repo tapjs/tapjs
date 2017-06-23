@@ -16,6 +16,8 @@ links:
       url: "/subtests/"
     - name: "Parallel Tests"
       url: "/parallel/"
+    - name: "Filtering Tests"
+      url: "/grep/"
     - name: "Mocha-like DSL"
       url: "/mochalike/"
     - name: "Advanced"
