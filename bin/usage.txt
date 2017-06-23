@@ -39,7 +39,7 @@ Options:
 
                               To specify regular expression flags,
                               format pattern like a JavaScript RegExp
-                              literal.  For example: `/xyz/i` for
+                              literal.  For example: '/xyz/i' for
                               case-insensitive matching.
 
   -i --invert                 Invert the matches to --grep patterns.
@@ -240,6 +240,16 @@ Environment Variables:
   TAP_DEBUG                   Set to '1' to turn on debug mode.
 
   NODE_DEBUG                  Include 'tap' to turn on debug mode.
+
+  TAP_GREP                    A '\n'-delimited list of grep patterns
+                              to apply to root level test objects.
+                              (This is an implementation detail for how
+                              the '--grep' option works.)
+
+  TAP_GREP_INVERT             Set to '1' to invert the meaning of the
+                              patterns in TAP_GREP.  (Implementation
+                              detail for how the '--invert' flag
+                              works.)
 
 Config Files:
 
