@@ -2,6 +2,11 @@
 layout: layout
 ---
 
+## 10.5
+
+Add support for Maps and Sets in `t.match()`, `t.same()`, and
+`t.strictSame()`.
+
 ## 10.4
 
 Add
