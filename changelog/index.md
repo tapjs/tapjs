@@ -2,6 +2,10 @@
 layout: layout
 ---
 
+## 10.6
+
+Add support for [filtering tests using regular expressions](/grep/).
+
 ## 10.5
 
 Add support for Maps and Sets in `t.match()`, `t.same()`, and
