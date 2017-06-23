@@ -123,6 +123,7 @@ function constructDefaultArgs () {
     color: !!colorSupport.level,
     reporter: null,
     files: [],
+    grep: [],
     bail: false,
     saveFile: null,
     pipeToService: false,
@@ -150,6 +151,8 @@ function parseArgs (args, defaults) {
   var singleFlags = {
     b: 'bail',
     B: 'no-bail',
+    i: 'invert',
+    I: 'no-invert',
     c: 'color',
     C: 'no-color',
     T: 'no-timeout',
@@ -161,6 +164,7 @@ function parseArgs (args, defaults) {
 
   var singleOpts = {
     j: 'jobs',
+    g: 'grep',
     R: 'reporter',
     t: 'timeout',
     s: 'save',
@@ -365,6 +369,20 @@ function parseArgs (args, defaults) {
       case '--timeout':
         val = val || args[++i]
         options.timeout = +val
+        continue
+
+      case '--invert':
+        options.grepInvert = true
+        continue
+
+      case '--no-invert':
+        options.grepInvert = false
+        continue
+
+      case '--grep':
+        val = val || args[++i]
+        if (val !== undefined)
+          options.grep.push(strToRegExp(val))
         continue
 
       case '--bail':
@@ -576,6 +594,14 @@ function setupTapEnv (options) {
 
   if (options.bail)
     process.env.TAP_BAIL = '1'
+
+  if (options.grepInvert)
+    process.env.TAP_GREP_INVERT = '1'
+
+  if (options.grep.length)
+    process.env.TAP_GREP = options.grep.map(function (pattern) {
+      return pattern.toString()
+    }).join('\n')
 }
 
 function globFiles (files) {
@@ -734,6 +760,8 @@ function runTests (options) {
   // because there are 1 or more files to spawn.
   var tap = require('../lib/tap.js')
 
+  // greps are passed to children, but not the runner itself
+  tap.grep = []
   tap.jobs = options.jobs
   tap.patchProcess()
 
@@ -761,4 +789,11 @@ function parseRcFile (path) {
     // if no dotfile exists, or invalid yaml, fail gracefully
     return {}
   }
+}
+
+function strToRegExp (g) {
+  var p = g.match(/^\/(.*)\/([a-z]*)$/)
+  g = p ? p[1] : g
+  var flags = p ? p[2] : ''
+  return new RegExp(g, flags)
 }

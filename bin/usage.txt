@@ -29,6 +29,22 @@ Options:
                               cannot be reported, and older TAP
                               parsers may get upset.
 
+  -g<pattern>                 Only run subtests tests matching the specified
+  --grep=<pattern>            pattern.
+
+                              Patterns are matched against top-level
+                              subtests in each file.  To filter tests
+                              at subsequent levels, specify this
+                              option multiple times.
+
+                              To specify regular expression flags,
+                              format pattern like a JavaScript RegExp
+                              literal.  For example: `/xyz/i` for
+                              case-insensitive matching.
+
+  -i --invert                 Invert the matches to --grep patterns.
+                              (Like grep -v)
+
   -c --color                  Use colors (Default for TTY)
 
   -C --no-color               Do not use colors (Default for non-TTY)
