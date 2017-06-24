@@ -7,6 +7,11 @@ layout: layout
 Child tests can be filtered using regular expressions with the `grep`
 option.
 
+Note: this is for filtering test functions within a test file.  If you
+want to filter which _files_ get run, just pass the appropriate
+argument to the `tap` executable.  That is, instead of `tap
+test/*.js`, do `tap test/foo.js` to just run a single file.
+
 ## Command Line Usage
 
 On the [command-line](/cli/), specify one or more patterns with
