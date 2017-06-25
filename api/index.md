@@ -14,6 +14,8 @@ See also:
 - [Promises](/promises/)
 - [Subtests](/subtests/)
 - [Parallel Tests](/parallel/)
+- [Filtering Tests with Grep](/grep/)
+- [Filtering Tests with Only](/only/)
 - [Mocha-like DSL](/mochalike/)
 - [Advanced Usage](/advanced/)
 
