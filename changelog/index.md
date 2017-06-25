@@ -2,6 +2,12 @@
 layout: layout
 ---
 
+## 10.7
+
+Add support for [filtering tests using 'only'](/only/).
+
+Don't show grep/only skips in the default reporter output.
+
 ## 10.6
 
 Add support for [filtering tests using regular expressions](/grep/).
