@@ -32,6 +32,9 @@ that's your thing:
 }
 ```
 
+If you do this in an open source module, please [join the exclusive
+100 club](/100/).
+
 ## Travis-CI and Coveralls.io Integration
 
 You can very easily take advantage of continuous test coverage reports
