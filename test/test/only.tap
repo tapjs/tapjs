@@ -11,31 +11,47 @@ TAP version 13
         1..1
     ok 2 - only ___/# time=[0-9.]+(ms)?/~~~
     
-    1..2
+    # "only" has `only` set but all tests run
+    # Subtest: only
+        ok 1 - only do this
+        1..1
+    ok 3 - only ___/# time=[0-9.]+(ms)?/~~~
+    
+    1..3
     ___/# time=[0-9.]+(ms)?/~~~
 ok 1 - ___/.*(node|iojs)(.exe)?.*/~~~only.js child ___/# time=[0-9.]+(ms)?/~~~
 
 # Subtest: ___/.*(node|iojs)(.exe)?.*/~~~only.js child
-    ok 1 - normal # SKIP
+    ok 1 - normal # SKIP filter: only
     # Subtest: only
         ok 1 - only do this
         1..1
     ok 2 - only ___/# time=[0-9.]+(ms)?/~~~
     
-    1..2
+    # Subtest: only
+        ok 1 - only do this
+        1..1
+    ok 3 - only ___/# time=[0-9.]+(ms)?/~~~
+    
+    1..3
     # skip: 1
     ___/# time=[0-9.]+(ms)?/~~~
 ok 2 - ___/.*(node|iojs)(.exe)?.*/~~~only.js child ___/# time=[0-9.]+(ms)?/~~~
 
 # Subtest: ___/.*(node|iojs)(.exe)?/~~~ ./bin/run.js ___/.*/~~~only.js --test-arg=child
     # Subtest: ___/.*/~~~only.js
-        ok 1 - normal # SKIP
+        ok 1 - normal # SKIP filter: only
         # Subtest: only
             ok 1 - only do this
             1..1
         ok 2 - only ___/# time=[0-9.]+(ms)?/~~~
         
-        1..2
+        # Subtest: only
+            ok 1 - only do this
+            1..1
+        ok 3 - only ___/# time=[0-9.]+(ms)?/~~~
+        
+        1..3
         # skip: 1
         ___/# time=[0-9.]+(ms)?/~~~
     ok 1 - ___/.*/~~~only.js ___/# time=[0-9.]+(ms)?/~~~
@@ -46,13 +62,18 @@ ok 3 - ___/.*(node|iojs)(.exe)?/~~~ ./bin/run.js ___/.*/~~~only.js --test-arg=ch
 
 # Subtest: ___/.*(node|iojs)(.exe)?/~~~ ./bin/run.js ___/.*/~~~only.js --test-arg=child --only
     # Subtest: ___/.*/~~~only.js
-        ok 1 - normal # SKIP
+        ok 1 - normal # SKIP filter: only
         # Subtest: only
             ok 1 - only do this
             1..1
         ok 2 - only ___/# time=[0-9.]+(ms)?/~~~
         
-        1..2
+        # Subtest: only
+            ok 1 - only do this
+            1..1
+        ok 3 - only ___/# time=[0-9.]+(ms)?/~~~
+        
+        1..3
         # skip: 1
         ___/# time=[0-9.]+(ms)?/~~~
     ok 1 - ___/.*/~~~only.js ___/# time=[0-9.]+(ms)?/~~~
@@ -63,13 +84,18 @@ ok 4 - ___/.*(node|iojs)(.exe)?/~~~ ./bin/run.js ___/.*/~~~only.js --test-arg=ch
 
 # Subtest: ___/.*(node|iojs)(.exe)?/~~~ ./bin/run.js ___/.*/~~~only.js --test-arg=child -O
     # Subtest: ___/.*/~~~only.js
-        ok 1 - normal # SKIP
+        ok 1 - normal # SKIP filter: only
         # Subtest: only
             ok 1 - only do this
             1..1
         ok 2 - only ___/# time=[0-9.]+(ms)?/~~~
         
-        1..2
+        # Subtest: only
+            ok 1 - only do this
+            1..1
+        ok 3 - only ___/# time=[0-9.]+(ms)?/~~~
+        
+        1..3
         # skip: 1
         ___/# time=[0-9.]+(ms)?/~~~
     ok 1 - ___/.*/~~~only.js ___/# time=[0-9.]+(ms)?/~~~

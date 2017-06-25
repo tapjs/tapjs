@@ -8,6 +8,11 @@ if (process.argv[2] === 'child') {
     t.end()
   })
 
+  t.only('only', function (t) {
+    t.pass('only do this')
+    t.end()
+  })
+
   t.test('only', { only: true }, function (t) {
     t.pass('only do this')
     t.end()
