@@ -54,7 +54,7 @@ share them, you will probably enjoy this test library.
    english-language poems with weird punctuation.
 
 2. **Test output should be connected to the structure of the test file
-   that is easy to determine.**
+   in a way that is easy to determine.**
 
    That means not unnecessarily deferring test functions until
    `nextTick`, because that would shift the order of `console.log`

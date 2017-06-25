@@ -2,34 +2,34 @@
 layout: layout
 ---
 
-## 10.7
+## 10.7 2017-06-24
 
 Add support for [filtering tests using 'only'](/only/).
 
 Don't show grep/only skips in the default reporter output.
 
-## 10.6
+## 10.6 2017-06-23
 
 Add support for [filtering tests using regular expressions](/grep/).
 
-## 10.5
+## 10.5 2017-06-20
 
 Add support for Maps and Sets in `t.match()`, `t.same()`, and
 `t.strictSame()`.
 
-## 10.4
+## 10.4 2017-06-18
 
 Add
 [`t.rejects()`](/asserts/#trejectspromise--fn-expectederror-message-extra)
 assertion.
 
-## 10.3
+## 10.3 2017-03-01
 
 * Add `-o` `--output-file` to put the raw TAP to a file.
 * Never print Domain objects in YAML.  They're humongous.
 * Don't lose error messages in doesNotThrow
 
-## 10.2
+## 10.2 2017-02-18
 
 Variety of minor cleanup fixes, and a debug mode.
 
@@ -42,7 +42,7 @@ Variety of minor cleanup fixes, and a debug mode.
 * If results are synthetically set, don't clobber when parser ends
 * monkeypatch exit as well as reallyExit
 
-## 10.1
+## 10.1 2017-02-07
 
 Added support for source maps.  Stack traces in your jsx and
 coffeescript files will now be helpful!
@@ -50,7 +50,7 @@ coffeescript files will now be helpful!
 Added the `-J` option to auto-calculate the number of cores on your
 system, and run that many parallel jobs.
 
-## 10.0
+## 10.0 2017-01-28
 
 Full rewrite to support [parallel tests](/parallel/).  Pass `-j4` on
 [the command-line](/cli/) to run 4 test files at once in parallel.
@@ -71,7 +71,7 @@ documented.
 Now supports passng `-T` or `--timeout=0` to the [CLI](/cli/) to not
 impose a timeout on tests.
 
-## 9.0
+## 9.0 2017-01-07
 
 Buffered subtests!
 
@@ -90,7 +90,7 @@ function names.
 Also: remove a lot of excess noise and repetitive stack traces in yaml
 diagnostics.
 
-## 8.0
+## 8.0 2016-10-25
 
 Update `tmatch` to version 3.  This makes regular expressions test
 against the stringified versions of the test object in all `t.match()`
@@ -107,7 +107,7 @@ failures that are generated, to reduce unnecessary noise.)
 
 Make coverage MUCH FASTER by turning on nyc caching.
 
-## 7.1
+## 7.1 2016-09-06
 
 Remove a race condition in how `Bail out!` messages got printed when
 setting the "bail on failure" option in child tests.  Now, whether
@@ -122,7 +122,7 @@ Diagnostics are now shown when a synthetic `timeout` failure is
 generated for child test processes that ignore `SIGTERM` and must be
 killed with `SIGKILL`.
 
-## 7.0
+## 7.0 2016-08-27
 
 Move `# Subtest` commands to the parent level rather than the child
 level, more like Perl's `Test2` family of modules.  This is more
@@ -149,7 +149,7 @@ providing resilience against `Object.prototype` mutations.
 Add the `--100` flag to set statements, functions, lines, and branches
 to 100% coverage required.
 
-## 6.3
+## 6.3 2016-07-30
 
 Let `t.doesNotThrow` take a string as the first argument.
 
@@ -157,17 +157,17 @@ Bump `nyc` up to version 7.
 
 The tap `lib/` folder is excluded from all stack traces.
 
-## 6.2
+## 6.2 2016-07-15
 
 Add the `--test-arg=<argument>` option.
 
-## 6.1
+## 6.1 2016-07-01
 
 Add support for `{diagnostic: true}` in test and assert options, to
 force a YAML diagnostic block after passing child tests and
 assertions.
 
-## 6.0
+## 6.0 2016-06-30
 
 Only produce output on stdout if the root TAP test object is
 interacted with in some way.  Simply doing `require('tap')` no longer
@@ -193,7 +193,7 @@ the scripts block in your `package.json` file:
       }
     }
 
-## 5.8
+## 5.8 2016-06-24
 
 Make coverage piping errors non-fatal.
 
@@ -203,7 +203,7 @@ historical reasons.  Additionally, you can now pass in an `Error`
 class to verify the type, which would previously not work properly in
 some cases.
 
-## 5.7
+## 5.7 2016-02-22
 
 Report timeout errors in child test scripts much more diligently.
 
@@ -216,32 +216,32 @@ if a Unix child test process doesn't exit within 1 second (causing a
 fatal `SIGKILL` to be sent), the parent generates more comprehensive
 output to indicate that the child test exited due to a timeout.
 
-## 5.6
+## 5.6 2016-02-17
 
 Update `tmatch` to version 2.  You can now test objects by supplying
 their constructor, so `t.match(x, { foo: Function, name: String })`
 would verify that the object has a `name` string and a `foo` method.
 
-## 5.5
+## 5.5 2016-02-15
 
 Add the `t.assertAt` and `t.assertStack` properties, to override where
 an assertion was effectively called from.
 
-## 5.4
+## 5.4 2016-01-31
 
 Support passing in a class to `t.throws`, rather than an Error
 sample object.
 
-## 5.3
+## 5.3 2016-01-31
 
 Return a `Promise` object from `t.test()`, `t.spawn()`, and
 `t.stdin()`.
 
-## 5.2
+## 5.2 2016-01-26
 
 Adds `t.beforeEach()` and `t.afterEach()`.
 
-## 5.1
+## 5.1 2016-01-16
 
 All about the cli flags!
 
@@ -251,7 +251,7 @@ Add support for coverage checking using `--statements=95` etc.
 
 Test for executable-ness more consistently across platforms.
 
-## 5.0
+## 5.0 2016-01-03
 
 Make it impossible to `try/catch` out of plan/end abuses.  Calling
 `t.end()` more than once, or having a number of tests that doesn't
@@ -267,7 +267,7 @@ it](https://ci.appveyor.com/project/isaacs/node-tap).)
 
 Moved into the [tapjs org](https://github.com/tapjs).
 
-## 4.0
+## 4.0 2015-12-30
 
 Raise an error if `t.end()` is explicitly called more than once.  This
 is a breaking change, because it can cause previously-passing tests to
@@ -275,23 +275,23 @@ fail, if they did `t.end()` in multiple places.
 
 Support promises returned by mochalike functions.
 
-## 3.1
+## 3.1 2015-12-29
 
 Support sending coverage output to both codecov.io and coveralls.io.
 
-## 3.0
+## 3.0 2015-12-29
 
 Upgrade to nyc 5.  This means that `config.nyc.exclude` arrays in
 `package.json` now take globs instead of regular expressions.
 
-## 2.3
+## 2.3 2015-11-18
 
 Use the name of the function supplied to `t.test(fn)` as the test name
 if a string name is not provided.
 
 Better support for sparse arrays.
 
-## 2.2
+## 2.2 2015-10-23
 
 Add support for Codecov.io as well as Coveralls.io.
 
@@ -303,13 +303,13 @@ child test is started, instead of immediately after it.
 `t.throws()` can now be supplied a regexp for the expected Error
 message.
 
-## 2.1
+## 2.1 2015-10-06
 
 Exit in failure on root test bailout.
 
 Support promises returned by `t.test(fn)` function.
 
-## 2.0
+## 2.0 2015-09-27
 
 Update matching behavior using [tmatch](http://npm.im/tmatch).  This
 is a breaking change to `t.match`, `t.similar`, `t.has`, etc., but
@@ -322,7 +322,7 @@ Deal with pending handles left open when a child process gets a
 Remove domains in favor of more reliable and less invasive state and
 error-catching bookkeeping.
 
-## 1.4
+## 1.4 2015-09-02
 
 Add `t.contains()` alias for `t.match()`.
 
@@ -332,7 +332,7 @@ Treat unfinished tests as failures.
 
 Add support for pragmas in TAP output.
 
-## 1.3
+## 1.3 2015-06-23
 
 Bind all Test methods to object.
 
@@ -341,18 +341,18 @@ Another Test Object, which just happens to be piping to stdout.
 
 Support getting an error object in bailout()
 
-## 1.2
+## 1.2 2015-05-26
 
 Better support for exit status codes.
 
-## 1.1
+## 1.1 2015-05-20
 
 Add coverage using nyc.
 
 If a `COVERALLS_REPO_TOKEN` is provided, then run tests with coverage,
 and pipe to coveralls.
 
-## 1.0
+## 1.0 2015-05-06
 
 Complete rewrite from 0.x.
 
