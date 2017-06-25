@@ -101,6 +101,17 @@ for child tests:
 * `jobs` Set to an integer to assign the `t.jobs` property.
 * `grep` Set to an array of regular expressions to [filter subtests
   with patterns](/grep/)
+* `only` Set to `true` to run this test when in `runOnly` mode.
+* `runOnly` Set to `true` to only run tests with `only:true` set.
+
+### t.only([name], [options], [function])
+
+Exactly the same as `t.test()`, but adds `only: true` in the options.
+
+### t.runOnly
+
+Set to `true` to only run child tests that have `only: true` set in
+their options (or are run with `t.only()`, which is the same thing).
 
 ### t.jobs
 
