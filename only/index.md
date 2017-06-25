@@ -31,7 +31,7 @@ be emitted if they are encountered.
 Consider this test file:
 
 ```js
-const t = require('../tap')
+const t = require('tap')
 
 t.only('only run this test', function (t) {
   // all tests in here will be run
