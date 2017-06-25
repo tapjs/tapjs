@@ -99,6 +99,8 @@ for child tests:
   Set to `false` to run as an indented subtest.  The default is
   `false` unless `TAP_BUFFER=1` is set in the environment.
 * `jobs` Set to an integer to assign the `t.jobs` property.
+* `grep` Set to an array of regular expressions to [filter subtests
+  with patterns](/grep/)
 
 ### t.jobs
 
