@@ -16,7 +16,7 @@ environment, or set the `t.runOnly = true` in a test file.
 Setting the `TAP_ONLY=1` environment variable or using `tap --only`
 will restrict the root tap object from running tests that aren't
 flagged as "only".  To filter deeper in a test suite, set
-`t.runOnly=true`.
+`t.runOnly = true` at the appropriate level.
 
 Note: this is for filtering test functions within a test file.  If you
 want to run only one _file_, just pass the appropriate argument to the
