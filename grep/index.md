@@ -66,7 +66,6 @@ Using the default classic reporter, we see this output:
 $ tap --grep=first mytest.js
 mytest.js ............................................. 2/3
   Skipped: 1
-    second filter: /first/
 
 total ................................................. 2/3
 
