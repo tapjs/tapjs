@@ -1,11 +1,22 @@
-var test = require('../..').test
+var t = require('../..')
+var run = require.resolve('../../bin/run.js')
+var node = process.execPath
 
-test('normal', function (t) {
-  t.pass('will log an error when run without TAP_ONLY=1')
-  t.end()
-})
+if (process.argv[2] === 'child') {
+  t.test('normal', function (t) {
+    t.pass('this is fine')
+    t.end()
+  })
 
-test('only', {skip: true}, function (t) {
-  t.pass('ok')
-  t.end()
-})
+  t.test('only', { only: true }, function (t) {
+    t.pass('only do this')
+    t.end()
+  })
+} else {
+  var env = { env: { TAP_ONLY: '1' } }
+  t.spawn(node, [__filename, 'child'])
+  t.spawn(node, [__filename, 'child'], env)
+  t.spawn(node, [run, __filename, '--test-arg=child'], env)
+  t.spawn(node, [run, __filename, '--test-arg=child', '--only'])
+  t.spawn(node, [run, __filename, '--test-arg=child', '-O'])
+}
