@@ -102,11 +102,14 @@ for child tests:
 * `grep` Set to an array of regular expressions to [filter subtests
   with patterns](/grep/)
 * `only` Set to `true` to run this test when in `runOnly` mode.
+  See [filtering tests using only](/only/)
 * `runOnly` Set to `true` to only run tests with `only:true` set.
 
 ### t.only([name], [options], [function])
 
 Exactly the same as `t.test()`, but adds `only: true` in the options.
+
+See [filtering tests using only](/only/)
 
 ### t.runOnly
 
