@@ -47,39 +47,46 @@ function generate (file, bail, buffer) {
   c.stdout.on('data', function (d) {
     output += d
   })
-  c.on('close', function () {
-    var timep = '# time=[0-9.]+(ms)?'
-    var timere = new RegExp(timep, 'g')
-    output = output.replace(timere, '___/' + timep + '/~~~')
 
-    // raw stack traces vary in depth between node versions, and always
-    // cause problems.  Replace them with an obvious failure.
-    output = output.replace(
-      /^    at .*?:[0-9]+:[0-9]+\)?$/mg,
-      'ERROR: stacks will cause problems, please fix this in the test')
+  c.on('close', function (code, signal) {
+    if (bail && code === 0 && signal === null) {
+      // no point testing bailouts if no bailout happens
+      try { fs.unlinkSync(outfile) } catch (er) {}
+    } else {
 
-    output = output.split(file).join('___/.*/~~~' + path.basename(file))
-    output = output.split(f).join('___/.*/~~~' + path.basename(f))
+      var timep = '# time=[0-9.]+(ms)?'
+      var timere = new RegExp(timep, 'g')
+      output = output.replace(timere, '___/' + timep + '/~~~')
 
-    var dir = path.dirname(file)
-    output = output.split(dir + '/').join('___/.*/~~~')
-    output = output.split(dir).join('___/.*/~~~' + path.basename(dir))
+      // raw stack traces vary in depth between node versions, and always
+      // cause problems.  Replace them with an obvious failure.
+      output = output.replace(
+        /^    at .*?:[0-9]+:[0-9]+\)?$/mg,
+        'ERROR: stacks will cause problems, please fix this in the test')
 
-    output = output.split(cwd + '/').join('___/.*/~~~')
-    output = output.split(cwd).join('___/.*/~~~')
+      output = output.split(file).join('___/.*/~~~' + path.basename(file))
+      output = output.split(f).join('___/.*/~~~' + path.basename(f))
 
-    output = output.split(node + ' ___/').join('\0N1\0')
-    output = output.split(path.basename(node) + ' ___/').join('\0N1\0')
+      var dir = path.dirname(file)
+      output = output.split(dir + '/').join('___/.*/~~~')
+      output = output.split(dir).join('___/.*/~~~' + path.basename(dir))
 
-    output = output.split(node).join('\0N2\0')
-    output = output.split(path.basename(node)).join('\0N2\0')
+      output = output.split(cwd + '/').join('___/.*/~~~')
+      output = output.split(cwd).join('___/.*/~~~')
 
-    output = output.split('\0N1\0').join('___/.*(node|iojs)(\.exe)?')
-    output = output.split('\0N2\0').join('___/.*(node|iojs)(\.exe)?/~~~')
+      output = output.split(node + ' ___/').join('\0N1\0')
+      output = output.split(path.basename(node) + ' ___/').join('\0N1\0')
 
-    output = yamlishToJson(output)
+      output = output.split(node).join('\0N2\0')
+      output = output.split(path.basename(node)).join('\0N2\0')
 
-    fs.writeFileSync(outfile, output)
+      output = output.split('\0N1\0').join('___/.*(node|iojs)(\.exe)?')
+      output = output.split('\0N2\0').join('___/.*(node|iojs)(\.exe)?/~~~')
+
+      output = yamlishToJson(output)
+
+      fs.writeFileSync(outfile, output)
+    }
 
     running = false
     if (queue.length) {

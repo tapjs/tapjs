@@ -92,10 +92,20 @@ function runTests (file, bail, buffer) {
 
 function runTest (t, bail, buffer, file) {
   var resfile = file.replace(/\.js$/,
-   (bail ? '--bail' : '') +
-   (buffer ? '--buffer' : '') +
-   '.tap')
-  var want = fs.readFileSync(resfile, 'utf8').split(/\r?\n/)
+    (bail ? '--bail' : '') +
+    (buffer ? '--buffer' : '') +
+    '.tap')
+
+  var want
+  try {
+    want = fs.readFileSync(resfile, 'utf8').split(/\r?\n/)
+  } catch (er) {
+    // there isn't an output file for bail tests that pass.
+    if (bail)
+      return t.end()
+    else
+      throw er
+  }
 
   var child = spawn(node, [file], {
     stdio: [ 0, 'pipe', 'pipe' ],
