@@ -1,21 +1,22 @@
 #!/usr/bin/env node
+'use strict'
 
-var node = process.execPath
-var fs = require('fs')
-var spawn = require('child_process').spawn
-var fg = require('foreground-child')
-var opener = require('opener')
-var colorSupport = require('color-support')
-var nycBin = require.resolve('nyc/bin/nyc.js')
-var glob = require('glob')
-var isexe = require('isexe')
-var osHomedir = require('os-homedir')
-var yaml = require('js-yaml')
-var path = require('path')
-var exists = require('fs-exists-cached').sync
-var os = require('os');
+const node = process.execPath
+const fs = require('fs')
+const spawn = require('child_process').spawn
+const fg = require('foreground-child')
+const opener = require('opener')
+const colorSupport = require('color-support')
+const nycBin = require.resolve('nyc/bin/nyc.js')
+const glob = require('glob')
+const isexe = require('isexe')
+const osHomedir = require('os-homedir')
+const yaml = require('js-yaml')
+const path = require('path')
+const exists = require('fs-exists-cached').sync
+const os = require('os');
 
-var coverageServiceTest = process.env.COVERAGE_SERVICE_TEST === 'true'
+const coverageServiceTest = process.env.COVERAGE_SERVICE_TEST === 'true'
 
 // NYC will not wrap a module in node_modules.
 // So, we need to tell the child proc when it's been added.
@@ -34,7 +35,7 @@ if (coverageServiceTest)
 // Currently only Coveralls is supported, but the infrastructure
 // is left in place in case some noble soul fixes the codecov
 // module in the future.  See https://github.com/tapjs/node-tap/issues/270
-var coverageServices = [
+const coverageServices = [
   {
     env: 'COVERALLS_REPO_TOKEN',
     bin: require.resolve('coveralls/bin/coveralls.js'),
@@ -45,7 +46,7 @@ var coverageServices = [
 main()
 
 function main () {
-  var args = process.argv.slice(2)
+  const args = process.argv.slice(2)
 
   if (!args.length && process.stdin.isTTY) {
     console.error(usage())
@@ -53,11 +54,11 @@ function main () {
   }
 
   // set default args
-  var defaults = constructDefaultArgs()
+  const defaults = constructDefaultArgs()
 
   // parse dotfile
-  var rcFile = process.env.TAP_RCFILE || (osHomedir() + '/.taprc')
-  var rcOptions = parseRcFile(rcFile)
+  const rcFile = process.env.TAP_RCFILE || (osHomedir() + '/.taprc')
+  const rcOptions = parseRcFile(rcFile)
 
   // supplement defaults with parsed rc options
   if (rcOptions)
@@ -68,7 +69,7 @@ function main () {
   defaults.rcFile = rcFile
 
   // parse args
-  var options = parseArgs(args, defaults)
+  const options = parseArgs(args, defaults)
 
   if (!options)
     return
@@ -111,11 +112,9 @@ function main () {
 }
 
 function constructDefaultArgs () {
-  var defaultTimeout = 30
-  if (global.__coverage__)
-    defaultTimeout = 240
+  const defaultTimeout = (global.__coverage__) ? 240 : 30
 
-  var defaultArgs = {
+  const defaultArgs = {
     nodeArgs: [],
     nycArgs: [],
     testArgs: [],
@@ -147,9 +146,9 @@ function constructDefaultArgs () {
 }
 
 function parseArgs (args, defaults) {
-  var options = defaults || {}
+  const options = defaults || {}
 
-  var singleFlags = {
+  const singleFlags = {
     b: 'bail',
     B: 'no-bail',
     i: 'invert',
@@ -164,7 +163,7 @@ function parseArgs (args, defaults) {
     v: 'version'
   }
 
-  var singleOpts = {
+  const singleOpts = {
     j: 'jobs',
     g: 'grep',
     R: 'reporter',
@@ -175,16 +174,16 @@ function parseArgs (args, defaults) {
 
   // If we're running under Travis-CI with a Coveralls.io token,
   // then it's a safe bet that we ought to output coverage.
-  for (var i = 0; i < coverageServices.length && !options.pipeToService; i++) {
+  for (let i = 0; i < coverageServices.length && !options.pipeToService; i++) {
     if (process.env[coverageServices[i].env])
       options.pipeToService = true
   }
 
-  var defaultCoverage = options.pipeToService
-  var dumpConfig = false
+  let defaultCoverage = options.pipeToService
+  let dumpConfig = false
 
-  for (i = 0; i < args.length; i++) {
-    var arg = args[i]
+  for (let i = 0; i < args.length; i++) {
+    const arg = args[i]
     if (arg.charAt(0) !== '-' || arg === '-') {
       options.files.push(arg)
       continue
@@ -192,18 +191,16 @@ function parseArgs (args, defaults) {
 
     // short-flags
     if (arg.charAt(1) !== '-' && arg !== '-gc') {
-      var expand = []
-      for (var f = 1; f < arg.length; f++) {
-        var fc = arg.charAt(f)
-        var sf = singleFlags[fc]
-        var so = singleOpts[fc]
+      const expand = []
+      for (let f = 1; f < arg.length; f++) {
+        const fc = arg.charAt(f)
+        const sf = singleFlags[fc]
+        const so = singleOpts[fc]
         if (sf)
           expand.push('--' + sf)
         else if (so) {
-          var soval = arg.slice(f + 1)
-          if (soval.charAt(0) !== '=') {
-            soval = '=' + soval
-          }
+          const soslice = arg.slice(f + 1)
+          const soval = soslice.charAt(0) === '=' ? soslice : '=' + soslice
           expand.push('--' + so + soval)
           f = arg.length
         } else if (arg !== '-' + fc)
@@ -216,13 +213,9 @@ function parseArgs (args, defaults) {
       }
     }
 
-    var key = arg
-    var val = null
-    if (key.match(/^--/) && arg.indexOf('=') !== -1) {
-      var kv = arg.split('=')
-      key = kv.shift()
-      val = kv.join('=')
-    }
+    const argsplit = arg.split('=')
+    const key = argsplit.shift()
+    const val = argsplit.length ? argsplit.join('=') : null
 
     switch (key) {
       case '--help':
@@ -246,13 +239,11 @@ function parseArgs (args, defaults) {
         return null
 
       case '--jobs':
-        val = val || args[++i]
-        options.jobs = +val
+        options.jobs = +(val || args[++i])
         continue
 
       case '--jobs-auto':
-        val = os.cpus().length;
-        options.jobs = +val
+        options.jobs = +os.cpus().length
         continue
 
       case '--coverage-report':
@@ -279,13 +270,11 @@ function parseArgs (args, defaults) {
         continue
 
       case '--save':
-        val = val || args[++i]
-        options.saveFile = val
+        options.saveFile = val || args[++i]
         continue
 
       case '--reporter':
-        val = val || args[++i]
-        options.reporter = val
+        options.reporter = val || args[++i]
         continue
 
       case '--gc': case '-gc': case '--expose-gc':
@@ -308,28 +297,31 @@ function parseArgs (args, defaults) {
         options.nodeArgs.push('--harmony')
         continue
 
-      case '--node-arg':
-        val = val || args[++i]
-        if (val !== undefined)
-          options.nodeArgs.push(val)
+      case '--node-arg': {
+        const v = val || args[++i]
+        if (v !== undefined)
+          options.nodeArgs.push(v)
         continue
+      }
 
       case '--check-coverage':
         defaultCoverage = true
         options.checkCoverage = true
         continue
 
-      case '--test-arg':
-        val = val || args[++i]
-        if (val !== undefined)
-          options.testArgs.push(val)
+      case '--test-arg': {
+        const v = val || args[++i]
+        if (v !== undefined)
+          options.testArgs.push(v)
         continue
+      }
 
-      case '--nyc-arg':
-        val = val || args[++i]
-        if (val !== undefined)
-          options.nycArgs.push(val)
+      case '--nyc-arg': {
+        const v = val || args[++i]
+        if (v !== undefined)
+          options.nycArgs.push(v)
         continue
+      }
 
       case '--100':
         defaultCoverage = true
@@ -345,9 +337,8 @@ function parseArgs (args, defaults) {
       case '--lines':
       case '--statements':
         defaultCoverage = true
-        val = val || args[++i]
         options.checkCoverage = true
-        options[key.slice(2)] = val
+        options[key.slice(2)] = val || args[++i]
         continue
 
       case '--color':
@@ -358,19 +349,19 @@ function parseArgs (args, defaults) {
         options.color = false
         continue
 
-      case '--output-file':
-        val = val || args[++i]
-        if (val !== undefined)
-          options.outputFile = val
+      case '--output-file': {
+        const v = val || args[++i]
+        if (v !== undefined)
+          options.outputFile = v
         continue
+      }
 
       case '--no-timeout':
         options.timeout = 0
         continue
 
       case '--timeout':
-        val = val || args[++i]
-        options.timeout = +val
+        options.timeout = +(val || args[++i])
         continue
 
       case '--invert':
@@ -381,11 +372,12 @@ function parseArgs (args, defaults) {
         options.grepInvert = false
         continue
 
-      case '--grep':
-        val = val || args[++i]
-        if (val !== undefined)
-          options.grep.push(strToRegExp(val))
+      case '--grep': {
+        const v = val || args[++i]
+        if (v !== undefined)
+          options.grep.push(strToRegExp(v))
         continue
+      }
 
       case '--bail':
         options.bail = true
@@ -429,7 +421,7 @@ function parseArgs (args, defaults) {
 function respawnWithCoverage (options) {
   // console.error('respawn with coverage')
   // Re-spawn with coverage
-  var args = [nycBin].concat(
+  const args = [nycBin].concat(
     '--silent',
     '--cache=true',
     options.nycArgs,
@@ -438,7 +430,7 @@ function respawnWithCoverage (options) {
     process.argv.slice(1)
   )
   process.env._TAP_COVERAGE_ = '1'
-  var child = fg(node, args)
+  const child = fg(node, args)
   child.removeAllListeners('close')
   child.on('close', function (code, signal) {
     runCoverageReport(options, code, signal)
@@ -447,8 +439,8 @@ function respawnWithCoverage (options) {
 
 function pipeToCoverageServices (options, child) {
   // console.error('pipe to services')
-  var piped = false
-  for (var i = 0; i < coverageServices.length; i++) {
+  let piped = false
+  for (let i = 0; i < coverageServices.length; i++) {
     // console.error('pipe to service?', coverageServices[i].env)
     if (process.env[coverageServices[i].env]) {
       pipeToCoverageService(coverageServices[i], options, child)
@@ -463,7 +455,7 @@ function pipeToCoverageServices (options, child) {
 
 function pipeToCoverageService (service, options, child) {
   // console.error('pipe to service yes', service.env)
-  var bin = service.bin
+  let bin = service.bin
 
   if (coverageServiceTest) {
     // console.error('use fakey test bin')
@@ -473,7 +465,7 @@ function pipeToCoverageService (service, options, child) {
     console.log('%s:%s', service.name, process.env[service.env])
   }
 
-  var ca = spawn(node, [bin], {
+  const ca = spawn(node, [bin], {
     stdio: [ 'pipe', 1, 2 ]
   })
 
@@ -507,10 +499,10 @@ function runCoverageReportOnly (options, code, signal) {
       options.coverageReport = 'text'
   }
 
-  var args = [nycBin, 'report', '--reporter', options.coverageReport]
+  const args = [nycBin, 'report', '--reporter', options.coverageReport]
   // console.error('run coverage report', args)
 
-  var child
+  let child
   // automatically hook into coveralls
   if (options.coverageReport === 'text-lcov' && options.pipeToService) {
     // console.error('pipeToService')
@@ -541,7 +533,7 @@ function runCoverageReportOnly (options, code, signal) {
 }
 
 function coverageCheckArgs (options) {
-  var args = []
+  const args = []
   if (options.branches)
     args.push('--branches', options.branches)
   if (options.functions)
@@ -555,9 +547,9 @@ function coverageCheckArgs (options) {
 }
 
 function runCoverageCheck (options, code, signal) {
-  var args = [nycBin, 'check-coverage'].concat(coverageCheckArgs(options))
+  const args = [nycBin, 'check-coverage'].concat(coverageCheckArgs(options))
 
-  var child = fg(node, args)
+  const child = fg(node, args)
   child.removeAllListeners('close')
   child.on('close', function (c, s) {
     runCoverageReportOnly(options, code || c, signal || s)
@@ -579,15 +571,14 @@ function nycVersion () {
 }
 
 function getReporters () {
-  var types = require('tap-mocha-reporter').types
-  types = types.reduce(function (str, t) {
-    var ll = str.split('\n').pop().length + t.length
+  const types = require('tap-mocha-reporter').types.reduce(function (str, t) {
+    const ll = str.split('\n').pop().length + t.length
     if (ll < 40)
       return str + ' ' + t
     else
       return str + '\n' + t
   }, '').trim()
-  var ind = '                              '
+  const ind = '                              '
   return ind + types.split('\n').join('\n' + ind)
 }
 
@@ -629,7 +620,7 @@ function globFiles (files) {
 }
 
 function makeReporter (options) {
-  var TMR = require('tap-mocha-reporter')
+  const TMR = require('tap-mocha-reporter')
   return new TMR(options.reporter)
 }
 
@@ -638,7 +629,7 @@ function stdinOnly (options) {
   // to the reporter, so we don't get '/dev/stdin' in the suite list.
   // We have to pause() before piping to switch streams2 into old-mode
   process.stdin.pause()
-  var reporter = makeReporter(options)
+  const reporter = makeReporter(options)
   process.stdin.pipe(reporter)
   process.stdin.resume()
 }
@@ -656,8 +647,8 @@ function saveFails (options, tap) {
   if (!options.saveFile)
     return
 
-  var fails = []
-  var successes = []
+  let fails = []
+  const successes = []
   tap.on('result', function (res) {
     // we will continue to re-run todo tests, even though they're
     // not technically "failures".
@@ -707,30 +698,26 @@ function filterFiles (files, saved, parallelOk) {
 }
 
 function isParallelOk (parallelOk, file) {
-  var dir = path.resolve(path.dirname(file))
-
-  if (dir in parallelOk)
-    return parallelOk[dir]
-
-  if (exists(dir + '/tap-parallel-ok'))
-    return parallelOk[dir] = true
-
-  if (exists(dir + '/tap-parallel-not-ok'))
-    return parallelOk[dir] = false
-
-  if (dir.length >= process.cwd().length)
-    return isParallelOk(parallelOk, dir)
+  const dir = path.resolve(path.dirname(file))
+  return (dir in parallelOk) ? parallelOk[dir]
+    : exists(dir + '/tap-parallel-ok')
+    ? parallelOk[dir] = true
+    : exists(dir + '/tap-parallel-not-ok')
+    ? parallelOk[dir] = false
+    : dir.length >= process.cwd().length
+    ? isParallelOk(parallelOk, dir)
+    : true
 }
 
 function runAllFiles (options, saved, tap) {
-  var doStdin = false
-  var parallelOk = Object.create(null)
+  let doStdin = false
+  let parallelOk = Object.create(null)
 
   options.files = filterFiles(options.files, saved, parallelOk)
 
-  for (var i = 0; i < options.files.length; i++) {
-    var opt = {}
-    var file = options.files[i]
+  for (let i = 0; i < options.files.length; i++) {
+    const opt = {}
+    const file = options.files[i]
 
     // Pick up stdin after all the other files are handled.
     if (file === '-') {
@@ -738,7 +725,7 @@ function runAllFiles (options, saved, tap) {
       continue
     }
 
-    var st = fs.statSync(options.files[i])
+    const st = fs.statSync(options.files[i])
     if (options.timeout)
       opt.timeout = options.timeout * 1000
 
@@ -747,10 +734,10 @@ function runAllFiles (options, saved, tap) {
       opt.buffered = isParallelOk(parallelOk, file) !== false
 
     if (file.match(/\.js$/)) {
-      var args = options.nodeArgs.concat(file).concat(options.testArgs)
+      const args = options.nodeArgs.concat(file).concat(options.testArgs)
       tap.spawn(node, args, opt, file)
     } else if (st.isDirectory()) {
-      var dir = filterFiles(fs.readdirSync(file).map(function (f) {
+      const dir = filterFiles(fs.readdirSync(file).map(function (f) {
         return file + '/' + f
       }), saved, parallelOk)
       options.files.push.apply(options.files, dir)
@@ -763,11 +750,11 @@ function runAllFiles (options, saved, tap) {
 }
 
 function runTests (options) {
-  var saved = readSaveFile(options)
+  const saved = readSaveFile(options)
 
   // At this point, we know we need to use the tap root,
   // because there are 1 or more files to spawn.
-  var tap = require('../lib/tap.js')
+  const tap = require('../lib/tap.js')
   tap.runOnly = false
 
   // greps are passed to children, but not the runner itself
@@ -793,7 +780,7 @@ function runTests (options) {
 
 function parseRcFile (path) {
   try {
-    var contents = fs.readFileSync(path, 'utf8')
+    const contents = fs.readFileSync(path, 'utf8')
     return yaml.safeLoad(contents) || {}
   } catch (er) {
     // if no dotfile exists, or invalid yaml, fail gracefully
@@ -802,8 +789,8 @@ function parseRcFile (path) {
 }
 
 function strToRegExp (g) {
-  var p = g.match(/^\/(.*)\/([a-z]*)$/)
+  const p = g.match(/^\/(.*)\/([a-z]*)$/)
   g = p ? p[1] : g
-  var flags = p ? p[2] : ''
+  const flags = p ? p[2] : ''
   return new RegExp(g, flags)
 }

@@ -1,15 +1,17 @@
 #!/usr/bin/env node
 
-var spawn = require('child_process').spawn
-var path = require('path')
-var node = process.execPath
-var fs = require('fs')
-var yaml = require('js-yaml')
+'use strict'
 
-var queue = []
-var running = false
+const spawn = require('child_process').spawn
+const path = require('path')
+const node = process.execPath
+const fs = require('fs')
+const yaml = require('js-yaml')
 
-for (var i = 2; i < process.argv.length; i++) {
+const queue = []
+let running = false
+
+for (let i = 2; i < process.argv.length; i++) {
   generate(process.argv[i], false, false)
   generate(process.argv[i], true, false)
   generate(process.argv[i], false, true)
@@ -24,20 +26,20 @@ function generate (file, bail, buffer) {
   running = true
 
   file = path.resolve(file)
-  var cwd = process.cwd()
-  var f = file
+  const cwd = process.cwd()
+  let f = file
   if (f.indexOf(cwd) === 0) {
     f = './' + file.substr(cwd.length + 1)
   }
 
-  var outfile = file.replace(/\.js$/,
+  const outfile = file.replace(/\.js$/,
    (bail ? '--bail' : '') +
    (buffer ? '--buffer' : '') +
    '.tap')
   console.error(outfile)
 
-  var output = ''
-  var c = spawn(node, [file], {
+  let output = ''
+  const c = spawn(node, [file], {
     env: {
       TAP_BAIL: bail ? 1 : 0,
       TAP_BUFFER: buffer ? 1 : 0
@@ -54,8 +56,8 @@ function generate (file, bail, buffer) {
       try { fs.unlinkSync(outfile) } catch (er) {}
     } else {
 
-      var timep = '# time=[0-9.]+(ms)?'
-      var timere = new RegExp(timep, 'g')
+      const timep = '# time=[0-9.]+(ms)?'
+      const timere = new RegExp(timep, 'g')
       output = output.replace(timere, '___/' + timep + '/~~~')
 
       // raw stack traces vary in depth between node versions, and always
@@ -67,7 +69,7 @@ function generate (file, bail, buffer) {
       output = output.split(file).join('___/.*/~~~' + path.basename(file))
       output = output.split(f).join('___/.*/~~~' + path.basename(f))
 
-      var dir = path.dirname(file)
+      const dir = path.dirname(file)
       output = output.split(dir + '/').join('___/.*/~~~')
       output = output.split(dir).join('___/.*/~~~' + path.basename(dir))
 
@@ -90,7 +92,7 @@ function generate (file, bail, buffer) {
 
     running = false
     if (queue.length) {
-      var q = queue.shift()
+      const q = queue.shift()
       generate(q[0], q[1], q[2])
     }
   })
@@ -121,18 +123,17 @@ function deStackify (data) {
 }
 
 function yamlishToJson (output) {
-  var lines = output.split(/\n/)
-  var ret = ''
-  var inyaml = false
-  var y = ''
-  var startlen = 0
-  for (var i = 0; i < lines.length; i++) {
-    var line = lines[i]
+  const lines = output.split(/\n/)
+  let ret = ''
+  let inyaml = false
+  let y = ''
+  let startlen = 0
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i]
     if (inyaml) {
       if (line.match(/^\s+\.\.\.$/) && line.length === startlen) {
-        var data = yaml.safeLoad(y)
-        data = deStackify(data)
-        data = JSON.stringify(data)
+        const yload = yaml.safeLoad(y)
+        const data = JSON.stringify(deStackify(yload))
         ret += new Array(startlen - 2).join(' ') +
           data + '\n' + line + '\n'
         inyaml = false
