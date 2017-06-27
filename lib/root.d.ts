@@ -1,4 +1,4 @@
-// tap.d.ts
+// root.d.ts
 
 declare var tap: Tap;
 
