@@ -1,3 +1,8 @@
 import * as tap from '../lib/root.js';
 
-tap.pass("I can't believe it took a year to add this :)")
+tap.pass("passes")
+
+tap.test("a test", (t) => {
+  tap.pass("works")
+  t.pass("also works")
+})
