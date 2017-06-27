@@ -1,8 +1,12 @@
 {
     "compilerOptions": {
-        "noImplicitAny": true
+        "noImplicitAny": false,
+        "allowJs": true,
+        "checkJs": true,
+        "out": "/tmp/taptest",
+        "types": ["node"]
     },
-    "files": [
-        "test/typescript-d-tests.ts"
+    "include": [
+        "test/**/*"
     ]
 }
