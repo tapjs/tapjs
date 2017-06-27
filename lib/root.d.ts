@@ -8,28 +8,30 @@ declare interface Tap extends Test {
   mochaGlobals: () => void
 }
 
-declare class Test {
+declare class Test extends ReadableStream {
   constructor (options?: Options.Test)
-  tearDown(fn:(a:any) => any):void
-  setTimeout(n: number):void
-  endAll():void
-  threw(er: Error, extra?: Error, proxy?: Test):void
-  pragma(set: Options.Pragma):void
-  plan(n: number, comment?: string):void
-  test(name: string, extra?: Options.Test, cb?: (t: Test) => Promise | void): Promise
-  test(name: string, cb?: (t: Test) => Promise | void): Promise
-  current(): Test
-  stdin(name: string, extra?: Options.Bag): Promise
-  spawn(cmd: string, args: string, options?: Options.Bag, name?: string, extra?: Options.Spawn): Promise
-  done():void
-  passing():boolean
-  pass(message?: string, extra?: Options.Assert):boolean
-  fail(message?: string, extra?: Options.Assert):boolean
   addAssert(name: string, length: number, fn: (...args:any[]) => boolean): boolean
-  comment(message: string, ...args:any[]):void
+  afterEach(fn: (cb: () => any) => Promise | void):void
   bailout(message?: string):void
   beforeEach(fn: (cb: () => any) => Promise | void):void
-  afterEach(fn: (cb: () => any) => Promise | void):void
+  comment(message: string, ...args:any[]):void
+  current(): Test
+  done():void
+  end():void
+  endAll():void
+  fail(message?: string, extra?: Options.Assert):boolean
+  on()
+  pass(message?: string, extra?: Options.Assert):boolean
+  passing():boolean
+  plan(n: number, comment?: string):void
+  pragma(set: Options.Pragma):void
+  setTimeout(n: number):void
+  spawn(cmd: string, args: string, options?: Options.Bag, name?: string, extra?: Options.Spawn): Promise
+  stdin(name: string, extra?: Options.Bag): Promise
+  tearDown(fn:(a:any) => any):void
+  test(name: string, cb?: (t: Test) => Promise | void): Promise
+  test(name: string, extra?: Options.Test, cb?: (t: Test) => Promise | void): Promise
+  threw(er: Error, extra?: Error, proxy?: Test):void
 
   // Assertions
   ok: Assertions.Basic

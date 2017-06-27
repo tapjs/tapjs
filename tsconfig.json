@@ -3,8 +3,10 @@
         "noImplicitAny": false,
         "allowJs": true,
         "checkJs": true,
-        "out": "/tmp/taptest",
-        "types": ["node"]
+        "outDir": "/tmp/taptest",
+        "types": ["node"],
+        "module": "commonjs",
+        "target": "es2015"
     },
     "include": [
         "test/**/*"
