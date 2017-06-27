@@ -1,0 +1,8 @@
+{
+    "compilerOptions": {
+        "noImplicitAny": true
+    },
+    "files": [
+        "test/typescript-d-tests.ts"
+    ]
+}

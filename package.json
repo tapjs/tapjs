@@ -4,7 +4,7 @@
   "author": "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me)",
   "description": "A Test-Anything-Protocol library",
   "homepage": "http://node-tap.org/",
-  "typings": "./tap.d.ts",
+  "types": "lib/root.d.ts",
   "bin": {
     "tap": "bin/run.js"
   },
@@ -42,6 +42,7 @@
   "repository": "https://github.com/tapjs/node-tap.git",
   "scripts": {
     "regen-fixtures": "node scripts/generate-test-test.js test/test/*.js",
+    "pretest": "tsc",
     "test": "node bin/run.js test/*.* --coverage",
     "smoke": "node test/test.js | node bin/run.js -",
     "posttest": "standard lib test"
