@@ -6,31 +6,49 @@ export = tap;
 declare global {
     interface Tap extends Tap.Test {
       Test: Tap.TestConstructor;
+      mocha: Tap.Mocha;
+      mochaGlobals: () => void;
     }
     namespace Tap {
+      type Callback = (t:Test) => Promise|void;
+      type DoneCallback = (result?:any)=>void;
+
       export interface Test extends NodeJS.ReadableStream {
         constructor (options?: Options.Test)
         addAssert(name: string, length: number, fn: (...args:any[]) => boolean): boolean
-        afterEach(fn: (cb: () => any) => Promise | void):void
+        afterEach(fn: (cb: DoneCallback) => Promise | void):void
         bailout(message?: string):void
-        beforeEach(fn: (cb: () => any) => Promise | void):void
-        comment(message: string, ...args:any[]):void
+        beforeEach(fn: (cb: DoneCallback) => Promise | void):void
+        comment(message: string|number, ...args:any[]):void
         current(): Test
         done():void
         end():void
         endAll():void
-        fail(message?: string, extra?: Options.Assert):boolean
-        pass(message?: string, extra?: Options.Assert):boolean
+        fail(message?: string|number, extra?: Options.Assert):boolean
+        only(name, cb:Callback): Promise;
+        pass(message?: string|number, extra?: Options.Assert):boolean
         passing():boolean
         plan(n: number, comment?: string):void
         pragma(set: Options.Pragma):void
+        rejects(message:string, p:Promise|(()=>any), expected: Error):Promise;
+        rejects(p:Promise|(()=>any), expected: Error):Promise;
         setTimeout(n: number):void
-        spawn(cmd: string, args: string, options?: Options.Bag, name?: string, extra?: Options.Spawn): Promise
+        spawn(cmd: string, args: string|string[], options: Options.Spawn, name?: string): Promise
+        spawn(cmd: string, args?: string|string[], name?:string, options?: Options.Spawn): Promise
+        stdin(extra: Options.Bag): Promise
         stdin(name: string, extra?: Options.Bag): Promise
         tearDown(fn:(a:any) => any):void
-        test(name: string, cb?: (t: Test) => Promise | void): Promise
-        test(name: string, extra?: Options.Test, cb?: (t: Test) => Promise | void): Promise
+        teardown(fn:(a:any) => any):void
+        test(): Promise
+        test(cb: Callback): Promise
+        test(name: string, cb?: Callback): Promise
+        test(name: string, extra?: Options.Test, cb?: Callback): Promise
+        test(options: Options.Test|object, cb: Callback): Promise
         threw(er: Error, extra?: Error, proxy?: Test):void
+
+        // Properties
+        name: string;
+        jobs: number;
 
         // Assertions
         ok: Assertions.Basic
@@ -38,6 +56,8 @@ declare global {
         assert: Assertions.Basic
 
         notOk: Assertions.Basic
+        not_ok: Assertions.Basic
+        not: Assertions.Basic
         false: Assertions.Basic
         assertNot: Assertions.Basic
 
@@ -81,6 +101,7 @@ declare global {
         looseIs: Assertions.Equal
 
         notSame: Assertions.NotEqual
+        not_same: Assertions.NotEqual
         inequivalent: Assertions.NotEqual
         looseInequal: Assertions.NotEqual
         notDeep: Assertions.NotEqual
@@ -105,6 +126,7 @@ declare global {
         notDeeply: Assertions.NotEqual
         strictDeepInequals: Assertions.NotEqual
         notStrictSame: Assertions.NotEqual
+        not_strict_same: Assertions.NotEqual
 
         match: Assertions.Match
         has: Assertions.Match
@@ -118,6 +140,7 @@ declare global {
         contains: Assertions.Match
 
         notMatch: Assertions.Match
+        not_match: Assertions.Match
         dissimilar: Assertions.Match
         unsimilar: Assertions.Match
         notSimilar: Assertions.Match
@@ -166,10 +189,10 @@ declare global {
           (obj: any, message?: string, extra?: Options.Assert) => boolean
 
         export type Throws =
-          (fn?:()=>any, expectedError?: Error|object|(()=>any), message?: string, extra?: Options.Assert) => boolean;
+          (...args) => boolean
 
         export type DoesNotThrow =
-          (fn?: (a:any) => any, message?: string, extra?: Options.Assert) => boolean
+          (...args) => boolean
 
         export type Equal =
           (found: any, wanted: any, message?: string, extra?: Options.Assert) => boolean
@@ -178,10 +201,10 @@ declare global {
           (found: any, notWanted: any, message?: string, extra?: Options.Assert) => boolean
 
         export type Match =
-          (found: any, pattern: any, message?: string, extra?: Options.Assert) => boolean
+          ((found: any, pattern: any, message?: string, extra?: Options.Assert) => boolean)
 
         export type Type =
-          (found: any, type: string | ((a:any) => any), message?: string, extra?: Options.Assert) => boolean
+          (found: any, type: string | (() => any) | {new():any}, message?: string, extra?: Options.Assert) => boolean
       }
 
       // Super minimal description of returned Promise (which are really Bluebird promises)
@@ -204,17 +227,4 @@ declare global {
       }
 
     }
-
-
-    // declare var tap: Tap;
-
-    // declare interface Tap extends Test {
-    //   Test: TestConstructor
-    //   mocha: Mocha
-    //   mochaGlobals: () => void
-    // }
-
-    // export = tap;
-
-
 }
