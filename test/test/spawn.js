@@ -1,8 +1,4 @@
-var t = require('../../lib/test.js')()
-t.pipe(process.stdout)
-process.on('exit', function () {
-  t.end()
-})
+var t = require('../..')
 
 if (process.argv[2] !== 'child') {
   t.spawn(process.execPath, [__filename, 'child'])

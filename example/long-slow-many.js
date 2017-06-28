@@ -1,4 +1,4 @@
-var t = require('../lib/root.js')
+var t = require('../lib/tap.js')
 t.plan(2)
 
 t.test('gun show', function (t) {

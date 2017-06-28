@@ -1,0 +1,13 @@
+TAP version 13
+# Subtest: post-plan async
+    # Subtest: child test
+        ok 1 - this is fine
+        1..1
+    ok 1 - child test ___/# time=[0-9.]+(ms)?/~~~
+    
+    1..1
+ok 1 - post-plan async ___/# time=[0-9.]+(ms)?/~~~
+
+1..1
+___/# time=[0-9.]+(ms)?/~~~
+

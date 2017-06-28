@@ -1,36 +1,44 @@
 #!/usr/bin/env node
+
 var node = process.execPath
 var fs = require('fs')
 var spawn = require('child_process').spawn
 var fg = require('foreground-child')
 var opener = require('opener')
-var supportsColor = require('supports-color')
+var colorSupport = require('color-support')
 var nycBin = require.resolve('nyc/bin/nyc.js')
 var glob = require('glob')
 var isexe = require('isexe')
+var osHomedir = require('os-homedir')
+var yaml = require('js-yaml')
+var path = require('path')
+var exists = require('fs-exists-cached').sync
+var os = require('os');
 
 var coverageServiceTest = process.env.COVERAGE_SERVICE_TEST === 'true'
+
+// NYC will not wrap a module in node_modules.
+// So, we need to tell the child proc when it's been added.
+if (process.env._TAP_COVERAGE_ === '1')
+  global.__coverage__ = global.__coverage__ || {}
 
 // console.error(process.argv.join(' '))
 // console.error('CST=%j', process.env.COVERAGE_SERVICE_TEST)
 // console.error('CRT=%j', process.env.COVERALLS_REPO_TOKEN)
-// console.error('CCT=%j', process.env.CODECOV_TOKEN)
-if (coverageServiceTest) {
+if (coverageServiceTest)
   console.log('COVERAGE_SERVICE_TEST')
-}
 
 // Add new coverage services here.
 // it'll check for the environ named and pipe appropriately.
+//
+// Currently only Coveralls is supported, but the infrastructure
+// is left in place in case some noble soul fixes the codecov
+// module in the future.  See https://github.com/tapjs/node-tap/issues/270
 var coverageServices = [
   {
     env: 'COVERALLS_REPO_TOKEN',
     bin: require.resolve('coveralls/bin/coveralls.js'),
     name: 'Coveralls'
-  },
-  {
-    env: 'CODECOV_TOKEN',
-    bin: require.resolve('codecov.io/bin/codecov.io.js'),
-    name: 'Codecov'
   }
 ]
 
@@ -44,27 +52,39 @@ function main () {
     process.exit(1)
   }
 
-  var options = parseArgs(args)
+  // set default args
+  var defaults = constructDefaultArgs()
 
-  if (!options) {
+  // parse dotfile
+  var rcFile = process.env.TAP_RCFILE || (osHomedir() + '/.taprc')
+  var rcOptions = parseRcFile(rcFile)
+
+  // supplement defaults with parsed rc options
+  if (rcOptions)
+    Object.keys(rcOptions).forEach(function (k) {
+      defaults[k] = rcOptions[k]
+    })
+
+  defaults.rcFile = rcFile
+
+  // parse args
+  var options = parseArgs(args, defaults)
+
+  if (!options)
     return
-  }
 
   process.stdout.on('error', function (er) {
-    if (er.code === 'EPIPE') {
+    if (er.code === 'EPIPE')
       process.exit()
-    } else {
+    else
       throw er
-    }
   })
 
   options.files = globFiles(options.files)
 
   if ((options.coverageReport || options.checkCoverage) &&
-      options.files.length === 0) {
-    runCoverageReport(options)
-    return
-  }
+      options.files.length === 0)
+    return runCoverageReport(options)
 
   if (options.files.length === 0) {
     console.error('Reading TAP data from stdin (use "-" argument to suppress)')
@@ -72,9 +92,8 @@ function main () {
   }
 
   if (options.files.length === 1 && options.files[0] === '-') {
-    if (options.coverage) {
+    if (options.coverage)
       console.error('Coverage disabled because stdin cannot be instrumented')
-    }
     stdinOnly(options)
     return
   }
@@ -83,64 +102,86 @@ function main () {
   // they are only relevant when coverage is turned off.
 
   /* istanbul ignore if */
-  if (options.coverage && !global.__coverage__) {
-    respawnWithCoverage(options)
-    return
-  }
+  if (options.coverage && !global.__coverage__)
+    return respawnWithCoverage(options)
 
   setupTapEnv(options)
 
   runTests(options)
 }
 
-function parseArgs (args) {
-  var options = {}
+function constructDefaultArgs () {
+  var defaultTimeout = 30
+  if (global.__coverage__)
+    defaultTimeout = 240
 
-  options.nodeArgs = []
-  options.nycArgs = []
-  options.timeout = process.env.TAP_TIMEOUT || 30
-  // coverage tools run slow.
-  /* istanbul ignore else */
-  if (global.__coverage__) {
-    options.timeout = 240
+  var defaultArgs = {
+    nodeArgs: [],
+    nycArgs: [],
+    testArgs: [],
+    timeout: +process.env.TAP_TIMEOUT || defaultTimeout,
+    color: !!colorSupport.level,
+    reporter: null,
+    files: [],
+    grep: [],
+    grepInvert: false,
+    bail: false,
+    saveFile: null,
+    pipeToService: false,
+    coverageReport: null,
+    browser: true,
+    coverage: undefined,
+    checkCoverage: false,
+    branches: 0,
+    functions: 0,
+    lines: 0,
+    statements: 0,
+    jobs: 1,
+    outputFile: null
   }
 
-  options.color = supportsColor
-  if (process.env.TAP_COLORS !== undefined) {
-    options.color = !!(+process.env.TAP_COLORS)
-  }
-  options.reporter = null
-  options.files = []
-  options.bail = false
-  options.saveFile = null
+  if (process.env.TAP_COLORS !== undefined)
+    defaultArgs.color = !!(+process.env.TAP_COLORS)
+
+  return defaultArgs
+}
+
+function parseArgs (args, defaults) {
+  var options = defaults || {}
 
   var singleFlags = {
     b: 'bail',
     B: 'no-bail',
+    i: 'invert',
+    I: 'no-invert',
     c: 'color',
     C: 'no-color',
+    T: 'no-timeout',
+    J: 'jobs-auto',
+    O: 'only',
     h: 'help',
     '?': 'help',
     v: 'version'
   }
+
   var singleOpts = {
+    j: 'jobs',
+    g: 'grep',
     R: 'reporter',
     t: 'timeout',
-    s: 'save'
+    s: 'save',
+    o: 'output-file'
   }
 
   // If we're running under Travis-CI with a Coveralls.io token,
   // then it's a safe bet that we ought to output coverage.
-  options.pipeToService = false
   for (var i = 0; i < coverageServices.length && !options.pipeToService; i++) {
-    if (process.env[coverageServices[i].env]) {
+    if (process.env[coverageServices[i].env])
       options.pipeToService = true
-    }
   }
 
   var defaultCoverage = options.pipeToService
-
-  options.coverageReport = null
+  var dumpConfig = false
 
   for (i = 0; i < args.length; i++) {
     var arg = args[i]
@@ -156,18 +197,17 @@ function parseArgs (args) {
         var fc = arg.charAt(f)
         var sf = singleFlags[fc]
         var so = singleOpts[fc]
-        if (sf) {
+        if (sf)
           expand.push('--' + sf)
-        } else if (so) {
+        else if (so) {
           var soval = arg.slice(f + 1)
           if (soval.charAt(0) !== '=') {
             soval = '=' + soval
           }
           expand.push('--' + so + soval)
           f = arg.length
-        } else if (arg !== '-' + fc) {
+        } else if (arg !== '-' + fc)
           expand.push('-' + fc)
-        }
       }
       if (expand.length) {
         args.splice.apply(args, [i, 1].concat(expand))
@@ -189,6 +229,10 @@ function parseArgs (args) {
         console.log(usage())
         return null
 
+      case '--dump-config':
+        dumpConfig = true
+        continue
+
       case '--nyc-help':
         nycHelp()
         return null
@@ -201,18 +245,25 @@ function parseArgs (args) {
         console.log(require('../package.json').version)
         return null
 
-      case '--__coverage__':
-        // NYC will not wrap a module in node_modules.
-        // So, we need to tell the child proc when it's been added.
-        global.__coverage__ = global.__coverage__ || {}
+      case '--jobs':
+        val = val || args[++i]
+        options.jobs = +val
+        continue
+
+      case '--jobs-auto':
+        val = os.cpus().length;
+        options.jobs = +val
         continue
 
       case '--coverage-report':
         options.coverageReport = val || args[++i]
-        if (options.coverageReport === 'html') {
+        if (options.coverageReport === 'html')
           options.coverageReport = 'lcov'
-        }
         defaultCoverage = true
+        continue
+
+      case '--no-browser':
+        options.browser = false
         continue
 
       case '--no-coverage-report':
@@ -259,21 +310,34 @@ function parseArgs (args) {
 
       case '--node-arg':
         val = val || args[++i]
-        if (val !== undefined) {
+        if (val !== undefined)
           options.nodeArgs.push(val)
-        }
         continue
 
       case '--check-coverage':
         defaultCoverage = true
-        options.checkCoverage = options.checkCoverage || []
+        options.checkCoverage = true
+        continue
+
+      case '--test-arg':
+        val = val || args[++i]
+        if (val !== undefined)
+          options.testArgs.push(val)
         continue
 
       case '--nyc-arg':
         val = val || args[++i]
-        if (val !== undefined) {
+        if (val !== undefined)
           options.nycArgs.push(val)
-        }
+        continue
+
+      case '--100':
+        defaultCoverage = true
+        options.checkCoverage = true
+        options.branches = 100
+        options.functions = 100
+        options.lines = 100
+        options.statements = 100
         continue
 
       case '--branches':
@@ -282,8 +346,8 @@ function parseArgs (args) {
       case '--statements':
         defaultCoverage = true
         val = val || args[++i]
-        options.checkCoverage = options.checkCoverage || []
-        options.checkCoverage.push(key, val)
+        options.checkCoverage = true
+        options[key.slice(2)] = val
         continue
 
       case '--color':
@@ -294,9 +358,33 @@ function parseArgs (args) {
         options.color = false
         continue
 
+      case '--output-file':
+        val = val || args[++i]
+        if (val !== undefined)
+          options.outputFile = val
+        continue
+
+      case '--no-timeout':
+        options.timeout = 0
+        continue
+
       case '--timeout':
         val = val || args[++i]
         options.timeout = +val
+        continue
+
+      case '--invert':
+        options.grepInvert = true
+        continue
+
+      case '--no-invert':
+        options.grepInvert = false
+        continue
+
+      case '--grep':
+        val = val || args[++i]
+        if (val !== undefined)
+          options.grep.push(strToRegExp(val))
         continue
 
       case '--bail':
@@ -305,6 +393,10 @@ function parseArgs (args) {
 
       case '--no-bail':
         options.bail = false
+        continue
+
+      case '--only':
+        options.only = true
         continue
 
       case '--':
@@ -317,18 +409,18 @@ function parseArgs (args) {
     }
   }
 
-  if (options.coverage === undefined) {
+  if (options.coverage === undefined)
     options.coverage = defaultCoverage
-  }
 
-  if (process.env.TAP === '1') {
+  if (process.env.TAP === '1')
     options.reporter = 'tap'
-  }
 
   // default to tap for non-tty envs
-  if (!options.reporter) {
+  if (!options.reporter)
     options.reporter = options.color ? 'classic' : 'tap'
-  }
+
+  if (dumpConfig)
+    return console.log(JSON.stringify(options, null, 2))
 
   return options
 }
@@ -339,12 +431,13 @@ function respawnWithCoverage (options) {
   // Re-spawn with coverage
   var args = [nycBin].concat(
     '--silent',
+    '--cache=true',
     options.nycArgs,
     '--',
     process.execArgv,
-    process.argv.slice(1),
-    '--__coverage__'
+    process.argv.slice(1)
   )
+  process.env._TAP_COVERAGE_ = '1'
   var child = fg(node, args)
   child.removeAllListeners('close')
   child.on('close', function (code, signal) {
@@ -364,9 +457,8 @@ function pipeToCoverageServices (options, child) {
   }
 
   /* istanbul ignore if */
-  if (!piped) {
+  if (!piped)
     throw new Error('unknown service, internal error')
-  }
 }
 
 function pipeToCoverageService (service, options, child) {
@@ -388,42 +480,38 @@ function pipeToCoverageService (service, options, child) {
   child.stdout.pipe(ca.stdin)
 
   ca.on('close', function (code, signal) {
-    if (signal) {
+    if (signal)
       process.kill(process.pid, signal)
-    } else if (code) {
-      process.exit(code)
-    } else {
+    else if (code)
+      console.log('Error piping coverage to ' + service.name)
+    else
       console.log('Successfully piped to ' + service.name)
-    }
   })
 }
 
 function runCoverageReport (options, code, signal) {
-  if (options.checkCoverage) {
+  if (options.checkCoverage)
     runCoverageCheck(options, code, signal)
-  } else {
+  else
     runCoverageReportOnly(options, code, signal)
-  }
 }
 
 function runCoverageReportOnly (options, code, signal) {
-  if (options.coverageReport === false) {
+  if (options.coverageReport === false)
     return close(code, signal)
-  }
 
   if (!options.coverageReport) {
-    if (options.pipeToService || coverageServiceTest) {
+    if (options.pipeToService || coverageServiceTest)
       options.coverageReport = 'text-lcov'
-    } else {
+    else
       options.coverageReport = 'text'
-    }
   }
 
   var args = [nycBin, 'report', '--reporter', options.coverageReport]
   // console.error('run coverage report', args)
 
   var child
-  // automatically hook into coveralls and/or codecov
+  // automatically hook into coveralls
   if (options.coverageReport === 'text-lcov' && options.pipeToService) {
     // console.error('pipeToService')
     child = spawn(node, args, { stdio: [ 0, 'pipe', 2 ] })
@@ -431,11 +519,10 @@ function runCoverageReportOnly (options, code, signal) {
   } else {
     // otherwise just run the reporter
     child = fg(node, args)
-    if (options.coverageReport === 'lcov') {
+    if (options.coverageReport === 'lcov' && options.browser)
       child.on('exit', function () {
         opener('coverage/lcov-report/index.html')
       })
-    }
   }
 
   if (code || signal) {
@@ -448,14 +535,27 @@ function runCoverageReportOnly (options, code, signal) {
       setTimeout(function () {}, 200)
       return process.kill(process.pid, signal || s)
     }
-    if (code || c) {
+    if (code || c)
       return process.exit(code || c)
-    }
   }
 }
 
+function coverageCheckArgs (options) {
+  var args = []
+  if (options.branches)
+    args.push('--branches', options.branches)
+  if (options.functions)
+    args.push('--functions', options.functions)
+  if (options.lines)
+    args.push('--lines', options.lines)
+  if (options.statements)
+    args.push('--statements', options.statements)
+
+  return args
+}
+
 function runCoverageCheck (options, code, signal) {
-  var args = [nycBin, 'check-coverage'].concat(options.checkCoverage)
+  var args = [nycBin, 'check-coverage'].concat(coverageCheckArgs(options))
 
   var child = fg(node, args)
   child.removeAllListeners('close')
@@ -482,11 +582,10 @@ function getReporters () {
   var types = require('tap-mocha-reporter').types
   types = types.reduce(function (str, t) {
     var ll = str.split('\n').pop().length + t.length
-    if (ll < 40) {
+    if (ll < 40)
       return str + ' ' + t
-    } else {
+    else
       return str + '\n' + t
-    }
   }, '').trim()
   var ind = '                              '
   return ind + types.split('\n').join('\n' + ind)
@@ -494,15 +593,24 @@ function getReporters () {
 
 function setupTapEnv (options) {
   process.env.TAP_TIMEOUT = options.timeout
-  if (options.color) {
+  if (options.color)
     process.env.TAP_COLORS = 1
-  } else {
+  else
     process.env.TAP_COLORS = 0
-  }
 
-  if (options.bail) {
+  if (options.bail)
     process.env.TAP_BAIL = '1'
-  }
+
+  if (options.grepInvert)
+    process.env.TAP_GREP_INVERT = '1'
+
+  if (options.grep.length)
+    process.env.TAP_GREP = options.grep.map(function (pattern) {
+      return pattern.toString()
+    }).join('\n')
+
+  if (options.only)
+    process.env.TAP_ONLY = '1'
 }
 
 function globFiles (files) {
@@ -513,77 +621,116 @@ function globFiles (files) {
     }
 
     // glob claims patterns MUST not include any '\'s
-    if (!/\\/.test(f)) {
+    if (!/\\/.test(f))
       f = glob.sync(f) || f
-    }
+
     return acc.concat(f)
   }, [])
 }
 
-function stdinOnly (options) {
+function makeReporter (options) {
   var TMR = require('tap-mocha-reporter')
+  return new TMR(options.reporter)
+}
+
+function stdinOnly (options) {
   // if we didn't specify any files, then just passthrough
   // to the reporter, so we don't get '/dev/stdin' in the suite list.
   // We have to pause() before piping to switch streams2 into old-mode
   process.stdin.pause()
-  var reporter = new TMR(options.reporter)
+  var reporter = makeReporter(options)
   process.stdin.pipe(reporter)
   process.stdin.resume()
 }
 
 function readSaveFile (options) {
-  if (options.saveFile) {
+  if (options.saveFile)
     try {
       return fs.readFileSync(options.saveFile, 'utf8').trim().split('\n')
     } catch (er) {}
-  }
-  return options.files
+
+  return null
 }
 
 function saveFails (options, tap) {
-  if (!options.saveFile) {
+  if (!options.saveFile)
     return
-  }
+
   var fails = []
+  var successes = []
   tap.on('result', function (res) {
     // we will continue to re-run todo tests, even though they're
     // not technically "failures".
-    if (!res.ok && !res.extra.skip) {
+    if (!res.ok && !res.extra.skip)
       fails.push(res.extra.file)
-    }
+    else
+      successes.push(res.extra.file)
   })
 
-  tap.on('end', function () {
-    if (!fails.length) {
+  tap.on('bailout', function (reason) {
+    // add any pending test files to the fails list.
+    fails.push.apply(fails, options.files.filter(function (file) {
+      return successes.indexOf(file) === -1
+    }))
+    save()
+  })
+
+  tap.on('end', save)
+
+  function save () {
+    fails = fails.reduce(function (set, f) {
+      if (set.indexOf(f) === -1)
+        set.push(f)
+      return set
+    }, [])
+
+    if (!fails.length)
       try {
         fs.unlinkSync(options.saveFile)
       } catch (er) {}
-    } else {
+    else
       try {
         fs.writeFileSync(options.saveFile, fails.join('\n') + '\n')
       } catch (er) {}
-    }
+  }
+}
+
+function filterFiles (files, saved, parallelOk) {
+  return files.filter(function (file) {
+    if (path.basename(file) === 'tap-parallel-ok')
+      parallelOk[path.resolve(path.dirname(file))] = true
+    else if (path.basename(file) === 'tap-parallel-not-ok')
+      parallelOk[path.resolve(path.dirname(file))] = false
+    else
+      return saved === null || saved.indexOf(file) !== -1
   })
+}
+
+function isParallelOk (parallelOk, file) {
+  var dir = path.resolve(path.dirname(file))
+
+  if (dir in parallelOk)
+    return parallelOk[dir]
+
+  if (exists(dir + '/tap-parallel-ok'))
+    return parallelOk[dir] = true
+
+  if (exists(dir + '/tap-parallel-not-ok'))
+    return parallelOk[dir] = false
+
+  if (dir.length >= process.cwd().length)
+    return isParallelOk(parallelOk, dir)
 }
 
 function runAllFiles (options, saved, tap) {
   var doStdin = false
-  var opt = {
-    env: Object.keys(process.env).reduce(function (env, k) {
-      if (!env[k]) {
-        env[k] = process.env[k]
-      }
-      return env
-    }, {
-      TAP: 1
-    })
-  }
+  var parallelOk = Object.create(null)
+
+  options.files = filterFiles(options.files, saved, parallelOk)
 
   for (var i = 0; i < options.files.length; i++) {
+    var opt = {}
     var file = options.files[i]
-    if (saved.indexOf(file) === -1) {
-      continue
-    }
 
     // Pick up stdin after all the other files are handled.
     if (file === '-') {
@@ -592,28 +739,27 @@ function runAllFiles (options, saved, tap) {
     }
 
     var st = fs.statSync(options.files[i])
-    var extra = {}
-    if (options.timeout) {
-      extra.timeout = options.timeout * 1000
-    }
+    if (options.timeout)
+      opt.timeout = options.timeout * 1000
 
-    extra.file = file
+    opt.file = file
+    if (options.jobs > 1)
+      opt.buffered = isParallelOk(parallelOk, file) !== false
 
     if (file.match(/\.js$/)) {
-      tap.spawn(node, options.nodeArgs.concat(file), opt, file, extra)
+      var args = options.nodeArgs.concat(file).concat(options.testArgs)
+      tap.spawn(node, args, opt, file)
     } else if (st.isDirectory()) {
-      var dir = fs.readdirSync(file).map(function (f) {
+      var dir = filterFiles(fs.readdirSync(file).map(function (f) {
         return file + '/' + f
-      })
+      }), saved, parallelOk)
       options.files.push.apply(options.files, dir)
-    } else if (isexe.sync(options.files[i])) {
-      tap.spawn(options.files[i], [], opt, file, extra)
-    }
+    } else if (isexe.sync(options.files[i]))
+      tap.spawn(options.files[i], options.testArgs, opt, file)
   }
 
-  if (doStdin) {
+  if (doStdin)
     tap.stdin()
-  }
 }
 
 function runTests (options) {
@@ -621,18 +767,43 @@ function runTests (options) {
 
   // At this point, we know we need to use the tap root,
   // because there are 1 or more files to spawn.
-  var tap = require('../lib/root.js')
+  var tap = require('../lib/tap.js')
+  tap.runOnly = false
+
+  // greps are passed to children, but not the runner itself
+  tap.grep = []
+  tap.jobs = options.jobs
+  tap.patchProcess()
 
   // if not -Rtap, then output what the user wants.
-  if (options.reporter !== 'tap') {
-    var TMR = require('tap-mocha-reporter')
-    tap.unpipe(process.stdout)
-    tap.pipe(new TMR(options.reporter))
-  }
+  // otherwise just dump to stdout
+  tap.pipe(options.reporter === 'tap' ? process.stdout: makeReporter(options))
+
+  // need to replay the first version line, because the previous
+  // line will have flushed it out to stdout or the reporter already.
+  if (options.outputFile !== null)
+    tap.pipe(fs.createWriteStream(options.outputFile)).write('TAP version 13\n')
 
   saveFails(options, tap)
 
   runAllFiles(options, saved, tap)
 
   tap.end()
+}
+
+function parseRcFile (path) {
+  try {
+    var contents = fs.readFileSync(path, 'utf8')
+    return yaml.safeLoad(contents) || {}
+  } catch (er) {
+    // if no dotfile exists, or invalid yaml, fail gracefully
+    return {}
+  }
+}
+
+function strToRegExp (g) {
+  var p = g.match(/^\/(.*)\/([a-z]*)$/)
+  g = p ? p[1] : g
+  var flags = p ? p[2] : ''
+  return new RegExp(g, flags)
 }

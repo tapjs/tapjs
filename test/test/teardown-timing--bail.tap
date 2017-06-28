@@ -1,0 +1,28 @@
+TAP version 13
+############## step1 startup
+# Subtest: step1
+    1..0
+ok 1 - step1 ___/# time=[0-9.]+(ms)?/~~~
+
+############## step1 teardown
+############## step2 startup
+# Subtest: step2
+    1..0
+ok 2 - step2 ___/# time=[0-9.]+(ms)?/~~~
+
+############## step2 teardown
+############## step3 startup
+# Subtest: step3
+    1..0
+ok 3 - step3 ___/# time=[0-9.]+(ms)?/~~~
+
+############## step3 teardown
+############## step4 startup
+# Subtest: step4
+    1..0
+ok 4 - step4 ___/# time=[0-9.]+(ms)?/~~~
+
+############## step4 teardown
+1..4
+___/# time=[0-9.]+(ms)?/~~~
+

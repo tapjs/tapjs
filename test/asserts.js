@@ -1,8 +1,15 @@
-var test = require('../lib/root.js').test
+var test = require('../').test
 var Test = require('../lib/test.js')
 var util = require('util')
 var truthies = [ true, 1, 'ok', Infinity, function () {}, {}, [], /./ ]
 var falsies = [ false, 0, '', NaN, null, undefined ]
+
+test('NaN', function (t) {
+  t.same(NaN, NaN)
+  t.strictSame(NaN, NaN)
+  t.match(NaN, NaN)
+  t.end()
+})
 
 test('ok finds truthiness, notOk finds falsiness', function (t) {
   var tt = new Test()
@@ -82,6 +89,7 @@ test('doesNotThrow expects not to catch', function (t) {
     throw 'x' // eslint-disable-line
   }))
   t.doesNotThrow(function () {})
+  t.doesNotThrow('this does not throw', function () {})
   t.end()
 })
 

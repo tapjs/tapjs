@@ -6,6 +6,11 @@ var run = require.resolve('../bin/run.js')
 var ok = require.resolve('./test/ok.js')
 var t = require('../')
 
+if (process.version.match(/^v0\.10\./)) {
+  t.plan(0, 'coverage check failure exit does not work on 0.10')
+  process.exit()
+}
+
 t.test('generate some coverage data', function (tt) {
   spawn(node, [run, ok, '--coverage', '--no-coverage-report'], {
     stdio: 'ignore'
@@ -23,6 +28,7 @@ var passes = [
 ]
 
 var fails = [
+  '--100',
   '--branches 1', // default lines is 90
   '--branches=100 --lines=0',
   '--check-coverage'
@@ -34,12 +40,15 @@ var failPattern = new RegExp(
   'does not meet global threshold \\([0-9]+%\\)'
 )
 var banner =
-  '--------------|----------|----------|----------|' +
-  '----------|----------------|\n' +
-  'File          |  % Stmts | % Branch |  % Funcs |' +
-  '  % Lines |Uncovered Lines |\n' +
-  '--------------|----------|----------|----------|' +
-  '----------|----------------|\n'
+'-----------------------|----------|' +
+'----------|----------|----------|----' +
+'------------|\n' +
+'File                   |  % Stmts | ' +
+'% Branch |  % Funcs |  % Lines ' +
+'|Uncovered Lines |\n' +
+'-----------------------|----------|' +
+'----------|----------|----------|----' +
+'------------|\n'
 
 t.test('fails', function (t) {
   t.plan(fails.length)

@@ -1,0 +1,12 @@
+TAP version 13
+# Subtest: end end
+    1..0
+ok 1 - end end ___/# time=[0-9.]+(ms)?/~~~
+
+not ok 2 - test end() method called more than once
+  ---
+  {"test":"end end"}
+  ...
+
+Bail out! # test end() method called more than once
+

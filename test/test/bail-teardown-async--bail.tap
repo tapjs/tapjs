@@ -1,0 +1,8 @@
+TAP version 13
+# Subtest: foobar test
+    1..0
+ok 1 - foobar test ___/# time=[0-9.]+(ms)?/~~~
+
+# Subtest: barfoo
+Bail out! teardown fail
+

@@ -1,9 +1,0 @@
-TAP version 13
-    # Subtest: spawn that throws
-    not ok 1 - Error: now is fine
-      ---
-      {"at":{"column":14,"file":"test/test/spawn-failures.js","line":25},"message":"Error: now is fine","source":"throwNow = new Error('now is fine')\n","test":"spawn that throws"}
-      ...
-    Bail out! # Error: now is fine
-Bail out! # Error: now is fine
-

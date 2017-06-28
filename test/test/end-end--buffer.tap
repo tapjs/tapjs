@@ -1,0 +1,52 @@
+TAP version 13
+ok 1 - end end ___/# time=[0-9.]+(ms)?/~~~ {
+    1..0
+}
+
+not ok 2 - test end() method called more than once
+  ---
+  {"test":"end end"}
+  ...
+
+ok 3 - end then async end ___/# time=[0-9.]+(ms)?/~~~ {
+    1..0
+}
+
+ok 4 - double async end ___/# time=[0-9.]+(ms)?/~~~ {
+    1..0
+}
+
+ok 5 - plan end ___/# time=[0-9.]+(ms)?/~~~ {
+    1..1
+    ok 1 - this is fine
+}
+
+ok 6 - plan then async end ___/# time=[0-9.]+(ms)?/~~~ {
+    1..1
+    ok 1 - this is fine
+}
+
+ok 7 - plan end end ___/# time=[0-9.]+(ms)?/~~~ {
+    1..1
+    ok 1 - this is fine
+}
+
+not ok 8 - test end() method called more than once ___/# time=[0-9.]+(ms)?/~~~
+  ---
+  {"test":"end then async end"}
+  ...
+
+not ok 9 - test end() method called more than once
+  ---
+  {"test":"plan end end"}
+  ...
+
+not ok 10 - test end() method called more than once ___/# time=[0-9.]+(ms)?/~~~
+  ---
+  {"test":"double async end"}
+  ...
+
+1..10
+# failed 4 of 10 tests
+___/# time=[0-9.]+(ms)?/~~~
+

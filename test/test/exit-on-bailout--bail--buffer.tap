@@ -1,0 +1,13 @@
+log in root, before child
+TAP version 13
+log in child, before grandchild
+log in grandchild, before bailout
+log in grandchild, after bailout
+log in child, after grandchild
+not ok 1 - child {
+    not ok 1 - grandchild ___/# time=[0-9.]+(ms)?/~~~ {
+        Bail out! cannot continue
+    }
+}
+Bail out! cannot continue
+

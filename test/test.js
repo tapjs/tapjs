@@ -1,5 +1,5 @@
 var glob = require('glob')
-var t = require('../lib/root.js')
+var t = require('../')
 var spawn = require('child_process').spawn
 var node = process.execPath
 var fs = require('fs')
@@ -7,51 +7,102 @@ var dir = __dirname + '/test/'
 var path = require('path')
 var yaml = require('js-yaml')
 
+process.env.TAP_BUFFER = 1
+// don't turn on parallelization for `npm test`, because it also
+// has coverage and this makes the spawn timeouts stuff break.
+if (process.env.npm_lifecycle_event !== 'test')
+  t.jobs = 2
+
 function regEsc (str) {
   return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&')
 }
 
-if (process.argv[2]) {
-  var file = path.resolve(dir, process.argv[2])
-  runTests(file)
-} else {
-  glob.sync(dir + '*.js').forEach(runTests)
+module.exports = function (pattern, bail, buffer) {
+  pattern = path.basename(pattern)
+  glob.sync(dir + pattern).forEach(function (f) {
+    runTests(f, bail, buffer)
+  })
 }
 
-function runTests (file) {
+if (module === require.main) {
+  if (process.argv[2]) {
+    var bail, buffer
+    process.argv.slice(3).forEach(function (x) {
+      switch (x) {
+        case 'bail': return bail = true
+        case 'buffer': return buffer = true
+        case 'nobail': return bail = false
+        case 'nobuffer': return buffer = false
+      }
+    })
+    module.exports(process.argv[2], bail, buffer)
+  } else {
+    module.exports('*.js', false, false)
+  }
+}
+
+function runTests (file, bail, buffer) {
+  var bails = [ !!bail ]
+  var buffs = [ !!buffer ]
+
+  if (bail === undefined) {
+    bails = [ true, false ]
+  }
+
+  if (buffer === undefined) {
+    buffs = [ true, false ]
+  }
+
   var skip = false
-  if (file.match(/\bpending-handles\.js$/)) {
+  if (file.match(/\b(timeout.*|pending-handles)\.js$/)) {
     if (process.env.TRAVIS) {
-      skip = 'pending handles test is too timing dependent for Travis'
+      skip = 'timeout and handles tests too timing dependent for Travis'
     } else if (process.platform === 'win32') {
-      skip = 'pending handles relies on sinals windows cannot do'
+      skip = 'timeout and handles tests rely on sinals windows cannot do'
     }
-  } else if (file.match(/\btimeout-via-runner.*\.js$/)) {
-    if (process.platform === 'win32') {
-      skip = 'SIGERM on win32 is not catchable'
+  }
+
+  if (file.match(/\bsegv\b/)) {
+    if (process.platform === 'win32')
+      skip = 'skip segv on windows'
+    else if (process.env.TRAVIS)
+      skip = 'skip segv on CI'
+  }
+
+  if (file.match(/\bsigterm\b/)) {
+    if (process.version.match(/^v0\.10\./)) {
+      skip = 'sigterm handling test does not work on 0.10'
+    } else if (process.platform === 'win32') {
+      skip = 'sigterm handling is weird on windows'
     }
   }
 
   var f = file.substr(dir.length)
   t.test(f, { skip: skip }, function (t) {
-    t.test('bail=false', function (t) {
-      runTest(t, false, file)
+    t.plan(bails.length * buffs.length)
+    bails.forEach(function (bail) {
+      buffs.forEach(function (buff) {
+        t.test('bail=' + bail + ' buffer=' + buff, function (t) {
+          runTest(t, bail, buff, file)
+        })
+      })
     })
-    t.test('bail=true', function (t) {
-      runTest(t, true, file)
-    })
-    t.end()
   })
 }
 
-function runTest (t, bail, file) {
-  var resfile = file.replace(/\.js$/, (bail ? '-bail' : '') + '.tap')
+function runTest (t, bail, buffer, file) {
+  var resfile = file.replace(/\.js$/,
+   (bail ? '--bail' : '') +
+   (buffer ? '--buffer' : '') +
+   '.tap')
   var want = fs.readFileSync(resfile, 'utf8').split(/\r?\n/)
 
   var child = spawn(node, [file], {
     stdio: [ 0, 'pipe', 'pipe' ],
     env: {
-      TAP_BAIL: bail ? 1 : 0
+      TAP_BAIL: bail ? 1 : 0,
+      TAP_BUFFER: buffer ? 1 : 0,
+      PATH: process.env.PATH
     }
   })
 
@@ -83,7 +134,12 @@ function runTest (t, bail, file) {
           y = ''
           wdata = JSON.parse(wline)
           patternify(wdata)
-          t.match(data, wdata)
+          var msg = 'line ' + f + ' '
+          if (wline.length < 50)
+            msg += wline
+          else
+            msg += wline.substr(0, 45) + '...'
+          t.match(data, wdata, msg)
           f--
         } else {
           y += fline + '\n'
@@ -111,10 +167,14 @@ function runTest (t, bail, file) {
   })
 }
 
-function patternify (pattern) {
+function patternify (pattern, key) {
+  var root = !key
   if (typeof pattern === 'object' && pattern) {
     Object.keys(pattern).forEach(function (k) {
-      pattern[k] = patternify(pattern[k])
+      pattern[k] = patternify(pattern[k], k)
+      // sigbus an sigsegv are more or less the same thing.
+      if (root && k === 'signal' && pattern[k] === 'SIGBUS')
+        pattern[k] = /^SIG(BUS|SEGV)$/
     })
     return pattern
   }

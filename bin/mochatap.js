@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-var tap = require('../lib/root.js')
+var tap = require('../lib/tap.js')
 var args = process.argv.slice(2)
 
 if (args.length === 1) {

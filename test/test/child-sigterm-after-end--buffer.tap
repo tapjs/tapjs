@@ -1,0 +1,16 @@
+TAP version 13
+# child start
+TAP version 13
+ok 1 - this is fine
+1..1
+___/# time=[0-9.]+(ms)?/~~~
+possible timeout: SIGTERM received after tap end
+  ---
+  {"handles":[{"type":"Timer"}]}
+  ...
+
+# child end code=null signal="SIGTERM"
+ok 1 - should not be equal
+1..1
+___/# time=[0-9.]+(ms)?/~~~
+

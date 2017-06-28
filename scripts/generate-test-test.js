@@ -10,29 +10,37 @@ var queue = []
 var running = false
 
 for (var i = 2; i < process.argv.length; i++) {
-  generate(process.argv[i], false)
-  generate(process.argv[i], true)
+  generate(process.argv[i], false, false)
+  generate(process.argv[i], true, false)
+  generate(process.argv[i], false, true)
+  generate(process.argv[i], true, true)
 }
 
-function generate (file, bail) {
+function generate (file, bail, buffer) {
   if (running) {
-    queue.push([file, bail])
+    queue.push([file, bail, buffer])
     return
   }
   running = true
 
   file = path.resolve(file)
+  var cwd = process.cwd()
   var f = file
-  if (f.indexOf(process.cwd()) === 0) {
-    f = './' + file.substr(process.cwd().length + 1)
+  if (f.indexOf(cwd) === 0) {
+    f = './' + file.substr(cwd.length + 1)
   }
 
-  var outfile = file.replace(/\.js$/, (bail ? '-bail' : '') + '.tap')
+  var outfile = file.replace(/\.js$/,
+   (bail ? '--bail' : '') +
+   (buffer ? '--buffer' : '') +
+   '.tap')
   console.error(outfile)
+
   var output = ''
   var c = spawn(node, [file], {
     env: {
-      TAP_BAIL: bail ? 1 : 0
+      TAP_BAIL: bail ? 1 : 0,
+      TAP_BUFFER: buffer ? 1 : 0
     }
   })
 
@@ -44,8 +52,21 @@ function generate (file, bail) {
     var timere = new RegExp(timep, 'g')
     output = output.replace(timere, '___/' + timep + '/~~~')
 
+    // raw stack traces vary in depth between node versions, and always
+    // cause problems.  Replace them with an obvious failure.
+    output = output.replace(
+      /^    at .*?:[0-9]+:[0-9]+\)?$/mg,
+      'ERROR: stacks will cause problems, please fix this in the test')
+
     output = output.split(file).join('___/.*/~~~' + path.basename(file))
     output = output.split(f).join('___/.*/~~~' + path.basename(f))
+
+    var dir = path.dirname(file)
+    output = output.split(dir + '/').join('___/.*/~~~')
+    output = output.split(dir).join('___/.*/~~~' + path.basename(dir))
+
+    output = output.split(cwd + '/').join('___/.*/~~~')
+    output = output.split(cwd).join('___/.*/~~~')
 
     output = output.split(node + ' ___/').join('\0N1\0')
     output = output.split(path.basename(node) + ' ___/').join('\0N1\0')
@@ -63,7 +84,7 @@ function generate (file, bail) {
     running = false
     if (queue.length) {
       var q = queue.shift()
-      generate(q[0], q[1])
+      generate(q[0], q[1], q[2])
     }
   })
 }
@@ -78,9 +99,12 @@ function deStackify (data) {
       return res
     } else if (k === 'msecs' && typeof data[k] === 'number') {
       return res
-    } else if (k === 'function' && typeof data[k] === 'string' && data[k].indexOf('._onTimeout') !== -1) {
+    } else if (k === 'function' && typeof data[k] === 'string') {
       return res
     } else if (typeof data[k] === 'object' && data[k]) {
+      if (k === 'at') {
+        delete data[k].type
+      }
       res[k] = deStackify(data[k])
     } else {
       res[k] = data[k]
