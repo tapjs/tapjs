@@ -57,7 +57,6 @@ declare global {
 
         notOk: Assertions.Basic
         not_ok: Assertions.Basic
-        not: Assertions.Basic
         false: Assertions.Basic
         assertNot: Assertions.Basic
 
@@ -82,6 +81,7 @@ declare global {
         isStrictly: Assertions.Equal
 
         notEqual: Assertions.NotEqual
+        not: Assertions.NotEqual
         notEquals: Assertions.NotEqual
         inequal: Assertions.NotEqual
         notStrictEqual: Assertions.NotEqual
@@ -185,6 +185,7 @@ declare global {
       }
 
       namespace Assertions {
+
         export type Basic =
           (obj: any, message?: string, extra?: Options.Assert) => boolean
 
@@ -204,7 +205,7 @@ declare global {
           ((found: any, pattern: any, message?: string, extra?: Options.Assert) => boolean)
 
         export type Type =
-          (found: any, type: string | (() => any) | {new():any}, message?: string, extra?: Options.Assert) => boolean
+          (found: any, type: any, message?: string, extra?: Options.Assert) => boolean
       }
 
       // Super minimal description of returned Promise (which are really Bluebird promises)
