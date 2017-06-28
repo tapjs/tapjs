@@ -9,6 +9,9 @@
         "target": "es2015"
     },
     "include": [
-        "test/**/*"
+        "test/*.js",
+        "test/*.ts",
+        "test/**/*.js",
+        "test/**/*.ts"
     ]
 }

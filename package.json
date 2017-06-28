@@ -48,7 +48,7 @@
     "posttest": "standard lib test"
   },
   "devDependencies": {
-    "@types/node": "^8.0.4",
+    "@types/node": "^8.0.5",
     "standard": "^5.4.1",
     "which": "^1.1.1"
   },
