@@ -2,4 +2,3 @@ node_modules/
 coverage/
 .nyc_output/
 nyc_output/
-test/typescript-d-tests.js
