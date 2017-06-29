@@ -18,9 +18,12 @@ t.plan(args.length)
 
 args.forEach(function (arg) {
   var ex = expect
-  if (typeof arg[arg.length - 1] !== 'string')
+  if (typeof arg[arg.length - 1] !== 'string') {
+    // @ts-ignore
     ex = arg.pop()
+  }
   t.test(arg.join(' '), function (t) {
+    // @ts-ignore
     var child = spawn(node, [run].concat(arg).concat('--dump-config'))
     var out = ''
     child.stdout.on('data', function (c) {

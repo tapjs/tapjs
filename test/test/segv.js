@@ -14,6 +14,7 @@ var segv =
   '}\n'
 
 t.test('setup', function (t) {
+  // @ts-ignore
   fs.writeFile('segv.c', segv, 'utf8', function (er) {
     if (er) {
       throw er

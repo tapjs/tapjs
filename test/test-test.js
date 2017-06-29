@@ -87,6 +87,7 @@ t.test('plan stuff', function (t) {
   }, new Error('Cannot set plan more than once'))
   t.throws(function () {
     var tt = new Test({ buffered: false })
+    // @ts-ignore
     tt.plan('foo')
   }, new TypeError('plan must be a number'))
   t.throws(function () {
@@ -100,6 +101,7 @@ t.test('plan stuff', function (t) {
 t.test('invalid test arguments', function (t) {
   t.throws(function () {
     var tt = new Test({ buffered: false })
+    // @ts-ignore
     tt.test('name', { skip: false }, 'not a function')
   }, new TypeError('unknown argument passed to parseTestArgs: string'))
 

@@ -17,6 +17,7 @@ t.test('-t or --timeout to set timeout', function (t) {
   var nf = require.resolve('./fixtures/never-finish.js')
   var args = [run, nf]
   var dur = '.2'
+  // @ts-ignore
   if (global.__coverage__) {
     dur = '.9'
   }

@@ -12,6 +12,7 @@ declare global {
       parser: any;
       promise: any;
       processing: any;
+      pipe(...args): any;
     }
   }
   namespace NodeJS {

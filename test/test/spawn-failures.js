@@ -22,6 +22,7 @@ var ok = require.resolve('./ok.js')
 var node = process.execPath
 
 t.test('spawn that throws', function (t) {
+  // @ts-ignore
   throwNow = new Error('now is fine')
   t.tearDown(function () {
     throwNow = false
@@ -31,6 +32,7 @@ t.test('spawn that throws', function (t) {
 })
 
 t.test('spawn that throws', function (t) {
+  // @ts-ignore
   throwLater = new Error('later is fine')
   t.tearDown(function () {
     throwLater = false

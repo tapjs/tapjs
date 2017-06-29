@@ -59,10 +59,11 @@
     "postpublish": "git push origin --all; git push origin --tags"
   },
   "devDependencies": {
+    "@types/node": "^8.0.5",
     "mkdirp": "^0.5.1",
     "rimraf": "^2.5.4",
-    "@types/node": "^8.0.5",
     "standard": "^7.1.2",
+    "typescript": "^2.4.1",
     "which": "^1.1.1"
   },
   "files": [

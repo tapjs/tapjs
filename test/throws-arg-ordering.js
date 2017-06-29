@@ -1,6 +1,6 @@
 var t = require('../')
 
-var wanted = [
+var wanted_list = [
   Error,
   { message: 'hello' },
   new Error('hello'),
@@ -12,13 +12,13 @@ var wanted = [
   /[g-i]ell.$/
 ]
 
-var extra = [
+var extra_list = [
   { skip: false },
   {},
   null
 ]
 
-var message = [
+var message_list = [
   'the thing throws',
   null,
   ''
@@ -31,28 +31,27 @@ function thrower () {
   throw er
 }
 
-wanted.forEach(function (wanted) {
-  extra.forEach(function (extra) {
-    message.forEach(function (message) {
+wanted_list.forEach(function (wanted) {
+  extra_list.forEach(function (extra) {
+    message_list.forEach(function (message) {
       // The wanted error object always has to come before the
       // 'extra', or else it'll think that you want an error
       // matching something like {skip:blah...}
       // Any other ordering should work fine tho.
-      var a = [ thrower, wanted, extra, message ]
-      t.throws(a[0], a[1], a[2], a[3])
-      t.throws(a[0], a[1], a[3], a[2])
-      t.throws(a[0], a[3], a[1], a[2])
+      t.throws(thrower, wanted, extra, message)
+      t.throws(thrower, wanted, message, extra)
+      t.throws(thrower, message, wanted, extra)
 
-      t.throws(a[1], a[0], a[2], a[3])
-      t.throws(a[1], a[0], a[3], a[2])
-      t.throws(a[1], a[2], a[0], a[3])
-      t.throws(a[1], a[2], a[3], a[0])
-      t.throws(a[1], a[3], a[0], a[2])
-      t.throws(a[1], a[3], a[2], a[0])
+      t.throws(wanted, thrower, extra, message)
+      t.throws(wanted, thrower, message, extra)
+      t.throws(wanted, extra, thrower, message)
+      t.throws(wanted, extra, message, thrower)
+      t.throws(wanted, message, thrower, extra)
+      t.throws(wanted, message, extra, thrower)
 
-      t.throws(a[3], a[1], a[2], a[0])
-      t.throws(a[3], a[1], a[0], a[2])
-      t.throws(a[3], a[0], a[1], a[2])
+      t.throws(message, wanted, extra, thrower)
+      t.throws(message, wanted, thrower, extra)
+      t.throws(message, thrower, wanted, extra)
     })
   })
 })

@@ -3,6 +3,7 @@ var tap = require('../..')
 tap.test('t1', function (t) {
   t.test('t11', function (t) {
     t.plan(1)
+    // @ts-ignore
     process.on('some event that never happens', function () {
       t.pass('ok')
     })
