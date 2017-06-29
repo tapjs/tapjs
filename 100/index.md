@@ -13,6 +13,7 @@ request](https://github.com/tapjs/node-tap/blob/gh-pages/100/index.md)
 to add it to the docs.
 
 * [abbrev](https://www.npmjs.com/package/abbrev)
+* [casern](https://www.npmjs.com/package/casern)
 * [color-support](https://www.npmjs.com/package/color-support)
 * [events-to-array](https://www.npmjs.com/package/events-to-array)
 * [fs-exists-cached](https://www.npmjs.com/package/fs-exists-cached)
