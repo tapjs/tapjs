@@ -37,6 +37,7 @@ to add it to the docs.
 * [tapsert](https://www.npmjs.com/package/tapsert)
 * [tar](https://www.npmjs.com/package/tar)
 * [tmatch](https://www.npmjs.com/package/tmatch)
+* [touch](https://www.npmjs.com/package/touch)
 * [trivial-deferred](https://www.npmjs.com/package/trivial-deferred)
 * [tsame](https://www.npmjs.com/package/tsame)
 * [yallist](https://www.npmjs.com/package/yallist)
