@@ -18,7 +18,7 @@ ok 1 - nesting ___/# time=[0-9.]+(ms)?/~~~
 ok 2 - this passes
 not ok 3 - this fails
   ---
-  {"at":{"column":3,"file":"test/test/bailout.js","line":18},"source":"t.fail('this fails')\n"}
+  {"at":{"column":3,"file":"test/test/bailout.js","line":19},"source":"t.fail('this fails')\n"}
   ...
 
 # Subtest: async kid

@@ -1,4 +1,5 @@
-var t = require('../../lib/test.js')()
+var Test = require('../../lib/test.js')
+var t = new Test()
 
 t.test('nesting', function (t) {
   t.plan(2)
