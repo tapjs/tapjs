@@ -24,7 +24,7 @@ p.emit('end')
 console.log('# between')
 
 p = new PT()
-var s = Stdin({ tapStream: p, indent: '#### ' })
+var s = new Stdin({ tapStream: p, indent: '#### ' })
 s.pipe(process.stdout)
 s.main(function (e) { if (e) throw e })
 p.write(
