@@ -19,7 +19,7 @@ setTimeout(function () {
 })
 
 t.test('child calling _parse after bailout', function (t) {
-  var p = Parser()
+  var p = new Parser()
   var etoa = require('events-to-array')
 
   var events = etoa(p, [ 'pipe', 'unpipe', 'prefinish', 'finish', 'line' ])

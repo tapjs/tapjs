@@ -132,6 +132,10 @@
           ],
           [
             "line",
+            "    1..0 # no tests found\n"
+          ],
+          [
+            "line",
             "1..0 # no tests found\n"
           ],
           [
@@ -430,6 +434,14 @@
       ],
       [
         "line",
+        "        1..0 # no tests found\n"
+      ],
+      [
+        "line",
+        "    1..0 # no tests found\n"
+      ],
+      [
+        "line",
         "ok 1 - boom # time=5.26ms\n"
       ],
       [
@@ -629,6 +641,14 @@
   [
     "line",
     "        1..0\n"
+  ],
+  [
+    "line",
+    "            1..0 # no tests found\n"
+  ],
+  [
+    "line",
+    "        1..0 # no tests found\n"
   ],
   [
     "line",

@@ -11,8 +11,8 @@ parse the [test anything protocol](http://testanything.org/)
 # example
 
 ``` js
-var parser = require('tap-parser');
-var p = parser(function (results) {
+var Parser = require('tap-parser');
+var p = new Parser(function (results) {
     console.dir(results);
 });
 
@@ -81,10 +81,10 @@ Options:
 # methods
 
 ``` js
-var parser = require('tap-parser')
+var Parser = require('tap-parser')
 ```
 
-## var p = parser(options, cb)
+## var p = new Parser(options, cb)
 
 Return a writable stream `p` that emits parse events.
 

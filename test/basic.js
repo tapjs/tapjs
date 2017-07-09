@@ -1,27 +1,25 @@
 var t = require('tap')
 var Parser = require('../')
 
-t.isa(Parser(), Parser, 'calling as function returns instance')
-
 t.test('passing no options and cb works fine', function (t) {
-  var p = Parser(t.end)
+  var p = new Parser(t.end)
   p.emit('complete')
 })
 
 t.test('end() can take chunk', function (t) {
   t.plan(2)
   t.test('string', function (t) {
-    var p = Parser()
+    var p = new Parser()
     p.end('1..0\n', t.end)
   })
   t.test('encoding', function (t) {
-    var p = Parser()
+    var p = new Parser()
     p.end(new Buffer('1..0\n').toString('hex'), 'hex',  t.end)
   })
 })
 
 t.test('takes a buffer just fine', function (t) {
-  var p = Parser(theEnd)
+  var p = new Parser(theEnd)
   p.write(new Buffer('TAP version 13\n'))
 
   var calledme = false
