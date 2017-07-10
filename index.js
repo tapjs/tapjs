@@ -389,7 +389,11 @@ class Parser extends MiniPass {
     } else if (!this.bailedOut && this.planStart === -1) {
       if (this.count === 0 && !this.syntheticPlan) {
         this.syntheticPlan = true
-        this.plan(1, 0, 'no tests found', '1..0 # no tests found\n')
+        if (this.buffered) {
+          this.planStart = 1
+          this.planEnd = 0
+        } else
+          this.plan(1, 0, 'no tests found', '1..0 # no tests found\n')
         skipAll = true
       } else {
         this.tapError('no plan')
