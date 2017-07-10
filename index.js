@@ -368,12 +368,12 @@ class Parser extends MiniPass {
     this.emitResult()
 
     if (this.syntheticBailout && this.level === 0) {
+      this.syntheticBailout = false
       let reason = this.bailedOut
       if (reason === true)
         reason = ''
       else
         reason = ' ' + reason
-      // reason += ' Parser(384 l=' + this.level + ')'
       this.emit('line', 'Bail out!' + reason + '\n')
     }
 
@@ -471,7 +471,6 @@ class Parser extends MiniPass {
   }
 
   bailout (reason, synthetic) {
-    // console.trace('bailout')
     this.syntheticBailout = synthetic
 
     if (this.bailingOut)
@@ -493,7 +492,6 @@ class Parser extends MiniPass {
       let line = 'Bail out!'
       if (reason)
         line += ' ' + reason
-      // reason += ' Parser(524 s=' + synthetic + ')'
       this.emit('line', line + '\n')
     }
     this.emit('bailout', reason)
@@ -511,7 +509,7 @@ class Parser extends MiniPass {
   }
 
   endChild () {
-    if (this.child) {
+    if (this.child && (!this.bailingOut || this.child.count)) {
       this.child.end()
       this.child = null
     }
@@ -556,7 +554,6 @@ class Parser extends MiniPass {
       let p
       for (p = this; p.parent; p = p.parent);
       const bailName = res.name ? ' # ' + res.name : ''
-      // bailName += ' Parser(586)'
       p.parse(ind + 'Bail out!' + bailName + '\n')
     }
     this.clearExtraQueue()
