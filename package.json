@@ -8,6 +8,7 @@
     "tap": "bin/run.js"
   },
   "main": "lib/tap.js",
+  "types": "index.d.ts",
   "engines": {
     "node": ">=4"
   },
@@ -54,18 +55,25 @@
     "regen-fixtures": "node scripts/generate-test-test.js test-legacy/test/*.js",
     "snap": "TAP_SNAPSHOT=1 node bin/run.js test/*.js",
     "test": "node bin/run.js test/*.js --100 -J --nyc-arg=--include={lib,bin} -c",
-    "test-all": "node bin/run.js test/*.js test-legacy/*.js --100 -J --nyc-arg=--include={lib,bin}",
+    "test-all": "node bin/run.js test/*.js test-legacy/*.js --100 --nyc-arg=--include={lib,bin}",
     "unit": "bash scripts/unit.sh",
     "test-legacy": "node bin/run.js test-legacy/*.* --coverage -t3600 --nyc-arg=--include={lib,bin}",
     "smoke": "node bin/run.js --node-arg=test-legacy/test.js test-legacy/test/*.js -j2",
-    "posttest": "standard lib test",
+    "posttest": "node bin/run.js --node-arg=ts-node test/typescript.ts && npm run lint",
+    "postposttest": "npm run lint",
+    "lint": "standard lib test",
+    "postlint": "tslint --project tsconfig.json",
     "t": "node bin/run.js test/*.* -sfails.txt",
     "preversion": "npm test",
     "postversion": "npm publish",
     "postpublish": "git push origin --all; git push origin --tags"
   },
   "devDependencies": {
+    "@types/node": "^8.0.14",
     "standard": "^7.1.2",
+    "ts-node": "^3.2.0",
+    "tslint": "^5.5.0",
+    "typescript": "^2.4.1",
     "which": "^1.1.1"
   },
   "files": [

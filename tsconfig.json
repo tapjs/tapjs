@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "target": "es3",
+    "lib": [
+      "es5",
+      "es6",
+      "es7"
+    ],
+    "module": "commonjs",
+    "outDir": "dist",
+    "declaration": true,
+    "sourceMap": true,
+    "noLib": false,
+    "noEmitOnError": true,
+    "noUnusedLocals": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "strictNullChecks": true,
+    "noImplicitAny": false,
+    "noUnusedParameters": false,
+    "noImplicitThis": false,
+    "traceResolution": false
+  },
+  "exclude": [
+    "node_modules/",
+    "dist/"
+  ],
+  "include": [
+    "test/*.ts"
+  ]
+}
