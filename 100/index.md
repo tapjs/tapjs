@@ -39,6 +39,7 @@ to add it to the docs.
 * [tap-parser](https://www.npmjs.com/package/tap-parser)
 * [tapromise](https://www.npmjs.com/package/tapromise)
 * [tapsert](https://www.npmjs.com/package/tapsert)
+* [tapshot](https://www.npmjs.com/package/tapshot)
 * [tar](https://www.npmjs.com/package/tar)
 * [tmatch](https://www.npmjs.com/package/tmatch)
 * [touch](https://www.npmjs.com/package/touch)
