@@ -208,5 +208,5 @@ function patternify (pattern, key) {
     p += regEsc(wlp.join('/~~~'))
   })
   p += '$'
-  return new RegExp(p)
+  return new RegExp(p, 'i')
 }
