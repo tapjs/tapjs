@@ -37,7 +37,7 @@ Just kidding.
 Most frameworks spend a lot of their documentation telling you why
 they're the greatest.  I'm not going to do that.
 
-### <i lang="it">tutti i gusti, sono gusti</i>
+### <i lang="it">tutti i gusti sono gusti</i>
 
 Software testing is a software and user experience design challenge
 that balances on the intersection of many conflicting demands.

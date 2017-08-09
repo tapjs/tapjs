@@ -1,6 +1,6 @@
 {
   "name": "tap",
-  "version": "10.7.0",
+  "version": "10.7.1",
   "author": "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me)",
   "description": "A Test-Anything-Protocol library",
   "homepage": "http://node-tap.org/",
@@ -24,7 +24,7 @@
     "glob": "^7.0.0",
     "isexe": "^2.0.0",
     "js-yaml": "^3.3.1",
-    "nyc": "^11.0.3-candidate.0",
+    "nyc": "^11.1.0",
     "opener": "^1.4.1",
     "os-homedir": "^1.0.2",
     "own-or": "^1.0.0",
