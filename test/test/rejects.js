@@ -72,3 +72,7 @@ t.rejects(
     resolve(10)
   }),
   new Error('own'))
+
+const prom = new Promise((resolve, reject) => reject(new Error('foo')))
+t.rejects(prom, { message: 'foo' }, 'a')
+t.rejects(prom, { message: 'bar' }, 'b')

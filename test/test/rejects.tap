@@ -99,7 +99,22 @@ not ok 12 - expect rejected Promise: Error own ___/# time=[0-9.]+(ms)?/~~~ {
     # failed 1 test
 }
 
-1..12
-# failed 8 of 12 tests
+ok 13 - a ___/# time=[0-9.]+(ms)?/~~~ {
+    ok 1 - a
+    1..1
+}
+
+not ok 14 - b ___/# time=[0-9.]+(ms)?/~~~ {
+    not ok 1 - b
+      ---
+      {"at":{"column":3,"file":"test/test/rejects.js","line":78},"found":{"message":"foo","name":"Error"},"pattern":{"message":"bar"},"source":"t.rejects(prom, { message: 'bar' }, 'b')\n"}
+      ...
+    
+    1..1
+    # failed 1 test
+}
+
+1..14
+# failed 9 of 14 tests
 ___/# time=[0-9.]+(ms)?/~~~
 
