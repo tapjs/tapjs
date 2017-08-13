@@ -156,3 +156,31 @@ t.test('test-point', function (t) {
 
   t.end()
 })
+
+t.test('t.only', t => {
+  const tt = new Test({ runOnly: true })
+  tt.setEncoding('utf8')
+  tt.test('1', ttt => { ttt.fail('no'); ttt.end() })
+  tt.only('2', ttt => { ttt.pass('this is fine'); ttt.end() })
+  tt.test('3', ttt => { ttt.fail('not this either'); ttt.end() })
+  tt.end()
+  const output = tt.read()
+  t.match(output, /\nok 1 - 1 # SKIP filter: only\n/)
+  t.match(output, /\n    ok 1 - this is fine\n/)
+  t.match(output, /\nok 3 - 3 # SKIP filter: only\n/)
+  t.end()
+})
+
+t.test('t.skip and t.todo', t => {
+  const tt = new Test()
+  tt.setEncoding('utf8')
+  tt.skip('1', ttt => { ttt.fail('no'); ttt.end() })
+  tt.test('2', ttt => { ttt.pass('this is fine'); ttt.end() })
+  tt.todo('3', ttt => { ttt.fail('not this either'); ttt.end() })
+  tt.end()
+  const output = tt.read()
+  t.match(output, /\nok 1 - 1 # SKIP\n/)
+  t.match(output, /\nok 3 - 3 # TODO\n/)
+  t.match(output, /\n    ok 1 - this is fine\n/)
+  t.end()
+})
