@@ -137,19 +137,19 @@ t.test('test-point', function (t) {
     new TestPoint(100, 'century!', { flerg: 'blooze' })
   }, new TypeError('ok must be boolean'))
 
-  var tp = TestPoint(true, 'msg', { a: 1 })
+  var tp = new TestPoint(true, 'msg', { a: 1 })
   t.isa(tp, TestPoint)
   t.match(tp, {
     ok: 'ok ',
     message: '- msg\n'
   })
 
-  t.match(TestPoint(true, 'msg', { a: 1, diagnostic: true }), {
+  t.match(new TestPoint(true, 'msg', { a: 1, diagnostic: true }), {
     ok: 'ok ',
     message: ' - msg\n  ---\n  a: 1\n  ...\n\n'
   })
 
-  t.match(TestPoint(true, 'msg', { a: 1, tapChildBuffer: 'subtest output' }), {
+  t.match(new TestPoint(true, 'msg', { a: 1, tapChildBuffer: 'subtest output' }), {
     ok: 'ok ',
     message: ' - msg {\nsubtest output\n}\n\n'
   })
