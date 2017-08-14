@@ -1,14 +1,15 @@
 #!/usr/bin/env node
-var tap = require('../lib/tap.js')
-var args = process.argv.slice(2)
+'use strict'
+const tap = require('../lib/tap.js')
+const args = process.argv.slice(2)
 
 if (args.length === 1) {
-  var path = require('path')
-  var file = path.resolve(args[0])
+  const path = require('path')
+  const file = path.resolve(args[0])
   tap.mochaGlobals()
   require(file)
 } else {
-  for (var i = 0; i < args.length; i++) {
+  for (let i = 0; i < args.length; i++) {
     tap.spawn(process.execPath, [__filename, args[i]])
   }
 }

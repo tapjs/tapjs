@@ -43,9 +43,8 @@ const coverageServices = [
   }
 ]
 
-main()
 
-function main () {
+const main = _ => {
   const args = process.argv.slice(2)
 
   if (!args.length && process.stdin.isTTY) {
@@ -111,7 +110,7 @@ function main () {
   runTests(options)
 }
 
-function constructDefaultArgs () {
+const constructDefaultArgs = _ => {
   const defaultTimeout = (global.__coverage__) ? 240 : 30
 
   const defaultArgs = {
@@ -145,7 +144,7 @@ function constructDefaultArgs () {
   return defaultArgs
 }
 
-function parseArgs (args, defaults) {
+const parseArgs = (args, defaults) => {
   const options = defaults || {}
 
   const singleFlags = {
@@ -418,7 +417,7 @@ function parseArgs (args, defaults) {
 }
 
 /* istanbul ignore next */
-function respawnWithCoverage (options) {
+const respawnWithCoverage = options => {
   // console.error('respawn with coverage')
   // Re-spawn with coverage
   const args = [nycBin].concat(
@@ -437,7 +436,7 @@ function respawnWithCoverage (options) {
   })
 }
 
-function pipeToCoverageServices (options, child) {
+const pipeToCoverageServices = (options, child) => {
   // console.error('pipe to services')
   let piped = false
   for (let i = 0; i < coverageServices.length; i++) {
@@ -453,7 +452,7 @@ function pipeToCoverageServices (options, child) {
     throw new Error('unknown service, internal error')
 }
 
-function pipeToCoverageService (service, options, child) {
+const pipeToCoverageService = (service, options, child) => {
   // console.error('pipe to service yes', service.env)
   let bin = service.bin
 
@@ -481,14 +480,14 @@ function pipeToCoverageService (service, options, child) {
   })
 }
 
-function runCoverageReport (options, code, signal) {
+const runCoverageReport = (options, code, signal) => {
   if (options.checkCoverage)
     runCoverageCheck(options, code, signal)
   else
     runCoverageReportOnly(options, code, signal)
 }
 
-function runCoverageReportOnly (options, code, signal) {
+const runCoverageReportOnly = (options, code, signal) => {
   if (options.coverageReport === false)
     return close(code, signal)
 
@@ -532,7 +531,7 @@ function runCoverageReportOnly (options, code, signal) {
   }
 }
 
-function coverageCheckArgs (options) {
+const coverageCheckArgs = options => {
   const args = []
   if (options.branches)
     args.push('--branches', options.branches)
@@ -546,7 +545,7 @@ function coverageCheckArgs (options) {
   return args
 }
 
-function runCoverageCheck (options, code, signal) {
+const runCoverageCheck = (options, code, signal) => {
   const args = [nycBin, 'check-coverage'].concat(coverageCheckArgs(options))
 
   const child = fg(node, args)
@@ -556,21 +555,15 @@ function runCoverageCheck (options, code, signal) {
   })
 }
 
-function usage () {
-  return fs.readFileSync(__dirname + '/usage.txt', 'utf8')
+const usage = _ => fs.readFileSync(__dirname + '/usage.txt', 'utf8')
     .split('@@REPORTERS@@')
     .join(getReporters())
-}
 
-function nycHelp () {
-  fg(node, [nycBin, '--help'])
-}
+const nycHelp = _ => fg(node, [nycBin, '--help'])
 
-function nycVersion () {
-  console.log(require('nyc/package.json').version)
-}
+const nycVersion = _ => console.log(require('nyc/package.json').version)
 
-function getReporters () {
+const getReporters = _ => {
   const types = require('tap-mocha-reporter').types.reduce(function (str, t) {
     const ll = str.split('\n').pop().length + t.length
     if (ll < 40)
@@ -582,7 +575,7 @@ function getReporters () {
   return ind + types.split('\n').join('\n' + ind)
 }
 
-function setupTapEnv (options) {
+const setupTapEnv = options => {
   process.env.TAP_TIMEOUT = options.timeout
   if (options.color)
     process.env.TAP_COLORS = 1
@@ -604,7 +597,7 @@ function setupTapEnv (options) {
     process.env.TAP_ONLY = '1'
 }
 
-function globFiles (files) {
+const globFiles = files => {
   return files.reduce(function (acc, f) {
     if (f === '-') {
       acc.push(f)
@@ -619,12 +612,10 @@ function globFiles (files) {
   }, [])
 }
 
-function makeReporter (options) {
-  const TMR = require('tap-mocha-reporter')
-  return new TMR(options.reporter)
-}
+const makeReporter = options =>
+  new (require('tap-mocha-reporter'))(options.reporter)
 
-function stdinOnly (options) {
+const stdinOnly = options => {
   // if we didn't specify any files, then just passthrough
   // to the reporter, so we don't get '/dev/stdin' in the suite list.
   // We have to pause() before piping to switch streams2 into old-mode
@@ -634,7 +625,7 @@ function stdinOnly (options) {
   process.stdin.resume()
 }
 
-function readSaveFile (options) {
+const readSaveFile = options => {
   if (options.saveFile)
     try {
       return fs.readFileSync(options.saveFile, 'utf8').trim().split('\n')
@@ -643,7 +634,7 @@ function readSaveFile (options) {
   return null
 }
 
-function saveFails (options, tap) {
+const saveFails = (options, tap) => {
   if (!options.saveFile)
     return
 
@@ -686,7 +677,7 @@ function saveFails (options, tap) {
   }
 }
 
-function filterFiles (files, saved, parallelOk) {
+const filterFiles = (files, saved, parallelOk) => {
   return files.filter(function (file) {
     if (path.basename(file) === 'tap-parallel-ok')
       parallelOk[path.resolve(path.dirname(file))] = true
@@ -697,7 +688,7 @@ function filterFiles (files, saved, parallelOk) {
   })
 }
 
-function isParallelOk (parallelOk, file) {
+const isParallelOk = (parallelOk, file) => {
   const dir = path.resolve(path.dirname(file))
   return (dir in parallelOk) ? parallelOk[dir]
     : exists(dir + '/tap-parallel-ok')
@@ -709,7 +700,7 @@ function isParallelOk (parallelOk, file) {
     : true
 }
 
-function runAllFiles (options, saved, tap) {
+const runAllFiles = (options, saved, tap) => {
   let doStdin = false
   let parallelOk = Object.create(null)
 
@@ -749,7 +740,7 @@ function runAllFiles (options, saved, tap) {
     tap.stdin()
 }
 
-function runTests (options) {
+const runTests = options => {
   const saved = readSaveFile(options)
 
   // At this point, we know we need to use the tap root,
@@ -778,7 +769,7 @@ function runTests (options) {
   tap.end()
 }
 
-function parseRcFile (path) {
+const parseRcFile = path => {
   try {
     const contents = fs.readFileSync(path, 'utf8')
     return yaml.safeLoad(contents) || {}
@@ -788,9 +779,11 @@ function parseRcFile (path) {
   }
 }
 
-function strToRegExp (g) {
+const strToRegExp = g => {
   const p = g.match(/^\/(.*)\/([a-z]*)$/)
   g = p ? p[1] : g
   const flags = p ? p[2] : ''
   return new RegExp(g, flags)
 }
+
+main()
