@@ -1,7 +1,7 @@
 TAP version 13
-not ok 1 - ___/.*(node|iojs)(.exe)?.*/~~~timeout-via-runner-ignore-sigterm.js child ___/# time=[0-9.]+(ms)?/~~~
+not ok 1 - ___/.*(node(js)?|iojs)(.exe)?.*/~~~timeout-via-runner-ignore-sigterm.js child ___/# time=[0-9.]+(ms)?/~~~
   ---
-  {"args":["___/.*/~~~timeout-via-runner-ignore-sigterm.js","child"],"command":"___/.*(node|iojs)(.exe)?/~~~","cwd":"___/.*/~~~","timeout":1000}
+  {"args":["___/.*/~~~timeout-via-runner-ignore-sigterm.js","child"],"command":"___/.*(node(js)?|iojs)(.exe)?/~~~","cwd":"___/.*/~~~","timeout":1000}
   ...
 {
     ok 1 - this is fine 1
@@ -11,7 +11,7 @@ not ok 1 - ___/.*(node|iojs)(.exe)?.*/~~~timeout-via-runner-ignore-sigterm.js ch
     yolo
     not ok 4 - timeout!
       ---
-      {"expired":"___/.*(node|iojs)(.exe)?.*/~~~timeout-via-runner-ignore-sigterm.js child"}
+      {"expired":"___/.*(node(js)?|iojs)(.exe)?.*/~~~timeout-via-runner-ignore-sigterm.js child"}
       ...
     Bail out! # timeout!
 }

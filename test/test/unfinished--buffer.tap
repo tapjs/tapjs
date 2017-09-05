@@ -23,7 +23,7 @@ not ok 4 - failsome
   ...
 
 not ok 5 - child test left in queue Spawn: spawny
-not ok 6 - child test left in queue Spawn: ___/.*(node|iojs)(.exe)?/~~~ --version
+not ok 6 - child test left in queue Spawn: ___/.*(node(js)?|iojs)(.exe)?/~~~ --version
 not ok 7 - child test left in queue Test: (unnamed test)
 not ok 8 - child test left in queue Test: (unnamed test)
 not ok 9 - child test left in queue Test: t2

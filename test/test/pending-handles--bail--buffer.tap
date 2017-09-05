@@ -1,7 +1,7 @@
 TAP version 13
-not ok 1 - ___/.*(node|iojs)(.exe)?.*/~~~pending-handles.js child ___/# time=[0-9.]+(ms)?/~~~
+not ok 1 - ___/.*(node(js)?|iojs)(.exe)?.*/~~~pending-handles.js child ___/# time=[0-9.]+(ms)?/~~~
   ---
-  {"args":["___/.*/~~~pending-handles.js","child"],"command":"___/.*(node|iojs)(.exe)?/~~~","cwd":"___/.*/~~~","exitCode":1,"timeout":900}
+  {"args":["___/.*/~~~pending-handles.js","child"],"command":"___/.*(node(js)?|iojs)(.exe)?/~~~","cwd":"___/.*/~~~","exitCode":1,"timeout":900}
   ...
 {
     ok 1 - this is ok

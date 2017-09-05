@@ -1,5 +1,5 @@
 TAP version 13
-# Subtest: ___/.*(node|iojs)(.exe)?/~~~ ./bin/run.js ./test/test/ok.js -C --grep=nesting --grep=/[ASDF].*d$/gi
+# Subtest: ___/.*(node(js)?|iojs)(.exe)?/~~~ ./bin/run.js ./test/test/ok.js -C --grep=nesting --grep=/[ASDF].*d$/gi
     # Subtest: ___/.*/~~~ok.js
         # Subtest: nesting
             1..2
@@ -25,9 +25,9 @@ TAP version 13
     
     1..1
     ___/# time=[0-9.]+(ms)?/~~~
-ok 1 - ___/.*(node|iojs)(.exe)?/~~~ ./bin/run.js ./test/test/ok.js -C --grep=nesting --grep=/[ASDF].*d$/gi ___/# time=[0-9.]+(ms)?/~~~
+ok 1 - ___/.*(node(js)?|iojs)(.exe)?/~~~ ./bin/run.js ./test/test/ok.js -C --grep=nesting --grep=/[ASDF].*d$/gi ___/# time=[0-9.]+(ms)?/~~~
 
-# Subtest: ___/.*(node|iojs)(.exe)?/~~~ ./bin/run.js ./test/test/ok.js -C -i --grep=nesting --grep=/[ASDF].*d$/gi
+# Subtest: ___/.*(node(js)?|iojs)(.exe)?/~~~ ./bin/run.js ./test/test/ok.js -C -i --grep=nesting --grep=/[ASDF].*d$/gi
     # Subtest: ___/.*/~~~ok.js
         ok 1 - nesting # SKIP filter out: /nesting/
         ok 2 - this passes
@@ -46,7 +46,7 @@ ok 1 - ___/.*(node|iojs)(.exe)?/~~~ ./bin/run.js ./test/test/ok.js -C --grep=nes
     
     1..1
     ___/# time=[0-9.]+(ms)?/~~~
-ok 2 - ___/.*(node|iojs)(.exe)?/~~~ ./bin/run.js ./test/test/ok.js -C -i --grep=nesting --grep=/[ASDF].*d$/gi ___/# time=[0-9.]+(ms)?/~~~
+ok 2 - ___/.*(node(js)?|iojs)(.exe)?/~~~ ./bin/run.js ./test/test/ok.js -C -i --grep=nesting --grep=/[ASDF].*d$/gi ___/# time=[0-9.]+(ms)?/~~~
 
 # invert=false
 # Subtest: a

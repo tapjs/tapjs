@@ -1,6 +1,6 @@
 TAP version 13
 # Subtest: bail fail
-    # Subtest: ___/.*(node|iojs)(.exe)?/~~~ ./test/test/nesting.js
+    # Subtest: ___/.*(node(js)?|iojs)(.exe)?/~~~ ./test/test/nesting.js
         # Subtest: nesting
             1..2
             # Subtest: first

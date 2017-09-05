@@ -28,7 +28,7 @@ t.test('--test-args', function (t) {
       throw err
     }
     t.equal(stderr, '')
-    var re = /ok 1 - .*[\/\\]node ".*[\\\/]dump-args.js" "--x=y" "-q" "x"$/im
+    var re = /ok 1 - .*[\/\\](node(js)?|iojs)(\.exe)? ".*[\\\/]dump-args.js" "--x=y" "-q" "x"$/im
     t.match(stdout, re)
     t.match(stdout, /^ok 1 - .*[\\\/]dump-args.js/m)
     t.end()

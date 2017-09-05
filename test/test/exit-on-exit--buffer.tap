@@ -1,5 +1,5 @@
 TAP version 13
-ok 1 - ___/.*(node|iojs)(.exe)?.*/~~~exit-on-exit.js subtest ___/# time=[0-9.]+(ms)?/~~~ {
+ok 1 - ___/.*(node(js)?|iojs)(.exe)?.*/~~~exit-on-exit.js subtest ___/# time=[0-9.]+(ms)?/~~~ {
     ok 1 - memoizes identical registry requests ___/# time=[0-9.]+(ms)?/~~~ {
         1..2
         ok 1 - got a manifest

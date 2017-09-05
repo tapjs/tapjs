@@ -1,5 +1,5 @@
 TAP version 13
-# Subtest: ___/.*(node|iojs)(.exe)?.*/~~~spawn.js child
+# Subtest: ___/.*(node(js)?|iojs)(.exe)?.*/~~~spawn.js child
     # Subtest: nesting
         1..2
         # Subtest: first
@@ -44,9 +44,9 @@ TAP version 13
     1..5
     # failed 3 of 5 tests
     ___/# time=[0-9.]+(ms)?/~~~
-not ok 1 - ___/.*(node|iojs)(.exe)?.*/~~~spawn.js child ___/# time=[0-9.]+(ms)?/~~~
+not ok 1 - ___/.*(node(js)?|iojs)(.exe)?.*/~~~spawn.js child ___/# time=[0-9.]+(ms)?/~~~
   ---
-  {"args":["___/.*/~~~spawn.js","child"],"command":"___/.*(node|iojs)(.exe)?/~~~","cwd":"___/.*/~~~","exitCode":1}
+  {"args":["___/.*/~~~spawn.js","child"],"command":"___/.*(node(js)?|iojs)(.exe)?/~~~","cwd":"___/.*/~~~","exitCode":1}
   ...
 
 # Subtest: nesting

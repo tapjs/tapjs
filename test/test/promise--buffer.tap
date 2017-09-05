@@ -29,7 +29,7 @@ ok 3 - some_function_name ___/# time=[0-9.]+(ms)?/~~~ {
     1..1
 }
 
-ok 4 - ___/.*(node|iojs)(.exe)?.*/~~~promise.js child ___/# time=[0-9.]+(ms)?/~~~ {
+ok 4 - ___/.*(node(js)?|iojs)(.exe)?.*/~~~promise.js child ___/# time=[0-9.]+(ms)?/~~~ {
     ok 1 - one ___/# time=[0-9.]+(ms)?/~~~ {
         ok 1 - two ___/# time=[0-9.]+(ms)?/~~~ {
             ok 1 - child of 2 ___/# time=[0-9.]+(ms)?/~~~ {

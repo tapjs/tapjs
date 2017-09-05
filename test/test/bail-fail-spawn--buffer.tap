@@ -1,8 +1,8 @@
 TAP version 13
 not ok 1 - bail fail ___/# time=[0-9.]+(ms)?/~~~ {
-    not ok 1 - ___/.*(node|iojs)(.exe)?/~~~ ./test/test/nesting.js ___/# time=[0-9.]+(ms)?/~~~
+    not ok 1 - ___/.*(node(js)?|iojs)(.exe)?/~~~ ./test/test/nesting.js ___/# time=[0-9.]+(ms)?/~~~
       ---
-      {"args":["___/.*/~~~nesting.js"],"command":"___/.*(node|iojs)(.exe)?/~~~","cwd":"___/.*/~~~","exitCode":1}
+      {"args":["___/.*/~~~nesting.js"],"command":"___/.*(node(js)?|iojs)(.exe)?/~~~","cwd":"___/.*/~~~","exitCode":1}
       ...
     {
         not ok 1 - nesting ___/# time=[0-9.]+(ms)?/~~~ {

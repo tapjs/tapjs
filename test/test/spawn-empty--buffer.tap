@@ -1,5 +1,5 @@
 TAP version 13
-ok 1 - ___/.*(node|iojs)(.exe)?.*/~~~spawn-empty.js child # SKIP no tests found {
+ok 1 - ___/.*(node(js)?|iojs)(.exe)?.*/~~~spawn-empty.js child # SKIP no tests found {
     1..0 # no tests found
 }
 

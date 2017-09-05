@@ -1,5 +1,5 @@
 TAP version 13
-# Subtest: ___/.*(node|iojs)(.exe)?.*/~~~timeout-via-runner-ignore-sigterm.js child
+# Subtest: ___/.*(node(js)?|iojs)(.exe)?.*/~~~timeout-via-runner-ignore-sigterm.js child
     ok 1 - this is fine 1
     ok 2 - this is fine 2
     ok 3 - this is fine 3
@@ -11,16 +11,16 @@ TAP version 13
         
         not ok 3 - timeout!
           ---
-          {"expired":"___/.*(node|iojs)(.exe)?.*/~~~timeout-via-runner-ignore-sigterm.js child"}
+          {"expired":"___/.*(node(js)?|iojs)(.exe)?.*/~~~timeout-via-runner-ignore-sigterm.js child"}
           ...
         # failed 1 of 3 tests
     not ok 4 - timeout!
     
     1..4
     # failed 1 of 4 tests
-not ok 1 - ___/.*(node|iojs)(.exe)?.*/~~~timeout-via-runner-ignore-sigterm.js child ___/# time=[0-9.]+(ms)?/~~~
+not ok 1 - ___/.*(node(js)?|iojs)(.exe)?.*/~~~timeout-via-runner-ignore-sigterm.js child ___/# time=[0-9.]+(ms)?/~~~
   ---
-  {"args":["___/.*/~~~timeout-via-runner-ignore-sigterm.js","child"],"command":"___/.*(node|iojs)(.exe)?/~~~","cwd":"___/.*/~~~","timeout":1000}
+  {"args":["___/.*/~~~timeout-via-runner-ignore-sigterm.js","child"],"command":"___/.*(node(js)?|iojs)(.exe)?/~~~","cwd":"___/.*/~~~","timeout":1000}
   ...
 
 1..1

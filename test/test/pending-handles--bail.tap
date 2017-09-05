@@ -1,5 +1,5 @@
 TAP version 13
-# Subtest: ___/.*(node|iojs)(.exe)?.*/~~~pending-handles.js child
+# Subtest: ___/.*(node(js)?|iojs)(.exe)?.*/~~~pending-handles.js child
     ok 1 - this is ok
     not ok 2 - timeout!
       ---

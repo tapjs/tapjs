@@ -1,5 +1,5 @@
 TAP version 13
-not ok 1 - ___/.*(node|iojs)(.exe)?.*/~~~child-text-sub.js sub ___/# time=[0-9.]+(ms)?/~~~ {
+not ok 1 - ___/.*(node(js)?|iojs)(.exe)?.*/~~~child-text-sub.js sub ___/# time=[0-9.]+(ms)?/~~~ {
     # Subtest: parent
         # Subtest: child
             # Subtest: grandchild
