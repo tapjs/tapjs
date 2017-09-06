@@ -1,5 +1,5 @@
 'use strict'
-const t = require('/usr/local/lib/node_modules/tap') // require('../')
+const t = require('../')
 const extraFromError = require('../lib/extra-from-error.js')
 
 const cases = [
