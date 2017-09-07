@@ -6,6 +6,10 @@ const fn = _ => _
 function named () {}
 const todoCb = pta().cb
 
+// call the funcs so that they're covered also
+named()
+fn()
+
 const cases = [
   ['foo', {}, fn, null, { name: 'foo', cb: fn }],
   [undefined, {}, fn, null, { cb: fn }],
