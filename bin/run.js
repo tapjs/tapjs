@@ -165,6 +165,7 @@ function parseArgs (args, defaults) {
   }
 
   var singleOpts = {
+    r: 'require',
     j: 'jobs',
     g: 'grep',
     R: 'reporter',
@@ -312,6 +313,12 @@ function parseArgs (args, defaults) {
         val = val || args[++i]
         if (val !== undefined)
           options.nodeArgs.push(val)
+        continue
+
+      case '--require':
+        val = val || args[++i]
+        if (val !== undefined)
+          options.nodeArgs.push('-r', val)
         continue
 
       case '--check-coverage':

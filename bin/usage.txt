@@ -17,6 +17,8 @@ Coverage is never enabled for stdin.
 
 Options:
 
+  -r<m> --require=<m>         Require module (e.g. babel-register)
+
   -j<n> --jobs=<n>            Run up to <n> test files in parallel
                               Note that this causes tests to be run in
                               "buffered" mode, so line-by-line results
