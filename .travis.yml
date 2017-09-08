@@ -6,7 +6,3 @@ node_js:
   - 4
 notifications:
   email: false
-cache:
-  directories:
-    - $HOME/.npm
-    - node_modules
