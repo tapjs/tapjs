@@ -41,8 +41,9 @@
   },
   "keywords": [
     "assert",
+    "tap",
     "test",
-    "tap"
+    "testing"
   ],
   "license": "ISC",
   "repository": "https://github.com/tapjs/node-tap.git",
