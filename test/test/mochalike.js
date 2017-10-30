@@ -1,6 +1,5 @@
 if (typeof describe !== 'function') {
-  var t = require('../..')
-  t.mochaGlobals()
+  require('../../lib/mocha.js').global()
 }
 
 /* global describe, it */
