@@ -133,6 +133,7 @@ function yamlishToJson (output) {
     if (inyaml) {
       if (line.match(/^\s+\.\.\.$/) && line.length === startlen) {
         const yload = yaml.safeLoad(y)
+        delete yload.stdio
         const data = JSON.stringify(deStackify(yload))
         ret += new Array(startlen - 2).join(' ') +
           data + '\n' + line + '\n'
