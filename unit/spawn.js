@@ -122,11 +122,6 @@ not ok 1 - timeout!
     })
 
     t.test('pre-call', t => {
-      const cp = require('child_process')
-      const spawn = cp.spawn
-      const poop = new Error('poop error')
-      cp.spawn = () => { throw poop }
-      t.teardown(_ => cp.spawn = spawn)
       const s = new Spawn({
         command: node,
         args: [ file, 'timeout' ],
@@ -140,6 +135,9 @@ not ok 1 - timeout!
   })
 }
 
+// Ignore this because a lot of these cases involve
+// using a SIGKILL before nyc can write coverage
+/* istanbul ignore next */
 switch (process.argv[2]) {
   case 'ok':
     t.pass('this is fine')
