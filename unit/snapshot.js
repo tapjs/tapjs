@@ -34,6 +34,11 @@ t.test('actual test', t => {
   t.ok(ss.match(fs.readFileSync(__filename, 'utf8'), 'this file'))
   t.ok(ss.match('this is fine', 'a statement of acceptance'))
 
+  t.comment('saving without snapping anything removes the file')
+  const sss = new Snapshot(t)
+  sss.save()
+  t.throws(_ => fs.statSync(sss.file), 'file is gone')
+
   t.end()
 })
 
