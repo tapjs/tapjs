@@ -1,25 +1,25 @@
 'use strict'
-exports[`no plan_0`] = `TAP version 13
+exports[`unit/test.js TAP short output checks no plan > no plan_0`] = `TAP version 13
 ok 1 - this is fine
 1..1
 `
 
-exports[`plan_0`] = `TAP version 13
+exports[`unit/test.js TAP short output checks plan > plan_0`] = `TAP version 13
 1..1
 ok 1 - this is fine
 `
 
-exports[`comment_0`] = `TAP version 13
+exports[`unit/test.js TAP short output checks comment > comment_0`] = `TAP version 13
 # this is fine
 1..0
 `
 
-exports[`pragma_0`] = `TAP version 13
+exports[`unit/test.js TAP short output checks pragma > pragma_0`] = `TAP version 13
 pragma +strict
 1..0
 `
 
-exports[`todo_0`] = `TAP version 13
+exports[`unit/test.js TAP short output checks todo > todo_0`] = `TAP version 13
 not ok 1 - i will do this later # TODO
   ---
   at:
@@ -39,7 +39,7 @@ ok 4 - i did not do this later # SKIP
 # skip: 2
 `
 
-exports[`only_0`] = `TAP version 13
+exports[`unit/test.js TAP short output checks only > only_0`] = `TAP version 13
 # "run this with a comment" has \`only\` set but all tests run
 # Subtest: run this with a comment
     1..0
@@ -57,24 +57,24 @@ ok 3 - run this with a comment # {time}
 1..3
 `
 
-exports[`no plan fail_0`] = `TAP version 13
+exports[`unit/test.js TAP short output checks no plan fail > no plan fail_0`] = `TAP version 13
 not ok 1 - this is fine
 1..1
 # failed 1 test
 `
 
-exports[`plan fail_0`] = `TAP version 13
+exports[`unit/test.js TAP short output checks plan fail > plan fail_0`] = `TAP version 13
 1..1
 not ok 1 - this is fine
 # failed 1 test
 `
 
-exports[`expect fail_0`] = `TAP version 13
+exports[`unit/test.js TAP short output checks expect fail > expect fail_0`] = `TAP version 13
 1..1
 ok 1 - this is fine
 `
 
-exports[`sub_0`] = `TAP version 13
+exports[`unit/test.js TAP short output checks sub > sub_0`] = `TAP version 13
 # Subtest: named child
     ok 1 - this is fine
     1..1
@@ -93,7 +93,7 @@ ok 3 - promisey # {time}
 1..3
 `
 
-exports[`parallel sub_0`] = `TAP version 13
+exports[`unit/test.js TAP short output checks parallel sub > parallel sub_0`] = `TAP version 13
 1..2
 ok 1 - slow child # {time} {
     1..0
