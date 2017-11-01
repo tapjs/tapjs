@@ -19,7 +19,7 @@ t.test('actual test', t => {
 
   t.test('checking snapshot without creating throws', t => {
     const s = new Snapshot(t)
-    t.throws(_ => s.match('asdf', 'asdf'))
+    t.throws(_ => s.read('asdf', 'asdf'))
     t.end()
   })
 
@@ -31,8 +31,8 @@ t.test('actual test', t => {
 
   t.comment('now check that the snapshots are valid')
   const ss = new Snapshot(t)
-  t.ok(ss.match(fs.readFileSync(__filename, 'utf8'), 'this file'))
-  t.ok(ss.match('this is fine', 'a statement of acceptance'))
+  t.equal(fs.readFileSync(__filename, 'utf8'), ss.read('this file'))
+  t.equal('this is fine', ss.read('a statement of acceptance'))
 
   t.comment('saving without snapping anything removes the file')
   const sss = new Snapshot(t)
