@@ -30,6 +30,15 @@ t.test('short output checks', t => {
       tt.end()
     },
 
+    'only': tt => {
+      tt.runOnly = false
+      tt.only('run this with a comment', tt => tt.end())
+      tt.test('this is a child test', tt => tt.end())
+      tt.test('run this with a comment', { only: true },
+              tt => tt.end())
+      tt.end()
+    },
+
     'no plan fail': tt => {
       tt.fail('this is fine', { diagnostic: false })
       tt.end()

@@ -34,6 +34,24 @@ ok 4 - i did not do this later # SKIP
 # skip: 2
 `
 
+exports[`only_0`] = `TAP version 13
+# "run this with a comment" has \`only\` set but all tests run
+# Subtest: run this with a comment
+    1..0
+ok 1 - run this with a comment # {time}
+
+# Subtest: this is a child test
+    1..0
+ok 2 - this is a child test # {time}
+
+# "run this with a comment" has \`only\` set but all tests run
+# Subtest: run this with a comment
+    1..0
+ok 3 - run this with a comment # {time}
+
+1..3
+`
+
 exports[`no plan fail_0`] = `TAP version 13
 not ok 1 - this is fine
 1..1
