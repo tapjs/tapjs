@@ -14,20 +14,25 @@ exports[`comment_0`] = `TAP version 13
 1..0
 `
 
+exports[`pragma_0`] = `TAP version 13
+pragma +strict
+1..0
+`
+
 exports[`todo_0`] = `TAP version 13
 not ok 1 - i will do this later # TODO
   ---
   at:
-    line: 22
+    line: 27
     column: 10
     file: unit/test.js
     function: todo
   source: |
-    tt.fail('i will do this later', { todo: true })
+    tt.notOk(true, 'i will do this later', { todo: true })
   ...
 
 ok 2 - i will do this later # TODO
-not ok 3 - this is fine # SKIP
+not ok 3 - expect truthy value # SKIP
 ok 4 - i did not do this later # SKIP
 1..4
 # todo: 2
@@ -86,4 +91,17 @@ ok 2 - named_function # {time}
 ok 3 - promisey # {time}
 
 1..3
+`
+
+exports[`parallel sub_0`] = `TAP version 13
+1..2
+ok 1 - slow child # {time} {
+    1..0
+}
+
+ok 2 - fast child # {time} {
+    ok 1 - slow is going
+    1..1
+}
+
 `

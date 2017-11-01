@@ -18,12 +18,17 @@ t.test('short output checks', t => {
       tt.end()
     },
 
+    'pragma': tt => {
+      tt.pragma({ strict: true })
+      tt.end()
+    },
+
     'todo': tt => {
-      tt.fail('i will do this later', { todo: true })
+      tt.notOk(true, 'i will do this later', { todo: true })
       tt.todo('i will do this later', tt => {
         throw 'oh no'
       })
-      tt.fail('this is fine', { skip: true })
+      tt.ok(false, { message: 'this is fine', skip: true })
       tt.skip('i did not do this later', tt => {
         throw 'oops'
       })
@@ -69,6 +74,20 @@ t.test('short output checks', t => {
       }))
       tt.end()
     },
+
+    'parallel sub': tt => {
+      tt.jobs = 2
+      tt.plan(2)
+      let slowGoing = true
+      tt.test('slow child', tt => setTimeout(_ => {
+        slowGoing = false
+        tt.end()
+      }, 100))
+      tt.test('fast child', tt => setTimeout(_ => {
+        tt.ok(slowGoing, 'slow is going')
+        tt.end()
+      }))
+    },
   }
 
   const keys = Object.keys(cases)
@@ -81,7 +100,8 @@ t.test('short output checks', t => {
       let out = ''
       tt.on('data', c => out += c)
       tt.on('end', _ => {
-        out = out.replace(/ # time=[0-9\.]+m?s\n/g, ' # {time}\n')
+        out = out.replace(
+          / # time=[0-9\.]+m?s( \{.*)?\n/g, ' # {time}$1\n')
         t.matchSnapshot(out, i)
       })
       cases[i](tt)
