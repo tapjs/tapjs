@@ -423,6 +423,7 @@ const respawnWithCoverage = options => {
   const args = [nycBin].concat(
     '--silent',
     '--cache=true',
+    '--exclude=**/tap-snapshots/*.js',
     options.nycArgs,
     '--',
     process.execArgv,
