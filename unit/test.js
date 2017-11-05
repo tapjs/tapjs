@@ -264,6 +264,31 @@ t.test('assertion checks', t => {
       tt.type(tt, 'EventEmitter')
       tt.end()
     },
+
+    throws: tt => {
+      tt.throws(() => { throw new TypeError('x') }, TypeError)
+      tt.throws(() => { throw new TypeError('x') }, TypeError)
+      tt.throws(() => { throw new TypeError('x') },
+                new TypeError('x'))
+      tt.throws(() => { throw new TypeError('x') },
+                { message: 'x' })
+
+      const nameless = new Error('x')
+      nameless.name = ''
+      tt.throws(() => { throw new Error('x') }, nameless)
+
+      tt.throws(() => { throw nameless }, { message: 'x' })
+      tt.throws(() => { throw nameless }, /^.$/)
+      tt.throws(() => { throw nameless })
+
+      tt.throws(() => { throw new Error('x') }, {}, { skip: true })
+      tt.throws(() => { throw new Error('x') }, {},
+                {}, {}, 1)
+      tt.throws(() => {}, () => {}, () => {}, () => {},
+                'extra functions are no-ops for bw comp')
+      tt.throws('todo')
+      tt.end()
+    },
   }
 
   const keys = Object.keys(cases)

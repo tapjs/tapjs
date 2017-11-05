@@ -1041,3 +1041,57 @@ ok 12 - type is EventEmitter
 # failed 3 of 12 tests
 
 `
+
+exports[`unit/test.js TAP assertion checks throws > throws 1`] = `
+TAP version 13
+ok 1 - expected to throw
+ok 2 - expected to throw
+ok 3 - expected to throw: TypeError x
+ok 4 - expected to throw
+not ok 5 - expected to throw: Error x
+  ---
+  wanted:
+    message: x
+    name: ''
+  found:
+  stack: |
+{STACK}
+  pattern:
+    message: x
+    name: ''
+  at:
+    line: #
+    column: #
+    file: unit/test.js
+    function: throws
+  stack: |
+{STACK}
+  source: |
+    tt.throws(() => { throw new Error('x') }, nameless)
+  ...
+
+ok 6 - expected to throw
+ok 7 - expected to throw
+ok 8 - expected to throw
+ok 9 - expected to throw # SKIP
+ok 10 - expected to throw
+not ok 11 - extra functions are no-ops for bw comp
+  ---
+  at:
+    line: #
+    column: #
+    file: unit/test.js
+    function: throws
+  stack: |
+{STACK}
+  source: |
+    tt.throws(() => {}, () => {}, () => {}, () => {},
+  ...
+
+ok 12 - todo # TODO
+1..12
+# failed 2 of 12 tests
+# todo: 1
+# skip: 1
+
+`
