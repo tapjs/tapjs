@@ -50,7 +50,7 @@
   "repository": "https://github.com/tapjs/node-tap.git",
   "scripts": {
     "regen-fixtures": "node scripts/generate-test-test.js test/test/*.js",
-    "unit": "node bin/run.js unit/*.js --100",
+    "unit": "node bin/run.js unit/*.js --100 --nyc-arg=--include=lib/*.js",
     "test": "node bin/run.js test/*.* --coverage -t3600 -sfails",
     "smoke": "node bin/run.js --node-arg=test/test.js test/test/*.js -j2",
     "posttest": "standard lib test",

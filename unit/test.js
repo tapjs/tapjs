@@ -1,11 +1,18 @@
 const t = require('../')
 const Test = t.Test
+const util = require('util')
 const assert = require('assert')
+const EE = require('events').EventEmitter
+
+// set this forcibly so it doesn't interfere with other tests.
+process.env.TAP_DIAG === ''
 
 const clean = out => out
   .replace(/ # time=[0-9\.]+m?s( \{.*)?\n/g, ' # {time}$1\n')
-  .replace(/\n( {2})+stack: \|-?\n((\1  .*).*\n)+/gm,
-    '\n$1stack: |\n{STACK}\n')
+  .replace(/\n(( {2})+)stack: \|-?\n((\1  .*).*\n)+/gm,
+    '\n$1stack: |\n$1  {STACK}\n')
+  .replace(/\n([a-zA-Z]*Error): (.*)\n((    at .*\n)*)+/gm,
+    '\n$1: $2\n    {STACK}\n')
   .replace(/:[0-9]+:[0-9]+(\)?\n)/g, '#:#$1')
   .replace(/(line|column): [0-9]+/g, '$1: #')
   .split(process.cwd()).join('{CWD}')
@@ -34,11 +41,14 @@ t.test('short output checks', t => {
 
     'pragma': tt => {
       tt.pragma({ strict: true })
+      tt.pragma({ strict: false })
       tt.end()
     },
 
     'todo': tt => {
       tt.notOk(true, 'i will do this later', { todo: true })
+      tt.notOk(true, { todo: 'later' })
+      tt.notOk(false)
       tt.todo('i will do this later', tt => {
         throw 'oh no'
       })
@@ -60,12 +70,28 @@ t.test('short output checks', t => {
 
     'no plan fail': tt => {
       tt.fail('this is fine', { diagnostic: false })
+      tt.fail({ todo: true })
+      tt.fail('this is fine')
       tt.end()
     },
 
     'plan fail': tt => {
-      tt.plan(1)
+      tt.plan(1, 'expect some failure here')
       tt.fail('this is fine', { diagnostic: false })
+    },
+
+    'planned skip': tt => {
+      tt.plan(0, 'skip this one')
+    },
+
+    'multi-plan throws': tt => {
+      tt.plan(1)
+      tt.throws(() => tt.plan(1))
+    },
+
+    'negative plan throws': tt => {
+      tt.throws(() => tt.plan(-1))
+      tt.end()
     },
 
     'expect fail': tt => {
@@ -76,6 +102,8 @@ t.test('short output checks', t => {
     'sub': tt => {
       tt.test('named child', { buffered: true }, tt => {
         tt.pass('this is fine')
+        tt.pass()
+        tt.pass({ todo: true })
         tt.end()
       })
       tt.test(function named_function (tt) {
@@ -128,9 +156,24 @@ t.test('short output checks', t => {
       tt.end()
     },
 
+    'diags': tt => {
+      tt.pass('has diags', { diagnostic: true, foo: 1 })
+      tt.fail('fails without diag', { diagnostic: false, foo: 1 })
+      process.env.TAP_DIAG = '1'
+      tt.pass('has diags', { foo: 1 })
+      tt.fail('fails without diag', { diagnostic: false, foo: 1 })
+      process.env.TAP_DIAG = '0'
+      tt.pass('has diags', { diagnostic: true, foo: 1 })
+      tt.fail('fails without diag', { foo: 1 })
+      process.env.TAP_DIAG = ''
+      tt.end()
+    },
+
     // _actually_ throwing is only handled by root TAP test
     // using a Domain to catch beyond async stack drops
     'gentle thrower': tt => tt.threw(new Error('ok')),
+    'child thrower': tt => tt.test('child test', tt =>
+      tt.threw(new Error('ok'))).then(tt.end)
   }
 
   const keys = Object.keys(cases)
@@ -153,7 +196,7 @@ t.test('short output checks', t => {
             out = tt.output
 
           if (reason)
-            out = out.trim() + '\n' + JSON.stringify(reason)
+            out = out.trim() + '\nBAILOUT: ' + JSON.stringify(reason)
 
           t.matchSnapshot(clean(out), i)
           resolve()
@@ -176,7 +219,7 @@ t.test('short output checks', t => {
   }
 })
 
-t.test('assertion checks', t => {
+t.test('assertions and weird stuff', t => {
   const env = process.env.TAP_BUFFER
   process.env.TAP_BUFFER = '0'
   t.teardown(_ => process.env.TAP_BUFFER = env)
@@ -184,8 +227,12 @@ t.test('assertion checks', t => {
   const cases = {
     'error': tt => {
       tt.error(null, 'this is not an error')
-      tt.error(new Error('poop'), 'this error is poop')
-      tt.error('poop', 'this error is "poop"')
+      tt.error(new Error('fail: poop'), 'this error is poop')
+      tt.error(new Error('fail: poop'))
+      tt.error('fail: poop', 'this error is "poop"')
+      tt.error('fail: poop')
+      tt.error(null, { todo: true })
+      tt.error(null)
       tt.end()
     },
 
@@ -274,20 +321,236 @@ t.test('assertion checks', t => {
                 { message: 'x' })
 
       const nameless = new Error('x')
-      nameless.name = ''
+      Object.defineProperty(nameless, 'name', {
+        value: undefined
+      })
+      nameless.stack = /^.*$/
       tt.throws(() => { throw new Error('x') }, nameless)
-
       tt.throws(() => { throw nameless }, { message: 'x' })
       tt.throws(() => { throw nameless }, /^.$/)
       tt.throws(() => { throw nameless })
 
+      const prop = new Error('noent')
+      prop.code= 'ENOENT'
+      tt.throws(() => {
+        const er = new Error('noent')
+        er.code = 'ENOENT'
+        er.path = __filename
+        throw er
+      }, prop)
+
+      tt.throws(() => 'doesnt tho', 'fail: does not throw actually')
+
       tt.throws(() => { throw new Error('x') }, {}, { skip: true })
       tt.throws(() => { throw new Error('x') }, {},
                 {}, {}, 1)
-      tt.throws(() => {}, () => {}, () => {}, () => {},
+      tt.throws(() => { throw new Error('x') },
+                () => {}, () => {}, () => {},
                 'extra functions are no-ops for bw comp')
       tt.throws('todo')
       tt.end()
+    },
+
+    doesNotThrow: tt => {
+      tt.doesNotThrow(() => {}, 'this is fine')
+      tt.doesNotThrow(() => {}, { todo: true })
+      tt.doesNotThrow('reverse args', () => {})
+      tt.doesNotThrow('this is todo')
+      tt.doesNotThrow('fail', () => {
+        throw new Error('ouch')
+      })
+      tt.end()
+    },
+
+    rejects: tt => {
+      tt.rejects('promise', new Promise((_, reject) => {
+        reject(new Error('expected'))
+      }))
+      tt.rejects(() => new Promise((_, reject) => {
+        reject(new Error('expected'))
+      }), 'fn returns promise')
+      tt.rejects(new Promise((_, reject) => {
+        reject(new Error('expected'))
+      }))
+      tt.rejects(() => new Promise((_, reject) => {
+        reject(new Error('expected'))
+      }))
+      tt.rejects('todo because no fn/promise', { foo: 'bar' })
+      tt.comment('next 2 also todo, no message')
+      tt.rejects({ x: 1 })
+      tt.rejects()
+      tt.rejects(() => new Promise((_, reject) => {
+        reject(new Error('expected'))
+      }), new Error('expected'), 'throws expected error')
+      tt.rejects(() => new Promise((_, reject) => {
+        reject(new TypeError('expected'))
+      }), TypeError, 'throws expected error type')
+      tt.rejects(() => new Promise((_, reject) => {
+        reject(new TypeError('expected'))
+      }), TypeError, ()=>{}, _=>_, 'extra functions are no-ops')
+      tt.rejects(() => new Promise((_, reject) => {
+        reject(new TypeError('expected'))
+      }), TypeError, 1, 2, {}, {}, 'extra args are no-ops')
+
+      const prop = new Error('noent')
+      prop.code= 'ENOENT'
+      tt.rejects(new Promise((_, reject) => {
+        const er = new Error('noent')
+        er.code = 'ENOENT'
+        er.path = __filename
+        reject(er)
+      }), prop)
+
+      const nameless = new Error('x')
+      Object.defineProperty(nameless, 'name', {
+        value: undefined
+      })
+      nameless.stack = /^.*$/
+      tt.rejects(new Promise((_,r) => r(new Error('x'))), nameless)
+      tt.rejects(new Promise((_,r) => r(nameless)), { message: 'x' })
+      tt.rejects(new Promise((_,r) => r(nameless)), /^.$/)
+      tt.rejects(new Promise((_,r) => r(nameless)))
+
+      tt.rejects(() => {}, 'fail: no promise')
+      tt.rejects(() => ({}), 'fail: no promise')
+
+      tt.rejects(new Promise(r => r(420)), 'fail: passing promise')
+
+      tt.end()
+    },
+
+    resolves: tt => {
+      tt.resolves(new Promise(r => r(420)))
+      tt.resolves(new Promise(r => r(420)), { todo: true })
+      tt.resolves(new Promise(r => r(420)), 'passing promise')
+      tt.resolves(() => new Promise(r => r(420)), 'passing promise fn')
+      tt.resolves(() => {}, 'fail: no promise')
+      tt.end()
+    },
+
+    resolveMatch: tt => {
+      tt.resolveMatch(new Promise(r => r(420)), Number)
+      tt.resolveMatch(new Promise(r => r(420)), 'asdf', { todo: true })
+      tt.resolveMatch(new Promise(r => r(420)), 420, 'promise')
+      tt.resolveMatch(() => new Promise(r => r(420)), 420, 'promise fn')
+      tt.resolveMatch(() => {}, {}, 'fail: no promise')
+      tt.end()
+    },
+
+    'test after end fails': tt => {
+      tt.end()
+      tt.pass('failing pass')
+    },
+
+    'plan excess': tt => {
+      tt.plan(1)
+      tt.pass('fine')
+      tt.pass('not fine')
+    },
+
+    'plan excess, ignored when failing': tt => {
+      tt.plan(1)
+      tt.fail('expected fail', { diagnostic: false })
+      tt.pass('not fine')
+    },
+
+    'using the assertAt field': tt => {
+      const stack = require('../lib/stack.js')
+      const foo = () => tt.fail('expect fail')
+      const bar = () => foo()
+      const baz = () => { tt.assertAt = stack.at(); bar() }
+
+      tt.plan(1)
+      baz()
+    },
+
+    'using the assertStack field': tt => {
+      const stack = require('../lib/stack.js')
+      const foo = () => tt.fail('expect fail')
+      const bar = () => foo()
+      const baz = () => { tt.assertStack = stack.captureString(80); bar() }
+
+      tt.plan(1)
+      baz()
+    },
+
+    printResult: tt => {
+      // super low-level
+      tt.printResult(true, 'this is fine')
+      tt.end()
+    },
+
+    'printResult after plan end': tt => {
+      // super low-level
+      tt.end()
+      tt.printResult(true, 'this is fine')
+    },
+
+    'plan, child test, explicit end': tt => {
+      tt.plan(1)
+      tt.test(tt => Promise.resolve('ok'))
+      tt.end()
+    },
+
+    'end multiple times': tt => {
+      tt.plan(1)
+      tt.pass('yes')
+      tt.end()
+      tt.end()
+    },
+
+    'error event with domainEmitter re-throws': tt => {
+      const er = new Error('fail')
+      const d = tt.domain
+      try {
+        d.run(() => {
+          const e = new EE
+          e.emit('error', er)
+          tt.fail('did not throw')
+        })
+      } catch (er) {
+        tt.pass('the better to this.threw you with')
+        tt.end()
+      }
+    },
+
+    'thrower after end': tt => {
+      tt.test('child', tt => {
+        tt.plan(1)
+        tt.pass('this is fine')
+        tt.threw(new Error('catch it in the parent'))
+      })
+      tt.end()
+    },
+
+    'child breaks a promise': tt => {
+      tt.test('child', () => new Promise((_, r) => r(new Error('poop'))))
+      tt.end()
+    },
+
+    'child teardown throw': tt => {
+      tt.test('child', tt => {
+        tt.teardown(() => { throw new Error('fail') })
+        tt.end()
+      })
+      tt.end()
+    },
+
+    'fullname without main': tt => {
+      const main = process.argv[1]
+      tt.teardown(() => process.argv[1] = main)
+      process.argv[1] = ''
+      tt.test('child', tt => {
+        tt.pass(tt.fullname)
+        tt.end()
+      })
+      tt.pass(tt.fullname)
+      tt.end()
+    },
+
+    'comment after end': tt => {
+      tt.end()
+      tt.comment('this is fine')
     },
   }
 
@@ -297,11 +560,33 @@ t.test('assertion checks', t => {
   for (let i in cases) {
     t.test(i, t => {
       t.plan(1)
+
+      const error = console.error
+      t.teardown(() => console.error = error)
+      let err = ''
+      console.error = function () {
+        err += util.format.apply(util, arguments) + '\n'
+      }
+
       const tt = new Test()
       let out = ''
       tt.on('data', c => out += c)
-      tt.on('end', _ => t.matchSnapshot(clean(out), i))
+      tt.on('end', _ => {
+        setTimeout(() => {
+          if (err)
+            out = out.trim() + '\n' + 'STDERR:\n' + err
+          t.matchSnapshot(clean(out), i)
+        })
+      })
       cases[i](tt)
     })
   }
 })
+
+t.test('autoEnd')
+t.test('endAll')
+t.test('addAssert')
+t.test('snapshots')
+t.test('spawn')
+t.test('stdin')
+t.test('timeout')

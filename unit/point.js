@@ -11,39 +11,39 @@ t.throws(_ => new TestPoint(true, Math),
 const cases = [
   [true, 'this is fine', null, {
     ok: 'ok ',
-    message: ' - this is fine'
+    message: ' - this is fine\n'
   }],
   [false, 'this is fine', null, {
     ok: 'not ok ',
-    message: ' - this is fine'
+    message: ' - this is fine\n'
   }],
   [true, '     ', null, {
     ok: 'ok ',
-    message: ''
+    message: '\n'
   }],
   [false, '\n\r\t\n', null, {
     ok: 'not ok ',
-    message: ''
+    message: '\n'
   }],
   [true, 'this is fine        ', { skip: true }, {
     ok: 'ok ',
-    message: ' - this is fine # SKIP'
+    message: ' - this is fine # SKIP\n'
   }],
   [true, 'this is fine', { skip: 'nope' }, {
     ok: 'ok ',
-    message: ' - this is fine # SKIP nope'
+    message: ' - this is fine # SKIP nope\n'
   }],
   [true, 'this is fine', { todo: true }, {
     ok: 'ok ',
-    message: ' - this is fine # TODO'
+    message: ' - this is fine # TODO\n'
   }],
   [true, 'this is fine', { todo: 'later' }, {
     ok: 'ok ',
-    message: ' - this is fine # TODO later'
+    message: ' - this is fine # TODO later\n'
   }],
-  [true, 'time waits for no one', { time: '12345ms' }, {
+  [true, 'time waits for no one', { time: 12345 }, {
     ok: 'ok ',
-    message: 'time waits for no one # time=12345ms'
+    message: 'time waits for no one # time=12345ms\n'
   }],
   [true, 'fine', { foo: 'bar', diagnostic: true }, {
     ok: 'ok ',
@@ -55,7 +55,7 @@ const cases = [
   }],
   [false, 'x\ny\r\nz', {}, {
     ok: 'not ok ',
-    message: 'x y  z'
+    message: 'x y  z\n'
   }],
   [true, '', {
     tapChildBuffer: 'child output',
