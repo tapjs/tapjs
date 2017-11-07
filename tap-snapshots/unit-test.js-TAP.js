@@ -1302,7 +1302,7 @@ not ok 9 - should be equivalent strictly
 
 ok 10 - should be equivalent strictly
 ok 11 - should be equivalent strictly
-ok 12 - should be equivalent strictly # SKIP
+ok 12 - should not be equivalent strictly # SKIP
 ok 13 - this one passes
 ok 14 - this one passes
 not ok 15 - this one fails
