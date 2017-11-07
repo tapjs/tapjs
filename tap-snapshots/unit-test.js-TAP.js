@@ -1937,3 +1937,45 @@ TAP version 13
 # this is fine
 
 `
+
+exports[` TAP addAssert > using the custom isUrl assertion 1`] = `
+TAP version 13
+not ok 1 - expect a valid http/https url
+  ---
+  found:
+    protocol: null
+    slashes: null
+    auth: null
+    host: null
+    port: null
+    hostname: null
+    hash: null
+    search: null
+    query: null
+    pathname: hello%20is%20not%20a%20url
+    path: hello%20is%20not%20a%20url
+    href: hello%20is%20not%20a%20url
+  pattern:
+    protocol: '/^https?:$/'
+    slashes: true
+    host: 'function String() { [native code] }'
+    path: /^\\/.*$/
+  at:
+    line: #
+    column: #
+    file: unit/test.js
+    type: Test
+    function: t.test.t
+  stack: |
+    {STACK}
+  source: |
+    tt.isUrl('hello is not a url')
+  ...
+
+ok 2 - x is a url!
+ok 3 - expect a valid http/https url # SKIP
+1..3
+# failed 1 of 3 tests
+# skip: 1
+
+`

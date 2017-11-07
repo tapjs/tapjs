@@ -11,6 +11,8 @@ const clean = out => out
   .replace(/ # time=[0-9\.]+m?s( \{.*)?\n/g, ' # {time}$1\n')
   .replace(/\n(( {2})+)stack: \|-?\n((\1  .*).*\n)+/gm,
     '\n$1stack: |\n$1  {STACK}\n')
+  .replace(/\n(( {2})+)stack: \>-?\n((\1  .*).*\n(\1\n)?)+/gm,
+    '\n$1stack: |\n$1  {STACK}\n')
   .replace(/\n([a-zA-Z]*Error): (.*)\n((    at .*\n)*)+/gm,
     '\n$1: $2\n    {STACK}\n')
   .replace(/:[0-9]+:[0-9]+(\)?\n)/g, '#:#$1')
@@ -583,9 +585,37 @@ t.test('assertions and weird stuff', t => {
   }
 })
 
+t.test('addAssert', t => {
+  t.throws(() => t.addAssert(null), new TypeError('name is required'))
+  t.throws(() => t.addAssert('x'), new TypeError('number of args required'))
+  t.throws(() => t.addAssert('x', -1),
+           new TypeError('number of args required'))
+  t.throws(() => t.addAssert('x', 1),
+           new TypeError('function required for addAssert'))
+  t.throws(() => t.addAssert('ok', 1, () => {}),
+           new TypeError('attempt to re-define `ok` assert'))
+
+  const url = require('url')
+  const tt = new Test({ buffered: true })
+  tt.addAssert('isUrl', 1, function isUrl (u, message, extra) {
+    return this.match(url.parse(u), {
+      protocol: /^https?:$/,
+      slashes: true,
+      host: String,
+      path: /^\/.*$/
+    }, message || 'expect a valid http/https url', extra)
+  })
+  tt.isUrl('hello is not a url')
+  tt.isUrl('http://x', 'x is a url!')
+  tt.isUrl('https://skip:420/', { skip: 420 })
+  tt.end()
+
+  t.matchSnapshot(clean(tt.output), 'using the custom isUrl assertion')
+  return t.end()
+})
+
 t.test('autoEnd')
 t.test('endAll')
-t.test('addAssert')
 t.test('snapshots')
 t.test('spawn')
 t.test('stdin')
