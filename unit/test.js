@@ -22,7 +22,7 @@ const clean = out => out
 
 t.test('short output checks', t => {
   const env = process.env.TAP_BUFFER
-  process.env.TAP_BUFFER = '0'
+  delete process.env.TAP_BUFFER
   t.teardown(_ => process.env.TAP_BUFFER = env)
 
   const cases = {
@@ -553,6 +553,48 @@ t.test('assertions and weird stuff', t => {
     'comment after end': tt => {
       tt.end()
       tt.comment('this is fine')
+    },
+
+    grep: tt => {
+      tt.test('parent', { grep: [ /x$/, /y$/ ] }, tt => {
+        tt.test('do not run this', tt => tt.threw('no'))
+        tt.test('but do run this x', tt => {
+          tt.test('do not run this', tt => tt.threw('stop'))
+          tt.test('but do run this y', tt => {
+            tt.test('grand kids', tt => tt.end())
+            tt.test('get all the', tt => tt.end())
+            tt.test('goodies', tt => {
+              tt.pass('this is good')
+              tt.end()
+            })
+            tt.end()
+          })
+          tt.end()
+        })
+        tt.end()
+      })
+      tt.end()
+    },
+
+    grepInvert: tt => {
+      tt.test('parent', { grepInvert: true, grep: [ /x$/, /y$/ ] }, tt => {
+        tt.test('do not run this x', tt => tt.threw('no'))
+        tt.test('but do run this', tt => {
+          tt.test('do not run this y', tt => tt.threw('stop'))
+          tt.test('but do run this', tt => {
+            tt.test('grand kids', tt => tt.end())
+            tt.test('get all the', tt => tt.end())
+            tt.test('goodies', tt => {
+              tt.pass('this is good')
+              tt.end()
+            })
+            tt.end()
+          })
+          tt.end()
+        })
+        tt.end()
+      })
+      tt.end()
     },
   }
 

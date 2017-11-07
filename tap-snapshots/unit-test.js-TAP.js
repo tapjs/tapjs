@@ -662,90 +662,46 @@ ok 3 - promisey # SKIP filter: only
 exports[`unit/test.js TAP short output checks parallel sub no options > parallel sub 1`] = `
 TAP version 13
 1..2
-# Subtest: slow child
+ok 1 - slow child # {time} {
     1..0
-ok 1 - slow child # {time}
+}
 
-# Subtest: fast child
-    not ok 1 - slow is going
-      ---
-      at:
-        line: #
-        column: #
-        file: unit/test.js
-        type: Timeout
-        function: _
-        method: _onTimeout
-      stack: |
-        {STACK}
-      source: |
-        tt.ok(slowGoing, 'slow is going')
-      ...
-    
+ok 2 - fast child # {time} {
+    ok 1 - slow is going
     1..1
-    # failed 1 test
-not ok 2 - fast child # {time}
+}
 
-# failed 1 of 2 tests
 
 `
 
 exports[`unit/test.js TAP short output checks parallel sub buffered > parallel sub 1`] = `
 TAP version 13
 1..2
-# Subtest: slow child
+ok 1 - slow child # {time} {
     1..0
-ok 1 - slow child # {time}
+}
 
-# Subtest: fast child
-    not ok 1 - slow is going
-      ---
-      at:
-        line: #
-        column: #
-        file: unit/test.js
-        type: Timeout
-        function: _
-        method: _onTimeout
-      stack: |
-        {STACK}
-      source: |
-        tt.ok(slowGoing, 'slow is going')
-      ...
-    
+ok 2 - fast child # {time} {
+    ok 1 - slow is going
     1..1
-    # failed 1 test
-not ok 2 - fast child # {time}
+}
 
-# failed 1 of 2 tests
 
 `
 
 exports[`unit/test.js TAP short output checks parallel sub bailout > parallel sub 1`] = `
 TAP version 13
 1..2
-# Subtest: slow child
+ok 1 - slow child # {time} {
     1..0
-ok 1 - slow child # {time}
+}
 
-# Subtest: fast child
-    not ok 1 - slow is going
-      ---
-      at:
-        line: #
-        column: #
-        file: unit/test.js
-        type: Timeout
-        function: _
-        method: _onTimeout
-      stack: |
-        {STACK}
-      source: |
-        tt.ok(slowGoing, 'slow is going')
-      ...
-    
-    Bail out! # slow is going
-BAILOUT: "# slow is going"
+ok 2 - fast child # {time} {
+    ok 1 - slow is going
+    1..1
+}
+
+
 `
 
 exports[`unit/test.js TAP short output checks parallel sub runOnly > parallel sub 1`] = `
@@ -1935,6 +1891,76 @@ exports[` TAP assertions and weird stuff comment after end > comment after end 1
 TAP version 13
 1..0
 # this is fine
+
+`
+
+exports[` TAP assertions and weird stuff grep > grep 1`] = `
+TAP version 13
+# Subtest: parent
+    ok 1 - do not run this # SKIP filter: /x$/
+    # Subtest: but do run this x
+        ok 1 - do not run this # SKIP filter: /y$/
+        # Subtest: but do run this y
+            # Subtest: grand kids
+                1..0
+            ok 1 - grand kids # {time}
+            
+            # Subtest: get all the
+                1..0
+            ok 2 - get all the # {time}
+            
+            # Subtest: goodies
+                ok 1 - this is good
+                1..1
+            ok 3 - goodies # {time}
+            
+            1..3
+        ok 2 - but do run this y # {time}
+        
+        1..2
+        # skip: 1
+    ok 2 - but do run this x # {time}
+    
+    1..2
+    # skip: 1
+ok 1 - parent # {time}
+
+1..1
+
+`
+
+exports[` TAP assertions and weird stuff grepInvert > grepInvert 1`] = `
+TAP version 13
+# Subtest: parent
+    ok 1 - do not run this x # SKIP filter out: /x$/
+    # Subtest: but do run this
+        ok 1 - do not run this y # SKIP filter out: /y$/
+        # Subtest: but do run this
+            # Subtest: grand kids
+                1..0
+            ok 1 - grand kids # {time}
+            
+            # Subtest: get all the
+                1..0
+            ok 2 - get all the # {time}
+            
+            # Subtest: goodies
+                ok 1 - this is good
+                1..1
+            ok 3 - goodies # {time}
+            
+            1..3
+        ok 2 - but do run this # {time}
+        
+        1..2
+        # skip: 1
+    ok 2 - but do run this # {time}
+    
+    1..2
+    # skip: 1
+ok 1 - parent # {time}
+
+1..1
 
 `
 
