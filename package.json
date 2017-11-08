@@ -8,6 +8,7 @@
     "tap": "bin/run.js"
   },
   "main": "lib/tap.js",
+  "types": "index.d.ts",
   "engines": {
     "node": ">=0.8"
   },
@@ -48,7 +49,10 @@
   "repository": "https://github.com/tapjs/node-tap.git",
   "scripts": {
     "regen-fixtures": "node scripts/generate-test-test.js test/test/*.js",
-    "test": "node bin/run.js test/*.* --coverage -t3600 -sfails",
+    "test": "npm run test:js && npm run test:ts",
+    "test:js": "node bin/run.js test/*.* --coverage -t3600 -sfails",
+    "test:ts": "npm run lint:ts && ts-node test/typescript.ts",
+    "lint:ts": "tslint --project tsconfig.json --type-check",
     "smoke": "node bin/run.js --node-arg=test/test.js test/test/*.js -j2",
     "posttest": "standard lib test",
     "t": "node bin/run.js test/*.* -sfails.txt",
@@ -57,9 +61,13 @@
     "postpublish": "git push origin --all; git push origin --tags"
   },
   "devDependencies": {
+    "@types/node": "^8.0.14",
     "mkdirp": "^0.5.1",
     "rimraf": "^2.6.2",
     "standard": "^7.1.2",
+    "ts-node": "^3.2.0",
+    "tslint": "^5.5.0",
+    "typescript": "^2.4.1",
     "which": "^1.1.1"
   },
   "files": [
