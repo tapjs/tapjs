@@ -1982,6 +1982,63 @@ ok 2 - this should also end # {time}
 
 `
 
+exports[` TAP assertions and weird stuff endAll > endAll 1`] = `
+TAP version 13
+# Subtest: tests that have an endall method
+    # Subtest: this is the test that never ends
+        # Subtest: it goes on and on my friend
+            ok 1 - this is ok
+            # Subtest: misbehaving child
+                not ok 1 - test unfinished
+                  ---
+                  stack: |
+                    {STACK}
+                  test: misbehaving child
+                  at:
+                    line: #
+                    column: #
+                    file: unit/test.js
+                    function: Test.tt.test.tt
+                  source: |
+                    tt.test('misbehaving child', () => new Promise(()=>{}))
+                  ...
+                
+                1..1
+                # failed 1 test
+            not ok 2 - misbehaving child # {time}
+            
+            1..2
+            # failed 1 of 2 tests
+        not ok 1 - it goes on and on my friend # {time}
+        
+        ok 2 - some queue stuff
+        1..2
+        # failed 1 of 2 tests
+    not ok 1 - this is the test that never ends # {time}
+    
+    1..1
+    # failed 1 test
+not ok 1 - tests that have an endall method # {time}
+
+# Subtest: endAll on a stdin
+    # Subtest: /dev/stdin
+        ok - but not ended
+        
+        not ok 2 - test unfinished
+        
+        1..2
+        # failed 1 of 2 tests
+    not ok 1 - /dev/stdin # {time}
+    
+    1..1
+    # failed 1 test
+not ok 2 - endAll on a stdin # {time}
+
+1..2
+# failed 2 of 2 tests
+
+`
+
 exports[` TAP addAssert > using the custom isUrl assertion 1`] = `
 TAP version 13
 not ok 1 - expect a valid http/https url
