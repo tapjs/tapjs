@@ -1964,6 +1964,24 @@ ok 1 - parent # {time}
 
 `
 
+exports[` TAP assertions and weird stuff autoEnd > autoEnd 1`] = `
+TAP version 13
+# Subtest: this should automatically end
+    ok 1 - this is fine
+    ok 2 - also fine
+    1..2
+ok 1 - this should automatically end # {time}
+
+# Subtest: this should also end
+    ok 1 - this is fine
+    ok 2 - also fine
+    1..2
+ok 2 - this should also end # {time}
+
+1..2
+
+`
+
 exports[` TAP addAssert > using the custom isUrl assertion 1`] = `
 TAP version 13
 not ok 1 - expect a valid http/https url

@@ -596,6 +596,19 @@ t.test('assertions and weird stuff', t => {
       })
       tt.end()
     },
+
+    autoEnd: tt => {
+      tt.options.autoend = true
+      tt.test('this should automatically end', { autoend: true }, t => {
+        t.pass('this is fine')
+        setTimeout(() => t.pass('also fine'))
+      })
+      tt.test('this should also end', t => {
+        t.pass('this is fine')
+        setTimeout(() => t.pass('also fine'))
+        t.autoend()
+      })
+    },
   }
 
   const keys = Object.keys(cases)
@@ -656,7 +669,6 @@ t.test('addAssert', t => {
   return t.end()
 })
 
-t.test('autoEnd')
 t.test('endAll')
 t.test('snapshots')
 t.test('spawn')
