@@ -6,7 +6,8 @@ const EE = require('events').EventEmitter
 const MiniPass = require('minipass')
 
 // set this forcibly so it doesn't interfere with other tests.
-process.env.TAP_DIAG === ''
+process.env.TAP_DIAG = ''
+process.env.TAP_BAIL = ''
 
 const clean = out => out
   .replace(/ # time=[0-9\.]+m?s( \{.*)?\n/g, ' # {time}$1\n')
@@ -631,6 +632,22 @@ t.test('assertions and weird stuff', t => {
         setTimeout(() => t.pass('also fine'))
         t.autoend()
       })
+      tt.test('autoend async 1', t => {
+        setTimeout(() =>
+          t.test('st', t => setTimeout(() => t.end())))
+        t.autoend()
+      })
+      tt.test('autoend async 2', t => {
+        setTimeout(() => setTimeout(() =>
+          t.test('st', t => setTimeout(() => t.end()))))
+        t.autoend()
+      })
+      tt.test('autoend async limit', t => {
+        setTimeout(() => setTimeout(() => setTimeout(() =>
+          t.test('st', t => setTimeout(() => t.end())))))
+        t.autoend()
+      })
+
     },
 
     'endAll with test children': tt => {
@@ -708,6 +725,46 @@ t.test('assertions and weird stuff', t => {
       tt.end()
     },
 
+    'timeout expiration': t => {
+      const buf = [ false, true ]
+      buf.forEach(buf => {
+        t.test('get lost buf=' + buf, { buffered: buf, timeout: 1 }, t => {
+          const timer = setTimeout(() => {}, 10000)
+          t.on('timeout', () => clearTimeout(timer))
+        })
+      })
+      t.end()
+    },
+
+    'timeout with subs': t => {
+      const buf = [ false, true ]
+      buf.forEach(buf => {
+        t.test('get lost buf=' + buf, { buffered: buf, timeout: 1 }, t => {
+          const timer = setTimeout(() => {}, 10000)
+          t.test('carry on', t => t.on('timeout', () => clearTimeout(timer)))
+        })
+      })
+      t.end()
+    },
+
+    'timeout at the last tick': t => {
+      const buf = [ false, true ]
+      buf.forEach(buf => {
+        t.test('work it harder buf=' + buf, { buffered: buf, timeout: 1 }, t => {
+          const fs = require('fs')
+          t.plan(1)
+          const start = Date.now()
+          const finish = start + 10
+          while (finish > Date.now()) {
+            fs.readFileSync(__filename)
+          }
+          t.pass('this is fine')
+        })
+      })
+      t.end()
+    },
+
+
   }
 
   const keys = Object.keys(cases)
@@ -770,5 +827,3 @@ t.test('addAssert', t => {
 
 t.test('snapshots')
 t.test('spawn')
-t.test('stdin')
-t.test('timeout')

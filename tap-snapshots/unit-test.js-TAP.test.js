@@ -2144,7 +2144,36 @@ ok 1 - this should automatically end # {time}
     1..2
 ok 2 - this should also end # {time}
 
-1..2
+# Subtest: autoend async 1
+    # Subtest: st
+        1..0
+    ok 1 - st # {time}
+    
+    1..1
+ok 3 - autoend async 1 # {time}
+
+# Subtest: autoend async 2
+    # Subtest: st
+        1..0
+    ok 1 - st # {time}
+    
+    1..1
+ok 4 - autoend async 2 # {time}
+
+# Subtest: autoend async limit
+    1..0
+ok 5 - autoend async limit # {time}
+
+not ok 6 - cannot create subtest after parent test end # {time}
+  ---
+  stack: |
+    {STACK}
+  autoend: true
+  test: autoend async limit
+  ...
+
+1..6
+# failed 1 of 6 tests
 
 `
 
@@ -2278,6 +2307,133 @@ in test
 child ae grandkid
 parent ae grandkid
 parent ae child
+
+`
+
+exports[` TAP assertions and weird stuff timeout expiration > timeout expiration 1`] = `
+TAP version 13
+# Subtest: get lost buf=false
+    not ok 1 - timeout!
+      ---
+      expired: get lost buf=false
+      timeout: 1
+      stack: |
+        {STACK}
+      test: get lost buf=false
+      ...
+    
+    1..1
+    # failed 1 test
+not ok 1 - get lost buf=false # {time}
+  ---
+  timeout: 1
+  ...
+
+not ok 2 - get lost buf=true # {time}
+  ---
+  timeout: 1
+  ...
+{
+    not ok 1 - timeout!
+      ---
+      expired: get lost buf=true
+      timeout: 1
+      stack: |
+        {STACK}
+      test: get lost buf=true
+      ...
+    
+    1..1
+    # failed 1 test
+}
+
+1..2
+# failed 2 of 2 tests
+
+`
+
+exports[` TAP assertions and weird stuff timeout with subs > timeout with subs 1`] = `
+TAP version 13
+# Subtest: get lost buf=false
+    # Subtest: carry on
+        not ok 1 - timeout!
+          ---
+          expired: get lost buf=false
+          stack: |
+            {STACK}
+          test: carry on
+          ...
+        
+        1..1
+        # failed 1 test
+    not ok 1 - carry on # {time}
+    
+    1..1
+    # failed 1 test
+not ok 1 - get lost buf=false # {time}
+  ---
+  timeout: 1
+  ...
+
+not ok 2 - get lost buf=true # {time}
+  ---
+  timeout: 1
+  ...
+{
+    # Subtest: carry on
+        not ok 1 - timeout!
+          ---
+          expired: get lost buf=true
+          stack: |
+            {STACK}
+          test: carry on
+          ...
+        
+        1..1
+        # failed 1 test
+    not ok 1 - carry on # {time}
+    
+    1..1
+    # failed 1 test
+}
+
+1..2
+# failed 2 of 2 tests
+
+`
+
+exports[` TAP assertions and weird stuff timeout at the last tick > timeout at the last tick 1`] = `
+TAP version 13
+# Subtest: work it harder buf=false
+    1..1
+    ok 1 - this is fine
+ok 1 - work it harder buf=false # {time}
+
+not ok 2 - timeout! # {time}
+  ---
+  expired: work it harder buf=false
+  timeout: 1
+  stack: |
+    {STACK}
+  test: work it harder buf=false
+  ...
+
+ok 3 - work it harder buf=true # {time} {
+    1..1
+    ok 1 - this is fine
+}
+
+not ok 4 - timeout!
+  ---
+  expired: work it harder buf=true
+  timeout: 1
+  stack: |
+    {STACK}
+  test: work it harder buf=true
+  ...
+
+1..4
+# failed 2 of 4 tests
 
 `
 
