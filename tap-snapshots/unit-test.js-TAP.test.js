@@ -469,6 +469,87 @@ not ok 1 - this is fine
 
 `
 
+exports[`unit/test.js TAP short output checks fail then end no options > fail then end 1`] = `
+TAP version 13
+# Subtest: child
+    not ok 1 - this is not ok
+      ---
+      at:
+        line: #
+        column: #
+        file: unit/test.js
+        type: Test
+        function: tt.test.tt
+      stack: |
+        {STACK}
+      source: |
+        tt.fail('this is not ok')
+      ...
+    
+    1..1
+    # failed 1 test
+not ok 1 - child # {time}
+
+1..1
+# failed 1 test
+
+`
+
+exports[`unit/test.js TAP short output checks fail then end buffered > fail then end 1`] = `
+TAP version 13
+# Subtest: child
+    not ok 1 - this is not ok
+      ---
+      at:
+        line: #
+        column: #
+        file: unit/test.js
+        type: Test
+        function: tt.test.tt
+      stack: |
+        {STACK}
+      source: |
+        tt.fail('this is not ok')
+      ...
+    
+    1..1
+    # failed 1 test
+not ok 1 - child # {time}
+
+1..1
+# failed 1 test
+
+`
+
+exports[`unit/test.js TAP short output checks fail then end bailout > fail then end 1`] = `
+TAP version 13
+# Subtest: child
+    not ok 1 - this is not ok
+      ---
+      at:
+        line: #
+        column: #
+        file: unit/test.js
+        type: Test
+        function: tt.test.tt
+      stack: |
+        {STACK}
+      source: |
+        tt.fail('this is not ok')
+      ...
+    
+    Bail out! # this is not ok
+BAILOUT: "# this is not ok"
+`
+
+exports[`unit/test.js TAP short output checks fail then end runOnly > fail then end 1`] = `
+TAP version 13
+ok 1 - child # SKIP filter: only
+1..1
+# skip: 1
+
+`
+
 exports[`unit/test.js TAP short output checks planned skip no options > planned skip 1`] = `
 TAP version 13
 1..0 # skip this one
@@ -1982,60 +2063,136 @@ ok 2 - this should also end # {time}
 
 `
 
-exports[` TAP assertions and weird stuff endAll > endAll 1`] = `
+exports[` TAP assertions and weird stuff endAll with test children > endAll with test children 1`] = `
 TAP version 13
-# Subtest: tests that have an endall method
-    # Subtest: this is the test that never ends
-        # Subtest: it goes on and on my friend
-            ok 1 - this is ok
-            # Subtest: misbehaving child
-                not ok 1 - test unfinished
-                  ---
-                  stack: |
-                    {STACK}
-                  test: misbehaving child
-                  at:
-                    line: #
-                    column: #
-                    file: unit/test.js
-                    function: Test.tt.test.tt
-                  source: |
-                    tt.test('misbehaving child', () => new Promise(()=>{}))
-                  ...
-                
-                1..1
-                # failed 1 test
-            not ok 2 - misbehaving child # {time}
+# Subtest: this is the test that never ends
+    # Subtest: it goes on and on my friend
+        ok 1 - this is ok
+        # Subtest: misbehaving child
+            not ok 1 - test unfinished
+              ---
+              stack: |
+                {STACK}
+              test: misbehaving child
+              at:
+                line: #
+                column: #
+                file: unit/test.js
+                function: Test.tt.test.tt
+              source: |
+                tt.test('misbehaving child', () => new Promise(()=>{}))
+              ...
             
-            1..2
-            # failed 1 of 2 tests
-        not ok 1 - it goes on and on my friend # {time}
+            1..1
+            # failed 1 test
+        not ok 2 - misbehaving child # {time}
         
-        ok 2 - some queue stuff
         1..2
         # failed 1 of 2 tests
-    not ok 1 - this is the test that never ends # {time}
+    not ok 1 - it goes on and on my friend # {time}
     
-    1..1
-    # failed 1 test
-not ok 1 - tests that have an endall method # {time}
+    ok 2 - some queue stuff
+    1..2
+    # failed 1 of 2 tests
+not ok 1 - this is the test that never ends # {time}
 
-# Subtest: endAll on a stdin
-    # Subtest: /dev/stdin
-        ok - but not ended
-        
-        not ok 2 - test unfinished
-        
-        1..2
-        # failed 1 of 2 tests
-    not ok 1 - /dev/stdin # {time}
+1..1
+# failed 1 test
+
+`
+
+exports[` TAP assertions and weird stuff endAll with stdin > endAll with stdin 1`] = `
+TAP version 13
+# Subtest: /dev/stdin
+    ok - but not ended
     
-    1..1
-    # failed 1 test
-not ok 2 - endAll on a stdin # {time}
+    not ok 2 - test unfinished
+    
+    1..2
+    # failed 1 of 2 tests
+not ok 1 - /dev/stdin # {time}
+
+1..1
+# failed 1 test
+
+`
+
+exports[` TAP assertions and weird stuff endAll with bailout > endAll with bailout 1`] = `
+TAP version 13
+# Subtest: child
+    not ok 1 - not fine
+      ---
+      at:
+        line: #
+        column: #
+        file: unit/test.js
+        type: Test
+        function: tt.test.tt
+      stack: |
+        {STACK}
+      source: |
+        tt.fail('not fine')
+      ...
+    
+    Bail out! # not fine
+Bail out! # not fine
+
+`
+
+exports[` TAP assertions and weird stuff bailout with indented subs > bailout with indented subs 1`] = `
+TAP version 13
+# Subtest: 1
+    1..0
+ok 1 - 1 # {time}
+
+# Subtest: 2
+Bail out! whoops
+
+`
+
+exports[` TAP assertions and weird stuff bailout with buffered subs > bailout with buffered subs 1`] = `
+TAP version 13
+ok 1 - 1 # {time} {
+    1..0
+}
+
+Bail out! whoops
+
+`
+
+exports[` TAP assertions and weird stuff silent subs > silent subs 1`] = `
+TAP version 13
+# Subtest: child
+    1..0
+ok 1 - child # {time}
+
+# Subtest: child 2
+    1..0
+ok 2 - child 2 # {time}
 
 1..2
-# failed 2 of 2 tests
+
+`
+
+exports[` TAP assertions and weird stuff beforeEach afterEach > beforeEach afterEach 1`] = `
+TAP version 13
+# Subtest: child
+    # Subtest: grandkid
+        1..0
+    ok 1 - grandkid # {time}
+    
+    1..1
+ok 1 - child # {time}
+
+1..1
+STDERR:
+parent be child
+parent be grandkid
+child be grandkid
+in test
+child ae grandkid
+parent ae grandkid
+parent ae child
 
 `
 

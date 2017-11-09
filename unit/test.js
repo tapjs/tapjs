@@ -3,6 +3,7 @@ const Test = t.Test
 const util = require('util')
 const assert = require('assert')
 const EE = require('events').EventEmitter
+const MiniPass = require('minipass')
 
 // set this forcibly so it doesn't interfere with other tests.
 process.env.TAP_DIAG === ''
@@ -80,6 +81,14 @@ t.test('short output checks', t => {
     'plan fail': tt => {
       tt.plan(1, 'expect some failure here')
       tt.fail('this is fine', { diagnostic: false })
+    },
+
+    'fail then end': tt => {
+      tt.test('child', tt => {
+        tt.fail('this is not ok')
+        tt.end()
+      })
+      tt.end()
     },
 
     'planned skip': tt => {
@@ -609,6 +618,82 @@ t.test('assertions and weird stuff', t => {
         t.autoend()
       })
     },
+
+    'endAll with test children': tt => {
+      tt.test('this is the test that never ends', tt => {
+        tt.test('it goes on and on my friend', tt => {
+          tt.pass('this is ok')
+          tt.test('misbehaving child', () => new Promise(()=>{}))
+        })
+        tt.pass('some queue stuff')
+      })
+      tt.endAll()
+    },
+
+    'endAll with stdin': tt => {
+      const s = new MiniPass()
+      tt.stdin({ tapStream: s })
+      s.write('TAP version 13\nok - but not ended\n')
+      tt.endAll()
+    },
+
+    'endAll with bailout': tt => {
+      tt.on('bailout', reason => tt.endAll())
+
+      tt.test('child', { bail: true }, tt => {
+        tt.fail('not fine')
+        tt.end()
+      })
+    },
+
+    'bailout with indented subs': tt => {
+      tt.test('1', tt => tt.end())
+      tt.test('2', tt => Promise.resolve(null))
+      tt.test('3', tt => setTimeout(() => tt.end()))
+      process.nextTick(() => tt.bailout('whoops'))
+      tt.end()
+    },
+
+    'bailout with buffered subs': tt => {
+      const o = { buffered: true }
+      tt.test('1', o, tt => tt.end())
+      tt.test('2', o, tt => Promise.resolve(null))
+      tt.test('3', o, tt => setTimeout(() => tt.end()))
+      process.nextTick(() => tt.bailout('whoops'))
+      tt.end()
+    },
+
+    'silent subs': tt => {
+      tt.test('child', tt => Promise.resolve(null))
+      tt.test('shhh', { silent: true }, tt => tt.end())
+      tt.test('child 2', tt => tt.end())
+      tt.end()
+    },
+
+    'beforeEach afterEach': tt => {
+      tt.beforeEach(function (cb) {
+        console.error('parent be', this.name)
+        cb()
+      })
+      tt.afterEach(function (cb) {
+        console.error('parent ae', this.name)
+        cb()
+      })
+      tt.test('child', tt => {
+        tt.beforeEach(function (cb) {
+          console.error('child be', this.name)
+          cb()
+        })
+        tt.afterEach(function (cb) {
+          console.error('child ae', this.name)
+          cb()
+        })
+        tt.test('grandkid', tt => Promise.resolve(console.error('in test')))
+        tt.end()
+      })
+      tt.end()
+    },
+
   }
 
   const keys = Object.keys(cases)
@@ -669,7 +754,6 @@ t.test('addAssert', t => {
   return t.end()
 })
 
-t.test('endAll')
 t.test('snapshots')
 t.test('spawn')
 t.test('stdin')
