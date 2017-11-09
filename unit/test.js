@@ -184,7 +184,21 @@ t.test('short output checks', t => {
     // using a Domain to catch beyond async stack drops
     'gentle thrower': tt => tt.threw(new Error('ok')),
     'child thrower': tt => tt.test('child test', tt =>
-      tt.threw(new Error('ok'))).then(tt.end)
+      tt.threw(new Error('ok'))).then(tt.end),
+
+    'child end event thrower': tt => {
+      tt.test(tt => {
+        tt.plan(1)
+
+        tt.on('end', function () {
+          tt.comment('end() event')
+          throw new Error('beep')
+        })
+
+        tt.equal(3, 3)
+      })
+      tt.end()
+    }
   }
 
   const keys = Object.keys(cases)

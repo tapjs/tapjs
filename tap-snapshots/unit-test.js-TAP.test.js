@@ -1074,7 +1074,7 @@ TAP version 13
         function: Test.tt.test.tt
       test: child test
       source: |
-        tt.threw(new Error('ok'))).then(tt.end)
+        tt.threw(new Error('ok'))).then(tt.end),
       ...
     
     1..1
@@ -1100,7 +1100,7 @@ TAP version 13
         function: Test.tt.test.tt
       test: child test
       source: |
-        tt.threw(new Error('ok'))).then(tt.end)
+        tt.threw(new Error('ok'))).then(tt.end),
       ...
     
     1..1
@@ -1126,7 +1126,7 @@ TAP version 13
         function: Test.tt.test.tt
       test: child test
       source: |
-        tt.threw(new Error('ok'))).then(tt.end)
+        tt.threw(new Error('ok'))).then(tt.end),
       ...
     
     Bail out! # ok
@@ -1136,6 +1136,94 @@ BAILOUT: "# ok"
 exports[`unit/test.js TAP short output checks child thrower runOnly > child thrower 1`] = `
 TAP version 13
 ok 1 - child test # SKIP filter: only
+1..1
+# skip: 1
+
+`
+
+exports[`unit/test.js TAP short output checks child end event thrower no options > child end event thrower 1`] = `
+TAP version 13
+# Subtest: (unnamed test)
+    1..1
+    ok 1 - should be equal
+# end() event
+ok 1 - (unnamed test) # {time}
+
+not ok 2 - beep
+  ---
+  stack: |
+    {STACK}
+  at:
+    line: #
+    column: #
+    file: unit/test.js
+    function: Test.<anonymous>
+  test: (unnamed test)
+  source: |
+    throw new Error('beep')
+  ...
+
+1..2
+# failed 1 of 2 tests
+
+`
+
+exports[`unit/test.js TAP short output checks child end event thrower buffered > child end event thrower 1`] = `
+TAP version 13
+# Subtest: (unnamed test)
+    1..1
+    ok 1 - should be equal
+# end() event
+ok 1 - (unnamed test) # {time}
+
+not ok 2 - beep
+  ---
+  stack: |
+    {STACK}
+  at:
+    line: #
+    column: #
+    file: unit/test.js
+    function: Test.<anonymous>
+  test: (unnamed test)
+  source: |
+    throw new Error('beep')
+  ...
+
+1..2
+# failed 1 of 2 tests
+
+`
+
+exports[`unit/test.js TAP short output checks child end event thrower bailout > child end event thrower 1`] = `
+TAP version 13
+# Subtest: (unnamed test)
+    1..1
+    ok 1 - should be equal
+# end() event
+ok 1 - (unnamed test) # {time}
+
+not ok 2 - beep
+  ---
+  stack: |
+    {STACK}
+  at:
+    line: #
+    column: #
+    file: unit/test.js
+    function: Test.<anonymous>
+  test: (unnamed test)
+  source: |
+    throw new Error('beep')
+  ...
+
+Bail out! # beep
+BAILOUT: "# beep"
+`
+
+exports[`unit/test.js TAP short output checks child end event thrower runOnly > child end event thrower 1`] = `
+TAP version 13
+ok 1 - (unnamed test) # SKIP filter: only
 1..1
 # skip: 1
 
