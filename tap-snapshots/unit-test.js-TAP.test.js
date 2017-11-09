@@ -796,7 +796,7 @@ ok 2 - fast child # SKIP filter: only
 
 exports[`unit/test.js TAP short output checks reasoned bailout no options > reasoned bailout 1`] = `
 TAP version 13
-# Subtest: (unnamed test)
+# Subtest
     ok 1 - this is fine
     Bail out! not fine
 BAILOUT: "not fine"
@@ -804,7 +804,7 @@ BAILOUT: "not fine"
 
 exports[`unit/test.js TAP short output checks reasoned bailout buffered > reasoned bailout 1`] = `
 TAP version 13
-# Subtest: (unnamed test)
+# Subtest
     ok 1 - this is fine
     Bail out! not fine
 BAILOUT: "not fine"
@@ -812,7 +812,7 @@ BAILOUT: "not fine"
 
 exports[`unit/test.js TAP short output checks reasoned bailout bailout > reasoned bailout 1`] = `
 TAP version 13
-# Subtest: (unnamed test)
+# Subtest
     ok 1 - this is fine
     Bail out! not fine
 BAILOUT: "not fine"
@@ -828,7 +828,7 @@ ok 1 - (unnamed test) # SKIP filter: only
 
 exports[`unit/test.js TAP short output checks unreasonable bailout no options > unreasonable bailout 1`] = `
 TAP version 13
-# Subtest: (unnamed test)
+# Subtest
     ok 1 - this is fine
     Bail out!
 
@@ -836,7 +836,7 @@ TAP version 13
 
 exports[`unit/test.js TAP short output checks unreasonable bailout buffered > unreasonable bailout 1`] = `
 TAP version 13
-# Subtest: (unnamed test)
+# Subtest
     ok 1 - this is fine
     Bail out!
 
@@ -844,7 +844,7 @@ TAP version 13
 
 exports[`unit/test.js TAP short output checks unreasonable bailout bailout > unreasonable bailout 1`] = `
 TAP version 13
-# Subtest: (unnamed test)
+# Subtest
     ok 1 - this is fine
     Bail out!
 
@@ -860,7 +860,7 @@ ok 1 - (unnamed test) # SKIP filter: only
 
 exports[`unit/test.js TAP short output checks bailout after end no options > bailout after end 1`] = `
 TAP version 13
-# Subtest: (unnamed test)
+# Subtest
     ok 1 - this is fine
     1..1
 Bail out! not fine
@@ -869,7 +869,7 @@ BAILOUT: "not fine"
 
 exports[`unit/test.js TAP short output checks bailout after end buffered > bailout after end 1`] = `
 TAP version 13
-# Subtest: (unnamed test)
+# Subtest
     ok 1 - this is fine
     1..1
 Bail out! not fine
@@ -878,7 +878,7 @@ BAILOUT: "not fine"
 
 exports[`unit/test.js TAP short output checks bailout after end bailout > bailout after end 1`] = `
 TAP version 13
-# Subtest: (unnamed test)
+# Subtest
     ok 1 - this is fine
     1..1
 Bail out! not fine
@@ -1143,11 +1143,11 @@ ok 1 - child test # SKIP filter: only
 
 exports[`unit/test.js TAP short output checks child end event thrower no options > child end event thrower 1`] = `
 TAP version 13
-# Subtest: (unnamed test)
+# Subtest
     1..1
     ok 1 - should be equal
 # end() event
-ok 1 - (unnamed test) # {time}
+ok 1 # {time}
 
 not ok 2 - beep
   ---
@@ -1158,7 +1158,6 @@ not ok 2 - beep
     column: #
     file: unit/test.js
     function: Test.<anonymous>
-  test: (unnamed test)
   source: |
     throw new Error('beep')
   ...
@@ -1170,11 +1169,11 @@ not ok 2 - beep
 
 exports[`unit/test.js TAP short output checks child end event thrower buffered > child end event thrower 1`] = `
 TAP version 13
-# Subtest: (unnamed test)
+# Subtest
     1..1
     ok 1 - should be equal
 # end() event
-ok 1 - (unnamed test) # {time}
+ok 1 # {time}
 
 not ok 2 - beep
   ---
@@ -1185,7 +1184,6 @@ not ok 2 - beep
     column: #
     file: unit/test.js
     function: Test.<anonymous>
-  test: (unnamed test)
   source: |
     throw new Error('beep')
   ...
@@ -1197,11 +1195,11 @@ not ok 2 - beep
 
 exports[`unit/test.js TAP short output checks child end event thrower bailout > child end event thrower 1`] = `
 TAP version 13
-# Subtest: (unnamed test)
+# Subtest
     1..1
     ok 1 - should be equal
 # end() event
-ok 1 - (unnamed test) # {time}
+ok 1 # {time}
 
 not ok 2 - beep
   ---
@@ -1212,7 +1210,6 @@ not ok 2 - beep
     column: #
     file: unit/test.js
     function: Test.<anonymous>
-  test: (unnamed test)
   source: |
     throw new Error('beep')
   ...
@@ -1942,9 +1939,9 @@ Error: test after end() was called
 exports[`unit/test.js TAP assertions and weird stuff plan, child test, explicit end > plan, child test, explicit end 1`] = `
 TAP version 13
 1..1
-# Subtest: (unnamed test)
+# Subtest
     1..0
-ok 1 - (unnamed test) # {time}
+ok 1 # {time}
 
 
 `

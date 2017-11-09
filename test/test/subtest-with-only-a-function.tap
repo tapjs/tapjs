@@ -1,7 +1,7 @@
 TAP version 13
-# Subtest: (unnamed test)
+# Subtest
     1..0
-ok 1 - (unnamed test) ___/# time=[0-9.]+(ms)?/~~~
+ok 1 ___/# time=[0-9.]+(ms)?/~~~
 
 1..1
 

@@ -22,11 +22,11 @@ not ok 4 - failsome
   {"at":{"column":5,"file":"test/test/unfinished.js","line":23},"hoo":"hah","source":"tap.fail('failsome', { hoo: 'hah' })\n"}
   ...
 
-not ok 5 - child test left in queue Spawn: spawny
-not ok 6 - child test left in queue Spawn: ___/.*(node(js)?|iojs)(.exe)?/~~~ --version
-not ok 7 - child test left in queue Test: (unnamed test)
-not ok 8 - child test left in queue Test: (unnamed test)
-not ok 9 - child test left in queue Test: t2
+not ok 5 - child test left in queue: t.spawn spawny
+not ok 6 - child test left in queue: t.spawn ___/.*(node(js)?|iojs)(.exe)?/~~~ --version
+not ok 7 - child test left in queue: t.test
+not ok 8 - child test left in queue: t.test
+not ok 9 - child test left in queue: t.test t2
 1..4
 # test count(9) != plan(4)
 # failed 7 of 9 tests

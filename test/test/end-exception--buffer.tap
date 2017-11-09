@@ -1,13 +1,13 @@
 TAP version 13
 end()
-ok 1 - (unnamed test) ___/# time=[0-9.]+(ms)?/~~~ {
+ok 1 ___/# time=[0-9.]+(ms)?/~~~ {
     1..1
     ok 1 - should be equal
 }
 
 not ok 2 - beep
   ---
-  {"at":{"column":11,"file":"test/test/end-exception.js","line":8},"source":"throw new Error('beep')\n","test":"(unnamed test)"}
+  {"at":{"column":11,"file":"test/test/end-exception.js","line":8},"source":"throw new Error('beep')\n"}
   ...
 
 1..2
