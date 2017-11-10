@@ -5,6 +5,9 @@ const Parser = require('tap-parser')
 const node = process.execPath
 const file = __filename
 
+process.env.TAP_BAIL = ''
+process.env.TAP_BUFFER = ''
+
 const clean = out => out
   .replace(/ # time=[0-9\.]+m?s( \{.*)?\n/g, ' # {time}$1\n')
   .replace(/\n(( {2})+)stack: \|-?\n((\1  .*).*\n)+/gm,

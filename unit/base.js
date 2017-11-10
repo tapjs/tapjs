@@ -70,8 +70,7 @@ t.test('bailout', t => {
 
 t.test('throwing stuff', t => {
   const util = require('util')
-  const b = new Base({ name: 'ace' })
-  const pattern = {
+  const sign = {
     name: 'ace',
     at: {
       line: Number,
@@ -81,9 +80,21 @@ t.test('throwing stuff', t => {
     stack: String,
     test: 'ace'
   }
-  const result = b.threw(new Error('this is fine'))
-  t.match(result, pattern)
-  t.notOk(b.parser.ok)
+
+  t.test('domain error', t => {
+    const b = new Base({ name: 'ace', buffered: true })
+    b.domain.emit('error', new Error('this is fine'))
+    t.notOk(b.parser.ok)
+    t.end()
+  })
+
+  t.test('calling .threw', t => {
+    const b = new Base({ name: 'ace' })
+    const result = b.threw(new Error('this is fine'))
+    t.match(result, sign)
+    t.notOk(b.parser.ok)
+    t.end()
+  })
 
   const c = new Base()
   c.parser.end('TAP version 13\nok\n1..1\n')

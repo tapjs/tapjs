@@ -2,6 +2,9 @@ const t = require('../')
 const Stdin = require('../lib/stdin.js')
 const MP = require('minipass')
 
+process.env.TAP_BAIL = ''
+process.env.TAP_BUFFER = ''
+
 t.test('uses stdin if no stream provided', t => {
   const s = new Stdin()
   t.equal(s.stream, process.stdin)
