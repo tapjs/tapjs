@@ -825,5 +825,25 @@ t.test('addAssert', t => {
   return t.end()
 })
 
+t.test('spawn', t => {
+  const fs = require('fs')
+  const path = require('path')
+  const okjs = path.resolve(__dirname, '../__ok.js')
+  t.teardown(() => fs.unlinkSync(okjs))
+  fs.writeFileSync(okjs, "require('./').pass('this is fine')\n")
+  t.spawn(process.execPath, okjs)
+  t.spawn(process.execPath, okjs, 'a string as options')
+  t.spawn(process.execPath, okjs, { name: 'a name as an option' })
+
+  t.test('kitty pipe', t => {
+    t.on('spawn', t =>
+      t.proc.stdin.end('TAP version 13\n1..1\nok\n'))
+    t.spawn('cat', [], { stdio: 'pipe' })
+    t.spawn('cat', null, { stdio: 'pipe' }, 'aggreeable kitten')
+    t.end()
+  })
+
+  t.end()
+})
+
 t.test('snapshots')
-t.test('spawn')
