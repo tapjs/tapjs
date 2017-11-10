@@ -33,7 +33,7 @@
     "source-map-support": "^0.4.18",
     "stack-utils": "^1.0.0",
     "tap-mocha-reporter": "^3.0.6",
-    "tap-parser": "^6.0.1",
+    "tap-parser": "^7.0.0",
     "tmatch": "^3.1.0",
     "trivial-deferred": "^1.0.1",
     "tsame": "^1.1.2",
