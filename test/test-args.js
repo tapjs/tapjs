@@ -30,14 +30,14 @@ function c (obj, props) {
 
 runTest(['name', cobj(), fn], c(cobj(), {name: 'name', cb: fn}))
 runTest(['name', fn], { name: 'name', cb: fn })
-runTest([cobj(), fn], c(cobj(), { name: /\(unnamed test\)|fn/, cb: fn }))
+runTest([cobj(), fn], c(cobj(), { name: /^(fn)?$/, cb: fn }))
 runTest([cobj(), namedFunction], c(cobj(), { name: 'namedFunction', cb: namedFunction }))
 runTest(['name', cobj()], c(cobjTodo(), { name: 'name' }))
 runTest(['name'], { name: 'name', todo: true })
-runTest([cobj()], c(cobjTodo(), { name: /\(unnamed test\)|fn/ }))
-runTest([fn], {name: /\(unnamed test\)|fn/, cb: fn})
+runTest([cobj()], c(cobjTodo(), { name: /^(fn)?$/ }))
+runTest([fn], {name: /^(fn)?$/, cb: fn})
 runTest([namedFunction], { name: 'namedFunction', cb: namedFunction })
-runTest([], { name: /\(unnamed test\)|fn/, todo: true })
+runTest([], { name: /^(fn)?$/, todo: true })
 
 var dn = 'defaultName'
 var _ = undefined
