@@ -616,7 +616,7 @@ class Parser extends MiniPass {
     } else if (maybeBuffered) {
       subtestComment = '# Subtest: ' + this.current.name + '\n'
     } else {
-      subtestComment = this.maybeChild || '# Subtest: (anonymous)\n'
+      subtestComment = this.maybeChild || '# Subtest\n'
     }
 
     this.maybeChild = null

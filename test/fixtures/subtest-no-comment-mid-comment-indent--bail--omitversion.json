@@ -1,14 +1,14 @@
 [
   [
     "line",
-    "# Subtest: (anonymous)\n"
+    "# Subtest\n"
   ],
   [
     "child",
     [
       [
         "comment",
-        "# Subtest: (anonymous)\n"
+        "# Subtest\n"
       ],
       [
         "line",
@@ -23,14 +23,14 @@
           ],
           [
             "line",
-            "# Subtest: (anonymous)\n"
+            "# Subtest\n"
           ],
           [
             "child",
             [
               [
                 "comment",
-                "# Subtest: (anonymous)\n"
+                "# Subtest\n"
               ],
               [
                 "line",
@@ -116,14 +116,14 @@
           ],
           [
             "line",
-            "# Subtest: (anonymous)\n"
+            "# Subtest\n"
           ],
           [
             "child",
             [
               [
                 "comment",
-                "# Subtest: (anonymous)\n"
+                "# Subtest\n"
               ],
               [
                 "line",
@@ -258,7 +258,7 @@
       ],
       [
         "line",
-        "    # Subtest: (anonymous)\n"
+        "    # Subtest\n"
       ],
       [
         "line",
@@ -278,7 +278,7 @@
       ],
       [
         "line",
-        "    # Subtest: (anonymous)\n"
+        "    # Subtest\n"
       ],
       [
         "line",
@@ -368,7 +368,7 @@
   ],
   [
     "line",
-    "        # Subtest: (anonymous)\n"
+    "        # Subtest\n"
   ],
   [
     "line",
@@ -388,7 +388,7 @@
   ],
   [
     "line",
-    "        # Subtest: (anonymous)\n"
+    "        # Subtest\n"
   ],
   [
     "line",
