@@ -1,4 +1,6 @@
 const t = require('../')
+const fs = require('fs')
+const path = require('path')
 const Test = t.Test
 const util = require('util')
 const assert = require('assert')
@@ -564,13 +566,13 @@ t.test('assertions and weird stuff', t => {
 
     'fullname without main': tt => {
       const main = process.argv[1]
-      tt.teardown(() => process.argv[1] = main)
       process.argv[1] = ''
       tt.test('child', tt => {
         tt.pass(tt.fullname)
         tt.end()
       })
       tt.pass(tt.fullname)
+      process.argv[1] = main
       tt.end()
     },
 
@@ -751,7 +753,6 @@ t.test('assertions and weird stuff', t => {
       const buf = [ false, true ]
       buf.forEach(buf => {
         t.test('work it harder buf=' + buf, { buffered: buf, timeout: 1 }, t => {
-          const fs = require('fs')
           t.plan(1)
           const start = Date.now()
           const finish = start + 10
@@ -826,8 +827,6 @@ t.test('addAssert', t => {
 })
 
 t.test('spawn', t => {
-  const fs = require('fs')
-  const path = require('path')
   const okjs = path.resolve(__dirname, '../__ok.js')
   t.teardown(() => fs.unlinkSync(okjs))
   fs.writeFileSync(okjs, "require('./').pass('this is fine')\n")
@@ -846,4 +845,30 @@ t.test('spawn', t => {
   t.end()
 })
 
-t.test('snapshots')
+t.test('snapshots', t => {
+  const Snapshot = require('../lib/snapshot.js')
+  const snap = [ true, false ]
+  const outputs = snap.map(snap => {
+    const tt = new Test({
+      snapshot: snap,
+      name: 'deleteme',
+      buffered: true
+    })
+    tt.test('child test', { snapshot: snap }, tt => {
+      tt.matchSnapshot({ foo: 'bar' }, 'an object')
+      tt.matchSnapshot('some string \\ \` ${process.env.FOO}', 'string')
+      tt.matchSnapshot('do this eventually', { todo: 'later' })
+      tt.end()
+    })
+    tt.emit('teardown')
+    tt.end()
+    return tt.output
+  })
+
+  t.matchSnapshot(clean(outputs[0]), 'saving the snapshot')
+  t.matchSnapshot(clean(outputs[1]), 'verifying the snapshot')
+  fs.unlinkSync(path.resolve(__dirname, '..',
+    'tap-snapshots', 'unit-test.js-deleteme.test.js'))
+
+  t.end()
+})
