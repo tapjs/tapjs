@@ -5,6 +5,18 @@ const Parser = require('tap-parser')
 const node = process.execPath
 const file = __filename
 
+const clean = out => out
+  .replace(/ # time=[0-9\.]+m?s( \{.*)?\n/g, ' # {time}$1\n')
+  .replace(/\n(( {2})+)stack: \|-?\n((\1  .*).*\n)+/gm,
+    '\n$1stack: |\n$1  {STACK}\n')
+  .replace(/\n(( {2})+)stack: \>-?\n((\1  .*).*\n(\1\n)?)+/gm,
+    '\n$1stack: |\n$1  {STACK}\n')
+  .replace(/\n([a-zA-Z]*Error): (.*)\n((    at .*\n)*)+/gm,
+    '\n$1: $2\n    {STACK}\n')
+  .replace(/:[0-9]+:[0-9]+(\)?\n)/g, '#:#$1')
+  .replace(/(line|column): [0-9]+/g, '$1: #')
+  .split(process.cwd()).join('{CWD}')
+
 const main = () => {
   t.test('basic child process', t =>
     t.spawn(node, [ file, 'ok' ]))
@@ -34,31 +46,24 @@ const main = () => {
       buffered: true,
       name: 'killa'
     })
-    s.main(_ => {
-      t.equal(s.output, `
-not ok 1 - timeout!
-  ---
-  expired: killa
-  ...
-1..1
-# failed 1 test
-`)
+    s.main(() => {
+      t.matchSnapshot(clean(s.output))
       t.end()
     })
   })
 
   t.test('skip stuff', t => {
-    const tt = new Test({ buffered: true })
+    const tt = new Test({ buffered: true, bail: false })
     tt.spawn(node, [ file, 'skip' ], {
-      bail: true
+      bail: true,
+      buffered: true
     }, 'skipper')
     tt.spawn(node, [ file, 'skip-reason' ])
     tt.test('check it', ttt => {
-      const output = tt.output
-      t.match(output, 'skipper # SKIP')
-      t.match(output,
-        'spawn.js skip-reason # SKIP for no raisins')
+      t.matchSnapshot(clean(tt.output))
       t.end()
+      tt.end()
+      ttt.end()
     })
   })
 
@@ -71,18 +76,38 @@ not ok 1 - timeout!
     t.end()
   })
 
+  t.test('using spawn event', t => {
+    t.on('spawn', t =>
+      t.proc.stdin.end('TAP version 13\nok\n1..1\n'))
+    t.spawn('cat', [], { stdio: [ 'pipe', 'pipe', 'ignore' ] })
+    t.end()
+  })
+
+  t.test('using proc event', t => {
+    const s = new Spawn({
+      command: 'cat',
+      args: [],
+      buffered: true,
+      bail: false,
+      stdio: [ 'pipe', 'ignore', 'ignore' ]
+    })
+    s.on('process', p =>
+      p.stdin.end('TAP version 13\nok\n1..1\n'))
+
+    t.plan(1)
+    s.main(() => t.matchSnapshot(clean(s.output)))
+  })
+
   t.test('failure to spawn', t => {
     const s = new Spawn({
       command: 'something that does not exist',
       args: [],
       buffered: true,
+      bail: false,
       stdio: [0, 1, 2]
     })
-    s.main(_ => {
-      t.match(s.output,
-        'not ok 1 - spawn something that does not exist ENOENT\n')
-      t.end()
-    })
+    t.plan(1)
+    s.main(() => t.matchSnapshot(clean(s.output)))
   })
 
   t.test('failure to spawn even harder', t => {
@@ -95,6 +120,7 @@ not ok 1 - timeout!
       command: 'poop',
       args: [],
       buffered: true,
+      bail: false,
       stdio: 'inherit'
     })
     s.main(_ => {
@@ -112,6 +138,7 @@ not ok 1 - timeout!
       const s = new Spawn({
         command: node,
         args: [ file, 'timeout' ],
+        bail: false,
         buffered: true
       })
       s.main(_ => {
@@ -125,6 +152,7 @@ not ok 1 - timeout!
       const s = new Spawn({
         command: node,
         args: [ file, 'timeout' ],
+        bail: false,
         buffered: true
       })
       s.endAll()
@@ -167,7 +195,7 @@ switch (process.argv[2]) {
     break
 
   case 'catch-term':
-    process.on('SIGTERM', _ => _)
+    process.on('SIGTERM', _ => console.log('SIGTERM'))
   case 'timeout':
     setTimeout(_ => _, 5000)
     break
