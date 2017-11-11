@@ -12,9 +12,18 @@ t.test('basic base', t => {
 })
 
 t.test('skip + debug', t => {
-  const b = new Base({ skip: true, debug: true })
+  const b = new Base({ skip: true, debug: true, name: 'name' })
+
+  const error = console.error
+  t.teardown(() => console.error = error)
+  let output
+  console.error = msg => output = msg
+
   t.equal(b.main, Base.prototype.main)
   t.notEqual(b.debug, Base.prototype.debug)
+  b.debug('hello', { world: '420' })
+  console.error = error
+  t.match(output.trim(), /^TAP [0-9]+ name: hello \{ world: '420' \}$/)
   t.test('call main', t => b.main(t.end))
   t.end()
 })
