@@ -9,7 +9,7 @@
   },
   "main": "lib/tap.js",
   "engines": {
-    "node": ">=0.8"
+    "node": ">=4"
   },
   "dependencies": {
     "bind-obj-methods": "^1.0.0",
@@ -24,11 +24,13 @@
     "isexe": "^2.0.0",
     "js-yaml": "^3.10.0",
     "minipass": "^2.2.1",
+    "mkdirp": "^0.5.1",
     "nyc": "^11.3.0",
     "opener": "^1.4.1",
     "os-homedir": "^1.0.2",
     "own-or": "^1.0.0",
     "own-or-env": "^1.0.0",
+    "rimraf": "^2.6.2",
     "signal-exit": "^3.0.0",
     "source-map-support": "^0.4.18",
     "stack-utils": "^1.0.0",
@@ -61,8 +63,6 @@
     "postpublish": "git push origin --all; git push origin --tags"
   },
   "devDependencies": {
-    "mkdirp": "^0.5.1",
-    "rimraf": "^2.6.2",
     "standard": "^7.1.2",
     "which": "^1.1.1"
   },
