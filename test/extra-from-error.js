@@ -4,23 +4,23 @@ const extraFromError = require('../lib/extra-from-error.js')
 
 const cases = [
   [new Error('ok'), null, null, {
-    at: { file: 'unit/extra-from-error.js' },
+    at: { file: 'test/extra-from-error.js' },
     message: null
   }],
 
   [new Error('ok'), { foo: 'bar' }, null, {
-    at: { file: 'unit/extra-from-error.js' },
+    at: { file: 'test/extra-from-error.js' },
     foo: 'bar'
   }],
 
   [new Error('ok'), null, { foo: 'bar', tapChild: 1234 }, {
-    at: { file: 'unit/extra-from-error.js' },
+    at: { file: 'test/extra-from-error.js' },
     foo: 'bar',
     tapChild: null
   }],
 
   [new Error('ok'), { foo: 'bar' }, { foo: 'XXX', tapChild: 1234 }, {
-    at: { file: 'unit/extra-from-error.js' },
+    at: { file: 'test/extra-from-error.js' },
     foo: 'bar',
     tapChild: null
   }],
@@ -28,7 +28,7 @@ const cases = [
   ['not an error', null, null, { error: 'not an error' }],
 
   [new Error(''), null, null, {
-    at: { file: 'unit/extra-from-error.js' },
+    at: { file: 'test/extra-from-error.js' },
     message: null
   }],
 

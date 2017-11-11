@@ -1,89 +1,89 @@
 'use strict'
-exports[`unit/test.js TAP short output checks no plan no options > no plan 1`] = `
+exports[`test/test.js TAP short output checks no plan no options > no plan 1`] = `
 TAP version 13
 ok 1 - this is fine
 1..1
 
 `
 
-exports[`unit/test.js TAP short output checks no plan buffered > no plan 1`] = `
+exports[`test/test.js TAP short output checks no plan buffered > no plan 1`] = `
 TAP version 13
 ok 1 - this is fine
 1..1
 
 `
 
-exports[`unit/test.js TAP short output checks no plan bailout > no plan 1`] = `
+exports[`test/test.js TAP short output checks no plan bailout > no plan 1`] = `
 TAP version 13
 ok 1 - this is fine
 1..1
 
 `
 
-exports[`unit/test.js TAP short output checks no plan runOnly > no plan 1`] = `
+exports[`test/test.js TAP short output checks no plan runOnly > no plan 1`] = `
 TAP version 13
 ok 1 - this is fine
 1..1
 
 `
 
-exports[`unit/test.js TAP short output checks plan no options > plan 1`] = `
+exports[`test/test.js TAP short output checks plan no options > plan 1`] = `
 TAP version 13
 1..1
 ok 1 - this is fine
 
 `
 
-exports[`unit/test.js TAP short output checks plan buffered > plan 1`] = `
+exports[`test/test.js TAP short output checks plan buffered > plan 1`] = `
 TAP version 13
 1..1
 ok 1 - this is fine
 
 `
 
-exports[`unit/test.js TAP short output checks plan bailout > plan 1`] = `
+exports[`test/test.js TAP short output checks plan bailout > plan 1`] = `
 TAP version 13
 1..1
 ok 1 - this is fine
 
 `
 
-exports[`unit/test.js TAP short output checks plan runOnly > plan 1`] = `
+exports[`test/test.js TAP short output checks plan runOnly > plan 1`] = `
 TAP version 13
 1..1
 ok 1 - this is fine
 
 `
 
-exports[`unit/test.js TAP short output checks comment no options > comment 1`] = `
+exports[`test/test.js TAP short output checks comment no options > comment 1`] = `
 TAP version 13
 # this is fine
 1..0
 
 `
 
-exports[`unit/test.js TAP short output checks comment buffered > comment 1`] = `
+exports[`test/test.js TAP short output checks comment buffered > comment 1`] = `
 TAP version 13
 # this is fine
 1..0
 
 `
 
-exports[`unit/test.js TAP short output checks comment bailout > comment 1`] = `
+exports[`test/test.js TAP short output checks comment bailout > comment 1`] = `
 TAP version 13
 # this is fine
 1..0
 
 `
 
-exports[`unit/test.js TAP short output checks comment runOnly > comment 1`] = `
+exports[`test/test.js TAP short output checks comment runOnly > comment 1`] = `
 TAP version 13
 # this is fine
 1..0
 
 `
 
-exports[`unit/test.js TAP short output checks pragma no options > pragma 1`] = `
+exports[`test/test.js TAP short output checks pragma no options > pragma 1`] = `
 TAP version 13
 pragma +strict
 pragma -strict
@@ -91,7 +91,7 @@ pragma -strict
 
 `
 
-exports[`unit/test.js TAP short output checks pragma buffered > pragma 1`] = `
+exports[`test/test.js TAP short output checks pragma buffered > pragma 1`] = `
 TAP version 13
 pragma +strict
 pragma -strict
@@ -99,7 +99,7 @@ pragma -strict
 
 `
 
-exports[`unit/test.js TAP short output checks pragma bailout > pragma 1`] = `
+exports[`test/test.js TAP short output checks pragma bailout > pragma 1`] = `
 TAP version 13
 pragma +strict
 pragma -strict
@@ -107,7 +107,7 @@ pragma -strict
 
 `
 
-exports[`unit/test.js TAP short output checks pragma runOnly > pragma 1`] = `
+exports[`test/test.js TAP short output checks pragma runOnly > pragma 1`] = `
 TAP version 13
 pragma +strict
 pragma -strict
@@ -115,14 +115,14 @@ pragma -strict
 
 `
 
-exports[`unit/test.js TAP short output checks todo no options > todo 1`] = `
+exports[`test/test.js TAP short output checks todo no options > todo 1`] = `
 TAP version 13
 not ok 1 - i will do this later # TODO
   ---
   at:
     line: #
     column: #
-    file: unit/test.js
+    file: test/test.js
     function: todo
   source: |
     tt.notOk(true, 'i will do this later', { todo: true })
@@ -133,7 +133,7 @@ not ok 2 - expect falsey value # TODO later
   at:
     line: #
     column: #
-    file: unit/test.js
+    file: test/test.js
     function: todo
   source: |
     tt.notOk(true, { todo: 'later' })
@@ -149,14 +149,14 @@ ok 6 - i did not do this later # SKIP
 
 `
 
-exports[`unit/test.js TAP short output checks todo buffered > todo 1`] = `
+exports[`test/test.js TAP short output checks todo buffered > todo 1`] = `
 TAP version 13
 not ok 1 - i will do this later # TODO
   ---
   at:
     line: #
     column: #
-    file: unit/test.js
+    file: test/test.js
     function: todo
   source: |
     tt.notOk(true, 'i will do this later', { todo: true })
@@ -167,7 +167,7 @@ not ok 2 - expect falsey value # TODO later
   at:
     line: #
     column: #
-    file: unit/test.js
+    file: test/test.js
     function: todo
   source: |
     tt.notOk(true, { todo: 'later' })
@@ -183,14 +183,14 @@ ok 6 - i did not do this later # SKIP
 
 `
 
-exports[`unit/test.js TAP short output checks todo bailout > todo 1`] = `
+exports[`test/test.js TAP short output checks todo bailout > todo 1`] = `
 TAP version 13
 not ok 1 - i will do this later # TODO
   ---
   at:
     line: #
     column: #
-    file: unit/test.js
+    file: test/test.js
     function: todo
   source: |
     tt.notOk(true, 'i will do this later', { todo: true })
@@ -201,7 +201,7 @@ not ok 2 - expect falsey value # TODO later
   at:
     line: #
     column: #
-    file: unit/test.js
+    file: test/test.js
     function: todo
   source: |
     tt.notOk(true, { todo: 'later' })
@@ -217,14 +217,14 @@ ok 6 - i did not do this later # SKIP
 
 `
 
-exports[`unit/test.js TAP short output checks todo runOnly > todo 1`] = `
+exports[`test/test.js TAP short output checks todo runOnly > todo 1`] = `
 TAP version 13
 not ok 1 - i will do this later # TODO
   ---
   at:
     line: #
     column: #
-    file: unit/test.js
+    file: test/test.js
     function: todo
   source: |
     tt.notOk(true, 'i will do this later', { todo: true })
@@ -235,7 +235,7 @@ not ok 2 - expect falsey value # TODO later
   at:
     line: #
     column: #
-    file: unit/test.js
+    file: test/test.js
     function: todo
   source: |
     tt.notOk(true, { todo: 'later' })
@@ -251,7 +251,7 @@ ok 6 - i did not do this later # SKIP filter: only
 
 `
 
-exports[`unit/test.js TAP short output checks only no options > only 1`] = `
+exports[`test/test.js TAP short output checks only no options > only 1`] = `
 TAP version 13
 # "run this with a comment" has \`only\` set but all tests run
 # Subtest: run this with a comment
@@ -271,7 +271,7 @@ ok 3 - run this with a comment # {time}
 
 `
 
-exports[`unit/test.js TAP short output checks only buffered > only 1`] = `
+exports[`test/test.js TAP short output checks only buffered > only 1`] = `
 TAP version 13
 # "run this with a comment" has \`only\` set but all tests run
 # Subtest: run this with a comment
@@ -291,7 +291,7 @@ ok 3 - run this with a comment # {time}
 
 `
 
-exports[`unit/test.js TAP short output checks only bailout > only 1`] = `
+exports[`test/test.js TAP short output checks only bailout > only 1`] = `
 TAP version 13
 # "run this with a comment" has \`only\` set but all tests run
 # Subtest: run this with a comment
@@ -311,7 +311,7 @@ ok 3 - run this with a comment # {time}
 
 `
 
-exports[`unit/test.js TAP short output checks only runOnly > only 1`] = `
+exports[`test/test.js TAP short output checks only runOnly > only 1`] = `
 TAP version 13
 # "run this with a comment" has \`only\` set but all tests run
 # Subtest: run this with a comment
@@ -331,7 +331,7 @@ ok 3 - run this with a comment # {time}
 
 `
 
-exports[`unit/test.js TAP short output checks no plan fail no options > no plan fail 1`] = `
+exports[`test/test.js TAP short output checks no plan fail no options > no plan fail 1`] = `
 TAP version 13
 not ok 1 - this is fine
 not ok 2 - (unnamed test) # TODO
@@ -339,7 +339,7 @@ not ok 2 - (unnamed test) # TODO
   at:
     line: #
     column: #
-    file: unit/test.js
+    file: test/test.js
     function: no plan fail
   source: |
     tt.fail({ todo: true })
@@ -350,7 +350,7 @@ not ok 3 - this is fine
   at:
     line: #
     column: #
-    file: unit/test.js
+    file: test/test.js
     function: no plan fail
   stack: |
     {STACK}
@@ -364,7 +364,7 @@ not ok 3 - this is fine
 
 `
 
-exports[`unit/test.js TAP short output checks no plan fail buffered > no plan fail 1`] = `
+exports[`test/test.js TAP short output checks no plan fail buffered > no plan fail 1`] = `
 TAP version 13
 not ok 1 - this is fine
 not ok 2 - (unnamed test) # TODO
@@ -372,7 +372,7 @@ not ok 2 - (unnamed test) # TODO
   at:
     line: #
     column: #
-    file: unit/test.js
+    file: test/test.js
     function: no plan fail
   source: |
     tt.fail({ todo: true })
@@ -383,7 +383,7 @@ not ok 3 - this is fine
   at:
     line: #
     column: #
-    file: unit/test.js
+    file: test/test.js
     function: no plan fail
   stack: |
     {STACK}
@@ -397,14 +397,14 @@ not ok 3 - this is fine
 
 `
 
-exports[`unit/test.js TAP short output checks no plan fail bailout > no plan fail 1`] = `
+exports[`test/test.js TAP short output checks no plan fail bailout > no plan fail 1`] = `
 TAP version 13
 not ok 1 - this is fine
 Bail out! # this is fine
 BAILOUT: "# this is fine"
 `
 
-exports[`unit/test.js TAP short output checks no plan fail runOnly > no plan fail 1`] = `
+exports[`test/test.js TAP short output checks no plan fail runOnly > no plan fail 1`] = `
 TAP version 13
 not ok 1 - this is fine
 not ok 2 - (unnamed test) # TODO
@@ -412,7 +412,7 @@ not ok 2 - (unnamed test) # TODO
   at:
     line: #
     column: #
-    file: unit/test.js
+    file: test/test.js
     function: no plan fail
   source: |
     tt.fail({ todo: true })
@@ -423,7 +423,7 @@ not ok 3 - this is fine
   at:
     line: #
     column: #
-    file: unit/test.js
+    file: test/test.js
     function: no plan fail
   stack: |
     {STACK}
@@ -437,7 +437,7 @@ not ok 3 - this is fine
 
 `
 
-exports[`unit/test.js TAP short output checks plan fail no options > plan fail 1`] = `
+exports[`test/test.js TAP short output checks plan fail no options > plan fail 1`] = `
 TAP version 13
 1..1 # expect some failure here
 not ok 1 - this is fine
@@ -445,7 +445,7 @@ not ok 1 - this is fine
 
 `
 
-exports[`unit/test.js TAP short output checks plan fail buffered > plan fail 1`] = `
+exports[`test/test.js TAP short output checks plan fail buffered > plan fail 1`] = `
 TAP version 13
 1..1 # expect some failure here
 not ok 1 - this is fine
@@ -453,7 +453,7 @@ not ok 1 - this is fine
 
 `
 
-exports[`unit/test.js TAP short output checks plan fail bailout > plan fail 1`] = `
+exports[`test/test.js TAP short output checks plan fail bailout > plan fail 1`] = `
 TAP version 13
 1..1 # expect some failure here
 not ok 1 - this is fine
@@ -461,7 +461,7 @@ Bail out! # this is fine
 BAILOUT: "# this is fine"
 `
 
-exports[`unit/test.js TAP short output checks plan fail runOnly > plan fail 1`] = `
+exports[`test/test.js TAP short output checks plan fail runOnly > plan fail 1`] = `
 TAP version 13
 1..1 # expect some failure here
 not ok 1 - this is fine
@@ -469,7 +469,7 @@ not ok 1 - this is fine
 
 `
 
-exports[`unit/test.js TAP short output checks fail then end no options > fail then end 1`] = `
+exports[`test/test.js TAP short output checks fail then end no options > fail then end 1`] = `
 TAP version 13
 # Subtest: child
     not ok 1 - this is not ok
@@ -477,7 +477,7 @@ TAP version 13
       at:
         line: #
         column: #
-        file: unit/test.js
+        file: test/test.js
         type: Test
         function: tt.test.tt
       stack: |
@@ -495,7 +495,7 @@ not ok 1 - child # {time}
 
 `
 
-exports[`unit/test.js TAP short output checks fail then end buffered > fail then end 1`] = `
+exports[`test/test.js TAP short output checks fail then end buffered > fail then end 1`] = `
 TAP version 13
 # Subtest: child
     not ok 1 - this is not ok
@@ -503,7 +503,7 @@ TAP version 13
       at:
         line: #
         column: #
-        file: unit/test.js
+        file: test/test.js
         type: Test
         function: tt.test.tt
       stack: |
@@ -521,7 +521,7 @@ not ok 1 - child # {time}
 
 `
 
-exports[`unit/test.js TAP short output checks fail then end bailout > fail then end 1`] = `
+exports[`test/test.js TAP short output checks fail then end bailout > fail then end 1`] = `
 TAP version 13
 # Subtest: child
     not ok 1 - this is not ok
@@ -529,7 +529,7 @@ TAP version 13
       at:
         line: #
         column: #
-        file: unit/test.js
+        file: test/test.js
         type: Test
         function: tt.test.tt
       stack: |
@@ -542,7 +542,7 @@ TAP version 13
 BAILOUT: "# this is not ok"
 `
 
-exports[`unit/test.js TAP short output checks fail then end runOnly > fail then end 1`] = `
+exports[`test/test.js TAP short output checks fail then end runOnly > fail then end 1`] = `
 TAP version 13
 ok 1 - child # SKIP filter: only
 1..1
@@ -550,115 +550,115 @@ ok 1 - child # SKIP filter: only
 
 `
 
-exports[`unit/test.js TAP short output checks planned skip no options > planned skip 1`] = `
+exports[`test/test.js TAP short output checks planned skip no options > planned skip 1`] = `
 TAP version 13
 1..0 # skip this one
 
 `
 
-exports[`unit/test.js TAP short output checks planned skip buffered > planned skip 1`] = `
+exports[`test/test.js TAP short output checks planned skip buffered > planned skip 1`] = `
 TAP version 13
 1..0 # skip this one
 
 `
 
-exports[`unit/test.js TAP short output checks planned skip bailout > planned skip 1`] = `
+exports[`test/test.js TAP short output checks planned skip bailout > planned skip 1`] = `
 TAP version 13
 1..0 # skip this one
 
 `
 
-exports[`unit/test.js TAP short output checks planned skip runOnly > planned skip 1`] = `
+exports[`test/test.js TAP short output checks planned skip runOnly > planned skip 1`] = `
 TAP version 13
 1..0 # skip this one
 
 `
 
-exports[`unit/test.js TAP short output checks multi-plan throws no options > multi-plan throws 1`] = `
+exports[`test/test.js TAP short output checks multi-plan throws no options > multi-plan throws 1`] = `
 TAP version 13
 1..1
 ok 1 - expected to throw
 
 `
 
-exports[`unit/test.js TAP short output checks multi-plan throws buffered > multi-plan throws 1`] = `
+exports[`test/test.js TAP short output checks multi-plan throws buffered > multi-plan throws 1`] = `
 TAP version 13
 1..1
 ok 1 - expected to throw
 
 `
 
-exports[`unit/test.js TAP short output checks multi-plan throws bailout > multi-plan throws 1`] = `
+exports[`test/test.js TAP short output checks multi-plan throws bailout > multi-plan throws 1`] = `
 TAP version 13
 1..1
 ok 1 - expected to throw
 
 `
 
-exports[`unit/test.js TAP short output checks multi-plan throws runOnly > multi-plan throws 1`] = `
+exports[`test/test.js TAP short output checks multi-plan throws runOnly > multi-plan throws 1`] = `
 TAP version 13
 1..1
 ok 1 - expected to throw
 
 `
 
-exports[`unit/test.js TAP short output checks negative plan throws no options > negative plan throws 1`] = `
+exports[`test/test.js TAP short output checks negative plan throws no options > negative plan throws 1`] = `
 TAP version 13
 ok 1 - expected to throw
 1..1
 
 `
 
-exports[`unit/test.js TAP short output checks negative plan throws buffered > negative plan throws 1`] = `
+exports[`test/test.js TAP short output checks negative plan throws buffered > negative plan throws 1`] = `
 TAP version 13
 ok 1 - expected to throw
 1..1
 
 `
 
-exports[`unit/test.js TAP short output checks negative plan throws bailout > negative plan throws 1`] = `
+exports[`test/test.js TAP short output checks negative plan throws bailout > negative plan throws 1`] = `
 TAP version 13
 ok 1 - expected to throw
 1..1
 
 `
 
-exports[`unit/test.js TAP short output checks negative plan throws runOnly > negative plan throws 1`] = `
+exports[`test/test.js TAP short output checks negative plan throws runOnly > negative plan throws 1`] = `
 TAP version 13
 ok 1 - expected to throw
 1..1
 
 `
 
-exports[`unit/test.js TAP short output checks expect fail no options > expect fail 1`] = `
+exports[`test/test.js TAP short output checks expect fail no options > expect fail 1`] = `
 TAP version 13
 1..1
 ok 1 - this is fine
 
 `
 
-exports[`unit/test.js TAP short output checks expect fail buffered > expect fail 1`] = `
+exports[`test/test.js TAP short output checks expect fail buffered > expect fail 1`] = `
 TAP version 13
 1..1
 ok 1 - this is fine
 
 `
 
-exports[`unit/test.js TAP short output checks expect fail bailout > expect fail 1`] = `
+exports[`test/test.js TAP short output checks expect fail bailout > expect fail 1`] = `
 TAP version 13
 1..1
 ok 1 - this is fine
 
 `
 
-exports[`unit/test.js TAP short output checks expect fail runOnly > expect fail 1`] = `
+exports[`test/test.js TAP short output checks expect fail runOnly > expect fail 1`] = `
 TAP version 13
 1..1
 ok 1 - this is fine
 
 `
 
-exports[`unit/test.js TAP short output checks sub no options > sub 1`] = `
+exports[`test/test.js TAP short output checks sub no options > sub 1`] = `
 TAP version 13
 ok 1 - named child # {time} {
     ok 1 - this is fine
@@ -682,7 +682,7 @@ ok 3 - promisey # {time}
 
 `
 
-exports[`unit/test.js TAP short output checks sub buffered > sub 1`] = `
+exports[`test/test.js TAP short output checks sub buffered > sub 1`] = `
 TAP version 13
 ok 1 - named child # {time} {
     ok 1 - this is fine
@@ -706,7 +706,7 @@ ok 3 - promisey # {time}
 
 `
 
-exports[`unit/test.js TAP short output checks sub bailout > sub 1`] = `
+exports[`test/test.js TAP short output checks sub bailout > sub 1`] = `
 TAP version 13
 ok 1 - named child # {time} {
     ok 1 - this is fine
@@ -730,7 +730,7 @@ ok 3 - promisey # {time}
 
 `
 
-exports[`unit/test.js TAP short output checks sub runOnly > sub 1`] = `
+exports[`test/test.js TAP short output checks sub runOnly > sub 1`] = `
 TAP version 13
 ok 1 - named child # SKIP filter: only
 ok 2 - named_function # SKIP filter: only
@@ -740,7 +740,7 @@ ok 3 - promisey # SKIP filter: only
 
 `
 
-exports[`unit/test.js TAP short output checks parallel sub no options > parallel sub 1`] = `
+exports[`test/test.js TAP short output checks parallel sub no options > parallel sub 1`] = `
 TAP version 13
 1..2
 ok 1 - slow child # {time} {
@@ -755,7 +755,7 @@ ok 2 - fast child # {time} {
 
 `
 
-exports[`unit/test.js TAP short output checks parallel sub buffered > parallel sub 1`] = `
+exports[`test/test.js TAP short output checks parallel sub buffered > parallel sub 1`] = `
 TAP version 13
 1..2
 ok 1 - slow child # {time} {
@@ -770,7 +770,7 @@ ok 2 - fast child # {time} {
 
 `
 
-exports[`unit/test.js TAP short output checks parallel sub bailout > parallel sub 1`] = `
+exports[`test/test.js TAP short output checks parallel sub bailout > parallel sub 1`] = `
 TAP version 13
 1..2
 ok 1 - slow child # {time} {
@@ -785,7 +785,7 @@ ok 2 - fast child # {time} {
 
 `
 
-exports[`unit/test.js TAP short output checks parallel sub runOnly > parallel sub 1`] = `
+exports[`test/test.js TAP short output checks parallel sub runOnly > parallel sub 1`] = `
 TAP version 13
 1..2
 ok 1 - slow child # SKIP filter: only
@@ -794,7 +794,7 @@ ok 2 - fast child # SKIP filter: only
 
 `
 
-exports[`unit/test.js TAP short output checks reasoned bailout no options > reasoned bailout 1`] = `
+exports[`test/test.js TAP short output checks reasoned bailout no options > reasoned bailout 1`] = `
 TAP version 13
 # Subtest
     ok 1 - this is fine
@@ -802,7 +802,7 @@ TAP version 13
 BAILOUT: "not fine"
 `
 
-exports[`unit/test.js TAP short output checks reasoned bailout buffered > reasoned bailout 1`] = `
+exports[`test/test.js TAP short output checks reasoned bailout buffered > reasoned bailout 1`] = `
 TAP version 13
 # Subtest
     ok 1 - this is fine
@@ -810,7 +810,7 @@ TAP version 13
 BAILOUT: "not fine"
 `
 
-exports[`unit/test.js TAP short output checks reasoned bailout bailout > reasoned bailout 1`] = `
+exports[`test/test.js TAP short output checks reasoned bailout bailout > reasoned bailout 1`] = `
 TAP version 13
 # Subtest
     ok 1 - this is fine
@@ -818,7 +818,7 @@ TAP version 13
 BAILOUT: "not fine"
 `
 
-exports[`unit/test.js TAP short output checks reasoned bailout runOnly > reasoned bailout 1`] = `
+exports[`test/test.js TAP short output checks reasoned bailout runOnly > reasoned bailout 1`] = `
 TAP version 13
 ok 1 - (unnamed test) # SKIP filter: only
 1..1
@@ -826,7 +826,7 @@ ok 1 - (unnamed test) # SKIP filter: only
 
 `
 
-exports[`unit/test.js TAP short output checks unreasonable bailout no options > unreasonable bailout 1`] = `
+exports[`test/test.js TAP short output checks unreasonable bailout no options > unreasonable bailout 1`] = `
 TAP version 13
 # Subtest
     ok 1 - this is fine
@@ -834,7 +834,7 @@ TAP version 13
 
 `
 
-exports[`unit/test.js TAP short output checks unreasonable bailout buffered > unreasonable bailout 1`] = `
+exports[`test/test.js TAP short output checks unreasonable bailout buffered > unreasonable bailout 1`] = `
 TAP version 13
 # Subtest
     ok 1 - this is fine
@@ -842,7 +842,7 @@ TAP version 13
 
 `
 
-exports[`unit/test.js TAP short output checks unreasonable bailout bailout > unreasonable bailout 1`] = `
+exports[`test/test.js TAP short output checks unreasonable bailout bailout > unreasonable bailout 1`] = `
 TAP version 13
 # Subtest
     ok 1 - this is fine
@@ -850,7 +850,7 @@ TAP version 13
 
 `
 
-exports[`unit/test.js TAP short output checks unreasonable bailout runOnly > unreasonable bailout 1`] = `
+exports[`test/test.js TAP short output checks unreasonable bailout runOnly > unreasonable bailout 1`] = `
 TAP version 13
 ok 1 - (unnamed test) # SKIP filter: only
 1..1
@@ -858,7 +858,7 @@ ok 1 - (unnamed test) # SKIP filter: only
 
 `
 
-exports[`unit/test.js TAP short output checks bailout after end no options > bailout after end 1`] = `
+exports[`test/test.js TAP short output checks bailout after end no options > bailout after end 1`] = `
 TAP version 13
 # Subtest
     ok 1 - this is fine
@@ -867,7 +867,7 @@ Bail out! not fine
 BAILOUT: "not fine"
 `
 
-exports[`unit/test.js TAP short output checks bailout after end buffered > bailout after end 1`] = `
+exports[`test/test.js TAP short output checks bailout after end buffered > bailout after end 1`] = `
 TAP version 13
 # Subtest
     ok 1 - this is fine
@@ -876,7 +876,7 @@ Bail out! not fine
 BAILOUT: "not fine"
 `
 
-exports[`unit/test.js TAP short output checks bailout after end bailout > bailout after end 1`] = `
+exports[`test/test.js TAP short output checks bailout after end bailout > bailout after end 1`] = `
 TAP version 13
 # Subtest
     ok 1 - this is fine
@@ -885,7 +885,7 @@ Bail out! not fine
 BAILOUT: "not fine"
 `
 
-exports[`unit/test.js TAP short output checks bailout after end runOnly > bailout after end 1`] = `
+exports[`test/test.js TAP short output checks bailout after end runOnly > bailout after end 1`] = `
 TAP version 13
 ok 1 - (unnamed test) # SKIP filter: only
 1..1
@@ -893,7 +893,7 @@ ok 1 - (unnamed test) # SKIP filter: only
 
 `
 
-exports[`unit/test.js TAP short output checks diags no options > diags 1`] = `
+exports[`test/test.js TAP short output checks diags no options > diags 1`] = `
 TAP version 13
 ok 1 - has diags
   ---
@@ -918,7 +918,7 @@ not ok 6 - fails without diag
 
 `
 
-exports[`unit/test.js TAP short output checks diags buffered > diags 1`] = `
+exports[`test/test.js TAP short output checks diags buffered > diags 1`] = `
 TAP version 13
 ok 1 - has diags
   ---
@@ -943,7 +943,7 @@ not ok 6 - fails without diag
 
 `
 
-exports[`unit/test.js TAP short output checks diags bailout > diags 1`] = `
+exports[`test/test.js TAP short output checks diags bailout > diags 1`] = `
 TAP version 13
 ok 1 - has diags
   ---
@@ -955,7 +955,7 @@ Bail out! # fails without diag
 BAILOUT: "# fails without diag"
 `
 
-exports[`unit/test.js TAP short output checks diags runOnly > diags 1`] = `
+exports[`test/test.js TAP short output checks diags runOnly > diags 1`] = `
 TAP version 13
 ok 1 - has diags
   ---
@@ -980,14 +980,14 @@ not ok 6 - fails without diag
 
 `
 
-exports[`unit/test.js TAP short output checks gentle thrower no options > gentle thrower 1`] = `
+exports[`test/test.js TAP short output checks gentle thrower no options > gentle thrower 1`] = `
 TAP version 13
 not ok 1 - ok
   ---
   at:
     line: #
     column: #
-    file: unit/test.js
+    file: test/test.js
     function: Object.gentle thrower
   stack: |
     {STACK}
@@ -1000,14 +1000,14 @@ not ok 1 - ok
 
 `
 
-exports[`unit/test.js TAP short output checks gentle thrower buffered > gentle thrower 1`] = `
+exports[`test/test.js TAP short output checks gentle thrower buffered > gentle thrower 1`] = `
 TAP version 13
 not ok 1 - ok
   ---
   at:
     line: #
     column: #
-    file: unit/test.js
+    file: test/test.js
     function: Object.gentle thrower
   stack: |
     {STACK}
@@ -1020,14 +1020,14 @@ not ok 1 - ok
 
 `
 
-exports[`unit/test.js TAP short output checks gentle thrower bailout > gentle thrower 1`] = `
+exports[`test/test.js TAP short output checks gentle thrower bailout > gentle thrower 1`] = `
 TAP version 13
 not ok 1 - ok
   ---
   at:
     line: #
     column: #
-    file: unit/test.js
+    file: test/test.js
     function: Object.gentle thrower
   stack: |
     {STACK}
@@ -1039,7 +1039,7 @@ Bail out! # ok
 BAILOUT: "# ok"
 `
 
-exports[`unit/test.js TAP short output checks gentle thrower runOnly > gentle thrower 1`] = `
+exports[`test/test.js TAP short output checks gentle thrower runOnly > gentle thrower 1`] = `
 TAP version 13
 not ok 1 - ok
   ---
@@ -1047,7 +1047,7 @@ not ok 1 - ok
   at:
     line: #
     column: #
-    file: unit/test.js
+    file: test/test.js
     function: Object.gentle thrower
   stack: |
     {STACK}
@@ -1060,7 +1060,7 @@ not ok 1 - ok
 
 `
 
-exports[`unit/test.js TAP short output checks child thrower no options > child thrower 1`] = `
+exports[`test/test.js TAP short output checks child thrower no options > child thrower 1`] = `
 TAP version 13
 # Subtest: child test
     not ok 1 - ok
@@ -1070,7 +1070,7 @@ TAP version 13
       at:
         line: #
         column: #
-        file: unit/test.js
+        file: test/test.js
         function: Test.tt.test.tt
       test: child test
       source: |
@@ -1086,7 +1086,7 @@ not ok 1 - child test # {time}
 
 `
 
-exports[`unit/test.js TAP short output checks child thrower buffered > child thrower 1`] = `
+exports[`test/test.js TAP short output checks child thrower buffered > child thrower 1`] = `
 TAP version 13
 # Subtest: child test
     not ok 1 - ok
@@ -1096,7 +1096,7 @@ TAP version 13
       at:
         line: #
         column: #
-        file: unit/test.js
+        file: test/test.js
         function: Test.tt.test.tt
       test: child test
       source: |
@@ -1112,7 +1112,7 @@ not ok 1 - child test # {time}
 
 `
 
-exports[`unit/test.js TAP short output checks child thrower bailout > child thrower 1`] = `
+exports[`test/test.js TAP short output checks child thrower bailout > child thrower 1`] = `
 TAP version 13
 # Subtest: child test
     not ok 1 - ok
@@ -1122,7 +1122,7 @@ TAP version 13
       at:
         line: #
         column: #
-        file: unit/test.js
+        file: test/test.js
         function: Test.tt.test.tt
       test: child test
       source: |
@@ -1133,7 +1133,7 @@ TAP version 13
 BAILOUT: "# ok"
 `
 
-exports[`unit/test.js TAP short output checks child thrower runOnly > child thrower 1`] = `
+exports[`test/test.js TAP short output checks child thrower runOnly > child thrower 1`] = `
 TAP version 13
 ok 1 - child test # SKIP filter: only
 1..1
@@ -1141,7 +1141,7 @@ ok 1 - child test # SKIP filter: only
 
 `
 
-exports[`unit/test.js TAP short output checks child end event thrower no options > child end event thrower 1`] = `
+exports[`test/test.js TAP short output checks child end event thrower no options > child end event thrower 1`] = `
 TAP version 13
 # Subtest
     1..1
@@ -1156,7 +1156,7 @@ not ok 2 - beep
   at:
     line: #
     column: #
-    file: unit/test.js
+    file: test/test.js
     function: Test.<anonymous>
   source: |
     throw new Error('beep')
@@ -1167,7 +1167,7 @@ not ok 2 - beep
 
 `
 
-exports[`unit/test.js TAP short output checks child end event thrower buffered > child end event thrower 1`] = `
+exports[`test/test.js TAP short output checks child end event thrower buffered > child end event thrower 1`] = `
 TAP version 13
 # Subtest
     1..1
@@ -1182,7 +1182,7 @@ not ok 2 - beep
   at:
     line: #
     column: #
-    file: unit/test.js
+    file: test/test.js
     function: Test.<anonymous>
   source: |
     throw new Error('beep')
@@ -1193,7 +1193,7 @@ not ok 2 - beep
 
 `
 
-exports[`unit/test.js TAP short output checks child end event thrower bailout > child end event thrower 1`] = `
+exports[`test/test.js TAP short output checks child end event thrower bailout > child end event thrower 1`] = `
 TAP version 13
 # Subtest
     1..1
@@ -1208,7 +1208,7 @@ not ok 2 - beep
   at:
     line: #
     column: #
-    file: unit/test.js
+    file: test/test.js
     function: Test.<anonymous>
   source: |
     throw new Error('beep')
@@ -1218,7 +1218,7 @@ Bail out! # beep
 BAILOUT: "# beep"
 `
 
-exports[`unit/test.js TAP short output checks child end event thrower runOnly > child end event thrower 1`] = `
+exports[`test/test.js TAP short output checks child end event thrower runOnly > child end event thrower 1`] = `
 TAP version 13
 ok 1 - (unnamed test) # SKIP filter: only
 1..1
@@ -1226,7 +1226,7 @@ ok 1 - (unnamed test) # SKIP filter: only
 
 `
 
-exports[`unit/test.js TAP assertions and weird stuff error > error 1`] = `
+exports[`test/test.js TAP assertions and weird stuff error > error 1`] = `
 TAP version 13
 ok 1 - this is not an error
 not ok 2 - this error is poop
@@ -1239,7 +1239,7 @@ not ok 2 - this error is poop
   at:
     line: #
     column: #
-    file: unit/test.js
+    file: test/test.js
     function: error
   stack: |
     {STACK}
@@ -1257,7 +1257,7 @@ not ok 3 - fail: poop
   at:
     line: #
     column: #
-    file: unit/test.js
+    file: test/test.js
     function: error
   stack: |
     {STACK}
@@ -1271,7 +1271,7 @@ not ok 4 - this error is "poop"
   at:
     line: #
     column: #
-    file: unit/test.js
+    file: test/test.js
     function: error
   stack: |
     {STACK}
@@ -1285,7 +1285,7 @@ not ok 5 - non-Error error encountered
   at:
     line: #
     column: #
-    file: unit/test.js
+    file: test/test.js
     function: error
   stack: |
     {STACK}
@@ -1301,7 +1301,7 @@ ok 7 - should not error
 
 `
 
-exports[`unit/test.js TAP assertions and weird stuff equal > equal 1`] = `
+exports[`test/test.js TAP assertions and weird stuff equal > equal 1`] = `
 TAP version 13
 not ok 1 - should be equal
   ---
@@ -1311,7 +1311,7 @@ not ok 1 - should be equal
   at:
     line: #
     column: #
-    file: unit/test.js
+    file: test/test.js
     function: equal
   stack: |
     {STACK}
@@ -1332,7 +1332,7 @@ not ok 4 - should be equal
   at:
     line: #
     column: #
-    file: unit/test.js
+    file: test/test.js
     function: equal
   stack: |
     {STACK}
@@ -1346,7 +1346,7 @@ not ok 4 - should be equal
 
 `
 
-exports[`unit/test.js TAP assertions and weird stuff not > not 1`] = `
+exports[`test/test.js TAP assertions and weird stuff not > not 1`] = `
 TAP version 13
 ok 1 - should not be equal
 ok 2 - should not be equal # SKIP
@@ -1358,7 +1358,7 @@ not ok 3 - one is not one
   at:
     line: #
     column: #
-    file: unit/test.js
+    file: test/test.js
     function: not
   stack: |
     {STACK}
@@ -1373,7 +1373,7 @@ ok 4 - should not be equal
 
 `
 
-exports[`unit/test.js TAP assertions and weird stuff same > same 1`] = `
+exports[`test/test.js TAP assertions and weird stuff same > same 1`] = `
 TAP version 13
 ok 1 - should be equivalent
 ok 2 - should be equivalent
@@ -1392,7 +1392,7 @@ not ok 7 - this one fails
   at:
     line: #
     column: #
-    file: unit/test.js
+    file: test/test.js
     function: same
   stack: |
     {STACK}
@@ -1414,7 +1414,7 @@ not ok 9 - should be equivalent strictly
   at:
     line: #
     column: #
-    file: unit/test.js
+    file: test/test.js
     function: same
   stack: |
     {STACK}
@@ -1438,7 +1438,7 @@ not ok 15 - this one fails
   at:
     line: #
     column: #
-    file: unit/test.js
+    file: test/test.js
     function: same
   stack: |
     {STACK}
@@ -1452,7 +1452,7 @@ not ok 15 - this one fails
 
 `
 
-exports[`unit/test.js TAP assertions and weird stuff match > match 1`] = `
+exports[`test/test.js TAP assertions and weird stuff match > match 1`] = `
 TAP version 13
 ok 1 - should match pattern provided
 not ok 2 - should match pattern provided
@@ -1466,7 +1466,7 @@ not ok 2 - should match pattern provided
   at:
     line: #
     column: #
-    file: unit/test.js
+    file: test/test.js
     function: match
   stack: |
     {STACK}
@@ -1486,7 +1486,7 @@ not ok 4 - should match pattern provided # TODO
   at:
     line: #
     column: #
-    file: unit/test.js
+    file: test/test.js
     function: match
   source: |
     tt.match({ a: 'b', c: /asdf/ }, { a: 'asdf', c: 1 },
@@ -1503,7 +1503,7 @@ not ok 5 - should not match pattern provided
   at:
     line: #
     column: #
-    file: unit/test.js
+    file: test/test.js
     function: match
   stack: |
     {STACK}
@@ -1523,7 +1523,7 @@ not ok 7 - a message
   at:
     line: #
     column: #
-    file: unit/test.js
+    file: test/test.js
     function: match
   stack: |
     {STACK}
@@ -1538,7 +1538,7 @@ ok 8 - should not match pattern provided # TODO
 
 `
 
-exports[`unit/test.js TAP assertions and weird stuff type > type 1`] = `
+exports[`test/test.js TAP assertions and weird stuff type > type 1`] = `
 TAP version 13
 not ok 1 - this fails
   ---
@@ -1548,7 +1548,7 @@ not ok 1 - this fails
   at:
     line: #
     column: #
-    file: unit/test.js
+    file: test/test.js
     function: type
   stack: |
     {STACK}
@@ -1566,7 +1566,7 @@ not ok 5 - fails, anonymously
   at:
     line: #
     column: #
-    file: unit/test.js
+    file: test/test.js
     function: type
   stack: |
     {STACK}
@@ -1585,7 +1585,7 @@ not ok 9 - fail: arrows are not objects
   at:
     line: #
     column: #
-    file: unit/test.js
+    file: test/test.js
     function: type
   stack: |
     {STACK}
@@ -1601,7 +1601,7 @@ ok 12 - type is EventEmitter
 
 `
 
-exports[`unit/test.js TAP assertions and weird stuff throws > throws 1`] = `
+exports[`test/test.js TAP assertions and weird stuff throws > throws 1`] = `
 TAP version 13
 ok 1 - expected to throw
 ok 2 - expected to throw
@@ -1617,7 +1617,7 @@ not ok 10 - fail: does not throw actually
   at:
     line: #
     column: #
-    file: unit/test.js
+    file: test/test.js
     function: throws
   stack: |
     {STACK}
@@ -1636,7 +1636,7 @@ ok 14 - todo # TODO
 
 `
 
-exports[`unit/test.js TAP assertions and weird stuff doesNotThrow > doesNotThrow 1`] = `
+exports[`test/test.js TAP assertions and weird stuff doesNotThrow > doesNotThrow 1`] = `
 TAP version 13
 ok 1 - this is fine
 ok 2 - expected to not throw # TODO
@@ -1647,7 +1647,7 @@ not ok 5 - fail
   at:
     line: #
     column: #
-    file: unit/test.js
+    file: test/test.js
     function: tt.doesNotThrow
   stack: |
     {STACK}
@@ -1662,7 +1662,7 @@ not ok 5 - fail
 
 `
 
-exports[`unit/test.js TAP assertions and weird stuff rejects > rejects 1`] = `
+exports[`test/test.js TAP assertions and weird stuff rejects > rejects 1`] = `
 TAP version 13
 ok 1 - promise # {time} {
     ok 1 - promise
@@ -1761,7 +1761,7 @@ not ok 19 - fail: passing promise # {time} {
       at:
         line: #
         column: #
-        file: unit/test.js
+        file: test/test.js
         function: rejects
       found: 420
       source: |
@@ -1778,7 +1778,7 @@ not ok 19 - fail: passing promise # {time} {
 
 `
 
-exports[`unit/test.js TAP assertions and weird stuff resolves > resolves 1`] = `
+exports[`test/test.js TAP assertions and weird stuff resolves > resolves 1`] = `
 TAP version 13
 ok 1 - expect resolving Promise # {time} {
     ok 1 - expect resolving Promise
@@ -1812,7 +1812,7 @@ not ok 5 - fail: no promise # {time} {
 
 `
 
-exports[`unit/test.js TAP assertions and weird stuff resolveMatch > resolveMatch 1`] = `
+exports[`test/test.js TAP assertions and weird stuff resolveMatch > resolveMatch 1`] = `
 TAP version 13
 ok 1 - expect resolving Promise # {time} {
     ok 1 - should match pattern provided
@@ -1851,7 +1851,7 @@ not ok 5 - fail: no promise # {time} {
 
 `
 
-exports[`unit/test.js TAP assertions and weird stuff test after end fails > test after end fails 1`] = `
+exports[`test/test.js TAP assertions and weird stuff test after end fails > test after end fails 1`] = `
 TAP version 13
 1..0
 STDERR:
@@ -1861,7 +1861,7 @@ Error: test after end() was called
 
 `
 
-exports[`unit/test.js TAP assertions and weird stuff plan excess > plan excess 1`] = `
+exports[`test/test.js TAP assertions and weird stuff plan excess > plan excess 1`] = `
 TAP version 13
 1..1
 ok 1 - fine
@@ -1872,7 +1872,7 @@ Error: test count exceeds plan
 
 `
 
-exports[`unit/test.js TAP assertions and weird stuff plan excess, ignored when failing > plan excess, ignored when failing 1`] = `
+exports[`test/test.js TAP assertions and weird stuff plan excess, ignored when failing > plan excess, ignored when failing 1`] = `
 TAP version 13
 1..1
 not ok 1 - expected fail
@@ -1880,7 +1880,7 @@ not ok 1 - expected fail
 
 `
 
-exports[`unit/test.js TAP assertions and weird stuff using the assertAt field > using the assertAt field 1`] = `
+exports[`test/test.js TAP assertions and weird stuff using the assertAt field > using the assertAt field 1`] = `
 TAP version 13
 1..1
 not ok 1 - expect fail
@@ -1888,7 +1888,7 @@ not ok 1 - expect fail
   at:
     line: #
     column: #
-    file: unit/test.js
+    file: test/test.js
     type: global
     function: baz
   source: |
@@ -1899,7 +1899,7 @@ not ok 1 - expect fail
 
 `
 
-exports[`unit/test.js TAP assertions and weird stuff using the assertStack field > using the assertStack field 1`] = `
+exports[`test/test.js TAP assertions and weird stuff using the assertStack field > using the assertStack field 1`] = `
 TAP version 13
 1..1
 not ok 1 - expect fail
@@ -1909,7 +1909,7 @@ not ok 1 - expect fail
   at:
     line: #
     column: #
-    file: unit/test.js
+    file: test/test.js
     function: baz
   source: |
     const baz = () => { tt.assertStack = stack.captureString(80); bar() }
@@ -1919,14 +1919,14 @@ not ok 1 - expect fail
 
 `
 
-exports[`unit/test.js TAP assertions and weird stuff printResult > printResult 1`] = `
+exports[`test/test.js TAP assertions and weird stuff printResult > printResult 1`] = `
 TAP version 13
 ok 1 - this is fine
 1..1
 
 `
 
-exports[`unit/test.js TAP assertions and weird stuff printResult after plan end > printResult after plan end 1`] = `
+exports[`test/test.js TAP assertions and weird stuff printResult after plan end > printResult after plan end 1`] = `
 TAP version 13
 1..0
 STDERR:
@@ -1936,7 +1936,7 @@ Error: test after end() was called
 
 `
 
-exports[`unit/test.js TAP assertions and weird stuff plan, child test, explicit end > plan, child test, explicit end 1`] = `
+exports[`test/test.js TAP assertions and weird stuff plan, child test, explicit end > plan, child test, explicit end 1`] = `
 TAP version 13
 1..1
 # Subtest
@@ -1946,7 +1946,7 @@ ok 1 # {time}
 
 `
 
-exports[`unit/test.js TAP assertions and weird stuff end multiple times > end multiple times 1`] = `
+exports[`test/test.js TAP assertions and weird stuff end multiple times > end multiple times 1`] = `
 TAP version 13
 1..1
 ok 1 - yes
@@ -1957,14 +1957,14 @@ Error: test end() method called more than once
 
 `
 
-exports[`unit/test.js TAP assertions and weird stuff error event with domainEmitter re-throws > error event with domainEmitter re-throws 1`] = `
+exports[`test/test.js TAP assertions and weird stuff error event with domainEmitter re-throws > error event with domainEmitter re-throws 1`] = `
 TAP version 13
 ok 1 - the better to this.threw you with
 1..1
 
 `
 
-exports[`unit/test.js TAP assertions and weird stuff thrower after end > thrower after end 1`] = `
+exports[`test/test.js TAP assertions and weird stuff thrower after end > thrower after end 1`] = `
 TAP version 13
 # Subtest: child
     1..1
@@ -1978,7 +1978,7 @@ not ok 2 - catch it in the parent
   at:
     line: #
     column: #
-    file: unit/test.js
+    file: test/test.js
     function: Test.tt.test.tt
   test: child
   source: |
@@ -1990,7 +1990,7 @@ not ok 2 - catch it in the parent
 
 `
 
-exports[`unit/test.js TAP assertions and weird stuff child breaks a promise > child breaks a promise 1`] = `
+exports[`test/test.js TAP assertions and weird stuff child breaks a promise > child breaks a promise 1`] = `
 TAP version 13
 # Subtest: child
     not ok 1 - poop
@@ -2000,7 +2000,7 @@ TAP version 13
       at:
         line: #
         column: #
-        file: unit/test.js
+        file: test/test.js
         function: Promise
       test: child
       source: |
@@ -2016,7 +2016,7 @@ not ok 1 - child # {time}
 
 `
 
-exports[`unit/test.js TAP assertions and weird stuff child teardown throw > child teardown throw 1`] = `
+exports[`test/test.js TAP assertions and weird stuff child teardown throw > child teardown throw 1`] = `
 TAP version 13
 # Subtest: child
     1..0
@@ -2029,7 +2029,7 @@ not ok 2 - fail
   at:
     line: #
     column: #
-    file: unit/test.js
+    file: test/test.js
     function: Test.tt.teardown
   test: child
   source: |
@@ -2041,7 +2041,7 @@ not ok 2 - fail
 
 `
 
-exports[`unit/test.js TAP assertions and weird stuff fullname without main > fullname without main 1`] = `
+exports[`test/test.js TAP assertions and weird stuff fullname without main > fullname without main 1`] = `
 TAP version 13
 # Subtest: child
     ok 1 - child
@@ -2053,14 +2053,14 @@ ok 2
 
 `
 
-exports[`unit/test.js TAP assertions and weird stuff comment after end > comment after end 1`] = `
+exports[`test/test.js TAP assertions and weird stuff comment after end > comment after end 1`] = `
 TAP version 13
 1..0
 # this is fine
 
 `
 
-exports[`unit/test.js TAP assertions and weird stuff grep > grep 1`] = `
+exports[`test/test.js TAP assertions and weird stuff grep > grep 1`] = `
 TAP version 13
 # Subtest: parent
     ok 1 - do not run this # SKIP filter: /x$/
@@ -2095,7 +2095,7 @@ ok 1 - parent # {time}
 
 `
 
-exports[`unit/test.js TAP assertions and weird stuff grepInvert > grepInvert 1`] = `
+exports[`test/test.js TAP assertions and weird stuff grepInvert > grepInvert 1`] = `
 TAP version 13
 # Subtest: parent
     ok 1 - do not run this x # SKIP filter out: /x$/
@@ -2130,7 +2130,7 @@ ok 1 - parent # {time}
 
 `
 
-exports[`unit/test.js TAP assertions and weird stuff autoEnd > autoEnd 1`] = `
+exports[`test/test.js TAP assertions and weird stuff autoEnd > autoEnd 1`] = `
 TAP version 13
 # Subtest: this should automatically end
     ok 1 - this is fine
@@ -2177,7 +2177,7 @@ not ok 6 - cannot create subtest after parent test end # {time}
 
 `
 
-exports[`unit/test.js TAP assertions and weird stuff endAll with test children > endAll with test children 1`] = `
+exports[`test/test.js TAP assertions and weird stuff endAll with test children > endAll with test children 1`] = `
 TAP version 13
 # Subtest: this is the test that never ends
     # Subtest: it goes on and on my friend
@@ -2191,7 +2191,7 @@ TAP version 13
               at:
                 line: #
                 column: #
-                file: unit/test.js
+                file: test/test.js
                 function: Test.tt.test.tt
               source: |
                 tt.test('misbehaving child', () => new Promise(()=>{}))
@@ -2215,7 +2215,7 @@ not ok 1 - this is the test that never ends # {time}
 
 `
 
-exports[`unit/test.js TAP assertions and weird stuff endAll with stdin > endAll with stdin 1`] = `
+exports[`test/test.js TAP assertions and weird stuff endAll with stdin > endAll with stdin 1`] = `
 TAP version 13
 # Subtest: /dev/stdin
     ok - but not ended
@@ -2231,7 +2231,7 @@ not ok 1 - /dev/stdin # {time}
 
 `
 
-exports[`unit/test.js TAP assertions and weird stuff endAll with bailout > endAll with bailout 1`] = `
+exports[`test/test.js TAP assertions and weird stuff endAll with bailout > endAll with bailout 1`] = `
 TAP version 13
 # Subtest: child
     not ok 1 - not fine
@@ -2239,7 +2239,7 @@ TAP version 13
       at:
         line: #
         column: #
-        file: unit/test.js
+        file: test/test.js
         type: Test
         function: tt.test.tt
       stack: |
@@ -2253,7 +2253,7 @@ Bail out! # not fine
 
 `
 
-exports[`unit/test.js TAP assertions and weird stuff bailout with indented subs > bailout with indented subs 1`] = `
+exports[`test/test.js TAP assertions and weird stuff bailout with indented subs > bailout with indented subs 1`] = `
 TAP version 13
 # Subtest: 1
     1..0
@@ -2264,7 +2264,7 @@ Bail out! whoops
 
 `
 
-exports[`unit/test.js TAP assertions and weird stuff bailout with buffered subs > bailout with buffered subs 1`] = `
+exports[`test/test.js TAP assertions and weird stuff bailout with buffered subs > bailout with buffered subs 1`] = `
 TAP version 13
 ok 1 - 1 # {time} {
     1..0
@@ -2274,7 +2274,7 @@ Bail out! whoops
 
 `
 
-exports[`unit/test.js TAP assertions and weird stuff silent subs > silent subs 1`] = `
+exports[`test/test.js TAP assertions and weird stuff silent subs > silent subs 1`] = `
 TAP version 13
 # Subtest: child
     1..0
@@ -2288,7 +2288,7 @@ ok 2 - child 2 # {time}
 
 `
 
-exports[`unit/test.js TAP assertions and weird stuff beforeEach afterEach > beforeEach afterEach 1`] = `
+exports[`test/test.js TAP assertions and weird stuff beforeEach afterEach > beforeEach afterEach 1`] = `
 TAP version 13
 # Subtest: child
     # Subtest: grandkid
@@ -2310,7 +2310,7 @@ parent ae child
 
 `
 
-exports[`unit/test.js TAP assertions and weird stuff timeout expiration > timeout expiration 1`] = `
+exports[`test/test.js TAP assertions and weird stuff timeout expiration > timeout expiration 1`] = `
 TAP version 13
 # Subtest: get lost buf=false
     not ok 1 - timeout!
@@ -2352,7 +2352,7 @@ not ok 2 - get lost buf=true # {time}
 
 `
 
-exports[`unit/test.js TAP assertions and weird stuff timeout with subs > timeout with subs 1`] = `
+exports[`test/test.js TAP assertions and weird stuff timeout with subs > timeout with subs 1`] = `
 TAP version 13
 # Subtest: get lost buf=false
     # Subtest: carry on
@@ -2402,7 +2402,7 @@ not ok 2 - get lost buf=true # {time}
 
 `
 
-exports[`unit/test.js TAP assertions and weird stuff timeout at the last tick > timeout at the last tick 1`] = `
+exports[`test/test.js TAP assertions and weird stuff timeout at the last tick > timeout at the last tick 1`] = `
 TAP version 13
 # Subtest: work it harder buf=false
     1..1
@@ -2437,7 +2437,7 @@ not ok 4 - timeout!
 
 `
 
-exports[`unit/test.js TAP addAssert > using the custom isUrl assertion 1`] = `
+exports[`test/test.js TAP addAssert > using the custom isUrl assertion 1`] = `
 TAP version 13
 not ok 1 - expect a valid http/https url
   ---
@@ -2462,7 +2462,7 @@ not ok 1 - expect a valid http/https url
   at:
     line: #
     column: #
-    file: unit/test.js
+    file: test/test.js
     type: Test
     function: t.test.t
   stack: |
@@ -2479,7 +2479,7 @@ ok 3 - expect a valid http/https url # SKIP
 
 `
 
-exports[`unit/test.js TAP snapshots > saving the snapshot 1`] = `
+exports[`test/test.js TAP snapshots > saving the snapshot 1`] = `
 TAP version 13
 # Subtest: child test
     ok 1 - an object
@@ -2493,7 +2493,7 @@ ok 1 - child test # {time}
 
 `
 
-exports[`unit/test.js TAP snapshots > verifying the snapshot 1`] = `
+exports[`test/test.js TAP snapshots > verifying the snapshot 1`] = `
 TAP version 13
 # Subtest: child test
     ok 1 - an object

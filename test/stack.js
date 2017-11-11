@@ -8,7 +8,7 @@ t.test('in tapdir, no envs', t => {
   process.env.TAP_DEV_LONGSTACK = 0
   process.env.TAP_DEV_SHORTSTACK = 0
   const stack = require('../lib/stack.js').captureString()
-  t.match(stack, /unit[\/\\]stack\.js:\w+:\w+\)\n/)
+  t.match(stack, /test[\/\\]stack\.js:\w+:\w+\)\n/)
   t.notMatch(stack, '\.node-spawn-wrap')
   t.end()
 })
@@ -29,7 +29,7 @@ t.test('in home, longstack', t => {
   process.env.TAP_DEV_LONGSTACK = 1
   process.env.TAP_DEV_SHORTSTACK = 0
   const stack = require('../lib/stack.js').captureString()
-  t.match(stack, /unit[\/\\]stack\.js:\w+:\w+\)\n/)
+  t.match(stack, /test[\/\\]stack\.js:\w+:\w+\)\n/)
   t.notMatch(stack, '\.node-spawn-wrap')
   t.end()
 })

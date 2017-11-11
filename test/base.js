@@ -84,7 +84,7 @@ t.test('throwing stuff', t => {
     at: {
       line: Number,
       column: Number,
-      file: 'unit/base.js'
+      file: 'test/base.js'
     },
     stack: String,
     test: 'ace'
