@@ -14,12 +14,15 @@ const osHomedir = require('os-homedir')
 const yaml = require('js-yaml')
 const path = require('path')
 const exists = require('fs-exists-cached').sync
-const os = require('os');
+const os = require('os')
+const isTTY = process.stdin.isTTY || process.env._TAP_IS_TTY === '1'
 
 const coverageServiceTest = process.env.COVERAGE_SERVICE_TEST === 'true'
 
 // NYC will not wrap a module in node_modules.
 // So, we need to tell the child proc when it's been added.
+// Of course, this can't reasonably be branch-covered, so ignore it.
+/* istanbul ignore next */
 if (process.env._TAP_COVERAGE_ === '1')
   global.__coverage__ = global.__coverage__ || {}
 
@@ -47,7 +50,7 @@ const coverageServices = [
 const main = _ => {
   const args = process.argv.slice(2)
 
-  if (!args.length && process.stdin.isTTY) {
+  if (!args.length && isTTY) {
     console.error(usage())
     process.exit(1)
   }
@@ -144,9 +147,7 @@ const constructDefaultArgs = _ => {
   return defaultArgs
 }
 
-const parseArgs = (args, defaults) => {
-  const options = defaults || {}
-
+const parseArgs = (args, options) => {
   const singleFlags = {
     b: 'bail',
     B: 'no-bail',
@@ -337,7 +338,7 @@ const parseArgs = (args, defaults) => {
       case '--statements':
         defaultCoverage = true
         options.checkCoverage = true
-        options[key.slice(2)] = val || args[++i]
+        options[key.slice(2)] = +(val || args[++i])
         continue
 
       case '--color':
@@ -589,9 +590,8 @@ const setupTapEnv = options => {
     process.env.TAP_GREP_INVERT = '1'
 
   if (options.grep.length)
-    process.env.TAP_GREP = options.grep.map(function (pattern) {
-      return pattern.toString()
-    }).join('\n')
+    process.env.TAP_GREP = options.grep.map(p => p.toString())
+      .join('\n')
 
   if (options.only)
     process.env.TAP_ONLY = '1'
@@ -622,6 +622,8 @@ const stdinOnly = options => {
   process.stdin.pause()
   const reporter = makeReporter(options)
   process.stdin.pipe(reporter)
+  if (options.outputFile !== null)
+    process.stdin.pipe(fs.createWriteStream(options.outputFile))
   process.stdin.resume()
 }
 
