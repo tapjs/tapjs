@@ -1,3 +1,4 @@
+'use strict'
 const t = require('../')
 const fs = require('fs')
 const path = require('path')
@@ -11,18 +12,7 @@ const MiniPass = require('minipass')
 process.env.TAP_DIAG = ''
 process.env.TAP_BAIL = ''
 
-const clean = out => out
-  .replace(/ # time=[0-9\.]+m?s( \{.*)?\n/g, ' # {time}$1\n')
-  .replace(/\n(( {2})+)stack: \|-?\n((\1  .*).*\n)+/gm,
-    '\n$1stack: |\n$1  {STACK}\n')
-  .replace(/\n(( {2})+)stack: \>-?\n((\1  .*).*\n(\1\n)?)+/gm,
-    '\n$1stack: |\n$1  {STACK}\n')
-  .replace(/\n([a-zA-Z]*Error): (.*)\n((    at .*\n)*)+/gm,
-    '\n$1: $2\n    {STACK}\n')
-  .replace(/:[0-9]+:[0-9]+(\)?\n)/g, '#:#$1')
-  .replace(/(line|column): [0-9]+/g, '$1: #')
-  .split(process.cwd()).join('{CWD}')
-
+const clean = require('./clean-stacks.js')
 
 t.test('short output checks', t => {
   const env = process.env.TAP_BUFFER
@@ -730,7 +720,7 @@ t.test('assertions and weird stuff', t => {
     'timeout expiration': t => {
       const buf = [ false, true ]
       buf.forEach(buf => {
-        t.test('get lost buf=' + buf, { buffered: buf, timeout: 1 }, t => {
+        t.test('get lost buf=' + buf, { buffered: buf, timeout: 50 }, t => {
           const timer = setTimeout(() => {}, 10000)
           t.on('timeout', () => clearTimeout(timer))
         })
@@ -741,7 +731,7 @@ t.test('assertions and weird stuff', t => {
     'timeout with subs': t => {
       const buf = [ false, true ]
       buf.forEach(buf => {
-        t.test('get lost buf=' + buf, { buffered: buf, timeout: 1 }, t => {
+        t.test('get lost buf=' + buf, { buffered: buf, timeout: 50 }, t => {
           const timer = setTimeout(() => {}, 10000)
           t.test('carry on', t => t.on('timeout', () => clearTimeout(timer)))
         })

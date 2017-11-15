@@ -8,17 +8,7 @@ const file = __filename
 process.env.TAP_BAIL = ''
 process.env.TAP_BUFFER = ''
 
-const clean = out => out
-  .replace(/ # time=[0-9\.]+m?s( \{.*)?\n/g, ' # {time}$1\n')
-  .replace(/\n(( {2})+)stack: \|-?\n((\1  .*).*\n)+/gm,
-    '\n$1stack: |\n$1  {STACK}\n')
-  .replace(/\n(( {2})+)stack: \>-?\n((\1  .*).*\n(\1\n)?)+/gm,
-    '\n$1stack: |\n$1  {STACK}\n')
-  .replace(/\n([a-zA-Z]*Error): (.*)\n((    at .*\n)*)+/gm,
-    '\n$1: $2\n    {STACK}\n')
-  .replace(/:[0-9]+:[0-9]+(\)?\n)/g, '#:#$1')
-  .replace(/(line|column): [0-9]+/g, '$1: #')
-  .split(process.cwd()).join('{CWD}')
+const clean = require('./clean-stacks.js')
 
 const main = () => {
   t.test('basic child process', t =>

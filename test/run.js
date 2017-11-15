@@ -12,22 +12,7 @@ const t = require('../')
 const dir = path.join(__dirname, 'cli-tests')
 mkdirp.sync(dir)
 
-const clean = out => out
-  .replace(/(^|\n)TAP [0-9]+ /g, '$1TAP {PID} ')
-  .replace(
-    /\n((?:  )+)requests:\n(\1  - type:(.*)\n\1 {4}context:\n(\1 {6}.*\n)+)+/g,
-    '\n$1requests:\n$1  {REQUESTS}\n')
-  .replace(/\bfd: [0-9]+/g, 'fd: {FD}')
-  .replace(/# time=[0-9\.]+m?s( \{.*)?\n/g, '# {time}$1\n')
-  .replace(/\n(( {2})+)stack: \|-?\n((\1  .*).*\n)+/gm,
-    '\n$1stack: |\n$1  {STACK}\n')
-  .replace(/\n(( {2})+)stack: \>-?\n((\1  .*).*\n(\1\n)?)+/gm,
-    '\n$1stack: |\n$1  {STACK}\n')
-  .replace(/(?:\n|^)([a-zA-Z]*Error): (.*)\n((    at .*\n)*)+/gm,
-    '\n$1: $2\n    {STACK}\n')
-  .replace(/:[0-9]+:[0-9]+(\)?\n)/g, '#:#$1')
-  .replace(/(line|column): [0-9]+/g, '$1: #')
-  .split(process.cwd()).join('{CWD}')
+const clean = require('./clean-stacks.js')
 
 const run = (args, options, cb) => {
   if (options && options.env)
@@ -267,18 +252,19 @@ t.test('stdin', t => {
   })
 
   t.test('with file', t => {
-    const foo = tmpfile(t, 'foo.js', `
+    const foo = tmpfile(t, 'foo.test.js', `
       'use strict'
       require(${tap}).test('child', t => {
         t.pass('this is fine')
         t.end()
       })
     `)
-    const args = ['-', 'foo.js', '-CRclassic', '-ofoo.txt']
+    const args = ['-', foo, '-CRclassic', '-ofoo.txt']
     const c = run(args, { env: { TAP: 0, TAP_BUFFER: 1 }}, (er, o, e) => {
       t.equal(er, null)
       t.matchSnapshot(clean(fs.readFileSync('foo.txt', 'utf8')))
-      t.match(o, /foo.js \.+ 1\/1.*\n\/dev\/stdin \.+ 1\/1\n/)
+      t.match(o, /foo.test.js \.+ 1\/1.*\n\/dev\/stdin \.+ 1\/1\n/)
+      fs.unlinkSync('foo.txt')
       t.end()
     })
     c.stdin.end(tapcode)

@@ -37,23 +37,22 @@ exports[`test/spawn.js TAP failure to spawn > undefined 1`] = `
 
 not ok 1 - spawn something that does not exist ENOENT
   ---
-  command: something that does not exist
   args: []
-  stdio:
-    - 0
-    - pipe
-    - 2
-  cwd: {CWD}
   at:
     line: #
     column: #
     file: util.js
-    function: _errnoException
   code: ENOENT
+  command: something that does not exist
+  cwd: {CWD}
   errno: ENOENT
-  syscall: spawn something that does not exist
   path: something that does not exist
   spawnargs: []
+  stdio:
+    - 0
+    - pipe
+    - 2
+  syscall: spawn something that does not exist
   test: 'something that does not exist '
   ...
 1..1

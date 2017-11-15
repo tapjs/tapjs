@@ -27,11 +27,10 @@ not ok 1 - expected
     line: #
     column: #
     file: test/tap.js
-    function: notOk
-  stack: |
-    {STACK}
   source: |
     notOk: t => t.fail('expected'),
+  stack: |
+    {STACK}
   ...
 
 1..1
@@ -155,12 +154,11 @@ not ok 2 - broken
     line: #
     column: #
     file: test/tap.js
-    function: unhandled promise
+  source: |
+    Promise.reject(new Error('broken'))
   stack: |
     {STACK}
   test: TAP
-  source: |
-    Promise.reject(new Error('broken'))
   ...
 
 1..2
@@ -221,11 +219,10 @@ not ok 1 - v0.10.420
     line: #
     column: #
     file: test/tap.js
-    function: process.exitCode polyfill
-  stack: |
-    {STACK}
   source: |
     t.fail(process.version)
+  stack: |
+    {STACK}
   ...
 
 1..1
@@ -251,24 +248,24 @@ TAP version 13
 `
 
 exports[`test/tap.js TAP TAP_DEBUG=1 > stderr 1`] = `
-TAP {PID} TAP: PROCESSING(TAP) 2
-TAP {PID} TAP: > STRING
-TAP {PID} TAP: LINE "TAP version 13\\n"
-TAP {PID} TAP: < already processing
-TAP {PID} TAP: > STRING
-TAP {PID} TAP: LINE "# this is fine\\n"
-TAP {PID} TAP: done processing [] false
-TAP {PID} TAP: PROCESSING(TAP) 1
-TAP {PID} TAP: > METHOD
-TAP {PID} TAP: END implicit=true
-TAP {PID} TAP: END(TAP) implicit plan 0
-TAP {PID} TAP: END implicit=true
-TAP {PID} TAP: < already processing
-TAP {PID} TAP: > STRING
-TAP {PID} TAP: LINE "1..0\\n"
-TAP {PID} TAP: > EOF TAP
-TAP {PID} TAP: ONCOMPLETE "TAP" {"ok":true,"count":0,"pass":0,"fail":0,"bailout":false,"todo":0,"skip":0,"plan":{"start":1,"end":0,"skipAll":true,"skipReason":"","comment":""},"failures":[]}
-TAP {PID} TAP: done processing [] false
+TAP {pid} TAP: PROCESSING(TAP) 2
+TAP {pid} TAP: > STRING
+TAP {pid} TAP: LINE "TAP version 13\\n"
+TAP {pid} TAP: < already processing
+TAP {pid} TAP: > STRING
+TAP {pid} TAP: LINE "# this is fine\\n"
+TAP {pid} TAP: done processing [] false
+TAP {pid} TAP: PROCESSING(TAP) 1
+TAP {pid} TAP: > METHOD
+TAP {pid} TAP: END implicit=true
+TAP {pid} TAP: END(TAP) implicit plan 0
+TAP {pid} TAP: END implicit=true
+TAP {pid} TAP: < already processing
+TAP {pid} TAP: > STRING
+TAP {pid} TAP: LINE "1..0\\n"
+TAP {pid} TAP: > EOF TAP
+TAP {pid} TAP: ONCOMPLETE "TAP" {"ok":true,"count":0,"pass":0,"fail":0,"bailout":false,"todo":0,"skip":0,"plan":{"start":1,"end":0,"skipAll":true,"skipReason":"","comment":""},"failures":[]}
+TAP {pid} TAP: done processing [] false
 
 `
 
@@ -284,19 +281,19 @@ TAP version 13
 `
 
 exports[`test/tap.js TAP NODE_DEBUG=tap > stderr 1`] = `
-TAP {PID} TAP: END implicit=true
-TAP {PID} TAP: PROCESSING(TAP) 3
-TAP {PID} TAP: > STRING
-TAP {PID} TAP: LINE "TAP version 13\\n"
-TAP {PID} TAP: < already processing
-TAP {PID} TAP: > STRING
-TAP {PID} TAP: LINE "1..0\\n"
-TAP {PID} TAP: > METHOD
-TAP {PID} TAP: END implicit=true
-TAP {PID} TAP: < already processing
-TAP {PID} TAP: > EOF TAP
-TAP {PID} TAP: ONCOMPLETE "TAP" {"ok":true,"count":0,"pass":0,"fail":0,"bailout":false,"todo":0,"skip":0,"plan":{"start":1,"end":0,"skipAll":true,"skipReason":"","comment":""},"failures":[]}
-TAP {PID} TAP: done processing [] false
+TAP {pid} TAP: END implicit=true
+TAP {pid} TAP: PROCESSING(TAP) 3
+TAP {pid} TAP: > STRING
+TAP {pid} TAP: LINE "TAP version 13\\n"
+TAP {pid} TAP: < already processing
+TAP {pid} TAP: > STRING
+TAP {pid} TAP: LINE "1..0\\n"
+TAP {pid} TAP: > METHOD
+TAP {pid} TAP: END implicit=true
+TAP {pid} TAP: < already processing
+TAP {pid} TAP: > EOF TAP
+TAP {pid} TAP: ONCOMPLETE "TAP" {"ok":true,"count":0,"pass":0,"fail":0,"bailout":false,"todo":0,"skip":0,"plan":{"start":1,"end":0,"skipAll":true,"skipReason":"","comment":""},"failures":[]}
+TAP {pid} TAP: done processing [] false
 
 `
 
@@ -400,8 +397,10 @@ TAP version 13
 ok 1 - fine
 not ok 2 - timeout!
   ---
-  signal: SIGTERM
   expired: TAP
+  handles:
+    - type: Timer
+  signal: SIGTERM
   stack: |
     {STACK}
   test: TAP
@@ -426,10 +425,10 @@ TAP version 13
 ok 1 - fine
 not ok 2 - timeout!
   ---
-  signal: SIGTERM
+  expired: TAP
   handles:
     - type: Timer
-  expired: TAP
+  signal: SIGTERM
   stack: |
     {STACK}
   test: TAP
@@ -454,10 +453,10 @@ TAP version 13
 ok 1 - fine
 not ok 2 - timeout!
   ---
-  signal: SIGTERM
-  requests:
-    {REQUESTS}
   expired: TAP
+  requests:
+    - type: FSReqWrap
+  signal: SIGTERM
   stack: |
     {STACK}
   test: TAP

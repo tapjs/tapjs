@@ -123,7 +123,6 @@ not ok 1 - i will do this later # TODO
     line: #
     column: #
     file: test/test.js
-    function: todo
   source: |
     tt.notOk(true, 'i will do this later', { todo: true })
   ...
@@ -134,7 +133,6 @@ not ok 2 - expect falsey value # TODO later
     line: #
     column: #
     file: test/test.js
-    function: todo
   source: |
     tt.notOk(true, { todo: 'later' })
   ...
@@ -157,7 +155,6 @@ not ok 1 - i will do this later # TODO
     line: #
     column: #
     file: test/test.js
-    function: todo
   source: |
     tt.notOk(true, 'i will do this later', { todo: true })
   ...
@@ -168,7 +165,6 @@ not ok 2 - expect falsey value # TODO later
     line: #
     column: #
     file: test/test.js
-    function: todo
   source: |
     tt.notOk(true, { todo: 'later' })
   ...
@@ -191,7 +187,6 @@ not ok 1 - i will do this later # TODO
     line: #
     column: #
     file: test/test.js
-    function: todo
   source: |
     tt.notOk(true, 'i will do this later', { todo: true })
   ...
@@ -202,7 +197,6 @@ not ok 2 - expect falsey value # TODO later
     line: #
     column: #
     file: test/test.js
-    function: todo
   source: |
     tt.notOk(true, { todo: 'later' })
   ...
@@ -225,7 +219,6 @@ not ok 1 - i will do this later # TODO
     line: #
     column: #
     file: test/test.js
-    function: todo
   source: |
     tt.notOk(true, 'i will do this later', { todo: true })
   ...
@@ -236,7 +229,6 @@ not ok 2 - expect falsey value # TODO later
     line: #
     column: #
     file: test/test.js
-    function: todo
   source: |
     tt.notOk(true, { todo: 'later' })
   ...
@@ -340,7 +332,6 @@ not ok 2 - (unnamed test) # TODO
     line: #
     column: #
     file: test/test.js
-    function: no plan fail
   source: |
     tt.fail({ todo: true })
   ...
@@ -351,11 +342,10 @@ not ok 3 - this is fine
     line: #
     column: #
     file: test/test.js
-    function: no plan fail
-  stack: |
-    {STACK}
   source: |
     tt.fail('this is fine')
+  stack: |
+    {STACK}
   ...
 
 1..3
@@ -373,7 +363,6 @@ not ok 2 - (unnamed test) # TODO
     line: #
     column: #
     file: test/test.js
-    function: no plan fail
   source: |
     tt.fail({ todo: true })
   ...
@@ -384,11 +373,10 @@ not ok 3 - this is fine
     line: #
     column: #
     file: test/test.js
-    function: no plan fail
-  stack: |
-    {STACK}
   source: |
     tt.fail('this is fine')
+  stack: |
+    {STACK}
   ...
 
 1..3
@@ -413,7 +401,6 @@ not ok 2 - (unnamed test) # TODO
     line: #
     column: #
     file: test/test.js
-    function: no plan fail
   source: |
     tt.fail({ todo: true })
   ...
@@ -424,11 +411,10 @@ not ok 3 - this is fine
     line: #
     column: #
     file: test/test.js
-    function: no plan fail
-  stack: |
-    {STACK}
   source: |
     tt.fail('this is fine')
+  stack: |
+    {STACK}
   ...
 
 1..3
@@ -478,12 +464,10 @@ TAP version 13
         line: #
         column: #
         file: test/test.js
-        type: Test
-        function: tt.test.tt
-      stack: |
-        {STACK}
       source: |
         tt.fail('this is not ok')
+      stack: |
+        {STACK}
       ...
     
     1..1
@@ -504,12 +488,10 @@ TAP version 13
         line: #
         column: #
         file: test/test.js
-        type: Test
-        function: tt.test.tt
-      stack: |
-        {STACK}
       source: |
         tt.fail('this is not ok')
+      stack: |
+        {STACK}
       ...
     
     1..1
@@ -530,12 +512,10 @@ TAP version 13
         line: #
         column: #
         file: test/test.js
-        type: Test
-        function: tt.test.tt
-      stack: |
-        {STACK}
       source: |
         tt.fail('this is not ok')
+      stack: |
+        {STACK}
       ...
     
     Bail out! # this is not ok
@@ -988,11 +968,10 @@ not ok 1 - ok
     line: #
     column: #
     file: test/test.js
-    function: Object.gentle thrower
-  stack: |
-    {STACK}
   source: |
     'gentle thrower': tt => tt.threw(new Error('ok')),
+  stack: |
+    {STACK}
   ...
 
 1..1
@@ -1008,11 +987,10 @@ not ok 1 - ok
     line: #
     column: #
     file: test/test.js
-    function: Object.gentle thrower
-  stack: |
-    {STACK}
   source: |
     'gentle thrower': tt => tt.threw(new Error('ok')),
+  stack: |
+    {STACK}
   ...
 
 1..1
@@ -1028,11 +1006,10 @@ not ok 1 - ok
     line: #
     column: #
     file: test/test.js
-    function: Object.gentle thrower
-  stack: |
-    {STACK}
   source: |
     'gentle thrower': tt => tt.threw(new Error('ok')),
+  stack: |
+    {STACK}
   ...
 
 Bail out! # ok
@@ -1043,16 +1020,15 @@ exports[`test/test.js TAP short output checks gentle thrower runOnly > gentle th
 TAP version 13
 not ok 1 - ok
   ---
-  runOnly: true
   at:
     line: #
     column: #
     file: test/test.js
-    function: Object.gentle thrower
-  stack: |
-    {STACK}
+  runOnly: true
   source: |
     'gentle thrower': tt => tt.threw(new Error('ok')),
+  stack: |
+    {STACK}
   ...
 
 1..1
@@ -1065,16 +1041,15 @@ TAP version 13
 # Subtest: child test
     not ok 1 - ok
       ---
-      stack: |
-        {STACK}
       at:
         line: #
         column: #
         file: test/test.js
-        function: Test.tt.test.tt
-      test: child test
       source: |
         tt.threw(new Error('ok'))).then(tt.end),
+      stack: |
+        {STACK}
+      test: child test
       ...
     
     1..1
@@ -1091,16 +1066,15 @@ TAP version 13
 # Subtest: child test
     not ok 1 - ok
       ---
-      stack: |
-        {STACK}
       at:
         line: #
         column: #
         file: test/test.js
-        function: Test.tt.test.tt
-      test: child test
       source: |
         tt.threw(new Error('ok'))).then(tt.end),
+      stack: |
+        {STACK}
+      test: child test
       ...
     
     1..1
@@ -1117,16 +1091,15 @@ TAP version 13
 # Subtest: child test
     not ok 1 - ok
       ---
-      stack: |
-        {STACK}
       at:
         line: #
         column: #
         file: test/test.js
-        function: Test.tt.test.tt
-      test: child test
       source: |
         tt.threw(new Error('ok'))).then(tt.end),
+      stack: |
+        {STACK}
+      test: child test
       ...
     
     Bail out! # ok
@@ -1151,15 +1124,14 @@ ok 1 # {time}
 
 not ok 2 - beep
   ---
-  stack: |
-    {STACK}
   at:
     line: #
     column: #
     file: test/test.js
-    function: Test.<anonymous>
   source: |
     throw new Error('beep')
+  stack: |
+    {STACK}
   ...
 
 1..2
@@ -1177,15 +1149,14 @@ ok 1 # {time}
 
 not ok 2 - beep
   ---
-  stack: |
-    {STACK}
   at:
     line: #
     column: #
     file: test/test.js
-    function: Test.<anonymous>
   source: |
     throw new Error('beep')
+  stack: |
+    {STACK}
   ...
 
 1..2
@@ -1203,15 +1174,14 @@ ok 1 # {time}
 
 not ok 2 - beep
   ---
-  stack: |
-    {STACK}
   at:
     line: #
     column: #
     file: test/test.js
-    function: Test.<anonymous>
   source: |
     throw new Error('beep')
+  stack: |
+    {STACK}
   ...
 
 Bail out! # beep
@@ -1231,66 +1201,62 @@ TAP version 13
 ok 1 - this is not an error
 not ok 2 - this error is poop
   ---
+  at:
+    line: #
+    column: #
+    file: test/test.js
   found:
     name: Error
     stack: |
       {STACK}
     message: 'fail: poop'
-  at:
-    line: #
-    column: #
-    file: test/test.js
-    function: error
-  stack: |
-    {STACK}
   source: |
     tt.error(new Error('fail: poop'), 'this error is poop')
+  stack: |
+    {STACK}
   ...
 
 not ok 3 - fail: poop
   ---
+  at:
+    line: #
+    column: #
+    file: test/test.js
   found:
     name: Error
     stack: |
       {STACK}
     message: 'fail: poop'
-  at:
-    line: #
-    column: #
-    file: test/test.js
-    function: error
-  stack: |
-    {STACK}
   source: |
     tt.error(new Error('fail: poop'))
+  stack: |
+    {STACK}
   ...
 
 not ok 4 - this error is "poop"
   ---
-  found: 'fail: poop'
   at:
     line: #
     column: #
     file: test/test.js
-    function: error
-  stack: |
-    {STACK}
+  found: 'fail: poop'
   source: |
     tt.error('fail: poop', 'this error is "poop"')
+  stack: |
+    {STACK}
   ...
 
 not ok 5 - non-Error error encountered
   ---
-  found: 'fail: poop'
   at:
     line: #
     column: #
     file: test/test.js
-    function: error
-  stack: |
-    {STACK}
+  found: 'fail: poop'
   source: |
     tt.error('fail: poop')
+  stack: |
+    {STACK}
   ...
 
 ok 6 - should not error # TODO
@@ -1305,39 +1271,37 @@ exports[`test/test.js TAP assertions and weird stuff equal > equal 1`] = `
 TAP version 13
 not ok 1 - should be equal
   ---
-  found: 1
-  wanted: 2
-  compare: ===
   at:
     line: #
     column: #
     file: test/test.js
-    function: equal
-  stack: |
-    {STACK}
+  compare: ===
+  found: 1
   source: |
     tt.equal(1, 2)
+  stack: |
+    {STACK}
+  wanted: 2
   ...
 
 not ok 2 - should be equal # SKIP
 ok 3 - one is one
 not ok 4 - should be equal
   ---
-  found:
-    foo: 1
-  wanted:
-    foo: 1
-  compare: ===
-  note: Objects never === one another
   at:
     line: #
     column: #
     file: test/test.js
-    function: equal
-  stack: |
-    {STACK}
+  compare: ===
+  found:
+    foo: 1
+  note: Objects never === one another
   source: |
     tt.equal({foo: 1}, {foo: 1})
+  stack: |
+    {STACK}
+  wanted:
+    foo: 1
   ...
 
 1..4
@@ -1352,18 +1316,17 @@ ok 1 - should not be equal
 ok 2 - should not be equal # SKIP
 not ok 3 - one is not one
   ---
-  found: 1
-  doNotWant: 1
-  compare: '!=='
   at:
     line: #
     column: #
     file: test/test.js
-    function: not
-  stack: |
-    {STACK}
+  compare: '!=='
+  doNotWant: 1
+  found: 1
   source: |
     tt.not(1, 1, 'one is not one')
+  stack: |
+    {STACK}
   ...
 
 ok 4 - should not be equal
@@ -1383,43 +1346,41 @@ ok 5 - this one passes
 ok 6 - should not be equivalent # SKIP
 not ok 7 - this one fails
   ---
-  found:
-    foo:
-      bar: 2
-  doNotWant:
-    foo:
-      bar: '2'
   at:
     line: #
     column: #
     file: test/test.js
-    function: same
-  stack: |
-    {STACK}
+  doNotWant:
+    foo:
+      bar: '2'
+  found:
+    foo:
+      bar: 2
   source: |
     tt.notSame({ foo: { bar: 2 } }, { foo: { bar: '2' } },
+  stack: |
+    {STACK}
   ...
 
 not ok 8 - should be equivalent strictly # SKIP
 not ok 9 - should be equivalent strictly
   ---
-  found:
-    - 1
-    - 2
-    - 3
-  wanted:
-    - '1'
-    - '2'
-    - '3'
   at:
     line: #
     column: #
     file: test/test.js
-    function: same
-  stack: |
-    {STACK}
+  found:
+    - 1
+    - 2
+    - 3
   source: |
     tt.strictSame([1, 2, 3], ['1', '2', '3'])
+  stack: |
+    {STACK}
+  wanted:
+    - '1'
+    - '2'
+    - '3'
   ...
 
 ok 10 - should be equivalent strictly
@@ -1429,21 +1390,20 @@ ok 13 - this one passes
 ok 14 - this one passes
 not ok 15 - this one fails
   ---
-  found:
-    foo:
-      bar: 2
-  doNotWant:
-    foo:
-      bar: 2
   at:
     line: #
     column: #
     file: test/test.js
-    function: same
-  stack: |
-    {STACK}
+  doNotWant:
+    foo:
+      bar: 2
+  found:
+    foo:
+      bar: 2
   source: |
     tt.notStrictSame({ foo: { bar: 2 } }, { foo: { bar: 2 } },
+  stack: |
+    {STACK}
   ...
 
 1..15
@@ -1457,78 +1417,74 @@ TAP version 13
 ok 1 - should match pattern provided
 not ok 2 - should match pattern provided
   ---
+  at:
+    line: #
+    column: #
+    file: test/test.js
   found:
     a: b
     c: /asdf/
   pattern:
     a: asdf
     c: 1
-  at:
-    line: #
-    column: #
-    file: test/test.js
-    function: match
-  stack: |
-    {STACK}
   source: |
     tt.match({ a: 'b', c: /asdf/ }, { a: 'asdf', c: 1 })
+  stack: |
+    {STACK}
   ...
 
 ok 3 - a message
 not ok 4 - should match pattern provided # TODO
   ---
+  at:
+    line: #
+    column: #
+    file: test/test.js
   found:
     a: b
     c: /asdf/
   pattern:
     a: asdf
     c: 1
-  at:
-    line: #
-    column: #
-    file: test/test.js
-    function: match
   source: |
     tt.match({ a: 'b', c: /asdf/ }, { a: 'asdf', c: 1 },
   ...
 
 not ok 5 - should not match pattern provided
   ---
+  at:
+    line: #
+    column: #
+    file: test/test.js
   found:
     a: b
     c: /asdf/
   pattern:
     a: 'function String() { [native code] }'
     c: 'function RegExp() { [native code] }'
-  at:
-    line: #
-    column: #
-    file: test/test.js
-    function: match
-  stack: |
-    {STACK}
   source: |
     tt.notMatch({ a: 'b', c: /asdf/ }, { a: String, c: RegExp })
+  stack: |
+    {STACK}
   ...
 
 ok 6 - should not match pattern provided
 not ok 7 - a message
   ---
+  at:
+    line: #
+    column: #
+    file: test/test.js
   found:
     a: b
     c: /asdf/
   pattern:
     a: 'function String() { [native code] }'
     c: 'function RegExp() { [native code] }'
-  at:
-    line: #
-    column: #
-    file: test/test.js
-    function: match
-  stack: |
-    {STACK}
   source: |
     tt.notMatch({ a: 'b', c: /asdf/ }, { a: String, c: RegExp },
+  stack: |
+    {STACK}
   ...
 
 ok 8 - should not match pattern provided # TODO
@@ -1542,18 +1498,17 @@ exports[`test/test.js TAP assertions and weird stuff type > type 1`] = `
 TAP version 13
 not ok 1 - this fails
   ---
-  found: 'null'
-  wanted: object
-  compare: ===
   at:
     line: #
     column: #
     file: test/test.js
-    function: type
-  stack: |
-    {STACK}
+  compare: ===
+  found: 'null'
   source: |
     tt.type(null, 'object', 'this fails')
+  stack: |
+    {STACK}
+  wanted: object
   ...
 
 ok 2 - type is object
@@ -1561,17 +1516,16 @@ ok 3 - type is number
 ok 4 - type is Test
 not ok 5 - fails, anonymously
   ---
-  found: Object
-  wanted: (anonymous constructor)
   at:
     line: #
     column: #
     file: test/test.js
-    function: type
-  stack: |
-    {STACK}
+  found: Object
   source: |
     tt.type({}, function () {}, 'fails, anonymously')
+  stack: |
+    {STACK}
+  wanted: (anonymous constructor)
   ...
 
 ok 6 - a thing is a thing
@@ -1579,18 +1533,17 @@ ok 7 - arrows are functions
 ok 8 - arrows are functions
 not ok 9 - fail: arrows are not objects
   ---
-  found: function
-  wanted: Object
-  compare: ===
   at:
     line: #
     column: #
     file: test/test.js
-    function: type
-  stack: |
-    {STACK}
+  compare: ===
+  found: function
   source: |
     tt.type(() => {}, Object, 'fail: arrows are not objects')
+  stack: |
+    {STACK}
+  wanted: Object
   ...
 
 ok 10 - type is object
@@ -1618,11 +1571,10 @@ not ok 10 - fail: does not throw actually
     line: #
     column: #
     file: test/test.js
-    function: throws
-  stack: |
-    {STACK}
   source: |
     tt.throws(() => 'doesnt tho', 'fail: does not throw actually')
+  stack: |
+    {STACK}
   ...
 
 ok 11 - expected to throw # SKIP
@@ -1648,12 +1600,11 @@ not ok 5 - fail
     line: #
     column: #
     file: test/test.js
-    function: tt.doesNotThrow
-  stack: |
-    {STACK}
   message: ouch
   source: |
     throw new Error('ouch')
+  stack: |
+    {STACK}
   ...
 
 1..5
@@ -1762,7 +1713,6 @@ not ok 19 - fail: passing promise # {time} {
         line: #
         column: #
         file: test/test.js
-        function: rejects
       found: 420
       source: |
         tt.rejects(new Promise(r => r(420)), 'fail: passing promise')
@@ -1889,8 +1839,6 @@ not ok 1 - expect fail
     line: #
     column: #
     file: test/test.js
-    type: global
-    function: baz
   source: |
     const baz = () => { tt.assertAt = stack.at(); bar() }
   ...
@@ -1904,15 +1852,14 @@ TAP version 13
 1..1
 not ok 1 - expect fail
   ---
-  stack: |
-    {STACK}
   at:
     line: #
     column: #
     file: test/test.js
-    function: baz
   source: |
     const baz = () => { tt.assertStack = stack.captureString(80); bar() }
+  stack: |
+    {STACK}
   ...
 
 # failed 1 test
@@ -1973,16 +1920,15 @@ ok 1 - child # {time}
 
 not ok 2 - catch it in the parent
   ---
-  stack: |
-    {STACK}
   at:
     line: #
     column: #
     file: test/test.js
-    function: Test.tt.test.tt
-  test: child
   source: |
     tt.threw(new Error('catch it in the parent'))
+  stack: |
+    {STACK}
+  test: child
   ...
 
 1..2
@@ -1995,16 +1941,15 @@ TAP version 13
 # Subtest: child
     not ok 1 - poop
       ---
-      stack: |
-        {STACK}
       at:
         line: #
         column: #
         file: test/test.js
-        function: Promise
-      test: child
       source: |
         tt.test('child', () => new Promise((_, r) => r(new Error('poop'))))
+      stack: |
+        {STACK}
+      test: child
       ...
     
     1..1
@@ -2024,16 +1969,15 @@ ok 1 - child # {time}
 
 not ok 2 - fail
   ---
-  stack: |
-    {STACK}
   at:
     line: #
     column: #
     file: test/test.js
-    function: Test.tt.teardown
-  test: child
   source: |
     tt.teardown(() => { throw new Error('fail') })
+  stack: |
+    {STACK}
+  test: child
   ...
 
 1..2
@@ -2166,9 +2110,9 @@ ok 5 - autoend async limit # {time}
 
 not ok 6 - cannot create subtest after parent test end # {time}
   ---
+  autoend: true
   stack: |
     {STACK}
-  autoend: true
   test: autoend async limit
   ...
 
@@ -2185,16 +2129,15 @@ TAP version 13
         # Subtest: misbehaving child
             not ok 1 - test unfinished
               ---
-              stack: |
-                {STACK}
-              test: misbehaving child
               at:
                 line: #
                 column: #
                 file: test/test.js
-                function: Test.tt.test.tt
               source: |
                 tt.test('misbehaving child', () => new Promise(()=>{}))
+              stack: |
+                {STACK}
+              test: misbehaving child
               ...
             
             1..1
@@ -2240,12 +2183,10 @@ TAP version 13
         line: #
         column: #
         file: test/test.js
-        type: Test
-        function: tt.test.tt
-      stack: |
-        {STACK}
       source: |
         tt.fail('not fine')
+      stack: |
+        {STACK}
       ...
     
     Bail out! # not fine
@@ -2316,31 +2257,31 @@ TAP version 13
     not ok 1 - timeout!
       ---
       expired: get lost buf=false
-      timeout: 1
       stack: |
         {STACK}
       test: get lost buf=false
+      timeout: 50
       ...
     
     1..1
     # failed 1 test
 not ok 1 - get lost buf=false # {time}
   ---
-  timeout: 1
+  timeout: 50
   ...
 
 not ok 2 - get lost buf=true # {time}
   ---
-  timeout: 1
+  timeout: 50
   ...
 {
     not ok 1 - timeout!
       ---
       expired: get lost buf=true
-      timeout: 1
       stack: |
         {STACK}
       test: get lost buf=true
+      timeout: 50
       ...
     
     1..1
@@ -2372,12 +2313,12 @@ TAP version 13
     # failed 1 test
 not ok 1 - get lost buf=false # {time}
   ---
-  timeout: 1
+  timeout: 50
   ...
 
 not ok 2 - get lost buf=true # {time}
   ---
-  timeout: 1
+  timeout: 50
   ...
 {
     # Subtest: carry on
@@ -2412,10 +2353,10 @@ ok 1 - work it harder buf=false # {time}
 not ok 2 - timeout! # {time}
   ---
   expired: work it harder buf=false
-  timeout: 1
   stack: |
     {STACK}
   test: work it harder buf=false
+  timeout: 1
   ...
 
 ok 3 - work it harder buf=true # {time} {
@@ -2426,10 +2367,10 @@ ok 3 - work it harder buf=true # {time} {
 not ok 4 - timeout!
   ---
   expired: work it harder buf=true
-  timeout: 1
   stack: |
     {STACK}
   test: work it harder buf=true
+  timeout: 1
   ...
 
 1..4
@@ -2441,6 +2382,10 @@ exports[`test/test.js TAP addAssert > using the custom isUrl assertion 1`] = `
 TAP version 13
 not ok 1 - expect a valid http/https url
   ---
+  at:
+    line: #
+    column: #
+    file: test/test.js
   found:
     protocol: null
     slashes: null
@@ -2459,16 +2404,10 @@ not ok 1 - expect a valid http/https url
     slashes: true
     host: 'function String() { [native code] }'
     path: /^\\/.*$/
-  at:
-    line: #
-    column: #
-    file: test/test.js
-    type: Test
-    function: t.test.t
-  stack: |
-    {STACK}
   source: |
     tt.isUrl('hello is not a url')
+  stack: |
+    {STACK}
   ...
 
 ok 2 - x is a url!

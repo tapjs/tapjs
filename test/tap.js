@@ -1,22 +1,7 @@
 'use strict'
 const node = process.execPath
 
-const clean = out => out
-  .replace(/(^|\n)TAP [0-9]+ /g, '$1TAP {PID} ')
-  .replace(
-    /\n((?:  )+)requests:\n(\1  - type:(.*)\n\1 {4}context:\n(\1 {6}.*\n)+)+/g,
-    '\n$1requests:\n$1  {REQUESTS}\n')
-  .replace(/\bfd: [0-9]+/g, 'fd: {FD}')
-  .replace(/# time=[0-9\.]+m?s( \{.*)?\n/g, '# {time}$1\n')
-  .replace(/\n(( {2})+)stack: \|-?\n((\1  .*).*\n)+/gm,
-    '\n$1stack: |\n$1  {STACK}\n')
-  .replace(/\n(( {2})+)stack: \>-?\n((\1  .*).*\n(\1\n)?)+/gm,
-    '\n$1stack: |\n$1  {STACK}\n')
-  .replace(/(?:\n|^)([a-zA-Z]*Error): (.*)\n((    at .*\n)*)+/gm,
-    '\n$1: $2\n    {STACK}\n')
-  .replace(/:[0-9]+:[0-9]+(\)?\n)/g, '#:#$1')
-  .replace(/(line|column): [0-9]+/g, '$1: #')
-  .split(process.cwd()).join('{CWD}')
+const clean = require('./clean-stacks.js')
 
 const cases = {
   ok: t => t.pass('fine'),
@@ -100,6 +85,7 @@ const cases = {
   'timeout sigterm': t => {
     t.pass('fine')
     process.kill(process.pid, 'SIGTERM')
+    setTimeout(() => {}, 1000)
   },
   'timeout sigterm with handle': t => {
     setTimeout(() => {}, 10000)
@@ -123,9 +109,13 @@ const main = t => {
   const spawn = require('child_process').spawn
   const keys = Object.keys(cases)
   t.plan(keys.length)
+  const env = Object.keys(process.env).reduce((env, k) => {
+    env[k] = env[k] || process.env[k]
+    return env
+  }, { TAP_BAIL: '0', TAP_BUFFER: '0' })
   keys.forEach(k => t.test(k, t => {
     t.plan(3)
-    const c = spawn(node, [__filename, k])
+    const c = spawn(node, [__filename, k], { env: env })
     let out = ''
     c.stdout.on('data', c => out += c)
     let err = ''
