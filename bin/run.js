@@ -113,7 +113,8 @@ const main = _ => {
 }
 
 const constructDefaultArgs = _ => {
-  const defaultTimeout = (global.__coverage__) ? 240 : 30
+  /* istanbul ignore next */
+  const defaultTimeout = global.__coverage__ ? 240 : 30
 
   const defaultArgs = {
     nodeArgs: [],

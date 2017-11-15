@@ -238,12 +238,12 @@ t.test('stdin', t => {
   const tapcode = 'TAP version 13\n1..1\nok\n'
 
   t.test('with output file', t => {
-    const c = run(['-', '-C', '-Rspec', '-ofoo.txt'], { env: {
+    const c = run(['-', '-C', '-Rspec', '-ofoo.txt', '--cov'], { env: {
       _TAP_IS_TTY: '1',
       TAP: '0'
     }}, (er, o, e) => {
       t.equal(er, null)
-      t.equal(e, '')
+      t.equal(e, 'Coverage disabled because stdin cannot be instrumented\n')
       t.match(o, '✓')
       t.equal(fs.readFileSync('foo.txt', 'utf8'), tapcode)
       fs.unlinkSync('foo.txt')
@@ -296,11 +296,9 @@ t.test('unknown arg throws', t => {
 })
 
 t.test('save file')
-t.test('coverage service test, including inferred coverage')
+t.test('coverage service piping')
 t.test('coverage report only')
-t.test('~/.taprc')
 t.test('color, -c -C TAP_COLOR=1')
-t.test('output file')
 t.test('timeouts incl --no-timeout')
 t.test('epipe')
 t.test('parallel sigil files')
