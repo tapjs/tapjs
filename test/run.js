@@ -40,10 +40,10 @@ const run = (args, options, cb) => {
   return execFile(node, [bin].concat(args), options, cb)
 }
 
-const tmpfile = (t, filename, program) => {
+const tmpfile = (t, filename, content) => {
   filename = path.join(dir, filename)
   t.teardown(() => rimraf.sync(filename))
-  fs.writeFileSync(filename, program)
+  fs.writeFileSync(filename, content)
   return path.relative('', filename)
 }
 
@@ -102,15 +102,15 @@ t.test('dump config stuff', t => {
   t.test('shotgun a bunch of option parsing junk', t => {
     run([
       '--dump-config', '-J', '--jobs', '4',
-      '--no-browser', '--no-coverage-report', '--coverage-report', 'html',
-      '--no-cov', '--cov', '--save', 'foo.txt', '--reporter=spec', '--gc',
-      '--strict', '--debug', '--debug-brk', '--harmony', '--node-arg=xyz',
-      '--check-coverage', '--test-arg=xyz', '--test-arg', 'abc', '--100',
-      '--branches=99', '--lines', '100', '--color', '--no-color',
-      '--output-file=out.txt', '--no-timeout', '--timeout', '99', '--invert',
-      '--no-invert', '--grep', 'x', '--grep=/y/i', '--bail', '--no-bail',
-      '--only', '-R', 'spec', '--node-arg', 'abc', '--nyc-arg', 'abc',
-      '-o', 'out.txt'
+      '--no-browser', '--no-coverage-report', '--coverage-report', 'json',
+      '--coverage-report=html', '--no-cov', '--cov', '--save', 'foo.txt',
+      '--reporter=spec', '--gc', '--strict', '--debug', '--debug-brk',
+      '--harmony', '--node-arg=xyz', '--check-coverage', '--test-arg=xyz',
+      '--test-arg', 'abc', '--100', '--branches=99', '--lines', '100',
+      '--color', '--no-color', '--output-file=out.txt', '--no-timeout',
+      '--timeout', '99', '--invert', '--no-invert', '--grep', 'x',
+      '--grep=/y/i', '--bail', '--no-bail', '--only', '-R', 'spec',
+      '--node-arg', 'abc', '--nyc-arg', 'abc', '-o', 'out.txt'
     ], null, (er, o, e) => {
       t.equal(er, null)
       t.same(JSON.parse(o), {
@@ -149,26 +149,142 @@ t.test('dump config stuff', t => {
     })
   })
 
-  t.test('short options as well as short flags')
-  t.test('undefined trailing value opts')
+  t.test('short options as well as short flags', t => {
+    run(['--dump-config','-j2','-Cb','-t=0' ], { env: {
+      TAP: '0'
+    }}, (er, o, e) => {
+      t.equal(er, null)
+      t.match(JSON.parse(o), {
+        bail: true,
+        color: false,
+        reporter: 'tap',
+        jobs: 2,
+        timeout: 0
+      })
+      t.end()
+    })
+  })
+
+  t.test('unknown short opt', t => {
+    run(['-bCx'], null, (er, o, e) => {
+      t.match(er, { code: 1 })
+      t.match(e, 'Unknown argument: -x')
+      t.end()
+    })
+  })
+
+  t.test('undefined trailing value opts', t => {
+    const opts = [
+      '--node-arg',
+      '--test-arg',
+      '--nyc-arg',
+      '--output-file',
+      '--grep'
+    ]
+    const expect = {
+      nodeArgs: [],
+      testArgs: [],
+      nycArgs: [],
+      outputFile: null,
+      grep: []
+    }
+    t.plan(opts.length)
+    opts.forEach(opt => t.test(opt, t => run([
+      '--dump-config', opt
+    ], null, (er, o, e) => {
+      t.equal(er, null)
+      t.match(JSON.parse(o), expect)
+      t.end()
+    })))
+  })
+
+  t.test('good rc file', t => {
+    const rc = tmpfile(t, 'taprc', `
+reporter: spec
+jobs: 3
+`)
+    run(['--dump-config'], { env: {
+      TAP_RCFILE: rc,
+      TAP: 0
+    }}, (er, o, e) => {
+      t.equal(er, null)
+      t.match(JSON.parse(o), {
+        reporter: 'spec',
+        jobs: 3
+      })
+      t.end()
+    })
+  })
+
+  t.test('empty rc file', t => {
+    const rc = tmpfile(t, 'taprc', '')
+    run(['--dump-config'], { env: {
+      TAP_RCFILE: rc,
+      TAP: 0
+    }}, (er, o, e) => {
+      t.equal(er, null)
+      t.match(JSON.parse(o), {
+        reporter: 'classic',
+        jobs: 1
+      })
+      t.end()
+    })
+  })
 
   t.end()
 })
 
-t.test('stdin only', t => {
+t.test('stdin', t => {
   const tapcode = 'TAP version 13\n1..1\nok\n'
-  const c = run(['-', '-C', '-Rspec', '-ofoo.txt'], { env: {
-    _TAP_IS_TTY: '1',
-    TAP: '0'
-  }}, (er, o, e) => {
-    t.equal(er, null)
-    t.equal(e, '')
-    t.match(o, '✓')
-    t.equal(fs.readFileSync('foo.txt', 'utf8'), tapcode)
-    fs.unlinkSync('foo.txt')
-    t.end()
+
+  t.test('with output file', t => {
+    const c = run(['-', '-C', '-Rspec', '-ofoo.txt'], { env: {
+      _TAP_IS_TTY: '1',
+      TAP: '0'
+    }}, (er, o, e) => {
+      t.equal(er, null)
+      t.equal(e, '')
+      t.match(o, '✓')
+      t.equal(fs.readFileSync('foo.txt', 'utf8'), tapcode)
+      fs.unlinkSync('foo.txt')
+      t.end()
+    })
+    c.stdin.end(tapcode)
   })
-  c.stdin.end(tapcode)
+
+  t.test('no output file', t => {
+    const c = run(['-', '--only', '-gx', '-iC', '-Rclassic'], { env: {
+      _TAP_IS_TTY: '1',
+      TAP: '0'
+    }}, (er, o, e) => {
+      t.equal(er, null)
+      t.equal(e, '')
+      t.match(o, /total \.+ 1\/1/)
+      t.throws(() => fs.statSync('foo.txt'))
+      t.end()
+    })
+    c.stdin.end(tapcode)
+  })
+
+  t.test('with file', t => {
+    const foo = tmpfile(t, 'foo.js', `
+      'use strict'
+      require(${tap}).test('child', t => {
+        t.pass('this is fine')
+        t.end()
+      })
+    `)
+    const args = ['-', 'foo.js', '-CRclassic', '-ofoo.txt']
+    const c = run(args, { env: { TAP: 0, TAP_BUFFER: 1 }}, (er, o, e) => {
+      t.equal(er, null)
+      t.matchSnapshot(clean(fs.readFileSync('foo.txt', 'utf8')))
+      t.match(o, /foo.js \.+ 1\/1.*\n\/dev\/stdin \.+ 1\/1\n/)
+      t.end()
+    })
+    c.stdin.end(tapcode)
+  })
+
+  t.end()
 })
 
 t.test('unknown arg throws', t => {

@@ -63,10 +63,9 @@ const main = _ => {
   const rcOptions = parseRcFile(rcFile)
 
   // supplement defaults with parsed rc options
-  if (rcOptions)
-    Object.keys(rcOptions).forEach(function (k) {
-      defaults[k] = rcOptions[k]
-    })
+  Object.keys(rcOptions).forEach(function (k) {
+    defaults[k] = rcOptions[k]
+  })
 
   defaults.rcFile = rcFile
 
@@ -97,6 +96,7 @@ const main = _ => {
   if (options.files.length === 1 && options.files[0] === '-') {
     if (options.coverage)
       console.error('Coverage disabled because stdin cannot be instrumented')
+    setupTapEnv(options)
     stdinOnly(options)
     return
   }
@@ -109,7 +109,6 @@ const main = _ => {
     return respawnWithCoverage(options)
 
   setupTapEnv(options)
-
   runTests(options)
 }
 
@@ -417,6 +416,8 @@ const parseArgs = (args, options) => {
   return options
 }
 
+// Obviously, this bit isn't going to ever be covered, because
+// it only runs when we DON'T have coverage enabled, to enable it.
 /* istanbul ignore next */
 const respawnWithCoverage = options => {
   // console.error('respawn with coverage')
@@ -448,7 +449,6 @@ const pipeToCoverageServices = (options, child) => {
     }
   }
 
-  /* istanbul ignore if */
   if (!piped)
     throw new Error('unknown service, internal error')
 }
@@ -579,9 +579,9 @@ const getReporters = _ => {
 const setupTapEnv = options => {
   process.env.TAP_TIMEOUT = options.timeout
   if (options.color)
-    process.env.TAP_COLORS = 1
+    process.env.TAP_COLORS = '1'
   else
-    process.env.TAP_COLORS = 0
+    process.env.TAP_COLORS = '0'
 
   if (options.bail)
     process.env.TAP_BAIL = '1'
@@ -598,7 +598,7 @@ const setupTapEnv = options => {
 }
 
 const globFiles = files => {
-  return files.reduce(function (acc, f) {
+  return files.reduce((acc, f) => {
     if (f === '-') {
       acc.push(f)
       return acc
@@ -642,7 +642,7 @@ const saveFails = (options, tap) => {
 
   let fails = []
   const successes = []
-  tap.on('result', function (res) {
+  tap.on('result', res => {
     // we will continue to re-run todo tests, even though they're
     // not technically "failures".
     if (!res.ok && !res.extra.skip)
@@ -651,17 +651,7 @@ const saveFails = (options, tap) => {
       successes.push(res.extra.file)
   })
 
-  tap.on('bailout', function (reason) {
-    // add any pending test files to the fails list.
-    fails.push.apply(fails, options.files.filter(function (file) {
-      return successes.indexOf(file) === -1
-    }))
-    save()
-  })
-
-  tap.on('end', save)
-
-  function save () {
+  const save = () => {
     fails = fails.reduce(function (set, f) {
       if (set.indexOf(f) === -1)
         set.push(f)
@@ -677,10 +667,19 @@ const saveFails = (options, tap) => {
         fs.writeFileSync(options.saveFile, fails.join('\n') + '\n')
       } catch (er) {}
   }
+
+  tap.on('bailout', reason => {
+    // add any pending test files to the fails list.
+    fails.push.apply(fails, options.files.filter(file =>
+      successes.indexOf(file) === -1))
+    save()
+  })
+
+  tap.on('end', save)
 }
 
 const filterFiles = (files, saved, parallelOk) => {
-  return files.filter(function (file) {
+  return files.filter(file => {
     if (path.basename(file) === 'tap-parallel-ok')
       parallelOk[path.resolve(path.dirname(file))] = true
     else if (path.basename(file) === 'tap-parallel-not-ok')
