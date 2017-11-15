@@ -63,9 +63,8 @@ const main = _ => {
   const rcOptions = parseRcFile(rcFile)
 
   // supplement defaults with parsed rc options
-  Object.keys(rcOptions).forEach(function (k) {
-    defaults[k] = rcOptions[k]
-  })
+  Object.keys(rcOptions).forEach(k =>
+    defaults[k] = rcOptions[k])
 
   defaults.rcFile = rcFile
 
@@ -75,7 +74,7 @@ const main = _ => {
   if (!options)
     return
 
-  process.stdout.on('error', function (er) {
+  process.stdout.on('error', er => {
     if (er.code === 'EPIPE')
       process.exit()
     else
@@ -434,9 +433,8 @@ const respawnWithCoverage = options => {
   process.env._TAP_COVERAGE_ = '1'
   const child = fg(node, args)
   child.removeAllListeners('close')
-  child.on('close', function (code, signal) {
-    runCoverageReport(options, code, signal)
-  })
+  child.on('close', (code, signal) =>
+    runCoverageReport(options, code, signal))
 }
 
 const pipeToCoverageServices = (options, child) => {
@@ -472,14 +470,10 @@ const pipeToCoverageService = (service, options, child) => {
 
   child.stdout.pipe(ca.stdin)
 
-  ca.on('close', function (code, signal) {
-    if (signal)
-      process.kill(process.pid, signal)
-    else if (code)
-      console.log('Error piping coverage to ' + service.name)
-    else
-      console.log('Successfully piped to ' + service.name)
-  })
+  ca.on('close', (code, signal) =>
+    signal ? process.kill(process.pid, signal)
+    : code ? console.log('Error piping coverage to ' + service.name)
+    : console.log('Successfully piped to ' + service.name))
 }
 
 const runCoverageReport = (options, code, signal) => {
@@ -490,6 +484,14 @@ const runCoverageReport = (options, code, signal) => {
 }
 
 const runCoverageReportOnly = (options, code, signal) => {
+  const close = (s, c) => {
+    if (signal || s) {
+      setTimeout(() => {}, 200)
+      process.kill(process.pid, signal || s)
+    } else if (code || c)
+      process.exit(code || c)
+  }
+
   if (options.coverageReport === false)
     return close(code, signal)
 
@@ -513,23 +515,13 @@ const runCoverageReportOnly = (options, code, signal) => {
     // otherwise just run the reporter
     child = fg(node, args)
     if (options.coverageReport === 'lcov' && options.browser)
-      child.on('exit', function () {
-        opener('coverage/lcov-report/index.html')
-      })
+      child.on('exit', () =>
+        opener('coverage/lcov-report/index.html'))
   }
 
   if (code || signal) {
     child.removeAllListeners('close')
     child.on('close', close)
-  }
-
-  function close (c, s) {
-    if (signal || s) {
-      setTimeout(function () {}, 200)
-      return process.kill(process.pid, signal || s)
-    }
-    if (code || c)
-      return process.exit(code || c)
   }
 }
 
@@ -552,9 +544,8 @@ const runCoverageCheck = (options, code, signal) => {
 
   const child = fg(node, args)
   child.removeAllListeners('close')
-  child.on('close', function (c, s) {
-    runCoverageReportOnly(options, code || c, signal || s)
-  })
+  child.on('close', (c, s) =>
+    runCoverageReportOnly(options, code || c, signal || s))
 }
 
 const usage = _ => fs.readFileSync(__dirname + '/usage.txt', 'utf8')
@@ -566,7 +557,7 @@ const nycHelp = _ => fg(node, [nycBin, '--help'])
 const nycVersion = _ => console.log(require('nyc/package.json').version)
 
 const getReporters = _ => {
-  const types = require('tap-mocha-reporter').types.reduce(function (str, t) {
+  const types = require('tap-mocha-reporter').types.reduce((str, t) => {
     const ll = str.split('\n').pop().length + t.length
     if (ll < 40)
       return str + ' ' + t
@@ -653,7 +644,7 @@ const saveFails = (options, tap) => {
   })
 
   const save = () => {
-    fails = fails.reduce(function (set, f) {
+    fails = fails.reduce((set, f) => {
       if (set.indexOf(f) === -1)
         set.push(f)
       return set
@@ -730,9 +721,8 @@ const runAllFiles = (options, saved, tap) => {
       const args = options.nodeArgs.concat(file).concat(options.testArgs)
       tap.spawn(node, args, opt, file)
     } else if (st.isDirectory()) {
-      const dir = filterFiles(fs.readdirSync(file).map(function (f) {
-        return file + '/' + f
-      }), saved, parallelOk)
+      const dir = filterFiles(fs.readdirSync(file).map(f =>
+        file + '/' + f), saved, parallelOk)
       options.files.push.apply(options.files, dir)
     } else if (isexe.sync(options.files[i]))
       tap.spawn(options.files[i], options.testArgs, opt, file)

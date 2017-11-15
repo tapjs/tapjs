@@ -96,7 +96,11 @@ t.test('dump config stuff', t => {
       '--timeout', '99', '--invert', '--no-invert', '--grep', 'x',
       '--grep=/y/i', '--bail', '--no-bail', '--only', '-R', 'spec',
       '--node-arg', 'abc', '--nyc-arg', 'abc', '-o', 'out.txt'
-    ], null, (er, o, e) => {
+    ], { env: {
+      TAP: '0',
+      TAP_BAIL: '0',
+      _TAP_IS_TTY: '1'
+    }}, (er, o, e) => {
       t.equal(er, null)
       t.same(JSON.parse(o), {
         nodeArgs:
@@ -111,7 +115,7 @@ t.test('dump config stuff', t => {
         testArgs: [ 'xyz', 'abc' ],
         timeout: 99,
         color: false,
-        reporter: 'tap',
+        reporter: 'spec',
         files: [],
         grep: [ /x/, /y/i ],
         grepInvert: false,
@@ -203,9 +207,11 @@ jobs: 3
 
   t.test('empty rc file', t => {
     const rc = tmpfile(t, 'taprc', '')
-    run(['--dump-config'], { env: {
+    run(['--dump-config', '-c'], { env: {
       TAP_RCFILE: rc,
-      TAP: 0
+      TAP: '0',
+      _TAP_IS_TTY: '1',
+      TAP_COLORS: '1'
     }}, (er, o, e) => {
       t.equal(er, null)
       t.match(JSON.parse(o), {
