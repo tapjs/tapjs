@@ -33,6 +33,7 @@ t.test('actual test', t => {
   const ss = new Snapshot(t)
   t.equal(fs.readFileSync(__filename, 'utf8'), ss.read('this file'))
   t.equal('this is fine', ss.read('a statement of acceptance'))
+  t.throws(_ => ss.read('this is not in the file'))
 
   t.comment('saving without snapping anything removes the file')
   const sss = new Snapshot(t)
