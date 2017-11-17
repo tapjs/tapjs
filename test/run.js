@@ -3,7 +3,8 @@ const fs = require('fs')
 const mkdirp = require('mkdirp')
 const rimraf = require('rimraf')
 const path = require('path')
-const execFile = require('child_process').execFile
+const cp = require('child_process')
+const execFile = cp.execFile
 const node = process.execPath
 const bin = require.resolve('../bin/run.js')
 const tap = JSON.stringify(path.join(__dirname, '..') + '/')
@@ -11,6 +12,13 @@ const t = require('../')
 
 const dir = path.join(__dirname, 'cli-tests')
 mkdirp.sync(dir)
+t.teardown(() => rimraf.sync(dir))
+
+// set this forcibly so it doesn't interfere with other tests.
+delete process.env.TAP_DIAG
+delete process.env.TAP_BAIL
+delete process.env.TAP_COLORS
+delete process.env.TAP_TIMEOUT
 
 const clean = require('./clean-stacks.js')
 
@@ -26,8 +34,12 @@ const run = (args, options, cb) => {
 }
 
 const tmpfile = (t, filename, content) => {
+  const parts = filename.split('/')
+  // make any necessary dirs
+  if (parts.length > 1)
+    mkdirp.sync(path.join(dir, parts.slice(0, -1).join('/')))
+  t.teardown(() => rimraf.sync(path.join(dir, parts[0])))
   filename = path.join(dir, filename)
-  t.teardown(() => rimraf.sync(filename))
   fs.writeFileSync(filename, content)
   return path.relative('', filename)
 }
@@ -77,7 +89,7 @@ t.test('usage and other basics', t => {
 
 t.test('basic', t => {
   const ok = tmpfile(t, 'ok.js', `require(${tap}).pass('this is fine')`)
-  run(['-Cb', '--', ok], null, (err, stdout, stderr) => {
+  run(['-Cbt0', '--', ok], null, (err, stdout, stderr) => {
     t.matchSnapshot(clean(stdout), 'ok.js output')
     t.end()
   })
@@ -229,7 +241,7 @@ t.test('stdin', t => {
   const tapcode = 'TAP version 13\n1..1\nok\n'
 
   t.test('with output file', t => {
-    const c = run(['-', '-C', '-Rspec', '-ofoo.txt', '--cov'], { env: {
+    const c = run(['-', '-c', '-Rspec', '-ofoo.txt', '--cov'], { env: {
       _TAP_IS_TTY: '1',
       TAP: '0'
     }}, (er, o, e) => {
@@ -244,12 +256,12 @@ t.test('stdin', t => {
   })
 
   t.test('no output file', t => {
-    const c = run(['-', '--only', '-gx', '-iC', '-Rclassic'], { env: {
+    const c = run(['--only', '-gx', '-iC', '-Rclassic'], { env: {
       _TAP_IS_TTY: '1',
       TAP: '0'
     }}, (er, o, e) => {
       t.equal(er, null)
-      t.equal(e, '')
+      t.equal(e, 'Reading TAP data from stdin (use "-" argument to suppress)\n')
       t.match(o, /total \.+ 1\/1/)
       t.throws(() => fs.statSync('foo.txt'))
       t.end()
@@ -279,6 +291,21 @@ t.test('stdin', t => {
   t.end()
 })
 
+t.test('epipe on stdout', t => {
+  const c = run(['-', '-C'], { stdio: 'pipe' }, (er, o, e) => {
+    t.equal(er, null)
+    t.equal(o, 'TAP version 13\n1..9\nok\n')
+    t.equal(e, '')
+    t.end()
+  })
+  c.stdin.write('TAP version 13\n1..9\nok\n')
+  c.stdout.on('data', chunk => {
+    c.stdout.destroy()
+    c.stdin.write('ok\nok\nok\nok\n')
+    c.stdin.write('ok\nok\nok\nok\n')
+  })
+})
+
 t.test('unknown arg throws', t => {
   run(['--blerg'], null, (er, o, e) => {
     t.match(er, { code: 1 })
@@ -287,10 +314,168 @@ t.test('unknown arg throws', t => {
   })
 })
 
-t.test('save file')
-t.test('coverage service piping')
-t.test('coverage report only')
-t.test('color, -c -C TAP_COLOR=1')
-t.test('timeouts incl --no-timeout')
-t.test('epipe')
-t.test('parallel sigil files')
+t.test('coverage', t => {
+  const cwd = process.cwd()
+  process.chdir(dir)
+  const ok = tmpfile(t, 'ok.js', `'use strict'
+    module.exports = (x, y) => {
+      if (x)
+        return y || x
+      else
+        return y
+    }`)
+
+  tmpfile(t, 'package.json', '{"name":"just a placeholder"}')
+
+  const t1 = tmpfile(t, '1.test.js', `'use strict'
+    const ok = require('./ok.js')
+    require(${tap}).equal(ok(1), 1)`)
+
+  const t2 = tmpfile(t, '2.test.js', `'use strict'
+    const ok = require('./ok.js')
+    require(${tap}).equal(ok(1, 2), 2)`)
+
+  const t3 = tmpfile(t, '3.test.js', `'use strict'
+    const ok = require('./ok.js')
+    require(${tap}).equal(ok(0, 3), 3)`)
+
+  // escape from new york
+  const esc = tmpfile(t, 'runtest.sh',
+`"${node}" "${bin}" "\$@" --cov --nyc-arg=--include="${ok}"
+`)
+
+  const escape = (args, options, cb) => {
+    options = options || {}
+    const env = Object.keys(process.env).filter(
+      k => !/TAP|NYC|SW_ORIG/.test(k)
+    ).reduce((env, k) => {
+      if (!env.hasOwnProperty(k))
+        env[k] = process.env[k]
+      return env
+    }, options.env || {})
+    options.env = env
+    return execFile('bash', [esc].concat(args), options, cb)
+  }
+
+  t.test('--100', t => {
+    t.test('pass', t => {
+      escape([t1, t2, t3, '--100'], null, (er, o, e) => {
+        t.equal(er, null)
+        t.matchSnapshot(clean(o), '100 pass')
+        t.end()
+      })
+    })
+    t.test('fail', t => {
+      escape([t1, t2, '--100'], null, (er, o, e) => {
+        t.match(er, { code: 1 })
+        t.matchSnapshot(clean(o), '100 fail')
+        t.end()
+      })
+    })
+    t.end()
+  })
+
+  t.test('report only', t => {
+    escape(['--coverage-report=text-lcov'], null, (er, o, e) => {
+      t.equal(er, null)
+      t.matchSnapshot(clean(o), 'lcov output')
+      t.end()
+    })
+  })
+
+  t.test('report with checks', t => {
+    escape(['--100', '--coverage-report=text-lcov'], null, (er, o, e) => {
+      t.match(er, { code: 1 })
+      t.matchSnapshot(clean(o), 'lcov output and 100 check')
+      t.end()
+    })
+  })
+
+  t.test('pipe to service', t => {
+    escape(['--coverage-report=text-lcov'], { env: {
+      COVERAGE_SERVICE_TEST: 'true'
+    }}, (er, o, e) => {
+      t.equal(er, null)
+      t.matchSnapshot(clean(o), 'piped to coverage service cat')
+      t.end()
+    })
+  })
+
+  t.end()
+})
+
+t.test('save file', t => {
+  const xy1 = tmpfile(t, 'x/y/1.js', `'use strict'
+    const t = require(${tap})
+    t.pass('one')
+  `)
+
+  const ab2 = tmpfile(t, 'a/b/2.js', `'use strict'
+    const t = require(${tap})
+    t.pass('2')
+  `)
+
+  const abf1 = tmpfile(t, 'a/b/f1.js', `'use strict'
+    require(${tap}).fail('a/b')
+  `)
+
+  const abf2 = tmpfile(t, 'a/b/f2.js', `'use strict'
+    require(${tap}).fail('c/d')
+  `)
+
+  const savefile = path.resolve(tmpfile(t, 'fails.txt', ''))
+
+  t.test('with bailout, should save all untested', t => {
+    run(['a', 'x', '-s', savefile, '-b'], { cwd: dir }, (er, o, e) => {
+      t.match(er, { code: 1 })
+      t.matchSnapshot(clean(o), 'stdout')
+      t.equal(e, '')
+      t.matchSnapshot(clean(fs.readFileSync(savefile, 'utf8')), 'savefile')
+      t.end()
+    })
+  })
+
+  t.test('without bailout, run untested, save failures', t => {
+    run(['a', 'x', '-s', savefile], { cwd: dir }, (er, o, e) => {
+      t.match(er, { code: 1 })
+      t.matchSnapshot(clean(o), 'stdout')
+      t.equal(e, '')
+      t.matchSnapshot(clean(fs.readFileSync(savefile, 'utf8')), 'savefile')
+      t.end()
+    })
+  })
+
+  t.test('make fails pass', t => {
+    fs.writeFileSync(abf1, `'use strict'
+      require(${tap}).pass('fine now')
+    `)
+    fs.writeFileSync(abf2, `'use strict'
+      require(${tap}).pass('fine now too')
+    `)
+    t.end()
+  })
+
+  t.test('pass, empty save file', t => {
+    run(['a', 'x', '-s', savefile], { cwd: dir }, (er, o, e) => {
+      t.equal(er, null)
+      t.matchSnapshot(clean(o), 'stdout')
+      t.equal(e, '')
+      t.throws(() => fs.statSync(savefile), 'save file is gone')
+      t.end()
+    })
+  })
+
+  t.test('empty save file, run all tests', t => {
+    run(['a', 'x', '-s', savefile], { cwd: dir }, (er, o, e) => {
+      t.equal(er, null)
+      t.matchSnapshot(clean(o), 'stdout')
+      t.equal(e, '')
+      t.throws(() => fs.statSync(savefile), 'save file is gone')
+      t.end()
+    })
+  })
+
+  t.end()
+})
+
+t.test('parallel')

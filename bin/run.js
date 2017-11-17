@@ -25,10 +25,13 @@ const coverageServiceTest = process.env.COVERAGE_SERVICE_TEST === 'true'
 /* istanbul ignore next */
 if (process.env._TAP_COVERAGE_ === '1')
   global.__coverage__ = global.__coverage__ || {}
+else if (process.env._TAP_COVERAGE_ === '0') {
+  global.__coverage__ = null
+  Object.keys(process.env).filter(k => /NYC/.test(k)).forEach(k =>
+    process.env[k] = '')
+}
 
-// console.error(process.argv.join(' '))
-// console.error('CST=%j', process.env.COVERAGE_SERVICE_TEST)
-// console.error('CRT=%j', process.env.COVERALLS_REPO_TOKEN)
+/* istanbul ignore next */
 if (coverageServiceTest)
   console.log('COVERAGE_SERVICE_TEST')
 
@@ -45,7 +48,6 @@ const coverageServices = [
     name: 'Coveralls'
   }
 ]
-
 
 const main = _ => {
   const args = process.argv.slice(2)
@@ -75,6 +77,7 @@ const main = _ => {
     return
 
   process.stdout.on('error', er => {
+    /* istanbul ignore else */
     if (er.code === 'EPIPE')
       process.exit()
     else
@@ -83,6 +86,8 @@ const main = _ => {
 
   options.files = globFiles(options.files)
 
+  // this is only testable by escaping from the covered environment
+  /* istanbul ignore next */
   if ((options.coverageReport || options.checkCoverage) &&
       options.files.length === 0)
     return runCoverageReport(options)
@@ -102,10 +107,10 @@ const main = _ => {
 
   // By definition, the next block cannot be covered, because
   // they are only relevant when coverage is turned off.
-
-  /* istanbul ignore if */
-  if (options.coverage && !global.__coverage__)
+  /* istanbul ignore next */
+  if (options.coverage && !global.__coverage__) {
     return respawnWithCoverage(options)
+  }
 
   setupTapEnv(options)
   runTests(options)
@@ -420,7 +425,6 @@ const parseArgs = (args, options) => {
 // it only runs when we DON'T have coverage enabled, to enable it.
 /* istanbul ignore next */
 const respawnWithCoverage = options => {
-  // console.error('respawn with coverage')
   // Re-spawn with coverage
   const args = [nycBin].concat(
     '--silent',
@@ -437,11 +441,10 @@ const respawnWithCoverage = options => {
     runCoverageReport(options, code, signal))
 }
 
+/* istanbul ignore next */
 const pipeToCoverageServices = (options, child) => {
-  // console.error('pipe to services')
   let piped = false
   for (let i = 0; i < coverageServices.length; i++) {
-    // console.error('pipe to service?', coverageServices[i].env)
     if (process.env[coverageServices[i].env]) {
       pipeToCoverageService(coverageServices[i], options, child)
       piped = true
@@ -452,12 +455,11 @@ const pipeToCoverageServices = (options, child) => {
     throw new Error('unknown service, internal error')
 }
 
+/* istanbul ignore next */
 const pipeToCoverageService = (service, options, child) => {
-  // console.error('pipe to service yes', service.env)
   let bin = service.bin
 
   if (coverageServiceTest) {
-    // console.error('use fakey test bin')
     // test scaffolding.
     // don't actually send stuff to the service
     bin = require.resolve('../test/fixtures/cat.js')
@@ -476,6 +478,7 @@ const pipeToCoverageService = (service, options, child) => {
     : console.log('Successfully piped to ' + service.name))
 }
 
+/* istanbul ignore next */
 const runCoverageReport = (options, code, signal) => {
   if (options.checkCoverage)
     runCoverageCheck(options, code, signal)
@@ -483,6 +486,7 @@ const runCoverageReport = (options, code, signal) => {
     runCoverageReportOnly(options, code, signal)
 }
 
+/* istanbul ignore next */
 const runCoverageReportOnly = (options, code, signal) => {
   const close = (s, c) => {
     if (signal || s) {
@@ -503,12 +507,10 @@ const runCoverageReportOnly = (options, code, signal) => {
   }
 
   const args = [nycBin, 'report', '--reporter', options.coverageReport]
-  // console.error('run coverage report', args)
 
   let child
   // automatically hook into coveralls
   if (options.coverageReport === 'text-lcov' && options.pipeToService) {
-    // console.error('pipeToService')
     child = spawn(node, args, { stdio: [ 0, 'pipe', 2 ] })
     pipeToCoverageServices(options, child)
   } else {
@@ -525,6 +527,7 @@ const runCoverageReportOnly = (options, code, signal) => {
   }
 }
 
+/* istanbul ignore next */
 const coverageCheckArgs = options => {
   const args = []
   if (options.branches)
@@ -539,6 +542,7 @@ const coverageCheckArgs = options => {
   return args
 }
 
+/* istanbul ignore next */
 const runCoverageCheck = (options, code, signal) => {
   const args = [nycBin, 'check-coverage'].concat(coverageCheckArgs(options))
 
@@ -589,20 +593,8 @@ const setupTapEnv = options => {
     process.env.TAP_ONLY = '1'
 }
 
-const globFiles = files => {
-  return files.reduce((acc, f) => {
-    if (f === '-') {
-      acc.push(f)
-      return acc
-    }
-
-    // glob claims patterns MUST not include any '\'s
-    if (!/\\/.test(f))
-      f = glob.sync(f) || f
-
-    return acc.concat(f)
-  }, [])
-}
+const globFiles = files => files.reduce((acc, f) =>
+  acc.concat(f === '-' ? f : glob.sync(f, { nonull: true })), [])
 
 const makeReporter = options =>
   new (require('tap-mocha-reporter'))(options.reporter)
@@ -670,16 +662,26 @@ const saveFails = (options, tap) => {
   tap.on('end', save)
 }
 
-const filterFiles = (files, saved, parallelOk) => {
-  return files.filter(file => {
+const filterFiles = (files, saved, parallelOk) =>
+  files.filter(file => {
     if (path.basename(file) === 'tap-parallel-ok')
       parallelOk[path.resolve(path.dirname(file))] = true
     else if (path.basename(file) === 'tap-parallel-not-ok')
       parallelOk[path.resolve(path.dirname(file))] = false
     else
-      return saved === null || saved.indexOf(file) !== -1
+      return saved === null || onSavedList(saved, file)
   })
-}
+
+// check if the file is on the list, or if it's a parent dir of
+// any items that are on the list.
+const onSavedList = (saved, file) =>
+  !saved || !saved.length ? true
+  : file === path.dirname(file) ? false
+  : saved.indexOf(file) !== -1 ? true
+  : onSavedList(saved.filter(
+    f => f !== path.dirname(f)).map(
+    f => path.dirname(f)
+  ), file)
 
 const isParallelOk = (parallelOk, file) => {
   const dir = path.resolve(path.dirname(file))

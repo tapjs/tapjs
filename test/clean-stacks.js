@@ -45,8 +45,12 @@ module.exports = out => out
   .replace(/\n( +)method: .*(\n\1  .*)*\n/g, '\n')
   .replace(/\n( +)type: .*\n/g, '\n')
 
+  // timeout values are different when coverage is present
+  .replace(/\n( *)timeout: (30000|240000)(\n|$)/g, '$1timeout: {default}$3')
+
   // fix references to cwd
   .split(process.cwd()).join('{CWD}')
+  .split(require('path').resolve(__dirname, '..')).join('{TAPDIR}')
 
 // nothing to see here
 if (module === require.main)
