@@ -179,6 +179,7 @@ const parseArgs = (args, options) => {
   // If we're running under Travis-CI with a Coveralls.io token,
   // then it's a safe bet that we ought to output coverage.
   for (let i = 0; i < coverageServices.length && !options.pipeToService; i++) {
+    /* istanbul ignore next */
     if (process.env[coverageServices[i].env])
       options.pipeToService = true
   }
@@ -614,7 +615,9 @@ const stdinOnly = options => {
 const readSaveFile = options => {
   if (options.saveFile)
     try {
-      return fs.readFileSync(options.saveFile, 'utf8').trim().split('\n')
+      const s = fs.readFileSync(options.saveFile, 'utf8').trim()
+      if (s)
+        return s.split('\n')
     } catch (er) {}
 
   return null
@@ -637,6 +640,7 @@ const saveFails = (options, tap) => {
 
   const save = () => {
     fails = fails.reduce((set, f) => {
+      f = f.replace(/\\/g, '/')
       if (set.indexOf(f) === -1)
         set.push(f)
       return set
@@ -663,25 +667,20 @@ const saveFails = (options, tap) => {
 }
 
 const filterFiles = (files, saved, parallelOk) =>
-  files.filter(file => {
-    if (path.basename(file) === 'tap-parallel-ok')
-      parallelOk[path.resolve(path.dirname(file))] = true
-    else if (path.basename(file) === 'tap-parallel-not-ok')
+  files.filter(file =>
+    path.basename(file) === 'tap-parallel-ok' ?
+      ((parallelOk[path.resolve(path.dirname(file))] = true), false)
+    : path.basename(file) === 'tap-parallel-not-ok' ?
       parallelOk[path.resolve(path.dirname(file))] = false
-    else
-      return saved === null || onSavedList(saved, file)
-  })
+    : onSavedList(saved, file)
+  )
 
 // check if the file is on the list, or if it's a parent dir of
 // any items that are on the list.
 const onSavedList = (saved, file) =>
   !saved || !saved.length ? true
-  : file === path.dirname(file) ? false
   : saved.indexOf(file) !== -1 ? true
-  : onSavedList(saved.filter(
-    f => f !== path.dirname(f)).map(
-    f => path.dirname(f)
-  ), file)
+  : saved.some(f => f.indexOf(file + '/') === 0)
 
 const isParallelOk = (parallelOk, file) => {
   const dir = path.resolve(path.dirname(file))
@@ -716,18 +715,19 @@ const runAllFiles = (options, saved, tap) => {
       opt.timeout = options.timeout * 1000
 
     opt.file = file
-    if (options.jobs > 1)
-      opt.buffered = isParallelOk(parallelOk, file) !== false
-
-    if (file.match(/\.js$/)) {
-      const args = options.nodeArgs.concat(file).concat(options.testArgs)
-      tap.spawn(node, args, opt, file)
-    } else if (st.isDirectory()) {
+    if (st.isDirectory()) {
       const dir = filterFiles(fs.readdirSync(file).map(f =>
         file + '/' + f), saved, parallelOk)
       options.files.push.apply(options.files, dir)
-    } else if (isexe.sync(options.files[i]))
-      tap.spawn(options.files[i], options.testArgs, opt, file)
+    } else {
+      if (options.jobs > 1)
+        opt.buffered = isParallelOk(parallelOk, file) !== false
+      if (file.match(/\.js$/)) {
+        const args = options.nodeArgs.concat(file).concat(options.testArgs)
+        tap.spawn(node, args, opt, file)
+      } else if (isexe.sync(options.files[i]))
+        tap.spawn(options.files[i], options.testArgs, opt, file)
+    }
   }
 
   if (doStdin)

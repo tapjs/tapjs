@@ -2,6 +2,7 @@
 const fs = require('fs')
 const mkdirp = require('mkdirp')
 const rimraf = require('rimraf')
+// const rimraf = { sync: () => {} }
 const path = require('path')
 const cp = require('child_process')
 const execFile = cp.execFile
@@ -38,7 +39,12 @@ const tmpfile = (t, filename, content) => {
   // make any necessary dirs
   if (parts.length > 1)
     mkdirp.sync(path.join(dir, parts.slice(0, -1).join('/')))
-  t.teardown(() => rimraf.sync(path.join(dir, parts[0])))
+  if (t.tmpfiles)
+    t.tmpfiles.push(path.join(dir, parts[0]))
+  else {
+    t.tmpfiles = [path.join(dir, parts[0])]
+    t.teardown(() => t.tmpfiles.forEach(f => rimraf.sync(f)))
+  }
   filename = path.join(dir, filename)
   fs.writeFileSync(filename, content)
   return path.relative('', filename)
@@ -317,6 +323,7 @@ t.test('unknown arg throws', t => {
 t.test('coverage', t => {
   const cwd = process.cwd()
   process.chdir(dir)
+  t.teardown(() => process.chdir(cwd))
   const ok = tmpfile(t, 'ok.js', `'use strict'
     module.exports = (x, y) => {
       if (x)
@@ -419,14 +426,14 @@ t.test('save file', t => {
     require(${tap}).fail('a/b')
   `)
 
-  const abf2 = tmpfile(t, 'a/b/f2.js', `'use strict'
+  const abf2 = tmpfile(t, 'z.js', `'use strict'
     require(${tap}).fail('c/d')
   `)
 
   const savefile = path.resolve(tmpfile(t, 'fails.txt', ''))
 
   t.test('with bailout, should save all untested', t => {
-    run(['a', 'x', '-s', savefile, '-b'], { cwd: dir }, (er, o, e) => {
+    run(['a', 'x', 'z.js', '-s', savefile, '-b'], { cwd: dir }, (er, o, e) => {
       t.match(er, { code: 1 })
       t.matchSnapshot(clean(o), 'stdout')
       t.equal(e, '')
@@ -436,7 +443,7 @@ t.test('save file', t => {
   })
 
   t.test('without bailout, run untested, save failures', t => {
-    run(['a', 'x', '-s', savefile], { cwd: dir }, (er, o, e) => {
+    run(['a', 'x', 'z.js', '-s', savefile], { cwd: dir }, (er, o, e) => {
       t.match(er, { code: 1 })
       t.matchSnapshot(clean(o), 'stdout')
       t.equal(e, '')
@@ -456,7 +463,7 @@ t.test('save file', t => {
   })
 
   t.test('pass, empty save file', t => {
-    run(['a', 'x', '-s', savefile], { cwd: dir }, (er, o, e) => {
+    run(['a', 'x', 'z.js', '-s', savefile], { cwd: dir }, (er, o, e) => {
       t.equal(er, null)
       t.matchSnapshot(clean(o), 'stdout')
       t.equal(e, '')
@@ -466,7 +473,7 @@ t.test('save file', t => {
   })
 
   t.test('empty save file, run all tests', t => {
-    run(['a', 'x', '-s', savefile], { cwd: dir }, (er, o, e) => {
+    run(['a', 'x', 'z.js', '-s', savefile], { cwd: dir }, (er, o, e) => {
       t.equal(er, null)
       t.matchSnapshot(clean(o), 'stdout')
       t.equal(e, '')
@@ -478,4 +485,100 @@ t.test('save file', t => {
   t.end()
 })
 
-t.test('parallel')
+t.test('parallel', t => {
+  // should see start, start, end, end, in the output
+  tmpfile(t, 'p/y/1.js', `'use strict'
+    console.error('start')
+    setTimeout(() => console.error('end'), 100)
+    const t = require(${tap})
+    t.pass('one')
+  `)
+
+  tmpfile(t, 'p/y/2.js', `'use strict'
+    console.error('start')
+    setTimeout(() => console.error('end'), 100)
+    const t = require(${tap})
+    t.pass('2')
+  `)
+
+  tmpfile(t, 'p/tap-parallel-not-ok', '')
+  tmpfile(t, 'p/y/tap-parallel-ok', '')
+
+  tmpfile(t, 'q/b/f1.js', `'use strict'
+    require(${tap}).pass('a/b')
+    setTimeout(() => console.error('f1'), 100)
+  `)
+
+  tmpfile(t, 'q/b/f2.js', `'use strict'
+    require(${tap}).pass('c/d')
+    console.error('f2')
+  `)
+
+  tmpfile(t, 'q/tap-parallel-ok', '')
+  tmpfile(t, 'q/b/tap-parallel-not-ok', '')
+
+  tmpfile(t, 'r/y/1.js', `'use strict'
+    console.error('ry1')
+    setTimeout(() => console.error('ry1'), 100)
+    const t = require(${tap})
+    t.pass('one')
+  `)
+
+  tmpfile(t, 'r/y/2.js', `'use strict'
+    console.error('ry2')
+    setTimeout(() => console.error('ry2'), 100)
+    const t = require(${tap})
+    t.pass('2')
+  `)
+
+  tmpfile(t, 'r/tap-parallel-not-ok', '')
+
+  tmpfile(t, 'z/y/1.js', `'use strict'
+    console.error('start')
+    setTimeout(() => console.error('end'), 100)
+    const t = require(${tap})
+    t.pass('one')
+  `)
+
+  tmpfile(t, 'z/y/2.js', `'use strict'
+    console.error('start')
+    setTimeout(() => console.error('end'), 100)
+    const t = require(${tap})
+    t.pass('2')
+  `)
+
+  run(['p/y/*.js', 'q', 'r/y', 'z', '-j2'], { cwd: dir }, (er, o, e) => {
+    t.equal(er, null)
+    t.matchSnapshot(clean(o), 'output')
+    t.equal(e,
+      'start\nstart\nend\nend\n' +
+      'ry1\nry1\nry2\nry2\n' +
+      'f1\nf2\n' +
+      'start\nstart\nend\nend\n'
+    )
+    t.end()
+  })
+})
+
+t.test('executables', {
+  todo: process.platform === 'win32' ?
+    'port the shell scripts to equivalent CMD files' : false
+}, t => {
+  const ok = tmpfile(t, 'exe/ok.sh', `#!/bin/sh
+    echo 1..1
+    echo ok 1 File with executable bit should be executed
+  `)
+  fs.chmodSync(ok, 0o755)
+  const notok = tmpfile(t, 'exe/notok.sh', `!#/bin/sh
+    echo 1..1
+    echo not ok 1 File without executable bit should not be run
+    exit 1
+  `)
+  fs.chmodSync(notok, 0o644)
+  run(['exe', '-C'], { cwd: dir }, (er, o, e) => {
+    t.equal(er, null)
+    t.matchSnapshot(clean(o))
+    t.equal(e, '')
+    t.end()
+  })
+})
