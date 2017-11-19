@@ -2,12 +2,12 @@ TAP version 13
 # Subtest: child
     not ok 1 - test unfinished
       ---
-      {"at":{"column":3,"file":"test/test/teardown-throw-autocomplete.js","line":14},"source":"t.test('child', function (t) {\n","test":"child"}
+      {"at":{"column":3,"file":"test-legacy/test/teardown-throw-autocomplete.js","line":14},"source":"t.test('child', function (t) {\n","test":"child"}
       ...
     
     not ok 2 - afterEach
       ---
-      {"at":{"column":9,"file":"test/test/teardown-throw-autocomplete.js","line":11},"source":"throw new Error('afterEach')\n","test":"child"}
+      {"at":{"column":9,"file":"test-legacy/test/teardown-throw-autocomplete.js","line":11},"source":"throw new Error('afterEach')\n","test":"child"}
       ...
     
     1..2
@@ -16,7 +16,7 @@ not ok 1 - child ___/# time=[0-9.]+(ms)?/~~~
 
 not ok 2 - child teardown
   ---
-  {"at":{"column":11,"file":"test/test/teardown-throw-autocomplete.js","line":16},"source":"throw new Error('child teardown')\n","test":"child"}
+  {"at":{"column":11,"file":"test-legacy/test/teardown-throw-autocomplete.js","line":16},"source":"throw new Error('child teardown')\n","test":"child"}
   ...
 
 1..2

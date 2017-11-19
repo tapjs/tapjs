@@ -17,12 +17,12 @@ ok 4 - rejected without cb ___/# time=[0-9.]+(ms)?/~~~
 
 not ok 5 - expected error
   ---
-  {"at":{"column":34,"file":"test/test/promise-return-mocha.js","line":31},"source":"setTimeout(reject.bind(null, new Error('expected error'), 150))\n","test":"rejected"}
+  {"at":{"column":34,"file":"test-legacy/test/promise-return-mocha.js","line":31},"source":"setTimeout(reject.bind(null, new Error('expected error'), 150))\n","test":"rejected"}
   ...
 
 not ok 6 - expected error
   ---
-  {"at":{"column":34,"file":"test/test/promise-return-mocha.js","line":37},"source":"setTimeout(reject.bind(null, new Error('expected error'), 150))\n","test":"rejected without cb"}
+  {"at":{"column":34,"file":"test-legacy/test/promise-return-mocha.js","line":37},"source":"setTimeout(reject.bind(null, new Error('expected error'), 150))\n","test":"rejected without cb"}
   ...
 
 1..6

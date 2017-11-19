@@ -11,7 +11,7 @@ before 2 grandchild
 after 2 grandchild
             not ok 2 - this is fine
               ---
-              {"at":{"column":16,"file":"test/test/before-after-each-throw.js","line":22},"source":"var er = new Error('this is fine')\n","test":"grandchild"}
+              {"at":{"column":16,"file":"test-legacy/test/before-after-each-throw.js","line":22},"source":"var er = new Error('this is fine')\n","test":"grandchild"}
               ...
             
             Bail out! # this is fine

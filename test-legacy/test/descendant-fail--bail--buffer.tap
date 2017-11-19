@@ -6,7 +6,7 @@ not ok 1 - parent ___/# time=[0-9.]+(ms)?/~~~ {
         1..1
         not ok 1 - nope
           ---
-          {"at":{"column":7,"file":"test/test/descendant-fail.js","line":7},"source":"t.fail('nope')\n"}
+          {"at":{"column":7,"file":"test-legacy/test/descendant-fail.js","line":7},"source":"t.fail('nope')\n"}
           ...
         
         Bail out! # nope

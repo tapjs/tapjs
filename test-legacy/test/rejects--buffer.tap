@@ -12,7 +12,7 @@ ok 2 - pwner promise: Error pwn ___/# time=[0-9.]+(ms)?/~~~ {
 not ok 3 - owner promise: Error own ___/# time=[0-9.]+(ms)?/~~~ {
     not ok 1 - owner promise: Error own
       ---
-      {"at":{"column":3,"file":"test/test/rejects.js","line":16},"found":{"message":"pwn","name":"Error"},"pattern":{"message":"own","name":"Error"},"source":"t.rejects('owner promise', function () {\n","wanted":{"message":"own","name":"Error"}}
+      {"at":{"column":3,"file":"test-legacy/test/rejects.js","line":16},"found":{"message":"pwn","name":"Error"},"pattern":{"message":"own","name":"Error"},"source":"t.rejects('owner promise', function () {\n","wanted":{"message":"own","name":"Error"}}
       ...
     
     1..1
@@ -22,7 +22,7 @@ not ok 3 - owner promise: Error own ___/# time=[0-9.]+(ms)?/~~~ {
 not ok 4 - expect rejected Promise: Error own ___/# time=[0-9.]+(ms)?/~~~ {
     not ok 1 - expect rejected Promise: Error own
       ---
-      {"at":{"column":3,"file":"test/test/rejects.js","line":22},"found":{"message":"pwn","name":"Error"},"pattern":{"message":"own","name":"Error"},"source":"t.rejects(\n","wanted":{"message":"own","name":"Error"}}
+      {"at":{"column":3,"file":"test-legacy/test/rejects.js","line":22},"found":{"message":"pwn","name":"Error"},"pattern":{"message":"own","name":"Error"},"source":"t.rejects(\n","wanted":{"message":"own","name":"Error"}}
       ...
     
     1..1
@@ -32,7 +32,7 @@ not ok 4 - expect rejected Promise: Error own ___/# time=[0-9.]+(ms)?/~~~ {
 not ok 5 - resolved promise: Error own ___/# time=[0-9.]+(ms)?/~~~ {
     not ok 1 - resolved promise: Error own
       ---
-      {"at":{"column":3,"file":"test/test/rejects.js","line":28},"found":10,"source":"t.rejects('resolved promise', function () {\n","wanted":{"message":"own","name":"Error"}}
+      {"at":{"column":3,"file":"test-legacy/test/rejects.js","line":28},"found":10,"source":"t.rejects('resolved promise', function () {\n","wanted":{"message":"own","name":"Error"}}
       ...
     
     1..1
@@ -42,7 +42,7 @@ not ok 5 - resolved promise: Error own ___/# time=[0-9.]+(ms)?/~~~ {
 not ok 6 - expect rejected Promise: Error own ___/# time=[0-9.]+(ms)?/~~~ {
     not ok 1 - expect rejected Promise: Error own
       ---
-      {"at":{"column":3,"file":"test/test/rejects.js","line":34},"found":10,"source":"t.rejects(\n","wanted":{"message":"own","name":"Error"}}
+      {"at":{"column":3,"file":"test-legacy/test/rejects.js","line":34},"found":10,"source":"t.rejects(\n","wanted":{"message":"own","name":"Error"}}
       ...
     
     1..1
@@ -62,7 +62,7 @@ ok 8 - expect rejected Promise: Error pwn ___/# time=[0-9.]+(ms)?/~~~ {
 not ok 9 - expect rejected Promise: Error own ___/# time=[0-9.]+(ms)?/~~~ {
     not ok 1 - expect rejected Promise: Error own
       ---
-      {"at":{"column":3,"file":"test/test/rejects.js","line":52},"found":{"message":"pwn","name":"Error"},"pattern":{"message":"own","name":"Error"},"source":"t.rejects(function () {\n","wanted":{"message":"own","name":"Error"}}
+      {"at":{"column":3,"file":"test-legacy/test/rejects.js","line":52},"found":{"message":"pwn","name":"Error"},"pattern":{"message":"own","name":"Error"},"source":"t.rejects(function () {\n","wanted":{"message":"own","name":"Error"}}
       ...
     
     1..1
@@ -72,7 +72,7 @@ not ok 9 - expect rejected Promise: Error own ___/# time=[0-9.]+(ms)?/~~~ {
 not ok 10 - expect rejected Promise: Error own ___/# time=[0-9.]+(ms)?/~~~ {
     not ok 1 - expect rejected Promise: Error own
       ---
-      {"at":{"column":3,"file":"test/test/rejects.js","line":58},"found":{"message":"pwn","name":"Error"},"pattern":{"message":"own","name":"Error"},"source":"t.rejects(\n","wanted":{"message":"own","name":"Error"}}
+      {"at":{"column":3,"file":"test-legacy/test/rejects.js","line":58},"found":{"message":"pwn","name":"Error"},"pattern":{"message":"own","name":"Error"},"source":"t.rejects(\n","wanted":{"message":"own","name":"Error"}}
       ...
     
     1..1
@@ -82,7 +82,7 @@ not ok 10 - expect rejected Promise: Error own ___/# time=[0-9.]+(ms)?/~~~ {
 not ok 11 - expect rejected Promise: Error own ___/# time=[0-9.]+(ms)?/~~~ {
     not ok 1 - expect rejected Promise: Error own
       ---
-      {"at":{"column":3,"file":"test/test/rejects.js","line":64},"found":10,"source":"t.rejects(function () {\n","wanted":{"message":"own","name":"Error"}}
+      {"at":{"column":3,"file":"test-legacy/test/rejects.js","line":64},"found":10,"source":"t.rejects(function () {\n","wanted":{"message":"own","name":"Error"}}
       ...
     
     1..1
@@ -92,7 +92,7 @@ not ok 11 - expect rejected Promise: Error own ___/# time=[0-9.]+(ms)?/~~~ {
 not ok 12 - expect rejected Promise: Error own ___/# time=[0-9.]+(ms)?/~~~ {
     not ok 1 - expect rejected Promise: Error own
       ---
-      {"at":{"column":3,"file":"test/test/rejects.js","line":70},"found":10,"source":"t.rejects(\n","wanted":{"message":"own","name":"Error"}}
+      {"at":{"column":3,"file":"test-legacy/test/rejects.js","line":70},"found":10,"source":"t.rejects(\n","wanted":{"message":"own","name":"Error"}}
       ...
     
     1..1
@@ -107,7 +107,7 @@ ok 13 - a ___/# time=[0-9.]+(ms)?/~~~ {
 not ok 14 - b ___/# time=[0-9.]+(ms)?/~~~ {
     not ok 1 - b
       ---
-      {"at":{"column":3,"file":"test/test/rejects.js","line":78},"found":{"message":"foo","name":"Error"},"pattern":{"message":"bar"},"source":"t.rejects(prom, { message: 'bar' }, 'b')\n"}
+      {"at":{"column":3,"file":"test-legacy/test/rejects.js","line":78},"found":{"message":"foo","name":"Error"},"pattern":{"message":"bar"},"source":"t.rejects(prom, { message: 'bar' }, 'b')\n"}
       ...
     
     1..1

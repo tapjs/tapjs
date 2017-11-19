@@ -6,7 +6,7 @@ TAP version 13
             ok 1 - ok
             not ok 2 - test unfinished
               ---
-              {"at":{"column":14,"file":"test/test/unfinished-promise.js","line":4},"source":"return t.test('grandchild', function (t) {\n","test":"grandchild"}
+              {"at":{"column":14,"file":"test-legacy/test/unfinished-promise.js","line":4},"source":"return t.test('grandchild', function (t) {\n","test":"grandchild"}
               ...
             
             Bail out! # test unfinished

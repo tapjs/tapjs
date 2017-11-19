@@ -10,7 +10,7 @@ ok 1 - exceed_plan_sync ___/# time=[0-9.]+(ms)?/~~~
 
 not ok 2 - test count exceeds plan
   ---
-  {"at":{"column":7,"file":"test/test/catch-tap-throws.js","line":12},"plan":1,"source":"t.pass(2)\n","test":"exceed_plan_sync"}
+  {"at":{"column":7,"file":"test-legacy/test/catch-tap-throws.js","line":12},"plan":1,"source":"t.pass(2)\n","test":"exceed_plan_sync"}
   ...
 
 21
@@ -54,7 +54,7 @@ ok 7 - assert_after_end_sync ___/# time=[0-9.]+(ms)?/~~~
 
 not ok 8 - test after end() was called
   ---
-  {"at":{"column":7,"file":"test/test/catch-tap-throws.js","line":74},"plan":1,"source":"t.pass(8)\n","test":"assert_after_end_sync"}
+  {"at":{"column":7,"file":"test-legacy/test/catch-tap-throws.js","line":74},"plan":1,"source":"t.pass(8)\n","test":"assert_after_end_sync"}
   ...
 
 61
@@ -68,7 +68,7 @@ ok 9 - assert_after_end_async ___/# time=[0-9.]+(ms)?/~~~
 23
 not ok 10 - test count exceeds plan ___/# time=[0-9.]+(ms)?/~~~
   ---
-  {"at":{"column":9,"file":"test/test/catch-tap-throws.js","line":28},"plan":1,"source":"t.pass(4)\n","test":"exceed_plan_async"}
+  {"at":{"column":9,"file":"test-legacy/test/catch-tap-throws.js","line":28},"plan":1,"source":"t.pass(4)\n","test":"exceed_plan_async"}
   ...
 
 24
@@ -82,7 +82,7 @@ not ok 11 - test end() method called more than once ___/# time=[0-9.]+(ms)?/~~~
 63
 not ok 12 - test after end() was called ___/# time=[0-9.]+(ms)?/~~~
   ---
-  {"at":{"column":9,"file":"test/test/catch-tap-throws.js","line":91},"plan":1,"source":"t.pass(10)\n","test":"assert_after_end_async"}
+  {"at":{"column":9,"file":"test-legacy/test/catch-tap-throws.js","line":91},"plan":1,"source":"t.pass(10)\n","test":"assert_after_end_async"}
   ...
 
 64

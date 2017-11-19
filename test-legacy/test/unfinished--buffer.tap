@@ -4,7 +4,7 @@ not ok 1 - t1 ___/# time=[0-9.]+(ms)?/~~~ {
         1..1
         not ok 1 - test unfinished
           ---
-          {"at":{"column":5,"file":"test/test/unfinished.js","line":4},"source":"t.test('t11', function (t) {\n","test":"t11"}
+          {"at":{"column":5,"file":"test-legacy/test/unfinished.js","line":4},"source":"t.test('t11', function (t) {\n","test":"t11"}
           ...
         
         # failed 1 test
@@ -19,7 +19,7 @@ ok 2 - 1 === 1
 ok 3 - expect truthy value
 not ok 4 - failsome
   ---
-  {"at":{"column":5,"file":"test/test/unfinished.js","line":23},"hoo":"hah","source":"tap.fail('failsome', { hoo: 'hah' })\n"}
+  {"at":{"column":5,"file":"test-legacy/test/unfinished.js","line":23},"hoo":"hah","source":"tap.fail('failsome', { hoo: 'hah' })\n"}
   ...
 
 not ok 5 - child test left in queue: t.spawn spawny

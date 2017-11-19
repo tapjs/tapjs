@@ -8,7 +8,7 @@ TAP version 13
         ok 1 - i am planning big things
         not ok 2 - test unfinished
           ---
-          {"at":{"column":5,"file":"test/test/plan-too-many.js","line":7},"source":"t.test('grandchild', function (tt) {\n","test":"grandchild"}
+          {"at":{"column":5,"file":"test-legacy/test/plan-too-many.js","line":7},"source":"t.test('grandchild', function (tt) {\n","test":"grandchild"}
           ...
         
         # test count(2) != plan(8)

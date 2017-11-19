@@ -13,7 +13,7 @@ TAP version 13
             ok 2 - this passes
             not ok 3 - nested failure
               ---
-              {"at":{"column":10,"file":"test/test/spawn.js","line":18},"compare":"===","found":1,"source":"tt.equal(1, '1', 'nested failure')\n","wanted":"1"}
+              {"at":{"column":10,"file":"test-legacy/test/spawn.js","line":18},"compare":"===","found":1,"source":"tt.equal(1, '1', 'nested failure')\n","wanted":"1"}
               ...
             
             1..3
@@ -26,7 +26,7 @@ TAP version 13
     ok 2 - this passes
     not ok 3 - this fails
       ---
-      {"at":{"column":3,"file":"test/test/spawn.js","line":32},"source":"t.fail('this fails')\n"}
+      {"at":{"column":3,"file":"test-legacy/test/spawn.js","line":32},"source":"t.fail('this fails')\n"}
       ...
     
     # Subtest: async kid
@@ -34,7 +34,7 @@ TAP version 13
         ok 1 - second timeout
         not ok 2 - first timeout
           ---
-          {"at":{"column":7,"file":"test/test/spawn.js","line":37,"method":"_onTimeout"},"foo":"blz","source":"t.ok(false, 'first timeout', { foo: 'blz' })\n"}
+          {"at":{"column":7,"file":"test-legacy/test/spawn.js","line":37,"method":"_onTimeout"},"foo":"blz","source":"t.ok(false, 'first timeout', { foo: 'blz' })\n"}
           ...
         
         # failed 1 of 2 tests
@@ -62,7 +62,7 @@ not ok 1 - ___/.*(node(js)?|iojs)(.exe)?.*/~~~spawn.js child ___/# time=[0-9.]+(
         ok 2 - this passes
         not ok 3 - nested failure
           ---
-          {"at":{"column":10,"file":"test/test/spawn.js","line":18},"compare":"===","found":1,"source":"tt.equal(1, '1', 'nested failure')\n","wanted":"1"}
+          {"at":{"column":10,"file":"test-legacy/test/spawn.js","line":18},"compare":"===","found":1,"source":"tt.equal(1, '1', 'nested failure')\n","wanted":"1"}
           ...
         
         1..3
@@ -75,7 +75,7 @@ not ok 2 - nesting ___/# time=[0-9.]+(ms)?/~~~
 ok 3 - this passes
 not ok 4 - this fails
   ---
-  {"at":{"column":3,"file":"test/test/spawn.js","line":32},"source":"t.fail('this fails')\n"}
+  {"at":{"column":3,"file":"test-legacy/test/spawn.js","line":32},"source":"t.fail('this fails')\n"}
   ...
 
 # Subtest: async kid
@@ -83,7 +83,7 @@ not ok 4 - this fails
     ok 1 - second timeout
     not ok 2 - first timeout
       ---
-      {"at":{"column":7,"file":"test/test/spawn.js","line":37,"method":"_onTimeout"},"foo":"blz","source":"t.ok(false, 'first timeout', { foo: 'blz' })\n"}
+      {"at":{"column":7,"file":"test-legacy/test/spawn.js","line":37,"method":"_onTimeout"},"foo":"blz","source":"t.ok(false, 'first timeout', { foo: 'blz' })\n"}
       ...
     
     # failed 1 of 2 tests

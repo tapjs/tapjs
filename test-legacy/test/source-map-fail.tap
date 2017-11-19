@@ -5,7 +5,7 @@ TAP version 13
         1..1
         not ok 1 - fail
           ---
-          {"at":{"column":7,"file":"test/test/source-map-fail.coffee","line":7},"source":"t.fail 'fail'\n"}
+          {"at":{"column":7,"file":"test/test/source-map-fail.coffee","line":7}}
           ...
         
         # failed 1 test

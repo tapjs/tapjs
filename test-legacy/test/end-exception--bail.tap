@@ -7,7 +7,7 @@ ok 1 ___/# time=[0-9.]+(ms)?/~~~
 
 not ok 2 - beep
   ---
-  {"at":{"column":11,"file":"test/test/end-exception.js","line":8},"source":"throw new Error('beep')\n"}
+  {"at":{"column":11,"file":"test-legacy/test/end-exception.js","line":8},"source":"throw new Error('beep')\n"}
   ...
 
 Bail out! # beep

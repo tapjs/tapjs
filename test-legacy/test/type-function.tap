@@ -4,17 +4,17 @@ ok 2 - type is Function
 ok 3 - type is Function
 not ok 4 - type is Object
   ---
-  {"at":{"column":3,"file":"test/test/type-function.js","line":5},"compare":"===","found":"function","source":"t.type(t.type, Object)\n","wanted":"Object"}
+  {"at":{"column":3,"file":"test-legacy/test/type-function.js","line":5},"compare":"===","found":"function","source":"t.type(t.type, Object)\n","wanted":"Object"}
   ...
 
 not ok 5 - type is Object
   ---
-  {"at":{"column":3,"file":"test/test/type-function.js","line":6},"compare":"===","found":"function","source":"t.type(function () {}, Object)\n","wanted":"Object"}
+  {"at":{"column":3,"file":"test-legacy/test/type-function.js","line":6},"compare":"===","found":"function","source":"t.type(function () {}, Object)\n","wanted":"Object"}
   ...
 
 not ok 6 - type is Object
   ---
-  {"at":{"column":3,"file":"test/test/type-function.js","line":7},"compare":"===","found":"function","source":"t.type(new Function(), Object)\n","wanted":"Object"}
+  {"at":{"column":3,"file":"test-legacy/test/type-function.js","line":7},"compare":"===","found":"function","source":"t.type(new Function(), Object)\n","wanted":"Object"}
   ...
 
 1..6

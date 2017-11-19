@@ -5,7 +5,7 @@ not ok 1 - gp ___/# time=[0-9.]+(ms)?/~~~ {
         1..1
         not ok 1 - fail
           ---
-          {"at":{"column":7,"file":"test/test/not-ok-nested.js","line":7},"source":"t.fail('fail')\n"}
+          {"at":{"column":7,"file":"test-legacy/test/not-ok-nested.js","line":7},"source":"t.fail('fail')\n"}
           ...
         
         # failed 1 test

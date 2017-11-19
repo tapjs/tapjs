@@ -463,7 +463,7 @@ const pipeToCoverageService = (service, options, child) => {
   if (coverageServiceTest) {
     // test scaffolding.
     // don't actually send stuff to the service
-    bin = require.resolve('../test/fixtures/cat.js')
+    bin = require.resolve('../test-legacy/fixtures/cat.js')
     console.log('%s:%s', service.name, process.env[service.env])
   }
 

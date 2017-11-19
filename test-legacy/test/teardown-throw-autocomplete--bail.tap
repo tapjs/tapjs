@@ -2,7 +2,7 @@ TAP version 13
 # Subtest: child
     not ok 1 - test unfinished
       ---
-      {"at":{"column":3,"file":"test/test/teardown-throw-autocomplete.js","line":14},"source":"t.test('child', function (t) {\n","test":"child"}
+      {"at":{"column":3,"file":"test-legacy/test/teardown-throw-autocomplete.js","line":14},"source":"t.test('child', function (t) {\n","test":"child"}
       ...
     
     Bail out! # test unfinished

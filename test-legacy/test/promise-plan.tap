@@ -32,7 +32,7 @@ ok 3 - three ___/# time=[0-9.]+(ms)?/~~~
         ok 1 - this is fine
     not ok 2 - wtf
       ---
-      {"at":{"column":13,"file":"test/test/promise-plan.js","line":45},"source":"throw new Error('wtf')\n","test":"end()"}
+      {"at":{"column":13,"file":"test-legacy/test/promise-plan.js","line":45},"source":"throw new Error('wtf')\n","test":"end()"}
       ...
     
     # failed 1 of 2 tests
@@ -45,7 +45,7 @@ not ok 4 - broken promises ___/# time=[0-9.]+(ms)?/~~~
     not ok 1 - child test left in queue: t.test plan
     not ok 2 - wtf
       ---
-      {"at":{"column":15,"file":"test/test/promise-plan.js","line":63},"source":"throw new Error('wtf')\n","test":"end()"}
+      {"at":{"column":15,"file":"test-legacy/test/promise-plan.js","line":63},"source":"throw new Error('wtf')\n","test":"end()"}
       ...
     
     not ok 3 - test after end() was called

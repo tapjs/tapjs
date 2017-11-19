@@ -12,7 +12,7 @@ before 2 grandchild
 after 2 grandchild
             not ok 2 - this is fine
               ---
-              {"at":{"column":23,"file":"test/test/before-after-each-promise.js","line":28},"source":"return reject(new Error('this is fine'))\n","test":"grandchild"}
+              {"at":{"column":23,"file":"test-legacy/test/before-after-each-promise.js","line":28},"source":"return reject(new Error('this is fine'))\n","test":"grandchild"}
               ...
             
             1..2

@@ -9,7 +9,7 @@ ok 1 - expect truthy value
     
     not ok 3 - pwnSync
       ---
-      {"at":{"column":11,"file":"test/test/throws-and-plans.js","line":10},"source":"throw new Error('pwnSync')\n","test":"sync thrower"}
+      {"at":{"column":11,"file":"test-legacy/test/throws-and-plans.js","line":10},"source":"throw new Error('pwnSync')\n","test":"sync thrower"}
       ...
     
     Bail out! # pwnSync

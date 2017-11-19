@@ -8,8 +8,8 @@ var ok = require.resolve('./test/ok.js')
 var notok = require.resolve('./test/not-ok.js')
 var colorRe = new RegExp('\u001b\\[[0-9;]+m') // eslint-disable-line
 var bailRe = new RegExp('^Bail out! # this is not ok$', 'm')
-var okre = new RegExp('test[\\\\/]test[/\\\\]ok\\.js \\.+ 10/10( [0-9\.]+m?s)?$', 'm')
-var notokre = new RegExp('test[\\\\/]test[/\\\\]not-ok\\.js \\.+ 0/[12]( [0-9\.]+m?s)?$', 'm')
+var okre = new RegExp('[\\\\/]test[/\\\\]ok\\.js \\.+ 10/10( [0-9\.]+m?s)?$', 'm')
+var notokre = new RegExp('[\\\\/]test[/\\\\]not-ok\\.js \\.+ 0/[12]( [0-9\.]+m?s)?$', 'm')
 var fs = require('fs')
 var which = require('which')
 

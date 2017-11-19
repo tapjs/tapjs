@@ -4,7 +4,7 @@ TAP version 13
     ok 1 - passing_thrower
     not ok 2 - failing_thrower
       ---
-      {"at":{"column":5,"file":"test/test/throws.js","line":9},"found":"test","pattern":"/fasdfsadf/","source":"t.throws(function failing_thrower () {\n"}
+      {"at":{"column":5,"file":"test-legacy/test/throws.js","line":9},"found":"test","pattern":"/fasdfsadf/","source":"t.throws(function failing_thrower () {\n"}
       ...
     
     Bail out! # failing_thrower

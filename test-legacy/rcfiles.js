@@ -72,10 +72,10 @@ function runTest (rcFile, expect) { return function (t) {
 t.test('parseRcFile', function (t) {
   t.test('nonexistent rc file uses defaults', runTest('./does/not/exist', {}))
   t.test('invalid rc file uses defaults',
-         runTest('./test/fixtures/invalid-rc-file.yml', {}))
+         runTest('./test-legacy/fixtures/invalid-rc-file.yml', {}))
 
   t.test('parses when valid yaml',
-    runTest('./test/fixtures/valid-rc-file.yml', {
+    runTest('./test-legacy/fixtures/valid-rc-file.yml', {
       timeout: 9999,
       coverage: false,
       coverageReport: false,
