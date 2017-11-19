@@ -95,7 +95,7 @@ t.test('usage and other basics', t => {
 
 t.test('basic', t => {
   const ok = tmpfile(t, 'ok.js', `require(${tap}).pass('this is fine')`)
-  run(['-Cbt0', '--', ok], null, (err, stdout, stderr) => {
+  run(['-Cbt0', '--', 'doesnt exist', ok], null, (err, stdout, stderr) => {
     t.matchSnapshot(clean(stdout), 'ok.js output')
     t.end()
   })

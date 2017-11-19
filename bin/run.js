@@ -710,7 +710,13 @@ const runAllFiles = (options, saved, tap) => {
       continue
     }
 
-    const st = fs.statSync(options.files[i])
+    let st
+    try {
+      st = fs.statSync(file)
+    } catch (er) {
+      continue
+    }
+
     if (options.timeout)
       opt.timeout = options.timeout * 1000
 
