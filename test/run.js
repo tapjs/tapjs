@@ -120,7 +120,7 @@ t.test('dump config stuff', t => {
       _TAP_IS_TTY: '1'
     }}, (er, o, e) => {
       t.equal(er, null)
-      t.same(JSON.parse(o), {
+      t.match(JSON.parse(o), {
         nodeArgs:
          [ '--expose-gc',
            '--use_strict',
@@ -135,11 +135,11 @@ t.test('dump config stuff', t => {
         color: false,
         reporter: 'spec',
         files: [],
-        grep: [ /x/, /y/i ],
+        grep: [ Object, Object ],
         grepInvert: false,
         bail: false,
         saveFile: 'foo.txt',
-        pipeToService: false,
+        pipeToService: Boolean,
         coverageReport: 'lcov',
         browser: false,
         coverage: true,
@@ -150,7 +150,7 @@ t.test('dump config stuff', t => {
         statements: 100,
         jobs: 4,
         outputFile: 'out.txt',
-        rcFile: path.resolve(process.env.HOME, '.taprc'),
+        rcFile: /\.taprc$/,
         only: true })
       t.end()
     })
@@ -267,7 +267,7 @@ t.test('stdin', t => {
       TAP: '0'
     }}, (er, o, e) => {
       t.equal(er, null)
-      t.equal(e, 'Reading TAP data from stdin (use "-" argument to suppress)\n')
+      t.match(e, /^Reading TAP data from stdin \(use "-" argument to suppress\)\n/)
       t.match(o, /total \.+ 1\/1/)
       t.throws(() => fs.statSync('foo.txt'))
       t.end()
@@ -301,7 +301,6 @@ t.test('epipe on stdout', t => {
   const c = run(['-', '-C'], { stdio: 'pipe' }, (er, o, e) => {
     t.equal(er, null)
     t.equal(o, 'TAP version 13\n1..9\nok\n')
-    t.equal(e, '')
     t.end()
   })
   c.stdin.write('TAP version 13\n1..9\nok\n')

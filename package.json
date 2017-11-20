@@ -53,7 +53,7 @@
   "scripts": {
     "regen-fixtures": "node scripts/generate-test-test.js test-legacy/test/*.js",
     "snap": "TAP_SNAPSHOT=1 node bin/run.js test/*.js",
-    "test": "node bin/run.js test/*.js --100 -J --nyc-arg=--include={lib,bin}",
+    "test": "node bin/run.js test/*.js --100 -J --nyc-arg=--include={lib,bin} -c",
     "test-all": "node bin/run.js test/*.js test-legacy/*.js --100 -J --nyc-arg=--include={lib,bin}",
     "unit": "bash scripts/unit.sh",
     "test-legacy": "node bin/run.js test-legacy/*.* --coverage -t3600 --nyc-arg=--include={lib,bin}",
