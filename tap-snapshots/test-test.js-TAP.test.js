@@ -1755,7 +1755,12 @@ ok 4 - passing promise fn # {time} {
 not ok 5 - fail: no promise # {time} {
     not ok 1 - fail: no promise
       ---
-      at: {}
+      at:
+        line: #
+        column: #
+        file: test/test.js
+      source: |
+        tt.resolves(() => {}, 'fail: no promise')
       ...
     
     1..1
@@ -1784,7 +1789,12 @@ ok 3 - promise # {time} {
 not ok 4 - promise fn # {time} {
     not ok 1 - promise fn
       ---
-      at: {}
+      at:
+        line: #
+        column: #
+        file: test/test.js
+      source: |
+        tt.resolveMatch(() => new Promise(r => r(420)), 420, 'promise fn')
       ...
     
     1..1
@@ -1794,7 +1804,12 @@ not ok 4 - promise fn # {time} {
 not ok 5 - fail: no promise # {time} {
     not ok 1 - fail: no promise
       ---
-      at: {}
+      at:
+        line: #
+        column: #
+        file: test/test.js
+      source: |
+        tt.resolveMatch(() => {}, {}, 'fail: no promise')
       ...
     
     1..1
