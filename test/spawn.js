@@ -35,7 +35,7 @@ const main = () => {
     const s = new Spawn({
       command: node,
       args: [ file, 'catch-term' ],
-      timeout: 500,
+      timeout: process.env.CI ? 2000 : 500,
       buffered: true,
       name: 'killa'
     })
@@ -190,7 +190,7 @@ switch (process.argv[2]) {
   case 'catch-term':
     process.on('SIGTERM', _ => console.log('SIGTERM'))
   case 'timeout':
-    setTimeout(_ => _, 5000)
+    setTimeout(_ => _, process.env.CI ? 50000 : 5000)
     break
 
   default:
