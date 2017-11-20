@@ -150,7 +150,7 @@ t.test('dump config stuff', t => {
         statements: 100,
         jobs: 4,
         outputFile: 'out.txt',
-        rcFile: '/Users/isaacs/.taprc',
+        rcFile: path.resolve(process.env.HOME, '.taprc'),
         only: true })
       t.end()
     })
