@@ -106,7 +106,7 @@ share them, you will probably enjoy this test library.
    "suite" and a "subtest".  Fancy DSLs are pretty, but more to
    remember.
 
-   That being said, if the you returns a Promise, or use a DSL that
+   That being said, if you return a Promise, or use a DSL that
    throws a decorated error, then the test framework should Just Work
    in a way that helps a human being understand the situation.
 
