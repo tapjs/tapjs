@@ -27,12 +27,14 @@ t.rejects(
 
 t.rejects('resolved promise', function () {
   return new Promise(function (resolve, reject) {
+    // @ts-ignore
     resolve(10)
   })
 }, new Error('own'))
 
 t.rejects(
   new Promise(function (resolve, reject) {
+    // @ts-ignore
     resolve(10)
   }),
   new Error('own'))
@@ -69,6 +71,7 @@ t.rejects(function () {
 
 t.rejects(
   new Promise(function (resolve, reject) {
+    // @ts-ignore
     resolve(10)
   }),
   new Error('own'))

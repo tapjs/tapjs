@@ -14,6 +14,7 @@ var fs = require('fs')
 var which = require('which')
 
 t.test('version', function (t) {
+  // @ts-ignore
   var version = require('../package.json').version
   function versionTest (arg) {
     return function (t) {

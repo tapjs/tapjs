@@ -15,6 +15,7 @@ var which = require('which')
 
 t.test('--nyc stuff', function (t) {
   t.test('--nyc-version', function (t) {
+    // @ts-ignore
     var expect = require('nyc/package.json').version + '\n'
     execFile(node, [run, '--nyc-version'], function (err, stdout, stderr) {
       if (err) {

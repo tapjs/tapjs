@@ -22,6 +22,7 @@ var Test = t.Test
 var ok = require.resolve('./test/ok.js')
 
 t.test('handle throws from spawn()', function (t) {
+  // @ts-ignore
   throwNow = new Error('now is fine')
 
   var output = ''
@@ -41,6 +42,7 @@ t.test('handle throws from spawn()', function (t) {
 })
 
 t.test('handle child process error event', function (t) {
+  // @ts-ignore
   throwLater = new Error('later is fine')
 
   var output = ''

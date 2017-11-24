@@ -1,3 +1,4 @@
+// @ts-nocheck
 // We're simulating that some test failed in `using-require-hook.faux`
 // which was compiled to a js module with more lines than the file on disk.
 var Module = require('module')

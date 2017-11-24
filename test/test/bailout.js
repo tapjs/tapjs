@@ -31,4 +31,5 @@ t.pass('pass after async kid')
 
 t.end()
 
+// @ts-ignore
 t.pipe(process.stdout)

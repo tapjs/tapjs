@@ -17,8 +17,8 @@ var args = [
 args.forEach(function (arg) {
   t.test(arg, function (t) {
     try { fs.unlinkSync('file.txt') } catch (er) {}
-    arg = arg.split(' ')
-    var child = spawn(node, [run, '-c', ok].concat(arg))
+    var arglist = arg.split(' ')
+    var child = spawn(node, [run, '-c', ok].concat(arglist))
     var gotStdout = false
     child.stdout.on('data', function (c) {
       gotStdout = true

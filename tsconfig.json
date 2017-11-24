@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "noImplicitAny": false,
+        "allowJs": true,
+        "checkJs": true,
+        "outDir": "/tmp/taptest",
+        "types": ["node"],
+        "module": "commonjs",
+        "target": "es2015",
+        "allowUnreachableCode": true
+    },
+    "include": [
+        "test/*.js",
+        "test/*.ts",
+        "test/**/*.js",
+        "test/**/*.ts"
+    ],
+    "exclude": [
+        "lib/*.js",
+        "node_modules/**/*.ts"
+    ]
+}

@@ -7,6 +7,7 @@ var dir = __dirname + '/test/'
 var path = require('path')
 var yaml = require('js-yaml')
 
+// @ts-ignore
 process.env.TAP_BUFFER = 1
 // don't turn on parallelization for `npm test`, because it also
 // has coverage and this makes the spawn timeouts stuff break.
@@ -53,7 +54,7 @@ function runTests (file, bail, buffer) {
     buffs = [ true, false ]
   }
 
-  var skip = false
+  var skip = ''
   if (file.match(/\b(timeout.*|pending-handles)\.js$/)) {
     if (process.env.TRAVIS) {
       skip = 'timeout and handles tests too timing dependent for Travis'
@@ -116,14 +117,14 @@ function runTest (t, bail, buffer, file) {
     }
   })
 
-  var found = ''
+  var found_str = ''
 
   child.stdout.setEncoding('utf8')
   child.stdout.on('data', function (c) {
-    found += c
+    found_str += c
   })
   child.on('close', function (er) {
-    found = found.split(/\r?\n/)
+    var found = found_str.split(/\r?\n/)
     var inyaml = false
     var startlen = 0
     var y = ''

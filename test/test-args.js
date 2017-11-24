@@ -22,6 +22,7 @@ function runTest (args, expect) {
 
 function c (obj, props) {
   return Object.keys(obj).reduce(function (p, k) {
+    // @ts-ignore
     if (!k in p)
       p[k] = obj[k]
     return p
