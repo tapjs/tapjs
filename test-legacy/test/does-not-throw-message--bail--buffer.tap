@@ -1,0 +1,8 @@
+TAP version 13
+not ok 1 - expected to not throw
+  ---
+  {"at":{"column":9,"file":"test-legacy/test/does-not-throw-message.js","line":3},"message":"this is a type of error","source":"throw new TypeError('this is a type of error')\n","type":"TypeError"}
+  ...
+
+Bail out! # expected to not throw
+

@@ -1,0 +1,14 @@
+TAP version 13
+1..1
+# Subtest: parent
+    1..1
+    # Subtest: child
+        1..1
+        not ok 1 - nope
+          ---
+          {"at":{"column":7,"file":"test-legacy/test/descendant-fail.js","line":7},"source":"t.fail('nope')\n"}
+          ...
+        
+        Bail out! # nope
+Bail out! # nope
+

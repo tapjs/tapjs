@@ -1,0 +1,26 @@
+TAP version 13
+ok 1 - not much ___/# time=[0-9.]+(ms)?/~~~ {
+    ok 1 - always passes # SKIP skip it good
+    not ok 2 - false # SKIP always fails
+    ok 3 - bonus # TODO remove todo directive
+    not ok 4 - expected # TODO implement a thing
+      ---
+      {"at":{"column":5,"file":"test-legacy/test/assert-todo-skip.js","line":7},"source":"t.ok(false, 'expected', {todo: 'implement a thing'})\n"}
+      ...
+    
+    ok 5 - always passes without explanation # SKIP
+    not ok 6 - false without explanation # SKIP
+    ok 7 - bonus without explanation # TODO
+    not ok 8 - expected without explanation # TODO
+      ---
+      {"at":{"column":5,"file":"test-legacy/test/assert-todo-skip.js","line":11},"source":"t.ok(false, 'expected without explanation', {todo: true})\n"}
+      ...
+    
+    1..8
+    # todo: 4
+    # skip: 4
+}
+
+1..1
+___/# time=[0-9.]+(ms)?/~~~
+

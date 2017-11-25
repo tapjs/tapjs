@@ -1,0 +1,20 @@
+TAP version 13
+# Subtest: nesting
+    1..2
+    # Subtest: first
+        1..2
+        ok 1 - true is ok
+        ok 2 - doag is also okay
+    ok 1 - first ___/# time=[0-9.]+(ms)?/~~~
+    
+    # Subtest: second
+        ok 1 - but that is ok
+        ok 2 - this passes
+        not ok 3 - nested failure
+          ---
+          {"at":{"column":10,"file":"test-legacy/test/nesting.js","line":14},"compare":"===","found":1,"source":"tt.equal(1, '1', 'nested failure')\n","wanted":"1"}
+          ...
+        
+        Bail out! # nested failure
+Bail out! # nested failure
+

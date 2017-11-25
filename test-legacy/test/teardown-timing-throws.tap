@@ -1,0 +1,49 @@
+TAP version 13
+############## step1 startup
+# Subtest: step1
+    1..0
+ok 1 - step1 ___/# time=[0-9.]+(ms)?/~~~
+
+############## step1 teardown
+############## step2 startup
+# Subtest: step2
+    1..0
+ok 2 - step2 ___/# time=[0-9.]+(ms)?/~~~
+
+############## step2 teardown
+############## step3 startup
+# Subtest: step3
+    1..0
+ok 3 - step3 ___/# time=[0-9.]+(ms)?/~~~
+
+############## step3 teardown
+############## step4 startup
+# Subtest: step4
+    1..0
+ok 4 - step4 ___/# time=[0-9.]+(ms)?/~~~
+
+############## step4 teardown
+not ok 5 - ############## step1 teardown
+  ---
+  {"at":{"column":11,"file":"test-legacy/test/teardown-timing-throws.js","line":7},"source":"throw new Error('############## step1 teardown')\n","test":"step1"}
+  ...
+
+not ok 6 - ############## step1 teardown
+  ---
+  {"at":{"column":11,"file":"test-legacy/test/teardown-timing-throws.js","line":16},"source":"throw new Error('############## step1 teardown')\n","test":"step2"}
+  ...
+
+not ok 7 - ############## step3 teardown
+  ---
+  {"at":{"column":11,"file":"test-legacy/test/teardown-timing-throws.js","line":25},"source":"throw new Error('############## step3 teardown')\n","test":"step3"}
+  ...
+
+not ok 8 - ############## step1 teardown
+  ---
+  {"at":{"column":11,"file":"test-legacy/test/teardown-timing-throws.js","line":34},"source":"throw new Error('############## step1 teardown')\n","test":"step4"}
+  ...
+
+1..8
+# failed 4 of 8 tests
+___/# time=[0-9.]+(ms)?/~~~
+

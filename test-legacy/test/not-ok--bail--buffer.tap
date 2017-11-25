@@ -1,0 +1,8 @@
+TAP version 13
+not ok 1 - this is not ok
+  ---
+  {"at":{"column":3,"file":"test-legacy/test/not-ok.js","line":3},"source":"t.fail('this is not ok')\n"}
+  ...
+
+Bail out! # this is not ok
+

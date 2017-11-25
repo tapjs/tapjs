@@ -1,0 +1,13 @@
+TAP version 13
+# Subtest: child
+    not ok 1 - test unfinished
+      ---
+      {"at":{"column":3,"file":"test-legacy/test/teardown-throw-autocomplete.js","line":14},"source":"t.test('child', function (t) {\n","test":"child"}
+      ...
+    
+    Bail out! # test unfinished
+Bail out! # test unfinished
+Error: TAP teardown
+>>some stack junk<<
+{ name: 'TAP', autoend: true, test: 'TAP' }
+

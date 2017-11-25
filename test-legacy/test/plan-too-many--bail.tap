@@ -1,0 +1,16 @@
+TAP version 13
+# Subtest: children plan too big
+    1..9
+    ok 1 - this is ok
+    ok 2 - i am ok with how this is proceeding
+    # Subtest: grandchild
+        1..8
+        ok 1 - i am planning big things
+        not ok 2 - test unfinished
+          ---
+          {"at":{"column":5,"file":"test-legacy/test/plan-too-many.js","line":7},"source":"t.test('grandchild', function (tt) {\n","test":"grandchild"}
+          ...
+        
+        Bail out! # test unfinished
+Bail out! # test unfinished
+

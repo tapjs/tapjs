@@ -1,0 +1,24 @@
+TAP version 13
+ok 1 - auto-end on resolve ___/# time=[0-9.]+(ms)?/~~~ {
+    1..0
+}
+
+ok 2 - auto-end on resolve without cb ___/# time=[0-9.]+(ms)?/~~~ {
+    1..0
+}
+
+ok 3 - rejected ___/# time=[0-9.]+(ms)?/~~~ {
+    1..0
+}
+
+ok 4 - rejected without cb ___/# time=[0-9.]+(ms)?/~~~ {
+    1..0
+}
+
+not ok 5 - expected error
+  ---
+  {"at":{"column":34,"file":"test-legacy/test/promise-return-mocha.js","line":31},"source":"setTimeout(reject.bind(null, new Error('expected error'), 150))\n","test":"rejected"}
+  ...
+
+Bail out! # expected error
+

@@ -1,0 +1,15 @@
+TAP version 13
+not ok 1 - should match pattern provided
+  ---
+  {"at":{"column":3,"file":"test-legacy/test/sparse-array.js","line":3},"found":[1,null,3],"pattern":[1,2,3],"source":"t.similar([1,, 3], [1, 2, 3]) // eslint-disable-line\n"}
+  ...
+
+not ok 2 - should match pattern provided
+  ---
+  {"at":{"column":3,"file":"test-legacy/test/sparse-array.js","line":4},"found":[1,null,null],"pattern":[1,2,3],"source":"t.similar([1,,,], [1, 2, 3]) // eslint-disable-line\n"}
+  ...
+
+1..2
+# failed 2 of 2 tests
+___/# time=[0-9.]+(ms)?/~~~
+

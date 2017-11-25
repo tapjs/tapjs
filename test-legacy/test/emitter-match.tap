@@ -1,0 +1,15 @@
+TAP version 13
+# Subtest: check ee matches
+    not ok 1 - should match pattern provided
+      ---
+      {"at":{"column":5,"file":"test-legacy/test/emitter-match.js","line":9},"found":{"_events":{},"_eventsCount":0,"_maxListeners":10,"domain":{},"truthy":false},"pattern":{"truthy":true},"source":"t.match(e, { truthy: true })\n"}
+      ...
+    
+    1..1
+    # failed 1 test
+not ok 1 - check ee matches ___/# time=[0-9.]+(ms)?/~~~
+
+1..1
+# failed 1 test
+___/# time=[0-9.]+(ms)?/~~~
+

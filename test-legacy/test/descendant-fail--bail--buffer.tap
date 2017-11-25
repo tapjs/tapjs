@@ -1,0 +1,16 @@
+TAP version 13
+1..1
+not ok 1 - parent ___/# time=[0-9.]+(ms)?/~~~ {
+    1..1
+    not ok 1 - child ___/# time=[0-9.]+(ms)?/~~~ {
+        1..1
+        not ok 1 - nope
+          ---
+          {"at":{"column":7,"file":"test-legacy/test/descendant-fail.js","line":7},"source":"t.fail('nope')\n"}
+          ...
+        
+        Bail out! # nope
+    }
+}
+Bail out! # nope
+

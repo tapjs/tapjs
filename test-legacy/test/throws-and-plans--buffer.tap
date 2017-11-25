@@ -1,0 +1,78 @@
+TAP version 13
+ok 1 - expect truthy value
+not ok 2 - plans of 1 ___/# time=[0-9.]+(ms)?/~~~ {
+    ok 1 - before sync thrower
+    ok 2 - sync thrower ___/# time=[0-9.]+(ms)?/~~~ {
+        1..1
+        ok 1 - before the bomb
+    }
+    
+    not ok 3 - pwnSync
+      ---
+      {"at":{"column":11,"file":"test-legacy/test/throws-and-plans.js","line":10},"source":"throw new Error('pwnSync')\n","test":"sync thrower"}
+      ...
+    
+    ok 4 - async thrower ___/# time=[0-9.]+(ms)?/~~~ {
+        1..3
+        ok 1 - before set the bomb
+        ok 2 - after set the bomb
+        ok 3 - before the bomb
+    }
+    
+    ok 5 - after child
+    1..5
+    # failed 1 of 5 tests
+}
+
+not ok 3 - no assert only throw ___/# time=[0-9.]+(ms)?/~~~ {
+    not ok 1 - false is truthy right?
+      ---
+      {"actual":false,"at":{"column":3,"file":"test-legacy/test/throws-and-plans.js","line":29},"expected":true,"generatedMessage":false,"operator":"==","source":"assert(false, 'false is truthy right?')\n","test":"no assert only throw","type":"AssertionError"}
+      ...
+    
+    1..1
+    # failed 1 test
+}
+
+not ok 4 - plans of 8 ___/# time=[0-9.]+(ms)?/~~~ {
+    ok 1 - before child
+    not ok 2 - sync thrower ___/# time=[0-9.]+(ms)?/~~~ {
+        1..8
+        ok 1 - before the bomb
+        not ok 2 - pwnSync
+          ---
+          {"at":{"column":11,"file":"test-legacy/test/throws-and-plans.js","line":39},"source":"throw new Error('pwnSync')\n","test":"sync thrower"}
+          ...
+        
+        # test count(2) != plan(8)
+        # failed 1 of 2 tests
+    }
+    
+    not ok 3 - async thrower ___/# time=[0-9.]+(ms)?/~~~ {
+        1..8
+        ok 1 - before set the bomb
+        ok 2 - after set the bomb
+        ok 3 - before the bomb
+        not ok 4 - pwn
+          ---
+          {"at":{"column":13,"file":"test-legacy/test/throws-and-plans.js","line":51},"source":"throw new Error('pwn')\n","test":"async thrower"}
+          ...
+        
+        # test count(4) != plan(8)
+        # failed 1 of 4 tests
+    }
+    
+    ok 4 - after child
+    1..4
+    # failed 2 of 4 tests
+}
+
+not ok 5 - pwn ___/# time=[0-9.]+(ms)?/~~~
+  ---
+  {"at":{"column":13,"file":"test-legacy/test/throws-and-plans.js","line":18},"source":"throw new Error('pwn')\n","test":"async thrower"}
+  ...
+
+1..5
+# failed 4 of 5 tests
+___/# time=[0-9.]+(ms)?/~~~
+

@@ -1,0 +1,25 @@
+TAP version 13
+not ok 1 - children plan too big ___/# time=[0-9.]+(ms)?/~~~ {
+    1..9
+    ok 1 - this is ok
+    ok 2 - i am ok with how this is proceeding
+    not ok 3 - grandchild ___/# time=[0-9.]+(ms)?/~~~ {
+        1..8
+        ok 1 - i am planning big things
+        not ok 2 - test unfinished
+          ---
+          {"at":{"column":5,"file":"test-legacy/test/plan-too-many.js","line":7},"source":"t.test('grandchild', function (tt) {\n","test":"grandchild"}
+          ...
+        
+        # test count(2) != plan(8)
+        # failed 1 of 2 tests
+    }
+    
+    # test count(3) != plan(9)
+    # failed 1 of 3 tests
+}
+
+1..1
+# failed 1 test
+___/# time=[0-9.]+(ms)?/~~~
+

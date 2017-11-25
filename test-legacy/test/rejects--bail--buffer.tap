@@ -1,0 +1,21 @@
+TAP version 13
+ok 1 - pwner promise: Error pwn ___/# time=[0-9.]+(ms)?/~~~ {
+    ok 1 - pwner promise: Error pwn
+    1..1
+}
+
+ok 2 - pwner promise: Error pwn ___/# time=[0-9.]+(ms)?/~~~ {
+    ok 1 - pwner promise: Error pwn
+    1..1
+}
+
+not ok 3 - owner promise: Error own ___/# time=[0-9.]+(ms)?/~~~ {
+    not ok 1 - owner promise: Error own
+      ---
+      {"at":{"column":3,"file":"test-legacy/test/rejects.js","line":16},"found":{"message":"pwn","name":"Error"},"pattern":{"message":"own","name":"Error"},"source":"t.rejects('owner promise', function () {\n","wanted":{"message":"own","name":"Error"}}
+      ...
+    
+    Bail out! # owner promise: Error own
+}
+Bail out! # owner promise: Error own
+

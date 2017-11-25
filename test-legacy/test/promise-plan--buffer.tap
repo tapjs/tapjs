@@ -1,0 +1,62 @@
+TAP version 13
+running one
+one end
+after plan fulfilled
+after one block
+one promise was fulfilled
+ok 1 - one ___/# time=[0-9.]+(ms)?/~~~ {
+    1..1
+    ok 1 - done one
+}
+
+running two
+two promise was fulfilled
+ok 2 - two ___/# time=[0-9.]+(ms)?/~~~ {
+    1..1
+    ok 1 - done two
+}
+
+running three
+ok 3 - three ___/# time=[0-9.]+(ms)?/~~~ {
+    1..0
+}
+
+not ok 4 - broken promises ___/# time=[0-9.]+(ms)?/~~~ {
+    1..2
+    ok 1 - end() ___/# time=[0-9.]+(ms)?/~~~ {
+        1..0
+    }
+    
+    not ok 2 - wtf
+      ---
+      {"at":{"column":13,"file":"test-legacy/test/promise-plan.js","line":45},"source":"throw new Error('wtf')\n","test":"end()"}
+      ...
+    
+    # failed 1 of 2 tests
+}
+
+not ok 5 - thrown with timeouts ___/# time=[0-9.]+(ms)?/~~~
+  ---
+  {"failures":[{"id":3,"name":"test after end() was called","plan":{"end":2,"start":1},"tapError":"id greater than plan end"},{"id":3,"name":"test after end() was called","plan":{"end":2,"start":1},"tapError":"id greater than plan end"}]}
+  ...
+{
+    1..2
+    not ok 1 - child test left in queue: t.test plan
+    not ok 2 - wtf
+      ---
+      {"at":{"column":15,"file":"test-legacy/test/promise-plan.js","line":63},"source":"throw new Error('wtf')\n","test":"end()"}
+      ...
+    
+    not ok 3 - test after end() was called
+      ---
+      {"plan":0,"test":"end()"}
+      ...
+    
+    # test count(3) != plan(2)
+    # failed 4 of 3 tests
+}
+
+1..5
+# failed 2 of 5 tests
+___/# time=[0-9.]+(ms)?/~~~
+

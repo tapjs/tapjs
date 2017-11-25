@@ -1,0 +1,13 @@
+TAP version 13
+not ok 1 - bail fail ___/# time=[0-9.]+(ms)?/~~~ {
+    not ok 1 - failer ___/# time=[0-9.]+(ms)?/~~~ {
+        not ok 1 - this fails
+          ---
+          {"at":{"column":7,"file":"test-legacy/test/bail-child.js","line":7},"source":"t.fail('this fails')\n"}
+          ...
+        
+        Bail out! # this fails
+    }
+}
+Bail out! # this fails
+

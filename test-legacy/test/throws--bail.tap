@@ -1,0 +1,12 @@
+TAP version 13
+# Subtest: throws should match a regex
+    1..2
+    ok 1 - passing_thrower
+    not ok 2 - failing_thrower
+      ---
+      {"at":{"column":5,"file":"test-legacy/test/throws.js","line":9},"found":"test","pattern":"/fasdfsadf/","source":"t.throws(function failing_thrower () {\n"}
+      ...
+    
+    Bail out! # failing_thrower
+Bail out! # failing_thrower
+

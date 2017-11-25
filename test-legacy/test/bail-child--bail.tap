@@ -1,0 +1,11 @@
+TAP version 13
+# Subtest: bail fail
+    # Subtest: failer
+        not ok 1 - this fails
+          ---
+          {"at":{"column":7,"file":"test-legacy/test/bail-child.js","line":7},"source":"t.fail('this fails')\n"}
+          ...
+        
+        Bail out! # this fails
+Bail out! # this fails
+

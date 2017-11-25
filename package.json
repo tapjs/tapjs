@@ -1,6 +1,6 @@
 {
   "name": "tap",
-  "version": "10.7.3",
+  "version": "11.0.0-rc.3",
   "author": "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me)",
   "description": "A Test-Anything-Protocol library",
   "homepage": "http://node-tap.org/",
@@ -9,7 +9,7 @@
   },
   "main": "lib/tap.js",
   "engines": {
-    "node": ">=0.8"
+    "node": ">=4"
   },
   "dependencies": {
     "bind-obj-methods": "^1.0.0",
@@ -23,33 +23,41 @@
     "glob": "^7.0.0",
     "isexe": "^2.0.0",
     "js-yaml": "^3.10.0",
+    "minipass": "^2.2.1",
+    "mkdirp": "^0.5.1",
     "nyc": "^11.3.0",
     "opener": "^1.4.1",
     "os-homedir": "^1.0.2",
     "own-or": "^1.0.0",
     "own-or-env": "^1.0.0",
-    "readable-stream": "^2.3.2",
+    "rimraf": "^2.6.2",
     "signal-exit": "^3.0.0",
     "source-map-support": "^0.4.18",
     "stack-utils": "^1.0.0",
     "tap-mocha-reporter": "^3.0.6",
-    "tap-parser": "^5.3.1",
+    "tap-parser": "^7.0.0",
     "tmatch": "^3.1.0",
     "trivial-deferred": "^1.0.1",
     "tsame": "^1.1.2",
+    "write-file-atomic": "^2.3.0",
     "yapool": "^1.0.0"
   },
   "keywords": [
     "assert",
+    "tap",
     "test",
-    "tap"
+    "testing"
   ],
   "license": "ISC",
   "repository": "https://github.com/tapjs/node-tap.git",
   "scripts": {
-    "regen-fixtures": "node scripts/generate-test-test.js test/test/*.js",
-    "test": "node bin/run.js test/*.* --coverage -t3600 -sfails",
-    "smoke": "node bin/run.js --node-arg=test/test.js test/test/*.js -j2",
+    "regen-fixtures": "node scripts/generate-test-test.js test-legacy/test/*.js",
+    "snap": "TAP_SNAPSHOT=1 node bin/run.js test/*.js",
+    "test": "node bin/run.js test/*.js --100 -J --nyc-arg=--include={lib,bin} -c",
+    "test-all": "node bin/run.js test/*.js test-legacy/*.js --100 -J --nyc-arg=--include={lib,bin}",
+    "unit": "bash scripts/unit.sh",
+    "test-legacy": "node bin/run.js test-legacy/*.* --coverage -t3600 --nyc-arg=--include={lib,bin}",
+    "smoke": "node bin/run.js --node-arg=test-legacy/test.js test-legacy/test/*.js -j2",
     "posttest": "standard lib test",
     "t": "node bin/run.js test/*.* -sfails.txt",
     "preversion": "npm test",
@@ -57,21 +65,11 @@
     "postpublish": "git push origin --all; git push origin --tags"
   },
   "devDependencies": {
-    "mkdirp": "^0.5.1",
-    "rimraf": "^2.6.2",
     "standard": "^7.1.2",
     "which": "^1.1.1"
   },
   "files": [
     "bin/*",
     "lib/*"
-  ],
-  "config": {
-    "nyc": {
-      "exclude": [
-        "node_modules/**",
-        "test/**"
-      ]
-    }
-  }
+  ]
 }

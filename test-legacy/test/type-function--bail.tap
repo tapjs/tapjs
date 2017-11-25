@@ -1,0 +1,11 @@
+TAP version 13
+ok 1 - type is Function
+ok 2 - type is Function
+ok 3 - type is Function
+not ok 4 - type is Object
+  ---
+  {"at":{"column":3,"file":"test-legacy/test/type-function.js","line":5},"compare":"===","found":"function","source":"t.type(t.type, Object)\n","wanted":"Object"}
+  ...
+
+Bail out! # type is Object
+

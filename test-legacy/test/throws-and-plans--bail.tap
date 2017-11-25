@@ -1,0 +1,17 @@
+TAP version 13
+ok 1 - expect truthy value
+# Subtest: plans of 1
+    ok 1 - before sync thrower
+    # Subtest: sync thrower
+        1..1
+        ok 1 - before the bomb
+    ok 2 - sync thrower ___/# time=[0-9.]+(ms)?/~~~
+    
+    not ok 3 - pwnSync
+      ---
+      {"at":{"column":11,"file":"test-legacy/test/throws-and-plans.js","line":10},"source":"throw new Error('pwnSync')\n","test":"sync thrower"}
+      ...
+    
+    Bail out! # pwnSync
+Bail out! # pwnSync
+

@@ -1,0 +1,14 @@
+TAP version 13
+not ok 1 - t1 ___/# time=[0-9.]+(ms)?/~~~ {
+    not ok 1 - t11 ___/# time=[0-9.]+(ms)?/~~~ {
+        1..1
+        not ok 1 - test unfinished
+          ---
+          {"at":{"column":5,"file":"test-legacy/test/unfinished.js","line":4},"source":"t.test('t11', function (t) {\n","test":"t11"}
+          ...
+        
+        Bail out! # test unfinished
+    }
+}
+Bail out! # test unfinished
+

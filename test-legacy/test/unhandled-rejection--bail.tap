@@ -1,0 +1,9 @@
+TAP version 13
+# this is fine
+not ok 1 - 💩
+  ---
+  {"at":{"column":30,"constructor":true,"file":"test-legacy/test/unhandled-rejection.js","line":9},"source":"this.dump = Promise.reject(new Error('💩'))\n","test":"TAP"}
+  ...
+
+Bail out! # 💩
+

@@ -1,0 +1,11 @@
+TAP version 13
+not ok 1 - child test ___/# time=[0-9.]+(ms)?/~~~ {
+    not ok 1 - should be equal
+      ---
+      {"at":{"column":5,"file":"test-legacy/test/equivalent.js","line":3},"compare":"===","found":"foo\nbaz\nbar\n","source":"t.equal('foo\\nbaz\\nbar\\n', 'foo\\nblerb\\nbar\\n')\n","wanted":"foo\nblerb\nbar\n"}
+      ...
+    
+    Bail out! # should be equal
+}
+Bail out! # should be equal
+

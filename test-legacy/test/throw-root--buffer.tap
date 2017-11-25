@@ -1,0 +1,11 @@
+TAP version 13
+ok 1 - this is fine
+not ok 2 - catch!
+  ---
+  {"at":{"column":7,"file":"test-legacy/test/throw-root.js","line":3},"source":"throw new Error('catch!')\n","test":"TAP"}
+  ...
+
+1..2
+# failed 1 of 2 tests
+___/# time=[0-9.]+(ms)?/~~~
+

@@ -1,0 +1,30 @@
+TAP version 13
+not ok 1 - foo ___/# time=[0-9.]+(ms)?/~~~ {
+    not ok 1 - baz
+      ---
+      {"at":{"column":3,"file":"test-legacy/test/assert-at.js","line":14},"source":"blo(t)\n"}
+      ...
+    
+    not ok 2 - bler
+      ---
+      {"at":{"column":5,"file":"test-legacy/test/assert-at.js","line":25},"source":"t.fail('bler')\n"}
+      ...
+    
+    not ok 3 - bar
+      ---
+      {"at":{"column":3,"file":"test-legacy/test/assert-at.js","line":10},"source":"baz(t)\n"}
+      ...
+    
+    not ok 4 - bar stack
+      ---
+      {"at":{"column":3,"file":"test-legacy/test/assert-at.js","line":10},"source":"baz(t)\n"}
+      ...
+    
+    1..4
+    # failed 4 of 4 tests
+}
+
+1..1
+# failed 1 test
+___/# time=[0-9.]+(ms)?/~~~
+

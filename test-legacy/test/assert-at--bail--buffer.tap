@@ -1,0 +1,11 @@
+TAP version 13
+not ok 1 - foo ___/# time=[0-9.]+(ms)?/~~~ {
+    not ok 1 - baz
+      ---
+      {"at":{"column":3,"file":"test-legacy/test/assert-at.js","line":14},"source":"blo(t)\n"}
+      ...
+    
+    Bail out! # baz
+}
+Bail out! # baz
+

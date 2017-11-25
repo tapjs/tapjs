@@ -1,0 +1,20 @@
+TAP version 13
+1..1
+# Subtest: parent
+    1..1
+    # Subtest: child
+        1..1
+        not ok 1 - nope
+          ---
+          {"at":{"column":7,"file":"test-legacy/test/descendant-fail.js","line":7},"source":"t.fail('nope')\n"}
+          ...
+        
+        # failed 1 test
+    not ok 1 - child ___/# time=[0-9.]+(ms)?/~~~
+    
+    # failed 1 test
+not ok 1 - parent ___/# time=[0-9.]+(ms)?/~~~
+
+# failed 1 test
+___/# time=[0-9.]+(ms)?/~~~
+
