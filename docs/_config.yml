@@ -1,0 +1,49 @@
+title: "Node Tap"
+description: A Test-Anything-Protocol library for Node.js
+links:
+  - name: "Index"
+    url: "/"
+  - name: "Getting Started"
+    url: "/basics/"
+  - name: "API"
+    url: "/api/"
+    links:
+    - name: "Asserts"
+      url: "/asserts/"
+    - name: "Promises"
+      url: "/promises/"
+    - name: "Subtests"
+      url: "/subtests/"
+    - name: "Parallel Tests"
+      url: "/parallel/"
+    - name: "Snapshot Testing"
+      url: "/snapshots/"
+    - name: "Filtering Tests: grep"
+      url: "/grep/"
+    - name: "Filtering Tests: only"
+      url: "/only/"
+    - name: "Mocha-like DSL"
+      url: "/mochalike/"
+    - name: "Advanced"
+      url: "/advanced/"
+  - name: "CLI"
+    url: "/cli/"
+  - name: "The Protocol"
+    url: "/tap-format/"
+  - name: "Reporting"
+    url: "/reporting/"
+  - name: "Coverage"
+    url: "/coverage/"
+  - name: "Change Log"
+    url: "/changelog/"
+  - name: "GitHub Repo"
+    url: "https://github.com/tapjs/node-tap"
+
+# Build settings
+markdown: kramdown
+markdown_ext:  md
+
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
