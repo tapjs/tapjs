@@ -1822,6 +1822,124 @@ not ok 5 - fail: no promise # {time} {
 
 `
 
+exports[`test/test.js TAP assertions and weird stuff emitsEvent > emitsEvent 1`] = `
+TAP version 13
+ok 1 - expect emitter to emit event: "event_name" # {time} {
+    1..1
+    ok 1 - expect emitter to emit event: "event_name"
+}
+
+ok 2 - expect emitter to emit event: "event_name" # TODO
+not ok 3 - expect emitter to emit event: "another_event" # {time}
+  ---
+  timeout: 2500
+  ...
+{
+    1..1
+    not ok 1 - timeout!
+      ---
+      expired: 'expect emitter to emit event: "another_event"'
+      stack: |
+        {STACK}
+      test: 'expect emitter to emit event: "another_event"'
+      timeout: 2500
+      ...
+    
+    # failed 1 test
+}
+
+not ok 4 - fail: no emitter # {time}
+  ---
+  timeout: 2500
+  ...
+{
+    1..1
+    not ok 1 - timeout!
+      ---
+      expired: 'fail: no emitter'
+      stack: |
+        {STACK}
+      test: 'fail: no emitter'
+      timeout: 2500
+      ...
+    
+    # failed 1 test
+}
+
+not ok 5 - expect emitter to emit event: "immediate" # {time}
+  ---
+  timeout: 1
+  ...
+{
+    1..1
+    not ok 1 - timeout!
+      ---
+      expired: 'expect emitter to emit event: "immediate"'
+      stack: |
+        {STACK}
+      test: 'expect emitter to emit event: "immediate"'
+      timeout: 1
+      ...
+    
+    # failed 1 test
+}
+
+# Subtest: expect emitter to emit event: "event_name"
+    not ok 1 - expect emitter to emit event: "event_name"
+      ---
+      at:
+        line: #
+        column: #
+        file: test/test.js
+      source: |
+        tt.emitsEvent(null, 'event_name')
+      stack: |
+        {STACK}
+      ...
+    
+    1..1
+    # failed 1 test
+not ok 6 - expect emitter to emit event: "event_name" # {time}
+  ---
+  at:
+    line: #
+    column: #
+    file: test/test.js
+  source: |
+    tt.emitsEvent(null, 'event_name')
+  ...
+
+# Subtest: expect emitter to emit event: "event_name"
+    not ok 1 - expect emitter to emit event: "event_name"
+      ---
+      at:
+        line: #
+        column: #
+        file: test/test.js
+      source: |
+        tt.emitsEvent({}, 'event_name')
+      stack: |
+        {STACK}
+      ...
+    
+    1..1
+    # failed 1 test
+not ok 7 - expect emitter to emit event: "event_name" # {time}
+  ---
+  at:
+    line: #
+    column: #
+    file: test/test.js
+  source: |
+    tt.emitsEvent({}, 'event_name')
+  ...
+
+1..7
+# failed 5 of 7 tests
+# todo: 1
+
+`
+
 exports[`test/test.js TAP assertions and weird stuff test after end fails > test after end fails 1`] = `
 TAP version 13
 1..0

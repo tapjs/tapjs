@@ -88,6 +88,13 @@ not return a boolean to indicate its passing status.  Instead, it
 returns a Promise that resolves when it is completed.
 
 
+## t.emitsEvent (emitter, event_name, message, extra)
+
+Verifies that the emitter emits the event `event_name`.
+This comes with a default timeout of 2500 milliseconds. This can be
+changed by setting `extra.timeout`.
+
+
 ## t.throws(fn, [expectedError], message, extra)
 
 Expect the function to throw an error.  If an expected error is

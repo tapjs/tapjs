@@ -455,6 +455,23 @@ t.test('assertions and weird stuff', t => {
       tt.end()
     },
 
+    emitsEvent: tt => {
+      const emitter = new EE()
+
+      setImmediate(() => {
+        emitter.emit('event_name', {})
+      })
+
+      tt.emitsEvent(emitter, 'event_name')
+      tt.emitsEvent(emitter, 'event_name', { todo: true })
+      tt.emitsEvent(emitter, 'another_event')
+      tt.emitsEvent(emitter, 'another_event', 'fail: no emitter')
+      tt.emitsEvent(emitter, 'immediate', { timeout: 1 }, 'fail: timeout')
+      tt.emitsEvent(null, 'event_name')
+      tt.emitsEvent({}, 'event_name')
+      tt.end()
+    },
+
     'test after end fails': tt => {
       tt.end()
       tt.pass('failing pass')
