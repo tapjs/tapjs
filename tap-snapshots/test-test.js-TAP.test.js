@@ -2142,6 +2142,13 @@ not ok 6 - cannot create subtest after parent test end # {time}
 
 `
 
+exports[`test/test.js TAP assertions and weird stuff autoend(false) > autoend(false) 1`] = `
+TAP version 13
+ok 1 - this is fine
+1..1
+
+`
+
 exports[`test/test.js TAP assertions and weird stuff endAll with test children > endAll with test children 1`] = `
 TAP version 13
 # Subtest: this is the test that never ends

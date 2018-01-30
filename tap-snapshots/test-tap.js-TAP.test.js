@@ -477,3 +477,37 @@ not ok 2 - timeout!
 exports[`test/tap.js TAP timeout sigterm many times > stderr 1`] = `
 
 `
+
+exports[`test/tap.js TAP autoend(false) with teardown > exit status 1`] = `
+{ code: 0, signal: null }
+`
+
+exports[`test/tap.js TAP autoend(false) with teardown > stdout 1`] = `
+TAP version 13
+ok 1 - this is fine
+1..1
+# {time}
+tear it down
+
+`
+
+exports[`test/tap.js TAP autoend(false) with teardown > stderr 1`] = `
+
+`
+
+exports[`test/tap.js TAP autoend=false with teardown > exit status 1`] = `
+{ code: 0, signal: null }
+`
+
+exports[`test/tap.js TAP autoend=false with teardown > stdout 1`] = `
+TAP version 13
+ok 1 - this is fine
+1..1
+# {time}
+tear it down
+
+`
+
+exports[`test/tap.js TAP autoend=false with teardown > stderr 1`] = `
+
+`

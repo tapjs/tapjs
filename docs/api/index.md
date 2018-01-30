@@ -34,11 +34,17 @@ slight modifications.
    the main package export.
 3. The test ends automatically when `process.on('exit')` fires, so
    there is no need to call `tap.end()` explicitly.
-4. Adding a `tearDown` function triggers `autoend` behavior.
+4. Adding a `tearDown` function triggers `autoend` behavior, unless
+   `autoend` was explicitly set to `false`.
+
    Otherwise, the `end` would potentially never arrive, if for example
    `tearDown` is used to close a server or cancel some long-running
    process, because `process.on('exit')` would never fire of its own
    accord.
+
+   If you disable `autoend`, and _also_ use a `teardown()` function on
+   the main tap instance, you need to either set a `t.plan(n)` or
+   explicitly call `t.end()` at some point.
 
 ## tap.Test
 
@@ -229,3 +235,13 @@ Generally, you never need to worry about this directly.
 However, this method can also be called explicitly in cases where an
 error would be handled by something else (for example, a default
 [Promise](/promises/) `.catch(er)` method.)
+
+### t.autoend(value)
+
+If `value` is boolean `false`, then it will disable the `autoend`
+behavior.  If `value` is anything other than `false`, then it will
+cause the test to automatically end when nothing is pending.
+
+Note that this is triggered by default on the root `tap` instance when
+a `teardown()` function is set, unless `autoend` was explicitly
+disabled.

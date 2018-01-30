@@ -642,6 +642,15 @@ t.test('assertions and weird stuff', t => {
 
     },
 
+    'autoend(false)': tt => {
+      tt.autoend()
+      tt.autoend(false)
+      setTimeout(() => {
+        tt.pass('this is fine')
+        tt.end()
+      }, 50)
+    },
+
     'endAll with test children': tt => {
       tt.test('this is the test that never ends', tt => {
         tt.test('it goes on and on my friend', tt => {
