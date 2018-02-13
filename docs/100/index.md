@@ -9,7 +9,7 @@ These modules use the `--100` flag to run tests with 100%
 functions.
 
 To add yours to the list, send a [pull
-request](https://github.com/tapjs/node-tap/blob/gh-pages/100/index.md)
+request](https://github.com/tapjs/node-tap/blob/master/docs/100/index.md)
 to add it to the docs.
 
 * [abbrev](https://www.npmjs.com/package/abbrev)
