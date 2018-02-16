@@ -30,7 +30,7 @@ The following options are available:
 
 - doc
 
-    Output heirarchical HTML.
+    Output hierarchical HTML.
 
 - dot
 
@@ -59,7 +59,7 @@ The following options are available:
 
 - markdown
 
-    Heirarchical markdown output with a table of contents.
+    Hierarchical markdown output with a table of contents.
 
 - min
 
@@ -79,7 +79,7 @@ The following options are available:
 
 - spec
 
-    Output based on rspec, with heirarchical indentation and
+    Output based on rspec, with hierarchical indentation and
     unicode red and green checks and X's.
 
 - xunit
