@@ -234,7 +234,7 @@ Synonyms: `t.has`, `t.hasFields`, `t.matches`, `t.similar`, `t.like`,
 
 ## t.notMatch(found, pattern, message, extra)
 
-Interse of `match()`
+Inverse of `match()`
 
 Verify that the found object does not match the pattern provided.
 
