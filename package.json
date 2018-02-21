@@ -15,6 +15,7 @@
     "bind-obj-methods": "^2.0.0",
     "bluebird": "^3.5.3",
     "browser-process-hrtime": "^0.1.2",
+    "capture-stack-trace": "^1.0.0",
     "clean-yaml-object": "^0.1.0",
     "color-support": "^1.1.0",
     "coveralls": "^3.0.2",
