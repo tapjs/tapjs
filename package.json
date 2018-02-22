@@ -60,7 +60,8 @@
     "regen-fixtures": "node scripts/generate-test-test.js test-legacy/test/*.js",
     "snap": "TAP_SNAPSHOT=1 node bin/run.js test/*.js",
     "test": "node bin/run.js test/*.js --100 -J --nyc-arg=--include={lib,bin} -c",
-    "test-all": "node bin/run.js test/*.js test-legacy/*.js --100 -J --nyc-arg=--include={lib,bin}",
+    "test-all": "node bin/run.js test/*.js test-legacy/*.js --100 -J --nyc-arg=--include={lib,bin} && npm run test-browser",
+    "test-browser": "karma start karma.conf.js",
     "unit": "bash scripts/unit.sh",
     "test-legacy": "node bin/run.js test-legacy/*.* --coverage -t3600 --nyc-arg=--include={lib,bin}",
     "smoke": "node bin/run.js --node-arg=test-legacy/test.js test-legacy/test/*.js -j2",
@@ -71,6 +72,13 @@
     "postpublish": "git push origin --all; git push origin --tags"
   },
   "devDependencies": {
+    "karma": "^2.0.0",
+    "karma-browserify": "^5.2.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-firefox-launcher": "^1.1.0",
+    "karma-mocha": "^1.3.0",
+    "karma-spec-reporter": "0.0.32",
+    "mocha": "^5.0.1",
     "standard": "^12.0.1",
     "which": "^1.3.1"
   },
