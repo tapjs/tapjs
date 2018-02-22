@@ -12,11 +12,17 @@ function makeConf (config) {
 
   const browsers = process.env.BROWSER
     ? [process.env.BROWSER]
-    : ['Chrome', 'Firefox']
+    : ['ChromeHeadlessNoSandbox', 'Firefox']
 
   config.set({
     browsers,
     concurrency: 1,
+    customLaunchers: {
+      ChromeHeadlessNoSandbox: {
+        base: 'ChromeHeadless',
+        flags: ['--no-sandbox']
+      }
+    },
     files,
     frameworks: ['browserify', 'mocha'],
     preprocessors,

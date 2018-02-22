@@ -5,3 +5,11 @@ node_js:
   - 6
 notifications:
   email: false
+addons:
+  chrome: stable
+before_script:
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+script:
+  - npm run test
+  - npm run test-browser
