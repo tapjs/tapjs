@@ -1,5 +1,6 @@
 ---
 layout: layout
+title: CLI
 ---
 
 # CLI

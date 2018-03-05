@@ -1,5 +1,6 @@
 ---
 layout: layout
+title: Getting Started
 ---
 
 # tap basics
