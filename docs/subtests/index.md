@@ -1,5 +1,6 @@
 ---
 layout: layout
+title: Subtests
 ---
 
 # Subtests
@@ -46,7 +47,7 @@ TAP version 13
         1..1
         ok 1 - this is fine
     ok 1 - bar # time=1.831ms
-    
+
     1..1
 ok 1 - foo # time=11.106ms
 
@@ -81,7 +82,7 @@ ok 1 - foo {
         1..1
         ok 1 - this is fine
     }
-    
+
     1..1
 }
 
@@ -103,7 +104,7 @@ ok 1 - foo
         1..1
         ok 1 - this is fine
     }
-    
+
     1..1
 }
 

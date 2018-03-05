@@ -1,5 +1,6 @@
 ---
 layout: layout
+title: Mocha-like DSL
 ---
 
 # Mocha-like DSL

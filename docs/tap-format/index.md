@@ -1,5 +1,6 @@
 ---
 layout: layout
+title: Test Anything Protocol
 ---
 
 # Test Anything Protocol
@@ -110,7 +111,7 @@ about a test point.
 
 A test point can be marked as `todo` to indicate that it is going to
 be implemented later, or `skip` to indicate that the test should not
-be performed in the given context.  `todo` and `skip` are 
+be performed in the given context.  `todo` and `skip` are
 
 A test point associated with a
 Subtest can also have a `# time=...` directive indicating how long the

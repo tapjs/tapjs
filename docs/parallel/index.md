@@ -1,5 +1,6 @@
 ---
 layout: layout
+title: Parallel Tests
 ---
 
 # Parallel Tests

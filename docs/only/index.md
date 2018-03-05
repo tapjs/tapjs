@@ -1,5 +1,6 @@
 ---
 layout: layout
+title: Filtering Tests&#58; Only
 ---
 
 # Filtering Tests with Only Option
@@ -152,7 +153,7 @@ TAP version 13
         ok 1 - got here
         1..1
     ok 2 - first child # time=1.609ms
-    
+
     ok 3 - second child # SKIP filter: only
     1..3
     # skip: 1
