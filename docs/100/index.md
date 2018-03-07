@@ -1,5 +1,6 @@
 ---
 layout: layout
+title: The TAP 100
 ---
 
 # The TAP 100

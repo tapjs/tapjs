@@ -1,5 +1,6 @@
 ---
 layout: layout
+title: Testing with Snapshots
 ---
 
 # Testing with Snapshots

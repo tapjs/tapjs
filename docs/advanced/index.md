@@ -1,5 +1,6 @@
 ---
 layout: layout
+title: Advanced Usage
 ---
 
 # Advanced Usage

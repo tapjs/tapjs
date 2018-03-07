@@ -1,5 +1,6 @@
 ---
 layout: layout
+title: Filtering Tests&#58; Grep
 ---
 
 # Filtering Tests with Grep Options
@@ -88,15 +89,15 @@ TAP version 13
             ok 1 - apples are tasty
             1..1
         ok 1 - apple # time=8.892ms
-        
+
         # Subtest: banana
             ok 1 - bananas are yellow
             1..1
         ok 2 - banana # time=1.297ms
-        
+
         1..2
     ok 1 - first # time=18.544ms
-    
+
     ok 2 - second # SKIP filter: /first/
     1..2
     # skip: 1
@@ -206,7 +207,7 @@ TAP version 13
         ok 1 - apples are tasty
         1..1
     ok 1 - apple # time=5.166ms
-    
+
     ok 2 - banana # SKIP filter: /p/i
     1..2
     # skip: 1
@@ -217,7 +218,7 @@ ok 1 - first # time=11.805ms
         ok 1 - i think
         1..1
     ok 1 - this is fine # time=0.86ms
-    
+
     ok 2 - i am ok with how things are proceeding # SKIP filter: /fi[ln]e/
     1..2
     # skip: 1
@@ -252,7 +253,7 @@ TAP version 13
         ok 1 - apples are tasty
         1..1
     ok 1 - apple # time=4.35ms
-    
+
     ok 2 - banana # SKIP filter: /apple/
     1..2
     # skip: 1
@@ -279,7 +280,7 @@ ok 1 - first # SKIP filter out: /first/
         ok 1 - therefor I am
         1..1
     ok 2 - i am ok with how things are proceeding # time=3.117ms
-    
+
     1..2
     # skip: 1
 ok 2 - second # time=9.441ms

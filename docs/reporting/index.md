@@ -1,5 +1,6 @@
 ---
 layout: layout
+title: Reporting
 ---
 
 # Reporting

@@ -1,5 +1,6 @@
 ---
 layout: layout
+title: Change Log
 ---
 
 ## 11.0 2017-11-26
