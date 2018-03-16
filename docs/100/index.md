@@ -23,6 +23,7 @@ to add it to the docs.
 * [fs-minipass](https://www.npmjs.com/package/fs-minipass)
 * [fs-readstream-seek](https://www.npmjs.com/package/fs-readstream-seek)
 * [function-loop](https://www.npmjs.com/package/function-loop)
+* [hexagonal-lambda](https://github.com/focusaurus/hexagonal-lambda)
 * [hoodie](https://www.npmjs.com/package/hoodie)
 * [icepick](https://www.npmjs.com/package/icepick)
 * [ignore-walk](https://www.npmjs.com/package/ignore-walk)
