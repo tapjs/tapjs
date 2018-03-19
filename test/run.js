@@ -21,7 +21,15 @@ delete process.env.TAP_BAIL
 delete process.env.TAP_COLORS
 delete process.env.TAP_TIMEOUT
 
-const clean = require('./clean-stacks.js')
+const cleanStacks = require('./clean-stacks.js')
+// also clean up NYC output a bit, because the line lengths
+// in the text report can vary on different platforms.
+const clean = string => cleanStacks(string)
+  .replace(/uncovered line( #)?s/i, 'Uncovered Lines')
+  .replace(/ +\|/g, ' |')
+  .replace(/\| +/g, '| ')
+  .replace(/-+\|/g, '-|')
+  .replace(/\|-+/g, '|-')
 
 const run = (args, options, cb) => {
   if (options && options.env)
