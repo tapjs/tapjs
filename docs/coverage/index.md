@@ -73,7 +73,7 @@ following:
         {
           "scripts": {
             "test": "tap test/*.js --coverage",
-            "posttest": "tap --coverage-report=lcov && codecov"
+            "posttest": "tap --coverage-report=text-lcov && codecov"
           }
         }
 
@@ -98,4 +98,5 @@ supported by istanbul is available, including:
 To specify a report format, you can use `--coverage-report=<type>`.
 The default type is `text`, which produces a pretty text-only table on
 the terminal.  If you specify `--coverage-report=html`, then tap will
-attempt to open a web browser to view the report after the test run.
+attempt to launch a web browser to view the report after the test run.
+You can prevent launching a browser by specifying the flag `--no-browser`.
