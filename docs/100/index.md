@@ -51,5 +51,6 @@ to add it to the docs.
 * [touch](https://www.npmjs.com/package/touch)
 * [trivial-deferred](https://www.npmjs.com/package/trivial-deferred)
 * [tsame](https://www.npmjs.com/package/tsame)
+* [twing](https://www.npmjs.com/package/twing)
 * [yallist](https://www.npmjs.com/package/yallist)
 * [yapool](https://www.npmjs.com/package/yapool)
