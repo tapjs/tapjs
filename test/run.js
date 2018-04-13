@@ -251,6 +251,28 @@ jobs: 3
   t.end()
 })
 
+t.test('rc file specifies test files', t => {
+  const testfile = tmpfile(t, 'via-rcfile.js', `
+    'use strict'
+    require(${tap}).test('child', t => {
+      t.pass('this is fine')
+      t.end()
+    })
+  `)
+
+  const rc = tmpfile(t, 'taprc', `
+files: [ ${testfile} ]
+reporter: tap
+  `)
+
+  const c = run([], { env: { TAP_RCFILE: rc }}, (er, o, e) => {
+    t.equal(er, null)
+    t.matchSnapshot(clean(o), 'expected stdout')
+    t.equal(e, '')
+    t.end()
+  })
+})
+
 t.test('stdin', t => {
   const tapcode = 'TAP version 13\n1..1\nok\n'
 

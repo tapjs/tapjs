@@ -52,11 +52,6 @@ const coverageServices = [
 const main = _ => {
   const args = process.argv.slice(2)
 
-  if (!args.length && isTTY) {
-    console.error(usage())
-    process.exit(1)
-  }
-
   // set default args
   const defaults = constructDefaultArgs()
 
@@ -85,6 +80,11 @@ const main = _ => {
   })
 
   options.files = globFiles(options.files)
+
+  if (!args.length && !options.files.length && isTTY) {
+    console.error(usage())
+    process.exit(1)
+  }
 
   // this is only testable by escaping from the covered environment
   /* istanbul ignore next */
