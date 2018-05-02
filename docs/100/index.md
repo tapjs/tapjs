@@ -17,6 +17,7 @@ to add it to the docs.
 * [casern](https://www.npmjs.com/package/casern)
 * [color-support](https://www.npmjs.com/package/color-support)
 * [contentfs](https://www.npmjs.com/package/contentfs)
+* [dotenv](https://www.npmjs.com/package/dotenv)
 * [events-to-array](https://www.npmjs.com/package/events-to-array)
 * [express-jwt-permissions](https://www.npmjs.com/package/express-jwt-permissions)
 * [fs-exists-cached](https://www.npmjs.com/package/fs-exists-cached)
