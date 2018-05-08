@@ -47,7 +47,7 @@ not ok 1 - spawn something that does not exist ENOENT
   at:
     line: #
     column: #
-    file: util.js
+    file: #INTERNAL#
   code: ENOENT
   command: something that does not exist
   cwd: {CWD}

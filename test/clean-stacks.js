@@ -3,6 +3,8 @@
 // Just a utility to clean up the snapshots for output tests
 
 const yaml = require('js-yaml')
+const internals = Object.keys(process.binding('natives'))
+
 module.exports = out => out
   // sort keys in yaml blocks
   .replace(/\n(   *)---\n((\1.*\n)*)\1\.\.\.\n/g, ($0, $1, $2) => {
@@ -44,6 +46,10 @@ module.exports = out => out
   .replace(/\n( +)function: .*(\n\1  .*)*\n/g, '\n')
   .replace(/\n( +)method: .*(\n\1  .*)*\n/g, '\n')
   .replace(/\n( +)type: .*\n/g, '\n')
+  .replace(/\n( +)file: (.*)\n/g, ($0, $1, $2) =>
+    internals.indexOf($2.replace(/\.js$/, '')) === -1 ? $0
+      : '\n' + $1 + 'file: #INTERNAL#\n'
+  )
 
   // timeout values are different when coverage is present
   .replace(/\n( *)timeout: (30000|240000)(\n|$)/g, '\n$1timeout: {default}$3')
