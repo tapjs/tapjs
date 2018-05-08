@@ -61,9 +61,9 @@ mocha.describe('globals', () => {
 })
 
 assert.throws(_ => mocha.after(),
-  'cannot call "after" outside of describe()')
+  new Error('cannot call "after" outside of describe()'))
 assert.throws(_ => mocha.before(),
-  'cannot call "before" outside of describe()')
+  new Error('cannot call "before" outside of describe()'))
 
 let calledAfter = false
 let calledBefore = false
