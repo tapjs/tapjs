@@ -3,6 +3,12 @@ layout: layout
 title: Change Log
 ---
 
+## 12.0 2018-05-16
+
+Breaking change to support deep matching and pattern matching of
+objects in `Set` collections.  (Previously, `Set` contents would only
+match if they were equal.)
+
 ## 11.0 2017-11-26
 
 Significant refactoring and speed improvements.
