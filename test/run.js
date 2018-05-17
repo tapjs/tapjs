@@ -152,7 +152,7 @@ t.test('dump config stuff', t => {
         bail: false,
         saveFile: 'foo.txt',
         pipeToService: Boolean,
-        coverageReport: 'lcov',
+        coverageReporters: ['json', 'lcov'],
         browser: false,
         coverage: true,
         checkCoverage: true,
@@ -200,14 +200,16 @@ t.test('dump config stuff', t => {
       '--test-arg',
       '--nyc-arg',
       '--output-file',
-      '--grep'
+      '--grep',
+      '--coverage-report'
     ]
     const expect = {
       nodeArgs: [],
       testArgs: [],
       nycArgs: [],
       outputFile: null,
-      grep: []
+      grep: [],
+      coverageReporters: []
     }
     t.plan(opts.length)
     opts.forEach(opt => t.test(opt, t => run([
@@ -421,6 +423,16 @@ t.test('coverage', t => {
     escape(['--coverage-report=text-lcov'], null, (er, o, e) => {
       t.equal(er, null)
       t.matchSnapshot(clean(o), 'lcov output', { skip: winSkip })
+      t.end()
+    })
+  })
+
+  t.test('multiple reports', t => {
+    escape(['--coverage-report=text-lcov',
+            '--coverage-report=text',
+            '--coverage-report=text-summary'], null, (er, o, e) => {
+      t.equal(er, null)
+      t.matchSnapshot(clean(o), '3 text reporter outputs')
       t.end()
     })
   })

@@ -91,7 +91,7 @@ const main = _ => {
 
   // this is only testable by escaping from the covered environment
   /* istanbul ignore next */
-  if ((options.coverageReport || options.checkCoverage) &&
+  if ((options.coverageReporters.length || options.checkCoverage) &&
       options.files.length === 0)
     return runCoverageReport(options)
 
@@ -136,7 +136,7 @@ const constructDefaultArgs = _ => {
     bail: false,
     saveFile: null,
     pipeToService: false,
-    coverageReport: null,
+    coverageReporters: [],
     browser: true,
     coverage: undefined,
     checkCoverage: false,
@@ -255,19 +255,25 @@ const parseArgs = (args, options) => {
         options.jobs = +os.cpus().length
         continue
 
-      case '--coverage-report':
-        options.coverageReport = val || args[++i]
-        if (options.coverageReport === 'html')
-          options.coverageReport = 'lcov'
-        defaultCoverage = true
+      case '--coverage-report': {
+        const v = val || args[++i]
+        if (v !== undefined) {
+          if (v === 'html' ) {
+            options.coverageReporters.push('lcov')
+          } else {
+            options.coverageReporters.push(v)
+          }
+          defaultCoverage = true
         continue
+        }
+      }
 
       case '--no-browser':
         options.browser = false
         continue
 
       case '--no-coverage-report':
-        options.coverageReport = false
+        options.coverageReporters = []
         continue
 
       case '--no-cov': case '--no-coverage':
@@ -506,24 +512,32 @@ const runCoverageReportOnly = (options, code, signal) => {
   if (options.coverageReport === false)
     return close(code, signal)
 
-  if (!options.coverageReport) {
-    if (options.pipeToService || coverageServiceTest)
-      options.coverageReport = 'text-lcov'
-    else
-      options.coverageReport = 'text'
+  if (!options.coverageReporters.length &&
+    (options.pipeToService || coverageServiceTest)) {
+    options.coverageReporters = ['text-lcov']
   }
 
-  const args = [nycBin, 'report', '--reporter', options.coverageReport]
+  /*
+   * o.coverageReporters: each as a --reporter flag
+   * 'nyc-default' sentinel value: nyc will use its own default or config file
+   */
+  let reporters = []
+  if (!options.coverageReporters.includes('nyc-default')) {
+    for (let reporter of options.coverageReporters) {
+      reporters.push('--reporter', reporter)
+    }
+  }
 
+  const args = [nycBin, 'report']
   let child
   // automatically hook into coveralls
-  if (options.coverageReport === 'text-lcov' && options.pipeToService) {
-    child = spawn(node, args, { stdio: [ 0, 'pipe', 2 ] })
+  if (options.coverageReporters.includes('text-lcov') && options.pipeToService) {
+    child = spawn(node, args.concat(reporters), { stdio: [ 0, 'pipe', 2 ] })
     pipeToCoverageServices(options, child)
   } else {
     // otherwise just run the reporter
-    child = fg(node, args)
-    if (options.coverageReport === 'lcov' && options.browser)
+    child = fg(node, args.concat(reporters))
+    if (options.coverageReporters.includes('lcov') && options.browser)
       child.on('exit', () =>
         opener('coverage/lcov-report/index.html'))
   }

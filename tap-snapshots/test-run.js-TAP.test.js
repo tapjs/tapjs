@@ -136,6 +136,42 @@ end_of_record
 
 `
 
+exports[`test/run.js TAP coverage multiple reports > 3 text reporter outputs 1`] = `
+TN:
+SF:{CWD}/ok.js
+FN:2,(anonymous_0)
+FNF:1
+FNH:1
+FNDA:2,(anonymous_0)
+DA:2,2
+DA:3,2
+DA:4,2
+DA:6,0
+LF:4
+LH:3
+BRDA:3,0,0,2
+BRDA:3,0,1,0
+BRDA:4,1,0,2
+BRDA:4,1,1,1
+BRF:4
+BRH:3
+end_of_record
+-|-|-|-|-|-|
+File | % Stmts | % Branch | % Funcs | % Lines | Uncovered Lines |
+-|-|-|-|-|-|
+All files | 75 | 75 | 100 | 75 | |
+ ok.js | 75 | 75 | 100 | 75 | 6 |
+-|-|-|-|-|-|
+
+=============================== Coverage summary ===============================
+Statements   : 75% ( 3/4 )
+Branches     : 75% ( 3/4 )
+Functions    : 100% ( 1/1 )
+Lines        : 75% ( 3/4 )
+================================================================================
+
+`
+
 exports[`test/run.js TAP coverage report with checks > lcov output and 100 check 1`] = `
 TN:
 SF:{CWD}/ok.js

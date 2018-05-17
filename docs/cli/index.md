@@ -113,12 +113,16 @@ Options:
   --coverage-report=<type>    Output coverage information using the
                               specified istanbul/nyc reporter type.
 
-                              Default is 'text' when running on the
-                              command line, or 'text-lcov' when piping
-                              to coveralls.
+                              Default is 'text' when running on the command
+                              line, or 'text-lcov' when piping to coveralls.
+                              This can be specified multiple times to
+                              select more than one reporter.
 
                               If 'html' is used, then the report will
                               be opened in a web browser after running.
+
+                              If 'nyc-default' is used, then nyc will be
+                              deferred to and choose it's own reporters.
 
                               This can be run on its own at any time
                               after a test run that included coverage.
