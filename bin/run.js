@@ -480,12 +480,10 @@ const pipeToCoverageService = (service, options, child) => {
 }
 
 /* istanbul ignore next */
-const runCoverageReport = (options, code, signal) => {
-  if (options.checkCoverage)
-    runCoverageCheck(options, code, signal)
-  else
-    runCoverageReportOnly(options, code, signal)
-}
+const runCoverageReport = (options, code, signal) =>
+  signal ? null
+  : options.checkCoverage ? runCoverageCheck(options, code, signal)
+  : runCoverageReportOnly(options, code, signal)
 
 /* istanbul ignore next */
 const runCoverageReportOnly = (options, code, signal) => {
