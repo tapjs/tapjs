@@ -127,6 +127,7 @@ const constructDefaultArgs = _ => {
     timeout: +process.env.TAP_TIMEOUT || defaultTimeout,
     color: !!colorSupport.level,
     reporter: null,
+    reporterOptions: {},
     files: [],
     grep: [],
     grepInvert: false,
@@ -280,6 +281,10 @@ const parseArgs = (args, options) => {
 
       case '--reporter':
         options.reporter = val || args[++i]
+        continue
+
+      case '--reporter-options':
+        options.reporterOptions = JSON.parse(val || args[++i])
         continue
 
       case '--gc': case '-gc': case '--expose-gc':
@@ -595,9 +600,9 @@ const setupTapEnv = options => {
 const globFiles = files => files.reduce((acc, f) =>
   acc.concat(f === '-' ? f : glob.sync(f, { nonull: true })), [])
 
-const makeReporter = options =>
-  new (require('tap-mocha-reporter'))(options.reporter)
-
+const makeReporter = options => {
+  return new (require('tap-mocha-reporter'))(options.reporter, {}, options.reporterOptions)
+}
 const stdinOnly = options => {
   // if we didn't specify any files, then just passthrough
   // to the reporter, so we don't get '/dev/stdin' in the suite list.

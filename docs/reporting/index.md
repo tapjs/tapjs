@@ -86,3 +86,11 @@ The following options are available:
 - xunit
 
     XML output popular in .NET land.
+
+You can pass options to those reporters using `--reporter-options`
+with a JSON value.  For example:
+
+```
+--reporter=progress
+--reporter-options='{"reporter": {"open": "(", "close": ")"}}'
+```

@@ -34,7 +34,7 @@
     "signal-exit": "^3.0.0",
     "source-map-support": "^0.5.6",
     "stack-utils": "^1.0.0",
-    "tap-mocha-reporter": "^3.0.7",
+    "tap-mocha-reporter": "FIXME: bump to contain https://github.com/tapjs/tap-mocha-reporter/pull/49 once it lands",
     "tap-parser": "^7.0.0",
     "tmatch": "^4.0.0",
     "trivial-deferred": "^1.0.1",

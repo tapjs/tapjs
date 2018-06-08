@@ -74,6 +74,11 @@ Options:
                               landing list markdown min nyan progress
                               silent spec tap xunit
 
+  --reporter-options=<opts>   Configure the specified reporter with a
+                              JSON value.  For example, you could use
+                              `{"reporter": {"open": "(", "close": ")"}}`
+                              to customize the progress reporter.
+
   -o<file>                    Send the raw TAP output to the specified
   --output-file=<file>        file.  Reporter output will still be
                               printed to stdout, but the file will
