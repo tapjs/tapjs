@@ -14,7 +14,7 @@ test("strictDeepEquals shouldn't care about key order recursively", function (t)
   t.end()
 })
 
-test("strictDeepEquals shoudn't care about key order (but still might)", function (t) {
+test("strictDeepEquals shouldn't care about key order (but still might)", function (t) {
   t.strictDeepEqual(
     [
       {
