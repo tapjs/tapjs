@@ -349,6 +349,7 @@ ok 4 - x/y/1.js # {time}
 
 exports[`test/run.js TAP parallel > output 1`] = `
 TAP version 13
+1..5
 ok 1 - p/y/1.js # {time} {
     ok 1 - one
     1..1

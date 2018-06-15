@@ -753,12 +753,17 @@ const runTests = options => {
 
   // if not -Rtap, then output what the user wants.
   // otherwise just dump to stdout
-  tap.pipe(options.reporter === 'tap' ? process.stdout: makeReporter(options))
+  const outStream = options.reporter === 'tap' ? process.stdout : makeReporter(options)
+
+  tap.pipe(outStream)
 
   // need to replay the first version line, because the previous
   // line will have flushed it out to stdout or the reporter already.
   if (options.outputFile !== null)
     tap.pipe(fs.createWriteStream(options.outputFile)).write('TAP version 13\n')
+
+  if (options.files.length > 1 && options.jobs > 1)
+    outStream.write(`1..${options.files.length}\n`)
 
   saveFails(options, tap)
 
