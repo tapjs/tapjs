@@ -31,6 +31,7 @@ to add it to the docs.
 * [inflight](https://www.npmjs.com/package/inflight)
 * [ini](https://www.npmjs.com/package/ini)
 * [isexe](https://www.npmjs.com/package/isexe)
+* [lazy-iterable](https://www.npmjs.com/package/lazy-iterable)
 * [lru-cache](https://www.npmjs.com/package/lru-cache)
 * [lucass](https://www.npmjs.com/package/lucass)
 * [minipass](https://www.npmjs.com/package/minipass)
