@@ -20,6 +20,7 @@ to add it to the docs.
 * [dotenv](https://www.npmjs.com/package/dotenv)
 * [events-to-array](https://www.npmjs.com/package/events-to-array)
 * [express-jwt-permissions](https://www.npmjs.com/package/express-jwt-permissions)
+* [frs-replace](https://www.npmjs.com/package/frs-replace)
 * [fs-exists-cached](https://www.npmjs.com/package/fs-exists-cached)
 * [fs-minipass](https://www.npmjs.com/package/fs-minipass)
 * [fs-readstream-seek](https://www.npmjs.com/package/fs-readstream-seek)
