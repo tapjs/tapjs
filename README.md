@@ -144,7 +144,7 @@ share them, you will probably enjoy this test library.
     require compilation, then I think your tests shouldn't either.
     Tap is extremely
     [promise-aware](http://www.node-tap.org/promises/), but works on
-    any version of Node.js back to v0.10.
+    any version of Node.js back to v4.x.
 
 Software testing should help you build software.  It should be a
 security blanket and a quality ratchet, giving you the support to
