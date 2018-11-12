@@ -3,6 +3,11 @@ layout: layout
 title: Change Log
 ---
 
+## 12.1 2018-11-12
+
+Updates to make tap compatible with running in web browsers using
+browserify or webpack.
+
 ## 12.0 2018-05-16
 
 Breaking change to support deep matching and pattern matching of
