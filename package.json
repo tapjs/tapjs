@@ -76,8 +76,8 @@
     "standard": "^12.0.1",
     "which": "^1.3.1"
   },
+  "//": "optional because windows can't install them, so CI would fail",
   "optionalDependencies": {
-    "//": "optional because windows can't install them, so CI would fail",
     "browserify": "^16.2.3",
     "karma": "^3.1.1",
     "karma-browserify": "^5.2.0",
