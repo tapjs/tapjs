@@ -283,7 +283,7 @@ t.test('stdin', t => {
     }}, (er, o, e) => {
       t.equal(er, null)
       t.equal(e, 'Coverage disabled because stdin cannot be instrumented\n')
-      t.contains(o, '✓')
+      t.contains(o, '1 passing')
       t.equal(fs.readFileSync('foo.txt', 'utf8'), tapcode)
       fs.unlinkSync('foo.txt')
       t.end()
