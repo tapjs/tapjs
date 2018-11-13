@@ -13,7 +13,10 @@ t.test('in tapdir, no envs', t => {
   t.end()
 })
 
-t.test('in ~, no envs', t => {
+t.test('in ~, no envs', {
+  todo: process.platform === 'win32' ?
+    'check windows result not empty' : false
+}, t => {
   delete require.cache[require.resolve('../lib/stack.js')]
   process.chdir(process.env.HOME)
   process.env.TAP_DEV_LONGSTACK = 0
@@ -34,7 +37,10 @@ t.test('in home, longstack', t => {
   t.end()
 })
 
-t.test('in tapdir, shortstack', t => {
+t.test('in tapdir, shortstack', {
+  todo: process.platform === 'win32' ?
+    'check windows result not empty' : false
+}, t => {
   delete require.cache[require.resolve('../lib/stack.js')]
   process.chdir(path.resolve(__dirname, '..'))
   process.env.TAP_DEV_LONGSTACK = 0
