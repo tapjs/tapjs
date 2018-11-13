@@ -172,7 +172,7 @@ switch (process.argv[2]) {
 
   case 'sigself':
     setTimeout(_ =>
-      process.kill(process.pid, 'SIGQUIT'), 300)
+      process.kill(process.pid, 'SIGTERM'), 300)
     break
 
   case 'not-ok':
