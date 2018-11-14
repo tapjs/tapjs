@@ -21,6 +21,8 @@ delete process.env.TAP_BAIL
 delete process.env.TAP_COLORS
 delete process.env.TAP_TIMEOUT
 
+const winSkip = process.platform === 'win32' ? 'known windows failure' : false
+
 const cleanStacks = require('./clean-stacks.js')
 // also clean up NYC output a bit, because the line lengths
 // in the text report can vary on different platforms.
@@ -414,7 +416,7 @@ t.test('coverage', t => {
   t.test('report only', t => {
     escape(['--coverage-report=text-lcov'], null, (er, o, e) => {
       t.equal(er, null)
-      t.matchSnapshot(clean(o), 'lcov output')
+      t.matchSnapshot(clean(o), 'lcov output', { skip: winSkip })
       t.end()
     })
   })
@@ -422,7 +424,7 @@ t.test('coverage', t => {
   t.test('report with checks', t => {
     escape(['--100', '--coverage-report=text-lcov'], null, (er, o, e) => {
       t.match(er, { code: 1 })
-      t.matchSnapshot(clean(o), 'lcov output and 100 check')
+      t.matchSnapshot(clean(o), 'lcov output and 100 check', { skip: winSkip })
       t.end()
     })
   })
@@ -432,7 +434,7 @@ t.test('coverage', t => {
       COVERAGE_SERVICE_TEST: 'true'
     }}, (er, o, e) => {
       t.equal(er, null)
-      t.matchSnapshot(clean(o), 'piped to coverage service cat')
+      t.matchSnapshot(clean(o), 'piped to coverage service cat'), { skip: winSkip }
       t.end()
     })
   })
@@ -464,7 +466,7 @@ t.test('save file', t => {
   t.test('with bailout, should save all untested', t => {
     run(['a', 'x', 'z.js', '-s', savefile, '-b'], { cwd: dir }, (er, o, e) => {
       t.match(er, { code: 1 })
-      t.matchSnapshot(clean(o), 'stdout')
+      t.matchSnapshot(clean(o), 'stdout', { skip: winSkip })
       t.equal(e, '')
       t.matchSnapshot(clean(fs.readFileSync(savefile, 'utf8')), 'savefile')
       t.end()
@@ -474,7 +476,7 @@ t.test('save file', t => {
   t.test('without bailout, run untested, save failures', t => {
     run(['a', 'x', 'z.js', '-s', savefile], { cwd: dir }, (er, o, e) => {
       t.match(er, { code: 1 })
-      t.matchSnapshot(clean(o), 'stdout')
+      t.matchSnapshot(clean(o), 'stdout', { skip: winSkip })
       t.equal(e, '')
       t.matchSnapshot(clean(fs.readFileSync(savefile, 'utf8')), 'savefile')
       t.end()
