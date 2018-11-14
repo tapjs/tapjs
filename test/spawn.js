@@ -35,7 +35,7 @@ const main = () => {
     const s = new Spawn({
       command: node,
       args: [ file, 'catch-term' ],
-      timeout: process.env.CI ? 5000 : 500,
+      timeout: process.env.CI ? 10000 : 1000,
       buffered: true,
       name: 'killa'
     })
