@@ -121,6 +121,7 @@ const constructDefaultArgs = _ => {
   const defaultTimeout = global.__coverage__ ? 240 : 30
 
   const defaultArgs = {
+    typescript: false,
     nodeArgs: [],
     nycArgs: [],
     testArgs: [],
@@ -260,6 +261,11 @@ const parseArgs = (args, options) => {
 
       case '--no-browser':
         options.browser = false
+        continue
+
+      case '--ts':
+      case '--typescript':
+        options.typescript = true
         continue
 
       case '--no-coverage-report':
@@ -726,7 +732,10 @@ const runAllFiles = (options, saved, tap) => {
     } else {
       if (options.jobs > 1)
         opt.buffered = isParallelOk(parallelOk, file) !== false
-      if (file.match(/\.js$/)) {
+      if (options.typescript && file.match(/\.ts$/)) {
+        const args = options.nodeArgs.concat('-r', 'ts-node/register').concat(file).concat(options.testArgs)
+        tap.spawn(node, args, opt, file)
+      } else if (file.match(/\.js$/)) {
         const args = options.nodeArgs.concat(file).concat(options.testArgs)
         tap.spawn(node, args, opt, file)
       } else if (isexe.sync(options.files[i]))

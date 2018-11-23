@@ -104,6 +104,12 @@ Options:
                               captured by default and sent to the
                               coveralls.io service.
 
+  --typescript --ts           Run .ts files with `node -r ts-node/register`
+                              
+                              In order for this to work,
+                              you must intsall `ts-node` locally.
+
+
   --no-coverage --no-cov      Do not capture coverage information.
                               Note that if nyc is already loaded, then
                               the coverage info will still be captured.
