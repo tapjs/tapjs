@@ -513,6 +513,11 @@ const runCoverageReportOnly = (options, code, signal) => {
 
   const args = [nycBin, 'report', '--reporter', options.coverageReport]
 
+  if (options.typescript) {
+    args.push('--reporter');
+    args.push('text');
+  }
+
   let child
   // automatically hook into coveralls
   if (options.coverageReport === 'text-lcov' && options.pipeToService) {
