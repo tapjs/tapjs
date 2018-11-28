@@ -1,13 +1,13 @@
 'use strict'
-var t = require('../')
-
-var spawn = require('child_process').spawn
-var path = require('path')
-var fs = require('fs')
-var fixdir = path.resolve(__dirname, 'ts')
-var ts = path.resolve(fixdir, 'test.ts')
-var run = require.resolve('../bin/run.js')
-var node = process.execPath
+const t = require('../')
+const
+const spawn = require('child_process').spawn
+const path = require('path')
+const fs = require('fs')
+const fixdir = path.resolve(__dirname, 'ts')
+const ts = path.resolve(fixdir, 'test.ts')
+const run = require.resolve('../bin/run.js')
+const node = process.execPath
 
 function cleanup () {
   try { fs.unlinkSync(ts) } catch (e) {}
@@ -17,14 +17,13 @@ function cleanup () {
 t.test('setup', function (t) {
   cleanup()
   fs.mkdirSync(fixdir, '0755')
-  fs.writeFileSync(
-    ts,
-    'import * as tap from \'../../\';\n' +
-    'tap.test(\'TS Works\', (t) => {\n' +
-    '  t.equals(2, 1 + 1);\n' +
-    '  t.end();\n' +
-    '});'
-  )
+  fs.writeFileSync(ts, `
+import * as tap from '../../';
+tap.test('TS Works', (t) => {
+  t.equals(2, 1 + 1);
+  t.end();
+});
+  `);
   t.end()
 })
 
