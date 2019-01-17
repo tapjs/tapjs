@@ -853,7 +853,7 @@ t.test('snapshots', t => {
       name: 'deleteme',
       buffered: true
     })
-    tt.test('child test', { snapshot: snap }, tt => {
+    tt.test('child test', { snapshot: snap, buffered: false }, tt => {
       tt.matchSnapshot({ foo: 'bar' }, 'an object')
       tt.matchSnapshot('some string \\ \` ${process.env.FOO}', 'string')
       tt.matchSnapshot('do this eventually', { todo: 'later' })
