@@ -118,19 +118,6 @@ const cases = {
       t.pass('this is fine')
       t.end()
     }, 50)
-  },
-  'process.stdout and process.stderr are missing': t => {
-    const stdout = process.stdout
-    const stderr = process.stderr
-    delete process.stdout
-    delete process.stderr
-    delete require.cache[require.resolve('..')]
-    require('..')
-    t.ok(process.stdout, 'stdout gets polyfilled')
-    t.ok(process.stderr, 'stderr gets polyfilled')
-    process.stdout = stdout
-    process.stderr = stderr
-    t.end()
   }
 }
 

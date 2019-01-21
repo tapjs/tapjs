@@ -25,6 +25,9 @@ module.exports = out => out
       + '\n' + $1 + '...\n'
   })
 
+  // this key has changed names
+  .replace(/FSReqWrap/g, 'FSReqCallback')
+
   // remove time details
   .replace(/ # time=[0-9\.]+m?s( \{.*)?\n/g, ' # {time}$1\n')
   .replace(/\n# time=.*/g, '\n# {time}')

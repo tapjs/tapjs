@@ -404,8 +404,6 @@ ok 1 - fine
 not ok 2 - timeout!
   ---
   expired: TAP
-  handles:
-    - type: Timer
   signal: SIGTERM
   stack: |
     {STACK}
@@ -432,8 +430,6 @@ ok 1 - fine
 not ok 2 - timeout!
   ---
   expired: TAP
-  handles:
-    - type: Timer
   signal: SIGTERM
   stack: |
     {STACK}
@@ -461,7 +457,7 @@ not ok 2 - timeout!
   ---
   expired: TAP
   requests:
-    - type: FSReqWrap
+    - type: FSReqCallback
   signal: SIGTERM
   stack: |
     {STACK}
@@ -509,27 +505,5 @@ tear it down
 `
 
 exports[`test/tap.js TAP autoend=false with teardown > stderr 1`] = `
-
-`
-
-exports[`test/tap.js TAP process.stdout and process.stderr are missing > exit status 1`] = `
-{ code: 0, signal: null }
-`
-
-exports[`test/tap.js TAP process.stdout and process.stderr are missing > stdout 1`] = `
-TAP version 13
-
-ok 1 - stdout gets polyfilled
-
-ok 2 - stderr gets polyfilled
-
-1..2
-
-# {time}
-
-
-`
-
-exports[`test/tap.js TAP process.stdout and process.stderr are missing > stderr 1`] = `
 
 `
