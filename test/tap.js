@@ -38,10 +38,6 @@ const cases = {
     t.on('teardown', () => { throw new Error('poop') })
     t.pass('x')
   },
-  'process.exitCode polyfill': t => {
-    Object.defineProperty(process, 'version', { value: 'v0.10.420' })
-    t.fail(process.version)
-  },
   'TAP_DEBUG=1': [
     () => process.env.TAP_DEBUG = '1',
     t => t.comment('this is fine')
