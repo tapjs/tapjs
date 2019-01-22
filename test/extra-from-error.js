@@ -1,6 +1,23 @@
 'use strict'
 const t = require('../')
 const extraFromError = require('../lib/extra-from-error.js')
+const assert = require('assert')
+const messageGetter = {
+  get message () {
+    return 'this is your message'
+  },
+  foo: 'bar',
+}
+
+const messageNonConfig = {
+  foo: 'bar',
+}
+Object.defineProperty(messageNonConfig, 'message', {
+  value: 'this is your message',
+  configurable: false,
+  enumerable: false,
+  writable: false
+})
 
 const cases = [
   [new Error('ok'), null, null, {
@@ -41,7 +58,15 @@ const cases = [
   [{ name: 'asdf' }, null, null, {
     type: 'asdf',
     message: null
-  }]
+  }],
+
+  [messageGetter, null, null, {
+    foo: 'bar',
+  }],
+
+  [messageNonConfig, null, null, {
+    foo: 'bar',
+  }],
 ]
 
 cases.forEach(c => t.match(extraFromError(c[0], c[1], c[2]), c[3]))
