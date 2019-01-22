@@ -38,6 +38,11 @@ const cases = {
     t.on('teardown', () => { throw new Error('poop') })
     t.pass('x')
   },
+  'uncaught exception': t => {
+    t.pass('this is fine')
+    setTimeout(() => { throw new Error('poop') })
+    t.pass('i am sure things are ok')
+  },
   'TAP_DEBUG=1': [
     () => process.env.TAP_DEBUG = '1',
     t => t.comment('this is fine')

@@ -213,31 +213,34 @@ Error: poop
 
 `
 
-exports[`test/tap.js TAP process.exitCode polyfill > exit status 1`] = `
+exports[`test/tap.js TAP uncaught exception > exit status 1`] = `
 { code: 1, signal: null }
 `
 
-exports[`test/tap.js TAP process.exitCode polyfill > stdout 1`] = `
+exports[`test/tap.js TAP uncaught exception > stdout 1`] = `
 TAP version 13
-not ok 1 - v0.10.420
+ok 1 - this is fine
+ok 2 - i am sure things are ok
+not ok 3 - poop
   ---
   at:
     line: #
     column: #
     file: test/tap.js
   source: |
-    t.fail(process.version)
+    setTimeout(() => { throw new Error('poop') })
   stack: |
     {STACK}
+  test: TAP
   ...
 
-1..1
-# failed 1 test
+1..3
+# failed 1 of 3 tests
 # {time}
 
 `
 
-exports[`test/tap.js TAP process.exitCode polyfill > stderr 1`] = `
+exports[`test/tap.js TAP uncaught exception > stderr 1`] = `
 
 `
 
