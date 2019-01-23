@@ -233,6 +233,7 @@ not ok 1 - z.js # {time}
   ---
   args:
     - z.js
+  childId: 2
   command: {NODE}
   cwd: {CWD}/test/cli-tests
   exitCode: 1
@@ -268,6 +269,7 @@ not ok 3 - a/b/f1.js # {time}
   ---
   args:
     - a/b/f1.js
+  childId: 6
   command: {NODE}
   cwd: {CWD}/test/cli-tests
   exitCode: 1

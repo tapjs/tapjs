@@ -697,6 +697,7 @@ const runAllFiles = (options, saved, tap) => {
   let parallelOk = Object.create(null)
 
   options.files = filterFiles(options.files, saved, parallelOk)
+  let tapChildId = 0
 
   for (let i = 0; i < options.files.length; i++) {
     const opt = {}
@@ -719,6 +720,7 @@ const runAllFiles = (options, saved, tap) => {
       opt.timeout = options.timeout * 1000
 
     opt.file = file
+    opt.childId = tapChildId++
     if (st.isDirectory()) {
       const dir = filterFiles(fs.readdirSync(file).map(f =>
         file + '/' + f), saved, parallelOk)
@@ -726,6 +728,7 @@ const runAllFiles = (options, saved, tap) => {
     } else {
       if (options.jobs > 1)
         opt.buffered = isParallelOk(parallelOk, file) !== false
+
       if (file.match(/\.js$/)) {
         const args = options.nodeArgs.concat(file).concat(options.testArgs)
         tap.spawn(node, args, opt, file)

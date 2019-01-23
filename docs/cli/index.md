@@ -209,6 +209,11 @@ Options:
 
 Environment Variables:
 
+  TAP_CHILD_ID                Test files have this value set to a
+                              numeric value when run through the test
+                              runner.  It also appears on the root tap
+                              object as `tap.childId`.
+
   TAP_SNAPSHOT                Set to '1' to generate snapshot files
                               for `t.matchSnapshot()` assertions.
 
