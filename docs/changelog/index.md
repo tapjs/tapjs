@@ -3,6 +3,13 @@ layout: layout
 title: Change Log
 ---
 
+## 12.2 2019-01-22
+
+Add `--comments` to print all `t.comment()` messages to stderr.
+
+Add `TAP_CHILD_ID` in the environment of test scripts, so that they
+can differentiate themselves when spinning up servers and such.
+
 ## 12.1 2018-11-12
 
 Updates to make tap compatible with running in web browsers using
