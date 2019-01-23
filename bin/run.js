@@ -737,6 +737,12 @@ const runAllFiles = (options, saved, tap) => {
       if (file.match(/\.js$/)) {
         const args = options.nodeArgs.concat(file).concat(options.testArgs)
         tap.spawn(node, args, opt, file)
+      } else if (file.match(/\.mjs$/)) {
+        const args = options.nodeArgs
+          .concat('--experimental-modules')
+          .concat(file)
+          .concat(options.testArgs)
+        tap.spawn(node, args, opt, file)
       } else if (isexe.sync(options.files[i]))
         tap.spawn(options.files[i], options.testArgs, opt, file)
     }

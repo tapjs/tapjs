@@ -415,3 +415,16 @@ ok 1 - exe/ok.sh # {time}
 # {time}
 
 `
+
+exports[`test/run.js TAP mjs > undefined 1`] = `
+TAP version 13
+# Subtest: test/cli-tests/mjs/ok.mjs
+    ok 1 - this is fine
+    1..1
+    # {time}
+ok 1 - test/cli-tests/mjs/ok.mjs # {time}
+
+1..1
+# {time}
+
+`

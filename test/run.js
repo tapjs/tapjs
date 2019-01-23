@@ -635,3 +635,15 @@ t.test('comments', t => {
     t.end()
   })
 })
+
+t.test('mjs', t => {
+  const ok = tmpfile(t, 'mjs/ok.mjs', `'use strict'
+    import t from ${tap}
+    t.pass('this is fine')
+  `)
+  run([ok], {}, (er, o, e) => {
+    t.equal(er, null)
+    t.matchSnapshot(clean(o))
+    t.end()
+  })
+})
