@@ -1138,6 +1138,7 @@ not ok 2 - beep
     throw new Error('beep')
   stack: |
     {STACK}
+  tapCaught: testFunctionThrow
   ...
 
 1..2
@@ -1163,6 +1164,7 @@ not ok 2 - beep
     throw new Error('beep')
   stack: |
     {STACK}
+  tapCaught: testFunctionThrow
   ...
 
 1..2
@@ -1188,6 +1190,7 @@ not ok 2 - beep
     throw new Error('beep')
   stack: |
     {STACK}
+  tapCaught: testFunctionThrow
   ...
 
 Bail out! # beep
@@ -1970,6 +1973,7 @@ TAP version 13
         tt.test('child', () => new Promise((_, r) => r(new Error('poop'))))
       stack: |
         {STACK}
+      tapCaught: returnedPromiseRejection
       test: child
       ...
     
@@ -1998,6 +2002,7 @@ not ok 2 - fail
     tt.teardown(() => { throw new Error('fail') })
   stack: |
     {STACK}
+  tapCaught: teardown
   test: child
   ...
 

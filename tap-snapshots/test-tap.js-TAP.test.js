@@ -164,6 +164,7 @@ not ok 2 - broken
     Promise.reject(new Error('broken'))
   stack: |
     {STACK}
+  tapCaught: unhandledRejection
   test: TAP
   ...
 
@@ -209,7 +210,7 @@ exports[`test/tap.js TAP teardown throw > stderr 1`] = `
 
 Error: poop
     {STACK}
-{ name: 'TAP', test: 'TAP' }
+{ name: 'TAP', tapCaught: 'teardown', test: 'TAP' }
 
 `
 
@@ -231,6 +232,7 @@ not ok 3 - poop
     setTimeout(() => { throw new Error('poop') })
   stack: |
     {STACK}
+  tapCaught: uncaughtException
   test: TAP
   ...
 
