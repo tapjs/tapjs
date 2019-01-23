@@ -3,6 +3,11 @@ layout: layout
 title: Change Log
 ---
 
+## 12.3 2019-01-22
+
+Add support for loading `.mjs` files with the experimental module
+syntax flag set.
+
 ## 12.2 2019-01-22
 
 Add `--comments` to print all `t.comment()` messages to stderr.
