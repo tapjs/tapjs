@@ -194,6 +194,8 @@ TAP version 13
         file: z.js
       source: |
         require("{CWD}/").fail('c/d')
+      stack: |
+        {STACK}
       ...
     
     Bail out! # c/d
@@ -224,6 +226,8 @@ TAP version 13
         file: z.js
       source: |
         require("{CWD}/").fail('c/d')
+      stack: |
+        {STACK}
       ...
     
     1..1
@@ -232,6 +236,8 @@ TAP version 13
 not ok 1 - z.js # {time}
   ---
   args:
+    - '-r'
+    - {CWD}/node_modules/esm/esm.js
     - z.js
   childId: 2
   command: {NODE}
@@ -260,6 +266,8 @@ ok 2 - a/b/2.js # {time}
         file: a/b/f1.js
       source: |
         require("{CWD}/").fail('a/b')
+      stack: |
+        {STACK}
       ...
     
     1..1
@@ -268,6 +276,8 @@ ok 2 - a/b/2.js # {time}
 not ok 3 - a/b/f1.js # {time}
   ---
   args:
+    - '-r'
+    - {CWD}/node_modules/esm/esm.js
     - a/b/f1.js
   childId: 6
   command: {NODE}
@@ -423,6 +433,19 @@ TAP version 13
     1..1
     # {time}
 ok 1 - test/cli-tests/mjs/ok.mjs # {time}
+
+1..1
+# {time}
+
+`
+
+exports[`test/run.js TAP esm > undefined 1`] = `
+TAP version 13
+# Subtest: test/cli-tests/esm/ok.js
+    ok 1 - this is fine
+    1..1
+    # {time}
+ok 1 - test/cli-tests/esm/ok.js # {time}
 
 1..1
 # {time}

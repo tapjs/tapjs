@@ -133,7 +133,8 @@ t.test('dump config stuff', t => {
       t.equal(er, null)
       t.match(JSON.parse(o), {
         nodeArgs:
-         [ '--expose-gc',
+         [ '-r', 'esm',
+           '--expose-gc',
            '--use_strict',
            '--debug',
            '--debug-brk',
@@ -639,6 +640,18 @@ t.test('comments', t => {
 t.test('mjs', t => {
   const ok = tmpfile(t, 'mjs/ok.mjs', `'use strict'
     import t from ${tap}
+    t.pass('this is fine')
+  `)
+  run([ok], {}, (er, o, e) => {
+    t.equal(er, null)
+    t.matchSnapshot(clean(o))
+    t.end()
+  })
+})
+
+t.test('esm', t => {
+  const ok = tmpfile(t, 'esm/ok.js', `'use strict'
+    import {t} from 'tap'
     t.pass('this is fine')
   `)
   run([ok], {}, (er, o, e) => {

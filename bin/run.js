@@ -124,7 +124,7 @@ const constructDefaultArgs = _ => {
   const defaultTimeout = global.__coverage__ ? 240 : 30
 
   const defaultArgs = {
-    nodeArgs: [],
+    nodeArgs: [ '-r', require.resolve('esm') ],
     nycArgs: [],
     testArgs: [],
     timeout: +process.env.TAP_TIMEOUT || defaultTimeout,
@@ -737,18 +737,12 @@ const runAllFiles = (options, saved, tap) => {
       if (options.jobs > 1)
         opt.buffered = isParallelOk(parallelOk, file) !== false
 
-      if (file.match(/\.js$/)) {
+      if (file.match(/\.m?js$/)) {
         const args = options.nodeArgs.concat(file).concat(options.testArgs)
         tap.spawn(node, args, opt, file)
       } else if (file.match(/\.ts$/)) {
         const args = options.nodeArgs.concat(file).concat(options.testArgs)
         tap.spawn(tsNode, args, opt, file)
-      } else if (file.match(/\.mjs$/)) {
-        const args = options.nodeArgs
-          .concat('--experimental-modules')
-          .concat(file)
-          .concat(options.testArgs)
-        tap.spawn(node, args, opt, file)
       } else if (isexe.sync(options.files[i]))
         tap.spawn(options.files[i], options.testArgs, opt, file)
     }
