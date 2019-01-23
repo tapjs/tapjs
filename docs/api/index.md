@@ -194,6 +194,9 @@ Note that all assert methods also return `true` if they pass.
 
 Print the supplied message as a TAP comment.
 
+If you provide the `--comment` flag to the test runner, then tap
+comments will be printed to stderr.
+
 Note that you can always use `console.error()` for debugging (or
 `console.log()` as long as the message doesn't look like TAP formatted
 data).

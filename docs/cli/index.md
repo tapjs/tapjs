@@ -61,6 +61,8 @@ Options:
 
   -b --bail                   Bail out on first failure
 
+  --comments                  Print all tap comments to process.stderr
+
   -B --no-bail                Do not bail out on first failure (Default)
 
   -O --only                   Only run tests with {only: true} option
@@ -77,7 +79,7 @@ Options:
   -o<file>                    Send the raw TAP output to the specified
   --output-file=<file>        file.  Reporter output will still be
                               printed to stdout, but the file will
-                              contain the raw TAP for later reply or
+                              contain the raw TAP for later replay or
                               analysis.
 
   -s<file> --save=<file>      If <file> exists, then it should be a line-

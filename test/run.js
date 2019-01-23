@@ -123,7 +123,8 @@ t.test('dump config stuff', t => {
       '--color', '--no-color', '--output-file=out.txt', '--no-timeout',
       '--timeout', '99', '--invert', '--no-invert', '--grep', 'x',
       '--grep=/y/i', '--bail', '--no-bail', '--only', '-R', 'spec',
-      '--node-arg', 'abc', '--nyc-arg', 'abc', '-o', 'out.txt'
+      '--node-arg', 'abc', '--nyc-arg', 'abc', '-o', 'out.txt',
+      '--comments'
     ], { env: {
       TAP: '0',
       TAP_BAIL: '0',
@@ -161,7 +162,9 @@ t.test('dump config stuff', t => {
         jobs: 4,
         outputFile: 'out.txt',
         rcFile: /\.taprc$/,
-        only: true })
+        only: true,
+        comments: true
+      })
       t.end()
     })
   })
@@ -610,6 +613,25 @@ t.test('executables', {
     t.equal(er, null)
     t.matchSnapshot(clean(o))
     t.equal(e, '')
+    t.end()
+  })
+})
+
+t.test('comments', t => {
+  const ok = tmpfile(t, 'comments/ok.js', `'use strict'
+    const t = require(${tap})
+    t.comment('root')
+    t.test('parent', t => {
+      t.comment('parent')
+      t.test('child', t => {
+        t.comment('child')
+        t.end()
+      })
+      t.end()
+    })
+  `)
+  run(['--comments', ok], {}, (er, o, e) => {
+    t.equal(e, 'root\nparent\nchild\n')
     t.end()
   })
 })

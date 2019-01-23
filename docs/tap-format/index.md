@@ -318,12 +318,13 @@ Anything that isn't parseable as one of the above types of lines is
 considered "extra" non-TAP data.  In strict mode, extra output is an
 error.  In non-strict mode, it's ignored.
 
-The `tap` runner ignores comments.  Non-TAP data is passed through the
-reporting engine and printed to the top-level process standard output.
-This means that `console.log('foo')` will make its way to the top
-level, instead of being swallowed by a reporter.
+The `tap` runner ignores comments unless `--comments` is provided, in
+which case it is printed to stderr.  Non-TAP data is passed through
+the reporting engine and printed to the top-level process standard
+output.  This means that `console.log('foo')` will make its way to the
+top level, instead of being swallowed by a reporter.
 
-You can output comments by doing `t.comment('foo')`.  This function
+You can generate comments by doing `t.comment('foo')`.  This function
 takes any arguments that can be passed to `console.log()`.  For
 example, `t.comment('number %d and\nobj =', 1, { foo: 'bar' })` would
 output:

@@ -51,6 +51,8 @@ Options:
 
   -b --bail                   Bail out on first failure
 
+  --comments                  Print all tap comments to process.stderr
+
   -B --no-bail                Do not bail out on first failure (Default)
 
   -O --only                   Only run tests with {only: true} option

@@ -142,7 +142,8 @@ const constructDefaultArgs = _ => {
     lines: 0,
     statements: 0,
     jobs: 1,
-    outputFile: null
+    outputFile: null,
+    comments: false
   }
 
   if (process.env.TAP_COLORS !== undefined)
@@ -394,6 +395,10 @@ const parseArgs = (args, options) => {
 
       case '--only':
         options.only = true
+        continue
+
+      case '--comments':
+        options.comments = true
         continue
 
       case '--':
@@ -747,6 +752,19 @@ const runTests = options => {
   // At this point, we know we need to use the tap root,
   // because there are 1 or more files to spawn.
   const tap = require('../lib/tap.js')
+  if (options.comments) {
+    const onComment = c => {
+      if (!c.match(/^# (time=[0-9\.]+m?s|Subtest(: .+))\n$/))
+        console.error(c.substr(2).trim())
+    }
+    const onChild = p => {
+      p.on('comment', onComment)
+      p.on('child', onChild)
+    }
+    tap.parser.on('comment', onComment)
+    tap.parser.on('child', onChild)
+  }
+
   tap.runOnly = false
 
   // greps are passed to children, but not the runner itself
