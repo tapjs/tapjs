@@ -428,3 +428,16 @@ ok 1 - test/cli-tests/mjs/ok.mjs # {time}
 # {time}
 
 `
+
+exports[`test/run.js TAP ts > undefined 1`] = `
+TAP version 13
+# Subtest: test/cli-tests/ts/ok.ts
+    ok 1 - this is fine
+    1..1
+    # {time}
+ok 1 - test/cli-tests/ts/ok.ts # {time}
+
+1..1
+# {time}
+
+`

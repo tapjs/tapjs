@@ -16,6 +16,9 @@ const path = require('path')
 const exists = require('fs-exists-cached').sync
 const os = require('os')
 const isTTY = process.stdin.isTTY || process.env._TAP_IS_TTY === '1'
+const tsNode = require.resolve(
+  'ts-node/' + require('ts-node/package.json').bin['ts-node']
+)
 
 const coverageServiceTest = process.env.COVERAGE_SERVICE_TEST === 'true'
 
@@ -737,6 +740,9 @@ const runAllFiles = (options, saved, tap) => {
       if (file.match(/\.js$/)) {
         const args = options.nodeArgs.concat(file).concat(options.testArgs)
         tap.spawn(node, args, opt, file)
+      } else if (file.match(/\.ts$/)) {
+        const args = options.nodeArgs.concat(file).concat(options.testArgs)
+        tap.spawn(tsNode, args, opt, file)
       } else if (file.match(/\.mjs$/)) {
         const args = options.nodeArgs
           .concat('--experimental-modules')
