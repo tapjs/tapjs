@@ -888,6 +888,14 @@ t.test('assertions and weird stuff', t => {
       t.end()
     },
 
+    't.emits': t => {
+      const EE = require('events').EventEmitter
+      const ee = new EE()
+      t.emits(ee, 'fail')
+      t.emits(ee, 'pass')
+      ee.emit('pass')
+      t.end()
+    },
   }
 
   const keys = Object.keys(cases)
