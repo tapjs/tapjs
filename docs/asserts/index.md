@@ -56,6 +56,11 @@ simply throw it.  The Test object will handle this as a failure.
 
 Synonyms: `t.ifErr`, `t.ifError`
 
+## t.emits(eventEmitter, event, message, extra)
+
+Verify that the event emitter emits the named event before the end of
+the test.
+
 ## t.rejects(promise | fn, [expectedError], message, extra)
 
 Verifies that the promise (or promise-returning function) rejects.  If

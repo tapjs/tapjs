@@ -2411,6 +2411,26 @@ not ok 4 - timeout!
 
 `
 
+exports[`test/test.js TAP assertions and weird stuff t.emits > t.emits 1`] = `
+TAP version 13
+not ok 1 - expect fail event to be emitted
+  ---
+  at:
+    line: #
+    column: #
+    file: test/test.js
+  source: |
+    t.emits(ee, 'fail')
+  stack: |
+    {STACK}
+  ...
+
+ok 2 - expect pass event to be emitted
+1..2
+# failed 1 of 2 tests
+
+`
+
 exports[`test/test.js TAP addAssert > using the custom isUrl assertion 1`] = `
 TAP version 13
 not ok 1 - expect a valid http/https url
