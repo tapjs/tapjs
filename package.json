@@ -1,0 +1,24 @@
+{
+  "name": "tap-yaml",
+  "version": "0.0.0",
+  "description": "Yaml handling for TAP parsers and generators",
+  "main": "index.js",
+  "scripts": {
+    "test": "tap test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tapjs/tap-yaml.git"
+  },
+  "keywords": [
+    "tap",
+    "yaml",
+    "test",
+    "testanything"
+  ],
+  "author": "Isaac Z. Schlueter <i@izs.me>",
+  "license": "ISC",
+  "dependencies": {
+    "yaml": "github:isaacs/yaml#built"
+  }
+}
