@@ -11,7 +11,7 @@ const nycBin = require.resolve('nyc/bin/nyc.js')
 const glob = require('glob')
 const isexe = require('isexe')
 const osHomedir = require('os-homedir')
-const yaml = require('js-yaml')
+const yaml = require('tap-yaml')
 const path = require('path')
 const exists = require('fs-exists-cached').sync
 const os = require('os')
@@ -803,7 +803,7 @@ const runTests = options => {
 const parseRcFile = path => {
   try {
     const contents = fs.readFileSync(path, 'utf8')
-    return yaml.safeLoad(contents) || {}
+    return yaml.parse(contents) || {}
   } catch (er) {
     // if no dotfile exists, or invalid yaml, fail gracefully
     return {}
