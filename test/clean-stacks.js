@@ -25,6 +25,9 @@ module.exports = out => out
       + '\n' + $1 + '...\n'
   })
 
+  // https://github.com/nodejs/node/issues/25806
+  .replace(/  handles:\n    - type: Timer\n/g, '')
+
   // this key has changed names
   .replace(/FSReqWrap/g, 'FSReqCallback')
 
