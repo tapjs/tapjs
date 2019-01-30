@@ -651,7 +651,7 @@ t.test('mjs', t => {
 
 t.test('esm', t => {
   const ok = tmpfile(t, 'esm/ok.js', `'use strict'
-    import {t} from 'tap'
+    import {t} from ${tap}
     t.pass('this is fine')
   `)
   run([ok], {}, (er, o, e) => {
