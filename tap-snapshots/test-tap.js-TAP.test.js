@@ -6,7 +6,10 @@
  */
 'use strict'
 exports[`test/tap.js TAP ok > exit status 1`] = `
-{ code: 0, signal: null }
+Object {
+  "code": 0,
+  "signal": null,
+}
 `
 
 exports[`test/tap.js TAP ok > stdout 1`] = `
@@ -22,7 +25,10 @@ exports[`test/tap.js TAP ok > stderr 1`] = `
 `
 
 exports[`test/tap.js TAP notOk > exit status 1`] = `
-{ code: 1, signal: null }
+Object {
+  "code": 1,
+  "signal": null,
+}
 `
 
 exports[`test/tap.js TAP notOk > stdout 1`] = `
@@ -50,7 +56,10 @@ exports[`test/tap.js TAP notOk > stderr 1`] = `
 `
 
 exports[`test/tap.js TAP bail > exit status 1`] = `
-{ code: 1, signal: null }
+Object {
+  "code": 1,
+  "signal": null,
+}
 `
 
 exports[`test/tap.js TAP bail > stdout 1`] = `
@@ -64,7 +73,10 @@ exports[`test/tap.js TAP bail > stderr 1`] = `
 `
 
 exports[`test/tap.js TAP plan 0 > exit status 1`] = `
-{ code: 0, signal: null }
+Object {
+  "code": 0,
+  "signal": null,
+}
 `
 
 exports[`test/tap.js TAP plan 0 > stdout 1`] = `
@@ -79,7 +91,10 @@ exports[`test/tap.js TAP plan 0 > stderr 1`] = `
 `
 
 exports[`test/tap.js TAP plan unsatisied > exit status 1`] = `
-{ code: 1, signal: null }
+Object {
+  "code": 1,
+  "signal": null,
+}
 `
 
 exports[`test/tap.js TAP plan unsatisied > stdout 1`] = `
@@ -96,7 +111,10 @@ exports[`test/tap.js TAP plan unsatisied > stderr 1`] = `
 `
 
 exports[`test/tap.js TAP too much > exit status 1`] = `
-{ code: 1, signal: null }
+Object {
+  "code": 1,
+  "signal": null,
+}
 `
 
 exports[`test/tap.js TAP too much > stdout 1`] = `
@@ -116,7 +134,10 @@ Error: test count exceeds plan
 `
 
 exports[`test/tap.js TAP stdout epipe > exit status 1`] = `
-{ code: 0, signal: null }
+Object {
+  "code": 0,
+  "signal": null,
+}
 `
 
 exports[`test/tap.js TAP stdout epipe > stdout 1`] = `
@@ -132,7 +153,10 @@ exports[`test/tap.js TAP stdout epipe > stderr 1`] = `
 `
 
 exports[`test/tap.js TAP close even if exiting hard > exit status 1`] = `
-{ code: 0, signal: null }
+Object {
+  "code": 0,
+  "signal": null,
+}
 `
 
 exports[`test/tap.js TAP close even if exiting hard > stdout 1`] = `
@@ -148,7 +172,10 @@ exports[`test/tap.js TAP close even if exiting hard > stderr 1`] = `
 `
 
 exports[`test/tap.js TAP unhandled promise > exit status 1`] = `
-{ code: 1, signal: null }
+Object {
+  "code": 1,
+  "signal": null,
+}
 `
 
 exports[`test/tap.js TAP unhandled promise > stdout 1`] = `
@@ -179,7 +206,10 @@ exports[`test/tap.js TAP unhandled promise > stderr 1`] = `
 `
 
 exports[`test/tap.js TAP teardown event loop > exit status 1`] = `
-{ code: 0, signal: null }
+Object {
+  "code": 0,
+  "signal": null,
+}
 `
 
 exports[`test/tap.js TAP teardown event loop > stdout 1`] = `
@@ -195,7 +225,10 @@ exports[`test/tap.js TAP teardown event loop > stderr 1`] = `
 `
 
 exports[`test/tap.js TAP teardown throw > exit status 1`] = `
-{ code: 1, signal: null }
+Object {
+  "code": 1,
+  "signal": null,
+}
 `
 
 exports[`test/tap.js TAP teardown throw > stdout 1`] = `
@@ -215,7 +248,10 @@ Error: poop
 `
 
 exports[`test/tap.js TAP uncaught exception > exit status 1`] = `
-{ code: 1, signal: null }
+Object {
+  "code": 1,
+  "signal": null,
+}
 `
 
 exports[`test/tap.js TAP uncaught exception > stdout 1`] = `
@@ -247,7 +283,10 @@ exports[`test/tap.js TAP uncaught exception > stderr 1`] = `
 `
 
 exports[`test/tap.js TAP TAP_DEBUG=1 > exit status 1`] = `
-{ code: 0, signal: null }
+Object {
+  "code": 0,
+  "signal": null,
+}
 `
 
 exports[`test/tap.js TAP TAP_DEBUG=1 > stdout 1`] = `
@@ -281,7 +320,10 @@ TAP {pid} TAP: done processing [] false
 `
 
 exports[`test/tap.js TAP NODE_DEBUG=tap > exit status 1`] = `
-{ code: 0, signal: null }
+Object {
+  "code": 0,
+  "signal": null,
+}
 `
 
 exports[`test/tap.js TAP NODE_DEBUG=tap > stdout 1`] = `
@@ -309,7 +351,10 @@ TAP {pid} TAP: done processing [] false
 `
 
 exports[`test/tap.js TAP TAP_GREP > exit status 1`] = `
-{ code: 0, signal: null }
+Object {
+  "code": 0,
+  "signal": null,
+}
 `
 
 exports[`test/tap.js TAP TAP_GREP > stdout 1`] = `
@@ -344,7 +389,10 @@ exports[`test/tap.js TAP TAP_GREP > stderr 1`] = `
 `
 
 exports[`test/tap.js TAP TAP_GREP_INVERT > exit status 1`] = `
-{ code: 0, signal: null }
+Object {
+  "code": 0,
+  "signal": null,
+}
 `
 
 exports[`test/tap.js TAP TAP_GREP_INVERT > stdout 1`] = `
@@ -379,7 +427,10 @@ exports[`test/tap.js TAP TAP_GREP_INVERT > stderr 1`] = `
 `
 
 exports[`test/tap.js TAP TAP_ONLY > exit status 1`] = `
-{ code: 0, signal: null }
+Object {
+  "code": 0,
+  "signal": null,
+}
 `
 
 exports[`test/tap.js TAP TAP_ONLY > stdout 1`] = `
@@ -400,7 +451,10 @@ exports[`test/tap.js TAP TAP_ONLY > stderr 1`] = `
 `
 
 exports[`test/tap.js TAP timeout sigterm > exit status 1`] = `
-{ code: null, signal: 'SIGTERM' }
+Object {
+  "code": null,
+  "signal": "SIGTERM",
+}
 `
 
 exports[`test/tap.js TAP timeout sigterm > stdout 1`] = `
@@ -426,7 +480,10 @@ exports[`test/tap.js TAP timeout sigterm > stderr 1`] = `
 `
 
 exports[`test/tap.js TAP timeout sigterm with handle > exit status 1`] = `
-{ code: null, signal: 'SIGTERM' }
+Object {
+  "code": null,
+  "signal": "SIGTERM",
+}
 `
 
 exports[`test/tap.js TAP timeout sigterm with handle > stdout 1`] = `
@@ -452,7 +509,10 @@ exports[`test/tap.js TAP timeout sigterm with handle > stderr 1`] = `
 `
 
 exports[`test/tap.js TAP timeout sigterm many times > exit status 1`] = `
-{ code: null, signal: 'SIGTERM' }
+Object {
+  "code": null,
+  "signal": "SIGTERM",
+}
 `
 
 exports[`test/tap.js TAP timeout sigterm many times > stdout 1`] = `
@@ -480,7 +540,10 @@ exports[`test/tap.js TAP timeout sigterm many times > stderr 1`] = `
 `
 
 exports[`test/tap.js TAP autoend(false) with teardown > exit status 1`] = `
-{ code: 0, signal: null }
+Object {
+  "code": 0,
+  "signal": null,
+}
 `
 
 exports[`test/tap.js TAP autoend(false) with teardown > stdout 1`] = `
@@ -497,7 +560,10 @@ exports[`test/tap.js TAP autoend(false) with teardown > stderr 1`] = `
 `
 
 exports[`test/tap.js TAP autoend=false with teardown > exit status 1`] = `
-{ code: 0, signal: null }
+Object {
+  "code": 0,
+  "signal": null,
+}
 `
 
 exports[`test/tap.js TAP autoend=false with teardown > stdout 1`] = `
