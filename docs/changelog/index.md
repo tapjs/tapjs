@@ -2,6 +2,10 @@
 layout: layout
 title: Change Log
 ---
+## 12.5 2019-01-29
+
+Add support for ES Modules in all tap test scripts using `esm`.
+
 ## 12.4 2019-01-22
 
 Add support for loading typescript `.ts` files with `ts-node`.
