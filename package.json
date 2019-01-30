@@ -36,6 +36,7 @@
     "os-homedir": "^1.0.2",
     "own-or": "^1.0.0",
     "own-or-env": "^1.0.1",
+    "require-inject": "^1.4.4",
     "rimraf": "^2.6.3",
     "signal-exit": "^3.0.0",
     "source-map-support": "^0.5.10",

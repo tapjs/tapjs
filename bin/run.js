@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 'use strict'
 
+require('esm')
 const node = process.execPath
 const fs = require('fs')
 const spawn = require('child_process').spawn
@@ -738,8 +739,12 @@ const runAllFiles = (options, saved, tap) => {
         opt.buffered = isParallelOk(parallelOk, file) !== false
 
       if (file.match(/\.m?js$/)) {
-        const args = options.nodeArgs.concat(file).concat(options.testArgs)
-        tap.spawn(node, args, opt, file)
+        if (process.env.TAP_FAST === '1')
+          tap.require(path.resolve(file), opt, file)
+        else {
+          const args = options.nodeArgs.concat(file).concat(options.testArgs)
+          tap.spawn(node, args, opt, file)
+        }
       } else if (file.match(/\.ts$/)) {
         const args = options.nodeArgs.concat(file).concat(options.testArgs)
         tap.spawn(tsNode, args, opt, file)
