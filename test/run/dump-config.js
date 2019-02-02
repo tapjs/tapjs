@@ -5,6 +5,9 @@ const {
   clean,
 } = require('./')
 
+t.test('rcfile overridden by arg')
+t.test('--grep-invert')
+t.test('greps with no / on them')
 
 t.test('shotgun a bunch of option parsing junk', t => {
   run([

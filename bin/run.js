@@ -100,6 +100,7 @@ const main = options => {
     return
   }
 
+  /* istanbul ignore next */
   if (options.coverage && !process.env.NYC_CONFIG)
     respawnWithCoverage(options)
   else {
@@ -108,10 +109,12 @@ const main = options => {
   }
 }
 
+/* istanbul ignore next */
 const nycReporter = options =>
   options['coverage-report'] === 'html' ? 'lcov'
   : (options['coverage-report'] || 'text')
 
+/* istanbul ignore next */
 const runNyc = (cmd, programArgs, options, spawnOpts) => {
   const reporter = nycReporter(options)
 
@@ -141,10 +144,12 @@ const runNyc = (cmd, programArgs, options, spawnOpts) => {
   return child
 }
 
+/* istanbul ignore next */
 const runCoverageReportOnly = options => {
   runNyc(['report'], [], options)
 }
 
+/* istanbul ignore next */
 const pipeToCoveralls = options => {
 
   const reporter = runNyc(['report'], [], {
@@ -163,6 +168,7 @@ const pipeToCoveralls = options => {
   reporter.stdout.pipe(ca.stdin)
 }
 
+/* istanbul ignore next */
 const respawnWithCoverage = options => {
   runNyc([], [
     '--',
@@ -172,6 +178,7 @@ const respawnWithCoverage = options => {
   ], options)
 }
 
+/* istanbul ignore next */
 const openHtmlCoverageReport = (options, code, signal) => {
   opener('coverage/lcov-report/index.html')
   if (signal) {

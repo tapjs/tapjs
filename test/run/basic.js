@@ -44,6 +44,22 @@ t.test('--version', t => {
   })
 })
 
+t.test('--versions', t => {
+  run(['--versions'], null, (er, o, e) => {
+    t.equal(er, null)
+    t.matchSnapshot(clean(o), 'output')
+    t.end()
+  })
+})
+
+t.test('--parser-version', t => {
+  run(['--parser-version'], null, (er, o, e) => {
+    t.equal(er, null)
+    t.matchSnapshot(clean(o), 'output')
+    t.end()
+  })
+})
+
 t.test('--nyc-version', t => {
   run(['--nyc-version'], null, (er, o, e) => {
     t.equal(er, null)
