@@ -44,6 +44,26 @@ const main = options => {
     return
   }
 
+  if (options.versions) {
+    return console.log(yaml.safeDump({
+      tap: require('../package.json').version,
+      'tap-parser': require('tap-parser/package.json').version,
+      nyc: require('nyc/package.json').version,
+    }))
+  }
+
+  if (options.version)
+    return console.log(require('../package.json').version)
+
+  if (options['parser-version'])
+    return console.log(require('tap-parser/package.json').version)
+
+  if (options['nyc-version'])
+    return require('nyc/package.json').version
+
+  if (options['nyc-help'])
+    return nycHelp()
+
   options.files = globFiles(options._)
 
   process.stdout.on('error', er => {
@@ -163,11 +183,7 @@ const openHtmlCoverageReport = (options, code, signal) => {
   }
 }
 
-const dumpConf = options => console.log(JSON.stringify(options, null, 2))
-
 const nycHelp = _ => fg(node, [nycBin, '--help'])
-
-const nycVersion = _ => console.log(require('nyc/package.json').version)
 
 const setupTapEnv = options => {
   process.env.TAP_TIMEOUT = options.timeout

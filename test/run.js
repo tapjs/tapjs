@@ -62,15 +62,12 @@ const tmpfile = (t, filename, content) => {
 
 t.test('usage and other basics', t => {
   t.test('no args', t => {
-    run([], { env: { _TAP_IS_TTY: '1' } }, (er, o, e) => {
-      t.match(er, {
-        signal: null,
-        code: 1,
-        killed: false
-      })
-      t.match(e, /^Usage:/)
+    const c = run([], { env: { _TAP_IS_TTY: '1' } }, (er, o, e) => {
+      t.match(er, null)
+      t.match(e, /^Reading TAP data from stdin/)
       t.end()
     })
+    c.stdin.end('TAP version 13\n1..1\nok\n')
   })
   t.test('--help', t => {
     run(['--help'], null, (er, o, e) => {
@@ -434,8 +431,11 @@ t.test('coverage', t => {
   })
 
   t.test('pipe to service', t => {
+    const piper = tmpfile(t, 'piper.js', `
+      process.stdin.pipe(process.stdout)
+    `)
     escape(['--coverage-report=text-lcov'], { env: {
-      COVERAGE_SERVICE_TEST: 'true'
+      __TAP_COVERALLS_TEST__: piper
     }}, (er, o, e) => {
       t.equal(er, null)
       t.matchSnapshot(clean(o), 'piped to coverage service cat'), { skip: winSkip }

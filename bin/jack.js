@@ -407,6 +407,14 @@ Much more documentation available at: https://www.node-tap.org/
     description: 'Print version of nyc used by tap.',
   }),
 
+  'parser-version': flag({
+    description: 'Print the version of tap-parser used by tap.',
+  }),
+
+  versions: flag({
+    description: 'Print versions of tap, nyc, and tap-parser',
+  }),
+
   'dump-config': flag({
     description: 'Dump the config options in YAML format',
   }),
