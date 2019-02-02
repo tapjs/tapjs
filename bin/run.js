@@ -38,7 +38,7 @@ const main = options => {
 
   if (options['dump-config']) {
     console.log(yaml.safeDump(Object.keys(options).filter(k =>
-      k !== '_' && !/^[A-Z_]+$/.test(k)
+      k !== 'dump-config' && k !== '_' && !/^[A-Z_]+$/.test(k)
     ).sort().reduce((set, k) =>
       (set[k] = options[k], set), {})))
     return
@@ -59,7 +59,7 @@ const main = options => {
     return console.log(require('tap-parser/package.json').version)
 
   if (options['nyc-version'])
-    return require('nyc/package.json').version
+    return console.log(require('nyc/package.json').version)
 
   if (options['nyc-help'])
     return nycHelp()
@@ -78,7 +78,8 @@ const main = options => {
 
   // this is only testable by escaping from the covered environment
   /* istanbul ignore next */
-  if ((options['coverage-report'] || options['check-coverage']) &&
+  if ((options._.explicit.has('coverage-report') ||
+       options._.explicit.has('check-coverage')) &&
       options.files.length === 0)
     return runCoverageReportOnly(options)
 
@@ -163,8 +164,6 @@ const pipeToCoveralls = options => {
 }
 
 const respawnWithCoverage = options => {
-  console.error('respawn with coverage!')
-  return
   runNyc([], [
     '--',
     node,
@@ -225,9 +224,9 @@ const stdinOnly = options => {
 }
 
 const readSaveFile = options => {
-  if (options.saveFile)
+  if (options.save)
     try {
-      const s = fs.readFileSync(options.saveFile, 'utf8').trim()
+      const s = fs.readFileSync(options.save, 'utf8').trim()
       if (s)
         return s.split('\n')
     } catch (er) {}
@@ -236,7 +235,7 @@ const readSaveFile = options => {
 }
 
 const saveFails = (options, tap) => {
-  if (!options.saveFile)
+  if (!options.save)
     return
 
   let fails = []
@@ -260,11 +259,11 @@ const saveFails = (options, tap) => {
 
     if (!fails.length)
       try {
-        fs.unlinkSync(options.saveFile)
+        fs.unlinkSync(options.save)
       } catch (er) {}
     else
       try {
-        fs.writeFileSync(options.saveFile, fails.join('\n') + '\n')
+        fs.writeFileSync(options.save, fails.join('\n') + '\n')
       } catch (er) {}
   }
 
@@ -310,7 +309,7 @@ const runAllFiles = (options, saved, tap) => {
   let doStdin = false
   let parallelOk = Object.create(null)
 
-  options.files = filterFiles(options._, saved, parallelOk)
+  options.files = filterFiles(options.files, saved, parallelOk)
   let tapChildId = 0
 
   for (let i = 0; i < options.files.length; i++) {

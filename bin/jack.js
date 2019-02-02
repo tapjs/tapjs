@@ -173,7 +173,7 @@ Much more documentation available at: https://www.node-tap.org/
          These folders may be nested within one another, and tap will
          do the right thing.`,
 
-  jobs: opt({
+  jobs: num({
     short: 'j',
     hint: 'n',
     default: 1,
@@ -186,7 +186,7 @@ Much more documentation available at: https://www.node-tap.org/
 
   'jobs-auto': flag({
     short: 'J',
-    alias: '--jobs=' + require('os').cpus().lenght,
+    alias: '--jobs=' + require('os').cpus().length,
     description: `Run test files in parallel (auto calculated)
                   Note that this causes tests to be run in
                   "buffered" mode, so line-by-line results
@@ -464,7 +464,7 @@ Much more documentation available at: https://www.node-tap.org/
     default: null,
   }),
 
-  TAP_CHILD_ID: env(flag({
+  TAP_CHILD_ID: env(num({
     description: `Test files have this value set to a
                   numeric value when run through the test
                   runner.  It also appears on the root tap
