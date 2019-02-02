@@ -1,16 +1,22 @@
 #!/usr/bin/env node
 'use strict'
 
+// TODO:
+// 1. use jackspeak for options
+// 2. only run one nyc invokation for coverage, checking, reporting
+// 3. Get rid of respawnWithCoverage, just load NYC directly
+// 4. .taprc handling
+
+const opener = require('opener')
 const node = process.execPath
 const fs = require('fs')
-const spawn = require('child_process').spawn
 const fg = require('foreground-child')
-const opener = require('opener')
-const colorSupport = require('color-support')
-const nycBin = require.resolve('nyc/bin/nyc.js')
+const spawn = require('child_process').spawn
+const nycBin = require.resolve(
+  'nyc/' + require('nyc/package.json').bin.nyc
+)
 const glob = require('glob')
 const isexe = require('isexe')
-const osHomedir = require('os-homedir')
 const yaml = require('js-yaml')
 const path = require('path')
 const exists = require('fs-exists-cached').sync
@@ -20,59 +26,25 @@ const tsNode = require.resolve(
   'ts-node/' + require('ts-node/package.json').bin['ts-node']
 )
 
-const coverageServiceTest = process.env.COVERAGE_SERVICE_TEST === 'true'
-
-// NYC will not wrap a module in node_modules.
-// So, we need to tell the child proc when it's been added.
-// Of course, this can't reasonably be branch-covered, so ignore it.
-/* istanbul ignore next */
-if (process.env._TAP_COVERAGE_ === '1')
-  global.__coverage__ = global.__coverage__ || {}
-else if (process.env._TAP_COVERAGE_ === '0') {
-  global.__coverage__ = null
-  Object.keys(process.env).filter(k => /NYC/.test(k)).forEach(k =>
-    process.env[k] = '')
-}
-
-/* istanbul ignore next */
-if (coverageServiceTest)
-  console.log('COVERAGE_SERVICE_TEST')
-
-// Add new coverage services here.
-// it'll check for the environ named and pipe appropriately.
-//
-// Currently only Coveralls is supported, but the infrastructure
-// is left in place in case some noble soul fixes the codecov
-// module in the future.  See https://github.com/tapjs/node-tap/issues/270
-const coverageServices = [
-  {
-    env: 'COVERALLS_REPO_TOKEN',
-    bin: require.resolve('coveralls/bin/coveralls.js'),
-    name: 'Coveralls'
+const main = options => {
+  const rc = parseRcFile(options.rcfile)
+  for (let i in rc) {
+    if (!options._.explicit.has(i))
+      options[i] = rc[i]
   }
-]
 
-const main = _ => {
-  const args = process.argv.slice(2)
+  if (options.reporter === null)
+    options.reporter = options.color ? 'classic' : 'tap'
 
-  // set default args
-  const defaults = constructDefaultArgs()
-
-  // parse dotfile
-  const rcFile = process.env.TAP_RCFILE || (osHomedir() + '/.taprc')
-  const rcOptions = parseRcFile(rcFile)
-
-  // supplement defaults with parsed rc options
-  Object.keys(rcOptions).forEach(k =>
-    defaults[k] = rcOptions[k])
-
-  defaults.rcFile = rcFile
-
-  // parse args
-  const options = parseArgs(args, defaults)
-
-  if (!options)
+  if (options['dump-config']) {
+    console.log(yaml.safeDump(Object.keys(options).filter(k =>
+      k !== '_' && !/^[A-Z_]+$/.test(k)
+    ).sort().reduce((set, k) =>
+      (set[k] = options[k], set), {})))
     return
+  }
+
+  options.files = globFiles(options._)
 
   process.stdout.on('error', er => {
     /* istanbul ignore else */
@@ -82,502 +54,120 @@ const main = _ => {
       throw er
   })
 
-  options.files = globFiles(options.files)
-
-  if (!args.length && !options.files.length && isTTY) {
-    console.error(usage())
-    process.exit(1)
-  }
+  options.grep = options.grep.map(strToRegExp)
 
   // this is only testable by escaping from the covered environment
   /* istanbul ignore next */
-  if ((options.coverageReport || options.checkCoverage) &&
+  if ((options['coverage-report'] || options['check-coverage']) &&
       options.files.length === 0)
-    return runCoverageReport(options)
+    return runCoverageReportOnly(options)
 
   if (options.files.length === 0) {
-    console.error('Reading TAP data from stdin (use "-" argument to suppress)')
+    if (isTTY) {
+      console.error(
+        `Reading TAP data from stdin
+(use '-' argument to suppress this notice or -h for usage)`)
+    }
     options.files.push('-')
   }
 
   if (options.files.length === 1 && options.files[0] === '-') {
     if (options.coverage)
-      console.error('Coverage disabled because stdin cannot be instrumented')
+      console.error('Coverage disabled (stdin cannot be instrumented)')
     setupTapEnv(options)
     stdinOnly(options)
     return
   }
 
-  // By definition, the next block cannot be covered, because
-  // they are only relevant when coverage is turned off.
-  /* istanbul ignore next */
-  if (options.coverage && !global.__coverage__) {
-    return respawnWithCoverage(options)
+  if (options.coverage && !process.env.NYC_CONFIG)
+    respawnWithCoverage(options)
+  else {
+    setupTapEnv(options)
+    runTests(options)
   }
-
-  setupTapEnv(options)
-  runTests(options)
 }
 
-const constructDefaultArgs = _ => {
-  /* istanbul ignore next */
-  const defaultTimeout = global.__coverage__ ? 240 : 30
+const nycReporter = options =>
+  options['coverage-report'] === 'html' ? 'lcov'
+  : (options['coverage-report'] || 'text')
 
-  const defaultArgs = {
-    nodeArgs: [ '-r', require.resolve('esm') ],
-    nycArgs: [],
-    testArgs: [],
-    timeout: +process.env.TAP_TIMEOUT || defaultTimeout,
-    color: !!colorSupport.level,
-    reporter: null,
-    files: [],
-    grep: [],
-    grepInvert: false,
-    bail: false,
-    saveFile: null,
-    pipeToService: false,
-    coverageReport: null,
-    browser: true,
-    coverage: undefined,
-    checkCoverage: false,
-    branches: 0,
-    functions: 0,
-    lines: 0,
-    statements: 0,
-    jobs: 1,
-    outputFile: null,
-    comments: false
-  }
+const runNyc = (cmd, programArgs, options, spawnOpts) => {
+  const reporter = nycReporter(options)
 
-  if (process.env.TAP_COLORS !== undefined)
-    defaultArgs.color = !!(+process.env.TAP_COLORS)
-
-  return defaultArgs
-}
-
-const parseArgs = (args, options) => {
-  const singleFlags = {
-    b: 'bail',
-    B: 'no-bail',
-    i: 'invert',
-    I: 'no-invert',
-    c: 'color',
-    C: 'no-color',
-    T: 'no-timeout',
-    J: 'jobs-auto',
-    O: 'only',
-    h: 'help',
-    '?': 'help',
-    v: 'version'
-  }
-
-  const singleOpts = {
-    j: 'jobs',
-    g: 'grep',
-    R: 'reporter',
-    t: 'timeout',
-    s: 'save',
-    o: 'output-file'
-  }
-
-  // If we're running under Travis-CI with a Coveralls.io token,
-  // then it's a safe bet that we ought to output coverage.
-  for (let i = 0; i < coverageServices.length && !options.pipeToService; i++) {
-    /* istanbul ignore next */
-    if (process.env[coverageServices[i].env])
-      options.pipeToService = true
-  }
-
-  let defaultCoverage = options.pipeToService
-  let dumpConfig = false
-
-  for (let i = 0; i < args.length; i++) {
-    const arg = args[i]
-    if (arg.charAt(0) !== '-' || arg === '-') {
-      options.files.push(arg)
-      continue
-    }
-
-    // short-flags
-    if (arg.charAt(1) !== '-' && arg !== '-gc') {
-      const expand = []
-      for (let f = 1; f < arg.length; f++) {
-        const fc = arg.charAt(f)
-        const sf = singleFlags[fc]
-        const so = singleOpts[fc]
-        if (sf)
-          expand.push('--' + sf)
-        else if (so) {
-          const soslice = arg.slice(f + 1)
-          const soval = soslice.charAt(0) === '=' ? soslice : '=' + soslice
-          expand.push('--' + so + soval)
-          f = arg.length
-        } else if (arg !== '-' + fc)
-          expand.push('-' + fc)
-      }
-      if (expand.length) {
-        args.splice.apply(args, [i, 1].concat(expand))
-        i--
-        continue
-      }
-    }
-
-    const argsplit = arg.split('=')
-    const key = argsplit.shift()
-    const val = argsplit.length ? argsplit.join('=') : null
-
-    switch (key) {
-      case '--help':
-        console.log(usage())
-        return null
-
-      case '--dump-config':
-        dumpConfig = true
-        continue
-
-      case '--nyc-help':
-        nycHelp()
-        return null
-
-      case '--nyc-version':
-        nycVersion()
-        return null
-
-      case '--version':
-        console.log(require('../package.json').version)
-        return null
-
-      case '--jobs':
-        options.jobs = +(val || args[++i])
-        continue
-
-      case '--jobs-auto':
-        options.jobs = +os.cpus().length
-        continue
-
-      case '--coverage-report':
-        options.coverageReport = val || args[++i]
-        if (options.coverageReport === 'html')
-          options.coverageReport = 'lcov'
-        defaultCoverage = true
-        continue
-
-      case '--no-browser':
-        options.browser = false
-        continue
-
-      case '--no-coverage-report':
-        options.coverageReport = false
-        continue
-
-      case '--no-cov': case '--no-coverage':
-        options.coverage = false
-        continue
-
-      case '--cov': case '--coverage':
-        options.coverage = true
-        continue
-
-      case '--save':
-        options.saveFile = val || args[++i]
-        continue
-
-      case '--reporter':
-        options.reporter = val || args[++i]
-        continue
-
-      case '--gc': case '-gc': case '--expose-gc':
-        options.nodeArgs.push('--expose-gc')
-        continue
-
-      case '--strict':
-        options.nodeArgs.push('--use_strict')
-        continue
-
-      case '--debug':
-        options.nodeArgs.push('--debug')
-        continue
-
-      case '--debug-brk':
-        options.nodeArgs.push('--debug-brk')
-        continue
-
-      case '--harmony':
-        options.nodeArgs.push('--harmony')
-        continue
-
-      case '--node-arg': {
-        const v = val || args[++i]
-        if (v !== undefined)
-          options.nodeArgs.push(v)
-        continue
-      }
-
-      case '--check-coverage':
-        defaultCoverage = true
-        options.checkCoverage = true
-        continue
-
-      case '--test-arg': {
-        const v = val || args[++i]
-        if (v !== undefined)
-          options.testArgs.push(v)
-        continue
-      }
-
-      case '--nyc-arg': {
-        const v = val || args[++i]
-        if (v !== undefined)
-          options.nycArgs.push(v)
-        continue
-      }
-
-      case '--100':
-        defaultCoverage = true
-        options.checkCoverage = true
-        options.branches = 100
-        options.functions = 100
-        options.lines = 100
-        options.statements = 100
-        continue
-
-      case '--branches':
-      case '--functions':
-      case '--lines':
-      case '--statements':
-        defaultCoverage = true
-        options.checkCoverage = true
-        options[key.slice(2)] = +(val || args[++i])
-        continue
-
-      case '--color':
-        options.color = true
-        continue
-
-      case '--no-color':
-        options.color = false
-        continue
-
-      case '--output-file': {
-        const v = val || args[++i]
-        if (v !== undefined)
-          options.outputFile = v
-        continue
-      }
-
-      case '--no-timeout':
-        options.timeout = 0
-        continue
-
-      case '--timeout':
-        options.timeout = +(val || args[++i])
-        continue
-
-      case '--invert':
-        options.grepInvert = true
-        continue
-
-      case '--no-invert':
-        options.grepInvert = false
-        continue
-
-      case '--grep': {
-        const v = val || args[++i]
-        if (v !== undefined)
-          options.grep.push(strToRegExp(v))
-        continue
-      }
-
-      case '--bail':
-        options.bail = true
-        continue
-
-      case '--no-bail':
-        options.bail = false
-        continue
-
-      case '--only':
-        options.only = true
-        continue
-
-      case '--comments':
-        options.comments = true
-        continue
-
-      case '--':
-        options.files = options.files.concat(args.slice(i + 1))
-        i = args.length
-        continue
-
-      default:
-        throw new Error('Unknown argument: ' + arg)
-    }
-  }
-
-  if (options.coverage === undefined)
-    options.coverage = defaultCoverage
-
-  if (process.env.TAP === '1')
-    options.reporter = 'tap'
-
-  // default to tap for non-tty envs
-  if (!options.reporter)
-    options.reporter = options.color ? 'classic' : 'tap'
-
-  if (dumpConfig)
-    return console.log(JSON.stringify(options, null, 2))
-
-  return options
-}
-
-// Obviously, this bit isn't going to ever be covered, because
-// it only runs when we DON'T have coverage enabled, to enable it.
-/* istanbul ignore next */
-const respawnWithCoverage = options => {
-  // Re-spawn with coverage
-  const args = [nycBin].concat(
-    '--silent',
+  const args = [
+    nycBin,
+    ...cmd,
     '--cache=true',
-    options.nycArgs,
-    '--',
-    process.execArgv,
-    process.argv.slice(1)
-  )
-  process.env._TAP_COVERAGE_ = '1'
-  const child = fg(node, args)
-  child.removeAllListeners('close')
-  child.on('close', (code, signal) =>
-    runCoverageReport(options, code, signal))
-}
+    '--branches=' + options.branches,
+    '--functions=' + options.functions,
+    '--lines=' + options.lines,
+    '--statements=' + options.statements,
+    '--reporter=' + reporter,
+    ...options['nyc-arg'],
+  ]
+  if (options['check-coverage'])
+    args.push('--check-coverage')
 
-/* istanbul ignore next */
-const pipeToCoverageServices = (options, child) => {
-  let piped = false
-  for (let i = 0; i < coverageServices.length; i++) {
-    if (process.env[coverageServices[i].env]) {
-      pipeToCoverageService(coverageServices[i], options, child)
-      piped = true
-    }
-  }
+  args.push.apply(args, programArgs)
 
-  if (!piped)
-    throw new Error('unknown service, internal error')
-}
+  const child = fg(node, args, spawnOpts)
 
-/* istanbul ignore next */
-const pipeToCoverageService = (service, options, child) => {
-  let bin = service.bin
-
-  if (coverageServiceTest) {
-    // test scaffolding.
-    // don't actually send stuff to the service
-    bin = require.resolve('../test-legacy/fixtures/cat.js')
-    console.log('%s:%s', service.name, process.env[service.env])
-  }
-
-  const ca = spawn(node, [bin], {
-    stdio: [ 'pipe', 1, 2 ]
-  })
-
-  child.stdout.pipe(ca.stdin)
-
-  ca.on('close', (code, signal) =>
-    signal ? process.kill(process.pid, signal)
-    : code ? console.log('Error piping coverage to ' + service.name)
-    : console.log('Successfully piped to ' + service.name))
-}
-
-/* istanbul ignore next */
-const runCoverageReport = (options, code, signal) =>
-  signal ? null
-  : options.checkCoverage ? runCoverageCheck(options, code, signal)
-  : runCoverageReportOnly(options, code, signal)
-
-/* istanbul ignore next */
-const runCoverageReportOnly = (options, code, signal) => {
-  const close = (s, c) => {
-    if (signal || s) {
-      setTimeout(() => {}, 200)
-      process.kill(process.pid, signal || s)
-    } else if (code || c)
-      process.exit(code || c)
-  }
-
-  if (options.coverageReport === false)
-    return close(code, signal)
-
-  if (!options.coverageReport) {
-    if (options.pipeToService || coverageServiceTest)
-      options.coverageReport = 'text-lcov'
-    else
-      options.coverageReport = 'text'
-  }
-
-  const args = [nycBin, 'report', '--reporter', options.coverageReport]
-
-  let child
-  // automatically hook into coveralls
-  if (options.coverageReport === 'text-lcov' && options.pipeToService) {
-    child = spawn(node, args, { stdio: [ 0, 'pipe', 2 ] })
-    pipeToCoverageServices(options, child)
-  } else {
-    // otherwise just run the reporter
-    child = fg(node, args)
-    if (options.coverageReport === 'lcov' && options.browser)
-      child.on('exit', () =>
-        opener('coverage/lcov-report/index.html'))
-  }
-
-  if (code || signal) {
+  if (reporter === 'lcov' && options.browser) {
     child.removeAllListeners('close')
-    child.on('close', close)
+    child.on('close', (code, signal) =>
+      openHtmlCoverageReport(options, code, signal))
+  }
+  return child
+}
+
+const runCoverageReportOnly = options => {
+  runNyc(['report'], [], options)
+}
+
+const pipeToCoveralls = options => {
+
+  const reporter = runNyc(['report'], [], {
+    ...options,
+    'coverage-report': 'text-lcov'
+  }, {
+    stdio: [0, 'pipe', 2]
+  })
+  reporter.removeAllListeners('close')
+
+  /* istanbul ignore next */
+  const bin = process.env.__TAP_COVERALLS_TEST__
+    || require.resolve('coveralls/bin/coveralls.js')
+
+  const ca = fg(node, [bin], { stdio: ['pipe', 1, 2] })
+  reporter.stdout.pipe(ca.stdin)
+}
+
+const respawnWithCoverage = options => {
+  console.error('respawn with coverage!')
+  return
+  runNyc([], [
+    '--',
+    node,
+    ...process.execArgv,
+    ...process.argv.slice(1)
+  ], options)
+}
+
+const openHtmlCoverageReport = (options, code, signal) => {
+  opener('coverage/lcov-report/index.html')
+  if (signal) {
+    setTimeout(() => {}, 200)
+    process.kill(process.pid, signal)
+  } else if (code) {
+    process.exitCode = code
   }
 }
 
-/* istanbul ignore next */
-const coverageCheckArgs = options => {
-  const args = []
-  if (options.branches)
-    args.push('--branches', options.branches)
-  if (options.functions)
-    args.push('--functions', options.functions)
-  if (options.lines)
-    args.push('--lines', options.lines)
-  if (options.statements)
-    args.push('--statements', options.statements)
-
-  return args
-}
-
-/* istanbul ignore next */
-const runCoverageCheck = (options, code, signal) => {
-  const args = [nycBin, 'check-coverage'].concat(coverageCheckArgs(options))
-
-  const child = fg(node, args)
-  child.removeAllListeners('close')
-  child.on('close', (c, s) =>
-    runCoverageReportOnly(options, code || c, signal || s))
-}
-
-const usage = _ => fs.readFileSync(__dirname + '/usage.txt', 'utf8')
-    .split('@@REPORTERS@@')
-    .join(getReporters())
+const dumpConf = options => console.log(JSON.stringify(options, null, 2))
 
 const nycHelp = _ => fg(node, [nycBin, '--help'])
 
 const nycVersion = _ => console.log(require('nyc/package.json').version)
-
-const getReporters = _ => {
-  const types = require('tap-mocha-reporter').types.reduce((str, t) => {
-    const ll = str.split('\n').pop().length + t.length
-    if (ll < 40)
-      return str + ' ' + t
-    else
-      return str + '\n' + t
-  }, '').trim()
-  const ind = '                              '
-  return ind + types.split('\n').join('\n' + ind)
-}
 
 const setupTapEnv = options => {
   process.env.TAP_TIMEOUT = options.timeout
@@ -613,8 +203,8 @@ const stdinOnly = options => {
   process.stdin.pause()
   const reporter = makeReporter(options)
   process.stdin.pipe(reporter)
-  if (options.outputFile !== null)
-    process.stdin.pipe(fs.createWriteStream(options.outputFile))
+  if (options['output-file'] !== null)
+    process.stdin.pipe(fs.createWriteStream(options['output-file']))
   process.stdin.resume()
 }
 
@@ -704,7 +294,7 @@ const runAllFiles = (options, saved, tap) => {
   let doStdin = false
   let parallelOk = Object.create(null)
 
-  options.files = filterFiles(options.files, saved, parallelOk)
+  options.files = filterFiles(options._, saved, parallelOk)
   let tapChildId = 0
 
   for (let i = 0; i < options.files.length; i++) {
@@ -738,13 +328,22 @@ const runAllFiles = (options, saved, tap) => {
         opt.buffered = isParallelOk(parallelOk, file) !== false
 
       if (file.match(/\.m?js$/)) {
-        const args = options.nodeArgs.concat(file).concat(options.testArgs)
+        const args = [
+          '-r', 'esm',
+          ...options['node-arg'],
+          file,
+          ...options['test-arg']
+        ]
         tap.spawn(node, args, opt, file)
       } else if (file.match(/\.ts$/)) {
-        const args = options.nodeArgs.concat(file).concat(options.testArgs)
+        const args = [
+          ...options['node-arg'],
+          file,
+          ...options['test-arg']
+        ]
         tap.spawn(tsNode, args, opt, file)
       } else if (isexe.sync(options.files[i]))
-        tap.spawn(options.files[i], options.testArgs, opt, file)
+        tap.spawn(options.files[i], options['test-arg'], opt, file)
     }
   }
 
@@ -784,8 +383,8 @@ const runTests = options => {
 
   // need to replay the first version line, because the previous
   // line will have flushed it out to stdout or the reporter already.
-  if (options.outputFile !== null)
-    tap.pipe(fs.createWriteStream(options.outputFile)).write('TAP version 13\n')
+  if (options['output-file'] !== null)
+    tap.pipe(fs.createWriteStream(options['output-file'])).write('TAP version 13\n')
 
   saveFails(options, tap)
 
@@ -811,4 +410,4 @@ const strToRegExp = g => {
   return new RegExp(g, flags)
 }
 
-main()
+require('./jack.js')(main)
