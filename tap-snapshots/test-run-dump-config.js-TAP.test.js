@@ -40,6 +40,7 @@ parser-version: false
 rcfile: /Users/isaacs/.taprc
 reporter: spec
 save: foo.txt
+show-process-tree: false
 statements: 100
 test-arg:
   - xyz
@@ -77,6 +78,7 @@ parser-version: false
 rcfile: /Users/isaacs/.taprc
 reporter: tap
 save: null
+show-process-tree: false
 statements: 0
 test-arg: []
 timeout: 0
@@ -112,6 +114,7 @@ parser-version: false
 rcfile: cli-tests/taprc
 reporter: spec
 save: null
+show-process-tree: false
 statements: 0
 test-arg: []
 timeout: 30
@@ -147,6 +150,7 @@ parser-version: false
 rcfile: cli-tests/taprc
 reporter: classic
 save: null
+show-process-tree: false
 statements: 0
 test-arg: []
 timeout: 30

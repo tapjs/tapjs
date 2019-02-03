@@ -266,6 +266,15 @@ Much more documentation available at: https://www.node-tap.org/
     }
   }),
 
+  'show-process-tree': flag({
+    description: `Enable coverage and display the tree of
+                  spawned processes.`,
+    implies: {
+      coverage: true
+    },
+    short: 'pstree',
+  }),
+
 }, {
   description: 'Coverage Enfocement Options',
   help: `

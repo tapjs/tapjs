@@ -89,6 +89,14 @@ t.test('report with checks', t => {
   })
 })
 
+t.test('process tree', t => {
+  escape(['--show-process-tree', t1, t2], null, (er, o, e) => {
+    t.match(er, null)
+    t.matchSnapshot(clean(o), 'report with process tree', { skip: winSkip })
+    t.end()
+  })
+})
+
 t.test('pipe to service', t => {
   const piper = tmpfile(t, 'piper.js', `
     process.stdin.pipe(process.stdout)

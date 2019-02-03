@@ -121,6 +121,7 @@ const runNyc = (cmd, programArgs, options, spawnOpts) => {
   const args = [
     nycBin,
     ...cmd,
+    ...(options['show-process-tree'] ? ['--show-process-tree'] : []),
     '--cache=true',
     '--branches=' + options.branches,
     '--functions=' + options.functions,
