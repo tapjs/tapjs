@@ -23,11 +23,13 @@ const ab2 = tmpfile(t, 'a/b/2.js', `'use strict'
   t.pass('2')
 `)
 
-const abf1 = tmpfile(t, 'a/b/f1.js', `'use strict'
+const abf1 = tmpfile(t, 'a/b/f1.js', `//f1.js
+  'use strict'
   require(${tap}).fail('a/b')
 `)
 
-const abf2 = tmpfile(t, 'z.js', `'use strict'
+const abf2 = tmpfile(t, 'z.js', `//z.js
+  'use strict'
   require(${tap}).fail('c/d')
 `)
 
