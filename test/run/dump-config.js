@@ -5,7 +5,6 @@ const {
   clean,
 } = require('./')
 
-t.test('rcfile overridden by arg')
 t.test('--grep-invert')
 t.test('greps with no / on them')
 
@@ -48,7 +47,7 @@ t.test('good rc file', t => {
 reporter: spec
 jobs: 3
 `)
-  run(['--dump-config'], { env: {
+  run(['--dump-config', '-j4'], { env: {
     TAP_RCFILE: rc,
     TAP: 0
   }}, (er, o, e) => {
