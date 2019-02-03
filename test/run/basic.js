@@ -20,6 +20,15 @@ t.test('no args', t => {
   c.stdin.end('TAP version 13\n1..1\nok\n')
 })
 
+t.test('no args, quiet', t => {
+  const c = run([], { env: { _TAP_IS_TTY: '0' } }, (er, o, e) => {
+    t.match(er, null)
+    t.equal(e, '')
+    t.end()
+  })
+  c.stdin.end('TAP version 13\n1..1\nok\n')
+})
+
 t.test('--help', t => {
   run(['--help'], null, (er, o, e) => {
     t.equal(er, null)
@@ -86,7 +95,7 @@ t.test('unknown short opt', t => {
 
 t.test('basic test run', t => {
   const ok = tmpfile(t, 'ok.js', `require(${tap}).pass('this is fine')`)
-  run(['-Cbt0', '--', 'doesnt exist', ok], null, (err, stdout, stderr) => {
+  run(['-iSCbt0', '-g/nope/i', '--', 'doesnt exist', ok], null, (err, stdout, stderr) => {
     t.matchSnapshot(clean(stdout), 'ok.js output')
     t.end()
   })

@@ -5,9 +5,6 @@ const {
   clean,
 } = require('./')
 
-t.test('--grep-invert')
-t.test('greps with no / on them')
-
 t.test('shotgun a bunch of option parsing junk', t => {
   run([
     '--dump-config', '-J', '--jobs', '4',
