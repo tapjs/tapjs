@@ -198,10 +198,13 @@ const setupTapEnv = options => {
   else
     process.env.TAP_COLORS = '0'
 
+  if (options.snapshot)
+    process.env.TAP_SNAPSHOT = '1'
+
   if (options.bail)
     process.env.TAP_BAIL = '1'
 
-  if (options.grepInvert)
+  if (options.invert)
     process.env.TAP_GREP_INVERT = '1'
 
   if (options.grep.length)
