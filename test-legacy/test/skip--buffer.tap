@@ -1,6 +1,0 @@
-TAP version 13
-ok 1 - does not count as failure # SKIP
-1..1
-# skip: 1
-___/# time=[0-9.]+(ms)?/~~~
-

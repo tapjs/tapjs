@@ -1,9 +1,0 @@
-TAP version 13
-ok 1 - this is fine
-not ok 2 - catch!
-  ---
-  {"at":{"column":7,"file":"test-legacy/test/throw-root.js","line":3},"source":"throw new Error('catch!')\n","test":"TAP"}
-  ...
-
-Bail out! # catch!
-
