@@ -47,7 +47,7 @@
     "ts-node": "^8.0.2",
     "tsame": "^2.0.1",
     "typescript": "^3.3.3",
-    "write-file-atomic": "^2.3.0",
+    "write-file-atomic": "^2.4.2",
     "yapool": "^1.0.0"
   },
   "keywords": [
