@@ -247,3 +247,29 @@ t.test('oncomplete', t => {
     b.parser.end(c[0])
   }), c[2])))
 })
+
+t.test('pipes backing up', t => {
+  const MiniPass = require('minipass')
+  const mp = new MiniPass({ encoding: 'utf8' })
+  const b = new Base({})
+  b.pipe(mp)
+  let flushed = false
+  let ended = false
+  b.on('end', () => {
+    t.notOk(flushed, 'not ending before flushing the stream')
+    t.notOk(ended, 'not ended more than once')
+    ended = true
+  })
+  const tapdata = 'TAP version 13\n1..1\nok\n'
+  b.parser.end(tapdata)
+  setTimeout(() => {
+    let data = ''
+    let c = ''
+    while (c = mp.read()) data += c
+    flushed = true
+    t.equal(data, tapdata)
+    // pipes should have flushed now
+    t.ok(ended, 'ended')
+    t.end()
+  })
+})
