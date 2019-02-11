@@ -8,5 +8,9 @@
     "url": "git+https://github.com/tapjs/tcompare.git"
   },
   "author": "Isaac Z. Schlueter <i@izs.me> (https://izs.me)",
-  "license": "ISC"
+  "license": "ISC",
+  "files": [
+    "index.js",
+    "lib/*.js"
+  ]
 }
