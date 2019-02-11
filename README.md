@@ -56,9 +56,6 @@ if (!result.match) {
 
 Each method can take the following options.
 
-* `prune` - Set to a positive integer to specify the number of context lines
-  before and after changes in the diff string.  Default is to show entire
-  object.
 * `style` - Set to `pretty` for a very human-readable style of object printing.
   Set to `js` for a copy-and-paste friendly valid JavaScript output.  Default
   is `pretty`.  Example:
