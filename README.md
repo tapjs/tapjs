@@ -53,6 +53,12 @@ if (!result.match) {
       match its same type, with the exception of non-Set iterables (including
       `arguments` objects), which are cast to Arrays.
 
+There are classes exported to correspond to each of these.  All of these are
+instantiated like `new Format(object, options)`.  An `expect` option is
+required for all classes except `Format`.  Call `obj.print()` on the resulting
+object to generate a diff.  Once the diff (or format) is generated, it'll have
+a `match` boolean member.
+
 ## OPTIONS
 
 Each method can take the following options.
