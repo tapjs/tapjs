@@ -205,16 +205,7 @@ t.test('ctors and other fun things', t => {
   function Foo () {
     this._isFoo = 'foo'
   }
-
-  if (!Buffer.prototype.equals) {
-    Buffer.prototype.equals = function (pattern) {
-      var obj = this
-      if (obj.length !== pattern.length) return false
-      for (var j = 0; j < obj.length; j++) if (obj[j] != pattern[j]) return false
-
-      return true
-    }
-  }
+  function Cls () {}
 
   t.notOk(match(t,Buffer.from('asdf'), Buffer.from('asdff')))
 
@@ -231,7 +222,11 @@ t.test('ctors and other fun things', t => {
     array: [],
     str: 'asdf',
     inf: Infinity,
-    neginf: -Infinity
+    neginf: -Infinity,
+    map: new Map([[1,2],[3,4]]),
+    set: new Set([1,2,3,4]),
+    obj: { a: 1 },
+    cls: new Cls(),
   }
 
   t.ok(match(t,obj, {
@@ -243,7 +238,11 @@ t.test('ctors and other fun things', t => {
     nan: NaN,
     bool: Boolean,
     array: Array,
-    str: String
+    str: String,
+    map: Map,
+    set: Set,
+    obj: Object,
+    cls: Cls,
   }))
 
   t.ok(match(t,obj, {
@@ -287,5 +286,25 @@ t.test('symbology', t => {
   t.notOk(match(t,{a: 'Symbol(a)' }, { a: Symbol('a') }))
   t.notOk(match(t,{a: 'Symbol(a)' }, { a: Symbol.for('a') }))
   t.notOk(match(t,{a: 'Symbol(a)' }, { a: Symbol }))
+  t.end()
+})
+
+t.test('set vs non-set, map vs non-map', t => {
+  const obj = {
+    set: new Set(),
+    map: new Map(),
+  }
+  t.notOk(match(t, obj, {
+    set: new Map(),
+    map: new Map(),
+  }))
+  t.notOk(match(t, obj, {
+    set: new Set(),
+    map: new Set(),
+  }))
+  t.notOk(match(t, obj, {
+    set: [],
+    map: Array,
+  }))
   t.end()
 })

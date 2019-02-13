@@ -475,22 +475,16 @@ exports[`test/match.js TAP partial strings match on indexOf > undefined 2`] = `
 exports[`test/match.js TAP ctors and other fun things > undefined 1`] = `
 --- actual
 +++ expected
- Uint8Array [
-   97,
-   115,
-   100,
-   102,
--  102,
- ]
+-Buffer <61 73 64 66 66>
++Buffer <61 73 64 66>
+
 `
 
 exports[`test/match.js TAP ctors and other fun things > undefined 2`] = `
 --- actual
 +++ expected
  Object {
-   "buffer": Uint8Array [
-     120,
-   ],
+   "buffer": Buffer <78>,
    "date": 1979-07-01T19:10:00.000Z,
    "fn": [Function fn],
    "foo": Foo {
@@ -501,6 +495,20 @@ exports[`test/match.js TAP ctors and other fun things > undefined 2`] = `
    "bool": true,
    "array": Array [],
    "str": "asdf",
+   "map": Map {
+     1 => 2,
+     3 => 4,
+   },
+   "set": Set {
+     1,
+     2,
+     3,
+     4,
+   },
+   "obj": Object {
+     "a": 1,
+   },
+   "cls": Cls {},
  }
 `
 
@@ -508,9 +516,7 @@ exports[`test/match.js TAP ctors and other fun things > undefined 3`] = `
 --- actual
 +++ expected
  Object {
-   "buffer": Uint8Array [
-     120,
-   ],
+   "buffer": Buffer <78>,
    "date": 1979-07-01T19:10:00.000Z,
    "foo": Foo {
      "_isFoo": "foo",
@@ -643,5 +649,36 @@ exports[`test/match.js TAP symbology > undefined 7`] = `
  Object {
 -  "a": [Function Symbol],
 +  "a": "Symbol(a)",
+ }
+`
+
+exports[`test/match.js TAP set vs non-set, map vs non-map > undefined 1`] = `
+--- actual
++++ expected
+ Object {
+-  "set": Map {},
++  "set": Set {},
+   "map": Map {},
+ }
+`
+
+exports[`test/match.js TAP set vs non-set, map vs non-map > undefined 2`] = `
+--- actual
++++ expected
+ Object {
+   "set": Set {},
+-  "map": Set {},
++  "map": Map {},
+ }
+`
+
+exports[`test/match.js TAP set vs non-set, map vs non-map > undefined 3`] = `
+--- actual
++++ expected
+ Object {
+-  "set": Array [],
++  "set": Set {},
+-  "map": [Function Array],
++  "map": Map {},
  }
 `
