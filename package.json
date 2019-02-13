@@ -12,5 +12,12 @@
   "files": [
     "index.js",
     "lib/*.js"
-  ]
+  ],
+  "devDependencies": {
+    "tap": "^12.5.2"
+  },
+  "scripts": {
+    "test": "tap --100 test/*.js -J",
+    "snap": "TAP_SNAPSHOT=1 npm test -J"
+  }
 }
