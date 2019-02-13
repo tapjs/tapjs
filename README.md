@@ -39,7 +39,7 @@ if (!result.match) {
   found in `object`, and that they match.  This is the loosest possible
   algorithm, allowing cases where we just want to verify that an object
   contains a few important properties.  The algorithm is the same as
-  the one used by `[tmatch](http://npm.im/tmatch)`.  In a nutshell:
+  the one used by [tmatch](http://npm.im/tmatch).  In a nutshell:
     * If the object and pattern are loosely equal, then pass
     * If the object and the pattern are both Regular Expressions, Date objects
       or Buffers, then pass if they're "equivalent".
