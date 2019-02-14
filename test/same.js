@@ -354,3 +354,11 @@ t.test('map', function (t) {
   t.notOk(same(t, a, d))
   t.end()
 })
+
+t.test('collections missing all entries', t => {
+  t.notOk(same(t, new Map(), new Map([[1,1]])))
+  t.notOk(same(t, {}, {a: 1}))
+  t.notOk(same(t, new Set(), new Set([1])))
+  t.notOk(same(t, [], [1]))
+  t.end()
+})
