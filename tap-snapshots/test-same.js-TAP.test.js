@@ -801,7 +801,7 @@ exports[`test/same.js TAP set > undefined 5`] = `
 exports[`test/same.js TAP set > undefined 6`] = `
 --- actual
 +++ expected
-Set {}
+ Set {}
 `
 
 exports[`test/same.js TAP set > undefined 7`] = `
@@ -906,7 +906,7 @@ exports[`test/same.js TAP map > undefined 5`] = `
 exports[`test/same.js TAP map > undefined 6`] = `
 --- actual
 +++ expected
-Map {}
+ Map {}
 `
 
 exports[`test/same.js TAP map > undefined 7`] = `
@@ -983,4 +983,36 @@ exports[`test/same.js TAP map > undefined 9`] = `
 -    "b": 2,
 -  } => 6,
  }
+`
+
+exports[`test/same.js TAP collections missing all entries > undefined 1`] = `
+--- actual
++++ expected
+ Map {
+-  1 => 1,
+ }
+`
+
+exports[`test/same.js TAP collections missing all entries > undefined 2`] = `
+--- actual
++++ expected
+ Object {
+-  "a": 1,
+ }
+`
+
+exports[`test/same.js TAP collections missing all entries > undefined 3`] = `
+--- actual
++++ expected
+ Set {
+-  1,
+ }
+`
+
+exports[`test/same.js TAP collections missing all entries > undefined 4`] = `
+--- actual
++++ expected
+ Array [
+-  1,
+ ]
 `

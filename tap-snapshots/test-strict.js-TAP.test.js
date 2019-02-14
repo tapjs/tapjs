@@ -165,7 +165,7 @@ exports[`test/strict.js TAP basic > undefined 9`] = `
 exports[`test/strict.js TAP basic > undefined 10`] = `
 --- actual
 +++ expected
-Object {}
+ Object {}
 `
 
 exports[`test/strict.js TAP basic > undefined 11`] = `
@@ -703,7 +703,7 @@ exports[`test/strict.js TAP set > undefined 5`] = `
 exports[`test/strict.js TAP set > undefined 6`] = `
 --- actual
 +++ expected
-Set {}
+ Set {}
 `
 
 exports[`test/strict.js TAP set > undefined 7`] = `
@@ -826,7 +826,7 @@ exports[`test/strict.js TAP map > undefined 6`] = `
 exports[`test/strict.js TAP map > undefined 7`] = `
 --- actual
 +++ expected
-Map {}
+ Map {}
 `
 
 exports[`test/strict.js TAP map > undefined 8`] = `
