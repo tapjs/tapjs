@@ -6,9 +6,13 @@ const same = (t, a, b, options = {}) => {
   return s.match
 }
 
-t.test('bad ctor usage', t => {
+t.test('ctor usage', t => {
   t.throws(() => new compare.Same(true),
     new TypeError('Same called without expected value'))
+
+  const s = new compare.Same(true, { expect: false })
+  t.matchSnapshot(s.print())
+  t.equal(s.memo, s.print(), 'printing multiple times is memoized')
 
   t.throws(() => new compare.Same(true, {expect:true, style: 'tight'}),
     new Error('"tight" style not appropriate for diffs'))

@@ -5,6 +5,14 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
+exports[`test/same.js TAP ctor usage > undefined 1`] = `
+--- actual
++++ expected
+-false
++true
+
+`
+
 exports[`test/same.js TAP simple diff nested in object > undefined 1`] = `
 --- actual
 +++ expected

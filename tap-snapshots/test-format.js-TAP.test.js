@@ -2082,6 +2082,10 @@ Object {
 }
 `
 
+exports[`test/format.js TAP other misc > undefined 1`] = `
+true
+`
+
 exports[`test/format.js TAP other misc > faked out seen() method 1`] = `
 &ref_1 Object {
   "a": Object {

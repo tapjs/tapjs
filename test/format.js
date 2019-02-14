@@ -93,6 +93,10 @@ t.test('other misc', t => {
   t.throws(() => new Format(1, { isKey: true }),
     new Error(`isKey should only be set for Map keys`))
 
+  const s = new Format(true)
+  t.matchSnapshot(s.print())
+  t.equal(s.memo, s.print(), 'printing multiple times is memoized')
+
   const parent = new Format([1])
   t.throws(() => new Format(1, { parent, isKey: true }),
     new Error(`isKey should only be set for Map keys`))
