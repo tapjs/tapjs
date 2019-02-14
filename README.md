@@ -7,7 +7,7 @@ nicely formatted human-readable diff string.
 ## USAGE
 
 ```js
-const { match, same, strict, format } = require('tcompare')
+const { match, same, strict, has, hasStrict, format } = require('tcompare')
 
 // Result is an object with { Boolean match, String diff }
 const result = match(object, pattern)
