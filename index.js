@@ -2,7 +2,7 @@ const Format = require('./lib/format.js')
 const Same = require('./lib/same.js')
 const Strict = require('./lib/strict.js')
 const Has = require('./lib/has.js')
-const HasStrict = require('./lib/has.js')
+const HasStrict = require('./lib/has-strict.js')
 const Match = require('./lib/match.js')
 
 const simple = o => ({

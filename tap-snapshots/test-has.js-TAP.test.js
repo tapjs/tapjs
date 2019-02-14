@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/has.js TAP > undefined 1`] = `
+exports[`test/has.js TAP array likes > undefined 1`] = `
 --- actual
 +++ expected
  Object {
@@ -17,7 +17,7 @@ exports[`test/has.js TAP > undefined 1`] = `
  }
 `
 
-exports[`test/has.js TAP > undefined 2`] = `
+exports[`test/has.js TAP array likes > undefined 2`] = `
 --- actual
 +++ expected
  Object {
@@ -29,7 +29,7 @@ exports[`test/has.js TAP > undefined 2`] = `
  }
 `
 
-exports[`test/has.js TAP > undefined 3`] = `
+exports[`test/has.js TAP array likes > undefined 3`] = `
 --- actual
 +++ expected
  Object {
@@ -41,7 +41,7 @@ exports[`test/has.js TAP > undefined 3`] = `
  }
 `
 
-exports[`test/has.js TAP > undefined 4`] = `
+exports[`test/has.js TAP array likes > undefined 4`] = `
 --- actual
 +++ expected
  Object {
@@ -52,7 +52,7 @@ exports[`test/has.js TAP > undefined 4`] = `
  }
 `
 
-exports[`test/has.js TAP > undefined 5`] = `
+exports[`test/has.js TAP array likes > undefined 5`] = `
 --- actual
 +++ expected
  Object {
@@ -63,7 +63,7 @@ exports[`test/has.js TAP > undefined 5`] = `
  }
 `
 
-exports[`test/has.js TAP > undefined 6`] = `
+exports[`test/has.js TAP map > undefined 1`] = `
 --- actual
 +++ expected
  Object {
@@ -73,7 +73,7 @@ exports[`test/has.js TAP > undefined 6`] = `
  }
 `
 
-exports[`test/has.js TAP > undefined 7`] = `
+exports[`test/has.js TAP map > undefined 2`] = `
 --- actual
 +++ expected
  Object {
@@ -83,7 +83,7 @@ exports[`test/has.js TAP > undefined 7`] = `
  }
 `
 
-exports[`test/has.js TAP > undefined 8`] = `
+exports[`test/has.js TAP map > undefined 3`] = `
 --- actual
 +++ expected
  Object {
@@ -93,7 +93,7 @@ exports[`test/has.js TAP > undefined 8`] = `
  }
 `
 
-exports[`test/has.js TAP > undefined 9`] = `
+exports[`test/has.js TAP map > undefined 4`] = `
 --- actual
 +++ expected
  Object {
@@ -108,7 +108,7 @@ exports[`test/has.js TAP > undefined 9`] = `
  }
 `
 
-exports[`test/has.js TAP > undefined 10`] = `
+exports[`test/has.js TAP map > undefined 5`] = `
 --- actual
 +++ expected
  Object {
@@ -120,7 +120,7 @@ exports[`test/has.js TAP > undefined 10`] = `
  }
 `
 
-exports[`test/has.js TAP > undefined 11`] = `
+exports[`test/has.js TAP map > undefined 6`] = `
 --- actual
 +++ expected
  Object {
@@ -131,7 +131,7 @@ exports[`test/has.js TAP > undefined 11`] = `
  }
 `
 
-exports[`test/has.js TAP > undefined 12`] = `
+exports[`test/has.js TAP map > undefined 7`] = `
 --- actual
 +++ expected
  Object {
@@ -142,7 +142,7 @@ exports[`test/has.js TAP > undefined 12`] = `
  }
 `
 
-exports[`test/has.js TAP > undefined 13`] = `
+exports[`test/has.js TAP map > undefined 8`] = `
 --- actual
 +++ expected
  Object {
@@ -154,7 +154,7 @@ exports[`test/has.js TAP > undefined 13`] = `
  }
 `
 
-exports[`test/has.js TAP > undefined 14`] = `
+exports[`test/has.js TAP map > undefined 9`] = `
 --- actual
 +++ expected
  Object {
@@ -164,7 +164,7 @@ exports[`test/has.js TAP > undefined 14`] = `
  }
 `
 
-exports[`test/has.js TAP > undefined 15`] = `
+exports[`test/has.js TAP map > undefined 10`] = `
 --- actual
 +++ expected
  Object {
@@ -174,7 +174,7 @@ exports[`test/has.js TAP > undefined 15`] = `
  }
 `
 
-exports[`test/has.js TAP > undefined 16`] = `
+exports[`test/has.js TAP map > undefined 11`] = `
 --- actual
 +++ expected
  Object {
@@ -182,7 +182,7 @@ exports[`test/has.js TAP > undefined 16`] = `
  }
 `
 
-exports[`test/has.js TAP > undefined 17`] = `
+exports[`test/has.js TAP set > undefined 1`] = `
 --- actual
 +++ expected
  Object {
@@ -193,7 +193,7 @@ exports[`test/has.js TAP > undefined 17`] = `
  }
 `
 
-exports[`test/has.js TAP > undefined 18`] = `
+exports[`test/has.js TAP set > undefined 2`] = `
 --- actual
 +++ expected
  Object {
@@ -201,7 +201,7 @@ exports[`test/has.js TAP > undefined 18`] = `
  }
 `
 
-exports[`test/has.js TAP > undefined 19`] = `
+exports[`test/has.js TAP set > undefined 3`] = `
 --- actual
 +++ expected
  Object {
@@ -209,7 +209,7 @@ exports[`test/has.js TAP > undefined 19`] = `
  }
 `
 
-exports[`test/has.js TAP > undefined 20`] = `
+exports[`test/has.js TAP set > undefined 4`] = `
 --- actual
 +++ expected
  Object {
@@ -223,7 +223,7 @@ exports[`test/has.js TAP > undefined 20`] = `
  }
 `
 
-exports[`test/has.js TAP > undefined 21`] = `
+exports[`test/has.js TAP set > undefined 5`] = `
 --- actual
 +++ expected
  Object {
@@ -238,7 +238,7 @@ exports[`test/has.js TAP > undefined 21`] = `
  }
 `
 
-exports[`test/has.js TAP > undefined 22`] = `
+exports[`test/has.js TAP set > undefined 6`] = `
 --- actual
 +++ expected
  Object {
@@ -256,7 +256,7 @@ exports[`test/has.js TAP > undefined 22`] = `
  }
 `
 
-exports[`test/has.js TAP > undefined 23`] = `
+exports[`test/has.js TAP buffer > undefined 1`] = `
 --- actual
 +++ expected
  Object {
@@ -264,7 +264,7 @@ exports[`test/has.js TAP > undefined 23`] = `
  }
 `
 
-exports[`test/has.js TAP > undefined 24`] = `
+exports[`test/has.js TAP buffer > undefined 2`] = `
 --- actual
 +++ expected
  Object {
@@ -273,7 +273,7 @@ exports[`test/has.js TAP > undefined 24`] = `
  }
 `
 
-exports[`test/has.js TAP > undefined 25`] = `
+exports[`test/has.js TAP date > undefined 1`] = `
 --- actual
 +++ expected
  Object {
@@ -281,7 +281,7 @@ exports[`test/has.js TAP > undefined 25`] = `
  }
 `
 
-exports[`test/has.js TAP > undefined 26`] = `
+exports[`test/has.js TAP date > undefined 2`] = `
 --- actual
 +++ expected
  Object {
@@ -290,7 +290,7 @@ exports[`test/has.js TAP > undefined 26`] = `
  }
 `
 
-exports[`test/has.js TAP > undefined 27`] = `
+exports[`test/has.js TAP array > undefined 1`] = `
 --- actual
 +++ expected
  Object {
@@ -302,7 +302,7 @@ exports[`test/has.js TAP > undefined 27`] = `
  }
 `
 
-exports[`test/has.js TAP > undefined 28`] = `
+exports[`test/has.js TAP array > undefined 2`] = `
 --- actual
 +++ expected
  Object {
@@ -313,7 +313,7 @@ exports[`test/has.js TAP > undefined 28`] = `
  }
 `
 
-exports[`test/has.js TAP > undefined 29`] = `
+exports[`test/has.js TAP array > undefined 3`] = `
 --- actual
 +++ expected
  Object {
@@ -321,7 +321,7 @@ exports[`test/has.js TAP > undefined 29`] = `
  }
 `
 
-exports[`test/has.js TAP > undefined 30`] = `
+exports[`test/has.js TAP array > undefined 4`] = `
 --- actual
 +++ expected
  Object {
@@ -329,7 +329,7 @@ exports[`test/has.js TAP > undefined 30`] = `
  }
 `
 
-exports[`test/has.js TAP > undefined 31`] = `
+exports[`test/has.js TAP array > undefined 5`] = `
 --- actual
 +++ expected
  Object {
@@ -339,7 +339,7 @@ exports[`test/has.js TAP > undefined 31`] = `
  }
 `
 
-exports[`test/has.js TAP > undefined 32`] = `
+exports[`test/has.js TAP array > undefined 6`] = `
 --- actual
 +++ expected
  Object {
@@ -352,7 +352,7 @@ exports[`test/has.js TAP > undefined 32`] = `
  }
 `
 
-exports[`test/has.js TAP > undefined 33`] = `
+exports[`test/has.js TAP complex object > undefined 1`] = `
 --- actual
 +++ expected
  Object {
@@ -360,7 +360,7 @@ exports[`test/has.js TAP > undefined 33`] = `
  }
 `
 
-exports[`test/has.js TAP > undefined 34`] = `
+exports[`test/has.js TAP complex object > undefined 2`] = `
 --- actual
 +++ expected
  Object {
@@ -370,7 +370,7 @@ exports[`test/has.js TAP > undefined 34`] = `
  }
 `
 
-exports[`test/has.js TAP > undefined 35`] = `
+exports[`test/has.js TAP complex object > undefined 3`] = `
 --- actual
 +++ expected
  Object {
@@ -382,7 +382,7 @@ exports[`test/has.js TAP > undefined 35`] = `
  }
 `
 
-exports[`test/has.js TAP > undefined 36`] = `
+exports[`test/has.js TAP complex object > undefined 4`] = `
 --- actual
 +++ expected
  Object {
@@ -396,7 +396,7 @@ exports[`test/has.js TAP > undefined 36`] = `
  }
 `
 
-exports[`test/has.js TAP > undefined 37`] = `
+exports[`test/has.js TAP complex object > undefined 5`] = `
 --- actual
 +++ expected
  Object {
@@ -404,7 +404,7 @@ exports[`test/has.js TAP > undefined 37`] = `
  }
 `
 
-exports[`test/has.js TAP > undefined 38`] = `
+exports[`test/has.js TAP complex object > undefined 6`] = `
 --- actual
 +++ expected
  Object {
