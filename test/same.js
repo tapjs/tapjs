@@ -267,6 +267,11 @@ t.test("properly handle circular data structures", function (t) {
   x2.y = y2
 
   t.ok(same(t,x1, x2))
+  x1.other = x2
+  x2.other = x1
+  t.ok(same(t, x1, x2))
+  x2.other = x2
+  t.notOk(same(t, x1, x2))
 
   // matching circularity
   const obj = () => {

@@ -173,6 +173,13 @@ t.test("match shouldn't blow up on circular data structures", t => {
   x2.y = y2
 
   t.ok(match(t,x1, x2))
+
+  x1.other = x2
+  x2.other = x1
+  t.ok(match(t, x1, x2))
+
+  x2.other = x2
+  t.notOk(match(t, x1, x2))
   t.end()
 })
 

@@ -423,6 +423,43 @@ exports[`test/match.js TAP match shouldn't blow up on circular data structures >
  }
 `
 
+exports[`test/match.js TAP match shouldn't blow up on circular data structures > undefined 2`] = `
+--- actual
++++ expected
+ &ref_1 Object {
+   "z": 4,
+   "y": Object {
+     "x": <*ref_1>,
+   },
+   "other": &ref_2 Object {
+     "z": 4,
+     "y": Object {
+       "x": <*ref_2>,
+     },
+     "other": <*ref_1>,
+   },
+ }
+`
+
+exports[`test/match.js TAP match shouldn't blow up on circular data structures > undefined 3`] = `
+--- actual
++++ expected
+ &ref_1 Object {
+   "z": 4,
+   "y": Object {
+     "x": <*ref_1>,
+   },
+-  "other": <*ref_1>,
++  "other": &ref_2 Object {
++    "z": 4,
++    "y": Object {
++      "x": <*ref_2>,
++    },
++    "other": <*ref_2>,
++  },
+ }
+`
+
 exports[`test/match.js TAP regexps match strings > undefined 1`] = `
 --- actual
 +++ expected

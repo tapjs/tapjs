@@ -667,6 +667,43 @@ exports[`test/same.js TAP properly handle circular data structures > undefined 2
 --- actual
 +++ expected
  &ref_1 Object {
+   "z": 4,
+   "y": Object {
+     "x": <*ref_1>,
+   },
+   "other": &ref_2 Object {
+     "z": 4,
+     "y": Object {
+       "x": <*ref_2>,
+     },
+     "other": <*ref_1>,
+   },
+ }
+`
+
+exports[`test/same.js TAP properly handle circular data structures > undefined 3`] = `
+--- actual
++++ expected
+ &ref_1 Object {
+   "z": 4,
+   "y": Object {
+     "x": <*ref_1>,
+   },
+-  "other": <*ref_1>,
++  "other": &ref_2 Object {
++    "z": 4,
++    "y": Object {
++      "x": <*ref_2>,
++    },
++    "other": <*ref_2>,
++  },
+ }
+`
+
+exports[`test/same.js TAP properly handle circular data structures > undefined 4`] = `
+--- actual
++++ expected
+ &ref_1 Object {
    "ONE": 1,
    "x": Object {
      "TWO": 2,
@@ -675,7 +712,7 @@ exports[`test/same.js TAP properly handle circular data structures > undefined 2
  }
 `
 
-exports[`test/same.js TAP properly handle circular data structures > undefined 3`] = `
+exports[`test/same.js TAP properly handle circular data structures > undefined 5`] = `
 --- actual
 +++ expected
  &ref_1 Object {
@@ -688,7 +725,7 @@ exports[`test/same.js TAP properly handle circular data structures > undefined 3
  }
 `
 
-exports[`test/same.js TAP properly handle circular data structures > undefined 4`] = `
+exports[`test/same.js TAP properly handle circular data structures > undefined 6`] = `
 --- actual
 +++ expected
  Object {
