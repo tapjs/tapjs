@@ -12,27 +12,27 @@ Object {
 `
 
 exports[`test/index.js TAP > undefined 2`] = `
-{ diff: '--- actual\\n+++ expected\\n Object {\\n   "a": 1,\\n }',
+{ diff: '--- expected\\n+++ actual\\n Object {\\n   "a": 1,\\n }',
   match: true }
 `
 
 exports[`test/index.js TAP > undefined 3`] = `
-{ diff: '--- actual\\n+++ expected\\n Object {\\n   "a": 1,\\n }',
+{ diff: '--- expected\\n+++ actual\\n Object {\\n   "a": 1,\\n }',
   match: true }
 `
 
 exports[`test/index.js TAP > undefined 4`] = `
-{ diff: '--- actual\\n+++ expected\\n Object {\\n   "a": 1,\\n }',
+{ diff: '--- expected\\n+++ actual\\n Object {\\n   "a": 1,\\n }',
   match: true }
 `
 
 exports[`test/index.js TAP > undefined 5`] = `
-{ diff: '--- actual\\n+++ expected\\n Object {\\n   "a": 1,\\n }',
+{ diff: '--- expected\\n+++ actual\\n Object {\\n   "a": 1,\\n }',
   match: true }
 `
 
 exports[`test/index.js TAP > undefined 6`] = `
-{ diff: '--- actual\\n+++ expected\\n Object {\\n   "a": 1,\\n }',
+{ diff: '--- expected\\n+++ actual\\n Object {\\n   "a": 1,\\n }',
   match: true }
 `
 
@@ -43,27 +43,27 @@ exports[`test/index.js TAP > undefined 7`] = `
 `
 
 exports[`test/index.js TAP > undefined 8`] = `
-{ diff: '--- actual\\n+++ expected\\n {\\n   "a": 1,\\n }',
+{ diff: '--- expected\\n+++ actual\\n {\\n   "a": 1,\\n }',
   match: true }
 `
 
 exports[`test/index.js TAP > undefined 9`] = `
-{ diff: '--- actual\\n+++ expected\\n {\\n   "a": 1,\\n }',
+{ diff: '--- expected\\n+++ actual\\n {\\n   "a": 1,\\n }',
   match: true }
 `
 
 exports[`test/index.js TAP > undefined 10`] = `
-{ diff: '--- actual\\n+++ expected\\n {\\n   "a": 1,\\n }',
+{ diff: '--- expected\\n+++ actual\\n {\\n   "a": 1,\\n }',
   match: true }
 `
 
 exports[`test/index.js TAP > undefined 11`] = `
-{ diff: '--- actual\\n+++ expected\\n {\\n   "a": 1,\\n }',
+{ diff: '--- expected\\n+++ actual\\n {\\n   "a": 1,\\n }',
   match: true }
 `
 
 exports[`test/index.js TAP > undefined 12`] = `
-{ diff: '--- actual\\n+++ expected\\n {\\n   "a": 1,\\n }',
+{ diff: '--- expected\\n+++ actual\\n {\\n   "a": 1,\\n }',
   match: true }
 `
 
@@ -74,40 +74,40 @@ Object {
 `
 
 exports[`test/index.js TAP > undefined 14`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "a": 1,
  }
 `
 
 exports[`test/index.js TAP > undefined 15`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "a": 1,
  }
 `
 
 exports[`test/index.js TAP > undefined 16`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "a": 1,
  }
 `
 
 exports[`test/index.js TAP > undefined 17`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "a": 1,
  }
 `
 
 exports[`test/index.js TAP > undefined 18`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "a": 1,
  }
@@ -120,40 +120,40 @@ exports[`test/index.js TAP > undefined 19`] = `
 `
 
 exports[`test/index.js TAP > undefined 20`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  {
    "a": 1,
  }
 `
 
 exports[`test/index.js TAP > undefined 21`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  {
    "a": 1,
  }
 `
 
 exports[`test/index.js TAP > undefined 22`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  {
    "a": 1,
  }
 `
 
 exports[`test/index.js TAP > undefined 23`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  {
    "a": 1,
  }
 `
 
 exports[`test/index.js TAP > undefined 24`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  {
    "a": 1,
  }

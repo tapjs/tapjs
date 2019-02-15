@@ -6,16 +6,16 @@
  */
 'use strict'
 exports[`test/same.js TAP ctor usage > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -false
 +true
 
 `
 
 exports[`test/same.js TAP simple diff nested in object > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "a": Object {
      "b": Array [
@@ -29,24 +29,24 @@ exports[`test/same.js TAP simple diff nested in object > undefined 1`] = `
 `
 
 exports[`test/same.js TAP symbology > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "a": Symbol(a),
  }
 `
 
 exports[`test/same.js TAP symbology > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "a": Symbol(a),
  }
 `
 
 exports[`test/same.js TAP symbology > undefined 3`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
 -  "a": [Function Symbol],
 +  "a": Symbol(a),
@@ -54,8 +54,8 @@ exports[`test/same.js TAP symbology > undefined 3`] = `
 `
 
 exports[`test/same.js TAP symbology > undefined 4`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
 -  "a": "Symbol(a)",
 +  "a": Symbol(a),
@@ -63,8 +63,8 @@ exports[`test/same.js TAP symbology > undefined 4`] = `
 `
 
 exports[`test/same.js TAP symbology > undefined 5`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
 -  "a": Symbol(a),
 +  "a": "Symbol(a)",
@@ -72,8 +72,8 @@ exports[`test/same.js TAP symbology > undefined 5`] = `
 `
 
 exports[`test/same.js TAP symbology > undefined 6`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
 -  "a": Symbol(a),
 +  "a": "Symbol(a)",
@@ -81,8 +81,8 @@ exports[`test/same.js TAP symbology > undefined 6`] = `
 `
 
 exports[`test/same.js TAP symbology > undefined 7`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
 -  "a": [Function Symbol],
 +  "a": "Symbol(a)",
@@ -90,8 +90,8 @@ exports[`test/same.js TAP symbology > undefined 7`] = `
 `
 
 exports[`test/same.js TAP experimental diff cleanup postaction > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Array [
    1,
 -  9,
@@ -109,8 +109,8 @@ exports[`test/same.js TAP experimental diff cleanup postaction > undefined 1`] =
 `
 
 exports[`test/same.js TAP experimental diff cleanup postaction > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Array [
    1,
 -  9,
@@ -128,8 +128,8 @@ exports[`test/same.js TAP experimental diff cleanup postaction > undefined 2`] =
 `
 
 exports[`test/same.js TAP experimental diff cleanup postaction > undefined 3`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Array [
    1,
 -  9,
@@ -147,8 +147,8 @@ exports[`test/same.js TAP experimental diff cleanup postaction > undefined 3`] =
 `
 
 exports[`test/same.js TAP array-likes > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Array [
    1,
    2,
@@ -157,8 +157,8 @@ exports[`test/same.js TAP array-likes > undefined 1`] = `
 `
 
 exports[`test/same.js TAP array-likes > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Array [
 -  undefined,
 +  1,
@@ -170,8 +170,8 @@ exports[`test/same.js TAP array-likes > undefined 2`] = `
 `
 
 exports[`test/same.js TAP array-likes > undefined 3`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object [
    1,
    2,
@@ -180,8 +180,8 @@ exports[`test/same.js TAP array-likes > undefined 3`] = `
 `
 
 exports[`test/same.js TAP array-likes > undefined 4`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Arguments [
    1,
    2,
@@ -190,8 +190,8 @@ exports[`test/same.js TAP array-likes > undefined 4`] = `
 `
 
 exports[`test/same.js TAP array-likes > undefined 5`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object [
    1,
    2,
@@ -200,8 +200,8 @@ exports[`test/same.js TAP array-likes > undefined 5`] = `
 `
 
 exports[`test/same.js TAP array-likes > undefined 6`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -Object {
 -  "0": 1,
 -  "1": 2,
@@ -217,8 +217,8 @@ exports[`test/same.js TAP array-likes > undefined 6`] = `
 `
 
 exports[`test/same.js TAP arrays extra and missing > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Array [
    1,
    2,
@@ -229,8 +229,8 @@ exports[`test/same.js TAP arrays extra and missing > undefined 1`] = `
 `
 
 exports[`test/same.js TAP arrays extra and missing > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Array [
    1,
    2,
@@ -241,8 +241,8 @@ exports[`test/same.js TAP arrays extra and missing > undefined 2`] = `
 `
 
 exports[`test/same.js TAP pojos extra and missing > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "a": 1,
 -  "b": 2,
@@ -250,8 +250,8 @@ exports[`test/same.js TAP pojos extra and missing > undefined 1`] = `
 `
 
 exports[`test/same.js TAP pojos extra and missing > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
 +  "b": 2,
    "a": 1,
@@ -259,8 +259,8 @@ exports[`test/same.js TAP pojos extra and missing > undefined 2`] = `
 `
 
 exports[`test/same.js TAP maps extra and missing > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Map {
    "a" => 1,
 -  "b" => 2,
@@ -268,8 +268,8 @@ exports[`test/same.js TAP maps extra and missing > undefined 1`] = `
 `
 
 exports[`test/same.js TAP maps extra and missing > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Map {
 +  "b" => 2,
    "a" => 1,
@@ -277,8 +277,8 @@ exports[`test/same.js TAP maps extra and missing > undefined 2`] = `
 `
 
 exports[`test/same.js TAP sets extra and missing > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Set {
    Array [
      "a",
@@ -292,8 +292,8 @@ exports[`test/same.js TAP sets extra and missing > undefined 1`] = `
 `
 
 exports[`test/same.js TAP sets extra and missing > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Set {
 +  Array [
 +    "b",
@@ -307,14 +307,14 @@ exports[`test/same.js TAP sets extra and missing > undefined 2`] = `
 `
 
 exports[`test/same.js TAP NaN matches NaN > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  null
 `
 
 exports[`test/same.js TAP shouldn't care about key order and types > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "a": 1,
    "b": 2,
@@ -322,8 +322,8 @@ exports[`test/same.js TAP shouldn't care about key order and types > undefined 1
 `
 
 exports[`test/same.js TAP should notice objects with different shapes > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "a": 1,
 -  "b": undefined,
@@ -331,8 +331,8 @@ exports[`test/same.js TAP should notice objects with different shapes > undefine
 `
 
 exports[`test/same.js TAP should notice objects with different keys > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "a": 1,
 +  "b": 2,
@@ -341,94 +341,94 @@ exports[`test/same.js TAP should notice objects with different keys > undefined 
 `
 
 exports[`test/same.js TAP should handle dates > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -null
 +1972-08-01T00:00:00.000Z
 
 `
 
 exports[`test/same.js TAP should handle dates > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -undefined
 +1972-08-01T00:00:00.000Z
 
 `
 
 exports[`test/same.js TAP should handle dates > undefined 3`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  1972-08-01T00:00:00.000Z
 `
 
 exports[`test/same.js TAP should handle dates > undefined 4`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "x": 1972-08-01T00:00:00.000Z,
  }
 `
 
 exports[`test/same.js TAP should handle RegExps > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -/[a]/
 +/[b]/
 
 `
 
 exports[`test/same.js TAP should handle RegExps > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -/[a]/g
 +/[a]/i
 
 `
 
 exports[`test/same.js TAP should handle RegExps > undefined 3`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  /[a]/
 `
 
 exports[`test/same.js TAP should handle RegExps > undefined 4`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  /ab?[a-z]{,6}/g
 `
 
 exports[`test/same.js TAP should handle functions > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -[Function a]
 +[Function a]
 
 `
 
 exports[`test/same.js TAP should handle functions > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -[Function fnB]
 +[Function fnA]
 
 `
 
 exports[`test/same.js TAP should handle functions > undefined 3`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  [Function fnA]
 `
 
 exports[`test/same.js TAP should handle functions > undefined 4`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  [Function fnB]
 `
 
 exports[`test/same.js TAP should handle arguments > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Arguments [
    Test [
    ],
@@ -436,8 +436,8 @@ exports[`test/same.js TAP should handle arguments > undefined 1`] = `
 `
 
 exports[`test/same.js TAP should handle arguments > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Arguments [
    Test [
    ],
@@ -445,8 +445,8 @@ exports[`test/same.js TAP should handle arguments > undefined 2`] = `
 `
 
 exports[`test/same.js TAP should handle arguments > undefined 3`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Arguments [
    Test [
    ],
@@ -454,8 +454,8 @@ exports[`test/same.js TAP should handle arguments > undefined 3`] = `
 `
 
 exports[`test/same.js TAP same arrays match > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Array [
    1,
    2,
@@ -464,8 +464,8 @@ exports[`test/same.js TAP same arrays match > undefined 1`] = `
 `
 
 exports[`test/same.js TAP different arrays don't match > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Array [
    1,
    2,
@@ -475,8 +475,8 @@ exports[`test/same.js TAP different arrays don't match > undefined 1`] = `
 `
 
 exports[`test/same.js TAP different arrays don't match > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Array [
    1,
    2,
@@ -486,22 +486,22 @@ exports[`test/same.js TAP different arrays don't match > undefined 2`] = `
 `
 
 exports[`test/same.js TAP empty arrays match > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Array []
 `
 
 exports[`test/same.js TAP empty arrays match > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "x": Array [],
  }
 `
 
 exports[`test/same.js TAP same shouldn't care about key order recursively and types > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "x": Object {
      "a": 1,
@@ -515,22 +515,22 @@ exports[`test/same.js TAP same shouldn't care about key order recursively and ty
 `
 
 exports[`test/same.js TAP undefined is the same as itself > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  undefined
 `
 
 exports[`test/same.js TAP undefined is the same as itself > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "x": undefined,
  }
 `
 
 exports[`test/same.js TAP undefined is the same as itself > undefined 3`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "x": Array [
      undefined,
@@ -539,22 +539,22 @@ exports[`test/same.js TAP undefined is the same as itself > undefined 3`] = `
 `
 
 exports[`test/same.js TAP undefined and null are Close Enough > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  undefined
 `
 
 exports[`test/same.js TAP undefined and null are Close Enough > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "x": null,
  }
 `
 
 exports[`test/same.js TAP undefined and null are Close Enough > undefined 3`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "x": Array [
      undefined,
@@ -563,22 +563,22 @@ exports[`test/same.js TAP undefined and null are Close Enough > undefined 3`] = 
 `
 
 exports[`test/same.js TAP null is as shallow as you'd expect > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  null
 `
 
 exports[`test/same.js TAP null is as shallow as you'd expect > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "x": null,
  }
 `
 
 exports[`test/same.js TAP null is as shallow as you'd expect > undefined 3`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "x": Array [
      null,
@@ -587,50 +587,50 @@ exports[`test/same.js TAP null is as shallow as you'd expect > undefined 3`] = `
 `
 
 exports[`test/same.js TAP the same number matches > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  0
 `
 
 exports[`test/same.js TAP the same number matches > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  1
 `
 
 exports[`test/same.js TAP the same number matches > undefined 3`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  3.14
 `
 
 exports[`test/same.js TAP different numbers don't match > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -1
 +0
 
 `
 
 exports[`test/same.js TAP different numbers don't match > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 --1
 +1
 
 `
 
 exports[`test/same.js TAP different numbers don't match > undefined 3`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -2.72
 +3.14
 
 `
 
 exports[`test/same.js TAP flexible about key order and types > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Array [
    Object {
      "foo": Object {
@@ -653,8 +653,8 @@ exports[`test/same.js TAP flexible about key order and types > undefined 1`] = `
 `
 
 exports[`test/same.js TAP properly handle circular data structures > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  &ref_1 Object {
    "z": 4,
    "y": Object {
@@ -664,8 +664,8 @@ exports[`test/same.js TAP properly handle circular data structures > undefined 1
 `
 
 exports[`test/same.js TAP properly handle circular data structures > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  &ref_1 Object {
    "z": 4,
    "y": Object {
@@ -682,8 +682,8 @@ exports[`test/same.js TAP properly handle circular data structures > undefined 2
 `
 
 exports[`test/same.js TAP properly handle circular data structures > undefined 3`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  &ref_1 Object {
    "z": 4,
    "y": Object {
@@ -701,8 +701,8 @@ exports[`test/same.js TAP properly handle circular data structures > undefined 3
 `
 
 exports[`test/same.js TAP properly handle circular data structures > undefined 4`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  &ref_1 Object {
    "ONE": 1,
    "x": Object {
@@ -713,8 +713,8 @@ exports[`test/same.js TAP properly handle circular data structures > undefined 4
 `
 
 exports[`test/same.js TAP properly handle circular data structures > undefined 5`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  &ref_1 Object {
    "ONE": 1,
    "x": &ref_2 Object {
@@ -726,8 +726,8 @@ exports[`test/same.js TAP properly handle circular data structures > undefined 5
 `
 
 exports[`test/same.js TAP properly handle circular data structures > undefined 6`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "ONE": 1,
    "x": Object {
@@ -742,34 +742,34 @@ exports[`test/same.js TAP properly handle circular data structures > undefined 6
 `
 
 exports[`test/same.js TAP should match empty Buffers > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Buffer <>
 `
 
 exports[`test/same.js TAP should match similar Buffers > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Buffer <00>
 `
 
 exports[`test/same.js TAP should match similar Buffers > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Buffer <00 01 03>
 `
 
 exports[`test/same.js TAP should notice different Buffers > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -Buffer <00 01 17>
 +Buffer <00 01 02>
 
 `
 
 exports[`test/same.js TAP should notice different Buffers > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "x": Object {
      "y": Object {
@@ -781,8 +781,8 @@ exports[`test/same.js TAP should notice different Buffers > undefined 2`] = `
 `
 
 exports[`test/same.js TAP set > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Set {
    1,
    2,
@@ -795,8 +795,8 @@ exports[`test/same.js TAP set > undefined 1`] = `
 `
 
 exports[`test/same.js TAP set > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Set {
    1,
    2,
@@ -809,8 +809,8 @@ exports[`test/same.js TAP set > undefined 2`] = `
 `
 
 exports[`test/same.js TAP set > undefined 3`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Set {
    Object {
      "a": 1,
@@ -823,8 +823,8 @@ exports[`test/same.js TAP set > undefined 3`] = `
 `
 
 exports[`test/same.js TAP set > undefined 4`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Set {
    1,
 -  2,
@@ -832,8 +832,8 @@ exports[`test/same.js TAP set > undefined 4`] = `
 `
 
 exports[`test/same.js TAP set > undefined 5`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Set {
    1,
 +  3,
@@ -844,14 +844,14 @@ exports[`test/same.js TAP set > undefined 5`] = `
 `
 
 exports[`test/same.js TAP set > undefined 6`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Set {}
 `
 
 exports[`test/same.js TAP set > undefined 7`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -Array [
 -  1,
 -  2,
@@ -874,8 +874,8 @@ exports[`test/same.js TAP set > undefined 7`] = `
 `
 
 exports[`test/same.js TAP map > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Map {
    1 => 2,
    3 => 4,
@@ -889,8 +889,8 @@ exports[`test/same.js TAP map > undefined 1`] = `
 `
 
 exports[`test/same.js TAP map > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Map {
    1 => 2,
    3 => 4,
@@ -904,8 +904,8 @@ exports[`test/same.js TAP map > undefined 2`] = `
 `
 
 exports[`test/same.js TAP map > undefined 3`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Map {
    3 => 4,
    5 => Object {
@@ -919,8 +919,8 @@ exports[`test/same.js TAP map > undefined 3`] = `
 `
 
 exports[`test/same.js TAP map > undefined 4`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Map {
    1 => 2,
    3 => 4,
@@ -934,8 +934,8 @@ exports[`test/same.js TAP map > undefined 4`] = `
 `
 
 exports[`test/same.js TAP map > undefined 5`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Map {
    3 => 4,
    5 => Object {
@@ -949,14 +949,14 @@ exports[`test/same.js TAP map > undefined 5`] = `
 `
 
 exports[`test/same.js TAP map > undefined 6`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Map {}
 `
 
 exports[`test/same.js TAP map > undefined 7`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -Array [
 -  Array [
 -    1,
@@ -993,8 +993,8 @@ exports[`test/same.js TAP map > undefined 7`] = `
 `
 
 exports[`test/same.js TAP map > undefined 8`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Map {
    1 => 2,
    3 => 4,
@@ -1012,8 +1012,8 @@ exports[`test/same.js TAP map > undefined 8`] = `
 `
 
 exports[`test/same.js TAP map > undefined 9`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Map {
    1 => 2,
    3 => 4,
@@ -1031,32 +1031,32 @@ exports[`test/same.js TAP map > undefined 9`] = `
 `
 
 exports[`test/same.js TAP collections missing all entries > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Map {
 -  1 => 1,
  }
 `
 
 exports[`test/same.js TAP collections missing all entries > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
 -  "a": 1,
  }
 `
 
 exports[`test/same.js TAP collections missing all entries > undefined 3`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Set {
 -  1,
  }
 `
 
 exports[`test/same.js TAP collections missing all entries > undefined 4`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Array [
 -  1,
  ]

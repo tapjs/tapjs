@@ -6,22 +6,22 @@
  */
 'use strict'
 exports[`test/strict.js TAP symbology > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "a": Symbol(a),
  }
 `
 
 exports[`test/strict.js TAP symbology > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Symbol(a)
 `
 
 exports[`test/strict.js TAP symbology > undefined 3`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
 -  "a": Symbol(a),
 +  "a": Symbol(a),
@@ -29,8 +29,8 @@ exports[`test/strict.js TAP symbology > undefined 3`] = `
 `
 
 exports[`test/strict.js TAP symbology > undefined 4`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
 -  "a": Symbol(a),
 +  "a": Symbol(a),
@@ -38,8 +38,8 @@ exports[`test/strict.js TAP symbology > undefined 4`] = `
 `
 
 exports[`test/strict.js TAP symbology > undefined 5`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
 -  "a": [Function Symbol],
 +  "a": Symbol(a),
@@ -47,8 +47,8 @@ exports[`test/strict.js TAP symbology > undefined 5`] = `
 `
 
 exports[`test/strict.js TAP symbology > undefined 6`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
 -  "a": "Symbol(a)",
 +  "a": Symbol(a),
@@ -56,8 +56,8 @@ exports[`test/strict.js TAP symbology > undefined 6`] = `
 `
 
 exports[`test/strict.js TAP symbology > undefined 7`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
 -  "a": Symbol(a),
 +  "a": "Symbol(a)",
@@ -65,8 +65,8 @@ exports[`test/strict.js TAP symbology > undefined 7`] = `
 `
 
 exports[`test/strict.js TAP symbology > undefined 8`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
 -  "a": Symbol(a),
 +  "a": "Symbol(a)",
@@ -74,8 +74,8 @@ exports[`test/strict.js TAP symbology > undefined 8`] = `
 `
 
 exports[`test/strict.js TAP symbology > undefined 9`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
 -  "a": [Function Symbol],
 +  "a": "Symbol(a)",
@@ -83,8 +83,8 @@ exports[`test/strict.js TAP symbology > undefined 9`] = `
 `
 
 exports[`test/strict.js TAP array-likes > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Array [
    1,
    2,
@@ -93,8 +93,8 @@ exports[`test/strict.js TAP array-likes > undefined 1`] = `
 `
 
 exports[`test/strict.js TAP array-likes > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -Array [
 -  1,
 -  2,
@@ -109,84 +109,84 @@ exports[`test/strict.js TAP array-likes > undefined 2`] = `
 `
 
 exports[`test/strict.js TAP basic > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  null
 `
 
 exports[`test/strict.js TAP basic > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  undefined
 `
 
 exports[`test/strict.js TAP basic > undefined 3`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  0
 `
 
 exports[`test/strict.js TAP basic > undefined 4`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  null
 `
 
 exports[`test/strict.js TAP basic > undefined 5`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  "ok"
 `
 
 exports[`test/strict.js TAP basic > undefined 6`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  [Function functionA]
 `
 
 exports[`test/strict.js TAP basic > undefined 7`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Buffer <61 62 63>
 `
 
 exports[`test/strict.js TAP basic > undefined 8`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  2001-01-11T00:00:00.000Z
 `
 
 exports[`test/strict.js TAP basic > undefined 9`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  /^h[oe][wl][dl][oy]$/
 `
 
 exports[`test/strict.js TAP basic > undefined 10`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {}
 `
 
 exports[`test/strict.js TAP basic > undefined 11`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "a": "a",
  }
 `
 
 exports[`test/strict.js TAP basic > undefined 12`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "a": "a",
  }
 `
 
 exports[`test/strict.js TAP basic > undefined 13`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Array [
    0,
    1,
@@ -194,8 +194,8 @@ exports[`test/strict.js TAP basic > undefined 13`] = `
 `
 
 exports[`test/strict.js TAP basic > undefined 14`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  EventEmitter {
    "domain": Domain {
      "domain": null,
@@ -217,16 +217,16 @@ exports[`test/strict.js TAP basic > undefined 14`] = `
 `
 
 exports[`test/strict.js TAP basic > undefined 15`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  &ref_1 Object {
    "x": <*ref_1>,
  }
 `
 
 exports[`test/strict.js TAP basic > undefined 16`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  &ref_1 Object {
    "v": Object {
      "v": Object {
@@ -263,8 +263,8 @@ exports[`test/strict.js TAP basic > undefined 16`] = `
 `
 
 exports[`test/strict.js TAP basic > undefined 17`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  &ref_1 Object {
    "nothin": null,
    "nope": undefined,
@@ -285,8 +285,8 @@ exports[`test/strict.js TAP basic > undefined 17`] = `
 `
 
 exports[`test/strict.js TAP basic > undefined 18`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  &ref_1 Object {
    "nothin": null,
    "nope": undefined,
@@ -323,128 +323,128 @@ exports[`test/strict.js TAP basic > undefined 18`] = `
 `
 
 exports[`test/strict.js TAP basic > undefined 19`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -null
 +null
 
 `
 
 exports[`test/strict.js TAP basic > undefined 20`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -"1"
 +1
 
 `
 
 exports[`test/strict.js TAP basic > undefined 21`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -"nok"
 +"ok"
 
 `
 
 exports[`test/strict.js TAP basic > undefined 22`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -"0"
 +0
 
 `
 
 exports[`test/strict.js TAP basic > undefined 23`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -null
 +undefined
 
 `
 
 exports[`test/strict.js TAP basic > undefined 24`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -[Function nop]
 +[Function nop]
 
 `
 
 exports[`test/strict.js TAP basic > undefined 25`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -Object {}
 +undefined
 
 `
 
 exports[`test/strict.js TAP basic > undefined 26`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -null
 +Object {}
 
 `
 
 exports[`test/strict.js TAP basic > undefined 27`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -Object {}
 +null
 
 `
 
 exports[`test/strict.js TAP basic > undefined 28`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -undefined
 +null
 
 `
 
 exports[`test/strict.js TAP basic > undefined 29`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -null
 +undefined
 
 `
 
 exports[`test/strict.js TAP basic > undefined 30`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -Buffer <61 62 63 64>
 +Buffer <61 62 63>
 
 `
 
 exports[`test/strict.js TAP basic > undefined 31`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -Buffer <61 62 64>
 +Buffer <61 62 63>
 
 `
 
 exports[`test/strict.js TAP basic > undefined 32`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -2001-01-12T00:00:00.000Z
 +2001-01-11T00:00:00.000Z
 
 `
 
 exports[`test/strict.js TAP basic > undefined 33`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -/^(howdy|hello)$/
 +/^h[oe][wl][dl][oy]$/
 
 `
 
 exports[`test/strict.js TAP basic > undefined 34`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Arguments [
    1,
    2,
@@ -453,8 +453,8 @@ exports[`test/strict.js TAP basic > undefined 34`] = `
 `
 
 exports[`test/strict.js TAP basic > undefined 35`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Arguments [
    1,
    2,
@@ -463,8 +463,8 @@ exports[`test/strict.js TAP basic > undefined 35`] = `
 `
 
 exports[`test/strict.js TAP basic > undefined 36`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -Array [
 -  1,
 -  2,
@@ -479,8 +479,8 @@ exports[`test/strict.js TAP basic > undefined 36`] = `
 `
 
 exports[`test/strict.js TAP basic > undefined 37`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -Arguments [
 -  1,
 -  2,
@@ -495,24 +495,24 @@ exports[`test/strict.js TAP basic > undefined 37`] = `
 `
 
 exports[`test/strict.js TAP basic > undefined 38`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -Object {}
 +Array []
 
 `
 
 exports[`test/strict.js TAP basic > undefined 39`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -Object {}
 +Object {}
 
 `
 
 exports[`test/strict.js TAP basic > undefined 40`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
 +  "a": "a",
 -  "b": "b",
@@ -520,8 +520,8 @@ exports[`test/strict.js TAP basic > undefined 40`] = `
 `
 
 exports[`test/strict.js TAP basic > undefined 41`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "b": "b",
 -  "c": undefined,
@@ -529,8 +529,8 @@ exports[`test/strict.js TAP basic > undefined 41`] = `
 `
 
 exports[`test/strict.js TAP basic > undefined 42`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  EventEmitter {
    "domain": Domain {
      "domain": null,
@@ -554,8 +554,8 @@ exports[`test/strict.js TAP basic > undefined 42`] = `
 `
 
 exports[`test/strict.js TAP basic > undefined 43`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  &ref_1 Object {
    "nothin": null,
    "nope": undefined,
@@ -594,8 +594,8 @@ exports[`test/strict.js TAP basic > undefined 43`] = `
 `
 
 exports[`test/strict.js TAP basic > undefined 44`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  &ref_1 Object {
    "nothin": null,
    "nope": undefined,
@@ -632,14 +632,14 @@ exports[`test/strict.js TAP basic > undefined 44`] = `
 `
 
 exports[`test/strict.js TAP NaN > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  null
 `
 
 exports[`test/strict.js TAP set > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Set {
    1,
    2,
@@ -652,8 +652,8 @@ exports[`test/strict.js TAP set > undefined 1`] = `
 `
 
 exports[`test/strict.js TAP set > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Set {
    1,
    2,
@@ -666,8 +666,8 @@ exports[`test/strict.js TAP set > undefined 2`] = `
 `
 
 exports[`test/strict.js TAP set > undefined 3`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Set {
    Object {
      "a": 1,
@@ -680,8 +680,8 @@ exports[`test/strict.js TAP set > undefined 3`] = `
 `
 
 exports[`test/strict.js TAP set > undefined 4`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Set {
    1,
 -  2,
@@ -689,8 +689,8 @@ exports[`test/strict.js TAP set > undefined 4`] = `
 `
 
 exports[`test/strict.js TAP set > undefined 5`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Set {
    1,
 +  3,
@@ -701,14 +701,14 @@ exports[`test/strict.js TAP set > undefined 5`] = `
 `
 
 exports[`test/strict.js TAP set > undefined 6`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Set {}
 `
 
 exports[`test/strict.js TAP set > undefined 7`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -Array [
 -  1,
 -  2,
@@ -731,8 +731,8 @@ exports[`test/strict.js TAP set > undefined 7`] = `
 `
 
 exports[`test/strict.js TAP map > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Map {
    1 => 2,
    3 => 4,
@@ -746,8 +746,8 @@ exports[`test/strict.js TAP map > undefined 1`] = `
 `
 
 exports[`test/strict.js TAP map > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Map {
    1 => 2,
    3 => 4,
@@ -762,8 +762,8 @@ exports[`test/strict.js TAP map > undefined 2`] = `
 `
 
 exports[`test/strict.js TAP map > undefined 3`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Map {
    3 => 4,
    5 => Object {
@@ -778,8 +778,8 @@ exports[`test/strict.js TAP map > undefined 3`] = `
 `
 
 exports[`test/strict.js TAP map > undefined 4`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Map {
    3 => 4,
    5 => Object {
@@ -794,8 +794,8 @@ exports[`test/strict.js TAP map > undefined 4`] = `
 `
 
 exports[`test/strict.js TAP map > undefined 5`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Map {
    1 => 2,
    3 => 4,
@@ -809,8 +809,8 @@ exports[`test/strict.js TAP map > undefined 5`] = `
 `
 
 exports[`test/strict.js TAP map > undefined 6`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Map {
    3 => 4,
    5 => Object {
@@ -824,14 +824,14 @@ exports[`test/strict.js TAP map > undefined 6`] = `
 `
 
 exports[`test/strict.js TAP map > undefined 7`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Map {}
 `
 
 exports[`test/strict.js TAP map > undefined 8`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -Array [
 -  Array [
 -    1,
@@ -868,8 +868,8 @@ exports[`test/strict.js TAP map > undefined 8`] = `
 `
 
 exports[`test/strict.js TAP map > undefined 9`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Map {
    1 => 2,
    3 => 4,
@@ -887,8 +887,8 @@ exports[`test/strict.js TAP map > undefined 9`] = `
 `
 
 exports[`test/strict.js TAP map > undefined 10`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Map {
    3 => 4,
    5 => Object {

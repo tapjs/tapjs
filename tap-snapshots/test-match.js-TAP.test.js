@@ -6,8 +6,8 @@
  */
 'use strict'
 exports[`test/match.js TAP shouldn't care about key order and types > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "a": 1,
    "b": 2,
@@ -15,8 +15,8 @@ exports[`test/match.js TAP shouldn't care about key order and types > undefined 
 `
 
 exports[`test/match.js TAP should notice objects with different shapes > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "a": 1,
 -  "b": undefined,
@@ -25,8 +25,8 @@ exports[`test/match.js TAP should notice objects with different shapes > undefin
 `
 
 exports[`test/match.js TAP should notice objects with different shapes > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "a": 1,
    "b": undefined,
@@ -34,8 +34,8 @@ exports[`test/match.js TAP should notice objects with different shapes > undefin
 `
 
 exports[`test/match.js TAP extra keys in object are ok > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "a": 1,
    "b": null,
@@ -43,8 +43,8 @@ exports[`test/match.js TAP extra keys in object are ok > undefined 1`] = `
 `
 
 exports[`test/match.js TAP should notice objects with different keys > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "a": 1,
 +  "b": 2,
@@ -53,66 +53,66 @@ exports[`test/match.js TAP should notice objects with different keys > undefined
 `
 
 exports[`test/match.js TAP should handle dates > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -null
 +1972-08-01T00:00:00.000Z
 
 `
 
 exports[`test/match.js TAP should handle dates > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -undefined
 +1972-08-01T00:00:00.000Z
 
 `
 
 exports[`test/match.js TAP should handle dates > undefined 3`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  1972-08-01T00:00:00.000Z
 `
 
 exports[`test/match.js TAP should handle dates > undefined 4`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "x": 1972-08-01T00:00:00.000Z,
  }
 `
 
 exports[`test/match.js TAP should handle RegExps > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -/[a]/
 +/[b]/
 
 `
 
 exports[`test/match.js TAP should handle RegExps > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -/[a]/g
 +/[a]/i
 
 `
 
 exports[`test/match.js TAP should handle RegExps > undefined 3`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  /[a]/
 `
 
 exports[`test/match.js TAP should handle RegExps > undefined 4`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  /ab?[a-z]{,6}/g
 `
 
 exports[`test/match.js TAP should handle RegExps > undefined 5`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -/asdf/
 +Array [
 +  1,
@@ -123,8 +123,8 @@ exports[`test/match.js TAP should handle RegExps > undefined 5`] = `
 `
 
 exports[`test/match.js TAP should handle RegExps > undefined 6`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Array [
    1,
    2,
@@ -133,24 +133,24 @@ exports[`test/match.js TAP should handle RegExps > undefined 6`] = `
 `
 
 exports[`test/match.js TAP should handle RegExps > undefined 7`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "x": 123,
  }
 `
 
 exports[`test/match.js TAP should handle RegExps > undefined 8`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "toString": [Function toString],
  }
 `
 
 exports[`test/match.js TAP should handle RegExps > undefined 9`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -/^FooBar$/
 +Object {
 +  "toString": [Function toString],
@@ -159,36 +159,36 @@ exports[`test/match.js TAP should handle RegExps > undefined 9`] = `
 `
 
 exports[`test/match.js TAP should handle functions > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -[Function a]
 +[Function a]
 
 `
 
 exports[`test/match.js TAP should handle functions > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -[Function fnB]
 +[Function fnA]
 
 `
 
 exports[`test/match.js TAP should handle functions > undefined 3`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  [Function fnA]
 `
 
 exports[`test/match.js TAP should handle functions > undefined 4`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  [Function fnB]
 `
 
 exports[`test/match.js TAP should handle arguments > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Arguments [
    Test [
    ],
@@ -196,8 +196,8 @@ exports[`test/match.js TAP should handle arguments > undefined 1`] = `
 `
 
 exports[`test/match.js TAP should handle arguments > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Arguments [
    Test [
    ],
@@ -205,8 +205,8 @@ exports[`test/match.js TAP should handle arguments > undefined 2`] = `
 `
 
 exports[`test/match.js TAP should handle arguments > undefined 3`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Arguments [
    Test [
    ],
@@ -214,8 +214,8 @@ exports[`test/match.js TAP should handle arguments > undefined 3`] = `
 `
 
 exports[`test/match.js TAP same arrays match > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Array [
    1,
    2,
@@ -224,8 +224,8 @@ exports[`test/match.js TAP same arrays match > undefined 1`] = `
 `
 
 exports[`test/match.js TAP different arrays don't match > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Array [
    1,
    2,
@@ -235,8 +235,8 @@ exports[`test/match.js TAP different arrays don't match > undefined 1`] = `
 `
 
 exports[`test/match.js TAP different arrays don't match > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Array [
    1,
    2,
@@ -246,22 +246,22 @@ exports[`test/match.js TAP different arrays don't match > undefined 2`] = `
 `
 
 exports[`test/match.js TAP empty arrays match > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Array []
 `
 
 exports[`test/match.js TAP empty arrays match > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "x": Array [],
  }
 `
 
 exports[`test/match.js TAP shallower shouldn't care about key order recursively and types > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "x": Object {
      "a": 1,
@@ -275,22 +275,22 @@ exports[`test/match.js TAP shallower shouldn't care about key order recursively 
 `
 
 exports[`test/match.js TAP undefined is the same as itself > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  undefined
 `
 
 exports[`test/match.js TAP undefined is the same as itself > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "x": undefined,
  }
 `
 
 exports[`test/match.js TAP undefined is the same as itself > undefined 3`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "x": Array [
      undefined,
@@ -299,22 +299,22 @@ exports[`test/match.js TAP undefined is the same as itself > undefined 3`] = `
 `
 
 exports[`test/match.js TAP undefined and null are Close Enough > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  undefined
 `
 
 exports[`test/match.js TAP undefined and null are Close Enough > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "x": null,
  }
 `
 
 exports[`test/match.js TAP undefined and null are Close Enough > undefined 3`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "x": Array [
      undefined,
@@ -323,22 +323,22 @@ exports[`test/match.js TAP undefined and null are Close Enough > undefined 3`] =
 `
 
 exports[`test/match.js TAP null is as shallow as you'd expect > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  null
 `
 
 exports[`test/match.js TAP null is as shallow as you'd expect > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "x": null,
  }
 `
 
 exports[`test/match.js TAP null is as shallow as you'd expect > undefined 3`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "x": Array [
      null,
@@ -347,50 +347,50 @@ exports[`test/match.js TAP null is as shallow as you'd expect > undefined 3`] = 
 `
 
 exports[`test/match.js TAP the same number matches > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  0
 `
 
 exports[`test/match.js TAP the same number matches > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  1
 `
 
 exports[`test/match.js TAP the same number matches > undefined 3`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  3.14
 `
 
 exports[`test/match.js TAP different numbers don't match > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -1
 +0
 
 `
 
 exports[`test/match.js TAP different numbers don't match > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 --1
 +1
 
 `
 
 exports[`test/match.js TAP different numbers don't match > undefined 3`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -2.72
 +3.14
 
 `
 
 exports[`test/match.js TAP tmatch shouldn't care about key order (but still might) and types > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Array [
    Object {
      "foo": Object {
@@ -413,8 +413,8 @@ exports[`test/match.js TAP tmatch shouldn't care about key order (but still migh
 `
 
 exports[`test/match.js TAP match shouldn't blow up on circular data structures > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  &ref_1 Object {
    "z": 4,
    "y": Object {
@@ -424,8 +424,8 @@ exports[`test/match.js TAP match shouldn't blow up on circular data structures >
 `
 
 exports[`test/match.js TAP match shouldn't blow up on circular data structures > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  &ref_1 Object {
    "z": 4,
    "y": Object {
@@ -442,8 +442,8 @@ exports[`test/match.js TAP match shouldn't blow up on circular data structures >
 `
 
 exports[`test/match.js TAP match shouldn't blow up on circular data structures > undefined 3`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  &ref_1 Object {
    "z": 4,
    "y": Object {
@@ -461,22 +461,22 @@ exports[`test/match.js TAP match shouldn't blow up on circular data structures >
 `
 
 exports[`test/match.js TAP regexps match strings > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "one": "String",
  }
 `
 
 exports[`test/match.js TAP regexps match strings > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  "String"
 `
 
 exports[`test/match.js TAP regexps match strings > undefined 3`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Array [
    "String",
    "String",
@@ -484,8 +484,8 @@ exports[`test/match.js TAP regexps match strings > undefined 3`] = `
 `
 
 exports[`test/match.js TAP regexps match strings > undefined 4`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Array [
 -  /.ring$/,
 +  "Ring",
@@ -493,16 +493,16 @@ exports[`test/match.js TAP regexps match strings > undefined 4`] = `
 `
 
 exports[`test/match.js TAP partial strings match on indexOf > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "one": "String",
  }
 `
 
 exports[`test/match.js TAP partial strings match on indexOf > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
 -  "one": "String",
 +  "one": "rin",
@@ -510,16 +510,16 @@ exports[`test/match.js TAP partial strings match on indexOf > undefined 2`] = `
 `
 
 exports[`test/match.js TAP ctors and other fun things > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -Buffer <61 73 64 66 66>
 +Buffer <61 73 64 66>
 
 `
 
 exports[`test/match.js TAP ctors and other fun things > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "buffer": Buffer <78>,
    "date": 1979-07-01T19:10:00.000Z,
@@ -550,8 +550,8 @@ exports[`test/match.js TAP ctors and other fun things > undefined 2`] = `
 `
 
 exports[`test/match.js TAP ctors and other fun things > undefined 3`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "buffer": Buffer <78>,
    "date": 1979-07-01T19:10:00.000Z,
@@ -563,8 +563,8 @@ exports[`test/match.js TAP ctors and other fun things > undefined 3`] = `
 `
 
 exports[`test/match.js TAP ctors and other fun things > undefined 4`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
 -  "inf": [Function Number],
 +  "inf": null,
@@ -572,8 +572,8 @@ exports[`test/match.js TAP ctors and other fun things > undefined 4`] = `
 `
 
 exports[`test/match.js TAP ctors and other fun things > undefined 5`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
 -  "neginf": [Function Number],
 +  "neginf": null,
@@ -581,8 +581,8 @@ exports[`test/match.js TAP ctors and other fun things > undefined 5`] = `
 `
 
 exports[`test/match.js TAP ctors and other fun things > undefined 6`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
 -  "nan": [Function Number],
 +  "nan": null,
@@ -590,8 +590,8 @@ exports[`test/match.js TAP ctors and other fun things > undefined 6`] = `
 `
 
 exports[`test/match.js TAP js WAT! array/string stuff > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -1
 +Array [
 +  1,
@@ -600,8 +600,8 @@ exports[`test/match.js TAP js WAT! array/string stuff > undefined 1`] = `
 `
 
 exports[`test/match.js TAP js WAT! array/string stuff > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
 -Array [
 -  1,
 -]
@@ -610,52 +610,52 @@ exports[`test/match.js TAP js WAT! array/string stuff > undefined 2`] = `
 `
 
 exports[`test/match.js TAP js WAT! array/string stuff > undefined 3`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Array [
    1,
  ]
 `
 
 exports[`test/match.js TAP js WAT! array/string stuff > undefined 4`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {}
 `
 
 exports[`test/match.js TAP js WAT! array/string stuff > undefined 5`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  1
 `
 
 exports[`test/match.js TAP symbology > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "a": Symbol(a),
  }
 `
 
 exports[`test/match.js TAP symbology > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "a": Symbol(a),
  }
 `
 
 exports[`test/match.js TAP symbology > undefined 3`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "a": Symbol(a),
  }
 `
 
 exports[`test/match.js TAP symbology > undefined 4`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
 -  "a": "Symbol(a)",
 +  "a": Symbol(a),
@@ -663,8 +663,8 @@ exports[`test/match.js TAP symbology > undefined 4`] = `
 `
 
 exports[`test/match.js TAP symbology > undefined 5`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
 -  "a": Symbol(a),
 +  "a": "Symbol(a)",
@@ -672,8 +672,8 @@ exports[`test/match.js TAP symbology > undefined 5`] = `
 `
 
 exports[`test/match.js TAP symbology > undefined 6`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
 -  "a": Symbol(a),
 +  "a": "Symbol(a)",
@@ -681,8 +681,8 @@ exports[`test/match.js TAP symbology > undefined 6`] = `
 `
 
 exports[`test/match.js TAP symbology > undefined 7`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
 -  "a": [Function Symbol],
 +  "a": "Symbol(a)",
@@ -690,8 +690,8 @@ exports[`test/match.js TAP symbology > undefined 7`] = `
 `
 
 exports[`test/match.js TAP set vs non-set, map vs non-map > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
 -  "set": Map {},
 +  "set": Set {},
@@ -700,8 +700,8 @@ exports[`test/match.js TAP set vs non-set, map vs non-map > undefined 1`] = `
 `
 
 exports[`test/match.js TAP set vs non-set, map vs non-map > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "set": Set {},
 -  "map": Set {},
@@ -710,8 +710,8 @@ exports[`test/match.js TAP set vs non-set, map vs non-map > undefined 2`] = `
 `
 
 exports[`test/match.js TAP set vs non-set, map vs non-map > undefined 3`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
 -  "set": Array [],
 +  "set": Set {},

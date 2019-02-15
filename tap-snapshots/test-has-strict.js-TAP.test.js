@@ -6,16 +6,16 @@
  */
 'use strict'
 exports[`test/has-strict.js TAP > undefined 1`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
    "a": 1,
  }
 `
 
 exports[`test/has-strict.js TAP > undefined 2`] = `
---- actual
-+++ expected
+--- expected
++++ actual
  Object {
 -  "b": "2",
 +  "b": 2,
