@@ -44,6 +44,7 @@
     "stack-utils": "^1.0.2",
     "tap-mocha-reporter": "^3.0.9",
     "tap-parser": "^7.0.0",
+    "tcompare": "^1.0.3",
     "tmatch": "^4.0.0",
     "trivial-deferred": "^1.0.1",
     "ts-node": "^8.0.2",
