@@ -1441,6 +1441,15 @@ not ok 2 - should match pattern provided
     line: #
     column: #
     file: test/test.js
+  diff: |-
+    --- expected
+    +++ actual
+     Object {
+    -  "a": "asdf",
+    +  "a": "b",
+    -  "c": 1,
+    +  "c": /asdf/,
+     }
   found:
     a: b
     c: /asdf/
@@ -1460,6 +1469,15 @@ not ok 4 - should match pattern provided # TODO
     line: #
     column: #
     file: test/test.js
+  diff: |-
+    --- expected
+    +++ actual
+     Object {
+    -  "a": "asdf",
+    +  "a": "b",
+    -  "c": 1,
+    +  "c": /asdf/,
+     }
   found:
     a: b
     c: /asdf/
@@ -2430,6 +2448,19 @@ not ok 1 - expect a valid http/https url
     line: #
     column: #
     file: test/test.js
+  diff: |-
+    --- expected
+    +++ actual
+     Url {
+    -  "protocol": /^https?:$/,
+    +  "protocol": null,
+    -  "slashes": true,
+    +  "slashes": null,
+    -  "host": [Function String],
+    +  "host": null,
+    -  "path": /^\\/.*$/,
+    +  "path": "hello%20is%20not%20a%20url",
+     }
   found:
     protocol: null
     slashes: null
