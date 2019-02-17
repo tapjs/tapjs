@@ -113,7 +113,6 @@ exports[`test/has.js TAP map > undefined 5`] = `
 +++ actual
  Object {
    "m": Map {
-+    1 => 2,
      3 => 4,
 -    "3" => 4,
    },
@@ -125,8 +124,8 @@ exports[`test/has.js TAP map > undefined 6`] = `
 +++ actual
  Object {
    "m": Map {
-     1 => 2,
      3 => 4,
+     1 => 2,
    },
  }
 `
@@ -148,7 +147,6 @@ exports[`test/has.js TAP map > undefined 8`] = `
  Object {
    "m": Map {
      1 => 2,
-+    3 => 4,
 -    4 => 3,
    },
  }

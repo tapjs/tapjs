@@ -9,8 +9,8 @@ exports[`test/match.js TAP shouldn't care about key order and types > undefined 
 --- expected
 +++ actual
  Object {
-   "a": 1,
    "b": 2,
+   "a": 1,
  }
 `
 
@@ -47,7 +47,6 @@ exports[`test/match.js TAP should notice objects with different keys > undefined
 +++ actual
  Object {
    "a": 1,
-+  "b": 2,
 -  "c": 2,
  }
 `
@@ -263,13 +262,13 @@ exports[`test/match.js TAP shallower shouldn't care about key order recursively 
 --- expected
 +++ actual
  Object {
-   "x": Object {
-     "a": 1,
-     "b": 2,
-   },
    "y": Object {
-     "c": 3,
      "d": 4,
+     "c": 3,
+   },
+   "x": Object {
+     "b": 2,
+     "a": 1,
    },
  }
 `
@@ -403,10 +402,10 @@ exports[`test/match.js TAP tmatch shouldn't care about key order (but still migh
    11,
    Object {
      "baz": Object {
-       "d": 4,
        "a": 1,
        "b": 2,
        "c": 3,
+       "d": 4,
      },
    },
  ]
