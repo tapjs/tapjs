@@ -66,6 +66,7 @@ if (module === require.main)
 else {
   mkdirp.sync(dir)
   t.teardown(() => rimraf.sync(dir))
+  process.on('exit', () => rimraf.sync(dir))
 }
 
 module.exports = {
