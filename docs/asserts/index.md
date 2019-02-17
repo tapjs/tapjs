@@ -172,7 +172,7 @@ Synonyms: `t.inequal`, `t.notEqual`, `t.notEquals`,
 
 Verify that the found object is deeply equivalent to the wanted
 object.  Use non-strict equality for scalars (ie, `==`).  See:
-[tsame](http://npm.im/tsame)
+[tcompare](http://npm.im/tcompare)
 
 Synonyms: `t.equivalent`, `t.looseEqual`, `t.looseEquals`,
 `t.deepEqual`, `t.deepEquals`, `t.isLoose`, `t.looseIs`

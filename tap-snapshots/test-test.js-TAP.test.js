@@ -1378,6 +1378,17 @@ not ok 9 - should be equivalent strictly
     line: #
     column: #
     file: test/test.js
+  diff: |-
+    --- expected
+    +++ actual
+     Array [
+    -  "1",
+    +  1,
+    -  "2",
+    +  2,
+    -  "3",
+    +  3,
+     ]
   found:
     - 1
     - 2
