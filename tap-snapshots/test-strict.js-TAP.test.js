@@ -95,7 +95,7 @@ exports[`test/strict.js TAP array-likes > undefined 1`] = `
 exports[`test/strict.js TAP array-likes > undefined 2`] = `
 --- expected
 +++ actual
--Array [
+-Ayyr [
 -  1,
 -  2,
 -  3,

@@ -243,13 +243,19 @@ exports[`test/same.js TAP arrays extra and missing > undefined 2`] = `
 exports[`test/same.js TAP pojos extra and missing > undefined 1`] = `
 --- expected
 +++ actual
+ Object {}
+`
+
+exports[`test/same.js TAP pojos extra and missing > undefined 2`] = `
+--- expected
++++ actual
  Object {
    "a": 1,
 -  "b": 2,
  }
 `
 
-exports[`test/same.js TAP pojos extra and missing > undefined 2`] = `
+exports[`test/same.js TAP pojos extra and missing > undefined 3`] = `
 --- expected
 +++ actual
  Object {
@@ -1060,4 +1066,70 @@ exports[`test/same.js TAP collections missing all entries > undefined 4`] = `
  Array [
 -  1,
  ]
+`
+
+exports[`test/same.js TAP errors > undefined 1`] = `
+--- expected
++++ actual
+ Error: foo
+`
+
+exports[`test/same.js TAP errors > undefined 2`] = `
+--- expected
++++ actual
+-Error: oof
++Error: foo
+
+`
+
+exports[`test/same.js TAP errors > undefined 3`] = `
+--- expected
++++ actual
+-Error: foo
++Object {
++  "name": "Error",
++  "message": "foo",
++}
+
+`
+
+exports[`test/same.js TAP errors > undefined 4`] = `
+--- expected
++++ actual
+ Error: foo
+`
+
+exports[`test/same.js TAP errors > undefined 5`] = `
+--- expected
++++ actual
+ Error: foo {
+   "foo": "bar",
+   "name": "Error",
+   "message": "foo",
+ }
+`
+
+exports[`test/same.js TAP errors > undefined 6`] = `
+--- expected
++++ actual
+-drr: i have none {
+-  "name": "drr",
+-  "message": "i have none",
+-  "foo": "bar",
+-}
++Error: foo {
++  "foo": "bar",
++}
+
+`
+
+exports[`test/same.js TAP errors > undefined 7`] = `
+--- expected
++++ actual
+ drr: i have none {
+   "name": "drr",
+   "message": "i have none",
+-  "foo": "baz",
++  "foo": "bar",
+ }
 `

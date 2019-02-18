@@ -54,6 +54,20 @@ t.test('gnarly object, many points of view', t => {
     n: null,
     undef: void 0,
     classy: new (class Foo {}),
+    err: new Error('just an error'),
+    emptyErr: new Error(),
+    fancyErr: (() => {
+      const er = new Error('fancy pantsy')
+      er.fancy = 'pantsy'
+      return er
+    })(),
+    assert: (() => {
+      try {
+        require('assert').equal(k, o)
+      } catch (er) {
+        return er
+      }
+    })(),
   }
   k.f = f
 

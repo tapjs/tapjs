@@ -37,7 +37,6 @@ t.test('symbology', t => {
   t.end()
 })
 
-
 t.test('experimental diff cleanup postaction', t => {
   same(t, [1, 2, 3, 4, 5, 6, 7, 8], [1, 9, 8, 7, 6, 6, 7, 8], {
     cleanerDiffs: true
@@ -88,14 +87,15 @@ t.test('array-likes', t => {
 })
 
 t.test('arrays extra and missing', t => {
-  same(t, [1, 2, 3], [1, 2, 3, 4, 5])
-  same(t, [1, 2, 3, 4, 5], [1, 2, 3])
+  t.notOk(same(t, [1, 2, 3], [1, 2, 3, 4, 5]))
+  t.notOk(same(t, [1, 2, 3, 4, 5], [1, 2, 3]))
   t.end()
 })
 
 t.test('pojos extra and missing', t => {
-  same(t, {a:1}, {b: 2, a:1})
-  same(t, {b: 2, a:1}, {a:1})
+  t.ok(same(t, {}, {}))
+  t.notOk(same(t, {a:1}, {b: 2, a:1}))
+  t.notOk(same(t, {b: 2, a:1}, {a:1}))
   t.end()
 })
 
@@ -369,5 +369,31 @@ t.test('collections missing all entries', t => {
   t.notOk(same(t, {}, {a: 1}))
   t.notOk(same(t, new Set(), new Set([1])))
   t.notOk(same(t, [], [1]))
+  t.end()
+})
+
+t.test('errors', t => {
+  const foo = new Error('foo')
+  t.ok(same(t, foo, new Error('foo')))
+  t.notOk(same(t, foo, new Error('oof')))
+  t.notOk(same(t, {name: 'Error', message: 'foo'}, foo))
+  foo.foo = 'bar'
+  t.ok(same(t, new Error('foo'), {name: 'Error', message: 'foo'}))
+  const b = new Error('foo')
+  b.foo = 'bar'
+  t.ok(same(t, foo, b))
+
+  const c = Object.create(Error.prototype)
+  c.name = 'drr'
+  c.message = 'i have none'
+  c.foo = 'bar'
+  t.notOk(same(t, foo, c))
+
+  // cover case wehre name/message AREN'T non-enumerable
+  const d = Object.create(Error.prototype)
+  d.name = c.name
+  d.message = c.message
+  d.foo = 'baz'
+  t.notOk(same(t, c, d))
   t.end()
 })

@@ -315,3 +315,22 @@ t.test('set vs non-set, map vs non-map', t => {
   }))
   t.end()
 })
+
+t.test('errors can only be satisfied by errors', t => {
+  const obj = {
+    er: new TypeError('asdf')
+  }
+  const pat = {
+    er: {
+      name: obj.er.name,
+      message: obj.er.message,
+    }
+  }
+  t.ok(match(t, obj, pat))
+  t.notOk(match(t, pat, obj))
+  t.ok(match(t, obj, { er: Error }))
+  t.ok(match(t, obj, { er: TypeError }))
+  t.notOk(match(t, obj, {er:new Error('fdsa')}))
+  t.notOk(match(t, obj, {er:{message:'yolo'}}))
+  t.end()
+})

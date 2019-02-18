@@ -718,3 +718,62 @@ exports[`test/match.js TAP set vs non-set, map vs non-map > undefined 3`] = `
 +  "map": Map {},
  }
 `
+
+exports[`test/match.js TAP errors can only be satisfied by errors > undefined 1`] = `
+--- expected
++++ actual
+ Object {
+   "er": TypeError: asdf {
+     "name": "TypeError",
+     "message": "asdf",
+   },
+ }
+`
+
+exports[`test/match.js TAP errors can only be satisfied by errors > undefined 2`] = `
+--- expected
++++ actual
+ Object {
+-  "er": TypeError: asdf,
++  "er": Object {
++    "name": "TypeError",
++    "message": "asdf",
++  },
+ }
+`
+
+exports[`test/match.js TAP errors can only be satisfied by errors > undefined 3`] = `
+--- expected
++++ actual
+ Object {
+   "er": TypeError: asdf,
+ }
+`
+
+exports[`test/match.js TAP errors can only be satisfied by errors > undefined 4`] = `
+--- expected
++++ actual
+ Object {
+   "er": TypeError: asdf,
+ }
+`
+
+exports[`test/match.js TAP errors can only be satisfied by errors > undefined 5`] = `
+--- expected
++++ actual
+ Object {
+-  "er": Error: fdsa,
++  "er": TypeError: asdf,
+ }
+`
+
+exports[`test/match.js TAP errors can only be satisfied by errors > undefined 6`] = `
+--- expected
++++ actual
+ Object {
+-  "er": Object {
+-    "message": "yolo",
+-  },
++  "er": TypeError: asdf,
+ }
+`
