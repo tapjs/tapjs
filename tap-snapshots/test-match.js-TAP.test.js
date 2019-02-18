@@ -143,7 +143,7 @@ exports[`test/match.js TAP should handle RegExps > undefined 8`] = `
 --- expected
 +++ actual
  Object {
-   "toString": [Function toString],
+   "toString": Function toString(),
  }
 `
 
@@ -152,7 +152,7 @@ exports[`test/match.js TAP should handle RegExps > undefined 9`] = `
 +++ actual
 -/^FooBar$/
 +Object {
-+  "toString": [Function toString],
++  "toString": Function toString(),
 +}
 
 `
@@ -160,29 +160,29 @@ exports[`test/match.js TAP should handle RegExps > undefined 9`] = `
 exports[`test/match.js TAP should handle functions > undefined 1`] = `
 --- expected
 +++ actual
--[Function a]
-+[Function a]
+-Function a()
++Function a()
 
 `
 
 exports[`test/match.js TAP should handle functions > undefined 2`] = `
 --- expected
 +++ actual
--[Function fnB]
-+[Function fnA]
+-Function fnB(a)
++Function fnA(a)
 
 `
 
 exports[`test/match.js TAP should handle functions > undefined 3`] = `
 --- expected
 +++ actual
- [Function fnA]
+ Function fnA(a)
 `
 
 exports[`test/match.js TAP should handle functions > undefined 4`] = `
 --- expected
 +++ actual
- [Function fnB]
+ Function fnB(a)
 `
 
 exports[`test/match.js TAP should handle arguments > undefined 1`] = `
@@ -522,7 +522,7 @@ exports[`test/match.js TAP ctors and other fun things > undefined 2`] = `
  Object {
    "buffer": Buffer <78>,
    "date": 1979-07-01T19:10:00.000Z,
-   "fn": [Function fn],
+   "fn": Function fn(),
    "foo": Foo {
      "_isFoo": "foo",
    },
@@ -565,7 +565,7 @@ exports[`test/match.js TAP ctors and other fun things > undefined 4`] = `
 --- expected
 +++ actual
  Object {
--  "inf": [Function Number],
+-  "inf": Function Number(),
 +  "inf": null,
  }
 `
@@ -574,7 +574,7 @@ exports[`test/match.js TAP ctors and other fun things > undefined 5`] = `
 --- expected
 +++ actual
  Object {
--  "neginf": [Function Number],
+-  "neginf": Function Number(),
 +  "neginf": null,
  }
 `
@@ -583,7 +583,7 @@ exports[`test/match.js TAP ctors and other fun things > undefined 6`] = `
 --- expected
 +++ actual
  Object {
--  "nan": [Function Number],
+-  "nan": Function Number(),
 +  "nan": null,
  }
 `
@@ -683,7 +683,7 @@ exports[`test/match.js TAP symbology > undefined 7`] = `
 --- expected
 +++ actual
  Object {
--  "a": [Function Symbol],
+-  "a": Function Symbol(),
 +  "a": "Symbol(a)",
  }
 `
@@ -714,7 +714,7 @@ exports[`test/match.js TAP set vs non-set, map vs non-map > undefined 3`] = `
  Object {
 -  "set": Array [],
 +  "set": Set {},
--  "map": [Function Array],
+-  "map": Function Array(),
 +  "map": Map {},
  }
 `

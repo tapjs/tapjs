@@ -41,7 +41,7 @@ exports[`test/strict.js TAP symbology > undefined 5`] = `
 --- expected
 +++ actual
  Object {
--  "a": [Function Symbol],
+-  "a": Function Symbol(),
 +  "a": Symbol(a),
  }
 `
@@ -77,7 +77,7 @@ exports[`test/strict.js TAP symbology > undefined 9`] = `
 --- expected
 +++ actual
  Object {
--  "a": [Function Symbol],
+-  "a": Function Symbol(),
 +  "a": "Symbol(a)",
  }
 `
@@ -141,7 +141,7 @@ exports[`test/strict.js TAP basic > undefined 5`] = `
 exports[`test/strict.js TAP basic > undefined 6`] = `
 --- expected
 +++ actual
- [Function functionA]
+ Function functionA(a)
 `
 
 exports[`test/strict.js TAP basic > undefined 7`] = `
@@ -200,16 +200,16 @@ exports[`test/strict.js TAP basic > undefined 14`] = `
    "domain": Domain {
      "domain": null,
      "_events": Object {
-       "removeListener": [Function updateExceptionCapture],
-       "newListener": [Function updateExceptionCapture],
-       "error": [Function],
+       "removeListener": Function updateExceptionCapture(),
+       "newListener": Function updateExceptionCapture(),
+       "error": Function (er),
      },
      "_eventsCount": 3,
      "_maxListeners": undefined,
      "members": Array [],
    },
    "_events": Object {
-     "error": [Function onerror],
+     "error": Function onerror(error),
    },
    "_eventsCount": 1,
    "_maxListeners": undefined,
@@ -269,7 +269,7 @@ exports[`test/strict.js TAP basic > undefined 17`] = `
    "nothin": null,
    "nope": undefined,
    "number": 0,
-   "funky": [Function functionA],
+   "funky": Function functionA(a),
    "stringer": "heya",
    "then": 1981-03-30T00:00:00.000Z,
    "rexpy": /^(pi|π)$/,
@@ -291,7 +291,7 @@ exports[`test/strict.js TAP basic > undefined 18`] = `
    "nothin": null,
    "nope": undefined,
    "number": 0,
-   "funky": [Function functionA],
+   "funky": Function functionA(a),
    "stringer": "heya",
    "then": 1981-03-30T00:00:00.000Z,
    "rexpy": /^(pi|π)$/,
@@ -305,7 +305,7 @@ exports[`test/strict.js TAP basic > undefined 18`] = `
        "nothin": null,
        "nope": undefined,
        "number": 0,
-       "funky": [Function functionA],
+       "funky": Function functionA(a),
        "stringer": "heya",
        "then": 1981-03-30T00:00:00.000Z,
        "rexpy": /^(pi|π)$/,
@@ -365,8 +365,8 @@ exports[`test/strict.js TAP basic > undefined 23`] = `
 exports[`test/strict.js TAP basic > undefined 24`] = `
 --- expected
 +++ actual
--[Function nop]
-+[Function nop]
+-Function nop()
++Function nop()
 
 `
 
@@ -535,17 +535,17 @@ exports[`test/strict.js TAP basic > undefined 42`] = `
    "domain": Domain {
      "domain": null,
      "_events": Object {
-       "removeListener": [Function updateExceptionCapture],
-       "newListener": [Function updateExceptionCapture],
-       "error": [Function],
+       "removeListener": Function updateExceptionCapture(),
+       "newListener": Function updateExceptionCapture(),
+       "error": Function (er),
      },
      "_eventsCount": 3,
      "_maxListeners": undefined,
      "members": Array [],
    },
    "_events": Object {
-     "error": [Function onerror],
--    "data": [Function ondata],
+     "error": Function onerror(error),
+-    "data": Function ondata(data),
    },
 -  "_eventsCount": 2,
 +  "_eventsCount": 1,
@@ -560,7 +560,7 @@ exports[`test/strict.js TAP basic > undefined 43`] = `
    "nothin": null,
    "nope": undefined,
    "number": 0,
-   "funky": [Function functionA],
+   "funky": Function functionA(a),
    "stringer": "heya",
    "then": 1981-03-30T00:00:00.000Z,
    "rexpy": /^(pi|π)$/,
@@ -575,7 +575,7 @@ exports[`test/strict.js TAP basic > undefined 43`] = `
        "nothin": null,
        "nope": undefined,
        "number": 0,
-       "funky": [Function functionA],
+       "funky": Function functionA(a),
        "stringer": "heya",
        "then": 1981-03-30T00:00:00.000Z,
        "rexpy": /^(pi|π)$/,
@@ -600,7 +600,7 @@ exports[`test/strict.js TAP basic > undefined 44`] = `
    "nothin": null,
    "nope": undefined,
    "number": 0,
-   "funky": [Function functionA],
+   "funky": Function functionA(a),
    "stringer": "heya",
    "then": 1981-03-30T00:00:00.000Z,
    "rexpy": /^(pi|π)$/,
@@ -614,7 +614,7 @@ exports[`test/strict.js TAP basic > undefined 44`] = `
        "nothin": null,
        "nope": undefined,
        "number": 0,
-       "funky": [Function functionA],
+       "funky": Function functionA(a),
        "stringer": "heya",
        "then": 1981-03-30T00:00:00.000Z,
        "rexpy": /^(pi|π)$/,

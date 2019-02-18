@@ -48,7 +48,7 @@ exports[`test/same.js TAP symbology > undefined 3`] = `
 --- expected
 +++ actual
  Object {
--  "a": [Function Symbol],
+-  "a": Function Symbol(),
 +  "a": Symbol(a),
  }
 `
@@ -84,7 +84,7 @@ exports[`test/same.js TAP symbology > undefined 7`] = `
 --- expected
 +++ actual
  Object {
--  "a": [Function Symbol],
+-  "a": Function Symbol(),
 +  "a": "Symbol(a)",
  }
 `
@@ -401,29 +401,29 @@ exports[`test/same.js TAP should handle RegExps > undefined 4`] = `
 exports[`test/same.js TAP should handle functions > undefined 1`] = `
 --- expected
 +++ actual
--[Function a]
-+[Function a]
+-Function a()
++Function a()
 
 `
 
 exports[`test/same.js TAP should handle functions > undefined 2`] = `
 --- expected
 +++ actual
--[Function fnB]
-+[Function fnA]
+-Function fnB(a)
++Function fnA(a)
 
 `
 
 exports[`test/same.js TAP should handle functions > undefined 3`] = `
 --- expected
 +++ actual
- [Function fnA]
+ Function fnA(a)
 `
 
 exports[`test/same.js TAP should handle functions > undefined 4`] = `
 --- expected
 +++ actual
- [Function fnB]
+ Function fnB(a)
 `
 
 exports[`test/same.js TAP should handle arguments > undefined 1`] = `

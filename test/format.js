@@ -45,6 +45,7 @@ t.test('gnarly object, many points of view', t => {
       name: function foo () {},
       anon: function () {},
       arr: () => {},
+      identity: x => x,
       // v8 does not make this easy!
       nameless: (function () { return () => {} })(),
     },
