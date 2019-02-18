@@ -20,5 +20,6 @@
   "license": "ISC",
   "dependencies": {
     "yaml": "github:isaacs/yaml#built"
-  }
+  },
+  "devDependencies": {}
 }
