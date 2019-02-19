@@ -24,10 +24,10 @@ invert: false
 jobs: 4
 lines: 100
 node-arg:
-  - '--expose-gc'
-  - '--strict'
-  - '--debug-brk'
-  - '--harmony'
+  - --expose-gc
+  - --strict
+  - --debug-brk
+  - --harmony
   - xyz
   - abc
 nyc-arg:

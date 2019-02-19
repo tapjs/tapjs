@@ -17,7 +17,7 @@ const nycBin = require.resolve(
 )
 const glob = require('glob')
 const isexe = require('isexe')
-const yaml = require('js-yaml')
+const yaml = require('tap-yaml')
 const path = require('path')
 const exists = require('fs-exists-cached').sync
 const os = require('os')
@@ -37,7 +37,7 @@ const main = options => {
     options.reporter = options.color ? 'classic' : 'tap'
 
   if (options['dump-config']) {
-    console.log(yaml.safeDump(Object.keys(options).filter(k =>
+    console.log(yaml.stringify(Object.keys(options).filter(k =>
       k !== 'dump-config' && k !== '_' && !/^[A-Z_]+$/.test(k)
     ).sort().reduce((set, k) =>
       (set[k] = options[k], set), {})))
@@ -45,7 +45,7 @@ const main = options => {
   }
 
   if (options.versions) {
-    return console.log(yaml.safeDump({
+    return console.log(yaml.stringify({
       tap: require('../package.json').version,
       'tap-parser': require('tap-parser/package.json').version,
       nyc: require('nyc/package.json').version,
@@ -422,7 +422,7 @@ const runTests = options => {
 const parseRcFile = path => {
   try {
     const contents = fs.readFileSync(path, 'utf8')
-    return yaml.safeLoad(contents) || {}
+    return yaml.parse(contents) || {}
   } catch (er) {
     // if no dotfile exists, or invalid yaml, fail gracefully
     return {}
