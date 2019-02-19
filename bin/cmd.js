@@ -81,7 +81,7 @@ Options:
   process.exit()
 }
 
-var yaml = require('js-yaml')
+var yaml = require('tap-yaml')
 function tapFormat (msg, indent) {
   return indent + msg.map(function (item) {
     switch (item[0]) {
@@ -118,7 +118,7 @@ function tapFormat (msg, indent) {
           '\n' +
           (res.diag ?
              '  ---\n  ' +
-             yaml.safeDump(res.diag).split('\n').join('\n  ').trim() +
+             yaml.stringify(res.diag).split('\n').join('\n  ').trim() +
              '\n  ...\n'
              : '')
 

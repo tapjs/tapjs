@@ -4,7 +4,7 @@
 // and string comments.  Emits "results" event with summary.
 const MiniPass = require('minipass')
 
-const yaml = require('js-yaml')
+const yaml = require('tap-yaml')
 const util = require('util')
 const assert = require('assert')
 
@@ -307,7 +307,7 @@ class Parser extends MiniPass {
 
     let diags
     try {
-      diags = yaml.safeLoad(yamlish)
+      diags = yaml.parse(yamlish)
     } catch (er) {
       this.nonTap(this.yind + '---\n' + yamlish + this.yind + '...\n', true)
       return
@@ -646,7 +646,7 @@ class Parser extends MiniPass {
     let dump
     if (extra && Object.keys(extra).length) {
       try {
-        dump = yaml.safeDump(extra).trimRight()
+        dump = yaml.stringify(extra).trimRight()
       } catch (er) {}
     }
 
