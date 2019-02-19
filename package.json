@@ -4,7 +4,8 @@
   "description": "Yaml handling for TAP parsers and generators",
   "main": "index.js",
   "scripts": {
-    "test": "tap test/*.js"
+    "test": "tap test/*.js -J --100",
+    "snap": "TAP_SNAPSHOT=1 tap test/*.js -J --100"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,7 @@
   "dependencies": {
     "yaml": "github:isaacs/yaml#built"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "tap": "^12.5.3"
+  }
 }
