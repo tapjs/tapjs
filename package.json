@@ -8,7 +8,6 @@
   },
   "dependencies": {
     "events-to-array": "^1.0.1",
-    "js-yaml": "^3.2.7",
     "minipass": "^2.2.0",
     "tap-yaml": "0.0.1"
   },
