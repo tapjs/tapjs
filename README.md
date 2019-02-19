@@ -18,12 +18,10 @@ package, with a few modifications to be more suitable for use in
 1. Symbol and Function types are added, so that they don't throw.
    Functions aren't parsed to actual functions, though, since that's
    horribly unsafe, but they do parse to an empty function with a
-   `___source` field that contains the string source.
-2. Certain common Error and tap-internal properties are removed, since
-   they are excessively noisy.  (Mostly related to domains and event
-   emitters.)
+   `toString()` that contains the original string source.
+2. An `Error` type is added.
 3. Binary types are implicitly allowed in a standard way.
-4. `omap` and `set` are configured to load using Map and Set objects.
+4. `omap` and `set` are configured to refer to Map and Set objects.
 
 ## Status
 
