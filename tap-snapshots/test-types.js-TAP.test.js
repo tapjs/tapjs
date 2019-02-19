@@ -1,0 +1,57 @@
+/* IMPORTANT
+ * This snapshot file is auto-generated, but designed for humans.
+ * It should be checked into source control and tracked carefully.
+ * Re-generate by setting TAP_SNAPSHOT=1 and running tests.
+ * Make sure to inspect the output below.  Do not ignore changes!
+ */
+'use strict'
+exports[`test/types.js TAP > types are there 1`] = `
+[ { identify: [Function: identify],
+    tag: '!error',
+    nodeClass: [Function: YAMLError],
+    default: false,
+    resolve: [Function: resolve],
+    createNode: [Function: createNode],
+    stringify: [Function: stringify] },
+  { identify: [Function: identify],
+    tag: '!sym',
+    resolve: [Function: resolve],
+    stringify: [Function: stringify] },
+  { identify: [Function: identify],
+    tag: '!sym/for',
+    resolve: [Function: resolve],
+    stringify: [Function: stringify] },
+  { identify: [Function: identify],
+    tag: '!function',
+    resolve: [Function: resolve],
+    options: { defaultType: 'BLOCK_LITERAL', lineWidth: 76 },
+    stringify: [Function: stringify] },
+  { identify: [Function: identify],
+    tag: '!re',
+    resolve: [Function: resolve],
+    stringify: [Function: stringify] },
+  { tag: '!date',
+    identify: [Function: identify],
+    resolve: [Function: resolve],
+    stringify: [Function: stringify] },
+  { identify: [Function: identify],
+    nodeClass: { [Function: YAMLOMap] tag: 'tag:yaml.org,2002:omap' },
+    default: false,
+    tag: 'tag:yaml.org,2002:omap',
+    resolve: [Function: parseOMap],
+    createNode: [Function: createOMap],
+    stringify: [Function: stringify] },
+  { identify: [Function: identify],
+    nodeClass: { [Function: YAMLSet] tag: 'tag:yaml.org,2002:set' },
+    default: false,
+    tag: 'tag:yaml.org,2002:set',
+    resolve: [Function: parseSet],
+    createNode: [Function: createSet],
+    stringify: [Function: stringify] },
+  { identify: [Function: identify],
+    default: false,
+    tag: 'tag:yaml.org,2002:binary',
+    resolve: [Function: resolve],
+    options: { defaultType: 'BLOCK_LITERAL', lineWidth: 76 },
+    stringify: [Function: stringify] } ]
+`
