@@ -415,3 +415,44 @@ exports[`test/has.js TAP complex object > undefined 6`] = `
    },
  }
 `
+
+exports[`test/has.js TAP errors > undefined 1`] = `
+--- expected
++++ actual
+ Error: foo {
+   "code": 1,
+ }
+`
+
+exports[`test/has.js TAP errors > undefined 2`] = `
+--- expected
++++ actual
+ Error: foo {
+   "signal": "blerg",
+   "name": "Error",
+   "message": "foo",
+ }
+`
+
+exports[`test/has.js TAP errors > undefined 3`] = `
+--- expected
++++ actual
+ Error: foo
+`
+
+exports[`test/has.js TAP errors > undefined 4`] = `
+--- expected
++++ actual
+-TypeError: foo
++Error: foo {
++  "code": 1,
++  "signal": "blerg",
++}
+
+`
+
+exports[`test/has.js TAP errors > undefined 5`] = `
+--- expected
++++ actual
+ Error: foo
+`

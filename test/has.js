@@ -95,3 +95,17 @@ t.test('complex object', t => {
 
   t.end()
 })
+
+t.test('errors', t => {
+  const er = new Error('foo')
+  er.code = 1
+  er.signal = 'blerg'
+  t.ok(has(t, er, { code: 1 }))
+  const er2 = new Error('foo')
+  er2.signal = 'blerg'
+  t.ok(has(t, er, er2))
+  t.ok(has(t, er, new Error('foo')))
+  t.notOk(has(t, er, new TypeError('foo')))
+  t.ok(has(t, er, {}))
+  t.end()
+})
