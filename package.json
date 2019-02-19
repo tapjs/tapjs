@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "glob": "^7.0.5",
-    "tap": "^10.3.3"
+    "tap": "^12.5.3"
   },
   "scripts": {
     "test": "tap test/*.js --100 -J",
