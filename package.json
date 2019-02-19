@@ -17,6 +17,7 @@
     "tap": "^12.5.3"
   },
   "scripts": {
+    "snap": "TAP_SNAPSHOT=1 tap test/*.js --100 -J",
     "test": "tap test/*.js --100 -J",
     "regen-fixtures": "node scripts/generate-test.js test/fixtures/*.tap",
     "preversion": "npm test",
