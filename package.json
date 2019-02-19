@@ -55,7 +55,6 @@
   "optionalDependencies": {},
   "files": [
     "index.js",
-    "bin/cmd.js",
-    "bin/usage.txt"
+    "bin/cmd.js"
   ]
 }
