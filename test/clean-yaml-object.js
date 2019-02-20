@@ -30,7 +30,7 @@ const cases = [
     },
     source: 'const t = require(\'../\')\n',
     foo: {
-      domain: { whosagooddomain: null },
+      domain: { whosagooddomain: dom.whosagooddomain },
       todo: 'maybe',
       time: 'hours',
       _tapChild: 'blerg'

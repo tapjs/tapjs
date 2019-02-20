@@ -1210,36 +1210,38 @@ TAP version 13
 ok 1 - this is not an error
 not ok 2 - this error is poop
   ---
+  found:
+    !error
+    name: Error
+    message: "fail: poop"
+    stack: |
+      {STACK}
   at:
     line: #
     column: #
     file: test/test.js
-  found:
-    name: Error
-    stack: |
-      {STACK}
-    message: 'fail: poop'
-  source: |
-    tt.error(new Error('fail: poop'), 'this error is poop')
   stack: |
     {STACK}
+  source: |
+    tt.error(new Error('fail: poop'), 'this error is poop')
   ...
 
 not ok 3 - fail: poop
   ---
+  found:
+    !error
+    name: Error
+    message: "fail: poop"
+    stack: |
+      {STACK}
   at:
     line: #
     column: #
     file: test/test.js
-  found:
-    name: Error
-    stack: |
-      {STACK}
-    message: 'fail: poop'
-  source: |
-    tt.error(new Error('fail: poop'))
   stack: |
     {STACK}
+  source: |
+    tt.error(new Error('fail: poop'))
   ...
 
 not ok 4 - this error is "poop"
@@ -1437,10 +1439,12 @@ TAP version 13
 ok 1 - should match pattern provided
 not ok 2 - should match pattern provided
   ---
-  at:
-    line: #
-    column: #
-    file: test/test.js
+  found:
+    a: b
+    c: !re /asdf/
+  pattern:
+    a: asdf
+    c: 1
   diff: |-
     --- expected
     +++ actual
@@ -1450,25 +1454,25 @@ not ok 2 - should match pattern provided
     -  "c": 1,
     +  "c": /asdf/,
      }
-  found:
-    a: b
-    c: /asdf/
-  pattern:
-    a: asdf
-    c: 1
-  source: |
-    tt.match({ a: 'b', c: /asdf/ }, { a: 'asdf', c: 1 })
+  at:
+    line: #
+    column: #
+    file: test/test.js
   stack: |
     {STACK}
+  source: |
+    tt.match({ a: 'b', c: /asdf/ }, { a: 'asdf', c: 1 })
   ...
 
 ok 3 - a message
 not ok 4 - should match pattern provided # TODO
   ---
-  at:
-    line: #
-    column: #
-    file: test/test.js
+  found:
+    a: b
+    c: !re /asdf/
+  pattern:
+    a: asdf
+    c: 1
   diff: |-
     --- expected
     +++ actual
@@ -1478,51 +1482,53 @@ not ok 4 - should match pattern provided # TODO
     -  "c": 1,
     +  "c": /asdf/,
      }
-  found:
-    a: b
-    c: /asdf/
-  pattern:
-    a: asdf
-    c: 1
+  at:
+    line: #
+    column: #
+    file: test/test.js
   source: |
     tt.match({ a: 'b', c: /asdf/ }, { a: 'asdf', c: 1 },
   ...
 
 not ok 5 - should not match pattern provided
   ---
+  found:
+    a: b
+    c: !re /asdf/
+  pattern:
+    a: !function |-
+      function String() { [native code] }
+    c: !function |-
+      function RegExp() { [native code] }
   at:
     line: #
     column: #
     file: test/test.js
-  found:
-    a: b
-    c: /asdf/
-  pattern:
-    a: 'function String() { [native code] }'
-    c: 'function RegExp() { [native code] }'
-  source: |
-    tt.notMatch({ a: 'b', c: /asdf/ }, { a: String, c: RegExp })
   stack: |
     {STACK}
+  source: |
+    tt.notMatch({ a: 'b', c: /asdf/ }, { a: String, c: RegExp })
   ...
 
 ok 6 - should not match pattern provided
 not ok 7 - a message
   ---
+  found:
+    a: b
+    c: !re /asdf/
+  pattern:
+    a: !function |-
+      function String() { [native code] }
+    c: !function |-
+      function RegExp() { [native code] }
   at:
     line: #
     column: #
     file: test/test.js
-  found:
-    a: b
-    c: /asdf/
-  pattern:
-    a: 'function String() { [native code] }'
-    c: 'function RegExp() { [native code] }'
-  source: |
-    tt.notMatch({ a: 'b', c: /asdf/ }, { a: String, c: RegExp },
   stack: |
     {STACK}
+  source: |
+    tt.notMatch({ a: 'b', c: /asdf/ }, { a: String, c: RegExp },
   ...
 
 ok 8 - should not match pattern provided # TODO
@@ -2444,23 +2450,6 @@ exports[`test/test.js TAP addAssert > using the custom isUrl assertion 1`] = `
 TAP version 13
 not ok 1 - expect a valid http/https url
   ---
-  at:
-    line: #
-    column: #
-    file: test/test.js
-  diff: |-
-    --- expected
-    +++ actual
-     Url {
-    -  "protocol": /^https?:$/,
-    +  "protocol": null,
-    -  "slashes": true,
-    +  "slashes": null,
-    -  "host": [Function String],
-    +  "host": null,
-    -  "path": /^\\/.*$/,
-    +  "path": "hello%20is%20not%20a%20url",
-     }
   found:
     protocol: null
     slashes: null
@@ -2475,14 +2464,32 @@ not ok 1 - expect a valid http/https url
     path: hello%20is%20not%20a%20url
     href: hello%20is%20not%20a%20url
   pattern:
-    protocol: '/^https?:$/'
+    protocol: !re /^https?:$/
     slashes: true
-    host: 'function String() { [native code] }'
-    path: /^\\/.*$/
-  source: |
-    tt.isUrl('hello is not a url')
+    host: !function |-
+      function String() { [native code] }
+    path: !re /^\\/.*$/
+  diff: |-
+    --- expected
+    +++ actual
+     Url {
+    -  "protocol": /^https?:$/,
+    +  "protocol": null,
+    -  "slashes": true,
+    +  "slashes": null,
+    -  "host": Function String(),
+    +  "host": null,
+    -  "path": /^\\/.*$/,
+    +  "path": "hello%20is%20not%20a%20url",
+     }
+  at:
+    line: #
+    column: #
+    file: test/test.js
   stack: |
     {STACK}
+  source: |
+    tt.isUrl('hello is not a url')
   ...
 
 ok 2 - x is a url!
