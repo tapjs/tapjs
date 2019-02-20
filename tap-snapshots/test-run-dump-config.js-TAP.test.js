@@ -15,6 +15,7 @@ comments: true
 coverage: true
 coverage-report: html
 debug: true
+esm: false
 functions: 100
 grep:
   - x
@@ -62,6 +63,7 @@ comments: false
 coverage: false
 coverage-report: null
 debug: false
+esm: false
 functions: 0
 grep: []
 help: false
@@ -98,6 +100,7 @@ comments: false
 coverage: false
 coverage-report: null
 debug: false
+esm: false
 functions: 0
 grep: []
 help: false
@@ -134,6 +137,7 @@ comments: false
 coverage: false
 coverage-report: null
 debug: false
+esm: false
 functions: 0
 grep: []
 help: false

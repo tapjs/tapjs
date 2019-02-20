@@ -355,7 +355,7 @@ const runAllFiles = (options, saved, tap) => {
 
       if (file.match(/\.m?js$/)) {
         const args = [
-          ...(process.env.TAP_NO_ESM === '1' ? [] : ['-r', 'esm']),
+          ...(options.esm ? ['-r', 'esm'] : []),
           ...options['node-arg'],
           file,
           ...options['test-arg']
