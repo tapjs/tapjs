@@ -9,7 +9,7 @@
   "dependencies": {
     "events-to-array": "^1.0.1",
     "minipass": "^2.2.0",
-    "tap-yaml": "0.0.1"
+    "tap-yaml": "0 || 1"
   },
   "devDependencies": {
     "glob": "^7.0.5",
