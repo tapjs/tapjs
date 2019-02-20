@@ -5,38 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/run/coverage.js TAP --100 pass > 100 pass 1`] = `
-TAP version 13
-# Subtest: 1.test.js
-    ok 1 - should be equal
-    1..1
-    # {time}
-ok 1 - 1.test.js # {time}
-
-# Subtest: 2.test.js
-    ok 1 - should be equal
-    1..1
-    # {time}
-ok 2 - 2.test.js # {time}
-
-# Subtest: 3.test.js
-    ok 1 - should be equal
-    1..1
-    # {time}
-ok 3 - 3.test.js # {time}
-
-1..3
-# {time}
--|-|-|-|-|-|
-File | % Stmts | % Branch | % Funcs | % Lines | Uncovered Lines |
--|-|-|-|-|-|
-All files | 100 | 100 | 100 | 100 | |
- ok.js | 100 | 100 | 100 | 100 | |
--|-|-|-|-|-|
-
-`
-
-exports[`test/run/coverage.js TAP --100 fail > 100 fail 1`] = `
+exports[`test/run/coverage.js TAP generate some coverage > 100 pass 1`] = `
 TAP version 13
 # Subtest: 1.test.js
     ok 1 - should be equal

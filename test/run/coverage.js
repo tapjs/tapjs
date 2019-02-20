@@ -55,22 +55,12 @@ const escape = (args, options, cb) => {
   return execFile('bash', [esc].concat(args), options, cb)
 }
 
-t.test('--100', t => {
-  t.test('pass', t => {
-    escape([t1, t2, t3, '--100'], null, (er, o, e) => {
-      t.equal(er, null)
-      t.matchSnapshot(clean(o), '100 pass')
-      t.end()
-    })
+t.test('generate some coverage', t => {
+  escape([t1, t2, '--cov'], null, (er, o, e) => {
+    t.equal(er, null)
+    t.matchSnapshot(clean(o), '100 pass')
+    t.end()
   })
-  t.test('fail', t => {
-    escape([t1, t2, '--100'], null, (er, o, e) => {
-      t.match(er, { code: 1 })
-      t.matchSnapshot(clean(o), '100 fail')
-      t.end()
-    })
-  })
-  t.end()
 })
 
 t.test('report only', t => {
