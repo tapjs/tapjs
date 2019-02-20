@@ -52,6 +52,7 @@ const escape = (args, options, cb) => {
     return env
   }, options.env || {})
   options.env = env
+  options.env.TAP_NO_ESM = '1'
   return execFile('bash', [esc].concat(args), options, cb)
 }
 

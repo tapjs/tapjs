@@ -6,6 +6,8 @@ const {
   t,
 } = require('./')
 
+process.env.TAP_NO_ESM = '0'
+
 t.test('mjs', t => {
   const ok = tmpfile(t, 'mjs/ok.mjs', `'use strict'
     import t from ${tap}

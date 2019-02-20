@@ -32,9 +32,10 @@ const abf2 = tmpfile(t, 'z.js', `//z.js
 `)
 
 const savefile = path.resolve(tmpfile(t, 'fails.txt', ''))
+const opt = { cwd: dir, env: { TAP_NO_ESM: '1' } }
 
 t.test('with bailout, should save all untested', t => {
-  run(['a', 'x', 'z.js', '-s', savefile, '-b'], { cwd: dir }, (er, o, e) => {
+  run(['a', 'x', 'z.js', '-s', savefile, '-b'], opt, (er, o, e) => {
     t.match(er, { code: 1 })
     t.matchSnapshot(clean(o), 'stdout', { skip: winSkip })
     t.equal(e, '')
@@ -44,7 +45,7 @@ t.test('with bailout, should save all untested', t => {
 })
 
 t.test('without bailout, run untested, save failures', t => {
-  run(['a', 'x', 'z.js', '-s', savefile], { cwd: dir }, (er, o, e) => {
+  run(['a', 'x', 'z.js', '-s', savefile], opt, (er, o, e) => {
     t.match(er, { code: 1 })
     t.matchSnapshot(clean(o), 'stdout', { skip: winSkip })
     t.equal(e, '')
@@ -64,7 +65,7 @@ t.test('make fails pass', t => {
 })
 
 t.test('pass, empty save file', t => {
-  run(['a', 'x', 'z.js', '-s', savefile], { cwd: dir }, (er, o, e) => {
+  run(['a', 'x', 'z.js', '-s', savefile], opt, (er, o, e) => {
     t.equal(er, null)
     t.matchSnapshot(clean(o), 'stdout')
     t.equal(e, '')
@@ -77,7 +78,7 @@ t.test('pass, empty save file', t => {
 })
 
 t.test('empty save file, run all tests', t => {
-  run(['a', 'x', 'z.js', '-s', savefile], { cwd: dir }, (er, o, e) => {
+  run(['a', 'x', 'z.js', '-s', savefile], opt, (er, o, e) => {
     t.equal(er, null)
     t.matchSnapshot(clean(o), 'stdout')
     t.equal(e, '')
