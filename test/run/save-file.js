@@ -13,23 +13,21 @@ const {
 const path = require('path')
 const fs = require('fs')
 
-const xy1 = tmpfile(t, 'x/y/1.js', `'use strict'
+const xy1 = tmpfile(t, 'x/y/1.js', `
   const t = require(${tap})
   t.pass('one')
 `)
 
-const ab2 = tmpfile(t, 'a/b/2.js', `'use strict'
+const ab2 = tmpfile(t, 'a/b/2.js', `
   const t = require(${tap})
   t.pass('2')
 `)
 
 const abf1 = tmpfile(t, 'a/b/f1.js', `//f1.js
-  'use strict'
   require(${tap}).fail('a/b')
 `)
 
 const abf2 = tmpfile(t, 'z.js', `//z.js
-  'use strict'
   require(${tap}).fail('c/d')
 `)
 
@@ -56,10 +54,10 @@ t.test('without bailout, run untested, save failures', t => {
 })
 
 t.test('make fails pass', t => {
-  fs.writeFileSync(abf1, `'use strict'
+  fs.writeFileSync(abf1, `
     require(${tap}).pass('fine now')
   `)
-  fs.writeFileSync(abf2, `'use strict'
+  fs.writeFileSync(abf2, `
     require(${tap}).pass('fine now too')
   `)
   t.end()
