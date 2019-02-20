@@ -1,12 +1,6 @@
 #!/usr/bin/env node
 'use strict'
 
-// TODO:
-// 1. use jackspeak for options
-// 2. only run one nyc invokation for coverage, checking, reporting
-// 3. Get rid of respawnWithCoverage, just load NYC directly
-// 4. .taprc handling
-
 const opener = require('opener')
 const node = process.execPath
 const fs = require('fs')
