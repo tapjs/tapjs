@@ -37,7 +37,7 @@ nyc-version: false
 only: true
 output-file: out.txt
 parser-version: false
-rcfile: /Users/isaacs/.taprc
+rcfile: {HOME}/.taprc
 reporter: spec
 save: foo.txt
 show-process-tree: false
@@ -75,7 +75,7 @@ nyc-version: false
 only: false
 output-file: null
 parser-version: false
-rcfile: /Users/isaacs/.taprc
+rcfile: {HOME}/.taprc
 reporter: tap
 save: null
 show-process-tree: false

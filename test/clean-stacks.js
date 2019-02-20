@@ -65,6 +65,8 @@ module.exports = out => out
   .split(require('path').resolve(__dirname, '..')).join('{TAPDIR}')
   .split(process.execPath).join('{NODE}')
 
+  .split(process.env.HOME).join('{HOME}')
+
 // nothing to see here
 if (module === require.main)
   console.log('TAP version 13\n1..1\nok - 1\n')
