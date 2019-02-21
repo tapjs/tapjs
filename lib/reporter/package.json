@@ -1,0 +1,12 @@
+{
+  "name": "treporter",
+  "description": "Reporters for node-tap",
+  "version": "0.0.0",
+  "author": "Isaac Z. Schlueter <i@izs.me> (https://izs.me)",
+  "dependencies": {
+    "import-jsx": "^1.3.0",
+    "ink": "^2.0.0-16",
+    "ms": "^2.1.1",
+    "react": "^16.8.2"
+  }
+}

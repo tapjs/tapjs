@@ -3,7 +3,7 @@ const { jack, num, opt, list, flag, env } = require('jackspeak')
 const osHomedir = require('os-homedir')
 const colorSupport = require('color-support')
 
-const reporters = require('tap-mocha-reporter').types.sort()
+const reporters = require('tap-mocha-reporter').types.concat('new').sort()
 const fs = require('fs')
 // nyc bundles its deps, pull reporters out of it
 const nycReporters =

@@ -503,7 +503,12 @@ const runTests = options => {
 
   // if not -Rtap, then output what the user wants.
   // otherwise just dump to stdout
-  tap.pipe(options.reporter === 'tap' ? process.stdout: makeReporter(options))
+  if (options.reporter === 'new') {
+    // use the new reporter
+    require('../lib/reporter')(tap)
+  } else
+    tap.pipe(options.reporter === 'tap' ? process.stdout: makeReporter(options))
+
 
   // need to replay the first version line, because the previous
   // line will have flushed it out to stdout or the reporter already.
