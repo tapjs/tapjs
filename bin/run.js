@@ -342,7 +342,8 @@ const runAllFiles = (options, saved, tap) => {
     if (st.isDirectory()) {
       const dir = filterFiles(fs.readdirSync(file).map(f =>
         file + '/' + f), saved, parallelOk)
-      options.files.push.apply(options.files, dir)
+      options.files.splice(i, 1, ...dir)
+      i--
     } else {
       if (options.jobs > 1)
         opt.buffered = isParallelOk(parallelOk, file) !== false

@@ -72,10 +72,5 @@ t.plan(3)
 run(['p/y/*.js', 'q', 'r/y', 'z', '-j2'], { cwd: dir }, (er, o, e) => {
   t.equal(er, null)
   t.matchSnapshot(clean(o), 'output')
-  t.equal(e,
-    'start\nstart\nend\nend\n' +
-    'ry1\nry1\nry2\nry2\n' +
-    'f1\nf2\n' +
-    'start\nstart\nend\nend\n'
-  )
+  t.matchSnapshot(e, 'stderr')
 })

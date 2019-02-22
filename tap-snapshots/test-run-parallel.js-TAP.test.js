@@ -19,29 +19,29 @@ ok 2 - p/y/2.js # {time} {
     # {time}
 }
 
-# Subtest: r/y/1.js
-    ok 1 - one
-    1..1
-    # {time}
-ok 3 - r/y/1.js # {time}
-
-# Subtest: r/y/2.js
-    ok 1 - 2
-    1..1
-    # {time}
-ok 4 - r/y/2.js # {time}
-
 # Subtest: q/b/f1.js
     ok 1 - a/b
     1..1
     # {time}
-ok 5 - q/b/f1.js # {time}
+ok 3 - q/b/f1.js # {time}
 
 # Subtest: q/b/f2.js
     ok 1 - c/d
     1..1
     # {time}
-ok 6 - q/b/f2.js # {time}
+ok 4 - q/b/f2.js # {time}
+
+# Subtest: r/y/1.js
+    ok 1 - one
+    1..1
+    # {time}
+ok 5 - r/y/1.js # {time}
+
+# Subtest: r/y/2.js
+    ok 1 - 2
+    1..1
+    # {time}
+ok 6 - r/y/2.js # {time}
 
 ok 7 - z/y/1.js # {time} {
     ok 1 - one
@@ -57,5 +57,23 @@ ok 8 - z/y/2.js # {time} {
 
 1..8
 # {time}
+
+`
+
+exports[`test/run/parallel.js TAP > stderr 1`] = `
+start
+start
+end
+end
+f1
+f2
+ry1
+ry1
+ry2
+ry2
+start
+start
+end
+end
 
 `
