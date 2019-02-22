@@ -1,3 +1,4 @@
+process.env.TAP_NO_ESM = '1'
 const {
   tmpfile,
   run,
