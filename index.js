@@ -152,6 +152,11 @@ class Parser extends MiniPass {
     this.postPlan = false
   }
 
+  get fullname () {
+    return ((this.parent ? this.parent.fullname + ' ' : '') +
+      (this.name || '')).trim()
+  }
+
   tapError (error, line) {
     if (line)
       this.emit('line', line)

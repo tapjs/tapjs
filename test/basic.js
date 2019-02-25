@@ -6,6 +6,25 @@ t.test('passing no options and cb works fine', function (t) {
   p.emit('complete')
 })
 
+t.test('it has a name', t => {
+  t.plan(1)
+  const p = new Parser()
+  p.on('child', c => c.on('child', c =>
+    t.equal(c.fullname, 'child grandchild')))
+
+  p.end(`TAP version 13
+# Subtest: child
+    1..2
+    ok 1 - this is fine
+    # Subtest: grandchild
+        1..1
+        ok 1 - this is fine
+    ok 2 - grandchild
+ok 1 - child
+1..1
+`, 'utf8')
+})
+
 t.test('end() can take chunk', function (t) {
   t.plan(2)
   t.test('string', function (t) {
