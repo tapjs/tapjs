@@ -22,8 +22,12 @@ not ok 3 - poop
     line: #
     column: #
     file: test/tap/uncaught-exception.js
-  source: |
-    setTimeout(() => { throw new Error('poop') })
+  source: |2
+      t.pass('this is fine')
+      setTimeout(() => { throw new Error('poop') })
+    --^
+      t.pass('i am sure things are ok')
+    }
   stack: |
     {STACK}
   tapCaught: uncaughtException

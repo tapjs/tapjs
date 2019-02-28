@@ -67,6 +67,9 @@ module.exports = out => out
 
   .split(process.env.HOME).join('{HOME}')
 
+  // the arrows in source printing bits, make that consistent
+  .replace(/^(\s*)-+\^$/mg, '$1--^')
+
 // nothing to see here
 if (module === require.main)
   console.log('TAP version 13\n1..1\nok - 1\n')

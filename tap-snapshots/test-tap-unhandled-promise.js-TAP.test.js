@@ -21,8 +21,12 @@ not ok 2 - broken
     line: #
     column: #
     file: test/tap/unhandled-promise.js
-  source: |
-    Promise.reject(new Error('broken'))
+  source: |2
+      t.pass('fine, i promise')
+      Promise.reject(new Error('broken'))
+    --^
+    }
+    )
   stack: |
     {STACK}
   tapCaught: unhandledRejection

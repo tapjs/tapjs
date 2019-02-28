@@ -21,7 +21,10 @@ not ok 1 - expected
     column: #
     file: test/tap/not-ok.js
   source: |
+    require('./')(
     t => t.fail('expected')
+    --^
+    )
   stack: |
     {STACK}
   ...

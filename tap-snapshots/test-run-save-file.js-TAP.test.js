@@ -21,7 +21,9 @@ ok 1 - a/b/2.js # {time}
         column: #
         file: a/b/f1.js
       source: |
-        require("{CWD}/").fail('a/b')
+        //f1.js
+          require("{CWD}/").fail('a/b')
+        --^
       ...
     
     Bail out! # a/b
@@ -46,7 +48,9 @@ TAP version 13
         column: #
         file: a/b/f1.js
       source: |
-        require("{CWD}/").fail('a/b')
+        //f1.js
+          require("{CWD}/").fail('a/b')
+        --^
       ...
     
     1..1
@@ -82,7 +86,9 @@ ok 2 - x/y/1.js # {time}
         column: #
         file: z.js
       source: |
-        require("{CWD}/").fail('c/d')
+        //z.js
+          require("{CWD}/").fail('c/d')
+        --^
       ...
     
     1..1

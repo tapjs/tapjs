@@ -129,8 +129,12 @@ not ok 1 - i will do this later # TODO
     line: #
     column: #
     file: test/test.js
-  source: |
-    tt.notOk(true, 'i will do this later', { todo: true })
+  source: |2
+        'todo': tt => {
+          tt.notOk(true, 'i will do this later', { todo: true })
+    --^
+          tt.notOk(true, { todo: 'later' })
+          tt.notOk(false)
   ...
 
 not ok 2 - expect falsey value # TODO later
@@ -139,8 +143,12 @@ not ok 2 - expect falsey value # TODO later
     line: #
     column: #
     file: test/test.js
-  source: |
-    tt.notOk(true, { todo: 'later' })
+  source: |2
+          tt.notOk(true, 'i will do this later', { todo: true })
+          tt.notOk(true, { todo: 'later' })
+    --^
+          tt.notOk(false)
+          tt.todo('i will do this later', tt => {
   ...
 
 ok 3 - expect falsey value
@@ -161,8 +169,12 @@ not ok 1 - i will do this later # TODO
     line: #
     column: #
     file: test/test.js
-  source: |
-    tt.notOk(true, 'i will do this later', { todo: true })
+  source: |2
+        'todo': tt => {
+          tt.notOk(true, 'i will do this later', { todo: true })
+    --^
+          tt.notOk(true, { todo: 'later' })
+          tt.notOk(false)
   ...
 
 not ok 2 - expect falsey value # TODO later
@@ -171,8 +183,12 @@ not ok 2 - expect falsey value # TODO later
     line: #
     column: #
     file: test/test.js
-  source: |
-    tt.notOk(true, { todo: 'later' })
+  source: |2
+          tt.notOk(true, 'i will do this later', { todo: true })
+          tt.notOk(true, { todo: 'later' })
+    --^
+          tt.notOk(false)
+          tt.todo('i will do this later', tt => {
   ...
 
 ok 3 - expect falsey value
@@ -193,8 +209,12 @@ not ok 1 - i will do this later # TODO
     line: #
     column: #
     file: test/test.js
-  source: |
-    tt.notOk(true, 'i will do this later', { todo: true })
+  source: |2
+        'todo': tt => {
+          tt.notOk(true, 'i will do this later', { todo: true })
+    --^
+          tt.notOk(true, { todo: 'later' })
+          tt.notOk(false)
   ...
 
 not ok 2 - expect falsey value # TODO later
@@ -203,8 +223,12 @@ not ok 2 - expect falsey value # TODO later
     line: #
     column: #
     file: test/test.js
-  source: |
-    tt.notOk(true, { todo: 'later' })
+  source: |2
+          tt.notOk(true, 'i will do this later', { todo: true })
+          tt.notOk(true, { todo: 'later' })
+    --^
+          tt.notOk(false)
+          tt.todo('i will do this later', tt => {
   ...
 
 ok 3 - expect falsey value
@@ -225,8 +249,12 @@ not ok 1 - i will do this later # TODO
     line: #
     column: #
     file: test/test.js
-  source: |
-    tt.notOk(true, 'i will do this later', { todo: true })
+  source: |2
+        'todo': tt => {
+          tt.notOk(true, 'i will do this later', { todo: true })
+    --^
+          tt.notOk(true, { todo: 'later' })
+          tt.notOk(false)
   ...
 
 not ok 2 - expect falsey value # TODO later
@@ -235,8 +263,12 @@ not ok 2 - expect falsey value # TODO later
     line: #
     column: #
     file: test/test.js
-  source: |
-    tt.notOk(true, { todo: 'later' })
+  source: |2
+          tt.notOk(true, 'i will do this later', { todo: true })
+          tt.notOk(true, { todo: 'later' })
+    --^
+          tt.notOk(false)
+          tt.todo('i will do this later', tt => {
   ...
 
 ok 3 - expect falsey value
@@ -338,8 +370,12 @@ not ok 2 - (unnamed test) # TODO
     line: #
     column: #
     file: test/test.js
-  source: |
-    tt.fail({ todo: true })
+  source: |2
+          tt.fail('this is fine', { diagnostic: false })
+          tt.fail({ todo: true })
+    --^
+          tt.fail('this is fine')
+          tt.end()
   ...
 
 not ok 3 - this is fine
@@ -348,8 +384,12 @@ not ok 3 - this is fine
     line: #
     column: #
     file: test/test.js
-  source: |
-    tt.fail('this is fine')
+  source: |2
+          tt.fail({ todo: true })
+          tt.fail('this is fine')
+    --^
+          tt.end()
+        },
   stack: |
     {STACK}
   ...
@@ -369,8 +409,12 @@ not ok 2 - (unnamed test) # TODO
     line: #
     column: #
     file: test/test.js
-  source: |
-    tt.fail({ todo: true })
+  source: |2
+          tt.fail('this is fine', { diagnostic: false })
+          tt.fail({ todo: true })
+    --^
+          tt.fail('this is fine')
+          tt.end()
   ...
 
 not ok 3 - this is fine
@@ -379,8 +423,12 @@ not ok 3 - this is fine
     line: #
     column: #
     file: test/test.js
-  source: |
-    tt.fail('this is fine')
+  source: |2
+          tt.fail({ todo: true })
+          tt.fail('this is fine')
+    --^
+          tt.end()
+        },
   stack: |
     {STACK}
   ...
@@ -407,8 +455,12 @@ not ok 2 - (unnamed test) # TODO
     line: #
     column: #
     file: test/test.js
-  source: |
-    tt.fail({ todo: true })
+  source: |2
+          tt.fail('this is fine', { diagnostic: false })
+          tt.fail({ todo: true })
+    --^
+          tt.fail('this is fine')
+          tt.end()
   ...
 
 not ok 3 - this is fine
@@ -417,8 +469,12 @@ not ok 3 - this is fine
     line: #
     column: #
     file: test/test.js
-  source: |
-    tt.fail('this is fine')
+  source: |2
+          tt.fail({ todo: true })
+          tt.fail('this is fine')
+    --^
+          tt.end()
+        },
   stack: |
     {STACK}
   ...
@@ -470,8 +526,12 @@ TAP version 13
         line: #
         column: #
         file: test/test.js
-      source: |
-        tt.fail('this is not ok')
+      source: |2
+              tt.test('child', tt => {
+                tt.fail('this is not ok')
+        --^
+                tt.end()
+              })
       stack: |
         {STACK}
       ...
@@ -494,8 +554,12 @@ TAP version 13
         line: #
         column: #
         file: test/test.js
-      source: |
-        tt.fail('this is not ok')
+      source: |2
+              tt.test('child', tt => {
+                tt.fail('this is not ok')
+        --^
+                tt.end()
+              })
       stack: |
         {STACK}
       ...
@@ -518,8 +582,12 @@ TAP version 13
         line: #
         column: #
         file: test/test.js
-      source: |
-        tt.fail('this is not ok')
+      source: |2
+              tt.test('child', tt => {
+                tt.fail('this is not ok')
+        --^
+                tt.end()
+              })
       stack: |
         {STACK}
       ...
@@ -974,8 +1042,12 @@ not ok 1 - ok
     line: #
     column: #
     file: test/test.js
-  source: |
-    'gentle thrower': tt => tt.threw(new Error('ok')),
+  source: |2
+        // using a Domain to catch beyond async stack drops
+        'gentle thrower': tt => tt.threw(new Error('ok')),
+    --^
+        'child thrower': tt => tt.test('child test', tt =>
+          tt.threw(new Error('ok'))).then(tt.end),
   stack: |
     {STACK}
   ...
@@ -993,8 +1065,12 @@ not ok 1 - ok
     line: #
     column: #
     file: test/test.js
-  source: |
-    'gentle thrower': tt => tt.threw(new Error('ok')),
+  source: |2
+        // using a Domain to catch beyond async stack drops
+        'gentle thrower': tt => tt.threw(new Error('ok')),
+    --^
+        'child thrower': tt => tt.test('child test', tt =>
+          tt.threw(new Error('ok'))).then(tt.end),
   stack: |
     {STACK}
   ...
@@ -1012,8 +1088,12 @@ not ok 1 - ok
     line: #
     column: #
     file: test/test.js
-  source: |
-    'gentle thrower': tt => tt.threw(new Error('ok')),
+  source: |2
+        // using a Domain to catch beyond async stack drops
+        'gentle thrower': tt => tt.threw(new Error('ok')),
+    --^
+        'child thrower': tt => tt.test('child test', tt =>
+          tt.threw(new Error('ok'))).then(tt.end),
   stack: |
     {STACK}
   ...
@@ -1031,8 +1111,12 @@ not ok 1 - ok
     column: #
     file: test/test.js
   runOnly: true
-  source: |
-    'gentle thrower': tt => tt.threw(new Error('ok')),
+  source: |2
+        // using a Domain to catch beyond async stack drops
+        'gentle thrower': tt => tt.threw(new Error('ok')),
+    --^
+        'child thrower': tt => tt.test('child test', tt =>
+          tt.threw(new Error('ok'))).then(tt.end),
   stack: |
     {STACK}
   ...
@@ -1051,8 +1135,12 @@ TAP version 13
         line: #
         column: #
         file: test/test.js
-      source: |
-        tt.threw(new Error('ok'))).then(tt.end),
+      source: |2
+            'child thrower': tt => tt.test('child test', tt =>
+              tt.threw(new Error('ok'))).then(tt.end),
+        --^
+      
+            'child end event thrower': tt => {
       stack: |
         {STACK}
       test: child test
@@ -1076,8 +1164,12 @@ TAP version 13
         line: #
         column: #
         file: test/test.js
-      source: |
-        tt.threw(new Error('ok'))).then(tt.end),
+      source: |2
+            'child thrower': tt => tt.test('child test', tt =>
+              tt.threw(new Error('ok'))).then(tt.end),
+        --^
+      
+            'child end event thrower': tt => {
       stack: |
         {STACK}
       test: child test
@@ -1101,8 +1193,12 @@ TAP version 13
         line: #
         column: #
         file: test/test.js
-      source: |
-        tt.threw(new Error('ok'))).then(tt.end),
+      source: |2
+            'child thrower': tt => tt.test('child test', tt =>
+              tt.threw(new Error('ok'))).then(tt.end),
+        --^
+      
+            'child end event thrower': tt => {
       stack: |
         {STACK}
       test: child test
@@ -1134,8 +1230,11 @@ not ok 2 - beep
     line: #
     column: #
     file: test/test.js
-  source: |
-    throw new Error('beep')
+  source: |2
+              tt.comment('end() event')
+              throw new Error('beep')
+    --^
+            })
   stack: |
     {STACK}
   tapCaught: testFunctionThrow
@@ -1160,8 +1259,11 @@ not ok 2 - beep
     line: #
     column: #
     file: test/test.js
-  source: |
-    throw new Error('beep')
+  source: |2
+              tt.comment('end() event')
+              throw new Error('beep')
+    --^
+            })
   stack: |
     {STACK}
   tapCaught: testFunctionThrow
@@ -1186,8 +1288,11 @@ not ok 2 - beep
     line: #
     column: #
     file: test/test.js
-  source: |
-    throw new Error('beep')
+  source: |2
+              tt.comment('end() event')
+              throw new Error('beep')
+    --^
+            })
   stack: |
     {STACK}
   tapCaught: testFunctionThrow
@@ -1222,8 +1327,12 @@ not ok 2 - this error is poop
     file: test/test.js
   stack: |
     {STACK}
-  source: |
-    tt.error(new Error('fail: poop'), 'this error is poop')
+  source: |2
+          tt.error(null, 'this is not an error')
+          tt.error(new Error('fail: poop'), 'this error is poop')
+    --^
+          tt.error(new Error('fail: poop'))
+          tt.error('fail: poop', 'this error is "poop"')
   ...
 
 not ok 3 - fail: poop
@@ -1240,8 +1349,12 @@ not ok 3 - fail: poop
     file: test/test.js
   stack: |
     {STACK}
-  source: |
-    tt.error(new Error('fail: poop'))
+  source: |2
+          tt.error(new Error('fail: poop'), 'this error is poop')
+          tt.error(new Error('fail: poop'))
+    --^
+          tt.error('fail: poop', 'this error is "poop"')
+          tt.error('fail: poop')
   ...
 
 not ok 4 - this error is "poop"
@@ -1251,8 +1364,12 @@ not ok 4 - this error is "poop"
     column: #
     file: test/test.js
   found: 'fail: poop'
-  source: |
-    tt.error('fail: poop', 'this error is "poop"')
+  source: |2
+          tt.error(new Error('fail: poop'))
+          tt.error('fail: poop', 'this error is "poop"')
+    --^
+          tt.error('fail: poop')
+          tt.error(null, { todo: true })
   stack: |
     {STACK}
   ...
@@ -1264,8 +1381,12 @@ not ok 5 - non-Error error encountered
     column: #
     file: test/test.js
   found: 'fail: poop'
-  source: |
-    tt.error('fail: poop')
+  source: |2
+          tt.error('fail: poop', 'this error is "poop"')
+          tt.error('fail: poop')
+    --^
+          tt.error(null, { todo: true })
+          tt.error(null)
   stack: |
     {STACK}
   ...
@@ -1287,9 +1408,18 @@ not ok 1 - should be equal
     column: #
     file: test/test.js
   compare: ===
+  diff: |
+    --- wanted
+    +++ found
+    -2
+    +1
   found: 1
-  source: |
-    tt.equal(1, 2)
+  source: |2
+        equal: tt => {
+          tt.equal(1, 2)
+    --^
+          tt.equal(1, '1', { skip: true })
+          tt.equal(1, 1, 'one is one')
   stack: |
     {STACK}
   wanted: 2
@@ -1304,11 +1434,18 @@ not ok 4 - should be equal
     column: #
     file: test/test.js
   compare: ===
+  diff: |
+    --- wanted
+    +++ found
   found:
     foo: 1
   note: Objects never === one another
-  source: |
-    tt.equal({foo: 1}, {foo: 1})
+  source: |2
+          // fails, but with the special note
+          tt.equal({foo: 1}, {foo: 1})
+    --^
+          tt.end()
+        },
   stack: |
     {STACK}
   wanted:
@@ -1334,8 +1471,12 @@ not ok 3 - one is not one
   compare: '!=='
   doNotWant: 1
   found: 1
-  source: |
-    tt.not(1, 1, 'one is not one')
+  source: |2
+          tt.not(1, '1', { skip: true })
+          tt.not(1, 1, 'one is not one')
+    --^
+          tt.not({}, {})
+          tt.end()
   stack: |
     {STACK}
   ...
@@ -1367,8 +1508,11 @@ not ok 7 - this one fails
   found:
     foo:
       bar: 2
-  source: |
-    tt.notSame({ foo: { bar: 2 } }, { foo: { bar: '2' } },
+  source: |2
+          tt.notSame({ foo: 2 }, { foo: 1 }, { skip: true })
+          tt.notSame({ foo: { bar: 2 } }, { foo: { bar: '2' } },
+    --^
+                     'this one fails')
   stack: |
     {STACK}
   ...
@@ -1395,8 +1539,12 @@ not ok 9 - should be equivalent strictly
     - 1
     - 2
     - 3
-  source: |
-    tt.strictSame([1, 2, 3], ['1', '2', '3'])
+  source: |2
+          tt.strictSame({ foo: 2 }, { foo: 1 }, { skip: true })
+          tt.strictSame([1, 2, 3], ['1', '2', '3'])
+    --^
+          tt.strictSame(o, { foo: 1 })
+          tt.strictSame(o, o)
   stack: |
     {STACK}
   wanted:
@@ -1422,8 +1570,11 @@ not ok 15 - this one fails
   found:
     foo:
       bar: 2
-  source: |
-    tt.notStrictSame({ foo: { bar: 2 } }, { foo: { bar: 2 } },
+  source: |2
+                           'this one passes')
+          tt.notStrictSame({ foo: { bar: 2 } }, { foo: { bar: 2 } },
+    --^
+                           'this one fails')
   stack: |
     {STACK}
   ...
@@ -1460,8 +1611,12 @@ not ok 2 - should match pattern provided
     file: test/test.js
   stack: |
     {STACK}
-  source: |
-    tt.match({ a: 'b', c: /asdf/ }, { a: 'asdf', c: 1 })
+  source: |2
+          tt.match({ a: 'b', c: /asdf/ }, { a: String, c: RegExp })
+          tt.match({ a: 'b', c: /asdf/ }, { a: 'asdf', c: 1 })
+    --^
+          tt.match({ a: 'b', c: /asdf/ }, { a: String, c: RegExp },
+                   'a message')
   ...
 
 ok 3 - a message
@@ -1486,8 +1641,12 @@ not ok 4 - should match pattern provided # TODO
     line: #
     column: #
     file: test/test.js
-  source: |
-    tt.match({ a: 'b', c: /asdf/ }, { a: 'asdf', c: 1 },
+  source: |2
+                   'a message')
+          tt.match({ a: 'b', c: /asdf/ }, { a: 'asdf', c: 1 },
+    --^
+                   { todo: true })
+          tt.notMatch({ a: 'b', c: /asdf/ }, { a: String, c: RegExp })
   ...
 
 not ok 5 - should not match pattern provided
@@ -1506,8 +1665,12 @@ not ok 5 - should not match pattern provided
     file: test/test.js
   stack: |
     {STACK}
-  source: |
-    tt.notMatch({ a: 'b', c: /asdf/ }, { a: String, c: RegExp })
+  source: |2
+                   { todo: true })
+          tt.notMatch({ a: 'b', c: /asdf/ }, { a: String, c: RegExp })
+    --^
+          tt.notMatch({ a: 'b', c: /asdf/ }, { a: 'asdf', c: 1 })
+          tt.notMatch({ a: 'b', c: /asdf/ }, { a: String, c: RegExp },
   ...
 
 ok 6 - should not match pattern provided
@@ -1527,8 +1690,12 @@ not ok 7 - a message
     file: test/test.js
   stack: |
     {STACK}
-  source: |
-    tt.notMatch({ a: 'b', c: /asdf/ }, { a: String, c: RegExp },
+  source: |2
+          tt.notMatch({ a: 'b', c: /asdf/ }, { a: 'asdf', c: 1 })
+          tt.notMatch({ a: 'b', c: /asdf/ }, { a: String, c: RegExp },
+    --^
+                      'a message')
+          tt.notMatch({ a: 'b', c: /asdf/ }, { a: 'asdf', c: 1 },
   ...
 
 ok 8 - should not match pattern provided # TODO
@@ -1547,9 +1714,17 @@ not ok 1 - this fails
     column: #
     file: test/test.js
   compare: ===
+  diff: |
+    --- wanted
+    +++ found
+    -object
+    +"null"
   found: 'null'
-  source: |
-    tt.type(null, 'object', 'this fails')
+  source: |2
+          tt.type(null, 'object', 'this fails')
+    --^
+          tt.type(null, 'object', { expectFail: true })
+          tt.type(1234, 'number')
   stack: |
     {STACK}
   wanted: object
@@ -1564,9 +1739,18 @@ not ok 5 - fails, anonymously
     line: #
     column: #
     file: test/test.js
+  diff: |
+    --- wanted
+    +++ found
+    -(anonymous constructor)
+    +Object
   found: Object
-  source: |
-    tt.type({}, function () {}, 'fails, anonymously')
+  source: |2
+          tt.type(tt, Test)
+          tt.type({}, function () {}, 'fails, anonymously')
+    --^
+          const o = {}
+          tt.type(o, o, 'a thing is a thing')
   stack: |
     {STACK}
   wanted: (anonymous constructor)
@@ -1582,9 +1766,18 @@ not ok 9 - fail: arrows are not objects
     column: #
     file: test/test.js
   compare: ===
+  diff: |
+    --- wanted
+    +++ found
+    -Object
+    +function
   found: function
-  source: |
-    tt.type(() => {}, Object, 'fail: arrows are not objects')
+  source: |2
+          tt.type(() => {}, Function, 'arrows are functions')
+          tt.type(() => {}, Object, 'fail: arrows are not objects')
+    --^
+          tt.type({}, 'object')
+          tt.type(tt, 'Test')
   stack: |
     {STACK}
   wanted: Object
@@ -1615,8 +1808,12 @@ not ok 10 - fail: does not throw actually
     line: #
     column: #
     file: test/test.js
-  source: |
-    tt.throws(() => 'doesnt tho', 'fail: does not throw actually')
+  source: |2
+  
+          tt.throws(() => 'doesnt tho', 'fail: does not throw actually')
+    --^
+  
+          tt.throws(() => { throw new Error('x') }, {}, { skip: true })
   stack: |
     {STACK}
   ...
@@ -1645,8 +1842,12 @@ not ok 5 - fail
     column: #
     file: test/test.js
   message: ouch
-  source: |
-    throw new Error('ouch')
+  source: |2
+          tt.doesNotThrow('fail', () => {
+            throw new Error('ouch')
+    --^
+          })
+          tt.end()
   stack: |
     {STACK}
   ...
@@ -1758,8 +1959,12 @@ not ok 19 - fail: passing promise # {time} {
         column: #
         file: test/test.js
       found: 420
-      source: |
-        tt.rejects(new Promise(r => r(420)), 'fail: passing promise')
+      source: |2
+      
+              tt.rejects(new Promise(r => r(420)), 'fail: passing promise')
+        --^
+      
+              tt.end()
       ...
     
     1..1
@@ -1797,8 +2002,12 @@ not ok 5 - fail: no promise # {time} {
         line: #
         column: #
         file: test/test.js
-      source: |
-        tt.resolves(() => {}, 'fail: no promise')
+      source: |2
+              tt.resolves(() => new Promise(r => r(420)), 'passing promise fn')
+              tt.resolves(() => {}, 'fail: no promise')
+        --^
+              tt.end()
+            },
       ...
     
     1..1
@@ -1831,8 +2040,12 @@ not ok 4 - promise fn # {time} {
         line: #
         column: #
         file: test/test.js
-      source: |
-        tt.resolveMatch(() => new Promise(r => r(420)), 420, 'promise fn')
+      source: |2
+              tt.resolveMatch(new Promise(r => r(420)), 420, 'promise')
+              tt.resolveMatch(() => new Promise(r => r(420)), 420, 'promise fn')
+        --^
+              tt.resolveMatch(() => {}, {}, 'fail: no promise')
+              tt.end()
       ...
     
     1..1
@@ -1846,8 +2059,12 @@ not ok 5 - fail: no promise # {time} {
         line: #
         column: #
         file: test/test.js
-      source: |
-        tt.resolveMatch(() => {}, {}, 'fail: no promise')
+      source: |2
+              tt.resolveMatch(() => new Promise(r => r(420)), 420, 'promise fn')
+              tt.resolveMatch(() => {}, {}, 'fail: no promise')
+        --^
+              tt.end()
+            },
       ...
     
     1..1
@@ -1898,8 +2115,12 @@ not ok 1 - expect fail
     line: #
     column: #
     file: test/test.js
-  source: |
-    const baz = () => { tt.assertAt = stack.at(); bar() }
+  source: |2
+          const bar = () => foo()
+          const baz = () => { tt.assertAt = stack.at(); bar() }
+    --^
+  
+          tt.plan(1)
   ...
 
 # failed 1 test
@@ -1915,8 +2136,12 @@ not ok 1 - expect fail
     line: #
     column: #
     file: test/test.js
-  source: |
-    const baz = () => { tt.assertStack = stack.captureString(80); bar() }
+  source: |2
+          const bar = () => foo()
+          const baz = () => { tt.assertStack = stack.captureString(80); bar() }
+    --^
+  
+          tt.plan(1)
   stack: |
     {STACK}
   ...
@@ -1983,8 +2208,12 @@ not ok 2 - catch it in the parent
     line: #
     column: #
     file: test/test.js
-  source: |
-    tt.threw(new Error('catch it in the parent'))
+  source: |2
+            tt.pass('this is fine')
+            tt.threw(new Error('catch it in the parent'))
+    --^
+          })
+          tt.end()
   stack: |
     {STACK}
   test: child
@@ -2004,8 +2233,12 @@ TAP version 13
         line: #
         column: #
         file: test/test.js
-      source: |
-        tt.test('child', () => new Promise((_, r) => r(new Error('poop'))))
+      source: |2
+            'child breaks a promise': tt => {
+              tt.test('child', () => new Promise((_, r) => r(new Error('poop'))))
+        --^
+              tt.end()
+            },
       stack: |
         {STACK}
       tapCaught: returnedPromiseRejection
@@ -2033,8 +2266,12 @@ not ok 2 - fail
     line: #
     column: #
     file: test/test.js
-  source: |
-    tt.teardown(() => { throw new Error('fail') })
+  source: |2
+          tt.test('child', tt => {
+            tt.teardown(() => { throw new Error('fail') })
+    --^
+            tt.end()
+          })
   stack: |
     {STACK}
   tapCaught: teardown
@@ -2201,8 +2438,12 @@ TAP version 13
                 line: #
                 column: #
                 file: test/test.js
-              source: |
-                tt.test('misbehaving child', () => new Promise(()=>{}))
+              source: |2
+                          tt.pass('this is ok')
+                          tt.test('misbehaving child', () => new Promise(()=>{}))
+                --^
+                        })
+                        tt.pass('some queue stuff')
               stack: |
                 {STACK}
               test: misbehaving child
@@ -2251,8 +2492,12 @@ TAP version 13
         line: #
         column: #
         file: test/test.js
-      source: |
-        tt.fail('not fine')
+      source: |2
+              tt.test('child', { bail: true }, tt => {
+                tt.fail('not fine')
+        --^
+                tt.end()
+              })
       stack: |
         {STACK}
       ...
@@ -2488,8 +2733,12 @@ not ok 1 - expect a valid http/https url
     file: test/test.js
   stack: |
     {STACK}
-  source: |
-    tt.isUrl('hello is not a url')
+  source: |2
+      })
+      tt.isUrl('hello is not a url')
+    --^
+      tt.isUrl('http://x', 'x is a url!')
+      tt.isUrl('https://skip:420/', { skip: 420 })
   ...
 
 ok 2 - x is a url!
