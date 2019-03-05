@@ -5,6 +5,8 @@ const {
   clean,
 } = require('./')
 
+process.env.TAP_NO_ESM = '1'
+
 t.test('shotgun a bunch of option parsing junk', t => {
   run([
     '--dump-config', '-J', '--jobs', '4',
@@ -13,7 +15,7 @@ t.test('shotgun a bunch of option parsing junk', t => {
     '--reporter=spec', '--gc', '--strict', '--debug', '--debug-brk',
     '--harmony', '--node-arg=xyz', '--check-coverage', '--test-arg=xyz',
     '--test-arg', 'abc', '--100', '--branches=99', '--lines', '100',
-    '--color', '--no-color', '--output-file=out.txt', '--no-timeout',
+    '--color', '-C', '--output-file=out.txt', '--no-timeout',
     '--timeout', '99', '--invert', '--no-invert', '--grep', 'x',
     '--grep=/y/i', '--bail', '--no-bail', '--only', '-R', 'spec',
     '--node-arg', 'abc', '--nyc-arg', 'abc', '-o', 'out.txt',
@@ -22,6 +24,18 @@ t.test('shotgun a bunch of option parsing junk', t => {
     TAP: '0',
     TAP_BAIL: '0',
     _TAP_IS_TTY: '1'
+  }}, (er, o, e) => {
+    t.equal(er, null)
+    t.matchSnapshot(clean(o), 'output')
+    t.end()
+  })
+})
+
+t.test('turn color off and back on again', t => {
+  run(['--no-color', '-c', '--dump-config'], { env: {
+    TAP: '0',
+    _TAP_IS_TTY: '1',
+    TAP_COLORS: '1',
   }}, (er, o, e) => {
     t.equal(er, null)
     t.matchSnapshot(clean(o), 'output')
