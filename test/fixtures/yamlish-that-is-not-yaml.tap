@@ -23,5 +23,9 @@ not ok 1 - expected yaml, got a sea turtle
                LGB      `-._-_-_.-'
                    http://www.ascii-art.de/ascii/t/turtle.txt
   ...
+  ---
+  but: this
+  is: yaml
+  ...
 
 1..1

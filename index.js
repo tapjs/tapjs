@@ -228,10 +228,16 @@ class Parser extends MiniPass {
           this.emit('line', line)
       })
 
-    if (this.current || this.extraQueue.length)
-      this.extraQueue.push(['extra', data])
-    else
+    this.emitExtra(data)
+  }
+
+  emitExtra (data) {
+    if (!this.parent)
       this.emit('extra', data)
+    else
+      this.parent.emitExtra(
+        data.replace(/\n$/, '').replace(/^/gm, '    ') + '\n'
+      )
   }
 
   plan (start, end, comment, line) {
@@ -766,6 +772,7 @@ class Parser extends MiniPass {
 
     // buffered subtest with diagnostics
     if (this.current && line === '{\n' &&
+        this.current.diag &&
         !this.current.buffered &&
         !this.child) {
       this.emit('line', line)
