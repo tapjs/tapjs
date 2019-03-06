@@ -10,10 +10,8 @@ const {
 } = require('./')
 
 const { execFile } = require('child_process')
+const path = require('path')
 
-const cwd = process.cwd()
-process.chdir(dir)
-t.teardown(() => process.chdir(cwd))
 
 const ok = tmpfile(t, 'ok.js', `'use strict'
   module.exports = (x, y) => {
@@ -39,11 +37,12 @@ const t3 = tmpfile(t, '3.test.js', `'use strict'
 
 // escape from new york
 const esc = tmpfile(t, 'runtest.sh',
-`"${node}" "${bin}" "\$@" --cov --nyc-arg=--include="${ok}"
+`"${node}" "${bin}" "\$@" --cov --nyc-arg=--include="ok.js"
 `)
 
 const escape = (args, options, cb) => {
   options = options || {}
+  options.cwd = dir
   const env = Object.keys(process.env).filter(
     k => !/TAP|NYC|SW_ORIG/.test(k)
   ).reduce((env, k) => {
@@ -53,7 +52,9 @@ const escape = (args, options, cb) => {
   }, options.env || {})
   options.env = env
   options.env.TAP_NO_ESM = '1'
-  return execFile('bash', [esc].concat(args), options, cb)
+  const a = [path.basename(esc)].concat(
+    args.map(a => path.basename(a)))
+  return execFile('bash', a, options, cb)
 }
 
 t.test('generate some coverage', t => {
@@ -76,14 +77,6 @@ t.test('report with checks', t => {
   escape(['--100', '--coverage-report=text-lcov'], null, (er, o, e) => {
     t.match(er, { code: 1 })
     t.matchSnapshot(clean(o), 'lcov output and 100 check', { skip: winSkip })
-    t.end()
-  })
-})
-
-t.test('process tree', t => {
-  escape(['--show-process-tree', t1, t2], null, (er, o, e) => {
-    t.match(er, null)
-    t.matchSnapshot(clean(o), 'report with process tree', { skip: winSkip })
     t.end()
   })
 })

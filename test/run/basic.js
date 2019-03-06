@@ -95,7 +95,8 @@ t.test('unknown short opt', t => {
 
 t.test('basic test run', t => {
   const ok = tmpfile(t, 'ok.js', `require(${tap}).pass('this is fine')`)
-  run(['-iSCbt0', '-g/nope/i', '--', 'doesnt exist', ok], null, (err, stdout, stderr) => {
+  const args = ['-iSCbt0', '-g/nope/i', '--', 'doesnt exist', ok]
+  run(args, null, (err, stdout, stderr) => {
     t.matchSnapshot(clean(stdout), 'ok.js output')
     t.end()
   })
