@@ -14,6 +14,12 @@ process.env.TAP_DEV_SHORTSTACK = '1'
 process.env.TAP_DIAG = ''
 process.env.TAP_BAIL = ''
 
+t.test('todo test, no comment')
+t.test('todo test with comment', { todo: 'do it later' })
+t.test('skip test, no comment', { skip: true })
+t.test('skip test with comment', { skip: 'not doing this one' })
+t.fail('this is a failure')
+
 const clean = require('./clean-stacks.js')
 
 t.test('short output checks', t => {
