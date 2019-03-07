@@ -133,8 +133,7 @@ t.test('dump config stuff', t => {
       t.equal(er, null)
       t.match(JSON.parse(o), {
         nodeArgs:
-         [ '-r', 'esm',
-           '--expose-gc',
+         [ '--expose-gc',
            '--use_strict',
            '--debug',
            '--debug-brk',
@@ -642,7 +641,7 @@ t.test('mjs', t => {
     import t from ${tap}
     t.pass('this is fine')
   `)
-  run([ok], {}, (er, o, e) => {
+  run([ok, '--esm'], {}, (er, o, e) => {
     t.equal(er, null)
     t.matchSnapshot(clean(o))
     t.end()
@@ -654,7 +653,7 @@ t.test('esm', t => {
     import {t} from ${tap}
     t.pass('this is fine')
   `)
-  run([ok], {}, (er, o, e) => {
+  run([ok, '--esm'], {}, (er, o, e) => {
     t.equal(er, null)
     t.matchSnapshot(clean(o))
     t.end()
@@ -666,7 +665,7 @@ t.test('ts', t => {
     import * as t from ${tap}
     t.pass('this is fine')
   `)
-  run([ok], {}, (er, o, e) => {
+  run([ok, '--esm'], {}, (er, o, e) => {
     t.equal(er, null)
     t.matchSnapshot(clean(o))
     t.end()

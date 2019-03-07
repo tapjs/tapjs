@@ -27,6 +27,11 @@ Coverage is never enabled for stdin.
 
 Options:
 
+  --esm                       Support ES Modules in *.js and *.mjs files.
+                              (Default)
+
+  --no-esm                    Do not add support for ES Modules.
+
   -j<n> --jobs=<n>            Run up to <n> test files in parallel
                               Note that this causes tests to be run in
                               "buffered" mode, so line-by-line results

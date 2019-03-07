@@ -124,13 +124,14 @@ const constructDefaultArgs = _ => {
   const defaultTimeout = global.__coverage__ ? 240 : 30
 
   const defaultArgs = {
-    nodeArgs: [ '-r', require.resolve('esm') ],
+    nodeArgs: [],
     nycArgs: [],
     testArgs: [],
     timeout: +process.env.TAP_TIMEOUT || defaultTimeout,
     color: !!colorSupport.level,
     reporter: null,
     files: [],
+    esm: true,
     grep: [],
     grepInvert: false,
     bail: false,
@@ -260,6 +261,14 @@ const parseArgs = (args, options) => {
         if (options.coverageReport === 'html')
           options.coverageReport = 'lcov'
         defaultCoverage = true
+        continue
+
+      case '--no-esm':
+        options.esm = false
+        continue
+
+      case '--esm':
+        options.esm = true
         continue
 
       case '--no-browser':
@@ -706,6 +715,7 @@ const runAllFiles = (options, saved, tap) => {
 
   options.files = filterFiles(options.files, saved, parallelOk)
   let tapChildId = 0
+  const esmArg = options.esm ? ['-r', require.resolve('esm')] : []
 
   for (let i = 0; i < options.files.length; i++) {
     const opt = {}
@@ -738,10 +748,10 @@ const runAllFiles = (options, saved, tap) => {
         opt.buffered = isParallelOk(parallelOk, file) !== false
 
       if (file.match(/\.m?js$/)) {
-        const args = options.nodeArgs.concat(file).concat(options.testArgs)
+        const args = esmArg.concat(options.nodeArgs).concat(file).concat(options.testArgs)
         tap.spawn(node, args, opt, file)
       } else if (file.match(/\.ts$/)) {
-        const args = options.nodeArgs.concat(file).concat(options.testArgs)
+        const args = esmArg.concat(options.nodeArgs).concat(file).concat(options.testArgs)
         tap.spawn(tsNode, args, opt, file)
       } else if (isexe.sync(options.files[i]))
         tap.spawn(options.files[i], options.testArgs, opt, file)
