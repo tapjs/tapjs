@@ -59,15 +59,18 @@
   "license": "ISC",
   "repository": "https://github.com/tapjs/node-tap.git",
   "scripts": {
-    "snap": "TAP_NO_ESM=1 TAP_SNAPSHOT=1 node bin/run.js test -J",
-    "test": "TAP_NO_ESM=1 node bin/run.js test --100 -J",
-    "unit": "TAP_NO_ESM=1 bash scripts/unit.sh",
+    "snap": "node bin/run.js --snapshot",
+    "test": "node bin/run.js",
+    "unit": "bash scripts/unit.sh",
     "posttest": "rm -rf cli-tests-*",
     "postunit": "npm run posttest",
     "t": "node bin/run.js test -J -sfails.txt",
     "preversion": "npm test",
     "postversion": "npm publish",
     "postpublish": "git push origin --all; git push origin --tags"
+  },
+  "tap": {
+    "esm": false
   },
   "nyc": {
     "all": true,
