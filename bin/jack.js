@@ -214,17 +214,24 @@ Much more documentation available at: https://www.node-tap.org/
     ],
     description: `Enforce full coverage, 100%.
                   Sets branches, statements, functions,
-                  and lines to 100.`,
+                  and lines to 100.
+
+                  This is the default.  To specify a lower limit
+                  (or no limit) set --lines, --branches, --functions,
+                  or --statements to a lower number than 100, or disable
+                  coverage checking with --no-check-coverage, or disable
+                  coverage entirely with --no-coverage.`,
   }),
 
   coverage: flag({
+    default: true,
     short: 'cov',
     description: `Capture coverage information using 'nyc'
+                  This is enabled by default.
 
                   If a COVERALLS_REPO_TOKEN environment
                   variable is set, then coverage is
-                  captured by default and sent to the
-                  coveralls.io service.`,
+                  sent to the coveralls.io service.`,
     negate: {
       short: 'no-cov',
       description: `Do not capture coverage information.
@@ -306,7 +313,7 @@ Much more documentation available at: https://www.node-tap.org/
   branches: num({
     min: 0,
     max:100,
-    default: 0,
+    default: 100,
     hint: 'n',
     implies: {
       'check-coverage': true,
@@ -318,7 +325,7 @@ Much more documentation available at: https://www.node-tap.org/
   functions: num({
     min: 0,
     max:100,
-    default: 0,
+    default: 100,
     hint: 'n',
     implies: {
       'check-coverage': true,
@@ -330,7 +337,7 @@ Much more documentation available at: https://www.node-tap.org/
   lines: num({
     min: 0,
     max:100,
-    default: 90,
+    default: 100,
     hint: 'n',
     implies: {
       'check-coverage': true,
@@ -342,7 +349,7 @@ Much more documentation available at: https://www.node-tap.org/
   statements: num({
     min: 0,
     max:100,
-    default: 0,
+    default: 100,
     hint: 'n',
     implies: {
       'check-coverage': true,

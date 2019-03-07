@@ -42,7 +42,7 @@ const run = (args, options, cb) => {
       return env
     }, options.env)
 
-  return execFile(node, [bin].concat(args), options, cb)
+  return execFile(node, [bin, '--no-cov'].concat(args), options, cb)
 }
 
 const tmpfile = (t, filename, content) => {

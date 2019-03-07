@@ -55,7 +55,7 @@ versions: false
 
 exports[`test/run/dump-config.js TAP package.json parsing good > output 1`] = `
 bail: false
-branches: 0
+branches: 100
 browser: true
 check-coverage: false
 color: false
@@ -64,7 +64,7 @@ coverage: false
 coverage-report: null
 debug: false
 esm: false
-functions: 0
+functions: 100
 grep: []
 help: false
 invert: false
@@ -81,7 +81,7 @@ rcfile: {CWD}/cli-tests/.taprc
 reporter: tap
 save: null
 show-process-tree: false
-statements: 0
+statements: 100
 test-arg: []
 timeout: 30
 version: false
@@ -92,7 +92,7 @@ versions: false
 
 exports[`test/run/dump-config.js TAP package.json parsing bad > output 1`] = `
 bail: false
-branches: 0
+branches: 100
 browser: true
 check-coverage: false
 color: false
@@ -101,12 +101,12 @@ coverage: false
 coverage-report: null
 debug: false
 esm: false
-functions: 0
+functions: 100
 grep: []
 help: false
 invert: false
 jobs: 4
-lines: 90
+lines: 100
 node-arg: []
 nyc-arg: []
 nyc-help: false
@@ -118,7 +118,7 @@ rcfile: {CWD}/cli-tests/.taprc
 reporter: tap
 save: null
 show-process-tree: false
-statements: 0
+statements: 100
 test-arg: []
 timeout: 30
 version: false
@@ -129,7 +129,7 @@ versions: false
 
 exports[`test/run/dump-config.js TAP package.json parsing missing > output 1`] = `
 bail: false
-branches: 0
+branches: 100
 browser: true
 check-coverage: false
 color: false
@@ -138,12 +138,12 @@ coverage: false
 coverage-report: null
 debug: false
 esm: false
-functions: 0
+functions: 100
 grep: []
 help: false
 invert: false
 jobs: 4
-lines: 90
+lines: 100
 node-arg: []
 nyc-arg: []
 nyc-help: false
@@ -155,7 +155,7 @@ rcfile: {CWD}/cli-tests/.taprc
 reporter: tap
 save: null
 show-process-tree: false
-statements: 0
+statements: 100
 test-arg: []
 timeout: 30
 version: false
@@ -166,7 +166,7 @@ versions: false
 
 exports[`test/run/dump-config.js TAP turn color off and back on again > output 1`] = `
 bail: false
-branches: 0
+branches: 100
 browser: true
 check-coverage: false
 color: true
@@ -175,12 +175,12 @@ coverage: false
 coverage-report: null
 debug: false
 esm: false
-functions: 0
+functions: 100
 grep: []
 help: false
 invert: false
 jobs: 4
-lines: 90
+lines: 100
 node-arg: []
 nyc-arg: []
 nyc-help: false
@@ -192,7 +192,7 @@ rcfile: {CWD}/.taprc
 reporter: classic
 save: null
 show-process-tree: false
-statements: 0
+statements: 100
 test-arg: []
 timeout: 30
 version: false
@@ -203,7 +203,7 @@ versions: false
 
 exports[`test/run/dump-config.js TAP short options as well as short flags > output 1`] = `
 bail: true
-branches: 0
+branches: 100
 browser: true
 check-coverage: false
 color: false
@@ -212,12 +212,12 @@ coverage: false
 coverage-report: null
 debug: false
 esm: false
-functions: 0
+functions: 100
 grep: []
 help: false
 invert: false
 jobs: 2
-lines: 90
+lines: 100
 node-arg: []
 nyc-arg: []
 nyc-help: false
@@ -229,7 +229,7 @@ rcfile: {CWD}/.taprc
 reporter: tap
 save: null
 show-process-tree: false
-statements: 0
+statements: 100
 test-arg: []
 timeout: 0
 version: false
@@ -240,7 +240,7 @@ versions: false
 
 exports[`test/run/dump-config.js TAP good rc file > output 1`] = `
 bail: false
-branches: 0
+branches: 100
 browser: true
 check-coverage: false
 color: false
@@ -249,12 +249,12 @@ coverage: false
 coverage-report: null
 debug: false
 esm: false
-functions: 0
+functions: 100
 grep: []
 help: false
 invert: false
 jobs: 4
-lines: 90
+lines: 100
 node-arg: []
 nyc-arg: []
 nyc-help: false
@@ -266,7 +266,7 @@ rcfile: cli-tests/taprc
 reporter: spec
 save: null
 show-process-tree: false
-statements: 0
+statements: 100
 test-arg: []
 timeout: 30
 version: false
@@ -277,7 +277,7 @@ versions: false
 
 exports[`test/run/dump-config.js TAP empty rc file > output 1`] = `
 bail: false
-branches: 0
+branches: 100
 browser: true
 check-coverage: false
 color: true
@@ -286,12 +286,12 @@ coverage: false
 coverage-report: null
 debug: false
 esm: false
-functions: 0
+functions: 100
 grep: []
 help: false
 invert: false
 jobs: 4
-lines: 90
+lines: 100
 node-arg: []
 nyc-arg: []
 nyc-help: false
@@ -303,7 +303,7 @@ rcfile: cli-tests/taprc
 reporter: classic
 save: null
 show-process-tree: false
-statements: 0
+statements: 100
 test-arg: []
 timeout: 30
 version: false
