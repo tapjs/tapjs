@@ -505,7 +505,7 @@ Much more documentation available at: https://www.node-tap.org/
   TAP_RCFILE: env({
     description: `A yaml formatted file which can set any
                   of the above options.  Defaults to
-                  $HOME/.taprc`
+                  ./.taprc`
   }),
 
   TAP_TIMEOUT: env(num({
@@ -606,7 +606,7 @@ Much more documentation available at: https://www.node-tap.org/
   // You can break up the usage output this way.
   description: 'Config Files',
   help: `You can create a yaml file with any of the options above.  By
-         default, the file at ~/.taprc will be loaded, but the
+         default, the file at ./.taprc will be loaded, but the
          TAP_RCFILE environment variable can modify this.
 
          Run 'tap --dump-config' for a listing of what can be set in that
