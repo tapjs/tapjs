@@ -38,7 +38,7 @@ nyc-version: false
 only: true
 output-file: out.txt
 parser-version: false
-rcfile: {HOME}/.taprc
+rcfile: {CWD}/.taprc
 reporter: spec
 save: foo.txt
 show-process-tree: false
@@ -77,7 +77,7 @@ nyc-version: false
 only: false
 output-file: null
 parser-version: false
-rcfile: {HOME}/.taprc
+rcfile: {CWD}/.taprc
 reporter: classic
 save: null
 show-process-tree: false
@@ -114,7 +114,7 @@ nyc-version: false
 only: false
 output-file: null
 parser-version: false
-rcfile: {HOME}/.taprc
+rcfile: {CWD}/.taprc
 reporter: tap
 save: null
 show-process-tree: false

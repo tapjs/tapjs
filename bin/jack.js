@@ -437,12 +437,13 @@ Much more documentation available at: https://www.node-tap.org/
   rcfile: opt({
     hint: 'file',
     description: `Load any of these configurations from a YAML-formatted
-                  file at the path specified.  Defaults to $HOME/.taprc
+                  file at the path specified.  Defaults to .taprc in the
+                  current working directory.
 
                   Run 'tap --dump-config' to see available options and
                   formatting.`,
     envDefault: 'TAP_RCFILE',
-    default: `${osHomedir()}/.taprc`,
+    default: `${process.cwd()}/.taprc`,
   }),
 
   'output-file': opt({
