@@ -176,22 +176,25 @@ Much more documentation available at: https://www.node-tap.org/
   jobs: num({
     short: 'j',
     hint: 'n',
-    default: 1,
-    description:`Run up to <n> test files in parallel
-                 Note that this causes tests to be run in
-                 "buffered" mode, so line-by-line results
-                 cannot be reported, and older TAP
-                 parsers may get upset.`,
+    min: 1,
+    default: Math.min(require('os').cpus().length, 8),
+    description: `Run up to <n> test files in parallel.
+
+                  By default, this will be set to the number of CPUs on
+                  the system.
+
+                  Set --jobs=1 to disable parallelization entirely.`
   }),
 
   'jobs-auto': flag({
     short: 'J',
     alias: '--jobs=' + require('os').cpus().length,
     description: `Run test files in parallel (auto calculated)
-                  Note that this causes tests to be run in
-                  "buffered" mode, so line-by-line results
-                  cannot be reported, and older TAP
-                  parsers may get upset.`,
+
+                  This is the default as of v13, so this option serves
+                  little purpose except to re-set the parallelization
+                  back to the default if an early option set it differently.
+                  `
   }),
 
 }, {

@@ -20,11 +20,11 @@ exports[`test/run/basic.js TAP --parser-version > output 1`] = `
 
 exports[`test/run/basic.js TAP basic test run > ok.js output 1`] = `
 TAP version 13
-# Subtest: cli-tests/ok.js
+ok 1 - cli-tests/ok.js # {time} {
     ok 1 - this is fine
     1..1
     # {time}
-ok 1 - cli-tests/ok.js # {time}
+}
 
 1..1
 # {time}

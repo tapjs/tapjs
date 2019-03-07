@@ -68,7 +68,7 @@ functions: 0
 grep: []
 help: false
 invert: false
-jobs: 1
+jobs: 4
 lines: 69
 node-arg: []
 nyc-arg: []
@@ -105,7 +105,7 @@ functions: 0
 grep: []
 help: false
 invert: false
-jobs: 1
+jobs: 4
 lines: 90
 node-arg: []
 nyc-arg: []
@@ -216,7 +216,7 @@ functions: 0
 grep: []
 help: false
 invert: false
-jobs: 1
+jobs: 4
 lines: 90
 node-arg: []
 nyc-arg: []

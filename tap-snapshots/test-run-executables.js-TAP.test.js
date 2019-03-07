@@ -7,10 +7,10 @@
 'use strict'
 exports[`test/run/executables.js TAP executables > undefined 1`] = `
 TAP version 13
-# Subtest: exe/ok.sh
+ok 1 - exe/ok.sh # {time} {
     1..1
     ok 1 File with executable bit should be executed
-ok 1 - exe/ok.sh # {time}
+}
 
 1..1
 # {time}

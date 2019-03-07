@@ -7,11 +7,11 @@
 'use strict'
 exports[`test/run/languages.js TAP mjs > undefined 1`] = `
 TAP version 13
-# Subtest: cli-tests/mjs/ok.mjs
+ok 1 - cli-tests/mjs/ok.mjs # {time} {
     ok 1 - this is fine
     1..1
     # {time}
-ok 1 - cli-tests/mjs/ok.mjs # {time}
+}
 
 1..1
 # {time}
@@ -20,11 +20,11 @@ ok 1 - cli-tests/mjs/ok.mjs # {time}
 
 exports[`test/run/languages.js TAP esm > undefined 1`] = `
 TAP version 13
-# Subtest: cli-tests/esm/ok.js
+ok 1 - cli-tests/esm/ok.js # {time} {
     ok 1 - this is fine
     1..1
     # {time}
-ok 1 - cli-tests/esm/ok.js # {time}
+}
 
 1..1
 # {time}
@@ -33,11 +33,11 @@ ok 1 - cli-tests/esm/ok.js # {time}
 
 exports[`test/run/languages.js TAP ts > undefined 1`] = `
 TAP version 13
-# Subtest: cli-tests/ts/ok.ts
+ok 1 - cli-tests/ts/ok.ts # {time} {
     ok 1 - this is fine
     1..1
     # {time}
-ok 1 - cli-tests/ts/ok.ts # {time}
+}
 
 1..1
 # {time}

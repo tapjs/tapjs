@@ -7,17 +7,17 @@
 'use strict'
 exports[`test/run/coverage.js TAP generate some coverage > 100 pass 1`] = `
 TAP version 13
-# Subtest: 1.test.js
+ok 1 - 1.test.js # {time} {
     ok 1 - should be equal
     1..1
     # {time}
-ok 1 - 1.test.js # {time}
+}
 
-# Subtest: 2.test.js
+ok 2 - 2.test.js # {time} {
     ok 1 - should be equal
     1..1
     # {time}
-ok 2 - 2.test.js # {time}
+}
 
 1..2
 # {time}
