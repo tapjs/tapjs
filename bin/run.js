@@ -226,8 +226,12 @@ const setupTapEnv = options => {
     process.env.TAP_ONLY = '1'
 }
 
-const globFiles = files => files.reduce((acc, f) =>
+const globFiles = files => Array.from(files.reduce((acc, f) =>
   acc.concat(f === '-' ? f : glob.sync(f, { nonull: true })), [])
+  .reduce((set, f) => {
+    set.add(f)
+    return set
+  }, new Set()))
 
 const makeReporter = options =>
   new (require('tap-mocha-reporter'))(options.reporter)
@@ -357,7 +361,7 @@ const runAllFiles = (options, saved, tap) => {
     opt.childId = tapChildId++
     if (st.isDirectory()) {
       const dir = filterFiles(fs.readdirSync(file).map(f =>
-        file + '/' + f), saved, parallelOk)
+        file.replace(/[\/\\]+$/, '') + '/' + f), saved, parallelOk)
       options.files.splice(i, 1, ...dir)
       i--
     } else {
