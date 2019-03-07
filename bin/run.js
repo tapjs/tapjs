@@ -400,7 +400,7 @@ const runTests = options => {
   const tap = require('../lib/tap.js')
   if (options.comments) {
     const onComment = c => {
-      if (!c.match(/^# (time=[0-9\.]+m?s|Subtest(: .+))\n$/))
+      if (!c.match(/^# (time=[0-9\.]+m?s|Subtest(: .+)?)\n$/))
         console.error(c.substr(2).trim())
     }
     const onChild = p => {
