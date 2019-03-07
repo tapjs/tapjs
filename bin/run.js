@@ -37,6 +37,12 @@ const main = options => {
       options[i] = rc[i]
   }
 
+  const pj = parsePackageJson()
+  for (let i in pj) {
+    if (!options._.explicit.has(i))
+      options[i] = pj[i]
+  }
+
   if (options.reporter === null)
     options.reporter = options.color ? 'classic' : 'tap'
 
@@ -422,6 +428,14 @@ const runTests = options => {
   runAllFiles(options, saved, tap)
 
   tap.end()
+}
+
+const parsePackageJson = () => {
+  try {
+    return JSON.parse(fs.readFileSync('package.json', 'utf8')).tap || {}
+  } catch (er) {
+    return {}
+  }
 }
 
 const parseRcFile = path => {
