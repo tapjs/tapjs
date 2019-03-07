@@ -5,16 +5,16 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/run/basic.js TAP --parser-version > output 1`] = `
-7.0.0
+exports[`test/run/basic.js TAP --versions > output 1`] = `
+tap: 12.5.3
+tap-parser: 9.0.0
+nyc: 13.3.0
+
 
 `
 
-exports[`test/run/basic.js TAP --versions > output 1`] = `
-tap: 12.5.3
-tap-parser: 7.0.0
-nyc: 13.3.0
-
+exports[`test/run/basic.js TAP --parser-version > output 1`] = `
+9.0.0
 
 `
 
