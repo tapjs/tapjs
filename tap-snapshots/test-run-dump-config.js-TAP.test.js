@@ -53,7 +53,7 @@ versions: false
 
 `
 
-exports[`test/run/dump-config.js TAP package.json parsing > output 1`] = `
+exports[`test/run/dump-config.js TAP package.json parsing good > output 1`] = `
 bail: false
 branches: 0
 browser: true
@@ -70,6 +70,80 @@ help: false
 invert: false
 jobs: 4
 lines: 69
+node-arg: []
+nyc-arg: []
+nyc-help: false
+nyc-version: false
+only: false
+output-file: null
+parser-version: false
+rcfile: {CWD}/cli-tests/.taprc
+reporter: tap
+save: null
+show-process-tree: false
+statements: 0
+test-arg: []
+timeout: 30
+version: false
+versions: false
+
+
+`
+
+exports[`test/run/dump-config.js TAP package.json parsing bad > output 1`] = `
+bail: false
+branches: 0
+browser: true
+check-coverage: false
+color: false
+comments: false
+coverage: false
+coverage-report: null
+debug: false
+esm: false
+functions: 0
+grep: []
+help: false
+invert: false
+jobs: 4
+lines: 90
+node-arg: []
+nyc-arg: []
+nyc-help: false
+nyc-version: false
+only: false
+output-file: null
+parser-version: false
+rcfile: {CWD}/cli-tests/.taprc
+reporter: tap
+save: null
+show-process-tree: false
+statements: 0
+test-arg: []
+timeout: 30
+version: false
+versions: false
+
+
+`
+
+exports[`test/run/dump-config.js TAP package.json parsing missing > output 1`] = `
+bail: false
+branches: 0
+browser: true
+check-coverage: false
+color: false
+comments: false
+coverage: false
+coverage-report: null
+debug: false
+esm: false
+functions: 0
+grep: []
+help: false
+invert: false
+jobs: 4
+lines: 90
 node-arg: []
 nyc-arg: []
 nyc-help: false

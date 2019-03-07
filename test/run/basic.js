@@ -12,12 +12,15 @@ const {
 t.jobs = require('os').cpus().length
 
 t.test('no args', t => {
-  const c = run([], { env: { _TAP_IS_TTY: '1' } }, (er, o, e) => {
-    t.match(er, null)
-    t.match(e, /^Reading TAP data from stdin/)
+  const c = run([], {
+    env: { _TAP_IS_TTY: '1' },
+    cwd: dir,
+  }, (er, o, e) => {
+    t.match(er, { code: 1 })
+    t.match(o, /no tests specified/)
+    t.equal(e, '')
     t.end()
   })
-  c.stdin.end('TAP version 13\n1..1\nok\n')
 })
 
 t.test('no args, quiet', t => {
@@ -95,9 +98,19 @@ t.test('unknown short opt', t => {
 
 t.test('basic test run', t => {
   const ok = tmpfile(t, 'ok.js', `require(${tap}).pass('this is fine')`)
-  const args = ['-iSCbt0', '-g/nope/i', '--', 'doesnt exist', ok]
+  const args = ['-iSCbt0', '-g/nope/i', '--', ok]
   run(args, null, (err, stdout, stderr) => {
     t.matchSnapshot(clean(stdout), 'ok.js output')
     t.end()
   })
 })
+
+t.test('nonexistent file', t => {
+  run(['does not exist'], null, (er, o, e) => {
+    t.match(er, { code: 1 })
+    t.matchSnapshot(clean(o), 'stdout')
+    t.matchSnapshot(e, 'stderr')
+    t.end()
+  })
+})
+

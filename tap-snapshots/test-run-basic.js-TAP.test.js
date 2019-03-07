@@ -18,6 +18,38 @@ exports[`test/run/basic.js TAP --parser-version > output 1`] = `
 
 `
 
+exports[`test/run/basic.js TAP nonexistent file > stdout 1`] = `
+TAP version 13
+not ok 1 - does not exist # {time} {
+    not ok 1 - ENOENT: no such file or directory, stat 'does not exist'
+      ---
+      at:
+        line: #
+        column: #
+        file: #INTERNAL#
+      code: ENOENT
+      errno: -2
+      path: does not exist
+      stack: |
+        {STACK}
+      syscall: stat
+      test: does not exist
+      ...
+    
+    1..1
+    # failed 1 test
+}
+
+1..1
+# failed 1 test
+# {time}
+
+`
+
+exports[`test/run/basic.js TAP nonexistent file > stderr 1`] = `
+
+`
+
 exports[`test/run/basic.js TAP basic test run > ok.js output 1`] = `
 TAP version 13
 ok 1 - cli-tests/ok.js # {time} {

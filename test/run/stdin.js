@@ -15,7 +15,7 @@ t.test('with output file', t => {
     TAP: '0'
   }}, (er, o, e) => {
     t.equal(er, null)
-    t.matchSnapshot(e, 'stdin cannot be instrumented notice')
+    t.equal(e, '')
     t.match(o, /✓|√/)
     t.equal(fs.readFileSync('foo.txt', 'utf8'), tapcode)
     fs.unlinkSync('foo.txt')
@@ -25,12 +25,12 @@ t.test('with output file', t => {
 })
 
 t.test('no output file', t => {
-  const c = run(['--only', '-gx', '-iC', '-Rclassic'], { env: {
+  const c = run(['-', '--only', '-gx', '-iC', '-Rclassic'], { env: {
     _TAP_IS_TTY: '1',
     TAP: '0'
   }}, (er, o, e) => {
     t.equal(er, null)
-    t.match(e, /^Reading TAP data from stdin\n/)
+    t.equal(e, '')
     t.match(o, /total \.+ 1\/1/)
     t.throws(() => fs.statSync('foo.txt'))
     t.end()

@@ -5,24 +5,27 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/run/stdin.js TAP with file > undefined 1`] = `
+exports[`test/run/nonparallel.js TAP > output 1`] = `
 TAP version 13
-ok 1 - cli-tests/foo.test.js # {time} {
-    ok 1 - child # {time} {
-        ok 1 - this is fine
-        1..1
-    }
-    
+# Subtest: 1.js
+    start one
+    ok 1 - fine in 1
     1..1
     # {time}
-}
+ok 1 - 1.js # {time}
 
-ok 2 - /dev/stdin # {time} {
+# Subtest: 2.js
+    start two
+    ok 1 - fine in 2
     1..1
-    ok
-}
+    # {time}
+ok 2 - 2.js # {time}
 
 1..2
 # {time}
+
+`
+
+exports[`test/run/nonparallel.js TAP > stderr 1`] = `
 
 `

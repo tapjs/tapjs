@@ -21,7 +21,13 @@ const tsNode = require.resolve(
 )
 const esm = require.resolve('esm')
 
+const defaultFiles = () =>
+  glob.sync('{!(.git|node_modules)/**/__tests__,test,tests}/**/*.{ts,js,mjs}')
+
 const main = options => {
+  if (require.main !== module)
+    return
+
   // tell chalk if we want color or not.
   if (!options.color)
     process.argv.push('--no-color')
@@ -74,6 +80,10 @@ const main = options => {
   if (options['nyc-help'])
     return nycHelp()
 
+  if (options._.length === 0 && isTTY) {
+    options._.push.apply(options._, defaultFiles())
+  }
+
   options.files = globFiles(options._)
 
   process.stdout.on('error', er => {
@@ -93,18 +103,10 @@ const main = options => {
       options.files.length === 0)
     return runCoverageReportOnly(options)
 
-  if (options.files.length === 0) {
-    if (isTTY) {
-      console.error(
-        `Reading TAP data from stdin
-(use '-' argument to suppress this notice or -h for usage)`)
-    }
+  if (options.files.length === 0 && !isTTY)
     options.files.push('-')
-  }
 
   if (options.files.length === 1 && options.files[0] === '-') {
-    if (options.coverage)
-      console.error('Coverage disabled (stdin cannot be instrumented)')
     setupTapEnv(options)
     stdinOnly(options)
     return
@@ -202,7 +204,8 @@ const openHtmlCoverageReport = (options, code, signal) => {
 
 const nycHelp = _ => fg(node, [nycBin, '--help'])
 
-const setupTapEnv = options => {
+// export for easier testing
+const setupTapEnv = exports.setupTapEnv = options => {
   process.env.TAP_TIMEOUT = options.timeout
   if (options.color)
     process.env.TAP_COLORS = '1'
@@ -337,6 +340,10 @@ const runAllFiles = (options, saved, tap) => {
   options.files = filterFiles(options.files, saved, parallelOk)
   let tapChildId = 0
 
+  if (options.files.length === 0 && !doStdin) {
+    tap.test('no tests specified', t => t.threw(new Error('no tests specified!')))
+  }
+
   for (let i = 0; i < options.files.length; i++) {
     const opt = {}
     const file = options.files[i]
@@ -351,6 +358,7 @@ const runAllFiles = (options, saved, tap) => {
     try {
       st = fs.statSync(file)
     } catch (er) {
+      tap.test(file, t => t.threw(er))
       continue
     }
 

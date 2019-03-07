@@ -32,21 +32,37 @@ t.test('shotgun a bunch of option parsing junk', t => {
 })
 
 t.test('package.json parsing', t => {
-  const pj = tmpfile(t, 'package.json', JSON.stringify({
-    tap: {
-      lines: 69,
-      bail: true,
-    }
-  }))
-  const path = require('path')
-  const dir = path.dirname(pj)
-  run(['--dump-config', '-B'], {
-    cwd: dir,
-  }, (er, o, e) => {
-    t.equal(er, null)
-    t.matchSnapshot(clean(o), 'output')
-    t.end()
-  })
+  const cases = {
+    good: JSON.stringify({
+      tap: {
+        lines: 69,
+        bail: true,
+      }
+    }),
+    bad: '!$@Q$AERWA#WERSTE$%W',
+    missing: JSON.stringify({
+      foo: {
+        lines: 69,
+        bail: true,
+      }
+    })
+  }
+  for (const c in cases) {
+    t.test(c, t => {
+      const data = cases[c]
+      const pj = tmpfile(t, 'package.json', data)
+      const path = require('path')
+      const dir = path.dirname(pj)
+      run(['--dump-config', '-B'], {
+        cwd: dir,
+      }, (er, o, e) => {
+        t.equal(er, null)
+        t.matchSnapshot(clean(o), 'output')
+        t.end()
+      })
+    })
+  }
+  t.end()
 })
 
 t.test('turn color off and back on again', t => {
