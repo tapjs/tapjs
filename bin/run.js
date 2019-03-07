@@ -19,6 +19,7 @@ const isTTY = process.stdin.isTTY || process.env._TAP_IS_TTY === '1'
 const tsNode = require.resolve(
   'ts-node/' + require('ts-node/package.json').bin['ts-node']
 )
+const esm = require.resolve('esm')
 
 const main = options => {
   // tell chalk if we want color or not.
@@ -359,7 +360,7 @@ const runAllFiles = (options, saved, tap) => {
 
       if (file.match(/\.m?js$/)) {
         const args = [
-          ...(options.esm ? ['-r', 'esm'] : []),
+          ...(options.esm ? ['-r', esm] : []),
           ...options['node-arg'],
           file,
           ...options['test-arg']
