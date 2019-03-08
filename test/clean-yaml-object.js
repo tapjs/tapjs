@@ -60,7 +60,9 @@ const cases = [
       column: 420420
     }
   }, { source: null }],
-  [{ stack: '' }, { stack: null }]
+  [{ stack: '' }, { stack: null }],
+  [{ found: {}, wanted: {} }, { note: 'object identities differ' }],
+  [{ found: dom, wanted: dom }, { note: undefined }],
 ]
 cases.forEach(c => t.match(cyo(c[0]), c[1]))
 
