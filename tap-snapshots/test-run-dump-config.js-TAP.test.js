@@ -46,6 +46,8 @@ statements: 100
 test-arg:
   - xyz
   - abc
+test-ignore: (\\/|^)(node_modules|tap-snapshots)\\/
+test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mj|j|t)s$
 timeout: 99
 version: false
 versions: false
@@ -83,6 +85,8 @@ save: null
 show-process-tree: false
 statements: 100
 test-arg: []
+test-ignore: (\\/|^)(node_modules|tap-snapshots)\\/
+test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mj|j|t)s$
 timeout: 30
 version: false
 versions: false
@@ -120,6 +124,8 @@ save: null
 show-process-tree: false
 statements: 100
 test-arg: []
+test-ignore: (\\/|^)(node_modules|tap-snapshots)\\/
+test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mj|j|t)s$
 timeout: 30
 version: false
 versions: false
@@ -157,6 +163,8 @@ save: null
 show-process-tree: false
 statements: 100
 test-arg: []
+test-ignore: (\\/|^)(node_modules|tap-snapshots)\\/
+test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mj|j|t)s$
 timeout: 30
 version: false
 versions: false
@@ -189,11 +197,13 @@ only: false
 output-file: null
 parser-version: false
 rcfile: {CWD}/.taprc
-reporter: classic
+reporter: new
 save: null
 show-process-tree: false
 statements: 100
 test-arg: []
+test-ignore: (\\/|^)(node_modules|tap-snapshots)\\/
+test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mj|j|t)s$
 timeout: 30
 version: false
 versions: false
@@ -231,6 +241,8 @@ save: null
 show-process-tree: false
 statements: 100
 test-arg: []
+test-ignore: (\\/|^)(node_modules|tap-snapshots)\\/
+test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mj|j|t)s$
 timeout: 0
 version: false
 versions: false
@@ -268,6 +280,8 @@ save: null
 show-process-tree: false
 statements: 100
 test-arg: []
+test-ignore: (\\/|^)(node_modules|tap-snapshots)\\/
+test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mj|j|t)s$
 timeout: 30
 version: false
 versions: false
@@ -300,11 +314,13 @@ only: false
 output-file: null
 parser-version: false
 rcfile: cli-tests/taprc
-reporter: classic
+reporter: new
 save: null
 show-process-tree: false
 statements: 100
 test-arg: []
+test-ignore: (\\/|^)(node_modules|tap-snapshots)\\/
+test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mj|j|t)s$
 timeout: 30
 version: false
 versions: false

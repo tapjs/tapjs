@@ -371,6 +371,33 @@ Much more documentation available at: https://www.node-tap.org/
     description: 'Show the version of this program.',
   }),
 
+  'test-regex': opt({
+    hint: 'pattern',
+    default: '((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mj|j|t)s$',
+    description: `A regular expression pattern indicating tests to run if no
+                  positional arguments are provided.
+
+                  By default, tap will search for all files ending in
+                  .ts, .js, or .mjs, in a top-level folder named test,
+                  tests, or __tests__, or any file ending in .spec. or .test.
+                  before a js, mjs, or ts extension.
+
+                  Ie, the default value for this option is:
+                  ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mj|j|t)s$
+                  `
+  }),
+
+  'test-ignore': opt({
+    hint: 'pattern',
+    default: '(\\/|^)(node_modules|tap-snapshots)\\/',
+    description: `When no positional arguments are provided, use the supplied
+                  regular expression pattern to exclude tests that would
+                  otherwise be matched by the test-regexp.
+
+                  Defaults to '(\\/|^)(node_modules|tap-snapshots)\\/',
+                  which excludes dependencies and tap-generated snapshots.`,
+  }),
+
   'test-arg': list({
     hint: 'arg',
     description: `Pass an argument to test files spawned

@@ -1,6 +1,4 @@
 #!/usr/bin/env node
-'use strict'
-
 const opener = require('opener')
 const node = process.execPath
 const fs = require('fs')
@@ -21,10 +19,18 @@ const tsNode = require.resolve(
 )
 const esm = require.resolve('esm')
 
-const defaultFiles = () =>
-  glob.sync('{!(.git|node_modules)/**/__tests__,test,tests}/**/*.{ts,js,mjs}')
+const defaultFiles = options => new Promise((res, rej) => {
+  const findit = require('findit')
+  const finder = findit('.', {followSymlinks: true})
+  const files = []
+  const good = strToRegExp(options['test-regex'])
+  const bad = strToRegExp(options['test-ignore'])
+  finder.on('file', f => good.test(f) && !bad.test(f) && files.push(f))
+  finder.on('end', () => res(files))
+  finder.on('error', er => rej(er))
+})
 
-const main = options => {
+const main = async options => {
   if (require.main !== module)
     return
 
@@ -81,7 +87,7 @@ const main = options => {
     return nycHelp()
 
   if (options._.length === 0 && isTTY) {
-    options._.push.apply(options._, defaultFiles())
+    options._.push.apply(options._, await defaultFiles(options))
   }
 
   options.files = globFiles(options._)
@@ -112,6 +118,7 @@ const main = options => {
     return
   }
 
+  // XXX get rid of this respawn kludge.  It's slow af.
   /* istanbul ignore next */
   if (options.coverage && !process.env.NYC_CONFIG)
     respawnWithCoverage(options)
