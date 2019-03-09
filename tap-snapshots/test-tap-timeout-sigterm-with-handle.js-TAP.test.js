@@ -19,8 +19,6 @@ not ok 2 - timeout!
   ---
   expired: TAP
   signal: SIGTERM
-  stack: |
-    {STACK}
   test: TAP
   ...
 

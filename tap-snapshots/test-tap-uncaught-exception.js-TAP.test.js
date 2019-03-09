@@ -28,8 +28,6 @@ not ok 3 - poop
     --^
       t.pass('i am sure things are ok')
     }
-  stack: |
-    {STACK}
   tapCaught: uncaughtException
   test: TAP
   ...

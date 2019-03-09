@@ -6,6 +6,8 @@ const clean = require('../clean-stacks.js')
 if (module === require.main)
   require('../../lib/tap.js').pass('just the index')
 
+process.env.TAP_DEV_SHORTSTACK = '1'
+
 module.exports = (...test) => {
   if (process.argv[2] === 'runtest') {
     // run the init function _before_ loading the root tap object

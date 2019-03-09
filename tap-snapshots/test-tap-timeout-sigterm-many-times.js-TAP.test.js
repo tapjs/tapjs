@@ -32,8 +32,6 @@ not ok 2 - timeout!
         encoding: null
         err: null
   expired: TAP
-  stack: |
-    {STACK}
   test: TAP
   ...
 
