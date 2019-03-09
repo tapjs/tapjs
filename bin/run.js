@@ -286,6 +286,7 @@ const stdinOnly = options => {
   // if we didn't specify any files, then just passthrough
   // to the reporter, so we don't get '/dev/stdin' in the suite list.
   // We have to pause() before piping to switch streams2 into old-mode
+  /* istanbul ignore next */
   if (options.reporter === 'new') {
     // XXX add a stdinOnly() method that doesn't make stdin a subtest
     const tap = require('../lib/tap.js')
