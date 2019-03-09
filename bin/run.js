@@ -86,12 +86,6 @@ const main = async options => {
   if (options['nyc-help'])
     return nycHelp()
 
-  if (options._.length === 0 && isTTY) {
-    options._.push.apply(options._, await defaultFiles(options))
-  }
-
-  options.files = globFiles(options._)
-
   process.stdout.on('error', er => {
     /* istanbul ignore else */
     if (er.code === 'EPIPE')
@@ -106,8 +100,18 @@ const main = async options => {
   /* istanbul ignore next */
   if ((options._.explicit.has('coverage-report') ||
        options._.explicit.has('check-coverage')) &&
-      options.files.length === 0)
+      options._.length === 0)
     return runCoverageReportOnly(options)
+
+  try {
+    if (options._.length === 0 && isTTY) {
+      options._.push.apply(options._, await defaultFiles(options))
+    }
+  } catch (er) {
+    return require('../lib/tap.js').threw(er)
+  }
+
+  options.files = globFiles(options._)
 
   if (options.files.length === 0 && !isTTY)
     options.files.push('-')
