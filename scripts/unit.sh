@@ -12,9 +12,9 @@ else
   include=$(echo +(bin|lib)/$1.js)
   if [ -f "$include" ]; then
     set -x
-    node bin/run.js --100 test/${1}* --nyc-arg=--include="$include" -J
+    node bin/run.js test/${1}* --nyc-arg=--include="$include"
   else
     set -x
-    node bin/run.js test/${1}*
+    node bin/run.js test/${1}* --no-cov
   fi
 fi
