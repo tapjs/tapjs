@@ -20,6 +20,10 @@ t.test('should notice objects with different shapes', t => {
     { a: 1 },
     { a: 1, b: undefined }
   ))
+  t.notOk(match(t,
+    {at:null},
+    {at: {line: Number}}
+  ))
   t.end()
 })
 

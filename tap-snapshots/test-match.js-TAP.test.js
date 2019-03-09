@@ -33,6 +33,17 @@ exports[`test/match.js TAP should notice objects with different shapes > undefin
  }
 `
 
+exports[`test/match.js TAP should notice objects with different shapes > undefined 3`] = `
+--- expected
++++ actual
+ Object {
+-  "at": Object {
+-    "line": Function Number(),
+-  },
++  "at": null,
+ }
+`
+
 exports[`test/match.js TAP extra keys in object are ok > undefined 1`] = `
 --- expected
 +++ actual
