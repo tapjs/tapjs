@@ -1794,15 +1794,17 @@ ok 12 - type is EventEmitter
 exports[`test/test.js TAP assertions and weird stuff throws > throws 1`] = `
 TAP version 13
 ok 1 - expected to throw
-ok 2 - expected to throw
-ok 3 - expected to throw: TypeError x
-ok 4 - expected to throw
-ok 5 - expected to throw: Error x
-ok 6 - expected to throw
+ok 2 - returns the error that was thrown
+ok 3 - expected to throw
+ok 4 - expected to throw: TypeError x
+ok 5 - expected to throw
+ok 6 - expected to throw: Error x
 ok 7 - expected to throw
 ok 8 - expected to throw
-ok 9 - expected to throw: Error noent
-not ok 10 - fail: does not throw actually
+ok 9 - expected to throw
+ok 10 - returns the error that was thrown
+ok 11 - expected to throw: Error noent
+not ok 12 - fail: does not throw actually
   ---
   at:
     line: #
@@ -1818,12 +1820,12 @@ not ok 10 - fail: does not throw actually
     {STACK}
   ...
 
-ok 11 - expected to throw # SKIP
-ok 12 - expected to throw
-ok 13 - extra functions are no-ops for bw comp
-ok 14 - todo # TODO
-1..14
-# failed 1 of 14 tests
+ok 13 - expected to throw # SKIP
+ok 14 - expected to throw
+ok 15 - extra functions are no-ops for bw comp
+ok 16 - todo # TODO
+1..16
+# failed 1 of 16 tests
 # todo: 1
 # skip: 1
 

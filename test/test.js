@@ -333,7 +333,8 @@ t.test('assertions and weird stuff', t => {
     },
 
     throws: tt => {
-      tt.throws(() => { throw new TypeError('x') }, TypeError)
+      tt.match(tt.throws(() => { throw new TypeError('x') }, TypeError),
+        new TypeError('x'), 'returns the error that was thrown')
       tt.throws(() => { throw new TypeError('x') }, TypeError)
       tt.throws(() => { throw new TypeError('x') },
                 new TypeError('x'))
@@ -348,7 +349,8 @@ t.test('assertions and weird stuff', t => {
       tt.throws(() => { throw new Error('x') }, nameless)
       tt.throws(() => { throw nameless }, { message: 'x' })
       tt.throws(() => { throw nameless }, /^.$/)
-      tt.throws(() => { throw nameless })
+      tt.match(tt.throws(() => { throw nameless }), nameless,
+        'returns the error that was thrown')
 
       const prop = new Error('noent')
       prop.code= 'ENOENT'
