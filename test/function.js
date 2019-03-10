@@ -39,7 +39,7 @@ throw 'do not call'
 const anon = function () { throw 'do not call' }
 
 const misnamed = function john () {throw 'do not call'}
-misnamed.name = 'jack'
+Object.defineProperty(misnamed, 'name', { value: 'jack' })
 
 const x = (function () {
   return (x) => 'no name'
@@ -72,9 +72,9 @@ t.matchSnapshot(s1, 'first stringify')
 const p1 = yaml.parse(s1)
 t.matchSnapshot(p1, 'parsed stringified')
 // the parsed functions are all no-ops.
-for (const [_,fn] of Object.entries(p1)) {
+for (const [key,fn] of Object.entries(p1)) {
   t.equal(fn(), undefined)
-  t.equal(fn.name, 'parsedYamlFunction')
+  t.equal(fn.name, obj[key].name)
 }
 const s2 = yaml.stringify(p1)
 t.equal(s2, s1, 'second stringify matches first')

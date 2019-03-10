@@ -7,14 +7,18 @@
 'use strict'
 exports[`test/function.js TAP > first stringify 1`] = `
 f: !function |-
+  "foo"
   function foo () {
     return 'i have a name'
   }
 a: !function |-
+  "anon"
   function () { throw 'do not call' }
 m: !function |-
+  "jack"
   function john () {throw 'do not call'}
 s: !function |-
+  "spacey"
   function                 spacey              (
     im,
 
@@ -47,12 +51,16 @@ s: !function |-
 
   }
 b: !function |-
+  ""
   (x) => 'no name'
 y: !function |-
+  ""
   y => 'yolo'
 c: !function |-
+  "arrow"
   (x, y, z) => 'time flies like me'
 d: !function |-
+  "arrowBraces"
   (x, y, z) => {
     'fruit flies like me'
     throw 'do not call'
@@ -61,12 +69,12 @@ d: !function |-
 `
 
 exports[`test/function.js TAP > parsed stringified 1`] = `
-{ f: { [Function: parsedYamlFunction] toString: [Function] },
-  a: { [Function: parsedYamlFunction] toString: [Function] },
-  m: { [Function: parsedYamlFunction] toString: [Function] },
-  s: { [Function: parsedYamlFunction] toString: [Function] },
-  b: { [Function: parsedYamlFunction] toString: [Function] },
-  y: { [Function: parsedYamlFunction] toString: [Function] },
-  c: { [Function: parsedYamlFunction] toString: [Function] },
-  d: { [Function: parsedYamlFunction] toString: [Function] } }
+{ f: { [Function: foo] toString: [Function] },
+  a: { [Function: anon] toString: [Function] },
+  m: { [Function: jack] toString: [Function] },
+  s: { [Function: spacey] toString: [Function] },
+  b: { [Function] toString: [Function] },
+  y: { [Function] toString: [Function] },
+  c: { [Function: arrow] toString: [Function] },
+  d: { [Function: arrowBraces] toString: [Function] } }
 `
