@@ -18,6 +18,7 @@ const tsNode = require.resolve(
   'ts-node/' + require('ts-node/package.json').bin['ts-node']
 )
 const esm = require.resolve('esm')
+const jsx = require.resolve('./jsx.js')
 
 const defaultFiles = options => new Promise((res, rej) => {
   const findit = require('findit')
@@ -402,7 +403,23 @@ const runAllFiles = (options, saved, tap) => {
           ...options['test-arg']
         ]
         tap.spawn(tsNode, args, opt, file)
-      } else if (isexe.sync(options.files[i]))
+      } else if (file.match(/\.jsx$/)) {
+        const args = [
+          ...(options['node-arg']),
+          jsx,
+          file,
+          ...(options['test-arg']),
+        ]
+        tap.spawn(node, args, opt, file)
+      } else if (file.match(/\.tsx$/)) {
+        const args = [
+          '--compiler-options={"jsx":"react"}',
+          ...(options['node-arg']),
+          file,
+          ...(options['test-arg']),
+        ]
+        tap.spawn(tsNode, args, opt, file)
+      } if (isexe.sync(options.files[i]))
         tap.spawn(options.files[i], options['test-arg'], opt, file)
     }
   }

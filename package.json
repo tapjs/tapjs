@@ -27,6 +27,7 @@
     "fs-exists-cached": "^1.0.0",
     "function-loop": "^1.0.1",
     "glob": "^7.1.3",
+    "import-jsx": "^1.3.2",
     "isexe": "^2.0.0",
     "jackspeak": "^1.3.4",
     "js-yaml": "^3.12.1",
@@ -76,13 +77,18 @@
   "nyc": {
     "include": [
       "bin/run.js",
+      "bin/jsx.js",
       "bin/jack.js",
       "lib/*.js"
     ]
   },
   "files": [
     "bin/run.js",
+    "bin/jsx.js",
     "bin/jack.js",
     "lib/*.js"
-  ]
+  ],
+  "devDependencies": {
+    "react": "^16.8.4"
+  }
 }

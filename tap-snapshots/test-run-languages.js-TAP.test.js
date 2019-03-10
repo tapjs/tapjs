@@ -31,9 +31,35 @@ ok 1 - cli-tests/esm/ok.js # {time} {
 
 `
 
+exports[`test/run/languages.js TAP jsx > undefined 1`] = `
+TAP version 13
+ok 1 - cli-tests/jsx/ok.jsx # {time} {
+    ok 1 - this is fine
+    1..1
+    # {time}
+}
+
+1..1
+# {time}
+
+`
+
 exports[`test/run/languages.js TAP ts > undefined 1`] = `
 TAP version 13
 ok 1 - cli-tests/ts/ok.ts # {time} {
+    ok 1 - this is fine
+    1..1
+    # {time}
+}
+
+1..1
+# {time}
+
+`
+
+exports[`test/run/languages.js TAP tsx > undefined 1`] = `
+TAP version 13
+ok 1 - cli-tests/tsx/ok.tsx # {time} {
     ok 1 - this is fine
     1..1
     # {time}
