@@ -69,13 +69,3 @@ ok 1 - cli-tests/tsx/ok.tsx # {time} {
 # {time}
 
 `
-
-exports[`test/run/languages.js TAP running jsx thingie directly raises an error > stderr 1`] = `
-{CWD}/bin/jsx.js:4
-  throw new Error('this should only be used to load a jsx file')
-  ^
-
-Error: this should only be used to load a jsx file
-    {STACK}
-
-`

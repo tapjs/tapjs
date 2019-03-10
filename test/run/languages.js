@@ -75,7 +75,6 @@ t.test('running jsx thingie directly raises an error', t => {
   const {execFile} = require('child_process')
   execFile(process.execPath, [jsx], (er, o, e) => {
     t.match(er, { code: 1 })
-    t.matchSnapshot(clean(e), 'stderr')
     t.end()
   })
 })
