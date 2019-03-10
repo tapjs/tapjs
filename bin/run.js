@@ -173,9 +173,7 @@ const runNyc = (cmd, programArgs, options, spawnOpts) => {
 }
 
 /* istanbul ignore next */
-const runCoverageReportOnly = options => {
-  runNyc(['report'], [], options)
-}
+const runCoverageReportOnly = options => runNyc(['report'], [], options)
 
 /* istanbul ignore next */
 const pipeToCoveralls = options => {
