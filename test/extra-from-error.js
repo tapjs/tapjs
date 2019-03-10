@@ -128,6 +128,12 @@ ${new Error().stack.split('\n').slice(1).join('\n')}`,
 this is some code prettified up
 `,
   }],
+
+  [{
+    source: { context: 'remove me' }
+  }, null, null, {
+    source: { context: null }
+  }],
 ]
 
 cases.forEach(c => t.match(extraFromError(c[0], c[1], c[2]), c[3]))
