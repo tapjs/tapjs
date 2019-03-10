@@ -158,14 +158,18 @@ const runNyc = (cmd, programArgs, options, spawnOpts) => {
 
   args.push.apply(args, programArgs)
 
-  const child = fg(node, args, spawnOpts)
+  if (spawnOpts)
+    return fg(node, args, spawnOpts)
 
-  if (reporter === 'lcov' && options.browser) {
-    child.removeAllListeners('close')
-    child.on('close', (code, signal) =>
-      openHtmlCoverageReport(options, code, signal))
-  }
-  return child
+  // fake it
+  process.argv = [
+    node,
+    ...args,
+  ]
+  require(nycBin)
+
+  if (reporter === 'lcov' && options.browser)
+    process.on('exit', () => openHtmlCoverageReport(options))
 }
 
 /* istanbul ignore next */
