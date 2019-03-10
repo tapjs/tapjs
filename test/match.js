@@ -64,17 +64,21 @@ t.test('should handle RegExps', t => {
   t.end()
 })
 
-t.test('should handle functions', t => {
-  var fnA = function (a) { return a }
-  var fnB = function (a) { return a }
+t.test('should handle functions', function (t) {
+  const fnA = function fnA (a) { return a }
+  const fnB = function fnB (a) { return a }
 
-  t.notOk(match(t,
+  t.ok(match(t,
     function a () {},
-    function a () {} // but is it the _same_ a tho
+    function a () {}
   ))
-  t.notOk(match(t,fnA, fnB))
-  t.ok(match(t,fnA, fnA))
-  t.ok(match(t,fnB, fnB))
+  t.notOk(match(t,
+    function a () { return b },
+    function a () { return a }
+  ), 'different toString')
+  t.notOk(match(t, fnA, fnB), 'different names')
+  t.ok(match(t, fnA, fnA))
+  t.ok(match(t, fnB, fnB))
   t.end()
 })
 

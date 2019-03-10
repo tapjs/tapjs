@@ -171,12 +171,18 @@ exports[`test/match.js TAP should handle RegExps > undefined 9`] = `
 exports[`test/match.js TAP should handle functions > undefined 1`] = `
 --- expected
 +++ actual
+ Function a()
+`
+
+exports[`test/match.js TAP should handle functions > undefined 2`] = `
+--- expected
++++ actual
 -Function a()
 +Function a()
 
 `
 
-exports[`test/match.js TAP should handle functions > undefined 2`] = `
+exports[`test/match.js TAP should handle functions > undefined 3`] = `
 --- expected
 +++ actual
 -Function fnB(a)
@@ -184,13 +190,13 @@ exports[`test/match.js TAP should handle functions > undefined 2`] = `
 
 `
 
-exports[`test/match.js TAP should handle functions > undefined 3`] = `
+exports[`test/match.js TAP should handle functions > undefined 4`] = `
 --- expected
 +++ actual
  Function fnA(a)
 `
 
-exports[`test/match.js TAP should handle functions > undefined 4`] = `
+exports[`test/match.js TAP should handle functions > undefined 5`] = `
 --- expected
 +++ actual
  Function fnB(a)

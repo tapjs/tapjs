@@ -407,12 +407,18 @@ exports[`test/same.js TAP should handle RegExps > undefined 4`] = `
 exports[`test/same.js TAP should handle functions > undefined 1`] = `
 --- expected
 +++ actual
+ Function a()
+`
+
+exports[`test/same.js TAP should handle functions > undefined 2`] = `
+--- expected
++++ actual
 -Function a()
 +Function a()
 
 `
 
-exports[`test/same.js TAP should handle functions > undefined 2`] = `
+exports[`test/same.js TAP should handle functions > undefined 3`] = `
 --- expected
 +++ actual
 -Function fnB(a)
@@ -420,13 +426,13 @@ exports[`test/same.js TAP should handle functions > undefined 2`] = `
 
 `
 
-exports[`test/same.js TAP should handle functions > undefined 3`] = `
+exports[`test/same.js TAP should handle functions > undefined 4`] = `
 --- expected
 +++ actual
  Function fnA(a)
 `
 
-exports[`test/same.js TAP should handle functions > undefined 4`] = `
+exports[`test/same.js TAP should handle functions > undefined 5`] = `
 --- expected
 +++ actual
  Function fnB(a)

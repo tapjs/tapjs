@@ -155,16 +155,20 @@ t.test('should handle RegExps', function (t) {
 })
 
 t.test('should handle functions', function (t) {
-  var fnA = function (a) { return a }
-  var fnB = function (a) { return a }
+  const fnA = function fnA (a) { return a }
+  const fnB = function fnB (a) { return a }
 
-  t.notOk(same(t,
+  t.ok(same(t,
     function a () {},
-    function a () {} // but is it the _same_ a tho
+    function a () {}
   ))
-  t.notOk(same(t,fnA, fnB))
-  t.ok(same(t,fnA, fnA))
-  t.ok(same(t,fnB, fnB))
+  t.notOk(same(t,
+    function a () { return b },
+    function a () { return a }
+  ), 'different toString')
+  t.notOk(same(t, fnA, fnB), 'different names')
+  t.ok(same(t, fnA, fnA))
+  t.ok(same(t, fnB, fnB))
   t.end()
 })
 
