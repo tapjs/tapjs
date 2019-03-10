@@ -72,7 +72,8 @@
     "postpublish": "git push origin --all; git push origin --tags"
   },
   "tap": {
-    "esm": false
+    "esm": false,
+    "test-ignore": "/(^|/)(cli-tests-[0-9]+|tap-snapshots|node_modules)/"
   },
   "nyc": {
     "include": [

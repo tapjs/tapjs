@@ -105,9 +105,8 @@ const main = async options => {
     return runCoverageReportOnly(options)
 
   try {
-    if (options._.length === 0 && isTTY) {
+    if (options._.length === 0 && isTTY)
       options._.push.apply(options._, await defaultFiles(options))
-    }
   } catch (er) {
     return require('../lib/tap.js').threw(er)
   }
