@@ -45,7 +45,7 @@
     "tap-mocha-reporter": "^4.0.1",
     "tap-parser": "^9.0.0",
     "tap-yaml": "0.0.2",
-    "tcompare": "^1.1.1",
+    "tcompare": "^2.0.0",
     "trivial-deferred": "^1.0.1",
     "ts-node": "^8.0.2",
     "typescript": "^3.3.3",
