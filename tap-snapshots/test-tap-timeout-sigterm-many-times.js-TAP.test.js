@@ -17,21 +17,10 @@ TAP version 13
 ok 1 - fine
 not ok 2 - timeout!
   ---
-  signal: SIGTERM
+  expired: TAP
   requests:
     - type: FSReqCallback
-      context:
-        fd: 21
-        isUserFd: false
-        size: null
-        callback: !function |-
-          (er, data) => {}
-        buffers: null
-        buffer: null
-        pos: 0
-        encoding: null
-        err: null
-  expired: TAP
+  signal: SIGTERM
   test: TAP
   ...
 

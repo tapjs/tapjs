@@ -59,7 +59,7 @@ not ok 1 - spawn something that does not exist ENOENT
     - pipe
     - 2
   syscall: spawn something that does not exist
-  test: 'something that does not exist '
+  test: "something that does not exist "
   ...
 1..1
 # failed 1 test
