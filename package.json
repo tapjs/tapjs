@@ -68,7 +68,7 @@
     "postunit": "npm run posttest",
     "t": "node bin/run.js test -J -sfails.txt",
     "preversion": "npm test",
-    "postversion": "npm publish",
+    "postversion": "npm publish --tag=next",
     "postpublish": "git push origin --all; git push origin --tags"
   },
   "tap": {
