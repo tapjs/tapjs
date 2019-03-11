@@ -373,7 +373,7 @@ Much more documentation available at: https://www.node-tap.org/
 
   'test-regex': opt({
     hint: 'pattern',
-    default: '((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mj|j|t)s$',
+    default: '((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mjs|[jt]sx?)$',
     description: `A regular expression pattern indicating tests to run if no
                   positional arguments are provided.
 
