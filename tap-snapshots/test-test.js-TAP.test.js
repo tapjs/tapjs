@@ -1434,12 +1434,9 @@ not ok 4 - should be equal
     column: #
     file: test/test.js
   compare: ===
-  diff: |
-    --- wanted
-    +++ found
   found:
     foo: 1
-  note: Objects never === one another
+  note: object identities differ
   source: |2
           // fails, but with the special note
           tt.equal({foo: 1}, {foo: 1})

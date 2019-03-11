@@ -197,7 +197,7 @@ only: false
 output-file: null
 parser-version: false
 rcfile: {CWD}/.taprc
-reporter: new
+reporter: classic
 save: null
 show-process-tree: false
 statements: 100
@@ -314,7 +314,7 @@ only: false
 output-file: null
 parser-version: false
 rcfile: cli-tests/taprc
-reporter: new
+reporter: classic
 save: null
 show-process-tree: false
 statements: 100
