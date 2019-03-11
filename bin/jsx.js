@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const index = process.argv.indexOf(__filename)
-if (index === -1 || index === process.argv.length - 1)
+if (__filename !== process.argv[1] || process.argv.length < 3)
   throw new Error('this should only be used to load a jsx file')
-require('import-jsx')(require('path').resolve(process.argv[index + 1]))
+process.argv.splice(1, 1)
+require('import-jsx')(require('path').resolve(process.argv[1]))
