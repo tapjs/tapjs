@@ -60,7 +60,7 @@
   "license": "ISC",
   "repository": "https://github.com/tapjs/node-tap.git",
   "scripts": {
-    "snap": "node bin/run.js --snapshot",
+    "snap": "bash scripts/snap.sh",
     "test": "node bin/run.js",
     "unit": "bash scripts/unit.sh",
     "posttest": "rm -rf cli-tests-*",
