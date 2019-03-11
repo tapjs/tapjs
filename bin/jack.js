@@ -389,13 +389,17 @@ Much more documentation available at: https://www.node-tap.org/
 
   'test-ignore': opt({
     hint: 'pattern',
-    default: '(\\/|^)(node_modules|tap-snapshots)\\/',
+    default: '$.',
     description: `When no positional arguments are provided, use the supplied
                   regular expression pattern to exclude tests that would
                   otherwise be matched by the test-regexp.
 
-                  Defaults to '(\\/|^)(node_modules|tap-snapshots)\\/',
-                  which excludes dependencies and tap-generated snapshots.`,
+                  Defaults to '$.', which intentionally matches nothing.
+
+                  Note: folders named tap-snapshots, node_modules, .git, and
+                  .hg are ALWAYS excluded from the default test file set.  If
+                  you wish to run tests in these folders, then name the test
+                  files on the command line as positional arguments.`,
   }),
 
   'test-arg': list({

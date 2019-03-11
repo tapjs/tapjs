@@ -22,13 +22,33 @@ const jsx = require.resolve('./jsx.js')
 
 const defaultFiles = options => new Promise((res, rej) => {
   const findit = require('findit')
-  const finder = findit('.', {followSymlinks: true})
-  const files = []
   const good = strToRegExp(options['test-regex'])
   const bad = strToRegExp(options['test-ignore'])
-  finder.on('file', f => good.test(f) && !bad.test(f) && files.push(f))
-  finder.on('end', () => res(files))
-  finder.on('error', er => rej(er))
+  const fileFilter = f => good.test(f) && !bad.test(f)
+  const addFile = files => f => fileFilter(f) && files.push(f)
+
+  // search in any folder that isn't node_modules, .git, or tap-snapshots
+  fs.readdir(process.cwd(), (er, entries) => {
+    Promise.all(entries.filter(entry =>
+      !/^(node_modules|tap-snapshots|.git|.hg)$/.test(entry)
+    ).map(entry => new Promise((res, rej) => {
+      fs.lstat(entry, (er, stat) => {
+        // It's pretty unusual to have a file in cwd you can't even stat
+        /* istanbul ignore next */
+        if (er)
+          return rej(er)
+        if (stat.isFile())
+          return res(fileFilter(entry) ? [entry] : [])
+        if (!stat.isDirectory())
+          return res([])
+        const finder = findit(entry, {followSymlinks: true})
+        const files = []
+        finder.on('file', addFile(files))
+        finder.on('end', () => res(files))
+        finder.on('error', er => rej(er))
+      })
+    }))).then(a => res(a.reduce((a, i) => a.concat(i), []))).catch(rej)
+  })
 })
 
 const main = async options => {

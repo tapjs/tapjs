@@ -46,8 +46,8 @@ statements: 100
 test-arg:
   - xyz
   - abc
-test-ignore: /(^|/)(cli-tests-[0-9]+|tap-snapshots|node_modules)/
-test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mj|j|t)s$
+test-ignore: /(^|/)cli-tests-[0-9]+/
+test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mjs|[jt]sx?)$
 timeout: 99
 version: false
 versions: false
@@ -85,8 +85,8 @@ save: null
 show-process-tree: false
 statements: 100
 test-arg: []
-test-ignore: (\\/|^)(node_modules|tap-snapshots)\\/
-test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mj|j|t)s$
+test-ignore: $.
+test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mjs|[jt]sx?)$
 timeout: 30
 version: false
 versions: false
@@ -124,8 +124,8 @@ save: null
 show-process-tree: false
 statements: 100
 test-arg: []
-test-ignore: (\\/|^)(node_modules|tap-snapshots)\\/
-test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mj|j|t)s$
+test-ignore: $.
+test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mjs|[jt]sx?)$
 timeout: 30
 version: false
 versions: false
@@ -163,8 +163,8 @@ save: null
 show-process-tree: false
 statements: 100
 test-arg: []
-test-ignore: (\\/|^)(node_modules|tap-snapshots)\\/
-test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mj|j|t)s$
+test-ignore: $.
+test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mjs|[jt]sx?)$
 timeout: 30
 version: false
 versions: false
@@ -202,8 +202,8 @@ save: null
 show-process-tree: false
 statements: 100
 test-arg: []
-test-ignore: /(^|/)(cli-tests-[0-9]+|tap-snapshots|node_modules)/
-test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mj|j|t)s$
+test-ignore: /(^|/)cli-tests-[0-9]+/
+test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mjs|[jt]sx?)$
 timeout: 30
 version: false
 versions: false
@@ -241,8 +241,8 @@ save: null
 show-process-tree: false
 statements: 100
 test-arg: []
-test-ignore: /(^|/)(cli-tests-[0-9]+|tap-snapshots|node_modules)/
-test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mj|j|t)s$
+test-ignore: /(^|/)cli-tests-[0-9]+/
+test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mjs|[jt]sx?)$
 timeout: 0
 version: false
 versions: false
@@ -280,8 +280,8 @@ save: null
 show-process-tree: false
 statements: 100
 test-arg: []
-test-ignore: /(^|/)(cli-tests-[0-9]+|tap-snapshots|node_modules)/
-test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mj|j|t)s$
+test-ignore: /(^|/)cli-tests-[0-9]+/
+test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mjs|[jt]sx?)$
 timeout: 30
 version: false
 versions: false
@@ -319,8 +319,8 @@ save: null
 show-process-tree: false
 statements: 100
 test-arg: []
-test-ignore: /(^|/)(cli-tests-[0-9]+|tap-snapshots|node_modules)/
-test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mj|j|t)s$
+test-ignore: /(^|/)cli-tests-[0-9]+/
+test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mjs|[jt]sx?)$
 timeout: 30
 version: false
 versions: false
