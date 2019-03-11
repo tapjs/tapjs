@@ -12,28 +12,38 @@ Object {
 `
 
 exports[`test/index.js TAP > undefined 2`] = `
-{ diff: '--- expected\\n+++ actual\\n Object {\\n   "a": 1,\\n }',
-  match: true }
+Object {
+  "diff": "--- expected\\n+++ actual\\n Object {\\n   \\"a\\": 1,\\n }",
+  "match": true,
+}
 `
 
 exports[`test/index.js TAP > undefined 3`] = `
-{ diff: '--- expected\\n+++ actual\\n Object {\\n   "a": 1,\\n }',
-  match: true }
+Object {
+  "diff": "--- expected\\n+++ actual\\n Object {\\n   \\"a\\": 1,\\n }",
+  "match": true,
+}
 `
 
 exports[`test/index.js TAP > undefined 4`] = `
-{ diff: '--- expected\\n+++ actual\\n Object {\\n   "a": 1,\\n }',
-  match: true }
+Object {
+  "diff": "--- expected\\n+++ actual\\n Object {\\n   \\"a\\": 1,\\n }",
+  "match": true,
+}
 `
 
 exports[`test/index.js TAP > undefined 5`] = `
-{ diff: '--- expected\\n+++ actual\\n Object {\\n   "a": 1,\\n }',
-  match: true }
+Object {
+  "diff": "--- expected\\n+++ actual\\n Object {\\n   \\"a\\": 1,\\n }",
+  "match": true,
+}
 `
 
 exports[`test/index.js TAP > undefined 6`] = `
-{ diff: '--- expected\\n+++ actual\\n Object {\\n   "a": 1,\\n }',
-  match: true }
+Object {
+  "diff": "--- expected\\n+++ actual\\n Object {\\n   \\"a\\": 1,\\n }",
+  "match": true,
+}
 `
 
 exports[`test/index.js TAP > undefined 7`] = `
@@ -43,28 +53,38 @@ exports[`test/index.js TAP > undefined 7`] = `
 `
 
 exports[`test/index.js TAP > undefined 8`] = `
-{ diff: '--- expected\\n+++ actual\\n {\\n   "a": 1,\\n }',
-  match: true }
+Object {
+  "diff": "--- expected\\n+++ actual\\n {\\n   \\"a\\": 1,\\n }",
+  "match": true,
+}
 `
 
 exports[`test/index.js TAP > undefined 9`] = `
-{ diff: '--- expected\\n+++ actual\\n {\\n   "a": 1,\\n }',
-  match: true }
+Object {
+  "diff": "--- expected\\n+++ actual\\n {\\n   \\"a\\": 1,\\n }",
+  "match": true,
+}
 `
 
 exports[`test/index.js TAP > undefined 10`] = `
-{ diff: '--- expected\\n+++ actual\\n {\\n   "a": 1,\\n }',
-  match: true }
+Object {
+  "diff": "--- expected\\n+++ actual\\n {\\n   \\"a\\": 1,\\n }",
+  "match": true,
+}
 `
 
 exports[`test/index.js TAP > undefined 11`] = `
-{ diff: '--- expected\\n+++ actual\\n {\\n   "a": 1,\\n }',
-  match: true }
+Object {
+  "diff": "--- expected\\n+++ actual\\n {\\n   \\"a\\": 1,\\n }",
+  "match": true,
+}
 `
 
 exports[`test/index.js TAP > undefined 12`] = `
-{ diff: '--- expected\\n+++ actual\\n {\\n   "a": 1,\\n }',
-  match: true }
+Object {
+  "diff": "--- expected\\n+++ actual\\n {\\n   \\"a\\": 1,\\n }",
+  "match": true,
+}
 `
 
 exports[`test/index.js TAP > undefined 13`] = `

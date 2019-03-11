@@ -14,11 +14,11 @@
     "lib/*.js"
   ],
   "devDependencies": {
-    "tap": "^12.5.3"
+    "tap": "^13.0.0-rc.1"
   },
   "scripts": {
-    "test": "tap --100 test/*.js -J",
-    "snap": "TAP_SNAPSHOT=1 npm test",
+    "test": "tap --100",
+    "snap": "tap --snapshot",
     "preversion": "npm test",
     "postversion": "npm publish",
     "postpublish": "git push origin --all; git push origin --tags"
