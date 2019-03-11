@@ -15,11 +15,3 @@ cache:
 
 notifications:
   email: false
-addons:
-  chrome: stable
-before_script:
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start || true
-script:
-  - npm run test
-  - npm run test-browser
