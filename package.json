@@ -13,11 +13,11 @@
   },
   "devDependencies": {
     "glob": "^7.0.5",
-    "tap": "^13.0.0-rc.2"
+    "tap": "^13.0.0-rc.3"
   },
   "scripts": {
-    "snap": "tap --snapshot",
-    "test": "tap --100",
+    "snap": "tap",
+    "test": "tap",
     "regen-fixtures": "node scripts/generate-test.js test/fixtures/*.tap",
     "preversion": "npm test",
     "postversion": "npm publish",
@@ -55,5 +55,8 @@
   "files": [
     "index.js",
     "bin/cmd.js"
-  ]
+  ],
+  "tap": {
+    "check-coverage": true
+  }
 }
