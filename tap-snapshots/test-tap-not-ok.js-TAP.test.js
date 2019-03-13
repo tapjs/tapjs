@@ -25,8 +25,6 @@ not ok 1 - expected
     t => t.fail('expected')
     --^
     )
-  stack: |
-    {STACK}
   ...
 
 1..1
