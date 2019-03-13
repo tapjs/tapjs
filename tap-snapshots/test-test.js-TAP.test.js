@@ -1657,8 +1657,10 @@ not ok 5 - should not match pattern provided
     c: !re /asdf/
   pattern:
     a: !function |-
+      "String"
       function String() { [native code] }
     c: !function |-
+      "RegExp"
       function RegExp() { [native code] }
   source: |2
                    { todo: true })
@@ -1682,8 +1684,10 @@ not ok 7 - a message
     c: !re /asdf/
   pattern:
     a: !function |-
+      "String"
       function String() { [native code] }
     c: !function |-
+      "RegExp"
       function RegExp() { [native code] }
   source: |2
           tt.notMatch({ a: 'b', c: /asdf/ }, { a: 'asdf', c: 1 })
@@ -2728,6 +2732,7 @@ not ok 1 - expect a valid http/https url
     protocol: !re /^https?:$/
     slashes: true
     host: !function |-
+      "String"
       function String() { [native code] }
     path: !re /^\\/.*$/
   source: |2

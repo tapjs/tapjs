@@ -6,7 +6,7 @@
  */
 'use strict'
 exports[`test/run/basic.js TAP --versions > output 1`] = `
-tap: 13.0.0-rc.1
+tap: 13.0.0-rc.2
 tap-parser: 9.0.0
 nyc: 13.3.0
 

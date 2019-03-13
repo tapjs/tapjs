@@ -27,6 +27,8 @@ not ok 2 - broken
     --^
     }
     )
+  stack: |
+    {STACK}
   tapCaught: unhandledRejection
   test: TAP
   ...
