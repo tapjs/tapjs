@@ -59,6 +59,10 @@ t.test('--version', t => {
 t.test('--versions', t => {
   run(['--versions'], null, (er, o, e) => {
     t.equal(er, null)
+    const m = o.match(/tap: (.*)/)
+    if (m)
+      t.equal(m[1], require('../../package.json').version)
+    o = o.replace(/tap: .*/, 'tap: {version}')
     t.matchSnapshot(clean(o), 'output')
     t.end()
   })
