@@ -76,7 +76,7 @@ Much more documentation available at: https://www.node-tap.org/
   snapshot: flag({
     short: 'S',
     envDefault: 'TAP_SNAPSHOT',
-    default: false,
+    default: /^snap(shot)?$/.test('' + process.env.npm_lifecycle_event),
     description: `Set to generate snapshot files for
                   't.matchSnapshot()' assertions.`,
   }),
