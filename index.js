@@ -110,10 +110,12 @@ class Parser extends MiniPass {
     if (onComplete)
       this.on('complete', onComplete)
 
+    this.name = options.name || ''
     this.comments = []
     this.results = null
     this.braceLevel = null
     this.parent = options.parent || null
+    this.root = options.parent ? this.parent.root : this
     this.failures = []
     if (options.passes)
       this.passes = []
@@ -132,6 +134,7 @@ class Parser extends MiniPass {
     this.yamlish = ''
     this.yind = ''
     this.child = null
+    this.previousChild = null
     this.current = null
     this.maybeSubtest = null
     this.extraQueue = []
@@ -525,6 +528,7 @@ class Parser extends MiniPass {
 
   endChild () {
     if (this.child && (!this.bailingOut || this.child.count)) {
+      this.previousChild = this.child
       this.child.end()
       this.child = null
     }
@@ -562,7 +566,7 @@ class Parser extends MiniPass {
     if (res.todo)
       this.todo++
 
-    this.emit('assert', res)
+    this.emitAssert(res)
     if (this.bail && !res.ok && !res.todo && !res.skip && !this.bailingOut) {
       this.maybeChild = null
       const ind = new Array(this.level + 1).join('    ')
@@ -686,6 +690,35 @@ class Parser extends MiniPass {
     this.write(point)
     this.aborted = true
     this.end()
+  }
+
+  emitAssert (res) {
+    res.fullname = this.fullname
+
+    this.emit('assert', res)
+
+    // see if we need to surface to the top level
+    if (this.child || this.previousChild) {
+      const c = this.child || this.previousChild
+      this.previousChild = null
+      if (res.name === c.name &&
+          res.ok === c.results.ok &&
+          !res.todo && !res.skip) {
+        // just procedural, ignore it
+        return
+      }
+    }
+
+    // surface result to the top level parser
+    this.root.emit('result', res)
+    if (res.skip)
+      this.root.emit('skip', res)
+    else if (res.todo)
+      this.root.emit('todo', res)
+    else if (!res.ok)
+      this.root.emit('fail', res)
+    else
+      this.root.emit('pass', res)
   }
 
   emitComment (line, skipLine, noDuplicate) {

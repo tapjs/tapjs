@@ -8,9 +8,9 @@ t.test('passing no options and cb works fine', function (t) {
 
 t.test('it has a name', t => {
   t.plan(1)
-  const p = new Parser()
+  const p = new Parser({ name: 'root' })
   p.on('child', c => c.on('child', c =>
-    t.equal(c.fullname, 'child grandchild')))
+    t.equal(c.fullname, 'root child grandchild')))
 
   p.end(`TAP version 13
 # Subtest: child

@@ -23,38 +23,10 @@ t.test('child calling _parse after bailout', function (t) {
   var etoa = require('events-to-array')
 
   var events = etoa(p, [ 'pipe', 'unpipe', 'prefinish', 'finish', 'line' ])
-  var expect = [
-    [ 'version', 13 ],
-    [ 'child',
-      [ [ 'comment', '# Subtest\n' ],
-        [ 'plan', { start: 1, end: 1 } ],
-        [ 'bailout', 'child' ],
-        [ 'complete',
-          { ok: false,
-            count: 0,
-            pass: 0,
-            fail: 0,
-            bailout: 'child',
-            todo: 0,
-            skip: 0,
-            plan: { start: 1, end: 1, skipAll: false, skipReason: '', comment: '' },
-            failures: [] } ] ] ],
-    [ 'bailout', 'child' ],
-    [ 'complete',
-      { ok: false,
-        count: 0,
-        pass: 0,
-        fail: 0,
-        bailout: 'child',
-        todo: 0,
-        skip: 0,
-        plan: { start: null, end: null, skipAll: false, skipReason: '', comment: '' },
-        failures: [] } ]
-  ]
 
   p.on('assert', t.fail)
   p.on('complete', function () {
-    t.same(events, expect)
+    t.matchSnapshot(events, 'events')
     t.end()
   })
   p.end([

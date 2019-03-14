@@ -99,8 +99,8 @@ function bufferedTest (d) { return function (t) {
     lines.push(line)
   })
   p.on('complete', function (results) {
-    t.same(lines, expectLines)
-    t.same(results, expectResults)
+    t.matchSnapshot(lines, 'lines')
+    t.matchSnapshot(results, 'results')
     t.end()
   })
 
@@ -160,8 +160,8 @@ function unbufferedTest (d) { return function (t) {
     lines.push(line)
   })
   p.on('complete', function (results) {
-    t.same(lines, expectLines)
-    t.same(results, expectResults)
+    t.matchSnapshot(lines, 'lines')
+    t.matchSnapshot(results, expectResults)
     t.end()
   })
 

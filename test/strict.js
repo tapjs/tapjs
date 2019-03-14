@@ -15,15 +15,8 @@ t.test('strictness is inherited', function (t) {
   ].join('\n')
 
   var p = new Parser({ strict: true })
-  var expect = [
-    {
-      tapError: 'Non-TAP data encountered in strict mode',
-      data: 'flerggy blerg\n'
-    }
-  ]
-
   p.on('complete', function (res) {
-    t.same(res.failures, expect)
+    t.matchSnapshot(res.failures, 'failures')
     t.end()
   })
 
@@ -69,15 +62,9 @@ t.test('unstrict child does not make parent unstrict', function (t) {
   ].join('\n')
 
   var p = new Parser({ strict: true })
-  var expect = [
-    {
-      tapError: 'Non-TAP data encountered in strict mode',
-      data: 'flerggy blerg\n'
-    }
-  ]
 
   p.on('complete', function (res) {
-    t.same(res.failures, expect)
+    t.matchSnapshot(res.failures, 'failures')
     t.end()
   })
 

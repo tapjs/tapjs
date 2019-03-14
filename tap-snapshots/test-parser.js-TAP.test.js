@@ -27,6 +27,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -38,6 +55,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -49,6 +83,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -104,6 +155,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -115,6 +183,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -126,6 +211,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -181,6 +283,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -192,6 +311,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -203,6 +339,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -258,6 +411,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -269,6 +439,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -280,6 +467,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -335,6 +539,23 @@ Array [
     Result {
       "ok": false,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -366,6 +587,7 @@ Array [
         Result {
           "ok": false,
           "id": 1,
+          "fullname": "",
         },
       ],
     },
@@ -395,6 +617,23 @@ Array [
     Result {
       "ok": false,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -406,6 +645,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -417,6 +673,23 @@ Array [
     Result {
       "ok": false,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -428,6 +701,23 @@ Array [
     Result {
       "ok": true,
       "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
     },
   ],
   Array [
@@ -439,6 +729,23 @@ Array [
     Result {
       "ok": true,
       "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
     },
   ],
   Array [
@@ -478,10 +785,12 @@ Array [
         Result {
           "ok": false,
           "id": 1,
+          "fullname": "",
         },
         Result {
           "ok": false,
           "id": 3,
+          "fullname": "",
         },
       ],
     },
@@ -519,6 +828,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -530,6 +856,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -541,6 +884,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -552,6 +912,23 @@ Array [
     Result {
       "ok": true,
       "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
     },
   ],
   Array [
@@ -568,6 +945,33 @@ Array [
         "start": 1,
         "end": 5,
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 6,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 5,
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 6,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 5,
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -604,6 +1008,7 @@ Array [
             "start": 1,
             "end": 5,
           },
+          "fullname": "",
         },
       ],
     },
@@ -641,6 +1046,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -652,6 +1074,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -663,6 +1102,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -674,6 +1130,23 @@ Array [
     Result {
       "ok": true,
       "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
     },
   ],
   Array [
@@ -690,6 +1163,33 @@ Array [
         "start": 1,
         "end": 5,
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 6,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 5,
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 6,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 5,
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -726,6 +1226,7 @@ Array [
             "start": 1,
             "end": 5,
           },
+          "fullname": "",
         },
       ],
     },
@@ -755,6 +1256,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -766,6 +1284,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -782,6 +1317,33 @@ Array [
         "start": 1,
         "end": 2,
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 99997,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 2,
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 99997,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 2,
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -798,6 +1360,33 @@ Array [
         "start": 1,
         "end": 2,
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 99998,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 2,
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 99998,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 2,
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -814,6 +1403,33 @@ Array [
         "start": 1,
         "end": 2,
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 99999,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 2,
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 99999,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 2,
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -830,6 +1446,33 @@ Array [
         "start": 1,
         "end": 2,
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 100000,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 2,
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 100000,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 2,
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -846,6 +1489,33 @@ Array [
         "start": 1,
         "end": 2,
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 100001,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 2,
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 100001,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 2,
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -862,6 +1532,33 @@ Array [
         "start": 1,
         "end": 2,
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 100002,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 2,
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 100002,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 2,
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -878,6 +1575,33 @@ Array [
         "start": 1,
         "end": 2,
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 100003,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 2,
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 100003,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 2,
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -894,6 +1618,33 @@ Array [
         "start": 1,
         "end": 2,
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 100004,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 2,
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 100004,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 2,
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -910,6 +1661,33 @@ Array [
         "start": 1,
         "end": 2,
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 100005,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 2,
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 100005,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 2,
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -954,6 +1732,7 @@ Array [
             "start": 1,
             "end": 2,
           },
+          "fullname": "",
         },
         Result {
           "ok": true,
@@ -963,6 +1742,7 @@ Array [
             "start": 1,
             "end": 2,
           },
+          "fullname": "",
         },
         Result {
           "ok": true,
@@ -972,6 +1752,7 @@ Array [
             "start": 1,
             "end": 2,
           },
+          "fullname": "",
         },
         Result {
           "ok": true,
@@ -981,6 +1762,7 @@ Array [
             "start": 1,
             "end": 2,
           },
+          "fullname": "",
         },
         Result {
           "ok": true,
@@ -990,6 +1772,7 @@ Array [
             "start": 1,
             "end": 2,
           },
+          "fullname": "",
         },
         Result {
           "ok": true,
@@ -999,6 +1782,7 @@ Array [
             "start": 1,
             "end": 2,
           },
+          "fullname": "",
         },
         Result {
           "ok": true,
@@ -1008,6 +1792,7 @@ Array [
             "start": 1,
             "end": 2,
           },
+          "fullname": "",
         },
         Result {
           "ok": true,
@@ -1017,6 +1802,7 @@ Array [
             "start": 1,
             "end": 2,
           },
+          "fullname": "",
         },
         Result {
           "ok": true,
@@ -1026,6 +1812,7 @@ Array [
             "start": 1,
             "end": 2,
           },
+          "fullname": "",
         },
       ],
     },
@@ -1055,6 +1842,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -1066,6 +1870,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -1082,6 +1903,33 @@ Array [
         "start": 1,
         "end": 2,
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 99997,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 2,
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 99997,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 2,
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -1098,6 +1946,33 @@ Array [
         "start": 1,
         "end": 2,
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 99998,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 2,
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 99998,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 2,
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -1114,6 +1989,33 @@ Array [
         "start": 1,
         "end": 2,
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 99999,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 2,
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 99999,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 2,
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -1130,6 +2032,33 @@ Array [
         "start": 1,
         "end": 2,
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 100000,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 2,
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 100000,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 2,
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -1146,6 +2075,33 @@ Array [
         "start": 1,
         "end": 2,
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 100001,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 2,
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 100001,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 2,
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -1162,6 +2118,33 @@ Array [
         "start": 1,
         "end": 2,
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 100002,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 2,
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 100002,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 2,
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -1178,6 +2161,33 @@ Array [
         "start": 1,
         "end": 2,
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 100003,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 2,
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 100003,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 2,
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -1194,6 +2204,33 @@ Array [
         "start": 1,
         "end": 2,
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 100004,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 2,
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 100004,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 2,
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -1210,6 +2247,33 @@ Array [
         "start": 1,
         "end": 2,
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 100005,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 2,
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 100005,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 2,
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -1254,6 +2318,7 @@ Array [
             "start": 1,
             "end": 2,
           },
+          "fullname": "",
         },
         Result {
           "ok": true,
@@ -1263,6 +2328,7 @@ Array [
             "start": 1,
             "end": 2,
           },
+          "fullname": "",
         },
         Result {
           "ok": true,
@@ -1272,6 +2338,7 @@ Array [
             "start": 1,
             "end": 2,
           },
+          "fullname": "",
         },
         Result {
           "ok": true,
@@ -1281,6 +2348,7 @@ Array [
             "start": 1,
             "end": 2,
           },
+          "fullname": "",
         },
         Result {
           "ok": true,
@@ -1290,6 +2358,7 @@ Array [
             "start": 1,
             "end": 2,
           },
+          "fullname": "",
         },
         Result {
           "ok": true,
@@ -1299,6 +2368,7 @@ Array [
             "start": 1,
             "end": 2,
           },
+          "fullname": "",
         },
         Result {
           "ok": true,
@@ -1308,6 +2378,7 @@ Array [
             "start": 1,
             "end": 2,
           },
+          "fullname": "",
         },
         Result {
           "ok": true,
@@ -1317,6 +2388,7 @@ Array [
             "start": 1,
             "end": 2,
           },
+          "fullname": "",
         },
         Result {
           "ok": true,
@@ -1326,6 +2398,7 @@ Array [
             "start": 1,
             "end": 2,
           },
+          "fullname": "",
         },
       ],
     },
@@ -1355,6 +2428,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -1366,6 +2456,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -1382,6 +2489,33 @@ Array [
         "start": 1,
         "end": 2,
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 136211425,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 2,
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 136211425,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 2,
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -1398,6 +2532,33 @@ Array [
         "start": 1,
         "end": 2,
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 136211426,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 2,
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 136211426,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 2,
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -1442,6 +2603,7 @@ Array [
             "start": 1,
             "end": 2,
           },
+          "fullname": "",
         },
         Result {
           "ok": true,
@@ -1451,6 +2613,7 @@ Array [
             "start": 1,
             "end": 2,
           },
+          "fullname": "",
         },
       ],
     },
@@ -1480,6 +2643,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -1491,6 +2671,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -1507,6 +2704,33 @@ Array [
         "start": 1,
         "end": 2,
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 136211425,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 2,
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 136211425,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 2,
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -1523,6 +2747,33 @@ Array [
         "start": 1,
         "end": 2,
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 136211426,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 2,
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 136211426,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 2,
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -1567,6 +2818,7 @@ Array [
             "start": 1,
             "end": 2,
           },
+          "fullname": "",
         },
         Result {
           "ok": true,
@@ -1576,6 +2828,7 @@ Array [
             "start": 1,
             "end": 2,
           },
+          "fullname": "",
         },
       ],
     },
@@ -1622,6 +2875,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "callback happened",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "callback happened",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "callback happened",
+      "fullname": "",
     },
   ],
   Array [
@@ -1650,6 +2922,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "child test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "child test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "child test",
+      "fullname": "",
     },
   ],
   Array [
@@ -1662,6 +2953,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "should come last",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "should come last",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "should come last",
+      "fullname": "",
     },
   ],
   Array [
@@ -1726,6 +3036,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "callback happened",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "callback happened",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "callback happened",
+      "fullname": "",
     },
   ],
   Array [
@@ -1754,6 +3083,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "child test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "child test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "child test",
+      "fullname": "",
     },
   ],
   Array [
@@ -1766,6 +3114,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "should come last",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "should come last",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "should come last",
+      "fullname": "",
     },
   ],
   Array [
@@ -1853,6 +3220,31 @@ Array [
       "diag": Object {
         "ok": "this time I mean it",
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "callback happened",
+      "diag": Object {
+        "ok": "this time I mean it",
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "callback happened",
+      "diag": Object {
+        "ok": "this time I mean it",
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -1889,6 +3281,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "child test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "child test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "child test",
+      "fullname": "",
     },
   ],
   Array [
@@ -1901,6 +3312,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "should come last",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "should come last",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "should come last",
+      "fullname": "",
     },
   ],
   Array [
@@ -1988,6 +3418,31 @@ Array [
       "diag": Object {
         "ok": "this time I mean it",
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "callback happened",
+      "diag": Object {
+        "ok": "this time I mean it",
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "callback happened",
+      "diag": Object {
+        "ok": "this time I mean it",
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -2024,6 +3479,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "child test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "child test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "child test",
+      "fullname": "",
     },
   ],
   Array [
@@ -2036,6 +3510,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "should come last",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "should come last",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "should come last",
+      "fullname": "",
     },
   ],
   Array [
@@ -2130,6 +3623,7 @@ Array [
           "ok": false,
           "id": 1,
           "name": "no they aren't",
+          "fullname": "my kids are fine",
         },
       ],
       Array [
@@ -2162,6 +3656,7 @@ Array [
               "ok": false,
               "id": 1,
               "name": "no they aren't",
+              "fullname": "my kids are fine",
             },
           ],
         },
@@ -2175,6 +3670,24 @@ Array [
   Array [
     "line",
     "    not ok - no they aren't\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "no they aren't",
+      "fullname": "my kids are fine",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "no they aren't",
+      "fullname": "my kids are fine",
+    },
   ],
   Array [
     "line",
@@ -2284,6 +3797,7 @@ Array [
           "ok": false,
           "id": 1,
           "name": "no they aren't",
+          "fullname": "my kids are fine",
         },
       ],
       Array [
@@ -2316,6 +3830,7 @@ Array [
               "ok": false,
               "id": 1,
               "name": "no they aren't",
+              "fullname": "my kids are fine",
             },
           ],
         },
@@ -2329,6 +3844,24 @@ Array [
   Array [
     "line",
     "    not ok - no they aren't\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "no they aren't",
+      "fullname": "my kids are fine",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "no they aren't",
+      "fullname": "my kids are fine",
+    },
   ],
   Array [
     "line",
@@ -2348,6 +3881,33 @@ Array [
         "some": "diag",
       },
       "buffered": true,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "my kids are fine",
+      "diag": Object {
+        "some": "diag",
+      },
+      "buffered": true,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "my kids are fine",
+      "diag": Object {
+        "some": "diag",
+      },
+      "buffered": true,
+      "fullname": "",
     },
   ],
   Array [
@@ -2425,6 +3985,7 @@ Array [
         Result {
           "ok": false,
           "id": 1,
+          "fullname": "my kids are fine",
         },
       ],
       Array [
@@ -2456,6 +4017,7 @@ Array [
             Result {
               "ok": false,
               "id": 1,
+              "fullname": "my kids are fine",
             },
           ],
         },
@@ -2469,6 +4031,22 @@ Array [
   Array [
     "line",
     "    not ok\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "fullname": "my kids are fine",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "fullname": "my kids are fine",
+    },
   ],
   Array [
     "line",
@@ -2561,6 +4139,7 @@ Array [
         Result {
           "ok": false,
           "id": 1,
+          "fullname": "my kids are fine",
         },
       ],
       Array [
@@ -2592,6 +4171,7 @@ Array [
             Result {
               "ok": false,
               "id": 1,
+              "fullname": "my kids are fine",
             },
           ],
         },
@@ -2605,6 +4185,22 @@ Array [
   Array [
     "line",
     "    not ok\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "fullname": "my kids are fine",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "fullname": "my kids are fine",
+    },
   ],
   Array [
     "line",
@@ -2621,6 +4217,27 @@ Array [
       "id": 1,
       "buffered": true,
       "name": "my kids are fine",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "buffered": true,
+      "name": "my kids are fine",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "buffered": true,
+      "name": "my kids are fine",
+      "fullname": "",
     },
   ],
   Array [
@@ -2699,6 +4316,7 @@ Array [
           "ok": false,
           "id": 1,
           "name": "no they aren't",
+          "fullname": "my kids are fine",
         },
       ],
       Array [
@@ -2731,6 +4349,7 @@ Array [
               "ok": false,
               "id": 1,
               "name": "no they aren't",
+              "fullname": "my kids are fine",
             },
           ],
         },
@@ -2744,6 +4363,24 @@ Array [
   Array [
     "line",
     "    not ok - no they aren't\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "no they aren't",
+      "fullname": "my kids are fine",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "no they aren't",
+      "fullname": "my kids are fine",
+    },
   ],
   Array [
     "line",
@@ -2837,6 +4474,7 @@ Array [
           "ok": false,
           "id": 1,
           "name": "no they aren't",
+          "fullname": "my kids are fine",
         },
       ],
       Array [
@@ -2869,6 +4507,7 @@ Array [
               "ok": false,
               "id": 1,
               "name": "no they aren't",
+              "fullname": "my kids are fine",
             },
           ],
         },
@@ -2882,6 +4521,24 @@ Array [
   Array [
     "line",
     "    not ok - no they aren't\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "no they aren't",
+      "fullname": "my kids are fine",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "no they aren't",
+      "fullname": "my kids are fine",
+    },
   ],
   Array [
     "line",
@@ -2898,6 +4555,27 @@ Array [
       "id": 1,
       "buffered": true,
       "name": "my kids are fine",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "buffered": true,
+      "name": "my kids are fine",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "buffered": true,
+      "name": "my kids are fine",
+      "fullname": "",
     },
   ],
   Array [
@@ -2992,6 +4670,7 @@ Array [
           "ok": true,
           "id": 1,
           "name": "i got better",
+          "fullname": "please sir, my son, he is sick",
         },
       ],
       Array [
@@ -3025,6 +4704,24 @@ Array [
     "    ok - i got better\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "i got better",
+      "fullname": "please sir, my son, he is sick",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "i got better",
+      "fullname": "please sir, my son, he is sick",
+    },
+  ],
+  Array [
     "line",
     "}\\n",
   ],
@@ -3038,6 +4735,33 @@ Array [
         "some": "diag",
       },
       "buffered": true,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "please sir, my son, he is sick",
+      "diag": Object {
+        "some": "diag",
+      },
+      "buffered": true,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "please sir, my son, he is sick",
+      "diag": Object {
+        "some": "diag",
+      },
+      "buffered": true,
+      "fullname": "",
     },
   ],
   Array [
@@ -3074,6 +4798,7 @@ Array [
             "some": "diag",
           },
           "buffered": true,
+          "fullname": "",
         },
       ],
     },
@@ -3150,6 +4875,7 @@ Array [
           "ok": true,
           "id": 1,
           "name": "i got better",
+          "fullname": "please sir, my son, he is sick",
         },
       ],
       Array [
@@ -3183,6 +4909,24 @@ Array [
     "    ok - i got better\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "i got better",
+      "fullname": "please sir, my son, he is sick",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "i got better",
+      "fullname": "please sir, my son, he is sick",
+    },
+  ],
+  Array [
     "line",
     "}\\n",
   ],
@@ -3196,6 +4940,33 @@ Array [
         "some": "diag",
       },
       "buffered": true,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "please sir, my son, he is sick",
+      "diag": Object {
+        "some": "diag",
+      },
+      "buffered": true,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "please sir, my son, he is sick",
+      "diag": Object {
+        "some": "diag",
+      },
+      "buffered": true,
+      "fullname": "",
     },
   ],
   Array [
@@ -3232,6 +5003,7 @@ Array [
             "some": "diag",
           },
           "buffered": true,
+          "fullname": "",
         },
       ],
     },
@@ -3292,6 +5064,7 @@ Array [
           "ok": true,
           "id": 1,
           "name": "i got better",
+          "fullname": "please sir, my son, he is sick",
         },
       ],
       Array [
@@ -3325,6 +5098,24 @@ Array [
     "    ok - i got better\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "i got better",
+      "fullname": "please sir, my son, he is sick",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "i got better",
+      "fullname": "please sir, my son, he is sick",
+    },
+  ],
+  Array [
     "line",
     "}\\n",
   ],
@@ -3335,6 +5126,27 @@ Array [
       "id": 1,
       "buffered": true,
       "name": "please sir, my son, he is sick",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "buffered": true,
+      "name": "please sir, my son, he is sick",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "buffered": true,
+      "name": "please sir, my son, he is sick",
+      "fullname": "",
     },
   ],
   Array [
@@ -3368,6 +5180,7 @@ Array [
           "id": 1,
           "buffered": true,
           "name": "please sir, my son, he is sick",
+          "fullname": "",
         },
       ],
     },
@@ -3428,6 +5241,7 @@ Array [
           "ok": true,
           "id": 1,
           "name": "i got better",
+          "fullname": "please sir, my son, he is sick",
         },
       ],
       Array [
@@ -3461,6 +5275,24 @@ Array [
     "    ok - i got better\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "i got better",
+      "fullname": "please sir, my son, he is sick",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "i got better",
+      "fullname": "please sir, my son, he is sick",
+    },
+  ],
+  Array [
     "line",
     "}\\n",
   ],
@@ -3471,6 +5303,27 @@ Array [
       "id": 1,
       "buffered": true,
       "name": "please sir, my son, he is sick",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "buffered": true,
+      "name": "please sir, my son, he is sick",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "buffered": true,
+      "name": "please sir, my son, he is sick",
+      "fullname": "",
     },
   ],
   Array [
@@ -3504,6 +5357,7 @@ Array [
           "id": 1,
           "buffered": true,
           "name": "please sir, my son, he is sick",
+          "fullname": "",
         },
       ],
     },
@@ -3549,6 +5403,7 @@ Array [
         Result {
           "ok": true,
           "id": 1,
+          "fullname": "child",
         },
       ],
       Array [
@@ -3589,6 +5444,22 @@ Array [
     "    ok 1\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "child",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "child",
+    },
+  ],
+  Array [
     "line",
     "    1..1\\n",
   ],
@@ -3606,6 +5477,33 @@ Array [
         "some": "diagnostics",
       },
       "buffered": true,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "child",
+      "diag": Object {
+        "some": "diagnostics",
+      },
+      "buffered": true,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "child",
+      "diag": Object {
+        "some": "diagnostics",
+      },
+      "buffered": true,
+      "fullname": "",
     },
   ],
   Array [
@@ -3642,6 +5540,7 @@ Array [
             "some": "diagnostics",
           },
           "buffered": true,
+          "fullname": "",
         },
       ],
     },
@@ -3687,6 +5586,7 @@ Array [
         Result {
           "ok": true,
           "id": 1,
+          "fullname": "child",
         },
       ],
       Array [
@@ -3727,6 +5627,22 @@ Array [
     "    ok 1\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "child",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "child",
+    },
+  ],
+  Array [
     "line",
     "    1..1\\n",
   ],
@@ -3744,6 +5660,33 @@ Array [
         "some": "diagnostics",
       },
       "buffered": true,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "child",
+      "diag": Object {
+        "some": "diagnostics",
+      },
+      "buffered": true,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "child",
+      "diag": Object {
+        "some": "diagnostics",
+      },
+      "buffered": true,
+      "fullname": "",
     },
   ],
   Array [
@@ -3791,6 +5734,7 @@ Array [
             "some": "diagnostics",
           },
           "buffered": true,
+          "fullname": "",
         },
       ],
     },
@@ -3836,6 +5780,7 @@ Array [
         Result {
           "ok": true,
           "id": 1,
+          "fullname": "child",
         },
       ],
       Array [
@@ -3876,6 +5821,22 @@ Array [
     "    ok 1\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "child",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "child",
+    },
+  ],
+  Array [
     "line",
     "    1..1\\n",
   ],
@@ -3893,6 +5854,7 @@ Array [
         "some": "diagnostics",
       },
       "buffered": true,
+      "fullname": "",
     },
   ],
   Array [
@@ -3967,6 +5929,7 @@ Array [
         Result {
           "ok": true,
           "id": 1,
+          "fullname": "child",
         },
       ],
       Array [
@@ -4007,6 +5970,22 @@ Array [
     "    ok 1\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "child",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "child",
+    },
+  ],
+  Array [
     "line",
     "    1..1\\n",
   ],
@@ -4024,6 +6003,7 @@ Array [
         "some": "diagnostics",
       },
       "buffered": true,
+      "fullname": "",
     },
   ],
   Array [
@@ -4072,6 +6052,25 @@ Array [
       "ok": false,
       "id": 1,
       "name": "1",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "1",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "1",
+      "fullname": "",
     },
   ],
   Array [
@@ -4104,6 +6103,7 @@ Array [
           "ok": false,
           "id": 1,
           "name": "1",
+          "fullname": "",
         },
       ],
     },
@@ -4123,6 +6123,25 @@ Array [
       "ok": false,
       "id": 1,
       "name": "1",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "1",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "1",
+      "fullname": "",
     },
   ],
   Array [
@@ -4145,6 +6164,7 @@ Array [
         Result {
           "ok": true,
           "id": 1,
+          "fullname": "child",
         },
       ],
       Array [
@@ -4185,6 +6205,22 @@ Array [
     "    ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "child",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "child",
+    },
+  ],
+  Array [
     "line",
     "    1..1\\n",
   ],
@@ -4198,6 +6234,7 @@ Array [
       "ok": true,
       "id": 2,
       "name": "child",
+      "fullname": "",
     },
   ],
   Array [
@@ -4241,6 +6278,7 @@ Array [
           "ok": false,
           "id": 1,
           "name": "1",
+          "fullname": "",
         },
       ],
     },
@@ -4287,6 +6325,7 @@ Array [
           "ok": true,
           "id": 1,
           "name": "Should output debugger message",
+          "fullname": "test/debug-test.js",
         },
       ],
       Array [
@@ -4379,6 +6418,24 @@ Array [
     "    ok 1 Should output debugger message\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "Should output debugger message",
+      "fullname": "test/debug-test.js",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "Should output debugger message",
+      "fullname": "test/debug-test.js",
+    },
+  ],
+  Array [
     "line",
     "    1..1\\n",
   ],
@@ -4405,6 +6462,7 @@ Array [
       "id": 1,
       "time": 537.383,
       "name": "test/debug-test.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -4488,6 +6546,7 @@ Array [
           "ok": true,
           "id": 1,
           "name": "Should output debugger message",
+          "fullname": "test/debug-test.js",
         },
       ],
       Array [
@@ -4580,6 +6639,24 @@ Array [
     "    ok 1 Should output debugger message\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "Should output debugger message",
+      "fullname": "test/debug-test.js",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "Should output debugger message",
+      "fullname": "test/debug-test.js",
+    },
+  ],
+  Array [
     "line",
     "    1..1\\n",
   ],
@@ -4606,6 +6683,7 @@ Array [
       "id": 1,
       "time": 537.383,
       "name": "test/debug-test.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -4669,6 +6747,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -4681,6 +6776,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "basset hounds got long ears",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "basset hounds got long ears",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "basset hounds got long ears",
+      "fullname": "",
     },
   ],
   Array [
@@ -4693,6 +6807,25 @@ Array [
       "ok": false,
       "id": 3,
       "name": "all hell broke lose",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 3,
+      "name": "all hell broke lose",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 3,
+      "name": "all hell broke lose",
+      "fullname": "",
     },
   ],
   Array [
@@ -4725,6 +6858,7 @@ Array [
           "ok": false,
           "id": 3,
           "name": "all hell broke lose",
+          "fullname": "",
         },
       ],
     },
@@ -4751,6 +6885,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -4763,6 +6914,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "basset hounds got long ears",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "basset hounds got long ears",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "basset hounds got long ears",
+      "fullname": "",
     },
   ],
   Array [
@@ -4775,6 +6945,25 @@ Array [
       "ok": false,
       "id": 3,
       "name": "all hell broke lose",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 3,
+      "name": "all hell broke lose",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 3,
+      "name": "all hell broke lose",
+      "fullname": "",
     },
   ],
   Array [
@@ -4786,6 +6975,23 @@ Array [
     Result {
       "ok": true,
       "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
     },
   ],
   Array [
@@ -4797,6 +7003,23 @@ Array [
     Result {
       "ok": true,
       "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
     },
   ],
   Array [
@@ -4808,6 +7031,23 @@ Array [
     Result {
       "ok": true,
       "id": 6,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 6,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 6,
+      "fullname": "",
     },
   ],
   Array [
@@ -4821,6 +7061,27 @@ Array [
       "id": 7,
       "skip": "contract negociations",
       "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 7,
+      "skip": "contract negociations",
+      "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "skip",
+    Result {
+      "ok": true,
+      "id": 7,
+      "skip": "contract negociations",
+      "name": "",
+      "fullname": "",
     },
   ],
   Array [
@@ -4832,6 +7093,23 @@ Array [
     Result {
       "ok": true,
       "id": 8,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 8,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 8,
+      "fullname": "",
     },
   ],
   Array [
@@ -4843,6 +7121,23 @@ Array [
     Result {
       "ok": false,
       "id": 9,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 9,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 9,
+      "fullname": "",
     },
   ],
   Array [
@@ -4854,6 +7149,23 @@ Array [
     Result {
       "ok": false,
       "id": 10,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 10,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 10,
+      "fullname": "",
     },
   ],
   Array [
@@ -4902,14 +7214,17 @@ Array [
           "ok": false,
           "id": 3,
           "name": "all hell broke lose",
+          "fullname": "",
         },
         Result {
           "ok": false,
           "id": 9,
+          "fullname": "",
         },
         Result {
           "ok": false,
           "id": 10,
+          "fullname": "",
         },
         Object {
           "tapError": "no plan",
@@ -4942,6 +7257,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -4954,6 +7286,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "basset hounds got long ears",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "basset hounds got long ears",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "basset hounds got long ears",
+      "fullname": "",
     },
   ],
   Array [
@@ -4966,6 +7317,25 @@ Array [
       "ok": false,
       "id": 3,
       "name": "all hell broke loose",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 3,
+      "name": "all hell broke loose",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 3,
+      "name": "all hell broke loose",
+      "fullname": "",
     },
   ],
   Array [
@@ -4998,6 +7368,7 @@ Array [
           "ok": false,
           "id": 3,
           "name": "all hell broke loose",
+          "fullname": "",
         },
       ],
     },
@@ -5027,6 +7398,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -5039,6 +7427,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "basset hounds got long ears",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "basset hounds got long ears",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "basset hounds got long ears",
+      "fullname": "",
     },
   ],
   Array [
@@ -5051,6 +7458,25 @@ Array [
       "ok": false,
       "id": 3,
       "name": "all hell broke loose",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 3,
+      "name": "all hell broke loose",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 3,
+      "name": "all hell broke loose",
+      "fullname": "",
     },
   ],
   Array [
@@ -5064,6 +7490,27 @@ Array [
       "id": 4,
       "todo": "if I heard a voice from heaven ...",
       "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 4,
+      "todo": "if I heard a voice from heaven ...",
+      "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": false,
+      "id": 4,
+      "todo": "if I heard a voice from heaven ...",
+      "name": "",
+      "fullname": "",
     },
   ],
   Array [
@@ -5076,6 +7523,25 @@ Array [
       "ok": true,
       "id": 5,
       "name": "say \\"live without loving\\",",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "name": "say \\"live without loving\\",",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "name": "say \\"live without loving\\",",
+      "fullname": "",
     },
   ],
   Array [
@@ -5088,6 +7554,25 @@ Array [
       "ok": true,
       "id": 6,
       "name": "I'd beg off.",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 6,
+      "name": "I'd beg off.",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 6,
+      "name": "I'd beg off.",
+      "fullname": "",
     },
   ],
   Array [
@@ -5101,6 +7586,27 @@ Array [
       "id": 7,
       "skip": "contract negotiations",
       "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 7,
+      "skip": "contract negotiations",
+      "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "skip",
+    Result {
+      "ok": true,
+      "id": 7,
+      "skip": "contract negotiations",
+      "name": "",
+      "fullname": "",
     },
   ],
   Array [
@@ -5113,6 +7619,25 @@ Array [
       "ok": true,
       "id": 8,
       "name": "Girls are such exquisite hell",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 8,
+      "name": "Girls are such exquisite hell",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 8,
+      "name": "Girls are such exquisite hell",
+      "fullname": "",
     },
   ],
   Array [
@@ -5126,6 +7651,27 @@ Array [
       "id": 9,
       "todo": true,
       "name": "Elegy 9B",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 9,
+      "todo": true,
+      "name": "Elegy 9B",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": true,
+      "id": 9,
+      "todo": true,
+      "name": "Elegy 9B",
+      "fullname": "",
     },
   ],
   Array [
@@ -5137,6 +7683,23 @@ Array [
     Result {
       "ok": false,
       "id": 10,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 10,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 10,
+      "fullname": "",
     },
   ],
   Array [
@@ -5185,10 +7748,12 @@ Array [
           "ok": false,
           "id": 3,
           "name": "all hell broke loose",
+          "fullname": "",
         },
         Result {
           "ok": false,
           "id": 10,
+          "fullname": "",
         },
       ],
     },
@@ -5251,6 +7816,31 @@ Array [
       "diag": Object {
         "after": "comment",
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "please keep my diags",
+      "diag": Object {
+        "after": "comment",
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "please keep my diags",
+      "diag": Object {
+        "after": "comment",
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -5310,6 +7900,7 @@ Array [
           "diag": Object {
             "after": "comment",
           },
+          "fullname": "",
         },
       ],
     },
@@ -5372,6 +7963,31 @@ Array [
       "diag": Object {
         "after": "comment",
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "please keep my diags",
+      "diag": Object {
+        "after": "comment",
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "please keep my diags",
+      "diag": Object {
+        "after": "comment",
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -5437,6 +8053,7 @@ Array [
         Result {
           "ok": true,
           "id": 1,
+          "fullname": "child",
         },
       ],
       Array [
@@ -5456,6 +8073,7 @@ Array [
         Result {
           "ok": true,
           "id": 2,
+          "fullname": "child",
         },
       ],
       Array [
@@ -5493,6 +8111,22 @@ Array [
     "    ok 1\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "child",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "child",
+    },
+  ],
+  Array [
     "line",
     "    # before 2\\n",
   ],
@@ -5509,6 +8143,22 @@ Array [
     "# before 2\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "child",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "child",
+    },
+  ],
+  Array [
     "line",
     "ok 2 - child\\n",
   ],
@@ -5518,6 +8168,7 @@ Array [
       "ok": true,
       "id": 2,
       "name": "child",
+      "fullname": "",
     },
   ],
   Array [
@@ -5580,6 +8231,7 @@ Array [
           "diag": Object {
             "after": "comment",
           },
+          "fullname": "",
         },
       ],
     },
@@ -5661,6 +8313,31 @@ Array [
       "diag": Object {
         "after": "comment",
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "please keep my diags",
+      "diag": Object {
+        "after": "comment",
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "please keep my diags",
+      "diag": Object {
+        "after": "comment",
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -5728,6 +8405,7 @@ Array [
           "diag": Object {
             "after": "comment",
           },
+          "fullname": "",
         },
       ],
     },
@@ -5809,6 +8487,31 @@ Array [
       "diag": Object {
         "after": "comment",
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "please keep my diags",
+      "diag": Object {
+        "after": "comment",
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "please keep my diags",
+      "diag": Object {
+        "after": "comment",
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -5852,6 +8555,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -5895,6 +8615,7 @@ Array [
           "diag": Object {
             "after": "comment",
           },
+          "fullname": "",
         },
       ],
     },
@@ -5965,6 +8686,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "The object isa Board",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "The object isa Board",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "The object isa Board",
+      "fullname": "",
     },
   ],
   Array [
@@ -5977,6 +8717,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "Board size is zero",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "Board size is zero",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "Board size is zero",
+      "fullname": "",
     },
   ],
   Array [
@@ -5989,6 +8748,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "The object isa Tile",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "The object isa Tile",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "The object isa Tile",
+      "fullname": "",
     },
   ],
   Array [
@@ -6001,6 +8779,25 @@ Array [
       "ok": true,
       "id": 4,
       "name": "Get possible places to put the Tile",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "Get possible places to put the Tile",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "Get possible places to put the Tile",
+      "fullname": "",
     },
   ],
   Array [
@@ -6013,6 +8810,25 @@ Array [
       "ok": true,
       "id": 5,
       "name": "Placing the tile produces no error",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "name": "Placing the tile produces no error",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "name": "Placing the tile produces no error",
+      "fullname": "",
     },
   ],
   Array [
@@ -6025,6 +8841,25 @@ Array [
       "ok": true,
       "id": 6,
       "name": "Board size is 1",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 6,
+      "name": "Board size is 1",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 6,
+      "name": "Board size is 1",
+      "fullname": "",
     },
   ],
   Array [
@@ -6113,6 +8948,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "The object isa Board",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "The object isa Board",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "The object isa Board",
+      "fullname": "",
     },
   ],
   Array [
@@ -6125,6 +8979,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "Board size is zero",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "Board size is zero",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "Board size is zero",
+      "fullname": "",
     },
   ],
   Array [
@@ -6137,6 +9010,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "The object isa Tile",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "The object isa Tile",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "The object isa Tile",
+      "fullname": "",
     },
   ],
   Array [
@@ -6149,6 +9041,25 @@ Array [
       "ok": true,
       "id": 4,
       "name": "Get possible places to put the Tile",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "Get possible places to put the Tile",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "Get possible places to put the Tile",
+      "fullname": "",
     },
   ],
   Array [
@@ -6161,6 +9072,25 @@ Array [
       "ok": true,
       "id": 5,
       "name": "Placing the tile produces no error",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "name": "Placing the tile produces no error",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "name": "Placing the tile produces no error",
+      "fullname": "",
     },
   ],
   Array [
@@ -6173,6 +9103,25 @@ Array [
       "ok": true,
       "id": 6,
       "name": "Board size is 1",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 6,
+      "name": "Board size is 1",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 6,
+      "name": "Board size is 1",
+      "fullname": "",
     },
   ],
   Array [
@@ -6229,6 +9178,7 @@ Array [
           "ok": true,
           "id": 1,
           "name": "Before console.log",
+          "fullname": "Test newlines in tap and console.log",
         },
       ],
       Array [
@@ -6277,6 +9227,7 @@ Array [
           "ok": true,
           "id": 2,
           "name": "After console.log",
+          "fullname": "Test newlines in tap and console.log",
         },
       ],
       Array [
@@ -6417,6 +9368,24 @@ Array [
     "}\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "Before console.log",
+      "fullname": "Test newlines in tap and console.log",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "Before console.log",
+      "fullname": "Test newlines in tap and console.log",
+    },
+  ],
+  Array [
     "line",
     "    {\\n",
   ],
@@ -6457,6 +9426,24 @@ Array [
     "    ok 2 - After console.log\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "After console.log",
+      "fullname": "Test newlines in tap and console.log",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "After console.log",
+      "fullname": "Test newlines in tap and console.log",
+    },
+  ],
+  Array [
     "line",
     "    1..2\\n",
   ],
@@ -6471,6 +9458,7 @@ Array [
       "id": 1,
       "time": 4.137,
       "name": "Test newlines in tap and console.log",
+      "fullname": "",
     },
   ],
   Array [
@@ -6546,6 +9534,7 @@ Array [
           "ok": true,
           "id": 1,
           "name": "Before console.log",
+          "fullname": "Test newlines in tap and console.log",
         },
       ],
       Array [
@@ -6594,6 +9583,7 @@ Array [
           "ok": true,
           "id": 2,
           "name": "After console.log",
+          "fullname": "Test newlines in tap and console.log",
         },
       ],
       Array [
@@ -6734,6 +9724,24 @@ Array [
     "}\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "Before console.log",
+      "fullname": "Test newlines in tap and console.log",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "Before console.log",
+      "fullname": "Test newlines in tap and console.log",
+    },
+  ],
+  Array [
     "line",
     "    {\\n",
   ],
@@ -6774,6 +9782,24 @@ Array [
     "    ok 2 - After console.log\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "After console.log",
+      "fullname": "Test newlines in tap and console.log",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "After console.log",
+      "fullname": "Test newlines in tap and console.log",
+    },
+  ],
+  Array [
     "line",
     "    1..2\\n",
   ],
@@ -6788,6 +9814,7 @@ Array [
       "id": 1,
       "time": 4.137,
       "name": "Test newlines in tap and console.log",
+      "fullname": "",
     },
   ],
   Array [
@@ -6852,6 +9879,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "created Board",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "created Board",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "created Board",
+      "fullname": "",
     },
   ],
   Array [
@@ -6863,6 +9909,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -6874,6 +9937,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -6885,6 +9965,23 @@ Array [
     Result {
       "ok": true,
       "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
     },
   ],
   Array [
@@ -6896,6 +9993,23 @@ Array [
     Result {
       "ok": true,
       "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
     },
   ],
   Array [
@@ -6907,6 +10021,23 @@ Array [
     Result {
       "ok": true,
       "id": 6,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 6,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 6,
+      "fullname": "",
     },
   ],
   Array [
@@ -6918,6 +10049,23 @@ Array [
     Result {
       "ok": true,
       "id": 7,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 7,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 7,
+      "fullname": "",
     },
   ],
   Array [
@@ -7006,6 +10154,57 @@ Array [
           ],
         },
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 8,
+      "diag": Object {
+        "message": "Board layout",
+        "severity": "comment",
+        "dump": Object {
+          "board": Array [
+            "      16G         05C        ",
+            "      G N C       C C G      ",
+            "        G           C  +     ",
+            "10C   01G         03C        ",
+            "R N G G A G       C C C      ",
+            "  R     G           C  +     ",
+            "      01G   17C   00C        ",
+            "      G A G G N R R N R      ",
+            "        G     R     G        ",
+          ],
+        },
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 8,
+      "diag": Object {
+        "message": "Board layout",
+        "severity": "comment",
+        "dump": Object {
+          "board": Array [
+            "      16G         05C        ",
+            "      G N C       C C G      ",
+            "        G           C  +     ",
+            "10C   01G         03C        ",
+            "R N G G A G       C C C      ",
+            "  R     G           C  +     ",
+            "      01G   17C   00C        ",
+            "      G A G G N R R N R      ",
+            "        G     R     G        ",
+          ],
+        },
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -7018,6 +10217,25 @@ Array [
       "ok": true,
       "id": 9,
       "name": "board has 7 tiles + starter tile",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 9,
+      "name": "board has 7 tiles + starter tile",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 9,
+      "name": "board has 7 tiles + starter tile",
+      "fullname": "",
     },
   ],
   Array [
@@ -7074,6 +10292,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "created Board",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "created Board",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "created Board",
+      "fullname": "",
     },
   ],
   Array [
@@ -7085,6 +10322,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -7096,6 +10350,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -7107,6 +10378,23 @@ Array [
     Result {
       "ok": true,
       "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
     },
   ],
   Array [
@@ -7118,6 +10406,23 @@ Array [
     Result {
       "ok": true,
       "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
     },
   ],
   Array [
@@ -7129,6 +10434,23 @@ Array [
     Result {
       "ok": true,
       "id": 6,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 6,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 6,
+      "fullname": "",
     },
   ],
   Array [
@@ -7140,6 +10462,23 @@ Array [
     Result {
       "ok": true,
       "id": 7,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 7,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 7,
+      "fullname": "",
     },
   ],
   Array [
@@ -7228,6 +10567,57 @@ Array [
           ],
         },
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 8,
+      "diag": Object {
+        "message": "Board layout",
+        "severity": "comment",
+        "dump": Object {
+          "board": Array [
+            "      16G         05C        ",
+            "      G N C       C C G      ",
+            "        G           C  +     ",
+            "10C   01G         03C        ",
+            "R N G G A G       C C C      ",
+            "  R     G           C  +     ",
+            "      01G   17C   00C        ",
+            "      G A G G N R R N R      ",
+            "        G     R     G        ",
+          ],
+        },
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 8,
+      "diag": Object {
+        "message": "Board layout",
+        "severity": "comment",
+        "dump": Object {
+          "board": Array [
+            "      16G         05C        ",
+            "      G N C       C C G      ",
+            "        G           C  +     ",
+            "10C   01G         03C        ",
+            "R N G G A G       C C C      ",
+            "  R     G           C  +     ",
+            "      01G   17C   00C        ",
+            "      G A G G N R R N R      ",
+            "        G     R     G        ",
+          ],
+        },
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -7240,6 +10630,25 @@ Array [
       "ok": true,
       "id": 9,
       "name": "board has 7 tiles + starter tile",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 9,
+      "name": "board has 7 tiles + starter tile",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 9,
+      "name": "board has 7 tiles + starter tile",
+      "fullname": "",
     },
   ],
   Array [
@@ -7299,6 +10708,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "00000",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "00000",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "00000",
+      "fullname": "",
     },
   ],
   Array [
@@ -7310,6 +10738,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -7321,6 +10766,23 @@ Array [
     Result {
       "ok": false,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -7352,6 +10814,7 @@ Array [
         Result {
           "ok": false,
           "id": 3,
+          "fullname": "",
         },
       ],
     },
@@ -7382,6 +10845,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "00000",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "00000",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "00000",
+      "fullname": "",
     },
   ],
   Array [
@@ -7393,6 +10875,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -7404,6 +10903,23 @@ Array [
     Result {
       "ok": false,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -7415,6 +10931,23 @@ Array [
     Result {
       "ok": true,
       "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
     },
   ],
   Array [
@@ -7427,6 +10960,25 @@ Array [
       "ok": true,
       "id": 5,
       "name": "00000",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "name": "00000",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "name": "00000",
+      "fullname": "",
     },
   ],
   Array [
@@ -7458,6 +11010,7 @@ Array [
         Result {
           "ok": false,
           "id": 3,
+          "fullname": "",
         },
       ],
     },
@@ -7477,6 +11030,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "Interlock activated",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "Interlock activated",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "Interlock activated",
+      "fullname": "",
     },
   ],
   Array [
@@ -7489,6 +11061,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "Megathrusters are go",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "Megathrusters are go",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "Megathrusters are go",
+      "fullname": "",
     },
   ],
   Array [
@@ -7501,6 +11092,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "Head formed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "Head formed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "Head formed",
+      "fullname": "",
     },
   ],
   Array [
@@ -7513,6 +11123,25 @@ Array [
       "ok": true,
       "id": 4,
       "name": "Blazing sword formed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "Blazing sword formed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "Blazing sword formed",
+      "fullname": "",
     },
   ],
   Array [
@@ -7525,6 +11154,25 @@ Array [
       "ok": true,
       "id": 5,
       "name": "Robeast destroyed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "name": "Robeast destroyed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "name": "Robeast destroyed",
+      "fullname": "",
     },
   ],
   Array [
@@ -7573,6 +11221,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "Interlock activated",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "Interlock activated",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "Interlock activated",
+      "fullname": "",
     },
   ],
   Array [
@@ -7585,6 +11252,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "Megathrusters are go",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "Megathrusters are go",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "Megathrusters are go",
+      "fullname": "",
     },
   ],
   Array [
@@ -7597,6 +11283,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "Head formed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "Head formed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "Head formed",
+      "fullname": "",
     },
   ],
   Array [
@@ -7609,6 +11314,25 @@ Array [
       "ok": true,
       "id": 4,
       "name": "Blazing sword formed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "Blazing sword formed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "Blazing sword formed",
+      "fullname": "",
     },
   ],
   Array [
@@ -7621,6 +11345,25 @@ Array [
       "ok": true,
       "id": 5,
       "name": "Robeast destroyed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "name": "Robeast destroyed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "name": "Robeast destroyed",
+      "fullname": "",
     },
   ],
   Array [
@@ -7680,6 +11423,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "Interlock activated",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "Interlock activated",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "Interlock activated",
+      "fullname": "",
     },
   ],
   Array [
@@ -7692,6 +11454,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "Megathrusters are go",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "Megathrusters are go",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "Megathrusters are go",
+      "fullname": "",
     },
   ],
   Array [
@@ -7704,6 +11485,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "Head formed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "Head formed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "Head formed",
+      "fullname": "",
     },
   ],
   Array [
@@ -7716,6 +11516,25 @@ Array [
       "ok": true,
       "id": 4,
       "name": "Blazing sword formed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "Blazing sword formed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "Blazing sword formed",
+      "fullname": "",
     },
   ],
   Array [
@@ -7728,6 +11547,25 @@ Array [
       "ok": true,
       "id": 5,
       "name": "Robeast destroyed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "name": "Robeast destroyed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "name": "Robeast destroyed",
+      "fullname": "",
     },
   ],
   Array [
@@ -7776,6 +11614,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "Interlock activated",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "Interlock activated",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "Interlock activated",
+      "fullname": "",
     },
   ],
   Array [
@@ -7788,6 +11645,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "Megathrusters are go",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "Megathrusters are go",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "Megathrusters are go",
+      "fullname": "",
     },
   ],
   Array [
@@ -7800,6 +11676,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "Head formed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "Head formed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "Head formed",
+      "fullname": "",
     },
   ],
   Array [
@@ -7812,6 +11707,25 @@ Array [
       "ok": true,
       "id": 4,
       "name": "Blazing sword formed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "Blazing sword formed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "Blazing sword formed",
+      "fullname": "",
     },
   ],
   Array [
@@ -7824,6 +11738,25 @@ Array [
       "ok": true,
       "id": 5,
       "name": "Robeast destroyed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "name": "Robeast destroyed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "name": "Robeast destroyed",
+      "fullname": "",
     },
   ],
   Array [
@@ -7964,6 +11897,7 @@ Array [
             "found": "\\n# Subtest: nope\\n\\n    not ok 1 - nope\\n      ---\\n      still: the string\\n      ...\\n\\n    1..1 # nope\\nnot ok 1 - nope # time=123\\n  ---\\n  this: is fine\\n  ...\\n\\n1..1\\n",
             "pattern": "/SIGTERM/",
           },
+          "fullname": "-t 0.2",
         },
       ],
       Array [
@@ -8000,6 +11934,7 @@ Array [
                 "found": "\\n# Subtest: nope\\n\\n    not ok 1 - nope\\n      ---\\n      still: the string\\n      ...\\n\\n    1..1 # nope\\nnot ok 1 - nope # time=123\\n  ---\\n  this: is fine\\n  ...\\n\\n1..1\\n",
                 "pattern": "/SIGTERM/",
               },
+              "fullname": "-t 0.2",
             },
           ],
         },
@@ -8089,6 +12024,32 @@ Array [
   Array [
     "line",
     "      ...\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "should match pattern provided",
+      "diag": Object {
+        "found": "\\n# Subtest: nope\\n\\n    not ok 1 - nope\\n      ---\\n      still: the string\\n      ...\\n\\n    1..1 # nope\\nnot ok 1 - nope # time=123\\n  ---\\n  this: is fine\\n  ...\\n\\n1..1\\n",
+        "pattern": "/SIGTERM/",
+      },
+      "fullname": "-t 0.2",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "should match pattern provided",
+      "diag": Object {
+        "found": "\\n# Subtest: nope\\n\\n    not ok 1 - nope\\n      ---\\n      still: the string\\n      ...\\n\\n    1..1 # nope\\nnot ok 1 - nope # time=123\\n  ---\\n  this: is fine\\n  ...\\n\\n1..1\\n",
+        "pattern": "/SIGTERM/",
+      },
+      "fullname": "-t 0.2",
+    },
   ],
   Array [
     "line",
@@ -8240,6 +12201,7 @@ Array [
             "found": "\\n# Subtest: nope\\n\\n    not ok 1 - nope\\n      ---\\n      still: the string\\n      ...\\n\\n    1..1 # nope\\nnot ok 1 - nope # time=123\\n  ---\\n  this: is fine\\n  ...\\n\\n1..1\\n",
             "pattern": "/SIGTERM/",
           },
+          "fullname": "-t 0.2",
         },
       ],
       Array [
@@ -8287,6 +12249,7 @@ Array [
                 "found": "\\n# Subtest: nope\\n\\n    not ok 1 - nope\\n      ---\\n      still: the string\\n      ...\\n\\n    1..1 # nope\\nnot ok 1 - nope # time=123\\n  ---\\n  this: is fine\\n  ...\\n\\n1..1\\n",
                 "pattern": "/SIGTERM/",
               },
+              "fullname": "-t 0.2",
             },
           ],
         },
@@ -8378,6 +12341,32 @@ Array [
     "      ...\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "should match pattern provided",
+      "diag": Object {
+        "found": "\\n# Subtest: nope\\n\\n    not ok 1 - nope\\n      ---\\n      still: the string\\n      ...\\n\\n    1..1 # nope\\nnot ok 1 - nope # time=123\\n  ---\\n  this: is fine\\n  ...\\n\\n1..1\\n",
+        "pattern": "/SIGTERM/",
+      },
+      "fullname": "-t 0.2",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "should match pattern provided",
+      "diag": Object {
+        "found": "\\n# Subtest: nope\\n\\n    not ok 1 - nope\\n      ---\\n      still: the string\\n      ...\\n\\n    1..1 # nope\\nnot ok 1 - nope # time=123\\n  ---\\n  this: is fine\\n  ...\\n\\n1..1\\n",
+        "pattern": "/SIGTERM/",
+      },
+      "fullname": "-t 0.2",
+    },
+  ],
+  Array [
     "line",
     "    1..1\\n",
   ],
@@ -8395,6 +12384,7 @@ Array [
       "ok": false,
       "id": 1,
       "name": "-t 0.2",
+      "fullname": "",
     },
   ],
   Array [
@@ -8438,6 +12428,7 @@ Array [
           "ok": false,
           "id": 1,
           "name": "-t 0.2",
+          "fullname": "",
         },
       ],
     },
@@ -8456,6 +12447,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -8467,6 +12475,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -8478,6 +12503,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -8489,6 +12531,23 @@ Array [
     Result {
       "ok": true,
       "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
     },
   ],
   Array [
@@ -8545,6 +12604,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -8556,6 +12632,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -8567,6 +12660,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -8578,6 +12688,23 @@ Array [
     Result {
       "ok": true,
       "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
     },
   ],
   Array [
@@ -8634,6 +12761,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -8645,6 +12789,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -8656,6 +12817,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -8667,6 +12845,23 @@ Array [
     Result {
       "ok": true,
       "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
     },
   ],
   Array [
@@ -8714,6 +12909,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -8725,6 +12937,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -8736,6 +12965,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -8747,6 +12993,23 @@ Array [
     Result {
       "ok": true,
       "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
     },
   ],
   Array [
@@ -8805,6 +13068,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -8816,6 +13096,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -8827,6 +13124,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -8894,6 +13208,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -8905,6 +13236,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -8916,6 +13264,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -9057,6 +13422,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -9068,6 +13450,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -9079,6 +13478,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -9090,6 +13506,23 @@ Array [
     Result {
       "ok": true,
       "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
     },
   ],
   Array [
@@ -9101,6 +13534,23 @@ Array [
     Result {
       "ok": true,
       "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
     },
   ],
   Array [
@@ -9112,6 +13562,23 @@ Array [
     Result {
       "ok": true,
       "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
     },
   ],
   Array [
@@ -9123,6 +13590,23 @@ Array [
     Result {
       "ok": true,
       "id": 6,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 6,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 6,
+      "fullname": "",
     },
   ],
   Array [
@@ -9134,6 +13618,23 @@ Array [
     Result {
       "ok": true,
       "id": 7,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 7,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 7,
+      "fullname": "",
     },
   ],
   Array [
@@ -9145,6 +13646,23 @@ Array [
     Result {
       "ok": true,
       "id": 8,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 8,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 8,
+      "fullname": "",
     },
   ],
   Array [
@@ -9156,6 +13674,23 @@ Array [
     Result {
       "ok": true,
       "id": 9,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 9,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 9,
+      "fullname": "",
     },
   ],
   Array [
@@ -9167,6 +13702,23 @@ Array [
     Result {
       "ok": true,
       "id": 10,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 10,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 10,
+      "fullname": "",
     },
   ],
   Array [
@@ -9234,6 +13786,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -9245,6 +13814,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -9256,6 +13842,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -9267,6 +13870,23 @@ Array [
     Result {
       "ok": true,
       "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
     },
   ],
   Array [
@@ -9278,6 +13898,23 @@ Array [
     Result {
       "ok": true,
       "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
     },
   ],
   Array [
@@ -9289,6 +13926,23 @@ Array [
     Result {
       "ok": true,
       "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
     },
   ],
   Array [
@@ -9300,6 +13954,23 @@ Array [
     Result {
       "ok": true,
       "id": 6,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 6,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 6,
+      "fullname": "",
     },
   ],
   Array [
@@ -9311,6 +13982,23 @@ Array [
     Result {
       "ok": true,
       "id": 7,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 7,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 7,
+      "fullname": "",
     },
   ],
   Array [
@@ -9322,6 +14010,23 @@ Array [
     Result {
       "ok": true,
       "id": 8,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 8,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 8,
+      "fullname": "",
     },
   ],
   Array [
@@ -9333,6 +14038,23 @@ Array [
     Result {
       "ok": true,
       "id": 9,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 9,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 9,
+      "fullname": "",
     },
   ],
   Array [
@@ -9344,6 +14066,23 @@ Array [
     Result {
       "ok": true,
       "id": 10,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 10,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 10,
+      "fullname": "",
     },
   ],
   Array [
@@ -9515,6 +14254,7 @@ Array [
       "id": 1,
       "buffered": true,
       "name": "child",
+      "fullname": "",
     },
   ],
   Array [
@@ -9605,6 +14345,7 @@ Array [
       "id": 1,
       "buffered": true,
       "name": "child",
+      "fullname": "",
     },
   ],
   Array [
@@ -9663,6 +14404,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -9674,6 +14432,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -9721,6 +14496,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -9732,6 +14524,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -9854,6 +14663,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "Should parse as literal backslash --> \\\\",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "Should parse as literal backslash --> \\\\",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "Should parse as literal backslash --> \\\\",
+      "fullname": "",
     },
   ],
   Array [
@@ -9866,6 +14694,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "Not a continuation line",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "Not a continuation line",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "Not a continuation line",
+      "fullname": "",
     },
   ],
   Array [
@@ -9914,6 +14761,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "Should parse as literal backslash --> \\\\",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "Should parse as literal backslash --> \\\\",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "Should parse as literal backslash --> \\\\",
+      "fullname": "",
     },
   ],
   Array [
@@ -9926,6 +14792,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "Not a continuation line",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "Not a continuation line",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "Not a continuation line",
+      "fullname": "",
     },
   ],
   Array [
@@ -9974,6 +14859,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "Not a \\\\# TODO",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "Not a \\\\# TODO",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "Not a \\\\# TODO",
+      "fullname": "",
     },
   ],
   Array [
@@ -9986,6 +14890,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "Not a \\\\# SKIP",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "Not a \\\\# SKIP",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "Not a \\\\# SKIP",
+      "fullname": "",
     },
   ],
   Array [
@@ -9998,6 +14921,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "Escaped \\\\\\\\\\\\#",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "Escaped \\\\\\\\\\\\#",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "Escaped \\\\\\\\\\\\#",
+      "fullname": "",
     },
   ],
   Array [
@@ -10046,6 +14988,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "Not a \\\\# TODO",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "Not a \\\\# TODO",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "Not a \\\\# TODO",
+      "fullname": "",
     },
   ],
   Array [
@@ -10058,6 +15019,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "Not a \\\\# SKIP",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "Not a \\\\# SKIP",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "Not a \\\\# SKIP",
+      "fullname": "",
     },
   ],
   Array [
@@ -10070,6 +15050,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "Escaped \\\\\\\\\\\\#",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "Escaped \\\\\\\\\\\\#",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "Escaped \\\\\\\\\\\\#",
+      "fullname": "",
     },
   ],
   Array [
@@ -10137,6 +15136,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "should be equivalent",
+              "fullname": "test/01c-user-updates.js update profile",
             },
           ],
           Array [
@@ -10149,6 +15149,7 @@ Array [
               "ok": true,
               "id": 2,
               "name": "should be equivalent",
+              "fullname": "test/01c-user-updates.js update profile",
             },
           ],
           Array [
@@ -10207,6 +15208,7 @@ Array [
           "id": 1,
           "time": 43.094,
           "name": "update profile",
+          "fullname": "test/01c-user-updates.js",
         },
       ],
       Array [
@@ -10230,6 +15232,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "should be equivalent",
+              "fullname": "test/01c-user-updates.js update email",
             },
           ],
           Array [
@@ -10388,6 +15391,7 @@ Array [
           "id": 2,
           "time": 24.16,
           "name": "update email",
+          "fullname": "test/01c-user-updates.js",
         },
       ],
       Array [
@@ -10440,8 +15444,44 @@ Array [
     "        ok 1 - should be equivalent\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equivalent",
+      "fullname": "test/01c-user-updates.js update profile",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equivalent",
+      "fullname": "test/01c-user-updates.js update profile",
+    },
+  ],
+  Array [
     "line",
     "        ok 2 - should be equivalent\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "should be equivalent",
+      "fullname": "test/01c-user-updates.js update profile",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "should be equivalent",
+      "fullname": "test/01c-user-updates.js update profile",
+    },
   ],
   Array [
     "line",
@@ -10668,6 +15708,24 @@ Array [
     "        ok 1 - should be equivalent\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equivalent",
+      "fullname": "test/01c-user-updates.js update email",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equivalent",
+      "fullname": "test/01c-user-updates.js update email",
+    },
+  ],
+  Array [
     "line",
     "        1..1\\n",
   ],
@@ -10694,6 +15752,7 @@ Array [
       "id": 1,
       "time": 339.14,
       "name": "test/01c-user-updates.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -10780,6 +15839,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "should be equivalent",
+              "fullname": "test/01c-user-updates.js update profile",
             },
           ],
           Array [
@@ -10792,6 +15852,7 @@ Array [
               "ok": true,
               "id": 2,
               "name": "should be equivalent",
+              "fullname": "test/01c-user-updates.js update profile",
             },
           ],
           Array [
@@ -10850,6 +15911,7 @@ Array [
           "id": 1,
           "time": 43.094,
           "name": "update profile",
+          "fullname": "test/01c-user-updates.js",
         },
       ],
       Array [
@@ -10873,6 +15935,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "should be equivalent",
+              "fullname": "test/01c-user-updates.js update email",
             },
           ],
           Array [
@@ -11031,6 +16094,7 @@ Array [
           "id": 2,
           "time": 24.16,
           "name": "update email",
+          "fullname": "test/01c-user-updates.js",
         },
       ],
       Array [
@@ -11083,8 +16147,44 @@ Array [
     "        ok 1 - should be equivalent\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equivalent",
+      "fullname": "test/01c-user-updates.js update profile",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equivalent",
+      "fullname": "test/01c-user-updates.js update profile",
+    },
+  ],
+  Array [
     "line",
     "        ok 2 - should be equivalent\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "should be equivalent",
+      "fullname": "test/01c-user-updates.js update profile",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "should be equivalent",
+      "fullname": "test/01c-user-updates.js update profile",
+    },
   ],
   Array [
     "line",
@@ -11311,6 +16411,24 @@ Array [
     "        ok 1 - should be equivalent\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equivalent",
+      "fullname": "test/01c-user-updates.js update email",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equivalent",
+      "fullname": "test/01c-user-updates.js update email",
+    },
+  ],
+  Array [
     "line",
     "        1..1\\n",
   ],
@@ -11337,6 +16455,7 @@ Array [
       "id": 1,
       "time": 339.14,
       "name": "test/01c-user-updates.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -11412,6 +16531,23 @@ Array [
     Result {
       "ok": false,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -11451,6 +16587,7 @@ Array [
         Result {
           "ok": false,
           "id": 1,
+          "fullname": "",
         },
       ],
     },
@@ -11489,6 +16626,23 @@ Array [
     Result {
       "ok": false,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -11534,6 +16688,7 @@ Array [
         Result {
           "ok": true,
           "id": 1,
+          "fullname": "maybe a child",
         },
       ],
       Array [
@@ -11567,6 +16722,22 @@ Array [
     "    ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "maybe a child",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "maybe a child",
+    },
+  ],
+  Array [
     "line",
     "ok maybe a child\\n",
   ],
@@ -11576,6 +16747,7 @@ Array [
       "ok": true,
       "id": 2,
       "name": "maybe a child",
+      "fullname": "",
     },
   ],
   Array [
@@ -11615,6 +16787,7 @@ Array [
         Result {
           "ok": false,
           "id": 1,
+          "fullname": "",
         },
         Object {
           "tapError": "no plan",
@@ -11644,6 +16817,23 @@ Array [
     Result {
       "ok": false,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -11675,6 +16865,7 @@ Array [
         Result {
           "ok": false,
           "id": 1,
+          "fullname": "",
         },
       ],
     },
@@ -11701,6 +16892,23 @@ Array [
     Result {
       "ok": false,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -11734,6 +16942,7 @@ Array [
         Result {
           "ok": true,
           "id": 1,
+          "fullname": "maybe a child",
         },
       ],
       Array [
@@ -11767,6 +16976,22 @@ Array [
     "    ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "maybe a child",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "maybe a child",
+    },
+  ],
+  Array [
     "line",
     "ok maybe a child\\n",
   ],
@@ -11776,6 +17001,7 @@ Array [
       "ok": true,
       "id": 2,
       "name": "maybe a child",
+      "fullname": "",
     },
   ],
   Array [
@@ -11815,6 +17041,7 @@ Array [
         Result {
           "ok": false,
           "id": 1,
+          "fullname": "",
         },
         Object {
           "tapError": "no plan",
@@ -11857,6 +17084,25 @@ Array [
       "ok": false,
       "id": 1,
       "name": "de-indenting the yamlish wrongly.",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "de-indenting the yamlish wrongly.",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "de-indenting the yamlish wrongly.",
+      "fullname": "",
     },
   ],
   Array [
@@ -11897,6 +17143,7 @@ Array [
           "ok": false,
           "id": 1,
           "name": "de-indenting the yamlish wrongly.",
+          "fullname": "",
         },
       ],
     },
@@ -11936,6 +17183,25 @@ Array [
       "ok": false,
       "id": 1,
       "name": "de-indenting the yamlish wrongly.",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "de-indenting the yamlish wrongly.",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "de-indenting the yamlish wrongly.",
+      "fullname": "",
     },
   ],
   Array [
@@ -11960,6 +17226,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "But this is not garbage",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "But this is not garbage",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "But this is not garbage",
+      "fullname": "",
     },
   ],
   Array [
@@ -11984,6 +17269,25 @@ Array [
       "ok": false,
       "id": 3,
       "name": "truncating the yamlish",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 3,
+      "name": "truncating the yamlish",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 3,
+      "name": "truncating the yamlish",
+      "fullname": "",
     },
   ],
   Array [
@@ -12004,6 +17308,25 @@ Array [
       "ok": false,
       "id": 4,
       "name": "this is truncated weirdly",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 4,
+      "name": "this is truncated weirdly",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 4,
+      "name": "this is truncated weirdly",
+      "fullname": "",
     },
   ],
   Array [
@@ -12051,16 +17374,19 @@ Array [
           "ok": false,
           "id": 1,
           "name": "de-indenting the yamlish wrongly.",
+          "fullname": "",
         },
         Result {
           "ok": false,
           "id": 3,
           "name": "truncating the yamlish",
+          "fullname": "",
         },
         Result {
           "ok": false,
           "id": 4,
           "name": "this is truncated weirdly",
+          "fullname": "",
         },
       ],
     },
@@ -12099,6 +17425,25 @@ Array [
       "ok": false,
       "id": 1,
       "name": "database handle",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "database handle",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "database handle",
+      "fullname": "",
     },
   ],
   Array [
@@ -12131,6 +17476,7 @@ Array [
           "ok": false,
           "id": 1,
           "name": "database handle",
+          "fullname": "",
         },
       ],
     },
@@ -12169,6 +17515,25 @@ Array [
       "ok": false,
       "id": 1,
       "name": "database handle",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "database handle",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "database handle",
+      "fullname": "",
     },
   ],
   Array [
@@ -12201,6 +17566,7 @@ Array [
           "ok": false,
           "id": 1,
           "name": "database handle",
+          "fullname": "",
         },
       ],
     },
@@ -12239,6 +17605,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "Creating test program",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "Creating test program",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "Creating test program",
+      "fullname": "",
     },
   ],
   Array [
@@ -12251,6 +17636,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "Test program runs, no error",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "Test program runs, no error",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "Test program runs, no error",
+      "fullname": "",
     },
   ],
   Array [
@@ -12264,6 +17668,27 @@ Array [
       "id": 3,
       "todo": "halting problem unsolved",
       "name": "infinite loop",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 3,
+      "todo": "halting problem unsolved",
+      "name": "infinite loop",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": false,
+      "id": 3,
+      "todo": "halting problem unsolved",
+      "name": "infinite loop",
+      "fullname": "",
     },
   ],
   Array [
@@ -12277,6 +17702,27 @@ Array [
       "id": 4,
       "todo": "halting problem unsolved",
       "name": "infinite loop 2",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 4,
+      "todo": "halting problem unsolved",
+      "name": "infinite loop 2",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": false,
+      "id": 4,
+      "todo": "halting problem unsolved",
+      "name": "infinite loop 2",
+      "fullname": "",
     },
   ],
   Array [
@@ -12341,6 +17787,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "Creating test program",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "Creating test program",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "Creating test program",
+      "fullname": "",
     },
   ],
   Array [
@@ -12353,6 +17818,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "Test program runs, no error",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "Test program runs, no error",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "Test program runs, no error",
+      "fullname": "",
     },
   ],
   Array [
@@ -12366,6 +17850,27 @@ Array [
       "id": 3,
       "todo": "halting problem unsolved",
       "name": "infinite loop",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 3,
+      "todo": "halting problem unsolved",
+      "name": "infinite loop",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": false,
+      "id": 3,
+      "todo": "halting problem unsolved",
+      "name": "infinite loop",
+      "fullname": "",
     },
   ],
   Array [
@@ -12379,6 +17884,27 @@ Array [
       "id": 4,
       "todo": "halting problem unsolved",
       "name": "infinite loop 2",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 4,
+      "todo": "halting problem unsolved",
+      "name": "infinite loop 2",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": false,
+      "id": 4,
+      "todo": "halting problem unsolved",
+      "name": "infinite loop 2",
+      "fullname": "",
     },
   ],
   Array [
@@ -12431,6 +17957,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -12442,6 +17985,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -12453,6 +18013,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -12464,6 +18041,23 @@ Array [
     Result {
       "ok": true,
       "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
     },
   ],
   Array [
@@ -12543,6 +18137,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -12554,6 +18165,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -12565,6 +18193,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -12576,6 +18221,23 @@ Array [
     Result {
       "ok": true,
       "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
     },
   ],
   Array [
@@ -12655,6 +18317,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -12666,6 +18345,23 @@ Array [
     Result {
       "ok": false,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -12697,6 +18393,7 @@ Array [
         Result {
           "ok": false,
           "id": 2,
+          "fullname": "",
         },
       ],
     },
@@ -12723,6 +18420,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -12734,6 +18448,23 @@ Array [
     Result {
       "ok": false,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -12745,6 +18476,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -12756,6 +18504,23 @@ Array [
     Result {
       "ok": true,
       "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
     },
   ],
   Array [
@@ -12822,6 +18587,7 @@ Array [
         Result {
           "ok": false,
           "id": 2,
+          "fullname": "",
         },
       ],
     },
@@ -12857,6 +18623,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "one",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "one",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "one",
+      "fullname": "",
     },
   ],
   Array [
@@ -12869,6 +18654,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "two",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "two",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "two",
+      "fullname": "",
     },
   ],
   Array [
@@ -12889,6 +18693,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "three",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "three",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "three",
+      "fullname": "",
     },
   ],
   Array [
@@ -12901,6 +18724,25 @@ Array [
       "ok": true,
       "id": 4,
       "name": "four",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "four",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "four",
+      "fullname": "",
     },
   ],
   Array [
@@ -12997,6 +18839,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "one",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "one",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "one",
+      "fullname": "",
     },
   ],
   Array [
@@ -13009,6 +18870,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "two",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "two",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "two",
+      "fullname": "",
     },
   ],
   Array [
@@ -13029,6 +18909,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "three",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "three",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "three",
+      "fullname": "",
     },
   ],
   Array [
@@ -13041,6 +18940,25 @@ Array [
       "ok": true,
       "id": 4,
       "name": "four",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "four",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "four",
+      "fullname": "",
     },
   ],
   Array [
@@ -13171,6 +19089,7 @@ Array [
           "id": 1,
           "time": 1.234,
           "name": "true is ok",
+          "fullname": "first",
         },
       ],
       Array [
@@ -13184,6 +19103,7 @@ Array [
           "id": 2,
           "time": 1.234,
           "name": "doag is also okay",
+          "fullname": "first",
         },
       ],
       Array [
@@ -13217,8 +19137,48 @@ Array [
     "    ok 1 - true is ok # time=1.234ms\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 1.234,
+      "name": "true is ok",
+      "fullname": "first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 1.234,
+      "name": "true is ok",
+      "fullname": "first",
+    },
+  ],
+  Array [
     "line",
     "    ok 2 - doag is also okay # time=1.234ms\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "time": 1.234,
+      "name": "doag is also okay",
+      "fullname": "first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "time": 1.234,
+      "name": "doag is also okay",
+      "fullname": "first",
+    },
   ],
   Array [
     "line",
@@ -13231,6 +19191,7 @@ Array [
       "id": 1,
       "time": 2.589,
       "name": "first",
+      "fullname": "",
     },
   ],
   Array [
@@ -13255,6 +19216,7 @@ Array [
           "id": 1,
           "time": 1.001,
           "name": "no plan",
+          "fullname": "second",
         },
       ],
       Array [
@@ -13290,6 +19252,7 @@ Array [
               "id": 1,
               "skip": "for no raisin",
               "name": "granddaughter",
+              "fullname": "second this passes",
             },
           ],
           Array [
@@ -13328,6 +19291,7 @@ Array [
                 "this": "is not tap",
                 "it": "is yaml",
               },
+              "fullname": "second this passes",
             },
           ],
           Array [
@@ -13357,6 +19321,7 @@ Array [
               "id": 3,
               "todo": true,
               "name": "grandchild",
+              "fullname": "second this passes",
             },
           ],
           Array [
@@ -13468,6 +19433,7 @@ Array [
           "id": 2,
           "time": 1200,
           "name": "this passes",
+          "fullname": "second",
         },
       ],
       Array [
@@ -13508,6 +19474,26 @@ Array [
     "    ok 1 - no plan # time=1.001ms\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 1.001,
+      "name": "no plan",
+      "fullname": "second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 1.001,
+      "name": "no plan",
+      "fullname": "second",
+    },
+  ],
+  Array [
     "line",
     "    # Subtest: this passes\\n",
   ],
@@ -13518,6 +19504,26 @@ Array [
   Array [
     "line",
     "        not ok granddaughter # SKIP for no raisin\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "skip": "for no raisin",
+      "name": "granddaughter",
+      "fullname": "second this passes",
+    },
+  ],
+  Array [
+    "skip",
+    Result {
+      "ok": false,
+      "id": 1,
+      "skip": "for no raisin",
+      "name": "granddaughter",
+      "fullname": "second this passes",
+    },
   ],
   Array [
     "line",
@@ -13544,6 +19550,36 @@ Array [
     "          ...\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "time": 1001,
+      "name": "grandson",
+      "diag": Object {
+        "ok": 1,
+        "this": "is not tap",
+        "it": "is yaml",
+      },
+      "fullname": "second this passes",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "time": 1001,
+      "name": "grandson",
+      "diag": Object {
+        "ok": 1,
+        "this": "is not tap",
+        "it": "is yaml",
+      },
+      "fullname": "second this passes",
+    },
+  ],
+  Array [
     "line",
     "        not ok grandchild # TODO\\n",
   ],
@@ -13562,6 +19598,26 @@ Array [
   Array [
     "line",
     "          it: is garbage\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 3,
+      "todo": true,
+      "name": "grandchild",
+      "fullname": "second this passes",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": false,
+      "id": 3,
+      "todo": true,
+      "name": "grandchild",
+      "fullname": "second this passes",
+    },
   ],
   Array [
     "extra",
@@ -13594,6 +19650,7 @@ Array [
       "id": 2,
       "time": 1.2,
       "name": "second",
+      "fullname": "",
     },
   ],
   Array [
@@ -13681,6 +19738,7 @@ Array [
           "id": 1,
           "time": 1.234,
           "name": "true is ok",
+          "fullname": "first",
         },
       ],
       Array [
@@ -13694,6 +19752,7 @@ Array [
           "id": 2,
           "time": 1.234,
           "name": "doag is also okay",
+          "fullname": "first",
         },
       ],
       Array [
@@ -13727,8 +19786,48 @@ Array [
     "    ok 1 - true is ok # time=1.234ms\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 1.234,
+      "name": "true is ok",
+      "fullname": "first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 1.234,
+      "name": "true is ok",
+      "fullname": "first",
+    },
+  ],
+  Array [
     "line",
     "    ok 2 - doag is also okay # time=1.234ms\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "time": 1.234,
+      "name": "doag is also okay",
+      "fullname": "first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "time": 1.234,
+      "name": "doag is also okay",
+      "fullname": "first",
+    },
   ],
   Array [
     "line",
@@ -13741,6 +19840,7 @@ Array [
       "id": 1,
       "time": 2.589,
       "name": "first",
+      "fullname": "",
     },
   ],
   Array [
@@ -13765,6 +19865,7 @@ Array [
           "id": 1,
           "time": 1.001,
           "name": "no plan",
+          "fullname": "second",
         },
       ],
       Array [
@@ -13800,6 +19901,7 @@ Array [
               "id": 1,
               "skip": "for no raisin",
               "name": "granddaughter",
+              "fullname": "second this passes",
             },
           ],
           Array [
@@ -13838,6 +19940,7 @@ Array [
                 "this": "is not tap",
                 "it": "is yaml",
               },
+              "fullname": "second this passes",
             },
           ],
           Array [
@@ -13867,6 +19970,7 @@ Array [
               "id": 3,
               "todo": true,
               "name": "grandchild",
+              "fullname": "second this passes",
             },
           ],
           Array [
@@ -13978,6 +20082,7 @@ Array [
           "id": 2,
           "time": 1200,
           "name": "this passes",
+          "fullname": "second",
         },
       ],
       Array [
@@ -14018,6 +20123,26 @@ Array [
     "    ok 1 - no plan # time=1.001ms\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 1.001,
+      "name": "no plan",
+      "fullname": "second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 1.001,
+      "name": "no plan",
+      "fullname": "second",
+    },
+  ],
+  Array [
     "line",
     "    # Subtest: this passes\\n",
   ],
@@ -14028,6 +20153,26 @@ Array [
   Array [
     "line",
     "        not ok granddaughter # SKIP for no raisin\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "skip": "for no raisin",
+      "name": "granddaughter",
+      "fullname": "second this passes",
+    },
+  ],
+  Array [
+    "skip",
+    Result {
+      "ok": false,
+      "id": 1,
+      "skip": "for no raisin",
+      "name": "granddaughter",
+      "fullname": "second this passes",
+    },
   ],
   Array [
     "line",
@@ -14054,6 +20199,36 @@ Array [
     "          ...\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "time": 1001,
+      "name": "grandson",
+      "diag": Object {
+        "ok": 1,
+        "this": "is not tap",
+        "it": "is yaml",
+      },
+      "fullname": "second this passes",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "time": 1001,
+      "name": "grandson",
+      "diag": Object {
+        "ok": 1,
+        "this": "is not tap",
+        "it": "is yaml",
+      },
+      "fullname": "second this passes",
+    },
+  ],
+  Array [
     "line",
     "        not ok grandchild # TODO\\n",
   ],
@@ -14072,6 +20247,26 @@ Array [
   Array [
     "line",
     "          it: is garbage\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 3,
+      "todo": true,
+      "name": "grandchild",
+      "fullname": "second this passes",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": false,
+      "id": 3,
+      "todo": true,
+      "name": "grandchild",
+      "fullname": "second this passes",
+    },
   ],
   Array [
     "extra",
@@ -14104,6 +20299,7 @@ Array [
       "id": 2,
       "time": 1.2,
       "name": "second",
+      "fullname": "",
     },
   ],
   Array [
@@ -14471,6 +20667,7 @@ Array [
           "id": 1,
           "time": 5.26,
           "name": "boom",
+          "fullname": "index.js",
         },
       ],
       Array [
@@ -14878,6 +21075,61 @@ Array [
         "command": "/usr/local/bin/iojs",
         "file": "index.js",
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "time": 201.609,
+      "name": "index.js",
+      "diag": Object {
+        "arguments": Array [
+          "index.js",
+        ],
+        "timeout": 30000,
+        "results": Object {
+          "ok": false,
+          "count": 1,
+          "pass": 1,
+          "plan": Object {
+            "start": 1,
+            "end": 1,
+          },
+        },
+        "command": "/usr/local/bin/iojs",
+        "file": "index.js",
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "time": 201.609,
+      "name": "index.js",
+      "diag": Object {
+        "arguments": Array [
+          "index.js",
+        ],
+        "timeout": 30000,
+        "results": Object {
+          "ok": false,
+          "count": 1,
+          "pass": 1,
+          "plan": Object {
+            "start": 1,
+            "end": 1,
+          },
+        },
+        "command": "/usr/local/bin/iojs",
+        "file": "index.js",
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -14928,6 +21180,7 @@ Array [
             "command": "/usr/local/bin/iojs",
             "file": "index.js",
           },
+          "fullname": "",
         },
       ],
     },
@@ -15277,6 +21530,7 @@ Array [
           "id": 1,
           "time": 5.26,
           "name": "boom",
+          "fullname": "index.js",
         },
       ],
       Array [
@@ -15684,6 +21938,61 @@ Array [
         "command": "/usr/local/bin/iojs",
         "file": "index.js",
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "time": 201.609,
+      "name": "index.js",
+      "diag": Object {
+        "arguments": Array [
+          "index.js",
+        ],
+        "timeout": 30000,
+        "results": Object {
+          "ok": false,
+          "count": 1,
+          "pass": 1,
+          "plan": Object {
+            "start": 1,
+            "end": 1,
+          },
+        },
+        "command": "/usr/local/bin/iojs",
+        "file": "index.js",
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "time": 201.609,
+      "name": "index.js",
+      "diag": Object {
+        "arguments": Array [
+          "index.js",
+        ],
+        "timeout": 30000,
+        "results": Object {
+          "ok": false,
+          "count": 1,
+          "pass": 1,
+          "plan": Object {
+            "start": 1,
+            "end": 1,
+          },
+        },
+        "command": "/usr/local/bin/iojs",
+        "file": "index.js",
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -15761,6 +22070,7 @@ Array [
             "command": "/usr/local/bin/iojs",
             "file": "index.js",
           },
+          "fullname": "",
         },
       ],
     },
@@ -15806,6 +22116,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -15869,6 +22196,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -15969,6 +22313,7 @@ Array [
               "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\\nyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy",
             ],
           },
+          "fullname": "foo",
         },
       ],
       Array [
@@ -16009,6 +22354,7 @@ Array [
                   "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\\nyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy",
                 ],
               },
+              "fullname": "foo",
             },
           ],
         },
@@ -16054,6 +22400,40 @@ Array [
   Array [
     "line",
     "      ...\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "should be equivalent",
+      "diag": Object {
+        "found": Array [
+          "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy",
+        ],
+        "wanted": Array [
+          "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\\nyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy",
+        ],
+      },
+      "fullname": "foo",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "should be equivalent",
+      "diag": Object {
+        "found": Array [
+          "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy",
+        ],
+        "wanted": Array [
+          "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\\nyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy",
+        ],
+      },
+      "fullname": "foo",
+    },
   ],
   Array [
     "line",
@@ -16165,6 +22545,7 @@ Array [
               "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\\nyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy",
             ],
           },
+          "fullname": "foo",
         },
       ],
       Array [
@@ -16224,6 +22605,7 @@ Array [
                   "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\\nyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy",
                 ],
               },
+              "fullname": "foo",
             },
           ],
         },
@@ -16269,6 +22651,40 @@ Array [
   Array [
     "line",
     "      ...\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "should be equivalent",
+      "diag": Object {
+        "found": Array [
+          "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy",
+        ],
+        "wanted": Array [
+          "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\\nyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy",
+        ],
+      },
+      "fullname": "foo",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "should be equivalent",
+      "diag": Object {
+        "found": Array [
+          "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy",
+        ],
+        "wanted": Array [
+          "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\\nyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy",
+        ],
+      },
+      "fullname": "foo",
+    },
   ],
   Array [
     "line",
@@ -16350,6 +22766,7 @@ Array [
           "time": 13.457,
         },
       },
+      "fullname": "",
     },
   ],
   Array [
@@ -16423,6 +22840,7 @@ Array [
               "time": 13.457,
             },
           },
+          "fullname": "",
         },
       ],
     },
@@ -16441,6 +22859,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -16452,6 +22887,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -16463,6 +22915,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -16474,6 +22943,23 @@ Array [
     Result {
       "ok": true,
       "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
     },
   ],
   Array [
@@ -16521,6 +23007,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -16532,6 +23035,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -16543,6 +23063,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -16554,6 +23091,23 @@ Array [
     Result {
       "ok": true,
       "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
     },
   ],
   Array [
@@ -16580,6 +23134,322 @@ Array [
       "plan": FinalPlan {
         "start": 1,
         "end": 4,
+        "skipAll": false,
+        "skipReason": "",
+        "comment": "",
+      },
+      "failures": Array [],
+    },
+  ],
+]
+`
+
+exports[`test/parser.js TAP mismatched-child-assert.tap > output bail=true 1`] = `
+Array [
+  Array [
+    "line",
+    "TAP version 13\\n",
+  ],
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "line",
+    "# Subtest: some child\\n",
+  ],
+  Array [
+    "child",
+    Array [
+      Array [
+        "comment",
+        "# Subtest: some child\\n",
+      ],
+      Array [
+        "line",
+        "ok 1 - this is fine\\n",
+      ],
+      Array [
+        "assert",
+        Result {
+          "ok": true,
+          "id": 1,
+          "name": "this is fine",
+          "fullname": "some child",
+        },
+      ],
+      Array [
+        "line",
+        "1..1\\n",
+      ],
+      Array [
+        "plan",
+        Object {
+          "start": 1,
+          "end": 1,
+        },
+      ],
+      Array [
+        "complete",
+        FinalResults {
+          "ok": true,
+          "count": 1,
+          "pass": 1,
+          "fail": 0,
+          "bailout": false,
+          "todo": 0,
+          "skip": 0,
+          "plan": FinalPlan {
+            "start": 1,
+            "end": 1,
+            "skipAll": false,
+            "skipReason": "",
+            "comment": "",
+          },
+          "failures": Array [],
+        },
+      ],
+    ],
+  ],
+  Array [
+    "line",
+    "    ok 1 - this is fine\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "this is fine",
+      "fullname": "some child",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "this is fine",
+      "fullname": "some child",
+    },
+  ],
+  Array [
+    "line",
+    "    1..1\\n",
+  ],
+  Array [
+    "line",
+    "ok 1 - different name\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "different name",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "different name",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "different name",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "line",
+    "1..1\\n",
+  ],
+  Array [
+    "plan",
+    Object {
+      "start": 1,
+      "end": 1,
+    },
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "ok": true,
+      "count": 1,
+      "pass": 1,
+      "fail": 0,
+      "bailout": false,
+      "todo": 0,
+      "skip": 0,
+      "plan": FinalPlan {
+        "start": 1,
+        "end": 1,
+        "skipAll": false,
+        "skipReason": "",
+        "comment": "",
+      },
+      "failures": Array [],
+    },
+  ],
+]
+`
+
+exports[`test/parser.js TAP mismatched-child-assert.tap > output bail=false 1`] = `
+Array [
+  Array [
+    "line",
+    "TAP version 13\\n",
+  ],
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "line",
+    "# Subtest: some child\\n",
+  ],
+  Array [
+    "child",
+    Array [
+      Array [
+        "comment",
+        "# Subtest: some child\\n",
+      ],
+      Array [
+        "line",
+        "ok 1 - this is fine\\n",
+      ],
+      Array [
+        "assert",
+        Result {
+          "ok": true,
+          "id": 1,
+          "name": "this is fine",
+          "fullname": "some child",
+        },
+      ],
+      Array [
+        "line",
+        "1..1\\n",
+      ],
+      Array [
+        "plan",
+        Object {
+          "start": 1,
+          "end": 1,
+        },
+      ],
+      Array [
+        "complete",
+        FinalResults {
+          "ok": true,
+          "count": 1,
+          "pass": 1,
+          "fail": 0,
+          "bailout": false,
+          "todo": 0,
+          "skip": 0,
+          "plan": FinalPlan {
+            "start": 1,
+            "end": 1,
+            "skipAll": false,
+            "skipReason": "",
+            "comment": "",
+          },
+          "failures": Array [],
+        },
+      ],
+    ],
+  ],
+  Array [
+    "line",
+    "    ok 1 - this is fine\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "this is fine",
+      "fullname": "some child",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "this is fine",
+      "fullname": "some child",
+    },
+  ],
+  Array [
+    "line",
+    "    1..1\\n",
+  ],
+  Array [
+    "line",
+    "ok 1 - different name\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "different name",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "different name",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "different name",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "line",
+    "1..1\\n",
+  ],
+  Array [
+    "plan",
+    Object {
+      "start": 1,
+      "end": 1,
+    },
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "ok": true,
+      "count": 1,
+      "pass": 1,
+      "fail": 0,
+      "bailout": false,
+      "todo": 0,
+      "skip": 0,
+      "plan": FinalPlan {
+        "start": 1,
+        "end": 1,
         "skipAll": false,
         "skipReason": "",
         "comment": "",
@@ -16620,6 +23490,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -16631,6 +23518,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -16642,6 +23546,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -16653,6 +23574,23 @@ Array [
     Result {
       "ok": true,
       "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
     },
   ],
   Array [
@@ -16664,6 +23602,23 @@ Array [
     Result {
       "ok": true,
       "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
     },
   ],
   Array [
@@ -16739,6 +23694,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -16750,6 +23722,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -16761,6 +23750,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -16772,6 +23778,23 @@ Array [
     Result {
       "ok": true,
       "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
     },
   ],
   Array [
@@ -16783,6 +23806,23 @@ Array [
     Result {
       "ok": true,
       "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
     },
   ],
   Array [
@@ -16850,6 +23890,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -16861,6 +23918,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -16872,6 +23946,23 @@ Array [
     Result {
       "ok": false,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -16903,6 +23994,7 @@ Array [
         Result {
           "ok": false,
           "id": 3,
+          "fullname": "",
         },
       ],
     },
@@ -16932,6 +24024,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -16943,6 +24052,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -16954,6 +24080,23 @@ Array [
     Result {
       "ok": false,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -16965,6 +24108,23 @@ Array [
     Result {
       "ok": true,
       "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
     },
   ],
   Array [
@@ -16976,6 +24136,23 @@ Array [
     Result {
       "ok": true,
       "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
     },
   ],
   Array [
@@ -17007,6 +24184,7 @@ Array [
         Result {
           "ok": false,
           "id": 3,
+          "fullname": "",
         },
       ],
     },
@@ -17037,6 +24215,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "we are good",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "we are good",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "we are good",
+      "fullname": "",
     },
   ],
   Array [
@@ -17049,6 +24246,25 @@ Array [
       "ok": false,
       "id": 2,
       "name": "we are bad",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 2,
+      "name": "we are bad",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 2,
+      "name": "we are bad",
+      "fullname": "",
     },
   ],
   Array [
@@ -17081,6 +24297,7 @@ Array [
           "ok": false,
           "id": 2,
           "name": "we are bad",
+          "fullname": "",
         },
       ],
     },
@@ -17111,6 +24328,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "we are good",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "we are good",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "we are good",
+      "fullname": "",
     },
   ],
   Array [
@@ -17123,6 +24359,25 @@ Array [
       "ok": false,
       "id": 2,
       "name": "we are bad",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 2,
+      "name": "we are bad",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 2,
+      "name": "we are bad",
+      "fullname": "",
     },
   ],
   Array [
@@ -17135,6 +24390,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "we are zesty!",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "we are zesty!",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "we are zesty!",
+      "fullname": "",
     },
   ],
   Array [
@@ -17167,6 +24441,7 @@ Array [
           "ok": false,
           "id": 2,
           "name": "we are bad",
+          "fullname": "",
         },
       ],
     },
@@ -17202,6 +24477,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -17214,6 +24508,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -17234,6 +24547,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -17246,6 +24578,25 @@ Array [
       "ok": true,
       "id": 4,
       "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "(unnamed assert)",
+      "fullname": "",
     },
   ],
   Array [
@@ -17319,6 +24670,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -17331,6 +24701,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -17351,6 +24740,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -17363,6 +24771,25 @@ Array [
       "ok": true,
       "id": 4,
       "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "(unnamed assert)",
+      "fullname": "",
     },
   ],
   Array [
@@ -17436,6 +24863,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -17448,6 +24894,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -17468,6 +24933,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -17480,6 +24964,25 @@ Array [
       "ok": true,
       "id": 4,
       "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "(unnamed assert)",
+      "fullname": "",
     },
   ],
   Array [
@@ -17588,6 +25091,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -17600,6 +25122,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -17620,6 +25161,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -17632,6 +25192,25 @@ Array [
       "ok": true,
       "id": 4,
       "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "(unnamed assert)",
+      "fullname": "",
     },
   ],
   Array [
@@ -17732,6 +25311,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -17745,6 +25343,27 @@ Array [
       "id": 2,
       "todo": "but we will fix it later",
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 2,
+      "todo": "but we will fix it later",
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": false,
+      "id": 2,
+      "todo": "but we will fix it later",
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -17765,6 +25384,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -17777,6 +25415,25 @@ Array [
       "ok": true,
       "id": 4,
       "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "(unnamed assert)",
+      "fullname": "",
     },
   ],
   Array [
@@ -17849,6 +25506,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -17862,6 +25538,27 @@ Array [
       "id": 2,
       "todo": "but we will fix it later",
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 2,
+      "todo": "but we will fix it later",
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": false,
+      "id": 2,
+      "todo": "but we will fix it later",
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -17882,6 +25579,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -17894,6 +25610,25 @@ Array [
       "ok": true,
       "id": 4,
       "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "(unnamed assert)",
+      "fullname": "",
     },
   ],
   Array [
@@ -17974,6 +25709,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -17986,6 +25740,25 @@ Array [
       "ok": false,
       "id": 2,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 2,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 2,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -18026,6 +25799,7 @@ Array [
           "ok": false,
           "id": 2,
           "name": "should be equivalent",
+          "fullname": "",
         },
       ],
     },
@@ -18061,6 +25835,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -18073,6 +25866,25 @@ Array [
       "ok": false,
       "id": 2,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 2,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 2,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -18093,6 +25905,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -18105,6 +25936,25 @@ Array [
       "ok": true,
       "id": 4,
       "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "(unnamed assert)",
+      "fullname": "",
     },
   ],
   Array [
@@ -18172,6 +26022,7 @@ Array [
           "ok": false,
           "id": 2,
           "name": "should be equivalent",
+          "fullname": "",
         },
       ],
     },
@@ -18207,6 +26058,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -18219,6 +26089,25 @@ Array [
       "ok": false,
       "id": 2,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 2,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 2,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -18259,6 +26148,7 @@ Array [
           "ok": false,
           "id": 2,
           "name": "should be equivalent",
+          "fullname": "",
         },
       ],
     },
@@ -18294,6 +26184,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -18306,6 +26215,25 @@ Array [
       "ok": false,
       "id": 2,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 2,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 2,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -18326,6 +26254,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -18338,6 +26285,25 @@ Array [
       "ok": true,
       "id": 4,
       "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "(unnamed assert)",
+      "fullname": "",
     },
   ],
   Array [
@@ -18405,6 +26371,7 @@ Array [
           "ok": false,
           "id": 2,
           "name": "should be equivalent",
+          "fullname": "",
         },
       ],
     },
@@ -18440,6 +26407,25 @@ Array [
       "ok": true,
       "id": 8,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 8,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 8,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -18452,6 +26438,25 @@ Array [
       "ok": true,
       "id": 9,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 9,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 9,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -18472,6 +26477,25 @@ Array [
       "ok": true,
       "id": 10,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 10,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 10,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -18484,6 +26508,25 @@ Array [
       "ok": true,
       "id": 11,
       "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 11,
+      "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 11,
+      "name": "(unnamed assert)",
+      "fullname": "",
     },
   ],
   Array [
@@ -18584,6 +26627,25 @@ Array [
       "ok": true,
       "id": 8,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 8,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 8,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -18596,6 +26658,25 @@ Array [
       "ok": true,
       "id": 9,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 9,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 9,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -18616,6 +26697,25 @@ Array [
       "ok": true,
       "id": 10,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 10,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 10,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -18628,6 +26728,25 @@ Array [
       "ok": true,
       "id": 11,
       "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 11,
+      "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 11,
+      "name": "(unnamed assert)",
+      "fullname": "",
     },
   ],
   Array [
@@ -18728,6 +26847,25 @@ Array [
       "ok": true,
       "id": 8,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 8,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 8,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -18740,6 +26878,25 @@ Array [
       "ok": true,
       "id": 9,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 9,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 9,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -18760,6 +26917,25 @@ Array [
       "ok": true,
       "id": 10,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 10,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 10,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -18772,6 +26948,25 @@ Array [
       "ok": true,
       "id": 11,
       "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 11,
+      "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 11,
+      "name": "(unnamed assert)",
+      "fullname": "",
     },
   ],
   Array [
@@ -18868,6 +27063,25 @@ Array [
       "ok": true,
       "id": 8,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 8,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 8,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -18880,6 +27094,25 @@ Array [
       "ok": true,
       "id": 9,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 9,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 9,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -18900,6 +27133,25 @@ Array [
       "ok": true,
       "id": 10,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 10,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 10,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -18912,6 +27164,25 @@ Array [
       "ok": true,
       "id": 11,
       "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 11,
+      "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 11,
+      "name": "(unnamed assert)",
+      "fullname": "",
     },
   ],
   Array [
@@ -19008,6 +27279,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -19020,6 +27310,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -19040,6 +27349,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -19052,6 +27380,25 @@ Array [
       "ok": true,
       "id": 4,
       "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "(unnamed assert)",
+      "fullname": "",
     },
   ],
   Array [
@@ -19141,6 +27488,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -19153,6 +27519,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -19173,6 +27558,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -19185,6 +27589,25 @@ Array [
       "ok": true,
       "id": 4,
       "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "(unnamed assert)",
+      "fullname": "",
     },
   ],
   Array [
@@ -19265,6 +27688,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -19320,6 +27760,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -19474,6 +27931,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "Test that argument passing works",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "Test that argument passing works",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "Test that argument passing works",
+      "fullname": "",
     },
   ],
   Array [
@@ -19486,6 +27962,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "Test that passing arguments as references work",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "Test that passing arguments as references work",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "Test that passing arguments as references work",
+      "fullname": "",
     },
   ],
   Array [
@@ -19498,6 +27993,25 @@ Array [
       "ok": true,
       "id": 4,
       "name": "Test a normal sub",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "Test a normal sub",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "Test a normal sub",
+      "fullname": "",
     },
   ],
   Array [
@@ -19510,6 +28024,25 @@ Array [
       "ok": true,
       "id": 6,
       "name": "Detach test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 6,
+      "name": "Detach test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 6,
+      "name": "Detach test",
+      "fullname": "",
     },
   ],
   Array [
@@ -19522,6 +28055,25 @@ Array [
       "ok": true,
       "id": 8,
       "name": "Nested thread test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 8,
+      "name": "Nested thread test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 8,
+      "name": "Nested thread test",
+      "fullname": "",
     },
   ],
   Array [
@@ -19534,6 +28086,25 @@ Array [
       "ok": true,
       "id": 9,
       "name": "Nested thread test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 9,
+      "name": "Nested thread test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 9,
+      "name": "Nested thread test",
+      "fullname": "",
     },
   ],
   Array [
@@ -19546,6 +28117,25 @@ Array [
       "ok": true,
       "id": 10,
       "name": "Wanted 7, got 7",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 10,
+      "name": "Wanted 7, got 7",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 10,
+      "name": "Wanted 7, got 7",
+      "fullname": "",
     },
   ],
   Array [
@@ -19558,6 +28148,25 @@ Array [
       "ok": true,
       "id": 11,
       "name": "Wanted 7, got 7",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 11,
+      "name": "Wanted 7, got 7",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 11,
+      "name": "Wanted 7, got 7",
+      "fullname": "",
     },
   ],
   Array [
@@ -19570,6 +28179,25 @@ Array [
       "ok": true,
       "id": 12,
       "name": "Wanted 8, got 8",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 12,
+      "name": "Wanted 8, got 8",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 12,
+      "name": "Wanted 8, got 8",
+      "fullname": "",
     },
   ],
   Array [
@@ -19582,6 +28210,25 @@ Array [
       "ok": true,
       "id": 13,
       "name": "Wanted 8, got 8",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 13,
+      "name": "Wanted 8, got 8",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 13,
+      "name": "Wanted 8, got 8",
+      "fullname": "",
     },
   ],
   Array [
@@ -19690,6 +28337,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "Test that argument passing works",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "Test that argument passing works",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "Test that argument passing works",
+      "fullname": "",
     },
   ],
   Array [
@@ -19702,6 +28368,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "Test that passing arguments as references work",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "Test that passing arguments as references work",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "Test that passing arguments as references work",
+      "fullname": "",
     },
   ],
   Array [
@@ -19714,6 +28399,25 @@ Array [
       "ok": true,
       "id": 4,
       "name": "Test a normal sub",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "Test a normal sub",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "Test a normal sub",
+      "fullname": "",
     },
   ],
   Array [
@@ -19726,6 +28430,25 @@ Array [
       "ok": true,
       "id": 6,
       "name": "Detach test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 6,
+      "name": "Detach test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 6,
+      "name": "Detach test",
+      "fullname": "",
     },
   ],
   Array [
@@ -19738,6 +28461,25 @@ Array [
       "ok": true,
       "id": 8,
       "name": "Nested thread test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 8,
+      "name": "Nested thread test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 8,
+      "name": "Nested thread test",
+      "fullname": "",
     },
   ],
   Array [
@@ -19750,6 +28492,25 @@ Array [
       "ok": true,
       "id": 9,
       "name": "Nested thread test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 9,
+      "name": "Nested thread test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 9,
+      "name": "Nested thread test",
+      "fullname": "",
     },
   ],
   Array [
@@ -19762,6 +28523,25 @@ Array [
       "ok": true,
       "id": 10,
       "name": "Wanted 7, got 7",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 10,
+      "name": "Wanted 7, got 7",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 10,
+      "name": "Wanted 7, got 7",
+      "fullname": "",
     },
   ],
   Array [
@@ -19774,6 +28554,25 @@ Array [
       "ok": true,
       "id": 11,
       "name": "Wanted 7, got 7",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 11,
+      "name": "Wanted 7, got 7",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 11,
+      "name": "Wanted 7, got 7",
+      "fullname": "",
     },
   ],
   Array [
@@ -19786,6 +28585,25 @@ Array [
       "ok": true,
       "id": 12,
       "name": "Wanted 8, got 8",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 12,
+      "name": "Wanted 8, got 8",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 12,
+      "name": "Wanted 8, got 8",
+      "fullname": "",
     },
   ],
   Array [
@@ -19798,6 +28616,25 @@ Array [
       "ok": true,
       "id": 13,
       "name": "Wanted 8, got 8",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 13,
+      "name": "Wanted 8, got 8",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 13,
+      "name": "Wanted 8, got 8",
+      "fullname": "",
     },
   ],
   Array [
@@ -19922,6 +28759,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -19934,6 +28790,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -19954,6 +28829,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -19966,6 +28860,25 @@ Array [
       "ok": true,
       "id": 4,
       "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "(unnamed assert)",
+      "fullname": "",
     },
   ],
   Array [
@@ -20054,6 +28967,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -20066,6 +28998,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -20086,6 +29037,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -20098,6 +29068,25 @@ Array [
       "ok": true,
       "id": 4,
       "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "(unnamed assert)",
+      "fullname": "",
     },
   ],
   Array [
@@ -20194,6 +29183,35 @@ Array [
         "start": 1,
         "end": 3,
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 234,
+      "name": "pretty big",
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 3,
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 234,
+      "name": "pretty big",
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 3,
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -20211,6 +29229,35 @@ Array [
         "start": 1,
         "end": 3,
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "name": "less big",
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 3,
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "name": "less big",
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 3,
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -20223,6 +29270,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "three",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "three",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "three",
+      "fullname": "",
     },
   ],
   Array [
@@ -20260,6 +29326,7 @@ Array [
             "start": 1,
             "end": 3,
           },
+          "fullname": "",
         },
         Result {
           "ok": true,
@@ -20270,6 +29337,7 @@ Array [
             "start": 1,
             "end": 3,
           },
+          "fullname": "",
         },
       ],
     },
@@ -20313,6 +29381,35 @@ Array [
         "start": 1,
         "end": 3,
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 234,
+      "name": "pretty big",
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 3,
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 234,
+      "name": "pretty big",
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 3,
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -20330,6 +29427,35 @@ Array [
         "start": 1,
         "end": 3,
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "name": "less big",
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 3,
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "name": "less big",
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 3,
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -20342,6 +29468,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "three",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "three",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "three",
+      "fullname": "",
     },
   ],
   Array [
@@ -20379,6 +29524,7 @@ Array [
             "start": 1,
             "end": 3,
           },
+          "fullname": "",
         },
         Result {
           "ok": true,
@@ -20389,6 +29535,7 @@ Array [
             "start": 1,
             "end": 3,
           },
+          "fullname": "",
         },
       ],
     },
@@ -20465,6 +29612,27 @@ Array [
       "id": 1,
       "buffered": true,
       "name": "empty",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "buffered": true,
+      "name": "empty",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "buffered": true,
+      "name": "empty",
+      "fullname": "",
     },
   ],
   Array [
@@ -20498,6 +29666,7 @@ Array [
           "id": 1,
           "buffered": true,
           "name": "empty",
+          "fullname": "",
         },
       ],
     },
@@ -20574,6 +29743,27 @@ Array [
       "id": 1,
       "buffered": true,
       "name": "empty",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "buffered": true,
+      "name": "empty",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "buffered": true,
+      "name": "empty",
+      "fullname": "",
     },
   ],
   Array [
@@ -20597,6 +29787,7 @@ Array [
           "ok": true,
           "id": 1,
           "name": "subtest event A",
+          "fullname": "my_test",
         },
       ],
       Array [
@@ -20609,6 +29800,7 @@ Array [
           "ok": true,
           "id": 2,
           "name": "subtest event B",
+          "fullname": "my_test",
         },
       ],
       Array [
@@ -20649,8 +29841,44 @@ Array [
     "    ok 1 - subtest event A\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "subtest event A",
+      "fullname": "my_test",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "subtest event A",
+      "fullname": "my_test",
+    },
+  ],
+  Array [
     "line",
     "    ok 2 - subtest event B\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "subtest event B",
+      "fullname": "my_test",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "subtest event B",
+      "fullname": "my_test",
+    },
   ],
   Array [
     "line",
@@ -20667,6 +29895,7 @@ Array [
       "id": 2,
       "buffered": true,
       "name": "my_test",
+      "fullname": "",
     },
   ],
   Array [
@@ -20701,6 +29930,7 @@ Array [
           "ok": true,
           "id": 1,
           "name": "subtest event A",
+          "fullname": "my_test_plan",
         },
       ],
       Array [
@@ -20713,6 +29943,7 @@ Array [
           "ok": true,
           "id": 2,
           "name": "subtest event B",
+          "fullname": "my_test_plan",
         },
       ],
       Array [
@@ -20746,8 +29977,44 @@ Array [
     "    ok 1 - subtest event A\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "subtest event A",
+      "fullname": "my_test_plan",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "subtest event A",
+      "fullname": "my_test_plan",
+    },
+  ],
+  Array [
     "line",
     "    ok 2 - subtest event B\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "subtest event B",
+      "fullname": "my_test_plan",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "subtest event B",
+      "fullname": "my_test_plan",
+    },
   ],
   Array [
     "line",
@@ -20760,6 +30027,7 @@ Array [
       "id": 3,
       "buffered": true,
       "name": "my_test_plan",
+      "fullname": "",
     },
   ],
   Array [
@@ -20783,6 +30051,7 @@ Array [
           "ok": true,
           "id": 1,
           "name": "subtest event A",
+          "fullname": "my_streamy_test",
         },
       ],
       Array [
@@ -20795,6 +30064,7 @@ Array [
           "ok": true,
           "id": 2,
           "name": "subtest event B",
+          "fullname": "my_streamy_test",
         },
       ],
       Array [
@@ -20835,8 +30105,44 @@ Array [
     "    ok 1 - subtest event A\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "subtest event A",
+      "fullname": "my_streamy_test",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "subtest event A",
+      "fullname": "my_streamy_test",
+    },
+  ],
+  Array [
     "line",
     "    ok 2 - subtest event B\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "subtest event B",
+      "fullname": "my_streamy_test",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "subtest event B",
+      "fullname": "my_streamy_test",
+    },
   ],
   Array [
     "line",
@@ -20852,6 +30158,25 @@ Array [
       "ok": true,
       "id": 4,
       "name": "Subtest: my_streamy_test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "Subtest: my_streamy_test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "Subtest: my_streamy_test",
+      "fullname": "",
     },
   ],
   Array [
@@ -20886,6 +30211,7 @@ Array [
           "ok": true,
           "id": 1,
           "name": "subtest event A",
+          "fullname": "my_streamy_test_plan",
         },
       ],
       Array [
@@ -20898,6 +30224,7 @@ Array [
           "ok": true,
           "id": 2,
           "name": "subtest event B",
+          "fullname": "my_streamy_test_plan",
         },
       ],
       Array [
@@ -20931,8 +30258,44 @@ Array [
     "    ok 1 - subtest event A\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "subtest event A",
+      "fullname": "my_streamy_test_plan",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "subtest event A",
+      "fullname": "my_streamy_test_plan",
+    },
+  ],
+  Array [
     "line",
     "    ok 2 - subtest event B\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "subtest event B",
+      "fullname": "my_streamy_test_plan",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "subtest event B",
+      "fullname": "my_streamy_test_plan",
+    },
   ],
   Array [
     "line",
@@ -20944,6 +30307,25 @@ Array [
       "ok": true,
       "id": 5,
       "name": "Subtest: my_streamy_test_plan",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "name": "Subtest: my_streamy_test_plan",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "name": "Subtest: my_streamy_test_plan",
+      "fullname": "",
     },
   ],
   Array [
@@ -20988,6 +30370,7 @@ Array [
           "id": 1,
           "buffered": true,
           "name": "empty",
+          "fullname": "",
         },
       ],
     },
@@ -21026,6 +30409,7 @@ Array [
           "ok": true,
           "id": 1,
           "name": "subtest event A",
+          "fullname": "my_streamy_test",
         },
       ],
       Array [
@@ -21038,6 +30422,7 @@ Array [
           "ok": true,
           "id": 2,
           "name": "subtest event B",
+          "fullname": "my_streamy_test",
         },
       ],
       Array [
@@ -21078,8 +30463,44 @@ Array [
     "    ok 1 - subtest event A\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "subtest event A",
+      "fullname": "my_streamy_test",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "subtest event A",
+      "fullname": "my_streamy_test",
+    },
+  ],
+  Array [
     "line",
     "    ok 2 - subtest event B\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "subtest event B",
+      "fullname": "my_streamy_test",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "subtest event B",
+      "fullname": "my_streamy_test",
+    },
   ],
   Array [
     "line",
@@ -21095,6 +30516,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "Subtest: my_streamy_test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "Subtest: my_streamy_test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "Subtest: my_streamy_test",
+      "fullname": "",
     },
   ],
   Array [
@@ -21129,6 +30569,7 @@ Array [
           "ok": true,
           "id": 1,
           "name": "subtest event A",
+          "fullname": "my_streamy_test_plan",
         },
       ],
       Array [
@@ -21141,6 +30582,7 @@ Array [
           "ok": true,
           "id": 2,
           "name": "subtest event B",
+          "fullname": "my_streamy_test_plan",
         },
       ],
       Array [
@@ -21174,8 +30616,44 @@ Array [
     "    ok 1 - subtest event A\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "subtest event A",
+      "fullname": "my_streamy_test_plan",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "subtest event A",
+      "fullname": "my_streamy_test_plan",
+    },
+  ],
+  Array [
     "line",
     "    ok 2 - subtest event B\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "subtest event B",
+      "fullname": "my_streamy_test_plan",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "subtest event B",
+      "fullname": "my_streamy_test_plan",
+    },
   ],
   Array [
     "line",
@@ -21187,6 +30665,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "Subtest: my_streamy_test_plan",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "Subtest: my_streamy_test_plan",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "Subtest: my_streamy_test_plan",
+      "fullname": "",
     },
   ],
   Array [
@@ -21254,6 +30751,7 @@ Array [
           "ok": true,
           "id": 1,
           "name": "subtest event A",
+          "fullname": "my_streamy_test",
         },
       ],
       Array [
@@ -21266,6 +30764,7 @@ Array [
           "ok": true,
           "id": 2,
           "name": "subtest event B",
+          "fullname": "my_streamy_test",
         },
       ],
       Array [
@@ -21306,8 +30805,44 @@ Array [
     "    ok 1 - subtest event A\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "subtest event A",
+      "fullname": "my_streamy_test",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "subtest event A",
+      "fullname": "my_streamy_test",
+    },
+  ],
+  Array [
     "line",
     "    ok 2 - subtest event B\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "subtest event B",
+      "fullname": "my_streamy_test",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "subtest event B",
+      "fullname": "my_streamy_test",
+    },
   ],
   Array [
     "line",
@@ -21323,6 +30858,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "Subtest: my_streamy_test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "Subtest: my_streamy_test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "Subtest: my_streamy_test",
+      "fullname": "",
     },
   ],
   Array [
@@ -21357,6 +30911,7 @@ Array [
           "ok": true,
           "id": 1,
           "name": "subtest event A",
+          "fullname": "my_streamy_test_plan",
         },
       ],
       Array [
@@ -21369,6 +30924,7 @@ Array [
           "ok": true,
           "id": 2,
           "name": "subtest event B",
+          "fullname": "my_streamy_test_plan",
         },
       ],
       Array [
@@ -21402,8 +30958,44 @@ Array [
     "    ok 1 - subtest event A\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "subtest event A",
+      "fullname": "my_streamy_test_plan",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "subtest event A",
+      "fullname": "my_streamy_test_plan",
+    },
+  ],
+  Array [
     "line",
     "    ok 2 - subtest event B\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "subtest event B",
+      "fullname": "my_streamy_test_plan",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "subtest event B",
+      "fullname": "my_streamy_test_plan",
+    },
   ],
   Array [
     "line",
@@ -21415,6 +31007,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "Subtest: my_streamy_test_plan",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "Subtest: my_streamy_test_plan",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "Subtest: my_streamy_test_plan",
+      "fullname": "",
     },
   ],
   Array [
@@ -21492,6 +31103,7 @@ Array [
         Result {
           "ok": true,
           "id": 1,
+          "fullname": "subtest",
         },
       ],
       Array [
@@ -21529,6 +31141,22 @@ Array [
     "    ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "subtest",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "subtest",
+    },
+  ],
+  Array [
     "line",
     "}\\n",
   ],
@@ -21539,6 +31167,7 @@ Array [
       "id": 1,
       "buffered": true,
       "name": "subtest",
+      "fullname": "",
     },
   ],
   Array [
@@ -21563,6 +31192,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "yaml",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "yaml",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "yaml",
+      "fullname": "",
     },
   ],
   Array [
@@ -21688,6 +31336,7 @@ Array [
         Result {
           "ok": true,
           "id": 1,
+          "fullname": "subtest",
         },
       ],
       Array [
@@ -21725,6 +31374,22 @@ Array [
     "    ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "subtest",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "subtest",
+    },
+  ],
+  Array [
     "line",
     "}\\n",
   ],
@@ -21735,6 +31400,7 @@ Array [
       "id": 1,
       "buffered": true,
       "name": "subtest",
+      "fullname": "",
     },
   ],
   Array [
@@ -21759,6 +31425,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "yaml",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "yaml",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "yaml",
+      "fullname": "",
     },
   ],
   Array [
@@ -21903,6 +31588,7 @@ Array [
         Result {
           "ok": true,
           "id": 1,
+          "fullname": "subtest",
         },
       ],
       Array [
@@ -21940,6 +31626,22 @@ Array [
     "    ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "subtest",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "subtest",
+    },
+  ],
+  Array [
     "line",
     "}\\n",
   ],
@@ -21950,6 +31652,7 @@ Array [
       "id": 1,
       "buffered": true,
       "name": "subtest",
+      "fullname": "",
     },
   ],
   Array [
@@ -21974,6 +31677,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "yaml",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "yaml",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "yaml",
+      "fullname": "",
     },
   ],
   Array [
@@ -22079,6 +31801,7 @@ Array [
         Result {
           "ok": true,
           "id": 1,
+          "fullname": "subtest",
         },
       ],
       Array [
@@ -22116,6 +31839,22 @@ Array [
     "    ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "subtest",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "subtest",
+    },
+  ],
+  Array [
     "line",
     "}\\n",
   ],
@@ -22126,6 +31865,7 @@ Array [
       "id": 1,
       "buffered": true,
       "name": "subtest",
+      "fullname": "",
     },
   ],
   Array [
@@ -22150,6 +31890,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "yaml",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "yaml",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "yaml",
+      "fullname": "",
     },
   ],
   Array [
@@ -22219,6 +31978,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -22295,6 +32071,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -22366,6 +32159,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -22421,6 +32231,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -22468,6 +32295,23 @@ Array [
     Result {
       "ok": false,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -22499,6 +32343,7 @@ Array [
         Result {
           "ok": false,
           "id": 1,
+          "fullname": "",
         },
       ],
     },
@@ -22517,6 +32362,23 @@ Array [
     Result {
       "ok": false,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -22537,6 +32399,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -22579,6 +32458,7 @@ Array [
         Result {
           "ok": false,
           "id": 1,
+          "fullname": "",
         },
       ],
     },
@@ -22647,6 +32527,7 @@ Array [
         Result {
           "ok": true,
           "id": 1,
+          "fullname": "",
         },
       ],
       Array [
@@ -22688,6 +32569,22 @@ Array [
     "    ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
     "line",
     "ok\\n",
   ],
@@ -22696,6 +32593,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -22795,6 +32709,7 @@ Array [
         Result {
           "ok": true,
           "id": 1,
+          "fullname": "",
         },
       ],
       Array [
@@ -22836,6 +32751,22 @@ Array [
     "    ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
     "line",
     "ok\\n",
   ],
@@ -22844,6 +32775,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -22935,6 +32883,7 @@ Array [
         Result {
           "ok": true,
           "id": 1,
+          "fullname": "",
         },
       ],
       Array [
@@ -22976,6 +32925,22 @@ Array [
     "    ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
     "line",
     "ok\\n",
   ],
@@ -22984,6 +32949,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -23062,6 +33044,7 @@ Array [
         Result {
           "ok": true,
           "id": 1,
+          "fullname": "",
         },
       ],
       Array [
@@ -23103,6 +33086,22 @@ Array [
     "    ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
     "line",
     "ok\\n",
   ],
@@ -23111,6 +33110,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -23176,6 +33192,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "some yaml",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "some yaml",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "some yaml",
+      "fullname": "",
     },
   ],
   Array [
@@ -23270,6 +33305,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "some yaml",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "some yaml",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "some yaml",
+      "fullname": "",
     },
   ],
   Array [
@@ -23346,6 +33400,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -23357,6 +33428,23 @@ Array [
     Result {
       "ok": false,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -23412,6 +33500,7 @@ Array [
         Result {
           "ok": false,
           "id": 2,
+          "fullname": "",
         },
       ],
     },
@@ -23441,6 +33530,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -23452,6 +33558,23 @@ Array [
     Result {
       "ok": false,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -23489,6 +33612,27 @@ Array [
       "id": 3,
       "todo": "Roman numerials still not a built in type",
       "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 3,
+      "todo": "Roman numerials still not a built in type",
+      "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": false,
+      "id": 3,
+      "todo": "Roman numerials still not a built in type",
+      "name": "",
+      "fullname": "",
     },
   ],
   Array [
@@ -23560,6 +33704,7 @@ Array [
         Result {
           "ok": false,
           "id": 2,
+          "fullname": "",
         },
       ],
     },
@@ -23590,6 +33735,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "42",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "42",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "42",
+      "fullname": "",
     },
   ],
   Array [
@@ -23638,6 +33802,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "42",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "42",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "42",
+      "fullname": "",
     },
   ],
   Array [
@@ -23685,6 +33868,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -23696,6 +33896,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -23708,6 +33925,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "# skipped on foobar system",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "# skipped on foobar system",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "# skipped on foobar system",
+      "fullname": "",
     },
   ],
   Array [
@@ -23727,6 +33963,23 @@ Array [
     Result {
       "ok": true,
       "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
     },
   ],
   Array [
@@ -23746,6 +33999,23 @@ Array [
     Result {
       "ok": true,
       "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
     },
   ],
   Array [
@@ -23793,6 +34063,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -23804,6 +34091,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -23816,6 +34120,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "# skipped on foobar system",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "# skipped on foobar system",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "# skipped on foobar system",
+      "fullname": "",
     },
   ],
   Array [
@@ -23835,6 +34158,23 @@ Array [
     Result {
       "ok": true,
       "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
     },
   ],
   Array [
@@ -23854,6 +34194,23 @@ Array [
     Result {
       "ok": true,
       "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
     },
   ],
   Array [
@@ -23901,6 +34258,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -23912,6 +34286,23 @@ Array [
     Result {
       "ok": false,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -23943,6 +34334,7 @@ Array [
         Result {
           "ok": false,
           "id": 2,
+          "fullname": "",
         },
       ],
     },
@@ -23972,6 +34364,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -23983,6 +34392,23 @@ Array [
     Result {
       "ok": false,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -23994,6 +34420,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -24005,6 +34448,23 @@ Array [
     Result {
       "ok": true,
       "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
     },
   ],
   Array [
@@ -24016,6 +34476,23 @@ Array [
     Result {
       "ok": false,
       "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 5,
+      "fullname": "",
     },
   ],
   Array [
@@ -24047,10 +34524,12 @@ Array [
         Result {
           "ok": false,
           "id": 2,
+          "fullname": "",
         },
         Result {
           "ok": false,
           "id": 5,
+          "fullname": "",
         },
       ],
     },
@@ -24080,6 +34559,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -24133,6 +34629,43 @@ Array [
           "foo": "plink",
         },
       ],
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "diag": Array [
+        Object {
+          "fnurk": "skib",
+          "ponk": "gleeb",
+        },
+        Object {
+          "bar": "krup",
+          "foo": "plink",
+        },
+      ],
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "diag": Array [
+        Object {
+          "fnurk": "skib",
+          "ponk": "gleeb",
+        },
+        Object {
+          "bar": "krup",
+          "foo": "plink",
+        },
+      ],
+      "fullname": "",
     },
   ],
   Array [
@@ -24144,6 +34677,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -24207,6 +34757,47 @@ Array [
           4,
         ],
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "diag": Object {
+        "expected": Array [
+          1,
+          2,
+          4,
+        ],
+        "got": Array [
+          1,
+          "pong",
+          4,
+        ],
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "diag": Object {
+        "expected": Array [
+          1,
+          2,
+          4,
+        ],
+        "got": Array [
+          1,
+          "pong",
+          4,
+        ],
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -24218,6 +34809,23 @@ Array [
     Result {
       "ok": true,
       "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
     },
   ],
   Array [
@@ -24265,6 +34873,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -24318,6 +34943,43 @@ Array [
           "foo": "plink",
         },
       ],
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "diag": Array [
+        Object {
+          "fnurk": "skib",
+          "ponk": "gleeb",
+        },
+        Object {
+          "bar": "krup",
+          "foo": "plink",
+        },
+      ],
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "diag": Array [
+        Object {
+          "fnurk": "skib",
+          "ponk": "gleeb",
+        },
+        Object {
+          "bar": "krup",
+          "foo": "plink",
+        },
+      ],
+      "fullname": "",
     },
   ],
   Array [
@@ -24329,6 +34991,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -24392,6 +35071,47 @@ Array [
           4,
         ],
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "diag": Object {
+        "expected": Array [
+          1,
+          2,
+          4,
+        ],
+        "got": Array [
+          1,
+          "pong",
+          4,
+        ],
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "diag": Object {
+        "expected": Array [
+          1,
+          2,
+          4,
+        ],
+        "got": Array [
+          1,
+          "pong",
+          4,
+        ],
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -24403,6 +35123,23 @@ Array [
     Result {
       "ok": true,
       "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
     },
   ],
   Array [
@@ -24458,6 +35195,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -24511,6 +35265,43 @@ Array [
           "foo": "plink",
         },
       ],
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "diag": Array [
+        Object {
+          "fnurk": "skib",
+          "ponk": "gleeb",
+        },
+        Object {
+          "bar": "krup",
+          "foo": "plink",
+        },
+      ],
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "diag": Array [
+        Object {
+          "fnurk": "skib",
+          "ponk": "gleeb",
+        },
+        Object {
+          "bar": "krup",
+          "foo": "plink",
+        },
+      ],
+      "fullname": "",
     },
   ],
   Array [
@@ -24522,6 +35313,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -24585,6 +35393,47 @@ Array [
           4,
         ],
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "diag": Object {
+        "expected": Array [
+          1,
+          2,
+          4,
+        ],
+        "got": Array [
+          1,
+          "pong",
+          4,
+        ],
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "diag": Object {
+        "expected": Array [
+          1,
+          2,
+          4,
+        ],
+        "got": Array [
+          1,
+          "pong",
+          4,
+        ],
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -24596,6 +35445,23 @@ Array [
     Result {
       "ok": true,
       "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
     },
   ],
   Array [
@@ -24651,6 +35517,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -24704,6 +35587,43 @@ Array [
           "foo": "plink",
         },
       ],
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "diag": Array [
+        Object {
+          "fnurk": "skib",
+          "ponk": "gleeb",
+        },
+        Object {
+          "bar": "krup",
+          "foo": "plink",
+        },
+      ],
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "diag": Array [
+        Object {
+          "fnurk": "skib",
+          "ponk": "gleeb",
+        },
+        Object {
+          "bar": "krup",
+          "foo": "plink",
+        },
+      ],
+      "fullname": "",
     },
   ],
   Array [
@@ -24715,6 +35635,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -24778,6 +35715,47 @@ Array [
           4,
         ],
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "diag": Object {
+        "expected": Array [
+          1,
+          2,
+          4,
+        ],
+        "got": Array [
+          1,
+          "pong",
+          4,
+        ],
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "diag": Object {
+        "expected": Array [
+          1,
+          2,
+          4,
+        ],
+        "got": Array [
+          1,
+          "pong",
+          4,
+        ],
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -24789,6 +35767,23 @@ Array [
     Result {
       "ok": true,
       "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
     },
   ],
   Array [
@@ -24836,6 +35831,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -24847,6 +35859,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -24858,6 +35887,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -24869,6 +35915,23 @@ Array [
     Result {
       "ok": true,
       "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
     },
   ],
   Array [
@@ -24880,6 +35943,23 @@ Array [
     Result {
       "ok": true,
       "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
     },
   ],
   Array [
@@ -24927,6 +36007,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -24938,6 +36035,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -24949,6 +36063,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -24960,6 +36091,23 @@ Array [
     Result {
       "ok": true,
       "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
     },
   ],
   Array [
@@ -24971,6 +36119,23 @@ Array [
     Result {
       "ok": true,
       "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
     },
   ],
   Array [
@@ -25020,6 +36185,27 @@ Array [
       "id": 1,
       "skip": true,
       "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "skip": true,
+      "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "skip",
+    Result {
+      "ok": true,
+      "id": 1,
+      "skip": true,
+      "name": "",
+      "fullname": "",
     },
   ],
   Array [
@@ -25077,6 +36263,27 @@ Array [
       "id": 1,
       "skip": true,
       "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "skip": true,
+      "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "skip",
+    Result {
+      "ok": true,
+      "id": 1,
+      "skip": true,
+      "name": "",
+      "fullname": "",
     },
   ],
   Array [
@@ -25142,6 +36349,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "found some spare flux in bottom drawer",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "found some spare flux in bottom drawer",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "found some spare flux in bottom drawer",
+      "fullname": "",
     },
   ],
   Array [
@@ -25199,6 +36425,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "found some spare flux in bottom drawer",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "found some spare flux in bottom drawer",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "found some spare flux in bottom drawer",
+      "fullname": "",
     },
   ],
   Array [
@@ -25349,6 +36594,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -25432,6 +36694,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -25607,6 +36886,27 @@ Array [
       "id": 1,
       "skip": true,
       "name": "does not count as failure",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "skip": true,
+      "name": "does not count as failure",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "skip",
+    Result {
+      "ok": false,
+      "id": 1,
+      "skip": true,
+      "name": "does not count as failure",
+      "fullname": "",
     },
   ],
   Array [
@@ -25672,6 +36972,27 @@ Array [
       "id": 1,
       "skip": true,
       "name": "does not count as failure",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "skip": true,
+      "name": "does not count as failure",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "skip",
+    Result {
+      "ok": false,
+      "id": 1,
+      "skip": true,
+      "name": "does not count as failure",
+      "fullname": "",
     },
   ],
   Array [
@@ -25737,6 +37058,27 @@ Array [
       "id": 1,
       "skip": true,
       "name": "totally fine",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "skip": true,
+      "name": "totally fine",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "skip",
+    Result {
+      "ok": true,
+      "id": 1,
+      "skip": true,
+      "name": "totally fine",
+      "fullname": "",
     },
   ],
   Array [
@@ -25802,6 +37144,27 @@ Array [
       "id": 1,
       "skip": true,
       "name": "totally fine",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "skip": true,
+      "name": "totally fine",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "skip",
+    Result {
+      "ok": true,
+      "id": 1,
+      "skip": true,
+      "name": "totally fine",
+      "fullname": "",
     },
   ],
   Array [
@@ -25868,6 +37231,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -25881,6 +37261,27 @@ Array [
       "id": 2,
       "skip": "rain delay",
       "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "skip": "rain delay",
+      "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "skip",
+    Result {
+      "ok": true,
+      "id": 2,
+      "skip": "rain delay",
+      "name": "",
+      "fullname": "",
     },
   ],
   Array [
@@ -25892,6 +37293,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -25903,6 +37321,23 @@ Array [
     Result {
       "ok": true,
       "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
     },
   ],
   Array [
@@ -25914,6 +37349,23 @@ Array [
     Result {
       "ok": true,
       "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
     },
   ],
   Array [
@@ -25969,6 +37421,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -25982,6 +37451,27 @@ Array [
       "id": 2,
       "skip": "rain delay",
       "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "skip": "rain delay",
+      "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "skip",
+    Result {
+      "ok": true,
+      "id": 2,
+      "skip": "rain delay",
+      "name": "",
+      "fullname": "",
     },
   ],
   Array [
@@ -25993,6 +37483,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -26004,6 +37511,23 @@ Array [
     Result {
       "ok": true,
       "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
     },
   ],
   Array [
@@ -26015,6 +37539,23 @@ Array [
     Result {
       "ok": true,
       "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
     },
   ],
   Array [
@@ -26315,6 +37856,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "approved operating system",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "approved operating system",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "approved operating system",
+      "fullname": "",
     },
   ],
   Array [
@@ -26336,6 +37896,27 @@ Array [
       "id": 2,
       "skip": "no /sys directory",
       "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "skip": "no /sys directory",
+      "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "skip",
+    Result {
+      "ok": true,
+      "id": 2,
+      "skip": "no /sys directory",
+      "name": "",
+      "fullname": "",
     },
   ],
   Array [
@@ -26349,6 +37930,27 @@ Array [
       "id": 3,
       "skip": "no /sys directory",
       "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "skip": "no /sys directory",
+      "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "skip",
+    Result {
+      "ok": true,
+      "id": 3,
+      "skip": "no /sys directory",
+      "name": "",
+      "fullname": "",
     },
   ],
   Array [
@@ -26362,6 +37964,27 @@ Array [
       "id": 4,
       "skip": "no /sys directory",
       "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "skip": "no /sys directory",
+      "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "skip",
+    Result {
+      "ok": true,
+      "id": 4,
+      "skip": "no /sys directory",
+      "name": "",
+      "fullname": "",
     },
   ],
   Array [
@@ -26375,6 +37998,27 @@ Array [
       "id": 5,
       "skip": "no /sys directory",
       "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "skip": "no /sys directory",
+      "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "skip",
+    Result {
+      "ok": true,
+      "id": 5,
+      "skip": "no /sys directory",
+      "name": "",
+      "fullname": "",
     },
   ],
   Array [
@@ -26439,6 +38083,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "approved operating system",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "approved operating system",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "approved operating system",
+      "fullname": "",
     },
   ],
   Array [
@@ -26460,6 +38123,27 @@ Array [
       "id": 2,
       "skip": "no /sys directory",
       "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "skip": "no /sys directory",
+      "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "skip",
+    Result {
+      "ok": true,
+      "id": 2,
+      "skip": "no /sys directory",
+      "name": "",
+      "fullname": "",
     },
   ],
   Array [
@@ -26473,6 +38157,27 @@ Array [
       "id": 3,
       "skip": "no /sys directory",
       "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "skip": "no /sys directory",
+      "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "skip",
+    Result {
+      "ok": true,
+      "id": 3,
+      "skip": "no /sys directory",
+      "name": "",
+      "fullname": "",
     },
   ],
   Array [
@@ -26486,6 +38191,27 @@ Array [
       "id": 4,
       "skip": "no /sys directory",
       "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "skip": "no /sys directory",
+      "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "skip",
+    Result {
+      "ok": true,
+      "id": 4,
+      "skip": "no /sys directory",
+      "name": "",
+      "fullname": "",
     },
   ],
   Array [
@@ -26499,6 +38225,27 @@ Array [
       "id": 5,
       "skip": "no /sys directory",
       "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "skip": "no /sys directory",
+      "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "skip",
+    Result {
+      "ok": true,
+      "id": 5,
+      "skip": "no /sys directory",
+      "name": "",
+      "fullname": "",
     },
   ],
   Array [
@@ -26552,6 +38299,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "",
+      "fullname": "",
     },
   ],
   Array [
@@ -26564,6 +38330,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "",
+      "fullname": "",
     },
   ],
   Array [
@@ -26576,6 +38361,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "",
+      "fullname": "",
     },
   ],
   Array [
@@ -26588,6 +38392,25 @@ Array [
       "ok": true,
       "id": 4,
       "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "",
+      "fullname": "",
     },
   ],
   Array [
@@ -26600,6 +38423,25 @@ Array [
       "ok": true,
       "id": 5,
       "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "name": "",
+      "fullname": "",
     },
   ],
   Array [
@@ -26665,6 +38507,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "",
+      "fullname": "",
     },
   ],
   Array [
@@ -26677,6 +38538,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "",
+      "fullname": "",
     },
   ],
   Array [
@@ -26689,6 +38569,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "",
+      "fullname": "",
     },
   ],
   Array [
@@ -26701,6 +38600,25 @@ Array [
       "ok": true,
       "id": 4,
       "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "",
+      "fullname": "",
     },
   ],
   Array [
@@ -26713,6 +38631,25 @@ Array [
       "ok": true,
       "id": 5,
       "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "name": "",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "name": "",
+      "fullname": "",
     },
   ],
   Array [
@@ -26769,6 +38706,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -26780,6 +38734,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -26791,6 +38762,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -26802,6 +38790,23 @@ Array [
     Result {
       "ok": true,
       "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
     },
   ],
   Array [
@@ -26849,6 +38854,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -26860,6 +38882,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -26871,6 +38910,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -26882,6 +38938,23 @@ Array [
     Result {
       "ok": true,
       "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
     },
   ],
   Array [
@@ -26983,6 +39056,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "All OK",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "All OK",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "All OK",
+      "fullname": "",
     },
   ],
   Array [
@@ -27086,6 +39178,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "All OK",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "All OK",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "All OK",
+      "fullname": "",
     },
   ],
   Array [
@@ -27158,6 +39269,7 @@ Array [
           "ok": true,
           "id": 1,
           "name": "x",
+          "fullname": "first",
         },
       ],
       Array [
@@ -27198,6 +39310,24 @@ Array [
     "    ok x\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "x",
+      "fullname": "first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "x",
+      "fullname": "first",
+    },
+  ],
+  Array [
     "line",
     "    1..1\\n",
   ],
@@ -27213,6 +39343,7 @@ Array [
       "time": 12.34,
       "buffered": true,
       "name": "first",
+      "fullname": "",
     },
   ],
   Array [
@@ -27236,6 +39367,7 @@ Array [
           "ok": true,
           "id": 1,
           "name": "x",
+          "fullname": "second",
         },
       ],
       Array [
@@ -27276,6 +39408,24 @@ Array [
     "    ok x\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "x",
+      "fullname": "second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "x",
+      "fullname": "second",
+    },
+  ],
+  Array [
     "line",
     "    1..1\\n",
   ],
@@ -27291,6 +39441,7 @@ Array [
       "time": 12.34,
       "buffered": true,
       "name": "second",
+      "fullname": "",
     },
   ],
   Array [
@@ -27330,6 +39481,7 @@ Array [
           "ok": true,
           "id": 1,
           "name": "y",
+          "fullname": "third",
         },
       ],
       Array [
@@ -27370,6 +39522,24 @@ Array [
     "    ok y\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "y",
+      "fullname": "third",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "y",
+      "fullname": "third",
+    },
+  ],
+  Array [
     "line",
     "    1..1\\n",
   ],
@@ -27388,6 +39558,7 @@ Array [
         "some": "diagnostic",
       },
       "buffered": true,
+      "fullname": "",
     },
   ],
   Array [
@@ -27447,6 +39618,7 @@ Array [
           "ok": true,
           "id": 1,
           "name": "x",
+          "fullname": "first",
         },
       ],
       Array [
@@ -27487,6 +39659,24 @@ Array [
     "    ok x\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "x",
+      "fullname": "first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "x",
+      "fullname": "first",
+    },
+  ],
+  Array [
     "line",
     "    1..1\\n",
   ],
@@ -27502,6 +39692,7 @@ Array [
       "time": 12.34,
       "buffered": true,
       "name": "first",
+      "fullname": "",
     },
   ],
   Array [
@@ -27525,6 +39716,7 @@ Array [
           "ok": true,
           "id": 1,
           "name": "x",
+          "fullname": "second",
         },
       ],
       Array [
@@ -27565,6 +39757,24 @@ Array [
     "    ok x\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "x",
+      "fullname": "second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "x",
+      "fullname": "second",
+    },
+  ],
+  Array [
     "line",
     "    1..1\\n",
   ],
@@ -27580,6 +39790,7 @@ Array [
       "time": 12.34,
       "buffered": true,
       "name": "second",
+      "fullname": "",
     },
   ],
   Array [
@@ -27619,6 +39830,7 @@ Array [
           "ok": true,
           "id": 1,
           "name": "y",
+          "fullname": "third",
         },
       ],
       Array [
@@ -27659,6 +39871,24 @@ Array [
     "    ok y\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "y",
+      "fullname": "third",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "y",
+      "fullname": "third",
+    },
+  ],
+  Array [
     "line",
     "    1..1\\n",
   ],
@@ -27677,6 +39907,7 @@ Array [
         "some": "diagnostic",
       },
       "buffered": true,
+      "fullname": "",
     },
   ],
   Array [
@@ -27732,6 +39963,7 @@ Array [
         Result {
           "ok": true,
           "id": 1,
+          "fullname": "tbd",
         },
       ],
       Array [
@@ -27772,6 +40004,22 @@ Array [
     "    ok 1\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "tbd",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "tbd",
+    },
+  ],
+  Array [
     "line",
     "    1..1\\n",
   ],
@@ -27787,6 +40035,29 @@ Array [
       "todo": "foo",
       "buffered": true,
       "name": "tbd",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "todo": "foo",
+      "buffered": true,
+      "name": "tbd",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": true,
+      "id": 1,
+      "todo": "foo",
+      "buffered": true,
+      "name": "tbd",
+      "fullname": "",
     },
   ],
   Array [
@@ -27809,6 +40080,7 @@ Array [
         Result {
           "ok": true,
           "id": 1,
+          "fullname": "skippy",
         },
       ],
       Array [
@@ -27849,6 +40121,22 @@ Array [
     "    ok 1\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "skippy",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "skippy",
+    },
+  ],
+  Array [
     "line",
     "    1..1\\n",
   ],
@@ -27864,6 +40152,29 @@ Array [
       "skip": true,
       "buffered": true,
       "name": "skippy",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "skip": true,
+      "buffered": true,
+      "name": "skippy",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "skip",
+    Result {
+      "ok": true,
+      "id": 2,
+      "skip": true,
+      "buffered": true,
+      "name": "skippy",
+      "fullname": "",
     },
   ],
   Array [
@@ -27946,6 +40257,7 @@ Array [
         Result {
           "ok": true,
           "id": 1,
+          "fullname": "tbd",
         },
       ],
       Array [
@@ -27986,6 +40298,22 @@ Array [
     "    ok 1\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "tbd",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "tbd",
+    },
+  ],
+  Array [
     "line",
     "    1..1\\n",
   ],
@@ -28001,6 +40329,29 @@ Array [
       "todo": "foo",
       "buffered": true,
       "name": "tbd",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "todo": "foo",
+      "buffered": true,
+      "name": "tbd",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": true,
+      "id": 1,
+      "todo": "foo",
+      "buffered": true,
+      "name": "tbd",
+      "fullname": "",
     },
   ],
   Array [
@@ -28023,6 +40374,7 @@ Array [
         Result {
           "ok": true,
           "id": 1,
+          "fullname": "skippy",
         },
       ],
       Array [
@@ -28063,6 +40415,22 @@ Array [
     "    ok 1\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "skippy",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "skippy",
+    },
+  ],
+  Array [
     "line",
     "    1..1\\n",
   ],
@@ -28078,6 +40446,29 @@ Array [
       "skip": true,
       "buffered": true,
       "name": "skippy",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "skip": true,
+      "buffered": true,
+      "name": "skippy",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "skip",
+    Result {
+      "ok": true,
+      "id": 2,
+      "skip": true,
+      "buffered": true,
+      "name": "skippy",
+      "fullname": "",
     },
   ],
   Array [
@@ -28194,6 +40585,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "true is ok",
+              "fullname": "nesting first",
             },
           ],
           Array [
@@ -28206,6 +40598,7 @@ Array [
               "ok": true,
               "id": 2,
               "name": "doag is also okay",
+              "fullname": "nesting first",
             },
           ],
           Array [
@@ -28253,6 +40646,7 @@ Array [
           "id": 1,
           "buffered": true,
           "name": "first",
+          "fullname": "nesting",
         },
       ],
       Array [
@@ -28276,6 +40670,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "but that is ok",
+              "fullname": "nesting second",
             },
           ],
           Array [
@@ -28288,6 +40683,7 @@ Array [
               "ok": true,
               "id": 2,
               "name": "this passes",
+              "fullname": "nesting second",
             },
           ],
           Array [
@@ -28300,6 +40696,7 @@ Array [
               "ok": true,
               "id": 3,
               "name": "nested ok",
+              "fullname": "nesting second",
             },
           ],
           Array [
@@ -28362,6 +40759,7 @@ Array [
           "id": 2,
           "buffered": true,
           "name": "second",
+          "fullname": "nesting",
         },
       ],
       Array [
@@ -28403,8 +40801,44 @@ Array [
     "        ok 1 - true is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "nesting first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "nesting first",
+    },
+  ],
+  Array [
     "line",
     "        ok 2 - doag is also okay\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "nesting first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "nesting first",
+    },
   ],
   Array [
     "line",
@@ -28419,12 +40853,66 @@ Array [
     "        ok 1 - but that is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "nesting second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "nesting second",
+    },
+  ],
+  Array [
     "line",
     "        ok 2 - this passes\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "nesting second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "nesting second",
+    },
+  ],
+  Array [
     "line",
     "        ok 3 - nested ok\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "nesting second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "nesting second",
+    },
   ],
   Array [
     "line",
@@ -28445,6 +40933,7 @@ Array [
       "id": 1,
       "buffered": true,
       "name": "nesting",
+      "fullname": "",
     },
   ],
   Array [
@@ -28457,6 +40946,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "this passes",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "",
     },
   ],
   Array [
@@ -28565,6 +41073,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "true is ok",
+              "fullname": "nesting first",
             },
           ],
           Array [
@@ -28577,6 +41086,7 @@ Array [
               "ok": true,
               "id": 2,
               "name": "doag is also okay",
+              "fullname": "nesting first",
             },
           ],
           Array [
@@ -28624,6 +41134,7 @@ Array [
           "id": 1,
           "buffered": true,
           "name": "first",
+          "fullname": "nesting",
         },
       ],
       Array [
@@ -28647,6 +41158,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "but that is ok",
+              "fullname": "nesting second",
             },
           ],
           Array [
@@ -28659,6 +41171,7 @@ Array [
               "ok": true,
               "id": 2,
               "name": "this passes",
+              "fullname": "nesting second",
             },
           ],
           Array [
@@ -28671,6 +41184,7 @@ Array [
               "ok": true,
               "id": 3,
               "name": "nested ok",
+              "fullname": "nesting second",
             },
           ],
           Array [
@@ -28733,6 +41247,7 @@ Array [
           "id": 2,
           "buffered": true,
           "name": "second",
+          "fullname": "nesting",
         },
       ],
       Array [
@@ -28774,8 +41289,44 @@ Array [
     "        ok 1 - true is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "nesting first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "nesting first",
+    },
+  ],
+  Array [
     "line",
     "        ok 2 - doag is also okay\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "nesting first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "nesting first",
+    },
   ],
   Array [
     "line",
@@ -28790,12 +41341,66 @@ Array [
     "        ok 1 - but that is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "nesting second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "nesting second",
+    },
+  ],
+  Array [
     "line",
     "        ok 2 - this passes\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "nesting second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "nesting second",
+    },
+  ],
+  Array [
     "line",
     "        ok 3 - nested ok\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "nesting second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "nesting second",
+    },
   ],
   Array [
     "line",
@@ -28816,6 +41421,7 @@ Array [
       "id": 1,
       "buffered": true,
       "name": "nesting",
+      "fullname": "",
     },
   ],
   Array [
@@ -28828,6 +41434,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "this passes",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "",
     },
   ],
   Array [
@@ -28936,6 +41561,7 @@ Array [
                   "ok": true,
                   "id": 1,
                   "name": "true is ok",
+                  "fullname": "../tap/test/test/ok.js nesting first",
                 },
               ],
               Array [
@@ -28948,6 +41574,7 @@ Array [
                   "ok": true,
                   "id": 2,
                   "name": "doag is also okay",
+                  "fullname": "../tap/test/test/ok.js nesting first",
                 },
               ],
               Array [
@@ -28995,6 +41622,7 @@ Array [
               "id": 1,
               "time": 8.987,
               "name": "first",
+              "fullname": "../tap/test/test/ok.js nesting",
             },
           ],
           Array [
@@ -29018,6 +41646,7 @@ Array [
                   "ok": true,
                   "id": 1,
                   "name": "but that is ok",
+                  "fullname": "../tap/test/test/ok.js nesting second",
                 },
               ],
               Array [
@@ -29030,6 +41659,7 @@ Array [
                   "ok": true,
                   "id": 2,
                   "name": "this passes",
+                  "fullname": "../tap/test/test/ok.js nesting second",
                 },
               ],
               Array [
@@ -29042,6 +41672,7 @@ Array [
                   "ok": true,
                   "id": 3,
                   "name": "nested ok",
+                  "fullname": "../tap/test/test/ok.js nesting second",
                 },
               ],
               Array [
@@ -29104,6 +41735,7 @@ Array [
               "id": 2,
               "time": 5.988,
               "name": "second",
+              "fullname": "../tap/test/test/ok.js nesting",
             },
           ],
           Array [
@@ -29198,6 +41830,7 @@ Array [
           "id": 1,
           "time": 28.647,
           "name": "nesting",
+          "fullname": "../tap/test/test/ok.js",
         },
       ],
       Array [
@@ -29210,6 +41843,7 @@ Array [
           "ok": true,
           "id": 2,
           "name": "this passes",
+          "fullname": "../tap/test/test/ok.js",
         },
       ],
       Array [
@@ -29270,8 +41904,44 @@ Array [
     "            ok 1 - true is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "../tap/test/test/ok.js nesting first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "../tap/test/test/ok.js nesting first",
+    },
+  ],
+  Array [
     "line",
     "            ok 2 - doag is also okay\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "../tap/test/test/ok.js nesting first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "../tap/test/test/ok.js nesting first",
+    },
   ],
   Array [
     "line",
@@ -29286,12 +41956,66 @@ Array [
     "            ok 1 - but that is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "../tap/test/test/ok.js nesting second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "../tap/test/test/ok.js nesting second",
+    },
+  ],
+  Array [
     "line",
     "            ok 2 - this passes\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "../tap/test/test/ok.js nesting second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "../tap/test/test/ok.js nesting second",
+    },
+  ],
+  Array [
     "line",
     "            ok 3 - nested ok\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "../tap/test/test/ok.js nesting second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "../tap/test/test/ok.js nesting second",
+    },
   ],
   Array [
     "line",
@@ -29314,6 +42038,24 @@ Array [
     "    ok 2 - this passes\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "../tap/test/test/ok.js",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "../tap/test/test/ok.js",
+    },
+  ],
+  Array [
     "line",
     "    1..2\\n",
   ],
@@ -29332,6 +42074,7 @@ Array [
       "id": 1,
       "time": 205.826,
       "name": "../tap/test/test/ok.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -29440,6 +42183,7 @@ Array [
                   "ok": true,
                   "id": 1,
                   "name": "true is ok",
+                  "fullname": "../tap/test/test/ok.js nesting first",
                 },
               ],
               Array [
@@ -29452,6 +42196,7 @@ Array [
                   "ok": true,
                   "id": 2,
                   "name": "doag is also okay",
+                  "fullname": "../tap/test/test/ok.js nesting first",
                 },
               ],
               Array [
@@ -29499,6 +42244,7 @@ Array [
               "id": 1,
               "time": 8.987,
               "name": "first",
+              "fullname": "../tap/test/test/ok.js nesting",
             },
           ],
           Array [
@@ -29522,6 +42268,7 @@ Array [
                   "ok": true,
                   "id": 1,
                   "name": "but that is ok",
+                  "fullname": "../tap/test/test/ok.js nesting second",
                 },
               ],
               Array [
@@ -29534,6 +42281,7 @@ Array [
                   "ok": true,
                   "id": 2,
                   "name": "this passes",
+                  "fullname": "../tap/test/test/ok.js nesting second",
                 },
               ],
               Array [
@@ -29546,6 +42294,7 @@ Array [
                   "ok": true,
                   "id": 3,
                   "name": "nested ok",
+                  "fullname": "../tap/test/test/ok.js nesting second",
                 },
               ],
               Array [
@@ -29608,6 +42357,7 @@ Array [
               "id": 2,
               "time": 5.988,
               "name": "second",
+              "fullname": "../tap/test/test/ok.js nesting",
             },
           ],
           Array [
@@ -29702,6 +42452,7 @@ Array [
           "id": 1,
           "time": 28.647,
           "name": "nesting",
+          "fullname": "../tap/test/test/ok.js",
         },
       ],
       Array [
@@ -29714,6 +42465,7 @@ Array [
           "ok": true,
           "id": 2,
           "name": "this passes",
+          "fullname": "../tap/test/test/ok.js",
         },
       ],
       Array [
@@ -29774,8 +42526,44 @@ Array [
     "            ok 1 - true is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "../tap/test/test/ok.js nesting first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "../tap/test/test/ok.js nesting first",
+    },
+  ],
+  Array [
     "line",
     "            ok 2 - doag is also okay\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "../tap/test/test/ok.js nesting first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "../tap/test/test/ok.js nesting first",
+    },
   ],
   Array [
     "line",
@@ -29790,12 +42578,66 @@ Array [
     "            ok 1 - but that is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "../tap/test/test/ok.js nesting second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "../tap/test/test/ok.js nesting second",
+    },
+  ],
+  Array [
     "line",
     "            ok 2 - this passes\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "../tap/test/test/ok.js nesting second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "../tap/test/test/ok.js nesting second",
+    },
+  ],
+  Array [
     "line",
     "            ok 3 - nested ok\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "../tap/test/test/ok.js nesting second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "../tap/test/test/ok.js nesting second",
+    },
   ],
   Array [
     "line",
@@ -29818,6 +42660,24 @@ Array [
     "    ok 2 - this passes\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "../tap/test/test/ok.js",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "../tap/test/test/ok.js",
+    },
+  ],
+  Array [
     "line",
     "    1..2\\n",
   ],
@@ -29836,6 +42696,7 @@ Array [
       "id": 1,
       "time": 205.826,
       "name": "../tap/test/test/ok.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -29941,6 +42802,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "true is ok",
+              "fullname": "nesting first",
             },
           ],
           Array [
@@ -29953,6 +42815,7 @@ Array [
               "ok": true,
               "id": 2,
               "name": "doag is also okay",
+              "fullname": "nesting first",
             },
           ],
           Array [
@@ -30000,6 +42863,7 @@ Array [
           "id": 1,
           "time": 8.987,
           "name": "first",
+          "fullname": "nesting",
         },
       ],
       Array [
@@ -30023,6 +42887,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "but that is ok",
+              "fullname": "nesting second",
             },
           ],
           Array [
@@ -30035,6 +42900,7 @@ Array [
               "ok": true,
               "id": 2,
               "name": "this passes",
+              "fullname": "nesting second",
             },
           ],
           Array [
@@ -30047,6 +42913,7 @@ Array [
               "ok": true,
               "id": 3,
               "name": "nested ok",
+              "fullname": "nesting second",
             },
           ],
           Array [
@@ -30109,6 +42976,7 @@ Array [
           "id": 2,
           "time": 5.988,
           "name": "second",
+          "fullname": "nesting",
         },
       ],
       Array [
@@ -30157,8 +43025,44 @@ Array [
     "        ok 1 - true is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "nesting first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "nesting first",
+    },
+  ],
+  Array [
     "line",
     "        ok 2 - doag is also okay\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "nesting first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "nesting first",
+    },
   ],
   Array [
     "line",
@@ -30173,12 +43077,66 @@ Array [
     "        ok 1 - but that is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "nesting second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "nesting second",
+    },
+  ],
+  Array [
     "line",
     "        ok 2 - this passes\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "nesting second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "nesting second",
+    },
+  ],
+  Array [
     "line",
     "        ok 3 - nested ok\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "nesting second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "nesting second",
+    },
   ],
   Array [
     "line",
@@ -30203,6 +43161,7 @@ Array [
       "id": 1,
       "time": 28.647,
       "name": "nesting",
+      "fullname": "",
     },
   ],
   Array [
@@ -30215,6 +43174,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "this passes",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "",
     },
   ],
   Array [
@@ -30320,6 +43298,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "true is ok",
+              "fullname": "nesting first",
             },
           ],
           Array [
@@ -30332,6 +43311,7 @@ Array [
               "ok": true,
               "id": 2,
               "name": "doag is also okay",
+              "fullname": "nesting first",
             },
           ],
           Array [
@@ -30379,6 +43359,7 @@ Array [
           "id": 1,
           "time": 8.987,
           "name": "first",
+          "fullname": "nesting",
         },
       ],
       Array [
@@ -30402,6 +43383,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "but that is ok",
+              "fullname": "nesting second",
             },
           ],
           Array [
@@ -30414,6 +43396,7 @@ Array [
               "ok": true,
               "id": 2,
               "name": "this passes",
+              "fullname": "nesting second",
             },
           ],
           Array [
@@ -30426,6 +43409,7 @@ Array [
               "ok": true,
               "id": 3,
               "name": "nested ok",
+              "fullname": "nesting second",
             },
           ],
           Array [
@@ -30488,6 +43472,7 @@ Array [
           "id": 2,
           "time": 5.988,
           "name": "second",
+          "fullname": "nesting",
         },
       ],
       Array [
@@ -30536,8 +43521,44 @@ Array [
     "        ok 1 - true is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "nesting first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "nesting first",
+    },
+  ],
+  Array [
     "line",
     "        ok 2 - doag is also okay\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "nesting first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "nesting first",
+    },
   ],
   Array [
     "line",
@@ -30552,12 +43573,66 @@ Array [
     "        ok 1 - but that is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "nesting second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "nesting second",
+    },
+  ],
+  Array [
     "line",
     "        ok 2 - this passes\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "nesting second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "nesting second",
+    },
+  ],
+  Array [
     "line",
     "        ok 3 - nested ok\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "nesting second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "nesting second",
+    },
   ],
   Array [
     "line",
@@ -30582,6 +43657,7 @@ Array [
       "id": 1,
       "time": 28.647,
       "name": "nesting",
+      "fullname": "",
     },
   ],
   Array [
@@ -30594,6 +43670,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "this passes",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "",
     },
   ],
   Array [
@@ -30702,6 +43797,7 @@ Array [
                   "ok": true,
                   "id": 1,
                   "name": "true is ok",
+                  "fullname": "../tap/test/test/ok.js nesting first",
                 },
               ],
               Array [
@@ -30714,6 +43810,7 @@ Array [
                   "ok": true,
                   "id": 2,
                   "name": "doag is also okay",
+                  "fullname": "../tap/test/test/ok.js nesting first",
                 },
               ],
               Array [
@@ -30761,6 +43858,7 @@ Array [
               "id": 1,
               "time": 8.987,
               "name": "first",
+              "fullname": "../tap/test/test/ok.js nesting",
             },
           ],
           Array [
@@ -30784,6 +43882,7 @@ Array [
                   "ok": true,
                   "id": 1,
                   "name": "but that is ok",
+                  "fullname": "../tap/test/test/ok.js nesting second",
                 },
               ],
               Array [
@@ -30796,6 +43895,7 @@ Array [
                   "ok": true,
                   "id": 2,
                   "name": "this passes",
+                  "fullname": "../tap/test/test/ok.js nesting second",
                 },
               ],
               Array [
@@ -30808,6 +43908,7 @@ Array [
                   "ok": true,
                   "id": 3,
                   "name": "nested ok",
+                  "fullname": "../tap/test/test/ok.js nesting second",
                 },
               ],
               Array [
@@ -30870,6 +43971,7 @@ Array [
               "id": 2,
               "time": 5.988,
               "name": "second",
+              "fullname": "../tap/test/test/ok.js nesting",
             },
           ],
           Array [
@@ -30964,6 +44066,7 @@ Array [
           "id": 1,
           "time": 28.647,
           "name": "nesting",
+          "fullname": "../tap/test/test/ok.js",
         },
       ],
       Array [
@@ -30976,6 +44079,7 @@ Array [
           "ok": true,
           "id": 2,
           "name": "this passes",
+          "fullname": "../tap/test/test/ok.js",
         },
       ],
       Array [
@@ -31036,8 +44140,44 @@ Array [
     "            ok 1 - true is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "../tap/test/test/ok.js nesting first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "../tap/test/test/ok.js nesting first",
+    },
+  ],
+  Array [
     "line",
     "            ok 2 - doag is also okay\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "../tap/test/test/ok.js nesting first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "../tap/test/test/ok.js nesting first",
+    },
   ],
   Array [
     "line",
@@ -31052,12 +44192,66 @@ Array [
     "            ok 1 - but that is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "../tap/test/test/ok.js nesting second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "../tap/test/test/ok.js nesting second",
+    },
+  ],
+  Array [
     "line",
     "            ok 2 - this passes\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "../tap/test/test/ok.js nesting second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "../tap/test/test/ok.js nesting second",
+    },
+  ],
+  Array [
     "line",
     "            ok 3 - nested ok\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "../tap/test/test/ok.js nesting second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "../tap/test/test/ok.js nesting second",
+    },
   ],
   Array [
     "line",
@@ -31080,6 +44274,24 @@ Array [
     "    ok 2 - this passes\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "../tap/test/test/ok.js",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "../tap/test/test/ok.js",
+    },
+  ],
+  Array [
     "line",
     "    1..2\\n",
   ],
@@ -31098,6 +44310,7 @@ Array [
       "id": 1,
       "time": 205.826,
       "name": "../tap/test/test/ok.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -31206,6 +44419,7 @@ Array [
                   "ok": true,
                   "id": 1,
                   "name": "true is ok",
+                  "fullname": "../tap/test/test/ok.js nesting first",
                 },
               ],
               Array [
@@ -31218,6 +44432,7 @@ Array [
                   "ok": true,
                   "id": 2,
                   "name": "doag is also okay",
+                  "fullname": "../tap/test/test/ok.js nesting first",
                 },
               ],
               Array [
@@ -31265,6 +44480,7 @@ Array [
               "id": 1,
               "time": 8.987,
               "name": "first",
+              "fullname": "../tap/test/test/ok.js nesting",
             },
           ],
           Array [
@@ -31288,6 +44504,7 @@ Array [
                   "ok": true,
                   "id": 1,
                   "name": "but that is ok",
+                  "fullname": "../tap/test/test/ok.js nesting second",
                 },
               ],
               Array [
@@ -31300,6 +44517,7 @@ Array [
                   "ok": true,
                   "id": 2,
                   "name": "this passes",
+                  "fullname": "../tap/test/test/ok.js nesting second",
                 },
               ],
               Array [
@@ -31312,6 +44530,7 @@ Array [
                   "ok": true,
                   "id": 3,
                   "name": "nested ok",
+                  "fullname": "../tap/test/test/ok.js nesting second",
                 },
               ],
               Array [
@@ -31374,6 +44593,7 @@ Array [
               "id": 2,
               "time": 5.988,
               "name": "second",
+              "fullname": "../tap/test/test/ok.js nesting",
             },
           ],
           Array [
@@ -31468,6 +44688,7 @@ Array [
           "id": 1,
           "time": 28.647,
           "name": "nesting",
+          "fullname": "../tap/test/test/ok.js",
         },
       ],
       Array [
@@ -31480,6 +44701,7 @@ Array [
           "ok": true,
           "id": 2,
           "name": "this passes",
+          "fullname": "../tap/test/test/ok.js",
         },
       ],
       Array [
@@ -31540,8 +44762,44 @@ Array [
     "            ok 1 - true is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "../tap/test/test/ok.js nesting first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "../tap/test/test/ok.js nesting first",
+    },
+  ],
+  Array [
     "line",
     "            ok 2 - doag is also okay\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "../tap/test/test/ok.js nesting first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "../tap/test/test/ok.js nesting first",
+    },
   ],
   Array [
     "line",
@@ -31556,12 +44814,66 @@ Array [
     "            ok 1 - but that is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "../tap/test/test/ok.js nesting second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "../tap/test/test/ok.js nesting second",
+    },
+  ],
+  Array [
     "line",
     "            ok 2 - this passes\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "../tap/test/test/ok.js nesting second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "../tap/test/test/ok.js nesting second",
+    },
+  ],
+  Array [
     "line",
     "            ok 3 - nested ok\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "../tap/test/test/ok.js nesting second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "../tap/test/test/ok.js nesting second",
+    },
   ],
   Array [
     "line",
@@ -31584,6 +44896,24 @@ Array [
     "    ok 2 - this passes\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "../tap/test/test/ok.js",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "../tap/test/test/ok.js",
+    },
+  ],
+  Array [
     "line",
     "    1..2\\n",
   ],
@@ -31602,6 +44932,7 @@ Array [
       "id": 1,
       "time": 205.826,
       "name": "../tap/test/test/ok.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -31710,6 +45041,7 @@ Array [
                   "ok": true,
                   "id": 1,
                   "name": "true is ok",
+                  "fullname": "../tap/test/test/ok.js nesting first",
                 },
               ],
               Array [
@@ -31722,6 +45054,7 @@ Array [
                   "ok": true,
                   "id": 2,
                   "name": "doag is also okay",
+                  "fullname": "../tap/test/test/ok.js nesting first",
                 },
               ],
               Array [
@@ -31769,6 +45102,7 @@ Array [
               "id": 1,
               "time": 8.987,
               "name": "first",
+              "fullname": "../tap/test/test/ok.js nesting",
             },
           ],
           Array [
@@ -31792,6 +45126,7 @@ Array [
                   "ok": true,
                   "id": 1,
                   "name": "but that is ok",
+                  "fullname": "../tap/test/test/ok.js nesting second",
                 },
               ],
               Array [
@@ -31804,6 +45139,7 @@ Array [
                   "ok": true,
                   "id": 2,
                   "name": "this passes",
+                  "fullname": "../tap/test/test/ok.js nesting second",
                 },
               ],
               Array [
@@ -31816,6 +45152,7 @@ Array [
                   "ok": true,
                   "id": 3,
                   "name": "nested ok",
+                  "fullname": "../tap/test/test/ok.js nesting second",
                 },
               ],
               Array [
@@ -31878,6 +45215,7 @@ Array [
               "id": 2,
               "time": 5.988,
               "name": "second",
+              "fullname": "../tap/test/test/ok.js nesting",
             },
           ],
           Array [
@@ -31972,6 +45310,7 @@ Array [
           "id": 1,
           "time": 28.647,
           "name": "nesting",
+          "fullname": "../tap/test/test/ok.js",
         },
       ],
       Array [
@@ -31984,6 +45323,7 @@ Array [
           "ok": true,
           "id": 2,
           "name": "this passes",
+          "fullname": "../tap/test/test/ok.js",
         },
       ],
       Array [
@@ -32044,8 +45384,44 @@ Array [
     "            ok 1 - true is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "../tap/test/test/ok.js nesting first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "../tap/test/test/ok.js nesting first",
+    },
+  ],
+  Array [
     "line",
     "            ok 2 - doag is also okay\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "../tap/test/test/ok.js nesting first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "../tap/test/test/ok.js nesting first",
+    },
   ],
   Array [
     "line",
@@ -32060,12 +45436,66 @@ Array [
     "            ok 1 - but that is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "../tap/test/test/ok.js nesting second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "../tap/test/test/ok.js nesting second",
+    },
+  ],
+  Array [
     "line",
     "            ok 2 - this passes\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "../tap/test/test/ok.js nesting second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "../tap/test/test/ok.js nesting second",
+    },
+  ],
+  Array [
     "line",
     "            ok 3 - nested ok\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "../tap/test/test/ok.js nesting second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "../tap/test/test/ok.js nesting second",
+    },
   ],
   Array [
     "line",
@@ -32088,6 +45518,24 @@ Array [
     "    ok 2 - this passes\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "../tap/test/test/ok.js",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "../tap/test/test/ok.js",
+    },
+  ],
+  Array [
     "line",
     "    1..2\\n",
   ],
@@ -32106,6 +45554,7 @@ Array [
       "id": 1,
       "time": 205.826,
       "name": "../tap/test/test/ok.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -32214,6 +45663,7 @@ Array [
                   "ok": true,
                   "id": 1,
                   "name": "true is ok",
+                  "fullname": "../tap/test/test/ok.js nesting first",
                 },
               ],
               Array [
@@ -32226,6 +45676,7 @@ Array [
                   "ok": true,
                   "id": 2,
                   "name": "doag is also okay",
+                  "fullname": "../tap/test/test/ok.js nesting first",
                 },
               ],
               Array [
@@ -32273,6 +45724,7 @@ Array [
               "id": 1,
               "time": 8.987,
               "name": "first",
+              "fullname": "../tap/test/test/ok.js nesting",
             },
           ],
           Array [
@@ -32296,6 +45748,7 @@ Array [
                   "ok": true,
                   "id": 1,
                   "name": "but that is ok",
+                  "fullname": "../tap/test/test/ok.js nesting second",
                 },
               ],
               Array [
@@ -32308,6 +45761,7 @@ Array [
                   "ok": true,
                   "id": 2,
                   "name": "this passes",
+                  "fullname": "../tap/test/test/ok.js nesting second",
                 },
               ],
               Array [
@@ -32320,6 +45774,7 @@ Array [
                   "ok": true,
                   "id": 3,
                   "name": "nested ok",
+                  "fullname": "../tap/test/test/ok.js nesting second",
                 },
               ],
               Array [
@@ -32382,6 +45837,7 @@ Array [
               "id": 2,
               "time": 5.988,
               "name": "second",
+              "fullname": "../tap/test/test/ok.js nesting",
             },
           ],
           Array [
@@ -32476,6 +45932,7 @@ Array [
           "id": 1,
           "time": 28.647,
           "name": "nesting",
+          "fullname": "../tap/test/test/ok.js",
         },
       ],
       Array [
@@ -32488,6 +45945,7 @@ Array [
           "ok": true,
           "id": 2,
           "name": "this passes",
+          "fullname": "../tap/test/test/ok.js",
         },
       ],
       Array [
@@ -32548,8 +46006,44 @@ Array [
     "            ok 1 - true is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "../tap/test/test/ok.js nesting first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "../tap/test/test/ok.js nesting first",
+    },
+  ],
+  Array [
     "line",
     "            ok 2 - doag is also okay\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "../tap/test/test/ok.js nesting first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "../tap/test/test/ok.js nesting first",
+    },
   ],
   Array [
     "line",
@@ -32564,12 +46058,66 @@ Array [
     "            ok 1 - but that is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "../tap/test/test/ok.js nesting second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "../tap/test/test/ok.js nesting second",
+    },
+  ],
+  Array [
     "line",
     "            ok 2 - this passes\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "../tap/test/test/ok.js nesting second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "../tap/test/test/ok.js nesting second",
+    },
+  ],
+  Array [
     "line",
     "            ok 3 - nested ok\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "../tap/test/test/ok.js nesting second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "../tap/test/test/ok.js nesting second",
+    },
   ],
   Array [
     "line",
@@ -32592,6 +46140,24 @@ Array [
     "    ok 2 - this passes\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "../tap/test/test/ok.js",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "../tap/test/test/ok.js",
+    },
+  ],
+  Array [
     "line",
     "    1..2\\n",
   ],
@@ -32610,6 +46176,7 @@ Array [
       "id": 1,
       "time": 205.826,
       "name": "../tap/test/test/ok.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -32704,6 +46271,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "ypoint",
+              "fullname": "a brace looks like this x",
             },
           ],
           Array [
@@ -32761,6 +46329,7 @@ Array [
           "ok": true,
           "id": 1,
           "name": "y",
+          "fullname": "a brace looks like this",
         },
       ],
       Array [
@@ -32809,12 +46378,48 @@ Array [
     "        ok 1 - ypoint\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "a brace looks like this x",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "a brace looks like this x",
+    },
+  ],
+  Array [
     "line",
     "        1..1\\n",
   ],
   Array [
     "line",
     "    ok 1 - y\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "y",
+      "fullname": "a brace looks like this",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "y",
+      "fullname": "a brace looks like this",
+    },
   ],
   Array [
     "line",
@@ -32827,6 +46432,7 @@ Array [
       "id": 1,
       "buffered": true,
       "name": "a brace looks like this",
+      "fullname": "",
     },
   ],
   Array [
@@ -32839,6 +46445,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "x",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "x",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "x",
+      "fullname": "",
     },
   ],
   Array [
@@ -32925,6 +46550,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "ypoint",
+              "fullname": "a brace looks like this x",
             },
           ],
           Array [
@@ -32982,6 +46608,7 @@ Array [
           "ok": true,
           "id": 1,
           "name": "y",
+          "fullname": "a brace looks like this",
         },
       ],
       Array [
@@ -33030,12 +46657,48 @@ Array [
     "        ok 1 - ypoint\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "a brace looks like this x",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "a brace looks like this x",
+    },
+  ],
+  Array [
     "line",
     "        1..1\\n",
   ],
   Array [
     "line",
     "    ok 1 - y\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "y",
+      "fullname": "a brace looks like this",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "y",
+      "fullname": "a brace looks like this",
+    },
   ],
   Array [
     "line",
@@ -33048,6 +46711,7 @@ Array [
       "id": 1,
       "buffered": true,
       "name": "a brace looks like this",
+      "fullname": "",
     },
   ],
   Array [
@@ -33060,6 +46724,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "x",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "x",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "x",
+      "fullname": "",
     },
   ],
   Array [
@@ -33146,6 +46829,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "ypoint",
+              "fullname": "x y",
             },
           ],
           Array [
@@ -33199,6 +46883,7 @@ Array [
           "ok": true,
           "id": 1,
           "name": "y",
+          "fullname": "x",
         },
       ],
       Array [
@@ -33243,6 +46928,24 @@ Array [
     "        ok 1 - ypoint\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "x y",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "x y",
+    },
+  ],
+  Array [
     "line",
     "        1..1\\n",
   ],
@@ -33264,6 +46967,7 @@ Array [
       "ok": true,
       "id": 1,
       "name": "x",
+      "fullname": "",
     },
   ],
   Array [
@@ -33350,6 +47054,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "ypoint",
+              "fullname": "x y",
             },
           ],
           Array [
@@ -33403,6 +47108,7 @@ Array [
           "ok": true,
           "id": 1,
           "name": "y",
+          "fullname": "x",
         },
       ],
       Array [
@@ -33447,6 +47153,24 @@ Array [
     "        ok 1 - ypoint\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "x y",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "x y",
+    },
+  ],
+  Array [
     "line",
     "        1..1\\n",
   ],
@@ -33468,6 +47192,7 @@ Array [
       "ok": true,
       "id": 1,
       "name": "x",
+      "fullname": "",
     },
   ],
   Array [
@@ -33551,6 +47276,7 @@ Array [
           "ok": true,
           "id": 1,
           "name": "not a subtest",
+          "fullname": "x",
         },
       ],
       Array [
@@ -33574,6 +47300,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "ypoint",
+              "fullname": "x y",
             },
           ],
           Array [
@@ -33627,6 +47354,7 @@ Array [
           "ok": true,
           "id": 2,
           "name": "y",
+          "fullname": "x",
         },
       ],
       Array [
@@ -33671,12 +47399,48 @@ Array [
     "    ok 1 - not a subtest\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "not a subtest",
+      "fullname": "x",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "not a subtest",
+      "fullname": "x",
+    },
+  ],
+  Array [
     "line",
     "    # Subtest: y\\n",
   ],
   Array [
     "line",
     "        ok 1 - ypoint\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "x y",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "x y",
+    },
   ],
   Array [
     "line",
@@ -33700,6 +47464,7 @@ Array [
       "ok": true,
       "id": 1,
       "name": "x",
+      "fullname": "",
     },
   ],
   Array [
@@ -33783,6 +47548,7 @@ Array [
           "ok": true,
           "id": 1,
           "name": "not a subtest",
+          "fullname": "x",
         },
       ],
       Array [
@@ -33806,6 +47572,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "ypoint",
+              "fullname": "x y",
             },
           ],
           Array [
@@ -33859,6 +47626,7 @@ Array [
           "ok": true,
           "id": 2,
           "name": "y",
+          "fullname": "x",
         },
       ],
       Array [
@@ -33903,12 +47671,48 @@ Array [
     "    ok 1 - not a subtest\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "not a subtest",
+      "fullname": "x",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "not a subtest",
+      "fullname": "x",
+    },
+  ],
+  Array [
     "line",
     "    # Subtest: y\\n",
   ],
   Array [
     "line",
     "        ok 1 - ypoint\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "x y",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "x y",
+    },
   ],
   Array [
     "line",
@@ -33932,6 +47736,7 @@ Array [
       "ok": true,
       "id": 1,
       "name": "x",
+      "fullname": "",
     },
   ],
   Array [
@@ -34018,6 +47823,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "ypoint",
+              "fullname": "x1 y",
             },
           ],
           Array [
@@ -34072,6 +47878,7 @@ Array [
           "id": 1,
           "buffered": true,
           "name": "y",
+          "fullname": "x1",
         },
       ],
       Array [
@@ -34116,6 +47923,24 @@ Array [
     "        ok 1 - ypoint\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "x1 y",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "x1 y",
+    },
+  ],
+  Array [
     "line",
     "        1..1\\n",
   ],
@@ -34138,6 +47963,7 @@ Array [
       "id": 1,
       "buffered": true,
       "name": "x1",
+      "fullname": "",
     },
   ],
   Array [
@@ -34172,6 +47998,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "ypoint",
+              "fullname": "x2 y",
             },
           ],
           Array [
@@ -34225,6 +48052,7 @@ Array [
           "ok": true,
           "id": 1,
           "name": "y",
+          "fullname": "x2",
         },
       ],
       Array [
@@ -34269,6 +48097,24 @@ Array [
     "        ok 1 - ypoint\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "x2 y",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "x2 y",
+    },
+  ],
+  Array [
     "line",
     "        1..1\\n",
   ],
@@ -34291,6 +48137,7 @@ Array [
       "id": 2,
       "buffered": true,
       "name": "x2",
+      "fullname": "",
     },
   ],
   Array [
@@ -34325,6 +48172,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "ypoint",
+              "fullname": "x3 y",
             },
           ],
           Array [
@@ -34378,6 +48226,7 @@ Array [
           "ok": true,
           "id": 1,
           "name": "y",
+          "fullname": "x3",
         },
       ],
       Array [
@@ -34422,6 +48271,24 @@ Array [
     "        ok 1 - ypoint\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "x3 y",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "x3 y",
+    },
+  ],
+  Array [
     "line",
     "        1..1\\n",
   ],
@@ -34444,6 +48311,7 @@ Array [
       "id": 3,
       "buffered": true,
       "name": "x3",
+      "fullname": "",
     },
   ],
   Array [
@@ -34478,6 +48346,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "ypoint",
+              "fullname": "x4 y",
             },
           ],
           Array [
@@ -34532,6 +48401,7 @@ Array [
           "id": 1,
           "buffered": true,
           "name": "y",
+          "fullname": "x4",
         },
       ],
       Array [
@@ -34576,6 +48446,24 @@ Array [
     "        ok 1 - ypoint\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "x4 y",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "x4 y",
+    },
+  ],
+  Array [
     "line",
     "        1..1\\n",
   ],
@@ -34597,6 +48485,7 @@ Array [
       "ok": true,
       "id": 4,
       "name": "x4",
+      "fullname": "",
     },
   ],
   Array [
@@ -34631,6 +48520,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "ypoint",
+              "fullname": "x5 y",
             },
           ],
           Array [
@@ -34684,6 +48574,7 @@ Array [
           "ok": true,
           "id": 1,
           "name": "y",
+          "fullname": "x5",
         },
       ],
       Array [
@@ -34728,6 +48619,24 @@ Array [
     "        ok 1 - ypoint\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "x5 y",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "x5 y",
+    },
+  ],
+  Array [
     "line",
     "        1..1\\n",
   ],
@@ -34749,6 +48658,7 @@ Array [
       "ok": true,
       "id": 5,
       "name": "x5",
+      "fullname": "",
     },
   ],
   Array [
@@ -34783,6 +48693,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "ypoint",
+              "fullname": "x6 y",
             },
           ],
           Array [
@@ -34836,6 +48747,7 @@ Array [
           "ok": true,
           "id": 1,
           "name": "y",
+          "fullname": "x6",
         },
       ],
       Array [
@@ -34880,6 +48792,24 @@ Array [
     "        ok 1 - ypoint\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "x6 y",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "x6 y",
+    },
+  ],
+  Array [
     "line",
     "        1..1\\n",
   ],
@@ -34901,6 +48831,7 @@ Array [
       "ok": true,
       "id": 6,
       "name": "x6",
+      "fullname": "",
     },
   ],
   Array [
@@ -34935,6 +48866,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "ypoint",
+              "fullname": "x7 y",
             },
           ],
           Array [
@@ -34989,6 +48921,7 @@ Array [
           "id": 1,
           "buffered": true,
           "name": "y",
+          "fullname": "x7",
         },
       ],
       Array [
@@ -35033,6 +48966,24 @@ Array [
     "        ok 1 - ypoint\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "x7 y",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "x7 y",
+    },
+  ],
+  Array [
     "line",
     "        1..1\\n",
   ],
@@ -35054,6 +49005,7 @@ Array [
       "ok": true,
       "id": 7,
       "name": "x7",
+      "fullname": "",
     },
   ],
   Array [
@@ -35088,6 +49040,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "ypoint",
+              "fullname": "x8 y",
             },
           ],
           Array [
@@ -35141,6 +49094,7 @@ Array [
           "ok": true,
           "id": 1,
           "name": "y",
+          "fullname": "x8",
         },
       ],
       Array [
@@ -35185,6 +49139,24 @@ Array [
     "        ok 1 - ypoint\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "x8 y",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "x8 y",
+    },
+  ],
+  Array [
     "line",
     "        1..1\\n",
   ],
@@ -35206,6 +49178,7 @@ Array [
       "ok": true,
       "id": 8,
       "name": "x8",
+      "fullname": "",
     },
   ],
   Array [
@@ -35240,6 +49213,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "ypoint",
+              "fullname": "x9 y",
             },
           ],
           Array [
@@ -35293,6 +49267,7 @@ Array [
           "ok": true,
           "id": 1,
           "name": "y",
+          "fullname": "x9",
         },
       ],
       Array [
@@ -35337,6 +49312,24 @@ Array [
     "        ok 1 - ypoint\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "x9 y",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "x9 y",
+    },
+  ],
+  Array [
     "line",
     "        1..1\\n",
   ],
@@ -35358,6 +49351,7 @@ Array [
       "ok": true,
       "id": 9,
       "name": "x9",
+      "fullname": "",
     },
   ],
   Array [
@@ -35444,6 +49438,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "ypoint",
+              "fullname": "x1 y",
             },
           ],
           Array [
@@ -35498,6 +49493,7 @@ Array [
           "id": 1,
           "buffered": true,
           "name": "y",
+          "fullname": "x1",
         },
       ],
       Array [
@@ -35542,6 +49538,24 @@ Array [
     "        ok 1 - ypoint\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "x1 y",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "x1 y",
+    },
+  ],
+  Array [
     "line",
     "        1..1\\n",
   ],
@@ -35564,6 +49578,7 @@ Array [
       "id": 1,
       "buffered": true,
       "name": "x1",
+      "fullname": "",
     },
   ],
   Array [
@@ -35598,6 +49613,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "ypoint",
+              "fullname": "x2 y",
             },
           ],
           Array [
@@ -35651,6 +49667,7 @@ Array [
           "ok": true,
           "id": 1,
           "name": "y",
+          "fullname": "x2",
         },
       ],
       Array [
@@ -35695,6 +49712,24 @@ Array [
     "        ok 1 - ypoint\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "x2 y",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "x2 y",
+    },
+  ],
+  Array [
     "line",
     "        1..1\\n",
   ],
@@ -35717,6 +49752,7 @@ Array [
       "id": 2,
       "buffered": true,
       "name": "x2",
+      "fullname": "",
     },
   ],
   Array [
@@ -35751,6 +49787,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "ypoint",
+              "fullname": "x3 y",
             },
           ],
           Array [
@@ -35804,6 +49841,7 @@ Array [
           "ok": true,
           "id": 1,
           "name": "y",
+          "fullname": "x3",
         },
       ],
       Array [
@@ -35848,6 +49886,24 @@ Array [
     "        ok 1 - ypoint\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "x3 y",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "x3 y",
+    },
+  ],
+  Array [
     "line",
     "        1..1\\n",
   ],
@@ -35870,6 +49926,7 @@ Array [
       "id": 3,
       "buffered": true,
       "name": "x3",
+      "fullname": "",
     },
   ],
   Array [
@@ -35904,6 +49961,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "ypoint",
+              "fullname": "x4 y",
             },
           ],
           Array [
@@ -35958,6 +50016,7 @@ Array [
           "id": 1,
           "buffered": true,
           "name": "y",
+          "fullname": "x4",
         },
       ],
       Array [
@@ -36002,6 +50061,24 @@ Array [
     "        ok 1 - ypoint\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "x4 y",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "x4 y",
+    },
+  ],
+  Array [
     "line",
     "        1..1\\n",
   ],
@@ -36023,6 +50100,7 @@ Array [
       "ok": true,
       "id": 4,
       "name": "x4",
+      "fullname": "",
     },
   ],
   Array [
@@ -36057,6 +50135,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "ypoint",
+              "fullname": "x5 y",
             },
           ],
           Array [
@@ -36110,6 +50189,7 @@ Array [
           "ok": true,
           "id": 1,
           "name": "y",
+          "fullname": "x5",
         },
       ],
       Array [
@@ -36154,6 +50234,24 @@ Array [
     "        ok 1 - ypoint\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "x5 y",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "x5 y",
+    },
+  ],
+  Array [
     "line",
     "        1..1\\n",
   ],
@@ -36175,6 +50273,7 @@ Array [
       "ok": true,
       "id": 5,
       "name": "x5",
+      "fullname": "",
     },
   ],
   Array [
@@ -36209,6 +50308,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "ypoint",
+              "fullname": "x6 y",
             },
           ],
           Array [
@@ -36262,6 +50362,7 @@ Array [
           "ok": true,
           "id": 1,
           "name": "y",
+          "fullname": "x6",
         },
       ],
       Array [
@@ -36306,6 +50407,24 @@ Array [
     "        ok 1 - ypoint\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "x6 y",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "x6 y",
+    },
+  ],
+  Array [
     "line",
     "        1..1\\n",
   ],
@@ -36327,6 +50446,7 @@ Array [
       "ok": true,
       "id": 6,
       "name": "x6",
+      "fullname": "",
     },
   ],
   Array [
@@ -36361,6 +50481,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "ypoint",
+              "fullname": "x7 y",
             },
           ],
           Array [
@@ -36415,6 +50536,7 @@ Array [
           "id": 1,
           "buffered": true,
           "name": "y",
+          "fullname": "x7",
         },
       ],
       Array [
@@ -36459,6 +50581,24 @@ Array [
     "        ok 1 - ypoint\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "x7 y",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "x7 y",
+    },
+  ],
+  Array [
     "line",
     "        1..1\\n",
   ],
@@ -36480,6 +50620,7 @@ Array [
       "ok": true,
       "id": 7,
       "name": "x7",
+      "fullname": "",
     },
   ],
   Array [
@@ -36514,6 +50655,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "ypoint",
+              "fullname": "x8 y",
             },
           ],
           Array [
@@ -36567,6 +50709,7 @@ Array [
           "ok": true,
           "id": 1,
           "name": "y",
+          "fullname": "x8",
         },
       ],
       Array [
@@ -36611,6 +50754,24 @@ Array [
     "        ok 1 - ypoint\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "x8 y",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "x8 y",
+    },
+  ],
+  Array [
     "line",
     "        1..1\\n",
   ],
@@ -36632,6 +50793,7 @@ Array [
       "ok": true,
       "id": 8,
       "name": "x8",
+      "fullname": "",
     },
   ],
   Array [
@@ -36666,6 +50828,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "ypoint",
+              "fullname": "x9 y",
             },
           ],
           Array [
@@ -36719,6 +50882,7 @@ Array [
           "ok": true,
           "id": 1,
           "name": "y",
+          "fullname": "x9",
         },
       ],
       Array [
@@ -36763,6 +50927,24 @@ Array [
     "        ok 1 - ypoint\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "x9 y",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "ypoint",
+      "fullname": "x9 y",
+    },
+  ],
+  Array [
     "line",
     "        1..1\\n",
   ],
@@ -36784,6 +50966,7 @@ Array [
       "ok": true,
       "id": 9,
       "name": "x9",
+      "fullname": "",
     },
   ],
   Array [
@@ -36884,6 +51067,7 @@ Array [
                   "ok": true,
                   "id": 1,
                   "name": "true is ok",
+                  "fullname": "../tap/test/test/ok.js",
                 },
               ],
               Array [
@@ -36896,6 +51080,7 @@ Array [
                   "ok": true,
                   "id": 2,
                   "name": "doag is also okay",
+                  "fullname": "../tap/test/test/ok.js",
                 },
               ],
               Array [
@@ -36943,6 +51128,7 @@ Array [
               "id": 1,
               "time": 8.987,
               "name": "first",
+              "fullname": "../tap/test/test/ok.js",
             },
           ],
           Array [
@@ -36966,6 +51152,7 @@ Array [
                   "ok": true,
                   "id": 1,
                   "name": "but that is ok",
+                  "fullname": "../tap/test/test/ok.js",
                 },
               ],
               Array [
@@ -36978,6 +51165,7 @@ Array [
                   "ok": true,
                   "id": 2,
                   "name": "this passes",
+                  "fullname": "../tap/test/test/ok.js",
                 },
               ],
               Array [
@@ -36990,6 +51178,7 @@ Array [
                   "ok": true,
                   "id": 3,
                   "name": "nested ok",
+                  "fullname": "../tap/test/test/ok.js",
                 },
               ],
               Array [
@@ -37052,6 +51241,7 @@ Array [
               "id": 2,
               "time": 5.988,
               "name": "second",
+              "fullname": "../tap/test/test/ok.js",
             },
           ],
           Array [
@@ -37146,6 +51336,7 @@ Array [
           "id": 1,
           "time": 28.647,
           "name": "nesting",
+          "fullname": "../tap/test/test/ok.js",
         },
       ],
       Array [
@@ -37158,6 +51349,7 @@ Array [
           "ok": true,
           "id": 2,
           "name": "this passes",
+          "fullname": "../tap/test/test/ok.js",
         },
       ],
       Array [
@@ -37210,12 +51402,68 @@ Array [
     "            ok 1 - true is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "../tap/test/test/ok.js",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "../tap/test/test/ok.js",
+    },
+  ],
+  Array [
     "line",
     "            ok 2 - doag is also okay\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "../tap/test/test/ok.js",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "../tap/test/test/ok.js",
+    },
+  ],
+  Array [
     "line",
     "        ok 1 - first # time=8.987ms\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 8.987,
+      "name": "first",
+      "fullname": "../tap/test/test/ok.js",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 8.987,
+      "name": "first",
+      "fullname": "../tap/test/test/ok.js",
+    },
   ],
   Array [
     "line",
@@ -37226,12 +51474,66 @@ Array [
     "            ok 1 - but that is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "../tap/test/test/ok.js",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "../tap/test/test/ok.js",
+    },
+  ],
+  Array [
     "line",
     "            ok 2 - this passes\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "../tap/test/test/ok.js",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "../tap/test/test/ok.js",
+    },
+  ],
+  Array [
     "line",
     "            ok 3 - nested ok\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "../tap/test/test/ok.js",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "../tap/test/test/ok.js",
+    },
   ],
   Array [
     "line",
@@ -37242,6 +51544,26 @@ Array [
     "        ok 2 - second # time=5.988ms\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "time": 5.988,
+      "name": "second",
+      "fullname": "../tap/test/test/ok.js",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "time": 5.988,
+      "name": "second",
+      "fullname": "../tap/test/test/ok.js",
+    },
+  ],
+  Array [
     "line",
     "        1..2\\n",
   ],
@@ -37250,8 +51572,46 @@ Array [
     "    ok 1 - nesting # time=28.647ms\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 28.647,
+      "name": "nesting",
+      "fullname": "../tap/test/test/ok.js",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 28.647,
+      "name": "nesting",
+      "fullname": "../tap/test/test/ok.js",
+    },
+  ],
+  Array [
     "line",
     "    ok 2 - this passes\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "../tap/test/test/ok.js",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "../tap/test/test/ok.js",
+    },
   ],
   Array [
     "line",
@@ -37268,6 +51628,7 @@ Array [
       "id": 1,
       "time": 205.826,
       "name": "../tap/test/test/ok.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -37368,6 +51729,7 @@ Array [
                   "ok": true,
                   "id": 1,
                   "name": "true is ok",
+                  "fullname": "../tap/test/test/ok.js",
                 },
               ],
               Array [
@@ -37380,6 +51742,7 @@ Array [
                   "ok": true,
                   "id": 2,
                   "name": "doag is also okay",
+                  "fullname": "../tap/test/test/ok.js",
                 },
               ],
               Array [
@@ -37427,6 +51790,7 @@ Array [
               "id": 1,
               "time": 8.987,
               "name": "first",
+              "fullname": "../tap/test/test/ok.js",
             },
           ],
           Array [
@@ -37450,6 +51814,7 @@ Array [
                   "ok": true,
                   "id": 1,
                   "name": "but that is ok",
+                  "fullname": "../tap/test/test/ok.js",
                 },
               ],
               Array [
@@ -37462,6 +51827,7 @@ Array [
                   "ok": true,
                   "id": 2,
                   "name": "this passes",
+                  "fullname": "../tap/test/test/ok.js",
                 },
               ],
               Array [
@@ -37474,6 +51840,7 @@ Array [
                   "ok": true,
                   "id": 3,
                   "name": "nested ok",
+                  "fullname": "../tap/test/test/ok.js",
                 },
               ],
               Array [
@@ -37536,6 +51903,7 @@ Array [
               "id": 2,
               "time": 5.988,
               "name": "second",
+              "fullname": "../tap/test/test/ok.js",
             },
           ],
           Array [
@@ -37630,6 +51998,7 @@ Array [
           "id": 1,
           "time": 28.647,
           "name": "nesting",
+          "fullname": "../tap/test/test/ok.js",
         },
       ],
       Array [
@@ -37642,6 +52011,7 @@ Array [
           "ok": true,
           "id": 2,
           "name": "this passes",
+          "fullname": "../tap/test/test/ok.js",
         },
       ],
       Array [
@@ -37694,12 +52064,68 @@ Array [
     "            ok 1 - true is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "../tap/test/test/ok.js",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "../tap/test/test/ok.js",
+    },
+  ],
+  Array [
     "line",
     "            ok 2 - doag is also okay\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "../tap/test/test/ok.js",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "../tap/test/test/ok.js",
+    },
+  ],
+  Array [
     "line",
     "        ok 1 - first # time=8.987ms\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 8.987,
+      "name": "first",
+      "fullname": "../tap/test/test/ok.js",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 8.987,
+      "name": "first",
+      "fullname": "../tap/test/test/ok.js",
+    },
   ],
   Array [
     "line",
@@ -37710,12 +52136,66 @@ Array [
     "            ok 1 - but that is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "../tap/test/test/ok.js",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "../tap/test/test/ok.js",
+    },
+  ],
+  Array [
     "line",
     "            ok 2 - this passes\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "../tap/test/test/ok.js",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "../tap/test/test/ok.js",
+    },
+  ],
+  Array [
     "line",
     "            ok 3 - nested ok\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "../tap/test/test/ok.js",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "../tap/test/test/ok.js",
+    },
   ],
   Array [
     "line",
@@ -37726,6 +52206,26 @@ Array [
     "        ok 2 - second # time=5.988ms\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "time": 5.988,
+      "name": "second",
+      "fullname": "../tap/test/test/ok.js",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "time": 5.988,
+      "name": "second",
+      "fullname": "../tap/test/test/ok.js",
+    },
+  ],
+  Array [
     "line",
     "        1..2\\n",
   ],
@@ -37734,8 +52234,46 @@ Array [
     "    ok 1 - nesting # time=28.647ms\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 28.647,
+      "name": "nesting",
+      "fullname": "../tap/test/test/ok.js",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 28.647,
+      "name": "nesting",
+      "fullname": "../tap/test/test/ok.js",
+    },
+  ],
+  Array [
     "line",
     "    ok 2 - this passes\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "../tap/test/test/ok.js",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "../tap/test/test/ok.js",
+    },
   ],
   Array [
     "line",
@@ -37752,6 +52290,7 @@ Array [
       "id": 1,
       "time": 205.826,
       "name": "../tap/test/test/ok.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -37852,6 +52391,7 @@ Array [
                   "ok": true,
                   "id": 1,
                   "name": "true is ok",
+                  "fullname": "nesting",
                 },
               ],
               Array [
@@ -37864,6 +52404,7 @@ Array [
                   "ok": true,
                   "id": 2,
                   "name": "doag is also okay",
+                  "fullname": "nesting",
                 },
               ],
               Array [
@@ -37911,6 +52452,7 @@ Array [
               "id": 1,
               "time": 8.987,
               "name": "first",
+              "fullname": "nesting",
             },
           ],
           Array [
@@ -37934,6 +52476,7 @@ Array [
                   "ok": true,
                   "id": 1,
                   "name": "but that is ok",
+                  "fullname": "nesting",
                 },
               ],
               Array [
@@ -37946,6 +52489,7 @@ Array [
                   "ok": true,
                   "id": 2,
                   "name": "this passes",
+                  "fullname": "nesting",
                 },
               ],
               Array [
@@ -37958,6 +52502,7 @@ Array [
                   "ok": true,
                   "id": 3,
                   "name": "nested ok",
+                  "fullname": "nesting",
                 },
               ],
               Array [
@@ -38020,6 +52565,7 @@ Array [
               "id": 2,
               "time": 5.988,
               "name": "second",
+              "fullname": "nesting",
             },
           ],
           Array [
@@ -38114,6 +52660,7 @@ Array [
           "id": 1,
           "time": 28.647,
           "name": "nesting",
+          "fullname": "",
         },
       ],
       Array [
@@ -38126,6 +52673,7 @@ Array [
           "ok": true,
           "id": 2,
           "name": "this passes",
+          "fullname": "",
         },
       ],
       Array [
@@ -38178,12 +52726,68 @@ Array [
     "            ok 1 - true is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "nesting",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "nesting",
+    },
+  ],
+  Array [
     "line",
     "            ok 2 - doag is also okay\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "nesting",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "nesting",
+    },
+  ],
+  Array [
     "line",
     "        ok 1 - first # time=8.987ms\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 8.987,
+      "name": "first",
+      "fullname": "nesting",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 8.987,
+      "name": "first",
+      "fullname": "nesting",
+    },
   ],
   Array [
     "line",
@@ -38194,12 +52798,66 @@ Array [
     "            ok 1 - but that is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "nesting",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "nesting",
+    },
+  ],
+  Array [
     "line",
     "            ok 2 - this passes\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "nesting",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "nesting",
+    },
+  ],
+  Array [
     "line",
     "            ok 3 - nested ok\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "nesting",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "nesting",
+    },
   ],
   Array [
     "line",
@@ -38208,6 +52866,26 @@ Array [
   Array [
     "line",
     "        ok 2 - second # time=5.988ms\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "time": 5.988,
+      "name": "second",
+      "fullname": "nesting",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "time": 5.988,
+      "name": "second",
+      "fullname": "nesting",
+    },
   ],
   Array [
     "line",
@@ -38220,6 +52898,24 @@ Array [
   Array [
     "line",
     "    ok 2 - this passes\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "",
+    },
   ],
   Array [
     "line",
@@ -38236,6 +52932,27 @@ Array [
       "id": 1,
       "time": 205.826,
       "name": "../tap/test/test/ok.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 205.826,
+      "name": "../tap/test/test/ok.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 205.826,
+      "name": "../tap/test/test/ok.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -38336,6 +53053,7 @@ Array [
                   "ok": true,
                   "id": 1,
                   "name": "true is ok",
+                  "fullname": "nesting",
                 },
               ],
               Array [
@@ -38348,6 +53066,7 @@ Array [
                   "ok": true,
                   "id": 2,
                   "name": "doag is also okay",
+                  "fullname": "nesting",
                 },
               ],
               Array [
@@ -38395,6 +53114,7 @@ Array [
               "id": 1,
               "time": 8.987,
               "name": "first",
+              "fullname": "nesting",
             },
           ],
           Array [
@@ -38418,6 +53138,7 @@ Array [
                   "ok": true,
                   "id": 1,
                   "name": "but that is ok",
+                  "fullname": "nesting",
                 },
               ],
               Array [
@@ -38430,6 +53151,7 @@ Array [
                   "ok": true,
                   "id": 2,
                   "name": "this passes",
+                  "fullname": "nesting",
                 },
               ],
               Array [
@@ -38442,6 +53164,7 @@ Array [
                   "ok": true,
                   "id": 3,
                   "name": "nested ok",
+                  "fullname": "nesting",
                 },
               ],
               Array [
@@ -38504,6 +53227,7 @@ Array [
               "id": 2,
               "time": 5.988,
               "name": "second",
+              "fullname": "nesting",
             },
           ],
           Array [
@@ -38598,6 +53322,7 @@ Array [
           "id": 1,
           "time": 28.647,
           "name": "nesting",
+          "fullname": "",
         },
       ],
       Array [
@@ -38610,6 +53335,7 @@ Array [
           "ok": true,
           "id": 2,
           "name": "this passes",
+          "fullname": "",
         },
       ],
       Array [
@@ -38662,12 +53388,68 @@ Array [
     "            ok 1 - true is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "nesting",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "nesting",
+    },
+  ],
+  Array [
     "line",
     "            ok 2 - doag is also okay\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "nesting",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "nesting",
+    },
+  ],
+  Array [
     "line",
     "        ok 1 - first # time=8.987ms\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 8.987,
+      "name": "first",
+      "fullname": "nesting",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 8.987,
+      "name": "first",
+      "fullname": "nesting",
+    },
   ],
   Array [
     "line",
@@ -38678,12 +53460,66 @@ Array [
     "            ok 1 - but that is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "nesting",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "nesting",
+    },
+  ],
+  Array [
     "line",
     "            ok 2 - this passes\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "nesting",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "nesting",
+    },
+  ],
+  Array [
     "line",
     "            ok 3 - nested ok\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "nesting",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "nesting",
+    },
   ],
   Array [
     "line",
@@ -38692,6 +53528,26 @@ Array [
   Array [
     "line",
     "        ok 2 - second # time=5.988ms\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "time": 5.988,
+      "name": "second",
+      "fullname": "nesting",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "time": 5.988,
+      "name": "second",
+      "fullname": "nesting",
+    },
   ],
   Array [
     "line",
@@ -38704,6 +53560,24 @@ Array [
   Array [
     "line",
     "    ok 2 - this passes\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "",
+    },
   ],
   Array [
     "line",
@@ -38720,6 +53594,27 @@ Array [
       "id": 1,
       "time": 205.826,
       "name": "../tap/test/test/ok.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 205.826,
+      "name": "../tap/test/test/ok.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 205.826,
+      "name": "../tap/test/test/ok.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -38820,6 +53715,7 @@ Array [
                   "ok": true,
                   "id": 1,
                   "name": "true is ok",
+                  "fullname": "first",
                 },
               ],
               Array [
@@ -38832,6 +53728,7 @@ Array [
                   "ok": true,
                   "id": 2,
                   "name": "doag is also okay",
+                  "fullname": "first",
                 },
               ],
               Array [
@@ -38879,6 +53776,7 @@ Array [
               "id": 1,
               "time": 8.987,
               "name": "first",
+              "fullname": "first",
             },
           ],
           Array [
@@ -38902,6 +53800,7 @@ Array [
                   "ok": true,
                   "id": 1,
                   "name": "but that is ok",
+                  "fullname": "first",
                 },
               ],
               Array [
@@ -38914,6 +53813,7 @@ Array [
                   "ok": true,
                   "id": 2,
                   "name": "this passes",
+                  "fullname": "first",
                 },
               ],
               Array [
@@ -38926,6 +53826,7 @@ Array [
                   "ok": true,
                   "id": 3,
                   "name": "nested ok",
+                  "fullname": "first",
                 },
               ],
               Array [
@@ -38988,6 +53889,7 @@ Array [
               "id": 2,
               "time": 5.988,
               "name": "second",
+              "fullname": "first",
             },
           ],
           Array [
@@ -39082,6 +53984,7 @@ Array [
           "id": 1,
           "time": 28.647,
           "name": "nesting",
+          "fullname": "",
         },
       ],
       Array [
@@ -39094,6 +53997,7 @@ Array [
           "ok": true,
           "id": 2,
           "name": "this passes",
+          "fullname": "",
         },
       ],
       Array [
@@ -39146,12 +54050,68 @@ Array [
     "            ok 1 - true is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "first",
+    },
+  ],
+  Array [
     "line",
     "            ok 2 - doag is also okay\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "first",
+    },
+  ],
+  Array [
     "line",
     "        ok 1 - first # time=8.987ms\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 8.987,
+      "name": "first",
+      "fullname": "first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 8.987,
+      "name": "first",
+      "fullname": "first",
+    },
   ],
   Array [
     "line",
@@ -39162,12 +54122,66 @@ Array [
     "            ok 1 - but that is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "first",
+    },
+  ],
+  Array [
     "line",
     "            ok 2 - this passes\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "first",
+    },
+  ],
+  Array [
     "line",
     "            ok 3 - nested ok\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "first",
+    },
   ],
   Array [
     "line",
@@ -39178,6 +54192,26 @@ Array [
     "        ok 2 - second # time=5.988ms\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "time": 5.988,
+      "name": "second",
+      "fullname": "first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "time": 5.988,
+      "name": "second",
+      "fullname": "first",
+    },
+  ],
+  Array [
     "line",
     "        1..2\\n",
   ],
@@ -39186,8 +54220,46 @@ Array [
     "    ok 1 - nesting # time=28.647ms\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 28.647,
+      "name": "nesting",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 28.647,
+      "name": "nesting",
+      "fullname": "",
+    },
+  ],
+  Array [
     "line",
     "    ok 2 - this passes\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "",
+    },
   ],
   Array [
     "line",
@@ -39204,6 +54276,27 @@ Array [
       "id": 1,
       "time": 205.826,
       "name": "../tap/test/test/ok.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 205.826,
+      "name": "../tap/test/test/ok.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 205.826,
+      "name": "../tap/test/test/ok.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -39304,6 +54397,7 @@ Array [
                   "ok": true,
                   "id": 1,
                   "name": "true is ok",
+                  "fullname": "first",
                 },
               ],
               Array [
@@ -39316,6 +54410,7 @@ Array [
                   "ok": true,
                   "id": 2,
                   "name": "doag is also okay",
+                  "fullname": "first",
                 },
               ],
               Array [
@@ -39363,6 +54458,7 @@ Array [
               "id": 1,
               "time": 8.987,
               "name": "first",
+              "fullname": "first",
             },
           ],
           Array [
@@ -39386,6 +54482,7 @@ Array [
                   "ok": true,
                   "id": 1,
                   "name": "but that is ok",
+                  "fullname": "first",
                 },
               ],
               Array [
@@ -39398,6 +54495,7 @@ Array [
                   "ok": true,
                   "id": 2,
                   "name": "this passes",
+                  "fullname": "first",
                 },
               ],
               Array [
@@ -39410,6 +54508,7 @@ Array [
                   "ok": true,
                   "id": 3,
                   "name": "nested ok",
+                  "fullname": "first",
                 },
               ],
               Array [
@@ -39472,6 +54571,7 @@ Array [
               "id": 2,
               "time": 5.988,
               "name": "second",
+              "fullname": "first",
             },
           ],
           Array [
@@ -39566,6 +54666,7 @@ Array [
           "id": 1,
           "time": 28.647,
           "name": "nesting",
+          "fullname": "",
         },
       ],
       Array [
@@ -39578,6 +54679,7 @@ Array [
           "ok": true,
           "id": 2,
           "name": "this passes",
+          "fullname": "",
         },
       ],
       Array [
@@ -39630,12 +54732,68 @@ Array [
     "            ok 1 - true is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "first",
+    },
+  ],
+  Array [
     "line",
     "            ok 2 - doag is also okay\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "first",
+    },
+  ],
+  Array [
     "line",
     "        ok 1 - first # time=8.987ms\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 8.987,
+      "name": "first",
+      "fullname": "first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 8.987,
+      "name": "first",
+      "fullname": "first",
+    },
   ],
   Array [
     "line",
@@ -39646,12 +54804,66 @@ Array [
     "            ok 1 - but that is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "first",
+    },
+  ],
+  Array [
     "line",
     "            ok 2 - this passes\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "first",
+    },
+  ],
+  Array [
     "line",
     "            ok 3 - nested ok\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "first",
+    },
   ],
   Array [
     "line",
@@ -39662,6 +54874,26 @@ Array [
     "        ok 2 - second # time=5.988ms\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "time": 5.988,
+      "name": "second",
+      "fullname": "first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "time": 5.988,
+      "name": "second",
+      "fullname": "first",
+    },
+  ],
+  Array [
     "line",
     "        1..2\\n",
   ],
@@ -39670,8 +54902,46 @@ Array [
     "    ok 1 - nesting # time=28.647ms\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 28.647,
+      "name": "nesting",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 28.647,
+      "name": "nesting",
+      "fullname": "",
+    },
+  ],
+  Array [
     "line",
     "    ok 2 - this passes\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "",
+    },
   ],
   Array [
     "line",
@@ -39688,6 +54958,27 @@ Array [
       "id": 1,
       "time": 205.826,
       "name": "../tap/test/test/ok.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 205.826,
+      "name": "../tap/test/test/ok.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 205.826,
+      "name": "../tap/test/test/ok.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -39788,6 +55079,7 @@ Array [
                   "ok": true,
                   "id": 1,
                   "name": "true is ok",
+                  "fullname": "",
                 },
               ],
               Array [
@@ -39800,6 +55092,7 @@ Array [
                   "ok": true,
                   "id": 2,
                   "name": "doag is also okay",
+                  "fullname": "",
                 },
               ],
               Array [
@@ -39847,6 +55140,7 @@ Array [
               "id": 1,
               "time": 8.987,
               "name": "first",
+              "fullname": "",
             },
           ],
           Array [
@@ -39870,6 +55164,7 @@ Array [
                   "ok": true,
                   "id": 1,
                   "name": "but that is ok",
+                  "fullname": "",
                 },
               ],
               Array [
@@ -39882,6 +55177,7 @@ Array [
                   "ok": true,
                   "id": 2,
                   "name": "this passes",
+                  "fullname": "",
                 },
               ],
               Array [
@@ -39894,6 +55190,7 @@ Array [
                   "ok": true,
                   "id": 3,
                   "name": "nested ok",
+                  "fullname": "",
                 },
               ],
               Array [
@@ -39956,6 +55253,7 @@ Array [
               "id": 2,
               "time": 5.988,
               "name": "second",
+              "fullname": "",
             },
           ],
           Array [
@@ -40050,6 +55348,7 @@ Array [
           "id": 1,
           "time": 28.647,
           "name": "nesting",
+          "fullname": "",
         },
       ],
       Array [
@@ -40062,6 +55361,7 @@ Array [
           "ok": true,
           "id": 2,
           "name": "this passes",
+          "fullname": "",
         },
       ],
       Array [
@@ -40114,12 +55414,68 @@ Array [
     "            ok 1 - true is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "",
+    },
+  ],
+  Array [
     "line",
     "            ok 2 - doag is also okay\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "",
+    },
+  ],
+  Array [
     "line",
     "        ok 1 - first # time=8.987ms\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 8.987,
+      "name": "first",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 8.987,
+      "name": "first",
+      "fullname": "",
+    },
   ],
   Array [
     "line",
@@ -40130,12 +55486,66 @@ Array [
     "            ok 1 - but that is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "",
+    },
+  ],
+  Array [
     "line",
     "            ok 2 - this passes\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "",
+    },
+  ],
+  Array [
     "line",
     "            ok 3 - nested ok\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "",
+    },
   ],
   Array [
     "line",
@@ -40146,6 +55556,26 @@ Array [
     "        ok 2 - second # time=5.988ms\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "time": 5.988,
+      "name": "second",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "time": 5.988,
+      "name": "second",
+      "fullname": "",
+    },
+  ],
+  Array [
     "line",
     "        1..2\\n",
   ],
@@ -40154,8 +55584,46 @@ Array [
     "    ok 1 - nesting # time=28.647ms\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 28.647,
+      "name": "nesting",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 28.647,
+      "name": "nesting",
+      "fullname": "",
+    },
+  ],
+  Array [
     "line",
     "    ok 2 - this passes\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "",
+    },
   ],
   Array [
     "line",
@@ -40172,6 +55640,27 @@ Array [
       "id": 1,
       "time": 205.826,
       "name": "../tap/test/test/ok.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 205.826,
+      "name": "../tap/test/test/ok.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 205.826,
+      "name": "../tap/test/test/ok.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -40272,6 +55761,7 @@ Array [
                   "ok": true,
                   "id": 1,
                   "name": "true is ok",
+                  "fullname": "",
                 },
               ],
               Array [
@@ -40284,6 +55774,7 @@ Array [
                   "ok": true,
                   "id": 2,
                   "name": "doag is also okay",
+                  "fullname": "",
                 },
               ],
               Array [
@@ -40331,6 +55822,7 @@ Array [
               "id": 1,
               "time": 8.987,
               "name": "first",
+              "fullname": "",
             },
           ],
           Array [
@@ -40354,6 +55846,7 @@ Array [
                   "ok": true,
                   "id": 1,
                   "name": "but that is ok",
+                  "fullname": "",
                 },
               ],
               Array [
@@ -40366,6 +55859,7 @@ Array [
                   "ok": true,
                   "id": 2,
                   "name": "this passes",
+                  "fullname": "",
                 },
               ],
               Array [
@@ -40378,6 +55872,7 @@ Array [
                   "ok": true,
                   "id": 3,
                   "name": "nested ok",
+                  "fullname": "",
                 },
               ],
               Array [
@@ -40440,6 +55935,7 @@ Array [
               "id": 2,
               "time": 5.988,
               "name": "second",
+              "fullname": "",
             },
           ],
           Array [
@@ -40534,6 +56030,7 @@ Array [
           "id": 1,
           "time": 28.647,
           "name": "nesting",
+          "fullname": "",
         },
       ],
       Array [
@@ -40546,6 +56043,7 @@ Array [
           "ok": true,
           "id": 2,
           "name": "this passes",
+          "fullname": "",
         },
       ],
       Array [
@@ -40598,12 +56096,68 @@ Array [
     "            ok 1 - true is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "",
+    },
+  ],
+  Array [
     "line",
     "            ok 2 - doag is also okay\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "",
+    },
+  ],
+  Array [
     "line",
     "        ok 1 - first # time=8.987ms\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 8.987,
+      "name": "first",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 8.987,
+      "name": "first",
+      "fullname": "",
+    },
   ],
   Array [
     "line",
@@ -40614,12 +56168,66 @@ Array [
     "            ok 1 - but that is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "",
+    },
+  ],
+  Array [
     "line",
     "            ok 2 - this passes\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "",
+    },
+  ],
+  Array [
     "line",
     "            ok 3 - nested ok\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "",
+    },
   ],
   Array [
     "line",
@@ -40630,6 +56238,26 @@ Array [
     "        ok 2 - second # time=5.988ms\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "time": 5.988,
+      "name": "second",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "time": 5.988,
+      "name": "second",
+      "fullname": "",
+    },
+  ],
+  Array [
     "line",
     "        1..2\\n",
   ],
@@ -40638,8 +56266,46 @@ Array [
     "    ok 1 - nesting # time=28.647ms\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 28.647,
+      "name": "nesting",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 28.647,
+      "name": "nesting",
+      "fullname": "",
+    },
+  ],
+  Array [
     "line",
     "    ok 2 - this passes\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "",
+    },
   ],
   Array [
     "line",
@@ -40656,6 +56322,27 @@ Array [
       "id": 1,
       "time": 205.826,
       "name": "../tap/test/test/ok.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 205.826,
+      "name": "../tap/test/test/ok.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 205.826,
+      "name": "../tap/test/test/ok.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -40764,6 +56451,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "true is ok",
+              "fullname": "nesting first",
             },
           ],
           Array [
@@ -40776,6 +56464,7 @@ Array [
               "ok": true,
               "id": 2,
               "name": "doag is also okay",
+              "fullname": "nesting first",
             },
           ],
           Array [
@@ -40823,6 +56512,7 @@ Array [
           "id": 1,
           "time": 11.345,
           "name": "first",
+          "fullname": "nesting",
         },
       ],
       Array [
@@ -40846,6 +56536,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "but that is ok",
+              "fullname": "nesting second",
             },
           ],
           Array [
@@ -40858,6 +56549,7 @@ Array [
               "ok": true,
               "id": 2,
               "name": "this passes",
+              "fullname": "nesting second",
             },
           ],
           Array [
@@ -40870,6 +56562,7 @@ Array [
               "ok": true,
               "id": 3,
               "name": "nested ok",
+              "fullname": "nesting second",
             },
           ],
           Array [
@@ -40932,6 +56625,7 @@ Array [
           "id": 2,
           "time": 3.613,
           "name": "second",
+          "fullname": "nesting",
         },
       ],
       Array [
@@ -40973,8 +56667,44 @@ Array [
     "        ok 1 - true is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "nesting first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "nesting first",
+    },
+  ],
+  Array [
     "line",
     "        ok 2 - doag is also okay\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "nesting first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "nesting first",
+    },
   ],
   Array [
     "line",
@@ -40989,12 +56719,66 @@ Array [
     "        ok 1 - but that is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "nesting second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "nesting second",
+    },
+  ],
+  Array [
     "line",
     "        ok 2 - this passes\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "nesting second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "nesting second",
+    },
+  ],
+  Array [
     "line",
     "        ok 3 - nested ok\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "nesting second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "nesting second",
+    },
   ],
   Array [
     "line",
@@ -41015,6 +56799,7 @@ Array [
       "id": 1,
       "time": 36.045,
       "name": "nesting",
+      "fullname": "",
     },
   ],
   Array [
@@ -41027,6 +56812,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "this passes",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "",
     },
   ],
   Array [
@@ -41143,6 +56947,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "true is ok",
+              "fullname": "nesting first",
             },
           ],
           Array [
@@ -41155,6 +56960,7 @@ Array [
               "ok": true,
               "id": 2,
               "name": "doag is also okay",
+              "fullname": "nesting first",
             },
           ],
           Array [
@@ -41202,6 +57008,7 @@ Array [
           "id": 1,
           "time": 11.345,
           "name": "first",
+          "fullname": "nesting",
         },
       ],
       Array [
@@ -41225,6 +57032,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "but that is ok",
+              "fullname": "nesting second",
             },
           ],
           Array [
@@ -41237,6 +57045,7 @@ Array [
               "ok": true,
               "id": 2,
               "name": "this passes",
+              "fullname": "nesting second",
             },
           ],
           Array [
@@ -41249,6 +57058,7 @@ Array [
               "ok": true,
               "id": 3,
               "name": "nested ok",
+              "fullname": "nesting second",
             },
           ],
           Array [
@@ -41311,6 +57121,7 @@ Array [
           "id": 2,
           "time": 3.613,
           "name": "second",
+          "fullname": "nesting",
         },
       ],
       Array [
@@ -41352,8 +57163,44 @@ Array [
     "        ok 1 - true is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "nesting first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "nesting first",
+    },
+  ],
+  Array [
     "line",
     "        ok 2 - doag is also okay\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "nesting first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "nesting first",
+    },
   ],
   Array [
     "line",
@@ -41368,12 +57215,66 @@ Array [
     "        ok 1 - but that is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "nesting second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "nesting second",
+    },
+  ],
+  Array [
     "line",
     "        ok 2 - this passes\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "nesting second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "nesting second",
+    },
+  ],
+  Array [
     "line",
     "        ok 3 - nested ok\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "nesting second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "nesting second",
+    },
   ],
   Array [
     "line",
@@ -41394,6 +57295,7 @@ Array [
       "id": 1,
       "time": 36.045,
       "name": "nesting",
+      "fullname": "",
     },
   ],
   Array [
@@ -41406,6 +57308,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "this passes",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "",
     },
   ],
   Array [
@@ -41514,6 +57435,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "true is ok",
+              "fullname": "nesting first",
             },
           ],
           Array [
@@ -41526,6 +57448,7 @@ Array [
               "ok": true,
               "id": 2,
               "name": "doag is also okay",
+              "fullname": "nesting first",
             },
           ],
           Array [
@@ -41573,6 +57496,7 @@ Array [
           "id": 1,
           "time": 11.345,
           "name": "first",
+          "fullname": "nesting",
         },
       ],
       Array [
@@ -41596,6 +57520,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "but that is ok",
+              "fullname": "nesting second",
             },
           ],
           Array [
@@ -41608,6 +57533,7 @@ Array [
               "ok": true,
               "id": 2,
               "name": "this passes",
+              "fullname": "nesting second",
             },
           ],
           Array [
@@ -41620,6 +57546,7 @@ Array [
               "ok": true,
               "id": 3,
               "name": "nested ok",
+              "fullname": "nesting second",
             },
           ],
           Array [
@@ -41682,6 +57609,7 @@ Array [
           "id": 2,
           "time": 3.613,
           "name": "second",
+          "fullname": "nesting",
         },
       ],
       Array [
@@ -41723,8 +57651,44 @@ Array [
     "        ok 1 - true is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "nesting first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "nesting first",
+    },
+  ],
+  Array [
     "line",
     "        ok 2 - doag is also okay\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "nesting first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "nesting first",
+    },
   ],
   Array [
     "line",
@@ -41739,12 +57703,66 @@ Array [
     "        ok 1 - but that is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "nesting second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "nesting second",
+    },
+  ],
+  Array [
     "line",
     "        ok 2 - this passes\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "nesting second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "nesting second",
+    },
+  ],
+  Array [
     "line",
     "        ok 3 - nested ok\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "nesting second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "nesting second",
+    },
   ],
   Array [
     "line",
@@ -41765,6 +57783,7 @@ Array [
       "id": 1,
       "time": 36.045,
       "name": "nesting",
+      "fullname": "",
     },
   ],
   Array [
@@ -41777,6 +57796,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "this passes",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "",
     },
   ],
   Array [
@@ -41885,6 +57923,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "true is ok",
+              "fullname": "nesting first",
             },
           ],
           Array [
@@ -41897,6 +57936,7 @@ Array [
               "ok": true,
               "id": 2,
               "name": "doag is also okay",
+              "fullname": "nesting first",
             },
           ],
           Array [
@@ -41944,6 +57984,7 @@ Array [
           "id": 1,
           "time": 11.345,
           "name": "first",
+          "fullname": "nesting",
         },
       ],
       Array [
@@ -41967,6 +58008,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "but that is ok",
+              "fullname": "nesting second",
             },
           ],
           Array [
@@ -41979,6 +58021,7 @@ Array [
               "ok": true,
               "id": 2,
               "name": "this passes",
+              "fullname": "nesting second",
             },
           ],
           Array [
@@ -41991,6 +58034,7 @@ Array [
               "ok": true,
               "id": 3,
               "name": "nested ok",
+              "fullname": "nesting second",
             },
           ],
           Array [
@@ -42053,6 +58097,7 @@ Array [
           "id": 2,
           "time": 3.613,
           "name": "second",
+          "fullname": "nesting",
         },
       ],
       Array [
@@ -42094,8 +58139,44 @@ Array [
     "        ok 1 - true is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "nesting first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "nesting first",
+    },
+  ],
+  Array [
     "line",
     "        ok 2 - doag is also okay\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "nesting first",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "nesting first",
+    },
   ],
   Array [
     "line",
@@ -42110,12 +58191,66 @@ Array [
     "        ok 1 - but that is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "nesting second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "nesting second",
+    },
+  ],
+  Array [
     "line",
     "        ok 2 - this passes\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "nesting second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "nesting second",
+    },
+  ],
+  Array [
     "line",
     "        ok 3 - nested ok\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "nesting second",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "nesting second",
+    },
   ],
   Array [
     "line",
@@ -42136,6 +58271,7 @@ Array [
       "id": 1,
       "time": 36.045,
       "name": "nesting",
+      "fullname": "",
     },
   ],
   Array [
@@ -42148,6 +58284,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "this passes",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "",
     },
   ],
   Array [
@@ -42256,6 +58411,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "true is ok",
+              "fullname": "",
             },
           ],
           Array [
@@ -42268,6 +58424,7 @@ Array [
               "ok": true,
               "id": 2,
               "name": "doag is also okay",
+              "fullname": "",
             },
           ],
           Array [
@@ -42315,6 +58472,7 @@ Array [
           "id": 1,
           "time": 11.345,
           "name": "first",
+          "fullname": "",
         },
       ],
       Array [
@@ -42338,6 +58496,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "but that is ok",
+              "fullname": "",
             },
           ],
           Array [
@@ -42350,6 +58509,7 @@ Array [
               "ok": true,
               "id": 2,
               "name": "this passes",
+              "fullname": "",
             },
           ],
           Array [
@@ -42362,6 +58522,7 @@ Array [
               "ok": true,
               "id": 3,
               "name": "nested ok",
+              "fullname": "",
             },
           ],
           Array [
@@ -42424,6 +58585,7 @@ Array [
           "id": 2,
           "time": 3.613,
           "name": "second",
+          "fullname": "",
         },
       ],
       Array [
@@ -42465,12 +58627,68 @@ Array [
     "        ok 1 - true is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "",
+    },
+  ],
+  Array [
     "line",
     "        ok 2 - doag is also okay\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "",
+    },
+  ],
+  Array [
     "line",
     "    ok 1 - first # time=11.345ms\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 11.345,
+      "name": "first",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 11.345,
+      "name": "first",
+      "fullname": "",
+    },
   ],
   Array [
     "line",
@@ -42481,12 +58699,66 @@ Array [
     "        ok 1 - but that is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "",
+    },
+  ],
+  Array [
     "line",
     "        ok 2 - this passes\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "",
+    },
+  ],
+  Array [
     "line",
     "        ok 3 - nested ok\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "",
+    },
   ],
   Array [
     "line",
@@ -42495,6 +58767,26 @@ Array [
   Array [
     "line",
     "    ok 2 - second # time=3.613ms\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "time": 3.613,
+      "name": "second",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "time": 3.613,
+      "name": "second",
+      "fullname": "",
+    },
   ],
   Array [
     "line",
@@ -42507,6 +58799,27 @@ Array [
       "id": 1,
       "time": 36.045,
       "name": "nesting",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 36.045,
+      "name": "nesting",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 36.045,
+      "name": "nesting",
+      "fullname": "",
     },
   ],
   Array [
@@ -42519,6 +58832,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "this passes",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "",
     },
   ],
   Array [
@@ -42619,6 +58951,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "true is ok",
+              "fullname": "",
             },
           ],
           Array [
@@ -42631,6 +58964,7 @@ Array [
               "ok": true,
               "id": 2,
               "name": "doag is also okay",
+              "fullname": "",
             },
           ],
           Array [
@@ -42678,6 +59012,7 @@ Array [
           "id": 1,
           "time": 11.345,
           "name": "first",
+          "fullname": "",
         },
       ],
       Array [
@@ -42701,6 +59036,7 @@ Array [
               "ok": true,
               "id": 1,
               "name": "but that is ok",
+              "fullname": "",
             },
           ],
           Array [
@@ -42713,6 +59049,7 @@ Array [
               "ok": true,
               "id": 2,
               "name": "this passes",
+              "fullname": "",
             },
           ],
           Array [
@@ -42725,6 +59062,7 @@ Array [
               "ok": true,
               "id": 3,
               "name": "nested ok",
+              "fullname": "",
             },
           ],
           Array [
@@ -42787,6 +59125,7 @@ Array [
           "id": 2,
           "time": 3.613,
           "name": "second",
+          "fullname": "",
         },
       ],
       Array [
@@ -42828,12 +59167,68 @@ Array [
     "        ok 1 - true is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is ok",
+      "fullname": "",
+    },
+  ],
+  Array [
     "line",
     "        ok 2 - doag is also okay\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "doag is also okay",
+      "fullname": "",
+    },
+  ],
+  Array [
     "line",
     "    ok 1 - first # time=11.345ms\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 11.345,
+      "name": "first",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 11.345,
+      "name": "first",
+      "fullname": "",
+    },
   ],
   Array [
     "line",
@@ -42844,12 +59239,66 @@ Array [
     "        ok 1 - but that is ok\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "but that is ok",
+      "fullname": "",
+    },
+  ],
+  Array [
     "line",
     "        ok 2 - this passes\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "",
+    },
+  ],
+  Array [
     "line",
     "        ok 3 - nested ok\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "nested ok",
+      "fullname": "",
+    },
   ],
   Array [
     "line",
@@ -42858,6 +59307,26 @@ Array [
   Array [
     "line",
     "    ok 2 - second # time=3.613ms\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "time": 3.613,
+      "name": "second",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "time": 3.613,
+      "name": "second",
+      "fullname": "",
+    },
   ],
   Array [
     "line",
@@ -42870,6 +59339,27 @@ Array [
       "id": 1,
       "time": 36.045,
       "name": "nesting",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 36.045,
+      "name": "nesting",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 36.045,
+      "name": "nesting",
+      "fullname": "",
     },
   ],
   Array [
@@ -42882,6 +59372,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "this passes",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "this passes",
+      "fullname": "",
     },
   ],
   Array [
@@ -42948,6 +59457,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -42981,6 +59507,7 @@ Array [
         Result {
           "ok": true,
           "id": 1,
+          "fullname": "unfinished",
         },
       ],
       Array [
@@ -43012,6 +59539,22 @@ Array [
   Array [
     "line",
     "    ok\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "unfinished",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "unfinished",
+    },
   ],
   Array [
     "complete",
@@ -43066,6 +59609,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -43099,6 +59659,7 @@ Array [
         Result {
           "ok": true,
           "id": 1,
+          "fullname": "unfinished",
         },
       ],
       Array [
@@ -43130,6 +59691,22 @@ Array [
   Array [
     "line",
     "    ok\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "unfinished",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "unfinished",
+    },
   ],
   Array [
     "complete",
@@ -43176,6 +59753,23 @@ Array [
     Result {
       "ok": false,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -43207,6 +59801,7 @@ Array [
         Result {
           "ok": false,
           "id": 1,
+          "fullname": "",
         },
       ],
     },
@@ -43236,6 +59831,23 @@ Array [
     Result {
       "ok": false,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -43267,6 +59879,7 @@ Array [
         Result {
           "ok": false,
           "id": 1,
+          "fullname": "",
         },
       ],
     },
@@ -43318,6 +59931,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -43338,6 +59970,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "should not be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "should not be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "should not be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -43374,6 +60025,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "test/buffer_compare.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "test/buffer_compare.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "test/buffer_compare.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -43394,6 +60064,25 @@ Array [
       "ok": true,
       "id": 4,
       "name": "just setup, nothing relevant",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "just setup, nothing relevant",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "just setup, nothing relevant",
+      "fullname": "",
     },
   ],
   Array [
@@ -43406,6 +60095,25 @@ Array [
       "ok": true,
       "id": 5,
       "name": "test/common.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "name": "test/common.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "name": "test/common.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -43442,6 +60150,25 @@ Array [
       "ok": true,
       "id": 6,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 6,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 6,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -43462,6 +60189,25 @@ Array [
       "ok": true,
       "id": 7,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 7,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 7,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -43482,6 +60228,25 @@ Array [
       "ok": true,
       "id": 8,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 8,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 8,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -43502,6 +60267,25 @@ Array [
       "ok": true,
       "id": 9,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 9,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 9,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -43522,6 +60306,25 @@ Array [
       "ok": true,
       "id": 10,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 10,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 10,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -43542,6 +60345,25 @@ Array [
       "ok": true,
       "id": 11,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 11,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 11,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -43578,6 +60400,25 @@ Array [
       "ok": true,
       "id": 12,
       "name": "test/consumer.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 12,
+      "name": "test/consumer.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 12,
+      "name": "test/consumer.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -43614,6 +60455,25 @@ Array [
       "ok": true,
       "id": 13,
       "name": "Should output debugger message",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 13,
+      "name": "Should output debugger message",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 13,
+      "name": "Should output debugger message",
+      "fullname": "",
     },
   ],
   Array [
@@ -43650,6 +60510,25 @@ Array [
       "ok": true,
       "id": 14,
       "name": "test/debug-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 14,
+      "name": "test/debug-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 14,
+      "name": "test/debug-test.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -43686,6 +60565,25 @@ Array [
       "ok": true,
       "id": 15,
       "name": "should be strictly equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 15,
+      "name": "should be strictly equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 15,
+      "name": "should be strictly equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -43706,6 +60604,25 @@ Array [
       "ok": true,
       "id": 16,
       "name": "should be strictly equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 16,
+      "name": "should be strictly equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 16,
+      "name": "should be strictly equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -43726,6 +60643,25 @@ Array [
       "ok": true,
       "id": 17,
       "name": "should be strictly equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 17,
+      "name": "should be strictly equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 17,
+      "name": "should be strictly equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -43762,6 +60698,25 @@ Array [
       "ok": true,
       "id": 18,
       "name": "test/deep-strict.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 18,
+      "name": "test/deep-strict.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 18,
+      "name": "test/deep-strict.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -43798,6 +60753,25 @@ Array [
       "ok": true,
       "id": 19,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 19,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 19,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -43818,6 +60792,25 @@ Array [
       "ok": true,
       "id": 20,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 20,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 20,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -43838,6 +60831,25 @@ Array [
       "ok": true,
       "id": 21,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 21,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 21,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -43874,6 +60886,25 @@ Array [
       "ok": true,
       "id": 22,
       "name": "test/deep.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 22,
+      "name": "test/deep.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 22,
+      "name": "test/deep.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -43894,6 +60925,25 @@ Array [
       "ok": true,
       "id": 23,
       "name": "File with executable bit should be executed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 23,
+      "name": "File with executable bit should be executed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 23,
+      "name": "File with executable bit should be executed",
+      "fullname": "",
     },
   ],
   Array [
@@ -43906,6 +60956,25 @@ Array [
       "ok": true,
       "id": 24,
       "name": "test/executed.sh",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 24,
+      "name": "test/executed.sh",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 24,
+      "name": "test/executed.sh",
+      "fullname": "",
     },
   ],
   Array [
@@ -43950,6 +61019,25 @@ Array [
       "ok": true,
       "id": 25,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 25,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 25,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -43962,6 +61050,25 @@ Array [
       "ok": true,
       "id": 26,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 26,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 26,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -43982,6 +61089,25 @@ Array [
       "ok": true,
       "id": 27,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 27,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 27,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -43994,6 +61120,25 @@ Array [
       "ok": true,
       "id": 28,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 28,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 28,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -44014,6 +61159,25 @@ Array [
       "ok": true,
       "id": 29,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 29,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 29,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -44026,6 +61190,25 @@ Array [
       "ok": true,
       "id": 30,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 30,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 30,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -44054,6 +61237,25 @@ Array [
       "ok": true,
       "id": 31,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 31,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 31,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -44066,6 +61268,25 @@ Array [
       "ok": true,
       "id": 32,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 32,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 32,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -44086,6 +61307,25 @@ Array [
       "ok": true,
       "id": 33,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 33,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 33,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -44098,6 +61338,25 @@ Array [
       "ok": true,
       "id": 34,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 34,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 34,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -44134,6 +61393,25 @@ Array [
       "ok": true,
       "id": 35,
       "name": "test/exit-code.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 35,
+      "name": "test/exit-code.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 35,
+      "name": "test/exit-code.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -44170,6 +61448,25 @@ Array [
       "ok": true,
       "id": 36,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 36,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 36,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -44198,6 +61495,25 @@ Array [
       "ok": true,
       "id": 37,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 37,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 37,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -44218,6 +61534,25 @@ Array [
       "ok": true,
       "id": 38,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 38,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 38,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -44262,6 +61597,25 @@ Array [
       "ok": true,
       "id": 39,
       "name": "test/expose-gc-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 39,
+      "name": "test/expose-gc-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 39,
+      "name": "test/expose-gc-test.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -44306,6 +61660,25 @@ Array [
       "ok": true,
       "id": 40,
       "name": "1-1",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 40,
+      "name": "1-1",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 40,
+      "name": "1-1",
+      "fullname": "",
     },
   ],
   Array [
@@ -44326,6 +61699,25 @@ Array [
       "ok": true,
       "id": 41,
       "name": "2-1",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 41,
+      "name": "2-1",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 41,
+      "name": "2-1",
+      "fullname": "",
     },
   ],
   Array [
@@ -44346,6 +61738,25 @@ Array [
       "ok": true,
       "id": 42,
       "name": "3-1",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 42,
+      "name": "3-1",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 42,
+      "name": "3-1",
+      "fullname": "",
     },
   ],
   Array [
@@ -44358,6 +61769,25 @@ Array [
       "ok": true,
       "id": 43,
       "name": "test/global-harness-async.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 43,
+      "name": "test/global-harness-async.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 43,
+      "name": "test/global-harness-async.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -44418,6 +61848,25 @@ Array [
       "ok": true,
       "id": 44,
       "name": "test/independent-timeouts.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 44,
+      "name": "test/independent-timeouts.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 44,
+      "name": "test/independent-timeouts.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -44454,6 +61903,25 @@ Array [
       "ok": true,
       "id": 45,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 45,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 45,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -44466,6 +61934,25 @@ Array [
       "ok": true,
       "id": 46,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 46,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 46,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -44486,6 +61973,25 @@ Array [
       "ok": true,
       "id": 47,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 47,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 47,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -44498,6 +62004,25 @@ Array [
       "ok": true,
       "id": 48,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 48,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 48,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -44534,6 +62059,25 @@ Array [
       "ok": true,
       "id": 49,
       "name": "test/isolated-conf-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 49,
+      "name": "test/isolated-conf-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 49,
+      "name": "test/isolated-conf-test.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -44570,6 +62114,25 @@ Array [
       "ok": true,
       "id": 50,
       "name": "sanity check",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 50,
+      "name": "sanity check",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 50,
+      "name": "sanity check",
+      "fullname": "",
     },
   ],
   Array [
@@ -44582,6 +62145,25 @@ Array [
       "ok": true,
       "id": 51,
       "name": "not ok",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 51,
+      "name": "not ok",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 51,
+      "name": "not ok",
+      "fullname": "",
     },
   ],
   Array [
@@ -44594,6 +62176,25 @@ Array [
       "ok": true,
       "id": 52,
       "name": "total test count",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 52,
+      "name": "total test count",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 52,
+      "name": "total test count",
+      "fullname": "",
     },
   ],
   Array [
@@ -44606,6 +62207,25 @@ Array [
       "ok": true,
       "id": 53,
       "name": "tests passed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 53,
+      "name": "tests passed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 53,
+      "name": "tests passed",
+      "fullname": "",
     },
   ],
   Array [
@@ -44618,6 +62238,25 @@ Array [
       "ok": true,
       "id": 54,
       "name": "tests failed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 54,
+      "name": "tests failed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 54,
+      "name": "tests failed",
+      "fullname": "",
     },
   ],
   Array [
@@ -44630,6 +62269,25 @@ Array [
       "ok": true,
       "id": 55,
       "name": "ok is boolean",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 55,
+      "name": "ok is boolean",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 55,
+      "name": "ok is boolean",
+      "fullname": "",
     },
   ],
   Array [
@@ -44642,6 +62300,25 @@ Array [
       "ok": true,
       "id": 56,
       "name": "skip is number",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 56,
+      "name": "skip is number",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 56,
+      "name": "skip is number",
+      "fullname": "",
     },
   ],
   Array [
@@ -44654,6 +62331,25 @@ Array [
       "ok": true,
       "id": 57,
       "name": "results isa Results",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 57,
+      "name": "results isa Results",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 57,
+      "name": "results isa Results",
+      "fullname": "",
     },
   ],
   Array [
@@ -44666,6 +62362,25 @@ Array [
       "ok": true,
       "id": 58,
       "name": "test isa Test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 58,
+      "name": "test isa Test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 58,
+      "name": "test isa Test",
+      "fullname": "",
     },
   ],
   Array [
@@ -44678,6 +62393,25 @@ Array [
       "ok": true,
       "id": 59,
       "name": "test isa Harness",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 59,
+      "name": "test isa Harness",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 59,
+      "name": "test isa Harness",
+      "fullname": "",
     },
   ],
   Array [
@@ -44714,6 +62448,25 @@ Array [
       "ok": true,
       "id": 60,
       "name": "test/meta-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 60,
+      "name": "test/meta-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 60,
+      "name": "test/meta-test.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -44750,6 +62503,25 @@ Array [
       "ok": true,
       "id": 61,
       "name": "sync child A",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 61,
+      "name": "sync child A",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 61,
+      "name": "sync child A",
+      "fullname": "",
     },
   ],
   Array [
@@ -44778,6 +62550,25 @@ Array [
       "ok": true,
       "id": 62,
       "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 62,
+      "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 62,
+      "name": "(unnamed assert)",
+      "fullname": "",
     },
   ],
   Array [
@@ -44798,6 +62589,25 @@ Array [
       "ok": true,
       "id": 63,
       "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 63,
+      "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 63,
+      "name": "(unnamed assert)",
+      "fullname": "",
     },
   ],
   Array [
@@ -44818,6 +62628,25 @@ Array [
       "ok": true,
       "id": 64,
       "name": "sync grandchild in async child A",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 64,
+      "name": "sync grandchild in async child A",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 64,
+      "name": "sync grandchild in async child A",
+      "fullname": "",
     },
   ],
   Array [
@@ -44838,6 +62667,25 @@ Array [
       "ok": true,
       "id": 65,
       "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 65,
+      "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 65,
+      "name": "(unnamed assert)",
+      "fullname": "",
     },
   ],
   Array [
@@ -44874,6 +62722,25 @@ Array [
       "ok": true,
       "id": 66,
       "name": "test/nested-async.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 66,
+      "name": "test/nested-async.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 66,
+      "name": "test/nested-async.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -44910,6 +62777,25 @@ Array [
       "ok": true,
       "id": 67,
       "name": "p test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 67,
+      "name": "p test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 67,
+      "name": "p test",
+      "fullname": "",
     },
   ],
   Array [
@@ -44930,6 +62816,25 @@ Array [
       "ok": true,
       "id": 68,
       "name": "ch test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 68,
+      "name": "ch test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 68,
+      "name": "ch test",
+      "fullname": "",
     },
   ],
   Array [
@@ -44950,6 +62855,25 @@ Array [
       "ok": true,
       "id": 69,
       "name": "grch test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 69,
+      "name": "grch test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 69,
+      "name": "grch test",
+      "fullname": "",
     },
   ],
   Array [
@@ -44970,6 +62894,25 @@ Array [
       "ok": true,
       "id": 70,
       "name": "ch test 2",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 70,
+      "name": "ch test 2",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 70,
+      "name": "ch test 2",
+      "fullname": "",
     },
   ],
   Array [
@@ -45006,6 +62949,25 @@ Array [
       "ok": true,
       "id": 71,
       "name": "test/nested-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 71,
+      "name": "test/nested-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 71,
+      "name": "test/nested-test.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -45058,6 +63020,25 @@ Array [
       "ok": true,
       "id": 72,
       "name": ", 8 can stay.",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 72,
+      "name": ", 8 can stay.",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 72,
+      "name": ", 8 can stay.",
+      "fullname": "",
     },
   ],
   Array [
@@ -45110,6 +63091,25 @@ Array [
       "ok": true,
       "id": 73,
       "name": "might be confusing",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 73,
+      "name": "might be confusing",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 73,
+      "name": "might be confusing",
+      "fullname": "",
     },
   ],
   Array [
@@ -45122,6 +63122,25 @@ Array [
       "ok": true,
       "id": 74,
       "name": "done now, exiting",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 74,
+      "name": "done now, exiting",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 74,
+      "name": "done now, exiting",
+      "fullname": "",
     },
   ],
   Array [
@@ -45134,6 +63153,25 @@ Array [
       "ok": true,
       "id": 75,
       "name": "test/non-tap-output.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 75,
+      "name": "test/non-tap-output.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 75,
+      "name": "test/non-tap-output.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -45186,6 +63224,25 @@ Array [
       "ok": true,
       "id": 76,
       "name": "outputs parent description",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 76,
+      "name": "outputs parent description",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 76,
+      "name": "outputs parent description",
+      "fullname": "",
     },
   ],
   Array [
@@ -45198,6 +63255,25 @@ Array [
       "ok": true,
       "id": 77,
       "name": "outputs child description",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 77,
+      "name": "outputs child description",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 77,
+      "name": "outputs child description",
+      "fullname": "",
     },
   ],
   Array [
@@ -45210,6 +63286,25 @@ Array [
       "ok": true,
       "id": 78,
       "name": "outputs parent description before parent result",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 78,
+      "name": "outputs parent description before parent result",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 78,
+      "name": "outputs parent description before parent result",
+      "fullname": "",
     },
   ],
   Array [
@@ -45222,6 +63317,25 @@ Array [
       "ok": true,
       "id": 79,
       "name": "outputs parent result before child description",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 79,
+      "name": "outputs parent result before child description",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 79,
+      "name": "outputs parent result before child description",
+      "fullname": "",
     },
   ],
   Array [
@@ -45234,6 +63348,25 @@ Array [
       "ok": true,
       "id": 80,
       "name": "outputs child description before child result",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 80,
+      "name": "outputs child description before child result",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 80,
+      "name": "outputs child description before child result",
+      "fullname": "",
     },
   ],
   Array [
@@ -45270,6 +63403,25 @@ Array [
       "ok": true,
       "id": 81,
       "name": "test/output-childtest-description.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 81,
+      "name": "test/output-childtest-description.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 81,
+      "name": "test/output-childtest-description.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -45306,6 +63458,25 @@ Array [
       "ok": true,
       "id": 82,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 82,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 82,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -45318,6 +63489,25 @@ Array [
       "ok": true,
       "id": 83,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 83,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 83,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -45354,6 +63544,25 @@ Array [
       "ok": true,
       "id": 84,
       "name": "test/result-trap.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 84,
+      "name": "test/result-trap.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 84,
+      "name": "test/result-trap.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -45390,6 +63599,25 @@ Array [
       "ok": true,
       "id": 85,
       "name": "compiled seg faulter",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 85,
+      "name": "compiled seg faulter",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 85,
+      "name": "compiled seg faulter",
+      "fullname": "",
     },
   ],
   Array [
@@ -45410,6 +63638,25 @@ Array [
       "ok": true,
       "id": 86,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 86,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 86,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -45422,6 +63669,25 @@ Array [
       "ok": true,
       "id": 87,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 87,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 87,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -45434,6 +63700,25 @@ Array [
       "ok": true,
       "id": 88,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 88,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 88,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -45446,6 +63731,25 @@ Array [
       "ok": true,
       "id": 89,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 89,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 89,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -45458,6 +63762,25 @@ Array [
       "ok": true,
       "id": 90,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 90,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 90,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -45470,6 +63793,25 @@ Array [
       "ok": true,
       "id": 91,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 91,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 91,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -45490,6 +63832,25 @@ Array [
       "ok": true,
       "id": 92,
       "name": "cleaned up",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 92,
+      "name": "cleaned up",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 92,
+      "name": "cleaned up",
+      "fullname": "",
     },
   ],
   Array [
@@ -45526,6 +63887,25 @@ Array [
       "ok": true,
       "id": 93,
       "name": "test/segv.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 93,
+      "name": "test/segv.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 93,
+      "name": "test/segv.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -45562,6 +63942,25 @@ Array [
       "ok": true,
       "id": 94,
       "name": "it works",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 94,
+      "name": "it works",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 94,
+      "name": "it works",
+      "fullname": "",
     },
   ],
   Array [
@@ -45582,6 +63981,25 @@ Array [
       "ok": true,
       "id": 95,
       "name": "math should work",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 95,
+      "name": "math should work",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 95,
+      "name": "math should work",
+      "fullname": "",
     },
   ],
   Array [
@@ -45594,6 +64012,25 @@ Array [
       "ok": true,
       "id": 96,
       "name": "false should not be ok",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 96,
+      "name": "false should not be ok",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 96,
+      "name": "false should not be ok",
+      "fullname": "",
     },
   ],
   Array [
@@ -45630,6 +64067,25 @@ Array [
       "ok": true,
       "id": 97,
       "name": "test/simple-harness-test-with-plan.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 97,
+      "name": "test/simple-harness-test-with-plan.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 97,
+      "name": "test/simple-harness-test-with-plan.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -45666,6 +64122,25 @@ Array [
       "ok": true,
       "id": 98,
       "name": "it works",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 98,
+      "name": "it works",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 98,
+      "name": "it works",
+      "fullname": "",
     },
   ],
   Array [
@@ -45686,6 +64161,25 @@ Array [
       "ok": true,
       "id": 99,
       "name": "math should work",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 99,
+      "name": "math should work",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 99,
+      "name": "math should work",
+      "fullname": "",
     },
   ],
   Array [
@@ -45698,6 +64192,25 @@ Array [
       "ok": true,
       "id": 100,
       "name": "false should not be ok",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 100,
+      "name": "false should not be ok",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 100,
+      "name": "false should not be ok",
+      "fullname": "",
     },
   ],
   Array [
@@ -45734,6 +64247,25 @@ Array [
       "ok": true,
       "id": 101,
       "name": "test/simple-harness-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 101,
+      "name": "test/simple-harness-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 101,
+      "name": "test/simple-harness-test.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -45771,6 +64303,27 @@ Array [
       "id": 102,
       "skip": "skip it good",
       "name": "always passes",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 102,
+      "skip": "skip it good",
+      "name": "always passes",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "skip",
+    Result {
+      "ok": true,
+      "id": 102,
+      "skip": "skip it good",
+      "name": "always passes",
+      "fullname": "",
     },
   ],
   Array [
@@ -45784,6 +64337,27 @@ Array [
       "id": 103,
       "skip": "always fails",
       "name": "false",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 103,
+      "skip": "always fails",
+      "name": "false",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "skip",
+    Result {
+      "ok": true,
+      "id": 103,
+      "skip": "always fails",
+      "name": "false",
+      "fullname": "",
     },
   ],
   Array [
@@ -45797,6 +64371,27 @@ Array [
       "id": 104,
       "todo": "remove todo directive",
       "name": "bonus",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 104,
+      "todo": "remove todo directive",
+      "name": "bonus",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": true,
+      "id": 104,
+      "todo": "remove todo directive",
+      "name": "bonus",
+      "fullname": "",
     },
   ],
   Array [
@@ -45810,6 +64405,27 @@ Array [
       "id": 105,
       "todo": "implement a thing",
       "name": "expected",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 105,
+      "todo": "implement a thing",
+      "name": "expected",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": true,
+      "id": 105,
+      "todo": "implement a thing",
+      "name": "expected",
+      "fullname": "",
     },
   ],
   Array [
@@ -45823,6 +64439,27 @@ Array [
       "id": 106,
       "skip": true,
       "name": "always passes without explanation",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 106,
+      "skip": true,
+      "name": "always passes without explanation",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "skip",
+    Result {
+      "ok": true,
+      "id": 106,
+      "skip": true,
+      "name": "always passes without explanation",
+      "fullname": "",
     },
   ],
   Array [
@@ -45836,6 +64473,27 @@ Array [
       "id": 107,
       "skip": true,
       "name": "false without explanation",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 107,
+      "skip": true,
+      "name": "false without explanation",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "skip",
+    Result {
+      "ok": true,
+      "id": 107,
+      "skip": true,
+      "name": "false without explanation",
+      "fullname": "",
     },
   ],
   Array [
@@ -45849,6 +64507,27 @@ Array [
       "id": 108,
       "todo": true,
       "name": "bonus without explanation",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 108,
+      "todo": true,
+      "name": "bonus without explanation",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": true,
+      "id": 108,
+      "todo": true,
+      "name": "bonus without explanation",
+      "fullname": "",
     },
   ],
   Array [
@@ -45862,6 +64541,27 @@ Array [
       "id": 109,
       "todo": true,
       "name": "expected without explanation",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 109,
+      "todo": true,
+      "name": "expected without explanation",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": true,
+      "id": 109,
+      "todo": true,
+      "name": "expected without explanation",
+      "fullname": "",
     },
   ],
   Array [
@@ -45898,6 +64598,25 @@ Array [
       "ok": true,
       "id": 110,
       "name": "test/test-assert-todo-skip.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 110,
+      "name": "test/test-assert-todo-skip.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 110,
+      "name": "test/test-assert-todo-skip.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -45934,6 +64653,25 @@ Array [
       "ok": true,
       "id": 111,
       "name": "exit cleanly",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 111,
+      "name": "exit cleanly",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 111,
+      "name": "exit cleanly",
+      "fullname": "",
     },
   ],
   Array [
@@ -45946,6 +64684,25 @@ Array [
       "ok": true,
       "id": 112,
       "name": "captures SKIP description",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 112,
+      "name": "captures SKIP description",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 112,
+      "name": "captures SKIP description",
+      "fullname": "",
     },
   ],
   Array [
@@ -45958,6 +64715,25 @@ Array [
       "ok": true,
       "id": 113,
       "name": "skip summary is not from file",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 113,
+      "name": "skip summary is not from file",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 113,
+      "name": "skip summary is not from file",
+      "fullname": "",
     },
   ],
   Array [
@@ -45970,6 +64746,25 @@ Array [
       "ok": true,
       "id": 114,
       "name": "todo summary is not from file",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 114,
+      "name": "todo summary is not from file",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 114,
+      "name": "todo summary is not from file",
+      "fullname": "",
     },
   ],
   Array [
@@ -46103,6 +64898,59 @@ Array [
           "emitOne (events.js:77:13)\\n",
         ],
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 115,
+      "name": "captures TODO description",
+      "diag": Object {
+        "file": "child_process.js",
+        "line": 707,
+        "column": 7,
+        "stack": Array [
+          "getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\\n",
+          "Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\\n",
+          "Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\\n",
+          "/Users/isaacs/dev/js/tap/test/test-descriptions.js:32:7\\n",
+          "ChildProcess.exithandler (child_process.js:707:7)\\n",
+          "emitTwo (events.js:87:13)\\n",
+          "ChildProcess.emit (events.js:169:7)\\n",
+          "maybeClose (child_process.js:984:16)\\n",
+          "Socket.<anonymous> (child_process.js:1153:11)\\n",
+          "emitOne (events.js:77:13)\\n",
+        ],
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 115,
+      "name": "captures TODO description",
+      "diag": Object {
+        "file": "child_process.js",
+        "line": 707,
+        "column": 7,
+        "stack": Array [
+          "getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\\n",
+          "Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\\n",
+          "Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\\n",
+          "/Users/isaacs/dev/js/tap/test/test-descriptions.js:32:7\\n",
+          "ChildProcess.exithandler (child_process.js:707:7)\\n",
+          "emitTwo (events.js:87:13)\\n",
+          "ChildProcess.emit (events.js:169:7)\\n",
+          "maybeClose (child_process.js:984:16)\\n",
+          "Socket.<anonymous> (child_process.js:1153:11)\\n",
+          "emitOne (events.js:77:13)\\n",
+        ],
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -46152,6 +65000,7 @@ Array [
               "emitOne (events.js:77:13)\\n",
             ],
           },
+          "fullname": "",
         },
       ],
     },
@@ -46203,6 +65052,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -46223,6 +65091,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "should not be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "should not be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "should not be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -46259,6 +65146,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "test/buffer_compare.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "test/buffer_compare.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "test/buffer_compare.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -46279,6 +65185,25 @@ Array [
       "ok": true,
       "id": 4,
       "name": "just setup, nothing relevant",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "just setup, nothing relevant",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "just setup, nothing relevant",
+      "fullname": "",
     },
   ],
   Array [
@@ -46291,6 +65216,25 @@ Array [
       "ok": true,
       "id": 5,
       "name": "test/common.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "name": "test/common.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "name": "test/common.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -46327,6 +65271,25 @@ Array [
       "ok": true,
       "id": 6,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 6,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 6,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -46347,6 +65310,25 @@ Array [
       "ok": true,
       "id": 7,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 7,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 7,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -46367,6 +65349,25 @@ Array [
       "ok": true,
       "id": 8,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 8,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 8,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -46387,6 +65388,25 @@ Array [
       "ok": true,
       "id": 9,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 9,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 9,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -46407,6 +65427,25 @@ Array [
       "ok": true,
       "id": 10,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 10,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 10,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -46427,6 +65466,25 @@ Array [
       "ok": true,
       "id": 11,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 11,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 11,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -46463,6 +65521,25 @@ Array [
       "ok": true,
       "id": 12,
       "name": "test/consumer.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 12,
+      "name": "test/consumer.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 12,
+      "name": "test/consumer.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -46499,6 +65576,25 @@ Array [
       "ok": true,
       "id": 13,
       "name": "Should output debugger message",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 13,
+      "name": "Should output debugger message",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 13,
+      "name": "Should output debugger message",
+      "fullname": "",
     },
   ],
   Array [
@@ -46535,6 +65631,25 @@ Array [
       "ok": true,
       "id": 14,
       "name": "test/debug-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 14,
+      "name": "test/debug-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 14,
+      "name": "test/debug-test.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -46571,6 +65686,25 @@ Array [
       "ok": true,
       "id": 15,
       "name": "should be strictly equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 15,
+      "name": "should be strictly equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 15,
+      "name": "should be strictly equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -46591,6 +65725,25 @@ Array [
       "ok": true,
       "id": 16,
       "name": "should be strictly equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 16,
+      "name": "should be strictly equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 16,
+      "name": "should be strictly equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -46611,6 +65764,25 @@ Array [
       "ok": true,
       "id": 17,
       "name": "should be strictly equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 17,
+      "name": "should be strictly equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 17,
+      "name": "should be strictly equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -46647,6 +65819,25 @@ Array [
       "ok": true,
       "id": 18,
       "name": "test/deep-strict.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 18,
+      "name": "test/deep-strict.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 18,
+      "name": "test/deep-strict.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -46683,6 +65874,25 @@ Array [
       "ok": true,
       "id": 19,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 19,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 19,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -46703,6 +65913,25 @@ Array [
       "ok": true,
       "id": 20,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 20,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 20,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -46723,6 +65952,25 @@ Array [
       "ok": true,
       "id": 21,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 21,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 21,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -46759,6 +66007,25 @@ Array [
       "ok": true,
       "id": 22,
       "name": "test/deep.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 22,
+      "name": "test/deep.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 22,
+      "name": "test/deep.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -46779,6 +66046,25 @@ Array [
       "ok": true,
       "id": 23,
       "name": "File with executable bit should be executed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 23,
+      "name": "File with executable bit should be executed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 23,
+      "name": "File with executable bit should be executed",
+      "fullname": "",
     },
   ],
   Array [
@@ -46791,6 +66077,25 @@ Array [
       "ok": true,
       "id": 24,
       "name": "test/executed.sh",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 24,
+      "name": "test/executed.sh",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 24,
+      "name": "test/executed.sh",
+      "fullname": "",
     },
   ],
   Array [
@@ -46835,6 +66140,25 @@ Array [
       "ok": true,
       "id": 25,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 25,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 25,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -46847,6 +66171,25 @@ Array [
       "ok": true,
       "id": 26,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 26,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 26,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -46867,6 +66210,25 @@ Array [
       "ok": true,
       "id": 27,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 27,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 27,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -46879,6 +66241,25 @@ Array [
       "ok": true,
       "id": 28,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 28,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 28,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -46899,6 +66280,25 @@ Array [
       "ok": true,
       "id": 29,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 29,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 29,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -46911,6 +66311,25 @@ Array [
       "ok": true,
       "id": 30,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 30,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 30,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -46939,6 +66358,25 @@ Array [
       "ok": true,
       "id": 31,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 31,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 31,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -46951,6 +66389,25 @@ Array [
       "ok": true,
       "id": 32,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 32,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 32,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -46971,6 +66428,25 @@ Array [
       "ok": true,
       "id": 33,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 33,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 33,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -46983,6 +66459,25 @@ Array [
       "ok": true,
       "id": 34,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 34,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 34,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -47019,6 +66514,25 @@ Array [
       "ok": true,
       "id": 35,
       "name": "test/exit-code.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 35,
+      "name": "test/exit-code.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 35,
+      "name": "test/exit-code.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -47055,6 +66569,25 @@ Array [
       "ok": true,
       "id": 36,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 36,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 36,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -47083,6 +66616,25 @@ Array [
       "ok": true,
       "id": 37,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 37,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 37,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -47103,6 +66655,25 @@ Array [
       "ok": true,
       "id": 38,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 38,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 38,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -47147,6 +66718,25 @@ Array [
       "ok": true,
       "id": 39,
       "name": "test/expose-gc-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 39,
+      "name": "test/expose-gc-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 39,
+      "name": "test/expose-gc-test.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -47191,6 +66781,25 @@ Array [
       "ok": true,
       "id": 40,
       "name": "1-1",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 40,
+      "name": "1-1",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 40,
+      "name": "1-1",
+      "fullname": "",
     },
   ],
   Array [
@@ -47211,6 +66820,25 @@ Array [
       "ok": true,
       "id": 41,
       "name": "2-1",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 41,
+      "name": "2-1",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 41,
+      "name": "2-1",
+      "fullname": "",
     },
   ],
   Array [
@@ -47231,6 +66859,25 @@ Array [
       "ok": true,
       "id": 42,
       "name": "3-1",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 42,
+      "name": "3-1",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 42,
+      "name": "3-1",
+      "fullname": "",
     },
   ],
   Array [
@@ -47243,6 +66890,25 @@ Array [
       "ok": true,
       "id": 43,
       "name": "test/global-harness-async.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 43,
+      "name": "test/global-harness-async.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 43,
+      "name": "test/global-harness-async.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -47303,6 +66969,25 @@ Array [
       "ok": true,
       "id": 44,
       "name": "test/independent-timeouts.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 44,
+      "name": "test/independent-timeouts.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 44,
+      "name": "test/independent-timeouts.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -47339,6 +67024,25 @@ Array [
       "ok": true,
       "id": 45,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 45,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 45,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -47351,6 +67055,25 @@ Array [
       "ok": true,
       "id": 46,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 46,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 46,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -47371,6 +67094,25 @@ Array [
       "ok": true,
       "id": 47,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 47,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 47,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -47383,6 +67125,25 @@ Array [
       "ok": true,
       "id": 48,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 48,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 48,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -47419,6 +67180,25 @@ Array [
       "ok": true,
       "id": 49,
       "name": "test/isolated-conf-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 49,
+      "name": "test/isolated-conf-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 49,
+      "name": "test/isolated-conf-test.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -47455,6 +67235,25 @@ Array [
       "ok": true,
       "id": 50,
       "name": "sanity check",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 50,
+      "name": "sanity check",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 50,
+      "name": "sanity check",
+      "fullname": "",
     },
   ],
   Array [
@@ -47467,6 +67266,25 @@ Array [
       "ok": true,
       "id": 51,
       "name": "not ok",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 51,
+      "name": "not ok",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 51,
+      "name": "not ok",
+      "fullname": "",
     },
   ],
   Array [
@@ -47479,6 +67297,25 @@ Array [
       "ok": true,
       "id": 52,
       "name": "total test count",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 52,
+      "name": "total test count",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 52,
+      "name": "total test count",
+      "fullname": "",
     },
   ],
   Array [
@@ -47491,6 +67328,25 @@ Array [
       "ok": true,
       "id": 53,
       "name": "tests passed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 53,
+      "name": "tests passed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 53,
+      "name": "tests passed",
+      "fullname": "",
     },
   ],
   Array [
@@ -47503,6 +67359,25 @@ Array [
       "ok": true,
       "id": 54,
       "name": "tests failed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 54,
+      "name": "tests failed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 54,
+      "name": "tests failed",
+      "fullname": "",
     },
   ],
   Array [
@@ -47515,6 +67390,25 @@ Array [
       "ok": true,
       "id": 55,
       "name": "ok is boolean",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 55,
+      "name": "ok is boolean",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 55,
+      "name": "ok is boolean",
+      "fullname": "",
     },
   ],
   Array [
@@ -47527,6 +67421,25 @@ Array [
       "ok": true,
       "id": 56,
       "name": "skip is number",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 56,
+      "name": "skip is number",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 56,
+      "name": "skip is number",
+      "fullname": "",
     },
   ],
   Array [
@@ -47539,6 +67452,25 @@ Array [
       "ok": true,
       "id": 57,
       "name": "results isa Results",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 57,
+      "name": "results isa Results",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 57,
+      "name": "results isa Results",
+      "fullname": "",
     },
   ],
   Array [
@@ -47551,6 +67483,25 @@ Array [
       "ok": true,
       "id": 58,
       "name": "test isa Test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 58,
+      "name": "test isa Test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 58,
+      "name": "test isa Test",
+      "fullname": "",
     },
   ],
   Array [
@@ -47563,6 +67514,25 @@ Array [
       "ok": true,
       "id": 59,
       "name": "test isa Harness",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 59,
+      "name": "test isa Harness",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 59,
+      "name": "test isa Harness",
+      "fullname": "",
     },
   ],
   Array [
@@ -47599,6 +67569,25 @@ Array [
       "ok": true,
       "id": 60,
       "name": "test/meta-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 60,
+      "name": "test/meta-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 60,
+      "name": "test/meta-test.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -47635,6 +67624,25 @@ Array [
       "ok": true,
       "id": 61,
       "name": "sync child A",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 61,
+      "name": "sync child A",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 61,
+      "name": "sync child A",
+      "fullname": "",
     },
   ],
   Array [
@@ -47663,6 +67671,25 @@ Array [
       "ok": true,
       "id": 62,
       "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 62,
+      "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 62,
+      "name": "(unnamed assert)",
+      "fullname": "",
     },
   ],
   Array [
@@ -47683,6 +67710,25 @@ Array [
       "ok": true,
       "id": 63,
       "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 63,
+      "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 63,
+      "name": "(unnamed assert)",
+      "fullname": "",
     },
   ],
   Array [
@@ -47703,6 +67749,25 @@ Array [
       "ok": true,
       "id": 64,
       "name": "sync grandchild in async child A",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 64,
+      "name": "sync grandchild in async child A",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 64,
+      "name": "sync grandchild in async child A",
+      "fullname": "",
     },
   ],
   Array [
@@ -47723,6 +67788,25 @@ Array [
       "ok": true,
       "id": 65,
       "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 65,
+      "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 65,
+      "name": "(unnamed assert)",
+      "fullname": "",
     },
   ],
   Array [
@@ -47759,6 +67843,25 @@ Array [
       "ok": true,
       "id": 66,
       "name": "test/nested-async.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 66,
+      "name": "test/nested-async.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 66,
+      "name": "test/nested-async.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -47795,6 +67898,25 @@ Array [
       "ok": true,
       "id": 67,
       "name": "p test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 67,
+      "name": "p test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 67,
+      "name": "p test",
+      "fullname": "",
     },
   ],
   Array [
@@ -47815,6 +67937,25 @@ Array [
       "ok": true,
       "id": 68,
       "name": "ch test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 68,
+      "name": "ch test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 68,
+      "name": "ch test",
+      "fullname": "",
     },
   ],
   Array [
@@ -47835,6 +67976,25 @@ Array [
       "ok": true,
       "id": 69,
       "name": "grch test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 69,
+      "name": "grch test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 69,
+      "name": "grch test",
+      "fullname": "",
     },
   ],
   Array [
@@ -47855,6 +68015,25 @@ Array [
       "ok": true,
       "id": 70,
       "name": "ch test 2",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 70,
+      "name": "ch test 2",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 70,
+      "name": "ch test 2",
+      "fullname": "",
     },
   ],
   Array [
@@ -47891,6 +68070,25 @@ Array [
       "ok": true,
       "id": 71,
       "name": "test/nested-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 71,
+      "name": "test/nested-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 71,
+      "name": "test/nested-test.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -47943,6 +68141,25 @@ Array [
       "ok": true,
       "id": 72,
       "name": ", 8 can stay.",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 72,
+      "name": ", 8 can stay.",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 72,
+      "name": ", 8 can stay.",
+      "fullname": "",
     },
   ],
   Array [
@@ -47995,6 +68212,25 @@ Array [
       "ok": true,
       "id": 73,
       "name": "might be confusing",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 73,
+      "name": "might be confusing",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 73,
+      "name": "might be confusing",
+      "fullname": "",
     },
   ],
   Array [
@@ -48007,6 +68243,25 @@ Array [
       "ok": true,
       "id": 74,
       "name": "done now, exiting",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 74,
+      "name": "done now, exiting",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 74,
+      "name": "done now, exiting",
+      "fullname": "",
     },
   ],
   Array [
@@ -48019,6 +68274,25 @@ Array [
       "ok": true,
       "id": 75,
       "name": "test/non-tap-output.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 75,
+      "name": "test/non-tap-output.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 75,
+      "name": "test/non-tap-output.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -48071,6 +68345,25 @@ Array [
       "ok": true,
       "id": 76,
       "name": "outputs parent description",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 76,
+      "name": "outputs parent description",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 76,
+      "name": "outputs parent description",
+      "fullname": "",
     },
   ],
   Array [
@@ -48083,6 +68376,25 @@ Array [
       "ok": true,
       "id": 77,
       "name": "outputs child description",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 77,
+      "name": "outputs child description",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 77,
+      "name": "outputs child description",
+      "fullname": "",
     },
   ],
   Array [
@@ -48095,6 +68407,25 @@ Array [
       "ok": true,
       "id": 78,
       "name": "outputs parent description before parent result",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 78,
+      "name": "outputs parent description before parent result",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 78,
+      "name": "outputs parent description before parent result",
+      "fullname": "",
     },
   ],
   Array [
@@ -48107,6 +68438,25 @@ Array [
       "ok": true,
       "id": 79,
       "name": "outputs parent result before child description",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 79,
+      "name": "outputs parent result before child description",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 79,
+      "name": "outputs parent result before child description",
+      "fullname": "",
     },
   ],
   Array [
@@ -48119,6 +68469,25 @@ Array [
       "ok": true,
       "id": 80,
       "name": "outputs child description before child result",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 80,
+      "name": "outputs child description before child result",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 80,
+      "name": "outputs child description before child result",
+      "fullname": "",
     },
   ],
   Array [
@@ -48155,6 +68524,25 @@ Array [
       "ok": true,
       "id": 81,
       "name": "test/output-childtest-description.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 81,
+      "name": "test/output-childtest-description.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 81,
+      "name": "test/output-childtest-description.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -48191,6 +68579,25 @@ Array [
       "ok": true,
       "id": 82,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 82,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 82,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -48203,6 +68610,25 @@ Array [
       "ok": true,
       "id": 83,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 83,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 83,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -48239,6 +68665,25 @@ Array [
       "ok": true,
       "id": 84,
       "name": "test/result-trap.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 84,
+      "name": "test/result-trap.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 84,
+      "name": "test/result-trap.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -48275,6 +68720,25 @@ Array [
       "ok": true,
       "id": 85,
       "name": "compiled seg faulter",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 85,
+      "name": "compiled seg faulter",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 85,
+      "name": "compiled seg faulter",
+      "fullname": "",
     },
   ],
   Array [
@@ -48295,6 +68759,25 @@ Array [
       "ok": true,
       "id": 86,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 86,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 86,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -48307,6 +68790,25 @@ Array [
       "ok": true,
       "id": 87,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 87,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 87,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -48319,6 +68821,25 @@ Array [
       "ok": true,
       "id": 88,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 88,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 88,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -48331,6 +68852,25 @@ Array [
       "ok": true,
       "id": 89,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 89,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 89,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -48343,6 +68883,25 @@ Array [
       "ok": true,
       "id": 90,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 90,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 90,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -48355,6 +68914,25 @@ Array [
       "ok": true,
       "id": 91,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 91,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 91,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -48375,6 +68953,25 @@ Array [
       "ok": true,
       "id": 92,
       "name": "cleaned up",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 92,
+      "name": "cleaned up",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 92,
+      "name": "cleaned up",
+      "fullname": "",
     },
   ],
   Array [
@@ -48411,6 +69008,25 @@ Array [
       "ok": true,
       "id": 93,
       "name": "test/segv.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 93,
+      "name": "test/segv.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 93,
+      "name": "test/segv.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -48447,6 +69063,25 @@ Array [
       "ok": true,
       "id": 94,
       "name": "it works",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 94,
+      "name": "it works",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 94,
+      "name": "it works",
+      "fullname": "",
     },
   ],
   Array [
@@ -48467,6 +69102,25 @@ Array [
       "ok": true,
       "id": 95,
       "name": "math should work",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 95,
+      "name": "math should work",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 95,
+      "name": "math should work",
+      "fullname": "",
     },
   ],
   Array [
@@ -48479,6 +69133,25 @@ Array [
       "ok": true,
       "id": 96,
       "name": "false should not be ok",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 96,
+      "name": "false should not be ok",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 96,
+      "name": "false should not be ok",
+      "fullname": "",
     },
   ],
   Array [
@@ -48515,6 +69188,25 @@ Array [
       "ok": true,
       "id": 97,
       "name": "test/simple-harness-test-with-plan.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 97,
+      "name": "test/simple-harness-test-with-plan.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 97,
+      "name": "test/simple-harness-test-with-plan.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -48551,6 +69243,25 @@ Array [
       "ok": true,
       "id": 98,
       "name": "it works",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 98,
+      "name": "it works",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 98,
+      "name": "it works",
+      "fullname": "",
     },
   ],
   Array [
@@ -48571,6 +69282,25 @@ Array [
       "ok": true,
       "id": 99,
       "name": "math should work",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 99,
+      "name": "math should work",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 99,
+      "name": "math should work",
+      "fullname": "",
     },
   ],
   Array [
@@ -48583,6 +69313,25 @@ Array [
       "ok": true,
       "id": 100,
       "name": "false should not be ok",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 100,
+      "name": "false should not be ok",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 100,
+      "name": "false should not be ok",
+      "fullname": "",
     },
   ],
   Array [
@@ -48619,6 +69368,25 @@ Array [
       "ok": true,
       "id": 101,
       "name": "test/simple-harness-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 101,
+      "name": "test/simple-harness-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 101,
+      "name": "test/simple-harness-test.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -48656,6 +69424,27 @@ Array [
       "id": 102,
       "skip": "skip it good",
       "name": "always passes",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 102,
+      "skip": "skip it good",
+      "name": "always passes",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "skip",
+    Result {
+      "ok": true,
+      "id": 102,
+      "skip": "skip it good",
+      "name": "always passes",
+      "fullname": "",
     },
   ],
   Array [
@@ -48669,6 +69458,27 @@ Array [
       "id": 103,
       "skip": "always fails",
       "name": "false",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 103,
+      "skip": "always fails",
+      "name": "false",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "skip",
+    Result {
+      "ok": true,
+      "id": 103,
+      "skip": "always fails",
+      "name": "false",
+      "fullname": "",
     },
   ],
   Array [
@@ -48682,6 +69492,27 @@ Array [
       "id": 104,
       "todo": "remove todo directive",
       "name": "bonus",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 104,
+      "todo": "remove todo directive",
+      "name": "bonus",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": true,
+      "id": 104,
+      "todo": "remove todo directive",
+      "name": "bonus",
+      "fullname": "",
     },
   ],
   Array [
@@ -48695,6 +69526,27 @@ Array [
       "id": 105,
       "todo": "implement a thing",
       "name": "expected",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 105,
+      "todo": "implement a thing",
+      "name": "expected",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": true,
+      "id": 105,
+      "todo": "implement a thing",
+      "name": "expected",
+      "fullname": "",
     },
   ],
   Array [
@@ -48708,6 +69560,27 @@ Array [
       "id": 106,
       "skip": true,
       "name": "always passes without explanation",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 106,
+      "skip": true,
+      "name": "always passes without explanation",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "skip",
+    Result {
+      "ok": true,
+      "id": 106,
+      "skip": true,
+      "name": "always passes without explanation",
+      "fullname": "",
     },
   ],
   Array [
@@ -48721,6 +69594,27 @@ Array [
       "id": 107,
       "skip": true,
       "name": "false without explanation",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 107,
+      "skip": true,
+      "name": "false without explanation",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "skip",
+    Result {
+      "ok": true,
+      "id": 107,
+      "skip": true,
+      "name": "false without explanation",
+      "fullname": "",
     },
   ],
   Array [
@@ -48734,6 +69628,27 @@ Array [
       "id": 108,
       "todo": true,
       "name": "bonus without explanation",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 108,
+      "todo": true,
+      "name": "bonus without explanation",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": true,
+      "id": 108,
+      "todo": true,
+      "name": "bonus without explanation",
+      "fullname": "",
     },
   ],
   Array [
@@ -48747,6 +69662,27 @@ Array [
       "id": 109,
       "todo": true,
       "name": "expected without explanation",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 109,
+      "todo": true,
+      "name": "expected without explanation",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": true,
+      "id": 109,
+      "todo": true,
+      "name": "expected without explanation",
+      "fullname": "",
     },
   ],
   Array [
@@ -48783,6 +69719,25 @@ Array [
       "ok": true,
       "id": 110,
       "name": "test/test-assert-todo-skip.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 110,
+      "name": "test/test-assert-todo-skip.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 110,
+      "name": "test/test-assert-todo-skip.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -48819,6 +69774,25 @@ Array [
       "ok": true,
       "id": 111,
       "name": "exit cleanly",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 111,
+      "name": "exit cleanly",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 111,
+      "name": "exit cleanly",
+      "fullname": "",
     },
   ],
   Array [
@@ -48831,6 +69805,25 @@ Array [
       "ok": true,
       "id": 112,
       "name": "captures SKIP description",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 112,
+      "name": "captures SKIP description",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 112,
+      "name": "captures SKIP description",
+      "fullname": "",
     },
   ],
   Array [
@@ -48843,6 +69836,25 @@ Array [
       "ok": true,
       "id": 113,
       "name": "skip summary is not from file",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 113,
+      "name": "skip summary is not from file",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 113,
+      "name": "skip summary is not from file",
+      "fullname": "",
     },
   ],
   Array [
@@ -48855,6 +69867,25 @@ Array [
       "ok": true,
       "id": 114,
       "name": "todo summary is not from file",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 114,
+      "name": "todo summary is not from file",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 114,
+      "name": "todo summary is not from file",
+      "fullname": "",
     },
   ],
   Array [
@@ -48988,6 +70019,59 @@ Array [
           "emitOne (events.js:77:13)\\n",
         ],
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 115,
+      "name": "captures TODO description",
+      "diag": Object {
+        "file": "child_process.js",
+        "line": 707,
+        "column": 7,
+        "stack": Array [
+          "getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\\n",
+          "Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\\n",
+          "Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\\n",
+          "/Users/isaacs/dev/js/tap/test/test-descriptions.js:32:7\\n",
+          "ChildProcess.exithandler (child_process.js:707:7)\\n",
+          "emitTwo (events.js:87:13)\\n",
+          "ChildProcess.emit (events.js:169:7)\\n",
+          "maybeClose (child_process.js:984:16)\\n",
+          "Socket.<anonymous> (child_process.js:1153:11)\\n",
+          "emitOne (events.js:77:13)\\n",
+        ],
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 115,
+      "name": "captures TODO description",
+      "diag": Object {
+        "file": "child_process.js",
+        "line": 707,
+        "column": 7,
+        "stack": Array [
+          "getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\\n",
+          "Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\\n",
+          "Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\\n",
+          "/Users/isaacs/dev/js/tap/test/test-descriptions.js:32:7\\n",
+          "ChildProcess.exithandler (child_process.js:707:7)\\n",
+          "emitTwo (events.js:87:13)\\n",
+          "ChildProcess.emit (events.js:169:7)\\n",
+          "maybeClose (child_process.js:984:16)\\n",
+          "Socket.<anonymous> (child_process.js:1153:11)\\n",
+          "emitOne (events.js:77:13)\\n",
+        ],
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -49000,6 +70084,25 @@ Array [
       "ok": true,
       "id": 116,
       "name": "exit cleanly",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 116,
+      "name": "exit cleanly",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 116,
+      "name": "exit cleanly",
+      "fullname": "",
     },
   ],
   Array [
@@ -49012,6 +70115,25 @@ Array [
       "ok": true,
       "id": 117,
       "name": "captures SKIP description",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 117,
+      "name": "captures SKIP description",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 117,
+      "name": "captures SKIP description",
+      "fullname": "",
     },
   ],
   Array [
@@ -49024,6 +70146,25 @@ Array [
       "ok": true,
       "id": 118,
       "name": "skip summary is not in TAP output",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 118,
+      "name": "skip summary is not in TAP output",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 118,
+      "name": "skip summary is not in TAP output",
+      "fullname": "",
     },
   ],
   Array [
@@ -49036,6 +70177,25 @@ Array [
       "ok": true,
       "id": 119,
       "name": "todo summary is not in TAP output",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 119,
+      "name": "todo summary is not in TAP output",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 119,
+      "name": "todo summary is not in TAP output",
+      "fullname": "",
     },
   ],
   Array [
@@ -49160,6 +70320,57 @@ Array [
           "Process.ChildProcess._handle.onexit (child_process.js:1057:5)\\n",
         ],
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 120,
+      "name": "captures TODO description",
+      "diag": Object {
+        "file": "child_process.js",
+        "line": 707,
+        "column": 7,
+        "stack": Array [
+          "getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\\n",
+          "Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\\n",
+          "Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\\n",
+          "/Users/isaacs/dev/js/tap/test/test-descriptions.js:18:7\\n",
+          "ChildProcess.exithandler (child_process.js:707:7)\\n",
+          "emitTwo (events.js:87:13)\\n",
+          "ChildProcess.emit (events.js:169:7)\\n",
+          "maybeClose (child_process.js:984:16)\\n",
+          "Process.ChildProcess._handle.onexit (child_process.js:1057:5)\\n",
+        ],
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 120,
+      "name": "captures TODO description",
+      "diag": Object {
+        "file": "child_process.js",
+        "line": 707,
+        "column": 7,
+        "stack": Array [
+          "getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\\n",
+          "Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\\n",
+          "Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\\n",
+          "/Users/isaacs/dev/js/tap/test/test-descriptions.js:18:7\\n",
+          "ChildProcess.exithandler (child_process.js:707:7)\\n",
+          "emitTwo (events.js:87:13)\\n",
+          "ChildProcess.emit (events.js:169:7)\\n",
+          "maybeClose (child_process.js:984:16)\\n",
+          "Process.ChildProcess._handle.onexit (child_process.js:1057:5)\\n",
+        ],
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -49172,6 +70383,25 @@ Array [
       "ok": true,
       "id": 121,
       "name": "exit cleanly",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 121,
+      "name": "exit cleanly",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 121,
+      "name": "exit cleanly",
+      "fullname": "",
     },
   ],
   Array [
@@ -49296,6 +70526,57 @@ Array [
           "Process.ChildProcess._handle.onexit (child_process.js:1057:5)\\n",
         ],
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 122,
+      "name": "summarizes skipped count",
+      "diag": Object {
+        "file": "child_process.js",
+        "line": 707,
+        "column": 7,
+        "stack": Array [
+          "getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\\n",
+          "Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\\n",
+          "Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\\n",
+          "/Users/isaacs/dev/js/tap/test/test-descriptions.js:23:7\\n",
+          "ChildProcess.exithandler (child_process.js:707:7)\\n",
+          "emitTwo (events.js:87:13)\\n",
+          "ChildProcess.emit (events.js:169:7)\\n",
+          "maybeClose (child_process.js:984:16)\\n",
+          "Process.ChildProcess._handle.onexit (child_process.js:1057:5)\\n",
+        ],
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 122,
+      "name": "summarizes skipped count",
+      "diag": Object {
+        "file": "child_process.js",
+        "line": 707,
+        "column": 7,
+        "stack": Array [
+          "getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\\n",
+          "Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\\n",
+          "Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\\n",
+          "/Users/isaacs/dev/js/tap/test/test-descriptions.js:23:7\\n",
+          "ChildProcess.exithandler (child_process.js:707:7)\\n",
+          "emitTwo (events.js:87:13)\\n",
+          "ChildProcess.emit (events.js:169:7)\\n",
+          "maybeClose (child_process.js:984:16)\\n",
+          "Process.ChildProcess._handle.onexit (child_process.js:1057:5)\\n",
+        ],
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -49420,6 +70701,57 @@ Array [
           "Process.ChildProcess._handle.onexit (child_process.js:1057:5)\\n",
         ],
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 123,
+      "name": "summarizes todo count",
+      "diag": Object {
+        "file": "child_process.js",
+        "line": 707,
+        "column": 7,
+        "stack": Array [
+          "getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\\n",
+          "Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\\n",
+          "Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\\n",
+          "/Users/isaacs/dev/js/tap/test/test-descriptions.js:24:7\\n",
+          "ChildProcess.exithandler (child_process.js:707:7)\\n",
+          "emitTwo (events.js:87:13)\\n",
+          "ChildProcess.emit (events.js:169:7)\\n",
+          "maybeClose (child_process.js:984:16)\\n",
+          "Process.ChildProcess._handle.onexit (child_process.js:1057:5)\\n",
+        ],
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 123,
+      "name": "summarizes todo count",
+      "diag": Object {
+        "file": "child_process.js",
+        "line": 707,
+        "column": 7,
+        "stack": Array [
+          "getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\\n",
+          "Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\\n",
+          "Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\\n",
+          "/Users/isaacs/dev/js/tap/test/test-descriptions.js:24:7\\n",
+          "ChildProcess.exithandler (child_process.js:707:7)\\n",
+          "emitTwo (events.js:87:13)\\n",
+          "ChildProcess.emit (events.js:169:7)\\n",
+          "maybeClose (child_process.js:984:16)\\n",
+          "Process.ChildProcess._handle.onexit (child_process.js:1057:5)\\n",
+        ],
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -49476,6 +70808,33 @@ Array [
         "exit": 1,
         "command": "/usr/local/bin/iojs test-descriptions.js",
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 124,
+      "name": "test/test-descriptions.js",
+      "diag": Object {
+        "exit": 1,
+        "command": "/usr/local/bin/iojs test-descriptions.js",
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 124,
+      "name": "test/test-descriptions.js",
+      "diag": Object {
+        "exit": 1,
+        "command": "/usr/local/bin/iojs test-descriptions.js",
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -49520,6 +70879,25 @@ Array [
       "ok": true,
       "id": 125,
       "name": "overall result is PASS",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 125,
+      "name": "overall result is PASS",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 125,
+      "name": "overall result is PASS",
+      "fullname": "",
     },
   ],
   Array [
@@ -49532,6 +70910,25 @@ Array [
       "ok": true,
       "id": 126,
       "name": "captures ok SKIP",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 126,
+      "name": "captures ok SKIP",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 126,
+      "name": "captures ok SKIP",
+      "fullname": "",
     },
   ],
   Array [
@@ -49544,6 +70941,25 @@ Array [
       "ok": true,
       "id": 127,
       "name": "captures not ok SKIP",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 127,
+      "name": "captures not ok SKIP",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 127,
+      "name": "captures not ok SKIP",
+      "fullname": "",
     },
   ],
   Array [
@@ -49556,6 +70972,25 @@ Array [
       "ok": true,
       "id": 128,
       "name": "skip summary not in TAP output",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 128,
+      "name": "skip summary not in TAP output",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 128,
+      "name": "skip summary not in TAP output",
+      "fullname": "",
     },
   ],
   Array [
@@ -49568,6 +71003,25 @@ Array [
       "ok": true,
       "id": 129,
       "name": "captures ok TODO",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 129,
+      "name": "captures ok TODO",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 129,
+      "name": "captures ok TODO",
+      "fullname": "",
     },
   ],
   Array [
@@ -49580,6 +71034,25 @@ Array [
       "ok": true,
       "id": 130,
       "name": "captures not ok TODO",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 130,
+      "name": "captures not ok TODO",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 130,
+      "name": "captures not ok TODO",
+      "fullname": "",
     },
   ],
   Array [
@@ -49592,6 +71065,25 @@ Array [
       "ok": true,
       "id": 131,
       "name": "todo summary is not in TAP output",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 131,
+      "name": "todo summary is not in TAP output",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 131,
+      "name": "todo summary is not in TAP output",
+      "fullname": "",
     },
   ],
   Array [
@@ -49604,6 +71096,25 @@ Array [
       "ok": true,
       "id": 132,
       "name": "no ugly \\"undefined\\" in output",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 132,
+      "name": "no ugly \\"undefined\\" in output",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 132,
+      "name": "no ugly \\"undefined\\" in output",
+      "fullname": "",
     },
   ],
   Array [
@@ -49624,6 +71135,25 @@ Array [
       "ok": true,
       "id": 133,
       "name": "overall result is PASS",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 133,
+      "name": "overall result is PASS",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 133,
+      "name": "overall result is PASS",
+      "fullname": "",
     },
   ],
   Array [
@@ -49636,6 +71166,25 @@ Array [
       "ok": true,
       "id": 134,
       "name": "no SKIP in summary",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 134,
+      "name": "no SKIP in summary",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 134,
+      "name": "no SKIP in summary",
+      "fullname": "",
     },
   ],
   Array [
@@ -49648,6 +71197,25 @@ Array [
       "ok": true,
       "id": 135,
       "name": "skip summary is not in TAP output",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 135,
+      "name": "skip summary is not in TAP output",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 135,
+      "name": "skip summary is not in TAP output",
+      "fullname": "",
     },
   ],
   Array [
@@ -49660,6 +71228,25 @@ Array [
       "ok": true,
       "id": 136,
       "name": "no TODO in summary",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 136,
+      "name": "no TODO in summary",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 136,
+      "name": "no TODO in summary",
+      "fullname": "",
     },
   ],
   Array [
@@ -49672,6 +71259,25 @@ Array [
       "ok": true,
       "id": 137,
       "name": "todo summary is not in TAP output",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 137,
+      "name": "todo summary is not in TAP output",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 137,
+      "name": "todo summary is not in TAP output",
+      "fullname": "",
     },
   ],
   Array [
@@ -49684,6 +71290,25 @@ Array [
       "ok": true,
       "id": 138,
       "name": "no ugly \\"undefined\\" in output",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 138,
+      "name": "no ugly \\"undefined\\" in output",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 138,
+      "name": "no ugly \\"undefined\\" in output",
+      "fullname": "",
     },
   ],
   Array [
@@ -49704,6 +71329,25 @@ Array [
       "ok": true,
       "id": 139,
       "name": "overall result is PASS",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 139,
+      "name": "overall result is PASS",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 139,
+      "name": "overall result is PASS",
+      "fullname": "",
     },
   ],
   Array [
@@ -49716,6 +71360,25 @@ Array [
       "ok": true,
       "id": 140,
       "name": "captures ok SKIP",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 140,
+      "name": "captures ok SKIP",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 140,
+      "name": "captures ok SKIP",
+      "fullname": "",
     },
   ],
   Array [
@@ -49728,6 +71391,25 @@ Array [
       "ok": true,
       "id": 141,
       "name": "captures not ok SKIP",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 141,
+      "name": "captures not ok SKIP",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 141,
+      "name": "captures not ok SKIP",
+      "fullname": "",
     },
   ],
   Array [
@@ -49740,6 +71422,25 @@ Array [
       "ok": true,
       "id": 142,
       "name": "skip summary not in TAP output",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 142,
+      "name": "skip summary not in TAP output",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 142,
+      "name": "skip summary not in TAP output",
+      "fullname": "",
     },
   ],
   Array [
@@ -49752,6 +71453,25 @@ Array [
       "ok": true,
       "id": 143,
       "name": "captures ok TODO",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 143,
+      "name": "captures ok TODO",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 143,
+      "name": "captures ok TODO",
+      "fullname": "",
     },
   ],
   Array [
@@ -49764,6 +71484,25 @@ Array [
       "ok": true,
       "id": 144,
       "name": "captures not ok TODO",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 144,
+      "name": "captures not ok TODO",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 144,
+      "name": "captures not ok TODO",
+      "fullname": "",
     },
   ],
   Array [
@@ -49776,6 +71515,25 @@ Array [
       "ok": true,
       "id": 145,
       "name": "todo summary is not in TAP output",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 145,
+      "name": "todo summary is not in TAP output",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 145,
+      "name": "todo summary is not in TAP output",
+      "fullname": "",
     },
   ],
   Array [
@@ -49788,6 +71546,25 @@ Array [
       "ok": true,
       "id": 146,
       "name": "no ugly \\"undefined\\" in output",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 146,
+      "name": "no ugly \\"undefined\\" in output",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 146,
+      "name": "no ugly \\"undefined\\" in output",
+      "fullname": "",
     },
   ],
   Array [
@@ -49824,6 +71601,25 @@ Array [
       "ok": true,
       "id": 147,
       "name": "test/test-directives.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 147,
+      "name": "test/test-directives.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 147,
+      "name": "test/test-directives.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -49853,6 +71649,27 @@ Array [
       "id": 148,
       "skip": true,
       "name": "does not count as failure",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 148,
+      "skip": true,
+      "name": "does not count as failure",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "skip",
+    Result {
+      "ok": true,
+      "id": 148,
+      "skip": true,
+      "name": "does not count as failure",
+      "fullname": "",
     },
   ],
   Array [
@@ -49881,6 +71698,25 @@ Array [
       "ok": true,
       "id": 149,
       "name": "test/test-skip.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 149,
+      "name": "test/test-skip.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 149,
+      "name": "test/test-skip.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -49917,6 +71753,25 @@ Array [
       "ok": true,
       "id": 150,
       "name": "test object should be instanceof Test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 150,
+      "name": "test object should be instanceof Test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 150,
+      "name": "test object should be instanceof Test",
+      "fullname": "",
     },
   ],
   Array [
@@ -49929,6 +71784,25 @@ Array [
       "ok": true,
       "id": 151,
       "name": "test object should be instanceof Harness",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 151,
+      "name": "test object should be instanceof Harness",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 151,
+      "name": "test object should be instanceof Harness",
+      "fullname": "",
     },
   ],
   Array [
@@ -49941,6 +71815,25 @@ Array [
       "ok": true,
       "id": 152,
       "name": "test._Test should be the Test class",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 152,
+      "name": "test._Test should be the Test class",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 152,
+      "name": "test._Test should be the Test class",
+      "fullname": "",
     },
   ],
   Array [
@@ -49953,6 +71846,25 @@ Array [
       "ok": true,
       "id": 153,
       "name": "should have isNotDeepEqual method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 153,
+      "name": "should have isNotDeepEqual method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 153,
+      "name": "should have isNotDeepEqual method",
+      "fullname": "",
     },
   ],
   Array [
@@ -49965,6 +71877,25 @@ Array [
       "ok": true,
       "id": 154,
       "name": "isNotDeepEqual method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 154,
+      "name": "isNotDeepEqual method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 154,
+      "name": "isNotDeepEqual method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -49977,6 +71908,25 @@ Array [
       "ok": true,
       "id": 155,
       "name": "should have equals method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 155,
+      "name": "should have equals method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 155,
+      "name": "should have equals method",
+      "fullname": "",
     },
   ],
   Array [
@@ -49989,6 +71939,25 @@ Array [
       "ok": true,
       "id": 156,
       "name": "equals method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 156,
+      "name": "equals method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 156,
+      "name": "equals method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -50001,6 +71970,25 @@ Array [
       "ok": true,
       "id": 157,
       "name": "should have inequivalent method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 157,
+      "name": "should have inequivalent method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 157,
+      "name": "should have inequivalent method",
+      "fullname": "",
     },
   ],
   Array [
@@ -50013,6 +72001,25 @@ Array [
       "ok": true,
       "id": 158,
       "name": "inequivalent method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 158,
+      "name": "inequivalent method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 158,
+      "name": "inequivalent method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -50025,6 +72032,25 @@ Array [
       "ok": true,
       "id": 159,
       "name": "should have threw method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 159,
+      "name": "should have threw method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 159,
+      "name": "should have threw method",
+      "fullname": "",
     },
   ],
   Array [
@@ -50037,6 +72063,25 @@ Array [
       "ok": true,
       "id": 160,
       "name": "threw method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 160,
+      "name": "threw method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 160,
+      "name": "threw method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -50049,6 +72094,25 @@ Array [
       "ok": true,
       "id": 161,
       "name": "should have strictEqual method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 161,
+      "name": "should have strictEqual method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 161,
+      "name": "should have strictEqual method",
+      "fullname": "",
     },
   ],
   Array [
@@ -50061,6 +72125,25 @@ Array [
       "ok": true,
       "id": 162,
       "name": "strictEqual method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 162,
+      "name": "strictEqual method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 162,
+      "name": "strictEqual method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -50073,6 +72156,25 @@ Array [
       "ok": true,
       "id": 163,
       "name": "should have emit method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 163,
+      "name": "should have emit method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 163,
+      "name": "should have emit method",
+      "fullname": "",
     },
   ],
   Array [
@@ -50085,6 +72187,25 @@ Array [
       "ok": true,
       "id": 164,
       "name": "emit method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 164,
+      "name": "emit method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 164,
+      "name": "emit method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -50097,6 +72218,25 @@ Array [
       "ok": true,
       "id": 165,
       "name": "should have fail method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 165,
+      "name": "should have fail method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 165,
+      "name": "should have fail method",
+      "fullname": "",
     },
   ],
   Array [
@@ -50109,6 +72249,25 @@ Array [
       "ok": true,
       "id": 166,
       "name": "fail method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 166,
+      "name": "fail method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 166,
+      "name": "fail method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -50121,6 +72280,25 @@ Array [
       "ok": true,
       "id": 167,
       "name": "should have strictEquals method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 167,
+      "name": "should have strictEquals method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 167,
+      "name": "should have strictEquals method",
+      "fullname": "",
     },
   ],
   Array [
@@ -50133,6 +72311,25 @@ Array [
       "ok": true,
       "id": 168,
       "name": "strictEquals method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 168,
+      "name": "strictEquals method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 168,
+      "name": "strictEquals method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -50145,6 +72342,25 @@ Array [
       "ok": true,
       "id": 169,
       "name": "should have notLike method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 169,
+      "name": "should have notLike method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 169,
+      "name": "should have notLike method",
+      "fullname": "",
     },
   ],
   Array [
@@ -50157,6 +72373,25 @@ Array [
       "ok": true,
       "id": 170,
       "name": "notLike method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 170,
+      "name": "notLike method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 170,
+      "name": "notLike method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -50169,6 +72404,25 @@ Array [
       "ok": true,
       "id": 171,
       "name": "should have dissimilar method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 171,
+      "name": "should have dissimilar method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 171,
+      "name": "should have dissimilar method",
+      "fullname": "",
     },
   ],
   Array [
@@ -50181,6 +72435,25 @@ Array [
       "ok": true,
       "id": 172,
       "name": "dissimilar method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 172,
+      "name": "dissimilar method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 172,
+      "name": "dissimilar method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -50193,6 +72466,25 @@ Array [
       "ok": true,
       "id": 173,
       "name": "should have true method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 173,
+      "name": "should have true method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 173,
+      "name": "should have true method",
+      "fullname": "",
     },
   ],
   Array [
@@ -50205,6 +72497,25 @@ Array [
       "ok": true,
       "id": 174,
       "name": "true method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 174,
+      "name": "true method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 174,
+      "name": "true method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -50217,6 +72528,25 @@ Array [
       "ok": true,
       "id": 175,
       "name": "should have assert method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 175,
+      "name": "should have assert method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 175,
+      "name": "should have assert method",
+      "fullname": "",
     },
   ],
   Array [
@@ -50229,6 +72559,25 @@ Array [
       "ok": true,
       "id": 176,
       "name": "assert method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 176,
+      "name": "assert method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 176,
+      "name": "assert method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -50241,6 +72590,25 @@ Array [
       "ok": true,
       "id": 177,
       "name": "should have is method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 177,
+      "name": "should have is method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 177,
+      "name": "should have is method",
+      "fullname": "",
     },
   ],
   Array [
@@ -50253,6 +72621,25 @@ Array [
       "ok": true,
       "id": 178,
       "name": "is method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 178,
+      "name": "is method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 178,
+      "name": "is method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -50265,6 +72652,25 @@ Array [
       "ok": true,
       "id": 179,
       "name": "should have ok method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 179,
+      "name": "should have ok method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 179,
+      "name": "should have ok method",
+      "fullname": "",
     },
   ],
   Array [
@@ -50277,6 +72683,25 @@ Array [
       "ok": true,
       "id": 180,
       "name": "ok method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 180,
+      "name": "ok method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 180,
+      "name": "ok method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -50289,6 +72714,25 @@ Array [
       "ok": true,
       "id": 181,
       "name": "should have isEqual method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 181,
+      "name": "should have isEqual method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 181,
+      "name": "should have isEqual method",
+      "fullname": "",
     },
   ],
   Array [
@@ -50301,6 +72745,25 @@ Array [
       "ok": true,
       "id": 182,
       "name": "isEqual method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 182,
+      "name": "isEqual method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 182,
+      "name": "isEqual method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -50313,6 +72776,25 @@ Array [
       "ok": true,
       "id": 183,
       "name": "should have isDeeply method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 183,
+      "name": "should have isDeeply method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 183,
+      "name": "should have isDeeply method",
+      "fullname": "",
     },
   ],
   Array [
@@ -50325,6 +72807,25 @@ Array [
       "ok": true,
       "id": 184,
       "name": "isDeeply method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 184,
+      "name": "isDeeply method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 184,
+      "name": "isDeeply method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -50337,6 +72838,25 @@ Array [
       "ok": true,
       "id": 185,
       "name": "should have deepEqual method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 185,
+      "name": "should have deepEqual method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 185,
+      "name": "should have deepEqual method",
+      "fullname": "",
     },
   ],
   Array [
@@ -50349,6 +72869,25 @@ Array [
       "ok": true,
       "id": 186,
       "name": "deepEqual method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 186,
+      "name": "deepEqual method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 186,
+      "name": "deepEqual method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -50361,6 +72900,25 @@ Array [
       "ok": true,
       "id": 187,
       "name": "should have deepEquals method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 187,
+      "name": "should have deepEquals method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 187,
+      "name": "should have deepEquals method",
+      "fullname": "",
     },
   ],
   Array [
@@ -50373,6 +72931,25 @@ Array [
       "ok": true,
       "id": 188,
       "name": "deepEquals method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 188,
+      "name": "deepEquals method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 188,
+      "name": "deepEquals method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -50385,6 +72962,25 @@ Array [
       "ok": true,
       "id": 189,
       "name": "should have pass method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 189,
+      "name": "should have pass method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 189,
+      "name": "should have pass method",
+      "fullname": "",
     },
   ],
   Array [
@@ -50397,6 +72993,25 @@ Array [
       "ok": true,
       "id": 190,
       "name": "pass method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 190,
+      "name": "pass method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 190,
+      "name": "pass method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -50409,6 +73024,25 @@ Array [
       "ok": true,
       "id": 191,
       "name": "should have length method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 191,
+      "name": "should have length method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 191,
+      "name": "should have length method",
+      "fullname": "",
     },
   ],
   Array [
@@ -50421,6 +73055,25 @@ Array [
       "ok": true,
       "id": 192,
       "name": "length method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 192,
+      "name": "length method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 192,
+      "name": "length method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -50433,6 +73086,25 @@ Array [
       "ok": true,
       "id": 193,
       "name": "should have skip method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 193,
+      "name": "should have skip method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 193,
+      "name": "should have skip method",
+      "fullname": "",
     },
   ],
   Array [
@@ -50445,6 +73117,25 @@ Array [
       "ok": true,
       "id": 194,
       "name": "skip method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 194,
+      "name": "skip method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 194,
+      "name": "skip method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -50457,6 +73148,25 @@ Array [
       "ok": true,
       "id": 195,
       "name": "should have isNotEqual method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 195,
+      "name": "should have isNotEqual method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 195,
+      "name": "should have isNotEqual method",
+      "fullname": "",
     },
   ],
   Array [
@@ -50469,6 +73179,25 @@ Array [
       "ok": true,
       "id": 196,
       "name": "isNotEqual method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 196,
+      "name": "isNotEqual method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 196,
+      "name": "isNotEqual method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -50481,6 +73210,25 @@ Array [
       "ok": true,
       "id": 197,
       "name": "should have looseEquals method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 197,
+      "name": "should have looseEquals method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 197,
+      "name": "should have looseEquals method",
+      "fullname": "",
     },
   ],
   Array [
@@ -50493,6 +73241,25 @@ Array [
       "ok": true,
       "id": 198,
       "name": "looseEquals method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 198,
+      "name": "looseEquals method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 198,
+      "name": "looseEquals method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -50505,6 +73272,25 @@ Array [
       "ok": true,
       "id": 199,
       "name": "should have false method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 199,
+      "name": "should have false method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 199,
+      "name": "should have false method",
+      "fullname": "",
     },
   ],
   Array [
@@ -50517,6 +73303,25 @@ Array [
       "ok": true,
       "id": 200,
       "name": "false method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 200,
+      "name": "false method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 200,
+      "name": "false method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -50529,6 +73334,25 @@ Array [
       "ok": true,
       "id": 201,
       "name": "should have notDeeply method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 201,
+      "name": "should have notDeeply method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 201,
+      "name": "should have notDeeply method",
+      "fullname": "",
     },
   ],
   Array [
@@ -50541,6 +73365,25 @@ Array [
       "ok": true,
       "id": 202,
       "name": "notDeeply method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 202,
+      "name": "notDeeply method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 202,
+      "name": "notDeeply method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -50553,6 +73396,25 @@ Array [
       "ok": true,
       "id": 203,
       "name": "should have ifErr method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 203,
+      "name": "should have ifErr method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 203,
+      "name": "should have ifErr method",
+      "fullname": "",
     },
   ],
   Array [
@@ -50565,6 +73427,25 @@ Array [
       "ok": true,
       "id": 204,
       "name": "ifErr method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 204,
+      "name": "ifErr method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 204,
+      "name": "ifErr method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -50577,6 +73458,25 @@ Array [
       "ok": true,
       "id": 205,
       "name": "should have hasFields method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 205,
+      "name": "should have hasFields method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 205,
+      "name": "should have hasFields method",
+      "fullname": "",
     },
   ],
   Array [
@@ -50589,6 +73489,25 @@ Array [
       "ok": true,
       "id": 206,
       "name": "hasFields method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 206,
+      "name": "hasFields method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 206,
+      "name": "hasFields method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -50601,6 +73520,25 @@ Array [
       "ok": true,
       "id": 207,
       "name": "should have isNotDeeply method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 207,
+      "name": "should have isNotDeeply method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 207,
+      "name": "should have isNotDeeply method",
+      "fullname": "",
     },
   ],
   Array [
@@ -50613,6 +73551,25 @@ Array [
       "ok": true,
       "id": 208,
       "name": "isNotDeeply method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 208,
+      "name": "isNotDeeply method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 208,
+      "name": "isNotDeeply method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -50625,6 +73582,25 @@ Array [
       "ok": true,
       "id": 209,
       "name": "should have like method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 209,
+      "name": "should have like method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 209,
+      "name": "should have like method",
+      "fullname": "",
     },
   ],
   Array [
@@ -50637,6 +73613,25 @@ Array [
       "ok": true,
       "id": 210,
       "name": "like method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 210,
+      "name": "like method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 210,
+      "name": "like method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -50649,6 +73644,25 @@ Array [
       "ok": true,
       "id": 211,
       "name": "should have similar method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 211,
+      "name": "should have similar method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 211,
+      "name": "should have similar method",
+      "fullname": "",
     },
   ],
   Array [
@@ -50661,6 +73675,25 @@ Array [
       "ok": true,
       "id": 212,
       "name": "similar method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 212,
+      "name": "similar method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 212,
+      "name": "similar method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -50673,6 +73706,25 @@ Array [
       "ok": true,
       "id": 213,
       "name": "should have notOk method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 213,
+      "name": "should have notOk method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 213,
+      "name": "should have notOk method",
+      "fullname": "",
     },
   ],
   Array [
@@ -50685,6 +73737,25 @@ Array [
       "ok": true,
       "id": 214,
       "name": "notOk method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 214,
+      "name": "notOk method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 214,
+      "name": "notOk method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -50697,6 +73768,25 @@ Array [
       "ok": true,
       "id": 215,
       "name": "should have isDissimilar method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 215,
+      "name": "should have isDissimilar method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 215,
+      "name": "should have isDissimilar method",
+      "fullname": "",
     },
   ],
   Array [
@@ -50709,6 +73799,25 @@ Array [
       "ok": true,
       "id": 216,
       "name": "isDissimilar method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 216,
+      "name": "isDissimilar method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 216,
+      "name": "isDissimilar method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -50721,6 +73830,25 @@ Array [
       "ok": true,
       "id": 217,
       "name": "should have isEquivalent method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 217,
+      "name": "should have isEquivalent method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 217,
+      "name": "should have isEquivalent method",
+      "fullname": "",
     },
   ],
   Array [
@@ -50733,6 +73861,25 @@ Array [
       "ok": true,
       "id": 218,
       "name": "isEquivalent method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 218,
+      "name": "isEquivalent method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 218,
+      "name": "isEquivalent method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -50745,6 +73892,25 @@ Array [
       "ok": true,
       "id": 219,
       "name": "should have doesNotEqual method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 219,
+      "name": "should have doesNotEqual method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 219,
+      "name": "should have doesNotEqual method",
+      "fullname": "",
     },
   ],
   Array [
@@ -50757,6 +73923,25 @@ Array [
       "ok": true,
       "id": 220,
       "name": "doesNotEqual method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 220,
+      "name": "doesNotEqual method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 220,
+      "name": "doesNotEqual method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -50769,6 +73954,25 @@ Array [
       "ok": true,
       "id": 221,
       "name": "should have isSimilar method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 221,
+      "name": "should have isSimilar method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 221,
+      "name": "should have isSimilar method",
+      "fullname": "",
     },
   ],
   Array [
@@ -50781,6 +73985,25 @@ Array [
       "ok": true,
       "id": 222,
       "name": "isSimilar method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 222,
+      "name": "isSimilar method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 222,
+      "name": "isSimilar method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -50793,6 +74016,25 @@ Array [
       "ok": true,
       "id": 223,
       "name": "should have notDeepEqual method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 223,
+      "name": "should have notDeepEqual method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 223,
+      "name": "should have notDeepEqual method",
+      "fullname": "",
     },
   ],
   Array [
@@ -50805,6 +74047,25 @@ Array [
       "ok": true,
       "id": 224,
       "name": "notDeepEqual method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 224,
+      "name": "notDeepEqual method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 224,
+      "name": "notDeepEqual method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -50817,6 +74078,25 @@ Array [
       "ok": true,
       "id": 225,
       "name": "should have type method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 225,
+      "name": "should have type method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 225,
+      "name": "should have type method",
+      "fullname": "",
     },
   ],
   Array [
@@ -50829,6 +74109,25 @@ Array [
       "ok": true,
       "id": 226,
       "name": "type method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 226,
+      "name": "type method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 226,
+      "name": "type method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -50841,6 +74140,25 @@ Array [
       "ok": true,
       "id": 227,
       "name": "should have notok method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 227,
+      "name": "should have notok method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 227,
+      "name": "should have notok method",
+      "fullname": "",
     },
   ],
   Array [
@@ -50853,6 +74171,25 @@ Array [
       "ok": true,
       "id": 228,
       "name": "notok method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 228,
+      "name": "notok method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 228,
+      "name": "notok method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -50865,6 +74202,25 @@ Array [
       "ok": true,
       "id": 229,
       "name": "should have isInequivalent method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 229,
+      "name": "should have isInequivalent method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 229,
+      "name": "should have isInequivalent method",
+      "fullname": "",
     },
   ],
   Array [
@@ -50877,6 +74233,25 @@ Array [
       "ok": true,
       "id": 230,
       "name": "isInequivalent method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 230,
+      "name": "isInequivalent method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 230,
+      "name": "isInequivalent method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -50889,6 +74264,25 @@ Array [
       "ok": true,
       "id": 231,
       "name": "should have isNot method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 231,
+      "name": "should have isNot method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 231,
+      "name": "should have isNot method",
+      "fullname": "",
     },
   ],
   Array [
@@ -50901,6 +74295,25 @@ Array [
       "ok": true,
       "id": 232,
       "name": "isNot method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 232,
+      "name": "isNot method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 232,
+      "name": "isNot method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -50913,6 +74326,25 @@ Array [
       "ok": true,
       "id": 233,
       "name": "should have same method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 233,
+      "name": "should have same method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 233,
+      "name": "should have same method",
+      "fullname": "",
     },
   ],
   Array [
@@ -50925,6 +74357,25 @@ Array [
       "ok": true,
       "id": 234,
       "name": "same method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 234,
+      "name": "same method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 234,
+      "name": "same method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -50937,6 +74388,25 @@ Array [
       "ok": true,
       "id": 235,
       "name": "should have isInequal method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 235,
+      "name": "should have isInequal method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 235,
+      "name": "should have isInequal method",
+      "fullname": "",
     },
   ],
   Array [
@@ -50949,6 +74419,25 @@ Array [
       "ok": true,
       "id": 236,
       "name": "isInequal method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 236,
+      "name": "isInequal method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 236,
+      "name": "isInequal method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -50961,6 +74450,25 @@ Array [
       "ok": true,
       "id": 237,
       "name": "should have _endNice method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 237,
+      "name": "should have _endNice method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 237,
+      "name": "should have _endNice method",
+      "fullname": "",
     },
   ],
   Array [
@@ -50973,6 +74481,25 @@ Array [
       "ok": true,
       "id": 238,
       "name": "_endNice method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 238,
+      "name": "_endNice method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 238,
+      "name": "_endNice method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -50985,6 +74512,25 @@ Array [
       "ok": true,
       "id": 239,
       "name": "should have ifError method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 239,
+      "name": "should have ifError method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 239,
+      "name": "should have ifError method",
+      "fullname": "",
     },
   ],
   Array [
@@ -50997,6 +74543,25 @@ Array [
       "ok": true,
       "id": 240,
       "name": "ifError method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 240,
+      "name": "ifError method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 240,
+      "name": "ifError method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -51009,6 +74574,25 @@ Array [
       "ok": true,
       "id": 241,
       "name": "should have iferror method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 241,
+      "name": "should have iferror method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 241,
+      "name": "should have iferror method",
+      "fullname": "",
     },
   ],
   Array [
@@ -51021,6 +74605,25 @@ Array [
       "ok": true,
       "id": 242,
       "name": "iferror method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 242,
+      "name": "iferror method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 242,
+      "name": "iferror method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -51033,6 +74636,25 @@ Array [
       "ok": true,
       "id": 243,
       "name": "should have clear method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 243,
+      "name": "should have clear method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 243,
+      "name": "should have clear method",
+      "fullname": "",
     },
   ],
   Array [
@@ -51045,6 +74667,25 @@ Array [
       "ok": true,
       "id": 244,
       "name": "clear method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 244,
+      "name": "clear method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 244,
+      "name": "clear method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -51057,6 +74698,25 @@ Array [
       "ok": true,
       "id": 245,
       "name": "should have has method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 245,
+      "name": "should have has method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 245,
+      "name": "should have has method",
+      "fullname": "",
     },
   ],
   Array [
@@ -51069,6 +74729,25 @@ Array [
       "ok": true,
       "id": 246,
       "name": "has method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 246,
+      "name": "has method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 246,
+      "name": "has method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -51081,6 +74760,25 @@ Array [
       "ok": true,
       "id": 247,
       "name": "should have not method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 247,
+      "name": "should have not method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 247,
+      "name": "should have not method",
+      "fullname": "",
     },
   ],
   Array [
@@ -51093,6 +74791,25 @@ Array [
       "ok": true,
       "id": 248,
       "name": "not method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 248,
+      "name": "not method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 248,
+      "name": "not method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -51105,6 +74822,25 @@ Array [
       "ok": true,
       "id": 249,
       "name": "should have timeout method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 249,
+      "name": "should have timeout method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 249,
+      "name": "should have timeout method",
+      "fullname": "",
     },
   ],
   Array [
@@ -51117,6 +74853,25 @@ Array [
       "ok": true,
       "id": 250,
       "name": "timeout method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 250,
+      "name": "timeout method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 250,
+      "name": "timeout method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -51129,6 +74884,25 @@ Array [
       "ok": true,
       "id": 251,
       "name": "should have notSimilar method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 251,
+      "name": "should have notSimilar method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 251,
+      "name": "should have notSimilar method",
+      "fullname": "",
     },
   ],
   Array [
@@ -51141,6 +74915,25 @@ Array [
       "ok": true,
       "id": 252,
       "name": "notSimilar method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 252,
+      "name": "notSimilar method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 252,
+      "name": "notSimilar method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -51153,6 +74946,25 @@ Array [
       "ok": true,
       "id": 253,
       "name": "should have isUnlike method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 253,
+      "name": "should have isUnlike method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 253,
+      "name": "should have isUnlike method",
+      "fullname": "",
     },
   ],
   Array [
@@ -51165,6 +74977,25 @@ Array [
       "ok": true,
       "id": 254,
       "name": "isUnlike method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 254,
+      "name": "isUnlike method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 254,
+      "name": "isUnlike method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -51177,6 +75008,25 @@ Array [
       "ok": true,
       "id": 255,
       "name": "should have notEquals method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 255,
+      "name": "should have notEquals method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 255,
+      "name": "should have notEquals method",
+      "fullname": "",
     },
   ],
   Array [
@@ -51189,6 +75039,25 @@ Array [
       "ok": true,
       "id": 256,
       "name": "notEquals method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 256,
+      "name": "notEquals method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 256,
+      "name": "notEquals method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -51201,6 +75070,25 @@ Array [
       "ok": true,
       "id": 257,
       "name": "should have unsimilar method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 257,
+      "name": "should have unsimilar method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 257,
+      "name": "should have unsimilar method",
+      "fullname": "",
     },
   ],
   Array [
@@ -51213,6 +75101,25 @@ Array [
       "ok": true,
       "id": 258,
       "name": "unsimilar method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 258,
+      "name": "unsimilar method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 258,
+      "name": "unsimilar method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -51225,6 +75132,25 @@ Array [
       "ok": true,
       "id": 259,
       "name": "should have result method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 259,
+      "name": "should have result method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 259,
+      "name": "should have result method",
+      "fullname": "",
     },
   ],
   Array [
@@ -51237,6 +75163,25 @@ Array [
       "ok": true,
       "id": 260,
       "name": "result method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 260,
+      "name": "result method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 260,
+      "name": "result method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -51249,6 +75194,25 @@ Array [
       "ok": true,
       "id": 261,
       "name": "should have doesNotThrow method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 261,
+      "name": "should have doesNotThrow method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 261,
+      "name": "should have doesNotThrow method",
+      "fullname": "",
     },
   ],
   Array [
@@ -51261,6 +75225,25 @@ Array [
       "ok": true,
       "id": 262,
       "name": "doesNotThrow method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 262,
+      "name": "doesNotThrow method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 262,
+      "name": "doesNotThrow method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -51273,6 +75256,25 @@ Array [
       "ok": true,
       "id": 263,
       "name": "should have error method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 263,
+      "name": "should have error method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 263,
+      "name": "should have error method",
+      "fullname": "",
     },
   ],
   Array [
@@ -51285,6 +75287,25 @@ Array [
       "ok": true,
       "id": 264,
       "name": "error method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 264,
+      "name": "error method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 264,
+      "name": "error method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -51297,6 +75318,25 @@ Array [
       "ok": true,
       "id": 265,
       "name": "should have constructor method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 265,
+      "name": "should have constructor method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 265,
+      "name": "should have constructor method",
+      "fullname": "",
     },
   ],
   Array [
@@ -51309,6 +75349,25 @@ Array [
       "ok": true,
       "id": 266,
       "name": "constructor method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 266,
+      "name": "constructor method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 266,
+      "name": "constructor method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -51321,6 +75380,25 @@ Array [
       "ok": true,
       "id": 267,
       "name": "should have notEqual method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 267,
+      "name": "should have notEqual method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 267,
+      "name": "should have notEqual method",
+      "fullname": "",
     },
   ],
   Array [
@@ -51333,6 +75411,25 @@ Array [
       "ok": true,
       "id": 268,
       "name": "notEqual method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 268,
+      "name": "notEqual method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 268,
+      "name": "notEqual method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -51345,6 +75442,25 @@ Array [
       "ok": true,
       "id": 269,
       "name": "should have throws method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 269,
+      "name": "should have throws method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 269,
+      "name": "should have throws method",
+      "fullname": "",
     },
   ],
   Array [
@@ -51357,6 +75473,25 @@ Array [
       "ok": true,
       "id": 270,
       "name": "throws method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 270,
+      "name": "throws method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 270,
+      "name": "throws method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -51369,6 +75504,25 @@ Array [
       "ok": true,
       "id": 271,
       "name": "should have isLike method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 271,
+      "name": "should have isLike method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 271,
+      "name": "should have isLike method",
+      "fullname": "",
     },
   ],
   Array [
@@ -51381,6 +75535,25 @@ Array [
       "ok": true,
       "id": 272,
       "name": "isLike method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 272,
+      "name": "isLike method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 272,
+      "name": "isLike method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -51393,6 +75566,25 @@ Array [
       "ok": true,
       "id": 273,
       "name": "should have isNotSimilar method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 273,
+      "name": "should have isNotSimilar method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 273,
+      "name": "should have isNotSimilar method",
+      "fullname": "",
     },
   ],
   Array [
@@ -51405,6 +75597,25 @@ Array [
       "ok": true,
       "id": 274,
       "name": "isNotSimilar method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 274,
+      "name": "isNotSimilar method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 274,
+      "name": "isNotSimilar method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -51417,6 +75628,25 @@ Array [
       "ok": true,
       "id": 275,
       "name": "should have isNotEquivalent method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 275,
+      "name": "should have isNotEquivalent method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 275,
+      "name": "should have isNotEquivalent method",
+      "fullname": "",
     },
   ],
   Array [
@@ -51429,6 +75659,25 @@ Array [
       "ok": true,
       "id": 276,
       "name": "isNotEquivalent method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 276,
+      "name": "isNotEquivalent method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 276,
+      "name": "isNotEquivalent method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -51441,6 +75690,25 @@ Array [
       "ok": true,
       "id": 277,
       "name": "should have inequal method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 277,
+      "name": "should have inequal method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 277,
+      "name": "should have inequal method",
+      "fullname": "",
     },
   ],
   Array [
@@ -51453,6 +75721,25 @@ Array [
       "ok": true,
       "id": 278,
       "name": "inequal method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 278,
+      "name": "inequal method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 278,
+      "name": "inequal method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -51465,6 +75752,25 @@ Array [
       "ok": true,
       "id": 279,
       "name": "should have notEquivalent method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 279,
+      "name": "should have notEquivalent method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 279,
+      "name": "should have notEquivalent method",
+      "fullname": "",
     },
   ],
   Array [
@@ -51477,6 +75783,25 @@ Array [
       "ok": true,
       "id": 280,
       "name": "notEquivalent method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 280,
+      "name": "notEquivalent method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 280,
+      "name": "notEquivalent method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -51489,6 +75814,25 @@ Array [
       "ok": true,
       "id": 281,
       "name": "should have isNotLike method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 281,
+      "name": "should have isNotLike method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 281,
+      "name": "should have isNotLike method",
+      "fullname": "",
     },
   ],
   Array [
@@ -51501,6 +75845,25 @@ Array [
       "ok": true,
       "id": 282,
       "name": "isNotLike method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 282,
+      "name": "isNotLike method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 282,
+      "name": "isNotLike method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -51513,6 +75876,25 @@ Array [
       "ok": true,
       "id": 283,
       "name": "should have equivalent method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 283,
+      "name": "should have equivalent method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 283,
+      "name": "should have equivalent method",
+      "fullname": "",
     },
   ],
   Array [
@@ -51525,6 +75907,25 @@ Array [
       "ok": true,
       "id": 284,
       "name": "equivalent method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 284,
+      "name": "equivalent method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 284,
+      "name": "equivalent method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -51537,6 +75938,25 @@ Array [
       "ok": true,
       "id": 285,
       "name": "should have looseEqual method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 285,
+      "name": "should have looseEqual method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 285,
+      "name": "should have looseEqual method",
+      "fullname": "",
     },
   ],
   Array [
@@ -51549,6 +75969,25 @@ Array [
       "ok": true,
       "id": 286,
       "name": "looseEqual method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 286,
+      "name": "looseEqual method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 286,
+      "name": "looseEqual method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -51561,6 +76000,25 @@ Array [
       "ok": true,
       "id": 287,
       "name": "should have equal method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 287,
+      "name": "should have equal method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 287,
+      "name": "should have equal method",
+      "fullname": "",
     },
   ],
   Array [
@@ -51573,6 +76031,25 @@ Array [
       "ok": true,
       "id": 288,
       "name": "equal method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 288,
+      "name": "equal method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 288,
+      "name": "equal method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -51585,6 +76062,25 @@ Array [
       "ok": true,
       "id": 289,
       "name": "should have unlike method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 289,
+      "name": "should have unlike method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 289,
+      "name": "should have unlike method",
+      "fullname": "",
     },
   ],
   Array [
@@ -51597,6 +76093,25 @@ Array [
       "ok": true,
       "id": 290,
       "name": "unlike method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 290,
+      "name": "unlike method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 290,
+      "name": "unlike method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -51609,6 +76124,25 @@ Array [
       "ok": true,
       "id": 291,
       "name": "should have doesNotHave method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 291,
+      "name": "should have doesNotHave method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 291,
+      "name": "should have doesNotHave method",
+      "fullname": "",
     },
   ],
   Array [
@@ -51621,6 +76155,25 @@ Array [
       "ok": true,
       "id": 292,
       "name": "doesNotHave method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 292,
+      "name": "doesNotHave method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 292,
+      "name": "doesNotHave method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -51633,6 +76186,25 @@ Array [
       "ok": true,
       "id": 293,
       "name": "should have comment method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 293,
+      "name": "should have comment method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 293,
+      "name": "should have comment method",
+      "fullname": "",
     },
   ],
   Array [
@@ -51645,6 +76217,25 @@ Array [
       "ok": true,
       "id": 294,
       "name": "comment method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 294,
+      "name": "comment method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 294,
+      "name": "comment method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -51657,6 +76248,25 @@ Array [
       "ok": true,
       "id": 295,
       "name": "should have isa method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 295,
+      "name": "should have isa method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 295,
+      "name": "should have isa method",
+      "fullname": "",
     },
   ],
   Array [
@@ -51669,6 +76279,25 @@ Array [
       "ok": true,
       "id": 296,
       "name": "isa method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 296,
+      "name": "isa method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 296,
+      "name": "isa method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -51705,6 +76334,25 @@ Array [
       "ok": true,
       "id": 297,
       "name": "test/test-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 297,
+      "name": "test/test-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 297,
+      "name": "test/test-test.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -51741,6 +76389,25 @@ Array [
       "ok": true,
       "id": 298,
       "name": "a",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 298,
+      "name": "a",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 298,
+      "name": "a",
+      "fullname": "",
     },
   ],
   Array [
@@ -51753,6 +76420,25 @@ Array [
       "ok": true,
       "id": 299,
       "name": "b",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 299,
+      "name": "b",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 299,
+      "name": "b",
+      "fullname": "",
     },
   ],
   Array [
@@ -51773,6 +76459,25 @@ Array [
       "ok": true,
       "id": 300,
       "name": "a",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 300,
+      "name": "a",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 300,
+      "name": "a",
+      "fullname": "",
     },
   ],
   Array [
@@ -51785,6 +76490,25 @@ Array [
       "ok": true,
       "id": 301,
       "name": "b",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 301,
+      "name": "b",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 301,
+      "name": "b",
+      "fullname": "",
     },
   ],
   Array [
@@ -51821,6 +76545,25 @@ Array [
       "ok": true,
       "id": 302,
       "name": "test/timeout.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 302,
+      "name": "test/timeout.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 302,
+      "name": "test/timeout.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -51841,6 +76584,25 @@ Array [
       "ok": true,
       "id": 303,
       "name": "test/trivial-success.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 303,
+      "name": "test/trivial-success.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 303,
+      "name": "test/trivial-success.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -51877,6 +76639,25 @@ Array [
       "ok": true,
       "id": 304,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 304,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 304,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -51913,6 +76694,25 @@ Array [
       "ok": true,
       "id": 305,
       "name": "test/undefined_indented.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 305,
+      "name": "test/undefined_indented.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 305,
+      "name": "test/undefined_indented.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -51949,6 +76749,25 @@ Array [
       "ok": true,
       "id": 306,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 306,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 306,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -51961,6 +76780,25 @@ Array [
       "ok": true,
       "id": 307,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 307,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 307,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -51973,6 +76811,25 @@ Array [
       "ok": true,
       "id": 308,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 308,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 308,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -51985,6 +76842,25 @@ Array [
       "ok": true,
       "id": 309,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 309,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 309,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -51997,6 +76873,25 @@ Array [
       "ok": true,
       "id": 310,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 310,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 310,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -52009,6 +76904,25 @@ Array [
       "ok": true,
       "id": 311,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 311,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 311,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -52045,6 +76959,25 @@ Array [
       "ok": true,
       "id": 312,
       "name": "test/valid-command.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 312,
+      "name": "test/valid-command.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 312,
+      "name": "test/valid-command.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -52161,6 +77094,7 @@ Array [
               "emitOne (events.js:77:13)\\n",
             ],
           },
+          "fullname": "",
         },
         Result {
           "ok": false,
@@ -52182,6 +77116,7 @@ Array [
               "Process.ChildProcess._handle.onexit (child_process.js:1057:5)\\n",
             ],
           },
+          "fullname": "",
         },
         Result {
           "ok": false,
@@ -52203,6 +77138,7 @@ Array [
               "Process.ChildProcess._handle.onexit (child_process.js:1057:5)\\n",
             ],
           },
+          "fullname": "",
         },
         Result {
           "ok": false,
@@ -52224,6 +77160,7 @@ Array [
               "Process.ChildProcess._handle.onexit (child_process.js:1057:5)\\n",
             ],
           },
+          "fullname": "",
         },
         Result {
           "ok": false,
@@ -52233,6 +77170,7 @@ Array [
             "exit": 1,
             "command": "/usr/local/bin/iojs test-descriptions.js",
           },
+          "fullname": "",
         },
       ],
     },
@@ -52284,6 +77222,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -52304,6 +77261,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "should not be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "should not be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "should not be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -52340,6 +77316,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "test/buffer_compare.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "test/buffer_compare.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "test/buffer_compare.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -52360,6 +77355,25 @@ Array [
       "ok": true,
       "id": 4,
       "name": "just setup, nothing relevant",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "just setup, nothing relevant",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "just setup, nothing relevant",
+      "fullname": "",
     },
   ],
   Array [
@@ -52372,6 +77386,25 @@ Array [
       "ok": true,
       "id": 5,
       "name": "test/common.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "name": "test/common.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "name": "test/common.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -52408,6 +77441,25 @@ Array [
       "ok": true,
       "id": 6,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 6,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 6,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -52428,6 +77480,25 @@ Array [
       "ok": true,
       "id": 7,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 7,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 7,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -52448,6 +77519,25 @@ Array [
       "ok": true,
       "id": 8,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 8,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 8,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -52468,6 +77558,25 @@ Array [
       "ok": true,
       "id": 9,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 9,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 9,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -52488,6 +77597,25 @@ Array [
       "ok": true,
       "id": 10,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 10,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 10,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -52536,6 +77664,25 @@ Array [
       "ok": true,
       "id": 11,
       "name": "test/consumer.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 11,
+      "name": "test/consumer.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 11,
+      "name": "test/consumer.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -52584,6 +77731,25 @@ Array [
       "ok": true,
       "id": 12,
       "name": "Should output debugger message",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 12,
+      "name": "Should output debugger message",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 12,
+      "name": "Should output debugger message",
+      "fullname": "",
     },
   ],
   Array [
@@ -52620,6 +77786,25 @@ Array [
       "ok": true,
       "id": 13,
       "name": "test/debug-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 13,
+      "name": "test/debug-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 13,
+      "name": "test/debug-test.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -52656,6 +77841,25 @@ Array [
       "ok": true,
       "id": 14,
       "name": "should be strictly equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 14,
+      "name": "should be strictly equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 14,
+      "name": "should be strictly equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -52676,6 +77880,25 @@ Array [
       "ok": true,
       "id": 15,
       "name": "should be strictly equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 15,
+      "name": "should be strictly equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 15,
+      "name": "should be strictly equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -52696,6 +77919,25 @@ Array [
       "ok": true,
       "id": 16,
       "name": "should be strictly equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 16,
+      "name": "should be strictly equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 16,
+      "name": "should be strictly equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -52732,6 +77974,25 @@ Array [
       "ok": true,
       "id": 17,
       "name": "test/deep-strict.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 17,
+      "name": "test/deep-strict.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 17,
+      "name": "test/deep-strict.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -52768,6 +78029,25 @@ Array [
       "ok": true,
       "id": 18,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 18,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 18,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -52788,6 +78068,25 @@ Array [
       "ok": true,
       "id": 19,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 19,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 19,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -52808,6 +78107,25 @@ Array [
       "ok": true,
       "id": 20,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 20,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 20,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -52844,6 +78162,25 @@ Array [
       "ok": true,
       "id": 21,
       "name": "test/deep.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 21,
+      "name": "test/deep.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 21,
+      "name": "test/deep.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -52864,6 +78201,25 @@ Array [
       "ok": true,
       "id": 22,
       "name": "File with executable bit should be executed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 22,
+      "name": "File with executable bit should be executed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 22,
+      "name": "File with executable bit should be executed",
+      "fullname": "",
     },
   ],
   Array [
@@ -52876,6 +78232,25 @@ Array [
       "ok": true,
       "id": 23,
       "name": "test/executed.sh",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 23,
+      "name": "test/executed.sh",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 23,
+      "name": "test/executed.sh",
+      "fullname": "",
     },
   ],
   Array [
@@ -52920,6 +78295,25 @@ Array [
       "ok": true,
       "id": 24,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 24,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 24,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -52932,6 +78326,25 @@ Array [
       "ok": true,
       "id": 25,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 25,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 25,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -52952,6 +78365,25 @@ Array [
       "ok": true,
       "id": 26,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 26,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 26,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -52964,6 +78396,25 @@ Array [
       "ok": true,
       "id": 27,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 27,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 27,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -52984,6 +78435,25 @@ Array [
       "ok": true,
       "id": 28,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 28,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 28,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -52996,6 +78466,25 @@ Array [
       "ok": true,
       "id": 29,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 29,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 29,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -53024,6 +78513,25 @@ Array [
       "ok": true,
       "id": 30,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 30,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 30,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -53036,6 +78544,25 @@ Array [
       "ok": true,
       "id": 31,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 31,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 31,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -53056,6 +78583,25 @@ Array [
       "ok": true,
       "id": 32,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 32,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 32,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -53068,6 +78614,25 @@ Array [
       "ok": true,
       "id": 33,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 33,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 33,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -53148,6 +78713,25 @@ Array [
       "ok": true,
       "id": 34,
       "name": "test/exit-code.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 34,
+      "name": "test/exit-code.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 34,
+      "name": "test/exit-code.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -53228,6 +78812,25 @@ Array [
       "ok": true,
       "id": 35,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 35,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 35,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -53256,6 +78859,25 @@ Array [
       "ok": true,
       "id": 36,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 36,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 36,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -53276,6 +78898,25 @@ Array [
       "ok": true,
       "id": 37,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 37,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 37,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -53320,6 +78961,25 @@ Array [
       "ok": true,
       "id": 38,
       "name": "test/expose-gc-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 38,
+      "name": "test/expose-gc-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 38,
+      "name": "test/expose-gc-test.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -53364,6 +79024,25 @@ Array [
       "ok": true,
       "id": 39,
       "name": "1-1",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 39,
+      "name": "1-1",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 39,
+      "name": "1-1",
+      "fullname": "",
     },
   ],
   Array [
@@ -53384,6 +79063,25 @@ Array [
       "ok": true,
       "id": 40,
       "name": "2-1",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 40,
+      "name": "2-1",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 40,
+      "name": "2-1",
+      "fullname": "",
     },
   ],
   Array [
@@ -53404,6 +79102,25 @@ Array [
       "ok": true,
       "id": 41,
       "name": "3-1",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 41,
+      "name": "3-1",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 41,
+      "name": "3-1",
+      "fullname": "",
     },
   ],
   Array [
@@ -53416,6 +79133,25 @@ Array [
       "ok": true,
       "id": 42,
       "name": "test/global-harness-async.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 42,
+      "name": "test/global-harness-async.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 42,
+      "name": "test/global-harness-async.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -53476,6 +79212,25 @@ Array [
       "ok": true,
       "id": 43,
       "name": "test/independent-timeouts.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 43,
+      "name": "test/independent-timeouts.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 43,
+      "name": "test/independent-timeouts.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -53512,6 +79267,25 @@ Array [
       "ok": true,
       "id": 44,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 44,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 44,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -53524,6 +79298,25 @@ Array [
       "ok": true,
       "id": 45,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 45,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 45,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -53544,6 +79337,25 @@ Array [
       "ok": true,
       "id": 46,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 46,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 46,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -53556,6 +79368,25 @@ Array [
       "ok": true,
       "id": 47,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 47,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 47,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -53592,6 +79423,25 @@ Array [
       "ok": true,
       "id": 48,
       "name": "test/isolated-conf-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 48,
+      "name": "test/isolated-conf-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 48,
+      "name": "test/isolated-conf-test.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -53628,6 +79478,25 @@ Array [
       "ok": true,
       "id": 49,
       "name": "sanity check",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 49,
+      "name": "sanity check",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 49,
+      "name": "sanity check",
+      "fullname": "",
     },
   ],
   Array [
@@ -53640,6 +79509,25 @@ Array [
       "ok": true,
       "id": 50,
       "name": "not ok",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 50,
+      "name": "not ok",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 50,
+      "name": "not ok",
+      "fullname": "",
     },
   ],
   Array [
@@ -53652,6 +79540,25 @@ Array [
       "ok": true,
       "id": 51,
       "name": "total test count",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 51,
+      "name": "total test count",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 51,
+      "name": "total test count",
+      "fullname": "",
     },
   ],
   Array [
@@ -53664,6 +79571,25 @@ Array [
       "ok": true,
       "id": 52,
       "name": "tests passed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 52,
+      "name": "tests passed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 52,
+      "name": "tests passed",
+      "fullname": "",
     },
   ],
   Array [
@@ -53676,6 +79602,25 @@ Array [
       "ok": true,
       "id": 53,
       "name": "tests failed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 53,
+      "name": "tests failed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 53,
+      "name": "tests failed",
+      "fullname": "",
     },
   ],
   Array [
@@ -53688,6 +79633,25 @@ Array [
       "ok": true,
       "id": 54,
       "name": "ok is boolean",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 54,
+      "name": "ok is boolean",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 54,
+      "name": "ok is boolean",
+      "fullname": "",
     },
   ],
   Array [
@@ -53700,6 +79664,25 @@ Array [
       "ok": true,
       "id": 55,
       "name": "skip is number",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 55,
+      "name": "skip is number",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 55,
+      "name": "skip is number",
+      "fullname": "",
     },
   ],
   Array [
@@ -53712,6 +79695,25 @@ Array [
       "ok": true,
       "id": 56,
       "name": "results isa Results",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 56,
+      "name": "results isa Results",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 56,
+      "name": "results isa Results",
+      "fullname": "",
     },
   ],
   Array [
@@ -53724,6 +79726,25 @@ Array [
       "ok": true,
       "id": 57,
       "name": "test isa Test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 57,
+      "name": "test isa Test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 57,
+      "name": "test isa Test",
+      "fullname": "",
     },
   ],
   Array [
@@ -53736,6 +79757,25 @@ Array [
       "ok": true,
       "id": 58,
       "name": "test isa Harness",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 58,
+      "name": "test isa Harness",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 58,
+      "name": "test isa Harness",
+      "fullname": "",
     },
   ],
   Array [
@@ -53772,6 +79812,25 @@ Array [
       "ok": true,
       "id": 59,
       "name": "test/meta-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 59,
+      "name": "test/meta-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 59,
+      "name": "test/meta-test.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -53808,6 +79867,25 @@ Array [
       "ok": true,
       "id": 60,
       "name": "sync child A",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 60,
+      "name": "sync child A",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 60,
+      "name": "sync child A",
+      "fullname": "",
     },
   ],
   Array [
@@ -53836,6 +79914,25 @@ Array [
       "ok": true,
       "id": 61,
       "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 61,
+      "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 61,
+      "name": "(unnamed assert)",
+      "fullname": "",
     },
   ],
   Array [
@@ -53856,6 +79953,25 @@ Array [
       "ok": true,
       "id": 62,
       "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 62,
+      "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 62,
+      "name": "(unnamed assert)",
+      "fullname": "",
     },
   ],
   Array [
@@ -53876,6 +79992,25 @@ Array [
       "ok": true,
       "id": 63,
       "name": "sync grandchild in async child A",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 63,
+      "name": "sync grandchild in async child A",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 63,
+      "name": "sync grandchild in async child A",
+      "fullname": "",
     },
   ],
   Array [
@@ -53896,6 +80031,25 @@ Array [
       "ok": true,
       "id": 64,
       "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 64,
+      "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 64,
+      "name": "(unnamed assert)",
+      "fullname": "",
     },
   ],
   Array [
@@ -53932,6 +80086,25 @@ Array [
       "ok": true,
       "id": 65,
       "name": "test/nested-async.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 65,
+      "name": "test/nested-async.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 65,
+      "name": "test/nested-async.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -53968,6 +80141,25 @@ Array [
       "ok": true,
       "id": 66,
       "name": "p test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 66,
+      "name": "p test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 66,
+      "name": "p test",
+      "fullname": "",
     },
   ],
   Array [
@@ -53988,6 +80180,25 @@ Array [
       "ok": true,
       "id": 67,
       "name": "ch test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 67,
+      "name": "ch test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 67,
+      "name": "ch test",
+      "fullname": "",
     },
   ],
   Array [
@@ -54008,6 +80219,25 @@ Array [
       "ok": true,
       "id": 68,
       "name": "grch test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 68,
+      "name": "grch test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 68,
+      "name": "grch test",
+      "fullname": "",
     },
   ],
   Array [
@@ -54028,6 +80258,25 @@ Array [
       "ok": true,
       "id": 69,
       "name": "ch test 2",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 69,
+      "name": "ch test 2",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 69,
+      "name": "ch test 2",
+      "fullname": "",
     },
   ],
   Array [
@@ -54064,6 +80313,25 @@ Array [
       "ok": true,
       "id": 70,
       "name": "test/nested-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 70,
+      "name": "test/nested-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 70,
+      "name": "test/nested-test.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -54116,6 +80384,25 @@ Array [
       "ok": true,
       "id": 71,
       "name": ", 8 can stay.",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 71,
+      "name": ", 8 can stay.",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 71,
+      "name": ", 8 can stay.",
+      "fullname": "",
     },
   ],
   Array [
@@ -54168,6 +80455,25 @@ Array [
       "ok": true,
       "id": 72,
       "name": "might be confusing",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 72,
+      "name": "might be confusing",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 72,
+      "name": "might be confusing",
+      "fullname": "",
     },
   ],
   Array [
@@ -54180,6 +80486,25 @@ Array [
       "ok": true,
       "id": 73,
       "name": "done now, exiting",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 73,
+      "name": "done now, exiting",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 73,
+      "name": "done now, exiting",
+      "fullname": "",
     },
   ],
   Array [
@@ -54192,6 +80517,25 @@ Array [
       "ok": true,
       "id": 74,
       "name": "test/non-tap-output.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 74,
+      "name": "test/non-tap-output.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 74,
+      "name": "test/non-tap-output.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -54244,6 +80588,25 @@ Array [
       "ok": true,
       "id": 75,
       "name": "outputs parent description",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 75,
+      "name": "outputs parent description",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 75,
+      "name": "outputs parent description",
+      "fullname": "",
     },
   ],
   Array [
@@ -54256,6 +80619,25 @@ Array [
       "ok": true,
       "id": 76,
       "name": "outputs child description",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 76,
+      "name": "outputs child description",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 76,
+      "name": "outputs child description",
+      "fullname": "",
     },
   ],
   Array [
@@ -54268,6 +80650,25 @@ Array [
       "ok": true,
       "id": 77,
       "name": "outputs parent description before parent result",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 77,
+      "name": "outputs parent description before parent result",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 77,
+      "name": "outputs parent description before parent result",
+      "fullname": "",
     },
   ],
   Array [
@@ -54280,6 +80681,25 @@ Array [
       "ok": true,
       "id": 78,
       "name": "outputs parent result before child description",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 78,
+      "name": "outputs parent result before child description",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 78,
+      "name": "outputs parent result before child description",
+      "fullname": "",
     },
   ],
   Array [
@@ -54292,6 +80712,25 @@ Array [
       "ok": true,
       "id": 79,
       "name": "outputs child description before child result",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 79,
+      "name": "outputs child description before child result",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 79,
+      "name": "outputs child description before child result",
+      "fullname": "",
     },
   ],
   Array [
@@ -54328,6 +80767,25 @@ Array [
       "ok": true,
       "id": 80,
       "name": "test/output-childtest-description.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 80,
+      "name": "test/output-childtest-description.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 80,
+      "name": "test/output-childtest-description.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -54364,6 +80822,25 @@ Array [
       "ok": true,
       "id": 81,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 81,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 81,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -54376,6 +80853,25 @@ Array [
       "ok": true,
       "id": 82,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 82,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 82,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -54412,6 +80908,25 @@ Array [
       "ok": true,
       "id": 83,
       "name": "test/result-trap.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 83,
+      "name": "test/result-trap.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 83,
+      "name": "test/result-trap.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -54448,6 +80963,25 @@ Array [
       "ok": true,
       "id": 84,
       "name": "compiled seg faulter",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 84,
+      "name": "compiled seg faulter",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 84,
+      "name": "compiled seg faulter",
+      "fullname": "",
     },
   ],
   Array [
@@ -54468,6 +81002,25 @@ Array [
       "ok": true,
       "id": 85,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 85,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 85,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -54480,6 +81033,25 @@ Array [
       "ok": true,
       "id": 86,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 86,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 86,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -54492,6 +81064,25 @@ Array [
       "ok": true,
       "id": 87,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 87,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 87,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -54504,6 +81095,25 @@ Array [
       "ok": true,
       "id": 88,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 88,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 88,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -54516,6 +81126,25 @@ Array [
       "ok": true,
       "id": 89,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 89,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 89,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -54528,6 +81157,25 @@ Array [
       "ok": true,
       "id": 90,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 90,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 90,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -54548,6 +81196,25 @@ Array [
       "ok": true,
       "id": 91,
       "name": "cleaned up",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 91,
+      "name": "cleaned up",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 91,
+      "name": "cleaned up",
+      "fullname": "",
     },
   ],
   Array [
@@ -54584,6 +81251,25 @@ Array [
       "ok": true,
       "id": 92,
       "name": "test/segv.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 92,
+      "name": "test/segv.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 92,
+      "name": "test/segv.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -54620,6 +81306,25 @@ Array [
       "ok": true,
       "id": 93,
       "name": "it works",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 93,
+      "name": "it works",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 93,
+      "name": "it works",
+      "fullname": "",
     },
   ],
   Array [
@@ -54640,6 +81345,25 @@ Array [
       "ok": true,
       "id": 94,
       "name": "math should work",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 94,
+      "name": "math should work",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 94,
+      "name": "math should work",
+      "fullname": "",
     },
   ],
   Array [
@@ -54652,6 +81376,25 @@ Array [
       "ok": true,
       "id": 95,
       "name": "false should not be ok",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 95,
+      "name": "false should not be ok",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 95,
+      "name": "false should not be ok",
+      "fullname": "",
     },
   ],
   Array [
@@ -54688,6 +81431,25 @@ Array [
       "ok": true,
       "id": 96,
       "name": "test/simple-harness-test-with-plan.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 96,
+      "name": "test/simple-harness-test-with-plan.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 96,
+      "name": "test/simple-harness-test-with-plan.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -54724,6 +81486,25 @@ Array [
       "ok": true,
       "id": 97,
       "name": "it works",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 97,
+      "name": "it works",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 97,
+      "name": "it works",
+      "fullname": "",
     },
   ],
   Array [
@@ -54744,6 +81525,25 @@ Array [
       "ok": true,
       "id": 98,
       "name": "math should work",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 98,
+      "name": "math should work",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 98,
+      "name": "math should work",
+      "fullname": "",
     },
   ],
   Array [
@@ -54756,6 +81556,25 @@ Array [
       "ok": true,
       "id": 99,
       "name": "false should not be ok",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 99,
+      "name": "false should not be ok",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 99,
+      "name": "false should not be ok",
+      "fullname": "",
     },
   ],
   Array [
@@ -54792,6 +81611,25 @@ Array [
       "ok": true,
       "id": 100,
       "name": "test/simple-harness-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 100,
+      "name": "test/simple-harness-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 100,
+      "name": "test/simple-harness-test.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -54829,6 +81667,27 @@ Array [
       "id": 101,
       "skip": "skip it good",
       "name": "always passes",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 101,
+      "skip": "skip it good",
+      "name": "always passes",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "skip",
+    Result {
+      "ok": true,
+      "id": 101,
+      "skip": "skip it good",
+      "name": "always passes",
+      "fullname": "",
     },
   ],
   Array [
@@ -54842,6 +81701,27 @@ Array [
       "id": 102,
       "skip": "always fails",
       "name": "false",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 102,
+      "skip": "always fails",
+      "name": "false",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "skip",
+    Result {
+      "ok": true,
+      "id": 102,
+      "skip": "always fails",
+      "name": "false",
+      "fullname": "",
     },
   ],
   Array [
@@ -54855,6 +81735,27 @@ Array [
       "id": 103,
       "todo": "remove todo directive",
       "name": "bonus",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 103,
+      "todo": "remove todo directive",
+      "name": "bonus",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": true,
+      "id": 103,
+      "todo": "remove todo directive",
+      "name": "bonus",
+      "fullname": "",
     },
   ],
   Array [
@@ -54868,6 +81769,27 @@ Array [
       "id": 104,
       "todo": "implement a thing",
       "name": "expected",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 104,
+      "todo": "implement a thing",
+      "name": "expected",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": true,
+      "id": 104,
+      "todo": "implement a thing",
+      "name": "expected",
+      "fullname": "",
     },
   ],
   Array [
@@ -54881,6 +81803,27 @@ Array [
       "id": 105,
       "skip": true,
       "name": "always passes without explanation",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 105,
+      "skip": true,
+      "name": "always passes without explanation",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "skip",
+    Result {
+      "ok": true,
+      "id": 105,
+      "skip": true,
+      "name": "always passes without explanation",
+      "fullname": "",
     },
   ],
   Array [
@@ -54894,6 +81837,27 @@ Array [
       "id": 106,
       "skip": true,
       "name": "false without explanation",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 106,
+      "skip": true,
+      "name": "false without explanation",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "skip",
+    Result {
+      "ok": true,
+      "id": 106,
+      "skip": true,
+      "name": "false without explanation",
+      "fullname": "",
     },
   ],
   Array [
@@ -54907,6 +81871,27 @@ Array [
       "id": 107,
       "todo": true,
       "name": "bonus without explanation",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 107,
+      "todo": true,
+      "name": "bonus without explanation",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": true,
+      "id": 107,
+      "todo": true,
+      "name": "bonus without explanation",
+      "fullname": "",
     },
   ],
   Array [
@@ -54920,6 +81905,27 @@ Array [
       "id": 108,
       "todo": true,
       "name": "expected without explanation",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 108,
+      "todo": true,
+      "name": "expected without explanation",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": true,
+      "id": 108,
+      "todo": true,
+      "name": "expected without explanation",
+      "fullname": "",
     },
   ],
   Array [
@@ -54956,6 +81962,25 @@ Array [
       "ok": true,
       "id": 109,
       "name": "test/test-assert-todo-skip.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 109,
+      "name": "test/test-assert-todo-skip.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 109,
+      "name": "test/test-assert-todo-skip.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -54992,6 +82017,25 @@ Array [
       "ok": true,
       "id": 110,
       "name": "exit cleanly",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 110,
+      "name": "exit cleanly",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 110,
+      "name": "exit cleanly",
+      "fullname": "",
     },
   ],
   Array [
@@ -55004,6 +82048,25 @@ Array [
       "ok": true,
       "id": 111,
       "name": "captures SKIP description",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 111,
+      "name": "captures SKIP description",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 111,
+      "name": "captures SKIP description",
+      "fullname": "",
     },
   ],
   Array [
@@ -55016,6 +82079,25 @@ Array [
       "ok": true,
       "id": 112,
       "name": "skip summary is not from file",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 112,
+      "name": "skip summary is not from file",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 112,
+      "name": "skip summary is not from file",
+      "fullname": "",
     },
   ],
   Array [
@@ -55028,6 +82110,25 @@ Array [
       "ok": true,
       "id": 113,
       "name": "todo summary is not from file",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 113,
+      "name": "todo summary is not from file",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 113,
+      "name": "todo summary is not from file",
+      "fullname": "",
     },
   ],
   Array [
@@ -55161,6 +82262,59 @@ Array [
           "emitOne (events.js:77:13)\\n",
         ],
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 114,
+      "name": "captures TODO description",
+      "diag": Object {
+        "file": "child_process.js",
+        "line": 707,
+        "column": 7,
+        "stack": Array [
+          "getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\\n",
+          "Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\\n",
+          "Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\\n",
+          "/Users/isaacs/dev/js/tap/test/test-descriptions.js:32:7\\n",
+          "ChildProcess.exithandler (child_process.js:707:7)\\n",
+          "emitTwo (events.js:87:13)\\n",
+          "ChildProcess.emit (events.js:169:7)\\n",
+          "maybeClose (child_process.js:984:16)\\n",
+          "Socket.<anonymous> (child_process.js:1153:11)\\n",
+          "emitOne (events.js:77:13)\\n",
+        ],
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 114,
+      "name": "captures TODO description",
+      "diag": Object {
+        "file": "child_process.js",
+        "line": 707,
+        "column": 7,
+        "stack": Array [
+          "getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\\n",
+          "Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\\n",
+          "Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\\n",
+          "/Users/isaacs/dev/js/tap/test/test-descriptions.js:32:7\\n",
+          "ChildProcess.exithandler (child_process.js:707:7)\\n",
+          "emitTwo (events.js:87:13)\\n",
+          "ChildProcess.emit (events.js:169:7)\\n",
+          "maybeClose (child_process.js:984:16)\\n",
+          "Socket.<anonymous> (child_process.js:1153:11)\\n",
+          "emitOne (events.js:77:13)\\n",
+        ],
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -55210,6 +82364,7 @@ Array [
               "emitOne (events.js:77:13)\\n",
             ],
           },
+          "fullname": "",
         },
       ],
     },
@@ -55261,6 +82416,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -55281,6 +82455,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "should not be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "should not be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "should not be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -55317,6 +82510,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "test/buffer_compare.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "test/buffer_compare.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "test/buffer_compare.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -55337,6 +82549,25 @@ Array [
       "ok": true,
       "id": 4,
       "name": "just setup, nothing relevant",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "just setup, nothing relevant",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "just setup, nothing relevant",
+      "fullname": "",
     },
   ],
   Array [
@@ -55349,6 +82580,25 @@ Array [
       "ok": true,
       "id": 5,
       "name": "test/common.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "name": "test/common.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "name": "test/common.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -55385,6 +82635,25 @@ Array [
       "ok": true,
       "id": 6,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 6,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 6,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -55405,6 +82674,25 @@ Array [
       "ok": true,
       "id": 7,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 7,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 7,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -55425,6 +82713,25 @@ Array [
       "ok": true,
       "id": 8,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 8,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 8,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -55445,6 +82752,25 @@ Array [
       "ok": true,
       "id": 9,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 9,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 9,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -55465,6 +82791,25 @@ Array [
       "ok": true,
       "id": 10,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 10,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 10,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -55513,6 +82858,25 @@ Array [
       "ok": true,
       "id": 11,
       "name": "test/consumer.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 11,
+      "name": "test/consumer.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 11,
+      "name": "test/consumer.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -55561,6 +82925,25 @@ Array [
       "ok": true,
       "id": 12,
       "name": "Should output debugger message",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 12,
+      "name": "Should output debugger message",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 12,
+      "name": "Should output debugger message",
+      "fullname": "",
     },
   ],
   Array [
@@ -55597,6 +82980,25 @@ Array [
       "ok": true,
       "id": 13,
       "name": "test/debug-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 13,
+      "name": "test/debug-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 13,
+      "name": "test/debug-test.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -55633,6 +83035,25 @@ Array [
       "ok": true,
       "id": 14,
       "name": "should be strictly equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 14,
+      "name": "should be strictly equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 14,
+      "name": "should be strictly equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -55653,6 +83074,25 @@ Array [
       "ok": true,
       "id": 15,
       "name": "should be strictly equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 15,
+      "name": "should be strictly equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 15,
+      "name": "should be strictly equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -55673,6 +83113,25 @@ Array [
       "ok": true,
       "id": 16,
       "name": "should be strictly equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 16,
+      "name": "should be strictly equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 16,
+      "name": "should be strictly equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -55709,6 +83168,25 @@ Array [
       "ok": true,
       "id": 17,
       "name": "test/deep-strict.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 17,
+      "name": "test/deep-strict.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 17,
+      "name": "test/deep-strict.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -55745,6 +83223,25 @@ Array [
       "ok": true,
       "id": 18,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 18,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 18,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -55765,6 +83262,25 @@ Array [
       "ok": true,
       "id": 19,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 19,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 19,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -55785,6 +83301,25 @@ Array [
       "ok": true,
       "id": 20,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 20,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 20,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -55821,6 +83356,25 @@ Array [
       "ok": true,
       "id": 21,
       "name": "test/deep.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 21,
+      "name": "test/deep.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 21,
+      "name": "test/deep.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -55841,6 +83395,25 @@ Array [
       "ok": true,
       "id": 22,
       "name": "File with executable bit should be executed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 22,
+      "name": "File with executable bit should be executed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 22,
+      "name": "File with executable bit should be executed",
+      "fullname": "",
     },
   ],
   Array [
@@ -55853,6 +83426,25 @@ Array [
       "ok": true,
       "id": 23,
       "name": "test/executed.sh",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 23,
+      "name": "test/executed.sh",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 23,
+      "name": "test/executed.sh",
+      "fullname": "",
     },
   ],
   Array [
@@ -55897,6 +83489,25 @@ Array [
       "ok": true,
       "id": 24,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 24,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 24,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -55909,6 +83520,25 @@ Array [
       "ok": true,
       "id": 25,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 25,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 25,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -55929,6 +83559,25 @@ Array [
       "ok": true,
       "id": 26,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 26,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 26,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -55941,6 +83590,25 @@ Array [
       "ok": true,
       "id": 27,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 27,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 27,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -55961,6 +83629,25 @@ Array [
       "ok": true,
       "id": 28,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 28,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 28,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -55973,6 +83660,25 @@ Array [
       "ok": true,
       "id": 29,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 29,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 29,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -56001,6 +83707,25 @@ Array [
       "ok": true,
       "id": 30,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 30,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 30,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -56013,6 +83738,25 @@ Array [
       "ok": true,
       "id": 31,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 31,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 31,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -56033,6 +83777,25 @@ Array [
       "ok": true,
       "id": 32,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 32,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 32,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -56045,6 +83808,25 @@ Array [
       "ok": true,
       "id": 33,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 33,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 33,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -56125,6 +83907,25 @@ Array [
       "ok": true,
       "id": 34,
       "name": "test/exit-code.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 34,
+      "name": "test/exit-code.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 34,
+      "name": "test/exit-code.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -56205,6 +84006,25 @@ Array [
       "ok": true,
       "id": 35,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 35,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 35,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -56233,6 +84053,25 @@ Array [
       "ok": true,
       "id": 36,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 36,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 36,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -56253,6 +84092,25 @@ Array [
       "ok": true,
       "id": 37,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 37,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 37,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -56297,6 +84155,25 @@ Array [
       "ok": true,
       "id": 38,
       "name": "test/expose-gc-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 38,
+      "name": "test/expose-gc-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 38,
+      "name": "test/expose-gc-test.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -56341,6 +84218,25 @@ Array [
       "ok": true,
       "id": 39,
       "name": "1-1",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 39,
+      "name": "1-1",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 39,
+      "name": "1-1",
+      "fullname": "",
     },
   ],
   Array [
@@ -56361,6 +84257,25 @@ Array [
       "ok": true,
       "id": 40,
       "name": "2-1",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 40,
+      "name": "2-1",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 40,
+      "name": "2-1",
+      "fullname": "",
     },
   ],
   Array [
@@ -56381,6 +84296,25 @@ Array [
       "ok": true,
       "id": 41,
       "name": "3-1",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 41,
+      "name": "3-1",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 41,
+      "name": "3-1",
+      "fullname": "",
     },
   ],
   Array [
@@ -56393,6 +84327,25 @@ Array [
       "ok": true,
       "id": 42,
       "name": "test/global-harness-async.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 42,
+      "name": "test/global-harness-async.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 42,
+      "name": "test/global-harness-async.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -56453,6 +84406,25 @@ Array [
       "ok": true,
       "id": 43,
       "name": "test/independent-timeouts.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 43,
+      "name": "test/independent-timeouts.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 43,
+      "name": "test/independent-timeouts.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -56489,6 +84461,25 @@ Array [
       "ok": true,
       "id": 44,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 44,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 44,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -56501,6 +84492,25 @@ Array [
       "ok": true,
       "id": 45,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 45,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 45,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -56521,6 +84531,25 @@ Array [
       "ok": true,
       "id": 46,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 46,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 46,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -56533,6 +84562,25 @@ Array [
       "ok": true,
       "id": 47,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 47,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 47,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -56569,6 +84617,25 @@ Array [
       "ok": true,
       "id": 48,
       "name": "test/isolated-conf-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 48,
+      "name": "test/isolated-conf-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 48,
+      "name": "test/isolated-conf-test.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -56605,6 +84672,25 @@ Array [
       "ok": true,
       "id": 49,
       "name": "sanity check",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 49,
+      "name": "sanity check",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 49,
+      "name": "sanity check",
+      "fullname": "",
     },
   ],
   Array [
@@ -56617,6 +84703,25 @@ Array [
       "ok": true,
       "id": 50,
       "name": "not ok",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 50,
+      "name": "not ok",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 50,
+      "name": "not ok",
+      "fullname": "",
     },
   ],
   Array [
@@ -56629,6 +84734,25 @@ Array [
       "ok": true,
       "id": 51,
       "name": "total test count",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 51,
+      "name": "total test count",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 51,
+      "name": "total test count",
+      "fullname": "",
     },
   ],
   Array [
@@ -56641,6 +84765,25 @@ Array [
       "ok": true,
       "id": 52,
       "name": "tests passed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 52,
+      "name": "tests passed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 52,
+      "name": "tests passed",
+      "fullname": "",
     },
   ],
   Array [
@@ -56653,6 +84796,25 @@ Array [
       "ok": true,
       "id": 53,
       "name": "tests failed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 53,
+      "name": "tests failed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 53,
+      "name": "tests failed",
+      "fullname": "",
     },
   ],
   Array [
@@ -56665,6 +84827,25 @@ Array [
       "ok": true,
       "id": 54,
       "name": "ok is boolean",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 54,
+      "name": "ok is boolean",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 54,
+      "name": "ok is boolean",
+      "fullname": "",
     },
   ],
   Array [
@@ -56677,6 +84858,25 @@ Array [
       "ok": true,
       "id": 55,
       "name": "skip is number",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 55,
+      "name": "skip is number",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 55,
+      "name": "skip is number",
+      "fullname": "",
     },
   ],
   Array [
@@ -56689,6 +84889,25 @@ Array [
       "ok": true,
       "id": 56,
       "name": "results isa Results",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 56,
+      "name": "results isa Results",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 56,
+      "name": "results isa Results",
+      "fullname": "",
     },
   ],
   Array [
@@ -56701,6 +84920,25 @@ Array [
       "ok": true,
       "id": 57,
       "name": "test isa Test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 57,
+      "name": "test isa Test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 57,
+      "name": "test isa Test",
+      "fullname": "",
     },
   ],
   Array [
@@ -56713,6 +84951,25 @@ Array [
       "ok": true,
       "id": 58,
       "name": "test isa Harness",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 58,
+      "name": "test isa Harness",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 58,
+      "name": "test isa Harness",
+      "fullname": "",
     },
   ],
   Array [
@@ -56749,6 +85006,25 @@ Array [
       "ok": true,
       "id": 59,
       "name": "test/meta-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 59,
+      "name": "test/meta-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 59,
+      "name": "test/meta-test.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -56785,6 +85061,25 @@ Array [
       "ok": true,
       "id": 60,
       "name": "sync child A",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 60,
+      "name": "sync child A",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 60,
+      "name": "sync child A",
+      "fullname": "",
     },
   ],
   Array [
@@ -56813,6 +85108,25 @@ Array [
       "ok": true,
       "id": 61,
       "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 61,
+      "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 61,
+      "name": "(unnamed assert)",
+      "fullname": "",
     },
   ],
   Array [
@@ -56833,6 +85147,25 @@ Array [
       "ok": true,
       "id": 62,
       "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 62,
+      "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 62,
+      "name": "(unnamed assert)",
+      "fullname": "",
     },
   ],
   Array [
@@ -56853,6 +85186,25 @@ Array [
       "ok": true,
       "id": 63,
       "name": "sync grandchild in async child A",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 63,
+      "name": "sync grandchild in async child A",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 63,
+      "name": "sync grandchild in async child A",
+      "fullname": "",
     },
   ],
   Array [
@@ -56873,6 +85225,25 @@ Array [
       "ok": true,
       "id": 64,
       "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 64,
+      "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 64,
+      "name": "(unnamed assert)",
+      "fullname": "",
     },
   ],
   Array [
@@ -56909,6 +85280,25 @@ Array [
       "ok": true,
       "id": 65,
       "name": "test/nested-async.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 65,
+      "name": "test/nested-async.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 65,
+      "name": "test/nested-async.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -56945,6 +85335,25 @@ Array [
       "ok": true,
       "id": 66,
       "name": "p test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 66,
+      "name": "p test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 66,
+      "name": "p test",
+      "fullname": "",
     },
   ],
   Array [
@@ -56965,6 +85374,25 @@ Array [
       "ok": true,
       "id": 67,
       "name": "ch test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 67,
+      "name": "ch test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 67,
+      "name": "ch test",
+      "fullname": "",
     },
   ],
   Array [
@@ -56985,6 +85413,25 @@ Array [
       "ok": true,
       "id": 68,
       "name": "grch test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 68,
+      "name": "grch test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 68,
+      "name": "grch test",
+      "fullname": "",
     },
   ],
   Array [
@@ -57005,6 +85452,25 @@ Array [
       "ok": true,
       "id": 69,
       "name": "ch test 2",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 69,
+      "name": "ch test 2",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 69,
+      "name": "ch test 2",
+      "fullname": "",
     },
   ],
   Array [
@@ -57041,6 +85507,25 @@ Array [
       "ok": true,
       "id": 70,
       "name": "test/nested-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 70,
+      "name": "test/nested-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 70,
+      "name": "test/nested-test.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -57093,6 +85578,25 @@ Array [
       "ok": true,
       "id": 71,
       "name": ", 8 can stay.",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 71,
+      "name": ", 8 can stay.",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 71,
+      "name": ", 8 can stay.",
+      "fullname": "",
     },
   ],
   Array [
@@ -57145,6 +85649,25 @@ Array [
       "ok": true,
       "id": 72,
       "name": "might be confusing",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 72,
+      "name": "might be confusing",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 72,
+      "name": "might be confusing",
+      "fullname": "",
     },
   ],
   Array [
@@ -57157,6 +85680,25 @@ Array [
       "ok": true,
       "id": 73,
       "name": "done now, exiting",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 73,
+      "name": "done now, exiting",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 73,
+      "name": "done now, exiting",
+      "fullname": "",
     },
   ],
   Array [
@@ -57169,6 +85711,25 @@ Array [
       "ok": true,
       "id": 74,
       "name": "test/non-tap-output.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 74,
+      "name": "test/non-tap-output.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 74,
+      "name": "test/non-tap-output.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -57221,6 +85782,25 @@ Array [
       "ok": true,
       "id": 75,
       "name": "outputs parent description",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 75,
+      "name": "outputs parent description",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 75,
+      "name": "outputs parent description",
+      "fullname": "",
     },
   ],
   Array [
@@ -57233,6 +85813,25 @@ Array [
       "ok": true,
       "id": 76,
       "name": "outputs child description",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 76,
+      "name": "outputs child description",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 76,
+      "name": "outputs child description",
+      "fullname": "",
     },
   ],
   Array [
@@ -57245,6 +85844,25 @@ Array [
       "ok": true,
       "id": 77,
       "name": "outputs parent description before parent result",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 77,
+      "name": "outputs parent description before parent result",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 77,
+      "name": "outputs parent description before parent result",
+      "fullname": "",
     },
   ],
   Array [
@@ -57257,6 +85875,25 @@ Array [
       "ok": true,
       "id": 78,
       "name": "outputs parent result before child description",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 78,
+      "name": "outputs parent result before child description",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 78,
+      "name": "outputs parent result before child description",
+      "fullname": "",
     },
   ],
   Array [
@@ -57269,6 +85906,25 @@ Array [
       "ok": true,
       "id": 79,
       "name": "outputs child description before child result",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 79,
+      "name": "outputs child description before child result",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 79,
+      "name": "outputs child description before child result",
+      "fullname": "",
     },
   ],
   Array [
@@ -57305,6 +85961,25 @@ Array [
       "ok": true,
       "id": 80,
       "name": "test/output-childtest-description.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 80,
+      "name": "test/output-childtest-description.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 80,
+      "name": "test/output-childtest-description.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -57341,6 +86016,25 @@ Array [
       "ok": true,
       "id": 81,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 81,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 81,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -57353,6 +86047,25 @@ Array [
       "ok": true,
       "id": 82,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 82,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 82,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -57389,6 +86102,25 @@ Array [
       "ok": true,
       "id": 83,
       "name": "test/result-trap.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 83,
+      "name": "test/result-trap.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 83,
+      "name": "test/result-trap.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -57425,6 +86157,25 @@ Array [
       "ok": true,
       "id": 84,
       "name": "compiled seg faulter",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 84,
+      "name": "compiled seg faulter",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 84,
+      "name": "compiled seg faulter",
+      "fullname": "",
     },
   ],
   Array [
@@ -57445,6 +86196,25 @@ Array [
       "ok": true,
       "id": 85,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 85,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 85,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -57457,6 +86227,25 @@ Array [
       "ok": true,
       "id": 86,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 86,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 86,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -57469,6 +86258,25 @@ Array [
       "ok": true,
       "id": 87,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 87,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 87,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -57481,6 +86289,25 @@ Array [
       "ok": true,
       "id": 88,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 88,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 88,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -57493,6 +86320,25 @@ Array [
       "ok": true,
       "id": 89,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 89,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 89,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -57505,6 +86351,25 @@ Array [
       "ok": true,
       "id": 90,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 90,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 90,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -57525,6 +86390,25 @@ Array [
       "ok": true,
       "id": 91,
       "name": "cleaned up",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 91,
+      "name": "cleaned up",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 91,
+      "name": "cleaned up",
+      "fullname": "",
     },
   ],
   Array [
@@ -57561,6 +86445,25 @@ Array [
       "ok": true,
       "id": 92,
       "name": "test/segv.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 92,
+      "name": "test/segv.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 92,
+      "name": "test/segv.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -57597,6 +86500,25 @@ Array [
       "ok": true,
       "id": 93,
       "name": "it works",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 93,
+      "name": "it works",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 93,
+      "name": "it works",
+      "fullname": "",
     },
   ],
   Array [
@@ -57617,6 +86539,25 @@ Array [
       "ok": true,
       "id": 94,
       "name": "math should work",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 94,
+      "name": "math should work",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 94,
+      "name": "math should work",
+      "fullname": "",
     },
   ],
   Array [
@@ -57629,6 +86570,25 @@ Array [
       "ok": true,
       "id": 95,
       "name": "false should not be ok",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 95,
+      "name": "false should not be ok",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 95,
+      "name": "false should not be ok",
+      "fullname": "",
     },
   ],
   Array [
@@ -57665,6 +86625,25 @@ Array [
       "ok": true,
       "id": 96,
       "name": "test/simple-harness-test-with-plan.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 96,
+      "name": "test/simple-harness-test-with-plan.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 96,
+      "name": "test/simple-harness-test-with-plan.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -57701,6 +86680,25 @@ Array [
       "ok": true,
       "id": 97,
       "name": "it works",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 97,
+      "name": "it works",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 97,
+      "name": "it works",
+      "fullname": "",
     },
   ],
   Array [
@@ -57721,6 +86719,25 @@ Array [
       "ok": true,
       "id": 98,
       "name": "math should work",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 98,
+      "name": "math should work",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 98,
+      "name": "math should work",
+      "fullname": "",
     },
   ],
   Array [
@@ -57733,6 +86750,25 @@ Array [
       "ok": true,
       "id": 99,
       "name": "false should not be ok",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 99,
+      "name": "false should not be ok",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 99,
+      "name": "false should not be ok",
+      "fullname": "",
     },
   ],
   Array [
@@ -57769,6 +86805,25 @@ Array [
       "ok": true,
       "id": 100,
       "name": "test/simple-harness-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 100,
+      "name": "test/simple-harness-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 100,
+      "name": "test/simple-harness-test.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -57806,6 +86861,27 @@ Array [
       "id": 101,
       "skip": "skip it good",
       "name": "always passes",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 101,
+      "skip": "skip it good",
+      "name": "always passes",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "skip",
+    Result {
+      "ok": true,
+      "id": 101,
+      "skip": "skip it good",
+      "name": "always passes",
+      "fullname": "",
     },
   ],
   Array [
@@ -57819,6 +86895,27 @@ Array [
       "id": 102,
       "skip": "always fails",
       "name": "false",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 102,
+      "skip": "always fails",
+      "name": "false",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "skip",
+    Result {
+      "ok": true,
+      "id": 102,
+      "skip": "always fails",
+      "name": "false",
+      "fullname": "",
     },
   ],
   Array [
@@ -57832,6 +86929,27 @@ Array [
       "id": 103,
       "todo": "remove todo directive",
       "name": "bonus",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 103,
+      "todo": "remove todo directive",
+      "name": "bonus",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": true,
+      "id": 103,
+      "todo": "remove todo directive",
+      "name": "bonus",
+      "fullname": "",
     },
   ],
   Array [
@@ -57845,6 +86963,27 @@ Array [
       "id": 104,
       "todo": "implement a thing",
       "name": "expected",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 104,
+      "todo": "implement a thing",
+      "name": "expected",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": true,
+      "id": 104,
+      "todo": "implement a thing",
+      "name": "expected",
+      "fullname": "",
     },
   ],
   Array [
@@ -57858,6 +86997,27 @@ Array [
       "id": 105,
       "skip": true,
       "name": "always passes without explanation",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 105,
+      "skip": true,
+      "name": "always passes without explanation",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "skip",
+    Result {
+      "ok": true,
+      "id": 105,
+      "skip": true,
+      "name": "always passes without explanation",
+      "fullname": "",
     },
   ],
   Array [
@@ -57871,6 +87031,27 @@ Array [
       "id": 106,
       "skip": true,
       "name": "false without explanation",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 106,
+      "skip": true,
+      "name": "false without explanation",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "skip",
+    Result {
+      "ok": true,
+      "id": 106,
+      "skip": true,
+      "name": "false without explanation",
+      "fullname": "",
     },
   ],
   Array [
@@ -57884,6 +87065,27 @@ Array [
       "id": 107,
       "todo": true,
       "name": "bonus without explanation",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 107,
+      "todo": true,
+      "name": "bonus without explanation",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": true,
+      "id": 107,
+      "todo": true,
+      "name": "bonus without explanation",
+      "fullname": "",
     },
   ],
   Array [
@@ -57897,6 +87099,27 @@ Array [
       "id": 108,
       "todo": true,
       "name": "expected without explanation",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 108,
+      "todo": true,
+      "name": "expected without explanation",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": true,
+      "id": 108,
+      "todo": true,
+      "name": "expected without explanation",
+      "fullname": "",
     },
   ],
   Array [
@@ -57933,6 +87156,25 @@ Array [
       "ok": true,
       "id": 109,
       "name": "test/test-assert-todo-skip.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 109,
+      "name": "test/test-assert-todo-skip.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 109,
+      "name": "test/test-assert-todo-skip.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -57969,6 +87211,25 @@ Array [
       "ok": true,
       "id": 110,
       "name": "exit cleanly",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 110,
+      "name": "exit cleanly",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 110,
+      "name": "exit cleanly",
+      "fullname": "",
     },
   ],
   Array [
@@ -57981,6 +87242,25 @@ Array [
       "ok": true,
       "id": 111,
       "name": "captures SKIP description",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 111,
+      "name": "captures SKIP description",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 111,
+      "name": "captures SKIP description",
+      "fullname": "",
     },
   ],
   Array [
@@ -57993,6 +87273,25 @@ Array [
       "ok": true,
       "id": 112,
       "name": "skip summary is not from file",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 112,
+      "name": "skip summary is not from file",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 112,
+      "name": "skip summary is not from file",
+      "fullname": "",
     },
   ],
   Array [
@@ -58005,6 +87304,25 @@ Array [
       "ok": true,
       "id": 113,
       "name": "todo summary is not from file",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 113,
+      "name": "todo summary is not from file",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 113,
+      "name": "todo summary is not from file",
+      "fullname": "",
     },
   ],
   Array [
@@ -58138,6 +87456,59 @@ Array [
           "emitOne (events.js:77:13)\\n",
         ],
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 114,
+      "name": "captures TODO description",
+      "diag": Object {
+        "file": "child_process.js",
+        "line": 707,
+        "column": 7,
+        "stack": Array [
+          "getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\\n",
+          "Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\\n",
+          "Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\\n",
+          "/Users/isaacs/dev/js/tap/test/test-descriptions.js:32:7\\n",
+          "ChildProcess.exithandler (child_process.js:707:7)\\n",
+          "emitTwo (events.js:87:13)\\n",
+          "ChildProcess.emit (events.js:169:7)\\n",
+          "maybeClose (child_process.js:984:16)\\n",
+          "Socket.<anonymous> (child_process.js:1153:11)\\n",
+          "emitOne (events.js:77:13)\\n",
+        ],
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 114,
+      "name": "captures TODO description",
+      "diag": Object {
+        "file": "child_process.js",
+        "line": 707,
+        "column": 7,
+        "stack": Array [
+          "getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\\n",
+          "Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\\n",
+          "Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\\n",
+          "/Users/isaacs/dev/js/tap/test/test-descriptions.js:32:7\\n",
+          "ChildProcess.exithandler (child_process.js:707:7)\\n",
+          "emitTwo (events.js:87:13)\\n",
+          "ChildProcess.emit (events.js:169:7)\\n",
+          "maybeClose (child_process.js:984:16)\\n",
+          "Socket.<anonymous> (child_process.js:1153:11)\\n",
+          "emitOne (events.js:77:13)\\n",
+        ],
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -58150,6 +87521,25 @@ Array [
       "ok": true,
       "id": 115,
       "name": "exit cleanly",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 115,
+      "name": "exit cleanly",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 115,
+      "name": "exit cleanly",
+      "fullname": "",
     },
   ],
   Array [
@@ -58162,6 +87552,25 @@ Array [
       "ok": true,
       "id": 116,
       "name": "captures SKIP description",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 116,
+      "name": "captures SKIP description",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 116,
+      "name": "captures SKIP description",
+      "fullname": "",
     },
   ],
   Array [
@@ -58174,6 +87583,25 @@ Array [
       "ok": true,
       "id": 117,
       "name": "skip summary is not in TAP output",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 117,
+      "name": "skip summary is not in TAP output",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 117,
+      "name": "skip summary is not in TAP output",
+      "fullname": "",
     },
   ],
   Array [
@@ -58186,6 +87614,25 @@ Array [
       "ok": true,
       "id": 118,
       "name": "todo summary is not in TAP output",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 118,
+      "name": "todo summary is not in TAP output",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 118,
+      "name": "todo summary is not in TAP output",
+      "fullname": "",
     },
   ],
   Array [
@@ -58310,6 +87757,57 @@ Array [
           "Process.ChildProcess._handle.onexit (child_process.js:1057:5)\\n",
         ],
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 119,
+      "name": "captures TODO description",
+      "diag": Object {
+        "file": "child_process.js",
+        "line": 707,
+        "column": 7,
+        "stack": Array [
+          "getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\\n",
+          "Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\\n",
+          "Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\\n",
+          "/Users/isaacs/dev/js/tap/test/test-descriptions.js:18:7\\n",
+          "ChildProcess.exithandler (child_process.js:707:7)\\n",
+          "emitTwo (events.js:87:13)\\n",
+          "ChildProcess.emit (events.js:169:7)\\n",
+          "maybeClose (child_process.js:984:16)\\n",
+          "Process.ChildProcess._handle.onexit (child_process.js:1057:5)\\n",
+        ],
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 119,
+      "name": "captures TODO description",
+      "diag": Object {
+        "file": "child_process.js",
+        "line": 707,
+        "column": 7,
+        "stack": Array [
+          "getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\\n",
+          "Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\\n",
+          "Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\\n",
+          "/Users/isaacs/dev/js/tap/test/test-descriptions.js:18:7\\n",
+          "ChildProcess.exithandler (child_process.js:707:7)\\n",
+          "emitTwo (events.js:87:13)\\n",
+          "ChildProcess.emit (events.js:169:7)\\n",
+          "maybeClose (child_process.js:984:16)\\n",
+          "Process.ChildProcess._handle.onexit (child_process.js:1057:5)\\n",
+        ],
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -58322,6 +87820,25 @@ Array [
       "ok": true,
       "id": 120,
       "name": "exit cleanly",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 120,
+      "name": "exit cleanly",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 120,
+      "name": "exit cleanly",
+      "fullname": "",
     },
   ],
   Array [
@@ -58446,6 +87963,57 @@ Array [
           "Process.ChildProcess._handle.onexit (child_process.js:1057:5)\\n",
         ],
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 121,
+      "name": "summarizes skipped count",
+      "diag": Object {
+        "file": "child_process.js",
+        "line": 707,
+        "column": 7,
+        "stack": Array [
+          "getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\\n",
+          "Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\\n",
+          "Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\\n",
+          "/Users/isaacs/dev/js/tap/test/test-descriptions.js:23:7\\n",
+          "ChildProcess.exithandler (child_process.js:707:7)\\n",
+          "emitTwo (events.js:87:13)\\n",
+          "ChildProcess.emit (events.js:169:7)\\n",
+          "maybeClose (child_process.js:984:16)\\n",
+          "Process.ChildProcess._handle.onexit (child_process.js:1057:5)\\n",
+        ],
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 121,
+      "name": "summarizes skipped count",
+      "diag": Object {
+        "file": "child_process.js",
+        "line": 707,
+        "column": 7,
+        "stack": Array [
+          "getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\\n",
+          "Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\\n",
+          "Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\\n",
+          "/Users/isaacs/dev/js/tap/test/test-descriptions.js:23:7\\n",
+          "ChildProcess.exithandler (child_process.js:707:7)\\n",
+          "emitTwo (events.js:87:13)\\n",
+          "ChildProcess.emit (events.js:169:7)\\n",
+          "maybeClose (child_process.js:984:16)\\n",
+          "Process.ChildProcess._handle.onexit (child_process.js:1057:5)\\n",
+        ],
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -58570,6 +88138,57 @@ Array [
           "Process.ChildProcess._handle.onexit (child_process.js:1057:5)\\n",
         ],
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 122,
+      "name": "summarizes todo count",
+      "diag": Object {
+        "file": "child_process.js",
+        "line": 707,
+        "column": 7,
+        "stack": Array [
+          "getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\\n",
+          "Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\\n",
+          "Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\\n",
+          "/Users/isaacs/dev/js/tap/test/test-descriptions.js:24:7\\n",
+          "ChildProcess.exithandler (child_process.js:707:7)\\n",
+          "emitTwo (events.js:87:13)\\n",
+          "ChildProcess.emit (events.js:169:7)\\n",
+          "maybeClose (child_process.js:984:16)\\n",
+          "Process.ChildProcess._handle.onexit (child_process.js:1057:5)\\n",
+        ],
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 122,
+      "name": "summarizes todo count",
+      "diag": Object {
+        "file": "child_process.js",
+        "line": 707,
+        "column": 7,
+        "stack": Array [
+          "getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\\n",
+          "Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\\n",
+          "Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\\n",
+          "/Users/isaacs/dev/js/tap/test/test-descriptions.js:24:7\\n",
+          "ChildProcess.exithandler (child_process.js:707:7)\\n",
+          "emitTwo (events.js:87:13)\\n",
+          "ChildProcess.emit (events.js:169:7)\\n",
+          "maybeClose (child_process.js:984:16)\\n",
+          "Process.ChildProcess._handle.onexit (child_process.js:1057:5)\\n",
+        ],
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -58626,6 +88245,33 @@ Array [
         "exit": 1,
         "command": "/usr/local/bin/iojs test-descriptions.js",
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 123,
+      "name": "test/test-descriptions.js",
+      "diag": Object {
+        "exit": 1,
+        "command": "/usr/local/bin/iojs test-descriptions.js",
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 123,
+      "name": "test/test-descriptions.js",
+      "diag": Object {
+        "exit": 1,
+        "command": "/usr/local/bin/iojs test-descriptions.js",
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -58670,6 +88316,25 @@ Array [
       "ok": true,
       "id": 124,
       "name": "overall result is PASS",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 124,
+      "name": "overall result is PASS",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 124,
+      "name": "overall result is PASS",
+      "fullname": "",
     },
   ],
   Array [
@@ -58682,6 +88347,25 @@ Array [
       "ok": true,
       "id": 125,
       "name": "captures ok SKIP",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 125,
+      "name": "captures ok SKIP",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 125,
+      "name": "captures ok SKIP",
+      "fullname": "",
     },
   ],
   Array [
@@ -58694,6 +88378,25 @@ Array [
       "ok": true,
       "id": 126,
       "name": "captures not ok SKIP",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 126,
+      "name": "captures not ok SKIP",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 126,
+      "name": "captures not ok SKIP",
+      "fullname": "",
     },
   ],
   Array [
@@ -58706,6 +88409,25 @@ Array [
       "ok": true,
       "id": 127,
       "name": "skip summary not in TAP output",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 127,
+      "name": "skip summary not in TAP output",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 127,
+      "name": "skip summary not in TAP output",
+      "fullname": "",
     },
   ],
   Array [
@@ -58718,6 +88440,25 @@ Array [
       "ok": true,
       "id": 128,
       "name": "captures ok TODO",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 128,
+      "name": "captures ok TODO",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 128,
+      "name": "captures ok TODO",
+      "fullname": "",
     },
   ],
   Array [
@@ -58730,6 +88471,25 @@ Array [
       "ok": true,
       "id": 129,
       "name": "captures not ok TODO",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 129,
+      "name": "captures not ok TODO",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 129,
+      "name": "captures not ok TODO",
+      "fullname": "",
     },
   ],
   Array [
@@ -58742,6 +88502,25 @@ Array [
       "ok": true,
       "id": 130,
       "name": "todo summary is not in TAP output",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 130,
+      "name": "todo summary is not in TAP output",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 130,
+      "name": "todo summary is not in TAP output",
+      "fullname": "",
     },
   ],
   Array [
@@ -58754,6 +88533,25 @@ Array [
       "ok": true,
       "id": 131,
       "name": "no ugly \\"undefined\\" in output",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 131,
+      "name": "no ugly \\"undefined\\" in output",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 131,
+      "name": "no ugly \\"undefined\\" in output",
+      "fullname": "",
     },
   ],
   Array [
@@ -58774,6 +88572,25 @@ Array [
       "ok": true,
       "id": 132,
       "name": "overall result is PASS",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 132,
+      "name": "overall result is PASS",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 132,
+      "name": "overall result is PASS",
+      "fullname": "",
     },
   ],
   Array [
@@ -58786,6 +88603,25 @@ Array [
       "ok": true,
       "id": 133,
       "name": "no SKIP in summary",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 133,
+      "name": "no SKIP in summary",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 133,
+      "name": "no SKIP in summary",
+      "fullname": "",
     },
   ],
   Array [
@@ -58798,6 +88634,25 @@ Array [
       "ok": true,
       "id": 134,
       "name": "skip summary is not in TAP output",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 134,
+      "name": "skip summary is not in TAP output",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 134,
+      "name": "skip summary is not in TAP output",
+      "fullname": "",
     },
   ],
   Array [
@@ -58810,6 +88665,25 @@ Array [
       "ok": true,
       "id": 135,
       "name": "no TODO in summary",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 135,
+      "name": "no TODO in summary",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 135,
+      "name": "no TODO in summary",
+      "fullname": "",
     },
   ],
   Array [
@@ -58822,6 +88696,25 @@ Array [
       "ok": true,
       "id": 136,
       "name": "todo summary is not in TAP output",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 136,
+      "name": "todo summary is not in TAP output",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 136,
+      "name": "todo summary is not in TAP output",
+      "fullname": "",
     },
   ],
   Array [
@@ -58834,6 +88727,25 @@ Array [
       "ok": true,
       "id": 137,
       "name": "no ugly \\"undefined\\" in output",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 137,
+      "name": "no ugly \\"undefined\\" in output",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 137,
+      "name": "no ugly \\"undefined\\" in output",
+      "fullname": "",
     },
   ],
   Array [
@@ -58854,6 +88766,25 @@ Array [
       "ok": true,
       "id": 138,
       "name": "overall result is PASS",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 138,
+      "name": "overall result is PASS",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 138,
+      "name": "overall result is PASS",
+      "fullname": "",
     },
   ],
   Array [
@@ -58866,6 +88797,25 @@ Array [
       "ok": true,
       "id": 139,
       "name": "captures ok SKIP",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 139,
+      "name": "captures ok SKIP",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 139,
+      "name": "captures ok SKIP",
+      "fullname": "",
     },
   ],
   Array [
@@ -58878,6 +88828,25 @@ Array [
       "ok": true,
       "id": 140,
       "name": "captures not ok SKIP",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 140,
+      "name": "captures not ok SKIP",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 140,
+      "name": "captures not ok SKIP",
+      "fullname": "",
     },
   ],
   Array [
@@ -58890,6 +88859,25 @@ Array [
       "ok": true,
       "id": 141,
       "name": "skip summary not in TAP output",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 141,
+      "name": "skip summary not in TAP output",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 141,
+      "name": "skip summary not in TAP output",
+      "fullname": "",
     },
   ],
   Array [
@@ -58902,6 +88890,25 @@ Array [
       "ok": true,
       "id": 142,
       "name": "captures ok TODO",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 142,
+      "name": "captures ok TODO",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 142,
+      "name": "captures ok TODO",
+      "fullname": "",
     },
   ],
   Array [
@@ -58914,6 +88921,25 @@ Array [
       "ok": true,
       "id": 143,
       "name": "captures not ok TODO",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 143,
+      "name": "captures not ok TODO",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 143,
+      "name": "captures not ok TODO",
+      "fullname": "",
     },
   ],
   Array [
@@ -58926,6 +88952,25 @@ Array [
       "ok": true,
       "id": 144,
       "name": "todo summary is not in TAP output",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 144,
+      "name": "todo summary is not in TAP output",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 144,
+      "name": "todo summary is not in TAP output",
+      "fullname": "",
     },
   ],
   Array [
@@ -58938,6 +88983,25 @@ Array [
       "ok": true,
       "id": 145,
       "name": "no ugly \\"undefined\\" in output",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 145,
+      "name": "no ugly \\"undefined\\" in output",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 145,
+      "name": "no ugly \\"undefined\\" in output",
+      "fullname": "",
     },
   ],
   Array [
@@ -58974,6 +89038,25 @@ Array [
       "ok": true,
       "id": 146,
       "name": "test/test-directives.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 146,
+      "name": "test/test-directives.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 146,
+      "name": "test/test-directives.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -59003,6 +89086,27 @@ Array [
       "id": 147,
       "skip": true,
       "name": "does not count as failure",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 147,
+      "skip": true,
+      "name": "does not count as failure",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "skip",
+    Result {
+      "ok": true,
+      "id": 147,
+      "skip": true,
+      "name": "does not count as failure",
+      "fullname": "",
     },
   ],
   Array [
@@ -59031,6 +89135,25 @@ Array [
       "ok": true,
       "id": 148,
       "name": "test/test-skip.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 148,
+      "name": "test/test-skip.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 148,
+      "name": "test/test-skip.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -59067,6 +89190,25 @@ Array [
       "ok": true,
       "id": 149,
       "name": "test object should be instanceof Test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 149,
+      "name": "test object should be instanceof Test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 149,
+      "name": "test object should be instanceof Test",
+      "fullname": "",
     },
   ],
   Array [
@@ -59079,6 +89221,25 @@ Array [
       "ok": true,
       "id": 150,
       "name": "test object should be instanceof Harness",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 150,
+      "name": "test object should be instanceof Harness",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 150,
+      "name": "test object should be instanceof Harness",
+      "fullname": "",
     },
   ],
   Array [
@@ -59091,6 +89252,25 @@ Array [
       "ok": true,
       "id": 151,
       "name": "test._Test should be the Test class",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 151,
+      "name": "test._Test should be the Test class",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 151,
+      "name": "test._Test should be the Test class",
+      "fullname": "",
     },
   ],
   Array [
@@ -59103,6 +89283,25 @@ Array [
       "ok": true,
       "id": 152,
       "name": "should have isNotDeepEqual method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 152,
+      "name": "should have isNotDeepEqual method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 152,
+      "name": "should have isNotDeepEqual method",
+      "fullname": "",
     },
   ],
   Array [
@@ -59115,6 +89314,25 @@ Array [
       "ok": true,
       "id": 153,
       "name": "isNotDeepEqual method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 153,
+      "name": "isNotDeepEqual method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 153,
+      "name": "isNotDeepEqual method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -59127,6 +89345,25 @@ Array [
       "ok": true,
       "id": 154,
       "name": "should have equals method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 154,
+      "name": "should have equals method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 154,
+      "name": "should have equals method",
+      "fullname": "",
     },
   ],
   Array [
@@ -59139,6 +89376,25 @@ Array [
       "ok": true,
       "id": 155,
       "name": "equals method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 155,
+      "name": "equals method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 155,
+      "name": "equals method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -59151,6 +89407,25 @@ Array [
       "ok": true,
       "id": 156,
       "name": "should have inequivalent method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 156,
+      "name": "should have inequivalent method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 156,
+      "name": "should have inequivalent method",
+      "fullname": "",
     },
   ],
   Array [
@@ -59163,6 +89438,25 @@ Array [
       "ok": true,
       "id": 157,
       "name": "inequivalent method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 157,
+      "name": "inequivalent method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 157,
+      "name": "inequivalent method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -59175,6 +89469,25 @@ Array [
       "ok": true,
       "id": 158,
       "name": "should have threw method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 158,
+      "name": "should have threw method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 158,
+      "name": "should have threw method",
+      "fullname": "",
     },
   ],
   Array [
@@ -59187,6 +89500,25 @@ Array [
       "ok": true,
       "id": 159,
       "name": "threw method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 159,
+      "name": "threw method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 159,
+      "name": "threw method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -59199,6 +89531,25 @@ Array [
       "ok": true,
       "id": 160,
       "name": "should have strictEqual method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 160,
+      "name": "should have strictEqual method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 160,
+      "name": "should have strictEqual method",
+      "fullname": "",
     },
   ],
   Array [
@@ -59211,6 +89562,25 @@ Array [
       "ok": true,
       "id": 161,
       "name": "strictEqual method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 161,
+      "name": "strictEqual method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 161,
+      "name": "strictEqual method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -59223,6 +89593,25 @@ Array [
       "ok": true,
       "id": 162,
       "name": "should have emit method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 162,
+      "name": "should have emit method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 162,
+      "name": "should have emit method",
+      "fullname": "",
     },
   ],
   Array [
@@ -59235,6 +89624,25 @@ Array [
       "ok": true,
       "id": 163,
       "name": "emit method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 163,
+      "name": "emit method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 163,
+      "name": "emit method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -59247,6 +89655,25 @@ Array [
       "ok": true,
       "id": 164,
       "name": "should have fail method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 164,
+      "name": "should have fail method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 164,
+      "name": "should have fail method",
+      "fullname": "",
     },
   ],
   Array [
@@ -59259,6 +89686,25 @@ Array [
       "ok": true,
       "id": 165,
       "name": "fail method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 165,
+      "name": "fail method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 165,
+      "name": "fail method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -59271,6 +89717,25 @@ Array [
       "ok": true,
       "id": 166,
       "name": "should have strictEquals method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 166,
+      "name": "should have strictEquals method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 166,
+      "name": "should have strictEquals method",
+      "fullname": "",
     },
   ],
   Array [
@@ -59283,6 +89748,25 @@ Array [
       "ok": true,
       "id": 167,
       "name": "strictEquals method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 167,
+      "name": "strictEquals method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 167,
+      "name": "strictEquals method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -59295,6 +89779,25 @@ Array [
       "ok": true,
       "id": 168,
       "name": "should have notLike method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 168,
+      "name": "should have notLike method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 168,
+      "name": "should have notLike method",
+      "fullname": "",
     },
   ],
   Array [
@@ -59307,6 +89810,25 @@ Array [
       "ok": true,
       "id": 169,
       "name": "notLike method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 169,
+      "name": "notLike method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 169,
+      "name": "notLike method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -59319,6 +89841,25 @@ Array [
       "ok": true,
       "id": 170,
       "name": "should have dissimilar method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 170,
+      "name": "should have dissimilar method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 170,
+      "name": "should have dissimilar method",
+      "fullname": "",
     },
   ],
   Array [
@@ -59331,6 +89872,25 @@ Array [
       "ok": true,
       "id": 171,
       "name": "dissimilar method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 171,
+      "name": "dissimilar method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 171,
+      "name": "dissimilar method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -59343,6 +89903,25 @@ Array [
       "ok": true,
       "id": 172,
       "name": "should have true method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 172,
+      "name": "should have true method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 172,
+      "name": "should have true method",
+      "fullname": "",
     },
   ],
   Array [
@@ -59355,6 +89934,25 @@ Array [
       "ok": true,
       "id": 173,
       "name": "true method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 173,
+      "name": "true method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 173,
+      "name": "true method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -59367,6 +89965,25 @@ Array [
       "ok": true,
       "id": 174,
       "name": "should have assert method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 174,
+      "name": "should have assert method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 174,
+      "name": "should have assert method",
+      "fullname": "",
     },
   ],
   Array [
@@ -59379,6 +89996,25 @@ Array [
       "ok": true,
       "id": 175,
       "name": "assert method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 175,
+      "name": "assert method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 175,
+      "name": "assert method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -59391,6 +90027,25 @@ Array [
       "ok": true,
       "id": 176,
       "name": "should have is method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 176,
+      "name": "should have is method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 176,
+      "name": "should have is method",
+      "fullname": "",
     },
   ],
   Array [
@@ -59403,6 +90058,25 @@ Array [
       "ok": true,
       "id": 177,
       "name": "is method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 177,
+      "name": "is method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 177,
+      "name": "is method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -59415,6 +90089,25 @@ Array [
       "ok": true,
       "id": 178,
       "name": "should have ok method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 178,
+      "name": "should have ok method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 178,
+      "name": "should have ok method",
+      "fullname": "",
     },
   ],
   Array [
@@ -59427,6 +90120,25 @@ Array [
       "ok": true,
       "id": 179,
       "name": "ok method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 179,
+      "name": "ok method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 179,
+      "name": "ok method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -59439,6 +90151,25 @@ Array [
       "ok": true,
       "id": 180,
       "name": "should have isEqual method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 180,
+      "name": "should have isEqual method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 180,
+      "name": "should have isEqual method",
+      "fullname": "",
     },
   ],
   Array [
@@ -59451,6 +90182,25 @@ Array [
       "ok": true,
       "id": 181,
       "name": "isEqual method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 181,
+      "name": "isEqual method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 181,
+      "name": "isEqual method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -59463,6 +90213,25 @@ Array [
       "ok": true,
       "id": 182,
       "name": "should have isDeeply method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 182,
+      "name": "should have isDeeply method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 182,
+      "name": "should have isDeeply method",
+      "fullname": "",
     },
   ],
   Array [
@@ -59475,6 +90244,25 @@ Array [
       "ok": true,
       "id": 183,
       "name": "isDeeply method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 183,
+      "name": "isDeeply method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 183,
+      "name": "isDeeply method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -59487,6 +90275,25 @@ Array [
       "ok": true,
       "id": 184,
       "name": "should have deepEqual method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 184,
+      "name": "should have deepEqual method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 184,
+      "name": "should have deepEqual method",
+      "fullname": "",
     },
   ],
   Array [
@@ -59499,6 +90306,25 @@ Array [
       "ok": true,
       "id": 185,
       "name": "deepEqual method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 185,
+      "name": "deepEqual method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 185,
+      "name": "deepEqual method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -59511,6 +90337,25 @@ Array [
       "ok": true,
       "id": 186,
       "name": "should have deepEquals method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 186,
+      "name": "should have deepEquals method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 186,
+      "name": "should have deepEquals method",
+      "fullname": "",
     },
   ],
   Array [
@@ -59523,6 +90368,25 @@ Array [
       "ok": true,
       "id": 187,
       "name": "deepEquals method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 187,
+      "name": "deepEquals method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 187,
+      "name": "deepEquals method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -59535,6 +90399,25 @@ Array [
       "ok": true,
       "id": 188,
       "name": "should have pass method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 188,
+      "name": "should have pass method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 188,
+      "name": "should have pass method",
+      "fullname": "",
     },
   ],
   Array [
@@ -59547,6 +90430,25 @@ Array [
       "ok": true,
       "id": 189,
       "name": "pass method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 189,
+      "name": "pass method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 189,
+      "name": "pass method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -59559,6 +90461,25 @@ Array [
       "ok": true,
       "id": 190,
       "name": "should have length method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 190,
+      "name": "should have length method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 190,
+      "name": "should have length method",
+      "fullname": "",
     },
   ],
   Array [
@@ -59571,6 +90492,25 @@ Array [
       "ok": true,
       "id": 191,
       "name": "length method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 191,
+      "name": "length method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 191,
+      "name": "length method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -59583,6 +90523,25 @@ Array [
       "ok": true,
       "id": 192,
       "name": "should have skip method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 192,
+      "name": "should have skip method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 192,
+      "name": "should have skip method",
+      "fullname": "",
     },
   ],
   Array [
@@ -59595,6 +90554,25 @@ Array [
       "ok": true,
       "id": 193,
       "name": "skip method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 193,
+      "name": "skip method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 193,
+      "name": "skip method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -59607,6 +90585,25 @@ Array [
       "ok": true,
       "id": 194,
       "name": "should have isNotEqual method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 194,
+      "name": "should have isNotEqual method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 194,
+      "name": "should have isNotEqual method",
+      "fullname": "",
     },
   ],
   Array [
@@ -59619,6 +90616,25 @@ Array [
       "ok": true,
       "id": 195,
       "name": "isNotEqual method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 195,
+      "name": "isNotEqual method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 195,
+      "name": "isNotEqual method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -59631,6 +90647,25 @@ Array [
       "ok": true,
       "id": 196,
       "name": "should have looseEquals method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 196,
+      "name": "should have looseEquals method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 196,
+      "name": "should have looseEquals method",
+      "fullname": "",
     },
   ],
   Array [
@@ -59643,6 +90678,25 @@ Array [
       "ok": true,
       "id": 197,
       "name": "looseEquals method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 197,
+      "name": "looseEquals method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 197,
+      "name": "looseEquals method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -59655,6 +90709,25 @@ Array [
       "ok": true,
       "id": 198,
       "name": "should have false method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 198,
+      "name": "should have false method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 198,
+      "name": "should have false method",
+      "fullname": "",
     },
   ],
   Array [
@@ -59667,6 +90740,25 @@ Array [
       "ok": true,
       "id": 199,
       "name": "false method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 199,
+      "name": "false method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 199,
+      "name": "false method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -59679,6 +90771,25 @@ Array [
       "ok": true,
       "id": 200,
       "name": "should have notDeeply method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 200,
+      "name": "should have notDeeply method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 200,
+      "name": "should have notDeeply method",
+      "fullname": "",
     },
   ],
   Array [
@@ -59691,6 +90802,25 @@ Array [
       "ok": true,
       "id": 201,
       "name": "notDeeply method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 201,
+      "name": "notDeeply method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 201,
+      "name": "notDeeply method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -59703,6 +90833,25 @@ Array [
       "ok": true,
       "id": 202,
       "name": "should have ifErr method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 202,
+      "name": "should have ifErr method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 202,
+      "name": "should have ifErr method",
+      "fullname": "",
     },
   ],
   Array [
@@ -59715,6 +90864,25 @@ Array [
       "ok": true,
       "id": 203,
       "name": "ifErr method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 203,
+      "name": "ifErr method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 203,
+      "name": "ifErr method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -59727,6 +90895,25 @@ Array [
       "ok": true,
       "id": 204,
       "name": "should have hasFields method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 204,
+      "name": "should have hasFields method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 204,
+      "name": "should have hasFields method",
+      "fullname": "",
     },
   ],
   Array [
@@ -59739,6 +90926,25 @@ Array [
       "ok": true,
       "id": 205,
       "name": "hasFields method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 205,
+      "name": "hasFields method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 205,
+      "name": "hasFields method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -59751,6 +90957,25 @@ Array [
       "ok": true,
       "id": 206,
       "name": "should have isNotDeeply method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 206,
+      "name": "should have isNotDeeply method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 206,
+      "name": "should have isNotDeeply method",
+      "fullname": "",
     },
   ],
   Array [
@@ -59763,6 +90988,25 @@ Array [
       "ok": true,
       "id": 207,
       "name": "isNotDeeply method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 207,
+      "name": "isNotDeeply method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 207,
+      "name": "isNotDeeply method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -59775,6 +91019,25 @@ Array [
       "ok": true,
       "id": 208,
       "name": "should have like method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 208,
+      "name": "should have like method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 208,
+      "name": "should have like method",
+      "fullname": "",
     },
   ],
   Array [
@@ -59787,6 +91050,25 @@ Array [
       "ok": true,
       "id": 209,
       "name": "like method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 209,
+      "name": "like method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 209,
+      "name": "like method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -59799,6 +91081,25 @@ Array [
       "ok": true,
       "id": 210,
       "name": "should have similar method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 210,
+      "name": "should have similar method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 210,
+      "name": "should have similar method",
+      "fullname": "",
     },
   ],
   Array [
@@ -59811,6 +91112,25 @@ Array [
       "ok": true,
       "id": 211,
       "name": "similar method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 211,
+      "name": "similar method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 211,
+      "name": "similar method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -59823,6 +91143,25 @@ Array [
       "ok": true,
       "id": 212,
       "name": "should have notOk method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 212,
+      "name": "should have notOk method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 212,
+      "name": "should have notOk method",
+      "fullname": "",
     },
   ],
   Array [
@@ -59835,6 +91174,25 @@ Array [
       "ok": true,
       "id": 213,
       "name": "notOk method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 213,
+      "name": "notOk method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 213,
+      "name": "notOk method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -59847,6 +91205,25 @@ Array [
       "ok": true,
       "id": 214,
       "name": "should have isDissimilar method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 214,
+      "name": "should have isDissimilar method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 214,
+      "name": "should have isDissimilar method",
+      "fullname": "",
     },
   ],
   Array [
@@ -59859,6 +91236,25 @@ Array [
       "ok": true,
       "id": 215,
       "name": "isDissimilar method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 215,
+      "name": "isDissimilar method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 215,
+      "name": "isDissimilar method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -59871,6 +91267,25 @@ Array [
       "ok": true,
       "id": 216,
       "name": "should have isEquivalent method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 216,
+      "name": "should have isEquivalent method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 216,
+      "name": "should have isEquivalent method",
+      "fullname": "",
     },
   ],
   Array [
@@ -59883,6 +91298,25 @@ Array [
       "ok": true,
       "id": 217,
       "name": "isEquivalent method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 217,
+      "name": "isEquivalent method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 217,
+      "name": "isEquivalent method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -59895,6 +91329,25 @@ Array [
       "ok": true,
       "id": 218,
       "name": "should have doesNotEqual method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 218,
+      "name": "should have doesNotEqual method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 218,
+      "name": "should have doesNotEqual method",
+      "fullname": "",
     },
   ],
   Array [
@@ -59907,6 +91360,25 @@ Array [
       "ok": true,
       "id": 219,
       "name": "doesNotEqual method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 219,
+      "name": "doesNotEqual method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 219,
+      "name": "doesNotEqual method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -59919,6 +91391,25 @@ Array [
       "ok": true,
       "id": 220,
       "name": "should have isSimilar method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 220,
+      "name": "should have isSimilar method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 220,
+      "name": "should have isSimilar method",
+      "fullname": "",
     },
   ],
   Array [
@@ -59931,6 +91422,25 @@ Array [
       "ok": true,
       "id": 221,
       "name": "isSimilar method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 221,
+      "name": "isSimilar method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 221,
+      "name": "isSimilar method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -59943,6 +91453,25 @@ Array [
       "ok": true,
       "id": 222,
       "name": "should have notDeepEqual method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 222,
+      "name": "should have notDeepEqual method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 222,
+      "name": "should have notDeepEqual method",
+      "fullname": "",
     },
   ],
   Array [
@@ -59955,6 +91484,25 @@ Array [
       "ok": true,
       "id": 223,
       "name": "notDeepEqual method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 223,
+      "name": "notDeepEqual method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 223,
+      "name": "notDeepEqual method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -59967,6 +91515,25 @@ Array [
       "ok": true,
       "id": 224,
       "name": "should have type method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 224,
+      "name": "should have type method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 224,
+      "name": "should have type method",
+      "fullname": "",
     },
   ],
   Array [
@@ -59979,6 +91546,25 @@ Array [
       "ok": true,
       "id": 225,
       "name": "type method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 225,
+      "name": "type method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 225,
+      "name": "type method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -59991,6 +91577,25 @@ Array [
       "ok": true,
       "id": 226,
       "name": "should have notok method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 226,
+      "name": "should have notok method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 226,
+      "name": "should have notok method",
+      "fullname": "",
     },
   ],
   Array [
@@ -60003,6 +91608,25 @@ Array [
       "ok": true,
       "id": 227,
       "name": "notok method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 227,
+      "name": "notok method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 227,
+      "name": "notok method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -60015,6 +91639,25 @@ Array [
       "ok": true,
       "id": 228,
       "name": "should have isInequivalent method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 228,
+      "name": "should have isInequivalent method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 228,
+      "name": "should have isInequivalent method",
+      "fullname": "",
     },
   ],
   Array [
@@ -60027,6 +91670,25 @@ Array [
       "ok": true,
       "id": 229,
       "name": "isInequivalent method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 229,
+      "name": "isInequivalent method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 229,
+      "name": "isInequivalent method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -60039,6 +91701,25 @@ Array [
       "ok": true,
       "id": 230,
       "name": "should have isNot method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 230,
+      "name": "should have isNot method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 230,
+      "name": "should have isNot method",
+      "fullname": "",
     },
   ],
   Array [
@@ -60051,6 +91732,25 @@ Array [
       "ok": true,
       "id": 231,
       "name": "isNot method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 231,
+      "name": "isNot method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 231,
+      "name": "isNot method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -60063,6 +91763,25 @@ Array [
       "ok": true,
       "id": 232,
       "name": "should have same method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 232,
+      "name": "should have same method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 232,
+      "name": "should have same method",
+      "fullname": "",
     },
   ],
   Array [
@@ -60075,6 +91794,25 @@ Array [
       "ok": true,
       "id": 233,
       "name": "same method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 233,
+      "name": "same method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 233,
+      "name": "same method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -60087,6 +91825,25 @@ Array [
       "ok": true,
       "id": 234,
       "name": "should have isInequal method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 234,
+      "name": "should have isInequal method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 234,
+      "name": "should have isInequal method",
+      "fullname": "",
     },
   ],
   Array [
@@ -60099,6 +91856,25 @@ Array [
       "ok": true,
       "id": 235,
       "name": "isInequal method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 235,
+      "name": "isInequal method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 235,
+      "name": "isInequal method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -60111,6 +91887,25 @@ Array [
       "ok": true,
       "id": 236,
       "name": "should have _endNice method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 236,
+      "name": "should have _endNice method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 236,
+      "name": "should have _endNice method",
+      "fullname": "",
     },
   ],
   Array [
@@ -60123,6 +91918,25 @@ Array [
       "ok": true,
       "id": 237,
       "name": "_endNice method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 237,
+      "name": "_endNice method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 237,
+      "name": "_endNice method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -60135,6 +91949,25 @@ Array [
       "ok": true,
       "id": 238,
       "name": "should have ifError method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 238,
+      "name": "should have ifError method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 238,
+      "name": "should have ifError method",
+      "fullname": "",
     },
   ],
   Array [
@@ -60147,6 +91980,25 @@ Array [
       "ok": true,
       "id": 239,
       "name": "ifError method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 239,
+      "name": "ifError method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 239,
+      "name": "ifError method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -60159,6 +92011,25 @@ Array [
       "ok": true,
       "id": 240,
       "name": "should have iferror method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 240,
+      "name": "should have iferror method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 240,
+      "name": "should have iferror method",
+      "fullname": "",
     },
   ],
   Array [
@@ -60171,6 +92042,25 @@ Array [
       "ok": true,
       "id": 241,
       "name": "iferror method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 241,
+      "name": "iferror method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 241,
+      "name": "iferror method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -60183,6 +92073,25 @@ Array [
       "ok": true,
       "id": 242,
       "name": "should have clear method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 242,
+      "name": "should have clear method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 242,
+      "name": "should have clear method",
+      "fullname": "",
     },
   ],
   Array [
@@ -60195,6 +92104,25 @@ Array [
       "ok": true,
       "id": 243,
       "name": "clear method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 243,
+      "name": "clear method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 243,
+      "name": "clear method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -60207,6 +92135,25 @@ Array [
       "ok": true,
       "id": 244,
       "name": "should have has method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 244,
+      "name": "should have has method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 244,
+      "name": "should have has method",
+      "fullname": "",
     },
   ],
   Array [
@@ -60219,6 +92166,25 @@ Array [
       "ok": true,
       "id": 245,
       "name": "has method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 245,
+      "name": "has method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 245,
+      "name": "has method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -60231,6 +92197,25 @@ Array [
       "ok": true,
       "id": 246,
       "name": "should have not method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 246,
+      "name": "should have not method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 246,
+      "name": "should have not method",
+      "fullname": "",
     },
   ],
   Array [
@@ -60243,6 +92228,25 @@ Array [
       "ok": true,
       "id": 247,
       "name": "not method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 247,
+      "name": "not method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 247,
+      "name": "not method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -60255,6 +92259,25 @@ Array [
       "ok": true,
       "id": 248,
       "name": "should have timeout method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 248,
+      "name": "should have timeout method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 248,
+      "name": "should have timeout method",
+      "fullname": "",
     },
   ],
   Array [
@@ -60267,6 +92290,25 @@ Array [
       "ok": true,
       "id": 249,
       "name": "timeout method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 249,
+      "name": "timeout method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 249,
+      "name": "timeout method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -60279,6 +92321,25 @@ Array [
       "ok": true,
       "id": 250,
       "name": "should have notSimilar method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 250,
+      "name": "should have notSimilar method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 250,
+      "name": "should have notSimilar method",
+      "fullname": "",
     },
   ],
   Array [
@@ -60291,6 +92352,25 @@ Array [
       "ok": true,
       "id": 251,
       "name": "notSimilar method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 251,
+      "name": "notSimilar method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 251,
+      "name": "notSimilar method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -60303,6 +92383,25 @@ Array [
       "ok": true,
       "id": 252,
       "name": "should have isUnlike method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 252,
+      "name": "should have isUnlike method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 252,
+      "name": "should have isUnlike method",
+      "fullname": "",
     },
   ],
   Array [
@@ -60315,6 +92414,25 @@ Array [
       "ok": true,
       "id": 253,
       "name": "isUnlike method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 253,
+      "name": "isUnlike method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 253,
+      "name": "isUnlike method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -60327,6 +92445,25 @@ Array [
       "ok": true,
       "id": 254,
       "name": "should have notEquals method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 254,
+      "name": "should have notEquals method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 254,
+      "name": "should have notEquals method",
+      "fullname": "",
     },
   ],
   Array [
@@ -60339,6 +92476,25 @@ Array [
       "ok": true,
       "id": 255,
       "name": "notEquals method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 255,
+      "name": "notEquals method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 255,
+      "name": "notEquals method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -60351,6 +92507,25 @@ Array [
       "ok": true,
       "id": 256,
       "name": "should have unsimilar method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 256,
+      "name": "should have unsimilar method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 256,
+      "name": "should have unsimilar method",
+      "fullname": "",
     },
   ],
   Array [
@@ -60363,6 +92538,25 @@ Array [
       "ok": true,
       "id": 257,
       "name": "unsimilar method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 257,
+      "name": "unsimilar method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 257,
+      "name": "unsimilar method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -60375,6 +92569,25 @@ Array [
       "ok": true,
       "id": 258,
       "name": "should have result method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 258,
+      "name": "should have result method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 258,
+      "name": "should have result method",
+      "fullname": "",
     },
   ],
   Array [
@@ -60387,6 +92600,25 @@ Array [
       "ok": true,
       "id": 259,
       "name": "result method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 259,
+      "name": "result method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 259,
+      "name": "result method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -60399,6 +92631,25 @@ Array [
       "ok": true,
       "id": 260,
       "name": "should have doesNotThrow method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 260,
+      "name": "should have doesNotThrow method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 260,
+      "name": "should have doesNotThrow method",
+      "fullname": "",
     },
   ],
   Array [
@@ -60411,6 +92662,25 @@ Array [
       "ok": true,
       "id": 261,
       "name": "doesNotThrow method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 261,
+      "name": "doesNotThrow method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 261,
+      "name": "doesNotThrow method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -60423,6 +92693,25 @@ Array [
       "ok": true,
       "id": 262,
       "name": "should have error method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 262,
+      "name": "should have error method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 262,
+      "name": "should have error method",
+      "fullname": "",
     },
   ],
   Array [
@@ -60435,6 +92724,25 @@ Array [
       "ok": true,
       "id": 263,
       "name": "error method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 263,
+      "name": "error method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 263,
+      "name": "error method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -60447,6 +92755,25 @@ Array [
       "ok": true,
       "id": 264,
       "name": "should have constructor method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 264,
+      "name": "should have constructor method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 264,
+      "name": "should have constructor method",
+      "fullname": "",
     },
   ],
   Array [
@@ -60459,6 +92786,25 @@ Array [
       "ok": true,
       "id": 265,
       "name": "constructor method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 265,
+      "name": "constructor method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 265,
+      "name": "constructor method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -60471,6 +92817,25 @@ Array [
       "ok": true,
       "id": 266,
       "name": "should have notEqual method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 266,
+      "name": "should have notEqual method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 266,
+      "name": "should have notEqual method",
+      "fullname": "",
     },
   ],
   Array [
@@ -60483,6 +92848,25 @@ Array [
       "ok": true,
       "id": 267,
       "name": "notEqual method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 267,
+      "name": "notEqual method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 267,
+      "name": "notEqual method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -60495,6 +92879,25 @@ Array [
       "ok": true,
       "id": 268,
       "name": "should have throws method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 268,
+      "name": "should have throws method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 268,
+      "name": "should have throws method",
+      "fullname": "",
     },
   ],
   Array [
@@ -60507,6 +92910,25 @@ Array [
       "ok": true,
       "id": 269,
       "name": "throws method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 269,
+      "name": "throws method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 269,
+      "name": "throws method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -60519,6 +92941,25 @@ Array [
       "ok": true,
       "id": 270,
       "name": "should have isLike method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 270,
+      "name": "should have isLike method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 270,
+      "name": "should have isLike method",
+      "fullname": "",
     },
   ],
   Array [
@@ -60531,6 +92972,25 @@ Array [
       "ok": true,
       "id": 271,
       "name": "isLike method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 271,
+      "name": "isLike method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 271,
+      "name": "isLike method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -60543,6 +93003,25 @@ Array [
       "ok": true,
       "id": 272,
       "name": "should have isNotSimilar method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 272,
+      "name": "should have isNotSimilar method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 272,
+      "name": "should have isNotSimilar method",
+      "fullname": "",
     },
   ],
   Array [
@@ -60555,6 +93034,25 @@ Array [
       "ok": true,
       "id": 273,
       "name": "isNotSimilar method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 273,
+      "name": "isNotSimilar method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 273,
+      "name": "isNotSimilar method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -60567,6 +93065,25 @@ Array [
       "ok": true,
       "id": 274,
       "name": "should have isNotEquivalent method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 274,
+      "name": "should have isNotEquivalent method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 274,
+      "name": "should have isNotEquivalent method",
+      "fullname": "",
     },
   ],
   Array [
@@ -60579,6 +93096,25 @@ Array [
       "ok": true,
       "id": 275,
       "name": "isNotEquivalent method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 275,
+      "name": "isNotEquivalent method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 275,
+      "name": "isNotEquivalent method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -60591,6 +93127,25 @@ Array [
       "ok": true,
       "id": 276,
       "name": "should have inequal method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 276,
+      "name": "should have inequal method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 276,
+      "name": "should have inequal method",
+      "fullname": "",
     },
   ],
   Array [
@@ -60603,6 +93158,25 @@ Array [
       "ok": true,
       "id": 277,
       "name": "inequal method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 277,
+      "name": "inequal method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 277,
+      "name": "inequal method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -60615,6 +93189,25 @@ Array [
       "ok": true,
       "id": 278,
       "name": "should have notEquivalent method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 278,
+      "name": "should have notEquivalent method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 278,
+      "name": "should have notEquivalent method",
+      "fullname": "",
     },
   ],
   Array [
@@ -60627,6 +93220,25 @@ Array [
       "ok": true,
       "id": 279,
       "name": "notEquivalent method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 279,
+      "name": "notEquivalent method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 279,
+      "name": "notEquivalent method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -60639,6 +93251,25 @@ Array [
       "ok": true,
       "id": 280,
       "name": "should have isNotLike method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 280,
+      "name": "should have isNotLike method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 280,
+      "name": "should have isNotLike method",
+      "fullname": "",
     },
   ],
   Array [
@@ -60651,6 +93282,25 @@ Array [
       "ok": true,
       "id": 281,
       "name": "isNotLike method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 281,
+      "name": "isNotLike method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 281,
+      "name": "isNotLike method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -60663,6 +93313,25 @@ Array [
       "ok": true,
       "id": 282,
       "name": "should have equivalent method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 282,
+      "name": "should have equivalent method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 282,
+      "name": "should have equivalent method",
+      "fullname": "",
     },
   ],
   Array [
@@ -60675,6 +93344,25 @@ Array [
       "ok": true,
       "id": 283,
       "name": "equivalent method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 283,
+      "name": "equivalent method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 283,
+      "name": "equivalent method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -60687,6 +93375,25 @@ Array [
       "ok": true,
       "id": 284,
       "name": "should have looseEqual method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 284,
+      "name": "should have looseEqual method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 284,
+      "name": "should have looseEqual method",
+      "fullname": "",
     },
   ],
   Array [
@@ -60699,6 +93406,25 @@ Array [
       "ok": true,
       "id": 285,
       "name": "looseEqual method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 285,
+      "name": "looseEqual method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 285,
+      "name": "looseEqual method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -60711,6 +93437,25 @@ Array [
       "ok": true,
       "id": 286,
       "name": "should have equal method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 286,
+      "name": "should have equal method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 286,
+      "name": "should have equal method",
+      "fullname": "",
     },
   ],
   Array [
@@ -60723,6 +93468,25 @@ Array [
       "ok": true,
       "id": 287,
       "name": "equal method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 287,
+      "name": "equal method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 287,
+      "name": "equal method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -60735,6 +93499,25 @@ Array [
       "ok": true,
       "id": 288,
       "name": "should have unlike method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 288,
+      "name": "should have unlike method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 288,
+      "name": "should have unlike method",
+      "fullname": "",
     },
   ],
   Array [
@@ -60747,6 +93530,25 @@ Array [
       "ok": true,
       "id": 289,
       "name": "unlike method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 289,
+      "name": "unlike method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 289,
+      "name": "unlike method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -60759,6 +93561,25 @@ Array [
       "ok": true,
       "id": 290,
       "name": "should have doesNotHave method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 290,
+      "name": "should have doesNotHave method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 290,
+      "name": "should have doesNotHave method",
+      "fullname": "",
     },
   ],
   Array [
@@ -60771,6 +93592,25 @@ Array [
       "ok": true,
       "id": 291,
       "name": "doesNotHave method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 291,
+      "name": "doesNotHave method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 291,
+      "name": "doesNotHave method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -60783,6 +93623,25 @@ Array [
       "ok": true,
       "id": 292,
       "name": "should have comment method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 292,
+      "name": "should have comment method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 292,
+      "name": "should have comment method",
+      "fullname": "",
     },
   ],
   Array [
@@ -60795,6 +93654,25 @@ Array [
       "ok": true,
       "id": 293,
       "name": "comment method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 293,
+      "name": "comment method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 293,
+      "name": "comment method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -60807,6 +93685,25 @@ Array [
       "ok": true,
       "id": 294,
       "name": "should have isa method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 294,
+      "name": "should have isa method",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 294,
+      "name": "should have isa method",
+      "fullname": "",
     },
   ],
   Array [
@@ -60819,6 +93716,25 @@ Array [
       "ok": true,
       "id": 295,
       "name": "isa method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 295,
+      "name": "isa method should be a function",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 295,
+      "name": "isa method should be a function",
+      "fullname": "",
     },
   ],
   Array [
@@ -60871,6 +93787,25 @@ Array [
       "ok": true,
       "id": 296,
       "name": "test/test-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 296,
+      "name": "test/test-test.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 296,
+      "name": "test/test-test.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -60939,6 +93874,25 @@ Array [
       "ok": true,
       "id": 297,
       "name": "a",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 297,
+      "name": "a",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 297,
+      "name": "a",
+      "fullname": "",
     },
   ],
   Array [
@@ -60967,6 +93921,25 @@ Array [
       "ok": true,
       "id": 298,
       "name": "b",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 298,
+      "name": "b",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 298,
+      "name": "b",
+      "fullname": "",
     },
   ],
   Array [
@@ -60987,6 +93960,25 @@ Array [
       "ok": true,
       "id": 299,
       "name": "a",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 299,
+      "name": "a",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 299,
+      "name": "a",
+      "fullname": "",
     },
   ],
   Array [
@@ -60999,6 +93991,25 @@ Array [
       "ok": true,
       "id": 300,
       "name": "b",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 300,
+      "name": "b",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 300,
+      "name": "b",
+      "fullname": "",
     },
   ],
   Array [
@@ -61035,6 +94046,25 @@ Array [
       "ok": true,
       "id": 301,
       "name": "test/timeout.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 301,
+      "name": "test/timeout.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 301,
+      "name": "test/timeout.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -61055,6 +94085,25 @@ Array [
       "ok": true,
       "id": 302,
       "name": "test/trivial-success.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 302,
+      "name": "test/trivial-success.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 302,
+      "name": "test/trivial-success.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -61091,6 +94140,25 @@ Array [
       "ok": true,
       "id": 303,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 303,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 303,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -61127,6 +94195,25 @@ Array [
       "ok": true,
       "id": 304,
       "name": "test/undefined_indented.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 304,
+      "name": "test/undefined_indented.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 304,
+      "name": "test/undefined_indented.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -61163,6 +94250,25 @@ Array [
       "ok": true,
       "id": 305,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 305,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 305,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -61175,6 +94281,25 @@ Array [
       "ok": true,
       "id": 306,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 306,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 306,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -61187,6 +94312,25 @@ Array [
       "ok": true,
       "id": 307,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 307,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 307,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -61199,6 +94343,25 @@ Array [
       "ok": true,
       "id": 308,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 308,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 308,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -61211,6 +94374,25 @@ Array [
       "ok": true,
       "id": 309,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 309,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 309,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -61223,6 +94405,25 @@ Array [
       "ok": true,
       "id": 310,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 310,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 310,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -61259,6 +94460,25 @@ Array [
       "ok": true,
       "id": 311,
       "name": "test/valid-command.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 311,
+      "name": "test/valid-command.js",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 311,
+      "name": "test/valid-command.js",
+      "fullname": "",
     },
   ],
   Array [
@@ -61375,6 +94595,7 @@ Array [
               "emitOne (events.js:77:13)\\n",
             ],
           },
+          "fullname": "",
         },
         Result {
           "ok": false,
@@ -61396,6 +94617,7 @@ Array [
               "Process.ChildProcess._handle.onexit (child_process.js:1057:5)\\n",
             ],
           },
+          "fullname": "",
         },
         Result {
           "ok": false,
@@ -61417,6 +94639,7 @@ Array [
               "Process.ChildProcess._handle.onexit (child_process.js:1057:5)\\n",
             ],
           },
+          "fullname": "",
         },
         Result {
           "ok": false,
@@ -61438,6 +94661,7 @@ Array [
               "Process.ChildProcess._handle.onexit (child_process.js:1057:5)\\n",
             ],
           },
+          "fullname": "",
         },
         Result {
           "ok": false,
@@ -61447,6 +94671,7 @@ Array [
             "exit": 1,
             "command": "/usr/local/bin/iojs test-descriptions.js",
           },
+          "fullname": "",
         },
       ],
     },
@@ -61478,6 +94703,27 @@ Array [
       "id": 1,
       "todo": "Just testing the todo interface.",
       "name": "Foo",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "todo": "Just testing the todo interface.",
+      "name": "Foo",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": false,
+      "id": 1,
+      "todo": "Just testing the todo interface.",
+      "name": "Foo",
+      "fullname": "",
     },
   ],
   Array [
@@ -61491,6 +94737,27 @@ Array [
       "id": 2,
       "todo": "Just testing the todo interface.",
       "name": "Unexpected success",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "todo": "Just testing the todo interface.",
+      "name": "Unexpected success",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": true,
+      "id": 2,
+      "todo": "Just testing the todo interface.",
+      "name": "Unexpected success",
+      "fullname": "",
     },
   ],
   Array [
@@ -61503,6 +94770,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "This is not todo",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "This is not todo",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "This is not todo",
+      "fullname": "",
     },
   ],
   Array [
@@ -61560,6 +94846,27 @@ Array [
       "id": 1,
       "todo": "Just testing the todo interface.",
       "name": "Foo",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "todo": "Just testing the todo interface.",
+      "name": "Foo",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": false,
+      "id": 1,
+      "todo": "Just testing the todo interface.",
+      "name": "Foo",
+      "fullname": "",
     },
   ],
   Array [
@@ -61573,6 +94880,27 @@ Array [
       "id": 2,
       "todo": "Just testing the todo interface.",
       "name": "Unexpected success",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "todo": "Just testing the todo interface.",
+      "name": "Unexpected success",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": true,
+      "id": 2,
+      "todo": "Just testing the todo interface.",
+      "name": "Unexpected success",
+      "fullname": "",
     },
   ],
   Array [
@@ -61585,6 +94913,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "This is not todo",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "This is not todo",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "This is not todo",
+      "fullname": "",
     },
   ],
   Array [
@@ -61641,6 +94988,25 @@ Array [
       "ok": false,
       "id": 1,
       "name": "Hamlette # TODOORNOTTODO",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "Hamlette # TODOORNOTTODO",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "Hamlette # TODOORNOTTODO",
+      "fullname": "",
     },
   ],
   Array [
@@ -61673,6 +95039,7 @@ Array [
           "ok": false,
           "id": 1,
           "name": "Hamlette # TODOORNOTTODO",
+          "fullname": "",
         },
       ],
     },
@@ -61703,6 +95070,25 @@ Array [
       "ok": false,
       "id": 1,
       "name": "Hamlette # TODOORNOTTODO",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "Hamlette # TODOORNOTTODO",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "Hamlette # TODOORNOTTODO",
+      "fullname": "",
     },
   ],
   Array [
@@ -61735,6 +95121,7 @@ Array [
           "ok": false,
           "id": 1,
           "name": "Hamlette # TODOORNOTTODO",
+          "fullname": "",
         },
       ],
     },
@@ -61774,6 +95161,7 @@ Array [
           "id": 1,
           "todo": true,
           "name": "should have a thingie",
+          "fullname": "a set of tests to be done later",
         },
       ],
       Array [
@@ -61787,6 +95175,7 @@ Array [
           "id": 2,
           "todo": true,
           "name": "should have a second whoosits also",
+          "fullname": "a set of tests to be done later",
         },
       ],
       Array [
@@ -61811,6 +95200,7 @@ Array [
               "id": 1,
               "todo": true,
               "name": "should be a child thingie",
+              "fullname": "a set of tests to be done later the subset",
             },
           ],
           Array [
@@ -61824,6 +95214,7 @@ Array [
               "id": 2,
               "todo": true,
               "name": "should also be a whoosits",
+              "fullname": "a set of tests to be done later the subset",
             },
           ],
           Array [
@@ -61847,6 +95238,7 @@ Array [
                   "ok": true,
                   "id": 1,
                   "name": "true is truthy",
+                  "fullname": "a set of tests to be done later the subset has some of these things",
                 },
               ],
               Array [
@@ -61859,6 +95251,7 @@ Array [
                   "ok": true,
                   "id": 2,
                   "name": "ten is also truthy",
+                  "fullname": "a set of tests to be done later the subset has some of these things",
                 },
               ],
               Array [
@@ -61916,6 +95309,7 @@ Array [
               "ok": true,
               "id": 3,
               "name": "has some of these things",
+              "fullname": "a set of tests to be done later the subset",
             },
           ],
           Array [
@@ -62005,6 +95399,7 @@ Array [
           "ok": true,
           "id": 3,
           "name": "the subset",
+          "fullname": "a set of tests to be done later",
         },
       ],
       Array [
@@ -62053,8 +95448,48 @@ Array [
     "    ok 1 - should have a thingie # TODO\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "todo": true,
+      "name": "should have a thingie",
+      "fullname": "a set of tests to be done later",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": true,
+      "id": 1,
+      "todo": true,
+      "name": "should have a thingie",
+      "fullname": "a set of tests to be done later",
+    },
+  ],
+  Array [
     "line",
     "    ok 2 - should have a second whoosits also # TODO\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "todo": true,
+      "name": "should have a second whoosits also",
+      "fullname": "a set of tests to be done later",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": true,
+      "id": 2,
+      "todo": true,
+      "name": "should have a second whoosits also",
+      "fullname": "a set of tests to be done later",
+    },
   ],
   Array [
     "line",
@@ -62065,8 +95500,48 @@ Array [
     "        ok 1 - should be a child thingie # TODO\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "todo": true,
+      "name": "should be a child thingie",
+      "fullname": "a set of tests to be done later the subset",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": true,
+      "id": 1,
+      "todo": true,
+      "name": "should be a child thingie",
+      "fullname": "a set of tests to be done later the subset",
+    },
+  ],
+  Array [
     "line",
     "        ok 2 - should also be a whoosits # TODO\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "todo": true,
+      "name": "should also be a whoosits",
+      "fullname": "a set of tests to be done later the subset",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": true,
+      "id": 2,
+      "todo": true,
+      "name": "should also be a whoosits",
+      "fullname": "a set of tests to be done later the subset",
+    },
   ],
   Array [
     "line",
@@ -62077,8 +95552,44 @@ Array [
     "            ok 1 - true is truthy\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is truthy",
+      "fullname": "a set of tests to be done later the subset has some of these things",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is truthy",
+      "fullname": "a set of tests to be done later the subset has some of these things",
+    },
+  ],
+  Array [
     "line",
     "            ok 2 - ten is also truthy\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "ten is also truthy",
+      "fullname": "a set of tests to be done later the subset has some of these things",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "ten is also truthy",
+      "fullname": "a set of tests to be done later the subset has some of these things",
+    },
   ],
   Array [
     "line",
@@ -62118,6 +95629,7 @@ Array [
       "ok": true,
       "id": 1,
       "name": "a set of tests to be done later",
+      "fullname": "",
     },
   ],
   Array [
@@ -62142,6 +95654,7 @@ Array [
           "id": 1,
           "todo": true,
           "name": "is a second set",
+          "fullname": "another set of tests",
         },
       ],
       Array [
@@ -62155,6 +95668,7 @@ Array [
           "id": 2,
           "todo": true,
           "name": "looks like english",
+          "fullname": "another set of tests",
         },
       ],
       Array [
@@ -62168,6 +95682,7 @@ Array [
           "id": 3,
           "todo": true,
           "name": "is marked TODO",
+          "fullname": "another set of tests",
         },
       ],
       Array [
@@ -62216,12 +95731,72 @@ Array [
     "    ok 1 - is a second set # TODO\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "todo": true,
+      "name": "is a second set",
+      "fullname": "another set of tests",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": true,
+      "id": 1,
+      "todo": true,
+      "name": "is a second set",
+      "fullname": "another set of tests",
+    },
+  ],
+  Array [
     "line",
     "    ok 2 - looks like english # TODO\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "todo": true,
+      "name": "looks like english",
+      "fullname": "another set of tests",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": true,
+      "id": 2,
+      "todo": true,
+      "name": "looks like english",
+      "fullname": "another set of tests",
+    },
+  ],
+  Array [
     "line",
     "    ok 3 - is marked TODO # TODO\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "todo": true,
+      "name": "is marked TODO",
+      "fullname": "another set of tests",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": true,
+      "id": 3,
+      "todo": true,
+      "name": "is marked TODO",
+      "fullname": "another set of tests",
+    },
   ],
   Array [
     "line",
@@ -62241,6 +95816,7 @@ Array [
       "ok": true,
       "id": 2,
       "name": "another set of tests",
+      "fullname": "",
     },
   ],
   Array [
@@ -62309,6 +95885,7 @@ Array [
           "id": 1,
           "todo": true,
           "name": "should have a thingie",
+          "fullname": "a set of tests to be done later",
         },
       ],
       Array [
@@ -62322,6 +95899,7 @@ Array [
           "id": 2,
           "todo": true,
           "name": "should have a second whoosits also",
+          "fullname": "a set of tests to be done later",
         },
       ],
       Array [
@@ -62346,6 +95924,7 @@ Array [
               "id": 1,
               "todo": true,
               "name": "should be a child thingie",
+              "fullname": "a set of tests to be done later the subset",
             },
           ],
           Array [
@@ -62359,6 +95938,7 @@ Array [
               "id": 2,
               "todo": true,
               "name": "should also be a whoosits",
+              "fullname": "a set of tests to be done later the subset",
             },
           ],
           Array [
@@ -62382,6 +95962,7 @@ Array [
                   "ok": true,
                   "id": 1,
                   "name": "true is truthy",
+                  "fullname": "a set of tests to be done later the subset has some of these things",
                 },
               ],
               Array [
@@ -62394,6 +95975,7 @@ Array [
                   "ok": true,
                   "id": 2,
                   "name": "ten is also truthy",
+                  "fullname": "a set of tests to be done later the subset has some of these things",
                 },
               ],
               Array [
@@ -62451,6 +96033,7 @@ Array [
               "ok": true,
               "id": 3,
               "name": "has some of these things",
+              "fullname": "a set of tests to be done later the subset",
             },
           ],
           Array [
@@ -62540,6 +96123,7 @@ Array [
           "ok": true,
           "id": 3,
           "name": "the subset",
+          "fullname": "a set of tests to be done later",
         },
       ],
       Array [
@@ -62588,8 +96172,48 @@ Array [
     "    ok 1 - should have a thingie # TODO\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "todo": true,
+      "name": "should have a thingie",
+      "fullname": "a set of tests to be done later",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": true,
+      "id": 1,
+      "todo": true,
+      "name": "should have a thingie",
+      "fullname": "a set of tests to be done later",
+    },
+  ],
+  Array [
     "line",
     "    ok 2 - should have a second whoosits also # TODO\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "todo": true,
+      "name": "should have a second whoosits also",
+      "fullname": "a set of tests to be done later",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": true,
+      "id": 2,
+      "todo": true,
+      "name": "should have a second whoosits also",
+      "fullname": "a set of tests to be done later",
+    },
   ],
   Array [
     "line",
@@ -62600,8 +96224,48 @@ Array [
     "        ok 1 - should be a child thingie # TODO\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "todo": true,
+      "name": "should be a child thingie",
+      "fullname": "a set of tests to be done later the subset",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": true,
+      "id": 1,
+      "todo": true,
+      "name": "should be a child thingie",
+      "fullname": "a set of tests to be done later the subset",
+    },
+  ],
+  Array [
     "line",
     "        ok 2 - should also be a whoosits # TODO\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "todo": true,
+      "name": "should also be a whoosits",
+      "fullname": "a set of tests to be done later the subset",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": true,
+      "id": 2,
+      "todo": true,
+      "name": "should also be a whoosits",
+      "fullname": "a set of tests to be done later the subset",
+    },
   ],
   Array [
     "line",
@@ -62612,8 +96276,44 @@ Array [
     "            ok 1 - true is truthy\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is truthy",
+      "fullname": "a set of tests to be done later the subset has some of these things",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "true is truthy",
+      "fullname": "a set of tests to be done later the subset has some of these things",
+    },
+  ],
+  Array [
     "line",
     "            ok 2 - ten is also truthy\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "ten is also truthy",
+      "fullname": "a set of tests to be done later the subset has some of these things",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "ten is also truthy",
+      "fullname": "a set of tests to be done later the subset has some of these things",
+    },
   ],
   Array [
     "line",
@@ -62653,6 +96353,7 @@ Array [
       "ok": true,
       "id": 1,
       "name": "a set of tests to be done later",
+      "fullname": "",
     },
   ],
   Array [
@@ -62677,6 +96378,7 @@ Array [
           "id": 1,
           "todo": true,
           "name": "is a second set",
+          "fullname": "another set of tests",
         },
       ],
       Array [
@@ -62690,6 +96392,7 @@ Array [
           "id": 2,
           "todo": true,
           "name": "looks like english",
+          "fullname": "another set of tests",
         },
       ],
       Array [
@@ -62703,6 +96406,7 @@ Array [
           "id": 3,
           "todo": true,
           "name": "is marked TODO",
+          "fullname": "another set of tests",
         },
       ],
       Array [
@@ -62751,12 +96455,72 @@ Array [
     "    ok 1 - is a second set # TODO\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "todo": true,
+      "name": "is a second set",
+      "fullname": "another set of tests",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": true,
+      "id": 1,
+      "todo": true,
+      "name": "is a second set",
+      "fullname": "another set of tests",
+    },
+  ],
+  Array [
     "line",
     "    ok 2 - looks like english # TODO\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "todo": true,
+      "name": "looks like english",
+      "fullname": "another set of tests",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": true,
+      "id": 2,
+      "todo": true,
+      "name": "looks like english",
+      "fullname": "another set of tests",
+    },
+  ],
+  Array [
     "line",
     "    ok 3 - is marked TODO # TODO\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "todo": true,
+      "name": "is marked TODO",
+      "fullname": "another set of tests",
+    },
+  ],
+  Array [
+    "todo",
+    Result {
+      "ok": true,
+      "id": 3,
+      "todo": true,
+      "name": "is marked TODO",
+      "fullname": "another set of tests",
+    },
   ],
   Array [
     "line",
@@ -62776,6 +96540,7 @@ Array [
       "ok": true,
       "id": 2,
       "name": "another set of tests",
+      "fullname": "",
     },
   ],
   Array [
@@ -62834,6 +96599,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -62845,6 +96627,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -62856,6 +96655,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -62872,6 +96688,33 @@ Array [
         "start": 1,
         "end": 3,
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 3,
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 3,
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -62888,6 +96731,33 @@ Array [
         "start": 1,
         "end": 3,
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 3,
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 3,
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -62904,6 +96774,33 @@ Array [
         "start": 1,
         "end": 3,
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 6,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 3,
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 6,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 3,
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -62920,6 +96817,33 @@ Array [
         "start": 1,
         "end": 3,
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 7,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 3,
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 7,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 3,
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -62964,6 +96888,7 @@ Array [
             "start": 1,
             "end": 3,
           },
+          "fullname": "",
         },
         Result {
           "ok": true,
@@ -62973,6 +96898,7 @@ Array [
             "start": 1,
             "end": 3,
           },
+          "fullname": "",
         },
         Result {
           "ok": true,
@@ -62982,6 +96908,7 @@ Array [
             "start": 1,
             "end": 3,
           },
+          "fullname": "",
         },
         Result {
           "ok": true,
@@ -62991,6 +96918,7 @@ Array [
             "start": 1,
             "end": 3,
           },
+          "fullname": "",
         },
       ],
     },
@@ -63020,6 +96948,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -63031,6 +96976,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -63042,6 +97004,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -63058,6 +97037,33 @@ Array [
         "start": 1,
         "end": 3,
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 3,
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 3,
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -63074,6 +97080,33 @@ Array [
         "start": 1,
         "end": 3,
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 3,
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 3,
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -63090,6 +97123,33 @@ Array [
         "start": 1,
         "end": 3,
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 6,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 3,
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 6,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 3,
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -63106,6 +97166,33 @@ Array [
         "start": 1,
         "end": 3,
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 7,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 3,
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 7,
+      "tapError": "id greater than plan end",
+      "plan": Object {
+        "start": 1,
+        "end": 3,
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -63150,6 +97237,7 @@ Array [
             "start": 1,
             "end": 3,
           },
+          "fullname": "",
         },
         Result {
           "ok": true,
@@ -63159,6 +97247,7 @@ Array [
             "start": 1,
             "end": 3,
           },
+          "fullname": "",
         },
         Result {
           "ok": true,
@@ -63168,6 +97257,7 @@ Array [
             "start": 1,
             "end": 3,
           },
+          "fullname": "",
         },
         Result {
           "ok": true,
@@ -63177,6 +97267,7 @@ Array [
             "start": 1,
             "end": 3,
           },
+          "fullname": "",
         },
       ],
     },
@@ -63212,6 +97303,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -63224,6 +97334,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -63244,6 +97373,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -63256,6 +97404,25 @@ Array [
       "ok": true,
       "id": 4,
       "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "(unnamed assert)",
+      "fullname": "",
     },
   ],
   Array [
@@ -63364,6 +97531,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -63376,6 +97562,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "should be equivalent",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "should be equivalent",
+      "fullname": "",
     },
   ],
   Array [
@@ -63396,6 +97601,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "should be equal",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "should be equal",
+      "fullname": "",
     },
   ],
   Array [
@@ -63408,6 +97632,25 @@ Array [
       "ok": true,
       "id": 4,
       "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "(unnamed assert)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "name": "(unnamed assert)",
+      "fullname": "",
     },
   ],
   Array [
@@ -63518,6 +97761,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -63529,6 +97789,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -63604,6 +97881,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -63615,6 +97909,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -63680,6 +97991,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "retrieving servers from the database",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "retrieving servers from the database",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "retrieving servers from the database",
+      "fullname": "",
     },
   ],
   Array [
@@ -63700,6 +98030,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "pinged diamond",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "pinged diamond",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "pinged diamond",
+      "fullname": "",
     },
   ],
   Array [
@@ -63712,6 +98061,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "pinged ruby",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "pinged ruby",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "pinged ruby",
+      "fullname": "",
     },
   ],
   Array [
@@ -63744,6 +98112,33 @@ Array [
         "message": "hostname \\"saphire\\" unknown",
         "severity": "fail",
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 4,
+      "name": "pinged saphire",
+      "diag": Object {
+        "message": "hostname \\"saphire\\" unknown",
+        "severity": "fail",
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 4,
+      "name": "pinged saphire",
+      "diag": Object {
+        "message": "hostname \\"saphire\\" unknown",
+        "severity": "fail",
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -63780,6 +98175,7 @@ Array [
             "message": "hostname \\"saphire\\" unknown",
             "severity": "fail",
           },
+          "fullname": "",
         },
       ],
     },
@@ -63807,6 +98203,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "retrieving servers from the database",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "retrieving servers from the database",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "retrieving servers from the database",
+      "fullname": "",
     },
   ],
   Array [
@@ -63827,6 +98242,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "pinged diamond",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "pinged diamond",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "pinged diamond",
+      "fullname": "",
     },
   ],
   Array [
@@ -63839,6 +98273,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "pinged ruby",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "pinged ruby",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "pinged ruby",
+      "fullname": "",
     },
   ],
   Array [
@@ -63871,6 +98324,33 @@ Array [
         "message": "hostname \\"saphire\\" unknown",
         "severity": "fail",
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 4,
+      "name": "pinged saphire",
+      "diag": Object {
+        "message": "hostname \\"saphire\\" unknown",
+        "severity": "fail",
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 4,
+      "name": "pinged saphire",
+      "diag": Object {
+        "message": "hostname \\"saphire\\" unknown",
+        "severity": "fail",
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -63883,6 +98363,25 @@ Array [
       "ok": true,
       "id": 5,
       "name": "pinged onyx",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "name": "pinged onyx",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "name": "pinged onyx",
+      "fullname": "",
     },
   ],
   Array [
@@ -63915,6 +98414,33 @@ Array [
         "message": "timeout",
         "severity": "fail",
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 6,
+      "name": "pinged quartz",
+      "diag": Object {
+        "message": "timeout",
+        "severity": "fail",
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 6,
+      "name": "pinged quartz",
+      "diag": Object {
+        "message": "timeout",
+        "severity": "fail",
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -63927,6 +98453,25 @@ Array [
       "ok": true,
       "id": 7,
       "name": "pinged gold",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 7,
+      "name": "pinged gold",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 7,
+      "name": "pinged gold",
+      "fullname": "",
     },
   ],
   Array [
@@ -63974,6 +98519,7 @@ Array [
             "message": "hostname \\"saphire\\" unknown",
             "severity": "fail",
           },
+          "fullname": "",
         },
         Result {
           "ok": false,
@@ -63983,6 +98529,7 @@ Array [
             "message": "timeout",
             "severity": "fail",
           },
+          "fullname": "",
         },
       ],
     },
@@ -64020,6 +98567,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -64031,6 +98595,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -64042,6 +98623,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -64053,6 +98651,23 @@ Array [
     Result {
       "ok": true,
       "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
     },
   ],
   Array [
@@ -64064,6 +98679,23 @@ Array [
     Result {
       "ok": true,
       "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
     },
   ],
   Array [
@@ -64119,6 +98751,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -64130,6 +98779,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -64141,6 +98807,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -64152,6 +98835,23 @@ Array [
     Result {
       "ok": true,
       "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
     },
   ],
   Array [
@@ -64163,6 +98863,23 @@ Array [
     Result {
       "ok": true,
       "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
     },
   ],
   Array [
@@ -64218,6 +98935,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -64229,6 +98963,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -64240,6 +98991,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -64251,6 +99019,23 @@ Array [
     Result {
       "ok": true,
       "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
     },
   ],
   Array [
@@ -64262,6 +99047,23 @@ Array [
     Result {
       "ok": true,
       "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
     },
   ],
   Array [
@@ -64317,6 +99119,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -64328,6 +99147,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -64339,6 +99175,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -64350,6 +99203,23 @@ Array [
     Result {
       "ok": true,
       "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
     },
   ],
   Array [
@@ -64361,6 +99231,23 @@ Array [
     Result {
       "ok": true,
       "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
     },
   ],
   Array [
@@ -64425,6 +99312,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -64436,6 +99340,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -64447,6 +99368,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -64458,6 +99396,23 @@ Array [
     Result {
       "ok": true,
       "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
     },
   ],
   Array [
@@ -64469,6 +99424,23 @@ Array [
     Result {
       "ok": true,
       "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
     },
   ],
   Array [
@@ -64546,6 +99518,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -64557,6 +99546,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -64568,6 +99574,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -64579,6 +99602,23 @@ Array [
     Result {
       "ok": true,
       "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
     },
   ],
   Array [
@@ -64590,6 +99630,23 @@ Array [
     Result {
       "ok": true,
       "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
     },
   ],
   Array [
@@ -64658,6 +99715,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -64669,6 +99743,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -64680,6 +99771,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -64691,6 +99799,23 @@ Array [
     Result {
       "ok": true,
       "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
     },
   ],
   Array [
@@ -64702,6 +99827,23 @@ Array [
     Result {
       "ok": true,
       "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
     },
   ],
   Array [
@@ -64757,6 +99899,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -64768,6 +99927,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -64779,6 +99955,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -64790,6 +99983,23 @@ Array [
     Result {
       "ok": true,
       "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
     },
   ],
   Array [
@@ -64801,6 +100011,23 @@ Array [
     Result {
       "ok": true,
       "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "fullname": "",
     },
   ],
   Array [
@@ -64884,6 +100111,7 @@ Array [
           "diag": Object {
             "version": "\\nTAP version 13",
           },
+          "fullname": "child indented",
         },
       ],
       Array [
@@ -64919,6 +100147,7 @@ Array [
               "diag": Object {
                 "version": "\\nTAP version 13",
               },
+              "fullname": "child indented",
             },
           ],
         },
@@ -64952,6 +100181,30 @@ Array [
   Array [
     "line",
     "      ...\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "some yaml",
+      "diag": Object {
+        "version": "\\nTAP version 13",
+      },
+      "fullname": "child indented",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "some yaml",
+      "diag": Object {
+        "version": "\\nTAP version 13",
+      },
+      "fullname": "child indented",
+    },
   ],
   Array [
     "line",
@@ -65046,6 +100299,7 @@ Array [
           "diag": Object {
             "version": "\\nTAP version 13",
           },
+          "fullname": "child indented",
         },
       ],
       Array [
@@ -65092,6 +100346,7 @@ Array [
               "diag": Object {
                 "version": "\\nTAP version 13",
               },
+              "fullname": "child indented",
             },
           ],
         },
@@ -65127,6 +100382,30 @@ Array [
     "      ...\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "some yaml",
+      "diag": Object {
+        "version": "\\nTAP version 13",
+      },
+      "fullname": "child indented",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "some yaml",
+      "diag": Object {
+        "version": "\\nTAP version 13",
+      },
+      "fullname": "child indented",
+    },
+  ],
+  Array [
     "line",
     "    1..1\\n",
   ],
@@ -65144,6 +100423,7 @@ Array [
       "ok": false,
       "id": 1,
       "name": "child indented",
+      "fullname": "",
     },
   ],
   Array [
@@ -65194,6 +100474,7 @@ Array [
           "diag": Object {
             "version": "\\nTAP version 13",
           },
+          "fullname": "child unindented",
         },
       ],
       Array [
@@ -65240,6 +100521,7 @@ Array [
               "diag": Object {
                 "version": "\\nTAP version 13",
               },
+              "fullname": "child unindented",
             },
           ],
         },
@@ -65275,6 +100557,30 @@ Array [
     "      ...\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "some yaml",
+      "diag": Object {
+        "version": "\\nTAP version 13",
+      },
+      "fullname": "child unindented",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "some yaml",
+      "diag": Object {
+        "version": "\\nTAP version 13",
+      },
+      "fullname": "child unindented",
+    },
+  ],
+  Array [
     "line",
     "    1..1\\n",
   ],
@@ -65292,6 +100598,7 @@ Array [
       "ok": false,
       "id": 2,
       "name": "child unindented",
+      "fullname": "",
     },
   ],
   Array [
@@ -65342,6 +100649,7 @@ Array [
           "diag": Object {
             "version": "\\nTAP version 13",
           },
+          "fullname": "",
         },
       ],
       Array [
@@ -65388,6 +100696,7 @@ Array [
               "diag": Object {
                 "version": "\\nTAP version 13",
               },
+              "fullname": "",
             },
           ],
         },
@@ -65423,6 +100732,30 @@ Array [
     "      ...\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "some yaml",
+      "diag": Object {
+        "version": "\\nTAP version 13",
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "some yaml",
+      "diag": Object {
+        "version": "\\nTAP version 13",
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
     "line",
     "    1..1\\n",
   ],
@@ -65440,6 +100773,25 @@ Array [
       "ok": false,
       "id": 3,
       "name": "child unnamed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 3,
+      "name": "child unnamed",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 3,
+      "name": "child unnamed",
+      "fullname": "",
     },
   ],
   Array [
@@ -65490,6 +100842,7 @@ Array [
           "diag": Object {
             "version": "\\nTAP version 13",
           },
+          "fullname": "child buffered",
         },
       ],
       Array [
@@ -65536,6 +100889,7 @@ Array [
               "diag": Object {
                 "version": "\\nTAP version 13",
               },
+              "fullname": "child buffered",
             },
           ],
         },
@@ -65571,6 +100925,30 @@ Array [
     "      ...\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "some yaml",
+      "diag": Object {
+        "version": "\\nTAP version 13",
+      },
+      "fullname": "child buffered",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "some yaml",
+      "diag": Object {
+        "version": "\\nTAP version 13",
+      },
+      "fullname": "child buffered",
+    },
+  ],
+  Array [
     "line",
     "    1..1\\n",
   ],
@@ -65589,6 +100967,7 @@ Array [
       "id": 4,
       "buffered": true,
       "name": "child buffered",
+      "fullname": "",
     },
   ],
   Array [
@@ -65632,22 +101011,26 @@ Array [
           "ok": false,
           "id": 1,
           "name": "child indented",
+          "fullname": "",
         },
         Result {
           "ok": false,
           "id": 2,
           "name": "child unindented",
+          "fullname": "",
         },
         Result {
           "ok": false,
           "id": 3,
           "name": "child unnamed",
+          "fullname": "",
         },
         Result {
           "ok": false,
           "id": 4,
           "buffered": true,
           "name": "child buffered",
+          "fullname": "",
         },
       ],
     },
@@ -65685,6 +101068,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -65696,6 +101096,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -65751,6 +101168,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -65762,6 +101196,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -65822,6 +101273,23 @@ Array [
     Result {
       "ok": false,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -65861,6 +101329,7 @@ Array [
         Result {
           "ok": false,
           "id": 1,
+          "fullname": "",
         },
       ],
     },
@@ -65903,6 +101372,23 @@ Array [
     Result {
       "ok": false,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -65923,6 +101409,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "# (t/todo.t at line 10 TODO?!)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "# (t/todo.t at line 10 TODO?!)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "# (t/todo.t at line 10 TODO?!)",
+      "fullname": "",
     },
   ],
   Array [
@@ -65934,6 +101439,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -65945,6 +101467,23 @@ Array [
     Result {
       "ok": false,
       "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 4,
+      "fullname": "",
     },
   ],
   Array [
@@ -65973,6 +101512,25 @@ Array [
       "ok": true,
       "id": 5,
       "name": "# (t/todo.t at line 13 TODO?!)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "name": "# (t/todo.t at line 13 TODO?!)",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "name": "# (t/todo.t at line 13 TODO?!)",
+      "fullname": "",
     },
   ],
   Array [
@@ -66020,10 +101578,12 @@ Array [
         Result {
           "ok": false,
           "id": 1,
+          "fullname": "",
         },
         Result {
           "ok": false,
           "id": 4,
+          "fullname": "",
         },
         Object {
           "tapError": "no plan",
@@ -66064,6 +101624,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -66075,6 +101652,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -66086,6 +101680,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -66097,6 +101708,23 @@ Array [
     Result {
       "ok": true,
       "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
     },
   ],
   Array [
@@ -66108,6 +101736,23 @@ Array [
     Result {
       "ok": true,
       "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
     },
   ],
   Array [
@@ -66175,6 +101820,23 @@ Array [
     Result {
       "ok": true,
       "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "fullname": "",
     },
   ],
   Array [
@@ -66186,6 +101848,23 @@ Array [
     Result {
       "ok": true,
       "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "fullname": "",
     },
   ],
   Array [
@@ -66197,6 +101876,23 @@ Array [
     Result {
       "ok": true,
       "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "fullname": "",
     },
   ],
   Array [
@@ -66208,6 +101904,23 @@ Array [
     Result {
       "ok": true,
       "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
     },
   ],
   Array [
@@ -66219,6 +101932,23 @@ Array [
     Result {
       "ok": true,
       "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 4,
+      "fullname": "",
     },
   ],
   Array [
@@ -66276,6 +102006,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "test suite started",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "test suite started",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "test suite started",
+      "fullname": "",
     },
   ],
   Array [
@@ -66303,6 +102052,31 @@ Array [
       "diag": Object {
         "Bogomips": 5226.88,
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "bogomips",
+      "diag": Object {
+        "Bogomips": 5226.88,
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "bogomips",
+      "diag": Object {
+        "Bogomips": 5226.88,
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -66315,6 +102089,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "test suite finished",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "test suite finished",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "test suite finished",
+      "fullname": "",
     },
   ],
   Array [
@@ -66371,6 +102164,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "test suite started",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "test suite started",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "test suite started",
+      "fullname": "",
     },
   ],
   Array [
@@ -66398,6 +102210,31 @@ Array [
       "diag": Object {
         "Bogomips": 5226.88,
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "bogomips",
+      "diag": Object {
+        "Bogomips": 5226.88,
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "bogomips",
+      "diag": Object {
+        "Bogomips": 5226.88,
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -66410,6 +102247,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "test suite finished",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "test suite finished",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "test suite finished",
+      "fullname": "",
     },
   ],
   Array [
@@ -66495,6 +102351,37 @@ Array [
           "lots of other shapes here can look like valid tap",
         ],
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "callback happened",
+      "diag": Object {
+        "ok": Array [
+          "I wished for a bailout!",
+          "lots of other shapes here can look like valid tap",
+        ],
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "callback happened",
+      "diag": Object {
+        "ok": Array [
+          "I wished for a bailout!",
+          "lots of other shapes here can look like valid tap",
+        ],
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -66507,6 +102394,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "child test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "child test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "child test",
+      "fullname": "",
     },
   ],
   Array [
@@ -66519,6 +102425,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "should come last",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "should come last",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "should come last",
+      "fullname": "",
     },
   ],
   Array [
@@ -66593,6 +102518,37 @@ Array [
           "lots of other shapes here can look like valid tap",
         ],
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "callback happened",
+      "diag": Object {
+        "ok": Array [
+          "I wished for a bailout!",
+          "lots of other shapes here can look like valid tap",
+        ],
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "callback happened",
+      "diag": Object {
+        "ok": Array [
+          "I wished for a bailout!",
+          "lots of other shapes here can look like valid tap",
+        ],
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -66605,6 +102561,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "child test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "child test",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "child test",
+      "fullname": "",
     },
   ],
   Array [
@@ -66617,6 +102592,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "should come last",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "should come last",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "should come last",
+      "fullname": "",
     },
   ],
   Array [
@@ -66778,6 +102772,33 @@ Array [
         "but": "this",
         "is": "yaml",
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "expected yaml, got a sea turtle",
+      "diag": Object {
+        "but": "this",
+        "is": "yaml",
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "expected yaml, got a sea turtle",
+      "diag": Object {
+        "but": "this",
+        "is": "yaml",
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -66814,6 +102835,7 @@ Array [
             "but": "this",
             "is": "yaml",
           },
+          "fullname": "",
         },
       ],
     },
@@ -66957,6 +102979,33 @@ Array [
         "but": "this",
         "is": "yaml",
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "expected yaml, got a sea turtle",
+      "diag": Object {
+        "but": "this",
+        "is": "yaml",
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "expected yaml, got a sea turtle",
+      "diag": Object {
+        "but": "this",
+        "is": "yaml",
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -67004,6 +103053,7 @@ Array [
             "but": "this",
             "is": "yaml",
           },
+          "fullname": "",
         },
       ],
     },
@@ -67063,6 +103113,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "this is fine",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "this is fine",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "this is fine",
+      "fullname": "",
     },
   ],
   Array [
@@ -67151,6 +103220,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "this is fine",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "this is fine",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "this is fine",
+      "fullname": "",
     },
   ],
   Array [
@@ -67265,6 +103353,53 @@ Array [
           },
         },
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "Resolve address",
+      "diag": Object {
+        "message": "Failed with error 'hostname peebles.example.com not found'",
+        "severity": "fail",
+        "data": Object {
+          "got": Object {
+            "hostname": "peebles.example.com",
+            "address": null,
+          },
+          "expected": Object {
+            "hostname": "peebles.example.com",
+            "address": "85.193.201.85",
+          },
+        },
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "Resolve address",
+      "diag": Object {
+        "message": "Failed with error 'hostname peebles.example.com not found'",
+        "severity": "fail",
+        "data": Object {
+          "got": Object {
+            "hostname": "peebles.example.com",
+            "address": null,
+          },
+          "expected": Object {
+            "hostname": "peebles.example.com",
+            "address": "85.193.201.85",
+          },
+        },
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -67311,6 +103446,7 @@ Array [
               },
             },
           },
+          "fullname": "",
         },
       ],
     },
@@ -67396,6 +103532,53 @@ Array [
           },
         },
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "Resolve address",
+      "diag": Object {
+        "message": "Failed with error 'hostname peebles.example.com not found'",
+        "severity": "fail",
+        "data": Object {
+          "got": Object {
+            "hostname": "peebles.example.com",
+            "address": null,
+          },
+          "expected": Object {
+            "hostname": "peebles.example.com",
+            "address": "85.193.201.85",
+          },
+        },
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "ok": false,
+      "id": 1,
+      "name": "Resolve address",
+      "diag": Object {
+        "message": "Failed with error 'hostname peebles.example.com not found'",
+        "severity": "fail",
+        "data": Object {
+          "got": Object {
+            "hostname": "peebles.example.com",
+            "address": null,
+          },
+          "expected": Object {
+            "hostname": "peebles.example.com",
+            "address": "85.193.201.85",
+          },
+        },
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -67453,6 +103636,7 @@ Array [
               },
             },
           },
+          "fullname": "",
         },
       ],
     },
@@ -67483,6 +103667,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "One",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "One",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "One",
+      "fullname": "",
     },
   ],
   Array [
@@ -67495,6 +103698,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "Two",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "Two",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "Two",
+      "fullname": "",
     },
   ],
   Array [
@@ -67507,6 +103729,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "Three",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "Three",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "Three",
+      "fullname": "",
     },
   ],
   Array [
@@ -67524,6 +103765,35 @@ Array [
         "start": 1,
         "end": 5,
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 0,
+      "name": "Four",
+      "tapError": "id less than plan start",
+      "plan": Object {
+        "start": 1,
+        "end": 5,
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 0,
+      "name": "Four",
+      "tapError": "id less than plan start",
+      "plan": Object {
+        "start": 1,
+        "end": 5,
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -67536,6 +103806,25 @@ Array [
       "ok": true,
       "id": 5,
       "name": "Five",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "name": "Five",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "name": "Five",
+      "fullname": "",
     },
   ],
   Array [
@@ -67573,6 +103862,7 @@ Array [
             "start": 1,
             "end": 5,
           },
+          "fullname": "",
         },
       ],
     },
@@ -67603,6 +103893,25 @@ Array [
       "ok": true,
       "id": 1,
       "name": "One",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "One",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "name": "One",
+      "fullname": "",
     },
   ],
   Array [
@@ -67615,6 +103924,25 @@ Array [
       "ok": true,
       "id": 2,
       "name": "Two",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "Two",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 2,
+      "name": "Two",
+      "fullname": "",
     },
   ],
   Array [
@@ -67627,6 +103955,25 @@ Array [
       "ok": true,
       "id": 3,
       "name": "Three",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "Three",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 3,
+      "name": "Three",
+      "fullname": "",
     },
   ],
   Array [
@@ -67644,6 +103991,35 @@ Array [
         "start": 1,
         "end": 5,
       },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 0,
+      "name": "Four",
+      "tapError": "id less than plan start",
+      "plan": Object {
+        "start": 1,
+        "end": 5,
+      },
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 0,
+      "name": "Four",
+      "tapError": "id less than plan start",
+      "plan": Object {
+        "start": 1,
+        "end": 5,
+      },
+      "fullname": "",
     },
   ],
   Array [
@@ -67656,6 +104032,25 @@ Array [
       "ok": true,
       "id": 5,
       "name": "Five",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 5,
+      "name": "Five",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 5,
+      "name": "Five",
+      "fullname": "",
     },
   ],
   Array [
@@ -67693,6 +104088,7 @@ Array [
             "start": 1,
             "end": 5,
           },
+          "fullname": "",
         },
       ],
     },
