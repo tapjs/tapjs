@@ -216,6 +216,21 @@ be lost.
 See `Subtests` below for more information on which sorts of subtest
 formats are supported by this parser.
 
+## p.on('result', function (assert) {})
+
+This is the same as the `assert` event, except that it only emits on the root
+parser, whenever it or any child parser has an `assert` event that is not
+merely closing a child test block.
+
+## p.on('pass', function (assert) {})
+## p.on('fail', function (assert) {})
+## p.on('skip', function (assert) {})
+## p.on('todo', function (assert) {})
+
+Emitted on the root parser object, whenever it or any child parser has an
+`assert` event that is not merely closing a child test block, if the result is
+of the appropriate type.
+
 ## p.on('extra', function (extra) {})
 
 All other lines will trigger an `'extra'` event with the line text.
