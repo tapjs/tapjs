@@ -703,6 +703,7 @@ class Parser extends MiniPass {
       this.previousChild = null
       if (res.name === c.name &&
           res.ok === c.results.ok &&
+          c.results.count &&
           !res.todo && !res.skip) {
         // just procedural, ignore it
         return

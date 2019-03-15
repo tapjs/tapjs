@@ -14258,6 +14258,26 @@ Array [
     },
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "buffered": true,
+      "name": "child",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "buffered": true,
+      "name": "child",
+      "fullname": "",
+    },
+  ],
+  Array [
     "line",
     "1..1\\n",
   ],
@@ -14340,6 +14360,26 @@ Array [
   ],
   Array [
     "assert",
+    Result {
+      "ok": true,
+      "id": 1,
+      "buffered": true,
+      "name": "child",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "buffered": true,
+      "name": "child",
+      "fullname": "",
+    },
+  ],
+  Array [
+    "pass",
     Result {
       "ok": true,
       "id": 1,
@@ -20984,6 +21024,26 @@ Array [
     "    ok 1 - boom # time=5.26ms\\n",
   ],
   Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 5.26,
+      "name": "boom",
+      "fullname": "index.js",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 5.26,
+      "name": "boom",
+      "fullname": "index.js",
+    },
+  ],
+  Array [
     "line",
     "    1..1\\n",
   ],
@@ -21845,6 +21905,26 @@ Array [
   Array [
     "line",
     "    ok 1 - boom # time=5.26ms\\n",
+  ],
+  Array [
+    "result",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 5.26,
+      "name": "boom",
+      "fullname": "index.js",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "ok": true,
+      "id": 1,
+      "time": 5.26,
+      "name": "boom",
+      "fullname": "index.js",
+    },
   ],
   Array [
     "line",
