@@ -6,6 +6,7 @@ var util = require('util')
 
 var args = process.argv.slice(2)
 var json = null
+var flat = false
 var bail = false
 var preserveWhitespace = true
 var omitVersion = false
@@ -32,12 +33,18 @@ args.forEach(function (arg, i) {
     preserveWhitespace = false
   else if (arg === '-b' || arg === '--bail')
     bail = true
+  else if (arg === '-B' || arg === '--no-bail')
+    bail = false
   else if (arg === '-t' || arg === '--tap')
     json = 'tap'
   else if (arg === '-l' || arg === '--lines')
     json = 'lines'
   else if (arg === '-h' || arg === '--help')
     usage()
+  else if (arg === '-f' || arg === '--flat')
+    flat = true
+  else if (arg === '-F' || arg === '--no-flat')
+    flat = false
   else
     console.error('Unrecognized arg: %j', arg)
 
@@ -82,6 +89,7 @@ Options:
 }
 
 var yaml = require('tap-yaml')
+let id = 1
 function tapFormat (msg, indent) {
   return indent + msg.map(function (item) {
     switch (item[0]) {
@@ -94,6 +102,10 @@ function tapFormat (msg, indent) {
         return 'TAP version ' + item[1] + '\n'
 
       case 'plan':
+        if (flat) {
+          item[1].start = 1
+          item[1].end = id - 1
+        }
         var p = item[1].start + '..' + item[1].end
         if (item[1].comment)
           p += ' # ' + item[1].comment
@@ -106,8 +118,13 @@ function tapFormat (msg, indent) {
         var r = item[1] === true ? '' : (' ' + item[1])
         return 'Bail out!' + r + '\n'
 
+      case 'result':
       case 'assert':
         var res = item[1]
+        if (item[0] === 'result') {
+          res.id = id++
+          res.name = (res.fullname + ' > ' + (res.name || '')).trim()
+        }
         return (res.ok ? '' : 'not ') + 'ok ' + res.id +
           (res.name ? ' - ' + res.name.replace(/ \{$/, '') : '') +
           (res.skip ? ' # SKIP' +
@@ -145,7 +162,23 @@ var options = {
 }
 
 var parser = new Parser(options)
-var events = etoa(parser, [ 'pipe', 'unpipe', 'prefinish', 'finish', 'line' ])
+const ignore = [
+  'pipe',
+  'unpipe',
+  'prefinish',
+  'finish',
+  'line',
+  'pass',
+  'fail',
+  'todo',
+  'skip',
+]
+if (flat)
+  ignore.push('assert', 'child')
+else
+  ignore.push('result')
+
+var events = etoa(parser, ignore)
 
 process.stdin.pipe(parser)
 if (json === 'lines')
