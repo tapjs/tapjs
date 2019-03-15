@@ -42,7 +42,7 @@
     "source-map-support": "^0.5.11",
     "stack-utils": "^1.0.2",
     "tap-mocha-reporter": "^4.0.1",
-    "tap-parser": "^9.0.0",
+    "tap-parser": "^9.3.0",
     "tap-yaml": "0 || 1",
     "tcompare": "^2.0.0",
     "trivial-deferred": "^1.0.1",
