@@ -10,19 +10,35 @@ var flat = false
 var bail = false
 var preserveWhitespace = true
 var omitVersion = false
+var strict = false
 
 function version () {
   console.log(require('../package.json').version)
   process.exit(0)
 }
 
-args.forEach(function (arg, i) {
+for (let i = 0; i < args.length; i++) {
+  const arg = args[i]
   if (arg === '-j') {
-    json = args[i + 1] || 2
+    const val = +args[i + 1]
+    if (val >= 0) {
+      json = val
+      i += 1
+    } else
+      json = 2
+    continue
   } else {
-    var m = arg.match(/^--json(?:=([0-9]+))$/)
-    if (m)
-      json = +m[1] || args[i + 1] || 2
+    var m = arg.match(/^--json(?:=([0-9]+))?$/)
+    if (m) {
+      if (+m[1] >= 0)
+        json = +m[1]
+      else if (+args[i + 1] >= 0) {
+        json = +args[i + 1]
+        i += 1
+      } else
+        json = 2
+      continue
+    }
   }
 
   if (arg === '-v' || arg === '--version')
@@ -45,21 +61,23 @@ args.forEach(function (arg, i) {
     flat = true
   else if (arg === '-F' || arg === '--no-flat')
     flat = false
+  else if (arg === '--strict')
+    strict = true
+  else if (arg === '--no-strict')
+    strict = false
+  else if (arg === '-s' || arg === '--silent')
+    json = 'silent'
   else
     console.error('Unrecognized arg: %j', arg)
-
-  if (arg === '-v' || arg === '--version')
-    console.log(require('../package.json').version)
-})
+}
 
 function usage () {
-  console.log(function () {/*
-Usage:
+  console.log(`Usage:
   tap-parser <options>
 
 Parses TAP data from stdin, and outputs the parsed result
 in the format specified by the options.  Default output is
-uses node's `util.format()` method.
+uses node's \`util.inspect()\` method.
 
 Options:
 
@@ -73,15 +91,37 @@ Options:
     Output each parsed line as it is recognized by the parser
 
   -b | --bail
-    Emit a `Bail out!` at the first failed test point encountered
+    Emit a \`Bail out!\` at the first failed test point encountered
+
+  -B | --no-bail
+    Do not bail out at the first failed test point encountered
+    (Default)
+
+  -f | --flat
+    Flatten all assertions to the top level parser
+
+  -F | --no-flat
+    Do not flatten all assertions to the top level parser
+    (Default)
 
   -w | --ignore-all-whitespace
     Skip over blank lines outside of YAML blocks
 
   -o | --omit-version
-    Ignore the `TAP version 13` line at the start of tests
-*/}.toString().split('\n').slice(1, -1).join('\n'))
+    Ignore the \`TAP version 13\` line at the start of tests
 
+  --strict
+    Run the parser in strict mode
+
+  --no-strict
+    Do not run the parser in strict mode
+
+  -s | --silent
+    Do not print output, just exit success/failure based on TAP stream
+`)
+
+  // prevent the EPIPE upstream when the data drops on the floor
+  /* istanbul ignore else */
   if (!process.stdin.isTTY)
     process.stdin.resume()
 
@@ -115,7 +155,7 @@ function tapFormat (msg, indent) {
         return 'pragma ' + (item[2] ? '+' : '-') + item[1] + '\n'
 
       case 'bailout':
-        var r = item[1] === true ? '' : (' ' + item[1])
+        var r = item[1] ? (' ' + item[1]) : ''
         return 'Bail out!' + r + '\n'
 
       case 'result':
@@ -158,7 +198,8 @@ function format (msg) {
 var options = {
   bail: bail,
   preserveWhitespace: preserveWhitespace,
-  omitVersion: omitVersion
+  omitVersion: omitVersion,
+  strict: strict,
 }
 
 var parser = new Parser(options)
@@ -180,14 +221,16 @@ else
 
 var events = etoa(parser, ignore)
 
-process.stdin.pipe(parser)
 if (json === 'lines')
   parser.on('line', function (l) {
     process.stdout.write(l)
   })
-else
-  process.on('exit', function () {
+
+process.on('exit', function () {
+  if (json !== 'silent' && json !== 'lines')
     console.log(format(events))
-    if (!parser.ok)
-      process.exit(1)
-  })
+  if (!parser.ok)
+    process.exit(1)
+})
+
+process.stdin.pipe(parser)

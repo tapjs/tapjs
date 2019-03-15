@@ -58,5 +58,8 @@
   ],
   "tap": {
     "check-coverage": true
+  },
+  "nyc": {
+    "hookRunInThisContext": true
   }
 }
