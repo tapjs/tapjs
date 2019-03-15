@@ -57,12 +57,9 @@ const main = async options => {
 
   // tell chalk if we want color or not.
   if (!options.color)
-    process.argv.push('--no-color')
-  else {
-    const c = process.argv.indexOf('--no-color')
-    if (c !== -1)
-      process.argv.splice(c, 1)
-  }
+    process.env.FORCE_COLOR = '0'
+  else
+    process.env.FORCE_COLOR = '1'
 
   const rc = parseRcFile(options.rcfile)
   for (let i in rc) {
