@@ -24,6 +24,6 @@ exports[`test/tap/teardown-throw.js TAP > stderr 1`] = `
 
 Error: poop
     {STACK}
-{ name: 'TAP', tapCaught: 'teardown', test: 'TAP' }
+{ name: 'TAP', autoend: true, tapCaught: 'teardown', test: 'TAP' }
 
 `

@@ -558,6 +558,30 @@ t.test('assertions and weird stuff', t => {
       tt.end()
     },
 
+    'teardown promise': tt => {
+      tt.test('parent', tt => {
+        tt.teardown(() => new Promise(res => {
+          tt.comment('parent teardown')
+          res()
+        }))
+        tt.pass('this is fine')
+        tt.end()
+      })
+      tt.end()
+    },
+
+    'teardown promise fail': tt => {
+      tt.test('parent', tt => {
+        tt.teardown(() => new Promise((_, rej) => {
+          tt.comment('parent teardown')
+          rej(new Error('did not tear down proper'))
+        }))
+        tt.pass('this is fine')
+        tt.end()
+      })
+      tt.end()
+    },
+
     'fullname without main': tt => {
       const main = process.argv[1]
       process.argv[1] = ''

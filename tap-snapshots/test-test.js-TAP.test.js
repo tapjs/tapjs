@@ -2286,6 +2286,48 @@ not ok 2 - fail
 
 `
 
+exports[`test/test.js TAP assertions and weird stuff teardown promise > teardown promise 1`] = `
+TAP version 13
+# Subtest: parent
+    ok 1 - this is fine
+    1..1
+ok 1 - parent # {time}
+
+# parent teardown
+1..1
+
+`
+
+exports[`test/test.js TAP assertions and weird stuff teardown promise fail > teardown promise fail 1`] = `
+TAP version 13
+# Subtest: parent
+    ok 1 - this is fine
+    1..1
+ok 1 - parent # {time}
+
+# parent teardown
+not ok 2 - did not tear down proper
+  ---
+  at:
+    line: #
+    column: #
+    file: test/test.js
+  source: |2
+              tt.comment('parent teardown')
+              rej(new Error('did not tear down proper'))
+    --^
+            }))
+            tt.pass('this is fine')
+  stack: |
+    {STACK}
+  tapCaught: teardown
+  ...
+
+1..2
+# failed 1 of 2 tests
+
+`
+
 exports[`test/test.js TAP assertions and weird stuff fullname without main > fullname without main 1`] = `
 TAP version 13
 # Subtest: child
