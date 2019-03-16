@@ -36,6 +36,7 @@ nyc-arg:
 nyc-help: false
 nyc-version: false
 only: true
+output-dir: null
 output-file: out.txt
 parser-version: false
 rcfile: {CWD}/.taprc
@@ -77,6 +78,7 @@ nyc-arg: []
 nyc-help: false
 nyc-version: false
 only: false
+output-dir: null
 output-file: null
 parser-version: false
 rcfile: {CWD}/cli-tests/.taprc
@@ -116,6 +118,7 @@ nyc-arg: []
 nyc-help: false
 nyc-version: false
 only: false
+output-dir: null
 output-file: null
 parser-version: false
 rcfile: {CWD}/cli-tests/.taprc
@@ -155,6 +158,7 @@ nyc-arg: []
 nyc-help: false
 nyc-version: false
 only: false
+output-dir: null
 output-file: null
 parser-version: false
 rcfile: {CWD}/cli-tests/.taprc
@@ -194,6 +198,7 @@ nyc-arg: []
 nyc-help: false
 nyc-version: false
 only: false
+output-dir: null
 output-file: null
 parser-version: false
 rcfile: {CWD}/.taprc
@@ -233,6 +238,7 @@ nyc-arg: []
 nyc-help: false
 nyc-version: false
 only: false
+output-dir: null
 output-file: null
 parser-version: false
 rcfile: {CWD}/.taprc
@@ -272,6 +278,7 @@ nyc-arg: []
 nyc-help: false
 nyc-version: false
 only: false
+output-dir: null
 output-file: null
 parser-version: false
 rcfile: cli-tests/taprc
@@ -311,6 +318,7 @@ nyc-arg: []
 nyc-help: false
 nyc-version: false
 only: false
+output-dir: null
 output-file: null
 parser-version: false
 rcfile: cli-tests/taprc

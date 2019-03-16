@@ -144,6 +144,9 @@ const main = async options => {
   if (options.files.length === 0 && !isTTY)
     options.files.push('-')
 
+  if (options['output-dir'] !== null)
+    mkdirp.sync(options['output-dir'])
+
   if (options.files.length === 1 && options.files[0] === '-') {
     setupTapEnv(options)
     stdinOnly(options)
@@ -288,6 +291,9 @@ const stdinOnly = options => {
   process.stdin.pipe(reporter)
   if (options['output-file'] !== null)
     process.stdin.pipe(fs.createWriteStream(options['output-file']))
+  if (options['output-dir'] !== null)
+    process.stdin.pipe(fs.createWriteStream(options['output-dir'] +
+      '/stdin.tap'))
   process.stdin.resume()
 }
 
@@ -376,6 +382,19 @@ const isParallelOk = (parallelOk, file) => {
 const runAllFiles = (options, saved, tap) => {
   let doStdin = false
   let parallelOk = Object.create(null)
+
+  if (options['output-dir'] !== null) {
+    tap.on('spawn', t => {
+      const dir = options['output-dir'] + '/' + path.dirname(t.name)
+      mkdirp.sync(dir)
+      const file = dir + '/' + path.basename(t.name) + '.tap'
+      t.proc.stdout.pipe(fs.createWriteStream(file))
+    })
+    tap.on('stdin', t => {
+      const file = options['output-dir'] + '/stdin.tap'
+      t.stream.pipe(fs.createWriteStream(file))
+    })
+  }
 
   options.files = filterFiles(options.files, saved, parallelOk)
   let tapChildId = 0

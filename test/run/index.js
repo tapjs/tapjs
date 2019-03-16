@@ -54,7 +54,8 @@ const tmpfile = (t, filename, content) => {
     t.tmpfiles.push(path.join(dir, parts[0]))
   else {
     t.tmpfiles = [path.join(dir, parts[0])]
-    t.teardown(() => t.tmpfiles.forEach(f => rimraf.sync(f)))
+    if (process.env._TAP_TEST_NO_TEARDOWN_TMP !== '1')
+      t.teardown(() => t.tmpfiles.forEach(f => rimraf.sync(f)))
   }
   filename = path.join(dir, filename)
   fs.writeFileSync(filename, content)
@@ -65,8 +66,10 @@ if (module === require.main)
   t.pass('this is fine')
 else {
   mkdirp.sync(dir)
-  t.teardown(() => rimraf.sync(dir))
-  process.on('exit', () => rimraf.sync(dir))
+  if (process.env._TAP_TEST_NO_TEARDOWN_TMP !== '1') {
+    t.teardown(() => rimraf.sync(dir))
+    process.on('exit', () => rimraf.sync(dir))
+  }
 }
 
 module.exports = {

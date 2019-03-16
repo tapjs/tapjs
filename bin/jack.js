@@ -498,6 +498,22 @@ Much more documentation available at: https://www.node-tap.org/
                   analysis.`,
   }),
 
+  'output-dir': opt({
+    short: 'd',
+    hint: 'dir',
+    default: null,
+    description: `Send the raw TAP output to the specified
+                  directory.  A separate .tap file will be created
+                  for each test file that is run.  Reporter output
+                  will still be printed to stdout, but the files
+                  will contain the raw TAP for later replay or
+                  analysis.
+
+                  Files will be created to match the folder structure
+                  and filenames of test files run, but with '.tap'
+                  appended to the filenames.`,
+  }),
+
   debug: flag({
     envDefault: 'TAP_DEBUG',
     description: 'Turn on debug mode',
