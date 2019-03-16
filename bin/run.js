@@ -19,15 +19,26 @@ const tsNode = require.resolve(
 )
 const esm = require.resolve('esm')
 const jsx = require.resolve('./jsx.js')
+const mkdirp = require('mkdirp')
 
 const defaultFiles = options => new Promise((res, rej) => {
   const findit = require('findit')
   const good = strToRegExp(options['test-regex'])
   const bad = strToRegExp(options['test-ignore'])
-  const fileFilter = f => good.test(f) && !bad.test(f)
+  const fileFilter = f => {
+    const parts = f.split(/\\|\//)
+    return good.test(f) &&
+      !bad.test(f) &&
+      !parts.includes('node_modules') &&
+      !parts.includes('tap-snapshots') &&
+      !parts.includes('.git') &&
+      !parts.includes('.hg')
+  }
+
   const addFile = files => f => fileFilter(f) && files.push(f)
 
   // search in any folder that isn't node_modules, .git, or tap-snapshots
+  // these can get pretty huge, so just walking them at all is costly
   fs.readdir(process.cwd(), (er, entries) => {
     Promise.all(entries.filter(entry =>
       !/^(node_modules|tap-snapshots|.git|.hg)$/.test(entry)
@@ -41,7 +52,7 @@ const defaultFiles = options => new Promise((res, rej) => {
           return res(fileFilter(entry) ? [entry] : [])
         if (!stat.isDirectory())
           return res([])
-        const finder = findit(entry, {followSymlinks: true})
+        const finder = findit(entry)
         const files = []
         finder.on('file', addFile(files))
         finder.on('end', () => res(files))
@@ -139,7 +150,6 @@ const main = async options => {
     return
   }
 
-  // XXX get rid of this respawn kludge.  It's slow af.
   /* istanbul ignore next */
   if (options.coverage && !process.env.NYC_CONFIG)
     respawnWithCoverage(options)

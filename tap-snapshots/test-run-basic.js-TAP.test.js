@@ -18,6 +18,36 @@ exports[`test/run/basic.js TAP --parser-version > output 1`] = `
 
 `
 
+exports[`test/run/basic.js TAP basic test run > ok.js output 1`] = `
+TAP version 13
+ok 1 - cli-tests/ok.js # {time} {
+    ok 1 - this is fine
+    1..1
+    # {time}
+}
+
+1..1
+# {time}
+
+`
+
+exports[`test/run/basic.js TAP ignored files > stdout 1`] = `
+TAP version 13
+ok 1 - test/ok.js # {time} {
+    ok 1 - this is fine
+    1..1
+    # {time}
+}
+
+1..1
+# {time}
+
+`
+
+exports[`test/run/basic.js TAP ignored files > stdout 2`] = `
+
+`
+
 exports[`test/run/basic.js TAP nonexistent file > stdout 1`] = `
 TAP version 13
 not ok 1 - does not exist # {time} {
@@ -47,18 +77,5 @@ not ok 1 - does not exist # {time} {
 `
 
 exports[`test/run/basic.js TAP nonexistent file > stderr 1`] = `
-
-`
-
-exports[`test/run/basic.js TAP basic test run > ok.js output 1`] = `
-TAP version 13
-ok 1 - cli-tests/ok.js # {time} {
-    ok 1 - this is fine
-    1..1
-    # {time}
-}
-
-1..1
-# {time}
 
 `

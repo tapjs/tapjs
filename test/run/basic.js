@@ -9,7 +9,8 @@ const {
   t,
 } = require('./')
 
-t.jobs = require('os').cpus().length
+if (process.env.TAP_SNAPSHOT !== '1')
+  t.jobs = require('os').cpus.length
 
 t.test('no args', t => {
   const c = run([], {
@@ -109,6 +110,34 @@ t.test('basic test run', t => {
   })
 })
 
+t.test('ignored files', t => {
+  const mkdirp = require('mkdirp')
+  mkdirp.sync(`${dir}/ig/test/node_modules`)
+  mkdirp.sync(`${dir}/ig/node_modules`)
+  const ok = tmpfile(t, 'ig/test/ok.js',
+    `require(${tap}).pass('this is fine')`)
+  const nope = tmpfile(t, 'ig/node_modules/nope.test.js',
+    `require(${tap}).fail('i should not be included')`)
+  const nope2 = tmpfile(t, 'ig/test/node_modules/nope.test.js',
+    `require(${tap}).fail('should also not be included')`)
+  tmpfile(t, 'ig/test/node_modules/foo.test.js',
+    `require(${tap}).fail('no foo included')`)
+  tmpfile(t, 'ig/test/foo.test.js',
+    `require(${tap}).fail('no foo included')`)
+  tmpfile(t, 'ig/foo.test.js',
+    `require(${tap}).fail('no foo included')`)
+
+  const args = ['--test-ignore=foo\\.test\\.js$']
+  const env = { _TAP_IS_TTY: '1' }
+  const cwd = dir + '/ig'
+  run([args], { cwd, env }, (er, o, e) => {
+    t.equal(er, null)
+    t.matchSnapshot(clean(o), 'stdout')
+    t.matchSnapshot(clean(e), 'stdout')
+    t.end()
+  })
+})
+
 t.test('nonexistent file', t => {
   run(['does not exist'], null, (er, o, e) => {
     t.match(er, { code: 1 })
@@ -117,4 +146,3 @@ t.test('nonexistent file', t => {
     t.end()
   })
 })
-
