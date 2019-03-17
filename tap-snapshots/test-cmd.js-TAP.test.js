@@ -421,14 +421,14 @@ exports[`test/cmd.js TAP basic b w > output 2`] = `
           name: 'this is fine',
           diag: { not: 'ok', this: 'is fine' },
           fullname: 'child' } ],
-      [ 'bailout', '# this is fine' ],
+      [ 'bailout', 'this is fine' ],
       [ 'complete',
         FinalResults {
           ok: false,
           count: 1,
           pass: 0,
           fail: 1,
-          bailout: '# this is fine',
+          bailout: 'this is fine',
           todo: 0,
           skip: 0,
           plan:
@@ -447,14 +447,14 @@ exports[`test/cmd.js TAP basic b w > output 2`] = `
                fullname: 'child' } ] } ] ] ],
   [ 'extra', '    blearajn9aefnzxrfoas\\n' ],
   [ 'extra', '               \\n' ],
-  [ 'bailout', '# this is fine' ],
+  [ 'bailout', 'this is fine' ],
   [ 'complete',
     FinalResults {
       ok: false,
       count: 1,
       pass: 1,
       fail: 0,
-      bailout: '# this is fine',
+      bailout: 'this is fine',
       todo: 0,
       skip: 0,
       plan:

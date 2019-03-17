@@ -3628,11 +3628,11 @@ Array [
       ],
       Array [
         "line",
-        "Bail out! # no they aren't\\n",
+        "Bail out! no they aren't\\n",
       ],
       Array [
         "bailout",
-        "# no they aren't",
+        "no they aren't",
       ],
       Array [
         "complete",
@@ -3641,7 +3641,7 @@ Array [
           "count": 1,
           "pass": 0,
           "fail": 1,
-          "bailout": "# no they aren't",
+          "bailout": "no they aren't",
           "todo": 0,
           "skip": 0,
           "plan": FinalPlan {
@@ -3691,11 +3691,11 @@ Array [
   ],
   Array [
     "line",
-    "    Bail out! # no they aren't\\n",
+    "    Bail out! no they aren't\\n",
   ],
   Array [
     "bailout",
-    "# no they aren't",
+    "no they aren't",
   ],
   Array [
     "line",
@@ -3703,7 +3703,7 @@ Array [
   ],
   Array [
     "line",
-    "Bail out! # no they aren't\\n",
+    "Bail out! no they aren't\\n",
   ],
   Array [
     "complete",
@@ -3712,7 +3712,7 @@ Array [
       "count": 0,
       "pass": 0,
       "fail": 0,
-      "bailout": "# no they aren't",
+      "bailout": "no they aren't",
       "todo": 0,
       "skip": 0,
       "plan": FinalPlan {
@@ -4321,11 +4321,11 @@ Array [
       ],
       Array [
         "line",
-        "Bail out! # no they aren't\\n",
+        "Bail out! no they aren't\\n",
       ],
       Array [
         "bailout",
-        "# no they aren't",
+        "no they aren't",
       ],
       Array [
         "complete",
@@ -4334,7 +4334,7 @@ Array [
           "count": 1,
           "pass": 0,
           "fail": 1,
-          "bailout": "# no they aren't",
+          "bailout": "no they aren't",
           "todo": 0,
           "skip": 0,
           "plan": FinalPlan {
@@ -4384,11 +4384,11 @@ Array [
   ],
   Array [
     "line",
-    "    Bail out! # no they aren't\\n",
+    "    Bail out! no they aren't\\n",
   ],
   Array [
     "bailout",
-    "# no they aren't",
+    "no they aren't",
   ],
   Array [
     "line",
@@ -4396,7 +4396,7 @@ Array [
   ],
   Array [
     "line",
-    "Bail out! # no they aren't\\n",
+    "Bail out! no they aren't\\n",
   ],
   Array [
     "complete",
@@ -4405,7 +4405,7 @@ Array [
       "count": 0,
       "pass": 0,
       "fail": 0,
-      "bailout": "# no they aren't",
+      "bailout": "no they aren't",
       "todo": 0,
       "skip": 0,
       "plan": FinalPlan {
@@ -4766,11 +4766,11 @@ Array [
   ],
   Array [
     "line",
-    "Bail out! # please sir, my son, he is sick\\n",
+    "Bail out! please sir, my son, he is sick\\n",
   ],
   Array [
     "bailout",
-    "# please sir, my son, he is sick",
+    "please sir, my son, he is sick",
   ],
   Array [
     "complete",
@@ -4779,7 +4779,7 @@ Array [
       "count": 1,
       "pass": 0,
       "fail": 1,
-      "bailout": "# please sir, my son, he is sick",
+      "bailout": "please sir, my son, he is sick",
       "todo": 0,
       "skip": 0,
       "plan": FinalPlan {
@@ -5151,11 +5151,11 @@ Array [
   ],
   Array [
     "line",
-    "Bail out! # please sir, my son, he is sick\\n",
+    "Bail out! please sir, my son, he is sick\\n",
   ],
   Array [
     "bailout",
-    "# please sir, my son, he is sick",
+    "please sir, my son, he is sick",
   ],
   Array [
     "complete",
@@ -5164,7 +5164,7 @@ Array [
       "count": 1,
       "pass": 0,
       "fail": 1,
-      "bailout": "# please sir, my son, he is sick",
+      "bailout": "please sir, my son, he is sick",
       "todo": 0,
       "skip": 0,
       "plan": FinalPlan {
@@ -5508,11 +5508,11 @@ Array [
   ],
   Array [
     "line",
-    "Bail out! # child\\n",
+    "Bail out! child\\n",
   ],
   Array [
     "bailout",
-    "# child",
+    "child",
   ],
   Array [
     "complete",
@@ -5521,7 +5521,7 @@ Array [
       "count": 1,
       "pass": 0,
       "fail": 1,
-      "bailout": "# child",
+      "bailout": "child",
       "todo": 0,
       "skip": 0,
       "plan": FinalPlan {
@@ -6075,11 +6075,11 @@ Array [
   ],
   Array [
     "line",
-    "Bail out! # 1\\n",
+    "Bail out! 1\\n",
   ],
   Array [
     "bailout",
-    "# 1",
+    "1",
   ],
   Array [
     "complete",
@@ -6088,7 +6088,7 @@ Array [
       "count": 1,
       "pass": 0,
       "fail": 1,
-      "bailout": "# 1",
+      "bailout": "1",
       "todo": 0,
       "skip": 0,
       "plan": FinalPlan {
@@ -6830,11 +6830,11 @@ Array [
   ],
   Array [
     "line",
-    "Bail out! # all hell broke lose\\n",
+    "Bail out! all hell broke lose\\n",
   ],
   Array [
     "bailout",
-    "# all hell broke lose",
+    "all hell broke lose",
   ],
   Array [
     "complete",
@@ -6843,7 +6843,7 @@ Array [
       "count": 3,
       "pass": 2,
       "fail": 1,
-      "bailout": "# all hell broke lose",
+      "bailout": "all hell broke lose",
       "todo": 0,
       "skip": 0,
       "plan": FinalPlan {
@@ -7340,11 +7340,11 @@ Array [
   ],
   Array [
     "line",
-    "Bail out! # all hell broke loose\\n",
+    "Bail out! all hell broke loose\\n",
   ],
   Array [
     "bailout",
-    "# all hell broke loose",
+    "all hell broke loose",
   ],
   Array [
     "complete",
@@ -7353,7 +7353,7 @@ Array [
       "count": 3,
       "pass": 2,
       "fail": 1,
-      "bailout": "# all hell broke loose",
+      "bailout": "all hell broke loose",
       "todo": 0,
       "skip": 0,
       "plan": FinalPlan {
@@ -7869,11 +7869,11 @@ Array [
   ],
   Array [
     "line",
-    "Bail out! # please keep my diags\\n",
+    "Bail out! please keep my diags\\n",
   ],
   Array [
     "bailout",
-    "# please keep my diags",
+    "please keep my diags",
   ],
   Array [
     "complete",
@@ -7882,7 +7882,7 @@ Array [
       "count": 1,
       "pass": 0,
       "fail": 1,
-      "bailout": "# please keep my diags",
+      "bailout": "please keep my diags",
       "todo": 0,
       "skip": 0,
       "plan": FinalPlan {
@@ -8374,11 +8374,11 @@ Array [
   ],
   Array [
     "line",
-    "Bail out! # please keep my diags\\n",
+    "Bail out! please keep my diags\\n",
   ],
   Array [
     "bailout",
-    "# please keep my diags",
+    "please keep my diags",
   ],
   Array [
     "complete",
@@ -8387,7 +8387,7 @@ Array [
       "count": 1,
       "pass": 0,
       "fail": 1,
-      "bailout": "# please keep my diags",
+      "bailout": "please keep my diags",
       "todo": 0,
       "skip": 0,
       "plan": FinalPlan {
@@ -11902,11 +11902,11 @@ Array [
       ],
       Array [
         "line",
-        "Bail out! # should match pattern provided\\n",
+        "Bail out! should match pattern provided\\n",
       ],
       Array [
         "bailout",
-        "# should match pattern provided",
+        "should match pattern provided",
       ],
       Array [
         "complete",
@@ -11915,7 +11915,7 @@ Array [
           "count": 1,
           "pass": 0,
           "fail": 1,
-          "bailout": "# should match pattern provided",
+          "bailout": "should match pattern provided",
           "todo": 0,
           "skip": 0,
           "plan": FinalPlan {
@@ -12053,15 +12053,15 @@ Array [
   ],
   Array [
     "line",
-    "    Bail out! # should match pattern provided\\n",
+    "    Bail out! should match pattern provided\\n",
   ],
   Array [
     "bailout",
-    "# should match pattern provided",
+    "should match pattern provided",
   ],
   Array [
     "line",
-    "Bail out! # should match pattern provided\\n",
+    "Bail out! should match pattern provided\\n",
   ],
   Array [
     "complete",
@@ -12070,7 +12070,7 @@ Array [
       "count": 0,
       "pass": 0,
       "fail": 0,
-      "bailout": "# should match pattern provided",
+      "bailout": "should match pattern provided",
       "todo": 0,
       "skip": 0,
       "plan": FinalPlan {
@@ -17147,11 +17147,11 @@ Array [
   ],
   Array [
     "line",
-    "Bail out! # de-indenting the yamlish wrongly.\\n",
+    "Bail out! de-indenting the yamlish wrongly.\\n",
   ],
   Array [
     "bailout",
-    "# de-indenting the yamlish wrongly.",
+    "de-indenting the yamlish wrongly.",
   ],
   Array [
     "line",
@@ -17168,7 +17168,7 @@ Array [
       "count": 1,
       "pass": 0,
       "fail": 1,
-      "bailout": "# de-indenting the yamlish wrongly.",
+      "bailout": "de-indenting the yamlish wrongly.",
       "todo": 0,
       "skip": 0,
       "plan": FinalPlan {
@@ -21194,11 +21194,11 @@ Array [
   ],
   Array [
     "line",
-    "Bail out! # index.js\\n",
+    "Bail out! index.js\\n",
   ],
   Array [
     "bailout",
-    "# index.js",
+    "index.js",
   ],
   Array [
     "complete",
@@ -21207,7 +21207,7 @@ Array [
       "count": 1,
       "pass": 0,
       "fail": 1,
-      "bailout": "# index.js",
+      "bailout": "index.js",
       "todo": 0,
       "skip": 0,
       "plan": FinalPlan {
@@ -22398,11 +22398,11 @@ Array [
       ],
       Array [
         "line",
-        "Bail out! # should be equivalent\\n",
+        "Bail out! should be equivalent\\n",
       ],
       Array [
         "bailout",
-        "# should be equivalent",
+        "should be equivalent",
       ],
       Array [
         "complete",
@@ -22411,7 +22411,7 @@ Array [
           "count": 1,
           "pass": 0,
           "fail": 1,
-          "bailout": "# should be equivalent",
+          "bailout": "should be equivalent",
           "todo": 0,
           "skip": 0,
           "plan": FinalPlan {
@@ -22517,15 +22517,15 @@ Array [
   ],
   Array [
     "line",
-    "    Bail out! # should be equivalent\\n",
+    "    Bail out! should be equivalent\\n",
   ],
   Array [
     "bailout",
-    "# should be equivalent",
+    "should be equivalent",
   ],
   Array [
     "line",
-    "Bail out! # should be equivalent\\n",
+    "Bail out! should be equivalent\\n",
   ],
   Array [
     "complete",
@@ -22534,7 +22534,7 @@ Array [
       "count": 0,
       "pass": 0,
       "fail": 0,
-      "bailout": "# should be equivalent",
+      "bailout": "should be equivalent",
       "todo": 0,
       "skip": 0,
       "plan": FinalPlan {
@@ -24349,11 +24349,11 @@ Array [
   ],
   Array [
     "line",
-    "Bail out! # we are bad\\n",
+    "Bail out! we are bad\\n",
   ],
   Array [
     "bailout",
-    "# we are bad",
+    "we are bad",
   ],
   Array [
     "complete",
@@ -24362,7 +24362,7 @@ Array [
       "count": 2,
       "pass": 1,
       "fail": 1,
-      "bailout": "# we are bad",
+      "bailout": "we are bad",
       "todo": 0,
       "skip": 0,
       "plan": FinalPlan {
@@ -25851,11 +25851,11 @@ Array [
   ],
   Array [
     "line",
-    "Bail out! # should be equivalent\\n",
+    "Bail out! should be equivalent\\n",
   ],
   Array [
     "bailout",
-    "# should be equivalent",
+    "should be equivalent",
   ],
   Array [
     "complete",
@@ -25864,7 +25864,7 @@ Array [
       "count": 2,
       "pass": 1,
       "fail": 1,
-      "bailout": "# should be equivalent",
+      "bailout": "should be equivalent",
       "todo": 0,
       "skip": 0,
       "plan": FinalPlan {
@@ -26200,11 +26200,11 @@ Array [
   ],
   Array [
     "line",
-    "Bail out! # should be equivalent\\n",
+    "Bail out! should be equivalent\\n",
   ],
   Array [
     "bailout",
-    "# should be equivalent",
+    "should be equivalent",
   ],
   Array [
     "complete",
@@ -26213,7 +26213,7 @@ Array [
       "count": 2,
       "pass": 1,
       "fail": 1,
-      "bailout": "# should be equivalent",
+      "bailout": "should be equivalent",
       "todo": 0,
       "skip": 0,
       "plan": FinalPlan {
@@ -29717,11 +29717,11 @@ Array [
   ],
   Array [
     "line",
-    "Bail out! # empty\\n",
+    "Bail out! empty\\n",
   ],
   Array [
     "bailout",
-    "# empty",
+    "empty",
   ],
   Array [
     "complete",
@@ -29730,7 +29730,7 @@ Array [
       "count": 1,
       "pass": 0,
       "fail": 1,
-      "bailout": "# empty",
+      "bailout": "empty",
       "todo": 0,
       "skip": 0,
       "plan": FinalPlan {
@@ -65035,11 +65035,11 @@ Array [
   ],
   Array [
     "line",
-    "Bail out! # captures TODO description\\n",
+    "Bail out! captures TODO description\\n",
   ],
   Array [
     "bailout",
-    "# captures TODO description",
+    "captures TODO description",
   ],
   Array [
     "complete",
@@ -65048,7 +65048,7 @@ Array [
       "count": 115,
       "pass": 114,
       "fail": 1,
-      "bailout": "# captures TODO description",
+      "bailout": "captures TODO description",
       "todo": 4,
       "skip": 4,
       "plan": FinalPlan {
@@ -82399,11 +82399,11 @@ Array [
   ],
   Array [
     "line",
-    "Bail out! # captures TODO description\\n",
+    "Bail out! captures TODO description\\n",
   ],
   Array [
     "bailout",
-    "# captures TODO description",
+    "captures TODO description",
   ],
   Array [
     "complete",
@@ -82412,7 +82412,7 @@ Array [
       "count": 114,
       "pass": 113,
       "fail": 1,
-      "bailout": "# captures TODO description",
+      "bailout": "captures TODO description",
       "todo": 4,
       "skip": 4,
       "plan": FinalPlan {
@@ -95091,11 +95091,11 @@ Array [
   ],
   Array [
     "line",
-    "Bail out! # Hamlette # TODOORNOTTODO\\n",
+    "Bail out! Hamlette # TODOORNOTTODO\\n",
   ],
   Array [
     "bailout",
-    "# Hamlette # TODOORNOTTODO",
+    "Hamlette # TODOORNOTTODO",
   ],
   Array [
     "complete",
@@ -95104,7 +95104,7 @@ Array [
       "count": 1,
       "pass": 0,
       "fail": 1,
-      "bailout": "# Hamlette # TODOORNOTTODO",
+      "bailout": "Hamlette # TODOORNOTTODO",
       "todo": 0,
       "skip": 0,
       "plan": FinalPlan {
@@ -98223,11 +98223,11 @@ Array [
   ],
   Array [
     "line",
-    "Bail out! # pinged saphire\\n",
+    "Bail out! pinged saphire\\n",
   ],
   Array [
     "bailout",
-    "# pinged saphire",
+    "pinged saphire",
   ],
   Array [
     "complete",
@@ -98236,7 +98236,7 @@ Array [
       "count": 4,
       "pass": 3,
       "fail": 1,
-      "bailout": "# pinged saphire",
+      "bailout": "pinged saphire",
       "todo": 0,
       "skip": 0,
       "plan": FinalPlan {
@@ -100196,11 +100196,11 @@ Array [
       ],
       Array [
         "line",
-        "Bail out! # some yaml\\n",
+        "Bail out! some yaml\\n",
       ],
       Array [
         "bailout",
-        "# some yaml",
+        "some yaml",
       ],
       Array [
         "complete",
@@ -100209,7 +100209,7 @@ Array [
           "count": 1,
           "pass": 0,
           "fail": 1,
-          "bailout": "# some yaml",
+          "bailout": "some yaml",
           "todo": 0,
           "skip": 0,
           "plan": FinalPlan {
@@ -100288,15 +100288,15 @@ Array [
   ],
   Array [
     "line",
-    "    Bail out! # some yaml\\n",
+    "    Bail out! some yaml\\n",
   ],
   Array [
     "bailout",
-    "# some yaml",
+    "some yaml",
   ],
   Array [
     "line",
-    "Bail out! # some yaml\\n",
+    "Bail out! some yaml\\n",
   ],
   Array [
     "complete",
@@ -100305,7 +100305,7 @@ Array [
       "count": 0,
       "pass": 0,
       "fail": 0,
-      "bailout": "# some yaml",
+      "bailout": "some yaml",
       "todo": 0,
       "skip": 0,
       "plan": FinalPlan {
@@ -102883,11 +102883,11 @@ Array [
   ],
   Array [
     "line",
-    "Bail out! # expected yaml, got a sea turtle\\n",
+    "Bail out! expected yaml, got a sea turtle\\n",
   ],
   Array [
     "bailout",
-    "# expected yaml, got a sea turtle",
+    "expected yaml, got a sea turtle",
   ],
   Array [
     "complete",
@@ -102896,7 +102896,7 @@ Array [
       "count": 1,
       "pass": 0,
       "fail": 1,
-      "bailout": "# expected yaml, got a sea turtle",
+      "bailout": "expected yaml, got a sea turtle",
       "todo": 0,
       "skip": 0,
       "plan": FinalPlan {
@@ -103484,11 +103484,11 @@ Array [
   ],
   Array [
     "line",
-    "Bail out! # Resolve address\\n",
+    "Bail out! Resolve address\\n",
   ],
   Array [
     "bailout",
-    "# Resolve address",
+    "Resolve address",
   ],
   Array [
     "complete",
@@ -103497,7 +103497,7 @@ Array [
       "count": 1,
       "pass": 0,
       "fail": 1,
-      "bailout": "# Resolve address",
+      "bailout": "Resolve address",
       "todo": 0,
       "skip": 0,
       "plan": FinalPlan {

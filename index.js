@@ -572,7 +572,7 @@ class Parser extends MiniPass {
       const ind = new Array(this.level + 1).join('    ')
       let p
       for (p = this; p.parent; p = p.parent);
-      const bailName = res.name ? ' # ' + res.name : ''
+      const bailName = res.name ? ' ' + res.name : ''
       p.parse(ind + 'Bail out!' + bailName + '\n')
     }
     this.clearExtraQueue()
