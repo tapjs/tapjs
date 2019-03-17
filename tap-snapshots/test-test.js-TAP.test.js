@@ -442,8 +442,8 @@ not ok 3 - this is fine
 exports[`test/test.js TAP short output checks no plan fail bailout > no plan fail 1`] = `
 TAP version 13
 not ok 1 - this is fine
-Bail out! # this is fine
-BAILOUT: "# this is fine"
+Bail out! this is fine
+BAILOUT: "this is fine"
 `
 
 exports[`test/test.js TAP short output checks no plan fail runOnly > no plan fail 1`] = `
@@ -505,8 +505,8 @@ exports[`test/test.js TAP short output checks plan fail bailout > plan fail 1`] 
 TAP version 13
 1..1 # expect some failure here
 not ok 1 - this is fine
-Bail out! # this is fine
-BAILOUT: "# this is fine"
+Bail out! this is fine
+BAILOUT: "this is fine"
 `
 
 exports[`test/test.js TAP short output checks plan fail runOnly > plan fail 1`] = `
@@ -592,8 +592,8 @@ TAP version 13
         {STACK}
       ...
     
-    Bail out! # this is not ok
-BAILOUT: "# this is not ok"
+    Bail out! this is not ok
+BAILOUT: "this is not ok"
 `
 
 exports[`test/test.js TAP short output checks fail then end runOnly > fail then end 1`] = `
@@ -1005,8 +1005,8 @@ ok 1 - has diags
   ...
 
 not ok 2 - fails without diag
-Bail out! # fails without diag
-BAILOUT: "# fails without diag"
+Bail out! fails without diag
+BAILOUT: "fails without diag"
 `
 
 exports[`test/test.js TAP short output checks diags runOnly > diags 1`] = `
@@ -1098,8 +1098,8 @@ not ok 1 - ok
     {STACK}
   ...
 
-Bail out! # ok
-BAILOUT: "# ok"
+Bail out! ok
+BAILOUT: "ok"
 `
 
 exports[`test/test.js TAP short output checks gentle thrower runOnly > gentle thrower 1`] = `
@@ -1204,8 +1204,8 @@ TAP version 13
       test: child test
       ...
     
-    Bail out! # ok
-BAILOUT: "# ok"
+    Bail out! ok
+BAILOUT: "ok"
 `
 
 exports[`test/test.js TAP short output checks child thrower runOnly > child thrower 1`] = `
@@ -1298,8 +1298,8 @@ not ok 2 - beep
   tapCaught: testFunctionThrow
   ...
 
-Bail out! # beep
-BAILOUT: "# beep"
+Bail out! beep
+BAILOUT: "beep"
 `
 
 exports[`test/test.js TAP short output checks child end event thrower runOnly > child end event thrower 1`] = `
@@ -2547,8 +2547,8 @@ TAP version 13
         {STACK}
       ...
     
-    Bail out! # not fine
-Bail out! # not fine
+    Bail out! not fine
+Bail out! not fine
 
 `
 
@@ -2629,9 +2629,9 @@ not ok 3 - two # {time} {
         {STACK}
       ...
     
-    Bail out! # two fail 0
+    Bail out! two fail 0
 }
-Bail out! # two fail 0
+Bail out! two fail 0
 
 `
 

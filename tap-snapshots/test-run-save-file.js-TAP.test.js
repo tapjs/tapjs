@@ -41,9 +41,9 @@ not ok 2 - a/b/f1.js # {time}
         --^
       ...
     
-    Bail out! # a/b
+    Bail out! a/b
 }
-Bail out! # a/b
+Bail out! a/b
 
 `
 
