@@ -722,6 +722,32 @@ t.test('assertions and weird stuff', t => {
       tt.end()
     },
 
+    'bailout in first sub': t => {
+      t.test('one', t => t.bailout('bail me out'))
+      t.test('two', t => t.end())
+      t.end()
+    },
+
+    'bailout in first buffered sub': t => {
+      const o = { buffered: true }
+      t.test('one', o, t => t.bailout('bail me out'))
+      t.test('two', o, t => t.end())
+      t.end()
+    },
+
+    'bailout in nested sub': t => {
+      t.test('one', t => t.test('1.5', t => t.bailout('bail me out')))
+      t.test('two', t => t.end())
+      t.end()
+    },
+
+    'bailout in first buffered sub': t => {
+      const o = { buffered: true }
+      t.test('one', t => t.test('1.5', o, t => t.bailout('bail me out')))
+      t.test('two', o, t => t.end())
+      t.end()
+    },
+
     'implicit bailout with parallel subs': t => {
       t.name = 'root'
       t.bail = true

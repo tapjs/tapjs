@@ -2573,6 +2573,33 @@ Bail out! whoops
 
 `
 
+exports[`test/test.js TAP assertions and weird stuff bailout in first sub > bailout in first sub 1`] = `
+TAP version 13
+# Subtest: one
+    Bail out! bail me out
+Bail out! bail me out
+
+`
+
+exports[`test/test.js TAP assertions and weird stuff bailout in first buffered sub > bailout in first buffered sub 1`] = `
+TAP version 13
+# Subtest: one
+    not ok 1 - 1.5 # {time} {
+        Bail out! bail me out
+    }
+Bail out! bail me out
+
+`
+
+exports[`test/test.js TAP assertions and weird stuff bailout in nested sub > bailout in nested sub 1`] = `
+TAP version 13
+# Subtest: one
+    # Subtest: 1.5
+        Bail out! bail me out
+Bail out! bail me out
+
+`
+
 exports[`test/test.js TAP assertions and weird stuff implicit bailout with parallel subs > implicit bailout with parallel subs 1`] = `
 TAP version 13
 ok 1 - zro # {time} {
