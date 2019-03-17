@@ -20,7 +20,7 @@ not ok 2 - a/b/f1.js # {time}
   childId: 3
   command: {NODE}
   cwd: {CWD}/cli-tests
-  exitCode: 0
+  exitCode: 1
   file: a/b/f1.js
   stdio:
     - 0

@@ -130,7 +130,7 @@ t.test('short output checks', t => {
       tt.test('slow child', tt => setTimeout(_ => {
         slowGoing = false
         tt.end()
-      }, 100))
+      }, 200))
       tt.test('fast child', tt => setTimeout(_ => {
         tt.ok(slowGoing, 'slow is going')
         tt.end()
@@ -699,7 +699,6 @@ t.test('assertions and weird stuff', t => {
 
     'endAll with bailout': tt => {
       tt.on('bailout', reason => tt.endAll())
-
       tt.test('child', { bail: true }, tt => {
         tt.fail('not fine')
         tt.end()
@@ -710,8 +709,8 @@ t.test('assertions and weird stuff', t => {
       tt.test('1', tt => tt.end())
       tt.test('2', tt => Promise.resolve(null))
       tt.test('3', tt => setTimeout(() => tt.end()))
-      process.nextTick(() => tt.bailout('whoops'))
       tt.end()
+      tt.bailout('whoops')
     },
 
     'bailout with buffered subs': tt => {
@@ -721,6 +720,27 @@ t.test('assertions and weird stuff', t => {
       tt.test('3', o, tt => setTimeout(() => tt.end()))
       process.nextTick(() => tt.bailout('whoops'))
       tt.end()
+    },
+
+    'implicit bailout with parallel subs': t => {
+      t.name = 'root'
+      t.bail = true
+      t.jobs = 2
+      const tests = []
+      t.test('zro', { buffered: true }, t => tests.push(t))
+      t.test('one', { buffered: true }, t => tests.push(t))
+      t.test('two', { buffered: true }, t => tests.push(t))
+      t.test('tre', { buffered: true }, t => tests.push(t))
+      t.test('for', { buffered: true }, t => tests.push(t))
+      t.end()
+      tests[0].pass('zro')
+      tests[1].pass('one')
+      tests[1].end()
+      tests[2].fail('two fail 0')
+      tests[2].fail('two fail 1')
+      tests[2].fail('two fail 2')
+      tests[2].fail('two fail 3')
+      tests[0].end()
     },
 
     'silent subs': tt => {
@@ -791,7 +811,6 @@ t.test('assertions and weird stuff', t => {
       })
       t.end()
     },
-
 
   }
 
