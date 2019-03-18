@@ -85,7 +85,7 @@ const main = async options => {
   }
 
   if (options.reporter === null)
-    options.reporter = options.color ? 'classic' : 'tap'
+    options.reporter = options.color ? 'new' : 'tap'
 
   if (options['dump-config']) {
     console.log(yaml.stringify(Object.keys(options).filter(k =>
@@ -286,9 +286,22 @@ const stdinOnly = options => {
   // if we didn't specify any files, then just passthrough
   // to the reporter, so we don't get '/dev/stdin' in the suite list.
   // We have to pause() before piping to switch streams2 into old-mode
-  process.stdin.pause()
-  const reporter = makeReporter(options)
-  process.stdin.pipe(reporter)
+  /* istanbul ignore next */
+  if (options.reporter === 'new') {
+    // XXX add a stdinOnly() method that doesn't make stdin a subtest
+    const tap = require('../lib/tap.js')
+    require('treport')(tap)
+    tap.stdin()
+    tap.end()
+  } else {
+    process.stdin.pause()
+    const reporter = makeReporter(options)
+    process.stdin.pipe(reporter)
+    if (options['output-file'] !== null)
+      process.stdin.pipe(fs.createWriteStream(options['output-file']))
+    process.stdin.resume()
+  }
+
   if (options['output-file'] !== null)
     process.stdin.pipe(fs.createWriteStream(options['output-file']))
   if (options['output-dir'] !== null)
@@ -503,7 +516,13 @@ const runTests = options => {
 
   // if not -Rtap, then output what the user wants.
   // otherwise just dump to stdout
-  tap.pipe(options.reporter === 'tap' ? process.stdout: makeReporter(options))
+  /* istanbul ignore next */
+  if (options.reporter === 'new') {
+    // use the new reporter
+    require('treport')(tap)
+  } else
+    tap.pipe(options.reporter === 'tap' ? process.stdout: makeReporter(options))
+
 
   // need to replay the first version line, because the previous
   // line will have flushed it out to stdout or the reporter already.

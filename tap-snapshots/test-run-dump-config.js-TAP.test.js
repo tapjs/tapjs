@@ -202,7 +202,7 @@ output-dir: null
 output-file: null
 parser-version: false
 rcfile: {CWD}/.taprc
-reporter: classic
+reporter: new
 save: null
 show-process-tree: false
 statements: 100
@@ -322,7 +322,7 @@ output-dir: null
 output-file: null
 parser-version: false
 rcfile: cli-tests/taprc
-reporter: classic
+reporter: new
 save: null
 show-process-tree: false
 statements: 100

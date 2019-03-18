@@ -3,7 +3,7 @@ const { jack, num, opt, list, flag, env } = require('jackspeak')
 const osHomedir = require('os-homedir')
 const colorSupport = require('color-support')
 
-const reporters = require('tap-mocha-reporter').types.sort()
+const reporters = require('tap-mocha-reporter').types.concat('new').sort()
 const fs = require('fs')
 // nyc bundles its deps, pull reporters out of it
 const nycReporters =
@@ -41,7 +41,7 @@ Much more documentation available at: https://www.node-tap.org/
     default: null,
     valid: reporters,
     description: `Use the specified reporter.  Defaults to
-                  'classic' when colors are in use, or 'tap'
+                  'new' when colors are in use, or 'tap'
                   when colors are disabled.
 
                   Available reporters:
