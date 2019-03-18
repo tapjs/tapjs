@@ -107,5 +107,10 @@ t.test('errors', t => {
   t.ok(has(t, er, new Error('foo')))
   t.notOk(has(t, er, new TypeError('foo')))
   t.ok(has(t, er, {}))
+
+  const er3 = new RangeError('hello')
+  er3.foo = 'bar'
+  t.ok(has(t, er3, {name: 'RangeError', foo: 'bar'}))
+
   t.end()
 })

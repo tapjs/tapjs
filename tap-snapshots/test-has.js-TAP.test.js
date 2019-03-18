@@ -456,3 +456,12 @@ exports[`test/has.js TAP errors > undefined 5`] = `
 +++ actual
  Error: foo
 `
+
+exports[`test/has.js TAP errors > undefined 6`] = `
+--- expected
++++ actual
+ RangeError: hello {
+   "name": "RangeError",
+   "foo": "bar",
+ }
+`
