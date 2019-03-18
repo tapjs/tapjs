@@ -100,6 +100,9 @@ const main = async options => {
       tap: require('../package.json').version,
       'tap-parser': require('tap-parser/package.json').version,
       nyc: require('nyc/package.json').version,
+      'tap-yaml': require('tap-yaml/package.json').version,
+      treport: require('treport/package.json').version,
+      tcompare: require('tcompare/package.json').version,
     }))
   }
 
