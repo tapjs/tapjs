@@ -110,6 +110,13 @@ t.test('empty arrays match', t => {
   t.end()
 })
 
+t.test('arrays matched against object sets', t => {
+  const a = [1, 2, 3]
+  a.foo = 'bar'
+  t.ok(match(t, a, { foo: 'bar' }))
+  t.end()
+})
+
 t.test("shallower shouldn't care about key order recursively and types", t => {
   t.ok(match(t,
     { x: { a: 1, b: 2 }, y: { c: 3, d: 4 } },

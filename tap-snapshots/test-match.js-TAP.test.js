@@ -275,6 +275,14 @@ exports[`test/match.js TAP empty arrays match > undefined 2`] = `
  }
 `
 
+exports[`test/match.js TAP arrays matched against object sets > undefined 1`] = `
+--- expected
++++ actual
+ Array {
+   "foo": "bar",
+ }
+`
+
 exports[`test/match.js TAP shallower shouldn't care about key order recursively and types > undefined 1`] = `
 --- expected
 +++ actual
