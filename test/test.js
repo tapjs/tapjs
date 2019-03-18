@@ -759,14 +759,28 @@ t.test('assertions and weird stuff', t => {
       t.test('tre', { buffered: true }, t => tests.push(t))
       t.test('for', { buffered: true }, t => tests.push(t))
       t.end()
-      tests[0].pass('zro')
-      tests[1].pass('one')
       tests[1].end()
       tests[2].fail('two fail 0')
       tests[2].fail('two fail 1')
       tests[2].fail('two fail 2')
       tests[2].fail('two fail 3')
       tests[0].end()
+    },
+
+    'implicit bailout without ending parent': t => {
+      t.bail = true
+      t.jobs = 4
+      const tests = []
+      t.test('zro', { buffered: true }, t => tests.push(t))
+      t.test('one', { buffered: true }, t => tests.push(t))
+      t.test('two', { buffered: true }, t => tests.push(t))
+      t.test('tre', { buffered: true }, t => tests.push(t))
+      t.test('for', { buffered: true }, t => tests.push(t))
+
+      tests[0].end()
+      tests[2].end()
+      tests[3].fail('not fine')
+      tests[1].end()
     },
 
     'silent subs': tt => {

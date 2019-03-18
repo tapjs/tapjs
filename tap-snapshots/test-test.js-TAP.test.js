@@ -2603,13 +2603,11 @@ Bail out! bail me out
 exports[`test/test.js TAP assertions and weird stuff implicit bailout with parallel subs > implicit bailout with parallel subs 1`] = `
 TAP version 13
 ok 1 - zro # {time} {
-    ok 1 - zro
-    1..1
+    1..0
 }
 
 ok 2 - one # {time} {
-    ok 1 - one
-    1..1
+    1..0
 }
 
 not ok 3 - two # {time} {
@@ -2632,6 +2630,43 @@ not ok 3 - two # {time} {
     Bail out! two fail 0
 }
 Bail out! two fail 0
+
+`
+
+exports[`test/test.js TAP assertions and weird stuff implicit bailout without ending parent > implicit bailout without ending parent 1`] = `
+TAP version 13
+ok 1 - zro # {time} {
+    1..0
+}
+
+ok 2 - one # {time} {
+    1..0
+}
+
+ok 3 - two # {time} {
+    1..0
+}
+
+not ok 4 - tre # {time} {
+    not ok 1 - not fine
+      ---
+      at:
+        line: #
+        column: #
+        file: test/test.js
+      source: |2
+              tests[2].end()
+              tests[3].fail('not fine')
+        --^
+              tests[1].end()
+            },
+      stack: |
+        {STACK}
+      ...
+    
+    Bail out! not fine
+}
+Bail out! not fine
 
 `
 
