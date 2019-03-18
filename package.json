@@ -72,7 +72,8 @@
   },
   "tap": {
     "esm": false,
-    "test-ignore": "/(^|/)cli-tests-[0-9]+/"
+    "test-ignore": "/(^|/)cli-tests-[0-9]+/",
+    "check-coverage": true
   },
   "nyc": {
     "include": [

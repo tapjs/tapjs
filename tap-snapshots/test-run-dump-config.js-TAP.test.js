@@ -180,7 +180,7 @@ exports[`test/run/dump-config.js TAP turn color off and back on again > output 1
 bail: false
 branches: 100
 browser: true
-check-coverage: false
+check-coverage: true
 color: true
 comments: false
 coverage: false
@@ -220,7 +220,7 @@ exports[`test/run/dump-config.js TAP short options as well as short flags > outp
 bail: true
 branches: 100
 browser: true
-check-coverage: false
+check-coverage: true
 color: false
 comments: false
 coverage: false
@@ -260,7 +260,7 @@ exports[`test/run/dump-config.js TAP good rc file > output 1`] = `
 bail: false
 branches: 100
 browser: true
-check-coverage: false
+check-coverage: true
 color: false
 comments: false
 coverage: false
@@ -300,7 +300,7 @@ exports[`test/run/dump-config.js TAP empty rc file > output 1`] = `
 bail: false
 branches: 100
 browser: true
-check-coverage: false
+check-coverage: true
 color: true
 comments: false
 coverage: false
