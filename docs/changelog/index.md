@@ -2,6 +2,52 @@
 layout: layout
 title: Change Log
 ---
+## 13.0 - TBD
+
+* Brand new reporter [treport](http://npm.im/treport), built using React and
+  [ink](http://npm.im/ink), which reports on parallel tests in progress, and
+  features code highlighting with [cardinal](http://npm.im/cardinal),
+  beautifully accessible diffs, more signal and less noise all around.
+* Add source context when showing the source line in errors.
+* Prettier formats for snapshot files, and diffs for all matchers, using
+  [tcompare](http://npm.im/tcompare)
+* Automatically load `.jsx` and `.tsx` files, using
+  [import-jsx](http://npm.im/import-jsx).
+* New YAML parser [tap-yaml](http://npm.im) which uses
+  [YAML](http://npm.im/yaml) and adds support for Domains, Errors, Symbols, and
+  other JS-isms.
+* `t.throws()` returns the thrown error on success.
+* Support the `--show-process-tree` to have [NYC](http://npm.im/nyc) show a
+  process tree.
+* Load a default set of files (instead of waiting on stdin) if `tap` is invoked
+  with no arguments and `stdin` is a TTY.
+* Create snapshots with the `--snapshot` flag, or by naming an npm test `snap`
+  or `snapshot`.  So you can have `"scripts":{"test":"tap","snap":"tap"}` in
+  package.json, and it'll do the right thing in both cases.
+* Add `--test-regex` and `--test-ignore` options to control which files are
+  loaded by default if no args are provided.  (Note that `node_modules` and
+  `.git` are always excluded by the default file lookup.)
+* Default to coverage being turned on.  (Defaulting to `check-coverage` at 100%
+  will come in v14.)
+* Default to `--jobs-auto` style parallelization, where the number of parallel
+  jobs defaults to the number of CPUs.
+* Pull tap configs from `tap` object in package.json
+* Load `.taprc` file from the current working directory, not from `$HOME`.
+* Reorganized CLI usage output and argument parsing, using
+  [jackspeak](http://npm.im/jackspeak)
+* Sort and present filenames more cleanly in runner.
+* Spawn: Emiit `preprocess` event so extensions and reporters can tinker with
+  process options.
+* Implicitly end tests when they bail out.  (This was being done previously,
+  but only by virtue of the fact that the root TAP object ended its children
+  when it saw a bailout.)
+* Surface the counts and lists of relevant (ie, non-child-test reporting) test
+  points, for use in reporters and the like.
+
+## 12.6 2019-03-06
+
+* Add --no-esm flag to disable '-r esm' behavior (11 days ago)
+
 ## 12.5 2019-01-29
 
 Add support for ES Modules in all tap test scripts using `esm`.
