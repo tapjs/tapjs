@@ -13,7 +13,7 @@ title: Change Log
   [tcompare](http://npm.im/tcompare)
 * Automatically load `.jsx` and `.tsx` files, using
   [import-jsx](http://npm.im/import-jsx).
-* New YAML parser [tap-yaml](http://npm.im) which uses
+* New YAML parser [tap-yaml](http://npm.im/tap-yaml) which uses
   [YAML](http://npm.im/yaml) and adds support for Domains, Errors, Symbols, and
   other JS-isms.
 * `t.throws()` returns the thrown error on success.
