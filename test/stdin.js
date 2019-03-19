@@ -80,3 +80,15 @@ ok 1 - this is fine
 
   s.threw(new Error('oops'))
 })
+
+t.test('doting parent', t => {
+  const EE = require('events').EventEmitter
+  const parent = new EE()
+  const tapStream = new MP()
+  parent.on('stdin', child => {
+    t.equal(child, s)
+    t.end()
+  })
+  const s = new Stdin({tapStream, parent})
+  s.main(() => {})
+})
