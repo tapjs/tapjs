@@ -31,6 +31,7 @@ const defaultFiles = options => new Promise((res, rej) => {
       !bad.test(f) &&
       !parts.includes('node_modules') &&
       !parts.includes('tap-snapshots') &&
+      !parts.includes('fixtures') &&
       !parts.includes('.git') &&
       !parts.includes('.hg')
   }
