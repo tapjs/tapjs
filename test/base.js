@@ -92,7 +92,7 @@ t.test('throwing stuff', t => {
 
   t.test('domain error', t => {
     const b = new Base({ name: 'ace', buffered: true })
-    b.domain.emit('error', new Error('this is fine'))
+    b.hookDomain.onerror(new Error('this is fine'), 'testing error')
     t.notOk(b.parser.ok)
     t.end()
   })
@@ -287,7 +287,7 @@ not ok 4 - not so fine # SKIP dont care for now
 `
 
   t.test('no bail', t => {
-    const b = new Base()
+    const b = new Base({ bail: false })
     b.on('bailout', reason => t.fail('should not bail out', { reason }))
     b.on('complete', results => {
       t.matchSnapshot(b.counts, 'counts')

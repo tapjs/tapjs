@@ -117,6 +117,7 @@ const main = () => {
       stdio: 'inherit'
     })
     s.main(_ => {
+      t.match(s.output, 'tapCaught: spawn\n')
       t.match(s.output, 'not ok 1 - poop error\n')
       t.match(s.output, 'command: poop\n')
       t.end()
