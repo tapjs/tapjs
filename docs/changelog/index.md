@@ -16,6 +16,9 @@ title: Change Log
 * New YAML parser [tap-yaml](http://npm.im/tap-yaml) which uses
   [YAML](http://npm.im/yaml) and adds support for Domains, Errors, Symbols, and
   other JS-isms.
+* Abandon domains in favor of
+  [`async_hooks`](https://nodejs.org/api/async_hooks.html) with
+  [async-hook-domain](http://npm.im/async-hook-domain) for error trapping.
 * `t.throws()` returns the thrown error on success.
 * Support the `--show-process-tree` to have [NYC](http://npm.im/nyc) show a
   process tree.
