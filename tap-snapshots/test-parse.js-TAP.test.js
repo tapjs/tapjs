@@ -6,5 +6,10 @@
  */
 'use strict'
 exports[`test/parse.js TAP > it parses yaml 1`] = `
-{ cycle: { a: 1, cycle: [Circular] } }
+Object {
+  "cycle": &ref_1 Object {
+    "a": 1,
+    "cycle": <*ref_1>,
+  },
+}
 `

@@ -4,8 +4,8 @@
   "description": "Yaml handling for TAP parsers and generators",
   "main": "index.js",
   "scripts": {
-    "test": "tap test/*.js -J --100",
-    "snap": "TAP_SNAPSHOT=1 tap test/*.js -J --100",
+    "test": "tap test/*.js",
+    "snap": "tap test/*.js",
     "preversion": "npm test",
     "postversion": "npm publish",
     "postpublish": "git push origin --all; git push origin --tags"
@@ -26,10 +26,13 @@
     "yaml": "github:isaacs/yaml#built"
   },
   "devDependencies": {
-    "tap": "^12.5.3"
+    "tap": "^13.0.0-rc.11"
   },
   "files": [
     "index.js",
     "lib/**/*.js"
-  ]
+  ],
+  "tap": {
+    "check-coverage": true
+  }
 }

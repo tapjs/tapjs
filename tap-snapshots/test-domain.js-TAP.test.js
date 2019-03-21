@@ -12,12 +12,13 @@ exports[`test/domain.js TAP > first stringify 1`] = `
 
 exports[`test/domain.js TAP > parsed stringified 1`] = `
 Domain {
-  domain: null,
-  _events:
-   [Object: null prototype] {
-     removeListener: [Function: updateExceptionCapture],
-     newListener: [Function: updateExceptionCapture] },
-  _eventsCount: 2,
-  _maxListeners: undefined,
-  members: [] }
+  "domain": null,
+  "_events": Object {
+    "removeListener": Function updateExceptionCapture(),
+    "newListener": Function updateExceptionCapture(),
+  },
+  "_eventsCount": 2,
+  "_maxListeners": undefined,
+  "members": Array [],
+}
 `

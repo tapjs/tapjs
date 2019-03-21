@@ -69,12 +69,14 @@ d: !function |-
 `
 
 exports[`test/function.js TAP > parsed stringified 1`] = `
-{ f: { [Function: foo] toString: [Function] },
-  a: { [Function: anon] toString: [Function] },
-  m: { [Function: jack] toString: [Function] },
-  s: { [Function: spacey] toString: [Function] },
-  b: { [Function] toString: [Function] },
-  y: { [Function] toString: [Function] },
-  c: { [Function: arrow] toString: [Function] },
-  d: { [Function: arrowBraces] toString: [Function] } }
+Object {
+  "f": Function foo(),
+  "a": Function anon(),
+  "m": Function jack(),
+  "s": Function spacey(im, not, the, man, they, think, i, am, at, home),
+  "b": Function (x),
+  "y": Function (y),
+  "c": Function arrow(x, y, z),
+  "d": Function arrowBraces(x, y, z),
+}
 `

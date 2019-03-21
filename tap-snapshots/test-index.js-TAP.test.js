@@ -6,5 +6,8 @@
  */
 'use strict'
 exports[`test/index.js TAP > root api is a thing 1`] = `
-{ parse: [Function], stringify: [Function] }
+Object {
+  "parse": Function (str),
+  "stringify": Function (obj),
+}
 `
