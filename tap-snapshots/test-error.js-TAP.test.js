@@ -68,16 +68,24 @@ assertion:
   actual: 1
   expected: 2
   operator: ==
+CustomError:
+  !error
+  name: TingTings
+  message: no meta, please
+  stack: >-
+    TingTings: no meta, please
+        {STACK}
+  foo: bar
 questionbegging:
   !error
   name: AssertionError [ERR_ASSERTION]
   message: >-
     {
-      Error: Error: just your standard error type
+      CustomError: [TingTings: no meta, please] {
           {STACK}
   stack: >-
     AssertionError [ERR_ASSERTION]: {
-      Error: Error: just your standard error type
+      CustomError: [TingTings: no meta, please] {
         {STACK}
   generatedMessage: true
   code: ERR_ASSERTION
@@ -125,9 +133,12 @@ exports[`test/error.js TAP > parsed stringified 1`] = `
      actual: 1,
      expected: 2,
      operator: '==' },
+  CustomError:
+   { TingTings: no meta, please
+       {STACK}
   questionbegging:
    { AssertionError [ERR_ASSERTION]: {
-     Error: Error: just your standard error type
+     CustomError: [TingTings: no meta, please] {
        {STACK}
      name: 'AssertionError [ERR_ASSERTION]',
      generatedMessage: true,

@@ -1,5 +1,17 @@
 const t = require('tap')
 const yaml = require('../')
+const util = require('util')
+class CustomError extends Error {
+  constructor (message) {
+    super(message)
+    this.foo = 'bar'
+    Object.defineProperty(this, 'name', { value: 'TingTings' })
+    this.meta = {some: 'large object'}
+  }
+  [util.inspect.custom || 'inspect'] () {
+    return { foo: this.foo }
+  }
+}
 const o = {
   EvalError: new EvalError('evil'),
   RangeError: new RangeError('strider'),
@@ -15,6 +27,7 @@ const o = {
       return e
     }
   })(),
+  CustomError: new CustomError('no meta, please'),
 }
 o.questionbegging = (() => {
   try {
