@@ -14,8 +14,10 @@ snap () {
   f=$1
   id=$2
   out=$(node $f 2>&1)
+  res=$?
   let '++id'
-  if [ $? != 0 ]; then
+  if [ $res != 0 ]; then
+    failed=1
     echo "not ok $id - $f {"
     echo "$out" | sed "s|^|    |g"
     echo "}"
@@ -42,7 +44,7 @@ for p in "${pids[@]}"; do
   wait $p
   if [ $? != 0 ]; then
     for q in "${pids[@]}"; do
-      kill -SIGQUIT $q &>/dev/null
+      kill -SIGINT $q &>/dev/null
     done
     echo "Bail out! # failed test"
     break
