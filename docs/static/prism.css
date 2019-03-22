@@ -10,7 +10,7 @@ pre[class*="language-"] {
 	color: black;
 	background: none;
 	text-shadow: 0 1px white;
-  font-family: Triplicate T4, Fira Mono OT, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospacek;
+  font-family: Triplicate T4, Fira Mono OT, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 	text-align: left;
 	white-space: pre;
 	word-spacing: normal;
