@@ -1,6 +1,6 @@
 const { jack, num, opt, list, flag, env } = require('jackspeak')
 
-const osHomedir = require('os-homedir')
+const {cpus} = require('os')
 const colorSupport = require('color-support')
 
 const reporters = require('tap-mocha-reporter').types.concat('new').sort()
@@ -177,7 +177,7 @@ Much more documentation available at: https://www.node-tap.org/
     short: 'j',
     hint: 'n',
     min: 1,
-    default: Math.min(require('os').cpus().length, 8),
+    default: Math.min(cpus().length, 8),
     description: `Run up to <n> test files in parallel.
 
                   By default, this will be set to the number of CPUs on
@@ -188,7 +188,7 @@ Much more documentation available at: https://www.node-tap.org/
 
   'jobs-auto': flag({
     short: 'J',
-    alias: '--jobs=' + require('os').cpus().length,
+    alias: '--jobs=' + cpus().length,
     description: `Run test files in parallel (auto calculated)
 
                   This is the default as of v13, so this option serves
