@@ -16,9 +16,7 @@ const path = require('path')
 const exists = require('fs-exists-cached').sync
 const os = require('os')
 const isTTY = process.stdin.isTTY || process.env._TAP_IS_TTY === '1'
-const tsNode = require.resolve(
-  'ts-node/' + require('ts-node/package.json').bin['ts-node']
-)
+const tsNode = require.resolve('ts-node/register')
 
 const coverageServiceTest = process.env.COVERAGE_SERVICE_TEST === 'true'
 
@@ -751,8 +749,8 @@ const runAllFiles = (options, saved, tap) => {
         const args = esmArg.concat(options.nodeArgs).concat(file).concat(options.testArgs)
         tap.spawn(node, args, opt, file)
       } else if (file.match(/\.ts$/)) {
-        const args = esmArg.concat(options.nodeArgs).concat(file).concat(options.testArgs)
-        tap.spawn(tsNode, args, opt, file)
+        const args = esmArg.concat(['-r', tsNode]).concat(options.nodeArgs).concat(file).concat(options.testArgs)
+        tap.spawn(node, args, opt, file)
       } else if (isexe.sync(options.files[i]))
         tap.spawn(options.files[i], options.testArgs, opt, file)
     }
