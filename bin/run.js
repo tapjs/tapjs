@@ -14,9 +14,7 @@ const path = require('path')
 const exists = require('fs-exists-cached').sync
 const os = require('os')
 const isTTY = process.stdin.isTTY || process.env._TAP_IS_TTY === '1'
-const tsNode = require.resolve(
-  'ts-node/' + require('ts-node/package.json').bin['ts-node']
-)
+const tsNode = require.resolve('ts-node/register')
 const esm = require.resolve('esm')
 const jsx = require.resolve('./jsx.js')
 const mkdirp = require('mkdirp')
@@ -460,13 +458,22 @@ const runAllFiles = (options, saved, tap) => {
           ...options['test-arg']
         ]
         tap.spawn(node, args, opt, file)
-      } else if (file.match(/\.ts$/)) {
+      } else if (file.match(/\.tsx?$/)) {
+        const compilerOpts = JSON.stringify({
+          ...JSON.parse(process.env.TS_NODE_COMPILER_OPTIONS || '{}'),
+          jsx: 'react'
+        })
+        opt.env = {
+          ...process.env,
+          TS_NODE_COMPILER_OPTIONS: compilerOpts,
+        }
         const args = [
+          '-r', tsNode,
           ...options['node-arg'],
           file,
           ...options['test-arg']
         ]
-        tap.spawn(tsNode, args, opt, file)
+        tap.spawn(node, args, opt, file)
       } else if (file.match(/\.jsx$/)) {
         const args = [
           ...(options['node-arg']),
@@ -475,14 +482,6 @@ const runAllFiles = (options, saved, tap) => {
           ...(options['test-arg']),
         ]
         tap.spawn(node, args, opt, file)
-      } else if (file.match(/\.tsx$/)) {
-        const args = [
-          '--compiler-options={"jsx":"react"}',
-          ...(options['node-arg']),
-          file,
-          ...(options['test-arg']),
-        ]
-        tap.spawn(tsNode, args, opt, file)
       } if (isexe.sync(options.files[i]))
         tap.spawn(options.files[i], options['test-arg'], opt, file)
     }
