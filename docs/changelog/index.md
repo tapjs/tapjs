@@ -12,7 +12,8 @@ title: Change Log
 * Prettier formats for snapshot files, and diffs for all matchers, using
   [tcompare](http://npm.im/tcompare)
 * Automatically load `.jsx` and `.tsx` files, using
-  [import-jsx](http://npm.im/import-jsx).
+  [import-jsx](http://npm.im/import-jsx) and TypeScript's built-in JSX
+  capabilities.
 * New YAML parser [tap-yaml](http://npm.im/tap-yaml) which uses
   [YAML](http://npm.im/yaml) and adds support for Domains, Errors, Symbols, and
   other JS-isms.
@@ -30,6 +31,8 @@ title: Change Log
 * Add `--test-regex` and `--test-ignore` options to control which files are
   loaded by default if no args are provided.  (Note that `node_modules` and
   `.git` are always excluded by the default file lookup.)
+* Add `t.resolveMatchSnapshot()`, and do not clutter up promise
+  resolving/rejecting assertion output with an extra subtest.
 * Default to coverage being turned on.  (Defaulting to `check-coverage` at 100%
   will come in v14.)
 * Default to `--jobs-auto` style parallelization, where the number of parallel
@@ -46,6 +49,7 @@ title: Change Log
   when it saw a bailout.)
 * Surface the counts and lists of relevant (ie, non-child-test reporting) test
   points, for use in reporters and the like.
+* Add support for running typescript on Windows.
 
 ## 12.6 2019-03-06
 
