@@ -2850,11 +2850,29 @@ TAP version 13
     ok 1 - an object
     ok 2 - string
     ok 3 - must match snapshot # TODO later
-    1..3
-    # todo: 1
-ok 1 - child test # {time}
+    ok 4 - must match snapshot # TODO later
+    not ok 5 - message about promise
+      ---
+      at: {}
+      ...
+    
+    not ok 6 - expect resolving Promise
+      ---
+      at: {}
+      found: rejected promise
+      ...
+    
+    ok 7 - must match snapshot
+    1..7
+    # failed 2 of 7 tests
+    # todo: 2
+not ok 1 - child test # {time}
+  ---
+  snapshot: true
+  ...
 
 1..1
+# failed 1 test
 
 `
 
@@ -2864,10 +2882,28 @@ TAP version 13
     ok 1 - an object
     ok 2 - string
     ok 3 - must match snapshot # TODO later
-    1..3
-    # todo: 1
-ok 1 - child test # {time}
+    ok 4 - must match snapshot # TODO later
+    not ok 5 - message about promise
+      ---
+      at: {}
+      ...
+    
+    not ok 6 - expect resolving Promise
+      ---
+      at: {}
+      found: rejected promise
+      ...
+    
+    ok 7 - must match snapshot
+    1..7
+    # failed 2 of 7 tests
+    # todo: 2
+not ok 1 - child test # {time}
+  ---
+  snapshot: false
+  ...
 
 1..1
+# failed 1 test
 
 `

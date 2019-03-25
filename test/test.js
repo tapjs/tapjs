@@ -932,25 +932,30 @@ t.test('spawn', t => {
   t.end()
 })
 
-t.test('snapshots', t => {
+t.test('snapshots', async t => {
   const Snapshot = require('../lib/snapshot.js')
   const snap = [ true, false ]
-  const outputs = snap.map(snap => {
+  const fn = async snap => {
     const tt = new Test({
       snapshot: snap,
       name: 'deleteme',
       buffered: true
     })
-    tt.test('child test', { snapshot: snap, buffered: false }, tt => {
+    await tt.test('child test', { snapshot: snap, buffered: false }, tt => {
       tt.matchSnapshot({ foo: 'bar' }, 'an object')
       tt.matchSnapshot('some string \\ \` ${process.env.FOO}', 'string')
       tt.matchSnapshot('do this eventually', { todo: 'later' })
-      tt.end()
+      tt.resolveMatchSnapshot(Promise.resolve(true), { todo: 'later' })
+      tt.resolveMatchSnapshot({ fo: 'not a promise' }, 'message about promise')
+      tt.resolveMatchSnapshot(Promise.reject('rejected promise'))
+      return tt.resolveMatchSnapshot(Promise.resolve({a:1, b:2})
+        .then(a => `a: ${a.a}`))
     })
     tt.emit('teardown')
     tt.end()
     return tt.output
-  })
+  }
+  const outputs = [await fn(true), await fn(false) ]
 
   t.matchSnapshot(clean(outputs[0]), 'saving the snapshot')
   t.matchSnapshot(clean(outputs[1]), 'verifying the snapshot')
