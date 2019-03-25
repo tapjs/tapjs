@@ -456,6 +456,7 @@ t.test('assertions and weird stuff', t => {
       tt.resolveMatch(new Promise(r => r(420)), 420, 'promise')
       tt.resolveMatch(() => new Promise(r => r(420)), 420, 'promise fn')
       tt.resolveMatch(() => {}, {}, 'fail: no promise')
+      tt.resolveMatch(Promise.reject('n'), 'y', 'fail: rejected promise')
       tt.end()
     },
 

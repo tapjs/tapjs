@@ -1863,116 +1863,68 @@ not ok 5 - fail
 
 exports[`test/test.js TAP assertions and weird stuff rejects > rejects 1`] = `
 TAP version 13
-ok 1 - promise # {time} {
-    ok 1 - promise
-    1..1
-}
-
-ok 2 - fn returns promise # {time} {
-    ok 1 - fn returns promise
-    1..1
-}
-
-ok 3 - expect rejected Promise # {time} {
-    ok 1 - expect rejected Promise
-    1..1
-}
-
-ok 4 - expect rejected Promise # {time} {
-    ok 1 - expect rejected Promise
-    1..1
-}
-
+ok 1 - promise
+ok 2 - fn returns promise
+ok 3 - expect rejected Promise
+ok 4 - expect rejected Promise
 ok 5 - todo because no fn/promise # TODO
 # next 2 also todo, no message
 ok 6 - expect rejected Promise # TODO
 ok 7 - expect rejected Promise # TODO
-ok 8 - throws expected error: Error expected # {time} {
-    ok 1 - throws expected error: Error expected
-    1..1
-}
-
-ok 9 - throws expected error type # {time} {
-    ok 1 - throws expected error type
-    1..1
-}
-
-ok 10 - extra functions are no-ops # {time} {
-    ok 1 - extra functions are no-ops
-    1..1
-}
-
-ok 11 - extra args are no-ops # {time} {
-    ok 1 - extra args are no-ops
-    1..1
-}
-
-ok 12 - expect rejected Promise: Error noent # {time} {
-    ok 1 - expect rejected Promise: Error noent
-    1..1
-}
-
-ok 13 - expect rejected Promise: Error x # {time} {
-    ok 1 - expect rejected Promise: Error x
-    1..1
-}
-
-ok 14 - expect rejected Promise # {time} {
-    ok 1 - expect rejected Promise
-    1..1
-}
-
-ok 15 - expect rejected Promise # {time} {
-    ok 1 - expect rejected Promise
-    1..1
-}
-
-ok 16 - expect rejected Promise # {time} {
-    ok 1 - expect rejected Promise
-    1..1
-}
-
-not ok 17 - fail: no promise # {time} {
-    not ok 1 - fail: no promise
-      ---
-      stack: |
-        {STACK}
-      ...
+ok 8 - throws expected error: Error expected
+ok 9 - throws expected error type
+ok 10 - extra functions are no-ops
+ok 11 - extra args are no-ops
+ok 12 - expect rejected Promise: Error noent
+ok 13 - expect rejected Promise: Error x
+ok 14 - expect rejected Promise
+ok 15 - expect rejected Promise
+ok 16 - expect rejected Promise
+not ok 17 - fail: no promise
+  ---
+  at:
+    line: #
+    column: #
+    file: test/test.js
+  source: |2
     
-    1..1
-    # failed 1 test
-}
+          tt.rejects(() => {}, 'fail: no promise')
+    --^
+          tt.rejects(() => ({}), 'fail: no promise')
+  stack: |
+    {STACK}
+  ...
 
-not ok 18 - fail: no promise # {time} {
-    not ok 1 - fail: no promise
-      ---
-      stack: |
-        {STACK}
-      ...
-    
-    1..1
-    # failed 1 test
-}
+not ok 18 - fail: no promise
+  ---
+  at:
+    line: #
+    column: #
+    file: test/test.js
+  source: |2
+          tt.rejects(() => {}, 'fail: no promise')
+          tt.rejects(() => ({}), 'fail: no promise')
+    --^
+  
+          tt.rejects(new Promise(r => r(420)), 'fail: passing promise')
+  stack: |
+    {STACK}
+  ...
 
-not ok 19 - fail: passing promise # {time} {
-    not ok 1 - fail: passing promise
-      ---
-      at:
-        line: #
-        column: #
-        file: test/test.js
-      found: 420
-      source: |2
-        
-              tt.rejects(new Promise(r => r(420)), 'fail: passing promise')
-        --^
-      
-              tt.end()
-      ...
+not ok 19 - fail: passing promise
+  ---
+  at:
+    line: #
+    column: #
+    file: test/test.js
+  found: 420
+  source: |2
     
-    1..1
-    # failed 1 test
-}
+          tt.rejects(new Promise(r => r(420)), 'fail: passing promise')
+    --^
+  
+          tt.end()
+  ...
 
 1..19
 # failed 3 of 19 tests
@@ -1982,40 +1934,23 @@ not ok 19 - fail: passing promise # {time} {
 
 exports[`test/test.js TAP assertions and weird stuff resolves > resolves 1`] = `
 TAP version 13
-ok 1 - expect resolving Promise # {time} {
-    ok 1 - expect resolving Promise
-    1..1
-}
-
+ok 1 - expect resolving Promise
 ok 2 - expect resolving Promise # TODO
-ok 3 - passing promise # {time} {
-    ok 1 - passing promise
-    1..1
-}
-
-ok 4 - passing promise fn # {time} {
-    ok 1 - passing promise fn
-    1..1
-}
-
-not ok 5 - fail: no promise # {time} {
-    not ok 1 - fail: no promise
-      ---
-      at:
-        line: #
-        column: #
-        file: test/test.js
-      source: |2
-              tt.resolves(() => new Promise(r => r(420)), 'passing promise fn')
-              tt.resolves(() => {}, 'fail: no promise')
-        --^
-              tt.end()
-            },
-      ...
-    
-    1..1
-    # failed 1 test
-}
+ok 3 - passing promise
+ok 4 - passing promise fn
+not ok 5 - fail: no promise
+  ---
+  at:
+    line: #
+    column: #
+    file: test/test.js
+  source: |2
+          tt.resolves(() => new Promise(r => r(420)), 'passing promise fn')
+          tt.resolves(() => {}, 'fail: no promise')
+    --^
+          tt.end()
+        },
+  ...
 
 1..5
 # failed 1 of 5 tests
@@ -2025,57 +1960,74 @@ not ok 5 - fail: no promise # {time} {
 
 exports[`test/test.js TAP assertions and weird stuff resolveMatch > resolveMatch 1`] = `
 TAP version 13
-ok 1 - expect resolving Promise # {time} {
-    ok 1 - should match pattern provided
-    1..1
-}
+ok 1 - should match pattern provided
+not ok 2 - should match pattern provided # TODO
+  ---
+  at:
+    line: #
+    column: #
+    file: test/test.js
+  diff: |
+    --- expected
+    +++ actual
+    -"asdf"
+    +420
+  found: 420
+  pattern: asdf
+  source: |2
+          tt.resolveMatch(new Promise(r => r(420)), Number)
+          tt.resolveMatch(new Promise(r => r(420)), 'asdf', { todo: true })
+    --^
+          tt.resolveMatch(new Promise(r => r(420)), 420, 'promise')
+          tt.resolveMatch(() => new Promise(r => r(420)), 420, 'promise fn')
+  ...
 
-ok 2 - expect resolving Promise # TODO
-ok 3 - promise # {time} {
-    ok 1 - should match pattern provided
-    1..1
-}
+ok 3 - should match pattern provided
+not ok 4 - promise fn
+  ---
+  at:
+    line: #
+    column: #
+    file: test/test.js
+  source: |2
+          tt.resolveMatch(new Promise(r => r(420)), 420, 'promise')
+          tt.resolveMatch(() => new Promise(r => r(420)), 420, 'promise fn')
+    --^
+          tt.resolveMatch(() => {}, {}, 'fail: no promise')
+          tt.resolveMatch(Promise.reject('n'), 'y', 'fail: rejected promise')
+  ...
 
-not ok 4 - promise fn # {time} {
-    not ok 1 - promise fn
-      ---
-      at:
-        line: #
-        column: #
-        file: test/test.js
-      source: |2
-              tt.resolveMatch(new Promise(r => r(420)), 420, 'promise')
-              tt.resolveMatch(() => new Promise(r => r(420)), 420, 'promise fn')
-        --^
-              tt.resolveMatch(() => {}, {}, 'fail: no promise')
-              tt.end()
-      ...
-    
-    1..1
-    # failed 1 test
-}
+not ok 5 - fail: no promise
+  ---
+  at:
+    line: #
+    column: #
+    file: test/test.js
+  source: |2
+          tt.resolveMatch(() => new Promise(r => r(420)), 420, 'promise fn')
+          tt.resolveMatch(() => {}, {}, 'fail: no promise')
+    --^
+          tt.resolveMatch(Promise.reject('n'), 'y', 'fail: rejected promise')
+          tt.end()
+  ...
 
-not ok 5 - fail: no promise # {time} {
-    not ok 1 - fail: no promise
-      ---
-      at:
-        line: #
-        column: #
-        file: test/test.js
-      source: |2
-              tt.resolveMatch(() => new Promise(r => r(420)), 420, 'promise fn')
-              tt.resolveMatch(() => {}, {}, 'fail: no promise')
-        --^
-              tt.end()
-            },
-      ...
-    
-    1..1
-    # failed 1 test
-}
+not ok 6 - fail: rejected promise
+  ---
+  at:
+    line: #
+    column: #
+    file: test/test.js
+  found: n
+  source: |2
+          tt.resolveMatch(() => {}, {}, 'fail: no promise')
+          tt.resolveMatch(Promise.reject('n'), 'y', 'fail: rejected promise')
+    --^
+          tt.end()
+        },
+  ...
 
-1..5
-# failed 2 of 5 tests
+1..6
+# failed 4 of 6 tests
 # todo: 1
 
 `
