@@ -17,9 +17,10 @@ not ok 2 - a/b/f1.js # {time}
   ---
   args:
     - a/b/f1.js
-  childId: 3
+  childId: 1
   command: {NODE}
   cwd: {CWD}/cli-tests
+  env: {}
   exitCode: 1
   file: a/b/f1.js
   stdio:
@@ -60,9 +61,10 @@ not ok 1 - a/b/f1.js # {time}
   ---
   args:
     - a/b/f1.js
-  childId: 2
+  childId: 0
   command: {NODE}
   cwd: {CWD}/cli-tests
+  env: {}
   exitCode: 1
   file: a/b/f1.js
   stdio:
@@ -99,9 +101,10 @@ not ok 3 - z.js # {time}
   ---
   args:
     - z.js
-  childId: 6
+  childId: 2
   command: {NODE}
   cwd: {CWD}/cli-tests
+  env: {}
   exitCode: 1
   file: z.js
   stdio:

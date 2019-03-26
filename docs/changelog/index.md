@@ -31,6 +31,8 @@ title: Change Log
 * Add `--test-regex` and `--test-ignore` options to control which files are
   loaded by default if no args are provided.  (Note that `node_modules` and
   `.git` are always excluded by the default file lookup.)
+* Add `--test-env=key=value` option to set (or remove) environment variables in
+  tests.
 * Add `t.resolveMatchSnapshot()`, and do not clutter up promise
   resolving/rejecting assertion output with an extra subtest.
 * Default to coverage being turned on.  (Defaulting to `check-coverage` at 100%

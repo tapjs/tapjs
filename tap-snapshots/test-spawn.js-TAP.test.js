@@ -51,6 +51,7 @@ not ok 1 - spawn something that does not exist ENOENT
   code: ENOENT
   command: something that does not exist
   cwd: {CWD}
+  env: {}
   errno: ENOENT
   path: something that does not exist
   spawnargs: []
@@ -63,5 +64,17 @@ not ok 1 - spawn something that does not exist ENOENT
   ...
 1..1
 # failed 1 test
+
+`
+
+exports[`test/spawn.js TAP childId via childId option > undefined 1`] = `
+childId=69420
+1..0 # no tests found
+
+`
+
+exports[`test/spawn.js TAP childId via TAP_CHILD_ID env > undefined 1`] = `
+childId=69420
+1..0 # no tests found
 
 `

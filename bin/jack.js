@@ -410,6 +410,16 @@ Much more documentation available at: https://www.node-tap.org/
                   pass multiple args to test scripts.`,
   }),
 
+  'test-env': list({
+    hint: 'key[=<value>]',
+    description: `Pass a key=value (ie, --test-env=key=value) to set an
+                  environment variable in the process where tests are run.
+
+                  If a value is not provided, then the key is ensured to
+                  not be set in the environment.  To set a key to the empty
+                  string, use --test-env=key=`,
+  }),
+
   'nyc-arg': list({
     hint: 'arg',
     description: `Pass an argument to nyc when running

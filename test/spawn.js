@@ -155,6 +155,34 @@ const main = () => {
     })
     t.end()
   })
+
+  t.test('childId', t => {
+    t.test('via childId option', t => {
+      const s = new Spawn({
+        command: node,
+        buffered: true,
+        args: [ file, 'childId' ],
+        childId: 69420,
+      })
+      s.main(() => {
+        t.matchSnapshot(clean(s.output))
+        t.end()
+      })
+    })
+    t.test('via TAP_CHILD_ID env', t => {
+      const s = new Spawn({
+        command: node,
+        buffered: true,
+        args: [ file, 'childId' ],
+        env: { ...(process.env), TAP_CHILD_ID: '69420' },
+      })
+      s.main(() => {
+        t.matchSnapshot(clean(s.output))
+        t.end()
+      })
+    })
+    t.end()
+  })
 }
 
 // Ignore this because a lot of these cases involve
@@ -192,6 +220,10 @@ switch (process.argv[2]) {
     process.on('SIGTERM', _ => console.log('SIGTERM'))
   case 'timeout':
     setTimeout(_ => _, process.env.CI ? 50000 : 10000)
+    break
+
+  case 'childId':
+    console.log(`childId=${process.env.TAP_CHILD_ID}`)
     break
 
   default:

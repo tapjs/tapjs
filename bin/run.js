@@ -394,6 +394,16 @@ const isParallelOk = (parallelOk, file) => {
     : true
 }
 
+const getEnv = options => options['test-env'].reduce((env, kv) => {
+  const split = kv.split('=')
+  const key = split.shift()
+  if (!split.length)
+    delete env[key]
+  else
+    env[key] = split.join('=')
+  return env
+}, {...process.env})
+
 const runAllFiles = (options, saved, tap) => {
   let doStdin = false
   let parallelOk = Object.create(null)
@@ -411,15 +421,16 @@ const runAllFiles = (options, saved, tap) => {
     })
   }
 
+  const env = getEnv(options)
+
   options.files = filterFiles(options.files, saved, parallelOk)
-  let tapChildId = 0
+  let childId = 0
 
   if (options.files.length === 0 && !doStdin) {
     tap.test('no tests specified', t => t.threw(new Error('no tests specified!')))
   }
 
   for (let i = 0; i < options.files.length; i++) {
-    const opt = {}
     const file = options.files[i]
 
     // Pick up stdin after all the other files are handled.
@@ -436,17 +447,18 @@ const runAllFiles = (options, saved, tap) => {
       continue
     }
 
-    if (options.timeout)
-      opt.timeout = options.timeout * 1000
-
-    opt.file = file
-    opt.childId = tapChildId++
     if (st.isDirectory()) {
       const dir = filterFiles(fs.readdirSync(file).map(f =>
         file.replace(/[\/\\]+$/, '') + '/' + f), saved, parallelOk)
       options.files.splice(i, 1, ...dir)
       i--
     } else {
+      const opt = { env, file, childId }
+      childId += 1
+
+      if (options.timeout)
+        opt.timeout = options.timeout * 1000
+
       if (options.jobs > 1)
         opt.buffered = isParallelOk(parallelOk, file) !== false
 
@@ -464,7 +476,7 @@ const runAllFiles = (options, saved, tap) => {
           jsx: 'react'
         })
         opt.env = {
-          ...process.env,
+          ...env,
           TS_NODE_COMPILER_OPTIONS: compilerOpts,
         }
         const args = [

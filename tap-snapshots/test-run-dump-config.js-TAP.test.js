@@ -47,6 +47,7 @@ statements: 100
 test-arg:
   - xyz
   - abc
+test-env: []
 test-ignore: /(^|/)cli-tests-[0-9]+/
 test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mjs|[jt]sx?)$
 timeout: 99
@@ -87,6 +88,7 @@ save: null
 show-process-tree: false
 statements: 100
 test-arg: []
+test-env: []
 test-ignore: $.
 test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mjs|[jt]sx?)$
 timeout: 30
@@ -127,6 +129,7 @@ save: null
 show-process-tree: false
 statements: 100
 test-arg: []
+test-env: []
 test-ignore: $.
 test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mjs|[jt]sx?)$
 timeout: 30
@@ -167,6 +170,7 @@ save: null
 show-process-tree: false
 statements: 100
 test-arg: []
+test-env: []
 test-ignore: $.
 test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mjs|[jt]sx?)$
 timeout: 30
@@ -207,6 +211,7 @@ save: null
 show-process-tree: false
 statements: 100
 test-arg: []
+test-env: []
 test-ignore: /(^|/)cli-tests-[0-9]+/
 test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mjs|[jt]sx?)$
 timeout: 30
@@ -247,6 +252,7 @@ save: null
 show-process-tree: false
 statements: 100
 test-arg: []
+test-env: []
 test-ignore: /(^|/)cli-tests-[0-9]+/
 test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mjs|[jt]sx?)$
 timeout: 0
@@ -287,6 +293,7 @@ save: null
 show-process-tree: false
 statements: 100
 test-arg: []
+test-env: []
 test-ignore: /(^|/)cli-tests-[0-9]+/
 test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mjs|[jt]sx?)$
 timeout: 30
@@ -327,6 +334,7 @@ save: null
 show-process-tree: false
 statements: 100
 test-arg: []
+test-env: []
 test-ignore: /(^|/)cli-tests-[0-9]+/
 test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mjs|[jt]sx?)$
 timeout: 30
