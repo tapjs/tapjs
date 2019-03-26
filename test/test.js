@@ -948,6 +948,7 @@ t.test('snapshots', async t => {
       tt.resolveMatchSnapshot(Promise.resolve(true), { todo: 'later' })
       tt.resolveMatchSnapshot({ fo: 'not a promise' }, 'message about promise')
       tt.resolveMatchSnapshot(Promise.reject('rejected promise'))
+      tt.resolveMatchSnapshot(() => Promise.resolve(420), 'promise fn')
       return tt.resolveMatchSnapshot(Promise.resolve({a:1, b:2})
         .then(a => `a: ${a.a}`))
     })

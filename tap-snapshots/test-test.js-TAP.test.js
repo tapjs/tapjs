@@ -1960,8 +1960,8 @@ not ok 5 - fail: no promise
 
 exports[`test/test.js TAP assertions and weird stuff resolveMatch > resolveMatch 1`] = `
 TAP version 13
-ok 1 - should match pattern provided
-not ok 2 - should match pattern provided # TODO
+ok 1 - expect resolving Promise
+not ok 2 - expect resolving Promise # TODO
   ---
   at:
     line: #
@@ -1982,21 +1982,8 @@ not ok 2 - should match pattern provided # TODO
           tt.resolveMatch(() => new Promise(r => r(420)), 420, 'promise fn')
   ...
 
-ok 3 - should match pattern provided
-not ok 4 - promise fn
-  ---
-  at:
-    line: #
-    column: #
-    file: test/test.js
-  source: |2
-          tt.resolveMatch(new Promise(r => r(420)), 420, 'promise')
-          tt.resolveMatch(() => new Promise(r => r(420)), 420, 'promise fn')
-    --^
-          tt.resolveMatch(() => {}, {}, 'fail: no promise')
-          tt.resolveMatch(Promise.reject('n'), 'y', 'fail: rejected promise')
-  ...
-
+ok 3 - promise
+ok 4 - promise fn
 not ok 5 - fail: no promise
   ---
   at:
@@ -2027,7 +2014,7 @@ not ok 6 - fail: rejected promise
   ...
 
 1..6
-# failed 4 of 6 tests
+# failed 3 of 6 tests
 # todo: 1
 
 `
@@ -2850,7 +2837,7 @@ TAP version 13
     ok 1 - an object
     ok 2 - string
     ok 3 - must match snapshot # TODO later
-    ok 4 - must match snapshot # TODO later
+    ok 4 - expect resolving Promise # TODO later
     not ok 5 - message about promise
       ---
       at: {}
@@ -2862,9 +2849,10 @@ TAP version 13
       found: rejected promise
       ...
     
-    ok 7 - must match snapshot
-    1..7
-    # failed 2 of 7 tests
+    ok 7 - promise fn
+    ok 8 - expect resolving Promise
+    1..8
+    # failed 2 of 8 tests
     # todo: 2
 not ok 1 - child test # {time}
   ---
@@ -2882,7 +2870,7 @@ TAP version 13
     ok 1 - an object
     ok 2 - string
     ok 3 - must match snapshot # TODO later
-    ok 4 - must match snapshot # TODO later
+    ok 4 - expect resolving Promise # TODO later
     not ok 5 - message about promise
       ---
       at: {}
@@ -2894,9 +2882,10 @@ TAP version 13
       found: rejected promise
       ...
     
-    ok 7 - must match snapshot
-    1..7
-    # failed 2 of 7 tests
+    ok 7 - promise fn
+    ok 8 - expect resolving Promise
+    1..8
+    # failed 2 of 8 tests
     # todo: 2
 not ok 1 - child test # {time}
   ---
