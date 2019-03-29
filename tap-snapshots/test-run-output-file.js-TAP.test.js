@@ -39,6 +39,7 @@ exports[`test/run/output-file.js TAP output-file stdin > output 1`] = `
 TAP version 13
 1..1
 ok 1 - totally fine result from stdin
+# {time}
 
 `
 
@@ -122,6 +123,7 @@ exports[`test/run/output-file.js TAP output-file stdin > output 2`] = `
 TAP version 13
 1..1
 ok 1 - totally fine result from stdin
+# {time}
 
 `
 

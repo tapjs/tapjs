@@ -3,7 +3,10 @@ const { jack, num, opt, list, flag, env } = require('jackspeak')
 const {cpus} = require('os')
 const colorSupport = require('color-support')
 
-const reporters = require('tap-mocha-reporter').types.concat('new').sort()
+const reporters = [...new Set([
+  ...(require('tap-mocha-reporter').types),
+  ...(require('treport/types')),
+])]
 const fs = require('fs')
 // nyc bundles its deps, pull reporters out of it
 const nycReporters =
@@ -39,13 +42,33 @@ Much more documentation available at: https://www.node-tap.org/
     hint: 'type',
     short: 'R',
     default: null,
-    valid: reporters,
     description: `Use the specified reporter.  Defaults to
-                  'new' when colors are in use, or 'tap'
+                  'base' when colors are in use, or 'tap'
                   when colors are disabled.
 
-                  Available reporters:
+                  In addition to the built-in reporters provided by
+                  the treport and tap-mocha-reporter modules, the
+                  reporter option can also specify a command-line
+                  program or a module to load via require().
+
+                  Command-line programs receive the raw TAP output
+                  on their stdin.
+
+                  Modules loaded via require() must export either a
+                  writable stream class or a React.Component subclass.
+                  Writable streams are instantiated and piped into.
+                  React components are rendered using Ink, with tap={tap}
+                  as their only property.
+
+                  Available built-in reporters:
                   ${reporters.join(' ')}`,
+  }),
+
+  'reporter-arg': list({
+    hint: 'arg',
+    short: 'r',
+    description: `Args to pass to command-line reporters.  Ignored when using
+                  built-in reporters or module reporters.`,
   }),
 
   bail: flag({

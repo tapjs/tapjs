@@ -41,6 +41,7 @@ output-file: out.txt
 parser-version: false
 rcfile: {CWD}/.taprc
 reporter: spec
+reporter-arg: []
 save: foo.txt
 show-process-tree: false
 statements: 100
@@ -84,6 +85,7 @@ output-file: null
 parser-version: false
 rcfile: {CWD}/cli-tests/.taprc
 reporter: tap
+reporter-arg: []
 save: null
 show-process-tree: false
 statements: 100
@@ -125,6 +127,7 @@ output-file: null
 parser-version: false
 rcfile: {CWD}/cli-tests/.taprc
 reporter: tap
+reporter-arg: []
 save: null
 show-process-tree: false
 statements: 100
@@ -166,6 +169,7 @@ output-file: null
 parser-version: false
 rcfile: {CWD}/cli-tests/.taprc
 reporter: tap
+reporter-arg: []
 save: null
 show-process-tree: false
 statements: 100
@@ -206,7 +210,8 @@ output-dir: null
 output-file: null
 parser-version: false
 rcfile: {CWD}/.taprc
-reporter: new
+reporter: base
+reporter-arg: []
 save: null
 show-process-tree: false
 statements: 100
@@ -248,6 +253,7 @@ output-file: null
 parser-version: false
 rcfile: {CWD}/.taprc
 reporter: tap
+reporter-arg: []
 save: null
 show-process-tree: false
 statements: 100
@@ -289,6 +295,7 @@ output-file: null
 parser-version: false
 rcfile: cli-tests/taprc
 reporter: spec
+reporter-arg: []
 save: null
 show-process-tree: false
 statements: 100
@@ -329,7 +336,8 @@ output-dir: null
 output-file: null
 parser-version: false
 rcfile: cli-tests/taprc
-reporter: new
+reporter: base
+reporter-arg: []
 save: null
 show-process-tree: false
 statements: 100

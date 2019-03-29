@@ -3,7 +3,7 @@ const opener = require('opener')
 const node = process.execPath
 const fs = require('fs')
 const fg = require('foreground-child')
-const spawn = require('child_process').spawn
+const {spawn} = require('child_process')
 const nycBin = require.resolve(
   'nyc/' + require('nyc/package.json').bin.nyc
 )
@@ -18,6 +18,7 @@ const tsNode = require.resolve('ts-node/register')
 const esm = require.resolve('esm')
 const jsx = require.resolve('./jsx.js')
 const mkdirp = require('mkdirp')
+const which = require('which')
 
 const defaultFiles = options => new Promise((res, rej) => {
   const findit = require('findit')
@@ -40,7 +41,7 @@ const defaultFiles = options => new Promise((res, rej) => {
   // these can get pretty huge, so just walking them at all is costly
   fs.readdir(process.cwd(), (er, entries) => {
     Promise.all(entries.filter(entry =>
-      !/^(node_modules|tap-snapshots|.git|.hg)$/.test(entry)
+      !/^(node_modules|tap-snapshots|.git|.hg|fixtures)$/.test(entry)
     ).map(entry => new Promise((res, rej) => {
       fs.lstat(entry, (er, stat) => {
         // It's pretty unusual to have a file in cwd you can't even stat
@@ -84,7 +85,7 @@ const main = async options => {
   }
 
   if (options.reporter === null)
-    options.reporter = options.color ? 'new' : 'tap'
+    options.reporter = options.color ? 'base' : 'tap'
 
   if (options['dump-config']) {
     console.log(yaml.stringify(Object.keys(options).filter(k =>
@@ -281,28 +282,49 @@ const globFiles = files => Array.from(files.reduce((acc, f) =>
     return set
   }, new Set()))
 
-const makeReporter = options =>
-  new (require('tap-mocha-reporter'))(options.reporter)
+const makeReporter = exports.makeReporter = (tap, options) => {
+  const treport = require('treport')
+  const tapMochaReporter = require('tap-mocha-reporter')
+  // if it's a treport type, use that
+  const reporter = options.reporter
+  if (reporter === 'tap')
+    tap.pipe(process.stdout)
+  else if (treport.types.includes(reporter))
+    treport(tap, reporter)
+  else if (tapMochaReporter.types.includes(reporter))
+    tap.pipe(new tapMochaReporter(options.reporter))
+  else {
+    // might be a child process or a module
+    try {
+      which.sync(reporter)
+      // it's a cli reporter!
+      const c = spawn(reporter, options['reporter-arg'], {
+        stdio: ['pipe', 1, 2]
+      })
+      tap.pipe(c.stdin)
+    } catch (_) {
+      const R = require(reporter)
+      if (typeof R !== 'function' || !R.prototype)
+        throw new Error(
+          `Invalid reporter: non-class exported by ${reporter}`)
+      else if (R.prototype.isReactComponent)
+        treport(tap, R)
+      else if (R.prototype.write && R.prototype.end)
+        tap.pipe(new R(...(options['reporter-arg'])))
+      else
+        throw new Error(
+          `Invalid reporter: not a stream or react component ${reporter}`)
+    }
+  }
+}
 
 const stdinOnly = options => {
   // if we didn't specify any files, then just passthrough
   // to the reporter, so we don't get '/dev/stdin' in the suite list.
   // We have to pause() before piping to switch streams2 into old-mode
-  /* istanbul ignore next */
-  if (options.reporter === 'new') {
-    // XXX add a stdinOnly() method that doesn't make stdin a subtest
-    const tap = require('../lib/tap.js')
-    require('treport')(tap)
-    tap.stdin()
-    tap.end()
-  } else {
-    process.stdin.pause()
-    const reporter = makeReporter(options)
-    process.stdin.pipe(reporter)
-    if (options['output-file'] !== null)
-      process.stdin.pipe(fs.createWriteStream(options['output-file']))
-    process.stdin.resume()
-  }
+  const tap = require('../lib/tap.js')
+  tap.stdinOnly()
+  makeReporter(tap, options)
 
   if (options['output-file'] !== null)
     process.stdin.pipe(fs.createWriteStream(options['output-file']))
@@ -532,11 +554,7 @@ const runTests = options => {
   // if not -Rtap, then output what the user wants.
   // otherwise just dump to stdout
   /* istanbul ignore next */
-  if (options.reporter === 'new') {
-    // use the new reporter
-    require('treport')(tap)
-  } else
-    tap.pipe(options.reporter === 'tap' ? process.stdout: makeReporter(options))
+  makeReporter(tap, options)
 
 
   // need to replay the first version line, because the previous
