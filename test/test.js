@@ -706,6 +706,41 @@ t.test('assertions and weird stuff', t => {
       })
     },
 
+    stdinOnly: tt => {
+      const s = new MiniPass()
+      tt.plan(8)
+      tt.test('the stdinOnly test', ttt => {
+        let sub = null
+        ttt.stdinOnly({ tapStream: s })
+        tt.throws(() => ttt.stdinOnly())
+        tt.throws(() => ttt.pass('this is fine'))
+        tt.throws(() => ttt.test('hello', () => {}))
+        tt.throws(() => ttt.end())
+        tt.throws(() => tt.stdinOnly())
+        ttt.on('subtestAdd', s => sub = s)
+        s.end(`
+          TAP version 13
+          # Subtest: child
+              ok - this child is in a subtest
+              1..1
+          ok 1 - child
+          ok 2 - just a normal assertion
+          not ok 3 - this is not ok
+          not ok 4 - this will be ok later # TODO
+          1..4
+          `.replace(/^          /gm, '')
+        )
+        tt.ok(sub, 'got a sub')
+        tt.same(ttt.counts, {
+          total: 3,
+          pass: 1,
+          fail: 1,
+          skip: 0,
+          todo: 1
+        })
+      })
+    },
+
     'bailout with indented subs': tt => {
       tt.test('1', tt => tt.end())
       tt.test('2', tt => Promise.resolve(null))

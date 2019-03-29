@@ -36,6 +36,16 @@ is completed.
 This is primarily for use in the test runner, so that you can do
 `some-tap-emitting-program | tap other-file.js - -Rnyan`.
 
+## t.stdinOnly()
+
+Parse standard input without wrapping it in a child test.
+
+This is only allowed if the test object has no other children and has
+printed no assertions.  Once engaged, any attempt to use normal test
+methods will throw an error.  It only exists to support piping a TAP
+stream into the tap executable for reporting, which is a very specialized
+use case.
+
 ## t.spawn(command, arguments, [options], [name])
 
 Sometimes, instead of running a child test directly inline, you might

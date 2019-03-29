@@ -2491,6 +2491,34 @@ Bail out! not fine
 
 `
 
+exports[`test/test.js TAP assertions and weird stuff stdinOnly > stdinOnly 1`] = `
+TAP version 13
+1..8
+# Subtest: the stdinOnly test
+    
+    # Subtest: child
+        ok - this child is in a subtest
+        1..1
+    ok 1 - child
+    ok 2 - just a normal assertion
+    not ok 3 - this is not ok
+    not ok 4 - this will be ok later # TODO
+    1..4
+    # failed 2 of 4 tests
+    # todo: 1
+not ok 1 - the stdinOnly test # {time}
+
+ok 2 - expected to throw
+ok 3 - expected to throw
+ok 4 - expected to throw
+ok 5 - expected to throw
+ok 6 - expected to throw
+ok 7 - got a sub
+ok 8 - should be equivalent
+# failed 1 of 8 tests
+
+`
+
 exports[`test/test.js TAP assertions and weird stuff bailout with indented subs > bailout with indented subs 1`] = `
 TAP version 13
 # Subtest: 1
