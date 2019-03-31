@@ -446,7 +446,6 @@ const runAllFiles = (options, saved, tap) => {
   const env = getEnv(options)
 
   options.files = filterFiles(options.files, saved, parallelOk)
-  let childId = 0
 
   if (options.files.length === 0 && !doStdin) {
     tap.test('no tests specified', t => t.threw(new Error('no tests specified!')))
@@ -475,8 +474,7 @@ const runAllFiles = (options, saved, tap) => {
       options.files.splice(i, 1, ...dir)
       i--
     } else {
-      const opt = { env, file, childId }
-      childId += 1
+      const opt = { env, file }
 
       if (options.timeout)
         opt.timeout = options.timeout * 1000

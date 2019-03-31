@@ -2802,14 +2802,18 @@ not ok 4 - timeout!
 
 exports[`test/test.js TAP assertions and weird stuff t.emits > t.emits 1`] = `
 TAP version 13
-not ok 1 - expect fail event to be emitted
+not ok 1 - this one will fail
   ---
   at:
     line: #
     column: #
     file: test/test.js
-  source: |
-    t.emits(ee, 'fail')
+  source: |2
+          const ee = new EE()
+          t.emits(ee, 'fail', 'this one will fail')
+    --^
+          t.emits(ee, 'pass', { extra: 'some stuff' })
+          ee.emit('pass')
   stack: |
     {STACK}
   ...

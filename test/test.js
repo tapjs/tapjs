@@ -891,8 +891,8 @@ t.test('assertions and weird stuff', t => {
     't.emits': t => {
       const EE = require('events').EventEmitter
       const ee = new EE()
-      t.emits(ee, 'fail')
-      t.emits(ee, 'pass')
+      t.emits(ee, 'fail', 'this one will fail')
+      t.emits(ee, 'pass', { extra: 'some stuff' })
       ee.emit('pass')
       t.end()
     },

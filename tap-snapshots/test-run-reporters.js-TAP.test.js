@@ -29,15 +29,3 @@ spec output
 exports[`test/run/reporters.js TAP react component > stdout 1`] = `
 treport output
 `
-
-exports[`test/run/reporters.js TAP not found reporter > stdout 1`] = `
-not ok 1 - Cannot find module 'not a reporter actually'
-`
-
-exports[`test/run/reporters.js TAP non-function reporter > stdout 1`] = `
-not ok 1 - Invalid reporter: non-class exported by {CWD}/cli-tests/nonfunc.js
-`
-
-exports[`test/run/reporters.js TAP non-class reporter > stdout 1`] = `
-not ok 1 - Invalid reporter: not a stream or react component {CWD}/cli-tests/func.js
-`
