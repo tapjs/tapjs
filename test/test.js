@@ -919,7 +919,7 @@ t.test('assertions and weird stuff', t => {
         setTimeout(() => {
           if (err)
             out = out.trim() + '\n' + 'STDERR:\n' + err
-          t.matchSnapshot(clean(out), i)
+          t.matchSnapshot(clean(out), 'output')
         })
       })
       cases[i](tt)

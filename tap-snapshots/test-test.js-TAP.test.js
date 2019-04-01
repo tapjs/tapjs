@@ -1310,7 +1310,7 @@ ok 1 - (unnamed test) # SKIP filter: only
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff error > error 1`] = `
+exports[`test/test.js TAP assertions and weird stuff error > output 1`] = `
 TAP version 13
 ok 1 - this is not an error
 not ok 2 - this error is poop
@@ -1399,7 +1399,7 @@ ok 7 - should not error
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff equal > equal 1`] = `
+exports[`test/test.js TAP assertions and weird stuff equal > output 1`] = `
 TAP version 13
 not ok 1 - should be equal
   ---
@@ -1455,7 +1455,7 @@ not ok 4 - should be equal
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff not > not 1`] = `
+exports[`test/test.js TAP assertions and weird stuff not > output 1`] = `
 TAP version 13
 ok 1 - should not be equal
 ok 2 - should not be equal # SKIP
@@ -1485,7 +1485,7 @@ ok 4 - should not be equal
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff same > same 1`] = `
+exports[`test/test.js TAP assertions and weird stuff same > output 1`] = `
 TAP version 13
 ok 1 - should be equivalent
 ok 2 - should be equivalent
@@ -1582,7 +1582,7 @@ not ok 15 - this one fails
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff match > match 1`] = `
+exports[`test/test.js TAP assertions and weird stuff match > output 1`] = `
 TAP version 13
 ok 1 - should match pattern provided
 not ok 2 - should match pattern provided
@@ -1706,7 +1706,7 @@ ok 8 - should not match pattern provided # TODO
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff type > type 1`] = `
+exports[`test/test.js TAP assertions and weird stuff type > output 1`] = `
 TAP version 13
 not ok 1 - this fails
   ---
@@ -1792,7 +1792,7 @@ ok 12 - type is EventEmitter
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff throws > throws 1`] = `
+exports[`test/test.js TAP assertions and weird stuff throws > output 1`] = `
 TAP version 13
 ok 1 - expected to throw
 ok 2 - returns the error that was thrown
@@ -1832,7 +1832,7 @@ ok 16 - todo # TODO
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff doesNotThrow > doesNotThrow 1`] = `
+exports[`test/test.js TAP assertions and weird stuff doesNotThrow > output 1`] = `
 TAP version 13
 ok 1 - this is fine
 ok 2 - expected to not throw # TODO
@@ -1861,7 +1861,7 @@ not ok 5 - fail
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff rejects > rejects 1`] = `
+exports[`test/test.js TAP assertions and weird stuff rejects > output 1`] = `
 TAP version 13
 ok 1 - promise
 ok 2 - fn returns promise
@@ -1932,7 +1932,7 @@ not ok 19 - fail: passing promise
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff resolves > resolves 1`] = `
+exports[`test/test.js TAP assertions and weird stuff resolves > output 1`] = `
 TAP version 13
 ok 1 - expect resolving Promise
 ok 2 - expect resolving Promise # TODO
@@ -1958,7 +1958,7 @@ not ok 5 - fail: no promise
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff resolveMatch > resolveMatch 1`] = `
+exports[`test/test.js TAP assertions and weird stuff resolveMatch > output 1`] = `
 TAP version 13
 ok 1 - expect resolving Promise
 not ok 2 - expect resolving Promise # TODO
@@ -2019,7 +2019,7 @@ not ok 6 - fail: rejected promise
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff test after end fails > test after end fails 1`] = `
+exports[`test/test.js TAP assertions and weird stuff test after end fails > output 1`] = `
 TAP version 13
 1..0
 STDERR:
@@ -2029,7 +2029,7 @@ Error: test after end() was called
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff plan excess > plan excess 1`] = `
+exports[`test/test.js TAP assertions and weird stuff plan excess > output 1`] = `
 TAP version 13
 1..1
 ok 1 - fine
@@ -2040,7 +2040,7 @@ Error: test count exceeds plan
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff plan excess, ignored when failing > plan excess, ignored when failing 1`] = `
+exports[`test/test.js TAP assertions and weird stuff plan excess, ignored when failing > output 1`] = `
 TAP version 13
 1..1
 not ok 1 - expected fail
@@ -2048,7 +2048,7 @@ not ok 1 - expected fail
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff using the assertAt field > using the assertAt field 1`] = `
+exports[`test/test.js TAP assertions and weird stuff using the assertAt field > output 1`] = `
 TAP version 13
 1..1
 not ok 1 - expect fail
@@ -2069,7 +2069,7 @@ not ok 1 - expect fail
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff using the assertStack field > using the assertStack field 1`] = `
+exports[`test/test.js TAP assertions and weird stuff using the assertStack field > output 1`] = `
 TAP version 13
 1..1
 not ok 1 - expect fail
@@ -2092,14 +2092,14 @@ not ok 1 - expect fail
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff printResult > printResult 1`] = `
+exports[`test/test.js TAP assertions and weird stuff printResult > output 1`] = `
 TAP version 13
 ok 1 - this is fine
 1..1
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff printResult after plan end > printResult after plan end 1`] = `
+exports[`test/test.js TAP assertions and weird stuff printResult after plan end > output 1`] = `
 TAP version 13
 1..0
 STDERR:
@@ -2109,7 +2109,7 @@ Error: test after end() was called
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff plan, child test, explicit end > plan, child test, explicit end 1`] = `
+exports[`test/test.js TAP assertions and weird stuff plan, child test, explicit end > output 1`] = `
 TAP version 13
 1..1
 # Subtest
@@ -2119,7 +2119,7 @@ ok 1 # {time}
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff end multiple times > end multiple times 1`] = `
+exports[`test/test.js TAP assertions and weird stuff end multiple times > output 1`] = `
 TAP version 13
 1..1
 ok 1 - yes
@@ -2130,14 +2130,14 @@ Error: test end() method called more than once
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff error event with domainEmitter re-throws > error event with domainEmitter re-throws 1`] = `
+exports[`test/test.js TAP assertions and weird stuff error event with domainEmitter re-throws > output 1`] = `
 TAP version 13
 ok 1 - the better to this.threw you with
 1..1
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff thrower after end > thrower after end 1`] = `
+exports[`test/test.js TAP assertions and weird stuff thrower after end > output 1`] = `
 TAP version 13
 # Subtest: child
     1..1
@@ -2166,7 +2166,7 @@ not ok 2 - catch it in the parent
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff child breaks a promise > child breaks a promise 1`] = `
+exports[`test/test.js TAP assertions and weird stuff child breaks a promise > output 1`] = `
 TAP version 13
 # Subtest: child
     not ok 1 - poop
@@ -2196,7 +2196,7 @@ not ok 1 - child # {time}
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff child teardown throw > child teardown throw 1`] = `
+exports[`test/test.js TAP assertions and weird stuff child teardown throw > output 1`] = `
 TAP version 13
 # Subtest: child
     1..0
@@ -2225,7 +2225,7 @@ not ok 2 - fail
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff teardown promise > teardown promise 1`] = `
+exports[`test/test.js TAP assertions and weird stuff teardown promise > output 1`] = `
 TAP version 13
 # Subtest: parent
     ok 1 - this is fine
@@ -2237,7 +2237,7 @@ ok 1 - parent # {time}
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff teardown promise fail > teardown promise fail 1`] = `
+exports[`test/test.js TAP assertions and weird stuff teardown promise fail > output 1`] = `
 TAP version 13
 # Subtest: parent
     ok 1 - this is fine
@@ -2267,7 +2267,7 @@ not ok 2 - did not tear down proper
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff fullname without main > fullname without main 1`] = `
+exports[`test/test.js TAP assertions and weird stuff fullname without main > output 1`] = `
 TAP version 13
 # Subtest: child
     ok 1 - child
@@ -2279,14 +2279,14 @@ ok 2
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff comment after end > comment after end 1`] = `
+exports[`test/test.js TAP assertions and weird stuff comment after end > output 1`] = `
 TAP version 13
 1..0
 # this is fine
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff grep > grep 1`] = `
+exports[`test/test.js TAP assertions and weird stuff grep > output 1`] = `
 TAP version 13
 # Subtest: parent
     ok 1 - do not run this # SKIP filter: /x$/
@@ -2321,7 +2321,7 @@ ok 1 - parent # {time}
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff grepInvert > grepInvert 1`] = `
+exports[`test/test.js TAP assertions and weird stuff grepInvert > output 1`] = `
 TAP version 13
 # Subtest: parent
     ok 1 - do not run this x # SKIP filter out: /x$/
@@ -2356,7 +2356,7 @@ ok 1 - parent # {time}
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff autoEnd > autoEnd 1`] = `
+exports[`test/test.js TAP assertions and weird stuff autoEnd > output 1`] = `
 TAP version 13
 # Subtest: this should automatically end
     ok 1 - this is fine
@@ -2403,14 +2403,14 @@ not ok 6 - cannot create subtest after parent test end # {time}
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff autoend(false) > autoend(false) 1`] = `
+exports[`test/test.js TAP assertions and weird stuff autoend(false) > output 1`] = `
 TAP version 13
 ok 1 - this is fine
 1..1
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff endAll with test children > endAll with test children 1`] = `
+exports[`test/test.js TAP assertions and weird stuff endAll with test children > output 1`] = `
 TAP version 13
 # Subtest: this is the test that never ends
     # Subtest: it goes on and on my friend
@@ -2451,7 +2451,7 @@ not ok 1 - this is the test that never ends # {time}
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff endAll with stdin > endAll with stdin 1`] = `
+exports[`test/test.js TAP assertions and weird stuff endAll with stdin > output 1`] = `
 TAP version 13
 # Subtest: /dev/stdin
     ok - but not ended
@@ -2467,7 +2467,7 @@ not ok 1 - /dev/stdin # {time}
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff endAll with bailout > endAll with bailout 1`] = `
+exports[`test/test.js TAP assertions and weird stuff endAll with bailout > output 1`] = `
 TAP version 13
 # Subtest: child
     not ok 1 - not fine
@@ -2491,7 +2491,7 @@ Bail out! not fine
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff stdinOnly > stdinOnly 1`] = `
+exports[`test/test.js TAP assertions and weird stuff stdinOnly > output 1`] = `
 TAP version 13
 1..8
 # Subtest: the stdinOnly test
@@ -2519,7 +2519,7 @@ ok 8 - should be equivalent
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff bailout with indented subs > bailout with indented subs 1`] = `
+exports[`test/test.js TAP assertions and weird stuff bailout with indented subs > output 1`] = `
 TAP version 13
 # Subtest: 1
     1..0
@@ -2530,7 +2530,7 @@ Bail out! whoops
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff bailout with buffered subs > bailout with buffered subs 1`] = `
+exports[`test/test.js TAP assertions and weird stuff bailout with buffered subs > output 1`] = `
 TAP version 13
 ok 1 - 1 # {time} {
     1..0
@@ -2540,7 +2540,7 @@ Bail out! whoops
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff bailout in first sub > bailout in first sub 1`] = `
+exports[`test/test.js TAP assertions and weird stuff bailout in first sub > output 1`] = `
 TAP version 13
 # Subtest: one
     Bail out! bail me out
@@ -2548,7 +2548,7 @@ Bail out! bail me out
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff bailout in first buffered sub > bailout in first buffered sub 1`] = `
+exports[`test/test.js TAP assertions and weird stuff bailout in first buffered sub > output 1`] = `
 TAP version 13
 # Subtest: one
     not ok 1 - 1.5 # {time} {
@@ -2558,7 +2558,7 @@ Bail out! bail me out
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff bailout in nested sub > bailout in nested sub 1`] = `
+exports[`test/test.js TAP assertions and weird stuff bailout in nested sub > output 1`] = `
 TAP version 13
 # Subtest: one
     # Subtest: 1.5
@@ -2567,7 +2567,7 @@ Bail out! bail me out
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff implicit bailout with parallel subs > implicit bailout with parallel subs 1`] = `
+exports[`test/test.js TAP assertions and weird stuff implicit bailout with parallel subs > output 1`] = `
 TAP version 13
 ok 1 - zro # {time} {
     1..0
@@ -2600,7 +2600,7 @@ Bail out! two fail 0
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff implicit bailout without ending parent > implicit bailout without ending parent 1`] = `
+exports[`test/test.js TAP assertions and weird stuff implicit bailout without ending parent > output 1`] = `
 TAP version 13
 ok 1 - zro # {time} {
     1..0
@@ -2637,7 +2637,7 @@ Bail out! not fine
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff silent subs > silent subs 1`] = `
+exports[`test/test.js TAP assertions and weird stuff silent subs > output 1`] = `
 TAP version 13
 # Subtest: child
     1..0
@@ -2651,7 +2651,7 @@ ok 2 - child 2 # {time}
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff beforeEach afterEach > beforeEach afterEach 1`] = `
+exports[`test/test.js TAP assertions and weird stuff beforeEach afterEach > output 1`] = `
 TAP version 13
 # Subtest: child
     # Subtest: grandkid
@@ -2673,7 +2673,7 @@ parent ae child
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff timeout expiration > timeout expiration 1`] = `
+exports[`test/test.js TAP assertions and weird stuff timeout expiration > output 1`] = `
 TAP version 13
 # Subtest: get lost buf=false
     not ok 1 - timeout!
@@ -2715,7 +2715,7 @@ not ok 2 - get lost buf=true # {time}
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff timeout with subs > timeout with subs 1`] = `
+exports[`test/test.js TAP assertions and weird stuff timeout with subs > output 1`] = `
 TAP version 13
 # Subtest: get lost buf=false
     # Subtest: carry on
@@ -2765,7 +2765,7 @@ not ok 2 - get lost buf=true # {time}
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff timeout at the last tick > timeout at the last tick 1`] = `
+exports[`test/test.js TAP assertions and weird stuff timeout at the last tick > output 1`] = `
 TAP version 13
 # Subtest: work it harder buf=false
     1..1
@@ -2800,7 +2800,7 @@ not ok 4 - timeout!
 
 `
 
-exports[`test/test.js TAP assertions and weird stuff t.emits > t.emits 1`] = `
+exports[`test/test.js TAP assertions and weird stuff t.emits > output 1`] = `
 TAP version 13
 not ok 1 - this one will fail
   ---
