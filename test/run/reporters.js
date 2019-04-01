@@ -49,7 +49,7 @@ t.test('stream reporter', t =>
   }, check(t)))
 
 t.test('react component', t =>
-  run([ok, '-R', path.resolve(reactReporter)], opt, check(t)))
+  run([ok, '-R', './' + reactReporter], opt, check(t)))
 
 t.test('failures', t => {
   const nonfunc = tmpfile(t, 'nonfunc.js', `module.exports = "hello"`)

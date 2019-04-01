@@ -283,14 +283,14 @@ const globFiles = files => Array.from(files.reduce((acc, f) =>
   }, new Set()))
 
 const makeReporter = exports.makeReporter = (tap, options) => {
-  const treport = require('treport')
+  const treportTypes = require('treport/types')
   const tapMochaReporter = require('tap-mocha-reporter')
   // if it's a treport type, use that
   const reporter = options.reporter
   if (reporter === 'tap')
     tap.pipe(process.stdout)
-  else if (treport.types.includes(reporter))
-    treport(tap, reporter)
+  else if (treportTypes.includes(reporter))
+    require('treport')(tap, reporter)
   else if (tapMochaReporter.types.includes(reporter))
     tap.pipe(new tapMochaReporter(options.reporter))
   else {
@@ -303,12 +303,15 @@ const makeReporter = exports.makeReporter = (tap, options) => {
       })
       tap.pipe(c.stdin)
     } catch (_) {
-      const R = require(reporter)
+      // resolve to cwd if it's a relative path
+      const rmod = /^\.\.?[\\\/]/.test(reporter) ? path.resolve(reporter) : reporter
+      // it'll often be jsx, and this is harmless if it isn't.
+      const R = require('import-jsx')(rmod)
       if (typeof R !== 'function' || !R.prototype)
         throw new Error(
           `Invalid reporter: non-class exported by ${reporter}`)
       else if (R.prototype.isReactComponent)
-        treport(tap, R)
+        require('treport')(tap, R)
       else if (R.prototype.write && R.prototype.end)
         tap.pipe(new R(...(options['reporter-arg'])))
       else
