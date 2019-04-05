@@ -11,6 +11,24 @@ t.test('basic base', t => {
   t.end()
 })
 
+t.test('base with context', t => {
+  const ctx = { a: 1 }
+  const b = new Base({ context: ctx })
+  t.notEqual(b.context, ctx)
+  t.match(b.context, ctx)
+  b.context.foo = 'bar'
+  t.equal(ctx.foo, undefined)
+
+  const s = 'str'
+  const c = new Base({ context: s })
+  t.equal(c.context, s)
+
+  const d = new Base({ context: null })
+  t.isa(d.context, 'object')
+  t.end()
+})
+
+
 t.test('skip + debug', t => {
   const b = new Base({ skip: true, debug: true, name: 'name' })
 
