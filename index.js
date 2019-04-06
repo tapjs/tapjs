@@ -670,6 +670,7 @@ class Parser extends MiniPass {
       y = '  ---\n  ' + dump.split('\n').join('\n  ') + '\n  ...\n'
     else
       y = '\n'
+
     let n = (this.count || 0) + 1
     if (this.current)
       n += 1

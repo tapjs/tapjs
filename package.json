@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "glob": "^7.0.5",
-    "tap": "^13.0.0-rc.21"
+    "tap": "^13.0.0-rc.22"
   },
   "scripts": {
     "snap": "tap",
