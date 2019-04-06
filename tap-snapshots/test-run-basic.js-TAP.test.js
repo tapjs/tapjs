@@ -17,7 +17,7 @@ tcompare: {version}
 `
 
 exports[`test/run/basic.js TAP --parser-version > output 1`] = `
-9.3.1
+9.3.2
 
 `
 
