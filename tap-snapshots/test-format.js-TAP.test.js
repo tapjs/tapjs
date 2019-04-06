@@ -24,6 +24,13 @@ exports[`test/format.js TAP gnarly object, many points of view > pretty 1`] = `
     ],
     "h": "asdf",
   },
+  "nullObject": Null Object {
+    "x": Null Object {},
+    "y": Object {},
+    "z": Object {
+      "zed": true,
+    },
+  },
   "p": Set {
     Object {
       "x": "y",
@@ -303,6 +310,13 @@ exports[`test/format.js TAP gnarly object, many points of view > js 1`] = `
     ],
     "h": "asdf",
   },
+  "nullObject": {
+    "x": {},
+    "y": {},
+    "z": {
+      "zed": true,
+    },
+  },
   "p": new Set([
     {
       "x": "y",
@@ -562,7 +576,7 @@ exports[`test/format.js TAP gnarly object, many points of view > js 1`] = `
 `
 
 exports[`test/format.js TAP gnarly object, many points of view > tight 1`] = `
-&1 {"a":1,"b":2,"extra":true,"c":3,"d":4,"more":false,"e":{"f":{"g":1,},"a":[2,3,4,],"h":"asdf",},"p":new Set([{"x":"y","z":true,},{"a":1,},{"b":2,},]),"s":new Set([{"b":2,},{"c":3,},*1,]),"m":new Map([[&2 {"a":1,"k":&3 {"k":*2,"i":{"i":1,"k":*3,},},"f":*1,"c":&4 {"c":{"c":*4,"b":{"b":1,"d":*4,},},"a":&5 [1,*4,*5,],"k":*2,"f":*1,},},1],[{"b":2,},2],[{"c":"d",},{"re":/ef/g,}],[1,&4 {"c":{"c":*4,"b":{"b":1,"d":*4,},},"a":&5 [1,*4,*5,],"k":&2 {"a":1,"k":&3 {"k":*2,"i":{"i":1,"k":*3,},},"f":*1,"c":*4,},"f":*1,}],[*1,&2 {"a":1,"k":&3 {"k":*2,"i":{"i":1,"k":*3,},},"f":*1,"c":&4 {"c":{"c":*4,"b":{"b":1,"d":*4,},},"a":&5 [1,*4,*5,],"k":*2,"f":*1,},}],]),"ao":[{"o":true,},{"o":true,},[{"o":true,},{"o":true,},],],"om":new Map([[{"o":true,},&2 {"a":1,"k":&3 {"k":*2,"i":{"i":1,"k":*3,},},"f":*1,"c":&4 {"c":{"c":*4,"b":{"b":1,"d":*4,},},"a":&5 [1,*4,*5,],"k":*2,"f":*1,},}],[&2 {"a":1,"k":&3 {"k":*2,"i":{"i":1,"k":*3,},},"f":*1,"c":&4 {"c":{"c":*4,"b":{"b":1,"d":*4,},},"a":&5 [1,*4,*5,],"k":*2,"f":*1,},},{"o":true,}],]),"args":[1,2,3,{"o":true,},],"buf":Buffer.from("686f776479", "hex"),"emp":{"b":Buffer.alloc(0),"a":[],"o":{},"m":new Map(),"s":new Set(),},"fns":{"name":function foo () {},"anon":function () {},"arr":() => {},"identity":x => x,"nameless":() => {},},"sym":Symbol(prince),"date":2019-02-14T07:13:44.100Z,"n":null,"undef":undefined,"classy":{},"err":new Error("just an error"),"emptyErr":new Error(""),"fancyErr":Object.assign(new Error("fancy pantsy"), {"fancy":"pantsy",}),"assert":Object.assign(new AssertionError("{\\n  a: 1,\\n  k: {\\n    i: {\\n      i: 1,\\n      k: [Circular]\\n    },\\n    k: [Circular]\\n  }\\n} == {\\n  o: true\\n}"), {"generatedMessage":true,"name":"AssertionError [ERR_ASSERTION]","code":"ERR_ASSERTION","actual":&2 {"a":1,"k":&3 {"k":*2,"i":{"i":1,"k":*3,},},"f":*1,"c":&4 {"c":{"c":*4,"b":{"b":1,"d":*4,},},"a":&5 [1,*4,*5,],"k":*2,"f":*1,},},"expected":{"o":true,},"operator":"==",}),}
+&1 {"a":1,"b":2,"extra":true,"c":3,"d":4,"more":false,"e":{"f":{"g":1,},"a":[2,3,4,],"h":"asdf",},"nullObject":{"x":{},"y":{},"z":{"zed":true,},},"p":new Set([{"x":"y","z":true,},{"a":1,},{"b":2,},]),"s":new Set([{"b":2,},{"c":3,},*1,]),"m":new Map([[&2 {"a":1,"k":&3 {"k":*2,"i":{"i":1,"k":*3,},},"f":*1,"c":&4 {"c":{"c":*4,"b":{"b":1,"d":*4,},},"a":&5 [1,*4,*5,],"k":*2,"f":*1,},},1],[{"b":2,},2],[{"c":"d",},{"re":/ef/g,}],[1,&4 {"c":{"c":*4,"b":{"b":1,"d":*4,},},"a":&5 [1,*4,*5,],"k":&2 {"a":1,"k":&3 {"k":*2,"i":{"i":1,"k":*3,},},"f":*1,"c":*4,},"f":*1,}],[*1,&2 {"a":1,"k":&3 {"k":*2,"i":{"i":1,"k":*3,},},"f":*1,"c":&4 {"c":{"c":*4,"b":{"b":1,"d":*4,},},"a":&5 [1,*4,*5,],"k":*2,"f":*1,},}],]),"ao":[{"o":true,},{"o":true,},[{"o":true,},{"o":true,},],],"om":new Map([[{"o":true,},&2 {"a":1,"k":&3 {"k":*2,"i":{"i":1,"k":*3,},},"f":*1,"c":&4 {"c":{"c":*4,"b":{"b":1,"d":*4,},},"a":&5 [1,*4,*5,],"k":*2,"f":*1,},}],[&2 {"a":1,"k":&3 {"k":*2,"i":{"i":1,"k":*3,},},"f":*1,"c":&4 {"c":{"c":*4,"b":{"b":1,"d":*4,},},"a":&5 [1,*4,*5,],"k":*2,"f":*1,},},{"o":true,}],]),"args":[1,2,3,{"o":true,},],"buf":Buffer.from("686f776479", "hex"),"emp":{"b":Buffer.alloc(0),"a":[],"o":{},"m":new Map(),"s":new Set(),},"fns":{"name":function foo () {},"anon":function () {},"arr":() => {},"identity":x => x,"nameless":() => {},},"sym":Symbol(prince),"date":2019-02-14T07:13:44.100Z,"n":null,"undef":undefined,"classy":{},"err":new Error("just an error"),"emptyErr":new Error(""),"fancyErr":Object.assign(new Error("fancy pantsy"), {"fancy":"pantsy",}),"assert":Object.assign(new AssertionError("{\\n  a: 1,\\n  k: {\\n    i: {\\n      i: 1,\\n      k: [Circular]\\n    },\\n    k: [Circular]\\n  }\\n} == {\\n  o: true\\n}"), {"generatedMessage":true,"name":"AssertionError [ERR_ASSERTION]","code":"ERR_ASSERTION","actual":&2 {"a":1,"k":&3 {"k":*2,"i":{"i":1,"k":*3,},},"f":*1,"c":&4 {"c":{"c":*4,"b":{"b":1,"d":*4,},},"a":&5 [1,*4,*5,],"k":*2,"f":*1,},},"expected":{"o":true,},"operator":"==",}),}
 `
 
 exports[`test/format.js TAP gnarly object, many points of view different points of view > f.m 1`] = `
@@ -593,6 +607,13 @@ exports[`test/format.js TAP gnarly object, many points of view different points 
           4,
         ],
         "h": "asdf",
+      },
+      "nullObject": Null Object {
+        "x": Null Object {},
+        "y": Object {},
+        "z": Object {
+          "zed": true,
+        },
       },
       "p": Set {
         Object {
@@ -715,6 +736,13 @@ exports[`test/format.js TAP gnarly object, many points of view different points 
             4,
           ],
           "h": "asdf",
+        },
+        "nullObject": Null Object {
+          "x": Null Object {},
+          "y": Object {},
+          "z": Object {
+            "zed": true,
+          },
         },
         "p": Set {
           Object {
@@ -856,6 +884,13 @@ exports[`test/format.js TAP gnarly object, many points of view different points 
           ],
           "h": "asdf",
         },
+        "nullObject": Null Object {
+          "x": Null Object {},
+          "y": Object {},
+          "z": Object {
+            "zed": true,
+          },
+        },
         "p": Set {
           Object {
             "x": "y",
@@ -965,6 +1000,13 @@ exports[`test/format.js TAP gnarly object, many points of view different points 
           4,
         ],
         "h": "asdf",
+      },
+      "nullObject": Null Object {
+        "x": Null Object {},
+        "y": Object {},
+        "z": Object {
+          "zed": true,
+        },
       },
       "p": Set {
         Object {
@@ -1107,6 +1149,13 @@ exports[`test/format.js TAP gnarly object, many points of view different points 
         4,
       ],
       "h": "asdf",
+    },
+    "nullObject": Null Object {
+      "x": Null Object {},
+      "y": Object {},
+      "z": Object {
+        "zed": true,
+      },
     },
     "p": Set {
       Object {
@@ -1302,6 +1351,13 @@ exports[`test/format.js TAP gnarly object, many points of view different points 
         ],
         "h": "asdf",
       },
+      "nullObject": Null Object {
+        "x": Null Object {},
+        "y": Object {},
+        "z": Object {
+          "zed": true,
+        },
+      },
       "p": Set {
         Object {
           "x": "y",
@@ -1423,6 +1479,13 @@ exports[`test/format.js TAP gnarly object, many points of view different points 
             4,
           ],
           "h": "asdf",
+        },
+        "nullObject": Null Object {
+          "x": Null Object {},
+          "y": Object {},
+          "z": Object {
+            "zed": true,
+          },
         },
         "p": Set {
           Object {
@@ -1546,6 +1609,13 @@ exports[`test/format.js TAP gnarly object, many points of view different points 
         4,
       ],
       "h": "asdf",
+    },
+    "nullObject": Null Object {
+      "x": Null Object {},
+      "y": Object {},
+      "z": Object {
+        "zed": true,
+      },
     },
     "p": Set {
       Object {
@@ -1696,6 +1766,13 @@ exports[`test/format.js TAP gnarly object, many points of view different points 
         ],
         "h": "asdf",
       },
+      "nullObject": Null Object {
+        "x": Null Object {},
+        "y": Object {},
+        "z": Object {
+          "zed": true,
+        },
+      },
       "p": Set {
         Object {
           "x": "y",
@@ -1824,6 +1901,13 @@ exports[`test/format.js TAP gnarly object, many points of view different points 
           4,
         ],
         "h": "asdf",
+      },
+      "nullObject": Null Object {
+        "x": Null Object {},
+        "y": Object {},
+        "z": Object {
+          "zed": true,
+        },
       },
       "p": Set {
         Object {
@@ -1973,6 +2057,13 @@ exports[`test/format.js TAP gnarly object, many points of view different points 
             4,
           ],
           "h": "asdf",
+        },
+        "nullObject": Null Object {
+          "x": Null Object {},
+          "y": Object {},
+          "z": Object {
+            "zed": true,
+          },
         },
         "p": Set {
           Object {
@@ -2126,6 +2217,13 @@ exports[`test/format.js TAP gnarly object, many points of view different points 
         ],
         "h": "asdf",
       },
+      "nullObject": Null Object {
+        "x": Null Object {},
+        "y": Object {},
+        "z": Object {
+          "zed": true,
+        },
+      },
       "p": Set {
         Object {
           "x": "y",
@@ -2247,6 +2345,13 @@ exports[`test/format.js TAP gnarly object, many points of view different points 
         4,
       ],
       "h": "asdf",
+    },
+    "nullObject": Null Object {
+      "x": Null Object {},
+      "y": Object {},
+      "z": Object {
+        "zed": true,
+      },
     },
     "p": Set {
       Object {

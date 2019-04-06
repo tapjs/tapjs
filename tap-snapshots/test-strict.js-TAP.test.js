@@ -199,7 +199,7 @@ exports[`test/strict.js TAP basic > undefined 14`] = `
  EventEmitter {
    "domain": Domain {
      "domain": null,
-     "_events": Object {
+     "_events": Null Object {
        "removeListener": Function updateExceptionCapture(),
        "newListener": Function updateExceptionCapture(),
        "error": Function (er),
@@ -208,7 +208,7 @@ exports[`test/strict.js TAP basic > undefined 14`] = `
      "_maxListeners": undefined,
      "members": Array [],
    },
-   "_events": Object {
+   "_events": Null Object {
      "error": Function onerror(error),
    },
    "_eventsCount": 1,
@@ -505,7 +505,7 @@ exports[`test/strict.js TAP basic > undefined 38`] = `
 exports[`test/strict.js TAP basic > undefined 39`] = `
 --- expected
 +++ actual
--Object {}
+-Null Object {}
 +Object {}
 
 `
@@ -534,7 +534,7 @@ exports[`test/strict.js TAP basic > undefined 42`] = `
  EventEmitter {
    "domain": Domain {
      "domain": null,
-     "_events": Object {
+     "_events": Null Object {
        "removeListener": Function updateExceptionCapture(),
        "newListener": Function updateExceptionCapture(),
        "error": Function (er),
@@ -543,7 +543,7 @@ exports[`test/strict.js TAP basic > undefined 42`] = `
      "_maxListeners": undefined,
      "members": Array [],
    },
-   "_events": Object {
+   "_events": Null Object {
      "error": Function onerror(error),
 -    "data": Function ondata(data),
    },

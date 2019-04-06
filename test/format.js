@@ -22,6 +22,11 @@ t.test('gnarly object, many points of view', t => {
       a: [2, 3, 4],
       h: 'asdf',
     },
+    nullObject: Object.assign(Object.create(null), {
+      x: Object.create(null),
+      y: Object.create(Object.create(null)),
+      z: Object.assign(Object.create(Object.create(null)), { zed: true }),
+    }),
     p: new Set([{x: 'y', z: true }, {a:1}, {b:2}]),
     s: new Set([{b:2}, {c:3}]),
     m: new Map([
