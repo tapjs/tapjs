@@ -9,11 +9,11 @@
   "dependencies": {
     "events-to-array": "^1.0.1",
     "minipass": "^2.2.0",
-    "tap-yaml": "0 || 1"
+    "tap-yaml": "^1.0.0"
   },
   "devDependencies": {
     "glob": "^7.0.5",
-    "tap": "^13.0.0-rc.3"
+    "tap": "^13.0.0-rc.21"
   },
   "scripts": {
     "snap": "tap",
