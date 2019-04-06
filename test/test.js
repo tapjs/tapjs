@@ -175,8 +175,6 @@ t.test('short output checks', t => {
       tt.end()
     },
 
-    // _actually_ throwing is only handled by root TAP test
-    // using a Domain to catch beyond async stack drops
     'gentle thrower': tt => tt.threw(new Error('ok')),
     'child thrower': tt => tt.test('child test', tt =>
       tt.threw(new Error('ok'))).then(tt.end),
@@ -193,7 +191,33 @@ t.test('short output checks', t => {
         tt.equal(3, 3)
       })
       tt.end()
-    }
+    },
+
+    'simulated uncaughtException throwing': tt => {
+      tt.test('parent', tt => {
+        tt.expectUncaughtException()
+        const e = new Error('foo')
+        e.tapCaught = 'uncaughtException'
+        tt.threw(e)
+        tt.test('wrong error', tt => {
+          tt.expectUncaughtException({ message: 'bar' })
+          const e = new Error('foo is not a bear')
+          e.tapCaught = 'uncaughtException'
+          tt.threw(e)
+          tt.end()
+        })
+        tt.test('nothing uncaught', tt => {
+          tt.expectUncaughtException(/bar/)
+          tt.expectUncaughtException(/anotehr one/, 'expect a second one')
+          const e = new Error('bar is a bar')
+          e.tapCaught = 'uncaughtException'
+          tt.threw(e)
+          tt.end()
+        })
+        tt.end()
+      })
+      tt.end()
+    },
   }
 
   const keys = Object.keys(cases)
@@ -228,8 +252,6 @@ t.test('short output checks', t => {
 
       t.test('no options', t =>
         go(t, new Test()))
-      t.test('buffered', t =>
-        go(t, new Test({ buffered: true })))
       t.test('bailout', t =>
         go(t, new Test({ bail: true })))
       t.test('runOnly', t =>
@@ -520,21 +542,6 @@ t.test('assertions and weird stuff', t => {
       tt.pass('yes')
       tt.end()
       tt.end()
-    },
-
-    'error event with domainEmitter re-throws': tt => {
-      const er = new Error('fail')
-      const d = tt.domain
-      try {
-        d.run(() => {
-          const e = new EE
-          e.emit('error', er)
-          tt.fail('did not throw')
-        })
-      } catch (er) {
-        tt.pass('the better to this.threw you with')
-        tt.end()
-      }
     },
 
     'thrower after end': tt => {
