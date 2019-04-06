@@ -8,13 +8,10 @@
 exports[`test/types.js TAP > types are there 1`] = `
 Array [
   Object {
-    "identify": Function identify(value),
     "tag": "!error",
-    "nodeClass": Function YAMLError(classYAMLErrorextendsYAMLMap),
-    "default": false,
-    "resolve": Function resolve(doc, cst),
+    "identify": Function identify(er),
     "createNode": Function createNode(schema, error, ctx),
-    "stringify": Function stringify(value, ctx, onComment, onChompKeep),
+    "resolve": Function resolve(doc, cst),
   },
   Object {
     "identify": Function identify(value),
@@ -37,6 +34,7 @@ Array [
       "lineWidth": 76,
     },
     "stringify": Function stringify(),
+    "default": false,
   },
   Object {
     "identify": Function identify(value),
@@ -53,49 +51,17 @@ Array [
   Object {
     "identify": Function identify(value),
     "tag": "!domain",
-    "nodeClass": Function YAMLDomain(classYAMLDomainextendsYAMLMap),
-    "default": false,
     "resolve": Function resolve(doc, cst),
     "createNode": Function createNode(schema, error, ctx),
-    "stringify": Function stringify(value, ctx, onComment, onChompKeep),
   },
   Object {
-    "identify": Function identify(v),
     "tag": "!nullobject",
-    "nodeClass": Function YAMLNullObject(classYAMLNullObjectextendsYAMLMap),
-    "default": false,
-    "resolve": Function resolve(doc, cst),
+    "identify": Function identify(v),
     "createNode": Function createNode(schema, obj, ctx),
-    "stringify": Function stringify(value, ctx, onComment, onChompKeep),
+    "resolve": Function resolve(doc, cst),
   },
-  Object {
-    "identify": Function identify(value),
-    "nodeClass": Function YAMLOMap(classYAMLOMapextends_Seq.default),
-    "default": false,
-    "tag": "tag:yaml.org,2002:omap",
-    "resolve": Function parseOMap(doc, cst),
-    "createNode": Function createOMap(schema, iterable, ctx),
-    "stringify": Function stringify(value, ctx, onComment, onChompKeep),
-  },
-  Object {
-    "identify": Function identify(value),
-    "nodeClass": Function YAMLSet(classYAMLSetextends_Map.default),
-    "default": false,
-    "tag": "tag:yaml.org,2002:set",
-    "resolve": Function parseSet(doc, cst),
-    "createNode": Function createSet(schema, iterable, ctx),
-    "stringify": Function stringify(value, ctx, onComment, onChompKeep),
-  },
-  Object {
-    "identify": Function identify(value),
-    "default": false,
-    "tag": "tag:yaml.org,2002:binary",
-    "resolve": Function resolve(doc, node),
-    "options": Object {
-      "defaultType": "BLOCK_LITERAL",
-      "lineWidth": 76,
-    },
-    "stringify": Function stringify(),
-  },
+  "omap",
+  "set",
+  "binary",
 ]
 `

@@ -104,35 +104,35 @@ dom:
 
 exports[`test/error.js TAP > parsed stringified 1`] = `
 { EvalError:
-   { EvalError: evil
+   EvalError: evil
        {STACK}
   RangeError:
-   { RangeError: strider
+   RangeError: strider
        {STACK}
   ReferenceError:
-   { ReferenceError: appendix
+   ReferenceError: appendix
        {STACK}
   SyntaxError:
-   { SyntaxError: semantics
+   SyntaxError: semantics
        {STACK}
   TypeError:
-   { TypeError: qwerty
+   TypeError: qwerty
        {STACK}
   URIError:
-   { URIError: ur:i
+   URIError: ur:i
        {STACK}
   Error:
-   { Error: just your standard error type
+   Error: just your standard error type
        {STACK}
   assertion:
    { AssertionError [ERR_ASSERTION]: 1 == 2
        {STACK}
-     name: 'AssertionError [ERR_ASSERTION]',
      generatedMessage: true,
      code: 'ERR_ASSERTION',
      actual: 1,
      expected: 2,
-     operator: '==' },
+     operator: '==',
+     name: 'AssertionError [ERR_ASSERTION]' },
   CustomError:
    { TingTings: no meta, please
        {STACK}
@@ -140,14 +140,14 @@ exports[`test/error.js TAP > parsed stringified 1`] = `
    { AssertionError [ERR_ASSERTION]: {
      CustomError: [TingTings: no meta, please] {
        {STACK}
-     name: 'AssertionError [ERR_ASSERTION]',
      generatedMessage: true,
      code: 'ERR_ASSERTION',
      actual: [Circular],
      expected: 99,
-     operator: '==' },
+     operator: '==',
+     name: 'AssertionError [ERR_ASSERTION]' },
   dom:
-   { Error: alton brown
+   Error: alton brown
        {STACK}
 
 `

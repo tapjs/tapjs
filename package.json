@@ -23,10 +23,10 @@
   "author": "Isaac Z. Schlueter <i@izs.me>",
   "license": "ISC",
   "dependencies": {
-    "yaml": "github:isaacs/yaml#built"
+    "yaml": "^1.5.0"
   },
   "devDependencies": {
-    "tap": "^13.0.0-rc.11"
+    "tap": "^13.0.0-rc.21"
   },
   "files": [
     "index.js",
