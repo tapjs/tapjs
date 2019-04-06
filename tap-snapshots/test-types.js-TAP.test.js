@@ -60,6 +60,15 @@ Array [
     "stringify": Function stringify(value, ctx, onComment, onChompKeep),
   },
   Object {
+    "identify": Function identify(v),
+    "tag": "!nullobject",
+    "nodeClass": Function YAMLNullObject(classYAMLNullObjectextendsYAMLMap),
+    "default": false,
+    "resolve": Function resolve(doc, cst),
+    "createNode": Function createNode(schema, obj, ctx),
+    "stringify": Function stringify(value, ctx, onComment, onChompKeep),
+  },
+  Object {
     "identify": Function identify(value),
     "nodeClass": Function YAMLOMap(classYAMLOMapextends_Seq.default),
     "default": false,
