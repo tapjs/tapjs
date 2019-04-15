@@ -451,7 +451,7 @@ const runAllFiles = (options, saved, tap) => {
   options.files = filterFiles(options.files, saved, parallelOk)
 
   if (options.files.length === 0 && !doStdin) {
-    tap.test('no tests specified', t => t.threw(new Error('no tests specified!')))
+    tap.fail('no tests specified')
   }
 
   for (let i = 0; i < options.files.length; i++) {
