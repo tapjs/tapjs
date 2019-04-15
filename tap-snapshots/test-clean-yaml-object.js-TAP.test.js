@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/clean-yaml-object.js TAP string diffs > undefined 1`] = `
+exports[`test/clean-yaml-object.js TAP string diffs > must match snapshot 1`] = `
 Object {
   "found": "hello\\nworld",
   "wanted": "a big\\nhello\\nworld\\nstring\\n",

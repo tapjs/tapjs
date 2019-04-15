@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/run/ts.js TAP ts > undefined 1`] = `
+exports[`test/run/ts.js TAP ts > must match snapshot 1`] = `
 TAP version 13
 ok 1 - cli-tests/ts/ok.ts # {time} {
     ok 1 - this is fine
@@ -18,7 +18,7 @@ ok 1 - cli-tests/ts/ok.ts # {time} {
 
 `
 
-exports[`test/run/ts.js TAP tsx > undefined 1`] = `
+exports[`test/run/ts.js TAP tsx > must match snapshot 1`] = `
 TAP version 13
 ok 1 - cli-tests/tsx/ok.tsx # {time} {
     ok 1 - this is fine

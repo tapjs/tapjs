@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/run/jsx.js TAP jsx > undefined 1`] = `
+exports[`test/run/jsx.js TAP jsx > must match snapshot 1`] = `
 TAP version 13
 ok 1 - cli-tests/jsx/ok.jsx # {time} {
     ok 1 - this is fine

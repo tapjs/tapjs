@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/run/executables.js TAP executables > undefined 1`] = `
+exports[`test/run/executables.js TAP executables > must match snapshot 1`] = `
 TAP version 13
 ok 1 - exe/ok.sh # {time} {
     1..1
