@@ -11,9 +11,17 @@ title: Change Log
 * Add source context when showing the source line in errors.
 * Prettier formats for snapshot files, and diffs for all matchers, using
   [tcompare](http://npm.im/tcompare)
+* Support for passing a module name program to the command line, so `tap -R
+  my-reporter-module` works, whether that is a CLI program, a stream module, or
+  a treport-style React component.
 * Automatically load `.jsx` and `.tsx` files, using
   [import-jsx](http://npm.im/import-jsx) and TypeScript's built-in JSX
   capabilities.
+* The `t.expectUncaughtException()` method, for testing that expected uncaught
+  exceptions are thrown.
+* Add the test object as a second argument to `t.beforeEach` and `t.afterEach`
+  handlers.
+* A `t.context` object which inherits from its parent test.
 * New YAML parser [tap-yaml](http://npm.im/tap-yaml) which uses
   [YAML](http://npm.im/yaml) and adds support for Domains, Errors, Symbols, and
   other JS-isms.
