@@ -9,10 +9,20 @@ const reporters = [...new Set([
 ])]
 const fs = require('fs')
 // nyc bundles its deps, pull reporters out of it
-const nycReporters =
-  fs.readdirSync(require.resolve('nyc/package.json')
-    .replace(/package.json$/, 'node_modules/istanbul-reports/lib'))
-    .sort()
+const nycReporters = [
+  'clover',
+  'cobertura',
+  'html',
+  'json',
+  'json-summary',
+  'lcov',
+  'lcovonly',
+  'none',
+  'teamcity',
+  'text',
+  'text-lcov',
+  'text-summary',
+]
 
 module.exports = main => jack({
   main,
