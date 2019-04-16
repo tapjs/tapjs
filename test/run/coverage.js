@@ -36,15 +36,30 @@ const t3 = tmpfile(t, '3.test.js', `'use strict'
   require(${tap}).equal(ok(0, 3), 3)`)
 
 // escape from new york
+const escapePath = `${path.dirname(process.execPath)}:${process.env.PATH}`
 const esc = tmpfile(t, 'runtest.sh',
-`"${node}" "${bin}" "\$@" --cov --nyc-arg=--include="ok.js"
+`#!/bin/bash
+export PATH=${escapePath}
+"${node}" "${bin}" "\$@" \\
+  --cov \\
+  --nyc-arg=--include="ok.js" \\
+  --nyc-arg=--temp-dir="${dir}/.nyc_output" \\
+  --nyc-arg=--cache=false
 `)
+
+// convince nyc this is our new home
+tmpfile(t, 'package.json', JSON.stringify({
+  name: 'escape-from-new-york',
+  nyc: {
+    include: 'ok.js'
+  }
+}))
 
 const escape = (args, options, cb) => {
   options = options || {}
   options.cwd = dir
   const env = Object.keys(process.env).filter(
-    k => !/TAP|NYC|SW_ORIG/.test(k)
+    k => !/^TAP|NYC|SW_ORIG|PWD/.test(k)
   ).reduce((env, k) => {
     if (!env.hasOwnProperty(k))
       env[k] = process.env[k]
@@ -58,7 +73,7 @@ const escape = (args, options, cb) => {
 }
 
 t.test('generate some coverage', t => {
-  escape([t1, t2, '--cov'], null, (er, o, e) => {
+  escape([t1, t2], null, (er, o, e) => {
     t.equal(er, null)
     t.matchSnapshot(clean(o), '100 pass')
     t.end()
@@ -83,13 +98,28 @@ t.test('report with checks', t => {
 
 t.test('pipe to service', t => {
   const piper = tmpfile(t, 'piper.js', `
-    process.stdin.pipe(process.stdout)
+    process.stdin.pipe(process.stderr)
   `)
-  escape(['--coverage-report=text-lcov'], { env: {
-    __TAP_COVERALLS_TEST__: piper
+  escape(['--coverage-report=text'], { env: {
+    __TAP_COVERALLS_TEST__: 'piper.js',
   }}, (er, o, e) => {
     t.equal(er, null)
-    t.matchSnapshot(clean(o), 'piped to coverage service cat'), { skip: winSkip }
+    t.matchSnapshot(clean(e), 'piped to coverage service cat', { skip: winSkip })
+    t.matchSnapshot(clean(o), 'human output', { skip: winSkip })
+    t.end()
+  })
+})
+
+t.test('pipe to service along with tests', t => {
+  const piper = tmpfile(t, 'piper.js', `
+    process.stdin.pipe(process.stderr)
+  `)
+  escape([t1, t2, '--coverage-report=text'], { env: {
+    __TAP_COVERALLS_TEST__: 'piper.js',
+  }}, (er, o, e) => {
+    t.equal(er, null)
+    t.matchSnapshot(clean(e), 'piped to coverage service cat', { skip: winSkip })
+    t.matchSnapshot(clean(o), 'human output', { skip: winSkip })
     t.end()
   })
 })

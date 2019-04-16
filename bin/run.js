@@ -19,6 +19,7 @@ const esm = require.resolve('esm')
 const jsx = require.resolve('./jsx.js')
 const mkdirp = require('mkdirp')
 const which = require('which')
+const {ProcessDB} = require('istanbul-lib-processinfo')
 
 const defaultFiles = options => new Promise((res, rej) => {
   const findit = require('findit')
@@ -184,7 +185,7 @@ const runNyc = (cmd, programArgs, options, spawnOpts) => {
     '--lines=' + options.lines,
     '--statements=' + options.statements,
     '--reporter=' + reporter,
-    ...options['nyc-arg'],
+    ...(options['nyc-arg'] || []),
   ]
   if (options['check-coverage'])
     args.push('--check-coverage')
@@ -206,25 +207,26 @@ const runNyc = (cmd, programArgs, options, spawnOpts) => {
 }
 
 /* istanbul ignore next */
-const runCoverageReportOnly = options => runNyc(['report'], [], options)
+const runCoverageReportOnly = options => {
+  runNyc(['report'], [], options)
+  if (process.env.COVERALLS_REPO_TOKEN ||
+      process.env.__TAP_COVERALLS_TEST__) {
+    pipeToCoveralls()
+  }
+}
 
 /* istanbul ignore next */
-const pipeToCoveralls = options => {
-
-  const reporter = runNyc(['report'], [], {
-    ...options,
-    'coverage-report': 'text-lcov'
-  }, {
-    stdio: [0, 'pipe', 2]
+const pipeToCoveralls = async options => {
+  const reporter = spawn(node, [nycBin, 'report', '--reporter=text-lcov'], {
+    stdio: [ 0, 'pipe', 2 ]
   })
-  reporter.removeAllListeners('close')
 
-  /* istanbul ignore next */
   const bin = process.env.__TAP_COVERALLS_TEST__
     || require.resolve('coveralls/bin/coveralls.js')
 
-  const ca = fg(node, [bin], { stdio: ['pipe', 1, 2] })
+  const ca = spawn(node, [bin], { stdio: ['pipe', 1, 2] })
   reporter.stdout.pipe(ca.stdin)
+  await new Promise(resolve => ca.on('close', resolve))
 }
 
 /* istanbul ignore next */
@@ -454,6 +456,9 @@ const runAllFiles = (options, saved, tap) => {
     tap.fail('no tests specified')
   }
 
+  const processDB = options.coverage && process.env.NYC_CONFIG
+    ? new ProcessDB() : null
+
   for (let i = 0; i < options.files.length; i++) {
     const file = options.files[i]
 
@@ -477,7 +482,7 @@ const runAllFiles = (options, saved, tap) => {
       options.files.splice(i, 1, ...dir)
       i--
     } else {
-      const opt = { env, file }
+      const opt = { env, file, processDB }
 
       if (options.timeout)
         opt.timeout = options.timeout * 1000
@@ -566,6 +571,12 @@ const runTests = options => {
   saveFails(options, tap)
 
   runAllFiles(options, saved, tap)
+
+  /* istanbul ignore next */
+  if (process.env.COVERALLS_REPO_TOKEN ||
+      process.env.__TAP_COVERALLS_TEST__) {
+    tap.teardown(() => pipeToCoveralls())
+  }
 
   tap.end()
 }

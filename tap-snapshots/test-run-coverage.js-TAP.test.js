@@ -98,3 +98,61 @@ BRH:3
 end_of_record
 
 `
+
+exports[`test/run/coverage.js TAP pipe to service > human output 1`] = `
+-|-|-|-|-|-|
+File | % Stmts | % Branch | % Funcs | % Lines | Uncovered Lines |
+-|-|-|-|-|-|
+All files | 75 | 75 | 100 | 75 | |
+ ok.js | 75 | 75 | 100 | 75 | 6 |
+-|-|-|-|-|-|
+
+`
+
+exports[`test/run/coverage.js TAP pipe to service along with tests > piped to coverage service cat 1`] = `
+TN:
+SF:{CWD}/cli-tests/ok.js
+FN:2,(anonymous_0)
+FNF:1
+FNH:1
+FNDA:2,(anonymous_0)
+DA:2,2
+DA:3,2
+DA:4,2
+DA:6,0
+LF:4
+LH:3
+BRDA:3,0,0,2
+BRDA:3,0,1,0
+BRDA:4,1,0,2
+BRDA:4,1,1,1
+BRF:4
+BRH:3
+end_of_record
+
+`
+
+exports[`test/run/coverage.js TAP pipe to service along with tests > human output 1`] = `
+TAP version 13
+ok 1 - 1.test.js # {time} {
+    ok 1 - should be equal
+    1..1
+    # {time}
+}
+
+ok 2 - 2.test.js # {time} {
+    ok 1 - should be equal
+    1..1
+    # {time}
+}
+
+1..2
+# {time}
+-|-|-|-|-|-|
+File | % Stmts | % Branch | % Funcs | % Lines | Uncovered Lines |
+-|-|-|-|-|-|
+All files | 75 | 75 | 100 | 75 | |
+ ok.js | 75 | 75 | 100 | 75 | 6 |
+-|-|-|-|-|-|
+
+`
