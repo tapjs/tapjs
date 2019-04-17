@@ -11,20 +11,24 @@ interface, or within a single test program.
 
 In both cases, you set a number of `jobs` that you want to allow it to
 run in parallel, and then any buffered tests are run in a pool which
-will execute that many test functions in parallel.  (The default
-`jobs` value is 1, which means that nothing is parallel by default.)
+will execute that many test functions in parallel.
+
+The default `jobs` value
+for the command line runner is equal to the number of CPUs on your system, so
+it's as parallel as makes sense.  Within a single test file, the default `jobs`
+value is `1`, because you rarely want to run the functions within a given suite
+in parallel.
 
 ## Parallel tests from the CLI
 
 This is the simplest way to run parallel tests.  Just add `--jobs=<n>`
 to your test command (or `-j<n>` if you prefer shorthands).
 
-You'll note that if you do this, it seems like the output from each
-test file happens "all at once", when the test completes.  That's
-because parallel tests are always buffered, so the command-line
-harness doesn't parse their output until they're fully complete.
-(Since many of them may be running at once, it would be very confusing
-otherwise.)
+In some reporters, it may seem like the output from each test file happens "all
+at once", when the test completes.  That's because parallel tests are always
+buffered, so the command-line harness doesn't parse their output until they're
+fully complete.  (Since many of them may be running at once, it would be very
+confusing otherwise.)
 
 ### Enabling/Disabling Parallelism in the test runner
 
@@ -171,6 +175,3 @@ Parallel testing also means that your tests have to be written in an
 independent way.  They can't depend on being run in a given order,
 which means it's a bad idea to have them share pretty much _any_ state
 at all.
-
-Experiment with where in your test suite it makes sense to throw a
-little bit of parallelism.
