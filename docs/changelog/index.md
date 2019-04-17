@@ -52,7 +52,7 @@ title: Change Log
 * Reorganized CLI usage output and argument parsing, using
   [jackspeak](http://npm.im/jackspeak)
 * Sort and present filenames more cleanly in runner.
-* Spawn: Emiit `preprocess` event so extensions and reporters can tinker with
+* Spawn: Emit `preprocess` event so extensions and reporters can tinker with
   process options.
 * Implicitly end tests when they bail out.  (This was being done previously,
   but only by virtue of the fact that the root TAP object ended its children
