@@ -26,17 +26,19 @@ const nycReporters = [
 
 module.exports = main => jack({
   main,
-  usage: 'tap [options] <files>',
+  usage: 'tap [options] [<files>]',
   help:`
 Executes all the files and interprets their output as TAP
-formatted test result data.
+formatted test result data.  If no files are specified, then
+tap will search for testy-looking files, and run those.
+(See '--test-regex' below.)
 
 To parse TAP data from stdin, specify "-" as a filename.
 
 Short options are parsed gnu-style, so for example '-bCRspec' would be
 equivalent to '--bail --no-color --reporter=spec'
 
-If the --check-coverage or --coverage-report options are provided, but
+If the --check-coverage or --coverage-report options are provided, and
 no test files are specified, then a coverage report or coverage check
 will be run on the data from the last test run.
 
@@ -697,7 +699,7 @@ Much more documentation available at: https://www.node-tap.org/
   description: 'Config Files',
   help: `You can create a yaml file with any of the options above.  By
          default, the file at ./.taprc will be loaded, but the
-         TAP_RCFILE environment variable can modify this.
+         --rcfile option or TAP_RCFILE environment variable can modify this.
 
          Run 'tap --dump-config' for a listing of what can be set in that
          file.  Each of the keys corresponds to one of the options above.`,
