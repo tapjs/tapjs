@@ -18,6 +18,8 @@ links:
       url: "/parallel/"
     - name: "Snapshot Testing"
       url: "/snapshots/"
+    - name: "Test Lifecycle Events"
+      url: "/test-lifecycle"
     - name: "Filtering Tests: grep"
       url: "/grep/"
     - name: "Filtering Tests: only"
