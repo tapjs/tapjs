@@ -22,7 +22,7 @@ grep:
   - /y/i
 help: false
 invert: false
-jobs: 4
+jobs: {number}
 lines: 100
 node-arg:
   - --expose-gc
@@ -73,7 +73,7 @@ functions: 100
 grep: []
 help: false
 invert: false
-jobs: 4
+jobs: {number}
 lines: 69
 node-arg: []
 nyc-arg: []
@@ -115,7 +115,7 @@ functions: 100
 grep: []
 help: false
 invert: false
-jobs: 4
+jobs: {number}
 lines: 100
 node-arg: []
 nyc-arg: []
@@ -157,7 +157,7 @@ functions: 100
 grep: []
 help: false
 invert: false
-jobs: 4
+jobs: {number}
 lines: 100
 node-arg: []
 nyc-arg: []
@@ -199,7 +199,7 @@ functions: 100
 grep: []
 help: false
 invert: false
-jobs: 4
+jobs: {number}
 lines: 100
 node-arg: []
 nyc-arg: []
@@ -241,7 +241,7 @@ functions: 100
 grep: []
 help: false
 invert: false
-jobs: 2
+jobs: {number}
 lines: 100
 node-arg: []
 nyc-arg: []
@@ -283,7 +283,7 @@ functions: 100
 grep: []
 help: false
 invert: false
-jobs: 4
+jobs: {number}
 lines: 100
 node-arg: []
 nyc-arg: []
@@ -325,7 +325,7 @@ functions: 100
 grep: []
 help: false
 invert: false
-jobs: 4
+jobs: {number}
 lines: 100
 node-arg: []
 nyc-arg: []
