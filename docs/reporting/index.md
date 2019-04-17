@@ -11,78 +11,94 @@ When you run a test script directly, it'll always output
 [TAP](/tap-format/).  The tap runner will interpret this
 output, and can format it in a variety of different ways.
 
-These are done programmatically using the
-[tap-mocha-reporter](http://npm.im/tap-mocha-reporter) module, which
+Node-tap includes 2 reporting engines, and you can extend either one, or
+consume the TAP formatted output in custom modules of your own.
+
+The newer React-based reporter is called [treport](http://npm.im/treport).  It
+uses [ink](http://npm.im/ink) to provide live feedback about tests in progress.
+
+The older streams-based bundled reporting engine is
+[tap-mocha-reporter](http://npm.im/tap-mocha-reporter), so named because it
 ports many of the report styles built into
 [mocha](http://mochajs.org/#reporters).
 
-You can specify a reporter using the `--reporter` or `-R` argument.
-The following options are available:
+The `--reporter` or `-R` argument on the command line can specify:
 
-- classic
+- Any built-in reporter from either of these two libraries.
+- The name of a command-line program which parses a TAP stream.  The
+  `--reporter-arg=<arg>` or `-r<arg>` option can be specified one or more times
+  to provide a list of arguments to pass to CLI reporters.
+- The name of a Node module that exports either a Stream or a treport-style
+  React.Component class.
 
-    The default when stdout is a terminal.  Show a summary of
-    each test file being run, along with reporting each failure and
-    pending test.
+The built-in reports are:
 
-- tap
+### base
 
-    Just the raw TAP.  Default when stdout is not a terminal.
+The default when stdout is a terminal and colors are enabled.  Also the class
+to extend to create new treport reporters.  Does all the things, handles all
+the edge cases, and ends with a pleasant surprise.
 
-- doc
+### terse
 
-    Output hierarchical HTML.
+A lot like Base, but says a lot less.  No timer, no list of tests concurrently
+running, nothing printed on test passing.  Just the failures and the terse
+summary.
 
-- dot
+### specy
 
-    Output a dot for each pass and failure.
+A `spec` style reporter with the current running jobs and Terse summary and
+footer.
 
-- dump
+### tap
 
-    Mostly for debugging tap-mocha-reporter, dumping out the TAP
-    output and the way that its being interpreted.
+Setting `--reporter=tap` will dump the output as a raw TAP stream.
 
-- json
+This is the default when stdout is _not_ a terminal, or colors are disabled.
 
-    Output results in one big JSON object.
+### classic
 
-- jsonstream
+The old default.  Show a summary of each test file being run, along with
+reporting each failure and pending test.
 
-    Output results as a stream of `\n`-delimited JSON.
+### silent
 
-- landing
+Output absolutely nothing
 
-    A unicode airplane that lands on your terminal.
+### spec
 
-- list
+Output based on rspec, with hierarchical indentation and unicode red and green
+checks and X's.
 
-    List out each test as it's run.
+### xunit
 
-- markdown
+XML output popular in .NET land.
 
-    Hierarchical markdown output with a table of contents.
+### json
 
-- min
+Output results in one big JSON object.
 
-    Just the post-test summary of failures and test count.
+### jsonstream
 
-- nyan
+Output results as a stream of `\n`-delimited JSON.
 
-    A magical cat who is also a toaster pastry.
+### dot
 
-- progress
+Output a dot for each pass and failure.
 
-    A progress bar.
+### list
 
-- silent
+List out each test as it's run.
 
-    Output absolutely nothing
+### min
 
-- spec
+Just the post-test summary of failures and test count.
 
-    Output based on rspec, with hierarchical indentation and
-    unicode red and green checks and X's.
+### nyan
 
-- xunit
+A magical cat who is also a toaster pastry.
 
-    XML output popular in .NET land.
+### dump
+
+Mostly for debugging tap-mocha-reporter, dumping out the TAP
+output and the way that its being interpreted.
