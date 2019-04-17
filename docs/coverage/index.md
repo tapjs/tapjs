@@ -6,18 +6,14 @@ title: Coverage
 # Coverage
 
 This module uses [nyc](http://npm.im/nyc) to track code coverage, even
-across subprocess boundaries.  It is included by default, and there's
-nothing you need to do but enable it.  Adding coverage *will* make
-your tests run slightly slower, but that's to be expected.
+across subprocess boundaries.  It is enabled by default, and there's
+nothing extra you need to do to use it.
 
 Nyc in turn uses [istanbul](http://npm.im/istanbul) to do the actual
 coverage code transformation and reporting.
 
-To generate coverage information, run your tests with the `--cov`
-argument.
-
-If you use this a lot, you may want to add `coverage` and
-`.nyc_output` to your `.gitignore` and/or `.npmignore` files.
+To disable coverage, run your tests with the `--no-coverage` argument.
+To re-enable, add the `--coverage` argument.
 
 ## Maximal Coverage 💯
 
@@ -28,7 +24,7 @@ that's your thing:
 ```json
 {
   "scripts": {
-    "test": "tap test/*.js --100"
+    "test": "tap --100"
   }
 }
 ```
@@ -72,8 +68,8 @@ following:
 
         {
           "scripts": {
-            "test": "tap test/*.js --coverage",
-            "posttest": "tap --coverage-report=text-lcov && codecov"
+            "test": "tap",
+            "posttest": "tap --coverage-report=text-lcov | codecov"
           }
         }
 
