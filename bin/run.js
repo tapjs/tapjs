@@ -57,7 +57,7 @@ const defaultFiles = options => new Promise((res, rej) => {
         const files = []
         finder.on('file', addFile(files))
         finder.on('end', () => res(files))
-        finder.on('error', er => rej(er))
+        finder.on('error', /* istanbul ignore next */ er => rej(er))
       })
     }))).then(a => res(a.reduce((a, i) => a.concat(i), []))).catch(rej)
   })
@@ -139,7 +139,7 @@ const main = async options => {
   try {
     if (options._.length === 0 && isTTY)
       options._.push.apply(options._, await defaultFiles(options))
-  } catch (er) {
+  } /* istanbul ignore next */ catch (er) /* istanbul ignore next */ {
     // This gets tested on Mac, but not Linux/travis, and is
     // somewhat challenging to do in a cross-platform way.
     /* istanbul ignore next */
