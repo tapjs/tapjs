@@ -258,6 +258,24 @@ Much more documentation available at: https://www.node-tap.org/
                   coverage entirely with --no-coverage.`,
   }),
 
+  'coverage-map': opt({
+    short: 'M',
+    hint: 'module',
+    description: `Provide a path to a node module that exports a single
+                  function.  That function takes a test file as an argument,
+                  and returns an array of files to instrument with coverage
+                  when that file is run.
+
+                  This is useful in cases where a unit test should cover
+                  a single portion of the system under test.
+
+                  Return 'null' to not cover any files by this test.
+
+                  Return an empty array [] to cover the set that nyc would
+                  pull in by default.  Ie, returning [] is equivalent to not
+                  using a coverage map at all.`,
+  }),
+
   coverage: flag({
     default: true,
     short: 'cov',

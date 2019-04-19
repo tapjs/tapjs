@@ -231,7 +231,11 @@ const pipeToCoveralls = async options => {
 
 /* istanbul ignore next */
 const respawnWithCoverage = options => {
-  runNyc([], [
+  // If we have a coverage map, then include nothing by default here.
+  runNyc(options['coverage-map'] ? [
+    '--include=',
+    '--no-exclude-after-remap',
+  ] : [], [
     '--',
     node,
     ...process.execArgv,
@@ -431,6 +435,17 @@ const getEnv = options => options['test-env'].reduce((env, kv) => {
   return env
 }, {...process.env})
 
+// the test that checks this escapes from NYC, so it'll never show up
+/* istanbul ignore next */
+const coverageMapOverride = (env, file, coverageMap) => {
+  if (coverageMap) {
+    /* istanbul ignore next */
+    env.NYC_CONFIG_OVERRIDE = JSON.stringify({
+      include: coverageMap(file) || ''
+    })
+  }
+}
+
 const runAllFiles = (options, saved, tap) => {
   let doStdin = false
   let parallelOk = Object.create(null)
@@ -456,8 +471,14 @@ const runAllFiles = (options, saved, tap) => {
     tap.fail('no tests specified')
   }
 
+  /* istanbul ignore next */
   const processDB = options.coverage && process.env.NYC_CONFIG
     ? new ProcessDB() : null
+
+  /* istanbul ignore next */
+  const coverageMap = options['coverage-map']
+    ? require(path.resolve(options['coverage-map']))
+    : null
 
   for (let i = 0; i < options.files.length; i++) {
     const file = options.files[i]
@@ -483,6 +504,8 @@ const runAllFiles = (options, saved, tap) => {
       i--
     } else {
       const opt = { env, file, processDB }
+
+      coverageMapOverride(env, file, coverageMap)
 
       if (options.timeout)
         opt.timeout = options.timeout * 1000

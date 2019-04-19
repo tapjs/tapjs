@@ -13,6 +13,7 @@ check-coverage: true
 color: true
 comments: false
 coverage: false
+coverage-map: null
 coverage-report: null
 debug: false
 esm: false
@@ -55,6 +56,7 @@ check-coverage: true
 color: false
 comments: false
 coverage: false
+coverage-map: null
 coverage-report: null
 debug: false
 esm: false
@@ -97,6 +99,7 @@ check-coverage: false
 color: false
 comments: false
 coverage: false
+coverage-map: null
 coverage-report: null
 debug: false
 esm: false
@@ -139,6 +142,7 @@ check-coverage: false
 color: false
 comments: false
 coverage: false
+coverage-map: null
 coverage-report: null
 debug: false
 esm: false
@@ -181,6 +185,7 @@ check-coverage: false
 color: false
 comments: false
 coverage: false
+coverage-map: null
 coverage-report: null
 debug: false
 esm: false
@@ -223,6 +228,7 @@ check-coverage: true
 color: false
 comments: false
 coverage: false
+coverage-map: null
 coverage-report: null
 debug: false
 esm: false
@@ -265,6 +271,7 @@ check-coverage: true
 color: false
 comments: true
 coverage: true
+coverage-map: null
 coverage-report: html
 debug: true
 esm: false
@@ -318,6 +325,7 @@ check-coverage: true
 color: true
 comments: false
 coverage: false
+coverage-map: null
 coverage-report: null
 debug: false
 esm: false

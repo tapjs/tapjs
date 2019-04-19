@@ -42,7 +42,6 @@ const esc = tmpfile(t, 'runtest.sh',
 export PATH=${escapePath}
 "${node}" "${bin}" "\$@" \\
   --cov \\
-  --nyc-arg=--include="ok.js" \\
   --nyc-arg=--temp-dir="${dir}/.nyc_output" \\
   --nyc-arg=--cache=false
 `)
@@ -75,7 +74,18 @@ const escape = (args, options, cb) => {
 t.test('generate some coverage', t => {
   escape([t1, t2], null, (er, o, e) => {
     t.equal(er, null)
-    t.matchSnapshot(clean(o), '100 pass')
+    t.matchSnapshot(clean(o), 'output')
+    t.end()
+  })
+})
+
+t.test('use a coverage map', t => {
+  const map = tmpfile(t, 'coverage-map.js', `
+module.exports = () => 'ok.js'
+`)
+  escape([t1, t2, '-M', map], null, (er, o, e) => {
+    t.equal(er, null)
+    t.matchSnapshot(clean(o), 'output')
     t.end()
   })
 })
@@ -120,6 +130,17 @@ t.test('pipe to service along with tests', t => {
     t.equal(er, null)
     t.matchSnapshot(clean(e), 'piped to coverage service cat', { skip: winSkip })
     t.matchSnapshot(clean(o), 'human output', { skip: winSkip })
+    t.end()
+  })
+})
+
+t.test('borked coverage map means no includes', t => {
+  const map = tmpfile(t, 'coverage-map.js', `
+module.exports = () => {}
+`)
+  escape([t1, t2, '-M', map], null, (er, o, e) => {
+    t.equal(er, null)
+    t.matchSnapshot(clean(o), 'output')
     t.end()
   })
 })

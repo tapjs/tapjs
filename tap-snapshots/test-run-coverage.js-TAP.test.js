@@ -5,7 +5,31 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/run/coverage.js TAP generate some coverage > 100 pass 1`] = `
+exports[`test/run/coverage.js TAP borked coverage map means no includes > output 1`] = `
+TAP version 13
+ok 1 - 1.test.js # {time} {
+    ok 1 - should be equal
+    1..1
+    # {time}
+}
+
+ok 2 - 2.test.js # {time} {
+    ok 1 - should be equal
+    1..1
+    # {time}
+}
+
+1..2
+# {time}
+-|-|-|-|-|-|
+File | % Stmts | % Branch | % Funcs | % Lines | Uncovered Lines |
+-|-|-|-|-|-|
+All files | 0 | 0 | 0 | 0 | |
+-|-|-|-|-|-|
+
+`
+
+exports[`test/run/coverage.js TAP generate some coverage > output 1`] = `
 TAP version 13
 ok 1 - 1.test.js # {time} {
     ok 1 - should be equal
@@ -154,5 +178,30 @@ BRDA:4,1,1,1
 BRF:4
 BRH:3
 end_of_record
+
+`
+
+exports[`test/run/coverage.js TAP use a coverage map > output 1`] = `
+TAP version 13
+ok 1 - 1.test.js # {time} {
+    ok 1 - should be equal
+    1..1
+    # {time}
+}
+
+ok 2 - 2.test.js # {time} {
+    ok 1 - should be equal
+    1..1
+    # {time}
+}
+
+1..2
+# {time}
+-|-|-|-|-|-|
+File | % Stmts | % Branch | % Funcs | % Lines | Uncovered Lines |
+-|-|-|-|-|-|
+All files | 75 | 75 | 100 | 75 | |
+ ok.js | 75 | 75 | 100 | 75 | 6 |
+-|-|-|-|-|-|
 
 `

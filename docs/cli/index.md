@@ -154,6 +154,21 @@ Code Coverage Options:
                          coverage checking with --no-check-coverage, or disable
                          coverage entirely with --no-coverage.
 
+  -M<module> --coverage-map=<module>
+                         Provide a path to a node module that exports a single
+                         function. That function takes a test file as an
+                         argument, and returns an array of files to instrument
+                         with coverage when that file is run.
+
+                         This is useful in cases where a unit test should cover
+                         a single portion of the system under test.
+
+                         Return 'null' to not cover any files by this test.
+
+                         Return an empty array [] to cover the set that nyc
+                         would pull in by default. Ie, returning [] is
+                         equivalent to not using a coverage map at all.
+
   -cov --coverage        Capture coverage information using 'nyc' This is
                          enabled by default.
 
