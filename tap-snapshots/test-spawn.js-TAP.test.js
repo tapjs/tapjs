@@ -5,40 +5,6 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/spawn.js TAP timeout KILL > undefined 1`] = `
-SIGTERM
-
-not ok 1 - timeout!
-  ---
-  expired: killa
-  ...
-1..1
-# failed 1 test
-
-`
-
-exports[`test/spawn.js TAP skip stuff > undefined 1`] = `
-TAP version 13
-ok 1 - skipper # SKIP {
-    1..0
-    # {time}
-}
-
-# Subtest: node ./test/spawn.js skip-reason
-    1..0 # for no raisins
-    # {time}
-ok 2 - node ./test/spawn.js skip-reason # SKIP for no raisins
-
-
-`
-
-exports[`test/spawn.js TAP using proc event > undefined 1`] = `
-TAP version 13
-ok
-1..1
-
-`
-
 exports[`test/spawn.js TAP failure to spawn > undefined 1`] = `
 
 not ok 1 - spawn something that does not exist ENOENT
@@ -63,5 +29,39 @@ not ok 1 - spawn something that does not exist ENOENT
   ...
 1..1
 # failed 1 test
+
+`
+
+exports[`test/spawn.js TAP skip stuff > undefined 1`] = `
+TAP version 13
+ok 1 - skipper # SKIP {
+    1..0
+    # {time}
+}
+
+# Subtest: node ./test/spawn.js skip-reason
+    1..0 # for no raisins
+    # {time}
+ok 2 - node ./test/spawn.js skip-reason # SKIP for no raisins
+
+
+`
+
+exports[`test/spawn.js TAP timeout KILL > undefined 1`] = `
+SIGTERM
+
+not ok 1 - timeout!
+  ---
+  expired: killa
+  ...
+1..1
+# failed 1 test
+
+`
+
+exports[`test/spawn.js TAP using proc event > undefined 1`] = `
+TAP version 13
+ok
+1..1
 
 `
