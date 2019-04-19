@@ -12,6 +12,10 @@ Object {
 }
 `
 
+exports[`test/tap/not-ok.js TAP > stderr 1`] = `
+
+`
+
 exports[`test/tap/not-ok.js TAP > stdout 1`] = `
 TAP version 13
 not ok 1 - expected
@@ -30,9 +34,5 @@ not ok 1 - expected
 1..1
 # failed 1 test
 # {time}
-
-`
-
-exports[`test/tap/not-ok.js TAP > stderr 1`] = `
 
 `

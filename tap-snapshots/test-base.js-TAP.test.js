@@ -49,10 +49,6 @@ Object {
 }
 `
 
-exports[`test/base.js TAP parser event stuff yes bail > expected bailout 1`] = `
-actually not fine
-`
-
 exports[`test/base.js TAP parser event stuff yes bail > counts 1`] = `
 Object {
   "total": 2,
@@ -61,6 +57,10 @@ Object {
   "skip": 0,
   "todo": 0,
 }
+`
+
+exports[`test/base.js TAP parser event stuff yes bail > expected bailout 1`] = `
+actually not fine
 `
 
 exports[`test/base.js TAP parser event stuff yes bail > lists 1`] = `

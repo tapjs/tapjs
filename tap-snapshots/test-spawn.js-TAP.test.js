@@ -5,37 +5,15 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/spawn.js TAP timeout KILL > must match snapshot 1`] = `
-SIGTERM
-
-not ok 1 - timeout!
-  ---
-  expired: killa
-  ...
-1..1
-# failed 1 test
+exports[`test/spawn.js TAP childId via TAP_CHILD_ID env > must match snapshot 1`] = `
+childId=69420
+1..0 # no tests found
 
 `
 
-exports[`test/spawn.js TAP skip stuff > must match snapshot 1`] = `
-TAP version 13
-ok 1 - skipper # SKIP {
-    1..0
-    # {time}
-}
-
-# Subtest: node ./test/spawn.js skip-reason
-    1..0 # for no raisins
-    # {time}
-ok 2 - node ./test/spawn.js skip-reason # SKIP for no raisins
-
-
-`
-
-exports[`test/spawn.js TAP using proc event > must match snapshot 1`] = `
-TAP version 13
-ok
-1..1
+exports[`test/spawn.js TAP childId via childId option > must match snapshot 1`] = `
+childId=69420
+1..0 # no tests found
 
 `
 
@@ -67,14 +45,36 @@ not ok 1 - spawn something that does not exist ENOENT
 
 `
 
-exports[`test/spawn.js TAP childId via childId option > must match snapshot 1`] = `
-childId=69420
-1..0 # no tests found
+exports[`test/spawn.js TAP skip stuff > must match snapshot 1`] = `
+TAP version 13
+ok 1 - skipper # SKIP {
+    1..0
+    # {time}
+}
+
+# Subtest: node ./test/spawn.js skip-reason
+    1..0 # for no raisins
+    # {time}
+ok 2 - node ./test/spawn.js skip-reason # SKIP for no raisins
+
 
 `
 
-exports[`test/spawn.js TAP childId via TAP_CHILD_ID env > must match snapshot 1`] = `
-childId=69420
-1..0 # no tests found
+exports[`test/spawn.js TAP timeout KILL > must match snapshot 1`] = `
+SIGTERM
+
+not ok 1 - timeout!
+  ---
+  expired: killa
+  ...
+1..1
+# failed 1 test
+
+`
+
+exports[`test/spawn.js TAP using proc event > must match snapshot 1`] = `
+TAP version 13
+ok
+1..1
 
 `

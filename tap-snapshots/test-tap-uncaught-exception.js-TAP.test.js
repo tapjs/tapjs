@@ -12,6 +12,10 @@ Object {
 }
 `
 
+exports[`test/tap/uncaught-exception.js TAP > stderr 1`] = `
+
+`
+
 exports[`test/tap/uncaught-exception.js TAP > stdout 1`] = `
 TAP version 13
 ok 1 - this is fine
@@ -35,9 +39,5 @@ not ok 3 - poop
 1..3
 # failed 1 of 3 tests
 # {time}
-
-`
-
-exports[`test/tap/uncaught-exception.js TAP > stderr 1`] = `
 
 `

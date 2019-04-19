@@ -12,12 +12,12 @@ Object {
 }
 `
 
-exports[`test/tap/bail.js TAP > stdout 1`] = `
-TAP version 13
-Bail out! cannot proceed
+exports[`test/tap/bail.js TAP > stderr 1`] = `
 
 `
 
-exports[`test/tap/bail.js TAP > stderr 1`] = `
+exports[`test/tap/bail.js TAP > stdout 1`] = `
+TAP version 13
+Bail out! cannot proceed
 
 `

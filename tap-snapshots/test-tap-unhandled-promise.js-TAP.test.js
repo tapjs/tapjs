@@ -12,6 +12,10 @@ Object {
 }
 `
 
+exports[`test/tap/unhandled-promise.js TAP > stderr 1`] = `
+
+`
+
 exports[`test/tap/unhandled-promise.js TAP > stdout 1`] = `
 TAP version 13
 ok 1 - fine, i promise
@@ -34,9 +38,5 @@ not ok 2 - broken
 1..2
 # failed 1 of 2 tests
 # {time}
-
-`
-
-exports[`test/tap/unhandled-promise.js TAP > stderr 1`] = `
 
 `

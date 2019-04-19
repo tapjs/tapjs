@@ -5,6 +5,63 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
+exports[`test/run/save-file.js TAP empty save file, run all tests > stdout 1`] = `
+TAP version 13
+ok 1 - a/b/2.js # {time} {
+    ok 1 - 2
+    1..1
+    # {time}
+}
+
+ok 2 - a/b/f1.js # {time} {
+    ok 1 - fine now
+    1..1
+    # {time}
+}
+
+ok 3 - x/y/1.js # {time} {
+    ok 1 - one
+    1..1
+    # {time}
+}
+
+ok 4 - z.js # {time} {
+    ok 1 - fine now too
+    1..1
+    # {time}
+}
+
+1..4
+# {time}
+
+`
+
+exports[`test/run/save-file.js TAP pass, empty save file > stdout 1`] = `
+TAP version 13
+ok 1 - a/b/f1.js # {time} {
+    ok 1 - fine now
+    1..1
+    # {time}
+}
+
+ok 2 - z.js # {time} {
+    ok 1 - fine now too
+    1..1
+    # {time}
+}
+
+1..2
+# {time}
+
+`
+
+exports[`test/run/save-file.js TAP with bailout, should save all untested > savefile 1`] = `
+a/b/f1.js
+x/y/1.js
+z.js
+
+`
+
 exports[`test/run/save-file.js TAP with bailout, should save all untested > stdout 1`] = `
 TAP version 13
 ok 1 - a/b/2.js # {time} {
@@ -47,9 +104,8 @@ Bail out! a/b
 
 `
 
-exports[`test/run/save-file.js TAP with bailout, should save all untested > savefile 1`] = `
+exports[`test/run/save-file.js TAP without bailout, run untested, save failures > savefile 1`] = `
 a/b/f1.js
-x/y/1.js
 z.js
 
 `
@@ -130,62 +186,6 @@ not ok 3 - z.js # {time}
 
 1..3
 # failed 2 of 3 tests
-# {time}
-
-`
-
-exports[`test/run/save-file.js TAP without bailout, run untested, save failures > savefile 1`] = `
-a/b/f1.js
-z.js
-
-`
-
-exports[`test/run/save-file.js TAP pass, empty save file > stdout 1`] = `
-TAP version 13
-ok 1 - a/b/f1.js # {time} {
-    ok 1 - fine now
-    1..1
-    # {time}
-}
-
-ok 2 - z.js # {time} {
-    ok 1 - fine now too
-    1..1
-    # {time}
-}
-
-1..2
-# {time}
-
-`
-
-exports[`test/run/save-file.js TAP empty save file, run all tests > stdout 1`] = `
-TAP version 13
-ok 1 - a/b/2.js # {time} {
-    ok 1 - 2
-    1..1
-    # {time}
-}
-
-ok 2 - a/b/f1.js # {time} {
-    ok 1 - fine now
-    1..1
-    # {time}
-}
-
-ok 3 - x/y/1.js # {time} {
-    ok 1 - one
-    1..1
-    # {time}
-}
-
-ok 4 - z.js # {time} {
-    ok 1 - fine now too
-    1..1
-    # {time}
-}
-
-1..4
 # {time}
 
 `

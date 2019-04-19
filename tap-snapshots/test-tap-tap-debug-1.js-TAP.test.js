@@ -12,14 +12,6 @@ Object {
 }
 `
 
-exports[`test/tap/tap-debug-1.js TAP > stdout 1`] = `
-TAP version 13
-# this is fine
-1..0
-# {time}
-
-`
-
 exports[`test/tap/tap-debug-1.js TAP > stderr 1`] = `
 TAP {pid} TAP: PROCESSING(TAP) 2
 TAP {pid} TAP: > STRING
@@ -39,5 +31,13 @@ TAP {pid} TAP: LINE "1..0\\n"
 TAP {pid} TAP: > EOF TAP
 TAP {pid} TAP: ONCOMPLETE "TAP" {"ok":true,"count":0,"pass":0,"fail":0,"bailout":false,"todo":0,"skip":0,"plan":{"start":1,"end":0,"skipAll":true,"skipReason":"","comment":""},"failures":[]}
 TAP {pid} TAP: done processing [] false
+
+`
+
+exports[`test/tap/tap-debug-1.js TAP > stdout 1`] = `
+TAP version 13
+# this is fine
+1..0
+# {time}
 
 `

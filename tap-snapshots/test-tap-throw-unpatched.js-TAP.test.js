@@ -12,10 +12,6 @@ Object {
 }
 `
 
-exports[`test/tap/throw-unpatched.js TAP > stdout 1`] = `
-
-`
-
 exports[`test/tap/throw-unpatched.js TAP > stderr 1`] = `
 
 {CWD}/test/tap/throw-unpatched.js:2
@@ -23,5 +19,9 @@ exports[`test/tap/throw-unpatched.js TAP > stderr 1`] = `
         ^
 Error: not yet patched
     {STACK}
+
+`
+
+exports[`test/tap/throw-unpatched.js TAP > stdout 1`] = `
 
 `

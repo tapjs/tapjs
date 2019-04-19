@@ -12,13 +12,13 @@ Object {
 }
 `
 
+exports[`test/tap/plan-0.js TAP > stderr 1`] = `
+
+`
+
 exports[`test/tap/plan-0.js TAP > stdout 1`] = `
 TAP version 13
 1..0 # skip it all
 # {time}
-
-`
-
-exports[`test/tap/plan-0.js TAP > stderr 1`] = `
 
 `

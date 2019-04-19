@@ -12,18 +12,18 @@ Object {
 }
 `
 
-exports[`test/tap/too-much.js TAP > stdout 1`] = `
-TAP version 13
-1..1
-ok 1 - a little
-# {time}
-
-`
-
 exports[`test/tap/too-much.js TAP > stderr 1`] = `
 
 Error: test count exceeds plan
     {STACK}
 { name: 'TAP', test: 'TAP', plan: 1 }
+
+`
+
+exports[`test/tap/too-much.js TAP > stdout 1`] = `
+TAP version 13
+1..1
+ok 1 - a little
+# {time}
 
 `

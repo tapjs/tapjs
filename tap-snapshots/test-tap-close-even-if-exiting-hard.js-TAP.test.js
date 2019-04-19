@@ -12,14 +12,14 @@ Object {
 }
 `
 
+exports[`test/tap/close-even-if-exiting-hard.js TAP > stderr 1`] = `
+
+`
+
 exports[`test/tap/close-even-if-exiting-hard.js TAP > stdout 1`] = `
 TAP version 13
 ok 1 - make sure, really
 1..1
 # {time}
-
-`
-
-exports[`test/tap/close-even-if-exiting-hard.js TAP > stderr 1`] = `
 
 `

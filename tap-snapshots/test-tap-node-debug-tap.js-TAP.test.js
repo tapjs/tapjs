@@ -12,13 +12,6 @@ Object {
 }
 `
 
-exports[`test/tap/node-debug-tap.js TAP > stdout 1`] = `
-TAP version 13
-1..0
-# {time}
-
-`
-
 exports[`test/tap/node-debug-tap.js TAP > stderr 1`] = `
 TAP {pid} TAP: END implicit=true
 TAP {pid} TAP: PROCESSING(TAP) 3
@@ -33,5 +26,12 @@ TAP {pid} TAP: < already processing
 TAP {pid} TAP: > EOF TAP
 TAP {pid} TAP: ONCOMPLETE "TAP" {"ok":true,"count":0,"pass":0,"fail":0,"bailout":false,"todo":0,"skip":0,"plan":{"start":1,"end":0,"skipAll":true,"skipReason":"","comment":""},"failures":[]}
 TAP {pid} TAP: done processing [] false
+
+`
+
+exports[`test/tap/node-debug-tap.js TAP > stdout 1`] = `
+TAP version 13
+1..0
+# {time}
 
 `

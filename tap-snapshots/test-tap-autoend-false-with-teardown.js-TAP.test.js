@@ -12,15 +12,15 @@ Object {
 }
 `
 
+exports[`test/tap/autoend-false-with-teardown.js TAP > stderr 1`] = `
+
+`
+
 exports[`test/tap/autoend-false-with-teardown.js TAP > stdout 1`] = `
 TAP version 13
 ok 1 - this is fine
 1..1
 # {time}
 tear it down
-
-`
-
-exports[`test/tap/autoend-false-with-teardown.js TAP > stderr 1`] = `
 
 `

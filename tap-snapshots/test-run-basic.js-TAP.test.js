@@ -5,6 +5,11 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
+exports[`test/run/basic.js TAP --parser-version > output 1`] = `
+9.3.2
+
+`
+
 exports[`test/run/basic.js TAP --versions > output 1`] = `
 tap: {version}
 tap-parser: {version}
@@ -13,11 +18,6 @@ tap-yaml: {version}
 treport: {version}
 tcompare: {version}
 
-
-`
-
-exports[`test/run/basic.js TAP --parser-version > output 1`] = `
-9.3.2
 
 `
 
@@ -51,6 +51,10 @@ exports[`test/run/basic.js TAP ignored files > stdout 2`] = `
 
 `
 
+exports[`test/run/basic.js TAP nonexistent file > stderr 1`] = `
+
+`
+
 exports[`test/run/basic.js TAP nonexistent file > stdout 1`] = `
 TAP version 13
 not ok 1 - does not exist # {time} {
@@ -76,9 +80,5 @@ not ok 1 - does not exist # {time} {
 1..1
 # failed 1 test
 # {time}
-
-`
-
-exports[`test/run/basic.js TAP nonexistent file > stderr 1`] = `
 
 `

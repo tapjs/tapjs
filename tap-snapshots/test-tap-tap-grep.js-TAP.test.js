@@ -12,6 +12,10 @@ Object {
 }
 `
 
+exports[`test/tap/tap-grep.js TAP > stderr 1`] = `
+
+`
+
 exports[`test/tap/tap-grep.js TAP > stdout 1`] = `
 TAP version 13
 # Subtest: axo
@@ -36,9 +40,5 @@ ok 2 - nope # SKIP filter: /x/
 1..2
 # skip: 1
 # {time}
-
-`
-
-exports[`test/tap/tap-grep.js TAP > stderr 1`] = `
 
 `

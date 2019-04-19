@@ -12,18 +12,18 @@ Object {
 }
 `
 
-exports[`test/tap/teardown-throw.js TAP > stdout 1`] = `
-TAP version 13
-ok 1 - x
-1..1
-# {time}
-
-`
-
 exports[`test/tap/teardown-throw.js TAP > stderr 1`] = `
 
 Error: poop
     {STACK}
 { name: 'TAP', autoend: true, tapCaught: 'teardown', test: 'TAP' }
+
+`
+
+exports[`test/tap/teardown-throw.js TAP > stdout 1`] = `
+TAP version 13
+ok 1 - x
+1..1
+# {time}
 
 `

@@ -12,14 +12,14 @@ Object {
 }
 `
 
+exports[`test/tap/teardown-event-loop.js TAP > stderr 1`] = `
+
+`
+
 exports[`test/tap/teardown-event-loop.js TAP > stdout 1`] = `
 TAP version 13
 ok 1 - fine
 1..1
 # {time}
-
-`
-
-exports[`test/tap/teardown-event-loop.js TAP > stderr 1`] = `
 
 `

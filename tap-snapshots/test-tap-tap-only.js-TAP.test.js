@@ -12,6 +12,10 @@ Object {
 }
 `
 
+exports[`test/tap/tap-only.js TAP > stderr 1`] = `
+
+`
+
 exports[`test/tap/tap-only.js TAP > stdout 1`] = `
 TAP version 13
 # Subtest: only this one
@@ -22,9 +26,5 @@ ok 2 - not this one # SKIP filter: only
 1..2
 # skip: 1
 # {time}
-
-`
-
-exports[`test/tap/tap-only.js TAP > stderr 1`] = `
 
 `

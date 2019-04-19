@@ -12,6 +12,10 @@ Object {
 }
 `
 
+exports[`test/tap/timeout-sigterm-with-handle.js TAP > stderr 1`] = `
+
+`
+
 exports[`test/tap/timeout-sigterm-with-handle.js TAP > stdout 1`] = `
 TAP version 13
 ok 1 - fine
@@ -25,9 +29,5 @@ not ok 2 - timeout!
 1..2
 # failed 1 of 2 tests
 # {time}
-
-`
-
-exports[`test/tap/timeout-sigterm-with-handle.js TAP > stderr 1`] = `
 
 `

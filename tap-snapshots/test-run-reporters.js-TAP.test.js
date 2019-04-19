@@ -9,10 +9,6 @@ exports[`test/run/reporters.js TAP builtin reporter > stdout 1`] = `
 treport output
 `
 
-exports[`test/run/reporters.js TAP tmr builtin reporter > stdout 1`] = `
-spec output
-`
-
 exports[`test/run/reporters.js TAP cli reporter > stdout 1`] = `
 TAP version 13
 ok 1 - cli-tests/ok.js > this is fine
@@ -22,10 +18,14 @@ ok 1 - cli-tests/ok.js > this is fine
 
 `
 
+exports[`test/run/reporters.js TAP react component > stdout 1`] = `
+treport output
+`
+
 exports[`test/run/reporters.js TAP stream reporter > stdout 1`] = `
 spec output
 `
 
-exports[`test/run/reporters.js TAP react component > stdout 1`] = `
-treport output
+exports[`test/run/reporters.js TAP tmr builtin reporter > stdout 1`] = `
+spec output
 `
