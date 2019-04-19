@@ -140,6 +140,9 @@ const main = async options => {
     if (options._.length === 0 && isTTY)
       options._.push.apply(options._, await defaultFiles(options))
   } catch (er) {
+    // This gets tested on Mac, but not Linux/travis, and is
+    // somewhat challenging to do in a cross-platform way.
+    /* istanbul ignore next */
     return require('../lib/tap.js').threw(er)
   }
 
