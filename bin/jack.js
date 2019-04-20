@@ -116,6 +116,27 @@ Much more documentation available at: https://www.node-tap.org/
                   't.matchSnapshot()' assertions.`,
   }),
 
+  changed: flag({
+    short: 'n',
+    description: `Only run tests for files that have changed since the last
+                  run.
+
+                  This requires coverage to be enabled, because tap uses
+                  NYC's process info tracking to monitor which file is loaded
+                  by which tests.
+
+                  If no prior test run data exists, then all default files are
+                  run, as if --changed was not specified.`,
+  }),
+  'only-changed': flag({
+    alias: '--changed',
+    hidden: true,
+  }),
+  'onlyChanged': flag({
+    alias: '--changed',
+    hidden: true,
+  }),
+
   save: opt({
     short: 's',
     hint: 'file',

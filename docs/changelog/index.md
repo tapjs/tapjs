@@ -45,6 +45,8 @@ title: Change Log
   resolving/rejecting assertion output with an extra subtest.
 * Default to coverage being turned on.  (Defaulting to `check-coverage` at 100%
   will come in v14.)
+* Add `--changed` (or `-n`) to only run test files where the test file or one
+  of the covered files have been updated since the last test run.
 * Default to `--jobs-auto` style parallelization, where the number of parallel
   jobs defaults to the number of CPUs.
 * Pull tap configs from `tap` object in package.json

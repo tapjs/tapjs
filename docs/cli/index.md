@@ -69,6 +69,18 @@ Basic Options:
 
   --no-snapshot          switch off the --snapshot flag
 
+  -n --changed           Only run tests for files that have changed since the
+                         last run.
+
+                         This requires coverage to be enabled, because tap uses
+                         NYC's process info tracking to monitor which file is
+                         loaded by which tests.
+
+                         If no prior test run data exists, then all default
+                         files are run, as if --changed was not specified.
+
+  --no-changed           switch off the --changed flag
+
   -s<file> --save=<file> If <file> exists, then it should be a line- delimited
                          list of test files to run. If <file> is not present,
                          then all command-line positional arguments are run.

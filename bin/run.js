@@ -21,6 +21,43 @@ const mkdirp = require('mkdirp')
 const which = require('which')
 const {ProcessDB} = require('istanbul-lib-processinfo')
 
+// returns a function that tells whether a given file should be run,
+// because one or more of its deps have changed.
+const getChangedFilter = exports.getChangedFilter = options => {
+  if (!options.changed)
+    return () => true
+
+  if (!options.coverage)
+    throw new Error('--changed requires coverage to be enabled')
+
+  const indexFile = '.nyc_output/processinfo/index.json'
+
+  if (!fs.existsSync(indexFile))
+    return () => true
+
+  const indexDate = fs.statSync(indexFile).mtime
+  const index = JSON.parse(fs.readFileSync(indexFile, 'utf8'))
+
+  return testFile => {
+    if (fs.statSync(testFile).mtime > indexDate)
+      return true
+
+    const set = index.externalIds[testFile]
+
+    // if not found, probably a test file not run last time, so run it
+    if (!set)
+      return true
+
+    const files = Object.keys(index.files).filter(file => {
+      return index.files[file].includes(set.root) ||
+        set.children.some(c => index.files[file].includes(c))
+    })
+
+    // if the file is gone, that's a pretty big change.
+    return files.some(f => !fs.existsSync(f) || fs.statSync(f).mtime > indexDate)
+  }
+}
+
 const defaultFiles = options => new Promise((res, rej) => {
   const findit = require('findit')
   const good = strToRegExp(options['test-regex'])
@@ -160,6 +197,9 @@ const main = async options => {
     return
   }
 
+  options.saved = readSaveFile(options)
+  options.changedFilter = getChangedFilter(options)
+
   /* istanbul ignore next */
   if (options.coverage && !process.env.NYC_CONFIG)
     respawnWithCoverage(options)
@@ -238,6 +278,7 @@ const respawnWithCoverage = options => {
   runNyc(options['coverage-map'] ? [
     '--include=',
     '--no-exclude-after-remap',
+    ...(options.saved || options.changed ? ['--no-clean'] : []),
   ] : [], [
     '--',
     node,
@@ -400,20 +441,21 @@ const saveFails = (options, tap) => {
   tap.on('end', save)
 }
 
-const filterFiles = (files, saved, parallelOk) =>
+const filterFiles = exports.filterFiles = (files, options, parallelOk) =>
   files.filter(file =>
     path.basename(file) === 'tap-parallel-ok' ?
       ((parallelOk[path.resolve(path.dirname(file))] = true), false)
     : path.basename(file) === 'tap-parallel-not-ok' ?
       parallelOk[path.resolve(path.dirname(file))] = false
-    : onSavedList(saved, file)
+    : options.saved && options.saved.length ? onSavedList(options.saved, file)
+    : options.changed ? options.changedFilter(file)
+    : true
   )
 
 // check if the file is on the list, or if it's a parent dir of
 // any items that are on the list.
 const onSavedList = (saved, file) =>
-  !saved || !saved.length ? true
-  : saved.indexOf(file) !== -1 ? true
+  saved.indexOf(file) !== -1 ? true
   : saved.some(f => f.indexOf(file + '/') === 0)
 
 const isParallelOk = (parallelOk, file) => {
@@ -449,7 +491,7 @@ const coverageMapOverride = (env, file, coverageMap) => {
   }
 }
 
-const runAllFiles = (options, saved, tap) => {
+const runAllFiles = (options, tap) => {
   let doStdin = false
   let parallelOk = Object.create(null)
 
@@ -468,9 +510,9 @@ const runAllFiles = (options, saved, tap) => {
 
   const env = getEnv(options)
 
-  options.files = filterFiles(options.files, saved, parallelOk)
+  options.files = filterFiles(options.files, options, parallelOk)
 
-  if (options.files.length === 0 && !doStdin) {
+  if (options.files.length === 0 && !doStdin && !options.changed) {
     tap.fail('no tests specified')
   }
 
@@ -502,7 +544,7 @@ const runAllFiles = (options, saved, tap) => {
 
     if (st.isDirectory()) {
       const dir = filterFiles(fs.readdirSync(file).map(f =>
-        file.replace(/[\/\\]+$/, '') + '/' + f), saved, parallelOk)
+        file.replace(/[\/\\]+$/, '') + '/' + f), options, parallelOk)
       options.files.splice(i, 1, ...dir)
       i--
     } else {
@@ -558,8 +600,6 @@ const runAllFiles = (options, saved, tap) => {
 }
 
 const runTests = options => {
-  const saved = readSaveFile(options)
-
   // At this point, we know we need to use the tap root,
   // because there are 1 or more files to spawn.
   const tap = require('../lib/tap.js')
@@ -596,7 +636,7 @@ const runTests = options => {
 
   saveFails(options, tap)
 
-  runAllFiles(options, saved, tap)
+  runAllFiles(options, tap)
 
   /* istanbul ignore next */
   if (process.env.COVERALLS_REPO_TOKEN ||
