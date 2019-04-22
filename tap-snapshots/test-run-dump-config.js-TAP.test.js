@@ -45,6 +45,7 @@ test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mjs|[jt]sx?)$
 timeout: 30
 version: false
 versions: false
+watch: false
 
 
 `
@@ -89,6 +90,7 @@ test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mjs|[jt]sx?)$
 timeout: 30
 version: false
 versions: false
+watch: false
 
 
 `
@@ -133,6 +135,7 @@ test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mjs|[jt]sx?)$
 timeout: 30
 version: false
 versions: false
+watch: false
 
 
 `
@@ -177,6 +180,7 @@ test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mjs|[jt]sx?)$
 timeout: 30
 version: false
 versions: false
+watch: false
 
 
 `
@@ -221,6 +225,7 @@ test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mjs|[jt]sx?)$
 timeout: 30
 version: false
 versions: false
+watch: false
 
 
 `
@@ -265,6 +270,7 @@ test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mjs|[jt]sx?)$
 timeout: 0
 version: false
 versions: false
+watch: false
 
 
 `
@@ -320,6 +326,7 @@ test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mjs|[jt]sx?)$
 timeout: 99
 version: false
 versions: false
+watch: false
 
 
 `
@@ -364,6 +371,7 @@ test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mjs|[jt]sx?)$
 timeout: 30
 version: false
 versions: false
+watch: false
 
 
 `

@@ -21,8 +21,6 @@ const ok = tmpfile(t, 'ok.js', `'use strict'
       return y
   }`)
 
-tmpfile(t, 'package.json', '{"name":"just a placeholder"}')
-
 const t1 = tmpfile(t, '1.test.js', `'use strict'
   const ok = require('./ok.js')
   require(${tap}).equal(ok(1), 1)`)

@@ -20,6 +20,106 @@ const jsx = require.resolve('./jsx.js')
 const mkdirp = require('mkdirp')
 const which = require('which')
 const {ProcessDB} = require('istanbul-lib-processinfo')
+const rimraf = require('rimraf').sync
+
+const watchStart = exports.watchStart = options => {
+  if (!options.coverage)
+    throw new Error('--watch requires coverage to be enabled')
+
+  const args = [__filename, ...options._.parsed.filter(c => c !== '--watch')]
+  console.error('initial test run', args.slice(1))
+  const c = spawn(process.execPath, args, {
+    stdio: 'inherit'
+  })
+  c.on('close', () => watchMain(options, args))
+}
+
+const watchList = index => [...new Set([
+  ...Object.keys(index.files),
+  ...Object.keys(index.externalIds),
+])]
+
+const watchMain = exports.watchMain = (options, args) => {
+  const saveFolder = 'node_modules/.cache/tap'
+  mkdirp.sync(saveFolder)
+  const saveFile = saveFolder + '/watch-' + process.pid
+  require('signal-exit')(() => rimraf(saveFile))
+
+  const chokidar = require('chokidar')
+  // watch all the files we just covered
+  const indexFile = '.nyc_output/processinfo/index.json'
+  let index = JSON.parse(fs.readFileSync(indexFile, 'utf8'))
+  const filelist = watchList(index)
+  const watcher = chokidar.watch(filelist)
+
+  const queue = []
+  let child = null
+
+  const run = (ev, file) => {
+    const tests = testsFromChange(index, file)
+
+    if (file && tests) {
+      queue.push(...tests)
+      console.error(ev, file, '\n')
+    }
+
+    if (child) {
+      console.error('test in progress, queuing for next run\n')
+      return
+    }
+
+    const set = [...new Set(queue)]
+    console.error('running tests', set, '\n')
+    fs.writeFileSync(saveFile, set.join('\n') + '\n')
+    queue.length = 0
+    child = spawn(process.execPath, [...args, '--save=' + saveFile], {
+      stdio: 'inherit'
+    }).on('close', () => {
+      // handle cases where a new file is added to index.
+      index = JSON.parse(fs.readFileSync(indexFile, 'utf8'))
+      const newFilelist = watchList(index).filter(f => !filelist.includes(f))
+      filelist.push(...newFilelist)
+      newFilelist.forEach(f => watcher.add(f))
+      // if --bail left some on the list, then add them too
+      // but ignore if it's not there.
+      try {
+        const leftover = fs.readFileSync(saveFile, 'utf8').trim().split('\n')
+        queue.push(...leftover)
+      } catch (er) {}
+      child = null
+      if (queue.length)
+        run()
+    })
+  }
+
+  watchMain.close = () => watcher.close()
+
+  // ignore the first crop of add events, since we already ran the tests
+  setTimeout(() => watcher.on('all', run), 100)
+}
+
+const testsFromChange = exports.testsFromChange = (index, file) =>
+  index.externalIds[file] ? [file]
+  : testsFromFile(index, file)
+
+const testsFromFile = exports.testsFromFile = (index, file) =>
+  Array.from((index.files[file] || []).reduce((set, uuid) => {
+    for (let process = index.processes[uuid];
+        process;
+        process = process.parent && index.processes[process.parent]) {
+      if (process.externalId)
+        set.add(process.externalId)
+    }
+    return set
+  }, new Set()))
+
+const filesFromTest = exports.filesFromTest = (index, testFile) => {
+  const set = index.externalIds[testFile]
+  return !set ? null
+    : Object.keys(index.files).filter(file =>
+      index.files[file].includes(set.root) ||
+      set.children.some(c => index.files[file].includes(c)))
+}
 
 // returns a function that tells whether a given file should be run,
 // because one or more of its deps have changed.
@@ -42,16 +142,11 @@ const getChangedFilter = exports.getChangedFilter = options => {
     if (fs.statSync(testFile).mtime > indexDate)
       return true
 
-    const set = index.externalIds[testFile]
+    const files = filesFromTest(index, testFile)
 
     // if not found, probably a test file not run last time, so run it
-    if (!set)
+    if (!files)
       return true
-
-    const files = Object.keys(index.files).filter(file => {
-      return index.files[file].includes(set.root) ||
-        set.children.some(c => index.files[file].includes(c))
-    })
 
     // if the file is gone, that's a pretty big change.
     return files.some(f => !fs.existsSync(f) || fs.statSync(f).mtime > indexDate)
@@ -104,12 +199,6 @@ const main = async options => {
   if (require.main !== module)
     return
 
-  // tell chalk if we want color or not.
-  if (!options.color)
-    process.env.FORCE_COLOR = '0'
-  else
-    process.env.FORCE_COLOR = '1'
-
   const rc = parseRcFile(options.rcfile)
   for (let i in rc) {
     if (!options._.explicit.has(i))
@@ -121,6 +210,12 @@ const main = async options => {
     if (!options._.explicit.has(i))
       options[i] = pj[i]
   }
+
+  // tell chalk if we want color or not.
+  if (!options.color)
+    process.env.FORCE_COLOR = '0'
+  else
+    process.env.FORCE_COLOR = '1'
 
   if (options.reporter === null)
     options.reporter = options.color ? 'base' : 'tap'
@@ -163,6 +258,11 @@ const main = async options => {
     else
       throw er
   })
+
+  // we test this function directly, not from here.
+  /* istanbul ignore next */
+  if (options.watch)
+    return watchStart(options)
 
   options.grep = options.grep.map(strToRegExp)
 
@@ -422,9 +522,7 @@ const saveFails = (options, tap) => {
     }, [])
 
     if (!fails.length)
-      try {
-        fs.unlinkSync(options.save)
-      } catch (er) {}
+      rimraf(options.save)
     else
       try {
         fs.writeFileSync(options.save, fails.join('\n') + '\n')

@@ -116,6 +116,15 @@ Much more documentation available at: https://www.node-tap.org/
                   't.matchSnapshot()' assertions.`,
   }),
 
+  watch: flag({
+    short: 'w',
+    description: `Watch for changes in the test suite or covered program.
+
+                  Runs the suite normally one time, and from then on,
+                  re-run just the portions of the suite that are required
+                  whenever a file changes.`,
+  }),
+
   changed: flag({
     short: 'n',
     description: `Only run tests for files that have changed since the last
