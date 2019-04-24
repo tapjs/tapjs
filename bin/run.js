@@ -445,6 +445,11 @@ const respawnWithCoverage = options => {
   const args = [nycBin].concat(
     '--silent',
     '--cache=true',
+    '--extensions=.js',
+    '--extensions=.jsx',
+    '--extensions=.mjs',
+    '--extensions=.ts',
+    '--extensions=.tsx',
     options.nycArgs,
     '--',
     process.execArgv,
