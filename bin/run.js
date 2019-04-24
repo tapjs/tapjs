@@ -268,9 +268,10 @@ const main = async options => {
 
   // this is only testable by escaping from the covered environment
   /* istanbul ignore next */
-  if ((options._.explicit.has('coverage-report') ||
-       options._.explicit.has('check-coverage')) &&
-      options._.length === 0)
+  if (fs.existsSync('.nyc_output') &&
+      options._.length === 0 &&
+      (options._.explicit.has('coverage-report') ||
+        options._.explicit.has('check-coverage')))
     return runCoverageReportOnly(options)
 
   try {
