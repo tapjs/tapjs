@@ -69,6 +69,14 @@ Basic Options:
 
   --no-snapshot          switch off the --snapshot flag
 
+  -w --watch             Watch for changes in the test suite or covered program.
+
+                         Runs the suite normally one time, and from then on,
+                         re-run just the portions of the suite that are required
+                         whenever a file changes.
+
+  --no-watch             switch off the --watch flag
+
   -n --changed           Only run tests for files that have changed since the
                          last run.
 
@@ -407,7 +415,6 @@ Environment Variables:
   TAP_GREP               A '\n'-delimited list of grep patterns to apply to root
                          level test objects. (This is an implementation detail
                          for how the '--grep' option works.)
-                         Can be set multiple times
 
   TAP_GREP_INVERT        Set to '1' to invert the meaning of the patterns in
                          TAP_GREP. (Implementation detail for how the '--invert'
