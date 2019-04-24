@@ -69,7 +69,7 @@ Here's a very basic test program:
 
 ```javascript
 // test/hello-world.js
-var tap = require('tap')
+const tap = require('tap')
 tap.pass('this is fine')
 ```
 
@@ -132,7 +132,7 @@ and if it's less than 0, it should return 'negative'.
 
 ```javascript
 // my-awesome-module.js
-module.exports = function (x) {
+module.exports = x => {
   if (x % 2 === 0) {
     return 'even'
   } else if (x % 2 === 1) {
@@ -152,8 +152,8 @@ result:
 
 ```javascript
 // test/basic.js
-var tap = require('tap')
-var mam = require('../my-awesome-module.js')
+const tap = require('tap')
+const mam = require('../my-awesome-module.js')
 
 // Always call as (found, wanted) by convention
 tap.equal(mam(1), 'odd')
@@ -202,8 +202,8 @@ Ok, add some more tests then:
 
 ```js
 // test/basic.js
-var tap = require('tap')
-var mam = require('../my-awesome-module.js')
+const tap = require('tap')
+const mam = require('../my-awesome-module.js')
 
 // Always call as (found, wanted) by convention
 tap.equal(mam(1), 'odd')
@@ -279,7 +279,7 @@ Let's update our code so that it makes our tests pass:
 
 ```js
 // my-awesome-module.js
-module.exports = function (x) {
+module.exports = x => {
   if (x > 100) {
     return 'big'
   } else if (x < 0) {
@@ -333,10 +333,10 @@ done.
 ```javascript
 // test/async.js
 // this is a silly test.
-var tap = require('tap')
-var fs = require('fs')
-tap.test('some async stuff', function (childTest) {
-  fs.readdir(__dirname, function (er, files) {
+const tap = require('tap')
+const fs = require('fs')
+tap.test('some async stuff', childTest => {
+  fs.readdir(__dirname, (er, files) => {
     if (er) {
       throw er // tap will handle this
     }
@@ -345,7 +345,7 @@ tap.test('some async stuff', function (childTest) {
   })
 })
 
-tap.test('this waits until after', function (childTest) {
+tap.test('this waits until after', childTest => {
   // no asserts?  no problem!
   // the lack of throwing means "success"
   childTest.end()
@@ -406,9 +406,9 @@ async/await.  Stuff like this will Just Work out of the box if you
 have a JS engine that supports async functions:
 
 ```js
-var tap = require('tap')
+const tap = require('tap')
 tap.test(async t => {
-  var result = await doSomethingAsync()
+  const result = await doSomethingAsync()
   t.match(result, { ok: true, message: /dogs/ }, 'dogs are ok')
   // Or you can use any assertion lib you like.  as long as this
   // code doesn't throw an error, it's a pass!

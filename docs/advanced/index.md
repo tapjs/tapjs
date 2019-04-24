@@ -124,25 +124,23 @@ For example, you could have a file at `test/setup.js` that does the
 following:
 
 ```javascript
-var tap = require('tap')
+const t = require('tap')
 
 // convenience
 if (module === require.main) {
-  tap.pass('ok')
+  t.pass('ok')
   return
 }
 
 // Add an assertion that a string is in Title Case
 // It takes one argument (the string to be tested)
-tap.Test.prototype.addAssert('titleCase', 1, function (str, message, extra) {
+t.Test.prototype.addAssert('titleCase', 1, function (str, message, extra) {
   message = message || 'should be in Title Case'
   // the string in Title Case
   // A fancier implementation would avoid capitalizing little words
   // to get `Silence of the Lambs` instead of `Silence Of The Lambs`
   // But whatever, it's just an example.
-  var tc = str.toLowerCase().replace(/\b./, function (match) {
-    return match.toUpperCase()
-  })
+  const tc = str.toLowerCase().replace(/\b./, match => match.toUpperCase())
 
   // should always return another assert call, or
   // this.pass(message) or this.fail(message, extra)
@@ -154,9 +152,9 @@ Then in your individual tests, you'd do this:
 
 ```javascript
 require('./setup.js') // adds the assert
-var tap = require('tap')
-tap.titleCase('This Passes')
-tap.titleCase('however, tHis tOTaLLy faILS')
+const t = require('tap')
+t.titleCase('This Passes')
+t.titleCase('however, tHis tOTaLLy faILS')
 ```
 
 ## t.endAll()

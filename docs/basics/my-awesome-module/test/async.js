@@ -2,8 +2,8 @@
 // this is a silly test.
 var tap = require('tap')
 var fs = require('fs')
-tap.test('some async stuff', function (childTest) {
-  fs.readdir(__dirname, function (er, files) {
+tap.test('some async stuff', childTest => {
+  fs.readdir(__dirname, (er, files) => {
     if (er) {
       throw er // tap will handle this
     }
@@ -12,7 +12,7 @@ tap.test('some async stuff', function (childTest) {
   })
 })
 
-tap.test('this waits until after', function (childTest) {
+tap.test('this waits until after', childTest => {
   // no asserts?  no problem!
   // the lack of throwing means "success"
   childTest.end()

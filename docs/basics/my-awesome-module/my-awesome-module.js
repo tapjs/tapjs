@@ -1,5 +1,5 @@
 // my-awesome-module.js
-module.exports = function (x) {
+module.exports = x => {
   if (x > 100) {
     return 'big'
   } else if (x < 0) {

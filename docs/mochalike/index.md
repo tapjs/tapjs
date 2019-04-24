@@ -16,11 +16,11 @@ So, instead of this:
 
 ```javascript
 // tap.js
-var t = require('tap')
-t.test('Array.indexOf', function (t) {
-  var array = [1, 2, 3]
-  t.test('when item is not found', function (t) {
-    t.test('does not throw an error', function (t) {
+const t = require('tap')
+t.test('Array.indexOf', t => {
+  const array = [1, 2, 3]
+  t.test('when item is not found', t => {
+    t.test('does not throw an error', t => {
       array.indexOf(4)
       t.end()
     })
@@ -36,14 +36,14 @@ You can do this:
 ```javascript
 // bdd.js
 require('tap').mochaGlobals()
-var should = require('should')
-describe('Array.indexOf', function () {
-  var array = [1, 2, 3]
-  context('when item is not found', function () {
-    it('does not throw an error', function () {
+const should = require('should')
+describe('Array.indexOf', () => {
+  const array = [1, 2, 3]
+  context('when item is not found', () => {
+    it('does not throw an error', () => {
       array.indexOf(4)
     })
-    it('returns -1', function () {
+    it('returns -1', () => {
       array.indexOf(4).should.equal(-1)
     })
   })

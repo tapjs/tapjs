@@ -1,6 +1,6 @@
 // test/basic.js
-var tap = require('../../../..')
-var mam = require('../my-awesome-module.js')
+const tap = require('../../../..')
+const mam = require('../my-awesome-module.js')
 
 // Always call as (found, wanted) by convention
 tap.equal(mam(1), 'odd')

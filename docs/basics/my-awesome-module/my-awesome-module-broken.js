@@ -1,4 +1,4 @@
-module.exports = function (x) {
+module.exports = x => {
   if (x % 2 === 0) {
     return 'even'
   } else if (x % 2 === 1) {

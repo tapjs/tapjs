@@ -86,7 +86,7 @@ network request or processes a file or something, and you want to call
 this function three times in your test program.
 
 ```javascript
-var t = require('tap')
+const t = require('tap')
 
 t.test(function one (t) {
   someSlowFunction(function () {

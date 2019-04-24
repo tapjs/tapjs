@@ -240,7 +240,7 @@ which tells the parser to treat non-TAP output as a failure.
 Example:
 
 ```
-var t = require('tap')
+const t = require('tap')
 console.log('this non-TAP output is ok')
 t.pragma({ strict: true })
 console.log('but this will cause a failure')
