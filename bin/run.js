@@ -689,6 +689,8 @@ const runAllFiles = (options, tap) => {
           ...(options['test-arg']),
         ]
         tap.spawn(node, args, opt, file)
+      } else if (file.match(/\.tap$/)) {
+        tap.spawn('cat', [file], opt, file)
       } if (isexe.sync(options.files[i]))
         tap.spawn(options.files[i], options['test-arg'], opt, file)
     }

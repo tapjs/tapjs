@@ -65,6 +65,7 @@ The [reporting engine](/reporting/) has gotten a massive overhaul.
 * Automatically load `.jsx` and `.tsx` files, using
   [import-jsx](http://npm.im/import-jsx) and TypeScript's built-in JSX
   capabilities.
+* "Run" `.tap` files by catting them.
 
 ### Coverage Related Things
 
