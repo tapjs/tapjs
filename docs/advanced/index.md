@@ -26,6 +26,32 @@ Similar to the `Test` class, but instead of a callback that gets a
 object with assertion methods, it reads the process standard input,
 and parses that as [TAP](/tap-format)-formatted data.
 
+## t.counts
+
+This is an object with counters representing the number of pass, fail, todo,
+skip, and total assertions made by this test and any subtests, primarily for
+use in reporting.
+
+Fields:
+
+- t.counts.total
+- t.counts.pass
+- t.counts.fail
+- t.counts.skip
+- t.counts.todo
+
+## t.lists
+
+This is an object with lists of the failed, todo, and skip assertions in this
+test and any subtests, primarily for use in reporting.
+
+Fields:
+
+- t.lists.fail
+- t.lists.todo
+- t.lists.skip
+
+
 ## t.stdin()
 
 Parse standard input as if it was a child test named `/dev/stdin`.
