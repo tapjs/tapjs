@@ -23,7 +23,7 @@ The [reporting engine](/reporting/) has gotten a massive overhaul.
   my-reporter-module` works, whether that is a CLI program, a stream module, or
   a treport-style React component.
 
-### API Updaates
+### API Updates
 
 * The `t.expectUncaughtException()` method, for testing that expected uncaught
   exceptions are thrown.
