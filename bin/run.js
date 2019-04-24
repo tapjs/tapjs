@@ -329,6 +329,11 @@ const runNyc = (cmd, programArgs, options, spawnOpts) => {
     '--lines=' + options.lines,
     '--statements=' + options.statements,
     '--reporter=' + reporter,
+    '--extensions=.js',
+    '--extensions=.jsx',
+    '--extensions=.mjs',
+    '--extensions=.ts',
+    '--extensions=.tsx',
     ...(options['nyc-arg'] || []),
   ]
   if (options['check-coverage'])
