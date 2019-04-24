@@ -96,3 +96,11 @@ The default type is `text`, which produces a pretty text-only table on
 the terminal.  If you specify `--coverage-report=html`, then tap will
 attempt to launch a web browser to view the report after the test run.
 You can prevent launching a browser by specifying the flag `--no-browser`.
+
+## Coverage Maps
+
+There are some situations where you may want to precisely specify which tests
+should provide coverage for which program files, or which tests perhaps should
+not be instrumented for code coverage at all.
+
+In those cases, use a [coverage map](/coverage-map/) option.
