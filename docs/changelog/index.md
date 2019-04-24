@@ -35,6 +35,8 @@ The [reporting engine](/reporting/) has gotten a massive overhaul.
   resolving/rejecting assertion output with an extra subtest.
 * `t.teardown(fn)` handler functions can return a Promise to perform
   asynchronous actions.
+* Errors thrown in `t.beforeEach()` functions will no longer abort the entire
+  test process.
 
 ### CLI and Runner Changes
 

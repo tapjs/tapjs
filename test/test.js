@@ -857,6 +857,30 @@ t.test('assertions and weird stuff', t => {
       tt.end()
     },
 
+    'throw in child beforeEach': tt => {
+      tt.test('child', async tt => {
+        tt.beforeEach(async () => {
+          throw new Error('poop')
+        })
+        tt.test('grandkid', tt => Promise.resolve(console.error('in test')))
+        tt.end()
+      })
+      tt.test('next kid', async tt => {})
+      tt.end()
+    },
+
+    'throw in root beforeEach': tt => {
+      tt.beforeEach(async cb => {
+        throw new Error('poop')
+      })
+      tt.test('child', tt => {
+        tt.test('grandkid', tt => Promise.resolve(console.error('in test')))
+        tt.end()
+      })
+      tt.test('next kid', async tt => {})
+      tt.end()
+    },
+
     'timeout expiration': t => {
       const buf = [ false, true ]
       buf.forEach(buf => {

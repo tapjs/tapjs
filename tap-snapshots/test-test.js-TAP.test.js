@@ -1245,6 +1245,95 @@ Error: test after end() was called
 
 `
 
+exports[`test/test.js TAP assertions and weird stuff throw in child beforeEach > output 1`] = `
+TAP version 13
+# Subtest: child
+    # Subtest: grandkid
+        not ok 1 - poop
+          ---
+          at:
+            line: #
+            column: #
+            file: test/test.js
+          source: |2
+                    tt.beforeEach(async () => {
+                      throw new Error('poop')
+            --^
+                    })
+                    tt.test('grandkid', tt => Promise.resolve(console.error('in test')))
+          stack: |
+            {STACK}
+          test: grandkid
+          ...
+        
+        1..1
+        # failed 1 test
+    not ok 1 - grandkid # {time}
+    
+    1..1
+    # failed 1 test
+not ok 1 - child # {time}
+
+# Subtest: next kid
+    1..0
+ok 2 - next kid # {time}
+
+1..2
+# failed 1 of 2 tests
+
+`
+
+exports[`test/test.js TAP assertions and weird stuff throw in root beforeEach > output 1`] = `
+TAP version 13
+# Subtest: child
+    not ok 1 - poop
+      ---
+      at:
+        line: #
+        column: #
+        file: test/test.js
+      source: |2
+              tt.beforeEach(async cb => {
+                throw new Error('poop')
+        --^
+              })
+              tt.test('child', tt => {
+      stack: |
+        {STACK}
+      test: child
+      ...
+    
+    1..1
+    # failed 1 test
+not ok 1 - child # {time}
+
+# Subtest: next kid
+    not ok 1 - poop
+      ---
+      at:
+        line: #
+        column: #
+        file: test/test.js
+      source: |2
+              tt.beforeEach(async cb => {
+                throw new Error('poop')
+        --^
+              })
+              tt.test('child', tt => {
+      stack: |
+        {STACK}
+      test: next kid
+      ...
+    
+    1..1
+    # failed 1 test
+not ok 2 - next kid # {time}
+
+1..2
+# failed 2 of 2 tests
+
+`
+
 exports[`test/test.js TAP assertions and weird stuff thrower after end > output 1`] = `
 TAP version 13
 # Subtest: child
