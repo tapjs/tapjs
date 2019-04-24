@@ -22,7 +22,7 @@ const fakeSpawn = (file, args, options) => {
   ee.options = options
   spawnTrack.emit('spawn', ee)
   ee.on('close', () => spawnTrack.current = null)
-  setTimeout(() => ee.emit('close', null, null), 250)
+  setTimeout(() => ee.emit('close', null, null), 500)
   return ee
 }
 require('child_process').spawn = fakeSpawn
@@ -170,7 +170,7 @@ t.test('watch files', t => {
     t.matchSnapshot(clean(logs.join('\n')), 'console.log')
     t.matchSnapshot(clean(errs.join('\n')), 'console.error')
     logs.length = errs.length = 0
-    ee.on('close', () => setTimeout(() => t.end(), 500))
+    ee.on('close', () => setTimeout(() => t.end(), 1000))
   })
   watchStart(options)
 })
