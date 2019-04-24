@@ -7,6 +7,8 @@ links:
     url: "/basics/"
   - name: "Using tap with..."
     url: "/using-with/"
+  - name: "Configuring tap"
+    url: "/configuring/"
   - name: "API"
     url: "/api/"
     links:
