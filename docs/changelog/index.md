@@ -97,7 +97,7 @@ The [reporting engine](/reporting/) has gotten a massive overhaul.
 
 ## 12.6 2019-03-06
 
-* Add --no-esm flag to disable '-r esm' behavior (11 days ago)
+* Add --no-esm flag to disable '-r esm' behavior
 
 ## 12.5 2019-01-29
 
