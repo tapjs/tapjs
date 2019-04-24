@@ -2,6 +2,10 @@
 layout: layout
 title: Change Log
 ---
+## 12.6 2019-03-06
+
+* Add --no-esm flag to disable '-r esm' behavior
+
 ## 12.5 2019-01-29
 
 Add support for ES Modules in all tap test scripts using `esm`.
