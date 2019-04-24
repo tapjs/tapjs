@@ -22,7 +22,7 @@ const fakeSpawn = (file, args, options) => {
   ee.options = options
   spawnTrack.emit('spawn', ee)
   ee.on('close', () => spawnTrack.current = null)
-  setTimeout(() => ee.emit('close', null, null), 150)
+  setTimeout(() => ee.emit('close', null, null), 250)
   return ee
 }
 require('child_process').spawn = fakeSpawn
@@ -170,7 +170,7 @@ t.test('watch files', t => {
     t.matchSnapshot(clean(logs.join('\n')), 'console.log')
     t.matchSnapshot(clean(errs.join('\n')), 'console.error')
     logs.length = errs.length = 0
-    ee.on('close', () => setTimeout(() => t.end(), 300))
+    ee.on('close', () => setTimeout(() => t.end(), 500))
   })
   watchStart(options)
 })
@@ -197,7 +197,7 @@ t.test('run tests on changes', t => {
   fs.writeFileSync('ko.js', fs.readFileSync('ko.js'))
   // edit a test file while a test is already running
   setTimeout(() =>
-    fs.writeFileSync('1.test.js', fs.readFileSync('1.test.js')), 50)
+    fs.writeFileSync('1.test.js', fs.readFileSync('1.test.js')), 100)
 })
 
 t.test('edit the new file', t => {
