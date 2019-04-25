@@ -17,108 +17,11 @@ const isTTY = process.stdin.isTTY || process.env._TAP_IS_TTY === '1'
 const tsNode = require.resolve('ts-node/register')
 const esm = require.resolve('esm')
 const jsx = require.resolve('./jsx.js')
-const mkdirp = require('mkdirp')
+const mkdirp = require('mkdirp').sync
 const which = require('which')
 const {ProcessDB} = require('istanbul-lib-processinfo')
 const rimraf = require('rimraf').sync
-
-const watchStart = exports.watchStart = options => {
-  if (!options.coverage)
-    throw new Error('--watch requires coverage to be enabled')
-
-  const args = [__filename, ...options._.parsed.filter(c => c !== '--watch')]
-  console.error('initial test run', args.slice(1))
-  const c = spawn(process.execPath, args, {
-    stdio: 'inherit'
-  })
-  c.on('close', () => watchMain(options, args))
-}
-
-const watchList = index => [...new Set([
-  ...Object.keys(index.files),
-  ...Object.keys(index.externalIds),
-])]
-
-const watchMain = exports.watchMain = (options, args) => {
-  const saveFolder = 'node_modules/.cache/tap'
-  mkdirp.sync(saveFolder)
-  const saveFile = saveFolder + '/watch-' + process.pid
-  require('signal-exit')(() => rimraf(saveFile))
-
-  const chokidar = require('chokidar')
-  // watch all the files we just covered
-  const indexFile = '.nyc_output/processinfo/index.json'
-  let index = JSON.parse(fs.readFileSync(indexFile, 'utf8'))
-  const filelist = watchList(index)
-  const watcher = chokidar.watch(filelist)
-
-  const queue = []
-  let child = null
-
-  const run = (ev, file) => {
-    const tests = testsFromChange(index, file)
-
-    if (file && tests) {
-      queue.push(...tests)
-      console.error(ev, file, '\n')
-    }
-
-    if (child) {
-      console.error('test in progress, queuing for next run\n')
-      return
-    }
-
-    const set = [...new Set(queue)]
-    console.error('running tests', set, '\n')
-    fs.writeFileSync(saveFile, set.join('\n') + '\n')
-    queue.length = 0
-    child = spawn(process.execPath, [...args, '--save=' + saveFile], {
-      stdio: 'inherit'
-    }).on('close', () => {
-      // handle cases where a new file is added to index.
-      index = JSON.parse(fs.readFileSync(indexFile, 'utf8'))
-      const newFilelist = watchList(index).filter(f => !filelist.includes(f))
-      filelist.push(...newFilelist)
-      newFilelist.forEach(f => watcher.add(f))
-      child = null
-
-      // if --bail left some on the list, then add them too
-      // but ignore if it's not there.
-      const leftover = (() => {
-        try {
-          return fs.readFileSync(saveFile, 'utf8').trim().split('\n')
-        } catch (er) {
-          return []
-        }
-      })()
-      const runAgain = queue.length
-      queue.push(...leftover)
-
-      if (runAgain)
-        run()
-    })
-  }
-
-  watchMain.close = () => watcher.close()
-
-  // ignore the first crop of add events, since we already ran the tests
-  setTimeout(() => watcher.on('all', run), 100)
-}
-
-const testsFromChange = exports.testsFromChange = (index, file) =>
-  index.externalIds[file] ? [file]
-  : testsFromFile(index, file)
-
-const testsFromFile = exports.testsFromFile = (index, file) =>
-  Array.from((index.files[file] || []).reduce((set, uuid) => {
-    for (let process = index.processes[uuid];
-        process;
-        process = process.parent && index.processes[process.parent]) {
-      if (process.externalId)
-        set.add(process.externalId)
-    }
-    return set
-  }, new Set()))
+const Watch = require('../lib/watch.js')
 
 const filesFromTest = exports.filesFromTest = (index, testFile) => {
   const set = index.externalIds[testFile]
@@ -266,10 +169,10 @@ const main = async options => {
       throw er
   })
 
-  // we test this function directly, not from here.
+  // we test this directly, not from here.
   /* istanbul ignore next */
   if (options.watch)
-    return watchStart(options)
+    return new Watch(options).pipe(process.stderr)
 
   options.grep = options.grep.map(strToRegExp)
 
@@ -297,7 +200,7 @@ const main = async options => {
     options.files.push('-')
 
   if (options['output-dir'] !== null)
-    mkdirp.sync(options['output-dir'])
+    mkdirp(options['output-dir'])
 
   if (options.files.length === 1 && options.files[0] === '-') {
     setupTapEnv(options)
@@ -609,7 +512,7 @@ const runAllFiles = (options, tap) => {
   if (options['output-dir'] !== null) {
     tap.on('spawn', t => {
       const dir = options['output-dir'] + '/' + path.dirname(t.name)
-      mkdirp.sync(dir)
+      mkdirp(dir)
       const file = dir + '/' + path.basename(t.name) + '.tap'
       t.proc.stdout.pipe(fs.createWriteStream(file))
     })
