@@ -50,12 +50,142 @@ const watchMain = exports.watchMain = (options, args) => {
   const indexFile = '.nyc_output/processinfo/index.json'
   let index = JSON.parse(fs.readFileSync(indexFile, 'utf8'))
   const filelist = watchList(index)
-  const watcher = chokidar.watch(filelist)
+  let watcher = chokidar.watch(filelist)
+
 
   const queue = []
   let child = null
 
-  const run = (ev, file) => {
+  const repl = require('repl')
+  const parseCmd = (input, _, __, cb) => {
+    if (child)
+      return cb(null, 'test in progress, please wait')
+
+    input = input.trimLeft().split(' ')
+    const cmd = input.shift().trim()
+    const arg = input.join(' ').trimLeft()
+
+    switch (cmd) {
+      case 'r':
+        queue.length = 0
+        rimraf(saveFile)
+        if (arg)
+          queue.push(arg.trim())
+        return run(null, null, null, cb)
+
+      case 'u':
+        queue.length = 0
+        rimraf(saveFile)
+        if (arg)
+          queue.push(arg.trim())
+        return run(null, null, true, cb)
+
+      case 'n':
+        args.push('--changed')
+        console.error('ARGS', args)
+        //rimraf(saveFile)
+        return run(null, null, null, (...cbargs) => {
+          args.pop()
+          cb(...cbargs)
+        })
+
+      case 'exit':
+        if (child)
+          child.kill('SIGTERM')
+        tapRepl.close()
+        break
+
+      case 'clear':
+        rimraf('.nyc_output')
+        rimraf(saveFile)
+        queue.length = 0
+        return run(null, null, null, cb)
+
+      case 'p':
+        if (watcher) {
+          console.log('paused')
+          watcher.close()
+          watcher = null
+        } else {
+          console.log('resumed')
+          watcher = chokidar.watch(filelist)
+          setTimeout(() => watcher.on('all', run), 100)
+        }
+        return cb()
+
+      default:
+        console.log(`TAP Repl Commands:
+
+r [<filename>]
+  run test suite, or the supplied filename
+
+u [<filename>]
+  update snapshots in the suite, or in the supplied filename
+
+n
+  run the suite with --changed
+
+p
+  pause/resume the file watcher
+
+exit
+  exit the repl
+
+clear
+  delete all coverage info and re-run the test suite
+`)
+        return cb()
+    }
+  }
+
+  const filterCompletions = (list, input) => {
+    const hits = list.filter(l => l.startsWith(input))
+    return hits.length ? hits : list
+  }
+
+  const completer = input => {
+    input = input.trimLeft().split(' ')
+    const cmd = input.shift()
+    const arg = input.join(' ').trimLeft()
+    input = cmd + ' ' + arg
+    const commands = ['r', 'u', 'n', 'p', 'exit', 'clear']
+    if (cmd === 'r' || cmd === 'u') {
+      const d = path.dirname(arg)
+      const dir = arg.slice(-1) === '/' ? arg : d === '.' ? '' : d + '/'
+      try {
+        const set = filterCompletions(
+          fs.readdirSync(dir || '.')
+            .map(f => fs.statSync(dir + f).isDirectory() ? f + '/' : f)
+            .map(f => cmd + ' ' + dir + f), input)
+        return [set, input]
+      } catch (er) {
+        return [[cmd], input]
+      }
+    } else {
+      return [filterCompletions(commands, input), input]
+    }
+  }
+
+  const tapRepl = repl.start({
+    prompt: 'TAP> ',
+    eval: parseCmd,
+    completer,
+  })
+  tapRepl.removeAllListeners('SIGINT')
+  tapRepl.on('SIGINT', () => {
+    if (child) {
+      queue.length = 0
+      rimraf(saveFile)
+      child.kill('SIGTERM')
+    } else
+      parseCmd('exit', null, null, () => {})
+  })
+  tapRepl.on('close', () => {
+    if (watcher)
+      watcher.close()
+  })
+
+  const run = (ev, file, snapshot, cb) => {
     const tests = testsFromChange(index, file)
 
     if (file && tests) {
@@ -68,13 +198,19 @@ const watchMain = exports.watchMain = (options, args) => {
       return
     }
 
+    const env = {
+      ...process.env,
+      ...(snapshot ? { TAP_SNAPSHOT: '1' } : {}),
+    }
+
     const set = [...new Set(queue)]
-    console.error('running tests', set, '\n')
+    console.error('running tests', set)
     fs.writeFileSync(saveFile, set.join('\n') + '\n')
     queue.length = 0
     child = spawn(process.execPath, [...args, '--save=' + saveFile], {
-      stdio: 'inherit'
-    }).on('close', () => {
+      stdio: 'inherit',
+      env,
+    }).on('close', (code, signal) => {
       // handle cases where a new file is added to index.
       index = JSON.parse(fs.readFileSync(indexFile, 'utf8'))
       const newFilelist = watchList(index).filter(f => !filelist.includes(f))
@@ -95,7 +231,13 @@ const watchMain = exports.watchMain = (options, args) => {
       queue.push(...leftover)
 
       if (runAgain)
-        run()
+        run(null, null, snapshot, cb)
+      else if (cb)
+        cb(null, {code, signal})
+      else {
+        console.log({code, signal})
+        tapRepl.displayPrompt(true)
+      }
     })
   }
 
@@ -520,7 +662,7 @@ const saveFails = (options, tap) => {
   tap.on('result', res => {
     // we will continue to re-run todo tests, even though they're
     // not technically "failures".
-    if (!res.ok && !res.extra.skip)
+    if (!res.ok && !res.extra.skip && res.extra.file)
       fails.push(res.extra.file)
     else
       successes.push(res.extra.file)
