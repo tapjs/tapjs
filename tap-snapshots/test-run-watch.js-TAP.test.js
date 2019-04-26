@@ -6,7 +6,9 @@
  */
 'use strict'
 exports[`test/run/watch.js TAP edit the new file > console.error 1`] = `
-running tests,1.test.js,4.test.js,
+add,{CWD}/new.js,
+
+running tests,3.test.js,
 
 `
 
@@ -15,8 +17,7 @@ exports[`test/run/watch.js TAP edit the new file > console.log 1`] = `
 `
 
 exports[`test/run/watch.js TAP edit the new file > spawn test run on change to newly tracked file 1`] = `
-1.test.js
-4.test.js
+3.test.js
 
 `
 
@@ -32,7 +33,7 @@ change,1.test.js,
 
 test in progress, queuing for next run
 
-running tests,1.test.js,4.test.js,
+running tests,1.test.js,
 
 `
 
@@ -46,7 +47,6 @@ exports[`test/run/watch.js TAP run tests on changes > console.log 2`] = `
 
 exports[`test/run/watch.js TAP run tests on changes > spawn queued test 1`] = `
 1.test.js
-4.test.js
 
 `
 

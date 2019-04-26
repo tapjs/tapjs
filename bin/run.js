@@ -80,14 +80,21 @@ const watchMain = exports.watchMain = (options, args) => {
       const newFilelist = watchList(index).filter(f => !filelist.includes(f))
       filelist.push(...newFilelist)
       newFilelist.forEach(f => watcher.add(f))
+      child = null
+
       // if --bail left some on the list, then add them too
       // but ignore if it's not there.
-      try {
-        const leftover = fs.readFileSync(saveFile, 'utf8').trim().split('\n')
-        queue.push(...leftover)
-      } catch (er) {}
-      child = null
-      if (queue.length)
+      const leftover = (() => {
+        try {
+          return fs.readFileSync(saveFile, 'utf8').trim().split('\n')
+        } catch (er) {
+          return []
+        }
+      })()
+      const runAgain = queue.length
+      queue.push(...leftover)
+
+      if (runAgain)
         run()
     })
   }

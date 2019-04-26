@@ -22,7 +22,12 @@ const fakeSpawn = (file, args, options) => {
   ee.options = options
   spawnTrack.emit('spawn', ee)
   ee.on('close', () => spawnTrack.current = null)
-  setTimeout(() => ee.emit('close', null, null), 500)
+  setTimeout(() => {
+    try {
+      fs.unlinkSync('node_modules/.cache/tap/watch-' + process.pid)
+    } catch (_) {}
+    ee.emit('close', null, null)
+  }, 500)
   return ee
 }
 require('child_process').spawn = fakeSpawn
