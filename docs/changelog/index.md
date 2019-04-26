@@ -2,7 +2,7 @@
 layout: layout
 title: Change Log
 ---
-## 13.0 - TBD
+## 13.0 - 2019-04-25
 
 Faster, prettier, and more powerful.  Major enhancements and quite a few
 breaking changes.  Most tests should continue to work fine, it's worth reading
