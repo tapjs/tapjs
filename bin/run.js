@@ -525,7 +525,18 @@ const runCoverageReportOnly = (options, code, signal) => {
       options.coverageReport = 'text'
   }
 
-  const args = [nycBin, 'report', '--reporter', options.coverageReport]
+  const args = [
+    nycBin,
+  ].concat(options.nycArgs || []).concat([
+    '--extension=.js',
+    '--extension=.jsx',
+    '--extension=.mjs',
+    '--extension=.ts',
+    '--extension=.tsx',
+    'report',
+    '--reporter',
+    options.coverageReport
+  ])
 
   let child
   // automatically hook into coveralls
@@ -563,7 +574,16 @@ const coverageCheckArgs = options => {
 
 /* istanbul ignore next */
 const runCoverageCheck = (options, code, signal) => {
-  const args = [nycBin, 'check-coverage'].concat(coverageCheckArgs(options))
+  const args = [
+    nycBin,
+  ].concat(options.nycArgs || []).concat([
+    '--extension=.js',
+    '--extension=.jsx',
+    '--extension=.mjs',
+    '--extension=.ts',
+    '--extension=.tsx',
+    'check-coverage'
+  ]).concat(coverageCheckArgs(options))
 
   const child = fg(node, args)
   child.removeAllListeners('close')
