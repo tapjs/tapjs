@@ -70,7 +70,7 @@
     "posttest": "standard lib test",
     "t": "node bin/run.js test/*.* -sfails.txt",
     "preversion": "npm test",
-    "postversion": "npm publish",
+    "postversion": "npm publish --tag=legacy",
     "postpublish": "git push origin --all; git push origin --tags"
   },
   "devDependencies": {
