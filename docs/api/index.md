@@ -129,6 +129,19 @@ Exactly the same as `t.test()`, but adds `only: true` in the options.
 
 See [filtering tests using only](/only/)
 
+### t.context
+
+This is an object which is inherited by child tests, and is a handy place
+to put various contextual information.  If you set `t.context = foo`,
+then it will only be inherited by child tests if it is an object.
+
+Typically, you'll want to assign properties to it, which are shared with
+child tests.  For example, a `t.beforeEach()` function might create a
+database connection, assign it to `t.context.connection`, and then close
+the connection in a `t.afterEach()` function.
+
+See [Test Lifecycle Events](/test-lifecycle/) for more information.
+
 ### t.runOnly
 
 Set to `true` to only run child tests that have `only: true` set in
@@ -143,17 +156,21 @@ children.
 ### t.tearDown(function)
 
 Run the supplied function when `t.end()` is called, or when the `plan`
-is met.
+is met.  Function can return a promise to perform async actions.
 
 Note that when called on the root `tap` export, this also triggers
 `autoend` behavior.
 
-### t.beforeEach(function (done) {})
+See [Test Lifecycle Events](/test-lifecycle/) for more information.
+
+### t.beforeEach(function (done, testObject) {})
 
 Call the supplied function before every subsequent descendent test.
 
 The `done` callback is a function to call when finished.  You can also
 return a [Promise](/promises/) rather than using the `done` callback.
+
+See [Test Lifecycle Events](/test-lifecycle/) for more information.
 
 ### t.afterEach(function (done) {})
 
@@ -161,6 +178,8 @@ Call the supplied function after every subsequent descendent test.
 
 The `done` callback is a function to call when finished.  You can also
 return a [Promise](/promises/) rather than using the `done` callback.
+
+See [Test Lifecycle Events](/test-lifecycle/) for more information.
 
 ### t.plan(number)
 
@@ -221,7 +240,7 @@ which tells the parser to treat non-TAP output as a failure.
 Example:
 
 ```
-var t = require('tap')
+const t = require('tap')
 console.log('this non-TAP output is ok')
 t.pragma({ strict: true })
 console.log('but this will cause a failure')

@@ -1,7 +1,0 @@
-TAP version 13
-# Subtest: name
-    1..0
-ok 1 - name ___/# time=[0-9.]+(ms)?/~~~
-
-1..1
-

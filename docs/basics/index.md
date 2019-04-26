@@ -5,8 +5,8 @@ title: Getting Started
 
 # tap basics
 
-This tutorial will teach you just enough to get up and running with
-tap in your Node.js programs.
+This tutorial will teach you just enough to get up and running with tap in your
+Node.js programs.
 
 ## install tap
 
@@ -16,8 +16,8 @@ Use npm to install tap:
 npm install tap --save-dev
 ```
 
-The `save-dev` part makes it saved to your package.json's
-`devDependencies` list.
+The `save-dev` part makes it saved to your package.json's `devDependencies`
+list instead of as a regular dependency.
 
 Next, update your package.json so that the test script invokes tap:
 
@@ -26,13 +26,12 @@ Next, update your package.json so that the test script invokes tap:
   "name": "my-awesome-module",
   "version": "1.2.3",
   "devDependencies": {
-    "tap": "^11.0.0"
+    "tap": "^13.0.0"
   },
 
   "scripts": {
-    "test": "tap test/*.js"
+    "test": "tap"
   }
-
 }
 ```
 
@@ -52,6 +51,15 @@ often a single test file is enough.
 I usually call the first one `test/basic.js`, because it covers the
 basic functionality.
 
+By default, when you run `tap` with no arguments, it'll run any files in the
+`test` diretory, as well as any files than end in `*.spec.js` or `*.test.js`.
+If you want to run a specific file, you can also put it on the command line
+directly:
+
+```bash
+tap test/foo.js
+```
+
 ## "hello world" test program
 
 The root tap object is a member of tap's `Test` class.  That means it
@@ -61,7 +69,7 @@ Here's a very basic test program:
 
 ```javascript
 // test/hello-world.js
-var tap = require('tap')
+const tap = require('tap')
 tap.pass('this is fine')
 ```
 
@@ -93,16 +101,23 @@ our tests with the `tap` built-in cli.
 ```bash
 $ npm test
 
-> my-awesome-module@1.2.3 test /home/isaacs/my-awesome-module
-> tap test/*.js
+> my-awesome-module@1.2.3 test /Users/isaacs/dev/js/tap/docs/basics/my-awesome-module
+> tap
 
-test/hello-world.js ................................... 1/1
-total ................................................. 1/1
+ PASS  test/hello-world.js 1 OK 1s
 
-  1 passing (227.745ms)
 
-  ok
+  🌈 SUMMARY RESULTS 🌈
 
+
+Suites:   1 passed, 1 of 1 completed
+Asserts:  1 passed, of 1
+Time:     1s
+----------|----------|----------|----------|----------|-------------------|
+File      |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
+----------|----------|----------|----------|----------|-------------------|
+All files |        0 |        0 |        0 |        0 |                   |
+----------|----------|----------|----------|----------|-------------------|
 ```
 
 ## coverage
@@ -117,7 +132,7 @@ and if it's less than 0, it should return 'negative'.
 
 ```javascript
 // my-awesome-module.js
-module.exports = function (x) {
+module.exports = x => {
   if (x % 2 === 0) {
     return 'even'
   } else if (x % 2 === 1) {
@@ -137,8 +152,8 @@ result:
 
 ```javascript
 // test/basic.js
-var tap = require('tap')
-var mam = require('../my-awesome-module.js')
+const tap = require('tap')
+const mam = require('../my-awesome-module.js')
 
 // Always call as (found, wanted) by convention
 tap.equal(mam(1), 'odd')
@@ -150,61 +165,45 @@ Looks good to me!
 ```bash
 $ npm test
 
-> my-awesome-module@1.2.3 test /home/isaacs/my-awesome-module
-> tap test/*.js
+> my-awesome-module@1.2.3 test /Users/isaacs/dev/js/tap/docs/basics/my-awesome-module
+> tap
 
-test/basic.js ......................................... 2/2
-test/hello-world.js ................................... 1/1
-total ................................................. 3/3
+ PASS  test/basic.js 2 OK 1s
+ PASS  test/hello-world.js 1 OK 1s
 
-  3 passing (451.79ms)
 
-  ok
+  🌈 SUMMARY RESULTS 🌈
+
+
+Suites:   2 passed, 2 of 2 completed
+Asserts:  3 passed, of 3
+Time:     1s
+----------------------|----------|----------|----------|----------|-------------------|
+File                  |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
+----------------------|----------|----------|----------|----------|-------------------|
+All files             |    55.56 |     37.5 |      100 |    55.56 |                   |
+ my-awesome-module.js |    55.56 |     37.5 |      100 |    55.56 |           6,7,8,9 |
+----------------------|----------|----------|----------|----------|-------------------|
 ```
 
-Let's run with test coverage turned on, just to be sure:
-
-```bash
-$ npm test -- --cov
-
-> my-awesome-module@1.2.3 test /home/isaacs/my-awesome-module
-> tap test/*.js "--cov"
-
-test/basic.js ......................................... 2/2 575ms
-test/hello-world.js ................................... 1/1
-total ................................................. 3/3
-
-  3 passing (889.135ms)
-
-  ok
------------------------|----------|----------|----------|----------|----------------|
-File                   |  % Stmts | % Branch |  % Funcs |  % Lines |Uncovered Lines |
------------------------|----------|----------|----------|----------|----------------|
- __root__/             |    55.56 |     37.5 |      100 |    55.56 |                |
-  my-awesome-module.js |    55.56 |     37.5 |      100 |    55.56 |       7,8,9,10 |
------------------------|----------|----------|----------|----------|----------------|
-All files              |    55.56 |     37.5 |      100 |    55.56 |                |
------------------------|----------|----------|----------|----------|----------------|
-```
-
-Ouch, only 50% coverage.  That's not very good.  Let's see what lines
+Ouch, only 55% coverage.  That's not very good.  Let's see what lines
 are covered:
 
 ```bash
-$ npm test -- --cov --coverage-report=lcov
+$ npm test -- --coverage-report=lcov
 ```
 
 This runs the tests and opens a [pretty coverage
-report](/basics/coverage-example-1/lcov-report/root/index.html) in a
-web browser.  This shows that the second half of our function isn't
-being called.
+report](/basics/my-awesome-module/coverage-1/lcov-report/index.html) in a
+web browser.  This shows that the second half of our function [isn't being
+called](/basics/my-awesome-module/coverage-1/lcov-report/my-awesome-module.js.html).
 
 Ok, add some more tests then:
 
 ```js
 // test/basic.js
-var tap = require('tap')
-var mam = require('../my-awesome-module.js')
+const tap = require('tap')
+const mam = require('../my-awesome-module.js')
 
 // Always call as (found, wanted) by convention
 tap.equal(mam(1), 'odd')
@@ -218,49 +217,61 @@ Now the test output gets a lot more interesting:
 ```bash
 $ npm t
 
-> my-awesome-module@1.2.3 test /home/isaacs/my-awesome-module
-> tap test/*.js
+> my-awesome-module@1.2.3 test /Users/isaacs/dev/js/tap/docs/basics/my-awesome-module
+> tap
 
-test/basic.js ......................................... 2/4
-  not ok should be equal
-    +++ found
-    --- wanted
-    -big
-    +even
-    compare: ===
-    at:
-      file: test/basic.js
-      line: 8
-      column: 5
-    source: |
-      tap.equal(mam(200), 'big')
-    stack: |
-      Object.<anonymous> (test/basic.js:8:5)
-      node.js:951:3
+ FAIL  test/basic.js
+ ✖ should be equal
 
-  not ok should be equal
-    +++ found
-    --- wanted
-    -negative
-    +even
-    compare: ===
-    at:
-      file: test/basic.js
-      line: 9
-      column: 5
-    source: |
-      tap.equal(mam(-10), 'negative')
-    stack: |
-      Object.<anonymous> (test/basic.js:9:5)
-      node.js:951:3
+  test/basic.js
+  6 | tap.equal(mam(1), 'odd')
+  7 | tap.equal(mam(2), 'even')
+> 8 | tap.equal(mam(200), 'big')
+    | ----^
+  9 | tap.equal(mam(-10), 'negative')
 
-test/hello-world.js ................................... 1/1
-total ................................................. 3/5
+  --- wanted
+  +++ found
+  -big
+  +even
+
+ FAIL  test/basic.js
+ ✖ should be equal
+
+  test/basic.js
+  7 | tap.equal(mam(2), 'even')
+  8 | tap.equal(mam(200), 'big')
+> 9 | tap.equal(mam(-10), 'negative')
+    | ----^
+
+  --- wanted
+  +++ found
+  -negative
+  +even
+
+ PASS  test/hello-world.js 1 OK 2s
+ FAIL  test/basic.js 2 failed of 4 2s
+ ✖ should be equal
+ ✖ should be equal
 
 
-  3 passing (440.796ms)
-  2 failing
 
+  🌈 SUMMARY RESULTS 🌈
+
+
+ FAIL  test/basic.js 2 failed of 4 2s
+ ✖ should be equal
+ ✖ should be equal
+
+Suites:   1 failed, 1 passed, 2 of 2 completed
+Asserts:  2 failed, 3 passed, of 5
+Time:     2s
+----------------------|----------|----------|----------|----------|-------------------|
+File                  |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
+----------------------|----------|----------|----------|----------|-------------------|
+All files             |    55.56 |     37.5 |      100 |    55.56 |                   |
+ my-awesome-module.js |    55.56 |     37.5 |      100 |    55.56 |           6,7,8,9 |
+----------------------|----------|----------|----------|----------|-------------------|
 npm ERR! Test failed.  See above for more details.
 ```
 
@@ -268,7 +279,7 @@ Let's update our code so that it makes our tests pass:
 
 ```js
 // my-awesome-module.js
-module.exports = function (x) {
+module.exports = x => {
   if (x > 100) {
     return 'big'
   } else if (x < 0) {
@@ -284,26 +295,27 @@ module.exports = function (x) {
 And now our coverage report is much happier:
 
 ```bash
-$ npm t -- --cov
+$ npm t
 
-> my-awesome-module@1.2.3 test /home/isaacs/my-awesome-module
-> tap test/*.js "--cov"
+> my-awesome-module@1.2.3 test /Users/isaacs/dev/js/tap/docs/basics/my-awesome-module
+> tap
 
-test/basic.js ......................................... 4/4
-test/hello-world.js ................................... 1/1 257ms
-total ................................................. 5/5
+ PASS  test/hello-world.js 1 OK 1s
+ PASS  test/basic.js 4 OK 1s
 
-  5 passing (886.473ms)
 
-  ok
------------------------|----------|----------|----------|----------|----------------|
-File                   |  % Stmts | % Branch |  % Funcs |  % Lines |Uncovered Lines |
------------------------|----------|----------|----------|----------|----------------|
- __root__/             |      100 |      100 |      100 |      100 |                |
-  my-awesome-module.js |      100 |      100 |      100 |      100 |                |
------------------------|----------|----------|----------|----------|----------------|
-All files              |      100 |      100 |      100 |      100 |                |
------------------------|----------|----------|----------|----------|----------------|
+  🌈 SUMMARY RESULTS 🌈
+
+
+Suites:   2 passed, 2 of 2 completed
+Asserts:  5 passed, of 5
+Time:     2s
+----------------------|----------|----------|----------|----------|-------------------|
+File                  |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
+----------------------|----------|----------|----------|----------|-------------------|
+All files             |      100 |      100 |      100 |      100 |                   |
+ my-awesome-module.js |      100 |      100 |      100 |      100 |                   |
+----------------------|----------|----------|----------|----------|-------------------|
 ```
 
 ## async stuff
@@ -321,10 +333,10 @@ done.
 ```javascript
 // test/async.js
 // this is a silly test.
-var tap = require('tap')
-var fs = require('fs')
-tap.test('some async stuff', function (childTest) {
-  fs.readdir(__dirname, function (er, files) {
+const tap = require('tap')
+const fs = require('fs')
+tap.test('some async stuff', childTest => {
+  fs.readdir(__dirname, (er, files) => {
     if (er) {
       throw er // tap will handle this
     }
@@ -333,7 +345,7 @@ tap.test('some async stuff', function (childTest) {
   })
 })
 
-tap.test('this waits until after', function (childTest) {
+tap.test('this waits until after', childTest => {
   // no asserts?  no problem!
   // the lack of throwing means "success"
   childTest.end()
@@ -367,17 +379,26 @@ If you run it with tap, it'll look just like the others
 ```bash
 $ npm t
 
-> my-awesome-module@1.2.3 test /home/isaacs/my-awesome-module
-> tap test/*.js
+> my-awesome-module@1.2.3 test /Users/isaacs/dev/js/tap/docs/basics/my-awesome-module
+> tap
 
-test/async.js ......................................... 2/2
-test/basic.js ......................................... 4/4
-test/hello-world.js ................................... 1/1
-total ................................................. 7/7
+ PASS  test/hello-world.js 1 OK 1s
+ PASS  test/async.js 2 OK 1s
+ PASS  test/basic.js 4 OK 1s
 
-  7 passing (658.444ms)
 
-    ok
+  🌈 SUMMARY RESULTS 🌈
+
+
+Suites:   3 passed, 3 of 3 completed
+Asserts:  7 passed, of 7
+Time:     2s
+----------------------|----------|----------|----------|----------|-------------------|
+File                  |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
+----------------------|----------|----------|----------|----------|-------------------|
+All files             |      100 |      100 |      100 |      100 |                   |
+ my-awesome-module.js |      100 |      100 |      100 |      100 |                   |
+----------------------|----------|----------|----------|----------|-------------------|
 ```
 
 Tap's [promise](/promises/) support means it plays great with
@@ -385,21 +406,13 @@ async/await.  Stuff like this will Just Work out of the box if you
 have a JS engine that supports async functions:
 
 ```js
-var tap = require('tap')
-tap.test(async function (t) {
-  var result = await doSomethingAsync()
+const tap = require('tap')
+tap.test(async t => {
+  const result = await doSomethingAsync()
   t.match(result, { ok: true, message: /dogs/ }, 'dogs are ok')
   // Or you can use any assertion lib you like.  as long as this
   // code doesn't throw an error, it's a pass!
 })
 ```
 
-## bonus points
-
-You can do these things for extra credit.
-
-1. Put `--cov` in your package.json test script to always run tests
-   with [coverage](/coverage/).
-2. Install `tap` globally to [run it](/cli/) directly.
-
-See the [API reference](/api/) to learn more.
+See the [API reference](/api/) to learn more!

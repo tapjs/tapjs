@@ -4,7 +4,6 @@ node_js:
   - 11
   - 10
   - 8
-  - 6
 
 os:
   - linux
@@ -15,5 +14,3 @@ cache:
 
 notifications:
   email: false
-script:
-  - npm run test

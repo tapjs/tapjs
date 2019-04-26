@@ -26,6 +26,32 @@ Similar to the `Test` class, but instead of a callback that gets a
 object with assertion methods, it reads the process standard input,
 and parses that as [TAP](/tap-format)-formatted data.
 
+## t.counts
+
+This is an object with counters representing the number of pass, fail, todo,
+skip, and total assertions made by this test and any subtests, primarily for
+use in reporting.
+
+Fields:
+
+- t.counts.total
+- t.counts.pass
+- t.counts.fail
+- t.counts.skip
+- t.counts.todo
+
+## t.lists
+
+This is an object with lists of the failed, todo, and skip assertions in this
+test and any subtests, primarily for use in reporting.
+
+Fields:
+
+- t.lists.fail
+- t.lists.todo
+- t.lists.skip
+
+
 ## t.stdin()
 
 Parse standard input as if it was a child test named `/dev/stdin`.
@@ -35,6 +61,16 @@ is completed.
 
 This is primarily for use in the test runner, so that you can do
 `some-tap-emitting-program | tap other-file.js - -Rnyan`.
+
+## t.stdinOnly()
+
+Parse standard input without wrapping it in a child test.
+
+This is only allowed if the test object has no other children and has
+printed no assertions.  Once engaged, any attempt to use normal test
+methods will throw an error.  It only exists to support piping a TAP
+stream into the tap executable for reporting, which is a very specialized
+use case.
 
 ## t.spawn(command, arguments, [options], [name])
 
@@ -88,25 +124,23 @@ For example, you could have a file at `test/setup.js` that does the
 following:
 
 ```javascript
-var tap = require('tap')
+const t = require('tap')
 
 // convenience
 if (module === require.main) {
-  tap.pass('ok')
+  t.pass('ok')
   return
 }
 
 // Add an assertion that a string is in Title Case
 // It takes one argument (the string to be tested)
-tap.Test.prototype.addAssert('titleCase', 1, function (str, message, extra) {
+t.Test.prototype.addAssert('titleCase', 1, function (str, message, extra) {
   message = message || 'should be in Title Case'
   // the string in Title Case
   // A fancier implementation would avoid capitalizing little words
   // to get `Silence of the Lambs` instead of `Silence Of The Lambs`
   // But whatever, it's just an example.
-  var tc = str.toLowerCase().replace(/\b./, function (match) {
-    return match.toUpperCase()
-  })
+  const tc = str.toLowerCase().replace(/\b./, match => match.toUpperCase())
 
   // should always return another assert call, or
   // this.pass(message) or this.fail(message, extra)
@@ -118,9 +152,9 @@ Then in your individual tests, you'd do this:
 
 ```javascript
 require('./setup.js') // adds the assert
-var tap = require('tap')
-tap.titleCase('This Passes')
-tap.titleCase('however, tHis tOTaLLy faILS')
+const t = require('tap')
+t.titleCase('This Passes')
+t.titleCase('however, tHis tOTaLLy faILS')
 ```
 
 ## t.endAll()

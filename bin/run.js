@@ -1,76 +1,255 @@
 #!/usr/bin/env node
-'use strict'
-
+const opener = require('opener')
 const node = process.execPath
 const fs = require('fs')
-const spawn = require('child_process').spawn
 const fg = require('foreground-child')
-const opener = require('opener')
-const colorSupport = require('color-support')
-const nycBin = require.resolve('nyc/bin/nyc.js')
+const {spawn} = require('child_process')
+const nycBin = require.resolve(
+  'nyc/' + require('nyc/package.json').bin.nyc
+)
 const glob = require('glob')
 const isexe = require('isexe')
-const osHomedir = require('os-homedir')
-const yaml = require('js-yaml')
+const yaml = require('tap-yaml')
 const path = require('path')
 const exists = require('fs-exists-cached').sync
 const os = require('os')
 const isTTY = process.stdin.isTTY || process.env._TAP_IS_TTY === '1'
 const tsNode = require.resolve('ts-node/register')
+const esm = require.resolve('esm')
+const jsx = require.resolve('./jsx.js')
+const mkdirp = require('mkdirp')
+const which = require('which')
+const {ProcessDB} = require('istanbul-lib-processinfo')
+const rimraf = require('rimraf').sync
 
-const coverageServiceTest = process.env.COVERAGE_SERVICE_TEST === 'true'
+const watchStart = exports.watchStart = options => {
+  if (!options.coverage)
+    throw new Error('--watch requires coverage to be enabled')
 
-// NYC will not wrap a module in node_modules.
-// So, we need to tell the child proc when it's been added.
-// Of course, this can't reasonably be branch-covered, so ignore it.
-/* istanbul ignore next */
-if (process.env._TAP_COVERAGE_ === '1')
-  global.__coverage__ = global.__coverage__ || {}
-else if (process.env._TAP_COVERAGE_ === '0') {
-  global.__coverage__ = null
-  Object.keys(process.env).filter(k => /NYC/.test(k)).forEach(k =>
-    process.env[k] = '')
+  const args = [__filename, ...options._.parsed.filter(c => c !== '--watch')]
+  console.error('initial test run', args.slice(1))
+  const c = spawn(process.execPath, args, {
+    stdio: 'inherit'
+  })
+  c.on('close', () => watchMain(options, args))
 }
 
-/* istanbul ignore next */
-if (coverageServiceTest)
-  console.log('COVERAGE_SERVICE_TEST')
+const watchList = index => [...new Set([
+  ...Object.keys(index.files),
+  ...Object.keys(index.externalIds),
+])]
 
-// Add new coverage services here.
-// it'll check for the environ named and pipe appropriately.
-//
-// Currently only Coveralls is supported, but the infrastructure
-// is left in place in case some noble soul fixes the codecov
-// module in the future.  See https://github.com/tapjs/node-tap/issues/270
-const coverageServices = [
-  {
-    env: 'COVERALLS_REPO_TOKEN',
-    bin: require.resolve('coveralls/bin/coveralls.js'),
-    name: 'Coveralls'
+const watchMain = exports.watchMain = (options, args) => {
+  const saveFolder = 'node_modules/.cache/tap'
+  mkdirp.sync(saveFolder)
+  const saveFile = saveFolder + '/watch-' + process.pid
+  require('signal-exit')(() => rimraf(saveFile))
+
+  const chokidar = require('chokidar')
+  // watch all the files we just covered
+  const indexFile = '.nyc_output/processinfo/index.json'
+  let index = JSON.parse(fs.readFileSync(indexFile, 'utf8'))
+  const filelist = watchList(index)
+  const watcher = chokidar.watch(filelist)
+
+  const queue = []
+  let child = null
+
+  const run = (ev, file) => {
+    const tests = testsFromChange(index, file)
+
+    if (file && tests) {
+      queue.push(...tests)
+      console.error(ev, file, '\n')
+    }
+
+    if (child) {
+      console.error('test in progress, queuing for next run\n')
+      return
+    }
+
+    const set = [...new Set(queue)]
+    console.error('running tests', set, '\n')
+    fs.writeFileSync(saveFile, set.join('\n') + '\n')
+    queue.length = 0
+    child = spawn(process.execPath, [...args, '--save=' + saveFile], {
+      stdio: 'inherit'
+    }).on('close', () => {
+      // handle cases where a new file is added to index.
+      index = JSON.parse(fs.readFileSync(indexFile, 'utf8'))
+      const newFilelist = watchList(index).filter(f => !filelist.includes(f))
+      filelist.push(...newFilelist)
+      newFilelist.forEach(f => watcher.add(f))
+      // if --bail left some on the list, then add them too
+      // but ignore if it's not there.
+      try {
+        const leftover = fs.readFileSync(saveFile, 'utf8').trim().split('\n')
+        queue.push(...leftover)
+      } catch (er) {}
+      child = null
+      if (queue.length)
+        run()
+    })
   }
-]
 
-const main = _ => {
-  const args = process.argv.slice(2)
+  watchMain.close = () => watcher.close()
 
-  // set default args
-  const defaults = constructDefaultArgs()
+  // ignore the first crop of add events, since we already ran the tests
+  setTimeout(() => watcher.on('all', run), 100)
+}
 
-  // parse dotfile
-  const rcFile = process.env.TAP_RCFILE || (osHomedir() + '/.taprc')
-  const rcOptions = parseRcFile(rcFile)
+const testsFromChange = exports.testsFromChange = (index, file) =>
+  index.externalIds[file] ? [file]
+  : testsFromFile(index, file)
 
-  // supplement defaults with parsed rc options
-  Object.keys(rcOptions).forEach(k =>
-    defaults[k] = rcOptions[k])
+const testsFromFile = exports.testsFromFile = (index, file) =>
+  Array.from((index.files[file] || []).reduce((set, uuid) => {
+    for (let process = index.processes[uuid];
+        process;
+        process = process.parent && index.processes[process.parent]) {
+      if (process.externalId)
+        set.add(process.externalId)
+    }
+    return set
+  }, new Set()))
 
-  defaults.rcFile = rcFile
+const filesFromTest = exports.filesFromTest = (index, testFile) => {
+  const set = index.externalIds[testFile]
+  return !set ? null
+    : Object.keys(index.files).filter(file =>
+      index.files[file].includes(set.root) ||
+      set.children.some(c => index.files[file].includes(c)))
+}
 
-  // parse args
-  const options = parseArgs(args, defaults)
+// returns a function that tells whether a given file should be run,
+// because one or more of its deps have changed.
+const getChangedFilter = exports.getChangedFilter = options => {
+  if (!options.changed)
+    return () => true
 
-  if (!options)
+  if (!options.coverage)
+    throw new Error('--changed requires coverage to be enabled')
+
+  const indexFile = '.nyc_output/processinfo/index.json'
+
+  if (!fs.existsSync(indexFile))
+    return () => true
+
+  const indexDate = fs.statSync(indexFile).mtime
+  const index = JSON.parse(fs.readFileSync(indexFile, 'utf8'))
+
+  return testFile => {
+    if (fs.statSync(testFile).mtime > indexDate)
+      return true
+
+    const files = filesFromTest(index, testFile)
+
+    // if not found, probably a test file not run last time, so run it
+    if (!files)
+      return true
+
+    // if the file is gone, that's a pretty big change.
+    return files.some(f => !fs.existsSync(f) || fs.statSync(f).mtime > indexDate)
+  }
+}
+
+const defaultFiles = options => new Promise((res, rej) => {
+  const findit = require('findit')
+  const good = strToRegExp(options['test-regex'])
+  const bad = strToRegExp(options['test-ignore'])
+  const fileFilter = f => {
+    const parts = f.split(/\\|\//)
+    return good.test(f) &&
+      !bad.test(f) &&
+      !parts.includes('node_modules') &&
+      !parts.includes('tap-snapshots') &&
+      !parts.includes('fixtures') &&
+      !parts.includes('.git') &&
+      !parts.includes('.hg')
+  }
+
+  const addFile = files => f => fileFilter(f) && files.push(f)
+
+  // search in any folder that isn't node_modules, .git, or tap-snapshots
+  // these can get pretty huge, so just walking them at all is costly
+  fs.readdir(process.cwd(), (er, entries) => {
+    Promise.all(entries.filter(entry =>
+      !/^(node_modules|tap-snapshots|.git|.hg|fixtures)$/.test(entry)
+    ).map(entry => new Promise((res, rej) => {
+      fs.lstat(entry, (er, stat) => {
+        // It's pretty unusual to have a file in cwd you can't even stat
+        /* istanbul ignore next */
+        if (er)
+          return rej(er)
+        if (stat.isFile())
+          return res(fileFilter(entry) ? [entry] : [])
+        if (!stat.isDirectory())
+          return res([])
+        const finder = findit(entry)
+        const files = []
+        finder.on('file', addFile(files))
+        finder.on('end', () => res(files))
+        finder.on('error', /* istanbul ignore next */ er => rej(er))
+      })
+    }))).then(a => res(a.reduce((a, i) => a.concat(i), []))).catch(rej)
+  })
+})
+
+const main = async options => {
+  if (require.main !== module)
     return
+
+  const rc = parseRcFile(options.rcfile)
+  for (let i in rc) {
+    if (!options._.explicit.has(i))
+      options[i] = rc[i]
+  }
+
+  const pj = parsePackageJson()
+  for (let i in pj) {
+    if (!options._.explicit.has(i))
+      options[i] = pj[i]
+  }
+
+  // tell chalk if we want color or not.
+  if (!options.color)
+    process.env.FORCE_COLOR = '0'
+  else
+    process.env.FORCE_COLOR = '1'
+
+  if (options.reporter === null)
+    options.reporter = options.color ? 'base' : 'tap'
+
+  if (options['dump-config']) {
+    console.log(yaml.stringify(Object.keys(options).filter(k =>
+      k !== 'dump-config' && k !== '_' && !/^[A-Z_]+$/.test(k)
+    ).sort().reduce((set, k) =>
+      (set[k] = options[k], set), {})))
+    return
+  }
+
+  if (options.versions) {
+    return console.log(yaml.stringify({
+      tap: require('../package.json').version,
+      'tap-parser': require('tap-parser/package.json').version,
+      nyc: require('nyc/package.json').version,
+      'tap-yaml': require('tap-yaml/package.json').version,
+      treport: require('treport/package.json').version,
+      tcompare: require('tcompare/package.json').version,
+    }))
+  }
+
+  if (options.version)
+    return console.log(require('../package.json').version)
+
+  if (options['parser-version'])
+    return console.log(require('tap-parser/package.json').version)
+
+  if (options['nyc-version'])
+    return console.log(require('nyc/package.json').version)
+
+  if (options['nyc-help'])
+    return nycHelp()
 
   process.stdout.on('error', er => {
     /* istanbul ignore else */
@@ -80,528 +259,168 @@ const main = _ => {
       throw er
   })
 
-  options.files = globFiles(options.files)
+  // we test this function directly, not from here.
+  /* istanbul ignore next */
+  if (options.watch)
+    return watchStart(options)
 
-  if (!args.length && !options.files.length && isTTY) {
-    console.error(usage())
-    process.exit(1)
-  }
+  options.grep = options.grep.map(strToRegExp)
 
   // this is only testable by escaping from the covered environment
   /* istanbul ignore next */
-  if ((options.coverageReport || options.checkCoverage) &&
-      options.files.length === 0)
-    return runCoverageReport(options)
+  if (fs.existsSync('.nyc_output') &&
+      options._.length === 0 &&
+      (options._.explicit.has('coverage-report') ||
+        options._.explicit.has('check-coverage')))
+    return runCoverageReportOnly(options)
 
-  if (options.files.length === 0) {
-    console.error('Reading TAP data from stdin (use "-" argument to suppress)')
-    options.files.push('-')
+  try {
+    if (options._.length === 0 && isTTY)
+      options._.push.apply(options._, await defaultFiles(options))
+  } /* istanbul ignore next */ catch (er) /* istanbul ignore next */ {
+    // This gets tested on Mac, but not Linux/travis, and is
+    // somewhat challenging to do in a cross-platform way.
+    /* istanbul ignore next */
+    return require('../lib/tap.js').threw(er)
   }
 
+  options.files = globFiles(options._)
+
+  if (options.files.length === 0 && !isTTY)
+    options.files.push('-')
+
+  if (options['output-dir'] !== null)
+    mkdirp.sync(options['output-dir'])
+
   if (options.files.length === 1 && options.files[0] === '-') {
-    if (options.coverage)
-      console.error('Coverage disabled because stdin cannot be instrumented')
     setupTapEnv(options)
     stdinOnly(options)
     return
   }
 
-  // By definition, the next block cannot be covered, because
-  // they are only relevant when coverage is turned off.
+  options.saved = readSaveFile(options)
+  options.changedFilter = getChangedFilter(options)
+
   /* istanbul ignore next */
-  if (options.coverage && !global.__coverage__) {
-    return respawnWithCoverage(options)
+  if (options.coverage && !process.env.NYC_CONFIG)
+    respawnWithCoverage(options)
+  else {
+    setupTapEnv(options)
+    runTests(options)
   }
-
-  setupTapEnv(options)
-  runTests(options)
 }
 
-const constructDefaultArgs = _ => {
-  /* istanbul ignore next */
-  const defaultTimeout = global.__coverage__ ? 240 : 30
-
-  const defaultArgs = {
-    nodeArgs: [],
-    nycArgs: [],
-    testArgs: [],
-    timeout: +process.env.TAP_TIMEOUT || defaultTimeout,
-    color: !!colorSupport.level,
-    reporter: null,
-    files: [],
-    esm: true,
-    grep: [],
-    grepInvert: false,
-    bail: false,
-    saveFile: null,
-    pipeToService: false,
-    coverageReport: null,
-    browser: true,
-    coverage: undefined,
-    checkCoverage: false,
-    branches: 0,
-    functions: 0,
-    lines: 0,
-    statements: 0,
-    jobs: 1,
-    outputFile: null,
-    comments: false
-  }
-
-  if (process.env.TAP_COLORS !== undefined)
-    defaultArgs.color = !!(+process.env.TAP_COLORS)
-
-  return defaultArgs
-}
-
-const parseArgs = (args, options) => {
-  const singleFlags = {
-    b: 'bail',
-    B: 'no-bail',
-    i: 'invert',
-    I: 'no-invert',
-    c: 'color',
-    C: 'no-color',
-    T: 'no-timeout',
-    J: 'jobs-auto',
-    O: 'only',
-    h: 'help',
-    '?': 'help',
-    v: 'version'
-  }
-
-  const singleOpts = {
-    j: 'jobs',
-    g: 'grep',
-    R: 'reporter',
-    t: 'timeout',
-    s: 'save',
-    o: 'output-file'
-  }
-
-  // If we're running under Travis-CI with a Coveralls.io token,
-  // then it's a safe bet that we ought to output coverage.
-  for (let i = 0; i < coverageServices.length && !options.pipeToService; i++) {
-    /* istanbul ignore next */
-    if (process.env[coverageServices[i].env])
-      options.pipeToService = true
-  }
-
-  let defaultCoverage = options.pipeToService
-  let dumpConfig = false
-
-  for (let i = 0; i < args.length; i++) {
-    const arg = args[i]
-    if (arg.charAt(0) !== '-' || arg === '-') {
-      options.files.push(arg)
-      continue
-    }
-
-    // short-flags
-    if (arg.charAt(1) !== '-' && arg !== '-gc') {
-      const expand = []
-      for (let f = 1; f < arg.length; f++) {
-        const fc = arg.charAt(f)
-        const sf = singleFlags[fc]
-        const so = singleOpts[fc]
-        if (sf)
-          expand.push('--' + sf)
-        else if (so) {
-          const soslice = arg.slice(f + 1)
-          const soval = soslice.charAt(0) === '=' ? soslice : '=' + soslice
-          expand.push('--' + so + soval)
-          f = arg.length
-        } else if (arg !== '-' + fc)
-          expand.push('-' + fc)
-      }
-      if (expand.length) {
-        args.splice.apply(args, [i, 1].concat(expand))
-        i--
-        continue
-      }
-    }
-
-    const argsplit = arg.split('=')
-    const key = argsplit.shift()
-    const val = argsplit.length ? argsplit.join('=') : null
-
-    switch (key) {
-      case '--help':
-        console.log(usage())
-        return null
-
-      case '--dump-config':
-        dumpConfig = true
-        continue
-
-      case '--nyc-help':
-        nycHelp()
-        return null
-
-      case '--nyc-version':
-        nycVersion()
-        return null
-
-      case '--version':
-        console.log(require('../package.json').version)
-        return null
-
-      case '--jobs':
-        options.jobs = +(val || args[++i])
-        continue
-
-      case '--jobs-auto':
-        options.jobs = +os.cpus().length
-        continue
-
-      case '--coverage-report':
-        options.coverageReport = val || args[++i]
-        if (options.coverageReport === 'html')
-          options.coverageReport = 'lcov'
-        defaultCoverage = true
-        continue
-
-      case '--no-esm':
-        options.esm = false
-        continue
-
-      case '--esm':
-        options.esm = true
-        continue
-
-      case '--no-browser':
-        options.browser = false
-        continue
-
-      case '--no-coverage-report':
-        options.coverageReport = false
-        continue
-
-      case '--no-cov': case '--no-coverage':
-        options.coverage = false
-        continue
-
-      case '--cov': case '--coverage':
-        options.coverage = true
-        continue
-
-      case '--save':
-        options.saveFile = val || args[++i]
-        continue
-
-      case '--reporter':
-        options.reporter = val || args[++i]
-        continue
-
-      case '--gc': case '-gc': case '--expose-gc':
-        options.nodeArgs.push('--expose-gc')
-        continue
-
-      case '--strict':
-        options.nodeArgs.push('--use_strict')
-        continue
-
-      case '--debug':
-        options.nodeArgs.push('--debug')
-        continue
-
-      case '--debug-brk':
-        options.nodeArgs.push('--debug-brk')
-        continue
-
-      case '--harmony':
-        options.nodeArgs.push('--harmony')
-        continue
-
-      case '--node-arg': {
-        const v = val || args[++i]
-        if (v !== undefined)
-          options.nodeArgs.push(v)
-        continue
-      }
-
-      case '--check-coverage':
-        defaultCoverage = true
-        options.checkCoverage = true
-        continue
-
-      case '--test-arg': {
-        const v = val || args[++i]
-        if (v !== undefined)
-          options.testArgs.push(v)
-        continue
-      }
-
-      case '--nyc-arg': {
-        const v = val || args[++i]
-        if (v !== undefined)
-          options.nycArgs.push(v)
-        continue
-      }
-
-      case '--100':
-        defaultCoverage = true
-        options.checkCoverage = true
-        options.branches = 100
-        options.functions = 100
-        options.lines = 100
-        options.statements = 100
-        continue
-
-      case '--branches':
-      case '--functions':
-      case '--lines':
-      case '--statements':
-        defaultCoverage = true
-        options.checkCoverage = true
-        options[key.slice(2)] = +(val || args[++i])
-        continue
-
-      case '--color':
-        options.color = true
-        continue
-
-      case '--no-color':
-        options.color = false
-        continue
-
-      case '--output-file': {
-        const v = val || args[++i]
-        if (v !== undefined)
-          options.outputFile = v
-        continue
-      }
-
-      case '--no-timeout':
-        options.timeout = 0
-        continue
-
-      case '--timeout':
-        options.timeout = +(val || args[++i])
-        continue
-
-      case '--invert':
-        options.grepInvert = true
-        continue
-
-      case '--no-invert':
-        options.grepInvert = false
-        continue
-
-      case '--grep': {
-        const v = val || args[++i]
-        if (v !== undefined)
-          options.grep.push(strToRegExp(v))
-        continue
-      }
-
-      case '--bail':
-        options.bail = true
-        continue
-
-      case '--no-bail':
-        options.bail = false
-        continue
-
-      case '--only':
-        options.only = true
-        continue
-
-      case '--comments':
-        options.comments = true
-        continue
-
-      case '--':
-        options.files = options.files.concat(args.slice(i + 1))
-        i = args.length
-        continue
-
-      default:
-        throw new Error('Unknown argument: ' + arg)
-    }
-  }
-
-  if (options.coverage === undefined)
-    options.coverage = defaultCoverage
-
-  if (process.env.TAP === '1')
-    options.reporter = 'tap'
-
-  // default to tap for non-tty envs
-  if (!options.reporter)
-    options.reporter = options.color ? 'classic' : 'tap'
-
-  if (dumpConfig)
-    return console.log(JSON.stringify(options, null, 2))
-
-  return options
-}
-
-// Obviously, this bit isn't going to ever be covered, because
-// it only runs when we DON'T have coverage enabled, to enable it.
 /* istanbul ignore next */
-const respawnWithCoverage = options => {
-  // Re-spawn with coverage
-  const args = [nycBin].concat(
-    '--silent',
+const nycReporter = options =>
+  options['coverage-report'] === 'html' ? 'lcov'
+  : (options['coverage-report'] || 'text')
+
+/* istanbul ignore next */
+const runNyc = (cmd, programArgs, options, spawnOpts) => {
+  const reporter = nycReporter(options)
+
+  const args = [
+    nycBin,
+    ...cmd,
+    ...(options['show-process-tree'] ? ['--show-process-tree'] : []),
     '--cache=true',
+    '--branches=' + options.branches,
+    '--functions=' + options.functions,
+    '--lines=' + options.lines,
+    '--statements=' + options.statements,
+    '--reporter=' + reporter,
     '--extension=.js',
     '--extension=.jsx',
     '--extension=.mjs',
     '--extension=.ts',
     '--extension=.tsx',
-    options.nycArgs,
-    '--',
-    process.execArgv,
-    process.argv.slice(1)
-  )
-  process.env._TAP_COVERAGE_ = '1'
-  const child = fg(node, args)
-  child.removeAllListeners('close')
-  child.on('close', (code, signal) =>
-    runCoverageReport(options, code, signal))
+    ...(options['nyc-arg'] || []),
+  ]
+  if (options['check-coverage'])
+    args.push('--check-coverage')
+
+  args.push.apply(args, programArgs)
+
+  if (spawnOpts)
+    return fg(node, args, spawnOpts)
+
+  // fake it
+  process.argv = [
+    node,
+    ...args,
+  ]
+  require(nycBin)
+
+  if (reporter === 'lcov' && options.browser)
+    process.on('exit', () => openHtmlCoverageReport(options))
 }
 
 /* istanbul ignore next */
-const pipeToCoverageServices = (options, child) => {
-  let piped = false
-  for (let i = 0; i < coverageServices.length; i++) {
-    if (process.env[coverageServices[i].env]) {
-      pipeToCoverageService(coverageServices[i], options, child)
-      piped = true
-    }
+const runCoverageReportOnly = options => {
+  runNyc(['report'], [], options)
+  if (process.env.COVERALLS_REPO_TOKEN ||
+      process.env.__TAP_COVERALLS_TEST__) {
+    pipeToCoveralls()
   }
-
-  if (!piped)
-    throw new Error('unknown service, internal error')
 }
 
 /* istanbul ignore next */
-const pipeToCoverageService = (service, options, child) => {
-  let bin = service.bin
-
-  if (coverageServiceTest) {
-    // test scaffolding.
-    // don't actually send stuff to the service
-    bin = require.resolve('../test-legacy/fixtures/cat.js')
-    console.log('%s:%s', service.name, process.env[service.env])
-  }
-
-  const ca = spawn(node, [bin], {
-    stdio: [ 'pipe', 1, 2 ]
+const pipeToCoveralls = async options => {
+  const reporter = spawn(node, [nycBin, 'report', '--reporter=text-lcov'], {
+    stdio: [ 0, 'pipe', 2 ]
   })
 
-  child.stdout.pipe(ca.stdin)
+  const bin = process.env.__TAP_COVERALLS_TEST__
+    || require.resolve('coveralls/bin/coveralls.js')
 
-  ca.on('close', (code, signal) =>
-    signal ? process.kill(process.pid, signal)
-    : code ? console.log('Error piping coverage to ' + service.name)
-    : console.log('Successfully piped to ' + service.name))
+  const ca = spawn(node, [bin], { stdio: ['pipe', 1, 2] })
+  reporter.stdout.pipe(ca.stdin)
+  await new Promise(resolve => ca.on('close', resolve))
 }
 
 /* istanbul ignore next */
-const runCoverageReport = (options, code, signal) =>
-  signal ? null
-  : options.checkCoverage ? runCoverageCheck(options, code, signal)
-  : runCoverageReportOnly(options, code, signal)
-
-/* istanbul ignore next */
-const runCoverageReportOnly = (options, code, signal) => {
-  const close = (s, c) => {
-    if (signal || s) {
-      setTimeout(() => {}, 200)
-      process.kill(process.pid, signal || s)
-    } else if (code || c)
-      process.exit(code || c)
-  }
-
-  if (options.coverageReport === false)
-    return close(code, signal)
-
-  if (!options.coverageReport) {
-    if (options.pipeToService || coverageServiceTest)
-      options.coverageReport = 'text-lcov'
-    else
-      options.coverageReport = 'text'
-  }
-
-  const args = [nycBin, 'report', '--reporter', options.coverageReport]
-
-  let child
-  // automatically hook into coveralls
-  if (options.coverageReport === 'text-lcov' && options.pipeToService) {
-    child = spawn(node, args, { stdio: [ 0, 'pipe', 2 ] })
-    pipeToCoverageServices(options, child)
-  } else {
-    // otherwise just run the reporter
-    child = fg(node, args)
-    if (options.coverageReport === 'lcov' && options.browser)
-      child.on('exit', () =>
-        opener('coverage/lcov-report/index.html'))
-  }
-
-  if (code || signal) {
-    child.removeAllListeners('close')
-    child.on('close', close)
-  }
+const respawnWithCoverage = options => {
+  // If we have a coverage map, then include nothing by default here.
+  runNyc(options['coverage-map'] ? [
+    '--include=',
+    '--no-exclude-after-remap',
+    ...(options.saved || options.changed ? ['--no-clean'] : []),
+  ] : [], [
+    '--',
+    node,
+    ...process.execArgv,
+    ...process.argv.slice(1)
+  ], options)
 }
 
 /* istanbul ignore next */
-const coverageCheckArgs = options => {
-  const args = []
-  if (options.branches)
-    args.push('--branches', options.branches)
-  if (options.functions)
-    args.push('--functions', options.functions)
-  if (options.lines)
-    args.push('--lines', options.lines)
-  if (options.statements)
-    args.push('--statements', options.statements)
-
-  return args
+const openHtmlCoverageReport = (options, code, signal) => {
+  opener('coverage/lcov-report/index.html')
+  if (signal) {
+    setTimeout(() => {}, 200)
+    process.kill(process.pid, signal)
+  } else if (code) {
+    process.exitCode = code
+  }
 }
-
-/* istanbul ignore next */
-const runCoverageCheck = (options, code, signal) => {
-  const args = [nycBin, 'check-coverage'].concat(coverageCheckArgs(options))
-
-  const child = fg(node, args)
-  child.removeAllListeners('close')
-  child.on('close', (c, s) =>
-    runCoverageReportOnly(options, code || c, signal || s))
-}
-
-const usage = _ => fs.readFileSync(__dirname + '/usage.txt', 'utf8')
-    .split('@@REPORTERS@@')
-    .join(getReporters())
 
 const nycHelp = _ => fg(node, [nycBin, '--help'])
 
-const nycVersion = _ => console.log(require('nyc/package.json').version)
-
-const getReporters = _ => {
-  const types = require('tap-mocha-reporter').types.reduce((str, t) => {
-    const ll = str.split('\n').pop().length + t.length
-    if (ll < 40)
-      return str + ' ' + t
-    else
-      return str + '\n' + t
-  }, '').trim()
-  const ind = '                              '
-  return ind + types.split('\n').join('\n' + ind)
-}
-
-const setupTapEnv = options => {
+// export for easier testing
+const setupTapEnv = exports.setupTapEnv = options => {
   process.env.TAP_TIMEOUT = options.timeout
   if (options.color)
     process.env.TAP_COLORS = '1'
   else
     process.env.TAP_COLORS = '0'
 
+  if (options.snapshot)
+    process.env.TAP_SNAPSHOT = '1'
+
   if (options.bail)
     process.env.TAP_BAIL = '1'
 
-  if (options.grepInvert)
+  if (options.invert)
     process.env.TAP_GREP_INVERT = '1'
 
   if (options.grep.length)
@@ -612,28 +431,72 @@ const setupTapEnv = options => {
     process.env.TAP_ONLY = '1'
 }
 
-const globFiles = files => files.reduce((acc, f) =>
+const globFiles = files => Array.from(files.reduce((acc, f) =>
   acc.concat(f === '-' ? f : glob.sync(f, { nonull: true })), [])
+  .reduce((set, f) => {
+    set.add(f)
+    return set
+  }, new Set()))
 
-const makeReporter = options =>
-  new (require('tap-mocha-reporter'))(options.reporter)
+const makeReporter = exports.makeReporter = (tap, options) => {
+  const treportTypes = require('treport/types')
+  const tapMochaReporter = require('tap-mocha-reporter')
+  // if it's a treport type, use that
+  const reporter = options.reporter
+  if (reporter === 'tap')
+    tap.pipe(process.stdout)
+  else if (treportTypes.includes(reporter))
+    require('treport')(tap, reporter)
+  else if (tapMochaReporter.types.includes(reporter))
+    tap.pipe(new tapMochaReporter(options.reporter))
+  else {
+    // might be a child process or a module
+    try {
+      which.sync(reporter)
+      // it's a cli reporter!
+      const c = spawn(reporter, options['reporter-arg'], {
+        stdio: ['pipe', 1, 2]
+      })
+      tap.pipe(c.stdin)
+    } catch (_) {
+      // resolve to cwd if it's a relative path
+      const rmod = /^\.\.?[\\\/]/.test(reporter) ? path.resolve(reporter) : reporter
+      // it'll often be jsx, and this is harmless if it isn't.
+      const R = require('import-jsx')(rmod)
+      if (typeof R !== 'function' || !R.prototype)
+        throw new Error(
+          `Invalid reporter: non-class exported by ${reporter}`)
+      else if (R.prototype.isReactComponent)
+        require('treport')(tap, R)
+      else if (R.prototype.write && R.prototype.end)
+        tap.pipe(new R(...(options['reporter-arg'])))
+      else
+        throw new Error(
+          `Invalid reporter: not a stream or react component ${reporter}`)
+    }
+  }
+}
 
 const stdinOnly = options => {
   // if we didn't specify any files, then just passthrough
   // to the reporter, so we don't get '/dev/stdin' in the suite list.
   // We have to pause() before piping to switch streams2 into old-mode
-  process.stdin.pause()
-  const reporter = makeReporter(options)
-  process.stdin.pipe(reporter)
-  if (options.outputFile !== null)
-    process.stdin.pipe(fs.createWriteStream(options.outputFile))
+  const tap = require('../lib/tap.js')
+  tap.stdinOnly()
+  makeReporter(tap, options)
+
+  if (options['output-file'] !== null)
+    process.stdin.pipe(fs.createWriteStream(options['output-file']))
+  if (options['output-dir'] !== null)
+    process.stdin.pipe(fs.createWriteStream(options['output-dir'] +
+      '/stdin.tap'))
   process.stdin.resume()
 }
 
 const readSaveFile = options => {
-  if (options.saveFile)
+  if (options.save)
     try {
-      const s = fs.readFileSync(options.saveFile, 'utf8').trim()
+      const s = fs.readFileSync(options.save, 'utf8').trim()
       if (s)
         return s.split('\n')
     } catch (er) {}
@@ -642,7 +505,7 @@ const readSaveFile = options => {
 }
 
 const saveFails = (options, tap) => {
-  if (!options.saveFile)
+  if (!options.save)
     return
 
   let fails = []
@@ -665,12 +528,10 @@ const saveFails = (options, tap) => {
     }, [])
 
     if (!fails.length)
-      try {
-        fs.unlinkSync(options.saveFile)
-      } catch (er) {}
+      rimraf(options.save)
     else
       try {
-        fs.writeFileSync(options.saveFile, fails.join('\n') + '\n')
+        fs.writeFileSync(options.save, fails.join('\n') + '\n')
       } catch (er) {}
   }
 
@@ -684,20 +545,21 @@ const saveFails = (options, tap) => {
   tap.on('end', save)
 }
 
-const filterFiles = (files, saved, parallelOk) =>
+const filterFiles = exports.filterFiles = (files, options, parallelOk) =>
   files.filter(file =>
     path.basename(file) === 'tap-parallel-ok' ?
       ((parallelOk[path.resolve(path.dirname(file))] = true), false)
     : path.basename(file) === 'tap-parallel-not-ok' ?
       parallelOk[path.resolve(path.dirname(file))] = false
-    : onSavedList(saved, file)
+    : options.saved && options.saved.length ? onSavedList(options.saved, file)
+    : options.changed ? options.changedFilter(file)
+    : true
   )
 
 // check if the file is on the list, or if it's a parent dir of
 // any items that are on the list.
 const onSavedList = (saved, file) =>
-  !saved || !saved.length ? true
-  : saved.indexOf(file) !== -1 ? true
+  saved.indexOf(file) !== -1 ? true
   : saved.some(f => f.indexOf(file + '/') === 0)
 
 const isParallelOk = (parallelOk, file) => {
@@ -712,16 +574,62 @@ const isParallelOk = (parallelOk, file) => {
     : true
 }
 
-const runAllFiles = (options, saved, tap) => {
+const getEnv = options => options['test-env'].reduce((env, kv) => {
+  const split = kv.split('=')
+  const key = split.shift()
+  if (!split.length)
+    delete env[key]
+  else
+    env[key] = split.join('=')
+  return env
+}, {...process.env})
+
+// the test that checks this escapes from NYC, so it'll never show up
+/* istanbul ignore next */
+const coverageMapOverride = (env, file, coverageMap) => {
+  if (coverageMap) {
+    /* istanbul ignore next */
+    env.NYC_CONFIG_OVERRIDE = JSON.stringify({
+      include: coverageMap(file) || ''
+    })
+  }
+}
+
+const runAllFiles = (options, tap) => {
   let doStdin = false
   let parallelOk = Object.create(null)
 
-  options.files = filterFiles(options.files, saved, parallelOk)
-  let tapChildId = 0
-  const esmArg = options.esm ? ['-r', require.resolve('esm')] : []
+  if (options['output-dir'] !== null) {
+    tap.on('spawn', t => {
+      const dir = options['output-dir'] + '/' + path.dirname(t.name)
+      mkdirp.sync(dir)
+      const file = dir + '/' + path.basename(t.name) + '.tap'
+      t.proc.stdout.pipe(fs.createWriteStream(file))
+    })
+    tap.on('stdin', t => {
+      const file = options['output-dir'] + '/stdin.tap'
+      t.stream.pipe(fs.createWriteStream(file))
+    })
+  }
+
+  const env = getEnv(options)
+
+  options.files = filterFiles(options.files, options, parallelOk)
+
+  if (options.files.length === 0 && !doStdin && !options.changed) {
+    tap.fail('no tests specified')
+  }
+
+  /* istanbul ignore next */
+  const processDB = options.coverage && process.env.NYC_CONFIG
+    ? new ProcessDB() : null
+
+  /* istanbul ignore next */
+  const coverageMap = options['coverage-map']
+    ? require(path.resolve(options['coverage-map']))
+    : null
 
   for (let i = 0; i < options.files.length; i++) {
-    const opt = {}
     const file = options.files[i]
 
     // Pick up stdin after all the other files are handled.
@@ -734,30 +642,62 @@ const runAllFiles = (options, saved, tap) => {
     try {
       st = fs.statSync(file)
     } catch (er) {
+      tap.test(file, t => t.threw(er))
       continue
     }
 
-    if (options.timeout)
-      opt.timeout = options.timeout * 1000
-
-    opt.file = file
-    opt.childId = tapChildId++
     if (st.isDirectory()) {
       const dir = filterFiles(fs.readdirSync(file).map(f =>
-        file + '/' + f), saved, parallelOk)
-      options.files.push.apply(options.files, dir)
+        file.replace(/[\/\\]+$/, '') + '/' + f), options, parallelOk)
+      options.files.splice(i, 1, ...dir)
+      i--
     } else {
+      const opt = { env, file, processDB }
+
+      coverageMapOverride(env, file, coverageMap)
+
+      if (options.timeout)
+        opt.timeout = options.timeout * 1000
+
       if (options.jobs > 1)
         opt.buffered = isParallelOk(parallelOk, file) !== false
 
       if (file.match(/\.m?js$/)) {
-        const args = esmArg.concat(options.nodeArgs).concat(file).concat(options.testArgs)
+        const args = [
+          ...(options.esm ? ['-r', esm] : []),
+          ...options['node-arg'],
+          file,
+          ...options['test-arg']
+        ]
         tap.spawn(node, args, opt, file)
-      } else if (file.match(/\.ts$/)) {
-        const args = esmArg.concat(['-r', tsNode]).concat(options.nodeArgs).concat(file).concat(options.testArgs)
+      } else if (file.match(/\.tsx?$/)) {
+        const compilerOpts = JSON.stringify({
+          ...JSON.parse(process.env.TS_NODE_COMPILER_OPTIONS || '{}'),
+          jsx: 'react'
+        })
+        opt.env = {
+          ...env,
+          TS_NODE_COMPILER_OPTIONS: compilerOpts,
+        }
+        const args = [
+          '-r', tsNode,
+          ...options['node-arg'],
+          file,
+          ...options['test-arg']
+        ]
         tap.spawn(node, args, opt, file)
-      } else if (isexe.sync(options.files[i]))
-        tap.spawn(options.files[i], options.testArgs, opt, file)
+      } else if (file.match(/\.jsx$/)) {
+        const args = [
+          ...(options['node-arg']),
+          jsx,
+          file,
+          ...(options['test-arg']),
+        ]
+        tap.spawn(node, args, opt, file)
+      } else if (file.match(/\.tap$/)) {
+        tap.spawn('cat', [file], opt, file)
+      } if (isexe.sync(options.files[i]))
+        tap.spawn(options.files[i], options['test-arg'], opt, file)
     }
   }
 
@@ -766,14 +706,12 @@ const runAllFiles = (options, saved, tap) => {
 }
 
 const runTests = options => {
-  const saved = readSaveFile(options)
-
   // At this point, we know we need to use the tap root,
   // because there are 1 or more files to spawn.
   const tap = require('../lib/tap.js')
   if (options.comments) {
     const onComment = c => {
-      if (!c.match(/^# (time=[0-9\.]+m?s|Subtest(: .+))\n$/))
+      if (!c.match(/^# (time=[0-9\.]+m?s|Subtest(: .+)?)\n$/))
         console.error(c.substr(2).trim())
     }
     const onChild = p => {
@@ -793,24 +731,40 @@ const runTests = options => {
 
   // if not -Rtap, then output what the user wants.
   // otherwise just dump to stdout
-  tap.pipe(options.reporter === 'tap' ? process.stdout: makeReporter(options))
+  /* istanbul ignore next */
+  makeReporter(tap, options)
+
 
   // need to replay the first version line, because the previous
   // line will have flushed it out to stdout or the reporter already.
-  if (options.outputFile !== null)
-    tap.pipe(fs.createWriteStream(options.outputFile)).write('TAP version 13\n')
+  if (options['output-file'] !== null)
+    tap.pipe(fs.createWriteStream(options['output-file'])).write('TAP version 13\n')
 
   saveFails(options, tap)
 
-  runAllFiles(options, saved, tap)
+  runAllFiles(options, tap)
+
+  /* istanbul ignore next */
+  if (process.env.COVERALLS_REPO_TOKEN ||
+      process.env.__TAP_COVERALLS_TEST__) {
+    tap.teardown(() => pipeToCoveralls())
+  }
 
   tap.end()
+}
+
+const parsePackageJson = () => {
+  try {
+    return JSON.parse(fs.readFileSync('package.json', 'utf8')).tap || {}
+  } catch (er) {
+    return {}
+  }
 }
 
 const parseRcFile = path => {
   try {
     const contents = fs.readFileSync(path, 'utf8')
-    return yaml.safeLoad(contents) || {}
+    return yaml.parse(contents) || {}
   } catch (er) {
     // if no dotfile exists, or invalid yaml, fail gracefully
     return {}
@@ -824,4 +778,4 @@ const strToRegExp = g => {
   return new RegExp(g, flags)
 }
 
-main()
+require('./jack.js')(main)

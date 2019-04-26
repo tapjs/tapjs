@@ -56,13 +56,16 @@ But wait, where is the expected output?
 To create the snapshot file, we run this command:
 
 ```
-$ TAP_SNAPSHOT=1 tap test.js
-test.js ............................................... 1/1
-total ................................................. 1/1
+$ tap test.js --snapshot
+ PASS  test.js 1 OK 344ms
 
-  1 passing (207.826ms)
 
-  ok
+  🌈 SUMMARY RESULTS 🌈
+
+
+Suites:   1 passed, 1 of 1 completed
+Asserts:  1 passed, of 1
+Time:     422ms
 ```
 
 By setting `TAP_SNAPSHOT` in the environment, we tell tap to write the
@@ -72,16 +75,18 @@ passing.
 The generated file is designed to be human-readable, but you should
 not edit it directly.
 
-    $ cat tap-snapshots/test.js-TAP.test.js
-    /* IMPORTANT
-     * This snapshot file is auto-generated, but designed for humans.
-     * It should be checked into source control and tracked carefully.
-     * Re-generate by setting TAP_SNAPSHOT=1 and running tests.
-     * Make sure to inspect the output below.  Do not ignore changes!
-     */
-    'use strict'
-    exports[`test.js TAP > output 1`] = `
-    <tagName>content</tagName>
+```
+$ cat tap-snapshots/test.js-TAP.test.js
+/* IMPORTANT
+ * This snapshot file is auto-generated, but designed for humans.
+ * It should be checked into source control and tracked carefully.
+ * Re-generate by setting TAP_SNAPSHOT=1 and running tests.
+ * Make sure to inspect the output below.  Do not ignore changes!
+ */
+'use strict'
+exports[`test.js TAP > output 1`] = `
+<tagName>content</tagName>
+```
 
 The filename is derived from the name of the test file.  The headings
 of each string output are based on the names of your tests and
@@ -90,8 +95,8 @@ assertions, and given a numeric index to handle collisions.
 ## Snapshotting non-Strings
 
 If the argument passed to `t.matchSnapshot()` isn't a string, then it
-will be converted to a string using Node.js's `util.inspect`.  This is
-typically pretty easy for humans to understand, but of course if you
+will be converted to a string using [tcompare.format](http://npm.im/tcompare).
+This is typically pretty easy for humans to understand, but of course if you
 prefer to use `JSON.stringify` or something else, you can do so easily
 enough.
 
@@ -143,10 +148,17 @@ const output = msgTime('this is a test')
 t.matchSnapshot(clean(output), 'add timestamp to message')
 ```
 
-When run with `TAP_SNAPSHOT=1`, it generates this snapshot file:
+When run with `--snapshot`, it generates this snapshot file:
 
 ```javascript
-exports[`test.js TAP > add timestamp to message 1`] = `
+/* IMPORTANT
+ * This snapshot file is auto-generated, but designed for humans.
+ * It should be checked into source control and tracked carefully.
+ * Re-generate by setting TAP_SNAPSHOT=1 and running tests.
+ * Make sure to inspect the output below.  Do not ignore changes!
+ */
+'use strict'
+exports[`msgtime.test.js TAP > add timestamp to message 1`] = `
 this is a test time={time}
 `
 ```

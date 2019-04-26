@@ -2,6 +2,99 @@
 layout: layout
 title: Change Log
 ---
+## 13.0 - TBD
+
+Faster, prettier, and more powerful.  Major enhancements and quite a few
+breaking changes.  Most tests should continue to work fine, it's worth reading
+through this changelog if you use previous versions of tap more than casually.
+
+### Reporting
+
+The [reporting engine](/reporting/) has gotten a massive overhaul.
+
+* Brand new reporter [treport](http://npm.im/treport), built using React and
+  [ink](http://npm.im/ink), which reports on parallel tests in progress, and
+  features code highlighting with [cardinal](http://npm.im/cardinal),
+  beautifully accessible diffs, more signal and less noise all around.
+* Add source context when showing the source line in errors.
+* Prettier formats for snapshot files, and diffs for all matchers, using
+  [tcompare](http://npm.im/tcompare)
+* Support for passing a module name program to the command line, so `tap -R
+  my-reporter-module` works, whether that is a CLI program, a stream module, or
+  a treport-style React component.
+
+### API Updates
+
+* The `t.expectUncaughtException()` method, for testing that expected uncaught
+  exceptions are thrown.
+* Add the test object as a second argument to `t.beforeEach` and `t.afterEach`
+  handlers.
+* Add `t.context` object which inherits from its parent test.
+* `t.throws()` returns the thrown error on success.
+* Add `t.resolveMatchSnapshot()`, and do not clutter up promise
+  resolving/rejecting assertion output with an extra subtest.
+* `t.teardown(fn)` handler functions can return a Promise to perform
+  asynchronous actions.
+* Errors thrown in `t.beforeEach()` functions will no longer abort the entire
+  test process.
+
+### CLI and Runner Changes
+
+* Add `--changed` (or `-n`) to only run test files where the test file or one
+  of the covered files have been updated since the last test run.
+* Add `--watch` (or `-w`) to watch test files and program for changes, running
+  relevant tests on each update.
+* Support the `--show-process-tree` to have [NYC](http://npm.im/nyc) show a
+  process tree.
+* Load a default set of files (instead of waiting on stdin) if `tap` is invoked
+  with no arguments and `stdin` is a TTY.
+* Create snapshots with the `--snapshot` flag, or by naming an npm test `snap`
+  or `snapshot`.  So you can have `"scripts":{"test":"tap","snap":"tap"}` in
+  package.json, and it'll do the right thing in both cases.
+* Add `--test-regex` and `--test-ignore` options to control which files are
+  loaded by default if no args are provided.  (Note that `node_modules` and
+  `.git` are always excluded by the default file lookup.)
+* Add `--test-env=key=value` option to set (or remove) environment variables in
+  tests.
+* Default to `--jobs-auto` style parallelization, where the number of parallel
+  jobs defaults to the number of CPUs.
+* Reorganized CLI usage output and argument parsing, using
+  [jackspeak](http://npm.im/jackspeak)
+* Sort and present filenames more cleanly in runner.
+* Add support for running typescript on Windows.
+* Automatically load `.jsx` and `.tsx` files, using
+  [import-jsx](http://npm.im/import-jsx) and TypeScript's built-in JSX
+  capabilities.
+* "Run" `.tap` files by catting them.
+
+### Coverage Related Things
+
+* Default to [coverage](/coverage/) being turned on.  (Defaulting to
+  `check-coverage` at 100% will come in v14.)
+* Add support for [coverage maps](/coverage-map/) for specifying which test
+  file should cover which (or any) program file(s).
+
+### Configuration
+
+* Pull tap configs from `tap` object in package.json
+* Load `.taprc` file from the current working directory, not from `$HOME`.
+
+### Low Level Stuff
+
+* New YAML parser [tap-yaml](http://npm.im/tap-yaml) which uses
+  [YAML](http://npm.im/yaml) and adds support for Domains, Errors, Symbols, and
+  other JS-isms.
+* Abandon domains in favor of
+  [`async_hooks`](https://nodejs.org/api/async_hooks.html) with
+  [async-hook-domain](http://npm.im/async-hook-domain) for error trapping.
+* Surface the counts and lists of relevant (ie, non-child-test reporting) test
+  points, for use in reporters and the like.
+* Spawn: Emit `preprocess` event so extensions and reporters can tinker with
+  process options.
+* Implicitly end tests when they bail out.  (This was being done previously,
+  but only by virtue of the fact that the root TAP object ended its children
+  when it saw a bailout.)
+
 ## 12.6 2019-03-06
 
 * Add --no-esm flag to disable '-r esm' behavior

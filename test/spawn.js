@@ -35,7 +35,7 @@ const main = () => {
     const s = new Spawn({
       command: node,
       args: [ file, 'catch-term' ],
-      timeout: process.env.CI ? 10000 : 1000,
+      timeout: process.env.CI ? 20000 : 2000,
       buffered: true,
       name: 'killa'
     })
@@ -117,6 +117,7 @@ const main = () => {
       stdio: 'inherit'
     })
     s.main(_ => {
+      t.match(s.output, 'tapCaught: spawn\n')
       t.match(s.output, 'not ok 1 - poop error\n')
       t.match(s.output, 'command: poop\n')
       t.end()
@@ -151,6 +152,34 @@ const main = () => {
       s.endAll()
       t.match(s.output, 'not ok 1 - test unfinished')
       t.end()
+    })
+    t.end()
+  })
+
+  t.test('childId', t => {
+    t.test('via childId option', t => {
+      const s = new Spawn({
+        command: node,
+        buffered: true,
+        args: [ file, 'childId' ],
+        childId: 69420,
+      })
+      s.main(() => {
+        t.matchSnapshot(clean(s.output))
+        t.end()
+      })
+    })
+    t.test('via TAP_CHILD_ID env', t => {
+      const s = new Spawn({
+        command: node,
+        buffered: true,
+        args: [ file, 'childId' ],
+        env: { ...(process.env), TAP_CHILD_ID: '69420' },
+      })
+      s.main(() => {
+        t.matchSnapshot(clean(s.output))
+        t.end()
+      })
     })
     t.end()
   })
@@ -190,7 +219,11 @@ switch (process.argv[2]) {
   case 'catch-term':
     process.on('SIGTERM', _ => console.log('SIGTERM'))
   case 'timeout':
-    setTimeout(_ => _, process.env.CI ? 50000 : 5000)
+    setTimeout(_ => _, process.env.CI ? 50000 : 10000)
+    break
+
+  case 'childId':
+    console.log(`childId=${process.env.TAP_CHILD_ID}`)
     break
 
   default:

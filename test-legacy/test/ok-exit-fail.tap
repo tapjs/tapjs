@@ -1,5 +1,0 @@
-TAP version 13
-ok 1 - this passes but the exit code makes it not ok
-1..1
-___/# time=[0-9.]+(ms)?/~~~
-

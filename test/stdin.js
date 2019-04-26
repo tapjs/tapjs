@@ -80,3 +80,52 @@ ok 1 - this is fine
 
   s.threw(new Error('oops'))
 })
+
+t.test('stream failure', t => {
+  const stream = new MP()
+  const s = new Stdin({
+    tapStream: stream
+  })
+
+  s.main(_ => {
+    t.match(s.results, {
+      ok: false,
+      count: 2,
+      pass: 1,
+      fail: 1,
+      bailout: false,
+      todo: 0,
+      skip: 0,
+      plan: {
+        start: 1,
+        end: 2,
+        skipAll: false
+      },
+      failures: [{
+        ok: false,
+        id: 2,
+        name: 'oops',
+        diag: { tapCaught: 'stdinError' },
+      }]
+    })
+    t.end()
+  })
+
+  s.stream.write(`TAP version 13
+ok 1 - this is fine
+`)
+
+  s.stream.emit('error', new Error('oops'))
+})
+
+t.test('doting parent', t => {
+  const EE = require('events').EventEmitter
+  const parent = new EE()
+  const tapStream = new MP()
+  parent.on('stdin', child => {
+    t.equal(child, s)
+    t.end()
+  })
+  const s = new Stdin({tapStream, parent})
+  s.main(() => {})
+})

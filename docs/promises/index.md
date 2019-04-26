@@ -27,27 +27,25 @@ manner.
 Here is an example:
 
 ```javascript
-var t = require('tap')
-t.test('get thing', function (t) {
-  return getSomeThing().then(function (result) {
-    return t.test('check result', function (t) {
+const t = require('tap')
+t.test('get thing', t =>
+  getSomeThing().then(result =>
+    t.test('check result', t => {
       t.equal(result.foo, 'bar')
       t.end()
-    })
-  })
-}).then(function (t) {
-  return getTwoThings().then(function (things) {
-    return t.test('the things', function (t) {
+    })))
+.then(t =>
+  getTwoThings().then(things =>
+    t.test('the things', t => {
       t.equal(things.length, 2)
       return makeSomeOtherPromise()
-    })
-  }).then(function (otherPromiseResult) {
-    return t.test('check other promise thing', function (t) {
+    }))
+  .then(otherPromiseResult =>
+    t.test('check other promise thing', t => {
       t.equal(otherPromiseResult, 7, 'it should be seven')
       t.end()
-    })
-  })
-}).catch(t.threw)
+    })))
+.catch(t.threw)
 ```
 
 If this sort of style offends you, you are welcome to ignore it.  It's
@@ -72,20 +70,18 @@ onto the next test once the async function has completely resolved.
 The above example could be written like this:
 
 ```js
-var t = require('tap')
-t.test('get thing', async function (t) {
-  var result = await getSomeThing()
-  await t.test('check result', function (t) {
-    t.equal(result.foo, 'bar')
-    t.end()
-  })
+const t = require('tap')
+t.test('get thing', async t => {
+  const result = await getSomeThing()
+  await t.test('check result', async t => t.equal(result.foo, 'bar'))
 }).then(async function (t) {
-  var things = await getTwoThings()
-  var otherPromiseResult = await t.test('the things', function (t) {
+  const things = await getTwoThings()
+
+  const otherPromiseResult = await t.test('the things', async t => {
     t.equal(things.length, 2)
-    return makeSomeOtherPromise()
-  })
-  await t.test('check other promise thing', function (t) {
+  }).then(() => makeSomeOtherPromise())
+
+  await t.test('check other promise thing', t => {
     t.equal(otherPromiseResult, 7, 'it should be seven')
     t.end()
   })
@@ -99,26 +95,21 @@ function.
 For example:
 
 ```js
-var t = require('tap')
+const t = require('tap')
 
-async function main () {
-  await t.test('get thing', function (t) {
-    return getSomeThing().then(function (result) {
-      return t.test('check result', function (t) {
-        t.equal(result.foo, 'bar')
-        t.end()
-      })
-    })
-  })
-  var things = await getTwoThings()
-  var otherPromiseResult = await t.test('got two things', function (t) {
-    t.equal(things.length, 2)
-    return makeSomeOtherPromise()
-  })
-  await t.test('check other promise thing', function (t) {
-    t.equal(otherPromiseResult, 7, 'it should be seven')
-    t.end()
-  })
+async main = () => {
+  await t.test('get thing', t =>
+    getSomeThing().then(result =>
+      t.test('check result', async t =>
+        t.equal(result.foo, 'bar'))))
+
+  const things = await getTwoThings()
+  const otherPromiseResult = await t.test('got two things', async t =>
+    t.equal(things.length, 2)).then(() => makeSomeOtherPromise())
+
+  await t.test('check other promise thing', async t =>
+    t.equal(otherPromiseResult, 7, 'it should be seven'))
+
   console.log('tests are all done!')
 }
 main()

@@ -52,6 +52,7 @@ to add it to the docs.
 * [tapsert](https://www.npmjs.com/package/tapsert)
 * [tapshot](https://www.npmjs.com/package/tapshot)
 * [tar](https://www.npmjs.com/package/tar)
+* [tcompare](https://www.npmjs.com/package/tcompare)
 * [tmatch](https://www.npmjs.com/package/tmatch)
 * [touch](https://www.npmjs.com/package/touch)
 * [trivial-deferred](https://www.npmjs.com/package/trivial-deferred)

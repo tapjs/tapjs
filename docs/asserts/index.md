@@ -56,6 +56,11 @@ simply throw it.  The Test object will handle this as a failure.
 
 Synonyms: `t.ifErr`, `t.ifError`
 
+## t.emits(eventEmitter, event, message, extra)
+
+Verify that the event emitter emits the named event before the end of
+the test.
+
 ## t.rejects(promise | fn, [expectedError], message, extra)
 
 Verifies that the promise (or promise-returning function) rejects.  If
@@ -63,9 +68,9 @@ an expected error is provided, then also verify that the rejection
 matches the expected error.
 
 Note: since promises always reject and resolve asynchronously, this
-assertion is actually implemented using a subtest.  As such, it does
-not return a boolean to indicate its passing status.  Instead, it
-returns a Promise that resolves when it is completed.
+assertion is implemented asynchronously.  As such, it does not return
+a boolean to indicate its passing status.  Instead, it returns a
+Promise that resolves when it is completed.
 
 ## t.resolves(promise | fn, message, extra)
 
@@ -73,21 +78,30 @@ Verifies that the promise (or promise-returning function) resolves,
 making no expectation about the value that the promise resolves to.
 
 Note: since promises always reject and resolve asynchronously, this
-assertion is actually implemented using a subtest.  As such, it does
-not return a boolean to indicate its passing status.  Instead, it
-returns a Promise that resolves when it is completed.
+assertion is implemented asynchronously.  As such, it does not return
+a boolean to indicate its passing status.  Instead, it returns a
+Promise that resolves when it is completed.
 
-## t.resolveMatch (promise | fn, wanted, message, extra)
+## t.resolveMatch(promise | fn, wanted, message, extra)
 
 Verifies that the promise (or promise-returning function) resolves,
 and furthermore that the value of the promise matches the `wanted`
 pattern using `t.match`.
 
 Note: since promises always reject and resolve asynchronously, this
-assertion is actually implemented using a subtest.  As such, it does
-not return a boolean to indicate its passing status.  Instead, it
-returns a Promise that resolves when it is completed.
+assertion is implemented asynchronously.  As such, it does not return
+a boolean to indicate its passing status.  Instead, it returns a
+Promise that resolves when it is completed.
 
+## t.resolveMatchSnapshot(promise | fn, message, extra)
+
+Verifies that the promise (or promise-returning function) resolves,
+and furthermore that the value of the promise matches the snapshot.
+
+Note: since promises always reject and resolve asynchronously, this
+assertion is implemented asynchronously.  As such, it does not return
+a boolean to indicate its passing status.  Instead, it returns a
+Promise that resolves when it is completed.
 
 ## t.throws(fn, [expectedError], message, extra)
 
@@ -172,7 +186,7 @@ Synonyms: `t.inequal`, `t.notEqual`, `t.notEquals`,
 
 Verify that the found object is deeply equivalent to the wanted
 object.  Use non-strict equality for scalars (ie, `==`).  See:
-[tsame](http://npm.im/tsame)
+[tcompare](http://npm.im/tcompare)
 
 Synonyms: `t.equivalent`, `t.looseEqual`, `t.looseEquals`,
 `t.deepEqual`, `t.deepEquals`, `t.isLoose`, `t.looseIs`
@@ -226,7 +240,7 @@ would successfully match `{x:'asdf',y:'z'}`.
 This is useful when you want to verify that an object has a certain
 set of required fields, but additional fields are ok.
 
-See [tmatch](http://npm.im/tmatch) for the full details on how this
+See [tcompare](http://npm.im/tcompare) for the full details on how this
 works.
 
 Synonyms: `t.has`, `t.hasFields`, `t.matches`, `t.similar`, `t.like`,

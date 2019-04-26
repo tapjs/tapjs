@@ -8,6 +8,8 @@ const assert = require('assert')
 const EE = require('events').EventEmitter
 const MiniPass = require('minipass')
 
+process.env.TAP_DEV_SHORTSTACK = '1'
+
 // set this forcibly so it doesn't interfere with other tests.
 process.env.TAP_DIAG = ''
 process.env.TAP_BAIL = ''
@@ -128,7 +130,7 @@ t.test('short output checks', t => {
       tt.test('slow child', tt => setTimeout(_ => {
         slowGoing = false
         tt.end()
-      }, 100))
+      }, 200))
       tt.test('fast child', tt => setTimeout(_ => {
         tt.ok(slowGoing, 'slow is going')
         tt.end()
@@ -173,8 +175,6 @@ t.test('short output checks', t => {
       tt.end()
     },
 
-    // _actually_ throwing is only handled by root TAP test
-    // using a Domain to catch beyond async stack drops
     'gentle thrower': tt => tt.threw(new Error('ok')),
     'child thrower': tt => tt.test('child test', tt =>
       tt.threw(new Error('ok'))).then(tt.end),
@@ -191,7 +191,33 @@ t.test('short output checks', t => {
         tt.equal(3, 3)
       })
       tt.end()
-    }
+    },
+
+    'simulated uncaughtException throwing': tt => {
+      tt.test('parent', tt => {
+        tt.expectUncaughtException()
+        const e = new Error('foo')
+        e.tapCaught = 'uncaughtException'
+        tt.threw(e)
+        tt.test('wrong error', tt => {
+          tt.expectUncaughtException({ message: 'bar' })
+          const e = new Error('foo is not a bear')
+          e.tapCaught = 'uncaughtException'
+          tt.threw(e)
+          tt.end()
+        })
+        tt.test('nothing uncaught', tt => {
+          tt.expectUncaughtException(/bar/)
+          tt.expectUncaughtException(/anotehr one/, 'expect a second one')
+          const e = new Error('bar is a bar')
+          e.tapCaught = 'uncaughtException'
+          tt.threw(e)
+          tt.end()
+        })
+        tt.end()
+      })
+      tt.end()
+    },
   }
 
   const keys = Object.keys(cases)
@@ -226,8 +252,6 @@ t.test('short output checks', t => {
 
       t.test('no options', t =>
         go(t, new Test()))
-      t.test('buffered', t =>
-        go(t, new Test({ buffered: true })))
       t.test('bailout', t =>
         go(t, new Test({ bail: true })))
       t.test('runOnly', t =>
@@ -331,7 +355,8 @@ t.test('assertions and weird stuff', t => {
     },
 
     throws: tt => {
-      tt.throws(() => { throw new TypeError('x') }, TypeError)
+      tt.match(tt.throws(() => { throw new TypeError('x') }, TypeError),
+        new TypeError('x'), 'returns the error that was thrown')
       tt.throws(() => { throw new TypeError('x') }, TypeError)
       tt.throws(() => { throw new TypeError('x') },
                 new TypeError('x'))
@@ -346,7 +371,8 @@ t.test('assertions and weird stuff', t => {
       tt.throws(() => { throw new Error('x') }, nameless)
       tt.throws(() => { throw nameless }, { message: 'x' })
       tt.throws(() => { throw nameless }, /^.$/)
-      tt.throws(() => { throw nameless })
+      tt.match(tt.throws(() => { throw nameless }), nameless,
+        'returns the error that was thrown')
 
       const prop = new Error('noent')
       prop.code= 'ENOENT'
@@ -452,6 +478,7 @@ t.test('assertions and weird stuff', t => {
       tt.resolveMatch(new Promise(r => r(420)), 420, 'promise')
       tt.resolveMatch(() => new Promise(r => r(420)), 420, 'promise fn')
       tt.resolveMatch(() => {}, {}, 'fail: no promise')
+      tt.resolveMatch(Promise.reject('n'), 'y', 'fail: rejected promise')
       tt.end()
     },
 
@@ -517,21 +544,6 @@ t.test('assertions and weird stuff', t => {
       tt.end()
     },
 
-    'error event with domainEmitter re-throws': tt => {
-      const er = new Error('fail')
-      const d = tt.domain
-      try {
-        d.run(() => {
-          const e = new EE
-          e.emit('error', er)
-          tt.fail('did not throw')
-        })
-      } catch (er) {
-        tt.pass('the better to this.threw you with')
-        tt.end()
-      }
-    },
-
     'thrower after end': tt => {
       tt.test('child', tt => {
         tt.plan(1)
@@ -549,6 +561,30 @@ t.test('assertions and weird stuff', t => {
     'child teardown throw': tt => {
       tt.test('child', tt => {
         tt.teardown(() => { throw new Error('fail') })
+        tt.end()
+      })
+      tt.end()
+    },
+
+    'teardown promise': tt => {
+      tt.test('parent', tt => {
+        tt.teardown(() => new Promise(res => {
+          tt.comment('parent teardown')
+          res()
+        }))
+        tt.pass('this is fine')
+        tt.end()
+      })
+      tt.end()
+    },
+
+    'teardown promise fail': tt => {
+      tt.test('parent', tt => {
+        tt.teardown(() => new Promise((_, rej) => {
+          tt.comment('parent teardown')
+          rej(new Error('did not tear down proper'))
+        }))
+        tt.pass('this is fine')
         tt.end()
       })
       tt.end()
@@ -671,10 +707,44 @@ t.test('assertions and weird stuff', t => {
 
     'endAll with bailout': tt => {
       tt.on('bailout', reason => tt.endAll())
-
       tt.test('child', { bail: true }, tt => {
         tt.fail('not fine')
         tt.end()
+      })
+    },
+
+    stdinOnly: tt => {
+      const s = new MiniPass()
+      tt.plan(8)
+      tt.test('the stdinOnly test', ttt => {
+        let sub = null
+        ttt.stdinOnly({ tapStream: s })
+        tt.throws(() => ttt.stdinOnly())
+        tt.throws(() => ttt.pass('this is fine'))
+        tt.throws(() => ttt.test('hello', () => {}))
+        tt.throws(() => ttt.end())
+        tt.throws(() => tt.stdinOnly())
+        ttt.on('subtestAdd', s => sub = s)
+        s.end(`
+          TAP version 13
+          # Subtest: child
+              ok - this child is in a subtest
+              1..1
+          ok 1 - child
+          ok 2 - just a normal assertion
+          not ok 3 - this is not ok
+          not ok 4 - this will be ok later # TODO
+          1..4
+          `.replace(/^          /gm, '')
+        )
+        tt.ok(sub, 'got a sub')
+        tt.same(ttt.counts, {
+          total: 3,
+          pass: 1,
+          fail: 1,
+          skip: 0,
+          todo: 1
+        })
       })
     },
 
@@ -682,8 +752,8 @@ t.test('assertions and weird stuff', t => {
       tt.test('1', tt => tt.end())
       tt.test('2', tt => Promise.resolve(null))
       tt.test('3', tt => setTimeout(() => tt.end()))
-      process.nextTick(() => tt.bailout('whoops'))
       tt.end()
+      tt.bailout('whoops')
     },
 
     'bailout with buffered subs': tt => {
@@ -693,6 +763,67 @@ t.test('assertions and weird stuff', t => {
       tt.test('3', o, tt => setTimeout(() => tt.end()))
       process.nextTick(() => tt.bailout('whoops'))
       tt.end()
+    },
+
+    'bailout in first sub': t => {
+      t.test('one', t => t.bailout('bail me out'))
+      t.test('two', t => t.end())
+      t.end()
+    },
+
+    'bailout in first buffered sub': t => {
+      const o = { buffered: true }
+      t.test('one', o, t => t.bailout('bail me out'))
+      t.test('two', o, t => t.end())
+      t.end()
+    },
+
+    'bailout in nested sub': t => {
+      t.test('one', t => t.test('1.5', t => t.bailout('bail me out')))
+      t.test('two', t => t.end())
+      t.end()
+    },
+
+    'bailout in first buffered sub': t => {
+      const o = { buffered: true }
+      t.test('one', t => t.test('1.5', o, t => t.bailout('bail me out')))
+      t.test('two', o, t => t.end())
+      t.end()
+    },
+
+    'implicit bailout with parallel subs': t => {
+      t.name = 'root'
+      t.bail = true
+      t.jobs = 2
+      const tests = []
+      t.test('zro', { buffered: true }, t => tests.push(t))
+      t.test('one', { buffered: true }, t => tests.push(t))
+      t.test('two', { buffered: true }, t => tests.push(t))
+      t.test('tre', { buffered: true }, t => tests.push(t))
+      t.test('for', { buffered: true }, t => tests.push(t))
+      t.end()
+      tests[1].end()
+      tests[2].fail('two fail 0')
+      tests[2].fail('two fail 1')
+      tests[2].fail('two fail 2')
+      tests[2].fail('two fail 3')
+      tests[0].end()
+    },
+
+    'implicit bailout without ending parent': t => {
+      t.bail = true
+      t.jobs = 4
+      const tests = []
+      t.test('zro', { buffered: true }, t => tests.push(t))
+      t.test('one', { buffered: true }, t => tests.push(t))
+      t.test('two', { buffered: true }, t => tests.push(t))
+      t.test('tre', { buffered: true }, t => tests.push(t))
+      t.test('for', { buffered: true }, t => tests.push(t))
+
+      tests[0].end()
+      tests[2].end()
+      tests[3].fail('not fine')
+      tests[1].end()
     },
 
     'silent subs': tt => {
@@ -723,6 +854,30 @@ t.test('assertions and weird stuff', t => {
         tt.test('grandkid', tt => Promise.resolve(console.error('in test')))
         tt.end()
       })
+      tt.end()
+    },
+
+    'throw in child beforeEach': tt => {
+      tt.test('child', async tt => {
+        tt.beforeEach(async () => {
+          throw new Error('poop')
+        })
+        tt.test('grandkid', tt => Promise.resolve(console.error('in test')))
+        tt.end()
+      })
+      tt.test('next kid', async tt => {})
+      tt.end()
+    },
+
+    'throw in root beforeEach': tt => {
+      tt.beforeEach(async cb => {
+        throw new Error('poop')
+      })
+      tt.test('child', tt => {
+        tt.test('grandkid', tt => Promise.resolve(console.error('in test')))
+        tt.end()
+      })
+      tt.test('next kid', async tt => {})
       tt.end()
     },
 
@@ -764,7 +919,14 @@ t.test('assertions and weird stuff', t => {
       t.end()
     },
 
-
+    't.emits': t => {
+      const EE = require('events').EventEmitter
+      const ee = new EE()
+      t.emits(ee, 'fail', 'this one will fail')
+      t.emits(ee, 'pass', { extra: 'some stuff' })
+      ee.emit('pass')
+      t.end()
+    },
   }
 
   const keys = Object.keys(cases)
@@ -788,7 +950,7 @@ t.test('assertions and weird stuff', t => {
         setTimeout(() => {
           if (err)
             out = out.trim() + '\n' + 'STDERR:\n' + err
-          t.matchSnapshot(clean(out), i)
+          t.matchSnapshot(clean(out), 'output')
         })
       })
       cases[i](tt)
@@ -844,25 +1006,31 @@ t.test('spawn', t => {
   t.end()
 })
 
-t.test('snapshots', t => {
+t.test('snapshots', async t => {
   const Snapshot = require('../lib/snapshot.js')
   const snap = [ true, false ]
-  const outputs = snap.map(snap => {
+  const fn = async snap => {
     const tt = new Test({
       snapshot: snap,
       name: 'deleteme',
       buffered: true
     })
-    tt.test('child test', { snapshot: snap, buffered: false }, tt => {
+    await tt.test('child test', { snapshot: snap, buffered: false }, tt => {
       tt.matchSnapshot({ foo: 'bar' }, 'an object')
       tt.matchSnapshot('some string \\ \` ${process.env.FOO}', 'string')
       tt.matchSnapshot('do this eventually', { todo: 'later' })
-      tt.end()
+      tt.resolveMatchSnapshot(Promise.resolve(true), { todo: 'later' })
+      tt.resolveMatchSnapshot({ fo: 'not a promise' }, 'message about promise')
+      tt.resolveMatchSnapshot(Promise.reject('rejected promise'))
+      tt.resolveMatchSnapshot(() => Promise.resolve(420), 'promise fn')
+      return tt.resolveMatchSnapshot(Promise.resolve({a:1, b:2})
+        .then(a => `a: ${a.a}`))
     })
     tt.emit('teardown')
     tt.end()
     return tt.output
-  })
+  }
+  const outputs = [await fn(true), await fn(false) ]
 
   t.matchSnapshot(clean(outputs[0]), 'saving the snapshot')
   t.matchSnapshot(clean(outputs[1]), 'verifying the snapshot')

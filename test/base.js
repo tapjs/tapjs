@@ -11,6 +11,24 @@ t.test('basic base', t => {
   t.end()
 })
 
+t.test('base with context', t => {
+  const ctx = { a: 1 }
+  const b = new Base({ context: ctx })
+  t.notEqual(b.context, ctx)
+  t.match(b.context, ctx)
+  b.context.foo = 'bar'
+  t.equal(ctx.foo, undefined)
+
+  const s = 'str'
+  const c = new Base({ context: s })
+  t.equal(c.context, s)
+
+  const d = new Base({ context: null })
+  t.isa(d.context, 'object')
+  t.end()
+})
+
+
 t.test('skip + debug', t => {
   const b = new Base({ skip: true, debug: true, name: 'name' })
 
@@ -92,7 +110,7 @@ t.test('throwing stuff', t => {
 
   t.test('domain error', t => {
     const b = new Base({ name: 'ace', buffered: true })
-    b.domain.emit('error', new Error('this is fine'))
+    b.hookDomain.onerror(new Error('this is fine'), 'testing error')
     t.notOk(b.parser.ok)
     t.end()
   })
@@ -272,4 +290,44 @@ t.test('pipes backing up', t => {
     t.ok(ended, 'ended')
     t.end()
   })
+})
+
+t.test('parser event stuff', t => {
+  const data = `TAP version 13
+ok 1 - this is fine
+not ok 2 - actually not fine
+  ---
+  fine: false
+  ...
+not ok 3 - not so fine # TODO will be fine later
+not ok 4 - not so fine # SKIP dont care for now
+1..4
+`
+
+  t.test('no bail', t => {
+    const b = new Base({ bail: false })
+    b.on('bailout', reason => t.fail('should not bail out', { reason }))
+    b.on('complete', results => {
+      t.matchSnapshot(b.counts, 'counts')
+      t.matchSnapshot(b.lists, 'lists')
+      t.end()
+    })
+    b.parser.end(data)
+  })
+
+  t.test('yes bail', t => {
+    const b = new Base({ bail: true })
+    b.on('bailout', reason => {
+      t.matchSnapshot(reason, 'expected bailout')
+      t.matchSnapshot(b.counts, 'counts')
+      t.matchSnapshot(b.lists, 'lists')
+    })
+    b.on('complete', results => {
+      t.ok(b.bailedOut, 'should have bailed out')
+      t.end()
+    })
+    b.parser.end(data)
+  })
+
+  t.end()
 })
