@@ -14,7 +14,7 @@ process.env.TAP_DEV_SHORTSTACK = '1'
 process.env.TAP_DIAG = ''
 process.env.TAP_BAIL = ''
 
-const clean = require('./clean-stacks.js')
+t.cleanSnapshot = require('./clean-stacks.js')
 
 t.test('short output checks', t => {
   const env = process.env.TAP_BUFFER
@@ -242,7 +242,7 @@ t.test('short output checks', t => {
           if (reason)
             out = out.trim() + '\nBAILOUT: ' + JSON.stringify(reason)
 
-          t.matchSnapshot(clean(out), i)
+          t.matchSnapshot(out, i)
           resolve()
         }
         tt.on('end', done)
@@ -950,7 +950,7 @@ t.test('assertions and weird stuff', t => {
         setTimeout(() => {
           if (err)
             out = out.trim() + '\n' + 'STDERR:\n' + err
-          t.matchSnapshot(clean(out), 'output')
+          t.matchSnapshot(out, 'output')
         })
       })
       cases[i](tt)
@@ -983,7 +983,7 @@ t.test('addAssert', t => {
   tt.isUrl('https://skip:420/', { skip: 420 })
   tt.end()
 
-  t.matchSnapshot(clean(tt.output), 'using the custom isUrl assertion')
+  t.matchSnapshot(tt.output, 'using the custom isUrl assertion')
   return t.end()
 })
 
@@ -1032,8 +1032,8 @@ t.test('snapshots', async t => {
   }
   const outputs = [await fn(true), await fn(false) ]
 
-  t.matchSnapshot(clean(outputs[0]), 'saving the snapshot')
-  t.matchSnapshot(clean(outputs[1]), 'verifying the snapshot')
+  t.matchSnapshot(outputs[0], 'saving the snapshot')
+  t.matchSnapshot(outputs[1], 'verifying the snapshot')
   fs.unlinkSync(path.resolve(__dirname, '..',
     'tap-snapshots', 'test-test.js-deleteme.test.js'))
 

@@ -1,7 +1,6 @@
 const {
   tmpfile,
   run,
-  clean,
   tap,
   t,
 } = require('./')
@@ -14,7 +13,7 @@ t.test('cat', t => {
   `)
   run([ok], {}, (er, o, e) => {
     t.equal(er, null)
-    t.matchSnapshot(clean(o))
+    t.matchSnapshot(o)
     t.end()
   })
 })

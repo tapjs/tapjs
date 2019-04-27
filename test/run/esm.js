@@ -1,7 +1,6 @@
 const {
   tmpfile,
   run,
-  clean,
   tap,
   t,
 } = require('./')
@@ -13,7 +12,7 @@ t.test('mjs', t => {
   `)
   run([ok, '--esm'], {}, (er, o, e) => {
     t.equal(er, null)
-    t.matchSnapshot(clean(o))
+    t.matchSnapshot(o)
     t.end()
   })
 })
@@ -25,7 +24,7 @@ t.test('esm', t => {
   `)
   run([ok, '--esm'], {}, (er, o, e) => {
     t.equal(er, null)
-    t.matchSnapshot(clean(o))
+    t.matchSnapshot(o)
     t.end()
   })
 })

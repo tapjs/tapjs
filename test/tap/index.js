@@ -1,8 +1,6 @@
 'use strict'
 const node = process.execPath
 
-const clean = require('../clean-stacks.js')
-
 if (module === require.main)
   require('../../lib/tap.js').pass('just the index')
 
@@ -23,6 +21,7 @@ module.exports = (...test) => {
       return env
     }, { TAP_BAIL: '0', TAP_BUFFER: '0' })
     const t = require('../../lib/tap.js')
+    t.cleanSnapshot = require('../clean-stacks.js')
     t.plan(3)
     const c = spawn(node, [process.argv[1], 'runtest'], { env: env })
     let out = ''
@@ -34,8 +33,8 @@ module.exports = (...test) => {
         code: code,
         signal: signal
       }, 'exit status')
-      t.matchSnapshot(clean(out), 'stdout')
-      t.matchSnapshot(clean(err), 'stderr')
+      t.matchSnapshot(out, 'stdout')
+      t.matchSnapshot(err, 'stderr')
     })
   }
 }

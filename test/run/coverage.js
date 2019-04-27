@@ -1,6 +1,5 @@
 const {
   tmpfile,
-  clean,
   bin,
   tap,
   node,
@@ -72,7 +71,7 @@ const escape = (args, options, cb) => {
 t.test('generate some coverage', t => {
   escape([t1, t2], null, (er, o, e) => {
     t.equal(er, null)
-    t.matchSnapshot(clean(o), 'output')
+    t.matchSnapshot(o, 'output')
     t.end()
   })
 })
@@ -83,7 +82,7 @@ module.exports = () => 'ok.js'
 `)
   escape([t1, t2, '-M', map], null, (er, o, e) => {
     t.equal(er, null)
-    t.matchSnapshot(clean(o), 'output')
+    t.matchSnapshot(o, 'output')
     t.end()
   })
 })
@@ -91,7 +90,7 @@ module.exports = () => 'ok.js'
 t.test('report only', t => {
   escape(['--coverage-report=text-lcov'], null, (er, o, e) => {
     t.equal(er, null)
-    t.matchSnapshot(clean(o), 'lcov output', { skip: winSkip })
+    t.matchSnapshot(o, 'lcov output', { skip: winSkip })
     t.end()
   })
 })
@@ -99,7 +98,7 @@ t.test('report only', t => {
 t.test('report with checks', t => {
   escape(['--100', '--coverage-report=text-lcov'], null, (er, o, e) => {
     t.match(er, { code: 1 })
-    t.matchSnapshot(clean(o), 'lcov output and 100 check', { skip: winSkip })
+    t.matchSnapshot(o, 'lcov output and 100 check', { skip: winSkip })
     t.end()
   })
 })
@@ -112,8 +111,8 @@ t.test('pipe to service', t => {
     __TAP_COVERALLS_TEST__: 'piper.js',
   }}, (er, o, e) => {
     t.equal(er, null)
-    t.matchSnapshot(clean(e), 'piped to coverage service cat', { skip: winSkip })
-    t.matchSnapshot(clean(o), 'human output', { skip: winSkip })
+    t.matchSnapshot(e, 'piped to coverage service cat', { skip: winSkip })
+    t.matchSnapshot(o, 'human output', { skip: winSkip })
     t.end()
   })
 })
@@ -126,8 +125,8 @@ t.test('pipe to service along with tests', t => {
     __TAP_COVERALLS_TEST__: 'piper.js',
   }}, (er, o, e) => {
     t.equal(er, null)
-    t.matchSnapshot(clean(e), 'piped to coverage service cat', { skip: winSkip })
-    t.matchSnapshot(clean(o), 'human output', { skip: winSkip })
+    t.matchSnapshot(e, 'piped to coverage service cat', { skip: winSkip })
+    t.matchSnapshot(o, 'human output', { skip: winSkip })
     t.end()
   })
 })
@@ -138,7 +137,7 @@ module.exports = () => {}
 `)
   escape([t1, t2, '-M', map], null, (er, o, e) => {
     t.equal(er, null)
-    t.matchSnapshot(clean(o), 'output')
+    t.matchSnapshot(o, 'output')
     t.end()
   })
 })

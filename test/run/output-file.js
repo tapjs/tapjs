@@ -1,7 +1,6 @@
 const {
   tmpfile,
   run,
-  clean,
   bin,
   tap,
   node,
@@ -23,9 +22,9 @@ t.test('output-file', t => {
   t.test('ok.js', t => {
     run([ok, `--output-file=${dir}/output.tap`], (er, o, e) => {
       t.equal(er, null)
-      t.matchSnapshot(clean(o), 'output')
+      t.matchSnapshot(o, 'output')
       t.matchSnapshot(e, 'stderr')
-      t.matchSnapshot(clean(fs.readFileSync(`${dir}/output.tap`, 'utf8')),
+      t.matchSnapshot(fs.readFileSync(`${dir}/output.tap`, 'utf8'),
         'output file')
       t.end()
     })
@@ -33,9 +32,9 @@ t.test('output-file', t => {
   t.test('stdin', t => {
     run(['-', `-o${dir}/output.tap`], (er, o, e) => {
       t.equal(er, null)
-      t.matchSnapshot(clean(o), 'output')
+      t.matchSnapshot(o, 'output')
       t.matchSnapshot(e, 'stderr')
-      t.matchSnapshot(clean(fs.readFileSync(`${dir}/output.tap`, 'utf8')),
+      t.matchSnapshot(fs.readFileSync(`${dir}/output.tap`, 'utf8'),
         'output file')
       t.end()
     }).stdin.end(tapdata)
@@ -43,9 +42,9 @@ t.test('output-file', t => {
   t.test('file and stdin together', t => {
     run(['-', ok, `-o${dir}/output.tap`], (er, o, e) => {
       t.equal(er, null)
-      t.matchSnapshot(clean(o), 'output')
+      t.matchSnapshot(o, 'output')
       t.matchSnapshot(e, 'stderr')
-      t.matchSnapshot(clean(fs.readFileSync(`${dir}/output.tap`, 'utf8')),
+      t.matchSnapshot(fs.readFileSync(`${dir}/output.tap`, 'utf8'),
         'output file')
       t.end()
     }).stdin.end(tapdata)
@@ -59,9 +58,9 @@ t.test('output-file', t => {
   t.test('ok.js', t => {
     run([ok, `--output-dir=${dir}/output`], (er, o, e) => {
       t.equal(er, null)
-      t.matchSnapshot(clean(o), 'output')
+      t.matchSnapshot(o, 'output')
       t.matchSnapshot(e, 'stderr')
-      t.matchSnapshot(clean(fs.readFileSync(`${d}/ok.js.tap`, 'utf8')),
+      t.matchSnapshot(fs.readFileSync(`${d}/ok.js.tap`, 'utf8'),
         'output file')
       t.end()
     })
@@ -69,9 +68,9 @@ t.test('output-file', t => {
   t.test('stdin', t => {
     run(['-', `-d${dir}/output`], (er, o, e) => {
       t.equal(er, null)
-      t.matchSnapshot(clean(o), 'output')
+      t.matchSnapshot(o, 'output')
       t.matchSnapshot(e, 'stderr')
-      t.matchSnapshot(clean(fs.readFileSync(`${dir}/output/stdin.tap`, 'utf8')),
+      t.matchSnapshot(fs.readFileSync(`${dir}/output/stdin.tap`, 'utf8'),
         'output file')
       t.end()
     }).stdin.end(tapdata)
@@ -79,11 +78,11 @@ t.test('output-file', t => {
   t.test('file and stdin together', t => {
     run(['-', ok, `-d${dir}/output`], (er, o, e) => {
       t.equal(er, null)
-      t.matchSnapshot(clean(o), 'output')
+      t.matchSnapshot(o, 'output')
       t.matchSnapshot(e, 'stderr')
-      t.matchSnapshot(clean(fs.readFileSync(`${d}/ok.js.tap`, 'utf8')),
+      t.matchSnapshot(fs.readFileSync(`${d}/ok.js.tap`, 'utf8'),
         'ok.js output file')
-      t.matchSnapshot(clean(fs.readFileSync(`${dir}/output/stdin.tap`, 'utf8')),
+      t.matchSnapshot(fs.readFileSync(`${dir}/output/stdin.tap`, 'utf8'),
         'stdin output file')
       t.end()
     }).stdin.end(tapdata)

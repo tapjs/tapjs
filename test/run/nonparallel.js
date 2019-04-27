@@ -1,7 +1,6 @@
 const {
   tmpfile,
   run,
-  clean,
   tap,
   dir,
   t,
@@ -25,6 +24,6 @@ t.end()
 t.plan(3)
 run(['1.js', '2.js', '-j1'], { cwd: dir }, (er, o, e) => {
   t.equal(er, null)
-  t.matchSnapshot(clean(o), 'output')
+  t.matchSnapshot(o, 'output')
   t.matchSnapshot(e, 'stderr')
 })

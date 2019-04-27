@@ -5,7 +5,7 @@ const {
   clean,
 } = require('./')
 
-const cleaner = o => clean(o).replace(/jobs: \d+/, 'jobs: {number}')
+t.cleanSnapshot = o => clean(o).replace(/jobs: \d+/, 'jobs: {number}')
 
 process.env.TAP_NO_ESM = '1'
 
@@ -28,7 +28,7 @@ t.test('shotgun a bunch of option parsing junk', t => {
     _TAP_IS_TTY: '1'
   }}, (er, o, e) => {
     t.equal(er, null)
-    t.matchSnapshot(cleaner(o), 'output')
+    t.matchSnapshot(o, 'output')
     t.end()
   })
 })
@@ -59,7 +59,7 @@ t.test('package.json parsing', t => {
         cwd: dir,
       }, (er, o, e) => {
         t.equal(er, null)
-        t.matchSnapshot(cleaner(o), 'output')
+        t.matchSnapshot(o, 'output')
         t.end()
       })
     })
@@ -74,7 +74,7 @@ t.test('turn color off and back on again', t => {
     TAP_COLORS: '1',
   }}, (er, o, e) => {
     t.equal(er, null)
-    t.matchSnapshot(cleaner(o), 'output')
+    t.matchSnapshot(o, 'output')
     t.end()
   })
 })
@@ -84,7 +84,7 @@ t.test('short options as well as short flags', t => {
     TAP: '0'
   }}, (er, o, e) => {
     t.equal(er, null)
-    t.matchSnapshot(cleaner(o), 'output')
+    t.matchSnapshot(o, 'output')
     t.end()
   })
 })
@@ -99,7 +99,7 @@ jobs: 3
     TAP: 0
   }}, (er, o, e) => {
     t.equal(er, null)
-    t.matchSnapshot(cleaner(o), 'output')
+    t.matchSnapshot(o, 'output')
     t.end()
   })
 })
@@ -113,7 +113,7 @@ t.test('empty rc file', t => {
     TAP_COLORS: '1'
   }}, (er, o, e) => {
     t.equal(er, null)
-    t.matchSnapshot(cleaner(o), 'output')
+    t.matchSnapshot(o, 'output')
     t.end()
   })
 })

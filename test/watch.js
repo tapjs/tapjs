@@ -1,6 +1,8 @@
+// just load this to assign the runner test's output cleaner
+require('./run/index.js')
+
 // spawn mock
 // log what's being run, and then write out the index
-const {clean} = require('./run/index.js')
 const EE = require('events')
 const spawnLog = []
 const spawnTrack = new EE()
@@ -188,7 +190,7 @@ t.test('run tests on changes', t => {
     // initial test done, change a file
     spawnTrack.once('spawn', proc => {
       t.matchSnapshot(read(saveFile), 'spawn test run on change')
-      t.matchSnapshot(clean(out.join('')), 'logs')
+      t.matchSnapshot(out.join(''), 'logs')
       out.length = 0
       // don't wait for this one to close, that's the point.
       t.end()
@@ -200,7 +202,7 @@ t.test('run tests on changes', t => {
     changeFile('1.test.js')
     spawnTrack.once('spawn', proc => {
       t.matchSnapshot(read(saveFile), 'spawn queued test')
-      t.matchSnapshot(clean(out.join('')), 'logs')
+      t.matchSnapshot(out.join(''), 'logs')
       out.length = 0
 
       // add a new covered file to the equation
@@ -213,11 +215,11 @@ t.test('run tests on changes', t => {
   })
 
   t.test('new file added', t => {
-    t.matchSnapshot(clean(out.join('')), 'logs')
+    t.matchSnapshot(out.join(''), 'logs')
     out.length = 0
     spawnTrack.once('spawn', proc => {
       t.matchSnapshot(read(saveFile), 'spawn test for new file')
-      t.matchSnapshot(clean(out.join('')), 'log after spawn')
+      t.matchSnapshot(out.join(''), 'log after spawn')
       out.length = 0
       process.nextTick(() => w.kill('SIGTERM'))
       proc.once('close', (code, signal) => {

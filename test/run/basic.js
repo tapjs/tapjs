@@ -1,7 +1,6 @@
 const {
   tmpfile,
   run,
-  clean,
   bin,
   tap,
   node,
@@ -68,7 +67,7 @@ t.test('--versions', t => {
 t.test('--parser-version', t => {
   run(['--parser-version'], null, (er, o, e) => {
     t.equal(er, null)
-    t.matchSnapshot(clean(o), 'output')
+    t.matchSnapshot(o, 'output')
     t.end()
   })
 })
@@ -101,7 +100,7 @@ t.test('basic test run', t => {
   const ok = tmpfile(t, 'ok.js', `require(${tap}).pass('this is fine')`)
   const args = ['-iSCbt0', '-g/nope/i', '--', ok]
   run(args, null, (err, stdout, stderr) => {
-    t.matchSnapshot(clean(stdout), 'ok.js output')
+    t.matchSnapshot(stdout, 'ok.js output')
     t.end()
   })
 })
@@ -128,8 +127,8 @@ t.test('ignored files', t => {
   const cwd = dir + '/ig'
   run([args], { cwd, env }, (er, o, e) => {
     t.equal(er, null)
-    t.matchSnapshot(clean(o), 'stdout')
-    t.matchSnapshot(clean(e), 'stdout')
+    t.matchSnapshot(o, 'stdout')
+    t.matchSnapshot(e, 'stdout')
     t.end()
   })
 })
@@ -137,7 +136,7 @@ t.test('ignored files', t => {
 t.test('nonexistent file', t => {
   run(['does not exist'], null, (er, o, e) => {
     t.match(er, { code: 1 })
-    t.matchSnapshot(clean(o), 'stdout')
+    t.matchSnapshot(o, 'stdout')
     t.matchSnapshot(e, 'stderr')
     t.end()
   })

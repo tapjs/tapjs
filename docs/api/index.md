@@ -153,6 +153,18 @@ If you set the `t.jobs` property to a number greater than 1, then it
 will enable [parallel execution](/parallel/) of all of this test's
 children.
 
+### t.cleanSnapshot = function
+
+Assign a function to `t.cleanSnapshot` to modify formatted snapshot strings
+before they are saved or compared against, in order to strip out data that
+changes between test runs.
+
+Child tests copy their parent test's `cleanSnapshot` method at the time of
+creation.  The default value is an identity function that does not modify its
+input.
+
+See [Snapshot Testing](/snapshots/) for more information.
+
 ### t.tearDown(function)
 
 Run the supplied function when `t.end()` is called, or when the `plan`

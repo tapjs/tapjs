@@ -1,7 +1,6 @@
 const {
   tmpfile,
   run,
-  clean,
   dir,
   t,
 } = require('./')
@@ -24,7 +23,7 @@ t.test('executables', {
   fs.chmodSync(notok, 0o644)
   run(['exe', '-C'], { cwd: dir }, (er, o, e) => {
     t.equal(er, null)
-    t.matchSnapshot(clean(o))
+    t.matchSnapshot(o)
     t.equal(e, '')
     t.end()
   })

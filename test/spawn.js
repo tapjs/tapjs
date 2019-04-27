@@ -8,7 +8,7 @@ const file = __filename
 process.env.TAP_BAIL = ''
 process.env.TAP_BUFFER = ''
 
-const clean = require('./clean-stacks.js')
+t.cleanSnapshot = require('./clean-stacks.js')
 
 const main = () => {
   t.test('basic child process', t =>
@@ -40,7 +40,7 @@ const main = () => {
       name: 'killa'
     })
     s.main(() => {
-      t.matchSnapshot(clean(s.output))
+      t.matchSnapshot(s.output)
       t.end()
     })
   })
@@ -53,7 +53,7 @@ const main = () => {
     }, 'skipper')
     tt.spawn(node, [ file, 'skip-reason' ])
     tt.test('check it', ttt => {
-      t.matchSnapshot(clean(tt.output))
+      t.matchSnapshot(tt.output)
       t.end()
       tt.end()
       ttt.end()
@@ -88,7 +88,7 @@ const main = () => {
       p.stdin.end('TAP version 13\nok\n1..1\n'))
 
     t.plan(1)
-    s.main(() => t.matchSnapshot(clean(s.output)))
+    s.main(() => t.matchSnapshot(s.output))
   })
 
   t.test('failure to spawn', t => {
@@ -100,7 +100,7 @@ const main = () => {
       stdio: [0, 1, 2]
     })
     t.plan(1)
-    s.main(() => t.matchSnapshot(clean(s.output)))
+    s.main(() => t.matchSnapshot(s.output))
   })
 
   t.test('failure to spawn even harder', t => {
@@ -165,7 +165,7 @@ const main = () => {
         childId: 69420,
       })
       s.main(() => {
-        t.matchSnapshot(clean(s.output))
+        t.matchSnapshot(s.output)
         t.end()
       })
     })
@@ -177,7 +177,7 @@ const main = () => {
         env: { ...(process.env), TAP_CHILD_ID: '69420' },
       })
       s.main(() => {
-        t.matchSnapshot(clean(s.output))
+        t.matchSnapshot(s.output)
         t.end()
       })
     })

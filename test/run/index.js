@@ -34,6 +34,8 @@ const clean = string => cleanStacks(string)
   .replace(/snapshot: (true|false)\n/, '')
   .replace(/cli-tests-[0-9]+/g, 'cli-tests')
 
+t.cleanSnapshot = clean
+
 const run = (args, options, cb) => {
   if (options && options.env)
     options.env = Object.keys(process.env).reduce((env, k) => {
@@ -75,10 +77,10 @@ else {
 module.exports = {
   tmpfile,
   run,
-  clean,
   bin,
   tap,
   node,
+  clean,
   dir,
   t,
   winSkip,

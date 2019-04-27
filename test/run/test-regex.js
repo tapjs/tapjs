@@ -1,6 +1,5 @@
 const {
   tmpfile,
-  clean,
   bin,
   tap,
   node,
@@ -20,7 +19,7 @@ t.test('no args, pull in default files, not exclusions', t => {
   `)
   run([], { cwd: dir, env: { _TAP_IS_TTY: '1' }}, (er, o, e) => {
     t.equal(er, null)
-    t.matchSnapshot(clean(o), 'output')
+    t.matchSnapshot(o, 'output')
     t.end()
   })
 })

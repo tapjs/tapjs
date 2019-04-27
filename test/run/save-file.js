@@ -2,7 +2,6 @@ process.env.TAP_NO_ESM = '1'
 const {
   tmpfile,
   run,
-  clean,
   bin,
   tap,
   node,
@@ -38,9 +37,9 @@ const opt = { cwd: dir, env: { TAP_NO_ESM: '1' } }
 t.test('with bailout, should save all untested', t => {
   run(['a', 'x', 'z.js', '-s', savefile, '-b'], opt, (er, o, e) => {
     t.match(er, { code: 1 })
-    t.matchSnapshot(clean(o), 'stdout', { skip: winSkip })
+    t.matchSnapshot(o, 'stdout', { skip: winSkip })
     t.equal(e, '')
-    t.matchSnapshot(clean(fs.readFileSync(savefile, 'utf8')), 'savefile')
+    t.matchSnapshot(fs.readFileSync(savefile, 'utf8'), 'savefile')
     t.end()
   })
 })
@@ -48,9 +47,9 @@ t.test('with bailout, should save all untested', t => {
 t.test('without bailout, run untested, save failures', t => {
   run(['a', 'x', 'z.js', '-s', savefile], opt, (er, o, e) => {
     t.match(er, { code: 1 })
-    t.matchSnapshot(clean(o), 'stdout', { skip: winSkip })
+    t.matchSnapshot(o, 'stdout', { skip: winSkip })
     t.equal(e, '')
-    t.matchSnapshot(clean(fs.readFileSync(savefile, 'utf8')), 'savefile')
+    t.matchSnapshot(fs.readFileSync(savefile, 'utf8'), 'savefile')
     t.end()
   })
 })
@@ -68,7 +67,7 @@ t.test('make fails pass', t => {
 t.test('pass, empty save file', t => {
   run(['a', 'x', 'z.js', '-s', savefile], opt, (er, o, e) => {
     t.equal(er, null)
-    t.matchSnapshot(clean(o), 'stdout')
+    t.matchSnapshot(o, 'stdout')
     t.equal(e, '')
     try {
       console.log(fs.readFileSync(savefile, 'utf8'))
@@ -81,7 +80,7 @@ t.test('pass, empty save file', t => {
 t.test('empty save file, run all tests', t => {
   run(['a', 'x', 'z.js', '-s', savefile], opt, (er, o, e) => {
     t.equal(er, null)
-    t.matchSnapshot(clean(o), 'stdout')
+    t.matchSnapshot(o, 'stdout')
     t.equal(e, '')
     t.throws(() => fs.statSync(savefile), 'save file is gone')
     t.end()

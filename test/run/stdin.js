@@ -1,7 +1,6 @@
 const {
   tmpfile,
   run,
-  clean,
   tap,
   t,
 } = require('./')
@@ -49,7 +48,7 @@ t.test('with file', t => {
   const args = ['-', foo, '-CRclassic', '-ofoo.txt']
   const c = run(args, { env: { TAP: 0, TAP_BUFFER: 1 }}, (er, o, e) => {
     t.equal(er, null)
-    t.matchSnapshot(clean(fs.readFileSync('foo.txt', 'utf8')))
+    t.matchSnapshot(fs.readFileSync('foo.txt', 'utf8'))
     t.match(o, /foo.test.js \.+ 1\/1.*\n\/dev\/stdin \.+ 1\/1\n/)
     fs.unlinkSync('foo.txt')
     t.end()

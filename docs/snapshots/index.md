@@ -118,7 +118,7 @@ unintended changes.  (Though, even if this happens, `git bisect` can
 track down the source of the change quite quickly, so it's not the end
 of the world if there are occasional mistakes.)
 
-### Strip Variables from Output
+### Strip Variables from Output with `t.cleanSnapshot`
 
 If your output includes data that is known to change from one run to
 the next, then these changes should be stripped before matching
@@ -137,15 +137,22 @@ function msgTime (msg) {
 Since the output will obviously be slightly different every time the
 function is tested, we need to strip out the time value.
 
+The best way to do this is with a `t.cleanSnapshot` function.  This function
+takes the formatted snapshot as a string, and returns a string to be saved or
+compared against.  The default cleaner is an identity function that returns its
+input without any changes.
+
 ```javascript
 const t = require('tap')
 
-function clean (output) {
-  return output.replace(/ time=[0-9]+$/g, ' time={time}')
+// This must be assigned *before* running tests
+// It is passed down to child tests when they are created
+t.cleanSnapshot = s => {
+  return s.replace(/ time=[0-9]+$/g, ' time={time}')
 }
 
 const output = msgTime('this is a test')
-t.matchSnapshot(clean(output), 'add timestamp to message')
+t.matchSnapshot(output, 'add timestamp to message')
 ```
 
 When run with `--snapshot`, it generates this snapshot file:
