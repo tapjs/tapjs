@@ -1017,14 +1017,17 @@ t.test('snapshots', async t => {
     })
     await tt.test('child test', { snapshot: snap, buffered: false }, tt => {
       tt.matchSnapshot({ foo: 'bar' }, 'an object')
+      tt.formatSnapshot = o => JSON.stringify(o, null, 2)
+      tt.matchSnapshot({ foo: 'bar' }, 'a jsonic object')
+      delete tt.formatSnapshot
       tt.matchSnapshot('some string \\ \` ${process.env.FOO}', 'string')
       tt.matchSnapshot('do this eventually', { todo: 'later' })
-      tt.resolveMatchSnapshot(Promise.resolve(true), { todo: 'later' })
+      tt.resolveMatchSnapshot(Promise.resolve(true), { todo: 'later' }, 'later')
       tt.resolveMatchSnapshot({ fo: 'not a promise' }, 'message about promise')
       tt.resolveMatchSnapshot(Promise.reject('rejected promise'))
       tt.resolveMatchSnapshot(() => Promise.resolve(420), 'promise fn')
       return tt.resolveMatchSnapshot(Promise.resolve({a:1, b:2})
-        .then(a => `a: ${a.a}`))
+        .then(a => `a: ${a.a}`), 'modify the promise result')
     })
     tt.emit('teardown')
     tt.end()
@@ -1034,8 +1037,11 @@ t.test('snapshots', async t => {
 
   t.matchSnapshot(outputs[0], 'saving the snapshot')
   t.matchSnapshot(outputs[1], 'verifying the snapshot')
-  fs.unlinkSync(path.resolve(__dirname, '..',
-    'tap-snapshots', 'test-test.js-deleteme.test.js'))
+
+  const snapFile = path.resolve(__dirname, '..',
+    'tap-snapshots', 'test-test.js-deleteme.test.js')
+  t.matchSnapshot(fs.readFileSync(snapFile, 'utf8'), 'snapshot file')
+  fs.unlinkSync(snapFile)
 
   t.end()
 })

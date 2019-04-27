@@ -169,3 +169,42 @@ exports[`msgtime.test.js TAP > add timestamp to message 1`] = `
 this is a test time={time}
 `
 ```
+
+## Custom Formatting
+
+Sometimes just modifying the string is not enough, or a special data type
+should be stringified differently.
+
+By default, tap uses [`tcompare.format`](http://npm.im/tcompare) to convert all
+non-string values into strings for saving and comparing.
+
+To override this and provide your own behavior, set a function to
+`t.formatSnapshot`.  Like `t.cleanSnapshot`, child tests will copy their parent
+test's value at their time of creation.
+
+```javascript
+const t = require('tap')
+const yaml = require('tap-yaml')
+t.formatSnapshot = object => yaml.stringify(object)
+
+// now all my snapshot files will be in yaml!
+t.matchSnapshot({ foo: ['bar', 'baz'] })
+```
+
+This will produce the following snapshot file:
+
+```javascript
+/* IMPORTANT
+ * This snapshot file is auto-generated, but designed for humans.
+ * It should be checked into source control and tracked carefully.
+ * Re-generate by setting TAP_SNAPSHOT=1 and running tests.
+ * Make sure to inspect the output below.  Do not ignore changes!
+ */
+'use strict'
+exports[`yaml.test.js TAP > must match snapshot 1`] = `
+foo:
+  - bar
+  - baz
+
+`
+```

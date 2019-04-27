@@ -165,6 +165,20 @@ input.
 
 See [Snapshot Testing](/snapshots/) for more information.
 
+### t.formatSnapshot = function
+
+Assign a function to `t.formatSnapshot` to turn all non-String snapshot
+arguments into a snapshot string to save or compare against.
+
+Child tests copy their parent test's `formatSnapshot` method at the time of
+creation.  The default is to use [`tcompare.format`](http://npm.im/tcompare) to
+convert any non-String values into snapshot strings.
+
+Note that string values are not passed to this function, as its purpose is to
+convert the snapshot value into a string.
+
+See [Snapshot Testing](/snapshots/) for more information.
+
 ### t.tearDown(function)
 
 Run the supplied function when `t.end()` is called, or when the `plan`

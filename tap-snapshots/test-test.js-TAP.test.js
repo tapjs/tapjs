@@ -2707,24 +2707,25 @@ exports[`test/test.js TAP snapshots > saving the snapshot 1`] = `
 TAP version 13
 # Subtest: child test
     ok 1 - an object
-    ok 2 - string
-    ok 3 - must match snapshot # TODO later
-    ok 4 - expect resolving Promise # TODO later
-    not ok 5 - message about promise
+    ok 2 - a jsonic object
+    ok 3 - string
+    ok 4 - must match snapshot # TODO later
+    ok 5 - expect resolving Promise # TODO later
+    not ok 6 - message about promise
       ---
       at: {}
       ...
     
-    not ok 6 - expect resolving Promise
+    not ok 7 - expect resolving Promise
       ---
       at: {}
       found: rejected promise
       ...
     
-    ok 7 - promise fn
-    ok 8 - expect resolving Promise
-    1..8
-    # failed 2 of 8 tests
+    ok 8 - promise fn
+    ok 9 - modify the promise result
+    1..9
+    # failed 2 of 9 tests
     # todo: 2
 not ok 1 - child test # {time}
   ---
@@ -2736,28 +2737,71 @@ not ok 1 - child test # {time}
 
 `
 
+exports[`test/test.js TAP snapshots > snapshot file 1`] = `
+/* IMPORTANT
+ * This snapshot file is auto-generated, but designed for humans.
+ * It should be checked into source control and tracked carefully.
+ * Re-generate by setting TAP_SNAPSHOT=1 and running tests.
+ * Make sure to inspect the output below.  Do not ignore changes!
+ */
+'use strict'
+exports[\`test/test.js deleteme child test > a jsonic object 1\`] = \`
+{
+  "foo": "bar"
+}
+\`
+
+exports[\`test/test.js deleteme child test > an object 1\`] = \`
+Object {
+  "foo": "bar",
+}
+\`
+
+exports[\`test/test.js deleteme child test > expect resolving Promise 1\`] = \`
+true
+\`
+
+exports[\`test/test.js deleteme child test > modify the promise result 1\`] = \`
+a: 1
+\`
+
+exports[\`test/test.js deleteme child test > must match snapshot 1\`] = \`
+do this eventually
+\`
+
+exports[\`test/test.js deleteme child test > promise fn 1\`] = \`
+420
+\`
+
+exports[\`test/test.js deleteme child test > string 1\`] = \`
+some string \\\\ \\\` \\\${process.env.FOO}
+\`
+
+`
+
 exports[`test/test.js TAP snapshots > verifying the snapshot 1`] = `
 TAP version 13
 # Subtest: child test
     ok 1 - an object
-    ok 2 - string
-    ok 3 - must match snapshot # TODO later
-    ok 4 - expect resolving Promise # TODO later
-    not ok 5 - message about promise
+    ok 2 - a jsonic object
+    ok 3 - string
+    ok 4 - must match snapshot # TODO later
+    ok 5 - expect resolving Promise # TODO later
+    not ok 6 - message about promise
       ---
       at: {}
       ...
     
-    not ok 6 - expect resolving Promise
+    not ok 7 - expect resolving Promise
       ---
       at: {}
       found: rejected promise
       ...
     
-    ok 7 - promise fn
-    ok 8 - expect resolving Promise
-    1..8
-    # failed 2 of 8 tests
+    ok 8 - promise fn
+    ok 9 - modify the promise result
+    1..9
+    # failed 2 of 9 tests
     # todo: 2
 not ok 1 - child test # {time}
   ---
