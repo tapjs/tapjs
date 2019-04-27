@@ -71,7 +71,7 @@ tmpfile(t, 'z/y/2.js', `'use strict'
 `)
 
 t.plan(3)
-run(['p/y/*.js', 'q', 'r/y', 'z', '-j2'], { cwd: dir }, (er, o, e) => {
+run(['p/y/*.js', 'q', 'q/b/f1.js', 'r/y', 'z', '-j2'], { cwd: dir }, (er, o, e) => {
   t.equal(er, null)
   t.matchSnapshot(clean(o), 'output')
   t.matchSnapshot(e, 'stderr')

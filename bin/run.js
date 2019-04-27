@@ -539,8 +539,13 @@ const runAllFiles = (options, tap) => {
     ? require(path.resolve(options['coverage-map']))
     : null
 
+  const seen = new Set()
   for (let i = 0; i < options.files.length; i++) {
     const file = options.files[i]
+    if (seen.has(file))
+      continue
+
+    seen.add(file)
 
     // Pick up stdin after all the other files are handled.
     if (file === '-') {
