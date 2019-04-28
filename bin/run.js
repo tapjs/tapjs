@@ -21,7 +21,7 @@ const mkdirp = require('mkdirp').sync
 const which = require('which')
 const {ProcessDB} = require('istanbul-lib-processinfo')
 const rimraf = require('rimraf').sync
-const Watch = require('../lib/watch.js')
+const {Repl} = require('../lib/repl.js')
 
 const filesFromTest = exports.filesFromTest = (index, testFile) => {
   const set = index.externalIds[testFile]
@@ -172,7 +172,7 @@ const main = async options => {
   // we test this directly, not from here.
   /* istanbul ignore next */
   if (options.watch)
-    return new Watch(options).pipe(process.stderr)
+    return new Repl(options, process.stdin, process.stdout)
 
   options.grep = options.grep.map(strToRegExp)
 

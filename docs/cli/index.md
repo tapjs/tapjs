@@ -75,6 +75,9 @@ Basic Options:
                          re-run just the portions of the suite that are required
                          whenever a file changes.
 
+                         Opens a REPL to trigger tests and perform various
+                         actions.
+
   --no-watch             switch off the --watch flag
 
   -n --changed           Only run tests for files that have changed since the

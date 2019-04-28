@@ -122,7 +122,9 @@ Much more documentation available at: https://www.node-tap.org/
 
                   Runs the suite normally one time, and from then on,
                   re-run just the portions of the suite that are required
-                  whenever a file changes.`,
+                  whenever a file changes.
+
+                  Opens a REPL to trigger tests and perform various actions.`,
   }),
 
   changed: flag({

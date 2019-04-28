@@ -54,7 +54,7 @@ require('chokidar').watch = filelist => {
 
 const changeFile = file => triggerWatchEvent('change', file)
 
-const Watch = require('../lib/watch.js')
+const {Watch} = require('../lib/watch.js')
 const bin = require.resolve('../bin/run.js')
 
 const dir = 'watch-test'
