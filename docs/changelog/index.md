@@ -2,6 +2,12 @@
 layout: layout
 title: Change Log
 ---
+## 13.1 - 2019-04-28
+
+* Add [repl](/watch/) for controlling `--watch` behavior.
+* Add `t.cleanSnapshot` and `t.formatSnapshot` for customizing snapshot
+  formatting.
+
 ## 13.0 - 2019-04-25
 
 Faster, prettier, and more powerful.  Major enhancements and quite a few
@@ -338,16 +344,10 @@ options.
 
 Document environment variables used.
 
-Built-in CodeCov.io support has been removed.  If you were relying on
-this, you can add `codecov` as a devDependency, and then add this to
-the scripts block in your `package.json` file:
-
-    {
-      "scripts": {
-        "test": "tap test/*.js --coverage",
-        "posttest": "tap --coverage-report=lcov | codecov"
-      }
-    }
+Built-in CodeCov.io support has been removed.  If you were relying on this, you
+can add `codecov` as a devDependency, and then add `"posttest": "tap
+--coverage-report=lcov | codecov"` to the `scripts` section in your
+package.json file.
 
 ## 5.8 2016-06-24
 
