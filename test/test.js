@@ -12,7 +12,7 @@ const MiniPass = require('minipass')
 process.env.TAP_DIAG = ''
 process.env.TAP_BAIL = ''
 
-const clean = require('./clean-stacks.js')
+t.cleanSnapshot = require('./clean-stacks.js')
 
 t.test('short output checks', t => {
   const env = process.env.TAP_BUFFER
@@ -216,7 +216,7 @@ t.test('short output checks', t => {
           if (reason)
             out = out.trim() + '\nBAILOUT: ' + JSON.stringify(reason)
 
-          t.matchSnapshot(clean(out), i)
+          t.matchSnapshot(out, i)
           resolve()
         }
         tt.on('end', done)
@@ -788,7 +788,7 @@ t.test('assertions and weird stuff', t => {
         setTimeout(() => {
           if (err)
             out = out.trim() + '\n' + 'STDERR:\n' + err
-          t.matchSnapshot(clean(out), i)
+          t.matchSnapshot(out, i)
         })
       })
       cases[i](tt)
@@ -821,7 +821,7 @@ t.test('addAssert', t => {
   tt.isUrl('https://skip:420/', { skip: 420 })
   tt.end()
 
-  t.matchSnapshot(clean(tt.output), 'using the custom isUrl assertion')
+  t.matchSnapshot(tt.output, 'using the custom isUrl assertion')
   return t.end()
 })
 
@@ -855,6 +855,9 @@ t.test('snapshots', t => {
     })
     tt.test('child test', { snapshot: snap, buffered: false }, tt => {
       tt.matchSnapshot({ foo: 'bar' }, 'an object')
+      tt.formatSnapshot = o => JSON.stringify(o, null, 2)
+      tt.matchSnapshot({ foo: 'bar' }, 'a jsonic object')
+      delete tt.formatSnapshot
       tt.matchSnapshot('some string \\ \` ${process.env.FOO}', 'string')
       tt.matchSnapshot('do this eventually', { todo: 'later' })
       tt.end()
@@ -864,8 +867,8 @@ t.test('snapshots', t => {
     return tt.output
   })
 
-  t.matchSnapshot(clean(outputs[0]), 'saving the snapshot')
-  t.matchSnapshot(clean(outputs[1]), 'verifying the snapshot')
+  t.matchSnapshot(outputs[0], 'saving the snapshot')
+  t.matchSnapshot(outputs[1], 'verifying the snapshot')
   fs.unlinkSync(path.resolve(__dirname, '..',
     'tap-snapshots', 'test-test.js-deleteme.test.js'))
 

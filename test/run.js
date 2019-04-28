@@ -26,7 +26,7 @@ const winSkip = process.platform === 'win32' ? 'known windows failure' : false
 const cleanStacks = require('./clean-stacks.js')
 // also clean up NYC output a bit, because the line lengths
 // in the text report can vary on different platforms.
-const clean = string => cleanStacks(string)
+t.cleanSnapshot = string => cleanStacks(string)
   .replace(/uncovered line( #)?s/i, 'Uncovered Lines')
   .replace(/ +\|/g, ' |')
   .replace(/\| +/g, '| ')
@@ -106,7 +106,7 @@ t.test('usage and other basics', t => {
 t.test('basic', t => {
   const ok = tmpfile(t, 'ok.js', `require(${tap}).pass('this is fine')`)
   run(['-Cbt0', '--', 'doesnt exist', ok], null, (err, stdout, stderr) => {
-    t.matchSnapshot(clean(stdout), 'ok.js output')
+    t.matchSnapshot(stdout, 'ok.js output')
     t.end()
   })
 })
@@ -272,7 +272,7 @@ reporter: tap
 
   const c = run([], { env: { TAP_RCFILE: rc }}, (er, o, e) => {
     t.equal(er, null)
-    t.matchSnapshot(clean(o), 'expected stdout')
+    t.matchSnapshot(o, 'expected stdout')
     t.equal(e, '')
     t.end()
   })
@@ -321,7 +321,7 @@ t.test('stdin', t => {
     const args = ['-', foo, '-CRclassic', '-ofoo.txt']
     const c = run(args, { env: { TAP: 0, TAP_BUFFER: 1 }}, (er, o, e) => {
       t.equal(er, null)
-      t.matchSnapshot(clean(fs.readFileSync('foo.txt', 'utf8')))
+      t.matchSnapshot(fs.readFileSync('foo.txt', 'utf8'))
       t.match(o, /foo.test.js \.+ 1\/1.*\n\/dev\/stdin \.+ 1\/1\n/)
       fs.unlinkSync('foo.txt')
       t.end()
@@ -402,14 +402,14 @@ t.test('coverage', t => {
     t.test('pass', t => {
       escape([t1, t2, t3, '--100'], null, (er, o, e) => {
         t.equal(er, null)
-        t.matchSnapshot(clean(o), '100 pass')
+        t.matchSnapshot(o, '100 pass')
         t.end()
       })
     })
     t.test('fail', t => {
       escape([t1, t2, '--100'], null, (er, o, e) => {
         t.match(er, { code: 1 })
-        t.matchSnapshot(clean(o), '100 fail')
+        t.matchSnapshot(o, '100 fail')
         t.end()
       })
     })
@@ -419,7 +419,7 @@ t.test('coverage', t => {
   t.test('report only', t => {
     escape(['--coverage-report=text-lcov'], null, (er, o, e) => {
       t.equal(er, null)
-      t.matchSnapshot(clean(o), 'lcov output', { skip: winSkip })
+      t.matchSnapshot(o, 'lcov output', { skip: winSkip })
       t.end()
     })
   })
@@ -427,7 +427,7 @@ t.test('coverage', t => {
   t.test('report with checks', t => {
     escape(['--100', '--coverage-report=text-lcov'], null, (er, o, e) => {
       t.match(er, { code: 1 })
-      t.matchSnapshot(clean(o), 'lcov output and 100 check', { skip: winSkip })
+      t.matchSnapshot(o, 'lcov output and 100 check', { skip: winSkip })
       t.end()
     })
   })
@@ -437,7 +437,7 @@ t.test('coverage', t => {
       COVERAGE_SERVICE_TEST: 'true'
     }}, (er, o, e) => {
       t.equal(er, null)
-      t.matchSnapshot(clean(o), 'piped to coverage service cat'), { skip: winSkip }
+      t.matchSnapshot(o, 'piped to coverage service cat'), { skip: winSkip }
       t.end()
     })
   })
@@ -469,9 +469,9 @@ t.test('save file', t => {
   t.test('with bailout, should save all untested', t => {
     run(['a', 'x', 'z.js', '-s', savefile, '-b'], { cwd: dir }, (er, o, e) => {
       t.match(er, { code: 1 })
-      t.matchSnapshot(clean(o), 'stdout', { skip: winSkip })
+      t.matchSnapshot(o, 'stdout', { skip: winSkip })
       t.equal(e, '')
-      t.matchSnapshot(clean(fs.readFileSync(savefile, 'utf8')), 'savefile')
+      t.matchSnapshot(fs.readFileSync(savefile, 'utf8'), 'savefile')
       t.end()
     })
   })
@@ -479,9 +479,9 @@ t.test('save file', t => {
   t.test('without bailout, run untested, save failures', t => {
     run(['a', 'x', 'z.js', '-s', savefile], { cwd: dir }, (er, o, e) => {
       t.match(er, { code: 1 })
-      t.matchSnapshot(clean(o), 'stdout', { skip: winSkip })
+      t.matchSnapshot(o, 'stdout', { skip: winSkip })
       t.equal(e, '')
-      t.matchSnapshot(clean(fs.readFileSync(savefile, 'utf8')), 'savefile')
+      t.matchSnapshot(fs.readFileSync(savefile, 'utf8'), 'savefile')
       t.end()
     })
   })
@@ -499,7 +499,7 @@ t.test('save file', t => {
   t.test('pass, empty save file', t => {
     run(['a', 'x', 'z.js', '-s', savefile], { cwd: dir }, (er, o, e) => {
       t.equal(er, null)
-      t.matchSnapshot(clean(o), 'stdout')
+      t.matchSnapshot(o, 'stdout')
       t.equal(e, '')
       t.throws(() => fs.statSync(savefile), 'save file is gone')
       t.end()
@@ -509,7 +509,7 @@ t.test('save file', t => {
   t.test('empty save file, run all tests', t => {
     run(['a', 'x', 'z.js', '-s', savefile], { cwd: dir }, (er, o, e) => {
       t.equal(er, null)
-      t.matchSnapshot(clean(o), 'stdout')
+      t.matchSnapshot(o, 'stdout')
       t.equal(e, '')
       t.throws(() => fs.statSync(savefile), 'save file is gone')
       t.end()
@@ -583,7 +583,7 @@ t.test('parallel', t => {
 
   run(['p/y/*.js', 'q', 'r/y', 'z', '-j2'], { cwd: dir }, (er, o, e) => {
     t.equal(er, null)
-    t.matchSnapshot(clean(o), 'output')
+    t.matchSnapshot(o, 'output')
     t.equal(e,
       'start\nstart\nend\nend\n' +
       'ry1\nry1\nry2\nry2\n' +
@@ -611,7 +611,7 @@ t.test('executables', {
   fs.chmodSync(notok, 0o644)
   run(['exe', '-C'], { cwd: dir }, (er, o, e) => {
     t.equal(er, null)
-    t.matchSnapshot(clean(o))
+    t.matchSnapshot(o)
     t.equal(e, '')
     t.end()
   })
@@ -643,7 +643,7 @@ t.test('mjs', t => {
   `)
   run([ok, '--esm'], {}, (er, o, e) => {
     t.equal(er, null)
-    t.matchSnapshot(clean(o))
+    t.matchSnapshot(o)
     t.end()
   })
 })
@@ -655,7 +655,7 @@ t.test('esm', t => {
   `)
   run([ok, '--esm'], {}, (er, o, e) => {
     t.equal(er, null)
-    t.matchSnapshot(clean(o))
+    t.matchSnapshot(o)
     t.end()
   })
 })
@@ -667,7 +667,7 @@ t.test('ts', t => {
   `)
   run([ok, '--esm'], {}, (er, o, e) => {
     t.equal(er, null)
-    t.matchSnapshot(clean(o))
+    t.matchSnapshot(o)
     t.end()
   })
 })

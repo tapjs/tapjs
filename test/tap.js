@@ -1,8 +1,6 @@
 'use strict'
 const node = process.execPath
 
-const clean = require('./clean-stacks.js')
-
 const cases = {
   ok: t => t.pass('fine'),
   notOk: t => t.fail('expected'),
@@ -123,6 +121,7 @@ const cases = {
 }
 
 const main = t => {
+  t.cleanSnapshot = require('./clean-stacks.js')
   const spawn = require('child_process').spawn
   const keys = Object.keys(cases)
   t.plan(keys.length)
@@ -142,8 +141,8 @@ const main = t => {
         code: code,
         signal: signal
       }, 'exit status')
-      t.matchSnapshot(clean(out), 'stdout')
-      t.matchSnapshot(clean(err), 'stderr')
+      t.matchSnapshot(out, 'stdout')
+      t.matchSnapshot(err, 'stderr')
     })
   }))
 }

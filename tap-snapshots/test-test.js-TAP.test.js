@@ -2455,9 +2455,10 @@ exports[`test/test.js TAP snapshots > saving the snapshot 1`] = `
 TAP version 13
 # Subtest: child test
     ok 1 - an object
-    ok 2 - string
-    ok 3 - must match snapshot # TODO later
-    1..3
+    ok 2 - a jsonic object
+    ok 3 - string
+    ok 4 - must match snapshot # TODO later
+    1..4
     # todo: 1
 ok 1 - child test # {time}
 
@@ -2469,9 +2470,10 @@ exports[`test/test.js TAP snapshots > verifying the snapshot 1`] = `
 TAP version 13
 # Subtest: child test
     ok 1 - an object
-    ok 2 - string
-    ok 3 - must match snapshot # TODO later
-    1..3
+    ok 2 - a jsonic object
+    ok 3 - string
+    ok 4 - must match snapshot # TODO later
+    1..4
     # todo: 1
 ok 1 - child test # {time}
 
