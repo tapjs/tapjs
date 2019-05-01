@@ -6,17 +6,19 @@
  */
 'use strict'
 exports[`test/watch.js TAP run tests on changes change a file > logs 1`] = `
-initial test run [
-  '{TAPDIR}/bin/run.js',
-  '1.test.js',
-  '2.test.js',
-  '3.test.js',
-  '4.test.js',
-  '--watch',
-  '--no-watch'
-]
+initial test run
+- {TAPDIR}/bin/run.js
+- 1.test.js
+- 2.test.js
+- 3.test.js
+- 4.test.js
+- --watch
+- --no-watch
+
 change ko.js
-running tests [ '4.test.js' ]
+running tests
+- 4.test.js
+
 
 `
 
@@ -28,7 +30,9 @@ exports[`test/watch.js TAP run tests on changes change a file > spawn test run o
 exports[`test/watch.js TAP run tests on changes change a file mid-test > logs 1`] = `
 change 1.test.js
 test in progress, queuing for next run
-running tests [ '1.test.js' ]
+running tests
+- 1.test.js
+
 
 `
 
@@ -47,7 +51,9 @@ false
 
 exports[`test/watch.js TAP run tests on changes new file added > log after spawn 1`] = `
 change new.js
-running tests [ '3.test.js' ]
+running tests
+- 3.test.js
+
 
 `
 

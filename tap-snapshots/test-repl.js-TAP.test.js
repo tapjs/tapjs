@@ -110,7 +110,8 @@ null
 `
 
 exports[`test/repl.js TAP kill process > killed process 1`] = `
-{ code: null, signal: 'SIGTERM' }
+code: null
+signal: SIGTERM
 TAP> 
 `
 
@@ -129,7 +130,8 @@ TAP>
 
 exports[`test/repl.js TAP run on change > ran the suite on change 1`] = `
 'test in progress, please wait'
-TAP> { code: 0, signal: null }
+TAP> code: 0
+signal: null
 TAP> 
 `
 
