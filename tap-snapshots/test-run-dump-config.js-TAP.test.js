@@ -43,6 +43,7 @@ test-env: []
 test-ignore: /(^|/)cli-tests-[0-9]+/
 test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mjs|[jt]sx?)$
 timeout: 30
+ts: false
 version: false
 versions: false
 watch: false
@@ -88,6 +89,7 @@ test-env: []
 test-ignore: /(^|/)cli-tests-[0-9]+/
 test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mjs|[jt]sx?)$
 timeout: 30
+ts: false
 version: false
 versions: false
 watch: false
@@ -133,6 +135,7 @@ test-env: []
 test-ignore: $.
 test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mjs|[jt]sx?)$
 timeout: 30
+ts: false
 version: false
 versions: false
 watch: false
@@ -178,6 +181,7 @@ test-env: []
 test-ignore: $.
 test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mjs|[jt]sx?)$
 timeout: 30
+ts: false
 version: false
 versions: false
 watch: false
@@ -223,6 +227,7 @@ test-env: []
 test-ignore: $.
 test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mjs|[jt]sx?)$
 timeout: 30
+ts: false
 version: false
 versions: false
 watch: false
@@ -268,6 +273,7 @@ test-env: []
 test-ignore: /(^|/)cli-tests-[0-9]+/
 test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mjs|[jt]sx?)$
 timeout: 0
+ts: false
 version: false
 versions: false
 watch: false
@@ -324,6 +330,7 @@ test-env: []
 test-ignore: /(^|/)cli-tests-[0-9]+/
 test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mjs|[jt]sx?)$
 timeout: 99
+ts: false
 version: false
 versions: false
 watch: false
@@ -369,6 +376,7 @@ test-env: []
 test-ignore: /(^|/)cli-tests-[0-9]+/
 test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mjs|[jt]sx?)$
 timeout: 30
+ts: false
 version: false
 versions: false
 watch: false

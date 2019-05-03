@@ -16,6 +16,8 @@ your tests with `--no-esm`.
 
 Name your test files `.ts` and they'll be loaded as TypeScript.
 
+If your `.js` test files use `.ts` code, use `--ts` flag.
+
 For TypeScript with JSX (ie, TSX), name your files with a `.tsx` extension.
 
 # Using tap with JSX

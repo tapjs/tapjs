@@ -577,29 +577,24 @@ const runAllFiles = (options, tap) => {
       if (options.jobs > 1)
         opt.buffered = isParallelOk(parallelOk, file) !== false
 
-      if (file.match(/\.m?js$/)) {
-        const args = [
+      if (file.match(/\.m?js$/) || file.match(/\.tsx?$/)) {
+        let args = [
           ...(options.esm ? ['-r', esm] : []),
           ...options['node-arg'],
           file,
           ...options['test-arg']
         ]
-        tap.spawn(node, args, opt, file)
-      } else if (file.match(/\.tsx?$/)) {
-        const compilerOpts = JSON.stringify({
-          ...JSON.parse(process.env.TS_NODE_COMPILER_OPTIONS || '{}'),
-          jsx: 'react'
-        })
-        opt.env = {
-          ...env,
-          TS_NODE_COMPILER_OPTIONS: compilerOpts,
+        if (options.ts || file.match(/\.tsx?$/)) {
+          const compilerOpts = JSON.stringify({
+            ...JSON.parse(process.env.TS_NODE_COMPILER_OPTIONS || '{}'),
+            jsx: 'react'
+          })
+          opt.env = {
+            ...env,
+            TS_NODE_COMPILER_OPTIONS: compilerOpts,
+          }
+          args = ['-r', tsNode, ...args];
         }
-        const args = [
-          '-r', tsNode,
-          ...options['node-arg'],
-          file,
-          ...options['test-arg']
-        ]
         tap.spawn(node, args, opt, file)
       } else if (file.match(/\.jsx$/)) {
         const args = [

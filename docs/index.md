@@ -139,7 +139,8 @@ probably enjoy this test library.
    compilation, then I think your tests shouldn't either.  Tap is extremely
    [promise-aware](/promises/).  JSX, TypeScript, and ES-Modules are built-in
    when tests are run by the tap CLI.  (ES-Module support can be disabled by
-   `--no-esm`, which is necessary in some very rare edge cases.)
+   `--no-esm`, which is necessary in some very rare edge cases; TypeScript
+   support can be enabled for mixed-language projects with `--ts`).
 
 11. **Tests should run as fast as possible, given all the prior
     considerations.**

@@ -544,9 +544,13 @@ Much more documentation available at: https://www.node-tap.org/
   }),
 
   esm: flag({
-    default: process.env.TAP_NO_ESM !== '1',
     description: `Run .js and .mjs with support for EcmaScript modules
                   (Default: true)`,
+  }),
+
+  ts: flag({
+    description: `Always use Typescript loader. Useful when .js tests
+                  require .ts code`,
   }),
 
   'nyc-help': flag({

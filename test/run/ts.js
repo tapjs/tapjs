@@ -30,3 +30,19 @@ t.test('tsx', t => {
     t.end()
   })
 })
+
+t.test('js requiring ts', t => {
+  const tsModule = tmpfile(t, 'ts/tsmodule.ts', `
+    export function allIsWell() { return true; }
+  `)
+  const ok = tmpfile(t, 'ts/ok.js', `
+    const t = require(${tap})
+    const tsmodule = require('./tsmodule')
+    t.ok(tsmodule.allIsWell())
+  `)
+  run([ok, '--ts'], {}, (er, o, e) => {
+    t.equal(er, null)
+    t.matchSnapshot(o)
+    t.end()
+  })
+})

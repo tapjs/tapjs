@@ -329,6 +329,9 @@ Other Options:
 
   --no-esm               switch off the --esm flag
 
+  --ts                   Always use Typescript loader. Useful when .js tests
+                         require .ts code.
+
   --nyc-help             Print nyc usage banner. Useful for viewing options for
                          --nyc-arg.
 
