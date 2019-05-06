@@ -23,6 +23,7 @@ grep: []
 help: false
 invert: false
 jobs: {number}
+jsx: true
 lines: 100
 node-arg: []
 nyc-arg: []
@@ -43,6 +44,7 @@ test-env: []
 test-ignore: /(^|/)cli-tests-[0-9]+/
 test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mjs|[jt]sx?)$
 timeout: 30
+ts: true
 version: false
 versions: false
 watch: false
@@ -68,6 +70,7 @@ grep: []
 help: false
 invert: false
 jobs: {number}
+jsx: true
 lines: 100
 node-arg: []
 nyc-arg: []
@@ -88,6 +91,7 @@ test-env: []
 test-ignore: /(^|/)cli-tests-[0-9]+/
 test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mjs|[jt]sx?)$
 timeout: 30
+ts: true
 version: false
 versions: false
 watch: false
@@ -113,6 +117,7 @@ grep: []
 help: false
 invert: false
 jobs: {number}
+jsx: true
 lines: 100
 node-arg: []
 nyc-arg: []
@@ -133,6 +138,7 @@ test-env: []
 test-ignore: $.
 test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mjs|[jt]sx?)$
 timeout: 30
+ts: true
 version: false
 versions: false
 watch: false
@@ -158,6 +164,7 @@ grep: []
 help: false
 invert: false
 jobs: {number}
+jsx: true
 lines: 69
 node-arg: []
 nyc-arg: []
@@ -178,6 +185,7 @@ test-env: []
 test-ignore: $.
 test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mjs|[jt]sx?)$
 timeout: 30
+ts: true
 version: false
 versions: false
 watch: false
@@ -203,6 +211,7 @@ grep: []
 help: false
 invert: false
 jobs: {number}
+jsx: true
 lines: 100
 node-arg: []
 nyc-arg: []
@@ -223,6 +232,7 @@ test-env: []
 test-ignore: $.
 test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mjs|[jt]sx?)$
 timeout: 30
+ts: true
 version: false
 versions: false
 watch: false
@@ -248,6 +258,7 @@ grep: []
 help: false
 invert: false
 jobs: {number}
+jsx: true
 lines: 100
 node-arg: []
 nyc-arg: []
@@ -268,6 +279,7 @@ test-env: []
 test-ignore: /(^|/)cli-tests-[0-9]+/
 test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mjs|[jt]sx?)$
 timeout: 0
+ts: true
 version: false
 versions: false
 watch: false
@@ -295,6 +307,7 @@ grep:
 help: false
 invert: false
 jobs: {number}
+jsx: true
 lines: 100
 node-arg:
   - --expose-gc
@@ -324,6 +337,7 @@ test-env: []
 test-ignore: /(^|/)cli-tests-[0-9]+/
 test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mjs|[jt]sx?)$
 timeout: 99
+ts: true
 version: false
 versions: false
 watch: false
@@ -349,6 +363,7 @@ grep: []
 help: false
 invert: false
 jobs: {number}
+jsx: true
 lines: 100
 node-arg: []
 nyc-arg: []
@@ -369,6 +384,7 @@ test-env: []
 test-ignore: /(^|/)cli-tests-[0-9]+/
 test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mjs|[jt]sx?)$
 timeout: 30
+ts: true
 version: false
 versions: false
 watch: false

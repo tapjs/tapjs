@@ -463,12 +463,12 @@ Much more documentation available at: https://www.node-tap.org/
                   positional arguments are provided.
 
                   By default, tap will search for all files ending in
-                  .ts, .js, or .mjs, in a top-level folder named test,
-                  tests, or __tests__, or any file ending in .spec. or .test.
-                  before a js, mjs, or ts extension.
+                  .ts, .tsx, .js, .jsx, or .mjs, in a top-level folder named
+                  test, tests, or __tests__, or any file ending in '.spec.' or
+                  '.test.' before a supported extension.
 
                   Ie, the default value for this option is:
-                  ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mj|j|t)s$
+                  ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.(mjs|[jt]sx?)$
                   `
   }),
 
@@ -547,6 +547,18 @@ Much more documentation available at: https://www.node-tap.org/
     default: process.env.TAP_NO_ESM !== '1',
     description: `Run .js and .mjs with support for EcmaScript modules
                   (Default: true)`,
+  }),
+
+  ts: flag({
+    default: process.env.TAP_NO_TS !== '1',
+    description: `Automatically load .ts and .tsx tests with tap's bundled
+                  ts-node module (Default: true)`,
+  }),
+
+  jsx: flag({
+    default: process.env.TAP_NO_JSX !== '1',
+    description: `Automatically load .jsx tests using tap's bundled import-jsx
+                  loader (Default: true)`,
   }),
 
   'nyc-help': flag({
@@ -736,6 +748,14 @@ Much more documentation available at: https://www.node-tap.org/
 
   TAP_NO_ESM: env(flag({
     description: `Set to '1' to disable automatic esm support`
+  })),
+
+  TAP_NO_TS: env(flag({
+    description: `Set to '1' to disable automatic typescript support`
+  })),
+
+  TAP_NO_JSX: env(flag({
+    description: `Set to '1' to disable automatic jsx support`
   })),
 
   _TAP_COVERAGE_: env(flag({

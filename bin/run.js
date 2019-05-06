@@ -577,15 +577,7 @@ const runAllFiles = (options, tap) => {
       if (options.jobs > 1)
         opt.buffered = isParallelOk(parallelOk, file) !== false
 
-      if (file.match(/\.m?js$/)) {
-        const args = [
-          ...(options.esm ? ['-r', esm] : []),
-          ...options['node-arg'],
-          file,
-          ...options['test-arg']
-        ]
-        tap.spawn(node, args, opt, file)
-      } else if (file.match(/\.tsx?$/)) {
+      if (options.ts && /\.tsx?$/.test(file)) {
         const compilerOpts = JSON.stringify({
           ...JSON.parse(process.env.TS_NODE_COMPILER_OPTIONS || '{}'),
           jsx: 'react'
@@ -601,7 +593,7 @@ const runAllFiles = (options, tap) => {
           ...options['test-arg']
         ]
         tap.spawn(node, args, opt, file)
-      } else if (file.match(/\.jsx$/)) {
+      } else if (options.jsx && /\.jsx$/.test(file)) {
         const args = [
           ...(options['node-arg']),
           jsx,
@@ -609,7 +601,15 @@ const runAllFiles = (options, tap) => {
           ...(options['test-arg']),
         ]
         tap.spawn(node, args, opt, file)
-      } else if (file.match(/\.tap$/)) {
+      } else if (/\.jsx$|\.tsx?$|\.m?js$/.test(file)) {
+        const args = [
+          ...(options.esm ? ['-r', esm] : []),
+          ...options['node-arg'],
+          file,
+          ...options['test-arg']
+        ]
+        tap.spawn(node, args, opt, file)
+      } else if (/\.tap$/.test(file)) {
         tap.spawn('cat', [file], opt, file)
       } else if (isexe.sync(options.files[i]))
         tap.spawn(options.files[i], options['test-arg'], opt, file)

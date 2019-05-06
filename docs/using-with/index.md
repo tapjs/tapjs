@@ -18,6 +18,25 @@ Name your test files `.ts` and they'll be loaded as TypeScript.
 
 For TypeScript with JSX (ie, TSX), name your files with a `.tsx` extension.
 
+If you want to provide your own TypeScript configs or version, disable tap's
+built-in TypeScript support, and use the `--node-arg` argument to load your
+TypeScript loader.  For example:
+
+```
+tap --no-ts --node-arg=--require=my-ts-node/register
+```
+
+This is useful in some cases where you might have a mix of JavaScript and
+TypeScript in your tests and module.
+
 # Using tap with JSX
 
 Name your test files `.jsx` and they'll be loaded as JSX.
+
+To provide your own JSX handling preloader instead of tap's built-in use of
+[`import-jsx`](http://npm.im/import-jsx), disable tap's built-in JSX handling,
+and provide your own loader via the `--node-arg` option.  For example:
+
+```
+tap --no-jsx --node-arg=--require=my-jsx-preloader
+```

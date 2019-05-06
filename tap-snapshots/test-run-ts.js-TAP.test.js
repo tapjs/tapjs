@@ -18,6 +18,25 @@ ok 1 - cli-tests/ts/ok.ts # {time} {
 
 `
 
+exports[`test/run/ts.js TAP ts manually > must match snapshot 1`] = `
+TAP version 13
+ok 1 - cli-tests/mixed/ok.js # {time} {
+    ok 1 - this is fine
+    1..1
+    # {time}
+}
+
+ok 2 - cli-tests/mixed/foo.ts # {time} {
+    ok 1 - this is fine
+    1..1
+    # {time}
+}
+
+1..2
+# {time}
+
+`
+
 exports[`test/run/ts.js TAP tsx > must match snapshot 1`] = `
 TAP version 13
 ok 1 - cli-tests/tsx/ok.tsx # {time} {
