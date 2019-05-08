@@ -176,8 +176,12 @@ t.test('short output checks', t => {
     },
 
     'gentle thrower': tt => tt.threw(new Error('ok')),
+    'gentle thrower nonerror': tt => tt.threw('ok'),
     'child thrower': tt => tt.test('child test', tt =>
       tt.threw(new Error('ok'))).then(tt.end),
+
+    'child thrower nonerror': tt => tt.test('child test', tt =>
+      tt.threw('ok')).then(tt.end),
 
     'child end event thrower': tt => {
       tt.test(tt => {
@@ -186,6 +190,20 @@ t.test('short output checks', t => {
         tt.on('end', function () {
           tt.comment('end() event')
           throw new Error('beep')
+        })
+
+        tt.equal(3, 3)
+      })
+      tt.end()
+    },
+
+    'child end event throw nonerror': tt => {
+      tt.test(tt => {
+        tt.plan(1)
+
+        tt.on('end', function () {
+          tt.comment('end() event')
+          throw 'boop'
         })
 
         tt.equal(3, 3)
@@ -560,9 +578,22 @@ t.test('assertions and weird stuff', t => {
       tt.end()
     },
 
+    'child breaks a promise nonerror': tt => {
+      tt.test('child', () => new Promise((_, r) => r('poop')))
+      tt.end()
+    },
+
     'child teardown throw': tt => {
       tt.test('child', tt => {
         tt.teardown(() => { throw new Error('fail') })
+        tt.end()
+      })
+      tt.end()
+    },
+
+    'child teardown throw nonerror': tt => {
+      tt.test('child', tt => {
+        tt.teardown(() => { throw 'fail' })
         tt.end()
       })
       tt.end()
@@ -585,6 +616,18 @@ t.test('assertions and weird stuff', t => {
         tt.teardown(() => new Promise((_, rej) => {
           tt.comment('parent teardown')
           rej(new Error('did not tear down proper'))
+        }))
+        tt.pass('this is fine')
+        tt.end()
+      })
+      tt.end()
+    },
+
+    'teardown promise fail nonerror': tt => {
+      tt.test('parent', tt => {
+        tt.teardown(() => new Promise((_, rej) => {
+          tt.comment('parent teardown')
+          rej('did not tear down proper')
         }))
         tt.pass('this is fine')
         tt.end()

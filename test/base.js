@@ -115,6 +115,21 @@ t.test('throwing stuff', t => {
     t.end()
   })
 
+  t.test('domain error nonerror', t => {
+    const b = new Base({ name: 'ace', buffered: true })
+    b.hookDomain.onerror('this is fine', 'testing error')
+    t.notOk(b.parser.ok)
+    t.end()
+  })
+
+  t.test('calling .threw nonerror', t => {
+    const b = new Base({ name: 'ace' })
+    const result = b.threw('this is fine')
+    t.match(result, { error: 'this is fine', test: 'ace', name: 'ace' })
+    t.notOk(b.parser.ok)
+    t.end()
+  })
+
   t.test('calling .threw', t => {
     const b = new Base({ name: 'ace' })
     const result = b.threw(new Error('this is fine'))

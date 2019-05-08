@@ -218,6 +218,37 @@ not ok 1 - child # {time}
 
 `
 
+exports[`test/test.js TAP assertions and weird stuff child breaks a promise nonerror > output 1`] = `
+TAP version 13
+# Subtest: child
+    not ok 1 - (unnamed test)
+      ---
+      at:
+        line: #
+        column: #
+        file: test/test.js
+      error: poop
+      source: |2
+            'child breaks a promise nonerror': tt => {
+              tt.test('child', () => new Promise((_, r) => r('poop')))
+        --^
+              tt.end()
+            },
+      stack: |
+        {STACK}
+      tapCaught: returnedPromiseRejection
+      test: child
+      ...
+    
+    1..1
+    # failed 1 test
+not ok 1 - child # {time}
+
+1..1
+# failed 1 test
+
+`
+
 exports[`test/test.js TAP assertions and weird stuff child teardown throw > output 1`] = `
 TAP version 13
 # Subtest: child
@@ -238,6 +269,24 @@ not ok 2 - fail
           })
   stack: |
     {STACK}
+  tapCaught: teardown
+  test: child
+  ...
+
+1..2
+# failed 1 of 2 tests
+
+`
+
+exports[`test/test.js TAP assertions and weird stuff child teardown throw nonerror > output 1`] = `
+TAP version 13
+# Subtest: child
+    1..0
+ok 1 - child # {time}
+
+not ok 2 - (unnamed test)
+  ---
+  error: fail
   tapCaught: teardown
   test: child
   ...
@@ -1236,6 +1285,27 @@ not ok 2 - did not tear down proper
 
 `
 
+exports[`test/test.js TAP assertions and weird stuff teardown promise fail nonerror > output 1`] = `
+TAP version 13
+# Subtest: parent
+    ok 1 - this is fine
+    1..1
+ok 1 - parent # {time}
+
+# parent teardown
+not ok 2 - (unnamed test)
+  ---
+  error: did not tear down proper
+  stack: |
+    {STACK}
+  tapCaught: teardown
+  ...
+
+1..2
+# failed 1 of 2 tests
+
+`
+
 exports[`test/test.js TAP assertions and weird stuff test after end fails > output 1`] = `
 TAP version 13
 1..0
@@ -1687,6 +1757,73 @@ ok 1 - (unnamed test) # SKIP filter: only
 
 `
 
+exports[`test/test.js TAP short output checks child end event throw nonerror bailout > child end event throw nonerror 1`] = `
+TAP version 13
+# Subtest
+    1..1
+    ok 1 - should be equal
+# end() event
+ok 1 # {time}
+
+not ok 2 - (unnamed test)
+  ---
+  at:
+    line: #
+    column: #
+    file: test/test.js
+  error: boop
+  source: |2
+        'child end event throw nonerror': tt => {
+          tt.test(tt => {
+    --^
+            tt.plan(1)
+  stack: |
+    {STACK}
+  tapCaught: testFunctionThrow
+  ...
+
+Bail out! (unnamed test)
+BAILOUT: "(unnamed test)"
+`
+
+exports[`test/test.js TAP short output checks child end event throw nonerror no options > child end event throw nonerror 1`] = `
+TAP version 13
+# Subtest
+    1..1
+    ok 1 - should be equal
+# end() event
+ok 1 # {time}
+
+not ok 2 - (unnamed test)
+  ---
+  at:
+    line: #
+    column: #
+    file: test/test.js
+  error: boop
+  source: |2
+        'child end event throw nonerror': tt => {
+          tt.test(tt => {
+    --^
+            tt.plan(1)
+  stack: |
+    {STACK}
+  tapCaught: testFunctionThrow
+  ...
+
+1..2
+# failed 1 of 2 tests
+
+`
+
+exports[`test/test.js TAP short output checks child end event throw nonerror runOnly > child end event throw nonerror 1`] = `
+TAP version 13
+ok 1 - (unnamed test) # SKIP filter: only
+1..1
+# skip: 1
+
+`
+
 exports[`test/test.js TAP short output checks child end event thrower bailout > child end event thrower 1`] = `
 TAP version 13
 # Subtest
@@ -1766,7 +1903,7 @@ TAP version 13
               tt.threw(new Error('ok'))).then(tt.end),
         --^
       
-            'child end event thrower': tt => {
+            'child thrower nonerror': tt => tt.test('child test', tt =>
       stack: |
         {STACK}
       test: child test
@@ -1790,7 +1927,7 @@ TAP version 13
               tt.threw(new Error('ok'))).then(tt.end),
         --^
       
-            'child end event thrower': tt => {
+            'child thrower nonerror': tt => tt.test('child test', tt =>
       stack: |
         {STACK}
       test: child test
@@ -1802,6 +1939,67 @@ not ok 1 - child test # {time}
 
 1..1
 # failed 1 test
+
+`
+
+exports[`test/test.js TAP short output checks child thrower nonerror bailout > child thrower nonerror 1`] = `
+TAP version 13
+# Subtest: child test
+    not ok 1 - (unnamed test)
+      ---
+      at:
+        line: #
+        column: #
+        file: test/test.js
+      error: ok
+      source: |2
+        
+            'child thrower nonerror': tt => tt.test('child test', tt =>
+        --^
+              tt.threw('ok')).then(tt.end),
+      stack: |
+        {STACK}
+      test: child test
+      ...
+    
+    Bail out! (unnamed test)
+BAILOUT: "(unnamed test)"
+`
+
+exports[`test/test.js TAP short output checks child thrower nonerror no options > child thrower nonerror 1`] = `
+TAP version 13
+# Subtest: child test
+    not ok 1 - (unnamed test)
+      ---
+      at:
+        line: #
+        column: #
+        file: test/test.js
+      error: ok
+      source: |2
+        
+            'child thrower nonerror': tt => tt.test('child test', tt =>
+        --^
+              tt.threw('ok')).then(tt.end),
+      stack: |
+        {STACK}
+      test: child test
+      ...
+    
+    1..1
+    # failed 1 test
+not ok 1 - child test # {time}
+
+1..1
+# failed 1 test
+
+`
+
+exports[`test/test.js TAP short output checks child thrower nonerror runOnly > child thrower nonerror 1`] = `
+TAP version 13
+ok 1 - child test # SKIP filter: only
+1..1
+# skip: 1
 
 `
 
@@ -1988,8 +2186,8 @@ not ok 1 - ok
     
         'gentle thrower': tt => tt.threw(new Error('ok')),
     --^
+        'gentle thrower nonerror': tt => tt.threw('ok'),
         'child thrower': tt => tt.test('child test', tt =>
-          tt.threw(new Error('ok'))).then(tt.end),
   stack: |
     {STACK}
   ...
@@ -2010,8 +2208,50 @@ not ok 1 - ok
     
         'gentle thrower': tt => tt.threw(new Error('ok')),
     --^
+        'gentle thrower nonerror': tt => tt.threw('ok'),
         'child thrower': tt => tt.test('child test', tt =>
-          tt.threw(new Error('ok'))).then(tt.end),
+  stack: |
+    {STACK}
+  ...
+
+1..1
+# failed 1 test
+
+`
+
+exports[`test/test.js TAP short output checks gentle thrower nonerror bailout > gentle thrower nonerror 1`] = `
+TAP version 13
+not ok 1 - (unnamed test)
+  ---
+  error: ok
+  stack: |
+    {STACK}
+  ...
+
+Bail out! (unnamed test)
+BAILOUT: "(unnamed test)"
+`
+
+exports[`test/test.js TAP short output checks gentle thrower nonerror no options > gentle thrower nonerror 1`] = `
+TAP version 13
+not ok 1 - (unnamed test)
+  ---
+  error: ok
+  stack: |
+    {STACK}
+  ...
+
+1..1
+# failed 1 test
+
+`
+
+exports[`test/test.js TAP short output checks gentle thrower nonerror runOnly > gentle thrower nonerror 1`] = `
+TAP version 13
+not ok 1 - (unnamed test)
+  ---
+  error: ok
+  runOnly: true
   stack: |
     {STACK}
   ...
@@ -2034,8 +2274,8 @@ not ok 1 - ok
     
         'gentle thrower': tt => tt.threw(new Error('ok')),
     --^
+        'gentle thrower nonerror': tt => tt.threw('ok'),
         'child thrower': tt => tt.test('child test', tt =>
-          tt.threw(new Error('ok'))).then(tt.end),
   stack: |
     {STACK}
   ...
