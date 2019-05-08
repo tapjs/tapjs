@@ -460,6 +460,8 @@ t.test('assertions and weird stuff', t => {
 
       tt.rejects(new Promise(r => r(420)), 'fail: passing promise')
 
+      tt.rejects(() => Promise.reject(), 'empty rejection')
+
       tt.end()
     },
 

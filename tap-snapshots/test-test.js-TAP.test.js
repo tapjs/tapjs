@@ -934,11 +934,12 @@ not ok 19 - fail: passing promise
           tt.rejects(new Promise(r => r(420)), 'fail: passing promise')
     --^
   
-          tt.end()
+          tt.rejects(() => Promise.reject(), 'empty rejection')
   ...
 
-1..19
-# failed 3 of 19 tests
+ok 20 - empty rejection
+1..20
+# failed 3 of 20 tests
 # todo: 3
 
 `
