@@ -222,8 +222,10 @@ const main = async options => {
 
 /* istanbul ignore next */
 const nycReporter = options =>
-  options['coverage-report'] === 'html' ? 'lcov'
-  : (options['coverage-report'] || 'text')
+  options['coverage-report'] === 'html' ? '--reporter=lcov'
+  : options['coverage-report'] === false ? '--silent'
+  : options['coverage-report'] === null ? '--reporter=text'
+  : `--reporter=${options['coverage-report']}`
 
 /* istanbul ignore next */
 const runNyc = (cmd, programArgs, options, spawnOpts) => {
@@ -238,7 +240,7 @@ const runNyc = (cmd, programArgs, options, spawnOpts) => {
     '--functions=' + options.functions,
     '--lines=' + options.lines,
     '--statements=' + options.statements,
-    (options['no-coverage-report'] ? '--silent' : `--reporter=${reporter}`),
+    reporter,
     '--extension=.js',
     '--extension=.jsx',
     '--extension=.mjs',
@@ -261,7 +263,7 @@ const runNyc = (cmd, programArgs, options, spawnOpts) => {
   ]
   require(nycBin)
 
-  if (reporter === 'lcov' && options.browser)
+  if (reporter === '--reporter=lcov' && options.browser)
     process.on('exit', () => openHtmlCoverageReport(options))
 }
 
