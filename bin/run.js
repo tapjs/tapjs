@@ -238,7 +238,7 @@ const runNyc = (cmd, programArgs, options, spawnOpts) => {
     '--functions=' + options.functions,
     '--lines=' + options.lines,
     '--statements=' + options.statements,
-    '--reporter=' + reporter,
+    (options['no-coverage-report'] ? '--silent' : `--reporter=${reporter}`),
     '--extension=.js',
     '--extension=.jsx',
     '--extension=.mjs',
