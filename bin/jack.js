@@ -539,7 +539,7 @@ Much more documentation available at: https://www.node-tap.org/
     description: 'Enable all Harmony flags in JavaScript tests',
   }),
   strict: flag({
-    alias: '--node-arg=--strict',
+    alias: '--node-arg=--use-strict',
     description: `Run JS tests in 'use strict' mode`,
   }),
 

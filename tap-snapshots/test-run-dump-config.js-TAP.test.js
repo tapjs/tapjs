@@ -298,7 +298,7 @@ jobs: {number}
 lines: 100
 node-arg:
   - --expose-gc
-  - --strict
+  - --use-strict
   - --debug-brk
   - --harmony
   - xyz
