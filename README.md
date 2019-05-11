@@ -63,6 +63,9 @@ a `match` boolean member.
 
 Each method can take the following options.
 
+* `sort` - Set to `true` to sort object keys.  This is important when
+  serializing in a deterministic way.
+
 * `style` - Set to `pretty` for a very human-readable style of object printing.
   Set to `js` for a copy-and-paste friendly valid JavaScript output.  Set to
   `tight` for a minimal white-space js format.  Default is `pretty`.  Example:

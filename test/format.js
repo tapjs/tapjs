@@ -109,6 +109,16 @@ t.test('gnarly object, many points of view', t => {
   t.end()
 })
 
+t.test('sorting', t => {
+  t.matchSnapshot(format({b: 1, a: 2}, {sort: true}), 'sort it')
+  t.equal(
+    format({b: 1, a: 2}, {sort: true}),
+    format({a: 2, b: 1}, {sort: true}),
+    'sorting makes them the same'
+  )
+  t.end()
+})
+
 t.test('other misc', t => {
   t.throws(() => new Format(1, { isKey: true }),
     new Error(`isKey should only be set for Map keys`))
