@@ -7,8 +7,8 @@
 'use strict'
 exports[`test/clean-yaml-object.js TAP string diffs > must match snapshot 1`] = `
 Object {
+  "diff": "--- wanted\\n+++ found\\n-|\\n-a big\\n+|-\\n hello\\n world\\n-string\\n",
   "found": "hello\\nworld",
   "wanted": "a big\\nhello\\nworld\\nstring\\n",
-  "diff": "--- wanted\\n+++ found\\n-|\\n-a big\\n+|-\\n hello\\n world\\n-string\\n",
 }
 `

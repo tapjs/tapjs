@@ -7,11 +7,11 @@
 'use strict'
 exports[`test/base.js TAP parser event stuff no bail > counts 1`] = `
 Object {
-  "total": 4,
-  "pass": 1,
   "fail": 1,
+  "pass": 1,
   "skip": 1,
   "todo": 1,
+  "total": 4,
 }
 `
 
@@ -19,31 +19,31 @@ exports[`test/base.js TAP parser event stuff no bail > lists 1`] = `
 Object {
   "fail": Array [
     Result {
-      "ok": false,
-      "id": 2,
-      "name": "actually not fine",
       "diag": Object {
         "fine": false,
       },
       "fullname": "",
-    },
-  ],
-  "todo": Array [
-    Result {
+      "id": 2,
+      "name": "actually not fine",
       "ok": false,
-      "id": 3,
-      "todo": "will be fine later",
-      "name": "not so fine",
-      "fullname": "",
     },
   ],
   "skip": Array [
     Result {
-      "ok": false,
-      "id": 4,
-      "skip": "dont care for now",
-      "name": "not so fine",
       "fullname": "",
+      "id": 4,
+      "name": "not so fine",
+      "ok": false,
+      "skip": "dont care for now",
+    },
+  ],
+  "todo": Array [
+    Result {
+      "fullname": "",
+      "id": 3,
+      "name": "not so fine",
+      "ok": false,
+      "todo": "will be fine later",
     },
   ],
 }
@@ -51,11 +51,11 @@ Object {
 
 exports[`test/base.js TAP parser event stuff yes bail > counts 1`] = `
 Object {
-  "total": 2,
-  "pass": 1,
   "fail": 1,
+  "pass": 1,
   "skip": 0,
   "todo": 0,
+  "total": 2,
 }
 `
 
@@ -67,16 +67,16 @@ exports[`test/base.js TAP parser event stuff yes bail > lists 1`] = `
 Object {
   "fail": Array [
     Result {
-      "ok": false,
-      "id": 2,
-      "name": "actually not fine",
       "diag": Object {
         "fine": false,
       },
       "fullname": "",
+      "id": 2,
+      "name": "actually not fine",
+      "ok": false,
     },
   ],
-  "todo": Array [],
   "skip": Array [],
+  "todo": Array [],
 }
 `
