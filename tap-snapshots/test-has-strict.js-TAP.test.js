@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/has-strict.js TAP > undefined 1`] = `
+exports[`test/has-strict.js TAP > must match snapshot 1`] = `
 --- expected
 +++ actual
  Object {
@@ -13,7 +13,7 @@ exports[`test/has-strict.js TAP > undefined 1`] = `
  }
 `
 
-exports[`test/has-strict.js TAP > undefined 2`] = `
+exports[`test/has-strict.js TAP > must match snapshot 2`] = `
 --- expected
 +++ actual
  Object {

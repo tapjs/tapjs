@@ -30,6 +30,7 @@ t.test('array likes', t => {
   t.ok(has(t, a, { i: (function(){return arguments})(1, 2, 3) }))
   t.ok(has(t, a, { a: (function(){return arguments})(1, 2) }))
   t.ok(has(t, a, { i: (function(){return arguments})(1, 2) }))
+  t.notOk(has(t, arr, { foo: 'bar' }))
   t.end()
 })
 
