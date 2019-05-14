@@ -74,7 +74,7 @@
     "t": "node bin/run.js test -J -sfails.txt",
     "preversion": "npm test",
     "postversion": "npm publish",
-    "postpublish": "git push origin --all; git push origin --tags"
+    "postpublish": "git push origin --follow-tags"
   },
   "tap": {
     "esm": false,
