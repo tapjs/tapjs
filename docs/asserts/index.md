@@ -163,6 +163,26 @@ simply throw it.  The Test object will handle this as a failure.
 
 Synonyms: `t.notThrow`
 
+## t.expectUncaughtException(fn, [expectedError], message, extra)
+
+Expect the function to throw an uncaught exception at some point in the
+future, before the test ends.  If the test ends without having thrown the
+expected error, then the test fails.
+
+This is useful for verifying that an error thrown in some part of your code
+will _not_ be handled, which would normally result in a program crash, and
+verify behavior in those scenarios.  If the error is thrown synchronously,
+or within a promise, then the `t.throws()` or `t.rejects()` methods are
+more appropriate.
+
+If called multiple times, then the uncaught exception errors must be
+emitted in the order called.
+
+**Note**: This method will _not_ properly link a thrown error to the
+correct test object in some cases involving native modules on Node version
+8, because the `async_hooks` module does not track the execution context ID
+across native boundaries.
+
 ## t.equal(found, wanted, message, extra)
 
 Verify that the object found is exactly the same (that is, `===`) to
