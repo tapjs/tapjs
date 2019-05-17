@@ -38,9 +38,9 @@ To parse TAP data from stdin, specify "-" as a filename.
 Short options are parsed gnu-style, so for example '-bCRspec' would be
 equivalent to '--bail --no-color --reporter=spec'
 
-If the --check-coverage or --coverage-report options are provided, and
-no test files are specified, then a coverage report or coverage check
-will be run on the data from the last test run.
+If the --check-coverage or --coverage-report options are provided
+explicitly, and no test files are specified, then a coverage report or
+coverage check will be run on the data from the last test run.
 
 Coverage is never enabled for stdin.
 

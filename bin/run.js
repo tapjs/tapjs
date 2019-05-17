@@ -13,7 +13,6 @@ const yaml = require('tap-yaml')
 const path = require('path')
 const exists = require('fs-exists-cached').sync
 const os = require('os')
-const isTTY = process.stdin.isTTY || process.env._TAP_IS_TTY === '1'
 const tsNode = require.resolve('ts-node/register')
 const esm = require.resolve('esm')
 const jsx = require.resolve('./jsx.js')
@@ -205,8 +204,8 @@ const main = async options => {
     return runCoverageReportOnly(options)
 
   try {
-    debug('try to get default files?', options._.length === 0, isTTY)
-    if (options._.length === 0 && isTTY)
+    debug('try to get default files?', options._.length === 0)
+    if (options._.length === 0)
       options._.push.apply(options._, await defaultFiles(options))
     debug('added default files', options._)
   } /* istanbul ignore next */ catch (er) /* istanbul ignore next */ {
@@ -218,9 +217,6 @@ const main = async options => {
 
   options.files = globFiles(options._)
   debug('after globbing', options.files)
-
-  if (options.files.length === 0 && !isTTY)
-    options.files.push('-')
 
   if (options['output-dir'] !== null)
     mkdirp(options['output-dir'])

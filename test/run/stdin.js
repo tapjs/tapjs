@@ -10,7 +10,6 @@ const tapcode = 'TAP version 13\n1..1\nok\n'
 
 t.test('with output file', t => {
   const c = run(['-', '-c', '-Rspec', '-ofoo.txt', '--cov'], { env: {
-    _TAP_IS_TTY: '1',
     TAP: '0'
   }}, (er, o, e) => {
     t.equal(er, null)
@@ -25,7 +24,6 @@ t.test('with output file', t => {
 
 t.test('no output file', t => {
   const c = run(['-', '--only', '-gx', '-iC', '-Rclassic'], { env: {
-    _TAP_IS_TTY: '1',
     TAP: '0'
   }}, (er, o, e) => {
     t.equal(er, null)

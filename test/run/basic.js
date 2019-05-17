@@ -13,7 +13,6 @@ if (process.env.TAP_SNAPSHOT !== '1')
 
 t.test('no args', t => {
   const c = run([], {
-    env: { _TAP_IS_TTY: '1' },
     cwd: dir,
   }, (er, o, e) => {
     t.match(er, { code: 1 })
@@ -23,8 +22,8 @@ t.test('no args', t => {
   })
 })
 
-t.test('no args, quiet', t => {
-  const c = run([], { env: { _TAP_IS_TTY: '0' } }, (er, o, e) => {
+t.test('stdin parsing', t => {
+  const c = run(['-'], {}, (er, o, e) => {
     t.match(er, null)
     t.equal(e, '')
     t.end()
@@ -123,7 +122,7 @@ t.test('ignored files', t => {
     `require(${tap}).fail('no foo included')`)
 
   const args = ['--test-ignore=foo\\.test\\.js$']
-  const env = { _TAP_IS_TTY: '1' }
+  const env = {}
   const cwd = dir + '/ig'
   run([args], { cwd, env }, (er, o, e) => {
     t.equal(er, null)

@@ -28,7 +28,7 @@ const check = t => (er, o, e) => {
   t.end()
 }
 
-const opt = {env: {TAP_COLORS: 0, _TAP_IS_TTY: 1, PATH: process.env.PATH}}
+const opt = {env: {TAP_COLORS: 0, PATH: process.env.PATH}}
 
 t.test('builtin reporter', t =>
   run([ok, '-Rbase'], opt, check(t)))

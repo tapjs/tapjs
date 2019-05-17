@@ -25,7 +25,6 @@ t.test('shotgun a bunch of option parsing junk', t => {
   ], { env: {
     TAP: '0',
     TAP_BAIL: '0',
-    _TAP_IS_TTY: '1'
   }}, (er, o, e) => {
     t.equal(er, null)
     t.matchSnapshot(o, 'output')
@@ -70,7 +69,6 @@ t.test('package.json parsing', t => {
 t.test('turn color off and back on again', t => {
   run(['--no-color', '-c', '--dump-config'], { env: {
     TAP: '0',
-    _TAP_IS_TTY: '1',
     TAP_COLORS: '1',
   }}, (er, o, e) => {
     t.equal(er, null)
@@ -109,7 +107,6 @@ t.test('empty rc file', t => {
   run(['--dump-config', '-c'], { env: {
     TAP_RCFILE: rc,
     TAP: '0',
-    _TAP_IS_TTY: '1',
     TAP_COLORS: '1'
   }}, (er, o, e) => {
     t.equal(er, null)
