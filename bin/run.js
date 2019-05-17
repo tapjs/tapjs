@@ -23,6 +23,15 @@ const {ProcessDB} = require('istanbul-lib-processinfo')
 const rimraf = require('rimraf').sync
 const {Repl} = require('../lib/repl.js')
 
+/* istanbul ignore next */
+const debug = process.env.TAP_DEBUG === '1'
+  || /\btap\b/.test(process.env.NODE_DEBUG) ? (...args) => {
+    const {format} = require('util')
+    const prefix = `TAP ${process.pid} RUN: `
+    const msg = format(...args).trim()
+    console.error(prefix + msg.split('\n').join(`\n${prefix}`))
+  } : () => {}
+
 const filesFromTest = exports.filesFromTest = (index, testFile) => {
   const set = index.externalIds[testFile]
   return !set ? null
@@ -64,19 +73,23 @@ const getChangedFilter = exports.getChangedFilter = options => {
 }
 
 const defaultFiles = options => new Promise((res, rej) => {
+  debug('try to get default files')
   const findit = require('findit')
   const good = strToRegExp(options['test-regex'])
   const bad = strToRegExp(options['test-ignore'])
   const fileFilter = f => {
     f = f.replace(/\\/g, '/')
+    debug('fileFilter', f)
     const parts = f.split('/')
-    return good.test(f) &&
+    const include = good.test(f) &&
       !bad.test(f) &&
       !parts.includes('node_modules') &&
       !parts.includes('tap-snapshots') &&
       !parts.includes('fixtures') &&
       !parts.includes('.git') &&
       !parts.includes('.hg')
+    debug('include?', f, include)
+    return include
   }
 
   const addFile = files => f => fileFilter(f) && files.push(f)
@@ -84,10 +97,12 @@ const defaultFiles = options => new Promise((res, rej) => {
   // search in any folder that isn't node_modules, .git, or tap-snapshots
   // these can get pretty huge, so just walking them at all is costly
   fs.readdir(process.cwd(), (er, entries) => {
+    debug('readdir cwd', er, entries)
     Promise.all(entries.filter(entry =>
       !/^(node_modules|tap-snapshots|.git|.hg|fixtures)$/.test(entry)
     ).map(entry => new Promise((res, rej) => {
       fs.lstat(entry, (er, stat) => {
+        debug('lstat', entry, er, stat)
         // It's pretty unusual to have a file in cwd you can't even stat
         /* istanbul ignore next */
         if (er)
@@ -107,16 +122,20 @@ const defaultFiles = options => new Promise((res, rej) => {
 })
 
 const main = async options => {
+  debug('main', options)
+
   if (require.main !== module)
-    return
+    return debug('not main module, do not run tests')
 
   const rc = parseRcFile(options.rcfile)
+  debug('rc options', rc)
   for (let i in rc) {
     if (!options._.explicit.has(i))
       options[i] = rc[i]
   }
 
   const pj = parsePackageJson()
+  debug('package.json options', pj)
   for (let i in pj) {
     if (!options._.explicit.has(i))
       options[i] = pj[i]
@@ -186,8 +205,10 @@ const main = async options => {
     return runCoverageReportOnly(options)
 
   try {
+    debug('try to get default files?', options._.length === 0, isTTY)
     if (options._.length === 0 && isTTY)
       options._.push.apply(options._, await defaultFiles(options))
+    debug('added default files', options._)
   } /* istanbul ignore next */ catch (er) /* istanbul ignore next */ {
     // This gets tested on Mac, but not Linux/travis, and is
     // somewhat challenging to do in a cross-platform way.
@@ -196,6 +217,7 @@ const main = async options => {
   }
 
   options.files = globFiles(options._)
+  debug('after globbing', options.files)
 
   if (options.files.length === 0 && !isTTY)
     options.files.push('-')
@@ -204,6 +226,7 @@ const main = async options => {
     mkdirp(options['output-dir'])
 
   if (options.files.length === 1 && options.files[0] === '-') {
+    debug('do stdin only')
     setupTapEnv(options)
     stdinOnly(options)
     return
@@ -293,6 +316,7 @@ const pipeToCoveralls = async options => {
 
 /* istanbul ignore next */
 const respawnWithCoverage = options => {
+  debug('respawn with coverage')
   // If we have a coverage map, then include nothing by default here.
   runNyc(options['coverage-map'] ? [
     '--include=',
@@ -509,6 +533,7 @@ const coverageMapOverride = (env, file, coverageMap) => {
 }
 
 const runAllFiles = (options, tap) => {
+  debug('run all files')
   let doStdin = false
   let parallelOk = Object.create(null)
 
@@ -548,6 +573,7 @@ const runAllFiles = (options, tap) => {
     if (seen.has(file))
       continue
 
+    debug('run file', file)
     seen.add(file)
 
     // Pick up stdin after all the other files are handled.
@@ -565,6 +591,7 @@ const runAllFiles = (options, tap) => {
     }
 
     if (st.isDirectory()) {
+      debug('is a directory', file)
       const dir = filterFiles(fs.readdirSync(file).map(f =>
         file.replace(/[\/\\]+$/, '') + '/' + f), options, parallelOk)
       options.files.splice(i, 1, ...dir)
@@ -581,6 +608,7 @@ const runAllFiles = (options, tap) => {
         opt.buffered = isParallelOk(parallelOk, file) !== false
 
       if (file.match(/\.m?js$/)) {
+        debug('js file', file)
         const args = [
           ...(options.esm ? ['-r', esm] : []),
           ...options['node-arg'],
@@ -589,6 +617,7 @@ const runAllFiles = (options, tap) => {
         ]
         tap.spawn(node, args, opt, file)
       } else if (file.match(/\.tsx?$/)) {
+        debug('ts file', file)
         const compilerOpts = JSON.stringify({
           ...JSON.parse(process.env.TS_NODE_COMPILER_OPTIONS || '{}'),
           jsx: 'react'
@@ -605,6 +634,7 @@ const runAllFiles = (options, tap) => {
         ]
         tap.spawn(node, args, opt, file)
       } else if (file.match(/\.jsx$/)) {
+        debug('jsx file', file)
         const args = [
           ...(options['node-arg']),
           jsx,
@@ -613,17 +643,23 @@ const runAllFiles = (options, tap) => {
         ]
         tap.spawn(node, args, opt, file)
       } else if (file.match(/\.tap$/)) {
+        debug('tap file', file)
         tap.spawn('cat', [file], opt, file)
-      } else if (isexe.sync(options.files[i]))
+      } else if (isexe.sync(options.files[i])) {
+        debug('executable', file)
         tap.spawn(options.files[i], options['test-arg'], opt, file)
+      }
     }
   }
 
   if (doStdin)
     tap.stdin()
+
+  debug('scheduled all files for execution')
 }
 
 const runTests = options => {
+  debug('run tests')
   // At this point, we know we need to use the tap root,
   // because there are 1 or more files to spawn.
   const tap = require('../lib/tap.js')
@@ -669,6 +705,7 @@ const runTests = options => {
   }
 
   tap.end()
+  debug('called tap.end()')
 }
 
 const parsePackageJson = () => {
