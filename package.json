@@ -24,7 +24,7 @@
     "coveralls": "^3.0.3",
     "diff": "^4.0.1",
     "domain-browser": "^1.2.0",
-    "esm": "^3.2.22",
+    "esm": "^3.2.25",
     "findit": "^2.0.0",
     "foreground-child": "^1.3.3",
     "fs-exists-cached": "^1.0.0",
