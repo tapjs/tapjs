@@ -68,7 +68,8 @@ const defaultFiles = options => new Promise((res, rej) => {
   const good = strToRegExp(options['test-regex'])
   const bad = strToRegExp(options['test-ignore'])
   const fileFilter = f => {
-    const parts = f.split(/\\|\//)
+    f = f.replace(/\\/g, '/')
+    const parts = f.split('/')
     return good.test(f) &&
       !bad.test(f) &&
       !parts.includes('node_modules') &&
