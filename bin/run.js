@@ -263,6 +263,7 @@ const runNyc = (cmd, programArgs, options, spawnOpts) => {
     '--extension=.js',
     '--extension=.jsx',
     '--extension=.mjs',
+    '--extension=.cjs',
     '--extension=.ts',
     '--extension=.tsx',
     ...(options['nyc-arg'] || []),
@@ -628,7 +629,7 @@ const runAllFiles = (options, tap) => {
           ...(options['test-arg']),
         ]
         tap.spawn(node, args, opt, file)
-      } else if (/\.jsx$|\.tsx?$|\.m?js$/.test(file)) {
+      } else if (/\.jsx$|\.tsx?$|\.[mc]?js$/.test(file)) {
         debug('js file', file)
         const args = [
           ...(options.esm ? ['-r', esm] : []),
