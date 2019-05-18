@@ -20,9 +20,9 @@ To parse TAP data from stdin, specify "-" as a filename.
 Short options are parsed gnu-style, so for example '-bCRspec' would be
 equivalent to '--bail --no-color --reporter=spec'
 
-If the --check-coverage or --coverage-report options are provided, and no test
-files are specified, then a coverage report or coverage check will be run on the
-data from the last test run.
+If the --check-coverage or --coverage-report options are provided explicitly,
+and no test files are specified, then a coverage report or coverage check will
+be run on the data from the last test run.
 
 Coverage is never enabled for stdin.
 
@@ -219,6 +219,8 @@ Code Coverage Options:
                          json-summary lcov lcovonly none teamcity text text-lcov
                          text-summary
 
+                         Can be set multiple times
+
   --no-coverage-report   Do not output a coverage report, even if coverage
                          information is generated.
 
@@ -269,13 +271,14 @@ Other Options:
                          no positional arguments are provided.
 
                          By default, tap will search for all files ending in
-                         .ts, .js, or .mjs, in a top-level folder named test,
-                         tests, or __tests__, or any file ending in .spec. or
-                         .test. before a js, mjs, or ts extension.
+                         .ts, .tsx, .js, .jsx, .cjs, or .mjs, in a top-level
+                         folder named test, tests, or __tests__, or any file
+                         ending in '.spec.' or '.test.' before a supported
+                         extension.
 
                          Ie, the default value for this option is:
-                         ((\/|^)(tests?|__tests?__)\/.*|\.(test|spec))\.(mj|j|t)
-                         s$
+                         ((\/|^)(tests?|__tests?__)\/.*|\.(test|spec))\.([mc]js|
+                         [jt]sx?)$
 
   --test-ignore=<pattern>
                          When no positional arguments are provided, use the
@@ -328,6 +331,16 @@ Other Options:
                          (Default: true)
 
   --no-esm               switch off the --esm flag
+
+  --ts                   Automatically load .ts and .tsx tests with tap's
+                         bundled ts-node module (Default: true)
+
+  --no-ts                switch off the --ts flag
+
+  --jsx                  Automatically load .jsx tests using tap's bundled
+                         import-jsx loader (Default: true)
+
+  --no-jsx               switch off the --jsx flag
 
   --nyc-help             Print nyc usage banner. Useful for viewing options for
                          --nyc-arg.
@@ -425,6 +438,8 @@ Environment Variables:
 
   TAP_ONLY               Set to '1' to set the --only flag
   TAP_NO_ESM             Set to '1' to disable automatic esm support
+  TAP_NO_TS              Set to '1' to disable automatic typescript support
+  TAP_NO_JSX             Set to '1' to disable automatic jsx support
   _TAP_COVERAGE_         Reserved for internal use.
 
 Config Files:
