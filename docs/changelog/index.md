@@ -2,6 +2,16 @@
 layout: layout
 title: Change Log
 ---
+## 14.0 - 2019-05-17
+
+* Add the `--ts` and `--jsx` flags to control whether or not tap's built-in
+  TypeScript and JSX parsing should be used.
+* Make `--coverage-report` a list option, which can be set multiple times
+  to run multiple NYC coverage reports.
+* Add support for `*.cjs` as a JavaScript file extension.
+* Only parse stdin when `-` is explicitly set as a command line option,
+  regardless of whether stdin is a TTY or not.
+
 ## 13.1 - 2019-04-28
 
 * Add [repl](/watch/) for controlling `--watch` behavior.
