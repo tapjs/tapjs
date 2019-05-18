@@ -15,7 +15,7 @@ color: true
 comments: false
 coverage: false
 coverage-map: null
-coverage-report: null
+coverage-report: []
 debug: false
 esm: false
 functions: 100
@@ -62,7 +62,7 @@ color: false
 comments: false
 coverage: false
 coverage-map: null
-coverage-report: null
+coverage-report: []
 debug: false
 esm: false
 functions: 100
@@ -109,7 +109,7 @@ color: false
 comments: false
 coverage: false
 coverage-map: null
-coverage-report: null
+coverage-report: []
 debug: false
 esm: false
 functions: 100
@@ -156,7 +156,7 @@ color: false
 comments: false
 coverage: false
 coverage-map: null
-coverage-report: null
+coverage-report: []
 debug: false
 esm: false
 functions: 100
@@ -203,7 +203,7 @@ color: false
 comments: false
 coverage: false
 coverage-map: null
-coverage-report: null
+coverage-report: []
 debug: false
 esm: false
 functions: 100
@@ -250,7 +250,7 @@ color: false
 comments: false
 coverage: false
 coverage-map: null
-coverage-report: null
+coverage-report: []
 debug: false
 esm: false
 functions: 100
@@ -297,7 +297,9 @@ color: false
 comments: true
 coverage: true
 coverage-map: null
-coverage-report: html
+coverage-report:
+  - json
+  - html
 debug: true
 esm: false
 functions: 100
@@ -355,7 +357,7 @@ color: true
 comments: false
 coverage: false
 coverage-map: null
-coverage-report: null
+coverage-report: []
 debug: false
 esm: false
 functions: 100

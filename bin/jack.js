@@ -325,9 +325,8 @@ Much more documentation available at: https://www.node-tap.org/
     }
   }),
 
-  'coverage-report': opt({
+  'coverage-report': list({
     hint: 'type',
-    default: null,
     valid: nycReporters,
     description: `Output coverage information using the
                   specified istanbul/nyc reporter type.
