@@ -2,6 +2,13 @@
 layout: layout
 title: Change Log
 ---
+## 14.1 - 2019-05-20
+
+* Add support for handling config aliases like `--100` in .taprc and
+  package.json files.  So, you can put `"tap": { "100": true, "B": true }`
+  in a package.json file and it will parse the option names as it would on
+  the command line.
+
 ## 14.0 - 2019-05-17
 
 * Add the `--ts` and `--jsx` flags to control whether or not tap's built-in
