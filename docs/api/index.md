@@ -129,6 +129,11 @@ Exactly the same as `t.test()`, but adds `only: true` in the options.
 
 See [filtering tests using only](/only/)
 
+### t.name
+
+This is a read-only property set to the string value provided as the `name`
+argument to `t.test()`, or an empty string if no name is provided.
+
 ### t.context
 
 This is an object which is inherited by child tests, and is a handy place

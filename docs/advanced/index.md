@@ -62,6 +62,9 @@ is completed.
 This is primarily for use in the test runner, so that you can do
 `some-tap-emitting-program | tap other-file.js - -Rnyan`.
 
+If no `name` argument is provided, then a default name of `/dev/stdin` will
+be used.
+
 ## t.stdinOnly()
 
 Parse standard input without wrapping it in a child test.
@@ -85,6 +88,9 @@ That's what this method does.
 
 It is primarily used by the executable runner, to run all of the
 filename arguments provided on the command line.
+
+If no `name` argument is provided, then a default name will be created
+based on the command and arguments.
 
 The `options` object is passed to `child_process.spawn`, and can
 contain stuff like stdio directives and environment vars.  It's also

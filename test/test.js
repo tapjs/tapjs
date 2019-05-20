@@ -837,7 +837,6 @@ t.test('assertions and weird stuff', t => {
     },
 
     'implicit bailout with parallel subs': t => {
-      t.name = 'root'
       t.bail = true
       t.jobs = 2
       const tests = []
