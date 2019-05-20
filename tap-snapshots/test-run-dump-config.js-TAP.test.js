@@ -151,7 +151,7 @@ bail: false
 branches: 100
 browser: true
 changed: false
-check-coverage: false
+check-coverage: true
 color: false
 comments: false
 coverage: false
@@ -165,7 +165,7 @@ help: false
 invert: false
 jobs: {number}
 jsx: true
-lines: 69
+lines: 100
 node-arg: []
 nyc-arg: []
 nyc-help: false

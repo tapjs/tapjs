@@ -128,17 +128,11 @@ const main = async options => {
 
   const rc = parseRcFile(options.rcfile)
   debug('rc options', rc)
-  for (let i in rc) {
-    if (!options._.explicit.has(i))
-      options[i] = rc[i]
-  }
+  options._.update(rc)
 
   const pj = parsePackageJson()
   debug('package.json options', pj)
-  for (let i in pj) {
-    if (!options._.explicit.has(i))
-      options[i] = pj[i]
-  }
+  options._.update(pj)
 
   // tell chalk if we want color or not.
   if (!options.color)

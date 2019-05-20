@@ -36,7 +36,7 @@ t.test('package.json parsing', t => {
   const cases = {
     good: JSON.stringify({
       tap: {
-        lines: 69,
+        100: true,
         bail: true,
       }
     }),
@@ -91,6 +91,7 @@ t.test('good rc file', t => {
   const rc = tmpfile(t, 'taprc', `
 reporter: spec
 jobs: 3
+100: true
 `)
   run(['--dump-config', '-j4'], { env: {
     TAP_RCFILE: rc,
