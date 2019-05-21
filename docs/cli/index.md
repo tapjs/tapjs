@@ -11,6 +11,8 @@ You can get help on tap's command line interface by running `tap -h`.
 Usage:
   tap [options] [<files>]
 
+tap v14.1.1 - A Test-Anything-Protocol library for JavaScript
+
 Executes all the files and interprets their output as TAP formatted test result
 data. If no files are specified, then tap will search for testy-looking files,
 and run those. (See '--test-regex' below.)
@@ -450,4 +452,5 @@ Config Files:
 
   Run 'tap --dump-config' for a listing of what can be set in that file. Each of
   the keys corresponds to one of the options above.
+
 ```

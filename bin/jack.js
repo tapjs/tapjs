@@ -24,10 +24,14 @@ const nycReporters = [
   'text-summary',
 ]
 
+const pkg = require('../package.json')
+
 module.exports = main => jack({
   main,
   usage: 'tap [options] [<files>]',
   help:`
+${pkg.name} v${pkg.version} - ${pkg.description}
+
 Executes all the files and interprets their output as TAP
 formatted test result data.  If no files are specified, then
 tap will search for testy-looking files, and run those.

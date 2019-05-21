@@ -2,8 +2,8 @@
   "name": "tap",
   "version": "14.1.1",
   "author": "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me)",
-  "description": "A Test-Anything-Protocol library",
-  "homepage": "http://node-tap.org/",
+  "description": "A Test-Anything-Protocol library for JavaScript",
+  "homepage": "http://www.node-tap.org/",
   "bin": {
     "tap": "bin/run.js"
   },
