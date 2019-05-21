@@ -761,10 +761,6 @@ Much more documentation available at: https://www.node-tap.org/
     description: `Set to '1' to disable automatic jsx support`
   })),
 
-  _TAP_COVERAGE_: env(flag({
-    description: `Reserved for internal use.`
-  })),
-
 }, {
 
   // a section that's just a description.  This is totally fine.

@@ -11,7 +11,7 @@ You can get help on tap's command line interface by running `tap -h`.
 Usage:
   tap [options] [<files>]
 
-tap v14.1.1 - A Test-Anything-Protocol library for JavaScript
+tap v14.1.3 - A Test-Anything-Protocol library for JavaScript
 
 Executes all the files and interprets their output as TAP formatted test result
 data. If no files are specified, then tap will search for testy-looking files,
@@ -442,7 +442,6 @@ Environment Variables:
   TAP_NO_ESM             Set to '1' to disable automatic esm support
   TAP_NO_TS              Set to '1' to disable automatic typescript support
   TAP_NO_JSX             Set to '1' to disable automatic jsx support
-  _TAP_COVERAGE_         Reserved for internal use.
 
 Config Files:
 
