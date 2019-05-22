@@ -452,4 +452,5 @@ Config Files:
   Run 'tap --dump-config' for a listing of what can be set in that file. Each of
   the keys corresponds to one of the options above.
 
+
 ```

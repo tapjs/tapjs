@@ -72,7 +72,7 @@
     "posttest": "rm -rf cli-tests-*",
     "postunit": "npm run posttest",
     "t": "node bin/run.js test -J -sfails.txt",
-    "preversion": "npm test",
+    "preversion": "npm test && node docs/cli/index.template.js",
     "postversion": "npm publish",
     "postpublish": "git push origin --follow-tags"
   },
