@@ -4,4 +4,4 @@ set -x
 node docs/cli/index.template.js
 git add docs/cli
 git commit -m 'update cli doc'
-git push origin --follow-tags"
+git push origin --follow-tags
