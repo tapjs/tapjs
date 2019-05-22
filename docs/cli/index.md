@@ -11,7 +11,7 @@ You can get help on tap's command line interface by running `tap -h`.
 Usage:
   tap [options] [<files>]
 
-tap v14.1.3 - A Test-Anything-Protocol library for JavaScript
+tap v14.1.4 - A Test-Anything-Protocol library for JavaScript
 
 Executes all the files and interprets their output as TAP formatted test result
 data. If no files are specified, then tap will search for testy-looking files,
