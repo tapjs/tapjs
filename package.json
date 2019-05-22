@@ -74,8 +74,7 @@
     "t": "node bin/run.js test -J -sfails.txt",
     "preversion": "npm test",
     "postversion": "npm publish",
-    "prepublish": "node docs/cli/index.template.js && git add docs/cli && git commit -m 'update cli doc'",
-    "postpublish": "git push origin --follow-tags"
+    "postpublish": "bash postpublish.sh"
   },
   "tap": {
     "esm": false,
