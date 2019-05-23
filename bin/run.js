@@ -195,7 +195,8 @@ const main = async options => {
       options._.length === 0 &&
       (options['coverage-report'] &&
         options._.explicit.has('coverage-report') ||
-          options._.explicit.has('check-coverage')))
+      options['check-coverage'] &&
+        options._.explicit.has('check-coverage')))
     return runCoverageReportOnly(options)
 
   try {
