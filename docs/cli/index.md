@@ -11,7 +11,7 @@ You can get help on tap's command line interface by running `tap -h`.
 Usage:
   tap [options] [<files>]
 
-tap v14.1.9 - A Test-Anything-Protocol library for JavaScript
+tap v14.1.10 - A Test-Anything-Protocol library for JavaScript
 
 Executes all the files and interprets their output as TAP formatted test result
 data. If no files are specified, then tap will search for testy-looking files,
@@ -134,6 +134,12 @@ Basic Options:
                          Setting to 0 allows tests to run forever.
 
   -T --no-timeout        Do not time out tests. Equivalent to --timeout=0.
+
+  --files=<files>        Alternative way to specify test set rather than using
+                         positional arguments. Supported as an option so that
+                         test file arguments can be specified in .taprc and
+                         package.json files.
+                         Can be set multiple times
 
 Running Parallel Tests:
 
