@@ -143,8 +143,7 @@ share them, you will probably enjoy this test library.
     Babel and Webpack are lovely and fine.  But if your code doesn't
     require compilation, then I think your tests shouldn't either.
     Tap is extremely
-    [promise-aware](http://www.node-tap.org/promises/), but works on
-    any version of Node.js back to v4.x.
+    [promise-aware](http://www.node-tap.org/promises/).
 
 Software testing should help you build software.  It should be a
 security blanket and a quality ratchet, giving you the support to
