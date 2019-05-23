@@ -193,8 +193,9 @@ const main = async options => {
   /* istanbul ignore next */
   if (fs.existsSync('.nyc_output') &&
       options._.length === 0 &&
-      (options._.explicit.has('coverage-report') ||
-        options._.explicit.has('check-coverage')))
+      (options['coverage-report'] &&
+        options._.explicit.has('coverage-report') ||
+          options._.explicit.has('check-coverage')))
     return runCoverageReportOnly(options)
 
   try {
