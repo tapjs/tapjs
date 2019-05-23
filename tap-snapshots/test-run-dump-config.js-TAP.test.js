@@ -18,6 +18,7 @@ coverage-map: null
 coverage-report: []
 debug: false
 esm: false
+files: []
 functions: 100
 grep: []
 help: false
@@ -65,6 +66,7 @@ coverage-map: null
 coverage-report: []
 debug: false
 esm: false
+files: []
 functions: 100
 grep: []
 help: false
@@ -112,6 +114,7 @@ coverage-map: null
 coverage-report: []
 debug: false
 esm: false
+files: []
 functions: 100
 grep: []
 help: false
@@ -159,6 +162,7 @@ coverage-map: null
 coverage-report: []
 debug: false
 esm: false
+files: []
 functions: 100
 grep: []
 help: false
@@ -206,6 +210,7 @@ coverage-map: null
 coverage-report: []
 debug: false
 esm: false
+files: []
 functions: 100
 grep: []
 help: false
@@ -253,6 +258,7 @@ coverage-map: null
 coverage-report: []
 debug: false
 esm: false
+files: []
 functions: 100
 grep: []
 help: false
@@ -302,6 +308,7 @@ coverage-report:
   - html
 debug: true
 esm: false
+files: []
 functions: 100
 grep:
   - x
@@ -360,6 +367,7 @@ coverage-map: null
 coverage-report: []
 debug: false
 esm: false
+files: []
 functions: 100
 grep: []
 help: false

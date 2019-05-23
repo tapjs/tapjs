@@ -226,6 +226,13 @@ Much more documentation available at: https://www.node-tap.org/
     description: 'Do not time out tests. Equivalent to --timeout=0.',
   }),
 
+  files: list({
+    description: `Alternative way to specify test set rather than using
+                  positional arguments.  Supported as an option so that
+                  test file arguments can be specified in .taprc and
+                  package.json files.`
+  }),
+
 }, {
 
   description: 'Running Parallel Tests',

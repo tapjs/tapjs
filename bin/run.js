@@ -134,6 +134,9 @@ const main = async options => {
   debug('package.json options', pj)
   options._.update(pj)
 
+  if (options.files.length && !options._.length)
+    options._.push(...options.files)
+
   // tell chalk if we want color or not.
   if (!options.color)
     process.env.FORCE_COLOR = '0'
