@@ -75,7 +75,7 @@ If the function is omitted, then it will be marked as a "todo" or
 
 If the function has a name, and no name is provided, then the function
 name will be used as the test name.  If no test name is provided, then
-the name will be `(unnamed test)`.
+the name will be the empty string `''`.
 
 The function gets a Test object as its only argument.  From there, you
 can call the `t.end()` method on that object to end the test, or use
