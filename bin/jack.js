@@ -271,7 +271,8 @@ Much more documentation available at: https://www.node-tap.org/
 
                   This is the default as of v13, so this option serves
                   little purpose except to re-set the parallelization
-                  back to the default if an early option set it differently.
+                  back to the default if an earlier option (or config file)
+                  set it differently.
                   `
   }),
 
