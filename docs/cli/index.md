@@ -11,7 +11,7 @@ You can get help on tap's command line interface by running `tap -h`.
 Usage:
   tap [options] [<files>]
 
-tap v14.1.10 - A Test-Anything-Protocol library for JavaScript
+tap v14.1.11 - A Test-Anything-Protocol library for JavaScript
 
 Executes all the files and interprets their output as TAP formatted test result
 data. If no files are specified, then tap will search for testy-looking files,
@@ -167,8 +167,8 @@ Running Parallel Tests:
 
                          This is the default as of v13, so this option serves
                          little purpose except to re-set the parallelization
-                         back to the default if an early option set it
-                         differently.
+                         back to the default if an earlier option (or config
+                         file) set it differently.
 
 Code Coverage Options:
 
