@@ -19,6 +19,7 @@ coverage-report: []
 debug: false
 esm: false
 files: []
+flow: false
 functions: 100
 grep: []
 help: false
@@ -67,6 +68,7 @@ coverage-report: []
 debug: false
 esm: false
 files: []
+flow: false
 functions: 100
 grep: []
 help: false
@@ -115,6 +117,7 @@ coverage-report: []
 debug: false
 esm: false
 files: []
+flow: false
 functions: 100
 grep: []
 help: false
@@ -163,6 +166,7 @@ coverage-report: []
 debug: false
 esm: false
 files: []
+flow: false
 functions: 100
 grep: []
 help: false
@@ -211,6 +215,7 @@ coverage-report: []
 debug: false
 esm: false
 files: []
+flow: false
 functions: 100
 grep: []
 help: false
@@ -259,6 +264,7 @@ coverage-report: []
 debug: false
 esm: false
 files: []
+flow: false
 functions: 100
 grep: []
 help: false
@@ -309,6 +315,7 @@ coverage-report:
 debug: true
 esm: false
 files: []
+flow: false
 functions: 100
 grep:
   - x
@@ -368,6 +375,7 @@ coverage-report: []
 debug: false
 esm: false
 files: []
+flow: false
 functions: 100
 grep: []
 help: false
