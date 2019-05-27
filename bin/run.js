@@ -14,6 +14,7 @@ const path = require('path')
 const exists = require('fs-exists-cached').sync
 const os = require('os')
 const tsNode = require.resolve('ts-node/register')
+const flowNode = require.resolve("flow-remove-types/register");
 const esm = require.resolve('esm')
 const jsx = require.resolve('./jsx.js')
 const mkdirp = require('mkdirp').sync
@@ -21,6 +22,7 @@ const which = require('which')
 const {ProcessDB} = require('istanbul-lib-processinfo')
 const rimraf = require('rimraf').sync
 const {Repl} = require('../lib/repl.js')
+
 
 /* istanbul ignore next */
 const debug = process.env.TAP_DEBUG === '1'
@@ -601,6 +603,17 @@ const runAllFiles = (options, tap) => {
 
       if (options.jobs > 1)
         opt.buffered = isParallelOk(parallelOk, file) !== false
+
+      if(options.flow){
+        debug('flow', file)
+        const args = [
+          ...(options['node-arg']),
+          flowNode,
+          file,
+          ...(options['test-arg']),
+        ]
+        tap.spawn(node, args, opt, file)
+      } 
 
       if (options.ts && /\.tsx?$/.test(file)) {
         debug('ts file', file)

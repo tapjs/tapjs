@@ -559,6 +559,9 @@ Much more documentation available at: https://www.node-tap.org/
     description: `Run .js and .mjs with support for EcmaScript modules
                   (Default: true)`,
   }),
+  flow: flag({
+    description: `Removes flow types`,
+  }),
 
   ts: flag({
     default: process.env.TAP_NO_TS !== '1',
