@@ -2,6 +2,11 @@
 layout: layout
 title: Change Log
 ---
+## 14.2 - 2009-05-28
+
+* Add the `--flow` tag to automatically strip [flow
+  types](https://flow.org/) from test files.
+
 ## 14.1 - 2019-05-20
 
 * Add support for handling config aliases like `--100` in .taprc and
