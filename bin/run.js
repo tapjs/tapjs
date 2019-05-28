@@ -604,16 +604,8 @@ const runAllFiles = (options, tap) => {
       if (options.jobs > 1)
         opt.buffered = isParallelOk(parallelOk, file) !== false
 
-      if(options.flow){
-        debug('flow', file)
-        const args = [
-          ...(options['node-arg']),
-          flowNode,
-          file,
-          ...(options['test-arg']),
-        ]
-        tap.spawn(node, args, opt, file)
-      } 
+      if (options.flow)
+        options['node-arg'].push('-r', flowNode)
 
       if (options.ts && /\.tsx?$/.test(file)) {
         debug('ts file', file)

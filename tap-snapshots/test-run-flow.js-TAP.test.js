@@ -7,16 +7,13 @@
 'use strict'
 exports[`test/run/flow.js TAP flow > must match snapshot 1`] = `
 TAP version 13
-ok 1 - cli-tests/flow/ok.js # SKIP no tests found {
-    1..0 # no tests found
+ok 1 - cli-tests/flow/ok.js # {time} {
+    ok 1 - this is fine
+    1..1
+    # {time}
 }
 
-not ok 2 - cli-tests/flow/ok.js # SKIP no tests found {
-    1..0 # no tests found
-}
-
-1..2
-# skip: 2
+1..1
 # {time}
 
 `

@@ -43,23 +43,3 @@ t.test('flow manually', t => {
     t.end()
   })
 })
-
-
-// t.test('flow manually', t => {
-//   const ok = tmpfile(t, 'mixed/ok.js', `
-//     require('./foo.js')
-//   `)
-//   const foojs = tmpfile(t, 'mixed/foo.js', `
-//     const t = require(${tap})
-//     function square(n: number): number {
-//       return n * n;
-//     }
-//     t.pass('this is fine')
-//   `)
-//   const args = [ok, foojs, '--flow', '--node-arg=--require', '--node-arg=flow-remove-types/register']
-//   run(args, {}, (er, o, e) => {
-//     t.equal(er, null)
-//     t.matchSnapshot(o)
-//     t.end()
-//   })
-// })
