@@ -11,7 +11,7 @@ You can get help on tap's command line interface by running `tap -h`.
 Usage:
   tap [options] [<files>]
 
-tap v14.1.11 - A Test-Anything-Protocol library for JavaScript
+tap v14.2.0 - A Test-Anything-Protocol library for JavaScript
 
 Executes all the files and interprets their output as TAP formatted test result
 data. If no files are specified, then tap will search for testy-looking files,
@@ -339,6 +339,8 @@ Other Options:
                          (Default: true)
 
   --no-esm               switch off the --esm flag
+  --flow                 Removes flow types
+  --no-flow              switch off the --flow flag
 
   --ts                   Automatically load .ts and .tsx tests with tap's
                          bundled ts-node module (Default: true)
