@@ -18,11 +18,8 @@ or failed when it is rejected.
 These two features together mean that you can string together Promise
 chains in your tests, if that's a thing you're into.
 
-If you do use a lot of Promises to chain your tests in a long
-declarative list, it's a good idea to put `.catch(t.threw)` at the
-end, so that any unhandled rejections will be bubbled up to the top
-level handler rather than being ignored or reported in a less helpful
-manner.
+Unhandled promise rejections will be fail the active test, just like thrown
+errors would.
 
 Here is an example:
 
@@ -45,7 +42,6 @@ t.test('get thing', t =>
       t.equal(otherPromiseResult, 7, 'it should be seven')
       t.end()
     })))
-.catch(t.threw)
 ```
 
 If this sort of style offends you, you are welcome to ignore it.  It's
@@ -85,7 +81,7 @@ t.test('get thing', async t => {
     t.equal(otherPromiseResult, 7, 'it should be seven')
     t.end()
   })
-}).catch(t.threw)
+})
 ```
 
 Because subtests return promises, you can also `await` them to do
