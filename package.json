@@ -37,19 +37,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/substack/tap-parser.git"
+    "url": "git://github.com/tapjs/tap-parser.git"
   },
-  "homepage": "https://github.com/substack/tap-parser",
+  "homepage": "https://github.com/tapjs/tap-parser",
   "keywords": [
     "tap",
     "test",
     "parser"
   ],
-  "author": {
-    "name": "James Halliday",
-    "email": "mail@substack.net",
-    "url": "http://substack.net"
-  },
   "license": "MIT",
   "optionalDependencies": {},
   "files": [
