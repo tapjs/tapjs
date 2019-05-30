@@ -45,3 +45,9 @@ tap --no-jsx --node-arg=--require=my-jsx-preloader
 This is useful in some cases where you might have a mix of JavaScript and
 JSX in your tests and modules, and want to ensure that the correct JSX
 compiler is used.
+
+# Using tap with Flow
+
+Pass the `--flow` argument on the command line, or set `flow: true` in
+`.taprc`, or `{ "tap": { "flow": true } }` in `package.json`, and tap will
+automatically remove flow annotations from tests and code.
