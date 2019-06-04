@@ -1,8 +1,17 @@
-import React from "react";
-import {Flex} from "rebass";
-import styled from "styled-components";
-import {theme} from "../theme";
-import {Link} from "gatsby";
+import React from 'react';
+import {Flex} from 'rebass';
+import styled, {css} from 'styled-components';
+import {theme} from '../theme';
+import {Link as GatsbyLink} from 'gatsby';
+
+const navLinkStyles = css`
+  padding: 0 10px;
+  color: ${theme.colors.black};
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 15px;
+  letter-spacing: 1px;
+`;
 
 const Navbar = styled(Flex)`
   background-color: ${theme.colors.white};
@@ -10,6 +19,8 @@ const Navbar = styled(Flex)`
   height: 60px;
   align-items: center;
   font-family: Titillium Web;
+  z-index: 1;
+  position: relative;
 `;
 
 const Content = styled(Flex)`
@@ -27,13 +38,12 @@ const Content = styled(Flex)`
   }
 `;
 
-const NavLink = styled(Link)`
-  padding: 0 10px;
-  color: ${theme.colors.black};
-  font-weight: 600;
-  text-decoration: none;
-  font-size: 15px;
-  letter-spacing: 1px;
+const NavLink = styled(GatsbyLink)`
+  ${navLinkStyles};
+`;
+
+const Linky = styled.a`
+  ${navLinkStyles};
 `;
 
 const Logo = styled.a`
@@ -74,20 +84,16 @@ export default () => {
           >
             Changelog
           </NavLink>
-          <NavLink 
-            to="/changelog"
-            activeClassName="active-navlink"
-            partiallyActive={true}
+          <Linky 
+            href="https://github.com/tapjs/node-tap"
           >
             Github
-          </NavLink>
-          <NavLink 
-            to="/docs"
-            activeClassName="active-navlink"
-            partiallyActive={true}
+          </Linky>
+          <Linky
+            href="https://www.npmjs.com/package/tap"
           >
             NPM
-          </NavLink>
+          </Linky>
         </Flex>
       </Content>
     </Navbar>

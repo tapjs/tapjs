@@ -1,6 +1,7 @@
 ---
-layout: layout
 title: Change Log
+type: documentation
+path: '/changelog'
 ---
 
 ## 14.2 - 2009-05-28

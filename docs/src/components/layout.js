@@ -1,21 +1,18 @@
-import React from "react"
+import React from 'react';
 import styled from 'styled-components';
-import Navbar from './Navbar';
+import Navbar from './navbar';
 
 const WidthWrapper = styled.div`
-  max-width: 1200px;
+  max-width: 600px;
   margin: auto;
   width: 100%;
 `;
 
 const Layout = ({children}) => {
   return(
-    <>
-      <Navbar/>
-      <WidthWrapper>
-        {children}
-      </WidthWrapper>
-    </>
+    <WidthWrapper>
+      {children}
+    </WidthWrapper>
   );
 }
 

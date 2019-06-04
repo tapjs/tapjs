@@ -1,11 +1,12 @@
 const {createFilePath} = require(`gatsby-source-filesystem`);
 const path = require(`path`);
 
-//creating a new field that graphql will pick up
+// creating a new field that graphql will pick up
 exports.onCreateNode = ({node, getNode, actions}) => {
+  console.log(node);
   const {createNodeField} = actions;
   if (node.internal.type === 'MarkdownRemark') {
-    const slug = createFilePath({node, getNode, basePath: 'content'});
+    const slug = createFilePath({node, getNode, basePath: 'content/documentation'});
     createNodeField({
       node,
       name: 'slug',
@@ -14,9 +15,12 @@ exports.onCreateNode = ({node, getNode, actions}) => {
   }
 };
 
-//
+// actions is an object with a lot of action properties
 exports.createPages = ({graphql, actions}) => {
+  // plucking create page from that action object and uses it below
   const {createPage} = actions;
+  //returning graphql query that is a promise and creates a page for each 
+  //node that is returned from the query
   return graphql(`
     {
       allMarkdownRemark {
