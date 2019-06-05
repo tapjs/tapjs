@@ -1,1 +1,2 @@
-import "./src/main.css";
+require("prismjs/themes/prism-tomorrow.css");
+require('.src/main.css');
