@@ -1,8 +1,10 @@
 ---
-title: Change Log
+title: Changelog
 type: documentation
 path: '/changelog'
 ---
+
+#Changelog
 
 ## 14.2 - 2009-05-28
 

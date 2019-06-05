@@ -23,12 +23,14 @@ exports.createPages = ({graphql, actions}) => {
   //node that is returned from the query
   return graphql(`
     {
-      allMarkdownRemark {
+      allMarkdownRemark(filter: {frontmatter: {type: {eq: "documentation"}}}) {
         edges {
           node {
-            fields {
-              slug
+            id
+            frontmatter {
+              path
             }
+            html
           }
         }
       }
@@ -36,10 +38,10 @@ exports.createPages = ({graphql, actions}) => {
   `).then(result => {
     result.data.allMarkdownRemark.edges.forEach(({node}) => {
       createPage({
-        path: node.fields.slug,
+        path: node.frontmatter.path,
         component: path.resolve(`./src/templates/page.js`),
         context: {
-          slug: node.fields.slug,
+          // slug: node.fields.slug,
         }
       })
     })

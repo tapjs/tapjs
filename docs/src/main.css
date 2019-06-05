@@ -10,3 +10,7 @@ html {
 .active-navlink {
   background-color: #00ffff;
 }
+
+h1 {
+  color: red;
+}

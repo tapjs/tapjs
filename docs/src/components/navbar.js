@@ -71,7 +71,7 @@ export default () => {
             Docs
           </NavLink>
           <NavLink 
-            to="/docs/getting-started"
+            to="/tap-protocol"
             activeClassName="active-navlink"
             partiallyActive={true}
           >
