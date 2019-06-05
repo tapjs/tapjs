@@ -416,6 +416,7 @@ const stdinOnly = options => {
   // to the reporter, so we don't get '/dev/stdin' in the suite list.
   // We have to pause() before piping to switch streams2 into old-mode
   const tap = require('../lib/tap.js')
+  tap.writeSnapshot = false
   tap.stdinOnly()
   makeReporter(tap, options)
 
@@ -665,6 +666,7 @@ const runTests = options => {
   // At this point, we know we need to use the tap root,
   // because there are 1 or more files to spawn.
   const tap = require('../lib/tap.js')
+  tap.writeSnapshot = false
   if (options.comments) {
     const onComment = c => {
       if (!c.match(/^# (time=[0-9\.]+m?s|Subtest(: .+)?)\n$/))
