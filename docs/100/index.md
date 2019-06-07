@@ -45,6 +45,7 @@ to add it to the docs.
 * [npm-bundled](https://www.npmjs.com/package/npm-bundled)
 * [npm-packlist](https://www.npmjs.com/package/npm-packlist)
 * [pino-papertrail](https://www.npmjs.com/package/pino-papertrail)
+* [sqlutils](https://www.npmjs.com/package/sqlutils)
 * [stack-utils](https://www.npmjs.com/package/stack-utils)
 * [t-up](https://www.npmjs.com/package/t-up)
 * [tap-parser](https://www.npmjs.com/package/tap-parser)
