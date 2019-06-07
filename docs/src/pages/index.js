@@ -1,18 +1,27 @@
 import React from 'react';
-import Layout from '../components/layout';
 import Navbar from '../components/navbar';
 import Hero from '../components/home/hero';
 import Features from '../components/home/features';
+import WhyTap from '../components/home/whytap';
+import {graphql} from 'gatsby';
 
-export default () => {
-  // console.log(data)
-  console.log('hello')
+export default ({data}) => {
+  console.log(data);
   return (
     <>
-    <Navbar/>
+      <Navbar/>
       <Hero/>
       <Features/>
-      hello this is the home page
+      <WhyTap markdownData={data.markdownRemark.html}/>
     </>
   )
-}
+};
+
+export const query = graphql`
+  query MyQuery {
+    markdownRemark(frontmatter: {title: {eq: "why-tap"}}) {
+      id
+      html
+    }
+  }
+`;
