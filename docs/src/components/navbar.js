@@ -11,6 +11,11 @@ const navLinkStyles = css`
   text-decoration: none;
   font-size: 15px;
   letter-spacing: 1px;
+  transition: text-shadow 1s;
+
+  &:hover {
+    text-shadow: 1px -2px 1px #00fcff52;
+  }
 `;
 
 const Navbar = styled(Flex)`
