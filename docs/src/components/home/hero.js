@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {colors} from '../../theme';
-import {Flex, Image} from 'rebass';
+import {Image} from 'rebass';
 import logo from '../../images/logo.png';
 
 const OuterCircle = styled.div`
@@ -29,9 +29,8 @@ const InnerCircle = styled.div`
 
 const HeroContainer = styled.div`
   position: relative;
-  margin-top: -20px;
+  margin: -30px auto 0;
   max-width: 600px;
-  margin: auto;
 `;
 
 const Logo = styled(Image)`
@@ -49,7 +48,6 @@ const Hero = () => {
       <OuterCircle/>
       <InnerCircle/>
       <Logo src={logo}/>
-
     </HeroContainer>
   );
 }

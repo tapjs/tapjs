@@ -1,2 +1,2 @@
 require("prismjs/themes/prism-tomorrow.css");
-require('.src/main.css');
+require('./src/main.css');

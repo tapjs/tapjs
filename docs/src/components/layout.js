@@ -6,6 +6,7 @@ const WidthWrapper = styled.div`
   max-width: 600px;
   margin: auto;
   width: 100%;
+  padding: 20px;
 `;
 
 const Layout = ({children}) => {
