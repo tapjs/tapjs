@@ -3,10 +3,9 @@ const path = require(`path`);
 
 // creating a new field that graphql will pick up
 exports.onCreateNode = ({node, getNode, actions}) => {
-  console.log(node);
   const {createNodeField} = actions;
   if (node.internal.type === 'MarkdownRemark') {
-    const slug = createFilePath({node, getNode, basePath: 'content/documentation'});
+    const slug = createFilePath({node, getNode, basePath: 'content'});
     createNodeField({
       node,
       name: 'slug',
@@ -23,12 +22,12 @@ exports.createPages = ({graphql, actions}) => {
   //node that is returned from the query
   return graphql(`
     {
-      allMarkdownRemark(filter: {frontmatter: {type: {eq: "documentation"}}}) {
+      allMarkdownRemark {
         edges {
           node {
             id
-            frontmatter {
-              path
+            fields {
+              slug
             }
             html
           }
@@ -36,12 +35,13 @@ exports.createPages = ({graphql, actions}) => {
       }
     }
   `).then(result => {
+    console.log(result);
     result.data.allMarkdownRemark.edges.forEach(({node}) => {
       createPage({
-        path: node.frontmatter.path,
+        path: node.fields.slug,
         component: path.resolve(`./src/templates/page.js`),
         context: {
-          // slug: node.fields.slug,
+          slug: node.fields.slug,
         }
       })
     })

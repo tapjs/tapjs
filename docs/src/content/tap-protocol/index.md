@@ -1,7 +1,6 @@
 ---
 title: Test Anything Protocol
 type: documentation
-path: '/tap-protocol'
 ---
 
 # Test Anything Protocol

@@ -1,7 +1,6 @@
 ---
 title: Changelog
 type: documentation
-path: '/changelog'
 ---
 
 #Changelog
