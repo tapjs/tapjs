@@ -1,6 +1,5 @@
 ---
 title: Getting Started
-type: documentation
 section: 1
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Testing with Snapshots
-section: 4.5
+section: 4.05
 ---
 
 # Testing with Snapshots

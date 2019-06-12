@@ -1,6 +1,6 @@
 ---
 title: Promises
-section: 4.2
+section: 4.02
 ---
 
 # Promises
