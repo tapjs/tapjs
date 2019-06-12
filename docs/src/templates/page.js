@@ -1,27 +1,27 @@
 import React from 'react';
 import Layout from '../components/layout';
 import {graphql} from 'gatsby';
-import Navbar from '../components/navbar';
 
-
-export default ({data}) => {
-  const post = data.markdownRemark;
+const Page = ({data}) => {
+  const pageData = data.markdownRemark;
+  const showSidebar = !pageData.fields.slug.indexOf('/docs/');
   return (
     <>
-    <Navbar/>
-    <Layout>
-      <div dangerouslySetInnerHTML={{ __html: post.html }} />
-    </Layout>
+      <Layout showSidebar={showSidebar}>
+        <div dangerouslySetInnerHTML={{ __html: pageData.html }} />
+      </Layout>
     </>
   )
 }
 
+export default Page;
+
 export const query = graphql`
-  query($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
+  query($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
       html
-      frontmatter {
-        title
+      fields {
+        slug
       }
     }
   }
