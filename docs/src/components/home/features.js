@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import {colors} from '../../theme';
 import {Image, Flex, Box} from 'rebass';
-import brain from '../../images/brain.gif';
-import batteries from '../../images/batteries-2.gif';
+import brain from '../../images/brain-3.gif';
+import batteries from '../../images/batteries-4.gif';
 import separator from '../../images/separator.svg';
 
 const OuterContainer = styled.section`

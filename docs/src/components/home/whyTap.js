@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import {Image} from 'rebass';
 import {colors} from '../../theme';
-import {graphql} from 'gatsby';
 import questionMark from '../../images/question-mark-2.gif';
 
 const Content = styled.div`
@@ -45,7 +44,6 @@ const GreyCircle = styled.div`
 
 
 const WhyTap = ({markdownData}) => {
-  console.log(markdownData);
   return(
     <section>
       <Content>
