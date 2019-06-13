@@ -26,3 +26,13 @@ export const Link = styled.a`
   ${navLinkStyles};
 `;
 
+export const buttonLinkStyles = css`
+  color: #ffffff;
+  background-color: ${theme.colors.lightFushia};
+  width: auto;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 40px;
+  padding: 15px;
+  font-size: 14px;
+`;

@@ -3,6 +3,7 @@ import {Flex} from 'rebass';
 import styled from 'styled-components';
 import {theme} from '../theme';
 import {Link, NavLink} from './links';
+import {Link as GatsbyLink} from 'gatsby';
 
 const Navbar = styled(Flex)`
   background-color: ${theme.colors.white};
@@ -22,7 +23,6 @@ const Content = styled(Flex)`
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
-
   flex-direction: column;
 
   @media screen and (min-width: 768px) {
@@ -30,14 +30,14 @@ const Content = styled(Flex)`
   }
 `;
 
-const Logo = styled.a`
+const Logo = styled(GatsbyLink)`
   text-transform: uppercase;
   color: ${theme.colors.black};
   font-weight: 700;
   font-size: 26px;
   padding: 0 10px;
   letter-spacing: 1px;
-  text-shadow: 1px -2px 1px #00fcff52;
+  text-shadow: 1px -2px 1px #88888852;
   text-decoration: none;
 `;
 
@@ -45,36 +45,34 @@ export default () => {
   return(
     <Navbar>
       <Content>
-        <Logo href="/">Node Tap</Logo>
-        <Flex alignItems="flexEnd">
+        <Logo to='/'>Node Tap</Logo>
+        <Flex alignItems='flexEnd'>
           <NavLink 
-            to="/docs/getting-started"
-            activeClassName="active-navlink"
+            to='/docs/getting-started/'
+            activeClassName='active-navlink'
             partiallyActive={true}
           >
             Docs
           </NavLink>
           <NavLink 
-            to="/tap-protocol"
-            activeClassName="active-navlink"
-            partiallyActive={true}
+            to='/tap-protocol'
+            activeClassName='active-navlink'
           >
             Tap Protocol
           </NavLink>
           <NavLink 
-            to="/changelog"
-            activeClassName="active-navlink"
-            partiallyActive={true}
+            to='/changelog'
+            activeClassName='active-navlink'
           >
             Changelog
           </NavLink>
           <Link
-            href="https://github.com/tapjs/node-tap"
+            href='https://github.com/tapjs/node-tap'
           >
             Github
           </Link>
           <Link
-            href="https://www.npmjs.com/package/tap"
+            href='https://www.npmjs.com/package/tap'
           >
             NPM
           </Link>

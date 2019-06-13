@@ -8,8 +8,8 @@ export const theme = {
     aqua: `#00ffff`,
     blue: `#204dff`,
     fushia: `#d630ff`,
+    lightFushia: `#e683ff`
   },
-  width: 1200,
 }
 
 export const colors = {
@@ -21,4 +21,5 @@ export const colors = {
   aqua: `#00ffff`,
   blue: `#204dff`,
   fushia: `#d630ff`,
+  lightFushia: `#e683ff`,
 };
