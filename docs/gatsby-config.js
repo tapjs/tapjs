@@ -1,23 +1,25 @@
 module.exports = {
   siteMetadata: {
-    title: `Node-Tap`,
-    description: `A Test-Anything-Protocol library for Node.js`,
+    title: 'Node-Tap',
+    description: 'A Test-Anything-Protocol library for Node.js',
   },
   plugins: [
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: `src`,
+        name: 'src',
         path: `${__dirname}/src/`,
       },
     },
-    `gatsby-plugin-emotion`,
+    'gatsby-plugin-emotion',
+    'gatsby-plugin-eslint',
+    'gatsby-plugin-catch-links',
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
           {
-            resolve: `gatsby-remark-prismjs`,
+            resolve: 'gatsby-remark-prismjs',
             options: {
               // Class prefix for <pre> tags containing syntax highlighting;
               // defaults to 'language-' (eg <pre class="language-js">).
@@ -26,7 +28,7 @@ module.exports = {
               // you may use this to prevent Prism from re-processing syntax.
               // This is an uncommon use-case though;
               // If you're unsure, it's best to use the default value.
-              classPrefix: "language-",
+              classPrefix: 'language-',
               // This is used to allow setting a language for inline code
               // (i.e. single backticks) by creating a separator.
               // This separator is a string and will do no white-space
@@ -56,22 +58,22 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-typography`,
+      resolve: 'gatsby-plugin-typography',
       options: {
-        pathToConfigModule: `src/utils/typography`,
+        pathToConfigModule: 'src/utils/typography',
       },
     },
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: 'gatsby-plugin-prefetch-google-fonts',
       options: {
         fonts: [
           {
-            family: `Titillium Web`,
-            variants: [`400`, `600`, `700`],
+            family: 'Titillium Web',
+            variants: ['400', '600', '700'],
           },
           {
-            family: `Open Sans`,
-            variants: [`400`, `700`]
+            family: 'Open Sans',
+            variants: ['400', '600', '700']
           },
         ],
       },
@@ -79,4 +81,4 @@ module.exports = {
     'gatsby-redirect-from',
     'gatsby-plugin-meta-redirect'
   ],
-}
+};
