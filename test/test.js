@@ -1031,6 +1031,15 @@ t.test('addAssert', t => {
   return t.end()
 })
 
+t.test('addAssert on prototype', t => {
+  function foobar (found, message, extra) {
+    return this.ok(found, message, extra)
+  }
+  Test.prototype.addAssert('foobar', 1, foobar)
+  t.foobar(true, 'this is fine')
+  t.end()
+})
+
 t.test('spawn', t => {
   const okjs = path.resolve(__dirname, '../ok.test.js')
   t.teardown(() => fs.unlinkSync(okjs))
