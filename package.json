@@ -11,6 +11,10 @@
   "engines": {
     "node": ">=8"
   },
+  "bundledDependencies": [
+    "treport",
+    "ink"
+  ],
   "dependencies": {
     "async-hook-domain": "^1.1.0",
     "bind-obj-methods": "^2.0.0",
@@ -37,6 +41,7 @@
     "opener": "^1.5.1",
     "own-or": "^1.0.0",
     "own-or-env": "^1.0.1",
+    "react": "^16.8.6",
     "rimraf": "^2.6.3",
     "signal-exit": "^3.0.0",
     "source-map-support": "^0.5.12",
@@ -91,8 +96,5 @@
     "bin/jsx.js",
     "bin/jack.js",
     "lib/*.js"
-  ],
-  "devDependencies": {
-    "react": "^16.8.6"
-  }
+  ]
 }
