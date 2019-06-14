@@ -11,7 +11,6 @@ module.exports = {
         path: `${__dirname}/src/`,
       },
     },
-    'gatsby-plugin-emotion',
     'gatsby-plugin-eslint',
     'gatsby-plugin-catch-links',
     {
@@ -55,12 +54,6 @@ module.exports = {
             },
           },
         ],
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-typography',
-      options: {
-        pathToConfigModule: 'src/utils/typography',
       },
     },
     {
