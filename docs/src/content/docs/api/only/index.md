@@ -11,7 +11,7 @@ object, or by using the `t.only` method.
 Because tests are run top-to-bottom synchronously, there's no way to
 know at the start of a test file if a `t.only()` call is coming.  To
 activate this filtering, use the `--only` flag to the tap
-[command-line interface](/cli/), or set `TAP_ONLY=1` in the
+[command-line interface](/docs/cli/), or set `TAP_ONLY=1` in the
 environment, or set the `t.runOnly = true` in a test file.
 
 Setting the `TAP_ONLY=1` environment variable or using `tap --only`

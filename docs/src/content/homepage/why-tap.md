@@ -61,9 +61,9 @@ probably enjoy this test library.
 5. **Test reporting should be separate from the test process, included in the
    framework, and enabled by default for humans.**
 
-   The [raw test output](/tap-format/) should be machine-parseable and
+   The [raw test output](/tap-protocol/) should be machine-parseable and
    human-intelligible, and a separate process should consume test output and
-   turn it into a [pretty summarized report](/reporting/).  This means that
+   turn it into a [pretty summarized report](/docs/reporting/).  This means that
    test data can be stored and parsed later, dug into for additional details,
    and so on.  Also: nyan cat.
 
@@ -98,7 +98,7 @@ probably enjoy this test library.
 
    Coverage _enforcement_ is not on by default, but I strongly encourage it.
    You can put `"tap":{"check-coverage":true}` in your package.json, or pass
-   [`--100`](/100/) on the command line.  In a future version, it will likely
+   [`--100`](/docs/100/) on the command line.  In a future version, it will likely
    be enabled by default.
 
 9. **Tests should be output in a predictable order.**
@@ -109,13 +109,13 @@ probably enjoy this test library.
 
    Babel and Webpack are lovely and fine.  But if your code doesn't require
    compilation, then I think your tests shouldn't either.  Tap is extremely
-   [promise-aware](/promises/).  JSX, TypeScript, Flow, and ES-Modules are
-   [built-in](/using-with/) when tests are run by the tap CLI.
+   [promise-aware](/docs/api/promises/).  JSX, TypeScript, Flow, and ES-Modules are
+   [built-in](/docs/using-with/) when tests are run by the tap CLI.
 
 1. **Tests should run as fast as possible, given all the prior
     considerations.**
 
-   As of version 10, tap supports [parallel tests](/parallel/).  As of version
+   As of version 10, tap supports [parallel tests](/docs/api/parallel-tests/).  As of version
    13, the test runner defaults to running the same number of parallel tests as
    there are CPUs on the system.
 
@@ -128,4 +128,4 @@ refactoring and fix bugs without worrying.  It shouldn't be a purification rite
 or a hazing ritual.
 
 There are many opinions left off of this list!  Reasonable people can disagree.
-But if you find yourself nodding along, [maybe tap is for you](/basics/).
+But if you find yourself nodding along, [maybe tap is for you](/docs/getting-started/).

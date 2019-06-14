@@ -23,4 +23,4 @@ current working directory, and use that object as as source of configuration as
 well.
 
 Information about all of the various config options can be obtained by running
-[`tap -h`](/cli/).
+[`tap -h`](/docs/cli/).

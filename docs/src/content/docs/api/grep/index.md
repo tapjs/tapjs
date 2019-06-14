@@ -15,7 +15,7 @@ test/*.js`, do `tap test/foo.js` to just run a single file.
 
 ## Command Line Usage
 
-On the [command-line](/cli/), specify one or more patterns with
+On the [command-line](/docs/cli/), specify one or more patterns with
 `--grep=<pattern>` (or `-g<pattern>` for short).
 
 You can provide multiple patterns by providing multiple `--grep`

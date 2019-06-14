@@ -8,7 +8,7 @@ section: 10
 Tests can be reported in a variety of different ways.
 
 When you run a test script directly, it'll always output
-[TAP](/tap-format/).  The tap runner will interpret this
+[TAP](/tap-protocol/).  The tap runner will interpret this
 output, and can format it in a variety of different ways.
 
 Node-tap includes 2 reporting engines, and you can extend either one, or

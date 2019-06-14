@@ -5,7 +5,7 @@ title: The TAP 100
 # The TAP 100
 
 These modules use the `--100` flag to run tests with 100%
-[coverage](/coverage/) of all lines, branches, statements, and
+[coverage](/docs/coverage/) of all lines, branches, statements, and
 functions.
 
 To add yours to the list, send a [pull

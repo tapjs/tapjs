@@ -2,6 +2,8 @@
 title: Coverage Maps
 section: 7
 ---
+# Coverage Maps
+
 If you specify a `--coverage-map=<file>` option, then you can be very precise
 about _which_ files under test should be covered by a specific test.
 
@@ -15,8 +17,8 @@ generated with a coverage map will help guarantee that you are actually testing
 a piece of code directly, rather than "accidentally" adding lines of coverage
 via integration.
 
-When used with [`--changed`](/save-failures-run-changed/) or
-[`--watch`](/watch/), this also means that you limit which file's changes will
+When used with [`--changed`](/docs/save-failures-run-changed/) or
+[`--watch`](/docs/watch/), this also means that you limit which file's changes will
 trigger which test to re-run.  Also, because less of your program is
 instrumented for each test, the overall suite can run significantly faster.
 

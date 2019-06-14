@@ -12,7 +12,7 @@ feel perfectly comfortable using them.
 
 Please [let us know](https://github.com/isaacs/node-tap/issues) if you
 frequently encounter situations requiring advanced usage, because this
-may indicate a shortcoming in the "non-advanced" [API](/api/).
+may indicate a shortcoming in the "non-advanced" [API](/docs/api/).
 
 ## Class: t.Spawn()
 
@@ -24,7 +24,7 @@ output.
 
 Similar to the `Test` class, but instead of a callback that gets a
 object with assertion methods, it reads the process standard input,
-and parses that as [TAP](/tap-format)-formatted data.
+and parses that as [TAP](/tap-protocol)-formatted data.
 
 ## t.counts
 
@@ -110,7 +110,7 @@ child test:
 * `diagnostic` Set to `true` to show a yaml diagnostic block even if
   the test passes.  Set to `false` to never show a yaml diagnostic
   block.
-* `buffered` Set to `true` to run as a buffered [subtest](/subtests/).
+* `buffered` Set to `true` to run as a buffered [subtest](/docs/api/subtests/).
   Set to `false` to run as an indented subtest.  The default is
   `false` unless `TAP_BUFFER=1` is set in the environment.
 

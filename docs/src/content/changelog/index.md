@@ -29,7 +29,7 @@ type: documentation
 
 ## 13.1 - 2019-04-28
 
-* Add [repl](/watch/) for controlling `--watch` behavior.
+* Add [repl](/docs/watch/) for controlling `--watch` behavior.
 * Add `t.cleanSnapshot` and `t.formatSnapshot` for customizing snapshot
   formatting.
 
@@ -41,7 +41,7 @@ through this changelog if you use previous versions of tap more than casually.
 
 ### Reporting
 
-The [reporting engine](/reporting/) has gotten a massive overhaul.
+The [reporting engine](/docs/reporting/) has gotten a massive overhaul.
 
 * Brand new reporter [treport](http://npm.im/treport), built using React and
   [ink](http://npm.im/ink), which reports on parallel tests in progress, and
@@ -100,9 +100,9 @@ The [reporting engine](/reporting/) has gotten a massive overhaul.
 
 ### Coverage Related Things
 
-* Default to [coverage](/coverage/) being turned on.  (Defaulting to
+* Default to [coverage](/docs/coverage/) being turned on.  (Defaulting to
   `check-coverage` at 100% will come in v14.)
-* Add support for [coverage maps](/coverage-map/) for specifying which test
+* Add support for [coverage maps](/docs/coverage-map/) for specifying which test
   file should cover which (or any) program file(s).
 
 ### Configuration
@@ -180,7 +180,7 @@ will resolve to a value matching the supplied pattern.
 
 Add support for [snapshot testing](/snapshots/).
 
-Improved implementation of [Mocha-like DSL](/mochalike/)
+Improved implementation of [Mocha-like DSL](/docs/api/mochalike/)
 
 ### BREAKING CHANGES:
 
@@ -191,13 +191,13 @@ Improved implementation of [Mocha-like DSL](/mochalike/)
 
 ## 10.7 2017-06-24
 
-Add support for [filtering tests using 'only'](/only/).
+Add support for [filtering tests using 'only'](/docs/api/only).
 
 Don't show grep/only skips in the default reporter output.
 
 ## 10.6 2017-06-23
 
-Add support for [filtering tests using regular expressions](/grep/).
+Add support for [filtering tests using regular expressions](/docs/api/grep).
 
 ## 10.5 2017-06-20
 
@@ -239,8 +239,8 @@ system, and run that many parallel jobs.
 
 ## 10.0 2017-01-28
 
-Full rewrite to support [parallel tests](/parallel/).  Pass `-j4` on
-[the command-line](/cli/) to run 4 test files at once in parallel.
+Full rewrite to support [parallel tests](/docs/api/parallel-tests/).  Pass `-j4` on
+[the command-line](/docs/cli/) to run 4 test files at once in parallel.
 
 This also refactors a lot of the grimier bits of the codebase, splits
 the one mega-Test class into a proper OOP hierarchy, and pulls a bunch
@@ -252,10 +252,10 @@ Somehow, in the process, it also fixed an odd timing bug with
 It truly is a luxury to have a massive pile of tests when it's time to
 refactor.
 
-The [mocha-like DSL](/mochalike/) is now much more functional, and
+The [mocha-like DSL](/docs/api/mochalike/) is now much more functional, and
 documented.
 
-Now supports passng `-T` or `--timeout=0` to the [CLI](/cli/) to not
+Now supports passng `-T` or `--timeout=0` to the [CLI](/docs/cli/) to not
 impose a timeout on tests.
 
 ## 9.0 2017-01-07
@@ -263,7 +263,7 @@ impose a timeout on tests.
 Buffered subtests!
 
 This adds support for outputting subtests in the
-[buffered](/subtests/) format, where the summary test point _precedes_
+[buffered](/docs/api/docs/api/subtests) format, where the summary test point _precedes_
 the indented subtest output, rather than coming afterwards.
 
 This sets the stage for parallel tests, coming in v10.  Mostly, it's

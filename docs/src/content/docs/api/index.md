@@ -10,16 +10,16 @@ node-tap.
 
 See also:
 
-- [Getting Started](/basics/)
-- [Asserts](/asserts/)
-- [Snapshot Testing](/snapshots/)
-- [Promises](/promises/)
-- [Subtests](/subtests/)
-- [Parallel Tests](/parallel/)
-- [Filtering Tests with Grep](/grep/)
-- [Filtering Tests with Only](/only/)
-- [Mocha-like DSL](/mochalike/)
-- [Advanced Usage](/advanced/)
+- [Getting Started](/docs/)
+- [Asserts](/docs/api/asserts/)
+- [Snapshot Testing](/docs/api/snapshot-testing/)
+- [Promises](/docs/api/promises/)
+- [Subtests](/docs/api/subtests/)
+- [Parallel Tests](/docs/api/parallel-tests/)
+- [Filtering Tests with Grep](/docs/api/grep/)
+- [Filtering Tests with Only](/docs/api/only/)
+- [Mocha-like DSL](/docs/api/mochalike/)
+- [Advanced Usage](/docs/api/advanced/)
 
 ## tap = require('tap')
 
@@ -67,7 +67,7 @@ Test object, but applies equally well in most cases to the root test.
 
 ### t.test([name], [options], [function])
 
-Create a subtest.  Returns a [Promise](/promises/) which resolves with
+Create a subtest.  Returns a [Promise](/docs/api/promises/) which resolves with
 the parent when the child test is completed.
 
 If the function is omitted, then it will be marked as a "todo" or
@@ -80,9 +80,9 @@ the name will be the empty string `''`.
 The function gets a Test object as its only argument.  From there, you
 can call the `t.end()` method on that object to end the test, or use
 the `t.plan()` method to specify how many child tests or
-[asserts](/asserts/) the test will have.
+[asserts](/docs/api/asserts) the test will have.
 
-If the function returns a [Promise](/promises/) object (that is, an
+If the function returns a [Promise](/docs/api/promises/) object (that is, an
 object with a `then` method), then when the promise is rejected or
 fulfilled, the test will be either ended or failed.  Note that this
 means that an `async` function will automatically end when it's done,
@@ -92,7 +92,7 @@ If the function is not provided, then this will be treated as a `todo`
 test.
 
 The options object is the same as would be passed to [any
-assert](/asserts/), with some additional fields that are only relevant
+assert](/docs/api/asserts), with some additional fields that are only relevant
 for child tests:
 
 * `todo` Set to boolean `true` or a String to mark this as pending.
@@ -105,14 +105,14 @@ for child tests:
 * `diagnostic` Set to boolean `true` to show a yaml diagnostic block
   even if the test passes.  Set to `false` to never show a yaml
   diagnostic block.  (Failing tests show yaml diagnostics by default.)
-* `buffered` Set to `true` to run as a buffered [subtest](/subtests/).
+* `buffered` Set to `true` to run as a buffered [subtest](/docs/api/subtests/).
   Set to `false` to run as an indented subtest.  The default is
   `false` unless `TAP_BUFFER=1` is set in the environment.
 * `jobs` Set to an integer to assign the `t.jobs` property.
 * `grep` Set to an array of regular expressions to [filter subtests
-  with patterns](/grep/)
+  with patterns](/docs/api/grep)
 * `only` Set to `true` to run this test when in `runOnly` mode.
-  See [filtering tests using only](/only/)
+  See [filtering tests using only](/docs/api/only)
 * `runOnly` Set to `true` to only run tests with `only:true` set.
 
 ### t.todo([name], [options], [function])
@@ -127,7 +127,7 @@ Exactly the same as `t.test()`, but adds `skip: true` in the options.
 
 Exactly the same as `t.test()`, but adds `only: true` in the options.
 
-See [filtering tests using only](/only/)
+See [filtering tests using only](/docs/api/only)
 
 ### t.name
 
@@ -145,7 +145,7 @@ child tests.  For example, a `t.beforeEach()` function might create a
 database connection, assign it to `t.context.connection`, and then close
 the connection in a `t.afterEach()` function.
 
-See [Test Lifecycle Events](/test-lifecycle/) for more information.
+See [Test Lifecycle Events](/docs/api/test-lifecycle-events) for more information.
 
 ### t.runOnly
 
@@ -155,7 +155,7 @@ their options (or are run with `t.only()`, which is the same thing).
 ### t.jobs
 
 If you set the `t.jobs` property to a number greater than 1, then it
-will enable [parallel execution](/parallel/) of all of this test's
+will enable [parallel execution](/docs/api/parallel-tests/) of all of this test's
 children.
 
 ### t.cleanSnapshot = function
@@ -192,37 +192,37 @@ is met.  Function can return a promise to perform async actions.
 Note that when called on the root `tap` export, this also triggers
 `autoend` behavior.
 
-See [Test Lifecycle Events](/test-lifecycle/) for more information.
+See [Test Lifecycle Events](/docs/api/test-lifecycle-events) for more information.
 
 ### t.beforeEach(function (done, testObject) {})
 
 Call the supplied function before every subsequent descendent test.
 
 The `done` callback is a function to call when finished.  You can also
-return a [Promise](/promises/) rather than using the `done` callback.
+return a [Promise](/docs/api/promises/) rather than using the `done` callback.
 
-See [Test Lifecycle Events](/test-lifecycle/) for more information.
+See [Test Lifecycle Events](/docs/api/test-lifecycle-events) for more information.
 
 ### t.afterEach(function (done) {})
 
 Call the supplied function after every subsequent descendent test.
 
 The `done` callback is a function to call when finished.  You can also
-return a [Promise](/promises/) rather than using the `done` callback.
+return a [Promise](/docs/api/promises/) rather than using the `done` callback.
 
-See [Test Lifecycle Events](/test-lifecycle/) for more information.
+See [Test Lifecycle Events](/docs/api/test-lifecycle-events) for more information.
 
 ### t.plan(number)
 
 Specify that a given number of tests are going to be run.
 
-This may only be called *before* running any [asserts](/asserts/) or
+This may only be called *before* running any [asserts](/docs/api/asserts) or
 child tests.
 
 ### t.end()
 
 Call when tests are done running.  This is not necessary if `t.plan()`
-was used, or if the test function returns a [Promise](/promises/).
+was used, or if the test function returns a [Promise](/docs/api/promises/).
 
 If you call `t.end()` explicitly more than once, an error will be
 raised.
@@ -288,7 +288,7 @@ Generally, you never need to worry about this directly.
 
 However, this method can also be called explicitly in cases where an
 error would be handled by something else (for example, a default
-[Promise](/promises/) `.catch(er)` method.)
+[Promise](/docs/api/promises/) `.catch(er)` method.)
 
 ### t.autoend(value)
 

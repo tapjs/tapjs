@@ -48,10 +48,10 @@ If you run tap with `--changed` (or `-n`), it will only run tests if the test
 file, or any of the files it covers, have changed since the last run.
 
 Because this depends on tracking which test covered which file, it requires
-that you have [coverage](/coverage/) enabled (which is on by default anyway).
+that you have [coverage](/docs/coverage/) enabled (which is on by default anyway).
 
 ### Tip: Use a Coverage Map Module
 
-If you specify a [`--coverage-map=<file>`](/coverage-map/) option, then you can
+If you specify a [`--coverage-map=<file>`](/docs/coverage-map/) option, then you can
 be very precise about _which_ files under test should trigger a re-run of the
 tests.

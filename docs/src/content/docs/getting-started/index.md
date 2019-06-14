@@ -5,7 +5,25 @@ redirect_from:
   - /docs/
 ---
 
-# tap basics
+# Getting Started
+
+## tap includes out of the box:
+
+`tap` includes out of the box:
+
+1. [A test framework](/docs/api/) for writing tests in Node.js.
+2. [A command-line interface](/docs/cli/) for running tests and reporting on their
+   success or failure.
+3. [Support for test-coverage](/docs/coverage/), including coverage of child
+   processes spawned in the process of testing.
+4. [Support for parallel tests](/docs/api/parallel-tests/), including running some tests in
+   parallel, and others serially.
+
+See [the changelog](/changelog/) for recent updates, or just get started with the basics down below.
+
+[![Build Status](https://travis-ci.org/tapjs/node-tap.svg?branch=master)](https://travis-ci.org/tapjs/node-tap)
+
+## tap basics
 
 This tutorial will teach you just enough to get up and running with tap in your
 Node.js programs.
@@ -355,7 +373,7 @@ tap.test('this waits until after', childTest => {
 ```
 
 If you run this test with Node, you'll see that the [child
-tests](/subtests/) are indented:
+tests](/docs/api/subtests/) are indented:
 
 ```bash
 $ node test/async.js
@@ -403,7 +421,7 @@ All files             |      100 |      100 |      100 |      100 |             
 ----------------------|----------|----------|----------|----------|-------------------|
 ```
 
-Tap's [promise](/promises/) support means it plays great with
+Tap's [promise](/docs/api/promises/) support means it plays great with
 async/await.  Stuff like this will Just Work out of the box if you
 have a JS engine that supports async functions:
 
@@ -417,4 +435,4 @@ tap.test(async t => {
 })
 ```
 
-See the [API reference](/api/) to learn more!
+See the [API reference](/docs/api/) to learn more!

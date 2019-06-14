@@ -15,13 +15,13 @@ This protocol is how child test processes communicate their success or
 failure with their parent process.
 
 Most of the time, you'll view `tap`'s output using one of the
-[reporting options](/reporting/).  However, occasionally it's useful
+[reporting options](/docs/reporting/).  However, occasionally it's useful
 to view the raw output for a variety of reasons.  For example, you may
 wish to run a test file directly, or store TAP output for later
 analysis.
 
 Most of the time, you'll generate TAP by using the functions in
-`tap`'s [API](/api/).  But if you have a different kind of program
+`tap`'s [API](/docs/api/).  But if you have a different kind of program
 that you would like to consume with `tap`'s test runner, you can just
 print TAP to standard output in any way you please.
 
@@ -65,7 +65,7 @@ Plans cannot be set in the middle of a test set.  That is, they have
 to come before all the test points, or after all of them.
 
 To set a plan in `tap` explicitly, use the `t.plan(n, [comment])`
-function.  If you end a test by returning a [promise](/promises/) or
+function.  If you end a test by returning a [promise](/docs/api/promises/) or
 calling `t.end()`, then a plan will be automatically generated at the
 end of the stream.
 
@@ -100,8 +100,8 @@ not ok 2 - that last test point was pretty bare
 ```
 
 The most common way to generate a test point in `tap` is to use one of
-the [assertion methods](/asserts/).  Test points are also generated
-for [subtests](/subtests/), and to communicate failures for unfinished
+the [assertion methods](/docs/api/asserts).  Test points are also generated
+for [subtests](/docs/api/subtests/), and to communicate failures for unfinished
 tests, exceeding a plan count, and anything else that might go wrong.
 
 ## Directives
@@ -184,7 +184,7 @@ diagnostic: false }` will always omit diagnostics.
 
 ## Subtests
 
-A [subtest](/subtests/) is an indented TAP stream that is a child of
+A [subtest](/docs/api/subtests/) is an indented TAP stream that is a child of
 the current set of tests.  It can be used to group test points
 together, consume the output of a TAP-producing child process, or run
 tests asynchronously.
@@ -241,7 +241,7 @@ ok 2 - a very diagnostic subtest # time=33ms
 ```
 
 The most common way to run subtests is via `t.test(...)`.  See
-[Subtests](/subtests/) for more info.
+[Subtests](/docs/api/subtests/) for more info.
 
 ## Pragma
 
@@ -307,7 +307,7 @@ You can generate a bailout explicitly by doing `t.bailout(reason)`.
 You can also have `tap` bail out on any test failure by setting
 `TAP_BAIL=1` in the environment, or by setting `{ bail: true }` in a
 child test options, or by running with the `tap` [command-line
-interface](/cli/) and passing the `--bail` flag.
+interface](/docs/cli/) and passing the `--bail` flag.
 
 ## Comments and Other Stuff
 

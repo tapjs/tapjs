@@ -12,7 +12,7 @@ process.
 
 To run tap in watch mode, run `tap --watch` or `tap -w`.
 
-Watching files for changes requires that [coverage](/coverage/) is enabled,
+Watching files for changes requires that [coverage](/docs/coverage/) is enabled,
 because it uses NYC to determine which test is relevant to which file being
 changed.
 
@@ -33,7 +33,7 @@ not connected to the file that changed.
   file will be added to the suite if it's not already included.
 
 * `n`
-  Run the suite with [`--changed`](/save-failures-run-changed/).  This is
+  Run the suite with [`--changed`](/docs/save-failures-run-changed/).  This is
   useful when resuming after a pause.
 
 * `p`
@@ -59,6 +59,6 @@ Use the `r <filename>` or `u <filename>` commands to add them to the suite.
 
 ## Tip: Use a Coverage Map Module
 
-If you specify a [`--coverage-map=<file>`](/coverage-map/) option, then you can
+If you specify a [`--coverage-map=<file>`](/docs/coverage-map/) option, then you can
 be very precise about _which_ files under test should trigger a re-run of the
 tests.

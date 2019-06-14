@@ -47,7 +47,7 @@ t.test('get thing', t =>
 If this sort of style offends you, you are welcome to ignore it.  It's
 not mandatory.
 
-If you want to pass Promises to [assertions](/asserts/) and have them
+If you want to pass Promises to [assertions](/docs/api/asserts) and have them
 auto-resolve, then check out [tapromise](http://npm.im/tapromise).
 
 ## Rejected promise

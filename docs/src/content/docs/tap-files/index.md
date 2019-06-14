@@ -5,7 +5,7 @@ title: "Working with TAP Output Files"
 # Working with TAP Output Files
 
 Sometimes, you may want to run tests, and view the output in a nice
-human-readable way, but save the raw [TAP](/tap-format/) files for later replay
+human-readable way, but save the raw [TAP](/tap-protocol/) files for later replay
 or analysis, or feeding into some other system in a CI build toolchain.
 
 There are two ways to do this with tap: as a single file, or as many files.
@@ -15,7 +15,7 @@ There are two ways to do this with tap: as a single file, or as many files.
 Specify `-o<filename>` or `--output-file=<filename>` to dump the entire test
 suite to a single file as raw TAP.
 
-To parse this and spit out a [report](/reporting/), you can pipe the single
+To parse this and spit out a [report](/docs/reporting/), you can pipe the single
 file into a new tap invocation.  For example:
 
 ```

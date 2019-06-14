@@ -3,6 +3,8 @@ title: Test Lifecycle Events
 section: 4.06
 ---
 
+# Test Lifecycle Events
+
 There are a few moments in the life of a test where you might want to attach
 some setup or teardown logic.  Node-tap implements these using the following
 functions.
