@@ -350,8 +350,7 @@ template {
 
 
 
-p {
-  font-family: 'Open Sans';
+p, li {
   font-size: 15px;
   color: #333333;
   line-height: 1.6;
@@ -363,18 +362,12 @@ html {
 
 body {
   font-size: 16px;
+  font-family: 'Open Sans';
 }
 
-a { color: #333333;
-}
-
-.active-navlink {
-  background-color: #00ffff;
-}
-
-.active-sidebarlink {
-  background-color: #204dff;
-  color: #ffffff;
+a { 
+  color: #204dff;
+  font-weight: 600;
 }
 
 h1, h2, h3 {
@@ -389,7 +382,7 @@ h1 {
 }
 
 h2 {
-  font-size: 22px;
+  font-size: 20px;
 }
 
 h3 {
@@ -398,11 +391,29 @@ h3 {
 
 
 :not(pre) > code[class*="language-"] {
-  background-color: transparent;
+  background-color: #ebe7e7;
   color: #333;
+}
+
+:not(pre) > code[class*="language-"] a {
+  background-color: #ebe7e7;
+  color: #204dff;
 }
 
 pre[class*="language-"] {
   font-size: 12px;
+}
+
+.active-navlink {
+  background-color: #00ffff;
+}
+
+.active-sidebarlink {
+  background-color:#fdfb00;
+  color: #ffffff;
+}
+
+.active-sidebarlink:hover {
+  color: #ffffff;
 }
 

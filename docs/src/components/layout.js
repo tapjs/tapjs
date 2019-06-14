@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import Navbar from './navbar';
-import Sidebar from './sidebar';
-import {Flex, Box} from 'rebass';
+import Navbar from './Navbar';
+import Sidebar from './Sidebar';
+import {Flex} from 'rebass';
 
 const WidthWrapper = styled.div`
   max-width: 700px;
@@ -17,12 +17,12 @@ const Layout = ({showSidebar, children}) => {
       <Navbar/>
       <Flex>
         {showSidebar && <Sidebar/>}
-          <WidthWrapper>
-            {children}
-          </WidthWrapper>
+        <WidthWrapper>
+          {children}
+        </WidthWrapper>
       </Flex>
     </>
   );
-}
+};
 
 export default Layout;

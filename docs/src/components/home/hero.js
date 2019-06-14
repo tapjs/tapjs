@@ -2,9 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import {theme} from '../../theme';
 import {Image, Flex} from 'rebass';
-import logo from '../../images/logo.png';
+import logo from '../../images/logo-a.png';
 import {ButtonLink} from '../links';
-import {Link as GatsbyLink} from 'gatsby';
 
 const OuterCircle = styled.div`
   background-color: ${theme.colors.lightGrey};
@@ -41,7 +40,11 @@ const Content = styled(Flex)`
 
 const Container = styled.div`
   background-color: ${theme.colors.darkGrey};
-  padding: 20px 20px;
+  padding: 40px 20px;
+
+  @media screen and (min-width: 768px) {
+    padding: 20px 20px;
+  }
 `;
 
 const Logo = styled(Image)`
@@ -51,7 +54,7 @@ const Logo = styled(Image)`
 const BuildStatus = styled.a`
   width: 90px;
   height: 20px;
-  top: -10px;
+  top: -20px;
   position: absolute;
   background-repeat: no-repeat;
   background-image: url(https://travis-ci.org/tapjs/node-tap.svg?branch=master);
@@ -88,6 +91,6 @@ const Hero = () => {
       </Content>
     </Container>
   );
-}
+};
 
 export default Hero;

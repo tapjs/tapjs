@@ -1,14 +1,13 @@
 import React from 'react';
-import Navbar from '../components/navbar';
-import Hero from '../components/home/hero';
-import Features from '../components/home/features';
-import WhyTap from '../components/home/whytap';
-import {ThemeProvider} from 'styled-components'
+import Navbar from '../components/Navbar';
+import Hero from '../components/home/Hero';
+import Features from '../components/home/Features';
+import WhyTap from '../components/home/WhyTap';
+import {ThemeProvider} from 'styled-components';
 import {graphql} from 'gatsby';
 import {theme} from '../theme';
 
 export default ({data}) => {
-  console.log(data);
   return (
     <ThemeProvider theme={theme}>
       <div>
@@ -18,7 +17,7 @@ export default ({data}) => {
         <WhyTap markdownData={data.markdownRemark.html}/>
       </div>
     </ThemeProvider>
-  )
+  );
 };
 
 export const query = graphql`

@@ -34,8 +34,8 @@ const WhiteCircle = styled.div`
 `;
 
 const GreyCircle = styled.div`
-  width: 160px;
-  height: 160px;
+  width: 180px;
+  height: 180px;
   background-color: ${theme.colors.lightGrey};
   border-radius: 50%;
   margin: auto;
@@ -55,7 +55,7 @@ const WhyTap = ({markdownData}) => {
         <div dangerouslySetInnerHTML={{ __html: markdownData}} />
       </Content>
     </section>
-  )
-}
+  );
+};
 
 export default WhyTap;
