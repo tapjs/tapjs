@@ -2,10 +2,12 @@ import React from 'react';
 import {Flex} from 'rebass';
 import styled from 'styled-components';
 import {theme, breakpoints} from '../theme';
-import {Link, NavLink} from './links';
+import hamburgerIcon from '../images/hamburger.svg';
+import MobileNavbar from './MobileNavbar';
+import NavLinks from './NavLinks';
 import {Link as GatsbyLink} from 'gatsby';
 
-const Navbar = styled(Flex)`
+const NavbarOuter = styled(Flex)`
   background-color: ${theme.colors.white};
   box-shadow: 0px 0px 10px 0px #b8b3b3;
   height: 68px;
@@ -23,10 +25,14 @@ const Content = styled(Flex)`
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
-  flex-direction: column;
+`;
+
+const Links = styled(Flex)`
+  display: none;
 
   @media screen and (min-width: ${breakpoints.TABLET}) {
-    flex-direction: row;
+    display: flex;
+    align-items: flex-end;
   }
 `;
 
@@ -41,43 +47,48 @@ const Logo = styled(GatsbyLink)`
   text-decoration: none;
 `;
 
-export default () => {
-  return(
-    <Navbar>
-      <Content>
-        <Logo to="/">Node Tap</Logo>
-        <Flex alignItems="flexEnd">
-          <NavLink 
-            to="/docs/"
-            activeClassName="active-navlink"
-            partiallyActive={true}
-          >
-            Docs
-          </NavLink>
-          <NavLink 
-            to="/tap-protocol"
-            activeClassName="active-navlink"
-          >
-            Tap Protocol
-          </NavLink>
-          <NavLink 
-            to="/changelog"
-            activeClassName="active-navlink"
-          >
-            Changelog
-          </NavLink>
-          <Link
-            href="https://github.com/tapjs/node-tap"
-          >
-            Github
-          </Link>
-          <Link
-            href="https://www.npmjs.com/package/tap"
-          >
-            NPM
-          </Link>
-        </Flex>
-      </Content>
-    </Navbar>
-  );
+const Hamburger = styled.button`
+  background-image: url(${hamburgerIcon});
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  height: 20px;
+  width: 30px;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+
+  @media screen and (min-width: ${breakpoints.TABLET}) {
+    display: none;
+  }
+`;
+
+class Navbar extends React.Component {
+  
+  state = {
+    navOpen: false,
+  }
+
+  toggleNav = () => {
+    this.setState({navOpen: !this.state.navOpen});
+  }
+
+  render() {
+    return(
+      <NavbarOuter>
+        {this.state.navOpen &&
+          <MobileNavbar toggleNav={this.toggleNav}/>
+        }
+        <Content>
+          <Hamburger onClick={this.toggleNav}/>
+          <Logo to="/">Node Tap</Logo>
+          <Links>
+            <NavLinks desktop/>
+          </Links>
+        </Content>
+      </NavbarOuter>
+    );
+  }
 }
+
+export default Navbar;

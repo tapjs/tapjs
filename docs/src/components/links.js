@@ -5,16 +5,18 @@ import {theme} from '../theme';
 const navLinkStyles = css`
   padding: 5px 10px;
   margin: 0 5px;
+  line-height: 1.5;
   font-weight: 600;
   text-decoration: none;
   font-size: 14px;
   letter-spacing: 1px;
   transition: text-shadow 1s;
-  display: inline-block;
+  display: block;
   font-family: Titillium Web, monospace;
+  color: ${theme.colors.black};
 
   &:hover {
-    text-shadow: 1px -2px 1px #00fcff52;
+    color: ${theme.colors.blue};
   }
 `;
 
@@ -42,4 +44,9 @@ export const ButtonLink = styled(GatsbyLink)`
   display: block;  
   width: 150px;
   margin: 20px auto;
+  transition: background-color .5s;
+
+  &:hover {
+    background-color: ${theme.colors.fushia};
+  }
 `;
