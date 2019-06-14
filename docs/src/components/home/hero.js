@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import {colors} from '../../theme';
+import {theme} from '../../theme';
 import {Image, Flex} from 'rebass';
 import logo from '../../images/logo.png';
-import {buttonLinkStyles} from '../links';
+import {ButtonLink} from '../links';
+import {Link as GatsbyLink} from 'gatsby';
 
 const OuterCircle = styled.div`
-  background-color: ${colors.lightGrey};
+  background-color: ${theme.colors.lightGrey};
   position: relative;
   border-radius: 50%;
   width: 100%;
@@ -15,7 +16,7 @@ const OuterCircle = styled.div`
 `;
 
 const InnerCircle = styled.div`
-  background-color: ${colors.lightestGrey};
+  background-color: ${theme.colors.lightestGrey};
   position: absolute;
   border-radius: 50%;
   width: 80%;
@@ -39,7 +40,7 @@ const Content = styled(Flex)`
 `;
 
 const Container = styled.div`
-  background-color: #e9e9e9;
+  background-color: ${theme.colors.darkGrey};
   padding: 20px 20px;
 `;
 
@@ -62,16 +63,6 @@ const Title = styled.h1`
   margin-bottom: 30px;
 `;
 
-const ButtonLink = styled.a`
-  ${buttonLinkStyles}
-  display: block;  
-  width: 150px;
-  margin: 20px auto;
-`;
-
-const Text = styled.div`
-`;
-
 const InnerBits = styled.div`
   position: absolute;
   max-width: 600px;
@@ -81,7 +72,6 @@ const InnerBits = styled.div`
   text-align: center;
   top: 20%;
 `;
-
 
 const Hero = () => {
   return(
@@ -93,7 +83,7 @@ const Hero = () => {
           <BuildStatus href="https://travis-ci.org/tapjs/node-tap"/>
           <Logo src={logo}/>
           <Title>A Test-Anything-Protocol library for Node.js</Title>
-          <ButtonLink href="/docs/getting-started">Get Started</ButtonLink>
+          <ButtonLink to="/docs/">Get Started</ButtonLink>
         </InnerBits>
       </Content>
     </Container>

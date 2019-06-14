@@ -36,3 +36,10 @@ export const buttonLinkStyles = css`
   padding: 15px;
   font-size: 14px;
 `;
+
+export const ButtonLink = styled(GatsbyLink)`
+  ${buttonLinkStyles}
+  display: block;  
+  width: 150px;
+  margin: 20px auto;
+`;

@@ -6,7 +6,7 @@ import {Flex, Box} from 'rebass';
 
 const WidthWrapper = styled.div`
   max-width: 700px;
-  margin: auto;
+  margin: 0 auto;
   width: 100%;
   padding: 20px;
 `;

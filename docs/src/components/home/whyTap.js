@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {Image} from 'rebass';
-import {colors} from '../../theme';
+import {theme} from '../../theme';
 import questionMark from '../../images/question-mark-2.gif';
 
 const Content = styled.div`
@@ -23,7 +23,7 @@ const QuestionMark = styled(Image)`
 const WhiteCircle = styled.div`
   width: 130px;
   height: 130px;
-  background-color: ${colors.white};
+  background-color: ${theme.colors.white};
   border-radius: 50%;
   margin: auto;
   top: 0;
@@ -36,7 +36,7 @@ const WhiteCircle = styled.div`
 const GreyCircle = styled.div`
   width: 160px;
   height: 160px;
-  background-color: ${colors.lightGrey};
+  background-color: ${theme.colors.lightGrey};
   border-radius: 50%;
   margin: auto;
   position: relative;

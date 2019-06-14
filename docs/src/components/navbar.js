@@ -1,7 +1,7 @@
 import React from 'react';
 import {Flex} from 'rebass';
 import styled from 'styled-components';
-import {theme} from '../theme';
+import {theme, breakpoints} from '../theme';
 import {Link, NavLink} from './links';
 import {Link as GatsbyLink} from 'gatsby';
 
@@ -25,7 +25,7 @@ const Content = styled(Flex)`
   padding: 0 20px;
   flex-direction: column;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: ${breakpoints.TABLET}) {
     flex-direction: row;
   }
 `;
@@ -45,34 +45,34 @@ export default () => {
   return(
     <Navbar>
       <Content>
-        <Logo to='/'>Node Tap</Logo>
-        <Flex alignItems='flexEnd'>
+        <Logo to="/">Node Tap</Logo>
+        <Flex alignItems="flexEnd">
           <NavLink 
-            to='/docs/getting-started/'
-            activeClassName='active-navlink'
+            to="/docs/"
+            activeClassName="active-navlink"
             partiallyActive={true}
           >
             Docs
           </NavLink>
           <NavLink 
-            to='/tap-protocol'
-            activeClassName='active-navlink'
+            to="/tap-protocol"
+            activeClassName="active-navlink"
           >
             Tap Protocol
           </NavLink>
           <NavLink 
-            to='/changelog'
-            activeClassName='active-navlink'
+            to="/changelog"
+            activeClassName="active-navlink"
           >
             Changelog
           </NavLink>
           <Link
-            href='https://github.com/tapjs/node-tap'
+            href="https://github.com/tapjs/node-tap"
           >
             Github
           </Link>
           <Link
-            href='https://www.npmjs.com/package/tap'
+            href="https://www.npmjs.com/package/tap"
           >
             NPM
           </Link>
