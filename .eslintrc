@@ -26,7 +26,12 @@
         "always"
     ],
   "global-require": 0
-},
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended"

@@ -30,7 +30,7 @@ const InnerCircle = styled.div`
 
 const Content = styled(Flex)`
   position: relative;
-  margin: 0 auto 40px;
+  margin: 0px auto 40px;
   max-width: 800px;
 
   @media screen and (min-width: 768px) {
@@ -40,7 +40,7 @@ const Content = styled(Flex)`
 
 const Container = styled.div`
   background-color: ${theme.colors.darkGrey};
-  padding: 40px 20px;
+  padding: 20px 20px 40px;
 
   @media screen and (min-width: 768px) {
     padding: 20px 20px;
