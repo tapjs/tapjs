@@ -9,6 +9,7 @@ const WidthWrapper = styled.div`
   margin: 0 auto;
   width: 100%;
   padding: 20px;
+  box-sizing: border-box;
 `;
 
 const Layout = ({showSidebar, children}) => {
