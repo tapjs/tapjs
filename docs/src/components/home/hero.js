@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import {theme} from '../../theme';
 import {Image, Flex} from 'rebass';
-import logo from '../../images/logo.png';
+import logo from '../../images/logo.gif';
 import {ButtonLink} from '../links';
 
 const OuterCircle = styled.div`
