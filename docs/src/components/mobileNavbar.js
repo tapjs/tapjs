@@ -16,7 +16,7 @@ const Container = styled.div`
   left: 0;
   overflow-y: scroll;
   max-width: 250px;
-  padding: 50px 20px;
+  padding: 50px 20px 0px;
 `;
 
 const CloseButton = styled.button`
@@ -36,6 +36,7 @@ const NavLinkContainer = styled(Flex)`
   border-top: 1px solid ${theme.colors.red};
   padding-top: 10px;
   margin-top: 10px;
+  margin-bottom: 50px;
 `;
 
 const MobileNavbar = (props) => {
