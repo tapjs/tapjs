@@ -30,6 +30,7 @@ const FeatureImage = styled(Image)`
 
 const Code = styled.code`
   background-color: #ebe7e7;
+  font-size: 14px;
 `;
 
 const Separator = styled(Image)`
@@ -69,7 +70,7 @@ const Features = () => {
             <Box alignSelf="center"><h3>Batteries Included</h3></Box>
             <TextBox p={2}>
               <p>
-                Code coverage, test reporting, error handling, parallel tests, support for JSX/TypeScript/ESM, and a full-featured assertion set are all baked in.  No need to choose any other stuff. Just write some tests.
+                Code coverage, test reporting, error handling, parallel tests, support for JSX/TypeScript/ESM, and a full-featured assertion set are all baked in. No need to choose any other stuff. Just write some tests.
               </p>
             </TextBox>
           </Flex>
