@@ -30,7 +30,7 @@ const InnerCircle = styled.div`
 
 const Content = styled(Flex)`
   position: relative;
-  margin: -60px auto 40px;
+  margin: 0 auto 40px;
   max-width: 800px;
 
   @media screen and (min-width: 768px) {

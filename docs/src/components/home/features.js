@@ -11,9 +11,12 @@ const OuterContainer = styled.section`
   background-color: ${theme.colors.white};
   box-shadow: 0 0px 11px 5px #33333312;
   padding: 40px 20px;
+  position:relative;
+  z-index: 2;
 
   @media screen and (min-width: ${breakpoints.TABLET}) {
     padding: 70px 20px;
+    margin-top: -80px;
   }
 `;
 
@@ -30,7 +33,8 @@ const FeatureImage = styled(Image)`
 
 const Code = styled.code`
   background-color: #ebe7e7;
-  font-size: 14px;
+  font-size: 12px;
+  word-break: break-word;
 `;
 
 const Separator = styled(Image)`
