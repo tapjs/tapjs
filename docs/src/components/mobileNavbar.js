@@ -36,7 +36,7 @@ const NavLinkContainer = styled(Flex)`
   border-top: 1px solid ${theme.colors.red};
   padding-top: 10px;
   margin-top: 10px;
-  margin-bottom: 50px;
+  margin-bottom: 100px;
 `;
 
 const MobileNavbar = (props) => {

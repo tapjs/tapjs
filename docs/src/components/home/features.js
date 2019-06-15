@@ -55,7 +55,7 @@ const Features = () => {
             <Box alignSelf="center"><h3>No Fancy DSL to Learn</h3></Box>
             <TextBox p={2}>
               <p>
-                The whole API is very small, even though it's a powerful framework.  `t.test()`, `t.end()`, and a handful of assertion methods.  This results in having to write and remember less than `describe('foo', () => it('is a string or null', () => expect(foo).to.be.a.string().or.null())))
+                The whole API is very small, even though it's a powerful framework. <code>t.test()</code>, <code>t.end()</code>, and a handful of assertion methods. This results in having to write and remember less than <code>describe('foo', () => it('is a string or null', () => expect(foo).to.be.a.string().or.null())))</code>
               </p>
             </TextBox>
           </Flex>
@@ -65,7 +65,7 @@ const Features = () => {
             <Box alignSelf="center"><h3>Batteries Included</h3></Box>
             <TextBox p={2}>
               <p>
-                The whole API is very small, even though it's a powerful framework.  `t.test()`, `t.end()`, and a handful of assertion methods.  This results in having to write and remember less than `describe('foo', () => it('is a string or null', () => expect(foo).to.be.a.string().or.null())))
+                Code coverage, test reporting, error handling, parallel tests, support for JSX/TypeScript/ESM, and a full-featured assertion set are all baked in.  No need to choose any other stuff. Just write some tests.
               </p>
             </TextBox>
           </Flex>
