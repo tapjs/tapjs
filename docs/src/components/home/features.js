@@ -28,6 +28,10 @@ const FeatureImage = styled(Image)`
   margin: auto;
 `;
 
+const Code = styled.code`
+  background-color: #ebe7e7;
+`;
+
 const Separator = styled(Image)`
   width: 18px;
   margin: 0 10px;
@@ -55,7 +59,7 @@ const Features = () => {
             <Box alignSelf="center"><h3>No Fancy DSL to Learn</h3></Box>
             <TextBox p={2}>
               <p>
-                The whole API is very small, even though it's a powerful framework. <code>t.test()</code>, <code>t.end()</code>, and a handful of assertion methods. This results in having to write and remember less than <code>describe('foo', () => it('is a string or null', () => expect(foo).to.be.a.string().or.null())))</code>
+                The whole API is very small, even though it's a powerful framework. <Code>t.test()</Code>, <Code>t.end()</Code>, and a handful of assertion methods. This results in having to write and remember less than <Code>describe('foo', () => it('is a string or null', () => expect(foo).to.be.a.string().or.null())))</Code>
               </p>
             </TextBox>
           </Flex>

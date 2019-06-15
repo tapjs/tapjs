@@ -73,7 +73,7 @@ const InnerBits = styled.div`
   right: 0;
   margin: auto;
   text-align: center;
-  top: 20%;
+  top: 25%;
 `;
 
 const Hero = () => {
