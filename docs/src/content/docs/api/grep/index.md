@@ -1,5 +1,5 @@
 ---
-title: Filtering Tests&#58; Grep
+title: Filtering Tests - Grep
 section: 4.07
 ---
 

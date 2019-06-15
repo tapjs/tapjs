@@ -1,5 +1,5 @@
 ---
-title: Filtering Tests&#58; Only
+title: Filtering Tests - Only
 section: 4.08
 ---
 
