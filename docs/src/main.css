@@ -416,3 +416,7 @@ pre[class*="language-"], pre[class*="language-"] code {
 .active-sidebarlink:hover {
   color: #ffffff;
 }
+
+h1:target, h2:target, h3:target, h4:target, h5:target, h6:target {
+  background:#ffd;
+}
