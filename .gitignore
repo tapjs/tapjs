@@ -4,6 +4,9 @@
 !bin/
 !lib/
 !docs/
+/docs/public
+/docs/node_modules
+/docs/.cache
 !package.json
 !package-lock.json
 !README.md
@@ -19,3 +22,4 @@
 !.gitattributes
 !coverage-map.js
 !postpublish.sh
+!netlify.toml
