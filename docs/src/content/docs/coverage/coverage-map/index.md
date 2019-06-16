@@ -1,6 +1,6 @@
 ---
 title: Coverage Maps
-section: 7
+section: 7.02
 ---
 # Coverage Maps
 
