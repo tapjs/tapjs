@@ -28,12 +28,12 @@ const NavLinks = (props) => {
       <Link
         href="https://github.com/tapjs/node-tap"
       >
-        Github
+        GitHub
       </Link>
       <Link
         href="https://www.npmjs.com/package/tap"
       >
-        NPM
+        npm
       </Link>
     </>
   );
