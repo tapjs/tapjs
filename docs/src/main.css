@@ -413,7 +413,7 @@ pre[class*="language-"], pre[class*="language-"] code {
   color: #ffffff;
 }
 
-.active-sidebarlink:hover {
+.active-sidebarlink:hover, .active-sidebarlink:active, .active-sidebarlink:focus {
   color: #ffffff;
 }
 
@@ -449,4 +449,8 @@ h1:target, h2:target, h3:target, h4:target, h5:target, h6:target {
 
 .token.skip {
   color: #0ff;
+}
+
+a:hover, a:active, a:focus {
+  color:#09f;
 }

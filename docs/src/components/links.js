@@ -15,7 +15,7 @@ const navLinkStyles = css`
   font-family: Titillium Web, monospace;
   color: ${theme.colors.black};
 
-  &:hover {
+  &:hover, &:active, &:focus {
     color: ${theme.colors.blue};
   }
 `;
@@ -46,7 +46,7 @@ export const ButtonLink = styled(GatsbyLink)`
   margin: 20px auto;
   transition: background-color .5s;
 
-  &:hover {
+  &:hover, &:active, &:focus {
     background-color: ${theme.colors.fushia};
   }
 `;
