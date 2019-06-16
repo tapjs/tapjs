@@ -418,5 +418,35 @@ pre[class*="language-"], pre[class*="language-"] code {
 }
 
 h1:target, h2:target, h3:target, h4:target, h5:target, h6:target {
-  background:#ffd;
+  background:#fdfb00;
+}
+
+/* TAP format highlighting */
+
+.token.bailout,
+.token.fail {
+  color:#f00;
+  font-weight:bold;
+}
+
+.token.subtest,
+.token.version,
+.token.plan {
+  color:#adf;
+}
+
+.token.pass {
+  color:#0f0;
+}
+
+.token.comment {
+	color: slategray;
+}
+
+.token.todo {
+  color: #f0f;
+}
+
+.token.skip {
+  color: #0ff;
 }
