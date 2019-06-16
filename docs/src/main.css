@@ -400,8 +400,8 @@ h3 {
   color: #204dff;
 }
 
-pre[class*="language-"] {
-  font-size: 12px;
+pre[class*="language-"], pre[class*="language-"] code {
+  font-size: 15px;
 }
 
 .active-navlink {
