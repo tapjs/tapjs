@@ -1,6 +1,8 @@
 ---
 title: Coverage
 section: 7
+redirect_from:
+  - /coverage/
 ---
 
 # Coverage

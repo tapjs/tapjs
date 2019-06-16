@@ -1,6 +1,8 @@
 ---
 title: Test Anything Protocol
 type: documentation
+redirect_from:
+  - /tap-format/
 ---
 
 # Test Anything Protocol

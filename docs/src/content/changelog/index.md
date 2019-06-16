@@ -1,6 +1,8 @@
 ---
 title: Changelog
 type: documentation
+redirect_from:
+  - /changelog/
 ---
 
 #Changelog

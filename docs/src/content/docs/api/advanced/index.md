@@ -1,6 +1,8 @@
 ---
 title: Advanced Usage
 section: 4.10
+redirect_from:
+  - /advanced/
 ---
 
 # Advanced Usage

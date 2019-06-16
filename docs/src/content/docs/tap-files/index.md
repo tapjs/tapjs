@@ -1,5 +1,8 @@
 ---
-title: "Working with TAP Output Files"
+title: "TAP Output Files"
+section: 9
+redirect_from:
+  - /tap-files/
 ---
 
 # Working with TAP Output Files

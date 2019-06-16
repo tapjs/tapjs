@@ -1,9 +1,11 @@
 ---
-title: Saving Failures, Running Changed Tests
+title: Re-running Partial Suites
 section: 8
+redirect_from:
+  - /save-failures-run-changed/
 ---
 
-# Saving Failures, Running Changed Tests
+# Re-running Partial Test Suites
 
 Occasionally you'll want to re-run just part of a test suite, for example, just
 to run the tests that failed in the previous run, or running tests for files in

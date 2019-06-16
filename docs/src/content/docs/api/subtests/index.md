@@ -1,6 +1,8 @@
 ---
 title: Subtests
 section: 4.03
+redirect_from:
+  - /subtests/
 ---
 
 # Subtests

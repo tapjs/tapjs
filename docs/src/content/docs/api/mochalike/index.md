@@ -1,6 +1,8 @@
 ---
 title: Mocha-like DSL
 section: 4.09
+redirect_from:
+  - /mochalike/
 ---
 
 # Mocha-like DSL

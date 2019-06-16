@@ -1,6 +1,8 @@
 ---
 title: Promises
 section: 4.02
+redirect_from:
+  - /promises/
 ---
 
 # Promises

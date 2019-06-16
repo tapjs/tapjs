@@ -1,6 +1,8 @@
 ---
 title: Testing with Snapshots
 section: 4.05
+redirect_from:
+  - /snapshots/
 ---
 
 # Testing with Snapshots
@@ -11,7 +13,7 @@ that generate output, but it comes with some caveats.
 
 ## Basics of Output Testing
 
-Consider a test program like this:
+Consider a test program like [this](/snapshot-example/index.js):
 
 ```javascript
 module.exports = function (tag, contents) {
@@ -19,7 +21,7 @@ module.exports = function (tag, contents) {
 }
 ```
 
-We might have a test like this:
+We might have a test like [this](/snapshot-example/test-no-snapshot.js):
 
 ```javascript
 const t = require('tap')
@@ -43,7 +45,7 @@ failures".
 
 ## Testing Output with Snapshots
 
-We could also write our test file like this:
+We could also write our test file like [this](/snapshot-example/test.js):
 
 ```javascript
 const t = require('tap')
@@ -72,8 +74,8 @@ By setting `TAP_SNAPSHOT` in the environment, we tell tap to write the
 output to a special file, and treat the assertion as automatically
 passing.
 
-The generated file is designed to be human-readable, but you should
-not edit it directly.
+The [generated file](/snapshot-example/tap-snapshots/test.js-TAP.test.js)
+is designed to be human-readable, but you should not edit it directly.
 
 ```
 $ cat tap-snapshots/test.js-TAP.test.js
@@ -98,7 +100,8 @@ If the argument passed to `t.matchSnapshot()` isn't a string, then it
 will be converted to a string using [tcompare.format](http://npm.im/tcompare).
 This is typically pretty easy for humans to understand, but of course if you
 prefer to use `JSON.stringify` or something else, you can do so easily
-enough.
+enough.  The [t.formatSnapshot](/docs/api/#tformatsnapshot--function) can
+be used to customize this for an entire test.
 
 ## Caveats
 
@@ -126,7 +129,7 @@ against a snapshot.
 
 This includes process IDs, time stamps, and many other system details.
 
-Consider this function:
+Consider [this function](/snapshot-example/msgtime.js):
 
 ```javascript
 function msgTime (msg) {
@@ -137,10 +140,13 @@ function msgTime (msg) {
 Since the output will obviously be slightly different every time the
 function is tested, we need to strip out the time value.
 
-The best way to do this is with a `t.cleanSnapshot` function.  This function
-takes the formatted snapshot as a string, and returns a string to be saved or
-compared against.  The default cleaner is an identity function that returns its
-input without any changes.
+The best way to do this is with a
+[`t.cleanSnapshot`](/docs/api/#tcleansnapshot--function) function.  This
+function takes the formatted snapshot as a string, and returns a string to
+be saved or compared against.  The default cleaner is an identity function
+that returns its input without any changes.
+
+A [test](/snapshot-example/msgtime.test.js) that uses this method:
 
 ```javascript
 const t = require('tap')
@@ -155,7 +161,8 @@ const output = msgTime('this is a test')
 t.matchSnapshot(output, 'add timestamp to message')
 ```
 
-When run with `--snapshot`, it generates this snapshot file:
+When run with `--snapshot`, it generates [this snapshot
+file](/snapshot-example/tap-snapshots/msgtime.test.js-TAP.test.js):
 
 ```javascript
 /* IMPORTANT
@@ -179,8 +186,11 @@ By default, tap uses [`tcompare.format`](http://npm.im/tcompare) to convert all
 non-string values into strings for saving and comparing.
 
 To override this and provide your own behavior, set a function to
-`t.formatSnapshot`.  Like `t.cleanSnapshot`, child tests will copy their parent
-test's value at their time of creation.
+[`t.formatSnapshot`](/docs/api/#tformatsnapshot--function).  Like
+`t.cleanSnapshot`, child tests will copy their parent test's value at their
+time of creation.
+
+An [example of using `t.formatSnapshot`](/snapshot-example/yaml.test.js):
 
 ```javascript
 const t = require('tap')
@@ -191,7 +201,8 @@ t.formatSnapshot = object => yaml.stringify(object)
 t.matchSnapshot({ foo: ['bar', 'baz'] })
 ```
 
-This will produce the following snapshot file:
+This will produce the following [snapshot
+file](/snapshot-example/tap-snapshots/yaml.test.js-TAP.test.js):
 
 ```javascript
 /* IMPORTANT

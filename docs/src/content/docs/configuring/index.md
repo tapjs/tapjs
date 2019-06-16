@@ -1,6 +1,8 @@
 ---
 title: "Configuring tap"
 section: 3
+redirect_from:
+  - /configuring/
 ---
 # Configuring Tap
 

@@ -1,6 +1,8 @@
 ---
 title: Filtering Tests - Grep
 section: 4.07
+redirect_from:
+  - /grep/
 ---
 
 # Filtering Tests with Grep Options

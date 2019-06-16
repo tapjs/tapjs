@@ -1,5 +1,5 @@
 ---
-title: Change Log
+title: Features
 type: features
 ---
 
