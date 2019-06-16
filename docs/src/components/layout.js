@@ -5,7 +5,7 @@ import Sidebar from './Sidebar';
 import {Flex} from 'rebass';
 
 const WidthWrapper = styled.div`
-  max-width: 700px;
+  max-width: 750px;
   margin: 0 auto;
   width: 100%;
   padding: 20px;

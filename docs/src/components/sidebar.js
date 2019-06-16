@@ -14,7 +14,7 @@ const Container = styled.div`
   box-shadow: 1px 0 10px 1px #33333330;
   display: none;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1050px) {
     display: block;
   }
 `;
