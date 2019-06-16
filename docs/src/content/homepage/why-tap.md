@@ -101,31 +101,30 @@ probably enjoy this test library.
    [`--100`](/docs/100/) on the command line.  In a future version, it will likely
    be enabled by default.
 
-9. **Tests should be output in a predictable order.**
+10. **Tests should not require more building than your code.**
 
-   Even if they are run in parallel, the test _output_ should be consistent.
+    Babel and Webpack are lovely and fine.  But if your code doesn't require
+    compilation, then I think your tests shouldn't either.  Tap is extremely
+    [promise-aware](/docs/api/promises/).  JSX, TypeScript, Flow, and
+    ES-Modules are [built-in](/docs/using-with/) when tests are run by the
+    tap CLI.
 
-0. **Tests should not require more building than your code.**
-
-   Babel and Webpack are lovely and fine.  But if your code doesn't require
-   compilation, then I think your tests shouldn't either.  Tap is extremely
-   [promise-aware](/docs/api/promises/).  JSX, TypeScript, Flow, and ES-Modules are
-   [built-in](/docs/using-with/) when tests are run by the tap CLI.
-
-1. **Tests should run as fast as possible, given all the prior
+11. **Tests should run as fast as possible, given all the prior
     considerations.**
 
-   As of version 10, tap supports [parallel tests](/docs/api/parallel-tests/).  As of version
-   13, the test runner defaults to running the same number of parallel tests as
-   there are CPUs on the system.
+    As of version 10, tap supports [parallel
+    tests](/docs/api/parallel-tests/).  As of version 13, the test runner
+    defaults to running the same number of parallel tests as there are CPUs
+    on the system.
 
-   This makes tests significantly faster in almost every case, on any machine
-   with multiple cores.
+    This makes tests significantly faster in almost every case, on any
+    machine with multiple cores.
 
 Software testing should help you build software.  It should be a security
 blanket and a quality ratchet, giving you the support to undertake massive
-refactoring and fix bugs without worrying.  It shouldn't be a purification rite
-or a hazing ritual.
+refactoring and fix bugs without worrying.  It shouldn't be a purification
+rite or a hazing ritual.
 
-There are many opinions left off of this list!  Reasonable people can disagree.
-But if you find yourself nodding along, [maybe tap is for you](/docs/getting-started/).
+There are many opinions left off of this list!  Reasonable people can
+disagree.  But if you find yourself nodding along, [maybe tap is for
+you](/docs/getting-started/).
