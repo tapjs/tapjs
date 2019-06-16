@@ -118,27 +118,27 @@ prettier for us.  Because we installed tap as a devDependency, and
 added it as a script in package.json, we can run `npm test` to run all
 our tests with the `tap` built-in cli.
 
-```bash
+<pre class="language-text"><code class="language-text">
 $ npm test
 
 > my-awesome-module@1.2.3 test /Users/isaacs/dev/js/tap/docs/basics/my-awesome-module
 > tap
 
- PASS  test/hello-world.js 1 OK 1s
+<span style="background:#0f0;color:#000;padding-top:2px"> PASS </span> test/hello-world.js <b style="color:#fff">1</b> <span style="color:#0f0">OK</span> <b style="color:#999">1s</b>
 
-
+<div style="background:#fff;color:#111;width:29ex">
   🌈 SUMMARY RESULTS 🌈
 
-
-Suites:   1 passed, 1 of 1 completed
-Asserts:  1 passed, of 1
-Time:     1s
+</div>
+<b>Suites:</b>   <span style="color:#0f0">1 passed</span>, 1 of 1 completed
+<b>Asserts:</b>  <span style="color:#0f0">1 passed</span>, of 1
+<b style="color:#999">Time:     1s</b>
 ----------|----------|----------|----------|----------|-------------------|
 File      |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
 ----------|----------|----------|----------|----------|-------------------|
 All files |        0 |        0 |        0 |        0 |                   |
 ----------|----------|----------|----------|----------|-------------------|
-```
+</code></pre>
 
 ## coverage
 
@@ -182,29 +182,29 @@ tap.equal(mam(2), 'even')
 
 Looks good to me!
 
-```bash
+<pre class="language-text"><code class="language-text">
 $ npm test
 
 > my-awesome-module@1.2.3 test /Users/isaacs/dev/js/tap/docs/basics/my-awesome-module
 > tap
 
- PASS  test/basic.js 2 OK 1s
- PASS  test/hello-world.js 1 OK 1s
+<span style="background:#0f0;color:#000;padding-top:2px"> PASS </span> test/basic.js <b style="color:#fff">2</b> <span style="color:#0f0">OK</span> <b style="color:#999">1s</b>
+<span style="background:#0f0;color:#000;padding-top:2px"> PASS </span> test/hello-world.js <b style="color:#fff">1</b> <span style="color:#0f0">OK</span> <b style="color:#999">1s</b>
 
-
+<div style="background:#fff;color:#111;width:29ex">
   🌈 SUMMARY RESULTS 🌈
 
-
-Suites:   2 passed, 2 of 2 completed
-Asserts:  3 passed, of 3
-Time:     1s
+</div>
+<b>Suites:</b>   <span style="color:#0f0">2 passed</span>, 2 of 2 completed
+<b>Asserts:</b>  <span style="color:#0f0">3 passed</span>, of 3
+<b style="color:#999">Time:     1s</b>
 ----------------------|----------|----------|----------|----------|-------------------|
 File                  |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
 ----------------------|----------|----------|----------|----------|-------------------|
-All files             |    55.56 |     37.5 |      100 |    55.56 |                   |
- my-awesome-module.js |    55.56 |     37.5 |      100 |    55.56 |           6,7,8,9 |
+All files             |    <b style="color:#ff0">55.56</b> |     <b style="color:#f00">37.5</b> |      <b style="color:#0f0">100</b> |    <b style="color:#ff0">55.56</b> |                   |
+ my-awesome-module.js |    <b style="color:#ff0">55.56</b> |     <b style="color:#f00">37.5</b> |      <b style="color:#0f0">100</b> |    <b style="color:#ff0">55.56</b> |           <b style="color:#f00">6,7,8,9</b> |
 ----------------------|----------|----------|----------|----------|-------------------|
-```
+</code></pre>
 
 Ouch, only 55% coverage.  That's not very good.  Let's see what lines
 are covered:
@@ -234,66 +234,66 @@ tap.equal(mam(-10), 'negative')
 
 Now the test output gets a lot more interesting:
 
-```bash
+<pre class="language-text"><code class="language-text">
 $ npm t
 
 > my-awesome-module@1.2.3 test /Users/isaacs/dev/js/tap/docs/basics/my-awesome-module
 > tap
 
- FAIL  test/basic.js
- ✖ should be equal
+<b style="background:#f00;color:#fff;padding-top:2px"> FAIL </b> test/basic.js
+ <b style="color:#f00">✖</b> should be equal
 
-  test/basic.js
-  6 | tap.equal(mam(1), 'odd')
-  7 | tap.equal(mam(2), 'even')
-> 8 | tap.equal(mam(200), 'big')
-    | ----^
-  9 | tap.equal(mam(-10), 'negative')
+<div style="background:#222">  <b style="color:#999">test/basic.js</b>
+  <span style="color:#666">6 |</span> tap.equal(mam(<span style="color:#0f0">1</span>), <span style="color:#0f0">'odd'</span>)
+  <span style="color:#666">7 |</span> tap.equal(mam(<span style="color:#0f0">2</span>), <span style="color:#0f0">'even'</span>)
+<b style="color:#f00">></b> <span style="color:#fff">8</span> | tap.equal(mam(<span style="color:#0f0">200</span>), <span style="color:#0f0">'big'</span>)
+  <span style="color:#666">  |</span> <span style="color:#f00">----^</span>
+  <span style="color:#666">9 |</span> tap.equal(mam(<span style="color:#0f0">-10</span>), <span style="color:#0f0">'negative'</span>)
+</div>
+  <span style="padding:2px;color:rgb(87,12,6);background:rgb(243,179,213)">--- wanted</span>
+  <span style="padding:2px;color:rgb(39,93,22);background:rgb(223,253,183)">+++ found </span>
+  <span style="padding:2px;color:rgb(87,12,6);background:rgb(243,179,213)">-big      </span>
+  <span style="padding:2px;color:rgb(39,93,22);background:rgb(223,253,183)">+even     </span>
 
-  --- wanted
-  +++ found
-  -big
-  +even
+<b style="background:#f00;color:#fff;padding-top:2px"> FAIL </b> test/basic.js
+ <b style="color:#f00">✖</b> should be equal
 
- FAIL  test/basic.js
- ✖ should be equal
+<div style="background:#222">  <b style="color:#999">test/basic.js</b>
+  <span style="color:#666">7 |</span> tap.equal(mam(<span style="color:#0f0">2</span>), <span style="color:#0f0">'even'</span>)
+  <span style="color:#666">8 |</span> tap.equal(mam(<span style="color:#0f0">200</span>), <span style="color:#0f0">'big'</span>)
+<b style="color:#f00">></b> <span style="color:#fff">9 |</span> tap.equal(mam(<span style="color:#0f0">-10</span>), <span style="color:#0f0">'negative'</span>)
+  <span style="color:#666">  |</span> <span style="color:#f00">----^</span>
+</div>
+  <span style="padding:2px;color:rgb(87,12,6);background:rgb(243,179,213)">--- wanted</span>
+  <span style="padding:2px;color:rgb(39,93,22);background:rgb(223,253,183)">+++ found </span>
+  <span style="padding:2px;color:rgb(87,12,6);background:rgb(243,179,213)">-negative </span>
+  <span style="padding:2px;color:rgb(39,93,22);background:rgb(223,253,183)">+even     </span>
 
-  test/basic.js
-  7 | tap.equal(mam(2), 'even')
-  8 | tap.equal(mam(200), 'big')
-> 9 | tap.equal(mam(-10), 'negative')
-    | ----^
-
-  --- wanted
-  +++ found
-  -negative
-  +even
-
- PASS  test/hello-world.js 1 OK 2s
- FAIL  test/basic.js 2 failed of 4 2s
- ✖ should be equal
- ✖ should be equal
+<span style="background:#0f0;color:#000;padding-top:2px"> PASS </span> test/hello-world.js <b style="color:#fff">1</b> <span style="color:#0f0">OK</span> <b style="color:#999">1s</b>
+<b style="background:#f00;color:#fff;padding-top:2px"> FAIL </b> test/basic.js 2 failed of 4 2s
+ <b style="color:#f00">✖</b> should be equal
+ <b style="color:#f00">✖</b> should be equal
 
 
-
+<div style="background:#fff;color:#111;width:29ex">
   🌈 SUMMARY RESULTS 🌈
 
+</div>
+<b style="background:#f00;color:#fff;padding-top:2px"> FAIL </b> test/basic.js 2 failed of 4 2s
+ <b style="color:#f00">✖</b> should be equal
+ <b style="color:#f00">✖</b> should be equal
 
- FAIL  test/basic.js 2 failed of 4 2s
- ✖ should be equal
- ✖ should be equal
-
-Suites:   1 failed, 1 passed, 2 of 2 completed
-Asserts:  2 failed, 3 passed, of 5
-Time:     2s
+<b>Suites:</b>   <span style="color:#f00">1 failed</span>, <span style="color:#0f0">1 passed</span>, 2 of 2 completed
+<b>Asserts:</b>  <span style="color:#f00">2 failed</span>, <span style="color:#0f0">3 passed</span>, of 5
+<b style="color:#999">Time:     2s</b>
 ----------------------|----------|----------|----------|----------|-------------------|
 File                  |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
 ----------------------|----------|----------|----------|----------|-------------------|
-All files             |    55.56 |     37.5 |      100 |    55.56 |                   |
- my-awesome-module.js |    55.56 |     37.5 |      100 |    55.56 |           6,7,8,9 |
+All files             |    <b style="color:#ff0">55.56</b> |     <b style="color:#f00">37.5</b> |      <b style="color:#0f0">100</b> |    <b style="color:#ff0">55.56</b> |                   |
+ my-awesome-module.js |    <b style="color:#ff0">55.56</b> |     <b style="color:#f00">37.5</b> |      <b style="color:#0f0">100</b> |    <b style="color:#ff0">55.56</b> |           <b style="color:#f00">6,7,8,9</b> |
 ----------------------|----------|----------|----------|----------|-------------------|
-npm ERR! Test failed.  See above for more details.
-```
+<span style="padding:2px;background:#000;color:#fff">npm</span> <span style="padding:2px;color:#000;background:#f00">ERR!</span> Test failed.  See above for more details.
+</code></pre>
 
 Let's update our code so that it makes our tests pass:
 
@@ -314,29 +314,29 @@ module.exports = x => {
 
 And now our coverage report is much happier:
 
-```bash
+<pre class="language-text"><code class="language-text">
 $ npm t
 
 > my-awesome-module@1.2.3 test /Users/isaacs/dev/js/tap/docs/basics/my-awesome-module
 > tap
 
- PASS  test/hello-world.js 1 OK 1s
- PASS  test/basic.js 4 OK 1s
+<span style="background:#0f0;color:#000;padding-top:2px"> PASS </span> test/hello-world.js <b style="color:#fff">1</b> <span style="color:#0f0">OK</span> <b style="color:#999">1s</b>
+<span style="background:#0f0;color:#000;padding-top:2px"> PASS </span> test/basic.js <b style="color:#fff">4</b> <span style="color:#0f0">OK</span> <b style="color:#999">1s</b>
 
-
+<div style="background:#fff;color:#111;width:29ex">
   🌈 SUMMARY RESULTS 🌈
 
-
-Suites:   2 passed, 2 of 2 completed
-Asserts:  5 passed, of 5
-Time:     2s
+</div>
+<b>Suites:</b>   <span style="color:#0f0">2 passed</span>, 2 of 2 completed
+<b>Asserts:</b>  <span style="color:#0f0">5 passed</span>, of 5
+<b style="color:#999">Time:     1s</b>
 ----------------------|----------|----------|----------|----------|-------------------|
 File                  |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
 ----------------------|----------|----------|----------|----------|-------------------|
-All files             |      100 |      100 |      100 |      100 |                   |
- my-awesome-module.js |      100 |      100 |      100 |      100 |                   |
+<b style="color:#0f0">All files</b>             |      <b style="color:#0f0">100</b> |      <b style="color:#0f0">100</b> |      <b style="color:#0f0">100</b> |      <b style="color:#0f0">100</b> |                   |
+ <b style="color:#0f0">my-awesome-module.js</b> |      <b style="color:#0f0">100</b> |      <b style="color:#0f0">100</b> |      <b style="color:#0f0">100</b> |      <b style="color:#0f0">100</b> |                   |
 ----------------------|----------|----------|----------|----------|-------------------|
-```
+</code></pre>
 
 ## async stuff
 
@@ -396,30 +396,30 @@ ok 2 - this waits until after # time=6ms
 
 If you run it with tap, it'll look just like the others
 
-```bash
+<pre class="language-text"><code class="language-text">
 $ npm t
 
 > my-awesome-module@1.2.3 test /Users/isaacs/dev/js/tap/docs/basics/my-awesome-module
 > tap
 
- PASS  test/hello-world.js 1 OK 1s
- PASS  test/async.js 2 OK 1s
- PASS  test/basic.js 4 OK 1s
+<span style="background:#0f0;color:#000;padding-top:2px"> PASS </span> test/hello-world.js <b style="color:#fff">1</b> <span style="color:#0f0">OK</span> <b style="color:#999">1s</b>
+<span style="background:#0f0;color:#000;padding-top:2px"> PASS </span> test/async.js <b style="color:#fff">2</b> <span style="color:#0f0">OK</span> <b style="color:#999">1s</b>
+<span style="background:#0f0;color:#000;padding-top:2px"> PASS </span> test/basic.js <b style="color:#fff">4</b> <span style="color:#0f0">OK</span> <b style="color:#999">1s</b>
 
-
+<div style="background:#fff;color:#111;width:29ex">
   🌈 SUMMARY RESULTS 🌈
 
-
-Suites:   3 passed, 3 of 3 completed
-Asserts:  7 passed, of 7
-Time:     2s
+</div>
+<b>Suites:</b>   <span style="color:#0f0">3 passed</span>, 3 of 3 completed
+<b>Asserts:</b>  <span style="color:#0f0">7 passed</span>, of 7
+<b style="color:#999">Time:     1s</b>
 ----------------------|----------|----------|----------|----------|-------------------|
 File                  |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
 ----------------------|----------|----------|----------|----------|-------------------|
-All files             |      100 |      100 |      100 |      100 |                   |
- my-awesome-module.js |      100 |      100 |      100 |      100 |                   |
+<b style="color:#0f0">All files</b>             |      <b style="color:#0f0">100</b> |      <b style="color:#0f0">100</b> |      <b style="color:#0f0">100</b> |      <b style="color:#0f0">100</b> |                   |
+ <b style="color:#0f0">my-awesome-module.js</b> |      <b style="color:#0f0">100</b> |      <b style="color:#0f0">100</b> |      <b style="color:#0f0">100</b> |      <b style="color:#0f0">100</b> |                   |
 ----------------------|----------|----------|----------|----------|-------------------|
-```
+</code></pre>
 
 Tap's [promise](/docs/api/promises/) support means it plays great with
 async/await.  Stuff like this will Just Work out of the box if you
