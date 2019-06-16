@@ -3,6 +3,7 @@ title: "Using tap with..."
 section: 2
 redirect_from:
   - /using-with/
+  - /using-with
 ---
 
 # Using tap with ESM

@@ -3,6 +3,7 @@ title: The TAP 100
 section: 7.01
 redirect_from:
   - /100/
+  - /100
 ---
 
 # The TAP 100

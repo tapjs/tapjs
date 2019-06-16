@@ -3,7 +3,9 @@ title: Getting Started
 section: 1
 redirect_from:
   - /docs/
+  - /docs
   - /basics/
+  - /basics
 ---
 
 # Getting Started

@@ -3,6 +3,7 @@ title: Filtering Tests - Only
 section: 4.08
 redirect_from:
   - /only/
+  - /only
 ---
 
 # Filtering Tests with Only Option

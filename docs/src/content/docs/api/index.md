@@ -3,6 +3,7 @@ title: API
 section: 4
 redirect_from:
   - /api/
+  - /api
 ---
 
 # API

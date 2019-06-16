@@ -3,6 +3,7 @@ title: Testing with Snapshots
 section: 4.05
 redirect_from:
   - /snapshots/
+  - /snapshots
 ---
 
 # Testing with Snapshots

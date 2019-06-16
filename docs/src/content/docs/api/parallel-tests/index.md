@@ -3,6 +3,7 @@ title: Parallel Tests
 section: 4.04
 redirect_from:
   - /parallel/
+  - /parallel
 ---
 
 # Parallel Tests

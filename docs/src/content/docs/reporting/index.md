@@ -3,6 +3,7 @@ title: Reporting
 section: 6
 redirect_from:
   - /reporting/
+  - /reporting
 ---
 
 # Reporting

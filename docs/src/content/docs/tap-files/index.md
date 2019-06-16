@@ -3,6 +3,7 @@ title: "TAP Output Files"
 section: 9
 redirect_from:
   - /tap-files/
+  - /tap-files
 ---
 
 # Working with TAP Output Files

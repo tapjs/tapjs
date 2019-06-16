@@ -3,6 +3,7 @@ title: Watching Files for Changes
 section: 9
 redirect_from:
   - /watch/
+  - /watch
 ---
 
 # Watching Files for Changes

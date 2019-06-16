@@ -3,6 +3,7 @@ title: Coverage Maps
 section: 7.02
 redirect_from:
   - /coverage-map/
+  - /coverage-map
 ---
 # Coverage Maps
 
