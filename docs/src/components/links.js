@@ -41,12 +41,13 @@ export const buttonLinkStyles = css`
 
 export const ButtonLink = styled(GatsbyLink)`
   ${buttonLinkStyles}
-  display: block;  
+  display: block;
   width: 150px;
   margin: 20px auto;
   transition: background-color .5s;
 
   &:hover, &:active, &:focus {
+    color: ${theme.colors.white};
     background-color: ${theme.colors.fushia};
   }
 `;
