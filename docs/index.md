@@ -129,18 +129,14 @@ probably enjoy this test library.
    [`--100`](/100/) on the command line.  In a future version, it will likely
    be enabled by default.
 
-9. **Tests should be output in a predictable order.**
-
-   Even if they are run in parallel, the test _output_ should be consistent.
-
-10. **Tests should not require more building than your code.**
+9. **Tests should not require more building than your code.**
 
    Babel and Webpack are lovely and fine.  But if your code doesn't require
    compilation, then I think your tests shouldn't either.  Tap is extremely
    [promise-aware](/promises/).  JSX, TypeScript, Flow, and ES-Modules are
    [built-in](/using-with/) when tests are run by the tap CLI.
 
-11. **Tests should run as fast as possible, given all the prior
+10. **Tests should run as fast as possible, given all the prior
     considerations.**
 
    As of version 10, tap supports [parallel tests](/parallel/).  As of version

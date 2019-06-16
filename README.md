@@ -87,11 +87,12 @@ them, you will probably enjoy this test library.
 5. **Test reporting should be separate from the test process, included in
    the framework, and enabled by default for humans.**
 
-   The [raw test output](/tap-format/) should be machine-parseable and
-   human-intelligible, and a separate process should consume test output
-   and turn it into a [pretty summarized report](/reporting/).  This means
-   that test data can be stored and parsed later, dug into for additional
-   details, and so on.  Also: nyan cat.
+   The [raw test output](https://www.node-tap.org/tap-format/) should be
+   machine-parseable and human-intelligible, and a separate process should
+   consume test output and turn it into a [pretty summarized
+   report](https://www.node-tap.org/reporting/).  This means that test data
+   can be stored and parsed later, dug into for additional details, and so
+   on.  Also: nyan cat.
 
 6. **Writing tests should be easy, maybe even fun.**
 
@@ -124,32 +125,28 @@ them, you will probably enjoy this test library.
 
    Coverage _enforcement_ is not on by default, but I strongly encourage
    it.  You can put `"tap":{"check-coverage":true}` in your package.json,
-   or pass [`--100`](/100/) on the command line.  In a future version, it
-   will likely be enabled by default.
+   or pass [`--100`](https://www.node-tap.org/100/) on the command line.
+   In a future version, it will likely be enabled by default.
 
-9. **Tests should be output in a predictable order.**
-
-   Even if they are run in parallel, the test _output_ should be
-   consistent.
-
-10. **Tests should not require more building than your code.**
+9. **Tests should not require more building than your code.**
 
    Babel and Webpack are lovely and fine.  But if your code doesn't require
    compilation, then I think your tests shouldn't either.  Tap is extremely
-   [promise-aware](/promises/).  JSX, TypeScript, and ES-Modules are
-   built-in when tests are run by the tap CLI.  (ES-Module support can be
-   disabled by `--no-esm`, which is necessary in some very rare edge
-   cases.)
+   [promise-aware](https://www.node-tap.org/promises/).  JSX, TypeScript,
+   Flow, and ES-Modules are
+   [built-in](https://www.node-tap.org/using-with/) when tests are run by
+   the tap CLI.
 
-11. **Tests should run as fast as possible, given all the prior
+10. **Tests should run as fast as possible, given all the prior
     considerations.**
 
-   As of version 10, tap supports [parallel tests](/parallel/).  As of
-   version 13, the test runner defaults to running the same number of
-   parallel tests as there are CPUs on the system.
+   As of version 10, tap supports [parallel
+   tests](https://www.node-tap.org/parallel/).  As of version 13, the test
+   runner defaults to running the same number of parallel tests as there
+   are CPUs on the system.
 
-   This makes tests significantly faster in almost every case, on any
-   machine with multiple cores.
+   This makes tests significantly faster in almost every case, on any machine
+   with multiple cores.
 
 Software testing should help you build software.  It should be a security
 blanket and a quality ratchet, giving you the support to undertake massive
@@ -158,4 +155,4 @@ rite or a hazing ritual.
 
 There are many opinions left off of this list!  Reasonable people can
 disagree.  But if you find yourself nodding along, [maybe tap is for
-you](/basics/).
+you](https://www.node-tap.org/basics/).
