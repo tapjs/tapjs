@@ -77,7 +77,7 @@
     "preversion": "npm test",
     "postversion": "npm publish",
     "postpublish": "bash postpublish.sh",
-    "www:build": "cd docs; npm run build",
+    "www:build": "cd docs; npm ci; npm run build",
     "www:develop": "cd docs; npm run develop",
     "start": "npm run www:develop",
     "www:serve": "cd docs; npm run serve"
