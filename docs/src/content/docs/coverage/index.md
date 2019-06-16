@@ -69,12 +69,14 @@ following:
 2. Add a `test` script that generates coverage information, and a
    `posttest` that uploads it to codecov:
 
-        {
-          "scripts": {
-            "test": "tap",
-            "posttest": "tap --coverage-report=text-lcov | codecov"
-          }
-        }
+    ```json
+    {
+      "scripts": {
+        "test": "tap",
+        "posttest": "tap --coverage-report=text-lcov | codecov"
+      }
+    }
+    ```
 
 ## Local Coverage Reporting
 
