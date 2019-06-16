@@ -16,7 +16,7 @@ To see what should be put in a yaml config file, you can run `tap
 combined with other options, then this will show the resulting configuration.
 
 You can change the location of the `.taprc` file by setting the `--rcfile`
-commaand-line option.
+command-line option.
 
 Lastly, tap will look for a `tap` section in a `package.json` file in the
 current working directory, and use that object as as source of configuration as
