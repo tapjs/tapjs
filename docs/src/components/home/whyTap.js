@@ -6,7 +6,7 @@ import questionMark from '../../images/question-mark-2.gif';
 const Content = styled.div`
   max-width: 700px;
   margin: auto;
-  padding: 40px 20px;
+  padding: 40px 20px 20px;
 `;
 
 const WhyTap = ({markdownData}) => {

@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar';
 import Hero from '../components/home/Hero';
 import Features from '../components/home/Features';
 import WhyTap from '../components/home/WhyTap';
+import Credits from '../components/home/credits';
 import {ThemeProvider} from 'styled-components';
 import {graphql} from 'gatsby';
 import {theme} from '../theme';
@@ -15,6 +16,7 @@ export default ({data}) => {
         <Hero/>
         <Features/>
         <WhyTap markdownData={data.markdownRemark.html}/>
+        <Credits/>
       </div>
     </ThemeProvider>
   );
