@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Navbar from './Navbar';
-import Sidebar from './Sidebar';
+import Navbar from './navbar';
+import Sidebar from './sidebar';
 import {Flex} from 'rebass';
 
 const WidthWrapper = styled.div`

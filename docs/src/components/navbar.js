@@ -3,7 +3,7 @@ import {Flex} from 'rebass';
 import styled from 'styled-components';
 import {theme, breakpoints} from '../theme';
 import hamburgerIcon from '../images/hamburger.svg';
-import MobileNavbar from './MobileNavbar';
+import MobileNavbar from './mobileNavbar';
 import NavLinks from './NavLinks';
 import {Link as GatsbyLink} from 'gatsby';
 
