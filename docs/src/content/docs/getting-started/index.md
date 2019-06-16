@@ -121,7 +121,7 @@ our tests with the `tap` built-in cli.
 <pre class="language-text"><code class="language-text">
 $ npm test
 
-> my-awesome-module@1.2.3 test /Users/isaacs/dev/js/tap/docs/basics/my-awesome-module
+> my-awesome-module@1.2.3 test /Users/isaacs/dev/js/tap/docs/static/my-awesome-module
 > tap
 
 <span style="background:#0f0;color:#000;padding-top:2px"> PASS </span> test/hello-world.js <b style="color:#fff">1</b> <span style="color:#0f0">OK</span> <b style="color:#999">1s</b>
@@ -185,7 +185,7 @@ Looks good to me!
 <pre class="language-text"><code class="language-text">
 $ npm test
 
-> my-awesome-module@1.2.3 test /Users/isaacs/dev/js/tap/docs/basics/my-awesome-module
+> my-awesome-module@1.2.3 test /Users/isaacs/dev/js/tap/docs/static/my-awesome-module
 > tap
 
 <span style="background:#0f0;color:#000;padding-top:2px"> PASS </span> test/basic.js <b style="color:#fff">2</b> <span style="color:#0f0">OK</span> <b style="color:#999">1s</b>
@@ -214,9 +214,9 @@ $ npm test -- --coverage-report=lcov
 ```
 
 This runs the tests and opens a [pretty coverage
-report](/basics/my-awesome-module/coverage-1/lcov-report/index.html) in a
+report](/my-awesome-module/coverage-1/lcov-report/index.html) in a
 web browser.  This shows that the second half of our function [isn't being
-called](/basics/my-awesome-module/coverage-1/lcov-report/my-awesome-module.js.html).
+called](/my-awesome-module/coverage-1/lcov-report/my-awesome-module.js.html).
 
 Ok, add some more tests then:
 
@@ -237,7 +237,7 @@ Now the test output gets a lot more interesting:
 <pre class="language-text"><code class="language-text">
 $ npm t
 
-> my-awesome-module@1.2.3 test /Users/isaacs/dev/js/tap/docs/basics/my-awesome-module
+> my-awesome-module@1.2.3 test /Users/isaacs/dev/js/tap/docs/static/my-awesome-module
 > tap
 
 <b style="background:#f00;color:#fff;padding-top:2px"> FAIL </b> test/basic.js
@@ -317,7 +317,7 @@ And now our coverage report is much happier:
 <pre class="language-text"><code class="language-text">
 $ npm t
 
-> my-awesome-module@1.2.3 test /Users/isaacs/dev/js/tap/docs/basics/my-awesome-module
+> my-awesome-module@1.2.3 test /Users/isaacs/dev/js/tap/docs/static/my-awesome-module
 > tap
 
 <span style="background:#0f0;color:#000;padding-top:2px"> PASS </span> test/hello-world.js <b style="color:#fff">1</b> <span style="color:#0f0">OK</span> <b style="color:#999">1s</b>
@@ -399,7 +399,7 @@ If you run it with tap, it'll look just like the others
 <pre class="language-text"><code class="language-text">
 $ npm t
 
-> my-awesome-module@1.2.3 test /Users/isaacs/dev/js/tap/docs/basics/my-awesome-module
+> my-awesome-module@1.2.3 test /Users/isaacs/dev/js/tap/docs/static/my-awesome-module
 > tap
 
 <span style="background:#0f0;color:#000;padding-top:2px"> PASS </span> test/hello-world.js <b style="color:#fff">1</b> <span style="color:#0f0">OK</span> <b style="color:#999">1s</b>
