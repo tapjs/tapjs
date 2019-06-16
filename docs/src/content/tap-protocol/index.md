@@ -12,7 +12,7 @@ redirect_from:
 Protocol](http://testanything.org/).  TAP is a highly parseable,
 human-readable, loosely-specified format for reporting test results.
 It rose to popularity in the Perl community, with CPAN's
-[Test](http://search.cpan.org/~exodist/Test-Simple-1.302075/) family.
+[Test](https://metacpan.org/pod/Test::Simple) family.
 
 This protocol is how child test processes communicate their success or
 failure with their parent process.
