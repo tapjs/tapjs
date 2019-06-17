@@ -62,6 +62,6 @@ Use the `r <filename>` or `u <filename>` commands to add them to the suite.
 
 ## Tip: Use a Coverage Map Module
 
-If you specify a [`--coverage-map=<file>`](/docs/coverage-map/) option, then you can
-be very precise about _which_ files under test should trigger a re-run of the
-tests.
+If you specify a [`--coverage-map=<file>`](/docs/coverage/coverage-map/)
+option, then you can be very precise about _which_ files under test should
+trigger a re-run of the tests.

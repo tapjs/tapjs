@@ -105,8 +105,8 @@ The [reporting engine](/docs/reporting/) has gotten a massive overhaul.
 
 * Default to [coverage](/docs/coverage/) being turned on.  (Defaulting to
   `check-coverage` at 100% will come in v14.)
-* Add support for [coverage maps](/docs/coverage-map/) for specifying which test
-  file should cover which (or any) program file(s).
+* Add support for [coverage maps](/docs/coverage/coverage-map/) for
+  specifying which test file should cover which (or any) program file(s).
 
 ### Configuration
 
