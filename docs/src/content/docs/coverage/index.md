@@ -33,7 +33,7 @@ that's your thing:
 ```
 
 If you do this in an open source module, please [join the exclusive
-100 club](/100/).
+100 club](/docs/coverage/100/).
 
 ## Travis-CI and Coveralls.io Integration
 
