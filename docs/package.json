@@ -13,10 +13,12 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "dependencies": {
+    "babel-plugin-styled-components": "^1.10.1",
     "gatsby": "^2.8.2",
     "gatsby-plugin-catch-links": "^2.0.15",
     "gatsby-plugin-meta-redirect": "^1.1.1",
     "gatsby-plugin-prefetch-google-fonts": "^1.4.2",
+    "gatsby-plugin-styled-components": "^3.0.7",
     "gatsby-redirect-from": "^0.2.1",
     "gatsby-remark-autolink-headers": "^2.0.18",
     "gatsby-remark-prismjs": "^3.2.9",
@@ -26,7 +28,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "rebass": "^3.1.1",
-    "styled-components": "^4.2.1"
+    "styled-components": "^4.3.1"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
