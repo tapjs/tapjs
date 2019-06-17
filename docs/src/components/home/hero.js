@@ -24,7 +24,7 @@ const InnerCircle = styled.div`
   top: 10%;
   left: 0;
   margin: auto;
-  box-shadow: 1px 1px 15px 0px #3333330d
+  box-shadow: 1px 1px 15px 0px #3333330d;
   right: 0;
 `;
 
