@@ -6,6 +6,7 @@ import brain from '../../images/brain.gif';
 import batteries from '../../images/batteries.gif';
 import separator from '../../images/separator.svg';
 import {ButtonLink} from '../links';
+import {Link} from 'gatsby';
 
 const OuterContainer = styled.section`
   background-color: ${theme.colors.white};
@@ -64,7 +65,11 @@ const Features = () => {
             <Box alignSelf="center"><h3>No Fancy DSL to Learn</h3></Box>
             <TextBox p={2}>
               <p>
-                The whole API is very small, even though it's a powerful framework. <Code>t.test()</Code>, <Code>t.end()</Code>, and a handful of assertion methods. This results in having to write and remember less than <Code>describe('foo', () => it('is a string or null', () => expect(foo).to.be.a.string().or.null())))</Code>
+                The API is relatively small, even though it&#39;s a powerful
+                framework.  <Code>t.test()</Code>, <Code>t.end()</Code>, and a
+                handful of <Link to="/docs/api/asserts/">assertion
+                  methods</Link> are all you need.  This results in having to
+                write and remember less, so you can just write some tests.
               </p>
             </TextBox>
           </Flex>
@@ -74,8 +79,10 @@ const Features = () => {
             <Box alignSelf="center"><h3>Batteries Included</h3></Box>
             <TextBox p={2}>
               <p>
-                Code coverage, test reporting, error handling, parallel tests, support for JSX/TypeScript/ESM, and a full-featured assertion set are all baked in. No need to choose any other stuff. Just write some tests.
-              </p>
+                Code coverage, test reporting, error handling, parallel tests,
+                support for JSX/TypeScript/ESM, and a full-featured assertion
+                set are all <Link to="/docs/using-with">baked in</Link>. No
+                need to choose any other stuff. Just write some tests.  </p>
             </TextBox>
           </Flex>
         </Flex>
