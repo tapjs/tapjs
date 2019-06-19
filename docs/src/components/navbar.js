@@ -7,6 +7,8 @@ import MobileNavbar from './mobileNavbar';
 import NavLinks from './NavLinks';
 import {Link as GatsbyLink} from 'gatsby';
 
+const version = require('../../../package.json').version;
+
 const NavbarOuter = styled(Flex)`
   background-color: ${theme.colors.white};
   box-shadow: 0px 0px 10px 0px #b8b3b3;
@@ -45,6 +47,11 @@ const Logo = styled(GatsbyLink)`
   letter-spacing: 1px;
   text-shadow: 1px -2px 1px #88888852;
   text-decoration: none;
+
+  small {
+    text-transform: none;
+    font-size: 13px;
+  }
 `;
 
 const Hamburger = styled.button`
@@ -81,7 +88,7 @@ class Navbar extends React.Component {
         }
         <Content>
           <Hamburger onClick={this.toggleNav}/>
-          <Logo to="/">Node Tap</Logo>
+          <Logo to="/">Node Tap <small>v{version}</small></Logo>
           <Links>
             <NavLinks desktop/>
           </Links>
