@@ -10,6 +10,11 @@ redirect_from:
 
 You can get help on tap's command line interface by running `tap -h`.
 
+Any configuration options may be set on the command line, in your
+`package.json` file in a `tap` section, or in a YAML-formatted `.taprc` file in
+the root of your project.  See [configuring tap](/docs/configuring/) for more
+information.
+
 ```
 Usage:
   tap [options] [<files>]
