@@ -44,6 +44,7 @@ to add it to the docs.
 * [minipass](https://www.npmjs.com/package/minipass)
 * [minizlib](https://www.npmjs.com/package/minizlib)
 * [mutate-fs](https://www.npmjs.com/package/mutate-fs)
+* [my-way](https://www.npmjs.com/package/my-way)
 * [natives](https://www.npmjs.com/package/natives)
 * [npm-bundled](https://www.npmjs.com/package/npm-bundled)
 * [npm-packlist](https://www.npmjs.com/package/npm-packlist)
