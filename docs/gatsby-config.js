@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'Node-Tap',
-    description: 'A Test-Anything-Protocol library for Node.js',
+    description: require('../package.json').description,
   },
   plugins: [
     {

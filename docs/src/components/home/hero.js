@@ -4,6 +4,7 @@ import {theme} from '../../theme';
 import {Image, Flex} from 'rebass';
 import logo from '../../images/logo.gif';
 import {ButtonLink} from '../links';
+const description = require('../../../../package.json').description;
 
 const OuterCircle = styled.div`
   background-color: ${theme.colors.lightGrey};
@@ -85,7 +86,7 @@ const Hero = () => {
         <InnerBits>
           <BuildStatus href="https://travis-ci.org/tapjs/node-tap"/>
           <Logo src={logo}/>
-          <Title>A Test-Anything-Protocol library for Node.js</Title>
+          <Title>{description}</Title>
           <ButtonLink to="/docs/">Get Started</ButtonLink>
         </InnerBits>
       </Content>
