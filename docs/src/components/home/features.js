@@ -79,10 +79,15 @@ const Features = () => {
             <Box alignSelf="center"><h3>Batteries Included</h3></Box>
             <TextBox p={2}>
               <p>
-                Code coverage, test reporting, error handling, parallel tests,
-                support for JSX/TypeScript/ESM, and a full-featured assertion
-                set are all <Link to="/docs/using-with">baked in</Link>. No
-                need to choose any other stuff. Just write some tests.  </p>
+                <Link to="/docs/coverage">Code coverage</Link>, <Link
+                  to="/docs/reporting">test reporting</Link>, error handling,
+                {' '}<Link to="/docs/parallel/">parallel tests</Link>, support
+                for {' '}<Link
+                  to="/docs/using-with">JSX, TypeScript, ESM, Flow</Link>, and
+                a full-featured <Link to="/docs/api/asserts/">assertion
+                  set</Link> are all baked in.  No need to choose any
+                other stuff. Just write some tests.
+              </p>
             </TextBox>
           </Flex>
         </Flex>
