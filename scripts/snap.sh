@@ -29,6 +29,8 @@ snap () {
 
 files=(test/**/*.js)
 
+echo "1..${#files[@]}"
+
 for (( id=0 ; id < ${#files[@]} ; id++ )) do
   t=${files[$id]}
   snap $t $id &
@@ -37,8 +39,6 @@ for (( id=0 ; id < ${#files[@]} ; id++ )) do
     break
   fi
 done
-
-echo "1..${#pids[@]}"
 
 for p in "${pids[@]}"; do
   wait $p

@@ -31,6 +31,11 @@ const main = () => {
       timeout: 1
     }))
 
+  t.test('timeout update', t =>
+    t.spawn(node, [ file, 'timeout-update' ], {
+      timeout: process.env.CI ? 5000 : 500,
+    }))
+
   t.test('timeout KILL', t => {
     const s = new Spawn({
       command: node,
@@ -220,6 +225,11 @@ switch (process.argv[2]) {
     process.on('SIGTERM', _ => console.log('SIGTERM'))
   case 'timeout':
     setTimeout(_ => _, process.env.CI ? 50000 : 10000)
+    break
+
+  case 'timeout-update':
+    t.setTimeout(10000)
+    setTimeout(() => t.pass('this is fine'), 500)
     break
 
   case 'childId':

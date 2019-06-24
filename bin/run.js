@@ -669,7 +669,7 @@ const runTests = options => {
   tap.writeSnapshot = false
   if (options.comments) {
     const onComment = c => {
-      if (!c.match(/^# (time=[0-9\.]+m?s|Subtest(: .+)?)\n$/))
+      if (!c.match(/^# (timeout=[0-9]+|time=[0-9\.]+m?s|Subtest(: .+)?)\n$/))
         console.error(c.substr(2).trim())
     }
     const onChild = p => {
