@@ -19,7 +19,7 @@ information.
 Usage:
   tap [options] [<files>]
 
-tap v14.2.5 - A Test-Anything-Protocol library for JavaScript
+tap v14.3.0 - A Test-Anything-Protocol library for JavaScript
 
 Executes all the files and interprets their output as TAP formatted test result
 data. If no files are specified, then tap will search for testy-looking files,
@@ -140,6 +140,10 @@ Basic Options:
   -t<n> --timeout=<n>    Time out test files after <n> seconds. Defaults to 30,
                          or the value of the TAP_TIMEOUT environment variable.
                          Setting to 0 allows tests to run forever.
+
+                         When a test process calls t.setTimeout(n) on the
+                         top-level tap object, it also updates this value for
+                         that specific process.
 
   -T --no-timeout        Do not time out tests. Equivalent to --timeout=0.
 
