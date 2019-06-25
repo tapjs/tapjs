@@ -216,10 +216,12 @@ are covered:
 $ npm test -- --coverage-report=lcov
 ```
 
-This runs the tests and opens a [pretty coverage
-report](/my-awesome-module/coverage-1/lcov-report/index.html) in a
-web browser.  This shows that the second half of our function [isn't being
-called](/my-awesome-module/coverage-1/lcov-report/my-awesome-module.js.html).
+This runs the tests and opens a <a target="my-awesome-module-report"
+href="/my-awesome-module/coverage-1/lcov-report/index.html">pretty coverage
+report</a> in a web browser.  This shows that the second half of our
+function <a target="my-awesome-module-report"
+href="/my-awesome-module/coverage-1/lcov-report/my-awesome-module.js.html">isn't
+being called</a>.
 
 Ok, add some more tests then:
 
