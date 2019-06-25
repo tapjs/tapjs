@@ -13,7 +13,7 @@ const WhyTap = ({markdownData}) => {
   return(
     <section>
       <Content>
-        <EncircledImage image={questionMark}/>
+        <EncircledImage image={questionMark} alt="(?)" />
         <div dangerouslySetInnerHTML={{ __html: markdownData}} />
       </Content>
     </section>

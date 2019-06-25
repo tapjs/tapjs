@@ -61,7 +61,7 @@ const Features = () => {
         <Box alignSelf="center"><h2>Node-Tap Features</h2></Box>
         <Flex pb={4} flexDirection={['column', 'column', 'row']} alignItems="center">
           <Flex px={4} flexDirection="column">
-            <FeatureImage pb={[0, 3]} src={brain}/>
+            <FeatureImage pb={[0, 3]} src={brain} alt="brain"  />
             <Box alignSelf="center"><h3>No Fancy DSL to Learn</h3></Box>
             <TextBox p={2}>
               <p>
@@ -73,9 +73,9 @@ const Features = () => {
               </p>
             </TextBox>
           </Flex>
-          <Separator src={separator}/>
+          <Separator src={separator} alt="separator" />
           <Flex px={4} flexDirection="column">
-            <FeatureImage pb={[0, 3]} src={batteries}/>
+            <FeatureImage pb={[0, 3]} src={batteries} alt="batteries" />
             <Box alignSelf="center"><h3>Batteries Included</h3></Box>
             <TextBox p={2}>
               <p>

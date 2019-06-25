@@ -87,7 +87,7 @@ class Navbar extends React.Component {
           <MobileNavbar toggleNav={this.toggleNav}/>
         }
         <Content>
-          <Hamburger onClick={this.toggleNav}/>
+          <Hamburger onClick={this.toggleNav} aria-label="navigation" />
           <Logo to="/">Node Tap <small>v{version}</small></Logo>
           <Links>
             <NavLinks desktop/>

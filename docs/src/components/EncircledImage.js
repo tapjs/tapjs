@@ -36,11 +36,11 @@ const GreyCircle = styled.div`
 `;
 
 
-const EncircledImage = (props) => {
+const EncircledImage = ({image, alt}) => {
   return(
     <GreyCircle>
       <WhiteCircle>
-        <Symbol src={props.image}/>
+        <Symbol src={image} alt={alt} />
       </WhiteCircle>
     </GreyCircle>
   );

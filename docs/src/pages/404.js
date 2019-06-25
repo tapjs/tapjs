@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import {Flex} from 'rebass';
 import exclamationMark from '../images/exclamation.gif';
 import EncircledImage from '../components/EncircledImage';
+import SEO from '../components/seo';
 
 const Container = styled(Flex)`
   flex-direction: column;
@@ -19,10 +20,11 @@ const Headline = styled.h1`
 const ErrorPage = () => {
   return (
     <>
+    <SEO title="404 Not Found" />
       <Navbar/>
       <Container>
         <div>
-          <EncircledImage image={exclamationMark}/>
+          <EncircledImage image={exclamationMark} alt="!" />
         </div>
         <Headline>404</Headline>
         <p>Page not found</p>

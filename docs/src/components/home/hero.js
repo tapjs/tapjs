@@ -56,6 +56,7 @@ const BuildStatus = styled.a`
   width: 90px;
   height: 20px;
   top: -20px;
+  text-indent: -999em;
   position: absolute;
   background-repeat: no-repeat;
   background-image: url(https://travis-ci.org/tapjs/node-tap.svg?branch=master);
@@ -84,8 +85,8 @@ const Hero = () => {
         <OuterCircle/>
         <InnerCircle/>
         <InnerBits>
-          <BuildStatus href="https://travis-ci.org/tapjs/node-tap"/>
-          <Logo src={logo}/>
+          <BuildStatus href="https://travis-ci.org/tapjs/node-tap">Build status</BuildStatus>
+          <Logo src={logo} alt="tap logo" />
           <Title>{description}</Title>
           <ButtonLink to="/docs/">Get Started</ButtonLink>
         </InnerBits>

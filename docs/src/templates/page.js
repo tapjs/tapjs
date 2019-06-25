@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '../components/layout';
 import {graphql} from 'gatsby';
+import SEO from '../components/seo';
 
 const Page = ({data}) => {
   const pageData = data.markdownRemark;
@@ -8,6 +9,11 @@ const Page = ({data}) => {
   
   return (
     <>
+      <SEO
+        title={pageData.frontmatter.title}
+        pathname={pageData.fields.slug}
+        article={true}
+      />
       <Layout showSidebar={showSidebar}>
         <div dangerouslySetInnerHTML={{ __html: pageData.html }} />
       </Layout>
@@ -23,6 +29,9 @@ export const query = graphql`
       html
       fields {
         slug
+      }
+      frontmatter {
+        title
       }
     }
   }

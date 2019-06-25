@@ -7,18 +7,22 @@ import Credits from '../components/home/credits';
 import {ThemeProvider} from 'styled-components';
 import {graphql} from 'gatsby';
 import {theme} from '../theme';
+import SEO from '../components/seo';
 
 export default ({data}) => {
   return (
-    <ThemeProvider theme={theme}>
-      <div>
-        <Navbar/>
-        <Hero/>
-        <Features/>
-        <WhyTap markdownData={data.markdownRemark.html}/>
-        <Credits/>
-      </div>
-    </ThemeProvider>
+    <>
+      <SEO />
+      <ThemeProvider theme={theme}>
+        <div>
+          <Navbar/>
+          <Hero/>
+          <Features/>
+          <WhyTap markdownData={data.markdownRemark.html}/>
+          <Credits/>
+        </div>
+      </ThemeProvider>
+    </>
   );
 };
 
