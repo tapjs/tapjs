@@ -72,6 +72,15 @@ not ok 1 - timeout!
 
 `
 
+exports[`test/spawn.js TAP timeout update > must match snapshot 1`] = `
+TAP version 13
+# timeout=42069
+ok 1 - this is fine
+1..1
+# {time}
+
+`
+
 exports[`test/spawn.js TAP using proc event > must match snapshot 1`] = `
 TAP version 13
 ok

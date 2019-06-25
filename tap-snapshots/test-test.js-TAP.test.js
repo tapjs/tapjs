@@ -1476,7 +1476,6 @@ ok 16 - todo # TODO
 
 exports[`test/test.js TAP assertions and weird stuff timeout at the last tick > output 1`] = `
 TAP version 13
-# timeout=1
 # Subtest: work it harder buf=false
     1..1
     ok 1 - this is fine
@@ -1495,7 +1494,6 @@ ok 3 - work it harder buf=true # {time} {
     1..1
     ok 1 - this is fine
 }
-# timeout=1
 
 not ok 4 - timeout!
   ---
@@ -1513,7 +1511,6 @@ not ok 4 - timeout!
 
 exports[`test/test.js TAP assertions and weird stuff timeout expiration > output 1`] = `
 TAP version 13
-# timeout=50
 # Subtest: get lost buf=false
     not ok 1 - timeout!
       ---
@@ -1548,7 +1545,6 @@ not ok 2 - get lost buf=true # {time}
     1..1
     # failed 1 test
 }
-# timeout=50
 
 1..2
 # failed 2 of 2 tests
@@ -1557,7 +1553,6 @@ not ok 2 - get lost buf=true # {time}
 
 exports[`test/test.js TAP assertions and weird stuff timeout with subs > output 1`] = `
 TAP version 13
-# timeout=50
 # Subtest: get lost buf=false
     # Subtest: carry on
         not ok 1 - timeout!
@@ -1600,7 +1595,6 @@ not ok 2 - get lost buf=true # {time}
     1..1
     # failed 1 test
 }
-# timeout=50
 
 1..2
 # failed 2 of 2 tests

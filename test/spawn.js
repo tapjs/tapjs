@@ -11,6 +11,9 @@ process.env.TAP_BUFFER = ''
 t.cleanSnapshot = require('./clean-stacks.js')
 
 const main = () => {
+  // this test can be slow, especially on CI
+  t.setTimeout(120000)
+
   t.test('basic child process', t =>
     t.spawn(node, [ file, 'ok' ]))
 
@@ -31,10 +34,18 @@ const main = () => {
       timeout: 1
     }))
 
-  t.test('timeout update', t =>
-    t.spawn(node, [ file, 'timeout-update' ], {
-      timeout: process.env.CI ? 5000 : 500,
-    }))
+  t.test('timeout update', t => {
+    const s = new Spawn({
+      command: node,
+      args: [file, 'timeout-update'],
+      buffered: true,
+    })
+    t.plan(2)
+    s.main(() => {
+      t.equal(s.timer.duration, 42069, 'timer updated')
+      t.matchSnapshot(s.output)
+    })
+  })
 
   t.test('timeout KILL', t => {
     const s = new Spawn({
@@ -228,8 +239,8 @@ switch (process.argv[2]) {
     break
 
   case 'timeout-update':
-    t.setTimeout(10000)
-    setTimeout(() => t.pass('this is fine'), 500)
+    t.setTimeout(42069)
+    t.pass('this is fine')
     break
 
   case 'childId':
