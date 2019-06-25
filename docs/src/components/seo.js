@@ -1,6 +1,6 @@
-import React from "react"
-import { Helmet } from "react-helmet"
-import { StaticQuery, graphql } from "gatsby"
+import React from 'react';
+import { Helmet } from 'react-helmet';
+import { StaticQuery, graphql } from 'gatsby';
 
 const SEO = ({ title, description, image, pathname, article }) => (
   <StaticQuery
@@ -22,8 +22,8 @@ const SEO = ({ title, description, image, pathname, article }) => (
         defaultTitle: defaultTitle,
         description: description || defaultDescription,
         image: `${siteUrl}${image || defaultImage}`,
-        url: `${siteUrl}${pathname || "/"}`,
-      }
+        url: `${siteUrl}${pathname || '/'}`,
+      };
 
       return (
         <Helmet defaultTitle={seo.defaultTitle} titleTemplate={titleTemplate}>
@@ -50,12 +50,12 @@ const SEO = ({ title, description, image, pathname, article }) => (
           )}
           {seo.image && <meta name="twitter:image" content={seo.image} />}
         </Helmet>
-      )
+      );
     }}
   />
-)
+);
 
-export default SEO
+export default SEO;
 
 const query = graphql`
   query SEO {
@@ -70,4 +70,4 @@ const query = graphql`
       }
     }
   }
-`
+`;
