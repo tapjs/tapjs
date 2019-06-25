@@ -15,7 +15,7 @@ const NavbarOuter = styled(Flex)`
   height: 68px;
   align-items: center;
   font-family: Titillium Web;
-  z-index: 1;
+  z-index: 3;
   position: sticky;
   top: 0;
 `;
