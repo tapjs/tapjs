@@ -8,7 +8,12 @@ redirect_from:
 
 #Changelog
 
-## 14.2 - 2009-05-28
+## 14.3 - 2019-06-25
+
+* Update the test runner's timeout value when a child process calls
+  `t.setTinmeout(n)` on the top-level tap object.
+
+## 14.2 - 2019-05-28
 
 * Add the `--flow` tag to automatically strip [flow
   types](https://flow.org/) from test files.

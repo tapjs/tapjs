@@ -132,6 +132,14 @@ Exactly the same as `t.test()`, but adds `only: true` in the options.
 
 See [filtering tests using only](/docs/api/only)
 
+### t.setTimeout(n)
+
+Fail the test with a timeout error if it goes longer than the specified
+number of ms.  Call `t.setTimeout(0)` to remove the timeout setting.
+
+When this is called on the top-level tap object, it sets the runners
+timeout value to the specified value for that test process as well.
+
 ### t.name
 
 This is a read-only property set to the string value provided as the `name`

@@ -217,7 +217,11 @@ Much more documentation available at: https://www.node-tap.org/
                   Defaults to 30, or the value of the
                   TAP_TIMEOUT environment variable.
                   Setting to 0 allows tests to run
-                  forever.`,
+                  forever.
+
+                  When a test process calls t.setTimeout(n) on the top-level
+                  tap object, it also updates this value for that specific
+                  process.`,
   }),
 
   'no-timeout': flag({
