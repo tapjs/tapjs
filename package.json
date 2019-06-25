@@ -32,7 +32,7 @@
     "function-loop": "^1.0.2",
     "glob": "^7.1.4",
     "import-jsx": "^2.0.0",
-    "ink": "^2.2.0",
+    "ink": "^2.3.0",
     "isexe": "^2.0.0",
     "istanbul-lib-processinfo": "^1.0.0",
     "jackspeak": "^1.4.0",
