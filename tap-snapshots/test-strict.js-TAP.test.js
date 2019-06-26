@@ -8,8 +8,8 @@
 exports[`test/strict.js TAP strictness is inherited > failures 1`] = `
 Array [
   Object {
-    "tapError": "Non-TAP data encountered in strict mode",
     "data": "flerggy blerg\\n",
+    "tapError": "Non-TAP data encountered in strict mode",
   },
 ]
 `
@@ -17,8 +17,8 @@ Array [
 exports[`test/strict.js TAP unstrict child does not make parent unstrict > failures 1`] = `
 Array [
   Object {
-    "tapError": "Non-TAP data encountered in strict mode",
     "data": "flerggy blerg\\n",
+    "tapError": "Non-TAP data encountered in strict mode",
   },
 ]
 `

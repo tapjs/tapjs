@@ -5,68 +5,68 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/omit-version.js TAP > saw expected lines 1`] = `
-Array [
-  "ok 1 - this is fine\\n",
-  "1..1\\n",
-]
-`
-
 exports[`test/omit-version.js TAP > saw expected events 1`] = `
 Array [
   Array [
     "assert",
     Result {
-      "ok": true,
+      "fullname": "",
       "id": 1,
       "name": "this is fine",
-      "fullname": "",
+      "ok": true,
     },
   ],
   Array [
     "result",
     Result {
-      "ok": true,
+      "fullname": "",
       "id": 1,
       "name": "this is fine",
-      "fullname": "",
+      "ok": true,
     },
   ],
   Array [
     "pass",
     Result {
-      "ok": true,
+      "fullname": "",
       "id": 1,
       "name": "this is fine",
-      "fullname": "",
+      "ok": true,
     },
   ],
   Array [
     "plan",
     Object {
-      "start": 1,
       "end": 1,
+      "start": 1,
     },
   ],
   Array [
     "complete",
     FinalResults {
-      "ok": true,
-      "count": 1,
-      "pass": 1,
-      "fail": 0,
       "bailout": false,
-      "todo": 0,
-      "skip": 0,
+      "count": 1,
+      "fail": 0,
+      "failures": Array [],
+      "ok": true,
+      "pass": 1,
       "plan": FinalPlan {
-        "start": 1,
+        "comment": "",
         "end": 1,
         "skipAll": false,
         "skipReason": "",
-        "comment": "",
+        "start": 1,
       },
-      "failures": Array [],
+      "skip": 0,
+      "todo": 0,
     },
   ],
+]
+`
+
+exports[`test/omit-version.js TAP > saw expected lines 1`] = `
+Array [
+  "ok 1 - this is fine\\n",
+  "1..1\\n",
 ]
 `

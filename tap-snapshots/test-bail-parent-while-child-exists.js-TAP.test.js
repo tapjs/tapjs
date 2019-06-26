@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/bail-parent-while-child-exists.js TAP > undefined 1`] = `
+exports[`test/bail-parent-while-child-exists.js TAP > must match snapshot 1`] = `
 Array [
   Array [
     "version",
@@ -14,28 +14,28 @@ Array [
   Array [
     "assert",
     Result {
-      "ok": true,
+      "fullname": "",
       "id": 1,
       "name": "this is fine",
-      "fullname": "",
+      "ok": true,
     },
   ],
   Array [
     "result",
     Result {
-      "ok": true,
+      "fullname": "",
       "id": 1,
       "name": "this is fine",
-      "fullname": "",
+      "ok": true,
     },
   ],
   Array [
     "pass",
     Result {
-      "ok": true,
+      "fullname": "",
       "id": 1,
       "name": "this is fine",
-      "fullname": "",
+      "ok": true,
     },
   ],
   Array [
@@ -58,21 +58,21 @@ Array [
   Array [
     "complete",
     FinalResults {
-      "ok": false,
-      "count": 1,
-      "pass": 1,
-      "fail": 0,
       "bailout": "# saw that coming",
-      "todo": 0,
-      "skip": 0,
+      "count": 1,
+      "fail": 0,
+      "failures": Array [],
+      "ok": false,
+      "pass": 1,
       "plan": FinalPlan {
-        "start": null,
+        "comment": "",
         "end": null,
         "skipAll": false,
         "skipReason": "",
-        "comment": "",
+        "start": null,
       },
-      "failures": Array [],
+      "skip": 0,
+      "todo": 0,
     },
   ],
 ]

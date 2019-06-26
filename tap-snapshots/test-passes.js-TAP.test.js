@@ -10,77 +10,77 @@ Array [
   Array [
     "plan",
     Object {
-      "start": 1,
       "end": 2,
+      "start": 1,
     },
   ],
   Array [
     "assert",
     Result {
-      "ok": true,
-      "id": 1,
-      "name": "this is fine",
       "diag": Object {
         "message": "1 passed",
       },
       "fullname": "",
+      "id": 1,
+      "name": "this is fine",
+      "ok": true,
     },
   ],
   Array [
     "result",
     Result {
-      "ok": true,
-      "id": 1,
-      "name": "this is fine",
       "diag": Object {
         "message": "1 passed",
       },
       "fullname": "",
+      "id": 1,
+      "name": "this is fine",
+      "ok": true,
     },
   ],
   Array [
     "pass",
     Result {
-      "ok": true,
-      "id": 1,
-      "name": "this is fine",
       "diag": Object {
         "message": "1 passed",
       },
       "fullname": "",
+      "id": 1,
+      "name": "this is fine",
+      "ok": true,
     },
   ],
   Array [
     "assert",
     Result {
-      "ok": false,
-      "id": 2,
       "diag": Object {
         "message": "2 failed",
       },
       "fullname": "",
+      "id": 2,
+      "ok": false,
     },
   ],
   Array [
     "result",
     Result {
-      "ok": false,
-      "id": 2,
       "diag": Object {
         "message": "2 failed",
       },
       "fullname": "",
+      "id": 2,
+      "ok": false,
     },
   ],
   Array [
     "fail",
     Result {
-      "ok": false,
-      "id": 2,
       "diag": Object {
         "message": "2 failed",
       },
       "fullname": "",
+      "id": 2,
+      "ok": false,
     },
   ],
   Array [
@@ -90,41 +90,41 @@ Array [
   Array [
     "complete",
     FinalResults {
-      "ok": false,
-      "count": 2,
-      "pass": 1,
-      "fail": 1,
       "bailout": false,
-      "todo": 0,
-      "skip": 0,
-      "plan": FinalPlan {
-        "start": 1,
-        "end": 2,
-        "skipAll": false,
-        "skipReason": "",
-        "comment": "",
-      },
+      "count": 2,
+      "fail": 1,
       "failures": Array [
         Result {
-          "ok": false,
-          "id": 2,
           "diag": Object {
             "message": "2 failed",
           },
           "fullname": "",
+          "id": 2,
+          "ok": false,
         },
       ],
+      "ok": false,
+      "pass": 1,
       "passes": Array [
         Result {
-          "ok": true,
-          "id": 1,
-          "name": "this is fine",
           "diag": Object {
             "message": "1 passed",
           },
           "fullname": "",
+          "id": 1,
+          "name": "this is fine",
+          "ok": true,
         },
       ],
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 2,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 0,
+      "todo": 0,
     },
   ],
 ]

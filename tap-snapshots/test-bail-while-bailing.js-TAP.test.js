@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/bail-while-bailing.js TAP > undefined 1`] = `
+exports[`test/bail-while-bailing.js TAP > must match snapshot 1`] = `
 Array [
   Array [
     "version",
@@ -14,55 +14,55 @@ Array [
   Array [
     "assert",
     Result {
-      "ok": true,
+      "fullname": "",
       "id": 1,
       "name": "this is fine",
-      "fullname": "",
+      "ok": true,
     },
   ],
   Array [
     "result",
     Result {
-      "ok": true,
+      "fullname": "",
       "id": 1,
       "name": "this is fine",
-      "fullname": "",
+      "ok": true,
     },
   ],
   Array [
     "pass",
     Result {
-      "ok": true,
+      "fullname": "",
       "id": 1,
       "name": "this is fine",
-      "fullname": "",
+      "ok": true,
     },
   ],
   Array [
     "assert",
     Result {
-      "ok": false,
+      "fullname": "",
       "id": 2,
       "name": "going to bail",
-      "fullname": "",
+      "ok": false,
     },
   ],
   Array [
     "result",
     Result {
-      "ok": false,
+      "fullname": "",
       "id": 2,
       "name": "going to bail",
-      "fullname": "",
+      "ok": false,
     },
   ],
   Array [
     "fail",
     Result {
-      "ok": false,
+      "fullname": "",
       "id": 2,
       "name": "going to bail",
-      "fullname": "",
+      "ok": false,
     },
   ],
   Array [
@@ -72,28 +72,28 @@ Array [
   Array [
     "complete",
     FinalResults {
-      "ok": false,
-      "count": 2,
-      "pass": 1,
-      "fail": 1,
       "bailout": "# saw that coming",
-      "todo": 0,
-      "skip": 0,
+      "count": 2,
+      "fail": 1,
+      "failures": Array [
+        Result {
+          "fullname": "",
+          "id": 2,
+          "name": "going to bail",
+          "ok": false,
+        },
+      ],
+      "ok": false,
+      "pass": 1,
       "plan": FinalPlan {
-        "start": null,
+        "comment": "",
         "end": null,
         "skipAll": false,
         "skipReason": "",
-        "comment": "",
+        "start": null,
       },
-      "failures": Array [
-        Result {
-          "ok": false,
-          "id": 2,
-          "name": "going to bail",
-          "fullname": "",
-        },
-      ],
+      "skip": 0,
+      "todo": 0,
     },
   ],
 ]
