@@ -50,7 +50,10 @@ not connected to the file that changed.
   if a test run is not in progress.
 
 * `clear`
-  Delete all coverage info and re-run the test suite
+  Delete all coverage info and re-run the test suite.
+
+* `cls`
+  Clear the screen.
 
 ## Adding Tests
 

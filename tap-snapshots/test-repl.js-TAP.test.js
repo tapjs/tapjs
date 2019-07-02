@@ -5,6 +5,10 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
+exports[`test/repl.js TAP cls > clear screen 1`] = `
+"\\u001b[2J\\u001b[HTAP> "
+`
+
 exports[`test/repl.js TAP completer > empty 1`] = `
 Array [
   Array [
@@ -15,6 +19,7 @@ Array [
     "c",
     "exit",
     "clear",
+    "cls",
   ],
   "",
 ]
@@ -175,5 +180,8 @@ exit
 
 clear
   delete all coverage info and re-run the test suite
+
+cls
+  clear the screen
 TAP> 
 `

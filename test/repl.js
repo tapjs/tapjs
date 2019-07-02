@@ -226,6 +226,15 @@ t.test('completer', t => {
   t.end()
 })
 
+t.test('cls', t => {
+  input.write('cls\n')
+  setTimeout(() => {
+    // JSON.stringify it so that it doesn't look gross in patches
+    t.matchSnapshot(JSON.stringify(output.read()), 'clear screen')
+    t.end()
+  })
+})
+
 t.test('exit', t => {
   repl.repl.emit('SIGINT')
   t.matchSnapshot(output.read(), 'output')
