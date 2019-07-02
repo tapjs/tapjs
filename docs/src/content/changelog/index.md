@@ -8,6 +8,12 @@ redirect_from:
 
 #Changelog
 
+## 14.4 - 2019-07-02
+
+* Add the `cls` repl command to clear the screen
+* Consistently output repl process statuses in YAML rather than
+  `util.inspect`.
+
 ## 14.3 - 2019-06-25
 
 * Update the test runner's timeout value when a child process calls
