@@ -116,20 +116,27 @@ TAP>
 `
 
 exports[`test/repl.js TAP manual run tests > ran the suite again 1`] = `
-{ code: 0, signal: null }
+code: 0
+signal: null
+
 TAP> 
 `
 
 exports[`test/repl.js TAP pause/resume > output 1`] = `
-{ code: null, signal: 'fake' }
-TAP> { code: null, signal: 'fake' }
+code: null
+signal: fake
+
+TAP> code: null
+signal: fake
+
 TAP> paused
 TAP> resumed
 TAP> 
 `
 
 exports[`test/repl.js TAP run on change > ran the suite on change 1`] = `
-'test in progress, please wait'
+test in progress, please wait
+
 TAP> code: 0
 signal: null
 TAP> 
