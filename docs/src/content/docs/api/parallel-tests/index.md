@@ -16,22 +16,47 @@ In both cases, you set a number of `jobs` that you want to allow it to
 run in parallel, and then any buffered tests are run in a pool which
 will execute that many test functions in parallel.
 
-The default `jobs` value
-for the command line runner is equal to the number of CPUs on your system, so
-it's as parallel as makes sense.  Within a single test file, the default `jobs`
-value is `1`, because you rarely want to run the functions within a given suite
-in parallel.
+The default `jobs` value for the command line runner is equal to the number
+of CPUs on your system, so it's as parallel as makes sense.  Within a
+single test file, the default `jobs` value is `1`, because you rarely want
+to run the functions within a given suite in parallel.
+
+## Considerations for running parallel tests
+
+The thing about running tests in parallel is that they can effectively run
+in any order, and at the same time.
+
+That means that any test fixtures, ports, or files that a test writes must
+be created specially for that test, and not shared between tests.  You
+cannot write tests that depend on being run in a specific order.
+
+To help facilitate this, the `process.env.TAP_CHILD_ID` environment
+variable will be set to a number indicating which child process is
+currently being run.  Instead of creating a folder called `'test-fixtures'`,
+you could create one called `'test-fixtures-' + process.env.TAP_CHILD_ID`.
+Instead of spinning up a server on port `8000`, you can have it listen on
+`8000 + (+process.env.TAP_CHILD_ID)`.  (Note that environment variables are
+always strings, so we have to cast it to a number.)
+
+This way, your tests will not collide with one another.
+
+If you have some tests that must be order-dependent or share state, you can
+either put them all in the same test file, or in a folder containing a file
+named `tap-parallel-not-ok`, or turn off parallel tests by setting
+`--jobs=1`.
 
 ## Parallel tests from the CLI
 
-This is the simplest way to run parallel tests.  Just add `--jobs=<n>`
-to your test command (or `-j<n>` if you prefer shorthands).
+This is the simplest way to run parallel tests, and it happens by default.
 
-In some reporters, it may seem like the output from each test file happens "all
-at once", when the test completes.  That's because parallel tests are always
-buffered, so the command-line harness doesn't parse their output until they're
-fully complete.  (Since many of them may be running at once, it would be very
-confusing otherwise.)
+In some reporters, it may seem like the output from each test file happens
+"all at once", when the test completes.  That's because parallel tests are
+always buffered, so the command-line harness doesn't parse their output
+until they're fully complete.  (Since many of them may be running at once,
+it would be very confusing otherwise.)
+
+Newer test runners (those based on [treport](http://npm.im/treport)) show
+information about parallel tests as they are spawned.
 
 ### Enabling/Disabling Parallelism in the test runner
 
@@ -77,6 +102,9 @@ filesystem stuff, and so on), then they can be moved into the
 To run child tests in parallel, set `t.jobs = <some number>` in your
 test program.  This can be set either on the root tap object, or on
 any child test.
+
+The default number of jobs within a given test _file_ is 1, regardless of
+what you specify on the command line.
 
 If `t.jobs` is set to a number greater than 1, then tests will be run
 in `buffered` mode by default.  To force a test to be serialized, set
