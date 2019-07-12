@@ -3,6 +3,13 @@ const bin = require.resolve('../bin/cmd.js')
 const {execFile} = require('child_process')
 const node = process.execPath
 
+// util.inspect output changed in node v12
+// so don't test it unless we're at that version.
+const skipInspect = {
+  skip: /^v1[2-9]\./.test(process.version) ? false
+    : 'do not test util.inspect prior to node v12'
+}
+
 // This is kind of hacky and clever, but SOOOOO
 // much faster than running real child procs.
 const Minipass = require('minipass')
@@ -104,7 +111,7 @@ Bail out! # i have my reasons
   const runTest = tap => (t, args) => {
     run(tap, args, (er, o, e) => {
       t.matchSnapshot(er, 'error')
-      t.matchSnapshot(o, 'output')
+      t.matchSnapshot(o, 'output', skipInspect)
       t.matchSnapshot(e, 'stderr')
       t.end()
     })
@@ -152,7 +159,7 @@ ok 1 - child
 
 t.test('unrecognized arg', t => run('', ['--blarg'], (er, o, e) => {
   t.matchSnapshot(er, 'error')
-  t.matchSnapshot(o, 'output')
+  t.matchSnapshot(o, 'output', skipInspect)
   t.matchSnapshot(e, 'stderr')
   t.end()
 }))
