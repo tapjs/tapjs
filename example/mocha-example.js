@@ -1,3 +1,4 @@
+require('../lib/tap.js').mochaGlobals()
 /* standard ignore next */
 describe('parent', function () {
 
@@ -13,7 +14,7 @@ describe('parent', function () {
     console.error('beforeEach')
   });
 
-  afterEach('after each name', function () {
+  afterEach(function () {
     console.error('afterEach')
   });
 

@@ -1,9 +1,0 @@
-TAP version 13
-    # Subtest: foo
-    not ok 1 - baz
-      ---
-      {"at":{"column":3,"file":"test/test/assert-at.js","function":"baz","line":14},"source":"blo(t)\n"}
-      ...
-    Bail out! # baz
-Bail out! # baz
-

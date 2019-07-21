@@ -1,9 +1,0 @@
-log in root, before child
-TAP version 13
-    # Subtest: child
-log in child, before grandchild
-        # Subtest: grandchild
-log in grandchild, before bailout
-        Bail out! # cannot continue
-Bail out! # cannot continue
-

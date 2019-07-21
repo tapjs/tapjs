@@ -1,73 +1,106 @@
 {
   "name": "tap",
-  "version": "5.7.1",
+  "version": "14.4.2",
   "author": "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me)",
-  "description": "A Test-Anything-Protocol library",
-  "homepage": "http://node-tap.org/",
+  "description": "A Test-Anything-Protocol library for JavaScript",
+  "homepage": "http://www.node-tap.org/",
   "typings": "./tap.d.ts",
   "bin": {
     "tap": "bin/run.js"
   },
-  "main": "lib/root.js",
+  "main": "lib/tap.js",
   "engines": {
-    "node": ">=0.8"
+    "node": ">=8"
   },
+  "bundledDependencies": [
+    "treport",
+    "ink"
+  ],
   "dependencies": {
-    "bluebird": "^3.3.1",
-    "clean-yaml-object": "^0.1.0",
-    "codecov.io": "^0.1.6",
-    "coveralls": "^2.11.2",
-    "deeper": "^2.1.0",
+    "async-hook-domain": "^1.1.0",
+    "bind-obj-methods": "^2.0.0",
+    "browser-process-hrtime": "^1.0.0",
+    "capture-stack-trace": "^1.0.0",
+    "chokidar": "^3.0.2",
+    "color-support": "^1.1.0",
+    "coveralls": "^3.0.5",
+    "diff": "^4.0.1",
+    "esm": "^3.2.25",
+    "findit": "^2.0.0",
+    "flow-remove-types": "^2.101.0",
     "foreground-child": "^1.3.3",
-    "glob": "^7.0.0",
-    "isexe": "^1.0.0",
-    "js-yaml": "^3.3.1",
-    "nyc": "^5.5.0",
-    "only-shallow": "^1.0.2",
-    "opener": "^1.4.1",
-    "readable-stream": "^2.0.2",
-    "signal-exit": "^2.0.0",
-    "stack-utils": "^0.4.0",
-    "supports-color": "^1.3.1",
-    "tap-mocha-reporter": "0.0 || 1",
-    "tap-parser": "^1.2.2",
-    "tmatch": "^2.0.1"
+    "fs-exists-cached": "^1.0.0",
+    "function-loop": "^1.0.2",
+    "glob": "^7.1.4",
+    "import-jsx": "^2.0.0",
+    "ink": "^2.3.0",
+    "isexe": "^2.0.0",
+    "istanbul-lib-processinfo": "^1.0.0",
+    "jackspeak": "^1.4.0",
+    "minipass": "^2.3.5",
+    "mkdirp": "^0.5.1",
+    "nyc": "^14.1.1",
+    "opener": "^1.5.1",
+    "own-or": "^1.0.0",
+    "own-or-env": "^1.0.1",
+    "react": "^16.8.6",
+    "rimraf": "^2.6.3",
+    "signal-exit": "^3.0.0",
+    "source-map-support": "^0.5.12",
+    "stack-utils": "^1.0.2",
+    "tap-mocha-reporter": "^4.0.1",
+    "tap-parser": "^9.3.2",
+    "tap-yaml": "^1.0.0",
+    "tcompare": "^2.3.0",
+    "treport": "^0.4.0",
+    "trivial-deferred": "^1.0.1",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.3",
+    "which": "^1.3.1",
+    "write-file-atomic": "^3.0.0",
+    "yaml": "^1.6.0",
+    "yapool": "^1.0.0"
   },
   "keywords": [
     "assert",
+    "tap",
     "test",
-    "tap"
+    "testing"
   ],
   "license": "ISC",
   "repository": "https://github.com/tapjs/node-tap.git",
   "scripts": {
-    "regen-fixtures": "node scripts/generate-test-test.js test/test/*.js",
-    "test": "node bin/run.js test/*.* --coverage",
-    "smoke": "node test/test.js | node bin/run.js -",
-    "posttest": "standard lib test"
+    "snap": "bash scripts/snap.sh",
+    "test": "node bin/run.js test -M coverage-map.js",
+    "unit": "bash scripts/unit.sh",
+    "posttest": "rm -rf cli-tests-*",
+    "postunit": "npm run posttest",
+    "t": "node bin/run.js test -J -sfails.txt",
+    "preversion": "npm test",
+    "postversion": "npm publish",
+    "postpublish": "bash postpublish.sh",
+    "www:build": "cd docs; npm ci; npm run build",
+    "www:develop": "cd docs; npm run develop",
+    "start": "npm run www:develop",
+    "www:serve": "cd docs; npm run serve"
   },
-  "devDependencies": {
-    "standard": "^5.4.1",
-    "which": "^1.1.1"
+  "tap": {
+    "esm": false,
+    "test-ignore": "/(^|/)cli-tests-[0-9]+/",
+    "check-coverage": true
+  },
+  "nyc": {
+    "include": [
+      "bin/run.js",
+      "bin/jsx.js",
+      "bin/jack.js",
+      "lib/*.js"
+    ]
   },
   "files": [
-    "lib/assert.js",
-    "lib/mocha.js",
-    "lib/root.js",
-    "lib/stack.js",
-    "lib/synonyms.js",
-    "lib/test.js",
-    "bin/mochatap.js",
     "bin/run.js",
-    "bin/usage.txt",
-    "bin/is-exe.js"
-  ],
-  "config": {
-    "nyc": {
-      "exclude": [
-        "node_modules/**",
-        "test/**"
-      ]
-    }
-  }
+    "bin/jsx.js",
+    "bin/jack.js",
+    "lib/*.js"
+  ]
 }
