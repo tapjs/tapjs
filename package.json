@@ -4,7 +4,7 @@
   "author": "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me)",
   "description": "A Test-Anything-Protocol library for JavaScript",
   "homepage": "http://www.node-tap.org/",
-  "typings": "./tap.d.ts",
+  "typings": "tap.d.ts",
   "bin": {
     "tap": "bin/run.js"
   },
@@ -102,5 +102,10 @@
     "bin/jsx.js",
     "bin/jack.js",
     "lib/*.js"
-  ]
+  ],
+  "devDependencies": {
+    "tsdef": "0.0.13",
+    "ttypescript": "^1.5.7",
+    "typescript-is": "^0.12.2"
+  }
 }
