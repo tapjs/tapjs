@@ -21,7 +21,8 @@ module.exports = (...test) => {
       return env
     }, { TAP_BAIL: '0', TAP_BUFFER: '0' })
     const t = require('../../lib/tap.js')
-    t.cleanSnapshot = require('../clean-stacks.js')
+    const cs = require('../clean-stacks.js')
+    t.cleanSnapshot = str => cs(str).replace(/[^\n]*DEP0018[^\n]*\n/g, '')
     t.plan(3)
     const c = spawn(node, [process.argv[1], 'runtest'], { env: env })
     let out = ''
