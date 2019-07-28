@@ -190,6 +190,9 @@ Child tests copy their parent test's `formatSnapshot` method at the time of
 creation.  The default is to use [`tcompare.format`](http://npm.im/tcompare) to
 convert any non-String values into snapshot strings.
 
+If the function returns a non-string, then this result will be passed to the
+default [`tcompare.format`](http://npm.im/tcompare) function.
+
 Note that string values are not passed to this function, as its purpose is to
 convert the snapshot value into a string.
 

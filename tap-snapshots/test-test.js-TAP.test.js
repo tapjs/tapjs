@@ -2949,24 +2949,25 @@ TAP version 13
 # Subtest: child test
     ok 1 - an object
     ok 2 - a jsonic object
-    ok 3 - string
-    ok 4 - must match snapshot # TODO later
-    ok 5 - expect resolving Promise # TODO later
-    not ok 6 - message about promise
+    ok 3 - a mutated object
+    ok 4 - string
+    ok 5 - must match snapshot # TODO later
+    ok 6 - expect resolving Promise # TODO later
+    not ok 7 - message about promise
       ---
       at: {}
       ...
     
-    not ok 7 - expect resolving Promise
+    not ok 8 - expect resolving Promise
       ---
       at: {}
       found: rejected promise
       ...
     
-    ok 8 - promise fn
-    ok 9 - modify the promise result
-    1..9
-    # failed 2 of 9 tests
+    ok 9 - promise fn
+    ok 10 - modify the promise result
+    1..10
+    # failed 2 of 10 tests
     # todo: 2
 not ok 1 - child test # {time}
   ---
@@ -2989,6 +2990,13 @@ exports[`test/test.js TAP snapshots > snapshot file 1`] = `
 exports[\`test/test.js deleteme child test > a jsonic object 1\`] = \`
 {
   "foo": "bar"
+}
+\`
+
+exports[\`test/test.js deleteme child test > a mutated object 1\`] = \`
+Object {
+  "foo": "bar",
+  "mutated": true,
 }
 \`
 
@@ -3025,24 +3033,25 @@ TAP version 13
 # Subtest: child test
     ok 1 - an object
     ok 2 - a jsonic object
-    ok 3 - string
-    ok 4 - must match snapshot # TODO later
-    ok 5 - expect resolving Promise # TODO later
-    not ok 6 - message about promise
+    ok 3 - a mutated object
+    ok 4 - string
+    ok 5 - must match snapshot # TODO later
+    ok 6 - expect resolving Promise # TODO later
+    not ok 7 - message about promise
       ---
       at: {}
       ...
     
-    not ok 7 - expect resolving Promise
+    not ok 8 - expect resolving Promise
       ---
       at: {}
       found: rejected promise
       ...
     
-    ok 8 - promise fn
-    ok 9 - modify the promise result
-    1..9
-    # failed 2 of 9 tests
+    ok 9 - promise fn
+    ok 10 - modify the promise result
+    1..10
+    # failed 2 of 10 tests
     # todo: 2
 not ok 1 - child test # {time}
   ---

@@ -1072,6 +1072,8 @@ t.test('snapshots', async t => {
       tt.matchSnapshot({ foo: 'bar' }, 'an object')
       tt.formatSnapshot = o => JSON.stringify(o, null, 2)
       tt.matchSnapshot({ foo: 'bar' }, 'a jsonic object')
+      tt.formatSnapshot = o => ({ ...o, mutated: true })
+      tt.matchSnapshot({ foo: 'bar' }, 'a mutated object')
       delete tt.formatSnapshot
       tt.matchSnapshot('some string \\ \` ${process.env.FOO}', 'string')
       tt.matchSnapshot('do this eventually', { todo: 'later' })
