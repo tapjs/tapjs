@@ -737,4 +737,15 @@ const strToRegExp = g => {
   return new RegExp(g, flags)
 }
 
-require('./jack.js')(main)
+try {
+  require('./jack.js')(main)
+} catch (er) {
+  /* istanbul ignore else - parse errors are the only ones we ever expect */
+  if (er.name === 'AssertionError' && !er.generatedMessage) {
+    console.error('Error: ' + er.message)
+    console.error('Run `tap --help` for usage information')
+    process.exit(1)
+  } else {
+    throw er
+  }
+}
