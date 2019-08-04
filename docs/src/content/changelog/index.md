@@ -6,7 +6,19 @@ redirect_from:
   - /changelog
 ---
 
-#Changelog
+# Changelog
+
+## 14.6 - 2019-08-03
+
+* Add the `--no-coverage-map` config flag to turn off a previously-set
+  `coverage-map` config.
+* Friendlier output on invalid argument assertion failures from the tap
+  CLI.
+
+## 14.5 - 2019-07-28
+
+* Support [`t.formatSnapshot`](/docs/api/#tformatsnapshot--function)
+  returning a non-string value.
 
 ## 14.4 - 2019-07-02
 
