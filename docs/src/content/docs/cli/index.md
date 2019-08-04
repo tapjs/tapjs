@@ -19,7 +19,7 @@ information.
 Usage:
   tap [options] [<files>]
 
-tap v14.5.0 - A Test-Anything-Protocol library for JavaScript
+tap v14.6.0 - A Test-Anything-Protocol library for JavaScript
 
 Executes all the files and interprets their output as TAP formatted test result
 data. If no files are specified, then tap will search for testy-looking files,
@@ -211,6 +211,9 @@ Code Coverage Options:
                          Return an empty array [] to cover the set that nyc
                          would pull in by default. Ie, returning [] is
                          equivalent to not using a coverage map at all.
+
+  --no-coverage-map      Do not use a coverage map. Primarily useful for
+                         disabling a coverage-map that is set in a config file.
 
   -cov --coverage        Capture coverage information using 'nyc' This is
                          enabled by default.
