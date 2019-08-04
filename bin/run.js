@@ -741,7 +741,7 @@ try {
   require('./jack.js')(main)
 } catch (er) {
   /* istanbul ignore else - parse errors are the only ones we ever expect */
-  if (er.name === 'AssertionError' && !er.generatedMessage) {
+  if (er.name.match(/^AssertionError/) && !er.generatedMessage) {
     console.error('Error: ' + er.message)
     console.error('Run `tap --help` for usage information')
     process.exit(1)
