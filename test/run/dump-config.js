@@ -21,7 +21,7 @@ t.test('shotgun a bunch of option parsing junk', t => {
     '--timeout', '99', '--invert', '--no-invert', '--grep', 'x',
     '--grep=/y/i', '--bail', '--no-bail', '--only', '-R', 'spec',
     '--node-arg', 'abc', '--nyc-arg', 'abc', '-o', 'out.txt',
-    '--comments'
+    '--comments', '-M', 'map.js', '--no-coverage-map'
   ], { env: {
     TAP: '0',
     TAP_BAIL: '0',

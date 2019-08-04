@@ -308,7 +308,7 @@ check-coverage: true
 color: false
 comments: true
 coverage: true
-coverage-map: null
+coverage-map: false
 coverage-report:
   - json
   - html

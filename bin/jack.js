@@ -324,6 +324,12 @@ Much more documentation available at: https://www.node-tap.org/
                   using a coverage map at all.`,
   }),
 
+  'no-coverage-map': flag({
+    description: `Do not use a coverage map.
+                  Primarily useful for disabling a coverage-map that is
+                  set in a config file.`,
+  }),
+
   coverage: flag({
     default: true,
     short: 'cov',
