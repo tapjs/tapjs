@@ -1,16 +1,16 @@
 #!/usr/bin/env node
 
-var Parser = require('../')
-var etoa = require('events-to-array')
-var util = require('util')
+const Parser = require('../')
+const etoa = require('events-to-array')
+const util = require('util')
 
-var args = process.argv.slice(2)
-var json = null
-var flat = false
-var bail = false
-var preserveWhitespace = true
-var omitVersion = false
-var strict = false
+const args = process.argv.slice(2)
+let json = null
+let flat = false
+let bail = false
+let preserveWhitespace = true
+let omitVersion = false
+let strict = false
 
 function version () {
   console.log(require('../package.json').version)
@@ -28,7 +28,7 @@ for (let i = 0; i < args.length; i++) {
       json = 2
     continue
   } else {
-    var m = arg.match(/^--json(?:=([0-9]+))?$/)
+    const m = arg.match(/^--json(?:=([0-9]+))?$/)
     if (m) {
       if (+m[1] >= 0)
         json = +m[1]
@@ -128,14 +128,14 @@ Options:
   process.exit()
 }
 
-var yaml = require('tap-yaml')
+const yaml = require('tap-yaml')
 let id = 1
 function tapFormat (msg, indent) {
   return indent + msg.map(function (item) {
     switch (item[0]) {
       case 'child':
-        var comment = item[1][0]
-        var child = item[1].slice(1)
+        const comment = item[1][0]
+        const child = item[1].slice(1)
         return tapFormat([comment], '') + tapFormat(child, '    ')
 
       case 'version':
@@ -146,21 +146,18 @@ function tapFormat (msg, indent) {
           item[1].start = 1
           item[1].end = id - 1
         }
-        var p = item[1].start + '..' + item[1].end
-        if (item[1].comment)
-          p += ' # ' + item[1].comment
-        return p + '\n'
+        return item[1].start + '..' + item[1].end
+          + (item[1].comment ? ' # ' + item[1].comment : '') + '\n'
 
       case 'pragma':
         return 'pragma ' + (item[2] ? '+' : '-') + item[1] + '\n'
 
       case 'bailout':
-        var r = item[1] ? (' ' + item[1]) : ''
-        return 'Bail out!' + r + '\n'
+        return 'Bail out!' + (item[1] ? (' ' + item[1]) : '') + '\n'
 
       case 'result':
       case 'assert':
-        var res = item[1]
+        const res = item[1]
         if (item[0] === 'result') {
           res.id = id++
           res.name = (res.fullname + ' > ' + (res.name || '')).trim()
@@ -195,14 +192,14 @@ function format (msg) {
     return util.inspect(events, null, Infinity)
 }
 
-var options = {
+const options = {
   bail: bail,
   preserveWhitespace: preserveWhitespace,
   omitVersion: omitVersion,
   strict: strict,
 }
 
-var parser = new Parser(options)
+const parser = new Parser(options)
 const ignore = [
   'pipe',
   'unpipe',
@@ -219,7 +216,7 @@ if (flat)
 else
   ignore.push('result')
 
-var events = etoa(parser, ignore)
+const events = etoa(parser, ignore)
 
 if (json === 'lines')
   parser.on('line', function (l) {
