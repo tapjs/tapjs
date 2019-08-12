@@ -160,7 +160,12 @@ function tapFormat (msg, indent) {
         const res = item[1]
         if (item[0] === 'result') {
           res.id = id++
-          res.name = (res.fullname + ' > ' + (res.name || '')).trim()
+          const name = []
+          if (res.fullname)
+            name.push(res.fullname)
+          if (res.name)
+            name.push(res.name)
+          res.name = name.join(' > ').trim()
         }
         return (res.ok ? '' : 'not ') + 'ok ' + res.id +
           (res.name ? ' - ' + res.name.replace(/ \{$/, '') : '') +

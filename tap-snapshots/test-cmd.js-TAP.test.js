@@ -520,12 +520,12 @@ exports[`test/cmd.js TAP basic flat tap > error 4`] = `
 
 exports[`test/cmd.js TAP basic flat tap > output 1`] = `
 TAP version 13
-ok 1 - > this is fine
+ok 1 - this is fine
     blearajn9aefnzxrfoas
                
 ok 2 - child > this is fine
 ok 3 - child > also fine
-ok 4 - child >
+ok 4 - child
 1..4
 
 
@@ -533,7 +533,7 @@ ok 4 - child >
 
 exports[`test/cmd.js TAP basic flat tap > output 2`] = `
 TAP version 13
-ok 1 - > this is fine
+ok 1 - this is fine
     blearajn9aefnzxrfoas
                
 not ok 2 - child > this is fine
@@ -553,7 +553,7 @@ ok 6 - child > piks # SKIP is piks backward
 
 exports[`test/cmd.js TAP basic flat tap > output 3`] = `
 TAP version 13
-ok 1 - > i'm sure this will be fine
+ok 1 - i'm sure this will be fine
 Bail out!
 
 
