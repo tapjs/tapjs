@@ -10,7 +10,7 @@ redirect_from:
 If you specify a `--coverage-map=<file>` option, then you can be very precise
 about _which_ files under test should be covered by a specific test.
 
-A coverage map is a Node.js module that expors a single function.  This
+A coverage map is a Node.js module that exports a single function.  This
 function takes a test file as an argument, and returns a single filename or an
 array of program files that should be covered by that test.
 
@@ -56,7 +56,7 @@ corresponding `*.js`.
 
 ```js
 // map.js
-module.exports = testFile => testFile.replace(/\.test\.js$/, '.js)
+module.exports = testFile => testFile.replace(/\.test\.js$/, '.js')
 ```
 
 To run tap with this coverage map, run this command:
