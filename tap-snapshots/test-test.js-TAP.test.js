@@ -424,6 +424,45 @@ not ok 1 - this is the test that never ends # {time}
 
 `
 
+exports[`test/test.js TAP assertions and weird stuff endAll with unresolved t.resolveMatch > output 1`] = `
+TAP version 13
+# Subtest: this is the test that never ends
+    # Subtest: it goes on and on my friend
+        ok 1 - this is ok
+        not ok 2 - expect resolving Promise
+          ---
+          at:
+            line: #
+            column: #
+            file: test/test.js
+          found:
+            !error
+            name: Error
+            message: test unfinished
+            stack: |
+              {STACK}
+          source: |2
+                      tt.pass('this is ok')
+                      tt.resolveMatch(() => new Promise(()=>{}), {})
+            --^
+                    })
+                    tt.pass('some queue stuff')
+          ...
+        
+        1..2
+        # failed 1 of 2 tests
+    not ok 1 - it goes on and on my friend # {time}
+    
+    ok 2 - some queue stuff
+    1..2
+    # failed 1 of 2 tests
+not ok 1 - this is the test that never ends # {time}
+
+1..1
+# failed 1 test
+
+`
+
 exports[`test/test.js TAP assertions and weird stuff equal > output 1`] = `
 TAP version 13
 not ok 1 - should be equal
@@ -1727,6 +1766,92 @@ not ok 1 - expect fail
     {STACK}
   ...
 
+# failed 1 test
+
+`
+
+exports[`test/test.js TAP endAll direct while waiting on Promise rejection > result 1`] = `
+TAP version 13
+not ok 1 - expect rejected Promise
+  ---
+  at:
+    line: #
+    column: #
+    file: test/test.js
+  found:
+    !error
+    name: Error
+    message: test unfinished
+    stack: |
+      {STACK}
+  source: |2
+      })
+      tt.rejects(() => new Promise(() => {}), { message: 'never resolves' })
+    --^
+      setTimeout(() => tt.endAll())
+    })
+  ...
+
+1..1
+# failed 1 test
+
+`
+
+exports[`test/test.js TAP endAll direct while waiting on a resolving promise > result 1`] = `
+TAP version 13
+not ok 1 - expect resolving Promise
+  ---
+  at:
+    line: #
+    column: #
+    file: test/test.js
+  found:
+    !error
+    name: Error
+    message: test unfinished
+    stack: |
+      {STACK}
+  source: |2
+      })
+      tt.resolveMatch(() => new Promise(() => {}), 'never resolves')
+    --^
+      setTimeout(() => tt.endAll())
+    })
+  ...
+
+1..1
+# failed 1 test
+
+`
+
+exports[`test/test.js TAP endAll with sub while waiting on a resolving promise > result 1`] = `
+TAP version 13
+# Subtest
+    not ok 1 - expect resolving Promise
+      ---
+      at:
+        line: #
+        column: #
+        file: test/test.js
+      found:
+        !error
+        name: Error
+        message: test unfinished
+        stack: |
+          {STACK}
+      source: |2
+          })
+          tt.test(t => t.resolveMatch(() => new Promise(() => {}), 'never resolves'))
+        --^
+          setTimeout(() => tt.endAll())
+        })
+      ...
+    
+    1..1
+    # failed 1 test
+not ok 1 # {time}
+
+1..1
 # failed 1 test
 
 `

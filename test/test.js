@@ -743,6 +743,17 @@ t.test('assertions and weird stuff', t => {
       tt.endAll()
     },
 
+    'endAll with unresolved t.resolveMatch': tt => {
+      tt.test('this is the test that never ends', tt => {
+        tt.test('it goes on and on my friend', tt => {
+          tt.pass('this is ok')
+          tt.resolveMatch(() => new Promise(()=>{}), {})
+        })
+        tt.pass('some queue stuff')
+      })
+      tt.endAll()
+    },
+
     'endAll with stdin': tt => {
       const s = new MiniPass()
       tt.stdin({ tapStream: s })
@@ -1099,4 +1110,46 @@ t.test('snapshots', async t => {
   fs.unlinkSync(snapFile)
 
   t.end()
+})
+
+t.test('endAll direct while waiting on a resolving promise', t => {
+  t.plan(1)
+  const tt = new Test()
+  tt.setEncoding('utf8')
+  const buf = []
+  tt.on('data', c => buf.push(c))
+  tt.on('end', () => {
+    const result = buf.join('')
+    t.matchSnapshot(result, 'result')
+  })
+  tt.resolveMatch(() => new Promise(() => {}), 'never resolves')
+  setTimeout(() => tt.endAll())
+})
+
+t.test('endAll direct while waiting on Promise rejection', t => {
+  t.plan(1)
+  const tt = new Test()
+  tt.setEncoding('utf8')
+  const buf = []
+  tt.on('data', c => buf.push(c))
+  tt.on('end', () => {
+    const result = buf.join('')
+    t.matchSnapshot(result, 'result')
+  })
+  tt.rejects(() => new Promise(() => {}), { message: 'never resolves' })
+  setTimeout(() => tt.endAll())
+})
+
+t.test('endAll with sub while waiting on a resolving promise', t => {
+  t.plan(1)
+  const tt = new Test()
+  tt.setEncoding('utf8')
+  const buf = []
+  tt.on('data', c => buf.push(c))
+  tt.on('end', () => {
+    const result = buf.join('')
+    t.matchSnapshot(result, 'result')
+  })
+  tt.test(t => t.resolveMatch(() => new Promise(() => {}), 'never resolves'))
+  setTimeout(() => tt.endAll())
 })
