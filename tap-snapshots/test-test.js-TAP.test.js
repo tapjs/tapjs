@@ -3187,3 +3187,51 @@ not ok 1 - child test # {time}
 # failed 1 test
 
 `
+
+exports[`test/test.js TAP throw while waiting on a resolving promise > result 1`] = `
+TAP version 13
+# Subtest
+    not ok 1 - expect resolving Promise
+      ---
+      at:
+        line: #
+        column: #
+        file: test/test.js
+      found:
+        !error
+        name: Error
+        message: error thrown while awaiting Promise
+        stack: |
+          {STACK}
+      source: |2
+            setTimeout(() => t.threw(new Error('poop')))
+            return t.resolveMatch(() => new Promise(() => {}), 'never resolves')
+        --^
+          })
+          tt.end()
+      ...
+    
+    not ok 2 - poop
+      ---
+      at:
+        line: #
+        column: #
+        file: test/test.js
+      source: |2
+          tt.test(t => {
+            setTimeout(() => t.threw(new Error('poop')))
+        --^
+            return t.resolveMatch(() => new Promise(() => {}), 'never resolves')
+          })
+      stack: |
+        {STACK}
+      ...
+    
+    1..2
+    # failed 2 of 2 tests
+not ok 1 # {time}
+
+1..1
+# failed 1 test
+
+`

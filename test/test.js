@@ -1153,3 +1153,20 @@ t.test('endAll with sub while waiting on a resolving promise', t => {
   tt.test(t => t.resolveMatch(() => new Promise(() => {}), 'never resolves'))
   setTimeout(() => tt.endAll())
 })
+
+t.test('throw while waiting on a resolving promise', t => {
+  t.plan(1)
+  const tt = new Test()
+  tt.setEncoding('utf8')
+  const buf = []
+  tt.on('data', c => buf.push(c))
+  tt.on('end', () => {
+    const result = buf.join('')
+    t.matchSnapshot(result, 'result')
+  })
+  tt.test(t => {
+    setTimeout(() => t.threw(new Error('poop')))
+    return t.resolveMatch(() => new Promise(() => {}), 'never resolves')
+  })
+  tt.end()
+})
