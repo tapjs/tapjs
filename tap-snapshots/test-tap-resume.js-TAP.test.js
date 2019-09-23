@@ -18,8 +18,8 @@ exports[`test/tap/resume.js TAP > stderr 1`] = `
 
 exports[`test/tap/resume.js TAP > stdout 1`] = `
 1
-ok 1 - 2
 3
+ok 1 - 2
 ok 2 - 4
 ok 3 - 5
 1..3

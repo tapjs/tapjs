@@ -36,7 +36,7 @@
     "isexe": "^2.0.0",
     "istanbul-lib-processinfo": "^1.0.0",
     "jackspeak": "^1.4.0",
-    "minipass": "^2.5.1",
+    "minipass": "^2.8.3",
     "mkdirp": "^0.5.1",
     "nyc": "^14.1.1",
     "opener": "^1.5.1",
