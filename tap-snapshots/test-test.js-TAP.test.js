@@ -3203,6 +3203,12 @@ TAP version 13
         message: error thrown while awaiting Promise
         stack: |
           {STACK}
+        thrown:
+          !error
+          name: Error
+          message: poop
+          stack: |
+            {STACK}
       source: |2
             setTimeout(() => t.threw(new Error('poop')))
             return t.resolveMatch(() => new Promise(() => {}), 'never resolves')
