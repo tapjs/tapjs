@@ -54,6 +54,16 @@ All files | 75 | 75 | 100 | 75 | |
 
 `
 
+exports[`test/run/coverage.js TAP in 100 mode, <100 is red, not yellow > text output and 100 check 1`] = `
+-|-|-|-|-|-|
+File | % Stmts | % Branch | % Funcs | % Lines | Uncovered Lines |
+-|-|-|-|-|-|
+[31;1mAll files[0m |[31;1m       75[0m |[31;1m       75[0m |[32;1m      100[0m |[31;1m       75[0m |[31;1m                  [0m |
+[31;1m ok.js   [0m |[31;1m       75[0m |[31;1m       75[0m |[32;1m      100[0m |[31;1m       75[0m |[31;1m                 6[0m |
+-|-|-|-|-|-|
+
+`
+
 exports[`test/run/coverage.js TAP pipe to service > human output 1`] = `
 -|-|-|-|-|-|
 File | % Stmts | % Branch | % Funcs | % Lines | Uncovered Lines |

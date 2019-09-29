@@ -103,6 +103,14 @@ t.test('report with checks', t => {
   })
 })
 
+t.test('in 100 mode, <100 is red, not yellow', t => {
+  escape(['--100', '--coverage-report=text', '--color'], null, (er, o, e) => {
+    t.match(er, { code: 1 })
+    t.matchSnapshot(o, 'text output and 100 check', { skip: winSkip })
+    t.end()
+  })
+})
+
 t.test('pipe to service', t => {
   const piper = tmpfile(t, 'piper.js', `
     process.stdin.pipe(process.stderr)

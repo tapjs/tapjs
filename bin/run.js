@@ -251,15 +251,28 @@ const nycReporter = options =>
 const runNyc = (cmd, programArgs, options, spawnOpts) => {
   const reporter = nycReporter(options)
 
+  const branches = Math.max(+options.branches || 100, 100)
+  const lines = Math.max(+options.lines || 100, 100)
+  const functions = Math.max(+options.functions || 100, 100)
+  const statements = Math.max(+options.statements || 100, 100)
+
   const args = [
     nycBin,
     ...cmd,
     ...(options['show-process-tree'] ? ['--show-process-tree'] : []),
     '--cache=true',
-    '--branches=' + options.branches,
+    '--branches=' + branches,
+    '--watermarks.branches=' + branches,
+    '--watermarks.branches=' + (branches + (100 - branches)/2),
     '--functions=' + options.functions,
+    '--watermarks.functions=' + functions,
+    '--watermarks.functions=' + (functions + (100 - functions)/2),
     '--lines=' + options.lines,
+    '--watermarks.lines=' + lines,
+    '--watermarks.lines=' + (lines + (100 - lines)/2),
     '--statements=' + options.statements,
+    '--watermarks.statements=' + statements,
+    '--watermarks.statements=' + (statements + (100 - statements)/2),
     ...reporter,
     '--extension=.js',
     '--extension=.jsx',
