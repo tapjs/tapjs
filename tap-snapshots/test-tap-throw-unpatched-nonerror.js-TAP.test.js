@@ -14,6 +14,11 @@ Object {
 
 exports[`test/tap/throw-unpatched-nonerror.js TAP > stderr 1`] = `
 
+{CWD}/test/tap/throw-unpatched-nonerror.js:2
+  throw 'not yet patched'
+  ^
+not yet patched
+
 `
 
 exports[`test/tap/throw-unpatched-nonerror.js TAP > stdout 1`] = `
