@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "events-to-array": "^1.0.1",
-    "minipass": "^2.2.0",
+    "minipass": "^3.0.0",
     "tap-yaml": "^1.0.0"
   },
   "devDependencies": {
@@ -55,5 +55,8 @@
   },
   "nyc": {
     "hookRunInThisContext": true
+  },
+  "engines": {
+    "node": ">= 8"
   }
 }
