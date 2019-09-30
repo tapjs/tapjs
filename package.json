@@ -1,6 +1,6 @@
 {
   "name": "tap-parser",
-  "version": "9.3.3",
+  "version": "10.0.0",
   "description": "parse the test anything protocol",
   "main": "index.js",
   "bin": {
