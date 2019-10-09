@@ -9,11 +9,20 @@ const {
 
 const { execFile } = require('child_process')
 const {dirname, basename} = require('path')
+const { propagateEnv, preloadRemove, preloadGetList } = require('node-preload')
 
 const clean = t.cleanSnapshot
 t.cleanSnapshot = str => clean(str).replace(/[0-9\.]+m?s/g, '{TIME}')
 
 // escape from new york
+Object.keys(propagateEnv).forEach(k => {
+  delete propagateEnv[k]
+})
+
+preloadGetList().forEach(file => {
+  preloadRemove(file)
+})
+
 const escapePath = `${dirname(process.execPath)}:${process.env.PATH}`
 const esc = tmpfile(t, 'runtest.sh',
 `#!/bin/bash

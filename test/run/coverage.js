@@ -10,7 +10,7 @@ const {
 
 const { execFile } = require('child_process')
 const path = require('path')
-
+const { propagateEnv, preloadRemove, preloadGetList } = require('node-preload')
 
 const ok = tmpfile(t, 'ok.js', `'use strict'
   module.exports = (x, y) => {
@@ -33,6 +33,14 @@ const t3 = tmpfile(t, '3.test.js', `'use strict'
   require(${tap}).equal(ok(0, 3), 3)`)
 
 // escape from new york
+Object.keys(propagateEnv).forEach(k => {
+  delete propagateEnv[k];
+})
+
+preloadGetList().forEach(file => {
+  preloadRemove(file)
+})
+
 const escapePath = `${path.dirname(process.execPath)}:${process.env.PATH}`
 const esc = tmpfile(t, 'runtest.sh',
 `#!/bin/bash
