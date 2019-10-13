@@ -19,7 +19,6 @@
     "async-hook-domain": "^1.1.1",
     "bind-obj-methods": "^2.0.0",
     "browser-process-hrtime": "^1.0.0",
-    "capture-stack-trace": "^1.0.0",
     "chokidar": "^3.0.2",
     "color-support": "^1.1.0",
     "coveralls": "^3.0.6",
