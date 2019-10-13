@@ -100,7 +100,17 @@ ok 5 - autoend async limit # {time}
 
 not ok 6 - cannot create subtest after parent test end # {time}
   ---
+  at:
+    line: #
+    column: #
+    file: test/test.js
   autoend: true
+  source: |2
+            setTimeout(() => setTimeout(() => setTimeout(() =>
+              t.test('st', t => setTimeout(() => t.end())))))
+    --^
+            t.autoend()
+          })
   stack: |
     {STACK}
   test: autoend async limit
