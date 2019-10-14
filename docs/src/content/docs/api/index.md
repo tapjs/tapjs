@@ -198,6 +198,20 @@ convert the snapshot value into a string.
 
 See [Snapshot Testing](/snapshots/) for more information.
 
+### t.testdir(fixtures)
+
+Create a fresh directory with the specified fixtures, which is deleted on
+test teardown.  Returns the directory name.
+
+See [testing with fixtures](/api/fixtures/) for more info.
+
+### t.fixture(type, content)
+
+Create a `fixture` object, to specify hard links and symbolic links in the
+fixture definition object passed to `t.testdir()`.
+
+See [testing with fixtures](/api/fixtures/) for more info.
+
 ### t.tearDown(function)
 
 Run the supplied function when `t.end()` is called, or when the `plan`

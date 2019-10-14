@@ -7,6 +7,7 @@ const util = require('util')
 const assert = require('assert')
 const EE = require('events').EventEmitter
 const MiniPass = require('minipass')
+const rimraf = require('rimraf')
 
 process.env.TAP_DEV_SHORTSTACK = '1'
 
@@ -1169,4 +1170,29 @@ t.test('throw while waiting on a resolving promise', t => {
     return t.resolveMatch(() => new Promise(() => {}), 'never resolves')
   })
   tt.end()
+})
+
+t.test('save a fixture', t => {
+  const tdn = t.testdirName
+  t.throws(() => fs.statSync(tdn), 'doesnt exist yet')
+  const dir = t.testdir()
+  t.equal(dir, tdn)
+  t.ok(fs.statSync(dir).isDirectory(), 'made directory')
+  t.testdir({ file: 'contents' })
+  t.equal(fs.readFileSync(`${dir}/file`, 'utf8'), 'contents', 'made file')
+  t.testdir({
+    file2: 'contents',
+    link: t.fixture('symlink', 'file2'),
+  })
+  t.throws(() => fs.statSync(`${dir}/file`), 'old dir cleared out')
+  t.equal(fs.readFileSync(`${dir}/file2`, 'utf8'), 'contents', 'made file')
+  t.equal(fs.readlinkSync(`${dir}/link`), 'file2', 'made symlink')
+  let leaveDir
+  t.test('leave the dir behind', { saveFixture: true }, t => {
+    leaveDir = t.testdir()
+    t.parent.teardown(() => rimraf.sync(leaveDir))
+    t.end()
+  })
+  t.ok(fs.statSync(leaveDir).isDirectory(), 'left dir behind')
+  t.end()
 })

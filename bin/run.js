@@ -367,6 +367,9 @@ const setupTapEnv = exports.setupTapEnv = options => {
   if (options.bail)
     process.env.TAP_BAIL = '1'
 
+  if (options['save-fixture'])
+    process.env.TAP_SAVE_FIXTURE = '1'
+
   if (options.invert)
     process.env.TAP_GREP_INVERT = '1'
 

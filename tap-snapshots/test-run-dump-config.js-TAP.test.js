@@ -39,6 +39,7 @@ rcfile: cli-tests/taprc
 reporter: base
 reporter-arg: []
 save: null
+save-fixture: false
 show-process-tree: false
 statements: 100
 test-arg: []
@@ -88,6 +89,7 @@ rcfile: cli-tests/taprc
 reporter: spec
 reporter-arg: []
 save: null
+save-fixture: false
 show-process-tree: false
 statements: 100
 test-arg: []
@@ -137,6 +139,7 @@ rcfile: {CWD}/cli-tests/.taprc
 reporter: tap
 reporter-arg: []
 save: null
+save-fixture: false
 show-process-tree: false
 statements: 100
 test-arg: []
@@ -186,6 +189,7 @@ rcfile: {CWD}/cli-tests/.taprc
 reporter: tap
 reporter-arg: []
 save: null
+save-fixture: false
 show-process-tree: false
 statements: 100
 test-arg: []
@@ -235,6 +239,7 @@ rcfile: {CWD}/cli-tests/.taprc
 reporter: tap
 reporter-arg: []
 save: null
+save-fixture: false
 show-process-tree: false
 statements: 100
 test-arg: []
@@ -284,6 +289,7 @@ rcfile: {CWD}/.taprc
 reporter: tap
 reporter-arg: []
 save: null
+save-fixture: false
 show-process-tree: false
 statements: 100
 test-arg: []
@@ -344,6 +350,7 @@ rcfile: {CWD}/.taprc
 reporter: spec
 reporter-arg: []
 save: foo.txt
+save-fixture: false
 show-process-tree: false
 statements: 100
 test-arg:
@@ -395,6 +402,7 @@ rcfile: {CWD}/.taprc
 reporter: base
 reporter-arg: []
 save: null
+save-fixture: false
 show-process-tree: false
 statements: 100
 test-arg: []

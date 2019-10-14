@@ -87,6 +87,12 @@ Much more documentation available at: https://www.node-tap.org/
                   built-in reporters or module reporters.`,
   }),
 
+  'save-fixture': flag({
+    short: 'F',
+    envDefault: 'TAP_SAVE_FIXTURE',
+    description: 'Do not clean up fixtures created with t.testdir()',
+  }),
+
   bail: flag({
     short: 'b',
     envDefault: 'TAP_BAIL',
