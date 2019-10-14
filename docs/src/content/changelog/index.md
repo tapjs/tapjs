@@ -12,7 +12,7 @@ redirect_from:
 
 * Add the [`t.testdir()`](/docs/api/#ttestdirfixtures) and
   [`t.fixture()`](/docs/api/#tfixturetype-content) methods.  See [testing
-  with fixtures](/api/fixtures/).
+  with fixtures](/docs/api/fixtures/).
 * Capture the stack trace more helpfully in "subtest after end" errors.
 
 ## 14.6 - 2019-08-03
