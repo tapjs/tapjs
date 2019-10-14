@@ -19,7 +19,7 @@ information.
 Usage:
   tap [options] [<files>]
 
-tap v14.6.9 - A Test-Anything-Protocol library for JavaScript
+tap v14.7.0 - A Test-Anything-Protocol library for JavaScript
 
 Executes all the files and interprets their output as TAP formatted test result
 data. If no files are specified, then tap will search for testy-looking files,
@@ -67,6 +67,8 @@ Basic Options:
                          using built-in reporters or module reporters.
                          Can be set multiple times
 
+  -F --save-fixture      Do not clean up fixtures created with t.testdir()
+  --no-save-fixture      switch off the --save-fixture flag
   -b --bail              Bail out on first failure
   -B --no-bail           Do not bail out on first failure (default)
   --comments             Print all tap comments to process.stderr
