@@ -8,6 +8,13 @@ redirect_from:
 
 # Changelog
 
+## 14.7 - 2019-10-14
+
+* Add the [`t.testdir()`](/docs/api/#ttestdirfixtures) and
+  [`t.fixture()`](/docs/api/#tfixturetype-content) methods.  See [testing
+  with fixtures](/api/fixtures/).
+* Capture the stack trace more helpfully in "subtest after end" errors.
+
 ## 14.6 - 2019-08-03
 
 * Add the `--no-coverage-map` config flag to turn off a previously-set
