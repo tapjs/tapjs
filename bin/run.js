@@ -260,6 +260,7 @@ const runNyc = (cmd, programArgs, options, spawnOpts) => {
     nycBin,
     ...cmd,
     ...(options['show-process-tree'] ? ['--show-process-tree'] : []),
+    '--produce-source-map',
     '--cache=true',
     '--branches=' + branches,
     '--watermarks.branches=' + branches,
