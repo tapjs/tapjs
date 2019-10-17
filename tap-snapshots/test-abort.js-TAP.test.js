@@ -48,6 +48,7 @@ FinalResults {
     "start": 1,
   },
   "skip": 0,
+  "time": null,
   "todo": 0,
 }
 `
@@ -95,6 +96,7 @@ FinalResults {
     "start": 1,
   },
   "skip": 0,
+  "time": null,
   "todo": 0,
 }
 `
@@ -145,6 +147,7 @@ FinalResults {
     "start": 1,
   },
   "skip": 0,
+  "time": null,
   "todo": 0,
 }
 `
@@ -187,6 +190,7 @@ FinalResults {
     "start": 1,
   },
   "skip": 0,
+  "time": null,
   "todo": 0,
 }
 `
@@ -229,6 +233,7 @@ FinalResults {
     "start": 1,
   },
   "skip": 0,
+  "time": null,
   "todo": 0,
 }
 `
@@ -274,6 +279,7 @@ FinalResults {
     "start": 1,
   },
   "skip": 0,
+  "time": null,
   "todo": 0,
 }
 `

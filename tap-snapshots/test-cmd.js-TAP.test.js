@@ -5,115 +5,480 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/cmd.js TAP basic b w > error 1`] = `
-0
-`
-
-exports[`test/cmd.js TAP basic b w > error 2`] = `
+exports[`test/cmd.js TAP basic bail b w > error 1`] = `
 1
 `
 
-exports[`test/cmd.js TAP basic b w > error 3`] = `
-1
-`
-
-exports[`test/cmd.js TAP basic b w > error 4`] = `
-1
-`
-
-exports[`test/cmd.js TAP basic b w > output 1`] = `
+exports[`test/cmd.js TAP basic bail b w > output 1`] = `
 [
   [ 'version', 13 ],
   [
     'assert',
-    Result { ok: true, id: 1, name: 'this is fine', fullname: '' }
-  ],
-  [
-    'child',
-    [
-      [ 'comment', '# Subtest: child\\n' ],
-      [
-        'assert',
-        Result {
-          ok: true,
-          id: 1,
-          name: 'this is fine',
-          fullname: 'child'
-        }
-      ],
-      [ 'pragma', 'strict', true ],
-      [
-        'assert',
-        Result {
-          ok: true,
-          id: 2,
-          name: 'also fine',
-          fullname: 'child'
-        }
-      ],
-      [ 'assert', Result { ok: true, id: 3, fullname: 'child' } ],
-      [ 'comment', '# some comment\\n' ],
-      [ 'plan', { start: 1, end: 3 } ],
-      [
-        'complete',
-        FinalResults {
-          ok: true,
-          count: 3,
-          pass: 3,
-          fail: 0,
-          bailout: false,
-          todo: 0,
-          skip: 0,
-          plan: FinalPlan {
-            start: 1,
-            end: 3,
-            skipAll: false,
-            skipReason: '',
-            comment: ''
-          },
-          failures: []
-        }
-      ]
-    ]
-  ],
-  [ 'extra', '    blearajn9aefnzxrfoas\\n' ],
-  [ 'extra', '               \\n' ],
-  [
-    'assert',
     Result {
       ok: true,
-      id: 2,
-      buffered: true,
-      name: 'child',
+      id: 1,
+      name: "i'm sure this will be fine",
       fullname: ''
     }
   ],
-  [ 'plan', { start: 1, end: 2 } ],
+  [ 'bailout', '' ],
   [
     'complete',
     FinalResults {
-      ok: true,
-      count: 2,
-      pass: 2,
+      ok: false,
+      count: 1,
+      pass: 1,
       fail: 0,
-      bailout: false,
+      bailout: true,
       todo: 0,
       skip: 0,
       plan: FinalPlan {
-        start: 1,
-        end: 2,
+        start: null,
+        end: null,
         skipAll: false,
         skipReason: '',
         comment: ''
       },
-      failures: []
+      failures: [],
+      time: null
     }
   ]
 ]
 
 `
 
-exports[`test/cmd.js TAP basic b w > output 2`] = `
+exports[`test/cmd.js TAP basic bail b w > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic bail flat > error 1`] = `
+1
+`
+
+exports[`test/cmd.js TAP basic bail flat > output 1`] = `
+[
+  [
+    'result',
+    Result {
+      ok: true,
+      id: 1,
+      name: "i'm sure this will be fine",
+      fullname: ''
+    }
+  ],
+  [ 'bailout', '' ],
+  [
+    'complete',
+    FinalResults {
+      ok: false,
+      count: 1,
+      pass: 1,
+      fail: 0,
+      bailout: true,
+      todo: 0,
+      skip: 0,
+      plan: FinalPlan {
+        start: null,
+        end: null,
+        skipAll: false,
+        skipReason: '',
+        comment: ''
+      },
+      failures: [],
+      time: null
+    }
+  ]
+]
+
+`
+
+exports[`test/cmd.js TAP basic bail flat > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic bail flat tap > error 1`] = `
+1
+`
+
+exports[`test/cmd.js TAP basic bail flat tap > output 1`] = `
+TAP version 13
+ok 1 - i'm sure this will be fine
+Bail out!
+
+
+`
+
+exports[`test/cmd.js TAP basic bail flat tap > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic bail lines > error 1`] = `
+1
+`
+
+exports[`test/cmd.js TAP basic bail lines > output 1`] = `
+TAP version 13
+ok 1 - i'm sure this will be fine
+Bail out!
+
+`
+
+exports[`test/cmd.js TAP basic bail lines > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic bail no args > error 1`] = `
+1
+`
+
+exports[`test/cmd.js TAP basic bail no args > output 1`] = `
+[
+  [ 'version', 13 ],
+  [
+    'assert',
+    Result {
+      ok: true,
+      id: 1,
+      name: "i'm sure this will be fine",
+      fullname: ''
+    }
+  ],
+  [ 'bailout', '' ],
+  [
+    'complete',
+    FinalResults {
+      ok: false,
+      count: 1,
+      pass: 1,
+      fail: 0,
+      bailout: true,
+      todo: 0,
+      skip: 0,
+      plan: FinalPlan {
+        start: null,
+        end: null,
+        skipAll: false,
+        skipReason: '',
+        comment: ''
+      },
+      failures: [],
+      time: null
+    }
+  ]
+]
+
+`
+
+exports[`test/cmd.js TAP basic bail no args > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic bail silent > error 1`] = `
+1
+`
+
+exports[`test/cmd.js TAP basic bail silent > output 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic bail silent > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic bail silent strict > error 1`] = `
+1
+`
+
+exports[`test/cmd.js TAP basic bail silent strict > output 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic bail silent strict > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic bail strict > error 1`] = `
+1
+`
+
+exports[`test/cmd.js TAP basic bail strict > output 1`] = `
+[
+  [ 'version', 13 ],
+  [
+    'assert',
+    Result {
+      ok: true,
+      id: 1,
+      name: "i'm sure this will be fine",
+      fullname: ''
+    }
+  ],
+  [ 'bailout', '' ],
+  [
+    'complete',
+    FinalResults {
+      ok: false,
+      count: 1,
+      pass: 1,
+      fail: 0,
+      bailout: true,
+      todo: 0,
+      skip: 0,
+      plan: FinalPlan {
+        start: null,
+        end: null,
+        skipAll: false,
+        skipReason: '',
+        comment: ''
+      },
+      failures: [],
+      time: null
+    }
+  ]
+]
+
+`
+
+exports[`test/cmd.js TAP basic bail strict > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic bail t > error 1`] = `
+1
+`
+
+exports[`test/cmd.js TAP basic bail t > output 1`] = `
+TAP version 13
+ok 1 - i'm sure this will be fine
+Bail out!
+
+
+`
+
+exports[`test/cmd.js TAP basic bail t > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic bail_reason b w > error 1`] = `
+1
+`
+
+exports[`test/cmd.js TAP basic bail_reason b w > output 1`] = `
+[
+  [ 'version', 13 ],
+  [ 'bailout', '# i have my reasons' ],
+  [
+    'complete',
+    FinalResults {
+      ok: false,
+      count: 0,
+      pass: 0,
+      fail: 0,
+      bailout: '# i have my reasons',
+      todo: 0,
+      skip: 0,
+      plan: FinalPlan {
+        start: null,
+        end: null,
+        skipAll: false,
+        skipReason: '',
+        comment: ''
+      },
+      failures: [],
+      time: null
+    }
+  ]
+]
+
+`
+
+exports[`test/cmd.js TAP basic bail_reason b w > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic bail_reason flat > error 1`] = `
+1
+`
+
+exports[`test/cmd.js TAP basic bail_reason flat > output 1`] = `
+[
+  [ 'bailout', '# i have my reasons' ],
+  [
+    'complete',
+    FinalResults {
+      ok: false,
+      count: 0,
+      pass: 0,
+      fail: 0,
+      bailout: '# i have my reasons',
+      todo: 0,
+      skip: 0,
+      plan: FinalPlan {
+        start: null,
+        end: null,
+        skipAll: false,
+        skipReason: '',
+        comment: ''
+      },
+      failures: [],
+      time: null
+    }
+  ]
+]
+
+`
+
+exports[`test/cmd.js TAP basic bail_reason flat > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic bail_reason flat tap > error 1`] = `
+1
+`
+
+exports[`test/cmd.js TAP basic bail_reason flat tap > output 1`] = `
+TAP version 13
+Bail out! # i have my reasons
+
+
+`
+
+exports[`test/cmd.js TAP basic bail_reason flat tap > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic bail_reason lines > error 1`] = `
+1
+`
+
+exports[`test/cmd.js TAP basic bail_reason lines > output 1`] = `
+TAP version 13
+Bail out! # i have my reasons
+
+`
+
+exports[`test/cmd.js TAP basic bail_reason lines > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic bail_reason no args > error 1`] = `
+1
+`
+
+exports[`test/cmd.js TAP basic bail_reason no args > output 1`] = `
+[
+  [ 'version', 13 ],
+  [ 'bailout', '# i have my reasons' ],
+  [
+    'complete',
+    FinalResults {
+      ok: false,
+      count: 0,
+      pass: 0,
+      fail: 0,
+      bailout: '# i have my reasons',
+      todo: 0,
+      skip: 0,
+      plan: FinalPlan {
+        start: null,
+        end: null,
+        skipAll: false,
+        skipReason: '',
+        comment: ''
+      },
+      failures: [],
+      time: null
+    }
+  ]
+]
+
+`
+
+exports[`test/cmd.js TAP basic bail_reason no args > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic bail_reason silent > error 1`] = `
+1
+`
+
+exports[`test/cmd.js TAP basic bail_reason silent > output 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic bail_reason silent > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic bail_reason silent strict > error 1`] = `
+1
+`
+
+exports[`test/cmd.js TAP basic bail_reason silent strict > output 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic bail_reason silent strict > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic bail_reason strict > error 1`] = `
+1
+`
+
+exports[`test/cmd.js TAP basic bail_reason strict > output 1`] = `
+[
+  [ 'version', 13 ],
+  [ 'bailout', '# i have my reasons' ],
+  [
+    'complete',
+    FinalResults {
+      ok: false,
+      count: 0,
+      pass: 0,
+      fail: 0,
+      bailout: '# i have my reasons',
+      todo: 0,
+      skip: 0,
+      plan: FinalPlan {
+        start: null,
+        end: null,
+        skipAll: false,
+        skipReason: '',
+        comment: ''
+      },
+      failures: [],
+      time: null
+    }
+  ]
+]
+
+`
+
+exports[`test/cmd.js TAP basic bail_reason strict > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic bail_reason t > error 1`] = `
+1
+`
+
+exports[`test/cmd.js TAP basic bail_reason t > output 1`] = `
+TAP version 13
+Bail out! # i have my reasons
+
+
+`
+
+exports[`test/cmd.js TAP basic bail_reason t > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic fail b w > error 1`] = `
+1
+`
+
+exports[`test/cmd.js TAP basic fail b w > output 1`] = `
 [
   [ 'version', 13 ],
   [
@@ -160,7 +525,8 @@ exports[`test/cmd.js TAP basic b w > output 2`] = `
               diag: { not: 'ok', this: 'is fine' },
               fullname: 'child'
             }
-          ]
+          ],
+          time: null
         }
       ]
     ]
@@ -185,153 +551,23 @@ exports[`test/cmd.js TAP basic b w > output 2`] = `
         skipReason: '',
         comment: ''
       },
-      failures: []
+      failures: [],
+      time: null
     }
   ]
 ]
 
 `
 
-exports[`test/cmd.js TAP basic b w > output 3`] = `
-[
-  [ 'version', 13 ],
-  [
-    'assert',
-    Result {
-      ok: true,
-      id: 1,
-      name: "i'm sure this will be fine",
-      fullname: ''
-    }
-  ],
-  [ 'bailout', '' ],
-  [
-    'complete',
-    FinalResults {
-      ok: false,
-      count: 1,
-      pass: 1,
-      fail: 0,
-      bailout: true,
-      todo: 0,
-      skip: 0,
-      plan: FinalPlan {
-        start: null,
-        end: null,
-        skipAll: false,
-        skipReason: '',
-        comment: ''
-      },
-      failures: []
-    }
-  ]
-]
+exports[`test/cmd.js TAP basic fail b w > stderr 1`] = `
 
 `
 
-exports[`test/cmd.js TAP basic b w > output 4`] = `
-[
-  [ 'version', 13 ],
-  [ 'bailout', '# i have my reasons' ],
-  [
-    'complete',
-    FinalResults {
-      ok: false,
-      count: 0,
-      pass: 0,
-      fail: 0,
-      bailout: '# i have my reasons',
-      todo: 0,
-      skip: 0,
-      plan: FinalPlan {
-        start: null,
-        end: null,
-        skipAll: false,
-        skipReason: '',
-        comment: ''
-      },
-      failures: []
-    }
-  ]
-]
-
-`
-
-exports[`test/cmd.js TAP basic b w > stderr 1`] = `
-
-`
-
-exports[`test/cmd.js TAP basic b w > stderr 2`] = `
-
-`
-
-exports[`test/cmd.js TAP basic b w > stderr 3`] = `
-
-`
-
-exports[`test/cmd.js TAP basic b w > stderr 4`] = `
-
-`
-
-exports[`test/cmd.js TAP basic flat > error 1`] = `
-0
-`
-
-exports[`test/cmd.js TAP basic flat > error 2`] = `
+exports[`test/cmd.js TAP basic fail flat > error 1`] = `
 1
 `
 
-exports[`test/cmd.js TAP basic flat > error 3`] = `
-1
-`
-
-exports[`test/cmd.js TAP basic flat > error 4`] = `
-1
-`
-
-exports[`test/cmd.js TAP basic flat > output 1`] = `
-[
-  [
-    'result',
-    Result { ok: true, id: 1, name: 'this is fine', fullname: '' }
-  ],
-  [ 'extra', '    blearajn9aefnzxrfoas\\n' ],
-  [ 'extra', '               \\n' ],
-  [
-    'result',
-    Result { ok: true, id: 1, name: 'this is fine', fullname: 'child' }
-  ],
-  [
-    'result',
-    Result { ok: true, id: 2, name: 'also fine', fullname: 'child' }
-  ],
-  [ 'result', Result { ok: true, id: 3, fullname: 'child' } ],
-  [ 'plan', { start: 1, end: 2 } ],
-  [
-    'complete',
-    FinalResults {
-      ok: true,
-      count: 2,
-      pass: 2,
-      fail: 0,
-      bailout: false,
-      todo: 0,
-      skip: 0,
-      plan: FinalPlan {
-        start: 1,
-        end: 2,
-        skipAll: false,
-        skipReason: '',
-        comment: ''
-      },
-      failures: []
-    }
-  ]
-]
-
-`
-
-exports[`test/cmd.js TAP basic flat > output 2`] = `
+exports[`test/cmd.js TAP basic fail flat > output 1`] = `
 [
   [
     'result',
@@ -416,122 +652,23 @@ exports[`test/cmd.js TAP basic flat > output 2`] = `
           name: 'child',
           fullname: ''
         }
-      ]
+      ],
+      time: null
     }
   ]
 ]
 
 `
 
-exports[`test/cmd.js TAP basic flat > output 3`] = `
-[
-  [
-    'result',
-    Result {
-      ok: true,
-      id: 1,
-      name: "i'm sure this will be fine",
-      fullname: ''
-    }
-  ],
-  [ 'bailout', '' ],
-  [
-    'complete',
-    FinalResults {
-      ok: false,
-      count: 1,
-      pass: 1,
-      fail: 0,
-      bailout: true,
-      todo: 0,
-      skip: 0,
-      plan: FinalPlan {
-        start: null,
-        end: null,
-        skipAll: false,
-        skipReason: '',
-        comment: ''
-      },
-      failures: []
-    }
-  ]
-]
+exports[`test/cmd.js TAP basic fail flat > stderr 1`] = `
 
 `
 
-exports[`test/cmd.js TAP basic flat > output 4`] = `
-[
-  [ 'bailout', '# i have my reasons' ],
-  [
-    'complete',
-    FinalResults {
-      ok: false,
-      count: 0,
-      pass: 0,
-      fail: 0,
-      bailout: '# i have my reasons',
-      todo: 0,
-      skip: 0,
-      plan: FinalPlan {
-        start: null,
-        end: null,
-        skipAll: false,
-        skipReason: '',
-        comment: ''
-      },
-      failures: []
-    }
-  ]
-]
-
-`
-
-exports[`test/cmd.js TAP basic flat > stderr 1`] = `
-
-`
-
-exports[`test/cmd.js TAP basic flat > stderr 2`] = `
-
-`
-
-exports[`test/cmd.js TAP basic flat > stderr 3`] = `
-
-`
-
-exports[`test/cmd.js TAP basic flat > stderr 4`] = `
-
-`
-
-exports[`test/cmd.js TAP basic flat tap > error 1`] = `
-0
-`
-
-exports[`test/cmd.js TAP basic flat tap > error 2`] = `
+exports[`test/cmd.js TAP basic fail flat tap > error 1`] = `
 1
 `
 
-exports[`test/cmd.js TAP basic flat tap > error 3`] = `
-1
-`
-
-exports[`test/cmd.js TAP basic flat tap > error 4`] = `
-1
-`
-
-exports[`test/cmd.js TAP basic flat tap > output 1`] = `
-TAP version 13
-ok 1 - this is fine
-    blearajn9aefnzxrfoas
-               
-ok 2 - child > this is fine
-ok 3 - child > also fine
-ok 4 - child
-1..4
-
-
-`
-
-exports[`test/cmd.js TAP basic flat tap > output 2`] = `
+exports[`test/cmd.js TAP basic fail flat tap > output 1`] = `
 TAP version 13
 ok 1 - this is fine
     blearajn9aefnzxrfoas
@@ -551,71 +688,15 @@ ok 6 - child > piks # SKIP is piks backward
 
 `
 
-exports[`test/cmd.js TAP basic flat tap > output 3`] = `
-TAP version 13
-ok 1 - i'm sure this will be fine
-Bail out!
-
+exports[`test/cmd.js TAP basic fail flat tap > stderr 1`] = `
 
 `
 
-exports[`test/cmd.js TAP basic flat tap > output 4`] = `
-TAP version 13
-Bail out! # i have my reasons
-
-
-`
-
-exports[`test/cmd.js TAP basic flat tap > stderr 1`] = `
-
-`
-
-exports[`test/cmd.js TAP basic flat tap > stderr 2`] = `
-
-`
-
-exports[`test/cmd.js TAP basic flat tap > stderr 3`] = `
-
-`
-
-exports[`test/cmd.js TAP basic flat tap > stderr 4`] = `
-
-`
-
-exports[`test/cmd.js TAP basic lines > error 1`] = `
-0
-`
-
-exports[`test/cmd.js TAP basic lines > error 2`] = `
+exports[`test/cmd.js TAP basic fail lines > error 1`] = `
 1
 `
 
-exports[`test/cmd.js TAP basic lines > error 3`] = `
-1
-`
-
-exports[`test/cmd.js TAP basic lines > error 4`] = `
-1
-`
-
-exports[`test/cmd.js TAP basic lines > output 1`] = `
-TAP version 13
-ok 1 - this is fine
-ok 2 - child {
-    ok 1 - this is fine
-    blearajn9aefnzxrfoas
-               
-    pragma +strict
-    ok 2 - also fine
-    ok
-    # some comment
-    1..3
-}
-1..2
-
-`
-
-exports[`test/cmd.js TAP basic lines > output 2`] = `
+exports[`test/cmd.js TAP basic fail lines > output 1`] = `
 TAP version 13
 ok 1 - this is fine
 # Subtest: child
@@ -644,144 +725,15 @@ not ok 2 - child # time=420ms
 
 `
 
-exports[`test/cmd.js TAP basic lines > output 3`] = `
-TAP version 13
-ok 1 - i'm sure this will be fine
-Bail out!
+exports[`test/cmd.js TAP basic fail lines > stderr 1`] = `
 
 `
 
-exports[`test/cmd.js TAP basic lines > output 4`] = `
-TAP version 13
-Bail out! # i have my reasons
-
-`
-
-exports[`test/cmd.js TAP basic lines > stderr 1`] = `
-
-`
-
-exports[`test/cmd.js TAP basic lines > stderr 2`] = `
-
-`
-
-exports[`test/cmd.js TAP basic lines > stderr 3`] = `
-
-`
-
-exports[`test/cmd.js TAP basic lines > stderr 4`] = `
-
-`
-
-exports[`test/cmd.js TAP basic no args > error 1`] = `
-0
-`
-
-exports[`test/cmd.js TAP basic no args > error 2`] = `
+exports[`test/cmd.js TAP basic fail no args > error 1`] = `
 1
 `
 
-exports[`test/cmd.js TAP basic no args > error 3`] = `
-1
-`
-
-exports[`test/cmd.js TAP basic no args > error 4`] = `
-1
-`
-
-exports[`test/cmd.js TAP basic no args > output 1`] = `
-[
-  [ 'version', 13 ],
-  [
-    'assert',
-    Result { ok: true, id: 1, name: 'this is fine', fullname: '' }
-  ],
-  [
-    'child',
-    [
-      [ 'comment', '# Subtest: child\\n' ],
-      [
-        'assert',
-        Result {
-          ok: true,
-          id: 1,
-          name: 'this is fine',
-          fullname: 'child'
-        }
-      ],
-      [ 'pragma', 'strict', true ],
-      [
-        'assert',
-        Result {
-          ok: true,
-          id: 2,
-          name: 'also fine',
-          fullname: 'child'
-        }
-      ],
-      [ 'assert', Result { ok: true, id: 3, fullname: 'child' } ],
-      [ 'comment', '# some comment\\n' ],
-      [ 'plan', { start: 1, end: 3 } ],
-      [
-        'complete',
-        FinalResults {
-          ok: true,
-          count: 3,
-          pass: 3,
-          fail: 0,
-          bailout: false,
-          todo: 0,
-          skip: 0,
-          plan: FinalPlan {
-            start: 1,
-            end: 3,
-            skipAll: false,
-            skipReason: '',
-            comment: ''
-          },
-          failures: []
-        }
-      ]
-    ]
-  ],
-  [ 'extra', '    blearajn9aefnzxrfoas\\n' ],
-  [ 'extra', '               \\n' ],
-  [
-    'assert',
-    Result {
-      ok: true,
-      id: 2,
-      buffered: true,
-      name: 'child',
-      fullname: ''
-    }
-  ],
-  [ 'plan', { start: 1, end: 2 } ],
-  [
-    'complete',
-    FinalResults {
-      ok: true,
-      count: 2,
-      pass: 2,
-      fail: 0,
-      bailout: false,
-      todo: 0,
-      skip: 0,
-      plan: FinalPlan {
-        start: 1,
-        end: 2,
-        skipAll: false,
-        skipReason: '',
-        comment: ''
-      },
-      failures: []
-    }
-  ]
-]
-
-`
-
-exports[`test/cmd.js TAP basic no args > output 2`] = `
+exports[`test/cmd.js TAP basic fail no args > output 1`] = `
 [
   [ 'version', 13 ],
   [
@@ -875,7 +827,8 @@ exports[`test/cmd.js TAP basic no args > output 2`] = `
               diag: { not: 'ok', this: 'is fine' },
               fullname: 'child'
             }
-          ]
+          ],
+          time: 420
         }
       ]
     ]
@@ -913,319 +866,47 @@ exports[`test/cmd.js TAP basic no args > output 2`] = `
           name: 'child',
           fullname: ''
         }
-      ]
-    }
-  ]
-]
-
-`
-
-exports[`test/cmd.js TAP basic no args > output 3`] = `
-[
-  [ 'version', 13 ],
-  [
-    'assert',
-    Result {
-      ok: true,
-      id: 1,
-      name: "i'm sure this will be fine",
-      fullname: ''
-    }
-  ],
-  [ 'bailout', '' ],
-  [
-    'complete',
-    FinalResults {
-      ok: false,
-      count: 1,
-      pass: 1,
-      fail: 0,
-      bailout: true,
-      todo: 0,
-      skip: 0,
-      plan: FinalPlan {
-        start: null,
-        end: null,
-        skipAll: false,
-        skipReason: '',
-        comment: ''
-      },
-      failures: []
-    }
-  ]
-]
-
-`
-
-exports[`test/cmd.js TAP basic no args > output 4`] = `
-[
-  [ 'version', 13 ],
-  [ 'bailout', '# i have my reasons' ],
-  [
-    'complete',
-    FinalResults {
-      ok: false,
-      count: 0,
-      pass: 0,
-      fail: 0,
-      bailout: '# i have my reasons',
-      todo: 0,
-      skip: 0,
-      plan: FinalPlan {
-        start: null,
-        end: null,
-        skipAll: false,
-        skipReason: '',
-        comment: ''
-      },
-      failures: []
-    }
-  ]
-]
-
-`
-
-exports[`test/cmd.js TAP basic no args > stderr 1`] = `
-
-`
-
-exports[`test/cmd.js TAP basic no args > stderr 2`] = `
-
-`
-
-exports[`test/cmd.js TAP basic no args > stderr 3`] = `
-
-`
-
-exports[`test/cmd.js TAP basic no args > stderr 4`] = `
-
-`
-
-exports[`test/cmd.js TAP basic silent > error 1`] = `
-0
-`
-
-exports[`test/cmd.js TAP basic silent > error 2`] = `
-1
-`
-
-exports[`test/cmd.js TAP basic silent > error 3`] = `
-1
-`
-
-exports[`test/cmd.js TAP basic silent > error 4`] = `
-1
-`
-
-exports[`test/cmd.js TAP basic silent > output 1`] = `
-
-`
-
-exports[`test/cmd.js TAP basic silent > output 2`] = `
-
-`
-
-exports[`test/cmd.js TAP basic silent > output 3`] = `
-
-`
-
-exports[`test/cmd.js TAP basic silent > output 4`] = `
-
-`
-
-exports[`test/cmd.js TAP basic silent > stderr 1`] = `
-
-`
-
-exports[`test/cmd.js TAP basic silent > stderr 2`] = `
-
-`
-
-exports[`test/cmd.js TAP basic silent > stderr 3`] = `
-
-`
-
-exports[`test/cmd.js TAP basic silent > stderr 4`] = `
-
-`
-
-exports[`test/cmd.js TAP basic silent strict > error 1`] = `
-1
-`
-
-exports[`test/cmd.js TAP basic silent strict > error 2`] = `
-1
-`
-
-exports[`test/cmd.js TAP basic silent strict > error 3`] = `
-1
-`
-
-exports[`test/cmd.js TAP basic silent strict > error 4`] = `
-1
-`
-
-exports[`test/cmd.js TAP basic silent strict > output 1`] = `
-
-`
-
-exports[`test/cmd.js TAP basic silent strict > output 2`] = `
-
-`
-
-exports[`test/cmd.js TAP basic silent strict > output 3`] = `
-
-`
-
-exports[`test/cmd.js TAP basic silent strict > output 4`] = `
-
-`
-
-exports[`test/cmd.js TAP basic silent strict > stderr 1`] = `
-
-`
-
-exports[`test/cmd.js TAP basic silent strict > stderr 2`] = `
-
-`
-
-exports[`test/cmd.js TAP basic silent strict > stderr 3`] = `
-
-`
-
-exports[`test/cmd.js TAP basic silent strict > stderr 4`] = `
-
-`
-
-exports[`test/cmd.js TAP basic strict > error 1`] = `
-1
-`
-
-exports[`test/cmd.js TAP basic strict > error 2`] = `
-1
-`
-
-exports[`test/cmd.js TAP basic strict > error 3`] = `
-1
-`
-
-exports[`test/cmd.js TAP basic strict > error 4`] = `
-1
-`
-
-exports[`test/cmd.js TAP basic strict > output 1`] = `
-[
-  [ 'version', 13 ],
-  [
-    'assert',
-    Result { ok: true, id: 1, name: 'this is fine', fullname: '' }
-  ],
-  [
-    'child',
-    [
-      [ 'comment', '# Subtest: child\\n' ],
-      [
-        'assert',
-        Result {
-          ok: true,
-          id: 1,
-          name: 'this is fine',
-          fullname: 'child'
-        }
       ],
-      [ 'pragma', 'strict', true ],
-      [
-        'assert',
-        Result {
-          ok: true,
-          id: 2,
-          name: 'also fine',
-          fullname: 'child'
-        }
-      ],
-      [ 'assert', Result { ok: true, id: 3, fullname: 'child' } ],
-      [ 'comment', '# some comment\\n' ],
-      [ 'plan', { start: 1, end: 3 } ],
-      [ 'comment', '# failed 2 of 3 tests\\n' ],
-      [
-        'complete',
-        FinalResults {
-          ok: false,
-          count: 3,
-          pass: 3,
-          fail: 2,
-          bailout: false,
-          todo: 0,
-          skip: 0,
-          plan: FinalPlan {
-            start: 1,
-            end: 3,
-            skipAll: false,
-            skipReason: '',
-            comment: ''
-          },
-          failures: [
-            {
-              tapError: 'Non-TAP data encountered in strict mode',
-              data: 'blearajn9aefnzxrfoas\\n'
-            },
-            {
-              tapError: 'Non-TAP data encountered in strict mode',
-              data: '           \\n'
-            }
-          ]
-        }
-      ]
-    ]
-  ],
-  [ 'extra', '    blearajn9aefnzxrfoas\\n' ],
-  [ 'extra', '               \\n' ],
-  [
-    'assert',
-    Result {
-      ok: true,
-      id: 2,
-      buffered: true,
-      name: 'child',
-      fullname: ''
-    }
-  ],
-  [ 'plan', { start: 1, end: 2 } ],
-  [ 'comment', '# failed 2 of 2 tests\\n' ],
-  [
-    'complete',
-    FinalResults {
-      ok: false,
-      count: 2,
-      pass: 2,
-      fail: 2,
-      bailout: false,
-      todo: 0,
-      skip: 0,
-      plan: FinalPlan {
-        start: 1,
-        end: 2,
-        skipAll: false,
-        skipReason: '',
-        comment: ''
-      },
-      failures: [
-        {
-          tapError: 'Non-TAP data encountered in strict mode',
-          data: 'blearajn9aefnzxrfoas\\n'
-        },
-        {
-          tapError: 'Non-TAP data encountered in strict mode',
-          data: '           \\n'
-        }
-      ]
+      time: null
     }
   ]
 ]
 
 `
 
-exports[`test/cmd.js TAP basic strict > output 2`] = `
+exports[`test/cmd.js TAP basic fail no args > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic fail silent > error 1`] = `
+1
+`
+
+exports[`test/cmd.js TAP basic fail silent > output 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic fail silent > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic fail silent strict > error 1`] = `
+1
+`
+
+exports[`test/cmd.js TAP basic fail silent strict > output 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic fail silent strict > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic fail strict > error 1`] = `
+1
+`
+
+exports[`test/cmd.js TAP basic fail strict > output 1`] = `
 [
   [ 'version', 13 ],
   [
@@ -1327,7 +1008,8 @@ exports[`test/cmd.js TAP basic strict > output 2`] = `
               diag: { not: 'ok', this: 'is fine' },
               fullname: 'child'
             }
-          ]
+          ],
+          time: 420
         }
       ]
     ]
@@ -1373,129 +1055,23 @@ exports[`test/cmd.js TAP basic strict > output 2`] = `
           name: 'child',
           fullname: ''
         }
-      ]
+      ],
+      time: null
     }
   ]
 ]
 
 `
 
-exports[`test/cmd.js TAP basic strict > output 3`] = `
-[
-  [ 'version', 13 ],
-  [
-    'assert',
-    Result {
-      ok: true,
-      id: 1,
-      name: "i'm sure this will be fine",
-      fullname: ''
-    }
-  ],
-  [ 'bailout', '' ],
-  [
-    'complete',
-    FinalResults {
-      ok: false,
-      count: 1,
-      pass: 1,
-      fail: 0,
-      bailout: true,
-      todo: 0,
-      skip: 0,
-      plan: FinalPlan {
-        start: null,
-        end: null,
-        skipAll: false,
-        skipReason: '',
-        comment: ''
-      },
-      failures: []
-    }
-  ]
-]
+exports[`test/cmd.js TAP basic fail strict > stderr 1`] = `
 
 `
 
-exports[`test/cmd.js TAP basic strict > output 4`] = `
-[
-  [ 'version', 13 ],
-  [ 'bailout', '# i have my reasons' ],
-  [
-    'complete',
-    FinalResults {
-      ok: false,
-      count: 0,
-      pass: 0,
-      fail: 0,
-      bailout: '# i have my reasons',
-      todo: 0,
-      skip: 0,
-      plan: FinalPlan {
-        start: null,
-        end: null,
-        skipAll: false,
-        skipReason: '',
-        comment: ''
-      },
-      failures: []
-    }
-  ]
-]
-
-`
-
-exports[`test/cmd.js TAP basic strict > stderr 1`] = `
-
-`
-
-exports[`test/cmd.js TAP basic strict > stderr 2`] = `
-
-`
-
-exports[`test/cmd.js TAP basic strict > stderr 3`] = `
-
-`
-
-exports[`test/cmd.js TAP basic strict > stderr 4`] = `
-
-`
-
-exports[`test/cmd.js TAP basic t > error 1`] = `
-0
-`
-
-exports[`test/cmd.js TAP basic t > error 2`] = `
+exports[`test/cmd.js TAP basic fail t > error 1`] = `
 1
 `
 
-exports[`test/cmd.js TAP basic t > error 3`] = `
-1
-`
-
-exports[`test/cmd.js TAP basic t > error 4`] = `
-1
-`
-
-exports[`test/cmd.js TAP basic t > output 1`] = `
-TAP version 13
-ok 1 - this is fine
-# Subtest: child
-    ok 1 - this is fine
-    pragma +strict
-    ok 2 - also fine
-    ok 3
-    # some comment
-    1..3
-    blearajn9aefnzxrfoas
-               
-ok 2 - child
-1..2
-
-
-`
-
-exports[`test/cmd.js TAP basic t > output 2`] = `
+exports[`test/cmd.js TAP basic fail t > output 1`] = `
 TAP version 13
 ok 1 - this is fine
 # Subtest: child
@@ -1525,34 +1101,902 @@ not ok 2 - child # time=420ms
 
 `
 
-exports[`test/cmd.js TAP basic t > output 3`] = `
+exports[`test/cmd.js TAP basic fail t > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic failing_child_with_passing_tap b w > error 1`] = `
+1
+`
+
+exports[`test/cmd.js TAP basic failing_child_with_passing_tap b w > output 1`] = `
+[
+  [ 'version', 13 ],
+  [ 'pragma', 'strict', true ],
+  [
+    'child',
+    [
+      [ 'comment', '# Subtest: child\\n' ],
+      [ 'assert', Result { ok: false, id: 1, fullname: 'child' } ],
+      [ 'bailout', '' ],
+      [
+        'complete',
+        FinalResults {
+          ok: false,
+          count: 1,
+          pass: 0,
+          fail: 3,
+          bailout: true,
+          todo: 0,
+          skip: 0,
+          plan: FinalPlan {
+            start: null,
+            end: null,
+            skipAll: false,
+            skipReason: '',
+            comment: ''
+          },
+          failures: [
+            {
+              tapError: 'Non-TAP data encountered in strict mode',
+              data: '  ...\\n'
+            },
+            {
+              tapError: 'Non-TAP data encountered in strict mode',
+              data: '  hello: world\\n'
+            },
+            Result { ok: false, id: 1, fullname: 'child' }
+          ],
+          time: null
+        }
+      ]
+    ]
+  ],
+  [ 'extra', '      ...\\n' ],
+  [ 'extra', '      hello: world\\n' ],
+  [ 'bailout', '' ],
+  [
+    'complete',
+    FinalResults {
+      ok: false,
+      count: 0,
+      pass: 0,
+      fail: 2,
+      bailout: true,
+      todo: 0,
+      skip: 0,
+      plan: FinalPlan {
+        start: null,
+        end: null,
+        skipAll: false,
+        skipReason: '',
+        comment: ''
+      },
+      failures: [
+        {
+          tapError: 'Non-TAP data encountered in strict mode',
+          data: '  ...\\n'
+        },
+        {
+          tapError: 'Non-TAP data encountered in strict mode',
+          data: '  hello: world\\n'
+        }
+      ],
+      time: null
+    }
+  ]
+]
+
+`
+
+exports[`test/cmd.js TAP basic failing_child_with_passing_tap b w > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic failing_child_with_passing_tap flat > error 1`] = `
+1
+`
+
+exports[`test/cmd.js TAP basic failing_child_with_passing_tap flat > output 1`] = `
+[
+  [ 'pragma', 'strict', true ],
+  [ 'extra', '      ...\\n' ],
+  [ 'extra', '      hello: world\\n' ],
+  [ 'result', Result { ok: false, id: 1, fullname: 'child' } ],
+  [ 'plan', { start: 1, end: 1 } ],
+  [ 'comment', '# failed 3 test\\n' ],
+  [
+    'complete',
+    FinalResults {
+      ok: false,
+      count: 1,
+      pass: 0,
+      fail: 3,
+      bailout: false,
+      todo: 0,
+      skip: 0,
+      plan: FinalPlan {
+        start: 1,
+        end: 1,
+        skipAll: false,
+        skipReason: '',
+        comment: ''
+      },
+      failures: [
+        {
+          tapError: 'Non-TAP data encountered in strict mode',
+          data: '  ...\\n'
+        },
+        {
+          tapError: 'Non-TAP data encountered in strict mode',
+          data: '  hello: world\\n'
+        },
+        Result { ok: false, id: 1, name: 'child', fullname: '' }
+      ],
+      time: null
+    }
+  ]
+]
+
+`
+
+exports[`test/cmd.js TAP basic failing_child_with_passing_tap flat > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic failing_child_with_passing_tap flat tap > error 1`] = `
+1
+`
+
+exports[`test/cmd.js TAP basic failing_child_with_passing_tap flat tap > output 1`] = `
 TAP version 13
-ok 1 - i'm sure this will be fine
-Bail out!
+pragma +strict
+      ...
+      hello: world
+not ok 1 - child
+1..1
+# failed 3 test
 
 
 `
 
-exports[`test/cmd.js TAP basic t > output 4`] = `
+exports[`test/cmd.js TAP basic failing_child_with_passing_tap flat tap > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic failing_child_with_passing_tap lines > error 1`] = `
+1
+`
+
+exports[`test/cmd.js TAP basic failing_child_with_passing_tap lines > output 1`] = `
 TAP version 13
-Bail out! # i have my reasons
+pragma +strict
+# Subtest: child
+    not ok 1
+      ...
+      hello: world
+    # test count(1) != plan(null)
+    # failed 4 test
+not ok 1 - child
+1..1
+# failed 3 test
+
+`
+
+exports[`test/cmd.js TAP basic failing_child_with_passing_tap lines > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic failing_child_with_passing_tap no args > error 1`] = `
+1
+`
+
+exports[`test/cmd.js TAP basic failing_child_with_passing_tap no args > output 1`] = `
+[
+  [ 'version', 13 ],
+  [ 'pragma', 'strict', true ],
+  [
+    'child',
+    [
+      [ 'comment', '# Subtest: child\\n' ],
+      [ 'assert', Result { ok: false, id: 1, fullname: 'child' } ],
+      [ 'comment', '# test count(1) != plan(null)\\n' ],
+      [ 'comment', '# failed 4 test\\n' ],
+      [
+        'complete',
+        FinalResults {
+          ok: false,
+          count: 1,
+          pass: 0,
+          fail: 4,
+          bailout: false,
+          todo: 0,
+          skip: 0,
+          plan: FinalPlan {
+            start: null,
+            end: null,
+            skipAll: false,
+            skipReason: '',
+            comment: ''
+          },
+          failures: [
+            {
+              tapError: 'Non-TAP data encountered in strict mode',
+              data: '  ...\\n'
+            },
+            {
+              tapError: 'Non-TAP data encountered in strict mode',
+              data: '  hello: world\\n'
+            },
+            Result { ok: false, id: 1, fullname: 'child' },
+            { tapError: 'no plan' }
+          ],
+          time: null
+        }
+      ]
+    ]
+  ],
+  [ 'extra', '      ...\\n' ],
+  [ 'extra', '      hello: world\\n' ],
+  [
+    'assert',
+    Result { ok: false, id: 1, name: 'child', fullname: '' }
+  ],
+  [ 'plan', { start: 1, end: 1 } ],
+  [ 'comment', '# failed 3 test\\n' ],
+  [
+    'complete',
+    FinalResults {
+      ok: false,
+      count: 1,
+      pass: 0,
+      fail: 3,
+      bailout: false,
+      todo: 0,
+      skip: 0,
+      plan: FinalPlan {
+        start: 1,
+        end: 1,
+        skipAll: false,
+        skipReason: '',
+        comment: ''
+      },
+      failures: [
+        {
+          tapError: 'Non-TAP data encountered in strict mode',
+          data: '  ...\\n'
+        },
+        {
+          tapError: 'Non-TAP data encountered in strict mode',
+          data: '  hello: world\\n'
+        },
+        Result { ok: false, id: 1, name: 'child', fullname: '' }
+      ],
+      time: null
+    }
+  ]
+]
+
+`
+
+exports[`test/cmd.js TAP basic failing_child_with_passing_tap no args > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic failing_child_with_passing_tap silent > error 1`] = `
+1
+`
+
+exports[`test/cmd.js TAP basic failing_child_with_passing_tap silent > output 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic failing_child_with_passing_tap silent > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic failing_child_with_passing_tap silent strict > error 1`] = `
+1
+`
+
+exports[`test/cmd.js TAP basic failing_child_with_passing_tap silent strict > output 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic failing_child_with_passing_tap silent strict > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic failing_child_with_passing_tap strict > error 1`] = `
+1
+`
+
+exports[`test/cmd.js TAP basic failing_child_with_passing_tap strict > output 1`] = `
+[
+  [ 'version', 13 ],
+  [ 'pragma', 'strict', true ],
+  [
+    'child',
+    [
+      [ 'comment', '# Subtest: child\\n' ],
+      [ 'assert', Result { ok: false, id: 1, fullname: 'child' } ],
+      [ 'comment', '# test count(1) != plan(null)\\n' ],
+      [ 'comment', '# failed 4 test\\n' ],
+      [
+        'complete',
+        FinalResults {
+          ok: false,
+          count: 1,
+          pass: 0,
+          fail: 4,
+          bailout: false,
+          todo: 0,
+          skip: 0,
+          plan: FinalPlan {
+            start: null,
+            end: null,
+            skipAll: false,
+            skipReason: '',
+            comment: ''
+          },
+          failures: [
+            {
+              tapError: 'Non-TAP data encountered in strict mode',
+              data: '  ...\\n'
+            },
+            {
+              tapError: 'Non-TAP data encountered in strict mode',
+              data: '  hello: world\\n'
+            },
+            Result { ok: false, id: 1, fullname: 'child' },
+            { tapError: 'no plan' }
+          ],
+          time: null
+        }
+      ]
+    ]
+  ],
+  [ 'extra', '      ...\\n' ],
+  [ 'extra', '      hello: world\\n' ],
+  [
+    'assert',
+    Result { ok: false, id: 1, name: 'child', fullname: '' }
+  ],
+  [ 'plan', { start: 1, end: 1 } ],
+  [ 'comment', '# failed 3 test\\n' ],
+  [
+    'complete',
+    FinalResults {
+      ok: false,
+      count: 1,
+      pass: 0,
+      fail: 3,
+      bailout: false,
+      todo: 0,
+      skip: 0,
+      plan: FinalPlan {
+        start: 1,
+        end: 1,
+        skipAll: false,
+        skipReason: '',
+        comment: ''
+      },
+      failures: [
+        {
+          tapError: 'Non-TAP data encountered in strict mode',
+          data: '  ...\\n'
+        },
+        {
+          tapError: 'Non-TAP data encountered in strict mode',
+          data: '  hello: world\\n'
+        },
+        Result { ok: false, id: 1, name: 'child', fullname: '' }
+      ],
+      time: null
+    }
+  ]
+]
+
+`
+
+exports[`test/cmd.js TAP basic failing_child_with_passing_tap strict > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic failing_child_with_passing_tap t > error 1`] = `
+1
+`
+
+exports[`test/cmd.js TAP basic failing_child_with_passing_tap t > output 1`] = `
+TAP version 13
+pragma +strict
+# Subtest: child
+    not ok 1
+    # test count(1) != plan(null)
+    # failed 4 test
+      ...
+      hello: world
+not ok 1 - child
+1..1
+# failed 3 test
 
 
 `
 
-exports[`test/cmd.js TAP basic t > stderr 1`] = `
+exports[`test/cmd.js TAP basic failing_child_with_passing_tap t > stderr 1`] = `
 
 `
 
-exports[`test/cmd.js TAP basic t > stderr 2`] = `
+exports[`test/cmd.js TAP basic pass_mostly b w > error 1`] = `
+0
+`
+
+exports[`test/cmd.js TAP basic pass_mostly b w > output 1`] = `
+[
+  [ 'version', 13 ],
+  [
+    'assert',
+    Result { ok: true, id: 1, name: 'this is fine', fullname: '' }
+  ],
+  [
+    'child',
+    [
+      [ 'comment', '# Subtest: child\\n' ],
+      [
+        'assert',
+        Result {
+          ok: true,
+          id: 1,
+          name: 'this is fine',
+          fullname: 'child'
+        }
+      ],
+      [ 'pragma', 'strict', true ],
+      [
+        'assert',
+        Result {
+          ok: true,
+          id: 2,
+          name: 'also fine',
+          fullname: 'child'
+        }
+      ],
+      [ 'assert', Result { ok: true, id: 3, fullname: 'child' } ],
+      [ 'comment', '# some comment\\n' ],
+      [ 'plan', { start: 1, end: 3 } ],
+      [
+        'complete',
+        FinalResults {
+          ok: true,
+          count: 3,
+          pass: 3,
+          fail: 0,
+          bailout: false,
+          todo: 0,
+          skip: 0,
+          plan: FinalPlan {
+            start: 1,
+            end: 3,
+            skipAll: false,
+            skipReason: '',
+            comment: ''
+          },
+          failures: [],
+          time: null
+        }
+      ]
+    ]
+  ],
+  [ 'extra', '    blearajn9aefnzxrfoas\\n' ],
+  [ 'extra', '               \\n' ],
+  [
+    'assert',
+    Result {
+      ok: true,
+      id: 2,
+      buffered: true,
+      name: 'child',
+      fullname: ''
+    }
+  ],
+  [ 'plan', { start: 1, end: 2 } ],
+  [
+    'complete',
+    FinalResults {
+      ok: true,
+      count: 2,
+      pass: 2,
+      fail: 0,
+      bailout: false,
+      todo: 0,
+      skip: 0,
+      plan: FinalPlan {
+        start: 1,
+        end: 2,
+        skipAll: false,
+        skipReason: '',
+        comment: ''
+      },
+      failures: [],
+      time: null
+    }
+  ]
+]
 
 `
 
-exports[`test/cmd.js TAP basic t > stderr 3`] = `
+exports[`test/cmd.js TAP basic pass_mostly b w > stderr 1`] = `
 
 `
 
-exports[`test/cmd.js TAP basic t > stderr 4`] = `
+exports[`test/cmd.js TAP basic pass_mostly flat > error 1`] = `
+0
+`
+
+exports[`test/cmd.js TAP basic pass_mostly flat > output 1`] = `
+[
+  [
+    'result',
+    Result { ok: true, id: 1, name: 'this is fine', fullname: '' }
+  ],
+  [ 'extra', '    blearajn9aefnzxrfoas\\n' ],
+  [ 'extra', '               \\n' ],
+  [
+    'result',
+    Result { ok: true, id: 1, name: 'this is fine', fullname: 'child' }
+  ],
+  [
+    'result',
+    Result { ok: true, id: 2, name: 'also fine', fullname: 'child' }
+  ],
+  [ 'result', Result { ok: true, id: 3, fullname: 'child' } ],
+  [ 'plan', { start: 1, end: 2 } ],
+  [
+    'complete',
+    FinalResults {
+      ok: true,
+      count: 2,
+      pass: 2,
+      fail: 0,
+      bailout: false,
+      todo: 0,
+      skip: 0,
+      plan: FinalPlan {
+        start: 1,
+        end: 2,
+        skipAll: false,
+        skipReason: '',
+        comment: ''
+      },
+      failures: [],
+      time: null
+    }
+  ]
+]
+
+`
+
+exports[`test/cmd.js TAP basic pass_mostly flat > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic pass_mostly flat tap > error 1`] = `
+0
+`
+
+exports[`test/cmd.js TAP basic pass_mostly flat tap > output 1`] = `
+TAP version 13
+ok 1 - this is fine
+    blearajn9aefnzxrfoas
+               
+ok 2 - child > this is fine
+ok 3 - child > also fine
+ok 4 - child
+1..4
+
+
+`
+
+exports[`test/cmd.js TAP basic pass_mostly flat tap > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic pass_mostly lines > error 1`] = `
+0
+`
+
+exports[`test/cmd.js TAP basic pass_mostly lines > output 1`] = `
+TAP version 13
+ok 1 - this is fine
+ok 2 - child {
+    ok 1 - this is fine
+    blearajn9aefnzxrfoas
+               
+    pragma +strict
+    ok 2 - also fine
+    ok
+    # some comment
+    1..3
+}
+1..2
+
+`
+
+exports[`test/cmd.js TAP basic pass_mostly lines > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic pass_mostly no args > error 1`] = `
+0
+`
+
+exports[`test/cmd.js TAP basic pass_mostly no args > output 1`] = `
+[
+  [ 'version', 13 ],
+  [
+    'assert',
+    Result { ok: true, id: 1, name: 'this is fine', fullname: '' }
+  ],
+  [
+    'child',
+    [
+      [ 'comment', '# Subtest: child\\n' ],
+      [
+        'assert',
+        Result {
+          ok: true,
+          id: 1,
+          name: 'this is fine',
+          fullname: 'child'
+        }
+      ],
+      [ 'pragma', 'strict', true ],
+      [
+        'assert',
+        Result {
+          ok: true,
+          id: 2,
+          name: 'also fine',
+          fullname: 'child'
+        }
+      ],
+      [ 'assert', Result { ok: true, id: 3, fullname: 'child' } ],
+      [ 'comment', '# some comment\\n' ],
+      [ 'plan', { start: 1, end: 3 } ],
+      [
+        'complete',
+        FinalResults {
+          ok: true,
+          count: 3,
+          pass: 3,
+          fail: 0,
+          bailout: false,
+          todo: 0,
+          skip: 0,
+          plan: FinalPlan {
+            start: 1,
+            end: 3,
+            skipAll: false,
+            skipReason: '',
+            comment: ''
+          },
+          failures: [],
+          time: null
+        }
+      ]
+    ]
+  ],
+  [ 'extra', '    blearajn9aefnzxrfoas\\n' ],
+  [ 'extra', '               \\n' ],
+  [
+    'assert',
+    Result {
+      ok: true,
+      id: 2,
+      buffered: true,
+      name: 'child',
+      fullname: ''
+    }
+  ],
+  [ 'plan', { start: 1, end: 2 } ],
+  [
+    'complete',
+    FinalResults {
+      ok: true,
+      count: 2,
+      pass: 2,
+      fail: 0,
+      bailout: false,
+      todo: 0,
+      skip: 0,
+      plan: FinalPlan {
+        start: 1,
+        end: 2,
+        skipAll: false,
+        skipReason: '',
+        comment: ''
+      },
+      failures: [],
+      time: null
+    }
+  ]
+]
+
+`
+
+exports[`test/cmd.js TAP basic pass_mostly no args > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic pass_mostly silent > error 1`] = `
+0
+`
+
+exports[`test/cmd.js TAP basic pass_mostly silent > output 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic pass_mostly silent > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic pass_mostly silent strict > error 1`] = `
+1
+`
+
+exports[`test/cmd.js TAP basic pass_mostly silent strict > output 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic pass_mostly silent strict > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic pass_mostly strict > error 1`] = `
+1
+`
+
+exports[`test/cmd.js TAP basic pass_mostly strict > output 1`] = `
+[
+  [ 'version', 13 ],
+  [
+    'assert',
+    Result { ok: true, id: 1, name: 'this is fine', fullname: '' }
+  ],
+  [
+    'child',
+    [
+      [ 'comment', '# Subtest: child\\n' ],
+      [
+        'assert',
+        Result {
+          ok: true,
+          id: 1,
+          name: 'this is fine',
+          fullname: 'child'
+        }
+      ],
+      [ 'pragma', 'strict', true ],
+      [
+        'assert',
+        Result {
+          ok: true,
+          id: 2,
+          name: 'also fine',
+          fullname: 'child'
+        }
+      ],
+      [ 'assert', Result { ok: true, id: 3, fullname: 'child' } ],
+      [ 'comment', '# some comment\\n' ],
+      [ 'plan', { start: 1, end: 3 } ],
+      [ 'comment', '# failed 2 of 3 tests\\n' ],
+      [
+        'complete',
+        FinalResults {
+          ok: false,
+          count: 3,
+          pass: 3,
+          fail: 2,
+          bailout: false,
+          todo: 0,
+          skip: 0,
+          plan: FinalPlan {
+            start: 1,
+            end: 3,
+            skipAll: false,
+            skipReason: '',
+            comment: ''
+          },
+          failures: [
+            {
+              tapError: 'Non-TAP data encountered in strict mode',
+              data: 'blearajn9aefnzxrfoas\\n'
+            },
+            {
+              tapError: 'Non-TAP data encountered in strict mode',
+              data: '           \\n'
+            }
+          ],
+          time: null
+        }
+      ]
+    ]
+  ],
+  [ 'extra', '    blearajn9aefnzxrfoas\\n' ],
+  [ 'extra', '               \\n' ],
+  [
+    'assert',
+    Result {
+      ok: true,
+      id: 2,
+      buffered: true,
+      name: 'child',
+      fullname: ''
+    }
+  ],
+  [ 'plan', { start: 1, end: 2 } ],
+  [ 'comment', '# failed 2 of 2 tests\\n' ],
+  [
+    'complete',
+    FinalResults {
+      ok: false,
+      count: 2,
+      pass: 2,
+      fail: 2,
+      bailout: false,
+      todo: 0,
+      skip: 0,
+      plan: FinalPlan {
+        start: 1,
+        end: 2,
+        skipAll: false,
+        skipReason: '',
+        comment: ''
+      },
+      failures: [
+        {
+          tapError: 'Non-TAP data encountered in strict mode',
+          data: 'blearajn9aefnzxrfoas\\n'
+        },
+        {
+          tapError: 'Non-TAP data encountered in strict mode',
+          data: '           \\n'
+        }
+      ],
+      time: null
+    }
+  ]
+]
+
+`
+
+exports[`test/cmd.js TAP basic pass_mostly strict > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic pass_mostly t > error 1`] = `
+0
+`
+
+exports[`test/cmd.js TAP basic pass_mostly t > output 1`] = `
+TAP version 13
+ok 1 - this is fine
+# Subtest: child
+    ok 1 - this is fine
+    pragma +strict
+    ok 2 - also fine
+    ok 3
+    # some comment
+    1..3
+    blearajn9aefnzxrfoas
+               
+ok 2 - child
+1..2
+
+
+`
+
+exports[`test/cmd.js TAP basic pass_mostly t > stderr 1`] = `
 
 `
 
@@ -1658,7 +2102,8 @@ exports[`test/cmd.js TAP json output formatting --json -f > output 1`] = `
         "skipReason": "",
         "comment": ""
       },
-      "failures": []
+      "failures": [],
+      "time": null
     }
   ]
 ]
@@ -1719,7 +2164,8 @@ exports[`test/cmd.js TAP json output formatting --json 1 > output 1`] = `
       "skipReason": "",
       "comment": ""
      },
-     "failures": []
+     "failures": [],
+     "time": null
     }
    ]
   ]
@@ -1757,7 +2203,8 @@ exports[`test/cmd.js TAP json output formatting --json 1 > output 1`] = `
     "skipReason": "",
     "comment": ""
    },
-   "failures": []
+   "failures": [],
+   "time": null
   }
  ]
 ]
@@ -1818,7 +2265,8 @@ exports[`test/cmd.js TAP json output formatting --json=1 > output 1`] = `
       "skipReason": "",
       "comment": ""
      },
-     "failures": []
+     "failures": [],
+     "time": null
     }
    ]
   ]
@@ -1856,7 +2304,8 @@ exports[`test/cmd.js TAP json output formatting --json=1 > output 1`] = `
     "skipReason": "",
     "comment": ""
    },
-   "failures": []
+   "failures": [],
+   "time": null
   }
  ]
 ]
@@ -1917,7 +2366,8 @@ exports[`test/cmd.js TAP json output formatting -j 1 > output 1`] = `
       "skipReason": "",
       "comment": ""
      },
-     "failures": []
+     "failures": [],
+     "time": null
     }
    ]
   ]
@@ -1955,7 +2405,8 @@ exports[`test/cmd.js TAP json output formatting -j 1 > output 1`] = `
     "skipReason": "",
     "comment": ""
    },
-   "failures": []
+   "failures": [],
+   "time": null
   }
  ]
 ]
@@ -2016,7 +2467,8 @@ exports[`test/cmd.js TAP json output formatting -j > output 1`] = `
             "skipReason": "",
             "comment": ""
           },
-          "failures": []
+          "failures": [],
+          "time": null
         }
       ]
     ]
@@ -2054,7 +2506,8 @@ exports[`test/cmd.js TAP json output formatting -j > output 1`] = `
         "skipReason": "",
         "comment": ""
       },
-      "failures": []
+      "failures": [],
+      "time": null
     }
   ]
 ]
@@ -2089,7 +2542,8 @@ exports[`test/cmd.js TAP unrecognized arg > output 1`] = `
         skipReason: 'no tests found',
         comment: 'no tests found'
       },
-      failures: []
+      failures: [],
+      time: null
     }
   ]
 ]

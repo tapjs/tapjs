@@ -59,9 +59,9 @@ const run = (input, args, cb) => {
 }
 
 t.test('basic', t => {
-  const taps = [
+  const taps = {
     // one that passes, at least, mostly
-    `TAP version 13
+    pass_mostly: `TAP version 13
 ok 1 - this is fine
 ok 2 - child {
     ok 1 - this is fine
@@ -76,7 +76,7 @@ ok 2 - child {
 1..2
 `,
     // one that doesn't pass
-    `TAP version 13
+    fail: `TAP version 13
 ok 1 - this is fine
 # Subtest: child
     not ok 1 - this is fine
@@ -97,16 +97,27 @@ ok 1 - this is fine
 not ok 2 - child # time=420ms
 1..2
 `,
+
     // one that bails out
-    `TAP version 13
+    bail: `TAP version 13
 ok 1 - i'm sure this will be fine
 Bail out!
 `,
+
     // bail out with reason
-    `TAP version 13
+    bail_reason: `TAP version 13
 Bail out! # i have my reasons
 `,
-  ]
+    failing_child_with_passing_tap: `TAP version 13
+pragma +strict
+# Subtest: child
+    not ok 1
+      ...
+      hello: world
+not ok 1 - child
+1..1
+`,
+  }
 
   const runTest = tap => (t, args) => {
     run(tap, args, (er, o, e) => {
@@ -117,17 +128,21 @@ Bail out! # i have my reasons
     })
   }
 
-  taps.forEach(tap => {
-    const test = runTest(tap)
-    t.test('no args', t => test(t, []))
-    t.test('b w', t => test(t, ['-b', '-w', '--ignore-all-whitespace']))
-    t.test('t', t => test(t, ['-t', '--tap', '-f', '--no-flat']))
-    t.test('flat', t => test(t, ['-B', '-f', '--flat', '-o']))
-    t.test('flat tap', t => test(t, ['-t', '--flat']))
-    t.test('lines', t => test(t, ['--no-strict', '-l', '--lines']))
-    t.test('strict', t => test(t, ['--strict']))
-    t.test('silent', t => test(t, ['-s', '--silent']))
-    t.test('silent strict', t => test(t, ['-s', '--strict']))
+  Object.keys(taps).forEach(name => {
+    const tap = taps[name]
+    t.test(name, t => {
+      const test = runTest(tap)
+      t.test('no args', t => test(t, []))
+      t.test('b w', t => test(t, ['-b', '-w', '--ignore-all-whitespace']))
+      t.test('t', t => test(t, ['-t', '--tap', '-f', '--no-flat']))
+      t.test('flat', t => test(t, ['-B', '-f', '--flat', '-o']))
+      t.test('flat tap', t => test(t, ['-t', '--flat']))
+      t.test('lines', t => test(t, ['--no-strict', '-l', '--lines']))
+      t.test('strict', t => test(t, ['--strict']))
+      t.test('silent', t => test(t, ['-s', '--silent']))
+      t.test('silent strict', t => test(t, ['-s', '--strict']))
+      t.end()
+    })
   })
 
   t.end()

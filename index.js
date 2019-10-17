@@ -110,11 +110,13 @@ class Parser extends MiniPass {
     if (onComplete)
       this.on('complete', onComplete)
 
+    this.time = null
     this.name = options.name || ''
     this.comments = []
     this.results = null
     this.braceLevel = null
     this.parent = options.parent || null
+    this.closingTestPoint = this.parent && options.closingTestPoint
     this.root = options.parent ? this.parent.root : this
     this.failures = []
     if (options.passes)
@@ -174,11 +176,14 @@ class Parser extends MiniPass {
   }
 
   parseTestPoint (testPoint, line) {
-    this.emitResult()
+    // need to hold off on this when we have a child so we can
+    // associate the closing test point with the test.
+    if (!this.child)
+      this.emitResult()
+
     if (this.bailedOut)
       return
 
-    this.emit('line', line)
     const res = new Result(testPoint, this.count)
     if (this.planStart !== -1) {
       const lessThanStart = +res.id < this.planStart
@@ -199,6 +204,18 @@ class Parser extends MiniPass {
       if (!this.last || res.id > this.last)
         this.last = res.id
     }
+
+    if (this.child) {
+      if (!this.child.closingTestPoint)
+        this.child.closingTestPoint = res
+      this.emitResult()
+      // can only bail out here in the case of a child with broken diags
+      // anything else would have bailed out already.
+      if (this.bailedOut)
+        return
+    }
+
+    this.emit('line', line)
 
     if (!res.skip && !res.todo)
       this.ok = this.ok && res.ok
@@ -528,6 +545,8 @@ class Parser extends MiniPass {
 
   endChild () {
     if (this.child && (!this.bailingOut || this.child.count)) {
+      if (this.child.closingTestPoint)
+        this.child.time = this.child.closingTestPoint.time || null
       this.previousChild = this.child
       this.child.end()
       this.child = null
@@ -604,6 +623,7 @@ class Parser extends MiniPass {
       parent: this,
       level: this.level + 1,
       buffered: maybeBuffered,
+      closingTestPoint: maybeBuffered && this.current,
       preserveWhitespace: this.preserveWhitespace,
       omitVersion: true,
       strict: this.strict
@@ -734,6 +754,10 @@ class Parser extends MiniPass {
       return
 
     this.comments.push(line)
+    const dir = parseDirective(line.replace(/^\s*#\s*/, '').trim())
+    if (dir[0] === 'time' && typeof dir[1] === 'number')
+      this.time = dir[1]
+
     if (this.current || this.extraQueue.length) {
       // no way to get here with skipLine being true
       this.extraQueue.push(['line', line])
@@ -1003,6 +1027,7 @@ class FinalResults {
     this.skip = skipAll ? self.count : self.skip || 0
     this.plan = new FinalPlan(skipAll, self)
     this.failures = self.failures
+    this.time = self.time
     if (self.passes)
       this.passes = self.passes
   }
