@@ -1,0 +1,557 @@
+<!doctype html>
+<title>
+  
+    API | Node Tap
+  
+</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+html {
+  display: block;
+  font-family: sans-serif;
+  padding: 0 1em;
+  margin: 0 auto;
+  border-top: 10px solid #f7df1e;
+  line-height:1.5;
+  color:#333;
+  position:relative;
+}
+
+html::before {
+  width:100%;
+  display:block;
+  position:fixed;
+  top:0;
+  left:0;
+  height:10px;
+  background:#f7df1e;
+  content: " ";
+}
+
+body {
+  padding:0;
+  margin: 0;
+}
+
+a:hover, a:active, a:focus {
+  color: red;
+}
+
+code, pre, kbd {
+  font-size: 100%;
+  font-family: Triplicate T4, Fira Mono OT, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+}
+
+section.side {
+  display: block;
+  padding:0;
+  min-height:100px;
+  margin: 0;
+  width:100%;
+}
+
+.side h2, .side p {
+  margin-top: 0;
+}
+
+section.side li {
+  display: inline;
+}
+
+section.side ul {
+  display: block;
+  overflow:auto;
+}
+
+section.side li ul {
+  display: inline;
+}
+
+.side ul {
+  padding:0;
+  margin:0 ;
+}
+
+.side img {
+  display: block;
+  margin-right: 1em;
+  margin-top: 1em;
+}
+
+section.main {
+  display: block;
+  padding-top:20px;
+}
+
+@media only screen and (min-width: 240px) {
+  .side img {
+    float:left;
+    margin: 0 1em 0 0;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  html {
+    width:600px;
+    padding:0 0 0 200px;
+  }
+  section.side {
+    width: 180px;
+    position: fixed;
+    overflow:auto;
+    max-height:100%;
+    margin: 0 0 0 -200px;
+  }
+  .side img {
+    display: block;
+    float:none;
+  }
+
+  section.side ul {
+    overflow: none;
+    display: block;
+  }
+
+  section.side li {
+    display: block;
+  }
+
+  section.side a {
+    display: block;
+  }
+
+  section.side li ul {
+    margin: 0;
+    display: block;
+  }
+
+  section.side li li {
+    margin-left: 1em;
+  }
+
+  .side h2, .side p {
+    margin-top: 1em;
+  }
+
+  section.main {
+    float: right;
+    width: 600px;
+    padding-bottom: 100px;
+  }
+}
+</style>
+<link href="../static/prism.css" rel="stylesheet">
+
+<body>
+
+<section class='side'>
+  <h2><a href="../index.html"><img src='../static/tapjs.png' width=100 height=100 alt='Test Anything JS'></a></h2>
+  <p>A Test-Anything-Protocol library for Node.js</p>
+  <ul>
+  
+    <li>
+      <a href="../index.html">Index</a>
+      
+    </li>
+  
+    <li>
+      <a href="../basics/index.html">Getting Started</a>
+      
+    </li>
+  
+    <li>
+      <a href="../using-with/index.html">Using tap with...</a>
+      
+    </li>
+  
+    <li>
+      <a href="../configuring/index.html">Configuring tap</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html">API</a>
+      
+      <ul>
+        
+        <li><a href="../asserts/index.html">Asserts</a></li>
+        
+        <li><a href="../promises/index.html">Promises</a></li>
+        
+        <li><a href="../subtests/index.html">Subtests</a></li>
+        
+        <li><a href="../parallel/index.html">Parallel Tests</a></li>
+        
+        <li><a href="../snapshots/index.html">Snapshot Testing</a></li>
+        
+        <li><a href="../test-lifecycle">Test Lifecycle Events</a></li>
+        
+        <li><a href="../grep/index.html">Filtering Tests: grep</a></li>
+        
+        <li><a href="../only/index.html">Filtering Tests: only</a></li>
+        
+        <li><a href="../mochalike/index.html">Mocha-like DSL</a></li>
+        
+        <li><a href="../advanced/index.html">Advanced</a></li>
+        
+      </ul>
+      
+    </li>
+  
+    <li>
+      <a href="../cli/index.html">CLI</a>
+      
+    </li>
+  
+    <li>
+      <a href="../coverage/index.html">Coverage</a>
+      
+    </li>
+  
+    <li>
+      <a href="../coverage-map/index.html">Coverage Map</a>
+      
+    </li>
+  
+    <li>
+      <a href="../save-failures-run-changed/index.html">Saving, Running Changed</a>
+      
+    </li>
+  
+    <li>
+      <a href="../watch/index.html">Watching Files for Changes</a>
+      
+    </li>
+  
+    <li>
+      <a href="../reporting/index.html">Reporting</a>
+      
+    </li>
+  
+    <li>
+      <a href="../tap-format.1">The TAP Protocol</a>
+      
+    </li>
+  
+    <li>
+      <a href="../tap-files/index.html">Working with TAP files</a>
+      
+    </li>
+  
+    <li>
+      <a href="../changelog/index.html">Change Log</a>
+      
+    </li>
+  
+    <li>
+      <a href="https://github.com/tapjs/node-tap">GitHub Repo</a>
+      
+    </li>
+  
+  </ul>
+  <pre><a href="http://npm.im/tap">npm install tap</a>
+<a href="../cli/index.html">tap test/*.js</a></pre>
+</section>
+<section class='main'>
+<h1 id="api">API</h1>
+
+<p>This is the API that you interact with when writing tests using
+node-tap.</p>
+
+<p>See also:</p>
+
+<ul>
+  <li><a href="../basics/index.html">Getting Started</a></li>
+  <li><a href="../asserts/index.html">Asserts</a></li>
+  <li><a href="../snapshots/index.html">Snapshot Testing</a></li>
+  <li><a href="../promises/index.html">Promises</a></li>
+  <li><a href="../subtests/index.html">Subtests</a></li>
+  <li><a href="../parallel/index.html">Parallel Tests</a></li>
+  <li><a href="../grep/index.html">Filtering Tests with Grep</a></li>
+  <li><a href="../only/index.html">Filtering Tests with Only</a></li>
+  <li><a href="../mochalike/index.html">Mocha-like DSL</a></li>
+  <li><a href="../advanced/index.html">Advanced Usage</a></li>
+</ul>
+
+<h2 id="tap--requiretap">tap = require(‘tap’)</h2>
+
+<p>The root <code class="highlighter-rouge">tap</code> object is an instance of the Test class with a few
+slight modifications.</p>
+
+<ol>
+  <li>By default, it pipes to stdout, so running a test directly just
+dumps the TAP data for inspection.  This piping behavior is a
+<em>little</em> bit magic – it only pipes when you do something that
+triggers output, so there’s no need to manually unpipe if you never
+actually use it to run tests.</li>
+  <li>Various other things are hung onto it for convenience, since it is
+the main package export.</li>
+  <li>The test ends automatically when <code class="highlighter-rouge">process.on('exit')</code> fires, so
+there is no need to call <code class="highlighter-rouge">tap.end()</code> explicitly.</li>
+  <li>
+    <p>Adding a <code class="highlighter-rouge">tearDown</code> function triggers <code class="highlighter-rouge">autoend</code> behavior, unless
+<code class="highlighter-rouge">autoend</code> was explicitly set to <code class="highlighter-rouge">false</code>.</p>
+
+    <p>Otherwise, the <code class="highlighter-rouge">end</code> would potentially never arrive, if for example
+<code class="highlighter-rouge">tearDown</code> is used to close a server or cancel some long-running
+process, because <code class="highlighter-rouge">process.on('exit')</code> would never fire of its own
+accord.</p>
+
+    <p>If you disable <code class="highlighter-rouge">autoend</code>, and <em>also</em> use a <code class="highlighter-rouge">teardown()</code> function on
+the main tap instance, you need to either set a <code class="highlighter-rouge">t.plan(n)</code> or
+explicitly call <code class="highlighter-rouge">t.end()</code> at some point.</p>
+  </li>
+</ol>
+
+<h2 id="taptest">tap.Test</h2>
+
+<p>The <code class="highlighter-rouge">Test</code> class is the main thing you’ll be touching when you use
+this module.</p>
+
+<p>The most common way to instantiate a <code class="highlighter-rouge">Test</code> object by calling the
+<code class="highlighter-rouge">test</code> method on the root or any other <code class="highlighter-rouge">Test</code> object.  The callback
+passed to <code class="highlighter-rouge">test(name, fn)</code> will receive a child <code class="highlighter-rouge">Test</code> object as its
+argument.</p>
+
+<p>A <code class="highlighter-rouge">Test</code> object is a Readable Stream.  Child tests automatically send
+their data to their parent, and the root <code class="highlighter-rouge">require('tap')</code> object pipes
+to stdout by default.  However, you can instantiate a <code class="highlighter-rouge">Test</code> object
+and then pipe it wherever you like.  The only limit is your imagination.</p>
+
+<p>Whenever you see <code class="highlighter-rouge">t.&lt;whatever&gt;</code> in this documentation, it refers to a
+Test object, but applies equally well in most cases to the root test.</p>
+
+<h3 id="ttestname-options-function">t.test([name], [options], [function])</h3>
+
+<p>Create a subtest.  Returns a <a href="../promises/index.html">Promise</a> which resolves with
+the parent when the child test is completed.</p>
+
+<p>If the function is omitted, then it will be marked as a “todo” or
+“pending” test.</p>
+
+<p>If the function has a name, and no name is provided, then the function
+name will be used as the test name.  If no test name is provided, then
+the name will be <code class="highlighter-rouge">(unnamed test)</code>.</p>
+
+<p>The function gets a Test object as its only argument.  From there, you
+can call the <code class="highlighter-rouge">t.end()</code> method on that object to end the test, or use
+the <code class="highlighter-rouge">t.plan()</code> method to specify how many child tests or
+<a href="../asserts/index.html">asserts</a> the test will have.</p>
+
+<p>If the function returns a <a href="../promises/index.html">Promise</a> object (that is, an
+object with a <code class="highlighter-rouge">then</code> method), then when the promise is rejected or
+fulfilled, the test will be either ended or failed.  Note that this
+means that an <code class="highlighter-rouge">async</code> function will automatically end when it’s done,
+because of the implicit promise.</p>
+
+<p>If the function is not provided, then this will be treated as a <code class="highlighter-rouge">todo</code>
+test.</p>
+
+<p>The options object is the same as would be passed to <a href="../asserts/index.html">any
+assert</a>, with some additional fields that are only relevant
+for child tests:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">todo</code> Set to boolean <code class="highlighter-rouge">true</code> or a String to mark this as pending.
+(Note that this is always the case if no function is provided.)</li>
+  <li><code class="highlighter-rouge">skip</code> Set to boolean <code class="highlighter-rouge">true</code> or a String to mark this as skipped.</li>
+  <li><code class="highlighter-rouge">timeout</code>: The number of ms to allow the test to run.</li>
+  <li><code class="highlighter-rouge">bail</code>: Set to <code class="highlighter-rouge">true</code> to bail out on the first test failure.</li>
+  <li><code class="highlighter-rouge">autoend</code>: Automatically <code class="highlighter-rouge">end()</code> the test on the next turn of the
+event loop after its internal queue is drained.</li>
+  <li><code class="highlighter-rouge">diagnostic</code> Set to boolean <code class="highlighter-rouge">true</code> to show a yaml diagnostic block
+even if the test passes.  Set to <code class="highlighter-rouge">false</code> to never show a yaml
+diagnostic block.  (Failing tests show yaml diagnostics by default.)</li>
+  <li><code class="highlighter-rouge">buffered</code> Set to <code class="highlighter-rouge">true</code> to run as a buffered <a href="../subtests/index.html">subtest</a>.
+Set to <code class="highlighter-rouge">false</code> to run as an indented subtest.  The default is
+<code class="highlighter-rouge">false</code> unless <code class="highlighter-rouge">TAP_BUFFER=1</code> is set in the environment.</li>
+  <li><code class="highlighter-rouge">jobs</code> Set to an integer to assign the <code class="highlighter-rouge">t.jobs</code> property.</li>
+  <li><code class="highlighter-rouge">grep</code> Set to an array of regular expressions to <a href="../grep/index.html">filter subtests
+with patterns</a></li>
+  <li><code class="highlighter-rouge">only</code> Set to <code class="highlighter-rouge">true</code> to run this test when in <code class="highlighter-rouge">runOnly</code> mode.
+See <a href="../only/index.html">filtering tests using only</a></li>
+  <li><code class="highlighter-rouge">runOnly</code> Set to <code class="highlighter-rouge">true</code> to only run tests with <code class="highlighter-rouge">only:true</code> set.</li>
+</ul>
+
+<h3 id="ttodoname-options-function">t.todo([name], [options], [function])</h3>
+
+<p>Exactly the same as <code class="highlighter-rouge">t.test()</code>, but adds <code class="highlighter-rouge">todo: true</code> in the options.</p>
+
+<h3 id="tskipname-options-function">t.skip([name], [options], [function])</h3>
+
+<p>Exactly the same as <code class="highlighter-rouge">t.test()</code>, but adds <code class="highlighter-rouge">skip: true</code> in the options.</p>
+
+<h3 id="tonlyname-options-function">t.only([name], [options], [function])</h3>
+
+<p>Exactly the same as <code class="highlighter-rouge">t.test()</code>, but adds <code class="highlighter-rouge">only: true</code> in the options.</p>
+
+<p>See <a href="../only/index.html">filtering tests using only</a></p>
+
+<h3 id="tcontext">t.context</h3>
+
+<p>This is an object which is inherited by child tests, and is a handy place
+to put various contextual information.  If you set <code class="highlighter-rouge">t.context = foo</code>,
+then it will only be inherited by child tests if it is an object.</p>
+
+<p>Typically, you’ll want to assign properties to it, which are shared with
+child tests.  For example, a <code class="highlighter-rouge">t.beforeEach()</code> function might create a
+database connection, assign it to <code class="highlighter-rouge">t.context.connection</code>, and then close
+the connection in a <code class="highlighter-rouge">t.afterEach()</code> function.</p>
+
+<p>See <a href="../test-lifecycle">Test Lifecycle Events</a> for more information.</p>
+
+<h3 id="trunonly">t.runOnly</h3>
+
+<p>Set to <code class="highlighter-rouge">true</code> to only run child tests that have <code class="highlighter-rouge">only: true</code> set in
+their options (or are run with <code class="highlighter-rouge">t.only()</code>, which is the same thing).</p>
+
+<h3 id="tjobs">t.jobs</h3>
+
+<p>If you set the <code class="highlighter-rouge">t.jobs</code> property to a number greater than 1, then it
+will enable <a href="../parallel/index.html">parallel execution</a> of all of this test’s
+children.</p>
+
+<h3 id="tcleansnapshot--function">t.cleanSnapshot = function</h3>
+
+<p>Assign a function to <code class="highlighter-rouge">t.cleanSnapshot</code> to modify formatted snapshot strings
+before they are saved or compared against, in order to strip out data that
+changes between test runs.</p>
+
+<p>Child tests copy their parent test’s <code class="highlighter-rouge">cleanSnapshot</code> method at the time of
+creation.  The default value is an identity function that does not modify its
+input.</p>
+
+<p>See <a href="../snapshots/index.html">Snapshot Testing</a> for more information.</p>
+
+<h3 id="tformatsnapshot--function">t.formatSnapshot = function</h3>
+
+<p>Assign a function to <code class="highlighter-rouge">t.formatSnapshot</code> to turn all non-String snapshot
+arguments into a snapshot string to save or compare against.</p>
+
+<p>Child tests copy their parent test’s <code class="highlighter-rouge">formatSnapshot</code> method at the time of
+creation.  The default is to use <a href="http://npm.im/tcompare"><code class="highlighter-rouge">tcompare.format</code></a> to
+convert any non-String values into snapshot strings.</p>
+
+<p>Note that string values are not passed to this function, as its purpose is to
+convert the snapshot value into a string.</p>
+
+<p>See <a href="../snapshots/index.html">Snapshot Testing</a> for more information.</p>
+
+<h3 id="tteardownfunction">t.tearDown(function)</h3>
+
+<p>Run the supplied function when <code class="highlighter-rouge">t.end()</code> is called, or when the <code class="highlighter-rouge">plan</code>
+is met.  Function can return a promise to perform async actions.</p>
+
+<p>Note that when called on the root <code class="highlighter-rouge">tap</code> export, this also triggers
+<code class="highlighter-rouge">autoend</code> behavior.</p>
+
+<p>See <a href="../test-lifecycle">Test Lifecycle Events</a> for more information.</p>
+
+<h3 id="tbeforeeachfunction-done-testobject-">t.beforeEach(function (done, testObject) {})</h3>
+
+<p>Call the supplied function before every subsequent descendent test.</p>
+
+<p>The <code class="highlighter-rouge">done</code> callback is a function to call when finished.  You can also
+return a <a href="../promises/index.html">Promise</a> rather than using the <code class="highlighter-rouge">done</code> callback.</p>
+
+<p>See <a href="../test-lifecycle">Test Lifecycle Events</a> for more information.</p>
+
+<h3 id="taftereachfunction-done-">t.afterEach(function (done) {})</h3>
+
+<p>Call the supplied function after every subsequent descendent test.</p>
+
+<p>The <code class="highlighter-rouge">done</code> callback is a function to call when finished.  You can also
+return a <a href="../promises/index.html">Promise</a> rather than using the <code class="highlighter-rouge">done</code> callback.</p>
+
+<p>See <a href="../test-lifecycle">Test Lifecycle Events</a> for more information.</p>
+
+<h3 id="tplannumber">t.plan(number)</h3>
+
+<p>Specify that a given number of tests are going to be run.</p>
+
+<p>This may only be called <em>before</em> running any <a href="../asserts/index.html">asserts</a> or
+child tests.</p>
+
+<h3 id="tend">t.end()</h3>
+
+<p>Call when tests are done running.  This is not necessary if <code class="highlighter-rouge">t.plan()</code>
+was used, or if the test function returns a <a href="../promises/index.html">Promise</a>.</p>
+
+<p>If you call <code class="highlighter-rouge">t.end()</code> explicitly more than once, an error will be
+raised.</p>
+
+<h3 id="tbailoutreason">t.bailout([reason])</h3>
+
+<p>Fire the proverbial ejector seat.</p>
+
+<p>Use this when things are severely broken, and cannot be reasonably
+handled.  Immediately terminates the entire test run.</p>
+
+<h3 id="tpassing">t.passing()</h3>
+
+<p>Return true if everything so far is ok.</p>
+
+<p>Note that all assert methods also return <code class="highlighter-rouge">true</code> if they pass.</p>
+
+<h3 id="tcommentmessage">t.comment(message)</h3>
+
+<p>Print the supplied message as a TAP comment.</p>
+
+<p>If you provide the <code class="highlighter-rouge">--comment</code> flag to the test runner, then tap
+comments will be printed to stderr.</p>
+
+<p>Note that you can always use <code class="highlighter-rouge">console.error()</code> for debugging (or
+<code class="highlighter-rouge">console.log()</code> as long as the message doesn’t look like TAP formatted
+data).</p>
+
+<h3 id="tfailmessage-extra">t.fail(message, extra)</h3>
+
+<p>Emit a failing test point.  This method, and <code class="highlighter-rouge">pass()</code>, are the basic
+building blocks of all fancier assertions.</p>
+
+<h3 id="tpassmessage">t.pass(message)</h3>
+
+<p>Emit a passing test point.  This method, and <code class="highlighter-rouge">fail()</code>, are the basic
+building blocks of all fancier assertions.</p>
+
+<h3 id="tpragmaset">t.pragma(set)</h3>
+
+<p>Sets a <code class="highlighter-rouge">pragma</code> switch for a set of boolean keys in the argument.</p>
+
+<p>The only pragma currently supported by the TAP parser is <code class="highlighter-rouge">strict</code>,
+which tells the parser to treat non-TAP output as a failure.</p>
+
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>const t = require('tap')
+console.log('this non-TAP output is ok')
+t.pragma({ strict: true })
+console.log('but this will cause a failure')
+</code></pre></div></div>
+
+<h3 id="tthrewerror">t.threw(error)</h3>
+
+<p>When an uncaught exception is raised in the context of a test, then
+this method is used to handle the error.  It fails the test, and
+prints out appropriate information about the stack, message, current
+test, and so on.</p>
+
+<p>Generally, you never need to worry about this directly.</p>
+
+<p>However, this method can also be called explicitly in cases where an
+error would be handled by something else (for example, a default
+<a href="../promises/index.html">Promise</a> <code class="highlighter-rouge">.catch(er)</code> method.)</p>
+
+<h3 id="tautoendvalue">t.autoend(value)</h3>
+
+<p>If <code class="highlighter-rouge">value</code> is boolean <code class="highlighter-rouge">false</code>, then it will disable the <code class="highlighter-rouge">autoend</code>
+behavior.  If <code class="highlighter-rouge">value</code> is anything other than <code class="highlighter-rouge">false</code>, then it will
+cause the test to automatically end when nothing is pending.</p>
+
+<p>Note that this is triggered by default on the root <code class="highlighter-rouge">tap</code> instance when
+a <code class="highlighter-rouge">teardown()</code> function is set, unless <code class="highlighter-rouge">autoend</code> was explicitly
+disabled.</p>
+
+</section>
+<script src="../static/prism.js"></script>
+</body>

@@ -1,0 +1,431 @@
+<!doctype html>
+<title>
+  
+    node-tap | Node Tap
+  
+</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+html {
+  display: block;
+  font-family: sans-serif;
+  padding: 0 1em;
+  margin: 0 auto;
+  border-top: 10px solid #f7df1e;
+  line-height:1.5;
+  color:#333;
+  position:relative;
+}
+
+html::before {
+  width:100%;
+  display:block;
+  position:fixed;
+  top:0;
+  left:0;
+  height:10px;
+  background:#f7df1e;
+  content: " ";
+}
+
+body {
+  padding:0;
+  margin: 0;
+}
+
+a:hover, a:active, a:focus {
+  color: red;
+}
+
+code, pre, kbd {
+  font-size: 100%;
+  font-family: Triplicate T4, Fira Mono OT, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+}
+
+section.side {
+  display: block;
+  padding:0;
+  min-height:100px;
+  margin: 0;
+  width:100%;
+}
+
+.side h2, .side p {
+  margin-top: 0;
+}
+
+section.side li {
+  display: inline;
+}
+
+section.side ul {
+  display: block;
+  overflow:auto;
+}
+
+section.side li ul {
+  display: inline;
+}
+
+.side ul {
+  padding:0;
+  margin:0 ;
+}
+
+.side img {
+  display: block;
+  margin-right: 1em;
+  margin-top: 1em;
+}
+
+section.main {
+  display: block;
+  padding-top:20px;
+}
+
+@media only screen and (min-width: 240px) {
+  .side img {
+    float:left;
+    margin: 0 1em 0 0;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  html {
+    width:600px;
+    padding:0 0 0 200px;
+  }
+  section.side {
+    width: 180px;
+    position: fixed;
+    overflow:auto;
+    max-height:100%;
+    margin: 0 0 0 -200px;
+  }
+  .side img {
+    display: block;
+    float:none;
+  }
+
+  section.side ul {
+    overflow: none;
+    display: block;
+  }
+
+  section.side li {
+    display: block;
+  }
+
+  section.side a {
+    display: block;
+  }
+
+  section.side li ul {
+    margin: 0;
+    display: block;
+  }
+
+  section.side li li {
+    margin-left: 1em;
+  }
+
+  .side h2, .side p {
+    margin-top: 1em;
+  }
+
+  section.main {
+    float: right;
+    width: 600px;
+    padding-bottom: 100px;
+  }
+}
+</style>
+<link href="static/prism.css" rel="stylesheet">
+
+<body>
+
+<section class='side'>
+  <h2><a href="index.html"><img src='static/tapjs.png' width=100 height=100 alt='Test Anything JS'></a></h2>
+  <p>A Test-Anything-Protocol library for Node.js</p>
+  <ul>
+  
+    <li>
+      <a href="index.html">Index</a>
+      
+    </li>
+  
+    <li>
+      <a href="basics/index.html">Getting Started</a>
+      
+    </li>
+  
+    <li>
+      <a href="using-with/index.html">Using tap with...</a>
+      
+    </li>
+  
+    <li>
+      <a href="configuring/index.html">Configuring tap</a>
+      
+    </li>
+  
+    <li>
+      <a href="api/index.html">API</a>
+      
+      <ul>
+        
+        <li><a href="asserts/index.html">Asserts</a></li>
+        
+        <li><a href="promises/index.html">Promises</a></li>
+        
+        <li><a href="subtests/index.html">Subtests</a></li>
+        
+        <li><a href="parallel/index.html">Parallel Tests</a></li>
+        
+        <li><a href="snapshots/index.html">Snapshot Testing</a></li>
+        
+        <li><a href="test-lifecycle">Test Lifecycle Events</a></li>
+        
+        <li><a href="grep/index.html">Filtering Tests: grep</a></li>
+        
+        <li><a href="only/index.html">Filtering Tests: only</a></li>
+        
+        <li><a href="mochalike/index.html">Mocha-like DSL</a></li>
+        
+        <li><a href="advanced/index.html">Advanced</a></li>
+        
+      </ul>
+      
+    </li>
+  
+    <li>
+      <a href="cli/index.html">CLI</a>
+      
+    </li>
+  
+    <li>
+      <a href="coverage/index.html">Coverage</a>
+      
+    </li>
+  
+    <li>
+      <a href="coverage-map/index.html">Coverage Map</a>
+      
+    </li>
+  
+    <li>
+      <a href="save-failures-run-changed/index.html">Saving, Running Changed</a>
+      
+    </li>
+  
+    <li>
+      <a href="watch/index.html">Watching Files for Changes</a>
+      
+    </li>
+  
+    <li>
+      <a href="reporting/index.html">Reporting</a>
+      
+    </li>
+  
+    <li>
+      <a href="tap-format.1">The TAP Protocol</a>
+      
+    </li>
+  
+    <li>
+      <a href="tap-files/index.html">Working with TAP files</a>
+      
+    </li>
+  
+    <li>
+      <a href="changelog/index.html">Change Log</a>
+      
+    </li>
+  
+    <li>
+      <a href="https://github.com/tapjs/node-tap">GitHub Repo</a>
+      
+    </li>
+  
+  </ul>
+  <pre><a href="http://npm.im/tap">npm install tap</a>
+<a href="cli/index.html">tap test/*.js</a></pre>
+</section>
+<section class='main'>
+<h1 id="node-tap">node-tap</h1>
+
+<p>A full-featured mature <abbr title="Test Anything Protocol">TAP</abbr>-based
+test framework for Node.js.</p>
+
+<p>Install it by running:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install --save-dev tap
+</code></pre></div></div>
+
+<p><em>Just wanna see some code? <a href="basics/index.html">Get started!</a></em></p>
+
+<p><code class="highlighter-rouge">tap</code> includes out of the box:</p>
+
+<ol>
+  <li><a href="api/index.html">A test framework</a> for writing tests in Node.js.</li>
+  <li><a href="cli/index.html">A command-line interface</a> for running tests and reporting on their
+success or failure.</li>
+  <li><a href="coverage/index.html">Support for test-coverage</a>, including coverage of child
+processes spawned in the process of testing.</li>
+  <li><a href="parallel/index.html">Support for parallel tests</a>, including running some tests in
+parallel, and others serially.</li>
+</ol>
+
+<p>See <a href="changelog/index.html">the changelog</a> for recent updates, or just get started with
+<a href="basics/index.html">the basics</a>.</p>
+
+<p><a href="https://travis-ci.org/tapjs/node-tap"><img src="https://travis-ci.org/tapjs/node-tap.svg?branch=v13" alt="Build Status" /></a></p>
+
+<h2 id="why-tap">Why TAP?</h2>
+
+<p>Why should you use this thing!?  <strong>LET ME TELL YOU!</strong></p>
+
+<p>Just kidding.</p>
+
+<p>Most frameworks spend a lot of their documentation telling you why they’re the
+greatest.  I’m not going to do that.</p>
+
+<h3 id="tutti-i-gusti-sono-gusti"><i lang="it" title="all tastes are tastes">tutti i gusti, sono gusti</i></h3>
+
+<p>Software testing is a software and user experience design challenge that
+balances on the intersection of many conflicting demands.</p>
+
+<p>Node-tap is based on <a href="http://izs.me">my</a> opinions about how a test framework
+should work, and what it should let you do.  I do <em>not</em> have any opinion about
+whether or not you share those opinions.  If you do share them, you will
+probably enjoy this test library.</p>
+
+<ol>
+  <li>
+    <p><strong>Test files should be “normal” programs that can be run directly.</strong></p>
+
+    <p>That means that it can’t require a special runner that puts magic functions
+into a global space.  <code class="highlighter-rouge">node test.js</code> is a perfectly ok way to run a test,
+and it ought to function exactly the same as when it’s run by the fancy
+runner with reporting and such.  JavaScript tests should be JavaScript
+programs; not english-language poems with weird punctuation.</p>
+  </li>
+  <li>
+    <p><strong>Test output should be connected to the structure of the test file in a way
+that is easy to determine.</strong></p>
+
+    <p>That means not unnecessarily deferring test functions until <code class="highlighter-rouge">nextTick</code>,
+because that would shift the order of <code class="highlighter-rouge">console.log</code> output.  Synchronous
+tests should be synchronous.</p>
+  </li>
+  <li>
+    <p><strong>Test files should be run in separate processes.</strong></p>
+
+    <p>That means that it can’t use <code class="highlighter-rouge">require()</code> to load test files.  Doing <code class="highlighter-rouge">node
+./test.js</code> must be the exact same sort of environment for the test as doing
+<code class="highlighter-rouge">test-runner ./test.js</code>.  Doing <code class="highlighter-rouge">node test/1.js; node test/2.js</code> should be
+equivalent (from the test’s point of view) to doing <code class="highlighter-rouge">test-runner test/*.js</code>.
+This prevents tests from becoming implicitly dependent on one anothers’
+globals.</p>
+  </li>
+  <li>
+    <p><strong>Assertions should not normally throw (but throws MUST be handled
+nicely).</strong></p>
+
+    <p>I frequently write programs that have many hundreds of assertions based on
+some list of test cases.  If the first failure throws, then I don’t know if
+I’ve failed 100 tests or 1, without wrapping everything in a try-catch.
+Furthermore, I usually want to see some kind of output or reporting to
+verify that each one actually ran.</p>
+
+    <p>Basically, it should be your decision whether you want to throw or not.  The
+test framework shouldn’t force that on you, and should make either case
+easy.</p>
+  </li>
+  <li>
+    <p><strong>Test reporting should be separate from the test process, included in the
+framework, and enabled by default for humans.</strong></p>
+
+    <p>The <a href="tap-format.1">raw test output</a> should be machine-parseable and
+human-intelligible, and a separate process should consume test output and
+turn it into a <a href="reporting/index.html">pretty summarized report</a>.  This means that
+test data can be stored and parsed later, dug into for additional details,
+and so on.  Also: nyan cat.</p>
+  </li>
+  <li>
+    <p><strong>Writing tests should be easy, maybe even fun.</strong></p>
+
+    <p>The lower the barrier to entry for writing new tests, the more tests get
+written.  That means that there should be a relatively small vocabulary of
+actions that I need to remember as a test author.  There is no benefit to
+having a distinction between a “suite” and a “subtest”.  Fancy DSLs are
+pretty, but more to remember.</p>
+
+    <p>That being said, if you return a Promise, or use a DSL that throws a
+decorated error, then the test framework should Just Work in a way that
+helps a human being understand the situation.</p>
+  </li>
+  <li>
+    <p><strong>Tests should output enough data to diagnose a failure, and no more or
+less.</strong></p>
+
+    <p>Stack traces pointing at JS internals or the guts of the test framework
+itself are not helpful.  A test framework is a serious UX challenge, and
+should be treated with care.</p>
+  </li>
+  <li>
+    <p><strong>Test coverage should be included.</strong></p>
+
+    <p>Running tests with coverage changes the way that you think about your
+programs, and provides much deeper insight.  Node-tap bundles
+<a href="https://istanbul.js.org/">NYC</a> for this.</p>
+
+    <p>It <em>does</em> necessarily change the nature of the environment a little bit.
+But in this case, it’s worth it, and NYC has come a long way towards
+maintaining this promise.</p>
+
+    <p>Coverage <em>enforcement</em> is not on by default, but I strongly encourage it.
+You can put <code class="highlighter-rouge">"tap":{"check-coverage":true}</code> in your package.json, or pass
+<a href="100/index.html"><code class="highlighter-rouge">--100</code></a> on the command line.  In a future version, it will likely
+be enabled by default.</p>
+  </li>
+  <li>
+    <p><strong>Tests should be output in a predictable order.</strong></p>
+
+    <p>Even if they are run in parallel, the test <em>output</em> should be consistent.</p>
+  </li>
+  <li>
+    <p><strong>Tests should not require more building than your code.</strong></p>
+  </li>
+</ol>
+
+<p>Babel and Webpack are lovely and fine.  But if your code doesn’t require
+   compilation, then I think your tests shouldn’t either.  Tap is extremely
+   <a href="promises/index.html">promise-aware</a>.  JSX, TypeScript, and ES-Modules are built-in
+   when tests are run by the tap CLI.  (ES-Module support can be disabled by
+   <code class="highlighter-rouge">--no-esm</code>, which is necessary in some very rare edge cases.)</p>
+
+<ol>
+  <li><strong>Tests should run as fast as possible, given all the prior
+considerations.</strong></li>
+</ol>
+
+<p>As of version 10, tap supports <a href="parallel/index.html">parallel tests</a>.  As of version
+   13, the test runner defaults to running the same number of parallel tests as
+   there are CPUs on the system.</p>
+
+<p>This makes tests significantly faster in almost every case, on any machine
+   with multiple cores.</p>
+
+<p>Software testing should help you build software.  It should be a security
+blanket and a quality ratchet, giving you the support to undertake massive
+refactoring and fix bugs without worrying.  It shouldn’t be a purification rite
+or a hazing ritual.</p>
+
+<p>There are many opinions left off of this list!  Reasonable people can disagree.
+But if you find yourself nodding along, <a href="basics/index.html">maybe tap is for you</a>.</p>
+
+</section>
+<script src="static/prism.js"></script>
+</body>

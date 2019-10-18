@@ -1,0 +1,329 @@
+<!doctype html>
+<title>
+  
+    Test Lifecycle Events | Node Tap
+  
+</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+html {
+  display: block;
+  font-family: sans-serif;
+  padding: 0 1em;
+  margin: 0 auto;
+  border-top: 10px solid #f7df1e;
+  line-height:1.5;
+  color:#333;
+  position:relative;
+}
+
+html::before {
+  width:100%;
+  display:block;
+  position:fixed;
+  top:0;
+  left:0;
+  height:10px;
+  background:#f7df1e;
+  content: " ";
+}
+
+body {
+  padding:0;
+  margin: 0;
+}
+
+a:hover, a:active, a:focus {
+  color: red;
+}
+
+code, pre, kbd {
+  font-size: 100%;
+  font-family: Triplicate T4, Fira Mono OT, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+}
+
+section.side {
+  display: block;
+  padding:0;
+  min-height:100px;
+  margin: 0;
+  width:100%;
+}
+
+.side h2, .side p {
+  margin-top: 0;
+}
+
+section.side li {
+  display: inline;
+}
+
+section.side ul {
+  display: block;
+  overflow:auto;
+}
+
+section.side li ul {
+  display: inline;
+}
+
+.side ul {
+  padding:0;
+  margin:0 ;
+}
+
+.side img {
+  display: block;
+  margin-right: 1em;
+  margin-top: 1em;
+}
+
+section.main {
+  display: block;
+  padding-top:20px;
+}
+
+@media only screen and (min-width: 240px) {
+  .side img {
+    float:left;
+    margin: 0 1em 0 0;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  html {
+    width:600px;
+    padding:0 0 0 200px;
+  }
+  section.side {
+    width: 180px;
+    position: fixed;
+    overflow:auto;
+    max-height:100%;
+    margin: 0 0 0 -200px;
+  }
+  .side img {
+    display: block;
+    float:none;
+  }
+
+  section.side ul {
+    overflow: none;
+    display: block;
+  }
+
+  section.side li {
+    display: block;
+  }
+
+  section.side a {
+    display: block;
+  }
+
+  section.side li ul {
+    margin: 0;
+    display: block;
+  }
+
+  section.side li li {
+    margin-left: 1em;
+  }
+
+  .side h2, .side p {
+    margin-top: 1em;
+  }
+
+  section.main {
+    float: right;
+    width: 600px;
+    padding-bottom: 100px;
+  }
+}
+</style>
+<link href="static/prism.css" rel="stylesheet">
+
+<body>
+
+<section class='side'>
+  <h2><a href="index.html"><img src='static/tapjs.png' width=100 height=100 alt='Test Anything JS'></a></h2>
+  <p>A Test-Anything-Protocol library for Node.js</p>
+  <ul>
+  
+    <li>
+      <a href="index.html">Index</a>
+      
+    </li>
+  
+    <li>
+      <a href="basics/index.html">Getting Started</a>
+      
+    </li>
+  
+    <li>
+      <a href="using-with/index.html">Using tap with...</a>
+      
+    </li>
+  
+    <li>
+      <a href="configuring/index.html">Configuring tap</a>
+      
+    </li>
+  
+    <li>
+      <a href="api/index.html">API</a>
+      
+      <ul>
+        
+        <li><a href="asserts/index.html">Asserts</a></li>
+        
+        <li><a href="promises/index.html">Promises</a></li>
+        
+        <li><a href="subtests/index.html">Subtests</a></li>
+        
+        <li><a href="parallel/index.html">Parallel Tests</a></li>
+        
+        <li><a href="snapshots/index.html">Snapshot Testing</a></li>
+        
+        <li><a href="test-lifecycle">Test Lifecycle Events</a></li>
+        
+        <li><a href="grep/index.html">Filtering Tests: grep</a></li>
+        
+        <li><a href="only/index.html">Filtering Tests: only</a></li>
+        
+        <li><a href="mochalike/index.html">Mocha-like DSL</a></li>
+        
+        <li><a href="advanced/index.html">Advanced</a></li>
+        
+      </ul>
+      
+    </li>
+  
+    <li>
+      <a href="cli/index.html">CLI</a>
+      
+    </li>
+  
+    <li>
+      <a href="coverage/index.html">Coverage</a>
+      
+    </li>
+  
+    <li>
+      <a href="coverage-map/index.html">Coverage Map</a>
+      
+    </li>
+  
+    <li>
+      <a href="save-failures-run-changed/index.html">Saving, Running Changed</a>
+      
+    </li>
+  
+    <li>
+      <a href="watch/index.html">Watching Files for Changes</a>
+      
+    </li>
+  
+    <li>
+      <a href="reporting/index.html">Reporting</a>
+      
+    </li>
+  
+    <li>
+      <a href="tap-format.1">The TAP Protocol</a>
+      
+    </li>
+  
+    <li>
+      <a href="tap-files/index.html">Working with TAP files</a>
+      
+    </li>
+  
+    <li>
+      <a href="changelog/index.html">Change Log</a>
+      
+    </li>
+  
+    <li>
+      <a href="https://github.com/tapjs/node-tap">GitHub Repo</a>
+      
+    </li>
+  
+  </ul>
+  <pre><a href="http://npm.im/tap">npm install tap</a>
+<a href="cli/index.html">tap test/*.js</a></pre>
+</section>
+<section class='main'>
+<p>There are a few moments in the life of a test where you might want to attach
+some setup or teardown logic.  Node-tap implements these using the following
+functions.</p>
+
+<h2 id="tbeforeeachfndone-childtest"><code class="highlighter-rouge">t.beforeEach(fn(done, childTest))</code></h2>
+
+<p>Before any child test (or any children of any child tests, etc.) the supplied
+function is called with two arguments.  The first is a callback to indicate
+that the function is complete.  The second is the test object that it’s
+prefixing.</p>
+
+<p>If the function returns a Promise, then that is used as the indication of
+doneness.  Thus, <code class="highlighter-rouge">async</code> functions automatically end when all of their awaited
+Promises are complete.</p>
+
+<h2 id="taftereachfndone-childtest"><code class="highlighter-rouge">t.afterEach(fn(done, childTest))</code></h2>
+
+<p>This is called after each child test (or any children of any child tests, on
+down the tree).  Like <code class="highlighter-rouge">beforeEach</code>, it’s called with a done callback as the
+first argument, and the child test object as the second, and can return a
+Promise.</p>
+
+<h2 id="tteardownfn"><code class="highlighter-rouge">t.teardown(fn())</code></h2>
+
+<p>When the test is completely finished, the teardown functions are called.  They
+do not receive a <code class="highlighter-rouge">done</code> callback, but may return a <code class="highlighter-rouge">Promise</code> to perform
+asynchronous actions.</p>
+
+<h2 id="why-no-tbefore">Why no <code class="highlighter-rouge">t.before()</code>?</h2>
+
+<p>There is no <code class="highlighter-rouge">t.before()</code> because there are other options for doing this:</p>
+
+<ul>
+  <li>If the actions are synchronous, you can put them before your tests.</li>
+  <li>If the actions are asynchronous, you can use a <code class="highlighter-rouge">t.test()</code>.</li>
+</ul>
+
+<h2 id="tonend"><code class="highlighter-rouge">t.on('end')</code></h2>
+
+<p>The <code class="highlighter-rouge">end</code> event fires when the test is completely finished, and all of its
+teardown functions have completed.</p>
+
+<p>This is just a normal <code class="highlighter-rouge">EventEmitter</code> event, so it doesn’t support any sort of
+async actions.</p>
+
+<h2 id="tcontext"><code class="highlighter-rouge">t.context</code></h2>
+
+<p>You can use the <code class="highlighter-rouge">t.context</code> object to track details specific to a test.  For
+example, a <code class="highlighter-rouge">beforeEach</code> function might create a database connection, and then
+an <code class="highlighter-rouge">afterEach</code> function might shut it down cleanly.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">myDataBase</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'my-special-db-thingie'</span><span class="p">)</span>
+
+<span class="nx">t</span><span class="p">.</span><span class="nx">beforeEach</span><span class="p">((</span><span class="nx">done</span><span class="p">,</span> <span class="nx">t</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">t</span><span class="p">.</span><span class="nx">context</span><span class="p">.</span><span class="nx">connection</span> <span class="o">=</span> <span class="nx">myDataBase</span><span class="p">.</span><span class="nx">connect</span><span class="p">()</span>
+  <span class="nx">done</span><span class="p">()</span>
+<span class="p">})</span>
+
+<span class="nx">t</span><span class="p">.</span><span class="nx">afterEach</span><span class="p">((</span><span class="nx">done</span><span class="p">,</span> <span class="nx">t</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">t</span><span class="p">.</span><span class="nx">context</span><span class="p">.</span><span class="nx">connection</span><span class="p">.</span><span class="nx">disconnect</span><span class="p">()</span>
+  <span class="nx">done</span><span class="p">()</span>
+<span class="p">})</span>
+
+<span class="nx">t</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s1">'read and write'</span><span class="p">,</span> <span class="nx">t</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">conn</span> <span class="o">=</span> <span class="nx">t</span><span class="p">.</span><span class="nx">context</span><span class="p">.</span><span class="nx">connection</span>
+  <span class="nx">conn</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s1">'foo'</span><span class="p">,</span> <span class="s1">'bar'</span><span class="p">)</span>
+  <span class="nx">t</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">conn</span><span class="p">.</span><span class="nx">read</span><span class="p">(</span><span class="s1">'foo'</span><span class="p">),</span> <span class="s1">'bar'</span><span class="p">)</span>
+  <span class="nx">t</span><span class="p">.</span><span class="nx">end</span><span class="p">()</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+</section>
+<script src="static/prism.js"></script>
+</body>

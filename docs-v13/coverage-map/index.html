@@ -1,0 +1,325 @@
+<!doctype html>
+<title>
+  
+    Coverage Maps | Node Tap
+  
+</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+html {
+  display: block;
+  font-family: sans-serif;
+  padding: 0 1em;
+  margin: 0 auto;
+  border-top: 10px solid #f7df1e;
+  line-height:1.5;
+  color:#333;
+  position:relative;
+}
+
+html::before {
+  width:100%;
+  display:block;
+  position:fixed;
+  top:0;
+  left:0;
+  height:10px;
+  background:#f7df1e;
+  content: " ";
+}
+
+body {
+  padding:0;
+  margin: 0;
+}
+
+a:hover, a:active, a:focus {
+  color: red;
+}
+
+code, pre, kbd {
+  font-size: 100%;
+  font-family: Triplicate T4, Fira Mono OT, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+}
+
+section.side {
+  display: block;
+  padding:0;
+  min-height:100px;
+  margin: 0;
+  width:100%;
+}
+
+.side h2, .side p {
+  margin-top: 0;
+}
+
+section.side li {
+  display: inline;
+}
+
+section.side ul {
+  display: block;
+  overflow:auto;
+}
+
+section.side li ul {
+  display: inline;
+}
+
+.side ul {
+  padding:0;
+  margin:0 ;
+}
+
+.side img {
+  display: block;
+  margin-right: 1em;
+  margin-top: 1em;
+}
+
+section.main {
+  display: block;
+  padding-top:20px;
+}
+
+@media only screen and (min-width: 240px) {
+  .side img {
+    float:left;
+    margin: 0 1em 0 0;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  html {
+    width:600px;
+    padding:0 0 0 200px;
+  }
+  section.side {
+    width: 180px;
+    position: fixed;
+    overflow:auto;
+    max-height:100%;
+    margin: 0 0 0 -200px;
+  }
+  .side img {
+    display: block;
+    float:none;
+  }
+
+  section.side ul {
+    overflow: none;
+    display: block;
+  }
+
+  section.side li {
+    display: block;
+  }
+
+  section.side a {
+    display: block;
+  }
+
+  section.side li ul {
+    margin: 0;
+    display: block;
+  }
+
+  section.side li li {
+    margin-left: 1em;
+  }
+
+  .side h2, .side p {
+    margin-top: 1em;
+  }
+
+  section.main {
+    float: right;
+    width: 600px;
+    padding-bottom: 100px;
+  }
+}
+</style>
+<link href="../static/prism.css" rel="stylesheet">
+
+<body>
+
+<section class='side'>
+  <h2><a href="../index.html"><img src='../static/tapjs.png' width=100 height=100 alt='Test Anything JS'></a></h2>
+  <p>A Test-Anything-Protocol library for Node.js</p>
+  <ul>
+  
+    <li>
+      <a href="../index.html">Index</a>
+      
+    </li>
+  
+    <li>
+      <a href="../basics/index.html">Getting Started</a>
+      
+    </li>
+  
+    <li>
+      <a href="../using-with/index.html">Using tap with...</a>
+      
+    </li>
+  
+    <li>
+      <a href="../configuring/index.html">Configuring tap</a>
+      
+    </li>
+  
+    <li>
+      <a href="../api/index.html">API</a>
+      
+      <ul>
+        
+        <li><a href="../asserts/index.html">Asserts</a></li>
+        
+        <li><a href="../promises/index.html">Promises</a></li>
+        
+        <li><a href="../subtests/index.html">Subtests</a></li>
+        
+        <li><a href="../parallel/index.html">Parallel Tests</a></li>
+        
+        <li><a href="../snapshots/index.html">Snapshot Testing</a></li>
+        
+        <li><a href="../test-lifecycle">Test Lifecycle Events</a></li>
+        
+        <li><a href="../grep/index.html">Filtering Tests: grep</a></li>
+        
+        <li><a href="../only/index.html">Filtering Tests: only</a></li>
+        
+        <li><a href="../mochalike/index.html">Mocha-like DSL</a></li>
+        
+        <li><a href="../advanced/index.html">Advanced</a></li>
+        
+      </ul>
+      
+    </li>
+  
+    <li>
+      <a href="../cli/index.html">CLI</a>
+      
+    </li>
+  
+    <li>
+      <a href="../coverage/index.html">Coverage</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html">Coverage Map</a>
+      
+    </li>
+  
+    <li>
+      <a href="../save-failures-run-changed/index.html">Saving, Running Changed</a>
+      
+    </li>
+  
+    <li>
+      <a href="../watch/index.html">Watching Files for Changes</a>
+      
+    </li>
+  
+    <li>
+      <a href="../reporting/index.html">Reporting</a>
+      
+    </li>
+  
+    <li>
+      <a href="../tap-format.1">The TAP Protocol</a>
+      
+    </li>
+  
+    <li>
+      <a href="../tap-files/index.html">Working with TAP files</a>
+      
+    </li>
+  
+    <li>
+      <a href="../changelog/index.html">Change Log</a>
+      
+    </li>
+  
+    <li>
+      <a href="https://github.com/tapjs/node-tap">GitHub Repo</a>
+      
+    </li>
+  
+  </ul>
+  <pre><a href="http://npm.im/tap">npm install tap</a>
+<a href="../cli/index.html">tap test/*.js</a></pre>
+</section>
+<section class='main'>
+<p>If you specify a <code class="highlighter-rouge">--coverage-map=&lt;file&gt;</code> option, then you can be very precise
+about <em>which</em> files under test should be covered by a specific test.</p>
+
+<p>A coverage map is a Node.js module that expors a single function.  This
+function takes a test file as an argument, and returns a single filename or an
+array of program files that should be covered by that test.</p>
+
+<p>This is useful in cases where you want to have a part of your program at
+<code class="highlighter-rouge">foo.js</code> which should be 100% covered by <code class="highlighter-rouge">foo.test.js</code>, for example.  Coverage
+generated with a coverage map will help guarantee that you are actually testing
+a piece of code directly, rather than “accidentally” adding lines of coverage
+via integration.</p>
+
+<p>When used with <a href="../save-failures-run-changed/index.html"><code class="highlighter-rouge">--changed</code></a> or
+<a href="../watch/index.html"><code class="highlighter-rouge">--watch</code></a>, this also means that you limit which file’s changes will
+trigger which test to re-run.  Also, because less of your program is
+instrumented for each test, the overall suite can run significantly faster.</p>
+
+<h2 id="module-structure">Module Structure</h2>
+
+<p>The coverage map must export a single function.  This function takes a test filename as an argument, and returns one of the following values:</p>
+
+<ul>
+  <li>A filename of a single program file that should be covered by this test.</li>
+  <li>An array of filenames of program files that should be covered by this test.</li>
+  <li>An empty array, indicating that all program files should be covered,
+following NYC’s default coverage logic.</li>
+  <li>Any falsey value, indicating that this test should not provide coverage.
+This is useful for regression tests that don’t add coverage, but do verify
+some edge-case bug.</li>
+</ul>
+
+<h2 id="example">Example</h2>
+
+<p>For example, you might have a file at <code class="highlighter-rouge">index.js</code> which is the main entry point
+of your library or application, and exports a bunch of other functionality from
+inside a <code class="highlighter-rouge">lib</code> folder.  If the file at <code class="highlighter-rouge">lib/foo.js</code> loads the index (perhaps
+just for one or two things), then this effectively means that any test that
+loads <code class="highlighter-rouge">lib/foo.js</code> <em>also</em> loads everything else.</p>
+
+<p>Now any change anywhere in the program triggers a full test suite run, so why
+bother using <code class="highlighter-rouge">--changed</code> at all?</p>
+
+<p>With a <code class="highlighter-rouge">--coverage-map</code> argument, you can specify that the test at
+<code class="highlighter-rouge">foo.test.js</code> should only cover <code class="highlighter-rouge">foo.js</code>.</p>
+
+<p>Here’s an example coverage-map file, which maps <code class="highlighter-rouge">*.test.js</code> to the
+corresponding <code class="highlighter-rouge">*.js</code>.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// map.js</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">testFile</span> <span class="o">=&gt;</span> <span class="nx">testFile</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/</span><span class="se">\.</span><span class="sr">test</span><span class="se">\.</span><span class="sr">js$/</span><span class="p">,</span> <span class="s1">'.js)
+</span></code></pre></div></div>
+
+<p>To run tap with this coverage map, run this command:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tap --coverage-map=map.js
+</code></pre></div></div>
+
+<p>Or, you can add this config to your package.json file:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"tap"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"coverage-map"</span><span class="p">:</span><span class="w"> </span><span class="s2">"map.js"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+</section>
+<script src="../static/prism.js"></script>
+</body>
