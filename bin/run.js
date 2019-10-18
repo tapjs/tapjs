@@ -247,6 +247,16 @@ const nycReporter = options =>
   : options['coverage-report'].map(cr =>
     cr === 'html' ? '--reporter=lcov' : `--reporter=${cr}`)
 
+const defaultNycExcludes = [
+  'coverage/**',
+  'packages/*/test/**',
+  'test/**',
+  'test{,-*}.js',
+  '**/*{.,-}test.js',
+  '**/__tests__/**',
+  '**/{ava,babel,jest,nyc,rollup,webpack}.config.js',
+]
+
 /* istanbul ignore next */
 const runNyc = (cmd, programArgs, options, spawnOpts) => {
   const reporter = nycReporter(options)
@@ -255,11 +265,14 @@ const runNyc = (cmd, programArgs, options, spawnOpts) => {
   const lines = Math.max(+options.lines || 100, 100)
   const functions = Math.max(+options.functions || 100, 100)
   const statements = Math.max(+options.statements || 100, 100)
+  const excludes = defaultNycExcludes.concat(options.files).map(f =>
+    '--exclude=' + f)
 
   const args = [
     nycBin,
     ...cmd,
     ...(options['show-process-tree'] ? ['--show-process-tree'] : []),
+    ...excludes,
     '--produce-source-map',
     '--cache=true',
     '--branches=' + branches,
