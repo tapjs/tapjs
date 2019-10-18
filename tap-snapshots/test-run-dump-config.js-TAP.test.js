@@ -6,6 +6,7 @@
  */
 'use strict'
 exports[`test/run/dump-config.js TAP empty rc file > output 1`] = `
+cli-tests/taprc
 bail: false
 branches: 100
 browser: true
@@ -35,7 +36,6 @@ only: false
 output-dir: null
 output-file: null
 parser-version: false
-rcfile: cli-tests/taprc
 reporter: base
 reporter-arg: []
 save: null
@@ -56,6 +56,7 @@ watch: false
 `
 
 exports[`test/run/dump-config.js TAP good rc file > output 1`] = `
+cli-tests/taprc
 bail: false
 branches: 100
 browser: true
@@ -85,7 +86,6 @@ only: false
 output-dir: null
 output-file: null
 parser-version: false
-rcfile: cli-tests/taprc
 reporter: spec
 reporter-arg: []
 save: null
@@ -106,6 +106,7 @@ watch: false
 `
 
 exports[`test/run/dump-config.js TAP package.json parsing bad > output 1`] = `
+{CWD}/cli-tests/.taprc
 bail: false
 branches: 100
 browser: true
@@ -135,7 +136,6 @@ only: false
 output-dir: null
 output-file: null
 parser-version: false
-rcfile: {CWD}/cli-tests/.taprc
 reporter: tap
 reporter-arg: []
 save: null
@@ -156,6 +156,7 @@ watch: false
 `
 
 exports[`test/run/dump-config.js TAP package.json parsing good > output 1`] = `
+{CWD}/cli-tests/.taprc
 bail: false
 branches: 100
 browser: true
@@ -185,7 +186,6 @@ only: false
 output-dir: null
 output-file: null
 parser-version: false
-rcfile: {CWD}/cli-tests/.taprc
 reporter: tap
 reporter-arg: []
 save: null
@@ -206,6 +206,7 @@ watch: false
 `
 
 exports[`test/run/dump-config.js TAP package.json parsing missing > output 1`] = `
+{CWD}/cli-tests/.taprc
 bail: false
 branches: 100
 browser: true
@@ -235,7 +236,6 @@ only: false
 output-dir: null
 output-file: null
 parser-version: false
-rcfile: {CWD}/cli-tests/.taprc
 reporter: tap
 reporter-arg: []
 save: null
@@ -256,6 +256,7 @@ watch: false
 `
 
 exports[`test/run/dump-config.js TAP short options as well as short flags > output 1`] = `
+{CWD}/.taprc
 bail: true
 branches: 100
 browser: true
@@ -285,7 +286,6 @@ only: false
 output-dir: null
 output-file: null
 parser-version: false
-rcfile: {CWD}/.taprc
 reporter: tap
 reporter-arg: []
 save: null
@@ -306,6 +306,7 @@ watch: false
 `
 
 exports[`test/run/dump-config.js TAP shotgun a bunch of option parsing junk > output 1`] = `
+{CWD}/.taprc
 bail: false
 branches: 99
 browser: false
@@ -346,7 +347,6 @@ only: true
 output-dir: null
 output-file: out.txt
 parser-version: false
-rcfile: {CWD}/.taprc
 reporter: spec
 reporter-arg: []
 save: foo.txt
@@ -369,6 +369,7 @@ watch: false
 `
 
 exports[`test/run/dump-config.js TAP turn color off and back on again > output 1`] = `
+{CWD}/.taprc
 bail: false
 branches: 100
 browser: true
@@ -398,7 +399,6 @@ only: false
 output-dir: null
 output-file: null
 parser-version: false
-rcfile: {CWD}/.taprc
 reporter: base
 reporter-arg: []
 save: null

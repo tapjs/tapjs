@@ -149,8 +149,13 @@ const main = async options => {
     options.reporter = options.color ? 'base' : 'tap'
 
   if (options['dump-config']) {
-    console.log(yaml.stringify(Object.keys(options).filter(k =>
-      k !== 'dump-config' && k !== '_' && !/^[A-Z_]+$/.test(k)
+    delete options['dump-config']
+    const rcfile = options['rcfile']
+    delete options['rcfile']
+    const configKeys = Object.keys(options)
+    console.log(path.normalize(rcfile))
+    console.log(yaml.stringify(configKeys.filter(k =>
+      k !== '_' && !/^[A-Z_]+$/.test(k)
     ).sort().reduce((set, k) =>
       (set[k] = options[k], set), {})))
     return

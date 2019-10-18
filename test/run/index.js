@@ -33,6 +33,7 @@ const clean = string => cleanStacks(string)
   // two that show up in config dump snapshots
   .replace(/snapshot: (true|false)\n/, '')
   .replace(/cli-tests-[0-9]+/g, 'cli-tests')
+  .replace(/({CWD}|cli-tests)(.*)/g, (_, p1, p2) => p1 + p2.replace(/\\/g, "/")) // Windows: Convert \ to /
 
 t.cleanSnapshot = clean
 
