@@ -544,6 +544,19 @@ not ok 2 - this error is poop
     message: "fail: poop"
     stack: |
       {STACK}
+  origin:
+    at:
+      line: #
+      column: #
+      file: test/test.js
+    stack: |
+      {STACK}
+    source: |2
+            tt.error(null, 'this is not an error')
+            tt.error(new Error('fail: poop'), 'this error is poop')
+      --^
+            tt.error(new Error('fail: poop'))
+            tt.error('fail: poop', 'this error is "poop"')
   source: |2
           tt.error(null, 'this is not an error')
           tt.error(new Error('fail: poop'), 'this error is poop')
@@ -566,6 +579,19 @@ not ok 3 - fail: poop
     message: "fail: poop"
     stack: |
       {STACK}
+  origin:
+    at:
+      line: #
+      column: #
+      file: test/test.js
+    stack: |
+      {STACK}
+    source: |2
+            tt.error(new Error('fail: poop'), 'this error is poop')
+            tt.error(new Error('fail: poop'))
+      --^
+            tt.error('fail: poop', 'this error is "poop"')
+            tt.error('fail: poop')
   source: |2
           tt.error(new Error('fail: poop'), 'this error is poop')
           tt.error(new Error('fail: poop'))
