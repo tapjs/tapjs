@@ -14,6 +14,10 @@ redirect_from:
   [`t.fixture()`](/docs/api/#tfixturetype-content) methods.  See [testing
   with fixtures](/docs/api/fixtures/).
 * Capture the stack trace more helpfully in "subtest after end" errors.
+* Expose timing info on all test objects
+* Expose error origin on `t.error()` meta info so it can be shown in report
+  output.
+* Always exclude test files from NYC coverage
 
 ## 14.6 - 2019-08-03
 
