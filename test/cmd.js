@@ -108,15 +108,25 @@ Bail out!
     bail_reason: `TAP version 13
 Bail out! # i have my reasons
 `,
-    failing_child_with_passing_tap: `TAP version 13
+    failing_child_with_broken_tap: `TAP version 13
 pragma +strict
 # Subtest: child
-    not ok 1
+    not ok 1 - test point in child
       ...
       hello: world
 not ok 1 - child
 1..1
 `,
+    passing_child_with_broken_tap: `TAP version 13
+pragma +strict
+# Subtest: child
+    ok 1 - test point in child
+      ...
+      hello: world
+ok 1 - child
+1..1
+`,
+
   }
 
   const runTest = tap => (t, args) => {

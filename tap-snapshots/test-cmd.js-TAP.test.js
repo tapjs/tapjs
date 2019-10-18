@@ -1105,11 +1105,11 @@ exports[`test/cmd.js TAP basic fail t > stderr 1`] = `
 
 `
 
-exports[`test/cmd.js TAP basic failing_child_with_passing_tap b w > error 1`] = `
+exports[`test/cmd.js TAP basic failing_child_with_broken_tap b w > error 1`] = `
 1
 `
 
-exports[`test/cmd.js TAP basic failing_child_with_passing_tap b w > output 1`] = `
+exports[`test/cmd.js TAP basic failing_child_with_broken_tap b w > output 1`] = `
 [
   [ 'version', 13 ],
   [ 'pragma', 'strict', true ],
@@ -1117,8 +1117,16 @@ exports[`test/cmd.js TAP basic failing_child_with_passing_tap b w > output 1`] =
     'child',
     [
       [ 'comment', '# Subtest: child\\n' ],
-      [ 'assert', Result { ok: false, id: 1, fullname: 'child' } ],
-      [ 'bailout', '' ],
+      [
+        'assert',
+        Result {
+          ok: false,
+          id: 1,
+          name: 'test point in child',
+          fullname: 'child'
+        }
+      ],
+      [ 'bailout', 'test point in child' ],
       [
         'complete',
         FinalResults {
@@ -1126,7 +1134,7 @@ exports[`test/cmd.js TAP basic failing_child_with_passing_tap b w > output 1`] =
           count: 1,
           pass: 0,
           fail: 3,
-          bailout: true,
+          bailout: 'test point in child',
           todo: 0,
           skip: 0,
           plan: FinalPlan {
@@ -1145,7 +1153,12 @@ exports[`test/cmd.js TAP basic failing_child_with_passing_tap b w > output 1`] =
               tapError: 'Non-TAP data encountered in strict mode',
               data: '  hello: world\\n'
             },
-            Result { ok: false, id: 1, fullname: 'child' }
+            Result {
+              ok: false,
+              id: 1,
+              name: 'test point in child',
+              fullname: 'child'
+            }
           ],
           time: null
         }
@@ -1154,7 +1167,7 @@ exports[`test/cmd.js TAP basic failing_child_with_passing_tap b w > output 1`] =
   ],
   [ 'extra', '      ...\\n' ],
   [ 'extra', '      hello: world\\n' ],
-  [ 'bailout', '' ],
+  [ 'bailout', 'test point in child' ],
   [
     'complete',
     FinalResults {
@@ -1162,7 +1175,7 @@ exports[`test/cmd.js TAP basic failing_child_with_passing_tap b w > output 1`] =
       count: 0,
       pass: 0,
       fail: 2,
-      bailout: true,
+      bailout: 'test point in child',
       todo: 0,
       skip: 0,
       plan: FinalPlan {
@@ -1189,20 +1202,28 @@ exports[`test/cmd.js TAP basic failing_child_with_passing_tap b w > output 1`] =
 
 `
 
-exports[`test/cmd.js TAP basic failing_child_with_passing_tap b w > stderr 1`] = `
+exports[`test/cmd.js TAP basic failing_child_with_broken_tap b w > stderr 1`] = `
 
 `
 
-exports[`test/cmd.js TAP basic failing_child_with_passing_tap flat > error 1`] = `
+exports[`test/cmd.js TAP basic failing_child_with_broken_tap flat > error 1`] = `
 1
 `
 
-exports[`test/cmd.js TAP basic failing_child_with_passing_tap flat > output 1`] = `
+exports[`test/cmd.js TAP basic failing_child_with_broken_tap flat > output 1`] = `
 [
   [ 'pragma', 'strict', true ],
   [ 'extra', '      ...\\n' ],
   [ 'extra', '      hello: world\\n' ],
-  [ 'result', Result { ok: false, id: 1, fullname: 'child' } ],
+  [
+    'result',
+    Result {
+      ok: false,
+      id: 1,
+      name: 'test point in child',
+      fullname: 'child'
+    }
+  ],
   [ 'plan', { start: 1, end: 1 } ],
   [ 'comment', '# failed 3 test\\n' ],
   [
@@ -1240,39 +1261,39 @@ exports[`test/cmd.js TAP basic failing_child_with_passing_tap flat > output 1`] 
 
 `
 
-exports[`test/cmd.js TAP basic failing_child_with_passing_tap flat > stderr 1`] = `
+exports[`test/cmd.js TAP basic failing_child_with_broken_tap flat > stderr 1`] = `
 
 `
 
-exports[`test/cmd.js TAP basic failing_child_with_passing_tap flat tap > error 1`] = `
+exports[`test/cmd.js TAP basic failing_child_with_broken_tap flat tap > error 1`] = `
 1
 `
 
-exports[`test/cmd.js TAP basic failing_child_with_passing_tap flat tap > output 1`] = `
+exports[`test/cmd.js TAP basic failing_child_with_broken_tap flat tap > output 1`] = `
 TAP version 13
 pragma +strict
       ...
       hello: world
-not ok 1 - child
+not ok 1 - child > test point in child
 1..1
 # failed 3 test
 
 
 `
 
-exports[`test/cmd.js TAP basic failing_child_with_passing_tap flat tap > stderr 1`] = `
+exports[`test/cmd.js TAP basic failing_child_with_broken_tap flat tap > stderr 1`] = `
 
 `
 
-exports[`test/cmd.js TAP basic failing_child_with_passing_tap lines > error 1`] = `
+exports[`test/cmd.js TAP basic failing_child_with_broken_tap lines > error 1`] = `
 1
 `
 
-exports[`test/cmd.js TAP basic failing_child_with_passing_tap lines > output 1`] = `
+exports[`test/cmd.js TAP basic failing_child_with_broken_tap lines > output 1`] = `
 TAP version 13
 pragma +strict
 # Subtest: child
-    not ok 1
+    not ok 1 - test point in child
       ...
       hello: world
     # test count(1) != plan(null)
@@ -1283,15 +1304,15 @@ not ok 1 - child
 
 `
 
-exports[`test/cmd.js TAP basic failing_child_with_passing_tap lines > stderr 1`] = `
+exports[`test/cmd.js TAP basic failing_child_with_broken_tap lines > stderr 1`] = `
 
 `
 
-exports[`test/cmd.js TAP basic failing_child_with_passing_tap no args > error 1`] = `
+exports[`test/cmd.js TAP basic failing_child_with_broken_tap no args > error 1`] = `
 1
 `
 
-exports[`test/cmd.js TAP basic failing_child_with_passing_tap no args > output 1`] = `
+exports[`test/cmd.js TAP basic failing_child_with_broken_tap no args > output 1`] = `
 [
   [ 'version', 13 ],
   [ 'pragma', 'strict', true ],
@@ -1299,7 +1320,15 @@ exports[`test/cmd.js TAP basic failing_child_with_passing_tap no args > output 1
     'child',
     [
       [ 'comment', '# Subtest: child\\n' ],
-      [ 'assert', Result { ok: false, id: 1, fullname: 'child' } ],
+      [
+        'assert',
+        Result {
+          ok: false,
+          id: 1,
+          name: 'test point in child',
+          fullname: 'child'
+        }
+      ],
       [ 'comment', '# test count(1) != plan(null)\\n' ],
       [ 'comment', '# failed 4 test\\n' ],
       [
@@ -1328,7 +1357,12 @@ exports[`test/cmd.js TAP basic failing_child_with_passing_tap no args > output 1
               tapError: 'Non-TAP data encountered in strict mode',
               data: '  hello: world\\n'
             },
-            Result { ok: false, id: 1, fullname: 'child' },
+            Result {
+              ok: false,
+              id: 1,
+              name: 'test point in child',
+              fullname: 'child'
+            },
             { tapError: 'no plan' }
           ],
           time: null
@@ -1379,39 +1413,39 @@ exports[`test/cmd.js TAP basic failing_child_with_passing_tap no args > output 1
 
 `
 
-exports[`test/cmd.js TAP basic failing_child_with_passing_tap no args > stderr 1`] = `
+exports[`test/cmd.js TAP basic failing_child_with_broken_tap no args > stderr 1`] = `
 
 `
 
-exports[`test/cmd.js TAP basic failing_child_with_passing_tap silent > error 1`] = `
+exports[`test/cmd.js TAP basic failing_child_with_broken_tap silent > error 1`] = `
 1
 `
 
-exports[`test/cmd.js TAP basic failing_child_with_passing_tap silent > output 1`] = `
+exports[`test/cmd.js TAP basic failing_child_with_broken_tap silent > output 1`] = `
 
 `
 
-exports[`test/cmd.js TAP basic failing_child_with_passing_tap silent > stderr 1`] = `
+exports[`test/cmd.js TAP basic failing_child_with_broken_tap silent > stderr 1`] = `
 
 `
 
-exports[`test/cmd.js TAP basic failing_child_with_passing_tap silent strict > error 1`] = `
+exports[`test/cmd.js TAP basic failing_child_with_broken_tap silent strict > error 1`] = `
 1
 `
 
-exports[`test/cmd.js TAP basic failing_child_with_passing_tap silent strict > output 1`] = `
+exports[`test/cmd.js TAP basic failing_child_with_broken_tap silent strict > output 1`] = `
 
 `
 
-exports[`test/cmd.js TAP basic failing_child_with_passing_tap silent strict > stderr 1`] = `
+exports[`test/cmd.js TAP basic failing_child_with_broken_tap silent strict > stderr 1`] = `
 
 `
 
-exports[`test/cmd.js TAP basic failing_child_with_passing_tap strict > error 1`] = `
+exports[`test/cmd.js TAP basic failing_child_with_broken_tap strict > error 1`] = `
 1
 `
 
-exports[`test/cmd.js TAP basic failing_child_with_passing_tap strict > output 1`] = `
+exports[`test/cmd.js TAP basic failing_child_with_broken_tap strict > output 1`] = `
 [
   [ 'version', 13 ],
   [ 'pragma', 'strict', true ],
@@ -1419,7 +1453,15 @@ exports[`test/cmd.js TAP basic failing_child_with_passing_tap strict > output 1`
     'child',
     [
       [ 'comment', '# Subtest: child\\n' ],
-      [ 'assert', Result { ok: false, id: 1, fullname: 'child' } ],
+      [
+        'assert',
+        Result {
+          ok: false,
+          id: 1,
+          name: 'test point in child',
+          fullname: 'child'
+        }
+      ],
       [ 'comment', '# test count(1) != plan(null)\\n' ],
       [ 'comment', '# failed 4 test\\n' ],
       [
@@ -1448,7 +1490,12 @@ exports[`test/cmd.js TAP basic failing_child_with_passing_tap strict > output 1`
               tapError: 'Non-TAP data encountered in strict mode',
               data: '  hello: world\\n'
             },
-            Result { ok: false, id: 1, fullname: 'child' },
+            Result {
+              ok: false,
+              id: 1,
+              name: 'test point in child',
+              fullname: 'child'
+            },
             { tapError: 'no plan' }
           ],
           time: null
@@ -1499,19 +1546,19 @@ exports[`test/cmd.js TAP basic failing_child_with_passing_tap strict > output 1`
 
 `
 
-exports[`test/cmd.js TAP basic failing_child_with_passing_tap strict > stderr 1`] = `
+exports[`test/cmd.js TAP basic failing_child_with_broken_tap strict > stderr 1`] = `
 
 `
 
-exports[`test/cmd.js TAP basic failing_child_with_passing_tap t > error 1`] = `
+exports[`test/cmd.js TAP basic failing_child_with_broken_tap t > error 1`] = `
 1
 `
 
-exports[`test/cmd.js TAP basic failing_child_with_passing_tap t > output 1`] = `
+exports[`test/cmd.js TAP basic failing_child_with_broken_tap t > output 1`] = `
 TAP version 13
 pragma +strict
 # Subtest: child
-    not ok 1
+    not ok 1 - test point in child
     # test count(1) != plan(null)
     # failed 4 test
       ...
@@ -1523,7 +1570,7 @@ not ok 1 - child
 
 `
 
-exports[`test/cmd.js TAP basic failing_child_with_passing_tap t > stderr 1`] = `
+exports[`test/cmd.js TAP basic failing_child_with_broken_tap t > stderr 1`] = `
 
 `
 
@@ -1997,6 +2044,454 @@ ok 2 - child
 `
 
 exports[`test/cmd.js TAP basic pass_mostly t > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic passing_child_with_broken_tap b w > error 1`] = `
+1
+`
+
+exports[`test/cmd.js TAP basic passing_child_with_broken_tap b w > output 1`] = `
+[
+  [ 'version', 13 ],
+  [ 'pragma', 'strict', true ],
+  [
+    'child',
+    [
+      [ 'comment', '# Subtest: child\\n' ],
+      [
+        'assert',
+        Result {
+          ok: true,
+          id: 1,
+          name: 'test point in child',
+          fullname: 'child'
+        }
+      ],
+      [ 'comment', '# test count(1) != plan(null)\\n' ],
+      [ 'comment', '# failed 3 test\\n' ],
+      [
+        'complete',
+        FinalResults {
+          ok: false,
+          count: 1,
+          pass: 1,
+          fail: 3,
+          bailout: false,
+          todo: 0,
+          skip: 0,
+          plan: FinalPlan {
+            start: null,
+            end: null,
+            skipAll: false,
+            skipReason: '',
+            comment: ''
+          },
+          failures: [
+            {
+              tapError: 'Non-TAP data encountered in strict mode',
+              data: '  ...\\n'
+            },
+            {
+              tapError: 'Non-TAP data encountered in strict mode',
+              data: '  hello: world\\n'
+            },
+            { tapError: 'no plan' }
+          ],
+          time: null
+        }
+      ]
+    ]
+  ],
+  [ 'extra', '      ...\\n' ],
+  [ 'extra', '      hello: world\\n' ],
+  [ 'assert', Result { ok: true, id: 1, name: 'child', fullname: '' } ],
+  [ 'plan', { start: 1, end: 1 } ],
+  [ 'comment', '# failed 2 test\\n' ],
+  [
+    'complete',
+    FinalResults {
+      ok: false,
+      count: 1,
+      pass: 1,
+      fail: 2,
+      bailout: false,
+      todo: 0,
+      skip: 0,
+      plan: FinalPlan {
+        start: 1,
+        end: 1,
+        skipAll: false,
+        skipReason: '',
+        comment: ''
+      },
+      failures: [
+        {
+          tapError: 'Non-TAP data encountered in strict mode',
+          data: '  ...\\n'
+        },
+        {
+          tapError: 'Non-TAP data encountered in strict mode',
+          data: '  hello: world\\n'
+        }
+      ],
+      time: null
+    }
+  ]
+]
+
+`
+
+exports[`test/cmd.js TAP basic passing_child_with_broken_tap b w > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic passing_child_with_broken_tap flat > error 1`] = `
+1
+`
+
+exports[`test/cmd.js TAP basic passing_child_with_broken_tap flat > output 1`] = `
+[
+  [ 'pragma', 'strict', true ],
+  [ 'extra', '      ...\\n' ],
+  [ 'extra', '      hello: world\\n' ],
+  [
+    'result',
+    Result {
+      ok: true,
+      id: 1,
+      name: 'test point in child',
+      fullname: 'child'
+    }
+  ],
+  [ 'result', Result { ok: true, id: 1, name: 'child', fullname: '' } ],
+  [ 'plan', { start: 1, end: 1 } ],
+  [ 'comment', '# failed 2 test\\n' ],
+  [
+    'complete',
+    FinalResults {
+      ok: false,
+      count: 1,
+      pass: 1,
+      fail: 2,
+      bailout: false,
+      todo: 0,
+      skip: 0,
+      plan: FinalPlan {
+        start: 1,
+        end: 1,
+        skipAll: false,
+        skipReason: '',
+        comment: ''
+      },
+      failures: [
+        {
+          tapError: 'Non-TAP data encountered in strict mode',
+          data: '  ...\\n'
+        },
+        {
+          tapError: 'Non-TAP data encountered in strict mode',
+          data: '  hello: world\\n'
+        }
+      ],
+      time: null
+    }
+  ]
+]
+
+`
+
+exports[`test/cmd.js TAP basic passing_child_with_broken_tap flat > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic passing_child_with_broken_tap flat tap > error 1`] = `
+1
+`
+
+exports[`test/cmd.js TAP basic passing_child_with_broken_tap flat tap > output 1`] = `
+TAP version 13
+pragma +strict
+      ...
+      hello: world
+ok 1 - child > test point in child
+ok 2 - child
+1..2
+# failed 2 test
+
+
+`
+
+exports[`test/cmd.js TAP basic passing_child_with_broken_tap flat tap > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic passing_child_with_broken_tap lines > error 1`] = `
+1
+`
+
+exports[`test/cmd.js TAP basic passing_child_with_broken_tap lines > output 1`] = `
+TAP version 13
+pragma +strict
+# Subtest: child
+    ok 1 - test point in child
+      ...
+      hello: world
+    # test count(1) != plan(null)
+    # failed 3 test
+ok 1 - child
+1..1
+# failed 2 test
+
+`
+
+exports[`test/cmd.js TAP basic passing_child_with_broken_tap lines > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic passing_child_with_broken_tap no args > error 1`] = `
+1
+`
+
+exports[`test/cmd.js TAP basic passing_child_with_broken_tap no args > output 1`] = `
+[
+  [ 'version', 13 ],
+  [ 'pragma', 'strict', true ],
+  [
+    'child',
+    [
+      [ 'comment', '# Subtest: child\\n' ],
+      [
+        'assert',
+        Result {
+          ok: true,
+          id: 1,
+          name: 'test point in child',
+          fullname: 'child'
+        }
+      ],
+      [ 'comment', '# test count(1) != plan(null)\\n' ],
+      [ 'comment', '# failed 3 test\\n' ],
+      [
+        'complete',
+        FinalResults {
+          ok: false,
+          count: 1,
+          pass: 1,
+          fail: 3,
+          bailout: false,
+          todo: 0,
+          skip: 0,
+          plan: FinalPlan {
+            start: null,
+            end: null,
+            skipAll: false,
+            skipReason: '',
+            comment: ''
+          },
+          failures: [
+            {
+              tapError: 'Non-TAP data encountered in strict mode',
+              data: '  ...\\n'
+            },
+            {
+              tapError: 'Non-TAP data encountered in strict mode',
+              data: '  hello: world\\n'
+            },
+            { tapError: 'no plan' }
+          ],
+          time: null
+        }
+      ]
+    ]
+  ],
+  [ 'extra', '      ...\\n' ],
+  [ 'extra', '      hello: world\\n' ],
+  [ 'assert', Result { ok: true, id: 1, name: 'child', fullname: '' } ],
+  [ 'plan', { start: 1, end: 1 } ],
+  [ 'comment', '# failed 2 test\\n' ],
+  [
+    'complete',
+    FinalResults {
+      ok: false,
+      count: 1,
+      pass: 1,
+      fail: 2,
+      bailout: false,
+      todo: 0,
+      skip: 0,
+      plan: FinalPlan {
+        start: 1,
+        end: 1,
+        skipAll: false,
+        skipReason: '',
+        comment: ''
+      },
+      failures: [
+        {
+          tapError: 'Non-TAP data encountered in strict mode',
+          data: '  ...\\n'
+        },
+        {
+          tapError: 'Non-TAP data encountered in strict mode',
+          data: '  hello: world\\n'
+        }
+      ],
+      time: null
+    }
+  ]
+]
+
+`
+
+exports[`test/cmd.js TAP basic passing_child_with_broken_tap no args > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic passing_child_with_broken_tap silent > error 1`] = `
+1
+`
+
+exports[`test/cmd.js TAP basic passing_child_with_broken_tap silent > output 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic passing_child_with_broken_tap silent > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic passing_child_with_broken_tap silent strict > error 1`] = `
+1
+`
+
+exports[`test/cmd.js TAP basic passing_child_with_broken_tap silent strict > output 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic passing_child_with_broken_tap silent strict > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic passing_child_with_broken_tap strict > error 1`] = `
+1
+`
+
+exports[`test/cmd.js TAP basic passing_child_with_broken_tap strict > output 1`] = `
+[
+  [ 'version', 13 ],
+  [ 'pragma', 'strict', true ],
+  [
+    'child',
+    [
+      [ 'comment', '# Subtest: child\\n' ],
+      [
+        'assert',
+        Result {
+          ok: true,
+          id: 1,
+          name: 'test point in child',
+          fullname: 'child'
+        }
+      ],
+      [ 'comment', '# test count(1) != plan(null)\\n' ],
+      [ 'comment', '# failed 3 test\\n' ],
+      [
+        'complete',
+        FinalResults {
+          ok: false,
+          count: 1,
+          pass: 1,
+          fail: 3,
+          bailout: false,
+          todo: 0,
+          skip: 0,
+          plan: FinalPlan {
+            start: null,
+            end: null,
+            skipAll: false,
+            skipReason: '',
+            comment: ''
+          },
+          failures: [
+            {
+              tapError: 'Non-TAP data encountered in strict mode',
+              data: '  ...\\n'
+            },
+            {
+              tapError: 'Non-TAP data encountered in strict mode',
+              data: '  hello: world\\n'
+            },
+            { tapError: 'no plan' }
+          ],
+          time: null
+        }
+      ]
+    ]
+  ],
+  [ 'extra', '      ...\\n' ],
+  [ 'extra', '      hello: world\\n' ],
+  [ 'assert', Result { ok: true, id: 1, name: 'child', fullname: '' } ],
+  [ 'plan', { start: 1, end: 1 } ],
+  [ 'comment', '# failed 2 test\\n' ],
+  [
+    'complete',
+    FinalResults {
+      ok: false,
+      count: 1,
+      pass: 1,
+      fail: 2,
+      bailout: false,
+      todo: 0,
+      skip: 0,
+      plan: FinalPlan {
+        start: 1,
+        end: 1,
+        skipAll: false,
+        skipReason: '',
+        comment: ''
+      },
+      failures: [
+        {
+          tapError: 'Non-TAP data encountered in strict mode',
+          data: '  ...\\n'
+        },
+        {
+          tapError: 'Non-TAP data encountered in strict mode',
+          data: '  hello: world\\n'
+        }
+      ],
+      time: null
+    }
+  ]
+]
+
+`
+
+exports[`test/cmd.js TAP basic passing_child_with_broken_tap strict > stderr 1`] = `
+
+`
+
+exports[`test/cmd.js TAP basic passing_child_with_broken_tap t > error 1`] = `
+1
+`
+
+exports[`test/cmd.js TAP basic passing_child_with_broken_tap t > output 1`] = `
+TAP version 13
+pragma +strict
+# Subtest: child
+    ok 1 - test point in child
+    # test count(1) != plan(null)
+    # failed 3 test
+      ...
+      hello: world
+ok 1 - child
+1..1
+# failed 2 test
+
+
+`
+
+exports[`test/cmd.js TAP basic passing_child_with_broken_tap t > stderr 1`] = `
 
 `
 

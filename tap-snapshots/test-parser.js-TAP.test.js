@@ -2866,22 +2866,6 @@ Array [
     "ok 1 -  callback happened\\n",
   ],
   Array [
-    "extra",
-    "  ok:\\n",
-  ],
-  Array [
-    "extra",
-    "    - I wished for a bailout!\\n",
-  ],
-  Array [
-    "extra",
-    "    - lots of other shapes here can look like valid tap\\n",
-  ],
-  Array [
-    "extra",
-    " ...\\n",
-  ],
-  Array [
     "assert",
     Result {
       "fullname": "",
@@ -2913,7 +2897,15 @@ Array [
     "  ok:\\n",
   ],
   Array [
+    "extra",
+    "  ok:\\n",
+  ],
+  Array [
     "line",
+    "    - I wished for a bailout!\\n",
+  ],
+  Array [
+    "extra",
     "    - I wished for a bailout!\\n",
   ],
   Array [
@@ -2921,7 +2913,15 @@ Array [
     "    - lots of other shapes here can look like valid tap\\n",
   ],
   Array [
+    "extra",
+    "    - lots of other shapes here can look like valid tap\\n",
+  ],
+  Array [
     "line",
+    " ...\\n",
+  ],
+  Array [
+    "extra",
     " ...\\n",
   ],
   Array [
@@ -3028,22 +3028,6 @@ Array [
     "ok 1 -  callback happened\\n",
   ],
   Array [
-    "extra",
-    "  ok:\\n",
-  ],
-  Array [
-    "extra",
-    "    - I wished for a bailout!\\n",
-  ],
-  Array [
-    "extra",
-    "    - lots of other shapes here can look like valid tap\\n",
-  ],
-  Array [
-    "extra",
-    " ...\\n",
-  ],
-  Array [
     "assert",
     Result {
       "fullname": "",
@@ -3075,7 +3059,15 @@ Array [
     "  ok:\\n",
   ],
   Array [
+    "extra",
+    "  ok:\\n",
+  ],
+  Array [
     "line",
+    "    - I wished for a bailout!\\n",
+  ],
+  Array [
+    "extra",
     "    - I wished for a bailout!\\n",
   ],
   Array [
@@ -3083,7 +3075,15 @@ Array [
     "    - lots of other shapes here can look like valid tap\\n",
   ],
   Array [
+    "extra",
+    "    - lots of other shapes here can look like valid tap\\n",
+  ],
+  Array [
     "line",
+    " ...\\n",
+  ],
+  Array [
+    "extra",
     " ...\\n",
   ],
   Array [
@@ -3190,24 +3190,8 @@ Array [
     "ok 1 -  callback happened\\n",
   ],
   Array [
-    "extra",
-    "  ok:\\n",
-  ],
-  Array [
     "line",
     "    # comment here too, why not?\\n",
-  ],
-  Array [
-    "extra",
-    "    - I wished for a bailout!\\n",
-  ],
-  Array [
-    "extra",
-    "    - lots of other shapes here can look like valid tap\\n",
-  ],
-  Array [
-    "extra",
-    " ...\\n",
   ],
   Array [
     "line",
@@ -3266,6 +3250,10 @@ Array [
     "  ok:\\n",
   ],
   Array [
+    "extra",
+    "  ok:\\n",
+  ],
+  Array [
     "line",
     "    # comment here too, why not?\\n",
   ],
@@ -3278,11 +3266,23 @@ Array [
     "    - I wished for a bailout!\\n",
   ],
   Array [
+    "extra",
+    "    - I wished for a bailout!\\n",
+  ],
+  Array [
     "line",
     "    - lots of other shapes here can look like valid tap\\n",
   ],
   Array [
+    "extra",
+    "    - lots of other shapes here can look like valid tap\\n",
+  ],
+  Array [
     "line",
+    " ...\\n",
+  ],
+  Array [
+    "extra",
     " ...\\n",
   ],
   Array [
@@ -3389,24 +3389,8 @@ Array [
     "ok 1 -  callback happened\\n",
   ],
   Array [
-    "extra",
-    "  ok:\\n",
-  ],
-  Array [
     "line",
     "    # comment here too, why not?\\n",
-  ],
-  Array [
-    "extra",
-    "    - I wished for a bailout!\\n",
-  ],
-  Array [
-    "extra",
-    "    - lots of other shapes here can look like valid tap\\n",
-  ],
-  Array [
-    "extra",
-    " ...\\n",
   ],
   Array [
     "line",
@@ -3465,6 +3449,10 @@ Array [
     "  ok:\\n",
   ],
   Array [
+    "extra",
+    "  ok:\\n",
+  ],
+  Array [
     "line",
     "    # comment here too, why not?\\n",
   ],
@@ -3477,11 +3465,23 @@ Array [
     "    - I wished for a bailout!\\n",
   ],
   Array [
+    "extra",
+    "    - I wished for a bailout!\\n",
+  ],
+  Array [
     "line",
     "    - lots of other shapes here can look like valid tap\\n",
   ],
   Array [
+    "extra",
+    "    - lots of other shapes here can look like valid tap\\n",
+  ],
+  Array [
     "line",
+    " ...\\n",
+  ],
+  Array [
+    "extra",
     " ...\\n",
   ],
   Array [
@@ -16665,14 +16665,6 @@ Array [
     "not ok\\n",
   ],
   Array [
-    "extra",
-    "  ...\\n",
-  ],
-  Array [
-    "extra",
-    "  some: diags\\n",
-  ],
-  Array [
     "line",
     "  ---\\n",
   ],
@@ -16705,7 +16697,15 @@ Array [
     "  ...\\n",
   ],
   Array [
+    "extra",
+    "  ...\\n",
+  ],
+  Array [
     "line",
+    "  some: diags\\n",
+  ],
+  Array [
+    "extra",
     "  some: diags\\n",
   ],
   Array [
@@ -16870,14 +16870,6 @@ Array [
     "not ok\\n",
   ],
   Array [
-    "extra",
-    "  ...\\n",
-  ],
-  Array [
-    "extra",
-    "  some: diags\\n",
-  ],
-  Array [
     "line",
     "  ---\\n",
   ],
@@ -16910,7 +16902,15 @@ Array [
     "  ...\\n",
   ],
   Array [
+    "extra",
+    "  ...\\n",
+  ],
+  Array [
     "line",
+    "  some: diags\\n",
+  ],
+  Array [
+    "extra",
     "  some: diags\\n",
   ],
   Array [
@@ -17356,10 +17356,6 @@ Array [
     "not ok 4 this is truncated weirdly\\n",
   ],
   Array [
-    "extra",
-    "     not ok 99 this is not a child test\\n",
-  ],
-  Array [
     "assert",
     Result {
       "fullname": "",
@@ -17388,6 +17384,10 @@ Array [
   ],
   Array [
     "line",
+    "     not ok 99 this is not a child test\\n",
+  ],
+  Array [
+    "extra",
     "     not ok 99 this is not a child test\\n",
   ],
   Array [
@@ -31416,10 +31416,6 @@ Array [
     "    1..1\\n",
   ],
   Array [
-    "extra",
-    "1..99\\n",
-  ],
-  Array [
     "line",
     "    ok\\n",
   ],
@@ -31455,6 +31451,10 @@ Array [
   ],
   Array [
     "line",
+    "1..99\\n",
+  ],
+  Array [
+    "extra",
     "1..99\\n",
   ],
   Array [
@@ -31651,10 +31651,6 @@ Array [
     "    1..1\\n",
   ],
   Array [
-    "extra",
-    "1..99\\n",
-  ],
-  Array [
     "line",
     "    ok\\n",
   ],
@@ -31690,6 +31686,10 @@ Array [
   ],
   Array [
     "line",
+    "1..99\\n",
+  ],
+  Array [
+    "extra",
     "1..99\\n",
   ],
   Array [
@@ -31905,10 +31905,6 @@ Array [
     "    1..1\\n",
   ],
   Array [
-    "extra",
-    "1..99\\n",
-  ],
-  Array [
     "line",
     "    ok\\n",
   ],
@@ -31944,6 +31940,10 @@ Array [
   ],
   Array [
     "line",
+    "1..99\\n",
+  ],
+  Array [
+    "extra",
     "1..99\\n",
   ],
   Array [
@@ -32120,10 +32120,6 @@ Array [
     "    1..1\\n",
   ],
   Array [
-    "extra",
-    "1..99\\n",
-  ],
-  Array [
     "line",
     "    ok\\n",
   ],
@@ -32159,6 +32155,10 @@ Array [
   ],
   Array [
     "line",
+    "1..99\\n",
+  ],
+  Array [
+    "extra",
     "1..99\\n",
   ],
   Array [
@@ -78185,18 +78185,6 @@ Array [
     "ok 11 test/consumer.js\\n",
   ],
   Array [
-    "extra",
-    "debug test\\n",
-  ],
-  Array [
-    "extra",
-    "t.plan=1\\n",
-  ],
-  Array [
-    "extra",
-    "'Debugger listening on port 5858\\\\n'\\n",
-  ],
-  Array [
     "assert",
     Result {
       "fullname": "",
@@ -78236,11 +78224,23 @@ Array [
     "debug test\\n",
   ],
   Array [
+    "extra",
+    "debug test\\n",
+  ],
+  Array [
     "line",
     "t.plan=1\\n",
   ],
   Array [
+    "extra",
+    "t.plan=1\\n",
+  ],
+  Array [
     "line",
+    "'Debugger listening on port 5858\\\\n'\\n",
+  ],
+  Array [
+    "extra",
     "'Debugger listening on port 5858\\\\n'\\n",
   ],
   Array [
@@ -79202,50 +79202,6 @@ Array [
     "ok 34 test/exit-code.js\\n",
   ],
   Array [
-    "extra",
-    "gc test\\n",
-  ],
-  Array [
-    "extra",
-    "t.plan=1\\n",
-  ],
-  Array [
-    "extra",
-    "assert gc does not exist\\n",
-  ],
-  Array [
-    "extra",
-    "gc test\\n",
-  ],
-  Array [
-    "extra",
-    "t.plan=2\\n",
-  ],
-  Array [
-    "extra",
-    "gc test using --gc\\n",
-  ],
-  Array [
-    "extra",
-    "t.plan=1\\n",
-  ],
-  Array [
-    "extra",
-    "assert gc exists\\n",
-  ],
-  Array [
-    "extra",
-    "gc test using --expose-gc\\n",
-  ],
-  Array [
-    "extra",
-    "t.plan=1\\n",
-  ],
-  Array [
-    "extra",
-    "assert gc exists\\n",
-  ],
-  Array [
     "assert",
     Result {
       "fullname": "",
@@ -79285,11 +79241,23 @@ Array [
     "gc test\\n",
   ],
   Array [
+    "extra",
+    "gc test\\n",
+  ],
+  Array [
     "line",
     "t.plan=1\\n",
   ],
   Array [
+    "extra",
+    "t.plan=1\\n",
+  ],
+  Array [
     "line",
+    "assert gc does not exist\\n",
+  ],
+  Array [
+    "extra",
     "assert gc does not exist\\n",
   ],
   Array [
@@ -79313,7 +79281,15 @@ Array [
     "gc test\\n",
   ],
   Array [
+    "extra",
+    "gc test\\n",
+  ],
+  Array [
     "line",
+    "t.plan=2\\n",
+  ],
+  Array [
+    "extra",
     "t.plan=2\\n",
   ],
   Array [
@@ -79321,7 +79297,15 @@ Array [
     "gc test using --gc\\n",
   ],
   Array [
+    "extra",
+    "gc test using --gc\\n",
+  ],
+  Array [
     "line",
+    "t.plan=1\\n",
+  ],
+  Array [
+    "extra",
     "t.plan=1\\n",
   ],
   Array [
@@ -79329,7 +79313,15 @@ Array [
     "assert gc exists\\n",
   ],
   Array [
+    "extra",
+    "assert gc exists\\n",
+  ],
+  Array [
     "line",
+    "gc test using --expose-gc\\n",
+  ],
+  Array [
+    "extra",
     "gc test using --expose-gc\\n",
   ],
   Array [
@@ -79337,7 +79329,15 @@ Array [
     "t.plan=1\\n",
   ],
   Array [
+    "extra",
+    "t.plan=1\\n",
+  ],
+  Array [
     "line",
+    "assert gc exists\\n",
+  ],
+  Array [
+    "extra",
     "assert gc exists\\n",
   ],
   Array [
@@ -89110,22 +89110,6 @@ Array [
     "ok 296 test/test-test.js\\n",
   ],
   Array [
-    "extra",
-    "timeout test\\n",
-  ],
-  Array [
-    "extra",
-    "t.plan=2\\n",
-  ],
-  Array [
-    "extra",
-    "a assert\\n",
-  ],
-  Array [
-    "extra",
-    "b assert\\n",
-  ],
-  Array [
     "assert",
     Result {
       "fullname": "",
@@ -89165,7 +89149,15 @@ Array [
     "timeout test\\n",
   ],
   Array [
+    "extra",
+    "timeout test\\n",
+  ],
+  Array [
     "line",
+    "t.plan=2\\n",
+  ],
+  Array [
+    "extra",
     "t.plan=2\\n",
   ],
   Array [
@@ -89173,7 +89165,15 @@ Array [
     "a assert\\n",
   ],
   Array [
+    "extra",
+    "a assert\\n",
+  ],
+  Array [
     "line",
+    "b assert\\n",
+  ],
+  Array [
+    "extra",
     "b assert\\n",
   ],
   Array [
@@ -89197,22 +89197,6 @@ Array [
     "ok 297 a\\n",
   ],
   Array [
-    "extra",
-    "timeout test\\n",
-  ],
-  Array [
-    "extra",
-    "t.plan=2\\n",
-  ],
-  Array [
-    "extra",
-    "a assert\\n",
-  ],
-  Array [
-    "extra",
-    "b assert\\n",
-  ],
-  Array [
     "assert",
     Result {
       "fullname": "",
@@ -89244,7 +89228,15 @@ Array [
     "timeout test\\n",
   ],
   Array [
+    "extra",
+    "timeout test\\n",
+  ],
+  Array [
     "line",
+    "t.plan=2\\n",
+  ],
+  Array [
+    "extra",
     "t.plan=2\\n",
   ],
   Array [
@@ -89252,7 +89244,15 @@ Array [
     "a assert\\n",
   ],
   Array [
+    "extra",
+    "a assert\\n",
+  ],
+  Array [
     "line",
+    "b assert\\n",
+  ],
+  Array [
+    "extra",
     "b assert\\n",
   ],
   Array [
@@ -90493,18 +90493,6 @@ Array [
     "ok 11 test/consumer.js\\n",
   ],
   Array [
-    "extra",
-    "debug test\\n",
-  ],
-  Array [
-    "extra",
-    "t.plan=1\\n",
-  ],
-  Array [
-    "extra",
-    "'Debugger listening on port 5858\\\\n'\\n",
-  ],
-  Array [
     "assert",
     Result {
       "fullname": "",
@@ -90544,11 +90532,23 @@ Array [
     "debug test\\n",
   ],
   Array [
+    "extra",
+    "debug test\\n",
+  ],
+  Array [
     "line",
     "t.plan=1\\n",
   ],
   Array [
+    "extra",
+    "t.plan=1\\n",
+  ],
+  Array [
     "line",
+    "'Debugger listening on port 5858\\\\n'\\n",
+  ],
+  Array [
+    "extra",
     "'Debugger listening on port 5858\\\\n'\\n",
   ],
   Array [
@@ -91510,50 +91510,6 @@ Array [
     "ok 34 test/exit-code.js\\n",
   ],
   Array [
-    "extra",
-    "gc test\\n",
-  ],
-  Array [
-    "extra",
-    "t.plan=1\\n",
-  ],
-  Array [
-    "extra",
-    "assert gc does not exist\\n",
-  ],
-  Array [
-    "extra",
-    "gc test\\n",
-  ],
-  Array [
-    "extra",
-    "t.plan=2\\n",
-  ],
-  Array [
-    "extra",
-    "gc test using --gc\\n",
-  ],
-  Array [
-    "extra",
-    "t.plan=1\\n",
-  ],
-  Array [
-    "extra",
-    "assert gc exists\\n",
-  ],
-  Array [
-    "extra",
-    "gc test using --expose-gc\\n",
-  ],
-  Array [
-    "extra",
-    "t.plan=1\\n",
-  ],
-  Array [
-    "extra",
-    "assert gc exists\\n",
-  ],
-  Array [
     "assert",
     Result {
       "fullname": "",
@@ -91593,11 +91549,23 @@ Array [
     "gc test\\n",
   ],
   Array [
+    "extra",
+    "gc test\\n",
+  ],
+  Array [
     "line",
     "t.plan=1\\n",
   ],
   Array [
+    "extra",
+    "t.plan=1\\n",
+  ],
+  Array [
     "line",
+    "assert gc does not exist\\n",
+  ],
+  Array [
+    "extra",
     "assert gc does not exist\\n",
   ],
   Array [
@@ -91621,7 +91589,15 @@ Array [
     "gc test\\n",
   ],
   Array [
+    "extra",
+    "gc test\\n",
+  ],
+  Array [
     "line",
+    "t.plan=2\\n",
+  ],
+  Array [
+    "extra",
     "t.plan=2\\n",
   ],
   Array [
@@ -91629,7 +91605,15 @@ Array [
     "gc test using --gc\\n",
   ],
   Array [
+    "extra",
+    "gc test using --gc\\n",
+  ],
+  Array [
     "line",
+    "t.plan=1\\n",
+  ],
+  Array [
+    "extra",
     "t.plan=1\\n",
   ],
   Array [
@@ -91637,7 +91621,15 @@ Array [
     "assert gc exists\\n",
   ],
   Array [
+    "extra",
+    "assert gc exists\\n",
+  ],
+  Array [
     "line",
+    "gc test using --expose-gc\\n",
+  ],
+  Array [
+    "extra",
     "gc test using --expose-gc\\n",
   ],
   Array [
@@ -91645,7 +91637,15 @@ Array [
     "t.plan=1\\n",
   ],
   Array [
+    "extra",
+    "t.plan=1\\n",
+  ],
+  Array [
     "line",
+    "assert gc exists\\n",
+  ],
+  Array [
+    "extra",
     "assert gc exists\\n",
   ],
   Array [
@@ -103330,10 +103330,6 @@ Array [
     "  ...\\n",
   ],
   Array [
-    "extra",
-    "---\\n  this is not yaml\\n  \\"In fact, it\\": : : :%%% <@!<\\n  is not \\n                anything\\n      but a peaceful\\n        Sea Turtle\\n                      _,.---.---.---.--.._ \\n                  _.-' \`--.\`---.\`---'-. _,\`--.._\\n                 /\`--._ .'.     \`.     \`,\`-.\`-._\\\\\\n                ||   \\\\  \`.\`---.__\`__..-\`. ,'\`-._/\\n           _  ,\`\\\\ \`-._\\\\   \\\\    \`.    \`_.-\`-._,\`\`-.\\n        ,\`   \`-_ \\\\/ \`-.\`--.\\\\    _\\\\_.-'\\\\__.-\`-.\`-._\`.\\n       (_.o> ,--. \`._/'--.-\`,--\`  \\\\_.-'       \\\\\`-._ \\\\\\n        \`---'    \`._ \`---._/__,----\`           \`-. \`-\\\\\\n                  /_, ,  _..-'                    \`-._\\\\\\n                  \\\\_, \\\\/ ._(\\n                   \\\\_, \\\\/ ._\\\\\\n                    \`._,\\\\/ ._\\\\\\n                      \`._// ./\`-._\\n               LGB      \`-._-_-_.-'\\n                   http://www.ascii-art.de/ascii/t/turtle.txt\\n...\\n",
-  ],
-  Array [
     "line",
     "  ---\\n",
   ],
@@ -103387,6 +103383,10 @@ Array [
       "name": "expected yaml, got a sea turtle",
       "ok": false,
     },
+  ],
+  Array [
+    "extra",
+    "---\\n  this is not yaml\\n  \\"In fact, it\\": : : :%%% <@!<\\n  is not \\n                anything\\n      but a peaceful\\n        Sea Turtle\\n                      _,.---.---.---.--.._ \\n                  _.-' \`--.\`---.\`---'-. _,\`--.._\\n                 /\`--._ .'.     \`.     \`,\`-.\`-._\\\\\\n                ||   \\\\  \`.\`---.__\`__..-\`. ,'\`-._/\\n           _  ,\`\\\\ \`-._\\\\   \\\\    \`.    \`_.-\`-._,\`\`-.\\n        ,\`   \`-_ \\\\/ \`-.\`--.\\\\    _\\\\_.-'\\\\__.-\`-.\`-._\`.\\n       (_.o> ,--. \`._/'--.-\`,--\`  \\\\_.-'       \\\\\`-._ \\\\\\n        \`---'    \`._ \`---._/__,----\`           \`-. \`-\\\\\\n                  /_, ,  _..-'                    \`-._\\\\\\n                  \\\\_, \\\\/ ._(\\n                   \\\\_, \\\\/ ._\\\\\\n                    \`._,\\\\/ ._\\\\\\n                      \`._// ./\`-._\\n               LGB      \`-._-_-_.-'\\n                   http://www.ascii-art.de/ascii/t/turtle.txt\\n...\\n",
   ],
   Array [
     "line",
@@ -103549,10 +103549,6 @@ Array [
     "  ...\\n",
   ],
   Array [
-    "extra",
-    "---\\n  this is not yaml\\n  \\"In fact, it\\": : : :%%% <@!<\\n  is not \\n                anything\\n      but a peaceful\\n        Sea Turtle\\n                      _,.---.---.---.--.._ \\n                  _.-' \`--.\`---.\`---'-. _,\`--.._\\n                 /\`--._ .'.     \`.     \`,\`-.\`-._\\\\\\n                ||   \\\\  \`.\`---.__\`__..-\`. ,'\`-._/\\n           _  ,\`\\\\ \`-._\\\\   \\\\    \`.    \`_.-\`-._,\`\`-.\\n        ,\`   \`-_ \\\\/ \`-.\`--.\\\\    _\\\\_.-'\\\\__.-\`-.\`-._\`.\\n       (_.o> ,--. \`._/'--.-\`,--\`  \\\\_.-'       \\\\\`-._ \\\\\\n        \`---'    \`._ \`---._/__,----\`           \`-. \`-\\\\\\n                  /_, ,  _..-'                    \`-._\\\\\\n                  \\\\_, \\\\/ ._(\\n                   \\\\_, \\\\/ ._\\\\\\n                    \`._,\\\\/ ._\\\\\\n                      \`._// ./\`-._\\n               LGB      \`-._-_-_.-'\\n                   http://www.ascii-art.de/ascii/t/turtle.txt\\n...\\n",
-  ],
-  Array [
     "line",
     "  ---\\n",
   ],
@@ -103606,6 +103602,10 @@ Array [
       "name": "expected yaml, got a sea turtle",
       "ok": false,
     },
+  ],
+  Array [
+    "extra",
+    "---\\n  this is not yaml\\n  \\"In fact, it\\": : : :%%% <@!<\\n  is not \\n                anything\\n      but a peaceful\\n        Sea Turtle\\n                      _,.---.---.---.--.._ \\n                  _.-' \`--.\`---.\`---'-. _,\`--.._\\n                 /\`--._ .'.     \`.     \`,\`-.\`-._\\\\\\n                ||   \\\\  \`.\`---.__\`__..-\`. ,'\`-._/\\n           _  ,\`\\\\ \`-._\\\\   \\\\    \`.    \`_.-\`-._,\`\`-.\\n        ,\`   \`-_ \\\\/ \`-.\`--.\\\\    _\\\\_.-'\\\\__.-\`-.\`-._\`.\\n       (_.o> ,--. \`._/'--.-\`,--\`  \\\\_.-'       \\\\\`-._ \\\\\\n        \`---'    \`._ \`---._/__,----\`           \`-. \`-\\\\\\n                  /_, ,  _..-'                    \`-._\\\\\\n                  \\\\_, \\\\/ ._(\\n                   \\\\_, \\\\/ ._\\\\\\n                    \`._,\\\\/ ._\\\\\\n                      \`._// ./\`-._\\n               LGB      \`-._-_-_.-'\\n                   http://www.ascii-art.de/ascii/t/turtle.txt\\n...\\n",
   ],
   Array [
     "line",

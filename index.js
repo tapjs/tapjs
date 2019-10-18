@@ -251,13 +251,15 @@ class Parser extends MiniPass {
     this.emitExtra(data)
   }
 
-  emitExtra (data) {
-    if (!this.parent)
-      this.emit('extra', data)
-    else
+  emitExtra (data, fromChild) {
+    if (this.parent)
       this.parent.emitExtra(
-        data.replace(/\n$/, '').replace(/^/gm, '    ') + '\n'
+        data.replace(/\n$/, '').replace(/^/gm, '    ') + '\n', true
       )
+    else if (!fromChild && (this.current || this.extraQueue.length))
+      this.extraQueue.push(['extra', data])
+    else
+      this.emit('extra', data)
   }
 
   plan (start, end, comment, line) {
