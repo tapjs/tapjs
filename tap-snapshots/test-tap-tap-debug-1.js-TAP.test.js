@@ -29,7 +29,7 @@ TAP {pid} TAP: < already processing
 TAP {pid} TAP: > STRING
 TAP {pid} TAP: LINE "1..0\\n"
 TAP {pid} TAP: > EOF TAP
-TAP {pid} TAP: ONCOMPLETE "TAP" {"ok":true,"count":0,"pass":0,"fail":0,"bailout":false,"todo":0,"skip":0,"plan":{"start":1,"end":0,"skipAll":true,"skipReason":"","comment":""},"failures":[]}
+TAP {pid} TAP: ONCOMPLETE "TAP" {"ok":true,"count":0,"pass":0,"fail":0,"bailout":false,"todo":0,"skip":0,"plan":{"start":1,"end":0,"skipAll":true,"skipReason":"","comment":""},"failures":[],"time":null}
 TAP {pid} TAP: done processing [] false
 
 `
