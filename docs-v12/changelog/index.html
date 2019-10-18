@@ -1,0 +1,661 @@
+<!doctype html>
+<title>
+  
+    Change Log | Node Tap
+  
+</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+html {
+  display: block;
+  font-family: sans-serif;
+  padding: 0 1em;
+  margin: 0 auto;
+  border-top: 10px solid #f7df1e;
+  line-height:1.5;
+  color:#333;
+  position:relative;
+}
+
+html::before {
+  width:100%;
+  display:block;
+  position:fixed;
+  top:0;
+  left:0;
+  height:10px;
+  background:#f7df1e;
+  content: " ";
+}
+
+body {
+  padding:0;
+  margin: 0;
+}
+
+a:hover, a:active, a:focus {
+  color: red;
+}
+
+code, pre, kbd {
+  font-size: 100%;
+  font-family: Triplicate T4, Fira Mono OT, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+}
+
+section.side {
+  display: block;
+  padding:0;
+  min-height:100px;
+  margin: 0;
+  width:100%;
+}
+
+.side h2, .side p {
+  margin-top: 0;
+}
+
+section.side li {
+  display: inline;
+}
+
+section.side ul {
+  display: block;
+  overflow:auto;
+}
+
+section.side li ul {
+  display: inline;
+}
+
+.side ul {
+  padding:0;
+  margin:0 ;
+}
+
+.side img {
+  display: block;
+  margin-right: 1em;
+  margin-top: 1em;
+}
+
+section.main {
+  display: block;
+  padding-top:20px;
+}
+
+@media only screen and (min-width: 240px) {
+  .side img {
+    float:left;
+    margin: 0 1em 0 0;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  html {
+    width:600px;
+    padding:0 0 0 200px;
+  }
+  section.side {
+    width: 200px;
+    position: fixed;
+    margin: 0 0 0 -200px;
+  }
+  .side img {
+    display: block;
+    float:none;
+  }
+
+  section.side ul {
+    overflow: none;
+    display: block;
+  }
+
+  section.side li {
+    display: block;
+  }
+
+  section.side a {
+    display: block;
+  }
+
+  section.side li ul {
+    margin: 0;
+    display: block;
+  }
+
+  section.side li li {
+    margin-left: 1em;
+  }
+
+  .side h2, .side p {
+    margin-top: 1em;
+  }
+
+  section.main {
+    float: right;
+    width: 600px;
+    padding-bottom: 100px;
+  }
+}
+</style>
+<link href="../static/prism.css" rel="stylesheet">
+
+<body>
+
+<section class='side'>
+  <h2><a href="../index.html"><img src='../static/tapjs.png' width=100 height=100 alt='Test Anything JS'></a></h2>
+  <p>A Test-Anything-Protocol library for Node.js</p>
+  <ul>
+  
+    <li>
+      <a href="../index.html">Index</a>
+      
+    </li>
+  
+    <li>
+      <a href="../basics/index.html">Getting Started</a>
+      
+    </li>
+  
+    <li>
+      <a href="../api/index.html">API</a>
+      
+      <ul>
+        
+        <li><a href="../asserts/index.html">Asserts</a></li>
+        
+        <li><a href="../promises/index.html">Promises</a></li>
+        
+        <li><a href="../subtests/index.html">Subtests</a></li>
+        
+        <li><a href="../parallel/index.html">Parallel Tests</a></li>
+        
+        <li><a href="../snapshots/index.html">Snapshot Testing</a></li>
+        
+        <li><a href="../grep/index.html">Filtering Tests: grep</a></li>
+        
+        <li><a href="../only/index.html">Filtering Tests: only</a></li>
+        
+        <li><a href="../mochalike/index.html">Mocha-like DSL</a></li>
+        
+        <li><a href="../advanced/index.html">Advanced</a></li>
+        
+      </ul>
+      
+    </li>
+  
+    <li>
+      <a href="../cli/index.html">CLI</a>
+      
+    </li>
+  
+    <li>
+      <a href="../tap-format.1">The Protocol</a>
+      
+    </li>
+  
+    <li>
+      <a href="../reporting/index.html">Reporting</a>
+      
+    </li>
+  
+    <li>
+      <a href="../coverage/index.html">Coverage</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html">Change Log</a>
+      
+    </li>
+  
+    <li>
+      <a href="https://github.com/tapjs/node-tap">GitHub Repo</a>
+      
+    </li>
+  
+  </ul>
+  <pre><a href="http://npm.im/tap">npm install tap</a>
+<a href="../cli/index.html">tap test/*.js</a></pre>
+</section>
+<section class='main'>
+<h2 id="126-2019-03-06">12.6 2019-03-06</h2>
+
+<ul>
+  <li>Add –no-esm flag to disable ‘-r esm’ behavior</li>
+</ul>
+
+<h2 id="125-2019-01-29">12.5 2019-01-29</h2>
+
+<p>Add support for ES Modules in all tap test scripts using <code class="highlighter-rouge">esm</code>.</p>
+
+<h2 id="124-2019-01-22">12.4 2019-01-22</h2>
+
+<p>Add support for loading typescript <code class="highlighter-rouge">.ts</code> files with <code class="highlighter-rouge">ts-node</code>.</p>
+
+<h2 id="123-2019-01-22">12.3 2019-01-22</h2>
+
+<p>Add support for loading <code class="highlighter-rouge">.mjs</code> files with the experimental module
+syntax flag set.</p>
+
+<h2 id="122-2019-01-22">12.2 2019-01-22</h2>
+
+<p>Add <code class="highlighter-rouge">--comments</code> to print all <code class="highlighter-rouge">t.comment()</code> messages to stderr.</p>
+
+<p>Add <code class="highlighter-rouge">TAP_CHILD_ID</code> in the environment of test scripts, so that they
+can differentiate themselves when spinning up servers and such.</p>
+
+<h2 id="121-2018-11-12">12.1 2018-11-12</h2>
+
+<p>Updates to make tap compatible with running in web browsers using
+browserify or webpack.</p>
+
+<h2 id="120-2018-05-16">12.0 2018-05-16</h2>
+
+<p>Breaking change to support deep matching and pattern matching of
+objects in <code class="highlighter-rouge">Set</code> collections.  (Previously, <code class="highlighter-rouge">Set</code> contents would only
+match if they were equal.)</p>
+
+<h2 id="110-2017-11-26">11.0 2017-11-26</h2>
+
+<p>Significant refactoring and speed improvements.</p>
+
+<p>Add <a href="../api/index.html#tskipname-options-function"><code class="highlighter-rouge">t.skip()</code></a> and
+<a href="../api/index.html#tskipname-options-function"><code class="highlighter-rouge">t.todo()</code></a> methods.</p>
+
+<p>Add
+<a href="../asserts/index.html#tresolvespromise--fn-message-extra"><code class="highlighter-rouge">t.resolves(promise)</code></a>
+to assert that a Promise object (or function that returns a Promise)
+will resolve.</p>
+
+<p>Add <a href="../asserts/index.html#tresolvematch-promise--fn-wanted-message-extra"><code class="highlighter-rouge">t.resolveMatch(promise,
+pattern)</code></a>
+to assert that a Promise object (or function that returns a Promise)
+will resolve to a value matching the supplied pattern.</p>
+
+<p>Add support for <a href="../snapshots/index.html">snapshot testing</a>.</p>
+
+<p>Improved implementation of <a href="../mochalike/index.html">Mocha-like DSL</a></p>
+
+<h3 id="breaking-changes">BREAKING CHANGES:</h3>
+
+<ul>
+  <li>Classes are true ECMAScript classes now, so constructors cannot be
+called without <code class="highlighter-rouge">new</code>.</li>
+  <li>Unnamed subtests are not given the name <code class="highlighter-rouge">(unnamed test)</code></li>
+  <li>The <code class="highlighter-rouge">t.current()</code> method is removed</li>
+</ul>
+
+<h2 id="107-2017-06-24">10.7 2017-06-24</h2>
+
+<p>Add support for <a href="../only/index.html">filtering tests using ‘only’</a>.</p>
+
+<p>Don’t show grep/only skips in the default reporter output.</p>
+
+<h2 id="106-2017-06-23">10.6 2017-06-23</h2>
+
+<p>Add support for <a href="../grep/index.html">filtering tests using regular expressions</a>.</p>
+
+<h2 id="105-2017-06-20">10.5 2017-06-20</h2>
+
+<p>Add support for Maps and Sets in <code class="highlighter-rouge">t.match()</code>, <code class="highlighter-rouge">t.same()</code>, and
+<code class="highlighter-rouge">t.strictSame()</code>.</p>
+
+<h2 id="104-2017-06-18">10.4 2017-06-18</h2>
+
+<p>Add
+<a href="../asserts/index.html#trejectspromise--fn-expectederror-message-extra"><code class="highlighter-rouge">t.rejects()</code></a>
+assertion.</p>
+
+<h2 id="103-2017-03-01">10.3 2017-03-01</h2>
+
+<ul>
+  <li>Add <code class="highlighter-rouge">-o</code> <code class="highlighter-rouge">--output-file</code> to put the raw TAP to a file.</li>
+  <li>Never print Domain objects in YAML.  They’re humongous.</li>
+  <li>Don’t lose error messages in doesNotThrow</li>
+</ul>
+
+<h2 id="102-2017-02-18">10.2 2017-02-18</h2>
+
+<p>Variety of minor cleanup fixes, and a debug mode.</p>
+
+<ul>
+  <li>Respond to TAP_DEBUG and NODE_DEBUG environs</li>
+  <li>Catch errors thrown in teardown handlers</li>
+  <li>Improve root-level thrown error reporting</li>
+  <li>don’t let an occupied test slip past endAll</li>
+  <li>Handle unhandledRejection as a root TAP error</li>
+  <li>better inspect data</li>
+  <li>If results are synthetically set, don’t clobber when parser ends</li>
+  <li>monkeypatch exit as well as reallyExit</li>
+</ul>
+
+<h2 id="101-2017-02-07">10.1 2017-02-07</h2>
+
+<p>Added support for source maps.  Stack traces in your jsx and
+coffeescript files will now be helpful!</p>
+
+<p>Added the <code class="highlighter-rouge">-J</code> option to auto-calculate the number of cores on your
+system, and run that many parallel jobs.</p>
+
+<h2 id="100-2017-01-28">10.0 2017-01-28</h2>
+
+<p>Full rewrite to support <a href="../parallel/index.html">parallel tests</a>.  Pass <code class="highlighter-rouge">-j4</code> on
+<a href="../cli/index.html">the command-line</a> to run 4 test files at once in parallel.</p>
+
+<p>This also refactors a lot of the grimier bits of the codebase, splits
+the one mega-Test class into a proper OOP hierarchy, and pulls a bunch
+of reusable stuff out into modules.</p>
+
+<p>Somehow, in the process, it also fixed an odd timing bug with
+<code class="highlighter-rouge">beforeEach</code> functions that returned promises.</p>
+
+<p>It truly is a luxury to have a massive pile of tests when it’s time to
+refactor.</p>
+
+<p>The <a href="../mochalike/index.html">mocha-like DSL</a> is now much more functional, and
+documented.</p>
+
+<p>Now supports passng <code class="highlighter-rouge">-T</code> or <code class="highlighter-rouge">--timeout=0</code> to the <a href="../cli/index.html">CLI</a> to not
+impose a timeout on tests.</p>
+
+<h2 id="90-2017-01-07">9.0 2017-01-07</h2>
+
+<p>Buffered subtests!</p>
+
+<p>This adds support for outputting subtests in the
+<a href="../subtests/index.html">buffered</a> format, where the summary test point <em>precedes</em>
+the indented subtest output, rather than coming afterwards.</p>
+
+<p>This sets the stage for parallel tests, coming in v10.  Mostly, it’s
+just an update to <a href="http://npm.im/tap-parser">tap-parser</a>, and a lot of
+internal clean-up.</p>
+
+<p>Update <a href="http://npm.im/nyc">nyc</a> to v10, which includes some fixes for
+covering newer JavaScript language features, and support for implicit
+function names.</p>
+
+<p>Also: remove a lot of excess noise and repetitive stack traces in yaml
+diagnostics.</p>
+
+<h2 id="80-2016-10-25">8.0 2016-10-25</h2>
+
+<p>Update <code class="highlighter-rouge">tmatch</code> to version 3.  This makes regular expressions test
+against the stringified versions of the test object in all <code class="highlighter-rouge">t.match()</code>
+methods.  It’s a breaking change because it can cause tests to pass
+that would have failed previously, or vice versa.  However, it is more
+expected, and strongly recommended.</p>
+
+<p>Handle unfinished promise-awaiting tests when the process exits.</p>
+
+<p>Show yaml diagnostics for the first “missing test” failure when a plan
+is not met, so that the plan can be more easily debugged.
+(Diagnostics are still excluded for the additional “missing test”
+failures that are generated, to reduce unnecessary noise.)</p>
+
+<p>Make coverage MUCH FASTER by turning on nyc caching.</p>
+
+<h2 id="71-2016-09-06">7.1 2016-09-06</h2>
+
+<p>Remove a race condition in how <code class="highlighter-rouge">Bail out!</code> messages got printed when
+setting the “bail on failure” option in child tests.  Now, whether
+it’s a child process or just a nested subtest, it’ll always print
+<code class="highlighter-rouge">Bail out!</code> at the failure level, then again at the top level, with
+nothing in between.</p>
+
+<p>Support <code class="highlighter-rouge">{ diagnostic: false }</code> in the options object for failing
+tests to suppress yaml diagnostics.</p>
+
+<p>Diagnostics are now shown when a synthetic <code class="highlighter-rouge">timeout</code> failure is
+generated for child test processes that ignore <code class="highlighter-rouge">SIGTERM</code> and must be
+killed with <code class="highlighter-rouge">SIGKILL</code>.</p>
+
+<h2 id="70-2016-08-27">7.0 2016-08-27</h2>
+
+<p>Move <code class="highlighter-rouge"># Subtest</code> commands to the parent level rather than the child
+level, more like Perl’s <code class="highlighter-rouge">Test2</code> family of modules.  This is more
+readable for humans.</p>
+
+<p>Update to version 2 of the tap parser.  (This adds support for putting
+the <code class="highlighter-rouge"># Subtest</code> commands at the parent level.)</p>
+
+<p>Support use of a <code class="highlighter-rouge">--save</code> and <code class="highlighter-rouge">--bail</code> together.  Any test files that
+were skipped due to a bailout are considered “not yet passed”, and so
+get put in the save file.</p>
+
+<p>Forcibly kill any spawned child process tests when the root test exits
+the parent process, preventing zombie test processes.</p>
+
+<p>Handle <code class="highlighter-rouge">SIGTERM</code> signals sent to the main process after the root test
+has ended.  This provides more useful output in the cases where the
+root test object has explicitly ended or satisfied its plan, but a
+timeout still occurs because of pending event loop activity.</p>
+
+<p>Prevent <code class="highlighter-rouge">for..in</code> loops from iterating inherited keys in many cases,
+providing resilience against <code class="highlighter-rouge">Object.prototype</code> mutations.</p>
+
+<p>Add the <code class="highlighter-rouge">--100</code> flag to set statements, functions, lines, and branches
+to 100% coverage required.</p>
+
+<h2 id="63-2016-07-30">6.3 2016-07-30</h2>
+
+<p>Let <code class="highlighter-rouge">t.doesNotThrow</code> take a string as the first argument.</p>
+
+<p>Bump <code class="highlighter-rouge">nyc</code> up to version 7.</p>
+
+<p>The tap <code class="highlighter-rouge">lib/</code> folder is excluded from all stack traces.</p>
+
+<h2 id="62-2016-07-15">6.2 2016-07-15</h2>
+
+<p>Add the <code class="highlighter-rouge">--test-arg=&lt;argument&gt;</code> option.</p>
+
+<h2 id="61-2016-07-01">6.1 2016-07-01</h2>
+
+<p>Add support for <code class="highlighter-rouge">{diagnostic: true}</code> in test and assert options, to
+force a YAML diagnostic block after passing child tests and
+assertions.</p>
+
+<h2 id="60-2016-06-30">6.0 2016-06-30</h2>
+
+<p>Only produce output on stdout if the root TAP test object is
+interacted with in some way.  Simply doing <code class="highlighter-rouge">require('tap')</code> no longer
+prints out the minimum TAP output, which means that you can interact
+with, for example, <code class="highlighter-rouge">var Test = require('tap').Test</code> without causing
+output side effects.</p>
+
+<p>Add <code class="highlighter-rouge">~/.taprc</code> yaml config file support.</p>
+
+<p>Add the <code class="highlighter-rouge">--dump-config</code> command line flag to print out the config
+options.</p>
+
+<p>Document environment variables used.</p>
+
+<p>Built-in CodeCov.io support has been removed.  If you were relying on
+this, you can add <code class="highlighter-rouge">codecov</code> as a devDependency, and then add this to
+the scripts block in your <code class="highlighter-rouge">package.json</code> file:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "scripts": {
+    "test": "tap test/*.js --coverage",
+    "posttest": "tap --coverage-report=lcov | codecov"
+  }
+}
+</code></pre></div></div>
+
+<h2 id="58-2016-06-24">5.8 2016-06-24</h2>
+
+<p>Make coverage piping errors non-fatal.</p>
+
+<p>Clean up argument ordering logic in <code class="highlighter-rouge">t.throws()</code>.  This now works for
+almost any ordering of arguments, which is unfortunately necessary for
+historical reasons.  Additionally, you can now pass in an <code class="highlighter-rouge">Error</code>
+class to verify the type, which would previously not work properly in
+some cases.</p>
+
+<h2 id="57-2016-02-22">5.7 2016-02-22</h2>
+
+<p>Report timeout errors in child test scripts much more diligently.</p>
+
+<p>On Unix systems, the child process handles <code class="highlighter-rouge">SIGTERM</code> signals by
+assuming that things are taking too long, dumping a report of all
+active handles and requests in process, and exiting in error.</p>
+
+<p>On Windows systems (where <code class="highlighter-rouge">SIGTERM</code> is always uncatchably fatal), or
+if a Unix child test process doesn’t exit within 1 second (causing a
+fatal <code class="highlighter-rouge">SIGKILL</code> to be sent), the parent generates more comprehensive
+output to indicate that the child test exited due to a timeout.</p>
+
+<h2 id="56-2016-02-17">5.6 2016-02-17</h2>
+
+<p>Update <code class="highlighter-rouge">tmatch</code> to version 2.  You can now test objects by supplying
+their constructor, so <code class="highlighter-rouge">t.match(x, { foo: Function, name: String })</code>
+would verify that the object has a <code class="highlighter-rouge">name</code> string and a <code class="highlighter-rouge">foo</code> method.</p>
+
+<h2 id="55-2016-02-15">5.5 2016-02-15</h2>
+
+<p>Add the <code class="highlighter-rouge">t.assertAt</code> and <code class="highlighter-rouge">t.assertStack</code> properties, to override where
+an assertion was effectively called from.</p>
+
+<h2 id="54-2016-01-31">5.4 2016-01-31</h2>
+
+<p>Support passing in a class to <code class="highlighter-rouge">t.throws</code>, rather than an Error sample
+object.</p>
+
+<h2 id="53-2016-01-31">5.3 2016-01-31</h2>
+
+<p>Return a <code class="highlighter-rouge">Promise</code> object from <code class="highlighter-rouge">t.test()</code>, <code class="highlighter-rouge">t.spawn()</code>, and
+<code class="highlighter-rouge">t.stdin()</code>.</p>
+
+<h2 id="52-2016-01-26">5.2 2016-01-26</h2>
+
+<p>Adds <code class="highlighter-rouge">t.beforeEach()</code> and <code class="highlighter-rouge">t.afterEach()</code>.</p>
+
+<h2 id="51-2016-01-16">5.1 2016-01-16</h2>
+
+<p>All about the cli flags!</p>
+
+<p>Support <code class="highlighter-rouge">--node-arg=...</code> and <code class="highlighter-rouge">--nyc-arg=...</code> command line flags.</p>
+
+<p>Add support for coverage checking using <code class="highlighter-rouge">--statements=95</code> etc.</p>
+
+<p>Test for executable-ness more consistently across platforms.</p>
+
+<h2 id="50-2016-01-03">5.0 2016-01-03</h2>
+
+<p>Make it impossible to <code class="highlighter-rouge">try/catch</code> out of plan/end abuses.  Calling
+<code class="highlighter-rouge">t.end()</code> more than once, or having a number of tests that doesn’t
+match the <code class="highlighter-rouge">plan()</code> number, is always a failure.</p>
+
+<p>Push thrown errors to the front of the action queue.  This means that,
+even if other things are pending, an uncaught exception or a plan/end
+bug, will always take the highest priority in what gets output.</p>
+
+<p>Many updates to nyc, spawn-wrap, and foreground-child, so that tap now
+reliably works on Windows (and a <a href="https://ci.appveyor.com/project/isaacs/node-tap">ci to prove
+it</a>.)</p>
+
+<p>Moved into the <a href="https://github.com/tapjs">tapjs org</a>.</p>
+
+<h2 id="40-2015-12-30">4.0 2015-12-30</h2>
+
+<p>Raise an error if <code class="highlighter-rouge">t.end()</code> is explicitly called more than once.  This
+is a breaking change, because it can cause previously-passing tests to
+fail, if they did <code class="highlighter-rouge">t.end()</code> in multiple places.</p>
+
+<p>Support promises returned by mochalike functions.</p>
+
+<h2 id="31-2015-12-29">3.1 2015-12-29</h2>
+
+<p>Support sending coverage output to both codecov.io and coveralls.io.</p>
+
+<h2 id="30-2015-12-29">3.0 2015-12-29</h2>
+
+<p>Upgrade to nyc 5.  This means that <code class="highlighter-rouge">config.nyc.exclude</code> arrays in
+<code class="highlighter-rouge">package.json</code> now take globs instead of regular expressions.</p>
+
+<h2 id="23-2015-11-18">2.3 2015-11-18</h2>
+
+<p>Use the name of the function supplied to <code class="highlighter-rouge">t.test(fn)</code> as the test name
+if a string name is not provided.</p>
+
+<p>Better support for sparse arrays.</p>
+
+<h2 id="22-2015-10-23">2.2 2015-10-23</h2>
+
+<p>Add support for Codecov.io as well as Coveralls.io.</p>
+
+<p>Catch failures that come after an otherwise successful test set.</p>
+
+<p>Fix timing of <code class="highlighter-rouge">t.on('end')</code> so that event fires <em>before</em> the next
+child test is started, instead of immediately after it.</p>
+
+<p><code class="highlighter-rouge">t.throws()</code> can now be supplied a regexp for the expected Error
+message.</p>
+
+<h2 id="21-2015-10-06">2.1 2015-10-06</h2>
+
+<p>Exit in failure on root test bailout.</p>
+
+<p>Support promises returned by <code class="highlighter-rouge">t.test(fn)</code> function.</p>
+
+<h2 id="20-2015-09-27">2.0 2015-09-27</h2>
+
+<p>Update matching behavior using <a href="http://npm.im/tmatch">tmatch</a>.  This
+is a breaking change to <code class="highlighter-rouge">t.match</code>, <code class="highlighter-rouge">t.similar</code>, <code class="highlighter-rouge">t.has</code>, etc., but
+brings them more in line with what people epirically seem to expect
+these functions to do.</p>
+
+<p>Deal with pending handles left open when a child process gets a
+<code class="highlighter-rouge">SIGTERM</code> on timeout.</p>
+
+<p>Remove domains in favor of more reliable and less invasive state and
+error-catching bookkeeping.</p>
+
+<h2 id="14-2015-09-02">1.4 2015-09-02</h2>
+
+<p>Add <code class="highlighter-rouge">t.contains()</code> alias for <code class="highlighter-rouge">t.match()</code>.</p>
+
+<p>Use <code class="highlighter-rouge">deeper</code> for deep object similarity testing.</p>
+
+<p>Treat unfinished tests as failures.</p>
+
+<p>Add support for pragmas in TAP output.</p>
+
+<h2 id="13-2015-06-23">1.3 2015-06-23</h2>
+
+<p>Bind all Test methods to object.</p>
+
+<p>Add <code class="highlighter-rouge">t.tearDown()</code>, <code class="highlighter-rouge">t.autoend()</code>, so that the root export is Just
+Another Test Object, which just happens to be piping to stdout.</p>
+
+<p>Support getting an error object in bailout()</p>
+
+<h2 id="12-2015-05-26">1.2 2015-05-26</h2>
+
+<p>Better support for exit status codes.</p>
+
+<h2 id="11-2015-05-20">1.1 2015-05-20</h2>
+
+<p>Add coverage using nyc.</p>
+
+<p>If a <code class="highlighter-rouge">COVERALLS_REPO_TOKEN</code> is provided, then run tests with coverage,
+and pipe to coveralls.</p>
+
+<h2 id="10-2015-05-06">1.0 2015-05-06</h2>
+
+<p>Complete rewrite from 0.x.</p>
+
+<p>Child tests implemented as nested TAP output, similar to Perl’s
+<code class="highlighter-rouge">Test::More</code>.</p>
+
+<h2 id="0x">0.x</h2>
+
+<p>The 0.x versions used a “flattened” approach to child tests, which
+requires some bookkeeping.</p>
+
+<p>It worked, mostly, but its primary success was inspiring
+<a href="http://npm.im/tape">tape</a> and tap v1 and beyond.</p>
+
+</section>
+<script src="../static/prism.js"></script>
+</body>

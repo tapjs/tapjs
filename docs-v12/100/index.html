@@ -1,0 +1,283 @@
+<!doctype html>
+<title>
+  
+    The TAP 100 | Node Tap
+  
+</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+html {
+  display: block;
+  font-family: sans-serif;
+  padding: 0 1em;
+  margin: 0 auto;
+  border-top: 10px solid #f7df1e;
+  line-height:1.5;
+  color:#333;
+  position:relative;
+}
+
+html::before {
+  width:100%;
+  display:block;
+  position:fixed;
+  top:0;
+  left:0;
+  height:10px;
+  background:#f7df1e;
+  content: " ";
+}
+
+body {
+  padding:0;
+  margin: 0;
+}
+
+a:hover, a:active, a:focus {
+  color: red;
+}
+
+code, pre, kbd {
+  font-size: 100%;
+  font-family: Triplicate T4, Fira Mono OT, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+}
+
+section.side {
+  display: block;
+  padding:0;
+  min-height:100px;
+  margin: 0;
+  width:100%;
+}
+
+.side h2, .side p {
+  margin-top: 0;
+}
+
+section.side li {
+  display: inline;
+}
+
+section.side ul {
+  display: block;
+  overflow:auto;
+}
+
+section.side li ul {
+  display: inline;
+}
+
+.side ul {
+  padding:0;
+  margin:0 ;
+}
+
+.side img {
+  display: block;
+  margin-right: 1em;
+  margin-top: 1em;
+}
+
+section.main {
+  display: block;
+  padding-top:20px;
+}
+
+@media only screen and (min-width: 240px) {
+  .side img {
+    float:left;
+    margin: 0 1em 0 0;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  html {
+    width:600px;
+    padding:0 0 0 200px;
+  }
+  section.side {
+    width: 200px;
+    position: fixed;
+    margin: 0 0 0 -200px;
+  }
+  .side img {
+    display: block;
+    float:none;
+  }
+
+  section.side ul {
+    overflow: none;
+    display: block;
+  }
+
+  section.side li {
+    display: block;
+  }
+
+  section.side a {
+    display: block;
+  }
+
+  section.side li ul {
+    margin: 0;
+    display: block;
+  }
+
+  section.side li li {
+    margin-left: 1em;
+  }
+
+  .side h2, .side p {
+    margin-top: 1em;
+  }
+
+  section.main {
+    float: right;
+    width: 600px;
+    padding-bottom: 100px;
+  }
+}
+</style>
+<link href="../static/prism.css" rel="stylesheet">
+
+<body>
+
+<section class='side'>
+  <h2><a href="../index.html"><img src='../static/tapjs.png' width=100 height=100 alt='Test Anything JS'></a></h2>
+  <p>A Test-Anything-Protocol library for Node.js</p>
+  <ul>
+  
+    <li>
+      <a href="../index.html">Index</a>
+      
+    </li>
+  
+    <li>
+      <a href="../basics/index.html">Getting Started</a>
+      
+    </li>
+  
+    <li>
+      <a href="../api/index.html">API</a>
+      
+      <ul>
+        
+        <li><a href="../asserts/index.html">Asserts</a></li>
+        
+        <li><a href="../promises/index.html">Promises</a></li>
+        
+        <li><a href="../subtests/index.html">Subtests</a></li>
+        
+        <li><a href="../parallel/index.html">Parallel Tests</a></li>
+        
+        <li><a href="../snapshots/index.html">Snapshot Testing</a></li>
+        
+        <li><a href="../grep/index.html">Filtering Tests: grep</a></li>
+        
+        <li><a href="../only/index.html">Filtering Tests: only</a></li>
+        
+        <li><a href="../mochalike/index.html">Mocha-like DSL</a></li>
+        
+        <li><a href="../advanced/index.html">Advanced</a></li>
+        
+      </ul>
+      
+    </li>
+  
+    <li>
+      <a href="../cli/index.html">CLI</a>
+      
+    </li>
+  
+    <li>
+      <a href="../tap-format.1">The Protocol</a>
+      
+    </li>
+  
+    <li>
+      <a href="../reporting/index.html">Reporting</a>
+      
+    </li>
+  
+    <li>
+      <a href="../coverage/index.html">Coverage</a>
+      
+    </li>
+  
+    <li>
+      <a href="../changelog/index.html">Change Log</a>
+      
+    </li>
+  
+    <li>
+      <a href="https://github.com/tapjs/node-tap">GitHub Repo</a>
+      
+    </li>
+  
+  </ul>
+  <pre><a href="http://npm.im/tap">npm install tap</a>
+<a href="../cli/index.html">tap test/*.js</a></pre>
+</section>
+<section class='main'>
+<h1 id="the-tap-100">The TAP 100</h1>
+
+<p>These modules use the <code class="highlighter-rouge">--100</code> flag to run tests with 100%
+<a href="../coverage/index.html">coverage</a> of all lines, branches, statements, and
+functions.</p>
+
+<p>To add yours to the list, send a <a href="https://github.com/tapjs/node-tap/blob/master/docs/100/index.md">pull
+request</a>
+to add it to the docs.</p>
+
+<ul>
+  <li><a href="https://www.npmjs.com/package/abbrev">abbrev</a></li>
+  <li><a href="https://www.npmjs.com/package/casern">casern</a></li>
+  <li><a href="https://www.npmjs.com/package/color-support">color-support</a></li>
+  <li><a href="https://www.npmjs.com/package/contentfs">contentfs</a></li>
+  <li><a href="https://www.npmjs.com/package/dotenv">dotenv</a></li>
+  <li><a href="https://www.npmjs.com/package/dpc">dpc</a></li>
+  <li><a href="https://www.npmjs.com/package/events-to-array">events-to-array</a></li>
+  <li><a href="https://www.npmjs.com/package/express-jwt-permissions">express-jwt-permissions</a></li>
+  <li><a href="https://www.npmjs.com/package/frs-replace">frs-replace</a></li>
+  <li><a href="https://www.npmjs.com/package/fs-exists-cached">fs-exists-cached</a></li>
+  <li><a href="https://www.npmjs.com/package/fs-minipass">fs-minipass</a></li>
+  <li><a href="https://www.npmjs.com/package/fs-readstream-seek">fs-readstream-seek</a></li>
+  <li><a href="https://www.npmjs.com/package/function-loop">function-loop</a></li>
+  <li><a href="https://github.com/focusaurus/hexagonal-lambda">hexagonal-lambda</a></li>
+  <li><a href="https://www.npmjs.com/package/hoodie">hoodie</a></li>
+  <li><a href="https://www.npmjs.com/package/icepick">icepick</a></li>
+  <li><a href="https://www.npmjs.com/package/ignore-walk">ignore-walk</a></li>
+  <li><a href="https://www.npmjs.com/package/inflight">inflight</a></li>
+  <li><a href="https://www.npmjs.com/package/ini">ini</a></li>
+  <li><a href="https://www.npmjs.com/package/isexe">isexe</a></li>
+  <li><a href="https://www.npmjs.com/package/json5">json5</a></li>
+  <li><a href="https://www.npmjs.com/package/lazy-iterable">lazy-iterable</a></li>
+  <li><a href="https://www.npmjs.com/package/lru-cache">lru-cache</a></li>
+  <li><a href="https://www.npmjs.com/package/lucass">lucass</a></li>
+  <li><a href="https://www.npmjs.com/package/minipass">minipass</a></li>
+  <li><a href="https://www.npmjs.com/package/minizlib">minizlib</a></li>
+  <li><a href="https://www.npmjs.com/package/mutate-fs">mutate-fs</a></li>
+  <li><a href="https://www.npmjs.com/package/natives">natives</a></li>
+  <li><a href="https://www.npmjs.com/package/npm-bundled">npm-bundled</a></li>
+  <li><a href="https://www.npmjs.com/package/npm-packlist">npm-packlist</a></li>
+  <li><a href="https://www.npmjs.com/package/pino-papertrail">pino-papertrail</a></li>
+  <li><a href="https://www.npmjs.com/package/stack-utils">stack-utils</a></li>
+  <li><a href="https://www.npmjs.com/package/t-up">t-up</a></li>
+  <li><a href="https://www.npmjs.com/package/tap-parser">tap-parser</a></li>
+  <li><a href="../index.html">tap</a></li>
+  <li><a href="https://www.npmjs.com/package/tapromise">tapromise</a></li>
+  <li><a href="https://www.npmjs.com/package/tapsert">tapsert</a></li>
+  <li><a href="https://www.npmjs.com/package/tapshot">tapshot</a></li>
+  <li><a href="https://www.npmjs.com/package/tar">tar</a></li>
+  <li><a href="https://www.npmjs.com/package/tmatch">tmatch</a></li>
+  <li><a href="https://www.npmjs.com/package/touch">touch</a></li>
+  <li><a href="https://www.npmjs.com/package/trivial-deferred">trivial-deferred</a></li>
+  <li><a href="https://www.npmjs.com/package/tsame">tsame</a></li>
+  <li><a href="https://www.npmjs.com/package/twing">twing</a></li>
+  <li><a href="https://www.npmjs.com/package/yallist">yallist</a></li>
+  <li><a href="https://www.npmjs.com/package/yapool">yapool</a></li>
+</ul>
+
+</section>
+<script src="../static/prism.js"></script>
+</body>

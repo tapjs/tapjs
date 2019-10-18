@@ -1,0 +1,392 @@
+<!doctype html>
+<title>
+  
+    Parallel Tests | Node Tap
+  
+</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+html {
+  display: block;
+  font-family: sans-serif;
+  padding: 0 1em;
+  margin: 0 auto;
+  border-top: 10px solid #f7df1e;
+  line-height:1.5;
+  color:#333;
+  position:relative;
+}
+
+html::before {
+  width:100%;
+  display:block;
+  position:fixed;
+  top:0;
+  left:0;
+  height:10px;
+  background:#f7df1e;
+  content: " ";
+}
+
+body {
+  padding:0;
+  margin: 0;
+}
+
+a:hover, a:active, a:focus {
+  color: red;
+}
+
+code, pre, kbd {
+  font-size: 100%;
+  font-family: Triplicate T4, Fira Mono OT, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+}
+
+section.side {
+  display: block;
+  padding:0;
+  min-height:100px;
+  margin: 0;
+  width:100%;
+}
+
+.side h2, .side p {
+  margin-top: 0;
+}
+
+section.side li {
+  display: inline;
+}
+
+section.side ul {
+  display: block;
+  overflow:auto;
+}
+
+section.side li ul {
+  display: inline;
+}
+
+.side ul {
+  padding:0;
+  margin:0 ;
+}
+
+.side img {
+  display: block;
+  margin-right: 1em;
+  margin-top: 1em;
+}
+
+section.main {
+  display: block;
+  padding-top:20px;
+}
+
+@media only screen and (min-width: 240px) {
+  .side img {
+    float:left;
+    margin: 0 1em 0 0;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  html {
+    width:600px;
+    padding:0 0 0 200px;
+  }
+  section.side {
+    width: 200px;
+    position: fixed;
+    margin: 0 0 0 -200px;
+  }
+  .side img {
+    display: block;
+    float:none;
+  }
+
+  section.side ul {
+    overflow: none;
+    display: block;
+  }
+
+  section.side li {
+    display: block;
+  }
+
+  section.side a {
+    display: block;
+  }
+
+  section.side li ul {
+    margin: 0;
+    display: block;
+  }
+
+  section.side li li {
+    margin-left: 1em;
+  }
+
+  .side h2, .side p {
+    margin-top: 1em;
+  }
+
+  section.main {
+    float: right;
+    width: 600px;
+    padding-bottom: 100px;
+  }
+}
+</style>
+<link href="../static/prism.css" rel="stylesheet">
+
+<body>
+
+<section class='side'>
+  <h2><a href="../index.html"><img src='../static/tapjs.png' width=100 height=100 alt='Test Anything JS'></a></h2>
+  <p>A Test-Anything-Protocol library for Node.js</p>
+  <ul>
+  
+    <li>
+      <a href="../index.html">Index</a>
+      
+    </li>
+  
+    <li>
+      <a href="../basics/index.html">Getting Started</a>
+      
+    </li>
+  
+    <li>
+      <a href="../api/index.html">API</a>
+      
+      <ul>
+        
+        <li><a href="../asserts/index.html">Asserts</a></li>
+        
+        <li><a href="../promises/index.html">Promises</a></li>
+        
+        <li><a href="../subtests/index.html">Subtests</a></li>
+        
+        <li><a href="index.html">Parallel Tests</a></li>
+        
+        <li><a href="../snapshots/index.html">Snapshot Testing</a></li>
+        
+        <li><a href="../grep/index.html">Filtering Tests: grep</a></li>
+        
+        <li><a href="../only/index.html">Filtering Tests: only</a></li>
+        
+        <li><a href="../mochalike/index.html">Mocha-like DSL</a></li>
+        
+        <li><a href="../advanced/index.html">Advanced</a></li>
+        
+      </ul>
+      
+    </li>
+  
+    <li>
+      <a href="../cli/index.html">CLI</a>
+      
+    </li>
+  
+    <li>
+      <a href="../tap-format.1">The Protocol</a>
+      
+    </li>
+  
+    <li>
+      <a href="../reporting/index.html">Reporting</a>
+      
+    </li>
+  
+    <li>
+      <a href="../coverage/index.html">Coverage</a>
+      
+    </li>
+  
+    <li>
+      <a href="../changelog/index.html">Change Log</a>
+      
+    </li>
+  
+    <li>
+      <a href="https://github.com/tapjs/node-tap">GitHub Repo</a>
+      
+    </li>
+  
+  </ul>
+  <pre><a href="http://npm.im/tap">npm install tap</a>
+<a href="../cli/index.html">tap test/*.js</a></pre>
+</section>
+<section class='main'>
+<h1 id="parallel-tests">Parallel Tests</h1>
+
+<p>Node-tap includes the ability to run buffered child tests in parallel.
+There are two ways that this can be done: either via the command line
+interface, or within a single test program.</p>
+
+<p>In both cases, you set a number of <code class="highlighter-rouge">jobs</code> that you want to allow it to
+run in parallel, and then any buffered tests are run in a pool which
+will execute that many test functions in parallel.  (The default
+<code class="highlighter-rouge">jobs</code> value is 1, which means that nothing is parallel by default.)</p>
+
+<h2 id="parallel-tests-from-the-cli">Parallel tests from the CLI</h2>
+
+<p>This is the simplest way to run parallel tests.  Just add <code class="highlighter-rouge">--jobs=&lt;n&gt;</code>
+to your test command (or <code class="highlighter-rouge">-j&lt;n&gt;</code> if you prefer shorthands).</p>
+
+<p>You’ll note that if you do this, it seems like the output from each
+test file happens “all at once”, when the test completes.  That’s
+because parallel tests are always buffered, so the command-line
+harness doesn’t parse their output until they’re fully complete.
+(Since many of them may be running at once, it would be very confusing
+otherwise.)</p>
+
+<h3 id="enablingdisabling-parallelism-in-the-test-runner">Enabling/Disabling Parallelism in the test runner</h3>
+
+<p>If you set the <code class="highlighter-rouge">--jobs</code> option, then tests will be run in parallel by
+default.</p>
+
+<p>However, you may want to have <em>some</em> tests run in parallel, and make
+others run serially.</p>
+
+<p>To prevent any tests in a given folder from running in parallel, add a
+file to that directory named <code class="highlighter-rouge">tap-parallel-not-ok</code>.  This will prevent
+tests from being run in parallel in that folder or any sub-folders.</p>
+
+<p>To re-enable parallel tests in a given folder and its subfolders,
+create a file named <code class="highlighter-rouge">tap-parallel-ok</code>.  This is only required if
+parallel tests had been disabled in a parent directory.</p>
+
+<p>For example, if you had this folder structure:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>test
+├── parallel/
+│   ├── all-my-ports-are-private-and-unique.js
+│   ├── isolated.js
+│   ├── no-external-deps.js
+│   └── tap-parallel-ok
+├── bar.js
+├── foo.js
+└── tap-parallel-not-ok
+</code></pre></div></div>
+
+<p>then running <code class="highlighter-rouge">tap -j4 test/</code> would cause it to run <code class="highlighter-rouge">bar.js</code> and
+<code class="highlighter-rouge">foo.js</code> serially, and the contents of the <code class="highlighter-rouge">test/parallel/</code> folder
+would be run in parallel.</p>
+
+<p>As test files are updated to be parallel-friendly (ie, not listening
+on the same ports as any other tests, not depending on external
+filesystem stuff, and so on), then they can be moved into the
+<code class="highlighter-rouge">parallel</code> subfolder.</p>
+
+<h2 id="parallel-tests-from-the-api">Parallel tests from the API</h2>
+
+<p>To run child tests in parallel, set <code class="highlighter-rouge">t.jobs = &lt;some number&gt;</code> in your
+test program.  This can be set either on the root tap object, or on
+any child test.</p>
+
+<p>If <code class="highlighter-rouge">t.jobs</code> is set to a number greater than 1, then tests will be run
+in <code class="highlighter-rouge">buffered</code> mode by default.  To force a test to be serialized, set
+<code class="highlighter-rouge">{ buffered: false }</code> in its options.  You may also set
+<code class="highlighter-rouge">TAP_BUFFER=0</code> in the environment to make tests non-buffered by
+default.</p>
+
+<p>For example, imagine that you had some slow function that makes a
+network request or processes a file or something, and you want to call
+this function three times in your test program.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">t</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'tap'</span><span class="p">)</span>
+
+<span class="nx">t</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="kd">function</span> <span class="nx">one</span> <span class="p">(</span><span class="nx">t</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">someSlowFunction</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">t</span><span class="p">.</span><span class="nx">pass</span><span class="p">(</span><span class="s1">'one worked'</span><span class="p">)</span>
+    <span class="nx">t</span><span class="p">.</span><span class="nx">end</span><span class="p">()</span>
+  <span class="p">})</span>
+<span class="p">})</span>
+
+<span class="nx">t</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="kd">function</span> <span class="nx">two</span> <span class="p">(</span><span class="nx">t</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">someSlowFunction</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">t</span><span class="p">.</span><span class="nx">pass</span><span class="p">(</span><span class="s1">'two worked'</span><span class="p">)</span>
+    <span class="nx">t</span><span class="p">.</span><span class="nx">end</span><span class="p">()</span>
+  <span class="p">})</span>
+<span class="p">})</span>
+
+<span class="nx">t</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="kd">function</span> <span class="nx">three</span> <span class="p">(</span><span class="nx">t</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">someSlowFunction</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">t</span><span class="p">.</span><span class="nx">pass</span><span class="p">(</span><span class="s1">'three worked'</span><span class="p">)</span>
+    <span class="nx">t</span><span class="p">.</span><span class="nx">end</span><span class="p">()</span>
+  <span class="p">})</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p>That produces this output:</p>
+
+<div class="language-tap highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">TAP version 13
+</span><span class="c"># Subtest: one
+</span>    ok 1 - one worked
+    1..1
+<span class="kr">ok</span> <span class="mi">1</span> - one <span class="c"># time=283.987ms
+</span>
+<span class="c"># Subtest: two
+</span>    ok 1 - two worked
+    1..1
+<span class="kr">ok</span> <span class="mi">2</span> - two <span class="c"># time=352.492ms
+</span>
+<span class="c"># Subtest: three
+</span>    ok 1 - three worked
+    1..1
+<span class="kr">ok</span> <span class="mi">3</span> - three <span class="c"># time=313.015ms
+</span>
+<span class="kd">1..3</span><span class="c">
+# time=957.096ms
+</span></code></pre></div></div>
+
+<p>If we update our test function to add <code class="highlighter-rouge">t.jobs = 3</code>, then the output
+looks like this instead:</p>
+
+<div class="language-tap highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">TAP version 13
+</span><span class="kr">ok</span> <span class="mi">1</span> - one <span class="c"># time=215.87ms {
+</span>    ok 1 - one worked
+    1..1
+}
+
+<span class="kr">ok</span> <span class="mi">2</span> - two <span class="c"># time=97.694ms {
+</span>    ok 1 - two worked
+    1..1
+}
+
+<span class="kr">ok</span> <span class="mi">3</span> - three <span class="c"># time=374.099ms {
+</span>    ok 1 - three worked
+    1..1
+}
+
+<span class="kd">1..3</span><span class="c">
+# time=382.468ms
+</span></code></pre></div></div>
+
+<p>Each test still takes a few hundred ms, but the overall time is way
+down.  Also, they’re using the more streamlined <code class="highlighter-rouge">buffered</code> subtest
+style, so that they can run in parallel.</p>
+
+<h2 id="caveats-about-parallel-tests">Caveats about Parallel Tests</h2>
+
+<p>Parallelism is not a magic sauce that makes everything go fast.</p>
+
+<p>It’s a good fit when your test spends a lot of time waiting in sleep
+mode (for example, waiting for I/O to complete), or if you have lots
+of CPUs on your computer.  But if your tests are on-CPU most of the
+time, then there’s often little benefit to running more of them than
+you have CPUs available.</p>
+
+<p>Parallel testing also means that your tests have to be written in an
+independent way.  They can’t depend on being run in a given order,
+which means it’s a bad idea to have them share pretty much <em>any</em> state
+at all.</p>
+
+<p>Experiment with where in your test suite it makes sense to throw a
+little bit of parallelism.</p>
+
+</section>
+<script src="../static/prism.js"></script>
+</body>

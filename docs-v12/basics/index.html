@@ -1,0 +1,606 @@
+<!doctype html>
+<title>
+  
+    Getting Started | Node Tap
+  
+</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+html {
+  display: block;
+  font-family: sans-serif;
+  padding: 0 1em;
+  margin: 0 auto;
+  border-top: 10px solid #f7df1e;
+  line-height:1.5;
+  color:#333;
+  position:relative;
+}
+
+html::before {
+  width:100%;
+  display:block;
+  position:fixed;
+  top:0;
+  left:0;
+  height:10px;
+  background:#f7df1e;
+  content: " ";
+}
+
+body {
+  padding:0;
+  margin: 0;
+}
+
+a:hover, a:active, a:focus {
+  color: red;
+}
+
+code, pre, kbd {
+  font-size: 100%;
+  font-family: Triplicate T4, Fira Mono OT, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+}
+
+section.side {
+  display: block;
+  padding:0;
+  min-height:100px;
+  margin: 0;
+  width:100%;
+}
+
+.side h2, .side p {
+  margin-top: 0;
+}
+
+section.side li {
+  display: inline;
+}
+
+section.side ul {
+  display: block;
+  overflow:auto;
+}
+
+section.side li ul {
+  display: inline;
+}
+
+.side ul {
+  padding:0;
+  margin:0 ;
+}
+
+.side img {
+  display: block;
+  margin-right: 1em;
+  margin-top: 1em;
+}
+
+section.main {
+  display: block;
+  padding-top:20px;
+}
+
+@media only screen and (min-width: 240px) {
+  .side img {
+    float:left;
+    margin: 0 1em 0 0;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  html {
+    width:600px;
+    padding:0 0 0 200px;
+  }
+  section.side {
+    width: 200px;
+    position: fixed;
+    margin: 0 0 0 -200px;
+  }
+  .side img {
+    display: block;
+    float:none;
+  }
+
+  section.side ul {
+    overflow: none;
+    display: block;
+  }
+
+  section.side li {
+    display: block;
+  }
+
+  section.side a {
+    display: block;
+  }
+
+  section.side li ul {
+    margin: 0;
+    display: block;
+  }
+
+  section.side li li {
+    margin-left: 1em;
+  }
+
+  .side h2, .side p {
+    margin-top: 1em;
+  }
+
+  section.main {
+    float: right;
+    width: 600px;
+    padding-bottom: 100px;
+  }
+}
+</style>
+<link href="../static/prism.css" rel="stylesheet">
+
+<body>
+
+<section class='side'>
+  <h2><a href="../index.html"><img src='../static/tapjs.png' width=100 height=100 alt='Test Anything JS'></a></h2>
+  <p>A Test-Anything-Protocol library for Node.js</p>
+  <ul>
+  
+    <li>
+      <a href="../index.html">Index</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html">Getting Started</a>
+      
+    </li>
+  
+    <li>
+      <a href="../api/index.html">API</a>
+      
+      <ul>
+        
+        <li><a href="../asserts/index.html">Asserts</a></li>
+        
+        <li><a href="../promises/index.html">Promises</a></li>
+        
+        <li><a href="../subtests/index.html">Subtests</a></li>
+        
+        <li><a href="../parallel/index.html">Parallel Tests</a></li>
+        
+        <li><a href="../snapshots/index.html">Snapshot Testing</a></li>
+        
+        <li><a href="../grep/index.html">Filtering Tests: grep</a></li>
+        
+        <li><a href="../only/index.html">Filtering Tests: only</a></li>
+        
+        <li><a href="../mochalike/index.html">Mocha-like DSL</a></li>
+        
+        <li><a href="../advanced/index.html">Advanced</a></li>
+        
+      </ul>
+      
+    </li>
+  
+    <li>
+      <a href="../cli/index.html">CLI</a>
+      
+    </li>
+  
+    <li>
+      <a href="../tap-format.1">The Protocol</a>
+      
+    </li>
+  
+    <li>
+      <a href="../reporting/index.html">Reporting</a>
+      
+    </li>
+  
+    <li>
+      <a href="../coverage/index.html">Coverage</a>
+      
+    </li>
+  
+    <li>
+      <a href="../changelog/index.html">Change Log</a>
+      
+    </li>
+  
+    <li>
+      <a href="https://github.com/tapjs/node-tap">GitHub Repo</a>
+      
+    </li>
+  
+  </ul>
+  <pre><a href="http://npm.im/tap">npm install tap</a>
+<a href="../cli/index.html">tap test/*.js</a></pre>
+</section>
+<section class='main'>
+<h1 id="tap-basics">tap basics</h1>
+
+<p>This tutorial will teach you just enough to get up and running with
+tap in your Node.js programs.</p>
+
+<h2 id="install-tap">install tap</h2>
+
+<p>Use npm to install tap:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install tap <span class="nt">--save-dev</span>
+</code></pre></div></div>
+
+<p>The <code class="highlighter-rouge">save-dev</code> part makes it saved to your package.json’s
+<code class="highlighter-rouge">devDependencies</code> list.</p>
+
+<p>Next, update your package.json so that the test script invokes tap:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my-awesome-module"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.2.3"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"devDependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"tap"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^11.0.0"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+
+  </span><span class="s2">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"test"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tap test/*.js"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="test-files">test files</h2>
+
+<p>Create a folder for your tests.  Call the folder <code class="highlighter-rouge">test</code> so that people
+can guess what it’s for:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdir <span class="nb">test</span>/
+</code></pre></div></div>
+
+<p>It’s a good practice to break up a big test suite into multiple files.
+Each file should cover a feature or concept.  For small Node modules,
+often a single test file is enough.</p>
+
+<p>I usually call the first one <code class="highlighter-rouge">test/basic.js</code>, because it covers the
+basic functionality.</p>
+
+<h2 id="hello-world-test-program">“hello world” test program</h2>
+
+<p>The root tap object is a member of tap’s <code class="highlighter-rouge">Test</code> class.  That means it
+has all the same properties as child tests.</p>
+
+<p>Here’s a very basic test program:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// test/hello-world.js</span>
+<span class="kd">var</span> <span class="nx">tap</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'tap'</span><span class="p">)</span>
+<span class="nx">tap</span><span class="p">.</span><span class="nx">pass</span><span class="p">(</span><span class="s1">'this is fine'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>If we run this with node, we’ll see the raw TAP output:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>node <span class="nb">test</span>/hello-world.js
+</code></pre></div></div>
+
+<div class="language-tap highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">TAP version 13
+</span><span class="kr">ok</span> <span class="mi">1</span> - this is fine
+<span class="kd">1..1</span><span class="c">
+# time=26.792ms
+</span></code></pre></div></div>
+
+<p>You can always run a tap test program directly to see what it is
+doing.  This is especially handy in debugging test failures</p>
+
+<p>That output is “TAP” or “Test Anything Protocol”.  It has a long
+history in the Perl community, and there are many tools in many
+languages that can generate and parse this format.</p>
+
+<p>Node-tap is one of those tools, so let’s have it create something
+prettier for us.  Because we installed tap as a devDependency, and
+added it as a script in package.json, we can run <code class="highlighter-rouge">npm test</code> to run all
+our tests with the <code class="highlighter-rouge">tap</code> built-in cli.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm <span class="nb">test</span>
+
+<span class="o">&gt;</span> my-awesome-module@1.2.3 <span class="nb">test</span> /home/isaacs/my-awesome-module
+<span class="o">&gt;</span> tap <span class="nb">test</span>/<span class="k">*</span>.js
+
+<span class="nb">test</span>/hello-world.js ................................... 1/1
+total ................................................. 1/1
+
+  1 passing <span class="o">(</span>227.745ms<span class="o">)</span>
+
+  ok
+
+</code></pre></div></div>
+
+<h2 id="coverage">coverage</h2>
+
+<p>Test coverage makes it a lot easier to know that we’re testing what we
+think we’re testing.</p>
+
+<p>So, let’s create a module to test.  Let’s say that we want a function
+that returns ‘even’ if the number is even, or ‘odd’ if it’s odd,
+unless it’s greater than 100, in which case it should return ‘big’,
+and if it’s less than 0, it should return ‘negative’.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// my-awesome-module.js</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s1">'even'</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s1">'odd'</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">x</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s1">'big'</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s1">'negative'</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Probably no bugs!</p>
+
+<p>Now, we can create a test file that pulls it in and verifies the
+result:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// test/basic.js</span>
+<span class="kd">var</span> <span class="nx">tap</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'tap'</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nx">mam</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'../my-awesome-module.js'</span><span class="p">)</span>
+
+<span class="c1">// Always call as (found, wanted) by convention</span>
+<span class="nx">tap</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">mam</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="s1">'odd'</span><span class="p">)</span>
+<span class="nx">tap</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">mam</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="s1">'even'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Looks good to me!</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm <span class="nb">test</span>
+
+<span class="o">&gt;</span> my-awesome-module@1.2.3 <span class="nb">test</span> /home/isaacs/my-awesome-module
+<span class="o">&gt;</span> tap <span class="nb">test</span>/<span class="k">*</span>.js
+
+<span class="nb">test</span>/basic.js ......................................... 2/2
+<span class="nb">test</span>/hello-world.js ................................... 1/1
+total ................................................. 3/3
+
+  3 passing <span class="o">(</span>451.79ms<span class="o">)</span>
+
+  ok
+</code></pre></div></div>
+
+<p>Let’s run with test coverage turned on, just to be sure:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm <span class="nb">test</span> <span class="nt">--</span> <span class="nt">--cov</span>
+
+<span class="o">&gt;</span> my-awesome-module@1.2.3 <span class="nb">test</span> /home/isaacs/my-awesome-module
+<span class="o">&gt;</span> tap <span class="nb">test</span>/<span class="k">*</span>.js <span class="s2">"--cov"</span>
+
+<span class="nb">test</span>/basic.js ......................................... 2/2 575ms
+<span class="nb">test</span>/hello-world.js ................................... 1/1
+total ................................................. 3/3
+
+  3 passing <span class="o">(</span>889.135ms<span class="o">)</span>
+
+  ok
+<span class="nt">-----------------------</span>|----------|----------|----------|----------|----------------|
+File                   |  % Stmts | % Branch |  % Funcs |  % Lines |Uncovered Lines |
+<span class="nt">-----------------------</span>|----------|----------|----------|----------|----------------|
+ __root__/             |    55.56 |     37.5 |      100 |    55.56 |                |
+  my-awesome-module.js |    55.56 |     37.5 |      100 |    55.56 |       7,8,9,10 |
+<span class="nt">-----------------------</span>|----------|----------|----------|----------|----------------|
+All files              |    55.56 |     37.5 |      100 |    55.56 |                |
+<span class="nt">-----------------------</span>|----------|----------|----------|----------|----------------|
+</code></pre></div></div>
+
+<p>Ouch, only 50% coverage.  That’s not very good.  Let’s see what lines
+are covered:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm <span class="nb">test</span> <span class="nt">--</span> <span class="nt">--cov</span> <span class="nt">--coverage-report</span><span class="o">=</span>lcov
+</code></pre></div></div>
+
+<p>This runs the tests and opens a <a href="coverage-example-1/lcov-report/root/index.html">pretty coverage
+report</a> in a
+web browser.  This shows that the second half of our function isn’t
+being called.</p>
+
+<p>Ok, add some more tests then:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// test/basic.js</span>
+<span class="kd">var</span> <span class="nx">tap</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'tap'</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nx">mam</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'../my-awesome-module.js'</span><span class="p">)</span>
+
+<span class="c1">// Always call as (found, wanted) by convention</span>
+<span class="nx">tap</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">mam</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="s1">'odd'</span><span class="p">)</span>
+<span class="nx">tap</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">mam</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="s1">'even'</span><span class="p">)</span>
+<span class="nx">tap</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">mam</span><span class="p">(</span><span class="mi">200</span><span class="p">),</span> <span class="s1">'big'</span><span class="p">)</span>
+<span class="nx">tap</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">mam</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">),</span> <span class="s1">'negative'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Now the test output gets a lot more interesting:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm t
+
+<span class="o">&gt;</span> my-awesome-module@1.2.3 <span class="nb">test</span> /home/isaacs/my-awesome-module
+<span class="o">&gt;</span> tap <span class="nb">test</span>/<span class="k">*</span>.js
+
+<span class="nb">test</span>/basic.js ......................................... 2/4
+  not ok should be equal
+    +++ found
+    <span class="nt">---</span> wanted
+    <span class="nt">-big</span>
+    +even
+    compare: <span class="o">===</span>
+    at:
+      file: <span class="nb">test</span>/basic.js
+      line: 8
+      column: 5
+    <span class="nb">source</span>: |
+      tap.equal<span class="o">(</span>mam<span class="o">(</span>200<span class="o">)</span>, <span class="s1">'big'</span><span class="o">)</span>
+    stack: |
+      Object.&lt;anonymous&gt; <span class="o">(</span><span class="nb">test</span>/basic.js:8:5<span class="o">)</span>
+      node.js:951:3
+
+  not ok should be equal
+    +++ found
+    <span class="nt">---</span> wanted
+    <span class="nt">-negative</span>
+    +even
+    compare: <span class="o">===</span>
+    at:
+      file: <span class="nb">test</span>/basic.js
+      line: 9
+      column: 5
+    <span class="nb">source</span>: |
+      tap.equal<span class="o">(</span>mam<span class="o">(</span><span class="nt">-10</span><span class="o">)</span>, <span class="s1">'negative'</span><span class="o">)</span>
+    stack: |
+      Object.&lt;anonymous&gt; <span class="o">(</span><span class="nb">test</span>/basic.js:9:5<span class="o">)</span>
+      node.js:951:3
+
+<span class="nb">test</span>/hello-world.js ................................... 1/1
+total ................................................. 3/5
+
+
+  3 passing <span class="o">(</span>440.796ms<span class="o">)</span>
+  2 failing
+
+npm ERR! Test failed.  See above <span class="k">for </span>more details.
+</code></pre></div></div>
+
+<p>Let’s update our code so that it makes our tests pass:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// my-awesome-module.js</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">x</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s1">'big'</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s1">'negative'</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s1">'even'</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s1">'odd'</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>And now our coverage report is much happier:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm t <span class="nt">--</span> <span class="nt">--cov</span>
+
+<span class="o">&gt;</span> my-awesome-module@1.2.3 <span class="nb">test</span> /home/isaacs/my-awesome-module
+<span class="o">&gt;</span> tap <span class="nb">test</span>/<span class="k">*</span>.js <span class="s2">"--cov"</span>
+
+<span class="nb">test</span>/basic.js ......................................... 4/4
+<span class="nb">test</span>/hello-world.js ................................... 1/1 257ms
+total ................................................. 5/5
+
+  5 passing <span class="o">(</span>886.473ms<span class="o">)</span>
+
+  ok
+<span class="nt">-----------------------</span>|----------|----------|----------|----------|----------------|
+File                   |  % Stmts | % Branch |  % Funcs |  % Lines |Uncovered Lines |
+<span class="nt">-----------------------</span>|----------|----------|----------|----------|----------------|
+ __root__/             |      100 |      100 |      100 |      100 |                |
+  my-awesome-module.js |      100 |      100 |      100 |      100 |                |
+<span class="nt">-----------------------</span>|----------|----------|----------|----------|----------------|
+All files              |      100 |      100 |      100 |      100 |                |
+<span class="nt">-----------------------</span>|----------|----------|----------|----------|----------------|
+</code></pre></div></div>
+
+<h2 id="async-stuff">async stuff</h2>
+
+<p>If your module has some async stuff, you can test that using a child
+test.  (You can also just use child tests to group a bunch of
+assertions into a block so it’s easier to manage.)</p>
+
+<p>Create a child test with the <code class="highlighter-rouge">tap.test(...)</code> function.  The child
+tests look just like the main <code class="highlighter-rouge">tap</code> object.</p>
+
+<p>You can call the <code class="highlighter-rouge">.end()</code> method on a child test object when it’s
+done.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// test/async.js</span>
+<span class="c1">// this is a silly test.</span>
+<span class="kd">var</span> <span class="nx">tap</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'tap'</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'fs'</span><span class="p">)</span>
+<span class="nx">tap</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s1">'some async stuff'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">childTest</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">fs</span><span class="p">.</span><span class="nx">readdir</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">er</span><span class="p">,</span> <span class="nx">files</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">er</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">throw</span> <span class="nx">er</span> <span class="c1">// tap will handle this</span>
+    <span class="p">}</span>
+    <span class="nx">childTest</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="nx">files</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">','</span><span class="p">),</span> <span class="sr">/</span><span class="se">\b</span><span class="sr">async</span><span class="se">\.</span><span class="sr">js</span><span class="se">\b</span><span class="sr">/</span><span class="p">)</span>
+    <span class="nx">childTest</span><span class="p">.</span><span class="nx">end</span><span class="p">()</span>
+  <span class="p">})</span>
+<span class="p">})</span>
+
+<span class="nx">tap</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s1">'this waits until after'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">childTest</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// no asserts?  no problem!</span>
+  <span class="c1">// the lack of throwing means "success"</span>
+  <span class="nx">childTest</span><span class="p">.</span><span class="nx">end</span><span class="p">()</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p>If you run this test with Node, you’ll see that the <a href="../subtests/index.html">child
+tests</a> are indented:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>node <span class="nb">test</span>/async.js
+</code></pre></div></div>
+
+<div class="language-tap highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">TAP version 13
+</span><span class="c"># Subtest: some async stuff
+</span>    ok 1 - should match pattern provided
+    1..1
+<span class="kr">ok</span> <span class="mi">1</span> - some async stuff <span class="c"># time=9.647ms
+</span>
+<span class="c"># Subtest: this waits until after
+</span>    1..0
+<span class="kr">ok</span> <span class="mi">2</span> - this waits until after <span class="c"># time=6ms
+</span>
+<span class="kd">1..2</span><span class="c">
+# time=36.53ms
+</span></code></pre></div></div>
+
+<p>If you run it with tap, it’ll look just like the others</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm t
+
+<span class="o">&gt;</span> my-awesome-module@1.2.3 <span class="nb">test</span> /home/isaacs/my-awesome-module
+<span class="o">&gt;</span> tap <span class="nb">test</span>/<span class="k">*</span>.js
+
+<span class="nb">test</span>/async.js ......................................... 2/2
+<span class="nb">test</span>/basic.js ......................................... 4/4
+<span class="nb">test</span>/hello-world.js ................................... 1/1
+total ................................................. 7/7
+
+  7 passing <span class="o">(</span>658.444ms<span class="o">)</span>
+
+    ok
+</code></pre></div></div>
+
+<p>Tap’s <a href="../promises/index.html">promise</a> support means it plays great with
+async/await.  Stuff like this will Just Work out of the box if you
+have a JS engine that supports async functions:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">tap</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'tap'</span><span class="p">)</span>
+<span class="nx">tap</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="k">async</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">t</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">doSomethingAsync</span><span class="p">()</span>
+  <span class="nx">t</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span> <span class="p">{</span> <span class="na">ok</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="na">message</span><span class="p">:</span> <span class="sr">/dogs/</span> <span class="p">},</span> <span class="s1">'dogs are ok'</span><span class="p">)</span>
+  <span class="c1">// Or you can use any assertion lib you like.  as long as this</span>
+  <span class="c1">// code doesn't throw an error, it's a pass!</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<h2 id="bonus-points">bonus points</h2>
+
+<p>You can do these things for extra credit.</p>
+
+<ol>
+  <li>Put <code class="highlighter-rouge">--cov</code> in your package.json test script to always run tests
+with <a href="../coverage/index.html">coverage</a>.</li>
+  <li>Install <code class="highlighter-rouge">tap</code> globally to <a href="../cli/index.html">run it</a> directly.</li>
+</ol>
+
+<p>See the <a href="../api/index.html">API reference</a> to learn more.</p>
+
+</section>
+<script src="../static/prism.js"></script>
+</body>

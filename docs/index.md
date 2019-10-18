@@ -28,7 +28,7 @@ _Just wanna see some code? [Get started!](/basics/)_
 See [the changelog](/changelog/) for recent updates, or just get
 started with [the basics](/basics/).
 
-[![Build Status](https://travis-ci.org/tapjs/node-tap.svg?branch=master)](https://travis-ci.org/tapjs/node-tap)
+[![Build Status](https://travis-ci.org/tapjs/node-tap.svg?branch=v12)](https://travis-ci.org/tapjs/node-tap)
 
 ## Why TAP?
 

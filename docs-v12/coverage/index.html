@@ -1,0 +1,332 @@
+<!doctype html>
+<title>
+  
+    Coverage | Node Tap
+  
+</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+html {
+  display: block;
+  font-family: sans-serif;
+  padding: 0 1em;
+  margin: 0 auto;
+  border-top: 10px solid #f7df1e;
+  line-height:1.5;
+  color:#333;
+  position:relative;
+}
+
+html::before {
+  width:100%;
+  display:block;
+  position:fixed;
+  top:0;
+  left:0;
+  height:10px;
+  background:#f7df1e;
+  content: " ";
+}
+
+body {
+  padding:0;
+  margin: 0;
+}
+
+a:hover, a:active, a:focus {
+  color: red;
+}
+
+code, pre, kbd {
+  font-size: 100%;
+  font-family: Triplicate T4, Fira Mono OT, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+}
+
+section.side {
+  display: block;
+  padding:0;
+  min-height:100px;
+  margin: 0;
+  width:100%;
+}
+
+.side h2, .side p {
+  margin-top: 0;
+}
+
+section.side li {
+  display: inline;
+}
+
+section.side ul {
+  display: block;
+  overflow:auto;
+}
+
+section.side li ul {
+  display: inline;
+}
+
+.side ul {
+  padding:0;
+  margin:0 ;
+}
+
+.side img {
+  display: block;
+  margin-right: 1em;
+  margin-top: 1em;
+}
+
+section.main {
+  display: block;
+  padding-top:20px;
+}
+
+@media only screen and (min-width: 240px) {
+  .side img {
+    float:left;
+    margin: 0 1em 0 0;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  html {
+    width:600px;
+    padding:0 0 0 200px;
+  }
+  section.side {
+    width: 200px;
+    position: fixed;
+    margin: 0 0 0 -200px;
+  }
+  .side img {
+    display: block;
+    float:none;
+  }
+
+  section.side ul {
+    overflow: none;
+    display: block;
+  }
+
+  section.side li {
+    display: block;
+  }
+
+  section.side a {
+    display: block;
+  }
+
+  section.side li ul {
+    margin: 0;
+    display: block;
+  }
+
+  section.side li li {
+    margin-left: 1em;
+  }
+
+  .side h2, .side p {
+    margin-top: 1em;
+  }
+
+  section.main {
+    float: right;
+    width: 600px;
+    padding-bottom: 100px;
+  }
+}
+</style>
+<link href="../static/prism.css" rel="stylesheet">
+
+<body>
+
+<section class='side'>
+  <h2><a href="../index.html"><img src='../static/tapjs.png' width=100 height=100 alt='Test Anything JS'></a></h2>
+  <p>A Test-Anything-Protocol library for Node.js</p>
+  <ul>
+  
+    <li>
+      <a href="../index.html">Index</a>
+      
+    </li>
+  
+    <li>
+      <a href="../basics/index.html">Getting Started</a>
+      
+    </li>
+  
+    <li>
+      <a href="../api/index.html">API</a>
+      
+      <ul>
+        
+        <li><a href="../asserts/index.html">Asserts</a></li>
+        
+        <li><a href="../promises/index.html">Promises</a></li>
+        
+        <li><a href="../subtests/index.html">Subtests</a></li>
+        
+        <li><a href="../parallel/index.html">Parallel Tests</a></li>
+        
+        <li><a href="../snapshots/index.html">Snapshot Testing</a></li>
+        
+        <li><a href="../grep/index.html">Filtering Tests: grep</a></li>
+        
+        <li><a href="../only/index.html">Filtering Tests: only</a></li>
+        
+        <li><a href="../mochalike/index.html">Mocha-like DSL</a></li>
+        
+        <li><a href="../advanced/index.html">Advanced</a></li>
+        
+      </ul>
+      
+    </li>
+  
+    <li>
+      <a href="../cli/index.html">CLI</a>
+      
+    </li>
+  
+    <li>
+      <a href="../tap-format.1">The Protocol</a>
+      
+    </li>
+  
+    <li>
+      <a href="../reporting/index.html">Reporting</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html">Coverage</a>
+      
+    </li>
+  
+    <li>
+      <a href="../changelog/index.html">Change Log</a>
+      
+    </li>
+  
+    <li>
+      <a href="https://github.com/tapjs/node-tap">GitHub Repo</a>
+      
+    </li>
+  
+  </ul>
+  <pre><a href="http://npm.im/tap">npm install tap</a>
+<a href="../cli/index.html">tap test/*.js</a></pre>
+</section>
+<section class='main'>
+<h1 id="coverage">Coverage</h1>
+
+<p>This module uses <a href="http://npm.im/nyc">nyc</a> to track code coverage, even
+across subprocess boundaries.  It is included by default, and there’s
+nothing you need to do but enable it.  Adding coverage <em>will</em> make
+your tests run slightly slower, but that’s to be expected.</p>
+
+<p>Nyc in turn uses <a href="http://npm.im/istanbul">istanbul</a> to do the actual
+coverage code transformation and reporting.</p>
+
+<p>To generate coverage information, run your tests with the <code class="highlighter-rouge">--cov</code>
+argument.</p>
+
+<p>If you use this a lot, you may want to add <code class="highlighter-rouge">coverage</code> and
+<code class="highlighter-rouge">.nyc_output</code> to your <code class="highlighter-rouge">.gitignore</code> and/or <code class="highlighter-rouge">.npmignore</code> files.</p>
+
+<h2 id="maximal-coverage-">Maximal Coverage 💯</h2>
+
+<p>As of version 7, node-tap lets you easily enforce 100% coverage of all
+lines, branches, functions, and statements with one easy flag, if
+that’s your thing:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"test"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tap test/*.js --100"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>If you do this in an open source module, please <a href="../100/index.html">join the exclusive
+100 club</a>.</p>
+
+<h2 id="travis-ci-and-coverallsio-integration">Travis-CI and Coveralls.io Integration</h2>
+
+<p>You can very easily take advantage of continuous test coverage reports
+by using <a href="https://travis-ci.org">Travis-CI</a> and
+<a href="https://coveralls.io">Coveralls</a>.</p>
+
+<ol>
+  <li>Enable Travis-CI by signing up, enabling tests on your repo, and
+adding a <code class="highlighter-rouge">.travis.yml</code> file to your repo.  You can use <a href="https://github.com/tapjs/node-tap/blob/master/.travis.yml">this
+module’s .travis.yml file as an
+example</a></li>
+  <li>Enable Coveralls.io by signing up, and adding the
+repo.  Note the repo API token.</li>
+  <li>Back at Travis-CI, add a private environment variable.  The name of
+the environment variable is <code class="highlighter-rouge">COVERALLS_REPO_TOKEN</code>, and the value
+is the token you got from Coveralls.</li>
+  <li>When that token is set in the environment variable, <code class="highlighter-rouge">tap</code> will
+automatically generate coverage information and send it to the
+appropriate place.</li>
+</ol>
+
+<h2 id="uploading-coverage-to-other-services">Uploading Coverage to Other Services</h2>
+
+<p>There’s no requirement that you use Coveralls!  Any coverage service
+that understands <code class="highlighter-rouge">lcov</code> can be used as well.</p>
+
+<p>For example, using <a href="https://codecov.io">CodeCov</a>, you can do the
+following:</p>
+
+<ol>
+  <li>
+    <p>Add <code class="highlighter-rouge">codecov</code> as a devDependency in your project with this command:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> npm install codecov --save-dev
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Add a <code class="highlighter-rouge">test</code> script that generates coverage information, and a
+<code class="highlighter-rouge">posttest</code> that uploads it to codecov:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> {
+   "scripts": {
+     "test": "tap test/*.js --coverage",
+     "posttest": "tap --coverage-report=text-lcov &amp;&amp; codecov"
+   }
+ }
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="local-coverage-reporting">Local Coverage Reporting</h2>
+
+<p>Printing out a coverage report can be done along with tests, or after
+any covered test run, using the <code class="highlighter-rouge">--coverage-report=&lt;type&gt;</code> argument.</p>
+
+<p>The most popular types are <code class="highlighter-rouge">text</code> and <code class="highlighter-rouge">html</code>, but any report style
+supported by istanbul is available, including:</p>
+
+<ul>
+  <li>clover</li>
+  <li>cobertura</li>
+  <li>html</li>
+  <li>json</li>
+  <li>json-summary</li>
+  <li>teamcity</li>
+  <li>text</li>
+  <li>text-lcov</li>
+  <li>text-summary</li>
+</ul>
+
+<p>To specify a report format, you can use <code class="highlighter-rouge">--coverage-report=&lt;type&gt;</code>.
+The default type is <code class="highlighter-rouge">text</code>, which produces a pretty text-only table on
+the terminal.  If you specify <code class="highlighter-rouge">--coverage-report=html</code>, then tap will
+attempt to launch a web browser to view the report after the test run.
+You can prevent launching a browser by specifying the flag <code class="highlighter-rouge">--no-browser</code>.</p>
+
+</section>
+<script src="../static/prism.js"></script>
+</body>
