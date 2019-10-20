@@ -8,6 +8,11 @@ redirect_from:
 
 # Changelog
 
+## 14.8 - 2019-10-20
+
+* Update the default `--test-regex` config so that a top-level `test.js` or
+  `tests.js` file will be included.
+
 ## 14.7 - 2019-10-14
 
 * Add the [`t.testdir()`](/docs/api/#ttestdirfixtures) and

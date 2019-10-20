@@ -13,6 +13,10 @@ t.test('no args, pull in default files, not exclusions', t => {
     const t = require(${tap})
     t.pass('this is fine')
   `)
+  tmpfile(t, 'tests.cjs', `
+    const t = require(${tap})
+    t.pass('this is also fine')
+  `)
   tmpfile(t, 'node_modules/bad.test.js', `
     const t = require(${tap})
     t.fail('should not run this')

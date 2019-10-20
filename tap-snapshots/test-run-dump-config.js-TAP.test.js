@@ -45,7 +45,7 @@ statements: 100
 test-arg: []
 test-env: []
 test-ignore: /(^|/)cli-tests-[0-9]+/
-test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.([mc]js|[jt]sx?)$
+test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(tests?|spec)|^\\/?tests?)\\.([mc]js|[jt]sx?)$
 timeout: 30
 ts: true
 version: false
@@ -95,7 +95,7 @@ statements: 100
 test-arg: []
 test-env: []
 test-ignore: /(^|/)cli-tests-[0-9]+/
-test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.([mc]js|[jt]sx?)$
+test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(tests?|spec)|^\\/?tests?)\\.([mc]js|[jt]sx?)$
 timeout: 30
 ts: true
 version: false
@@ -145,7 +145,7 @@ statements: 100
 test-arg: []
 test-env: []
 test-ignore: $.
-test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.([mc]js|[jt]sx?)$
+test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(tests?|spec)|^\\/?tests?)\\.([mc]js|[jt]sx?)$
 timeout: 30
 ts: true
 version: false
@@ -195,7 +195,7 @@ statements: 100
 test-arg: []
 test-env: []
 test-ignore: $.
-test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.([mc]js|[jt]sx?)$
+test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(tests?|spec)|^\\/?tests?)\\.([mc]js|[jt]sx?)$
 timeout: 30
 ts: true
 version: false
@@ -245,7 +245,7 @@ statements: 100
 test-arg: []
 test-env: []
 test-ignore: $.
-test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.([mc]js|[jt]sx?)$
+test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(tests?|spec)|^\\/?tests?)\\.([mc]js|[jt]sx?)$
 timeout: 30
 ts: true
 version: false
@@ -295,7 +295,7 @@ statements: 100
 test-arg: []
 test-env: []
 test-ignore: /(^|/)cli-tests-[0-9]+/
-test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.([mc]js|[jt]sx?)$
+test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(tests?|spec)|^\\/?tests?)\\.([mc]js|[jt]sx?)$
 timeout: 0
 ts: true
 version: false
@@ -358,7 +358,7 @@ test-arg:
   - abc
 test-env: []
 test-ignore: /(^|/)cli-tests-[0-9]+/
-test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.([mc]js|[jt]sx?)$
+test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(tests?|spec)|^\\/?tests?)\\.([mc]js|[jt]sx?)$
 timeout: 99
 ts: true
 version: false
@@ -408,7 +408,7 @@ statements: 100
 test-arg: []
 test-env: []
 test-ignore: /(^|/)cli-tests-[0-9]+/
-test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.([mc]js|[jt]sx?)$
+test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(tests?|spec)|^\\/?tests?)\\.([mc]js|[jt]sx?)$
 timeout: 30
 ts: true
 version: false

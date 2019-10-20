@@ -485,17 +485,21 @@ Much more documentation available at: https://www.node-tap.org/
 
   'test-regex': opt({
     hint: 'pattern',
-    default: '((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.([mc]js|[jt]sx?)$',
+    // anything in a test/ or tests/ folder, or a /tests.js or /test.js,
+    // or anything ending in *.test.js or *.spec.js
+    default: '((\\/|^)(tests?|__tests?__)\\/.*|\\.(tests?|spec)|^\\/?tests?)\\.([mc]js|[jt]sx?)$',
     description: `A regular expression pattern indicating tests to run if no
                   positional arguments are provided.
 
                   By default, tap will search for all files ending in
                   .ts, .tsx, .js, .jsx, .cjs, or .mjs, in a top-level folder
                   named test, tests, or __tests__, or any file ending in
-                  '.spec.' or '.test.' before a supported extension.
+                  '.spec.' or '.test.' before a supported extension, or a
+                  top-level file named 'test.(js,jsx,...)' or
+                  'tests.(js,jsx,...)'
 
                   Ie, the default value for this option is:
-                  ((\\/|^)(tests?|__tests?__)\\/.*|\\.(test|spec))\\.([mc]js|[jt]sx?)$
+                  ((\\/|^)(tests?|__tests?__)\\/.*|\\.(tests?|spec)|^\\/?tests?)\\.([mc]js|[jt]sx?)$
                   `
   }),
 

@@ -13,7 +13,13 @@ ok 1 - file.spec.js # {time} {
     # {time}
 }
 
-1..1
+ok 2 - tests.cjs # {time} {
+    ok 1 - this is also fine
+    1..1
+    # {time}
+}
+
+1..2
 # {time}
 
 `
