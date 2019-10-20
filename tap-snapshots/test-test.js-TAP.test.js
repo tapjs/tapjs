@@ -3224,6 +3224,15 @@ not ok 1 - child test # {time}
 
 `
 
+exports[`test/test.js TAP test dir name does not throw when no main module is present > stderr 1`] = `
+
+`
+
+exports[`test/test.js TAP test dir name does not throw when no main module is present > stdout 1`] = `
+./TAP
+
+`
+
 exports[`test/test.js TAP throw while waiting on a resolving promise > result 1`] = `
 TAP version 13
 # Subtest

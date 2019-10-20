@@ -80,3 +80,13 @@ t.testdir({
   filename: 'contents'
 })
 ```
+
+## Fixture Directory Filename
+
+The fixture directory is returned by the `t.testdir()` method.  It is also
+available on the `t.testdirName` getter.
+
+The name is determined by the filename and path of the `main` script.  If
+no `main` script is available (for example, if running tap in a node repl),
+then it defaults to the folder name `TAP` in the current working
+directory.

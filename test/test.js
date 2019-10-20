@@ -1172,6 +1172,23 @@ t.test('throw while waiting on a resolving promise', t => {
   tt.end()
 })
 
+t.test('test dir name does not throw when no main module is present', t => {
+  const {spawn} = require('child_process')
+  const tap = JSON.stringify(require.resolve('../'))
+  const c = spawn(process.execPath, ['-p', `require(${tap}).testdirName`])
+  const out = []
+  const err = []
+  c.stdout.on('data', c => out.push(c))
+  c.stderr.on('data', c => err.push(c))
+  c.on('close', (code, signal) => {
+    t.equal(code, 0)
+    t.equal(signal, null)
+    t.matchSnapshot(Buffer.concat(out).toString('utf8'), 'stdout')
+    t.matchSnapshot(Buffer.concat(err).toString('utf8'), 'stderr')
+    t.end()
+  })
+})
+
 t.test('save a fixture', t => {
   const tdn = t.testdirName
   t.throws(() => fs.statSync(tdn), 'doesnt exist yet')
