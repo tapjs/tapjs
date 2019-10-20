@@ -12,6 +12,7 @@ redirect_from:
 
 * Update the default `--test-regex` config so that a top-level `test.js` or
   `tests.js` file will be included.
+* Add [`t.hasStrict()`](/docs/api/#thasstrict) method.
 
 ## 14.7 - 2019-10-14
 

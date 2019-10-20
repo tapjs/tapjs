@@ -245,6 +245,20 @@ Synonyms: `t.strictInequivalent`, `t.strictDeepInequal`,
 `t.notSameStrict`, `t.deepNot`, `t.notDeeply`, `t.strictDeepInequals`,
 `t.notStrictSame`
 
+## t.hasStrict(found, pattern, message, extra)
+
+Verify that the found object contains all of the provided fields, and that
+they are of the same type and value as the pattern provided.
+
+This does _not_ do advanced/loose matching based on constructor, regexp
+patterns, and so on, like `t.match()` does.  You _may_ specify `key:
+undefined` in the pattern to ensure that a field is not defined in the
+found object, but it will not differentiate between a missing property and
+a property set to `undefined`.
+
+Note that `t.has()`, the un-strict version of this function, is an alias
+for `t.match()`.
+
 ## t.match(found, pattern, message, extra)
 
 Verify that the found object matches the pattern provided.

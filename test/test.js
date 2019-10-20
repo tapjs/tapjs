@@ -339,6 +339,13 @@ t.test('assertions and weird stuff', t => {
       tt.end()
     },
 
+    hasStrict: tt => {
+      tt.hasStrict({ a: 'b', c: '1' }, { a: 'b', c: 1 }, 'should fail')
+      tt.hasStrict({ a: 1, b: 2, c: 3 }, { b: 2 }, 'should pass')
+      tt.hasStrict({ a: 'b', c: '1' }, { a: 'b', c: 1 }, { todo: true })
+      tt.end()
+    },
+
     match: tt => {
       tt.match({ a: 'b', c: /asdf/ }, { a: String, c: RegExp })
       tt.match({ a: 'b', c: /asdf/ }, { a: 'asdf', c: 1 })
