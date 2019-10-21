@@ -19,7 +19,7 @@ information.
 Usage:
   tap [options] [<files>]
 
-tap v14.7.3 - A Test-Anything-Protocol library for JavaScript
+tap v14.8.0 - A Test-Anything-Protocol library for JavaScript
 
 Executes all the files and interprets their output as TAP formatted test result
 data. If no files are specified, then tap will search for testy-looking files,
@@ -299,11 +299,12 @@ Other Options:
                          .ts, .tsx, .js, .jsx, .cjs, or .mjs, in a top-level
                          folder named test, tests, or __tests__, or any file
                          ending in '.spec.' or '.test.' before a supported
-                         extension.
+                         extension, or a top-level file named
+                         'test.(js,jsx,...)' or 'tests.(js,jsx,...)'
 
                          Ie, the default value for this option is:
-                         ((\/|^)(tests?|__tests?__)\/.*|\.(test|spec))\.([mc]js|
-                         [jt]sx?)$
+                         ((\/|^)(tests?|__tests?__)\/.*|\.(tests?|spec)|^\/?test
+                         s?)\.([mc]js|[jt]sx?)$
 
   --test-ignore=<pattern>
                          When no positional arguments are provided, use the
