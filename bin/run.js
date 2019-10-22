@@ -261,10 +261,11 @@ const defaultNycExcludes = [
 const runNyc = (cmd, programArgs, options, spawnOpts) => {
   const reporter = nycReporter(options)
 
-  const branches = Math.max(+options.branches || 100, 100)
-  const lines = Math.max(+options.lines || 100, 100)
-  const functions = Math.max(+options.functions || 100, 100)
-  const statements = Math.max(+options.statements || 100, 100)
+  // note: these are forced to be numeric in the option parsing phase
+  const branches = Math.min(options.branches, 100)
+  const lines = Math.min(options.lines, 100)
+  const functions = Math.min(options.functions, 100)
+  const statements = Math.min(options.statements, 100)
   const excludes = defaultNycExcludes.concat(options.files).map(f =>
     '--exclude=' + f)
 
@@ -278,13 +279,13 @@ const runNyc = (cmd, programArgs, options, spawnOpts) => {
     '--branches=' + branches,
     '--watermarks.branches=' + branches,
     '--watermarks.branches=' + (branches + (100 - branches)/2),
-    '--functions=' + options.functions,
+    '--functions=' + functions,
     '--watermarks.functions=' + functions,
     '--watermarks.functions=' + (functions + (100 - functions)/2),
-    '--lines=' + options.lines,
+    '--lines=' + lines,
     '--watermarks.lines=' + lines,
     '--watermarks.lines=' + (lines + (100 - lines)/2),
-    '--statements=' + options.statements,
+    '--statements=' + statements,
     '--watermarks.statements=' + statements,
     '--watermarks.statements=' + (statements + (100 - statements)/2),
     ...reporter,
