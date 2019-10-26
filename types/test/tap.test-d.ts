@@ -1,6 +1,6 @@
 import { expectType } from 'tsd';
 import * as tap from '../..'
-import { Tap, Test, Mocha, Options, Assertions } from '../../types/test'
+import { Tap, Test, Mocha, Assertions } from '../test'
 
 type doneFn = () => void;
 
@@ -35,6 +35,45 @@ expectType<Promise<void>>(tap.test('str', { timeout: 42 }, async t => {
   expectType<Test>(t)
 }))
 expectType<Promise<void>>(tap.test('str', async t => {
+  expectType<Test>(t)
+}))
+
+expectType<Promise<void>>(tap.todo('str', { timeout: 42 }, t => {
+  expectType<Test>(t)
+}))
+expectType<Promise<void>>(tap.todo('str', t => {
+  expectType<Test>(t)
+}))
+expectType<Promise<void>>(tap.todo('str', { timeout: 42 }, async t => {
+  expectType<Test>(t)
+}))
+expectType<Promise<void>>(tap.todo('str', async t => {
+  expectType<Test>(t)
+}))
+
+expectType<Promise<void>>(tap.skip('str', { timeout: 42 }, t => {
+  expectType<Test>(t)
+}))
+expectType<Promise<void>>(tap.skip('str', t => {
+  expectType<Test>(t)
+}))
+expectType<Promise<void>>(tap.skip('str', { timeout: 42 }, async t => {
+  expectType<Test>(t)
+}))
+expectType<Promise<void>>(tap.skip('str', async t => {
+  expectType<Test>(t)
+}))
+
+expectType<Promise<void>>(tap.only('str', { timeout: 42 }, t => {
+  expectType<Test>(t)
+}))
+expectType<Promise<void>>(tap.only('str', t => {
+  expectType<Test>(t)
+}))
+expectType<Promise<void>>(tap.only('str', { timeout: 42 }, async t => {
+  expectType<Test>(t)
+}))
+expectType<Promise<void>>(tap.only('str', async t => {
   expectType<Test>(t)
 }))
 
@@ -76,6 +115,12 @@ expectType<void>(tap.afterEach(async (done, childTest) => {
 }))
 
 expectType<any>(tap.context)
+
+expectType<string>(tap.name)
+
+expectType<boolean>(tap.runOnly)
+
+expectType<number>(tap.jobs)
 
 // Assertions.Basic
 expectType<Assertions.Basic>(tap.ok)
