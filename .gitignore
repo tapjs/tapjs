@@ -4,6 +4,7 @@
 !bin/
 !lib/
 !docs/
+!types
 /docs/public
 /docs/node_modules
 /docs/.cache
