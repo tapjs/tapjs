@@ -8,6 +8,7 @@
     "tap": "bin/run.js"
   },
   "main": "lib/tap.js",
+  "types": "types/tap.d.ts",
   "engines": {
     "node": ">=8"
   },
@@ -77,7 +78,8 @@
     "www:build": "cd docs; npm ci; npm run build",
     "www:develop": "cd docs; npm run develop",
     "start": "npm run www:develop",
-    "www:serve": "cd docs; npm run serve"
+    "www:serve": "cd docs; npm run serve",
+    "test:types": "tsd"
   },
   "tap": {
     "esm": false,
@@ -96,7 +98,9 @@
     "bin/run.js",
     "bin/jsx.js",
     "bin/jack.js",
-    "lib/*.js"
+    "lib/*.js",
+    "types/tap.d.ts",
+    "types/test.d.ts"
   ],
   "bundleDependencies": [
     "ink",
@@ -105,5 +109,11 @@
   ],
   "funding": {
     "url": "https://github.com/sponsors/isaacs"
+  },
+  "devDependencies": {
+    "tsd": "^0.10.0"
+  },
+  "tsd": {
+    "directory": "types/test"
   }
 }
