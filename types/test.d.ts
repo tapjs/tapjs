@@ -8,6 +8,12 @@ export declare class Test {
   plan(n: number, comment?: string): void
   test(name: string, extra?: Options.Test, cb?: (t: Test) => Promise<void> | void): Promise<void>
   test(name: string, cb?: (t: Test) => Promise<void> | void): Promise<void>
+  todo(name: string, cb?: (t: Test) => Promise<void> | void): Promise<void>
+  todo(name: string, extra?: Options.Test, cb?: (t: Test) => Promise<void> | void): Promise<void>
+  skip(name: string, cb?: (t: Test) => Promise<void> | void): Promise<void>
+  skip(name: string, extra?: Options.Test, cb?: (t: Test) => Promise<void> | void): Promise<void>
+  only(name: string, cb?: (t: Test) => Promise<void> | void): Promise<void>
+  only(name: string, extra?: Options.Test, cb?: (t: Test) => Promise<void> | void): Promise<void>
   current(): Test
   stdin(name: string, extra?: Options.Bag): Promise<void>
   spawn(cmd: string, args: string, options?: Options.Bag, name?: string, extra?: Options.Spawn): Promise<void>
@@ -20,7 +26,11 @@ export declare class Test {
   bailout(message?: string): void
   beforeEach(fn: (done: () => void, childTest: Test) => void | Promise<void>): void
   afterEach(fn: (done: () => void, childTest: Test) => void | Promise<void>): void
+  
   context: any
+  name: string
+  runOnly: boolean
+  jobs: number
 
   // Assertions
   ok: Assertions.Basic
@@ -126,16 +136,17 @@ export declare class Test {
 
 export declare namespace Options {
   export interface Bag {
-    [propName: string]: any
+    [key: string]: any
   }
 
   export interface Pragma {
-    [propName: string]: boolean
+    [key: string]: boolean
   }
 
   export interface Assert extends Bag {
     todo?: boolean | string,
-    skip?: boolean | string
+    skip?: boolean | string,
+    diagnostic?: boolean
   }
 
   export interface Spawn extends Assert {
@@ -144,10 +155,14 @@ export declare namespace Options {
   }
 
   export interface Test extends Assert {
-    name?: string,
     timeout?: number,
     bail?: boolean,
-    autoend?: boolean
+    autoend?: boolean,
+    buffered?: boolean,
+    jobs?: number,
+    grep?: RegExp[],
+    only?: boolean,
+    runOnly?: boolean
   }
 }
 
