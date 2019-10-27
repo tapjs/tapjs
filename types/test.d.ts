@@ -1,11 +1,13 @@
 export declare class Test {
   constructor (options?: Options.Test)
   tearDown(fn: () => void | Promise<void>): void
+  teardown(fn: () => void | Promise<void>): void
   setTimeout(n: number): void
   endAll(): void
   threw(error: Error, extra?: Error, proxy?: Test): void
   pragma(set: Options.Pragma): void
   plan(n: number, comment?: string): void
+  end(): void
   test(name: string, extra?: Options.Test, cb?: (t: Test) => Promise<void> | void): Promise<void>
   test(name: string, cb?: (t: Test) => Promise<void> | void): Promise<void>
   todo(name: string, cb?: (t: Test) => Promise<void> | void): Promise<void>
