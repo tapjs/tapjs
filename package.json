@@ -67,7 +67,7 @@
   "repository": "https://github.com/tapjs/node-tap.git",
   "scripts": {
     "snap": "bash scripts/snap.sh",
-    "test": "node bin/run.js test -M coverage-map.js",
+    "test": "node bin/run.js test -M coverage-map.js && npm run test:types",
     "unit": "bash scripts/unit.sh",
     "posttest": "rm -rf cli-tests-*",
     "postunit": "npm run posttest",
