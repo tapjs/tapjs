@@ -12,8 +12,9 @@ expectType<Test['test']>(tap.test)
 expectType<Mocha>(tap.mocha)
 
 expectType<void>(tap.tearDown(() => {}))
-
 expectType<void>(tap.tearDown(async () => {}))
+expectType<void>(tap.teardown(() => {}))
+expectType<void>(tap.teardown(async () => {}))
 
 expectType<void>(tap.setTimeout(42))
 
@@ -24,6 +25,8 @@ expectType<void>(tap.threw(new Error()))
 expectType<void>(tap.pragma({ val: true }))
 
 expectType<void>(tap.plan(42))
+
+expectType<void>(tap.end())
 
 expectType<Promise<void>>(tap.test('str', { timeout: 42 }, t => {
   expectType<Test>(t)
