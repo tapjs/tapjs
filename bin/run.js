@@ -269,6 +269,10 @@ const runNyc = (cmd, programArgs, options, spawnOpts) => {
   const statements = Math.min(options.statements, 100)
   const excludes = defaultNycExcludes.concat(options.files).map(f =>
     '--exclude=' + f)
+  if (options.before)
+    excludes.push('--exclude=' + options.before)
+  if (options.after)
+    excludes.push('--exclude=' + options.after)
 
   const args = [
     nycBin,
@@ -570,7 +574,7 @@ const coverageMapOverride = (env, file, coverageMap) => {
   }
 }
 
-const runAllFiles = (options, env, tap) => {
+const runAllFiles = (options, env, tap, processDB) => {
   debug('run all files')
   let doStdin = false
   let parallelOk = Object.create(null)
@@ -593,10 +597,6 @@ const runAllFiles = (options, env, tap) => {
   if (options.files.length === 0 && !doStdin && !options.changed) {
     tap.fail('no tests specified')
   }
-
-  /* istanbul ignore next */
-  const processDB = options.coverage && process.env.NYC_CONFIG
-    ? new ProcessDB() : null
 
   /* istanbul ignore next */
   const coverageMap = options['coverage-map']
@@ -725,8 +725,13 @@ const runTests = options => {
   tap.jobs = options.jobs
 
   const env = getEnv(options)
+
+  /* istanbul ignore next */
+  const processDB = options.coverage && process.env.NYC_CONFIG
+    ? new ProcessDB() : null
+
   // run --before before everything, and --after as the very last thing
-  runBeforeAfter(options, env, tap)
+  runBeforeAfter(options, env, tap, processDB)
 
   tap.patchProcess()
 
@@ -742,7 +747,7 @@ const runTests = options => {
 
   saveFails(options, tap)
 
-  runAllFiles(options, env, tap)
+  runAllFiles(options, env, tap, processDB)
 
   /* istanbul ignore next */
   if (process.env.COVERALLS_REPO_TOKEN ||
@@ -768,7 +773,14 @@ const beforeAfter = (env, script) => {
   }
 }
 
-const runBeforeAfter = (options, env, tap) => {
+const runBeforeAfter = (options, env, tap, processDB) => {
+  // Have to write the index before running a script so that this
+  // process is included in the DB, or else it'll crash when it
+  // tries to get the parent info.
+  /* istanbul ignore next */
+  if (processDB && (options.before || options.after))
+    processDB.writeIndex()
+
   if (options.before)
     beforeAfter(env, options.before)
 
