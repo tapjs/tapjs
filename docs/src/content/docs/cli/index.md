@@ -184,6 +184,21 @@ Running Parallel Tests:
                          back to the default if an earlier option (or config
                          file) set it differently.
 
+  --before=<module>      A node program to be run before test files are
+                         executed.
+
+                         Exiting with a non-zero status code or a signal will
+                         fail the test run and exit the process in error.
+
+  --after=<module>       A node program to be executed after tests are finished.
+
+                         This will be run even if a test in the series fails
+                         with a bailout, but it will *not* be run if a --before
+                         script fails.
+
+                         Exiting with a non-zero status code or a signal will
+                         fail the test run and exit the process in error.
+
 Code Coverage Options:
 
   Tap uses the nyc module internally to provide code coverage, so there is no

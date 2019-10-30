@@ -1,9 +1,10 @@
 #!/usr/bin/env node
+const signalExit = require('signal-exit')
 const opener = require('opener')
 const node = process.execPath
 const fs = require('fs')
 const fg = require('foreground-child')
-const {spawn} = require('child_process')
+const {spawn, spawnSync} = require('child_process')
 const nycBin = require.resolve(
   'nyc/' + require('nyc/package.json').bin.nyc
 )
@@ -511,12 +512,20 @@ const saveFails = (options, tap) => {
   tap.on('end', save)
 }
 
+const filesMatch = (a, b) =>
+  a && b && path.resolve(a) === path.resolve(b)
+
 const filterFiles = exports.filterFiles = (files, options, parallelOk) =>
   files.filter(file =>
     path.basename(file) === 'tap-parallel-ok' ?
       ((parallelOk[path.resolve(path.dirname(file))] = true), false)
     : path.basename(file) === 'tap-parallel-not-ok' ?
       parallelOk[path.resolve(path.dirname(file))] = false
+    // don't include the --before and --after scripts as files,
+    // so they're not run as tests if they would be found normally.
+    // This allows test/setup.js and test/teardown.js for example.
+    : filesMatch(file, options.before) ? false
+    : filesMatch(file, options.after) ? false
     : options.saved && options.saved.length ? onSavedList(options.saved, file)
     : options.changed ? options.changedFilter(file)
     : true
@@ -561,7 +570,7 @@ const coverageMapOverride = (env, file, coverageMap) => {
   }
 }
 
-const runAllFiles = (options, tap) => {
+const runAllFiles = (options, env, tap) => {
   debug('run all files')
   let doStdin = false
   let parallelOk = Object.create(null)
@@ -578,8 +587,6 @@ const runAllFiles = (options, tap) => {
       t.stream.pipe(fs.createWriteStream(file))
     })
   }
-
-  const env = getEnv(options)
 
   options.files = filterFiles(options.files, options, parallelOk)
 
@@ -716,13 +723,17 @@ const runTests = options => {
   // greps are passed to children, but not the runner itself
   tap.grep = []
   tap.jobs = options.jobs
+
+  const env = getEnv(options)
+  // run --before before everything, and --after as the very last thing
+  runBeforeAfter(options, env, tap)
+
   tap.patchProcess()
 
   // if not -Rtap, then output what the user wants.
   // otherwise just dump to stdout
   /* istanbul ignore next */
   makeReporter(tap, options)
-
 
   // need to replay the first version line, because the previous
   // line will have flushed it out to stdout or the reporter already.
@@ -731,7 +742,7 @@ const runTests = options => {
 
   saveFails(options, tap)
 
-  runAllFiles(options, tap)
+  runAllFiles(options, env, tap)
 
   /* istanbul ignore next */
   if (process.env.COVERALLS_REPO_TOKEN ||
@@ -741,6 +752,30 @@ const runTests = options => {
 
   tap.end()
   debug('called tap.end()')
+}
+
+const beforeAfter = (env, script) => {
+  const {status, signal} = spawnSync(process.execPath, [script], {
+    env,
+    stdio: 'inherit',
+  })
+
+  if (status || signal) {
+    const msg = `\n# failed ${script}\n# code=${status} signal=${signal}\n`
+    console.error(msg)
+    process.exitCode = status || 1
+    process.exit(status || 1)
+  }
+}
+
+const runBeforeAfter = (options, env, tap) => {
+  if (options.before)
+    beforeAfter(env, options.before)
+
+  if (options.after) {
+    /* istanbul ignore next - run after istanbul's report */
+    signalExit(() => beforeAfter(env, options.after), { alwaysLast: true })
+  }
 }
 
 const parsePackageJson = () => {

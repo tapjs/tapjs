@@ -6,7 +6,9 @@
  */
 'use strict'
 exports[`test/run/dump-config.js TAP empty rc file > output 1`] = `
+after: null
 bail: false
+before: null
 branches: 100
 browser: true
 changed: false
@@ -56,7 +58,9 @@ watch: false
 `
 
 exports[`test/run/dump-config.js TAP good rc file > output 1`] = `
+after: null
 bail: false
+before: null
 branches: 100
 browser: true
 changed: false
@@ -106,7 +110,9 @@ watch: false
 `
 
 exports[`test/run/dump-config.js TAP package.json parsing bad > output 1`] = `
+after: null
 bail: false
+before: null
 branches: 100
 browser: true
 changed: false
@@ -156,7 +162,9 @@ watch: false
 `
 
 exports[`test/run/dump-config.js TAP package.json parsing good > output 1`] = `
+after: null
 bail: false
+before: null
 branches: 100
 browser: true
 changed: false
@@ -206,7 +214,9 @@ watch: false
 `
 
 exports[`test/run/dump-config.js TAP package.json parsing missing > output 1`] = `
+after: null
 bail: false
+before: null
 branches: 100
 browser: true
 changed: false
@@ -256,7 +266,9 @@ watch: false
 `
 
 exports[`test/run/dump-config.js TAP short options as well as short flags > output 1`] = `
+after: null
 bail: true
+before: null
 branches: 100
 browser: true
 changed: false
@@ -306,7 +318,9 @@ watch: false
 `
 
 exports[`test/run/dump-config.js TAP shotgun a bunch of option parsing junk > output 1`] = `
+after: null
 bail: false
+before: null
 branches: 99
 browser: false
 changed: false
@@ -369,7 +383,9 @@ watch: false
 `
 
 exports[`test/run/dump-config.js TAP turn color off and back on again > output 1`] = `
+after: null
 bail: false
+before: null
 branches: 100
 browser: true
 changed: false

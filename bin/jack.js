@@ -286,6 +286,25 @@ Much more documentation available at: https://www.node-tap.org/
                   `
   }),
 
+  before: opt({
+    hint: 'module',
+    description: `A node program to be run before test files are executed.
+
+                  Exiting with a non-zero status code or a signal will fail
+                  the test run and exit the process in error.`,
+  }),
+  after: opt({
+    hint: 'module',
+    description: `A node program to be executed after tests are finished.
+
+                  This will be run even if a test in the series fails with
+                  a bailout, but it will *not* be run if a --before script
+                  fails.
+
+                  Exiting with a non-zero status code or a signal will fail
+                  the test run and exit the process in error.`,
+  }),
+
 }, {
 
   description: 'Code Coverage Options',
