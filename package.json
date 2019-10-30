@@ -40,7 +40,7 @@
     "react": "^16.9.0",
     "rimraf": "^2.7.1",
     "signal-exit": "^3.0.0",
-    "source-map-support": "github:tapjs/node-source-map-support#node-header-length-change",
+    "source-map-support": "^0.5.16",
     "stack-utils": "^1.0.2",
     "tap-mocha-reporter": "^5.0.0",
     "tap-parser": "^10.0.1",
@@ -99,7 +99,6 @@
   ],
   "bundleDependencies": [
     "treport",
-    "ink",
-    "source-map-support"
+    "ink"
   ]
 }
