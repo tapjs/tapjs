@@ -19,7 +19,7 @@ information.
 Usage:
   tap [options] [<files>]
 
-tap v14.8.2 - A Test-Anything-Protocol library for JavaScript
+tap v14.9.1 - A Test-Anything-Protocol library for JavaScript
 
 Executes all the files and interprets their output as TAP formatted test result
 data. If no files are specified, then tap will search for testy-looking files,
@@ -183,6 +183,21 @@ Running Parallel Tests:
                          little purpose except to re-set the parallelization
                          back to the default if an earlier option (or config
                          file) set it differently.
+
+  --before=<module>      A node program to be run before test files are
+                         executed.
+
+                         Exiting with a non-zero status code or a signal will
+                         fail the test run and exit the process in error.
+
+  --after=<module>       A node program to be executed after tests are finished.
+
+                         This will be run even if a test in the series fails
+                         with a bailout, but it will *not* be run if a --before
+                         script fails.
+
+                         Exiting with a non-zero status code or a signal will
+                         fail the test run and exit the process in error.
 
 Code Coverage Options:
 

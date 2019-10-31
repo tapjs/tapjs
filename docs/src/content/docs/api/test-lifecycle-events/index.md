@@ -10,7 +10,37 @@ redirect_from:
 
 There are a few moments in the life of a test where you might want to attach
 some setup or teardown logic.  Node-tap implements these using the following
-functions.
+interfaces.
+
+## CLI: `--before=before-tests.js`, `--after=after-tests.js`
+
+To run a script before any tests are executed, specify it as a `--before`
+config value.  To run a script after all tests are done executing, specify
+it as an `--after` config value.
+
+These can be set either on the CLI, in a `.taprc` file, or `package.json`
+file.  (See [Configuring Tap](/docs/configuring/).)
+
+`--before` and `--after` file's output will be sent to the parent's
+terminal, and outside of any reporters.  It's generally _not_ a great idea
+to have them output [TAP](/tap-protocol/), since that can cause the test
+run to generate invalid output.
+
+If the script exits in error (either via a status code or being killed by a
+signal), then the test run will be aborted and exit in error.  An `--after`
+script will run even if the test run bails out.
+
+A defined `--before` or `--after` script will be omitted if it would have
+been included as a test file.  So, it's fine to do something like `tap
+--before=test/setup.js --after=test/teardown.js test/*.js`.
+
+There is no provided way to communicate context from a `--before` or
+`--after` program, since they run in separate processes from the test
+scripts, but since they are guaranteed to be run before or after any
+parallel testing, it is safe to have them write data to files that can be
+read by test scripts.
+
+The other functions referenced below are for use _within_ a test program.
 
 ## `t.beforeEach(fn(done, childTest))`
 
