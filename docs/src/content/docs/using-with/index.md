@@ -1,6 +1,6 @@
 ---
 title: "Using tap with..."
-section: 2
+section: 3
 redirect_from:
   - /using-with/
   - /using-with

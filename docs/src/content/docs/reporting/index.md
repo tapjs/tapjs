@@ -1,6 +1,6 @@
 ---
 title: Reporting
-section: 6
+section: 7
 redirect_from:
   - /reporting/
   - /reporting
