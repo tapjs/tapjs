@@ -76,9 +76,9 @@ ok
 `
 
 exports[`test/run/before-after.js TAP failing after > stderr 1`] = `
-{CWD}/cli-tests/fail.js:1
-throw new Error('fail')
-^
+{CWD}/cli-tests/fail.js:2
+  throw new Error('fail')
+  ^
 
 Error: fail
     {STACK}
@@ -103,9 +103,9 @@ ok 1 - cli-tests/t1.js # {time} {
 `
 
 exports[`test/run/before-after.js TAP failing before > stderr 1`] = `
-{CWD}/cli-tests/fail.js:1
-throw new Error('fail')
-^
+{CWD}/cli-tests/fail.js:2
+  throw new Error('fail')
+  ^
 
 Error: fail
     {STACK}

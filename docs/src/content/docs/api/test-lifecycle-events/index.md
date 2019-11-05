@@ -1,6 +1,6 @@
 ---
 title: Test Lifecycle Events
-section: 4.06
+section: 5.06
 redirect_from:
   - /test-lifecycle/
   - /test-lifecycle

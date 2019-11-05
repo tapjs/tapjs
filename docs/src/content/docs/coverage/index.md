@@ -1,6 +1,6 @@
 ---
 title: Coverage
-section: 7
+section: 8
 redirect_from:
   - /coverage/
   - /coverage

@@ -6,7 +6,9 @@ const {
 } = require('./')
 
 const ok = tmpfile(t, 'ok.js', `console.log('ok')`)
-const fail = tmpfile(t, 'fail.js', `throw new Error('fail')`)
+const fail = tmpfile(t, 'fail.js', `
+  throw new Error('fail')
+`)
 const slow = tmpfile(t, 'slow.js', `setTimeout(() => console.log('slow'))`)
 const slowFail = tmpfile(t, 'slow-fail.js', `setTimeout(() => {
   throw new Error('slow fail')
