@@ -123,7 +123,10 @@ const defaultFiles = options => new Promise((res, rej) => {
   })
 })
 
-const main = async options => {
+const main = options =>
+  mainAsync(options).catch(er => onError(er))
+
+const mainAsync = async options => {
   debug('main', options)
 
   if (require.main !== module)
@@ -799,13 +802,14 @@ const parsePackageJson = () => {
 }
 
 const parseRcFile = path => {
+  let contents
   try {
-    const contents = fs.readFileSync(path, 'utf8')
-    return yaml.parse(contents) || {}
+    contents = fs.readFileSync(path, 'utf8')
   } catch (er) {
-    // if no dotfile exists, or invalid yaml, fail gracefully
+    // if no dotfile exists, just return an empty object
     return {}
   }
+  return yaml.parse(contents)
 }
 
 const strToRegExp = g => {
@@ -815,15 +819,20 @@ const strToRegExp = g => {
   return new RegExp(g, flags)
 }
 
-try {
-  require('./jack.js')(main)
-} catch (er) {
+const onError = er => {
   /* istanbul ignore else - parse errors are the only ones we ever expect */
   if (er.name.match(/^AssertionError/) && !er.generatedMessage) {
     console.error('Error: ' + er.message)
     console.error('Run `tap --help` for usage information')
     process.exit(1)
   } else {
-    throw er
+    console.error(er)
+    process.exit(1)
   }
+}
+
+try {
+  require('./jack.js')(main)
+} catch (er) {
+  onError(er)
 }
