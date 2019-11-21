@@ -5,6 +5,19 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
+exports[`test/format.js TAP format iterable > must match snapshot 1`] = `
+And [
+  And [
+    1,
+    2,
+  ],
+  And [
+    3,
+    4,
+  ],
+]
+`
+
 exports[`test/format.js TAP gnarly object, many points of view > 3 space 1`] = `
 Object {
    "o": true,

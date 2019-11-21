@@ -77,8 +77,8 @@ t.test('array-likes', t => {
 
   const args = (function () { return arguments })(1,2,3)
   const o = {[Symbol.iterator]: function*() { for (let i of a) { yield i } } }
-  // array can match iterable, but not the other way around.
-  t.notOk(same(t, a, o))
+  // array can match iterable, or the other way around.
+  t.ok(same(t, a, o))
   t.ok(same(t, o, a))
   t.ok(same(t, args, a))
   t.ok(same(t, o, args))
@@ -399,5 +399,25 @@ t.test('errors', t => {
   d.message = c.message
   d.foo = 'baz'
   t.notOk(same(t, c, d))
+  t.end()
+})
+
+t.test('iterables match one another', t => {
+  class And {
+    constructor (a, b) {
+      this.a = a
+      this.b = b
+    }
+    *[Symbol.iterator] () {
+      yield this.a
+      yield this.b
+    }
+  }
+  const a = new And(1, 2)
+  const b = new And(1, 2)
+  const arr = [1, 2]
+  t.ok(same(t, a, b), 'iterables match one another')
+  t.ok(same(t, a, arr), 'iterable matches array')
+  t.ok(same(t, arr, b), 'array matches iterable')
   t.end()
 })

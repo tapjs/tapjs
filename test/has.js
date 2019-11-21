@@ -115,3 +115,23 @@ t.test('errors', t => {
 
   t.end()
 })
+
+t.test('iterables match one another', t => {
+  class And {
+    constructor (a, b) {
+      this.a = a
+      this.b = b
+    }
+    *[Symbol.iterator] () {
+      yield this.a
+      yield this.b
+    }
+  }
+  const a = new And(1, 2)
+  const b = new And(1, 2)
+  const arr = [1, 2]
+  t.ok(has(t, a, b), 'iterables match one another')
+  t.ok(has(t, a, arr), 'iterable matches array')
+  t.ok(has(t, arr, b), 'array matches iterable')
+  t.end()
+})

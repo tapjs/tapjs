@@ -86,9 +86,9 @@ t.test('should handle arguments', function (t) {
   var outer = arguments
   ;(function (tt) {
     var inner = arguments
-    t.ok(match(t,outer, outer))
-    t.ok(match(t,outer, inner))
-    t.ok(match(t,outer, [t]))
+    t.ok(match(t, outer, outer))
+    t.ok(match(t, outer, inner))
+    t.ok(match(t, outer, [t]))
   }(t))
   t.end()
 })
@@ -347,5 +347,25 @@ t.test('errors can only be satisfied by errors', t => {
   t.ok(match(t, obj, { er: TypeError }))
   t.notOk(match(t, obj, {er:new Error('fdsa')}))
   t.notOk(match(t, obj, {er:{message:'yolo'}}))
+  t.end()
+})
+
+t.test('iterables match one another', t => {
+  class And {
+    constructor (a, b) {
+      this.a = a
+      this.b = b
+    }
+    *[Symbol.iterator] () {
+      yield this.a
+      yield this.b
+    }
+  }
+  const a = new And(1, 2)
+  const b = new And(1, 2)
+  const arr = [1, 2]
+  t.ok(match(t, a, b), 'iterables match one another')
+  t.ok(match(t, a, arr), 'iterable matches array')
+  t.ok(match(t, arr, b), 'array matches iterable')
   t.end()
 })

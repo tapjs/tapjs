@@ -283,6 +283,33 @@ exports[`test/has.js TAP errors > must match snapshot 6`] = `
  }
 `
 
+exports[`test/has.js TAP iterables match one another > must match snapshot 1`] = `
+--- expected
++++ actual
+ And [
+   1,
+   2,
+ ]
+`
+
+exports[`test/has.js TAP iterables match one another > must match snapshot 2`] = `
+--- expected
++++ actual
+ And [
+   1,
+   2,
+ ]
+`
+
+exports[`test/has.js TAP iterables match one another > must match snapshot 3`] = `
+--- expected
++++ actual
+ Array [
+   1,
+   2,
+ ]
+`
+
 exports[`test/has.js TAP map > must match snapshot 1`] = `
 --- expected
 +++ actual

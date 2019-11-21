@@ -25,12 +25,9 @@ exports[`test/same.js TAP array-likes > must match snapshot 2`] = `
 --- expected
 +++ actual
  Array [
--  undefined,
-+  1,
--  undefined,
-+  2,
--  undefined,
-+  3,
+   1,
+   2,
+   3,
  ]
 `
 
@@ -349,6 +346,33 @@ exports[`test/same.js TAP flexible about key order and types > must match snapsh
        "c": 3,
      },
    },
+ ]
+`
+
+exports[`test/same.js TAP iterables match one another > must match snapshot 1`] = `
+--- expected
++++ actual
+ And [
+   1,
+   2,
+ ]
+`
+
+exports[`test/same.js TAP iterables match one another > must match snapshot 2`] = `
+--- expected
++++ actual
+ And [
+   1,
+   2,
+ ]
+`
+
+exports[`test/same.js TAP iterables match one another > must match snapshot 3`] = `
+--- expected
++++ actual
+ Array [
+   1,
+   2,
  ]
 `
 
@@ -844,8 +868,7 @@ exports[`test/same.js TAP should handle arguments > must match snapshot 1`] = `
 --- expected
 +++ actual
  Arguments [
-   Test [
-   ],
+   Test [],
  ]
 `
 
@@ -853,8 +876,7 @@ exports[`test/same.js TAP should handle arguments > must match snapshot 2`] = `
 --- expected
 +++ actual
  Arguments [
-   Test [
-   ],
+   Test [],
  ]
 `
 
@@ -862,8 +884,7 @@ exports[`test/same.js TAP should handle arguments > must match snapshot 3`] = `
 --- expected
 +++ actual
  Arguments [
-   Test [
-   ],
+   Test [],
  ]
 `
 

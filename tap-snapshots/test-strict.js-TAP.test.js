@@ -538,6 +538,43 @@ exports[`test/strict.js TAP basic > must match snapshot 9`] = `
  /^h[oe][wl][dl][oy]$/
 `
 
+exports[`test/strict.js TAP iterables match one another > must match snapshot 1`] = `
+--- expected
++++ actual
+ And [
+   1,
+   2,
+ ]
+`
+
+exports[`test/strict.js TAP iterables match one another > must match snapshot 2`] = `
+--- expected
++++ actual
+-Array [
+-  1,
+-  2,
+-]
++And [
++  1,
++  2,
++]
+
+`
+
+exports[`test/strict.js TAP iterables match one another > must match snapshot 3`] = `
+--- expected
++++ actual
+-And [
+-  1,
+-  2,
+-]
++Array [
++  1,
++  2,
++]
+
+`
+
 exports[`test/strict.js TAP map > must match snapshot 1`] = `
 --- expected
 +++ actual

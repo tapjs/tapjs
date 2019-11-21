@@ -221,6 +221,33 @@ exports[`test/match.js TAP extra keys in object are ok > must match snapshot 1`]
  }
 `
 
+exports[`test/match.js TAP iterables match one another > must match snapshot 1`] = `
+--- expected
++++ actual
+ And [
+   1,
+   2,
+ ]
+`
+
+exports[`test/match.js TAP iterables match one another > must match snapshot 2`] = `
+--- expected
++++ actual
+ And [
+   1,
+   2,
+ ]
+`
+
+exports[`test/match.js TAP iterables match one another > must match snapshot 3`] = `
+--- expected
++++ actual
+ Array [
+   1,
+   2,
+ ]
+`
+
 exports[`test/match.js TAP js WAT! array/string stuff > must match snapshot 1`] = `
 --- expected
 +++ actual
@@ -518,8 +545,7 @@ exports[`test/match.js TAP should handle arguments > must match snapshot 1`] = `
 --- expected
 +++ actual
  Arguments [
-   Test [
-   ],
+   Test [],
  ]
 `
 
@@ -527,8 +553,7 @@ exports[`test/match.js TAP should handle arguments > must match snapshot 2`] = `
 --- expected
 +++ actual
  Arguments [
-   Test [
-   ],
+   Test [],
  ]
 `
 
@@ -536,8 +561,7 @@ exports[`test/match.js TAP should handle arguments > must match snapshot 3`] = `
 --- expected
 +++ actual
  Arguments [
-   Test [
-   ],
+   Test [],
  ]
 `
 

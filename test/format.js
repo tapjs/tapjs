@@ -147,3 +147,19 @@ t.test('other misc', t => {
 
   t.end()
 })
+
+t.test('format iterable', t => {
+  class And {
+    constructor (a, b) {
+      this.a = a
+      this.b = b
+    }
+    *[Symbol.iterator] () {
+      yield this.a
+      yield this.b
+    }
+  }
+  const s = new Format(new And(new And(1, 2), new And(3, 4)))
+  t.matchSnapshot(s.print())
+  t.end()
+})
