@@ -16,6 +16,7 @@ not ok 1 - expect a valid http/https url
   diff: |-
     --- expected
     +++ actual
+    @@ -1,6 +1,6 @@ Url {
      Url {
     -  "protocol": /^https?:$/,
     +  "protocol": null,
@@ -737,6 +738,7 @@ not ok 1 - should fail
   diff: |-
     --- expected
     +++ actual
+    @@ -1,4 +1,4 @@ Object {
      Object {
        "a": "b",
     -  "c": 1,
@@ -768,6 +770,7 @@ not ok 3 - should contain all provided fields strictly # TODO
   diff: |-
     --- expected
     +++ actual
+    @@ -1,4 +1,4 @@ Object {
      Object {
        "a": "b",
     -  "c": 1,
@@ -875,6 +878,7 @@ not ok 2 - should match pattern provided
   diff: |-
     --- expected
     +++ actual
+    @@ -1,4 +1,4 @@ Object {
      Object {
     -  "a": "asdf",
     +  "a": "b",
@@ -907,6 +911,7 @@ not ok 4 - should match pattern provided # TODO
   diff: |-
     --- expected
     +++ actual
+    @@ -1,4 +1,4 @@ Object {
      Object {
     -  "a": "asdf",
     +  "a": "b",
@@ -1147,6 +1152,7 @@ not ok 2 - expect resolving Promise # TODO
   diff: |
     --- expected
     +++ actual
+    @@ -1,1 +1,1 @@ 
     -"asdf"
     +420
   found: 420
@@ -1261,6 +1267,7 @@ not ok 9 - should be equivalent strictly
   diff: |-
     --- expected
     +++ actual
+    @@ -1,5 +1,5 @@ Array [
      Array [
     -  "1",
     +  1,
@@ -2881,6 +2888,7 @@ TAP version 13
           diff: |
             --- expected
             +++ actual
+            @@ -1,3 +1,3 @@ 
             -Object {
             -  "message": "bar",
             -}
@@ -2914,6 +2922,7 @@ TAP version 13
           diff: |
             --- expected
             +++ actual
+            @@ -1,3 +1,3 @@ 
             -Object {
             -  "message": "bar",
             -}
