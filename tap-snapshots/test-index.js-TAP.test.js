@@ -13,21 +13,21 @@ Object {
 
 exports[`test/index.js TAP > must match snapshot 10`] = `
 Object {
-  "diff": "--- expected\\n+++ actual\\n {\\n   \\"a\\": 1,\\n }",
+  "diff": "--- expected\\n+++ actual",
   "match": true,
 }
 `
 
 exports[`test/index.js TAP > must match snapshot 11`] = `
 Object {
-  "diff": "--- expected\\n+++ actual\\n {\\n   \\"a\\": 1,\\n }",
+  "diff": "--- expected\\n+++ actual",
   "match": true,
 }
 `
 
 exports[`test/index.js TAP > must match snapshot 12`] = `
 Object {
-  "diff": "--- expected\\n+++ actual\\n {\\n   \\"a\\": 1,\\n }",
+  "diff": "--- expected\\n+++ actual",
   "match": true,
 }
 `
@@ -41,41 +41,26 @@ Object {
 exports[`test/index.js TAP > must match snapshot 14`] = `
 --- expected
 +++ actual
- Object {
-   "a": 1,
- }
 `
 
 exports[`test/index.js TAP > must match snapshot 15`] = `
 --- expected
 +++ actual
- Object {
-   "a": 1,
- }
 `
 
 exports[`test/index.js TAP > must match snapshot 16`] = `
 --- expected
 +++ actual
- Object {
-   "a": 1,
- }
 `
 
 exports[`test/index.js TAP > must match snapshot 17`] = `
 --- expected
 +++ actual
- Object {
-   "a": 1,
- }
 `
 
 exports[`test/index.js TAP > must match snapshot 18`] = `
 --- expected
 +++ actual
- Object {
-   "a": 1,
- }
 `
 
 exports[`test/index.js TAP > must match snapshot 19`] = `
@@ -86,7 +71,7 @@ exports[`test/index.js TAP > must match snapshot 19`] = `
 
 exports[`test/index.js TAP > must match snapshot 2`] = `
 Object {
-  "diff": "--- expected\\n+++ actual\\n Object {\\n   \\"a\\": 1,\\n }",
+  "diff": "--- expected\\n+++ actual",
   "match": true,
 }
 `
@@ -94,67 +79,52 @@ Object {
 exports[`test/index.js TAP > must match snapshot 20`] = `
 --- expected
 +++ actual
- {
-   "a": 1,
- }
 `
 
 exports[`test/index.js TAP > must match snapshot 21`] = `
 --- expected
 +++ actual
- {
-   "a": 1,
- }
 `
 
 exports[`test/index.js TAP > must match snapshot 22`] = `
 --- expected
 +++ actual
- {
-   "a": 1,
- }
 `
 
 exports[`test/index.js TAP > must match snapshot 23`] = `
 --- expected
 +++ actual
- {
-   "a": 1,
- }
 `
 
 exports[`test/index.js TAP > must match snapshot 24`] = `
 --- expected
 +++ actual
- {
-   "a": 1,
- }
 `
 
 exports[`test/index.js TAP > must match snapshot 3`] = `
 Object {
-  "diff": "--- expected\\n+++ actual\\n Object {\\n   \\"a\\": 1,\\n }",
+  "diff": "--- expected\\n+++ actual",
   "match": true,
 }
 `
 
 exports[`test/index.js TAP > must match snapshot 4`] = `
 Object {
-  "diff": "--- expected\\n+++ actual\\n Object {\\n   \\"a\\": 1,\\n }",
+  "diff": "--- expected\\n+++ actual",
   "match": true,
 }
 `
 
 exports[`test/index.js TAP > must match snapshot 5`] = `
 Object {
-  "diff": "--- expected\\n+++ actual\\n Object {\\n   \\"a\\": 1,\\n }",
+  "diff": "--- expected\\n+++ actual",
   "match": true,
 }
 `
 
 exports[`test/index.js TAP > must match snapshot 6`] = `
 Object {
-  "diff": "--- expected\\n+++ actual\\n Object {\\n   \\"a\\": 1,\\n }",
+  "diff": "--- expected\\n+++ actual",
   "match": true,
 }
 `
@@ -167,14 +137,14 @@ exports[`test/index.js TAP > must match snapshot 7`] = `
 
 exports[`test/index.js TAP > must match snapshot 8`] = `
 Object {
-  "diff": "--- expected\\n+++ actual\\n {\\n   \\"a\\": 1,\\n }",
+  "diff": "--- expected\\n+++ actual",
   "match": true,
 }
 `
 
 exports[`test/index.js TAP > must match snapshot 9`] = `
 Object {
-  "diff": "--- expected\\n+++ actual\\n {\\n   \\"a\\": 1,\\n }",
+  "diff": "--- expected\\n+++ actual",
   "match": true,
 }
 `

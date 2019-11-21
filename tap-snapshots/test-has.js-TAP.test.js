@@ -8,45 +8,27 @@
 exports[`test/has.js TAP array > must match snapshot 1`] = `
 --- expected
 +++ actual
- Object {
-   "a": Array [
-     1,
-     2,
-     3,
-   ],
- }
 `
 
 exports[`test/has.js TAP array > must match snapshot 2`] = `
 --- expected
 +++ actual
- Object {
-   "a": Array [
-     1,
-     2,
-   ],
- }
 `
 
 exports[`test/has.js TAP array > must match snapshot 3`] = `
 --- expected
 +++ actual
- Object {
-   "a": Array [],
- }
 `
 
 exports[`test/has.js TAP array > must match snapshot 4`] = `
 --- expected
 +++ actual
- Object {
-   "ea": Array [],
- }
 `
 
 exports[`test/has.js TAP array > must match snapshot 5`] = `
 --- expected
 +++ actual
+@@ -1,5 +1,4 @@ Object {
  Object {
    "ea": Array [
 -    1,
@@ -57,8 +39,7 @@ exports[`test/has.js TAP array > must match snapshot 5`] = `
 exports[`test/has.js TAP array > must match snapshot 6`] = `
 --- expected
 +++ actual
- Object {
-   "a": Array [
+@@ -3,6 +3,5 @@ Object {
      1,
      2,
      3,
@@ -70,64 +51,32 @@ exports[`test/has.js TAP array > must match snapshot 6`] = `
 exports[`test/has.js TAP array likes > must match snapshot 1`] = `
 --- expected
 +++ actual
- Object {
-   "i": Object [
-     1,
-     2,
-     3,
-   ],
- }
 `
 
 exports[`test/has.js TAP array likes > must match snapshot 2`] = `
 --- expected
 +++ actual
- Object {
-   "i": Object [
-     1,
-     2,
-     3,
-   ],
- }
 `
 
 exports[`test/has.js TAP array likes > must match snapshot 3`] = `
 --- expected
 +++ actual
- Object {
-   "i": Object [
-     1,
-     2,
-     3,
-   ],
- }
 `
 
 exports[`test/has.js TAP array likes > must match snapshot 4`] = `
 --- expected
 +++ actual
- Object {
-   "a": Array [
-     1,
-     2,
-   ],
- }
 `
 
 exports[`test/has.js TAP array likes > must match snapshot 5`] = `
 --- expected
 +++ actual
- Object {
-   "i": Object [
-     1,
-     2,
-   ],
- }
 `
 
 exports[`test/has.js TAP array likes > must match snapshot 6`] = `
 --- expected
 +++ actual
+@@ -1,3 +1,2 @@ Array {
  Array {
 -  "foo": "bar",
  }
@@ -136,14 +85,12 @@ exports[`test/has.js TAP array likes > must match snapshot 6`] = `
 exports[`test/has.js TAP buffer > must match snapshot 1`] = `
 --- expected
 +++ actual
- Object {
-   "b": Buffer <61 73 64 66>,
- }
 `
 
 exports[`test/has.js TAP buffer > must match snapshot 2`] = `
 --- expected
 +++ actual
+@@ -1,3 +1,3 @@ Object {
  Object {
 -  "b": Buffer <61 73 64>,
 +  "b": Buffer <61 73 64 66>,
@@ -153,50 +100,27 @@ exports[`test/has.js TAP buffer > must match snapshot 2`] = `
 exports[`test/has.js TAP complex object > must match snapshot 1`] = `
 --- expected
 +++ actual
- Object {
-   "c": Object {},
- }
 `
 
 exports[`test/has.js TAP complex object > must match snapshot 2`] = `
 --- expected
 +++ actual
- Object {
-   "c": Object {
-     "s": Set {},
-   },
- }
 `
 
 exports[`test/has.js TAP complex object > must match snapshot 3`] = `
 --- expected
 +++ actual
- Object {
-   "c": Object {
-     "s": Set {
-       Map {},
-     },
-   },
- }
 `
 
 exports[`test/has.js TAP complex object > must match snapshot 4`] = `
 --- expected
 +++ actual
- Object {
-   "c": Object {
-     "s": Set {
-       Map {
-         undefined => undefined,
-       },
-     },
-   },
- }
 `
 
 exports[`test/has.js TAP complex object > must match snapshot 5`] = `
 --- expected
 +++ actual
+@@ -1,3 +1,2 @@ Object {
  Object {
 -  "xyz": true,
  }
@@ -205,28 +129,17 @@ exports[`test/has.js TAP complex object > must match snapshot 5`] = `
 exports[`test/has.js TAP complex object > must match snapshot 6`] = `
 --- expected
 +++ actual
- Object {
-   "c": Object {
-     "s": Set {
-       Map {
-         undefined => undefined,
-       },
-     },
-   },
- }
 `
 
 exports[`test/has.js TAP date > must match snapshot 1`] = `
 --- expected
 +++ actual
- Object {
-   "d": 2019-02-14T07:41:12.747Z,
- }
 `
 
 exports[`test/has.js TAP date > must match snapshot 2`] = `
 --- expected
 +++ actual
+@@ -1,3 +1,3 @@ Object {
  Object {
 -  "d": 1979-07-01T00:00:00.000Z,
 +  "d": 2019-02-14T07:41:12.747Z,
@@ -236,30 +149,22 @@ exports[`test/has.js TAP date > must match snapshot 2`] = `
 exports[`test/has.js TAP errors > must match snapshot 1`] = `
 --- expected
 +++ actual
- Error: foo {
-   "code": 1,
- }
 `
 
 exports[`test/has.js TAP errors > must match snapshot 2`] = `
 --- expected
 +++ actual
- Error: foo {
-   "signal": "blerg",
-   "name": "Error",
-   "message": "foo",
- }
 `
 
 exports[`test/has.js TAP errors > must match snapshot 3`] = `
 --- expected
 +++ actual
- Error: foo
 `
 
 exports[`test/has.js TAP errors > must match snapshot 4`] = `
 --- expected
 +++ actual
+@@ -1,1 +1,4 @@ 
 -TypeError: foo
 +Error: foo {
 +  "code": 1,
@@ -271,58 +176,37 @@ exports[`test/has.js TAP errors > must match snapshot 4`] = `
 exports[`test/has.js TAP errors > must match snapshot 5`] = `
 --- expected
 +++ actual
- Error: foo
 `
 
 exports[`test/has.js TAP errors > must match snapshot 6`] = `
 --- expected
 +++ actual
- RangeError: hello {
-   "name": "RangeError",
-   "foo": "bar",
- }
 `
 
 exports[`test/has.js TAP iterables match one another > must match snapshot 1`] = `
 --- expected
 +++ actual
- And [
-   1,
-   2,
- ]
 `
 
 exports[`test/has.js TAP iterables match one another > must match snapshot 2`] = `
 --- expected
 +++ actual
- And [
-   1,
-   2,
- ]
 `
 
 exports[`test/has.js TAP iterables match one another > must match snapshot 3`] = `
 --- expected
 +++ actual
- Array [
-   1,
-   2,
- ]
 `
 
 exports[`test/has.js TAP map > must match snapshot 1`] = `
 --- expected
 +++ actual
- Object {
-   "m": Map {
-     1 => 2,
-   },
- }
 `
 
 exports[`test/has.js TAP map > must match snapshot 10`] = `
 --- expected
 +++ actual
+@@ -1,5 +1,4 @@ Object {
  Object {
    "em": Map {
 -    1 => 2,
@@ -333,49 +217,27 @@ exports[`test/has.js TAP map > must match snapshot 10`] = `
 exports[`test/has.js TAP map > must match snapshot 11`] = `
 --- expected
 +++ actual
- Object {
-   "em": Map {},
- }
 `
 
 exports[`test/has.js TAP map > must match snapshot 2`] = `
 --- expected
 +++ actual
- Object {
-   "m": Map {
-     3 => 4,
-   },
- }
 `
 
 exports[`test/has.js TAP map > must match snapshot 3`] = `
 --- expected
 +++ actual
- Object {
-   "m": Map {
-     3 => 4,
-   },
- }
 `
 
 exports[`test/has.js TAP map > must match snapshot 4`] = `
 --- expected
 +++ actual
- Object {
-   "cm": Map {
-     Object {
-       "a": 1,
-     } => 1,
-     Object {
-       "a": 1,
-     } => 1,
-   },
- }
 `
 
 exports[`test/has.js TAP map > must match snapshot 5`] = `
 --- expected
 +++ actual
+@@ -1,6 +1,5 @@ Object {
  Object {
    "m": Map {
      3 => 4,
@@ -387,28 +249,17 @@ exports[`test/has.js TAP map > must match snapshot 5`] = `
 exports[`test/has.js TAP map > must match snapshot 6`] = `
 --- expected
 +++ actual
- Object {
-   "m": Map {
-     3 => 4,
-     1 => 2,
-   },
- }
 `
 
 exports[`test/has.js TAP map > must match snapshot 7`] = `
 --- expected
 +++ actual
- Object {
-   "m": Map {
-     1 => 2,
-     3 => 4,
-   },
- }
 `
 
 exports[`test/has.js TAP map > must match snapshot 8`] = `
 --- expected
 +++ actual
+@@ -1,6 +1,5 @@ Object {
  Object {
    "m": Map {
      1 => 2,
@@ -420,6 +271,7 @@ exports[`test/has.js TAP map > must match snapshot 8`] = `
 exports[`test/has.js TAP map > must match snapshot 9`] = `
 --- expected
 +++ actual
+@@ -1,5 +1,4 @@ Object {
  Object {
    "em": Map {
 -    1 => 2,
@@ -430,67 +282,39 @@ exports[`test/has.js TAP map > must match snapshot 9`] = `
 exports[`test/has.js TAP set > must match snapshot 1`] = `
 --- expected
 +++ actual
- Object {
-   "s": Set {
-     3,
-     2,
-   },
- }
 `
 
 exports[`test/has.js TAP set > must match snapshot 2`] = `
 --- expected
 +++ actual
- Object {
-   "es": Set {},
- }
 `
 
 exports[`test/has.js TAP set > must match snapshot 3`] = `
 --- expected
 +++ actual
- Object {
-   "s": Set {},
- }
 `
 
 exports[`test/has.js TAP set > must match snapshot 4`] = `
 --- expected
 +++ actual
+@@ -1,5 +1,6 @@ Object {
  Object {
    "s": Set {
 +    1,
      2,
      3,
      4,
--    5,
-   },
- }
 `
 
 exports[`test/has.js TAP set > must match snapshot 5`] = `
 --- expected
 +++ actual
- Object {
-   "cs": Set {
-     Object {
-       "a": 1,
-     },
-     Object {
-       "a": 1,
-     },
-   },
- }
 `
 
 exports[`test/has.js TAP set > must match snapshot 6`] = `
 --- expected
 +++ actual
- Object {
-   "cs": Set {
-     Object {
-       "a": 1,
-     },
+@@ -6,8 +6,5 @@ Object {
      Object {
        "a": 1,
      },

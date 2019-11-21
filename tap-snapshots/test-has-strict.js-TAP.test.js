@@ -8,14 +8,12 @@
 exports[`test/has-strict.js TAP > must match snapshot 1`] = `
 --- expected
 +++ actual
- Object {
-   "a": 1,
- }
 `
 
 exports[`test/has-strict.js TAP > must match snapshot 2`] = `
 --- expected
 +++ actual
+@@ -1,3 +1,3 @@ Object {
  Object {
 -  "b": "2",
 +  "b": 2,
@@ -25,15 +23,12 @@ exports[`test/has-strict.js TAP > must match snapshot 2`] = `
 exports[`test/has-strict.js TAP iterables match one another > must match snapshot 1`] = `
 --- expected
 +++ actual
- And [
-   1,
-   2,
- ]
 `
 
 exports[`test/has-strict.js TAP iterables match one another > must match snapshot 2`] = `
 --- expected
 +++ actual
+@@ -1,4 +1,4 @@ 
 -Array [
 -  1,
 -  2,
@@ -48,6 +43,7 @@ exports[`test/has-strict.js TAP iterables match one another > must match snapsho
 exports[`test/has-strict.js TAP iterables match one another > must match snapshot 3`] = `
 --- expected
 +++ actual
+@@ -1,4 +1,4 @@ 
 -And [
 -  1,
 -  2,
