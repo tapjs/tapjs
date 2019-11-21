@@ -8,6 +8,18 @@ redirect_from:
 
 # Changelog
 
+## 14.10 - 2019-11-20
+
+* Fragment large diffs with `@@ ... @@` sections to only show the relevant
+  bits, making large object diffs much more manageable.
+* Allow iterables to be matched against arrays, and vice versa, and each
+  other, without treating their entries as `undefined`.
+* Exit with a yaml parse error on badly formatted rc files.
+
+## 14.9 - 2019-10-30
+
+* Add `--before` and `--after` options to the CLI.
+
 ## 14.8 - 2019-10-20
 
 * Update the default `--test-regex` config so that a top-level `test.js` or
