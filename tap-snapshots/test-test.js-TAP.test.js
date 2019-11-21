@@ -27,19 +27,6 @@ not ok 1 - expect a valid http/https url
     -  "path": /^\\/.*$/,
     +  "path": "hello%20is%20not%20a%20url",
      }
-  found:
-    protocol: null
-    slashes: null
-    auth: null
-    host: null
-    port: null
-    hostname: null
-    hash: null
-    search: null
-    query: null
-    pathname: hello%20is%20not%20a%20url
-    path: hello%20is%20not%20a%20url
-    href: hello%20is%20not%20a%20url
   pattern:
     protocol: !re /^https?:$/
     slashes: true
@@ -484,11 +471,11 @@ not ok 1 - should be equal
     file: test/test.js
   compare: ===
   diff: |
-    --- wanted
-    +++ found
+    --- expected
+    +++ actual
+    @@ -1,1 +1,1 @@
     -2
     +1
-  found: 1
   source: |2
         equal: tt => {
           tt.equal(1, 2)
@@ -497,7 +484,6 @@ not ok 1 - should be equal
           tt.equal(1, 1, 'one is one')
   stack: |
     {STACK}
-  wanted: 2
   ...
 
 not ok 2 - should be equal # SKIP
@@ -516,16 +502,41 @@ not ok 4 - should be equal
           // fails, but with the special note
           tt.equal({foo: 1}, {foo: 1})
     --^
-          tt.end()
-        },
+          // fails, showing a diff
+          tt.equal({foo: 1}, {foo: 2})
   stack: |
     {STACK}
   wanted:
     foo: 1
   ...
 
-1..4
-# failed 3 of 4 tests
+not ok 5 - should be equal
+  ---
+  at:
+    line: #
+    column: #
+    file: test/test.js
+  compare: ===
+  diff: |-
+    --- expected
+    +++ actual
+    @@ -1,3 +1,3 @@ Object {
+     Object {
+    -  "foo": 2,
+    +  "foo": 1,
+     }
+  source: |2
+          // fails, showing a diff
+          tt.equal({foo: 1}, {foo: 2})
+    --^
+          tt.end()
+        },
+  stack: |
+    {STACK}
+  ...
+
+1..5
+# failed 4 of 5 tests
 # skip: 1
 
 `
@@ -744,12 +755,6 @@ not ok 1 - should fail
     -  "c": 1,
     +  "c": "1",
      }
-  found:
-    a: b
-    c: "1"
-  pattern:
-    a: b
-    c: 1
   source: |2
         hasStrict: tt => {
           tt.hasStrict({ a: 'b', c: '1' }, { a: 'b', c: 1 }, 'should fail')
@@ -776,12 +781,6 @@ not ok 3 - should contain all provided fields strictly # TODO
     -  "c": 1,
     +  "c": "1",
      }
-  found:
-    a: b
-    c: "1"
-  pattern:
-    a: b
-    c: 1
   source: |2
           tt.hasStrict({ a: 1, b: 2, c: 3 }, { b: 2 }, 'should pass')
           tt.hasStrict({ a: 'b', c: '1' }, { a: 'b', c: 1 }, { todo: true })
@@ -885,9 +884,6 @@ not ok 2 - should match pattern provided
     -  "c": 1,
     +  "c": /asdf/,
      }
-  found:
-    a: b
-    c: !re /asdf/
   pattern:
     a: asdf
     c: 1
@@ -918,9 +914,6 @@ not ok 4 - should match pattern provided # TODO
     -  "c": 1,
     +  "c": /asdf/,
      }
-  found:
-    a: b
-    c: !re /asdf/
   pattern:
     a: asdf
     c: 1
@@ -1276,10 +1269,6 @@ not ok 9 - should be equivalent strictly
     -  "3",
     +  3,
      ]
-  found:
-    - 1
-    - 2
-    - 3
   source: |2
           tt.strictSame({ foo: 2 }, { foo: 1 }, { skip: true })
           tt.strictSame([1, 2, 3], ['1', '2', '3'])
@@ -1288,10 +1277,6 @@ not ok 9 - should be equivalent strictly
           tt.strictSame(o, o)
   stack: |
     {STACK}
-  wanted:
-    - "1"
-    - "2"
-    - "3"
   ...
 
 ok 10 - should be equivalent strictly
@@ -1760,11 +1745,11 @@ not ok 1 - this fails
     file: test/test.js
   compare: ===
   diff: |
-    --- wanted
-    +++ found
+    --- expected
+    +++ actual
+    @@ -1,1 +1,1 @@
     -object
-    +"null"
-  found: "null"
+    +null
   source: |2
           tt.type(null, 'object', 'this fails')
     --^
@@ -1772,7 +1757,6 @@ not ok 1 - this fails
           tt.type(1234, 'number')
   stack: |
     {STACK}
-  wanted: object
   ...
 
 ok 2 - type is object
@@ -1785,11 +1769,11 @@ not ok 5 - fails, anonymously
     column: #
     file: test/test.js
   diff: |
-    --- wanted
-    +++ found
+    --- expected
+    +++ actual
+    @@ -1,1 +1,1 @@
     -(anonymous constructor)
     +Object
-  found: Object
   source: |2
           tt.type(tt, Test)
           tt.type({}, function () {}, 'fails, anonymously')
@@ -1798,7 +1782,6 @@ not ok 5 - fails, anonymously
           tt.type(o, o, 'a thing is a thing')
   stack: |
     {STACK}
-  wanted: (anonymous constructor)
   ...
 
 ok 6 - a thing is a thing
@@ -1812,11 +1795,11 @@ not ok 9 - fail: arrows are not objects
     file: test/test.js
   compare: ===
   diff: |
-    --- wanted
-    +++ found
+    --- expected
+    +++ actual
+    @@ -1,1 +1,1 @@
     -Object
     +function
-  found: function
   source: |2
           tt.type(() => {}, Function, 'arrows are functions')
           tt.type(() => {}, Object, 'fail: arrows are not objects')
@@ -1825,7 +1808,6 @@ not ok 9 - fail: arrows are not objects
           tt.type(tt, 'Test')
   stack: |
     {STACK}
-  wanted: Object
   ...
 
 ok 10 - type is object
@@ -2895,13 +2877,6 @@ TAP version 13
             +Error: foo is not a bear {
             +  "tapCaught": "uncaughtException",
             +}
-          found:
-            !error
-            name: Error
-            message: foo is not a bear
-            stack: |
-              {STACK}
-            tapCaught: uncaughtException
           pattern:
             message: bar
           stack: |
@@ -2929,13 +2904,6 @@ TAP version 13
             +Error: foo is not a bear {
             +  "tapCaught": "uncaughtException",
             +}
-          found:
-            !error
-            name: Error
-            message: foo is not a bear
-            stack: |
-              {STACK}
-            tapCaught: uncaughtException
           pattern:
             message: bar
           stack: |
