@@ -14,7 +14,7 @@
     "lib/*.js"
   ],
   "devDependencies": {
-    "tap": "^13.1.7"
+    "tap": "^14.9.2"
   },
   "scripts": {
     "test": "tap",
