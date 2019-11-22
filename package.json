@@ -1,6 +1,6 @@
 {
   "name": "tap",
-  "version": "14.9.2",
+  "version": "14.10.1",
   "author": "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me)",
   "description": "A Test-Anything-Protocol library for JavaScript",
   "homepage": "http://www.node-tap.org/",
@@ -46,8 +46,8 @@
     "tap-mocha-reporter": "^5.0.0",
     "tap-parser": "^10.0.1",
     "tap-yaml": "^1.0.0",
-    "tcompare": "^2.3.0",
-    "treport": "^0.4.2",
+    "tcompare": "^3.0.0",
+    "treport": "^0.5.0",
     "trivial-deferred": "^1.0.1",
     "ts-node": "^8.3.0",
     "typescript": "^3.6.3",

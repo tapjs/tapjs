@@ -303,6 +303,8 @@ t.test('assertions and weird stuff', t => {
       tt.equal(1, 1, 'one is one')
       // fails, but with the special note
       tt.equal({foo: 1}, {foo: 1})
+      // fails, showing a diff
+      tt.equal({foo: 1}, {foo: 2})
       tt.end()
     },
 

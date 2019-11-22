@@ -123,3 +123,29 @@ t.test('no arrow if column is bogus', t => {
   }, { source: /^-+^$/m }))
   t.end()
 })
+
+t.test('diff stuff', t => {
+  t.matchSnapshot(cyo({
+    found: {a: 1},
+    wanted: {a: '1'},
+    comparator: '===',
+  }), 'objects that do not strictly match')
+
+  t.matchSnapshot(cyo({
+    found: {a: 1},
+    wanted: require('tcompare').format({a: 1}),
+  }), 'this one is weird')
+
+  t.matchSnapshot(cyo({
+    wanted: {a: 1},
+    found: require('tcompare').format({a: 1}),
+  }), 'another weird one')
+
+  t.matchSnapshot(cyo({
+    found: 'hello',
+    wanted: 'world',
+    comparator: '===',
+  }), 'string that differ')
+
+  t.end()
+})
