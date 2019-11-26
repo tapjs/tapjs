@@ -765,13 +765,6 @@ Much more documentation available at: https://www.node-tap.org/
                   excluded.`
   })),
 
-  TAP_DEV_SHORTSTACK: env(flag({
-    description: `Set to '1' to exclude node-tap internals
-                  in stack traces, even if the current
-                  working directory is the tap project
-                  itself.`
-  })),
-
   TAP_DEBUG: env(flag({
     description: `Set to '1' to turn on debug mode.`
   })),

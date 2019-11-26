@@ -3,6 +3,7 @@
 
 !bin/
 !lib/
+!settings.js
 !docs/
 /docs/public
 /docs/node_modules

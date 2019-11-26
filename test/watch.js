@@ -241,7 +241,7 @@ t.test('run tests on changes', t => {
     t.equal(w.watcher, null)
     w.pause()
     w.resume()
-    t.notEqual(w.watcher, null)
+    t.not(w.watcher, null)
     t.end()
   })
 
