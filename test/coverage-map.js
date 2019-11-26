@@ -7,4 +7,4 @@ t.strictSame(coverageMap('test/run/xyz.js'), [
   'bin/run.js'
 ])
 t.strictSame(coverageMap('test/glorp.js'), null)
-t.strictSame(coverageMap('test/test.js'), ['lib/test.js'])
+t.strictSame(coverageMap('test/mocha.js'), ['lib/mocha.js'])

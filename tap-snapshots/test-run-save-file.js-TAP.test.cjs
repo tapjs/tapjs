@@ -96,6 +96,8 @@ not ok 2 - a/b/f1.js # {time}
         //f1.js
           require("{CWD}/").fail('a/b')
         --^
+      stack: |
+        {STACK}
       ...
     
     Bail out! a/b
@@ -138,6 +140,8 @@ not ok 1 - a/b/f1.js # {time}
         //f1.js
           require("{CWD}/").fail('a/b')
         --^
+      stack: |
+        {STACK}
       ...
     
     1..1
@@ -177,6 +181,8 @@ not ok 3 - z.js # {time}
         //z.js
           require("{CWD}/").fail('c/d')
         --^
+      stack: |
+        {STACK}
       ...
     
     1..1
