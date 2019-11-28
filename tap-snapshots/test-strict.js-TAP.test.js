@@ -8,98 +8,103 @@
 exports[`test/strict.js TAP NaN > must match snapshot 1`] = `
 --- expected
 +++ actual
+
 `
 
 exports[`test/strict.js TAP array-likes > must match snapshot 1`] = `
 --- expected
 +++ actual
+
 `
 
 exports[`test/strict.js TAP array-likes > must match snapshot 2`] = `
 --- expected
 +++ actual
-@@ -1,5 +1,5 @@ 
+@@ -1,4 +1,4 @@
 -Ayyr [
--  1,
--  2,
--  3,
--]
 +Array [
-+  1,
-+  2,
-+  3,
-+]
+   1,
+   2,
+   3,
 
 `
 
 exports[`test/strict.js TAP basic > must match snapshot 1`] = `
 --- expected
 +++ actual
+
 `
 
 exports[`test/strict.js TAP basic > must match snapshot 10`] = `
 --- expected
 +++ actual
+
 `
 
 exports[`test/strict.js TAP basic > must match snapshot 11`] = `
 --- expected
 +++ actual
+
 `
 
 exports[`test/strict.js TAP basic > must match snapshot 12`] = `
 --- expected
 +++ actual
+
 `
 
 exports[`test/strict.js TAP basic > must match snapshot 13`] = `
 --- expected
 +++ actual
+
 `
 
 exports[`test/strict.js TAP basic > must match snapshot 14`] = `
 --- expected
 +++ actual
+
 `
 
 exports[`test/strict.js TAP basic > must match snapshot 15`] = `
 --- expected
 +++ actual
+
 `
 
 exports[`test/strict.js TAP basic > must match snapshot 16`] = `
 --- expected
 +++ actual
+
 `
 
 exports[`test/strict.js TAP basic > must match snapshot 17`] = `
 --- expected
 +++ actual
+
 `
 
 exports[`test/strict.js TAP basic > must match snapshot 18`] = `
 --- expected
 +++ actual
+
 `
 
 exports[`test/strict.js TAP basic > must match snapshot 19`] = `
 --- expected
 +++ actual
-@@ -1,1 +1,1 @@ 
--null
-+null
 
 `
 
 exports[`test/strict.js TAP basic > must match snapshot 2`] = `
 --- expected
 +++ actual
+
 `
 
 exports[`test/strict.js TAP basic > must match snapshot 20`] = `
 --- expected
 +++ actual
-@@ -1,1 +1,1 @@ 
+@@ -1,1 +1,1 @@
 -"1"
 +1
 
@@ -108,7 +113,7 @@ exports[`test/strict.js TAP basic > must match snapshot 20`] = `
 exports[`test/strict.js TAP basic > must match snapshot 21`] = `
 --- expected
 +++ actual
-@@ -1,1 +1,1 @@ 
+@@ -1,1 +1,1 @@
 -"nok"
 +"ok"
 
@@ -117,7 +122,7 @@ exports[`test/strict.js TAP basic > must match snapshot 21`] = `
 exports[`test/strict.js TAP basic > must match snapshot 22`] = `
 --- expected
 +++ actual
-@@ -1,1 +1,1 @@ 
+@@ -1,1 +1,1 @@
 -"0"
 +0
 
@@ -126,7 +131,7 @@ exports[`test/strict.js TAP basic > must match snapshot 22`] = `
 exports[`test/strict.js TAP basic > must match snapshot 23`] = `
 --- expected
 +++ actual
-@@ -1,1 +1,1 @@ 
+@@ -1,1 +1,1 @@
 -null
 +undefined
 
@@ -135,16 +140,13 @@ exports[`test/strict.js TAP basic > must match snapshot 23`] = `
 exports[`test/strict.js TAP basic > must match snapshot 24`] = `
 --- expected
 +++ actual
-@@ -1,1 +1,1 @@ 
--Function nop()
-+Function nop()
 
 `
 
 exports[`test/strict.js TAP basic > must match snapshot 25`] = `
 --- expected
 +++ actual
-@@ -1,1 +1,1 @@ 
+@@ -1,1 +1,1 @@
 -Object {}
 +undefined
 
@@ -153,7 +155,7 @@ exports[`test/strict.js TAP basic > must match snapshot 25`] = `
 exports[`test/strict.js TAP basic > must match snapshot 26`] = `
 --- expected
 +++ actual
-@@ -1,1 +1,1 @@ 
+@@ -1,1 +1,1 @@
 -null
 +Object {}
 
@@ -162,7 +164,7 @@ exports[`test/strict.js TAP basic > must match snapshot 26`] = `
 exports[`test/strict.js TAP basic > must match snapshot 27`] = `
 --- expected
 +++ actual
-@@ -1,1 +1,1 @@ 
+@@ -1,1 +1,1 @@
 -Object {}
 +null
 
@@ -171,7 +173,7 @@ exports[`test/strict.js TAP basic > must match snapshot 27`] = `
 exports[`test/strict.js TAP basic > must match snapshot 28`] = `
 --- expected
 +++ actual
-@@ -1,1 +1,1 @@ 
+@@ -1,1 +1,1 @@
 -undefined
 +null
 
@@ -180,7 +182,7 @@ exports[`test/strict.js TAP basic > must match snapshot 28`] = `
 exports[`test/strict.js TAP basic > must match snapshot 29`] = `
 --- expected
 +++ actual
-@@ -1,1 +1,1 @@ 
+@@ -1,1 +1,1 @@
 -null
 +undefined
 
@@ -189,12 +191,13 @@ exports[`test/strict.js TAP basic > must match snapshot 29`] = `
 exports[`test/strict.js TAP basic > must match snapshot 3`] = `
 --- expected
 +++ actual
+
 `
 
 exports[`test/strict.js TAP basic > must match snapshot 30`] = `
 --- expected
 +++ actual
-@@ -1,1 +1,1 @@ 
+@@ -1,1 +1,1 @@
 -Buffer <61 62 63 64>
 +Buffer <61 62 63>
 
@@ -203,7 +206,7 @@ exports[`test/strict.js TAP basic > must match snapshot 30`] = `
 exports[`test/strict.js TAP basic > must match snapshot 31`] = `
 --- expected
 +++ actual
-@@ -1,1 +1,1 @@ 
+@@ -1,1 +1,1 @@
 -Buffer <61 62 64>
 +Buffer <61 62 63>
 
@@ -212,7 +215,7 @@ exports[`test/strict.js TAP basic > must match snapshot 31`] = `
 exports[`test/strict.js TAP basic > must match snapshot 32`] = `
 --- expected
 +++ actual
-@@ -1,1 +1,1 @@ 
+@@ -1,1 +1,1 @@
 -2001-01-12T00:00:00.000Z
 +2001-01-11T00:00:00.000Z
 
@@ -221,7 +224,7 @@ exports[`test/strict.js TAP basic > must match snapshot 32`] = `
 exports[`test/strict.js TAP basic > must match snapshot 33`] = `
 --- expected
 +++ actual
-@@ -1,1 +1,1 @@ 
+@@ -1,1 +1,1 @@
 -/^(howdy|hello)$/
 +/^h[oe][wl][dl][oy]$/
 
@@ -230,51 +233,43 @@ exports[`test/strict.js TAP basic > must match snapshot 33`] = `
 exports[`test/strict.js TAP basic > must match snapshot 34`] = `
 --- expected
 +++ actual
+
 `
 
 exports[`test/strict.js TAP basic > must match snapshot 35`] = `
 --- expected
 +++ actual
+
 `
 
 exports[`test/strict.js TAP basic > must match snapshot 36`] = `
 --- expected
 +++ actual
-@@ -1,5 +1,5 @@ 
+@@ -1,4 +1,4 @@
 -Array [
--  1,
--  2,
--  3,
--]
 +Arguments [
-+  1,
-+  2,
-+  3,
-+]
+   1,
+   2,
+   3,
 
 `
 
 exports[`test/strict.js TAP basic > must match snapshot 37`] = `
 --- expected
 +++ actual
-@@ -1,5 +1,5 @@ 
+@@ -1,4 +1,4 @@
 -Arguments [
--  1,
--  2,
--  3,
--]
 +Array [
-+  1,
-+  2,
-+  3,
-+]
+   1,
+   2,
+   3,
 
 `
 
 exports[`test/strict.js TAP basic > must match snapshot 38`] = `
 --- expected
 +++ actual
-@@ -1,1 +1,1 @@ 
+@@ -1,1 +1,1 @@
 -Object {}
 +Array []
 
@@ -283,7 +278,7 @@ exports[`test/strict.js TAP basic > must match snapshot 38`] = `
 exports[`test/strict.js TAP basic > must match snapshot 39`] = `
 --- expected
 +++ actual
-@@ -1,1 +1,1 @@ 
+@@ -1,1 +1,1 @@
 -Null Object {}
 +Object {}
 
@@ -292,32 +287,35 @@ exports[`test/strict.js TAP basic > must match snapshot 39`] = `
 exports[`test/strict.js TAP basic > must match snapshot 4`] = `
 --- expected
 +++ actual
+
 `
 
 exports[`test/strict.js TAP basic > must match snapshot 40`] = `
 --- expected
 +++ actual
-@@ -1,3 +1,3 @@ Object {
+@@ -1,3 +1,3 @@
  Object {
-+  "a": "a",
 -  "b": "b",
++  "a": "a",
  }
+
 `
 
 exports[`test/strict.js TAP basic > must match snapshot 41`] = `
 --- expected
 +++ actual
-@@ -1,4 +1,3 @@ Object {
+@@ -1,4 +1,3 @@
  Object {
    "b": "b",
 -  "c": undefined,
  }
+
 `
 
 exports[`test/strict.js TAP basic > must match snapshot 42`] = `
 --- expected
 +++ actual
-@@ -1,8 +1,7 @@ EventEmitter {
+@@ -1,8 +1,7 @@
  EventEmitter {
    "_events": Null Object {
      "error": Function onerror(error),
@@ -327,12 +325,13 @@ exports[`test/strict.js TAP basic > must match snapshot 42`] = `
 +  "_eventsCount": 1,
    "_maxListeners": undefined,
  }
+
 `
 
 exports[`test/strict.js TAP basic > must match snapshot 43`] = `
 --- expected
 +++ actual
-@@ -10,7 +10,7 @@ &ref_1 Object {
+@@ -10,7 +10,7 @@
      "stuff": Array [
        0,
        1,
@@ -341,7 +340,7 @@ exports[`test/strict.js TAP basic > must match snapshot 43`] = `
      ],
      "self": Object {
        "nothin": null,
-@@ -24,7 +24,7 @@ &ref_1 Object {
+@@ -24,7 +24,7 @@
          "stuff": Array [
            0,
            1,
@@ -350,103 +349,105 @@ exports[`test/strict.js TAP basic > must match snapshot 43`] = `
          ],
          "self": <*ref_1>,
        },
+
 `
 
 exports[`test/strict.js TAP basic > must match snapshot 44`] = `
 --- expected
 +++ actual
+
 `
 
 exports[`test/strict.js TAP basic > must match snapshot 5`] = `
 --- expected
 +++ actual
+
 `
 
 exports[`test/strict.js TAP basic > must match snapshot 6`] = `
 --- expected
 +++ actual
+
 `
 
 exports[`test/strict.js TAP basic > must match snapshot 7`] = `
 --- expected
 +++ actual
+
 `
 
 exports[`test/strict.js TAP basic > must match snapshot 8`] = `
 --- expected
 +++ actual
+
 `
 
 exports[`test/strict.js TAP basic > must match snapshot 9`] = `
 --- expected
 +++ actual
+
 `
 
 exports[`test/strict.js TAP iterables match one another > must match snapshot 1`] = `
 --- expected
 +++ actual
+
 `
 
 exports[`test/strict.js TAP iterables match one another > must match snapshot 2`] = `
 --- expected
 +++ actual
-@@ -1,4 +1,4 @@ 
+@@ -1,4 +1,4 @@
 -Array [
--  1,
--  2,
--]
 +And [
-+  1,
-+  2,
-+]
+   1,
+   2,
+ ]
 
 `
 
 exports[`test/strict.js TAP iterables match one another > must match snapshot 3`] = `
 --- expected
 +++ actual
-@@ -1,4 +1,4 @@ 
+@@ -1,4 +1,4 @@
 -And [
--  1,
--  2,
--]
 +Array [
-+  1,
-+  2,
-+]
+   1,
+   2,
+ ]
 
 `
 
 exports[`test/strict.js TAP map > must match snapshot 1`] = `
 --- expected
 +++ actual
+
 `
 
 exports[`test/strict.js TAP map > must match snapshot 10`] = `
 --- expected
 +++ actual
-@@ -1,11 +1,10 @@ Map {
+@@ -1,11 +1,10 @@
  Map {
    3 => 4,
    5 => Object {
 -    "a": 1,
 +    "a": "1",
    },
-+  Object {
-+    "a": 1,
-+  } => 6,
-   1 => 2,
--  Object {
--    "a": 1,
+-  1 => 2,
+   Object {
+     "a": 1,
 -    "b": 2,
--  } => 6,
+   } => 6,
++  1 => 2,
  }
+
 `
 
 exports[`test/strict.js TAP map > must match snapshot 2`] = `
 --- expected
 +++ actual
-@@ -2,7 +2,7 @@ Map {
+@@ -2,7 +2,7 @@
    1 => 2,
    3 => 4,
    5 => Object {
@@ -455,12 +456,13 @@ exports[`test/strict.js TAP map > must match snapshot 2`] = `
    },
    Object {
      "a": 1,
+
 `
 
 exports[`test/strict.js TAP map > must match snapshot 3`] = `
 --- expected
 +++ actual
-@@ -1,7 +1,7 @@ Map {
+@@ -1,7 +1,7 @@
  Map {
    3 => 4,
    5 => Object {
@@ -469,12 +471,13 @@ exports[`test/strict.js TAP map > must match snapshot 3`] = `
    },
    Object {
      "a": 1,
+
 `
 
 exports[`test/strict.js TAP map > must match snapshot 4`] = `
 --- expected
 +++ actual
-@@ -1,7 +1,7 @@ Map {
+@@ -1,7 +1,7 @@
  Map {
    3 => 4,
    5 => Object {
@@ -483,27 +486,31 @@ exports[`test/strict.js TAP map > must match snapshot 4`] = `
    },
    Object {
      "a": 1,
+
 `
 
 exports[`test/strict.js TAP map > must match snapshot 5`] = `
 --- expected
 +++ actual
+
 `
 
 exports[`test/strict.js TAP map > must match snapshot 6`] = `
 --- expected
 +++ actual
+
 `
 
 exports[`test/strict.js TAP map > must match snapshot 7`] = `
 --- expected
 +++ actual
+
 `
 
 exports[`test/strict.js TAP map > must match snapshot 8`] = `
 --- expected
 +++ actual
-@@ -1,22 +1,10 @@ 
+@@ -1,22 +1,10 @@
 -Array [
 -  Array [
 -    1,
@@ -542,84 +549,79 @@ exports[`test/strict.js TAP map > must match snapshot 8`] = `
 exports[`test/strict.js TAP map > must match snapshot 9`] = `
 --- expected
 +++ actual
-@@ -4,8 +4,7 @@ Map {
-   5 => Object {
-     "a": 1,
+@@ -6,6 +6,5 @@
    },
-+  Object {
-+    "a": 1,
-+  } => 6,
--  Object {
--    "a": 1,
+   Object {
+     "a": 1,
 -    "b": 2,
--  } => 6,
+   } => 6,
  }
+
 `
 
 exports[`test/strict.js TAP set > must match snapshot 1`] = `
 --- expected
 +++ actual
+
 `
 
 exports[`test/strict.js TAP set > must match snapshot 2`] = `
 --- expected
 +++ actual
+
 `
 
 exports[`test/strict.js TAP set > must match snapshot 3`] = `
 --- expected
 +++ actual
+
 `
 
 exports[`test/strict.js TAP set > must match snapshot 4`] = `
 --- expected
 +++ actual
-@@ -1,4 +1,3 @@ Set {
+@@ -1,4 +1,3 @@
  Set {
    1,
 -  2,
  }
+
 `
 
 exports[`test/strict.js TAP set > must match snapshot 5`] = `
 --- expected
 +++ actual
-@@ -1,5 +1,5 @@ Set {
+@@ -1,5 +1,5 @@
  Set {
    1,
-+  3,
-+  5,
 -  6,
 -  2,
++  3,
++  5,
  }
+
 `
 
 exports[`test/strict.js TAP set > must match snapshot 6`] = `
 --- expected
 +++ actual
+
 `
 
 exports[`test/strict.js TAP set > must match snapshot 7`] = `
 --- expected
 +++ actual
-@@ -1,9 +1,9 @@ 
+@@ -1,4 +1,4 @@
 -Array [
--  1,
--  2,
--  3,
--  4,
--  Object {
--    "a": 1,
--  },
--]
 +Set {
-+  1,
-+  2,
-+  3,
-+  4,
-+  Object {
-+    "a": 1,
-+  },
+   1,
+   2,
+   3,
+@@ -6,4 +6,4 @@
+   Object {
+     "a": 1,
+   },
+-]
 +}
 
 `
@@ -627,79 +629,78 @@ exports[`test/strict.js TAP set > must match snapshot 7`] = `
 exports[`test/strict.js TAP symbology > must match snapshot 1`] = `
 --- expected
 +++ actual
+
 `
 
 exports[`test/strict.js TAP symbology > must match snapshot 2`] = `
 --- expected
 +++ actual
+
 `
 
 exports[`test/strict.js TAP symbology > must match snapshot 3`] = `
 --- expected
 +++ actual
-@@ -1,3 +1,3 @@ Object {
- Object {
--  "a": Symbol(a),
-+  "a": Symbol(a),
- }
+
 `
 
 exports[`test/strict.js TAP symbology > must match snapshot 4`] = `
 --- expected
 +++ actual
-@@ -1,3 +1,3 @@ Object {
- Object {
--  "a": Symbol(a),
-+  "a": Symbol(a),
- }
+
 `
 
 exports[`test/strict.js TAP symbology > must match snapshot 5`] = `
 --- expected
 +++ actual
-@@ -1,3 +1,3 @@ Object {
+@@ -1,3 +1,3 @@
  Object {
 -  "a": Function Symbol(),
 +  "a": Symbol(a),
  }
+
 `
 
 exports[`test/strict.js TAP symbology > must match snapshot 6`] = `
 --- expected
 +++ actual
-@@ -1,3 +1,3 @@ Object {
+@@ -1,3 +1,3 @@
  Object {
 -  "a": "Symbol(a)",
 +  "a": Symbol(a),
  }
+
 `
 
 exports[`test/strict.js TAP symbology > must match snapshot 7`] = `
 --- expected
 +++ actual
-@@ -1,3 +1,3 @@ Object {
+@@ -1,3 +1,3 @@
  Object {
 -  "a": Symbol(a),
 +  "a": "Symbol(a)",
  }
+
 `
 
 exports[`test/strict.js TAP symbology > must match snapshot 8`] = `
 --- expected
 +++ actual
-@@ -1,3 +1,3 @@ Object {
+@@ -1,3 +1,3 @@
  Object {
 -  "a": Symbol(a),
 +  "a": "Symbol(a)",
  }
+
 `
 
 exports[`test/strict.js TAP symbology > must match snapshot 9`] = `
 --- expected
 +++ actual
-@@ -1,3 +1,3 @@ Object {
+@@ -1,3 +1,3 @@
  Object {
 -  "a": Function Symbol(),
 +  "a": "Symbol(a)",
  }
+
 `

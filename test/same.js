@@ -37,21 +37,14 @@ t.test('symbology', t => {
   t.end()
 })
 
-t.test('experimental diff cleanup postaction', t => {
-  same(t, [1, 2, 3, 4, 5, 6, 7, 8], [1, 9, 8, 7, 6, 6, 7, 8], {
-    cleanerDiffs: true
-  })
-  same(t, [1, 2, 3, 4, 5, 6 ], [1, 9, 8, 7, 6, 6, 7, 8], {
-    cleanerDiffs: true
-  })
-  same(t, [1, 2, 3, 4, 5, 6, 7, 8], [1, 9, 8, 7, 6, 6], {
-    cleanerDiffs: true
-  })
+t.test('more weird diff stuff', t => {
+  same(t, [1, 2, 3, 4, 5, 6, 7, 8], [1, 9, 8, 7, 6, 6, 7, 8])
+  same(t, [1, 2, 3, 4, 5, 6 ], [1, 9, 8, 7, 6, 6, 7, 8])
+  same(t, [1, 2, 3, 4, 5, 6, 7, 8], [1, 9, 8, 7, 6, 6])
 
   // really weird error case
   const s = new compare.Same([1, 2, 3, 4, 5, 6, 7, 8], {
     expect: [1, 9, 8, 7, 6, 6],
-    cleanerDiffs: true
   })
   const prettyDiff = s.prettyDiff
   s.prettyDiff = (diff) =>
