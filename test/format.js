@@ -163,3 +163,18 @@ t.test('format iterable', t => {
   t.matchSnapshot(s.print())
   t.end()
 })
+
+t.test('objectAsArray is null for non-arrays', t => {
+  t.equal(new Format('hello').objectAsArray, null)
+  t.end()
+})
+
+t.test('streams are not arrays', t => {
+  const MP = require('minipass')
+  const readable = new MP().end('hello')
+  const writable = new MP()
+  writable.pipe = null
+  t.matchSnapshot(new Format(readable).print())
+  t.matchSnapshot(new Format(writable).print())
+  t.end()
+})

@@ -2541,3 +2541,30 @@ Object {
   "b": 1,
 }
 `
+
+exports[`test/format.js TAP streams are not arrays > must match snapshot 1`] = `
+Minipass {
+  "_events": Null Object {},
+  "_eventsCount": 0,
+  "_maxListeners": undefined,
+  "pipes": Yallist [],
+  "buffer": Yallist [
+    Buffer <68 65 6c 6c 6f>,
+  ],
+  "writable": false,
+  "readable": true,
+}
+`
+
+exports[`test/format.js TAP streams are not arrays > must match snapshot 2`] = `
+Minipass {
+  "_events": Null Object {},
+  "_eventsCount": 0,
+  "_maxListeners": undefined,
+  "pipes": Yallist [],
+  "buffer": Yallist [],
+  "writable": true,
+  "readable": true,
+  "pipe": null,
+}
+`
