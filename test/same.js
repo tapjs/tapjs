@@ -50,7 +50,7 @@ t.test('more weird diff stuff', t => {
   s.prettyDiff = (diff) =>
     prettyDiff.call(s, diff.slice(1))
   t.throws(() => s.print(),
-    new Error(`invalid diffline "Array ["`))
+    new Error(`invalid diffline "Array [\\n"`))
 
   t.end()
 })
