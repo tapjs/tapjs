@@ -427,3 +427,13 @@ t.test('iterables match one another', t => {
   t.ok(same(t, arr, b), 'array matches iterable')
   t.end()
 })
+
+t.test('diffs of errors with \\n in the message', t => {
+  const er = new Error('foo\nbar')
+  er.foo = 'bar'
+  const er2 = new Error('foo\nbar')
+  er2.foo = 'two'
+  t.notOk(same(t, er, er2),
+    'errors with different properties are not the same')
+  t.end()
+})

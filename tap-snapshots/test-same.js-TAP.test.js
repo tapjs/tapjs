@@ -306,6 +306,35 @@ exports[`test/same.js TAP diffing strings > must match snapshot 5`] = `
 
 `
 
+exports[`test/same.js TAP diffs of errors with \\n in the message > must match snapshot 1`] = `
+--- expected
++++ actual
+@@ -1,6 +1,6 @@
+ Error: foo
+ bar {
+-  "foo": "two",
++  "foo": "bar",
+   "name": "Error",
+   "message": String(
+     foo
+
+`
+
+exports[`test/same.js TAP diffs of errors with \\n in the message > must match snapshot 2`] = `
+--- expected
++++ actual
+@@ -1,7 +1,7 @@
+ Object {
+   "er": Error: foo
+ bar {
+-    "foo": "two",
++    "foo": "bar",
+     "name": "Error",
+     "message": String(
+       foo
+
+`
+
 exports[`test/same.js TAP empty arrays match > must match snapshot 1`] = `
 --- expected
 +++ actual
