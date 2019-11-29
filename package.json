@@ -1,6 +1,6 @@
 {
   "name": "tcompare",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "A comprehensive comparison library, for use in test frameworks",
   "main": "index.js",
   "repository": {
