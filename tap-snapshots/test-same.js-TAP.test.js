@@ -186,6 +186,126 @@ exports[`test/same.js TAP different numbers don't match > must match snapshot 3`
 
 `
 
+exports[`test/same.js TAP diffing strings > must match snapshot 1`] = `
+--- expected
++++ actual
+@@ -1,5 +1,5 @@
+ String(
+-  str2asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
++  str1asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+   asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+   asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+   asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+@@ -9,11 +9,6 @@
+   asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+   asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+   asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+-  foofoofoofoofoo
+-  foofoofoofoofoo
+-  foofoofoofoofoo
+-  foofoofoofoofoo
+-  foofoofoofoofoo
+   asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+   asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+   asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+@@ -24,5 +19,10 @@
+   asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+   asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+   asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
++  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
++  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
++  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
++  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
++  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+   
+ )
+
+`
+
+exports[`test/same.js TAP diffing strings > must match snapshot 2`] = `
+--- expected
++++ actual
+
+`
+
+exports[`test/same.js TAP diffing strings > must match snapshot 3`] = `
+--- expected
++++ actual
+@@ -1,28 +1,1 @@
+-String(
+-  str1asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+-  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+-  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+-  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+-  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+-  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+-  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+-  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+-  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+-  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+-  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+-  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+-  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+-  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+-  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+-  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+-  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+-  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+-  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+-  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+-  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+-  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+-  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+-  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+-  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+-  
+-)
++""
+
+`
+
+exports[`test/same.js TAP diffing strings > must match snapshot 4`] = `
+--- expected
++++ actual
+@@ -1,1 +1,28 @@
+-""
++String(
++  str1asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
++  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
++  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
++  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
++  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
++  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
++  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
++  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
++  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
++  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
++  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
++  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
++  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
++  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
++  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
++  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
++  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
++  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
++  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
++  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
++  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
++  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
++  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
++  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
++  asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
++  
++)
+
+`
+
+exports[`test/same.js TAP diffing strings > must match snapshot 5`] = `
+--- expected
++++ actual
+
+`
+
 exports[`test/same.js TAP empty arrays match > must match snapshot 1`] = `
 --- expected
 +++ actual

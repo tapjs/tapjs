@@ -37,6 +37,19 @@ t.test('symbology', t => {
   t.end()
 })
 
+t.test('diffing strings', t => {
+  const str1 = 'str1' + ('asdf'.repeat(10) + '\n').repeat(25)
+  const str2 = 'str2' + ('asdf'.repeat(10) + '\n').repeat(10) +
+    ('foo'.repeat(5) + '\n').repeat(5) +
+    ('asdf'.repeat(10) + '\n').repeat(10)
+  t.notOk(same(t, str1, str2), 'multi-line strings that do not match')
+  t.ok(same(t, '', ''), 'empty strings match')
+  t.notOk(same(t, '', str1), 'multi-line string is not empty string')
+  t.notOk(same(t, str1, ''), 'multi-line string is not empty string')
+  t.ok(same(t, {str1}, {str1}), 'multi-line string in an object')
+  t.end()
+})
+
 t.test('more weird diff stuff', t => {
   same(t, [1, 2, 3, 4, 5, 6, 7, 8], [1, 9, 8, 7, 6, 6, 7, 8])
   same(t, [1, 2, 3, 4, 5, 6 ], [1, 9, 8, 7, 6, 6, 7, 8])

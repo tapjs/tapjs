@@ -21,6 +21,8 @@ t.test('gnarly object, many points of view', t => {
       },
       a: [2, 3, 4],
       h: 'asdf',
+      multilineString: new Array(5).join('this is a line\n'),
+      emptyString: '',
     },
     nullObject: Object.assign(Object.create(null), {
       x: Object.create(null),
