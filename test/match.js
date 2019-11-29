@@ -377,5 +377,7 @@ t.test('diffs of errors with \\n in the message', t => {
   er2.foo = 'two'
   t.notOk(match(t, er, er2),
     'errors with different properties are not the same')
+  t.notOk(match(t, {er}, {er: er2}),
+    'errors with different properties are not the same')
   t.end()
 })
