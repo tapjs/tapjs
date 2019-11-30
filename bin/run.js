@@ -652,7 +652,7 @@ const runAllFiles = (options, env, tap, processDB) => {
       if (options.ts && /\.tsx?$/.test(file)) {
         debug('ts file', file)
         const compilerOpts = JSON.stringify({
-          ...JSON.parse(process.env.TS_NODE_COMPILER_OPTIONS || '{}'),
+          ...JSON.parse(env.TS_NODE_COMPILER_OPTIONS || '{}'),
           jsx: 'react'
         })
         opt.env = {
