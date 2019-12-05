@@ -5,11 +5,8 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/regexp.js TAP > first stringify 1`] = `
-!re /re/g
+exports[`test/types/domain.js TAP > first stringify 1`] = `
+domainy:
+  !domain {}
 
-`
-
-exports[`test/regexp.js TAP > parsed stringified 1`] = `
-/re/g
 `

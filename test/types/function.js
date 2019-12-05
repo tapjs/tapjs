@@ -1,5 +1,5 @@
 const t = require('tap')
-const yaml = require('../')
+const yaml = require('../..')
 function foo () {
   return 'i have a name'
 }

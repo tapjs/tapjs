@@ -5,11 +5,11 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/date.js TAP > first stringify 1`] = `
+exports[`test/types/date.js TAP > first stringify 1`] = `
 !date 1979-07-01T00:00:00.000Z
 
 `
 
-exports[`test/date.js TAP > parsed stringified 1`] = `
+exports[`test/types/date.js TAP > parsed stringified 1`] = `
 1979-07-01T00:00:00.000Z
 `

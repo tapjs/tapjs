@@ -5,11 +5,11 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/shared-symbol.js TAP > first stringify 1`] = `
+exports[`test/types/shared-symbol.js TAP > first stringify 1`] = `
 !sym/for Symbol.for(foo)
 
 `
 
-exports[`test/shared-symbol.js TAP > parsed stringified 1`] = `
+exports[`test/types/shared-symbol.js TAP > parsed stringified 1`] = `
 Symbol(foo)
 `

@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/function.js TAP > first stringify 1`] = `
+exports[`test/types/function.js TAP > first stringify 1`] = `
 f: !function |-
   "foo"
   function foo () {
@@ -68,15 +68,15 @@ d: !function |-
 
 `
 
-exports[`test/function.js TAP > parsed stringified 1`] = `
+exports[`test/types/function.js TAP > parsed stringified 1`] = `
 Object {
-  "f": Function foo(),
   "a": Function anon(),
-  "m": Function jack(),
-  "s": Function spacey(im, not, the, man, they, think, i, am, at, home),
   "b": Function (x),
-  "y": Function (y),
   "c": Function arrow(x, y, z),
   "d": Function arrowBraces(x, y, z),
+  "f": Function foo(),
+  "m": Function jack(),
+  "s": Function spacey(im, not, the, man, they, think, i, am, at, home),
+  "y": Function (y),
 }
 `

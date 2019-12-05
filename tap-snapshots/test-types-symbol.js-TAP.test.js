@@ -5,17 +5,11 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/null-object.js TAP > first stringify 1`] = `
-!nullobject
-a: 1
-b:
-  !nullobject {}
+exports[`test/types/symbol.js TAP > first stringify 1`] = `
+!sym Symbol(foo)
 
 `
 
-exports[`test/null-object.js TAP > parsed stringified 1`] = `
-Null Object {
-  "a": 1,
-  "b": Null Object {},
-}
+exports[`test/types/symbol.js TAP > parsed stringified 1`] = `
+Symbol(foo)
 `

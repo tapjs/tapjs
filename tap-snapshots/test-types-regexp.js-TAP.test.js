@@ -5,11 +5,11 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/symbol.js TAP > first stringify 1`] = `
-!sym Symbol(foo)
+exports[`test/types/regexp.js TAP > first stringify 1`] = `
+!re /re/g
 
 `
 
-exports[`test/symbol.js TAP > parsed stringified 1`] = `
-Symbol(foo)
+exports[`test/types/regexp.js TAP > parsed stringified 1`] = `
+/re/g
 `

@@ -5,60 +5,60 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/types.js TAP > types are there 1`] = `
+exports[`test/types/index.js TAP > types are there 1`] = `
 Array [
   Object {
-    "tag": "!error",
-    "identify": Function identify(er),
     "createNode": Function createNode(schema, error, ctx),
+    "identify": Function identify(er),
     "resolve": Function resolve(doc, cst),
+    "tag": "!error",
   },
   Object {
     "identify": Function identify(value),
+    "resolve": Function resolve(doc, cst),
+    "stringify": Function stringify(item, ctx, onComment, onChompKeep),
     "tag": "!sym",
-    "resolve": Function resolve(doc, cst),
-    "stringify": Function stringify(item, ctx, onComment, onChompKeep),
   },
   Object {
     "identify": Function identify(value),
+    "resolve": Function resolve(doc, cst),
+    "stringify": Function stringify(item, ctx, onComment, onChompKeep),
     "tag": "!sym/for",
-    "resolve": Function resolve(doc, cst),
-    "stringify": Function stringify(item, ctx, onComment, onChompKeep),
   },
   Object {
+    "default": false,
     "identify": Function identify(value),
-    "tag": "!function",
-    "resolve": Function resolve(doc, cst),
     "options": Object {
       "defaultType": "BLOCK_LITERAL",
       "lineWidth": 76,
     },
+    "resolve": Function resolve(doc, cst),
     "stringify": Function stringify(),
-    "default": false,
+    "tag": "!function",
   },
   Object {
     "identify": Function identify(value),
+    "resolve": Function resolve(doc, cst),
+    "stringify": Function stringify(item, ctx, onComment, onChompKeep),
     "tag": "!re",
-    "resolve": Function resolve(doc, cst),
-    "stringify": Function stringify(item, ctx, onComment, onChompKeep),
   },
   Object {
+    "identify": Function identify(value),
+    "resolve": Function resolve(doc, cst),
+    "stringify": Function stringify(item, ctx, onComment, onChompKeep),
     "tag": "!date",
-    "identify": Function identify(value),
-    "resolve": Function resolve(doc, cst),
-    "stringify": Function stringify(item, ctx, onComment, onChompKeep),
   },
   Object {
-    "identify": Function identify(value),
-    "tag": "!domain",
-    "resolve": Function resolve(doc, cst),
     "createNode": Function createNode(schema, error, ctx),
+    "identify": Function identify(value),
+    "resolve": Function resolve(doc, cst),
+    "tag": "!domain",
   },
   Object {
-    "tag": "!nullobject",
-    "identify": Function identify(v),
     "createNode": Function createNode(schema, obj, ctx),
+    "identify": Function identify(v),
     "resolve": Function resolve(doc, cst),
+    "tag": "!nullobject",
   },
   "omap",
   "set",
