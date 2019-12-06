@@ -832,7 +832,7 @@ const onError = er => {
 }
 
 try {
-  require('./jack.js')(main)
+  require('./jack.js').run(main)
 } catch (er) {
   onError(er)
 }
