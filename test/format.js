@@ -180,3 +180,43 @@ t.test('streams are not arrays', t => {
   t.matchSnapshot(new Format(writable).print())
   t.end()
 })
+
+t.test('hidden props and getters', t => {
+  const _val = Symbol('_value')
+  const _baseVal = Symbol('_baseValue')
+  let i = 0
+  class Base {
+    constructor (val) {
+      this.raw = val
+      this[_val] = val
+      this[_baseVal] = i++
+    }
+    get baseValue () {
+      return this[_baseVal]
+    }
+  }
+  class Hidden extends Base {
+    get value () { return this[_val] }
+  }
+  Object.defineProperty(Hidden.prototype, 'value', { enumerable: true })
+  Object.defineProperty(Base.prototype, 'baseValue', { enumerable: true })
+
+  const one = new Hidden(1)
+  const nullObj = Object.create(null)
+  nullObj.isNullObject = true
+  t.matchSnapshot(new Format(one).print(), 'own props only')
+  t.matchSnapshot(new Format(nullObj).print(), 'own props only')
+  t.matchSnapshot(new Format(one, {
+    includeGetters: true
+  }).print(), 'enumerable inherited getters shown')
+  t.matchSnapshot(new Format(nullObj, {
+    includeGetters: true
+  }).print(), 'enumerable inherited getters shown')
+  t.matchSnapshot(new Format(one, {
+    includeEnumerable: true
+  }).print(), 'all enumerable properties shown')
+  t.matchSnapshot(new Format(nullObj, {
+    includeEnumerable: true
+  }).print(), 'all enumerable properties shown')
+  t.end()
+})

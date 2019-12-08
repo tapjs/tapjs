@@ -418,6 +418,31 @@ exports[`test/same.js TAP flexible about key order and types > must match snapsh
 
 `
 
+exports[`test/same.js TAP hidden props and getters > must match snapshot 1`] = `
+--- expected
++++ actual
+
+`
+
+exports[`test/same.js TAP hidden props and getters > must match snapshot 2`] = `
+--- expected
++++ actual
+
+`
+
+exports[`test/same.js TAP hidden props and getters > must match snapshot 3`] = `
+--- expected
++++ actual
+@@ -1,5 +1,5 @@
+ Hidden {
+   "raw": 1,
+   "value": 1,
+-  "baseValue": 1,
++  "baseValue": 0,
+ }
+
+`
+
 exports[`test/same.js TAP iterables match one another > must match snapshot 1`] = `
 --- expected
 +++ actual

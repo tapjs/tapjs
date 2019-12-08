@@ -439,3 +439,30 @@ t.test('diffs of errors with \\n in the message', t => {
     'errors with different properties are not the same')
   t.end()
 })
+
+t.test('hidden props and getters', t => {
+  const _val = Symbol('_value')
+  const _baseVal = Symbol('_baseValue')
+  let i = 0
+  class Base {
+    constructor (val) {
+      this.raw = val
+      this[_val] = val
+      this[_baseVal] = i++
+    }
+    get baseValue () {
+      return this[_baseVal]
+    }
+  }
+  class Hidden extends Base {
+    get value () { return this[_val] }
+  }
+  Object.defineProperty(Hidden.prototype, 'value', { enumerable: true })
+  Object.defineProperty(Base.prototype, 'baseValue', { enumerable: true })
+  const one = new Hidden(1)
+  const two = new Hidden(1)
+  t.ok(same(t, one, two), 'own props only')
+  t.ok(same(t, one, two, {includeGetters: true}), 'include getters')
+  t.notOk(same(t, one, two, {includeEnumerable: true}), 'all enumerable')
+  t.end()
+})

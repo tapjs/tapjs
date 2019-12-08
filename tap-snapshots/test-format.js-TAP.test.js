@@ -2645,6 +2645,45 @@ exports[`test/format.js TAP gnarly object, many points of view different points 
 }
 `
 
+exports[`test/format.js TAP hidden props and getters > all enumerable properties shown 1`] = `
+Hidden {
+  "raw": 1,
+  "value": 1,
+  "baseValue": 0,
+}
+`
+
+exports[`test/format.js TAP hidden props and getters > all enumerable properties shown 2`] = `
+Null Object {
+  "isNullObject": true,
+}
+`
+
+exports[`test/format.js TAP hidden props and getters > enumerable inherited getters shown 1`] = `
+Hidden {
+  "raw": 1,
+  "value": 1,
+}
+`
+
+exports[`test/format.js TAP hidden props and getters > enumerable inherited getters shown 2`] = `
+Null Object {
+  "isNullObject": true,
+}
+`
+
+exports[`test/format.js TAP hidden props and getters > own props only 1`] = `
+Hidden {
+  "raw": 1,
+}
+`
+
+exports[`test/format.js TAP hidden props and getters > own props only 2`] = `
+Null Object {
+  "isNullObject": true,
+}
+`
+
 exports[`test/format.js TAP other misc > faked out seen() method 1`] = `
 &ref_1 Object {
   "a": Object {

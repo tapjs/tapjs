@@ -63,6 +63,19 @@ a `match` boolean member.
 
 Each method can take the following options.
 
+* `includeEnumerable` - Set to `true` to walk over _all_ enumerable
+  properties of a given object when comparing or formatting, rather than
+  the default of only showing enumerable own-properties.  Note that
+  calling getter functions may be hazardous, as they may trigger
+  side-effects.
+
+* `includeGetters` - Set to `true` to walk over all enumerable getters
+  on an object's prototype (but not from further down the prototype
+  chain), in addition to own-properties.  This is useful in cases where
+  you want to compare or print an object with enumerable getters that
+  return internal values in a read-only manner.  Note that calling
+  getter functions can be hazardous, as they may trigger side-effects.
+
 * `sort` - Set to `true` to sort object keys.  This is important when
   serializing in a deterministic way.
 
