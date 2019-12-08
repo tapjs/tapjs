@@ -27,7 +27,5 @@
     "check-coverage": true,
     "coverage-map": "map.js"
   },
-  "dependencies": {
-    "diff-frag": "^1.0.1"
-  }
+  "dependencies": {}
 }
