@@ -512,6 +512,48 @@ exports[`test/match.js TAP should handle arguments > must match snapshot 3`] = `
 
 `
 
+exports[`test/match.js TAP should handle bigints > must match snapshot 1`] = `
+--- expected
++++ actual
+@@ -1,1 +1,1 @@
+-null
++1n
+
+`
+
+exports[`test/match.js TAP should handle bigints > must match snapshot 2`] = `
+--- expected
++++ actual
+@@ -1,1 +1,1 @@
+-undefined
++1n
+
+`
+
+exports[`test/match.js TAP should handle bigints > must match snapshot 3`] = `
+--- expected
++++ actual
+
+`
+
+exports[`test/match.js TAP should handle bigints > must match snapshot 4`] = `
+--- expected
++++ actual
+
+`
+
+exports[`test/match.js TAP should handle bigints > must match snapshot 5`] = `
+--- expected
++++ actual
+
+`
+
+exports[`test/match.js TAP should handle bigints > must match snapshot 6`] = `
+--- expected
++++ actual
+
+`
+
 exports[`test/match.js TAP should handle dates > must match snapshot 1`] = `
 --- expected
 +++ actual

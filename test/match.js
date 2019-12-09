@@ -51,6 +51,16 @@ t.test('should handle dates', t => {
   t.end()
 })
 
+t.test('should handle bigints', t => {
+  t.notOk(match(t, BigInt('1'), null))
+  t.notOk(match(t, BigInt('1'), undefined))
+  t.ok(match(t, BigInt('1'), BigInt('1')))
+  t.ok(match(t, BigInt('1'), BigInt))
+  t.ok(match(t,{ x: BigInt('1') }, { x: BigInt('1') }))
+  t.ok(match(t,{ x: BigInt('1') }, { x: BigInt }))
+  t.end()
+})
+
 t.test('should handle RegExps', t => {
   t.notOk(match(t,/[b]/, /[a]/))
   t.notOk(match(t,/[a]/i, /[a]/g))

@@ -920,6 +920,27 @@ exports[`test/same.js TAP should handle arguments > must match snapshot 3`] = `
 
 `
 
+exports[`test/same.js TAP should handle bigint > must match snapshot 1`] = `
+--- expected
++++ actual
+
+`
+
+exports[`test/same.js TAP should handle bigint > must match snapshot 2`] = `
+--- expected
++++ actual
+
+`
+
+exports[`test/same.js TAP should handle bigint > must match snapshot 3`] = `
+--- expected
++++ actual
+@@ -1,1 +1,1 @@
+-2n
++1n
+
+`
+
 exports[`test/same.js TAP should handle dates > must match snapshot 1`] = `
 --- expected
 +++ actual

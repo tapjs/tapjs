@@ -189,6 +189,13 @@ t.test('should handle arguments', function (t) {
   t.end()
 })
 
+t.test('should handle bigint', function (t) {
+  t.ok(same(t, BigInt('0'), BigInt('0')))
+  t.ok(same(t, BigInt('1'), BigInt('1')))
+  t.notOk(same(t, BigInt('1'), BigInt('2')))
+  t.end()
+})
+
 t.test('same arrays match', function (t) {
   t.ok(same(t,[1, 2, 3], [1, 2, 3]))
   t.end()
