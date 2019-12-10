@@ -4,6 +4,7 @@ A <abbr title="Test Anything Protocol">TAP</abbr> test framework for
 Node.js.
 
 [![Build Status](https://travis-ci.org/tapjs/node-tap.svg?branch=master)](https://travis-ci.org/tapjs/node-tap)
+[![run on repl.it](http://repl.it/badge/github/tapjs/node-tap)](https://repl.it/github/tapjs/node-tap)
 
 _Just wanna see some code? [Get started!](http://www.node-tap.org/basics/)_
 

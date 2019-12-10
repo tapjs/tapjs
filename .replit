@@ -1,0 +1,2 @@
+language = "nodejs"
+run = "cd example && node long-slow-many.js"

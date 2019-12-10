@@ -17,6 +17,7 @@
 !scripts/
 !tap-snapshots/
 !test/
+!.replit
 !.travis.yml
 !.gitignore
 !.gitattributes
