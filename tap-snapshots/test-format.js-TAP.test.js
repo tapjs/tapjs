@@ -254,7 +254,53 @@ exports[`test/format.js TAP gnarly object, many points of view > js 1`] = `
       "o": true,
     },
   ],
-  "buf": Buffer.from("686f776479", "hex"),
+  "buf": Buffer.from("686f776479", "hex") /* howdy */,
+  "longBuf": Buffer.from(
+    "68656c6c6f2c20776f726c64210a68656c6c6f2c20776f726c64210a68656c6c"  /* hello,.world!.hello,.world!.hell */ +
+    "6f2c20776f726c64210a68656c6c6f2c20776f726c64210a68656c6c6f2c2077"  /* o,.world!.hello,.world!.hello,.w */ +
+    "6f726c64210a68656c6c6f2c20776f726c64210a68656c6c6f2c20776f726c64"  /* orld!.hello,.world!.hello,.world */ +
+    "210a68656c6c6f2c20776f726c64210a68656c6c6f2c20776f726c64210a6865"  /* !.hello,.world!.hello,.world!.he */ +
+    "6c6c6f2c20776f726c64210a68656c6c6f2c20776f726c64210a68656c6c6f2c"  /* llo,.world!.hello,.world!.hello, */ +
+    "20776f726c64210a68656c6c6f2c20776f726c64210a68656c6c6f2c20776f72"  /* .world!.hello,.world!.hello,.wor */ +
+    "6c64210a68656c6c6f2c20776f726c64210a68656c6c6f2c20776f726c64210a"  /* ld!.hello,.world!.hello,.world!. */ +
+    "68656c6c6f2c20776f726c64210a68656c6c6f2c20776f726c64210a68656c6c"  /* hello,.world!.hello,.world!.hell */ +
+    "6f2c20776f726c64210a68656c6c6f2c20776f726c64210a68656c6c6f2c2077"  /* o,.world!.hello,.world!.hello,.w */ +
+    "6f726c64210a68656c6c6f2c20776f726c64210a68656c6c6f2c20776f726c64"  /* orld!.hello,.world!.hello,.world */ +
+    "210a68656c6c6f2c20776f726c64210a68656c6c6f2c20776f726c64210a6865"  /* !.hello,.world!.hello,.world!.he */ +
+    "6c6c6f2c20776f726c64210a68656c6c6f2c20776f726c64210a68656c6c6f2c"  /* llo,.world!.hello,.world!.hello, */ +
+    "20776f726c64210a68656c6c6f2c20776f726c64210a68656c6c6f2c20776f72"  /* .world!.hello,.world!.hello,.wor */ +
+    "6c64210a68656c6c6f2c20776f726c64210a68656c6c6f2c20776f726c64210a"  /* ld!.hello,.world!.hello,.world!. */ +
+    "68656c6c6f2c20776f726c64210a68656c6c6f2c20776f726c64210a68656c6c"  /* hello,.world!.hello,.world!.hell */ +
+    "6f2c20776f726c64210a68656c6c6f2c20776f726c64210a68656c6c6f2c2077"  /* o,.world!.hello,.world!.hello,.w */ +
+    "6f726c64210a68656c6c6f2c20776f726c64210a68656c6c6f2c20776f726c64"  /* orld!.hello,.world!.hello,.world */ +
+    "210a68656c6c6f2c20776f726c64210a68656c6c6f2c20776f726c64210a6865"  /* !.hello,.world!.hello,.world!.he */ +
+    "6c6c6f2c20776f726c64210a68656c6c6f2c20776f726c64210a68656c6c6f2c"  /* llo,.world!.hello,.world!.hello, */ +
+    "20776f726c64210a68656c6c6f2c20776f726c64210a68656c6c6f2c20776f72"  /* .world!.hello,.world!.hello,.wor */ +
+    "6c64210a68656c6c6f2c20776f726c64210a68656c6c6f2c20776f726c64210a"  /* ld!.hello,.world!.hello,.world!. */ +
+    "68656c6c6f2c20776f726c64210a68656c6c6f2c20776f726c64210a68656c6c"  /* hello,.world!.hello,.world!.hell */ +
+    "6f2c20776f726c64210a68656c6c6f2c20776f726c64210a68656c6c6f2c2077"  /* o,.world!.hello,.world!.hello,.w */ +
+    "6f726c64210a68656c6c6f2c20776f726c64210a68656c6c6f2c20776f726c64"  /* orld!.hello,.world!.hello,.world */ +
+    "210a68656c6c6f2c20776f726c64210a68656c6c6f2c20776f726c64210a6865"  /* !.hello,.world!.hello,.world!.he */ +
+    "6c6c6f2c20776f726c64210a68656c6c6f2c20776f726c64210a68656c6c6f2c"  /* llo,.world!.hello,.world!.hello, */ +
+    "20776f726c64210a68656c6c6f2c20776f726c64210a68656c6c6f2c20776f72"  /* .world!.hello,.world!.hello,.wor */ +
+    "6c64210a68656c6c6f2c20776f726c64210a68656c6c6f2c20776f726c64210a"  /* ld!.hello,.world!.hello,.world!. */ +
+    "68656c6c6f2c20776f726c64210a68656c6c6f2c20776f726c64210a68656c6c"  /* hello,.world!.hello,.world!.hell */ +
+    "6f2c20776f726c64210a68656c6c6f2c20776f726c64210a68656c6c6f2c2077"  /* o,.world!.hello,.world!.hello,.w */ +
+    "6f726c64210a68656c6c6f2c20776f726c64210a68656c6c6f2c20776f726c64"  /* orld!.hello,.world!.hello,.world */ +
+    "210a68656c6c6f2c20776f726c64210a68656c6c6f2c20776f726c64210a6865"  /* !.hello,.world!.hello,.world!.he */ +
+    "6c6c6f2c20776f726c64210a68656c6c6f2c20776f726c64210a68656c6c6f2c"  /* llo,.world!.hello,.world!.hello, */ +
+    "20776f726c64210a68656c6c6f2c20776f726c64210a68656c6c6f2c20776f72"  /* .world!.hello,.world!.hello,.wor */ +
+    "6c64210a68656c6c6f2c20776f726c64210a68656c6c6f2c20776f726c64210a"  /* ld!.hello,.world!.hello,.world!. */ +
+    "68656c6c6f2c20776f726c64210a68656c6c6f2c20776f726c64210a68656c6c"  /* hello,.world!.hello,.world!.hell */ +
+    "6f2c20776f726c64210a68656c6c6f2c20776f726c64210a68656c6c6f2c2077"  /* o,.world!.hello,.world!.hello,.w */ +
+    "6f726c64210a68656c6c6f2c20776f726c64210a68656c6c6f2c20776f726c64"  /* orld!.hello,.world!.hello,.world */ +
+    "210a68656c6c6f2c20776f726c64210a68656c6c6f2c20776f726c64210a6865"  /* !.hello,.world!.hello,.world!.he */ +
+    "6c6c6f2c20776f726c64210a68656c6c6f2c20776f726c64210a68656c6c6f2c"  /* llo,.world!.hello,.world!.hello, */ +
+    "20776f726c64210a68656c6c6f2c20776f726c64210a68656c6c6f2c20776f72"  /* .world!.hello,.world!.hello,.wor */ +
+    "6c64210a68656c6c6f2c20776f726c64210a68656c6c6f2c20776f726c64210a"  /* ld!.hello,.world!.hello,.world!. */ +
+    "68656c6c6f2c20776f726c64210a68656c6c6f2c20776f726c64210a68656c6c"  /* hello,.world!.hello,.world!.hell */ +
+    "6f2c20776f726c64210a"                                              /* o,.world!. */
+  , "hex"),
   "emp": {
     "b": Buffer.alloc(0),
     "a": [],
@@ -547,7 +593,53 @@ exports[`test/format.js TAP gnarly object, many points of view > pretty 1`] = `
       "o": true,
     },
   ],
-  "buf": Buffer <68 6f 77 64 79>,
+  "buf": Buffer <686f 7764 79  howdy>,
+  "longBuf": Buffer <
+    0000: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+    0020: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+    0040: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+    0060: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+    0080: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+    00a0: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+    00c0: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+    00e0: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+    0100: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+    0120: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+    0140: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+    0160: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+    0180: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+    01a0: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+    01c0: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+    01e0: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+    0200: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+    0220: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+    0240: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+    0260: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+    0280: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+    02a0: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+    02c0: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+    02e0: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+    0300: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+    0320: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+    0340: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+    0360: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+    0380: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+    03a0: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+    03c0: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+    03e0: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+    0400: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+    0420: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+    0440: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+    0460: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+    0480: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+    04a0: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+    04c0: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+    04e0: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+    0500: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+    0520: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+    0540: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+    0560: 6f2c 2077 6f72 6c64 210a                                                         o,.world!.
+  >,
   "emp": Object {
     "b": Buffer <>,
     "a": Array [],
@@ -617,7 +709,7 @@ Object {
 `
 
 exports[`test/format.js TAP gnarly object, many points of view > tight 1`] = `
-&1 {"a":1,"b":2,"extra":true,"c":3,"d":4,"more":false,"e":{"f":{"g":1,},"a":[2,3,4,],"h":"asdf","multilineString":"this is a line\\n"+"this is a line\\n"+"this is a line\\n"+"this is a line\\n"+"\\n","emptyString":"",},"nullObject":{"x":{},"y":{},"z":{"zed":true,},},"p":new Set([{"x":"y","z":true,},{"a":1,},{"b":2,},]),"s":new Set([{"b":2,},{"c":3,},*1,]),"m":new Map([[&2 {"a":1,"k":&3 {"k":*2,"i":{"i":1,"k":*3,},},"f":*1,"c":&4 {"c":{"c":*4,"b":{"b":1,"d":*4,},},"a":&5 [1,*4,*5,],"k":*2,"f":*1,},},1],[{"b":2,},2],[{"c":"d",},{"re":/ef/g,}],[1,&4 {"c":{"c":*4,"b":{"b":1,"d":*4,},},"a":&5 [1,*4,*5,],"k":&2 {"a":1,"k":&3 {"k":*2,"i":{"i":1,"k":*3,},},"f":*1,"c":*4,},"f":*1,}],[*1,&2 {"a":1,"k":&3 {"k":*2,"i":{"i":1,"k":*3,},},"f":*1,"c":&4 {"c":{"c":*4,"b":{"b":1,"d":*4,},},"a":&5 [1,*4,*5,],"k":*2,"f":*1,},}],]),"ao":[{"o":true,},{"o":true,},[{"o":true,},{"o":true,},],],"om":new Map([[{"o":true,},&2 {"a":1,"k":&3 {"k":*2,"i":{"i":1,"k":*3,},},"f":*1,"c":&4 {"c":{"c":*4,"b":{"b":1,"d":*4,},},"a":&5 [1,*4,*5,],"k":*2,"f":*1,},}],[&2 {"a":1,"k":&3 {"k":*2,"i":{"i":1,"k":*3,},},"f":*1,"c":&4 {"c":{"c":*4,"b":{"b":1,"d":*4,},},"a":&5 [1,*4,*5,],"k":*2,"f":*1,},},{"o":true,}],]),"args":[1,2,3,{"o":true,},],"buf":Buffer.from("686f776479", "hex"),"emp":{"b":Buffer.alloc(0),"a":[],"o":{},"m":new Map(),"s":new Set(),},"fns":{"name":function foo () {},"anon":function () {},"arr":() => {},"identity":x => x,"nameless":() => {},},"sym":Symbol(prince),"date":2019-02-14T07:13:44.100Z,"n":null,"undef":undefined,"classy":{},"err":new Error("just an error"),"emptyErr":new Error(""),"fancyErr":Object.assign(new Error("fancy pantsy"), {"fancy":"pantsy",}),"assert":Object.assign(new AssertionError("{\\n  a: 1,\\n  k: {\\n    i: {\\n      i: 1,\\n      k: [Circular]\\n    },\\n    k: [Circular]\\n  }\\n} == {\\n  o: true\\n}"), {"generatedMessage":true,"code":"ERR_ASSERTION","actual":&2 {"a":1,"k":&3 {"k":*2,"i":{"i":1,"k":*3,},},"f":*1,"c":&4 {"c":{"c":*4,"b":{"b":1,"d":*4,},},"a":&5 [1,*4,*5,],"k":*2,"f":*1,},},"expected":{"o":true,},"operator":"==",}),}
+&1 {"a":1,"b":2,"extra":true,"c":3,"d":4,"more":false,"e":{"f":{"g":1,},"a":[2,3,4,],"h":"asdf","multilineString":"this is a line\\n"+"this is a line\\n"+"this is a line\\n"+"this is a line\\n"+"\\n","emptyString":"",},"nullObject":{"x":{},"y":{},"z":{"zed":true,},},"p":new Set([{"x":"y","z":true,},{"a":1,},{"b":2,},]),"s":new Set([{"b":2,},{"c":3,},*1,]),"m":new Map([[&2 {"a":1,"k":&3 {"k":*2,"i":{"i":1,"k":*3,},},"f":*1,"c":&4 {"c":{"c":*4,"b":{"b":1,"d":*4,},},"a":&5 [1,*4,*5,],"k":*2,"f":*1,},},1],[{"b":2,},2],[{"c":"d",},{"re":/ef/g,}],[1,&4 {"c":{"c":*4,"b":{"b":1,"d":*4,},},"a":&5 [1,*4,*5,],"k":&2 {"a":1,"k":&3 {"k":*2,"i":{"i":1,"k":*3,},},"f":*1,"c":*4,},"f":*1,}],[*1,&2 {"a":1,"k":&3 {"k":*2,"i":{"i":1,"k":*3,},},"f":*1,"c":&4 {"c":{"c":*4,"b":{"b":1,"d":*4,},},"a":&5 [1,*4,*5,],"k":*2,"f":*1,},}],]),"ao":[{"o":true,},{"o":true,},[{"o":true,},{"o":true,},],],"om":new Map([[{"o":true,},&2 {"a":1,"k":&3 {"k":*2,"i":{"i":1,"k":*3,},},"f":*1,"c":&4 {"c":{"c":*4,"b":{"b":1,"d":*4,},},"a":&5 [1,*4,*5,],"k":*2,"f":*1,},}],[&2 {"a":1,"k":&3 {"k":*2,"i":{"i":1,"k":*3,},},"f":*1,"c":&4 {"c":{"c":*4,"b":{"b":1,"d":*4,},},"a":&5 [1,*4,*5,],"k":*2,"f":*1,},},{"o":true,}],]),"args":[1,2,3,{"o":true,},],"buf":Buffer.from("aG93ZHk=","base64"),"longBuf":Buffer.from("aGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEK","base64"),"emp":{"b":Buffer.alloc(0),"a":[],"o":{},"m":new Map(),"s":new Set(),},"fns":{"name":function foo () {},"anon":function () {},"arr":() => {},"identity":x => x,"nameless":() => {},},"sym":Symbol(prince),"date":2019-02-14T07:13:44.100Z,"n":null,"undef":undefined,"classy":{},"err":new Error("just an error"),"emptyErr":new Error(""),"fancyErr":Object.assign(new Error("fancy pantsy"), {"fancy":"pantsy",}),"assert":Object.assign(new AssertionError("{\\n  a: 1,\\n  k: {\\n    i: {\\n      i: 1,\\n      k: [Circular]\\n    },\\n    k: [Circular]\\n  }\\n} == {\\n  o: true\\n}"), {"generatedMessage":true,"code":"ERR_ASSERTION","actual":&2 {"a":1,"k":&3 {"k":*2,"i":{"i":1,"k":*3,},},"f":*1,"c":&4 {"c":{"c":*4,"b":{"b":1,"d":*4,},},"a":&5 [1,*4,*5,],"k":*2,"f":*1,},},"expected":{"o":true,},"operator":"==",}),}
 `
 
 exports[`test/format.js TAP gnarly object, many points of view different points of view > c 1`] = `
@@ -742,7 +834,53 @@ exports[`test/format.js TAP gnarly object, many points of view different points 
           "o": true,
         },
       ],
-      "buf": Buffer <68 6f 77 64 79>,
+      "buf": Buffer <686f 7764 79  howdy>,
+      "longBuf": Buffer <
+        0000: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+        0020: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+        0040: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+        0060: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+        0080: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+        00a0: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+        00c0: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+        00e0: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+        0100: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+        0120: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+        0140: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+        0160: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+        0180: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+        01a0: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+        01c0: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+        01e0: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+        0200: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+        0220: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+        0240: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+        0260: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+        0280: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+        02a0: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+        02c0: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+        02e0: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+        0300: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+        0320: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+        0340: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+        0360: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+        0380: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+        03a0: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+        03c0: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+        03e0: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+        0400: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+        0420: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+        0440: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+        0460: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+        0480: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+        04a0: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+        04c0: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+        04e0: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+        0500: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+        0520: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+        0540: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+        0560: 6f2c 2077 6f72 6c64 210a                                                         o,.world!.
+      >,
       "emp": Object {
         "b": Buffer <>,
         "a": Array [],
@@ -922,7 +1060,53 @@ exports[`test/format.js TAP gnarly object, many points of view different points 
         "o": true,
       },
     ],
-    "buf": Buffer <68 6f 77 64 79>,
+    "buf": Buffer <686f 7764 79  howdy>,
+    "longBuf": Buffer <
+      0000: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+      0020: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+      0040: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+      0060: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+      0080: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+      00a0: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+      00c0: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+      00e0: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+      0100: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+      0120: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+      0140: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+      0160: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+      0180: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+      01a0: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+      01c0: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+      01e0: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+      0200: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+      0220: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+      0240: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+      0260: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+      0280: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+      02a0: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+      02c0: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+      02e0: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+      0300: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+      0320: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+      0340: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+      0360: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+      0380: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+      03a0: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+      03c0: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+      03e0: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+      0400: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+      0420: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+      0440: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+      0460: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+      0480: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+      04a0: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+      04c0: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+      04e0: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+      0500: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+      0520: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+      0540: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+      0560: 6f2c 2077 6f72 6c64 210a                                                         o,.world!.
+    >,
     "emp": Object {
       "b": Buffer <>,
       "a": Array [],
@@ -1069,7 +1253,53 @@ exports[`test/format.js TAP gnarly object, many points of view different points 
           "o": true,
         },
       ],
-      "buf": Buffer <68 6f 77 64 79>,
+      "buf": Buffer <686f 7764 79  howdy>,
+      "longBuf": Buffer <
+        0000: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+        0020: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+        0040: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+        0060: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+        0080: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+        00a0: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+        00c0: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+        00e0: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+        0100: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+        0120: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+        0140: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+        0160: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+        0180: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+        01a0: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+        01c0: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+        01e0: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+        0200: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+        0220: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+        0240: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+        0260: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+        0280: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+        02a0: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+        02c0: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+        02e0: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+        0300: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+        0320: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+        0340: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+        0360: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+        0380: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+        03a0: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+        03c0: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+        03e0: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+        0400: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+        0420: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+        0440: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+        0460: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+        0480: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+        04a0: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+        04c0: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+        04e0: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+        0500: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+        0520: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+        0540: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+        0560: 6f2c 2077 6f72 6c64 210a                                                         o,.world!.
+      >,
       "emp": Object {
         "b": Buffer <>,
         "a": Array [],
@@ -1205,7 +1435,53 @@ exports[`test/format.js TAP gnarly object, many points of view different points 
             "o": true,
           },
         ],
-        "buf": Buffer <68 6f 77 64 79>,
+        "buf": Buffer <686f 7764 79  howdy>,
+        "longBuf": Buffer <
+          0000: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+          0020: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+          0040: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+          0060: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+          0080: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+          00a0: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+          00c0: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+          00e0: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+          0100: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+          0120: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+          0140: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+          0160: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+          0180: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+          01a0: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+          01c0: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+          01e0: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+          0200: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+          0220: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+          0240: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+          0260: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+          0280: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+          02a0: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+          02c0: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+          02e0: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+          0300: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+          0320: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+          0340: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+          0360: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+          0380: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+          03a0: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+          03c0: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+          03e0: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+          0400: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+          0420: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+          0440: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+          0460: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+          0480: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+          04a0: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+          04c0: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+          04e0: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+          0500: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+          0520: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+          0540: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+          0560: 6f2c 2077 6f72 6c64 210a                                                         o,.world!.
+        >,
         "emp": Object {
           "b": Buffer <>,
           "a": Array [],
@@ -1359,7 +1635,53 @@ exports[`test/format.js TAP gnarly object, many points of view different points 
             "o": true,
           },
         ],
-        "buf": Buffer <68 6f 77 64 79>,
+        "buf": Buffer <686f 7764 79  howdy>,
+        "longBuf": Buffer <
+          0000: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+          0020: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+          0040: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+          0060: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+          0080: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+          00a0: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+          00c0: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+          00e0: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+          0100: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+          0120: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+          0140: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+          0160: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+          0180: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+          01a0: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+          01c0: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+          01e0: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+          0200: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+          0220: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+          0240: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+          0260: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+          0280: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+          02a0: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+          02c0: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+          02e0: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+          0300: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+          0320: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+          0340: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+          0360: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+          0380: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+          03a0: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+          03c0: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+          03e0: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+          0400: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+          0420: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+          0440: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+          0460: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+          0480: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+          04a0: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+          04c0: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+          04e0: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+          0500: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+          0520: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+          0540: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+          0560: 6f2c 2077 6f72 6c64 210a                                                         o,.world!.
+        >,
         "emp": Object {
           "b": Buffer <>,
           "a": Array [],
@@ -1505,7 +1827,53 @@ exports[`test/format.js TAP gnarly object, many points of view different points 
           "o": true,
         },
       ],
-      "buf": Buffer <68 6f 77 64 79>,
+      "buf": Buffer <686f 7764 79  howdy>,
+      "longBuf": Buffer <
+        0000: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+        0020: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+        0040: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+        0060: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+        0080: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+        00a0: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+        00c0: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+        00e0: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+        0100: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+        0120: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+        0140: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+        0160: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+        0180: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+        01a0: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+        01c0: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+        01e0: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+        0200: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+        0220: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+        0240: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+        0260: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+        0280: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+        02a0: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+        02c0: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+        02e0: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+        0300: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+        0320: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+        0340: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+        0360: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+        0380: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+        03a0: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+        03c0: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+        03e0: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+        0400: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+        0420: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+        0440: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+        0460: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+        0480: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+        04a0: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+        04c0: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+        04e0: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+        0500: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+        0520: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+        0540: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+        0560: 6f2c 2077 6f72 6c64 210a                                                         o,.world!.
+      >,
       "emp": Object {
         "b": Buffer <>,
         "a": Array [],
@@ -1691,7 +2059,53 @@ exports[`test/format.js TAP gnarly object, many points of view different points 
         "o": true,
       },
     ],
-    "buf": Buffer <68 6f 77 64 79>,
+    "buf": Buffer <686f 7764 79  howdy>,
+    "longBuf": Buffer <
+      0000: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+      0020: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+      0040: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+      0060: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+      0080: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+      00a0: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+      00c0: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+      00e0: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+      0100: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+      0120: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+      0140: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+      0160: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+      0180: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+      01a0: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+      01c0: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+      01e0: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+      0200: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+      0220: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+      0240: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+      0260: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+      0280: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+      02a0: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+      02c0: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+      02e0: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+      0300: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+      0320: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+      0340: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+      0360: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+      0380: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+      03a0: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+      03c0: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+      03e0: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+      0400: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+      0420: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+      0440: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+      0460: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+      0480: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+      04a0: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+      04c0: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+      04e0: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+      0500: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+      0520: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+      0540: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+      0560: 6f2c 2077 6f72 6c64 210a                                                         o,.world!.
+    >,
     "emp": Object {
       "b": Buffer <>,
       "a": Array [],
@@ -1847,7 +2261,53 @@ exports[`test/format.js TAP gnarly object, many points of view different points 
           "o": true,
         },
       ],
-      "buf": Buffer <68 6f 77 64 79>,
+      "buf": Buffer <686f 7764 79  howdy>,
+      "longBuf": Buffer <
+        0000: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+        0020: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+        0040: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+        0060: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+        0080: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+        00a0: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+        00c0: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+        00e0: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+        0100: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+        0120: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+        0140: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+        0160: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+        0180: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+        01a0: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+        01c0: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+        01e0: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+        0200: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+        0220: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+        0240: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+        0260: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+        0280: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+        02a0: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+        02c0: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+        02e0: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+        0300: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+        0320: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+        0340: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+        0360: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+        0380: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+        03a0: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+        03c0: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+        03e0: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+        0400: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+        0420: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+        0440: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+        0460: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+        0480: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+        04a0: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+        04c0: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+        04e0: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+        0500: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+        0520: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+        0540: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+        0560: 6f2c 2077 6f72 6c64 210a                                                         o,.world!.
+      >,
       "emp": Object {
         "b": Buffer <>,
         "a": Array [],
@@ -1983,7 +2443,53 @@ exports[`test/format.js TAP gnarly object, many points of view different points 
             "o": true,
           },
         ],
-        "buf": Buffer <68 6f 77 64 79>,
+        "buf": Buffer <686f 7764 79  howdy>,
+        "longBuf": Buffer <
+          0000: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+          0020: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+          0040: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+          0060: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+          0080: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+          00a0: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+          00c0: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+          00e0: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+          0100: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+          0120: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+          0140: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+          0160: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+          0180: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+          01a0: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+          01c0: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+          01e0: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+          0200: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+          0220: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+          0240: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+          0260: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+          0280: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+          02a0: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+          02c0: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+          02e0: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+          0300: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+          0320: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+          0340: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+          0360: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+          0380: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+          03a0: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+          03c0: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+          03e0: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+          0400: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+          0420: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+          0440: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+          0460: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+          0480: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+          04a0: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+          04c0: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+          04e0: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+          0500: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+          0520: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+          0540: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+          0560: 6f2c 2077 6f72 6c64 210a                                                         o,.world!.
+        >,
         "emp": Object {
           "b": Buffer <>,
           "a": Array [],
@@ -2147,7 +2653,53 @@ exports[`test/format.js TAP gnarly object, many points of view different points 
         "o": true,
       },
     ],
-    "buf": Buffer <68 6f 77 64 79>,
+    "buf": Buffer <686f 7764 79  howdy>,
+    "longBuf": Buffer <
+      0000: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+      0020: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+      0040: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+      0060: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+      0080: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+      00a0: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+      00c0: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+      00e0: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+      0100: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+      0120: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+      0140: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+      0160: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+      0180: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+      01a0: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+      01c0: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+      01e0: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+      0200: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+      0220: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+      0240: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+      0260: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+      0280: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+      02a0: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+      02c0: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+      02e0: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+      0300: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+      0320: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+      0340: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+      0360: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+      0380: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+      03a0: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+      03c0: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+      03e0: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+      0400: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+      0420: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+      0440: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+      0460: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+      0480: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+      04a0: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+      04c0: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+      04e0: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+      0500: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+      0520: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+      0540: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+      0560: 6f2c 2077 6f72 6c64 210a                                                         o,.world!.
+    >,
     "emp": Object {
       "b": Buffer <>,
       "a": Array [],
@@ -2295,7 +2847,53 @@ exports[`test/format.js TAP gnarly object, many points of view different points 
           "o": true,
         },
       ],
-      "buf": Buffer <68 6f 77 64 79>,
+      "buf": Buffer <686f 7764 79  howdy>,
+      "longBuf": Buffer <
+        0000: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+        0020: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+        0040: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+        0060: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+        0080: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+        00a0: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+        00c0: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+        00e0: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+        0100: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+        0120: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+        0140: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+        0160: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+        0180: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+        01a0: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+        01c0: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+        01e0: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+        0200: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+        0220: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+        0240: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+        0260: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+        0280: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+        02a0: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+        02c0: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+        02e0: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+        0300: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+        0320: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+        0340: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+        0360: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+        0380: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+        03a0: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+        03c0: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+        03e0: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+        0400: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+        0420: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+        0440: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+        0460: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+        0480: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+        04a0: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+        04c0: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+        04e0: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+        0500: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+        0520: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+        0540: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+        0560: 6f2c 2077 6f72 6c64 210a                                                         o,.world!.
+      >,
       "emp": Object {
         "b": Buffer <>,
         "a": Array [],
@@ -2453,7 +3051,53 @@ exports[`test/format.js TAP gnarly object, many points of view different points 
           "o": true,
         },
       ],
-      "buf": Buffer <68 6f 77 64 79>,
+      "buf": Buffer <686f 7764 79  howdy>,
+      "longBuf": Buffer <
+        0000: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+        0020: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+        0040: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+        0060: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+        0080: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+        00a0: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+        00c0: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+        00e0: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+        0100: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+        0120: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+        0140: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+        0160: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+        0180: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+        01a0: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+        01c0: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+        01e0: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+        0200: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+        0220: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+        0240: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+        0260: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+        0280: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+        02a0: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+        02c0: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+        02e0: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+        0300: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+        0320: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+        0340: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+        0360: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+        0380: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+        03a0: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+        03c0: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+        03e0: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+        0400: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+        0420: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+        0440: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+        0460: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+        0480: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+        04a0: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+        04c0: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+        04e0: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+        0500: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+        0520: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+        0540: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+        0560: 6f2c 2077 6f72 6c64 210a                                                         o,.world!.
+      >,
       "emp": Object {
         "b": Buffer <>,
         "a": Array [],
@@ -2601,7 +3245,53 @@ exports[`test/format.js TAP gnarly object, many points of view different points 
             "o": true,
           },
         ],
-        "buf": Buffer <68 6f 77 64 79>,
+        "buf": Buffer <686f 7764 79  howdy>,
+        "longBuf": Buffer <
+          0000: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+          0020: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+          0040: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+          0060: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+          0080: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+          00a0: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+          00c0: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+          00e0: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+          0100: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+          0120: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+          0140: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+          0160: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+          0180: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+          01a0: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+          01c0: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+          01e0: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+          0200: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+          0220: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+          0240: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+          0260: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+          0280: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+          02a0: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+          02c0: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+          02e0: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+          0300: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+          0320: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+          0340: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+          0360: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+          0380: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+          03a0: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+          03c0: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+          03e0: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+          0400: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+          0420: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+          0440: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+          0460: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+          0480: 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077  o,.world!.hello,.world!.hello,.w
+          04a0: 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64  orld!.hello,.world!.hello,.world
+          04c0: 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865  !.hello,.world!.hello,.world!.he
+          04e0: 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c  llo,.world!.hello,.world!.hello,
+          0500: 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72  .world!.hello,.world!.hello,.wor
+          0520: 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a  ld!.hello,.world!.hello,.world!.
+          0540: 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c 6f2c 2077 6f72 6c64 210a 6865 6c6c  hello,.world!.hello,.world!.hell
+          0560: 6f2c 2077 6f72 6c64 210a                                                         o,.world!.
+        >,
         "emp": Object {
           "b": Buffer <>,
           "a": Array [],
@@ -2710,7 +3400,7 @@ Minipass {
   "_maxListeners": undefined,
   "pipes": Yallist [],
   "buffer": Yallist [
-    Buffer <68 65 6c 6c 6f>,
+    Buffer <6865 6c6c 6f  hello>,
   ],
   "writable": false,
   "readable": true,

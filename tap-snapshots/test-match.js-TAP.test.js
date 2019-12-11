@@ -15,8 +15,8 @@ exports[`test/match.js TAP ctors and other fun things > must match snapshot 1`] 
 --- expected
 +++ actual
 @@ -1,1 +1,1 @@
--Buffer <61 73 64 66 66>
-+Buffer <61 73 64 66>
+-Buffer <6173 6466 66  asdff>
++Buffer <6173 6466  asdf>
 
 `
 

@@ -41,6 +41,7 @@ t.test('gnarly object, many points of view', t => {
     om: new Map([[o, k], [k, o]]),
     args: args(1, 2, 3, o),
     buf: Buffer.from('howdy'),
+    longBuf: Buffer.from(new Array(100).join('hello, world!\n')),
     emp: {
       b: Buffer.from(''),
       a: [],

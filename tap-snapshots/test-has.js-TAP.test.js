@@ -105,8 +105,8 @@ exports[`test/has.js TAP buffer > must match snapshot 2`] = `
 +++ actual
 @@ -1,3 +1,3 @@
  Object {
--  "b": Buffer <61 73 64>,
-+  "b": Buffer <61 73 64 66>,
+-  "b": Buffer <6173 64  asd>,
++  "b": Buffer <6173 6466  asdf>,
  }
 
 `

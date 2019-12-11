@@ -198,8 +198,8 @@ exports[`test/strict.js TAP basic > must match snapshot 30`] = `
 --- expected
 +++ actual
 @@ -1,1 +1,1 @@
--Buffer <61 62 63 64>
-+Buffer <61 62 63>
+-Buffer <6162 6364  abcd>
++Buffer <6162 63  abc>
 
 `
 
@@ -207,8 +207,8 @@ exports[`test/strict.js TAP basic > must match snapshot 31`] = `
 --- expected
 +++ actual
 @@ -1,1 +1,1 @@
--Buffer <61 62 64>
-+Buffer <61 62 63>
+-Buffer <6162 64  abd>
++Buffer <6162 63  abc>
 
 `
 
