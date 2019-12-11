@@ -2,6 +2,14 @@ const compare = require('../')
 const t = require('tap')
 const strict = (t, a, b) => {
   const s = compare.strict(a, b)
+
+  // the 'domain' enumerable object went away in node 12, so this is
+  // to test against snapshots in node 10.
+  if (a && typeof a === 'object')
+    delete a.domain
+  if (b && typeof b === 'object')
+    delete b.domain
+
   t.matchSnapshot(s.diff)
   return s.match
 }

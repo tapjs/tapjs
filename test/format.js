@@ -1,6 +1,26 @@
 const t = require('tap')
 const {format, Format} = require('../')
 
+// this is here so we can work with assertion errors and other
+// inspection output from node 12 and 13, where cyclical refs
+// are reported properly.
+t.formatSnapshot = str => cleanNodeNames(str)
+
+const cleanNodeNames = str => str
+  // strip out node 13's circular refs
+  .replace(/<ref \*[0-9]+> /g, '')
+  .replace(/\[Circular \*[0-9]+\]/g, '[Circular]')
+  // remove node 10's ERR_ASSERTION litter
+  .replace(/\s+"name": "AssertionError \[ERR_ASSERTION\]",\n/g, '\n')
+  .replace(/AssertionError \[ERR_ASSERTION\]/g, 'AssertionError')
+  // remove enumerable domain:null field
+  .replace(/\s+"domain": null,\n/g, '\n')
+  .replace(/new AssertionError\([^\)]+\)/g,
+    'new AssertionError(<contents elided for testing>)')
+  // tight formatting
+  .replace(/"name":"AssertionError",/g, '')
+  .replace(/"domain":null,/g, '')
+
 t.test('gnarly object, many points of view', t => {
   const k = { a: 1 }
   k.k = { k }
@@ -96,14 +116,14 @@ t.test('gnarly object, many points of view', t => {
 
   const styles = ['pretty', 'js', 'tight']
   for (const style of styles) {
-    t.matchSnapshot(format(f, {style}), style)
+    t.matchSnapshot(cleanNodeNames(format(f, {style})), style)
   }
 
   t.test('different points of view', t => {
-    t.matchSnapshot(format(f.m), 'f.m')
-    t.matchSnapshot(format(k), 'k')
-    t.matchSnapshot(format(k.k), 'k.k')
-    t.matchSnapshot(format(c), 'c')
+    t.matchSnapshot(cleanNodeNames(format(f.m)), 'f.m')
+    t.matchSnapshot(cleanNodeNames(format(k)), 'k')
+    t.matchSnapshot(cleanNodeNames(format(k.k)), 'k.k')
+    t.matchSnapshot(cleanNodeNames(format(c)), 'c')
     t.end()
   })
 
@@ -178,8 +198,8 @@ t.test('streams are not arrays', t => {
   const readable = new MP().end('hello')
   const writable = new MP()
   writable.pipe = null
-  t.matchSnapshot(new Format(readable).print())
-  t.matchSnapshot(new Format(writable).print())
+  t.matchSnapshot(cleanNodeNames(new Format(readable).print()))
+  t.matchSnapshot(cleanNodeNames(new Format(writable).print()))
   t.end()
 })
 
