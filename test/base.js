@@ -14,7 +14,7 @@ t.test('basic base', t => {
 t.test('base with context', t => {
   const ctx = { a: 1 }
   const b = new Base({ context: ctx })
-  t.notEqual(b.context, ctx)
+  t.not(b.context, ctx)
   t.match(b.context, ctx)
   b.context.foo = 'bar'
   t.equal(ctx.foo, undefined)
@@ -24,7 +24,7 @@ t.test('base with context', t => {
   t.equal(c.context, s)
 
   const d = new Base({ context: null })
-  t.isa(d.context, 'object')
+  t.type(d.context, 'object')
   t.end()
 })
 
@@ -38,7 +38,7 @@ t.test('skip + debug', t => {
   console.error = msg => output = msg
 
   t.equal(b.main, Base.prototype.main)
-  t.notEqual(b.debug, Base.prototype.debug)
+  t.not(b.debug, Base.prototype.debug)
   b.debug('hello', { world: '420' })
   console.error = error
   t.match(output.trim(), /^TAP [0-9]+ name: hello \{ world: '420' \}$/)
