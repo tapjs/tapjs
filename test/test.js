@@ -331,11 +331,11 @@ t.test('assertions and weird stuff', t => {
       tt.strictSame([1, 2, 3], ['1', '2', '3'])
       tt.strictSame(o, { foo: 1 })
       tt.strictSame(o, o)
-      tt.notStrictSame({ foo: 2 }, { foo: 1 }, { skip: true })
-      tt.notStrictSame({ foo: 2 }, { foo: 1 }, 'this one passes')
-      tt.notStrictSame({ foo: { bar: 2 } }, { foo: { bar: '2' } },
+      tt.strictNotSame({ foo: 2 }, { foo: 1 }, { skip: true })
+      tt.strictNotSame({ foo: 2 }, { foo: 1 }, 'this one passes')
+      tt.strictNotSame({ foo: { bar: 2 } }, { foo: { bar: '2' } },
                        'this one passes')
-      tt.notStrictSame({ foo: { bar: 2 } }, { foo: { bar: 2 } },
+      tt.strictNotSame({ foo: { bar: 2 } }, { foo: { bar: 2 } },
                        'this one fails')
 
       tt.end()

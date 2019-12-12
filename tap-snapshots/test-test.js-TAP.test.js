@@ -1298,7 +1298,7 @@ not ok 15 - this one fails
       bar: 2
   source: |2
                            'this one passes')
-          tt.notStrictSame({ foo: { bar: 2 } }, { foo: { bar: 2 } },
+          tt.strictNotSame({ foo: { bar: 2 } }, { foo: { bar: 2 } },
     --^
                            'this one fails')
   stack: |
