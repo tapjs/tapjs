@@ -27,5 +27,7 @@
     "check-coverage": true,
     "coverage-map": "map.js"
   },
-  "dependencies": {}
+  "engines": {
+    "node": ">=10"
+  }
 }
