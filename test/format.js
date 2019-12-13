@@ -41,7 +41,7 @@ t.test('gnarly object, many points of view', t => {
       },
       a: [2, 3, 4],
       h: 'asdf',
-      multilineString: new Array(5).join('this is a line\n'),
+      multilineString: 'this is a line\n'.repeat(4),
       emptyString: '',
     },
     nullObject: Object.assign(Object.create(null), {
@@ -62,7 +62,7 @@ t.test('gnarly object, many points of view', t => {
     args: args(1, 2, 3, o),
     buf: Buffer.from('howdy'),
     bigInt: 5n,
-    longBuf: Buffer.from(new Array(100).join('hello, world!\n')),
+    longBuf: Buffer.from('hello, world!\n'.repeat(99)),
     emp: {
       b: Buffer.from(''),
       a: [],
