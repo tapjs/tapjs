@@ -36,6 +36,7 @@ t.test('builtin reporter', t =>
 t.test('tmr builtin reporter', t =>
   run([ok, '-Rspec'], opt, check(t)))
 
+// `-Rtap-parser` will use the version libtap installed
 t.test('cli reporter', t =>
   run([ok, '-Rtap-parser', '-r-t', '-r-f'], opt, check(t)))
 

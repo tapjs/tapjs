@@ -161,13 +161,15 @@ const mainAsync = async options => {
   }
 
   if (options.versions) {
+    const {libtap, tapParser, tapYaml, tcompare} = require('libtap/versions.js');
     return console.log(yaml.stringify({
       tap: require('../package.json').version,
-      'tap-parser': require('tap-parser/package.json').version,
+      libtap,
+      'tap-parser': tapParser,
       nyc: require('nyc/package.json').version,
-      'tap-yaml': require('tap-yaml/package.json').version,
+      'tap-yaml': tapYaml,
       treport: require('treport/package.json').version,
-      tcompare: require('tcompare/package.json').version,
+      tcompare
     }))
   }
 
@@ -175,7 +177,7 @@ const mainAsync = async options => {
     return console.log(require('../package.json').version)
 
   if (options['parser-version'])
-    return console.log(require('tap-parser/package.json').version)
+    return console.log(require('libtap/versions.js').tapParser)
 
   if (options['nyc-version'])
     return console.log(require('nyc/package.json').version)
