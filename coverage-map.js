@@ -5,8 +5,8 @@ module.exports = t => {
   const unit = path.basename(parts[1], '.js')
   if (unit === 'run')
     return glob.sync('bin/*.js')
-  if (unit === 'coverage-map')
-    return [ path.basename(__filename) ]
+  if (unit === 'coverage-map' || unit === 'settings')
+    return [ `${unit}.js` ]
   const cov = glob.sync(`lib/${unit}.js`)
   if (!cov.length)
     return null
