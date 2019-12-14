@@ -12,6 +12,7 @@ exports[`test/run/basic.js TAP --parser-version > output 1`] = `
 
 exports[`test/run/basic.js TAP --versions > output 1`] = `
 tap: {version}
+libtap: {version}
 tap-parser: {version}
 nyc: {version}
 tap-yaml: {version}
