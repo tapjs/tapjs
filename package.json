@@ -46,7 +46,7 @@
     "tap-parser": "^10.0.1",
     "tap-yaml": "^1.0.0",
     "tcompare": "^3.0.0",
-    "treport": "^1.0.0",
+    "treport": "^1.0.1",
     "trivial-deferred": "^1.0.1",
     "ts-node": "^8.5.2",
     "typescript": "^3.7.2",
