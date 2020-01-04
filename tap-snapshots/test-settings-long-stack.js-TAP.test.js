@@ -8,6 +8,7 @@
 exports[`test/settings/long-stack.js TAP > must match snapshot 1`] = `
 Object {
   "atTap": true,
+  "rmdirRecursiveSync": Function rmdirRecursiveSync(dir),
   "stackUtils": Object {
     "ignoredPackages": Array [],
     "internals": Array [],
