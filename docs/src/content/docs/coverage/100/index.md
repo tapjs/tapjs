@@ -17,6 +17,7 @@ request](https://github.com/tapjs/node-tap/blob/master/docs/src/content/docs/cov
 to add it to the docs.
 
 * [abbrev](https://www.npmjs.com/package/abbrev)
+* [bowling](https://www.npmjs.com/package/bowling)
 * [casern](https://www.npmjs.com/package/casern)
 * [color-support](https://www.npmjs.com/package/color-support)
 * [contentfs](https://www.npmjs.com/package/contentfs)
