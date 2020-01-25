@@ -9,5 +9,6 @@ module.exports = settings => ({
   stackUtils: {
     ...settings.stackUtils,
     internals: []
-  }
+  },
+  output: settings.output === process.stdout
 })

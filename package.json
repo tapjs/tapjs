@@ -25,7 +25,7 @@
     "isexe": "^2.0.0",
     "istanbul-lib-processinfo": "^1.0.0",
     "jackspeak": "^1.4.0",
-    "libtap": "^0.1.0",
+    "libtap": "^0.2.0",
     "minipass": "^3.1.1",
     "mkdirp": "^0.5.1",
     "nyc": "^14.1.1",
