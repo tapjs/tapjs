@@ -25,6 +25,7 @@ to add it to the docs.
 * [dpc](https://www.npmjs.com/package/dpc)
 * [events-to-array](https://www.npmjs.com/package/events-to-array)
 * [express-jwt-permissions](https://www.npmjs.com/package/express-jwt-permissions)
+* [fastify-esso](https://www.npmjs.com/package/fastify-esso)
 * [fastify-vhost](https://www.npmjs.com/package/fastify-vhost)
 * [frs-replace](https://www.npmjs.com/package/frs-replace)
 * [fs-exists-cached](https://www.npmjs.com/package/fs-exists-cached)
