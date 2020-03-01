@@ -21,11 +21,11 @@ ok 2 - 2.test.js # {time} {
 
 1..2
 # {time}
--|-|-|-|-|-|
-File | % Stmts | % Branch | % Funcs | % Lines | Uncovered Lines |
--|-|-|-|-|-|
-All files | 0 | 0 | 0 | 0 | |
--|-|-|-|-|-|
+-|-|-|-|-|-
+File | % Stmts | % Branch | % Funcs | % Lines | Uncovered Lines 
+-|-|-|-|-|-
+All files | 0 | 0 | 0 | 0 | 
+-|-|-|-|-|-
 
 `
 
@@ -45,38 +45,38 @@ ok 2 - 2.test.js # {time} {
 
 1..2
 # {time}
--|-|-|-|-|-|
-File | % Stmts | % Branch | % Funcs | % Lines | Uncovered Lines |
--|-|-|-|-|-|
-All files | 75 | 75 | 100 | 75 | |
- ok.js | 75 | 75 | 100 | 75 | 6 |
--|-|-|-|-|-|
+-|-|-|-|-|-
+File | % Stmts | % Branch | % Funcs | % Lines | Uncovered Lines 
+-|-|-|-|-|-
+All files | 75 | 75 | 100 | 75 | 
+ ok.js | 75 | 75 | 100 | 75 | 6                 
+-|-|-|-|-|-
 
 `
 
 exports[`test/run/coverage.js TAP in 100 mode, <100 is red, not yellow > text output and 100 check 1`] = `
--|-|-|-|-|-|
-File | % Stmts | % Branch | % Funcs | % Lines | Uncovered Lines |
--|-|-|-|-|-|
-[31;1mAll files[0m |[31;1m       75[0m |[31;1m       75[0m |[32;1m      100[0m |[31;1m       75[0m |[31;1m                  [0m |
-[31;1m ok.js   [0m |[31;1m       75[0m |[31;1m       75[0m |[32;1m      100[0m |[31;1m       75[0m |[31;1m                 6[0m |
--|-|-|-|-|-|
+-|-|-|-|-|-
+File | % Stmts | % Branch | % Funcs | % Lines | Uncovered Lines 
+-|-|-|-|-|-
+[31;1mAll files[0m | [31;1m     75[0m | [31;1m      75[0m | [32;1m    100[0m | [31;1m     75[0m | [31;1m                 [0m 
+[31;1m ok.js   [0m | [31;1m     75[0m | [31;1m      75[0m | [32;1m    100[0m | [31;1m     75[0m | [31;1m6                [0m 
+-|-|-|-|-|-
 
 `
 
 exports[`test/run/coverage.js TAP pipe to service > human output 1`] = `
--|-|-|-|-|-|
-File | % Stmts | % Branch | % Funcs | % Lines | Uncovered Lines |
--|-|-|-|-|-|
-All files | 75 | 75 | 100 | 75 | |
- ok.js | 75 | 75 | 100 | 75 | 6 |
--|-|-|-|-|-|
+-|-|-|-|-|-
+File | % Stmts | % Branch | % Funcs | % Lines | Uncovered Lines 
+-|-|-|-|-|-
+All files | 75 | 75 | 100 | 75 | 
+ ok.js | 75 | 75 | 100 | 75 | 6                 
+-|-|-|-|-|-
 
 `
 
 exports[`test/run/coverage.js TAP pipe to service > piped to coverage service cat 1`] = `
 TN:
-SF:{CWD}/cli-tests/ok.js
+SF:ok.js
 FN:2,(anonymous_0)
 FNF:1
 FNH:1
@@ -113,18 +113,18 @@ ok 2 - 2.test.js # {time} {
 
 1..2
 # {time}
--|-|-|-|-|-|
-File | % Stmts | % Branch | % Funcs | % Lines | Uncovered Lines |
--|-|-|-|-|-|
-All files | 75 | 75 | 100 | 75 | |
- ok.js | 75 | 75 | 100 | 75 | 6 |
--|-|-|-|-|-|
+-|-|-|-|-|-
+File | % Stmts | % Branch | % Funcs | % Lines | Uncovered Lines 
+-|-|-|-|-|-
+All files | 75 | 75 | 100 | 75 | 
+ ok.js | 75 | 75 | 100 | 75 | 6                 
+-|-|-|-|-|-
 
 `
 
 exports[`test/run/coverage.js TAP pipe to service along with tests > piped to coverage service cat 1`] = `
 TN:
-SF:{CWD}/cli-tests/ok.js
+SF:ok.js
 FN:2,(anonymous_0)
 FNF:1
 FNH:1
@@ -147,7 +147,7 @@ end_of_record
 
 exports[`test/run/coverage.js TAP report only > lcov output 1`] = `
 TN:
-SF:{CWD}/cli-tests/ok.js
+SF:ok.js
 FN:2,(anonymous_0)
 FNF:1
 FNH:1
@@ -170,7 +170,7 @@ end_of_record
 
 exports[`test/run/coverage.js TAP report with checks > lcov output and 100 check 1`] = `
 TN:
-SF:{CWD}/cli-tests/ok.js
+SF:ok.js
 FN:2,(anonymous_0)
 FNF:1
 FNH:1
@@ -207,11 +207,11 @@ ok 2 - 2.test.js # {time} {
 
 1..2
 # {time}
--|-|-|-|-|-|
-File | % Stmts | % Branch | % Funcs | % Lines | Uncovered Lines |
--|-|-|-|-|-|
-All files | 75 | 75 | 100 | 75 | |
- ok.js | 75 | 75 | 100 | 75 | 6 |
--|-|-|-|-|-|
+-|-|-|-|-|-
+File | % Stmts | % Branch | % Funcs | % Lines | Uncovered Lines 
+-|-|-|-|-|-
+All files | 75 | 75 | 100 | 75 | 
+ ok.js | 75 | 75 | 100 | 75 | 6                 
+-|-|-|-|-|-
 
 `

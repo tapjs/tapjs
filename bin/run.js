@@ -18,7 +18,6 @@ const tsNode = require.resolve('ts-node/register')
 const flowNode = require.resolve("flow-remove-types/register");
 const esm = require.resolve('esm')
 const jsx = require.resolve('./jsx.js')
-const mkdirp = require('mkdirp').sync
 const which = require('which')
 const {ProcessDB} = require('istanbul-lib-processinfo')
 const rimraf = require('rimraf').sync
@@ -161,7 +160,7 @@ const mainAsync = async options => {
   }
 
   if (options.versions) {
-    const {libtap, tapParser, tapYaml, tcompare} = require('libtap/versions.js');
+    const {libtap, tapParser, tapYaml, tcompare} = require('libtap/versions');
     return console.log(yaml.stringify({
       tap: require('../package.json').version,
       libtap,
@@ -177,7 +176,7 @@ const mainAsync = async options => {
     return console.log(require('../package.json').version)
 
   if (options['parser-version'])
-    return console.log(require('libtap/versions.js').tapParser)
+    return console.log(require('libtap/versions').tapParser)
 
   if (options['nyc-version'])
     return console.log(require('nyc/package.json').version)
@@ -226,7 +225,7 @@ const mainAsync = async options => {
   debug('after globbing', options.files)
 
   if (options['output-dir'] !== null)
-    mkdirp(options['output-dir'])
+    fs.mkdirSync(options['output-dir'], {recursive: true})
 
   if (options.files.length === 1 && options.files[0] === '-') {
     debug('do stdin only')
@@ -587,7 +586,7 @@ const runAllFiles = (options, env, tap, processDB) => {
   if (options['output-dir'] !== null) {
     tap.on('spawn', t => {
       const dir = options['output-dir'] + '/' + path.dirname(t.name)
-      mkdirp(dir)
+      fs.mkdirSync(dir, {recursive: true})
       const file = dir + '/' + path.basename(t.name) + '.tap'
       t.proc.stdout.pipe(fs.createWriteStream(file))
     })

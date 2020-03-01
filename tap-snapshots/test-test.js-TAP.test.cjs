@@ -13,18 +13,18 @@ not ok 1 - expect a valid http/https url
     line: #
     column: #
     file: test/test.js
-  diff: |-
+  diff: |
     --- expected
     +++ actual
-    @@ -1,6 +1,6 @@ Url {
+    @@ -1,6 +1,6 @@
      Url {
     -  "protocol": /^https?:$/,
-    +  "protocol": null,
     -  "slashes": true,
-    +  "slashes": null,
     -  "host": Function String(),
-    +  "host": null,
     -  "path": /^\\/.*$/,
+    +  "protocol": null,
+    +  "slashes": null,
+    +  "host": null,
     +  "path": "hello%20is%20not%20a%20url",
      }
   pattern:
@@ -517,10 +517,10 @@ not ok 5 - should be equal
     column: #
     file: test/test.js
   compare: ===
-  diff: |-
+  diff: |
     --- expected
     +++ actual
-    @@ -1,3 +1,3 @@ Object {
+    @@ -1,3 +1,3 @@
      Object {
     -  "foo": 2,
     +  "foo": 1,
@@ -746,10 +746,10 @@ not ok 1 - should fail
     line: #
     column: #
     file: test/test.js
-  diff: |-
+  diff: |
     --- expected
     +++ actual
-    @@ -1,4 +1,4 @@ Object {
+    @@ -1,4 +1,4 @@
      Object {
        "a": "b",
     -  "c": 1,
@@ -772,10 +772,10 @@ not ok 3 - should contain all provided fields strictly # TODO
     line: #
     column: #
     file: test/test.js
-  diff: |-
+  diff: |
     --- expected
     +++ actual
-    @@ -1,4 +1,4 @@ Object {
+    @@ -1,4 +1,4 @@
      Object {
        "a": "b",
     -  "c": 1,
@@ -874,14 +874,14 @@ not ok 2 - should match pattern provided
     line: #
     column: #
     file: test/test.js
-  diff: |-
+  diff: |
     --- expected
     +++ actual
-    @@ -1,4 +1,4 @@ Object {
+    @@ -1,4 +1,4 @@
      Object {
     -  "a": "asdf",
-    +  "a": "b",
     -  "c": 1,
+    +  "a": "b",
     +  "c": /asdf/,
      }
   pattern:
@@ -904,14 +904,14 @@ not ok 4 - should match pattern provided # TODO
     line: #
     column: #
     file: test/test.js
-  diff: |-
+  diff: |
     --- expected
     +++ actual
-    @@ -1,4 +1,4 @@ Object {
+    @@ -1,4 +1,4 @@
      Object {
     -  "a": "asdf",
-    +  "a": "b",
     -  "c": 1,
+    +  "a": "b",
     +  "c": /asdf/,
      }
   pattern:
@@ -1145,7 +1145,7 @@ not ok 2 - expect resolving Promise # TODO
   diff: |
     --- expected
     +++ actual
-    @@ -1,1 +1,1 @@ 
+    @@ -1,1 +1,1 @@
     -"asdf"
     +420
   found: 420
@@ -1257,16 +1257,16 @@ not ok 9 - should be equivalent strictly
     line: #
     column: #
     file: test/test.js
-  diff: |-
+  diff: |
     --- expected
     +++ actual
-    @@ -1,5 +1,5 @@ Array [
+    @@ -1,5 +1,5 @@
      Array [
     -  "1",
-    +  1,
     -  "2",
-    +  2,
     -  "3",
+    +  1,
+    +  2,
     +  3,
      ]
   source: |2
@@ -2870,13 +2870,12 @@ TAP version 13
           diff: |
             --- expected
             +++ actual
-            @@ -1,3 +1,3 @@ 
+            @@ -1,3 +1,3 @@
             -Object {
             -  "message": "bar",
-            -}
             +Error: foo is not a bear {
             +  "tapCaught": "uncaughtException",
-            +}
+             }
           pattern:
             message: bar
           stack: |
@@ -2897,13 +2896,12 @@ TAP version 13
           diff: |
             --- expected
             +++ actual
-            @@ -1,3 +1,3 @@ 
+            @@ -1,3 +1,3 @@
             -Object {
             -  "message": "bar",
-            -}
             +Error: foo is not a bear {
             +  "tapCaught": "uncaughtException",
-            +}
+             }
           pattern:
             message: bar
           stack: |

@@ -17,7 +17,7 @@ Object {
 exports[`test/clean-yaml-object.js TAP diff stuff > objects that do not strictly match 1`] = `
 Object {
   "comparator": "===",
-  "diff": "--- expected\\n+++ actual\\n@@ -1,3 +1,3 @@ Object {\\n Object {\\n-  \\"a\\": \\"1\\",\\n+  \\"a\\": 1,\\n }",
+  "diff": "--- expected\\n+++ actual\\n@@ -1,3 +1,3 @@\\n Object {\\n-  \\"a\\": \\"1\\",\\n+  \\"a\\": 1,\\n }\\n",
 }
 `
 

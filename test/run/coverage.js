@@ -1,4 +1,5 @@
 const {
+  escapeNYC,
   tmpfile,
   bin,
   tap,
@@ -10,7 +11,6 @@ const {
 
 const { execFile } = require('child_process')
 const path = require('path')
-
 
 const ok = tmpfile(t, 'ok.js', `'use strict'
   module.exports = (x, y) => {
@@ -32,7 +32,8 @@ const t3 = tmpfile(t, '3.test.js', `'use strict'
   const ok = require('./ok.js')
   require(${tap}).equal(ok(0, 3), 3)`)
 
-// escape from new york
+escapeNYC()
+
 const escapePath = `${path.dirname(process.execPath)}:${process.env.PATH}`
 const esc = tmpfile(t, 'runtest.sh',
 `#!/bin/bash

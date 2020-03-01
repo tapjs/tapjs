@@ -1,6 +1,5 @@
 'use strict'
 const fs = require('fs')
-const mkdirp = require('mkdirp')
 const rimraf = require('rimraf')
 // const rimraf = { sync: () => {} }
 const path = require('path')
@@ -51,7 +50,7 @@ const tmpfile = (t, filename, content) => {
   const parts = filename.split('/')
   // make any necessary dirs
   if (parts.length > 1)
-    mkdirp.sync(path.join(dir, parts.slice(0, -1).join('/')))
+    fs.mkdirSync(path.join(dir, parts.slice(0, -1).join('/')), {recursive: true})
   if (t.tmpfiles)
     t.tmpfiles.push(path.join(dir, parts[0]))
   else {
@@ -64,10 +63,36 @@ const tmpfile = (t, filename, content) => {
   return path.relative('', filename)
 }
 
+const escapeNYC = () =>  {
+  // This function is too intimate with nyc internals, could get broken by internal
+  // changes to nyc.  Probably need an official istanbuljs API to unwrap.
+  const nycWrap = require.resolve('nyc/lib/wrap.js')
+  const preloadList = require('node-preload')
+  const idx = preloadList.indexOf(nycWrap)
+  if (idx === -1) {
+    return
+  }
+
+  preloadList.splice(idx, 1)
+
+  const processOnSpawn = require('process-on-spawn')
+  const nycEnvs = [
+    'NYC_CONFIG',
+    'NYC_CWD',
+    'NYC_PROCESS_ID',
+    'BABEL_DISABLE_CACHE'
+  ]
+  processOnSpawn.addListener(({ env }) => {
+    for (const key of nycEnvs) {
+      delete env[key]
+    }
+  })
+}
+
 if (module === require.main)
   t.pass('this is fine')
 else {
-  mkdirp.sync(dir)
+  fs.mkdirSync(dir, {recursive: true})
   if (process.env._TAP_TEST_NO_TEARDOWN_TMP !== '1') {
     t.teardown(() => rimraf.sync(dir))
     process.on('exit', () => rimraf.sync(dir))
@@ -75,6 +100,7 @@ else {
 }
 
 module.exports = {
+  escapeNYC,
   tmpfile,
   run,
   bin,
