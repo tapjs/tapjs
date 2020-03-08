@@ -1,4 +1,5 @@
 const {
+  escapeNYC,
   tmpfile,
   node,
   dir,
@@ -13,7 +14,8 @@ const {dirname, basename} = require('path')
 const clean = t.cleanSnapshot
 t.cleanSnapshot = str => clean(str).replace(/[0-9\.]+m?s/g, '{TIME}')
 
-// escape from new york
+escapeNYC()
+
 const escapePath = `${dirname(process.execPath)}:${process.env.PATH}`
 const esc = tmpfile(t, 'runtest.sh',
 `#!/bin/bash

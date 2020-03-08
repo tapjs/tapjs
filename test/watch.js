@@ -120,11 +120,10 @@ const index = {
   }
 }
 
-const mkdirp = require('mkdirp').sync
 const rimraf = require('rimraf').sync
-const pidir = dir + '/.nyc_output/processinfo'
-mkdirp(pidir)
 const fs = require('fs')
+const pidir = dir + '/.nyc_output/processinfo'
+fs.mkdirSync(pidir, {recursive: true})
 const read = file => fs.existsSync(file) && fs.readFileSync(file, 'utf8')
 const saveFile = 'node_modules/.cache/tap/watch-' + process.pid
 

@@ -8,11 +8,10 @@ const {
 
 const {getChangedFilter, filterFiles} = require(bin)
 const fs = require('fs')
-const mkdirp = require('mkdirp')
 
 const rewrite = file => fs.writeFileSync(file, fs.readFileSync(file))
 
-mkdirp.sync(dir)
+fs.mkdirSync(dir, {recursive: true})
 const cwd = process.cwd()
 process.chdir(dir)
 t.teardown(() => process.chdir(cwd))
@@ -62,7 +61,7 @@ t.test('no index file means we let everything through', t => {
 })
 
 t.test('with a real index', t => {
-  mkdirp.sync('.nyc_output/processinfo')
+  fs.mkdirSync('.nyc_output/processinfo', {recursive: true})
   const pauseLength = 10
   const index = '.nyc_output/processinfo/index.json'
   const indexData = {
