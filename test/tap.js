@@ -4,10 +4,27 @@ const mocha = require('../lib/mocha.js')
 const synonyms = require('../lib/synonyms.js')
 
 function testSynonyms(settings) {
+  let warnings;
+
+  const {emitWarning} = process;
+  process.emitWarning = (msg, ...args) => {
+    warnings.push(msg)
+  }
+
   for (const [id, args] of Object.entries(settings)) {
     tap.test(`${id} synonyms`, t => {
       for (const fn of Object.values(synonyms[id])) {
+        warnings = []
         t[fn](...[].concat(args))
+        if (id === fn) {
+          t.equal(warnings.length, 0, `no deprecation for ${fn}`)
+        } else {
+          t.same(
+            warnings,
+            [`${fn}() is deprecated, use ${id}() instead`],
+            `deprecation for ${fn}`
+          )
+        }
       }
 
       t.end()
