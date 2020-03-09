@@ -594,24 +594,24 @@ Much more documentation available at: https://www.node-tap.org/
   }),
 
   esm: flag({
-    default: process.env.TAP_NO_ESM !== '1',
+    default: process.env.TAP_ESM === '1',
     description: `Run .js and .mjs with support for EcmaScript modules
-                  (Default: true)`,
+                  (Default: false)`,
   }),
   flow: flag({
     description: `Removes flow types`,
   }),
 
   ts: flag({
-    default: process.env.TAP_NO_TS !== '1',
+    default: process.env.TAP_TS === '1',
     description: `Automatically load .ts and .tsx tests with tap's bundled
-                  ts-node module (Default: true)`,
+                  ts-node module (Default: false)`,
   }),
 
   jsx: flag({
-    default: process.env.TAP_NO_JSX !== '1',
+    default: process.env.TAP_JSX === '1',
     description: `Automatically load .jsx tests using tap's bundled import-jsx
-                  loader (Default: true)`,
+                  loader (Default: false)`,
   }),
 
   'nyc-help': flag({
@@ -792,16 +792,16 @@ Much more documentation available at: https://www.node-tap.org/
     description: `Set to '1' to set the --only flag`
   })),
 
-  TAP_NO_ESM: env(flag({
-    description: `Set to '1' to disable automatic esm support`
+  TAP_ESM: env(flag({
+    description: `Set to '1' to enable automatic esm support`
   })),
 
-  TAP_NO_TS: env(flag({
-    description: `Set to '1' to disable automatic typescript support`
+  TAP_TS: env(flag({
+    description: `Set to '1' to enable automatic typescript support`
   })),
 
-  TAP_NO_JSX: env(flag({
-    description: `Set to '1' to disable automatic jsx support`
+  TAP_JSX: env(flag({
+    description: `Set to '1' to enable automatic jsx support`
   })),
 
 }, {

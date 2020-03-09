@@ -1,4 +1,3 @@
-process.env.TAP_NO_ESM = '1'
 const {
   tmpfile,
   run,
@@ -32,7 +31,7 @@ const abf2 = tmpfile(t, 'z.js', `//z.js
 `)
 
 const savefile = path.resolve(tmpfile(t, 'fails.txt', ''))
-const opt = { cwd: dir, env: { TAP_NO_ESM: '1' } }
+const opt = { cwd: dir, env: {} }
 
 t.test('with bailout, should save all untested', t => {
   run(['a', 'x', 'z.js', '-s', savefile, '-b'], opt, (er, o, e) => {

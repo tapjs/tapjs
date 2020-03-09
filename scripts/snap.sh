@@ -1,7 +1,6 @@
 #!/bin/bash
 
 export TAP_SNAPSHOT=1
-export TAP_NO_ESM=1
 export TAP_BAIL=1
 
 shopt -s globstar

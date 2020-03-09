@@ -63,7 +63,6 @@ const escape = (args, options, cb) => {
     return env
   }, options.env || {})
   options.env = env
-  options.env.TAP_NO_ESM = '1'
   const a = [path.basename(esc)].concat(
     args.map(a => path.basename(a)))
   return execFile('bash', a, options, cb)

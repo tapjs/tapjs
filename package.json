@@ -70,7 +70,6 @@
     "www:serve": "cd docs; npm run serve"
   },
   "tap": {
-    "esm": false,
     "test-ignore": "/(^|/)cli-tests-[0-9]+/",
     "check-coverage": true
   },

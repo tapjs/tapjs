@@ -369,19 +369,19 @@ Other Options:
   --strict               Run JS tests in 'use strict' mode
 
   --esm                  Run .js and .mjs with support for EcmaScript modules
-                         (Default: true)
+                         (Default: false)
 
   --no-esm               switch off the --esm flag
   --flow                 Removes flow types
   --no-flow              switch off the --flow flag
 
   --ts                   Automatically load .ts and .tsx tests with tap's
-                         bundled ts-node module (Default: true)
+                         bundled ts-node module (Default: false)
 
   --no-ts                switch off the --ts flag
 
   --jsx                  Automatically load .jsx tests using tap's bundled
-                         import-jsx loader (Default: true)
+                         import-jsx loader (Default: false)
 
   --no-jsx               switch off the --jsx flag
 
@@ -480,9 +480,9 @@ Environment Variables:
                          flag works.)
 
   TAP_ONLY               Set to '1' to set the --only flag
-  TAP_NO_ESM             Set to '1' to disable automatic esm support
-  TAP_NO_TS              Set to '1' to disable automatic typescript support
-  TAP_NO_JSX             Set to '1' to disable automatic jsx support
+  TAP_ESM                Set to '1' to enable automatic esm support
+  TAP_TS                 Set to '1' to enable automatic typescript support
+  TAP_JSX                Set to '1' to enable automatic jsx support
 
 Config Files:
 
