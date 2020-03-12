@@ -12,8 +12,14 @@ ES-Modules are supported by default, using the [esm](http://npm.im/esm) module.
 If your test file ends in `.mjs`, then this will automatically use Node's
 built-in experimental module system.
 
-To turn _off_ ES-Module support (as may be required in some edge cases), run
-your tests with `--no-esm`.
+Although, if you are using ES-modules with `.js` extension & `type: module` pattern
+on Node.js v12.13+, you will face warnings and/or crashes while running tests. 
+In this case it is advised to turn "esm" support off & use native Node.js 
+module loader.
+
+To turn _off_ ES-Module support, run your tests with `--no-esm`.
+
+In future releases (v15+) "esm" module will be turned off by default.
 
 # Using tap with TypeScript
 
