@@ -18,7 +18,7 @@
     "browser-process-hrtime": "^1.0.0",
     "chokidar": "^3.3.0",
     "color-support": "^1.1.0",
-    "coveralls": "^3.0.8",
+    "coveralls": "^3.0.11",
     "diff": "^4.0.1",
     "esm": "^3.2.25",
     "findit": "^2.0.0",
