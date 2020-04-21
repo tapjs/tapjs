@@ -20,6 +20,7 @@ to add it to the docs.
 * [casern](https://www.npmjs.com/package/casern)
 * [color-support](https://www.npmjs.com/package/color-support)
 * [contentfs](https://www.npmjs.com/package/contentfs)
+* [csp-tool](https://www.npmjs.com/package/csp-tool)
 * [dotenv](https://www.npmjs.com/package/dotenv)
 * [dpc](https://www.npmjs.com/package/dpc)
 * [events-to-array](https://www.npmjs.com/package/events-to-array)
