@@ -13,6 +13,9 @@
     "index.js",
     "lib/*.js"
   ],
+  "dependencies": {
+    "diff": "^4.0.2"
+  },
   "devDependencies": {
     "tap": "^14.10.2"
   },
