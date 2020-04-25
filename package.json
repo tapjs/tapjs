@@ -8,6 +8,13 @@
     "tap": "bin/run.js"
   },
   "main": "lib/tap.js",
+  "exports": {
+    ".": {
+      "import": "./lib/tap.mjs",
+      "default": "./lib/tap.js"
+    },
+    "./": "./"
+  },
   "engines": {
     "node": ">=10"
   },
