@@ -13,6 +13,7 @@
       "import": "./lib/tap.mjs",
       "default": "./lib/tap.js"
     },
+    "./*": "./*",
     "./": "./"
   },
   "engines": {
@@ -76,7 +77,8 @@
     "www:serve": "cd docs; npm run serve"
   },
   "tap": {
-    "test-ignore": "/(^|/)cli-tests-[0-9]+/",
+    "esm": false,
+    "test-ignore": "/((^|/)cli-tests-[0-9]+|\\.mjs$)/",
     "check-coverage": true
   },
   "nyc": {
