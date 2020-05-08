@@ -9,7 +9,6 @@ if (+process.env.TAP_DEV_LONGSTACK !== 1) {
   settings.stackUtils.ignoredPackages.push(
     'libtap',
     'tap',
-    'esm',
     'nyc',
     'import-jsx',
     'function-loop'

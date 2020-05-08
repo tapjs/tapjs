@@ -368,10 +368,6 @@ Other Options:
   --harmony              Enable all Harmony flags in JavaScript tests
   --strict               Run JS tests in 'use strict' mode
 
-  --esm                  Run .js and .mjs with support for EcmaScript modules
-                         (Default: false)
-
-  --no-esm               switch off the --esm flag
   --flow                 Removes flow types
   --no-flow              switch off the --flow flag
 
@@ -480,7 +476,6 @@ Environment Variables:
                          flag works.)
 
   TAP_ONLY               Set to '1' to set the --only flag
-  TAP_ESM                Set to '1' to enable automatic esm support
   TAP_TS                 Set to '1' to enable automatic typescript support
   TAP_JSX                Set to '1' to enable automatic jsx support
 

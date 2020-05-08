@@ -19,7 +19,6 @@ coverage: false
 coverage-map: null
 coverage-report: []
 debug: false
-esm: false
 files: []
 flow: false
 functions: 100
@@ -71,7 +70,6 @@ coverage: false
 coverage-map: null
 coverage-report: []
 debug: false
-esm: false
 files: []
 flow: false
 functions: 100
@@ -123,7 +121,6 @@ coverage: false
 coverage-map: null
 coverage-report: []
 debug: false
-esm: false
 files: []
 flow: false
 functions: 100
@@ -175,7 +172,6 @@ coverage: false
 coverage-map: null
 coverage-report: []
 debug: false
-esm: false
 files: []
 flow: false
 functions: 100
@@ -227,7 +223,6 @@ coverage: false
 coverage-map: null
 coverage-report: []
 debug: false
-esm: false
 files: []
 flow: false
 functions: 100
@@ -279,7 +274,6 @@ coverage: false
 coverage-map: null
 coverage-report: []
 debug: false
-esm: false
 files: []
 flow: false
 functions: 100
@@ -333,7 +327,6 @@ coverage-report:
   - json
   - html
 debug: true
-esm: false
 files: []
 flow: false
 functions: 100
@@ -396,7 +389,6 @@ coverage: false
 coverage-map: null
 coverage-report: []
 debug: false
-esm: false
 files: []
 flow: false
 functions: 100

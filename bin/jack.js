@@ -593,11 +593,6 @@ Much more documentation available at: https://www.node-tap.org/
     description: `Run JS tests in 'use strict' mode`,
   }),
 
-  esm: flag({
-    default: process.env.TAP_ESM === '1',
-    description: `Run .js and .mjs with support for EcmaScript modules
-                  (Default: false)`,
-  }),
   flow: flag({
     description: `Removes flow types`,
   }),
@@ -790,10 +785,6 @@ Much more documentation available at: https://www.node-tap.org/
 
   TAP_ONLY: env(flag({
     description: `Set to '1' to set the --only flag`
-  })),
-
-  TAP_ESM: env(flag({
-    description: `Set to '1' to enable automatic esm support`
   })),
 
   TAP_TS: env(flag({
