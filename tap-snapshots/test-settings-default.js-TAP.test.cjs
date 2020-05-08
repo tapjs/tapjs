@@ -14,7 +14,6 @@ Object {
     "ignoredPackages": Array [
       "libtap",
       "tap",
-      "esm",
       "nyc",
       "import-jsx",
       "function-loop",

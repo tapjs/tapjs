@@ -15,7 +15,6 @@
     "@types/react": "^16.9.23",
     "chokidar": "^3.3.0",
     "coveralls": "^3.0.11",
-    "esm": "^3.2.25",
     "findit": "^2.0.0",
     "flow-remove-types": "^2.112.0",
     "foreground-child": "^2.0.0",
@@ -70,7 +69,6 @@
     "www:serve": "cd docs; npm run serve"
   },
   "tap": {
-    "esm": false,
     "test-ignore": "/(^|/)cli-tests-[0-9]+/",
     "check-coverage": true
   },

@@ -16,7 +16,6 @@ const exists = require('fs-exists-cached').sync
 const os = require('os')
 const tsNode = require.resolve('ts-node/register')
 const flowNode = require.resolve("flow-remove-types/register");
-const esm = require.resolve('esm')
 const jsx = require.resolve('./jsx.js')
 const which = require('which')
 const {ProcessDB} = require('istanbul-lib-processinfo')
@@ -679,7 +678,6 @@ const runAllFiles = (options, env, tap, processDB) => {
       } else if (/\.jsx$|\.tsx?$|\.[mc]?js$/.test(file)) {
         debug('js file', file)
         const args = [
-          ...(options.esm ? ['-r', esm] : []),
           ...options['node-arg'],
           file,
           ...options['test-arg']

@@ -7,8 +7,6 @@ const {
 
 t.cleanSnapshot = o => clean(o).replace(/jobs: \d+/, 'jobs: {number}')
 
-process.env.TAP_NO_ESM = '1'
-
 t.test('shotgun a bunch of option parsing junk', t => {
   run([
     '--dump-config', '-J', '--jobs', '4',

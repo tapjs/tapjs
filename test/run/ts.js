@@ -1,3 +1,5 @@
+process.env.TAP_TS = '1'
+
 const {
   tmpfile,
   run,

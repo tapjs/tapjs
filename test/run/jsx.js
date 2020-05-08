@@ -1,3 +1,5 @@
+process.env.TAP_JSX = '1'
+
 const {
   tmpfile,
   run,

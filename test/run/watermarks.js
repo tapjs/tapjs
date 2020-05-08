@@ -35,7 +35,7 @@ const escape = (args, cb) => {
       if (!env.hasOwnProperty(k))
         env[k] = process.env[k]
       return env
-    }, { TAP_NO_ESM: '1' }),
+    }, {}),
   }
   const a = [basename(esc)].concat(
     args.map(a => !/^-/.test(a) ? basename(a) : a)
