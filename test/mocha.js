@@ -1,5 +1,5 @@
 'use strict'
-const mocha = require('../lib/mocha.js')
+const {mocha} = require('../lib/tap.js')
 const assert = require('assert')
 
 mocha.describe('globals', () => {
