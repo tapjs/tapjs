@@ -37462,13 +37462,14 @@ Array [
   ],
   Array [
     "line",
-    "ok 3\\n",
+    "ok 3    #skip should not skip\\n",
   ],
   Array [
     "assert",
     Result {
       "fullname": "",
       "id": 3,
+      "name": "#skip should not skip",
       "ok": true,
     },
   ],
@@ -37477,6 +37478,7 @@ Array [
     Result {
       "fullname": "",
       "id": 3,
+      "name": "#skip should not skip",
       "ok": true,
     },
   ],
@@ -37485,18 +37487,20 @@ Array [
     Result {
       "fullname": "",
       "id": 3,
+      "name": "#skip should not skip",
       "ok": true,
     },
   ],
   Array [
     "line",
-    "ok 4\\n",
+    "ok 4    testTitle#skip\\n",
   ],
   Array [
     "assert",
     Result {
       "fullname": "",
       "id": 4,
+      "name": "testTitle#skip",
       "ok": true,
     },
   ],
@@ -37505,6 +37509,7 @@ Array [
     Result {
       "fullname": "",
       "id": 4,
+      "name": "testTitle#skip",
       "ok": true,
     },
   ],
@@ -37513,6 +37518,7 @@ Array [
     Result {
       "fullname": "",
       "id": 4,
+      "name": "testTitle#skip",
       "ok": true,
     },
   ],
@@ -37653,13 +37659,14 @@ Array [
   ],
   Array [
     "line",
-    "ok 3\\n",
+    "ok 3    #skip should not skip\\n",
   ],
   Array [
     "assert",
     Result {
       "fullname": "",
       "id": 3,
+      "name": "#skip should not skip",
       "ok": true,
     },
   ],
@@ -37668,6 +37675,7 @@ Array [
     Result {
       "fullname": "",
       "id": 3,
+      "name": "#skip should not skip",
       "ok": true,
     },
   ],
@@ -37676,18 +37684,20 @@ Array [
     Result {
       "fullname": "",
       "id": 3,
+      "name": "#skip should not skip",
       "ok": true,
     },
   ],
   Array [
     "line",
-    "ok 4\\n",
+    "ok 4    testTitle#skip\\n",
   ],
   Array [
     "assert",
     Result {
       "fullname": "",
       "id": 4,
+      "name": "testTitle#skip",
       "ok": true,
     },
   ],
@@ -37696,6 +37706,7 @@ Array [
     Result {
       "fullname": "",
       "id": 4,
+      "name": "testTitle#skip",
       "ok": true,
     },
   ],
@@ -37704,6 +37715,7 @@ Array [
     Result {
       "fullname": "",
       "id": 4,
+      "name": "testTitle#skip",
       "ok": true,
     },
   ],
@@ -96681,12 +96693,12 @@ exports[`test/parser.js TAP todo_inline.tap > output bail=false 1`] = `
 Array [
   Array [
     "line",
-    "1..3\\n",
+    "1..5\\n",
   ],
   Array [
     "plan",
     Object {
-      "end": 3,
+      "end": 5,
       "start": 1,
     },
   ],
@@ -96791,6 +96803,68 @@ Array [
   ],
   Array [
     "line",
+    "ok 4 - #todo This is not todo\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 4,
+      "name": "#todo This is not todo",
+      "ok": true,
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "fullname": "",
+      "id": 4,
+      "name": "#todo This is not todo",
+      "ok": true,
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "fullname": "",
+      "id": 4,
+      "name": "#todo This is not todo",
+      "ok": true,
+    },
+  ],
+  Array [
+    "line",
+    "ok 5 - testTitle#todo\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 5,
+      "name": "testTitle#todo",
+      "ok": true,
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "fullname": "",
+      "id": 5,
+      "name": "testTitle#todo",
+      "ok": true,
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "fullname": "",
+      "id": 5,
+      "name": "testTitle#todo",
+      "ok": true,
+    },
+  ],
+  Array [
+    "line",
     "# todo: 2\\n",
   ],
   Array [
@@ -96801,14 +96875,14 @@ Array [
     "complete",
     FinalResults {
       "bailout": false,
-      "count": 3,
+      "count": 5,
       "fail": 1,
       "failures": Array [],
       "ok": true,
-      "pass": 2,
+      "pass": 4,
       "plan": FinalPlan {
         "comment": "",
-        "end": 3,
+        "end": 5,
         "skipAll": false,
         "skipReason": "",
         "start": 1,
@@ -96825,12 +96899,12 @@ exports[`test/parser.js TAP todo_inline.tap > output bail=true 1`] = `
 Array [
   Array [
     "line",
-    "1..3\\n",
+    "1..5\\n",
   ],
   Array [
     "plan",
     Object {
-      "end": 3,
+      "end": 5,
       "start": 1,
     },
   ],
@@ -96935,6 +97009,68 @@ Array [
   ],
   Array [
     "line",
+    "ok 4 - #todo This is not todo\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 4,
+      "name": "#todo This is not todo",
+      "ok": true,
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "fullname": "",
+      "id": 4,
+      "name": "#todo This is not todo",
+      "ok": true,
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "fullname": "",
+      "id": 4,
+      "name": "#todo This is not todo",
+      "ok": true,
+    },
+  ],
+  Array [
+    "line",
+    "ok 5 - testTitle#todo\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 5,
+      "name": "testTitle#todo",
+      "ok": true,
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "fullname": "",
+      "id": 5,
+      "name": "testTitle#todo",
+      "ok": true,
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "fullname": "",
+      "id": 5,
+      "name": "testTitle#todo",
+      "ok": true,
+    },
+  ],
+  Array [
+    "line",
     "# todo: 2\\n",
   ],
   Array [
@@ -96945,14 +97081,14 @@ Array [
     "complete",
     FinalResults {
       "bailout": false,
-      "count": 3,
+      "count": 5,
       "fail": 1,
       "failures": Array [],
       "ok": true,
-      "pass": 2,
+      "pass": 4,
       "plan": FinalPlan {
         "comment": "",
-        "end": 3,
+        "end": 5,
         "skipAll": false,
         "skipReason": "",
         "start": 1,

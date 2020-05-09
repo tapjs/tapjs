@@ -67,14 +67,14 @@ class Result {
 
     let rest = parsed[3] || ''
     let name
-    rest = rest.replace(/([^\\]|^)((?:\\\\)*)#/g, '$1\n$2').split('\n')
+    rest = rest.replace(/([^\\]|^)((?:\\\\)*)# /g, '$1\n$2').split('\n')
     name = rest.shift()
-    rest = rest.filter(r => r.trim()).join('#')
+    rest = rest.filter(r => r.trim()).join('# ')
 
     // now, let's see if there's a directive in there.
     const dir = parseDirective(rest.trim())
     if (!dir)
-      name += (rest ? '#' + rest : '') + buffered
+      name += (rest ? '# ' + rest : '') + buffered
     else {
       // handle buffered subtests with todo/skip on them, like
       // ok 1 - bar # todo foo {\n

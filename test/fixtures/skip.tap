@@ -1,6 +1,6 @@
 1..5
 ok 1
 ok 2    # skip rain delay
-ok 3
-ok 4
+ok 3    #skip should not skip
+ok 4    testTitle#skip
 ok 5
