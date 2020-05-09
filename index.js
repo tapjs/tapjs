@@ -5,8 +5,6 @@
 const MiniPass = require('minipass')
 
 const yaml = require('tap-yaml')
-const util = require('util')
-const assert = require('assert')
 
 // every line outside of a yaml block is one of these things, or
 // a comment, or garbage.
@@ -21,8 +19,6 @@ const lineTypes = {
   subtestIndent: /^    # Subtest(?:: (.*))?\n$/,
   comment: /^\s*#.*\n$/
 }
-
-const lineTypeNames = Object.keys(lineTypes)
 
 const lineType = line => {
   for (let t in lineTypes) {
@@ -54,7 +50,7 @@ const parseDirective = line => {
   if (!type)
     return false
 
-  return [ type[1].toLowerCase(), line.substr(type[1].length).trim() || true ]
+  return [ type[1].toLowerCase(), line.substring(type[1].length).trim() || true ]
 }
 
 class Result {
@@ -356,7 +352,7 @@ class Parser extends MiniPass {
       return
 
     if (typeof encoding === 'string' && encoding !== 'utf8')
-      chunk = new Buffer(chunk, encoding)
+      chunk = Buffer.from(chunk, encoding)
 
     if (Buffer.isBuffer(chunk))
       chunk += ''
@@ -372,7 +368,7 @@ class Parser extends MiniPass {
       if (!match)
         break
 
-      this.buffer = this.buffer.substr(match[0].length)
+      this.buffer = this.buffer.substring(match[0].length)
       this.parse(match[0])
     } while (this.buffer.length)
 
@@ -645,7 +641,7 @@ class Parser extends MiniPass {
     // Canonicalize the parsing result of any kind of subtest
     // if it's a buffered subtest or a non-indented Subtest directive,
     // then synthetically emit the Subtest comment
-    line = line.substr(4)
+    line = line.substring(4)
     let subtestComment
     if (indentStream) {
       subtestComment = line
@@ -657,7 +653,7 @@ class Parser extends MiniPass {
     }
 
     this.maybeChild = null
-    this.child.name = subtestComment.substr('# Subtest: '.length).trim()
+    this.child.name = subtestComment.substring('# Subtest: '.length).trim()
 
     // at some point, we may wish to move 100% to preferring
     // the Subtest comment on the parent level.  If so, uncomment
@@ -929,8 +925,8 @@ class Parser extends MiniPass {
 
   parseIndent (line, indent) {
     // still belongs to the child, so pass it along.
-    if (this.child && line.substr(0, 4) === '    ') {
-      line = line.substr(4)
+    if (this.child && line.substring(0, 4) === '    ') {
+      line = line.substring(4)
       this.child.write(line)
       return
     }
@@ -969,7 +965,7 @@ class Parser extends MiniPass {
     // We may have already seen an unindented Subtest directive, or
     // a test point that ended in { indicating a buffered subtest
     // Child tests are always indented 4 spaces.
-    if (line.substr(0, 4) === '    ') {
+    if (line.substring(0, 4) === '    ') {
       if (this.maybeChild ||
           this.current && this.current.buffered ||
           lineTypes.subtestIndent.test(line)) {
