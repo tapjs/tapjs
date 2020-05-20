@@ -11,7 +11,7 @@ const { execFile } = require('child_process')
 const {dirname, basename} = require('path')
 
 const clean = t.cleanSnapshot
-t.cleanSnapshot = str => clean(str).replace(/[0-9\.]+m?s/g, '{TIME}')
+t.cleanSnapshot = str => clean(str).replace(/[0-9.]+m?s/g, '{TIME}')
 
 // escape from new york
 const escapePath = `${dirname(process.execPath)}:${process.env.PATH}`

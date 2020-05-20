@@ -32,7 +32,7 @@ module.exports = out => out
   .replace(/FSReqWrap/g, 'FSReqCallback')
 
   // remove time details
-  .replace(/ # time=[0-9\.]+m?s( \{.*)?\n/g, ' # {time}$1\n')
+  .replace(/ # time=[0-9.]+m?s( {.*)?\n/g, ' # {time}$1\n')
   .replace(/\n# time=.*/g, '\n# {time}')
 
   // debug output
@@ -41,7 +41,7 @@ module.exports = out => out
   // stacks are always changing
   .replace(/\n(( {2})+)stack: \|-?\n((\1  .*).*\n)+/gm,
     '\n$1stack: |\n$1  {STACK}\n')
-  .replace(/\n(( {2})+)stack: \>-?\n((\1  .*).*\n(\1\n)?)+/gm,
+  .replace(/\n(( {2})+)stack: >-?\n((\1  .*).*\n(\1\n)?)+/gm,
     '\n$1stack: |\n$1  {STACK}\n')
   .replace(/(?:\n|^)([a-zA-Z]*Error): (.*)\n((    at .*\n)*)+/gm,
     '\n$1: $2\n    {STACK}\n')
