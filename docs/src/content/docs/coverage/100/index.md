@@ -66,6 +66,7 @@ to add it to the docs.
 * [trivial-deferred](https://www.npmjs.com/package/trivial-deferred)
 * [tsame](https://www.npmjs.com/package/tsame)
 * [twing](https://www.npmjs.com/package/twing)
+* [undici](https://www.npmjs.com/package/undici)
 * [virtuaaliviivakoodi](https://www.npmjs.com/package/virtuaaliviivakoodi)
 * [yallist](https://www.npmjs.com/package/yallist)
 * [yapool](https://www.npmjs.com/package/yapool)
