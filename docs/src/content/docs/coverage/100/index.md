@@ -19,6 +19,7 @@ to add it to the docs.
 * [abbrev](https://www.npmjs.com/package/abbrev)
 * [bowling](https://www.npmjs.com/package/bowling)
 * [casern](https://www.npmjs.com/package/casern)
+* [clear-folder](https://www.npmjs.com/package/clear-folder)
 * [color-support](https://www.npmjs.com/package/color-support)
 * [contentfs](https://www.npmjs.com/package/contentfs)
 * [dotenv](https://www.npmjs.com/package/dotenv)
