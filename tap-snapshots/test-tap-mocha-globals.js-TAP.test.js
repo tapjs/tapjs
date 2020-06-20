@@ -5,22 +5,21 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/tap/plan-unsatisied.js TAP > exit status 1`] = `
+exports[`test/tap/mocha-globals.js TAP > exit status 1`] = `
 Object {
-  "code": 1,
+  "code": 0,
   "signal": null,
 }
 `
 
-exports[`test/tap/plan-unsatisied.js TAP > stderr 1`] = `
+exports[`test/tap/mocha-globals.js TAP > stderr 1`] = `
 
 `
 
-exports[`test/tap/plan-unsatisied.js TAP > stdout 1`] = `
+exports[`test/tap/mocha-globals.js TAP > stdout 1`] = `
 TAP version 13
-1..99
-# test count(0) != plan(99)
-# failed 1 test
+ok 1 - should be equal
+1..1
 # {time}
 
 `
