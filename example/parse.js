@@ -1,5 +1,3 @@
-var parser = require('../');
-var p = parser(function (results) {
-    console.dir(results);
-});
-process.stdin.pipe(p);
+const Parser = require('../')
+const p = new Parser(results => console.dir(results))
+process.stdin.pipe(p)
