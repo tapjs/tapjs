@@ -4,6 +4,16 @@
 // and string comments.  Emits "results" event with summary.
 const MiniPass = require('minipass')
 
+// used by the Parser.parse() method
+const etoa = require('events-to-array')
+
+// used by Parser.stringify() and Parser.parse() in flattening mode
+const getId = () => {
+  const id = () => id.current++
+  id.current = 1
+  return id
+}
+
 const yaml = require('tap-yaml')
 
 // every line outside of a yaml block is one of these things, or
@@ -93,6 +103,109 @@ class Result {
 }
 
 class Parser extends MiniPass {
+  static parse (str, options = {}) {
+    const { flat = false } = options
+    const ignore = [
+      'pipe',
+      'unpipe',
+      'prefinish',
+      'finish',
+      'line',
+      'pass',
+      'fail',
+      'todo',
+      'skip',
+      'result',
+    ]
+    if (flat)
+      ignore.push('assert', 'child', 'plan', 'complete')
+    const parser = new Parser(options)
+    const events = etoa(parser, ignore)
+    if (flat) {
+      const id = getId()
+      parser.on('result', res => {
+        const name = []
+        if (res.fullname)
+          name.push(res.fullname)
+        if (res.name)
+          name.push(res.name)
+        res.name = name.join(' > ').trim()
+        res.fullname = ''
+        res.id = id()
+        events.push(['assert', res])
+      })
+      parser.on('complete', res => {
+        if (!res.bailout)
+          events.push(['plan', { end: id.current - 1, start: 1 }])
+        events.push(['complete', res])
+      })
+    }
+
+    parser.end(str)
+    return events
+  }
+
+  static stringify (msg, { flat = false, indent = '', id = getId() } = {}) {
+    const ind = flat ? '' : indent
+    return ind + msg.map(item => {
+      switch (item[0]) {
+        case 'child':
+          const comment = item[1][0]
+          const child = item[1].slice(1)
+          return Parser.stringify([comment], { flat, indent: '', id }) +
+            Parser.stringify(child, { flat, indent: '    ', id })
+
+        case 'version':
+          return 'TAP version ' + item[1] + '\n'
+
+        case 'plan':
+          if (flat) {
+            if (indent !== '')
+              return ''
+            item[1].start = 1
+            item[1].end = id.current - 1
+          }
+          return item[1].start + '..' + item[1].end
+            + (item[1].comment ? ' # ' + item[1].comment : '') + '\n'
+
+        case 'pragma':
+          return 'pragma ' + (item[2] ? '+' : '-') + item[1] + '\n'
+
+        case 'bailout':
+          return 'Bail out!' + (item[1] ? (' ' + item[1]) : '') + '\n'
+
+        case 'assert':
+          const res = item[1]
+          if (flat) {
+            res.id = id()
+            const name = []
+            if (res.fullname)
+              name.push(res.fullname)
+            if (res.name)
+              name.push(res.name)
+            res.name = name.join(' > ').trim()
+          }
+          return (res.ok ? '' : 'not ') + 'ok ' + res.id +
+            (res.name ? ' - ' + res.name.replace(/ \{$/, '') : '') + // }
+            (res.skip ? ' # SKIP' +
+              (res.skip === true ? '' : ' ' + res.skip) : '') +
+            (res.todo ? ' # TODO' +
+              (res.todo === true ? '' : ' ' + res.todo) : '') +
+            (res.time ? ' # time=' + res.time + 'ms' : '') +
+            '\n' +
+            (res.diag ?
+               '  ---\n  ' +
+               yaml.stringify(res.diag).split('\n').join('\n  ').trim() +
+               '\n  ...\n'
+               : '')
+
+        case 'extra':
+        case 'comment':
+          return item[1]
+      }
+    }).join('').split('\n').join('\n' + ind).trim() + '\n'
+  }
+
   constructor (options, onComplete) {
     if (typeof options === 'function') {
       onComplete = options

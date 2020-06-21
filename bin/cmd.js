@@ -76,7 +76,7 @@ function usage () {
   tap-parser <options>
 
 Parses TAP data from stdin, and outputs the parsed result
-in the format specified by the options.  Default output is
+in the format specified by the options.  Default output
 uses node's \`util.inspect()\` method.
 
 Options:
@@ -129,72 +129,14 @@ Options:
 }
 
 const yaml = require('tap-yaml')
-let id = 1
-function tapFormat (msg, indent) {
-  return indent + msg.map(function (item) {
-    switch (item[0]) {
-      case 'child':
-        const comment = item[1][0]
-        const child = item[1].slice(1)
-        return tapFormat([comment], '') + tapFormat(child, '    ')
-
-      case 'version':
-        return 'TAP version ' + item[1] + '\n'
-
-      case 'plan':
-        if (flat) {
-          item[1].start = 1
-          item[1].end = id - 1
-        }
-        return item[1].start + '..' + item[1].end
-          + (item[1].comment ? ' # ' + item[1].comment : '') + '\n'
-
-      case 'pragma':
-        return 'pragma ' + (item[2] ? '+' : '-') + item[1] + '\n'
-
-      case 'bailout':
-        return 'Bail out!' + (item[1] ? (' ' + item[1]) : '') + '\n'
-
-      case 'result':
-      case 'assert':
-        const res = item[1]
-        if (item[0] === 'result') {
-          res.id = id++
-          const name = []
-          if (res.fullname)
-            name.push(res.fullname)
-          if (res.name)
-            name.push(res.name)
-          res.name = name.join(' > ').trim()
-        }
-        return (res.ok ? '' : 'not ') + 'ok ' + res.id +
-          (res.name ? ' - ' + res.name.replace(/ \{$/, '') : '') +
-          (res.skip ? ' # SKIP' +
-            (res.skip === true ? '' : ' ' + res.skip) : '') +
-          (res.todo ? ' # TODO' +
-            (res.todo === true ? '' : ' ' + res.todo) : '') +
-          (res.time ? ' # time=' + res.time + 'ms' : '') +
-          '\n' +
-          (res.diag ?
-             '  ---\n  ' +
-             yaml.stringify(res.diag).split('\n').join('\n  ').trim() +
-             '\n  ...\n'
-             : '')
-
-      case 'extra':
-      case 'comment':
-        return item[1]
-    }
-  }).join('').split('\n').join('\n' + indent).trim() + '\n'
-}
 
 function format (msg) {
   if (json === 'tap')
-    return tapFormat(msg, '')
+    return Parser.stringify(msg, options)
   else if (json !== null)
     return JSON.stringify(msg, null, +json)
   else
-    return util.inspect(events, null, Infinity)
+    return util.inspect(msg, null, Infinity)
 }
 
 const options = {
@@ -202,37 +144,23 @@ const options = {
   preserveWhitespace: preserveWhitespace,
   omitVersion: omitVersion,
   strict: strict,
+  flat: flat,
 }
 
-const parser = new Parser(options)
-const ignore = [
-  'pipe',
-  'unpipe',
-  'prefinish',
-  'finish',
-  'line',
-  'pass',
-  'fail',
-  'todo',
-  'skip',
-]
-if (flat)
-  ignore.push('assert', 'child')
-else
-  ignore.push('result')
-
-const events = etoa(parser, ignore)
-
-if (json === 'lines')
-  parser.on('line', function (l) {
-    process.stdout.write(l)
+if (json === 'lines' || json === 'silent') {
+  const parser = new Parser(options)
+  if (json === 'lines')
+    parser.on('line', l => process.stdout.write(l))
+  parser.on('complete', () => process.exit(parser.ok ? 0 : 1))
+  process.stdin.pipe(parser)
+} else {
+  const input = []
+  process.stdin.on('data', c => input.push(c)).on('end', () => {
+    const buf = Buffer.concat(input)
+    const result = Parser.parse(buf, options)
+    const summary = result[ result.length - 1 ]
+    console.log(format(result))
+    if (summary[0] !== 'complete' || !summary[1].ok)
+      process.exit(1)
   })
-
-process.on('exit', function () {
-  if (json !== 'silent' && json !== 'lines')
-    console.log(format(events))
-  if (!parser.ok)
-    process.exit(1)
-})
-
-process.stdin.pipe(parser)
+}

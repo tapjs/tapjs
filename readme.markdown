@@ -11,12 +11,10 @@ parse the [test anything protocol](http://testanything.org/)
 # example
 
 ``` js
-var Parser = require('tap-parser');
-var p = new Parser(function (results) {
-    console.dir(results);
-});
-
-process.stdin.pipe(p);
+// stream style
+const Parser = require('tap-parser')
+const p = new Parser(results => console.dir(results))
+process.stdin.pipe(p)
 ```
 
 given some [TAP](http://testanything.org/)-formatted input:
@@ -45,6 +43,26 @@ $ node test.js | node parse.js
 { ok: true, count: 4, pass: 4, plan: { start: 1, end: 4 } }
 ```
 
+If you have a string, you can also turn it into an array of parse events,
+and turn such an array back into a TAP string with `Parser.parse()` and
+`Parser.stringify()`, respectively.
+
+```js
+// JSON.parse/stringify style
+
+// Note that stringifying arbitrary object types isn't supported,
+// because TAP is a streaming line-based protocol, not an object
+// serialization notation like JSON or YAML.
+
+const { parse, stringify } = require('tap-parser')
+const fs = require('fs')
+const tapData = fs.readFileSync('previous-test-output.tap')
+const result = parse(tapData)
+console.dir(result)
+const reEncodedAsTap = stringify(result)
+console.log(reEncodedAsTap)
+```
+
 # usage
 
 This package also has a `tap-parser` command.
@@ -54,8 +72,8 @@ Usage:
   tap-parser <options>
 
 Parses TAP data from stdin, and outputs the parsed result
-in the format specified by the options.  Default output is
-uses node's `util.format()` method.
+in the format specified by the options.  Default output
+uses node's `util.inspect()` method.
 
 Options:
 
@@ -71,20 +89,40 @@ Options:
   -b | --bail
     Emit a `Bail out!` at the first failed test point encountered
 
+  -B | --no-bail
+    Do not bail out at the first failed test point encountered
+    (Default)
+
+  -f | --flat
+    Flatten all assertions to the top level parser
+
+  -F | --no-flat
+    Do not flatten all assertions to the top level parser
+    (Default)
+
   -w | --ignore-all-whitespace
     Skip over blank lines outside of YAML blocks
 
   -o | --omit-version
     Ignore the `TAP version 13` line at the start of tests
+
+  --strict
+    Run the parser in strict mode
+
+  --no-strict
+    Do not run the parser in strict mode
+
+  -s | --silent
+    Do not print output, just exit success/failure based on TAP stream
 ```
 
 # methods
 
 ``` js
-var Parser = require('tap-parser')
+const Parser = require('tap-parser')
 ```
 
-## var p = new Parser(options, cb)
+## `const p = new Parser(options, cb)`
 
 Return a writable stream `p` that emits parse events.
 
@@ -111,21 +149,22 @@ If `options` is given, it may contain the following flags:
   parser to ignore `TAP version 13` lines.  Version lines in subtests
   cause problems with some parsers, so they are always ignored.
 
-- `passes` boolean which is false by default and will add "passes" property for that contains the result of all passed tests
+- `passes` boolean which is false by default and will add "passes" property
+  for that contains the result of all passed tests
 
 The `parent`, `level` and `buffered` options are reserved for internal
 use.
 
 # events
 
-## p.on('complete', function (results) {})
+## `p.on('complete', function (results) {})`
 
 The `results` object contains a summary of the number of tests
 skipped, failed, passed, etc., as well as a boolean `ok` member which
 is true if and only if the planned test were all found, and either
 "ok" or marked as "TODO".
 
-## p.on('line', function (line) {})
+## `p.on('line', function (line) {})`
 
 As each line of input is parsed, a `line` event is emitted.
 
@@ -136,7 +175,7 @@ sanitize and filter a TAP stream, with the caveat that, while `line`
 events will be semantically equivalent to the TAP input, they will not
 be a perfect replica of the input.
 
-## p.on('assert', function (assert) {})
+## `p.on('assert', function (assert) {})`
 
 Every `/^(not )?ok\b/` line will emit an `'assert'` event.
 
@@ -155,11 +194,11 @@ and may also have
 * `assert.diag` - a diagnostic object with additional information
   about the test point.
 
-## p.on('comment', function (comment) {})
+## `p.on('comment', function (comment) {})`
 
 Every `/^# (.+)/` line will emit the string contents of `comment`.
 
-## p.on('plan', function (plan) {})
+## `p.on('plan', function (plan) {})`
 
 Every `/^\d+\.\.\d+/` line emits a `'plan'` event for the test numbers
 `plan.start` through `plan.end`, inclusive.
@@ -179,17 +218,17 @@ the result will look like
      skipReason: 'This code has no seat belt' } }
 ```
 
-## p.on('version', function (version) {})
+## `p.on('version', function (version) {})`
 
 A `/^TAP version (\d+)/` line emits a `'version'` event with a version
 number or string.
 
-## p.on('bailout', function (reason) {})
+## `p.on('bailout', function (reason) {})`
 
 A `bail out!` line will cause the parser to completely stop doing
 anything.  Child parser bailouts will bail out their parents as well.
 
-## p.on('child', function (childParser) {})
+## `p.on('child', function (childParser) {})`
 
 If a child test set is embedded in the stream like this:
 
@@ -216,24 +255,60 @@ be lost.
 See `Subtests` below for more information on which sorts of subtest
 formats are supported by this parser.
 
-## p.on('result', function (assert) {})
+## `p.on('result', function (assert) {})`
 
 This is the same as the `assert` event, except that it only emits on the root
 parser, whenever it or any child parser has an `assert` event that is not
 merely closing a child test block.
 
-## p.on('pass', function (assert) {})
-## p.on('fail', function (assert) {})
-## p.on('skip', function (assert) {})
-## p.on('todo', function (assert) {})
+## `p.on('pass', function (assert) {})`
+## `p.on('fail', function (assert) {})`
+## `p.on('skip', function (assert) {})`
+## `p.on('todo', function (assert) {})`
 
 Emitted on the root parser object, whenever it or any child parser has an
 `assert` event that is not merely closing a child test block, if the result is
 of the appropriate type.
 
-## p.on('extra', function (extra) {})
+## `p.on('extra', function (extra) {})`
 
 All other lines will trigger an `'extra'` event with the line text.
+
+# static method: `const results = Parser.parse(string, options = {})`
+
+This will return an array of all the events encountered in the parsed TAP
+string.
+
+Any options to the `Parser` constructor may be provided, in addition to the
+following:
+
+* `flat`: Boolean, default false, flatten nested child tests into a single
+  level.  Note that this will lose child test information, and will result
+  in a `complete` event that may not match the counts of assertions in the
+  list.  This is useful if you are transforming TAP strings for use by a
+  parser that does not support child tests, or just simply don't care about
+  that level of detail.  Result `id` values will be coerced to an
+  incrementing numeric values, and a valid `plan` will be generated at the
+  end of the stream.
+
+# static method: `const tap = Parser.stringify(results, options = {})`
+
+Turn a `results` list of the sort returned by `Parser.parse()` into a TAP
+string.
+
+The following options are supported:
+
+* `flat`: Boolean, default false, flatten nested child tests into a single
+  level.  Note that this will lose child test information, and will result
+  in a `complete` event that may not match the counts of assertions in the
+  list.  This is useful if you are transforming TAP strings for use by a
+  parser that does not support child tests, or just simply don't care about
+  that level of detail.  Result `id` values will be coerced to an
+  incrementing numeric values, and a valid `plan` will be generated at the
+  end of the stream.
+
+The `indent` and `id` options are used internally, and should not be
+modified.
 
 # install
 

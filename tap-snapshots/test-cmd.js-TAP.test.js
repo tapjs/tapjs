@@ -58,7 +58,7 @@ exports[`test/cmd.js TAP basic bail flat > error 1`] = `
 exports[`test/cmd.js TAP basic bail flat > output 1`] = `
 [
   [
-    'result',
+    'assert',
     Result {
       ok: true,
       id: 1,
@@ -570,63 +570,63 @@ exports[`test/cmd.js TAP basic fail flat > error 1`] = `
 exports[`test/cmd.js TAP basic fail flat > output 1`] = `
 [
   [
-    'result',
+    'assert',
     Result { ok: true, id: 1, name: 'this is fine', fullname: '' }
   ],
   [ 'extra', '    blearajn9aefnzxrfoas\\n' ],
   [ 'extra', '               \\n' ],
   [
-    'result',
+    'assert',
     Result {
       ok: false,
-      id: 1,
-      name: 'this is fine',
-      diag: { not: 'ok', this: 'is fine' },
-      fullname: 'child'
-    }
-  ],
-  [
-    'result',
-    Result {
-      ok: true,
       id: 2,
-      todo: true,
-      name: 'also fine',
-      fullname: 'child'
+      name: 'child > this is fine',
+      diag: { not: 'ok', this: 'is fine' },
+      fullname: ''
     }
   ],
   [
-    'result',
+    'assert',
     Result {
       ok: true,
       id: 3,
+      todo: true,
+      name: 'child > also fine',
+      fullname: ''
+    }
+  ],
+  [
+    'assert',
+    Result {
+      ok: true,
+      id: 4,
       todo: 'later is never',
-      name: 'do later',
-      fullname: 'child'
+      name: 'child > do later',
+      fullname: ''
     }
   ],
   [
-    'result',
+    'assert',
     Result {
       ok: true,
-      id: 4,
+      id: 5,
       skip: true,
-      name: 'rope',
-      fullname: 'child'
+      name: 'child > rope',
+      fullname: ''
     }
   ],
   [
-    'result',
+    'assert',
     Result {
       ok: true,
-      id: 4,
+      id: 6,
       skip: 'is piks backward',
-      name: 'piks',
-      fullname: 'child'
+      name: 'child > piks',
+      fullname: ''
     }
   ],
-  [ 'plan', { start: 1, end: 2 } ],
   [ 'comment', '# failed 1 of 2 tests\\n' ],
+  [ 'plan', { end: 6, start: 1 } ],
   [
     'complete',
     FinalResults {
@@ -682,8 +682,8 @@ ok 3 - child > also fine # TODO
 ok 4 - child > do later # TODO later is never
 ok 5 - child > rope # SKIP
 ok 6 - child > piks # SKIP is piks backward
-1..6
 # failed 1 of 2 tests
+1..6
 
 
 `
@@ -1216,16 +1216,16 @@ exports[`test/cmd.js TAP basic failing_child_with_broken_tap flat > output 1`] =
   [ 'extra', '      ...\\n' ],
   [ 'extra', '      hello: world\\n' ],
   [
-    'result',
+    'assert',
     Result {
       ok: false,
       id: 1,
-      name: 'test point in child',
-      fullname: 'child'
+      name: 'child > test point in child',
+      fullname: ''
     }
   ],
-  [ 'plan', { start: 1, end: 1 } ],
   [ 'comment', '# failed 3 test\\n' ],
+  [ 'plan', { end: 1, start: 1 } ],
   [
     'complete',
     FinalResults {
@@ -1275,8 +1275,8 @@ pragma +strict
       ...
       hello: world
 not ok 1 - child > test point in child
-1..1
 # failed 3 test
+1..1
 
 
 `
@@ -1683,21 +1683,26 @@ exports[`test/cmd.js TAP basic pass_mostly flat > error 1`] = `
 exports[`test/cmd.js TAP basic pass_mostly flat > output 1`] = `
 [
   [
-    'result',
+    'assert',
     Result { ok: true, id: 1, name: 'this is fine', fullname: '' }
   ],
   [ 'extra', '    blearajn9aefnzxrfoas\\n' ],
   [ 'extra', '               \\n' ],
   [
-    'result',
-    Result { ok: true, id: 1, name: 'this is fine', fullname: 'child' }
+    'assert',
+    Result {
+      ok: true,
+      id: 2,
+      name: 'child > this is fine',
+      fullname: ''
+    }
   ],
   [
-    'result',
-    Result { ok: true, id: 2, name: 'also fine', fullname: 'child' }
+    'assert',
+    Result { ok: true, id: 3, name: 'child > also fine', fullname: '' }
   ],
-  [ 'result', Result { ok: true, id: 3, fullname: 'child' } ],
-  [ 'plan', { start: 1, end: 2 } ],
+  [ 'assert', Result { ok: true, id: 4, fullname: '', name: 'child' } ],
+  [ 'plan', { end: 4, start: 1 } ],
   [
     'complete',
     FinalResults {
@@ -2156,17 +2161,17 @@ exports[`test/cmd.js TAP basic passing_child_with_broken_tap flat > output 1`] =
   [ 'extra', '      ...\\n' ],
   [ 'extra', '      hello: world\\n' ],
   [
-    'result',
+    'assert',
     Result {
       ok: true,
       id: 1,
-      name: 'test point in child',
-      fullname: 'child'
+      name: 'child > test point in child',
+      fullname: ''
     }
   ],
-  [ 'result', Result { ok: true, id: 1, name: 'child', fullname: '' } ],
-  [ 'plan', { start: 1, end: 1 } ],
+  [ 'assert', Result { ok: true, id: 2, name: 'child', fullname: '' } ],
   [ 'comment', '# failed 2 test\\n' ],
+  [ 'plan', { end: 2, start: 1 } ],
   [
     'complete',
     FinalResults {
@@ -2216,8 +2221,8 @@ pragma +strict
       hello: world
 ok 1 - child > test point in child
 ok 2 - child
-1..2
 # failed 2 test
+1..2
 
 
 `
@@ -2504,7 +2509,7 @@ Usage:
   tap-parser <options>
 
 Parses TAP data from stdin, and outputs the parsed result
-in the format specified by the options.  Default output is
+in the format specified by the options.  Default output
 uses node's \`util.inspect()\` method.
 
 Options:
@@ -2565,19 +2570,19 @@ exports[`test/cmd.js TAP json output formatting --json -f > output 1`] = `
     13
   ],
   [
-    "result",
+    "assert",
     {
       "ok": true,
       "id": 1,
-      "name": "this is fine",
-      "fullname": "child"
+      "name": "child > this is fine",
+      "fullname": ""
     }
   ],
   [
     "plan",
     {
-      "start": 1,
-      "end": 1
+      "end": 1,
+      "start": 1
     }
   ],
   [
