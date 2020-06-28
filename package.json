@@ -9,7 +9,7 @@
   },
   "main": "lib/tap.js",
   "engines": {
-    "node": ">=8"
+    "node": ">= 8 < 12.17"
   },
   "dependencies": {
     "@types/react": "^16.9.16",
