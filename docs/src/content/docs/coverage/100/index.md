@@ -49,6 +49,7 @@ to add it to the docs.
 * [npm-bundled](https://www.npmjs.com/package/npm-bundled)
 * [npm-packlist](https://www.npmjs.com/package/npm-packlist)
 * [pino-papertrail](https://www.npmjs.com/package/pino-papertrail)
+* [schema-typegen](https://github.com/aldis-ameriks/schema-typegen)
 * [sqlutils](https://www.npmjs.com/package/sqlutils)
 * [stack-utils](https://www.npmjs.com/package/stack-utils)
 * [t-up](https://www.npmjs.com/package/t-up)
