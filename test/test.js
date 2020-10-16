@@ -1222,3 +1222,17 @@ t.test('save a fixture', t => {
   t.ok(fs.statSync(leaveDir).isDirectory(), 'left dir behind')
   t.end()
 })
+
+t.test('require defining mocks', t => {
+  const f = t.testdir({
+    node_modules: {
+      foo: 'module.exports = { bar: () => "bar" }'
+    },
+    'index.js': 'module.exports = require("foo").bar()'
+  })
+  const myModule = t.mock(path.resolve(f, 'index.js'), {
+    foo: { bar: () => 'lorem' }
+  })
+  t.equal(myModule, 'lorem', 'should mock internally required modules')
+  t.end()
+})
