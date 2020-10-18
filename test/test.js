@@ -1226,13 +1226,19 @@ t.test('save a fixture', t => {
 t.test('require defining mocks', t => {
   const f = t.testdir({
     node_modules: {
-      foo: 'module.exports = { bar: () => "bar" }'
+      foo: 'module.exports = { bar: () => "bar" }',
     },
     'index.js': 'module.exports = require("foo").bar()'
   })
   const myModule = t.mock(path.resolve(f, 'index.js'), {
-    foo: { bar: () => 'lorem' }
+    foo: { bar: () => 'lorem' },
   })
   t.equal(myModule, 'lorem', 'should mock internally required modules')
+
+  const diags = t.mock('../lib/diags.js', {
+    './obj-to-yaml.js': a => `foo ${a}`,
+  })
+  t.equal(diags('bar'), '\nfoo bar', 'should mock actual lib file')
+
   t.end()
 })
