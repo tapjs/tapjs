@@ -4,12 +4,18 @@ const Mock = require('../lib/mock.js')
 
 t.throws(
   () => Mock.get(),
+  'A parentFilename is required to resolve Mocks paths',
+  'should throw on missing parentFilename',
+)
+
+t.throws(
+  () => Mock.get(resolve(__filename)),
   /first argument should be a string/,
   'should throw on invalid filename',
 )
 
 t.throws(
-  () => Mock.get('./foo.js'),
+  () => Mock.get(resolve(__filename), './foo.js'),
   /mocks should be a a key\/value object in which keys/,
   'should throw on invalid mock-defining object',
 )
@@ -46,8 +52,8 @@ module.exports = function() {
   })
 
   t.equal(
-    Mock.get(resolve(path, 'lib/a.js'), {
-      './b.js': () => 'foo',
+    Mock.get(resolve(__filename), resolve(path, 'lib/a.js'), {
+      [resolve(path, 'lib/b.js')]: () => 'foo',
     })(),
     '{} lorem foo c d e',
     'should use injected version of a mock',
@@ -60,49 +66,33 @@ module.exports = function() {
   )
 
   t.equal(
-    Mock.get(resolve(path, 'lib/a.js'), {
-      '../helpers/d.js': () => 'bar',
+    Mock.get(resolve(__filename), resolve(path, 'lib/a.js'), {
+      [resolve(path, 'helpers/d.js')]: () => 'bar',
     })(),
     '{} lorem b c bar e',
     'should mock module not located under the same parent folder',
   )
 
   t.equal(
-    Mock.get('./mock-mock/lib/a.js', {
-      '../helpers/d.js': () => 'bar',
-    })(),
-    '{} lorem b c bar e',
-    'should require module based on relative path to cwd',
-  )
-
-  t.equal(
-    Mock.get(resolve(path, 'lib/a.js'), {
-      '../e.cjs': () => 'bar',
+    Mock.get(resolve(__filename), resolve(path, 'lib/a.js'), {
+      [resolve(path, 'e.cjs')]: () => 'bar',
     })(),
     '{} lorem b c d bar',
-    'should mock module not located under the same parent folder',
+    'should mock module using cjs extension',
   )
 
   t.equal(
-    Mock.get(resolve(path, 'lib/a.js'), {
-      './b.js': () => 'foo',
-      './utils/c': () => 'bar',
+    Mock.get(resolve(__filename), resolve(path, 'lib/a.js'), {
+      [resolve(path, 'lib/b.js')]: () => 'foo',
+      [resolve(path, 'lib/utils/c')]: () => 'bar',
     })(),
     '{} lorem foo bar d e',
     'should mock nested module',
   )
 
   t.equal(
-    Mock.get(resolve(path, 'lib/a.js'), {
-      'lorem': () => '***',
-    })(),
-    '{} *** b c d e',
-    'should mock node_modules package',
-  )
-
-  t.equal(
-    Mock.get(resolve(path, 'lib/a.js'), {
-      'util': { inspect: obj => obj.constructor.prototype },
+    Mock.get(resolve(__filename), resolve(path, 'lib/a.js'), {
+      util: { inspect: obj => obj.constructor.prototype },
     })(),
     '[object Object] lorem b c d e',
     'should mock builtin module',
@@ -114,5 +104,15 @@ module.exports = function() {
     'should preserve original module after mocking',
   )
 
+  // lorem is an unknown module id in the context of the current script,
+  // trying to mock it will result in an error while trying to resolve
+  // the filename for generating the mocks map
+  t.throws(
+    () => Mock.get(resolve(__filename), resolve(path, 'lib/a.js'), {
+      lorem: () => '***',
+    })(),
+    { code: 'MODULE_NOT_FOUND' },
+    'can only mock known installed modules',
+  )
   t.end()
 })
