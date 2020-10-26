@@ -23,7 +23,7 @@ const myModule = t.mock('../my-module', {
   'fs': {
     readFileSync: () => throw new Error('oh no')
   },
-  './util/my-helper.js': {
+  '../util/my-helper.js': {
     foo: () => 'bar'
   }
 })
@@ -33,15 +33,15 @@ const myModule = t.mock('../my-module', {
 
 ## Do not mess with my require.cache
 
-`t.mock()` focus in a single-pattern that consists in hijacking the internal
+`t.mock()` focus in a single pattern that consists in hijacking the internal
 `require` calls and injecting any mock you provide through that. It will not
-try to replace modules from Node's internal `require.cache` or really do any
-extra work other than that.
+try to replace modules from Node's internal `require.cache`.
 
 ## Alternatives
 
-In case you find yourself needing a more robust solution, here are some of
-the mocking libraries that inspired this API:
+In case you find yourself needing a more robust solution, that for example,
+also handles CommonJS cache and more. Here are some of the mocking libraries
+that inspired this API, you might want to give them a try:
 
 - [`require-inject`](https://www.npmjs.com/package/require-inject)
 - [`proxyquire`](https://www.npmjs.com/package/proxyquire)
