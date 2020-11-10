@@ -36,7 +36,7 @@ const t3 = tmpfile(t, '3.test.js', `'use strict'
 const escapePath = `${path.dirname(process.execPath)}:${process.env.PATH}`
 const esc = tmpfile(t, 'runtest.sh',
 `#!/bin/bash
-export PATH=${escapePath}
+export PATH="${escapePath}"
 "${node}" "${bin}" "\$@" \\
   --cov \\
   --nyc-arg=--temp-dir="${dir}/.nyc_output" \\

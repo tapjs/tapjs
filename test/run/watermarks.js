@@ -17,7 +17,7 @@ t.cleanSnapshot = str => clean(str).replace(/[0-9\.]+m?s/g, '{TIME}')
 const escapePath = `${dirname(process.execPath)}:${process.env.PATH}`
 const esc = tmpfile(t, 'runtest.sh',
 `#!/bin/bash
-export PATH=${escapePath}
+export PATH="${escapePath}"
 "${node}" "${bin}" "\$@" \\
   --cov \\
   --nyc-arg=--temp-dir="${dir}/.nyc_output" \\
