@@ -205,7 +205,7 @@ test teardown.  Returns the directory name.
 
 See [testing with fixtures](/docs/api/fixtures/) for more info.
 
-### t.fixture(type, content)
+### t.fixture(type, content, extra)
 
 Create a `fixture` object, to specify hard links and symbolic links in the
 fixture definition object passed to `t.testdir()`.

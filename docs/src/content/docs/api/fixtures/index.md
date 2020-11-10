@@ -55,12 +55,14 @@ finished.
 
 ## Fixture Arguments
 
-The [`t.fixture(type, content)`](/docs/api/#tfixturetype-content) method
+The [`t.fixture(type, content, extra)`](/docs/api/#tfixturetype-content-extra) method
 will create a `Fixture` object with the specified type and content.  The
 supported types are:
 
 * `link` - A hardlink to the file specified in `content`.
-* `symlink` - A symbolic link to the path specified in `content`.
+* `symlink` - A symbolic link to the path specified in `content`. The `extra`
+  parameter is passed to `fs.symlinkSync` and allows for creating junctions
+  in Windows.
 * `dir` - A directory, where the `content` is an object describing the
   children in that directory.
 * `file` - A file, where the `content` is the file contents.
