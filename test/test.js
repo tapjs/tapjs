@@ -1252,6 +1252,28 @@ t.test('require defining mocks', t => {
     )
   })
 
+  t.test('immediately called require', t => {
+    const f = t.testdir({
+      'a.js': 'module.exports = () => { global.foo = true }',
+      'index.js': 'require("./a.js")()',
+      'test.js':
+        `const t = require('../..'); // tap
+        t.test('mock immediately called require', t => {
+          t.mock('./index.js', {
+            './a.js': () => {
+              t.notOk(global.foo, 'should not run original a.js')
+              t.end()
+            }
+          })
+        })`,
+    })
+    return t.spawn(
+      process.execPath,
+      [ path.resolve(f, 'test.js') ],
+      { cwd: f },
+    )
+  })
+
   t.test('nested lib files', t => {
     const f = t.testdir({
       lib: {
@@ -1311,6 +1333,17 @@ t.test('require defining mocks', t => {
               '../lib/a.js': 'mocked-a',
             })
             t.equal(c, 'mocked-a b d', 'should get expected mocked result')
+            t.end()
+          })
+
+          t.test('mock a mock', t => {
+            const i = t.mock('../index.js', {
+              '../lib/a.js': 'mocked-a',
+              '../lib/c.js': t.mock('../lib/c.js', {
+                '../lib/b': 'mocked-b-within-c'
+              })
+            })
+            t.equal(i(), 'mocked-a b a mocked-b-within-c d d', 'should get expected mocked-mocked result')
             t.end()
           })`,
       },

@@ -30,38 +30,43 @@ t.test('mock', t => {
     },
     lib: {
       'a.js': `
-const { inspect } = require('util');
-const lorem = require('lorem');
-const b = require('./b.js');
-const c = require('./utils/c');
-const d = require('../helpers/d.js');
-const e = require('../e.cjs');
-module.exports = function() {
-  return [inspect, lorem, b, c, d, e].map(i => i({})).join(' ')
-};
-`,
+        const { inspect } = require('util');
+        const lorem = require('lorem');
+        const b = require('./b.js');
+        const c = require('./utils/c');
+        const d = require('../helpers/d.js');
+        const f = require('../f.cjs');
+        module.exports = function() {
+          return [inspect, lorem, b, c, d, f, require('../g.js')]
+            .map(i => i({})).join(' ')
+        };
+        `,
       'b.js': `module.exports = function () { return 'b' }`,
       utils: {
         'c.js': `module.exports = function () { return 'c' }`
       },
     },
     helpers: {
-      'd.js': `module.exports = function () { return 'd' }`,
+      'd.js': `
+        const e = require('./e.js');
+        module.exports = function () { return ['d', e()].join(' ') }`,
+      'e.js': `module.exports = function () { return 'e' }`,
     },
-    'e.cjs': `module.exports = function () { return 'e' }`,
+    'f.cjs': `module.exports = function () { return 'f' }`,
+    'g.js': `module.exports = function () { return 'g' }`,
   })
 
   t.equal(
     Mock.get(resolve(__filename), resolve(path, 'lib/a.js'), {
       [resolve(path, 'lib/b.js')]: () => 'foo',
     })(),
-    '{} lorem foo c d e',
+    '{} lorem foo c d e f g',
     'should use injected version of a mock',
   )
 
   t.equal(
     require(resolve(path, 'lib/a.js'))(),
-    '{} lorem b c d e',
+    '{} lorem b c d e f g',
     'should be able to use original module post-mocking',
   )
 
@@ -69,15 +74,15 @@ module.exports = function() {
     Mock.get(resolve(__filename), resolve(path, 'lib/a.js'), {
       [resolve(path, 'helpers/d.js')]: () => 'bar',
     })(),
-    '{} lorem b c bar e',
+    '{} lorem b c bar f g',
     'should mock module not located under the same parent folder',
   )
 
   t.equal(
     Mock.get(resolve(__filename), resolve(path, 'lib/a.js'), {
-      [resolve(path, 'e.cjs')]: () => 'bar',
+      [resolve(path, 'f.cjs')]: () => 'bar',
     })(),
-    '{} lorem b c d bar',
+    '{} lorem b c d e bar g',
     'should mock module using cjs extension',
   )
 
@@ -86,7 +91,7 @@ module.exports = function() {
       [resolve(path, 'lib/b.js')]: () => 'foo',
       [resolve(path, 'lib/utils/c')]: () => 'bar',
     })(),
-    '{} lorem foo bar d e',
+    '{} lorem foo bar d e f g',
     'should mock nested module',
   )
 
@@ -94,13 +99,13 @@ module.exports = function() {
     Mock.get(resolve(__filename), resolve(path, 'lib/a.js'), {
       util: { inspect: obj => obj.constructor.prototype },
     })(),
-    '[object Object] lorem b c d e',
+    '[object Object] lorem b c d e f g',
     'should mock builtin module',
   )
 
   t.equal(
     require(resolve(path, 'lib/a.js'))(),
-    '{} lorem b c d e',
+    '{} lorem b c d e f g',
     'should preserve original module after mocking',
   )
 
