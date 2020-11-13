@@ -42,7 +42,7 @@
     "rimraf": "^2.7.1",
     "signal-exit": "^3.0.0",
     "source-map-support": "^0.5.16",
-    "stack-utils": "^1.0.2",
+    "stack-utils": "^1.0.3",
     "tap-mocha-reporter": "^5.0.0",
     "tap-parser": "^10.0.1",
     "tap-yaml": "^1.0.0",
@@ -101,7 +101,13 @@
   "bundleDependencies": [
     "ink",
     "treport",
-    "@types/react"
+    "@types/react",
+    "import-jsx",
+    "minipass",
+    "signal-exit",
+    "tap-parser",
+    "tap-yaml",
+    "yaml"
   ],
   "funding": {
     "url": "https://github.com/sponsors/isaacs"
