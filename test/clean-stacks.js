@@ -53,8 +53,8 @@ module.exports = out => out
   .replace(/\n( +)method: .*(\n\1  .*)*\n/g, '\n')
   .replace(/\n( +)type: .*\n/g, '\n')
   .replace(/\n( +)file: (.*)\n/g, ($0, $1, $2) =>
-    internals.indexOf($2.replace(/\.js$/, '')) === -1 ? $0
-      : '\n' + $1 + 'file: #INTERNAL#\n'
+    internals.indexOf($2.replace(/\.js$/, '')) === -1 && !/node:/.test($0)
+      ? $0 : '\n' + $1 + 'file: #INTERNAL#\n'
   )
 
   // timeout values are different when coverage is present
