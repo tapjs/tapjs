@@ -1198,10 +1198,12 @@ t.test('test dir name does not throw when no main module is present', t => {
   })
 })
 
-t.test('save a fixture', t => {
+t.test('fixture dir stuff', t => {
   const tdn = t.testdirName
   t.throws(() => fs.statSync(tdn), 'doesnt exist yet')
+  t.teardown(() => fs.statSync(tdn), 'exists in teardown')
   const dir = t.testdir()
+  t.teardown(() => fs.statSync(tdn), 'exists in teardown scheduled after testdir')
   t.equal(dir, tdn)
   t.ok(fs.statSync(dir).isDirectory(), 'made directory')
   t.testdir({ file: 'contents' })
@@ -1213,12 +1215,21 @@ t.test('save a fixture', t => {
   t.throws(() => fs.statSync(`${dir}/file`), 'old dir cleared out')
   t.equal(fs.readFileSync(`${dir}/file2`, 'utf8'), 'contents', 'made file')
   t.equal(fs.readlinkSync(`${dir}/link`), 'file2', 'made symlink')
+  let removeDir
+  t.test('remove the dir when its done', t => {
+    removeDir = t.testdir()
+    t.end()
+  })
   let leaveDir
   t.test('leave the dir behind', { saveFixture: true }, t => {
+    t.throws(() => fs.statSync(removeDir), 'previous dir was removed')
     leaveDir = t.testdir()
     t.parent.teardown(() => rimraf.sync(leaveDir))
     t.end()
   })
-  t.ok(fs.statSync(leaveDir).isDirectory(), 'left dir behind')
+  t.test('check leaveDir is still there', t => {
+    t.ok(fs.statSync(leaveDir).isDirectory(), 'left dir behind')
+    t.end()
+  })
   t.end()
 })
