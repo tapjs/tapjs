@@ -92,3 +92,34 @@ The name is determined by the filename and path of the `main` script.  If
 no `main` script is available (for example, if running tap in a node repl),
 then it defaults to the folder name `TAP` in the current working
 directory.
+
+## Timing Caveat
+
+While the fixture directory is _created_ synchronously, it is _removed_
+asynchronously, because that is the only way to get around `ENOTEMPTY`
+errors on Windows.
+
+This means that the next test after one that uses `t.testdir()` will be
+deferred until after the end of the current run to completion.  So, for
+example:
+
+```js
+t.test('first test', t => {
+  console.error('one')
+  t.testdir()
+  t.end()
+})
+console.error('two')
+t.test('second test', t => {
+  console.error('three')
+  t.end()
+})
+console.error('four')
+```
+
+This will print `one two four three` instead of `one two three four`,
+because the second test is deferred while waiting for the first test's
+fixture dir to be removed.
+
+The fixture directory cleanup will always happen _after_ any user-scheduled
+`t.teardown()` functions, as of tap v14.11.0.
