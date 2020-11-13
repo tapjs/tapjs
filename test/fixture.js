@@ -2,6 +2,8 @@ const t = require('../')
 const Fixture = require('../lib/fixture.js')
 
 const dir = t.testdirName
+require('rimraf').sync(dir)
+
 const f = new Fixture('file', 'bar')
 t.match(f, {
   type: 'file',
@@ -33,9 +35,12 @@ t.throws(() => new Fixture('file'), {
 
 Fixture.make(dir, {
   file: 'content',
+  dir: {},
   symlink: new Fixture('symlink', 'file'),
+  dirlink: new Fixture('symlink', 'dir'),
   link: new Fixture('link', 'file'),
   dir: new Fixture('dir', {}),
+  noexist: new Fixture('symlink', 'non-existent-file'),
 })
 const fs = require('fs')
 t.ok(fs.statSync(dir).isDirectory(), 'dir is a dir')
@@ -44,4 +49,5 @@ t.match(fs.statSync(`${dir}/link`), fs.statSync(`${dir}/file`),
   'hardlink is hard link')
 t.equal(fs.readlinkSync(`${dir}/symlink`), 'file', 'symlink is symlink')
 t.ok(fs.statSync(`${dir}/dir`).isDirectory(), 'subdir is a dir')
+
 require('rimraf').sync(dir)

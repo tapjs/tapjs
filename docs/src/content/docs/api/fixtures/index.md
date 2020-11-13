@@ -34,6 +34,8 @@ this:
 const dir = t.testdir({
   'some-file': 'some contents',
   // use t.fixture() to create links and symlinks
+  // this will use junctions on Windows as of v14.11.0 if the
+  // target is a directory, so Administrator perms aren't needed.
   link: t.fixture('symlink', 'some-file'),
   nested: {
     'README.md': 'nested dirs work, too!'
