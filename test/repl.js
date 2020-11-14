@@ -207,8 +207,8 @@ t.test('clear', t => {
 t.test('completer', t => {
   mkdirp('test/foo')
   mkdirp('temp/orary')
-  fs.writeFileSync('test/foo/bar.js')
-  fs.writeFileSync('test/follow.js')
+  fs.writeFileSync('test/foo/bar.js', '')
+  fs.writeFileSync('test/follow.js', '')
   const tests = [
     '',
     'ex',

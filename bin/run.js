@@ -1,9 +1,10 @@
 #!/usr/bin/env node
+const signalExit = require('signal-exit')
 const opener = require('opener')
 const node = process.execPath
 const fs = require('fs')
 const fg = require('foreground-child')
-const {spawn} = require('child_process')
+const {spawn, spawnSync} = require('child_process')
 const nycBin = require.resolve(
   'nyc/' + require('nyc/package.json').bin.nyc
 )
@@ -122,7 +123,10 @@ const defaultFiles = options => new Promise((res, rej) => {
   })
 })
 
-const main = async options => {
+const main = options =>
+  mainAsync(options).catch(er => onError(er))
+
+const mainAsync = async options => {
   debug('main', options)
 
   if (require.main !== module)
@@ -261,12 +265,17 @@ const defaultNycExcludes = [
 const runNyc = (cmd, programArgs, options, spawnOpts) => {
   const reporter = nycReporter(options)
 
-  const branches = Math.max(+options.branches || 100, 100)
-  const lines = Math.max(+options.lines || 100, 100)
-  const functions = Math.max(+options.functions || 100, 100)
-  const statements = Math.max(+options.statements || 100, 100)
+  // note: these are forced to be numeric in the option parsing phase
+  const branches = Math.min(options.branches, 100)
+  const lines = Math.min(options.lines, 100)
+  const functions = Math.min(options.functions, 100)
+  const statements = Math.min(options.statements, 100)
   const excludes = defaultNycExcludes.concat(options.files).map(f =>
     '--exclude=' + f)
+  if (options.before)
+    excludes.push('--exclude=' + options.before)
+  if (options.after)
+    excludes.push('--exclude=' + options.after)
 
   const args = [
     nycBin,
@@ -278,13 +287,13 @@ const runNyc = (cmd, programArgs, options, spawnOpts) => {
     '--branches=' + branches,
     '--watermarks.branches=' + branches,
     '--watermarks.branches=' + (branches + (100 - branches)/2),
-    '--functions=' + options.functions,
+    '--functions=' + functions,
     '--watermarks.functions=' + functions,
     '--watermarks.functions=' + (functions + (100 - functions)/2),
-    '--lines=' + options.lines,
+    '--lines=' + lines,
     '--watermarks.lines=' + lines,
     '--watermarks.lines=' + (lines + (100 - lines)/2),
-    '--statements=' + options.statements,
+    '--statements=' + statements,
     '--watermarks.statements=' + statements,
     '--watermarks.statements=' + (statements + (100 - statements)/2),
     ...reporter,
@@ -510,12 +519,20 @@ const saveFails = (options, tap) => {
   tap.on('end', save)
 }
 
+const filesMatch = (a, b) =>
+  a && b && path.resolve(a) === path.resolve(b)
+
 const filterFiles = exports.filterFiles = (files, options, parallelOk) =>
   files.filter(file =>
     path.basename(file) === 'tap-parallel-ok' ?
       ((parallelOk[path.resolve(path.dirname(file))] = true), false)
     : path.basename(file) === 'tap-parallel-not-ok' ?
       parallelOk[path.resolve(path.dirname(file))] = false
+    // don't include the --before and --after scripts as files,
+    // so they're not run as tests if they would be found normally.
+    // This allows test/setup.js and test/teardown.js for example.
+    : filesMatch(file, options.before) ? false
+    : filesMatch(file, options.after) ? false
     : options.saved && options.saved.length ? onSavedList(options.saved, file)
     : options.changed ? options.changedFilter(file)
     : true
@@ -560,7 +577,7 @@ const coverageMapOverride = (env, file, coverageMap) => {
   }
 }
 
-const runAllFiles = (options, tap) => {
+const runAllFiles = (options, env, tap, processDB) => {
   debug('run all files')
   let doStdin = false
   let parallelOk = Object.create(null)
@@ -578,17 +595,11 @@ const runAllFiles = (options, tap) => {
     })
   }
 
-  const env = getEnv(options)
-
   options.files = filterFiles(options.files, options, parallelOk)
 
   if (options.files.length === 0 && !doStdin && !options.changed) {
     tap.fail('no tests specified')
   }
-
-  /* istanbul ignore next */
-  const processDB = options.coverage && process.env.NYC_CONFIG
-    ? new ProcessDB() : null
 
   /* istanbul ignore next */
   const coverageMap = options['coverage-map']
@@ -641,7 +652,7 @@ const runAllFiles = (options, tap) => {
       if (options.ts && /\.tsx?$/.test(file)) {
         debug('ts file', file)
         const compilerOpts = JSON.stringify({
-          ...JSON.parse(process.env.TS_NODE_COMPILER_OPTIONS || '{}'),
+          ...JSON.parse(env.TS_NODE_COMPILER_OPTIONS || '{}'),
           jsx: 'react'
         })
         opt.env = {
@@ -715,13 +726,22 @@ const runTests = options => {
   // greps are passed to children, but not the runner itself
   tap.grep = []
   tap.jobs = options.jobs
+
+  const env = getEnv(options)
+
+  /* istanbul ignore next */
+  const processDB = options.coverage && process.env.NYC_CONFIG
+    ? new ProcessDB() : null
+
+  // run --before before everything, and --after as the very last thing
+  runBeforeAfter(options, env, tap, processDB)
+
   tap.patchProcess()
 
   // if not -Rtap, then output what the user wants.
   // otherwise just dump to stdout
   /* istanbul ignore next */
   makeReporter(tap, options)
-
 
   // need to replay the first version line, because the previous
   // line will have flushed it out to stdout or the reporter already.
@@ -730,7 +750,7 @@ const runTests = options => {
 
   saveFails(options, tap)
 
-  runAllFiles(options, tap)
+  runAllFiles(options, env, tap, processDB)
 
   /* istanbul ignore next */
   if (process.env.COVERALLS_REPO_TOKEN ||
@@ -742,6 +762,37 @@ const runTests = options => {
   debug('called tap.end()')
 }
 
+const beforeAfter = (env, script) => {
+  const {status, signal} = spawnSync(process.execPath, [script], {
+    env,
+    stdio: 'inherit',
+  })
+
+  if (status || signal) {
+    const msg = `\n# failed ${script}\n# code=${status} signal=${signal}\n`
+    console.error(msg)
+    process.exitCode = status || 1
+    process.exit(status || 1)
+  }
+}
+
+const runBeforeAfter = (options, env, tap, processDB) => {
+  // Have to write the index before running a script so that this
+  // process is included in the DB, or else it'll crash when it
+  // tries to get the parent info.
+  /* istanbul ignore next */
+  if (processDB && (options.before || options.after))
+    processDB.writeIndex()
+
+  if (options.before)
+    beforeAfter(env, options.before)
+
+  if (options.after) {
+    /* istanbul ignore next - run after istanbul's report */
+    signalExit(() => beforeAfter(env, options.after), { alwaysLast: true })
+  }
+}
+
 const parsePackageJson = () => {
   try {
     return JSON.parse(fs.readFileSync('package.json', 'utf8')).tap || {}
@@ -751,13 +802,14 @@ const parsePackageJson = () => {
 }
 
 const parseRcFile = path => {
+  let contents
   try {
-    const contents = fs.readFileSync(path, 'utf8')
-    return yaml.parse(contents) || {}
+    contents = fs.readFileSync(path, 'utf8')
   } catch (er) {
-    // if no dotfile exists, or invalid yaml, fail gracefully
+    // if no dotfile exists, just return an empty object
     return {}
   }
+  return yaml.parse(contents)
 }
 
 const strToRegExp = g => {
@@ -767,15 +819,20 @@ const strToRegExp = g => {
   return new RegExp(g, flags)
 }
 
-try {
-  require('./jack.js')(main)
-} catch (er) {
+const onError = er => {
   /* istanbul ignore else - parse errors are the only ones we ever expect */
   if (er.name.match(/^AssertionError/) && !er.generatedMessage) {
     console.error('Error: ' + er.message)
     console.error('Run `tap --help` for usage information')
     process.exit(1)
   } else {
-    throw er
+    console.error(er)
+    process.exit(1)
   }
+}
+
+try {
+  require('./jack.js')(main)
+} catch (er) {
+  onError(er)
 }

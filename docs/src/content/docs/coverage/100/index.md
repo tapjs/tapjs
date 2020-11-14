@@ -1,6 +1,6 @@
 ---
 title: The TAP 100
-section: 7.01
+section: 8.01
 redirect_from:
   - /100/
   - /100
@@ -17,13 +17,16 @@ request](https://github.com/tapjs/node-tap/blob/master/docs/src/content/docs/cov
 to add it to the docs.
 
 * [abbrev](https://www.npmjs.com/package/abbrev)
+* [bowling](https://www.npmjs.com/package/bowling)
 * [casern](https://www.npmjs.com/package/casern)
+* [clear-folder](https://www.npmjs.com/package/clear-folder)
 * [color-support](https://www.npmjs.com/package/color-support)
 * [contentfs](https://www.npmjs.com/package/contentfs)
 * [dotenv](https://www.npmjs.com/package/dotenv)
 * [dpc](https://www.npmjs.com/package/dpc)
 * [events-to-array](https://www.npmjs.com/package/events-to-array)
 * [express-jwt-permissions](https://www.npmjs.com/package/express-jwt-permissions)
+* [fastify-esso](https://www.npmjs.com/package/fastify-esso)
 * [fastify-vhost](https://www.npmjs.com/package/fastify-vhost)
 * [frs-replace](https://www.npmjs.com/package/frs-replace)
 * [fs-exists-cached](https://www.npmjs.com/package/fs-exists-cached)
@@ -64,6 +67,7 @@ to add it to the docs.
 * [trivial-deferred](https://www.npmjs.com/package/trivial-deferred)
 * [tsame](https://www.npmjs.com/package/tsame)
 * [twing](https://www.npmjs.com/package/twing)
+* [undici](https://www.npmjs.com/package/undici)
 * [virtuaaliviivakoodi](https://www.npmjs.com/package/virtuaaliviivakoodi)
 * [yallist](https://www.npmjs.com/package/yallist)
 * [yapool](https://www.npmjs.com/package/yapool)

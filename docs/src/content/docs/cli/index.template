@@ -1,6 +1,6 @@
 ---
 title: CLI
-section: 5
+section: 6
 redirect_from:
   - /cli/
   - /cli

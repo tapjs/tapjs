@@ -1,6 +1,6 @@
 ---
 title: Promises
-section: 4.02
+section: 5.02
 redirect_from:
   - /promises/
   - /promises
@@ -35,20 +35,15 @@ t.test('get thing', t =>
       t.end()
     })))
 .then(t =>
-  getTwoThings().then(things =>
-    t.test('the things', t => {
-      t.equal(things.length, 2)
-      return makeSomeOtherPromise()
-    }))
-  .then(otherPromiseResult =>
-    t.test('check other promise thing', t => {
-      t.equal(otherPromiseResult, 7, 'it should be seven')
-      t.end()
-    })))
+  getTwoThings()
+    .then(things => t.equal(things.length, 2))
+    .then(() => makeSomeOtherPromise())
+    .then(otherPromiseResult =>
+      t.equal(otherPromiseResult, 7, 'it should be seven')))
 ```
 
-If this sort of style offends you, you are welcome to ignore it.  It's
-not mandatory.
+If this sort of style offends you, you are welcome to ignore it.  It's not
+mandatory.
 
 If you want to pass Promises to [assertions](/docs/api/asserts) and have them
 auto-resolve, then check out [tapromise](http://npm.im/tapromise).

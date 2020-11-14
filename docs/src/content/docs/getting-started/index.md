@@ -432,7 +432,7 @@ have a JS engine that supports async functions:
 
 ```js
 const tap = require('tap')
-tap.test(async t => {
+tap.test('dogs should be ok', async t => {
   const result = await doSomethingAsync()
   t.match(result, { ok: true, message: /dogs/ }, 'dogs are ok')
   // Or you can use any assertion lib you like.  as long as this
@@ -440,4 +440,5 @@ tap.test(async t => {
 })
 ```
 
-See the [API reference](/docs/api/) to learn more!
+Move on to [writing well-structured tests](/docs/structure/), or just dive
+into the [API reference](/docs/api/)!
