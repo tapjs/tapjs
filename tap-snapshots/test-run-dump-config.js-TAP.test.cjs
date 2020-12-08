@@ -45,8 +45,8 @@ show-process-tree: false
 statements: 100
 test-arg: []
 test-env: []
-test-ignore: /((^|/)cli-tests-[0-9]+|\\.mjs$)/
-test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(tests?|spec)|^\\/?tests?)\\.([mc]js|[jt]sx?)$
+test-ignore: $.
+test-regex: ^test/.*\\.js$
 timeout: 30
 ts: false
 version: false
@@ -96,8 +96,8 @@ show-process-tree: false
 statements: 100
 test-arg: []
 test-env: []
-test-ignore: /((^|/)cli-tests-[0-9]+|\\.mjs$)/
-test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(tests?|spec)|^\\/?tests?)\\.([mc]js|[jt]sx?)$
+test-ignore: $.
+test-regex: ^test/.*\\.js$
 timeout: 30
 ts: false
 version: false
@@ -300,8 +300,8 @@ show-process-tree: false
 statements: 100
 test-arg: []
 test-env: []
-test-ignore: /((^|/)cli-tests-[0-9]+|\\.mjs$)/
-test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(tests?|spec)|^\\/?tests?)\\.([mc]js|[jt]sx?)$
+test-ignore: $.
+test-regex: ^test/.*\\.js$
 timeout: 0
 ts: false
 version: false
@@ -364,8 +364,8 @@ test-arg:
   - xyz
   - abc
 test-env: []
-test-ignore: /((^|/)cli-tests-[0-9]+|\\.mjs$)/
-test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(tests?|spec)|^\\/?tests?)\\.([mc]js|[jt]sx?)$
+test-ignore: $.
+test-regex: ^test/.*\\.js$
 timeout: 99
 ts: false
 version: false
@@ -415,8 +415,8 @@ show-process-tree: false
 statements: 100
 test-arg: []
 test-env: []
-test-ignore: /((^|/)cli-tests-[0-9]+|\\.mjs$)/
-test-regex: ((\\/|^)(tests?|__tests?__)\\/.*|\\.(tests?|spec)|^\\/?tests?)\\.([mc]js|[jt]sx?)$
+test-ignore: $.
+test-regex: ^test/.*\\.js$
 timeout: 30
 ts: false
 version: false
