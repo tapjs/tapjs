@@ -1274,6 +1274,27 @@ t.test('require defining mocks', t => {
     )
   })
 
+  t.test('run-time invoked require call', t => {
+    const f = t.testdir({
+      'a.js': 'module.exports = "a"',
+        'index.js': 'module.exports = () => { return require("./a.js") }',
+      'test.js':
+        `const t = require('../..'); // tap
+        t.test('mock file at run time', t => {
+          const i = t.mock('./index.js', {
+            './a.js': 'mocked-a',
+          })
+          t.equal(i(), 'mocked-a', 'should get mocked result')
+          t.end()
+        })`,
+    })
+    return t.spawn(
+      process.execPath,
+      [ path.resolve(f, 'test.js') ],
+      { cwd: f },
+    )
+  })
+
   t.test('nested lib files', t => {
     const f = t.testdir({
       lib: {
