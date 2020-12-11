@@ -54,6 +54,7 @@ t.test('mock', t => {
     },
     'f.cjs': `module.exports = function () { return 'f' }`,
     'g.js': `module.exports = function () { return 'g' }`,
+    'h.js': `module.exports = require.resolve('./g.js')`,
   })
 
   t.equal(
@@ -107,6 +108,12 @@ t.test('mock', t => {
     require(resolve(path, 'lib/a.js'))(),
     '{} lorem b c d e f g',
     'should preserve original module after mocking',
+  )
+
+  t.equal(
+    Mock.get(resolve(__filename), resolve(path, 'h.js'), {}),
+    resolve(path, 'g.js'),
+    'should preserve require properties and methods',
   )
 
   // lorem is an unknown module id in the context of the current script,
