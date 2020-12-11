@@ -15,7 +15,7 @@ t.throws(
 )
 
 t.throws(
-  () => Mock.get(resolve(__filename), './foo.js'),
+  () => Mock.get(resolve(__filename), './foo.js', ''),
   /mocks should be a a key\/value object in which keys/,
   'should throw on invalid mock-defining object',
 )
@@ -111,7 +111,7 @@ t.test('mock', t => {
   )
 
   t.equal(
-    Mock.get(resolve(__filename), resolve(path, 'h.js'), {}),
+    Mock.get(resolve(__filename), resolve(path, 'h.js')),
     resolve(path, 'g.js'),
     'should preserve require properties and methods',
   )
