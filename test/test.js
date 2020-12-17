@@ -1488,5 +1488,34 @@ t.test('require defining mocks', t => {
     )
   })
 
+  t.test('should support cicle require', t => {
+    const f = t.testdir({
+      lib: {
+        'a.js':
+          `module.exports = require('./b.js')`,
+        'b.js':
+          `const c = require('./c.js')
+          const b = () => 'b and ' + c
+          b.extra = 'BBB'
+          module.exports = () => 'b and ' + c`,
+        'c.js':
+          `const b = require('./b.js')
+          module.exports = () => 'c and ' + b.extra`,
+      },
+      'test.js':
+        `const t = require('../..'); // tap
+        t.test('mocking cicled required deps', t => {
+          const a = t.mock('./lib/a.js', {})
+          t.ok('should not explode')
+          t.end()
+        })`,
+    })
+    return t.spawn(
+      process.execPath,
+      [ path.resolve(f, 'test.js') ],
+      { cwd: f },
+    )
+  })
+
   t.end()
 })
