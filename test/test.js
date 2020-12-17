@@ -1345,7 +1345,7 @@ t.test('require defining mocks', t => {
             const i = t.mock('../index.js', {
               '../lib/a.js': 'mocked-a',
             })
-            t.equal(i(), 'mocked-a b a b d d', 'should get expected mocked result')
+            t.equal(i(), 'mocked-a b mocked-a b d d', 'should get expected mocked result')
             t.end()
           })
 
@@ -1451,6 +1451,33 @@ t.test('require defining mocks', t => {
             'util': { format: () => 'mocked-util' },
           })
           t.equal(i('bar'), 'mocked-util', 'should get mocked result')
+          t.end()
+        })`,
+    })
+    return t.spawn(
+      process.execPath,
+      [ path.resolve(f, 'test.js') ],
+      { cwd: f },
+    )
+  })
+
+  t.test('should support mocking within nested deps', t => {
+    const f = t.testdir({
+      lib: {
+        'a.js':
+          `module.exports = require('./b.js')`,
+        'b.js':
+          `module.exports = require('./c.js')`,
+        'c.js':
+          `module.exports = () => 'c'`,
+      },
+      'test.js':
+        `const t = require('../..'); // tap
+        t.test('mocking deps of required modules', t => {
+          const a = t.mock('./lib/a.js', {
+            './lib/c.js': () => 'mocked-c',
+          })
+          t.equal(a(), 'mocked-c', 'should get mocked-c result')
           t.end()
         })`,
     })
