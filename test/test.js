@@ -1517,5 +1517,31 @@ t.test('require defining mocks', t => {
     )
   })
 
+  t.test('should support mocking builtin modules within nested deps', t => {
+    const f = t.testdir({
+      lib: {
+        'a.js':
+          `module.exports = require('./b.js')`,
+        'b.js':
+          `module.exports = require('./c.js')`,
+        'c.js':
+          `module.exports = () => require('fs')`,
+      },
+      'test.js':
+        `const t = require('../..'); // tap
+        t.test('mocking builtin modules in nested modules', t => {
+          const fs = {}
+          const a = t.mock('./lib/a.js', { fs })
+          t.equal(a(), fs, 'should get mocked fs result')
+          t.end()
+        })`,
+    })
+    return t.spawn(
+      process.execPath,
+      [ path.resolve(f, 'test.js') ],
+      { cwd: f },
+    )
+  })
+
   t.end()
 })

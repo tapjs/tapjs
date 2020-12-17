@@ -9,13 +9,43 @@ t.throws(
 )
 
 t.throws(
-  () => Mock.get(resolve(__filename)),
+  () => Mock.get(__filename),
   /first argument should be a string/,
   'should throw on invalid filename',
 )
 
 t.throws(
-  () => Mock.get(resolve(__filename), './foo.js', ''),
+  () => Mock.get(__filename, './foo.js', ''),
+  /mocks should be a a key\/value object in which keys/,
+  'should throw on invalid mock-defining object',
+)
+
+t.throws(
+  () => Mock.get(__filename, './foo.js', [1]),
+  /mocks should be a a key\/value object in which keys/,
+  'should throw on invalid mock-defining object',
+)
+
+t.throws(
+  () => Mock.get(__filename, './foo.js', null),
+  /mocks should be a a key\/value object in which keys/,
+  'should throw on invalid mock-defining object',
+)
+
+t.throws(
+  () => Mock.get(__filename, './foo.js', /foo/),
+  /mocks should be a a key\/value object in which keys/,
+  'should throw on invalid mock-defining object',
+)
+
+t.throws(
+  () => Mock.get(__filename, './foo.js', 1),
+  /mocks should be a a key\/value object in which keys/,
+  'should throw on invalid mock-defining object',
+)
+
+t.throws(
+  () => Mock.get(__filename, './foo.js', new Map()),
   /mocks should be a a key\/value object in which keys/,
   'should throw on invalid mock-defining object',
 )
