@@ -85,10 +85,13 @@ t.test('mock', t => {
     'f.cjs': `module.exports = function () { return 'f' }`,
     'g.js': `module.exports = function () { return 'g' }`,
     'h.js': `module.exports = require.resolve('./g.js')`,
+    'i.js': `module.exports = require('./j.js') + require('./k.js')`,
+    'j.js': `module.exports = require('./k.js')`,
+    'k.js': `module.exports = 'k'`,
   })
 
   t.equal(
-    Mock.get(resolve(__filename), resolve(path, 'lib/a.js'), {
+    Mock.get(__filename, resolve(path, 'lib/a.js'), {
       [resolve(path, 'lib/b.js')]: () => 'foo',
     })(),
     '{} lorem foo c d e f g',
@@ -102,7 +105,7 @@ t.test('mock', t => {
   )
 
   t.equal(
-    Mock.get(resolve(__filename), resolve(path, 'lib/a.js'), {
+    Mock.get(__filename, resolve(path, 'lib/a.js'), {
       [resolve(path, 'helpers/d.js')]: () => 'bar',
     })(),
     '{} lorem b c bar f g',
@@ -110,7 +113,7 @@ t.test('mock', t => {
   )
 
   t.equal(
-    Mock.get(resolve(__filename), resolve(path, 'lib/a.js'), {
+    Mock.get(__filename, resolve(path, 'lib/a.js'), {
       [resolve(path, 'f.cjs')]: () => 'bar',
     })(),
     '{} lorem b c d e bar g',
@@ -118,7 +121,7 @@ t.test('mock', t => {
   )
 
   t.equal(
-    Mock.get(resolve(__filename), resolve(path, 'lib/a.js'), {
+    Mock.get(__filename, resolve(path, 'lib/a.js'), {
       [resolve(path, 'lib/b.js')]: () => 'foo',
       [resolve(path, 'lib/utils/c')]: () => 'bar',
     })(),
@@ -127,7 +130,7 @@ t.test('mock', t => {
   )
 
   t.equal(
-    Mock.get(resolve(__filename), resolve(path, 'lib/a.js'), {
+    Mock.get(__filename, resolve(path, 'lib/a.js'), {
       util: { inspect: obj => obj.constructor.prototype },
     })(),
     '[object Object] lorem b c d e f g',
@@ -141,16 +144,22 @@ t.test('mock', t => {
   )
 
   t.equal(
-    Mock.get(resolve(__filename), resolve(path, 'h.js')),
+    Mock.get(__filename, resolve(path, 'h.js')),
     resolve(path, 'g.js'),
     'should preserve require properties and methods',
+  )
+
+  t.equal(
+    Mock.get(__filename, resolve(path, 'i.js')),
+    'kk',
+    'should read non-mocked cached modules from t.mock realm',
   )
 
   // lorem is an unknown module id in the context of the current script,
   // trying to mock it will result in an error while trying to resolve
   // the filename for generating the mocks map
   t.throws(
-    () => Mock.get(resolve(__filename), resolve(path, 'lib/a.js'), {
+    () => Mock.get(__filename, resolve(path, 'lib/a.js'), {
       lorem: () => '***',
     })(),
     { code: 'MODULE_NOT_FOUND' },
