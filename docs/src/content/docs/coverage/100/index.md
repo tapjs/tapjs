@@ -29,7 +29,7 @@ to add it to the docs.
 * [express-jwt-permissions](https://www.npmjs.com/package/express-jwt-permissions)
 * [fastify-esso](https://www.npmjs.com/package/fastify-esso)
 * [fastify-vhost](https://www.npmjs.com/package/fastify-vhost)
-* [frs-replace](https://www.npmjs.com/package/frs-replace)
+* [@frsource/frs-replace](https://www.npmjs.com/package/@frsource/frs-replace)
 * [fs-exists-cached](https://www.npmjs.com/package/fs-exists-cached)
 * [fs-minipass](https://www.npmjs.com/package/fs-minipass)
 * [fs-readstream-seek](https://www.npmjs.com/package/fs-readstream-seek)
