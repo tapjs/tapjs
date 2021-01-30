@@ -2,6 +2,11 @@ import React from 'react';
 import {StaticQuery, graphql} from 'gatsby';
 import {NavLink} from './links';
 import {Flex, Box} from 'rebass';
+import styled from 'styled-components';
+
+const LinksFlex = styled(Flex)`
+  padding-bottom: 100px;
+`;
 
 const DocLinks = ({data}) => {
   const linkArray = data.allMarkdownRemark.edges;
@@ -9,7 +14,7 @@ const DocLinks = ({data}) => {
   
   return(
     <>
-      <Flex flexDirection="column">
+      <LinksFlex flexDirection="column">
         {sortedArray.map((link, i) => (
           <Box key={i} pl={!(Number.isInteger(link.node.frontmatter.section)) ? 3 : 0}>
             <NavLink 
@@ -20,7 +25,7 @@ const DocLinks = ({data}) => {
             </NavLink>
           </Box>
         ))} 
-      </Flex>
+      </LinksFlex>
     </>
   );
 };

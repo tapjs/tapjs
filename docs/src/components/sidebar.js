@@ -7,10 +7,10 @@ const Container = styled.div`
   background-color: ${theme.colors.lightGrey};
   flex: 0 0 250px;
   overflow-y: scroll;
-  height: 100vh;
+  height: calc(100vh - 68px);
   top: 68px;
   position: sticky;
-  padding: 20px 20px 100px;
+  padding: 20px 20px 0;
   box-shadow: 1px 0 10px 1px #33333330;
   display: none;
 
