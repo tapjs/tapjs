@@ -826,7 +826,16 @@ const parseRcFile = path => {
   let contents
   try {
     contents = fs.readFileSync(path, 'utf8')
-  } catch (er) {
+  } catch (_) {
+    try {
+      contents = fs.readFileSync(path + '.yaml', 'utf8')
+    } catch (_) {
+      try {
+        contents = fs.readFileSync(path + '.yml', 'utf8')
+      } catch (_) {}
+    }
+  }
+  if (!contents) {
     // if no dotfile exists, just return an empty object
     return {}
   }
