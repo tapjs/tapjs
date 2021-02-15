@@ -1,0 +1,36 @@
+name: ci
+
+on:
+  push:
+    paths-ignore:
+      - 'docs/**'
+      - 'docs-content/**'
+      - '*.md'
+  pull_request:
+    paths-ignore:
+      - 'docs/**'
+      - 'docs-content/**'
+      - '*.md'
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        node-version: [8.x, 10.x, 12.x, 14.x]
+        os: [ubuntu-latest]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js
+        uses: actions/setup-node@v2.1.4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install
+        run: |
+          npm install --ignore-scripts
+      - name: Run tests
+        run: |
+          npm run test

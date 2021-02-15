@@ -3,7 +3,7 @@
 A <abbr title="Test Anything Protocol">TAP</abbr> test framework for
 Node.js.
 
-[![Build Status](https://travis-ci.org/tapjs/node-tap.svg?branch=master)](https://travis-ci.org/tapjs/node-tap)
+![Build Status](https://github.com/tapjs/node-tap/workflows/ci/badge.svg)
 
 _Just wanna see some code? [Get started!](http://www.node-tap.org/basics/)_
 
