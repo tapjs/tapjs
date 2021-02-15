@@ -53,7 +53,8 @@ module.exports = out => out
   .replace(/\n( +)method: .*(\n\1  .*)*\n/g, '\n')
   .replace(/\n( +)type: .*\n/g, '\n')
   .replace(/\n( +)file: (.*)\n/g, ($0, $1, $2) =>
-    internals.indexOf($2.replace(/\.js$/, '')) === -1 ? $0
+    internals.indexOf($2.replace(/\.js$/, '')) === -1 &&
+    !/\bnode:\b/.test($2) ? $0
       : '\n' + $1 + 'file: #INTERNAL#\n'
   )
 

@@ -12,8 +12,8 @@ treport output
 exports[`test/run/reporters.js TAP cli reporter > stdout 1`] = `
 TAP version 13
 ok 1 - cli-tests/ok.js > this is fine
-1..1
 # {time}
+1..1
 
 
 `
