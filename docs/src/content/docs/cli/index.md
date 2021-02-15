@@ -19,7 +19,7 @@ information.
 Usage:
   tap [options] [<files>]
 
-tap v14.10.7 - A Test-Anything-Protocol library for JavaScript
+tap v14.11.0 - A Test-Anything-Protocol library for JavaScript
 
 Executes all the files and interprets their output as TAP formatted test result
 data. If no files are specified, then tap will search for testy-looking files,
@@ -368,16 +368,20 @@ Other Options:
   --harmony              Enable all Harmony flags in JavaScript tests
   --strict               Run JS tests in 'use strict' mode
 
+  --esm                  Run .js and .mjs with support for EcmaScript modules
+                         (Default: true)
+
+  --no-esm               switch off the --esm flag
   --flow                 Removes flow types
   --no-flow              switch off the --flow flag
 
   --ts                   Automatically load .ts and .tsx tests with tap's
-                         bundled ts-node module (Default: false)
+                         bundled ts-node module (Default: true)
 
   --no-ts                switch off the --ts flag
 
   --jsx                  Automatically load .jsx tests using tap's bundled
-                         import-jsx loader (Default: false)
+                         import-jsx loader (Default: true)
 
   --no-jsx               switch off the --jsx flag
 
@@ -476,8 +480,9 @@ Environment Variables:
                          flag works.)
 
   TAP_ONLY               Set to '1' to set the --only flag
-  TAP_TS                 Set to '1' to enable automatic typescript support
-  TAP_JSX                Set to '1' to enable automatic jsx support
+  TAP_NO_ESM             Set to '1' to disable automatic esm support
+  TAP_NO_TS              Set to '1' to disable automatic typescript support
+  TAP_NO_JSX             Set to '1' to disable automatic jsx support
 
 Config Files:
 

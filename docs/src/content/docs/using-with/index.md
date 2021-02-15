@@ -6,6 +6,21 @@ redirect_from:
   - /using-with
 ---
 
+# Using tap with ESM
+
+ES-Modules are supported by default, using the [esm](http://npm.im/esm) module.
+If your test file ends in `.mjs`, then this will automatically use Node's
+built-in experimental module system.
+
+Although, if you are using ES-modules with `.js` extension & `type: module` pattern
+on Node.js v12.13+, you will face warnings and/or crashes while running tests. 
+In this case it is advised to turn "esm" support off & use native Node.js 
+module loader.
+
+To turn _off_ ES-Module support, run your tests with `--no-esm`.
+
+In future releases (v15+) "esm" module will not be provided by tap.
+
 # Using tap with TypeScript
 
 Name your test files `.ts` and they'll be loaded as TypeScript.
