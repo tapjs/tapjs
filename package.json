@@ -77,7 +77,6 @@
     "www:serve": "cd docs; npm run serve"
   },
   "tap": {
-    "esm": false,
     "test-regex": "^test/.*\\.js$",
     "check-coverage": true
   },
