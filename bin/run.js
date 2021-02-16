@@ -87,37 +87,39 @@ const defaultFiles = options => new Promise((res, rej) => {
       !parts.includes('tap-snapshots') &&
       !parts.includes('fixtures') &&
       !parts.includes('.git') &&
-      !parts.includes('.hg')
+      !parts.includes('.hg') &&
+      !parts.some(p => /^tap-testdir-/.test(p))
     debug('include?', f, include)
     return include
   }
 
   const addFile = files => f => fileFilter(f) && files.push(f)
 
-  // search in any folder that isn't node_modules, .git, or tap-snapshots
+  // search in any folder that isn't node_modules, .git, or tap generated
   // these can get pretty huge, so just walking them at all is costly
+  const entryFilter =
+    /^((node_modules|tap-snapshots|.git|.hg|fixtures)$|tap-testdir-)/
   fs.readdir(process.cwd(), (er, entries) => {
     debug('readdir cwd', er, entries)
-    Promise.all(entries.filter(entry =>
-      !/^(node_modules|tap-snapshots|.git|.hg|fixtures)$/.test(entry)
-    ).map(entry => new Promise((res, rej) => {
-      fs.lstat(entry, (er, stat) => {
-        debug('lstat', entry, er, stat)
-        // It's pretty unusual to have a file in cwd you can't even stat
-        /* istanbul ignore next */
-        if (er)
-          return rej(er)
-        if (stat.isFile())
-          return res(fileFilter(entry) ? [entry] : [])
-        if (!stat.isDirectory())
-          return res([])
-        const finder = findit(entry)
-        const files = []
-        finder.on('file', addFile(files))
-        finder.on('end', () => res(files))
-        finder.on('error', /* istanbul ignore next */ er => rej(er))
-      })
-    }))).then(a => res(a.reduce((a, i) => a.concat(i), []))).catch(rej)
+    Promise.all(entries.filter(entry => !entryFilter.test(entry))
+      .map(entry => new Promise((res, rej) => {
+        fs.lstat(entry, (er, stat) => {
+          debug('lstat', entry, er, stat)
+          // It's pretty unusual to have a file in cwd you can't even stat
+          /* istanbul ignore next */
+          if (er)
+            return rej(er)
+          if (stat.isFile())
+            return res(fileFilter(entry) ? [entry] : [])
+          if (!stat.isDirectory())
+            return res([])
+          const finder = findit(entry)
+          const files = []
+          finder.on('file', addFile(files))
+          finder.on('end', () => res(files))
+          finder.on('error', /* istanbul ignore next */ er => rej(er))
+        })
+      }))).then(a => res(a.reduce((a, i) => a.concat(i), []))).catch(rej)
   })
 })
 
