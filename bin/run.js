@@ -14,9 +14,16 @@ const yaml = require('tap-yaml')
 const path = require('path')
 const exists = require('fs-exists-cached').sync
 const os = require('os')
-const tsNode = require.resolve('ts-node/register')
-const flowNode = require.resolve("flow-remove-types/register");
+
+const maybeResolve = id => {
+  try {
+    return require.resolve(id)
+  } catch (er) {}
+}
+const tsNode = maybeResolve('ts-node/register')
+const flowNode = maybeResolve('flow-remove-types/register')
 const jsx = require.resolve('./jsx.js')
+
 const which = require('which')
 const {ProcessDB} = require('istanbul-lib-processinfo')
 const rimraf = require('rimraf').sync
@@ -161,7 +168,7 @@ const mainAsync = async options => {
   }
 
   if (options.versions) {
-    const {libtap, tapParser, tapYaml, tcompare} = require('libtap/versions');
+    const {libtap, tapParser, tapYaml, tcompare} = require('libtap/versions')
     return console.log(yaml.stringify({
       tap: require('../package.json').version,
       libtap,
@@ -648,10 +655,10 @@ const runAllFiles = (options, env, tap, processDB) => {
       if (options.jobs > 1)
         opt.buffered = isParallelOk(parallelOk, file) !== false
 
-      if (options.flow)
+      if (options.flow && flowNode)
         options['node-arg'].push('-r', flowNode)
 
-      if (options.ts && /\.tsx?$/.test(file)) {
+      if (options.ts && options.jsx && tsNode && /\.tsx?$/.test(file)) {
         debug('ts file', file)
         const compilerOpts = JSON.stringify({
           ...JSON.parse(env.TS_NODE_COMPILER_OPTIONS || '{}'),

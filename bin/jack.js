@@ -519,6 +519,10 @@ Much more documentation available at: https://www.node-tap.org/
 
                   Ie, the default value for this option is:
                   ((\\/|^)(tests?|__tests?__)\\/.*|\\.(tests?|spec)|^\\/?tests?)\\.([mc]js|[jt]sx?)$
+
+                  Note that .jsx files will only be run when --jsx is enabled,
+                  .ts files will only be run when --ts is enabled, and .tsx
+                  files will only be run with both --ts and --jsx are enabled.
                   `
   }),
 

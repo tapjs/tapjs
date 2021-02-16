@@ -1,4 +1,5 @@
 process.env.TAP_TS = '1'
+process.env.TAP_JSX = '1'
 
 const {
   tmpfile,
