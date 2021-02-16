@@ -279,7 +279,9 @@ way to perform the same action in two different ways, but yielding the same
 result.  In a case like this, you can define both of them as children of a
 shared parent subtest for the feature.  In this example, we're using a
 [fixture](/docs/api/fixtures/) which will get automatically removed after
-the subtest block is completed.
+the subtest block is completed and requiring our module defining
+[mocks](/docs/api/mocks/) which is only going to be available in this scope.
+
 
 ```js
 t.test('reads symbolic links properly', t => {
@@ -288,6 +290,14 @@ t.test('reads symbolic links properly', t => {
   const dir = t.testdir({
     file: 'some file contents',
     link: t.fixture('symlink', 'file'),
+  })
+
+  // requires a module while mocking
+  // one of its internally required module
+  const myModule = t.mock('../my-module.js', {
+    fs: {
+      readFileSync: () => 'file'
+    }
   })
 
   // test both synchronously and asynchronously.
