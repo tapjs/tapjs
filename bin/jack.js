@@ -429,6 +429,7 @@ Much more documentation available at: https://www.node-tap.org/
     If you run tests in this way, please add your project to the list.`,
 
   'check-coverage': flag({
+    default: true,
     description: `Check whether coverage is within
                   thresholds provided.  Setting this
                   explicitly will default --coverage to

@@ -114,7 +114,7 @@ before: null
 branches: 100
 browser: true
 changed: false
-check-coverage: false
+check-coverage: true
 color: false
 comments: false
 coverage: false
@@ -216,7 +216,7 @@ before: null
 branches: 100
 browser: true
 changed: false
-check-coverage: false
+check-coverage: true
 color: false
 comments: false
 coverage: false

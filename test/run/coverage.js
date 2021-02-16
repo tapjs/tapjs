@@ -69,7 +69,7 @@ const escape = (args, options, cb) => {
 }
 
 t.test('generate some coverage', t => {
-  escape([t1, t2], null, (er, o, e) => {
+  escape([t1, t2, '--no-check-coverage'], null, (er, o, e) => {
     t.equal(er, null)
     t.matchSnapshot(o, 'output')
     t.end()
@@ -80,7 +80,7 @@ t.test('use a coverage map', t => {
   const map = tmpfile(t, 'coverage-map.js', `
 module.exports = () => 'ok.js'
 `)
-  escape([t1, t2, '-M', map], null, (er, o, e) => {
+  escape(['--no-check-coverage', t1, t2, '-M', map], null, (er, o, e) => {
     t.equal(er, null)
     t.matchSnapshot(o, 'output')
     t.end()
@@ -88,7 +88,7 @@ module.exports = () => 'ok.js'
 })
 
 t.test('report only', t => {
-  escape(['--coverage-report=text-lcov'], null, (er, o, e) => {
+  escape(['--no-check-coverage', '--coverage-report=text-lcov'], null, (er, o, e) => {
     t.equal(er, null)
     t.matchSnapshot(o, 'lcov output', { skip: winSkip })
     t.end()
@@ -115,7 +115,7 @@ t.test('pipe to service', t => {
   const piper = tmpfile(t, 'piper.js', `
     process.stdin.pipe(process.stderr)
   `)
-  escape(['--coverage-report=text'], { env: {
+  escape(['--no-check-coverage', '--coverage-report=text'], { env: {
     __TAP_COVERALLS_TEST__: 'piper.js',
   }}, (er, o, e) => {
     t.equal(er, null)
@@ -129,7 +129,7 @@ t.test('pipe to service along with tests', t => {
   const piper = tmpfile(t, 'piper.js', `
     process.stdin.pipe(process.stderr)
   `)
-  escape([t1, t2, '--coverage-report=text'], { env: {
+  escape(['--no-check-coverage', t1, t2, '--coverage-report=text'], { env: {
     __TAP_COVERALLS_TEST__: 'piper.js',
   }}, (er, o, e) => {
     t.equal(er, null)

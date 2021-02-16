@@ -75,7 +75,7 @@ const args = [
 ]
 
 t.test('default watermarks, all set at 100, red', t =>
-  escape([...args, '-c'], (er, o, e) => {
+  escape(['--no-check-coverage', ...args, '-c'], (er, o, e) => {
     t.matchSnapshot(o, 'stdout')
     t.matchSnapshot(e, 'stderr')
     t.end()
@@ -83,6 +83,7 @@ t.test('default watermarks, all set at 100, red', t =>
 
 t.test('unmet, red', t =>
   escape([
+    '--no-check-coverage',
     ...args,
     '-c',
     '--branches=76',
@@ -98,6 +99,7 @@ t.test('unmet, red', t =>
 
 t.test('less than halfway to 100, yellow', t =>
   escape([
+    '--no-check-coverage',
     ...args,
     '-c',
     '--branches=51',
@@ -112,6 +114,7 @@ t.test('less than halfway to 100, yellow', t =>
 
 t.test('more than halfway to 100, green', t =>
   escape([
+    '--no-check-coverage',
     ...args,
     '-c',
     '--branches=49',

@@ -20,20 +20,24 @@ To re-enable, add the `--coverage` argument.
 
 ## Maximal Coverage 💯
 
-As of version 7, node-tap lets you easily enforce 100% coverage of all
-lines, branches, functions, and statements with one easy flag, if
-that's your thing:
+As of version 7, and by default starting in version 15, node-tap lets you
+easily enforce 100% coverage of all lines, branches, functions, and
+statements.
+
+To do this, simply enable the `check-coverage` flag, which is on by
+default.
+
+To _not_ enforce maximum debuggability, code quality, and ease of
+maintenance, you can disable it by specifying `--no-check-coverage` on the
+command line, or adding the config to your package.json like so:
 
 ```json
 {
-  "scripts": {
-    "test": "tap --100"
+  "tap": {
+    "check-coverage": false
   }
 }
 ```
-
-If you do this in an open source module, please [join the exclusive
-100 club](/docs/coverage/100/).
 
 ## Travis-CI and Coveralls.io Integration
 
