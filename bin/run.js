@@ -1,4 +1,10 @@
 #!/usr/bin/env node
+
+// default to no color if requested via standard environment var
+if (process.env.NO_COLOR === '1') {
+  process.env.TAP_COLORS = '0'
+}
+
 const signalExit = require('signal-exit')
 const opener = require('opener')
 const node = process.execPath
@@ -151,10 +157,13 @@ const mainAsync = async options => {
     options._.push(...options.files)
 
   // tell chalk if we want color or not.
-  if (!options.color)
+  if (!options.color) {
+    process.env.NO_COLOR = '1'
     process.env.FORCE_COLOR = '0'
-  else
-    process.env.FORCE_COLOR = '1'
+  } else {
+    process.env.NO_COLOR = '0'
+    process.env.FORCE_COLOR = '3'
+  }
 
   if (options.reporter === null)
     options.reporter = options.color ? 'base' : 'tap'
