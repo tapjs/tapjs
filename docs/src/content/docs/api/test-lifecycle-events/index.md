@@ -42,29 +42,40 @@ read by test scripts.
 
 The other functions referenced below are for use _within_ a test program.
 
-## `t.beforeEach(fn(done, childTest))`
+## `t.beforeEach(fn(childTest))`
 
 Before any child test (or any children of any child tests, etc.) the supplied
-function is called with two arguments.  The first is a callback to indicate
-that the function is complete.  The second is the test object that it's
-prefixing.
+function is called with the test object that it's prefixing.
 
 If the function returns a Promise, then that is used as the indication of
 doneness.  Thus, `async` functions automatically end when all of their awaited
 Promises are complete.
 
-## `t.afterEach(fn(done, childTest))`
+If the function does not return a Promise, then it is assumed to be
+completed synchronously.
+
+### Backwards Compatibility Note
+
+Prior to v15, tap would call `t.beforeEach()` functions with a `done`
+callback to indicate completion.  As of v15, Promises are the only way to
+use these functions asynchronously.
+
+## `t.afterEach(fn(childTest))`
 
 This is called after each child test (or any children of any child tests, on
-down the tree).  Like `beforeEach`, it's called with a done callback as the
-first argument, and the child test object as the second, and can return a
-Promise.
+down the tree).  Like `beforeEach`, it's called with the child test object,
+and can return a Promise to perform asynchronous operations.
+
+### Backwards Compatibility Note
+
+Prior to v15, tap would call `t.afterEach()` functions with a `done`
+callback to indicate completion.  As of v15, Promises are the only way to
+use these functions asynchronously.
 
 ## `t.teardown(fn())`
 
 When the test is completely finished, the teardown functions are called.  They
-do not receive a `done` callback, but may return a `Promise` to perform
-asynchronous actions.
+may return a `Promise` to perform asynchronous actions.
 
 ## Why no `t.before()`?
 
@@ -90,14 +101,12 @@ an `afterEach` function might shut it down cleanly.
 ```javascript
 const myDataBase = require('my-special-db-thingie')
 
-t.beforeEach((done, t) => {
-  t.context.connection = myDataBase.connect()
-  done()
+t.beforeEach(async t => {
+  t.context.connection = await myDataBase.connect()
 })
 
-t.afterEach((done, t) => {
+t.afterEach(t => {
   t.context.connection.disconnect()
-  done()
 })
 
 t.test('read and write', t => {
