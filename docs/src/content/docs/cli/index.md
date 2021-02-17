@@ -19,7 +19,7 @@ information.
 Usage:
   tap [options] [<files>]
 
-tap v14.11.0 - A Test-Anything-Protocol library for JavaScript
+tap v15.0.0-0 - A Test-Anything-Protocol library for JavaScript
 
 Executes all the files and interprets their output as TAP formatted test result
 data. If no files are specified, then tap will search for testy-looking files,
@@ -321,6 +321,11 @@ Other Options:
                          ((\/|^)(tests?|__tests?__)\/.*|\.(tests?|spec)|^\/?test
                          s?)\.([mc]js|[jt]sx?)$
 
+                         Note that .jsx files will only be run when --jsx is
+                         enabled, .ts files will only be run when --ts is
+                         enabled, and .tsx files will only be run with both --ts
+                         and --jsx are enabled.
+
   --test-ignore=<pattern>
                          When no positional arguments are provided, use the
                          supplied regular expression pattern to exclude tests
@@ -367,21 +372,16 @@ Other Options:
   --debug-brk            Run JavaScript tests with node --debug-brk
   --harmony              Enable all Harmony flags in JavaScript tests
   --strict               Run JS tests in 'use strict' mode
-
-  --esm                  Run .js and .mjs with support for EcmaScript modules
-                         (Default: true)
-
-  --no-esm               switch off the --esm flag
   --flow                 Removes flow types
   --no-flow              switch off the --flow flag
 
   --ts                   Automatically load .ts and .tsx tests with tap's
-                         bundled ts-node module (Default: true)
+                         bundled ts-node module (Default: false)
 
   --no-ts                switch off the --ts flag
 
   --jsx                  Automatically load .jsx tests using tap's bundled
-                         import-jsx loader (Default: true)
+                         import-jsx loader (Default: false)
 
   --no-jsx               switch off the --jsx flag
 
@@ -464,10 +464,6 @@ Environment Variables:
                          current working directory is the tap project itself.
                          Note that node internals are always excluded.
 
-  TAP_DEV_SHORTSTACK     Set to '1' to exclude node-tap internals in stack
-                         traces, even if the current working directory is the
-                         tap project itself.
-
   TAP_DEBUG              Set to '1' to turn on debug mode.
   NODE_DEBUG             Include 'tap' to turn on debug mode.
 
@@ -480,9 +476,8 @@ Environment Variables:
                          flag works.)
 
   TAP_ONLY               Set to '1' to set the --only flag
-  TAP_NO_ESM             Set to '1' to disable automatic esm support
-  TAP_NO_TS              Set to '1' to disable automatic typescript support
-  TAP_NO_JSX             Set to '1' to disable automatic jsx support
+  TAP_TS                 Set to '1' to enable automatic typescript support
+  TAP_JSX                Set to '1' to enable automatic jsx support
 
 Config Files:
 
