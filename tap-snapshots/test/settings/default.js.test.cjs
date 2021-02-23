@@ -5,15 +5,22 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/settings/long-stack.js TAP > must match snapshot 1`] = `
+exports[`test/settings/default.js TAP > must match snapshot 1`] = `
 Object {
-  "atTap": true,
+  "atTap": false,
   "output": true,
   "rimrafNeeded": false,
   "rmdirRecursive": Function rmdirRecursive(dir, cb),
   "rmdirRecursiveSync": Function rmdirRecursiveSync(dir),
+  "snapshotFile": Function snapshotFile(cwd, main, argv),
   "stackUtils": Object {
-    "ignoredPackages": Array [],
+    "ignoredPackages": Array [
+      "libtap",
+      "tap",
+      "nyc",
+      "import-jsx",
+      "function-loop",
+    ],
     "internals": Array [],
     "wrapCallSite": Function wrapCallSite(frame, state),
   },

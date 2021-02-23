@@ -27,6 +27,7 @@ help: false
 invert: false
 jobs: {number}
 jsx: false
+libtap-settings: null
 lines: 100
 node-arg: []
 nyc-arg: []
@@ -78,6 +79,7 @@ help: false
 invert: false
 jobs: {number}
 jsx: false
+libtap-settings: null
 lines: 100
 node-arg: []
 nyc-arg: []
@@ -129,6 +131,7 @@ help: false
 invert: false
 jobs: {number}
 jsx: false
+libtap-settings: null
 lines: 100
 node-arg: []
 nyc-arg: []
@@ -180,6 +183,7 @@ help: false
 invert: false
 jobs: {number}
 jsx: false
+libtap-settings: null
 lines: 100
 node-arg: []
 nyc-arg: []
@@ -231,6 +235,7 @@ help: false
 invert: false
 jobs: {number}
 jsx: false
+libtap-settings: null
 lines: 100
 node-arg: []
 nyc-arg: []
@@ -282,6 +287,7 @@ help: false
 invert: false
 jobs: {number}
 jsx: false
+libtap-settings: null
 lines: 100
 node-arg: []
 nyc-arg: []
@@ -337,6 +343,7 @@ help: false
 invert: false
 jobs: {number}
 jsx: false
+libtap-settings: null
 lines: 100
 node-arg:
   - --expose-gc
@@ -397,6 +404,7 @@ help: false
 invert: false
 jobs: {number}
 jsx: false
+libtap-settings: null
 lines: 100
 node-arg: []
 nyc-arg: []
