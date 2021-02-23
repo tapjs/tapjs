@@ -19,7 +19,7 @@ information.
 Usage:
   tap [options] [<files>]
 
-tap v15.0.0-1 - A Test-Anything-Protocol library for JavaScript
+tap v15.0.0-2 - A Test-Anything-Protocol library for JavaScript
 
 Executes all the files and interprets their output as TAP formatted test result
 data. If no files are specified, then tap will search for testy-looking files,
@@ -405,6 +405,22 @@ Other Options:
                          Run 'tap --dump-config' to see available options and
                          formatting.
 
+  --libtap-settings=<module>
+                         A module which exports an object of fields to assign
+                         onto 'libtap/settings'. These are advanced
+                         configuration options for modifying the behavior of
+                         tap's internal runtime.
+
+                         Module path is resolved relative to the current working
+                         directory.
+
+                         Allowed fields: rmdirRecursive, rmdirRecursiveSync,
+                         StackUtils, stackUtils, output, snapshotFile.
+
+                         See libtap documentation for expected values and usage.
+
+                         https://github.com/tapjs/libtap
+
   -o<file> --output-file=<file>
                          Send the raw TAP output to the specified file. Reporter
                          output will still be printed to stdout, but the file
@@ -438,6 +454,10 @@ Environment Variables:
 
   TAP_RCFILE             A yaml formatted file which can set any of the above
                          options. Defaults to ./.taprc
+
+  TAP_LIBTAP_SETTINGS    A path (relative to current working directory) of a
+                         file that exports fields to override the default libtap
+                         settings
 
   TAP_TIMEOUT            Default value for --timeout option.
 
