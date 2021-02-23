@@ -3,6 +3,7 @@
 // default to no color if requested via standard environment var
 if (process.env.NO_COLOR === '1') {
   process.env.TAP_COLORS = '0'
+  process.env.FORCE_COLOR = '0'
 }
 
 const signalExit = require('signal-exit')
@@ -208,6 +209,9 @@ const mainAsync = async options => {
     else
       throw er
   })
+
+  if (options['libtap-settings'])
+    process.env.TAP_LIBTAP_SETTINGS = path.resolve(options['libtap-settings'])
 
   // we test this directly, not from here.
   /* istanbul ignore next */

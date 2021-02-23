@@ -647,6 +647,25 @@ Much more documentation available at: https://www.node-tap.org/
     default: `${process.cwd()}/.taprc`,
   }),
 
+  'libtap-settings': opt({
+    hint: 'module',
+    description: `A module which exports an object of fields to assign onto
+                  'libtap/settings'.  These are advanced configuration options
+                  for modifying the behavior of tap's internal runtime.
+
+                  Module path is resolved relative to the current working
+                  directory.
+
+                  Allowed fields: rmdirRecursive, rmdirRecursiveSync,
+                  StackUtils, stackUtils, output, snapshotFile.
+
+                  See libtap documentation for expected values and usage.
+
+                  https://github.com/tapjs/libtap`,
+    envDefault: 'TAP_LIBTAP_SETTINGS',
+    default: null,
+  }),
+
   'output-file': opt({
     short: 'o',
     hint: 'file',
@@ -713,6 +732,11 @@ Much more documentation available at: https://www.node-tap.org/
     description: `A yaml formatted file which can set any
                   of the above options.  Defaults to
                   ./.taprc`
+  }),
+
+  TAP_LIBTAP_SETTINGS: env({
+    description: `A path (relative to current working directory) of a file
+                  that exports fields to override the default libtap settings`,
   }),
 
   TAP_TIMEOUT: env(num({
