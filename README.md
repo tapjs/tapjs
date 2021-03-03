@@ -28,13 +28,16 @@ if (!result.match) {
   will match with `'1'`).
 * `strict(object, pattern, [options])` - Ensure that all items in the pattern
   are found in the object, and vice versa, matching strictly (so, for example
-  `1` will not match with `'1'`).
+  `1` will not match with `'1'`).  Objects must have the same constructors,
+  and all fields will be matched recursively using the same `strict` test.
 * `has(object, pattern, [options])` - Ensure that all items in the pattern are
   found in the object, but ignore additional items found in the object,
   matching loosely.
 * `hasStrict(object, pattern, [options])` - Ensure that all items in the
   pattern are found in the object, but ignore additional items found in the
-  object, matching strictly.
+  object, matching strictly.  Constructors do _not_ have to match between
+  objects, but if `constructor` is set as an ownProperty on the pattern
+  object, then it will be checked.
 * `match(object, pattern, [options])` - Verify that all items in `pattern` are
   found in `object`, and that they match.  This is the loosest possible
   algorithm, allowing cases where we just want to verify that an object

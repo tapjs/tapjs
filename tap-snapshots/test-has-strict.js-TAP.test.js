@@ -51,3 +51,50 @@ exports[`test/has-strict.js TAP iterables match one another > must match snapsho
  ]
 
 `
+
+exports[`test/has-strict.js TAP url object matches normal object (ctors not relevant) > must match snapshot 1`] = `
+--- expected
++++ actual
+
+`
+
+exports[`test/has-strict.js TAP url object matches normal object (ctors not relevant) > must match snapshot 2`] = `
+--- expected
++++ actual
+@@ -1,3 +1,3 @@
+ URL {
+-  "pathname": "/f",
++  "pathname": "/foo",
+ }
+
+`
+
+exports[`test/has-strict.js TAP url object matches normal object (ctors not relevant) > must match snapshot 3`] = `
+--- expected
++++ actual
+
+`
+
+exports[`test/has-strict.js TAP url object matches normal object (ctors not relevant) > must match snapshot 4`] = `
+--- expected
++++ actual
+
+`
+
+exports[`test/has-strict.js TAP url object matches normal object (ctors not relevant) > must match snapshot 5`] = `
+--- expected
++++ actual
+
+`
+
+exports[`test/has-strict.js TAP url object matches normal object (ctors not relevant) > must match snapshot 6`] = `
+--- expected
++++ actual
+@@ -1,4 +1,4 @@
+ Object {
+   "pathname": "/foo",
+-  "constructor": Function URL(classURL),
++  "constructor": Function Object(),
+ }
+
+`
