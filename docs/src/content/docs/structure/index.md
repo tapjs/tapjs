@@ -145,7 +145,7 @@ and tests the basic API.  When the first bug is found, you can add a
 failing test at `test/bug-description.js`, and then update the code to make
 the test pass.  When features are added, you can add example code at
 `test/feature-description.js` that demonstrates using the feature, and
-theen update the code to make it pass by implementing the feature.
+then update the code to make it pass by implementing the feature.
 
 Over time, you might end up with something like this:
 
