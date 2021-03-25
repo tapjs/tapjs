@@ -35,7 +35,7 @@
     "isexe": "^2.0.0",
     "istanbul-lib-processinfo": "^2.0.2",
     "jackspeak": "^1.4.0",
-    "libtap": "github:tapjs/libtap#isaacs/tap-v15-prep",
+    "libtap": "^1.0.1",
     "minipass": "^3.1.1",
     "nyc": "^15.1.0",
     "opener": "^1.5.1",
