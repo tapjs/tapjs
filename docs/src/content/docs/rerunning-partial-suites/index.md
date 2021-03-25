@@ -39,19 +39,20 @@ The workflow, then goes like this:
 
 ### Bail on first failure, then resume
 
-One useful way to work through a project is to run with both a `--save=file`
-and with `--bail`.  In this case, tap will bail out on the first failure, and
-any tests that were skipped will be put into the save file, so you can fix the
-failure, and then pick right back up where you were by running with `tap --bail
---save=file` again.
+One useful way to work through a project is to run with both `--save=file`
+and `--bail`.  In this case, tap will bail out on the first failure, and
+any tests that were skipped will be put into the save file.  Fix the
+failure, and then pick right back up where you were by running with `tap
+--bail --save=file` again.
 
 ## Changed
 
-If you run tap with `--changed` (or `-n`), it will only run tests if the test
-file, or any of the files it covers, have changed since the last run.
+If you run tap with `--changed` (or `-n`), it will only run tests if the
+test file, or any of the files it covers, have changed since the last run.
 
 Because this depends on tracking which test covered which file, it requires
-that you have [coverage](/docs/coverage/) enabled (which is on by default anyway).
+that you have [coverage](/docs/coverage/) enabled (which is on by default
+anyway).
 
 ### Tip: Use a Coverage Map Module
 

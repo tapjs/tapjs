@@ -8,6 +8,53 @@ redirect_from:
 
 # Changelog
 
+## 15.0 - 2021-03-30
+
+This is a major refactor of much of tap's internals, and a lot of new
+features.
+
+### BREAKING CHANGES
+
+* Drop the use of the `@std/esm` module, in favor of native ES Modules.
+* Drop the inclusion of `typescript` by default.  (Typescript still
+  supported, but requires that you install it yourself.)
+* `.jsx` files only run automatically when `--jsx` config is explicitly
+  enabled.
+* `--check-coverage` on by default.
+* Drop support for node `<10`.
+* Separate `t.has` from `t.match`, so these are distinct.
+* Deprecate aliases.
+* Do not report on test points filtered with `only` or `grep` options.
+* Resolve `t.test()` promise to the child test results, rather than the
+  parent test.
+* Remove `callback` argument from `t.beforeEach` and `t.afterEach`. Return
+  a promise if you wish these methods to be async.
+
+### NEW FEATURES and BUG FIXES
+
+* Restructure snapshot output folder, and change file extensions to `.cjs`.
+* Add `t.compareOptions` object to pass options to all the methods that use
+  `tcompare` (ie, `t.has`, `t.match`, `t.same`, etc.)
+* Improved diffing and comparison output for long strings and buffers.
+* Add `t.before` method.
+* Add `t.mock()` API for mocking calls to `require()` in modules being
+  tested.
+* Inherit the `t.saveFixture` boolean option.
+* Create fixtures symbolic links as junctions if pointing at directories.
+* Set both `FORCE_COLOR` and `NO_COLOR` environment variables
+  appropriately.
+* Pull initial `TS_NODE_COMPILER_OPTIONS` from test environment.
+* Run fixture cleanup aysnchronously on `t.teardown()` to minimize Windows
+  folder locking issues.
+
+### DEPENDENCIES and REFACTORING
+
+* Extract most of the internal functionality to
+  [`libtap`](https://npm.im/libtap).
+* Update `nyc` to version 15.
+* Conditional exports to limit diving into tap's internals except via
+  supported APIs.
+
 ## 14.10 - 2019-11-20
 
 * Fragment large diffs with `@@ ... @@` sections to only show the relevant

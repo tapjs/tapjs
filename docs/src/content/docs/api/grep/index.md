@@ -16,6 +16,8 @@ want to filter which _files_ get run, just pass the appropriate
 argument to the `tap` executable.  That is, instead of `tap
 test/*.js`, do `tap test/foo.js` to just run a single file.
 
+Tests that do not match the grep expression are treated as `SKIP` tests, but they are not reported by the default `treport` output.
+
 ## Command Line Usage
 
 On the [command-line](/docs/cli/), specify one or more patterns with

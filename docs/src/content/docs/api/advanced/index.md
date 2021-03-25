@@ -9,31 +9,30 @@ redirect_from:
 # Advanced Usage
 
 These methods are primarily for internal use, but can be handy in some
-unusual situations.  If you find yourself using them frequently, you
-*may* be Doing It Wrong.  However, if you find them useful, you should
-feel perfectly comfortable using them.
+unusual situations.  If you find yourself using them frequently, you *may*
+be Doing It Wrong.  However, if you find them useful, you should feel
+perfectly comfortable using them.
 
 Please [let us know](https://github.com/isaacs/node-tap/issues) if you
-frequently encounter situations requiring advanced usage, because this
-may indicate a shortcoming in the "non-advanced" [API](/docs/api/).
+frequently encounter situations requiring advanced usage, because this may
+indicate a shortcoming in the "non-advanced" [API](/docs/api/).
 
 ## Class: t.Spawn()
 
-Similar to the `Test` class, but instead of a callback that gets a
-object with assertion methods, it starts a child process and parses its
-output.
+Similar to the `Test` class, but instead of a callback that gets a object
+with assertion methods, it starts a child process and parses its output.
 
 ## Class: t.Stdin()
 
-Similar to the `Test` class, but instead of a callback that gets a
-object with assertion methods, it reads the process standard input,
-and parses that as [TAP](/tap-protocol)-formatted data.
+Similar to the `Test` class, but instead of a callback that gets a object
+with assertion methods, it reads the process standard input, and parses
+that as [TAP](/tap-protocol)-formatted data.
 
 ## t.counts
 
-This is an object with counters representing the number of pass, fail, todo,
-skip, and total assertions made by this test and any subtests, primarily for
-use in reporting.
+This is an object with counters representing the number of pass, fail,
+todo, skip, and total assertions made by this test and any subtests,
+primarily for use in reporting.
 
 Fields:
 
@@ -54,13 +53,12 @@ Fields:
 - t.lists.todo
 - t.lists.skip
 
-
 ## t.stdin()
 
 Parse standard input as if it was a child test named `/dev/stdin`.
 
-Returns a Promise which resolves with the parent when the input stream
-is completed.
+Returns a Promise which resolves with the parent when the input stream is
+completed.
 
 This is primarily for use in the test runner, so that you can do
 `some-tap-emitting-program | tap other-file.js - -Rnyan`.
@@ -74,48 +72,49 @@ Parse standard input without wrapping it in a child test.
 
 This is only allowed if the test object has no other children and has
 printed no assertions.  Once engaged, any attempt to use normal test
-methods will throw an error.  It only exists to support piping a TAP
-stream into the tap executable for reporting, which is a very specialized
-use case.
+methods will throw an error.  It only exists to support piping a TAP stream
+into the tap executable for reporting, which is a very specialized use
+case.
 
 ## t.spawn(command, arguments, [options], [name])
 
-Sometimes, instead of running a child test directly inline, you might
-want to run a TAP producting test as a child process, and treat its
-standard output as the TAP stream.
+Sometimes, instead of running a child test directly inline, you might want
+to run a TAP producting test as a child process, and treat its standard
+output as the TAP stream.
 
-Returns a Promise which resolves with the parent when the child
-process is completed.
+Returns a Promise which resolves with the parent when the child process is
+completed.
 
 That's what this method does.
 
-It is primarily used by the executable runner, to run all of the
-filename arguments provided on the command line.
+It is primarily used by the executable runner, to run all of the filename
+arguments provided on the command line.
 
 If no `name` argument is provided, then a default name will be created
 based on the command and arguments.
 
-The `options` object is passed to `child_process.spawn`, and can
-contain stuff like stdio directives and environment vars.  It's also
-where you put the same fields that would be passed to any assertion or
-child test:
+The `options` object is passed to `child_process.spawn`, and can contain
+stuff like stdio directives and environment vars.  It's also where you put
+the same fields that would be passed to any assertion or child test:
 
-* `bail`: Set to `true` to bail out on the first failure.  This is
-  done by checking the output and then forcibly killing the process,
-  but also sets the `TAP_BAIL` environment variable, which node-tap
-  uses to set this field internally as well.
-* `timeout`: The number of ms to allow the child process to continue.
-  If it goes beyond this time, the child process will be forcibly
-  killed.
+* `bail`: Set to `true` to bail out on the first failure.  This is done by
+  checking the output and then forcibly killing the process, but also sets
+  the `TAP_BAIL` environment variable, which node-tap uses to set this
+  field internally as well.
+* `timeout`: The number of ms to allow the child process to continue.  If
+  it goes beyond this time, the child process will be forcibly killed.
 * `todo` Set to boolean `true` or a String to mark this as pending.
 * `skip` Set to boolean `true` or a String to mark this as skipped.
 * `bail` Set to boolean `true` to bail out on the first test failure.
-* `diagnostic` Set to `true` to show a yaml diagnostic block even if
-  the test passes.  Set to `false` to never show a yaml diagnostic
-  block.
-* `buffered` Set to `true` to run as a buffered [subtest](/docs/api/subtests/).
-  Set to `false` to run as an indented subtest.  The default is
-  `false` unless `TAP_BUFFER=1` is set in the environment.
+* `diagnostic` Set to `true` to show a yaml diagnostic block even if the
+  test passes.  Set to `false` to never show a yaml diagnostic block.
+* `buffered` Set to `true` to run as a buffered
+  [subtest](/docs/api/subtests/).  Set to `false` to run as an indented
+  subtest.  The default is `false` unless `TAP_BUFFER=1` is set in the
+  environment.
+* `strict` Treat invalid `TAP` output as an error.  `node-tap` will never
+  _produce_ invalid `TAP` output, but this is useful when spawning child
+  tests as subprocesses.
 
 ## t.addAssert(name, length, fn)
 

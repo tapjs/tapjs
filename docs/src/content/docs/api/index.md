@@ -18,6 +18,7 @@ See also:
 - [Snapshot Testing](/docs/api/snapshot-testing/)
 - [Promises](/docs/api/promises/)
 - [Subtests](/docs/api/subtests/)
+- [Mocks](/docs/api/mocks/)
 - [Parallel Tests](/docs/api/parallel-tests/)
 - [Filtering Tests with Grep](/docs/api/grep/)
 - [Filtering Tests with Only](/docs/api/only/)
@@ -117,6 +118,13 @@ for child tests:
 * `only` Set to `true` to run this test when in `runOnly` mode.
   See [filtering tests using only](/docs/api/only)
 * `runOnly` Set to `true` to only run tests with `only:true` set.
+* `strict` Treat invalid `TAP` output as an error.  `node-tap` will never
+  _produce_ invalid `TAP` output, but this is useful when spawning child
+  tests as subprocesses, or consuming `TAP` from some other source.
+* `saveFixture` Set to `true` to save the folder created by `t.testdir()`
+  instead of cleaning it up at the end of the test.
+* `jobs` When running parallel tests, this is the number of child tests to
+  run in parallel.
 
 ### t.todo([name], [options], [function])
 

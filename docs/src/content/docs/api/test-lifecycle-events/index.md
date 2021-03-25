@@ -72,17 +72,22 @@ Prior to v15, tap would call `t.afterEach()` functions with a `done`
 callback to indicate completion.  As of v15, Promises are the only way to
 use these functions asynchronously.
 
+## `t.before(fn())`
+
+`t.before()` is a way to perform some actions _before_ any subsequent tests
+are run.  If the function returns a Promise, then that Promise will be
+awaited for completion before any subsequent `t.test()` child tests are
+executed.
+
+The `t.before()` method will never be filtered out by setting `--only` or
+`--grep` configurations, so it is useful in cases where you might have a
+lot of tests in a given file, but _all_ of them depend on some initial
+setup to be performed.
+
 ## `t.teardown(fn())`
 
 When the test is completely finished, the teardown functions are called.  They
 may return a `Promise` to perform asynchronous actions.
-
-## Why no `t.before()`?
-
-There is no `t.before()` because there are other options for doing this:
-
-- If the actions are synchronous, you can put them before your tests.
-- If the actions are asynchronous, you can use a `t.test()`.
 
 ## `t.on('end')`
 

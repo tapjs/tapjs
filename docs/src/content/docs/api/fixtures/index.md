@@ -2,6 +2,7 @@
 title: Testing with Fixtures
 section: 5.035
 ---
+
 # Testing with Fixtures
 
 Frequently, tests need to setup and then tear down some files and
@@ -68,8 +69,8 @@ supported types are:
 * `file` - A file, where the `content` is the file contents.
 
 You can also pass in a plain JavaScript object to specify a `dir` type, or
-a string or buffer to specify a `file` type.  For example, these two
-styles produce identical results:
+a string or buffer to specify a `file` type.  For example, these two styles
+produce identical results:
 
 ```js
 // clunky style:
@@ -90,8 +91,7 @@ available on the `t.testdirName` getter.
 
 The name is determined by the filename and path of the `main` script.  If
 no `main` script is available (for example, if running tap in a node repl),
-then it defaults to the folder name `TAP` in the current working
-directory.
+then it uses the test file name `TAP`.
 
 ## Timing Caveat
 

@@ -11,14 +11,15 @@ redirect_from:
 Tests can be reported in a variety of different ways.
 
 When you run a test script directly, it'll always output
-[TAP](/tap-protocol/).  The tap runner will interpret this
-output, and can format it in a variety of different ways.
+[TAP](/tap-protocol/).  The tap runner will interpret this output, and can
+format it in a variety of different ways.
 
 Node-tap includes 2 reporting engines, and you can extend either one, or
 consume the TAP formatted output in custom modules of your own.
 
-The newer React-based reporter is called [treport](http://npm.im/treport).  It
-uses [ink](http://npm.im/ink) to provide live feedback about tests in progress.
+The newer React-based reporter is called [treport](http://npm.im/treport).
+It uses [ink](http://npm.im/ink) to provide live feedback about tests in
+progress.
 
 The older streams-based bundled reporting engine is
 [tap-mocha-reporter](http://npm.im/tap-mocha-reporter), so named because it
@@ -29,8 +30,8 @@ The `--reporter` or `-R` argument on the command line can specify:
 
 - Any built-in reporter from either of these two libraries.
 - The name of a command-line program which parses a TAP stream.  The
-  `--reporter-arg=<arg>` or `-r<arg>` option can be specified one or more times
-  to provide a list of arguments to pass to CLI reporters.
+  `--reporter-arg=<arg>` or `-r<arg>` option can be specified one or more
+  times to provide a list of arguments to pass to CLI reporters.
 - The name of a Node module that exports either a Stream or a treport-style
   React.Component class.
 
@@ -38,15 +39,15 @@ The built-in reports are:
 
 ### base
 
-The default when stdout is a terminal and colors are enabled.  Also the class
-to extend to create new treport reporters.  Does all the things, handles all
-the edge cases, and ends with a pleasant surprise.
+The default when stdout is a terminal and colors are enabled.  Also the
+class to extend to create new treport reporters.  Does all the things,
+handles all the edge cases, and ends with a pleasant surprise.
 
 ### terse
 
-A lot like Base, but says a lot less.  No timer, no list of tests concurrently
-running, nothing printed on test passing.  Just the failures and the terse
-summary.
+A lot like Base, but says a lot less.  No timer, no list of tests
+concurrently running, nothing printed on test passing.  Just the failures
+and the terse summary.
 
 ### specy
 
@@ -57,7 +58,8 @@ footer.
 
 Setting `--reporter=tap` will dump the output as a raw TAP stream.
 
-This is the default when stdout is _not_ a terminal, or colors are disabled.
+This is the default when stdout is _not_ a terminal, or colors are
+disabled.
 
 ### classic
 
@@ -66,12 +68,13 @@ reporting each failure and pending test.
 
 ### silent
 
-Output absolutely nothing
+Output absolutely nothing.  Of course, if tests run `console.log` or
+`console.error`, then that will be printed to the terminal.
 
 ### spec
 
-Output based on rspec, with hierarchical indentation and unicode red and green
-checks and X's.
+Output based on rspec, with hierarchical indentation and unicode red and
+green checks and X's.
 
 ### xunit
 
@@ -103,5 +106,5 @@ A magical cat who is also a toaster pastry.
 
 ### dump
 
-Mostly for debugging tap-mocha-reporter, dumping out the TAP
-output and the way that its being interpreted.
+Mostly for debugging tap-mocha-reporter, dumping out the TAP output and the
+way that its being interpreted.

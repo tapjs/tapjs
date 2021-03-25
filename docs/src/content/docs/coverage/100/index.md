@@ -12,6 +12,11 @@ These modules use the `--100` flag to run tests with 100%
 [coverage](/docs/coverage/) of all lines, branches, statements, and
 functions.
 
+Note that, as of tap v14, the default coverage level is `100%` for lines,
+branches, functions, and statements.  As of tap v15, `--check-coverage` is
+enabled by default.  If you use `node-tap`, and your tests pass, you're in
+this club by default ;)
+
 To add yours to the list, send a [pull
 request](https://github.com/tapjs/node-tap/blob/master/docs/src/content/docs/coverage/100/index.md)
 to add it to the docs.

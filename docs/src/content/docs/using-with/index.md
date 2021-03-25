@@ -8,31 +8,23 @@ redirect_from:
 
 # Using tap with ESM
 
-ES-Modules are supported by default, using the [esm](http://npm.im/esm) module.
-If your test file ends in `.mjs`, then this will automatically use Node's
-built-in experimental module system.
-
-Although, if you are using ES-modules with `.js` extension & `type: module` pattern
-on Node.js v12.13+, you will face warnings and/or crashes while running tests. 
-In this case it is advised to turn "esm" support off & use native Node.js 
-module loader.
-
-To turn _off_ ES-Module support, run your tests with `--no-esm`.
-
-In future releases (v15+) "esm" module will not be provided by tap.
+As of tap v15, ES Modules are supported by default using Node.js's built in
+ES Modules support.  You can load tap via either `import` or `require()` as
+is appropriate to your program.
 
 # Using tap with TypeScript
 
-Name your test files `.ts` and they'll be loaded as TypeScript.
+Name your test files `.ts` and they'll be loaded as TypeScript if you have
+the `typescript` module installed in your project, and enable the `--ts`
+flag.
 
 For TypeScript with JSX (ie, TSX), name your files with a `.tsx` extension.
 
-If you want to provide your own TypeScript configs or version, disable tap's
-built-in TypeScript support, and use the `--node-arg` argument to load your
-TypeScript loader.  For example:
+If you want to provide your own TypeScript configs or version, use the
+`--node-arg` argument to load your TypeScript loader.  For example:
 
 ```
-tap --no-ts --node-arg=--require=my-ts-node/register
+tap --node-arg=--require=my-ts-node/register
 ```
 
 This is useful in some cases where you might have a mix of JavaScript and
@@ -41,14 +33,15 @@ TypeScript compiler is used.
 
 # Using tap with JSX
 
-Name your test files `.jsx` and they'll be loaded as JSX.
+Name your test files `.jsx` and they'll be loaded as JSX, if the `--jsx`
+configuration flag is set.
 
 To provide your own JSX handling preloader instead of tap's built-in use of
-[`import-jsx`](http://npm.im/import-jsx), disable tap's built-in JSX handling,
-and provide your own loader via the `--node-arg` option.  For example:
+[`import-jsx`](http://npm.im/import-jsx), provide your own loader via the
+`--node-arg` option.  For example:
 
 ```
-tap --no-jsx --node-arg=--require=my-jsx-preloader
+tap --node-arg=--require=my-jsx-preloader
 ```
 
 This is useful in some cases where you might have a mix of JavaScript and
@@ -57,6 +50,8 @@ compiler is used.
 
 # Using tap with Flow
 
-Pass the `--flow` argument on the command line, or set `flow: true` in
-`.taprc`, or `{ "tap": { "flow": true } }` in `package.json`, and tap will
-automatically remove flow annotations from tests and code.
+First install `flow-remove-types` in your project.
+
+Then, pass the `--flow` argument on the command line, or set `flow: true`
+in `.taprc`, or `{ "tap": { "flow": true } }` in `package.json`, and tap
+will automatically remove flow annotations from tests and code.

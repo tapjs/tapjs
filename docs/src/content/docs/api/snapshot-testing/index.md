@@ -79,7 +79,7 @@ The [generated file](/snapshot-example/tap-snapshots/test.js-TAP.test.js)
 is designed to be human-readable, but you should not edit it directly.
 
 ```
-$ cat tap-snapshots/test.js-TAP.test.js
+$ cat tap-snapshots/test.js.test.cjs
 /* IMPORTANT
  * This snapshot file is auto-generated, but designed for humans.
  * It should be checked into source control and tracked carefully.
@@ -110,23 +110,23 @@ be used to customize this for an entire test.
 
 **Important: you should check the snapshot file into source control!**
 
-When there are changes to it, inspect the diff and make sure that
-nothing unexpected happened to change your output.
+When there are changes to it, inspect the diff and make sure that nothing
+unexpected happened to change your output.
 
-If you don't check this file into source control, then a significant
-part of your test is not checked in.  This prevents people from
-collaborating on your project.
+If you don't check this file into source control, then a significant part
+of your test is not checked in.  This prevents people from collaborating on
+your project.
 
-If you accept changes to it without care, then you can obscure
-unintended changes.  (Though, even if this happens, `git bisect` can
-track down the source of the change quite quickly, so it's not the end
-of the world if there are occasional mistakes.)
+If you accept changes to it without care, then you can obscure unintended
+changes.  (Though, even if this happens, `git bisect` can track down the
+source of the change quite quickly, so it's not the end of the world if
+there are occasional mistakes.)
 
 ### Strip Variables from Output with `t.cleanSnapshot`
 
-If your output includes data that is known to change from one run to
-the next, then these changes should be stripped before matching
-against a snapshot.
+If your output includes data that is known to change from one run to the
+next, then these changes should be stripped before matching against a
+snapshot.
 
 This includes process IDs, time stamps, and many other system details.
 

@@ -73,8 +73,7 @@ Top it off with the following configuration in your `package.json` file:
     "test": "tap"
   },
   "tap": {
-    "coverage-map": "map.js",
-    "check-coverage": true
+    "coverage-map": "map.js"
   }
 }
 ```
@@ -88,7 +87,7 @@ to figure out where to go digging in the code when a test breaks.
 However, it is less self-documenting than a behavior-focused testing
 strategy, since it relies on the unit organization of the system itself to
 be somewhat intuitive.  If your library's class heirarchy and unit
-structure is difficult to understand, then your unit test will be as well!
+structure is difficult to understand, then your unit tests will be as well!
 
 A few examples of this pattern:
 
@@ -98,6 +97,7 @@ A few examples of this pattern:
 - [tformat](https://github.com/tapjs/tformat)
 - [pacote](https://github.com/npm/pacote)
 - [minipass-fetch](https://github.com/npm/minipass-fetch)
+- [npm](https://github.com/npm/npm)
 
 #### Alternative style: `*.test.js`
 
@@ -193,8 +193,9 @@ The tests for node-tap itself primarily follow a unit-focused approach with
 a [coverage-map
 file](https://github.com/tapjs/node-tap/blob/master/coverage-map.js), but
 the ["run"](https://github.com/tapjs/node-tap/tree/master/test/run) and
-["tap"](https://github.com/tapjs/node-tap/tree/master/test/tap) units both
-have several separate suites to test and track different behavior elements.
+["settings"](https://github.com/tapjs/node-tap/tree/master/test/settings)
+units both have several separate suites to test and track different
+behavior elements.
 
 ## Subtests within a Test Suite
 
