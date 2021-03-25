@@ -33,4 +33,4 @@ jobs:
           npm install --ignore-scripts
       - name: Run tests
         run: |
-          npm test -- -c -t0
+          npm test --color=always -- -c -t0
