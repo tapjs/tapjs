@@ -4,7 +4,7 @@ try {
   t = require('tap')
 } catch (e) {
   t = require('../')
-  t.equals(e.code, 'MODULE_NOT_FOUND')
+  t.equal(e.code, 'MODULE_NOT_FOUND')
   t.end()
   return
 }
