@@ -81,7 +81,7 @@
   "license": "ISC",
   "repository": "https://github.com/tapjs/node-tap.git",
   "scripts": {
-    "snap": "bash scripts/snap.sh",
+    "snap": "node bin/run.js -M coverage-map.js",
     "test": "node bin/run.js -M coverage-map.js",
     "unit": "bash scripts/unit.sh",
     "posttest": "rm -rf cli-tests-*",
