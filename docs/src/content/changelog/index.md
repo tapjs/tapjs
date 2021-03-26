@@ -46,6 +46,8 @@ features.
 * Pull initial `TS_NODE_COMPILER_OPTIONS` from test environment.
 * Run fixture cleanup aysnchronously on `t.teardown()` to minimize Windows
   folder locking issues.
+* Load `.taprc.yml` and `.taprc.yaml` config files if present, and no
+  `.taprc` is present.
 
 ### DEPENDENCIES and REFACTORING
 
