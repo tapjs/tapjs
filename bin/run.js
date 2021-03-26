@@ -160,9 +160,9 @@ const mainAsync = async options => {
   // tell chalk if we want color or not.
   if (!options.color) {
     process.env.NO_COLOR = '1'
-    process.env.FORCE_COLOR = '0'
+    delete process.env.FORCE_COLOR
   } else {
-    process.env.NO_COLOR = '0'
+    delete process.env.NO_COLOR
     process.env.FORCE_COLOR = '3'
   }
 
