@@ -10,8 +10,8 @@ Object {
   "atTap": false,
   "output": true,
   "rimrafNeeded": false,
-  "rmdirRecursive": Function rmdirRecursive(dir, cb),
-  "rmdirRecursiveSync": Function rmdirRecursiveSync(dir),
+  "rmdirRecursive": "function(path, cb)",
+  "rmdirRecursiveSync": "function(path)",
   "snapshotFile": Function snapshotFile(cwd, main, argv),
   "stackUtils": Object {
     "ignoredPackages": Array [

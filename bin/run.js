@@ -699,8 +699,13 @@ const runAllFiles = (options, env, tap, processDB) => {
         tap.spawn(node, args, opt, file)
       } else if (/\.jsx$|\.tsx?$|\.[mc]?js$/.test(file)) {
         debug('js file', file)
+        /* istanbul ignore next - version specific behavior */
+        const experimental = /^v10\./.test(process.version) && /\.mjs$/.test(file)
+          ? ['--experimental-modules'] : []
+
         const args = [
           ...options['node-arg'],
+          ...experimental,
           file,
           ...options['test-arg']
         ]

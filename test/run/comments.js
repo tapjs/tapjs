@@ -3,6 +3,7 @@ const {
   run,
   tap,
   t,
+  clean,
 } = require('./')
 
 const ok = tmpfile(t, 'comments/ok.js', `'use strict'
@@ -20,4 +21,4 @@ const ok = tmpfile(t, 'comments/ok.js', `'use strict'
 
 t.plan(1)
 run(['--comments', ok], {}, (er, o, e) =>
-  t.equal(e, 'root\nparent\nchild\n'))
+  t.equal(clean(e), 'root\nparent\nchild\n'))

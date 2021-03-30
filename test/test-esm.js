@@ -14,6 +14,9 @@ const {join} = require('path')
 const testPath = join(__dirname, './test.mjs')
 
 t.test('test esm entry point', t => {
-  t.spawn('node', [testPath])
+  const arg = [testPath]
+  if (/^v10\./.test(process.version))
+    arg.unshift('--experimental-modules')
+  t.spawn('node', arg)
   t.end()
 })

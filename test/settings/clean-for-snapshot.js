@@ -10,5 +10,8 @@ module.exports = settings => ({
   stackUtils: {
     ...settings.stackUtils,
     internals: []
-  }
+  },
+  rimrafNeeded: false,
+  rmdirRecursive: 'function(path, cb)',
+  rmdirRecursiveSync: 'function(path)',
 })

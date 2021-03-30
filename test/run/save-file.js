@@ -7,6 +7,8 @@ const {
   dir,
   t,
   winSkip,
+  oldSkip,
+  clean,
 } = require('./')
 
 const path = require('path')
@@ -36,8 +38,8 @@ const opt = { cwd: dir, env: {} }
 t.test('with bailout, should save all untested', t => {
   run(['a', 'x', 'z.js', '-s', savefile, '-b'], opt, (er, o, e) => {
     t.match(er, { code: 1 })
-    t.matchSnapshot(o, 'stdout', { skip: winSkip })
-    t.equal(e, '')
+    t.matchSnapshot(o, 'stdout', { skip: winSkip || oldSkip })
+    t.equal(clean(e), '')
     t.matchSnapshot(fs.readFileSync(savefile, 'utf8'), 'savefile')
     t.end()
   })
@@ -46,8 +48,8 @@ t.test('with bailout, should save all untested', t => {
 t.test('without bailout, run untested, save failures', t => {
   run(['a', 'x', 'z.js', '-s', savefile], opt, (er, o, e) => {
     t.match(er, { code: 1 })
-    t.matchSnapshot(o, 'stdout', { skip: winSkip })
-    t.equal(e, '')
+    t.matchSnapshot(o, 'stdout', { skip: winSkip || oldSkip })
+    t.equal(clean(e), '')
     t.matchSnapshot(fs.readFileSync(savefile, 'utf8'), 'savefile')
     t.end()
   })
@@ -67,7 +69,7 @@ t.test('pass, empty save file', t => {
   run(['a', 'x', 'z.js', '-s', savefile], opt, (er, o, e) => {
     t.equal(er, null)
     t.matchSnapshot(o, 'stdout')
-    t.equal(e, '')
+    t.equal(clean(e), '')
     try {
       console.log(fs.readFileSync(savefile, 'utf8'))
     } catch (e) {}
@@ -80,7 +82,7 @@ t.test('empty save file, run all tests', t => {
   run(['a', 'x', 'z.js', '-s', savefile], opt, (er, o, e) => {
     t.equal(er, null)
     t.matchSnapshot(o, 'stdout')
-    t.equal(e, '')
+    t.equal(clean(e), '')
     t.throws(() => fs.statSync(savefile), 'save file is gone')
     t.end()
   })

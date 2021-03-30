@@ -3,6 +3,7 @@ const {
   run,
   tap,
   t,
+  clean,
 } = require('./')
 
 const ok = tmpfile(t, 'ok.js', `
@@ -15,6 +16,6 @@ const ok = tmpfile(t, 'ok.js', `
 t.plan(3)
 run(['--test-env=USER', '--test-env=TERM=', '--test-env=glorp=foo', ok], {}, (er, o, e) => {
   t.notOk(er)
-  t.equal(e, '')
+  t.equal(clean(e), '')
   t.matchSnapshot(o)
 })

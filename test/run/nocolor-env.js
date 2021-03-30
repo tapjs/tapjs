@@ -5,6 +5,7 @@ const {
   run,
   tap,
   t,
+  clean,
 } = require('./')
 
 const ok = tmpfile(t, 'ok.js', `
@@ -19,6 +20,6 @@ run([ok], {
   }
 }, (er, o, e) => {
   t.notOk(er)
-  t.equal(e, '')
+  t.equal(clean(e), '')
   t.matchSnapshot(o)
 })

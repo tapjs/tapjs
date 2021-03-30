@@ -1,6 +1,14 @@
-import {createRequire} from 'module'
+import * as module from 'module'
+const { createRequire } = module
 
 import * as tap from 'tap'
+
+if (typeof createRequire !== 'function') {
+  console.log(`TAP version 13
+1..0 # SKIP - no createRequire function available ${process.version}
+`)
+  process.exit(0)
+}
 
 const require = createRequire(import.meta.url);
 

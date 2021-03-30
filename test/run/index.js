@@ -19,6 +19,7 @@ delete process.env.TAP_COLORS
 delete process.env.TAP_TIMEOUT
 
 const winSkip = process.platform === 'win32' ? 'known windows failure' : false
+const oldSkip = /^v10\./.test(process.version) ? 'known node v10 failure': false
 
 const cleanStacks = require('../clean-stacks.js')
 // also clean up NYC output a bit, because the line lengths
@@ -32,6 +33,7 @@ const clean = string => cleanStacks(string)
   // two that show up in config dump snapshots
   .replace(/snapshot: (true|false)\n/, '')
   .replace(/cli-tests-[0-9]+/g, 'cli-tests')
+  .split('\n').filter(l => !/ExperimentalWarning/.test(l)).join('\n')
 
 t.cleanSnapshot = clean
 
@@ -110,4 +112,5 @@ module.exports = {
   dir,
   t,
   winSkip,
+  oldSkip,
 }

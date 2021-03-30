@@ -3,6 +3,7 @@ const {
   run,
   tap,
   t,
+  clean,
 } = require('./')
 
 const { resolve } = require('path')
@@ -52,7 +53,7 @@ const settings = n => `--libtap-settings=settings/${n}.js`
 t.test('print out a different snapshot file location', t => {
   run([settings('ok'), testFile], {cwd: path}, (er, o, e) => {
     t.notOk(er)
-    t.equal(e, '')
+    t.equal(clean(e), '')
     t.matchSnapshot(o)
     t.end()
   })
@@ -61,7 +62,7 @@ t.test('print out a different snapshot file location', t => {
 t.test('print out the normal snapshot file location', t => {
   run([settings('ok-empty'), testFile], {cwd: path}, (er, o, e) => {
     t.notOk(er)
-    t.equal(e, '')
+    t.equal(clean(e), '')
     t.matchSnapshot(o)
     t.end()
   })
@@ -70,7 +71,7 @@ t.test('print out the normal snapshot file location', t => {
 t.test('fails if module not found', t => {
   run([settings('does-not-exist'), testFile], {cwd: path}, (er, o, e) => {
     t.match(er, { code: 1 })
-    t.match(e, 'Error: ') // specific msg different across node versions
+    t.match(clean(e), 'Error: ') // specific msg different across node versions
     t.equal(o, '')
     t.end()
   })
@@ -79,7 +80,7 @@ t.test('fails if module not found', t => {
 t.test('adding an unknown field is invalid', t => {
   run([settings('unknown-field'), testFile], {cwd: path}, (er, o, e) => {
     t.match(er, { code: 1 })
-    t.match(e, 'Error: Unrecognized libtap setting: foo')
+    t.match(clean(e), 'Error: Unrecognized libtap setting: foo')
     t.equal(o, '')
     t.end()
   })
@@ -88,7 +89,7 @@ t.test('adding an unknown field is invalid', t => {
 t.test('fields must be same type as libtap defines', t => {
   run([settings('wrong-type-field'), testFile], {cwd: path}, (er, o, e) => {
     t.match(er, { code: 1 })
-    t.match(e, 'Error: Invalid type for libtap setting snapshotFile. Expected function, received number.')
+    t.match(clean(e), 'Error: Invalid type for libtap setting snapshotFile. Expected function, received number.')
     t.equal(o, '')
     t.end()
   })
@@ -97,7 +98,7 @@ t.test('fields must be same type as libtap defines', t => {
 t.test('exporting function is invalid', t => {
   run([settings('export-function'), testFile], {cwd: path}, (er, o, e) => {
     t.match(er, { code: 1 })
-    t.match(e, 'Error: invalid libtap settings: function')
+    t.match(clean(e), 'Error: invalid libtap settings: function')
     t.equal(o, '')
     t.end()
   })
@@ -106,7 +107,7 @@ t.test('exporting function is invalid', t => {
 t.test('exporting array is invalid', t => {
   run([settings('export-array'), testFile], {cwd: path}, (er, o, e) => {
     t.match(er, { code: 1 })
-    t.match(e, 'Error: invalid libtap settings: array')
+    t.match(clean(e), 'Error: invalid libtap settings: array')
     t.equal(o, '')
     t.end()
   })
@@ -115,7 +116,7 @@ t.test('exporting array is invalid', t => {
 t.test('exporting false is invalid', t => {
   run([settings('export-false'), testFile], {cwd: path}, (er, o, e) => {
     t.match(er, { code: 1 })
-    t.match(e, 'Error: invalid libtap settings: boolean')
+    t.match(clean(e), 'Error: invalid libtap settings: boolean')
     t.equal(o, '')
     t.end()
   })
@@ -124,7 +125,7 @@ t.test('exporting false is invalid', t => {
 t.test('exporting null is invalid', t => {
   run([settings('export-null'), testFile], {cwd: path}, (er, o, e) => {
     t.match(er, { code: 1 })
-    t.match(e, 'Error: invalid libtap settings: null')
+    t.match(clean(e), 'Error: invalid libtap settings: null')
     t.equal(o, '')
     t.end()
   })

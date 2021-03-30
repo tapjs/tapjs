@@ -24,7 +24,7 @@ const check = t => (er, o, e) => {
     .replace(/^[\S\s]*SUMMARY RESULTS[\S\s]*$/,'treport output')
     .replace(/^[\S\s]*✓[\S\s]*$/, 'spec output')
   t.matchSnapshot(o, 'stdout')
-  t.equal(e, '', 'stderr')
+  t.equal(clean(e), '', 'stderr')
   t.end()
 }
 
