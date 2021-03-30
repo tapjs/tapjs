@@ -51,7 +51,7 @@ t.test('should handle dates', t => {
   t.end()
 })
 
-t.test('should handle bigints', t => {
+t.test('should handle bigints', { skip: typeof BigInt === 'undefined' && 'no BigInt' }, t => {
   t.notOk(match(t, BigInt('1'), null))
   t.notOk(match(t, BigInt('1'), undefined))
   t.ok(match(t, BigInt('1'), BigInt('1')))

@@ -61,7 +61,6 @@ t.test('gnarly object, many points of view', t => {
     om: new Map([[o, k], [k, o]]),
     args: args(1, 2, 3, o),
     buf: Buffer.from('howdy'),
-    bigInt: 5n,
     longBuf: Buffer.from('hello, world!\n'.repeat(99)),
     emp: {
       b: Buffer.from(''),
@@ -243,7 +242,7 @@ t.test('hidden props and getters', t => {
   t.end()
 })
 
-t.test('format BigInt', t => {
+t.test('format BigInt', { skip: typeof BigInt === 'undefined' && 'no BigInt' }, t => {
   t.equal(new Format(BigInt('5')).print(), '5n')
   t.end()
 })

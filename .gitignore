@@ -1,6 +1,7 @@
 /*
 /.*
 
+!.github/
 !lib/
 !package.json
 !package-lock.json
