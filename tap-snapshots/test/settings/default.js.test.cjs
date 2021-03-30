@@ -8,6 +8,9 @@
 exports[`test/settings/default.js TAP > must match snapshot 1`] = `
 Object {
   "atTap": false,
+  "mkdirpNeeded": false,
+  "mkdirRecursive": "function(path, cb)",
+  "mkdirRecursiveSync": "function(path)",
   "output": true,
   "rimrafNeeded": false,
   "rmdirRecursive": "function(path, cb)",

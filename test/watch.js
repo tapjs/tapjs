@@ -1,5 +1,6 @@
 // just load this to assign the runner test's output cleaner
 require('./run/index.js')
+const mkdirp = require('mkdirp')
 
 // spawn mock
 // log what's being run, and then write out the index
@@ -123,7 +124,7 @@ const index = {
 const rimraf = require('rimraf').sync
 const fs = require('fs')
 const pidir = dir + '/.nyc_output/processinfo'
-fs.mkdirSync(pidir, {recursive: true})
+mkdirp.sync(pidir)
 const read = file => fs.existsSync(file) && fs.readFileSync(file, 'utf8')
 const saveFile = 'node_modules/.cache/tap/watch-' + process.pid
 

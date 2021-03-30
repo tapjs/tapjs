@@ -11,6 +11,9 @@ module.exports = settings => ({
     ...settings.stackUtils,
     internals: []
   },
+  mkdirpNeeded: false,
+  mkdirRecursive: 'function(path, cb)',
+  mkdirRecursiveSync: 'function(path)',
   rimrafNeeded: false,
   rmdirRecursive: 'function(path, cb)',
   rmdirRecursiveSync: 'function(path)',

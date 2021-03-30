@@ -11,7 +11,8 @@ const fs = require('fs')
 
 const rewrite = file => fs.writeFileSync(file, fs.readFileSync(file))
 
-fs.mkdirSync(dir, {recursive: true})
+const mkdirp = require('mkdirp')
+mkdirp.sync(dir)
 const cwd = process.cwd()
 process.chdir(dir)
 t.teardown(() => process.chdir(cwd))
@@ -61,7 +62,7 @@ t.test('no index file means we let everything through', t => {
 })
 
 t.test('with a real index', t => {
-  fs.mkdirSync('.nyc_output/processinfo', {recursive: true})
+  mkdirp.sync('.nyc_output/processinfo')
   const pauseLength = 10
   const index = '.nyc_output/processinfo/index.json'
   const indexData = {

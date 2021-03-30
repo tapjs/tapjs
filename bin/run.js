@@ -213,6 +213,8 @@ const mainAsync = async options => {
   if (options['libtap-settings'])
     process.env.TAP_LIBTAP_SETTINGS = path.resolve(options['libtap-settings'])
 
+  require('../settings.js')
+
   // we test this directly, not from here.
   /* istanbul ignore next */
   if (options.watch)
@@ -246,7 +248,7 @@ const mainAsync = async options => {
   debug('after globbing', options.files)
 
   if (options['output-dir'] !== null)
-    fs.mkdirSync(options['output-dir'], {recursive: true})
+    require('../settings.js').mkdirRecursiveSync(options['output-dir'])
 
   if (options.files.length === 1 && options.files[0] === '-') {
     debug('do stdin only')
@@ -607,7 +609,7 @@ const runAllFiles = (options, env, tap, processDB) => {
   if (options['output-dir'] !== null) {
     tap.on('spawn', t => {
       const dir = options['output-dir'] + '/' + path.dirname(t.name)
-      fs.mkdirSync(dir, {recursive: true})
+      require('../settings.js').mkdirRecursiveSync(dir)
       const file = dir + '/' + path.basename(t.name) + '.tap'
       t.proc.stdout.pipe(fs.createWriteStream(file))
     })

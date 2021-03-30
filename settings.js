@@ -22,6 +22,20 @@ if (+process.env.TAP_DEV_LONGSTACK !== 1) {
 
 settings.stackUtils.wrapCallSite = sourceMapSupport.wrapCallSite
 
+/* istanbul ignore next - version specific */
+if (settings.rimrafNeeded) {
+  const rimraf = require('rimraf')
+  settings.rmdirRecursive = (path, cb) => rimraf(path, { glob: false }, cb)
+  settings.rmdirRecursiveSync = path => rimraf.sync(path, { glob: false })
+}
+
+/* istanbul ignore next - version specific */
+if (settings.mkdirpNeeded) {
+  const mkdirp = require('mkdirp')
+  settings.mkdirRecursive = (path, cb) => mkdirp(path).then(() => cb).catch(cb)
+  settings.mkdirRecursiveSync = path => mkdirp.sync(path)
+}
+
 if (process.env.TAP_LIBTAP_SETTINGS) {
   const overrides = require(process.env.TAP_LIBTAP_SETTINGS)
   const type = typeof overrides

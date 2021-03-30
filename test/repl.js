@@ -50,7 +50,8 @@ const originalCwd = process.cwd()
 const rimraf = require('rimraf').sync
 
 const dir = 'repl-test'
-fs.mkdirSync(dir, {recursive: true})
+const mkdirp = require('mkdirp')
+mkdirp.sync(dir)
 process.chdir(dir)
 t.teardown(() => {
   process.chdir(originalCwd)
@@ -194,7 +195,7 @@ t.test('coverage report', t => {
 })
 
 t.test('clear', t => {
-  fs.mkdirSync('.nyc_output', {recursive: true})
+  mkdirp.sync('.nyc_output')
   input.write('clear\n')
   t.notOk(fs.existsSync('.nyc_output'))
   fakeWatch.once('afterProcess', () => process.nextTick(() => {
@@ -204,8 +205,8 @@ t.test('clear', t => {
 })
 
 t.test('completer', t => {
-  fs.mkdirSync('test/foo', {recursive: true})
-  fs.mkdirSync('temp/orary', {recursive: true})
+  mkdirp.sync('test/foo')
+  mkdirp.sync('temp/orary')
   fs.writeFileSync('test/foo/bar.js', '')
   fs.writeFileSync('test/follow.js', '')
   const tests = [

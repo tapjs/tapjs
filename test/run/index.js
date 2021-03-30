@@ -1,5 +1,6 @@
 'use strict'
 const fs = require('fs')
+const mkdirp = require('mkdirp')
 const rimraf = require('rimraf')
 // const rimraf = { sync: () => {} }
 const path = require('path')
@@ -52,7 +53,7 @@ const tmpfile = (t, filename, content) => {
   const parts = filename.split('/')
   // make any necessary dirs
   if (parts.length > 1)
-    fs.mkdirSync(path.join(dir, parts.slice(0, -1).join('/')), {recursive: true})
+    mkdirp.sync(path.join(dir, parts.slice(0, -1).join('/')))
   if (t.tmpfiles)
     t.tmpfiles.push(path.join(dir, parts[0]))
   else {
@@ -94,7 +95,7 @@ const escapeNYC = () =>  {
 if (module === require.main)
   t.pass('this is fine')
 else {
-  fs.mkdirSync(dir, {recursive: true})
+  mkdirp.sync(dir)
   if (process.env._TAP_TEST_NO_TEARDOWN_TMP !== '1') {
     t.teardown(() => rimraf.sync(dir))
     process.on('exit', () => rimraf.sync(dir))
