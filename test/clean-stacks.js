@@ -5,6 +5,14 @@
 const yaml = require('tap-yaml')
 const internals = Object.keys(process.binding('natives'))
 
+// escape a string so that windows turns the \ into \\
+const escape = str => JSON.stringify(str).slice(1, -1)
+
+const { homedir } = require('os')
+const home = homedir()
+const execPath = process.execPath
+const tapDir = require('path').resolve(__dirname, '..')
+
 module.exports = out => out
   // sort keys in yaml blocks
   .replace(/\n(   *)---\n((\1.*\n)*)\1\.\.\.\n/g, ($0, $1, $2) => {
@@ -61,12 +69,15 @@ module.exports = out => out
   // timeout values are different when coverage is present
   .replace(/\n( *)timeout: (30000|240000)(\n|$)/g, '\n$1timeout: {default}$3')
 
-  // fix references to cwd
+  // fix references to cwd, et al
   .split(process.cwd()).join('{CWD}')
-  .split(require('path').resolve(__dirname, '..')).join('{TAPDIR}')
-  .split(process.execPath).join('{NODE}')
-
-  .split(process.env.HOME).join('{HOME}')
+  .split(escape(process.cwd())).join('{CWD}')
+  .split(tapDir).join('{TAPDIR}')
+  .split(escape(tapDir)).join('{TAPDIR}')
+  .split(execPath).join('{NODE}')
+  .split(escape(execPath)).join('{NODE}')
+  .split(home).join('{HOME}')
+  .split(escape(home)).join('{HOME}')
 
   // the arrows in source printing bits, make that consistent
   .replace(/^(\s*)-+\^$/mg, '$1--^')

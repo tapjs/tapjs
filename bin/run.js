@@ -172,8 +172,11 @@ const mainAsync = async options => {
   if (options['dump-config']) {
     console.log(yaml.stringify(Object.keys(options).filter(k =>
       k !== 'dump-config' && k !== '_' && !/^[A-Z_]+$/.test(k)
-    ).sort().reduce((set, k) =>
-      (set[k] = options[k], set), {})))
+    ).sort().reduce((set, k) => {
+      const value = k === 'rcfile' ? options[k].replace(/\\/g, '/') : options[k]
+      set[k] = value
+      return set
+    }, {})))
     return
   }
 
