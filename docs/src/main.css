@@ -8,7 +8,7 @@
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 
- html {
+html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
 }
@@ -453,4 +453,11 @@ h1:target, h2:target, h3:target, h4:target, h5:target, h6:target {
 
 a:hover, a:active, a:focus {
   color:#09f;
+}
+
+/* use ligature-supporting fonts, but only if available, no preload malarky */
+pre[class*="language-"] code,
+code[class*="language-"],
+pre[class*="language-"] {
+	font-family: Iosevka SS09, Iosevka, Fira Code, Monoid, Jetbrains Mono, DejaVu Sans Code, Cascadia Code, Victor Mono, Lilex, monospace;
 }
