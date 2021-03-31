@@ -1,9 +1,6 @@
 {
   "name": "tap",
   "version": "15.0.0-3",
-  "publishConfig": {
-    "tag": "v15-beta"
-  },
   "author": "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me)",
   "description": "A Test-Anything-Protocol library for JavaScript",
   "homepage": "http://www.node-tap.org/",
