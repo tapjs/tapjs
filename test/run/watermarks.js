@@ -6,7 +6,13 @@ const {
   bin,
   tap,
   t,
+  winSkip,
 } = require('./')
+
+if (winSkip) {
+  t.plan(0, winSkip)
+  process.exit()
+}
 
 const { execFile } = require('child_process')
 const {dirname, basename} = require('path')

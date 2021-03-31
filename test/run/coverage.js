@@ -9,6 +9,11 @@ const {
   winSkip,
 } = require('./')
 
+if (winSkip) {
+  t.plan(0, winSkip)
+  process.exit()
+}
+
 const { execFile } = require('child_process')
 const path = require('path')
 
