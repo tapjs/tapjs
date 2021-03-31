@@ -66,21 +66,6 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: 'gatsby-plugin-prefetch-google-fonts',
-      options: {
-        fonts: [
-          {
-            family: 'Titillium Web',
-            variants: ['400', '600', '700'],
-          },
-          {
-            family: 'Open Sans',
-            variants: ['400', '600', '700']
-          },
-        ],
-      },
-    },
     `gatsby-plugin-styled-components`,
     'gatsby-plugin-offline',
     {
