@@ -14,7 +14,7 @@ const NavbarOuter = styled(Flex)`
   box-shadow: 0px 0px 10px 0px #b8b3b3;
   height: 68px;
   align-items: center;
-  font-family: Titillium Web;
+  font-family: Trebuchet MS, Arial, Helvetica, sans-serif;
   z-index: 3;
   position: sticky;
   top: 0;

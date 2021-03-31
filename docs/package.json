@@ -13,8 +13,6 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "dependencies": {
-    "@fontsource/open-sans": "^4.2.2",
-    "@fontsource/titillium-web": "^4.2.2",
     "babel-plugin-styled-components": "^1.10.1",
     "gatsby": "^2.8.2",
     "gatsby-plugin-catch-links": "^2.0.15",

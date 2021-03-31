@@ -12,7 +12,7 @@ const navLinkStyles = css`
   letter-spacing: 1px;
   transition: text-shadow 1s;
   display: block;
-  font-family: Titillium Web, monospace;
+  font-family: Trebuchet MS, Arial, Helvetica, sans-serif;
   color: ${theme.colors.black};
 
   &:hover, &:active, &:focus {
