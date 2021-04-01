@@ -111,7 +111,8 @@
     "bin/run.js",
     "bin/jsx.js",
     "bin/jack.js",
-    "lib/*.js"
+    "lib/*.js",
+    "lib/*.mjs"
   ],
   "bundleDependencies": [
     "ink",
