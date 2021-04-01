@@ -30,6 +30,18 @@ function testSynonyms(settings) {
       t.end()
     })
   }
+
+  tap.test('warns for destructured alias', t => {
+    warnings = []
+    const {is} = t
+    is(1, 1)
+    t.same(
+      warnings,
+      ['is() is deprecated, use equal() instead'],
+      'deprecation for is'
+    )
+    t.end()
+  })
 }
 
 tap.test('check exports', async t => {
