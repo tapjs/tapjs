@@ -673,15 +673,15 @@ const runAllFiles = (options, env, tap, processDB) => {
       if (options.flow && flowNode)
         options['node-arg'].push('-r', flowNode)
 
-      if (options.ts && options.jsx && tsNode && /\.tsx?$/.test(file)) {
-        debug('ts file', file)
-        const compilerOpts = JSON.stringify({
-          ...JSON.parse(env.TS_NODE_COMPILER_OPTIONS || '{}'),
-          jsx: 'react'
-        })
+      if (options.ts && tsNode && /\.tsx?$/.test(file)) {
+        debug('typescript file', file)
+        const compilerOpts = JSON.parse(env.TS_NODE_COMPILER_OPTIONS || '{}')
+        if (options.jsx)
+          compilerOpts.jsx = 'react'
+
         opt.env = {
           ...env,
-          TS_NODE_COMPILER_OPTIONS: compilerOpts,
+          TS_NODE_COMPILER_OPTIONS: JSON.stringify(compilerOpts),
         }
         const args = [
           '-r', tsNode,
