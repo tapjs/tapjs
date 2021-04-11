@@ -194,7 +194,7 @@ the object that is wanted.
 Synonyms: `t.equals`, `t.isEqual`, `t.is`, `t.strictEqual`,
 `t.strictEquals`, `t.strictIs`, `t.isStrict`, `t.isStrictly`
 
-## t.notEqual(found, notWanted, message, extra)
+## t.not(found, notWanted, message, extra)
 
 Inverse of `t.equal()`.
 
