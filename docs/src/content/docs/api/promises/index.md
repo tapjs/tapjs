@@ -9,17 +9,12 @@ redirect_from:
 # Promises
 
 The `t.test()`, `t.spawn()` and `t.stdin()` methods all return a
-Promise which resolves to the `t` object once the child test, process,
-or input stream is done.  (Note that the returned Promise does *not*
-resolve to the *child* object, because the child is already ended when
-control returns to the parent.)
+Promise which resolves to the child test results object once the child
+test, process, or input stream is done.
 
 Additionally, if the function passed to `t.test()` *returns* a
 Promise, then the child test will be ended when the Promise resolves,
 or failed when it is rejected.
-
-These two features together mean that you can string together Promise
-chains in your tests, if that's a thing you're into.
 
 Unhandled promise rejections will be fail the active test, just like thrown
 errors would.
@@ -34,7 +29,7 @@ t.test('get thing', t =>
       t.equal(result.foo, 'bar')
       t.end()
     })))
-.then(t =>
+.then(() =>
   getTwoThings()
     .then(things => t.equal(things.length, 2))
     .then(() => makeSomeOtherPromise())
@@ -67,17 +62,17 @@ The above example could be written like this:
 const t = require('tap')
 t.test('get thing', async t => {
   const result = await getSomeThing()
-  await t.test('check result', async t => t.equal(result.foo, 'bar'))
-}).then(async function (t) {
+  t.test('check result', async t => t.equal(result.foo, 'bar'))
+})
+t.test('two things', async t => {
   const things = await getTwoThings()
 
   const otherPromiseResult = await t.test('the things', async t => {
     t.equal(things.length, 2)
   }).then(() => makeSomeOtherPromise())
 
-  await t.test('check other promise thing', t => {
+  t.test('check other promise thing', async t => {
     t.equal(otherPromiseResult, 7, 'it should be seven')
-    t.end()
   })
 })
 ```
@@ -91,7 +86,7 @@ For example:
 ```js
 const t = require('tap')
 
-async main = () => {
+const main = async () => {
   await t.test('get thing', t =>
     getSomeThing().then(result =>
       t.test('check result', async t =>
@@ -101,10 +96,10 @@ async main = () => {
   const otherPromiseResult = await t.test('got two things', async t =>
     t.equal(things.length, 2)).then(() => makeSomeOtherPromise())
 
-  await t.test('check other promise thing', async t =>
+  const childResults = await t.test('check other promise thing', async t =>
     t.equal(otherPromiseResult, 7, 'it should be seven'))
 
-  console.log('tests are all done!')
+  console.log('tests are all done!', childResults)
 }
 main()
 ```
