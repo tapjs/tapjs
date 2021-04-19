@@ -1,7 +1,6 @@
 const { jack, num, opt, list, flag, env } = require('jackspeak')
 
 const {cpus} = require('os')
-const colorSupport = require('color-support')
 
 const reporters = [...new Set([
   ...(require('tap-mocha-reporter').types),
