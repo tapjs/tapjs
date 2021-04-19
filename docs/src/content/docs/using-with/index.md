@@ -14,6 +14,8 @@ is appropriate to your program.
 
 # Using tap with TypeScript
 
+First, install `typescript` and `ts-node`.
+
 Name your test files `.ts` and they'll be loaded as TypeScript if you have
 the `typescript` module installed in your project, and enable the `--ts`
 flag.
