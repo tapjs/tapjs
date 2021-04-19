@@ -17,7 +17,7 @@ is appropriate to your program.
 First, install `typescript` and `ts-node`.
 
 Name your test files `.ts` and they'll be loaded as TypeScript if you have
-the `typescript` module installed in your project, and enable the `--ts`
+both `typescript` and `ts-node` modules installed in your project, and enable the `--ts`
 flag.
 
 For TypeScript with JSX (ie, TSX), name your files with a `.tsx` extension.
