@@ -25,3 +25,4 @@
 !coverage-map.js
 !postpublish.sh
 !netlify.toml
+!.eslintrc.js

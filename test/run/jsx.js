@@ -14,7 +14,7 @@ t.test('jsx', t => {
     const div = (<div>Hello</div>)
     t.pass('this is fine')
   `)
-  run([ok], {}, (er, o, e) => {
+  run([ok], {}, (er, o) => {
     t.equal(er, null)
     t.matchSnapshot(o)
     t.end()
@@ -24,7 +24,7 @@ t.test('jsx', t => {
 t.test('running jsx thingie directly raises an error', t => {
   const jsx = require.resolve('../../bin/jsx.js')
   const {execFile} = require('child_process')
-  execFile(process.execPath, [jsx], (er, o, e) => {
+  execFile(process.execPath, [jsx], (er) => {
     t.match(er, { code: 1 })
     t.end()
   })

@@ -1,4 +1,6 @@
 'use strict'
+/* global deglobal */
+
 const {mocha} = require('../lib/tap.js')
 const assert = require('assert')
 
@@ -61,14 +63,14 @@ mocha.describe('globals', () => {
 })
 
 if (process.version.match(/v[0-9]\./)) {
-  assert.throws(_ => mocha.after(),
+  assert.throws(() => mocha.after(),
     'cannot call "after" outside of describe()')
-  assert.throws(_ => mocha.before(),
+  assert.throws(() => mocha.before(),
     'cannot call "before" outside of describe()')
 } else {
-  assert.throws(_ => mocha.after(),
+  assert.throws(() => mocha.after(),
     new Error('cannot call "after" outside of describe()'))
-  assert.throws(_ => mocha.before(),
+  assert.throws(() => mocha.before(),
     new Error('cannot call "before" outside of describe()'))
 }
 

@@ -1,12 +1,9 @@
 const {
   tmpfile,
   run,
-  bin,
   tap,
-  node,
   dir,
-  t,
-  winSkip,
+  t
 } = require('./')
 
 const path = require('path')

@@ -18,7 +18,7 @@ t.test('flow', t => {
 
   const args = [ok, '--flow']
 
-  run(args, {}, (er, o, e) => {
+  run(args, {}, (er, o) => {
     t.equal(er, null)
     t.matchSnapshot(o)
     t.end()
@@ -36,8 +36,8 @@ t.test('flow manually', t => {
   `)
 
   const args = [ok, '--node-arg=--require', '--node-arg=flow-remove-types/register']
-  
-  run(args, {}, (er, o, e) => {
+
+  run(args, {}, (er, o) => {
     t.equal(er, null)
     t.matchSnapshot(o)
     t.end()

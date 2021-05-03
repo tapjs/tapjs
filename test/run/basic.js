@@ -1,11 +1,8 @@
-const fs = require('fs')
 const mkdirp = require('mkdirp')
 const {
   tmpfile,
   run,
-  bin,
   tap,
-  node,
   dir,
   t,
 } = require('./')
@@ -14,7 +11,7 @@ if (process.env.TAP_SNAPSHOT !== '1')
   t.jobs = require('os').cpus.length
 
 t.test('no args', t => {
-  const c = run([], {
+  run([], {
     cwd: dir,
   }, (er, o, e) => {
     t.match(er, { code: 1 })
@@ -34,7 +31,7 @@ t.test('stdin parsing', t => {
 })
 
 t.test('--help', t => {
-  run(['--help'], null, (er, o, e) => {
+  run(['--help'], null, (er, o) => {
     t.equal(er, null)
     t.match(o, /^Usage:/)
     t.end()
@@ -42,7 +39,7 @@ t.test('--help', t => {
 })
 
 t.test('--nyc-help', t => {
-  run(['--nyc-help'], null, (er, o, e) => {
+  run(['--nyc-help'], null, (er, o) => {
     t.equal(er, null)
     t.match(o, /\nOptions:\n/)
     t.end()
@@ -50,7 +47,7 @@ t.test('--nyc-help', t => {
 })
 
 t.test('--version', t => {
-  run(['--version'], null, (er, o, e) => {
+  run(['--version'], null, (er, o) => {
     t.equal(er, null)
     t.equal(o.trim(), require('../../package.json').version)
     t.end()
@@ -58,7 +55,7 @@ t.test('--version', t => {
 })
 
 t.test('--versions', t => {
-  run(['--versions'], null, (er, o, e) => {
+  run(['--versions'], null, (er, o) => {
     t.equal(er, null)
     t.matchSnapshot(o.replace(/^([^:]+): (.*)$/gm, '$1: {version}'), 'output')
     t.end()
@@ -66,7 +63,7 @@ t.test('--versions', t => {
 })
 
 t.test('--parser-version', t => {
-  run(['--parser-version'], null, (er, o, e) => {
+  run(['--parser-version'], null, (er, o) => {
     t.equal(er, null)
     t.matchSnapshot(o, 'output')
     t.end()
@@ -74,7 +71,7 @@ t.test('--parser-version', t => {
 })
 
 t.test('--nyc-version', t => {
-  run(['--nyc-version'], null, (er, o, e) => {
+  run(['--nyc-version'], null, (er, o) => {
     t.equal(er, null)
     t.equal(o.trim(), require('nyc/package.json').version)
     t.end()
@@ -100,7 +97,7 @@ t.test('unknown short opt', t => {
 t.test('basic test run', t => {
   const ok = tmpfile(t, 'ok.js', `require(${tap}).pass('this is fine')`)
   const args = ['-iSCbFt0', '-g/nope/i', '--', ok]
-  run(args, null, (err, stdout, stderr) => {
+  run(args, null, (err, stdout) => {
     t.matchSnapshot(stdout, 'ok.js output')
     t.end()
   })
@@ -109,11 +106,11 @@ t.test('basic test run', t => {
 t.test('ignored files', t => {
   mkdirp.sync(`${dir}/ig/test/node_modules`)
   mkdirp.sync(`${dir}/ig/node_modules`)
-  const ok = tmpfile(t, 'ig/test/ok.js',
+  tmpfile(t, 'ig/test/ok.js',
     `require(${tap}).pass('this is fine')`)
-  const nope = tmpfile(t, 'ig/node_modules/nope.test.js',
+  tmpfile(t, 'ig/node_modules/nope.test.js',
     `require(${tap}).fail('i should not be included')`)
-  const nope2 = tmpfile(t, 'ig/test/node_modules/nope.test.js',
+  tmpfile(t, 'ig/test/node_modules/nope.test.js',
     `require(${tap}).fail('should also not be included')`)
   tmpfile(t, 'ig/test/node_modules/foo.test.js',
     `require(${tap}).fail('no foo included')`)

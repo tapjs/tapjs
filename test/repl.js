@@ -61,7 +61,6 @@ t.teardown(() => {
 const {Repl} = require('../lib/repl.js')
 
 const input = new Minipass({encoding: 'utf8'})
-const {PassThrough} = require('stream')
 const output = new Minipass({encoding: 'utf8'})
 const repl = new Repl({}, input, output)
 

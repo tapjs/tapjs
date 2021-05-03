@@ -1,10 +1,8 @@
 const {
   run,
-  dir,
   t,
 } = require('./')
 
-const fs = require('fs')
 t.test('finds rc file with .yaml and .yml', t => {
   const files = [
     '.taprc',
@@ -18,7 +16,7 @@ t.test('finds rc file with .yaml and .yml', t => {
       const cwd = t.testdir({
         [file]: 'check-coverage: false',
       })
-      run(['--dump-config'], { cwd }, (er, o, e) => {
+      run(['--dump-config'], { cwd }, (er, o) => {
         t.match(o, /check-coverage: false/)
         t.end()
       })

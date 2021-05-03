@@ -49,6 +49,7 @@
     "which": "^2.0.2"
   },
   "devDependencies": {
+    "eslint": "^7.25.0",
     "flow-remove-types": "^2.112.0",
     "node-preload": "^0.2.1",
     "process-on-spawn": "^1.0.0",
@@ -84,6 +85,7 @@
     "test": "node bin/run.js -M coverage-map.js",
     "unit": "bash scripts/unit.sh",
     "posttest": "rm -rf cli-tests-*",
+    "postsnap": "npm run lint:fix",
     "postunit": "npm run posttest",
     "t": "node bin/run.js -J -sfails.txt",
     "preversion": "npm test",
@@ -92,7 +94,9 @@
     "www:build": "cd docs; npm ci; npm run build",
     "www:develop": "cd docs; npm run develop",
     "start": "npm run www:develop",
-    "www:serve": "cd docs; npm run serve"
+    "www:serve": "cd docs; npm run serve",
+    "lint": "eslint 'bin/*.js' 'lib/*.js' 'test/**/*.js'",
+    "lint:fix": "npm run lint -- --fix"
   },
   "tap": {
     "test-regex": "^test/.*\\.js$",
@@ -124,3 +128,4 @@
     "url": "https://github.com/sponsors/isaacs"
   }
 }
+

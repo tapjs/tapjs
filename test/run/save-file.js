@@ -1,9 +1,7 @@
 const {
   tmpfile,
   run,
-  bin,
   tap,
-  node,
   dir,
   t,
   winSkip,
@@ -14,12 +12,12 @@ const {
 const path = require('path')
 const fs = require('fs')
 
-const xy1 = tmpfile(t, 'x/y/1.js', `
+tmpfile(t, 'x/y/1.js', `
   const t = require(${tap})
   t.pass('one')
 `)
 
-const ab2 = tmpfile(t, 'a/b/2.js', `
+tmpfile(t, 'a/b/2.js', `
   const t = require(${tap})
   t.pass('2')
 `)

@@ -6,8 +6,7 @@ const synonyms = require('../lib/synonyms.js')
 function testSynonyms(settings) {
   let warnings;
 
-  const {emitWarning} = process;
-  process.emitWarning = (msg, ...args) => {
+  process.emitWarning = (msg) => {
     warnings.push(msg)
   }
 

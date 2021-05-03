@@ -23,7 +23,7 @@ t.test('shotgun a bunch of option parsing junk', t => {
   ], { env: {
     TAP: '0',
     TAP_BAIL: '0',
-  }}, (er, o, e) => {
+  }}, (er, o) => {
     t.equal(er, null)
     t.matchSnapshot(o, 'output')
     t.end()
@@ -54,7 +54,7 @@ t.test('package.json parsing', t => {
       const dir = path.dirname(pj)
       run(['--dump-config', '-B'], {
         cwd: dir,
-      }, (er, o, e) => {
+      }, (er, o) => {
         t.equal(er, null)
         t.matchSnapshot(o, 'output')
         t.end()
@@ -68,7 +68,7 @@ t.test('turn color off and back on again', t => {
   run(['--no-color', '-c', '--dump-config'], { env: {
     TAP: '0',
     TAP_COLORS: '1',
-  }}, (er, o, e) => {
+  }}, (er, o) => {
     t.equal(er, null)
     t.matchSnapshot(o, 'output')
     t.end()
@@ -78,7 +78,7 @@ t.test('turn color off and back on again', t => {
 t.test('short options as well as short flags', t => {
   run(['--dump-config','-j2','-Cb','-t=0' ], { env: {
     TAP: '0'
-  }}, (er, o, e) => {
+  }}, (er, o) => {
     t.equal(er, null)
     t.matchSnapshot(o, 'output')
     t.end()
@@ -94,7 +94,7 @@ jobs: 3
   run(['--dump-config', '-j4'], { env: {
     TAP_RCFILE: rc,
     TAP: 0
-  }}, (er, o, e) => {
+  }}, (er, o) => {
     t.equal(er, null)
     t.matchSnapshot(o, 'output')
     t.end()
@@ -107,7 +107,7 @@ t.test('empty rc file', t => {
     TAP_RCFILE: rc,
     TAP: '0',
     TAP_COLORS: '1'
-  }}, (er, o, e) => {
+  }}, (er, o) => {
     t.equal(er, null)
     t.matchSnapshot(o, 'output')
     t.end()

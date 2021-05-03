@@ -6,7 +6,6 @@ const reporters = [...new Set([
   ...(require('tap-mocha-reporter').types),
   ...(require('treport/types')),
 ])]
-const fs = require('fs')
 // nyc bundles its deps, pull reporters out of it
 const nycReporters = [
   'clover',
@@ -693,6 +692,7 @@ Much more documentation available at: https://www.node-tap.org/
                   appended to the filenames.`,
   }),
 
+  /* eslint-disable-next-line */
   debug: flag({
     envDefault: 'TAP_DEBUG',
     description: 'Turn on debug mode',

@@ -4,7 +4,7 @@ const {
 } = require('./')
 
 t.plan(2)
-const c = run(['-', '-C'], { stdio: 'pipe' }, (er, o, e) => {
+const c = run(['-', '-C'], { stdio: 'pipe' }, (er, o) => {
   t.equal(er, null)
   t.equal(o, str)
 })

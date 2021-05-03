@@ -1,8 +1,6 @@
 const {
   tmpfile,
-  bin,
   tap,
-  node,
   dir,
   t,
   run,
@@ -21,7 +19,7 @@ t.test('no args, pull in default files, not exclusions', t => {
     const t = require(${tap})
     t.fail('should not run this')
   `)
-  run([], { cwd: dir }, (er, o, e) => {
+  run([], { cwd: dir }, (er, o) => {
     t.equal(er, null)
     t.matchSnapshot(o, 'output')
     t.end()
@@ -29,7 +27,7 @@ t.test('no args, pull in default files, not exclusions', t => {
 })
 
 t.test('error out if loading files fails', t => {
-  run([], { cwd: '/dev' }, (er, o, e) => {
+  run([], { cwd: '/dev' }, (er) => {
     t.match(er, { code: 1 })
     t.end()
   })

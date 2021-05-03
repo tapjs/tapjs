@@ -199,7 +199,7 @@ t.test('run tests on changes', t => {
 
   t.test('change a file', t => {
     // initial test done, change a file
-    spawnTrack.once('spawn', proc => {
+    spawnTrack.once('spawn', () => {
       t.matchSnapshot(read(saveFile), 'spawn test run on change')
       t.matchSnapshot(out.join(''), 'logs')
       out.length = 0

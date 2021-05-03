@@ -20,7 +20,6 @@ const isexe = require('isexe')
 const yaml = require('tap-yaml')
 const path = require('path')
 const exists = require('fs-exists-cached').sync
-const os = require('os')
 
 const maybeResolve = id => {
   try {
@@ -358,7 +357,7 @@ const runCoverageReportOnly = options => {
 }
 
 /* istanbul ignore next */
-const pipeToCoveralls = async options => {
+const pipeToCoveralls = async () => {
   const reporter = spawn(node, [nycBin, 'report', '--reporter=text-lcov'], {
     stdio: [ 0, 'pipe', 2 ]
   })
@@ -398,7 +397,7 @@ const openHtmlCoverageReport = (options, code, signal) => {
   }
 }
 
-const nycHelp = _ => fg(node, [nycBin, '--help'])
+const nycHelp = () => fg(node, [nycBin, '--help'])
 
 // export for easier testing
 const setupTapEnv = exports.setupTapEnv = options => {
@@ -536,7 +535,7 @@ const saveFails = (options, tap) => {
       } catch (er) {}
   }
 
-  tap.on('bailout', reason => {
+  tap.on('bailout', () => {
     // add any pending test files to the fails list.
     fails.push.apply(fails, options.files.filter(file =>
       successes.indexOf(file) === -1))

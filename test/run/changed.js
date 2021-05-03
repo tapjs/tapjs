@@ -17,8 +17,6 @@ const cwd = process.cwd()
 process.chdir(dir)
 t.teardown(() => process.chdir(cwd))
 
-const {resolve} = require('path')
-
 const oktest = tmpfile(t, 'ok.test.js', `
 const t = require(${tap})
 t.match(require('./ok.js), { ok: true })

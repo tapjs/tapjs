@@ -5,7 +5,6 @@ const {
   t,
   clean,
 } = require('./')
-const yaml = require('tap-yaml')
 
 const one = tmpfile(t, 'one.js', `
   const t = require(${tap})

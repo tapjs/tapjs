@@ -17,7 +17,7 @@ t.test('via env', t => {
       import * as t from ${tap}
       t.pass('this is fine')
     `)
-    run([ok], {}, (er, o, e) => {
+    run([ok], {}, (er, o) => {
       t.equal(er, null)
       t.matchSnapshot(o)
       t.end()
@@ -29,7 +29,7 @@ t.test('via env', t => {
       import * as t from ${tap}
       t.pass('this is fine')
     `)
-    run([ok], {}, (er, o, e) => {
+    run([ok], {}, (er, o) => {
       t.ok(er)
       t.matchSnapshot(o)
       t.end()
@@ -44,7 +44,7 @@ t.test('via env', t => {
       const div = (<div>Hello</div>)
       t.pass('this is fine')
     `)
-    run([ok], {}, (er, o, e) => {
+    run([ok], {}, (er, o) => {
       t.ok(er)
       t.matchSnapshot(o)
       t.end()
@@ -60,7 +60,7 @@ t.test('via env', t => {
       const div = (<div>Hello</div>)
       t.pass('this is fine')
     `)
-    run([ok], {}, (er, o, e) => {
+    run([ok], {}, (er, o) => {
       t.equal(er, null)
       t.matchSnapshot(o)
       t.end()
@@ -76,7 +76,7 @@ t.test('via cli args', t => {
       import * as t from ${tap}
       t.pass('this is fine')
     `)
-    run([ok, '--ts'], {}, (er, o, e) => {
+    run([ok, '--ts'], {}, (er, o) => {
       t.equal(er, null)
       t.matchSnapshot(o)
       t.end()
@@ -90,7 +90,7 @@ t.test('via cli args', t => {
       const div = (<div>Hello</div>)
       t.pass('this is fine')
     `)
-    run([ok, '--ts'], {}, (er, o, e) => {
+    run([ok, '--ts'], {}, (er, o) => {
       t.ok(er)
       t.matchSnapshot(o)
       t.end()
@@ -104,7 +104,7 @@ t.test('via cli args', t => {
       const div = (<div>Hello</div>)
       t.pass('this is fine')
     `)
-    run([ok, '--ts', '--jsx'], {}, (er, o, e) => {
+    run([ok, '--ts', '--jsx'], {}, (er, o) => {
       t.equal(er, null)
       t.matchSnapshot(o)
       t.end()
@@ -179,7 +179,7 @@ t.test('ts manually', t => {
     t.pass('this is fine')
   `)
   const args = [ok, foots, '--no-ts', '--node-arg=--require', '--node-arg=ts-node/register']
-  run(args, {}, (er, o, e) => {
+  run(args, {}, (er, o) => {
     t.equal(er, null)
     t.matchSnapshot(o)
     t.end()

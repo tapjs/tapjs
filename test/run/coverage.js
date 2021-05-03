@@ -12,7 +12,7 @@ const {
 const { execFile } = require('child_process')
 const path = require('path')
 
-const ok = tmpfile(t, 'ok.js', `'use strict'
+tmpfile(t, 'ok.js', `'use strict'
   module.exports = (x, y) => {
     if (x)
       return y || x
@@ -28,7 +28,7 @@ const t2 = tmpfile(t, '2.test.js', `'use strict'
   const ok = require('./ok.js')
   require(${tap}).equal(ok(1, 2), 2)`)
 
-const t3 = tmpfile(t, '3.test.js', `'use strict'
+tmpfile(t, '3.test.js', `'use strict'
   const ok = require('./ok.js')
   require(${tap}).equal(ok(0, 3), 3)`)
 
@@ -69,7 +69,7 @@ const escape = (args, options, cb) => {
 }
 
 t.test('generate some coverage', t => {
-  escape([t1, t2, '--no-check-coverage'], null, (er, o, e) => {
+  escape([t1, t2, '--no-check-coverage'], null, (er, o) => {
     t.equal(er, null)
     t.matchSnapshot(o, 'output')
     t.end()
@@ -80,7 +80,7 @@ t.test('use a coverage map', t => {
   const map = tmpfile(t, 'coverage-map.js', `
 module.exports = () => 'ok.js'
 `)
-  escape(['--no-check-coverage', t1, t2, '-M', map], null, (er, o, e) => {
+  escape(['--no-check-coverage', t1, t2, '-M', map], null, (er, o) => {
     t.equal(er, null)
     t.matchSnapshot(o, 'output')
     t.end()
@@ -88,7 +88,7 @@ module.exports = () => 'ok.js'
 })
 
 t.test('report only', t => {
-  escape(['--no-check-coverage', '--coverage-report=text-lcov'], null, (er, o, e) => {
+  escape(['--no-check-coverage', '--coverage-report=text-lcov'], null, (er, o) => {
     t.equal(er, null)
     t.matchSnapshot(o, 'lcov output', { skip: winSkip })
     t.end()
@@ -96,7 +96,7 @@ t.test('report only', t => {
 })
 
 t.test('report with checks', t => {
-  escape(['--100', '--coverage-report=text-lcov'], null, (er, o, e) => {
+  escape(['--100', '--coverage-report=text-lcov'], null, (er, o) => {
     t.match(er, { code: 1 })
     t.matchSnapshot(o, 'lcov output and 100 check', { skip: winSkip })
     t.end()
@@ -104,7 +104,7 @@ t.test('report with checks', t => {
 })
 
 t.test('in 100 mode, <100 is red, not yellow', t => {
-  escape(['--100', '--coverage-report=text', '--color'], null, (er, o, e) => {
+  escape(['--100', '--coverage-report=text', '--color'], null, (er, o) => {
     t.match(er, { code: 1 })
     t.matchSnapshot(o, 'text output and 100 check', { skip: winSkip })
     t.end()
@@ -112,7 +112,7 @@ t.test('in 100 mode, <100 is red, not yellow', t => {
 })
 
 t.test('pipe to service', t => {
-  const piper = tmpfile(t, 'piper.js', `
+  tmpfile(t, 'piper.js', `
     process.stdin.pipe(process.stderr)
   `)
   escape(['--no-check-coverage', '--coverage-report=text'], { env: {
@@ -126,7 +126,7 @@ t.test('pipe to service', t => {
 })
 
 t.test('pipe to service along with tests', t => {
-  const piper = tmpfile(t, 'piper.js', `
+  tmpfile(t, 'piper.js', `
     process.stdin.pipe(process.stderr)
   `)
   escape(['--no-check-coverage', t1, t2, '--coverage-report=text'], { env: {
@@ -143,7 +143,7 @@ t.test('borked coverage map means no includes', t => {
   const map = tmpfile(t, 'coverage-map.js', `
 module.exports = () => {}
 `)
-  escape([t1, t2, '-M', map], null, (er, o, e) => {
+  escape([t1, t2, '-M', map], null, (er, o) => {
     t.equal(er, null)
     t.matchSnapshot(o, 'output')
     t.end()
