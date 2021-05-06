@@ -13,21 +13,33 @@ Object {
 
 exports[`test/index.js TAP > must match snapshot 10`] = `
 Object {
-  "diff": "--- expected\\n+++ actual\\n",
+  "diff": String(
+    --- expected
+    +++ actual
+    
+  ),
   "match": true,
 }
 `
 
 exports[`test/index.js TAP > must match snapshot 11`] = `
 Object {
-  "diff": "--- expected\\n+++ actual\\n",
+  "diff": String(
+    --- expected
+    +++ actual
+    
+  ),
   "match": true,
 }
 `
 
 exports[`test/index.js TAP > must match snapshot 12`] = `
 Object {
-  "diff": "--- expected\\n+++ actual\\n",
+  "diff": String(
+    --- expected
+    +++ actual
+    
+  ),
   "match": true,
 }
 `
@@ -76,7 +88,11 @@ exports[`test/index.js TAP > must match snapshot 19`] = `
 
 exports[`test/index.js TAP > must match snapshot 2`] = `
 Object {
-  "diff": "--- expected\\n+++ actual\\n",
+  "diff": String(
+    --- expected
+    +++ actual
+    
+  ),
   "match": true,
 }
 `
@@ -113,28 +129,44 @@ exports[`test/index.js TAP > must match snapshot 24`] = `
 
 exports[`test/index.js TAP > must match snapshot 3`] = `
 Object {
-  "diff": "--- expected\\n+++ actual\\n",
+  "diff": String(
+    --- expected
+    +++ actual
+    
+  ),
   "match": true,
 }
 `
 
 exports[`test/index.js TAP > must match snapshot 4`] = `
 Object {
-  "diff": "--- expected\\n+++ actual\\n",
+  "diff": String(
+    --- expected
+    +++ actual
+    
+  ),
   "match": true,
 }
 `
 
 exports[`test/index.js TAP > must match snapshot 5`] = `
 Object {
-  "diff": "--- expected\\n+++ actual\\n",
+  "diff": String(
+    --- expected
+    +++ actual
+    
+  ),
   "match": true,
 }
 `
 
 exports[`test/index.js TAP > must match snapshot 6`] = `
 Object {
-  "diff": "--- expected\\n+++ actual\\n",
+  "diff": String(
+    --- expected
+    +++ actual
+    
+  ),
   "match": true,
 }
 `
@@ -147,14 +179,22 @@ exports[`test/index.js TAP > must match snapshot 7`] = `
 
 exports[`test/index.js TAP > must match snapshot 8`] = `
 Object {
-  "diff": "--- expected\\n+++ actual\\n",
+  "diff": String(
+    --- expected
+    +++ actual
+    
+  ),
   "match": true,
 }
 `
 
 exports[`test/index.js TAP > must match snapshot 9`] = `
 Object {
-  "diff": "--- expected\\n+++ actual\\n",
+  "diff": String(
+    --- expected
+    +++ actual
+    
+  ),
   "match": true,
 }
 `

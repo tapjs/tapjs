@@ -17,7 +17,7 @@
     "diff": "^4.0.2"
   },
   "devDependencies": {
-    "tap": "^14.10.7"
+    "tap": "^15.0.6"
   },
   "scripts": {
     "test": "tap",
