@@ -3374,6 +3374,14 @@ Null Object {
 }
 `
 
+exports[`test/format.js TAP locale sorting > must match snapshot 1`] = `
+Object {
+  "cat": "meow",
+  "chai": "blub",
+  "dog": "woof",
+}
+`
+
 exports[`test/format.js TAP other misc > faked out seen() method 1`] = `
 &ref_1 Object {
   "a": Object {

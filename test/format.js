@@ -246,3 +246,13 @@ t.test('format BigInt', { skip: typeof BigInt === 'undefined' && 'no BigInt' }, 
   t.equal(new Format(BigInt('5')).print(), '5n')
   t.end()
 })
+
+t.test('locale sorting', t => {
+  const obj = {
+    cat: 'meow',
+    dog: 'woof',
+    chai: 'blub',
+  }
+  t.matchSnapshot(format(obj, { sort: true }))
+  t.end()
+})
