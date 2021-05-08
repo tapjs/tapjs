@@ -24,6 +24,67 @@ ok 2 - cli-tests/mixed/foo.ts # {time} {
 
 `
 
+exports[`test/run/ts.js TAP via cli args ts --after --before ok > must match snapshot 1`] = `
+setup
+TAP version 13
+ok 1 - cli-tests/ts/ok.ts # {time} {
+    ok 1 - this is ok
+    1..1
+    # {time}
+}
+
+1..1
+# {time}
+teardown
+
+`
+
+exports[`test/run/ts.js TAP via cli args ts --after fail > stderr 1`] = `
+
+{CWD}/cli-tests/ts/teardown.ts:2
+      throw new Error('fail')
+            ^
+Error: fail
+    {STACK}
+
+# failed cli-tests/ts/teardown.ts
+# code=1 signal=null
+
+
+`
+
+exports[`test/run/ts.js TAP via cli args ts --after fail > stdout 1`] = `
+setup
+TAP version 13
+ok 1 - cli-tests/ts/ok.ts # {time} {
+    ok 1 - this is ok
+    1..1
+    # {time}
+}
+
+1..1
+# {time}
+
+`
+
+exports[`test/run/ts.js TAP via cli args ts --before fail > stderr 1`] = `
+
+{CWD}/cli-tests/ts/setup.ts:2
+      throw new Error('fail')
+            ^
+Error: fail
+    {STACK}
+
+# failed cli-tests/ts/setup.ts
+# code=1 signal=null
+
+
+`
+
+exports[`test/run/ts.js TAP via cli args ts --before fail > stdout 1`] = `
+
+`
+
 exports[`test/run/ts.js TAP via cli args ts > must match snapshot 1`] = `
 TAP version 13
 ok 1 - cli-tests/ts/ok.ts # {time} {

@@ -111,6 +111,62 @@ t.test('via cli args', t => {
     })
   })
 
+  t.test('ts --after --before ok', t => {
+    const ok = tmpfile(t, 'ts/ok.ts', `
+      import * as t from ${tap}
+      t.pass('this is ok')
+    `)
+    const before = tmpfile(t, 'ts/setup.ts', `
+      console.log('setup')
+    `)
+    const after = tmpfile(t, 'ts/teardown.ts', `
+      console.log('teardown')
+    `)
+    run([ok, `--before=${before}`, `--after=${after}`, '--ts'], {}, (er, o) => {
+      t.equal(er, null)
+      t.matchSnapshot(o)
+      t.end()
+    })
+  })
+
+  t.test('ts --before fail', t => {
+    const ok = tmpfile(t, 'ts/ok.ts', `
+      import * as t from ${tap}
+      t.pass('this is ok')
+    `)
+    const before = tmpfile(t, 'ts/setup.ts', `
+      throw new Error('fail')
+    `)
+    const after = tmpfile(t, 'ts/teardown.ts', `
+      console.log('teardown')
+    `)
+    run([ok, `--before=${before}`, `--after=${after}`, '--ts'], {}, (er, o, e) => {
+      t.not(er, null)
+      t.matchSnapshot(o, 'stdout')
+      t.matchSnapshot(e, 'stderr')
+      t.end()
+    })
+  })
+
+  t.test('ts --after fail', t => {
+    const ok = tmpfile(t, 'ts/ok.ts', `
+      import * as t from ${tap}
+      t.pass('this is ok')
+    `)
+    const before = tmpfile(t, 'ts/setup.ts', `
+      console.log('setup')
+    `)
+    const after = tmpfile(t, 'ts/teardown.ts', `
+      throw new Error('fail')
+    `)
+    run([ok, `--before=${before}`, `--after=${after}`, '--ts'], {}, (er, o, e) => {
+      t.not(er, null)
+      t.matchSnapshot(o, 'stdout')
+      t.matchSnapshot(e, 'stderr')
+      t.end()
+    })
+  })
+
   t.end()
 })
 
