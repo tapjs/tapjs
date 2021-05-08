@@ -793,13 +793,14 @@ const runTests = options => {
   debug('called tap.end()')
 }
 
-const beforeAfter = (env, script) => {
-  const {status, signal} = spawnSync(process.execPath, [script], {
+const beforeAfter = (env, args) => {
+  const {status, signal} = spawnSync(process.execPath, args, {
     env,
     stdio: 'inherit',
   })
 
   if (status || signal) {
+    const script = args.length === 1 ? args[0] : args[2]
     const msg = `\n# failed ${script}\n# code=${status} signal=${signal}\n`
     console.error(msg)
     process.exitCode = status || 1
@@ -815,12 +816,23 @@ const runBeforeAfter = (options, env, tap, processDB) => {
   if (processDB && (options.before || options.after))
     processDB.writeIndex()
 
-  if (options.before)
-    beforeAfter(env, options.before)
+  if (options.before) {
+    if (options.ts && tsNode && /\.tsx?$/.test(options.before)) {
+      beforeAfter(env, ['-r', tsNode, options.before])
+    } else {
+      beforeAfter(env, [options.before])
+    }
+  }
 
   if (options.after) {
     /* istanbul ignore next - run after istanbul's report */
-    signalExit(() => beforeAfter(env, options.after), { alwaysLast: true })
+    signalExit(() => {
+      if (options.ts && tsNode && /\.tsx?$/.test(options.after)) {
+        beforeAfter(env, ['-r', tsNode, options.after])
+      } else {
+        beforeAfter(env, [options.after])
+      }
+    }, { alwaysLast: true })
   }
 }
 
