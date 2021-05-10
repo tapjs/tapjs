@@ -4,8 +4,8 @@ Please consider signing [the neveragain.tech pledge](http://neveragain.tech/)
   stuff that is likely to be accepted.
 - Every patch should have a new test that fails without the patch and
   passes with the patch.
-- All tests should pass on Node 8 and above.  If some tests have to be
-  skipped for very old Node versions that's fine, but the functionality
+- All tests should pass on Node.js 10.x and above.  If some tests have to
+  be skipped for very old Node versions that's fine, but the functionality
   should still work as intended.
 - Run `npm run snap` to re-generate the output tests whenever output is
   changed.  However, when you do this, make sure to check the change to
