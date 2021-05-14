@@ -21,6 +21,7 @@ To add yours to the list, send a [pull
 request](https://github.com/tapjs/node-tap/blob/master/docs/src/content/docs/coverage/100/index.md)
 to add it to the docs.
 
+* [@frsource/frs-replace](https://www.npmjs.com/package/@frsource/frs-replace)
 * [abbrev](https://www.npmjs.com/package/abbrev)
 * [bowling](https://www.npmjs.com/package/bowling)
 * [casern](https://www.npmjs.com/package/casern)
@@ -34,7 +35,6 @@ to add it to the docs.
 * [express-jwt-permissions](https://www.npmjs.com/package/express-jwt-permissions)
 * [fastify-esso](https://www.npmjs.com/package/fastify-esso)
 * [fastify-vhost](https://www.npmjs.com/package/fastify-vhost)
-* [@frsource/frs-replace](https://www.npmjs.com/package/@frsource/frs-replace)
 * [fs-exists-cached](https://www.npmjs.com/package/fs-exists-cached)
 * [fs-minipass](https://www.npmjs.com/package/fs-minipass)
 * [fs-readstream-seek](https://www.npmjs.com/package/fs-readstream-seek)
@@ -47,6 +47,7 @@ to add it to the docs.
 * [ini](https://www.npmjs.com/package/ini)
 * [isexe](https://www.npmjs.com/package/isexe)
 * [json5](https://www.npmjs.com/package/json5)
+* [jsonpath-faster](https://www.npmjs.com/package/jsonpath-faster)
 * [lazy-iterable](https://www.npmjs.com/package/lazy-iterable)
 * [lru-cache](https://www.npmjs.com/package/lru-cache)
 * [lucass](https://www.npmjs.com/package/lucass)
