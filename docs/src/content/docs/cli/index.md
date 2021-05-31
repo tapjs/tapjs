@@ -375,8 +375,8 @@ Other Options:
   --flow                 Removes flow types
   --no-flow              switch off the --flow flag
 
-  --ts                   Automatically load .ts and .tsx tests with tap's
-                         bundled ts-node module (Default: false)
+  --ts                   Automatically compile .ts and .tsx tests using the
+                         ts-node module (Default: false)
 
   --no-ts                switch off the --ts flag
 

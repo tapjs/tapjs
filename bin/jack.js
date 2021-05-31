@@ -603,7 +603,7 @@ Much more documentation available at: https://www.node-tap.org/
 
   ts: flag({
     default: process.env.TAP_TS === '1',
-    description: `Automatically load .ts and .tsx tests with tap's bundled
+    description: `Automatically compile .ts and .tsx tests using the
                   ts-node module (Default: false)`,
   }),
 
