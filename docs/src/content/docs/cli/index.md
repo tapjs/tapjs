@@ -376,7 +376,8 @@ Other Options:
   --no-flow              switch off the --flow flag
 
   --ts                   Automatically compile .ts and .tsx tests using the
-                         ts-node module (Default: false)
+                         ts-node module, which you will need to install
+                         separately (Default: false)
 
   --no-ts                switch off the --ts flag
 

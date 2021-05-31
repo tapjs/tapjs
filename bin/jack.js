@@ -604,7 +604,8 @@ Much more documentation available at: https://www.node-tap.org/
   ts: flag({
     default: process.env.TAP_TS === '1',
     description: `Automatically compile .ts and .tsx tests using the
-                  ts-node module (Default: false)`,
+                  ts-node module, which you will need to install separately
+                  (Default: false)`,
   }),
 
   jsx: flag({
