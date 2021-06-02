@@ -120,5 +120,6 @@
   ],
   "funding": {
     "url": "https://github.com/sponsors/isaacs"
-  }
+  },
+  "types": "types/types.d.ts"
 }

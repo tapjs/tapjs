@@ -3,6 +3,7 @@
 
 !bin/
 !lib/
+!types/
 !settings.js
 !docs/
 /docs/public
