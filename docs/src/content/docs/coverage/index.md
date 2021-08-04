@@ -77,7 +77,7 @@ following:
     {
       "scripts": {
         "test": "tap",
-        "posttest": "tap --coverage-report=text-lcov | codecov"
+        "posttest": "tap --coverage-report=text-lcov | codecov --pipe"
       }
     }
     ```
