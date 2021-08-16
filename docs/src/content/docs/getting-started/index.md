@@ -75,7 +75,7 @@ I usually call the first one `test/basic.js`, because it covers the
 basic functionality.
 
 By default, when you run `tap` with no arguments, it'll run any files in the
-`test` directory, as well as any files than end in `*.spec.js` or `*.test.js`.
+`test` directory, as well as any files that end in `*.spec.js` or `*.test.js`.
 If you want to run a specific file, you can also put it on the command line
 directly:
 
