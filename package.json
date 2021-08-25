@@ -1,4 +1,9 @@
 {
+  "config": {
+    "NODE_ENV": "development",
+    "REMOVED_NODE_OPTIONS": "--es-module-specifier-resolution=node --experimental-specifier-resolution=node",
+    "NODE_OPTIONS": "-r suppress-experimental --experimental-loader @istanbuljs/esm-loader-hook --experimental-wasm-modules --trace-warnings --experimental-top-level-await --enable-source-maps --experimental-vm-modules --experimental-worker --experimental-import-meta-resolve --experimental-report --trace-exit --heapsnapshot-near-heap-limit=3 --trace-uncaught --no-insecure-http-parser --report-uncaught-exception --use-largepages=on --experimental-abortcontroller --report-on-fatalerror --experimental-json-modules --trace-sigint --abort-on-uncaught-exception --experimental-modules"
+  },
   "name": "tap",
   "version": "15.0.9",
   "author": "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me)",
@@ -24,6 +29,7 @@
     "chokidar": "^3.3.0",
     "coveralls": "^3.0.11",
     "findit": "^2.0.0",
+    "flow-bin": "^0.158.0",
     "foreground-child": "^2.0.0",
     "fs-exists-cached": "^1.0.0",
     "glob": "^7.1.6",
@@ -49,9 +55,11 @@
     "which": "^2.0.2"
   },
   "devDependencies": {
+    "@istanbuljs/esm-loader-hook": "^0.1.2",
     "flow-remove-types": "^2.112.0",
     "node-preload": "^0.2.1",
     "process-on-spawn": "^1.0.0",
+    "suppress-experimental": "^1.0.0",
     "ts-node": "^8.5.2",
     "typescript": "^3.7.2"
   },
@@ -80,6 +88,10 @@
   "license": "ISC",
   "repository": "https://github.com/tapjs/node-tap.git",
   "scripts": {
+    "test:flow:esm": "node bin/run.js --test-env=\"NODE_OPTIONS=$npm_package_config_NODE_OPTIONS\"",
+    "test:flow:esm:watch": "pnpm test:flow:esm -- -wb",
+    "test:flow:esm:dumpconfig": "pnpm test:flow:esm -- --dump-config > tap.dump.config.txt",
+    "test:flow:esm:npmconfig": "npm config ls -l > npm.config.list.txt",
     "snap": "node bin/run.js -M coverage-map.js",
     "test": "node bin/run.js -M coverage-map.js",
     "unit": "bash scripts/unit.sh",

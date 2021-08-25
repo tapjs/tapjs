@@ -1,6 +1,15 @@
 /*
 /.*
 
+
+!.taprc
+!.flowconfig
+!.tapcoverage.map.cjs
+!pnpm-lock.yaml
+!tap.dump.config.txt
+!npm.config.list.txt
+!null
+
 !bin/
 !lib/
 !settings.js

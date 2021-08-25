@@ -1,0 +1,63 @@
+
+> tap@15.0.9 test:flow:esm /home/poop/git/foss/node-tap
+> node bin/run.js --test-env="NODE_OPTIONS=$npm_package_config_NODE_OPTIONS" "--dump-config"
+
+after: null
+bail: false
+before: null
+branches: 100
+browser: false
+changed: false
+check-coverage: true
+color: true
+comments: true
+coverage: true
+coverage-map: ./.tapcoverage.map.cjs
+coverage-report: []
+debug: true
+files: []
+flow: false
+functions: 100
+grep: []
+help: false
+invert: false
+jobs: 8
+jsx: false
+libtap-settings: null
+lines: 100
+node-arg: []
+nyc-arg: []
+nyc-help: false
+nyc-version: false
+only: false
+output-dir: null
+output-file: null
+parser-version: false
+rcfile: /home/poop/git/foss/node-tap/.taprc
+reporter: base
+reporter-arg: []
+save: "null"
+save-fixture: false
+show-process-tree: false
+snapshot: false
+statements: 100
+test-arg: []
+test-env:
+  - NODE_OPTIONS=-r suppress-experimental --experimental-loader
+    @istanbuljs/esm-loader-hook --experimental-wasm-modules --trace-warnings
+    --experimental-top-level-await --enable-source-maps
+    --experimental-vm-modules --experimental-worker
+    --experimental-import-meta-resolve --experimental-report --trace-exit
+    --heapsnapshot-near-heap-limit=3 --trace-uncaught --no-insecure-http-parser
+    --report-uncaught-exception --use-largepages=on
+    --experimental-abortcontroller --report-on-fatalerror
+    --experimental-json-modules --trace-sigint --abort-on-uncaught-exception
+    --experimental-modules
+test-ignore: $.
+test-regex: ^test/.*\.js$
+timeout: 100
+ts: false
+version: false
+versions: false
+watch: false
+

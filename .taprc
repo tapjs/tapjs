@@ -1,0 +1,53 @@
+#################### ERRORS AND WHAT NOT OR WTF #####################
+# below throws err when setting to null Null|null|~| in any of its forms defined by yaml spec
+# after:  # error: Error [ERR_MODULE_NOT_FOUND]: Cannot find module 'some/path/on/disk/null' <-- looking for null?
+# before: Null # error: Error [ERR_MODULE_NOT_FOUND]: Cannot find module 'some/path/on/disk/null' <-- looking for null?
+# libtap-settings: Null # always throws error
+# output-dir: Null # errors if set with below option?
+# output-file: Null # works if set by itself,
+# show-process-true: true # eror: invalid argument?
+# @see https://yaml.org/type/null.html
+########################## TAP RC CONFIG ##############################
+# let tap handle these automatically
+# jobs: 8 # however always set to 1 in ci/cd
+# rcfile: /some/path.taprc
+bail: false
+branches: 100
+browser: false
+changed: false # wont run tests if nothing has changed since last run?
+check-coverage: true
+color: true
+comments: true
+coverage-map: './.tapcoverage.map.cjs'
+coverage-report: []
+coverage: true
+debug: true
+files: []
+flow: true # cant set to true
+functions: 100
+grep: []
+help: false
+invert: false
+jsx: false
+lines: 100
+node-arg: [] # set via cli to use pkg config vars
+nyc-arg: []
+nyc-help: false
+nyc-version: false
+only: false
+parser-version: false
+reporter-arg: []
+reporter: base
+save-fixture: false
+save: Null
+snapshot: false
+statements: 100
+test-arg: []
+# test-env: [] # set via cli
+test-ignore: $.
+test-regex: '.test.(c|m)js$'
+timeout: 100
+ts: false
+version: false
+versions: false
+watch: false # when true; press enter after test run to see options
