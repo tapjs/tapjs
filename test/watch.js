@@ -157,6 +157,17 @@ t.throws(() => new Watch({}), {
   message: '--watch requires coverage to be enabled'
 })
 
+t.test('not available when no node process', t => {
+  const proc = process
+  global.process = null
+  t.teardown(() => global.process = proc)
+  const {Watch} = t.mock('../lib/watch.js')
+  t.throws(() => new Watch({ coverage: true }), {
+    message: '--watch requires working node.js process object',
+  })
+  t.end()
+})
+
 t.test('run tests on changes', t => {
   t.test('initial test', t => {
     spawnTrack.once('spawn', proc => {

@@ -240,3 +240,17 @@ t.test('exit', t => {
   t.matchSnapshot(output.read(), 'output')
   t.end()
 })
+
+t.test('throw if input/output not a stream', t => {
+  const proc = process
+  global.process = null
+  t.teardown(() => global.process = proc)
+  const {Repl} = t.mock('../lib/repl.js')
+  t.throws(() => new Repl({}, input, null), {
+    message: 'output stream not provided, stdout unavailable',
+  })
+  t.throws(() => new Repl({}, null, output), {
+    message: 'input stream not provided, stdin unavailable',
+  })
+  t.end()
+})
