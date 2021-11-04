@@ -58,7 +58,7 @@ test/util/bits.js
 ```
 
 To ensure that you are fully testing each unit with each test suite, you
-can add a simple [coverage map](/coverage/coverage-map/) module like so:
+can add a simple [coverage map](/docs/coverage/coverage-map/) module like so:
 
 ```js
 // map.js
