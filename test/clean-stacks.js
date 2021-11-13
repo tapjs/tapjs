@@ -71,6 +71,9 @@ module.exports = out => out
   // the arrows in source printing bits, make that consistent
   .replace(/^(\s*)-+\^$/mg, '$1--^')
 
+  // remove presumptuous node version output on all crashes
+  .replace(/\nNode.js v[0-9\.]+\n/g, '')
+
 // nothing to see here
 if (module === require.main)
   console.log('TAP version 13\n1..1\nok - 1\n')
