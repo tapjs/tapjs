@@ -435,7 +435,10 @@ const globFiles = files => Array.from(files.reduce((acc, f) =>
     return set
   }, new Set()))
 
-const makeReporter = exports.makeReporter = (tap, options) => {
+// caller-callsite requires that the call stack includes at least one
+// spot where "this" is defined, so we bind this function to an object
+// in this completely weird way, or else import-jsx doesn't work.
+const makeReporter = exports.makeReporter = function (tap, options) {
   const treportTypes = require('treport/types')
   const tapMochaReporter = require('tap-mocha-reporter')
   // if it's a treport type, use that
@@ -472,7 +475,7 @@ const makeReporter = exports.makeReporter = (tap, options) => {
           `Invalid reporter: not a stream or react component ${reporter}`)
     }
   }
-}
+}.bind({})
 
 const stdinOnly = options => {
   // if we didn't specify any files, then just passthrough
