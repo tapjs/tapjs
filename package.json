@@ -45,7 +45,7 @@
     "tap-parser": "^10.0.1",
     "tap-yaml": "^1.0.0",
     "tcompare": "^5.0.6",
-    "treport": "github:tapjs/treport#isaacs/update-the-world",
+    "treport": "^3.0.0",
     "which": "^2.0.2"
   },
   "devDependencies": {
