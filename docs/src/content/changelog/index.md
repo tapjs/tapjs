@@ -8,6 +8,12 @@ redirect_from:
 
 # Changelog
 
+## 15.1 - 2021-11-16
+
+Updated treport to use react 17, new versions of ink and other internal
+deps, so that tap could work on node v17 and get quiet some security
+advisory nags.
+
 ## 15.0 - 2021-03-30
 
 This is a major refactor of much of tap's internals, and a lot of new
