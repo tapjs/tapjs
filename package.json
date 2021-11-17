@@ -116,7 +116,9 @@
   "bundleDependencies": [
     "ink",
     "treport",
-    "@types/react"
+    "@types/react",
+    "import-jsx",
+    "react"
   ],
   "funding": {
     "url": "https://github.com/sponsors/isaacs"
