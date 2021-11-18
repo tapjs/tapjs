@@ -39,7 +39,7 @@
     "opener": "^1.5.1",
     "react": "^17.0.2",
     "rimraf": "^3.0.0",
-    "signal-exit": "^3.0.0",
+    "signal-exit": "^3.0.6",
     "source-map-support": "^0.5.16",
     "tap-mocha-reporter": "^5.0.0",
     "tap-parser": "^10.0.1",
