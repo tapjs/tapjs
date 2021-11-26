@@ -10,7 +10,7 @@ if (+process.env.TAP_DEV_LONGSTACK !== 1) {
     'libtap',
     'tap',
     'nyc',
-    'import-jsx',
+    '@isaacs/import-jsx',
     'function-loop'
   )
   settings.stackUtils.internals.push(

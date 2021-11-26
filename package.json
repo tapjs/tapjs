@@ -20,6 +20,7 @@
     "node": ">=10"
   },
   "dependencies": {
+    "@isaacs/import-jsx": "^4.0.1",
     "@types/react": "^17",
     "chokidar": "^3.3.0",
     "coveralls": "^3.0.11",
@@ -27,7 +28,6 @@
     "foreground-child": "^2.0.0",
     "fs-exists-cached": "^1.0.0",
     "glob": "^7.1.6",
-    "import-jsx": "github:isaacs/import-jsx",
     "ink": "^3.2.0",
     "isexe": "^2.0.0",
     "istanbul-lib-processinfo": "^2.0.2",
@@ -117,7 +117,7 @@
     "ink",
     "treport",
     "@types/react",
-    "import-jsx",
+    "@isaacs/import-jsx",
     "react"
   ],
   "funding": {

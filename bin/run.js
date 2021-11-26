@@ -462,7 +462,7 @@ const makeReporter = exports.makeReporter = function (tap, options) {
       // resolve to cwd if it's a relative path
       const rmod = /^\.\.?[\\\/]/.test(reporter) ? path.resolve(reporter) : reporter
       // it'll often be jsx, and this is harmless if it isn't.
-      const R = require('import-jsx')(rmod)
+      const R = require('@isaacs/import-jsx')(rmod)
       if (typeof R !== 'function' || !R.prototype)
         throw new Error(
           `Invalid reporter: non-class exported by ${reporter}`)

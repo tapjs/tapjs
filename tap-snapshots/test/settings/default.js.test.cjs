@@ -21,7 +21,7 @@ Object {
       "libtap",
       "tap",
       "nyc",
-      "import-jsx",
+      "@isaacs/import-jsx",
       "function-loop",
     ],
     "internals": Array [],
