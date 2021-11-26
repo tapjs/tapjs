@@ -31,6 +31,9 @@ jobs:
       - name: Install
         run: |
           npm install --ignore-scripts
+      - name: Check treport and import-jsx versions
+        run: |
+          "npm ls treport import-jsx @isaacs/import-jsx || true"
       - name: Run tests
         run: |
           npm test --color=always -- -c -t0
