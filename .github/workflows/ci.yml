@@ -34,6 +34,7 @@ jobs:
       - name: Check treport and import-jsx versions
         run: |
           npm ls treport import-jsx @isaacs/import-jsx || true
+          cat /home/runner/work/node-tap/node-tap/node_modules/treport/index.js || true
       - name: Run tests
         run: |
           npm test --color=always -- -c -t0
