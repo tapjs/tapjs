@@ -45,7 +45,7 @@
     "tap-parser": "^10.0.1",
     "tap-yaml": "^1.0.0",
     "tcompare": "^5.0.6",
-    "treport": "^3.0.0",
+    "treport": "^3.0.1",
     "which": "^2.0.2"
   },
   "devDependencies": {
