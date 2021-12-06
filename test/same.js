@@ -79,7 +79,7 @@ t.test('array-likes', t => {
   a.push(1,2,3)
   const b = [1, 2, 3]
   t.ok(same(t, a, b))
-  t.notEqual(a.constructor, b.constructor)
+  t.not(a.constructor, b.constructor)
 
   const args = (function () { return arguments })(1,2,3)
   const o = {[Symbol.iterator]: function*() { for (let i of a) { yield i } } }

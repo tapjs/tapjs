@@ -256,3 +256,16 @@ t.test('locale sorting', t => {
   t.matchSnapshot(format(obj, { sort: true }))
   t.end()
 })
+
+t.test('invalid iterator', t => {
+  const obj = { [Symbol.iterator] () { return {} } }
+  t.matchSnapshot(format(obj))
+  const f = new Format(obj)
+  // looks like an array
+  t.equal(f.isArray(), true)
+  // until you try to format it
+  t.equal(f.print(), 'Object {}')
+  // then it realizes it's actually not
+  t.equal(f.isArray(), false)
+  t.end()
+})

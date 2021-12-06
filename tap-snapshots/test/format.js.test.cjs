@@ -3374,6 +3374,10 @@ Null Object {
 }
 `
 
+exports[`test/format.js TAP invalid iterator > must match snapshot 1`] = `
+Object {}
+`
+
 exports[`test/format.js TAP locale sorting > must match snapshot 1`] = `
 Object {
   "cat": "meow",
