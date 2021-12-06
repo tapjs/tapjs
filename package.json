@@ -44,7 +44,7 @@
     "tap-mocha-reporter": "^5.0.0",
     "tap-parser": "^10.0.1",
     "tap-yaml": "^1.0.0",
-    "tcompare": "^5.0.6",
+    "tcompare": "^5.0.7",
     "treport": "^3.0.2",
     "which": "^2.0.2"
   },
