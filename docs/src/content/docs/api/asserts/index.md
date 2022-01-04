@@ -166,7 +166,7 @@ simply throw it.  The Test object will handle this as a failure.
 
 Synonyms: `t.notThrow`
 
-## t.expectUncaughtException(fn, [expectedError], message, extra)
+## t.expectUncaughtException([expectedError], [message], [extra])
 
 Expect the function to throw an uncaught exception at some point in the
 future, before the test ends.  If the test ends without having thrown the
@@ -176,10 +176,43 @@ This is useful for verifying that an error thrown in some part of your code
 will _not_ be handled, which would normally result in a program crash, and
 verify behavior in those scenarios.  If the error is thrown synchronously,
 or within a promise, then the `t.throws()` or `t.rejects()` methods are
-more appropriate.
+usually more appropriate.
 
 If called multiple times, then the uncaught exception errors must be
 emitted in the order called.
+
+Example:
+
+```js
+const t = require('tap')
+t.test('sync throw', t => {
+  t.plan(1)
+  t.expectUncaughtException({ message: 'sync' })
+  setImmediate(() => {
+    throw new Error('sync')
+  })
+})
+
+t.test('async throw', t => {
+  t.plan(1)
+  t.expectUncaughtException({ message: 'async' })
+  setImmediate(async () => {
+    throw new Error('async')
+  })
+})
+
+t.test('multiple uncaughts must occur in the order specified', t => {
+  t.plan(2)
+  t.expectUncaughtException({ message: 'sync' })
+  t.expectUncaughtException({ message: 'async' })
+  process.nextTick(() => {
+    throw new Error('sync')
+  })
+  setTimeout(async () => {
+    throw new Error('async')
+  }, 100)
+})
+```
 
 **Note**: This method will _not_ properly link a thrown error to the
 correct test object in some cases involving native modules on Node version
