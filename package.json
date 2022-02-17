@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "glob": "^7.0.5",
-    "tap": "^14.4.1"
+    "tap": "^15.1.6"
   },
   "scripts": {
     "snap": "tap",
@@ -45,7 +45,6 @@
     "parser"
   ],
   "license": "MIT",
-  "optionalDependencies": {},
   "files": [
     "index.js",
     "bin/cmd.js"
