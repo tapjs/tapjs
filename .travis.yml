@@ -1,7 +1,0 @@
-sudo: false
-language: node_js
-cache: npm
-node_js:
-  # run on latest, stable, and LTS
-  - node
-  - lts/*
