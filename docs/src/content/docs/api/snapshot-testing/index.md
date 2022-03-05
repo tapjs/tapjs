@@ -244,3 +244,53 @@ foo:
 
 `
 ```
+
+## Even More Advanced Customization (Warning: footguns ahead!)
+
+By default, the snapshot file that TAP uses is set based on the test
+filename and any arguments passed to it.  This prevents having two test
+suites clobber one another's snapshots.
+
+If you would like to specify a different filename for your snapshots, you
+can do so by setting the `t.snapshotFile` field.  If you set this field in
+a child test, then the _parent_ test will still use its old snapshot file,
+but snapshots in the child test (and all its children) will go to the new
+file.
+
+But, be advised, this is advanced usage and exposes you to some hazards!
+
+* When generating snapshots, the file is _overwritten_, so if two tests use
+  the same snapshot file, they will _not_ be merged.  The last one will win.
+  Make sure that every snapshot file you use is unique to the entire test
+  run.
+* Snapshot files should always be in a folder called `tap-snapshot`, and
+  should always end in `.test.cjs`.  This pattern ensures that tap can load
+  them properly, and that they will not be confused with normal test files.
+
+Example of using a separate snapshot file for subtests:
+
+```js
+// file 'test/snappy.js'
+const t = require('tap')
+const { resolve } = require('path')
+
+t.matchSnapshot('this writes to ./tap-snapshots/test/snappy.js.test.cjs')
+
+t.test('foo', async t => {
+  // this writes to ./test/tap-snapshots/foo.test.cjs'
+  t.snapshotFile = resolve(__dirname, 'tap-snapshots', 'foo.test.cjs')
+  t.matchSnapshot('foo')
+})
+
+t.test('bar', async t => {
+  // this writes to ./test/tap-snapshots/bar.test.cjs'
+  t.snapshotFile = resolve(__dirname, 'tap-snapshots', 'bar.test.cjs')
+  t.matchSnapshot('bar')
+})
+
+t.test('baz', async t => {
+  // this one doesn't set it, so it uses the parent's snapshot object,
+  // which writes to ./tap-snapshots/test/snappy.js.test.cjs
+  t.matchSnapshot('baz')
+})
+```
