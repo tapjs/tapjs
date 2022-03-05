@@ -603,8 +603,9 @@ Much more documentation available at: https://www.node-tap.org/
 
   ts: flag({
     default: process.env.TAP_TS === '1',
-    description: `Automatically load .ts and .tsx tests with tap's bundled
-                  ts-node module (Default: false)`,
+    description: `Automatically load .ts and .tsx tests ts-node module.
+      Note: you must provide ts-node as a dependency yourself, tap does
+      not automatically bundle it. (Default: false)`,
   }),
 
   jsx: flag({
