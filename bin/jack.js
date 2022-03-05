@@ -360,7 +360,8 @@ Much more documentation available at: https://www.node-tap.org/
                   This is enabled by default.
 
                   If a COVERALLS_REPO_TOKEN environment
-                  variable is set, then coverage is
+                  variable is set, and the 'coveralls'
+                  module is installed, then coverage is
                   sent to the coveralls.io service.`,
     negate: {
       short: 'no-cov',

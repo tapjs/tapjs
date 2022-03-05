@@ -23,7 +23,6 @@
     "@isaacs/import-jsx": "^4.0.1",
     "@types/react": "^17",
     "chokidar": "^3.3.0",
-    "coveralls": "^3.0.11",
     "findit": "^2.0.0",
     "foreground-child": "^2.0.0",
     "fs-exists-cached": "^1.0.0",
@@ -57,11 +56,15 @@
     "typescript": "^3.7.2"
   },
   "peerDependencies": {
+    "coveralls": "^3.1.1",
     "flow-remove-types": ">=2.112.0",
     "ts-node": ">=8.5.2",
     "typescript": ">=3.7.2"
   },
   "peerDependenciesMeta": {
+    "coveralls": {
+      "optional": true
+    },
     "flow-remove-types": {
       "optional": true
     },
@@ -128,4 +131,3 @@
     "url": "https://github.com/sponsors/isaacs"
   }
 }
-

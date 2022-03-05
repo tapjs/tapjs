@@ -29,6 +29,7 @@ const maybeResolve = id => {
 const tsNode = maybeResolve('ts-node/register')
 const flowNode = maybeResolve('flow-remove-types/register')
 const jsx = require.resolve('./jsx.js')
+const coverallsBin = maybeResolve('coveralls/bin/coveralls.js')
 
 const which = require('which')
 const {ProcessDB} = require('istanbul-lib-processinfo')
@@ -352,12 +353,15 @@ const runCoverageReportOnly = options => {
   runNyc(['report'], [], options)
   if (process.env.COVERALLS_REPO_TOKEN ||
       process.env.__TAP_COVERALLS_TEST__) {
-    pipeToCoveralls()
+    return pipeToCoveralls()
   }
 }
 
 /* istanbul ignore next */
 const pipeToCoveralls = async () => {
+  if (!coverallsBin) {
+    return
+  }
   const reporter = spawn(node, [nycBin, 'report', '--reporter=text-lcov'], {
     stdio: [ 0, 'pipe', 2 ]
   })
