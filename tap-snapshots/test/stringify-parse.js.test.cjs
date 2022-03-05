@@ -84,6 +84,11 @@ Array [
     },
   ],
   Array [
+    "pragma",
+    "strict",
+    false,
+  ],
+  Array [
     "plan",
     Object {
       "end": 2,
@@ -159,6 +164,11 @@ Array [
     },
   ],
   Array [
+    "pragma",
+    "strict",
+    false,
+  ],
+  Array [
     "comment",
     "# failed 1 of 2 tests\\n",
   ],
@@ -223,11 +233,15 @@ ok 3 - child
 exports[`test/stringify-parse.js TAP stringify nested result > basic 1`] = `
 TAP version 13
 not ok 1 - 1
+pragma +strict
 # Subtest: child
     ok 1 - foo
+    pragma +strict
     ok 2
+    pragma -strict
     1..2
 ok 2 - child
+pragma -strict
 1..2
 # failed 1 of 2 tests
 
@@ -236,11 +250,33 @@ ok 2 - child
 exports[`test/stringify-parse.js TAP stringify nested result > flattened 1`] = `
 TAP version 13
 not ok 1 - 1
+pragma +strict
 # Subtest: child
 ok 2 - child > foo
+pragma +strict
 ok 3 - child
+pragma -strict
 ok 4 - child
+pragma -strict
 1..4
 # failed 1 of 2 tests
+
+`
+
+exports[`test/stringify-parse.js TAP stringify with bailout > basic 1`] = `
+TAP version 13
+not ok 1 - 1
+ok 2 - child > foo
+ok 3 - child
+Bail out! cannot continue
+
+`
+
+exports[`test/stringify-parse.js TAP stringify with bailout > flattened 1`] = `
+TAP version 13
+not ok 1 - 1
+ok 2 - child > foo
+ok 3 - child
+Bail out! cannot continue
 
 `

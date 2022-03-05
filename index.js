@@ -73,9 +73,21 @@ class Result {
 
     let rest = parsed[3] || ''
     let name
-    rest = rest.replace(/([^\\]|^)((?:\\\\)*)# /g, '$1\n$2').split('\n')
-    name = rest.shift()
-    rest = rest.filter(r => r.trim()).join('# ')
+    // We know at this point the parsed result cannot contain \n,
+    // so we can leverage that as a placeholder.
+    // first, replace any PAIR of \ chars with \n
+    // then, split on any # that is not preceeded by \
+    // the first of these is definitely the description
+    // the rest is the directive, if recognized, otherwise
+    // we just lump it onto the description, but escaped.
+    // then any \n chars in either are turned into \ (just one)
+
+    // escape \ with \
+    rest = rest.replace(/(\\\\)/g, '\n')
+
+    rest = rest.split(/(?<!\\)# /g)
+    name = rest.shift().replace(/\\#/g, '#').replace(/\n/g, '\\')
+    rest = rest.join('# ').replace(/\\#/g, '#').replace(/\n/g, '\\')
 
     // now, let's see if there's a directive in there.
     const dir = parseDirective(rest.trim())
@@ -186,11 +198,13 @@ class Parser extends MiniPass {
             res.name = name.join(' > ').trim()
           }
           return (res.ok ? '' : 'not ') + 'ok ' + res.id +
-            (res.name ? ' - ' + res.name.replace(/ \{$/, '') : '') + // }
+            (res.name
+              ? ' - ' + esc(res.name).replace(/ \{$/, '')
+              : '') +
             (res.skip ? ' # SKIP' +
-              (res.skip === true ? '' : ' ' + res.skip) : '') +
+              (res.skip === true ? '' : ' ' + esc(res.skip)) : '') +
             (res.todo ? ' # TODO' +
-              (res.todo === true ? '' : ' ' + res.todo) : '') +
+              (res.todo === true ? '' : ' ' + esc(res.todo)) : '') +
             (res.time ? ' # time=' + res.time + 'ms' : '') +
             '\n' +
             (res.diag ?
@@ -1126,6 +1140,9 @@ class Parser extends MiniPass {
     this.nonTap(line)
   }
 }
+
+// turn \ into \\ and # into \#, for stringifying back to TAP
+const esc = str => str.replace(/\\/g, '\\\\').replace(/#/g, '\\#')
 
 class FinalResults {
   constructor (skipAll, self) {

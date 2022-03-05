@@ -106,7 +106,7 @@ Bail out!
 
     // bail out with reason
     bail_reason: `TAP version 13
-Bail out! # i have my reasons
+Bail out! i have my reasons
 `,
     failing_child_with_broken_tap: `TAP version 13
 pragma +strict

@@ -266,7 +266,7 @@ exports[`test/cmd.js TAP basic bail_reason b w > error 1`] = `
 exports[`test/cmd.js TAP basic bail_reason b w > output 1`] = `
 [
   [ 'version', 13 ],
-  [ 'bailout', '# i have my reasons' ],
+  [ 'bailout', 'i have my reasons' ],
   [
     'complete',
     FinalResults {
@@ -274,7 +274,7 @@ exports[`test/cmd.js TAP basic bail_reason b w > output 1`] = `
       count: 0,
       pass: 0,
       fail: 0,
-      bailout: '# i have my reasons',
+      bailout: 'i have my reasons',
       todo: 0,
       skip: 0,
       plan: FinalPlan {
@@ -302,7 +302,7 @@ exports[`test/cmd.js TAP basic bail_reason flat > error 1`] = `
 
 exports[`test/cmd.js TAP basic bail_reason flat > output 1`] = `
 [
-  [ 'bailout', '# i have my reasons' ],
+  [ 'bailout', 'i have my reasons' ],
   [
     'complete',
     FinalResults {
@@ -310,7 +310,7 @@ exports[`test/cmd.js TAP basic bail_reason flat > output 1`] = `
       count: 0,
       pass: 0,
       fail: 0,
-      bailout: '# i have my reasons',
+      bailout: 'i have my reasons',
       todo: 0,
       skip: 0,
       plan: FinalPlan {
@@ -338,7 +338,7 @@ exports[`test/cmd.js TAP basic bail_reason flat tap > error 1`] = `
 
 exports[`test/cmd.js TAP basic bail_reason flat tap > output 1`] = `
 TAP version 13
-Bail out! # i have my reasons
+Bail out! i have my reasons
 
 
 `
@@ -353,7 +353,7 @@ exports[`test/cmd.js TAP basic bail_reason lines > error 1`] = `
 
 exports[`test/cmd.js TAP basic bail_reason lines > output 1`] = `
 TAP version 13
-Bail out! # i have my reasons
+Bail out! i have my reasons
 
 `
 
@@ -368,7 +368,7 @@ exports[`test/cmd.js TAP basic bail_reason no args > error 1`] = `
 exports[`test/cmd.js TAP basic bail_reason no args > output 1`] = `
 [
   [ 'version', 13 ],
-  [ 'bailout', '# i have my reasons' ],
+  [ 'bailout', 'i have my reasons' ],
   [
     'complete',
     FinalResults {
@@ -376,7 +376,7 @@ exports[`test/cmd.js TAP basic bail_reason no args > output 1`] = `
       count: 0,
       pass: 0,
       fail: 0,
-      bailout: '# i have my reasons',
+      bailout: 'i have my reasons',
       todo: 0,
       skip: 0,
       plan: FinalPlan {
@@ -429,7 +429,7 @@ exports[`test/cmd.js TAP basic bail_reason strict > error 1`] = `
 exports[`test/cmd.js TAP basic bail_reason strict > output 1`] = `
 [
   [ 'version', 13 ],
-  [ 'bailout', '# i have my reasons' ],
+  [ 'bailout', 'i have my reasons' ],
   [
     'complete',
     FinalResults {
@@ -437,7 +437,7 @@ exports[`test/cmd.js TAP basic bail_reason strict > output 1`] = `
       count: 0,
       pass: 0,
       fail: 0,
-      bailout: '# i have my reasons',
+      bailout: 'i have my reasons',
       todo: 0,
       skip: 0,
       plan: FinalPlan {
@@ -465,7 +465,7 @@ exports[`test/cmd.js TAP basic bail_reason t > error 1`] = `
 
 exports[`test/cmd.js TAP basic bail_reason t > output 1`] = `
 TAP version 13
-Bail out! # i have my reasons
+Bail out! i have my reasons
 
 
 `

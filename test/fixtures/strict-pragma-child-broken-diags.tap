@@ -1,0 +1,9 @@
+TAP version 13
+pragma +strict
+# Subtest: child
+    not ok 1 - test point in child
+      ...
+      hello: world
+not ok 1 - child
+1..1
+
