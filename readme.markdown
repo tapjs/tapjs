@@ -2,12 +2,6 @@
 
 parse the [test anything protocol](http://testanything.org/)
 
-[![build status](https://secure.travis-ci.org/tapjs/tap-parser.png)](http://travis-ci.org/tapjs/tap-parser)
-
-[![browser support](http://ci.testling.com/substack/tap-parser.png)](http://ci.testling.com/substack/tap-parser)
-
-[![coverage status](https://coveralls.io/repos/tapjs/tap-parser/badge.svg?branch=master&service=github)](https://coveralls.io/github/tapjs/tap-parser?branch=master)
-
 # example
 
 ``` js
