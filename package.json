@@ -50,7 +50,8 @@
     "bin/cmd.js"
   ],
   "tap": {
-    "check-coverage": true
+    "check-coverage": true,
+    "coverage-map": "map.js"
   },
   "nyc": {
     "hookRunInThisContext": true
