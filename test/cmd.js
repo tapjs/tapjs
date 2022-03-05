@@ -23,6 +23,9 @@ const run = (input, args, cb) => {
 
   const proc = new EE()
   let exited = false
+  Object.defineProperty(proc, 'exitCode', {
+    set: code => proc.exit(code)
+  })
   proc.exit = code => {
     exitCode = code || 0
     if (!exited) {

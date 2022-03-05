@@ -151,7 +151,7 @@ if (json === 'lines' || json === 'silent') {
   const parser = new Parser(options)
   if (json === 'lines')
     parser.on('line', l => process.stdout.write(l))
-  parser.on('complete', () => process.exit(parser.ok ? 0 : 1))
+  parser.on('complete', () => process.exitCode = parser.ok ? 0 : 1)
   process.stdin.pipe(parser)
 } else {
   const input = []
@@ -161,6 +161,6 @@ if (json === 'lines' || json === 'silent') {
     const summary = result[ result.length - 1 ]
     console.log(format(result))
     if (summary[0] !== 'complete' || !summary[1].ok)
-      process.exit(1)
+      process.exitCode = 1
   })
 }
