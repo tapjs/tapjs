@@ -19,7 +19,7 @@ information.
 Usage:
   tap [options] [<files>]
 
-tap v15.1.6 - A Test-Anything-Protocol library for JavaScript
+tap v15.2.0 - A Test-Anything-Protocol library for JavaScript
 
 Executes all the files and interprets their output as TAP formatted test result
 data. If no files are specified, then tap will search for testy-looking files,
@@ -375,8 +375,10 @@ Other Options:
   --flow                 Removes flow types
   --no-flow              switch off the --flow flag
 
-  --ts                   Automatically load .ts and .tsx tests with tap's
-                         bundled ts-node module (Default: false)
+  --ts                   Automatically load .ts and .tsx tests ts-node module.
+                         Note: you must provide ts-node as a dependency
+                         yourself, tap does not automatically bundle it.
+                         (Default: false)
 
   --no-ts                switch off the --ts flag
 
