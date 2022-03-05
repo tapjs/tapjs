@@ -11,7 +11,7 @@ t.jobs = 8
 glob.sync(__dirname + '/fixtures/*.tap').forEach(function (tapfile) {
   const tapContent = fs.readFileSync(tapfile, 'utf8')
   t.test(path.basename(tapfile), { buffer: true }, t => {
-    t.plan(3)
+    t.plan(2)
     for (const bail of [true, false]) {
       const parser = new Parser({bail})
       const found = etoa(parser, ignore)
@@ -20,32 +20,5 @@ glob.sync(__dirname + '/fixtures/*.tap').forEach(function (tapfile) {
       })
       parser.end(tapContent)
     }
-    t.test('Parser.parse/stringify methods', t => {
-      t.test('default settings', t => {
-        const res = Parser.parse(tapContent)
-        t.matchSnapshot(res, 'parsed')
-        const str = Parser.stringify(res)
-        t.matchSnapshot(str, 'stringified')
-        const flat = Parser.stringify(res, { flat: true })
-        t.matchSnapshot(str, 'stringified flat')
-        t.end()
-      })
-      for (const [name, opt] of Object.entries({
-        bail: { bail: true },
-        strict: { strict: true },
-        strictBail: { strict: true, bail: true },
-      })) {
-        t.test(name, t => {
-          const res = Parser.parse(tapContent, opt)
-          t.matchSnapshot(res, 'parsed')
-          const str = Parser.stringify(res)
-          t.matchSnapshot(str, 'stringified')
-          const flat = Parser.stringify(res, { flat: true })
-          t.matchSnapshot(str, 'stringified flat')
-          t.end()
-        })
-      }
-      t.end()
-    })
   })
 })
