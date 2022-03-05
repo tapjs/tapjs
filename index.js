@@ -60,7 +60,10 @@ const parseDirective = line => {
   if (!type)
     return false
 
-  return [ type[1].toLowerCase(), line.substring(type[1].length).trim() || true ]
+  return [
+    type[1].toLowerCase(),
+    line.substring(type[1].length).trim() || true,
+  ]
 }
 
 class Result {
