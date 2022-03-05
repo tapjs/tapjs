@@ -314,6 +314,43 @@ The inverse of `t.has()`.  Verifies that the found object does not contain
 all of the provided fields, or if it does, that they do not coerce to the
 same values.
 
+## t.hasProp(found, property, message, extra)
+
+Verifies that the object `found` contains the property `property` and that
+it is not `undefined`.  Searches the prototype chain as well as "own"
+properties.
+
+`property` must be a string, and `found` must be an object.
+
+## t.hasProps(found, propertyList, message, extra)
+
+Verifies that the object `found` contains each of the property names in
+`propertyList`, and that they are not `undefined`.  Searches prototype
+chain as well as "own" properties.
+
+`propertyList` must be an iterable object (eg, an Array or Set) of property
+names, and `found` must be an object.
+
+## t.hasOwnProp(found, property, message, extra)
+
+Verifies that the object `found` contains the property `property` and that
+it is not `undefined`.  Does not search the prototype chain.
+
+`property` must be a string, and `found` can be any value other than `null`
+or `undefined` (though of course `false` and `true` have no ownProperties).
+
+## t.hasOwnProps(found, propertyList, message, extra)
+
+Verifies that the object `found` contains the property names in
+`propertyList`, and that they are not `undefined`.  Does not search the
+prototype chain.
+
+`propertyList` must be an iterable object (eg, an Array or Set) of property
+names, and `found` can be any value other than `null` or `undefined`
+(though of course `false` and `true` have no ownProperties).
+
+## t.has
+
 ## t.match(found, pattern, message, extra)
 
 Verify that the found object matches the pattern provided.
