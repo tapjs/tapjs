@@ -19,7 +19,7 @@ information.
 Usage:
   tap [options] [<files>]
 
-tap v15.2.1 - A Test-Anything-Protocol library for JavaScript
+tap v15.2.2 - A Test-Anything-Protocol library for JavaScript
 
 Executes all the files and interprets their output as TAP formatted test result
 data. If no files are specified, then tap will search for testy-looking files,
