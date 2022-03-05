@@ -46791,8 +46791,9 @@ Array [
     Result {
       "fullname": "",
       "id": 3,
-      "name": "# skipped on foobar system",
+      "name": "",
       "ok": true,
+      "skip": "on foobar system",
     },
   ],
   Array [
@@ -46820,6 +46821,10 @@ Array [
     },
   ],
   Array [
+    "comment",
+    "# skip: 1\\n",
+  ],
+  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -46835,7 +46840,7 @@ Array [
         "skipReason": "",
         "start": 1,
       },
-      "skip": 0,
+      "skip": 1,
       "time": null,
       "todo": 0,
     },
@@ -46847,11 +46852,12 @@ exports[`test/parser-stringify.js TAP sequence_misparse.tap bail > stringified 1
 1..5
 ok 1
 ok 2
-ok 3 - \\# skipped on foobar system
+ok 3 # SKIP on foobar system
 # 1234567890123456789012345678901234567890
 ok 4
 # 1234567890123456789012345678901234567890
 ok 5
+# skip: 1
 
 `
 
@@ -46859,11 +46865,12 @@ exports[`test/parser-stringify.js TAP sequence_misparse.tap bail > stringified f
 1..5
 ok 1
 ok 2
-ok 3 - \\# skipped on foobar system
+ok 3 # SKIP on foobar system
 # 1234567890123456789012345678901234567890
 ok 4
 # 1234567890123456789012345678901234567890
 ok 5
+# skip: 1
 
 `
 
@@ -46897,8 +46904,9 @@ Array [
     Result {
       "fullname": "",
       "id": 3,
-      "name": "# skipped on foobar system",
+      "name": "",
       "ok": true,
+      "skip": "on foobar system",
     },
   ],
   Array [
@@ -46926,6 +46934,10 @@ Array [
     },
   ],
   Array [
+    "comment",
+    "# skip: 1\\n",
+  ],
+  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -46941,7 +46953,7 @@ Array [
         "skipReason": "",
         "start": 1,
       },
-      "skip": 0,
+      "skip": 1,
       "time": null,
       "todo": 0,
     },
@@ -46953,11 +46965,12 @@ exports[`test/parser-stringify.js TAP sequence_misparse.tap default settings > s
 1..5
 ok 1
 ok 2
-ok 3 - \\# skipped on foobar system
+ok 3 # SKIP on foobar system
 # 1234567890123456789012345678901234567890
 ok 4
 # 1234567890123456789012345678901234567890
 ok 5
+# skip: 1
 
 `
 
@@ -46965,11 +46978,12 @@ exports[`test/parser-stringify.js TAP sequence_misparse.tap default settings > s
 1..5
 ok 1
 ok 2
-ok 3 - \\# skipped on foobar system
+ok 3 # SKIP on foobar system
 # 1234567890123456789012345678901234567890
 ok 4
 # 1234567890123456789012345678901234567890
 ok 5
+# skip: 1
 
 `
 
@@ -47003,8 +47017,9 @@ Array [
     Result {
       "fullname": "",
       "id": 3,
-      "name": "# skipped on foobar system",
+      "name": "",
       "ok": true,
+      "skip": "on foobar system",
     },
   ],
   Array [
@@ -47032,6 +47047,10 @@ Array [
     },
   ],
   Array [
+    "comment",
+    "# skip: 1\\n",
+  ],
+  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -47047,7 +47066,7 @@ Array [
         "skipReason": "",
         "start": 1,
       },
-      "skip": 0,
+      "skip": 1,
       "time": null,
       "todo": 0,
     },
@@ -47059,11 +47078,12 @@ exports[`test/parser-stringify.js TAP sequence_misparse.tap strict > stringified
 1..5
 ok 1
 ok 2
-ok 3 - \\# skipped on foobar system
+ok 3 # SKIP on foobar system
 # 1234567890123456789012345678901234567890
 ok 4
 # 1234567890123456789012345678901234567890
 ok 5
+# skip: 1
 
 `
 
@@ -47071,11 +47091,12 @@ exports[`test/parser-stringify.js TAP sequence_misparse.tap strict > stringified
 1..5
 ok 1
 ok 2
-ok 3 - \\# skipped on foobar system
+ok 3 # SKIP on foobar system
 # 1234567890123456789012345678901234567890
 ok 4
 # 1234567890123456789012345678901234567890
 ok 5
+# skip: 1
 
 `
 
@@ -47109,8 +47130,9 @@ Array [
     Result {
       "fullname": "",
       "id": 3,
-      "name": "# skipped on foobar system",
+      "name": "",
       "ok": true,
+      "skip": "on foobar system",
     },
   ],
   Array [
@@ -47138,6 +47160,10 @@ Array [
     },
   ],
   Array [
+    "comment",
+    "# skip: 1\\n",
+  ],
+  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -47153,7 +47179,7 @@ Array [
         "skipReason": "",
         "start": 1,
       },
-      "skip": 0,
+      "skip": 1,
       "time": null,
       "todo": 0,
     },
@@ -47165,11 +47191,12 @@ exports[`test/parser-stringify.js TAP sequence_misparse.tap strictBail > stringi
 1..5
 ok 1
 ok 2
-ok 3 - \\# skipped on foobar system
+ok 3 # SKIP on foobar system
 # 1234567890123456789012345678901234567890
 ok 4
 # 1234567890123456789012345678901234567890
 ok 5
+# skip: 1
 
 `
 
@@ -47177,11 +47204,12 @@ exports[`test/parser-stringify.js TAP sequence_misparse.tap strictBail > stringi
 1..5
 ok 1
 ok 2
-ok 3 - \\# skipped on foobar system
+ok 3 # SKIP on foobar system
 # 1234567890123456789012345678901234567890
 ok 4
 # 1234567890123456789012345678901234567890
 ok 5
+# skip: 1
 
 `
 
@@ -110669,29 +110697,23 @@ Array [
     Result {
       "fullname": "",
       "id": 1,
-      "name": "Hamlette # TODOORNOTTODO",
+      "name": "Hamlette",
       "ok": false,
+      "todo": true,
     },
   ],
   Array [
-    "bailout",
-    "Hamlette # TODOORNOTTODO",
+    "comment",
+    "# todo: 1\\n",
   ],
   Array [
     "complete",
     FinalResults {
-      "bailout": "Hamlette # TODOORNOTTODO",
+      "bailout": false,
       "count": 1,
       "fail": 1,
-      "failures": Array [
-        Result {
-          "fullname": "",
-          "id": 1,
-          "name": "Hamlette # TODOORNOTTODO",
-          "ok": false,
-        },
-      ],
-      "ok": false,
+      "failures": Array [],
+      "ok": true,
       "pass": 0,
       "plan": FinalPlan {
         "comment": "",
@@ -110702,7 +110724,7 @@ Array [
       },
       "skip": 0,
       "time": null,
-      "todo": 0,
+      "todo": 1,
     },
   ],
 ]
@@ -110710,15 +110732,15 @@ Array [
 
 exports[`test/parser-stringify.js TAP todo_misparse.tap bail > stringified 1`] = `
 1..1
-not ok 1 - Hamlette \\# TODOORNOTTODO
-Bail out! Hamlette \\# TODOORNOTTODO
+not ok 1 - Hamlette # TODO
+# todo: 1
 
 `
 
 exports[`test/parser-stringify.js TAP todo_misparse.tap bail > stringified flat 1`] = `
 1..1
-not ok 1 - Hamlette \\# TODOORNOTTODO
-Bail out! Hamlette \\# TODOORNOTTODO
+not ok 1 - Hamlette # TODO
+# todo: 1
 
 `
 
@@ -110736,13 +110758,14 @@ Array [
     Result {
       "fullname": "",
       "id": 1,
-      "name": "Hamlette # TODOORNOTTODO",
+      "name": "Hamlette",
       "ok": false,
+      "todo": true,
     },
   ],
   Array [
     "comment",
-    "# failed 1 test\\n",
+    "# todo: 1\\n",
   ],
   Array [
     "complete",
@@ -110750,15 +110773,8 @@ Array [
       "bailout": false,
       "count": 1,
       "fail": 1,
-      "failures": Array [
-        Result {
-          "fullname": "",
-          "id": 1,
-          "name": "Hamlette # TODOORNOTTODO",
-          "ok": false,
-        },
-      ],
-      "ok": false,
+      "failures": Array [],
+      "ok": true,
       "pass": 0,
       "plan": FinalPlan {
         "comment": "",
@@ -110769,7 +110785,7 @@ Array [
       },
       "skip": 0,
       "time": null,
-      "todo": 0,
+      "todo": 1,
     },
   ],
 ]
@@ -110777,15 +110793,15 @@ Array [
 
 exports[`test/parser-stringify.js TAP todo_misparse.tap default settings > stringified 1`] = `
 1..1
-not ok 1 - Hamlette \\# TODOORNOTTODO
-# failed 1 test
+not ok 1 - Hamlette # TODO
+# todo: 1
 
 `
 
 exports[`test/parser-stringify.js TAP todo_misparse.tap default settings > stringified flat 1`] = `
 1..1
-not ok 1 - Hamlette \\# TODOORNOTTODO
-# failed 1 test
+not ok 1 - Hamlette # TODO
+# todo: 1
 
 `
 
@@ -110803,13 +110819,14 @@ Array [
     Result {
       "fullname": "",
       "id": 1,
-      "name": "Hamlette # TODOORNOTTODO",
+      "name": "Hamlette",
       "ok": false,
+      "todo": true,
     },
   ],
   Array [
     "comment",
-    "# failed 1 test\\n",
+    "# todo: 1\\n",
   ],
   Array [
     "complete",
@@ -110817,15 +110834,8 @@ Array [
       "bailout": false,
       "count": 1,
       "fail": 1,
-      "failures": Array [
-        Result {
-          "fullname": "",
-          "id": 1,
-          "name": "Hamlette # TODOORNOTTODO",
-          "ok": false,
-        },
-      ],
-      "ok": false,
+      "failures": Array [],
+      "ok": true,
       "pass": 0,
       "plan": FinalPlan {
         "comment": "",
@@ -110836,7 +110846,7 @@ Array [
       },
       "skip": 0,
       "time": null,
-      "todo": 0,
+      "todo": 1,
     },
   ],
 ]
@@ -110844,15 +110854,15 @@ Array [
 
 exports[`test/parser-stringify.js TAP todo_misparse.tap strict > stringified 1`] = `
 1..1
-not ok 1 - Hamlette \\# TODOORNOTTODO
-# failed 1 test
+not ok 1 - Hamlette # TODO
+# todo: 1
 
 `
 
 exports[`test/parser-stringify.js TAP todo_misparse.tap strict > stringified flat 1`] = `
 1..1
-not ok 1 - Hamlette \\# TODOORNOTTODO
-# failed 1 test
+not ok 1 - Hamlette # TODO
+# todo: 1
 
 `
 
@@ -110870,29 +110880,23 @@ Array [
     Result {
       "fullname": "",
       "id": 1,
-      "name": "Hamlette # TODOORNOTTODO",
+      "name": "Hamlette",
       "ok": false,
+      "todo": true,
     },
   ],
   Array [
-    "bailout",
-    "Hamlette # TODOORNOTTODO",
+    "comment",
+    "# todo: 1\\n",
   ],
   Array [
     "complete",
     FinalResults {
-      "bailout": "Hamlette # TODOORNOTTODO",
+      "bailout": false,
       "count": 1,
       "fail": 1,
-      "failures": Array [
-        Result {
-          "fullname": "",
-          "id": 1,
-          "name": "Hamlette # TODOORNOTTODO",
-          "ok": false,
-        },
-      ],
-      "ok": false,
+      "failures": Array [],
+      "ok": true,
       "pass": 0,
       "plan": FinalPlan {
         "comment": "",
@@ -110903,7 +110907,7 @@ Array [
       },
       "skip": 0,
       "time": null,
-      "todo": 0,
+      "todo": 1,
     },
   ],
 ]
@@ -110911,15 +110915,15 @@ Array [
 
 exports[`test/parser-stringify.js TAP todo_misparse.tap strictBail > stringified 1`] = `
 1..1
-not ok 1 - Hamlette \\# TODOORNOTTODO
-Bail out! Hamlette \\# TODOORNOTTODO
+not ok 1 - Hamlette # TODO
+# todo: 1
 
 `
 
 exports[`test/parser-stringify.js TAP todo_misparse.tap strictBail > stringified flat 1`] = `
 1..1
-not ok 1 - Hamlette \\# TODOORNOTTODO
-Bail out! Hamlette \\# TODOORNOTTODO
+not ok 1 - Hamlette # TODO
+# todo: 1
 
 `
 

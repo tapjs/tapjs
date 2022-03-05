@@ -36846,8 +36846,9 @@ Array [
     Result {
       "fullname": "",
       "id": 3,
-      "name": "# skipped on foobar system",
+      "name": "",
       "ok": true,
+      "skip": "on foobar system",
     },
   ],
   Array [
@@ -36855,17 +36856,19 @@ Array [
     Result {
       "fullname": "",
       "id": 3,
-      "name": "# skipped on foobar system",
+      "name": "",
       "ok": true,
+      "skip": "on foobar system",
     },
   ],
   Array [
-    "pass",
+    "skip",
     Result {
       "fullname": "",
       "id": 3,
-      "name": "# skipped on foobar system",
+      "name": "",
       "ok": true,
+      "skip": "on foobar system",
     },
   ],
   Array [
@@ -36941,6 +36944,14 @@ Array [
     },
   ],
   Array [
+    "line",
+    "# skip: 1\\n",
+  ],
+  Array [
+    "comment",
+    "# skip: 1\\n",
+  ],
+  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -36956,7 +36967,7 @@ Array [
         "skipReason": "",
         "start": 1,
       },
-      "skip": 0,
+      "skip": 1,
       "time": null,
       "todo": 0,
     },
@@ -37042,8 +37053,9 @@ Array [
     Result {
       "fullname": "",
       "id": 3,
-      "name": "# skipped on foobar system",
+      "name": "",
       "ok": true,
+      "skip": "on foobar system",
     },
   ],
   Array [
@@ -37051,17 +37063,19 @@ Array [
     Result {
       "fullname": "",
       "id": 3,
-      "name": "# skipped on foobar system",
+      "name": "",
       "ok": true,
+      "skip": "on foobar system",
     },
   ],
   Array [
-    "pass",
+    "skip",
     Result {
       "fullname": "",
       "id": 3,
-      "name": "# skipped on foobar system",
+      "name": "",
       "ok": true,
+      "skip": "on foobar system",
     },
   ],
   Array [
@@ -37137,6 +37151,14 @@ Array [
     },
   ],
   Array [
+    "line",
+    "# skip: 1\\n",
+  ],
+  Array [
+    "comment",
+    "# skip: 1\\n",
+  ],
+  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -37152,7 +37174,7 @@ Array [
         "skipReason": "",
         "start": 1,
       },
-      "skip": 0,
+      "skip": 1,
       "time": null,
       "todo": 0,
     },
@@ -100104,8 +100126,9 @@ Array [
     Result {
       "fullname": "",
       "id": 1,
-      "name": "Hamlette # TODOORNOTTODO",
+      "name": "Hamlette",
       "ok": false,
+      "todo": true,
     },
   ],
   Array [
@@ -100113,26 +100136,28 @@ Array [
     Result {
       "fullname": "",
       "id": 1,
-      "name": "Hamlette # TODOORNOTTODO",
+      "name": "Hamlette",
       "ok": false,
+      "todo": true,
     },
   ],
   Array [
-    "fail",
+    "todo",
     Result {
       "fullname": "",
       "id": 1,
-      "name": "Hamlette # TODOORNOTTODO",
+      "name": "Hamlette",
       "ok": false,
+      "todo": true,
     },
   ],
   Array [
     "line",
-    "# failed 1 test\\n",
+    "# todo: 1\\n",
   ],
   Array [
     "comment",
-    "# failed 1 test\\n",
+    "# todo: 1\\n",
   ],
   Array [
     "complete",
@@ -100140,15 +100165,8 @@ Array [
       "bailout": false,
       "count": 1,
       "fail": 1,
-      "failures": Array [
-        Result {
-          "fullname": "",
-          "id": 1,
-          "name": "Hamlette # TODOORNOTTODO",
-          "ok": false,
-        },
-      ],
-      "ok": false,
+      "failures": Array [],
+      "ok": true,
       "pass": 0,
       "plan": FinalPlan {
         "comment": "",
@@ -100159,7 +100177,7 @@ Array [
       },
       "skip": 0,
       "time": null,
-      "todo": 0,
+      "todo": 1,
     },
   ],
 ]
@@ -100187,8 +100205,9 @@ Array [
     Result {
       "fullname": "",
       "id": 1,
-      "name": "Hamlette # TODOORNOTTODO",
+      "name": "Hamlette",
       "ok": false,
+      "todo": true,
     },
   ],
   Array [
@@ -100196,42 +100215,37 @@ Array [
     Result {
       "fullname": "",
       "id": 1,
-      "name": "Hamlette # TODOORNOTTODO",
+      "name": "Hamlette",
       "ok": false,
+      "todo": true,
     },
   ],
   Array [
-    "fail",
+    "todo",
     Result {
       "fullname": "",
       "id": 1,
-      "name": "Hamlette # TODOORNOTTODO",
+      "name": "Hamlette",
       "ok": false,
+      "todo": true,
     },
   ],
   Array [
     "line",
-    "Bail out! Hamlette # TODOORNOTTODO\\n",
+    "# todo: 1\\n",
   ],
   Array [
-    "bailout",
-    "Hamlette # TODOORNOTTODO",
+    "comment",
+    "# todo: 1\\n",
   ],
   Array [
     "complete",
     FinalResults {
-      "bailout": "Hamlette # TODOORNOTTODO",
+      "bailout": false,
       "count": 1,
       "fail": 1,
-      "failures": Array [
-        Result {
-          "fullname": "",
-          "id": 1,
-          "name": "Hamlette # TODOORNOTTODO",
-          "ok": false,
-        },
-      ],
-      "ok": false,
+      "failures": Array [],
+      "ok": true,
       "pass": 0,
       "plan": FinalPlan {
         "comment": "",
@@ -100242,7 +100256,7 @@ Array [
       },
       "skip": 0,
       "time": null,
-      "todo": 0,
+      "todo": 1,
     },
   ],
 ]

@@ -62,13 +62,13 @@ const parseDirective = line => {
     return [ 'time', n ]
   }
 
-  const type = line.match(/^(todo|skip)\b/i)
+  const type = line.match(/^(todo|skip)(?:\S*)\b(.*)$/i)
   if (!type)
     return false
 
   return [
     type[1].toLowerCase(),
-    line.substring(type[1].length).trim() || true,
+    type[2].trim() || true,
   ]
 }
 
