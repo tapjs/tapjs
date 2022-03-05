@@ -359,10 +359,13 @@ Much more documentation available at: https://www.node-tap.org/
     description: `Capture coverage information using 'nyc'
                   This is enabled by default.
 
-                  If a COVERALLS_REPO_TOKEN environment
-                  variable is set, and the 'coveralls'
-                  module is installed, then coverage is
-                  sent to the coveralls.io service.`,
+                  If a COVERALLS_REPO_TOKEN environment variable is set,
+                  and the 'coveralls' module is installed, then coverage
+                  is sent to the coveralls.io service.
+
+                  Note that tap does not automatically install coveralls,
+                  it must already be present in your project to use this
+                  feature.`,
     negate: {
       short: 'no-cov',
       description: `Do not capture coverage information.
@@ -710,7 +713,8 @@ Much more documentation available at: https://www.node-tap.org/
 
   COVERALLS_REPO_TOKEN: env({
     description: `Set to a Coveralls token to automatically
-                  send coverage information to https://coveralls.io`,
+                  send coverage information to https://coveralls.io,
+                  if the 'coveralls' module is installed in the project.`,
     implies: {
       coverage: true
     },
