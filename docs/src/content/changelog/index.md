@@ -8,6 +8,18 @@ redirect_from:
 
 # Changelog
 
+## 15.2 - 2022-03-04
+
+* Added `t.hasProp`, `t.hasProps`, `t.hasOwnProp`, and `t.hasOwnProps`
+* Made it possible to split snapshot output by setting `t.snapshotFile`
+* Parser:
+    * more correct handling of `#` and `\` characters
+    * ensure that test point IDs are not repeated
+    * catch invalid test point IDs when a trailing plan is used
+    * pragmas keys can contain uppercase characters, numbers, `-` and `_`
+    * treat tests with directives like `# skipped` as `skip` tests, as
+      TAP13 specifies
+
 ## 15.1 - 2021-11-16
 
 Updated treport to use react 17, new versions of ink and other internal
