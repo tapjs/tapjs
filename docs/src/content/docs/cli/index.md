@@ -19,7 +19,7 @@ information.
 Usage:
   tap [options] [<files>]
 
-tap v15.2.3 - A Test-Anything-Protocol library for JavaScript
+tap v16.0.0 - A Test-Anything-Protocol library for JavaScript
 
 Executes all the files and interprets their output as TAP formatted test result
 data. If no files are specified, then tap will search for testy-looking files,
@@ -236,7 +236,12 @@ Code Coverage Options:
                          enabled by default.
 
                          If a COVERALLS_REPO_TOKEN environment variable is set,
-                         then coverage is sent to the coveralls.io service.
+                         and the 'coveralls' module is installed, then coverage
+                         is sent to the coveralls.io service.
+
+                         Note that tap does not automatically install coveralls,
+                         it must already be present in your project to use this
+                         feature.
 
   -no-cov --no-coverage  Do not capture coverage information. Note that if nyc
                          is already loaded, then the coverage info will still be
@@ -445,7 +450,8 @@ Other Options:
 Environment Variables:
 
   COVERALLS_REPO_TOKEN   Set to a Coveralls token to automatically send coverage
-                         information to https://coveralls.io
+                         information to https://coveralls.io, if the 'coveralls'
+                         module is installed in the project.
 
   TAP_CHILD_ID           Test files have this value set to a numeric value when
                          run through the test runner. It also appears on the
