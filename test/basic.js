@@ -33,13 +33,13 @@ t.test('end() can take chunk', function (t) {
   })
   t.test('encoding', function (t) {
     var p = new Parser()
-    p.end(new Buffer('1..0\n').toString('hex'), 'hex',  t.end)
+    p.end(Buffer.from('1..0\n').toString('hex'), 'hex',  t.end)
   })
 })
 
 t.test('takes a buffer just fine', function (t) {
   var p = new Parser(theEnd)
-  p.write(new Buffer('TAP version 13\n'))
+  p.write(Buffer.from('TAP version 13\n'))
 
   var calledme = false
   function callme () {
