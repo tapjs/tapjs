@@ -39,21 +39,19 @@ command line, or adding the config to your package.json like so:
 }
 ```
 
-## Travis-CI and Coveralls.io Integration
+## Continuous Integration and Coveralls.io Integration
 
 You can very easily take advantage of continuous test coverage reports
-by using [Travis-CI](https://travis-ci.org) and
-[Coveralls](https://coveralls.io).
+by using [Coveralls](https://coveralls.io).
 
-1. Enable Travis-CI by signing up, enabling tests on your repo, and
-   adding a `.travis.yml` file to your repo.  You can use [this
-   module's .travis.yml file as an
-   example](https://github.com/tapjs/node-tap/blob/master/.travis.yml)
+1. Install `coveralls` in your project as a dev dependency by running `npm
+   install coveralls --save-dev`
 2. Enable Coveralls.io by signing up, and adding the
    repo.  Note the repo API token.
-3. Back at Travis-CI, add a private environment variable.  The name of
-   the environment variable is `COVERALLS_REPO_TOKEN`, and the value
-   is the token you got from Coveralls.
+3. In your continuous integration configuration, add a new environment
+   variable.  The name of the environment variable is
+   `COVERALLS_REPO_TOKEN`, and the value is the token you got from
+   Coveralls.
 4. When that token is set in the environment variable, `tap` will
    automatically generate coverage information and send it to the
    appropriate place.
