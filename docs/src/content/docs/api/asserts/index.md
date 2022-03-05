@@ -8,11 +8,7 @@ redirect_from:
 
 # Asserts
 
-The `Test` object has a collection of assertion methods, many of which
-are given several synonyms for compatibility with other test runners
-and the vagaries of human expectations and spelling.  When a synonym
-is multi-word in `camelCase` the corresponding lower case and
-`snake_case` versions are also created as synonyms.
+The `Test` object has a collection of assertion methods.
 
 All assertion methods take optional `message` and `extra` arguments as
 the last two params.  The `message` is the name of the test.  The
@@ -42,13 +38,9 @@ you.
 
 Verifies that the object is truthy.
 
-Synonyms: `t.true`, `t.assert`
-
 ## t.notOk(obj, message, extra)
 
 Verifies that the object is not truthy.
-
-Synonyms: `t.false`, `t.assertNot`
 
 ## t.error(obj, message, extra)
 
@@ -56,8 +48,6 @@ If the object is an error, then the assertion fails.
 
 Note: if an error is encountered unexpectedly, it's often better to
 simply throw it.  The Test object will handle this as a failure.
-
-Synonyms: `t.ifErr`, `t.ifError`
 
 ## t.emits(eventEmitter, event, message, extra)
 
@@ -149,8 +139,6 @@ so regular expressions and the like are fine.  If the expected error
 is an `Error` object, then the `stack` field is ignored, since that
 will generally never match.
 
-Synonyms: `t.throw`
-
 ## t.doesNotThrow(fn, message, extra)
 
 Verify that the provided function does not throw.
@@ -163,8 +151,6 @@ test.
 
 Note: if an error is encountered unexpectedly, it's often better to
 simply throw it.  The Test object will handle this as a failure.
-
-Synonyms: `t.notThrow`
 
 ## t.expectUncaughtException([expectedError], [message], [extra])
 
@@ -224,9 +210,6 @@ across native boundaries.
 Verify that the object found is exactly the same (that is, `===`) to
 the object that is wanted.
 
-Synonyms: `t.equals`, `t.isEqual`, `t.is`, `t.strictEqual`,
-`t.strictEquals`, `t.strictIs`, `t.isStrict`, `t.isStrictly`
-
 ## t.not(found, notWanted, message, extra)
 
 Inverse of `t.equal()`.
@@ -234,18 +217,11 @@ Inverse of `t.equal()`.
 Verify that the object found is not exactly the same (that is, `!==`) as
 the object that is wanted.
 
-Synonyms: `t.inequal`, `t.notEqual`, `t.notEquals`,
-`t.notStrictEqual`, `t.notStrictEquals`, `t.isNotEqual`, `t.isNot`,
-`t.doesNotEqual`, `t.isInequal`
-
 ## t.same(found, wanted, message, extra)
 
 Verify that the found object is deeply equivalent to the wanted
 object.  Use non-strict equality for scalars (ie, `==`).  See:
 [tcompare](http://npm.im/tcompare)
-
-Synonyms: `t.equivalent`, `t.looseEqual`, `t.looseEquals`,
-`t.deepEqual`, `t.deepEquals`, `t.isLoose`, `t.looseIs`
 
 ## t.notSame(found, notWanted, message, extra)
 
@@ -254,9 +230,6 @@ Inverse of `t.same()`.
 Verify that the found object is not deeply equivalent to the
 unwanted object.  Uses non-strict inequality (ie, `!=`) for scalars.
 
-Synonyms: `t.inequivalent`, `t.looseInequal`, `t.notDeep`,
-`t.deepInequal`, `t.notLoose`, `t.looseNot`
-
 ## t.strictSame(found, wanted, message, extra)
 
 Strict version of `t.same()`.
@@ -264,19 +237,12 @@ Strict version of `t.same()`.
 Verify that the found object is deeply equivalent to the wanted
 object.  Use strict equality for scalars (ie, `===`).
 
-Synonyms: `t.strictEquivalent`, `t.strictDeepEqual`, `t.sameStrict`,
-`t.deepIs`, `t.isDeeply`, `t.isDeep`, `t.strictDeepEquals`
-
 ## t.strictNotSame(found, notWanted, message, extra)
 
 Inverse of `t.strictSame()`.
 
 Verify that the found object is not deeply equivalent to the unwanted
 object.  Use strict equality for scalars (ie, `===`).
-
-Synonyms: `t.strictInequivalent`, `t.strictDeepInequal`,
-`t.notSameStrict`, `t.deepNot`, `t.notDeeply`, `t.strictDeepInequals`,
-`t.notStrictSame`
 
 ## t.hasStrict(found, pattern, message, extra)
 
@@ -305,8 +271,6 @@ patterns, and so on, like `t.match()` does.  You _may_ specify `key:
 undefined` in the pattern to ensure that a field is not defined in the
 found object, but it will not differentiate between a missing property and
 a property set to `undefined`.
-
-Synonyms: `t.hasFields`, `t.includes`, `t.include`, `t.contains`
 
 ## t.notHas(found, pattern, message, extra)
 
@@ -372,17 +336,11 @@ set of required fields, but additional fields are ok.
 See [tcompare](http://npm.im/tcompare) for the full details on how this
 works.
 
-Synonyms: `t.matches`, `t.similar`, `t.like`, `t.isLike`
-
 ## t.notMatch(found, pattern, message, extra)
 
 Inverse of `match()`
 
 Verify that the found object does not match the pattern provided.
-
-Synonyms: `t.dissimilar`, `t.unsimilar`, `t.notSimilar`, `t.unlike`,
-`t.isUnlike`, `t.notLike`, `t.isNotLike`, `t.doesNotHave`,
-`t.isNotSimilar`, `t.isDissimilar`
 
 ## t.type(object, type, message, extra)
 
@@ -399,5 +357,3 @@ t.type(new Date(), 'object')
 t.type(new Date(), 'Date')
 t.type(new Date(), Date)
 ```
-
-Synonyms: `t.isa`, `t.isA`
