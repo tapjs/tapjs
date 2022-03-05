@@ -20,7 +20,7 @@ const yaml = require('tap-yaml')
 // a comment, or garbage.
 const lineTypes = {
   testPoint: /^(not )?ok(?: ([0-9]+))?(?:(?: -)?( .*?))?(\{?)\n$/,
-  pragma: /^pragma ([+-])([a-z]+)\n$/,
+  pragma: /^pragma ([+-])([a-zA-Z0-9_-]+)\n$/,
   bailout: /^bail out!(.*)\n$/i,
   version: /^TAP version ([0-9]+)\n$/i,
   childVersion: /^(    )+TAP version ([0-9]+)\n$/i,

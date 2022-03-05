@@ -1,0 +1,6 @@
+TAP version 13
+1..1
+pragma +this is not a valid pragma
+pragma -neither # is this
+pragma +thisISfineTHO_420-69_lolyolo
+ok

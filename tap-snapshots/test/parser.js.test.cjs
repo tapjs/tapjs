@@ -75422,6 +75422,544 @@ Bail out!
 
 `
 
+exports[`test/parser.js TAP pragma-invalid.tap > output bail=false 1`] = `
+Array [
+  Array [
+    "line",
+    "TAP version 13\\n",
+  ],
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "line",
+    "1..1\\n",
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 1,
+      "start": 1,
+    },
+  ],
+  Array [
+    "line",
+    "pragma +this is not a valid pragma\\n",
+  ],
+  Array [
+    "extra",
+    "pragma +this is not a valid pragma\\n",
+  ],
+  Array [
+    "line",
+    "pragma -neither # is this\\n",
+  ],
+  Array [
+    "extra",
+    "pragma -neither # is this\\n",
+  ],
+  Array [
+    "line",
+    "pragma +thisISfineTHO_420-69_lolyolo\\n",
+  ],
+  Array [
+    "pragma",
+    "thisISfineTHO_420-69_lolyolo",
+    true,
+  ],
+  Array [
+    "line",
+    "ok\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+    },
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 1,
+      "fail": 0,
+      "failures": Array [],
+      "ok": true,
+      "pass": 1,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 1,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parser.js TAP pragma-invalid.tap > output bail=true 1`] = `
+Array [
+  Array [
+    "line",
+    "TAP version 13\\n",
+  ],
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "line",
+    "1..1\\n",
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 1,
+      "start": 1,
+    },
+  ],
+  Array [
+    "line",
+    "pragma +this is not a valid pragma\\n",
+  ],
+  Array [
+    "extra",
+    "pragma +this is not a valid pragma\\n",
+  ],
+  Array [
+    "line",
+    "pragma -neither # is this\\n",
+  ],
+  Array [
+    "extra",
+    "pragma -neither # is this\\n",
+  ],
+  Array [
+    "line",
+    "pragma +thisISfineTHO_420-69_lolyolo\\n",
+  ],
+  Array [
+    "pragma",
+    "thisISfineTHO_420-69_lolyolo",
+    true,
+  ],
+  Array [
+    "line",
+    "ok\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+    },
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 1,
+      "fail": 0,
+      "failures": Array [],
+      "ok": true,
+      "pass": 1,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 1,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parser.js TAP pragma-invalid.tap Parser.parse/stringify methods bail > parsed 1`] = `
+Array [
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 1,
+      "start": 1,
+    },
+  ],
+  Array [
+    "extra",
+    "pragma +this is not a valid pragma\\n",
+  ],
+  Array [
+    "extra",
+    "pragma -neither # is this\\n",
+  ],
+  Array [
+    "pragma",
+    "thisISfineTHO_420-69_lolyolo",
+    true,
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+    },
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 1,
+      "fail": 0,
+      "failures": Array [],
+      "ok": true,
+      "pass": 1,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 1,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parser.js TAP pragma-invalid.tap Parser.parse/stringify methods bail > stringified 1`] = `
+TAP version 13
+1..1
+pragma +this is not a valid pragma
+pragma -neither # is this
+pragma +thisISfineTHO_420-69_lolyolo
+ok 1
+
+`
+
+exports[`test/parser.js TAP pragma-invalid.tap Parser.parse/stringify methods bail > stringified flat 1`] = `
+TAP version 13
+1..1
+pragma +this is not a valid pragma
+pragma -neither # is this
+pragma +thisISfineTHO_420-69_lolyolo
+ok 1
+
+`
+
+exports[`test/parser.js TAP pragma-invalid.tap Parser.parse/stringify methods default settings > parsed 1`] = `
+Array [
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 1,
+      "start": 1,
+    },
+  ],
+  Array [
+    "extra",
+    "pragma +this is not a valid pragma\\n",
+  ],
+  Array [
+    "extra",
+    "pragma -neither # is this\\n",
+  ],
+  Array [
+    "pragma",
+    "thisISfineTHO_420-69_lolyolo",
+    true,
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+    },
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 1,
+      "fail": 0,
+      "failures": Array [],
+      "ok": true,
+      "pass": 1,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 1,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parser.js TAP pragma-invalid.tap Parser.parse/stringify methods default settings > stringified 1`] = `
+TAP version 13
+1..1
+pragma +this is not a valid pragma
+pragma -neither # is this
+pragma +thisISfineTHO_420-69_lolyolo
+ok 1
+
+`
+
+exports[`test/parser.js TAP pragma-invalid.tap Parser.parse/stringify methods default settings > stringified flat 1`] = `
+TAP version 13
+1..1
+pragma +this is not a valid pragma
+pragma -neither # is this
+pragma +thisISfineTHO_420-69_lolyolo
+ok 1
+
+`
+
+exports[`test/parser.js TAP pragma-invalid.tap Parser.parse/stringify methods strict > parsed 1`] = `
+Array [
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 1,
+      "start": 1,
+    },
+  ],
+  Array [
+    "extra",
+    "pragma +this is not a valid pragma\\n",
+  ],
+  Array [
+    "extra",
+    "pragma -neither # is this\\n",
+  ],
+  Array [
+    "pragma",
+    "thisISfineTHO_420-69_lolyolo",
+    true,
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+    },
+  ],
+  Array [
+    "comment",
+    "# failed 2 test\\n",
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 1,
+      "fail": 2,
+      "failures": Array [
+        Object {
+          "data": "pragma +this is not a valid pragma\\n",
+          "tapError": "Non-TAP data encountered in strict mode",
+        },
+        Object {
+          "data": "pragma -neither # is this\\n",
+          "tapError": "Non-TAP data encountered in strict mode",
+        },
+      ],
+      "ok": false,
+      "pass": 1,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 1,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parser.js TAP pragma-invalid.tap Parser.parse/stringify methods strict > stringified 1`] = `
+TAP version 13
+1..1
+pragma +this is not a valid pragma
+pragma -neither # is this
+pragma +thisISfineTHO_420-69_lolyolo
+ok 1
+# failed 2 test
+
+`
+
+exports[`test/parser.js TAP pragma-invalid.tap Parser.parse/stringify methods strict > stringified flat 1`] = `
+TAP version 13
+1..1
+pragma +this is not a valid pragma
+pragma -neither # is this
+pragma +thisISfineTHO_420-69_lolyolo
+ok 1
+# failed 2 test
+
+`
+
+exports[`test/parser.js TAP pragma-invalid.tap Parser.parse/stringify methods strictBail > parsed 1`] = `
+Array [
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 1,
+      "start": 1,
+    },
+  ],
+  Array [
+    "extra",
+    "pragma +this is not a valid pragma\\n",
+  ],
+  Array [
+    "extra",
+    "pragma -neither # is this\\n",
+  ],
+  Array [
+    "pragma",
+    "thisISfineTHO_420-69_lolyolo",
+    true,
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+    },
+  ],
+  Array [
+    "comment",
+    "# failed 2 test\\n",
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 1,
+      "fail": 2,
+      "failures": Array [
+        Object {
+          "data": "pragma +this is not a valid pragma\\n",
+          "tapError": "Non-TAP data encountered in strict mode",
+        },
+        Object {
+          "data": "pragma -neither # is this\\n",
+          "tapError": "Non-TAP data encountered in strict mode",
+        },
+      ],
+      "ok": false,
+      "pass": 1,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 1,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parser.js TAP pragma-invalid.tap Parser.parse/stringify methods strictBail > stringified 1`] = `
+TAP version 13
+1..1
+pragma +this is not a valid pragma
+pragma -neither # is this
+pragma +thisISfineTHO_420-69_lolyolo
+ok 1
+# failed 2 test
+
+`
+
+exports[`test/parser.js TAP pragma-invalid.tap Parser.parse/stringify methods strictBail > stringified flat 1`] = `
+TAP version 13
+1..1
+pragma +this is not a valid pragma
+pragma -neither # is this
+pragma +thisISfineTHO_420-69_lolyolo
+ok 1
+# failed 2 test
+
+`
+
 exports[`test/parser.js TAP pragma-mid-child-strict.tap > output bail=false 1`] = `
 Array [
   Array [
