@@ -572,6 +572,8 @@ class Parser extends MiniPass {
     this.emitComplete(skipAll)
     if (cb)
       process.nextTick(cb)
+
+    return this
   }
 
   emitComplete (skipAll) {
