@@ -181,13 +181,13 @@ class Parser extends MiniPass {
             item[1].end = id.current - 1
           }
           return item[1].start + '..' + item[1].end
-            + (item[1].comment ? ' # ' + item[1].comment : '') + '\n'
+            + (item[1].comment ? ' # ' + esc(item[1].comment) : '') + '\n'
 
         case 'pragma':
           return 'pragma ' + (item[2] ? '+' : '-') + item[1] + '\n'
 
         case 'bailout':
-          return 'Bail out!' + (item[1] ? (' ' + item[1]) : '') + '\n'
+          return 'Bail out!' + (item[1] ? (' ' + esc(item[1])) : '') + '\n'
 
         case 'assert':
           const res = item[1]
@@ -1004,7 +1004,7 @@ class Parser extends MiniPass {
 
     // ok, now it's maybe a thing
     if (type[0] === 'bailout') {
-      this.bailout(type[1][1].trim(), false)
+      this.bailout(unesc(type[1][1].trim()), false)
       return
     }
 
@@ -1022,7 +1022,7 @@ class Parser extends MiniPass {
 
     if (type[0] === 'plan') {
       const plan = type[1]
-      this.plan(+plan[1], +plan[2], (plan[3] || '').trim(), line)
+      this.plan(+plan[1], +plan[2], unesc((plan[3] || '')).trim(), line)
       return
     }
 
@@ -1147,7 +1147,14 @@ class Parser extends MiniPass {
 }
 
 // turn \ into \\ and # into \#, for stringifying back to TAP
-const esc = str => str.replace(/\\/g, '\\\\').replace(/#/g, '\\#')
+const esc = str => str
+  .replace(/\\/g, '\\\\')
+  .replace(/#/g, '\\#')
+
+const unesc = str => str
+  .replace(/(\\\\)/g, '\u0000')
+  .replace(/\\#/g, '#')
+  .replace(/\u0000/g, '\\')
 
 class FinalResults {
   constructor (skipAll, self) {

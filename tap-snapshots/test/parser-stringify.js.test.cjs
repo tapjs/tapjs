@@ -5,6 +5,230 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
+exports[`test/parser-stringify.js TAP bail-escaped.tap bail > parsed 1`] = `
+Array [
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+    },
+  ],
+  Array [
+    "bailout",
+    "hash # slash \\\\ noesc hash # noesc slash \\\\ done",
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": "hash # slash \\\\ noesc hash # noesc slash \\\\ done",
+      "count": 1,
+      "fail": 0,
+      "failures": Array [],
+      "ok": false,
+      "pass": 1,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": null,
+        "skipAll": false,
+        "skipReason": "",
+        "start": null,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parser-stringify.js TAP bail-escaped.tap bail > stringified 1`] = `
+TAP version 13
+ok 1
+Bail out! hash \\# slash \\\\ noesc hash \\# noesc slash \\\\ done
+
+`
+
+exports[`test/parser-stringify.js TAP bail-escaped.tap bail > stringified flat 1`] = `
+TAP version 13
+ok 1
+Bail out! hash \\# slash \\\\ noesc hash \\# noesc slash \\\\ done
+
+`
+
+exports[`test/parser-stringify.js TAP bail-escaped.tap default settings > parsed 1`] = `
+Array [
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+    },
+  ],
+  Array [
+    "bailout",
+    "hash # slash \\\\ noesc hash # noesc slash \\\\ done",
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": "hash # slash \\\\ noesc hash # noesc slash \\\\ done",
+      "count": 1,
+      "fail": 0,
+      "failures": Array [],
+      "ok": false,
+      "pass": 1,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": null,
+        "skipAll": false,
+        "skipReason": "",
+        "start": null,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parser-stringify.js TAP bail-escaped.tap default settings > stringified 1`] = `
+TAP version 13
+ok 1
+Bail out! hash \\# slash \\\\ noesc hash \\# noesc slash \\\\ done
+
+`
+
+exports[`test/parser-stringify.js TAP bail-escaped.tap default settings > stringified flat 1`] = `
+TAP version 13
+ok 1
+Bail out! hash \\# slash \\\\ noesc hash \\# noesc slash \\\\ done
+
+`
+
+exports[`test/parser-stringify.js TAP bail-escaped.tap strict > parsed 1`] = `
+Array [
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+    },
+  ],
+  Array [
+    "bailout",
+    "hash # slash \\\\ noesc hash # noesc slash \\\\ done",
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": "hash # slash \\\\ noesc hash # noesc slash \\\\ done",
+      "count": 1,
+      "fail": 0,
+      "failures": Array [],
+      "ok": false,
+      "pass": 1,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": null,
+        "skipAll": false,
+        "skipReason": "",
+        "start": null,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parser-stringify.js TAP bail-escaped.tap strict > stringified 1`] = `
+TAP version 13
+ok 1
+Bail out! hash \\# slash \\\\ noesc hash \\# noesc slash \\\\ done
+
+`
+
+exports[`test/parser-stringify.js TAP bail-escaped.tap strict > stringified flat 1`] = `
+TAP version 13
+ok 1
+Bail out! hash \\# slash \\\\ noesc hash \\# noesc slash \\\\ done
+
+`
+
+exports[`test/parser-stringify.js TAP bail-escaped.tap strictBail > parsed 1`] = `
+Array [
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+    },
+  ],
+  Array [
+    "bailout",
+    "hash # slash \\\\ noesc hash # noesc slash \\\\ done",
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": "hash # slash \\\\ noesc hash # noesc slash \\\\ done",
+      "count": 1,
+      "fail": 0,
+      "failures": Array [],
+      "ok": false,
+      "pass": 1,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": null,
+        "skipAll": false,
+        "skipReason": "",
+        "start": null,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parser-stringify.js TAP bail-escaped.tap strictBail > stringified 1`] = `
+TAP version 13
+ok 1
+Bail out! hash \\# slash \\\\ noesc hash \\# noesc slash \\\\ done
+
+`
+
+exports[`test/parser-stringify.js TAP bail-escaped.tap strictBail > stringified flat 1`] = `
+TAP version 13
+ok 1
+Bail out! hash \\# slash \\\\ noesc hash \\# noesc slash \\\\ done
+
+`
+
 exports[`test/parser-stringify.js TAP bailout-no-raison.tap bail > parsed 1`] = `
 Array [
   Array [
@@ -39704,6 +39928,206 @@ ok 1 - Subtest: my_streamy_test
     ok 2 - subtest event B
 ok 2 - Subtest: my_streamy_test_plan
 1..2
+
+`
+
+exports[`test/parser-stringify.js TAP plan-escape.tap bail > parsed 1`] = `
+Array [
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "plan",
+    Object {
+      "comment": "hash # slash \\\\ noesc hash # noesc slash \\\\",
+      "end": 0,
+      "start": 1,
+    },
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 0,
+      "fail": 0,
+      "failures": Array [],
+      "ok": true,
+      "pass": 0,
+      "plan": FinalPlan {
+        "comment": "hash # slash \\\\ noesc hash # noesc slash \\\\",
+        "end": 0,
+        "skipAll": true,
+        "skipReason": "hash # slash \\\\ noesc hash # noesc slash \\\\",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parser-stringify.js TAP plan-escape.tap bail > stringified 1`] = `
+TAP version 13
+1..0 # hash \\# slash \\\\ noesc hash \\# noesc slash \\\\
+
+`
+
+exports[`test/parser-stringify.js TAP plan-escape.tap bail > stringified flat 1`] = `
+TAP version 13
+1..0 # hash \\# slash \\\\ noesc hash \\# noesc slash \\\\
+
+`
+
+exports[`test/parser-stringify.js TAP plan-escape.tap default settings > parsed 1`] = `
+Array [
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "plan",
+    Object {
+      "comment": "hash # slash \\\\ noesc hash # noesc slash \\\\",
+      "end": 0,
+      "start": 1,
+    },
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 0,
+      "fail": 0,
+      "failures": Array [],
+      "ok": true,
+      "pass": 0,
+      "plan": FinalPlan {
+        "comment": "hash # slash \\\\ noesc hash # noesc slash \\\\",
+        "end": 0,
+        "skipAll": true,
+        "skipReason": "hash # slash \\\\ noesc hash # noesc slash \\\\",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parser-stringify.js TAP plan-escape.tap default settings > stringified 1`] = `
+TAP version 13
+1..0 # hash \\# slash \\\\ noesc hash \\# noesc slash \\\\
+
+`
+
+exports[`test/parser-stringify.js TAP plan-escape.tap default settings > stringified flat 1`] = `
+TAP version 13
+1..0 # hash \\# slash \\\\ noesc hash \\# noesc slash \\\\
+
+`
+
+exports[`test/parser-stringify.js TAP plan-escape.tap strict > parsed 1`] = `
+Array [
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "plan",
+    Object {
+      "comment": "hash # slash \\\\ noesc hash # noesc slash \\\\",
+      "end": 0,
+      "start": 1,
+    },
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 0,
+      "fail": 0,
+      "failures": Array [],
+      "ok": true,
+      "pass": 0,
+      "plan": FinalPlan {
+        "comment": "hash # slash \\\\ noesc hash # noesc slash \\\\",
+        "end": 0,
+        "skipAll": true,
+        "skipReason": "hash # slash \\\\ noesc hash # noesc slash \\\\",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parser-stringify.js TAP plan-escape.tap strict > stringified 1`] = `
+TAP version 13
+1..0 # hash \\# slash \\\\ noesc hash \\# noesc slash \\\\
+
+`
+
+exports[`test/parser-stringify.js TAP plan-escape.tap strict > stringified flat 1`] = `
+TAP version 13
+1..0 # hash \\# slash \\\\ noesc hash \\# noesc slash \\\\
+
+`
+
+exports[`test/parser-stringify.js TAP plan-escape.tap strictBail > parsed 1`] = `
+Array [
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "plan",
+    Object {
+      "comment": "hash # slash \\\\ noesc hash # noesc slash \\\\",
+      "end": 0,
+      "start": 1,
+    },
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 0,
+      "fail": 0,
+      "failures": Array [],
+      "ok": true,
+      "pass": 0,
+      "plan": FinalPlan {
+        "comment": "hash # slash \\\\ noesc hash # noesc slash \\\\",
+        "end": 0,
+        "skipAll": true,
+        "skipReason": "hash # slash \\\\ noesc hash # noesc slash \\\\",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parser-stringify.js TAP plan-escape.tap strictBail > stringified 1`] = `
+TAP version 13
+1..0 # hash \\# slash \\\\ noesc hash \\# noesc slash \\\\
+
+`
+
+exports[`test/parser-stringify.js TAP plan-escape.tap strictBail > stringified flat 1`] = `
+TAP version 13
+1..0 # hash \\# slash \\\\ noesc hash \\# noesc slash \\\\
 
 `
 
@@ -108399,14 +108823,14 @@ Array [
 exports[`test/parser-stringify.js TAP todo_misparse.tap bail > stringified 1`] = `
 1..1
 not ok 1 - Hamlette \\# TODOORNOTTODO
-Bail out! Hamlette # TODOORNOTTODO
+Bail out! Hamlette \\# TODOORNOTTODO
 
 `
 
 exports[`test/parser-stringify.js TAP todo_misparse.tap bail > stringified flat 1`] = `
 1..1
 not ok 1 - Hamlette \\# TODOORNOTTODO
-Bail out! Hamlette # TODOORNOTTODO
+Bail out! Hamlette \\# TODOORNOTTODO
 
 `
 
@@ -108600,14 +109024,14 @@ Array [
 exports[`test/parser-stringify.js TAP todo_misparse.tap strictBail > stringified 1`] = `
 1..1
 not ok 1 - Hamlette \\# TODOORNOTTODO
-Bail out! Hamlette # TODOORNOTTODO
+Bail out! Hamlette \\# TODOORNOTTODO
 
 `
 
 exports[`test/parser-stringify.js TAP todo_misparse.tap strictBail > stringified flat 1`] = `
 1..1
 not ok 1 - Hamlette \\# TODOORNOTTODO
-Bail out! Hamlette # TODOORNOTTODO
+Bail out! Hamlette \\# TODOORNOTTODO
 
 `
 
