@@ -4,6 +4,12 @@
 // and string comments.  Emits "results" event with summary.
 const MiniPass = require('minipass')
 
+// this isn't for performance or anything, it just confuses vim's
+// brace-matching to have these in the middle of functions, and
+// i'm too lazy to dig into vim-javascript to fix it.
+const OPEN_BRACE_EOL = /\{\s*$/
+const SPACE_OPEN_BRACE_EOL = / \{$/
+
 // used by the Parser.parse() method
 const etoa = require('events-to-array')
 
@@ -43,7 +49,7 @@ const parseDirective = line => {
   if (!line.trim())
     return false
 
-  line = line.replace(/\{\s*$/, '').trim()
+  line = line.replace(OPEN_BRACE_EOL, '').trim()
   const time = line.match(/^time=((?:[1-9][0-9]*|0)(?:\.[0-9]+)?)(ms|s)$/i)
   if (time) {
     let n = +time[1]
@@ -104,8 +110,8 @@ class Result {
       this[dirKey] = dirValue
     }
 
-    if (/\{\s*$/.test(name)) {
-      name = name.replace(/\{\s*$/, '')
+    if (OPEN_BRACE_EOL.test(name)) {
+      name = name.replace(OPEN_BRACE_EOL, '')
       buffered = '{'
     }
 
@@ -202,7 +208,7 @@ class Parser extends MiniPass {
           }
           return (res.ok ? '' : 'not ') + 'ok ' + res.id +
             (res.name
-              ? ' - ' + esc(res.name).replace(/ \{$/, '')
+              ? ' - ' + esc(res.name).replace(SPACE_OPEN_BRACE_EOL, '')
               : '') +
             (res.skip ? ' # SKIP' +
               (res.skip === true ? '' : ' ' + esc(res.skip)) : '') +
