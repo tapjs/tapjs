@@ -8,6 +8,12 @@ redirect_from:
 
 # Changelog
 
+## 16.0 - 2022-03-05
+
+* Un-document synonyms (they're even more deprecated now)
+* `coveralls` is now an optional peer dep, not a regular dep, so it won't
+  be installed by default
+
 ## 15.2 - 2022-03-04
 
 * Added `t.hasProp`, `t.hasProps`, `t.hasOwnProp`, and `t.hasOwnProps`
