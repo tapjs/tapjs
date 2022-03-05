@@ -13,6 +13,7 @@ redirect_from:
 * Un-document synonyms (they're even more deprecated now)
 * `coveralls` is now an optional peer dep, not a regular dep, so it won't
   be installed by default
+* Node 12 and higher is now required
 
 ## 15.2 - 2022-03-04
 

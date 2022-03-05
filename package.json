@@ -17,7 +17,7 @@
     "./": "./"
   },
   "engines": {
-    "node": ">=10"
+    "node": ">=12"
   },
   "dependencies": {
     "@isaacs/import-jsx": "^4.0.1",
