@@ -94,7 +94,7 @@ ok 1 - this is fine
     ok 2 - also fine # TODO
     ok 3 - do later # TODO later is never
     ok 4 - rope # SKIP
-    ok 4 - piks # SKIP is piks backward
+    ok 1 - piks # SKIP is piks backward
     # some comment
     1..4 # plan comment
 not ok 2 - child # time=420ms

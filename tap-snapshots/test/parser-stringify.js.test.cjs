@@ -874,7 +874,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": false,
     },
   ],
@@ -891,7 +890,6 @@ Array [
       "failures": Array [
         Result {
           "fullname": "",
-          "id": 1,
           "ok": false,
         },
       ],
@@ -914,14 +912,14 @@ Array [
 
 exports[`test/parser-stringify.js TAP basic.tap bail > stringified 1`] = `
 1..6
-not ok 1
+not ok
 Bail out!
 
 `
 
 exports[`test/parser-stringify.js TAP basic.tap bail > stringified flat 1`] = `
 1..6
-not ok 1
+not ok
 Bail out!
 
 `
@@ -939,7 +937,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": false,
     },
   ],
@@ -947,7 +944,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -955,7 +951,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 3,
       "ok": false,
     },
   ],
@@ -963,7 +958,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 4,
       "ok": true,
     },
   ],
@@ -971,7 +965,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 5,
       "ok": true,
     },
   ],
@@ -992,12 +985,10 @@ Array [
       "failures": Array [
         Result {
           "fullname": "",
-          "id": 1,
           "ok": false,
         },
         Result {
           "fullname": "",
-          "id": 3,
           "ok": false,
         },
       ],
@@ -1020,11 +1011,11 @@ Array [
 
 exports[`test/parser-stringify.js TAP basic.tap default settings > stringified 1`] = `
 1..6
-not ok 1
-ok 2
-not ok 3
-ok 4
-ok 5
+not ok
+ok
+not ok
+ok
+ok
 # test count(5) != plan(6)
 # failed 2 of 5 tests
 
@@ -1032,11 +1023,11 @@ ok 5
 
 exports[`test/parser-stringify.js TAP basic.tap default settings > stringified flat 1`] = `
 1..6
-not ok 1
-ok 2
-not ok 3
-ok 4
-ok 5
+not ok
+ok
+not ok
+ok
+ok
 # test count(5) != plan(6)
 # failed 2 of 5 tests
 
@@ -1055,7 +1046,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": false,
     },
   ],
@@ -1063,7 +1053,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -1071,7 +1060,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 3,
       "ok": false,
     },
   ],
@@ -1079,7 +1067,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 4,
       "ok": true,
     },
   ],
@@ -1087,7 +1074,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 5,
       "ok": true,
     },
   ],
@@ -1108,12 +1094,10 @@ Array [
       "failures": Array [
         Result {
           "fullname": "",
-          "id": 1,
           "ok": false,
         },
         Result {
           "fullname": "",
-          "id": 3,
           "ok": false,
         },
       ],
@@ -1136,11 +1120,11 @@ Array [
 
 exports[`test/parser-stringify.js TAP basic.tap strict > stringified 1`] = `
 1..6
-not ok 1
-ok 2
-not ok 3
-ok 4
-ok 5
+not ok
+ok
+not ok
+ok
+ok
 # test count(5) != plan(6)
 # failed 2 of 5 tests
 
@@ -1148,11 +1132,11 @@ ok 5
 
 exports[`test/parser-stringify.js TAP basic.tap strict > stringified flat 1`] = `
 1..6
-not ok 1
-ok 2
-not ok 3
-ok 4
-ok 5
+not ok
+ok
+not ok
+ok
+ok
 # test count(5) != plan(6)
 # failed 2 of 5 tests
 
@@ -1171,7 +1155,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": false,
     },
   ],
@@ -1188,7 +1171,6 @@ Array [
       "failures": Array [
         Result {
           "fullname": "",
-          "id": 1,
           "ok": false,
         },
       ],
@@ -1211,14 +1193,14 @@ Array [
 
 exports[`test/parser-stringify.js TAP basic.tap strictBail > stringified 1`] = `
 1..6
-not ok 1
+not ok
 Bail out!
 
 `
 
 exports[`test/parser-stringify.js TAP basic.tap strictBail > stringified flat 1`] = `
 1..6
-not ok 1
+not ok
 Bail out!
 
 `
@@ -4398,7 +4380,6 @@ Array [
         "assert",
         Result {
           "fullname": "my kids are fine",
-          "id": 1,
           "name": "no they aren't",
           "ok": false,
         },
@@ -4416,7 +4397,6 @@ Array [
           "failures": Array [
             Result {
               "fullname": "my kids are fine",
-              "id": 1,
               "name": "no they aren't",
               "ok": false,
             },
@@ -4470,7 +4450,7 @@ TAP version 13
 1..1
 # Subtest: my kids are fine
     1..1
-    not ok 1 - no they aren't
+    not ok - no they aren't
     Bail out! no they aren't
 Bail out! no they aren't
 
@@ -4481,7 +4461,7 @@ TAP version 13
 1..1
 # Subtest: my kids are fine
     1..1
-    not ok 1 - no they aren't
+    not ok - no they aren't
     Bail out! no they aren't
 Bail out! no they aren't
 
@@ -4518,7 +4498,6 @@ Array [
         "assert",
         Result {
           "fullname": "my kids are fine",
-          "id": 1,
           "name": "no they aren't",
           "ok": false,
         },
@@ -4536,7 +4515,6 @@ Array [
           "failures": Array [
             Result {
               "fullname": "my kids are fine",
-              "id": 1,
               "name": "no they aren't",
               "ok": false,
             },
@@ -4599,7 +4577,7 @@ TAP version 13
 1..1
 # Subtest: my kids are fine
     1..1
-    not ok 1 - no they aren't
+    not ok - no they aren't
     # failed 1 test
 ok 1 - my kids are fine
   ---
@@ -4613,7 +4591,7 @@ TAP version 13
 1..1
 # Subtest: my kids are fine
     1..1
-    not ok 1 - no they aren't
+    not ok - no they aren't
     # failed 1 test
 ok 1 - my kids are fine
   ---
@@ -4653,7 +4631,6 @@ Array [
         "assert",
         Result {
           "fullname": "my kids are fine",
-          "id": 1,
           "name": "no they aren't",
           "ok": false,
         },
@@ -4671,7 +4648,6 @@ Array [
           "failures": Array [
             Result {
               "fullname": "my kids are fine",
-              "id": 1,
               "name": "no they aren't",
               "ok": false,
             },
@@ -4734,7 +4710,7 @@ TAP version 13
 1..1
 # Subtest: my kids are fine
     1..1
-    not ok 1 - no they aren't
+    not ok - no they aren't
     # failed 1 test
 ok 1 - my kids are fine
   ---
@@ -4748,7 +4724,7 @@ TAP version 13
 1..1
 # Subtest: my kids are fine
     1..1
-    not ok 1 - no they aren't
+    not ok - no they aren't
     # failed 1 test
 ok 1 - my kids are fine
   ---
@@ -4788,7 +4764,6 @@ Array [
         "assert",
         Result {
           "fullname": "my kids are fine",
-          "id": 1,
           "name": "no they aren't",
           "ok": false,
         },
@@ -4806,7 +4781,6 @@ Array [
           "failures": Array [
             Result {
               "fullname": "my kids are fine",
-              "id": 1,
               "name": "no they aren't",
               "ok": false,
             },
@@ -4860,7 +4834,7 @@ TAP version 13
 1..1
 # Subtest: my kids are fine
     1..1
-    not ok 1 - no they aren't
+    not ok - no they aren't
     Bail out! no they aren't
 Bail out! no they aren't
 
@@ -4871,7 +4845,7 @@ TAP version 13
 1..1
 # Subtest: my kids are fine
     1..1
-    not ok 1 - no they aren't
+    not ok - no they aren't
     Bail out! no they aren't
 Bail out! no they aren't
 
@@ -4908,7 +4882,6 @@ Array [
         "assert",
         Result {
           "fullname": "my kids are fine",
-          "id": 1,
           "ok": false,
         },
       ],
@@ -4925,7 +4898,6 @@ Array [
           "failures": Array [
             Result {
               "fullname": "my kids are fine",
-              "id": 1,
               "ok": false,
             },
           ],
@@ -4978,7 +4950,7 @@ TAP version 13
 1..1
 # Subtest: my kids are fine
     1..1
-    not ok 1
+    not ok
     Bail out!
 Bail out!
 
@@ -4989,7 +4961,7 @@ TAP version 13
 1..1
 # Subtest: my kids are fine
     1..1
-    not ok 1
+    not ok
     Bail out!
 Bail out!
 
@@ -5026,7 +4998,6 @@ Array [
         "assert",
         Result {
           "fullname": "my kids are fine",
-          "id": 1,
           "ok": false,
         },
       ],
@@ -5043,7 +5014,6 @@ Array [
           "failures": Array [
             Result {
               "fullname": "my kids are fine",
-              "id": 1,
               "ok": false,
             },
           ],
@@ -5102,7 +5072,7 @@ TAP version 13
 1..1
 # Subtest: my kids are fine
     1..1
-    not ok 1
+    not ok
     # failed 1 test
 ok 1 - my kids are fine
 
@@ -5113,7 +5083,7 @@ TAP version 13
 1..1
 # Subtest: my kids are fine
     1..1
-    not ok 1
+    not ok
     # failed 1 test
 ok 1 - my kids are fine
 
@@ -5150,7 +5120,6 @@ Array [
         "assert",
         Result {
           "fullname": "my kids are fine",
-          "id": 1,
           "ok": false,
         },
       ],
@@ -5167,7 +5136,6 @@ Array [
           "failures": Array [
             Result {
               "fullname": "my kids are fine",
-              "id": 1,
               "ok": false,
             },
           ],
@@ -5226,7 +5194,7 @@ TAP version 13
 1..1
 # Subtest: my kids are fine
     1..1
-    not ok 1
+    not ok
     # failed 1 test
 ok 1 - my kids are fine
 
@@ -5237,7 +5205,7 @@ TAP version 13
 1..1
 # Subtest: my kids are fine
     1..1
-    not ok 1
+    not ok
     # failed 1 test
 ok 1 - my kids are fine
 
@@ -5274,7 +5242,6 @@ Array [
         "assert",
         Result {
           "fullname": "my kids are fine",
-          "id": 1,
           "ok": false,
         },
       ],
@@ -5291,7 +5258,6 @@ Array [
           "failures": Array [
             Result {
               "fullname": "my kids are fine",
-              "id": 1,
               "ok": false,
             },
           ],
@@ -5344,7 +5310,7 @@ TAP version 13
 1..1
 # Subtest: my kids are fine
     1..1
-    not ok 1
+    not ok
     Bail out!
 Bail out!
 
@@ -5355,7 +5321,7 @@ TAP version 13
 1..1
 # Subtest: my kids are fine
     1..1
-    not ok 1
+    not ok
     Bail out!
 Bail out!
 
@@ -5392,7 +5358,6 @@ Array [
         "assert",
         Result {
           "fullname": "my kids are fine",
-          "id": 1,
           "name": "no they aren't",
           "ok": false,
         },
@@ -5410,7 +5375,6 @@ Array [
           "failures": Array [
             Result {
               "fullname": "my kids are fine",
-              "id": 1,
               "name": "no they aren't",
               "ok": false,
             },
@@ -5464,7 +5428,7 @@ TAP version 13
 1..1
 # Subtest: my kids are fine
     1..1
-    not ok 1 - no they aren't
+    not ok - no they aren't
     Bail out! no they aren't
 Bail out! no they aren't
 
@@ -5475,7 +5439,7 @@ TAP version 13
 1..1
 # Subtest: my kids are fine
     1..1
-    not ok 1 - no they aren't
+    not ok - no they aren't
     Bail out! no they aren't
 Bail out! no they aren't
 
@@ -5512,7 +5476,6 @@ Array [
         "assert",
         Result {
           "fullname": "my kids are fine",
-          "id": 1,
           "name": "no they aren't",
           "ok": false,
         },
@@ -5530,7 +5493,6 @@ Array [
           "failures": Array [
             Result {
               "fullname": "my kids are fine",
-              "id": 1,
               "name": "no they aren't",
               "ok": false,
             },
@@ -5590,7 +5552,7 @@ TAP version 13
 1..1
 # Subtest: my kids are fine
     1..1
-    not ok 1 - no they aren't
+    not ok - no they aren't
     # failed 1 test
 ok 1 - my kids are fine
 
@@ -5601,7 +5563,7 @@ TAP version 13
 1..1
 # Subtest: my kids are fine
     1..1
-    not ok 1 - no they aren't
+    not ok - no they aren't
     # failed 1 test
 ok 1 - my kids are fine
 
@@ -5638,7 +5600,6 @@ Array [
         "assert",
         Result {
           "fullname": "my kids are fine",
-          "id": 1,
           "name": "no they aren't",
           "ok": false,
         },
@@ -5656,7 +5617,6 @@ Array [
           "failures": Array [
             Result {
               "fullname": "my kids are fine",
-              "id": 1,
               "name": "no they aren't",
               "ok": false,
             },
@@ -5716,7 +5676,7 @@ TAP version 13
 1..1
 # Subtest: my kids are fine
     1..1
-    not ok 1 - no they aren't
+    not ok - no they aren't
     # failed 1 test
 ok 1 - my kids are fine
 
@@ -5727,7 +5687,7 @@ TAP version 13
 1..1
 # Subtest: my kids are fine
     1..1
-    not ok 1 - no they aren't
+    not ok - no they aren't
     # failed 1 test
 ok 1 - my kids are fine
 
@@ -5764,7 +5724,6 @@ Array [
         "assert",
         Result {
           "fullname": "my kids are fine",
-          "id": 1,
           "name": "no they aren't",
           "ok": false,
         },
@@ -5782,7 +5741,6 @@ Array [
           "failures": Array [
             Result {
               "fullname": "my kids are fine",
-              "id": 1,
               "name": "no they aren't",
               "ok": false,
             },
@@ -5836,7 +5794,7 @@ TAP version 13
 1..1
 # Subtest: my kids are fine
     1..1
-    not ok 1 - no they aren't
+    not ok - no they aren't
     Bail out! no they aren't
 Bail out! no they aren't
 
@@ -5847,7 +5805,7 @@ TAP version 13
 1..1
 # Subtest: my kids are fine
     1..1
-    not ok 1 - no they aren't
+    not ok - no they aren't
     Bail out! no they aren't
 Bail out! no they aren't
 
@@ -5884,7 +5842,6 @@ Array [
         "assert",
         Result {
           "fullname": "please sir, my son, he is sick",
-          "id": 1,
           "name": "i got better",
           "ok": true,
         },
@@ -5969,7 +5926,7 @@ TAP version 13
 1..1
 # Subtest: please sir, my son, he is sick
     1..1
-    ok 1 - i got better
+    ok - i got better
 not ok 1 - please sir, my son, he is sick
   ---
   some: diag
@@ -5983,7 +5940,7 @@ TAP version 13
 1..1
 # Subtest: please sir, my son, he is sick
     1..1
-    ok 1 - i got better
+    ok - i got better
 not ok 1 - please sir, my son, he is sick
   ---
   some: diag
@@ -6023,7 +5980,6 @@ Array [
         "assert",
         Result {
           "fullname": "please sir, my son, he is sick",
-          "id": 1,
           "name": "i got better",
           "ok": true,
         },
@@ -6108,7 +6064,7 @@ TAP version 13
 1..1
 # Subtest: please sir, my son, he is sick
     1..1
-    ok 1 - i got better
+    ok - i got better
 not ok 1 - please sir, my son, he is sick
   ---
   some: diag
@@ -6122,7 +6078,7 @@ TAP version 13
 1..1
 # Subtest: please sir, my son, he is sick
     1..1
-    ok 1 - i got better
+    ok - i got better
 not ok 1 - please sir, my son, he is sick
   ---
   some: diag
@@ -6162,7 +6118,6 @@ Array [
         "assert",
         Result {
           "fullname": "please sir, my son, he is sick",
-          "id": 1,
           "name": "i got better",
           "ok": true,
         },
@@ -6247,7 +6202,7 @@ TAP version 13
 1..1
 # Subtest: please sir, my son, he is sick
     1..1
-    ok 1 - i got better
+    ok - i got better
 not ok 1 - please sir, my son, he is sick
   ---
   some: diag
@@ -6261,7 +6216,7 @@ TAP version 13
 1..1
 # Subtest: please sir, my son, he is sick
     1..1
-    ok 1 - i got better
+    ok - i got better
 not ok 1 - please sir, my son, he is sick
   ---
   some: diag
@@ -6301,7 +6256,6 @@ Array [
         "assert",
         Result {
           "fullname": "please sir, my son, he is sick",
-          "id": 1,
           "name": "i got better",
           "ok": true,
         },
@@ -6386,7 +6340,7 @@ TAP version 13
 1..1
 # Subtest: please sir, my son, he is sick
     1..1
-    ok 1 - i got better
+    ok - i got better
 not ok 1 - please sir, my son, he is sick
   ---
   some: diag
@@ -6400,7 +6354,7 @@ TAP version 13
 1..1
 # Subtest: please sir, my son, he is sick
     1..1
-    ok 1 - i got better
+    ok - i got better
 not ok 1 - please sir, my son, he is sick
   ---
   some: diag
@@ -6440,7 +6394,6 @@ Array [
         "assert",
         Result {
           "fullname": "please sir, my son, he is sick",
-          "id": 1,
           "name": "i got better",
           "ok": true,
         },
@@ -6519,7 +6472,7 @@ TAP version 13
 1..1
 # Subtest: please sir, my son, he is sick
     1..1
-    ok 1 - i got better
+    ok - i got better
 not ok 1 - please sir, my son, he is sick
 Bail out! please sir, my son, he is sick
 
@@ -6530,7 +6483,7 @@ TAP version 13
 1..1
 # Subtest: please sir, my son, he is sick
     1..1
-    ok 1 - i got better
+    ok - i got better
 not ok 1 - please sir, my son, he is sick
 Bail out! please sir, my son, he is sick
 
@@ -6567,7 +6520,6 @@ Array [
         "assert",
         Result {
           "fullname": "please sir, my son, he is sick",
-          "id": 1,
           "name": "i got better",
           "ok": true,
         },
@@ -6646,7 +6598,7 @@ TAP version 13
 1..1
 # Subtest: please sir, my son, he is sick
     1..1
-    ok 1 - i got better
+    ok - i got better
 not ok 1 - please sir, my son, he is sick
 # failed 1 test
 
@@ -6657,7 +6609,7 @@ TAP version 13
 1..1
 # Subtest: please sir, my son, he is sick
     1..1
-    ok 1 - i got better
+    ok - i got better
 not ok 1 - please sir, my son, he is sick
 # failed 1 test
 
@@ -6694,7 +6646,6 @@ Array [
         "assert",
         Result {
           "fullname": "please sir, my son, he is sick",
-          "id": 1,
           "name": "i got better",
           "ok": true,
         },
@@ -6773,7 +6724,7 @@ TAP version 13
 1..1
 # Subtest: please sir, my son, he is sick
     1..1
-    ok 1 - i got better
+    ok - i got better
 not ok 1 - please sir, my son, he is sick
 # failed 1 test
 
@@ -6784,7 +6735,7 @@ TAP version 13
 1..1
 # Subtest: please sir, my son, he is sick
     1..1
-    ok 1 - i got better
+    ok - i got better
 not ok 1 - please sir, my son, he is sick
 # failed 1 test
 
@@ -6821,7 +6772,6 @@ Array [
         "assert",
         Result {
           "fullname": "please sir, my son, he is sick",
-          "id": 1,
           "name": "i got better",
           "ok": true,
         },
@@ -6900,7 +6850,7 @@ TAP version 13
 1..1
 # Subtest: please sir, my son, he is sick
     1..1
-    ok 1 - i got better
+    ok - i got better
 not ok 1 - please sir, my son, he is sick
 Bail out! please sir, my son, he is sick
 
@@ -6911,7 +6861,7 @@ TAP version 13
 1..1
 # Subtest: please sir, my son, he is sick
     1..1
-    ok 1 - i got better
+    ok - i got better
 not ok 1 - please sir, my son, he is sick
 Bail out! please sir, my son, he is sick
 
@@ -7893,7 +7843,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "1",
       "ok": false,
     },
@@ -7911,7 +7860,6 @@ Array [
       "failures": Array [
         Result {
           "fullname": "",
-          "id": 1,
           "name": "1",
           "ok": false,
         },
@@ -7934,13 +7882,13 @@ Array [
 `
 
 exports[`test/parser-stringify.js TAP child-after-failure.tap bail > stringified 1`] = `
-not ok 1 - 1
+not ok - 1
 Bail out! 1
 
 `
 
 exports[`test/parser-stringify.js TAP child-after-failure.tap bail > stringified flat 1`] = `
-not ok 1 - 1
+not ok - 1
 Bail out! 1
 
 `
@@ -7951,7 +7899,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "1",
       "ok": false,
     },
@@ -7967,7 +7914,6 @@ Array [
         "assert",
         Result {
           "fullname": "child",
-          "id": 1,
           "ok": true,
         },
       ],
@@ -8030,7 +7976,6 @@ Array [
       "failures": Array [
         Result {
           "fullname": "",
-          "id": 1,
           "name": "1",
           "ok": false,
         },
@@ -8053,9 +7998,9 @@ Array [
 `
 
 exports[`test/parser-stringify.js TAP child-after-failure.tap default settings > stringified 1`] = `
-not ok 1 - 1
+not ok - 1
 # Subtest: child
-    ok 1
+    ok
     1..1
 ok 2 - child
 1..2
@@ -8064,9 +8009,9 @@ ok 2 - child
 `
 
 exports[`test/parser-stringify.js TAP child-after-failure.tap default settings > stringified flat 1`] = `
-not ok 1 - 1
+not ok - 1
 # Subtest: child
-    ok 1
+    ok
     1..1
 ok 2 - child
 1..2
@@ -8080,7 +8025,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "1",
       "ok": false,
     },
@@ -8096,7 +8040,6 @@ Array [
         "assert",
         Result {
           "fullname": "child",
-          "id": 1,
           "ok": true,
         },
       ],
@@ -8159,7 +8102,6 @@ Array [
       "failures": Array [
         Result {
           "fullname": "",
-          "id": 1,
           "name": "1",
           "ok": false,
         },
@@ -8182,9 +8124,9 @@ Array [
 `
 
 exports[`test/parser-stringify.js TAP child-after-failure.tap strict > stringified 1`] = `
-not ok 1 - 1
+not ok - 1
 # Subtest: child
-    ok 1
+    ok
     1..1
 ok 2 - child
 1..2
@@ -8193,9 +8135,9 @@ ok 2 - child
 `
 
 exports[`test/parser-stringify.js TAP child-after-failure.tap strict > stringified flat 1`] = `
-not ok 1 - 1
+not ok - 1
 # Subtest: child
-    ok 1
+    ok
     1..1
 ok 2 - child
 1..2
@@ -8209,7 +8151,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "1",
       "ok": false,
     },
@@ -8227,7 +8168,6 @@ Array [
       "failures": Array [
         Result {
           "fullname": "",
-          "id": 1,
           "name": "1",
           "ok": false,
         },
@@ -8250,13 +8190,13 @@ Array [
 `
 
 exports[`test/parser-stringify.js TAP child-after-failure.tap strictBail > stringified 1`] = `
-not ok 1 - 1
+not ok - 1
 Bail out! 1
 
 `
 
 exports[`test/parser-stringify.js TAP child-after-failure.tap strictBail > stringified flat 1`] = `
-not ok 1 - 1
+not ok - 1
 Bail out! 1
 
 `
@@ -9080,7 +9020,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 5,
       "name": "say \\"live without loving\\",",
       "ok": true,
     },
@@ -9185,7 +9124,7 @@ ok 1
 ok 2 - basset hounds got long ears
 not ok 3 - all hell broke loose
 not ok 4 # TODO if I heard a voice from heaven ...
-ok 5 - say "live without loving",
+ok - say "live without loving",
 ok 6 - I'd beg off.
 ok 7 # SKIP contract negotiations
 ok 8 - Girls are such exquisite hell
@@ -9203,7 +9142,7 @@ ok 1
 ok 2 - basset hounds got long ears
 not ok 3 - all hell broke loose
 not ok 4 # TODO if I heard a voice from heaven ...
-ok 5 - say "live without loving",
+ok - say "live without loving",
 ok 6 - I'd beg off.
 ok 7 # SKIP contract negotiations
 ok 8 - Girls are such exquisite hell
@@ -9264,7 +9203,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 5,
       "name": "say \\"live without loving\\",",
       "ok": true,
     },
@@ -9369,7 +9307,7 @@ ok 1
 ok 2 - basset hounds got long ears
 not ok 3 - all hell broke loose
 not ok 4 # TODO if I heard a voice from heaven ...
-ok 5 - say "live without loving",
+ok - say "live without loving",
 ok 6 - I'd beg off.
 ok 7 # SKIP contract negotiations
 ok 8 - Girls are such exquisite hell
@@ -9387,7 +9325,7 @@ ok 1
 ok 2 - basset hounds got long ears
 not ok 3 - all hell broke loose
 not ok 4 # TODO if I heard a voice from heaven ...
-ok 5 - say "live without loving",
+ok - say "live without loving",
 ok 6 - I'd beg off.
 ok 7 # SKIP contract negotiations
 ok 8 - Girls are such exquisite hell
@@ -9616,7 +9554,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 5,
       "ok": true,
     },
   ],
@@ -9724,7 +9661,7 @@ ok 1
 ok 2 - basset hounds got long ears
 not ok 3 - all hell broke lose
 ok 4
-ok 5
+ok
 ok 6
 ok 7 # SKIP contract negociations
 ok 8
@@ -9742,7 +9679,7 @@ ok 1
 ok 2 - basset hounds got long ears
 not ok 3 - all hell broke lose
 ok 4
-ok 5
+ok
 ok 6
 ok 7 # SKIP contract negociations
 ok 8
@@ -9798,7 +9735,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 5,
       "ok": true,
     },
   ],
@@ -9910,7 +9846,7 @@ ok 1
 ok 2 - basset hounds got long ears
 not ok 3 - all hell broke lose
 ok 4
-ok 5
+ok
 ok 6
 ok 7 # SKIP contract negociations
 ok 8
@@ -9928,7 +9864,7 @@ ok 1
 ok 2 - basset hounds got long ears
 not ok 3 - all hell broke lose
 ok 4
-ok 5
+ok
 ok 6
 ok 7 # SKIP contract negociations
 ok 8
@@ -12945,7 +12881,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "created Board",
       "ok": true,
     },
@@ -12954,7 +12889,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -12962,7 +12896,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 3,
       "ok": true,
     },
   ],
@@ -12970,7 +12903,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 4,
       "ok": true,
     },
   ],
@@ -12978,7 +12910,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 5,
       "ok": true,
     },
   ],
@@ -12986,7 +12917,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 6,
       "ok": true,
     },
   ],
@@ -12994,7 +12924,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 7,
       "ok": true,
     },
   ],
@@ -13019,7 +12948,6 @@ Array [
         "severity": "comment",
       },
       "fullname": "",
-      "id": 8,
       "ok": true,
     },
   ],
@@ -13027,7 +12955,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 9,
       "name": "board has 7 tiles + starter tile",
       "ok": true,
     },
@@ -13065,14 +12992,14 @@ Array [
 
 exports[`test/parser-stringify.js TAP creative-liberties.tap bail > stringified 1`] = `
 TAP version 13
-ok 1 - created Board
-ok 2
-ok 3
-ok 4
-ok 5
-ok 6
-ok 7
-ok 8
+ok - created Board
+ok
+ok
+ok
+ok
+ok
+ok
+ok
   ---
   message: Board layout
   severity: comment
@@ -13088,21 +13015,21 @@ ok 8
       - "      G A G G N R R N R      "
       - "        G     R     G        "
   ...
-ok 9 - board has 7 tiles + starter tile
+ok - board has 7 tiles + starter tile
 1..9
 
 `
 
 exports[`test/parser-stringify.js TAP creative-liberties.tap bail > stringified flat 1`] = `
 TAP version 13
-ok 1 - created Board
-ok 2
-ok 3
-ok 4
-ok 5
-ok 6
-ok 7
-ok 8
+ok - created Board
+ok
+ok
+ok
+ok
+ok
+ok
+ok
   ---
   message: Board layout
   severity: comment
@@ -13118,7 +13045,7 @@ ok 8
       - "      G A G G N R R N R      "
       - "        G     R     G        "
   ...
-ok 9 - board has 7 tiles + starter tile
+ok - board has 7 tiles + starter tile
 1..9
 
 `
@@ -13133,7 +13060,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "created Board",
       "ok": true,
     },
@@ -13142,7 +13068,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -13150,7 +13075,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 3,
       "ok": true,
     },
   ],
@@ -13158,7 +13082,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 4,
       "ok": true,
     },
   ],
@@ -13166,7 +13089,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 5,
       "ok": true,
     },
   ],
@@ -13174,7 +13096,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 6,
       "ok": true,
     },
   ],
@@ -13182,7 +13103,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 7,
       "ok": true,
     },
   ],
@@ -13207,7 +13127,6 @@ Array [
         "severity": "comment",
       },
       "fullname": "",
-      "id": 8,
       "ok": true,
     },
   ],
@@ -13215,7 +13134,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 9,
       "name": "board has 7 tiles + starter tile",
       "ok": true,
     },
@@ -13253,14 +13171,14 @@ Array [
 
 exports[`test/parser-stringify.js TAP creative-liberties.tap default settings > stringified 1`] = `
 TAP version 13
-ok 1 - created Board
-ok 2
-ok 3
-ok 4
-ok 5
-ok 6
-ok 7
-ok 8
+ok - created Board
+ok
+ok
+ok
+ok
+ok
+ok
+ok
   ---
   message: Board layout
   severity: comment
@@ -13276,21 +13194,21 @@ ok 8
       - "      G A G G N R R N R      "
       - "        G     R     G        "
   ...
-ok 9 - board has 7 tiles + starter tile
+ok - board has 7 tiles + starter tile
 1..9
 
 `
 
 exports[`test/parser-stringify.js TAP creative-liberties.tap default settings > stringified flat 1`] = `
 TAP version 13
-ok 1 - created Board
-ok 2
-ok 3
-ok 4
-ok 5
-ok 6
-ok 7
-ok 8
+ok - created Board
+ok
+ok
+ok
+ok
+ok
+ok
+ok
   ---
   message: Board layout
   severity: comment
@@ -13306,7 +13224,7 @@ ok 8
       - "      G A G G N R R N R      "
       - "        G     R     G        "
   ...
-ok 9 - board has 7 tiles + starter tile
+ok - board has 7 tiles + starter tile
 1..9
 
 `
@@ -13321,7 +13239,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "created Board",
       "ok": true,
     },
@@ -13330,7 +13247,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -13338,7 +13254,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 3,
       "ok": true,
     },
   ],
@@ -13346,7 +13261,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 4,
       "ok": true,
     },
   ],
@@ -13354,7 +13268,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 5,
       "ok": true,
     },
   ],
@@ -13362,7 +13275,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 6,
       "ok": true,
     },
   ],
@@ -13370,7 +13282,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 7,
       "ok": true,
     },
   ],
@@ -13395,7 +13306,6 @@ Array [
         "severity": "comment",
       },
       "fullname": "",
-      "id": 8,
       "ok": true,
     },
   ],
@@ -13403,7 +13313,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 9,
       "name": "board has 7 tiles + starter tile",
       "ok": true,
     },
@@ -13441,14 +13350,14 @@ Array [
 
 exports[`test/parser-stringify.js TAP creative-liberties.tap strict > stringified 1`] = `
 TAP version 13
-ok 1 - created Board
-ok 2
-ok 3
-ok 4
-ok 5
-ok 6
-ok 7
-ok 8
+ok - created Board
+ok
+ok
+ok
+ok
+ok
+ok
+ok
   ---
   message: Board layout
   severity: comment
@@ -13464,21 +13373,21 @@ ok 8
       - "      G A G G N R R N R      "
       - "        G     R     G        "
   ...
-ok 9 - board has 7 tiles + starter tile
+ok - board has 7 tiles + starter tile
 1..9
 
 `
 
 exports[`test/parser-stringify.js TAP creative-liberties.tap strict > stringified flat 1`] = `
 TAP version 13
-ok 1 - created Board
-ok 2
-ok 3
-ok 4
-ok 5
-ok 6
-ok 7
-ok 8
+ok - created Board
+ok
+ok
+ok
+ok
+ok
+ok
+ok
   ---
   message: Board layout
   severity: comment
@@ -13494,7 +13403,7 @@ ok 8
       - "      G A G G N R R N R      "
       - "        G     R     G        "
   ...
-ok 9 - board has 7 tiles + starter tile
+ok - board has 7 tiles + starter tile
 1..9
 
 `
@@ -13509,7 +13418,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "created Board",
       "ok": true,
     },
@@ -13518,7 +13426,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -13526,7 +13433,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 3,
       "ok": true,
     },
   ],
@@ -13534,7 +13440,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 4,
       "ok": true,
     },
   ],
@@ -13542,7 +13447,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 5,
       "ok": true,
     },
   ],
@@ -13550,7 +13454,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 6,
       "ok": true,
     },
   ],
@@ -13558,7 +13461,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 7,
       "ok": true,
     },
   ],
@@ -13583,7 +13485,6 @@ Array [
         "severity": "comment",
       },
       "fullname": "",
-      "id": 8,
       "ok": true,
     },
   ],
@@ -13591,7 +13492,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 9,
       "name": "board has 7 tiles + starter tile",
       "ok": true,
     },
@@ -13629,14 +13529,14 @@ Array [
 
 exports[`test/parser-stringify.js TAP creative-liberties.tap strictBail > stringified 1`] = `
 TAP version 13
-ok 1 - created Board
-ok 2
-ok 3
-ok 4
-ok 5
-ok 6
-ok 7
-ok 8
+ok - created Board
+ok
+ok
+ok
+ok
+ok
+ok
+ok
   ---
   message: Board layout
   severity: comment
@@ -13652,21 +13552,21 @@ ok 8
       - "      G A G G N R R N R      "
       - "        G     R     G        "
   ...
-ok 9 - board has 7 tiles + starter tile
+ok - board has 7 tiles + starter tile
 1..9
 
 `
 
 exports[`test/parser-stringify.js TAP creative-liberties.tap strictBail > stringified flat 1`] = `
 TAP version 13
-ok 1 - created Board
-ok 2
-ok 3
-ok 4
-ok 5
-ok 6
-ok 7
-ok 8
+ok - created Board
+ok
+ok
+ok
+ok
+ok
+ok
+ok
   ---
   message: Board layout
   severity: comment
@@ -13682,7 +13582,7 @@ ok 8
       - "      G A G G N R R N R      "
       - "        G     R     G        "
   ...
-ok 9 - board has 7 tiles + starter tile
+ok - board has 7 tiles + starter tile
 1..9
 
 `
@@ -16928,6 +16828,12 @@ Array [
       "fullname": "",
       "id": 4,
       "ok": true,
+      "previous": Result {
+        "fullname": "",
+        "id": 4,
+        "ok": true,
+      },
+      "tapError": "test point id 4 appears multiple times",
     },
   ],
   Array [
@@ -16993,8 +16899,16 @@ Array [
       "count": 11,
       "fail": 1,
       "failures": Array [
-        Object {
-          "tapError": "incorrect number of tests",
+        Result {
+          "fullname": "",
+          "id": 4,
+          "ok": true,
+          "previous": Result {
+            "fullname": "",
+            "id": 4,
+            "ok": true,
+          },
+          "tapError": "test point id 4 appears multiple times",
         },
       ],
       "ok": false,
@@ -17097,6 +17011,12 @@ Array [
       "fullname": "",
       "id": 4,
       "ok": true,
+      "previous": Result {
+        "fullname": "",
+        "id": 4,
+        "ok": true,
+      },
+      "tapError": "test point id 4 appears multiple times",
     },
   ],
   Array [
@@ -17162,8 +17082,16 @@ Array [
       "count": 11,
       "fail": 1,
       "failures": Array [
-        Object {
-          "tapError": "incorrect number of tests",
+        Result {
+          "fullname": "",
+          "id": 4,
+          "ok": true,
+          "previous": Result {
+            "fullname": "",
+            "id": 4,
+            "ok": true,
+          },
+          "tapError": "test point id 4 appears multiple times",
         },
       ],
       "ok": false,
@@ -17266,6 +17194,12 @@ Array [
       "fullname": "",
       "id": 4,
       "ok": true,
+      "previous": Result {
+        "fullname": "",
+        "id": 4,
+        "ok": true,
+      },
+      "tapError": "test point id 4 appears multiple times",
     },
   ],
   Array [
@@ -17331,8 +17265,16 @@ Array [
       "count": 11,
       "fail": 1,
       "failures": Array [
-        Object {
-          "tapError": "incorrect number of tests",
+        Result {
+          "fullname": "",
+          "id": 4,
+          "ok": true,
+          "previous": Result {
+            "fullname": "",
+            "id": 4,
+            "ok": true,
+          },
+          "tapError": "test point id 4 appears multiple times",
         },
       ],
       "ok": false,
@@ -17435,6 +17377,12 @@ Array [
       "fullname": "",
       "id": 4,
       "ok": true,
+      "previous": Result {
+        "fullname": "",
+        "id": 4,
+        "ok": true,
+      },
+      "tapError": "test point id 4 appears multiple times",
     },
   ],
   Array [
@@ -17500,8 +17448,16 @@ Array [
       "count": 11,
       "fail": 1,
       "failures": Array [
-        Object {
-          "tapError": "incorrect number of tests",
+        Result {
+          "fullname": "",
+          "id": 4,
+          "ok": true,
+          "previous": Result {
+            "fullname": "",
+            "id": 4,
+            "ok": true,
+          },
+          "tapError": "test point id 4 appears multiple times",
         },
       ],
       "ok": false,
@@ -17770,7 +17726,6 @@ Array [
     Result {
       "buffered": true,
       "fullname": "",
-      "id": 1,
       "name": "child",
       "ok": true,
     },
@@ -17810,7 +17765,7 @@ exports[`test/parser-stringify.js TAP empty-buffered-child.tap bail > stringifie
 TAP version 13
 # Subtest: child
     
-ok 1 - child
+ok - child
 1..1
 
 `
@@ -17819,7 +17774,7 @@ exports[`test/parser-stringify.js TAP empty-buffered-child.tap bail > stringifie
 TAP version 13
 # Subtest: child
     
-ok 1 - child
+ok - child
 1..1
 
 `
@@ -17865,7 +17820,6 @@ Array [
     Result {
       "buffered": true,
       "fullname": "",
-      "id": 1,
       "name": "child",
       "ok": true,
     },
@@ -17905,7 +17859,7 @@ exports[`test/parser-stringify.js TAP empty-buffered-child.tap default settings 
 TAP version 13
 # Subtest: child
     
-ok 1 - child
+ok - child
 1..1
 
 `
@@ -17914,7 +17868,7 @@ exports[`test/parser-stringify.js TAP empty-buffered-child.tap default settings 
 TAP version 13
 # Subtest: child
     
-ok 1 - child
+ok - child
 1..1
 
 `
@@ -17960,7 +17914,6 @@ Array [
     Result {
       "buffered": true,
       "fullname": "",
-      "id": 1,
       "name": "child",
       "ok": true,
     },
@@ -18000,7 +17953,7 @@ exports[`test/parser-stringify.js TAP empty-buffered-child.tap strict > stringif
 TAP version 13
 # Subtest: child
     
-ok 1 - child
+ok - child
 1..1
 
 `
@@ -18009,7 +17962,7 @@ exports[`test/parser-stringify.js TAP empty-buffered-child.tap strict > stringif
 TAP version 13
 # Subtest: child
     
-ok 1 - child
+ok - child
 1..1
 
 `
@@ -18055,7 +18008,6 @@ Array [
     Result {
       "buffered": true,
       "fullname": "",
-      "id": 1,
       "name": "child",
       "ok": true,
     },
@@ -18095,7 +18047,7 @@ exports[`test/parser-stringify.js TAP empty-buffered-child.tap strictBail > stri
 TAP version 13
 # Subtest: child
     
-ok 1 - child
+ok - child
 1..1
 
 `
@@ -18104,7 +18056,7 @@ exports[`test/parser-stringify.js TAP empty-buffered-child.tap strictBail > stri
 TAP version 13
 # Subtest: child
     
-ok 1 - child
+ok - child
 1..1
 
 `
@@ -18122,7 +18074,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -18130,7 +18081,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -18160,15 +18110,15 @@ Array [
 
 exports[`test/parser-stringify.js TAP empty-failures.tap bail > stringified 1`] = `
 1..2
-ok 1
-ok 2
+ok
+ok
 
 `
 
 exports[`test/parser-stringify.js TAP empty-failures.tap bail > stringified flat 1`] = `
 1..2
-ok 1
-ok 2
+ok
+ok
 
 `
 
@@ -18185,7 +18135,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -18193,7 +18142,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -18223,15 +18171,15 @@ Array [
 
 exports[`test/parser-stringify.js TAP empty-failures.tap default settings > stringified 1`] = `
 1..2
-ok 1
-ok 2
+ok
+ok
 
 `
 
 exports[`test/parser-stringify.js TAP empty-failures.tap default settings > stringified flat 1`] = `
 1..2
-ok 1
-ok 2
+ok
+ok
 
 `
 
@@ -18248,7 +18196,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -18256,7 +18203,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -18286,15 +18232,15 @@ Array [
 
 exports[`test/parser-stringify.js TAP empty-failures.tap strict > stringified 1`] = `
 1..2
-ok 1
-ok 2
+ok
+ok
 
 `
 
 exports[`test/parser-stringify.js TAP empty-failures.tap strict > stringified flat 1`] = `
 1..2
-ok 1
-ok 2
+ok
+ok
 
 `
 
@@ -18311,7 +18257,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -18319,7 +18264,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -18349,15 +18293,15 @@ Array [
 
 exports[`test/parser-stringify.js TAP empty-failures.tap strictBail > stringified 1`] = `
 1..2
-ok 1
-ok 2
+ok
+ok
 
 `
 
 exports[`test/parser-stringify.js TAP empty-failures.tap strictBail > stringified flat 1`] = `
 1..2
-ok 1
-ok 2
+ok
+ok
 
 `
 
@@ -21191,7 +21135,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": false,
     },
   ],
@@ -21216,7 +21159,6 @@ Array [
       "failures": Array [
         Result {
           "fullname": "",
-          "id": 1,
           "ok": false,
         },
       ],
@@ -21239,7 +21181,7 @@ Array [
 
 exports[`test/parser-stringify.js TAP fail-right-before-indented-child-diag.tap bail > stringified 1`] = `
 TAP version 13
-not ok 1
+not ok
   ...
   some: diags
 Bail out!
@@ -21248,7 +21190,7 @@ Bail out!
 
 exports[`test/parser-stringify.js TAP fail-right-before-indented-child-diag.tap bail > stringified flat 1`] = `
 TAP version 13
-not ok 1
+not ok
   ...
   some: diags
 Bail out!
@@ -21265,7 +21207,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": false,
     },
   ],
@@ -21299,7 +21240,6 @@ Array [
         "assert",
         Result {
           "fullname": "maybe a child",
-          "id": 1,
           "ok": true,
         },
       ],
@@ -21330,7 +21270,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "name": "maybe a child",
       "ok": true,
     },
@@ -21352,7 +21291,6 @@ Array [
       "failures": Array [
         Result {
           "fullname": "",
-          "id": 1,
           "ok": false,
         },
         Object {
@@ -21378,14 +21316,14 @@ Array [
 
 exports[`test/parser-stringify.js TAP fail-right-before-indented-child-diag.tap default settings > stringified 1`] = `
 TAP version 13
-not ok 1
+not ok
   ...
   some: diags
   ---
 # Subtest: maybe a child
     1..1
-    ok 1
-ok 2 - maybe a child
+    ok
+ok - maybe a child
 # test count(2) != plan(null)
 # failed 2 of 2 tests
 
@@ -21393,14 +21331,14 @@ ok 2 - maybe a child
 
 exports[`test/parser-stringify.js TAP fail-right-before-indented-child-diag.tap default settings > stringified flat 1`] = `
 TAP version 13
-not ok 1
+not ok
   ...
   some: diags
   ---
 # Subtest: maybe a child
     1..1
-    ok 1
-ok 2 - maybe a child
+    ok
+ok - maybe a child
 # test count(2) != plan(null)
 # failed 2 of 2 tests
 
@@ -21416,7 +21354,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": false,
     },
   ],
@@ -21450,7 +21387,6 @@ Array [
         "assert",
         Result {
           "fullname": "maybe a child",
-          "id": 1,
           "ok": true,
         },
       ],
@@ -21481,7 +21417,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "name": "maybe a child",
       "ok": true,
     },
@@ -21511,7 +21446,6 @@ Array [
         },
         Result {
           "fullname": "",
-          "id": 1,
           "ok": false,
         },
         Object {
@@ -21541,14 +21475,14 @@ Array [
 
 exports[`test/parser-stringify.js TAP fail-right-before-indented-child-diag.tap strict > stringified 1`] = `
 TAP version 13
-not ok 1
+not ok
   ...
   some: diags
   ---
 # Subtest: maybe a child
     1..1
-    ok 1
-ok 2 - maybe a child
+    ok
+ok - maybe a child
 # test count(2) != plan(null)
 # failed 5 of 2 tests
 
@@ -21556,14 +21490,14 @@ ok 2 - maybe a child
 
 exports[`test/parser-stringify.js TAP fail-right-before-indented-child-diag.tap strict > stringified flat 1`] = `
 TAP version 13
-not ok 1
+not ok
   ...
   some: diags
   ---
 # Subtest: maybe a child
     1..1
-    ok 1
-ok 2 - maybe a child
+    ok
+ok - maybe a child
 # test count(2) != plan(null)
 # failed 5 of 2 tests
 
@@ -21579,7 +21513,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": false,
     },
   ],
@@ -21612,7 +21545,6 @@ Array [
         },
         Result {
           "fullname": "",
-          "id": 1,
           "ok": false,
         },
       ],
@@ -21635,7 +21567,7 @@ Array [
 
 exports[`test/parser-stringify.js TAP fail-right-before-indented-child-diag.tap strictBail > stringified 1`] = `
 TAP version 13
-not ok 1
+not ok
   ...
   some: diags
 Bail out!
@@ -21644,7 +21576,7 @@ Bail out!
 
 exports[`test/parser-stringify.js TAP fail-right-before-indented-child-diag.tap strictBail > stringified flat 1`] = `
 TAP version 13
-not ok 1
+not ok
   ...
   some: diags
 Bail out!
@@ -21661,7 +21593,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": false,
     },
   ],
@@ -21678,7 +21609,6 @@ Array [
       "failures": Array [
         Result {
           "fullname": "",
-          "id": 1,
           "ok": false,
         },
       ],
@@ -21701,14 +21631,14 @@ Array [
 
 exports[`test/parser-stringify.js TAP fail-right-before-indented-child.tap bail > stringified 1`] = `
 TAP version 13
-not ok 1
+not ok
 Bail out!
 
 `
 
 exports[`test/parser-stringify.js TAP fail-right-before-indented-child.tap bail > stringified flat 1`] = `
 TAP version 13
-not ok 1
+not ok
 Bail out!
 
 `
@@ -21723,7 +21653,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": false,
     },
   ],
@@ -21745,7 +21674,6 @@ Array [
         "assert",
         Result {
           "fullname": "maybe a child",
-          "id": 1,
           "ok": true,
         },
       ],
@@ -21776,7 +21704,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "name": "maybe a child",
       "ok": true,
     },
@@ -21798,7 +21725,6 @@ Array [
       "failures": Array [
         Result {
           "fullname": "",
-          "id": 1,
           "ok": false,
         },
         Object {
@@ -21824,11 +21750,11 @@ Array [
 
 exports[`test/parser-stringify.js TAP fail-right-before-indented-child.tap default settings > stringified 1`] = `
 TAP version 13
-not ok 1
+not ok
 # Subtest: maybe a child
     1..1
-    ok 1
-ok 2 - maybe a child
+    ok
+ok - maybe a child
 # test count(2) != plan(null)
 # failed 2 of 2 tests
 
@@ -21836,11 +21762,11 @@ ok 2 - maybe a child
 
 exports[`test/parser-stringify.js TAP fail-right-before-indented-child.tap default settings > stringified flat 1`] = `
 TAP version 13
-not ok 1
+not ok
 # Subtest: maybe a child
     1..1
-    ok 1
-ok 2 - maybe a child
+    ok
+ok - maybe a child
 # test count(2) != plan(null)
 # failed 2 of 2 tests
 
@@ -21856,7 +21782,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": false,
     },
   ],
@@ -21878,7 +21803,6 @@ Array [
         "assert",
         Result {
           "fullname": "maybe a child",
-          "id": 1,
           "ok": true,
         },
       ],
@@ -21909,7 +21833,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "name": "maybe a child",
       "ok": true,
     },
@@ -21931,7 +21854,6 @@ Array [
       "failures": Array [
         Result {
           "fullname": "",
-          "id": 1,
           "ok": false,
         },
         Object {
@@ -21957,11 +21879,11 @@ Array [
 
 exports[`test/parser-stringify.js TAP fail-right-before-indented-child.tap strict > stringified 1`] = `
 TAP version 13
-not ok 1
+not ok
 # Subtest: maybe a child
     1..1
-    ok 1
-ok 2 - maybe a child
+    ok
+ok - maybe a child
 # test count(2) != plan(null)
 # failed 2 of 2 tests
 
@@ -21969,11 +21891,11 @@ ok 2 - maybe a child
 
 exports[`test/parser-stringify.js TAP fail-right-before-indented-child.tap strict > stringified flat 1`] = `
 TAP version 13
-not ok 1
+not ok
 # Subtest: maybe a child
     1..1
-    ok 1
-ok 2 - maybe a child
+    ok
+ok - maybe a child
 # test count(2) != plan(null)
 # failed 2 of 2 tests
 
@@ -21989,7 +21911,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": false,
     },
   ],
@@ -22006,7 +21927,6 @@ Array [
       "failures": Array [
         Result {
           "fullname": "",
-          "id": 1,
           "ok": false,
         },
       ],
@@ -22029,14 +21949,14 @@ Array [
 
 exports[`test/parser-stringify.js TAP fail-right-before-indented-child.tap strictBail > stringified 1`] = `
 TAP version 13
-not ok 1
+not ok
 Bail out!
 
 `
 
 exports[`test/parser-stringify.js TAP fail-right-before-indented-child.tap strictBail > stringified flat 1`] = `
 TAP version 13
-not ok 1
+not ok
 Bail out!
 
 `
@@ -24547,7 +24467,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "one",
       "ok": true,
     },
@@ -24556,7 +24475,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "name": "two",
       "ok": true,
     },
@@ -24569,7 +24487,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 3,
       "name": "three",
       "ok": true,
     },
@@ -24578,7 +24495,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 4,
       "name": "four",
       "ok": true,
     },
@@ -24633,11 +24549,11 @@ Array [
 exports[`test/parser-stringify.js TAP implicit-counter.tap bail > stringified 1`] = `
 TAP version 13
 # before 1
-ok 1 - one
-ok 2 - two
+ok - one
+ok - two
 # before 3
-ok 3 - three
-ok 4 - four
+ok - three
+ok - four
 # after 4
 1..4
 # tests 4
@@ -24649,11 +24565,11 @@ ok 4 - four
 exports[`test/parser-stringify.js TAP implicit-counter.tap bail > stringified flat 1`] = `
 TAP version 13
 # before 1
-ok 1 - one
-ok 2 - two
+ok - one
+ok - two
 # before 3
-ok 3 - three
-ok 4 - four
+ok - three
+ok - four
 # after 4
 1..4
 # tests 4
@@ -24676,7 +24592,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "one",
       "ok": true,
     },
@@ -24685,7 +24600,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "name": "two",
       "ok": true,
     },
@@ -24698,7 +24612,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 3,
       "name": "three",
       "ok": true,
     },
@@ -24707,7 +24620,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 4,
       "name": "four",
       "ok": true,
     },
@@ -24762,11 +24674,11 @@ Array [
 exports[`test/parser-stringify.js TAP implicit-counter.tap default settings > stringified 1`] = `
 TAP version 13
 # before 1
-ok 1 - one
-ok 2 - two
+ok - one
+ok - two
 # before 3
-ok 3 - three
-ok 4 - four
+ok - three
+ok - four
 # after 4
 1..4
 # tests 4
@@ -24778,11 +24690,11 @@ ok 4 - four
 exports[`test/parser-stringify.js TAP implicit-counter.tap default settings > stringified flat 1`] = `
 TAP version 13
 # before 1
-ok 1 - one
-ok 2 - two
+ok - one
+ok - two
 # before 3
-ok 3 - three
-ok 4 - four
+ok - three
+ok - four
 # after 4
 1..4
 # tests 4
@@ -24805,7 +24717,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "one",
       "ok": true,
     },
@@ -24814,7 +24725,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "name": "two",
       "ok": true,
     },
@@ -24827,7 +24737,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 3,
       "name": "three",
       "ok": true,
     },
@@ -24836,7 +24745,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 4,
       "name": "four",
       "ok": true,
     },
@@ -24891,11 +24799,11 @@ Array [
 exports[`test/parser-stringify.js TAP implicit-counter.tap strict > stringified 1`] = `
 TAP version 13
 # before 1
-ok 1 - one
-ok 2 - two
+ok - one
+ok - two
 # before 3
-ok 3 - three
-ok 4 - four
+ok - three
+ok - four
 # after 4
 1..4
 # tests 4
@@ -24907,11 +24815,11 @@ ok 4 - four
 exports[`test/parser-stringify.js TAP implicit-counter.tap strict > stringified flat 1`] = `
 TAP version 13
 # before 1
-ok 1 - one
-ok 2 - two
+ok - one
+ok - two
 # before 3
-ok 3 - three
-ok 4 - four
+ok - three
+ok - four
 # after 4
 1..4
 # tests 4
@@ -24934,7 +24842,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "one",
       "ok": true,
     },
@@ -24943,7 +24850,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "name": "two",
       "ok": true,
     },
@@ -24956,7 +24862,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 3,
       "name": "three",
       "ok": true,
     },
@@ -24965,7 +24870,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 4,
       "name": "four",
       "ok": true,
     },
@@ -25020,11 +24924,11 @@ Array [
 exports[`test/parser-stringify.js TAP implicit-counter.tap strictBail > stringified 1`] = `
 TAP version 13
 # before 1
-ok 1 - one
-ok 2 - two
+ok - one
+ok - two
 # before 3
-ok 3 - three
-ok 4 - four
+ok - three
+ok - four
 # after 4
 1..4
 # tests 4
@@ -25036,11 +24940,11 @@ ok 4 - four
 exports[`test/parser-stringify.js TAP implicit-counter.tap strictBail > stringified flat 1`] = `
 TAP version 13
 # before 1
-ok 1 - one
-ok 2 - two
+ok - one
+ok - two
 # before 3
-ok 3 - three
-ok 4 - four
+ok - three
+ok - four
 # after 4
 1..4
 # tests 4
@@ -25168,7 +25072,6 @@ Array [
             "assert",
             Result {
               "fullname": "second this passes",
-              "id": 1,
               "name": "granddaughter",
               "ok": false,
               "skip": "for no raisin",
@@ -25183,7 +25086,6 @@ Array [
                 "this": "is not tap",
               },
               "fullname": "second this passes",
-              "id": 2,
               "name": "grandson",
               "ok": true,
               "time": 1001,
@@ -25193,7 +25095,6 @@ Array [
             "assert",
             Result {
               "fullname": "second this passes",
-              "id": 3,
               "name": "grandchild",
               "ok": false,
               "todo": true,
@@ -25327,14 +25228,14 @@ ok 1 - first # time=2.589ms
     ok 1 - no plan # time=1.001ms
     # Subtest: this passes
         1..3
-        not ok 1 - granddaughter # SKIP for no raisin
-        ok 2 - grandson # time=1001ms
+        not ok - granddaughter # SKIP for no raisin
+        ok - grandson # time=1001ms
           ---
           ok: 1
           this: is not tap
           it: is yaml
           ...
-        not ok 3 - grandchild # TODO
+        not ok - grandchild # TODO
         # todo: 1
         # skip: 1
     ok 2 - this passes # time=1200ms
@@ -25360,14 +25261,14 @@ ok 1 - first # time=2.589ms
     ok 1 - no plan # time=1.001ms
     # Subtest: this passes
         1..3
-        not ok 1 - granddaughter # SKIP for no raisin
-        ok 2 - grandson # time=1001ms
+        not ok - granddaughter # SKIP for no raisin
+        ok - grandson # time=1001ms
           ---
           ok: 1
           this: is not tap
           it: is yaml
           ...
-        not ok 3 - grandchild # TODO
+        not ok - grandchild # TODO
         # todo: 1
         # skip: 1
     ok 2 - this passes # time=1200ms
@@ -25499,7 +25400,6 @@ Array [
             "assert",
             Result {
               "fullname": "second this passes",
-              "id": 1,
               "name": "granddaughter",
               "ok": false,
               "skip": "for no raisin",
@@ -25514,7 +25414,6 @@ Array [
                 "this": "is not tap",
               },
               "fullname": "second this passes",
-              "id": 2,
               "name": "grandson",
               "ok": true,
               "time": 1001,
@@ -25524,7 +25423,6 @@ Array [
             "assert",
             Result {
               "fullname": "second this passes",
-              "id": 3,
               "name": "grandchild",
               "ok": false,
               "todo": true,
@@ -25658,14 +25556,14 @@ ok 1 - first # time=2.589ms
     ok 1 - no plan # time=1.001ms
     # Subtest: this passes
         1..3
-        not ok 1 - granddaughter # SKIP for no raisin
-        ok 2 - grandson # time=1001ms
+        not ok - granddaughter # SKIP for no raisin
+        ok - grandson # time=1001ms
           ---
           ok: 1
           this: is not tap
           it: is yaml
           ...
-        not ok 3 - grandchild # TODO
+        not ok - grandchild # TODO
         # todo: 1
         # skip: 1
     ok 2 - this passes # time=1200ms
@@ -25691,14 +25589,14 @@ ok 1 - first # time=2.589ms
     ok 1 - no plan # time=1.001ms
     # Subtest: this passes
         1..3
-        not ok 1 - granddaughter # SKIP for no raisin
-        ok 2 - grandson # time=1001ms
+        not ok - granddaughter # SKIP for no raisin
+        ok - grandson # time=1001ms
           ---
           ok: 1
           this: is not tap
           it: is yaml
           ...
-        not ok 3 - grandchild # TODO
+        not ok - grandchild # TODO
         # todo: 1
         # skip: 1
     ok 2 - this passes # time=1200ms
@@ -25830,7 +25728,6 @@ Array [
             "assert",
             Result {
               "fullname": "second this passes",
-              "id": 1,
               "name": "granddaughter",
               "ok": false,
               "skip": "for no raisin",
@@ -25845,7 +25742,6 @@ Array [
                 "this": "is not tap",
               },
               "fullname": "second this passes",
-              "id": 2,
               "name": "grandson",
               "ok": true,
               "time": 1001,
@@ -25855,7 +25751,6 @@ Array [
             "assert",
             Result {
               "fullname": "second this passes",
-              "id": 3,
               "name": "grandchild",
               "ok": false,
               "todo": true,
@@ -26019,14 +25914,14 @@ ok 1 - first # time=2.589ms
     ok 1 - no plan # time=1.001ms
     # Subtest: this passes
         1..3
-        not ok 1 - granddaughter # SKIP for no raisin
-        ok 2 - grandson # time=1001ms
+        not ok - granddaughter # SKIP for no raisin
+        ok - grandson # time=1001ms
           ---
           ok: 1
           this: is not tap
           it: is yaml
           ...
-        not ok 3 - grandchild # TODO
+        not ok - grandchild # TODO
         # failed 3 of 3 tests
         # todo: 1
         # skip: 1
@@ -26054,14 +25949,14 @@ ok 1 - first # time=2.589ms
     ok 1 - no plan # time=1.001ms
     # Subtest: this passes
         1..3
-        not ok 1 - granddaughter # SKIP for no raisin
-        ok 2 - grandson # time=1001ms
+        not ok - granddaughter # SKIP for no raisin
+        ok - grandson # time=1001ms
           ---
           ok: 1
           this: is not tap
           it: is yaml
           ...
-        not ok 3 - grandchild # TODO
+        not ok - grandchild # TODO
         # failed 3 of 3 tests
         # todo: 1
         # skip: 1
@@ -26195,7 +26090,6 @@ Array [
             "assert",
             Result {
               "fullname": "second this passes",
-              "id": 1,
               "name": "granddaughter",
               "ok": false,
               "skip": "for no raisin",
@@ -26210,7 +26104,6 @@ Array [
                 "this": "is not tap",
               },
               "fullname": "second this passes",
-              "id": 2,
               "name": "grandson",
               "ok": true,
               "time": 1001,
@@ -26220,7 +26113,6 @@ Array [
             "assert",
             Result {
               "fullname": "second this passes",
-              "id": 3,
               "name": "grandchild",
               "ok": false,
               "todo": true,
@@ -26384,14 +26276,14 @@ ok 1 - first # time=2.589ms
     ok 1 - no plan # time=1.001ms
     # Subtest: this passes
         1..3
-        not ok 1 - granddaughter # SKIP for no raisin
-        ok 2 - grandson # time=1001ms
+        not ok - granddaughter # SKIP for no raisin
+        ok - grandson # time=1001ms
           ---
           ok: 1
           this: is not tap
           it: is yaml
           ...
-        not ok 3 - grandchild # TODO
+        not ok - grandchild # TODO
         # failed 3 of 3 tests
         # todo: 1
         # skip: 1
@@ -26419,14 +26311,14 @@ ok 1 - first # time=2.589ms
     ok 1 - no plan # time=1.001ms
     # Subtest: this passes
         1..3
-        not ok 1 - granddaughter # SKIP for no raisin
-        ok 2 - grandson # time=1001ms
+        not ok - granddaughter # SKIP for no raisin
+        ok - grandson # time=1001ms
           ---
           ok: 1
           this: is not tap
           it: is yaml
           ...
-        not ok 3 - grandchild # TODO
+        not ok - grandchild # TODO
         # failed 3 of 3 tests
         # todo: 1
         # skip: 1
@@ -30760,7 +30652,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -30768,7 +30659,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -30776,7 +30666,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 3,
       "ok": true,
     },
   ],
@@ -30784,7 +30673,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 4,
       "ok": true,
     },
   ],
@@ -30792,7 +30680,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 5,
       "ok": true,
     },
   ],
@@ -30835,11 +30722,11 @@ Array [
 exports[`test/parser-stringify.js TAP missing.tap bail > stringified 1`] = `
 TAP version 13
 1..6
-ok 1
-ok 2
-ok 3
-ok 4
-ok 5
+ok
+ok
+ok
+ok
+ok
 # test count(5) != plan(6)
 # failed 1 of 5 tests
 
@@ -30848,11 +30735,11 @@ ok 5
 exports[`test/parser-stringify.js TAP missing.tap bail > stringified flat 1`] = `
 TAP version 13
 1..6
-ok 1
-ok 2
-ok 3
-ok 4
-ok 5
+ok
+ok
+ok
+ok
+ok
 # test count(5) != plan(6)
 # failed 1 of 5 tests
 
@@ -30875,7 +30762,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -30883,7 +30769,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -30891,7 +30776,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 3,
       "ok": true,
     },
   ],
@@ -30899,7 +30783,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 4,
       "ok": true,
     },
   ],
@@ -30907,7 +30790,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 5,
       "ok": true,
     },
   ],
@@ -30950,11 +30832,11 @@ Array [
 exports[`test/parser-stringify.js TAP missing.tap default settings > stringified 1`] = `
 TAP version 13
 1..6
-ok 1
-ok 2
-ok 3
-ok 4
-ok 5
+ok
+ok
+ok
+ok
+ok
 # test count(5) != plan(6)
 # failed 1 of 5 tests
 
@@ -30963,11 +30845,11 @@ ok 5
 exports[`test/parser-stringify.js TAP missing.tap default settings > stringified flat 1`] = `
 TAP version 13
 1..6
-ok 1
-ok 2
-ok 3
-ok 4
-ok 5
+ok
+ok
+ok
+ok
+ok
 # test count(5) != plan(6)
 # failed 1 of 5 tests
 
@@ -30990,7 +30872,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -30998,7 +30879,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -31006,7 +30886,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 3,
       "ok": true,
     },
   ],
@@ -31014,7 +30893,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 4,
       "ok": true,
     },
   ],
@@ -31022,7 +30900,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 5,
       "ok": true,
     },
   ],
@@ -31065,11 +30942,11 @@ Array [
 exports[`test/parser-stringify.js TAP missing.tap strict > stringified 1`] = `
 TAP version 13
 1..6
-ok 1
-ok 2
-ok 3
-ok 4
-ok 5
+ok
+ok
+ok
+ok
+ok
 # test count(5) != plan(6)
 # failed 1 of 5 tests
 
@@ -31078,11 +30955,11 @@ ok 5
 exports[`test/parser-stringify.js TAP missing.tap strict > stringified flat 1`] = `
 TAP version 13
 1..6
-ok 1
-ok 2
-ok 3
-ok 4
-ok 5
+ok
+ok
+ok
+ok
+ok
 # test count(5) != plan(6)
 # failed 1 of 5 tests
 
@@ -31105,7 +30982,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -31113,7 +30989,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -31121,7 +30996,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 3,
       "ok": true,
     },
   ],
@@ -31129,7 +31003,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 4,
       "ok": true,
     },
   ],
@@ -31137,7 +31010,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 5,
       "ok": true,
     },
   ],
@@ -31180,11 +31052,11 @@ Array [
 exports[`test/parser-stringify.js TAP missing.tap strictBail > stringified 1`] = `
 TAP version 13
 1..6
-ok 1
-ok 2
-ok 3
-ok 4
-ok 5
+ok
+ok
+ok
+ok
+ok
 # test count(5) != plan(6)
 # failed 1 of 5 tests
 
@@ -31193,11 +31065,11 @@ ok 5
 exports[`test/parser-stringify.js TAP missing.tap strictBail > stringified flat 1`] = `
 TAP version 13
 1..6
-ok 1
-ok 2
-ok 3
-ok 4
-ok 5
+ok
+ok
+ok
+ok
+ok
 # test count(5) != plan(6)
 # failed 1 of 5 tests
 
@@ -31216,7 +31088,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "we are good",
       "ok": true,
     },
@@ -31267,7 +31138,7 @@ Array [
 
 exports[`test/parser-stringify.js TAP no-numbers.tap bail > stringified 1`] = `
 1..3
-ok 1 - we are good
+ok - we are good
 not ok 2 - we are bad
 Bail out! we are bad
 
@@ -31275,7 +31146,7 @@ Bail out! we are bad
 
 exports[`test/parser-stringify.js TAP no-numbers.tap bail > stringified flat 1`] = `
 1..3
-ok 1 - we are good
+ok - we are good
 not ok 2 - we are bad
 Bail out! we are bad
 
@@ -31294,7 +31165,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "we are good",
       "ok": true,
     },
@@ -31312,7 +31182,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 3,
       "name": "we are zesty!",
       "ok": true,
     },
@@ -31354,18 +31223,18 @@ Array [
 
 exports[`test/parser-stringify.js TAP no-numbers.tap default settings > stringified 1`] = `
 1..3
-ok 1 - we are good
+ok - we are good
 not ok 2 - we are bad
-ok 3 - we are zesty!
+ok - we are zesty!
 # failed 1 of 3 tests
 
 `
 
 exports[`test/parser-stringify.js TAP no-numbers.tap default settings > stringified flat 1`] = `
 1..3
-ok 1 - we are good
+ok - we are good
 not ok 2 - we are bad
-ok 3 - we are zesty!
+ok - we are zesty!
 # failed 1 of 3 tests
 
 `
@@ -31383,7 +31252,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "we are good",
       "ok": true,
     },
@@ -31401,7 +31269,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 3,
       "name": "we are zesty!",
       "ok": true,
     },
@@ -31443,18 +31310,18 @@ Array [
 
 exports[`test/parser-stringify.js TAP no-numbers.tap strict > stringified 1`] = `
 1..3
-ok 1 - we are good
+ok - we are good
 not ok 2 - we are bad
-ok 3 - we are zesty!
+ok - we are zesty!
 # failed 1 of 3 tests
 
 `
 
 exports[`test/parser-stringify.js TAP no-numbers.tap strict > stringified flat 1`] = `
 1..3
-ok 1 - we are good
+ok - we are good
 not ok 2 - we are bad
-ok 3 - we are zesty!
+ok - we are zesty!
 # failed 1 of 3 tests
 
 `
@@ -31472,7 +31339,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "we are good",
       "ok": true,
     },
@@ -31523,7 +31389,7 @@ Array [
 
 exports[`test/parser-stringify.js TAP no-numbers.tap strictBail > stringified 1`] = `
 1..3
-ok 1 - we are good
+ok - we are good
 not ok 2 - we are bad
 Bail out! we are bad
 
@@ -31531,7 +31397,7 @@ Bail out! we are bad
 
 exports[`test/parser-stringify.js TAP no-numbers.tap strictBail > stringified flat 1`] = `
 1..3
-ok 1 - we are good
+ok - we are good
 not ok 2 - we are bad
 Bail out! we are bad
 
@@ -31998,7 +31864,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -32006,7 +31871,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -32014,7 +31878,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 3,
       "ok": false,
     },
   ],
@@ -32031,7 +31894,6 @@ Array [
       "failures": Array [
         Result {
           "fullname": "",
-          "id": 3,
           "ok": false,
         },
       ],
@@ -32054,18 +31916,18 @@ Array [
 
 exports[`test/parser-stringify.js TAP no_nums.tap bail > stringified 1`] = `
 1..5
-ok 1
-ok 2
-not ok 3
+ok
+ok
+not ok
 Bail out!
 
 `
 
 exports[`test/parser-stringify.js TAP no_nums.tap bail > stringified flat 1`] = `
 1..5
-ok 1
-ok 2
-not ok 3
+ok
+ok
+not ok
 Bail out!
 
 `
@@ -32083,7 +31945,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -32091,7 +31952,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -32099,7 +31959,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 3,
       "ok": false,
     },
   ],
@@ -32107,7 +31966,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 4,
       "ok": true,
     },
   ],
@@ -32115,7 +31973,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 5,
       "ok": true,
     },
   ],
@@ -32132,7 +31989,6 @@ Array [
       "failures": Array [
         Result {
           "fullname": "",
-          "id": 3,
           "ok": false,
         },
       ],
@@ -32155,22 +32011,22 @@ Array [
 
 exports[`test/parser-stringify.js TAP no_nums.tap default settings > stringified 1`] = `
 1..5
-ok 1
-ok 2
-not ok 3
-ok 4
-ok 5
+ok
+ok
+not ok
+ok
+ok
 # failed 1 of 5 tests
 
 `
 
 exports[`test/parser-stringify.js TAP no_nums.tap default settings > stringified flat 1`] = `
 1..5
-ok 1
-ok 2
-not ok 3
-ok 4
-ok 5
+ok
+ok
+not ok
+ok
+ok
 # failed 1 of 5 tests
 
 `
@@ -32188,7 +32044,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -32196,7 +32051,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -32204,7 +32058,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 3,
       "ok": false,
     },
   ],
@@ -32212,7 +32065,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 4,
       "ok": true,
     },
   ],
@@ -32220,7 +32072,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 5,
       "ok": true,
     },
   ],
@@ -32237,7 +32088,6 @@ Array [
       "failures": Array [
         Result {
           "fullname": "",
-          "id": 3,
           "ok": false,
         },
       ],
@@ -32260,22 +32110,22 @@ Array [
 
 exports[`test/parser-stringify.js TAP no_nums.tap strict > stringified 1`] = `
 1..5
-ok 1
-ok 2
-not ok 3
-ok 4
-ok 5
+ok
+ok
+not ok
+ok
+ok
 # failed 1 of 5 tests
 
 `
 
 exports[`test/parser-stringify.js TAP no_nums.tap strict > stringified flat 1`] = `
 1..5
-ok 1
-ok 2
-not ok 3
-ok 4
-ok 5
+ok
+ok
+not ok
+ok
+ok
 # failed 1 of 5 tests
 
 `
@@ -32293,7 +32143,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -32301,7 +32150,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -32309,7 +32157,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 3,
       "ok": false,
     },
   ],
@@ -32326,7 +32173,6 @@ Array [
       "failures": Array [
         Result {
           "fullname": "",
-          "id": 3,
           "ok": false,
         },
       ],
@@ -32349,18 +32195,18 @@ Array [
 
 exports[`test/parser-stringify.js TAP no_nums.tap strictBail > stringified 1`] = `
 1..5
-ok 1
-ok 2
-not ok 3
+ok
+ok
+not ok
 Bail out!
 
 `
 
 exports[`test/parser-stringify.js TAP no_nums.tap strictBail > stringified flat 1`] = `
 1..5
-ok 1
-ok 2
-not ok 3
+ok
+ok
+not ok
 Bail out!
 
 `
@@ -34278,6 +34124,11 @@ Array [
       "id": 8,
       "name": "should be equal",
       "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -34287,6 +34138,11 @@ Array [
       "id": 9,
       "name": "should be equivalent",
       "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -34300,6 +34156,11 @@ Array [
       "id": 10,
       "name": "should be equal",
       "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -34309,6 +34170,11 @@ Array [
       "id": 11,
       "name": "(unnamed assert)",
       "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -34332,17 +34198,58 @@ Array [
   ],
   Array [
     "comment",
-    "# failed 1 of 4 tests\\n",
+    "# failed 4 of 4 tests\\n",
   ],
   Array [
     "complete",
     FinalResults {
       "bailout": false,
       "count": 4,
-      "fail": 1,
+      "fail": 4,
       "failures": Array [
-        Object {
-          "tapError": "first test id does not match plan start",
+        Result {
+          "fullname": "",
+          "id": 8,
+          "name": "should be equal",
+          "ok": true,
+          "plan": Object {
+            "end": 4,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
+        },
+        Result {
+          "fullname": "",
+          "id": 9,
+          "name": "should be equivalent",
+          "ok": true,
+          "plan": Object {
+            "end": 4,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
+        },
+        Result {
+          "fullname": "",
+          "id": 10,
+          "name": "should be equal",
+          "ok": true,
+          "plan": Object {
+            "end": 4,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
+        },
+        Result {
+          "fullname": "",
+          "id": 11,
+          "name": "(unnamed assert)",
+          "ok": true,
+          "plan": Object {
+            "end": 4,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
         },
       ],
       "ok": false,
@@ -34374,7 +34281,7 @@ ok 11 - (unnamed assert)
 # tests 4
 # pass  4
 # ok
-# failed 1 of 4 tests
+# failed 4 of 4 tests
 
 `
 
@@ -34390,7 +34297,7 @@ ok 11 - (unnamed assert)
 # tests 4
 # pass  4
 # ok
-# failed 1 of 4 tests
+# failed 4 of 4 tests
 
 `
 
@@ -34411,6 +34318,11 @@ Array [
       "id": 8,
       "name": "should be equal",
       "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -34420,6 +34332,11 @@ Array [
       "id": 9,
       "name": "should be equivalent",
       "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -34433,6 +34350,11 @@ Array [
       "id": 10,
       "name": "should be equal",
       "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -34442,6 +34364,11 @@ Array [
       "id": 11,
       "name": "(unnamed assert)",
       "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -34465,17 +34392,58 @@ Array [
   ],
   Array [
     "comment",
-    "# failed 1 of 4 tests\\n",
+    "# failed 4 of 4 tests\\n",
   ],
   Array [
     "complete",
     FinalResults {
       "bailout": false,
       "count": 4,
-      "fail": 1,
+      "fail": 4,
       "failures": Array [
-        Object {
-          "tapError": "first test id does not match plan start",
+        Result {
+          "fullname": "",
+          "id": 8,
+          "name": "should be equal",
+          "ok": true,
+          "plan": Object {
+            "end": 4,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
+        },
+        Result {
+          "fullname": "",
+          "id": 9,
+          "name": "should be equivalent",
+          "ok": true,
+          "plan": Object {
+            "end": 4,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
+        },
+        Result {
+          "fullname": "",
+          "id": 10,
+          "name": "should be equal",
+          "ok": true,
+          "plan": Object {
+            "end": 4,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
+        },
+        Result {
+          "fullname": "",
+          "id": 11,
+          "name": "(unnamed assert)",
+          "ok": true,
+          "plan": Object {
+            "end": 4,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
         },
       ],
       "ok": false,
@@ -34507,7 +34475,7 @@ ok 11 - (unnamed assert)
 # tests 4
 # pass  4
 # ok
-# failed 1 of 4 tests
+# failed 4 of 4 tests
 
 `
 
@@ -34523,7 +34491,7 @@ ok 11 - (unnamed assert)
 # tests 4
 # pass  4
 # ok
-# failed 1 of 4 tests
+# failed 4 of 4 tests
 
 `
 
@@ -34544,6 +34512,11 @@ Array [
       "id": 8,
       "name": "should be equal",
       "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -34553,6 +34526,11 @@ Array [
       "id": 9,
       "name": "should be equivalent",
       "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -34566,6 +34544,11 @@ Array [
       "id": 10,
       "name": "should be equal",
       "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -34575,6 +34558,11 @@ Array [
       "id": 11,
       "name": "(unnamed assert)",
       "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -34598,17 +34586,58 @@ Array [
   ],
   Array [
     "comment",
-    "# failed 1 of 4 tests\\n",
+    "# failed 4 of 4 tests\\n",
   ],
   Array [
     "complete",
     FinalResults {
       "bailout": false,
       "count": 4,
-      "fail": 1,
+      "fail": 4,
       "failures": Array [
-        Object {
-          "tapError": "first test id does not match plan start",
+        Result {
+          "fullname": "",
+          "id": 8,
+          "name": "should be equal",
+          "ok": true,
+          "plan": Object {
+            "end": 4,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
+        },
+        Result {
+          "fullname": "",
+          "id": 9,
+          "name": "should be equivalent",
+          "ok": true,
+          "plan": Object {
+            "end": 4,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
+        },
+        Result {
+          "fullname": "",
+          "id": 10,
+          "name": "should be equal",
+          "ok": true,
+          "plan": Object {
+            "end": 4,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
+        },
+        Result {
+          "fullname": "",
+          "id": 11,
+          "name": "(unnamed assert)",
+          "ok": true,
+          "plan": Object {
+            "end": 4,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
         },
       ],
       "ok": false,
@@ -34640,7 +34669,7 @@ ok 11 - (unnamed assert)
 # tests 4
 # pass  4
 # ok
-# failed 1 of 4 tests
+# failed 4 of 4 tests
 
 `
 
@@ -34656,7 +34685,7 @@ ok 11 - (unnamed assert)
 # tests 4
 # pass  4
 # ok
-# failed 1 of 4 tests
+# failed 4 of 4 tests
 
 `
 
@@ -34677,6 +34706,11 @@ Array [
       "id": 8,
       "name": "should be equal",
       "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -34686,6 +34720,11 @@ Array [
       "id": 9,
       "name": "should be equivalent",
       "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -34699,6 +34738,11 @@ Array [
       "id": 10,
       "name": "should be equal",
       "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -34708,6 +34752,11 @@ Array [
       "id": 11,
       "name": "(unnamed assert)",
       "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -34731,17 +34780,58 @@ Array [
   ],
   Array [
     "comment",
-    "# failed 1 of 4 tests\\n",
+    "# failed 4 of 4 tests\\n",
   ],
   Array [
     "complete",
     FinalResults {
       "bailout": false,
       "count": 4,
-      "fail": 1,
+      "fail": 4,
       "failures": Array [
-        Object {
-          "tapError": "first test id does not match plan start",
+        Result {
+          "fullname": "",
+          "id": 8,
+          "name": "should be equal",
+          "ok": true,
+          "plan": Object {
+            "end": 4,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
+        },
+        Result {
+          "fullname": "",
+          "id": 9,
+          "name": "should be equivalent",
+          "ok": true,
+          "plan": Object {
+            "end": 4,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
+        },
+        Result {
+          "fullname": "",
+          "id": 10,
+          "name": "should be equal",
+          "ok": true,
+          "plan": Object {
+            "end": 4,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
+        },
+        Result {
+          "fullname": "",
+          "id": 11,
+          "name": "(unnamed assert)",
+          "ok": true,
+          "plan": Object {
+            "end": 4,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
         },
       ],
       "ok": false,
@@ -34773,7 +34863,7 @@ ok 11 - (unnamed assert)
 # tests 4
 # pass  4
 # ok
-# failed 1 of 4 tests
+# failed 4 of 4 tests
 
 `
 
@@ -34789,7 +34879,7 @@ ok 11 - (unnamed assert)
 # tests 4
 # pass  4
 # ok
-# failed 1 of 4 tests
+# failed 4 of 4 tests
 
 `
 
@@ -37617,6 +37707,1402 @@ ok 15 - Check so that tid for threads work for main thread
 
 `
 
+exports[`test/parser-stringify.js TAP outside-plan-end-many.tap bail > parsed 1`] = `
+Array [
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 420,
+      "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 5,
+      "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 4,
+      "start": 1,
+    },
+  ],
+  Array [
+    "comment",
+    "# failed 2 of 4 tests\\n",
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 4,
+      "fail": 2,
+      "failures": Array [
+        Result {
+          "fullname": "",
+          "id": 420,
+          "ok": true,
+          "plan": Object {
+            "end": 4,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
+        },
+        Result {
+          "fullname": "",
+          "id": 5,
+          "ok": true,
+          "plan": Object {
+            "end": 4,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
+        },
+      ],
+      "ok": false,
+      "pass": 4,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 4,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parser-stringify.js TAP outside-plan-end-many.tap bail > stringified 1`] = `
+TAP version 13
+ok 1
+ok 420
+ok 5
+ok
+1..4
+# failed 2 of 4 tests
+
+`
+
+exports[`test/parser-stringify.js TAP outside-plan-end-many.tap bail > stringified flat 1`] = `
+TAP version 13
+ok 1
+ok 420
+ok 5
+ok
+1..4
+# failed 2 of 4 tests
+
+`
+
+exports[`test/parser-stringify.js TAP outside-plan-end-many.tap default settings > parsed 1`] = `
+Array [
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 420,
+      "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 5,
+      "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 4,
+      "start": 1,
+    },
+  ],
+  Array [
+    "comment",
+    "# failed 2 of 4 tests\\n",
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 4,
+      "fail": 2,
+      "failures": Array [
+        Result {
+          "fullname": "",
+          "id": 420,
+          "ok": true,
+          "plan": Object {
+            "end": 4,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
+        },
+        Result {
+          "fullname": "",
+          "id": 5,
+          "ok": true,
+          "plan": Object {
+            "end": 4,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
+        },
+      ],
+      "ok": false,
+      "pass": 4,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 4,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parser-stringify.js TAP outside-plan-end-many.tap default settings > stringified 1`] = `
+TAP version 13
+ok 1
+ok 420
+ok 5
+ok
+1..4
+# failed 2 of 4 tests
+
+`
+
+exports[`test/parser-stringify.js TAP outside-plan-end-many.tap default settings > stringified flat 1`] = `
+TAP version 13
+ok 1
+ok 420
+ok 5
+ok
+1..4
+# failed 2 of 4 tests
+
+`
+
+exports[`test/parser-stringify.js TAP outside-plan-end-many.tap strict > parsed 1`] = `
+Array [
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 420,
+      "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 5,
+      "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 4,
+      "start": 1,
+    },
+  ],
+  Array [
+    "comment",
+    "# failed 2 of 4 tests\\n",
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 4,
+      "fail": 2,
+      "failures": Array [
+        Result {
+          "fullname": "",
+          "id": 420,
+          "ok": true,
+          "plan": Object {
+            "end": 4,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
+        },
+        Result {
+          "fullname": "",
+          "id": 5,
+          "ok": true,
+          "plan": Object {
+            "end": 4,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
+        },
+      ],
+      "ok": false,
+      "pass": 4,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 4,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parser-stringify.js TAP outside-plan-end-many.tap strict > stringified 1`] = `
+TAP version 13
+ok 1
+ok 420
+ok 5
+ok
+1..4
+# failed 2 of 4 tests
+
+`
+
+exports[`test/parser-stringify.js TAP outside-plan-end-many.tap strict > stringified flat 1`] = `
+TAP version 13
+ok 1
+ok 420
+ok 5
+ok
+1..4
+# failed 2 of 4 tests
+
+`
+
+exports[`test/parser-stringify.js TAP outside-plan-end-many.tap strictBail > parsed 1`] = `
+Array [
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 420,
+      "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 5,
+      "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 4,
+      "start": 1,
+    },
+  ],
+  Array [
+    "comment",
+    "# failed 2 of 4 tests\\n",
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 4,
+      "fail": 2,
+      "failures": Array [
+        Result {
+          "fullname": "",
+          "id": 420,
+          "ok": true,
+          "plan": Object {
+            "end": 4,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
+        },
+        Result {
+          "fullname": "",
+          "id": 5,
+          "ok": true,
+          "plan": Object {
+            "end": 4,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
+        },
+      ],
+      "ok": false,
+      "pass": 4,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 4,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parser-stringify.js TAP outside-plan-end-many.tap strictBail > stringified 1`] = `
+TAP version 13
+ok 1
+ok 420
+ok 5
+ok
+1..4
+# failed 2 of 4 tests
+
+`
+
+exports[`test/parser-stringify.js TAP outside-plan-end-many.tap strictBail > stringified flat 1`] = `
+TAP version 13
+ok 1
+ok 420
+ok 5
+ok
+1..4
+# failed 2 of 4 tests
+
+`
+
+exports[`test/parser-stringify.js TAP outside-plan-end.tap bail > parsed 1`] = `
+Array [
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 5,
+      "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 4,
+      "start": 1,
+    },
+  ],
+  Array [
+    "comment",
+    "# failed 1 of 4 tests\\n",
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 4,
+      "fail": 1,
+      "failures": Array [
+        Result {
+          "fullname": "",
+          "id": 5,
+          "ok": true,
+          "plan": Object {
+            "end": 4,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
+        },
+      ],
+      "ok": false,
+      "pass": 4,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 4,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parser-stringify.js TAP outside-plan-end.tap bail > stringified 1`] = `
+TAP version 13
+ok 1
+ok
+ok 5
+ok
+1..4
+# failed 1 of 4 tests
+
+`
+
+exports[`test/parser-stringify.js TAP outside-plan-end.tap bail > stringified flat 1`] = `
+TAP version 13
+ok 1
+ok
+ok 5
+ok
+1..4
+# failed 1 of 4 tests
+
+`
+
+exports[`test/parser-stringify.js TAP outside-plan-end.tap default settings > parsed 1`] = `
+Array [
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 5,
+      "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 4,
+      "start": 1,
+    },
+  ],
+  Array [
+    "comment",
+    "# failed 1 of 4 tests\\n",
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 4,
+      "fail": 1,
+      "failures": Array [
+        Result {
+          "fullname": "",
+          "id": 5,
+          "ok": true,
+          "plan": Object {
+            "end": 4,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
+        },
+      ],
+      "ok": false,
+      "pass": 4,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 4,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parser-stringify.js TAP outside-plan-end.tap default settings > stringified 1`] = `
+TAP version 13
+ok 1
+ok
+ok 5
+ok
+1..4
+# failed 1 of 4 tests
+
+`
+
+exports[`test/parser-stringify.js TAP outside-plan-end.tap default settings > stringified flat 1`] = `
+TAP version 13
+ok 1
+ok
+ok 5
+ok
+1..4
+# failed 1 of 4 tests
+
+`
+
+exports[`test/parser-stringify.js TAP outside-plan-end.tap strict > parsed 1`] = `
+Array [
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 5,
+      "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 4,
+      "start": 1,
+    },
+  ],
+  Array [
+    "comment",
+    "# failed 1 of 4 tests\\n",
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 4,
+      "fail": 1,
+      "failures": Array [
+        Result {
+          "fullname": "",
+          "id": 5,
+          "ok": true,
+          "plan": Object {
+            "end": 4,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
+        },
+      ],
+      "ok": false,
+      "pass": 4,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 4,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parser-stringify.js TAP outside-plan-end.tap strict > stringified 1`] = `
+TAP version 13
+ok 1
+ok
+ok 5
+ok
+1..4
+# failed 1 of 4 tests
+
+`
+
+exports[`test/parser-stringify.js TAP outside-plan-end.tap strict > stringified flat 1`] = `
+TAP version 13
+ok 1
+ok
+ok 5
+ok
+1..4
+# failed 1 of 4 tests
+
+`
+
+exports[`test/parser-stringify.js TAP outside-plan-end.tap strictBail > parsed 1`] = `
+Array [
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 5,
+      "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 4,
+      "start": 1,
+    },
+  ],
+  Array [
+    "comment",
+    "# failed 1 of 4 tests\\n",
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 4,
+      "fail": 1,
+      "failures": Array [
+        Result {
+          "fullname": "",
+          "id": 5,
+          "ok": true,
+          "plan": Object {
+            "end": 4,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
+        },
+      ],
+      "ok": false,
+      "pass": 4,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 4,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parser-stringify.js TAP outside-plan-end.tap strictBail > stringified 1`] = `
+TAP version 13
+ok 1
+ok
+ok 5
+ok
+1..4
+# failed 1 of 4 tests
+
+`
+
+exports[`test/parser-stringify.js TAP outside-plan-end.tap strictBail > stringified flat 1`] = `
+TAP version 13
+ok 1
+ok
+ok 5
+ok
+1..4
+# failed 1 of 4 tests
+
+`
+
+exports[`test/parser-stringify.js TAP outside-plan-start.tap bail > parsed 1`] = `
+Array [
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+      "plan": Object {
+        "end": 5,
+        "start": 2,
+      },
+      "tapError": "id less than plan start",
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 5,
+      "ok": true,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 5,
+      "start": 2,
+    },
+  ],
+  Array [
+    "comment",
+    "# test count(4) != plan(5)\\n",
+  ],
+  Array [
+    "comment",
+    "# failed 1 of 4 tests\\n",
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 4,
+      "fail": 1,
+      "failures": Array [
+        Result {
+          "fullname": "",
+          "id": 1,
+          "ok": true,
+          "plan": Object {
+            "end": 5,
+            "start": 2,
+          },
+          "tapError": "id less than plan start",
+        },
+      ],
+      "ok": false,
+      "pass": 4,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 5,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 2,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parser-stringify.js TAP outside-plan-start.tap bail > stringified 1`] = `
+TAP version 13
+ok 1
+ok
+ok 5
+ok
+2..5
+# test count(4) != plan(5)
+# failed 1 of 4 tests
+
+`
+
+exports[`test/parser-stringify.js TAP outside-plan-start.tap bail > stringified flat 1`] = `
+TAP version 13
+ok 1
+ok
+ok 5
+ok
+2..5
+# test count(4) != plan(5)
+# failed 1 of 4 tests
+
+`
+
+exports[`test/parser-stringify.js TAP outside-plan-start.tap default settings > parsed 1`] = `
+Array [
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+      "plan": Object {
+        "end": 5,
+        "start": 2,
+      },
+      "tapError": "id less than plan start",
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 5,
+      "ok": true,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 5,
+      "start": 2,
+    },
+  ],
+  Array [
+    "comment",
+    "# test count(4) != plan(5)\\n",
+  ],
+  Array [
+    "comment",
+    "# failed 1 of 4 tests\\n",
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 4,
+      "fail": 1,
+      "failures": Array [
+        Result {
+          "fullname": "",
+          "id": 1,
+          "ok": true,
+          "plan": Object {
+            "end": 5,
+            "start": 2,
+          },
+          "tapError": "id less than plan start",
+        },
+      ],
+      "ok": false,
+      "pass": 4,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 5,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 2,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parser-stringify.js TAP outside-plan-start.tap default settings > stringified 1`] = `
+TAP version 13
+ok 1
+ok
+ok 5
+ok
+2..5
+# test count(4) != plan(5)
+# failed 1 of 4 tests
+
+`
+
+exports[`test/parser-stringify.js TAP outside-plan-start.tap default settings > stringified flat 1`] = `
+TAP version 13
+ok 1
+ok
+ok 5
+ok
+2..5
+# test count(4) != plan(5)
+# failed 1 of 4 tests
+
+`
+
+exports[`test/parser-stringify.js TAP outside-plan-start.tap strict > parsed 1`] = `
+Array [
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+      "plan": Object {
+        "end": 5,
+        "start": 2,
+      },
+      "tapError": "id less than plan start",
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 5,
+      "ok": true,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 5,
+      "start": 2,
+    },
+  ],
+  Array [
+    "comment",
+    "# test count(4) != plan(5)\\n",
+  ],
+  Array [
+    "comment",
+    "# failed 1 of 4 tests\\n",
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 4,
+      "fail": 1,
+      "failures": Array [
+        Result {
+          "fullname": "",
+          "id": 1,
+          "ok": true,
+          "plan": Object {
+            "end": 5,
+            "start": 2,
+          },
+          "tapError": "id less than plan start",
+        },
+      ],
+      "ok": false,
+      "pass": 4,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 5,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 2,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parser-stringify.js TAP outside-plan-start.tap strict > stringified 1`] = `
+TAP version 13
+ok 1
+ok
+ok 5
+ok
+2..5
+# test count(4) != plan(5)
+# failed 1 of 4 tests
+
+`
+
+exports[`test/parser-stringify.js TAP outside-plan-start.tap strict > stringified flat 1`] = `
+TAP version 13
+ok 1
+ok
+ok 5
+ok
+2..5
+# test count(4) != plan(5)
+# failed 1 of 4 tests
+
+`
+
+exports[`test/parser-stringify.js TAP outside-plan-start.tap strictBail > parsed 1`] = `
+Array [
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+      "plan": Object {
+        "end": 5,
+        "start": 2,
+      },
+      "tapError": "id less than plan start",
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 5,
+      "ok": true,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 5,
+      "start": 2,
+    },
+  ],
+  Array [
+    "comment",
+    "# test count(4) != plan(5)\\n",
+  ],
+  Array [
+    "comment",
+    "# failed 1 of 4 tests\\n",
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 4,
+      "fail": 1,
+      "failures": Array [
+        Result {
+          "fullname": "",
+          "id": 1,
+          "ok": true,
+          "plan": Object {
+            "end": 5,
+            "start": 2,
+          },
+          "tapError": "id less than plan start",
+        },
+      ],
+      "ok": false,
+      "pass": 4,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 5,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 2,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parser-stringify.js TAP outside-plan-start.tap strictBail > stringified 1`] = `
+TAP version 13
+ok 1
+ok
+ok 5
+ok
+2..5
+# test count(4) != plan(5)
+# failed 1 of 4 tests
+
+`
+
+exports[`test/parser-stringify.js TAP outside-plan-start.tap strictBail > stringified flat 1`] = `
+TAP version 13
+ok 1
+ok
+ok 5
+ok
+2..5
+# test count(4) != plan(5)
+# failed 1 of 4 tests
+
+`
+
 exports[`test/parser-stringify.js TAP outside-plan.tap bail > parsed 1`] = `
 Array [
   Array [
@@ -40155,7 +41641,6 @@ Array [
         "assert",
         Result {
           "fullname": "subtest",
-          "id": 1,
           "ok": true,
         },
       ],
@@ -40187,7 +41672,6 @@ Array [
     Result {
       "buffered": true,
       "fullname": "",
-      "id": 1,
       "name": "subtest",
       "ok": true,
     },
@@ -40200,7 +41684,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "name": "yaml",
       "ok": true,
     },
@@ -40272,10 +41755,10 @@ exports[`test/parser-stringify.js TAP plan-in-bad-places-post.tap bail > stringi
 TAP version 13
 # Subtest: subtest
     1..1
-    ok 1
-ok 1 - subtest
+    ok
+ok - subtest
 1..99
-ok 2 - yaml
+ok - yaml
   ---
   ok: lamy
 1..99
@@ -40291,10 +41774,10 @@ exports[`test/parser-stringify.js TAP plan-in-bad-places-post.tap bail > stringi
 TAP version 13
 # Subtest: subtest
     1..1
-    ok 1
-ok 1 - subtest
+    ok
+ok - subtest
 1..99
-ok 2 - yaml
+ok - yaml
   ---
   ok: lamy
 1..99
@@ -40330,7 +41813,6 @@ Array [
         "assert",
         Result {
           "fullname": "subtest",
-          "id": 1,
           "ok": true,
         },
       ],
@@ -40362,7 +41844,6 @@ Array [
     Result {
       "buffered": true,
       "fullname": "",
-      "id": 1,
       "name": "subtest",
       "ok": true,
     },
@@ -40375,7 +41856,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "name": "yaml",
       "ok": true,
     },
@@ -40447,10 +41927,10 @@ exports[`test/parser-stringify.js TAP plan-in-bad-places-post.tap default settin
 TAP version 13
 # Subtest: subtest
     1..1
-    ok 1
-ok 1 - subtest
+    ok
+ok - subtest
 1..99
-ok 2 - yaml
+ok - yaml
   ---
   ok: lamy
 1..99
@@ -40466,10 +41946,10 @@ exports[`test/parser-stringify.js TAP plan-in-bad-places-post.tap default settin
 TAP version 13
 # Subtest: subtest
     1..1
-    ok 1
-ok 1 - subtest
+    ok
+ok - subtest
 1..99
-ok 2 - yaml
+ok - yaml
   ---
   ok: lamy
 1..99
@@ -40505,7 +41985,6 @@ Array [
         "assert",
         Result {
           "fullname": "subtest",
-          "id": 1,
           "ok": true,
         },
       ],
@@ -40537,7 +42016,6 @@ Array [
     Result {
       "buffered": true,
       "fullname": "",
-      "id": 1,
       "name": "subtest",
       "ok": true,
     },
@@ -40550,7 +42028,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "name": "yaml",
       "ok": true,
     },
@@ -40643,10 +42120,10 @@ exports[`test/parser-stringify.js TAP plan-in-bad-places-post.tap strict > strin
 TAP version 13
 # Subtest: subtest
     1..1
-    ok 1
-ok 1 - subtest
+    ok
+ok - subtest
 1..99
-ok 2 - yaml
+ok - yaml
   ---
   ok: lamy
 1..99
@@ -40662,10 +42139,10 @@ exports[`test/parser-stringify.js TAP plan-in-bad-places-post.tap strict > strin
 TAP version 13
 # Subtest: subtest
     1..1
-    ok 1
-ok 1 - subtest
+    ok
+ok - subtest
 1..99
-ok 2 - yaml
+ok - yaml
   ---
   ok: lamy
 1..99
@@ -40701,7 +42178,6 @@ Array [
         "assert",
         Result {
           "fullname": "subtest",
-          "id": 1,
           "ok": true,
         },
       ],
@@ -40733,7 +42209,6 @@ Array [
     Result {
       "buffered": true,
       "fullname": "",
-      "id": 1,
       "name": "subtest",
       "ok": true,
     },
@@ -40746,7 +42221,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "name": "yaml",
       "ok": true,
     },
@@ -40839,10 +42313,10 @@ exports[`test/parser-stringify.js TAP plan-in-bad-places-post.tap strictBail > s
 TAP version 13
 # Subtest: subtest
     1..1
-    ok 1
-ok 1 - subtest
+    ok
+ok - subtest
 1..99
-ok 2 - yaml
+ok - yaml
   ---
   ok: lamy
 1..99
@@ -40858,10 +42332,10 @@ exports[`test/parser-stringify.js TAP plan-in-bad-places-post.tap strictBail > s
 TAP version 13
 # Subtest: subtest
     1..1
-    ok 1
-ok 1 - subtest
+    ok
+ok - subtest
 1..99
-ok 2 - yaml
+ok - yaml
   ---
   ok: lamy
 1..99
@@ -40908,7 +42382,6 @@ Array [
         "assert",
         Result {
           "fullname": "subtest",
-          "id": 1,
           "ok": true,
         },
       ],
@@ -40940,7 +42413,6 @@ Array [
     Result {
       "buffered": true,
       "fullname": "",
-      "id": 1,
       "name": "subtest",
       "ok": true,
     },
@@ -40953,7 +42425,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "name": "yaml",
       "ok": true,
     },
@@ -41004,10 +42475,10 @@ TAP version 13
 1..2
 # Subtest: subtest
     1..1
-    ok 1
-ok 1 - subtest
+    ok
+ok - subtest
 1..99
-ok 2 - yaml
+ok - yaml
   ---
   ok: lamy
 1..99
@@ -41021,10 +42492,10 @@ TAP version 13
 1..2
 # Subtest: subtest
     1..1
-    ok 1
-ok 1 - subtest
+    ok
+ok - subtest
 1..99
-ok 2 - yaml
+ok - yaml
   ---
   ok: lamy
 1..99
@@ -41067,7 +42538,6 @@ Array [
         "assert",
         Result {
           "fullname": "subtest",
-          "id": 1,
           "ok": true,
         },
       ],
@@ -41099,7 +42569,6 @@ Array [
     Result {
       "buffered": true,
       "fullname": "",
-      "id": 1,
       "name": "subtest",
       "ok": true,
     },
@@ -41112,7 +42581,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "name": "yaml",
       "ok": true,
     },
@@ -41163,10 +42631,10 @@ TAP version 13
 1..2
 # Subtest: subtest
     1..1
-    ok 1
-ok 1 - subtest
+    ok
+ok - subtest
 1..99
-ok 2 - yaml
+ok - yaml
   ---
   ok: lamy
 1..99
@@ -41180,10 +42648,10 @@ TAP version 13
 1..2
 # Subtest: subtest
     1..1
-    ok 1
-ok 1 - subtest
+    ok
+ok - subtest
 1..99
-ok 2 - yaml
+ok - yaml
   ---
   ok: lamy
 1..99
@@ -41226,7 +42694,6 @@ Array [
         "assert",
         Result {
           "fullname": "subtest",
-          "id": 1,
           "ok": true,
         },
       ],
@@ -41258,7 +42725,6 @@ Array [
     Result {
       "buffered": true,
       "fullname": "",
-      "id": 1,
       "name": "subtest",
       "ok": true,
     },
@@ -41271,7 +42737,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "name": "yaml",
       "ok": true,
     },
@@ -41351,10 +42816,10 @@ TAP version 13
 1..2
 # Subtest: subtest
     1..1
-    ok 1
-ok 1 - subtest
+    ok
+ok - subtest
 1..99
-ok 2 - yaml
+ok - yaml
   ---
   ok: lamy
 1..99
@@ -41369,10 +42834,10 @@ TAP version 13
 1..2
 # Subtest: subtest
     1..1
-    ok 1
-ok 1 - subtest
+    ok
+ok - subtest
 1..99
-ok 2 - yaml
+ok - yaml
   ---
   ok: lamy
 1..99
@@ -41416,7 +42881,6 @@ Array [
         "assert",
         Result {
           "fullname": "subtest",
-          "id": 1,
           "ok": true,
         },
       ],
@@ -41448,7 +42912,6 @@ Array [
     Result {
       "buffered": true,
       "fullname": "",
-      "id": 1,
       "name": "subtest",
       "ok": true,
     },
@@ -41461,7 +42924,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "name": "yaml",
       "ok": true,
     },
@@ -41541,10 +43003,10 @@ TAP version 13
 1..2
 # Subtest: subtest
     1..1
-    ok 1
-ok 1 - subtest
+    ok
+ok - subtest
 1..99
-ok 2 - yaml
+ok - yaml
   ---
   ok: lamy
 1..99
@@ -41559,10 +43021,10 @@ TAP version 13
 1..2
 # Subtest: subtest
     1..1
-    ok 1
-ok 1 - subtest
+    ok
+ok - subtest
 1..99
-ok 2 - yaml
+ok - yaml
   ---
   ok: lamy
 1..99
@@ -42125,7 +43587,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": false,
     },
   ],
@@ -42142,7 +43603,6 @@ Array [
       "failures": Array [
         Result {
           "fullname": "",
-          "id": 1,
           "ok": false,
         },
       ],
@@ -42164,13 +43624,13 @@ Array [
 `
 
 exports[`test/parser-stringify.js TAP pragma-after-failure.tap bail > stringified 1`] = `
-not ok 1
+not ok
 Bail out!
 
 `
 
 exports[`test/parser-stringify.js TAP pragma-after-failure.tap bail > stringified flat 1`] = `
-not ok 1
+not ok
 Bail out!
 
 `
@@ -42181,7 +43641,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": false,
     },
   ],
@@ -42194,7 +43653,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -42218,7 +43676,6 @@ Array [
       "failures": Array [
         Result {
           "fullname": "",
-          "id": 1,
           "ok": false,
         },
       ],
@@ -42240,18 +43697,18 @@ Array [
 `
 
 exports[`test/parser-stringify.js TAP pragma-after-failure.tap default settings > stringified 1`] = `
-not ok 1
+not ok
 pragma +custom
-ok 2
+ok
 1..2
 # failed 1 of 2 tests
 
 `
 
 exports[`test/parser-stringify.js TAP pragma-after-failure.tap default settings > stringified flat 1`] = `
-not ok 1
+not ok
 pragma +custom
-ok 2
+ok
 1..2
 # failed 1 of 2 tests
 
@@ -42263,7 +43720,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": false,
     },
   ],
@@ -42276,7 +43732,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -42300,7 +43755,6 @@ Array [
       "failures": Array [
         Result {
           "fullname": "",
-          "id": 1,
           "ok": false,
         },
       ],
@@ -42322,18 +43776,18 @@ Array [
 `
 
 exports[`test/parser-stringify.js TAP pragma-after-failure.tap strict > stringified 1`] = `
-not ok 1
+not ok
 pragma +custom
-ok 2
+ok
 1..2
 # failed 1 of 2 tests
 
 `
 
 exports[`test/parser-stringify.js TAP pragma-after-failure.tap strict > stringified flat 1`] = `
-not ok 1
+not ok
 pragma +custom
-ok 2
+ok
 1..2
 # failed 1 of 2 tests
 
@@ -42345,7 +43799,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": false,
     },
   ],
@@ -42362,7 +43815,6 @@ Array [
       "failures": Array [
         Result {
           "fullname": "",
-          "id": 1,
           "ok": false,
         },
       ],
@@ -42384,13 +43836,13 @@ Array [
 `
 
 exports[`test/parser-stringify.js TAP pragma-after-failure.tap strictBail > stringified 1`] = `
-not ok 1
+not ok
 Bail out!
 
 `
 
 exports[`test/parser-stringify.js TAP pragma-after-failure.tap strictBail > stringified flat 1`] = `
-not ok 1
+not ok
 Bail out!
 
 `
@@ -42425,7 +43877,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -42459,7 +43910,7 @@ TAP version 13
 pragma +this is not a valid pragma
 pragma -neither # is this
 pragma +thisISfineTHO_420-69_lolyolo
-ok 1
+ok
 
 `
 
@@ -42469,7 +43920,7 @@ TAP version 13
 pragma +this is not a valid pragma
 pragma -neither # is this
 pragma +thisISfineTHO_420-69_lolyolo
-ok 1
+ok
 
 `
 
@@ -42503,7 +43954,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -42537,7 +43987,7 @@ TAP version 13
 pragma +this is not a valid pragma
 pragma -neither # is this
 pragma +thisISfineTHO_420-69_lolyolo
-ok 1
+ok
 
 `
 
@@ -42547,7 +43997,7 @@ TAP version 13
 pragma +this is not a valid pragma
 pragma -neither # is this
 pragma +thisISfineTHO_420-69_lolyolo
-ok 1
+ok
 
 `
 
@@ -42581,7 +44031,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -42628,7 +44077,7 @@ TAP version 13
 pragma +this is not a valid pragma
 pragma -neither # is this
 pragma +thisISfineTHO_420-69_lolyolo
-ok 1
+ok
 # failed 2 test
 
 `
@@ -42639,7 +44088,7 @@ TAP version 13
 pragma +this is not a valid pragma
 pragma -neither # is this
 pragma +thisISfineTHO_420-69_lolyolo
-ok 1
+ok
 # failed 2 test
 
 `
@@ -42674,7 +44123,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -42721,7 +44169,7 @@ TAP version 13
 pragma +this is not a valid pragma
 pragma -neither # is this
 pragma +thisISfineTHO_420-69_lolyolo
-ok 1
+ok
 # failed 2 test
 
 `
@@ -42732,7 +44180,7 @@ TAP version 13
 pragma +this is not a valid pragma
 pragma -neither # is this
 pragma +thisISfineTHO_420-69_lolyolo
-ok 1
+ok
 # failed 2 test
 
 `
@@ -42773,7 +44221,6 @@ Array [
         "assert",
         Result {
           "fullname": "",
-          "id": 1,
           "ok": true,
         },
       ],
@@ -42808,7 +44255,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -42851,9 +44297,9 @@ pragma +strict
 1..1
 # Subtest
     1..1
-    ok 1
+    ok
 pragma +strict
-ok 1
+ok
 # failed 1 test
 
 `
@@ -42864,9 +44310,9 @@ pragma +strict
 1..1
 # Subtest
     1..1
-    ok 1
+    ok
 pragma +strict
-ok 1
+ok
 # failed 1 test
 
 `
@@ -42907,7 +44353,6 @@ Array [
         "assert",
         Result {
           "fullname": "",
-          "id": 1,
           "ok": true,
         },
       ],
@@ -42942,7 +44387,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -42985,9 +44429,9 @@ pragma +strict
 1..1
 # Subtest
     1..1
-    ok 1
+    ok
 pragma +strict
-ok 1
+ok
 # failed 1 test
 
 `
@@ -42998,9 +44442,9 @@ pragma +strict
 1..1
 # Subtest
     1..1
-    ok 1
+    ok
 pragma +strict
-ok 1
+ok
 # failed 1 test
 
 `
@@ -43041,7 +44485,6 @@ Array [
         "assert",
         Result {
           "fullname": "",
-          "id": 1,
           "ok": true,
         },
       ],
@@ -43076,7 +44519,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -43119,9 +44561,9 @@ pragma +strict
 1..1
 # Subtest
     1..1
-    ok 1
+    ok
 pragma +strict
-ok 1
+ok
 # failed 1 test
 
 `
@@ -43132,9 +44574,9 @@ pragma +strict
 1..1
 # Subtest
     1..1
-    ok 1
+    ok
 pragma +strict
-ok 1
+ok
 # failed 1 test
 
 `
@@ -43175,7 +44617,6 @@ Array [
         "assert",
         Result {
           "fullname": "",
-          "id": 1,
           "ok": true,
         },
       ],
@@ -43210,7 +44651,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -43253,9 +44693,9 @@ pragma +strict
 1..1
 # Subtest
     1..1
-    ok 1
+    ok
 pragma +strict
-ok 1
+ok
 # failed 1 test
 
 `
@@ -43266,9 +44706,9 @@ pragma +strict
 1..1
 # Subtest
     1..1
-    ok 1
+    ok
 pragma +strict
-ok 1
+ok
 # failed 1 test
 
 `
@@ -43305,7 +44745,6 @@ Array [
         "assert",
         Result {
           "fullname": "",
-          "id": 1,
           "ok": true,
         },
       ],
@@ -43340,7 +44779,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -43373,9 +44811,9 @@ pragma +foo
 1..1
 # Subtest
     1..1
-    ok 1
+    ok
 pragma +foo
-ok 1
+ok
 
 `
 
@@ -43384,9 +44822,9 @@ pragma +foo
 1..1
 # Subtest
     1..1
-    ok 1
+    ok
 pragma +foo
-ok 1
+ok
 
 `
 
@@ -43422,7 +44860,6 @@ Array [
         "assert",
         Result {
           "fullname": "",
-          "id": 1,
           "ok": true,
         },
       ],
@@ -43457,7 +44894,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -43490,9 +44926,9 @@ pragma +foo
 1..1
 # Subtest
     1..1
-    ok 1
+    ok
 pragma +foo
-ok 1
+ok
 
 `
 
@@ -43501,9 +44937,9 @@ pragma +foo
 1..1
 # Subtest
     1..1
-    ok 1
+    ok
 pragma +foo
-ok 1
+ok
 
 `
 
@@ -43539,7 +44975,6 @@ Array [
         "assert",
         Result {
           "fullname": "",
-          "id": 1,
           "ok": true,
         },
       ],
@@ -43574,7 +45009,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -43616,9 +45050,9 @@ pragma +foo
 1..1
 # Subtest
     1..1
-    ok 1
+    ok
 pragma +foo
-ok 1
+ok
 # failed 1 test
 
 `
@@ -43628,9 +45062,9 @@ pragma +foo
 1..1
 # Subtest
     1..1
-    ok 1
+    ok
 pragma +foo
-ok 1
+ok
 # failed 1 test
 
 `
@@ -43667,7 +45101,6 @@ Array [
         "assert",
         Result {
           "fullname": "",
-          "id": 1,
           "ok": true,
         },
       ],
@@ -43702,7 +45135,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -43744,9 +45176,9 @@ pragma +foo
 1..1
 # Subtest
     1..1
-    ok 1
+    ok
 pragma +foo
-ok 1
+ok
 # failed 1 test
 
 `
@@ -43756,9 +45188,9 @@ pragma +foo
 1..1
 # Subtest
     1..1
-    ok 1
+    ok
 pragma +foo
-ok 1
+ok
 # failed 1 test
 
 `
@@ -44174,6 +45606,486 @@ pragma +foo
   name: some yaml
   ...
 # failed 3 test
+
+`
+
+exports[`test/parser-stringify.js TAP repeat-test-point-id.tap bail > parsed 1`] = `
+Array [
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+      "previous": Result {
+        "fullname": "",
+        "id": 1,
+        "ok": true,
+      },
+      "tapError": "test point id 1 appears multiple times",
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+      "previous": Result {
+        "fullname": "",
+        "id": 1,
+        "ok": true,
+      },
+      "tapError": "test point id 1 appears multiple times",
+    },
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 3,
+      "start": 1,
+    },
+  ],
+  Array [
+    "comment",
+    "# failed 2 of 3 tests\\n",
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 3,
+      "fail": 2,
+      "failures": Array [
+        Result {
+          "fullname": "",
+          "id": 1,
+          "ok": true,
+          "previous": Result {
+            "fullname": "",
+            "id": 1,
+            "ok": true,
+          },
+          "tapError": "test point id 1 appears multiple times",
+        },
+        Result {
+          "fullname": "",
+          "id": 1,
+          "ok": true,
+          "previous": Result {
+            "fullname": "",
+            "id": 1,
+            "ok": true,
+          },
+          "tapError": "test point id 1 appears multiple times",
+        },
+      ],
+      "ok": false,
+      "pass": 3,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 3,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parser-stringify.js TAP repeat-test-point-id.tap bail > stringified 1`] = `
+TAP version 13
+ok 1
+ok 1
+ok 1
+1..3
+# failed 2 of 3 tests
+
+`
+
+exports[`test/parser-stringify.js TAP repeat-test-point-id.tap bail > stringified flat 1`] = `
+TAP version 13
+ok 1
+ok 1
+ok 1
+1..3
+# failed 2 of 3 tests
+
+`
+
+exports[`test/parser-stringify.js TAP repeat-test-point-id.tap default settings > parsed 1`] = `
+Array [
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+      "previous": Result {
+        "fullname": "",
+        "id": 1,
+        "ok": true,
+      },
+      "tapError": "test point id 1 appears multiple times",
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+      "previous": Result {
+        "fullname": "",
+        "id": 1,
+        "ok": true,
+      },
+      "tapError": "test point id 1 appears multiple times",
+    },
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 3,
+      "start": 1,
+    },
+  ],
+  Array [
+    "comment",
+    "# failed 2 of 3 tests\\n",
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 3,
+      "fail": 2,
+      "failures": Array [
+        Result {
+          "fullname": "",
+          "id": 1,
+          "ok": true,
+          "previous": Result {
+            "fullname": "",
+            "id": 1,
+            "ok": true,
+          },
+          "tapError": "test point id 1 appears multiple times",
+        },
+        Result {
+          "fullname": "",
+          "id": 1,
+          "ok": true,
+          "previous": Result {
+            "fullname": "",
+            "id": 1,
+            "ok": true,
+          },
+          "tapError": "test point id 1 appears multiple times",
+        },
+      ],
+      "ok": false,
+      "pass": 3,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 3,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parser-stringify.js TAP repeat-test-point-id.tap default settings > stringified 1`] = `
+TAP version 13
+ok 1
+ok 1
+ok 1
+1..3
+# failed 2 of 3 tests
+
+`
+
+exports[`test/parser-stringify.js TAP repeat-test-point-id.tap default settings > stringified flat 1`] = `
+TAP version 13
+ok 1
+ok 1
+ok 1
+1..3
+# failed 2 of 3 tests
+
+`
+
+exports[`test/parser-stringify.js TAP repeat-test-point-id.tap strict > parsed 1`] = `
+Array [
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+      "previous": Result {
+        "fullname": "",
+        "id": 1,
+        "ok": true,
+      },
+      "tapError": "test point id 1 appears multiple times",
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+      "previous": Result {
+        "fullname": "",
+        "id": 1,
+        "ok": true,
+      },
+      "tapError": "test point id 1 appears multiple times",
+    },
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 3,
+      "start": 1,
+    },
+  ],
+  Array [
+    "comment",
+    "# failed 2 of 3 tests\\n",
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 3,
+      "fail": 2,
+      "failures": Array [
+        Result {
+          "fullname": "",
+          "id": 1,
+          "ok": true,
+          "previous": Result {
+            "fullname": "",
+            "id": 1,
+            "ok": true,
+          },
+          "tapError": "test point id 1 appears multiple times",
+        },
+        Result {
+          "fullname": "",
+          "id": 1,
+          "ok": true,
+          "previous": Result {
+            "fullname": "",
+            "id": 1,
+            "ok": true,
+          },
+          "tapError": "test point id 1 appears multiple times",
+        },
+      ],
+      "ok": false,
+      "pass": 3,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 3,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parser-stringify.js TAP repeat-test-point-id.tap strict > stringified 1`] = `
+TAP version 13
+ok 1
+ok 1
+ok 1
+1..3
+# failed 2 of 3 tests
+
+`
+
+exports[`test/parser-stringify.js TAP repeat-test-point-id.tap strict > stringified flat 1`] = `
+TAP version 13
+ok 1
+ok 1
+ok 1
+1..3
+# failed 2 of 3 tests
+
+`
+
+exports[`test/parser-stringify.js TAP repeat-test-point-id.tap strictBail > parsed 1`] = `
+Array [
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+      "previous": Result {
+        "fullname": "",
+        "id": 1,
+        "ok": true,
+      },
+      "tapError": "test point id 1 appears multiple times",
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+      "previous": Result {
+        "fullname": "",
+        "id": 1,
+        "ok": true,
+      },
+      "tapError": "test point id 1 appears multiple times",
+    },
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 3,
+      "start": 1,
+    },
+  ],
+  Array [
+    "comment",
+    "# failed 2 of 3 tests\\n",
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 3,
+      "fail": 2,
+      "failures": Array [
+        Result {
+          "fullname": "",
+          "id": 1,
+          "ok": true,
+          "previous": Result {
+            "fullname": "",
+            "id": 1,
+            "ok": true,
+          },
+          "tapError": "test point id 1 appears multiple times",
+        },
+        Result {
+          "fullname": "",
+          "id": 1,
+          "ok": true,
+          "previous": Result {
+            "fullname": "",
+            "id": 1,
+            "ok": true,
+          },
+          "tapError": "test point id 1 appears multiple times",
+        },
+      ],
+      "ok": false,
+      "pass": 3,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 3,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parser-stringify.js TAP repeat-test-point-id.tap strictBail > stringified 1`] = `
+TAP version 13
+ok 1
+ok 1
+ok 1
+1..3
+# failed 2 of 3 tests
+
+`
+
+exports[`test/parser-stringify.js TAP repeat-test-point-id.tap strictBail > stringified flat 1`] = `
+TAP version 13
+ok 1
+ok 1
+ok 1
+1..3
+# failed 2 of 3 tests
 
 `
 
@@ -47703,7 +49615,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -47756,7 +49667,7 @@ Array [
 
 exports[`test/parser-stringify.js TAP skip-all-with-test.tap bail > stringified 1`] = `
 TAP version 13
-ok 1
+ok
 1..0
 # test count(1) != plan(0)
 # failed 1 test
@@ -47766,7 +49677,7 @@ ok 1
 
 exports[`test/parser-stringify.js TAP skip-all-with-test.tap bail > stringified flat 1`] = `
 TAP version 13
-ok 1
+ok
 1..0
 # test count(1) != plan(0)
 # failed 1 test
@@ -47784,7 +49695,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -47837,7 +49747,7 @@ Array [
 
 exports[`test/parser-stringify.js TAP skip-all-with-test.tap default settings > stringified 1`] = `
 TAP version 13
-ok 1
+ok
 1..0
 # test count(1) != plan(0)
 # failed 1 test
@@ -47847,7 +49757,7 @@ ok 1
 
 exports[`test/parser-stringify.js TAP skip-all-with-test.tap default settings > stringified flat 1`] = `
 TAP version 13
-ok 1
+ok
 1..0
 # test count(1) != plan(0)
 # failed 1 test
@@ -47865,7 +49775,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -47918,7 +49827,7 @@ Array [
 
 exports[`test/parser-stringify.js TAP skip-all-with-test.tap strict > stringified 1`] = `
 TAP version 13
-ok 1
+ok
 1..0
 # test count(1) != plan(0)
 # failed 1 test
@@ -47928,7 +49837,7 @@ ok 1
 
 exports[`test/parser-stringify.js TAP skip-all-with-test.tap strict > stringified flat 1`] = `
 TAP version 13
-ok 1
+ok
 1..0
 # test count(1) != plan(0)
 # failed 1 test
@@ -47946,7 +49855,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -47999,7 +49907,7 @@ Array [
 
 exports[`test/parser-stringify.js TAP skip-all-with-test.tap strictBail > stringified 1`] = `
 TAP version 13
-ok 1
+ok
 1..0
 # test count(1) != plan(0)
 # failed 1 test
@@ -48009,7 +49917,7 @@ ok 1
 
 exports[`test/parser-stringify.js TAP skip-all-with-test.tap strictBail > stringified flat 1`] = `
 TAP version 13
-ok 1
+ok
 1..0
 # test count(1) != plan(0)
 # failed 1 test
@@ -52251,7 +54159,6 @@ Array [
         "assert",
         Result {
           "fullname": "first",
-          "id": 1,
           "name": "x",
           "ok": true,
         },
@@ -52308,7 +54215,6 @@ Array [
         "assert",
         Result {
           "fullname": "second",
-          "id": 1,
           "name": "x",
           "ok": true,
         },
@@ -52365,7 +54271,6 @@ Array [
         "assert",
         Result {
           "fullname": "third",
-          "id": 1,
           "name": "y",
           "ok": true,
         },
@@ -52441,15 +54346,15 @@ Array [
 exports[`test/parser-stringify.js TAP subtest-buffer-diags-time.tap bail > stringified 1`] = `
 1..3
 # Subtest: first
-    ok 1 - x
+    ok - x
     1..1
 ok 1 - first # time=12.34ms
 # Subtest: second
-    ok 1 - x
+    ok - x
     1..1
 ok 2 - second # time=12.34ms
 # Subtest: third
-    ok 1 - y
+    ok - y
     1..1
 ok 3 - third # time=43.21ms
   ---
@@ -52461,15 +54366,15 @@ ok 3 - third # time=43.21ms
 exports[`test/parser-stringify.js TAP subtest-buffer-diags-time.tap bail > stringified flat 1`] = `
 1..3
 # Subtest: first
-    ok 1 - x
+    ok - x
     1..1
 ok 1 - first # time=12.34ms
 # Subtest: second
-    ok 1 - x
+    ok - x
     1..1
 ok 2 - second # time=12.34ms
 # Subtest: third
-    ok 1 - y
+    ok - y
     1..1
 ok 3 - third # time=43.21ms
   ---
@@ -52498,7 +54403,6 @@ Array [
         "assert",
         Result {
           "fullname": "first",
-          "id": 1,
           "name": "x",
           "ok": true,
         },
@@ -52555,7 +54459,6 @@ Array [
         "assert",
         Result {
           "fullname": "second",
-          "id": 1,
           "name": "x",
           "ok": true,
         },
@@ -52612,7 +54515,6 @@ Array [
         "assert",
         Result {
           "fullname": "third",
-          "id": 1,
           "name": "y",
           "ok": true,
         },
@@ -52688,15 +54590,15 @@ Array [
 exports[`test/parser-stringify.js TAP subtest-buffer-diags-time.tap default settings > stringified 1`] = `
 1..3
 # Subtest: first
-    ok 1 - x
+    ok - x
     1..1
 ok 1 - first # time=12.34ms
 # Subtest: second
-    ok 1 - x
+    ok - x
     1..1
 ok 2 - second # time=12.34ms
 # Subtest: third
-    ok 1 - y
+    ok - y
     1..1
 ok 3 - third # time=43.21ms
   ---
@@ -52708,15 +54610,15 @@ ok 3 - third # time=43.21ms
 exports[`test/parser-stringify.js TAP subtest-buffer-diags-time.tap default settings > stringified flat 1`] = `
 1..3
 # Subtest: first
-    ok 1 - x
+    ok - x
     1..1
 ok 1 - first # time=12.34ms
 # Subtest: second
-    ok 1 - x
+    ok - x
     1..1
 ok 2 - second # time=12.34ms
 # Subtest: third
-    ok 1 - y
+    ok - y
     1..1
 ok 3 - third # time=43.21ms
   ---
@@ -52745,7 +54647,6 @@ Array [
         "assert",
         Result {
           "fullname": "first",
-          "id": 1,
           "name": "x",
           "ok": true,
         },
@@ -52802,7 +54703,6 @@ Array [
         "assert",
         Result {
           "fullname": "second",
-          "id": 1,
           "name": "x",
           "ok": true,
         },
@@ -52859,7 +54759,6 @@ Array [
         "assert",
         Result {
           "fullname": "third",
-          "id": 1,
           "name": "y",
           "ok": true,
         },
@@ -52935,15 +54834,15 @@ Array [
 exports[`test/parser-stringify.js TAP subtest-buffer-diags-time.tap strict > stringified 1`] = `
 1..3
 # Subtest: first
-    ok 1 - x
+    ok - x
     1..1
 ok 1 - first # time=12.34ms
 # Subtest: second
-    ok 1 - x
+    ok - x
     1..1
 ok 2 - second # time=12.34ms
 # Subtest: third
-    ok 1 - y
+    ok - y
     1..1
 ok 3 - third # time=43.21ms
   ---
@@ -52955,15 +54854,15 @@ ok 3 - third # time=43.21ms
 exports[`test/parser-stringify.js TAP subtest-buffer-diags-time.tap strict > stringified flat 1`] = `
 1..3
 # Subtest: first
-    ok 1 - x
+    ok - x
     1..1
 ok 1 - first # time=12.34ms
 # Subtest: second
-    ok 1 - x
+    ok - x
     1..1
 ok 2 - second # time=12.34ms
 # Subtest: third
-    ok 1 - y
+    ok - y
     1..1
 ok 3 - third # time=43.21ms
   ---
@@ -52992,7 +54891,6 @@ Array [
         "assert",
         Result {
           "fullname": "first",
-          "id": 1,
           "name": "x",
           "ok": true,
         },
@@ -53049,7 +54947,6 @@ Array [
         "assert",
         Result {
           "fullname": "second",
-          "id": 1,
           "name": "x",
           "ok": true,
         },
@@ -53106,7 +55003,6 @@ Array [
         "assert",
         Result {
           "fullname": "third",
-          "id": 1,
           "name": "y",
           "ok": true,
         },
@@ -53182,15 +55078,15 @@ Array [
 exports[`test/parser-stringify.js TAP subtest-buffer-diags-time.tap strictBail > stringified 1`] = `
 1..3
 # Subtest: first
-    ok 1 - x
+    ok - x
     1..1
 ok 1 - first # time=12.34ms
 # Subtest: second
-    ok 1 - x
+    ok - x
     1..1
 ok 2 - second # time=12.34ms
 # Subtest: third
-    ok 1 - y
+    ok - y
     1..1
 ok 3 - third # time=43.21ms
   ---
@@ -53202,15 +55098,15 @@ ok 3 - third # time=43.21ms
 exports[`test/parser-stringify.js TAP subtest-buffer-diags-time.tap strictBail > stringified flat 1`] = `
 1..3
 # Subtest: first
-    ok 1 - x
+    ok - x
     1..1
 ok 1 - first # time=12.34ms
 # Subtest: second
-    ok 1 - x
+    ok - x
     1..1
 ok 2 - second # time=12.34ms
 # Subtest: third
-    ok 1 - y
+    ok - y
     1..1
 ok 3 - third # time=43.21ms
   ---
@@ -75456,7 +77352,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -75478,7 +77373,6 @@ Array [
         "assert",
         Result {
           "fullname": "unfinished",
-          "id": 1,
           "ok": true,
         },
       ],
@@ -75532,20 +77426,20 @@ Array [
 exports[`test/parser-stringify.js TAP subtest-unfinished.tap bail > stringified 1`] = `
 TAP version 13
 1..1
-ok 1
+ok
 # Subtest: unfinished
     1..1
-    ok 1
+    ok
 
 `
 
 exports[`test/parser-stringify.js TAP subtest-unfinished.tap bail > stringified flat 1`] = `
 TAP version 13
 1..1
-ok 1
+ok
 # Subtest: unfinished
     1..1
-    ok 1
+    ok
 
 `
 
@@ -75566,7 +77460,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -75588,7 +77481,6 @@ Array [
         "assert",
         Result {
           "fullname": "unfinished",
-          "id": 1,
           "ok": true,
         },
       ],
@@ -75642,20 +77534,20 @@ Array [
 exports[`test/parser-stringify.js TAP subtest-unfinished.tap default settings > stringified 1`] = `
 TAP version 13
 1..1
-ok 1
+ok
 # Subtest: unfinished
     1..1
-    ok 1
+    ok
 
 `
 
 exports[`test/parser-stringify.js TAP subtest-unfinished.tap default settings > stringified flat 1`] = `
 TAP version 13
 1..1
-ok 1
+ok
 # Subtest: unfinished
     1..1
-    ok 1
+    ok
 
 `
 
@@ -75676,7 +77568,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -75698,7 +77589,6 @@ Array [
         "assert",
         Result {
           "fullname": "unfinished",
-          "id": 1,
           "ok": true,
         },
       ],
@@ -75752,20 +77642,20 @@ Array [
 exports[`test/parser-stringify.js TAP subtest-unfinished.tap strict > stringified 1`] = `
 TAP version 13
 1..1
-ok 1
+ok
 # Subtest: unfinished
     1..1
-    ok 1
+    ok
 
 `
 
 exports[`test/parser-stringify.js TAP subtest-unfinished.tap strict > stringified flat 1`] = `
 TAP version 13
 1..1
-ok 1
+ok
 # Subtest: unfinished
     1..1
-    ok 1
+    ok
 
 `
 
@@ -75786,7 +77676,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -75808,7 +77697,6 @@ Array [
         "assert",
         Result {
           "fullname": "unfinished",
-          "id": 1,
           "ok": true,
         },
       ],
@@ -75862,20 +77750,20 @@ Array [
 exports[`test/parser-stringify.js TAP subtest-unfinished.tap strictBail > stringified 1`] = `
 TAP version 13
 1..1
-ok 1
+ok
 # Subtest: unfinished
     1..1
-    ok 1
+    ok
 
 `
 
 exports[`test/parser-stringify.js TAP subtest-unfinished.tap strictBail > stringified flat 1`] = `
 TAP version 13
 1..1
-ok 1
+ok
 # Subtest: unfinished
     1..1
-    ok 1
+    ok
 
 `
 
@@ -109083,6 +110971,11 @@ Array [
       "id": 4,
       "name": "(unnamed assert)",
       "ok": true,
+      "plan": Object {
+        "end": 3,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -109119,8 +111012,16 @@ Array [
       "count": 4,
       "fail": 1,
       "failures": Array [
-        Object {
-          "tapError": "incorrect number of tests",
+        Result {
+          "fullname": "",
+          "id": 4,
+          "name": "(unnamed assert)",
+          "ok": true,
+          "plan": Object {
+            "end": 3,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
         },
       ],
       "ok": false,
@@ -109222,6 +111123,11 @@ Array [
       "id": 4,
       "name": "(unnamed assert)",
       "ok": true,
+      "plan": Object {
+        "end": 3,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -109258,8 +111164,16 @@ Array [
       "count": 4,
       "fail": 1,
       "failures": Array [
-        Object {
-          "tapError": "incorrect number of tests",
+        Result {
+          "fullname": "",
+          "id": 4,
+          "name": "(unnamed assert)",
+          "ok": true,
+          "plan": Object {
+            "end": 3,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
         },
       ],
       "ok": false,
@@ -109361,6 +111275,11 @@ Array [
       "id": 4,
       "name": "(unnamed assert)",
       "ok": true,
+      "plan": Object {
+        "end": 3,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -109397,8 +111316,16 @@ Array [
       "count": 4,
       "fail": 1,
       "failures": Array [
-        Object {
-          "tapError": "incorrect number of tests",
+        Result {
+          "fullname": "",
+          "id": 4,
+          "name": "(unnamed assert)",
+          "ok": true,
+          "plan": Object {
+            "end": 3,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
         },
       ],
       "ok": false,
@@ -109500,6 +111427,11 @@ Array [
       "id": 4,
       "name": "(unnamed assert)",
       "ok": true,
+      "plan": Object {
+        "end": 3,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -109536,8 +111468,16 @@ Array [
       "count": 4,
       "fail": 1,
       "failures": Array [
-        Object {
-          "tapError": "incorrect number of tests",
+        Result {
+          "fullname": "",
+          "id": 4,
+          "name": "(unnamed assert)",
+          "ok": true,
+          "plan": Object {
+            "end": 3,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
         },
       ],
       "ok": false,
@@ -111302,7 +113242,6 @@ Array [
             ),
           },
           "fullname": "child indented",
-          "id": 1,
           "name": "some yaml",
           "ok": false,
         },
@@ -111326,7 +113265,6 @@ Array [
                 ),
               },
               "fullname": "child indented",
-              "id": 1,
               "name": "some yaml",
               "ok": false,
             },
@@ -111378,7 +113316,7 @@ Array [
 exports[`test/parser-stringify.js TAP version-in-yaml.tap bail > stringified 1`] = `
 TAP version 13
 # Subtest: child indented
-    not ok 1 - some yaml
+    not ok - some yaml
       ---
       version: |-
         
@@ -111392,7 +113330,7 @@ Bail out! some yaml
 exports[`test/parser-stringify.js TAP version-in-yaml.tap bail > stringified flat 1`] = `
 TAP version 13
 # Subtest: child indented
-    not ok 1 - some yaml
+    not ok - some yaml
       ---
       version: |-
         
@@ -111426,7 +113364,6 @@ Array [
             ),
           },
           "fullname": "child indented",
-          "id": 1,
           "name": "some yaml",
           "ok": false,
         },
@@ -111457,7 +113394,6 @@ Array [
                 ),
               },
               "fullname": "child indented",
-              "id": 1,
               "name": "some yaml",
               "ok": false,
             },
@@ -111504,7 +113440,6 @@ Array [
             ),
           },
           "fullname": "child unindented",
-          "id": 1,
           "name": "some yaml",
           "ok": false,
         },
@@ -111535,7 +113470,6 @@ Array [
                 ),
               },
               "fullname": "child unindented",
-              "id": 1,
               "name": "some yaml",
               "ok": false,
             },
@@ -111582,7 +113516,6 @@ Array [
             ),
           },
           "fullname": "",
-          "id": 1,
           "name": "some yaml",
           "ok": false,
         },
@@ -111613,7 +113546,6 @@ Array [
                 ),
               },
               "fullname": "",
-              "id": 1,
               "name": "some yaml",
               "ok": false,
             },
@@ -111660,7 +113592,6 @@ Array [
             ),
           },
           "fullname": "child buffered",
-          "id": 1,
           "name": "some yaml",
           "ok": false,
         },
@@ -111691,7 +113622,6 @@ Array [
                 ),
               },
               "fullname": "child buffered",
-              "id": 1,
               "name": "some yaml",
               "ok": false,
             },
@@ -111786,7 +113716,7 @@ Array [
 exports[`test/parser-stringify.js TAP version-in-yaml.tap default settings > stringified 1`] = `
 TAP version 13
 # Subtest: child indented
-    not ok 1 - some yaml
+    not ok - some yaml
       ---
       version: |-
         
@@ -111796,7 +113726,7 @@ TAP version 13
     # failed 1 test
 not ok 1 - child indented
 # Subtest: child unindented
-    not ok 1 - some yaml
+    not ok - some yaml
       ---
       version: |-
         
@@ -111806,7 +113736,7 @@ not ok 1 - child indented
     # failed 1 test
 not ok 2 - child unindented
 # Subtest
-    not ok 1 - some yaml
+    not ok - some yaml
       ---
       version: |-
         
@@ -111816,7 +113746,7 @@ not ok 2 - child unindented
     # failed 1 test
 not ok 3 - child unnamed
 # Subtest: child buffered
-    not ok 1 - some yaml
+    not ok - some yaml
       ---
       version: |-
         
@@ -111833,7 +113763,7 @@ not ok 4 - child buffered
 exports[`test/parser-stringify.js TAP version-in-yaml.tap default settings > stringified flat 1`] = `
 TAP version 13
 # Subtest: child indented
-    not ok 1 - some yaml
+    not ok - some yaml
       ---
       version: |-
         
@@ -111843,7 +113773,7 @@ TAP version 13
     # failed 1 test
 not ok 1 - child indented
 # Subtest: child unindented
-    not ok 1 - some yaml
+    not ok - some yaml
       ---
       version: |-
         
@@ -111853,7 +113783,7 @@ not ok 1 - child indented
     # failed 1 test
 not ok 2 - child unindented
 # Subtest
-    not ok 1 - some yaml
+    not ok - some yaml
       ---
       version: |-
         
@@ -111863,7 +113793,7 @@ not ok 2 - child unindented
     # failed 1 test
 not ok 3 - child unnamed
 # Subtest: child buffered
-    not ok 1 - some yaml
+    not ok - some yaml
       ---
       version: |-
         
@@ -111900,7 +113830,6 @@ Array [
             ),
           },
           "fullname": "child indented",
-          "id": 1,
           "name": "some yaml",
           "ok": false,
         },
@@ -111931,7 +113860,6 @@ Array [
                 ),
               },
               "fullname": "child indented",
-              "id": 1,
               "name": "some yaml",
               "ok": false,
             },
@@ -111978,7 +113906,6 @@ Array [
             ),
           },
           "fullname": "child unindented",
-          "id": 1,
           "name": "some yaml",
           "ok": false,
         },
@@ -112009,7 +113936,6 @@ Array [
                 ),
               },
               "fullname": "child unindented",
-              "id": 1,
               "name": "some yaml",
               "ok": false,
             },
@@ -112056,7 +113982,6 @@ Array [
             ),
           },
           "fullname": "",
-          "id": 1,
           "name": "some yaml",
           "ok": false,
         },
@@ -112087,7 +114012,6 @@ Array [
                 ),
               },
               "fullname": "",
-              "id": 1,
               "name": "some yaml",
               "ok": false,
             },
@@ -112134,7 +114058,6 @@ Array [
             ),
           },
           "fullname": "child buffered",
-          "id": 1,
           "name": "some yaml",
           "ok": false,
         },
@@ -112165,7 +114088,6 @@ Array [
                 ),
               },
               "fullname": "child buffered",
-              "id": 1,
               "name": "some yaml",
               "ok": false,
             },
@@ -112260,7 +114182,7 @@ Array [
 exports[`test/parser-stringify.js TAP version-in-yaml.tap strict > stringified 1`] = `
 TAP version 13
 # Subtest: child indented
-    not ok 1 - some yaml
+    not ok - some yaml
       ---
       version: |-
         
@@ -112270,7 +114192,7 @@ TAP version 13
     # failed 1 test
 not ok 1 - child indented
 # Subtest: child unindented
-    not ok 1 - some yaml
+    not ok - some yaml
       ---
       version: |-
         
@@ -112280,7 +114202,7 @@ not ok 1 - child indented
     # failed 1 test
 not ok 2 - child unindented
 # Subtest
-    not ok 1 - some yaml
+    not ok - some yaml
       ---
       version: |-
         
@@ -112290,7 +114212,7 @@ not ok 2 - child unindented
     # failed 1 test
 not ok 3 - child unnamed
 # Subtest: child buffered
-    not ok 1 - some yaml
+    not ok - some yaml
       ---
       version: |-
         
@@ -112307,7 +114229,7 @@ not ok 4 - child buffered
 exports[`test/parser-stringify.js TAP version-in-yaml.tap strict > stringified flat 1`] = `
 TAP version 13
 # Subtest: child indented
-    not ok 1 - some yaml
+    not ok - some yaml
       ---
       version: |-
         
@@ -112317,7 +114239,7 @@ TAP version 13
     # failed 1 test
 not ok 1 - child indented
 # Subtest: child unindented
-    not ok 1 - some yaml
+    not ok - some yaml
       ---
       version: |-
         
@@ -112327,7 +114249,7 @@ not ok 1 - child indented
     # failed 1 test
 not ok 2 - child unindented
 # Subtest
-    not ok 1 - some yaml
+    not ok - some yaml
       ---
       version: |-
         
@@ -112337,7 +114259,7 @@ not ok 2 - child unindented
     # failed 1 test
 not ok 3 - child unnamed
 # Subtest: child buffered
-    not ok 1 - some yaml
+    not ok - some yaml
       ---
       version: |-
         
@@ -112374,7 +114296,6 @@ Array [
             ),
           },
           "fullname": "child indented",
-          "id": 1,
           "name": "some yaml",
           "ok": false,
         },
@@ -112398,7 +114319,6 @@ Array [
                 ),
               },
               "fullname": "child indented",
-              "id": 1,
               "name": "some yaml",
               "ok": false,
             },
@@ -112450,7 +114370,7 @@ Array [
 exports[`test/parser-stringify.js TAP version-in-yaml.tap strictBail > stringified 1`] = `
 TAP version 13
 # Subtest: child indented
-    not ok 1 - some yaml
+    not ok - some yaml
       ---
       version: |-
         
@@ -112464,7 +114384,7 @@ Bail out! some yaml
 exports[`test/parser-stringify.js TAP version-in-yaml.tap strictBail > stringified flat 1`] = `
 TAP version 13
 # Subtest: child indented
-    not ok 1 - some yaml
+    not ok - some yaml
       ---
       version: |-
         
@@ -115000,6 +116920,12 @@ Array [
       "fullname": "",
       "id": 4,
       "ok": true,
+      "previous": Result {
+        "fullname": "",
+        "id": 4,
+        "ok": true,
+      },
+      "tapError": "test point id 4 appears multiple times",
     },
   ],
   Array [
@@ -115013,8 +116939,16 @@ Array [
       "count": 5,
       "fail": 1,
       "failures": Array [
-        Object {
-          "tapError": "last test id does not match plan end",
+        Result {
+          "fullname": "",
+          "id": 4,
+          "ok": true,
+          "previous": Result {
+            "fullname": "",
+            "id": 4,
+            "ok": true,
+          },
+          "tapError": "test point id 4 appears multiple times",
         },
       ],
       "ok": false,
@@ -115109,6 +117043,12 @@ Array [
       "fullname": "",
       "id": 4,
       "ok": true,
+      "previous": Result {
+        "fullname": "",
+        "id": 4,
+        "ok": true,
+      },
+      "tapError": "test point id 4 appears multiple times",
     },
   ],
   Array [
@@ -115122,8 +117062,16 @@ Array [
       "count": 5,
       "fail": 1,
       "failures": Array [
-        Object {
-          "tapError": "last test id does not match plan end",
+        Result {
+          "fullname": "",
+          "id": 4,
+          "ok": true,
+          "previous": Result {
+            "fullname": "",
+            "id": 4,
+            "ok": true,
+          },
+          "tapError": "test point id 4 appears multiple times",
         },
       ],
       "ok": false,
@@ -115218,6 +117166,12 @@ Array [
       "fullname": "",
       "id": 4,
       "ok": true,
+      "previous": Result {
+        "fullname": "",
+        "id": 4,
+        "ok": true,
+      },
+      "tapError": "test point id 4 appears multiple times",
     },
   ],
   Array [
@@ -115231,8 +117185,16 @@ Array [
       "count": 5,
       "fail": 1,
       "failures": Array [
-        Object {
-          "tapError": "last test id does not match plan end",
+        Result {
+          "fullname": "",
+          "id": 4,
+          "ok": true,
+          "previous": Result {
+            "fullname": "",
+            "id": 4,
+            "ok": true,
+          },
+          "tapError": "test point id 4 appears multiple times",
         },
       ],
       "ok": false,
@@ -115327,6 +117289,12 @@ Array [
       "fullname": "",
       "id": 4,
       "ok": true,
+      "previous": Result {
+        "fullname": "",
+        "id": 4,
+        "ok": true,
+      },
+      "tapError": "test point id 4 appears multiple times",
     },
   ],
   Array [
@@ -115340,8 +117308,16 @@ Array [
       "count": 5,
       "fail": 1,
       "failures": Array [
-        Object {
-          "tapError": "last test id does not match plan end",
+        Result {
+          "fullname": "",
+          "id": 4,
+          "ok": true,
+          "previous": Result {
+            "fullname": "",
+            "id": 4,
+            "ok": true,
+          },
+          "tapError": "test point id 4 appears multiple times",
         },
       ],
       "ok": false,
@@ -115395,7 +117371,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "test suite started",
       "ok": true,
     },
@@ -115407,7 +117382,6 @@ Array [
         "Bogomips": 5226.88,
       },
       "fullname": "",
-      "id": 2,
       "name": "bogomips",
       "ok": true,
     },
@@ -115416,7 +117390,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 3,
       "name": "test suite finished",
       "ok": true,
     },
@@ -115454,24 +117427,24 @@ Array [
 
 exports[`test/parser-stringify.js TAP yaml_late_plan.tap bail > stringified 1`] = `
 TAP version 13
-ok 1 - test suite started
-ok 2 - bogomips
+ok - test suite started
+ok - bogomips
   ---
   Bogomips: 5226.88
   ...
-ok 3 - test suite finished
+ok - test suite finished
 1..3
 
 `
 
 exports[`test/parser-stringify.js TAP yaml_late_plan.tap bail > stringified flat 1`] = `
 TAP version 13
-ok 1 - test suite started
-ok 2 - bogomips
+ok - test suite started
+ok - bogomips
   ---
   Bogomips: 5226.88
   ...
-ok 3 - test suite finished
+ok - test suite finished
 1..3
 
 `
@@ -115486,7 +117459,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "test suite started",
       "ok": true,
     },
@@ -115498,7 +117470,6 @@ Array [
         "Bogomips": 5226.88,
       },
       "fullname": "",
-      "id": 2,
       "name": "bogomips",
       "ok": true,
     },
@@ -115507,7 +117478,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 3,
       "name": "test suite finished",
       "ok": true,
     },
@@ -115545,24 +117515,24 @@ Array [
 
 exports[`test/parser-stringify.js TAP yaml_late_plan.tap default settings > stringified 1`] = `
 TAP version 13
-ok 1 - test suite started
-ok 2 - bogomips
+ok - test suite started
+ok - bogomips
   ---
   Bogomips: 5226.88
   ...
-ok 3 - test suite finished
+ok - test suite finished
 1..3
 
 `
 
 exports[`test/parser-stringify.js TAP yaml_late_plan.tap default settings > stringified flat 1`] = `
 TAP version 13
-ok 1 - test suite started
-ok 2 - bogomips
+ok - test suite started
+ok - bogomips
   ---
   Bogomips: 5226.88
   ...
-ok 3 - test suite finished
+ok - test suite finished
 1..3
 
 `
@@ -115577,7 +117547,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "test suite started",
       "ok": true,
     },
@@ -115589,7 +117558,6 @@ Array [
         "Bogomips": 5226.88,
       },
       "fullname": "",
-      "id": 2,
       "name": "bogomips",
       "ok": true,
     },
@@ -115598,7 +117566,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 3,
       "name": "test suite finished",
       "ok": true,
     },
@@ -115636,24 +117603,24 @@ Array [
 
 exports[`test/parser-stringify.js TAP yaml_late_plan.tap strict > stringified 1`] = `
 TAP version 13
-ok 1 - test suite started
-ok 2 - bogomips
+ok - test suite started
+ok - bogomips
   ---
   Bogomips: 5226.88
   ...
-ok 3 - test suite finished
+ok - test suite finished
 1..3
 
 `
 
 exports[`test/parser-stringify.js TAP yaml_late_plan.tap strict > stringified flat 1`] = `
 TAP version 13
-ok 1 - test suite started
-ok 2 - bogomips
+ok - test suite started
+ok - bogomips
   ---
   Bogomips: 5226.88
   ...
-ok 3 - test suite finished
+ok - test suite finished
 1..3
 
 `
@@ -115668,7 +117635,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "test suite started",
       "ok": true,
     },
@@ -115680,7 +117646,6 @@ Array [
         "Bogomips": 5226.88,
       },
       "fullname": "",
-      "id": 2,
       "name": "bogomips",
       "ok": true,
     },
@@ -115689,7 +117654,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 3,
       "name": "test suite finished",
       "ok": true,
     },
@@ -115727,24 +117691,24 @@ Array [
 
 exports[`test/parser-stringify.js TAP yaml_late_plan.tap strictBail > stringified 1`] = `
 TAP version 13
-ok 1 - test suite started
-ok 2 - bogomips
+ok - test suite started
+ok - bogomips
   ---
   Bogomips: 5226.88
   ...
-ok 3 - test suite finished
+ok - test suite finished
 1..3
 
 `
 
 exports[`test/parser-stringify.js TAP yaml_late_plan.tap strictBail > stringified flat 1`] = `
 TAP version 13
-ok 1 - test suite started
-ok 2 - bogomips
+ok - test suite started
+ok - bogomips
   ---
   Bogomips: 5226.88
   ...
-ok 3 - test suite finished
+ok - test suite finished
 1..3
 
 `
@@ -116839,7 +118803,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "this is fine",
       "ok": true,
     },
@@ -116881,7 +118844,7 @@ TAP version 13
   this: is yaml
   but: no test here
   ...
-ok 1 - this is fine
+ok - this is fine
 1..1
 
 `
@@ -116892,7 +118855,7 @@ TAP version 13
   this: is yaml
   but: no test here
   ...
-ok 1 - this is fine
+ok - this is fine
 1..1
 
 `
@@ -116923,7 +118886,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "this is fine",
       "ok": true,
     },
@@ -116965,7 +118927,7 @@ TAP version 13
   this: is yaml
   but: no test here
   ...
-ok 1 - this is fine
+ok - this is fine
 1..1
 
 `
@@ -116976,7 +118938,7 @@ TAP version 13
   this: is yaml
   but: no test here
   ...
-ok 1 - this is fine
+ok - this is fine
 1..1
 
 `
@@ -117007,7 +118969,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "this is fine",
       "ok": true,
     },
@@ -117070,7 +119031,7 @@ TAP version 13
   this: is yaml
   but: no test here
   ...
-ok 1 - this is fine
+ok - this is fine
 1..1
 # failed 4 test
 
@@ -117082,7 +119043,7 @@ TAP version 13
   this: is yaml
   but: no test here
   ...
-ok 1 - this is fine
+ok - this is fine
 1..1
 # failed 4 test
 
@@ -117114,7 +119075,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "this is fine",
       "ok": true,
     },
@@ -117177,7 +119137,7 @@ TAP version 13
   this: is yaml
   but: no test here
   ...
-ok 1 - this is fine
+ok - this is fine
 1..1
 # failed 4 test
 
@@ -117189,7 +119149,7 @@ TAP version 13
   this: is yaml
   but: no test here
   ...
-ok 1 - this is fine
+ok - this is fine
 1..1
 # failed 4 test
 
@@ -117700,7 +119660,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 3,
       "name": "Three",
       "ok": true,
     },
@@ -117772,7 +119731,7 @@ exports[`test/parser-stringify.js TAP zero_valid.tap bail > stringified 1`] = `
 1..5
 ok 1 - One
 ok 2 - Two
-ok 3 - Three
+ok - Three
 ok 0 - Four
 ok 5 - Five
 # failed 1 of 5 tests
@@ -117783,7 +119742,7 @@ exports[`test/parser-stringify.js TAP zero_valid.tap bail > stringified flat 1`]
 1..5
 ok 1 - One
 ok 2 - Two
-ok 3 - Three
+ok - Three
 ok 0 - Four
 ok 5 - Five
 # failed 1 of 5 tests
@@ -117821,7 +119780,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 3,
       "name": "Three",
       "ok": true,
     },
@@ -117893,7 +119851,7 @@ exports[`test/parser-stringify.js TAP zero_valid.tap default settings > stringif
 1..5
 ok 1 - One
 ok 2 - Two
-ok 3 - Three
+ok - Three
 ok 0 - Four
 ok 5 - Five
 # failed 1 of 5 tests
@@ -117904,7 +119862,7 @@ exports[`test/parser-stringify.js TAP zero_valid.tap default settings > stringif
 1..5
 ok 1 - One
 ok 2 - Two
-ok 3 - Three
+ok - Three
 ok 0 - Four
 ok 5 - Five
 # failed 1 of 5 tests
@@ -117942,7 +119900,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 3,
       "name": "Three",
       "ok": true,
     },
@@ -118014,7 +119971,7 @@ exports[`test/parser-stringify.js TAP zero_valid.tap strict > stringified 1`] = 
 1..5
 ok 1 - One
 ok 2 - Two
-ok 3 - Three
+ok - Three
 ok 0 - Four
 ok 5 - Five
 # failed 1 of 5 tests
@@ -118025,7 +119982,7 @@ exports[`test/parser-stringify.js TAP zero_valid.tap strict > stringified flat 1
 1..5
 ok 1 - One
 ok 2 - Two
-ok 3 - Three
+ok - Three
 ok 0 - Four
 ok 5 - Five
 # failed 1 of 5 tests
@@ -118063,7 +120020,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 3,
       "name": "Three",
       "ok": true,
     },
@@ -118135,7 +120091,7 @@ exports[`test/parser-stringify.js TAP zero_valid.tap strictBail > stringified 1`
 1..5
 ok 1 - One
 ok 2 - Two
-ok 3 - Three
+ok - Three
 ok 0 - Four
 ok 5 - Five
 # failed 1 of 5 tests
@@ -118146,7 +120102,7 @@ exports[`test/parser-stringify.js TAP zero_valid.tap strictBail > stringified fl
 1..5
 ok 1 - One
 ok 2 - Two
-ok 3 - Three
+ok - Three
 ok 0 - Four
 ok 5 - Five
 # failed 1 of 5 tests

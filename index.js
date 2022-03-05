@@ -75,10 +75,11 @@ const parseDirective = line => {
 class Result {
   constructor (parsed, count) {
     const ok = !parsed[1]
-    const id = +(parsed[2] || count + 1)
+    const id = +(parsed[2] || 0)
     let buffered = parsed[4]
     this.ok = ok
-    this.id = id
+    if (parsed[2])
+      this.id = id
 
     let rest = parsed[3] || ''
     let name
@@ -206,7 +207,8 @@ class Parser extends MiniPass {
               name.push(res.name)
             res.name = name.join(' > ').trim()
           }
-          return (res.ok ? '' : 'not ') + 'ok ' + res.id +
+          return (res.ok ? '' : 'not ') + 'ok' +
+            (res.id !== undefined ? ' ' + res.id : '' ) +
             (res.name
               ? ' - ' + esc(res.name).replace(SPACE_OPEN_BRACE_EOL, '')
               : '') +
@@ -255,6 +257,7 @@ class Parser extends MiniPass {
       this.passes = []
     this.level = options.level || 0
 
+    this.pointsSeen = new Map()
     this.buffer = ''
     this.bail = !!options.bail
     this.bailingOut = false
@@ -316,10 +319,13 @@ class Parser extends MiniPass {
     if (this.bailedOut)
       return
 
+    const resId = testPoint[2]
+
     const res = new Result(testPoint, this.count)
-    if (this.planStart !== -1) {
-      const lessThanStart = +res.id < this.planStart
-      const greaterThanEnd = +res.id > this.planEnd
+
+    if (resId && this.planStart !== -1) {
+      const lessThanStart = res.id < this.planStart
+      const greaterThanEnd = res.id > this.planEnd
       if (lessThanStart || greaterThanEnd) {
         if (lessThanStart)
           res.tapError = 'id less than plan start'
@@ -330,11 +336,12 @@ class Parser extends MiniPass {
       }
     }
 
-    if (res.id) {
-      if (!this.first || res.id < this.first)
-        this.first = res.id
-      if (!this.last || res.id > this.last)
-        this.last = res.id
+    if (resId && this.pointsSeen.has(res.id)) {
+      res.tapError = 'test point id ' + resId + ' appears multiple times'
+      res.previous = this.pointsSeen.get(res.id)
+      this.tapError(res)
+    } else if (resId) {
+      this.pointsSeen.set(res.id, res)
     }
 
     if (this.child) {
@@ -416,10 +423,7 @@ class Parser extends MiniPass {
       if (this.strict)
         this.tapError({
           tapError: 'plan end cannot be less than plan start',
-          plan: {
-            start: start,
-            end: end
-          }
+          plan: { start, end },
         }, line)
       else
         this.nonTap(line)
@@ -436,8 +440,21 @@ class Parser extends MiniPass {
     // Plans MUST be either at the beginning or the very end.  We treat
     // plans like '1..0' the same, since they indicate that no tests
     // will be coming.
-    if (this.count !== 0 || this.planEnd === 0)
+    if (this.count !== 0 || this.planEnd === 0) {
+      const seen = new Set()
+      for (const [id, res] of this.pointsSeen.entries()) {
+        const tapError = id < start ? 'id less than plan start'
+          : id > end ? 'id greater than plan end'
+          : null
+        if (tapError) {
+          seen.add(tapError)
+          res.tapError = tapError
+          res.plan = { start, end }
+          this.tapError(res)
+        }
+      }
       this.postPlan = true
+    }
 
     this.emit('line', line)
     this.emit('plan', p)
@@ -565,14 +582,6 @@ class Parser extends MiniPass {
       }
     } else if (this.ok && this.count !== (this.planEnd - this.planStart + 1)) {
       this.tapError('incorrect number of tests')
-    }
-
-    if (this.ok && !skipAll && this.first !== this.planStart) {
-      this.tapError('first test id does not match plan start')
-    }
-
-    if (this.ok && !skipAll && this.last !== this.planEnd) {
-      this.tapError('last test id does not match plan end')
     }
 
     this.emitComplete(skipAll)

@@ -15,7 +15,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "1",
       "ok": false,
     },
@@ -31,7 +30,6 @@ Array [
         "assert",
         Result {
           "fullname": "child",
-          "id": 1,
           "name": "foo",
           "ok": true,
         },
@@ -40,7 +38,6 @@ Array [
         "assert",
         Result {
           "fullname": "child",
-          "id": 2,
           "ok": true,
         },
       ],
@@ -108,7 +105,6 @@ Array [
       "failures": Array [
         Result {
           "fullname": "",
-          "id": 1,
           "name": "1",
           "ok": false,
         },
@@ -232,12 +228,12 @@ ok 3 - child
 
 exports[`test/stringify-parse.js TAP stringify nested result > basic 1`] = `
 TAP version 13
-not ok 1 - 1
+not ok - 1
 pragma +strict
 # Subtest: child
-    ok 1 - foo
+    ok - foo
     pragma +strict
-    ok 2
+    ok
     pragma -strict
     1..2
 ok 2 - child

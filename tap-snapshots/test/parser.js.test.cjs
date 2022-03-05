@@ -682,7 +682,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": false,
     },
   ],
@@ -690,7 +689,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": false,
     },
   ],
@@ -698,7 +696,6 @@ Array [
     "fail",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": false,
     },
   ],
@@ -710,7 +707,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -718,7 +714,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -726,7 +721,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -738,7 +732,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 3,
       "ok": false,
     },
   ],
@@ -746,7 +739,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 3,
       "ok": false,
     },
   ],
@@ -754,7 +746,6 @@ Array [
     "fail",
     Result {
       "fullname": "",
-      "id": 3,
       "ok": false,
     },
   ],
@@ -766,7 +757,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 4,
       "ok": true,
     },
   ],
@@ -774,7 +764,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 4,
       "ok": true,
     },
   ],
@@ -782,7 +771,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 4,
       "ok": true,
     },
   ],
@@ -794,7 +782,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 5,
       "ok": true,
     },
   ],
@@ -802,7 +789,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 5,
       "ok": true,
     },
   ],
@@ -810,7 +796,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 5,
       "ok": true,
     },
   ],
@@ -839,12 +824,10 @@ Array [
       "failures": Array [
         Result {
           "fullname": "",
-          "id": 1,
           "ok": false,
         },
         Result {
           "fullname": "",
-          "id": 3,
           "ok": false,
         },
       ],
@@ -886,7 +869,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": false,
     },
   ],
@@ -894,7 +876,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": false,
     },
   ],
@@ -902,7 +883,6 @@ Array [
     "fail",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": false,
     },
   ],
@@ -923,7 +903,6 @@ Array [
       "failures": Array [
         Result {
           "fullname": "",
-          "id": 1,
           "ok": false,
         },
       ],
@@ -3777,7 +3756,6 @@ Array [
         "assert",
         Result {
           "fullname": "my kids are fine",
-          "id": 1,
           "name": "no they aren't",
           "ok": false,
         },
@@ -3799,7 +3777,6 @@ Array [
           "failures": Array [
             Result {
               "fullname": "my kids are fine",
-              "id": 1,
               "name": "no they aren't",
               "ok": false,
             },
@@ -3832,7 +3809,6 @@ Array [
     "result",
     Result {
       "fullname": "my kids are fine",
-      "id": 1,
       "name": "no they aren't",
       "ok": false,
     },
@@ -3841,7 +3817,6 @@ Array [
     "fail",
     Result {
       "fullname": "my kids are fine",
-      "id": 1,
       "name": "no they aren't",
       "ok": false,
     },
@@ -3984,7 +3959,6 @@ Array [
         "assert",
         Result {
           "fullname": "my kids are fine",
-          "id": 1,
           "name": "no they aren't",
           "ok": false,
         },
@@ -4006,7 +3980,6 @@ Array [
           "failures": Array [
             Result {
               "fullname": "my kids are fine",
-              "id": 1,
               "name": "no they aren't",
               "ok": false,
             },
@@ -4039,7 +4012,6 @@ Array [
     "result",
     Result {
       "fullname": "my kids are fine",
-      "id": 1,
       "name": "no they aren't",
       "ok": false,
     },
@@ -4048,7 +4020,6 @@ Array [
     "fail",
     Result {
       "fullname": "my kids are fine",
-      "id": 1,
       "name": "no they aren't",
       "ok": false,
     },
@@ -4144,7 +4115,6 @@ Array [
         "assert",
         Result {
           "fullname": "my kids are fine",
-          "id": 1,
           "ok": false,
         },
       ],
@@ -4165,7 +4135,6 @@ Array [
           "failures": Array [
             Result {
               "fullname": "my kids are fine",
-              "id": 1,
               "ok": false,
             },
           ],
@@ -4197,7 +4166,6 @@ Array [
     "result",
     Result {
       "fullname": "my kids are fine",
-      "id": 1,
       "ok": false,
     },
   ],
@@ -4205,7 +4173,6 @@ Array [
     "fail",
     Result {
       "fullname": "my kids are fine",
-      "id": 1,
       "ok": false,
     },
   ],
@@ -4322,7 +4289,6 @@ Array [
         "assert",
         Result {
           "fullname": "my kids are fine",
-          "id": 1,
           "ok": false,
         },
       ],
@@ -4343,7 +4309,6 @@ Array [
           "failures": Array [
             Result {
               "fullname": "my kids are fine",
-              "id": 1,
               "ok": false,
             },
           ],
@@ -4375,7 +4340,6 @@ Array [
     "result",
     Result {
       "fullname": "my kids are fine",
-      "id": 1,
       "ok": false,
     },
   ],
@@ -4383,7 +4347,6 @@ Array [
     "fail",
     Result {
       "fullname": "my kids are fine",
-      "id": 1,
       "ok": false,
     },
   ],
@@ -4478,7 +4441,6 @@ Array [
         "assert",
         Result {
           "fullname": "my kids are fine",
-          "id": 1,
           "name": "no they aren't",
           "ok": false,
         },
@@ -4500,7 +4462,6 @@ Array [
           "failures": Array [
             Result {
               "fullname": "my kids are fine",
-              "id": 1,
               "name": "no they aren't",
               "ok": false,
             },
@@ -4533,7 +4494,6 @@ Array [
     "result",
     Result {
       "fullname": "my kids are fine",
-      "id": 1,
       "name": "no they aren't",
       "ok": false,
     },
@@ -4542,7 +4502,6 @@ Array [
     "fail",
     Result {
       "fullname": "my kids are fine",
-      "id": 1,
       "name": "no they aren't",
       "ok": false,
     },
@@ -4660,7 +4619,6 @@ Array [
         "assert",
         Result {
           "fullname": "my kids are fine",
-          "id": 1,
           "name": "no they aren't",
           "ok": false,
         },
@@ -4682,7 +4640,6 @@ Array [
           "failures": Array [
             Result {
               "fullname": "my kids are fine",
-              "id": 1,
               "name": "no they aren't",
               "ok": false,
             },
@@ -4715,7 +4672,6 @@ Array [
     "result",
     Result {
       "fullname": "my kids are fine",
-      "id": 1,
       "name": "no they aren't",
       "ok": false,
     },
@@ -4724,7 +4680,6 @@ Array [
     "fail",
     Result {
       "fullname": "my kids are fine",
-      "id": 1,
       "name": "no they aren't",
       "ok": false,
     },
@@ -4836,7 +4791,6 @@ Array [
         "assert",
         Result {
           "fullname": "please sir, my son, he is sick",
-          "id": 1,
           "name": "i got better",
           "ok": true,
         },
@@ -4876,7 +4830,6 @@ Array [
     "result",
     Result {
       "fullname": "please sir, my son, he is sick",
-      "id": 1,
       "name": "i got better",
       "ok": true,
     },
@@ -4885,7 +4838,6 @@ Array [
     "pass",
     Result {
       "fullname": "please sir, my son, he is sick",
-      "id": 1,
       "name": "i got better",
       "ok": true,
     },
@@ -5043,7 +4995,6 @@ Array [
         "assert",
         Result {
           "fullname": "please sir, my son, he is sick",
-          "id": 1,
           "name": "i got better",
           "ok": true,
         },
@@ -5083,7 +5034,6 @@ Array [
     "result",
     Result {
       "fullname": "please sir, my son, he is sick",
-      "id": 1,
       "name": "i got better",
       "ok": true,
     },
@@ -5092,7 +5042,6 @@ Array [
     "pass",
     Result {
       "fullname": "please sir, my son, he is sick",
-      "id": 1,
       "name": "i got better",
       "ok": true,
     },
@@ -5234,7 +5183,6 @@ Array [
         "assert",
         Result {
           "fullname": "please sir, my son, he is sick",
-          "id": 1,
           "name": "i got better",
           "ok": true,
         },
@@ -5274,7 +5222,6 @@ Array [
     "result",
     Result {
       "fullname": "please sir, my son, he is sick",
-      "id": 1,
       "name": "i got better",
       "ok": true,
     },
@@ -5283,7 +5230,6 @@ Array [
     "pass",
     Result {
       "fullname": "please sir, my son, he is sick",
-      "id": 1,
       "name": "i got better",
       "ok": true,
     },
@@ -5413,7 +5359,6 @@ Array [
         "assert",
         Result {
           "fullname": "please sir, my son, he is sick",
-          "id": 1,
           "name": "i got better",
           "ok": true,
         },
@@ -5453,7 +5398,6 @@ Array [
     "result",
     Result {
       "fullname": "please sir, my son, he is sick",
-      "id": 1,
       "name": "i got better",
       "ok": true,
     },
@@ -5462,7 +5406,6 @@ Array [
     "pass",
     Result {
       "fullname": "please sir, my son, he is sick",
-      "id": 1,
       "name": "i got better",
       "ok": true,
     },
@@ -6234,7 +6177,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "1",
       "ok": false,
     },
@@ -6243,7 +6185,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "1",
       "ok": false,
     },
@@ -6252,7 +6193,6 @@ Array [
     "fail",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "1",
       "ok": false,
     },
@@ -6276,7 +6216,6 @@ Array [
         "assert",
         Result {
           "fullname": "child",
-          "id": 1,
           "ok": true,
         },
       ],
@@ -6322,7 +6261,6 @@ Array [
     "result",
     Result {
       "fullname": "child",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -6330,7 +6268,6 @@ Array [
     "pass",
     Result {
       "fullname": "child",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -6379,7 +6316,6 @@ Array [
       "failures": Array [
         Result {
           "fullname": "",
-          "id": 1,
           "name": "1",
           "ok": false,
         },
@@ -6411,7 +6347,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "1",
       "ok": false,
     },
@@ -6420,7 +6355,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "1",
       "ok": false,
     },
@@ -6429,7 +6363,6 @@ Array [
     "fail",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "1",
       "ok": false,
     },
@@ -6451,7 +6384,6 @@ Array [
       "failures": Array [
         Result {
           "fullname": "",
-          "id": 1,
           "name": "1",
           "ok": false,
         },
@@ -7064,7 +6996,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 5,
       "name": "say \\"live without loving\\",",
       "ok": true,
     },
@@ -7073,7 +7004,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 5,
       "name": "say \\"live without loving\\",",
       "ok": true,
     },
@@ -7082,7 +7012,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 5,
       "name": "say \\"live without loving\\",",
       "ok": true,
     },
@@ -7583,7 +7512,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 5,
       "ok": true,
     },
   ],
@@ -7591,7 +7519,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 5,
       "ok": true,
     },
   ],
@@ -7599,7 +7526,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 5,
       "ok": true,
     },
   ],
@@ -10083,7 +10009,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "created Board",
       "ok": true,
     },
@@ -10092,7 +10017,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "created Board",
       "ok": true,
     },
@@ -10101,7 +10025,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "created Board",
       "ok": true,
     },
@@ -10114,7 +10037,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -10122,7 +10044,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -10130,7 +10051,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -10142,7 +10062,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 3,
       "ok": true,
     },
   ],
@@ -10150,7 +10069,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 3,
       "ok": true,
     },
   ],
@@ -10158,7 +10076,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 3,
       "ok": true,
     },
   ],
@@ -10170,7 +10087,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 4,
       "ok": true,
     },
   ],
@@ -10178,7 +10094,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 4,
       "ok": true,
     },
   ],
@@ -10186,7 +10101,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 4,
       "ok": true,
     },
   ],
@@ -10198,7 +10112,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 5,
       "ok": true,
     },
   ],
@@ -10206,7 +10119,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 5,
       "ok": true,
     },
   ],
@@ -10214,7 +10126,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 5,
       "ok": true,
     },
   ],
@@ -10226,7 +10137,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 6,
       "ok": true,
     },
   ],
@@ -10234,7 +10144,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 6,
       "ok": true,
     },
   ],
@@ -10242,7 +10151,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 6,
       "ok": true,
     },
   ],
@@ -10254,7 +10162,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 7,
       "ok": true,
     },
   ],
@@ -10262,7 +10169,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 7,
       "ok": true,
     },
   ],
@@ -10270,7 +10176,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 7,
       "ok": true,
     },
   ],
@@ -10359,7 +10264,6 @@ Array [
         "severity": "comment",
       },
       "fullname": "",
-      "id": 8,
       "ok": true,
     },
   ],
@@ -10384,7 +10288,6 @@ Array [
         "severity": "comment",
       },
       "fullname": "",
-      "id": 8,
       "ok": true,
     },
   ],
@@ -10409,7 +10312,6 @@ Array [
         "severity": "comment",
       },
       "fullname": "",
-      "id": 8,
       "ok": true,
     },
   ],
@@ -10421,7 +10323,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 9,
       "name": "board has 7 tiles + starter tile",
       "ok": true,
     },
@@ -10430,7 +10331,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 9,
       "name": "board has 7 tiles + starter tile",
       "ok": true,
     },
@@ -10439,7 +10339,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 9,
       "name": "board has 7 tiles + starter tile",
       "ok": true,
     },
@@ -10497,7 +10396,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "created Board",
       "ok": true,
     },
@@ -10506,7 +10404,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "created Board",
       "ok": true,
     },
@@ -10515,7 +10412,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "created Board",
       "ok": true,
     },
@@ -10528,7 +10424,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -10536,7 +10431,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -10544,7 +10438,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -10556,7 +10449,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 3,
       "ok": true,
     },
   ],
@@ -10564,7 +10456,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 3,
       "ok": true,
     },
   ],
@@ -10572,7 +10463,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 3,
       "ok": true,
     },
   ],
@@ -10584,7 +10474,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 4,
       "ok": true,
     },
   ],
@@ -10592,7 +10481,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 4,
       "ok": true,
     },
   ],
@@ -10600,7 +10488,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 4,
       "ok": true,
     },
   ],
@@ -10612,7 +10499,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 5,
       "ok": true,
     },
   ],
@@ -10620,7 +10506,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 5,
       "ok": true,
     },
   ],
@@ -10628,7 +10513,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 5,
       "ok": true,
     },
   ],
@@ -10640,7 +10524,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 6,
       "ok": true,
     },
   ],
@@ -10648,7 +10531,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 6,
       "ok": true,
     },
   ],
@@ -10656,7 +10538,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 6,
       "ok": true,
     },
   ],
@@ -10668,7 +10549,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 7,
       "ok": true,
     },
   ],
@@ -10676,7 +10556,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 7,
       "ok": true,
     },
   ],
@@ -10684,7 +10563,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 7,
       "ok": true,
     },
   ],
@@ -10773,7 +10651,6 @@ Array [
         "severity": "comment",
       },
       "fullname": "",
-      "id": 8,
       "ok": true,
     },
   ],
@@ -10798,7 +10675,6 @@ Array [
         "severity": "comment",
       },
       "fullname": "",
-      "id": 8,
       "ok": true,
     },
   ],
@@ -10823,7 +10699,6 @@ Array [
         "severity": "comment",
       },
       "fullname": "",
-      "id": 8,
       "ok": true,
     },
   ],
@@ -10835,7 +10710,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 9,
       "name": "board has 7 tiles + starter tile",
       "ok": true,
     },
@@ -10844,7 +10718,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 9,
       "name": "board has 7 tiles + starter tile",
       "ok": true,
     },
@@ -10853,7 +10726,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 9,
       "name": "board has 7 tiles + starter tile",
       "ok": true,
     },
@@ -13897,6 +13769,12 @@ Array [
       "fullname": "",
       "id": 4,
       "ok": true,
+      "previous": Result {
+        "fullname": "",
+        "id": 4,
+        "ok": true,
+      },
+      "tapError": "test point id 4 appears multiple times",
     },
   ],
   Array [
@@ -13905,6 +13783,12 @@ Array [
       "fullname": "",
       "id": 4,
       "ok": true,
+      "previous": Result {
+        "fullname": "",
+        "id": 4,
+        "ok": true,
+      },
+      "tapError": "test point id 4 appears multiple times",
     },
   ],
   Array [
@@ -13913,6 +13797,12 @@ Array [
       "fullname": "",
       "id": 4,
       "ok": true,
+      "previous": Result {
+        "fullname": "",
+        "id": 4,
+        "ok": true,
+      },
+      "tapError": "test point id 4 appears multiple times",
     },
   ],
   Array [
@@ -14106,8 +13996,16 @@ Array [
       "count": 11,
       "fail": 1,
       "failures": Array [
-        Object {
-          "tapError": "incorrect number of tests",
+        Result {
+          "fullname": "",
+          "id": 4,
+          "ok": true,
+          "previous": Result {
+            "fullname": "",
+            "id": 4,
+            "ok": true,
+          },
+          "tapError": "test point id 4 appears multiple times",
         },
       ],
       "ok": false,
@@ -14262,6 +14160,12 @@ Array [
       "fullname": "",
       "id": 4,
       "ok": true,
+      "previous": Result {
+        "fullname": "",
+        "id": 4,
+        "ok": true,
+      },
+      "tapError": "test point id 4 appears multiple times",
     },
   ],
   Array [
@@ -14270,6 +14174,12 @@ Array [
       "fullname": "",
       "id": 4,
       "ok": true,
+      "previous": Result {
+        "fullname": "",
+        "id": 4,
+        "ok": true,
+      },
+      "tapError": "test point id 4 appears multiple times",
     },
   ],
   Array [
@@ -14278,6 +14188,12 @@ Array [
       "fullname": "",
       "id": 4,
       "ok": true,
+      "previous": Result {
+        "fullname": "",
+        "id": 4,
+        "ok": true,
+      },
+      "tapError": "test point id 4 appears multiple times",
     },
   ],
   Array [
@@ -14471,8 +14387,16 @@ Array [
       "count": 11,
       "fail": 1,
       "failures": Array [
-        Object {
-          "tapError": "incorrect number of tests",
+        Result {
+          "fullname": "",
+          "id": 4,
+          "ok": true,
+          "previous": Result {
+            "fullname": "",
+            "id": 4,
+            "ok": true,
+          },
+          "tapError": "test point id 4 appears multiple times",
         },
       ],
       "ok": false,
@@ -14619,7 +14543,6 @@ Array [
     Result {
       "buffered": true,
       "fullname": "",
-      "id": 1,
       "name": "child",
       "ok": true,
     },
@@ -14629,7 +14552,6 @@ Array [
     Result {
       "buffered": true,
       "fullname": "",
-      "id": 1,
       "name": "child",
       "ok": true,
     },
@@ -14639,7 +14561,6 @@ Array [
     Result {
       "buffered": true,
       "fullname": "",
-      "id": 1,
       "name": "child",
       "ok": true,
     },
@@ -14732,7 +14653,6 @@ Array [
     Result {
       "buffered": true,
       "fullname": "",
-      "id": 1,
       "name": "child",
       "ok": true,
     },
@@ -14742,7 +14662,6 @@ Array [
     Result {
       "buffered": true,
       "fullname": "",
-      "id": 1,
       "name": "child",
       "ok": true,
     },
@@ -14752,7 +14671,6 @@ Array [
     Result {
       "buffered": true,
       "fullname": "",
-      "id": 1,
       "name": "child",
       "ok": true,
     },
@@ -14813,7 +14731,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -14821,7 +14738,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -14829,7 +14745,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -14841,7 +14756,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -14849,7 +14763,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -14857,7 +14770,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -14906,7 +14818,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -14914,7 +14825,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -14922,7 +14832,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -14934,7 +14843,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -14942,7 +14850,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -14950,7 +14857,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -16948,7 +16854,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": false,
     },
   ],
@@ -16956,7 +16861,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": false,
     },
   ],
@@ -16964,7 +16868,6 @@ Array [
     "fail",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": false,
     },
   ],
@@ -17018,7 +16921,6 @@ Array [
         "assert",
         Result {
           "fullname": "maybe a child",
-          "id": 1,
           "ok": true,
         },
       ],
@@ -17057,7 +16959,6 @@ Array [
     "result",
     Result {
       "fullname": "maybe a child",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -17065,7 +16966,6 @@ Array [
     "pass",
     Result {
       "fullname": "maybe a child",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -17077,7 +16977,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "name": "maybe a child",
       "ok": true,
     },
@@ -17107,7 +17006,6 @@ Array [
       "failures": Array [
         Result {
           "fullname": "",
-          "id": 1,
           "ok": false,
         },
         Object {
@@ -17153,7 +17051,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": false,
     },
   ],
@@ -17161,7 +17058,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": false,
     },
   ],
@@ -17169,7 +17065,6 @@ Array [
     "fail",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": false,
     },
   ],
@@ -17206,7 +17101,6 @@ Array [
       "failures": Array [
         Result {
           "fullname": "",
-          "id": 1,
           "ok": false,
         },
       ],
@@ -17245,7 +17139,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": false,
     },
   ],
@@ -17253,7 +17146,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": false,
     },
   ],
@@ -17261,7 +17153,6 @@ Array [
     "fail",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": false,
     },
   ],
@@ -17295,7 +17186,6 @@ Array [
         "assert",
         Result {
           "fullname": "maybe a child",
-          "id": 1,
           "ok": true,
         },
       ],
@@ -17334,7 +17224,6 @@ Array [
     "result",
     Result {
       "fullname": "maybe a child",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -17342,7 +17231,6 @@ Array [
     "pass",
     Result {
       "fullname": "maybe a child",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -17354,7 +17242,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "name": "maybe a child",
       "ok": true,
     },
@@ -17384,7 +17271,6 @@ Array [
       "failures": Array [
         Result {
           "fullname": "",
-          "id": 1,
           "ok": false,
         },
         Object {
@@ -17426,7 +17312,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": false,
     },
   ],
@@ -17434,7 +17319,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": false,
     },
   ],
@@ -17442,7 +17326,6 @@ Array [
     "fail",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": false,
     },
   ],
@@ -17463,7 +17346,6 @@ Array [
       "failures": Array [
         Result {
           "fullname": "",
-          "id": 1,
           "ok": false,
         },
       ],
@@ -19569,7 +19451,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "one",
       "ok": true,
     },
@@ -19578,7 +19459,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "one",
       "ok": true,
     },
@@ -19587,7 +19467,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "one",
       "ok": true,
     },
@@ -19600,7 +19479,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "name": "two",
       "ok": true,
     },
@@ -19609,7 +19487,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 2,
       "name": "two",
       "ok": true,
     },
@@ -19618,7 +19495,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 2,
       "name": "two",
       "ok": true,
     },
@@ -19639,7 +19515,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 3,
       "name": "three",
       "ok": true,
     },
@@ -19648,7 +19523,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 3,
       "name": "three",
       "ok": true,
     },
@@ -19657,7 +19531,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 3,
       "name": "three",
       "ok": true,
     },
@@ -19670,7 +19543,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 4,
       "name": "four",
       "ok": true,
     },
@@ -19679,7 +19551,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 4,
       "name": "four",
       "ok": true,
     },
@@ -19688,7 +19559,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 4,
       "name": "four",
       "ok": true,
     },
@@ -19786,7 +19656,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "one",
       "ok": true,
     },
@@ -19795,7 +19664,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "one",
       "ok": true,
     },
@@ -19804,7 +19672,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "one",
       "ok": true,
     },
@@ -19817,7 +19684,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "name": "two",
       "ok": true,
     },
@@ -19826,7 +19692,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 2,
       "name": "two",
       "ok": true,
     },
@@ -19835,7 +19700,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 2,
       "name": "two",
       "ok": true,
     },
@@ -19856,7 +19720,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 3,
       "name": "three",
       "ok": true,
     },
@@ -19865,7 +19728,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 3,
       "name": "three",
       "ok": true,
     },
@@ -19874,7 +19736,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 3,
       "name": "three",
       "ok": true,
     },
@@ -19887,7 +19748,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 4,
       "name": "four",
       "ok": true,
     },
@@ -19896,7 +19756,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 4,
       "name": "four",
       "ok": true,
     },
@@ -19905,7 +19764,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 4,
       "name": "four",
       "ok": true,
     },
@@ -20200,7 +20058,6 @@ Array [
             "assert",
             Result {
               "fullname": "second this passes",
-              "id": 1,
               "name": "granddaughter",
               "ok": false,
               "skip": "for no raisin",
@@ -20239,7 +20096,6 @@ Array [
                 "this": "is not tap",
               },
               "fullname": "second this passes",
-              "id": 2,
               "name": "grandson",
               "ok": true,
               "time": 1001,
@@ -20269,7 +20125,6 @@ Array [
             "assert",
             Result {
               "fullname": "second this passes",
-              "id": 3,
               "name": "grandchild",
               "ok": false,
               "todo": true,
@@ -20462,7 +20317,6 @@ Array [
     "result",
     Result {
       "fullname": "second this passes",
-      "id": 1,
       "name": "granddaughter",
       "ok": false,
       "skip": "for no raisin",
@@ -20472,7 +20326,6 @@ Array [
     "skip",
     Result {
       "fullname": "second this passes",
-      "id": 1,
       "name": "granddaughter",
       "ok": false,
       "skip": "for no raisin",
@@ -20511,7 +20364,6 @@ Array [
         "this": "is not tap",
       },
       "fullname": "second this passes",
-      "id": 2,
       "name": "grandson",
       "ok": true,
       "time": 1001,
@@ -20526,7 +20378,6 @@ Array [
         "this": "is not tap",
       },
       "fullname": "second this passes",
-      "id": 2,
       "name": "grandson",
       "ok": true,
       "time": 1001,
@@ -20556,7 +20407,6 @@ Array [
     "result",
     Result {
       "fullname": "second this passes",
-      "id": 3,
       "name": "grandchild",
       "ok": false,
       "todo": true,
@@ -20566,7 +20416,6 @@ Array [
     "todo",
     Result {
       "fullname": "second this passes",
-      "id": 3,
       "name": "grandchild",
       "ok": false,
       "todo": true,
@@ -20859,7 +20708,6 @@ Array [
             "assert",
             Result {
               "fullname": "second this passes",
-              "id": 1,
               "name": "granddaughter",
               "ok": false,
               "skip": "for no raisin",
@@ -20898,7 +20746,6 @@ Array [
                 "this": "is not tap",
               },
               "fullname": "second this passes",
-              "id": 2,
               "name": "grandson",
               "ok": true,
               "time": 1001,
@@ -20928,7 +20775,6 @@ Array [
             "assert",
             Result {
               "fullname": "second this passes",
-              "id": 3,
               "name": "grandchild",
               "ok": false,
               "todo": true,
@@ -21121,7 +20967,6 @@ Array [
     "result",
     Result {
       "fullname": "second this passes",
-      "id": 1,
       "name": "granddaughter",
       "ok": false,
       "skip": "for no raisin",
@@ -21131,7 +20976,6 @@ Array [
     "skip",
     Result {
       "fullname": "second this passes",
-      "id": 1,
       "name": "granddaughter",
       "ok": false,
       "skip": "for no raisin",
@@ -21170,7 +21014,6 @@ Array [
         "this": "is not tap",
       },
       "fullname": "second this passes",
-      "id": 2,
       "name": "grandson",
       "ok": true,
       "time": 1001,
@@ -21185,7 +21028,6 @@ Array [
         "this": "is not tap",
       },
       "fullname": "second this passes",
-      "id": 2,
       "name": "grandson",
       "ok": true,
       "time": 1001,
@@ -21215,7 +21057,6 @@ Array [
     "result",
     Result {
       "fullname": "second this passes",
-      "id": 3,
       "name": "grandchild",
       "ok": false,
       "todo": true,
@@ -21225,7 +21066,6 @@ Array [
     "todo",
     Result {
       "fullname": "second this passes",
-      "id": 3,
       "name": "grandchild",
       "ok": false,
       "todo": true,
@@ -24543,7 +24383,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -24551,7 +24390,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -24559,7 +24397,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -24571,7 +24408,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -24579,7 +24415,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -24587,7 +24422,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -24599,7 +24433,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 3,
       "ok": true,
     },
   ],
@@ -24607,7 +24440,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 3,
       "ok": true,
     },
   ],
@@ -24615,7 +24447,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 3,
       "ok": true,
     },
   ],
@@ -24627,7 +24458,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 4,
       "ok": true,
     },
   ],
@@ -24635,7 +24465,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 4,
       "ok": true,
     },
   ],
@@ -24643,7 +24472,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 4,
       "ok": true,
     },
   ],
@@ -24655,7 +24483,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 5,
       "ok": true,
     },
   ],
@@ -24663,7 +24490,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 5,
       "ok": true,
     },
   ],
@@ -24671,7 +24497,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 5,
       "ok": true,
     },
   ],
@@ -24748,7 +24573,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -24756,7 +24580,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -24764,7 +24587,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -24776,7 +24598,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -24784,7 +24605,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -24792,7 +24612,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -24804,7 +24623,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 3,
       "ok": true,
     },
   ],
@@ -24812,7 +24630,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 3,
       "ok": true,
     },
   ],
@@ -24820,7 +24637,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 3,
       "ok": true,
     },
   ],
@@ -24832,7 +24648,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 4,
       "ok": true,
     },
   ],
@@ -24840,7 +24655,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 4,
       "ok": true,
     },
   ],
@@ -24848,7 +24662,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 4,
       "ok": true,
     },
   ],
@@ -24860,7 +24673,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 5,
       "ok": true,
     },
   ],
@@ -24868,7 +24680,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 5,
       "ok": true,
     },
   ],
@@ -24876,7 +24687,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 5,
       "ok": true,
     },
   ],
@@ -24945,7 +24755,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "we are good",
       "ok": true,
     },
@@ -24954,7 +24763,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "we are good",
       "ok": true,
     },
@@ -24963,7 +24771,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "we are good",
       "ok": true,
     },
@@ -25007,7 +24814,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 3,
       "name": "we are zesty!",
       "ok": true,
     },
@@ -25016,7 +24822,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 3,
       "name": "we are zesty!",
       "ok": true,
     },
@@ -25025,7 +24830,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 3,
       "name": "we are zesty!",
       "ok": true,
     },
@@ -25090,7 +24894,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "we are good",
       "ok": true,
     },
@@ -25099,7 +24902,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "we are good",
       "ok": true,
     },
@@ -25108,7 +24910,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "we are good",
       "ok": true,
     },
@@ -25592,7 +25393,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -25600,7 +25400,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -25608,7 +25407,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -25620,7 +25418,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -25628,7 +25425,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -25636,7 +25432,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -25648,7 +25443,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 3,
       "ok": false,
     },
   ],
@@ -25656,7 +25450,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 3,
       "ok": false,
     },
   ],
@@ -25664,7 +25457,6 @@ Array [
     "fail",
     Result {
       "fullname": "",
-      "id": 3,
       "ok": false,
     },
   ],
@@ -25676,7 +25468,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 4,
       "ok": true,
     },
   ],
@@ -25684,7 +25475,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 4,
       "ok": true,
     },
   ],
@@ -25692,7 +25482,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 4,
       "ok": true,
     },
   ],
@@ -25704,7 +25493,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 5,
       "ok": true,
     },
   ],
@@ -25712,7 +25500,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 5,
       "ok": true,
     },
   ],
@@ -25720,7 +25507,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 5,
       "ok": true,
     },
   ],
@@ -25741,7 +25527,6 @@ Array [
       "failures": Array [
         Result {
           "fullname": "",
-          "id": 3,
           "ok": false,
         },
       ],
@@ -25783,7 +25568,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -25791,7 +25575,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -25799,7 +25582,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -25811,7 +25593,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -25819,7 +25600,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -25827,7 +25607,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -25839,7 +25618,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 3,
       "ok": false,
     },
   ],
@@ -25847,7 +25625,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 3,
       "ok": false,
     },
   ],
@@ -25855,7 +25632,6 @@ Array [
     "fail",
     Result {
       "fullname": "",
-      "id": 3,
       "ok": false,
     },
   ],
@@ -25876,7 +25652,6 @@ Array [
       "failures": Array [
         Result {
           "fullname": "",
-          "id": 3,
           "ok": false,
         },
       ],
@@ -27478,6 +27253,11 @@ Array [
       "id": 8,
       "name": "should be equal",
       "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -27487,6 +27267,11 @@ Array [
       "id": 8,
       "name": "should be equal",
       "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -27496,6 +27281,11 @@ Array [
       "id": 8,
       "name": "should be equal",
       "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -27509,6 +27299,11 @@ Array [
       "id": 9,
       "name": "should be equivalent",
       "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -27518,6 +27313,11 @@ Array [
       "id": 9,
       "name": "should be equivalent",
       "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -27527,6 +27327,11 @@ Array [
       "id": 9,
       "name": "should be equivalent",
       "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -27548,6 +27353,11 @@ Array [
       "id": 10,
       "name": "should be equal",
       "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -27557,6 +27367,11 @@ Array [
       "id": 10,
       "name": "should be equal",
       "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -27566,6 +27381,11 @@ Array [
       "id": 10,
       "name": "should be equal",
       "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -27579,6 +27399,11 @@ Array [
       "id": 11,
       "name": "(unnamed assert)",
       "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -27588,6 +27413,11 @@ Array [
       "id": 11,
       "name": "(unnamed assert)",
       "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -27597,6 +27427,11 @@ Array [
       "id": 11,
       "name": "(unnamed assert)",
       "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -27636,21 +27471,62 @@ Array [
   ],
   Array [
     "line",
-    "# failed 1 of 4 tests\\n",
+    "# failed 4 of 4 tests\\n",
   ],
   Array [
     "comment",
-    "# failed 1 of 4 tests\\n",
+    "# failed 4 of 4 tests\\n",
   ],
   Array [
     "complete",
     FinalResults {
       "bailout": false,
       "count": 4,
-      "fail": 1,
+      "fail": 4,
       "failures": Array [
-        Object {
-          "tapError": "first test id does not match plan start",
+        Result {
+          "fullname": "",
+          "id": 8,
+          "name": "should be equal",
+          "ok": true,
+          "plan": Object {
+            "end": 4,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
+        },
+        Result {
+          "fullname": "",
+          "id": 9,
+          "name": "should be equivalent",
+          "ok": true,
+          "plan": Object {
+            "end": 4,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
+        },
+        Result {
+          "fullname": "",
+          "id": 10,
+          "name": "should be equal",
+          "ok": true,
+          "plan": Object {
+            "end": 4,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
+        },
+        Result {
+          "fullname": "",
+          "id": 11,
+          "name": "(unnamed assert)",
+          "ok": true,
+          "plan": Object {
+            "end": 4,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
         },
       ],
       "ok": false,
@@ -27699,6 +27575,11 @@ Array [
       "id": 8,
       "name": "should be equal",
       "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -27708,6 +27589,11 @@ Array [
       "id": 8,
       "name": "should be equal",
       "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -27717,6 +27603,11 @@ Array [
       "id": 8,
       "name": "should be equal",
       "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -27730,6 +27621,11 @@ Array [
       "id": 9,
       "name": "should be equivalent",
       "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -27739,6 +27635,11 @@ Array [
       "id": 9,
       "name": "should be equivalent",
       "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -27748,6 +27649,11 @@ Array [
       "id": 9,
       "name": "should be equivalent",
       "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -27769,6 +27675,11 @@ Array [
       "id": 10,
       "name": "should be equal",
       "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -27778,6 +27689,11 @@ Array [
       "id": 10,
       "name": "should be equal",
       "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -27787,6 +27703,11 @@ Array [
       "id": 10,
       "name": "should be equal",
       "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -27800,6 +27721,11 @@ Array [
       "id": 11,
       "name": "(unnamed assert)",
       "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -27809,6 +27735,11 @@ Array [
       "id": 11,
       "name": "(unnamed assert)",
       "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -27818,6 +27749,11 @@ Array [
       "id": 11,
       "name": "(unnamed assert)",
       "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -27857,21 +27793,62 @@ Array [
   ],
   Array [
     "line",
-    "# failed 1 of 4 tests\\n",
+    "# failed 4 of 4 tests\\n",
   ],
   Array [
     "comment",
-    "# failed 1 of 4 tests\\n",
+    "# failed 4 of 4 tests\\n",
   ],
   Array [
     "complete",
     FinalResults {
       "bailout": false,
       "count": 4,
-      "fail": 1,
+      "fail": 4,
       "failures": Array [
-        Object {
-          "tapError": "first test id does not match plan start",
+        Result {
+          "fullname": "",
+          "id": 8,
+          "name": "should be equal",
+          "ok": true,
+          "plan": Object {
+            "end": 4,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
+        },
+        Result {
+          "fullname": "",
+          "id": 9,
+          "name": "should be equivalent",
+          "ok": true,
+          "plan": Object {
+            "end": 4,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
+        },
+        Result {
+          "fullname": "",
+          "id": 10,
+          "name": "should be equal",
+          "ok": true,
+          "plan": Object {
+            "end": 4,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
+        },
+        Result {
+          "fullname": "",
+          "id": 11,
+          "name": "(unnamed assert)",
+          "ok": true,
+          "plan": Object {
+            "end": 4,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
         },
       ],
       "ok": false,
@@ -30231,6 +30208,1188 @@ Array [
 ]
 `
 
+exports[`test/parser.js TAP outside-plan-end-many.tap > output bail=false 1`] = `
+Array [
+  Array [
+    "line",
+    "TAP version 13\\n",
+  ],
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "line",
+    "ok 1\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+    },
+  ],
+  Array [
+    "line",
+    "ok 420\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 420,
+      "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "fullname": "",
+      "id": 420,
+      "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "fullname": "",
+      "id": 420,
+      "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
+    },
+  ],
+  Array [
+    "line",
+    "ok 5\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 5,
+      "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "fullname": "",
+      "id": 5,
+      "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "fullname": "",
+      "id": 5,
+      "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
+    },
+  ],
+  Array [
+    "line",
+    "ok\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "line",
+    "1..4\\n",
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 4,
+      "start": 1,
+    },
+  ],
+  Array [
+    "line",
+    "# failed 2 of 4 tests\\n",
+  ],
+  Array [
+    "comment",
+    "# failed 2 of 4 tests\\n",
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 4,
+      "fail": 2,
+      "failures": Array [
+        Result {
+          "fullname": "",
+          "id": 420,
+          "ok": true,
+          "plan": Object {
+            "end": 4,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
+        },
+        Result {
+          "fullname": "",
+          "id": 5,
+          "ok": true,
+          "plan": Object {
+            "end": 4,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
+        },
+      ],
+      "ok": false,
+      "pass": 4,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 4,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parser.js TAP outside-plan-end-many.tap > output bail=true 1`] = `
+Array [
+  Array [
+    "line",
+    "TAP version 13\\n",
+  ],
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "line",
+    "ok 1\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+    },
+  ],
+  Array [
+    "line",
+    "ok 420\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 420,
+      "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "fullname": "",
+      "id": 420,
+      "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "fullname": "",
+      "id": 420,
+      "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
+    },
+  ],
+  Array [
+    "line",
+    "ok 5\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 5,
+      "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "fullname": "",
+      "id": 5,
+      "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "fullname": "",
+      "id": 5,
+      "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
+    },
+  ],
+  Array [
+    "line",
+    "ok\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "line",
+    "1..4\\n",
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 4,
+      "start": 1,
+    },
+  ],
+  Array [
+    "line",
+    "# failed 2 of 4 tests\\n",
+  ],
+  Array [
+    "comment",
+    "# failed 2 of 4 tests\\n",
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 4,
+      "fail": 2,
+      "failures": Array [
+        Result {
+          "fullname": "",
+          "id": 420,
+          "ok": true,
+          "plan": Object {
+            "end": 4,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
+        },
+        Result {
+          "fullname": "",
+          "id": 5,
+          "ok": true,
+          "plan": Object {
+            "end": 4,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
+        },
+      ],
+      "ok": false,
+      "pass": 4,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 4,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parser.js TAP outside-plan-end.tap > output bail=false 1`] = `
+Array [
+  Array [
+    "line",
+    "TAP version 13\\n",
+  ],
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "line",
+    "ok 1\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+    },
+  ],
+  Array [
+    "line",
+    "ok\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "line",
+    "ok 5\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 5,
+      "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "fullname": "",
+      "id": 5,
+      "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "fullname": "",
+      "id": 5,
+      "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
+    },
+  ],
+  Array [
+    "line",
+    "ok\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "line",
+    "1..4\\n",
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 4,
+      "start": 1,
+    },
+  ],
+  Array [
+    "line",
+    "# failed 1 of 4 tests\\n",
+  ],
+  Array [
+    "comment",
+    "# failed 1 of 4 tests\\n",
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 4,
+      "fail": 1,
+      "failures": Array [
+        Result {
+          "fullname": "",
+          "id": 5,
+          "ok": true,
+          "plan": Object {
+            "end": 4,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
+        },
+      ],
+      "ok": false,
+      "pass": 4,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 4,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parser.js TAP outside-plan-end.tap > output bail=true 1`] = `
+Array [
+  Array [
+    "line",
+    "TAP version 13\\n",
+  ],
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "line",
+    "ok 1\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+    },
+  ],
+  Array [
+    "line",
+    "ok\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "line",
+    "ok 5\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 5,
+      "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "fullname": "",
+      "id": 5,
+      "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "fullname": "",
+      "id": 5,
+      "ok": true,
+      "plan": Object {
+        "end": 4,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
+    },
+  ],
+  Array [
+    "line",
+    "ok\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "line",
+    "1..4\\n",
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 4,
+      "start": 1,
+    },
+  ],
+  Array [
+    "line",
+    "# failed 1 of 4 tests\\n",
+  ],
+  Array [
+    "comment",
+    "# failed 1 of 4 tests\\n",
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 4,
+      "fail": 1,
+      "failures": Array [
+        Result {
+          "fullname": "",
+          "id": 5,
+          "ok": true,
+          "plan": Object {
+            "end": 4,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
+        },
+      ],
+      "ok": false,
+      "pass": 4,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 4,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parser.js TAP outside-plan-start.tap > output bail=false 1`] = `
+Array [
+  Array [
+    "line",
+    "TAP version 13\\n",
+  ],
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "line",
+    "ok 1\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+      "plan": Object {
+        "end": 5,
+        "start": 2,
+      },
+      "tapError": "id less than plan start",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+      "plan": Object {
+        "end": 5,
+        "start": 2,
+      },
+      "tapError": "id less than plan start",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+      "plan": Object {
+        "end": 5,
+        "start": 2,
+      },
+      "tapError": "id less than plan start",
+    },
+  ],
+  Array [
+    "line",
+    "ok\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "line",
+    "ok 5\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 5,
+      "ok": true,
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "fullname": "",
+      "id": 5,
+      "ok": true,
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "fullname": "",
+      "id": 5,
+      "ok": true,
+    },
+  ],
+  Array [
+    "line",
+    "ok\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "line",
+    "2..5\\n",
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 5,
+      "start": 2,
+    },
+  ],
+  Array [
+    "line",
+    "# test count(4) != plan(5)\\n",
+  ],
+  Array [
+    "comment",
+    "# test count(4) != plan(5)\\n",
+  ],
+  Array [
+    "line",
+    "# failed 1 of 4 tests\\n",
+  ],
+  Array [
+    "comment",
+    "# failed 1 of 4 tests\\n",
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 4,
+      "fail": 1,
+      "failures": Array [
+        Result {
+          "fullname": "",
+          "id": 1,
+          "ok": true,
+          "plan": Object {
+            "end": 5,
+            "start": 2,
+          },
+          "tapError": "id less than plan start",
+        },
+      ],
+      "ok": false,
+      "pass": 4,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 5,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 2,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parser.js TAP outside-plan-start.tap > output bail=true 1`] = `
+Array [
+  Array [
+    "line",
+    "TAP version 13\\n",
+  ],
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "line",
+    "ok 1\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+      "plan": Object {
+        "end": 5,
+        "start": 2,
+      },
+      "tapError": "id less than plan start",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+      "plan": Object {
+        "end": 5,
+        "start": 2,
+      },
+      "tapError": "id less than plan start",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+      "plan": Object {
+        "end": 5,
+        "start": 2,
+      },
+      "tapError": "id less than plan start",
+    },
+  ],
+  Array [
+    "line",
+    "ok\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "line",
+    "ok 5\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 5,
+      "ok": true,
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "fullname": "",
+      "id": 5,
+      "ok": true,
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "fullname": "",
+      "id": 5,
+      "ok": true,
+    },
+  ],
+  Array [
+    "line",
+    "ok\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "fullname": "",
+      "ok": true,
+    },
+  ],
+  Array [
+    "line",
+    "2..5\\n",
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 5,
+      "start": 2,
+    },
+  ],
+  Array [
+    "line",
+    "# test count(4) != plan(5)\\n",
+  ],
+  Array [
+    "comment",
+    "# test count(4) != plan(5)\\n",
+  ],
+  Array [
+    "line",
+    "# failed 1 of 4 tests\\n",
+  ],
+  Array [
+    "comment",
+    "# failed 1 of 4 tests\\n",
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 4,
+      "fail": 1,
+      "failures": Array [
+        Result {
+          "fullname": "",
+          "id": 1,
+          "ok": true,
+          "plan": Object {
+            "end": 5,
+            "start": 2,
+          },
+          "tapError": "id less than plan start",
+        },
+      ],
+      "ok": false,
+      "pass": 4,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 5,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 2,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
 exports[`test/parser.js TAP outside-plan.tap > output bail=false 1`] = `
 Array [
   Array [
@@ -32294,7 +33453,6 @@ Array [
         "assert",
         Result {
           "fullname": "subtest",
-          "id": 1,
           "ok": true,
         },
       ],
@@ -32333,7 +33491,6 @@ Array [
     "result",
     Result {
       "fullname": "subtest",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -32341,7 +33498,6 @@ Array [
     "pass",
     Result {
       "fullname": "subtest",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -32354,7 +33510,6 @@ Array [
     Result {
       "buffered": true,
       "fullname": "",
-      "id": 1,
       "name": "subtest",
       "ok": true,
     },
@@ -32383,7 +33538,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "name": "yaml",
       "ok": true,
     },
@@ -32392,7 +33546,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 2,
       "name": "yaml",
       "ok": true,
     },
@@ -32401,7 +33554,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 2,
       "name": "yaml",
       "ok": true,
     },
@@ -32533,7 +33685,6 @@ Array [
         "assert",
         Result {
           "fullname": "subtest",
-          "id": 1,
           "ok": true,
         },
       ],
@@ -32572,7 +33723,6 @@ Array [
     "result",
     Result {
       "fullname": "subtest",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -32580,7 +33730,6 @@ Array [
     "pass",
     Result {
       "fullname": "subtest",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -32593,7 +33742,6 @@ Array [
     Result {
       "buffered": true,
       "fullname": "",
-      "id": 1,
       "name": "subtest",
       "ok": true,
     },
@@ -32622,7 +33770,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "name": "yaml",
       "ok": true,
     },
@@ -32631,7 +33778,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 2,
       "name": "yaml",
       "ok": true,
     },
@@ -32640,7 +33786,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 2,
       "name": "yaml",
       "ok": true,
     },
@@ -32791,7 +33936,6 @@ Array [
         "assert",
         Result {
           "fullname": "subtest",
-          "id": 1,
           "ok": true,
         },
       ],
@@ -32830,7 +33974,6 @@ Array [
     "result",
     Result {
       "fullname": "subtest",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -32838,7 +33981,6 @@ Array [
     "pass",
     Result {
       "fullname": "subtest",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -32851,7 +33993,6 @@ Array [
     Result {
       "buffered": true,
       "fullname": "",
-      "id": 1,
       "name": "subtest",
       "ok": true,
     },
@@ -32880,7 +34021,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "name": "yaml",
       "ok": true,
     },
@@ -32889,7 +34029,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 2,
       "name": "yaml",
       "ok": true,
     },
@@ -32898,7 +34037,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 2,
       "name": "yaml",
       "ok": true,
     },
@@ -33010,7 +34148,6 @@ Array [
         "assert",
         Result {
           "fullname": "subtest",
-          "id": 1,
           "ok": true,
         },
       ],
@@ -33049,7 +34186,6 @@ Array [
     "result",
     Result {
       "fullname": "subtest",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -33057,7 +34193,6 @@ Array [
     "pass",
     Result {
       "fullname": "subtest",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -33070,7 +34205,6 @@ Array [
     Result {
       "buffered": true,
       "fullname": "",
-      "id": 1,
       "name": "subtest",
       "ok": true,
     },
@@ -33099,7 +34233,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "name": "yaml",
       "ok": true,
     },
@@ -33108,7 +34241,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 2,
       "name": "yaml",
       "ok": true,
     },
@@ -33117,7 +34249,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 2,
       "name": "yaml",
       "ok": true,
     },
@@ -33514,7 +34645,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": false,
     },
   ],
@@ -33522,7 +34652,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": false,
     },
   ],
@@ -33530,7 +34659,6 @@ Array [
     "fail",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": false,
     },
   ],
@@ -33551,7 +34679,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -33559,7 +34686,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -33567,7 +34693,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 2,
       "ok": true,
     },
   ],
@@ -33599,7 +34724,6 @@ Array [
       "failures": Array [
         Result {
           "fullname": "",
-          "id": 1,
           "ok": false,
         },
       ],
@@ -33630,7 +34754,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": false,
     },
   ],
@@ -33638,7 +34761,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": false,
     },
   ],
@@ -33646,7 +34768,6 @@ Array [
     "fail",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": false,
     },
   ],
@@ -33667,7 +34788,6 @@ Array [
       "failures": Array [
         Result {
           "fullname": "",
-          "id": 1,
           "ok": false,
         },
       ],
@@ -33742,7 +34862,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -33750,7 +34869,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -33758,7 +34876,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -33840,7 +34957,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -33848,7 +34964,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -33856,7 +34971,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -33944,7 +35058,6 @@ Array [
         "assert",
         Result {
           "fullname": "",
-          "id": 1,
           "ok": true,
         },
       ],
@@ -33991,7 +35104,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -33999,7 +35111,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -34011,7 +35122,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -34019,7 +35129,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -34027,7 +35136,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -34128,7 +35236,6 @@ Array [
         "assert",
         Result {
           "fullname": "",
-          "id": 1,
           "ok": true,
         },
       ],
@@ -34175,7 +35282,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -34183,7 +35289,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -34195,7 +35300,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -34203,7 +35307,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -34211,7 +35314,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -34304,7 +35406,6 @@ Array [
         "assert",
         Result {
           "fullname": "",
-          "id": 1,
           "ok": true,
         },
       ],
@@ -34351,7 +35452,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -34359,7 +35459,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -34371,7 +35470,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -34379,7 +35477,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -34387,7 +35484,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -34467,7 +35563,6 @@ Array [
         "assert",
         Result {
           "fullname": "",
-          "id": 1,
           "ok": true,
         },
       ],
@@ -34514,7 +35609,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -34522,7 +35616,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -34534,7 +35627,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -34542,7 +35634,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -34550,7 +35641,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -34802,6 +35892,398 @@ Array [
       "plan": FinalPlan {
         "comment": "",
         "end": 1,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parser.js TAP repeat-test-point-id.tap > output bail=false 1`] = `
+Array [
+  Array [
+    "line",
+    "TAP version 13\\n",
+  ],
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "line",
+    "ok 1\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+    },
+  ],
+  Array [
+    "line",
+    "ok 1\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+      "previous": Result {
+        "fullname": "",
+        "id": 1,
+        "ok": true,
+      },
+      "tapError": "test point id 1 appears multiple times",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+      "previous": Result {
+        "fullname": "",
+        "id": 1,
+        "ok": true,
+      },
+      "tapError": "test point id 1 appears multiple times",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+      "previous": Result {
+        "fullname": "",
+        "id": 1,
+        "ok": true,
+      },
+      "tapError": "test point id 1 appears multiple times",
+    },
+  ],
+  Array [
+    "line",
+    "ok 1\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+      "previous": Result {
+        "fullname": "",
+        "id": 1,
+        "ok": true,
+      },
+      "tapError": "test point id 1 appears multiple times",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+      "previous": Result {
+        "fullname": "",
+        "id": 1,
+        "ok": true,
+      },
+      "tapError": "test point id 1 appears multiple times",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+      "previous": Result {
+        "fullname": "",
+        "id": 1,
+        "ok": true,
+      },
+      "tapError": "test point id 1 appears multiple times",
+    },
+  ],
+  Array [
+    "line",
+    "1..3\\n",
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 3,
+      "start": 1,
+    },
+  ],
+  Array [
+    "line",
+    "# failed 2 of 3 tests\\n",
+  ],
+  Array [
+    "comment",
+    "# failed 2 of 3 tests\\n",
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 3,
+      "fail": 2,
+      "failures": Array [
+        Result {
+          "fullname": "",
+          "id": 1,
+          "ok": true,
+          "previous": Result {
+            "fullname": "",
+            "id": 1,
+            "ok": true,
+          },
+          "tapError": "test point id 1 appears multiple times",
+        },
+        Result {
+          "fullname": "",
+          "id": 1,
+          "ok": true,
+          "previous": Result {
+            "fullname": "",
+            "id": 1,
+            "ok": true,
+          },
+          "tapError": "test point id 1 appears multiple times",
+        },
+      ],
+      "ok": false,
+      "pass": 3,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 3,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parser.js TAP repeat-test-point-id.tap > output bail=true 1`] = `
+Array [
+  Array [
+    "line",
+    "TAP version 13\\n",
+  ],
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "line",
+    "ok 1\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+    },
+  ],
+  Array [
+    "line",
+    "ok 1\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+      "previous": Result {
+        "fullname": "",
+        "id": 1,
+        "ok": true,
+      },
+      "tapError": "test point id 1 appears multiple times",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+      "previous": Result {
+        "fullname": "",
+        "id": 1,
+        "ok": true,
+      },
+      "tapError": "test point id 1 appears multiple times",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+      "previous": Result {
+        "fullname": "",
+        "id": 1,
+        "ok": true,
+      },
+      "tapError": "test point id 1 appears multiple times",
+    },
+  ],
+  Array [
+    "line",
+    "ok 1\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+      "previous": Result {
+        "fullname": "",
+        "id": 1,
+        "ok": true,
+      },
+      "tapError": "test point id 1 appears multiple times",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+      "previous": Result {
+        "fullname": "",
+        "id": 1,
+        "ok": true,
+      },
+      "tapError": "test point id 1 appears multiple times",
+    },
+  ],
+  Array [
+    "pass",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "ok": true,
+      "previous": Result {
+        "fullname": "",
+        "id": 1,
+        "ok": true,
+      },
+      "tapError": "test point id 1 appears multiple times",
+    },
+  ],
+  Array [
+    "line",
+    "1..3\\n",
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 3,
+      "start": 1,
+    },
+  ],
+  Array [
+    "line",
+    "# failed 2 of 3 tests\\n",
+  ],
+  Array [
+    "comment",
+    "# failed 2 of 3 tests\\n",
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 3,
+      "fail": 2,
+      "failures": Array [
+        Result {
+          "fullname": "",
+          "id": 1,
+          "ok": true,
+          "previous": Result {
+            "fullname": "",
+            "id": 1,
+            "ok": true,
+          },
+          "tapError": "test point id 1 appears multiple times",
+        },
+        Result {
+          "fullname": "",
+          "id": 1,
+          "ok": true,
+          "previous": Result {
+            "fullname": "",
+            "id": 1,
+            "ok": true,
+          },
+          "tapError": "test point id 1 appears multiple times",
+        },
+      ],
+      "ok": false,
+      "pass": 3,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 3,
         "skipAll": false,
         "skipReason": "",
         "start": 1,
@@ -37891,7 +39373,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -37899,7 +39380,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -37907,7 +39387,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -37992,7 +39471,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -38000,7 +39478,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -38008,7 +39485,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -41164,7 +42640,6 @@ Array [
         "assert",
         Result {
           "fullname": "first",
-          "id": 1,
           "name": "x",
           "ok": true,
         },
@@ -41211,7 +42686,6 @@ Array [
     "result",
     Result {
       "fullname": "first",
-      "id": 1,
       "name": "x",
       "ok": true,
     },
@@ -41220,7 +42694,6 @@ Array [
     "pass",
     Result {
       "fullname": "first",
-      "id": 1,
       "name": "x",
       "ok": true,
     },
@@ -41263,7 +42736,6 @@ Array [
         "assert",
         Result {
           "fullname": "second",
-          "id": 1,
           "name": "x",
           "ok": true,
         },
@@ -41310,7 +42782,6 @@ Array [
     "result",
     Result {
       "fullname": "second",
-      "id": 1,
       "name": "x",
       "ok": true,
     },
@@ -41319,7 +42790,6 @@ Array [
     "pass",
     Result {
       "fullname": "second",
-      "id": 1,
       "name": "x",
       "ok": true,
     },
@@ -41378,7 +42848,6 @@ Array [
         "assert",
         Result {
           "fullname": "third",
-          "id": 1,
           "name": "y",
           "ok": true,
         },
@@ -41425,7 +42894,6 @@ Array [
     "result",
     Result {
       "fullname": "third",
-      "id": 1,
       "name": "y",
       "ok": true,
     },
@@ -41434,7 +42902,6 @@ Array [
     "pass",
     Result {
       "fullname": "third",
-      "id": 1,
       "name": "y",
       "ok": true,
     },
@@ -41517,7 +42984,6 @@ Array [
         "assert",
         Result {
           "fullname": "first",
-          "id": 1,
           "name": "x",
           "ok": true,
         },
@@ -41564,7 +43030,6 @@ Array [
     "result",
     Result {
       "fullname": "first",
-      "id": 1,
       "name": "x",
       "ok": true,
     },
@@ -41573,7 +43038,6 @@ Array [
     "pass",
     Result {
       "fullname": "first",
-      "id": 1,
       "name": "x",
       "ok": true,
     },
@@ -41616,7 +43080,6 @@ Array [
         "assert",
         Result {
           "fullname": "second",
-          "id": 1,
           "name": "x",
           "ok": true,
         },
@@ -41663,7 +43126,6 @@ Array [
     "result",
     Result {
       "fullname": "second",
-      "id": 1,
       "name": "x",
       "ok": true,
     },
@@ -41672,7 +43134,6 @@ Array [
     "pass",
     Result {
       "fullname": "second",
-      "id": 1,
       "name": "x",
       "ok": true,
     },
@@ -41731,7 +43192,6 @@ Array [
         "assert",
         Result {
           "fullname": "third",
-          "id": 1,
           "name": "y",
           "ok": true,
         },
@@ -41778,7 +43238,6 @@ Array [
     "result",
     Result {
       "fullname": "third",
-      "id": 1,
       "name": "y",
       "ok": true,
     },
@@ -41787,7 +43246,6 @@ Array [
     "pass",
     Result {
       "fullname": "third",
-      "id": 1,
       "name": "y",
       "ok": true,
     },
@@ -61533,7 +62991,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -61541,7 +62998,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -61549,7 +63005,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -61583,7 +63038,6 @@ Array [
         "assert",
         Result {
           "fullname": "unfinished",
-          "id": 1,
           "ok": true,
         },
       ],
@@ -61622,7 +63076,6 @@ Array [
     "result",
     Result {
       "fullname": "unfinished",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -61630,7 +63083,6 @@ Array [
     "pass",
     Result {
       "fullname": "unfinished",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -61687,7 +63139,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -61695,7 +63146,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -61703,7 +63153,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -61737,7 +63186,6 @@ Array [
         "assert",
         Result {
           "fullname": "unfinished",
-          "id": 1,
           "ok": true,
         },
       ],
@@ -61776,7 +63224,6 @@ Array [
     "result",
     Result {
       "fullname": "unfinished",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -61784,7 +63231,6 @@ Array [
     "pass",
     Result {
       "fullname": "unfinished",
-      "id": 1,
       "ok": true,
     },
   ],
@@ -98932,6 +100378,11 @@ Array [
       "id": 4,
       "name": "(unnamed assert)",
       "ok": true,
+      "plan": Object {
+        "end": 3,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -98941,6 +100392,11 @@ Array [
       "id": 4,
       "name": "(unnamed assert)",
       "ok": true,
+      "plan": Object {
+        "end": 3,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -98950,6 +100406,11 @@ Array [
       "id": 4,
       "name": "(unnamed assert)",
       "ok": true,
+      "plan": Object {
+        "end": 3,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -99010,8 +100471,16 @@ Array [
       "count": 4,
       "fail": 1,
       "failures": Array [
-        Object {
-          "tapError": "incorrect number of tests",
+        Result {
+          "fullname": "",
+          "id": 4,
+          "name": "(unnamed assert)",
+          "ok": true,
+          "plan": Object {
+            "end": 3,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
         },
       ],
       "ok": false,
@@ -99161,6 +100630,11 @@ Array [
       "id": 4,
       "name": "(unnamed assert)",
       "ok": true,
+      "plan": Object {
+        "end": 3,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -99170,6 +100644,11 @@ Array [
       "id": 4,
       "name": "(unnamed assert)",
       "ok": true,
+      "plan": Object {
+        "end": 3,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -99179,6 +100658,11 @@ Array [
       "id": 4,
       "name": "(unnamed assert)",
       "ok": true,
+      "plan": Object {
+        "end": 3,
+        "start": 1,
+      },
+      "tapError": "id greater than plan end",
     },
   ],
   Array [
@@ -99239,8 +100723,16 @@ Array [
       "count": 4,
       "fail": 1,
       "failures": Array [
-        Object {
-          "tapError": "incorrect number of tests",
+        Result {
+          "fullname": "",
+          "id": 4,
+          "name": "(unnamed assert)",
+          "ok": true,
+          "plan": Object {
+            "end": 3,
+            "start": 1,
+          },
+          "tapError": "id greater than plan end",
         },
       ],
       "ok": false,
@@ -100829,7 +102321,6 @@ Array [
             ),
           },
           "fullname": "child indented",
-          "id": 1,
           "name": "some yaml",
           "ok": false,
         },
@@ -100868,7 +102359,6 @@ Array [
                 ),
               },
               "fullname": "child indented",
-              "id": 1,
               "name": "some yaml",
               "ok": false,
             },
@@ -100927,7 +102417,6 @@ Array [
         ),
       },
       "fullname": "child indented",
-      "id": 1,
       "name": "some yaml",
       "ok": false,
     },
@@ -100942,7 +102431,6 @@ Array [
         ),
       },
       "fullname": "child indented",
-      "id": 1,
       "name": "some yaml",
       "ok": false,
     },
@@ -101017,7 +102505,6 @@ Array [
             ),
           },
           "fullname": "child unindented",
-          "id": 1,
           "name": "some yaml",
           "ok": false,
         },
@@ -101056,7 +102543,6 @@ Array [
                 ),
               },
               "fullname": "child unindented",
-              "id": 1,
               "name": "some yaml",
               "ok": false,
             },
@@ -101115,7 +102601,6 @@ Array [
         ),
       },
       "fullname": "child unindented",
-      "id": 1,
       "name": "some yaml",
       "ok": false,
     },
@@ -101130,7 +102615,6 @@ Array [
         ),
       },
       "fullname": "child unindented",
-      "id": 1,
       "name": "some yaml",
       "ok": false,
     },
@@ -101205,7 +102689,6 @@ Array [
             ),
           },
           "fullname": "",
-          "id": 1,
           "name": "some yaml",
           "ok": false,
         },
@@ -101244,7 +102727,6 @@ Array [
                 ),
               },
               "fullname": "",
-              "id": 1,
               "name": "some yaml",
               "ok": false,
             },
@@ -101303,7 +102785,6 @@ Array [
         ),
       },
       "fullname": "",
-      "id": 1,
       "name": "some yaml",
       "ok": false,
     },
@@ -101318,7 +102799,6 @@ Array [
         ),
       },
       "fullname": "",
-      "id": 1,
       "name": "some yaml",
       "ok": false,
     },
@@ -101411,7 +102891,6 @@ Array [
             ),
           },
           "fullname": "child buffered",
-          "id": 1,
           "name": "some yaml",
           "ok": false,
         },
@@ -101450,7 +102929,6 @@ Array [
                 ),
               },
               "fullname": "child buffered",
-              "id": 1,
               "name": "some yaml",
               "ok": false,
             },
@@ -101509,7 +102987,6 @@ Array [
         ),
       },
       "fullname": "child buffered",
-      "id": 1,
       "name": "some yaml",
       "ok": false,
     },
@@ -101524,7 +103001,6 @@ Array [
         ),
       },
       "fullname": "child buffered",
-      "id": 1,
       "name": "some yaml",
       "ok": false,
     },
@@ -101679,7 +103155,6 @@ Array [
             ),
           },
           "fullname": "child indented",
-          "id": 1,
           "name": "some yaml",
           "ok": false,
         },
@@ -101707,7 +103182,6 @@ Array [
                 ),
               },
               "fullname": "child indented",
-              "id": 1,
               "name": "some yaml",
               "ok": false,
             },
@@ -101766,7 +103240,6 @@ Array [
         ),
       },
       "fullname": "child indented",
-      "id": 1,
       "name": "some yaml",
       "ok": false,
     },
@@ -101781,7 +103254,6 @@ Array [
         ),
       },
       "fullname": "child indented",
-      "id": 1,
       "name": "some yaml",
       "ok": false,
     },
@@ -104049,6 +105521,12 @@ Array [
       "fullname": "",
       "id": 4,
       "ok": true,
+      "previous": Result {
+        "fullname": "",
+        "id": 4,
+        "ok": true,
+      },
+      "tapError": "test point id 4 appears multiple times",
     },
   ],
   Array [
@@ -104057,6 +105535,12 @@ Array [
       "fullname": "",
       "id": 4,
       "ok": true,
+      "previous": Result {
+        "fullname": "",
+        "id": 4,
+        "ok": true,
+      },
+      "tapError": "test point id 4 appears multiple times",
     },
   ],
   Array [
@@ -104065,6 +105549,12 @@ Array [
       "fullname": "",
       "id": 4,
       "ok": true,
+      "previous": Result {
+        "fullname": "",
+        "id": 4,
+        "ok": true,
+      },
+      "tapError": "test point id 4 appears multiple times",
     },
   ],
   Array [
@@ -104082,8 +105572,16 @@ Array [
       "count": 5,
       "fail": 1,
       "failures": Array [
-        Object {
-          "tapError": "last test id does not match plan end",
+        Result {
+          "fullname": "",
+          "id": 4,
+          "ok": true,
+          "previous": Result {
+            "fullname": "",
+            "id": 4,
+            "ok": true,
+          },
+          "tapError": "test point id 4 appears multiple times",
         },
       ],
       "ok": false,
@@ -104246,6 +105744,12 @@ Array [
       "fullname": "",
       "id": 4,
       "ok": true,
+      "previous": Result {
+        "fullname": "",
+        "id": 4,
+        "ok": true,
+      },
+      "tapError": "test point id 4 appears multiple times",
     },
   ],
   Array [
@@ -104254,6 +105758,12 @@ Array [
       "fullname": "",
       "id": 4,
       "ok": true,
+      "previous": Result {
+        "fullname": "",
+        "id": 4,
+        "ok": true,
+      },
+      "tapError": "test point id 4 appears multiple times",
     },
   ],
   Array [
@@ -104262,6 +105772,12 @@ Array [
       "fullname": "",
       "id": 4,
       "ok": true,
+      "previous": Result {
+        "fullname": "",
+        "id": 4,
+        "ok": true,
+      },
+      "tapError": "test point id 4 appears multiple times",
     },
   ],
   Array [
@@ -104279,8 +105795,16 @@ Array [
       "count": 5,
       "fail": 1,
       "failures": Array [
-        Object {
-          "tapError": "last test id does not match plan end",
+        Result {
+          "fullname": "",
+          "id": 4,
+          "ok": true,
+          "previous": Result {
+            "fullname": "",
+            "id": 4,
+            "ok": true,
+          },
+          "tapError": "test point id 4 appears multiple times",
         },
       ],
       "ok": false,
@@ -104318,7 +105842,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "test suite started",
       "ok": true,
     },
@@ -104327,7 +105850,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "test suite started",
       "ok": true,
     },
@@ -104336,7 +105858,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "test suite started",
       "ok": true,
     },
@@ -104364,7 +105885,6 @@ Array [
         "Bogomips": 5226.88,
       },
       "fullname": "",
-      "id": 2,
       "name": "bogomips",
       "ok": true,
     },
@@ -104376,7 +105896,6 @@ Array [
         "Bogomips": 5226.88,
       },
       "fullname": "",
-      "id": 2,
       "name": "bogomips",
       "ok": true,
     },
@@ -104388,7 +105907,6 @@ Array [
         "Bogomips": 5226.88,
       },
       "fullname": "",
-      "id": 2,
       "name": "bogomips",
       "ok": true,
     },
@@ -104401,7 +105919,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 3,
       "name": "test suite finished",
       "ok": true,
     },
@@ -104410,7 +105927,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 3,
       "name": "test suite finished",
       "ok": true,
     },
@@ -104419,7 +105935,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 3,
       "name": "test suite finished",
       "ok": true,
     },
@@ -104477,7 +105992,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "test suite started",
       "ok": true,
     },
@@ -104486,7 +106000,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "test suite started",
       "ok": true,
     },
@@ -104495,7 +106008,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "test suite started",
       "ok": true,
     },
@@ -104523,7 +106035,6 @@ Array [
         "Bogomips": 5226.88,
       },
       "fullname": "",
-      "id": 2,
       "name": "bogomips",
       "ok": true,
     },
@@ -104535,7 +106046,6 @@ Array [
         "Bogomips": 5226.88,
       },
       "fullname": "",
-      "id": 2,
       "name": "bogomips",
       "ok": true,
     },
@@ -104547,7 +106057,6 @@ Array [
         "Bogomips": 5226.88,
       },
       "fullname": "",
-      "id": 2,
       "name": "bogomips",
       "ok": true,
     },
@@ -104560,7 +106069,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 3,
       "name": "test suite finished",
       "ok": true,
     },
@@ -104569,7 +106077,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 3,
       "name": "test suite finished",
       "ok": true,
     },
@@ -104578,7 +106085,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 3,
       "name": "test suite finished",
       "ok": true,
     },
@@ -105481,7 +106987,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "this is fine",
       "ok": true,
     },
@@ -105490,7 +106995,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "this is fine",
       "ok": true,
     },
@@ -105499,7 +107003,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "this is fine",
       "ok": true,
     },
@@ -105589,7 +107092,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "this is fine",
       "ok": true,
     },
@@ -105598,7 +107100,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "this is fine",
       "ok": true,
     },
@@ -105607,7 +107108,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 1,
       "name": "this is fine",
       "ok": true,
     },
@@ -106101,7 +107601,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 3,
       "name": "Three",
       "ok": true,
     },
@@ -106110,7 +107609,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 3,
       "name": "Three",
       "ok": true,
     },
@@ -106119,7 +107617,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 3,
       "name": "Three",
       "ok": true,
     },
@@ -106328,7 +107825,6 @@ Array [
     "assert",
     Result {
       "fullname": "",
-      "id": 3,
       "name": "Three",
       "ok": true,
     },
@@ -106337,7 +107833,6 @@ Array [
     "result",
     Result {
       "fullname": "",
-      "id": 3,
       "name": "Three",
       "ok": true,
     },
@@ -106346,7 +107841,6 @@ Array [
     "pass",
     Result {
       "fullname": "",
-      "id": 3,
       "name": "Three",
       "ok": true,
     },

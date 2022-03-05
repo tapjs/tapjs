@@ -622,6 +622,14 @@ exports[`test/cmd.js TAP basic fail flat > output 1`] = `
       id: 6,
       skip: 'is piks backward',
       name: 'child > piks',
+      tapError: 'test point id 1 appears multiple times',
+      previous: Result {
+        ok: false,
+        id: 2,
+        name: 'child > this is fine',
+        diag: { not: 'ok', this: 'is fine' },
+        fullname: ''
+      },
       fullname: ''
     }
   ],
@@ -712,11 +720,11 @@ ok 1 - this is fine
     ok 2 - also fine # TODO
     ok 3 - do later # TODO later is never
     ok 4 - rope # SKIP
-    ok 4 - piks # SKIP is piks backward
+    ok 1 - piks # SKIP is piks backward
     # some comment
     1..4 # plan comment
     # test count(5) != plan(4)
-    # failed 1 of 5 tests
+    # failed 2 of 5 tests
     # todo: 2
     # skip: 2
 not ok 2 - child # time=420ms
@@ -790,16 +798,24 @@ exports[`test/cmd.js TAP basic fail no args > output 1`] = `
         'assert',
         Result {
           ok: true,
-          id: 4,
+          id: 1,
           skip: 'is piks backward',
           name: 'piks',
+          tapError: 'test point id 1 appears multiple times',
+          previous: Result {
+            ok: false,
+            id: 1,
+            name: 'this is fine',
+            diag: { not: 'ok', this: 'is fine' },
+            fullname: 'child'
+          },
           fullname: 'child'
         }
       ],
       [ 'comment', '# some comment\\n' ],
       [ 'plan', { start: 1, end: 4, comment: 'plan comment' } ],
       [ 'comment', '# test count(5) != plan(4)\\n' ],
-      [ 'comment', '# failed 1 of 5 tests\\n' ],
+      [ 'comment', '# failed 2 of 5 tests\\n' ],
       [ 'comment', '# todo: 2\\n' ],
       [ 'comment', '# skip: 2\\n' ],
       [
@@ -808,7 +824,7 @@ exports[`test/cmd.js TAP basic fail no args > output 1`] = `
           ok: false,
           count: 5,
           pass: 4,
-          fail: 1,
+          fail: 2,
           bailout: false,
           todo: 2,
           skip: 2,
@@ -825,6 +841,21 @@ exports[`test/cmd.js TAP basic fail no args > output 1`] = `
               id: 1,
               name: 'this is fine',
               diag: { not: 'ok', this: 'is fine' },
+              fullname: 'child'
+            },
+            Result {
+              ok: true,
+              id: 1,
+              skip: 'is piks backward',
+              name: 'piks',
+              tapError: 'test point id 1 appears multiple times',
+              previous: Result {
+                ok: false,
+                id: 1,
+                name: 'this is fine',
+                diag: { not: 'ok', this: 'is fine' },
+                fullname: 'child'
+              },
               fullname: 'child'
             }
           ],
@@ -963,16 +994,24 @@ exports[`test/cmd.js TAP basic fail strict > output 1`] = `
         'assert',
         Result {
           ok: true,
-          id: 4,
+          id: 1,
           skip: 'is piks backward',
           name: 'piks',
+          tapError: 'test point id 1 appears multiple times',
+          previous: Result {
+            ok: false,
+            id: 1,
+            name: 'this is fine',
+            diag: { not: 'ok', this: 'is fine' },
+            fullname: 'child'
+          },
           fullname: 'child'
         }
       ],
       [ 'comment', '# some comment\\n' ],
       [ 'plan', { start: 1, end: 4, comment: 'plan comment' } ],
       [ 'comment', '# test count(5) != plan(4)\\n' ],
-      [ 'comment', '# failed 3 of 5 tests\\n' ],
+      [ 'comment', '# failed 4 of 5 tests\\n' ],
       [ 'comment', '# todo: 2\\n' ],
       [ 'comment', '# skip: 2\\n' ],
       [
@@ -981,7 +1020,7 @@ exports[`test/cmd.js TAP basic fail strict > output 1`] = `
           ok: false,
           count: 5,
           pass: 4,
-          fail: 3,
+          fail: 4,
           bailout: false,
           todo: 2,
           skip: 2,
@@ -1006,6 +1045,21 @@ exports[`test/cmd.js TAP basic fail strict > output 1`] = `
               id: 1,
               name: 'this is fine',
               diag: { not: 'ok', this: 'is fine' },
+              fullname: 'child'
+            },
+            Result {
+              ok: true,
+              id: 1,
+              skip: 'is piks backward',
+              name: 'piks',
+              tapError: 'test point id 1 appears multiple times',
+              previous: Result {
+                ok: false,
+                id: 1,
+                name: 'this is fine',
+                diag: { not: 'ok', this: 'is fine' },
+                fullname: 'child'
+              },
               fullname: 'child'
             }
           ],
@@ -1085,11 +1139,11 @@ ok 1 - this is fine
     ok 2 - also fine # TODO
     ok 3 - do later # TODO later is never
     ok 4 - rope # SKIP
-    ok 4 - piks # SKIP is piks backward
+    ok 1 - piks # SKIP is piks backward
     # some comment
     1..4 # plan comment
     # test count(5) != plan(4)
-    # failed 1 of 5 tests
+    # failed 2 of 5 tests
     # todo: 2
     # skip: 2
     blearajn9aefnzxrfoas
@@ -1608,7 +1662,7 @@ exports[`test/cmd.js TAP basic pass_mostly b w > output 1`] = `
           fullname: 'child'
         }
       ],
-      [ 'assert', Result { ok: true, id: 3, fullname: 'child' } ],
+      [ 'assert', Result { ok: true, fullname: 'child' } ],
       [ 'comment', '# some comment\\n' ],
       [ 'plan', { start: 1, end: 3 } ],
       [
@@ -1701,7 +1755,7 @@ exports[`test/cmd.js TAP basic pass_mostly flat > output 1`] = `
     'assert',
     Result { ok: true, id: 3, name: 'child > also fine', fullname: '' }
   ],
-  [ 'assert', Result { ok: true, id: 4, fullname: '', name: 'child' } ],
+  [ 'assert', Result { ok: true, fullname: '', name: 'child', id: 4 } ],
   [ 'plan', { end: 4, start: 1 } ],
   [
     'complete',
@@ -1812,7 +1866,7 @@ exports[`test/cmd.js TAP basic pass_mostly no args > output 1`] = `
           fullname: 'child'
         }
       ],
-      [ 'assert', Result { ok: true, id: 3, fullname: 'child' } ],
+      [ 'assert', Result { ok: true, fullname: 'child' } ],
       [ 'comment', '# some comment\\n' ],
       [ 'plan', { start: 1, end: 3 } ],
       [
@@ -1938,7 +1992,7 @@ exports[`test/cmd.js TAP basic pass_mostly strict > output 1`] = `
           fullname: 'child'
         }
       ],
-      [ 'assert', Result { ok: true, id: 3, fullname: 'child' } ],
+      [ 'assert', Result { ok: true, fullname: 'child' } ],
       [ 'comment', '# some comment\\n' ],
       [ 'plan', { start: 1, end: 3 } ],
       [ 'comment', '# failed 2 of 3 tests\\n' ],
@@ -2037,7 +2091,7 @@ ok 1 - this is fine
     ok 1 - this is fine
     pragma +strict
     ok 2 - also fine
-    ok 3
+    ok
     # some comment
     1..3
     blearajn9aefnzxrfoas
