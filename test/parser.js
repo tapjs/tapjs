@@ -8,10 +8,15 @@ var path = require('path')
 var fs = require('fs')
 
 t.jobs = 8
-glob.sync(__dirname + '/fixtures/*.tap').forEach(function (tapfile) {
-  const tapContent = fs.readFileSync(tapfile, 'utf8')
-  t.test(path.basename(tapfile), { buffer: true }, t => {
+const tapFiles = fs.readdirSync(__dirname + '/fixtures')
+  .filter(f => /\.tap$/.test(f))
+
+for (const tapFile of tapFiles) {
+  const f = `${__dirname}/fixtures/${tapFile}`
+  t.test(tapFile, { buffer: true }, async t => {
+    t.snapshotFile = `tap-snapshots/test/parser/${tapFile}.test.cjs`
     t.plan(2)
+    const tapContent = await fs.promises.readFile(f, 'utf8')
     for (const bail of [true, false]) {
       const parser = new Parser({bail})
       const found = etoa(parser, ignore)
@@ -21,4 +26,4 @@ glob.sync(__dirname + '/fixtures/*.tap').forEach(function (tapfile) {
       parser.end(tapContent)
     }
   })
-})
+}
