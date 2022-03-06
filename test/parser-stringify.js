@@ -14,7 +14,7 @@ const tapFiles = fs.readdirSync(__dirname + '/fixtures')
 for (const tapFile of tapFiles) {
   const f = `${__dirname}/fixtures/${tapFile}`
   t.test(tapFile, { buffer: true }, async t => {
-    t.snapshotFile = `tap-snapshots/test/parser-stringify/${tapFile}.test.cjs`
+    t.snapshotFile = path.resolve(__dirname, '..', `tap-snapshots/test/parser-stringify/${tapFile}.test.cjs`)
     t.plan(4)
     const tapContent = await fs.promises.readFile(f, 'utf8')
     t.test('default settings', t => {
