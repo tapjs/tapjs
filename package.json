@@ -48,6 +48,7 @@
     "which": "^2.0.2"
   },
   "devDependencies": {
+    "coveralls": "^3.1.1",
     "eslint": "^7.25.0",
     "flow-remove-types": "^2.112.0",
     "node-preload": "^0.2.1",
