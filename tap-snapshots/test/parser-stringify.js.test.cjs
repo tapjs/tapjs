@@ -50721,7 +50721,7 @@ Array [
     Result {
       "fullname": "",
       "id": 3,
-      "name": "#skip should not skip",
+      "name": "#skip should not skip because escaped",
       "ok": true,
     },
   ],
@@ -50730,7 +50730,7 @@ Array [
     Result {
       "fullname": "",
       "id": 4,
-      "name": "testTitle#skip",
+      "name": "notskip, because testTitle#skip is not a directive",
       "ok": true,
     },
   ],
@@ -50739,12 +50739,14 @@ Array [
     Result {
       "fullname": "",
       "id": 5,
+      "name": "",
       "ok": true,
+      "skip": "weird spelling but ok, skip it",
     },
   ],
   Array [
     "comment",
-    "# skip: 1\\n",
+    "# skip: 2\\n",
   ],
   Array [
     "complete",
@@ -50762,7 +50764,7 @@ Array [
         "skipReason": "",
         "start": 1,
       },
-      "skip": 1,
+      "skip": 2,
       "time": null,
       "todo": 0,
     },
@@ -50774,10 +50776,10 @@ exports[`test/parser-stringify.js TAP skip.tap bail > stringified 1`] = `
 1..5
 ok 1
 ok 2 # SKIP rain delay
-ok 3 - \\#skip should not skip
-ok 4 - testTitle\\#skip
-ok 5
-# skip: 1
+ok 3 - \\#skip should not skip because escaped
+ok 4 - notskip, because testTitle\\#skip is not a directive
+ok 5 # SKIP weird spelling but ok, skip it
+# skip: 2
 
 `
 
@@ -50785,10 +50787,10 @@ exports[`test/parser-stringify.js TAP skip.tap bail > stringified flat 1`] = `
 1..5
 ok 1
 ok 2 # SKIP rain delay
-ok 3 - \\#skip should not skip
-ok 4 - testTitle\\#skip
-ok 5
-# skip: 1
+ok 3 - \\#skip should not skip because escaped
+ok 4 - notskip, because testTitle\\#skip is not a directive
+ok 5 # SKIP weird spelling but ok, skip it
+# skip: 2
 
 `
 
@@ -50824,7 +50826,7 @@ Array [
     Result {
       "fullname": "",
       "id": 3,
-      "name": "#skip should not skip",
+      "name": "#skip should not skip because escaped",
       "ok": true,
     },
   ],
@@ -50833,7 +50835,7 @@ Array [
     Result {
       "fullname": "",
       "id": 4,
-      "name": "testTitle#skip",
+      "name": "notskip, because testTitle#skip is not a directive",
       "ok": true,
     },
   ],
@@ -50842,12 +50844,14 @@ Array [
     Result {
       "fullname": "",
       "id": 5,
+      "name": "",
       "ok": true,
+      "skip": "weird spelling but ok, skip it",
     },
   ],
   Array [
     "comment",
-    "# skip: 1\\n",
+    "# skip: 2\\n",
   ],
   Array [
     "complete",
@@ -50865,7 +50869,7 @@ Array [
         "skipReason": "",
         "start": 1,
       },
-      "skip": 1,
+      "skip": 2,
       "time": null,
       "todo": 0,
     },
@@ -50877,10 +50881,10 @@ exports[`test/parser-stringify.js TAP skip.tap default settings > stringified 1`
 1..5
 ok 1
 ok 2 # SKIP rain delay
-ok 3 - \\#skip should not skip
-ok 4 - testTitle\\#skip
-ok 5
-# skip: 1
+ok 3 - \\#skip should not skip because escaped
+ok 4 - notskip, because testTitle\\#skip is not a directive
+ok 5 # SKIP weird spelling but ok, skip it
+# skip: 2
 
 `
 
@@ -50888,10 +50892,10 @@ exports[`test/parser-stringify.js TAP skip.tap default settings > stringified fl
 1..5
 ok 1
 ok 2 # SKIP rain delay
-ok 3 - \\#skip should not skip
-ok 4 - testTitle\\#skip
-ok 5
-# skip: 1
+ok 3 - \\#skip should not skip because escaped
+ok 4 - notskip, because testTitle\\#skip is not a directive
+ok 5 # SKIP weird spelling but ok, skip it
+# skip: 2
 
 `
 
@@ -50927,7 +50931,7 @@ Array [
     Result {
       "fullname": "",
       "id": 3,
-      "name": "#skip should not skip",
+      "name": "#skip should not skip because escaped",
       "ok": true,
     },
   ],
@@ -50936,7 +50940,7 @@ Array [
     Result {
       "fullname": "",
       "id": 4,
-      "name": "testTitle#skip",
+      "name": "notskip, because testTitle#skip is not a directive",
       "ok": true,
     },
   ],
@@ -50945,12 +50949,14 @@ Array [
     Result {
       "fullname": "",
       "id": 5,
+      "name": "",
       "ok": true,
+      "skip": "weird spelling but ok, skip it",
     },
   ],
   Array [
     "comment",
-    "# skip: 1\\n",
+    "# skip: 2\\n",
   ],
   Array [
     "complete",
@@ -50968,7 +50974,7 @@ Array [
         "skipReason": "",
         "start": 1,
       },
-      "skip": 1,
+      "skip": 2,
       "time": null,
       "todo": 0,
     },
@@ -50980,10 +50986,10 @@ exports[`test/parser-stringify.js TAP skip.tap strict > stringified 1`] = `
 1..5
 ok 1
 ok 2 # SKIP rain delay
-ok 3 - \\#skip should not skip
-ok 4 - testTitle\\#skip
-ok 5
-# skip: 1
+ok 3 - \\#skip should not skip because escaped
+ok 4 - notskip, because testTitle\\#skip is not a directive
+ok 5 # SKIP weird spelling but ok, skip it
+# skip: 2
 
 `
 
@@ -50991,10 +50997,10 @@ exports[`test/parser-stringify.js TAP skip.tap strict > stringified flat 1`] = `
 1..5
 ok 1
 ok 2 # SKIP rain delay
-ok 3 - \\#skip should not skip
-ok 4 - testTitle\\#skip
-ok 5
-# skip: 1
+ok 3 - \\#skip should not skip because escaped
+ok 4 - notskip, because testTitle\\#skip is not a directive
+ok 5 # SKIP weird spelling but ok, skip it
+# skip: 2
 
 `
 
@@ -51030,7 +51036,7 @@ Array [
     Result {
       "fullname": "",
       "id": 3,
-      "name": "#skip should not skip",
+      "name": "#skip should not skip because escaped",
       "ok": true,
     },
   ],
@@ -51039,7 +51045,7 @@ Array [
     Result {
       "fullname": "",
       "id": 4,
-      "name": "testTitle#skip",
+      "name": "notskip, because testTitle#skip is not a directive",
       "ok": true,
     },
   ],
@@ -51048,12 +51054,14 @@ Array [
     Result {
       "fullname": "",
       "id": 5,
+      "name": "",
       "ok": true,
+      "skip": "weird spelling but ok, skip it",
     },
   ],
   Array [
     "comment",
-    "# skip: 1\\n",
+    "# skip: 2\\n",
   ],
   Array [
     "complete",
@@ -51071,7 +51079,7 @@ Array [
         "skipReason": "",
         "start": 1,
       },
-      "skip": 1,
+      "skip": 2,
       "time": null,
       "todo": 0,
     },
@@ -51083,10 +51091,10 @@ exports[`test/parser-stringify.js TAP skip.tap strictBail > stringified 1`] = `
 1..5
 ok 1
 ok 2 # SKIP rain delay
-ok 3 - \\#skip should not skip
-ok 4 - testTitle\\#skip
-ok 5
-# skip: 1
+ok 3 - \\#skip should not skip because escaped
+ok 4 - notskip, because testTitle\\#skip is not a directive
+ok 5 # SKIP weird spelling but ok, skip it
+# skip: 2
 
 `
 
@@ -51094,10 +51102,10 @@ exports[`test/parser-stringify.js TAP skip.tap strictBail > stringified flat 1`]
 1..5
 ok 1
 ok 2 # SKIP rain delay
-ok 3 - \\#skip should not skip
-ok 4 - testTitle\\#skip
-ok 5
-# skip: 1
+ok 3 - \\#skip should not skip because escaped
+ok 4 - notskip, because testTitle\\#skip is not a directive
+ok 5 # SKIP weird spelling but ok, skip it
+# skip: 2
 
 `
 
@@ -51890,6 +51898,274 @@ TAP version 13
 exports[`test/parser-stringify.js TAP skipall_v13.tap strictBail > stringified flat 1`] = `
 TAP version 13
 1..0 # skipping: rope
+
+`
+
+exports[`test/parser-stringify.js TAP skippidy-doo-dah.tap bail > parsed 1`] = `
+Array [
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 1,
+      "start": 1,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "name": "x",
+      "ok": true,
+      "skip": "doo dah",
+    },
+  ],
+  Array [
+    "comment",
+    "# skip: 1\\n",
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 1,
+      "fail": 0,
+      "failures": Array [],
+      "ok": true,
+      "pass": 1,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 1,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 1,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parser-stringify.js TAP skippidy-doo-dah.tap bail > stringified 1`] = `
+TAP version 13
+1..1
+ok 1 - x # SKIP doo dah
+# skip: 1
+
+`
+
+exports[`test/parser-stringify.js TAP skippidy-doo-dah.tap bail > stringified flat 1`] = `
+TAP version 13
+1..1
+ok 1 - x # SKIP doo dah
+# skip: 1
+
+`
+
+exports[`test/parser-stringify.js TAP skippidy-doo-dah.tap default settings > parsed 1`] = `
+Array [
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 1,
+      "start": 1,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "name": "x",
+      "ok": true,
+      "skip": "doo dah",
+    },
+  ],
+  Array [
+    "comment",
+    "# skip: 1\\n",
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 1,
+      "fail": 0,
+      "failures": Array [],
+      "ok": true,
+      "pass": 1,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 1,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 1,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parser-stringify.js TAP skippidy-doo-dah.tap default settings > stringified 1`] = `
+TAP version 13
+1..1
+ok 1 - x # SKIP doo dah
+# skip: 1
+
+`
+
+exports[`test/parser-stringify.js TAP skippidy-doo-dah.tap default settings > stringified flat 1`] = `
+TAP version 13
+1..1
+ok 1 - x # SKIP doo dah
+# skip: 1
+
+`
+
+exports[`test/parser-stringify.js TAP skippidy-doo-dah.tap strict > parsed 1`] = `
+Array [
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 1,
+      "start": 1,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "name": "x",
+      "ok": true,
+      "skip": "doo dah",
+    },
+  ],
+  Array [
+    "comment",
+    "# skip: 1\\n",
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 1,
+      "fail": 0,
+      "failures": Array [],
+      "ok": true,
+      "pass": 1,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 1,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 1,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parser-stringify.js TAP skippidy-doo-dah.tap strict > stringified 1`] = `
+TAP version 13
+1..1
+ok 1 - x # SKIP doo dah
+# skip: 1
+
+`
+
+exports[`test/parser-stringify.js TAP skippidy-doo-dah.tap strict > stringified flat 1`] = `
+TAP version 13
+1..1
+ok 1 - x # SKIP doo dah
+# skip: 1
+
+`
+
+exports[`test/parser-stringify.js TAP skippidy-doo-dah.tap strictBail > parsed 1`] = `
+Array [
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 1,
+      "start": 1,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "name": "x",
+      "ok": true,
+      "skip": "doo dah",
+    },
+  ],
+  Array [
+    "comment",
+    "# skip: 1\\n",
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 1,
+      "fail": 0,
+      "failures": Array [],
+      "ok": true,
+      "pass": 1,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 1,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 1,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parser-stringify.js TAP skippidy-doo-dah.tap strictBail > stringified 1`] = `
+TAP version 13
+1..1
+ok 1 - x # SKIP doo dah
+# skip: 1
+
+`
+
+exports[`test/parser-stringify.js TAP skippidy-doo-dah.tap strictBail > stringified flat 1`] = `
+TAP version 13
+1..1
+ok 1 - x # SKIP doo dah
+# skip: 1
 
 `
 
@@ -110302,8 +110578,9 @@ Array [
     Result {
       "fullname": "",
       "id": 4,
-      "name": "#todo This is not todo",
+      "name": "",
       "ok": true,
+      "todo": "This is a todo with an empty description",
     },
   ],
   Array [
@@ -110311,13 +110588,13 @@ Array [
     Result {
       "fullname": "",
       "id": 5,
-      "name": "testTitle#todo",
+      "name": "testTitle#todo is not a todo, it's a url",
       "ok": true,
     },
   ],
   Array [
     "comment",
-    "# todo: 2\\n",
+    "# todo: 3\\n",
   ],
   Array [
     "complete",
@@ -110337,7 +110614,7 @@ Array [
       },
       "skip": 0,
       "time": null,
-      "todo": 2,
+      "todo": 3,
     },
   ],
 ]
@@ -110348,9 +110625,9 @@ exports[`test/parser-stringify.js TAP todo_inline.tap bail > stringified 1`] = `
 not ok 1 - Foo # TODO Just testing the todo interface.
 ok 2 - Unexpected success # TODO Just testing the todo interface.
 ok 3 - This is not todo
-ok 4 - \\#todo This is not todo
-ok 5 - testTitle\\#todo
-# todo: 2
+ok 4 # TODO This is a todo with an empty description
+ok 5 - testTitle\\#todo is not a todo, it's a url
+# todo: 3
 
 `
 
@@ -110359,9 +110636,9 @@ exports[`test/parser-stringify.js TAP todo_inline.tap bail > stringified flat 1`
 not ok 1 - Foo # TODO Just testing the todo interface.
 ok 2 - Unexpected success # TODO Just testing the todo interface.
 ok 3 - This is not todo
-ok 4 - \\#todo This is not todo
-ok 5 - testTitle\\#todo
-# todo: 2
+ok 4 # TODO This is a todo with an empty description
+ok 5 - testTitle\\#todo is not a todo, it's a url
+# todo: 3
 
 `
 
@@ -110408,8 +110685,9 @@ Array [
     Result {
       "fullname": "",
       "id": 4,
-      "name": "#todo This is not todo",
+      "name": "",
       "ok": true,
+      "todo": "This is a todo with an empty description",
     },
   ],
   Array [
@@ -110417,13 +110695,13 @@ Array [
     Result {
       "fullname": "",
       "id": 5,
-      "name": "testTitle#todo",
+      "name": "testTitle#todo is not a todo, it's a url",
       "ok": true,
     },
   ],
   Array [
     "comment",
-    "# todo: 2\\n",
+    "# todo: 3\\n",
   ],
   Array [
     "complete",
@@ -110443,7 +110721,7 @@ Array [
       },
       "skip": 0,
       "time": null,
-      "todo": 2,
+      "todo": 3,
     },
   ],
 ]
@@ -110454,9 +110732,9 @@ exports[`test/parser-stringify.js TAP todo_inline.tap default settings > stringi
 not ok 1 - Foo # TODO Just testing the todo interface.
 ok 2 - Unexpected success # TODO Just testing the todo interface.
 ok 3 - This is not todo
-ok 4 - \\#todo This is not todo
-ok 5 - testTitle\\#todo
-# todo: 2
+ok 4 # TODO This is a todo with an empty description
+ok 5 - testTitle\\#todo is not a todo, it's a url
+# todo: 3
 
 `
 
@@ -110465,9 +110743,9 @@ exports[`test/parser-stringify.js TAP todo_inline.tap default settings > stringi
 not ok 1 - Foo # TODO Just testing the todo interface.
 ok 2 - Unexpected success # TODO Just testing the todo interface.
 ok 3 - This is not todo
-ok 4 - \\#todo This is not todo
-ok 5 - testTitle\\#todo
-# todo: 2
+ok 4 # TODO This is a todo with an empty description
+ok 5 - testTitle\\#todo is not a todo, it's a url
+# todo: 3
 
 `
 
@@ -110514,8 +110792,9 @@ Array [
     Result {
       "fullname": "",
       "id": 4,
-      "name": "#todo This is not todo",
+      "name": "",
       "ok": true,
+      "todo": "This is a todo with an empty description",
     },
   ],
   Array [
@@ -110523,13 +110802,13 @@ Array [
     Result {
       "fullname": "",
       "id": 5,
-      "name": "testTitle#todo",
+      "name": "testTitle#todo is not a todo, it's a url",
       "ok": true,
     },
   ],
   Array [
     "comment",
-    "# todo: 2\\n",
+    "# todo: 3\\n",
   ],
   Array [
     "complete",
@@ -110549,7 +110828,7 @@ Array [
       },
       "skip": 0,
       "time": null,
-      "todo": 2,
+      "todo": 3,
     },
   ],
 ]
@@ -110560,9 +110839,9 @@ exports[`test/parser-stringify.js TAP todo_inline.tap strict > stringified 1`] =
 not ok 1 - Foo # TODO Just testing the todo interface.
 ok 2 - Unexpected success # TODO Just testing the todo interface.
 ok 3 - This is not todo
-ok 4 - \\#todo This is not todo
-ok 5 - testTitle\\#todo
-# todo: 2
+ok 4 # TODO This is a todo with an empty description
+ok 5 - testTitle\\#todo is not a todo, it's a url
+# todo: 3
 
 `
 
@@ -110571,9 +110850,9 @@ exports[`test/parser-stringify.js TAP todo_inline.tap strict > stringified flat 
 not ok 1 - Foo # TODO Just testing the todo interface.
 ok 2 - Unexpected success # TODO Just testing the todo interface.
 ok 3 - This is not todo
-ok 4 - \\#todo This is not todo
-ok 5 - testTitle\\#todo
-# todo: 2
+ok 4 # TODO This is a todo with an empty description
+ok 5 - testTitle\\#todo is not a todo, it's a url
+# todo: 3
 
 `
 
@@ -110620,8 +110899,9 @@ Array [
     Result {
       "fullname": "",
       "id": 4,
-      "name": "#todo This is not todo",
+      "name": "",
       "ok": true,
+      "todo": "This is a todo with an empty description",
     },
   ],
   Array [
@@ -110629,13 +110909,13 @@ Array [
     Result {
       "fullname": "",
       "id": 5,
-      "name": "testTitle#todo",
+      "name": "testTitle#todo is not a todo, it's a url",
       "ok": true,
     },
   ],
   Array [
     "comment",
-    "# todo: 2\\n",
+    "# todo: 3\\n",
   ],
   Array [
     "complete",
@@ -110655,7 +110935,7 @@ Array [
       },
       "skip": 0,
       "time": null,
-      "todo": 2,
+      "todo": 3,
     },
   ],
 ]
@@ -110666,9 +110946,9 @@ exports[`test/parser-stringify.js TAP todo_inline.tap strictBail > stringified 1
 not ok 1 - Foo # TODO Just testing the todo interface.
 ok 2 - Unexpected success # TODO Just testing the todo interface.
 ok 3 - This is not todo
-ok 4 - \\#todo This is not todo
-ok 5 - testTitle\\#todo
-# todo: 2
+ok 4 # TODO This is a todo with an empty description
+ok 5 - testTitle\\#todo is not a todo, it's a url
+# todo: 3
 
 `
 
@@ -110677,9 +110957,9 @@ exports[`test/parser-stringify.js TAP todo_inline.tap strictBail > stringified f
 not ok 1 - Foo # TODO Just testing the todo interface.
 ok 2 - Unexpected success # TODO Just testing the todo interface.
 ok 3 - This is not todo
-ok 4 - \\#todo This is not todo
-ok 5 - testTitle\\#todo
-# todo: 2
+ok 4 # TODO This is a todo with an empty description
+ok 5 - testTitle\\#todo is not a todo, it's a url
+# todo: 3
 
 `
 

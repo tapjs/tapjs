@@ -95,14 +95,14 @@ class Result {
     // escape \ with \
     rest = rest.replace(/(\\\\)/g, '\n')
 
-    rest = rest.split(/(?<!\\)# /g)
+    rest = rest.split(/(?<=\s|^)(?<!\\)#/g)
     name = rest.shift().replace(/\\#/g, '#').replace(/\n/g, '\\')
-    rest = rest.join('# ').replace(/\\#/g, '#').replace(/\n/g, '\\')
+    rest = rest.join('#').replace(/\\#/g, '#').replace(/\n/g, '\\')
 
     // now, let's see if there's a directive in there.
     const dir = parseDirective(rest.trim())
     if (!dir)
-      name += (rest ? '# ' + rest : '') + buffered
+      name += (rest ? '#' + rest : '') + buffered
     else {
       // handle buffered subtests with todo/skip on them, like
       // ok 1 - bar # todo foo {\n
@@ -1165,11 +1165,13 @@ class Parser extends MiniPass {
 const esc = str => str
   .replace(/\\/g, '\\\\')
   .replace(/#/g, '\\#')
+  .trim()
 
 const unesc = str => str
   .replace(/(\\\\)/g, '\u0000')
   .replace(/\\#/g, '#')
   .replace(/\u0000/g, '\\')
+  .trim()
 
 class FinalResults {
   constructor (skipAll, self) {

@@ -40090,14 +40090,14 @@ Array [
   ],
   Array [
     "line",
-    "ok 3    #skip should not skip\\n",
+    "ok 3    \\\\#skip should not skip because escaped\\n",
   ],
   Array [
     "assert",
     Result {
       "fullname": "",
       "id": 3,
-      "name": "#skip should not skip",
+      "name": "#skip should not skip because escaped",
       "ok": true,
     },
   ],
@@ -40106,7 +40106,7 @@ Array [
     Result {
       "fullname": "",
       "id": 3,
-      "name": "#skip should not skip",
+      "name": "#skip should not skip because escaped",
       "ok": true,
     },
   ],
@@ -40115,20 +40115,20 @@ Array [
     Result {
       "fullname": "",
       "id": 3,
-      "name": "#skip should not skip",
+      "name": "#skip should not skip because escaped",
       "ok": true,
     },
   ],
   Array [
     "line",
-    "ok 4    testTitle#skip\\n",
+    "ok 4    notskip, because testTitle#skip is not a directive\\n",
   ],
   Array [
     "assert",
     Result {
       "fullname": "",
       "id": 4,
-      "name": "testTitle#skip",
+      "name": "notskip, because testTitle#skip is not a directive",
       "ok": true,
     },
   ],
@@ -40137,7 +40137,7 @@ Array [
     Result {
       "fullname": "",
       "id": 4,
-      "name": "testTitle#skip",
+      "name": "notskip, because testTitle#skip is not a directive",
       "ok": true,
     },
   ],
@@ -40146,20 +40146,22 @@ Array [
     Result {
       "fullname": "",
       "id": 4,
-      "name": "testTitle#skip",
+      "name": "notskip, because testTitle#skip is not a directive",
       "ok": true,
     },
   ],
   Array [
     "line",
-    "ok 5\\n",
+    "ok 5    #sKiPpPyYy weird spelling but ok, skip it\\n",
   ],
   Array [
     "assert",
     Result {
       "fullname": "",
       "id": 5,
+      "name": "",
       "ok": true,
+      "skip": "weird spelling but ok, skip it",
     },
   ],
   Array [
@@ -40167,24 +40169,28 @@ Array [
     Result {
       "fullname": "",
       "id": 5,
+      "name": "",
       "ok": true,
+      "skip": "weird spelling but ok, skip it",
     },
   ],
   Array [
-    "pass",
+    "skip",
     Result {
       "fullname": "",
       "id": 5,
+      "name": "",
       "ok": true,
+      "skip": "weird spelling but ok, skip it",
     },
   ],
   Array [
     "line",
-    "# skip: 1\\n",
+    "# skip: 2\\n",
   ],
   Array [
     "comment",
-    "# skip: 1\\n",
+    "# skip: 2\\n",
   ],
   Array [
     "complete",
@@ -40202,7 +40208,7 @@ Array [
         "skipReason": "",
         "start": 1,
       },
-      "skip": 1,
+      "skip": 2,
       "time": null,
       "todo": 0,
     },
@@ -40287,14 +40293,14 @@ Array [
   ],
   Array [
     "line",
-    "ok 3    #skip should not skip\\n",
+    "ok 3    \\\\#skip should not skip because escaped\\n",
   ],
   Array [
     "assert",
     Result {
       "fullname": "",
       "id": 3,
-      "name": "#skip should not skip",
+      "name": "#skip should not skip because escaped",
       "ok": true,
     },
   ],
@@ -40303,7 +40309,7 @@ Array [
     Result {
       "fullname": "",
       "id": 3,
-      "name": "#skip should not skip",
+      "name": "#skip should not skip because escaped",
       "ok": true,
     },
   ],
@@ -40312,20 +40318,20 @@ Array [
     Result {
       "fullname": "",
       "id": 3,
-      "name": "#skip should not skip",
+      "name": "#skip should not skip because escaped",
       "ok": true,
     },
   ],
   Array [
     "line",
-    "ok 4    testTitle#skip\\n",
+    "ok 4    notskip, because testTitle#skip is not a directive\\n",
   ],
   Array [
     "assert",
     Result {
       "fullname": "",
       "id": 4,
-      "name": "testTitle#skip",
+      "name": "notskip, because testTitle#skip is not a directive",
       "ok": true,
     },
   ],
@@ -40334,7 +40340,7 @@ Array [
     Result {
       "fullname": "",
       "id": 4,
-      "name": "testTitle#skip",
+      "name": "notskip, because testTitle#skip is not a directive",
       "ok": true,
     },
   ],
@@ -40343,20 +40349,22 @@ Array [
     Result {
       "fullname": "",
       "id": 4,
-      "name": "testTitle#skip",
+      "name": "notskip, because testTitle#skip is not a directive",
       "ok": true,
     },
   ],
   Array [
     "line",
-    "ok 5\\n",
+    "ok 5    #sKiPpPyYy weird spelling but ok, skip it\\n",
   ],
   Array [
     "assert",
     Result {
       "fullname": "",
       "id": 5,
+      "name": "",
       "ok": true,
+      "skip": "weird spelling but ok, skip it",
     },
   ],
   Array [
@@ -40364,24 +40372,28 @@ Array [
     Result {
       "fullname": "",
       "id": 5,
+      "name": "",
       "ok": true,
+      "skip": "weird spelling but ok, skip it",
     },
   ],
   Array [
-    "pass",
+    "skip",
     Result {
       "fullname": "",
       "id": 5,
+      "name": "",
       "ok": true,
+      "skip": "weird spelling but ok, skip it",
     },
   ],
   Array [
     "line",
-    "# skip: 1\\n",
+    "# skip: 2\\n",
   ],
   Array [
     "comment",
-    "# skip: 1\\n",
+    "# skip: 2\\n",
   ],
   Array [
     "complete",
@@ -40399,7 +40411,7 @@ Array [
         "skipReason": "",
         "start": 1,
       },
-      "skip": 1,
+      "skip": 2,
       "time": null,
       "todo": 0,
     },
@@ -40800,6 +40812,180 @@ Array [
         "start": 1,
       },
       "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parser.js TAP skippidy-doo-dah.tap > output bail=false 1`] = `
+Array [
+  Array [
+    "line",
+    "TAP version 13\\n",
+  ],
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "line",
+    "1..1\\n",
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 1,
+      "start": 1,
+    },
+  ],
+  Array [
+    "line",
+    "ok 1 - x #SkIpPidy doo dah\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "name": "x",
+      "ok": true,
+      "skip": "doo dah",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "name": "x",
+      "ok": true,
+      "skip": "doo dah",
+    },
+  ],
+  Array [
+    "skip",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "name": "x",
+      "ok": true,
+      "skip": "doo dah",
+    },
+  ],
+  Array [
+    "line",
+    "# skip: 1\\n",
+  ],
+  Array [
+    "comment",
+    "# skip: 1\\n",
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 1,
+      "fail": 0,
+      "failures": Array [],
+      "ok": true,
+      "pass": 1,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 1,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 1,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parser.js TAP skippidy-doo-dah.tap > output bail=true 1`] = `
+Array [
+  Array [
+    "line",
+    "TAP version 13\\n",
+  ],
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "line",
+    "1..1\\n",
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 1,
+      "start": 1,
+    },
+  ],
+  Array [
+    "line",
+    "ok 1 - x #SkIpPidy doo dah\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "name": "x",
+      "ok": true,
+      "skip": "doo dah",
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "name": "x",
+      "ok": true,
+      "skip": "doo dah",
+    },
+  ],
+  Array [
+    "skip",
+    Result {
+      "fullname": "",
+      "id": 1,
+      "name": "x",
+      "ok": true,
+      "skip": "doo dah",
+    },
+  ],
+  Array [
+    "line",
+    "# skip: 1\\n",
+  ],
+  Array [
+    "comment",
+    "# skip: 1\\n",
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 1,
+      "fail": 0,
+      "failures": Array [],
+      "ok": true,
+      "pass": 1,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 1,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 1,
       "time": null,
       "todo": 0,
     },
@@ -99806,15 +99992,16 @@ Array [
   ],
   Array [
     "line",
-    "ok 4 - #todo This is not todo\\n",
+    "ok 4 - #todo This is a todo with an empty description\\n",
   ],
   Array [
     "assert",
     Result {
       "fullname": "",
       "id": 4,
-      "name": "#todo This is not todo",
+      "name": "",
       "ok": true,
+      "todo": "This is a todo with an empty description",
     },
   ],
   Array [
@@ -99822,29 +100009,31 @@ Array [
     Result {
       "fullname": "",
       "id": 4,
-      "name": "#todo This is not todo",
+      "name": "",
       "ok": true,
+      "todo": "This is a todo with an empty description",
     },
   ],
   Array [
-    "pass",
+    "todo",
     Result {
       "fullname": "",
       "id": 4,
-      "name": "#todo This is not todo",
+      "name": "",
       "ok": true,
+      "todo": "This is a todo with an empty description",
     },
   ],
   Array [
     "line",
-    "ok 5 - testTitle#todo\\n",
+    "ok 5 - testTitle#todo is not a todo, it's a url\\n",
   ],
   Array [
     "assert",
     Result {
       "fullname": "",
       "id": 5,
-      "name": "testTitle#todo",
+      "name": "testTitle#todo is not a todo, it's a url",
       "ok": true,
     },
   ],
@@ -99853,7 +100042,7 @@ Array [
     Result {
       "fullname": "",
       "id": 5,
-      "name": "testTitle#todo",
+      "name": "testTitle#todo is not a todo, it's a url",
       "ok": true,
     },
   ],
@@ -99862,17 +100051,17 @@ Array [
     Result {
       "fullname": "",
       "id": 5,
-      "name": "testTitle#todo",
+      "name": "testTitle#todo is not a todo, it's a url",
       "ok": true,
     },
   ],
   Array [
     "line",
-    "# todo: 2\\n",
+    "# todo: 3\\n",
   ],
   Array [
     "comment",
-    "# todo: 2\\n",
+    "# todo: 3\\n",
   ],
   Array [
     "complete",
@@ -99892,7 +100081,7 @@ Array [
       },
       "skip": 0,
       "time": null,
-      "todo": 2,
+      "todo": 3,
     },
   ],
 ]
@@ -100012,15 +100201,16 @@ Array [
   ],
   Array [
     "line",
-    "ok 4 - #todo This is not todo\\n",
+    "ok 4 - #todo This is a todo with an empty description\\n",
   ],
   Array [
     "assert",
     Result {
       "fullname": "",
       "id": 4,
-      "name": "#todo This is not todo",
+      "name": "",
       "ok": true,
+      "todo": "This is a todo with an empty description",
     },
   ],
   Array [
@@ -100028,29 +100218,31 @@ Array [
     Result {
       "fullname": "",
       "id": 4,
-      "name": "#todo This is not todo",
+      "name": "",
       "ok": true,
+      "todo": "This is a todo with an empty description",
     },
   ],
   Array [
-    "pass",
+    "todo",
     Result {
       "fullname": "",
       "id": 4,
-      "name": "#todo This is not todo",
+      "name": "",
       "ok": true,
+      "todo": "This is a todo with an empty description",
     },
   ],
   Array [
     "line",
-    "ok 5 - testTitle#todo\\n",
+    "ok 5 - testTitle#todo is not a todo, it's a url\\n",
   ],
   Array [
     "assert",
     Result {
       "fullname": "",
       "id": 5,
-      "name": "testTitle#todo",
+      "name": "testTitle#todo is not a todo, it's a url",
       "ok": true,
     },
   ],
@@ -100059,7 +100251,7 @@ Array [
     Result {
       "fullname": "",
       "id": 5,
-      "name": "testTitle#todo",
+      "name": "testTitle#todo is not a todo, it's a url",
       "ok": true,
     },
   ],
@@ -100068,17 +100260,17 @@ Array [
     Result {
       "fullname": "",
       "id": 5,
-      "name": "testTitle#todo",
+      "name": "testTitle#todo is not a todo, it's a url",
       "ok": true,
     },
   ],
   Array [
     "line",
-    "# todo: 2\\n",
+    "# todo: 3\\n",
   ],
   Array [
     "comment",
-    "# todo: 2\\n",
+    "# todo: 3\\n",
   ],
   Array [
     "complete",
@@ -100098,7 +100290,7 @@ Array [
       },
       "skip": 0,
       "time": null,
-      "todo": 2,
+      "todo": 3,
     },
   ],
 ]
