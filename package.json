@@ -45,6 +45,7 @@
     "tap-yaml": "^1.0.0",
     "tcompare": "^5.0.7",
     "treport": "^3.0.3",
+    "walk-up-path": "^1.0.0",
     "which": "^2.0.2"
   },
   "devDependencies": {

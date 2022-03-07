@@ -26,7 +26,63 @@ const maybeResolve = id => {
     return require.resolve(id)
   } catch (er) {}
 }
-const tsNode = maybeResolve('ts-node/register')
+
+const maybeRequire = id => {
+  const mod = maybeResolve(id)
+  return mod ? require(mod) : null
+}
+
+const walkUpPath = require('walk-up-path')
+const isTypeModule = () => {
+  if (typeof isTypeModule.memo === 'boolean')
+    return isTypeModule.memo
+  const pkg = findPkg()
+  return isTypeModule.memo = pkg ? pkg.type === 'module' : false
+}
+
+const findPkg = () => {
+  for (const path of walkUpPath(process.cwd())) {
+    try {
+      return require(path + '/package.json')
+    } catch (e) {}
+  }
+}
+
+const findTSConfig = () => {
+  if (findTSConfig.memo)
+    return findTSConfig.memo
+  for (const path of walkUpPath(process.cwd())) {
+    try {
+      return findTSConfig.memo = require(path + '/tsconfig.json')
+    } catch (er) {}
+  }
+}
+
+const tsCompilerOpts = (options, env) => {
+  const {
+    compilerOptions: compilerOpts = {}
+  } = findTSConfig() || {}
+  const envOpts = JSON.parse(env.TS_NODE_COMPILER_OPTIONS || '{}')
+  Object.assign(compilerOpts, envOpts)
+  if (options.jsx)
+    compilerOpts.jsx = 'react'
+  if (isTypeModule())
+    compilerOpts.module = 'ES2020'
+  return {
+    ...env,
+    TS_NODE_COMPILER_OPTIONS: JSON.stringify(compilerOpts),
+  }
+}
+
+// Support for TypeScript + package.json "type":"module" is super tricky
+// - if package.json contains "type":"module", then we MUST include
+//   "module":"ES2020" in the compilerOptions
+// - if we put "module":"ES2020" in the compilerOptions, and the package.json
+//   does NOT contain "type":"module", then it breaks.
+const tsNodePkg = maybeRequire('ts-node/package.json')
+const tsNodeESM = tsNodePkg && tsNodePkg.bin && tsNodePkg.bin['ts-node-esm']
+  && maybeResolve(path.join('ts-node', tsNodePkg.bin['ts-node-esm']))
+
 const flowNode = maybeResolve('flow-remove-types/register')
 const jsx = require.resolve('./jsx.js')
 const coverallsBin = maybeResolve('coveralls/bin/coveralls.js')
@@ -679,19 +735,12 @@ const runAllFiles = (options, env, tap, processDB) => {
       if (options.flow && flowNode)
         options['node-arg'].push('-r', flowNode)
 
-      if (options.ts && tsNode && /\.tsx?$/.test(file)) {
+      if (options.ts && tsNodeESM && /\.tsx?$/.test(file)) {
         debug('typescript file', file)
-        const compilerOpts = JSON.parse(env.TS_NODE_COMPILER_OPTIONS || '{}')
-        if (options.jsx)
-          compilerOpts.jsx = 'react'
-
-        opt.env = {
-          ...env,
-          TS_NODE_COMPILER_OPTIONS: JSON.stringify(compilerOpts),
-        }
+        opt.env = tsCompilerOpts(options, env)
         const args = [
-          '-r', tsNode,
           ...options['node-arg'],
+          tsNodeESM,
           file,
           ...options['test-arg']
         ]
@@ -706,7 +755,7 @@ const runAllFiles = (options, env, tap, processDB) => {
         ]
         tap.spawn(node, args, opt, file)
       } else if (/\.jsx$|\.tsx?$|\.[mc]?js$/.test(file)) {
-        debug('js file', file)
+        debug('js file', file, options.ts, tsNodeESM, /\.tsx?$/.test(file))
         /* istanbul ignore next - version specific behavior */
         const experimental = /^v10\./.test(process.version) && /\.mjs$/.test(file)
           ? ['--experimental-modules'] : []
@@ -820,8 +869,8 @@ const runBeforeAfter = (options, env, tap, processDB) => {
     processDB.writeIndex()
 
   if (options.before) {
-    if (options.ts && tsNode && /\.tsx?$/.test(options.before)) {
-      beforeAfter(env, ['-r', tsNode, options.before])
+    if (options.ts && tsNodeESM && /\.tsx?$/.test(options.before)) {
+      beforeAfter(tsCompilerOpts(options, env), [tsNodeESM, options.before])
     } else {
       beforeAfter(env, [options.before])
     }
@@ -830,8 +879,8 @@ const runBeforeAfter = (options, env, tap, processDB) => {
   if (options.after) {
     /* istanbul ignore next - run after istanbul's report */
     signalExit(() => {
-      if (options.ts && tsNode && /\.tsx?$/.test(options.after)) {
-        beforeAfter(env, ['-r', tsNode, options.after])
+      if (options.ts && tsNodeESM && /\.tsx?$/.test(options.after)) {
+        beforeAfter(tsCompilerOpts(options, env), [tsNodeESM, options.after])
       } else {
         beforeAfter(env, [options.after])
       }
