@@ -376,7 +376,6 @@ Much more documentation available at: https://www.node-tap.org/
 
   'coverage-report': list({
     hint: 'type',
-    valid: nycReporters,
     description: `Output coverage information using the
                   specified istanbul/nyc reporter type.
 
@@ -390,7 +389,7 @@ Much more documentation available at: https://www.node-tap.org/
                   This can be run on its own at any time
                   after a test run that included coverage.
 
-                  Available NYC reporters:
+                  Built-in NYC reporters:
                   ${nycReporters.join(' ')}`,
   }),
 
