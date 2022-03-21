@@ -1,11 +1,11 @@
-var Parser = require('../')
-var etoa = require('events-to-array')
+const Parser = require('../')
+const etoa = require('events-to-array')
 
-var ignore = [ 'pipe', 'unpipe', 'prefinish', 'finish', 'newListener' ]
-var glob = require('glob')
+const ignore = [ 'pipe', 'unpipe', 'prefinish', 'finish', 'newListener' ]
+const glob = require('glob')
 const t = require('tap')
-var path = require('path')
-var fs = require('fs')
+const path = require('path')
+const fs = require('fs')
 
 t.jobs = 8
 const tapFiles = fs.readdirSync(__dirname + '/fixtures')
