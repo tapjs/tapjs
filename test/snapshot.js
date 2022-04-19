@@ -112,6 +112,73 @@ t.test('snapshots work', async (t) => {
   t.ok(readTest.results.ok, 'readTest passed')
 })
 
+t.test('snapshots work with transforms', async (t) => {
+  // start a server
+  server.listen({ host: '127.0.0.1', port: 65200 })
+  t.teardown(() => server.close())
+
+  // snapshot its response in a test
+  const writeTest = new Test({ name: 'snapshot works', snapshot: true })
+  writeTest.ondone = () => writeTest.emitSubTeardown(writeTest)
+  const writeScopes = writeTest.nock.snapshot({
+    clean: (scope) => {
+      // remove the Date header
+      const dateIdx = scope.rawHeaders.indexOf('Date')
+      scope.rawHeaders.splice(dateIdx, 2)
+      return scope
+    },
+  })
+  t.same(writeScopes, [], 't.nock.snapshot() returns an empty array in write mode')
+
+  await writeTest.resolves(async () => {
+    const res = await fetch('http://127.0.0.1:65200')
+    writeTest.equal(res.status, 200, 'got a 200')
+    writeTest.ok(res.headers.has('date'), 'has a date header')
+    const body = await res.json()
+    writeTest.same(body, { hello: 'world' }, 'got response body')
+  }, 'real request worked')
+
+  writeTest.end()
+  t.ok(writeTest.results.ok, 'writeTest passed')
+
+  const snapshotFile = writeTest.snapshotFile.replace(/\.js\.test\.cjs$/, '.nock.json')
+  t.ok(fs.existsSync(snapshotFile), 'snapshot file was written')
+
+  // now stop the server
+  server.close()
+
+  // and see if we can load the snapshot for this test
+  const readTest = new Test({ name: 'snapshot works', snapshot: false })
+  t.equal(readTest.snapshotFile, writeTest.snapshotFile, 'uses the same file')
+  readTest.ondone = () => readTest.emitSubTeardown(readTest)
+  const readScopes = readTest.nock.snapshot({
+    load: (scope) => {
+      scope.reqheaders = { authorization: 'Bearer abcdef' }
+      return scope
+    },
+  })
+  t.equal(readScopes.length, 1, 'returned one scope')
+
+  await readTest.rejects(async () => {
+    await fetch('http://127.0.0.1:65200')
+  }, { code: 'ERR_NOCK_NO_MATCH' }, 'nock request without auth failed')
+
+  await readTest.resolves(async () => {
+    const res = await fetch('http://127.0.0.1:65200', {
+      headers: {
+        authorization: 'Bearer abcdef',
+      },
+    })
+    t.equal(res.status, 200, 'got a 200')
+    t.notOk(res.headers.has('date'), 'res does NOT have a date header')
+    const body = await res.json()
+    t.same(body, { hello: 'world' }, 'got response body')
+  }, 'nock request with auth worked')
+
+  readTest.end()
+  t.ok(readTest.results.ok, 'readTest passed')
+})
+
 t.test('snapshots and nocks can co-exist', async (t) => {
   server.listen({ host: '127.0.0.1', port: 65200 })
   t.teardown(() => server.close())
