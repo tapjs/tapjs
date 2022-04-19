@@ -112,6 +112,74 @@ t.test('snapshots work', async (t) => {
   t.ok(readTest.results.ok, 'readTest passed')
 })
 
+t.test('snapshots and nocks can co-exist', async (t) => {
+  server.listen({ host: '127.0.0.1', port: 65200 })
+  t.teardown(() => server.close())
+
+  const runTests = async (snapshot) => {
+    const parentTest = new Test({ snapshot })
+    parentTest.ondone = () => parentTest.emitSubTeardown(parentTest)
+    await parentTest.test('test with snapshot', async (snapshotTest) => {
+      snapshotTest.nock.snapshot()
+
+      await snapshotTest.resolves(async () => {
+        const res = await fetch('http://127.0.0.1:65200')
+        t.equal(res.status, 200)
+        const body = await res.json()
+        t.same(body, { hello: 'world' })
+      }, 'first snapshot request')
+
+      await snapshotTest.test('grandchild with nock', async (grandchildTest) => {
+        grandchildTest.nock('http://127.0.0.1:65200')
+          .get('/')
+          .reply(200, { hello: 'grandchild' })
+
+        const res = await fetch('http://127.0.0.1:65200')
+        t.equal(res.status, 200)
+        const body = await res.json()
+        t.same(body, { hello: 'grandchild' })
+      })
+
+      await snapshotTest.resolves(async () => {
+        const res = await fetch('http://127.0.0.1:65200/snapshot')
+        t.equal(res.status, 200)
+        const body = await res.json()
+        t.same(body, { hello: 'snapshot' })
+      }, 'second snapshot request')
+
+      await snapshotTest.test('second grandchild with nock', async (grandchildTest) => {
+        grandchildTest.nock('http://127.0.0.1:65200')
+          .get('/')
+          .reply(200, { hello: 'grandchild2' })
+
+        const res = await fetch('http://127.0.0.1:65200')
+        t.equal(res.status, 200)
+        const body = await res.json()
+        t.same(body, { hello: 'grandchild2' })
+      })
+    })
+
+    await parentTest.test('test with nock', async (nockTest) => {
+      nockTest.nock('http://127.0.0.1:65200')
+        .get('/')
+        .reply(200, { hello: 'nock' })
+
+      const res = await fetch('http://127.0.0.1:65200')
+      t.equal(res.status, 200)
+      const body = await res.json()
+      t.same(body, { hello: 'nock' })
+    })
+
+    parentTest.end()
+
+    t.ok(parentTest.results.ok, 'parentTest passed')
+  }
+
+  await t.resolves(runTests(true), 'tests run with snapshot enabled')
+  server.close()
+  await t.resolves(runTests(false), 'tests run with snapshot disabled')
+})
+
 t.test('snapshots in interleaved tests are stored correctly', async (t) => {
   server.listen({ host: '127.0.0.1', port: 65200 })
   t.teardown(() => server.close())
