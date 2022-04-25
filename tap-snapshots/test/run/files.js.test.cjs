@@ -7,11 +7,11 @@
 'use strict'
 exports[`test/run/files.js TAP --files do not override explicit positional argument > must match snapshot 1`] = `
 TAP version 13
-ok 1 - cli-tests/two.js # {time} {
+# Subtest: cli-tests/two.js
     ok 1 - three
     1..1
     # {time}
-}
+ok 1 - cli-tests/two.js # {time}
 
 1..1
 # {time}
@@ -20,17 +20,17 @@ ok 1 - cli-tests/two.js # {time} {
 
 exports[`test/run/files.js TAP --files work like explicit positional argument > must match snapshot 1`] = `
 TAP version 13
-ok 1 - cli-tests/one.js # {time} {
+# Subtest: cli-tests/one.js
     ok 1 - one
     1..1
     # {time}
-}
+ok 1 - cli-tests/one.js # {time}
 
-ok 2 - cli-tests/two.js # {time} {
+# Subtest: cli-tests/two.js
     ok 1 - three
     1..1
     # {time}
-}
+ok 2 - cli-tests/two.js # {time}
 
 1..2
 # {time}

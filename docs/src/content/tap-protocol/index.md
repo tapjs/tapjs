@@ -36,7 +36,13 @@ TAP streams generally start with `TAP version 13`.  This isn't
 strictly required by `tap`, but since some other TAP implementations
 _do_ require it, `tap` always outputs `TAP version 13` as the line.
 
+This will change to `14` in a future version of `tap`.  (Or be made
+configurable.)
+
 There's no way to set the version in `tap`.
+
+`tap` will properly consume any TAP stream up to [version
+14](https://testanything.org/tap-version-14-specification.html).
 
 Since some TAP consumers get upset about an indented version
 declaration, the version in Subtest streams is always stripped out.
@@ -86,8 +92,7 @@ TAP format.  A test point consists of 4 things:
 3. An optional message, which may be prefixed by a `-` character.
 4. A directive, prefixed with a `#` character.  (See below)
 
-After a test point, there can be some YAML diagnostics, and
-potentially also a buffered subtest.
+After a test point, there can be some YAML diagnostics.
 
 ```tap
 1..2
@@ -193,55 +198,21 @@ the current set of tests.  It can be used to group test points
 together, consume the output of a TAP-producing child process, or run
 tests asynchronously.
 
-"Unbuffered" subtests start with a `# Subtest: <name>` comment,
-followed by the child TAP stream indented by 4 spaces, and finished
-with a test point that indicates the passing status of the stream as a
-whole.
-
-"Buffered" subtest start with a test point indicating the status of
-the group, and the indented child stream is wrapped in `{}` braces.
-It's called "buffered" because the entire child stream has to be
-parsed before the summary test point can be generated.
-
 The summary test point ensures that TAP consumers that ignore indented
 lines will at least report on the passing status based on the summary.
 
 ```tap
 1..2
-# Subtest: not buffered
+# Subtest: child test
     ok 1 - each line just printed as it comes
-    ok 2 - no time to wait!
+    ok 2 - this is fine
     1..2
-ok 1 - not buffered
+ok 1 - child test
 
-ok 2 - buffered {
-    1..3
-    ok 1 - this test is buffered
-    ok 2 - so all the test points had to be parsed
-    ok 3 - before success could be reported
-}
-```
-
-Directives on buffered subtests can go either before or after the `{`
-character.  When a buffered subtest has diagnostics, the `{` goes on
-the line by itself after the yaml block.
-
-```tap
-1..2
-ok 1 - usually would not even run this # TODO {
-    ok 1 - but here we are anyway
-    ok 2 - todo'ing away
-    1..2
-}
-ok 2 - a very diagnostic subtest # time=33ms
-  ---
-  this: is fine
-  i: am ok with the way things are proceeding
-  ...
-{
+# Subtest
     1..1
-    ok 1 - whatever
-}
+    ok 1 - if no named, then summary test point has no description
+ok 2
 ```
 
 The most common way to run subtests is via `t.test(...)`.  See
@@ -289,21 +260,6 @@ TAP version 13
         1..2999
         ok 1 - here we go
         Bail out! Nope.
-Bail out! Nope.
-```
-
-Bail outs in buffered tests should still print the closing `}` braces,
-but no other output.
-
-```tap
-TAP version 13
-not ok 1 - child {
-    not ok 2 - grandchild {
-        1..2999
-        ok 1 - here we go
-        Bail out! Nope.
-    }
-}
 Bail out! Nope.
 ```
 

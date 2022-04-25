@@ -15,16 +15,16 @@ ok 1 - this is fine
 
 exports[`test/run/output-file.js TAP output-file file and stdin together > output 1`] = `
 TAP version 13
-ok 1 - cli-tests/ok.js # {time} {
+# Subtest: cli-tests/ok.js
     ok 1 - this is fine
     1..1
     # {time}
-}
+ok 1 - cli-tests/ok.js # {time}
 
-ok 2 - /dev/stdin # {time} {
+# Subtest: /dev/stdin
     1..1
     ok 1 - totally fine result from stdin
-}
+ok 2 - /dev/stdin # {time}
 
 1..2
 # {time}
@@ -33,16 +33,16 @@ ok 2 - /dev/stdin # {time} {
 
 exports[`test/run/output-file.js TAP output-file file and stdin together > output 2`] = `
 TAP version 13
-ok 1 - cli-tests/ok.js # {time} {
+# Subtest: cli-tests/ok.js
     ok 1 - this is fine
     1..1
     # {time}
-}
+ok 1 - cli-tests/ok.js # {time}
 
-ok 2 - /dev/stdin # {time} {
+# Subtest: /dev/stdin
     1..1
     ok 1 - totally fine result from stdin
-}
+ok 2 - /dev/stdin # {time}
 
 1..2
 # {time}
@@ -51,16 +51,16 @@ ok 2 - /dev/stdin # {time} {
 
 exports[`test/run/output-file.js TAP output-file file and stdin together > output file 1`] = `
 TAP version 13
-ok 1 - cli-tests/ok.js # {time} {
+# Subtest: cli-tests/ok.js
     ok 1 - this is fine
     1..1
     # {time}
-}
+ok 1 - cli-tests/ok.js # {time}
 
-ok 2 - /dev/stdin # {time} {
+# Subtest: /dev/stdin
     1..1
     ok 1 - totally fine result from stdin
-}
+ok 2 - /dev/stdin # {time}
 
 1..2
 # {time}
@@ -84,11 +84,11 @@ ok 1 - totally fine result from stdin
 
 exports[`test/run/output-file.js TAP output-file ok.js > output 1`] = `
 TAP version 13
-ok 1 - cli-tests/ok.js # {time} {
+# Subtest: cli-tests/ok.js
     ok 1 - this is fine
     1..1
     # {time}
-}
+ok 1 - cli-tests/ok.js # {time}
 
 1..1
 # {time}
@@ -97,11 +97,11 @@ ok 1 - cli-tests/ok.js # {time} {
 
 exports[`test/run/output-file.js TAP output-file ok.js > output 2`] = `
 TAP version 13
-ok 1 - cli-tests/ok.js # {time} {
+# Subtest: cli-tests/ok.js
     ok 1 - this is fine
     1..1
     # {time}
-}
+ok 1 - cli-tests/ok.js # {time}
 
 1..1
 # {time}
@@ -110,11 +110,11 @@ ok 1 - cli-tests/ok.js # {time} {
 
 exports[`test/run/output-file.js TAP output-file ok.js > output file 1`] = `
 TAP version 13
-ok 1 - cli-tests/ok.js # {time} {
+# Subtest: cli-tests/ok.js
     ok 1 - this is fine
     1..1
     # {time}
-}
+ok 1 - cli-tests/ok.js # {time}
 
 1..1
 # {time}

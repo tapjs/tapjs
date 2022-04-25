@@ -7,14 +7,15 @@
 'use strict'
 exports[`test/run/cat.js TAP cat > must match snapshot 1`] = `
 TAP version 13
-ok 1 - cli-tests/ts/ok.tap # SKIP no tests found {
+# Subtest: cli-tests/ts/ok.tap
     
     # Subtest
         1..1
         ok 1 - this is fine
       
     1..0 # no tests found
-}
+    1..0 # no tests found
+ok 1 - cli-tests/ts/ok.tap # SKIP no tests found
 
 1..1
 # skip: 1

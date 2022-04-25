@@ -11,14 +11,14 @@ exports[`test/run/watermarks.js TAP default watermarks, all set at 100, red > st
 
 exports[`test/run/watermarks.js TAP default watermarks, all set at 100, red > stdout 1`] = `
 TAP version 13
-ok 1 - t.js # {time} {
+# Subtest: t.js
     truthy
     truthy
     gt 5
     ok 1 - this is fine
     1..1
     # {time}
-}
+ok 1 - t.js # {time}
 
 1..1
 # {time}
@@ -37,14 +37,14 @@ exports[`test/run/watermarks.js TAP less than halfway to 100, yellow > stderr 1`
 
 exports[`test/run/watermarks.js TAP less than halfway to 100, yellow > stdout 1`] = `
 TAP version 13
-ok 1 - t.js # {time} {
+# Subtest: t.js
     truthy
     truthy
     gt 5
     ok 1 - this is fine
     1..1
     # {time}
-}
+ok 1 - t.js # {time}
 
 1..1
 # {time}
@@ -63,14 +63,14 @@ exports[`test/run/watermarks.js TAP more than halfway to 100, green > stderr 1`]
 
 exports[`test/run/watermarks.js TAP more than halfway to 100, green > stdout 1`] = `
 TAP version 13
-ok 1 - t.js # {time} {
+# Subtest: t.js
     truthy
     truthy
     gt 5
     ok 1 - this is fine
     1..1
     # {time}
-}
+ok 1 - t.js # {time}
 
 1..1
 # {time}
@@ -93,14 +93,14 @@ ERROR: Coverage for statements (87.5%) does not meet global threshold (88%)
 
 exports[`test/run/watermarks.js TAP unmet, red > stdout 1`] = `
 TAP version 13
-ok 1 - t.js # {time} {
+# Subtest: t.js
     truthy
     truthy
     gt 5
     ok 1 - this is fine
     1..1
     # {time}
-}
+ok 1 - t.js # {time}
 
 1..1
 # {time}

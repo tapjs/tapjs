@@ -7,11 +7,11 @@
 'use strict'
 exports[`test/run/flow.js TAP flow > must match snapshot 1`] = `
 TAP version 13
-ok 1 - cli-tests/flow/ok.js # {time} {
+# Subtest: cli-tests/flow/ok.js
     ok 1 - this is fine
     1..1
     # {time}
-}
+ok 1 - cli-tests/flow/ok.js # {time}
 
 1..1
 # {time}
@@ -20,11 +20,11 @@ ok 1 - cli-tests/flow/ok.js # {time} {
 
 exports[`test/run/flow.js TAP flow manually > must match snapshot 1`] = `
 TAP version 13
-ok 1 - cli-tests/flow/ok2.js # {time} {
+# Subtest: cli-tests/flow/ok2.js
     ok 1 - this is fine
     1..1
     # {time}
-}
+ok 1 - cli-tests/flow/ok2.js # {time}
 
 1..1
 # {time}

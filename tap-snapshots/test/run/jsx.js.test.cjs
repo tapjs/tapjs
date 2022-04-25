@@ -7,11 +7,11 @@
 'use strict'
 exports[`test/run/jsx.js TAP jsx > must match snapshot 1`] = `
 TAP version 13
-ok 1 - cli-tests/jsx/ok.jsx # {time} {
+# Subtest: cli-tests/jsx/ok.jsx
     ok 1 - this is fine
     1..1
     # {time}
-}
+ok 1 - cli-tests/jsx/ok.jsx # {time}
 
 1..1
 # {time}

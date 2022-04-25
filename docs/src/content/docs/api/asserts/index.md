@@ -54,6 +54,8 @@ simply throw it.  The Test object will handle this as a failure.
 Verify that the event emitter emits the named event before the end of
 the test.
 
+Returns a promise that resolves when the event is emitted.
+
 ## t.rejects(promise | fn, [expectedError], message, extra)
 
 Verifies that the promise (or promise-returning function) rejects.  If

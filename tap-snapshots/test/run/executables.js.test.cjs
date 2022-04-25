@@ -7,10 +7,10 @@
 'use strict'
 exports[`test/run/executables.js TAP executables > must match snapshot 1`] = `
 TAP version 13
-ok 1 - exe/ok.sh # {time} {
+# Subtest: exe/ok.sh
     1..1
     ok 1 File with executable bit should be executed
-}
+ok 1 - exe/ok.sh # {time}
 
 1..1
 # {time}

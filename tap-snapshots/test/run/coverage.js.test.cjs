@@ -7,17 +7,17 @@
 'use strict'
 exports[`test/run/coverage.js TAP borked coverage map means no includes > output 1`] = `
 TAP version 13
-ok 1 - 1.test.js # {time} {
+# Subtest: 1.test.js
     ok 1 - should be equal
     1..1
     # {time}
-}
+ok 1 - 1.test.js # {time}
 
-ok 2 - 2.test.js # {time} {
+# Subtest: 2.test.js
     ok 1 - should be equal
     1..1
     # {time}
-}
+ok 2 - 2.test.js # {time}
 
 1..2
 # {time}
@@ -31,17 +31,17 @@ All files | 0 | 0 | 0 | 0 |
 
 exports[`test/run/coverage.js TAP generate some coverage > output 1`] = `
 TAP version 13
-ok 1 - 1.test.js # {time} {
+# Subtest: 1.test.js
     ok 1 - should be equal
     1..1
     # {time}
-}
+ok 1 - 1.test.js # {time}
 
-ok 2 - 2.test.js # {time} {
+# Subtest: 2.test.js
     ok 1 - should be equal
     1..1
     # {time}
-}
+ok 2 - 2.test.js # {time}
 
 1..2
 # {time}
@@ -99,17 +99,17 @@ end_of_record
 
 exports[`test/run/coverage.js TAP pipe to service along with tests > human output 1`] = `
 TAP version 13
-ok 1 - 1.test.js # {time} {
+# Subtest: 1.test.js
     ok 1 - should be equal
     1..1
     # {time}
-}
+ok 1 - 1.test.js # {time}
 
-ok 2 - 2.test.js # {time} {
+# Subtest: 2.test.js
     ok 1 - should be equal
     1..1
     # {time}
-}
+ok 2 - 2.test.js # {time}
 
 1..2
 # {time}
@@ -193,17 +193,17 @@ end_of_record
 
 exports[`test/run/coverage.js TAP use a coverage map > output 1`] = `
 TAP version 13
-ok 1 - 1.test.js # {time} {
+# Subtest: 1.test.js
     ok 1 - should be equal
     1..1
     # {time}
-}
+ok 1 - 1.test.js # {time}
 
-ok 2 - 2.test.js # {time} {
+# Subtest: 2.test.js
     ok 1 - should be equal
     1..1
     # {time}
-}
+ok 2 - 2.test.js # {time}
 
 1..2
 # {time}

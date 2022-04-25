@@ -7,17 +7,17 @@
 'use strict'
 exports[`test/run/ts.js TAP ts manually > must match snapshot 1`] = `
 TAP version 13
-ok 1 - cli-tests/mixed/ok.js # {time} {
+# Subtest: cli-tests/mixed/ok.js
     ok 1 - this is fine
     1..1
     # {time}
-}
+ok 1 - cli-tests/mixed/ok.js # {time}
 
-ok 2 - cli-tests/mixed/foo.ts # {time} {
+# Subtest: cli-tests/mixed/foo.ts
     ok 1 - this is fine
     1..1
     # {time}
-}
+ok 2 - cli-tests/mixed/foo.ts # {time}
 
 1..2
 # {time}
@@ -27,11 +27,11 @@ ok 2 - cli-tests/mixed/foo.ts # {time} {
 exports[`test/run/ts.js TAP via cli args ts --after --before ok > must match snapshot 1`] = `
 setup
 TAP version 13
-ok 1 - cli-tests/ts/ok.ts # {time} {
+# Subtest: cli-tests/ts/ok.ts
     ok 1 - this is ok
     1..1
     # {time}
-}
+ok 1 - cli-tests/ts/ok.ts # {time}
 
 1..1
 # {time}
@@ -56,11 +56,11 @@ Error: fail
 exports[`test/run/ts.js TAP via cli args ts --after fail > stdout 1`] = `
 setup
 TAP version 13
-ok 1 - cli-tests/ts/ok.ts # {time} {
+# Subtest: cli-tests/ts/ok.ts
     ok 1 - this is ok
     1..1
     # {time}
-}
+ok 1 - cli-tests/ts/ok.ts # {time}
 
 1..1
 # {time}
@@ -87,11 +87,11 @@ exports[`test/run/ts.js TAP via cli args ts --before fail > stdout 1`] = `
 
 exports[`test/run/ts.js TAP via cli args ts > must match snapshot 1`] = `
 TAP version 13
-ok 1 - cli-tests/ts/ok.ts # {time} {
+# Subtest: cli-tests/ts/ok.ts
     ok 1 - this is fine
     1..1
     # {time}
-}
+ok 1 - cli-tests/ts/ok.ts # {time}
 
 1..1
 # {time}
@@ -100,6 +100,8 @@ ok 1 - cli-tests/ts/ok.ts # {time} {
 
 exports[`test/run/ts.js TAP via cli args ts, but no tsx > must match snapshot 1`] = `
 TAP version 13
+# Subtest: cli-tests/tsx/ok.tsx
+    1..0 # no tests found
 not ok 1 - cli-tests/tsx/ok.tsx # {time}
   ---
   args:
@@ -118,9 +120,6 @@ not ok 1 - cli-tests/tsx/ok.tsx # {time}
     - 2
   timeout: {default}
   ...
-{
-    1..0 # no tests found
-}
 
 1..1
 # failed 1 test
@@ -130,11 +129,11 @@ not ok 1 - cli-tests/tsx/ok.tsx # {time}
 
 exports[`test/run/ts.js TAP via cli args tsx > must match snapshot 1`] = `
 TAP version 13
-ok 1 - cli-tests/tsx/ok.tsx # {time} {
+# Subtest: cli-tests/tsx/ok.tsx
     ok 1 - this is fine
     1..1
     # {time}
-}
+ok 1 - cli-tests/tsx/ok.tsx # {time}
 
 1..1
 # {time}
@@ -143,6 +142,8 @@ ok 1 - cli-tests/tsx/ok.tsx # {time} {
 
 exports[`test/run/ts.js TAP via env no ts > must match snapshot 1`] = `
 TAP version 13
+# Subtest: cli-tests/ts/ok.ts
+    1..0 # no tests found
 not ok 1 - cli-tests/ts/ok.ts # {time}
   ---
   args:
@@ -158,9 +159,6 @@ not ok 1 - cli-tests/ts/ok.ts # {time}
     - 2
   timeout: {default}
   ...
-{
-    1..0 # no tests found
-}
 
 1..1
 # failed 1 test
@@ -170,11 +168,11 @@ not ok 1 - cli-tests/ts/ok.ts # {time}
 
 exports[`test/run/ts.js TAP via env ts > must match snapshot 1`] = `
 TAP version 13
-ok 1 - cli-tests/ts/ok.ts # {time} {
+# Subtest: cli-tests/ts/ok.ts
     ok 1 - this is fine
     1..1
     # {time}
-}
+ok 1 - cli-tests/ts/ok.ts # {time}
 
 1..1
 # {time}
@@ -183,6 +181,8 @@ ok 1 - cli-tests/ts/ok.ts # {time} {
 
 exports[`test/run/ts.js TAP via env ts, but no tsx > must match snapshot 1`] = `
 TAP version 13
+# Subtest: cli-tests/tsx/ok.tsx
+    1..0 # no tests found
 not ok 1 - cli-tests/tsx/ok.tsx # {time}
   ---
   args:
@@ -201,9 +201,6 @@ not ok 1 - cli-tests/tsx/ok.tsx # {time}
     - 2
   timeout: {default}
   ...
-{
-    1..0 # no tests found
-}
 
 1..1
 # failed 1 test
@@ -213,11 +210,11 @@ not ok 1 - cli-tests/tsx/ok.tsx # {time}
 
 exports[`test/run/ts.js TAP via env tsx > must match snapshot 1`] = `
 TAP version 13
-ok 1 - cli-tests/tsx/ok.tsx # {time} {
+# Subtest: cli-tests/tsx/ok.tsx
     ok 1 - this is fine
     1..1
     # {time}
-}
+ok 1 - cli-tests/tsx/ok.tsx # {time}
 
 1..1
 # {time}

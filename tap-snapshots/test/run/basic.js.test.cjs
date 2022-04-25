@@ -24,11 +24,11 @@ tcompare: {version}
 
 exports[`test/run/basic.js TAP basic test run > ok.js output 1`] = `
 TAP version 13
-ok 1 - cli-tests/ok.js # {time} {
+# Subtest: cli-tests/ok.js
     ok 1 - this is fine
     1..1
     # {time}
-}
+ok 1 - cli-tests/ok.js # {time}
 
 1..1
 # {time}
@@ -37,11 +37,11 @@ ok 1 - cli-tests/ok.js # {time} {
 
 exports[`test/run/basic.js TAP ignored files > stdout 1`] = `
 TAP version 13
-ok 1 - test/ok.js # {time} {
+# Subtest: test/ok.js
     ok 1 - this is fine
     1..1
     # {time}
-}
+ok 1 - test/ok.js # {time}
 
 1..1
 # {time}
@@ -58,7 +58,7 @@ exports[`test/run/basic.js TAP nonexistent file > stderr 1`] = `
 
 exports[`test/run/basic.js TAP nonexistent file > stdout 1`] = `
 TAP version 13
-not ok 1 - does not exist # {time} {
+# Subtest: does not exist
     not ok 1 - ENOENT: no such file or directory, stat 'does not exist'
       ---
       at:
@@ -76,7 +76,7 @@ not ok 1 - does not exist # {time} {
     
     1..1
     # failed 1 test
-}
+not ok 1 - does not exist # {time}
 
 1..1
 # failed 1 test

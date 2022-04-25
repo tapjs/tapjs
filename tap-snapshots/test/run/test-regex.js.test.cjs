@@ -7,17 +7,17 @@
 'use strict'
 exports[`test/run/test-regex.js TAP no args, pull in default files, not exclusions > output 1`] = `
 TAP version 13
-ok 1 - file.spec.js # {time} {
+# Subtest: file.spec.js
     ok 1 - this is fine
     1..1
     # {time}
-}
+ok 1 - file.spec.js # {time}
 
-ok 2 - tests.cjs # {time} {
+# Subtest: tests.cjs
     ok 1 - this is also fine
     1..1
     # {time}
-}
+ok 2 - tests.cjs # {time}
 
 1..2
 # {time}

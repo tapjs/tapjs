@@ -7,17 +7,17 @@
 'use strict'
 exports[`test/run/parallel.js TAP > output 1`] = `
 TAP version 13
-ok 1 - p/y/1.js # {time} {
+# Subtest: p/y/1.js
     ok 1 - one
     1..1
     # {time}
-}
+ok 1 - p/y/1.js # {time}
 
-ok 2 - p/y/2.js # {time} {
+# Subtest: p/y/2.js
     ok 1 - 2
     1..1
     # {time}
-}
+ok 2 - p/y/2.js # {time}
 
 # Subtest: q/b/f1.js
     ok 1 - a/b
@@ -43,17 +43,17 @@ ok 5 - r/y/1.js # {time}
     # {time}
 ok 6 - r/y/2.js # {time}
 
-ok 7 - z/y/1.js # {time} {
+# Subtest: z/y/1.js
     ok 1 - one
     1..1
     # {time}
-}
+ok 7 - z/y/1.js # {time}
 
-ok 8 - z/y/2.js # {time} {
+# Subtest: z/y/2.js
     ok 1 - 2
     1..1
     # {time}
-}
+ok 8 - z/y/2.js # {time}
 
 1..8
 # {time}

@@ -12,13 +12,13 @@ exports[`test/run/before-after.js TAP basic > stderr 1`] = `
 exports[`test/run/before-after.js TAP basic > stdout 1`] = `
 slow
 TAP version 13
-ok 1 - cli-tests/t1.js # {time} {
+# Subtest: cli-tests/t1.js
     ok 1 - this is fine
     1..1
     # {time}
-}
+ok 1 - cli-tests/t1.js # {time}
 
-ok 2 - cli-tests/t2.js # {time} {
+# Subtest: cli-tests/t2.js
     # Subtest: sub
         ok 1 - this is fine
         1..1
@@ -26,24 +26,9 @@ ok 2 - cli-tests/t2.js # {time} {
     
     1..1
     # {time}
-}
+ok 2 - cli-tests/t2.js # {time}
 
-not ok 3 - cli-tests/t3.js # {time}
-  ---
-  args:
-    - cli-tests/t3.js
-  command: {NODE}
-  cwd: {CWD}
-  env: {}
-  exitCode: 1
-  file: cli-tests/t3.js
-  stdio:
-    - 0
-    - pipe
-    - 2
-  timeout: {default}
-  ...
-{
+# Subtest: cli-tests/t3.js
     # Subtest: sub
         not ok 1 - not fine
           ---
@@ -66,7 +51,21 @@ not ok 3 - cli-tests/t3.js # {time}
     1..1
     # failed 1 test
     # {time}
-}
+not ok 3 - cli-tests/t3.js # {time}
+  ---
+  args:
+    - cli-tests/t3.js
+  command: {NODE}
+  cwd: {CWD}
+  env: {}
+  exitCode: 1
+  file: cli-tests/t3.js
+  stdio:
+    - 0
+    - pipe
+    - 2
+  timeout: {default}
+  ...
 
 1..3
 # failed 1 of 3 tests
@@ -91,11 +90,11 @@ Error: fail
 
 exports[`test/run/before-after.js TAP failing after > stdout 1`] = `
 TAP version 13
-ok 1 - cli-tests/t1.js # {time} {
+# Subtest: cli-tests/t1.js
     ok 1 - this is fine
     1..1
     # {time}
-}
+ok 1 - cli-tests/t1.js # {time}
 
 1..1
 # {time}
@@ -126,13 +125,13 @@ exports[`test/run/before-after.js TAP run after even on bailout > stderr 1`] = `
 
 exports[`test/run/before-after.js TAP run after even on bailout > stdout 1`] = `
 TAP version 13
-ok 1 - cli-tests/t1.js # {time} {
+# Subtest: cli-tests/t1.js
     ok 1 - this is fine
     1..1
     # {time}
-}
+ok 1 - cli-tests/t1.js # {time}
 
-ok 2 - cli-tests/t2.js # {time} {
+# Subtest: cli-tests/t2.js
     # Subtest: sub
         ok 1 - this is fine
         1..1
@@ -140,24 +139,9 @@ ok 2 - cli-tests/t2.js # {time} {
     
     1..1
     # {time}
-}
+ok 2 - cli-tests/t2.js # {time}
 
-not ok 3 - cli-tests/t3.js # {time}
-  ---
-  args:
-    - cli-tests/t3.js
-  command: {NODE}
-  cwd: {CWD}
-  env: {}
-  exitCode: 1
-  file: cli-tests/t3.js
-  stdio:
-    - 0
-    - pipe
-    - 2
-  timeout: {default}
-  ...
-{
+# Subtest: cli-tests/t3.js
     # Subtest: sub
         not ok 1 - not fine
           ---
@@ -174,7 +158,6 @@ not ok 3 - cli-tests/t3.js # {time}
           ...
         
         Bail out! not fine
-}
 Bail out! not fine
 ok
 
