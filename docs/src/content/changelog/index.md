@@ -8,6 +8,13 @@ redirect_from:
 
 # Changelog
 
+## 16.1 - 2022-04-24
+
+* subtests: only output comment style
+* t.emits() returns promise, resolves when emitted
+* tap-parser@11.0.1 - conform with [TAP 14
+  Specification](https://testanything.org/tap-version-14-specification.html)
+
 ## 16.0 - 2022-03-05
 
 * Un-document synonyms (they're even more deprecated now)
