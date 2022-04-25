@@ -44,7 +44,7 @@ t.test('with bailout, should save all untested', t => {
 })
 
 t.test('without bailout, run untested, save failures', t => {
-  run(['a', 'x', 'z.js', '-s', savefile], opt, (er, o, e) => {
+  run(['a', 'x', 'a\\b\\f1.js', 'z.js', '-s', savefile], opt, (er, o, e) => {
     t.match(er, { code: 1 })
     t.matchSnapshot(o, 'stdout', { skip: winSkip || oldSkip })
     t.equal(clean(e), '')
@@ -53,7 +53,7 @@ t.test('without bailout, run untested, save failures', t => {
   })
 })
 
-t.test('make fails pass', t => {
+t.test('make first fail pass', t => {
   fs.writeFileSync(abf1, `
     require(${tap}).pass('fine now')
   `)
