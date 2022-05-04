@@ -526,6 +526,7 @@ const saveFails = (options, tap) => {
   const save = () => {
     fails = fails.reduce((set, f) => {
       f = f.replace(/\\/g, '/')
+      /* istanbul ignore else */
       if (set.indexOf(f) === -1)
         set.push(f)
       return set
