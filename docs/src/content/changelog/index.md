@@ -8,6 +8,11 @@ redirect_from:
 
 # Changelog
 
+## 16.2 - 2022-05-04
+
+* Do not limit the `--coverage-report` option to just the
+  built-in reporters.
+
 ## 16.1 - 2022-04-24
 
 * subtests: only output comment style
