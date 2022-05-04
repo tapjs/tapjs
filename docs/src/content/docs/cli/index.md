@@ -19,7 +19,7 @@ information.
 Usage:
   tap [options] [<files>]
 
-tap v16.1.0 - A Test-Anything-Protocol library for JavaScript
+tap v16.2.0 - A Test-Anything-Protocol library for JavaScript
 
 Executes all the files and interprets their output as TAP formatted test result
 data. If no files are specified, then tap will search for testy-looking files,
@@ -260,7 +260,7 @@ Code Coverage Options:
                          This can be run on its own at any time after a test run
                          that included coverage.
 
-                         Available NYC reporters: clover cobertura html json
+                         Built-in NYC reporters: clover cobertura html json
                          json-summary lcov lcovonly none teamcity text text-lcov
                          text-summary
 
