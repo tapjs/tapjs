@@ -10,7 +10,7 @@ if (typeof createRequire !== 'function') {
   process.exit(0)
 }
 
-const require = createRequire(import.meta.url);
+const require = createRequire(import.meta.url)
 
 const cjs = require('tap');
 
@@ -21,5 +21,13 @@ t.test('tap', async t => {
 
   for (const key of Object.keys(tap)) {
     t.equal(tap[key], key === 'default' ? cjs : cjs[key], key)
+  }
+})
+
+import * as mocha from 'tap/mocha'
+t.test('mocha export', async t => {
+  t.matchSnapshot(Object.keys(mocha).sort())
+  for (const key of Object.keys(mocha)) {
+    t.equal(mocha[key], key === 'default' ? cjs.mocha : cjs.mocha[key], key)
   }
 })

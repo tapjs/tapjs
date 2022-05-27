@@ -5,6 +5,22 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
+exports[`test/test.mjs TAP mocha export > must match snapshot 1`] = `
+Array [
+  "after",
+  "afterEach",
+  "before",
+  "beforeEach",
+  "context",
+  "default",
+  "deglobal",
+  "describe",
+  "global",
+  "it",
+  "specify",
+]
+`
+
 exports[`test/test.mjs TAP tap > must match snapshot 1`] = `
 Array [
   "Spawn",
