@@ -14,7 +14,8 @@
       "default": "./lib/tap.js"
     },
     "./*": "./*",
-    "./": "./"
+    "./": "./",
+    "./mocha": "./lib/mocha.js"
   },
   "engines": {
     "node": ">=12"
