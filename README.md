@@ -1,15 +1,28 @@
 # node-tap
 
-A TAP test framework for Node.js.
+A <abbr title="Test Anything Protocol">TAP</abbr> test framework for
+Node.js.
 
-This is a mix-and-match set of utilities that you can use to write test
-harnesses and frameworks that communicate with one another using the
-Test Anything Protocol.
+[![Build Status](https://travis-ci.org/tapjs/node-tap.svg?branch=master)](https://travis-ci.org/tapjs/node-tap/) [![Build Status](https://ci.appveyor.com/api/projects/status/913p1ypf21gf4leu?svg=true)](https://ci.appveyor.com/project/isaacs/node-tap) [![Coverage Status](https://coveralls.io/repos/tapjs/node-tap/badge.svg?branch=master&service=github)](https://coveralls.io/github/tapjs/node-tap?branch=master)
 
-It is also a test runner for consuming TAP-generating test scripts,
-and a framework for writing such scripts.
+It includes a command line test runner for consuming TAP-generating
+test scripts, and a JavaScript framework for writing such scripts.
 
-[![Coverage Status](https://coveralls.io/repos/isaacs/node-tap/badge.svg?branch=master)](https://coveralls.io/r/isaacs/node-tap?branch=master)
+Built-in support for code coverage (including instrumenting child
+processes).  Coverage is printed to the command line in a terse table
+by default, but tap can also open up your web browser to a pretty
+report if you add `--coverage-report=lcov` to the command.
+
+Works with all exception-throwing assertion libraries (chai, should,
+node's built-in `require('assert')`, or just throwing yourself) but
+also has a [huge library of built-in assertions](#asserts) that you
+can use if you want to have each one reported as successes.
+
+Outputs in a wide variety of formats using the
+[tap-mocha-reporter](http://npm.im/tap-mocha-reporter) module.  (That
+is, you can get spec output by doing `-Rspec`.  The default output is
+called 'classic', based on tap 0.x's output, but with color and timing
+info.)
 
 ## USAGE
 
@@ -69,7 +82,8 @@ tap.test('must mostly succeed or all is lost', function (t) {
 // tests there will be in advance. Handy when
 // order is irrelevant and things happen in parallel.
 
-tap.test('planned test', function (t) {
+// Note that the function name is used if no name is provided!
+tap.test(function planned (t) {
   t.plan(2)
   setTimeout(function () {
     t.ok(true, 'a timeout')
@@ -85,15 +99,16 @@ tap.test('planned test', function (t) {
 var test = require('tap').test
 
 // subtests can have subtests
-test('parent', function (t) {
-  t.test('child', function (tt) {
+test(function parent (t) {
+  t.test(function child (tt) {
     tt.throws(function () {
       throw new Error('fooblz')
     }, {
       message: 'fooblz'
     }, 'throw a fooblz')
 
-    tt.throws(function () { throw 1 }, 'throw whatever')
+    // throws also uses function name if no name provided
+    tt.throws(function throw_whatever () { throw 1 })
 
     tt.end()
   })
@@ -169,11 +184,20 @@ formatted test result data.
 
 To parse TAP data from stdin, specify "-" as a filename.
 
+Short options are parsed gnu-style, so for example '-bCRspec' would be
+equivalent to '--bail --no-color --reporter=spec'
+
+If the --check-coverage or --coverage-report options are provided, but
+no test files are specified, then a coverage report or coverage check
+will be run on the data from the last test run.
+
+Coverage is never enabled for stdin.
+
 Options:
 
-  -c --color                  Force use of colors
+  -c --color                  Use colors (Default for TTY)
 
-  -C --no-color               Force no use of colors
+  -C --no-color               Do not use colors (Default for non-TTY)
 
   -b --bail                   Bail out on first failure
 
@@ -188,6 +212,66 @@ Options:
                               jsoncov jsonstream landing list markdown
                               min nyan progress silent spec tap xunit
 
+  -s<file> --save=<file>      If <file> exists, then it should be a line-
+                              delimited list of test files to run.  If
+                              <file> is not present, then all command-line
+                              positional arguments are run.
+
+                              After the set of test files are run, any
+                              failed test files are written back to the
+                              save file.
+
+                              This way, repeated runs with -s<file> will
+                              re-run failures until all the failures are
+                              passing, and then once again run all tests.
+
+                              It's a good idea to .gitignore the file
+                              used for this purpose, as it will churn a
+                              lot.
+
+  --coverage --cov            Capture coverage information using 'nyc'
+
+                              If a COVERALLS_REPO_TOKEN environment
+                              variable is set, then coverage is
+                              captured by default and sent to the
+                              coveralls.io service. If a CODECOV_TOKEN
+                              environment variable is set, then coverage is
+                              captured by default and sent to the
+                              codecov.io service.
+
+  --no-coverage --no-cov      Do not capture coverage information.
+                              Note that if nyc is already loaded, then
+                              the coverage info will still be captured.
+
+  --coverage-report=<type>    Output coverage information using the
+                              specified istanbul/nyc reporter type.
+
+                              Default is 'text' when running on the
+                              command line, or 'text-lcov' when piping
+                              to coveralls or codecov.
+
+                              If 'lcov' is used, then the report will
+                              be opened in a web browser after running.
+
+                              This can be run on its own at any time
+                              after a test run that included coverage.
+
+  --no-coverage-report        Do not output a coverage report.
+
+  -t<n> --timeout=<n>         Time out test files after <n> seconds.
+                              Defaults to 30, or the value of the
+                              TAP_TIMEOUT environment variable.
+
+  -h --help                   print this thing you're looking at
+
+  -v --version                show the version of this program
+
+  --node-arg=<arg>            Pass an argument to Node binary in all
+                              child processes.  Run 'node --help' to
+                              see a list of all relevant arguments.
+                              This can be specified multiple times to
+                              pass multiple args to Node.
+
   -gc --expose-gc             Expose the gc() function to Node tests
 
   --debug                     Run JavaScript tests with node --debug
@@ -198,16 +282,47 @@ Options:
 
   --strict                    Run JS tests in 'use strict' mode
 
-  -t<n> --timeout=<n>         Time out tests after this many seconds.
-                              Defaults to 30, or the value of the
-                              TAP_TIMEOUT environment variable.
+  --nyc-arg=<arg>             Pass an argument to nyc when running
+                              child processes with coverage enabled.
+                              This can be specified multiple times to
+                              pass multiple args to nyc.
 
-  -h --help                   print this thing you're looking at
+  --check-coverage            Check whether coverage is within
+                              thresholds provided.  Setting this
+                              explicitly will default --coverage to
+                              true.
 
-  -v --version                show the version of this program
+                              This can be run on its own any time
+                              after a test run that included coverage.
+
+  --branches                  what % of branches must be covered?
+                              Setting this will default both
+                              --check-coverage and --coverage to true.
+                              [default: 0]
+
+  --functions                 what % of functions must be covered?
+                              Setting this explicitly will default both
+                              --check-coverage and --coverage to true.
+                              [default: 0]
+
+  --lines                     what % of lines must be covered?
+                              Setting this explicitly will default both
+                              --check-coverage and --coverage to true.
+                              [default: 90]
+
+  --statements                what % of statements must be covered?
+                              Setting this explicitly will default both
+                              --check-coverage and --coverage to true.
+                              [default: 0]
+
+  --nyc-help                  Print nyc usage banner.  Useful for
+                              viewing options for --nyc-arg.
+
+  --nyc-version               Print version of nyc used by tap.
 
   --                          Stop parsing flags, and treat any additional
                               command line arguments as filenames.
+
 ```
 
 ## Coverage
@@ -228,7 +343,7 @@ attempt to open a web browser to view the report after the test run.
 If you use this a lot, you may want to add `coverage` and
 `.nyc_output` to your `.gitignore` and/or `.npmignore` files.
 
-### Travis-CI and Coveralls.io Integration
+### Travis-CI and Coveralls.io/CodeCov.io Integration
 
 You can very easily take advantage of continuous test coverage reports
 by using [Travis-CI](https://travis-ci.org) and
@@ -238,14 +353,15 @@ by using [Travis-CI](https://travis-ci.org) and
    adding a `.travis.yml` file to your repo.  You can use [this
    module's .travis.yml file as an
    example](https://github.com/isaacs/node-tap/blob/master/.travis.yml)
-2. Enable Coveralls.io by signing up, and adding the repo.  Note the
-   repo API token.
+2. Enable Coveralls.io or CodeCov.io by signing up, and adding the
+   repo.  Note the repo API token.
 3. Back at Travis-CI, add a private environment variable.  The name of
-   the environment variable is `COVERALLS_REPO_TOKEN` and the value is
-   the token you got from coveralls.
+   the environment variable is `COVERALLS_REPO_TOKEN` for Coveralls,
+   or `CODECOV_TOKEN` for CodeCov.io, and the value is the token you
+   got from Coveralls or CodeCov.
 4. When that token is set in the environment variable, `tap` will
-   automatically generate coverage information and send it to
-   coveralls.
+   automatically generate coverage information and send it to the
+   appropriate place.
 
 ## API
 
@@ -254,7 +370,7 @@ by using [Travis-CI](https://travis-ci.org) and
 The root `tap` object is an instance of the Test class with a few
 slight modifications.
 
-1. The `teardown()`, `plan()`, and `test()` methods are pre-bound onto
+1. The `tearDown()`, `plan()`, and `test()` methods are pre-bound onto
    the root object, so that you don't have to call them as methods.
 2. By default, it pipes to stdout, so running a test directly just
    dumps the TAP data for inspection.  (You can of course
@@ -263,9 +379,9 @@ slight modifications.
    the main package export.
 4. The test ends automatically when `process.on('exit')` fires, so
    there is no need to call `tap.end()` explicitly.
-5. Adding a `teardown` function triggers `autoend` behavior.
+5. Adding a `tearDown` function triggers `autoend` behavior.
    Otherwise, the `end` would potentially never arrive, if for example
-   `teardown` is used to close a server or cancel some long-running
+   `tearDown` is used to close a server or cancel some long-running
    process, because `process.on('exit')` would never fire of its own
    accord.
 
@@ -296,12 +412,16 @@ their data to their parent, and the root `require('tap')` object pipes
 to stdout by default.  However, you can instantiate a `Test` object
 and then pipe it wherever you like.  The only limit is your imagination.
 
-#### t.test(name, [options], [function])
+#### t.test([name], [options], [function])
 
 Create a subtest.
 
 If the function is omitted, then it will be marked as a "todo" or
 "pending" test.
+
+If the function has a name, and no name is provided, then the function
+name will be used as the test name.  If no test name is provided, then
+the name will be `(unnamed test)`.
 
 The function gets a Test object as its only argument.  From there, you
 can call the `t.end()` method on that object to end the test, or use
@@ -311,6 +431,9 @@ test will have.
 If the function returns a `Promise` object (that is, an object with a
 `then` method), then when the promise is rejected or fulfilled, the
 test will be either ended or failed.
+
+If the function is not provided, then this will be treated as a `todo`
+test.
 
 The options object is the same as would be passed to any assert, with
 two additional fields that are only relevant for child tests:
@@ -327,6 +450,20 @@ is met.
 
 Note that when called on the root `tap` export, this also triggers
 `autoend` behavior.
+
+#### t.beforeEach(function (done) {})
+
+Call the supplied function before every subsequent descendent test.
+
+The `done` callback is a function to call when finished.  You can also
+return a Promise rather than using the `done` callback.
+
+#### t.afterEach(function (done) {})
+
+Call the supplied function after every subsequent descendent test.
+
+The `done` callback is a function to call when finished.  You can also
+return a Promise rather than using the `done` callback.
 
 #### t.autoend()
 
@@ -350,7 +487,10 @@ This may only be called *before* running any asserts or child tests.
 #### t.end()
 
 Call when tests are done running.  This is not necessary if `t.plan()`
-was used.
+was used, or if the test function returns a Promise.
+
+If you call `t.end()` explicitly more than once, an error will be
+raised.
 
 #### t.bailout([reason])
 
@@ -446,6 +586,12 @@ Expect the function to throw an error.  If an expected error is
 provided, then also verify that the thrown error matches the expected
 error.
 
+If the function has a name, and the message is not provided, then the
+function name will be used as the message.
+
+If the function is not provided, then this will be treated as a `todo`
+test.
+
 Caveat: if you pass a `extra` object to t.throws, then you MUST also
 pass in an expected error, or else it will read the diag object as the
 expected error, and get upset when your thrown error doesn't match
@@ -476,6 +622,12 @@ Synonyms: `t.throw`
 #### t.doesNotThrow(fn, message, extra)
 
 Verify that the provided function does not throw.
+
+If the function has a name, and the message is not provided, then the
+function name will be used as the message.
+
+If the function is not provided, then this will be treated as a `todo`
+test.
 
 Note: if an error is encountered unexpectedly, it's often better to
 simply throw it.  The Test object will handle this as a failure.

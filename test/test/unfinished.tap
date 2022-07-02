@@ -20,7 +20,7 @@ TAP version 13
     # failed 2 of 2 tests
 not ok 1 - t1 ___/# time=[0-9.]+(ms)?/~~~
   ---
-  {"at":{"column":5,"file":"test/test/unfinished.js","line":3},"results":{"count":2,"fail":2,"ok":false,"pass":0,"plan":{"end":2,"start":1}},"source":"tap.test('t1', function(t) {\n"}
+  {"at":{"column":5,"file":"test/test/unfinished.js","line":3},"results":{"count":2,"fail":2,"ok":false,"pass":0,"plan":{"end":2,"start":1}},"source":"tap.test('t1', function (t) {\n"}
   ...
 
 not ok 2 - test point left in queue: ok - 1 === 1
@@ -37,23 +37,23 @@ not ok 4 - test point left in queue: not ok - failsome
   ...
 not ok 5 - spawn left in queue: spawny
   ---
-  {"args":["___/.*/~~~unfinished.js"],"at":{"column":5,"file":"test/test/unfinished.js","line":25},"command":"___/.*(node|iojs)/~~~","options":{},"rar":"grr","source":"tap.spawn('___/.*(node|iojs)/~~~', [__filename], {}, 'spawny', { rar: 'grr' })\n"}
+  {"args":["___/.*/~~~unfinished.js"],"at":{"column":5,"file":"test/test/unfinished.js","line":25},"command":"___/.*(node|iojs)(.exe)?/~~~","options":{},"rar":"grr","source":"tap.spawn('___/.*(node|iojs)(.exe)?/~~~', [__filename], {}, 'spawny', { rar: 'grr' })\n"}
   ...
-not ok 6 - spawn left in queue: ___/.*(node|iojs)/~~~ --version
+not ok 6 - spawn left in queue: ___/.*(node|iojs)(.exe)?/~~~ --version
   ---
-  {"args":["--version"],"at":{"column":5,"file":"test/test/unfinished.js","line":26},"command":"___/.*(node|iojs)/~~~","options":{},"rar":"grr","source":"tap.spawn('___/.*(node|iojs)/~~~', ['--version'], {}, '', { rar: 'grr' })\n"}
+  {"args":["--version"],"at":{"column":5,"file":"test/test/unfinished.js","line":26},"command":"___/.*(node|iojs)(.exe)?/~~~","options":{},"rar":"grr","source":"tap.spawn('___/.*(node|iojs)(.exe)?/~~~', ['--version'], {}, '', { rar: 'grr' })\n"}
   ...
 not ok 7 - child test left in queue: (unnamed)
   ---
-  {"at":{"column":5,"file":"test/test/unfinished.js","line":28},"source":"tap.test(function(t) {\n"}
+  {"at":{"column":5,"file":"test/test/unfinished.js","line":28},"source":"tap.test(function (t) {\n"}
   ...
 not ok 8 - child test left in queue: (unnamed)
   ---
-  {"at":{"column":5,"file":"test/test/unfinished.js","line":32},"source":"tap.test('', function(t) {\n"}
+  {"at":{"column":5,"file":"test/test/unfinished.js","line":32},"source":"tap.test('', function (t) {\n"}
   ...
 not ok 9 - child test left in queue: t2
   ---
-  {"at":{"column":5,"file":"test/test/unfinished.js","line":36},"source":"tap.test('t2', function(t) {\n"}
+  {"at":{"column":5,"file":"test/test/unfinished.js","line":36},"source":"tap.test('t2', function (t) {\n"}
   ...
 1..9
 # failed 9 of 9 tests

@@ -37,11 +37,11 @@ t.test('plans of 8', function (t) {
     tt.pass('before the bomb')
 
     throw new Error('pwnSync')
-    tt.pass('after the bomb')
-    tt.end()
+    tt.pass('after the bomb') // eslint-disable-line
+    tt.end() // eslint-disable-line
   })
 
-  //return t.end()
+  // return t.end()
 
   t.test('async thrower', function (tt) {
     tt.plan(8)
@@ -49,8 +49,8 @@ t.test('plans of 8', function (t) {
     setTimeout(function () {
       tt.pass('before the bomb')
       throw new Error('pwn')
-      tt.pass('after the bomb')
-      tt.end()
+      tt.pass('after the bomb') // eslint-disable-line
+      tt.end() // eslint-disable-line
     })
     tt.pass('after set the bomb')
   })

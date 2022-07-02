@@ -16,6 +16,9 @@ t.test('a set of tests to be done later', function (t) {
   t.end()
 })
 
+// literally nothing
+t.test()
+
 t.test('another set of tests', function (t) {
   t.test('is a second set')
   t.test('looks like english')

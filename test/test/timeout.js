@@ -9,8 +9,9 @@ t.test('parent of timeout test', function (t) {
           tt.pass('ok done')
           tt.end()
         }, 1000)
-        if (timer.unref)
+        if (timer.unref) {
           timer.unref()
+        }
       })
       tt.pass('p')
       tt.pass('a')

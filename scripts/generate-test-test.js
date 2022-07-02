@@ -3,7 +3,6 @@
 var spawn = require('child_process').spawn
 var path = require('path')
 var node = process.execPath
-var stackre = new RegExp('^\\s*.*(\([^:]:[0-9]+:[0-9]+\)|[^:]:[0-9]+:[0-9]+)$')
 var fs = require('fs')
 var yaml = require('js-yaml')
 
@@ -15,7 +14,7 @@ for (var i = 2; i < process.argv.length; i++) {
   generate(process.argv[i], true)
 }
 
-function generate(file, bail) {
+function generate (file, bail) {
   if (running) {
     queue.push([file, bail])
     return
@@ -24,8 +23,9 @@ function generate(file, bail) {
 
   file = path.resolve(file)
   var f = file
-  if (f.indexOf(process.cwd()) === 0)
+  if (f.indexOf(process.cwd()) === 0) {
     f = './' + file.substr(process.cwd().length + 1)
+  }
 
   var outfile = file.replace(/\.js$/, (bail ? '-bail' : '') + '.tap')
   console.error(outfile)
@@ -53,8 +53,8 @@ function generate(file, bail) {
     output = output.split(node).join('\0N2\0')
     output = output.split(path.basename(node)).join('\0N2\0')
 
-    output = output.split('\0N1\0').join('___/.*(node|iojs)')
-    output = output.split('\0N2\0').join('___/.*(node|iojs)/~~~')
+    output = output.split('\0N1\0').join('___/.*(node|iojs)(\.exe)?')
+    output = output.split('\0N2\0').join('___/.*(node|iojs)(\.exe)?/~~~')
 
     output = yamlishToJson(output)
 
@@ -70,14 +70,15 @@ function generate(file, bail) {
 
 function deStackify (data) {
   return Object.keys(data).sort().reduce(function (res, k) {
-    if (k === 'stack' && typeof data[k] === 'string')
+    if (k === 'stack' && typeof data[k] === 'string') {
       return res
-    else if (k === 'time' && typeof data[k] === 'number')
+    } else if (k === 'time' && typeof data[k] === 'number') {
       return res
-    else if (typeof data[k] === 'object' && data[k])
+    } else if (typeof data[k] === 'object' && data[k]) {
       res[k] = deStackify(data[k])
-    else
+    } else {
       res[k] = data[k]
+    }
     return res
   }, Array.isArray(data) ? [] : {})
 }

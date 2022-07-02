@@ -1,56 +1,57 @@
 var tap = require('../')
+if (process.platform === 'win32') {
+  tap.plan(0, 'skip on windows')
+  process.exit()
+}
 var test = tap.test
-var bin = require.resolve('../bin/run.js')
 var Test = tap.Test
 var fs = require('fs')
-var path = require('path')
 var spawn = require('child_process').spawn
 
 var segv =
-    'int main (void) {\n' +
-    '   char *s = "hello world";\n' +
-    '   *s = \'H\';\n' +
-    '}\n'
+'int main (void) {\n' +
+  '   char *s = "hello world";\n' +
+  "   *s = 'H';\n" +
+  '}\n'
 
 // omit some stuff from the ends of lines that will differ
 // we slice the actual output later to just compare the fronts
 // also sort the lines, because Node v0.8 sets keys on objects
 // in different order.
 var expect =
-   ('TAP version 13\n'+
-    '    # Subtest: ./segv\n'+
-    '    1..0\n'+
-    'not ok 1 - ./segv  # time=\n'+
-    '  ---\n'+
-    '  at:\n'+
-    '    file: test/segv.js\n'+
-    '    line: \n'+
-    '    column: \n'+
-    '  results:\n'+
-    '    ok: false\n'+
-    '    count: 0\n'+
-    '    pass: 0\n'+
-    '    plan:\n'+
-    '      start: 1\n'+
-    '      end: 0\n'+
-    '      skipAll: true\n'+
-    '  signal: SIG\n'+
-    '  command: ./segv\n'+
-    '  arguments: []\n'+
-    '  source: |\n'+
-    '    tt.spawn(\'./segv\')\n'+
-    '  ...\n'+
-    '\n'+
-    '1..1\n' +
-    '# failed 1 of 1 tests\n' +
-    '# time=\n').trim().split('\n')
-
-var compiled = false
+('TAP version 13\n' +
+'    # Subtest: ./segv\n' +
+'    1..0\n' +
+'not ok 1 - ./segv  # time=\n' +
+'  ---\n' +
+'  at:\n' +
+'    file: test/segv.js\n' +
+'    line: \n' +
+'    column: \n' +
+'  results:\n' +
+'    ok: false\n' +
+'    count: 0\n' +
+'    pass: 0\n' +
+'    plan:\n' +
+'      start: 1\n' +
+'      end: 0\n' +
+'      skipAll: true\n' +
+'  signal: SIG\n' +
+'  command: ./segv\n' +
+'  arguments: []\n' +
+'  source: |\n' +
+"    tt.spawn('./segv')\n" +
+'  ...\n' +
+'\n' +
+'1..1\n' +
+'# failed 1 of 1 tests\n' +
+'# time=\n').trim().split('\n')
 
 test('setup', function (t) {
   fs.writeFile('segv.c', segv, 'utf8', function (er) {
-    if (er)
+    if (er) {
       throw er
+    }
     var cp = spawn('gcc', ['segv.c', '-o', 'segv'])
     cp.on('exit', function (code, sig) {
       if (code !== 0) {
@@ -76,8 +77,9 @@ test('segv', function (t) {
     expect = expect.sort()
     var ok = true
     expect.forEach(function (line, i) {
-      if (ok)
+      if (ok) {
         ok = t.equal(res[i].substr(0, line.length), line)
+      }
     })
     t.end()
   })

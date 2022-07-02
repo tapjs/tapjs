@@ -45,7 +45,7 @@ ok 4 - reasonably indented things ___/# time=[0-9.]+(ms)?/~~~
         # Subtest: first subset
         not ok 1 - has no asserts, only throws
           ---
-          {"actual":false,"at":{"column":7,"file":"test/test/mochalike.js","line":53},"expected":true,"generatedMessage":false,"message":"AssertionError: false is not true on line 50","name":"AssertionError","operator":"==","source":"ok(false, 'false is not true on line 50')\n"}
+          {"actual":false,"at":{"column":7,"file":"test/test/mochalike.js","line":55},"expected":true,"generatedMessage":false,"message":"AssertionError: false is not true on line 50","name":"AssertionError","operator":"==","source":"ok(false, 'false is not true on line 50')\n"}
           ...
         Bail out! # has no asserts, only throws
 Bail out! # has no asserts, only throws

@@ -1,0 +1,12 @@
+TAP version 13
+    # Subtest: fine
+    ok 1 - fine
+    1..1
+ok 1 - fine ___/# time=[0-9.]+(ms)?/~~~
+
+not ok 2 - Error: this one
+  ---
+  {"at":{"column":11,"file":"test/test/throw-twice.js","function":"null._onTimeout","line":7},"message":"Error: this one","source":"throw new Error('this one')\n","test":"TAP"}
+  ...
+Bail out! # Error: this one
+

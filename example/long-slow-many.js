@@ -13,8 +13,9 @@ t.test('gun show', function (t) {
       t.pass('this is ok')
       t.pass('i am ok with how things are proceeding')
     }
-    if (++n === 50)
+    if (++n === 50) {
       return clearInterval(i)
+    }
   }, 100)
 })
 
@@ -29,7 +30,8 @@ t.test('wondermark', function (t) {
       t.pass('excuse me')
       t.pass('pardon me')
     }
-    if (++n === 250)
+    if (++n === 250) {
       return clearInterval(j)
+    }
   }, 10)
 })

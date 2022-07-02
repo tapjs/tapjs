@@ -45,7 +45,7 @@ ok 4 - reasonably indented things ___/# time=[0-9.]+(ms)?/~~~
         # Subtest: first subset
         not ok 1 - has no asserts, only throws
           ---
-          {"actual":false,"at":{"column":7,"file":"test/test/mochalike.js","line":53},"expected":true,"generatedMessage":false,"message":"AssertionError: false is not true on line 50","name":"AssertionError","operator":"==","source":"ok(false, 'false is not true on line 50')\n"}
+          {"actual":false,"at":{"column":7,"file":"test/test/mochalike.js","line":55},"expected":true,"generatedMessage":false,"message":"AssertionError: false is not true on line 50","name":"AssertionError","operator":"==","source":"ok(false, 'false is not true on line 50')\n"}
           ...
         ok 2 - does not throw # TODO
         1..2
@@ -53,46 +53,46 @@ ok 4 - reasonably indented things ___/# time=[0-9.]+(ms)?/~~~
         # todo: 2
     not ok 1 - first subset ___/# time=[0-9.]+(ms)?/~~~
       ---
-      {"at":{"column":3,"file":"test/test/mochalike.js","line":50},"results":{"count":2,"fail":1,"ok":false,"pass":1,"plan":{"end":2,"start":1},"todo":2},"source":"describe('first subset', function () {\n"}
+      {"at":{"column":3,"file":"test/test/mochalike.js","line":52},"results":{"count":2,"fail":1,"ok":false,"pass":1,"plan":{"end":2,"start":1},"todo":2},"source":"describe('first subset', function () {\n"}
       ...
 
         # Subtest: second subset
         not ok 1 - AssertionError: objectify the truthiness
           ---
-          {"actual":false,"at":{"column":5,"file":"test/test/mochalike.js","line":59},"expected":true,"generatedMessage":false,"message":"AssertionError: objectify the truthiness","name":"AssertionError","operator":"==","source":"ok(!{}, 'objectify the truthiness')\n","test":"second subset"}
+          {"actual":false,"at":{"column":5,"file":"test/test/mochalike.js","line":61},"expected":true,"generatedMessage":false,"message":"AssertionError: objectify the truthiness","name":"AssertionError","operator":"==","source":"ok(!{}, 'objectify the truthiness')\n","test":"second subset"}
           ...
         1..1
         # failed 1 of 1 tests
     not ok 2 - second subset ___/# time=[0-9.]+(ms)?/~~~
       ---
-      {"at":{"column":3,"file":"test/test/mochalike.js","line":57},"results":{"count":1,"fail":1,"ok":false,"pass":0,"plan":{"end":1,"start":1}},"source":"describe('second subset', function () {\n"}
+      {"at":{"column":3,"file":"test/test/mochalike.js","line":59},"results":{"count":1,"fail":1,"ok":false,"pass":0,"plan":{"end":1,"start":1}},"source":"describe('second subset', function () {\n"}
       ...
 
     1..2
     # failed 2 of 2 tests
 not ok 5 - failing indented things ___/# time=[0-9.]+(ms)?/~~~
   ---
-  {"at":{"column":1,"file":"test/test/mochalike.js","line":49},"results":{"count":2,"fail":2,"ok":false,"pass":0,"plan":{"end":2,"start":1}},"source":"describe('failing indented things', function () {\n"}
+  {"at":{"column":1,"file":"test/test/mochalike.js","line":51},"results":{"count":2,"fail":2,"ok":false,"pass":0,"plan":{"end":2,"start":1}},"source":"describe('failing indented things', function () {\n"}
   ...
 
     # Subtest: a test passing an error to done() callback
         # Subtest: is marked as failed
         not ok 1 - Error: error arg
           ---
-          {"at":{"column":12,"file":"test/test/mochalike.js","line":66},"message":"Error: error arg","source":"done(new Error('error arg'))\n","test":"is marked as failed"}
+          {"at":{"column":12,"file":"test/test/mochalike.js","line":68},"message":"Error: error arg","source":"done(new Error('error arg'))\n","test":"is marked as failed"}
           ...
         1..1
         # failed 1 of 1 tests
     not ok 1 - is marked as failed ___/# time=[0-9.]+(ms)?/~~~
       ---
-      {"at":{"column":3,"file":"test/test/mochalike.js","line":64},"results":{"count":1,"fail":1,"ok":false,"pass":0,"plan":{"end":1,"start":1}},"source":"it('is marked as failed', function(done) {\n"}
+      {"at":{"column":3,"file":"test/test/mochalike.js","line":66},"results":{"count":1,"fail":1,"ok":false,"pass":0,"plan":{"end":1,"start":1}},"source":"it('is marked as failed', function (done) {\n"}
       ...
 
     1..1
     # failed 1 of 1 tests
 not ok 6 - a test passing an error to done() callback ___/# time=[0-9.]+(ms)?/~~~
   ---
-  {"at":{"column":1,"file":"test/test/mochalike.js","line":63},"results":{"count":1,"fail":1,"ok":false,"pass":0,"plan":{"end":1,"start":1}},"source":"describe('a test passing an error to done() callback', function() {\n"}
+  {"at":{"column":1,"file":"test/test/mochalike.js","line":65},"results":{"count":1,"fail":1,"ok":false,"pass":0,"plan":{"end":1,"start":1}},"source":"describe('a test passing an error to done() callback', function () {\n"}
   ...
 
 1..6
