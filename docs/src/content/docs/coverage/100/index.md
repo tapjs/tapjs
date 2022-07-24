@@ -49,6 +49,7 @@ to add it to the docs.
 * [json5](https://www.npmjs.com/package/json5)
 * [jsonpath-faster](https://www.npmjs.com/package/jsonpath-faster)
 * [lazy-iterable](https://www.npmjs.com/package/lazy-iterable)
+* [log4js](https://www.npmjs.com/package/log4js)
 * [lru-cache](https://www.npmjs.com/package/lru-cache)
 * [lucass](https://www.npmjs.com/package/lucass)
 * [minipass](https://www.npmjs.com/package/minipass)
