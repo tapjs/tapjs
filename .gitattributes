@@ -9,3 +9,6 @@
 *.jpg binary
 *.ico binary
 *.gif binary
+*.woff2 binary
+*.woff binary
+*.ttf binary

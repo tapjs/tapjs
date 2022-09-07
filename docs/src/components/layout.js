@@ -4,23 +4,33 @@ import Navbar from './navbar';
 import Sidebar from './sidebar';
 import {Flex} from 'rebass';
 
-const WidthWrapper = styled.div`
-  max-width: 750px;
+const WidthWrapperNoSidebar = styled.div`
+  max-width: 1024px;
   margin: 0 auto;
-  width: 100%;
+  width: 90%;
   padding: 20px;
   box-sizing: border-box;
 `;
 
+const WidthWrapperSidebar = styled.div`
+  max-width: 1024px;
+  margin: 0 1em;
+  width: 90%;
+  padding: 20px;
+  box-sizing: border-box;
+`;
+
+
 const Layout = ({showSidebar, children}) => {
-  return(
+  const WW = showSidebar ? WidthWrapperSidebar : WidthWrapperNoSidebar;
+  return (
     <>
       <Navbar/>
       <Flex>
         {showSidebar && <Sidebar/>}
-        <WidthWrapper>
+        <WW>
           {children}
-        </WidthWrapper>
+        </WW>
       </Flex>
     </>
   );

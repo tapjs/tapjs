@@ -1,3 +1,6 @@
+@import url("/iosevka/iosevka-ss09.css");
+@import url("/opensans/style.css");
+
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
@@ -459,5 +462,5 @@ a:hover, a:active, a:focus {
 pre[class*="language-"] code,
 code[class*="language-"],
 pre[class*="language-"] {
-	font-family: Iosevka SS09, Iosevka, Fira Code, Monoid, Jetbrains Mono, DejaVu Sans Code, Cascadia Code, Victor Mono, Lilex, monospace;
+	font-family: Iosevka SS09 Web, Fira Code, Monoid, Jetbrains Mono, DejaVu Sans Code, Cascadia Code, Victor Mono, Lilex, monospace;
 }
