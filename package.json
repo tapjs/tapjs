@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/npm/tap-nock#readme",
   "devDependencies": {
-    "@npmcli/eslint-config": "^3.0.1",
+    "@npmcli/eslint-config": "^4.0.0",
     "@npmcli/template-oss": "4.5.1",
     "minipass-fetch": "^2.1.0",
     "rimraf": "^3.0.2",
