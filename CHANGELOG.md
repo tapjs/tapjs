@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.0.0](https://github.com/npm/tap-nock/compare/v1.0.0...v2.0.0) (2022-10-14)
+
+### ⚠️ BREAKING CHANGES
+
+* `@npmcli/tap-nock` is now compatible with the following semver range for node: `^14.17.0 || ^16.13.0 || >=18.0.0`
+
+### Features
+
+* [`47acde6`](https://github.com/npm/tap-nock/commit/47acde630164a8e5e5fbde8b94187d2f69e5130e) [#14](https://github.com/npm/tap-nock/pull/14) postinstall for dependabot template-oss PR (@lukekarrys)
+
 ## 1.0.0 (2022-05-03)
 
 
