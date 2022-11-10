@@ -24,7 +24,7 @@
   "homepage": "https://github.com/npm/tap-nock#readme",
   "devDependencies": {
     "@npmcli/eslint-config": "^4.0.0",
-    "@npmcli/template-oss": "4.8.0",
+    "@npmcli/template-oss": "4.10.0",
     "minipass-fetch": "^3.0.0",
     "rimraf": "^3.0.2",
     "tap": "^16.0.1"
