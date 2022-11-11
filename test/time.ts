@@ -1,5 +1,8 @@
-const t = require('tap')
-const Parser = require('../')
+import t from 'tap'
+import { FinalResults } from '../src/final-results'
+import Parser from '../src/index'
+
+type Time = number | null
 
 const buffered = `
 TAP version 13
@@ -19,11 +22,13 @@ ok 2 - assert before delay # time=420.69ms {
 t.test('buffered with time directives', t => {
   const p = new Parser()
   t.equal(p.time, null)
-  const times = []
-  p.on('child', c => c.on('complete', r => {
-    t.equal(c.time, r.time, 'child time found in final result')
-    times.push(r.time)
-  }))
+  const times: Time[] = []
+  p.on('child', c =>
+    c.on('complete', (r: FinalResults) => {
+      t.equal(c.time, r.time, 'child time found in final result')
+      times.push(r.time)
+    })
+  )
 
   p.on('complete', r => {
     t.equal(p.time, r.time, 'parent time in final result')
@@ -31,7 +36,7 @@ t.test('buffered with time directives', t => {
   })
 
   p.end(buffered)
-  t.same(times, [1234.567, 420.69, 69.420])
+  t.same(times, [1234.567, 420.69, 69.42])
   t.end()
 })
 
@@ -54,11 +59,13 @@ ok 2 - assert before delay # time=420.69ms
 t.test('streamed with time directives', t => {
   const p = new Parser()
   t.equal(p.time, null)
-  const times = []
-  p.on('child', c => c.on('complete', r => {
-    t.equal(c.time, r.time, 'child time found in final result')
-    times.push(r.time)
-  }))
+  const times: Time[] = []
+  p.on('child', c =>
+    c.on('complete', (r: FinalResults) => {
+      t.equal(c.time, r.time, 'child time found in final result')
+      times.push(r.time)
+    })
+  )
 
   p.on('complete', r => {
     t.equal(p.time, r.time, 'parent time in final result')
@@ -66,7 +73,7 @@ t.test('streamed with time directives', t => {
   })
 
   p.end(streamed)
-  t.same(times, [1234.567, 420.69, 69.420])
+  t.same(times, [1234.567, 420.69, 69.42])
   t.end()
 })
 
@@ -86,11 +93,13 @@ ok 2 - assert before delay
 t.test('no time directives', t => {
   const p = new Parser()
   t.equal(p.time, null)
-  const times = []
-  p.on('child', c => c.on('complete', r => {
-    t.equal(c.time, r.time, 'child time found in final result')
-    times.push(r.time)
-  }))
+  const times: Time[] = []
+  p.on('child', c =>
+    c.on('complete', (r: FinalResults) => {
+      t.equal(c.time, r.time, 'child time found in final result')
+      times.push(r.time)
+    })
+  )
 
   p.on('complete', r => {
     t.equal(p.time, r.time, 'parent time in final result')

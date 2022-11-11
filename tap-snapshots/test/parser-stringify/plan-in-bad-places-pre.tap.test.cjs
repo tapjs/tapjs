@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser-stringify.js TAP plan-in-bad-places-pre.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP plan-in-bad-places-pre.tap bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -13,7 +13,8 @@ Array [
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 2,
       "start": 1,
     },
@@ -31,7 +32,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -39,8 +41,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "subtest",
+          "id": 0,
+          "name": "",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -70,9 +82,17 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "diag": null,
       "fullname": "",
+      "id": 0,
       "name": "subtest",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -82,9 +102,18 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
+      "id": 0,
       "name": "yaml",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -127,7 +156,7 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP plan-in-bad-places-pre.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP plan-in-bad-places-pre.tap bail > stringified 1`] = `
 TAP version 13
 1..2
 1..2
@@ -144,16 +173,15 @@ ok - yaml
 
 `
 
-exports[`test/parser-stringify.js TAP plan-in-bad-places-pre.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP plan-in-bad-places-pre.tap bail > stringified flat 1`] = `
 TAP version 13
-1..2
+1..0
 1..2
 # Subtest: subtest
-    1..1
-    ok
-ok - subtest
+ok 1 - subtest
+ok 2 - subtest
 1..99
-ok - yaml
+ok 3 - yaml
   ---
   ok: lamy
 1..99
@@ -161,7 +189,7 @@ ok - yaml
 
 `
 
-exports[`test/parser-stringify.js TAP plan-in-bad-places-pre.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP plan-in-bad-places-pre.tap default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -169,7 +197,8 @@ Array [
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 2,
       "start": 1,
     },
@@ -187,7 +216,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -195,8 +225,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "subtest",
+          "id": 0,
+          "name": "",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -226,9 +266,17 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "diag": null,
       "fullname": "",
+      "id": 0,
       "name": "subtest",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -238,9 +286,18 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
+      "id": 0,
       "name": "yaml",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -283,7 +340,102 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP plan-in-bad-places-pre.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP plan-in-bad-places-pre.tap default settings > parsed flat 1`] = `
+Array [
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "extra",
+    "1..2\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "buffered": false,
+      "diag": null,
+      "fullname": "",
+      "id": 1,
+      "name": "subtest",
+      "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "extra",
+    "1..99\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "buffered": false,
+      "diag": null,
+      "fullname": "",
+      "id": 2,
+      "name": "yaml",
+      "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "extra",
+    String(
+        ---
+        ok: lamy
+      
+    ),
+  ],
+  Array [
+    "extra",
+    "1..99\\n",
+  ],
+  Array [
+    "extra",
+    "  ...\\n",
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 2,
+      "start": 1,
+    },
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 2,
+      "fail": 0,
+      "failures": Array [],
+      "ok": true,
+      "pass": 2,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 2,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parse-stringify.ts TAP plan-in-bad-places-pre.tap default settings > stringified 1`] = `
 TAP version 13
 1..2
 1..2
@@ -300,16 +452,15 @@ ok - yaml
 
 `
 
-exports[`test/parser-stringify.js TAP plan-in-bad-places-pre.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP plan-in-bad-places-pre.tap default settings > stringified flat 1`] = `
 TAP version 13
-1..2
+1..0
 1..2
 # Subtest: subtest
-    1..1
-    ok
-ok - subtest
+ok 1 - subtest
+ok 2 - subtest
 1..99
-ok - yaml
+ok 3 - yaml
   ---
   ok: lamy
 1..99
@@ -317,7 +468,7 @@ ok - yaml
 
 `
 
-exports[`test/parser-stringify.js TAP plan-in-bad-places-pre.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP plan-in-bad-places-pre.tap strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -325,7 +476,8 @@ Array [
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 2,
       "start": 1,
     },
@@ -343,7 +495,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -351,8 +504,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "subtest",
+          "id": 0,
+          "name": "",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -382,9 +545,17 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "diag": null,
       "fullname": "",
+      "id": 0,
       "name": "subtest",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -394,9 +565,18 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
+      "id": 0,
       "name": "yaml",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -468,7 +648,7 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP plan-in-bad-places-pre.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP plan-in-bad-places-pre.tap strict > stringified 1`] = `
 TAP version 13
 1..2
 1..2
@@ -486,16 +666,15 @@ ok - yaml
 
 `
 
-exports[`test/parser-stringify.js TAP plan-in-bad-places-pre.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP plan-in-bad-places-pre.tap strict > stringified flat 1`] = `
 TAP version 13
-1..2
+1..0
 1..2
 # Subtest: subtest
-    1..1
-    ok
-ok - subtest
+ok 1 - subtest
+ok 2 - subtest
 1..99
-ok - yaml
+ok 3 - yaml
   ---
   ok: lamy
 1..99
@@ -504,7 +683,7 @@ ok - yaml
 
 `
 
-exports[`test/parser-stringify.js TAP plan-in-bad-places-pre.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP plan-in-bad-places-pre.tap strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -512,7 +691,8 @@ Array [
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 2,
       "start": 1,
     },
@@ -530,7 +710,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -538,8 +719,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "subtest",
+          "id": 0,
+          "name": "",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -569,9 +760,17 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "diag": null,
       "fullname": "",
+      "id": 0,
       "name": "subtest",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -581,9 +780,18 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
+      "id": 0,
       "name": "yaml",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -655,7 +863,7 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP plan-in-bad-places-pre.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP plan-in-bad-places-pre.tap strictBail > stringified 1`] = `
 TAP version 13
 1..2
 1..2
@@ -673,16 +881,15 @@ ok - yaml
 
 `
 
-exports[`test/parser-stringify.js TAP plan-in-bad-places-pre.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP plan-in-bad-places-pre.tap strictBail > stringified flat 1`] = `
 TAP version 13
-1..2
+1..0
 1..2
 # Subtest: subtest
-    1..1
-    ok
-ok - subtest
+ok 1 - subtest
+ok 2 - subtest
 1..99
-ok - yaml
+ok 3 - yaml
   ---
   ok: lamy
 1..99

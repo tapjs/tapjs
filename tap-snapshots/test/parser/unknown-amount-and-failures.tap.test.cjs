@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser.js TAP unknown-amount-and-failures.tap > output bail=false 1`] = `
+exports[`test/parser.ts TAP unknown-amount-and-failures.tap > output bail=false 1`] = `
 Array [
   Array [
     "line",
@@ -22,28 +22,52 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "retrieving servers from the database",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "retrieving servers from the database",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "retrieving servers from the database",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -61,28 +85,52 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 2,
       "name": "pinged diamond",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 2,
       "name": "pinged diamond",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 2,
       "name": "pinged diamond",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -92,28 +140,52 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 3,
       "name": "pinged ruby",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 3,
       "name": "pinged ruby",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 3,
       "name": "pinged ruby",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -139,6 +211,7 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
       "diag": Object {
         "message": "hostname \\"saphire\\" unknown",
         "severity": "fail",
@@ -147,11 +220,18 @@ Array [
       "id": 4,
       "name": "pinged saphire",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "result",
     Result {
+      "buffered": false,
       "diag": Object {
         "message": "hostname \\"saphire\\" unknown",
         "severity": "fail",
@@ -160,11 +240,18 @@ Array [
       "id": 4,
       "name": "pinged saphire",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "fail",
     Result {
+      "buffered": false,
       "diag": Object {
         "message": "hostname \\"saphire\\" unknown",
         "severity": "fail",
@@ -173,6 +260,12 @@ Array [
       "id": 4,
       "name": "pinged saphire",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -182,28 +275,52 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 5,
       "name": "pinged onyx",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 5,
       "name": "pinged onyx",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 5,
       "name": "pinged onyx",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -229,6 +346,7 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
       "diag": Object {
         "message": "timeout",
         "severity": "fail",
@@ -237,11 +355,18 @@ Array [
       "id": 6,
       "name": "pinged quartz",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "result",
     Result {
+      "buffered": false,
       "diag": Object {
         "message": "timeout",
         "severity": "fail",
@@ -250,11 +375,18 @@ Array [
       "id": 6,
       "name": "pinged quartz",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "fail",
     Result {
+      "buffered": false,
       "diag": Object {
         "message": "timeout",
         "severity": "fail",
@@ -263,6 +395,12 @@ Array [
       "id": 6,
       "name": "pinged quartz",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -272,28 +410,52 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 7,
       "name": "pinged gold",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 7,
       "name": "pinged gold",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 7,
       "name": "pinged gold",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -302,7 +464,8 @@ Array [
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 7,
       "start": 1,
     },
@@ -323,6 +486,7 @@ Array [
       "fail": 2,
       "failures": Array [
         Result {
+          "buffered": false,
           "diag": Object {
             "message": "hostname \\"saphire\\" unknown",
             "severity": "fail",
@@ -331,8 +495,15 @@ Array [
           "id": 4,
           "name": "pinged saphire",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
         Result {
+          "buffered": false,
           "diag": Object {
             "message": "timeout",
             "severity": "fail",
@@ -341,6 +512,12 @@ Array [
           "id": 6,
           "name": "pinged quartz",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       "ok": false,
@@ -360,7 +537,7 @@ Array [
 ]
 `
 
-exports[`test/parser.js TAP unknown-amount-and-failures.tap > output bail=true 1`] = `
+exports[`test/parser.ts TAP unknown-amount-and-failures.tap > output bail=true 1`] = `
 Array [
   Array [
     "line",
@@ -377,28 +554,52 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "retrieving servers from the database",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "retrieving servers from the database",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "retrieving servers from the database",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -416,28 +617,52 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 2,
       "name": "pinged diamond",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 2,
       "name": "pinged diamond",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 2,
       "name": "pinged diamond",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -447,28 +672,52 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 3,
       "name": "pinged ruby",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 3,
       "name": "pinged ruby",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 3,
       "name": "pinged ruby",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -494,6 +743,7 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
       "diag": Object {
         "message": "hostname \\"saphire\\" unknown",
         "severity": "fail",
@@ -502,11 +752,18 @@ Array [
       "id": 4,
       "name": "pinged saphire",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "result",
     Result {
+      "buffered": false,
       "diag": Object {
         "message": "hostname \\"saphire\\" unknown",
         "severity": "fail",
@@ -515,11 +772,18 @@ Array [
       "id": 4,
       "name": "pinged saphire",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "fail",
     Result {
+      "buffered": false,
       "diag": Object {
         "message": "hostname \\"saphire\\" unknown",
         "severity": "fail",
@@ -528,6 +792,12 @@ Array [
       "id": 4,
       "name": "pinged saphire",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -546,6 +816,7 @@ Array [
       "fail": 1,
       "failures": Array [
         Result {
+          "buffered": false,
           "diag": Object {
             "message": "hostname \\"saphire\\" unknown",
             "severity": "fail",
@@ -554,6 +825,12 @@ Array [
           "id": 4,
           "name": "pinged saphire",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       "ok": false,

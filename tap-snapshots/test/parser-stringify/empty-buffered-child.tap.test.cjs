@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser-stringify.js TAP empty-buffered-child.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP empty-buffered-child.tap bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -45,14 +45,23 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "diag": null,
       "fullname": "",
+      "id": 0,
       "name": "child",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 1,
       "start": 1,
     },
@@ -81,7 +90,7 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP empty-buffered-child.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP empty-buffered-child.tap bail > stringified 1`] = `
 TAP version 13
 # Subtest: child
     
@@ -90,16 +99,16 @@ ok - child
 
 `
 
-exports[`test/parser-stringify.js TAP empty-buffered-child.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP empty-buffered-child.tap bail > stringified flat 1`] = `
 TAP version 13
 # Subtest: child
-    
-ok - child
+
+ok 1 - child
 1..1
 
 `
 
-exports[`test/parser-stringify.js TAP empty-buffered-child.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP empty-buffered-child.tap default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -139,9 +148,72 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "diag": null,
       "fullname": "",
+      "id": 0,
       "name": "child",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "plan",
+    Plan {
+      "comment": "",
+      "end": 1,
+      "start": 1,
+    },
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 1,
+      "fail": 0,
+      "failures": Array [],
+      "ok": true,
+      "pass": 1,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 1,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parse-stringify.ts TAP empty-buffered-child.tap default settings > parsed flat 1`] = `
+Array [
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "assert",
+    Result {
+      "buffered": true,
+      "diag": null,
+      "fullname": "",
+      "id": 1,
+      "name": "child",
+      "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -175,7 +247,7 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP empty-buffered-child.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP empty-buffered-child.tap default settings > stringified 1`] = `
 TAP version 13
 # Subtest: child
     
@@ -184,16 +256,16 @@ ok - child
 
 `
 
-exports[`test/parser-stringify.js TAP empty-buffered-child.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP empty-buffered-child.tap default settings > stringified flat 1`] = `
 TAP version 13
 # Subtest: child
-    
-ok - child
+
+ok 1 - child
 1..1
 
 `
 
-exports[`test/parser-stringify.js TAP empty-buffered-child.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP empty-buffered-child.tap strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -233,14 +305,23 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "diag": null,
       "fullname": "",
+      "id": 0,
       "name": "child",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 1,
       "start": 1,
     },
@@ -269,7 +350,7 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP empty-buffered-child.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP empty-buffered-child.tap strict > stringified 1`] = `
 TAP version 13
 # Subtest: child
     
@@ -278,16 +359,16 @@ ok - child
 
 `
 
-exports[`test/parser-stringify.js TAP empty-buffered-child.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP empty-buffered-child.tap strict > stringified flat 1`] = `
 TAP version 13
 # Subtest: child
-    
-ok - child
+
+ok 1 - child
 1..1
 
 `
 
-exports[`test/parser-stringify.js TAP empty-buffered-child.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP empty-buffered-child.tap strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -327,14 +408,23 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "diag": null,
       "fullname": "",
+      "id": 0,
       "name": "child",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 1,
       "start": 1,
     },
@@ -363,7 +453,7 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP empty-buffered-child.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP empty-buffered-child.tap strictBail > stringified 1`] = `
 TAP version 13
 # Subtest: child
     
@@ -372,11 +462,11 @@ ok - child
 
 `
 
-exports[`test/parser-stringify.js TAP empty-buffered-child.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP empty-buffered-child.tap strictBail > stringified flat 1`] = `
 TAP version 13
 # Subtest: child
-    
-ok - child
+
+ok 1 - child
 1..1
 
 `

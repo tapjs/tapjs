@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser.js TAP subtest-no-comment-mid-comment-indent.tap > output bail=false 1`] = `
+exports[`test/parser.ts TAP subtest-no-comment-mid-comment-indent.tap > output bail=false 1`] = `
 Array [
   Array [
     "line",
@@ -54,7 +54,8 @@ Array [
               ],
               Array [
                 "plan",
-                Object {
+                Plan {
+                  "comment": "",
                   "end": 2,
                   "start": 1,
                 },
@@ -66,10 +67,18 @@ Array [
               Array [
                 "assert",
                 Result {
+                  "buffered": false,
+                  "diag": null,
                   "fullname": "nesting",
                   "id": 1,
                   "name": "true is ok",
                   "ok": true,
+                  "plan": null,
+                  "previous": null,
+                  "skip": false,
+                  "tapError": null,
+                  "time": null,
+                  "todo": false,
                 },
               ],
               Array [
@@ -79,10 +88,18 @@ Array [
               Array [
                 "assert",
                 Result {
+                  "buffered": false,
+                  "diag": null,
                   "fullname": "nesting",
                   "id": 2,
                   "name": "doag is also okay",
                   "ok": true,
+                  "plan": null,
+                  "previous": null,
+                  "skip": false,
+                  "tapError": null,
+                  "time": null,
+                  "todo": false,
                 },
               ],
               Array [
@@ -127,11 +144,18 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "nesting",
               "id": 1,
               "name": "first",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
               "time": 8.987,
+              "todo": false,
             },
           ],
           Array [
@@ -152,10 +176,18 @@ Array [
               Array [
                 "assert",
                 Result {
+                  "buffered": false,
+                  "diag": null,
                   "fullname": "nesting",
                   "id": 1,
                   "name": "but that is ok",
                   "ok": true,
+                  "plan": null,
+                  "previous": null,
+                  "skip": false,
+                  "tapError": null,
+                  "time": null,
+                  "todo": false,
                 },
               ],
               Array [
@@ -165,10 +197,18 @@ Array [
               Array [
                 "assert",
                 Result {
+                  "buffered": false,
+                  "diag": null,
                   "fullname": "nesting",
                   "id": 2,
                   "name": "this passes",
                   "ok": true,
+                  "plan": null,
+                  "previous": null,
+                  "skip": false,
+                  "tapError": null,
+                  "time": null,
+                  "todo": false,
                 },
               ],
               Array [
@@ -178,10 +218,18 @@ Array [
               Array [
                 "assert",
                 Result {
+                  "buffered": false,
+                  "diag": null,
                   "fullname": "nesting",
                   "id": 3,
                   "name": "nested ok",
                   "ok": true,
+                  "plan": null,
+                  "previous": null,
+                  "skip": false,
+                  "tapError": null,
+                  "time": null,
+                  "todo": false,
                 },
               ],
               Array [
@@ -190,7 +238,8 @@ Array [
               ],
               Array [
                 "plan",
-                Object {
+                Plan {
+                  "comment": "",
                   "end": 3,
                   "start": 1,
                 },
@@ -241,11 +290,18 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "nesting",
               "id": 2,
               "name": "second",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
               "time": 5.988,
+              "todo": false,
             },
           ],
           Array [
@@ -254,7 +310,8 @@ Array [
           ],
           Array [
             "plan",
-            Object {
+            Plan {
+              "comment": "",
               "end": 2,
               "start": 1,
             },
@@ -337,11 +394,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "",
           "id": 1,
           "name": "nesting",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
           "time": 28.647,
+          "todo": false,
         },
       ],
       Array [
@@ -351,10 +415,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "",
           "id": 2,
           "name": "this passes",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -363,7 +435,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 2,
           "start": 1,
         },
@@ -410,19 +483,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "nesting",
       "id": 1,
       "name": "true is ok",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "nesting",
       "id": 1,
       "name": "true is ok",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -432,19 +521,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "nesting",
       "id": 2,
       "name": "doag is also okay",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "nesting",
       "id": 2,
       "name": "doag is also okay",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -454,21 +559,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "nesting",
       "id": 1,
       "name": "first",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
       "time": 8.987,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "nesting",
       "id": 1,
       "name": "first",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
       "time": 8.987,
+      "todo": false,
     },
   ],
   Array [
@@ -482,19 +601,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "nesting",
       "id": 1,
       "name": "but that is ok",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "nesting",
       "id": 1,
       "name": "but that is ok",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -504,19 +639,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "nesting",
       "id": 2,
       "name": "this passes",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "nesting",
       "id": 2,
       "name": "this passes",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -526,19 +677,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "nesting",
       "id": 3,
       "name": "nested ok",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "nesting",
       "id": 3,
       "name": "nested ok",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -552,21 +719,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "nesting",
       "id": 2,
       "name": "second",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
       "time": 5.988,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "nesting",
       "id": 2,
       "name": "second",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
       "time": 5.988,
+      "todo": false,
     },
   ],
   Array [
@@ -584,19 +765,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 2,
       "name": "this passes",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 2,
       "name": "this passes",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -610,31 +807,52 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "../tap/test/test/ok.js",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
       "time": 205.826,
+      "todo": false,
     },
   ],
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "../tap/test/test/ok.js",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
       "time": 205.826,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "../tap/test/test/ok.js",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
       "time": 205.826,
+      "todo": false,
     },
   ],
   Array [
@@ -643,7 +861,8 @@ Array [
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 1,
       "start": 1,
     },
@@ -672,7 +891,7 @@ Array [
 ]
 `
 
-exports[`test/parser.js TAP subtest-no-comment-mid-comment-indent.tap > output bail=true 1`] = `
+exports[`test/parser.ts TAP subtest-no-comment-mid-comment-indent.tap > output bail=true 1`] = `
 Array [
   Array [
     "line",
@@ -721,7 +940,8 @@ Array [
               ],
               Array [
                 "plan",
-                Object {
+                Plan {
+                  "comment": "",
                   "end": 2,
                   "start": 1,
                 },
@@ -733,10 +953,18 @@ Array [
               Array [
                 "assert",
                 Result {
+                  "buffered": false,
+                  "diag": null,
                   "fullname": "nesting",
                   "id": 1,
                   "name": "true is ok",
                   "ok": true,
+                  "plan": null,
+                  "previous": null,
+                  "skip": false,
+                  "tapError": null,
+                  "time": null,
+                  "todo": false,
                 },
               ],
               Array [
@@ -746,10 +974,18 @@ Array [
               Array [
                 "assert",
                 Result {
+                  "buffered": false,
+                  "diag": null,
                   "fullname": "nesting",
                   "id": 2,
                   "name": "doag is also okay",
                   "ok": true,
+                  "plan": null,
+                  "previous": null,
+                  "skip": false,
+                  "tapError": null,
+                  "time": null,
+                  "todo": false,
                 },
               ],
               Array [
@@ -794,11 +1030,18 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "nesting",
               "id": 1,
               "name": "first",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
               "time": 8.987,
+              "todo": false,
             },
           ],
           Array [
@@ -819,10 +1062,18 @@ Array [
               Array [
                 "assert",
                 Result {
+                  "buffered": false,
+                  "diag": null,
                   "fullname": "nesting",
                   "id": 1,
                   "name": "but that is ok",
                   "ok": true,
+                  "plan": null,
+                  "previous": null,
+                  "skip": false,
+                  "tapError": null,
+                  "time": null,
+                  "todo": false,
                 },
               ],
               Array [
@@ -832,10 +1083,18 @@ Array [
               Array [
                 "assert",
                 Result {
+                  "buffered": false,
+                  "diag": null,
                   "fullname": "nesting",
                   "id": 2,
                   "name": "this passes",
                   "ok": true,
+                  "plan": null,
+                  "previous": null,
+                  "skip": false,
+                  "tapError": null,
+                  "time": null,
+                  "todo": false,
                 },
               ],
               Array [
@@ -845,10 +1104,18 @@ Array [
               Array [
                 "assert",
                 Result {
+                  "buffered": false,
+                  "diag": null,
                   "fullname": "nesting",
                   "id": 3,
                   "name": "nested ok",
                   "ok": true,
+                  "plan": null,
+                  "previous": null,
+                  "skip": false,
+                  "tapError": null,
+                  "time": null,
+                  "todo": false,
                 },
               ],
               Array [
@@ -857,7 +1124,8 @@ Array [
               ],
               Array [
                 "plan",
-                Object {
+                Plan {
+                  "comment": "",
                   "end": 3,
                   "start": 1,
                 },
@@ -908,11 +1176,18 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "nesting",
               "id": 2,
               "name": "second",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
               "time": 5.988,
+              "todo": false,
             },
           ],
           Array [
@@ -921,7 +1196,8 @@ Array [
           ],
           Array [
             "plan",
-            Object {
+            Plan {
+              "comment": "",
               "end": 2,
               "start": 1,
             },
@@ -1004,11 +1280,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "",
           "id": 1,
           "name": "nesting",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
           "time": 28.647,
+          "todo": false,
         },
       ],
       Array [
@@ -1018,10 +1301,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "",
           "id": 2,
           "name": "this passes",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -1030,7 +1321,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 2,
           "start": 1,
         },
@@ -1077,19 +1369,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "nesting",
       "id": 1,
       "name": "true is ok",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "nesting",
       "id": 1,
       "name": "true is ok",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -1099,19 +1407,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "nesting",
       "id": 2,
       "name": "doag is also okay",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "nesting",
       "id": 2,
       "name": "doag is also okay",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -1121,21 +1445,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "nesting",
       "id": 1,
       "name": "first",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
       "time": 8.987,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "nesting",
       "id": 1,
       "name": "first",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
       "time": 8.987,
+      "todo": false,
     },
   ],
   Array [
@@ -1149,19 +1487,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "nesting",
       "id": 1,
       "name": "but that is ok",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "nesting",
       "id": 1,
       "name": "but that is ok",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -1171,19 +1525,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "nesting",
       "id": 2,
       "name": "this passes",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "nesting",
       "id": 2,
       "name": "this passes",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -1193,19 +1563,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "nesting",
       "id": 3,
       "name": "nested ok",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "nesting",
       "id": 3,
       "name": "nested ok",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -1219,21 +1605,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "nesting",
       "id": 2,
       "name": "second",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
       "time": 5.988,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "nesting",
       "id": 2,
       "name": "second",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
       "time": 5.988,
+      "todo": false,
     },
   ],
   Array [
@@ -1251,19 +1651,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 2,
       "name": "this passes",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 2,
       "name": "this passes",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -1277,31 +1693,52 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "../tap/test/test/ok.js",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
       "time": 205.826,
+      "todo": false,
     },
   ],
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "../tap/test/test/ok.js",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
       "time": 205.826,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "../tap/test/test/ok.js",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
       "time": 205.826,
+      "todo": false,
     },
   ],
   Array [
@@ -1310,7 +1747,8 @@ Array [
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 1,
       "start": 1,
     },

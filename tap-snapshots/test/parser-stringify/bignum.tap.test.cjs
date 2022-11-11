@@ -5,11 +5,12 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser-stringify.js TAP bignum.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP bignum.tap bail > parsed 1`] = `
 Array [
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 2,
       "start": 1,
     },
@@ -17,43 +18,77 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
+      "name": "",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 2,
+      "name": "",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 136211425,
+      "name": "",
       "ok": true,
-      "plan": Object {
+      "plan": Plan {
+        "comment": "",
         "end": 2,
         "start": 1,
       },
+      "previous": null,
+      "skip": false,
       "tapError": "id greater than plan end",
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 136211426,
+      "name": "",
       "ok": true,
-      "plan": Object {
+      "plan": Plan {
+        "comment": "",
         "end": 2,
         "start": 1,
       },
+      "previous": null,
+      "skip": false,
       "tapError": "id greater than plan end",
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -72,24 +107,40 @@ Array [
       "fail": 2,
       "failures": Array [
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "",
           "id": 136211425,
+          "name": "",
           "ok": true,
-          "plan": Object {
+          "plan": Plan {
+            "comment": "",
             "end": 2,
             "start": 1,
           },
+          "previous": null,
+          "skip": false,
           "tapError": "id greater than plan end",
+          "time": null,
+          "todo": false,
         },
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "",
           "id": 136211426,
+          "name": "",
           "ok": true,
-          "plan": Object {
+          "plan": Plan {
+            "comment": "",
             "end": 2,
             "start": 1,
           },
+          "previous": null,
+          "skip": false,
           "tapError": "id greater than plan end",
+          "time": null,
+          "todo": false,
         },
       ],
       "ok": false,
@@ -109,7 +160,7 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP bignum.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP bignum.tap bail > stringified 1`] = `
 1..2
 ok 1
 ok 2
@@ -120,22 +171,23 @@ ok 136211426
 
 `
 
-exports[`test/parser-stringify.js TAP bignum.tap bail > stringified flat 1`] = `
-1..2
+exports[`test/parse-stringify.ts TAP bignum.tap bail > stringified flat 1`] = `
+1..0
 ok 1
 ok 2
-ok 136211425
-ok 136211426
+ok 3
+ok 4
 # test count(4) != plan(2)
 # failed 2 of 4 tests
 
 `
 
-exports[`test/parser-stringify.js TAP bignum.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP bignum.tap default settings > parsed 1`] = `
 Array [
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 2,
       "start": 1,
     },
@@ -143,43 +195,77 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
+      "name": "",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 2,
+      "name": "",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 136211425,
+      "name": "",
       "ok": true,
-      "plan": Object {
+      "plan": Plan {
+        "comment": "",
         "end": 2,
         "start": 1,
       },
+      "previous": null,
+      "skip": false,
       "tapError": "id greater than plan end",
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 136211426,
+      "name": "",
       "ok": true,
-      "plan": Object {
+      "plan": Plan {
+        "comment": "",
         "end": 2,
         "start": 1,
       },
+      "previous": null,
+      "skip": false,
       "tapError": "id greater than plan end",
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -198,24 +284,40 @@ Array [
       "fail": 2,
       "failures": Array [
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "",
           "id": 136211425,
+          "name": "",
           "ok": true,
-          "plan": Object {
+          "plan": Plan {
+            "comment": "",
             "end": 2,
             "start": 1,
           },
+          "previous": null,
+          "skip": false,
           "tapError": "id greater than plan end",
+          "time": null,
+          "todo": false,
         },
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "",
           "id": 136211426,
+          "name": "",
           "ok": true,
-          "plan": Object {
+          "plan": Plan {
+            "comment": "",
             "end": 2,
             "start": 1,
           },
+          "previous": null,
+          "skip": false,
           "tapError": "id greater than plan end",
+          "time": null,
+          "todo": false,
         },
       ],
       "ok": false,
@@ -235,77 +337,82 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP bignum.tap default settings > stringified 1`] = `
-1..2
-ok 1
-ok 2
-ok 136211425
-ok 136211426
-# test count(4) != plan(2)
-# failed 2 of 4 tests
-
-`
-
-exports[`test/parser-stringify.js TAP bignum.tap default settings > stringified flat 1`] = `
-1..2
-ok 1
-ok 2
-ok 136211425
-ok 136211426
-# test count(4) != plan(2)
-# failed 2 of 4 tests
-
-`
-
-exports[`test/parser-stringify.js TAP bignum.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP bignum.tap default settings > parsed flat 1`] = `
 Array [
   Array [
-    "plan",
-    Object {
-      "end": 2,
-      "start": 1,
-    },
-  ],
-  Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
+      "name": "",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 2,
+      "name": "",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
-      "id": 136211425,
+      "id": 3,
+      "name": "",
       "ok": true,
-      "plan": Object {
+      "plan": Plan {
+        "comment": "",
         "end": 2,
         "start": 1,
       },
+      "previous": null,
+      "skip": false,
       "tapError": "id greater than plan end",
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
-      "id": 136211426,
+      "id": 4,
+      "name": "",
       "ok": true,
-      "plan": Object {
+      "plan": Plan {
+        "comment": "",
         "end": 2,
         "start": 1,
       },
+      "previous": null,
+      "skip": false,
       "tapError": "id greater than plan end",
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -317,6 +424,13 @@ Array [
     "# failed 2 of 4 tests\\n",
   ],
   Array [
+    "plan",
+    Object {
+      "end": 4,
+      "start": 1,
+    },
+  ],
+  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -324,24 +438,40 @@ Array [
       "fail": 2,
       "failures": Array [
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "",
-          "id": 136211425,
+          "id": 3,
+          "name": "",
           "ok": true,
-          "plan": Object {
+          "plan": Plan {
+            "comment": "",
             "end": 2,
             "start": 1,
           },
+          "previous": null,
+          "skip": false,
           "tapError": "id greater than plan end",
+          "time": null,
+          "todo": false,
         },
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "",
-          "id": 136211426,
+          "id": 4,
+          "name": "",
           "ok": true,
-          "plan": Object {
+          "plan": Plan {
+            "comment": "",
             "end": 2,
             "start": 1,
           },
+          "previous": null,
+          "skip": false,
           "tapError": "id greater than plan end",
+          "time": null,
+          "todo": false,
         },
       ],
       "ok": false,
@@ -361,7 +491,7 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP bignum.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP bignum.tap default settings > stringified 1`] = `
 1..2
 ok 1
 ok 2
@@ -372,22 +502,23 @@ ok 136211426
 
 `
 
-exports[`test/parser-stringify.js TAP bignum.tap strict > stringified flat 1`] = `
-1..2
+exports[`test/parse-stringify.ts TAP bignum.tap default settings > stringified flat 1`] = `
+1..0
 ok 1
 ok 2
-ok 136211425
-ok 136211426
+ok 3
+ok 4
 # test count(4) != plan(2)
 # failed 2 of 4 tests
 
 `
 
-exports[`test/parser-stringify.js TAP bignum.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP bignum.tap strict > parsed 1`] = `
 Array [
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 2,
       "start": 1,
     },
@@ -395,43 +526,77 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
+      "name": "",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 2,
+      "name": "",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 136211425,
+      "name": "",
       "ok": true,
-      "plan": Object {
+      "plan": Plan {
+        "comment": "",
         "end": 2,
         "start": 1,
       },
+      "previous": null,
+      "skip": false,
       "tapError": "id greater than plan end",
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 136211426,
+      "name": "",
       "ok": true,
-      "plan": Object {
+      "plan": Plan {
+        "comment": "",
         "end": 2,
         "start": 1,
       },
+      "previous": null,
+      "skip": false,
       "tapError": "id greater than plan end",
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -450,24 +615,40 @@ Array [
       "fail": 2,
       "failures": Array [
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "",
           "id": 136211425,
+          "name": "",
           "ok": true,
-          "plan": Object {
+          "plan": Plan {
+            "comment": "",
             "end": 2,
             "start": 1,
           },
+          "previous": null,
+          "skip": false,
           "tapError": "id greater than plan end",
+          "time": null,
+          "todo": false,
         },
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "",
           "id": 136211426,
+          "name": "",
           "ok": true,
-          "plan": Object {
+          "plan": Plan {
+            "comment": "",
             "end": 2,
             "start": 1,
           },
+          "previous": null,
+          "skip": false,
           "tapError": "id greater than plan end",
+          "time": null,
+          "todo": false,
         },
       ],
       "ok": false,
@@ -487,7 +668,7 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP bignum.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP bignum.tap strict > stringified 1`] = `
 1..2
 ok 1
 ok 2
@@ -498,12 +679,189 @@ ok 136211426
 
 `
 
-exports[`test/parser-stringify.js TAP bignum.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP bignum.tap strict > stringified flat 1`] = `
+1..0
+ok 1
+ok 2
+ok 3
+ok 4
+# test count(4) != plan(2)
+# failed 2 of 4 tests
+
+`
+
+exports[`test/parse-stringify.ts TAP bignum.tap strictBail > parsed 1`] = `
+Array [
+  Array [
+    "plan",
+    Plan {
+      "comment": "",
+      "end": 2,
+      "start": 1,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "buffered": false,
+      "diag": null,
+      "fullname": "",
+      "id": 1,
+      "name": "",
+      "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "buffered": false,
+      "diag": null,
+      "fullname": "",
+      "id": 2,
+      "name": "",
+      "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "buffered": false,
+      "diag": null,
+      "fullname": "",
+      "id": 136211425,
+      "name": "",
+      "ok": true,
+      "plan": Plan {
+        "comment": "",
+        "end": 2,
+        "start": 1,
+      },
+      "previous": null,
+      "skip": false,
+      "tapError": "id greater than plan end",
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "buffered": false,
+      "diag": null,
+      "fullname": "",
+      "id": 136211426,
+      "name": "",
+      "ok": true,
+      "plan": Plan {
+        "comment": "",
+        "end": 2,
+        "start": 1,
+      },
+      "previous": null,
+      "skip": false,
+      "tapError": "id greater than plan end",
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "comment",
+    "# test count(4) != plan(2)\\n",
+  ],
+  Array [
+    "comment",
+    "# failed 2 of 4 tests\\n",
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 4,
+      "fail": 2,
+      "failures": Array [
+        Result {
+          "buffered": false,
+          "diag": null,
+          "fullname": "",
+          "id": 136211425,
+          "name": "",
+          "ok": true,
+          "plan": Plan {
+            "comment": "",
+            "end": 2,
+            "start": 1,
+          },
+          "previous": null,
+          "skip": false,
+          "tapError": "id greater than plan end",
+          "time": null,
+          "todo": false,
+        },
+        Result {
+          "buffered": false,
+          "diag": null,
+          "fullname": "",
+          "id": 136211426,
+          "name": "",
+          "ok": true,
+          "plan": Plan {
+            "comment": "",
+            "end": 2,
+            "start": 1,
+          },
+          "previous": null,
+          "skip": false,
+          "tapError": "id greater than plan end",
+          "time": null,
+          "todo": false,
+        },
+      ],
+      "ok": false,
+      "pass": 4,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 2,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parse-stringify.ts TAP bignum.tap strictBail > stringified 1`] = `
 1..2
 ok 1
 ok 2
 ok 136211425
 ok 136211426
+# test count(4) != plan(2)
+# failed 2 of 4 tests
+
+`
+
+exports[`test/parse-stringify.ts TAP bignum.tap strictBail > stringified flat 1`] = `
+1..0
+ok 1
+ok 2
+ok 3
+ok 4
 # test count(4) != plan(2)
 # failed 2 of 4 tests
 

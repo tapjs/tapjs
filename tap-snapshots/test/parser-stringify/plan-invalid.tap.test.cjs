@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser-stringify.js TAP plan-invalid.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP plan-invalid.tap bail > parsed 1`] = `
 Array [
   Array [
     "extra",
@@ -14,9 +14,142 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
+      "name": "",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "plan",
+    Plan {
+      "comment": "",
+      "end": 1,
+      "start": 1,
+    },
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 1,
+      "fail": 0,
+      "failures": Array [],
+      "ok": true,
+      "pass": 1,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 1,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parse-stringify.ts TAP plan-invalid.tap bail > stringified 1`] = `
+100..1
+ok 1
+1..1
+
+`
+
+exports[`test/parse-stringify.ts TAP plan-invalid.tap bail > stringified flat 1`] = `
+100..1
+ok 1
+1..1
+
+`
+
+exports[`test/parse-stringify.ts TAP plan-invalid.tap default settings > parsed 1`] = `
+Array [
+  Array [
+    "extra",
+    "100..1\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "buffered": false,
+      "diag": null,
+      "fullname": "",
+      "id": 1,
+      "name": "",
+      "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "plan",
+    Plan {
+      "comment": "",
+      "end": 1,
+      "start": 1,
+    },
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 1,
+      "fail": 0,
+      "failures": Array [],
+      "ok": true,
+      "pass": 1,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 1,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parse-stringify.ts TAP plan-invalid.tap default settings > parsed flat 1`] = `
+Array [
+  Array [
+    "extra",
+    "100..1\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "buffered": false,
+      "diag": null,
+      "fullname": "",
+      "id": 1,
+      "name": "",
+      "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -50,92 +183,43 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP plan-invalid.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP plan-invalid.tap default settings > stringified 1`] = `
 100..1
 ok 1
 1..1
 
 `
 
-exports[`test/parser-stringify.js TAP plan-invalid.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP plan-invalid.tap default settings > stringified flat 1`] = `
 100..1
 ok 1
 1..1
 
 `
 
-exports[`test/parser-stringify.js TAP plan-invalid.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP plan-invalid.tap strict > parsed 1`] = `
 Array [
-  Array [
-    "extra",
-    "100..1\\n",
-  ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
+      "name": "",
       "ok": true,
-    },
-  ],
-  Array [
-    "plan",
-    Object {
-      "end": 1,
-      "start": 1,
-    },
-  ],
-  Array [
-    "complete",
-    FinalResults {
-      "bailout": false,
-      "count": 1,
-      "fail": 0,
-      "failures": Array [],
-      "ok": true,
-      "pass": 1,
-      "plan": FinalPlan {
-        "comment": "",
-        "end": 1,
-        "skipAll": false,
-        "skipReason": "",
-        "start": 1,
-      },
-      "skip": 0,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
       "time": null,
-      "todo": 0,
-    },
-  ],
-]
-`
-
-exports[`test/parser-stringify.js TAP plan-invalid.tap default settings > stringified 1`] = `
-100..1
-ok 1
-1..1
-
-`
-
-exports[`test/parser-stringify.js TAP plan-invalid.tap default settings > stringified flat 1`] = `
-100..1
-ok 1
-1..1
-
-`
-
-exports[`test/parser-stringify.js TAP plan-invalid.tap strict > parsed 1`] = `
-Array [
-  Array [
-    "assert",
-    Result {
-      "fullname": "",
-      "id": 1,
-      "ok": true,
+      "todo": false,
     },
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 1,
       "start": 1,
     },
@@ -176,33 +260,43 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP plan-invalid.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP plan-invalid.tap strict > stringified 1`] = `
 ok 1
 1..1
 # failed 1 test
 
 `
 
-exports[`test/parser-stringify.js TAP plan-invalid.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP plan-invalid.tap strict > stringified flat 1`] = `
 ok 1
 1..1
 # failed 1 test
 
 `
 
-exports[`test/parser-stringify.js TAP plan-invalid.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP plan-invalid.tap strictBail > parsed 1`] = `
 Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
+      "name": "",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 1,
       "start": 1,
     },
@@ -243,14 +337,14 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP plan-invalid.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP plan-invalid.tap strictBail > stringified 1`] = `
 ok 1
 1..1
 # failed 1 test
 
 `
 
-exports[`test/parser-stringify.js TAP plan-invalid.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP plan-invalid.tap strictBail > stringified flat 1`] = `
 ok 1
 1..1
 # failed 1 test

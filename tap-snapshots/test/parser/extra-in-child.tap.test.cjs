@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser.js TAP extra-in-child.tap > output bail=false 1`] = `
+exports[`test/parser.ts TAP extra-in-child.tap > output bail=false 1`] = `
 Array [
   Array [
     "line",
@@ -44,10 +44,18 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "test/01c-user-updates.js update profile",
               "id": 1,
               "name": "should be equivalent",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           Array [
@@ -57,10 +65,18 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "test/01c-user-updates.js update profile",
               "id": 2,
               "name": "should be equivalent",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           Array [
@@ -69,7 +85,8 @@ Array [
           ],
           Array [
             "plan",
-            Object {
+            Plan {
+              "comment": "",
               "end": 2,
               "start": 1,
             },
@@ -116,11 +133,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "test/01c-user-updates.js",
           "id": 1,
           "name": "update profile",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
           "time": 43.094,
+          "todo": false,
         },
       ],
       Array [
@@ -141,10 +165,18 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "test/01c-user-updates.js update email",
               "id": 1,
               "name": "should be equivalent",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           Array [
@@ -153,7 +185,8 @@ Array [
           ],
           Array [
             "plan",
-            Object {
+            Plan {
+              "comment": "",
               "end": 1,
               "start": 1,
             },
@@ -300,11 +333,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "test/01c-user-updates.js",
           "id": 2,
           "name": "update email",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
           "time": 24.16,
+          "todo": false,
         },
       ],
       Array [
@@ -313,7 +353,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 2,
           "start": 1,
         },
@@ -360,19 +401,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "test/01c-user-updates.js update profile",
       "id": 1,
       "name": "should be equivalent",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "test/01c-user-updates.js update profile",
       "id": 1,
       "name": "should be equivalent",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -382,19 +439,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "test/01c-user-updates.js update profile",
       "id": 2,
       "name": "should be equivalent",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "test/01c-user-updates.js update profile",
       "id": 2,
       "name": "should be equivalent",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -624,19 +697,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "test/01c-user-updates.js update email",
       "id": 1,
       "name": "should be equivalent",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "test/01c-user-updates.js update email",
       "id": 1,
       "name": "should be equivalent",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -662,11 +751,18 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "test/01c-user-updates.js",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
       "time": 339.14,
+      "todo": false,
     },
   ],
   Array [
@@ -675,7 +771,8 @@ Array [
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 1,
       "start": 1,
     },
@@ -712,7 +809,7 @@ Array [
 ]
 `
 
-exports[`test/parser.js TAP extra-in-child.tap > output bail=true 1`] = `
+exports[`test/parser.ts TAP extra-in-child.tap > output bail=true 1`] = `
 Array [
   Array [
     "line",
@@ -751,10 +848,18 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "test/01c-user-updates.js update profile",
               "id": 1,
               "name": "should be equivalent",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           Array [
@@ -764,10 +869,18 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "test/01c-user-updates.js update profile",
               "id": 2,
               "name": "should be equivalent",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           Array [
@@ -776,7 +889,8 @@ Array [
           ],
           Array [
             "plan",
-            Object {
+            Plan {
+              "comment": "",
               "end": 2,
               "start": 1,
             },
@@ -823,11 +937,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "test/01c-user-updates.js",
           "id": 1,
           "name": "update profile",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
           "time": 43.094,
+          "todo": false,
         },
       ],
       Array [
@@ -848,10 +969,18 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "test/01c-user-updates.js update email",
               "id": 1,
               "name": "should be equivalent",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           Array [
@@ -860,7 +989,8 @@ Array [
           ],
           Array [
             "plan",
-            Object {
+            Plan {
+              "comment": "",
               "end": 1,
               "start": 1,
             },
@@ -1007,11 +1137,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "test/01c-user-updates.js",
           "id": 2,
           "name": "update email",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
           "time": 24.16,
+          "todo": false,
         },
       ],
       Array [
@@ -1020,7 +1157,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 2,
           "start": 1,
         },
@@ -1067,19 +1205,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "test/01c-user-updates.js update profile",
       "id": 1,
       "name": "should be equivalent",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "test/01c-user-updates.js update profile",
       "id": 1,
       "name": "should be equivalent",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -1089,19 +1243,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "test/01c-user-updates.js update profile",
       "id": 2,
       "name": "should be equivalent",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "test/01c-user-updates.js update profile",
       "id": 2,
       "name": "should be equivalent",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -1331,19 +1501,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "test/01c-user-updates.js update email",
       "id": 1,
       "name": "should be equivalent",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "test/01c-user-updates.js update email",
       "id": 1,
       "name": "should be equivalent",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -1369,11 +1555,18 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "test/01c-user-updates.js",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
       "time": 339.14,
+      "todo": false,
     },
   ],
   Array [
@@ -1382,7 +1575,8 @@ Array [
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 1,
       "start": 1,
     },

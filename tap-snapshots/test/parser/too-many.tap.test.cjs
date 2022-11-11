@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser.js TAP too-many.tap > output bail=false 1`] = `
+exports[`test/parser.ts TAP too-many.tap > output bail=false 1`] = `
 Array [
   Array [
     "line",
@@ -30,28 +30,52 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "should be equal",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "should be equal",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "should be equal",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -61,28 +85,52 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 2,
       "name": "should be equivalent",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 2,
       "name": "should be equivalent",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 2,
       "name": "should be equivalent",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -100,28 +148,52 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 3,
       "name": "should be equal",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 3,
       "name": "should be equal",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 3,
       "name": "should be equal",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -131,43 +203,64 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 4,
       "name": "(unnamed assert)",
       "ok": true,
-      "plan": Object {
+      "plan": Plan {
+        "comment": "",
         "end": 3,
         "start": 1,
       },
+      "previous": null,
+      "skip": false,
       "tapError": "id greater than plan end",
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 4,
       "name": "(unnamed assert)",
       "ok": true,
-      "plan": Object {
+      "plan": Plan {
+        "comment": "",
         "end": 3,
         "start": 1,
       },
+      "previous": null,
+      "skip": false,
       "tapError": "id greater than plan end",
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 4,
       "name": "(unnamed assert)",
       "ok": true,
-      "plan": Object {
+      "plan": Plan {
+        "comment": "",
         "end": 3,
         "start": 1,
       },
+      "previous": null,
+      "skip": false,
       "tapError": "id greater than plan end",
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -175,8 +268,13 @@ Array [
     "1..3\\n",
   ],
   Array [
+    "line",
+    "1..3\\n",
+  ],
+  Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 3,
       "start": 1,
     },
@@ -229,15 +327,22 @@ Array [
       "fail": 1,
       "failures": Array [
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "",
           "id": 4,
           "name": "(unnamed assert)",
           "ok": true,
-          "plan": Object {
+          "plan": Plan {
+            "comment": "",
             "end": 3,
             "start": 1,
           },
+          "previous": null,
+          "skip": false,
           "tapError": "id greater than plan end",
+          "time": null,
+          "todo": false,
         },
       ],
       "ok": false,
@@ -257,7 +362,7 @@ Array [
 ]
 `
 
-exports[`test/parser.js TAP too-many.tap > output bail=true 1`] = `
+exports[`test/parser.ts TAP too-many.tap > output bail=true 1`] = `
 Array [
   Array [
     "line",
@@ -282,28 +387,52 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "should be equal",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "should be equal",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "should be equal",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -313,28 +442,52 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 2,
       "name": "should be equivalent",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 2,
       "name": "should be equivalent",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 2,
       "name": "should be equivalent",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -352,28 +505,52 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 3,
       "name": "should be equal",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 3,
       "name": "should be equal",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 3,
       "name": "should be equal",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -383,43 +560,64 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 4,
       "name": "(unnamed assert)",
       "ok": true,
-      "plan": Object {
+      "plan": Plan {
+        "comment": "",
         "end": 3,
         "start": 1,
       },
+      "previous": null,
+      "skip": false,
       "tapError": "id greater than plan end",
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 4,
       "name": "(unnamed assert)",
       "ok": true,
-      "plan": Object {
+      "plan": Plan {
+        "comment": "",
         "end": 3,
         "start": 1,
       },
+      "previous": null,
+      "skip": false,
       "tapError": "id greater than plan end",
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 4,
       "name": "(unnamed assert)",
       "ok": true,
-      "plan": Object {
+      "plan": Plan {
+        "comment": "",
         "end": 3,
         "start": 1,
       },
+      "previous": null,
+      "skip": false,
       "tapError": "id greater than plan end",
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -427,8 +625,13 @@ Array [
     "1..3\\n",
   ],
   Array [
+    "line",
+    "1..3\\n",
+  ],
+  Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 3,
       "start": 1,
     },
@@ -481,15 +684,22 @@ Array [
       "fail": 1,
       "failures": Array [
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "",
           "id": 4,
           "name": "(unnamed assert)",
           "ok": true,
-          "plan": Object {
+          "plan": Plan {
+            "comment": "",
             "end": 3,
             "start": 1,
           },
+          "previous": null,
+          "skip": false,
           "tapError": "id greater than plan end",
+          "time": null,
+          "todo": false,
         },
       ],
       "ok": false,

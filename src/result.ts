@@ -1,6 +1,6 @@
-import { Plan } from './plan'
 import { OPEN_BRACE_EOL } from './brace-patterns'
 import { Directive, parseDirective } from './parse-directive'
+import { Plan } from './plan'
 
 export type TapError = Result | { tapError: string; [k: string]: any }
 
@@ -53,8 +53,11 @@ export class Result {
       const dirValue = dir[1]
       if (dirKey === 'todo' || dirKey === 'skip') {
         this[dirKey] = dirValue
-      } /* istanbul ignore else */ else if (dirKey === 'time') {
-        this.time = parseFloat(dirValue)
+      } else {
+        /* istanbul ignore else */
+        if (dirKey === 'time') {
+          this.time = parseFloat(dirValue)
+        }
       }
     }
 

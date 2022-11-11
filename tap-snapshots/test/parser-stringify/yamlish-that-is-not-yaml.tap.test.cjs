@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser-stringify.js TAP yamlish-that-is-not-yaml.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP yamlish-that-is-not-yaml.tap bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -14,6 +14,7 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
       "diag": Object {
         "but": "this",
         "is": "yaml",
@@ -22,6 +23,12 @@ Array [
       "id": 1,
       "name": "expected yaml, got a sea turtle",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -65,6 +72,7 @@ Array [
       "fail": 1,
       "failures": Array [
         Result {
+          "buffered": false,
           "diag": Object {
             "but": "this",
             "is": "yaml",
@@ -73,6 +81,12 @@ Array [
           "id": 1,
           "name": "expected yaml, got a sea turtle",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       "ok": false,
@@ -92,7 +106,7 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP yamlish-that-is-not-yaml.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP yamlish-that-is-not-yaml.tap bail > stringified 1`] = `
 TAP version 13
 not ok 1 - expected yaml, got a sea turtle
   ---
@@ -126,7 +140,7 @@ Bail out! expected yaml, got a sea turtle
 
 `
 
-exports[`test/parser-stringify.js TAP yamlish-that-is-not-yaml.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP yamlish-that-is-not-yaml.tap bail > stringified flat 1`] = `
 TAP version 13
 not ok 1 - expected yaml, got a sea turtle
   ---
@@ -160,7 +174,7 @@ Bail out! expected yaml, got a sea turtle
 
 `
 
-exports[`test/parser-stringify.js TAP yamlish-that-is-not-yaml.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP yamlish-that-is-not-yaml.tap default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -169,6 +183,7 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
       "diag": Object {
         "but": "this",
         "is": "yaml",
@@ -177,6 +192,12 @@ Array [
       "id": 1,
       "name": "expected yaml, got a sea turtle",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -210,7 +231,8 @@ Array [
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 1,
       "start": 1,
     },
@@ -227,6 +249,7 @@ Array [
       "fail": 1,
       "failures": Array [
         Result {
+          "buffered": false,
           "diag": Object {
             "but": "this",
             "is": "yaml",
@@ -235,6 +258,12 @@ Array [
           "id": 1,
           "name": "expected yaml, got a sea turtle",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       "ok": false,
@@ -254,77 +283,7 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP yamlish-that-is-not-yaml.tap default settings > stringified 1`] = `
-TAP version 13
-not ok 1 - expected yaml, got a sea turtle
-  ---
-  but: this
-  is: yaml
-  ...
----
-  this is not yaml
-  "In fact, it": : : :%%% <@!<
-  is not 
-                anything
-      but a peaceful
-        Sea Turtle
-                      _,.---.---.---.--.._ 
-                  _.-' \`--.\`---.\`---'-. _,\`--.._
-                 /\`--._ .'.     \`.     \`,\`-.\`-._\\
-                ||   \\  \`.\`---.__\`__..-\`. ,'\`-._/
-           _  ,\`\\ \`-._\\   \\    \`.    \`_.-\`-._,\`\`-.
-        ,\`   \`-_ \\/ \`-.\`--.\\    _\\_.-'\\__.-\`-.\`-._\`.
-       (_.o> ,--. \`._/'--.-\`,--\`  \\_.-'       \\\`-._ \\
-        \`---'    \`._ \`---._/__,----\`           \`-. \`-\\
-                  /_, ,  _..-'                    \`-._\\
-                  \\_, \\/ ._(
-                   \\_, \\/ ._\\
-                    \`._,\\/ ._\\
-                      \`._// ./\`-._
-               LGB      \`-._-_-_.-'
-                   http://www.ascii-art.de/ascii/t/turtle.txt
-...
-1..1
-# failed 1 test
-
-`
-
-exports[`test/parser-stringify.js TAP yamlish-that-is-not-yaml.tap default settings > stringified flat 1`] = `
-TAP version 13
-not ok 1 - expected yaml, got a sea turtle
-  ---
-  but: this
-  is: yaml
-  ...
----
-  this is not yaml
-  "In fact, it": : : :%%% <@!<
-  is not 
-                anything
-      but a peaceful
-        Sea Turtle
-                      _,.---.---.---.--.._ 
-                  _.-' \`--.\`---.\`---'-. _,\`--.._
-                 /\`--._ .'.     \`.     \`,\`-.\`-._\\
-                ||   \\  \`.\`---.__\`__..-\`. ,'\`-._/
-           _  ,\`\\ \`-._\\   \\    \`.    \`_.-\`-._,\`\`-.
-        ,\`   \`-_ \\/ \`-.\`--.\\    _\\_.-'\\__.-\`-.\`-._\`.
-       (_.o> ,--. \`._/'--.-\`,--\`  \\_.-'       \\\`-._ \\
-        \`---'    \`._ \`---._/__,----\`           \`-. \`-\\
-                  /_, ,  _..-'                    \`-._\\
-                  \\_, \\/ ._(
-                   \\_, \\/ ._\\
-                    \`._,\\/ ._\\
-                      \`._// ./\`-._
-               LGB      \`-._-_-_.-'
-                   http://www.ascii-art.de/ascii/t/turtle.txt
-...
-1..1
-# failed 1 test
-
-`
-
-exports[`test/parser-stringify.js TAP yamlish-that-is-not-yaml.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP yamlish-that-is-not-yaml.tap default settings > parsed flat 1`] = `
 Array [
   Array [
     "version",
@@ -333,6 +292,7 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
       "diag": Object {
         "but": "this",
         "is": "yaml",
@@ -341,6 +301,190 @@ Array [
       "id": 1,
       "name": "expected yaml, got a sea turtle",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "extra",
+    String(
+      ---
+        this is not yaml
+        "In fact, it": : : :%%% <@!<
+        is not 
+                      anything
+            but a peaceful
+              Sea Turtle
+                            _,.---.---.---.--.._ 
+                        _.-' \`--.\`---.\`---'-. _,\`--.._
+                       /\`--._ .'.     \`.     \`,\`-.\`-._\\\\
+                      ||   \\\\  \`.\`---.__\`__..-\`. ,'\`-._/
+                 _  ,\`\\\\ \`-._\\\\   \\\\    \`.    \`_.-\`-._,\`\`-.
+              ,\`   \`-_ \\\\/ \`-.\`--.\\\\    _\\\\_.-'\\\\__.-\`-.\`-._\`.
+             (_.o> ,--. \`._/'--.-\`,--\`  \\\\_.-'       \\\\\`-._ \\\\
+              \`---'    \`._ \`---._/__,----\`           \`-. \`-\\\\
+                        /_, ,  _..-'                    \`-._\\\\
+                        \\\\_, \\\\/ ._(
+                         \\\\_, \\\\/ ._\\\\
+                          \`._,\\\\/ ._\\\\
+                            \`._// ./\`-._
+                     LGB      \`-._-_-_.-'
+                         http://www.ascii-art.de/ascii/t/turtle.txt
+      ...
+      
+    ),
+  ],
+  Array [
+    "comment",
+    "# failed 1 test\\n",
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 1,
+      "start": 1,
+    },
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 1,
+      "fail": 1,
+      "failures": Array [
+        Result {
+          "buffered": false,
+          "diag": Object {
+            "but": "this",
+            "is": "yaml",
+          },
+          "fullname": "",
+          "id": 1,
+          "name": "expected yaml, got a sea turtle",
+          "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
+        },
+      ],
+      "ok": false,
+      "pass": 0,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 1,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parse-stringify.ts TAP yamlish-that-is-not-yaml.tap default settings > stringified 1`] = `
+TAP version 13
+not ok 1 - expected yaml, got a sea turtle
+  ---
+  but: this
+  is: yaml
+  ...
+---
+  this is not yaml
+  "In fact, it": : : :%%% <@!<
+  is not 
+                anything
+      but a peaceful
+        Sea Turtle
+                      _,.---.---.---.--.._ 
+                  _.-' \`--.\`---.\`---'-. _,\`--.._
+                 /\`--._ .'.     \`.     \`,\`-.\`-._\\
+                ||   \\  \`.\`---.__\`__..-\`. ,'\`-._/
+           _  ,\`\\ \`-._\\   \\    \`.    \`_.-\`-._,\`\`-.
+        ,\`   \`-_ \\/ \`-.\`--.\\    _\\_.-'\\__.-\`-.\`-._\`.
+       (_.o> ,--. \`._/'--.-\`,--\`  \\_.-'       \\\`-._ \\
+        \`---'    \`._ \`---._/__,----\`           \`-. \`-\\
+                  /_, ,  _..-'                    \`-._\\
+                  \\_, \\/ ._(
+                   \\_, \\/ ._\\
+                    \`._,\\/ ._\\
+                      \`._// ./\`-._
+               LGB      \`-._-_-_.-'
+                   http://www.ascii-art.de/ascii/t/turtle.txt
+...
+1..1
+# failed 1 test
+
+`
+
+exports[`test/parse-stringify.ts TAP yamlish-that-is-not-yaml.tap default settings > stringified flat 1`] = `
+TAP version 13
+not ok 1 - expected yaml, got a sea turtle
+  ---
+  but: this
+  is: yaml
+  ...
+---
+  this is not yaml
+  "In fact, it": : : :%%% <@!<
+  is not 
+                anything
+      but a peaceful
+        Sea Turtle
+                      _,.---.---.---.--.._ 
+                  _.-' \`--.\`---.\`---'-. _,\`--.._
+                 /\`--._ .'.     \`.     \`,\`-.\`-._\\
+                ||   \\  \`.\`---.__\`__..-\`. ,'\`-._/
+           _  ,\`\\ \`-._\\   \\    \`.    \`_.-\`-._,\`\`-.
+        ,\`   \`-_ \\/ \`-.\`--.\\    _\\_.-'\\__.-\`-.\`-._\`.
+       (_.o> ,--. \`._/'--.-\`,--\`  \\_.-'       \\\`-._ \\
+        \`---'    \`._ \`---._/__,----\`           \`-. \`-\\
+                  /_, ,  _..-'                    \`-._\\
+                  \\_, \\/ ._(
+                   \\_, \\/ ._\\
+                    \`._,\\/ ._\\
+                      \`._// ./\`-._
+               LGB      \`-._-_-_.-'
+                   http://www.ascii-art.de/ascii/t/turtle.txt
+...
+1..1
+# failed 1 test
+
+`
+
+exports[`test/parse-stringify.ts TAP yamlish-that-is-not-yaml.tap strict > parsed 1`] = `
+Array [
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "assert",
+    Result {
+      "buffered": false,
+      "diag": Object {
+        "but": "this",
+        "is": "yaml",
+      },
+      "fullname": "",
+      "id": 1,
+      "name": "expected yaml, got a sea turtle",
+      "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -374,7 +518,8 @@ Array [
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 1,
       "start": 1,
     },
@@ -420,6 +565,7 @@ Array [
           "tapError": "Non-TAP data encountered in strict mode",
         },
         Result {
+          "buffered": false,
           "diag": Object {
             "but": "this",
             "is": "yaml",
@@ -428,6 +574,12 @@ Array [
           "id": 1,
           "name": "expected yaml, got a sea turtle",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       "ok": false,
@@ -447,7 +599,7 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP yamlish-that-is-not-yaml.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP yamlish-that-is-not-yaml.tap strict > stringified 1`] = `
 TAP version 13
 not ok 1 - expected yaml, got a sea turtle
   ---
@@ -482,7 +634,7 @@ not ok 1 - expected yaml, got a sea turtle
 
 `
 
-exports[`test/parser-stringify.js TAP yamlish-that-is-not-yaml.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP yamlish-that-is-not-yaml.tap strict > stringified flat 1`] = `
 TAP version 13
 not ok 1 - expected yaml, got a sea turtle
   ---
@@ -517,7 +669,7 @@ not ok 1 - expected yaml, got a sea turtle
 
 `
 
-exports[`test/parser-stringify.js TAP yamlish-that-is-not-yaml.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP yamlish-that-is-not-yaml.tap strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -526,6 +678,7 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
       "diag": Object {
         "but": "this",
         "is": "yaml",
@@ -534,6 +687,12 @@ Array [
       "id": 1,
       "name": "expected yaml, got a sea turtle",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -606,6 +765,7 @@ Array [
           "tapError": "Non-TAP data encountered in strict mode",
         },
         Result {
+          "buffered": false,
           "diag": Object {
             "but": "this",
             "is": "yaml",
@@ -614,6 +774,12 @@ Array [
           "id": 1,
           "name": "expected yaml, got a sea turtle",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       "ok": false,
@@ -633,7 +799,7 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP yamlish-that-is-not-yaml.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP yamlish-that-is-not-yaml.tap strictBail > stringified 1`] = `
 TAP version 13
 not ok 1 - expected yaml, got a sea turtle
   ---
@@ -667,7 +833,7 @@ Bail out! expected yaml, got a sea turtle
 
 `
 
-exports[`test/parser-stringify.js TAP yamlish-that-is-not-yaml.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP yamlish-that-is-not-yaml.tap strictBail > stringified flat 1`] = `
 TAP version 13
 not ok 1 - expected yaml, got a sea turtle
   ---

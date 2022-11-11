@@ -5,101 +5,182 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser-stringify.js TAP out_of_order.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP out_of_order.tap bail > parsed 1`] = `
 Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 2,
       "name": "Test that argument passing works",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 3,
       "name": "Test that passing arguments as references work",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 4,
       "name": "Test a normal sub",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 6,
       "name": "Detach test",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 8,
       "name": "Nested thread test",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 9,
       "name": "Nested thread test",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 10,
       "name": "Wanted 7, got 7",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 11,
       "name": "Wanted 7, got 7",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 12,
       "name": "Wanted 8, got 8",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 13,
       "name": "Wanted 8, got 8",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 15,
       "start": 1,
     },
@@ -160,7 +241,7 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP out_of_order.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP out_of_order.tap bail > stringified 1`] = `
 ok 2 - Test that argument passing works
 ok 3 - Test that passing arguments as references work
 ok 4 - Test a normal sub
@@ -182,18 +263,18 @@ ok 15 - Check so that tid for threads work for main thread
 
 `
 
-exports[`test/parser-stringify.js TAP out_of_order.tap bail > stringified flat 1`] = `
-ok 2 - Test that argument passing works
-ok 3 - Test that passing arguments as references work
-ok 4 - Test a normal sub
-ok 6 - Detach test
-ok 8 - Nested thread test
-ok 9 - Nested thread test
-ok 10 - Wanted 7, got 7
-ok 11 - Wanted 7, got 7
-ok 12 - Wanted 8, got 8
-ok 13 - Wanted 8, got 8
-1..15
+exports[`test/parse-stringify.ts TAP out_of_order.tap bail > stringified flat 1`] = `
+ok 1 - Test that argument passing works
+ok 2 - Test that passing arguments as references work
+ok 3 - Test a normal sub
+ok 4 - Detach test
+ok 5 - Nested thread test
+ok 6 - Nested thread test
+ok 7 - Wanted 7, got 7
+ok 8 - Wanted 7, got 7
+ok 9 - Wanted 8, got 8
+ok 10 - Wanted 8, got 8
+1..10
 ok 1
 ok 5 - Check that Config::threads is true
 ok 7 - Detach test
@@ -204,101 +285,182 @@ ok 15 - Check so that tid for threads work for main thread
 
 `
 
-exports[`test/parser-stringify.js TAP out_of_order.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP out_of_order.tap default settings > parsed 1`] = `
 Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 2,
       "name": "Test that argument passing works",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 3,
       "name": "Test that passing arguments as references work",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 4,
       "name": "Test a normal sub",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 6,
       "name": "Detach test",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 8,
       "name": "Nested thread test",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 9,
       "name": "Nested thread test",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 10,
       "name": "Wanted 7, got 7",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 11,
       "name": "Wanted 7, got 7",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 12,
       "name": "Wanted 8, got 8",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 13,
       "name": "Wanted 8, got 8",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 15,
       "start": 1,
     },
@@ -359,145 +521,461 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP out_of_order.tap default settings > stringified 1`] = `
-ok 2 - Test that argument passing works
-ok 3 - Test that passing arguments as references work
-ok 4 - Test a normal sub
-ok 6 - Detach test
-ok 8 - Nested thread test
-ok 9 - Nested thread test
-ok 10 - Wanted 7, got 7
-ok 11 - Wanted 7, got 7
-ok 12 - Wanted 8, got 8
-ok 13 - Wanted 8, got 8
-1..15
-ok 1
-ok 5 - Check that Config::threads is true
-ok 7 - Detach test
-ok 14 - Check so that tid for threads work for main thread
-ok 15 - Check so that tid for threads work for main thread
-# test count(10) != plan(15)
-# failed 1 of 10 tests
-
-`
-
-exports[`test/parser-stringify.js TAP out_of_order.tap default settings > stringified flat 1`] = `
-ok 2 - Test that argument passing works
-ok 3 - Test that passing arguments as references work
-ok 4 - Test a normal sub
-ok 6 - Detach test
-ok 8 - Nested thread test
-ok 9 - Nested thread test
-ok 10 - Wanted 7, got 7
-ok 11 - Wanted 7, got 7
-ok 12 - Wanted 8, got 8
-ok 13 - Wanted 8, got 8
-1..15
-ok 1
-ok 5 - Check that Config::threads is true
-ok 7 - Detach test
-ok 14 - Check so that tid for threads work for main thread
-ok 15 - Check so that tid for threads work for main thread
-# test count(10) != plan(15)
-# failed 1 of 10 tests
-
-`
-
-exports[`test/parser-stringify.js TAP out_of_order.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP out_of_order.tap default settings > parsed flat 1`] = `
 Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
-      "id": 2,
+      "id": 1,
       "name": "Test that argument passing works",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
-      "id": 3,
+      "id": 2,
       "name": "Test that passing arguments as references work",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
-      "id": 4,
+      "id": 3,
       "name": "Test a normal sub",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
-      "id": 6,
+      "id": 4,
       "name": "Detach test",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
+      "fullname": "",
+      "id": 5,
+      "name": "Nested thread test",
+      "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "buffered": false,
+      "diag": null,
+      "fullname": "",
+      "id": 6,
+      "name": "Nested thread test",
+      "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "buffered": false,
+      "diag": null,
+      "fullname": "",
+      "id": 7,
+      "name": "Wanted 7, got 7",
+      "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 8,
-      "name": "Nested thread test",
+      "name": "Wanted 7, got 7",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 9,
-      "name": "Nested thread test",
+      "name": "Wanted 8, got 8",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 10,
-      "name": "Wanted 7, got 7",
-      "ok": true,
-    },
-  ],
-  Array [
-    "assert",
-    Result {
-      "fullname": "",
-      "id": 11,
-      "name": "Wanted 7, got 7",
-      "ok": true,
-    },
-  ],
-  Array [
-    "assert",
-    Result {
-      "fullname": "",
-      "id": 12,
       "name": "Wanted 8, got 8",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
-    "assert",
-    Result {
-      "fullname": "",
-      "id": 13,
-      "name": "Wanted 8, got 8",
-      "ok": true,
-    },
+    "extra",
+    "ok 1\\n",
+  ],
+  Array [
+    "extra",
+    "ok 5 - Check that Config::threads is true\\n",
+  ],
+  Array [
+    "extra",
+    "ok 7 - Detach test\\n",
+  ],
+  Array [
+    "extra",
+    "ok 14 - Check so that tid for threads work for main thread\\n",
+  ],
+  Array [
+    "extra",
+    "ok 15 - Check so that tid for threads work for main thread\\n",
+  ],
+  Array [
+    "comment",
+    "# test count(10) != plan(15)\\n",
+  ],
+  Array [
+    "comment",
+    "# failed 1 of 10 tests\\n",
   ],
   Array [
     "plan",
     Object {
+      "end": 10,
+      "start": 1,
+    },
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 10,
+      "fail": 1,
+      "failures": Array [
+        Object {
+          "tapError": "incorrect number of tests",
+        },
+      ],
+      "ok": false,
+      "pass": 10,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 15,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parse-stringify.ts TAP out_of_order.tap default settings > stringified 1`] = `
+ok 2 - Test that argument passing works
+ok 3 - Test that passing arguments as references work
+ok 4 - Test a normal sub
+ok 6 - Detach test
+ok 8 - Nested thread test
+ok 9 - Nested thread test
+ok 10 - Wanted 7, got 7
+ok 11 - Wanted 7, got 7
+ok 12 - Wanted 8, got 8
+ok 13 - Wanted 8, got 8
+1..15
+ok 1
+ok 5 - Check that Config::threads is true
+ok 7 - Detach test
+ok 14 - Check so that tid for threads work for main thread
+ok 15 - Check so that tid for threads work for main thread
+# test count(10) != plan(15)
+# failed 1 of 10 tests
+
+`
+
+exports[`test/parse-stringify.ts TAP out_of_order.tap default settings > stringified flat 1`] = `
+ok 1 - Test that argument passing works
+ok 2 - Test that passing arguments as references work
+ok 3 - Test a normal sub
+ok 4 - Detach test
+ok 5 - Nested thread test
+ok 6 - Nested thread test
+ok 7 - Wanted 7, got 7
+ok 8 - Wanted 7, got 7
+ok 9 - Wanted 8, got 8
+ok 10 - Wanted 8, got 8
+1..10
+ok 1
+ok 5 - Check that Config::threads is true
+ok 7 - Detach test
+ok 14 - Check so that tid for threads work for main thread
+ok 15 - Check so that tid for threads work for main thread
+# test count(10) != plan(15)
+# failed 1 of 10 tests
+
+`
+
+exports[`test/parse-stringify.ts TAP out_of_order.tap strict > parsed 1`] = `
+Array [
+  Array [
+    "assert",
+    Result {
+      "buffered": false,
+      "diag": null,
+      "fullname": "",
+      "id": 2,
+      "name": "Test that argument passing works",
+      "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "buffered": false,
+      "diag": null,
+      "fullname": "",
+      "id": 3,
+      "name": "Test that passing arguments as references work",
+      "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "buffered": false,
+      "diag": null,
+      "fullname": "",
+      "id": 4,
+      "name": "Test a normal sub",
+      "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "buffered": false,
+      "diag": null,
+      "fullname": "",
+      "id": 6,
+      "name": "Detach test",
+      "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "buffered": false,
+      "diag": null,
+      "fullname": "",
+      "id": 8,
+      "name": "Nested thread test",
+      "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "buffered": false,
+      "diag": null,
+      "fullname": "",
+      "id": 9,
+      "name": "Nested thread test",
+      "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "buffered": false,
+      "diag": null,
+      "fullname": "",
+      "id": 10,
+      "name": "Wanted 7, got 7",
+      "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "buffered": false,
+      "diag": null,
+      "fullname": "",
+      "id": 11,
+      "name": "Wanted 7, got 7",
+      "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "buffered": false,
+      "diag": null,
+      "fullname": "",
+      "id": 12,
+      "name": "Wanted 8, got 8",
+      "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "buffered": false,
+      "diag": null,
+      "fullname": "",
+      "id": 13,
+      "name": "Wanted 8, got 8",
+      "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "plan",
+    Plan {
+      "comment": "",
       "end": 15,
       "start": 1,
     },
@@ -575,7 +1053,7 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP out_of_order.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP out_of_order.tap strict > stringified 1`] = `
 ok 2 - Test that argument passing works
 ok 3 - Test that passing arguments as references work
 ok 4 - Test a normal sub
@@ -597,18 +1075,18 @@ ok 15 - Check so that tid for threads work for main thread
 
 `
 
-exports[`test/parser-stringify.js TAP out_of_order.tap strict > stringified flat 1`] = `
-ok 2 - Test that argument passing works
-ok 3 - Test that passing arguments as references work
-ok 4 - Test a normal sub
-ok 6 - Detach test
-ok 8 - Nested thread test
-ok 9 - Nested thread test
-ok 10 - Wanted 7, got 7
-ok 11 - Wanted 7, got 7
-ok 12 - Wanted 8, got 8
-ok 13 - Wanted 8, got 8
-1..15
+exports[`test/parse-stringify.ts TAP out_of_order.tap strict > stringified flat 1`] = `
+ok 1 - Test that argument passing works
+ok 2 - Test that passing arguments as references work
+ok 3 - Test a normal sub
+ok 4 - Detach test
+ok 5 - Nested thread test
+ok 6 - Nested thread test
+ok 7 - Wanted 7, got 7
+ok 8 - Wanted 7, got 7
+ok 9 - Wanted 8, got 8
+ok 10 - Wanted 8, got 8
+1..10
 ok 1
 ok 5 - Check that Config::threads is true
 ok 7 - Detach test
@@ -619,101 +1097,182 @@ ok 15 - Check so that tid for threads work for main thread
 
 `
 
-exports[`test/parser-stringify.js TAP out_of_order.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP out_of_order.tap strictBail > parsed 1`] = `
 Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 2,
       "name": "Test that argument passing works",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 3,
       "name": "Test that passing arguments as references work",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 4,
       "name": "Test a normal sub",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 6,
       "name": "Detach test",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 8,
       "name": "Nested thread test",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 9,
       "name": "Nested thread test",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 10,
       "name": "Wanted 7, got 7",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 11,
       "name": "Wanted 7, got 7",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 12,
       "name": "Wanted 8, got 8",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 13,
       "name": "Wanted 8, got 8",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 15,
       "start": 1,
     },
@@ -791,7 +1350,7 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP out_of_order.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP out_of_order.tap strictBail > stringified 1`] = `
 ok 2 - Test that argument passing works
 ok 3 - Test that passing arguments as references work
 ok 4 - Test a normal sub
@@ -813,18 +1372,18 @@ ok 15 - Check so that tid for threads work for main thread
 
 `
 
-exports[`test/parser-stringify.js TAP out_of_order.tap strictBail > stringified flat 1`] = `
-ok 2 - Test that argument passing works
-ok 3 - Test that passing arguments as references work
-ok 4 - Test a normal sub
-ok 6 - Detach test
-ok 8 - Nested thread test
-ok 9 - Nested thread test
-ok 10 - Wanted 7, got 7
-ok 11 - Wanted 7, got 7
-ok 12 - Wanted 8, got 8
-ok 13 - Wanted 8, got 8
-1..15
+exports[`test/parse-stringify.ts TAP out_of_order.tap strictBail > stringified flat 1`] = `
+ok 1 - Test that argument passing works
+ok 2 - Test that passing arguments as references work
+ok 3 - Test a normal sub
+ok 4 - Detach test
+ok 5 - Nested thread test
+ok 6 - Nested thread test
+ok 7 - Wanted 7, got 7
+ok 8 - Wanted 7, got 7
+ok 9 - Wanted 8, got 8
+ok 10 - Wanted 8, got 8
+1..10
 ok 1
 ok 5 - Check that Config::threads is true
 ok 7 - Detach test

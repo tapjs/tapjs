@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser-stringify.js TAP fail-right-before-indented-child.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP fail-right-before-indented-child.tap bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -14,8 +14,18 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
+      "id": 0,
+      "name": "",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -30,8 +40,18 @@ Array [
       "fail": 1,
       "failures": Array [
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "",
+          "id": 0,
+          "name": "",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       "ok": false,
@@ -51,21 +71,21 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP fail-right-before-indented-child.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP fail-right-before-indented-child.tap bail > stringified 1`] = `
 TAP version 13
 not ok
 Bail out!
 
 `
 
-exports[`test/parser-stringify.js TAP fail-right-before-indented-child.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP fail-right-before-indented-child.tap bail > stringified flat 1`] = `
 TAP version 13
-not ok
+not ok 1
 Bail out!
 
 `
 
-exports[`test/parser-stringify.js TAP fail-right-before-indented-child.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP fail-right-before-indented-child.tap default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -74,8 +94,18 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
+      "id": 0,
+      "name": "",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -87,7 +117,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -95,8 +126,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "maybe a child",
+          "id": 0,
+          "name": "",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -125,9 +166,18 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
+      "id": 0,
       "name": "maybe a child",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -146,8 +196,18 @@ Array [
       "fail": 2,
       "failures": Array [
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "",
+          "id": 0,
+          "name": "",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
         Object {
           "tapError": "no plan",
@@ -170,31 +230,7 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP fail-right-before-indented-child.tap default settings > stringified 1`] = `
-TAP version 13
-not ok
-# Subtest: maybe a child
-    1..1
-    ok
-ok - maybe a child
-# test count(2) != plan(null)
-# failed 2 of 2 tests
-
-`
-
-exports[`test/parser-stringify.js TAP fail-right-before-indented-child.tap default settings > stringified flat 1`] = `
-TAP version 13
-not ok
-# Subtest: maybe a child
-    1..1
-    ok
-ok - maybe a child
-# test count(2) != plan(null)
-# failed 2 of 2 tests
-
-`
-
-exports[`test/parser-stringify.js TAP fail-right-before-indented-child.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP fail-right-before-indented-child.tap default settings > parsed flat 1`] = `
 Array [
   Array [
     "version",
@@ -203,8 +239,138 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
+      "id": 1,
+      "name": "",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "buffered": false,
+      "diag": null,
+      "fullname": "",
+      "id": 2,
+      "name": "maybe a child",
+      "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "comment",
+    "# test count(2) != plan(null)\\n",
+  ],
+  Array [
+    "comment",
+    "# failed 2 of 2 tests\\n",
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 2,
+      "start": 1,
+    },
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 2,
+      "fail": 2,
+      "failures": Array [
+        Result {
+          "buffered": false,
+          "diag": null,
+          "fullname": "",
+          "id": 1,
+          "name": "",
+          "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
+        },
+        Object {
+          "tapError": "no plan",
+        },
+      ],
+      "ok": false,
+      "pass": 1,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": null,
+        "skipAll": false,
+        "skipReason": "",
+        "start": null,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parse-stringify.ts TAP fail-right-before-indented-child.tap default settings > stringified 1`] = `
+TAP version 13
+not ok
+# Subtest: maybe a child
+    1..1
+    ok
+ok - maybe a child
+# test count(2) != plan(null)
+# failed 2 of 2 tests
+
+`
+
+exports[`test/parse-stringify.ts TAP fail-right-before-indented-child.tap default settings > stringified flat 1`] = `
+TAP version 13
+not ok 1
+# Subtest: maybe a child
+ok 2 - maybe a child
+ok 3 - maybe a child
+# test count(2) != plan(null)
+# failed 2 of 2 tests
+
+`
+
+exports[`test/parse-stringify.ts TAP fail-right-before-indented-child.tap strict > parsed 1`] = `
+Array [
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "assert",
+    Result {
+      "buffered": false,
+      "diag": null,
+      "fullname": "",
+      "id": 0,
+      "name": "",
+      "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -216,7 +382,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -224,8 +391,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "maybe a child",
+          "id": 0,
+          "name": "",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -254,9 +431,18 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
+      "id": 0,
       "name": "maybe a child",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -275,8 +461,18 @@ Array [
       "fail": 2,
       "failures": Array [
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "",
+          "id": 0,
+          "name": "",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
         Object {
           "tapError": "no plan",
@@ -299,7 +495,7 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP fail-right-before-indented-child.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP fail-right-before-indented-child.tap strict > stringified 1`] = `
 TAP version 13
 not ok
 # Subtest: maybe a child
@@ -311,19 +507,18 @@ ok - maybe a child
 
 `
 
-exports[`test/parser-stringify.js TAP fail-right-before-indented-child.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP fail-right-before-indented-child.tap strict > stringified flat 1`] = `
 TAP version 13
-not ok
+not ok 1
 # Subtest: maybe a child
-    1..1
-    ok
-ok - maybe a child
+ok 2 - maybe a child
+ok 3 - maybe a child
 # test count(2) != plan(null)
 # failed 2 of 2 tests
 
 `
 
-exports[`test/parser-stringify.js TAP fail-right-before-indented-child.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP fail-right-before-indented-child.tap strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -332,8 +527,18 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
+      "id": 0,
+      "name": "",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -348,8 +553,18 @@ Array [
       "fail": 1,
       "failures": Array [
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "",
+          "id": 0,
+          "name": "",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       "ok": false,
@@ -369,16 +584,16 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP fail-right-before-indented-child.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP fail-right-before-indented-child.tap strictBail > stringified 1`] = `
 TAP version 13
 not ok
 Bail out!
 
 `
 
-exports[`test/parser-stringify.js TAP fail-right-before-indented-child.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP fail-right-before-indented-child.tap strictBail > stringified flat 1`] = `
 TAP version 13
-not ok
+not ok 1
 Bail out!
 
 `

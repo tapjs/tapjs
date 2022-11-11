@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser.js TAP skip-all.tap > output bail=false 1`] = `
+exports[`test/parser.ts TAP skip-all.tap > output bail=false 1`] = `
 Array [
   Array [
     "line",
@@ -21,7 +21,7 @@ Array [
   ],
   Array [
     "plan",
-    Object {
+    Plan {
       "comment": "SKIP Insufficient positron flux",
       "end": 0,
       "start": 1,
@@ -51,7 +51,7 @@ Array [
 ]
 `
 
-exports[`test/parser.js TAP skip-all.tap > output bail=true 1`] = `
+exports[`test/parser.ts TAP skip-all.tap > output bail=true 1`] = `
 Array [
   Array [
     "line",
@@ -67,7 +67,7 @@ Array [
   ],
   Array [
     "plan",
-    Object {
+    Plan {
       "comment": "SKIP Insufficient positron flux",
       "end": 0,
       "start": 1,

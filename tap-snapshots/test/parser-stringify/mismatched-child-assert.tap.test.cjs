@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser-stringify.js TAP mismatched-child-assert.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP mismatched-child-assert.tap bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -21,15 +21,24 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "some child",
           "id": 1,
           "name": "this is fine",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -60,15 +69,24 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "different name",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 1,
       "start": 1,
     },
@@ -97,7 +115,7 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP mismatched-child-assert.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP mismatched-child-assert.tap bail > stringified 1`] = `
 TAP version 13
 # Subtest: some child
     ok 1 - this is fine
@@ -107,17 +125,16 @@ ok 1 - different name
 
 `
 
-exports[`test/parser-stringify.js TAP mismatched-child-assert.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP mismatched-child-assert.tap bail > stringified flat 1`] = `
 TAP version 13
 # Subtest: some child
-    ok 1 - this is fine
-    1..1
-ok 1 - different name
-1..1
+ok 1 - some child > this is fine
+ok 2 - different name
+1..2
 
 `
 
-exports[`test/parser-stringify.js TAP mismatched-child-assert.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP mismatched-child-assert.tap default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -133,15 +150,24 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "some child",
           "id": 1,
           "name": "this is fine",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -172,15 +198,24 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "different name",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 1,
       "start": 1,
     },
@@ -209,7 +244,78 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP mismatched-child-assert.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP mismatched-child-assert.tap default settings > parsed flat 1`] = `
+Array [
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "assert",
+    Result {
+      "buffered": false,
+      "diag": null,
+      "fullname": "",
+      "id": 1,
+      "name": "some child > this is fine",
+      "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "buffered": false,
+      "diag": null,
+      "fullname": "",
+      "id": 2,
+      "name": "different name",
+      "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 2,
+      "start": 1,
+    },
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 1,
+      "fail": 0,
+      "failures": Array [],
+      "ok": true,
+      "pass": 1,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 1,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parse-stringify.ts TAP mismatched-child-assert.tap default settings > stringified 1`] = `
 TAP version 13
 # Subtest: some child
     ok 1 - this is fine
@@ -219,17 +325,16 @@ ok 1 - different name
 
 `
 
-exports[`test/parser-stringify.js TAP mismatched-child-assert.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP mismatched-child-assert.tap default settings > stringified flat 1`] = `
 TAP version 13
 # Subtest: some child
-    ok 1 - this is fine
-    1..1
-ok 1 - different name
-1..1
+ok 1 - some child > this is fine
+ok 2 - different name
+1..2
 
 `
 
-exports[`test/parser-stringify.js TAP mismatched-child-assert.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP mismatched-child-assert.tap strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -245,15 +350,24 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "some child",
           "id": 1,
           "name": "this is fine",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -284,15 +398,24 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "different name",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 1,
       "start": 1,
     },
@@ -321,7 +444,7 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP mismatched-child-assert.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP mismatched-child-assert.tap strict > stringified 1`] = `
 TAP version 13
 # Subtest: some child
     ok 1 - this is fine
@@ -331,17 +454,16 @@ ok 1 - different name
 
 `
 
-exports[`test/parser-stringify.js TAP mismatched-child-assert.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP mismatched-child-assert.tap strict > stringified flat 1`] = `
 TAP version 13
 # Subtest: some child
-    ok 1 - this is fine
-    1..1
-ok 1 - different name
-1..1
+ok 1 - some child > this is fine
+ok 2 - different name
+1..2
 
 `
 
-exports[`test/parser-stringify.js TAP mismatched-child-assert.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP mismatched-child-assert.tap strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -357,15 +479,24 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "some child",
           "id": 1,
           "name": "this is fine",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -396,15 +527,24 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "different name",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 1,
       "start": 1,
     },
@@ -433,7 +573,7 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP mismatched-child-assert.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP mismatched-child-assert.tap strictBail > stringified 1`] = `
 TAP version 13
 # Subtest: some child
     ok 1 - this is fine
@@ -443,12 +583,11 @@ ok 1 - different name
 
 `
 
-exports[`test/parser-stringify.js TAP mismatched-child-assert.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP mismatched-child-assert.tap strictBail > stringified flat 1`] = `
 TAP version 13
 # Subtest: some child
-    ok 1 - this is fine
-    1..1
-ok 1 - different name
-1..1
+ok 1 - some child > this is fine
+ok 2 - different name
+1..2
 
 `

@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/abort.js TAP buffered abort empty diags > lines 1`] = `
+exports[`test/abort.ts TAP buffered abort empty diags > lines 1`] = `
 Array [
   "ok 1 - nesting {\\n",
   "    1..2\\n",
@@ -25,17 +25,25 @@ Array [
 ]
 `
 
-exports[`test/abort.js TAP buffered abort empty diags > results 1`] = `
+exports[`test/abort.ts TAP buffered abort empty diags > results 1`] = `
 FinalResults {
   "bailout": false,
   "count": 2,
   "fail": 1,
   "failures": Array [
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 2,
       "name": "nope",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   "ok": false,
@@ -53,7 +61,7 @@ FinalResults {
 }
 `
 
-exports[`test/abort.js TAP buffered abort no diags > lines 1`] = `
+exports[`test/abort.ts TAP buffered abort no diags > lines 1`] = `
 Array [
   "ok 1 - nesting {\\n",
   "    1..2\\n",
@@ -64,26 +72,34 @@ Array [
   "    ok 1 - first\\n",
   "    ok 2 - second {\\n",
   "        ok 1 - but that is ok\\n",
-  "        not ok 2 - nope\\n",
+  "        not ok 2 - \\n",
   "        1..2\\n",
   "    }\\n",
   "}\\n",
-  "not ok 2 - nope\\n",
+  "not ok 2 - \\n",
   "1..2\\n",
 ]
 `
 
-exports[`test/abort.js TAP buffered abort no diags > results 1`] = `
+exports[`test/abort.ts TAP buffered abort no diags > results 1`] = `
 FinalResults {
   "bailout": false,
   "count": 2,
   "fail": 1,
   "failures": Array [
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 2,
-      "name": "nope",
+      "name": "",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   "ok": false,
@@ -101,7 +117,7 @@ FinalResults {
 }
 `
 
-exports[`test/abort.js TAP buffered abort with diags > lines 1`] = `
+exports[`test/abort.ts TAP buffered abort with diags > lines 1`] = `
 Array [
   "ok 1 - nesting {\\n",
   "    1..2\\n",
@@ -124,17 +140,25 @@ Array [
 ]
 `
 
-exports[`test/abort.js TAP buffered abort with diags > results 1`] = `
+exports[`test/abort.ts TAP buffered abort with diags > results 1`] = `
 FinalResults {
   "bailout": false,
   "count": 2,
   "fail": 1,
   "failures": Array [
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 2,
       "name": "nope",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   "ok": false,
@@ -152,7 +176,7 @@ FinalResults {
 }
 `
 
-exports[`test/abort.js TAP unbuffered abort empty diags > lines 1`] = `
+exports[`test/abort.ts TAP unbuffered abort empty diags > lines 1`] = `
 Array [
   "ok 1 - nesting {\\n",
   "    1..2\\n",
@@ -167,17 +191,25 @@ Array [
 ]
 `
 
-exports[`test/abort.js TAP unbuffered abort empty diags > must match snapshot 1`] = `
+exports[`test/abort.ts TAP unbuffered abort empty diags > results 1`] = `
 FinalResults {
   "bailout": false,
   "count": 2,
   "fail": 1,
   "failures": Array [
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 2,
       "name": "nope",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   "ok": false,
@@ -195,7 +227,7 @@ FinalResults {
 }
 `
 
-exports[`test/abort.js TAP unbuffered abort no diags > lines 1`] = `
+exports[`test/abort.ts TAP unbuffered abort no diags > lines 1`] = `
 Array [
   "ok 1 - nesting {\\n",
   "    1..2\\n",
@@ -210,17 +242,25 @@ Array [
 ]
 `
 
-exports[`test/abort.js TAP unbuffered abort no diags > must match snapshot 1`] = `
+exports[`test/abort.ts TAP unbuffered abort no diags > results 1`] = `
 FinalResults {
   "bailout": false,
   "count": 2,
   "fail": 1,
   "failures": Array [
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 2,
       "name": "nope",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   "ok": false,
@@ -238,7 +278,7 @@ FinalResults {
 }
 `
 
-exports[`test/abort.js TAP unbuffered abort with diags > lines 1`] = `
+exports[`test/abort.ts TAP unbuffered abort with diags > lines 1`] = `
 Array [
   "ok 1 - nesting {\\n",
   "    1..2\\n",
@@ -256,17 +296,25 @@ Array [
 ]
 `
 
-exports[`test/abort.js TAP unbuffered abort with diags > must match snapshot 1`] = `
+exports[`test/abort.ts TAP unbuffered abort with diags > results 1`] = `
 FinalResults {
   "bailout": false,
   "count": 2,
   "fail": 1,
   "failures": Array [
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 2,
       "name": "nope",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   "ok": false,

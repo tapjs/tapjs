@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/strict.js TAP strictness is inherited > failures 1`] = `
+exports[`test/strict.ts TAP strictness is inherited > failures 1`] = `
 Array [
   Object {
     "data": "flerggy blerg\\n",
@@ -14,7 +14,7 @@ Array [
 ]
 `
 
-exports[`test/strict.js TAP unstrict child does not make parent unstrict > failures 1`] = `
+exports[`test/strict.ts TAP unstrict child does not make parent unstrict > failures 1`] = `
 Array [
   Object {
     "data": "flerggy blerg\\n",

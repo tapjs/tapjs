@@ -1,68 +1,89 @@
-const t = require('tap')
+import t from 'tap'
 const bin = require.resolve('../bin/cmd.js')
-const {execFile} = require('child_process')
 const node = process.execPath
 
 // util.inspect output changed in node v12
 // so don't test it unless we're at that version.
 const skipInspect = {
-  skip: /^v1[2-9]\./.test(process.version) ? false
-    : 'do not test util.inspect prior to node v12'
+  skip: /^v1[2-9]\./.test(process.version)
+    ? false
+    : 'do not test util.inspect prior to node v12',
 }
 
 // This is kind of hacky and clever, but SOOOOO
 // much faster than running real child procs.
-const Minipass = require('minipass')
-const {runInThisContext} = require('vm')
-const code = require('fs').readFileSync(bin, 'utf8').replace(/^#!.*/, '')
-const EE = require('events')
-const run = (input, args, cb) => {
+import EE from 'events'
+import { readFileSync } from 'fs'
+import Minipass from 'minipass'
+import { runInThisContext } from 'vm'
+const code = readFileSync(bin, 'utf8').replace(/^#!.*/, '')
+class MockProc extends EE {
+  public exitCode: number = 0
+  public exited: boolean = false
+  public stdio: Minipass[] = [new Minipass(), new Minipass(), new Minipass()]
+  public stdin: Minipass
+  public stdout: Minipass
+  public stderr: Minipass
+  public _stdout: string = ''
+  public _stderr: string = ''
+  public cb: (code: number, stdout: string, stderr: string) => void
+  public argv: string[]
+  constructor(
+    args: string[],
+    input: string,
+    cb: (code: number, stdout: string, stderr: string) => void
+  ) {
+    super()
+    this.argv = [node, bin].concat(args)
+    this.stdin = this.stdio[0]
+    this.stdout = this.stdio[1]
+    this.stderr = this.stdio[2]
+    this.stdout.on('data', c => (this._stdout += c))
+    this.stderr.on('data', c => (this._stderr += c))
+    this.stdin.pause()
+    this.stdin.end(input)
+    this.cb = cb
+  }
+
+  exit(code: number) {
+    this.exitCode = code || 0
+    if (!this.exited) {
+      this.exited = true
+      this.cb(code, this._stdout, this._stderr)
+    }
+  }
+}
+const run = (
+  input: string,
+  args: string[],
+  cb: (code: number, stdout: string, stderr: string) => void
+) => {
   let exitCode = 0
   let stdout = ''
   let stderr = ''
 
-  const proc = new EE()
-  let exited = false
-  Object.defineProperty(proc, 'exitCode', {
-    set: code => proc.exit(code)
-  })
-  proc.exit = code => {
-    exitCode = code || 0
-    if (!exited) {
-      exited = true
-      cb(code, stdout, stderr)
-    }
-  }
-  proc.stdin = new Minipass()
-  proc.stdout = new Minipass()
-  proc.stderr = new Minipass()
-  proc.argv = [node, bin].concat(args)
-  proc.stdout.on('data', c => stdout += c)
-  proc.stderr.on('data', c => stderr += c)
-  proc.stdin.pause()
-  proc.stdin.end(input)
+  const proc = new MockProc(args, input, cb)
 
   const cons = {
-    log: c => proc.stdout.write(c + '\n'),
-    error: c => proc.stderr.write(c + '\n'),
+    log: (c: string) => proc.stdio[1].write(c + '\n'),
+    error: (c: string) => proc.stdio[2].write(c + '\n'),
   }
 
   const fn = runInThisContext(
-    '(function (process, console, require) {' +
-    code +
-    '\n})', bin
+    '(function (process, console, require) {' + code + '\n})',
+    bin
   )
   fn(proc, cons, require)
   proc.emit('exit')
 
-  if (!exited) {
-    exited = true
-    cb(exitCode, stdout, stderr)
+  if (!proc.exited) {
+    proc.exited = true
+    proc.cb(exitCode, stdout, stderr)
   }
 }
 
 t.test('basic', t => {
-  const taps = {
+  const taps: { [k: string]: string } = {
     // one that passes, at least, mostly
     pass_mostly: `TAP version 13
 ok 1 - this is fine
@@ -129,10 +150,9 @@ pragma +strict
 ok 1 - child
 1..1
 `,
-
   }
 
-  const runTest = tap => (t, args) => {
+  const runTest = (tap: string) => (t: Tap.Test, args: string[]) => {
     run(tap, args, (er, o, e) => {
       t.matchSnapshot(er, 'error')
       t.matchSnapshot(o, 'output', skipInspect)
@@ -169,7 +189,7 @@ t.test('json output formatting', t => {
 ok 1 - child
 1..1
 `
-  const test = (t, args) => {
+  const test = (t: Tap.Test, args: string[]) => {
     run(tap, args, (er, o, e) => {
       t.matchSnapshot(er, 'error')
       t.matchSnapshot(o, 'output')
@@ -185,23 +205,29 @@ ok 1 - child
   t.end()
 })
 
-t.test('unrecognized arg', t => run('', ['--blarg'], (er, o, e) => {
-  t.matchSnapshot(er, 'error')
-  t.matchSnapshot(o, 'output', skipInspect)
-  t.matchSnapshot(e, 'stderr')
-  t.end()
-}))
+t.test('unrecognized arg', t =>
+  run('', ['--blarg'], (er, o, e) => {
+    t.matchSnapshot(er, 'error')
+    t.matchSnapshot(o, 'output', skipInspect)
+    t.matchSnapshot(e, 'stderr')
+    t.end()
+  })
+)
 
-t.test('help', t => run('', ['--help'], (er, o, e) => {
-  t.matchSnapshot(er, 'error')
-  t.matchSnapshot(o, 'output')
-  t.matchSnapshot(e, 'stderr')
-  t.end()
-}))
+t.test('help', t =>
+  run('', ['--help'], (er, o, e) => {
+    t.matchSnapshot(er, 'error')
+    t.matchSnapshot(o, 'output')
+    t.matchSnapshot(e, 'stderr')
+    t.end()
+  })
+)
 
-t.test('version', t => run('', ['-v'], (er, o, e) => {
-  t.notOk(er)
-  t.equal(o.trim(), require('../package.json').version)
-  t.equal(e, '')
-  t.end()
-}))
+t.test('version', t =>
+  run('', ['-v'], (er, o, e) => {
+    t.notOk(er)
+    t.equal(o.trim(), require('../package.json').version)
+    t.equal(e, '')
+    t.end()
+  })
+)

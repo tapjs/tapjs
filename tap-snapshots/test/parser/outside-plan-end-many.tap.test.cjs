@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser.js TAP outside-plan-end-many.tap > output bail=false 1`] = `
+exports[`test/parser.ts TAP outside-plan-end-many.tap > output bail=false 1`] = `
 Array [
   Array [
     "line",
@@ -22,25 +22,52 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
+      "name": "",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
+      "name": "",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
+      "name": "",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -50,40 +77,64 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 420,
+      "name": "",
       "ok": true,
-      "plan": Object {
+      "plan": Plan {
+        "comment": "",
         "end": 4,
         "start": 1,
       },
+      "previous": null,
+      "skip": false,
       "tapError": "id greater than plan end",
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 420,
+      "name": "",
       "ok": true,
-      "plan": Object {
+      "plan": Plan {
+        "comment": "",
         "end": 4,
         "start": 1,
       },
+      "previous": null,
+      "skip": false,
       "tapError": "id greater than plan end",
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 420,
+      "name": "",
       "ok": true,
-      "plan": Object {
+      "plan": Plan {
+        "comment": "",
         "end": 4,
         "start": 1,
       },
+      "previous": null,
+      "skip": false,
       "tapError": "id greater than plan end",
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -93,40 +144,64 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 5,
+      "name": "",
       "ok": true,
-      "plan": Object {
+      "plan": Plan {
+        "comment": "",
         "end": 4,
         "start": 1,
       },
+      "previous": null,
+      "skip": false,
       "tapError": "id greater than plan end",
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 5,
+      "name": "",
       "ok": true,
-      "plan": Object {
+      "plan": Plan {
+        "comment": "",
         "end": 4,
         "start": 1,
       },
+      "previous": null,
+      "skip": false,
       "tapError": "id greater than plan end",
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 5,
+      "name": "",
       "ok": true,
-      "plan": Object {
+      "plan": Plan {
+        "comment": "",
         "end": 4,
         "start": 1,
       },
+      "previous": null,
+      "skip": false,
       "tapError": "id greater than plan end",
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -136,22 +211,52 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
+      "id": 0,
+      "name": "",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
+      "id": 0,
+      "name": "",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
+      "id": 0,
+      "name": "",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -159,8 +264,17 @@ Array [
     "1..4\\n",
   ],
   Array [
+    "line",
+    "1..4\\n",
+  ],
+  Array [
+    "line",
+    "1..4\\n",
+  ],
+  Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 4,
       "start": 1,
     },
@@ -181,24 +295,40 @@ Array [
       "fail": 2,
       "failures": Array [
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "",
           "id": 420,
+          "name": "",
           "ok": true,
-          "plan": Object {
+          "plan": Plan {
+            "comment": "",
             "end": 4,
             "start": 1,
           },
+          "previous": null,
+          "skip": false,
           "tapError": "id greater than plan end",
+          "time": null,
+          "todo": false,
         },
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "",
           "id": 5,
+          "name": "",
           "ok": true,
-          "plan": Object {
+          "plan": Plan {
+            "comment": "",
             "end": 4,
             "start": 1,
           },
+          "previous": null,
+          "skip": false,
           "tapError": "id greater than plan end",
+          "time": null,
+          "todo": false,
         },
       ],
       "ok": false,
@@ -218,7 +348,7 @@ Array [
 ]
 `
 
-exports[`test/parser.js TAP outside-plan-end-many.tap > output bail=true 1`] = `
+exports[`test/parser.ts TAP outside-plan-end-many.tap > output bail=true 1`] = `
 Array [
   Array [
     "line",
@@ -235,25 +365,52 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
+      "name": "",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
+      "name": "",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
+      "name": "",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -263,40 +420,64 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 420,
+      "name": "",
       "ok": true,
-      "plan": Object {
+      "plan": Plan {
+        "comment": "",
         "end": 4,
         "start": 1,
       },
+      "previous": null,
+      "skip": false,
       "tapError": "id greater than plan end",
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 420,
+      "name": "",
       "ok": true,
-      "plan": Object {
+      "plan": Plan {
+        "comment": "",
         "end": 4,
         "start": 1,
       },
+      "previous": null,
+      "skip": false,
       "tapError": "id greater than plan end",
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 420,
+      "name": "",
       "ok": true,
-      "plan": Object {
+      "plan": Plan {
+        "comment": "",
         "end": 4,
         "start": 1,
       },
+      "previous": null,
+      "skip": false,
       "tapError": "id greater than plan end",
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -306,40 +487,64 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 5,
+      "name": "",
       "ok": true,
-      "plan": Object {
+      "plan": Plan {
+        "comment": "",
         "end": 4,
         "start": 1,
       },
+      "previous": null,
+      "skip": false,
       "tapError": "id greater than plan end",
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 5,
+      "name": "",
       "ok": true,
-      "plan": Object {
+      "plan": Plan {
+        "comment": "",
         "end": 4,
         "start": 1,
       },
+      "previous": null,
+      "skip": false,
       "tapError": "id greater than plan end",
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 5,
+      "name": "",
       "ok": true,
-      "plan": Object {
+      "plan": Plan {
+        "comment": "",
         "end": 4,
         "start": 1,
       },
+      "previous": null,
+      "skip": false,
       "tapError": "id greater than plan end",
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -349,22 +554,52 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
+      "id": 0,
+      "name": "",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
+      "id": 0,
+      "name": "",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
+      "id": 0,
+      "name": "",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -372,8 +607,17 @@ Array [
     "1..4\\n",
   ],
   Array [
+    "line",
+    "1..4\\n",
+  ],
+  Array [
+    "line",
+    "1..4\\n",
+  ],
+  Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 4,
       "start": 1,
     },
@@ -394,24 +638,40 @@ Array [
       "fail": 2,
       "failures": Array [
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "",
           "id": 420,
+          "name": "",
           "ok": true,
-          "plan": Object {
+          "plan": Plan {
+            "comment": "",
             "end": 4,
             "start": 1,
           },
+          "previous": null,
+          "skip": false,
           "tapError": "id greater than plan end",
+          "time": null,
+          "todo": false,
         },
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "",
           "id": 5,
+          "name": "",
           "ok": true,
-          "plan": Object {
+          "plan": Plan {
+            "comment": "",
             "end": 4,
             "start": 1,
           },
+          "previous": null,
+          "skip": false,
           "tapError": "id greater than plan end",
+          "time": null,
+          "todo": false,
         },
       ],
       "ok": false,

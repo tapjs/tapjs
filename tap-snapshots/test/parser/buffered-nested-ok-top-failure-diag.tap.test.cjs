@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser.js TAP buffered-nested-ok-top-failure-diag.tap > output bail=false 1`] = `
+exports[`test/parser.ts TAP buffered-nested-ok-top-failure-diag.tap > output bail=false 1`] = `
 Array [
   Array [
     "line",
@@ -21,7 +21,8 @@ Array [
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 1,
       "start": 1,
     },
@@ -59,7 +60,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -71,9 +73,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "please sir, my son, he is sick",
+          "id": 0,
           "name": "i got better",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -110,17 +121,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "please sir, my son, he is sick",
+      "id": 0,
       "name": "i got better",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "please sir, my son, he is sick",
+      "id": 0,
       "name": "i got better",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -138,6 +167,12 @@ Array [
       "id": 1,
       "name": "please sir, my son, he is sick",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -151,6 +186,12 @@ Array [
       "id": 1,
       "name": "please sir, my son, he is sick",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -164,6 +205,12 @@ Array [
       "id": 1,
       "name": "please sir, my son, he is sick",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -190,6 +237,12 @@ Array [
           "id": 1,
           "name": "please sir, my son, he is sick",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       "ok": false,
@@ -209,7 +262,7 @@ Array [
 ]
 `
 
-exports[`test/parser.js TAP buffered-nested-ok-top-failure-diag.tap > output bail=true 1`] = `
+exports[`test/parser.ts TAP buffered-nested-ok-top-failure-diag.tap > output bail=true 1`] = `
 Array [
   Array [
     "line",
@@ -225,7 +278,8 @@ Array [
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 1,
       "start": 1,
     },
@@ -263,7 +317,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -275,9 +330,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "please sir, my son, he is sick",
+          "id": 0,
           "name": "i got better",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -314,17 +378,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "please sir, my son, he is sick",
+      "id": 0,
       "name": "i got better",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "please sir, my son, he is sick",
+      "id": 0,
       "name": "i got better",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -342,6 +424,12 @@ Array [
       "id": 1,
       "name": "please sir, my son, he is sick",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -355,6 +443,12 @@ Array [
       "id": 1,
       "name": "please sir, my son, he is sick",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -368,6 +462,12 @@ Array [
       "id": 1,
       "name": "please sir, my son, he is sick",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -394,6 +494,12 @@ Array [
           "id": 1,
           "name": "please sir, my son, he is sick",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       "ok": false,

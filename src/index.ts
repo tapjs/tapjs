@@ -1,13 +1,13 @@
-import yaml from 'tap-yaml'
 import { EventEmitter } from 'events'
-import { lineType, lineTypes } from './line-type'
-import { Result, TapError } from './result'
+import yaml from 'tap-yaml'
 import { FinalResults } from './final-results'
-import { Plan } from './plan'
+import { lineType, lineTypes } from './line-type'
 import { parseDirective } from './parse-directive'
+import { Plan } from './plan'
+import { Result, TapError } from './result'
 
-import { parse, stringify } from './statics'
 import type etoa from 'events-to-array'
+import { parse, stringify } from './statics'
 type EventLog = ReturnType<typeof etoa>
 
 import { unesc } from './escape'
@@ -31,104 +31,84 @@ export interface Pragmas {
 }
 
 export class Parser extends EventEmitter {
-  public ok: boolean = true
-  public count: number = 0
-  public pass: number = 0
-  public fail: number = 0
-  public todo: number = 0
-  public skip: number = 0
-  public planStart: number = -1
-  public planEnd: number = -1
-  public planComment: string
-  public time: number | null = null
-  public name: string = ''
-  public comments: string[] = []
-  public results: FinalResults | null = null
-  public braceLevel: number = 0
-  public parent: Parser | null = null
-  public closingTestPoint: Result | null = null
-  public root: Parser
-  public passes: Result[] | null
-  public failures: TapError[] = []
-  public level: number
-  public pointsSeen: Map<number, Result>
-  public buffer: string = ''
-  public bail: boolean = false
-  public bailingOut: boolean | string = false
-  public bailedOut: boolean | string = false
-  public syntheticBailout: boolean = false
-  public syntheticPlan: boolean = false
-  public omitVersion: boolean
-  public readonly writable: true = true
-  public readonly readable: false = false
-  private maybeChild: string | null = null
-
-  private yamlish: string
-  private yind: string
   private child: Parser | null = null
-  private previousChild: Parser | null = null
   private current: Result | null = null
   private extraQueue: [string, string][] = []
-  public buffered: boolean = false
-  public aborted: boolean = false
-  public preserveWhitespace: boolean = false
-  public strict: boolean = false
-  public pragmas: Pragmas
-  private postPlan: boolean
+  private maybeChild: string | null = null
+  private postPlan: boolean = false
+  private previousChild: Parser | null = null
+  private yamlish: string = ''
+  private yind: string = ''
 
-  constructor(options?: ParserOptions, onComplete?: (..._: any[]) => any) {
+  public aborted: boolean = false
+  public bail: boolean = false
+  public bailedOut: boolean | string = false
+  private bailingOut: boolean | string = false
+  public braceLevel: number = 0
+  public buffer: string = ''
+  public buffered: boolean
+  public closingTestPoint: Result | null = null
+  public comments: string[] = []
+  public count: number = 0
+  public fail: number = 0
+  public failures: TapError[] = []
+  public level: number
+  public name: string
+  public ok: boolean = true
+  public omitVersion: boolean
+  public parent: Parser | null = null
+  public pass: number = 0
+  public passes: Result[] | null
+  public planComment: string = ''
+  public planEnd: number = -1
+  public planStart: number = -1
+  public pointsSeen: Map<number, Result> = new Map()
+  public pragmas: Pragmas
+  public preserveWhitespace: boolean
+  public readonly readable: false = false
+  public readonly writable: true = true
+  public results: FinalResults | null = null
+  public root: Parser
+  public skip: number = 0
+  public strict: boolean
+  public syntheticBailout: boolean = false
+  public syntheticPlan: boolean = false
+  public time: number | null = null
+  public todo: number = 0
+
+  constructor(onComplete?: (results: FinalResults) => any)
+  constructor(
+    options?: ParserOptions,
+    onComplete?: (results: FinalResults) => any
+  )
+  constructor(
+    options?: ParserOptions | ((results: FinalResults) => any),
+    onComplete?: (results: FinalResults) => any
+  ) {
     if (typeof options === 'function') {
       onComplete = options
-      options = {}
+      options = {} as ParserOptions
     }
 
     options = options || {}
     super()
-    this.readable = false
-    this.writable = true
 
     if (onComplete) this.on('complete', onComplete)
 
-    this.time = null
     this.name = options.name || ''
-    this.comments = []
-    this.results = null
-    this.braceLevel = 0
     this.parent = options.parent || null
     this.closingTestPoint = (this.parent && options.closingTestPoint) || null
     this.root = options.parent ? options.parent.root : this
-    this.failures = []
     this.passes = options.passes ? [] : null
     this.level = options.level || 0
 
-    this.pointsSeen = new Map()
-    this.buffer = ''
     this.bail = !!options.bail
-    this.bailingOut = false
-    this.bailedOut = false
-    this.syntheticBailout = false
-    this.syntheticPlan = false
     this.omitVersion = !!options.omitVersion
-    this.planStart = -1
-    this.planEnd = -1
-    this.planComment = ''
-    this.yamlish = ''
-    this.yind = ''
     this.buffered = !!options.buffered
-    this.aborted = false
     this.preserveWhitespace = options.preserveWhitespace || false
 
-    this.count = 0
-    this.pass = 0
-    this.fail = 0
-    this.todo = 0
-    this.skip = 0
-    this.ok = true
-
-    this.strict = options.strict || false
+    this.strict = !!options.strict
     this.pragmas = { strict: this.strict }
-
-    this.postPlan = false
   }
 
   get fullname(): string {
@@ -176,7 +156,9 @@ export class Parser extends EventEmitter {
 
     if (resId && this.pointsSeen.has(res.id)) {
       res.tapError = 'test point id ' + resId + ' appears multiple times'
-      res.previous = this.pointsSeen.get(res.id) || null
+      res.previous =
+        this.pointsSeen.get(res.id) ||
+        /* istanbul ignore next - just for typescript's comfort */ null
       this.tapError(res, line)
     } else if (resId) {
       this.pointsSeen.set(res.id, res)
@@ -341,12 +323,18 @@ export class Parser extends EventEmitter {
     // that come ahead of buffered subtests.
   }
 
+  write(chunk: string | Buffer, cb?: (...x: any[]) => any): boolean
   write(
     chunk: string | Buffer,
     encoding?: BufferEncoding,
     cb?: (...x: any[]) => any
-  ) {
-    if (this.aborted) return
+  ): boolean
+  write(
+    chunk: string | Buffer,
+    encoding?: BufferEncoding | ((...a: any[]) => any),
+    cb?: (...x: any[]) => any
+  ): boolean {
+    if (this.aborted) return false
 
     if (
       typeof encoding === 'string' &&
@@ -380,8 +368,15 @@ export class Parser extends EventEmitter {
     chunk?: string | Buffer,
     encoding?: BufferEncoding,
     cb?: (...a: any[]) => any
-  ) {
-    if (chunk) {
+  ): Parser
+  end(chunk?: string | Buffer, cb?: (...a: any[]) => any): Parser
+  end(cb?: (...a: any[]) => any): Parser
+  end(
+    chunk?: string | Buffer | ((...a: any[]) => any),
+    encoding?: BufferEncoding | ((...a: any[]) => any),
+    cb?: (...a: any[]) => any
+  ): Parser {
+    if (chunk && typeof chunk !== 'function') {
       if (typeof encoding === 'function') {
         cb = encoding
         encoding = undefined
@@ -432,7 +427,7 @@ export class Parser extends EventEmitter {
     return this
   }
 
-  emitComplete(skipAll: boolean = false) {
+  emitComplete(skipAll: boolean) {
     if (!this.results) {
       const res = (this.results = new FinalResults(!!skipAll, this))
 
@@ -762,12 +757,14 @@ export class Parser extends EventEmitter {
     // This allows omitting even parsing the version if the test is
     // an indented child test.  Several parsers get upset when they
     // see an indented version field.
-    if (this.omitVersion && lineTypes.version.test(line) && !this.yind) return
+    if (this.omitVersion && lineTypes.version.test(line) && !this.yind) {
+      return
+    }
 
     // check to see if the line is indented.
     // if it is, then it's either a subtest, yaml, or garbage.
     const indent = line.match(/^[ \t]*/)
-    if (indent) {
+    if (indent && indent[0]) {
       this.parseIndent(line, indent[0])
       return
     }

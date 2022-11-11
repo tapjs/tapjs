@@ -16,7 +16,7 @@ const getId = (): { (): number; current: number } => {
 // i'm too lazy to dig into vim-javascript to fix it.
 import { SPACE_OPEN_BRACE_EOL } from './brace-patterns'
 
-export const parse = (str: string, options: ParserOptions = {}): EventLog => {
+export const parse = (str: string, options: ParserOptions): EventLog => {
   const { flat = false } = options
   const ignore = ['line', 'pass', 'fail', 'todo', 'skip', 'result']
   if (flat) ignore.push('assert', 'child', 'plan', 'complete')
@@ -45,7 +45,7 @@ export const parse = (str: string, options: ParserOptions = {}): EventLog => {
 
 export const stringify = (
   msg: EventLog,
-  { flat = false, indent = '', id = getId() } = {}
+  { flat = false, indent = '', id = getId() }
 ) => {
   const ind = flat ? '' : indent
   return (
@@ -96,7 +96,7 @@ export const stringify = (
             return (
               (res.ok ? '' : 'not ') +
               'ok' +
-              (res.id !== undefined ? ' ' + res.id : '') +
+              (res.id ? ' ' + res.id : '') +
               (res.name
                 ? ' - ' + esc(res.name).replace(SPACE_OPEN_BRACE_EOL, '')
                 : '') +

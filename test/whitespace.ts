@@ -1,6 +1,6 @@
-var Parser = require('../')
-var t = require('tap')
-var data = [
+import Parser from '../src/index'
+import t from 'tap'
+const data = [
   'TAP version 13',
   '',
   '1..1',
@@ -13,12 +13,12 @@ var data = [
   'ok 1 foo',
   '',
   '# passed 1 of 1 tests',
-  ''
+  '',
 ]
 
 t.test('preserve whitespace', function (t) {
-  var p = new Parser({ preserveWhitespace: true })
-  var lines = []
+  const p = new Parser({ preserveWhitespace: true })
+  const lines: string[] = []
   p.on('line', function (l) {
     lines.push(l)
   })
@@ -30,15 +30,20 @@ t.test('preserve whitespace', function (t) {
 })
 
 t.test('drop whitespace', function (t) {
-  var p = new Parser()
-  var lines = []
+  const p = new Parser()
+  const lines: string[] = []
   p.on('line', function (l) {
     lines.push(l)
   })
   p.on('complete', function () {
-    t.equal(lines.join(''), data.filter(function (line) {
-      return line.trim()
-    }).join('\n') + '\n')
+    t.equal(
+      lines.join(''),
+      data
+        .filter(function (line) {
+          return line.trim()
+        })
+        .join('\n') + '\n'
+    )
     t.end()
   })
   p.end(data.join('\n'))

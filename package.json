@@ -2,21 +2,22 @@
   "name": "tap-parser",
   "version": "11.0.2",
   "description": "parse the test anything protocol",
-  "main": "index.js",
+  "main": "lib/index.js",
   "bin": {
     "tap-parser": "bin/cmd.js"
   },
   "dependencies": {
     "events-to-array": "^2.0.3",
-    "minipass": "^3.3.4",
     "tap-yaml": "^1.0.2",
     "ts-node": "^10.9.1"
   },
   "devDependencies": {
+    "@types/glob": "^8.0.0",
     "@types/node": "^18.11.9",
     "@types/tap": "^15.0.6",
     "eslint-config-prettier": "^8.5.0",
     "glob": "^7.0.5",
+    "minipass": "^3.3.4",
     "prettier": "^2.7.1",
     "tap": "^16.3.0",
     "typedoc": "^0.23.20",
@@ -47,9 +48,8 @@
   ],
   "license": "MIT",
   "files": [
-    "index.d.ts",
-    "index.js",
-    "bin/cmd.js"
+    "lib",
+    "bin"
   ],
   "prettier": {
     "semi": false,

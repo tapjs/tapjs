@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser-stringify.js TAP diag-looks-like-comment.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP diag-looks-like-comment.tap bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -21,6 +21,7 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
           "diag": Object {
             "found": String(
               
@@ -46,6 +47,12 @@ Array [
           "id": 1,
           "name": "should match pattern provided",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -60,6 +67,7 @@ Array [
           "fail": 1,
           "failures": Array [
             Result {
+              "buffered": false,
               "diag": Object {
                 "found": String(
                   
@@ -85,6 +93,12 @@ Array [
               "id": 1,
               "name": "should match pattern provided",
               "ok": false,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           "ok": false,
@@ -131,7 +145,7 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP diag-looks-like-comment.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP diag-looks-like-comment.tap bail > stringified 1`] = `
 TAP version 13
 # Subtest: -t 0.2
     not ok 1 - should match pattern provided
@@ -159,35 +173,35 @@ Bail out! should match pattern provided
 
 `
 
-exports[`test/parser-stringify.js TAP diag-looks-like-comment.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP diag-looks-like-comment.tap bail > stringified flat 1`] = `
 TAP version 13
 # Subtest: -t 0.2
-    not ok 1 - should match pattern provided
-      ---
-      found: |
-        
-        # Subtest: nope
-      
-            not ok 1 - nope
-              ---
-              still: the string
-              ...
-      
-            1..1 # nope
-        not ok 1 - nope # time=123
+not ok 1 - -t 0.2 > should match pattern provided
+  ---
+  found: |
+    
+    # Subtest: nope
+  
+        not ok 1 - nope
           ---
-          this: is fine
+          still: the string
           ...
-      
-        1..1
-      pattern: /SIGTERM/
+  
+        1..1 # nope
+    not ok 1 - nope # time=123
+      ---
+      this: is fine
       ...
-    Bail out! should match pattern provided
+  
+    1..1
+  pattern: /SIGTERM/
+  ...
+Bail out! should match pattern provided
 Bail out! should match pattern provided
 
 `
 
-exports[`test/parser-stringify.js TAP diag-looks-like-comment.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP diag-looks-like-comment.tap default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -203,6 +217,7 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
           "diag": Object {
             "found": String(
               
@@ -228,11 +243,18 @@ Array [
           "id": 1,
           "name": "should match pattern provided",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -249,6 +271,7 @@ Array [
           "fail": 1,
           "failures": Array [
             Result {
+              "buffered": false,
               "diag": Object {
                 "found": String(
                   
@@ -274,6 +297,12 @@ Array [
               "id": 1,
               "name": "should match pattern provided",
               "ok": false,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           "ok": false,
@@ -295,15 +324,24 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "-t 0.2",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 1,
       "start": 1,
     },
@@ -320,10 +358,18 @@ Array [
       "fail": 1,
       "failures": Array [
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "",
           "id": 1,
           "name": "-t 0.2",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       "ok": false,
@@ -343,7 +389,100 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP diag-looks-like-comment.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP diag-looks-like-comment.tap default settings > parsed flat 1`] = `
+Array [
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "assert",
+    Result {
+      "buffered": false,
+      "diag": Object {
+        "found": String(
+          
+          # Subtest: nope
+          
+              not ok 1 - nope
+                ---
+                still: the string
+                ...
+          
+              1..1 # nope
+          not ok 1 - nope # time=123
+            ---
+            this: is fine
+            ...
+          
+          1..1
+          
+        ),
+        "pattern": "/SIGTERM/",
+      },
+      "fullname": "",
+      "id": 1,
+      "name": "-t 0.2 > should match pattern provided",
+      "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "comment",
+    "# failed 1 test\\n",
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 1,
+      "start": 1,
+    },
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 1,
+      "fail": 1,
+      "failures": Array [
+        Result {
+          "buffered": false,
+          "diag": null,
+          "fullname": "",
+          "id": 1,
+          "name": "-t 0.2",
+          "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
+        },
+      ],
+      "ok": false,
+      "pass": 0,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 1,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parse-stringify.ts TAP diag-looks-like-comment.tap default settings > stringified 1`] = `
 TAP version 13
 # Subtest: -t 0.2
     not ok 1 - should match pattern provided
@@ -374,38 +513,37 @@ not ok 1 - -t 0.2
 
 `
 
-exports[`test/parser-stringify.js TAP diag-looks-like-comment.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP diag-looks-like-comment.tap default settings > stringified flat 1`] = `
 TAP version 13
 # Subtest: -t 0.2
-    not ok 1 - should match pattern provided
-      ---
-      found: |
-        
-        # Subtest: nope
-      
-            not ok 1 - nope
-              ---
-              still: the string
-              ...
-      
-            1..1 # nope
-        not ok 1 - nope # time=123
+not ok 1 - -t 0.2 > should match pattern provided
+  ---
+  found: |
+    
+    # Subtest: nope
+  
+        not ok 1 - nope
           ---
-          this: is fine
+          still: the string
           ...
-      
-        1..1
-      pattern: /SIGTERM/
+  
+        1..1 # nope
+    not ok 1 - nope # time=123
+      ---
+      this: is fine
       ...
+  
     1..1
-    # failed 1 test
-not ok 1 - -t 0.2
-1..1
+  pattern: /SIGTERM/
+  ...
+# failed 1 test
+not ok 2 - -t 0.2
+1..2
 # failed 1 test
 
 `
 
-exports[`test/parser-stringify.js TAP diag-looks-like-comment.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP diag-looks-like-comment.tap strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -421,6 +559,7 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
           "diag": Object {
             "found": String(
               
@@ -446,11 +585,18 @@ Array [
           "id": 1,
           "name": "should match pattern provided",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -467,6 +613,7 @@ Array [
           "fail": 1,
           "failures": Array [
             Result {
+              "buffered": false,
               "diag": Object {
                 "found": String(
                   
@@ -492,6 +639,12 @@ Array [
               "id": 1,
               "name": "should match pattern provided",
               "ok": false,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           "ok": false,
@@ -513,15 +666,24 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "-t 0.2",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 1,
       "start": 1,
     },
@@ -538,10 +700,18 @@ Array [
       "fail": 1,
       "failures": Array [
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "",
           "id": 1,
           "name": "-t 0.2",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       "ok": false,
@@ -561,7 +731,7 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP diag-looks-like-comment.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP diag-looks-like-comment.tap strict > stringified 1`] = `
 TAP version 13
 # Subtest: -t 0.2
     not ok 1 - should match pattern provided
@@ -592,38 +762,37 @@ not ok 1 - -t 0.2
 
 `
 
-exports[`test/parser-stringify.js TAP diag-looks-like-comment.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP diag-looks-like-comment.tap strict > stringified flat 1`] = `
 TAP version 13
 # Subtest: -t 0.2
-    not ok 1 - should match pattern provided
-      ---
-      found: |
-        
-        # Subtest: nope
-      
-            not ok 1 - nope
-              ---
-              still: the string
-              ...
-      
-            1..1 # nope
-        not ok 1 - nope # time=123
+not ok 1 - -t 0.2 > should match pattern provided
+  ---
+  found: |
+    
+    # Subtest: nope
+  
+        not ok 1 - nope
           ---
-          this: is fine
+          still: the string
           ...
-      
-        1..1
-      pattern: /SIGTERM/
+  
+        1..1 # nope
+    not ok 1 - nope # time=123
+      ---
+      this: is fine
       ...
+  
     1..1
-    # failed 1 test
-not ok 1 - -t 0.2
-1..1
+  pattern: /SIGTERM/
+  ...
+# failed 1 test
+not ok 2 - -t 0.2
+1..2
 # failed 1 test
 
 `
 
-exports[`test/parser-stringify.js TAP diag-looks-like-comment.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP diag-looks-like-comment.tap strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -639,6 +808,7 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
           "diag": Object {
             "found": String(
               
@@ -664,6 +834,12 @@ Array [
           "id": 1,
           "name": "should match pattern provided",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -678,6 +854,7 @@ Array [
           "fail": 1,
           "failures": Array [
             Result {
+              "buffered": false,
               "diag": Object {
                 "found": String(
                   
@@ -703,6 +880,12 @@ Array [
               "id": 1,
               "name": "should match pattern provided",
               "ok": false,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           "ok": false,
@@ -749,7 +932,7 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP diag-looks-like-comment.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP diag-looks-like-comment.tap strictBail > stringified 1`] = `
 TAP version 13
 # Subtest: -t 0.2
     not ok 1 - should match pattern provided
@@ -777,30 +960,30 @@ Bail out! should match pattern provided
 
 `
 
-exports[`test/parser-stringify.js TAP diag-looks-like-comment.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP diag-looks-like-comment.tap strictBail > stringified flat 1`] = `
 TAP version 13
 # Subtest: -t 0.2
-    not ok 1 - should match pattern provided
-      ---
-      found: |
-        
-        # Subtest: nope
-      
-            not ok 1 - nope
-              ---
-              still: the string
-              ...
-      
-            1..1 # nope
-        not ok 1 - nope # time=123
+not ok 1 - -t 0.2 > should match pattern provided
+  ---
+  found: |
+    
+    # Subtest: nope
+  
+        not ok 1 - nope
           ---
-          this: is fine
+          still: the string
           ...
-      
-        1..1
-      pattern: /SIGTERM/
+  
+        1..1 # nope
+    not ok 1 - nope # time=123
+      ---
+      this: is fine
       ...
-    Bail out! should match pattern provided
+  
+    1..1
+  pattern: /SIGTERM/
+  ...
+Bail out! should match pattern provided
 Bail out! should match pattern provided
 
 `

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const Parser = require('../')
+const {Parser} = require('../lib/index.js')
 const etoa = require('events-to-array')
 const util = require('util')
 

@@ -5,11 +5,12 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser-stringify.js TAP todo_misparse.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP todo_misparse.tap bail > parsed 1`] = `
 Array [
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 1,
       "start": 1,
     },
@@ -17,10 +18,17 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "Hamlette",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
       "todo": true,
     },
   ],
@@ -52,25 +60,26 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP todo_misparse.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP todo_misparse.tap bail > stringified 1`] = `
 1..1
 not ok 1 - Hamlette # TODO
 # todo: 1
 
 `
 
-exports[`test/parser-stringify.js TAP todo_misparse.tap bail > stringified flat 1`] = `
-1..1
+exports[`test/parse-stringify.ts TAP todo_misparse.tap bail > stringified flat 1`] = `
+1..0
 not ok 1 - Hamlette # TODO
 # todo: 1
 
 `
 
-exports[`test/parser-stringify.js TAP todo_misparse.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP todo_misparse.tap default settings > parsed 1`] = `
 Array [
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 1,
       "start": 1,
     },
@@ -78,10 +87,17 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "Hamlette",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
       "todo": true,
     },
   ],
@@ -113,22 +129,29 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP todo_misparse.tap default settings > stringified 1`] = `
-1..1
-not ok 1 - Hamlette # TODO
-# todo: 1
-
-`
-
-exports[`test/parser-stringify.js TAP todo_misparse.tap default settings > stringified flat 1`] = `
-1..1
-not ok 1 - Hamlette # TODO
-# todo: 1
-
-`
-
-exports[`test/parser-stringify.js TAP todo_misparse.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP todo_misparse.tap default settings > parsed flat 1`] = `
 Array [
+  Array [
+    "assert",
+    Result {
+      "buffered": false,
+      "diag": null,
+      "fullname": "",
+      "id": 1,
+      "name": "Hamlette",
+      "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": true,
+    },
+  ],
+  Array [
+    "comment",
+    "# todo: 1\\n",
+  ],
   Array [
     "plan",
     Object {
@@ -137,12 +160,67 @@ Array [
     },
   ],
   Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 1,
+      "fail": 1,
+      "failures": Array [],
+      "ok": true,
+      "pass": 0,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 1,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 1,
+    },
+  ],
+]
+`
+
+exports[`test/parse-stringify.ts TAP todo_misparse.tap default settings > stringified 1`] = `
+1..1
+not ok 1 - Hamlette # TODO
+# todo: 1
+
+`
+
+exports[`test/parse-stringify.ts TAP todo_misparse.tap default settings > stringified flat 1`] = `
+1..0
+not ok 1 - Hamlette # TODO
+# todo: 1
+
+`
+
+exports[`test/parse-stringify.ts TAP todo_misparse.tap strict > parsed 1`] = `
+Array [
+  Array [
+    "plan",
+    Plan {
+      "comment": "",
+      "end": 1,
+      "start": 1,
+    },
+  ],
+  Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "Hamlette",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
       "todo": true,
     },
   ],
@@ -174,25 +252,26 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP todo_misparse.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP todo_misparse.tap strict > stringified 1`] = `
 1..1
 not ok 1 - Hamlette # TODO
 # todo: 1
 
 `
 
-exports[`test/parser-stringify.js TAP todo_misparse.tap strict > stringified flat 1`] = `
-1..1
+exports[`test/parse-stringify.ts TAP todo_misparse.tap strict > stringified flat 1`] = `
+1..0
 not ok 1 - Hamlette # TODO
 # todo: 1
 
 `
 
-exports[`test/parser-stringify.js TAP todo_misparse.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP todo_misparse.tap strictBail > parsed 1`] = `
 Array [
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 1,
       "start": 1,
     },
@@ -200,10 +279,17 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "Hamlette",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
       "todo": true,
     },
   ],
@@ -235,15 +321,15 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP todo_misparse.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP todo_misparse.tap strictBail > stringified 1`] = `
 1..1
 not ok 1 - Hamlette # TODO
 # todo: 1
 
 `
 
-exports[`test/parser-stringify.js TAP todo_misparse.tap strictBail > stringified flat 1`] = `
-1..1
+exports[`test/parse-stringify.ts TAP todo_misparse.tap strictBail > stringified flat 1`] = `
+1..0
 not ok 1 - Hamlette # TODO
 # todo: 1
 

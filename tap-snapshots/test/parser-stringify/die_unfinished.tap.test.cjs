@@ -5,11 +5,12 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser-stringify.js TAP die_unfinished.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP die_unfinished.tap bail > parsed 1`] = `
 Array [
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 4,
       "start": 1,
     },
@@ -17,25 +18,52 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
+      "name": "",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 2,
+      "name": "",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 3,
+      "name": "",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -74,7 +102,7 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP die_unfinished.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP die_unfinished.tap bail > stringified 1`] = `
 1..4
 ok 1
 ok 2
@@ -84,8 +112,8 @@ ok 3
 
 `
 
-exports[`test/parser-stringify.js TAP die_unfinished.tap bail > stringified flat 1`] = `
-1..4
+exports[`test/parse-stringify.ts TAP die_unfinished.tap bail > stringified flat 1`] = `
+1..0
 ok 1
 ok 2
 ok 3
@@ -94,11 +122,12 @@ ok 3
 
 `
 
-exports[`test/parser-stringify.js TAP die_unfinished.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP die_unfinished.tap default settings > parsed 1`] = `
 Array [
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 4,
       "start": 1,
     },
@@ -106,25 +135,52 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
+      "name": "",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 2,
+      "name": "",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 3,
+      "name": "",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -163,31 +219,128 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP die_unfinished.tap default settings > stringified 1`] = `
-1..4
-ok 1
-ok 2
-ok 3
-# test count(3) != plan(4)
-# failed 1 of 3 tests
-
-`
-
-exports[`test/parser-stringify.js TAP die_unfinished.tap default settings > stringified flat 1`] = `
-1..4
-ok 1
-ok 2
-ok 3
-# test count(3) != plan(4)
-# failed 1 of 3 tests
-
-`
-
-exports[`test/parser-stringify.js TAP die_unfinished.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP die_unfinished.tap default settings > parsed flat 1`] = `
 Array [
+  Array [
+    "assert",
+    Result {
+      "buffered": false,
+      "diag": null,
+      "fullname": "",
+      "id": 1,
+      "name": "",
+      "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "buffered": false,
+      "diag": null,
+      "fullname": "",
+      "id": 2,
+      "name": "",
+      "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "buffered": false,
+      "diag": null,
+      "fullname": "",
+      "id": 3,
+      "name": "",
+      "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "comment",
+    "# test count(3) != plan(4)\\n",
+  ],
+  Array [
+    "comment",
+    "# failed 1 of 3 tests\\n",
+  ],
   Array [
     "plan",
     Object {
+      "end": 3,
+      "start": 1,
+    },
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 3,
+      "fail": 1,
+      "failures": Array [
+        Object {
+          "tapError": "incorrect number of tests",
+        },
+      ],
+      "ok": false,
+      "pass": 3,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 4,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parse-stringify.ts TAP die_unfinished.tap default settings > stringified 1`] = `
+1..4
+ok 1
+ok 2
+ok 3
+# test count(3) != plan(4)
+# failed 1 of 3 tests
+
+`
+
+exports[`test/parse-stringify.ts TAP die_unfinished.tap default settings > stringified flat 1`] = `
+1..0
+ok 1
+ok 2
+ok 3
+# test count(3) != plan(4)
+# failed 1 of 3 tests
+
+`
+
+exports[`test/parse-stringify.ts TAP die_unfinished.tap strict > parsed 1`] = `
+Array [
+  Array [
+    "plan",
+    Plan {
+      "comment": "",
       "end": 4,
       "start": 1,
     },
@@ -195,25 +348,52 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
+      "name": "",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 2,
+      "name": "",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 3,
+      "name": "",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -252,7 +432,7 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP die_unfinished.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP die_unfinished.tap strict > stringified 1`] = `
 1..4
 ok 1
 ok 2
@@ -262,8 +442,8 @@ ok 3
 
 `
 
-exports[`test/parser-stringify.js TAP die_unfinished.tap strict > stringified flat 1`] = `
-1..4
+exports[`test/parse-stringify.ts TAP die_unfinished.tap strict > stringified flat 1`] = `
+1..0
 ok 1
 ok 2
 ok 3
@@ -272,11 +452,12 @@ ok 3
 
 `
 
-exports[`test/parser-stringify.js TAP die_unfinished.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP die_unfinished.tap strictBail > parsed 1`] = `
 Array [
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 4,
       "start": 1,
     },
@@ -284,25 +465,52 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
+      "name": "",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 2,
+      "name": "",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 3,
+      "name": "",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -341,7 +549,7 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP die_unfinished.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP die_unfinished.tap strictBail > stringified 1`] = `
 1..4
 ok 1
 ok 2
@@ -351,8 +559,8 @@ ok 3
 
 `
 
-exports[`test/parser-stringify.js TAP die_unfinished.tap strictBail > stringified flat 1`] = `
-1..4
+exports[`test/parse-stringify.ts TAP die_unfinished.tap strictBail > stringified flat 1`] = `
+1..0
 ok 1
 ok 2
 ok 3

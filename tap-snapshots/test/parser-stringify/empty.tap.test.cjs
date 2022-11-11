@@ -5,11 +5,11 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser-stringify.js TAP empty.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP empty.tap bail > parsed 1`] = `
 Array [
   Array [
     "plan",
-    Object {
+    Plan {
       "comment": "no tests found",
       "end": 0,
       "start": 1,
@@ -39,21 +39,21 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP empty.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP empty.tap bail > stringified 1`] = `
 1..0 # no tests found
 
 `
 
-exports[`test/parser-stringify.js TAP empty.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP empty.tap bail > stringified flat 1`] = `
 1..0 # no tests found
 
 `
 
-exports[`test/parser-stringify.js TAP empty.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP empty.tap default settings > parsed 1`] = `
 Array [
   Array [
     "plan",
-    Object {
+    Plan {
       "comment": "no tests found",
       "end": 0,
       "start": 1,
@@ -83,21 +83,54 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP empty.tap default settings > stringified 1`] = `
-1..0 # no tests found
-
-`
-
-exports[`test/parser-stringify.js TAP empty.tap default settings > stringified flat 1`] = `
-1..0 # no tests found
-
-`
-
-exports[`test/parser-stringify.js TAP empty.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP empty.tap default settings > parsed flat 1`] = `
 Array [
   Array [
     "plan",
     Object {
+      "end": 0,
+      "start": 1,
+    },
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 0,
+      "fail": 0,
+      "failures": Array [],
+      "ok": true,
+      "pass": 0,
+      "plan": FinalPlan {
+        "comment": "no tests found",
+        "end": 0,
+        "skipAll": true,
+        "skipReason": "no tests found",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parse-stringify.ts TAP empty.tap default settings > stringified 1`] = `
+1..0 # no tests found
+
+`
+
+exports[`test/parse-stringify.ts TAP empty.tap default settings > stringified flat 1`] = `
+1..0 # no tests found
+
+`
+
+exports[`test/parse-stringify.ts TAP empty.tap strict > parsed 1`] = `
+Array [
+  Array [
+    "plan",
+    Plan {
       "comment": "no tests found",
       "end": 0,
       "start": 1,
@@ -127,21 +160,21 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP empty.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP empty.tap strict > stringified 1`] = `
 1..0 # no tests found
 
 `
 
-exports[`test/parser-stringify.js TAP empty.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP empty.tap strict > stringified flat 1`] = `
 1..0 # no tests found
 
 `
 
-exports[`test/parser-stringify.js TAP empty.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP empty.tap strictBail > parsed 1`] = `
 Array [
   Array [
     "plan",
-    Object {
+    Plan {
       "comment": "no tests found",
       "end": 0,
       "start": 1,
@@ -171,12 +204,12 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP empty.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP empty.tap strictBail > stringified 1`] = `
 1..0 # no tests found
 
 `
 
-exports[`test/parser-stringify.js TAP empty.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP empty.tap strictBail > stringified flat 1`] = `
 1..0 # no tests found
 
 `

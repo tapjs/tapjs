@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser.js TAP subtest-mixing.tap > output bail=false 1`] = `
+exports[`test/parser.ts TAP subtest-mixing.tap > output bail=false 1`] = `
 Array [
   Array [
     "line",
@@ -52,10 +52,18 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "x1 y",
               "id": 1,
               "name": "ypoint",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           Array [
@@ -64,7 +72,8 @@ Array [
           ],
           Array [
             "plan",
-            Object {
+            Plan {
+              "comment": "",
               "end": 1,
               "start": 1,
             },
@@ -108,10 +117,17 @@ Array [
         "assert",
         Result {
           "buffered": true,
+          "diag": null,
           "fullname": "x1",
           "id": 1,
           "name": "y",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -120,7 +136,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -159,19 +176,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "x1 y",
       "id": 1,
       "name": "ypoint",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "x1 y",
       "id": 1,
       "name": "ypoint",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -194,10 +227,17 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "x1",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -229,10 +269,18 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "x2 y",
               "id": 1,
               "name": "ypoint",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           Array [
@@ -241,7 +289,8 @@ Array [
           ],
           Array [
             "plan",
-            Object {
+            Plan {
+              "comment": "",
               "end": 1,
               "start": 1,
             },
@@ -284,10 +333,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "x2",
           "id": 1,
           "name": "y",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -296,7 +353,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -335,19 +393,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "x2 y",
       "id": 1,
       "name": "ypoint",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "x2 y",
       "id": 1,
       "name": "ypoint",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -370,10 +444,17 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "diag": null,
       "fullname": "",
       "id": 2,
       "name": "x2",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -405,10 +486,18 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "x3 y",
               "id": 1,
               "name": "ypoint",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           Array [
@@ -417,7 +506,8 @@ Array [
           ],
           Array [
             "plan",
-            Object {
+            Plan {
+              "comment": "",
               "end": 1,
               "start": 1,
             },
@@ -460,10 +550,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "x3",
           "id": 1,
           "name": "y",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -472,7 +570,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -511,19 +610,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "x3 y",
       "id": 1,
       "name": "ypoint",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "x3 y",
       "id": 1,
       "name": "ypoint",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -546,10 +661,17 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "diag": null,
       "fullname": "",
       "id": 3,
       "name": "x3",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -581,10 +703,18 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "x4 y",
               "id": 1,
               "name": "ypoint",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           Array [
@@ -593,7 +723,8 @@ Array [
           ],
           Array [
             "plan",
-            Object {
+            Plan {
+              "comment": "",
               "end": 1,
               "start": 1,
             },
@@ -637,10 +768,17 @@ Array [
         "assert",
         Result {
           "buffered": true,
+          "diag": null,
           "fullname": "x4",
           "id": 1,
           "name": "y",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -649,7 +787,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -688,19 +827,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "x4 y",
       "id": 1,
       "name": "ypoint",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "x4 y",
       "id": 1,
       "name": "ypoint",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -722,10 +877,18 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 4,
       "name": "x4",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -757,10 +920,18 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "x5 y",
               "id": 1,
               "name": "ypoint",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           Array [
@@ -769,7 +940,8 @@ Array [
           ],
           Array [
             "plan",
-            Object {
+            Plan {
+              "comment": "",
               "end": 1,
               "start": 1,
             },
@@ -812,10 +984,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "x5",
           "id": 1,
           "name": "y",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -824,7 +1004,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -863,19 +1044,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "x5 y",
       "id": 1,
       "name": "ypoint",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "x5 y",
       "id": 1,
       "name": "ypoint",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -897,10 +1094,18 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 5,
       "name": "x5",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -932,10 +1137,18 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "x6 y",
               "id": 1,
               "name": "ypoint",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           Array [
@@ -944,7 +1157,8 @@ Array [
           ],
           Array [
             "plan",
-            Object {
+            Plan {
+              "comment": "",
               "end": 1,
               "start": 1,
             },
@@ -987,10 +1201,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "x6",
           "id": 1,
           "name": "y",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -999,7 +1221,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -1038,19 +1261,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "x6 y",
       "id": 1,
       "name": "ypoint",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "x6 y",
       "id": 1,
       "name": "ypoint",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -1072,10 +1311,18 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 6,
       "name": "x6",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -1107,10 +1354,18 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "x7 y",
               "id": 1,
               "name": "ypoint",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           Array [
@@ -1119,7 +1374,8 @@ Array [
           ],
           Array [
             "plan",
-            Object {
+            Plan {
+              "comment": "",
               "end": 1,
               "start": 1,
             },
@@ -1163,10 +1419,17 @@ Array [
         "assert",
         Result {
           "buffered": true,
+          "diag": null,
           "fullname": "x7",
           "id": 1,
           "name": "y",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -1175,7 +1438,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -1214,19 +1478,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "x7 y",
       "id": 1,
       "name": "ypoint",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "x7 y",
       "id": 1,
       "name": "ypoint",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -1248,10 +1528,18 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 7,
       "name": "x7",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -1283,10 +1571,18 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "x8 y",
               "id": 1,
               "name": "ypoint",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           Array [
@@ -1295,7 +1591,8 @@ Array [
           ],
           Array [
             "plan",
-            Object {
+            Plan {
+              "comment": "",
               "end": 1,
               "start": 1,
             },
@@ -1338,10 +1635,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "x8",
           "id": 1,
           "name": "y",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -1350,7 +1655,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -1389,19 +1695,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "x8 y",
       "id": 1,
       "name": "ypoint",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "x8 y",
       "id": 1,
       "name": "ypoint",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -1423,10 +1745,18 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 8,
       "name": "x8",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -1458,10 +1788,18 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "x9 y",
               "id": 1,
               "name": "ypoint",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           Array [
@@ -1470,7 +1808,8 @@ Array [
           ],
           Array [
             "plan",
-            Object {
+            Plan {
+              "comment": "",
               "end": 1,
               "start": 1,
             },
@@ -1513,10 +1852,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "x9",
           "id": 1,
           "name": "y",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -1525,7 +1872,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -1564,19 +1912,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "x9 y",
       "id": 1,
       "name": "ypoint",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "x9 y",
       "id": 1,
       "name": "ypoint",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -1598,10 +1962,18 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 9,
       "name": "x9",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -1610,7 +1982,8 @@ Array [
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 9,
       "start": 1,
     },
@@ -1639,7 +2012,7 @@ Array [
 ]
 `
 
-exports[`test/parser.js TAP subtest-mixing.tap > output bail=true 1`] = `
+exports[`test/parser.ts TAP subtest-mixing.tap > output bail=true 1`] = `
 Array [
   Array [
     "line",
@@ -1686,10 +2059,18 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "x1 y",
               "id": 1,
               "name": "ypoint",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           Array [
@@ -1698,7 +2079,8 @@ Array [
           ],
           Array [
             "plan",
-            Object {
+            Plan {
+              "comment": "",
               "end": 1,
               "start": 1,
             },
@@ -1742,10 +2124,17 @@ Array [
         "assert",
         Result {
           "buffered": true,
+          "diag": null,
           "fullname": "x1",
           "id": 1,
           "name": "y",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -1754,7 +2143,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -1793,19 +2183,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "x1 y",
       "id": 1,
       "name": "ypoint",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "x1 y",
       "id": 1,
       "name": "ypoint",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -1828,10 +2234,17 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "x1",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -1863,10 +2276,18 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "x2 y",
               "id": 1,
               "name": "ypoint",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           Array [
@@ -1875,7 +2296,8 @@ Array [
           ],
           Array [
             "plan",
-            Object {
+            Plan {
+              "comment": "",
               "end": 1,
               "start": 1,
             },
@@ -1918,10 +2340,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "x2",
           "id": 1,
           "name": "y",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -1930,7 +2360,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -1969,19 +2400,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "x2 y",
       "id": 1,
       "name": "ypoint",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "x2 y",
       "id": 1,
       "name": "ypoint",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -2004,10 +2451,17 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "diag": null,
       "fullname": "",
       "id": 2,
       "name": "x2",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -2039,10 +2493,18 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "x3 y",
               "id": 1,
               "name": "ypoint",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           Array [
@@ -2051,7 +2513,8 @@ Array [
           ],
           Array [
             "plan",
-            Object {
+            Plan {
+              "comment": "",
               "end": 1,
               "start": 1,
             },
@@ -2094,10 +2557,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "x3",
           "id": 1,
           "name": "y",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -2106,7 +2577,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -2145,19 +2617,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "x3 y",
       "id": 1,
       "name": "ypoint",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "x3 y",
       "id": 1,
       "name": "ypoint",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -2180,10 +2668,17 @@ Array [
     "assert",
     Result {
       "buffered": true,
+      "diag": null,
       "fullname": "",
       "id": 3,
       "name": "x3",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -2215,10 +2710,18 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "x4 y",
               "id": 1,
               "name": "ypoint",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           Array [
@@ -2227,7 +2730,8 @@ Array [
           ],
           Array [
             "plan",
-            Object {
+            Plan {
+              "comment": "",
               "end": 1,
               "start": 1,
             },
@@ -2271,10 +2775,17 @@ Array [
         "assert",
         Result {
           "buffered": true,
+          "diag": null,
           "fullname": "x4",
           "id": 1,
           "name": "y",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -2283,7 +2794,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -2322,19 +2834,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "x4 y",
       "id": 1,
       "name": "ypoint",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "x4 y",
       "id": 1,
       "name": "ypoint",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -2356,10 +2884,18 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 4,
       "name": "x4",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -2391,10 +2927,18 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "x5 y",
               "id": 1,
               "name": "ypoint",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           Array [
@@ -2403,7 +2947,8 @@ Array [
           ],
           Array [
             "plan",
-            Object {
+            Plan {
+              "comment": "",
               "end": 1,
               "start": 1,
             },
@@ -2446,10 +2991,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "x5",
           "id": 1,
           "name": "y",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -2458,7 +3011,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -2497,19 +3051,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "x5 y",
       "id": 1,
       "name": "ypoint",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "x5 y",
       "id": 1,
       "name": "ypoint",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -2531,10 +3101,18 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 5,
       "name": "x5",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -2566,10 +3144,18 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "x6 y",
               "id": 1,
               "name": "ypoint",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           Array [
@@ -2578,7 +3164,8 @@ Array [
           ],
           Array [
             "plan",
-            Object {
+            Plan {
+              "comment": "",
               "end": 1,
               "start": 1,
             },
@@ -2621,10 +3208,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "x6",
           "id": 1,
           "name": "y",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -2633,7 +3228,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -2672,19 +3268,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "x6 y",
       "id": 1,
       "name": "ypoint",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "x6 y",
       "id": 1,
       "name": "ypoint",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -2706,10 +3318,18 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 6,
       "name": "x6",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -2741,10 +3361,18 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "x7 y",
               "id": 1,
               "name": "ypoint",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           Array [
@@ -2753,7 +3381,8 @@ Array [
           ],
           Array [
             "plan",
-            Object {
+            Plan {
+              "comment": "",
               "end": 1,
               "start": 1,
             },
@@ -2797,10 +3426,17 @@ Array [
         "assert",
         Result {
           "buffered": true,
+          "diag": null,
           "fullname": "x7",
           "id": 1,
           "name": "y",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -2809,7 +3445,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -2848,19 +3485,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "x7 y",
       "id": 1,
       "name": "ypoint",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "x7 y",
       "id": 1,
       "name": "ypoint",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -2882,10 +3535,18 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 7,
       "name": "x7",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -2917,10 +3578,18 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "x8 y",
               "id": 1,
               "name": "ypoint",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           Array [
@@ -2929,7 +3598,8 @@ Array [
           ],
           Array [
             "plan",
-            Object {
+            Plan {
+              "comment": "",
               "end": 1,
               "start": 1,
             },
@@ -2972,10 +3642,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "x8",
           "id": 1,
           "name": "y",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -2984,7 +3662,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -3023,19 +3702,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "x8 y",
       "id": 1,
       "name": "ypoint",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "x8 y",
       "id": 1,
       "name": "ypoint",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -3057,10 +3752,18 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 8,
       "name": "x8",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -3092,10 +3795,18 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "x9 y",
               "id": 1,
               "name": "ypoint",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           Array [
@@ -3104,7 +3815,8 @@ Array [
           ],
           Array [
             "plan",
-            Object {
+            Plan {
+              "comment": "",
               "end": 1,
               "start": 1,
             },
@@ -3147,10 +3859,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "x9",
           "id": 1,
           "name": "y",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       Array [
@@ -3159,7 +3879,8 @@ Array [
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 1,
           "start": 1,
         },
@@ -3198,19 +3919,35 @@ Array [
   Array [
     "result",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "x9 y",
       "id": 1,
       "name": "ypoint",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "x9 y",
       "id": 1,
       "name": "ypoint",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -3232,10 +3969,18 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 9,
       "name": "x9",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -3244,7 +3989,8 @@ Array [
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 9,
       "start": 1,
     },

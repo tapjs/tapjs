@@ -4,7 +4,7 @@ parse the [test anything protocol](http://testanything.org/)
 
 # example
 
-``` js
+```js
 // stream style
 const Parser = require('tap-parser')
 const p = new Parser(results => console.dir(results))
@@ -112,7 +112,7 @@ Options:
 
 # methods
 
-``` js
+```js
 const Parser = require('tap-parser')
 ```
 

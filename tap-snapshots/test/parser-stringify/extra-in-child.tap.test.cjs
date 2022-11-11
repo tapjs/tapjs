@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser-stringify.js TAP extra-in-child.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP extra-in-child.tap bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -28,24 +28,41 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "test/01c-user-updates.js update profile",
               "id": 1,
               "name": "should be equivalent",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "test/01c-user-updates.js update profile",
               "id": 2,
               "name": "should be equivalent",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           Array [
             "plan",
-            Object {
+            Plan {
+              "comment": "",
               "end": 2,
               "start": 1,
             },
@@ -76,11 +93,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "test/01c-user-updates.js",
           "id": 1,
           "name": "update profile",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
           "time": 43.094,
+          "todo": false,
         },
       ],
       Array [
@@ -93,15 +117,24 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "test/01c-user-updates.js update email",
               "id": 1,
               "name": "should be equivalent",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           Array [
             "plan",
-            Object {
+            Plan {
+              "comment": "",
               "end": 1,
               "start": 1,
             },
@@ -132,16 +165,24 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "test/01c-user-updates.js",
           "id": 2,
           "name": "update email",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
           "time": 24.16,
+          "todo": false,
         },
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 2,
           "start": 1,
         },
@@ -280,16 +321,24 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "test/01c-user-updates.js",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
       "time": 339.14,
+      "todo": false,
     },
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 1,
       "start": 1,
     },
@@ -322,7 +371,7 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP extra-in-child.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP extra-in-child.tap bail > stringified 1`] = `
 TAP version 13
 # Subtest: test/01c-user-updates.js
     # Subtest: update profile
@@ -368,20 +417,17 @@ ok 1 - test/01c-user-updates.js # time=339.14ms
 
 `
 
-exports[`test/parser-stringify.js TAP extra-in-child.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP extra-in-child.tap bail > stringified flat 1`] = `
 TAP version 13
 # Subtest: test/01c-user-updates.js
-    # Subtest: update profile
-        ok 1 - should be equivalent
-        ok 2 - should be equivalent
-        1..2
-    ok 1 - update profile # time=43.094ms
-    # Subtest: update email
-        ok 1 - should be equivalent
-        1..1
-    ok 2 - update email # time=24.16ms
-    1..2
-    # time=174.236ms
+# Subtest: update profile
+ok 1 - test/01c-user-updates.js update profile > should be equivalent
+ok 2 - test/01c-user-updates.js update profile > should be equivalent
+ok 3 - test/01c-user-updates.js > update profile # time=43.094ms
+# Subtest: update email
+ok 4 - test/01c-user-updates.js update email > should be equivalent
+ok 5 - test/01c-user-updates.js > update email # time=24.16ms
+# time=174.236ms
     null { _id: 'org.couchdb.user:user',
       _rev: '21-3d786fbf7428194ca288abe40c50cd0c',
       password_scheme: 'pbkdf2',
@@ -408,13 +454,13 @@ TAP version 13
       salt: '74e7dea17bfe520bb84dd9642f072549',
       github: 'user',
       homepage: 'http://www.user.com' }
-ok 1 - test/01c-user-updates.js # time=339.14ms
-1..1
+ok 6 - test/01c-user-updates.js # time=339.14ms
+1..6
 # time=343.487ms
 
 `
 
-exports[`test/parser-stringify.js TAP extra-in-child.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP extra-in-child.tap default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -437,24 +483,41 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "test/01c-user-updates.js update profile",
               "id": 1,
               "name": "should be equivalent",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "test/01c-user-updates.js update profile",
               "id": 2,
               "name": "should be equivalent",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           Array [
             "plan",
-            Object {
+            Plan {
+              "comment": "",
               "end": 2,
               "start": 1,
             },
@@ -485,11 +548,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "test/01c-user-updates.js",
           "id": 1,
           "name": "update profile",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
           "time": 43.094,
+          "todo": false,
         },
       ],
       Array [
@@ -502,15 +572,24 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "test/01c-user-updates.js update email",
               "id": 1,
               "name": "should be equivalent",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           Array [
             "plan",
-            Object {
+            Plan {
+              "comment": "",
               "end": 1,
               "start": 1,
             },
@@ -541,16 +620,24 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "test/01c-user-updates.js",
           "id": 2,
           "name": "update email",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
           "time": 24.16,
+          "todo": false,
         },
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 2,
           "start": 1,
         },
@@ -689,16 +776,24 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "test/01c-user-updates.js",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
       "time": 339.14,
+      "todo": false,
     },
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 1,
       "start": 1,
     },
@@ -731,7 +826,203 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP extra-in-child.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP extra-in-child.tap default settings > parsed flat 1`] = `
+Array [
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "assert",
+    Result {
+      "buffered": false,
+      "diag": null,
+      "fullname": "",
+      "id": 1,
+      "name": "test/01c-user-updates.js update profile > should be equivalent",
+      "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "assert",
+    Result {
+      "buffered": false,
+      "diag": null,
+      "fullname": "",
+      "id": 2,
+      "name": "test/01c-user-updates.js update profile > should be equivalent",
+      "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "extra",
+    "    null { _id: 'org.couchdb.user:user',\\n",
+  ],
+  Array [
+    "extra",
+    "      _rev: '21-3d786fbf7428194ca288abe40c50cd0c',\\n",
+  ],
+  Array [
+    "extra",
+    "      password_scheme: 'pbkdf2',\\n",
+  ],
+  Array [
+    "extra",
+    "      iterations: 10,\\n",
+  ],
+  Array [
+    "extra",
+    "      name: 'user',\\n",
+  ],
+  Array [
+    "extra",
+    "      email: 'new@email.com',\\n",
+  ],
+  Array [
+    "extra",
+    "      type: 'user',\\n",
+  ],
+  Array [
+    "extra",
+    "      roles: [],\\n",
+  ],
+  Array [
+    "extra",
+    "      date: '2015-05-07T18:04:07.589Z',\\n",
+  ],
+  Array [
+    "extra",
+    "      derived_key: 'efcfbc73438a9d122290e5d0c82d1ca7d0a9ba1f',\\n",
+  ],
+  Array [
+    "extra",
+    "      salt: '74e7dea17bfe520bb84dd9642f072549',\\n",
+  ],
+  Array [
+    "extra",
+    "      github: 'user',\\n",
+  ],
+  Array [
+    "extra",
+    "      homepage: 'http://www.user.com' }\\n",
+  ],
+  Array [
+    "extra",
+    "    { _id: 'org.couchdb.user:user',\\n",
+  ],
+  Array [
+    "extra",
+    "      _rev: '22-97703c62ab1f01ea691d40aa8a756cbf',\\n",
+  ],
+  Array [
+    "extra",
+    "      password_scheme: 'pbkdf2',\\n",
+  ],
+  Array [
+    "extra",
+    "      iterations: 10,\\n",
+  ],
+  Array [
+    "extra",
+    "      name: 'user',\\n",
+  ],
+  Array [
+    "extra",
+    "      email: 'new@email.com',\\n",
+  ],
+  Array [
+    "extra",
+    "      type: 'user',\\n",
+  ],
+  Array [
+    "extra",
+    "      roles: [],\\n",
+  ],
+  Array [
+    "extra",
+    "      date: '2015-05-07T18:04:07.589Z',\\n",
+  ],
+  Array [
+    "extra",
+    "      derived_key: 'efcfbc73438a9d122290e5d0c82d1ca7d0a9ba1f',\\n",
+  ],
+  Array [
+    "extra",
+    "      salt: '74e7dea17bfe520bb84dd9642f072549',\\n",
+  ],
+  Array [
+    "extra",
+    "      github: 'user',\\n",
+  ],
+  Array [
+    "extra",
+    "      homepage: 'http://www.user.com' }\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "buffered": false,
+      "diag": null,
+      "fullname": "",
+      "id": 3,
+      "name": "test/01c-user-updates.js update email > should be equivalent",
+      "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "comment",
+    "# time=343.487ms\\n",
+  ],
+  Array [
+    "plan",
+    Object {
+      "end": 3,
+      "start": 1,
+    },
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 1,
+      "fail": 0,
+      "failures": Array [],
+      "ok": true,
+      "pass": 1,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 1,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": 343.487,
+      "todo": 0,
+    },
+  ],
+]
+`
+
+exports[`test/parse-stringify.ts TAP extra-in-child.tap default settings > stringified 1`] = `
 TAP version 13
 # Subtest: test/01c-user-updates.js
     # Subtest: update profile
@@ -777,20 +1068,17 @@ ok 1 - test/01c-user-updates.js # time=339.14ms
 
 `
 
-exports[`test/parser-stringify.js TAP extra-in-child.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP extra-in-child.tap default settings > stringified flat 1`] = `
 TAP version 13
 # Subtest: test/01c-user-updates.js
-    # Subtest: update profile
-        ok 1 - should be equivalent
-        ok 2 - should be equivalent
-        1..2
-    ok 1 - update profile # time=43.094ms
-    # Subtest: update email
-        ok 1 - should be equivalent
-        1..1
-    ok 2 - update email # time=24.16ms
-    1..2
-    # time=174.236ms
+# Subtest: update profile
+ok 1 - test/01c-user-updates.js update profile > should be equivalent
+ok 2 - test/01c-user-updates.js update profile > should be equivalent
+ok 3 - test/01c-user-updates.js > update profile # time=43.094ms
+# Subtest: update email
+ok 4 - test/01c-user-updates.js update email > should be equivalent
+ok 5 - test/01c-user-updates.js > update email # time=24.16ms
+# time=174.236ms
     null { _id: 'org.couchdb.user:user',
       _rev: '21-3d786fbf7428194ca288abe40c50cd0c',
       password_scheme: 'pbkdf2',
@@ -817,13 +1105,13 @@ TAP version 13
       salt: '74e7dea17bfe520bb84dd9642f072549',
       github: 'user',
       homepage: 'http://www.user.com' }
-ok 1 - test/01c-user-updates.js # time=339.14ms
-1..1
+ok 6 - test/01c-user-updates.js # time=339.14ms
+1..6
 # time=343.487ms
 
 `
 
-exports[`test/parser-stringify.js TAP extra-in-child.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP extra-in-child.tap strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -846,24 +1134,41 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "test/01c-user-updates.js update profile",
               "id": 1,
               "name": "should be equivalent",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "test/01c-user-updates.js update profile",
               "id": 2,
               "name": "should be equivalent",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           Array [
             "plan",
-            Object {
+            Plan {
+              "comment": "",
               "end": 2,
               "start": 1,
             },
@@ -894,11 +1199,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "test/01c-user-updates.js",
           "id": 1,
           "name": "update profile",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
           "time": 43.094,
+          "todo": false,
         },
       ],
       Array [
@@ -911,15 +1223,24 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "test/01c-user-updates.js update email",
               "id": 1,
               "name": "should be equivalent",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           Array [
             "plan",
-            Object {
+            Plan {
+              "comment": "",
               "end": 1,
               "start": 1,
             },
@@ -950,16 +1271,24 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "test/01c-user-updates.js",
           "id": 2,
           "name": "update email",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
           "time": 24.16,
+          "todo": false,
         },
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 2,
           "start": 1,
         },
@@ -1207,16 +1536,24 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "test/01c-user-updates.js",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
       "time": 339.14,
+      "todo": false,
     },
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 1,
       "start": 1,
     },
@@ -1358,7 +1695,7 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP extra-in-child.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP extra-in-child.tap strict > stringified 1`] = `
 TAP version 13
 # Subtest: test/01c-user-updates.js
     # Subtest: update profile
@@ -1406,21 +1743,18 @@ ok 1 - test/01c-user-updates.js # time=339.14ms
 
 `
 
-exports[`test/parser-stringify.js TAP extra-in-child.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP extra-in-child.tap strict > stringified flat 1`] = `
 TAP version 13
 # Subtest: test/01c-user-updates.js
-    # Subtest: update profile
-        ok 1 - should be equivalent
-        ok 2 - should be equivalent
-        1..2
-    ok 1 - update profile # time=43.094ms
-    # Subtest: update email
-        ok 1 - should be equivalent
-        1..1
-    ok 2 - update email # time=24.16ms
-    1..2
-    # time=174.236ms
-    # failed 26 of 2 tests
+# Subtest: update profile
+ok 1 - test/01c-user-updates.js update profile > should be equivalent
+ok 2 - test/01c-user-updates.js update profile > should be equivalent
+ok 3 - test/01c-user-updates.js > update profile # time=43.094ms
+# Subtest: update email
+ok 4 - test/01c-user-updates.js update email > should be equivalent
+ok 5 - test/01c-user-updates.js > update email # time=24.16ms
+# time=174.236ms
+# failed 26 of 2 tests
     null { _id: 'org.couchdb.user:user',
       _rev: '21-3d786fbf7428194ca288abe40c50cd0c',
       password_scheme: 'pbkdf2',
@@ -1447,14 +1781,14 @@ TAP version 13
       salt: '74e7dea17bfe520bb84dd9642f072549',
       github: 'user',
       homepage: 'http://www.user.com' }
-ok 1 - test/01c-user-updates.js # time=339.14ms
-1..1
+ok 6 - test/01c-user-updates.js # time=339.14ms
+1..6
 # time=343.487ms
 # failed 26 test
 
 `
 
-exports[`test/parser-stringify.js TAP extra-in-child.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts TAP extra-in-child.tap strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -1477,24 +1811,41 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "test/01c-user-updates.js update profile",
               "id": 1,
               "name": "should be equivalent",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "test/01c-user-updates.js update profile",
               "id": 2,
               "name": "should be equivalent",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           Array [
             "plan",
-            Object {
+            Plan {
+              "comment": "",
               "end": 2,
               "start": 1,
             },
@@ -1525,11 +1876,18 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "test/01c-user-updates.js",
           "id": 1,
           "name": "update profile",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
           "time": 43.094,
+          "todo": false,
         },
       ],
       Array [
@@ -1542,15 +1900,24 @@ Array [
           Array [
             "assert",
             Result {
+              "buffered": false,
+              "diag": null,
               "fullname": "test/01c-user-updates.js update email",
               "id": 1,
               "name": "should be equivalent",
               "ok": true,
+              "plan": null,
+              "previous": null,
+              "skip": false,
+              "tapError": null,
+              "time": null,
+              "todo": false,
             },
           ],
           Array [
             "plan",
-            Object {
+            Plan {
+              "comment": "",
               "end": 1,
               "start": 1,
             },
@@ -1581,16 +1948,24 @@ Array [
       Array [
         "assert",
         Result {
+          "buffered": false,
+          "diag": null,
           "fullname": "test/01c-user-updates.js",
           "id": 2,
           "name": "update email",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
           "time": 24.16,
+          "todo": false,
         },
       ],
       Array [
         "plan",
-        Object {
+        Plan {
+          "comment": "",
           "end": 2,
           "start": 1,
         },
@@ -1838,16 +2213,24 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
+      "diag": null,
       "fullname": "",
       "id": 1,
       "name": "test/01c-user-updates.js",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
       "time": 339.14,
+      "todo": false,
     },
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 1,
       "start": 1,
     },
@@ -1989,7 +2372,7 @@ Array [
 ]
 `
 
-exports[`test/parser-stringify.js TAP extra-in-child.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts TAP extra-in-child.tap strictBail > stringified 1`] = `
 TAP version 13
 # Subtest: test/01c-user-updates.js
     # Subtest: update profile
@@ -2037,21 +2420,18 @@ ok 1 - test/01c-user-updates.js # time=339.14ms
 
 `
 
-exports[`test/parser-stringify.js TAP extra-in-child.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts TAP extra-in-child.tap strictBail > stringified flat 1`] = `
 TAP version 13
 # Subtest: test/01c-user-updates.js
-    # Subtest: update profile
-        ok 1 - should be equivalent
-        ok 2 - should be equivalent
-        1..2
-    ok 1 - update profile # time=43.094ms
-    # Subtest: update email
-        ok 1 - should be equivalent
-        1..1
-    ok 2 - update email # time=24.16ms
-    1..2
-    # time=174.236ms
-    # failed 26 of 2 tests
+# Subtest: update profile
+ok 1 - test/01c-user-updates.js update profile > should be equivalent
+ok 2 - test/01c-user-updates.js update profile > should be equivalent
+ok 3 - test/01c-user-updates.js > update profile # time=43.094ms
+# Subtest: update email
+ok 4 - test/01c-user-updates.js update email > should be equivalent
+ok 5 - test/01c-user-updates.js > update email # time=24.16ms
+# time=174.236ms
+# failed 26 of 2 tests
     null { _id: 'org.couchdb.user:user',
       _rev: '21-3d786fbf7428194ca288abe40c50cd0c',
       password_scheme: 'pbkdf2',
@@ -2078,8 +2458,8 @@ TAP version 13
       salt: '74e7dea17bfe520bb84dd9642f072549',
       github: 'user',
       homepage: 'http://www.user.com' }
-ok 1 - test/01c-user-updates.js # time=339.14ms
-1..1
+ok 6 - test/01c-user-updates.js # time=339.14ms
+1..6
 # time=343.487ms
 # failed 26 test
 

@@ -1,5 +1,5 @@
-var Parser = require('../')
-var t = require('tap')
+import t from 'tap'
+import Parser from '../src/index'
 
 t.test('strictness is inherited', function (t) {
   var data = [
@@ -11,7 +11,7 @@ t.test('strictness is inherited', function (t) {
     '    1..1',
     'ok 1 foo',
     '# passed 1 of 1 tests',
-    ''
+    '',
   ].join('\n')
 
   var p = new Parser({ strict: true })
@@ -34,7 +34,7 @@ t.test('strictness is reversible', function (t) {
     '    1..1',
     'ok 1 foo',
     '# passed 1 of 1 tests',
-    ''
+    '',
   ].join('\n')
 
   var p = new Parser({ strict: true })
@@ -58,7 +58,7 @@ t.test('unstrict child does not make parent unstrict', function (t) {
     'flerggy blerg',
     'ok 1 foo',
     '# passed 1 of 1 tests',
-    ''
+    '',
   ].join('\n')
 
   var p = new Parser({ strict: true })

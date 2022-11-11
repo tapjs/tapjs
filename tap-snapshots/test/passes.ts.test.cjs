@@ -5,11 +5,12 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/passes.js TAP > saw expected events 1`] = `
+exports[`test/passes.ts TAP > saw expected events 1`] = `
 Array [
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 2,
       "start": 1,
     },
@@ -17,6 +18,7 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
       "diag": Object {
         "message": "1 passed",
       },
@@ -24,11 +26,18 @@ Array [
       "id": 1,
       "name": "this is fine",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "result",
     Result {
+      "buffered": false,
       "diag": Object {
         "message": "1 passed",
       },
@@ -36,11 +45,18 @@ Array [
       "id": 1,
       "name": "this is fine",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "pass",
     Result {
+      "buffered": false,
       "diag": Object {
         "message": "1 passed",
       },
@@ -48,39 +64,69 @@ Array [
       "id": 1,
       "name": "this is fine",
       "ok": true,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "assert",
     Result {
+      "buffered": false,
       "diag": Object {
         "message": "2 failed",
       },
       "fullname": "",
       "id": 2,
+      "name": "",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "result",
     Result {
+      "buffered": false,
       "diag": Object {
         "message": "2 failed",
       },
       "fullname": "",
       "id": 2,
+      "name": "",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "fail",
     Result {
+      "buffered": false,
       "diag": Object {
         "message": "2 failed",
       },
       "fullname": "",
       "id": 2,
+      "name": "",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -95,18 +141,27 @@ Array [
       "fail": 1,
       "failures": Array [
         Result {
+          "buffered": false,
           "diag": Object {
             "message": "2 failed",
           },
           "fullname": "",
           "id": 2,
+          "name": "",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       "ok": false,
       "pass": 1,
       "passes": Array [
         Result {
+          "buffered": false,
           "diag": Object {
             "message": "1 passed",
           },
@@ -114,6 +169,12 @@ Array [
           "id": 1,
           "name": "this is fine",
           "ok": true,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       "plan": FinalPlan {

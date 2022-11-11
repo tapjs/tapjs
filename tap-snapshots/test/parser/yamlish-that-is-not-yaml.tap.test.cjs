@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser.js TAP yamlish-that-is-not-yaml.tap > output bail=false 1`] = `
+exports[`test/parser.ts TAP yamlish-that-is-not-yaml.tap > output bail=false 1`] = `
 Array [
   Array [
     "line",
@@ -130,6 +130,7 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
       "diag": Object {
         "but": "this",
         "is": "yaml",
@@ -138,11 +139,18 @@ Array [
       "id": 1,
       "name": "expected yaml, got a sea turtle",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "result",
     Result {
+      "buffered": false,
       "diag": Object {
         "but": "this",
         "is": "yaml",
@@ -151,11 +159,18 @@ Array [
       "id": 1,
       "name": "expected yaml, got a sea turtle",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "fail",
     Result {
+      "buffered": false,
       "diag": Object {
         "but": "this",
         "is": "yaml",
@@ -164,6 +179,12 @@ Array [
       "id": 1,
       "name": "expected yaml, got a sea turtle",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -201,7 +222,8 @@ Array [
   ],
   Array [
     "plan",
-    Object {
+    Plan {
+      "comment": "",
       "end": 1,
       "start": 1,
     },
@@ -222,6 +244,7 @@ Array [
       "fail": 1,
       "failures": Array [
         Result {
+          "buffered": false,
           "diag": Object {
             "but": "this",
             "is": "yaml",
@@ -230,6 +253,12 @@ Array [
           "id": 1,
           "name": "expected yaml, got a sea turtle",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       "ok": false,
@@ -249,7 +278,7 @@ Array [
 ]
 `
 
-exports[`test/parser.js TAP yamlish-that-is-not-yaml.tap > output bail=true 1`] = `
+exports[`test/parser.ts TAP yamlish-that-is-not-yaml.tap > output bail=true 1`] = `
 Array [
   Array [
     "line",
@@ -374,6 +403,7 @@ Array [
   Array [
     "assert",
     Result {
+      "buffered": false,
       "diag": Object {
         "but": "this",
         "is": "yaml",
@@ -382,11 +412,18 @@ Array [
       "id": 1,
       "name": "expected yaml, got a sea turtle",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "result",
     Result {
+      "buffered": false,
       "diag": Object {
         "but": "this",
         "is": "yaml",
@@ -395,11 +432,18 @@ Array [
       "id": 1,
       "name": "expected yaml, got a sea turtle",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
     "fail",
     Result {
+      "buffered": false,
       "diag": Object {
         "but": "this",
         "is": "yaml",
@@ -408,6 +452,12 @@ Array [
       "id": 1,
       "name": "expected yaml, got a sea turtle",
       "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
     },
   ],
   Array [
@@ -455,6 +505,7 @@ Array [
       "fail": 1,
       "failures": Array [
         Result {
+          "buffered": false,
           "diag": Object {
             "but": "this",
             "is": "yaml",
@@ -463,6 +514,12 @@ Array [
           "id": 1,
           "name": "expected yaml, got a sea turtle",
           "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
         },
       ],
       "ok": false,

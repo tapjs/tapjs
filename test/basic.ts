@@ -1,18 +1,22 @@
-var t = require('tap')
-var Parser = require('../')
+import t from 'tap'
+import { FinalResults } from '../src/final-results'
+import Parser from '../src/index'
 
-t.test('passing no options and cb works fine', function (t) {
-  var p = new Parser(t.end)
+t.test('passing no options and cb works fine', function (t: Tap.Test) {
+  //@ts-ignore
+  const p = new Parser(() => t.end())
   p.emit('complete')
 })
 
 t.test('it has a name', t => {
   t.plan(1)
   const p = new Parser({ name: 'root' })
-  p.on('child', c => c.on('child', c =>
-    t.equal(c.fullname, 'root child grandchild')))
+  p.on('child', c =>
+    c.on('child', (c: Parser) => t.equal(c.fullname, 'root child grandchild'))
+  )
 
-  p.end(`TAP version 13
+  p.end(
+    `TAP version 13
 # Subtest: child
     1..2
     ok 1 - this is fine
@@ -22,32 +26,34 @@ t.test('it has a name', t => {
     ok 2 - grandchild
 ok 1 - child
 1..1
-`, 'utf8')
+`,
+    'utf8'
+  )
 })
 
 t.test('end() can take chunk', function (t) {
   t.plan(2)
   t.test('string', function (t) {
-    var p = new Parser()
-    p.end('1..0\n', t.end)
+    const p = new Parser()
+    p.end('1..0\n', () => t.end())
   })
   t.test('encoding', function (t) {
-    var p = new Parser()
-    p.end(Buffer.from('1..0\n').toString('hex'), 'hex',  t.end)
+    const p = new Parser()
+    p.end(Buffer.from('1..0\n').toString('hex'), 'hex', t.end)
   })
 })
 
 t.test('takes a buffer just fine', function (t) {
-  var p = new Parser(theEnd)
+  const p = new Parser(theEnd)
   p.write(Buffer.from('TAP version 13\n'))
 
-  var calledme = false
-  function callme () {
+  let calledme = false
+  function callme() {
     calledme = true
   }
 
-  var calledbail = false
-  function bailcall () {
+  let calledbail = false
+  function bailcall() {
     calledbail = true
   }
 
@@ -61,7 +67,7 @@ t.test('takes a buffer just fine', function (t) {
     p.end()
   })
 
-  function theEnd (results) {
+  function theEnd(results: FinalResults) {
     t.ok(calledme, 'called cb from normal write')
     t.ok(calledbail, 'called cb from post-bailout write')
     t.match(results, { ok: false, count: 4, pass: 4 })
