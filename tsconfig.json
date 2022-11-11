@@ -1,0 +1,19 @@
+{
+  "exclude": ["./test", "./tap-snapshots"],
+  "include": ["src/**/*.ts"],
+  "compilerOptions": {
+    "declaration": true,
+    "sourceMap": true,
+    "target": "ES6",
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "module": "CommonJS",
+    "resolveJsonModule": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "outDir": "lib",
+    "allowSyntheticDefaultImports": true
+  }
+}

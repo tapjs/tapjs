@@ -7,32 +7,33 @@
     "tap-parser": "bin/cmd.js"
   },
   "dependencies": {
-    "events-to-array": "^1.0.1",
+    "events-to-array": "^2.0.3",
     "minipass": "^3.3.4",
-    "tap-yaml": "^1.0.0"
+    "tap-yaml": "^1.0.2",
+    "ts-node": "^10.9.1"
   },
   "devDependencies": {
+    "@types/node": "^18.11.9",
+    "@types/tap": "^15.0.6",
+    "eslint-config-prettier": "^8.5.0",
     "glob": "^7.0.5",
-    "tap": "^16.0.0"
+    "prettier": "^2.7.1",
+    "tap": "^16.3.0",
+    "typedoc": "^0.23.20",
+    "typescript": "^4.7.4"
   },
   "scripts": {
     "snap": "tap",
     "test": "tap",
+    "prepare": "tsc",
+    "pretest": "tsc",
+    "presnap": "tsc",
+    "format": "prettier --write . --loglevel warn",
     "preversion": "npm test",
     "postversion": "npm publish",
-    "postpublish": "git push origin --follow-tags"
-  },
-  "testling": {
-    "files": "test/*.js",
-    "browsers": [
-      "ie/6..latest",
-      "chrome/10",
-      "chrome/latest",
-      "firefox/3.5",
-      "firefox/latest",
-      "opera/latest",
-      "safari/latest"
-    ]
+    "prepublishOnly": "git push origin --follow-tags",
+    "postpublish": "rm -rf lib",
+    "typedoc": "typedoc ./src/*.ts"
   },
   "repository": {
     "type": "git",
@@ -46,17 +47,38 @@
   ],
   "license": "MIT",
   "files": [
+    "index.d.ts",
     "index.js",
     "bin/cmd.js"
   ],
+  "prettier": {
+    "semi": false,
+    "printWidth": 80,
+    "tabWidth": 2,
+    "useTabs": false,
+    "singleQuote": true,
+    "jsxSingleQuote": false,
+    "bracketSameLine": true,
+    "arrowParens": "avoid",
+    "endOfLine": "lf"
+  },
+  "eslintIgnore": [
+    "/node_modules",
+    "/lib"
+  ],
   "tap": {
-    "check-coverage": true,
-    "coverage-map": "map.js"
+    "coverage-map": "map.js",
+    "node-arg": [
+      "--no-warnings",
+      "--loader",
+      "ts-node/esm"
+    ],
+    "ts": false
   },
   "nyc": {
     "hookRunInThisContext": true
   },
   "engines": {
-    "node": ">= 8"
+    "node": ">= 12"
   }
 }
