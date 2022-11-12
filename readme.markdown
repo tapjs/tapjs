@@ -5,12 +5,12 @@ parse the [test anything protocol](http://testanything.org/)
 # example
 
 ```js
-// stream style
+// cjs style
 const { Parser } = require('tap-parser')
 // or, you can do it this way:
-import Parser from 'tap-parser'
-// or even:
-import Parser from 'https://unpkg.com/tap-parser@latest'
+// import { Parser } from 'tap-parser'
+// or this way:
+// import { Parser } from 'https://unpkg.com/tap-parser@latest/dist/mjs/index.js'
 const p = new Parser(results => console.dir(results))
 process.stdin.pipe(p)
 ```
