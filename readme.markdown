@@ -19,7 +19,7 @@ given some [TAP](http://testanything.org/)-formatted input:
 
 ```
 $ node test.js
-TAP version 13
+TAP version 14
 # beep
 ok 1 should be equal
 ok 2 should be equivalent
@@ -102,7 +102,7 @@ Options:
     Skip over blank lines outside of YAML blocks
 
   -o | --omit-version
-    Ignore the `TAP version 13` line at the start of tests
+    Ignore the `TAP version 13` or `TAP version 14` line at the start of tests
 
   --strict
     Run the parser in strict mode
@@ -144,8 +144,9 @@ If `options` is given, it may contain the following flags:
   whenever a failed test point is encountered.
 
 - `omitVersion` boolean which is `false` by default and will cause the
-  parser to ignore `TAP version 13` lines. Version lines in subtests
-  cause problems with some parsers, so they are always ignored.
+  parser to ignore `TAP version 13` or `TAP version 14` lines.
+  Version lines in subtests cause problems with some parsers, so
+  they are always ignored.
 
 - `passes` boolean which is false by default and will add "passes" property
   for that contains the result of all passed tests
@@ -231,7 +232,7 @@ anything. Child parser bailouts will bail out their parents as well.
 If a child test set is embedded in the stream like this:
 
 ```
-TAP Version 13
+TAP Version 14
 1..2
 # nesting
     1..2

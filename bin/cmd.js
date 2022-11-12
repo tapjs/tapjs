@@ -175,7 +175,7 @@ Options:
     Skip over blank lines outside of YAML blocks
 
   -o | --omit-version
-    Ignore the \`TAP version 13\` line at the start of tests
+    Ignore the \`TAP version 13\` or \`TAP version 14\` line at the start of tests
 
   --strict
     Run the parser in strict mode
