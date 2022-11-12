@@ -17,7 +17,6 @@ t.test('re-exports stuff', t => {
   t.end()
 })
 
-
 t.test('passing no options and cb works fine', function (t: Tap.Test) {
   //@ts-ignore
   const p = new Parser(() => t.end())

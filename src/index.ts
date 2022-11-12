@@ -165,10 +165,8 @@ export class Parser extends EventEmitter {
 
     if (resId && this.pointsSeen.has(res.id)) {
       res.tapError = 'test point id ' + resId + ' appears multiple times'
-      res.previous =
-        this.pointsSeen.get(res.id)
-        /* c8 ignore start */
-        || null
+      /* c8 ignore start */
+      res.previous = this.pointsSeen.get(res.id) || null
       /* c8 ignore stop */
       this.tapError(res, line)
     } else if (resId) {
@@ -336,10 +334,7 @@ export class Parser extends EventEmitter {
   }
 
   write(chunk: string | Buffer, cb?: (...x: any[]) => any): boolean
-  write(
-    chunk: string | Buffer,
-    encoding?: BufferEncoding
-  ): boolean
+  write(chunk: string | Buffer, encoding?: BufferEncoding): boolean
   write(
     chunk: string | Buffer,
     encoding?: BufferEncoding,
@@ -673,9 +668,8 @@ export class Parser extends EventEmitter {
     if (extra && Object.keys(extra).length) {
       try {
         dump = yaml.stringify(extra).trimEnd()
-      }
-      /* c8 ignore start */
-      catch (er) {}
+        /* c8 ignore start */
+      } catch (er) {}
       /* c8 ignore stop */
     }
 
