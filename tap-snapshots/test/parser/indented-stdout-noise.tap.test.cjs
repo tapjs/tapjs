@@ -97,6 +97,9 @@ Array [
                   "todo": 0,
                 },
               ],
+              Array [
+                "close",
+              ],
             ],
           ],
           Array [
@@ -155,6 +158,9 @@ Array [
               "time": 5.26,
               "todo": 0,
             },
+          ],
+          Array [
+            "close",
           ],
         ],
       ],
@@ -399,6 +405,9 @@ Array [
           "time": 201.609,
           "todo": 0,
         },
+      ],
+      Array [
+        "close",
       ],
     ],
   ],
@@ -1058,6 +1067,9 @@ Array [
                   "todo": 0,
                 },
               ],
+              Array [
+                "close",
+              ],
             ],
           ],
           Array [
@@ -1116,6 +1128,9 @@ Array [
               "time": 5.26,
               "todo": 0,
             },
+          ],
+          Array [
+            "close",
           ],
         ],
       ],
@@ -1360,6 +1375,9 @@ Array [
           "time": 201.609,
           "todo": 0,
         },
+      ],
+      Array [
+        "close",
       ],
     ],
   ],

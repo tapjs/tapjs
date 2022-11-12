@@ -234,7 +234,9 @@ if (json === 'silent' || json === 'lines') {
       const result = Parser.parse(buf, options)
       const summary = result[result.length - 1]
       console.log(format(result))
+      /* c8 ignore start */
       if (summary[0] !== 'complete' || !summary[1].ok) {
+        /* c8 ignore stop */
         process.exitCode = 1
       }
     })

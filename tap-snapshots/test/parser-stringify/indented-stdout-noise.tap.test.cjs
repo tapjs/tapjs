@@ -61,6 +61,12 @@ Array [
                   "todo": 0,
                 },
               ],
+              Array [
+                "finish",
+              ],
+              Array [
+                "close",
+              ],
             ],
           ],
           Array [
@@ -91,6 +97,12 @@ Array [
               "time": 5.26,
               "todo": 0,
             },
+          ],
+          Array [
+            "finish",
+          ],
+          Array [
+            "close",
           ],
         ],
       ],
@@ -171,6 +183,12 @@ Array [
           "time": 201.609,
           "todo": 0,
         },
+      ],
+      Array [
+        "finish",
+      ],
+      Array [
+        "close",
       ],
     ],
   ],
@@ -375,6 +393,12 @@ Array [
       "todo": 0,
     },
   ],
+  Array [
+    "finish",
+  ],
+  Array [
+    "close",
+  ],
 ]
 `
 
@@ -559,6 +583,12 @@ Array [
                   "todo": 0,
                 },
               ],
+              Array [
+                "finish",
+              ],
+              Array [
+                "close",
+              ],
             ],
           ],
           Array [
@@ -589,6 +619,12 @@ Array [
               "time": 5.26,
               "todo": 0,
             },
+          ],
+          Array [
+            "finish",
+          ],
+          Array [
+            "close",
           ],
         ],
       ],
@@ -669,6 +705,12 @@ Array [
           "time": 201.609,
           "todo": 0,
         },
+      ],
+      Array [
+        "finish",
+      ],
+      Array [
+        "close",
       ],
     ],
   ],
@@ -888,6 +930,12 @@ Array [
       "time": 209.666,
       "todo": 0,
     },
+  ],
+  Array [
+    "finish",
+  ],
+  Array [
+    "close",
   ],
 ]
 `
@@ -1131,6 +1179,12 @@ Array [
       "todo": 0,
     },
   ],
+  Array [
+    "finish",
+  ],
+  Array [
+    "close",
+  ],
 ]
 `
 
@@ -1342,6 +1396,12 @@ Array [
                   "todo": 0,
                 },
               ],
+              Array [
+                "finish",
+              ],
+              Array [
+                "close",
+              ],
             ],
           ],
           Array [
@@ -1397,6 +1457,12 @@ Array [
               "time": 5.26,
               "todo": 0,
             },
+          ],
+          Array [
+            "finish",
+          ],
+          Array [
+            "close",
           ],
         ],
       ],
@@ -1578,6 +1644,12 @@ Array [
           "time": 201.609,
           "todo": 0,
         },
+      ],
+      Array [
+        "finish",
+      ],
+      Array [
+        "close",
       ],
     ],
   ],
@@ -1890,6 +1962,12 @@ Array [
       "todo": 0,
     },
   ],
+  Array [
+    "finish",
+  ],
+  Array [
+    "close",
+  ],
 ]
 `
 
@@ -2107,6 +2185,12 @@ Array [
                   "todo": 0,
                 },
               ],
+              Array [
+                "finish",
+              ],
+              Array [
+                "close",
+              ],
             ],
           ],
           Array [
@@ -2162,6 +2246,12 @@ Array [
               "time": 5.26,
               "todo": 0,
             },
+          ],
+          Array [
+            "finish",
+          ],
+          Array [
+            "close",
           ],
         ],
       ],
@@ -2343,6 +2433,12 @@ Array [
           "time": 201.609,
           "todo": 0,
         },
+      ],
+      Array [
+        "finish",
+      ],
+      Array [
+        "close",
       ],
     ],
   ],
@@ -2638,6 +2734,12 @@ Array [
       "time": null,
       "todo": 0,
     },
+  ],
+  Array [
+    "finish",
+  ],
+  Array [
+    "close",
   ],
 ]
 `

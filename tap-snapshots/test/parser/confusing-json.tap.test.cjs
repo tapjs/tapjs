@@ -137,6 +137,9 @@ Array [
           "todo": 0,
         },
       ],
+      Array [
+        "close",
+      ],
     ],
   ],
   Array [
@@ -551,6 +554,9 @@ Array [
           "time": 4.137,
           "todo": 0,
         },
+      ],
+      Array [
+        "close",
       ],
     ],
   ],

@@ -112,6 +112,9 @@ Array [
           "todo": 0,
         },
       ],
+      Array [
+        "close",
+      ],
     ],
   ],
   Array [
@@ -367,6 +370,9 @@ Array [
           "time": 537.383,
           "todo": 0,
         },
+      ],
+      Array [
+        "close",
       ],
     ],
   ],

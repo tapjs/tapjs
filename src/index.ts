@@ -338,6 +338,10 @@ export class Parser extends EventEmitter {
   write(chunk: string | Buffer, cb?: (...x: any[]) => any): boolean
   write(
     chunk: string | Buffer,
+    encoding?: BufferEncoding
+  ): boolean
+  write(
+    chunk: string | Buffer,
     encoding?: BufferEncoding,
     cb?: (...x: any[]) => any
   ): boolean
@@ -391,9 +395,10 @@ export class Parser extends EventEmitter {
     if (chunk && typeof chunk !== 'function') {
       if (typeof encoding === 'function') {
         cb = encoding
-        encoding = undefined
+        this.write(chunk)
+      } else {
+        this.write(chunk, encoding)
       }
-      this.write(chunk, encoding)
     }
 
     if (this.buffer) this.write('\n')
@@ -468,6 +473,8 @@ export class Parser extends EventEmitter {
       }
 
       this.emit('complete', this.results)
+      this.emit('finish')
+      this.emit('close')
     }
   }
 
@@ -648,6 +655,10 @@ export class Parser extends EventEmitter {
     this.emit('child', this.child)
     this.child.emitComment(subtestComment, true)
     if (line) this.child.parse(line)
+  }
+
+  destroy(er?: Error) {
+    this.abort('destroyed', er)
   }
 
   abort(message: string = '', extra?: any) {

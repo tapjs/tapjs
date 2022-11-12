@@ -137,6 +137,9 @@ Array [
           "todo": 0,
         },
       ],
+      Array [
+        "close",
+      ],
     ],
   ],
   Array [
@@ -362,6 +365,9 @@ Array [
           "todo": 0,
         },
       ],
+      Array [
+        "close",
+      ],
     ],
   ],
   Array [
@@ -586,6 +592,9 @@ Array [
           "time": null,
           "todo": 0,
         },
+      ],
+      Array [
+        "close",
       ],
     ],
   ],
@@ -845,6 +854,9 @@ Array [
           "time": null,
           "todo": 0,
         },
+      ],
+      Array [
+        "close",
       ],
     ],
   ],
@@ -1169,6 +1181,9 @@ Array [
           "time": null,
           "todo": 0,
         },
+      ],
+      Array [
+        "close",
       ],
     ],
   ],

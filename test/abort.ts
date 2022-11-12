@@ -1,5 +1,6 @@
+import eventsToArray from 'events-to-array'
 import t from 'tap'
-import Parser from '../'
+import Parser, {FinalResults} from '../'
 const tapContent = `ok 1 - nesting {
     1..2
     # Subtest: first
@@ -39,6 +40,15 @@ t.test('unbuffered abort', function (t) {
   t.test('with diags', unbufferedTest({ some: 'diags' }))
   t.test('empty diags', unbufferedTest({}))
   t.test('no diags', unbufferedTest())
+  t.end()
+})
+
+t.test('destroy()', t => {
+  const p = new Parser()
+  const events = eventsToArray(p)
+  p.write('TAP version 13\n1..1000\n')
+  p.destroy()
+  t.matchSnapshot(events)
   t.end()
 })
 

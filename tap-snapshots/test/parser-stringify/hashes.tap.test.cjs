@@ -146,6 +146,12 @@ Array [
       "todo": 3,
     },
   ],
+  Array [
+    "finish",
+  ],
+  Array [
+    "close",
+  ],
 ]
 `
 
@@ -316,6 +322,12 @@ Array [
       "todo": 3,
     },
   ],
+  Array [
+    "finish",
+  ],
+  Array [
+    "close",
+  ],
 ]
 `
 
@@ -458,6 +470,12 @@ Array [
       "time": null,
       "todo": 3,
     },
+  ],
+  Array [
+    "finish",
+  ],
+  Array [
+    "close",
   ],
 ]
 `
@@ -629,6 +647,12 @@ Array [
       "todo": 3,
     },
   ],
+  Array [
+    "finish",
+  ],
+  Array [
+    "close",
+  ],
 ]
 `
 
@@ -798,6 +822,12 @@ Array [
       "time": null,
       "todo": 3,
     },
+  ],
+  Array [
+    "finish",
+  ],
+  Array [
+    "close",
   ],
 ]
 `

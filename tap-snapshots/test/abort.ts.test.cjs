@@ -176,6 +176,144 @@ FinalResults {
 }
 `
 
+exports[`test/abort.ts TAP destroy() > must match snapshot 1`] = `
+Array [
+  Array [
+    "line",
+    "TAP version 13\\n",
+  ],
+  Array [
+    "version",
+    13,
+  ],
+  Array [
+    "line",
+    "1..1000\\n",
+  ],
+  Array [
+    "plan",
+    Plan {
+      "comment": "",
+      "end": 1000,
+      "start": 1,
+    },
+  ],
+  Array [
+    "line",
+    "not ok 1 - destroyed\\n",
+  ],
+  Array [
+    "assert",
+    Result {
+      "buffered": false,
+      "diag": null,
+      "fullname": "",
+      "id": 1,
+      "name": "destroyed",
+      "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "result",
+    Result {
+      "buffered": false,
+      "diag": null,
+      "fullname": "",
+      "id": 1,
+      "name": "destroyed",
+      "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "fail",
+    Result {
+      "buffered": false,
+      "diag": null,
+      "fullname": "",
+      "id": 1,
+      "name": "destroyed",
+      "ok": false,
+      "plan": null,
+      "previous": null,
+      "skip": false,
+      "tapError": null,
+      "time": null,
+      "todo": false,
+    },
+  ],
+  Array [
+    "line",
+    "# test count(1) != plan(1000)\\n",
+  ],
+  Array [
+    "comment",
+    "# test count(1) != plan(1000)\\n",
+  ],
+  Array [
+    "line",
+    "# failed 1 test\\n",
+  ],
+  Array [
+    "comment",
+    "# failed 1 test\\n",
+  ],
+  Array [
+    "complete",
+    FinalResults {
+      "bailout": false,
+      "count": 1,
+      "fail": 1,
+      "failures": Array [
+        Result {
+          "buffered": false,
+          "diag": null,
+          "fullname": "",
+          "id": 1,
+          "name": "destroyed",
+          "ok": false,
+          "plan": null,
+          "previous": null,
+          "skip": false,
+          "tapError": null,
+          "time": null,
+          "todo": false,
+        },
+      ],
+      "ok": false,
+      "pass": 0,
+      "plan": FinalPlan {
+        "comment": "",
+        "end": 1000,
+        "skipAll": false,
+        "skipReason": "",
+        "start": 1,
+      },
+      "skip": 0,
+      "time": null,
+      "todo": 0,
+    },
+  ],
+  Array [
+    "finish",
+  ],
+  Array [
+    "close",
+  ],
+]
+`
+
 exports[`test/abort.ts TAP unbuffered abort empty diags > lines 1`] = `
 Array [
   "ok 1 - nesting {\\n",
