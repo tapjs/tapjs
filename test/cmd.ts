@@ -223,11 +223,17 @@ t.test('help', t =>
   })
 )
 
-t.test('version', t =>
-  run('', ['-v'], (er, o, e) => {
-    t.notOk(er)
-    t.equal(o.trim(), require('../package.json').version)
-    t.equal(e, '')
-    t.end()
-  })
-)
+t.test('version', t => {
+  const cases = ['-v', '--version']
+  t.plan(cases.length)
+  for (const c of cases) {
+    t.test(c, t => {
+      run('', [c], (er, o, e) => {
+        t.notOk(er)
+        t.equal(o.trim(), require('../package.json').version)
+        t.equal(e, '')
+        t.end()
+      })
+    })
+  }
+})

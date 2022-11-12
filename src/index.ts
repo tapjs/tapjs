@@ -166,8 +166,10 @@ export class Parser extends EventEmitter {
     if (resId && this.pointsSeen.has(res.id)) {
       res.tapError = 'test point id ' + resId + ' appears multiple times'
       res.previous =
-        this.pointsSeen.get(res.id) ||
-        /* istanbul ignore next - just for typescript's comfort */ null
+        this.pointsSeen.get(res.id)
+        /* c8 ignore start */
+        || null
+      /* c8 ignore stop */
       this.tapError(res, line)
     } else if (resId) {
       this.pointsSeen.set(res.id, res)
@@ -312,10 +314,11 @@ export class Parser extends EventEmitter {
   }
 
   processYamlish() {
-    /* istanbul ignore if - should be impossible */
+    /* c8 ignore start */
     if (!this.current) {
       throw new Error('called processYamlish without a current test point')
     }
+    /* c8 ignore stop */
     const yamlish = this.yamlish
     this.resetYamlish()
 
@@ -659,7 +662,10 @@ export class Parser extends EventEmitter {
     if (extra && Object.keys(extra).length) {
       try {
         dump = yaml.stringify(extra).trimEnd()
-      } catch (er) {}
+      }
+      /* c8 ignore start */
+      catch (er) {}
+      /* c8 ignore stop */
     }
 
     const y: string = dump
@@ -884,14 +890,15 @@ export class Parser extends EventEmitter {
     // We already detected nontap up above, so the only case left
     // should be a `# Subtest:` comment.  Ignore for coverage, but
     // include the error here just for good measure.
-    /* istanbul ignore else */
     if (type[0] === 'subtest') {
       // this is potentially a subtest.  Not indented.
       // hold until later.
       this.maybeChild = line
+      /* c8 ignore start */
     } else {
       throw new Error('Unhandled case: ' + type[0])
     }
+    /* c8 ignore stop */
   }
 
   parseIndent(line: string, indent: string) {

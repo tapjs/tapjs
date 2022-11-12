@@ -54,10 +54,11 @@ export class Result {
       if (dirKey === 'todo' || dirKey === 'skip') {
         this[dirKey] = dirValue
       } else {
-        /* istanbul ignore else */
         if (dirKey === 'time') {
           this.time = parseFloat(dirValue)
+        } /* c8 ignore start */ else {
         }
+        /* c8 ignore stop */
       }
     }
 

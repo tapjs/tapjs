@@ -1,7 +1,10 @@
 #!/usr/bin/env node
 
-const {Parser} = require('../lib/index.js')
-const etoa = require('events-to-array')
+// not sure why all the c8 ignore is needed, but it's marking
+// cases and conditionals as uncovered branches, when it's clear
+// that they're actually being run.
+
+const { Parser } = require('../')
 const util = require('util')
 
 const args = process.argv.slice(2)
@@ -12,66 +15,130 @@ let preserveWhitespace = true
 let omitVersion = false
 let strict = false
 
-function version () {
+/* c8 ignore start */
+function version() {
   console.log(require('../package.json').version)
   process.exit(0)
 }
+/* c8 ignore stop */
 
 for (let i = 0; i < args.length; i++) {
   const arg = args[i]
+  /* c8 ignore start */
   if (arg === '-j') {
+    /* c8 ignore stop */
     const val = +args[i + 1]
     if (val >= 0) {
       json = val
       i += 1
-    } else
-      json = 2
+    } else json = 2
     continue
+    /* c8 ignore start */
   } else {
+    /* c8 ignore stop */
     const m = arg.match(/^--json(?:=([0-9]+))?$/)
+    /* c8 ignore start */
     if (m) {
-      if (+m[1] >= 0)
+      /* c8 ignore stop */
+      if (+m[1] >= 0) {
         json = +m[1]
-      else if (+args[i + 1] >= 0) {
+      } else if (+args[i + 1] >= 0) {
         json = +args[i + 1]
         i += 1
-      } else
+      } else {
         json = 2
+      }
       continue
     }
   }
 
-  if (arg === '-v' || arg === '--version')
-    version()
-  else if (arg === '-o' || arg === '--omit-version')
-    omitVersion = true
-  else if (arg === '-w' || arg === '--ignore-all-whitespace')
-    preserveWhitespace = false
-  else if (arg === '-b' || arg === '--bail')
-    bail = true
-  else if (arg === '-B' || arg === '--no-bail')
-    bail = false
-  else if (arg === '-t' || arg === '--tap')
-    json = 'tap'
-  else if (arg === '-l' || arg === '--lines')
-    json = 'lines'
-  else if (arg === '-h' || arg === '--help')
-    usage()
-  else if (arg === '-f' || arg === '--flat')
-    flat = true
-  else if (arg === '-F' || arg === '--no-flat')
-    flat = false
-  else if (arg === '--strict')
-    strict = true
-  else if (arg === '--no-strict')
-    strict = false
-  else if (arg === '-s' || arg === '--silent')
-    json = 'silent'
-  else
-    console.error('Unrecognized arg: %j', arg)
+  switch (arg) {
+    /* c8 ignore start */
+    case '-v':
+    case '--version':
+      /* c8 ignore stop */
+      version()
+      break
+    /* c8 ignore start */
+    case '-o':
+    case '--omit-version':
+      /* c8 ignore stop */
+      omitVersion = true
+      break
+    /* c8 ignore start */
+    case '-w':
+    case '--ignore-all-whitespace':
+      /* c8 ignore stop */
+      preserveWhitespace = false
+      break
+    /* c8 ignore start */
+    case '--bail':
+    case '-b':
+      /* c8 ignore stop */
+      bail = true
+      break
+    /* c8 ignore start */
+    case '--no-bail':
+    case '-B':
+      /* c8 ignore stop */
+      bail = false
+      break
+    /* c8 ignore start */
+    case '-t':
+    case '--tap':
+      /* c8 ignore stop */
+      json = 'tap'
+      break
+    /* c8 ignore start */
+    case '-h':
+    case '--help':
+      /* c8 ignore stop */
+      usage()
+      break
+    /* c8 ignore start */
+    case '-l':
+    case '--lines':
+      /* c8 ignore stop */
+      json = 'lines'
+      break
+    /* c8 ignore start */
+    case '-f':
+    case '--flat':
+      /* c8 ignore stop */
+      flat = true
+      break
+    /* c8 ignore start */
+    case '-F':
+    case '--no-flat':
+      /* c8 ignore stop */
+      flat = false
+      break
+    /* c8 ignore start */
+    case '--strict':
+      /* c8 ignore stop */
+      strict = true
+      break
+    /* c8 ignore start */
+    case '--no-strict':
+      /* c8 ignore stop */
+      strict = false
+      break
+    /* c8 ignore start */
+    case '-s':
+    case '--silent':
+      /* c8 ignore stop */
+      json = 'silent'
+      break
+    /* c8 ignore start */
+    default:
+      /* c8 ignore stop */
+      console.error('Unrecognized arg: %j', arg)
+      break
+  }
 }
 
-function usage () {
+/* c8 ignore start */
+function usage() {
   console.log(`Usage:
   tap-parser <options>
 
@@ -121,22 +188,24 @@ Options:
 `)
 
   // prevent the EPIPE upstream when the data drops on the floor
-  /* istanbul ignore else */
-  if (!process.stdin.isTTY)
+  if (!process.stdin.isTTY) {
     process.stdin.resume()
+  }
 
   process.exit()
 }
+/* c8 ignore stop */
 
-const yaml = require('tap-yaml')
-
-function format (msg) {
-  if (json === 'tap')
+function format(msg) {
+  if (json === 'tap') {
     return Parser.stringify(msg, options)
-  else if (json !== null)
+    /* c8 ignore start */
+  } else if (json !== null) {
+    /* c8 ignore stop */
     return JSON.stringify(msg, null, +json)
-  else
+  } else {
     return util.inspect(msg, null, Infinity)
+  }
 }
 
 const options = {
@@ -147,20 +216,26 @@ const options = {
   flat: flat,
 }
 
-if (json === 'lines' || json === 'silent') {
+/* c8 ignore start */
+if (json === 'silent' || json === 'lines') {
+  /* c8 ignore stop */
   const parser = new Parser(options)
-  if (json === 'lines')
+  if (json === 'lines') {
     parser.on('line', l => process.stdout.write(l))
-  parser.on('complete', () => process.exitCode = parser.ok ? 0 : 1)
+  }
+  parser.on('complete', () => (process.exitCode = parser.ok ? 0 : 1))
   process.stdin.pipe(parser)
 } else {
   const input = []
-  process.stdin.on('data', c => input.push(c)).on('end', () => {
-    const buf = Buffer.concat(input)
-    const result = Parser.parse(buf, options)
-    const summary = result[ result.length - 1 ]
-    console.log(format(result))
-    if (summary[0] !== 'complete' || !summary[1].ok)
-      process.exitCode = 1
-  })
+  process.stdin
+    .on('data', c => input.push(c))
+    .on('end', () => {
+      const buf = Buffer.concat(input)
+      const result = Parser.parse(buf, options)
+      const summary = result[result.length - 1]
+      console.log(format(result))
+      if (summary[0] !== 'complete' || !summary[1].ok) {
+        process.exitCode = 1
+      }
+    })
 }
