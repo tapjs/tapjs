@@ -6,7 +6,11 @@ parse the [test anything protocol](http://testanything.org/)
 
 ```js
 // stream style
-const Parser = require('tap-parser')
+const { Parser } = require('tap-parser')
+// or, you can do it this way:
+import Parser from 'tap-parser'
+// or even:
+import Parser from 'https://unpkg.com/tap-parser@latest'
 const p = new Parser(results => console.dir(results))
 process.stdin.pipe(p)
 ```

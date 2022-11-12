@@ -1,6 +1,5 @@
 import t from 'tap'
-import { FinalResults } from '../src/final-results'
-import Parser from '../src/index'
+import { FinalResults, Parser } from '../'
 
 type Time = number | null
 

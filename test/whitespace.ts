@@ -1,4 +1,4 @@
-import Parser from '../src/index'
+import Parser from '../'
 import t from 'tap'
 const data = [
   'TAP version 13',

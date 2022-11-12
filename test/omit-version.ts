@@ -5,7 +5,7 @@ ok 1 - this is fine
 1..1
 `
 
-import P from '../src/index'
+import P from '../'
 import etoa from 'events-to-array'
 const ignore = ['pipe', 'unpipe', 'prefinish', 'finish', 'newListener', 'line']
 const p = new P({ omitVersion: true })

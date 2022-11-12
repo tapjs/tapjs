@@ -1,5 +1,5 @@
 import t from 'tap'
-import Parser from '../src/index'
+import Parser from '../'
 t.test('just parse some tap', t => {
   const tap = `TAP version 13
 not ok - 1

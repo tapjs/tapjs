@@ -1,6 +1,22 @@
 import t from 'tap'
-import { FinalResults } from '../src/final-results'
-import Parser from '../src/index'
+import type { FinalResults } from '../'
+import Parser from '../'
+import * as DefaultExport from '../'
+
+t.test('re-exports stuff', t => {
+  t.match(DefaultExport, {
+    FinalResults: Function,
+    lineType: Function,
+    lineTypes: {
+      testPoint: RegExp,
+    },
+    parseDirective: Function,
+    Plan: Function,
+    Result: Function,
+  })
+  t.end()
+})
+
 
 t.test('passing no options and cb works fine', function (t: Tap.Test) {
   //@ts-ignore

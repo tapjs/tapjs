@@ -1,4 +1,4 @@
-import Parser from '../src/index'
+import Parser from '../'
 import t from 'tap'
 import path from 'path'
 import fs from 'fs'

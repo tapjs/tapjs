@@ -1,6 +1,6 @@
-import type { Result, TapError } from './result'
-import { FinalPlan } from './final-plan'
-import type { Parser } from './index'
+import type { Result, TapError } from './result.js'
+import { FinalPlan } from './final-plan.js'
+import type { Parser } from './index.js'
 
 export class FinalResults {
   public ok: boolean

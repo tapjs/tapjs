@@ -1,8 +1,9 @@
 import etoa from 'events-to-array'
 type EventLog = ReturnType<typeof etoa>
-import { Parser, ParserOptions } from './index'
-import { esc } from './escape'
+import { Parser, ParserOptions } from './index.js'
+import { esc } from './escape.js'
 import yaml from 'tap-yaml'
+import { SPACE_OPEN_BRACE_EOL } from './brace-patterns.js'
 
 // used in flattening mode
 const getId = (): { (): number; current: number } => {
@@ -10,11 +11,6 @@ const getId = (): { (): number; current: number } => {
   id.current = 1
   return id
 }
-
-// this isn't for performance or anything, it just confuses vim's
-// brace-matching to have these in the middle of functions, and
-// i'm too lazy to dig into vim-javascript to fix it.
-import { SPACE_OPEN_BRACE_EOL } from './brace-patterns'
 
 export const parse = (str: string, options: ParserOptions): EventLog => {
   const { flat = false } = options

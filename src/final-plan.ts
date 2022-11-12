@@ -1,4 +1,4 @@
-import type { Parser } from './index'
+import type { Parser } from './index.js'
 export class FinalPlan {
   public start: number | null
   public end: number | null

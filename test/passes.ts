@@ -12,7 +12,7 @@ not ok 2
   ...
 `
 
-import P from '../src/index'
+import P from '../'
 import etoa from 'events-to-array'
 const ignore = [
   'pipe',

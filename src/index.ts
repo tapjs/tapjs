@@ -1,16 +1,25 @@
 import { EventEmitter } from 'events'
 import yaml from 'tap-yaml'
-import { FinalResults } from './final-results'
-import { lineType, lineTypes } from './line-type'
-import { parseDirective } from './parse-directive'
-import { Plan } from './plan'
-import { Result, TapError } from './result'
+
+import { FinalResults } from './final-results.js'
+import { lineType, lineTypes } from './line-type.js'
+import { parseDirective } from './parse-directive.js'
+import { Plan } from './plan.js'
+import { Result, TapError } from './result.js'
+
+export { FinalResults } from './final-results.js'
+export { lineType, lineTypes } from './line-type.js'
+export { parseDirective } from './parse-directive.js'
+export { Plan } from './plan.js'
+export { Result } from './result.js'
+export type { TapError } from './result.js'
+export type { EventLog }
 
 import type etoa from 'events-to-array'
-import { parse, stringify } from './statics'
+import { parse, stringify } from './statics.js'
 type EventLog = ReturnType<typeof etoa>
 
-import { unesc } from './escape'
+import { unesc } from './escape.js'
 
 export interface ParserOptions {
   name?: string

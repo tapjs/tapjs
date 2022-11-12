@@ -1,6 +1,6 @@
-import { OPEN_BRACE_EOL } from './brace-patterns'
-import { Directive, parseDirective } from './parse-directive'
-import { Plan } from './plan'
+import { OPEN_BRACE_EOL } from './brace-patterns.js'
+import { Directive, parseDirective } from './parse-directive.js'
+import { Plan } from './plan.js'
 
 export type TapError = Result | { tapError: string; [k: string]: any }
 

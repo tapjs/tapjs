@@ -1,5 +1,5 @@
 import t from 'tap'
-import Parser from '../src/index'
+import Parser from '../'
 const tapContent = `ok 1 - nesting {
     1..2
     # Subtest: first

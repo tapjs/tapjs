@@ -1,4 +1,4 @@
-import { OPEN_BRACE_EOL } from './brace-patterns'
+import { OPEN_BRACE_EOL } from './brace-patterns.js'
 export type Directive = 'todo' | 'skip' | 'time'
 
 export const parseDirective = (line: string): [Directive, any] | false => {
