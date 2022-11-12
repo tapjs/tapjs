@@ -2,6 +2,9 @@
 
 parse the [test anything protocol](http://testanything.org/)
 
+This parser implements [version 14 of the TAP
+Specification](https://testanything.org/tap-version-14-specification.html).
+
 # example
 
 ```js
