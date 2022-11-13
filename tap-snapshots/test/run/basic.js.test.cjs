@@ -6,7 +6,7 @@
  */
 'use strict'
 exports[`test/run/basic.js TAP --parser-version > output 1`] = `
-11.0.1
+11.0.2
 
 `
 
