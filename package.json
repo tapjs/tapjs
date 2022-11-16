@@ -21,14 +21,11 @@
     "node": ">=12"
   },
   "dependencies": {
-    "@isaacs/import-jsx": "^4.0.1",
-    "@types/react": "^17",
     "chokidar": "^3.3.0",
     "findit": "^2.0.0",
     "foreground-child": "^2.0.0",
     "fs-exists-cached": "^1.0.0",
     "glob": "^7.1.6",
-    "ink": "^3.2.0",
     "isexe": "^2.0.0",
     "istanbul-lib-processinfo": "^2.0.2",
     "jackspeak": "^1.4.1",
@@ -37,7 +34,6 @@
     "mkdirp": "^1.0.4",
     "nyc": "^15.1.0",
     "opener": "^1.5.1",
-    "react": "^17.0.2",
     "rimraf": "^3.0.0",
     "signal-exit": "^3.0.6",
     "source-map-support": "^0.5.16",
@@ -45,16 +41,20 @@
     "tap-parser": "^11.0.1",
     "tap-yaml": "^1.0.0",
     "tcompare": "^5.0.7",
-    "treport": "^3.0.3",
     "which": "^2.0.2"
   },
   "devDependencies": {
+    "@isaacs/import-jsx": "^4.0.1",
+    "@types/react": "^17",
     "coveralls": "^3.1.1",
     "eslint": "^7.25.0",
     "flow-remove-types": "^2.112.0",
+    "ink": "^3.2.0",
     "node-preload": "^0.2.1",
     "process-on-spawn": "^1.0.0",
+    "react": "^17.0.2",
     "ts-node": "^8.5.2",
+    "treport": "^3.0.3",
     "typescript": "^3.7.2"
   },
   "peerDependencies": {
