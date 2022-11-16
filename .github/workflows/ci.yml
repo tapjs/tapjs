@@ -11,21 +11,24 @@ on:
       - 'docs/**'
       - 'docs-content/**'
       - '*.md'
+permissions:
+  contents: read
 
 jobs:
   test:
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [12.0.x, 12.x, 14.0.x, 14.x, 15.x, 16.0.x, 16.x, 17.x]
-        os: [ubuntu-latest]
+        node-version: [14.0.x, 14.x, 16.0.x, 16.x, 18.0.x, 18.x, 19.x]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+        with:
+          persist-credentials: false
 
       - name: Use Node.js
-        uses: actions/setup-node@v2.1.4
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
       - name: Install
