@@ -39,7 +39,7 @@ export interface Pragmas {
   [pragma: string]: boolean
 }
 
-export class Parser extends EventEmitter {
+export class Parser extends EventEmitter implements NodeJS.WritableStream {
   private child: Parser | null = null
   private current: Result | null = null
   private extraQueue: [string, string][] = []
@@ -333,28 +333,33 @@ export class Parser extends EventEmitter {
     // that come ahead of buffered subtests.
   }
 
-  write(chunk: string | Buffer, cb?: (...x: any[]) => any): boolean
-  write(chunk: string | Buffer, encoding?: BufferEncoding): boolean
+  write(chunk: string | Uint8Array | Buffer, cb?: (...x: any[]) => any): boolean
+  write(chunk: string | Uint8Array | Buffer, encoding?: BufferEncoding): boolean
   write(
-    chunk: string | Buffer,
+    chunk: string | Uint8Array | Buffer,
     encoding?: BufferEncoding,
     cb?: (...x: any[]) => any
   ): boolean
   write(
-    chunk: string | Buffer,
+    chunk: string | Uint8Array | Buffer,
     encoding?: BufferEncoding | ((...a: any[]) => any),
     cb?: (...x: any[]) => any
   ): boolean {
-    if (this.aborted) return false
+    if (this.aborted) {
+      return false
+    }
 
     if (
       typeof encoding === 'string' &&
       encoding !== 'utf8' &&
       typeof chunk === 'string'
-    )
+    ) {
       chunk = Buffer.from(chunk, encoding)
+    }
 
-    if (Buffer.isBuffer(chunk)) chunk = chunk.toString('utf8')
+    if (Buffer.isBuffer(chunk)) {
+      chunk = chunk.toString('utf8')
+    }
 
     if (typeof encoding === 'function') {
       cb = encoding
@@ -376,17 +381,17 @@ export class Parser extends EventEmitter {
   }
 
   end(
-    chunk?: string | Buffer,
+    chunk?: string | Buffer | Uint8Array,
     encoding?: BufferEncoding,
     cb?: (...a: any[]) => any
-  ): Parser
-  end(chunk?: string | Buffer, cb?: (...a: any[]) => any): Parser
-  end(cb?: (...a: any[]) => any): Parser
+  ): this
+  end(chunk?: string | Buffer | Uint8Array, cb?: (...a: any[]) => any): this
+  end(cb?: (...a: any[]) => any): this
   end(
-    chunk?: string | Buffer | ((...a: any[]) => any),
+    chunk?: string | Buffer | Uint8Array | ((...a: any[]) => any),
     encoding?: BufferEncoding | ((...a: any[]) => any),
     cb?: (...a: any[]) => any
-  ): Parser {
+  ): this {
     if (chunk && typeof chunk !== 'function') {
       if (typeof encoding === 'function') {
         cb = encoding
@@ -396,7 +401,9 @@ export class Parser extends EventEmitter {
       }
     }
 
-    if (this.buffer) this.write('\n')
+    if (this.buffer) {
+      this.write('\n')
+    }
 
     // if we have yamlish, means we didn't finish with a ...
     if (this.yamlish) this.yamlGarbage()
