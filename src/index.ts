@@ -3,6 +3,7 @@ import { Has } from './has'
 import { HasStrict } from './has-strict'
 import { Match } from './match'
 import { MatchOnly } from './match-only'
+import { MatchStrict } from './match-strict'
 import { Same, SameOptions } from './same'
 import { Strict } from './strict'
 
@@ -38,12 +39,14 @@ export const has = fn(Has)
 export const hasStrict = fn(HasStrict)
 export const match = fn(Match)
 export const matchOnly = fn(MatchOnly)
+export const matchStrict = fn(MatchStrict)
 export { Format } from './format'
 export type { FormatOptions } from './format'
 export { Has } from './has'
 export { HasStrict } from './has-strict'
 export { Match } from './match'
 export { MatchOnly } from './match-only'
+export { MatchStrict } from './match-strict'
 export { Same } from './same'
 export type { SameOptions } from './same'
 export { Strict } from './strict'
