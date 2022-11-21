@@ -17,7 +17,6 @@ export interface FormatOptions {
   key?: any
   // used when formatting Map keys
   isKey?: boolean
-  path?: any[]
   level?: number
   indent?: string
   provisional?: boolean
@@ -40,7 +39,6 @@ export class Format {
   bufferChunkSize: number
   key: any
   isKey: boolean
-  path: any[]
   level: number
   indent: string
   match: boolean
@@ -85,9 +83,6 @@ export class Format {
       )
     }
 
-    this.path = (
-      this.parent ? this.parent.path : []
-    ).concat([obj])
     this.level = this.parent ? this.parent.level + 1 : 0
     this.indent = this.parent
       ? this.parent.indent

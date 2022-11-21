@@ -33,7 +33,6 @@ export interface SameOptions extends FormatOptions {
 
 export class Same extends Format {
   provisional: boolean
-  expectPath: any[]
   expect: any
   parent: Same | null
   simple: boolean | 'COMPLEX' | null = null
@@ -56,9 +55,6 @@ export class Same extends Format {
       this.diffContext = options.diffContext
     }
     this.provisional = !!options.provisional
-    this.expectPath = (
-      this.parent ? this.parent.expectPath : []
-    ).concat([this.expect])
     this.simpleMatch()
   }
 
@@ -468,7 +464,7 @@ export class Same extends Format {
   }
 
   // arrays and sets don't have useful keys, so it's really hard to see
-  // where the mismatch occurs without the path context. For example,
+  // where the mismatch occurs with only the path context. For example,
   // if you have an array of objects with many keys, that mismatches on
   // only one key in one object, we would get a diff that looks like:
   //  [
