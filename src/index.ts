@@ -50,4 +50,3 @@ export { MatchStrict } from './match-strict'
 export { Same } from './same'
 export type { SameOptions } from './same'
 export { Strict } from './strict'
-
