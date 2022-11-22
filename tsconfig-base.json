@@ -1,0 +1,16 @@
+{
+  "exclude": ["./test", "./tap-snapshots"],
+  "include": ["src/**/*.ts"],
+  "compilerOptions": {
+    "declaration": true,
+    "sourceMap": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true
+  }
+}

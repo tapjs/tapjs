@@ -1,6 +1,8 @@
 /*
 /.*
 
+!/fixup.sh
+!/tsconfig*.json
 !/.github
 !/src
 !/package.json

@@ -52,7 +52,7 @@
     "snap": "c8 tap",
     "test": "c8 tap",
     "preprepare": "rm -rf dist",
-    "prepare": "tsc -p tsconfig-cjs.json && tsc -p tsconfig.json",
+    "prepare": "tsc -p tsconfig-cjs.json && tsc -p tsconfig-esm.json",
     "postprepare": "bash fixup.sh",
     "pretest": "npm run prepare",
     "presnap": "npm run prepare",
@@ -60,7 +60,7 @@
     "preversion": "npm test",
     "postversion": "npm publish",
     "prepublishOnly": "git push origin --follow-tags",
-    "typedoc": "typedoc --tsconfig tsconfig.json ./src/*.ts"
+    "typedoc": "typedoc --tsconfig tsconfig-esm.json ./src/*.ts"
   },
   "tap": {
     "test-env": [
