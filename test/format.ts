@@ -1,12 +1,12 @@
-const t = require('tap')
-const {format, Format} = require('../')
+import t from 'tap'
+import {format, Format} from '../'
 
 // this is here so we can work with assertion errors and other
 // inspection output from node 12 and 13, where cyclical refs
 // are reported properly.
 t.formatSnapshot = str => cleanNodeNames(str)
 
-const cleanNodeNames = str => str
+const cleanNodeNames = (str:string) => str
   // strip out node 13's circular refs
   .replace(/<ref \*[0-9]+> /g, '')
   .replace(/\[Circular \*[0-9]+\]/g, '[Circular]')
@@ -22,12 +22,12 @@ const cleanNodeNames = str => str
   .replace(/"domain":null,/g, '')
 
 t.test('gnarly object, many points of view', t => {
-  const k = { a: 1 }
+  const k:{[k:string]:any} = { a: 1 }
   k.k = { k }
   k.k.i = { i: 1 }
   k.k.i.k = k.k
   const o = { o: true }
-  function args () { return arguments }
+  function args (..._:any[]) { return arguments }
   const f = {
     a: 1,
     b: 2,
@@ -49,14 +49,15 @@ t.test('gnarly object, many points of view', t => {
       y: Object.create(Object.create(null)),
       z: Object.assign(Object.create(Object.create(null)), { zed: true }),
     }),
-    p: new Set([{x: 'y', z: true }, {a:1}, {b:2}]),
-    s: new Set([{b:2}, {c:3}]),
-    m: new Map([
+    p: new Set<any>([{x: 'y', z: true }, {a:1}, {b:2}]),
+    s: new Set<any>([{b:2}, {c:3}]),
+    m: new Map<any, any>([
       [k, 1],
       [{b: 2}, 2],
       [{c: 'd'}, { re: /ef/g }],
     ]),
-    ao: [k, k, [k, k]],
+    ak: [k, k, [k, k]],
+    //@ts-ignore-error
     ao: [o, o, [o, o]],
     om: new Map([[o, k], [k, o]]),
     args: args(1, 2, 3, o),
@@ -73,7 +74,7 @@ t.test('gnarly object, many points of view', t => {
       name: function foo () {},
       anon: function () {},
       arr: () => {},
-      identity: x => x,
+      identity: (x:any) => x,
       // v8 does not make this easy!
       nameless: (function () { return () => {} })(),
     },
@@ -84,11 +85,7 @@ t.test('gnarly object, many points of view', t => {
     classy: new (class Foo {}),
     err: new Error('just an error'),
     emptyErr: new Error(),
-    fancyErr: (() => {
-      const er = new Error('fancy pantsy')
-      er.fancy = 'pantsy'
-      return er
-    })(),
+    fancyErr: Object.assign(new Error('fancy pantsy'), { fancy: 'pantsy' }),
     assert: (() => {
       try {
         require('assert').equal(k, o)
@@ -99,7 +96,7 @@ t.test('gnarly object, many points of view', t => {
   }
   k.f = f
 
-  const c = {}
+  const c:{[k:string]:any} = {}
   c.c = {c}
   c.a = [1, c]
   c.a.push(c.a)
@@ -158,11 +155,11 @@ t.test('other misc', t => {
     new TypeError(`unknown style: nyancat`))
 
   // fake out the 'seen' function
-  const o = { a: {} }
+  const o:{[k:string]:any} = { a: {} }
   o.a.t = o
   const root = new Format(o)
   const branch = new Format(o.a, { parent: root })
-  const leaf = new Format(o.a.t, {
+  new Format(o.a.t, {
     parent: branch,
     seen: () => branch,
   })
@@ -173,7 +170,9 @@ t.test('other misc', t => {
 
 t.test('format iterable', t => {
   class And {
-    constructor (a, b) {
+    a: any
+    b:any
+    constructor (a:any, b:any) {
       this.a = a
       this.b = b
     }
@@ -207,7 +206,10 @@ t.test('hidden props and getters', t => {
   const _baseVal = Symbol('_baseValue')
   let i = 0
   class Base {
-    constructor (val) {
+    raw: any
+    [_val]: any
+    [_baseVal]: number
+    constructor (val:any) {
       this.raw = val
       this[_val] = val
       this[_baseVal] = i++
@@ -267,5 +269,24 @@ t.test('invalid iterator', t => {
   t.equal(f.print(), 'Object {}')
   // then it realizes it's actually not
   t.equal(f.isArray(), false)
+  t.end()
+})
+
+t.test('getId() returns same id every time', t => {
+  const f = new Format({ ok: true })
+  t.equal(f.getId(), 1)
+  t.equal(f.getId(), 1)
+  t.end()
+})
+t.test('nodeId() and printNodeId() methods', t => {
+  const f = new Format({ ok: true })
+  f.memo = 'memo'
+  t.equal(f.nodeId(), '', 'nothing without an id')
+  f.printNodeId()
+  t.equal(f.memo, 'memo', 'no update to memo without id')
+  t.equal(f.getId(), 1)
+  f.printNodeId()
+  t.equal(f.nodeId(), '&ref_1 ', 'id prefix set when id set')
+  t.equal(f.memo, '&ref_1 memo', 'memo updated when id set')
   t.end()
 })

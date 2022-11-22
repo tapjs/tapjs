@@ -4,6 +4,14 @@
 
 import styles, { Style } from './styles'
 
+const arrayFrom = (obj: any) => {
+  try {
+    return Array.from(obj)
+  } catch (_) {
+    return null
+  }
+}
+
 const { toString } = Object.prototype
 const objToString = (obj: any) => toString.call(obj)
 
@@ -232,8 +240,12 @@ export class Format {
     const value = Array.isArray(this.object)
       ? this.object
       : this.isArray()
-      ? Array.from(this.object)
+      ? arrayFrom(this.object)
       : null
+
+    if (value === null) {
+      this.isArray = () => false
+    }
 
     Object.defineProperty(this, 'objectAsArray', { value })
     return value
@@ -258,11 +270,14 @@ export class Format {
       this.printValue()
     }
     this.printEnd()
+    // this should be impossible
+    /* c8 ignore start */
     if (typeof this.memo !== 'string') {
       throw new Error(
         'failed to build memo string in print() method'
       )
     }
+    /* c8 ignore stop */
     return this.memo
   }
 
@@ -454,7 +469,7 @@ export class Format {
 
   printBufferBody(): void {
     const c = this.bufferChunkSize
-    let i
+    let i: number
     for (i = 0; i < this.object.length - c; i += c) {
       this.printBufferLine(i, this.object.slice(i, i + c))
     }
@@ -539,11 +554,14 @@ export class Format {
   }
 
   getMapEntries(obj: any = this.object): [string, any][] {
+    // can never get here unless obj is already a map
+    /* c8 ignore start */
     if (!(obj instanceof Map)) {
       throw new TypeError(
         'cannot get map entries for non-Map object'
       )
     }
+    /* c8 ignore stop */
     return [...obj.entries()]
   }
 
@@ -713,10 +731,8 @@ export class Format {
       }
       return keys
     } else if (this.options.includeGetters) {
-      const own = new Set(Object.keys(obj || this.object))
-      const proto = Object.getPrototypeOf(
-        obj || this.object
-      )
+      const own = new Set(Object.keys(obj))
+      const proto = Object.getPrototypeOf(obj)
       if (proto) {
         const desc = Object.getOwnPropertyDescriptors(proto)
         for (const [name, prop] of Object.entries(desc)) {
@@ -755,9 +771,12 @@ export class Format {
   }
 
   printPojoHead(): void {
+    // impossible
+    /* c8 ignore start */
     if (this.memo === null) {
       throw new Error('pojo head while memo is null')
     }
+    /* c8 ignore stop */
     this.memo += this.style.pojoHead(this.getClass())
   }
 
