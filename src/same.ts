@@ -20,6 +20,14 @@ import { createTwoFilesPatch } from 'diff'
 
 import { Format, FormatOptions } from './format'
 
+const arrayFrom = (obj: any) => {
+  try {
+    return Array.from(obj)
+  } catch (_) {
+    return null
+  }
+}
+
 const { hasOwnProperty } = Object.prototype
 const { defineProperty } = Object
 
@@ -38,10 +46,17 @@ export class Same extends Format {
   simple: boolean | 'COMPLEX' | null = null
   match: boolean = true
   diffContext: number = 10
+  memoDiff: string | null = null
 
   memoExpect: string | null = null
 
   constructor(obj: any, options: SameOptions) {
+    if (!options || typeof options !== 'object') {
+      throw new TypeError('must supply options object')
+    }
+    if (!('expect' in options)) {
+      throw new TypeError('must supply expected value')
+    }
     super(obj, options)
     this.parent = options.parent || null
     this.expect = options.expect
@@ -60,6 +75,9 @@ export class Same extends Format {
 
   simpleMatch() {
     this.simple = this.test()
+    if (this.seen() !== this.seenExpect()) {
+      this.simple = false
+    }
     if (!this.simple) {
       this.unmatch()
     }
@@ -161,21 +179,59 @@ export class Same extends Format {
       if (!this.simple) {
         this.unmatch()
         this.memo += this.simplePrint(this.object)
-        this.memoExpect += this.simplePrint(this.expect)
-      } else if (this.simple === true) {
-        this.memo = ''
-        this.memoExpect = ''
+        this.memoExpect += this.simplePrint(this.expect, {
+          seen: this.seenExpect,
+        })
       } else {
-        // complex case
+        // console.error('not simple mismatch')
         const seen = this.seen()
         const seenExpect = this.seenExpect()
-        if (seen !== seenExpect) {
-          this.unmatch()
+        if (this.simple === true && seen === seenExpect) {
+          this.memo = ''
+          this.memoExpect = ''
+        } else {
+          // console.error(
+          // 'complex case',
+          // this.object,
+          // this.expect,
+          // seen && seen.id,
+          // seenExpect && seenExpect.id,
+          // )
+          // complex case
+          // console.error({
+          // object: this.object,
+          // expect: this.expect,
+          // seen: !!seen,
+          // seenExpect: !!seenExpect,
+          // equal: seen === seenExpect,
+          // })
+          if (seen !== seenExpect) {
+            // console.error('seen != seenExpect')
+            this.unmatch()
+          }
+          if (seen) {
+            this.printCircular(this.object)
+          } else {
+            this.printCollection()
+          }
         }
-        this.printCollection()
       }
     }
     return this.diff()
+  }
+
+  printCircular(seen: Format): void {
+    // console.error('same print circular')
+    this.memo += this.style.circular(seen)
+    const seenExpect = this.seenExpect()
+    if (seenExpect) {
+      // console.error('have seenExpect')
+      this.memoExpect += this.style.circular(seenExpect)
+    } else {
+      this.memoExpect += this.simplePrint(this.expect, {
+        seen: this.seenExpect,
+      })
+    }
   }
 
   diff(): string {
@@ -188,10 +244,14 @@ export class Same extends Format {
       this.match ||
       this.memoExpect === this.memo
     ) {
-      return ''
+      return (this.memoDiff = '')
     }
 
-    return createTwoFilesPatch(
+    if (this.memoDiff !== null) {
+      return this.memoDiff
+    }
+
+    return (this.memoDiff = createTwoFilesPatch(
       'expected',
       'actual',
       this.memoExpect + '\n',
@@ -199,7 +259,7 @@ export class Same extends Format {
       undefined,
       undefined,
       { context: this.diffContext }
-    ).replace(/^\=+\n/, '')
+    ).replace(/^\=+\n/, ''))
   }
 
   child(
@@ -240,7 +300,7 @@ export class Same extends Format {
     const value = Array.isArray(this.expect)
       ? this.expect
       : this.isArray()
-      ? Array.from(this.expect)
+      ? arrayFrom(this.expect)
       : null
 
     defineProperty(this, 'expectAsArray', { value })
@@ -249,6 +309,8 @@ export class Same extends Format {
 
   printStart(): void {
     if (!this.parent) {
+      this.memo = this.nodeId() + this.memo
+      this.memoExpect = this.nodeId() + this.memoExpect
       return
     }
     const indent = this.isKey ? '' : this.indentLevel()
@@ -259,8 +321,9 @@ export class Same extends Format {
       ? this.style.mapKeyValSep()
       : this.style.pojoKeyValSep()
     const start = this.style.start(indent, key, sep)
-    this.memo = start + this.memo
-    this.memoExpect = start + this.memoExpect
+    this.memo = start + this.nodeId() + this.memo
+    this.memoExpect =
+      start + this.nodeId() + this.memoExpect
   }
 
   printEnd(): void {
@@ -291,7 +354,8 @@ export class Same extends Format {
     // the body *before* doing the head.  If we still aren't unmatched
     // after walking the graph, then nothing to do.
     if (this.pojoIsEmpty()) {
-      this.printPojoEmpty()
+      this.memo = this.memo || ''
+      this.memo += this.printPojoEmpty()
     } else {
       this.printPojoBody()
       if (!this.match) {
@@ -312,8 +376,7 @@ export class Same extends Format {
     // both are empty and not a simple mismatch, nothing to do
   }
   printPojoHead() {
-    const h =
-      this.nodeId() + this.style.pojoHead(this.getClass())
+    const h = this.style.pojoHead(this.getClass())
 
     this.memo = h + this.memo
     this.memoExpect = h + this.memoExpect
@@ -336,9 +399,11 @@ export class Same extends Format {
       if (objEnt.has(key)) {
         continue
       }
+      this.unmatch()
       this.printPojoEntry(key, undefined, true)
     }
   }
+
   printPojoEntry(key: any, val: any, notFound?: boolean) {
     const child = this.child(val, { key })
     child.print()
@@ -372,13 +437,12 @@ export class Same extends Format {
       this.object,
       this.getClass()
     )
-    this.memo = this.nodeId() + headObj + this.memo
+    this.memo = headObj + this.memo
     const headExp = this.style.errorHead(
       this.expect,
       this.getClass()
     )
-    this.memoExpect =
-      this.nodeId() + headExp + this.memoExpect
+    this.memoExpect = headExp + this.memoExpect
   }
   printErrorTail() {
     const t = this.style.errorTail(this.indentLevel())
@@ -401,8 +465,7 @@ export class Same extends Format {
     }
   }
   printMapHead() {
-    const h =
-      this.nodeId() + this.style.mapHead(this.getClass())
+    const h = this.style.mapHead(this.getClass())
     this.memo = h + this.memo
     this.memoExpect = h + this.memoExpect
   }
@@ -499,8 +562,7 @@ export class Same extends Format {
     // nothing to do
   }
   printArrayHead() {
-    const h =
-      this.nodeId() + this.style.arrayHead(this.getClass())
+    const h = this.style.arrayHead(this.getClass())
     this.memo = h + this.memo
     this.memoExpect = h + this.memoExpect
   }
@@ -521,7 +583,9 @@ export class Same extends Format {
     }
     if (!this.match) {
       this.memo += this.simplePrint(this.object)
-      this.memoExpect += this.simplePrint(this.expect)
+      this.memoExpect += this.simplePrint(this.expect, {
+        seen: this.seenExpect,
+      })
     }
   }
   printArrayEntry(key: number, val: any) {
@@ -543,8 +607,7 @@ export class Same extends Format {
     return super.setIsEmpty() && this.setExpectIsEmpty()
   }
   printSetHead() {
-    const h =
-      this.nodeId() + this.style.setHead(this.getClass())
+    const h = this.style.setHead(this.getClass())
     this.memo = h + this.memo
     this.memoExpect = h + this.memoExpect
   }
@@ -557,7 +620,9 @@ export class Same extends Format {
     if (this.expect.size !== this.object.size) {
       this.unmatch()
       this.memo += this.simplePrint(this.object)
-      this.memoExpect += this.simplePrint(this.expect)
+      this.memoExpect += this.simplePrint(this.expect, {
+        seen: this.seenExpect,
+      })
       return
     }
     const seen = new Set()
@@ -591,7 +656,9 @@ export class Same extends Format {
       if (!sawMatch) {
         this.unmatch()
         this.memo += this.simplePrint(this.object)
-        this.memoExpect += this.simplePrint(this.expect)
+        this.memoExpect += this.simplePrint(this.expect, {
+          seen: this.seenExpect,
+        })
         return
       }
     }

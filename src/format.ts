@@ -42,7 +42,7 @@ export class Format {
   sort: boolean
   id: null | number
   idCounter: number
-  idMap: Map<Format, number>
+  idMap: Map<any, number>
   style: Style
   bufferChunkSize: number
   key: any
@@ -263,12 +263,12 @@ export class Format {
     }
     this.memo = ''
     const seen = this.seen(this.object)
-    this.printStart()
     if (seen) {
       this.printCircular(seen)
     } else {
       this.printValue()
     }
+    this.printStart()
     this.printEnd()
     // this should be impossible
     /* c8 ignore start */
@@ -359,6 +359,7 @@ export class Format {
 
   printStart(): void {
     if (!this.parent) {
+      this.memo = this.nodeId() + this.memo
       return
     }
     const indent = this.isKey ? '' : this.indentLevel()
@@ -368,7 +369,10 @@ export class Format {
       : this.parent && this.parent.isMap()
       ? this.style.mapKeyValSep()
       : this.style.pojoKeyValSep()
-    this.memo += this.style.start(indent, key, sep)
+    this.memo =
+      this.style.start(indent, key, sep) +
+      this.nodeId() +
+      this.memo
   }
 
   printEnd(): void {
@@ -426,17 +430,10 @@ export class Format {
   nodeId(): string {
     return this.id ? this.style.nodeId(this.id) : ''
   }
-  printNodeId(): void {
-    const n = this.nodeId()
-    if (n) {
-      this.memo = n + this.memo
-    }
-  }
 
   printBuffer(): void {
     if (this.parent && this.parent.isBuffer()) {
       this.memo +=
-        this.nodeId() +
         this.style.bufferKey(this.key) +
         this.style.bufferKeySep() +
         this.style.bufferLine(
@@ -444,10 +441,9 @@ export class Format {
           this.bufferChunkSize
         )
     } else if (this.object.length === 0) {
-      this.memo += this.nodeId() + this.style.bufferEmpty()
+      this.memo += this.style.bufferEmpty()
     } else if (this.bufferIsShort()) {
       this.memo +=
-        this.nodeId() +
         this.style.bufferStart() +
         this.style.bufferBody(this.object) +
         this.style.bufferEnd(this.object)
@@ -455,7 +451,6 @@ export class Format {
       this.printBufferHead()
       this.printBufferBody()
       this.printBufferTail()
-      this.memo = this.nodeId() + this.memo
     }
   }
 
@@ -498,7 +493,6 @@ export class Format {
       this.printSetHead()
       this.printSetBody()
       this.printSetTail()
-      this.memo = this.nodeId() + this.memo
     }
   }
 
@@ -537,7 +531,6 @@ export class Format {
       this.printMapHead()
       this.printMapBody()
       this.printMapTail()
-      this.memo = this.nodeId() + this.memo
     }
   }
 
@@ -651,7 +644,6 @@ export class Format {
       this.printArrayHead()
       this.printArrayBody()
       this.printArrayTail()
-      this.memo = this.nodeId() + this.memo
     }
   }
 
@@ -693,7 +685,6 @@ export class Format {
       this.printErrorHead()
       this.printErrorBody()
       this.printErrorTail()
-      this.memo = this.nodeId() + this.memo
     }
   }
 
@@ -758,7 +749,6 @@ export class Format {
       this.printPojoHead()
       this.printPojoBody()
       this.printPojoTail()
-      this.memo = this.nodeId() + this.memo
     }
   }
 
