@@ -66,8 +66,13 @@
     "test-env": [
       "LC_ALL=sk"
     ],
-    "check-coverage": true,
-    "coverage-map": "map.js"
+    "coverage": false,
+    "node-arg": [
+      "--no-warnings",
+      "--loader",
+      "ts-node/esm"
+    ],
+    "ts": false
   },
   "engines": {
     "node": ">=10"
