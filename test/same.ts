@@ -705,3 +705,10 @@ t.test('array is not the same as object', t => {
   t.notOk(same(t, a, b))
   t.end()
 })
+
+t.test('inherited fields will satisfy ownprop expects', t => {
+  const a = Object.create({a: 1})
+  const b = {a: 1}
+  t.ok(same(t, a, b))
+  t.end()
+})

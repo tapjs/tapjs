@@ -454,6 +454,10 @@ exports[`test/same.ts TAP hidden props and getters > must match snapshot 3`] = `
 
 `
 
+exports[`test/same.ts TAP inherited fields will satisfy ownprop expects > must match snapshot 1`] = `
+
+`
+
 exports[`test/same.ts TAP iterables match one another > must match snapshot 1`] = `
 
 `

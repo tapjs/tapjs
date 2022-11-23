@@ -368,6 +368,15 @@ export class Same extends Format {
   printPojoEmpty() {
     // both are empty and not a simple mismatch, nothing to do
   }
+  getPojoKeys(obj: any = this.object): string[] {
+    const fromSuper = super.getPojoKeys(obj)
+    if (obj === this.expect) {
+      return fromSuper
+    }
+    return fromSuper.concat(
+      this.getPojoKeys(this.expect).filter(k => k in obj)
+    )
+  }
   printPojoHead() {
     const h = this.style.pojoHead(this.getClass())
 
@@ -390,12 +399,6 @@ export class Same extends Format {
     }
     for (const key of expEnt.keys()) {
       if (objEnt.has(key)) {
-        continue
-      }
-      if (
-        this.isError() &&
-        (key === 'name' || key === 'message')
-      ) {
         continue
       }
       this.unmatch()

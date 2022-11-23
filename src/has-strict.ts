@@ -7,7 +7,7 @@ export class HasStrict extends Has {
     // constructor match is relevant to Strict, but HasStrict should
     // not do that, it's inconvenient, since it means you can't do
     // hasStrict(new URL('https://x.com/y'), { pathname: '/y' })
-    // So, for objects, we just call Same.  Everything else, call Strict.
+    // So, for objects, we call Same.  Everything else, call Strict.
     if (
       a &&
       b &&
