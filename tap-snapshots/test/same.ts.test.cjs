@@ -9,6 +9,36 @@ exports[`test/same.ts TAP NaN matches NaN > must match snapshot 1`] = `
 
 `
 
+exports[`test/same.ts TAP another weird cycle case > must match snapshot 1`] = `
+--- expected
++++ actual
+@@ -1,5 +1,3 @@
+ &ref_1 Object {
+-  "o": &ref_1 Object {
+-    "o": <*ref_1>,
+-  },
++  "o": <*ref_1>,
+ }
+
+`
+
+exports[`test/same.ts TAP array is not the same as object > must match snapshot 1`] = `
+--- expected
++++ actual
+@@ -1,5 +1,5 @@
+-Object {
+-  "0": 1,
+-  "1": 2,
+-  "2": 3,
+-}
++Array [
++  1,
++  2,
++  3,
++]
+
+`
+
 exports[`test/same.ts TAP array-likes > must match snapshot 1`] = `
 
 `
@@ -567,6 +597,22 @@ exports[`test/same.ts TAP null is as shallow as you'd expect > must match snapsh
 `
 
 exports[`test/same.ts TAP null is as shallow as you'd expect > must match snapshot 3`] = `
+
+`
+
+exports[`test/same.ts TAP obj cycles, expect does not > must match snapshot 1`] = `
+--- expected
++++ actual
+@@ -1,8 +1,9 @@
+ &ref_1 Object {
+   "o": Object {
+     "o": Object {
+       "o": Object {
++        "a": <*ref_1>,
+       },
+     },
+   },
+ }
 
 `
 

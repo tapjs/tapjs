@@ -211,8 +211,6 @@ export class Same extends Format {
     this.memoExpect = this.memoExpect || ''
     if (seenExpect) {
       this.memoExpect += this.style.circular(seenExpect)
-    } else {
-      this.memoExpect += this.simplePrintExpect()
     }
   }
 
@@ -286,7 +284,9 @@ export class Same extends Format {
       ? this.expect
       : this.isArray()
       ? arrayFrom(this.expect)
-      : null
+      : /* c8 ignore start */
+        null
+    /* c8 ignore stop */
 
     defineProperty(this, 'expectAsArray', { value })
     return value
@@ -298,8 +298,16 @@ export class Same extends Format {
       this.memoExpect = this.nodeId() + this.memoExpect
       return
     }
+    // we always simple print keys
+    /* c8 ignore start */
     const indent = this.isKey ? '' : this.indentLevel()
+    /* c8 ignore stop */
+    // this will always be keyless, because Array and Set
+    // objects are always simple printed.  But if that
+    // chagnes, this will be relevant.
+    /* c8 ignore start */
     const key = this.isKeyless() ? '' : this.getKey()
+    /* c8 ignore stop */
     const sep = !key
       ? ''
       : this.parent && this.parent.isMap()
@@ -312,23 +320,23 @@ export class Same extends Format {
   }
 
   printEnd(): void {
-    if (!this.parent) {
+    if (!this.parent || this.isKey) {
       return
     }
-    const end =
-      this.isKey || !this.parent
-        ? ''
-        : this.parent.isMap()
-        ? this.style.mapEntrySep()
-        : this.parent.isBuffer()
-        ? ''
-        : this.parent.isArray()
-        ? this.style.arrayEntrySep()
-        : this.parent.isSet()
-        ? this.style.setEntrySep()
-        : this.parent.isString()
-        ? ''
-        : this.style.pojoEntrySep()
+    const end = this.parent.isMap()
+      ? this.style.mapEntrySep()
+      : this.parent.isArray()
+      ? this.style.arrayEntrySep()
+      : // these types are always simple printed
+      /* c8 ignore start */
+      this.parent.isSet()
+      ? this.style.setEntrySep()
+      : this.parent.isBuffer()
+      ? ''
+      : this.parent.isString()
+      ? ''
+      : /* c8 ignore stop */
+        this.style.pojoEntrySep()
     this.memo += end
     this.memoExpect += end
   }

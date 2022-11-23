@@ -690,3 +690,18 @@ t.test('another weird cycle case', t => {
   t.notOk(same(t, a, b))
   t.end()
 })
+
+t.test('obj cycles, expect does not', t => {
+  const a:{[k:string]:any} = {o: {o: {o: {}}}}
+  const b:{[k:string]:any} = {o: {o: {o: {}}}}
+  a.o.o.o.a = a
+  t.notOk(same(t, a, b))
+  t.end()
+})
+
+t.test('array is not the same as object', t => {
+  const a = [1,2,3]
+  const b = {0: 1, 1: 2, 2: 3}
+  t.notOk(same(t, a, b))
+  t.end()
+})
