@@ -2,7 +2,8 @@
 // directly by comparators for their "simplePrint" methods.
 // It doesn't do comparison, just formatting.
 
-import styles, { Style } from './styles'
+import {styles} from './styles.js'
+import type {Style} from './styles.js'
 
 const arrayFrom = (obj: any) => {
   try {

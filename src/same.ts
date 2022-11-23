@@ -18,7 +18,7 @@
 
 import { createTwoFilesPatch } from 'diff'
 
-import { Format, FormatOptions } from './format'
+import { Format, FormatOptions } from './format.js'
 
 const arrayFrom = (obj: any) => {
   try {

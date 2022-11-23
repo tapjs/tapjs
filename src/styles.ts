@@ -1,4 +1,4 @@
-import type { Format } from './format'
+import type { Format } from './format.js'
 
 // can't use buf.toString('ascii') because that unmasks high bytes
 const bufToAscii = (buf: Buffer) =>
@@ -70,7 +70,7 @@ export interface Style {
   ) => string
 }
 
-const styles: { [style: string]: Style } = {}
+export const styles: { [style: string]: Style } = {}
 
 styles.pretty = {
   fn: (fn, cls) => {
@@ -184,7 +184,7 @@ styles.js = {
   circular: node => `*ref_${node.id}`,
   nodeId: id => `&ref_${id} `,
   errorEmpty: (er, cls) =>
-    `new ${cls}(${JSON.stringify(er.message)})`,
+    `new ${cls}(${er.message ? JSON.stringify(er.message) : ''})`,
   errorHead: (er, cls) =>
     `Object.assign(new ${cls}(${er.message ? JSON.stringify(
       er.message
@@ -285,5 +285,3 @@ styles.tight = {
   diffable: false,
   start: (_indent, key, sep) => `${key}${sep}`,
 }
-
-export default styles

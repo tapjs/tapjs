@@ -1,5 +1,5 @@
-import { Format } from './format'
-import { Has } from './has'
+import { Format } from './format.js'
+import { Has } from './has.js'
 export class Match extends Has {
   test(): boolean | 'COMPLEX' {
     const obj = this.object

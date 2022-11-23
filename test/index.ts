@@ -59,3 +59,5 @@ t.matchSnapshot(
 t.matchSnapshot(
   new compare.MatchStrict(obj, { expect, ...opt }).print()
 )
+
+t.matchSnapshot(compare.styles, 'styles object')

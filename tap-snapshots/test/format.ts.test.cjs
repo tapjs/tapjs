@@ -5,6 +5,34 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
+exports[`test/format.ts TAP error without name/message {"hello":"world"} js > must match snapshot 1`] = `
+Object.assign(new Object(), {
+  "hello": "world",
+})
+`
+
+exports[`test/format.ts TAP error without name/message {"hello":"world"} pretty > must match snapshot 1`] = `
+(no name): (no message) {
+  "hello": "world",
+}
+`
+
+exports[`test/format.ts TAP error without name/message {"hello":"world"} tight > must match snapshot 1`] = `
+Object.assign(new Object(), {"hello":"world",})
+`
+
+exports[`test/format.ts TAP error without name/message {} js > must match snapshot 1`] = `
+new Object()
+`
+
+exports[`test/format.ts TAP error without name/message {} pretty > must match snapshot 1`] = `
+(no name): (no message)
+`
+
+exports[`test/format.ts TAP error without name/message {} tight > must match snapshot 1`] = `
+new Object(undefined)
+`
+
 exports[`test/format.ts TAP format iterable > must match snapshot 1`] = `
 And [
   And [
@@ -433,7 +461,7 @@ exports[`test/format.ts TAP gnarly object, many points of view > js 1`] = `
   "undef": undefined,
   "classy": {},
   "err": new Error("just an error"),
-  "emptyErr": new Error(""),
+  "emptyErr": new Error(),
   "fancyErr": Object.assign(new Error("fancy pantsy"), {
     "fancy": "pantsy",
   }),

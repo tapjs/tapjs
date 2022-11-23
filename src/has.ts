@@ -1,5 +1,5 @@
-import { Format } from './format'
-import { Same } from './same'
+import { Format } from './format.js'
+import { Same } from './same.js'
 export class Has extends Same {
   // don't care about object shape, only that it has
   // matching fields of the same type.

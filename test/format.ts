@@ -375,3 +375,24 @@ t.test('nodeId() method', t => {
   t.equal(f3.getId(), 2, 'different object, different id')
   t.end()
 })
+
+t.test('error without name/message', t => {
+  const objs = [{hello: 'world'}, {}]
+  const styles = ['pretty', 'js', 'tight']
+
+  t.plan(objs.length)
+  for (const obj of objs) {
+    t.test(JSON.stringify(obj), t => {
+      t.plan(styles.length)
+      for (const style of styles) {
+        t.test(style, t => {
+          const f = new Format(obj, { style })
+          f.memo = ''
+          f.printError()
+          t.matchSnapshot(f.print())
+          t.end()
+        })
+      }
+    })
+  }
+})

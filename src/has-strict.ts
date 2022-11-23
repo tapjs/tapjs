@@ -1,5 +1,5 @@
-import { Has } from './has'
-import { Strict } from './strict'
+import { Has } from './has.js'
+import { Strict } from './strict.js'
 export class HasStrict extends Has {
   test() {
     const a = this.object

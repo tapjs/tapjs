@@ -1,5 +1,5 @@
-import { Format } from './format'
-import { Same } from './same'
+import { Format } from './format.js'
+import { Same } from './same.js'
 export class Strict extends Same {
   test() {
     const a = this.object

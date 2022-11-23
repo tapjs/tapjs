@@ -4,8 +4,8 @@
 // Note: it does still allow a field to be present in the object
 // and not the pattern if the value is set to null or undefined.
 
-import { Match } from './match'
-import { Same } from './same'
+import { Match } from './match.js'
+import { Same } from './same.js'
 export class MatchOnly extends Same {
   test() {
     return Match.prototype.test.call(this)
