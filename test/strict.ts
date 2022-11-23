@@ -1,5 +1,6 @@
 import t from 'tap'
-import {strict as compareStrict} from '../'
+import { strict as compareStrict } from '../'
+
 const strict = (t: Tap.Test, a: any, b: any) => {
   const s = compareStrict(a, b)
   t.matchSnapshot(s.diff)
@@ -126,7 +127,7 @@ t.test('basic', t => {
   // 8. loads of tests for objects
   t.ok(strict(t, {}, {}), 'bare objects check out')
   var a = { a: 'a' }
-  var b:any = a
+  var b: any = a
   t.ok(
     strict(t, a, b),
     'identical object references check out'
@@ -326,10 +327,10 @@ t.test('basic', t => {
   )
 
   // 7. arguments
-  var outer = (function (..._:any[]) {
+  var outer = (function (..._: any[]) {
     return arguments
   })(1, 2, 3)
-  ;(function inner(_a:number, _b:number, _c:number) {
+  ;(function inner(_a: number, _b: number, _c: number) {
     var inner = arguments
     t.ok(strict(t, outer, outer))
     t.ok(strict(t, outer, inner))
@@ -362,7 +363,7 @@ t.test('basic', t => {
     "different object values aren't the same"
   )
 
-  function ondata(data:any) {
+  function ondata(data: any) {
     console.log(data)
   }
   eeB.on('data', ondata)
@@ -408,34 +409,34 @@ t.test('set', function (t) {
 
 t.test('map', function (t) {
   var obj = { a: 1 }
-  var a = new Map<any,any>([
+  var a = new Map<any, any>([
     [1, 2],
     [3, 4],
     [5, obj],
     [obj, 6],
   ])
-  var b = new Map<any,any>([
+  var b = new Map<any, any>([
     [3, 4],
     [5, obj],
     [obj, 6],
     [1, 2],
   ])
   // values match, but not strictly
-  var c = new Map<any,any>([
+  var c = new Map<any, any>([
     [3, 4],
     [5, { a: '1' }],
     [obj, 6],
     [1, 2],
   ])
   // keys don't match
-  var d = new Map<any,any>([
+  var d = new Map<any, any>([
     [3, 4],
     [5, { a: 1 }],
     [{ a: 1, b: 2 }, 6],
     [1, 2],
   ])
   // keys that do match
-  var e = new Map<any,any>([
+  var e = new Map<any, any>([
     [3, 4],
     [5, { a: 1 }],
     [{ a: 1 }, 6],
@@ -456,9 +457,9 @@ t.test('map', function (t) {
 
 t.test('iterables match one another', t => {
   class And {
-    a:any
-    b:any
-    constructor(a:any, b:any) {
+    a: any
+    b: any
+    constructor(a: any, b: any) {
       this.a = a
       this.b = b
     }

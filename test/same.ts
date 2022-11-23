@@ -1,6 +1,7 @@
 import t from 'tap'
 import type { FormatOptions } from '../'
 import * as compare from '../'
+
 const same = (
   t: Tap.Test,
   a: any,
@@ -692,23 +693,26 @@ t.test('another weird cycle case', t => {
 })
 
 t.test('obj cycles, expect does not', t => {
-  const a:{[k:string]:any} = {o: {o: {o: {}}}}
-  const b:{[k:string]:any} = {o: {o: {o: {}}}}
+  const a: { [k: string]: any } = { o: { o: { o: {} } } }
+  const b: { [k: string]: any } = { o: { o: { o: {} } } }
   a.o.o.o.a = a
   t.notOk(same(t, a, b))
   t.end()
 })
 
 t.test('array is not the same as object', t => {
-  const a = [1,2,3]
-  const b = {0: 1, 1: 2, 2: 3}
+  const a = [1, 2, 3]
+  const b = { 0: 1, 1: 2, 2: 3 }
   t.notOk(same(t, a, b))
   t.end()
 })
 
-t.test('inherited fields will satisfy ownprop expects', t => {
-  const a = Object.create({a: 1})
-  const b = {a: 1}
-  t.ok(same(t, a, b))
-  t.end()
-})
+t.test(
+  'inherited fields will satisfy ownprop expects',
+  t => {
+    const a = Object.create({ a: 1 })
+    const b = { a: 1 }
+    t.ok(same(t, a, b))
+    t.end()
+  }
+)

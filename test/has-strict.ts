@@ -1,6 +1,6 @@
 import t from 'tap'
 import * as compare from '../'
-const hasStrict = (t:Tap.Test, a:any, b:any) => {
+const hasStrict = (t: Tap.Test, a: any, b: any) => {
   const h = compare.hasStrict(a, b)
   t.matchSnapshot(h.diff)
   return h.match
@@ -13,7 +13,7 @@ t.test('iterables match one another', t => {
   class And {
     a: any
     b: any
-    constructor(a:any, b:any) {
+    constructor(a: any, b: any) {
       this.a = a
       this.b = b
     }

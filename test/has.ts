@@ -1,6 +1,6 @@
 import t from 'tap'
-import {has as compareHas, Has} from '../'
-const has = (t:Tap.Test, a:any, b:any) => {
+import { has as compareHas, Has } from '../'
+const has = (t: Tap.Test, a: any, b: any) => {
   const h = compareHas(a, b)
   t.matchSnapshot(h.diff)
   return h.match
@@ -42,28 +42,28 @@ t.test('array likes', t => {
   t.ok(has(t, a, { i: [1, 2, 3] }))
   t.ok(
     has(t, a, {
-      i: (function (..._:any[]) {
+      i: (function (..._: any[]) {
         return arguments
       })(1, 2, 3),
     })
   )
   t.ok(
     has(t, a, {
-      i: (function (..._:any[]) {
+      i: (function (..._: any[]) {
         return arguments
       })(1, 2, 3),
     })
   )
   t.ok(
     has(t, a, {
-      a: (function (..._:any[]) {
+      a: (function (..._: any[]) {
         return arguments
       })(1, 2),
     })
   )
   t.ok(
     has(t, a, {
-      i: (function (..._:any[]) {
+      i: (function (..._: any[]) {
         return arguments
       })(1, 2),
     })
@@ -86,7 +86,7 @@ t.test('map', t => {
   )
   t.notOk(
     has(t, a, {
-      m: new Map<any,any>([
+      m: new Map<any, any>([
         [3, 4],
         ['3', 4],
       ]),
@@ -164,14 +164,18 @@ t.test('complex object', t => {
   t.ok(has(t, a, { c: { s: new Set([new Map()]) } }))
   t.ok(
     has(t, a, {
-      c: { s: new Set([new Map<any,any>([[{ s: new Set() }, a]])]) },
+      c: {
+        s: new Set([
+          new Map<any, any>([[{ s: new Set() }, a]]),
+        ]),
+      },
     })
   )
   t.notOk(has(t, a, { xyz: true }))
 
   // same circularity
   const b = { c: { s: new Set() } }
-  const n = new Map<any,any>([[b.c, b]])
+  const n = new Map<any, any>([[b.c, b]])
   b.c.s.add(n)
   t.ok(has(t, a, b))
 
@@ -179,18 +183,24 @@ t.test('complex object', t => {
 })
 
 t.test('errors', t => {
-  const er:Error & { code?:number,signal?:string} = new Error('foo')
+  const er: Error & { code?: number; signal?: string } =
+    new Error('foo')
   er.code = 1
   er.signal = 'blerg'
   t.ok(has(t, er, { code: 1 }))
-  const er2:Error & { code?:number,signal?:string} = new Error('foo')
+  const er2: Error & { code?: number; signal?: string } =
+    new Error('foo')
   er2.signal = 'blerg'
   t.ok(has(t, er, er2))
   t.ok(has(t, er, new Error('foo')))
   t.notOk(has(t, er, new TypeError('foo')))
   t.ok(has(t, er, {}))
 
-  const er3:Error & { code?:number,signal?:string,foo?:string} = new RangeError('hello')
+  const er3: Error & {
+    code?: number
+    signal?: string
+    foo?: string
+  } = new RangeError('hello')
   er3.foo = 'bar'
   t.ok(has(t, er3, { name: 'RangeError', foo: 'bar' }))
 
@@ -200,8 +210,8 @@ t.test('errors', t => {
 t.test('iterables match one another', t => {
   class And {
     a: any
-    b:any
-    constructor(a:any, b:any) {
+    b: any
+    constructor(a: any, b: any) {
       this.a = a
       this.b = b
     }
@@ -228,12 +238,15 @@ t.test('error message', t => {
   t.end()
 })
 
-t.test('small set cannot satisfy big set expectation', t => {
-  const a = new Set([1])
-  const b = new Set([1,2,3])
-  t.notOk(has(t, a, b))
-  t.end()
-})
+t.test(
+  'small set cannot satisfy big set expectation',
+  t => {
+    const a = new Set([1])
+    const b = new Set([1, 2, 3])
+    t.notOk(has(t, a, b))
+    t.end()
+  }
+)
 
 t.test('sort pojos', t => {
   const a = {
@@ -241,7 +254,7 @@ t.test('sort pojos', t => {
     a: 0,
     j: 2,
     b: 4,
-    m: 3
+    m: 3,
   }
   const b = {
     j: 2,
@@ -261,7 +274,9 @@ t.test('sort pojos', t => {
   t.equal(h.match, true)
   const h2 = new Has(a, { expect: c, sort: true })
   t.matchSnapshot(h2.print())
-  t.equal(h2.memoDiff, `--- expected
+  t.equal(
+    h2.memoDiff,
+    `--- expected
 +++ actual
 @@ -1,6 +1,6 @@
  Object {
@@ -274,7 +289,8 @@ t.test('sort pojos', t => {
 +  "m": 3,
 +  "x": 1,
  }
-`)
+`
+  )
   t.end()
 })
 
@@ -287,9 +303,12 @@ t.test('undefined/null matches missing', t => {
   t.end()
 })
 
-t.test('pojo can match against array with same fields', t => {
-  const a = Object.assign([1,2,3], {foo: 'bar'})
-  const b = { foo: 'bar' }
-  t.ok(has(t, a, b))
-  t.end()
-})
+t.test(
+  'pojo can match against array with same fields',
+  t => {
+    const a = Object.assign([1, 2, 3], { foo: 'bar' })
+    const b = { foo: 'bar' }
+    t.ok(has(t, a, b))
+    t.end()
+  }
+)

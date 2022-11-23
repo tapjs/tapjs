@@ -1,5 +1,5 @@
-const t = require('tap')
-const compare = require('../')
+import t from 'tap'
+import * as compare from '../'
 
 // not much of a test, but just verifying the interface exists
 const obj = { a: 1 }
@@ -31,8 +31,12 @@ t.matchSnapshot(
   new compare.HasStrict(obj, { expect }).print()
 )
 t.matchSnapshot(new compare.Match(obj, { expect }).print())
-t.matchSnapshot(new compare.MatchOnly(obj, { expect }).print())
-t.matchSnapshot(new compare.MatchStrict(obj, { expect }).print())
+t.matchSnapshot(
+  new compare.MatchOnly(obj, { expect }).print()
+)
+t.matchSnapshot(
+  new compare.MatchStrict(obj, { expect }).print()
+)
 t.matchSnapshot(new compare.Format(obj, opt).print())
 t.matchSnapshot(
   new compare.Same(obj, { expect, ...opt }).print()

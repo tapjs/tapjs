@@ -1,5 +1,6 @@
 import t from 'tap'
 import * as compare from '../'
+
 const match = (t: Tap.Test, a: any, b: any) => {
   const m = compare.match(a, b)
   t.matchSnapshot(m.diff)

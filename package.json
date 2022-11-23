@@ -66,6 +66,7 @@
     "test-env": [
       "LC_ALL=sk"
     ],
+    "test-ignore": ".attic",
     "coverage": false,
     "node-arg": [
       "--no-warnings",
