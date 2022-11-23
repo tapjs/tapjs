@@ -24,7 +24,9 @@ export interface Style {
   nodeId: (id: number) => string
   errorEmpty: (er: Error, cls: string) => string
   errorHead: (
-    er: (Error | { name?: string, message?: string }) & { generatedMessage?: string },
+    er: (Error | { name?: string; message?: string }) & {
+      generatedMessage?: string
+    },
     cls: string
   ) => string
   errorTail: (indent: string) => string
@@ -184,11 +186,13 @@ styles.js = {
   circular: node => `*ref_${node.id}`,
   nodeId: id => `&ref_${id} `,
   errorEmpty: (er, cls) =>
-    `new ${cls}(${er.message ? JSON.stringify(er.message) : ''})`,
+    `new ${cls}(${
+      er.message ? JSON.stringify(er.message) : ''
+    })`,
   errorHead: (er, cls) =>
-    `Object.assign(new ${cls}(${er.message ? JSON.stringify(
-      er.message
-    ) : ''}), {\n`,
+    `Object.assign(new ${cls}(${
+      er.message ? JSON.stringify(er.message) : ''
+    }), {\n`,
   errorTail: indent => `${indent}})`,
   pojoEmpty: _ => '{}',
   pojoHead: _ => `\{\n`,
@@ -248,9 +252,9 @@ styles.tight = {
   errorEmpty: (er, cls) =>
     `new ${cls}(${JSON.stringify(er.message)})`,
   errorHead: (er, cls) =>
-    `Object.assign(new ${cls}(${er.message ? JSON.stringify(
-      er.message
-    ) : ''}), {`,
+    `Object.assign(new ${cls}(${
+      er.message ? JSON.stringify(er.message) : ''
+    }), {`,
   errorTail: _ => '})',
   pojoEmpty: _ => '{}',
   pojoHead: _ => `\{`,

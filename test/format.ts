@@ -377,7 +377,7 @@ t.test('nodeId() method', t => {
 })
 
 t.test('error without name/message', t => {
-  const objs = [{hello: 'world'}, {}]
+  const objs = [{ hello: 'world' }, {}]
   const styles = ['pretty', 'js', 'tight']
 
   t.plan(objs.length)
