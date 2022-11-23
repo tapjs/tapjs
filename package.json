@@ -31,7 +31,7 @@
     "@types/node": "^18.11.9",
     "@types/tap": "^15.0.7",
     "c8": "^7.12.0",
-    "prettier": "^2.7.1",
+    "prettier": "^2.8.0",
     "tap": "^16.3.2",
     "ts-node": "^10.9.1",
     "typedoc": "^0.23.21",
@@ -66,7 +66,6 @@
     "test-env": [
       "LC_ALL=sk"
     ],
-    "test-ignore": ".attic",
     "coverage": false,
     "node-arg": [
       "--no-warnings",
@@ -76,6 +75,6 @@
     "ts": false
   },
   "engines": {
-    "node": ">=10"
+    "node": ">=16"
   }
 }
