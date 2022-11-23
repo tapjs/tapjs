@@ -1,5 +1,14 @@
 import { Same } from './same'
 export class Has extends Same {
+  // don't care about object shape, only that it has
+  // matching fields of the same type.
+  simpleMatch() {
+    this.simple = this.test()
+    if (!this.simple) {
+      this.unmatch()
+    }
+  }
+
   // just return the entries that exist in the expect object
   getPojoEntries(obj: any) {
     const expKeys = new Set(this.getPojoKeys(this.expect))
@@ -11,13 +20,8 @@ export class Has extends Same {
       : ent
   }
 
-  getMapEntries(obj: any = this.object) {
-    if (obj !== this.object) {
-      return super.getMapEntries(obj)
-    }
-    const ent = super.getMapEntries(obj)
-    const exp = this.expect
-    return ent.filter(([k]) => exp.has(k))
+  printMapEntryUnexpected(_key:any, _val:any) {
+    // nothing to do, this is fine
   }
 
   // only test expected array entries within the expect array length
@@ -25,11 +29,21 @@ export class Has extends Same {
     const arr = super.objectAsArray
     if (arr) {
       const exp = super.expectAsArray
-      if (exp && exp.length > arr.length) {
-        return arr.slice(0, exp.length)
+      if (exp && exp.length < arr.length) {
+        const value = arr.slice(0, exp.length)
+        Object.defineProperty(this, 'objectAsArray', {
+          value,
+          configurable: true,
+        })
+        return value
       }
     }
-    return arr
+    const value = arr
+    Object.defineProperty(this, 'objectAsArray', {
+      value,
+      configurable: true,
+    })
+    return value
   }
 
   // always include message/name, so you can do t.has(er, { message }) etc.

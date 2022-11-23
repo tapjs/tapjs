@@ -282,7 +282,7 @@ export class Same extends Format {
   get expectAsArray() {
     const value = Array.isArray(this.expect)
       ? this.expect
-      : this.isArray()
+      : new Format(this.expect).isArray()
       ? arrayFrom(this.expect)
       : /* c8 ignore start */
         null

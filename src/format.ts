@@ -247,7 +247,10 @@ export class Format {
       this.isArray = () => false
     }
 
-    Object.defineProperty(this, 'objectAsArray', { value })
+    Object.defineProperty(this, 'objectAsArray', {
+      value,
+      configurable: true,
+    })
     return value
   }
 
