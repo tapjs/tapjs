@@ -72,15 +72,10 @@ exports[`test/has.ts TAP array likes > must match snapshot 5`] = `
 exports[`test/has.ts TAP array likes > must match snapshot 6`] = `
 --- expected
 +++ actual
-@@ -1,3 +1,5 @@
--Object {
+@@ -1,3 +1,2 @@
+ Array {
 -  "foo": "bar",
--}
-+Array [
-+  1,
-+  2,
-+  3,
-+]
+ }
 
 `
 
@@ -269,6 +264,10 @@ exports[`test/has.ts TAP map > must match snapshot 9`] = `
 -    1 => 2,
    },
  }
+
+`
+
+exports[`test/has.ts TAP pojo can match against array with same fields > must match snapshot 1`] = `
 
 `
 

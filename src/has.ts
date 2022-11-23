@@ -1,3 +1,4 @@
+import { Format } from './format'
 import { Same } from './same'
 export class Has extends Same {
   // don't care about object shape, only that it has
@@ -7,6 +8,12 @@ export class Has extends Same {
     if (!this.simple) {
       this.unmatch()
     }
+  }
+
+  isArray() {
+    return (
+      super.isArray() && new Format(this.expect).isArray()
+    )
   }
 
   // just return the entries that exist in the expect object
@@ -32,7 +39,7 @@ export class Has extends Same {
       : ent
   }
 
-  printMapEntryUnexpected(_key:any, _val:any) {
+  printMapEntryUnexpected(_key: any, _val: any) {
     // nothing to do, this is fine
   }
 

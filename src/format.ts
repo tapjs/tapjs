@@ -162,12 +162,11 @@ export class Format {
   }
 
   isArray(): boolean {
-    const is =
+    return (
       Array.isArray(this.object) ||
       this.isArguments() ||
       this.isIterable()
-    this.isArray = () => is
-    return is
+    )
   }
 
   // technically this means "is an iterable we don't have another fit for"

@@ -286,3 +286,10 @@ t.test('undefined/null matches missing', t => {
   t.ok(has(t, a, c))
   t.end()
 })
+
+t.test('pojo can match against array with same fields', t => {
+  const a = Object.assign([1,2,3], {foo: 'bar'})
+  const b = { foo: 'bar' }
+  t.ok(has(t, a, b))
+  t.end()
+})
