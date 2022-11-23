@@ -11,10 +11,22 @@ export class Has extends Same {
 
   // just return the entries that exist in the expect object
   getPojoEntries(obj: any) {
-    const expKeys = new Set(this.getPojoKeys(this.expect))
-    const ent: [string, any][] = this.getPojoKeys(obj)
-      .filter(k => expKeys.has(k))
+    if (obj !== this.object) {
+      return super.getPojoEntries(obj)
+    }
+    const expKeys = this.getPojoKeys(this.expect)
+    const expSet = new Set(expKeys)
+    const objKeys = this.getPojoKeys(obj)
+    const objSet = new Set(objKeys)
+    for (const k of expKeys) {
+      if (!objSet.has(k) && this.expect[k] == undefined) {
+        objKeys.push(k)
+      }
+    }
+    const ent: [string, any][] = objKeys
+      .filter(k => expSet.has(k))
       .map(k => [k, obj[k]])
+
     return this.sort
       ? ent.sort((a, b) => a[0].localeCompare(b[0], 'en'))
       : ent

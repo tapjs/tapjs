@@ -356,3 +356,11 @@ exports[`test/has.ts TAP sort pojos > must match snapshot 1`] = `
  }
 
 `
+
+exports[`test/has.ts TAP undefined/null matches missing > must match snapshot 1`] = `
+
+`
+
+exports[`test/has.ts TAP undefined/null matches missing > must match snapshot 2`] = `
+
+`

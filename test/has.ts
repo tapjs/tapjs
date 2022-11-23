@@ -277,3 +277,12 @@ t.test('sort pojos', t => {
 `)
   t.end()
 })
+
+t.test('undefined/null matches missing', t => {
+  const a = { a: 1 }
+  const b = { a: 1, b: undefined }
+  const c = { a: 1, c: null }
+  t.ok(has(t, a, b))
+  t.ok(has(t, a, c))
+  t.end()
+})
