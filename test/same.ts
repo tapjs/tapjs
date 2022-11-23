@@ -146,8 +146,8 @@ t.test('iterator that doesnt play nice', t => {
 
 t.test('customize diff context', t => {
   const opt = { diffContext: 1 }
-  const a = {x:{y:{z:{a:{b:{c:1}}}}}}
-  const b = {x:{y:{z:{a:{b:{c:2}}}}}}
+  const a = { x: { y: { z: { a: { b: { c: 1 } } } } } }
+  const b = { x: { y: { z: { a: { b: { c: 2 } } } } } }
   t.notOk(same(t, a, b, opt))
   t.end()
 })
@@ -662,15 +662,31 @@ t.test('hidden props and getters', t => {
 t.test('tricky mismatched nesting', t => {
   // one is immediately cycling back to the root,
   // the other has an o with an o member referencing root.o
-  type T = {[k:string]:any}
-  const a:T = {}
+  type T = { [k: string]: any }
+  const a: T = {}
   a.o = a
-  const b:T = {o:{}}
+  const b: T = { o: {} }
   b.o.o = b.o
   t.notOk(same(t, a, b))
-  const c:T = {o:{o:{o:{o:{}}}}}
+  const c: T = { o: { o: { o: { o: {} } } } }
   c.o.o.o.o.o = c.o.o
   t.notOk(same(t, a, c))
   t.notOk(same(t, b, c))
+  t.end()
+})
+
+t.test('another weird cycle case', t => {
+  const a: { [k: string]: any } = {}
+  a.o = a
+  const b: { [k: string]: any } = { o: a }
+  // note, this one is *really* weird.
+  // we end up with two objects in the graph with &ref_1,
+  // because when it checks the id on the expect path,
+  // during the simplePrintExpect, it finds a,
+  // which already has an ID assigned.
+  // It's an edge case and unlikely to ever be a serious issue,
+  // but tracking it here so that we can at least track
+  // the snapshot if/when it ever changes.
+  t.notOk(same(t, a, b))
   t.end()
 })

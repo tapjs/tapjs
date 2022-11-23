@@ -154,6 +154,13 @@ export class Same extends Format {
     }).print()
   }
 
+  simplePrintExpect() {
+    return new Format(this.expect, {
+      ...this.options,
+      seen: this.seenExpect,
+    }).print()
+  }
+
   seenExpect() {
     if (!this.expect || typeof this.expect !== 'object') {
       return false
@@ -179,9 +186,7 @@ export class Same extends Format {
       if (!this.simple) {
         this.unmatch()
         this.memo += this.simplePrint(this.object)
-        this.memoExpect += this.simplePrint(this.expect, {
-          seen: this.seenExpect,
-        })
+        this.memoExpect += this.simplePrintExpect()
       } else {
         const seen = this.seen()
         const seenExpect = this.seenExpect()
@@ -203,12 +208,11 @@ export class Same extends Format {
   printCircular(seen: Format): void {
     this.memo += this.style.circular(seen)
     const seenExpect = this.seenExpect()
+    this.memoExpect = this.memoExpect || ''
     if (seenExpect) {
       this.memoExpect += this.style.circular(seenExpect)
     } else {
-      this.memoExpect += this.simplePrint(this.expect, {
-        seen: this.seenExpect,
-      })
+      this.memoExpect += this.simplePrintExpect()
     }
   }
 
@@ -380,7 +384,10 @@ export class Same extends Format {
       if (objEnt.has(key)) {
         continue
       }
-      if (this.isError() && (key === 'name' || key === 'message')) {
+      if (
+        this.isError() &&
+        (key === 'name' || key === 'message')
+      ) {
         continue
       }
       this.unmatch()
@@ -417,7 +424,11 @@ export class Same extends Format {
     return super.errorIsEmpty() && this.expectErrorIsEmpty()
   }
   expectErrorIsEmpty() {
-    return this.getPojoEntries(this.expect).filter(([k]) => k !== 'name' && k !== 'message').length === 0
+    return (
+      this.getPojoEntries(this.expect).filter(
+        ([k]) => k !== 'name' && k !== 'message'
+      ).length === 0
+    )
   }
   printErrorEmpty() {
     // nothing to do
@@ -592,9 +603,8 @@ export class Same extends Format {
     }
     if (!this.match) {
       this.memo += this.simplePrint(this.object)
-      this.memoExpect += this.simplePrint(this.expect, {
-        seen: this.seenExpect,
-      })
+      this.memoExpect = this.memoExpect || ''
+      this.memoExpect += this.simplePrintExpect()
     }
   }
   printArrayEntry(key: number, val: any) {
@@ -619,9 +629,8 @@ export class Same extends Format {
     if (this.expect.size !== this.object.size) {
       this.unmatch()
       this.memo += this.simplePrint(this.object)
-      this.memoExpect += this.simplePrint(this.expect, {
-        seen: this.seenExpect,
-      })
+      this.memoExpect = this.memoExpect || ''
+      this.memoExpect += this.simplePrintExpect()
       return
     }
     const seen = new Set()
@@ -655,9 +664,8 @@ export class Same extends Format {
       if (!sawMatch) {
         this.unmatch()
         this.memo += this.simplePrint(this.object)
-        this.memoExpect += this.simplePrint(this.expect, {
-          seen: this.seenExpect,
-        })
+        this.memoExpect = this.memoExpect || ''
+        this.memoExpect += this.simplePrintExpect()
         return
       }
     }
