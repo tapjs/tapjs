@@ -24,7 +24,7 @@ export interface Style {
   nodeId: (id: number) => string
   errorEmpty: (er: Error, cls: string) => string
   errorHead: (
-    er: Error & { generatedMessage?: string },
+    er: (Error | { name?: string, message?: string }) & { generatedMessage?: string },
     cls: string
   ) => string
   errorTail: (indent: string) => string
@@ -99,11 +99,20 @@ styles.pretty = {
   mapEntrySep: () => ',\n',
   circular: node => `<*ref_${node.id}>`,
   nodeId: id => `&ref_${id} `,
-  errorEmpty: er => `${er.toString()}`,
+  errorEmpty: er =>
+    !(er instanceof Error)
+      ? `${(er as Error).name || '(no name)'}: ${
+          (er as Error).message || '(no message)'
+        }`
+      : `${er.toString()}`,
   errorHead: (er, cls) => {
     // assertion errors sometimes generate WACKY stuff
     return cls === 'AssertionError' && er.generatedMessage
       ? er.name + ' {\n'
+      : !(er instanceof Error)
+      ? `${(er as Error).name || '(no name)'}: ${
+          (er as Error).message || '(no message)'
+        } \{\n`
       : `${er.toString()} \{\n`
   },
   errorTail: indent => `${indent}}`,
@@ -177,9 +186,9 @@ styles.js = {
   errorEmpty: (er, cls) =>
     `new ${cls}(${JSON.stringify(er.message)})`,
   errorHead: (er, cls) =>
-    `Object.assign(new ${cls}(${JSON.stringify(
+    `Object.assign(new ${cls}(${er.message ? JSON.stringify(
       er.message
-    )}), {\n`,
+    ) : ''}), {\n`,
   errorTail: indent => `${indent}})`,
   pojoEmpty: _ => '{}',
   pojoHead: _ => `\{\n`,
@@ -239,9 +248,9 @@ styles.tight = {
   errorEmpty: (er, cls) =>
     `new ${cls}(${JSON.stringify(er.message)})`,
   errorHead: (er, cls) =>
-    `Object.assign(new ${cls}(${JSON.stringify(
+    `Object.assign(new ${cls}(${er.message ? JSON.stringify(
       er.message
-    )}), {`,
+    ) : ''}), {`,
   errorTail: _ => '})',
   pojoEmpty: _ => '{}',
   pojoHead: _ => `\{`,

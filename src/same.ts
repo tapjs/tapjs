@@ -183,32 +183,12 @@ export class Same extends Format {
           seen: this.seenExpect,
         })
       } else {
-        // console.error('not simple mismatch')
         const seen = this.seen()
         const seenExpect = this.seenExpect()
         if (this.simple === true && seen === seenExpect) {
           this.memo = ''
           this.memoExpect = ''
         } else {
-          // console.error(
-          // 'complex case',
-          // this.object,
-          // this.expect,
-          // seen && seen.id,
-          // seenExpect && seenExpect.id,
-          // )
-          // complex case
-          // console.error({
-          // object: this.object,
-          // expect: this.expect,
-          // seen: !!seen,
-          // seenExpect: !!seenExpect,
-          // equal: seen === seenExpect,
-          // })
-          if (seen !== seenExpect) {
-            // console.error('seen != seenExpect')
-            this.unmatch()
-          }
           if (seen) {
             this.printCircular(this.object)
           } else {
@@ -221,11 +201,9 @@ export class Same extends Format {
   }
 
   printCircular(seen: Format): void {
-    // console.error('same print circular')
     this.memo += this.style.circular(seen)
     const seenExpect = this.seenExpect()
     if (seenExpect) {
-      // console.error('have seenExpect')
       this.memoExpect += this.style.circular(seenExpect)
     } else {
       this.memoExpect += this.simplePrint(this.expect, {
@@ -235,9 +213,12 @@ export class Same extends Format {
   }
 
   diff(): string {
+    // impossible
+    /* c8 ignore start */
     if (this.memoExpect === null || this.memo === null) {
       throw new TypeError('called diff() prior to print()')
     }
+    /* c8 ignore stop */
 
     if (
       this.parent ||
@@ -276,8 +257,8 @@ export class Same extends Format {
     return super.child(
       obj,
       {
-        ...options,
         expect: this.childExpect(expectKey),
+        ...options,
       },
       cls
     )
@@ -399,6 +380,9 @@ export class Same extends Format {
       if (objEnt.has(key)) {
         continue
       }
+      if (this.isError() && (key === 'name' || key === 'message')) {
+        continue
+      }
       this.unmatch()
       this.printPojoEntry(key, undefined, true)
     }
@@ -428,6 +412,12 @@ export class Same extends Format {
         this.printEnd()
       }
     }
+  }
+  errorIsEmpty() {
+    return super.errorIsEmpty() && this.expectErrorIsEmpty()
+  }
+  expectErrorIsEmpty() {
+    return this.getPojoEntries(this.expect).filter(([k]) => k !== 'name' && k !== 'message').length === 0
   }
   printErrorEmpty() {
     // nothing to do
@@ -464,6 +454,12 @@ export class Same extends Format {
       }
     }
   }
+  mapIsEmpty() {
+    return super.mapIsEmpty() && this.mapExpectIsEmpty()
+  }
+  mapExpectIsEmpty() {
+    return this.expect.size === 0
+  }
   printMapHead() {
     const h = this.style.mapHead(this.getClass())
     this.memo = h + this.memo
@@ -491,10 +487,8 @@ export class Same extends Format {
         continue
       }
       // try to find a matching key not yet seen
-      for (const [
-        expectKey,
-        expect,
-      ] of this.expect.entries()) {
+      let sawMatch = false
+      for (const expectKey of this.expect.keys()) {
         if (seen.has(expectKey)) {
           continue
         }
@@ -505,25 +499,50 @@ export class Same extends Format {
         s.print()
         if (s.match) {
           // it's a match!  test against this one.
+          sawMatch = true
           seen.add(key)
           seen.add(expectKey)
-          const v = this.child(val, {
-            expect,
-            expectKey,
-          })
-          v.print()
-          this.memo += v.memo
-          this.memoExpect += v.memoExpect
+          sawMatch = true
+          this.printMapEntry(key, val, expectKey)
           break
         }
       }
+
+      if (!sawMatch) {
+        this.printMapEntryUnexpected(key, val)
+        seen.add(key)
+      }
+    }
+
+    // now loop over all expected values not found in object
+    for (const [key, val] of this.expect.entries()) {
+      if (seen.has(key)) {
+        continue
+      }
+      this.printMapEntryNotFound(key, val)
     }
   }
-  printMapEntry(key: any, val: any) {
-    const child = this.child(val, { key })
+
+  printMapEntry(key: any, val: any, expectKey: any = key) {
+    const child = this.child(val, { key, expectKey })
     child.print()
     this.memo += child.memo
     this.memoExpect += child.memoExpect
+  }
+  printMapEntryNotFound(key: any, val: any) {
+    this.unmatch()
+    this.memoExpect += this.simplePrint(val, {
+      parent: this,
+      key,
+      seen: this.seenExpect,
+    })
+  }
+  printMapEntryUnexpected(key: any, val: any) {
+    this.unmatch()
+    this.memo += this.simplePrint(val, {
+      key,
+      parent: this,
+    })
   }
 
   // arrays and sets don't have useful keys, so it's really hard to see
@@ -561,22 +580,12 @@ export class Same extends Format {
   printArrayEmpty() {
     // nothing to do
   }
-  printArrayHead() {
-    const h = this.style.arrayHead(this.getClass())
-    this.memo = h + this.memo
-    this.memoExpect = h + this.memoExpect
-  }
-  printArrayTail() {
-    const t = this.style.arrayTail(this.indentLevel())
-    this.memo += t
-    this.memoExpect += t
-  }
   printArrayBody() {
     // we know that they're both arrays if we got this far
     const obj = this.objectAsArray as any[]
-    const exp = this.expectAsArray as any[]
+    const exp = this.expectAsArray
     // if lengths match, just call printArrayEntry() for each of them
-    if (obj.length === exp.length) {
+    if (exp && obj.length === exp.length) {
       super.printArrayBody()
     } else {
       this.unmatch()
@@ -605,16 +614,6 @@ export class Same extends Format {
   }
   setIsEmpty() {
     return super.setIsEmpty() && this.setExpectIsEmpty()
-  }
-  printSetHead() {
-    const h = this.style.setHead(this.getClass())
-    this.memo = h + this.memo
-    this.memoExpect = h + this.memoExpect
-  }
-  printSetTail() {
-    const t = this.style.setTail(this.indentLevel())
-    this.memo += t
-    this.memoExpect += t
   }
   printSetBody() {
     if (this.expect.size !== this.object.size) {
