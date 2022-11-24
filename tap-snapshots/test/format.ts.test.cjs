@@ -5,7 +5,35 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/format.js TAP format iterable > must match snapshot 1`] = `
+exports[`test/format.ts TAP error without name/message {"hello":"world"} js > must match snapshot 1`] = `
+Object.assign(new Object(), {
+  "hello": "world",
+})
+`
+
+exports[`test/format.ts TAP error without name/message {"hello":"world"} pretty > must match snapshot 1`] = `
+(no name): (no message) {
+  "hello": "world",
+}
+`
+
+exports[`test/format.ts TAP error without name/message {"hello":"world"} tight > must match snapshot 1`] = `
+Object.assign(new Object(), {"hello":"world",})
+`
+
+exports[`test/format.ts TAP error without name/message {} js > must match snapshot 1`] = `
+new Object()
+`
+
+exports[`test/format.ts TAP error without name/message {} pretty > must match snapshot 1`] = `
+(no name): (no message)
+`
+
+exports[`test/format.ts TAP error without name/message {} tight > must match snapshot 1`] = `
+new Object(undefined)
+`
+
+exports[`test/format.ts TAP format iterable > must match snapshot 1`] = `
 And [
   And [
     1,
@@ -18,13 +46,13 @@ And [
 ]
 `
 
-exports[`test/format.js TAP gnarly object, many points of view > 3 space 1`] = `
+exports[`test/format.ts TAP gnarly object, many points of view > 3 space 1`] = `
 Object {
    "o": true,
 }
 `
 
-exports[`test/format.js TAP gnarly object, many points of view > js 1`] = `
+exports[`test/format.ts TAP gnarly object, many points of view > js 1`] = `
 &ref_1 {
   "a": 1,
   "b": 2,
@@ -170,6 +198,118 @@ exports[`test/format.js TAP gnarly object, many points of view > js 1`] = `
       },
     }],
   ]),
+  "ak": [
+    &ref_2 {
+      "a": 1,
+      "k": &ref_3 {
+        "k": *ref_2,
+        "i": {
+          "i": 1,
+          "k": *ref_3,
+        },
+      },
+      "f": *ref_1,
+      "c": &ref_4 {
+        "c": {
+          "c": *ref_4,
+          "b": {
+            "b": 1,
+            "d": *ref_4,
+          },
+        },
+        "a": &ref_5 [
+          1,
+          *ref_4,
+          *ref_5,
+        ],
+        "k": *ref_2,
+        "f": *ref_1,
+      },
+    },
+    &ref_2 {
+      "a": 1,
+      "k": &ref_3 {
+        "k": *ref_2,
+        "i": {
+          "i": 1,
+          "k": *ref_3,
+        },
+      },
+      "f": *ref_1,
+      "c": &ref_4 {
+        "c": {
+          "c": *ref_4,
+          "b": {
+            "b": 1,
+            "d": *ref_4,
+          },
+        },
+        "a": &ref_5 [
+          1,
+          *ref_4,
+          *ref_5,
+        ],
+        "k": *ref_2,
+        "f": *ref_1,
+      },
+    },
+    [
+      &ref_2 {
+        "a": 1,
+        "k": &ref_3 {
+          "k": *ref_2,
+          "i": {
+            "i": 1,
+            "k": *ref_3,
+          },
+        },
+        "f": *ref_1,
+        "c": &ref_4 {
+          "c": {
+            "c": *ref_4,
+            "b": {
+              "b": 1,
+              "d": *ref_4,
+            },
+          },
+          "a": &ref_5 [
+            1,
+            *ref_4,
+            *ref_5,
+          ],
+          "k": *ref_2,
+          "f": *ref_1,
+        },
+      },
+      &ref_2 {
+        "a": 1,
+        "k": &ref_3 {
+          "k": *ref_2,
+          "i": {
+            "i": 1,
+            "k": *ref_3,
+          },
+        },
+        "f": *ref_1,
+        "c": &ref_4 {
+          "c": {
+            "c": *ref_4,
+            "b": {
+              "b": 1,
+              "d": *ref_4,
+            },
+          },
+          "a": &ref_5 [
+            1,
+            *ref_4,
+            *ref_5,
+          ],
+          "k": *ref_2,
+          "f": *ref_1,
+        },
+      },
+    ],
+  ],
   "ao": [
     {
       "o": true,
@@ -309,11 +449,11 @@ exports[`test/format.js TAP gnarly object, many points of view > js 1`] = `
     "s": new Set(),
   },
   "fns": {
-    "name": function foo () {},
-    "anon": function () {},
-    "arr": () => {},
-    "identity": x => x,
-    "nameless": () => {},
+    "name": function foo() { },
+    "anon": function () { },
+    "arr": () => { },
+    "identity": (x) => x,
+    "nameless": () => { },
   },
   "sym": Symbol(prince),
   "date": 2019-02-14T07:13:44.100Z,
@@ -321,7 +461,7 @@ exports[`test/format.js TAP gnarly object, many points of view > js 1`] = `
   "undef": undefined,
   "classy": {},
   "err": new Error("just an error"),
-  "emptyErr": new Error(""),
+  "emptyErr": new Error(),
   "fancyErr": Object.assign(new Error("fancy pantsy"), {
     "fancy": "pantsy",
   }),
@@ -363,7 +503,7 @@ exports[`test/format.js TAP gnarly object, many points of view > js 1`] = `
 }
 `
 
-exports[`test/format.js TAP gnarly object, many points of view > pretty 1`] = `
+exports[`test/format.ts TAP gnarly object, many points of view > pretty 1`] = `
 &ref_1 Object {
   "a": 1,
   "b": 2,
@@ -509,6 +649,118 @@ exports[`test/format.js TAP gnarly object, many points of view > pretty 1`] = `
       },
     },
   },
+  "ak": Array [
+    &ref_2 Object {
+      "a": 1,
+      "k": &ref_3 Object {
+        "k": <*ref_2>,
+        "i": Object {
+          "i": 1,
+          "k": <*ref_3>,
+        },
+      },
+      "f": <*ref_1>,
+      "c": &ref_4 Object {
+        "c": Object {
+          "c": <*ref_4>,
+          "b": Object {
+            "b": 1,
+            "d": <*ref_4>,
+          },
+        },
+        "a": &ref_5 Array [
+          1,
+          <*ref_4>,
+          <*ref_5>,
+        ],
+        "k": <*ref_2>,
+        "f": <*ref_1>,
+      },
+    },
+    &ref_2 Object {
+      "a": 1,
+      "k": &ref_3 Object {
+        "k": <*ref_2>,
+        "i": Object {
+          "i": 1,
+          "k": <*ref_3>,
+        },
+      },
+      "f": <*ref_1>,
+      "c": &ref_4 Object {
+        "c": Object {
+          "c": <*ref_4>,
+          "b": Object {
+            "b": 1,
+            "d": <*ref_4>,
+          },
+        },
+        "a": &ref_5 Array [
+          1,
+          <*ref_4>,
+          <*ref_5>,
+        ],
+        "k": <*ref_2>,
+        "f": <*ref_1>,
+      },
+    },
+    Array [
+      &ref_2 Object {
+        "a": 1,
+        "k": &ref_3 Object {
+          "k": <*ref_2>,
+          "i": Object {
+            "i": 1,
+            "k": <*ref_3>,
+          },
+        },
+        "f": <*ref_1>,
+        "c": &ref_4 Object {
+          "c": Object {
+            "c": <*ref_4>,
+            "b": Object {
+              "b": 1,
+              "d": <*ref_4>,
+            },
+          },
+          "a": &ref_5 Array [
+            1,
+            <*ref_4>,
+            <*ref_5>,
+          ],
+          "k": <*ref_2>,
+          "f": <*ref_1>,
+        },
+      },
+      &ref_2 Object {
+        "a": 1,
+        "k": &ref_3 Object {
+          "k": <*ref_2>,
+          "i": Object {
+            "i": 1,
+            "k": <*ref_3>,
+          },
+        },
+        "f": <*ref_1>,
+        "c": &ref_4 Object {
+          "c": Object {
+            "c": <*ref_4>,
+            "b": Object {
+              "b": 1,
+              "d": <*ref_4>,
+            },
+          },
+          "a": &ref_5 Array [
+            1,
+            <*ref_4>,
+            <*ref_5>,
+          ],
+          "k": <*ref_2>,
+          "f": <*ref_1>,
+        },
+      },
+    ],
+  ],
   "ao": Array [
     Object {
       "o": true,
@@ -702,17 +954,17 @@ exports[`test/format.js TAP gnarly object, many points of view > pretty 1`] = `
 }
 `
 
-exports[`test/format.js TAP gnarly object, many points of view > tab 1`] = `
+exports[`test/format.ts TAP gnarly object, many points of view > tab 1`] = `
 Object {
 	"o": true,
 }
 `
 
-exports[`test/format.js TAP gnarly object, many points of view > tight 1`] = `
-&1 {"a":1,"b":2,"extra":true,"c":3,"d":4,"more":false,"e":{"f":{"g":1,},"a":[2,3,4,],"h":"asdf","multilineString":"this is a line\\n"+"this is a line\\n"+"this is a line\\n"+"this is a line\\n"+"\\n","emptyString":"",},"nullObject":{"x":{},"y":{},"z":{"zed":true,},},"p":new Set([{"x":"y","z":true,},{"a":1,},{"b":2,},]),"s":new Set([{"b":2,},{"c":3,},*1,]),"m":new Map([[&2 {"a":1,"k":&3 {"k":*2,"i":{"i":1,"k":*3,},},"f":*1,"c":&4 {"c":{"c":*4,"b":{"b":1,"d":*4,},},"a":&5 [1,*4,*5,],"k":*2,"f":*1,},},1],[{"b":2,},2],[{"c":"d",},{"re":/ef/g,}],[1,&4 {"c":{"c":*4,"b":{"b":1,"d":*4,},},"a":&5 [1,*4,*5,],"k":&2 {"a":1,"k":&3 {"k":*2,"i":{"i":1,"k":*3,},},"f":*1,"c":*4,},"f":*1,}],[*1,&2 {"a":1,"k":&3 {"k":*2,"i":{"i":1,"k":*3,},},"f":*1,"c":&4 {"c":{"c":*4,"b":{"b":1,"d":*4,},},"a":&5 [1,*4,*5,],"k":*2,"f":*1,},}],]),"ao":[{"o":true,},{"o":true,},[{"o":true,},{"o":true,},],],"om":new Map([[{"o":true,},&2 {"a":1,"k":&3 {"k":*2,"i":{"i":1,"k":*3,},},"f":*1,"c":&4 {"c":{"c":*4,"b":{"b":1,"d":*4,},},"a":&5 [1,*4,*5,],"k":*2,"f":*1,},}],[&2 {"a":1,"k":&3 {"k":*2,"i":{"i":1,"k":*3,},},"f":*1,"c":&4 {"c":{"c":*4,"b":{"b":1,"d":*4,},},"a":&5 [1,*4,*5,],"k":*2,"f":*1,},},{"o":true,}],]),"args":[1,2,3,{"o":true,},],"buf":Buffer.from("aG93ZHk=","base64"),"longBuf":Buffer.from("aGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEK","base64"),"emp":{"b":Buffer.alloc(0),"a":[],"o":{},"m":new Map(),"s":new Set(),},"fns":{"name":function foo () {},"anon":function () {},"arr":() => {},"identity":x => x,"nameless":() => {},},"sym":Symbol(prince),"date":2019-02-14T07:13:44.100Z,"n":null,"undef":undefined,"classy":{},"err":new Error("just an error"),"emptyErr":new Error(""),"fancyErr":Object.assign(new Error("fancy pantsy"), {"fancy":"pantsy",}),"assert":Object.assign(new AssertionError(<contents elided for testing>), {"generatedMessage":true,"code":"ERR_ASSERTION","actual":&2 {"a":1,"k":&3 {"k":*2,"i":{"i":1,"k":*3,},},"f":*1,"c":&4 {"c":{"c":*4,"b":{"b":1,"d":*4,},},"a":&5 [1,*4,*5,],"k":*2,"f":*1,},},"expected":{"o":true,},"operator":"==",}),}
+exports[`test/format.ts TAP gnarly object, many points of view > tight 1`] = `
+&1 {"a":1,"b":2,"extra":true,"c":3,"d":4,"more":false,"e":{"f":{"g":1,},"a":[2,3,4,],"h":"asdf","multilineString":"this is a line\\n"+"this is a line\\n"+"this is a line\\n"+"this is a line\\n"+"\\n","emptyString":"",},"nullObject":{"x":{},"y":{},"z":{"zed":true,},},"p":new Set([{"x":"y","z":true,},{"a":1,},{"b":2,},]),"s":new Set([{"b":2,},{"c":3,},*1,]),"m":new Map([[&2 {"a":1,"k":&3 {"k":*2,"i":{"i":1,"k":*3,},},"f":*1,"c":&4 {"c":{"c":*4,"b":{"b":1,"d":*4,},},"a":&5 [1,*4,*5,],"k":*2,"f":*1,},},1],[{"b":2,},2],[{"c":"d",},{"re":/ef/g,}],[1,&4 {"c":{"c":*4,"b":{"b":1,"d":*4,},},"a":&5 [1,*4,*5,],"k":&2 {"a":1,"k":&3 {"k":*2,"i":{"i":1,"k":*3,},},"f":*1,"c":*4,},"f":*1,}],[*1,&2 {"a":1,"k":&3 {"k":*2,"i":{"i":1,"k":*3,},},"f":*1,"c":&4 {"c":{"c":*4,"b":{"b":1,"d":*4,},},"a":&5 [1,*4,*5,],"k":*2,"f":*1,},}],]),"ak":[&2 {"a":1,"k":&3 {"k":*2,"i":{"i":1,"k":*3,},},"f":*1,"c":&4 {"c":{"c":*4,"b":{"b":1,"d":*4,},},"a":&5 [1,*4,*5,],"k":*2,"f":*1,},},&2 {"a":1,"k":&3 {"k":*2,"i":{"i":1,"k":*3,},},"f":*1,"c":&4 {"c":{"c":*4,"b":{"b":1,"d":*4,},},"a":&5 [1,*4,*5,],"k":*2,"f":*1,},},[&2 {"a":1,"k":&3 {"k":*2,"i":{"i":1,"k":*3,},},"f":*1,"c":&4 {"c":{"c":*4,"b":{"b":1,"d":*4,},},"a":&5 [1,*4,*5,],"k":*2,"f":*1,},},&2 {"a":1,"k":&3 {"k":*2,"i":{"i":1,"k":*3,},},"f":*1,"c":&4 {"c":{"c":*4,"b":{"b":1,"d":*4,},},"a":&5 [1,*4,*5,],"k":*2,"f":*1,},},],],"ao":[{"o":true,},{"o":true,},[{"o":true,},{"o":true,},],],"om":new Map([[{"o":true,},&2 {"a":1,"k":&3 {"k":*2,"i":{"i":1,"k":*3,},},"f":*1,"c":&4 {"c":{"c":*4,"b":{"b":1,"d":*4,},},"a":&5 [1,*4,*5,],"k":*2,"f":*1,},}],[&2 {"a":1,"k":&3 {"k":*2,"i":{"i":1,"k":*3,},},"f":*1,"c":&4 {"c":{"c":*4,"b":{"b":1,"d":*4,},},"a":&5 [1,*4,*5,],"k":*2,"f":*1,},},{"o":true,}],]),"args":[1,2,3,{"o":true,},],"buf":Buffer.from("aG93ZHk=","base64"),"longBuf":Buffer.from("aGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEKaGVsbG8sIHdvcmxkIQpoZWxsbywgd29ybGQhCmhlbGxvLCB3b3JsZCEK","base64"),"emp":{"b":Buffer.alloc(0),"a":[],"o":{},"m":new Map(),"s":new Set(),},"fns":{"name":function foo() { },"anon":function () { },"arr":() => { },"identity":(x) => x,"nameless":() => { },},"sym":Symbol(prince),"date":2019-02-14T07:13:44.100Z,"n":null,"undef":undefined,"classy":{},"err":new Error("just an error"),"emptyErr":new Error(""),"fancyErr":Object.assign(new Error("fancy pantsy"), {"fancy":"pantsy",}),"assert":Object.assign(new AssertionError(<contents elided for testing>), {"generatedMessage":true,"code":"ERR_ASSERTION","actual":&2 {"a":1,"k":&3 {"k":*2,"i":{"i":1,"k":*3,},},"f":*1,"c":&4 {"c":{"c":*4,"b":{"b":1,"d":*4,},},"a":&5 [1,*4,*5,],"k":*2,"f":*1,},},"expected":{"o":true,},"operator":"==",}),}
 `
 
-exports[`test/format.js TAP gnarly object, many points of view different points of view > c 1`] = `
+exports[`test/format.ts TAP gnarly object, many points of view different points of view > c 1`] = `
 &ref_1 Object {
   "c": Object {
     "c": <*ref_1>,
@@ -802,6 +1054,14 @@ exports[`test/format.js TAP gnarly object, many points of view different points 
         1 => <*ref_1>,
         <*ref_5> => <*ref_3>,
       },
+      "ak": Array [
+        <*ref_3>,
+        <*ref_3>,
+        Array [
+          <*ref_3>,
+          <*ref_3>,
+        ],
+      ],
       "ao": Array [
         Object {
           "o": true,
@@ -1006,6 +1266,58 @@ exports[`test/format.js TAP gnarly object, many points of view different points 
         "c": <*ref_1>,
       },
     },
+    "ak": Array [
+      &ref_3 Object {
+        "a": 1,
+        "k": &ref_4 Object {
+          "k": <*ref_3>,
+          "i": Object {
+            "i": 1,
+            "k": <*ref_4>,
+          },
+        },
+        "f": <*ref_5>,
+        "c": <*ref_1>,
+      },
+      &ref_3 Object {
+        "a": 1,
+        "k": &ref_4 Object {
+          "k": <*ref_3>,
+          "i": Object {
+            "i": 1,
+            "k": <*ref_4>,
+          },
+        },
+        "f": <*ref_5>,
+        "c": <*ref_1>,
+      },
+      Array [
+        &ref_3 Object {
+          "a": 1,
+          "k": &ref_4 Object {
+            "k": <*ref_3>,
+            "i": Object {
+              "i": 1,
+              "k": <*ref_4>,
+            },
+          },
+          "f": <*ref_5>,
+          "c": <*ref_1>,
+        },
+        &ref_3 Object {
+          "a": 1,
+          "k": &ref_4 Object {
+            "k": <*ref_3>,
+            "i": Object {
+              "i": 1,
+              "k": <*ref_4>,
+            },
+          },
+          "f": <*ref_5>,
+          "c": <*ref_1>,
+        },
+      ],
+    ],
     "ao": Array [
       Object {
         "o": true,
@@ -1155,7 +1467,7 @@ exports[`test/format.js TAP gnarly object, many points of view different points 
 }
 `
 
-exports[`test/format.js TAP gnarly object, many points of view different points of view > f.m 1`] = `
+exports[`test/format.ts TAP gnarly object, many points of view different points of view > f.m 1`] = `
 &ref_4 Map {
   &ref_1 Object {
     "a": 1,
@@ -1221,6 +1533,14 @@ exports[`test/format.js TAP gnarly object, many points of view different points 
         <*ref_3>,
       },
       "m": <*ref_4>,
+      "ak": Array [
+        <*ref_1>,
+        <*ref_1>,
+        Array [
+          <*ref_1>,
+          <*ref_1>,
+        ],
+      ],
       "ao": Array [
         Object {
           "o": true,
@@ -1403,6 +1723,14 @@ exports[`test/format.js TAP gnarly object, many points of view different points 
           <*ref_3>,
         },
         "m": <*ref_4>,
+        "ak": Array [
+          <*ref_1>,
+          <*ref_1>,
+          Array [
+            <*ref_1>,
+            <*ref_1>,
+          ],
+        ],
         "ao": Array [
           Object {
             "o": true,
@@ -1603,6 +1931,14 @@ exports[`test/format.js TAP gnarly object, many points of view different points 
           <*ref_3>,
         },
         "m": <*ref_4>,
+        "ak": Array [
+          <*ref_1>,
+          <*ref_1>,
+          Array [
+            <*ref_1>,
+            <*ref_1>,
+          ],
+        ],
         "ao": Array [
           Object {
             "o": true,
@@ -1773,6 +2109,58 @@ exports[`test/format.js TAP gnarly object, many points of view different points 
         <*ref_3>,
       },
       "m": <*ref_4>,
+      "ak": Array [
+        &ref_1 Object {
+          "a": 1,
+          "k": &ref_2 Object {
+            "k": <*ref_1>,
+            "i": Object {
+              "i": 1,
+              "k": <*ref_2>,
+            },
+          },
+          "f": <*ref_3>,
+          "c": <*ref_5>,
+        },
+        &ref_1 Object {
+          "a": 1,
+          "k": &ref_2 Object {
+            "k": <*ref_1>,
+            "i": Object {
+              "i": 1,
+              "k": <*ref_2>,
+            },
+          },
+          "f": <*ref_3>,
+          "c": <*ref_5>,
+        },
+        Array [
+          &ref_1 Object {
+            "a": 1,
+            "k": &ref_2 Object {
+              "k": <*ref_1>,
+              "i": Object {
+                "i": 1,
+                "k": <*ref_2>,
+              },
+            },
+            "f": <*ref_3>,
+            "c": <*ref_5>,
+          },
+          &ref_1 Object {
+            "a": 1,
+            "k": &ref_2 Object {
+              "k": <*ref_1>,
+              "i": Object {
+                "i": 1,
+                "k": <*ref_2>,
+              },
+            },
+            "f": <*ref_3>,
+            "c": <*ref_5>,
+          },
+        ],
+      ],
       "ao": Array [
         Object {
           "o": true,
@@ -1975,6 +2363,118 @@ exports[`test/format.js TAP gnarly object, many points of view different points 
       <*ref_3>,
     },
     "m": <*ref_4>,
+    "ak": Array [
+      &ref_1 Object {
+        "a": 1,
+        "k": &ref_2 Object {
+          "k": <*ref_1>,
+          "i": Object {
+            "i": 1,
+            "k": <*ref_2>,
+          },
+        },
+        "f": <*ref_3>,
+        "c": &ref_5 Object {
+          "c": Object {
+            "c": <*ref_5>,
+            "b": Object {
+              "b": 1,
+              "d": <*ref_5>,
+            },
+          },
+          "a": &ref_6 Array [
+            1,
+            <*ref_5>,
+            <*ref_6>,
+          ],
+          "k": <*ref_1>,
+          "f": <*ref_3>,
+        },
+      },
+      &ref_1 Object {
+        "a": 1,
+        "k": &ref_2 Object {
+          "k": <*ref_1>,
+          "i": Object {
+            "i": 1,
+            "k": <*ref_2>,
+          },
+        },
+        "f": <*ref_3>,
+        "c": &ref_5 Object {
+          "c": Object {
+            "c": <*ref_5>,
+            "b": Object {
+              "b": 1,
+              "d": <*ref_5>,
+            },
+          },
+          "a": &ref_6 Array [
+            1,
+            <*ref_5>,
+            <*ref_6>,
+          ],
+          "k": <*ref_1>,
+          "f": <*ref_3>,
+        },
+      },
+      Array [
+        &ref_1 Object {
+          "a": 1,
+          "k": &ref_2 Object {
+            "k": <*ref_1>,
+            "i": Object {
+              "i": 1,
+              "k": <*ref_2>,
+            },
+          },
+          "f": <*ref_3>,
+          "c": &ref_5 Object {
+            "c": Object {
+              "c": <*ref_5>,
+              "b": Object {
+                "b": 1,
+                "d": <*ref_5>,
+              },
+            },
+            "a": &ref_6 Array [
+              1,
+              <*ref_5>,
+              <*ref_6>,
+            ],
+            "k": <*ref_1>,
+            "f": <*ref_3>,
+          },
+        },
+        &ref_1 Object {
+          "a": 1,
+          "k": &ref_2 Object {
+            "k": <*ref_1>,
+            "i": Object {
+              "i": 1,
+              "k": <*ref_2>,
+            },
+          },
+          "f": <*ref_3>,
+          "c": &ref_5 Object {
+            "c": Object {
+              "c": <*ref_5>,
+              "b": Object {
+                "b": 1,
+                "d": <*ref_5>,
+              },
+            },
+            "a": &ref_6 Array [
+              1,
+              <*ref_5>,
+              <*ref_6>,
+            ],
+            "k": <*ref_1>,
+            "f": <*ref_3>,
+          },
+        },
+      ],
+    ],
     "ao": Array [
       Object {
         "o": true,
@@ -2229,6 +2729,14 @@ exports[`test/format.js TAP gnarly object, many points of view different points 
         <*ref_3>,
       },
       "m": <*ref_4>,
+      "ak": Array [
+        <*ref_1>,
+        <*ref_1>,
+        Array [
+          <*ref_1>,
+          <*ref_1>,
+        ],
+      ],
       "ao": Array [
         Object {
           "o": true,
@@ -2411,6 +2919,14 @@ exports[`test/format.js TAP gnarly object, many points of view different points 
           <*ref_3>,
         },
         "m": <*ref_4>,
+        "ak": Array [
+          <*ref_1>,
+          <*ref_1>,
+          Array [
+            <*ref_1>,
+            <*ref_1>,
+          ],
+        ],
         "ao": Array [
           Object {
             "o": true,
@@ -2529,7 +3045,7 @@ exports[`test/format.js TAP gnarly object, many points of view different points 
 }
 `
 
-exports[`test/format.js TAP gnarly object, many points of view different points of view > k 1`] = `
+exports[`test/format.ts TAP gnarly object, many points of view different points of view > k 1`] = `
 &ref_1 Object {
   "a": 1,
   "k": &ref_2 Object {
@@ -2621,6 +3137,14 @@ exports[`test/format.js TAP gnarly object, many points of view different points 
       },
       <*ref_3> => <*ref_1>,
     },
+    "ak": Array [
+      <*ref_1>,
+      <*ref_1>,
+      Array [
+        <*ref_1>,
+        <*ref_1>,
+      ],
+    ],
     "ao": Array [
       Object {
         "o": true,
@@ -2815,6 +3339,14 @@ exports[`test/format.js TAP gnarly object, many points of view different points 
         1 => <*ref_4>,
         <*ref_3> => <*ref_1>,
       },
+      "ak": Array [
+        <*ref_1>,
+        <*ref_1>,
+        Array [
+          <*ref_1>,
+          <*ref_1>,
+        ],
+      ],
       "ao": Array [
         Object {
           "o": true,
@@ -2932,7 +3464,7 @@ exports[`test/format.js TAP gnarly object, many points of view different points 
 }
 `
 
-exports[`test/format.js TAP gnarly object, many points of view different points of view > k.k 1`] = `
+exports[`test/format.ts TAP gnarly object, many points of view different points of view > k.k 1`] = `
 &ref_1 Object {
   "k": &ref_3 Object {
     "a": 1,
@@ -3019,6 +3551,14 @@ exports[`test/format.js TAP gnarly object, many points of view different points 
         },
         <*ref_2> => <*ref_3>,
       },
+      "ak": Array [
+        <*ref_3>,
+        <*ref_3>,
+        Array [
+          <*ref_3>,
+          <*ref_3>,
+        ],
+      ],
       "ao": Array [
         Object {
           "o": true,
@@ -3213,6 +3753,14 @@ exports[`test/format.js TAP gnarly object, many points of view different points 
           1 => <*ref_4>,
           <*ref_2> => <*ref_3>,
         },
+        "ak": Array [
+          <*ref_3>,
+          <*ref_3>,
+          Array [
+            <*ref_3>,
+            <*ref_3>,
+          ],
+        ],
         "ao": Array [
           Object {
             "o": true,
@@ -3335,7 +3883,7 @@ exports[`test/format.js TAP gnarly object, many points of view different points 
 }
 `
 
-exports[`test/format.js TAP hidden props and getters > all enumerable properties shown 1`] = `
+exports[`test/format.ts TAP hidden props and getters > all enumerable properties shown 1`] = `
 Hidden {
   "raw": 1,
   "value": 1,
@@ -3343,42 +3891,42 @@ Hidden {
 }
 `
 
-exports[`test/format.js TAP hidden props and getters > all enumerable properties shown 2`] = `
+exports[`test/format.ts TAP hidden props and getters > all enumerable properties shown 2`] = `
 Null Object {
   "isNullObject": true,
 }
 `
 
-exports[`test/format.js TAP hidden props and getters > enumerable inherited getters shown 1`] = `
+exports[`test/format.ts TAP hidden props and getters > enumerable inherited getters shown 1`] = `
 Hidden {
   "raw": 1,
   "value": 1,
 }
 `
 
-exports[`test/format.js TAP hidden props and getters > enumerable inherited getters shown 2`] = `
+exports[`test/format.ts TAP hidden props and getters > enumerable inherited getters shown 2`] = `
 Null Object {
   "isNullObject": true,
 }
 `
 
-exports[`test/format.js TAP hidden props and getters > own props only 1`] = `
+exports[`test/format.ts TAP hidden props and getters > own props only 1`] = `
 Hidden {
   "raw": 1,
 }
 `
 
-exports[`test/format.js TAP hidden props and getters > own props only 2`] = `
+exports[`test/format.ts TAP hidden props and getters > own props only 2`] = `
 Null Object {
   "isNullObject": true,
 }
 `
 
-exports[`test/format.js TAP invalid iterator > must match snapshot 1`] = `
+exports[`test/format.ts TAP invalid iterator > must match snapshot 1`] = `
 Object {}
 `
 
-exports[`test/format.js TAP locale sorting > must match snapshot 1`] = `
+exports[`test/format.ts TAP locale sorting > must match snapshot 1`] = `
 Object {
   "cat": "meow",
   "chai": "blub",
@@ -3386,7 +3934,7 @@ Object {
 }
 `
 
-exports[`test/format.js TAP other misc > faked out seen() method 1`] = `
+exports[`test/format.ts TAP other misc > faked out seen() method 1`] = `
 &ref_1 Object {
   "a": Object {
     "t": <*ref_1>,
@@ -3394,24 +3942,24 @@ exports[`test/format.js TAP other misc > faked out seen() method 1`] = `
 }
 `
 
-exports[`test/format.js TAP other misc > must match snapshot 1`] = `
+exports[`test/format.ts TAP other misc > must match snapshot 1`] = `
 true
 `
 
-exports[`test/format.js TAP sorting > sort it 1`] = `
+exports[`test/format.ts TAP sorting > sort it 1`] = `
 Object {
   "a": 2,
   "b": 1,
 }
 `
 
-exports[`test/format.js TAP streams are not arrays > must match snapshot 1`] = `
+exports[`test/format.ts TAP streams are not arrays > must match snapshot 1`] = `
 Minipass {
   "_events": Null Object {},
   "_eventsCount": 0,
   "_maxListeners": undefined,
-  "pipes": Yallist [],
-  "buffer": Yallist [
+  "pipes": Array [],
+  "buffer": Array [
     Buffer <6865 6c6c 6f  hello>,
   ],
   "writable": false,
@@ -3419,13 +3967,13 @@ Minipass {
 }
 `
 
-exports[`test/format.js TAP streams are not arrays > must match snapshot 2`] = `
+exports[`test/format.ts TAP streams are not arrays > must match snapshot 2`] = `
 Minipass {
   "_events": Null Object {},
   "_eventsCount": 0,
   "_maxListeners": undefined,
-  "pipes": Yallist [],
-  "buffer": Yallist [],
+  "pipes": Array [],
+  "buffer": Array [],
   "writable": true,
   "readable": true,
   "pipe": null,

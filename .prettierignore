@@ -1,0 +1,10 @@
+/.attic
+/node_modules
+/example
+/.github
+/lib
+/dist
+.env
+/tap-snapshots
+/.nyc_output
+/coverage
