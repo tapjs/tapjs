@@ -1,6 +1,6 @@
 {
   "name": "tcompare",
-  "version": "5.0.7",
+  "version": "6.0.0",
   "description": "A comprehensive comparison library, for use in test frameworks",
   "repository": {
     "type": "git",
