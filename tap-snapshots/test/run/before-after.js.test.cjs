@@ -10,15 +10,18 @@ exports[`test/run/before-after.js TAP basic > stderr 1`] = `
 `
 
 exports[`test/run/before-after.js TAP basic > stdout 1`] = `
+this is fine
 slow
 TAP version 13
 # Subtest: cli-tests/t1.js
+    this is fine
     ok 1 - this is fine
     1..1
     # {time}
 ok 1 - cli-tests/t1.js # {time}
 
 # Subtest: cli-tests/t2.js
+    this is fine
     # Subtest: sub
         ok 1 - this is fine
         1..1
@@ -29,6 +32,7 @@ ok 1 - cli-tests/t1.js # {time}
 ok 2 - cli-tests/t2.js # {time}
 
 # Subtest: cli-tests/t3.js
+    this is fine
     # Subtest: sub
         not ok 1 - not fine
           ---
@@ -54,6 +58,8 @@ ok 2 - cli-tests/t2.js # {time}
 not ok 3 - cli-tests/t3.js # {time}
   ---
   args:
+    - -r
+    - ./cli-tests/loggy.js
     - cli-tests/t3.js
   command: {NODE}
   cwd: {CWD}
@@ -70,6 +76,7 @@ not ok 3 - cli-tests/t3.js # {time}
 1..3
 # failed 1 of 3 tests
 # {time}
+this is fine
 ok
 
 `

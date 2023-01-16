@@ -6,6 +6,9 @@ const {
 } = require('./')
 
 const ok = tmpfile(t, 'ok.js', `console.log('ok')`)
+const loggy = tmpfile(t, 'loggy.js', `
+  console.log('this is fine')
+`)
 const fail = tmpfile(t, 'fail.js', `
   throw new Error('fail')
 `)
@@ -31,7 +34,7 @@ t.test('sub', async t => t.fail('not fine'))
 
 t.test('basic', t => {
   t.plan(3)
-  run([`--before=${slow}`, `--after=${ok}`, ok, slow, t1, t2, t3], {}, (er, o, e) => {
+  run([`--node-arg=-r`, `--node-arg=./${loggy}`, `--before=${slow}`, `--after=${ok}`, ok, slow, t1, t2, t3], {}, (er, o, e) => {
     t.ok(er, 'error')
     t.matchSnapshot(o, 'stdout')
     t.matchSnapshot(e, 'stderr')

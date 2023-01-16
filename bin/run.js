@@ -822,9 +822,9 @@ const runBeforeAfter = (options, env, tap, processDB) => {
 
   if (options.before) {
     if (options.ts && tsNode && /\.tsx?$/.test(options.before)) {
-      beforeAfter(env, ['-r', tsNode, options.before])
+      beforeAfter(env, ['-r', tsNode, ...options['node-arg'], options.before])
     } else {
-      beforeAfter(env, [options.before])
+      beforeAfter(env, [...options['node-arg'], options.before])
     }
   }
 
@@ -832,9 +832,9 @@ const runBeforeAfter = (options, env, tap, processDB) => {
     /* istanbul ignore next - run after istanbul's report */
     signalExit(() => {
       if (options.ts && tsNode && /\.tsx?$/.test(options.after)) {
-        beforeAfter(env, ['-r', tsNode, options.after])
+        beforeAfter(env, ['-r', tsNode, ...options['node-arg'], options.after])
       } else {
-        beforeAfter(env, [options.after])
+        beforeAfter(env, [...options['node-arg'], options.after])
       }
     }, { alwaysLast: true })
   }
