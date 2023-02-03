@@ -315,8 +315,6 @@ prototype chain.
 names, and `found` can be any value other than `null` or `undefined`
 (though of course `false` and `true` have no ownProperties).
 
-## t.has
-
 ## t.match(found, pattern, message, extra)
 
 Verify that the found object matches the pattern provided.
