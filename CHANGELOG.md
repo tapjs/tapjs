@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.0.1](https://github.com/npm/tap-nock/compare/v2.0.0...v2.0.1) (2023-02-07)
+
+### Bug Fixes
+
+* [`78fd1bf`](https://github.com/npm/tap-nock/commit/78fd1bf0cf2aed488335362567e9b5fac98787f6) [#36](https://github.com/npm/tap-nock/pull/36) replace mkdirp with fs.mkdir (#36) (@lukekarrys)
+
 ## [2.0.0](https://github.com/npm/tap-nock/compare/v1.0.0...v2.0.0) (2022-10-14)
 
 ### ⚠️ BREAKING CHANGES
