@@ -4,7 +4,6 @@ const fs = require('fs')
 const http = require('http')
 const fetch = require('minipass-fetch')
 const path = require('path')
-const rimraf = require('rimraf').sync
 const patchTap = require('../')
 const t = patchTap(require('tap'))
 const Test = t.Test
@@ -15,7 +14,7 @@ const server = http.createServer((req, res) => {
 })
 
 const flushSnapshots = () => {
-  rimraf(path.resolve(__dirname, '../tap-snapshots'))
+  fs.rmSync(path.resolve(__dirname, '../tap-snapshots'), { force: true, recursive: true })
 }
 
 t.afterEach(flushSnapshots)
