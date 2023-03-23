@@ -20,10 +20,6 @@ const queueEmpty = <T extends TestBase>(t: T) =>
   (t.queue.length === 1 &&
     t.queue[0] === 'TAP version 14\n')
 
-export interface ClassOf<T> {
-  new (): T
-}
-
 export type TapPlugin<
   B extends Object,
   O extends TestBaseOpts | any = any

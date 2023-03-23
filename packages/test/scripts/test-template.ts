@@ -4,12 +4,13 @@
 // of the TestBase class, without any plugins applied.
 //{{HEADER COMMENT END}}
 
-import { FinalResults } from 'tap-parser'
 import {
   parseTestArgs,
-  TestBase, TestBaseOpts,
   TestArgs,
+  TestBase,
+  TestBaseOpts,
 } from '@tapjs/core'
+import { FinalResults } from 'tap-parser'
 
 const copyToString = (v: Function) => ({
   toString: Object.assign(() => v.toString(), {
@@ -20,9 +21,13 @@ const copyToString = (v: Function) => ({
 //{{PLUGIN IMPORT START}}
 //{{PLUGIN IMPORT END}}
 
+export interface ClassOf<T> {
+  new (opts: any): T
+}
+
 type PI<O extends TestBaseOpts | any = any> =
-  | ((t: Test, opts: O) => Plug)
-  | ((t: Test) => Plug)
+  | ((t: TestBase, opts: O) => Plug)
+  | ((t: TestBase) => Plug)
 
 //{{PLUGINS CODE START}}
 type Plug = TestBase | { t: Test }
@@ -40,7 +45,7 @@ type TTest = TestBase
 
 export interface Test extends TTest {
   end(): this
-  t: Test
+  t: this
   test(
     name: string,
     extra: { [k: string]: any },
@@ -96,11 +101,13 @@ export interface Test extends TTest {
   ): Promise<FinalResults | null>
 }
 
-const applyPlugins = (base: Test): Test => {
-  const ext: Plug[] = [
+const applyPlugins = <T extends Test>(
+  base: T,
+  ext: Plug[] = [
     ...plugins.map(p => p(base, base.options)),
     base,
   ]
+): Test => {
   const getCache = new Map<any, any>()
   const t = new Proxy(base, {
     has(_, p) {
@@ -202,13 +209,16 @@ export class Test extends TestBase {
     extra: { [k: string]: any },
     cb?: (t: Test) => any
   ): Promise<FinalResults | null>
-  test(cb?: (t: Test) => any): Promise<FinalResults | null>
+  test(
+    cb?: (t: Test) => any
+  ): Promise<FinalResults | null>
   test(
     ...args: TestArgs<Test>
   ): Promise<FinalResults | null> {
     const extra = parseTestArgs(...args)
     extra.todo = true
-    return this.sub(Test, extra, this.test)
+    const Class = this.constructor as ClassOf<Test>
+    return this.sub(Class, extra, this.test)
   }
 
   todo(
@@ -224,13 +234,16 @@ export class Test extends TestBase {
     extra: { [k: string]: any },
     cb?: (t: Test) => any
   ): Promise<FinalResults | null>
-  todo(cb?: (t: Test) => any): Promise<FinalResults | null>
+  todo(
+    cb?: (t: Test) => any
+  ): Promise<FinalResults | null>
   todo(
     ...args: TestArgs<Test>
   ): Promise<FinalResults | null> {
     const extra = parseTestArgs(...args)
     extra.todo = true
-    return this.sub(Test, extra, this.todo)
+    const Class = this.constructor as ClassOf<Test>
+    return this.sub(Class, extra, this.test)
   }
 
   skip(
@@ -246,12 +259,15 @@ export class Test extends TestBase {
     extra: { [k: string]: any },
     cb?: (t: Test) => any
   ): Promise<FinalResults | null>
-  skip(cb?: (t: Test) => any): Promise<FinalResults | null>
+  skip(
+    cb?: (t: Test) => any
+  ): Promise<FinalResults | null>
   skip(
     ...args: TestArgs<Test>
   ): Promise<FinalResults | null> {
     const extra = parseTestArgs(...args)
     extra.skip = true
-    return this.sub(Test, extra, this.skip)
+    const Class = this.constructor as ClassOf<Test>
+    return this.sub(Class, extra, this.test)
   }
 }
