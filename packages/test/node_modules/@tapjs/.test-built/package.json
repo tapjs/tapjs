@@ -1,0 +1,31 @@
+{
+  "name": "@tapjs/test-built",
+  "private": true,
+  "version": "0.0.0-0",
+  "description": "the plugged in Test class for node-tap",
+  "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/mjs/index.js",
+  "types": "./dist/mjs/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/mjs/index.d.ts",
+        "default": "./dist/mjs/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "preprepare": "rm -rf dist",
+    "prepare": "tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
+    "postprepare": "bash fixup.sh"
+  },
+  "license": "ISC"
+}

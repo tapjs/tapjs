@@ -1,0 +1,69 @@
+{
+  "name": "@tapjs/test",
+  "version": "0.0.0-0",
+  "description": "the pluggable Test class for node-tap",
+  "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
+  "bin": {
+    "generate-tap-test-class": "./scripts/build.ts"
+  },
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/mjs/index.js",
+  "types": "./dist/mjs/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/mjs/index.d.ts",
+        "default": "./dist/mjs/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    }
+  },
+  "files": [
+    "dist",
+    "scripts"
+  ],
+  "scripts": {
+    "snap": "c8 tap",
+    "test": "c8 tap",
+    "preprepare": "rm -rf dist",
+    "prepare": "tsc -p tsconfig.json && tsc -p tsconfig-esm.json && bash fixup.sh",
+    "pretest": "npm run prepare",
+    "presnap": "npm run prepare",
+    "format": "prettier --write . --loglevel warn",
+    "preversion": "npm test",
+    "postversion": "npm publish",
+    "prepublishOnly": "git push origin --follow-tags",
+    "typedoc": "typedoc --tsconfig tsconfig-esm.json ./src/*.ts"
+  },
+  "dependencies": {
+    "@tapjs/core": ">=0.0.0-0",
+    "glob": "^9.3.2",
+    "mkdirp": "^2.1.6",
+    "tap-parser": "^12.0.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.3"
+  },
+  "prettier": {
+    "semi": false,
+    "printWidth": 60,
+    "tabWidth": 2,
+    "useTabs": false,
+    "singleQuote": true,
+    "jsxSingleQuote": false,
+    "bracketSameLine": true,
+    "arrowParens": "avoid",
+    "endOfLine": "lf"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.9",
+    "@types/tap": "^15.0.7",
+    "c8": "^7.12.0",
+    "prettier": "^2.6.2",
+    "tap": "^16.3.4",
+    "typedoc": "^0.23.21"
+  },
+  "license": "ISC"
+}
