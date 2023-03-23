@@ -3,6 +3,6 @@
   "exclude": ["./test", "./tap-snapshots", "src/**/*-cjs.ts"],
   "compilerOptions": {
     "module": "esnext",
-    "outDir": "dist/mjs"
+    "outDir": "dist-tmp/mjs"
   }
 }

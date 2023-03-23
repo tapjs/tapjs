@@ -34,7 +34,8 @@
   "scripts": {
     "snap": "c8 tap",
     "test": "c8 tap",
-    "prepare": "rm -rf dist && tsc -p tsconfig.json && tsc -p tsconfig-esm.json && bash fixup.sh",
+    "preprepare": "rm -rf dist",
+    "prepare": "tsc -p tsconfig.json && tsc -p tsconfig-esm.json && bash fixup.sh",
     "pretest": "npm run prepare",
     "presnap": "npm run prepare",
     "format": "prettier --write . --loglevel warn",
