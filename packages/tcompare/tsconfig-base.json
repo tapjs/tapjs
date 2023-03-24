@@ -4,6 +4,8 @@
   "compilerOptions": {
     "declaration": true,
     "sourceMap": true,
+    "declarationMap": true,
+    "inlineSources": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "esModuleInterop": true,

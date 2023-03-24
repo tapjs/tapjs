@@ -1,6 +1,5 @@
-
 export class Waiter {
-  cb: null | ((w:Waiter)=>any)
+  cb: null | ((w: Waiter) => any)
   ready: boolean = false
   value: any = null
   resolved: boolean = false
@@ -9,25 +8,33 @@ export class Waiter {
   finishing: boolean = false
   expectReject: boolean
   promise: Promise<void>
-  resolve: null | ((value?:any)=>void) = null
+  resolve: null | ((value?: any) => void) = null
 
-  constructor (promise: Promise<any|void>, cb:(w:Waiter)=>any, expectReject:boolean = false) {
+  constructor(
+    promise: Promise<any | void>,
+    cb: (w: Waiter) => any,
+    expectReject: boolean = false
+  ) {
     this.cb = cb
     this.expectReject = !!expectReject
-    this.promise = new Promise<void>(res => this.resolve = res)
-    promise.then(value => {
-      if (this.done) {
-        return
-      }
+    this.promise = new Promise<void>(
+      res => (this.resolve = res)
+    )
+    promise
+      .then(value => {
+        if (this.done) {
+          return
+        }
 
-      this.resolved = true
-      this.value = value
-      this.done = true
-      this.finish()
-    }).catch(er => this.reject(er))
+        this.resolved = true
+        this.value = value
+        this.done = true
+        this.finish()
+      })
+      .catch(er => this.reject(er))
   }
 
-  reject (er:any) {
+  reject(er: any) {
     if (this.done) {
       return
     }
@@ -38,7 +45,8 @@ export class Waiter {
     this.finish()
   }
 
-  abort (er:Error) {
+  // TODO: consider AbortSignal maybe?
+  abort(er: Error) {
     if (this.done) {
       return
     }
@@ -53,7 +61,7 @@ export class Waiter {
     return this.finish()
   }
 
-  finish () {
+  finish() {
     if (this.ready && this.done && !this.finishing) {
       this.finishing = true
       this.cb && this.cb(this)

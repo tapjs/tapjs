@@ -73,6 +73,9 @@ export type QueueEntry =
   | Waiter
   | [method: string, ...args: any[]]
 
+const isPromise = (p: any): p is Promise<any | void> =>
+  !!p && typeof p === 'object' && typeof p.then === 'function'
+
 /**
  * The TestBaseBase class is the base class for all plugins,
  * and eventually thus the Test class.
@@ -108,7 +111,8 @@ export class TestBase extends Base {
   #occupied: null | Waiter | Base = null
   #pushedEnd: boolean = false
   #nextChildId: number = 1
-  #currentAssert: null | ((..._: any) => any) = null
+  #currentAssert: null | Function | ((..._: any) => any) =
+    null
   #processing: boolean = false
   #doingStdinOnly: boolean = false
 
@@ -282,7 +286,9 @@ export class TestBase extends Base {
    * The current assertion being processed.  May only be set if
    * not already set.
    */
-  set currentAssert(fn: null | ((...a: any[]) => any)) {
+  set currentAssert(
+    fn: null | Function | ((...a: any[]) => any)
+  ) {
     if (!this.#currentAssert && typeof fn === 'function') {
       this.#currentAssert = fn
     }
@@ -415,7 +421,7 @@ export class TestBase extends Base {
 
   end(): this {
     this.#end()
-    return super.end()
+    return this
   }
 
   /**
@@ -438,14 +444,14 @@ export class TestBase extends Base {
    */
   waitOn(
     promise: Promise<any | void>,
-    cb: (w: Waiter) => any,
+    cb?: (w: Waiter) => any,
     expectReject: boolean = false
   ): Promise<void> {
     const w = new Waiter(
       promise,
       w => {
         assert.equal(this.#occupied, w)
-        cb(w)
+        if (cb) cb(w)
         this.#occupied = null
         this.#process()
       },
@@ -464,6 +470,35 @@ export class TestBase extends Base {
     this.debug('END implicit=%j', implicit === IMPLICIT)
     if (this.ended && implicit === IMPLICIT) return
 
+    if (implicit !== IMPLICIT && !this.#multiEndThrew) {
+      if (this.#explicitEnded) {
+        this.#multiEndThrew = true
+        const er = new Error(
+          'test end() method called more than once'
+        )
+        Error.captureStackTrace(
+          er,
+          this.#currentAssert || this.end
+        )
+        er.cause = {
+          test: this.name,
+        }
+        this.threw(er)
+        return
+      }
+      this.#explicitEnded = true
+    }
+
+    // If onbeforeend returns a Promise, then wait for it to finish.
+    const beRet = this.onbeforeend()
+    this.onbeforeend = TestBase.prototype.onbeforeend
+    if (isPromise(beRet)) {
+      this.waitOn(beRet, () => this.#end(implicit))
+      return
+    }
+
+    super.end()
+
     // beyond here we have to be actually done with things, or else
     // the semantic checks on counts and such will be off.
     if (!queueEmpty(this) || this.#occupied) {
@@ -475,25 +510,6 @@ export class TestBase extends Base {
     }
 
     this.ended = true
-
-    if (implicit !== IMPLICIT && !this.#multiEndThrew) {
-      if (this.#explicitEnded) {
-        this.#multiEndThrew = true
-        const er = new Error(
-          'test end() method called more than once'
-        )
-        Error.captureStackTrace(
-          er,
-          this.#currentAssert || this.#end
-        )
-        er.cause = {
-          test: this.name,
-        }
-        this.threw(er)
-        return
-      }
-      this.#explicitEnded = true
-    }
 
     if (this.#planEnd === -1) {
       this.debug(
@@ -565,11 +581,7 @@ export class TestBase extends Base {
           ...a: any[]
         ) => any
         const ret = fn.call(this, ...p)
-        if (
-          ret &&
-          typeof ret === 'object' &&
-          typeof ret.then === 'function'
-        ) {
+        if (isPromise(ret)) {
           // returned promise
           ret.then(
             () => {

@@ -301,16 +301,21 @@ export class Base {
       this.errors = errors
     }
 
-    this.onbeforeend()
-
-    // XXX old tap had a check here to ensure that buffer and pipes
-    // are cleared.  But Minipass "should" do this now for us, so
-    // this ought to be fine, but revisit if it causes problems.
     this.stream.end()
   }
 
-  // extension points for Test, Spawn, etc.
-  onbeforeend() {}
+  /**
+   * extension point for plugins that want to be notified when the test
+   * is about to end, whether explicitly or implicitly.
+   */
+  onbeforeend(): Promise<void> | void {}
+
+  /**
+   * extension point for TestBase to know when a child tests is done being
+   * processed and it's safe to move on to the next one.
+   *
+   * @internal
+   */
   ondone() {}
 
   once(ev: string, handler: (...a: any[]) => any) {

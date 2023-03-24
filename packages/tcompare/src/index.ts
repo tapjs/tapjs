@@ -1,9 +1,9 @@
 import { Format, FormatOptions } from './format.js'
-import { Has } from './has.js'
 import { HasStrict } from './has-strict.js'
-import { Match } from './match.js'
+import { Has } from './has.js'
 import { MatchOnly } from './match-only.js'
 import { MatchStrict } from './match-strict.js'
+import { Match } from './match.js'
 import { Same, SameOptions } from './same.js'
 import { Strict } from './strict.js'
 
@@ -17,9 +17,11 @@ const simple = <T extends Same>(o: T): Result => ({
 })
 
 type Class<T> = { new (obj: any, options: SameOptions): T }
+export type CompareOptions = FormatOptions &
+  Pick<SameOptions, 'diffContext'>
 const fn =
   <T extends Same>(Cls: Class<T>) =>
-  (obj: any, pattern: any, options: FormatOptions = {}) =>
+  (obj: any, pattern: any, options: CompareOptions = {}) =>
     simple<T>(
       new Cls(obj, {
         ...options,
@@ -42,11 +44,11 @@ export const matchOnly = fn(MatchOnly)
 export const matchStrict = fn(MatchStrict)
 export { Format } from './format.js'
 export type { FormatOptions } from './format.js'
-export { Has } from './has.js'
 export { HasStrict } from './has-strict.js'
-export { Match } from './match.js'
+export { Has } from './has.js'
 export { MatchOnly } from './match-only.js'
 export { MatchStrict } from './match-strict.js'
+export { Match } from './match.js'
 export { Same } from './same.js'
 export type { SameOptions } from './same.js'
 export { Strict } from './strict.js'
