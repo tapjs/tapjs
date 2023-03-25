@@ -1,4 +1,4 @@
 /node_modules
-/packages/*/node_modules
-/packages/*/docs
-/packages/*/dist
+/src/*/node_modules
+/src/*/docs
+/src/*/dist

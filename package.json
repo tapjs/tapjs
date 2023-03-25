@@ -2,7 +2,7 @@
   "name": "@tapjs/tapjs",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "src/*"
   ],
   "prettier": {
     "semi": false,
