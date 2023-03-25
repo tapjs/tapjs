@@ -56,7 +56,6 @@
   },
   "dependencies": {
     "@tapjs/core": ">=0.0.0-0",
-    "@tapjs/asserts": ">=0.0.0-0",
     "tcompare": "6",
     "trivial-deferred": "^1.1.2"
   },

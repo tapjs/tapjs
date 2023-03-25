@@ -1,15 +1,14 @@
 import {
-  Assertions,
   MessageExtra,
-  AssertOptions,
   normalizeMessageExtra,
-} from '@tapjs/asserts'
-import { TapPlugin, TestBase } from '@tapjs/core'
+  TapPlugin,
+  TestBase,
+} from '@tapjs/core'
 import { relative, resolve } from 'path'
 import { Deferred } from 'trivial-deferred'
 import { SnapshotProviderDefault } from './provider.js'
 
-import { format } from 'tcompare'
+import { CompareOptions, format, strict } from 'tcompare'
 import { isPromise } from 'util/types'
 
 const defaultFormatSnapshot = (obj: any) => format(obj, { sort: true })
@@ -21,7 +20,9 @@ export interface SnapshotProvider {
   save(): void
 }
 
-export interface SnapshotOptions extends AssertOptions {
+export interface SnapshotOptions {
+  compareOptions?: CompareOptions
+
   /**
    * Class to use to store and load snapshot data.
    * Defaults to SnapshotProviderDefault, which writes
@@ -62,7 +63,7 @@ export interface SnapshotOptions extends AssertOptions {
   cleanSnapshot?: (snapshotData: string) => string
 }
 
-export class SnapshotPlugin extends Assertions {
+export class SnapshotPlugin {
   static #refs = new Map<TestBase, SnapshotPlugin>()
   #t: TestBase
   #provider: Exclude<SnapshotOptions['snapshotProvider'], undefined>
@@ -70,10 +71,11 @@ export class SnapshotPlugin extends Assertions {
   #formatSnapshot: SnapshotOptions['formatSnapshot']
   #snapshot: SnapshotProvider
   #writeSnapshot: boolean
+  #compareOptions: CompareOptions
 
   constructor(t: TestBase, opts: SnapshotOptions) {
-    super(t, opts)
     SnapshotPlugin.#refs.set(t, this)
+    this.#compareOptions = opts.compareOptions || {}
     this.#t = t
     const snapshotFile = SnapshotPlugin.#getFilename(t, opts)
     if (typeof opts.cleanSnapshot === 'function') {
@@ -147,9 +149,20 @@ export class SnapshotPlugin extends Assertions {
     if (this.#writeSnapshot) {
       this.#snapshot.snap(found, m)
       return this.#t.pass(...me)
-    } else {
-      return super.equal(found, this.#snapshot.read(m), ...me)
     }
+    const wanted = this.#snapshot.read(m)
+    if (found === wanted) {
+      return this.#t.pass(...me)
+    }
+    const { diff } = strict(found, wanted, this.#compareOptions)
+
+    Object.assign(me[1], {
+      found,
+      wanted,
+      diff,
+      compare: '===',
+    })
+    return this.#t.fail(...me)
   }
 
   async resolveMatchSnapshot<T extends any = any>(

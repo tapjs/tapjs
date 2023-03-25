@@ -18,6 +18,23 @@ import stack from './stack.js'
 import { TestPoint } from './test-point.js'
 import { Waiter } from './waiter.js'
 
+export type Extra = { [k: string]: any }
+export type MessageExtra =
+  | []
+  | [string]
+  | [Extra]
+  | [string, Extra]
+export const normalizeMessageExtra = (
+  defaultMessage: string,
+  [message, extra]: MessageExtra
+): [string, Extra] => {
+  if (message && typeof message === 'object') {
+    return [defaultMessage, message]
+  }
+
+  return [message || defaultMessage, extra || {}]
+}
+
 const queueEmpty = <T extends TestBase>(t: T) =>
   t.queue.length === 0 ||
   (t.queue.length === 1 &&
@@ -65,18 +82,6 @@ export interface TestBaseOpts extends BaseOpts {
   stack?: string
   at?: CallSiteLike
   test?: string
-}
-
-const normalizeMessageExtra = (
-  defaultMessage: string,
-  message?: string | { [k: string]: any },
-  extra?: { [k: string]: any }
-): [string, { [k: string]: any }] => {
-  if (typeof message === 'string') {
-    return [message || defaultMessage, extra || {}]
-  } else {
-    return [defaultMessage, message || {}]
-  }
 }
 
 /**
@@ -276,32 +281,25 @@ export class TestBase extends Base {
   /**
    * A passing (ok) Test Point
    */
-  pass(message?: string, extra?: { [k: string]: any }) {
-    this.currentAssert = TestBase.prototype.pass
-
-    this.printResult(
-      true,
-      ...normalizeMessageExtra(
-        '(unnamed test)',
-        message,
-        extra
-      )
-    )
+  pass(...[msg, extra]: MessageExtra) {
+    this.currentAssert = arguments.callee
+    const args = [msg, extra] as MessageExtra
+    const me = normalizeMessageExtra('(unnamed test)', args)
+    this.printResult(true, ...me)
     return true
   }
 
   /**
    * A failing (not ok) Test Point
    */
-  fail(message?: string, extra?: { [k: string]: any }) {
-    this.currentAssert = TestBase.prototype.fail
-    const [m, e] = normalizeMessageExtra(
-      '(unnamed test)',
-      message,
-      extra
-    )
-    this.printResult(false, m, e)
-    return !!(e.todo || e.skip)
+  fail(...[msg, extra]: MessageExtra) {
+    this.currentAssert = arguments.callee
+    const args = [msg, extra] as MessageExtra
+    const me = normalizeMessageExtra('(unnamed test)', [
+      args,
+    ])
+    this.printResult(false, ...me)
+    return !!(me[1].todo || me[1].skip)
   }
 
   /**
@@ -329,13 +327,13 @@ export class TestBase extends Base {
   printResult(
     ok: boolean,
     message: string,
-    extra: { [k: string]: any },
+    extra: Extra,
     front: boolean = false
   ) {
+    this.currentAssert = arguments.callee
     this.#printedResult = true
 
     const n = this.count + 1
-    this.currentAssert = TestBase.prototype.printResult
     const fn = this.#currentAssert
     this.#currentAssert = null
 
@@ -924,7 +922,7 @@ export class TestBase extends Base {
 
     extra.childId = this.#nextChildId++
     if (this.shouldSkipChild(extra)) {
-      this.pass(extra.name, extra)
+      this.pass(extra.name || '', extra)
       return Promise.resolve(null)
     }
 
@@ -982,7 +980,13 @@ export class TestBase extends Base {
     super.threw(er, extra, proxy)
 
     if (!this.results) {
-      this.fail(extra?.message || er.message, extra)
+      const msg =
+        typeof extra?.message === 'string'
+          ? extra.message
+          : typeof er.message === 'string'
+          ? er.message
+          : ''
+      this.fail(msg, extra || {})
       if (!proxy) {
         this.#end(IMPLICIT)
       }

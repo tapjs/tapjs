@@ -1,4 +1,10 @@
-import { TapPlugin, TestBase } from '@tapjs/core'
+import {
+  Extra,
+  MessageExtra,
+  normalizeMessageExtra,
+  TapPlugin,
+  TestBase,
+} from '@tapjs/core'
 import EventEmitter from 'events'
 import {
   CompareOptions,
@@ -12,19 +18,6 @@ import Deferred from 'trivial-deferred'
 
 export interface AssertOptions {
   compareOptions?: CompareOptions
-}
-
-type Extra = { [k: string]: any }
-
-export const normalizeMessageExtra = (
-  defaultMessage: string,
-  [message, extra]: MessageExtra
-): [string, Extra] => {
-  if (message && typeof message === 'object') {
-    return [defaultMessage, message]
-  }
-
-  return [message || defaultMessage, extra || {}]
 }
 
 const normalizeThrowsArgs = (
@@ -43,8 +36,6 @@ const normalizeThrowsArgs = (
   }
   return [wanted, message || defaultMessage, extra || {}]
 }
-
-export type MessageExtra = [] | [string] | [Extra] | [string, Extra]
 
 type ErrorMatch =
   | Error
