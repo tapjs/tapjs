@@ -106,15 +106,16 @@ tests so that editor hinting is accurate.
 
 Out of the box, tap comes with the following plugins loaded:
 
-- `@tapjs/core/plugin/before-each.js` Adds `t.beforeEach(fn)`
-- `@tapjs/core/plugin/after-each.js` Adds `t.afterEach(fn)`
-- `@tapjs/core/plugin/stdin.js` Adds `t.stdin()`
-- `@tapjs/core/plugin/spawn.js` Adds `t.spawn()`
-- `@tapjs/assertions` All other assertions, like `t.match()`,
+- `@tapjs/core/plugin/before-each` Adds `t.beforeEach(fn)`
+- `@tapjs/core/plugin/after-each` Adds `t.afterEach(fn)`
+- `@tapjs/core/plugin/stdin` Adds `t.stdin()`
+- `@tapjs/core/plugin/spawn` Adds `t.spawn()`
+- `@tapjs/asserts` All other assertions, like `t.match()`,
   `t.type()`, `t.has()`, and so on.
-- `@tapjs/snapshot` Providing the `t.matchSnapshot()` method.
-- `@tapjs/mock` Providing the `t.mock()` method.
-- `@tapjs/fixture` Providing the `t.testdir()` method.
+- TODO:
+  - `@tapjs/snapshot` Providing the `t.matchSnapshot()` method.
+  - `@tapjs/mock` Providing the `t.mock()` method.
+  - `@tapjs/fixture` Providing the `t.testdir()` method.
 
 To _prevent_ loading any of these plugins, you can include them
 in the `plugins` config, prefixed with a `!`. For example, if
@@ -127,4 +128,82 @@ you could do this:
     "plugins": ["!@tapjs/mock", "my-mock-plugin"]
   }
 }
+```
+
+## Plugin Collisions
+
+The _first_ plugin in a list that provides a given method or
+property will be the one that "wins", as far as the object
+presented in test code is concerned.
+
+However, _within_ a given plugin, it only sees itself and the
+`TestBase` object it's been given.  For example, if returning an
+object constructed from a class defined in the plugin, `this`
+will refer to that object, always.
+
+```js
+// first-plugin
+const plugin = (t: TestBase) => {
+  return {
+    // this is the first plugin to register this value
+    // so this is what shows up on the Test object
+    myVal: 4,
+    getFirstPluginVal() {
+      return this.myVal // always returns 4
+    },
+    // this is the first plugin to register this method
+    // so this is what shows up on the Test object
+    getFour() {
+      return 4
+    },
+  }
+}
+export default plugin
+```
+
+```js
+// second-plugin
+const plugin = (t: TestBase) => {
+  return {
+    // user will never see this, because first-plugin registered it
+    myVal: 5,
+    getSecondPluginValue() {
+      return this.myVal // always returns 5
+    },
+    // overridden, this isn't the 'getFour' that the user will see
+    getFour() {
+      return 'four'
+    },
+  }
+}
+export default plugin
+```
+
+Then in the test:
+
+```js
+import t from 'tap'
+console.log(t.myVal) // 4, not 5
+console.log(t.getFour()) // 4, not 'four'
+console.log(t.getFirstPluginVal()) // 4
+console.log(t.getSecondPluginVal()) // 5
+```
+
+## Accessing the Constructed Plugged-In Test Object
+
+If you need access to the constructed `Test` object, you can get
+that after the initial plugin load, via `t.t`.  However, it will
+be `undefined` until all plugins are done loading.
+
+```js
+// my-plugin.ts
+const plugin = (t: TestBase) => {
+  // here, t.t === undefined
+  return {
+    someMethod() {
+      // here, t.t is the object with all the plugins applied
+    }
+  }
+}
+export default plugin
 ```
