@@ -32,6 +32,7 @@ type PI<O extends TestBaseOpts | any = any> =
 //{{PLUGINS CODE START}}
 type Plug = TestBase | { t: Test }
 const plugins: PI[] = []
+export const pluginsLoaded = new Map<string, PI>()
 type PlugKeys = keyof TestBase | 't'
 //{{PLUGINS CODE END}}
 
@@ -196,6 +197,16 @@ export class Test extends TestBase {
     return applyPlugins(this)
   }
 
+  static get plugins() {
+    return pluginsLoaded
+  }
+
+  static pluginLoaded(
+    plugin: (t: TestBase, opts?: any) => any
+  ): boolean {
+    return plugins.includes(plugin)
+  }
+
   test(
     name: string,
     extra: { [k: string]: any },
@@ -209,9 +220,7 @@ export class Test extends TestBase {
     extra: { [k: string]: any },
     cb?: (t: Test) => any
   ): Promise<FinalResults | null>
-  test(
-    cb?: (t: Test) => any
-  ): Promise<FinalResults | null>
+  test(cb?: (t: Test) => any): Promise<FinalResults | null>
   test(
     ...args: TestArgs<Test>
   ): Promise<FinalResults | null> {
@@ -234,9 +243,7 @@ export class Test extends TestBase {
     extra: { [k: string]: any },
     cb?: (t: Test) => any
   ): Promise<FinalResults | null>
-  todo(
-    cb?: (t: Test) => any
-  ): Promise<FinalResults | null>
+  todo(cb?: (t: Test) => any): Promise<FinalResults | null>
   todo(
     ...args: TestArgs<Test>
   ): Promise<FinalResults | null> {
@@ -259,9 +266,7 @@ export class Test extends TestBase {
     extra: { [k: string]: any },
     cb?: (t: Test) => any
   ): Promise<FinalResults | null>
-  skip(
-    cb?: (t: Test) => any
-  ): Promise<FinalResults | null>
+  skip(cb?: (t: Test) => any): Promise<FinalResults | null>
   skip(
     ...args: TestArgs<Test>
   ): Promise<FinalResults | null> {

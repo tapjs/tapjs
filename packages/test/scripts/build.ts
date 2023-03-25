@@ -57,16 +57,32 @@ const pluginNames = plugins.map(p => {
   return ni
 })
 
-const pluginImport = plugins
-  .map(
-    (p, i) =>
-      `import _${pluginNames[i]} from ${JSON.stringify(p)}\n`
-  )
-  .join('') +
-  pluginNames.map(p => `export const ${p} = _${p}\n`).join('')
+const pluginImport =
+  plugins
+    .map(
+      (p, i) =>
+        `import _${pluginNames[i]} from ${JSON.stringify(
+          p
+        )}\n`
+    )
+    .join('') +
+  pluginNames
+    .map(p => `export const ${p} = _${p}\n`)
+    .join('')
 
 const pluginsCode = `const plugins: PI[] = [
 ${plugins.map((_, i) => `  ${pluginNames[i]},\n`).join('')}]
+export const pluginsLoaded = new Map<string, PI>([
+${plugins
+  .map(
+    (_, i) =>
+      `  ['${pluginNames[i].substring(
+        'Plugin_'.length
+      )}', ${pluginNames[i]}],`
+  )
+  .join('\n')}
+])
+
 type Plug =
   | TestBase
   | { t: Test }
@@ -91,7 +107,10 @@ const opts = `type SecondParam<
 
 ${plugins
   .map(
-    (_, i) => `export type ${pluginNames[i]}_Opts = SecondParam<
+    (
+      _,
+      i
+    ) => `export type ${pluginNames[i]}_Opts = SecondParam<
   Parameters<typeof ${pluginNames[i]}>
 >\n`
   )
