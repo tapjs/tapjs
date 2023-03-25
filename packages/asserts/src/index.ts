@@ -9,7 +9,7 @@ export interface CompareOptions {
 
 type Extra = { [k: string]: any }
 
-const normalizeMessageExtra = (
+export const normalizeMessageExtra = (
   defaultMessage: string,
   [message, extra]: MessageExtra
 ): [string, Extra] => {
@@ -37,7 +37,7 @@ const normalizeThrowsArgs = (
   return [wanted, message || defaultMessage, extra || {}]
 }
 
-type MessageExtra = [] | [string] | [Extra] | [string, Extra]
+export type MessageExtra = [] | [string] | [Extra] | [string, Extra]
 
 type ErrorMatch =
   | Error
@@ -63,7 +63,7 @@ const objects = (...a: any[]): boolean =>
 const hasOwn = <T extends {}>(obj: T, key: string | number | symbol) =>
   Object.prototype.hasOwnProperty.call(obj, key)
 
-class Assertions {
+export class Assertions {
   #t: TestBase
   #opts: CompareOptions['compareOptions']
   #pendingEmits: ExpectedEmit[] = []
@@ -123,7 +123,7 @@ class Assertions {
     } else {
       Object.assign(me[1], { found, wanted, compare: '===' })
     }
-    this.#t.fail(...me)
+    return this.#t.fail(...me)
   }
 
   not(found: any, doNotWant: any, ...[msg, extra]: MessageExtra) {
@@ -456,9 +456,9 @@ class Assertions {
       return d.promise
     }
     let res!: boolean | Error
+    this.#t.currentAssert = arguments.callee
     try {
       await p
-      this.#t.currentAssert = arguments.callee
       res = this.#t.fail(m, e)
     } catch (err) {
       const er = err as Error
@@ -470,7 +470,6 @@ class Assertions {
           writable: true,
         })
       }
-      this.#t.currentAssert = arguments.callee
       res =
         (w
           ? this.match(isRegExp(w) ? er.message : er, w, m, e)
@@ -496,6 +495,7 @@ class Assertions {
         return d.promise
       }
       let res: boolean | Error
+      this.#t.currentAssert = arguments.callee
       try {
         await p
         res = this.#t.pass(...me)
@@ -530,8 +530,8 @@ class Assertions {
         return d.promise
       }
       let res: boolean | Error
+      this.#t.currentAssert = arguments.callee
       try {
-        this.#t.currentAssert = arguments.callee
         res = this.match(await p, wanted, ...me)
       } catch (er) {
         res = this.#t.fail(...me) || (er as Error)
