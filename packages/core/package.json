@@ -19,12 +19,12 @@
     },
     "./plugin/*": {
       "import": {
-        "types": "./dist/mjs/plugin/*",
-        "default": "./dist/mjs/plugin/*"
+        "types": "./dist/mjs/plugin/*.js",
+        "default": "./dist/mjs/plugin/*.js"
       },
       "require": {
-        "types": "./dist/cjs/plugin/*",
-        "default": "./dist/cjs/plugin/*"
+        "types": "./dist/cjs/plugin/*.js",
+        "default": "./dist/cjs/plugin/*.js"
       }
     }
   },
