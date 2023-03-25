@@ -36,25 +36,34 @@ for (const f of copies) {
 }
 
 const plugins = process.argv.slice(2)
-const pluginNames = plugins.map(
-  (p, i) =>
+const seen = new Set<string>()
+const pluginNames = plugins.map(p => {
+  const n =
     'Plugin_' +
     basename(p)
       .replace(/\.([cm]?[jt]sx?)$/, '')
       .replace(/[-_.]+(.)/g, (_, $1) => $1.toUpperCase())
       .replace(/[^a-zA-Z0-9]+/g, ' ')
       .trim()
-      .replace(' ', '_') +
-    '_' +
-    i
-)
+      .replace(' ', '_')
+  if (!seen.has(n)) {
+    seen.add(n)
+    return n
+  }
+  let i = 1
+  while (seen.has(n + '_' + ++i)) {}
+  const ni = `${n}_${i}`
+  seen.add(ni)
+  return ni
+})
 
 const pluginImport = plugins
   .map(
     (p, i) =>
-      `import ${pluginNames[i]} from ${JSON.stringify(p)}\n`
+      `import _${pluginNames[i]} from ${JSON.stringify(p)}\n`
   )
-  .join('')
+  .join('') +
+  pluginNames.map(p => `export const ${p} = _${p}\n`).join('')
 
 const pluginsCode = `const plugins: PI[] = [
 ${plugins.map((_, i) => `  ${pluginNames[i]},\n`).join('')}]
@@ -78,18 +87,16 @@ ${plugins
 
 const opts = `type SecondParam<
   T extends [any] | [any, any],
-  Fallback extends unknown = unknown
-> = T extends [any, any] ? T[1] : Fallback
+> = T extends [any, any] ? T[1] : unknown
 
 ${plugins
   .map(
-    (_, i) => `type ${pluginNames[i]}_Opts = SecondParam<
-  Parameters<typeof ${pluginNames[i]}>,
-  TestBaseOpts
+    (_, i) => `export type ${pluginNames[i]}_Opts = SecondParam<
+  Parameters<typeof ${pluginNames[i]}>
 >\n`
   )
   .join('')}
-type TestOpts = TestBaseOpts${plugins
+export type TestOpts = TestBaseOpts${plugins
   .map((_, i) => `\n  & ${pluginNames[i]}_Opts`)
   .join('')}
 `

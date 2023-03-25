@@ -110,6 +110,7 @@ export class Base {
   buffered: boolean
   bailedOut: string | boolean
   start: bigint
+  #started: boolean
   time: number
   hrtime: bigint
   silent: boolean
@@ -146,6 +147,7 @@ export class Base {
     this.time = 0
     this.hrtime = 0n
     this.start = 0n
+    this.#started = false
     this.childId = options.childId || 0
     // do we need this?  couldn't we just call the Minipass
     this.output = ''
@@ -236,7 +238,11 @@ export class Base {
   runMain(cb: () => void) {
     this.debug('BASE runMain')
     this.start = hrtime.bigint()
+    this.#started = true
     this.hook.runInAsyncScope(this.main, this, cb)
+  }
+  get started() {
+    return this.#started
   }
 
   main(cb: () => void) {

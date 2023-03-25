@@ -11,6 +11,8 @@ import { FinalResults } from 'tap-parser'
 import Deferred from 'trivial-deferred'
 import { Base, BaseOpts } from './base.js'
 import { esc } from './esc.js'
+import extraFromError from './extra-from-error.js'
+import { Spawn } from './spawn.js'
 import stack from './stack.js'
 import { TestPoint } from './test-point.js'
 import { Waiter } from './waiter.js'
@@ -40,6 +42,10 @@ export interface TestBaseOpts extends BaseOpts {
    * diagnostics are shown for failing test points only.
    */
   diagnostic?: boolean
+
+  stack?: string
+  at?: CallSiteLike
+  test?: string
 }
 
 const normalizeMessageExtra = (
@@ -74,7 +80,9 @@ export type QueueEntry =
   | [method: string, ...args: any[]]
 
 const isPromise = (p: any): p is Promise<any | void> =>
-  !!p && typeof p === 'object' && typeof p.then === 'function'
+  !!p &&
+  typeof p === 'object' &&
+  typeof p.then === 'function'
 
 /**
  * The TestBaseBase class is the base class for all plugins,
@@ -89,7 +97,9 @@ const isPromise = (p: any): p is Promise<any | void> =>
 export class TestBase extends Base {
   // NB: generated pluginified Test class needs to declare over this
   declare parent?: TestBase
-  promise?: Promise<any>
+  declare options: TestBaseOpts
+
+  promise?: Promise<any> & { tapAbortPromise?: () => void }
   jobs: number
   // #beforeEnd: [method: string | Symbol, ...args: any[]][] = []
   subtests: Base[] = []
@@ -907,6 +917,111 @@ export class TestBase extends Base {
     t.deferred = d
     this.#process()
     return d.promise
+  }
+
+  threw(
+    er: any,
+    extra?: { [k: string]: any },
+    proxy?: boolean
+  ) {
+    // this can happen if a beforeEach throws.  capture the error here
+    // and raise it once we've started the test officially.
+    if (this.parent && !this.started) {
+      this.cb = () => {
+        this.threw(er)
+        this.end()
+      }
+      return
+    }
+
+    if (!er || typeof er !== 'object') {
+      er = { error: er }
+    }
+
+    if (this.name && !proxy) {
+      er.test = this.name
+    }
+    if (!proxy) {
+      extra = extraFromError(er, extra, this.options)
+    }
+    super.threw(er, extra, proxy)
+
+    if (!this.results) {
+      this.fail(extra?.message || er.message, extra)
+      if (!proxy) {
+        this.#end(IMPLICIT)
+      }
+    }
+    if (
+      this.#occupied &&
+      this.#occupied instanceof Waiter
+    ) {
+      this.#occupied.abort(
+        Object.assign(
+          new Error('error thrown while awaiting Promise'),
+          { thrown: er }
+        )
+      )
+    }
+
+    this.#process()
+  }
+
+  onbail(message?: string) {
+    super.onbail(message)
+    this.#end(IMPLICIT)
+    if (!this.parent) {
+      this.endAll()
+    }
+  }
+
+  endAll(sub: boolean = false) {
+    // in the case of the root TAP test object, we might sometimes
+    // call endAll on a bailing-out test, as the process is ending
+    // In that case, we WILL have a this.occupied and a full queue
+    // These cases are very rare to encounter in other Test objs tho
+    this.#processing = true
+    if (this.#occupied) {
+      const p = this.#occupied
+      if (p instanceof Waiter)
+        p.abort(new Error('test unfinished'))
+      else if (
+        typeof (p as TestBase | Spawn).endAll === 'function'
+      )
+        (p as TestBase | Spawn).endAll(true)
+      else p.parser.abort('test unfinished')
+    } else if (sub) {
+      this.#process()
+      if (queueEmpty(this)) {
+        const options = Object.assign({}, this.options)
+        this.options.at = undefined
+        this.options.stack = ''
+        options.test = this.name
+        this.fail('test unfinished', options)
+      }
+    }
+
+    if (this.promise && this.promise.tapAbortPromise)
+      this.promise.tapAbortPromise()
+
+    if (this.#occupied) {
+      this.queue.unshift(this.#occupied)
+      this.#occupied = null
+    }
+
+    for (let i = 0; i < this.queue.length; i++) {
+      const p = this.queue[i]
+      if (p instanceof Base && !p.readyToProcess) {
+        const cn = p.constructor.name.toLowerCase()
+        const msg = `child test left in queue: t.${cn} ${p.name}`
+        this.queue[i] = new TestPoint(false, msg, p.options)
+      }
+      this.#end(IMPLICIT)
+    }
+
+    this.#processing = false
+    this.#process()
+    this.parser.end()
   }
 
   /**

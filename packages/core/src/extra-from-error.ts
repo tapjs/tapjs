@@ -1,7 +1,7 @@
 import type { BaseOpts } from './base.js'
 import stack from './stack.js'
 
-export default (
+const extraFromError = (
   er: any,
   extra?: { [k: string]: any },
   options?: BaseOpts
@@ -97,3 +97,5 @@ export default (
 
   return extra
 }
+
+export default extraFromError

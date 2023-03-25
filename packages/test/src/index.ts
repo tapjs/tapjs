@@ -1,1 +1,1 @@
-export { Test } from '@tapjs/.test-built'
+export * from '@tapjs/.test-built'

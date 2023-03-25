@@ -80,10 +80,10 @@ export class Spawn extends Base {
       this.proc.kill('SIGKILL')
     }
     this.parser.abort('test unfinished')
-    this.callCb()
+    this.#callCb()
   }
 
-  callCb() {
+  #callCb() {
     if (this.cb) {
       this.cb()
     }
@@ -157,7 +157,7 @@ export class Spawn extends Base {
       }
       this.parser.ok = false
     }
-    return this.callCb()
+    return this.#callCb()
   }
 
   timeout(options?: { [k: string]: any }) {

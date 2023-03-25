@@ -21,7 +21,7 @@ const copyToString = (v: Function) => ({
 //{{PLUGIN IMPORT START}}
 //{{PLUGIN IMPORT END}}
 
-export interface ClassOf<T> {
+interface ClassOf<T> {
   new (opts: any): T
 }
 
@@ -36,7 +36,7 @@ type PlugKeys = keyof TestBase | 't'
 //{{PLUGINS CODE END}}
 
 //{{OPTS START}}
-type TestOpts = TestBaseOpts
+export type TestOpts = TestBaseOpts
 //{{OPTS END}}
 
 //{{TEST INTERFACE START}}
