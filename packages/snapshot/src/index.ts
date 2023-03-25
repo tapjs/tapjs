@@ -70,6 +70,7 @@ export class SnapshotPlugin extends Assertions {
   #formatSnapshot: SnapshotOptions['formatSnapshot']
   #snapshot: SnapshotProvider
   #writeSnapshot: boolean
+
   constructor(t: TestBase, opts: SnapshotOptions) {
     super(t, opts)
     SnapshotPlugin.#refs.set(t, this)
@@ -88,11 +89,6 @@ export class SnapshotPlugin extends Assertions {
     const pp = p && p.#provider
     const pf = p && p.snapshotFile
     this.#provider = opts.snapshotProvider || pp || SnapshotProviderDefault
-    if (p && this.#provider === pp && snapshotFile === pf) {
-      this.#snapshot = p.#snapshot
-    } else {
-      this.#snapshot = new this.#provider(snapshotFile)
-    }
 
     if (typeof opts.writeSnapshot === 'boolean') {
       this.#writeSnapshot = opts.writeSnapshot
@@ -100,6 +96,24 @@ export class SnapshotPlugin extends Assertions {
       if (p) this.#writeSnapshot = p.#writeSnapshot
       else this.#writeSnapshot = env('TAP_SNAPSHOT') === '1'
     }
+
+    if (p && this.#provider === pp && snapshotFile === pf) {
+      this.#snapshot = p.#snapshot
+    } else {
+      this.#snapshot = this.#newSnapshot(snapshotFile)
+    }
+  }
+
+  #newSnapshot(f: string): SnapshotProvider {
+    const snapshot = new this.#provider(f)
+    if (this.#writeSnapshot) {
+      const onEOF = this.#t.onEOF
+      this.#t.onEOF = () => {
+        onEOF.call(this.#t)
+        snapshot.save()
+      }
+    }
+    return snapshot
   }
 
   get snapshotFile(): string {
@@ -108,7 +122,7 @@ export class SnapshotPlugin extends Assertions {
   set snapshotFile(f: string) {
     const p = this.#t.parent && SnapshotPlugin.#refs.get(this.#t.parent)
     if (p && this.#snapshot === p.#snapshot) {
-      this.#snapshot = new this.#provider(f)
+      this.#snapshot = this.#newSnapshot(f)
     } else {
       this.#snapshot.file = f
     }
@@ -130,9 +144,12 @@ export class SnapshotPlugin extends Assertions {
       found = this.#cleanSnapshot(found)
     }
 
-    return this.#writeSnapshot
-      ? super.notOk(this.#snapshot.snap(found, m), ...me)
-      : super.equal(found, this.#snapshot.read(m), ...me)
+    if (this.#writeSnapshot) {
+      this.#snapshot.snap(found, m)
+      return this.#t.pass(...me)
+    } else {
+      return super.equal(found, this.#snapshot.read(m), ...me)
+    }
   }
 
   async resolveMatchSnapshot<T extends any = any>(

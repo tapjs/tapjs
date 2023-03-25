@@ -3,6 +3,7 @@
 
 import Minipass from 'minipass'
 import assert from 'node:assert'
+import { basename } from 'node:path'
 import { hrtime } from 'node:process'
 import { Readable } from 'node:stream'
 import { format } from 'node:util'
@@ -22,10 +23,28 @@ const queueEmpty = <T extends TestBase>(t: T) =>
   (t.queue.length === 1 &&
     t.queue[0] === 'TAP version 14\n')
 
+// TODO: DRY this to somewhere in core
+const proc = () =>
+  typeof process === 'object' && process
+    ? process
+    : undefined
+const argv = () => proc()?.argv || []
+const cwd = (() => proc()?.cwd() || '.')()
+const mainScript = (def: string = 'TAP') => {
+  const p = proc()
+  //@ts-ignore
+  if (typeof repl !== 'undefined' || (p && '_eval' in p)) {
+    return def
+  }
+  return argv()[1] || def
+}
+
 export type TapPlugin<
   B extends Object,
-  O extends TestBaseOpts | any = any
-> = ((t: TestBase, opts: O) => B) | ((t: TestBase) => B)
+  O extends TestBaseOpts | any = unknown
+> = unknown extends O
+  ? (t: TestBase) => B
+  : (t: TestBase, opts: O) => B
 
 export interface TestBaseOpts extends BaseOpts {
   /**
@@ -534,6 +553,21 @@ export class TestBase extends Base {
     this.#process()
   }
 
+  get fullname(): string {
+    const main =
+      mainScript() + ' ' + argv().slice(2).join(' ').trim()
+    return (
+      (this.parent
+        ? this.parent.fullname
+        : main.indexOf(cwd) === 0
+        ? main.substring(cwd.length + 1)
+        : basename(main)
+      ).replace(/\\/g, '/') +
+      ' ' +
+      (this.name || '').trim()
+    ).trim()
+  }
+
   #process() {
     if (this.#processing) {
       return this.debug(' < already processing')
@@ -557,6 +591,7 @@ export class TestBase extends Base {
       } else if (p === EOF) {
         this.debug(' > EOF', this.name)
         // I AM BECOME EOF, DESTROYER OF STREAMS
+        this.onEOF()
         this.parser.end()
       } else if (p instanceof TestPoint) {
         this.debug(' > TESTPOINT')

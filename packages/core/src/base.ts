@@ -317,6 +317,13 @@ export class Base {
   onbeforeend(): Promise<void> | void {}
 
   /**
+   * extension point for plugins that want to be notified when the test
+   * is completely done, and terminating its parser.
+   * Eg, used by Snapshot plugin to write the snapshot file.
+   */
+  onEOF(): void {}
+
+  /**
    * extension point for TestBase to know when a child tests is done being
    * processed and it's safe to move on to the next one.
    *
