@@ -1,7 +1,7 @@
 import {
   Assertions,
-  CompareOptions,
   MessageExtra,
+  AssertOptions,
   normalizeMessageExtra,
 } from '@tapjs/asserts'
 import { TapPlugin, TestBase } from '@tapjs/core'
@@ -21,7 +21,7 @@ export interface SnapshotProvider {
   save(): void
 }
 
-export interface SnapshotOptions extends CompareOptions {
+export interface SnapshotOptions extends AssertOptions {
   /**
    * Class to use to store and load snapshot data.
    * Defaults to SnapshotProviderDefault, which writes

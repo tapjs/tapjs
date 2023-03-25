@@ -1,10 +1,17 @@
 import { TapPlugin, TestBase } from '@tapjs/core'
 import EventEmitter from 'events'
-import { has, hasStrict, match, same, SameOptions, strict } from 'tcompare'
+import {
+  CompareOptions,
+  has,
+  hasStrict,
+  match,
+  same,
+  strict,
+} from 'tcompare'
 import Deferred from 'trivial-deferred'
 
-export interface CompareOptions {
-  compareOptions?: Omit<SameOptions, 'expect'>
+export interface AssertOptions {
+  compareOptions?: CompareOptions
 }
 
 type Extra = { [k: string]: any }
@@ -65,10 +72,10 @@ const hasOwn = <T extends {}>(obj: T, key: string | number | symbol) =>
 
 export class Assertions {
   #t: TestBase
-  #opts: CompareOptions['compareOptions']
+  #opts: CompareOptions
   #pendingEmits: ExpectedEmit[] = []
   #setOnBeforeEnd: boolean = false
-  constructor(t: TestBase, { compareOptions = {} }: CompareOptions) {
+  constructor(t: TestBase, { compareOptions = {} }: AssertOptions) {
     this.#t = t
     this.#opts = compareOptions
   }
@@ -593,7 +600,7 @@ const isPromise = (p: any): p is Promise<any | void> =>
 
 const plugin: TapPlugin<Assertions> = (
   t: TestBase,
-  opts: CompareOptions = {}
+  opts: AssertOptions = {}
 ) => new Assertions(t, opts)
 
 export default plugin

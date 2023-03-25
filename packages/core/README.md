@@ -112,8 +112,8 @@ Out of the box, tap comes with the following plugins loaded:
 - `@tapjs/core/plugin/spawn` Adds `t.spawn()`
 - `@tapjs/asserts` All other assertions, like `t.match()`,
   `t.type()`, `t.has()`, and so on.
+- `@tapjs/snapshot` Providing the `t.matchSnapshot()` method.
 - TODO:
-  - `@tapjs/snapshot` Providing the `t.matchSnapshot()` method.
   - `@tapjs/mock` Providing the `t.mock()` method.
   - `@tapjs/fixture` Providing the `t.testdir()` method.
 
@@ -137,7 +137,7 @@ property will be the one that "wins", as far as the object
 presented in test code is concerned.
 
 However, _within_ a given plugin, it only sees itself and the
-`TestBase` object it's been given.  For example, if returning an
+`TestBase` object it's been given. For example, if returning an
 object constructed from a class defined in the plugin, `this`
 will refer to that object, always.
 
@@ -192,7 +192,7 @@ console.log(t.getSecondPluginVal()) // 5
 ## Accessing the Constructed Plugged-In Test Object
 
 If you need access to the constructed `Test` object, you can get
-that after the initial plugin load, via `t.t`.  However, it will
+that after the initial plugin load, via `t.t`. However, it will
 be `undefined` until all plugins are done loading.
 
 ```js
@@ -202,7 +202,7 @@ const plugin = (t: TestBase) => {
   return {
     someMethod() {
       // here, t.t is the object with all the plugins applied
-    }
+    },
   }
 }
 export default plugin
