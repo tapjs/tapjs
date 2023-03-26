@@ -321,7 +321,7 @@ export class Base {
    * is completely done, and terminating its parser.
    * Eg, used by Snapshot plugin to write the snapshot file.
    */
-  onEOF(): void {}
+  onEOF(): Promise<void> | void {}
 
   /**
    * extension point for TestBase to know when a child tests is done being

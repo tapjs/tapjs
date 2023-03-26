@@ -45,9 +45,9 @@ const proc = () =>
   typeof process === 'object' && process
     ? process
     : undefined
-const argv = () => proc()?.argv || []
-const cwd = (() => proc()?.cwd() || '.')()
-const mainScript = (def: string = 'TAP') => {
+export const argv = () => proc()?.argv || []
+export const cwd = (() => proc()?.cwd() || '.')()
+export const mainScript = (def: string = 'TAP') => {
   const p = proc()
   //@ts-ignore
   if (typeof repl !== 'undefined' || (p && '_eval' in p)) {
@@ -589,7 +589,15 @@ export class TestBase extends Base {
       } else if (p === EOF) {
         this.debug(' > EOF', this.name)
         // I AM BECOME EOF, DESTROYER OF STREAMS
-        this.onEOF()
+        const eofRet = this.onEOF()
+        if (isPromise(eofRet)) {
+          this.waitOn(eofRet)
+          eofRet.then(() => {
+            this.queue.push(EOF)
+            this.#process()
+          })
+          return
+        }
         this.parser.end()
       } else if (p instanceof TestPoint) {
         this.debug(' > TESTPOINT')
