@@ -1,6 +1,7 @@
 // lifecycle methods like beforeEach, afterEach, teardown
 // defined in plugins/lifecycle.ts
 
+import type { Test } from '@tapjs/test'
 import Minipass from 'minipass'
 import assert from 'node:assert'
 import { basename } from 'node:path'
@@ -102,6 +103,7 @@ export type QueueEntry =
   | typeof EOF
   | Waiter
   | [method: string, ...args: any[]]
+  | (() => any)
 
 const isPromise = (p: any): p is Promise<any | void> =>
   !!p &&
@@ -122,6 +124,10 @@ export class TestBase extends Base {
   // NB: generated pluginified Test class needs to declare over this
   declare parent?: TestBase
   declare options: TestBaseOpts
+
+  // Attached when the Test class is instantiated from a TestBase,
+  // as a reference to the final plugged-in Test instance.
+  t!: Test
 
   promise?: Promise<any> & { tapAbortPromise?: () => void }
   jobs: number
@@ -155,6 +161,13 @@ export class TestBase extends Base {
    */
   get printedResult(): boolean {
     return this.#printedResult
+  }
+
+  /**
+   * true if the test is currently waiting for something to finish
+   */
+  get occupied(): boolean {
+    return !!this.#occupied
   }
 
   constructor(options: TestBaseOpts) {
@@ -596,9 +609,9 @@ export class TestBase extends Base {
             this.queue.push(EOF)
             this.#process()
           })
-          return
+        } else {
+          this.parser.end()
         }
-        this.parser.end()
       } else if (p instanceof TestPoint) {
         this.debug(' > TESTPOINT')
         if (
@@ -617,6 +630,12 @@ export class TestBase extends Base {
         p.ready = true
         this.#occupied = p
         p.finish()
+      } else if (typeof p === 'function') {
+        this.debug(' > FUNCTION')
+        const ret = p()
+        if (isPromise(ret)) {
+          this.waitOn(ret)
+        }
       } else if (Array.isArray(p)) {
         this.debug(' > METHOD')
         const m = p.shift() as keyof this
