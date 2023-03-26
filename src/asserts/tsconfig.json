@@ -4,6 +4,6 @@
   "compilerOptions": {
     "module": "commonjs",
     "moduleResolution": "Node16",
-    "outDir": "dist/cjs"
+    "outDir": "dist-tmp/cjs"
   }
 }
