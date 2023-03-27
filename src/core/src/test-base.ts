@@ -125,8 +125,12 @@ export class TestBase extends Base {
   declare parent?: TestBase
   declare options: TestBaseOpts
 
-  // Attached when the Test class is instantiated from a TestBase,
-  // as a reference to the final plugged-in Test instance.
+  /**
+   * Attached when the Test class is instantiated from a TestBase,
+   * as a reference to the final plugged-in Test instance.
+   * If TestBase is used directly, outside the context of a plugin,
+   * then this will be undefined, so watch out.
+   */
   t!: Test
 
   promise?: Promise<any> & { tapAbortPromise?: () => void }
@@ -150,6 +154,7 @@ export class TestBase extends Base {
   #noparallel: boolean = false
   #occupied: null | Waiter | Base = null
   #pushedEnd: boolean = false
+  #pushedBeforeEnd: boolean = false
   #nextChildId: number = 1
   #currentAssert: null | Function | ((..._: any) => any) =
     null
@@ -187,7 +192,7 @@ export class TestBase extends Base {
 
   #setCB<T extends TestBase>(this: T, cb: (t: T) => any) {
     this.cb = (...args: any[]) =>
-      this.hook.runInAsyncScope(cb, this, ...args)
+      this.hook.runInAsyncScope(cb, this.t || this, ...args)
   }
 
   // TAP output generating methods
@@ -295,7 +300,7 @@ export class TestBase extends Base {
    * A passing (ok) Test Point
    */
   pass(...[msg, extra]: MessageExtra) {
-    this.currentAssert = arguments.callee
+    this.currentAssert = (this.t || this).pass
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('(unnamed test)', args)
     this.printResult(true, ...me)
@@ -306,11 +311,9 @@ export class TestBase extends Base {
    * A failing (not ok) Test Point
    */
   fail(...[msg, extra]: MessageExtra) {
-    this.currentAssert = arguments.callee
+    this.currentAssert = (this.t || this).fail
     const args = [msg, extra] as MessageExtra
-    const me = normalizeMessageExtra('(unnamed test)', [
-      args,
-    ])
+    const me = normalizeMessageExtra('(unnamed test)', args)
     this.printResult(false, ...me)
     return !!(me[1].todo || me[1].skip)
   }
@@ -343,7 +346,7 @@ export class TestBase extends Base {
     extra: Extra,
     front: boolean = false
   ) {
-    this.currentAssert = arguments.callee
+    this.currentAssert = (this.t || this).printResult
     this.#printedResult = true
 
     const n = this.count + 1
@@ -530,14 +533,20 @@ export class TestBase extends Base {
     }
 
     // If onbeforeend returns a Promise, then wait for it to finish.
-    const beRet = this.onbeforeend()
-    this.onbeforeend = TestBase.prototype.onbeforeend
-    if (isPromise(beRet)) {
-      this.waitOn(beRet, () => this.#end(implicit))
-      return
+    const obe = this.onbeforeend
+    if (!this.#pushedBeforeEnd) {
+      this.#pushedBeforeEnd = true
+      if (!queueEmpty(this) || this.#occupied) {
+        this.queue.push(obe)
+        return this.#process()
+      } else {
+        const ret = obe()
+        if (isPromise(ret)) {
+          // this will make the next section return this.#process()
+          this.waitOn(ret)
+        }
+      }
     }
-
-    super.end()
 
     // beyond here we have to be actually done with things, or else
     // the semantic checks on counts and such will be off.
@@ -808,7 +817,7 @@ export class TestBase extends Base {
     const ret = (() => {
       if (!this.cb) return
       try {
-        return this.cb(this)
+        return this.cb(this.t || this)
       } catch (er: any) {
         if (!er || typeof er !== 'object') {
           er = { error: er }
