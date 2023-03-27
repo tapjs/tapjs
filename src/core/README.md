@@ -113,9 +113,9 @@ Out of the box, tap comes with the following plugins loaded:
 - `@tapjs/asserts` All other assertions, like `t.match()`,
   `t.type()`, `t.has()`, and so on.
 - `@tapjs/snapshot` Providing the `t.matchSnapshot()` method.
+- `@tapjs/fixture` Providing the `t.testdir()` method.
 - TODO:
   - `@tapjs/mock` Providing the `t.mock()` method.
-  - `@tapjs/fixture` Providing the `t.testdir()` method.
 
 To _prevent_ loading any of these plugins, you can include them
 in the `plugins` config, prefixed with a `!`. For example, if
