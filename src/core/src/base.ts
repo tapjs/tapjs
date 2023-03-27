@@ -348,7 +348,6 @@ export class Base {
   }
 
   end() {
-    this.stream.end()
     return this
   }
 
