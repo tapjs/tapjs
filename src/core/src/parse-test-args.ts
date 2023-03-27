@@ -55,8 +55,9 @@ export const parseTestArgs = <T extends Base>(
 
   if (!extra) extra = {}
 
-  if (!cb && defaultName !== '/dev/stdin')
+  if (!cb && defaultName !== '/dev/stdin') {
     extra.todo = extra.todo || true
+  }
 
   if (!name && extra.name) name = extra.name
 
