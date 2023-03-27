@@ -88,21 +88,21 @@ export class Assertions {
   }
 
   ok(obj: any, ...[msg, extra]: MessageExtra) {
-    this.#t.currentAssert = arguments.callee
+    this.#t.currentAssert = this.#t.t.ok
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('should be equal', args)
     return obj ? this.#t.pass(...me) : this.#t.fail(...me)
   }
 
   notOk(obj: any, ...[msg, extra]: MessageExtra) {
-    this.#t.currentAssert = arguments.callee
+    this.#t.currentAssert = this.#t.t.notOk
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('should be equal', args)
     return !obj ? this.#t.pass(...me) : this.#t.fail(...me)
   }
 
   equal(found: any, wanted: any, ...[msg, extra]: MessageExtra) {
-    this.#t.currentAssert = arguments.callee
+    this.#t.currentAssert = this.#t.t.equal
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('should be equal', args)
     if (found === wanted) return this.#t.pass(...me)
@@ -125,7 +125,7 @@ export class Assertions {
   }
 
   not(found: any, doNotWant: any, ...[msg, extra]: MessageExtra) {
-    this.#t.currentAssert = arguments.callee
+    this.#t.currentAssert = this.#t.t.not
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('should not be equal', args)
     if (found !== doNotWant) {
@@ -140,7 +140,7 @@ export class Assertions {
   }
 
   same(found: any, wanted: any, ...[msg, extra]: MessageExtra) {
-    this.#t.currentAssert = arguments.callee
+    this.#t.currentAssert = this.#t.t.same
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('should be equivalent', args)
     const { match, diff } = same(found, wanted, this.#opts)
@@ -150,7 +150,7 @@ export class Assertions {
   }
 
   notSame(found: any, doNotWant: any, ...[msg, extra]: MessageExtra) {
-    this.#t.currentAssert = arguments.callee
+    this.#t.currentAssert = this.#t.t.notSame
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('should not be equivalent', args)
     const { match } = same(found, doNotWant, this.#opts)
@@ -160,7 +160,7 @@ export class Assertions {
   }
 
   strictSame(found: any, wanted: any, ...[msg, extra]: MessageExtra) {
-    this.#t.currentAssert = arguments.callee
+    this.#t.currentAssert = this.#t.t.strictSame
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('should be equivalent strictly', args)
     const { match, diff } = strict(found, wanted, this.#opts)
@@ -174,7 +174,7 @@ export class Assertions {
     doNotWant: any,
     ...[msg, extra]: MessageExtra
   ) {
-    this.#t.currentAssert = arguments.callee
+    this.#t.currentAssert = this.#t.t.strictNotSame
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
       'should not be equivalent strictly',
@@ -187,7 +187,7 @@ export class Assertions {
   }
 
   has(found: any, wanted: any, ...[msg, extra]: MessageExtra) {
-    this.#t.currentAssert = arguments.callee
+    this.#t.currentAssert = this.#t.t.has
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
       'all provided fields should be equivalent',
@@ -200,7 +200,7 @@ export class Assertions {
   }
 
   notHas(found: any, doNotWant: any, ...[msg, extra]: MessageExtra) {
-    this.#t.currentAssert = arguments.callee
+    this.#t.currentAssert = this.#t.t.notHas
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
       'all provided fields should not be equivalent',
@@ -213,7 +213,7 @@ export class Assertions {
   }
 
   hasStrict(found: any, wanted: any, ...[msg, extra]: MessageExtra) {
-    this.#t.currentAssert = arguments.callee
+    this.#t.currentAssert = this.#t.t.hasStrict
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
       'all provided fields should be equivalent strictly',
@@ -226,7 +226,7 @@ export class Assertions {
   }
 
   notHasStrict(found: any, doNotWant: any, ...[msg, extra]: MessageExtra) {
-    this.#t.currentAssert = arguments.callee
+    this.#t.currentAssert = this.#t.t.notHasStrict
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
       'all provided fields should not be equivalent strictly',
@@ -239,7 +239,7 @@ export class Assertions {
   }
 
   match(found: any, wanted: any, ...[msg, extra]: MessageExtra) {
-    this.#t.currentAssert = arguments.callee
+    this.#t.currentAssert = this.#t.t.match
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('should match pattern', args)
     const { match: ok, diff } = match(found, wanted, this.#opts)
@@ -249,7 +249,7 @@ export class Assertions {
   }
 
   notMatch(found: any, doNotWant: any, ...[msg, extra]: MessageExtra) {
-    this.#t.currentAssert = arguments.callee
+    this.#t.currentAssert = this.#t.t.notMatch
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('should not match pattern', args)
     const { match: ok } = match(found, doNotWant, this.#opts)
@@ -263,7 +263,7 @@ export class Assertions {
     wanted: string | number | symbol,
     ...[msg, extra]: MessageExtra
   ) {
-    this.#t.currentAssert = arguments.callee
+    this.#t.currentAssert = this.#t.t.hasProp
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
       'specified property should be defined',
@@ -289,7 +289,7 @@ export class Assertions {
     wanted: string | number | symbol,
     ...[msg, extra]: MessageExtra
   ) {
-    this.#t.currentAssert = arguments.callee
+    this.#t.currentAssert = this.#t.t.hasOwnProp
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
       'specified property should be defined own property',
@@ -315,7 +315,7 @@ export class Assertions {
     wanted: Iterable<string | number | symbol>,
     ...[msg, extra]: MessageExtra
   ) {
-    this.#t.currentAssert = arguments.callee
+    this.#t.currentAssert = this.#t.t.hasProps
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
       'should have all specified properties',
@@ -354,7 +354,7 @@ export class Assertions {
     wanted: Iterable<string | number | symbol>,
     ...[msg, extra]: MessageExtra
   ) {
-    this.#t.currentAssert = arguments.callee
+    this.#t.currentAssert = this.#t.t.hasOwnProps
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
       'should have all specified properties',
@@ -392,7 +392,7 @@ export class Assertions {
     fn: Function | (() => any),
     ...[wanted, msg, extra]: ThrowsArgs
   ): boolean | Error {
-    this.#t.currentAssert = arguments.callee
+    this.#t.currentAssert = this.#t.t.throws
     const args = [wanted, msg, extra] as ThrowsArgs
     const [w, m, e] = normalizeThrowsArgs(
       fn.name || 'expected to throw',
@@ -423,7 +423,7 @@ export class Assertions {
     fn: Function | (() => any),
     ...[msg, extra]: MessageExtra
   ): boolean | Error {
-    this.#t.currentAssert = arguments.callee
+    this.#t.currentAssert = this.#t.t.doesNotThrow
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
       fn.name || 'expect to not throw',
@@ -454,7 +454,7 @@ export class Assertions {
       return d.promise
     }
     let res!: boolean | Error
-    this.#t.currentAssert = arguments.callee
+    this.#t.currentAssert = this.#t.t.rejects
     try {
       await p
       res = this.#t.fail(m, e)
@@ -493,7 +493,7 @@ export class Assertions {
         return d.promise
       }
       let res: boolean | Error
-      this.#t.currentAssert = arguments.callee
+      this.#t.currentAssert = this.#t.t.resolves
       try {
         await p
         res = this.#t.pass(...me)
@@ -528,7 +528,7 @@ export class Assertions {
         return d.promise
       }
       let res: boolean | Error
-      this.#t.currentAssert = arguments.callee
+      this.#t.currentAssert = this.#t.t.resolveMatch
       try {
         res = this.match(await p, wanted, ...me)
       } catch (er) {
