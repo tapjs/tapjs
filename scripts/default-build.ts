@@ -10,6 +10,7 @@ const builtins = globSync('*.ts', {
   .map(p => `@tapjs/core/plugin/${p}`)
   .concat('@tapjs/asserts')
   .concat('@tapjs/snapshot')
+  .concat('@tapjs/fixture')
 
 console.log('building Test class with:')
 console.log(builtins.map(b => `  ${b}`).join('\n'))

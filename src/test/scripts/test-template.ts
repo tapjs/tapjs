@@ -17,13 +17,26 @@ const copyToString = (v: Function) => ({
     toString: () => 'function toString() { [native code] }',
   }),
 })
+const copyFunction = (t: Test, plug: Plug, v: Function) => {
+  const f: (this: Plug, ...args: any) => any = function (
+    ...args: any[]
+  ) {
+    const thisArg = this === t ? plug : this
+    return v.apply(thisArg, args)
+  }
+  const vv = Object.assign(f, copyToString(v))
+  const nameProp = Reflect.getOwnPropertyDescriptor(
+    v,
+    'name'
+  )
+  if (nameProp) {
+    Reflect.defineProperty(f, 'name', nameProp)
+  }
+  return vv
+}
 
 //{{PLUGIN IMPORT START}}
 //{{PLUGIN IMPORT END}}
-
-interface ClassOf<T> {
-  new (opts: any): T
-}
 
 type PI<O extends TestBaseOpts | any = any> =
   | ((t: TestBase, opts: O) => Plug)
@@ -46,7 +59,6 @@ type TTest = TestBase
 
 export interface Test extends TTest {
   end(): this
-  t: this
   test(
     name: string,
     extra: { [k: string]: any },
@@ -102,15 +114,22 @@ export interface Test extends TTest {
   ): Promise<FinalResults | null>
 }
 
-const applyPlugins = <T extends Test>(
-  base: T,
+const renameProxy = <T extends {}>(name: string, proxy: T): T => {
+  const o = Object.create(null)
+  Object.defineProperty(o, Symbol.toStringTag, { value: name })
+  Object.setPrototypeOf(o, proxy)
+  return o
+}
+
+const applyPlugins = (
+  base: Test,
   ext: Plug[] = [
     ...plugins.map(p => p(base, base.options)),
     base,
   ]
 ): Test => {
   const getCache = new Map<any, any>()
-  const t = new Proxy(base, {
+  const t = renameProxy('Test', new Proxy(base, {
     has(_, p) {
       for (const t of ext) {
         if (Reflect.has(t, p)) return true
@@ -151,6 +170,11 @@ const applyPlugins = <T extends Test>(
       return true
     },
     get(_, p) {
+      if (p === 'IS_PLUGGED') return true
+      if (p === Symbol.toStringTag) return 'Test'
+      if (p === 'parent') {
+        return base.parent?.t
+      }
       // cache get results so t.blah === t.blah
       // we only cache functions, so that getters aren't memoized
       // Of course, a getter that returns a function will be broken,
@@ -165,27 +189,18 @@ const applyPlugins = <T extends Test>(
           // the correct toString and are called on the correct object
           // Otherwise attempting to access #private props will fail.
           if (typeof v === 'function') {
-            const f: (this: Plug, ...args: any) => any =
-              function (...args: any[]) {
-                const thisArg = this === t ? plug : this
-                return v.apply(thisArg, args)
-              }
-            const vv = Object.assign(f, copyToString(v))
-            const nameProp =
-              Reflect.getOwnPropertyDescriptor(v, 'name')
-            if (nameProp) {
-              Reflect.defineProperty(f, 'name', nameProp)
-            }
+            const vv = copyFunction(t, plug, v)
             getCache.set(p, vv)
             return vv
+          } else if (p === 'parent') {
+            return v?.t
           } else {
-            getCache.set(p, v)
             return v
           }
         }
       }
     },
-  })
+  }))
   Object.assign(base, { t })
   ext.unshift({ t })
   return t
@@ -210,69 +225,65 @@ export class Test extends TestBase {
   test(
     name: string,
     extra: { [k: string]: any },
-    cb?: (t: Test) => any
+    cb: (t: Test) => any
   ): Promise<FinalResults | null>
   test(
     name: string,
-    cb?: (t: Test) => any
+    cb: (t: Test) => any
   ): Promise<FinalResults | null>
   test(
     extra: { [k: string]: any },
-    cb?: (t: Test) => any
+    cb: (t: Test) => any
   ): Promise<FinalResults | null>
-  test(cb?: (t: Test) => any): Promise<FinalResults | null>
+  test(cb: (t: Test) => any): Promise<FinalResults | null>
   test(
     ...args: TestArgs<Test>
   ): Promise<FinalResults | null> {
     const extra = parseTestArgs(...args)
-    extra.todo = true
-    const Class = this.constructor as ClassOf<Test>
-    return this.sub(Class, extra, this.test)
+    return this.sub(Test, extra, this.test)
   }
 
   todo(
     name: string,
     extra: { [k: string]: any },
-    cb?: (t: Test) => any
+    cb: (t: Test) => any
   ): Promise<FinalResults | null>
   todo(
     name: string,
-    cb?: (t: Test) => any
+    cb: (t: Test) => any
   ): Promise<FinalResults | null>
   todo(
     extra: { [k: string]: any },
-    cb?: (t: Test) => any
+    cb: (t: Test) => any
   ): Promise<FinalResults | null>
-  todo(cb?: (t: Test) => any): Promise<FinalResults | null>
+  todo(cb: (t: Test) => any): Promise<FinalResults | null>
   todo(
     ...args: TestArgs<Test>
   ): Promise<FinalResults | null> {
     const extra = parseTestArgs(...args)
     extra.todo = true
-    const Class = this.constructor as ClassOf<Test>
-    return this.sub(Class, extra, this.test)
+    return this.sub(Test, extra, this.test)
   }
 
   skip(
     name: string,
     extra: { [k: string]: any },
-    cb?: (t: Test) => any
+    cb: (t: Test) => any
   ): Promise<FinalResults | null>
   skip(
     name: string,
-    cb?: (t: Test) => any
+    cb: (t: Test) => any
   ): Promise<FinalResults | null>
   skip(
     extra: { [k: string]: any },
-    cb?: (t: Test) => any
+    cb: (t: Test) => any
   ): Promise<FinalResults | null>
-  skip(cb?: (t: Test) => any): Promise<FinalResults | null>
+  skip(cb: (t: Test) => any): Promise<FinalResults | null>
   skip(
     ...args: TestArgs<Test>
   ): Promise<FinalResults | null> {
     const extra = parseTestArgs(...args)
     extra.skip = true
-    const Class = this.constructor as ClassOf<Test>
-    return this.sub(Class, extra, this.test)
+    return this.sub(Test, extra, this.test)
   }
 }
