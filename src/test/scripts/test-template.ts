@@ -114,13 +114,6 @@ export interface Test extends TTest {
   ): Promise<FinalResults | null>
 }
 
-const renameProxy = <T extends {}>(name: string, proxy: T): T => {
-  const o = Object.create(null)
-  Object.defineProperty(o, Symbol.toStringTag, { value: name })
-  Object.setPrototypeOf(o, proxy)
-  return o
-}
-
 const applyPlugins = (
   base: Test,
   ext: Plug[] = [
@@ -129,7 +122,9 @@ const applyPlugins = (
   ]
 ): Test => {
   const getCache = new Map<any, any>()
-  const t = renameProxy('Test', new Proxy(base, {
+  // extend the proxy with Object.create, and then set the toStringTag
+  // to 'Test', so we don't get stack frames like `Proxy.<anonymous>`
+  const t = Object.create(new Proxy(base, {
     has(_, p) {
       for (const t of ext) {
         if (Reflect.has(t, p)) return true
@@ -189,7 +184,7 @@ const applyPlugins = (
           // the correct toString and are called on the correct object
           // Otherwise attempting to access #private props will fail.
           if (typeof v === 'function') {
-            const vv = copyFunction(t, plug, v)
+            const vv = copyFunction(t, plug === base ? t : plug, v)
             getCache.set(p, vv)
             return vv
           } else if (p === 'parent') {
@@ -201,6 +196,7 @@ const applyPlugins = (
       }
     },
   }))
+  Object.defineProperty(t, Symbol.toStringTag, { value: 'Test' })
   Object.assign(base, { t })
   ext.unshift({ t })
   return t
