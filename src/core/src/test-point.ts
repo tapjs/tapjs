@@ -55,7 +55,7 @@ const tpMessage = (
   }
 
   const diagYaml = extra.diagnostic
-    ? diags(extra, options)
+    ? '\n' + diags(extra, options)
     : ''
   message += diagYaml + '\n'
 
