@@ -12,7 +12,7 @@ class Before {
    * tests should wait until after it completes.
    */
   before(fn: () => any) {
-    this.#t.currentAssert = arguments.callee
+    this.#t.currentAssert = this.before
     if (this.#t.printedResult) {
       throw new Error(
         't.before() called after starting tests'

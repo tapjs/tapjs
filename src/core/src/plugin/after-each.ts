@@ -1,6 +1,6 @@
+import type { Test } from '@tapjs/test'
 import loop from 'function-loop'
 import { TapPlugin, TestBase } from '../test-base.js'
-import type { Test } from '@tapjs/test'
 
 class AfterEach {
   static #refs = new Map<TestBase, AfterEach>()
@@ -8,37 +8,40 @@ class AfterEach {
   constructor(t: TestBase) {
     this.#t = t
     AfterEach.#refs.set(t, this)
-    const runMain = t.runMain
-    t.runMain = (cb: () => void) => {
-      runMain.call(t, () => this.#runAfterEach(this.#t, cb))
+    const pae = t.parent && AfterEach.#refs.get(t.parent)
+    if (pae && pae.#onAfterEach.length) {
+      this.#parentOnAfterEach = [
+        ...pae.#onAfterEach,
+        ...pae.#parentOnAfterEach,
+      ]
+    } else {
+      this.#parentOnAfterEach = []
+    }
+    if (this.#parentOnAfterEach.length) {
+      const runMain = t.runMain
+      t.runMain = (cb: () => void) => {
+        runMain.call(t, () => this.#runAfterEach(cb))
+      }
     }
   }
   #onAfterEach: ((t: Test) => void)[] = []
+  #parentOnAfterEach: ((t: Test) => void)[] = []
   afterEach(fn: (t: Test) => void | Promise<void>) {
     this.#onAfterEach.push(fn)
   }
-  #runAfterEach(who: TestBase, cb: () => void) {
-    // run all the afterEach methods from the parent
+  #runAfterEach(cb: () => void) {
     const onerr = (er: any) => {
-      who.threw(er)
+      this.#t.threw(er)
       cb()
     }
-    const p = this.#t.parent
-    const pae = !!p && AfterEach.#refs.get(p)
-    const run = () => {
-      if (pae) {
-        pae.#runAfterEach(who, cb)
-      } else {
-        cb()
-      }
-    }
-    if (who !== this.#t) {
-      loop(this.#onAfterEach, run, onerr)
-    } else {
-      run()
-    }
+    loop(
+      this.#parentOnAfterEach.map(f => () => f(this.#t.t)),
+      cb,
+      onerr
+    )
   }
 }
 
-const plugin: TapPlugin<AfterEach> = (t: TestBase) => new AfterEach(t)
+const plugin: TapPlugin<AfterEach> = (t: TestBase) =>
+  new AfterEach(t)
 export default plugin
