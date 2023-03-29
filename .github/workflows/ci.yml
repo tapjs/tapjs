@@ -28,9 +28,14 @@ jobs:
         uses: actions/setup-node@v2.1.4
         with:
           node-version: ${{ matrix.node-version }}
+
       - name: Install
         run: |
           npm install --ignore-scripts
+
       - name: Run tests
         run: |
           npm test --color=always -- -c -t0
+
+      - name: Scan your dependencies with the listen.dev CLI
+        uses: listendev/action@v0.1.0
