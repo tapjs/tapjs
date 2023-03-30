@@ -6,24 +6,28 @@
 // weird ugly double-thingie.
 import { findSourceMap, SourceMap } from 'module'
 import { fileURLToPath } from 'url'
-import { Compiled, parseCallSiteLine } from './parse'
+import {
+  Compiled,
+  isCompiledCallSiteLine,
+  parseCallSiteLine,
+} from './parse.js'
 
 const methodRe = /^(.*?) \[as (.*?)\]$/
 
-export interface GeneratedOrigin {
+export interface GeneratedResult {
   fileName: ReturnType<NodeJS.CallSite['getFileName']>
   lineNumber: ReturnType<SourceMap['findEntry']>['generatedLine']
   columnNumber?: ReturnType<SourceMap['findEntry']>['generatedColumn']
 }
 
 const isCallSite = (c: any): c is NodeJS.CallSite =>
-  !!c && typeof c === 'object' && typeof c.getFileName === 'function'
-const isCompiledCallSiteLine = (c: any): c is Compiled =>
-  !!c &&
-  typeof c === 'object' &&
-  (typeof c.fileName === 'string' || typeof c.fname === 'string')
+  !!c && typeof c === 'object' && c.constructor?.name === 'CallSite'
 
 export class CallSiteLike {
+  static prepareStackTrace(e: Error, c: NodeJS.CallSite[]) {
+    return c.map(c => new CallSiteLike(e, c))
+  }
+
   #fileName: ReturnType<NodeJS.CallSite['getFileName']>
   #cwd?: string
   lineNumber: ReturnType<NodeJS.CallSite['getLineNumber']>
@@ -38,23 +42,12 @@ export class CallSiteLike {
   isNative: ReturnType<NodeJS.CallSite['isNative']>
   isToplevel: ReturnType<NodeJS.CallSite['isToplevel']>
   isConstructor: ReturnType<NodeJS.CallSite['isConstructor']>
-  generated?: GeneratedOrigin
+  generated?: GeneratedResult
   #sourceMap?: SourceMap
 
   // normalize and relativize filename if cwd is set
   get fileName() {
     return this.#relativize(this.#fileName)
-  }
-
-  #relativize(fileName?: string | null) {
-    if (!fileName || this.#cwd === undefined) return fileName
-    let f = fileName
-    if (f.startsWith('file://')) f = fileURLToPath(f)
-    else f = f.replace(/\\/g, '/')
-    if (f.startsWith(`${this.#cwd}/`)) {
-      return f.substring(this.#cwd.length + 1)
-    }
-    return fileName
   }
 
   get cwd(): string | undefined {
@@ -64,67 +57,6 @@ export class CallSiteLike {
   set cwd(cwd: string | undefined) {
     this.#cwd = cwd?.replace(/\\/g, '/')
     if (this.evalOrigin) this.evalOrigin.cwd = cwd
-  }
-
-  static prepareStackTrace(e: Error, c: NodeJS.CallSite[]) {
-    return c.map(c => new CallSiteLike(e, c))
-  }
-
-  toString(): string {
-    let fname = this.functionName || ''
-    const tn = this.typeName
-      ? this.typeName + '.' + (this.methodName || '<anonymous>')
-      : ''
-    if (!fname && tn) {
-      fname = tn
-    }
-    if (fname && this.methodName && fname !== tn) {
-      fname += ` [as ${this.methodName}]`
-    }
-    if (this.isConstructor && fname) {
-      fname = `new ${fname}`
-    }
-    let ev = this.evalOrigin ? `eval at ${this.evalOrigin.toString()}` : ''
-    if (ev) {
-      ev = fname ? ` (${ev})` : ev
-    }
-    const nat = this.isNative ? 'native' : ''
-    let file = this.fileName || ''
-    const hasLC =
-      this.lineNumber !== undefined &&
-      this.lineNumber !== null &&
-      this.columnNumber !== undefined &&
-      this.columnNumber !== null
-    if (!nat && (file || hasLC)) {
-      if (hasLC) {
-        file = file || '<anonymous>'
-        file += `:${this.lineNumber}:${this.columnNumber}`
-      }
-    } else if (nat) {
-      file = 'native'
-    } else {
-      file = ''
-    }
-    let g = ''
-    if (this.generated && this.generated.fileName) {
-      const { fileName, lineNumber, columnNumber } = this.generated
-      g = this.#relativize(fileName) || ''
-      if (g) {
-        if (
-          typeof lineNumber === 'number' &&
-          typeof columnNumber === 'number'
-        ) {
-          g += `:${lineNumber}:${columnNumber}`
-        }
-        if (ev || fname) {
-          g = ` (${g})`
-        }
-      }
-    }
-    if (file && (ev || fname || g)) {
-      file = ` (${file})`
-    }
-    return `${fname}${ev}${g}${file}`
   }
 
   constructor(e: Error | null, c: NodeJS.CallSite | string | Compiled) {
@@ -164,6 +96,7 @@ export class CallSiteLike {
       if (c.evalOrigin) {
         this.evalOrigin = new CallSiteLike(e, c.evalOrigin)
       }
+
       this.lineNumber = c.lineNumber === undefined ? null : c.lineNumber
       this.columnNumber =
         c.columnNumber === undefined ? null : c.columnNumber
@@ -172,6 +105,7 @@ export class CallSiteLike {
       let fname = c.fname
       let method: null | string = null
       this.isNative = !!c.isNative
+
       if (fname) {
         if (fname && fname.startsWith('new ')) {
           this.isConstructor = true
@@ -231,5 +165,73 @@ export class CallSiteLike {
         }
       }
     }
+  }
+
+  #relativize(fileName?: string | null) {
+    if (!fileName || this.#cwd === undefined) return fileName
+    let f = fileName
+    if (f.startsWith('file://')) f = fileURLToPath(f)
+    else f = f.replace(/\\/g, '/')
+    if (f.startsWith(`${this.#cwd}/`)) {
+      return f.substring(this.#cwd.length + 1)
+    }
+    return fileName
+  }
+
+  toString(): string {
+    let fname = this.functionName || ''
+    const tn = this.typeName
+      ? this.typeName + '.' + (this.methodName || '<anonymous>')
+      : ''
+    if (!fname && tn) {
+      fname = tn
+    }
+    if (fname && this.methodName && fname !== tn) {
+      fname += ` [as ${this.methodName}]`
+    }
+    if (this.isConstructor && fname) {
+      fname = `new ${fname}`
+    }
+    let ev = this.evalOrigin ? `eval at ${this.evalOrigin.toString()}` : ''
+    if (ev) {
+      ev = fname ? ` (${ev})` : ev
+    }
+    const nat = this.isNative ? 'native' : ''
+    let file = this.fileName || ''
+    const hasLC =
+      this.lineNumber !== undefined &&
+      this.lineNumber !== null &&
+      this.columnNumber !== undefined &&
+      this.columnNumber !== null
+    if (!nat && (file || hasLC)) {
+      if (hasLC) {
+        file = file || '<anonymous>'
+        file += `:${this.lineNumber}:${this.columnNumber}`
+      }
+    } else if (nat) {
+      file = 'native'
+    } else {
+      file = ''
+    }
+    let g = ''
+    if (this.generated && this.generated.fileName) {
+      const { fileName, lineNumber, columnNumber } = this.generated
+      g = this.#relativize(fileName) || ''
+      if (g) {
+        if (
+          typeof lineNumber === 'number' &&
+          typeof columnNumber === 'number'
+        ) {
+          g += `:${lineNumber}:${columnNumber}`
+        }
+        if (ev || fname) {
+          g = ` (${g})`
+        }
+      }
+    }
+    if (file && (ev || fname || g)) {
+      file = ` (${file})`
+    }
+    return `${fname}${ev}${g}${file}`
   }
 }

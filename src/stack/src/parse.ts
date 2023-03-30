@@ -10,6 +10,7 @@ interface LineRef {
   columnNumber: number
 }
 
+const isCompiled = Symbol('compiled call site line')
 export interface Compiled {
   fname?: string
   fileName?: string
@@ -19,7 +20,11 @@ export interface Compiled {
   evalOrigin?: Compiled
   isEval?: boolean
   isNative?: boolean
+  [isCompiled]: true
 }
+
+export const isCompiledCallSiteLine = (c: any) =>
+  !!c && typeof c === 'object' && c[isCompiled] === true
 
 const compile = (sexpr: Sexpr): Compiled => {
   // each entry in the sexpr tree is one of the following:
@@ -35,6 +40,7 @@ const compile = (sexpr: Sexpr): Compiled => {
     if (!src) {
       // just a single lineref, parse and return
       return {
+        [isCompiled]: true,
         fileName: lrMatch[1],
         lineNumber: +lrMatch[2],
         columnNumber: +lrMatch[3],
@@ -43,6 +49,7 @@ const compile = (sexpr: Sexpr): Compiled => {
       // subsequent linerefs are the actual source, this is the generated
       // result
       return {
+        [isCompiled]: true,
         fileName: src[1],
         lineNumber: +src[2],
         columnNumber: +src[3],
@@ -58,9 +65,14 @@ const compile = (sexpr: Sexpr): Compiled => {
   const isEvalOrigin = sexpr[0].startsWith('eval at ')
   if (isEvalOrigin) {
     const fname = sexpr[0].substring('eval at '.length).trim()
-    if (!sexpr[1]) return { fname }
+    if (!sexpr[1])
+      return {
+        [isCompiled]: true,
+        fname,
+      }
     if (sexpr.length === 2 && sexpr[1][0].startsWith('eval at ')) {
       return {
+        [isCompiled]: true,
         fname,
         evalOrigin: compile(sexpr[1]),
       }
@@ -76,25 +88,39 @@ const compile = (sexpr: Sexpr): Compiled => {
         }
     return srcMatch
       ? {
+          [isCompiled]: true,
           fname,
           fileName: srcMatch[1],
           lineNumber: +srcMatch[2],
           columnNumber: +srcMatch[3],
           generated,
         }
-      : { fname, ...(generated || {}) }
+      : {
+          [isCompiled]: true,
+          fname,
+          ...(generated || {}),
+        }
   }
 
   // not a lineref or eval origin, has some kind of function name.
   const fname = sexpr[0].replace(/^\s*at /, '')
-  if (!sexpr[1]) return { fname }
+  if (!sexpr[1]) {
+    return {
+      [isCompiled]: true,
+      fname,
+    }
+  }
   const isNative = sexpr[sexpr.length - 1][0] === 'native'
   const src = !isNative && parseLineRef(sexpr[sexpr.length - 1][0])
   const source = !src
     ? { isNative }
     : { fileName: src[1], lineNumber: +src[2], columnNumber: +src[3] }
   if (sexpr.length === 2) {
-    return { fname, ...source }
+    return {
+      [isCompiled]: true,
+      fname,
+      ...source,
+    }
   }
   const gen = parseLineRef(sexpr[1][0])
   const generated = !gen
@@ -106,13 +132,19 @@ const compile = (sexpr: Sexpr): Compiled => {
       }
   if (gen) {
     return src
-      ? { fname, ...source, generated }
-      : { fname, ...(generated || {}) }
+      ? {
+          [isCompiled]: true,
+          fname,
+          ...source,
+          generated,
+        }
+      : { [isCompiled]: true, fname, ...(generated || {}) }
   }
 
   // at this point we must have an eval origin
   if (sexpr[1][0].startsWith('eval at')) {
     return {
+      [isCompiled]: true,
       fname,
       isEval: true,
       evalOrigin: compile(sexpr[1]),
@@ -121,7 +153,7 @@ const compile = (sexpr: Sexpr): Compiled => {
   }
 
   // something weird??
-  return { fname, ...source }
+  return { [isCompiled]: true, fname, ...source }
 }
 
 const parseLineRef = (s: string) =>
