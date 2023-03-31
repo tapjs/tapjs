@@ -8,14 +8,13 @@ import { basename } from 'node:path'
 import { hrtime } from 'node:process'
 import { Readable } from 'node:stream'
 import { format } from 'node:util'
-import { CallSiteLike } from 'stack-utils'
 import { FinalResults } from 'tap-parser'
 import Deferred from 'trivial-deferred'
 import { Base, BaseOpts } from './base.js'
 import { esc } from './esc.js'
 import extraFromError from './extra-from-error.js'
 import { Spawn } from './spawn.js'
-import stack from './stack.js'
+import * as stack from '@tapjs/stack'
 import { TestPoint } from './test-point.js'
 import { Waiter } from './waiter.js'
 
@@ -81,7 +80,7 @@ export interface TestBaseOpts extends BaseOpts {
   diagnostic?: boolean
 
   stack?: string
-  at?: CallSiteLike
+  at?: stack.CallSiteLike
   test?: string
 }
 
@@ -142,7 +141,7 @@ export class TestBase extends Base {
   cb?: (...args: any[]) => any
   count: number = 0
   ended: boolean = false
-  assertAt: CallSiteLike | null = null
+  assertAt: stack.CallSiteLike | null = null
   assertStack: string | null = null
   diagnostic: null | boolean = null
 
@@ -387,8 +386,9 @@ export class TestBase extends Base {
       this.assertStack = null
     }
 
-    if (typeof extra.stack === 'string' && !extra.at) {
-      extra.at = stack.parseLine(extra.stack.split('\n')[0])
+    if (typeof extra.stack === 'string' && extra.stack && !extra.at) {
+      const at = stack.parseStack(extra.stack)[0]
+      if (at) extra.at = at
     }
 
     if (
@@ -397,9 +397,10 @@ export class TestBase extends Base {
       !extra.at &&
       typeof fn === 'function'
     ) {
-      extra.at = stack.at(fn)
+      const st = stack.capture(80, fn)
+      extra.at = st[0]
       if (!extra.todo) {
-        extra.stack = stack.captureString(80, fn)
+        extra.stack = st.map(c => String(c)).join('\n')
       }
     }
 
@@ -770,7 +771,7 @@ export class TestBase extends Base {
     this.debug('#onIndentedEnd %s(%s)', this.name, p.name)
     this.#occupied = null
     this.debug(
-      'OIE(%s) b>shift into queue',
+      'OIE(%s) >shift into queue',
       this.name,
       this.queue
     )
@@ -974,7 +975,9 @@ export class TestBase extends Base {
     extra.bail =
       extra.bail !== undefined ? extra.bail : this.bail
     extra.parent = this
-    extra.stack = stack.captureString(80, caller)
+    const st = stack.capture(80, caller)
+    extra.stack = st.map(c => String(c)).join('\n')
+    extra.at = st[0]
     extra.context = this.context
 
     const t = new Class(extra)

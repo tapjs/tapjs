@@ -242,4 +242,52 @@ export class CallSiteLike {
     }
     return `${fname}${ev}${g}${file}`
   }
+
+  toJSON() {
+    const {
+      fileName,
+      lineNumber,
+      columnNumber,
+      evalOrigin,
+      typeName,
+      methodName,
+      functionName,
+      isEval,
+      isNative,
+      isToplevel,
+      isConstructor,
+      generated,
+    } = this
+    const raw: { [k: string]: any } = {
+      fileName,
+      lineNumber,
+      columnNumber,
+      evalOrigin,
+      typeName,
+      methodName,
+      functionName,
+      isEval,
+      isNative,
+      isToplevel,
+      isConstructor,
+      generated,
+    }
+
+    // only include the things that are relevantly set
+    const entries: [string, any][] = Object.entries(raw)
+      .map(([k, v]): [string, any] => {
+        if (v instanceof CallSiteLike) {
+          v = v.toJSON()
+        }
+        if (!!v && typeof v === 'object') {
+          const entries: [string, any][] = Object.entries(v).filter(
+            ([_, vv]) => !!vv
+          )
+          return [k, entries.length ? Object.fromEntries(entries) : null]
+        }
+        return [k, v]
+      })
+      .filter(([_, v]) => !!v)
+    return entries.length ? Object.fromEntries(entries) : null
+  }
 }

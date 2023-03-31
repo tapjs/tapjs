@@ -1,6 +1,6 @@
-import { Test } from '../dist/cjs/test-built.js'
+import { Test } from '@tapjs/test'
 
-import { TestBaseOpts } from '../dist/cjs/test-base.js'
+import { TestBaseOpts } from '@tapjs/core'
 const opts: TestBaseOpts = {
   debug: /\btap\b/.test(process.env.NODE_DEBUG || ''),
   name: 'TAP',
@@ -9,7 +9,9 @@ const opts: TestBaseOpts = {
 const t = new Test(opts)
 
 t.stream.pipe(process.stdout)
-t.runMain(() => {})
+t.runMain(() => {
+  console.error('t.runMain callback')
+})
 
 t.beforeEach(() => {
   console.log('first beforeEach')

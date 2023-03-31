@@ -45,8 +45,8 @@
   },
   "dependencies": {
     "@tapjs/processinfo": "^1.0.4",
-    "@tapjs/test": ">=0.0.0-0",
     "@tapjs/stack": ">=0.0.0-0",
+    "@tapjs/test": ">=0.0.0-0",
     "async-hook-domain": "^3.0.2",
     "function-loop": "^3.0.0",
     "minipass": "^4.2.5",
@@ -69,12 +69,10 @@
     "@testing-library/react": "^13.4.0",
     "@types/diff": "^5.0.2",
     "@types/node": "^18.11.9",
-    "@types/stack-utils": "^2.0.1",
     "@types/tap": "^15.0.7",
     "c8": "^7.12.0",
     "prettier": "^2.6.2",
     "react": "^18.2.0",
-    "tap": "^16.3.4",
     "ts-node": "^10.9.1",
     "typedoc": "^0.23.21",
     "typescript": "^5.0.2"

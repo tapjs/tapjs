@@ -110,7 +110,7 @@ export class Base {
   buffered: boolean
   bailedOut: string | boolean
   start: bigint
-  #started: boolean
+  #started: boolean = false
   time: number
   hrtime: bigint
   silent: boolean
@@ -147,7 +147,6 @@ export class Base {
     this.time = 0
     this.hrtime = 0n
     this.start = 0n
-    this.#started = false
     this.childId = options.childId || 0
     // do we need this?  couldn't we just call the Minipass
     this.output = ''

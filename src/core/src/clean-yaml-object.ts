@@ -1,8 +1,7 @@
+import * as stack from '@tapjs/stack'
 import { createTwoFilesPatch } from 'diff'
 import { readFileSync } from 'node:fs'
-import { resolve } from 'node:path'
 import { format, strict } from 'tcompare'
-import stack from './stack.js'
 import type { TestBaseOpts } from './test-base.js'
 
 import { tapDir } from './tap-dir.js'
@@ -24,10 +23,13 @@ export const cleanYamlObject = (
 ) => {
   const res = { ...object }
   if (hasOwn(res, 'stack') && !hasOwn(res, 'at')) {
-    res.at = stack.parseLine(res.stack.split('\n')[0])
+    res.at = stack.parseStack(res.stack.split('\n'))[0]
   }
 
-  const file = res.at && res.at.file && resolve(res.at.file)
+  const file =
+    res.at &&
+    res.at instanceof stack.CallSiteLike &&
+    res.at.absoluteFileName
   if (
     !options.stackIncludesTap &&
     file &&
@@ -40,32 +42,37 @@ export const cleanYamlObject = (
   if (
     file &&
     res.at &&
-    res.at.file &&
-    res.at.line &&
+    res.at instanceof stack.CallSiteLike &&
+    res.at.fileName &&
+    res.at.lineNumber &&
     !res.source
   ) {
     const content = tryReadFile(file)
     if (content) {
       const lines = content.split('\n')
-      if (res.at.line <= lines.length) {
-        const startLine = Math.max(res.at.line - 2, 0)
+      if (res.at.lineNumber <= lines.length) {
+        const startLine = Math.max(res.at.lineNumber - 2, 0)
         const endLine = Math.min(
-          res.at.line + 2,
+          res.at.lineNumber + 2,
           lines.length
         )
         const caret =
-          res.at.column &&
-          res.at.column <= lines[res.at.line - 1].length
-            ? [new Array(res.at.column).join('-') + '^']
+          res.at.columnNumber &&
+          res.at.columnNumber <=
+            lines[res.at.lineNumber - 1].length
+            ? ['-'.repeat(res.at.columnNumber - 1) + '^']
             : []
         const context = lines
-          .slice(startLine, res.at.line)
+          .slice(startLine, res.at.lineNumber)
           .concat(caret)
-          .concat(lines.slice(res.at.line, endLine))
+          .concat(lines.slice(res.at.lineNumber, endLine))
         const csplit = context.join('\n').trimEnd()
         if (csplit) res.source = csplit + '\n'
       }
     }
+  }
+  if (res.at && res.at instanceof stack.CallSiteLike) {
+    res.at = res.at.toJSON()
   }
 
   // show a line by line string diff
