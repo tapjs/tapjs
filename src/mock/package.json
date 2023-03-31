@@ -1,0 +1,83 @@
+{
+  "name": "@tapjs/mock",
+  "version": "0.0.0-0",
+  "description": "tap plugin adding t.mockRequire() and t.mockImport()",
+  "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/mjs/index.js",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/mjs/index.d.ts",
+        "default": "./dist/mjs/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    },
+    "./loader": {
+      "types": "./dist/mjs/loader.d.ts",
+      "import": "./dist/mjs/loader.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "license": "BlueOak-1.0.0",
+  "scripts": {
+    "preversion": "npm test",
+    "postversion": "npm publish",
+    "prepublishOnly": "git push origin --follow-tags",
+    "preprepare": "rm -rf dist",
+    "prepare": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json",
+    "postprepare": "bash ./scripts/fixup.sh",
+    "pretest": "npm run prepare",
+    "presnap": "npm run prepare",
+    "test": "c8 tap",
+    "snap": "c8 tap",
+    "format": "prettier --write . --loglevel warn",
+    "typedoc": "typedoc --tsconfig tsconfig.json ./src/*.ts"
+  },
+  "prettier": {
+    "semi": false,
+    "printWidth": 75,
+    "tabWidth": 2,
+    "useTabs": false,
+    "singleQuote": true,
+    "jsxSingleQuote": false,
+    "bracketSameLine": true,
+    "arrowParens": "avoid",
+    "endOfLine": "lf"
+  },
+  "tap": {
+    "coverage": false,
+    "node-arg": [
+      "--no-warnings",
+      "--loader",
+      "ts-node/esm"
+    ],
+    "ts": false
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.10",
+    "@types/tap": "^15.0.8",
+    "c8": "^7.13.0",
+    "eslint-config-prettier": "^8.8.0",
+    "prettier": "^2.8.7",
+    "tap": "^16.3.4",
+    "ts-node": "^10.9.1",
+    "typedoc": "^0.23.28",
+    "typescript": "^5.0.2"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "funding": {
+    "url": "https://github.com/sponsors/isaacs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isaacs/mock"
+  }
+}

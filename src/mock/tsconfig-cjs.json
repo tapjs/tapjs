@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig-base.json",
+  "exclude": ["./test", "./tap-snapshots", "./src/loader-url-esm.ts", "./src/loader.ts"],
+  "compilerOptions": {
+    "module": "commonjs",
+    "outDir": "dist/cjs",
+    "moduleResolution": "Node16"
+  }
+}
