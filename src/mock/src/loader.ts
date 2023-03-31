@@ -1,4 +1,14 @@
+import { createRequire } from 'module'
+import { isAbsolute } from 'path'
+import { pathToFileURL } from 'url'
 import type { Mocks } from './mocks.js'
+import plugin from './index.js'
+
+export * from './index.js'
+export default plugin
+export { mockImport } from './mock-import.js'
+export { mockRequire } from './mock-require.js'
+
 const loaderSymbol = Symbol.for('__tapmockLoader')
 declare var global: {
   [loaderSymbol]: string
@@ -41,13 +51,18 @@ if (version[0] < 14) {
 
 const stringExports = version[0] >= 16
 
-const buildSrc = (m: Mocks, key: string, url: string) => {
+type MocksWithMocks = Omit<Mocks, 'mocks'> & {
+  mocks: Exclude<Mocks['mocks'], undefined>
+}
+const hasMocks = (m: any): m is MocksWithMocks => !!m && !!m.mocks
+
+const buildSrc = (m: MocksWithMocks, key: string, url: string) => {
   const mock = m.mocks[url]
   let hasDefault = false
   const keySrc = `__tapmock${key}`
   const mockSrc = `global.${keySrc}.mocks[${JSON.stringify(url)}]`
   let i = 0
-  const src = Object.keys(mock).map(k => {
+  const src = Object.keys(mock || {}).map(k => {
     if (k === 'default') {
       hasDefault = true
       return `const defExp = ${mockSrc}.default
@@ -139,7 +154,7 @@ export const load: LoadFunction = async (url, context, nextLoad) => {
     }
 
     const m = global[`__tapmock${key}`]
-    if (!m || !hasOwn(m.mocks, mockURL)) {
+    if (!hasMocks(m) || !hasOwn(m.mocks, mockURL)) {
       return nextLoad(mockURL, context)
     }
 
@@ -150,8 +165,7 @@ export const load: LoadFunction = async (url, context, nextLoad) => {
       shortCircuit: true,
     }
   }
-  const res = nextLoad(url, context)
-  return res
+  return nextLoad(url, context)
 }
 
 export const resolve: ResolveFunction = async (
@@ -172,11 +186,20 @@ export const resolve: ResolveFunction = async (
     return nextResolve(url, context)
   }
 
-  const resolvedURL = String(new URL(url, context.parentURL))
+  const resolvedURL = hasOwn(m.mocks, url)
+    ? url
+    : String(new URL(url, context.parentURL))
   if (!hasOwn(m.mocks, resolvedURL)) {
     // parent is mocked, but this module isn't, so the things IT loads
-    // should be loaded from the mock, even though it isn't.
-    const mocker = new URL(resolvedURL)
+    // should be loaded from the mock, even though it isn't. Need to
+    // call require.resolve() here so that it doesn't get confused when
+    // loading deps out of node_modules.
+    const { resolve } = createRequire(context.parentURL)
+    const mocker = new URL(
+      url.startsWith('file://')
+        ? url
+        : pathToFileURL(isAbsolute(url) ? url : resolve(url))
+    )
     mocker.searchParams.set('tapmock', key)
     return nextResolve(String(mocker), context)
   }

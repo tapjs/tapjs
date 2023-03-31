@@ -1,15 +1,15 @@
 import type { CallSiteLike } from '@tapjs/stack'
 export interface Mocks {
   key: string
-  unmock: () => null
+  unmock: () => void
   caller: {
     path: string
     dir: string
-    url: string
-    at: CallSiteLike
+    url: string | URL
+    at: CallSiteLike | undefined
     stack: string
   }
-  mocks: {
+  mocks?: {
     [k: string]: string
   }
 }

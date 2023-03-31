@@ -3,7 +3,7 @@
   "exclude": ["./test", "./tap-snapshots", "./src/loader-url-esm.ts", "./src/loader.ts"],
   "compilerOptions": {
     "module": "commonjs",
-    "outDir": "dist/cjs",
+    "outDir": "dist-tmp/cjs",
     "moduleResolution": "Node16"
   }
 }

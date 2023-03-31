@@ -8,17 +8,13 @@
   "exports": {
     ".": {
       "import": {
-        "types": "./dist/mjs/index.d.ts",
-        "default": "./dist/mjs/index.js"
+        "types": "./dist/mjs/loader.d.ts",
+        "default": "./dist/mjs/loader.js"
       },
       "require": {
         "types": "./dist/cjs/index.d.ts",
         "default": "./dist/cjs/index.js"
       }
-    },
-    "./loader": {
-      "types": "./dist/mjs/loader.d.ts",
-      "import": "./dist/mjs/loader.js"
     }
   },
   "files": [
