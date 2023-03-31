@@ -258,7 +258,7 @@ export class Test extends TestBase {
   ): Promise<FinalResults | null> {
     const extra = parseTestArgs(...args)
     extra.todo = true
-    return this.sub(Test, extra, this.test)
+    return this.sub(Test, extra, this.todo)
   }
 
   skip(
@@ -280,6 +280,6 @@ export class Test extends TestBase {
   ): Promise<FinalResults | null> {
     const extra = parseTestArgs(...args)
     extra.skip = true
-    return this.sub(Test, extra, this.test)
+    return this.sub(Test, extra, this.skip)
   }
 }
