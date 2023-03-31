@@ -45,6 +45,8 @@
   },
   "dependencies": {
     "@tapjs/processinfo": "^1.0.4",
+    "@tapjs/test": ">=0.0.0-0",
+    "@tapjs/stack": ">=0.0.0-0",
     "async-hook-domain": "^3.0.2",
     "function-loop": "^3.0.0",
     "minipass": "^4.2.5",
