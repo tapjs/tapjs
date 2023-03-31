@@ -184,7 +184,7 @@ const applyPlugins = (
           // the correct toString and are called on the correct object
           // Otherwise attempting to access #private props will fail.
           if (typeof v === 'function') {
-            const vv = copyFunction(t, plug === base ? t : plug, v)
+            const vv = copyFunction(t, plug, v)
             getCache.set(p, vv)
             return vv
           } else if (p === 'parent') {
