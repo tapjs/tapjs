@@ -49,6 +49,14 @@ export class CallSiteLike {
   get fileName() {
     return this.#relativize(this.#fileName)
   }
+  get absoluteFileName() {
+    if (!this.#fileName) return this.#fileName
+    else if (this.#fileName.startsWith('file://')) {
+      return fileURLToPath(this.#fileName)
+    } else {
+      return this.#fileName
+    }
+  }
 
   get cwd(): string | undefined {
     return this.#cwd
