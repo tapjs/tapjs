@@ -74,7 +74,7 @@ export class SnapshotPlugin {
   #cleanSnapshot: SnapshotOptions['cleanSnapshot']
   #formatSnapshot: SnapshotOptions['formatSnapshot']
   #snapshot: SnapshotProvider
-  #writeSnapshot: boolean
+  writeSnapshot: boolean
   #compareOptions: CompareOptions
 
   constructor(t: TestBase, opts: SnapshotOptions) {
@@ -97,10 +97,10 @@ export class SnapshotPlugin {
     this.#provider = opts.snapshotProvider || pp || SnapshotProviderDefault
 
     if (typeof opts.writeSnapshot === 'boolean') {
-      this.#writeSnapshot = opts.writeSnapshot
+      this.writeSnapshot = opts.writeSnapshot
     } else {
-      if (p) this.#writeSnapshot = p.#writeSnapshot
-      else this.#writeSnapshot = env('TAP_SNAPSHOT') === '1'
+      if (p) this.writeSnapshot = p.writeSnapshot
+      else this.writeSnapshot = env('TAP_SNAPSHOT') === '1'
     }
 
     if (p && this.#provider === pp && snapshotFile === pf) {
@@ -112,7 +112,7 @@ export class SnapshotPlugin {
 
   #newSnapshot(f: string): SnapshotProvider {
     const snapshot = new this.#provider(f)
-    if (this.#writeSnapshot) {
+    if (this.writeSnapshot) {
       const onEOF = this.#t.onEOF
       this.#t.onEOF = () => {
         onEOF.call(this.#t)
@@ -150,7 +150,7 @@ export class SnapshotPlugin {
       found = this.#cleanSnapshot(found)
     }
 
-    if (this.#writeSnapshot) {
+    if (this.writeSnapshot) {
       this.#snapshot.snap(found, m)
       return this.#t.pass(...me)
     }
