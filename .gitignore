@@ -5,14 +5,8 @@
 
 # keep these
 !**/.gitignore
-!/.commitlintrc.js
-!/.eslintrc.js
-!/.eslintrc.local.*
-!/.github/
 !/.gitignore
 !/.npmrc
-!/.release-please-manifest.json
-!/bin/
 !/CHANGELOG*
 !/CODE_OF_CONDUCT.md
 !/docs/
@@ -26,3 +20,6 @@
 !/SECURITY.md
 !/tap-snapshots/
 !/test/
+!/.prettierignore
+!/src/
+!/tsconfig*.json

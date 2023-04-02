@@ -1,16 +1,56 @@
 {
-  "name": "@npmcli/tap-nock",
-  "version": "2.0.1",
+  "name": "@tapjs/nock",
+  "version": "3.0.0",
   "description": "a nock extension for tap",
-  "main": "lib/index.js",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/mjs/index.js",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/mjs/index.d.ts",
+        "default": "./dist/mjs/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "tap",
-    "lint": "eslint \"**/*.js\"",
-    "postlint": "template-oss-check",
-    "template-oss-apply": "template-oss-apply --force",
-    "lintfix": "npm run lint -- --fix",
-    "snap": "tap",
-    "posttest": "npm run lint"
+    "preversion": "npm test",
+    "postversion": "npm publish",
+    "prepublishOnly": "git push origin --follow-tags",
+    "preprepare": "rm -rf dist",
+    "prepare": "tsc -p tsconfig.json && tsc -p tsconfig-esm.json && bash ./scripts/fixup.sh",
+    "pretest": "npm run prepare",
+    "presnap": "npm run prepare",
+    "test": "c8 tap",
+    "snap": "c8 tap",
+    "format": "prettier --write . --loglevel warn",
+    "typedoc": "typedoc --tsconfig tsconfig-esm.json ./src/*.ts"
+  },
+  "prettier": {
+    "semi": false,
+    "printWidth": 75,
+    "tabWidth": 2,
+    "useTabs": false,
+    "singleQuote": true,
+    "jsxSingleQuote": false,
+    "bracketSameLine": true,
+    "arrowParens": "avoid",
+    "endOfLine": "lf"
+  },
+  "tap": {
+    "coverage": false,
+    "node-arg": [
+      "--no-warnings",
+      "--loader",
+      "ts-node/esm"
+    ],
+    "ts": false
   },
   "keywords": [
     "tap",
@@ -23,33 +63,24 @@
   },
   "homepage": "https://github.com/npm/tap-nock#readme",
   "devDependencies": {
-    "@npmcli/eslint-config": "^4.0.0",
-    "@npmcli/template-oss": "4.12.0",
-    "minipass-fetch": "^3.0.0",
-    "tap": "^16.0.1"
+    "@types/node": "^18.15.5",
+    "@types/tap": "^15.0.8",
+    "c8": "^7.13.0",
+    "prettier": "^2.8.6",
+    "ts-node": "^10.9.1",
+    "typedoc": "^0.23.28",
+    "typescript": "^5.0.2"
   },
   "dependencies": {
+    "@tapjs/core": ">=0.0.0-0",
+    "@tapjs/stack": ">=0.0.0-0",
     "nock": "^13.2.4"
   },
-  "files": [
-    "bin/",
-    "lib/"
-  ],
   "engines": {
     "node": "^14.17.0 || ^16.13.0 || >=18.0.0"
   },
-  "templateOSS": {
-    "//@npmcli/template-oss": "This file is partially managed by @npmcli/template-oss. Edits may be overwritten.",
-    "version": "4.12.0"
-  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/npm/tap-nock.git"
-  },
-  "tap": {
-    "nyc-arg": [
-      "--exclude",
-      "tap-snapshots/**"
-    ]
+    "url": "git@github.com/tapjs/tap-nock"
   }
 }
