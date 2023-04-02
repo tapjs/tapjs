@@ -13,11 +13,15 @@ import { isPromise } from 'util/types'
 
 const defaultFormatSnapshot = (obj: any) => format(obj, { sort: true })
 
+/**
+ * Interface provided by the class set in the `snapshotProvider` option.
+ * `save()` may be an async method, but `read()` must be synchronous.
+ */
 export interface SnapshotProvider {
   file: string
   read(msg: string): string
-  snap(daga: string, msg: string): void
-  save(): void
+  snap(data: string, msg: string): void
+  save(): void | Promise<void>
 }
 
 export interface SnapshotOptions {
@@ -112,7 +116,7 @@ export class SnapshotPlugin {
       const onEOF = this.#t.onEOF
       this.#t.onEOF = () => {
         onEOF.call(this.#t)
-        snapshot.save()
+        return snapshot.save()
       }
     }
     return snapshot
