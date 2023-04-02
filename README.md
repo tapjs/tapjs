@@ -13,8 +13,14 @@ Workspace for node-tap development.
   `t.matchSnapshot()` method.
 - [@tapjs/fixture](./src/fixture) Providing the `t.testdir()`
   method.
+- [@tapjs/mock](./src/mock) Providing the `t.mockRequire()` and
+  `t.mockImport()` methods
 - [tcompare](./src/tcompare) The library that does comparison and
-  object formatting.
+  object formatting (use heavily by `@tapjs/asserts` methods).
+- [@tapjs/stack](./src/stack) Library for capturing stack frames,
+  the descendant of `stack-utils`.
+- [@tapjs/nock](./src/nock) Optional plugin providing `t.nock()`
+  method.
 
 Run `npm run bootstrap` to build the `@tapjs/test` module with
 the default set of plugins, so that the other libraries can
