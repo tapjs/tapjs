@@ -124,79 +124,88 @@ const applyPlugins = (
   const getCache = new Map<any, any>()
   // extend the proxy with Object.create, and then set the toStringTag
   // to 'Test', so we don't get stack frames like `Proxy.<anonymous>`
-  const t = Object.create(new Proxy(base, {
-    has(_, p) {
-      for (const t of ext) {
-        if (Reflect.has(t, p)) return true
-      }
-      return false
-    },
-    ownKeys() {
-      const k: PlugKeys[] = []
-      for (const t of ext) {
-        const keys = Reflect.ownKeys(t) as PlugKeys[]
-        k.push(...keys)
-      }
-      return [...new Set(k)]
-    },
-    getOwnPropertyDescriptor(_, p) {
-      for (const t of ext) {
-        const prop = Reflect.getOwnPropertyDescriptor(t, p)
-        if (prop) return prop
-      }
-      return undefined
-    },
-    set(_, p, v) {
-      // check to see if there's any setters, and if so, set it there
-      // otherwise, just set on the base
-      for (const t of ext) {
-        let o: Object | null = t
-        while (o) {
-          if (Reflect.getOwnPropertyDescriptor(o, p)?.set) {
+  const t = Object.create(
+    new Proxy(base, {
+      has(_, p) {
+        for (const t of ext) {
+          if (Reflect.has(t, p)) return true
+        }
+        return false
+      },
+      ownKeys() {
+        const k: PlugKeys[] = []
+        for (const t of ext) {
+          const keys = Reflect.ownKeys(t) as PlugKeys[]
+          k.push(...keys)
+        }
+        return [...new Set(k)]
+      },
+      getOwnPropertyDescriptor(_, p) {
+        for (const t of ext) {
+          const prop = Reflect.getOwnPropertyDescriptor(
+            t,
+            p
+          )
+          if (prop) return prop
+        }
+        return undefined
+      },
+      set(_, p, v) {
+        // check to see if there's any setters, and if so, set it there
+        // otherwise, just set on the base
+        for (const t of ext) {
+          let o: Object | null = t
+          while (o) {
+            if (
+              Reflect.getOwnPropertyDescriptor(o, p)?.set
+            ) {
+              //@ts-ignore
+              t[p] = v
+              return true
+            }
+            o = Reflect.getPrototypeOf(o)
+          }
+        }
+        //@ts-ignore
+        base[p as keyof TestBase] = v
+        return true
+      },
+      get(_, p) {
+        if (p === 'IS_PLUGGED') return true
+        if (p === Symbol.toStringTag) return 'Test'
+        if (p === 'parent') {
+          return base.parent?.t
+        }
+        // cache get results so t.blah === t.blah
+        // we only cache functions, so that getters aren't memoized
+        // Of course, a getter that returns a function will be broken,
+        // at least when accessed from outside the plugin, but that's
+        // a pretty narrow caveat, and easily documented.
+        if (getCache.has(p)) return getCache.get(p)
+        for (const plug of ext) {
+          if (p in plug) {
             //@ts-ignore
-            t[p] = v
-            return true
-          }
-          o = Reflect.getPrototypeOf(o)
-        }
-      }
-      //@ts-ignore
-      base[p as keyof TestBase] = v
-      return true
-    },
-    get(_, p) {
-      if (p === 'IS_PLUGGED') return true
-      if (p === Symbol.toStringTag) return 'Test'
-      if (p === 'parent') {
-        return base.parent?.t
-      }
-      // cache get results so t.blah === t.blah
-      // we only cache functions, so that getters aren't memoized
-      // Of course, a getter that returns a function will be broken,
-      // at least when accessed from outside the plugin, but that's
-      // a pretty narrow caveat, and easily documented.
-      if (getCache.has(p)) return getCache.get(p)
-      for (const plug of ext) {
-        if (p in plug) {
-          //@ts-ignore
-          const v = plug[p]
-          // Functions need special handling so that they report
-          // the correct toString and are called on the correct object
-          // Otherwise attempting to access #private props will fail.
-          if (typeof v === 'function') {
-            const vv = copyFunction(t, plug, v)
-            getCache.set(p, vv)
-            return vv
-          } else if (p === 'parent') {
-            return v?.t
-          } else {
-            return v
+            const v = plug[p]
+            // Functions need special handling so that they report
+            // the correct toString and are called on the correct object
+            // Otherwise attempting to access #private props will fail.
+            if (typeof v === 'function') {
+              const vv = copyFunction(t, plug, v)
+              getCache.set(p, vv)
+              return vv
+            } else if (p === 'parent') {
+              return v?.t
+            } else {
+              return v
+            }
           }
         }
-      }
-    },
-  }))
-  Object.defineProperty(t, Symbol.toStringTag, { value: 'Test' })
+      },
+    })
+  )
+  Object.defineProperty(t, Symbol.toStringTag, {
+    value: 'Test',
+  })
   Object.assign(base, { t })
   ext.unshift({ t })
   return t
@@ -216,6 +225,16 @@ export class Test extends TestBase {
     plugin: (t: TestBase, opts?: any) => any
   ): boolean {
     return plugins.includes(plugin)
+  }
+
+  pluginLoaded<T extends any = any>(
+    plugin: (t: TestBase, opts?: any) => T
+  ): this is TestBase & T {
+    return Test.pluginLoaded(plugin)
+  }
+
+  get plugins() {
+    return Test.plugins
   }
 
   test(
