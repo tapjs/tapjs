@@ -1,7 +1,7 @@
-
 ISC License
 
-Copyright npm, Inc.
+@tapjs/nock, Copyright 2023, Isaac Z. Schlueter
+Based on @npmcli/tap-nock, Copyright 2022 - 2023, npm, Inc.
 
 Permission to use, copy, modify, and/or distribute this
 software for any purpose with or without fee is hereby
