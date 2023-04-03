@@ -12,6 +12,7 @@ const builtins = globSync('*.ts', {
   .concat('@tapjs/snapshot')
   .concat('@tapjs/fixture')
   .concat('@tapjs/mock')
+  .concat('@tapjs/intercept')
 
 console.log('building Test class with:')
 console.log(builtins.map(b => `  ${b}`).join('\n'))
