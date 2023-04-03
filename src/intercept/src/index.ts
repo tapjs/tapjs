@@ -22,9 +22,13 @@ interface CaptureResultThrew<F extends (...a: any[]) => any>
 type CaptureResult<F extends (...a: any[]) => any> =
   | CaptureResultReturned<F>
   | CaptureResultThrew<F>
+  | CaptureResultBase<F>
 
 type CaptureResultsMethod<F extends (...a: any[]) => any> =
-  (() => CaptureResult<F>[]) & { restore: () => void }
+  (() => CaptureResult<F>[]) & {
+    restore: () => void
+    calls: CaptureResult<F>[]
+  }
 
 interface InterceptResultBase {
   at?: CallSiteLike
@@ -115,9 +119,7 @@ export class Interceptor {
         let success = false
         let value: any
         try {
-          value = base.get
-            ? base.get.call(obj)
-            : base.value
+          value = base.get ? base.get.call(obj) : base.value
           threw = false
           success = true
         } finally {
@@ -186,7 +188,7 @@ export class Interceptor {
         resList.length = 0
         return r
       },
-      { restore }
+      { restore: () => restore() }
     )
   }
 
@@ -210,8 +212,6 @@ export class Interceptor {
     method: M,
     impl: (...a: any[]) => any = () => {}
   ): CaptureResultsMethod<typeof impl> {
-    type F = typeof impl
-    const resList: CaptureResult<F>[] = []
     const prop = Object.getOwnPropertyDescriptor(obj, method)
 
     // if we don't have a prop we can restore by just deleting
@@ -230,25 +230,13 @@ export class Interceptor {
       this.#t.t.teardown(restore)
     }
 
-    const fn = (...args: Parameters<F>) => {
-      const res: CaptureResultBase<F> = {
-        args,
-        at: at(fn),
-      }
-      let threw = true
-      try {
-        const returned = impl.call(obj, ...args)
-        resList.push({ ...res, returned })
-        threw = false
-      } finally {
-        if (threw) {
-          resList.push({ ...res, threw })
-        }
-      }
-    }
+    const fn = Object.assign(this.captureFn(impl), {
+      restore: () => restore(),
+    })
 
     Object.defineProperty(obj, method, {
-      ...(prop || { enumerable: true, writable: true }),
+      enumerable: prop ? prop.enumerable : true,
+      writable: true,
       get: undefined,
       set: undefined,
       value: fn,
@@ -257,11 +245,49 @@ export class Interceptor {
 
     return Object.assign(
       () => {
-        const r = resList.slice()
-        resList.length = 0
+        const r = fn.calls.slice()
+        fn.calls.length = 0
         return r
       },
-      { restore }
+      {
+        restore: () => restore(),
+        calls: fn.calls,
+      }
+    )
+  }
+
+  /**
+   * Just wrap the function and return it.  Does not have any
+   * logic to restore, since it's not actually modifying anything.
+   * The results hang off the function as the 'calls' property.
+   */
+  captureFn(
+    original: (...a: any[]) => any
+  ): ((...a: any[]) => any) & { calls: CaptureResult<typeof original>[] } {
+    type F = typeof original
+    const calls: CaptureResult<F>[] = []
+    return Object.assign(
+      function wrapped(this: any, ...args: Parameters<F>) {
+        const res: CaptureResultBase<F> = {
+          args,
+          at: at(wrapped),
+        }
+        let threw = true
+        calls.push(res)
+        try {
+          ;(res as CaptureResultReturned<F>).returned = original.call(
+            this,
+            ...args
+          )
+          threw = false
+          calls.push(res as CaptureResultReturned<F>)
+        } finally {
+          if (threw) {
+            ;(res as CaptureResultThrew<F>).threw = true
+          }
+        }
+      },
+      { calls }
     )
   }
 }

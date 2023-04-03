@@ -89,6 +89,9 @@ t.test('intercept a property set/get', t => {
     `results.restore()` must be called to restore the original
     method.
 
+    Returned method also has a `calls` array which contains the
+    results.
+
 - `t.intercept(obj, property, desc?: PropertyDescriptor, strictMode: boolean = true): InterceptResultsFunction`
 
     Similar to `t.capture()`, but can be used to track get/set
@@ -101,3 +104,11 @@ t.test('intercept a property set/get', t => {
     - `at` call site where the get/set occurred.
     - `threw` whether or not the call threw.
     - `success` whether or not the call was sucessful.
+
+- `t.captureFn(original: (...a:any[]) => any): WrappedFunction`
+
+    Similar to `t.capture()`, but just wraps the function and
+    returns it.
+
+    Returned function has a `calls` array property containing the
+    results.
