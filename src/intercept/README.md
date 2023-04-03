@@ -19,12 +19,12 @@ t.test('some child test', t => {
   functionThatLogs(5)
   // results() returns the list of what was called, and resets
   // the store.
-  t.same(results(), [
+  t.match(results(), [
     { args: ['the number is', 10], returned: undefined },
     { args: ['the number is', 5], returned: undefined },
   ])
   functionThatLogs(1)
-  t.same(results(), [{ args: ['the number is', 1], returned: undefined }])
+  t.match(results(), [{ args: ['the number is', 1], returned: undefined }])
   // when the test ends, the original is restored
   t.end()
 })
@@ -36,7 +36,7 @@ t.test('capture with an implementation', t => {
   t.throws(() => {
     functionThatLogs(3)
   }, { message: 'thrown from stub' })
-  t.same(results(), { args: ['the number is', 3], threw: true })
+  t.match(results(), { args: ['the number is', 3], threw: true })
   t.end()
 })
 
@@ -45,7 +45,7 @@ t.test('capture and still call the function', t => {
   const results = t.capture(console, 'log', console.log)
   // actually logs to the console
   functionThatLogs(1)
-  t.same(results(), [{ args: ['the number is', 1], returned: undefined }])
+  t.match(results(), [{ args: ['the number is', 1], returned: undefined }])
   t.end()
 })
 
@@ -60,7 +60,7 @@ t.test('intercept a property set/get', t => {
   process.version = '2.4.6'
   // we didn't make it writable, so this didn't do anything.
   t.equal(process.version, '1.2.3')
-  t.same(results(), [
+  t.match(results(), [
     { type: 'get', value: '1.2.3', success: true },
     { type: 'set', value: '2.4.6', success: false },
     { type: 'get', value: '1.2.3', success: true },
@@ -75,7 +75,7 @@ t.test('intercept a property set/get', t => {
   `results.restore()` will restore the method to its original
   state.
 
-- `t.capture(obj, method, implementation = () => {}): ResultFunction`
+- `t.capture(obj, method, implementation = () => {}): CaptureResultFunction`
 
     Replaces `obj[method]` with the supplied implementation.
 
@@ -88,3 +88,16 @@ t.test('intercept a property set/get', t => {
     will be automatically restored on test teardown.  Otherwise,
     `results.restore()` must be called to restore the original
     method.
+
+- `t.intercept(obj, property, desc?: PropertyDescriptor, strictMode: boolean = true): InterceptResultsFunction`
+
+    Similar to `t.capture()`, but can be used to track get/set
+    operations for any arbitrary property.  The results function
+    returns a list of objects with:
+
+    - `type` 'get' for get operations, 'set' for set operations
+    - `value` The value that was returned by a get, or set in a
+      set.
+    - `at` call site where the get/set occurred.
+    - `threw` whether or not the call threw.
+    - `success` whether or not the call was sucessful.
