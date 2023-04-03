@@ -56,7 +56,6 @@
     "tap",
     "nock"
   ],
-  "author": "GitHub Inc.",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/tapjs/tapjs/issues"
@@ -82,6 +81,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com/tapjs/tap-nock"
+    "url": "git@github.com/tapjs/tapjs"
   }
 }
