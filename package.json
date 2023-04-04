@@ -26,7 +26,7 @@
     "yaml": "^1.10.2"
   },
   "devDependencies": {
-    "tap": "^16.3.0"
+    "tap": "^16.3.4"
   },
   "files": [
     "lib/**/*.js",
