@@ -1,6 +1,6 @@
 import { StdioOptions } from 'child_process'
 import { FinalResults } from 'tap-parser'
-import { BaseOpts } from '../base.js'
+import { BaseOpts } from '../index.js'
 import { Spawn } from '../spawn.js'
 import { TapPlugin, TestBase } from '../test-base.js'
 

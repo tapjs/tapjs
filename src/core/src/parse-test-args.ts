@@ -1,26 +1,28 @@
-import type { Base } from './base.js'
+import type { Base, BaseOpts } from './base.js'
+
+import { TestOpts } from '@tapjs/test'
 
 export type TestArgs<T extends Base> =
   | [
       name?: string | number,
-      extra?: { [k: string]: any },
+      extra?: TestOpts | BaseOpts,
       cb?: false | ((t: T) => any),
       defaultName?: string
     ]
   | [
-      extra: { [k: string]: any },
+      extra: TestOpts | BaseOpts,
       cb?: ((t: T) => any) | false
     ]
   | [name: string | number, cb?: ((t: T) => any) | false]
   | [cb?: ((t: T) => any) | false]
   | [name: string]
-  | [extra: { [k: string]: any }]
+  | [extra: TestOpts | BaseOpts]
 
 export const parseTestArgs = <T extends Base>(
   ...args: TestArgs<T>
-) => {
+): TestOpts => {
   let name: string | null | undefined = undefined
-  let extra: { [k: string]: any } | null | undefined =
+  let extra: TestOpts | BaseOpts | null | undefined =
     undefined
   let cb: ((t: T) => any) | null | undefined = undefined
 
@@ -65,8 +67,9 @@ export const parseTestArgs = <T extends Base>(
 
   name = name || defaultName
   extra.name = name
-  extra.cb = cb || todoCb
-  return extra
+  const opts = extra as TestOpts
+  opts.cb = cb || todoCb
+  return opts
 }
 
 const todoCb = () => {

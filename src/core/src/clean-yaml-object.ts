@@ -2,9 +2,6 @@ import * as stack from '@tapjs/stack'
 import { createTwoFilesPatch } from 'diff'
 import { readFileSync } from 'node:fs'
 import { format, strict } from 'tcompare'
-import type { TestBaseOpts } from './test-base.js'
-
-import { tapDir } from './tap-dir.js'
 
 const tryReadFile = (path: string) => {
   try {
@@ -17,10 +14,9 @@ const tryReadFile = (path: string) => {
 const hasOwn = (obj: { [k: string]: any }, key: string) =>
   Object.prototype.hasOwnProperty.call(obj, key)
 
-export const cleanYamlObject = (
-  object: { [k: string]: any },
-  options: TestBaseOpts
-) => {
+export const cleanYamlObject = (object: {
+  [k: string]: any
+}) => {
   const res = { ...object }
   if (hasOwn(res, 'stack') && !hasOwn(res, 'at')) {
     res.at = stack.parseStack(res.stack.split('\n'))[0]
@@ -30,14 +26,6 @@ export const cleanYamlObject = (
     res.at &&
     res.at instanceof stack.CallSiteLike &&
     res.at.absoluteFileName
-  if (
-    !options.stackIncludesTap &&
-    file &&
-    file.includes(tapDir)
-  ) {
-    // don't print locations in tap itself, that's almost never useful
-    delete res.at
-  }
 
   if (
     file &&
@@ -159,9 +147,6 @@ export const deleteAlways = new Set([
   'diagnostic',
   'buffered',
   'parent',
-  'domainEmitter',
-  'domainThrew',
-  'domain',
   'saveFixture',
 ])
 export const deleteIfEmpty = new Set([

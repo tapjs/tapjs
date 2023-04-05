@@ -16,6 +16,7 @@ import {
 } from 'tap-parser'
 import Deferred from 'trivial-deferred'
 import extraFromError from './extra-from-error.js'
+import type { Extra, TestBase } from './index.js'
 
 export class TapWrap extends AsyncResource {
   test: Base
@@ -50,7 +51,7 @@ const debug =
     )
   }
 
-export interface BaseOpts {
+export interface BaseOpts extends Extra {
   // parser-related options
   bail?: boolean
   strict?: boolean
@@ -64,9 +65,7 @@ export interface BaseOpts {
   tapChildBuffer?: string
   stack?: string
 
-  // basically only set when running in this project
-  stackIncludesTap?: boolean
-  parent?: Base
+  parent?: Base | TestBase
   name?: string
   childId?: number
   context?: any
@@ -224,9 +223,10 @@ export class Base {
     }
   }
 
-  timeout(options?: { [k: string]: any }) {
+  timeout(
+    options: { expired?: string } = { expired: this.name }
+  ) {
     this.setTimeout(0)
-    options = options || {}
     options.expired = options.expired || this.name
     const threw = this.threw(new Error('timeout!'), options)
     if (threw) {
@@ -350,7 +350,11 @@ export class Base {
     return this
   }
 
-  threw(er: any, extra?: any, proxy?: boolean) {
+  threw(
+    er: any,
+    extra?: Extra,
+    proxy?: boolean
+  ): Extra | void | undefined {
     this.hook.emitDestroy()
     this.hookDomain.destroy()
     if (typeof er === 'string') {

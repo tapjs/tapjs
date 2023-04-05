@@ -5,6 +5,7 @@ import {
   TapPlugin,
   TestBase,
 } from '@tapjs/core'
+import * as stack from '@tapjs/stack'
 import EventEmitter from 'events'
 import {
   CompareOptions,
@@ -87,6 +88,9 @@ export class Assertions {
     }
   }
 
+  /**
+   * Verify that the value is truthy
+   */
   ok(obj: any, ...[msg, extra]: MessageExtra) {
     this.#t.currentAssert = this.#t.t.ok
     const args = [msg, extra] as MessageExtra
@@ -94,6 +98,9 @@ export class Assertions {
     return obj ? this.#t.pass(...me) : this.#t.fail(...me)
   }
 
+  /**
+   * Verify that the value is not truthy
+   */
   notOk(obj: any, ...[msg, extra]: MessageExtra) {
     this.#t.currentAssert = this.#t.t.notOk
     const args = [msg, extra] as MessageExtra
@@ -101,7 +108,14 @@ export class Assertions {
     return !obj ? this.#t.pass(...me) : this.#t.fail(...me)
   }
 
-  equal(found: any, wanted: any, ...[msg, extra]: MessageExtra) {
+  /**
+   * Verify that the values are equal
+   */
+  equal<T extends unknown>(
+    found: any,
+    wanted: T,
+    ...[msg, extra]: MessageExtra
+  ): found is T {
     this.#t.currentAssert = this.#t.t.equal
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('should be equal', args)
@@ -124,6 +138,9 @@ export class Assertions {
     return this.#t.fail(...me)
   }
 
+  /**
+   * Verify that the values are not equal
+   */
   not(found: any, doNotWant: any, ...[msg, extra]: MessageExtra) {
     this.#t.currentAssert = this.#t.t.not
     const args = [msg, extra] as MessageExtra
@@ -139,6 +156,9 @@ export class Assertions {
     return this.#t.fail(...me)
   }
 
+  /**
+   * Verify that the value is loosely equivalent to the supplied pattern
+   */
   same(found: any, wanted: any, ...[msg, extra]: MessageExtra) {
     this.#t.currentAssert = this.#t.t.same
     const args = [msg, extra] as MessageExtra
@@ -149,6 +169,9 @@ export class Assertions {
     return this.#t.fail(...me)
   }
 
+  /**
+   * Verify that the value is not loosely equivalent to the supplied pattern
+   */
   notSame(found: any, doNotWant: any, ...[msg, extra]: MessageExtra) {
     this.#t.currentAssert = this.#t.t.notSame
     const args = [msg, extra] as MessageExtra
@@ -159,7 +182,14 @@ export class Assertions {
     return this.#t.fail(...me)
   }
 
-  strictSame(found: any, wanted: any, ...[msg, extra]: MessageExtra) {
+  /**
+   * Verify that the value is strictly equivalent to the supplied pattern
+   */
+  strictSame<T extends unknown>(
+    found: any,
+    wanted: T,
+    ...[msg, extra]: MessageExtra
+  ): found is T {
     this.#t.currentAssert = this.#t.t.strictSame
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('should be equivalent strictly', args)
@@ -169,6 +199,10 @@ export class Assertions {
     return this.#t.fail(...me)
   }
 
+  /**
+   * Verify that the value is not strictly equivalent to the supplied
+   * pattern object
+   */
   strictNotSame(
     found: any,
     doNotWant: any,
@@ -186,6 +220,10 @@ export class Assertions {
     return this.#t.fail(...me)
   }
 
+  /**
+   * Verify that the object has all of the properties and values in the
+   * pattern, matching loosely.
+   */
   has(found: any, wanted: any, ...[msg, extra]: MessageExtra) {
     this.#t.currentAssert = this.#t.t.has
     const args = [msg, extra] as MessageExtra
@@ -199,6 +237,10 @@ export class Assertions {
     return this.#t.fail(...me)
   }
 
+  /**
+   * Verify that the object does NOT have all of the properties and values
+   * in the pattern, matching loosely.
+   */
   notHas(found: any, doNotWant: any, ...[msg, extra]: MessageExtra) {
     this.#t.currentAssert = this.#t.t.notHas
     const args = [msg, extra] as MessageExtra
@@ -212,6 +254,10 @@ export class Assertions {
     return this.#t.fail(...me)
   }
 
+  /**
+   * Verify that the value has all of the properties and values in the
+   * pattern, matching strictly.
+   */
   hasStrict(found: any, wanted: any, ...[msg, extra]: MessageExtra) {
     this.#t.currentAssert = this.#t.t.hasStrict
     const args = [msg, extra] as MessageExtra
@@ -225,6 +271,13 @@ export class Assertions {
     return this.#t.fail(...me)
   }
 
+  /**
+   * Verify that the value does NOT contain all of the properties and
+   * values in the test pattern, comparing strictly.
+   *
+   * Note that this will pass if the value has *some* of the listed properties,
+   * or if they do not match the same type.
+   */
   notHasStrict(found: any, doNotWant: any, ...[msg, extra]: MessageExtra) {
     this.#t.currentAssert = this.#t.t.notHasStrict
     const args = [msg, extra] as MessageExtra
@@ -238,6 +291,9 @@ export class Assertions {
     return this.#t.fail(...me)
   }
 
+  /**
+   * Verify that the value matches the pattern provided
+   */
   match(found: any, wanted: any, ...[msg, extra]: MessageExtra) {
     this.#t.currentAssert = this.#t.t.match
     const args = [msg, extra] as MessageExtra
@@ -248,6 +304,9 @@ export class Assertions {
     return this.#t.fail(...me)
   }
 
+  /**
+   * Verify that the value does NOT match the pattern provided.
+   */
   notMatch(found: any, doNotWant: any, ...[msg, extra]: MessageExtra) {
     this.#t.currentAssert = this.#t.t.notMatch
     const args = [msg, extra] as MessageExtra
@@ -258,6 +317,10 @@ export class Assertions {
     return this.#t.fail(...me)
   }
 
+  /**
+   * Verify that the object has the wanted property, anywhere in its
+   * prototype chain.
+   */
   hasProp<T extends {}>(
     found: T,
     wanted: string | number | symbol,
@@ -284,6 +347,10 @@ export class Assertions {
     }
   }
 
+  /**
+   * Verify that the object has the wanted property, using
+   * Object#hasOwnProperty
+   */
   hasOwnProp<T extends {}>(
     found: T,
     wanted: string | number | symbol,
@@ -310,6 +377,10 @@ export class Assertions {
     }
   }
 
+  /**
+   * Verify that the object has all of the properties in the `wanted`
+   * list, anywhere in its prototype chain.
+   */
   hasProps<T extends {}>(
     found: T,
     wanted: Iterable<string | number | symbol>,
@@ -349,6 +420,10 @@ export class Assertions {
     return this.#t.pass(...me)
   }
 
+  /**
+   * Verify that the object has all of the properties listed in the
+   * `wanted` list, using Object#hasOwnProperties()
+   */
   hasOwnProps<T extends {}>(
     found: T,
     wanted: Iterable<string | number | symbol>,
@@ -388,6 +463,13 @@ export class Assertions {
     return this.#t.pass(...me)
   }
 
+  /**
+   * Verify that the function throws an error.
+   * Thrown error is tested against the `wanted` param if provided, using
+   * `t.match()`.
+   *
+   * Returns false on failure, or the error object thrown on success
+   */
   throws(
     fn: Function | (() => any),
     ...[wanted, msg, extra]: ThrowsArgs
@@ -419,6 +501,11 @@ export class Assertions {
     }
   }
 
+  /**
+   * Returns the error object if it throws and that does not fail the test
+   * (by virtue of being marked skip or todo). Otherwise returns the
+   * passing status, like other assertions.
+   */
   doesNotThrow(
     fn: Function | (() => any),
     ...[msg, extra]: MessageExtra
@@ -438,6 +525,11 @@ export class Assertions {
     }
   }
 
+  /**
+   * resolves to the error object rejected if it rejects as expected,
+   * 'false' if it does not, or 'true' if it fails to reject but is marked
+   * as skip/todo.
+   */
   async rejects<T extends any = any>(
     fnOrPromise: (() => Promise<T>) | Promise<T>,
     ...[wanted, msg, extra]: ThrowsArgs
@@ -477,6 +569,11 @@ export class Assertions {
     return d.promise
   }
 
+  /**
+   * Resolves to 'true' if the promise resolves successfully, 'false' if
+   * it rejects and fails, or the rejection error if it rejects but the
+   * failure is accepted by by being marked todo or skip
+   */
   async resolves<T extends any = any>(
     fnOrPromise: Promise<T> | (() => Promise<T>),
     ...[msg, extra]: MessageExtra
@@ -508,6 +605,13 @@ export class Assertions {
     }
   }
 
+  /**
+   * Test the resolved promise result with `t.match()`
+   *
+   * Resolves to true if it passes, false if the promise rejects or the match
+   * fails, or the rejection error value if the promise rejects but the
+   * assertion passes by being marked todo/skip.
+   */
   async resolveMatch<T extends any = any>(
     fnOrPromise: Promise<T> | (() => Promise<T>),
     wanted: any,
@@ -542,9 +646,15 @@ export class Assertions {
     }
   }
 
-  // hmm... need to capture the stack here, setting currentAssert isn't right
-  // because this is an async pass/fail, so we need to get the stack/at
-  // values and put them on the extra object right here.
+  // TODO: maybe let this be guarded by an AbortSignal or timeout number?
+  /**
+   * Asserts that the emitter emits the specified event before the test
+   * ends. Returns a promise that resolves when the event is emitted.
+   * Note that waiting on the returned promise within a test can deadlock
+   * the test, if the event never emits, but the returned promise can be
+   * a handy way to pause a test until an event happens, if you are
+   * reasonably confident that it will fire.
+   */
   emits(
     emitter: EventEmitter | EventTarget,
     event: string,
@@ -552,6 +662,8 @@ export class Assertions {
   ): Promise<void> {
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(`expect ${event} to be emitted`, args)
+    me[1].at = me[1].at || stack.at(this.#t.t.emits)
+    me[1].stack = me[1].stack || stack.captureString(this.#t.t.emits)
     const d = new Deferred<void>()
     const handler = () => {
       pending[0] = true

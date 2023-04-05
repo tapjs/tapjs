@@ -26,7 +26,8 @@ t.afterEach(() => {
 })
 
 t.test('hello', {}, t => {
-  t.pass('this is fine')
+  t.pass('this is fine', { bail: true, diagnostic:true })
+  t.equal(1, 2, { skip: true })
   t.beforeEach(() => {
     console.log('child beforeeach')
   })

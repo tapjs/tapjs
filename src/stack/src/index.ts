@@ -1,6 +1,6 @@
 import { builtinModules } from 'module'
 import { CallSiteLike } from './call-site-like.js'
-export { CallSiteLike } from './call-site-like.js'
+export { CallSiteLike, CallSiteLikeJSON } from './call-site-like.js'
 
 const regExpEscape = (s: string) =>
   s.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&')

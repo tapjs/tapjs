@@ -1,7 +1,8 @@
 // lifecycle methods like beforeEach, afterEach, teardown
 // defined in plugins/lifecycle.ts
 
-import type { Test } from '@tapjs/test'
+import * as stack from '@tapjs/stack'
+import type { Test, TestOpts } from '@tapjs/test'
 import Minipass from 'minipass'
 import assert from 'node:assert'
 import { basename } from 'node:path'
@@ -14,11 +15,11 @@ import { Base, BaseOpts } from './base.js'
 import { esc } from './esc.js'
 import extraFromError from './extra-from-error.js'
 import { Spawn } from './spawn.js'
-import * as stack from '@tapjs/stack'
 import { TestPoint } from './test-point.js'
 import { Waiter } from './waiter.js'
 
-export type Extra = { [k: string]: any }
+import { Extra } from './index.js'
+
 export type MessageExtra =
   | []
   | [string]
@@ -68,20 +69,16 @@ export interface TestBaseOpts extends BaseOpts {
    * The number of jobs to run in parallel. Defaults to 1
    */
   jobs?: number
+
   /**
    * Test function called when this Test is executed
+   * This is usually not set on the extra object, but as an argument to
+   * the `t.test(..)` method, just defined here so TS doesn't complain
+   * when we reference it in the various flow control machinery.
+   *
+   * @internal
    */
   cb?: (...args: any[]) => any
-
-  /**
-   * Flag to always/never show diagnostics.  If unset, then
-   * diagnostics are shown for failing test points only.
-   */
-  diagnostic?: boolean
-
-  stack?: string
-  at?: stack.CallSiteLike
-  test?: string
 }
 
 /**
@@ -235,7 +232,9 @@ export class TestBase extends Base {
    * Called when the test times out.
    * Options are passed as diagnostics to the threw() method
    */
-  timeout(options: { [k: string]: any }) {
+  timeout(
+    options: { expired?: string } = { expired: this.name }
+  ) {
     options = options || {}
     options.expired = options.expired || this.name
     if (this.#occupied && this.#occupied instanceof Base) {
@@ -386,7 +385,11 @@ export class TestBase extends Base {
       this.assertStack = null
     }
 
-    if (typeof extra.stack === 'string' && extra.stack && !extra.at) {
+    if (
+      typeof extra.stack === 'string' &&
+      extra.stack &&
+      !extra.at
+    ) {
       const at = stack.parseStack(extra.stack)[0]
       if (at) extra.at = at
     }
@@ -941,9 +944,9 @@ export class TestBase extends Base {
    *
    * @internal
    */
-  sub<T extends Base, O extends TestBaseOpts>(
+  sub<T extends Base, O extends BaseOpts>(
     Class: { new (options: O): T },
-    extra: O,
+    extra: TestOpts | TestBaseOpts | BaseOpts = {},
     caller: (...a: any[]) => unknown
   ): Promise<FinalResults | null> {
     if (this.bailedOut) return Promise.resolve(null)
@@ -974,13 +977,15 @@ export class TestBase extends Base {
 
     extra.bail =
       extra.bail !== undefined ? extra.bail : this.bail
-    extra.parent = this
+    // XXX: remove after rebuild
+    ;(extra as unknown as { parent: TestBase }).parent =
+      this
     const st = stack.capture(80, caller)
     extra.stack = st.map(c => String(c)).join('\n')
     extra.at = st[0]
     extra.context = this.context
 
-    const t = new Class(extra)
+    const t = new Class(extra as O)
     this.queue.push(t)
     this.subtests.push(t)
     this.emit('subtestAdd', t)
@@ -993,9 +998,9 @@ export class TestBase extends Base {
 
   threw(
     er: any,
-    extra?: { [k: string]: any },
+    extra?: Extra,
     proxy?: boolean
-  ) {
+  ): Extra | void | undefined {
     // this can happen if a beforeEach throws.  capture the error here
     // and raise it once we've started the test officially.
     if (this.parent && !this.started) {
@@ -1106,7 +1111,9 @@ export class TestBase extends Base {
    * Return true if the child test represented by the options object
    * should be skipped.  Extended by the grep/only filtering plugins.
    */
-  shouldSkipChild(extra: { [k: string]: any }) {
+  shouldSkipChild(
+    extra: TestOpts | TestBaseOpts | BaseOpts
+  ): boolean {
     return !!(extra.skip || extra.todo)
   }
 

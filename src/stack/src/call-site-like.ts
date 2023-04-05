@@ -14,6 +14,25 @@ import {
 
 const methodRe = /^(.*?) \[as (.*?)\]$/
 
+export interface CallSiteLikeJSON {
+  fileName?: string
+  lineNumber?: number
+  columnNumber?: number
+  evalOrigin?: CallSiteLikeJSON
+  typeName?: string
+  methodName?: string
+  functionName?: string
+  isEval?: boolean
+  isNative?: boolean
+  isToplevel?: boolean
+  isConstructor?: boolean
+  generated?: {
+    fileName?: string
+    lineNumber?: number
+    columnNumber?: number
+  }
+}
+
 export interface GeneratedResult {
   fileName: ReturnType<NodeJS.CallSite['getFileName']>
   lineNumber: ReturnType<SourceMap['findEntry']>['generatedLine']
@@ -243,7 +262,7 @@ export class CallSiteLike {
     return `${fname}${ev}${g}${file}`
   }
 
-  toJSON() {
+  toJSON(): CallSiteLikeJSON {
     const {
       fileName,
       lineNumber,
@@ -258,36 +277,27 @@ export class CallSiteLike {
       isConstructor,
       generated,
     } = this
-    const raw: { [k: string]: any } = {
-      fileName,
-      lineNumber,
-      columnNumber,
-      evalOrigin,
-      typeName,
-      methodName,
-      functionName,
-      isEval,
-      isNative,
-      isToplevel,
-      isConstructor,
-      generated,
+    const json: CallSiteLikeJSON = {}
+    if (fileName !== null) json.fileName = fileName
+    if (lineNumber || lineNumber === 0) json.lineNumber = lineNumber
+    if (columnNumber || columnNumber === 0) json.columnNumber = columnNumber
+    if (evalOrigin) json.evalOrigin = evalOrigin.toJSON()
+    if (typeName !== null) json.typeName = typeName
+    if (methodName !== null) json.methodName = methodName
+    if (functionName !== null) json.functionName = functionName
+    if (isEval !== null) json.isEval = isEval
+    if (isNative !== null) json.isNative = isNative
+    if (isToplevel !== null) json.isToplevel = isToplevel
+    if (isConstructor !== null) json.isConstructor = isConstructor
+    if (generated && generated.fileName) {
+      json.generated = {
+        fileName: generated.fileName
+      }
+      if (generated.lineNumber || generated.lineNumber === 0)
+        json.generated.lineNumber = generated.lineNumber
+      if (generated.columnNumber || generated.columnNumber === 0)
+        json.generated.columnNumber = generated.columnNumber
     }
-
-    // only include the things that are relevantly set
-    const entries: [string, any][] = Object.entries(raw)
-      .map(([k, v]): [string, any] => {
-        if (v instanceof CallSiteLike) {
-          v = v.toJSON()
-        }
-        if (!!v && typeof v === 'object') {
-          const entries: [string, any][] = Object.entries(v).filter(
-            ([_, vv]) => !!vv
-          )
-          return [k, entries.length ? Object.fromEntries(entries) : null]
-        }
-        return [k, v]
-      })
-      .filter(([_, v]) => !!v)
-    return entries.length ? Object.fromEntries(entries) : null
+    return json
   }
 }

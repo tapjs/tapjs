@@ -61,7 +61,7 @@ export interface Test extends TTest {
   end(): this
   test(
     name: string,
-    extra: { [k: string]: any },
+    extra: TestOpts,
     cb?: (t: Test) => any
   ): Promise<FinalResults | null>
   test(
@@ -69,7 +69,7 @@ export interface Test extends TTest {
     cb?: (t: Test) => any
   ): Promise<FinalResults | null>
   test(
-    extra: { [k: string]: any },
+    extra: TestOpts,
     cb?: (t: Test) => any
   ): Promise<FinalResults | null>
   test(cb?: (t: Test) => any): Promise<FinalResults | null>
@@ -79,7 +79,7 @@ export interface Test extends TTest {
 
   todo(
     name: string,
-    extra: { [k: string]: any },
+    extra: TestOpts,
     cb?: (t: Test) => any
   ): Promise<FinalResults | null>
   todo(
@@ -87,7 +87,7 @@ export interface Test extends TTest {
     cb?: (t: Test) => any
   ): Promise<FinalResults | null>
   todo(
-    extra: { [k: string]: any },
+    extra: TestOpts,
     cb?: (t: Test) => any
   ): Promise<FinalResults | null>
   todo(cb?: (t: Test) => any): Promise<FinalResults | null>
@@ -97,7 +97,7 @@ export interface Test extends TTest {
 
   skip(
     name: string,
-    extra: { [k: string]: any },
+    extra: TestOpts,
     cb?: (t: Test) => any
   ): Promise<FinalResults | null>
   skip(
@@ -105,7 +105,7 @@ export interface Test extends TTest {
     cb?: (t: Test) => any
   ): Promise<FinalResults | null>
   skip(
-    extra: { [k: string]: any },
+    extra: TestOpts,
     cb?: (t: Test) => any
   ): Promise<FinalResults | null>
   skip(cb?: (t: Test) => any): Promise<FinalResults | null>
@@ -153,25 +153,34 @@ const applyPlugins = (
       set(_, p, v) {
         // check to see if there's any setters, and if so, set it there
         // otherwise, just set on the base
+        let didSet = false
         for (const t of ext) {
           let o: Object | null = t
           while (o) {
-            if (
-              Reflect.getOwnPropertyDescriptor(o, p)?.set
-            ) {
-              //@ts-ignore
-              t[p] = v
-              return true
+            // assign to the all plugs that can receive it
+            const prop = Reflect.getOwnPropertyDescriptor(
+              o,
+              p
+            )
+            if (prop) {
+              if (prop.set || prop.writable) {
+                //@ts-ignore
+                t[p] = v
+                didSet = true
+              }
+              break
             }
             o = Reflect.getPrototypeOf(o)
           }
         }
-        //@ts-ignore
-        base[p as keyof TestBase] = v
+        if (!didSet) {
+          // if nothing has that field, assign to the base
+          //@ts-ignore
+          base[p] = v
+        }
         return true
       },
       get(_, p) {
-        if (p === 'IS_PLUGGED') return true
         if (p === Symbol.toStringTag) return 'Test'
         if (p === 'parent') {
           return base.parent?.t
@@ -239,7 +248,7 @@ export class Test extends TestBase {
 
   test(
     name: string,
-    extra: { [k: string]: any },
+    extra: TestOpts,
     cb: (t: Test) => any
   ): Promise<FinalResults | null>
   test(
@@ -247,7 +256,7 @@ export class Test extends TestBase {
     cb: (t: Test) => any
   ): Promise<FinalResults | null>
   test(
-    extra: { [k: string]: any },
+    extra: TestOpts,
     cb: (t: Test) => any
   ): Promise<FinalResults | null>
   test(cb: (t: Test) => any): Promise<FinalResults | null>
@@ -260,7 +269,7 @@ export class Test extends TestBase {
 
   todo(
     name: string,
-    extra: { [k: string]: any },
+    extra: TestOpts,
     cb: (t: Test) => any
   ): Promise<FinalResults | null>
   todo(
@@ -268,7 +277,7 @@ export class Test extends TestBase {
     cb: (t: Test) => any
   ): Promise<FinalResults | null>
   todo(
-    extra: { [k: string]: any },
+    extra: TestOpts,
     cb: (t: Test) => any
   ): Promise<FinalResults | null>
   todo(cb: (t: Test) => any): Promise<FinalResults | null>
@@ -282,7 +291,7 @@ export class Test extends TestBase {
 
   skip(
     name: string,
-    extra: { [k: string]: any },
+    extra: TestOpts,
     cb: (t: Test) => any
   ): Promise<FinalResults | null>
   skip(
@@ -290,7 +299,7 @@ export class Test extends TestBase {
     cb: (t: Test) => any
   ): Promise<FinalResults | null>
   skip(
-    extra: { [k: string]: any },
+    extra: TestOpts,
     cb: (t: Test) => any
   ): Promise<FinalResults | null>
   skip(cb: (t: Test) => any): Promise<FinalResults | null>

@@ -1,11 +1,11 @@
 import { diags } from './diags.js'
 import { esc } from './esc.js'
-import { TestBaseOpts } from './test-base.js'
+import { Extra } from './index.js'
 
 export interface Result {
   ok: boolean
   message: string
-  extra: { [k: string]: any }
+  extra: Extra
 }
 
 export class TestPoint {
@@ -35,8 +35,7 @@ export class TestPoint {
 
 const tpMessage = (
   description: string,
-  extra: { [k: string]: any },
-  options: TestBaseOpts = {}
+  extra: { [k: string]: any }
 ): string => {
   let message = description ? ` - ${description}` : ''
 
@@ -55,7 +54,7 @@ const tpMessage = (
   }
 
   const diagYaml = extra.diagnostic
-    ? '\n' + diags(extra, options)
+    ? '\n' + diags(extra)
     : ''
   message += diagYaml + '\n'
 

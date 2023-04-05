@@ -1,9 +1,10 @@
 import * as stack from '@tapjs/stack'
 import type { BaseOpts } from './base.js'
+import {Extra} from './index.js'
 
 const extraFromError = (
   er: any,
-  extra?: { [k: string]: any },
+  extra?: Extra,
   options?: BaseOpts
 ) => {
   // the yaml module puts big stuff here, pluck it off

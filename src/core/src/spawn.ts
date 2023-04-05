@@ -1,4 +1,4 @@
-import { Base, BaseOpts } from './base.js'
+import { Base } from './base.js'
 
 import ProcessInfo from '@tapjs/processinfo'
 import {
@@ -6,8 +6,9 @@ import {
   StdioOptions,
 } from 'node:child_process'
 import { basename } from 'node:path'
+import { TestBaseOpts } from './test-base.js'
 
-export interface SpawnOpts extends BaseOpts {
+export interface SpawnOpts extends TestBaseOpts {
   cwd?: string
   command?: string
   args?: string[]
@@ -160,7 +161,7 @@ export class Spawn extends Base {
     return this.#callCb()
   }
 
-  timeout(options?: { [k: string]: any }) {
+  timeout(options: { expired?: string } = { expired: this.name}) {
     if (this.proc) {
       this.proc.kill('SIGTERM')
       const t = setTimeout(() => {
