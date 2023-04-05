@@ -6,7 +6,7 @@
  */
 'use strict'
 exports[`test/types/shared-symbol.js TAP > first stringify 1`] = `
-!sym/for Symbol.for(foo)
+!symbol/shared foo
 
 `
 

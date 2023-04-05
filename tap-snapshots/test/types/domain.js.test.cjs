@@ -6,7 +6,6 @@
  */
 'use strict'
 exports[`test/types/domain.js TAP > first stringify 1`] = `
-domainy:
-  !domain {}
+domainy: !domain {}
 
 `

@@ -8,8 +8,7 @@
 exports[`test/types/null-object.js TAP > first stringify 1`] = `
 !nullobject
 a: 1
-b:
-  !nullobject {}
+b: !nullobject {}
 
 `
 

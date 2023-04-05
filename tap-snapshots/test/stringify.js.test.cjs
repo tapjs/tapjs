@@ -6,8 +6,7 @@
  */
 'use strict'
 exports[`test/stringify.js TAP > it creates yaml 1`] = `
-cycle:
-  &a1
+cycle: &a1
   a: 1
   cycle: *a1
 

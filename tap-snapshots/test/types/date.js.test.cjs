@@ -6,7 +6,7 @@
  */
 'use strict'
 exports[`test/types/date.js TAP > first stringify 1`] = `
-!date 1979-07-01T00:00:00.000Z
+!!timestamp 1979-07-01T00:00:00.000Z
 
 `
 

@@ -9,4 +9,8 @@ const s2 = yaml.stringify(p1)
 t.equal(s2, s1, 'second stringify matches first')
 
 t.throws(() => yaml.parse('!re this is not a regexp'),
-  new Error(`Invalid Regular Expression: this is not a regexp`))
+  {
+    name: 'YAMLParseError',
+    code: 'TAG_RESOLVE_FAILED',
+  }
+)

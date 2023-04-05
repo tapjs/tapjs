@@ -1,6 +1,7 @@
 const t = require('tap')
 const yaml = require('../..')
 const util = require('util')
+
 class CustomError extends Error {
   constructor (message) {
     super(message)
@@ -12,6 +13,19 @@ class CustomError extends Error {
     return { foo: this.foo }
   }
 }
+
+class ErrorWithToJSON extends Error {
+  constructor (message) {
+    super(message)
+    this.name = 'jsan erawr lol'
+  }
+  toJSON() {
+    return {
+      hello: 'from tojson',
+    }
+  }
+}
+
 const o = {
   EvalError: new EvalError('evil'),
   RangeError: new RangeError('strider'),
@@ -20,22 +34,9 @@ const o = {
   TypeError: new TypeError('qwerty'),
   URIError: new URIError('ur:i'),
   Error: new Error('just your standard error type'),
-  //assertion: (() => {
-  //  try {
-  //    require('assert').equal(1, 2)
-  //  } catch (e) {
-  //    return e
-  //  }
-  //})(),
   CustomError: new CustomError('no meta, please'),
+  ErrorWithToJSON: new ErrorWithToJSON('to json me'),
 }
-//o.questionbegging = (() => {
-//  try {
-//    require('assert').equal(o, 99)
-//  } catch (e) {
-//    return e
-//  }
-//})()
 
 o.dom = new Error('alton brown')
 o.dom.domain = { dom: true }

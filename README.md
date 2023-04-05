@@ -34,7 +34,3 @@ use in [tap](https://www.node-tap.org).
 6. Objects with a `null` prototype maintain their null-prototyped-ness.
 7. `Domain` objects are stringified, but without their giant object graph,
    since that's often a performance issue.
-8. `Date` objects are given a non-default `!date` tag rather than the default
-   YAML 1.1 `!timestamp`, so that they maintain their explicit date object
-   nature through stringifying and re-parsing.
-9. The `prettyErrors` option is always enabled.

@@ -6,7 +6,7 @@
  */
 'use strict'
 exports[`test/types/symbol.js TAP > first stringify 1`] = `
-!sym Symbol(foo)
+!symbol foo
 
 `
 
