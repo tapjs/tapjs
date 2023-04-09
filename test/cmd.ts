@@ -14,7 +14,7 @@ const skipInspect = {
 // much faster than running real child procs.
 import EE from 'events'
 import { readFileSync } from 'fs'
-import Minipass from 'minipass'
+import { Minipass } from 'minipass'
 import { runInThisContext } from 'vm'
 const code = readFileSync(bin, 'utf8').replace(/^#!.*/, '')
 class MockProc extends EE {

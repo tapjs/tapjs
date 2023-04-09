@@ -4,7 +4,7 @@ not ok 2 - going to bail
 Bail out! # saw that coming
 `
 
-import P from '../'
+import { Parser as P } from '../'
 import etoa from 'events-to-array'
 const ignore = ['pipe', 'unpipe', 'prefinish', 'finish', 'newListener', 'line']
 const p = new P()

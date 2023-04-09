@@ -1,6 +1,6 @@
 import eventsToArray from 'events-to-array'
 import t from 'tap'
-import Parser, { FinalResults } from '../'
+import { Parser } from '../'
 const tapContent = `ok 1 - nesting {
     1..2
     # Subtest: first

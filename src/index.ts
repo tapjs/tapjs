@@ -1012,5 +1012,3 @@ export class Parser extends EventEmitter implements NodeJS.WritableStream {
     return stringify(msg, options)
   }
 }
-
-export default Parser

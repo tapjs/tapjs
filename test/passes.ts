@@ -12,7 +12,7 @@ not ok 2
   ...
 `
 
-import P from '../'
+import { Parser as P } from '../'
 import etoa from 'events-to-array'
 const ignore = [
   'pipe',

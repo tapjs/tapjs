@@ -1,4 +1,4 @@
-import Parser from '../'
+import { Parser } from '../'
 import etoa from 'events-to-array'
 
 const ignore = ['pipe', 'unpipe', 'prefinish', 'finish', 'newListener']

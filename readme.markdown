@@ -120,7 +120,7 @@ Options:
 # methods
 
 ```js
-const Parser = require('tap-parser')
+const { Parser } = require('tap-parser')
 ```
 
 ## `const p = new Parser(options, cb)`

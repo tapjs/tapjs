@@ -1,5 +1,5 @@
 import t from 'tap'
-import Parser from '../'
+import { Parser } from '../'
 
 t.test('strictness is inherited', function (t) {
   var data = [

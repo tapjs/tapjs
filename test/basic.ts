@@ -1,6 +1,6 @@
 import t from 'tap'
 import type { FinalResults } from '../'
-import Parser from '../'
+import { Parser } from '../'
 import * as DefaultExport from '../'
 
 t.test('re-exports stuff', t => {
