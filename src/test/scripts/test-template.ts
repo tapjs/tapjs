@@ -12,6 +12,9 @@ import {
 } from '@tapjs/core'
 import { FinalResults } from 'tap-parser'
 
+import type { ConfigSet, Jack } from 'jackspeak'
+import { isConfigOption } from 'jackspeak'
+
 const copyToString = (v: Function) => ({
   toString: Object.assign(() => v.toString(), {
     toString: () => 'function toString() { [native code] }',
@@ -48,6 +51,16 @@ const plugins: PI[] = []
 export const pluginsLoaded = new Map<string, PI>()
 type PlugKeys = keyof TestBase | 't'
 //{{PLUGINS CODE END}}
+
+//{{PLUGINS CONFIG START}}
+isConfigOption // just referenced to keep prettier from removing it
+type T = ConfigSet
+export const config = (jack: Jack) => jack
+//{{PLUGINS CONFIG END}}
+
+//{{PLUGIN SIGNATURE START}}
+export const signature = ''
+//{{PLUGIN SIGNATURE END}}
 
 //{{OPTS START}}
 export type TestOpts = TestBaseOpts

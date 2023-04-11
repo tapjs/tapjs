@@ -1,4 +1,5 @@
 /node_modules
 /src/*/node_modules
+!/src/test/node_modules
 /src/*/docs
 /src/*/dist
