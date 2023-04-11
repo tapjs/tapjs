@@ -35,6 +35,5 @@ class StdinPlugin {
   }
 }
 
-const plugin: TapPlugin<StdinPlugin> = (t: TestBase) =>
+export const plugin: TapPlugin<StdinPlugin> = (t: TestBase) =>
   new StdinPlugin(t)
-export default plugin

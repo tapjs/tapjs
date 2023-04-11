@@ -48,5 +48,4 @@ class BeforeEach {
   }
 }
 
-const plugin = (t: TestBase) => new BeforeEach(t)
-export default plugin
+export const plugin = (t: TestBase) => new BeforeEach(t)

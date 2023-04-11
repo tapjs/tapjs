@@ -237,9 +237,16 @@ const mainScript = (def: string = 'TAP') => {
 }
 const env = (k: string) => (proc()?.env || {})[k]
 
-const plugin: TapPlugin<SnapshotPlugin, SnapshotOptions> = (
+export const plugin: TapPlugin<SnapshotPlugin, SnapshotOptions> = (
   t: TestBase,
   opts: SnapshotOptions = {}
 ) => new SnapshotPlugin(t, opts)
 
-export default plugin
+export const config = {
+  snapshot: {
+    type: 'boolean',
+    short: 'S',
+    description: `Generate snapshot files for 't.matchSnapshot()'
+                  assertions.`,
+  },
+}

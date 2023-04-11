@@ -1,5 +1,5 @@
 import { TestBase } from '@tapjs/core'
-import SnapshotPlugin from '@tapjs/snapshot'
+import { plugin as SnapshotPlugin } from '@tapjs/snapshot'
 import { CallSiteLike } from '@tapjs/stack'
 import { mkdirSync, readFileSync, writeFileSync } from 'fs'
 

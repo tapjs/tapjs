@@ -701,9 +701,7 @@ const isRegExp = (re: any): re is RegExp =>
 const isPromise = (p: any): p is Promise<any | void> =>
   !!p && typeof p === 'object' && typeof p.then === 'function'
 
-const plugin: TapPlugin<Assertions> = (
+export const plugin: TapPlugin<Assertions> = (
   t: TestBase,
   opts: AssertOptions = {}
 ) => new Assertions(t, opts)
-
-export default plugin

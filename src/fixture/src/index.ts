@@ -1,7 +1,7 @@
 // module code goes here
 import { argv, mainScript, TapPlugin, TestBase } from '@tapjs/core'
 import { basename, dirname, resolve, sep } from 'node:path'
-import rimraf, { rimrafSync } from 'rimraf'
+import { rimraf, rimrafSync } from 'rimraf'
 import {
   Fixture,
   FixtureContent,
@@ -93,9 +93,15 @@ export class TestFixtures {
   }
 }
 
-const plugin: TapPlugin<TestFixtures, TestFixturesOptions> = (
+export const plugin: TapPlugin<TestFixtures, TestFixturesOptions> = (
   t: TestBase,
   opts: TestFixturesOptions
 ) => new TestFixtures(t, opts)
 
-export default plugin
+export const config = {
+  'save-fixture': {
+    type: 'boolean',
+    short: 'F',
+    description: 'Do not clean up fixtures created with t.testdir()',
+  },
+}

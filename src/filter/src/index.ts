@@ -98,7 +98,41 @@ class Filter {
   }
 }
 
-const plugin: TapPlugin<Filter, FilterOptions> = (t, opts = {}) =>
+export const plugin: TapPlugin<Filter, FilterOptions> = (t, opts = {}) =>
   new Filter(t, opts)
 
-export default plugin
+export const config = {
+  only: {
+    type: 'boolean',
+    short: 'O',
+    description: `Only run tests with {only: true} option, or created with
+                    t.only(...) function.`,
+  },
+
+  grep: {
+    type: 'string',
+    multiple: true,
+    hint: 'pattern',
+    short: 'g',
+    description: `Only run subtests tests matching the specified pattern.
+
+                  Patterns are matched against top-level subtests in each
+                  file.  To filter tests at subsequent levels, specify this
+                  option multiple times.
+
+                  To specify regular expression flags, format pattern like a
+                  JavaScript RegExp literal.  For example: '/xyz/i' for
+                  case-insensitive matching.`,
+  },
+
+  invert: {
+    type: 'boolean',
+    short: 'i',
+    description: 'Invert the matches to --grep patterns. (Like grep -v)',
+  },
+  'no-invert': {
+    type: 'boolean',
+    short: 'I',
+    description: 'Do not invert the matches to --grep patterns. (default)',
+  },
+}

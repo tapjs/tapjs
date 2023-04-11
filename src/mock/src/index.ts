@@ -78,5 +78,4 @@ export class TapMock {
 export { mockImport } from './mock-import.js'
 export { mockRequire } from './mock-require.js'
 
-const plugin: TapPlugin<TapMock> = (t: TestBase) => new TapMock(t)
-export default plugin
+export const plugin: TapPlugin<TapMock> = (t: TestBase) => new TapMock(t)

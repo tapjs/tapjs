@@ -59,9 +59,8 @@ class After {
   }
 }
 
-const plugin: TapPlugin<After> = (t: TestBase) =>
+export const plugin: TapPlugin<After> = (t: TestBase) =>
   new After(t)
-export default plugin
 
 const isPromise = (p: any): p is Promise<any | void> =>
   !!p &&

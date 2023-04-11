@@ -1,5 +1,5 @@
 import { TapPlugin, TestBase } from '@tapjs/core'
-import TeardownPlugin from '@tapjs/core/plugin/after'
+import { plugin as TeardownPlugin } from '@tapjs/core/plugin/after'
 import { at, CallSiteLike } from '@tapjs/stack'
 
 type M<O extends object> = {
@@ -292,5 +292,4 @@ export class Interceptor {
   }
 }
 
-const plugin: TapPlugin<Interceptor> = t => new Interceptor(t)
-export default plugin
+export const plugin: TapPlugin<Interceptor> = t => new Interceptor(t)

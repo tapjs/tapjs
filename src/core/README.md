@@ -19,7 +19,7 @@ define a plugin like this:
 
 ```ts
 import { TestBase, TapPlugin, AssertionOpts } from '@tapjs/core'
-const plugin: TapPlugin = t => {
+export const plugin: TapPlugin = t => {
   return {
     isString: (
       s: any,
@@ -38,7 +38,6 @@ const plugin: TapPlugin = t => {
       }
     }
 }
-export default plugin
 ```
 
 The object returned by a plugin can be any sort of thing. If you
@@ -67,10 +66,9 @@ class ReactTest {
   }
   // add other helpful methods here...
 }
-const plugin: TapPlugin = (t, { node: ReactElement }) => {
+export const plugin: TapPlugin = (t, { node: ReactElement }) => {
   return new ReactTest(node)
 }
-export default plugin
 ```
 
 When loaded, this plugin would make it so that every test must
@@ -142,7 +140,7 @@ will refer to that object, always.
 
 ```js
 // first-plugin
-const plugin = (t: TestBase) => {
+export const plugin = (t: TestBase) => {
   return {
     // this is the first plugin to register this value
     // so this is what shows up on the Test object
@@ -157,12 +155,11 @@ const plugin = (t: TestBase) => {
     },
   }
 }
-export default plugin
 ```
 
 ```js
 // second-plugin
-const plugin = (t: TestBase) => {
+export const plugin = (t: TestBase) => {
   return {
     // user will never see this, because first-plugin registered it
     myVal: 5,
@@ -175,7 +172,6 @@ const plugin = (t: TestBase) => {
     },
   }
 }
-export default plugin
 ```
 
 Then in the test:
@@ -196,7 +192,7 @@ be `undefined` until all plugins are done loading.
 
 ```js
 // my-plugin.ts
-const plugin = (t: TestBase) => {
+export const plugin = (t: TestBase) => {
   // here, t.t === undefined
   return {
     someMethod() {
@@ -204,5 +200,4 @@ const plugin = (t: TestBase) => {
     },
   }
 }
-export default plugin
 ```

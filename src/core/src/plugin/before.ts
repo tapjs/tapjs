@@ -44,9 +44,8 @@ class Before {
   }
 }
 
-const plugin: TapPlugin<Before> = (t: TestBase) =>
+export const plugin: TapPlugin<Before> = (t: TestBase) =>
   new Before(t)
-export default plugin
 
 const isPromise = (p: any): p is Promise<any | void> =>
   !!p &&

@@ -1,5 +1,5 @@
 import { TapPlugin, TestBase } from '@tapjs/core'
-import SnapshotPlugin from '@tapjs/snapshot'
+import { plugin as SnapshotPlugin } from '@tapjs/snapshot'
 import { at } from '@tapjs/stack'
 import nock, { removeInterceptor } from 'nock'
 import { ErrMockNotSatisfied } from './errors.js'
@@ -146,5 +146,4 @@ export class TapNock {
   }
 }
 
-const plugin: TapPlugin<TapNock> = (t: TestBase) => new TapNock(t)
-export default plugin
+export const plugin: TapPlugin<TapNock> = (t: TestBase) => new TapNock(t)

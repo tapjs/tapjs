@@ -61,7 +61,7 @@ const pluginImport =
   plugins
     .map(
       (p, i) =>
-        `import _${pluginNames[i]} from ${JSON.stringify(
+        `import \{ plugin as _${pluginNames[i]} \} from ${JSON.stringify(
           p
         )}\n`
     )

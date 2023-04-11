@@ -21,11 +21,11 @@
     "typedoc": "^0.23.21",
     "typescript": "^5.0.2"
   },
-  "dependencies": {
-    "glob": "^9.3.2"
-  },
   "scripts": {
     "bootstrap": "bash ./scripts/bootstrap.sh"
   },
-  "repository": "https://github.com/tapjs/tapjs"
+  "repository": "https://github.com/tapjs/tapjs",
+  "dependencies": {
+    "glob": "^10.0.0"
+  }
 }

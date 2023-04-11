@@ -2,10 +2,9 @@ import { createRequire } from 'module'
 import { isAbsolute } from 'path'
 import { pathToFileURL } from 'url'
 import type { Mocks } from './mocks.js'
-import plugin from './index.js'
+export { plugin } from './index.js'
 
 export * from './index.js'
-export default plugin
 export { mockImport } from './mock-import.js'
 export { mockRequire } from './mock-require.js'
 
