@@ -40,6 +40,7 @@
   "dependencies": {
     "@tapjs/core": ">=0.0.0-0",
     "glob": "^10.0.0",
+    "jackspeak": "^2.0.3",
     "mkdirp": "^3.0.0",
     "tap-parser": "^13.0.0",
     "ts-node": "^10.9.1",
