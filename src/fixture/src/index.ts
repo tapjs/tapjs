@@ -30,10 +30,16 @@ export class TestFixtures {
   #testdir: string
   #didOnEOF: boolean = false
   #createdTestdir: boolean = false
+  #saveFixture: boolean = false
 
   constructor(t: TestBase, opts: TestFixturesOptions) {
     TestFixtures.#refs.set(t, this)
     this.#testdir = opts.testdir || TestFixtures.#getTestdir(t)
+    if (opts.saveFixture !== undefined) {
+      this.#saveFixture = !!opts.saveFixture
+    } else {
+      this.#saveFixture = process.env.TAP_SAVE_FIXTURE === '1'
+    }
     this.#t = t
   }
 
@@ -46,7 +52,7 @@ export class TestFixtures {
     rimrafSync(dir)
     Fixture.make(dir, content || {})
     this.#createdTestdir = true
-    if (!this.#didOnEOF) {
+    if (!this.#didOnEOF && !this.#saveFixture) {
       this.#didOnEOF = true
       const obe = this.#t.onEOF
       this.#t.onEOF = async () => {

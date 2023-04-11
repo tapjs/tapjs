@@ -74,7 +74,7 @@ export class SnapshotPlugin {
   #cleanSnapshot: SnapshotOptions['cleanSnapshot']
   #formatSnapshot: SnapshotOptions['formatSnapshot']
   #snapshot: SnapshotProvider
-  writeSnapshot: boolean
+  writeSnapshot: boolean = false
   #compareOptions: CompareOptions
 
   constructor(t: TestBase, opts: SnapshotOptions) {
