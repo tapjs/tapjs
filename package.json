@@ -21,7 +21,7 @@
     "node": ">=12"
   },
   "dependencies": {
-    "@isaacs/import-jsx": "^4.0.1",
+    "import-jsx": "^5.0.0",
     "@types/react": "^17.0.52",
     "chokidar": "^3.3.0",
     "findit": "^2.0.0",
