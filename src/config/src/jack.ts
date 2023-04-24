@@ -1,4 +1,5 @@
 import { jack } from 'jackspeak'
+import { env } from '@tapjs/core'
 
 import * as os from 'node:os'
 /* c8 ignore start */
@@ -28,7 +29,7 @@ const coverageReporters = [
 export default jack({
   envPrefix: 'TAP',
   allowPositionals: true,
-  env: process.env,
+  env,
   usage: 'tap [<options>] [<cmd> ...[<args>]]',
 })
   .heading('TAP - Test Anything Protocol library for JavaScript')
