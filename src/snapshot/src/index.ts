@@ -1,4 +1,8 @@
 import {
+  argv,
+  cwd,
+  env,
+  mainScript,
   MessageExtra,
   normalizeMessageExtra,
   TapPlugin,
@@ -100,7 +104,7 @@ export class SnapshotPlugin {
       this.writeSnapshot = opts.writeSnapshot
     } else {
       if (p) this.writeSnapshot = p.writeSnapshot
-      else this.writeSnapshot = env('TAP_SNAPSHOT') === '1'
+      else this.writeSnapshot = env['TAP_SNAPSHOT'] === '1'
     }
 
     if (p && this.#provider === pp && snapshotFile === pf) {
@@ -212,7 +216,7 @@ export class SnapshotPlugin {
     }
     // get name from main file and args
     const main = mainScript()
-    const args = argv().slice(2)
+    const args = argv.slice(2)
     const head = relative(cwd, resolve(main))
     const tail =
       args.length === 0
@@ -221,21 +225,6 @@ export class SnapshotPlugin {
     return resolve(cwd, 'tap-snapshots', head + tail + '.test.cjs')
   }
 }
-
-// TODO: DRY this to somewhere in core
-const proc = () =>
-  typeof process === 'object' && process ? process : undefined
-const argv = () => proc()?.argv || []
-const cwd = (() => proc()?.cwd() || '.')()
-const mainScript = (def: string = 'TAP') => {
-  const p = proc()
-  //@ts-ignore
-  if (typeof repl !== 'undefined' || (p && '_eval' in p)) {
-    return def
-  }
-  return argv()[1] || def
-}
-const env = (k: string) => (proc()?.env || {})[k]
 
 export const plugin: TapPlugin<SnapshotPlugin, SnapshotOptions> = (
   t: TestBase,

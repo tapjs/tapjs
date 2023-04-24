@@ -10,6 +10,8 @@ export * from './stdin.js'
 export * from './tap-dir.js'
 export * from './test-base.js'
 export * from './test.js'
+export * from './main-script.js'
+export * from './proc.js'
 
 /**
  * The extra info passed to assertions.

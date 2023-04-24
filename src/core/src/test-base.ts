@@ -14,6 +14,8 @@ import Deferred from 'trivial-deferred'
 import { Base, BaseOpts } from './base.js'
 import { esc } from './esc.js'
 import extraFromError from './extra-from-error.js'
+import { mainScript } from './main-script.js'
+import { argv, cwd } from './proc.js'
 import { Spawn } from './spawn.js'
 import { TestPoint } from './test-point.js'
 import { Waiter } from './waiter.js'
@@ -40,22 +42,6 @@ const queueEmpty = <T extends TestBase>(t: T) =>
   t.queue.length === 0 ||
   (t.queue.length === 1 &&
     t.queue[0] === 'TAP version 14\n')
-
-// TODO: DRY this to somewhere in core
-const proc = () =>
-  typeof process === 'object' && process
-    ? process
-    : undefined
-export const argv = () => proc()?.argv || []
-export const cwd = (() => proc()?.cwd() || '.')()
-export const mainScript = (def: string = 'TAP') => {
-  const p = proc()
-  //@ts-ignore
-  if (typeof repl !== 'undefined' || (p && '_eval' in p)) {
-    return def
-  }
-  return argv()[1] || def
-}
 
 export type TapPlugin<
   B extends Object,
@@ -579,7 +565,7 @@ export class TestBase extends Base {
 
   get fullname(): string {
     const main =
-      mainScript() + ' ' + argv().slice(2).join(' ').trim()
+      mainScript() + ' ' + argv.slice(2).join(' ').trim()
     return (
       (this.parent
         ? this.parent.fullname

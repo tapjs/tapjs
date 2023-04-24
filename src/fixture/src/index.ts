@@ -85,7 +85,7 @@ export class TestFixtures {
       const base = [
         'tap-testdir',
         basename(main).replace(/\.[^.]+$/, ''),
-        ...argv().slice(2),
+        ...argv.slice(2),
       ]
         .join(' ')
         .trim()
