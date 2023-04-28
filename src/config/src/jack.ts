@@ -1,5 +1,5 @@
-import { jack } from 'jackspeak'
 import { env } from '@tapjs/core'
+import { jack } from 'jackspeak'
 
 import * as os from 'node:os'
 /* c8 ignore start */
@@ -186,9 +186,9 @@ export default jack({
 
   .flag({
     diag: {
-      description: `Set to show diagnostics by default for both passing tests.
-                    If not set, then diagnostics are printed by default for
-                    failing tests, and not for passing tests.`,
+      description: `Set to show diagnostics by default for both passing and
+                    failing tests. If not set, then diagnostics are printed by
+                    default for failing tests, and not for passing tests.`,
     },
     'no-diag': {
       description: `Do not show diagnostics by default for passing or failing
@@ -361,6 +361,12 @@ export default jack({
   .heading('Other Options')
   .flag({
     debug: { description: 'Turn on debug mode' },
+
+    'omit-version': {
+      description: `Do not pring the 'TAP version 14' line. (This may be needed
+                    for compapatibility with some TAP parsers that do not know
+                    how to properly parse TAP version 14.)`,
+    },
 
     versions: {
       short: 'V',
