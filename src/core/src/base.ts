@@ -279,6 +279,10 @@ export class Base {
     )
   }
 
+  pipe(...args: Parameters<Minipass['pipe']>) {
+    return this.stream.pipe(...args)
+  }
+
   oncomplete(results: FinalResults) {
     if (this.start) {
       this.hrtime = hrtime.bigint() - this.start

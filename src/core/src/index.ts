@@ -12,6 +12,7 @@ export * from './test-base.js'
 export * from './test.js'
 export * from './main-script.js'
 export * from './proc.js'
+export * from './tap.js'
 
 /**
  * The extra info passed to assertions.
@@ -40,4 +41,5 @@ export interface Extra {
   diagnostic?: boolean
   tapChildBuffer?: string
   test?: string
+  [k: string]: any
 }

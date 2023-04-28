@@ -380,16 +380,15 @@ export class TestBase extends Base {
       if (at) extra.at = at
     }
 
-    if (
-      !ok &&
-      !extra.skip &&
-      !extra.at &&
-      typeof fn === 'function'
-    ) {
-      const st = stack.capture(80, fn)
-      extra.at = st[0]
-      if (!extra.todo) {
-        extra.stack = st.map(c => String(c)).join('\n')
+    if (!extra.at && typeof fn === 'function') {
+      const showStack = !ok && !extra.skip && !extra.todo
+      const showAt = showStack || extra.diagnostic === true
+      if (showAt) {
+        const st = stack.capture(80, fn)
+        extra.at = st[0]
+        if (showStack) {
+          extra.stack = st.map(c => String(c)).join('\n')
+        }
       }
     }
 
@@ -501,7 +500,38 @@ export class TestBase extends Base {
         'cannot explicitly end while in stdinOnly mode'
       )
     this.debug('END implicit=%j', implicit === IMPLICIT)
-    if (this.ended && implicit === IMPLICIT) return
+    if (this.ended && implicit === IMPLICIT) {
+      this.debug('already ended, ignore implicit end')
+      return
+    }
+
+    // If onbeforeend returns a Promise, then wait for it to finish.
+    const obe = this.onbeforeend
+    if (obe && !this.#pushedBeforeEnd) {
+      this.debug('push obe')
+      this.#pushedBeforeEnd = true
+      if (!queueEmpty(this) || this.#occupied) {
+        this.queue.push(obe)
+        this.#process()
+      } else {
+        const ret = obe()
+        if (isPromise(ret)) {
+          // this will make the next section return this.#process()
+          this.waitOn(ret)
+        }
+      }
+    }
+
+    // beyond here we have to be actually done with things, or else
+    // the semantic checks on counts and such will be off.
+    if (!queueEmpty(this) || this.#occupied) {
+      this.debug('#end: queue not empty, or occupied')
+      if (!this.#pushedEnd) {
+        this.queue.push(['#end', implicit])
+      }
+      this.#pushedEnd = true
+      return this.#process()
+    }
 
     if (implicit !== IMPLICIT && !this.#multiEndThrew) {
       if (this.#explicitEnded) {
@@ -519,35 +549,11 @@ export class TestBase extends Base {
         this.threw(er)
         return
       }
+      this.debug('set #explicitEnded=true')
       this.#explicitEnded = true
     }
 
-    // If onbeforeend returns a Promise, then wait for it to finish.
-    const obe = this.onbeforeend
-    if (!this.#pushedBeforeEnd) {
-      this.#pushedBeforeEnd = true
-      if (!queueEmpty(this) || this.#occupied) {
-        this.queue.push(obe)
-        return this.#process()
-      } else {
-        const ret = obe()
-        if (isPromise(ret)) {
-          // this will make the next section return this.#process()
-          this.waitOn(ret)
-        }
-      }
-    }
-
-    // beyond here we have to be actually done with things, or else
-    // the semantic checks on counts and such will be off.
-    if (!queueEmpty(this) || this.#occupied) {
-      if (!this.#pushedEnd) {
-        this.queue.push(['#end', implicit])
-      }
-      this.#pushedEnd = true
-      return this.#process()
-    }
-
+    this.debug('set ended=true')
     this.ended = true
 
     if (this.#planEnd === -1) {
@@ -638,7 +644,10 @@ export class TestBase extends Base {
       } else if (Array.isArray(p)) {
         this.debug(' > METHOD')
         const m = p.shift() as keyof this
-        if (typeof this[m] !== 'function') {
+        const fn = (m === '#end' ? this.#end : this[m]) as (
+          ...a: any[]
+        ) => any
+        if (typeof fn !== 'function') {
           this.debug(
             ' > weird method not found in queue??',
             m,
@@ -646,9 +655,6 @@ export class TestBase extends Base {
           )
           continue
         }
-        const fn = (m === '#end' ? this.#end : this[m]) as (
-          ...a: any[]
-        ) => any
         const ret = fn.call(this, ...p)
         if (isPromise(ret)) {
           // returned promise
@@ -1045,6 +1051,8 @@ export class TestBase extends Base {
   }
 
   endAll(sub: boolean = false) {
+    if (this.bailedOut) return
+
     // in the case of the root TAP test object, we might sometimes
     // call endAll on a bailing-out test, as the process is ending
     // In that case, we WILL have a this.occupied and a full queue
@@ -1059,6 +1067,7 @@ export class TestBase extends Base {
       )
         (p as TestBase | Spawn).endAll(true)
       else p.parser.abort('test unfinished')
+      this.#occupied = null
     } else if (sub) {
       this.#process()
       if (queueEmpty(this)) {
@@ -1072,11 +1081,6 @@ export class TestBase extends Base {
 
     if (this.promise && this.promise.tapAbortPromise)
       this.promise.tapAbortPromise()
-
-    if (this.#occupied) {
-      this.queue.unshift(this.#occupied)
-      this.#occupied = null
-    }
 
     for (let i = 0; i < this.queue.length; i++) {
       const p = this.queue[i]

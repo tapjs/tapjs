@@ -152,6 +152,8 @@ export const deleteAlways = new Set([
 export const deleteIfEmpty = new Set([
   'at',
   'stack',
+  'runOnly',
+  'context',
   'compareOptions',
 ])
 export const deleteIfMatch = [
