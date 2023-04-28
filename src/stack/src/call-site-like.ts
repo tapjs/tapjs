@@ -22,10 +22,10 @@ export interface CallSiteLikeJSON {
   typeName?: string
   methodName?: string
   functionName?: string
-  isEval?: boolean
-  isNative?: boolean
-  isToplevel?: boolean
-  isConstructor?: boolean
+  isEval?: true
+  isNative?: true
+  isToplevel?: true
+  isConstructor?: true
   generated?: {
     fileName?: string
     lineNumber?: number
@@ -35,8 +35,8 @@ export interface CallSiteLikeJSON {
 
 export interface GeneratedResult {
   fileName: ReturnType<NodeJS.CallSite['getFileName']>
-  lineNumber: ReturnType<SourceMap['findEntry']>['generatedLine']
-  columnNumber?: ReturnType<SourceMap['findEntry']>['generatedColumn']
+  lineNumber: number | null,
+  columnNumber?: number | null,
 }
 
 const isCallSite = (c: any): c is NodeJS.CallSite =>
@@ -172,23 +172,35 @@ export class CallSiteLike {
       throw new Error('invalid call site information provided')
     }
 
-    if (this.#fileName && e) {
+    if (this.#fileName && e && !this.#sourceMap) {
       this.#sourceMap = findSourceMap(this.#fileName, e)
       if (this.#sourceMap && typeof this.lineNumber === 'number') {
+        // SourceMap.findEntry doesn't actually return the line/column
+        // number, despite the property names, but rather the zero-indexed
+        // line/column start of a mapping range, and must be looked up
+        // using the zero-indexed line and column.
+        // To find the mapping, we look it up with the zero-indexed line/col,
+        // then figure out how far our line/col is from the mapping, and
+        // apply that same offset to the start of the origin in the mapping.
         const payload = this.#sourceMap.findEntry(
-          this.lineNumber,
-          this.columnNumber || 0
+          Math.max(0, this.lineNumber - 1),
+          Math.max(0, (this.columnNumber || 0) - 1)
         )
         if (payload) {
+          const offset = [
+            this.lineNumber - payload.generatedLine,
+            (this.columnNumber || 1) - payload.generatedColumn,
+          ]
+          const originalLine = payload.originalLine + offset[0]
+          const originalColumn = payload.originalColumn + offset[1]
           this.generated = {
-            fileName: this.#fileName,
-            lineNumber: payload.generatedLine,
-            columnNumber: payload.generatedColumn,
+            fileName: this.#relativize(this.#fileName) || null,
+            lineNumber: this.lineNumber,
+            columnNumber: this.columnNumber,
           }
-
           this.#fileName = payload.originalSource
-          this.lineNumber = payload.originalLine
-          this.columnNumber = payload.originalColumn
+          this.lineNumber = originalLine
+          this.columnNumber = originalColumn
         }
       }
     }
@@ -280,23 +292,30 @@ export class CallSiteLike {
     const json: CallSiteLikeJSON = {}
     if (fileName !== null) json.fileName = fileName
     if (lineNumber || lineNumber === 0) json.lineNumber = lineNumber
-    if (columnNumber || columnNumber === 0) json.columnNumber = columnNumber
+    if (columnNumber || columnNumber === 0)
+      json.columnNumber = columnNumber
     if (evalOrigin) json.evalOrigin = evalOrigin.toJSON()
-    if (typeName !== null) json.typeName = typeName
+    if (typeName !== null && typeName !== 'Object' && typeName !== 'Test')
+      json.typeName = typeName
     if (methodName !== null) json.methodName = methodName
     if (functionName !== null) json.functionName = functionName
-    if (isEval !== null) json.isEval = isEval
-    if (isNative !== null) json.isNative = isNative
-    if (isToplevel !== null) json.isToplevel = isToplevel
-    if (isConstructor !== null) json.isConstructor = isConstructor
+    if (isEval) json.isEval = isEval
+    if (isNative) json.isNative = isNative
+    if (isToplevel) json.isToplevel = isToplevel
+    if (isConstructor) json.isConstructor = isConstructor
     if (generated && generated.fileName) {
-      json.generated = {
-        fileName: generated.fileName
+      const f = this.#relativize(generated.fileName)
+      const gen: Record<string, string | number> = {}
+      if (typeof f === 'string' && f !== json.fileName) {
+        gen.fileName = f
       }
       if (generated.lineNumber || generated.lineNumber === 0)
-        json.generated.lineNumber = generated.lineNumber
+        gen.lineNumber = generated.lineNumber
       if (generated.columnNumber || generated.columnNumber === 0)
-        json.generated.columnNumber = generated.columnNumber
+        gen.columnNumber = generated.columnNumber
+      if (Object.keys(gen).length > 0) {
+        json.generated = gen
+      }
     }
     return json
   }
