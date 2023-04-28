@@ -22,24 +22,21 @@ export const cleanYamlObject = (object: {
     res.at = stack.parseStack(res.stack.split('\n'))[0]
   }
 
-  const file =
-    res.at &&
-    res.at instanceof stack.CallSiteLike &&
-    res.at.absoluteFileName
-
   if (
-    file &&
     res.at &&
     res.at instanceof stack.CallSiteLike &&
     res.at.fileName &&
+    res.at.absoluteFileName &&
     res.at.lineNumber &&
-    !res.source
+    !res.source &&
+    !res.parent
   ) {
+    const file = res.at.absoluteFileName
     const content = tryReadFile(file)
     if (content) {
       const lines = content.split('\n')
       if (res.at.lineNumber <= lines.length) {
-        const startLine = Math.max(res.at.lineNumber - 2, 0)
+        const startLine = Math.max(res.at.lineNumber - 3, 0)
         const endLine = Math.min(
           res.at.lineNumber + 2,
           lines.length
