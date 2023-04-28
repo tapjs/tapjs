@@ -34,9 +34,9 @@ export interface CallSiteLikeJSON {
 }
 
 export interface GeneratedResult {
-  fileName: ReturnType<NodeJS.CallSite['getFileName']>
-  lineNumber: number | null,
-  columnNumber?: number | null,
+  fileName: string | null
+  lineNumber: number | null
+  columnNumber?: number | null
 }
 
 const isCallSite = (c: any): c is NodeJS.CallSite =>
@@ -47,7 +47,7 @@ export class CallSiteLike {
     return c.map(c => new CallSiteLike(e, c))
   }
 
-  #fileName: ReturnType<NodeJS.CallSite['getFileName']>
+  #fileName: string | null
   #cwd?: string
   lineNumber: ReturnType<NodeJS.CallSite['getLineNumber']>
   columnNumber: ReturnType<NodeJS.CallSite['getColumnNumber']>
@@ -92,7 +92,8 @@ export class CallSiteLike {
     }
 
     if (isCallSite(c)) {
-      this.#fileName = c.getFileName()
+      const fileName = c.getFileName()
+      this.#fileName = typeof fileName === 'string' ? fileName : null
       this.lineNumber = c.getLineNumber()
       this.columnNumber = c.getColumnNumber()
       this.this = c.getThis()
@@ -127,7 +128,8 @@ export class CallSiteLike {
       this.lineNumber = c.lineNumber === undefined ? null : c.lineNumber
       this.columnNumber =
         c.columnNumber === undefined ? null : c.columnNumber
-      this.#fileName = c.fileName === undefined ? null : c.fileName
+      const fileName = c.fileName
+      this.#fileName = typeof fileName === 'string' ? fileName : null
       this.generated = c.generated
       let fname = c.fname
       let method: null | string = null
@@ -193,8 +195,9 @@ export class CallSiteLike {
           ]
           const originalLine = payload.originalLine + offset[0]
           const originalColumn = payload.originalColumn + offset[1]
+          const genFilename = this.#relativize(this.#fileName)
           this.generated = {
-            fileName: this.#relativize(this.#fileName) || null,
+            fileName: typeof genFilename === 'string' ? genFilename : null,
             lineNumber: this.lineNumber,
             columnNumber: this.columnNumber,
           }
