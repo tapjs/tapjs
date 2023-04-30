@@ -6,8 +6,10 @@ import { createRequire } from 'module'
 import { relative, resolve } from 'node:path'
 import { dirname } from 'path'
 import { walkUp } from 'walk-up-path'
-import { parse } from 'yaml'
+import yaml from 'yaml'
 import baseConfig from './jack.js'
+// yaml v1 is commonjs only, so can't just import { parse } from 'yaml'
+const { parse } = yaml
 
 const exists = async (f: string) =>
   lstat(f).then(
@@ -138,10 +140,10 @@ export class TapConfig<C extends ConfigSet> {
       const entries = await readdir(p)
       if (entries.includes('.taprc')) {
         const file = resolve(p, '.taprc')
-        return this.loadConfigData(this.readYAMLConfig(file), file)
+        return this.loadConfigData(await this.readYAMLConfig(file), file)
       } else if (entries.includes('package.json')) {
         const file = resolve(p, 'package.json')
-        return this.loadConfigData(this.readPackageJsonConfig(file), file)
+        return this.loadConfigData(await this.readPackageJsonConfig(file), file)
       } else if (entries.includes('.git') || relative(home, p) === '') {
         break
       }
