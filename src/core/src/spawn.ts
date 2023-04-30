@@ -3,6 +3,7 @@ import { Base } from './base.js'
 import ProcessInfo from '@tapjs/processinfo'
 import {
   ChildProcess,
+  IOType,
   StdioOptions,
 } from 'node:child_process'
 import { basename } from 'node:path'
@@ -23,7 +24,7 @@ export class Spawn extends Base {
   public cwd: string
   public command: string
   public args: string[]
-  public stdio: StdioOptions
+  public stdio: Exclude<StdioOptions, IOType>
   public env: { [k: string]: string } | typeof process.env
   public proc: null | ChildProcess
   public cb: null | (() => void)
@@ -48,25 +49,26 @@ export class Spawn extends Base {
     this.cwd = cwd
     this.command = command
     this.args = args
+    this.stdio = []
     if (options.stdio) {
-      if (typeof options.stdio === 'string')
+      if (typeof options.stdio === 'string') {
         this.stdio = [options.stdio, 'pipe', options.stdio]
-      else {
-        this.stdio = options.stdio.slice(0) as StdioOptions
+      } else {
+        const [stdin, _, stderr] = options.stdio
+        this.stdio = [stdin, 'pipe', stderr]
       }
     } else {
       this.stdio = [0, 'pipe', 2]
     }
 
-    // stdout MUST be a pipe so we can collect tap data
-    ;(this.stdio as string[])[1] = 'pipe'
+    // stdio[3] is always an IPC channel, for reporting timeouts
+    this.stdio[3] = 'ipc'
+
     const env = options.env || process.env
     this.env = {
       ...env,
       TAP_CHILD_ID: String(
-        options.childId ||
-          env.TAP_CHILD_ID ||
-          /* istanbul ignore next */ '0'
+        options.childId || env.TAP_CHILD_ID || '0'
       ),
       TAP: '1',
       TAP_BAIL: this.bail ? '1' : '0',
@@ -161,20 +163,34 @@ export class Spawn extends Base {
     return this.#callCb()
   }
 
-  timeout(options: { expired?: string } = { expired: this.name}) {
-    if (this.proc) {
-      this.proc.kill('SIGTERM')
+  timeout(
+    options: { expired?: string } = { expired: this.name }
+  ) {
+    // try to send the timeout signal.  If the child test process is
+    // using node-tap as the test runner, and not caught in a busy
+    // loop, it will trigger a dump of outstanding handles and refs.
+    // If that doesn't do the job, then we fall back to signals.
+    // Unfortunately, termination signals on windows cannot be caught,
+    // so this is the only way to get that information in most cases.
+    const proc = this.proc
+    if (proc) {
+      proc.send({ tapAbort: 'timeout' })
       const t = setTimeout(() => {
-        if (
-          this.proc &&
-          !this.options.signal &&
-          this.options.exitCode === undefined
-        ) {
-          super.timeout(options)
-          this.proc.kill('SIGKILL')
-        }
-      }, 1000)
-      t.unref()
+        // try to give it a chance to note the timeout and report handles
+        try {
+          proc.kill('SIGALRM')
+        } catch (er) {}
+        const t = setTimeout(() => {
+          const { signal, exitCode } = this.options
+          if (!signal && exitCode === undefined) {
+            super.timeout(options)
+            // that didn't work, use forceful termination
+            proc.kill('SIGKILL')
+          }
+        }, 500)
+        if (t.unref) t.unref()
+      }, 500)
+      if (t.unref) t.unref()
     }
   }
 
