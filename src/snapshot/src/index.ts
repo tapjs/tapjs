@@ -13,7 +13,9 @@ import { Deferred } from 'trivial-deferred'
 import { SnapshotProviderDefault } from './provider.js'
 
 import { CompareOptions, format, strict } from 'tcompare'
-import { isPromise } from 'util/types'
+
+const isPromise = (p: any): p is Promise<any | void> =>
+  !!p && typeof p === 'object' && typeof p.then === 'function'
 
 const defaultFormatSnapshot = (obj: any) => format(obj, { sort: true })
 
