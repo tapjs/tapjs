@@ -40,6 +40,7 @@ const plugins = process.argv.slice(2)
 const seen = new Set<string>()
 const hasConfig = new Map<string, string>()
 const hasPlugin = new Map<string, string>()
+const hasLoader = new Map<string, string>()
 const signature = plugins
   .sort((a, b) => a.localeCompare(b, 'en'))
   .join('\n')
@@ -83,7 +84,11 @@ const pluginNames = plugins.map(p => {
     hasConfig.set(p, name)
     configs.set(p, imp.config)
   }
-  if (imp.plugin) hasPlugin.set(p, name)
+  if (typeof imp.plugin === 'function') {
+    hasPlugin.set(p, name)
+  }
+  if (typeof imp.loader === 'string')
+    hasLoader.set(p, imp.loader)
   return name
 })
 
@@ -96,11 +101,8 @@ const pluginImport =
         } from ${JSON.stringify(p)}\n`
     )
     .join('') +
-  [...hasPlugin.entries()]
-    .map(
-      ([_, name]) =>
-        `export const ${name} = _${name}.plugin\n`
-    )
+  [...hasPlugin.values()]
+    .map(name => `export const ${name} = _${name}.plugin\n`)
     .join('')
 
 const pluginsConfig = (() => {
@@ -162,18 +164,14 @@ const pluginsConfig = (() => {
 })()
 
 const pluginsCode = `const plugins: PI[] = [
-${plugins
-  .map((p, i) =>
-    hasPlugin.has(p) ? `  ${pluginNames[i]},\n` : ''
-  )
+${[...hasPlugin.values()]
+  .map(name => `  ${name},\n`)
   .join('')}]
 export const pluginsLoaded = new Map<string, PI>([
-${plugins
+${[...hasPlugin.values()]
   .map(
-    (_, i) =>
-      `  ['${pluginNames[i].substring(
-        'Plugin_'.length
-      )}', ${pluginNames[i]}],`
+    name =>
+      `  ['${name.substring('Plugin_'.length)}', ${name}],`
   )
   .join('\n')}
 ])
@@ -181,46 +179,44 @@ ${plugins
 type Plug =
   | TestBase
   | { t: Test }
-${plugins
-  .map(
-    (_, i) => `  | ReturnType<typeof ${pluginNames[i]}>\n`
-  )
+${[...hasPlugin.values()]
+  .map(name => `  | ReturnType<typeof ${name}>\n`)
   .join('')}
 type PlugKeys =
   | keyof TestBase
   | 't'
-${plugins
-  .map(
-    (_, i) =>
-      `  | keyof ReturnType<typeof ${pluginNames[i]}>\n`
-  )
+${[...hasPlugin.values()]
+  .map(name => `  | keyof ReturnType<typeof ${name}>\n`)
   .join('')}`
 
 const opts = `type SecondParam<
   T extends [any] | [any, any],
 > = T extends [any, any] ? T[1] : unknown
 
-${plugins
+${[...hasPlugin.values()]
   .map(
-    (
-      _,
-      i
-    ) => `export type ${pluginNames[i]}_Opts = SecondParam<
-  Parameters<typeof ${pluginNames[i]}>
+    name =>
+      `export type ${name}_Opts = SecondParam<
+  Parameters<typeof ${name}>
 >\n`
   )
   .join('')}
-export type TestOpts = TestBaseOpts${plugins
-  .map((_, i) => `\n  & ${pluginNames[i]}_Opts`)
+export type TestOpts = TestBaseOpts${[...hasPlugin.values()]
+  .map(name => `\n  & ${name}_Opts`)
   .join('')}
 `
 
 const testInterface = `type TTest = TestBase
-${plugins
-  .map(
-    (_, i) => `  & ReturnType<typeof ${pluginNames[i]}>\n`
-  )
+${[...hasPlugin.values()]
+  .map(name => `  & ReturnType<typeof ${name}>\n`)
   .join('')}
+`
+
+const pluginLoaders = `export const loaders = ${JSON.stringify(
+  [...hasLoader.values()],
+  null,
+  2
+)}
 `
 
 const swapTag = (
@@ -260,6 +256,7 @@ writeFileSync(
     OPTS: opts,
     'PLUGIN SIGNATURE': signatureCode,
     'TEST INTERFACE': testInterface,
+    LOADERS: pluginLoaders,
   })
 )
 

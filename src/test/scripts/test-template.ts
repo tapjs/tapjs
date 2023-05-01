@@ -58,6 +58,10 @@ type T = ConfigSet
 export const config = (jack: Jack) => jack
 //{{PLUGINS CONFIG END}}
 
+//{{LOADERS START}}
+export const loaders = []
+//{{LOADERS END}}
+
 //{{PLUGIN SIGNATURE START}}
 export const signature = ''
 //{{PLUGIN SIGNATURE END}}
