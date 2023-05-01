@@ -49,6 +49,9 @@ class TAP extends Test {
 
     super(options)
     instance = this
+    this.on('complete', results =>
+      this.#oncomplete(results)
+    )
 
     // only attach the teardown autoend if we're using the teardown plugin
     // tell typescript to chill, if it's not defined or defined as something
@@ -71,6 +74,8 @@ class TAP extends Test {
         return teardown.call(this, ...args)
       }
     }
+
+    this.runMain(() => {})
   }
 
   pipe(...args: Parameters<Minipass['pipe']>) {
@@ -104,11 +109,22 @@ class TAP extends Test {
     return super.write(c, e, cb)
   }
 
-  oncomplete(results: FinalResults) {
+  #oncomplete(results: FinalResults) {
+    if (results.fail) this.comment('fail:', results.fail)
+    if (results.todo) this.comment('todo:', results.todo)
+    if (results.skip) this.comment('skip:', results.skip)
+
+    // only print this added info in the root test, otherwise
+    // it's a bit extraneous.
+    if (!env.TAP_CHILD_ID) {
+      this.comment('pass', results.pass, '/', results.count)
+      setTimeout(() => console.log(`# time=${this.time}ms`))
+    }
+
+    if (!results.ok) this.comment('fail')
     if (pipedToStdout && !results.ok && proc) {
       proc.exitCode = 1
     }
-    return super.oncomplete(results)
   }
 }
 
@@ -167,6 +183,9 @@ const registerTimeoutListener = (t: TAP) => {
       }
     }
   )
+  // We don't want the channel to keep the child running
+  //@ts-ignore
+  process.channel?.unref()
 
   const onProcessTimeout = (
     signal: NodeJS.Signals | null = null

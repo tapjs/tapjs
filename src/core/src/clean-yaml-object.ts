@@ -2,6 +2,7 @@ import * as stack from '@tapjs/stack'
 import { createTwoFilesPatch } from 'diff'
 import { readFileSync } from 'node:fs'
 import { format, strict } from 'tcompare'
+import {env} from './proc.js'
 
 const tryReadFile = (path: string) => {
   try {
@@ -145,6 +146,7 @@ export const deleteAlways = new Set([
   'buffered',
   'parent',
   'saveFixture',
+  'env',
 ])
 export const deleteIfEmpty = new Set([
   'at',
@@ -161,7 +163,7 @@ export const deleteIfMatch = [
 const shouldDeleteKey = (key: string, value: any) =>
   deleteAlways.has(key) ||
   (deleteIfEmpty.has(key) && isEmpty(value)) ||
-  deleteIfMatch.some(r => r.test(key))
+    deleteIfMatch.some(r => r.test(key))
 
 // return true if object is empty, including inherited properties
 const isEmpty = (obj: any): obj is {} => {

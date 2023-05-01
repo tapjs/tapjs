@@ -81,8 +81,8 @@ export class Spawn extends Base {
   endAll() {
     if (this.proc) {
       this.proc.kill('SIGKILL')
+      this.parser.abort('test unfinished')
     }
-    this.parser.abort('test unfinished')
     this.#callCb()
   }
 
@@ -111,30 +111,33 @@ export class Spawn extends Base {
       externalID: this.name,
     }
 
-    queueMicrotask(async () => {
-      this.emit('preprocess', options)
-      const proc = ProcessInfo.spawn(
-        this.command,
-        this.args,
-        options
+    this.emit('preprocess', options)
+    const proc = ProcessInfo.spawn(
+      this.command,
+      this.args,
+      options
+    )
+    /* c8 ignore start */
+    if (!proc.stdout) {
+      return this.threw(
+        'failed to open child process stdout',
+        this.options
       )
-      /* istanbul ignore next */
-      if (!proc.stdout) {
-        return this.threw(
-          'failed to open child process stdout',
-          this.options
-        )
-      }
-      proc.stdout.pipe(this.parser)
-      proc.on('close', (code, signal) =>
-        this.#onprocclose(code, signal)
-      )
-      proc.on('error', er => this.threw(er))
-      this.emit('process', proc)
-      if (this.parent) {
-        this.parent.emit('spawn', this)
-      }
+    }
+    /* c8 ignore stop */
+    proc.stdout.pipe(this.parser)
+    try {
+      //@ts-ignore
+      proc.stdio[3]?.unref()
+    } catch (_) {}
+    proc.on('close', (code, signal) => {
+      this.#onprocclose(code, signal)
     })
+    proc.on('error', er => this.threw(er))
+    this.emit('process', proc)
+    if (this.parent) {
+      this.parent.emit('spawn', this)
+    }
   }
 
   #onprocclose(code: number | null, signal: string | null) {
@@ -174,7 +177,11 @@ export class Spawn extends Base {
     // so this is the only way to get that information in most cases.
     const proc = this.proc
     if (proc) {
-      proc.send({ tapAbort: 'timeout' })
+      try {
+        proc.send({ tapAbort: 'timeout' })
+        /* c8 ignore start */
+      } catch (_) {}
+      /* c8 ignore stop */
       const t = setTimeout(() => {
         // try to give it a chance to note the timeout and report handles
         try {

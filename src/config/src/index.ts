@@ -1,4 +1,4 @@
-import { cwd, env } from '@tapjs/core'
+import { argv, cwd, env } from '@tapjs/core'
 import { config as pluginConfig } from '@tapjs/test'
 import { lstat, readdir, readFile } from 'fs/promises'
 import { ConfigSet, Jack, OptionsResults } from 'jackspeak'
@@ -24,12 +24,13 @@ export class TapConfig<C extends ConfigSet> {
   jack: Jack<C>
   values?: OptionsResults<C>
   positionals?: string[]
+  globCwd: string = cwd
 
   constructor(jack: Jack<C> = baseConfig) {
     this.jack = jack
   }
 
-  parse(args: string[] = process.argv) {
+  parse(args: string[] = argv) {
     if (!this.values) {
       const { values, positionals } = this.jack.parse(args)
       this.values = values
@@ -139,15 +140,42 @@ export class TapConfig<C extends ConfigSet> {
     for (const p of walkUp(cwd)) {
       const entries = await readdir(p)
       if (entries.includes('.taprc')) {
+        this.globCwd = p
         const file = resolve(p, '.taprc')
         return this.loadConfigData(await this.readYAMLConfig(file), file)
       } else if (entries.includes('package.json')) {
+        this.globCwd = p
         const file = resolve(p, 'package.json')
-        return this.loadConfigData(await this.readPackageJsonConfig(file), file)
+        return this.loadConfigData(
+          await this.readPackageJsonConfig(file),
+          file
+        )
       } else if (entries.includes('.git') || relative(home, p) === '') {
+        this.globCwd = p
         break
       }
     }
+  }
+
+  get pluginSignature() {
+    return this.pluginList
+      .sort((a, b) => a.localeCompare(b, 'en'))
+      .join('\n')
+  }
+
+  get pluginList() {
+    const {
+      values: { plugin = [] },
+    } = this.parse()
+    const pluginSet = new Set<string>()
+    for (const p of plugin as string[]) {
+      if (p.startsWith('!')) {
+        pluginSet.delete(p.substring(1))
+      } else {
+        pluginSet.add(p)
+      }
+    }
+    return [...pluginSet]
   }
 
   static async load() {

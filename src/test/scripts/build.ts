@@ -8,7 +8,7 @@ import { readFileSync, writeFileSync } from 'node:fs'
 import { basename, resolve } from 'node:path'
 
 if (typeof process.argv[2] !== 'string') {
-  console.error('usage: build.ts [...plugins]')
+  console.error('usage: generate-tap-test-class [...plugins]')
   process.exit(1)
 }
 

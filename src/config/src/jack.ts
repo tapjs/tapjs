@@ -65,6 +65,21 @@ export default jack({
                     To *exclude* a plugin which has been previously included
                     (perhaps by being part of tap's default set), add it to
                     this list prefixed by a '!' character.`,
+      default: [
+        '@tapjs/asserts',
+        '@tapjs/core/plugin/after',
+        '@tapjs/core/plugin/after-each',
+        '@tapjs/core/plugin/before',
+        '@tapjs/core/plugin/before-each',
+        '@tapjs/core/plugin/spawn',
+        '@tapjs/core/plugin/stdin',
+        '@tapjs/core/plugin/typescript',
+        '@tapjs/filter',
+        '@tapjs/fixture',
+        '@tapjs/intercept',
+        '@tapjs/mock',
+        '@tapjs/snapshot',
+      ],
     },
   })
 
@@ -335,6 +350,7 @@ export default jack({
       description: `Pass an argument to test files spawned by the tap command
                     line executable. This can be specified multiple times to
                     pass multiple args to test scripts.`,
+      default: [],
     },
 
     'test-env': {
@@ -345,12 +361,12 @@ export default jack({
                     If a value is not provided, such as '--test-env=key', then
                     the key is ensured to not be set in the environment.  To
                     set a key to the empty string, use --test-env=key=`,
+      default: [],
     },
 
     'node-arg': {
       hint: 'arg',
-      // this is one that the mock plugin might want to add to?
-      // or should we just always force our loaders in?
+      default: [],
       description: `Pass an argument to Node binary in all child processes.
                     Run 'node --help' to see a list of all relevant arguments.
                     This can be specified multiple times to pass multiple args

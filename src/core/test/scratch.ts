@@ -1,5 +1,7 @@
 import { TAP } from '@tapjs/core'
 
+console.log('scratch.ts test file running')
+
 const t = TAP()
 
 t.test('hello', async t => {

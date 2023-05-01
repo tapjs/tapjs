@@ -137,7 +137,8 @@ export class Base {
     this.bail = !!options.bail
     this.strict = !!options.strict
     this.omitVersion = !!options.omitVersion
-    this.preserveWhitespace = !!options.preserveWhitespace
+    this.preserveWhitespace =
+      options.preserveWhitespace !== false
     this.buffered = !!options.buffered
     this.bailedOut = false
     this.errors = []
@@ -287,7 +288,8 @@ export class Base {
     if (this.start) {
       this.hrtime = hrtime.bigint() - this.start
       this.time =
-        results.time || Number(this.hrtime / 1000n)
+        results.time ||
+        Math.floor(Number(this.hrtime) / 1000) / 1000
     }
 
     this.debug('ONCOMPLETE %j %j', this.name, results)
