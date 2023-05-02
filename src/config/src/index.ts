@@ -1,5 +1,5 @@
 import { argv, cwd, env } from '@tapjs/core'
-import { config as pluginConfig } from '@tapjs/test'
+import { config as pluginConfig, defaultPlugins } from '@tapjs/test'
 import { lstat, readdir, readFile } from 'fs/promises'
 import { ConfigSet, Jack, OptionsResults } from 'jackspeak'
 import { createRequire } from 'module'
@@ -167,7 +167,7 @@ export class TapConfig<C extends ConfigSet> {
     const {
       values: { plugin = [] },
     } = this.parse()
-    const pluginSet = new Set<string>()
+    const pluginSet = new Set<string>(defaultPlugins)
     for (const p of plugin as string[]) {
       if (p.startsWith('!')) {
         pluginSet.delete(p.substring(1))

@@ -1,4 +1,5 @@
 import { env } from '@tapjs/core'
+import { defaultPlugins } from '@tapjs/test'
 import { jack } from 'jackspeak'
 
 import * as os from 'node:os'
@@ -64,22 +65,17 @@ export default jack({
 
                     To *exclude* a plugin which has been previously included
                     (perhaps by being part of tap's default set), add it to
-                    this list prefixed by a '!' character.`,
-      default: [
-        '@tapjs/asserts',
-        '@tapjs/core/plugin/after',
-        '@tapjs/core/plugin/after-each',
-        '@tapjs/core/plugin/before',
-        '@tapjs/core/plugin/before-each',
-        '@tapjs/core/plugin/spawn',
-        '@tapjs/core/plugin/stdin',
-        '@tapjs/core/plugin/typescript',
-        '@tapjs/filter',
-        '@tapjs/fixture',
-        '@tapjs/intercept',
-        '@tapjs/mock',
-        '@tapjs/snapshot',
-      ],
+                    this list prefixed by a '!' character.
+
+                    The default plugin set that ships with tap is:
+
+                    ${defaultPlugins.map(s => `- ${s}`).join('\n')}
+
+                    The tap runner requires the @tapjs/core/plugin/spawn plugin
+                    to run tests. If removed, you'll have to run test files
+                    some other way.
+  `,
+      default: [],
     },
   })
 
