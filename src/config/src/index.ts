@@ -27,6 +27,7 @@ export class TapConfig<C extends ConfigSet = Unwrap<typeof baseConfig>> {
   values?: OptionsResults<C>
   positionals?: string[]
   globCwd: string = cwd
+  configFile?: string
 
   constructor(jack: Jack<C> = baseConfig) {
     this.jack = jack
@@ -143,17 +144,21 @@ export class TapConfig<C extends ConfigSet = Unwrap<typeof baseConfig>> {
       const entries = await readdir(p)
       if (entries.includes('.taprc')) {
         this.globCwd = p
-        const file = resolve(p, '.taprc')
+        const file = (this.configFile = resolve(p, '.taprc'))
         return this.loadConfigData(await this.readYAMLConfig(file), file)
       } else if (entries.includes('package.json')) {
         this.globCwd = p
-        const file = resolve(p, 'package.json')
+        const file = (this.configFile = resolve(p, 'package.json'))
         return this.loadConfigData(
           await this.readPackageJsonConfig(file),
           file
         )
       } else if (entries.includes('.git') || relative(home, p) === '') {
         this.globCwd = p
+        // this just sets the default config file, even though we didn't
+        // get anything from it, so `tap plugin <add|rm>` knows where to
+        // write the resulting config to.
+        this.configFile = resolve(p, '.taprc')
         break
       }
     }
