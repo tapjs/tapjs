@@ -3,6 +3,8 @@ import type { Path } from 'path-scurry'
 import { Config } from './index.js'
 
 const alwaysExcludeNames = [
+  '.tap',
+  '.nyc_output',
   '.git',
   '.hg',
   'node_modules',
