@@ -56,7 +56,7 @@
   "dependencies": {
     "@tapjs/core": ">=0.0.0-0",
     "@tapjs/test": ">=0.0.0-0",
-    "jackspeak": "^2.1.5",
+    "jackspeak": "^2.2.0",
     "walk-up-path": "^3.0.1"
   },
   "devDependencies": {

@@ -31,7 +31,7 @@ export default jack({
   envPrefix: 'TAP',
   allowPositionals: true,
   env,
-  usage: 'tap [<options>] [<cmd> ...[<args>]]',
+  usage: 'tap [<options>] [<cmd> [<args> ...]]',
 })
   .heading('TAP - Test Anything Protocol library for JavaScript')
   .description(
@@ -42,27 +42,58 @@ export default jack({
   )
 
   .heading('Subcommands')
+  .heading('tap run [test files...]', 3)
   .description(
-    `run: (default) run the specified files, or search for test files
-     according to the 'include' and 'exclude' glob expressions. If the first
-     argument to the tap cli is not one of these subcommands, then it will
-     be treated as a test file to run.
+    `(default) Run the files if specified, or search for test files
+    according to the 'include' and 'exclude' glob expressions.
 
-     plugin: manage plugins.
-
-     build: rebuild tap with the desired plugins. This is done automatically
-     if the set of plugins does not match what tap was previously built with.
-
-     report: print a coverage report using the 'coverage-reporter' config
-
-     dump-config: print the resolved configuration in YAML format.
-
-     help: print usage information.
-
-     Get more information about any of the subcommands by running with
-     '--help' or 'tap help <command>'.
-    `
+    If the first argument to the tap cli is not one of these subcommands,
+    then it will be treated as a test file to run.`
   )
+
+  .heading('tap plugin [add <plugin> | rm <plugin> | list]', 3)
+  .description(`Manage plugins`)
+  .heading('tap plugin add <plugin>', 4)
+  .description(
+    `Add the specified plugin to the tap project config.
+
+    If the plugin is one of tap's builtin plugins that was previously
+    disabled, then it will simply be re-enabled.
+
+    If the plugin is not a module on disk, then tap will attempt to install
+    the plugin package as a dev dependency by running 'npm install
+    --save-dev <plugin>'.`
+  )
+  .heading('tap plugin rm <plugin>', 4)
+  .description(
+    `Remove the specified plugin.
+
+    If the plugin is one of tap's builtin plugins, then it will be disabled
+    by adding '!<plugin>' to the 'plugin' tap config.
+
+    If the plugin is an installed devDependency, then it will be removed by
+    running 'npm rm <plugin>'.`
+  )
+  .heading('tap plugin list', 4)
+  .description('List the plugins in use')
+
+  .heading('tap build', 3)
+  .description(
+    `Rebuild tap with the configured plugins. This is done automatically when
+    running tests if the set of plugins does not match what tap was previously
+    built with.`
+  )
+
+  .heading('tap report', 3)
+  .description(
+    `Print a coverage report using the 'coverage-reporter' config`
+  )
+
+  .heading('tap dump-config', 3)
+  .description('Print the resolved configuration in YAML format')
+
+  .heading('tap help', 3)
+  .description('Print usage information')
 
   .heading('Configuration')
   .description(
