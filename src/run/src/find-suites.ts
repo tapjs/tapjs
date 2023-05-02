@@ -19,11 +19,11 @@ const alwaysExcludePattern = `**/@(${alwaysExcludeNames.join('|')})/**`
 
 const defaultInclude =
   '**/{' +
-  'test*(s)|__test*(s)__)/**/*,' +
+  '@(test*(s)|__test*(s)__)/**/*,' +
   '*.@(test*(s)|spec),' +
   'test*(s)' +
-  '}.([mc]js|[jt]s*(x))'
-const dirInclude = '**/*.([mc]js|[jt]s*(x))'
+  '}.@([mc]js|[jt]s*(x))'
+const dirInclude = '**/*.@([mc]js|[jt]s*(x))'
 
 export const findSuites = async (args: string[], config: Config) => {
   const { values } = config.parse()
@@ -38,7 +38,7 @@ export const findSuites = async (args: string[], config: Config) => {
   const { scurry } = g
   const entries = new Set<Path>(
     (
-      await (args.length
+      await (!args.length
         ? g.walk()
         : Promise.all(args.map(async a => scurry.cwd.resolve(a).lstat())))
     ).filter(p => !!p) as Path[]
@@ -51,14 +51,14 @@ export const findSuites = async (args: string[], config: Config) => {
       continue
     }
     if (entry.isDirectory()) {
-      // if we match a dir, then pull in any runnable files from within it
       entries.delete(entry)
+      // if we match a dir, then pull in any runnable files from within it
       for (const s of await glob(dirInclude, {
         cwd: entry.fullpath(),
-        // no need to re-parse the ignore patterns
         ignore: g.ignore,
         withFileTypes: true,
-        scurry,
+        // TODO: add scurry.chdir() method, otherwise we can't reuse
+        // the scurry object, because it locks the cwd.
       })) {
         entries.add(s)
       }

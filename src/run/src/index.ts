@@ -2,8 +2,9 @@
 import { TapConfig } from '@tapjs/config'
 import { fileURLToPath } from 'url'
 import { build } from './build.js'
-import { run } from './run.js'
 import { dumpConfig } from './dump-config.js'
+import { findSuites } from './find-suites.js'
+import { run } from './run.js'
 const config = await TapConfig.load()
 const { values, positionals } = config.parse()
 
@@ -39,6 +40,11 @@ switch (positionals[0]) {
 
   case 'plugin':
     console.log('manage plugins')
+    break
+
+  case 'list-files':
+    const f = await findSuites(positionals.slice(1), config)
+    console.log(f.join('\n'))
     break
 
   case undefined:

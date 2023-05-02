@@ -92,6 +92,9 @@ export default jack({
   .heading('tap dump-config', 3)
   .description('Print the resolved configuration in YAML format')
 
+  .heading('tap list-files', 3)
+  .description('Print the test files that will be run by default')
+
   .heading('tap help', 3)
   .description('Print usage information')
 
@@ -385,10 +388,10 @@ export default jack({
       hint: 'pattern',
       default:
         '**/{' +
-        'test*(s)|__test*(s)__)/**/*,' +
+        '@(test*(s)|__test*(s)__)/**/*,' +
         '*.@(test*(s)|spec),' +
         'test*(s)' +
-        '}.([mc]js|[jt]s*(x))',
+        '}.@([mc]js|[jt]s*(x))',
       description: `A glob expression pattern indicating tests to run if no
                     positional arguments are provided to the 'tap run' command.
 
