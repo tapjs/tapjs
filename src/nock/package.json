@@ -64,7 +64,6 @@
   "devDependencies": {
     "@types/node": "^18.15.5",
     "@types/tap": "^15.0.8",
-    "c8": "^7.13.0",
     "prettier": "^2.8.6",
     "ts-node": "^10.9.1",
     "typedoc": "^0.23.28",
@@ -72,8 +71,8 @@
   },
   "dependencies": {
     "@tapjs/core": ">=0.0.0-0",
-    "@tapjs/stack": ">=0.0.0-0",
     "@tapjs/snapshot": ">=0.0.0-0",
+    "@tapjs/stack": ">=0.0.0-0",
     "nock": "^13.2.4"
   },
   "engines": {

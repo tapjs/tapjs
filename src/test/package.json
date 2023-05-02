@@ -40,7 +40,7 @@
   "dependencies": {
     "@tapjs/core": ">=0.0.0-0",
     "glob": "^10.0.0",
-    "jackspeak": "^2.0.3",
+    "jackspeak": "^2.1.5",
     "mkdirp": "^3.0.0",
     "tap-parser": "^13.0.0",
     "ts-node": "^10.9.1",
@@ -60,7 +60,6 @@
   "devDependencies": {
     "@types/node": "^18.11.9",
     "@types/tap": "^15.0.7",
-    "c8": "^7.12.0",
     "prettier": "^2.6.2",
     "typedoc": "^0.23.21"
   },

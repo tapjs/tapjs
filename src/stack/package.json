@@ -61,7 +61,6 @@
   "devDependencies": {
     "@types/node": "^18.15.5",
     "@types/tap": "^15.0.8",
-    "c8": "^7.13.0",
     "eslint-config-prettier": "^8.8.0",
     "prettier": "^2.8.6",
     "ts-node": "^10.9.1",

@@ -63,10 +63,9 @@
   },
   "homepage": "https://github.com/tapjs/tapjs/src/sinon#readme",
   "devDependencies": {
-    "@types/sinon":"^10.0.13",
     "@types/node": "^18.15.5",
+    "@types/sinon": "^10.0.13",
     "@types/tap": "^15.0.8",
-    "c8": "^7.13.0",
     "prettier": "^2.8.6",
     "ts-node": "^10.9.1",
     "typedoc": "^0.23.28",
