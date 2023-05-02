@@ -3,12 +3,12 @@ import { TAP } from '@tapjs/core'
 import { plugin as SpawnPlugin } from '@tapjs/core/plugin/spawn'
 import { loaders, signature } from '@tapjs/test'
 import { foregroundChild } from 'foreground-child'
-import { glob } from 'glob'
 import { createRequire } from 'node:module'
-import {relative} from 'node:path'
+import { relative, sep } from 'node:path'
 import { resolve } from 'path'
 import { pathToFileURL } from 'url'
 import { build } from './build.js'
+import { findSuites } from './find-suites.js'
 import { Config, mainBin, mainCommand } from './index.js'
 type T = ReturnType<typeof TAP> & ReturnType<typeof SpawnPlugin>
 const require = createRequire(import.meta.url)
@@ -90,18 +90,7 @@ export const run = async (args: string[], config: Config) => {
   }
   /* c8 ignore stop */
 
-  // TODO: this needs to be fleshed out a lot more.
-  // - Add a `--serial` optlist of folders which cannot be run parallel
-  // - Any directory provided will be expanded to its children, provided that
-  //   they match the 'include' pattern and not the 'exclude' pattern
-  // - 
-  if (!args.length) {
-    args = await glob(values.include, {
-      ignore: values.exclude,
-      cwd: config.globCwd,
-      absolute: true,
-    })
-  }
+  const files = await findSuites(args, config)
 
   /* c8 ignore start */
   const testArgs: string[] = values['test-arg'] || []
@@ -116,19 +105,21 @@ export const run = async (args: string[], config: Config) => {
     env[k] = v
   }
 
-  // TODO: figure out what can be run in parallel
-
   // run the test files, marking the non-parallel ones as buffer:false
   /* c8 ignore start */
   if (typeof values.jobs !== 'number') {
     throw new Error('no jobs option provided')
   }
   /* c8 ignore stop */
+
+  const serial = values.serial
+    ? values.serial.map(s => resolve(s).toLowerCase() + sep)
+    : []
+
   t.jobs = values.jobs
-  for (const f of args) {
-    // TODO: if it's a directory, expand to its children
+  for (const f of files) {
     t.spawn(node, [...argv, resolve(f), ...testArgs], {
-      buffered: true,
+      buffered: !serial.some(s => f.toLowerCase().startsWith(s)),
       env,
       name: relative(config.globCwd, resolve(f)),
     })
