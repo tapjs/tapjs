@@ -17,10 +17,12 @@ const exists = async (f: string) =>
     () => false
   )
 
+type Unwrap<J> = J extends Jack<infer C> ? C : never
+
 // get the set of folders to check for a .taprc or a package.json
 // always stop when we find a .git
 // validate config files against this.jack
-export class TapConfig<C extends ConfigSet> {
+export class TapConfig<C extends ConfigSet = Unwrap<typeof baseConfig>> {
   jack: Jack<C>
   values?: OptionsResults<C>
   positionals?: string[]
