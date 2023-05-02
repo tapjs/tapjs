@@ -23,6 +23,7 @@ const defaultInclude =
   '*.@(test*(s)|spec),' +
   'test*(s)' +
   '}.([mc]js|[jt]s*(x))'
+const dirInclude = '**/*.([mc]js|[jt]s*(x))'
 
 export const findSuites = async (args: string[], config: Config) => {
   const { values } = config.parse()
@@ -50,10 +51,12 @@ export const findSuites = async (args: string[], config: Config) => {
       continue
     }
     if (entry.isDirectory()) {
+      // if we match a dir, then pull in any runnable files from within it
       entries.delete(entry)
-      for (const s of await glob(defaultInclude, {
+      for (const s of await glob(dirInclude, {
         cwd: entry.fullpath(),
-        ignore,
+        // no need to re-parse the ignore patterns
+        ignore: g.ignore,
         withFileTypes: true,
         scurry,
       })) {
