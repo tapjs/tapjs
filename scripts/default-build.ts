@@ -1,5 +1,6 @@
 #!/usr/bin/env node --loader=ts-node/esm --no-warnings
 import { spawnSync } from 'child_process'
+import { writeFileSync } from 'fs'
 import { globSync } from 'glob'
 import { basename, resolve } from 'path'
 
@@ -23,10 +24,19 @@ const build = resolve(
   '../src/test/scripts/build.ts'
 )
 
-spawnSync(
-  build,
-  builtins,
-  {
-    stdio: 'inherit',
-  }
+const defaultPluginsFile = resolve(
+  __dirname,
+  '../src/test/src/default-plugins.ts'
 )
+writeFileSync(
+  defaultPluginsFile,
+  `export const defaultPlugins = ${JSON.stringify(
+    builtins,
+    null,
+    2
+  )}\n`
+)
+
+spawnSync(build, builtins, {
+  stdio: 'inherit',
+})
