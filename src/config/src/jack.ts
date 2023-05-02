@@ -35,20 +35,68 @@ export default jack({
 })
   .heading('TAP - Test Anything Protocol library for JavaScript')
   .description(
-    `Executes all the files and interprets their output as TAP
-     formatted test result data.  If no files are specified, then
-     tap will search for testy-looking files, and run those.
-     (See '--test-regex' below.)
-
-     To parse TAP data from stdin, specify "-" as a filename.
-
-     Short options are parsed gnu-style, so for example '-bCRspec' would be
+    `Short options are parsed gnu-style, so for example '-bCRspec' would be
      equivalent to '--bail --no-color --reporter=spec'
-
-     Coverage is not enabled for stdin.
 
      Much more documentation available at: https://www.node-tap.org/`
   )
+
+  .heading('Subcommands')
+  .description(
+    `run: (default) run the specified files, or search for test files
+     according to the 'include' and 'exclude' glob expressions. If the first
+     argument to the tap cli is not one of these subcommands, then it will
+     be treated as a test file to run.
+
+     plugin: manage plugins.
+
+     build: rebuild tap with the desired plugins. This is done automatically
+     if the set of plugins does not match what tap was previously built with.
+
+     report: print a coverage report using the 'coverage-reporter' config
+
+     dump-config: print the resolved configuration in YAML format.
+
+     help: print usage information.
+
+     Get more information about any of the subcommands by running with
+     '--help' or 'tap help <command>'.
+    `
+  )
+
+  .heading('Configuration')
+  .description(
+    `Tap will look for configuration data first in a .taprc file in the
+     project root, and then in the "tap" object in the project package.json
+     file.  ('Project root' means the nearest folder at or above the current
+     working directory containing package.json, .taprc, or .git.)
+
+     The config object may set any of the following fields, as well as the
+     special "extends" field, which may specify either a package name or
+     file name, relative to the config file that references it.
+
+     If the "extends" field resolves to a file on disk, then that will be read
+     as the base configuration object.  (It may also extend yet another config
+     file, and so on.)
+
+     If the "extends" field specifies a package name, then it must be
+     resolveable in the node_modules folder of the file extending it. That
+     package must contain either a .taprc file, or a package.json file
+     with a "tap" object.
+
+     To see the format used in a .taprc file, run the 'tap dump-config'
+     command with the desired options specified on the command line.
+
+     Additionally, all config options that are modified from their defaults
+     will be set in the environment with the 'TAP_' prefix, and will be read
+     from the environment if so specified.  For example, specifying
+     '--omit-version' on the command line, or 'omit-version: true' in a
+     .taprc file, will set 'TAP_OMIT_VERSION=1' in the environment.
+
+     Environment and CLI options take priority over any config files.
+    `
+  )
+
   .heading('Basic Options')
   .optList({
     plugin: {
@@ -207,6 +255,7 @@ export default jack({
                     for failing tests, and not for passing tests.`,
     },
   })
+
   .num({
     timeout: {
       hint: 'n',
@@ -341,6 +390,13 @@ export default jack({
   })
 
   .optList({
+    serial: {
+      hint: 'dir',
+      description: `Mark all test files anywhere within the specified
+                    directory as serial tests, not to be run in parallel with
+                    any other test files.`,
+    },
+
     'test-arg': {
       hint: 'arg',
       description: `Pass an argument to test files spawned by the tap command
@@ -375,9 +431,8 @@ export default jack({
     debug: { description: 'Turn on debug mode' },
 
     'omit-version': {
-      description: `Do not pring the 'TAP version 14' line. (This may be needed
-                    for compapatibility with some TAP parsers that do not know
-                    how to properly parse TAP version 14.)`,
+      description: `Do not print the 'TAP version 14' line. (This may be needed
+                    for compapatibility with some older TAP parsers.)`,
     },
 
     versions: {
