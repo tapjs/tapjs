@@ -105,8 +105,14 @@ export class SnapshotPlugin {
     if (typeof opts.writeSnapshot === 'boolean') {
       this.writeSnapshot = opts.writeSnapshot
     } else {
-      if (p) this.writeSnapshot = p.writeSnapshot
-      else this.writeSnapshot = env['TAP_SNAPSHOT'] === '1'
+      if (p) {
+        this.writeSnapshot = p.writeSnapshot
+      } else {
+        this.writeSnapshot =
+          env.TAP_SNAPSHOT === '1' ||
+          env.npm_lifecycle_event === 'snap' ||
+          env.npm_lifecycle_event === 'snapshot'
+      }
     }
 
     if (p && this.#provider === pp && snapshotFile === pf) {
@@ -238,6 +244,15 @@ export const config = {
     type: 'boolean',
     short: 'S',
     description: `Generate snapshot files for 't.matchSnapshot()'
-                  assertions.`,
+                  assertions.
+
+                  Defaults to true if the TAP_SNAPSHOT environment variable
+                  is set to '1', or if the npm_lifecycle_event environment
+                  variable is set to either 'snap' or 'snapshot'.
+
+                  That is, if you put "scripts": { "snap": "tap" } in your
+                  package.json file, then 'npm run snap' will generate
+                  snapshots.
+    `,
   },
 }
