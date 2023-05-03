@@ -8,6 +8,7 @@ import { basename, dirname } from 'path'
 import { walkUp } from 'walk-up-path'
 import yaml from 'yaml'
 import baseConfig from './jack.js'
+import { parseJson } from './vendor-json-parse-even-better-errors/index.js'
 // yaml v1 is commonjs only, so can't just import { parse } from 'yaml'
 const { parse } = yaml
 
@@ -79,16 +80,17 @@ export class TapConfig<C extends ConfigSet = Unwrap<typeof baseConfig>> {
     return writeFile(configFile, yaml.stringify(Object.assign(src, data)))
   }
 
-  // TODO: fork json-parse-even-better-errors and ts-hybrid it up
-  // Until then, people can deal with 2-space indentation in package.json
   async editPackageJsonConfig(
     data: OptionsResults<C>,
     configFile: string
   ) {
-    const pj = (await this.readPackageJson(configFile)) || {}
-    const src: OptionsResults<C> = pj?.tap || {}
+    const pj: any = (await this.readPackageJson(configFile)) || {}
+    const { tap = {} } = pj
+    const src = (
+      tap && typeof tap === 'object' && !Array.isArray(tap) ? tap : {}
+    ) as OptionsResults<C>
     pj.tap = Object.assign(src, data)
-    return writeFile(configFile, JSON.stringify(pj, null, 2))
+    return writeFile(configFile, parseJson.stringify(pj))
   }
 
   async readYAMLConfig(
@@ -103,11 +105,12 @@ export class TapConfig<C extends ConfigSet = Unwrap<typeof baseConfig>> {
 
   async readPackageJson(
     pj: string
-  ): Promise<
-    (Record<string, any> & { tap?: OptionsResults<C> }) | undefined
-  > {
+  ): Promise<{ tap?: OptionsResults<C> } | undefined> {
     try {
-      return JSON.parse(await readFile(pj, 'utf8'))
+      const res = parseJson(await readFile(pj, 'utf8'))
+      if (res && typeof res === 'object' && !Array.isArray(res)) {
+        return res as { tap?: OptionsResults<C> }
+      }
     } catch (er) {
       return undefined
     }
@@ -116,7 +119,9 @@ export class TapConfig<C extends ConfigSet = Unwrap<typeof baseConfig>> {
   async readPackageJsonConfig(
     pj: string
   ): Promise<OptionsResults<C> | undefined> {
-    return (await this.readPackageJson(pj))?.tap
+    return (await this.readPackageJson(pj))?.tap as
+      | OptionsResults<C>
+      | undefined
   }
 
   async readDepConfig(file: string) {
