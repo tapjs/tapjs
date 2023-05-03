@@ -112,7 +112,7 @@ export class Spawn extends Base {
     }
 
     this.emit('preprocess', options)
-    const proc = ProcessInfo.spawn(
+    const proc = this.proc = ProcessInfo.spawn(
       this.command,
       this.args,
       options
