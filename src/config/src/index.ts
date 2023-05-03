@@ -79,12 +79,14 @@ export class TapConfig<C extends ConfigSet = Unwrap<typeof baseConfig>> {
     return writeFile(configFile, yaml.stringify(Object.assign(src, data)))
   }
 
+  // TODO: fork json-parse-even-better-errors and ts-hybrid it up
+  // Until then, people can deal with 2-space indentation in package.json
   async editPackageJsonConfig(
     data: OptionsResults<C>,
     configFile: string
   ) {
-    const pj = await this.readPackageJson(configFile) || {}
-    const src:OptionsResults<C> = pj?.tap || {}
+    const pj = (await this.readPackageJson(configFile)) || {}
+    const src: OptionsResults<C> = pj?.tap || {}
     pj.tap = Object.assign(src, data)
     return writeFile(configFile, JSON.stringify(pj, null, 2))
   }
