@@ -194,7 +194,7 @@ export default jack({
     },
   })
 
-  .opt({
+  .optList({
     'coverage-reporter': {
       hint: 'type',
       description: `Output coverage information using the specified
@@ -211,7 +211,8 @@ export default jack({
 
                     Built-in coverage reporters:
                     ${coverageReporters.join(' ')}`,
-      validate: (s: any) => coverageReporters.includes(s),
+      validate: (s: any) =>
+        Array.isArray(s) && !s.some(s => !coverageReporters.includes(s)),
     },
   })
 
