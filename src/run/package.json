@@ -51,10 +51,12 @@
     "c8": "^7.13.0",
     "foreground-child": "^3.1.1",
     "glob": "10",
+    "opener": "^1.5.2",
     "path-scurry": "^1.7.0"
   },
   "devDependencies": {
     "@types/node": "^18.15.5",
+    "@types/opener": "^1.4.0",
     "@types/tap": "^15.0.8",
     "eslint-config-prettier": "^8.8.0",
     "prettier": "^2.8.6",

@@ -6,6 +6,7 @@ import { dumpConfig } from './dump-config.js'
 import { findSuites } from './find-suites.js'
 import { plugin } from './plugin.js'
 import { run } from './run.js'
+import { report } from './report.js'
 const config = await TapConfig.load()
 const { values, positionals } = config.parse()
 
@@ -30,7 +31,7 @@ switch (positionals[0]) {
     break
 
   case 'report':
-    console.log('print coverage report')
+    report(positionals.slice(1), config)
     break
 
   case 'dump-config':

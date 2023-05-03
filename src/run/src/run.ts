@@ -10,6 +10,7 @@ import { pathToFileURL } from 'url'
 import { build } from './build.js'
 import { findSuites } from './find-suites.js'
 import { Config, mainBin, mainCommand } from './index.js'
+import {report} from './report.js'
 type T = ReturnType<typeof TAP> & ReturnType<typeof SpawnPlugin>
 const require = createRequire(import.meta.url)
 const piLoader = pathToFileURL(require.resolve('@tapjs/processinfo/esm'))
@@ -115,6 +116,8 @@ export const run = async (args: string[], config: Config) => {
   const serial = values.serial
     ? values.serial.map(s => resolve(s).toLowerCase() + sep)
     : []
+
+  t.teardown(() => report([], config))
 
   t.jobs = values.jobs
   for (const f of files) {
