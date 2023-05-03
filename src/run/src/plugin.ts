@@ -33,7 +33,7 @@ export const plugin = async (args: string[], config: Config) => {
 }
 
 const install = async (pkgs: string[]) => {
-  const args = ['install', '--save-dev', ...pkgs]
+  const args = ['install', '--loglevel=silent', '--save-dev', ...pkgs]
   await new Promise<void>(res => {
     foregroundChild('npm', args, (code, signal) => {
       // allow error exit to proceed
@@ -45,7 +45,7 @@ const install = async (pkgs: string[]) => {
 }
 
 const uninstall = async (pkgs: string[]) => {
-  const args = ['rm', ...pkgs]
+  const args = ['rm', '--loglevel=silent', '--no-audit', ...pkgs]
   await new Promise<void>(res => {
     foregroundChild('npm', args, (code, signal) => {
       // allow error exit to proceed
@@ -98,15 +98,27 @@ const add = async (args: string[], config: Config) => {
     await install([...needInstall])
   }
 
-  // ok, that succeeded, update the config
-  config.values.plugin = [...pc]
-  config.editConfigFile({ plugin: [...pc] }, config.configFile)
+  // roll back if it fails!
+  let success = false
+  try {
+    // ok, that succeeded, update the config
+    config.values.plugin = [...pc]
 
-  // now rebuild
-  await build([], config)
+    // now rebuild
+    await build([], config)
 
-  console.log('successfully added plugin(s):')
-  console.log([...added].join('\n'))
+    // save the config change
+    await config.editConfigFile({ plugin: [...pc] }, config.configFile)
+
+    console.log('successfully added plugin(s):')
+    console.log([...added].join('\n'))
+    success = true
+  } finally {
+    if (needInstall.size && !success) {
+      console.error('Build failed, attempting to clean up')
+      await uninstall([...needInstall])
+    }
+  }
 }
 
 const rm = async (args: string[], config: Config) => {
@@ -135,15 +147,13 @@ const rm = async (args: string[], config: Config) => {
     return
   }
 
-  if (needRemove.size) {
-    await uninstall([...needRemove])
-  }
-
   config.values.plugin = [...pc]
-  config.editConfigFile({ plugin: [...pc] }, config.configFile)
 
   // now rebuild
   await build([], config)
+
+  // save the config change
+  await config.editConfigFile({ plugin: [...pc] }, config.configFile)
 
   // if not present, do nothing and exit
   // if a default plugin, then add the !plugin to the config
@@ -152,6 +162,12 @@ const rm = async (args: string[], config: Config) => {
   // rebuild
   console.log('successfully removed plugin(s):')
   console.log([...removed].join('\n'))
+  if (needRemove.size) {
+    console.log('The following packages can likely be removed:')
+    console.log(
+      `npm rm ${[...needRemove].map(p => JSON.stringify(p)).join(' ')}`
+    )
+  }
 }
 
 const list = async (_: string[], config: Config) => {

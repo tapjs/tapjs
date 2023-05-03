@@ -26,14 +26,16 @@ export const build = async (args: string[], config: Config) => {
   return new Promise<void>((res, rej) => {
     foregroundChild(node, argv, {}, (code, signal) => {
       // if this is the main command, just terminate in the same way
-      if (mainCommand === 'build') return
+      // otherwise, let the promise communicate the build status
+      if (mainCommand === 'build') {
+        res()
+        return
+      }
       if (code || signal) {
         rej(Object.assign(new Error('build failed'), { code, signal }))
-        if (code) return code
-        if (signal) return signal
+      } else {
+        res()
       }
-      // not the main command, and it did not fail, so do not terminate
-      res()
       return false
     })
   })

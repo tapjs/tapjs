@@ -1,14 +1,16 @@
 #!/usr/bin/env node --loader=ts-node/esm --no-warnings
 
 import { globSync } from 'glob'
-import { isConfigOption } from 'jackspeak'
+import { ConfigOptionBase, isConfigOption } from 'jackspeak'
 import { mkdirp } from 'mkdirp'
 import { spawnSync } from 'node:child_process'
 import { readFileSync, writeFileSync } from 'node:fs'
 import { basename, resolve } from 'node:path'
 
 if (typeof process.argv[2] !== 'string') {
-  console.error('usage: generate-tap-test-class [...plugins]')
+  console.error(
+    'usage: generate-tap-test-class [...plugins]'
+  )
   process.exit(1)
 }
 
@@ -38,9 +40,13 @@ for (const f of copies) {
 
 const plugins = process.argv.slice(2)
 const seen = new Set<string>()
+
+// If a plugin does not appear in hasConfig, hasPlugin, or hasLoader,
+// raise an error and do not continue.
 const hasConfig = new Map<string, string>()
 const hasPlugin = new Map<string, string>()
 const hasLoader = new Map<string, string>()
+
 const signature = plugins
   .sort((a, b) => a.localeCompare(b, 'en'))
   .join('\n')
@@ -61,7 +67,24 @@ const configs = new Map<
 const pluginNames = plugins.map(p => {
   // this also verifies that all plugins can be loaded, or it'll blow
   // up at this point.
-  const imp = require(p)
+  let imp: {
+    plugin?: (...a: any[]) => any
+    config?: {
+      [k: string]: ConfigOptionBase<
+        'string' | 'number' | 'boolean',
+        boolean
+      >
+    }
+    loader?: string
+  }
+  try {
+    imp = require(p)
+  } catch (er) {
+    throw (
+      `'${p}' does not appear to be a tap plugin. Could not load ` +
+      'module with require().'
+    )
+  }
   const n =
     'Plugin_' +
     basename(p)
@@ -80,15 +103,26 @@ const pluginNames = plugins.map(p => {
     name = ni
   }
   seen.add(name)
+  let isPlugin = false
   if (imp.config) {
     hasConfig.set(p, name)
     configs.set(p, imp.config)
+    isPlugin = true
   }
   if (typeof imp.plugin === 'function') {
     hasPlugin.set(p, name)
+    isPlugin = true
   }
-  if (typeof imp.loader === 'string')
+  if (typeof imp.loader === 'string') {
     hasLoader.set(p, imp.loader)
+    isPlugin = true
+  }
+  if (!isPlugin) {
+    throw (
+      `'${p}' does not appear to be a tap plugin, as it does not export ` +
+      'a plugin function, config object, or loader module identifier.'
+    )
+  }
   return name
 })
 
@@ -264,5 +298,11 @@ spawnSync('npm', ['run', 'prepare'], {
   cwd: dir,
   stdio: 'inherit',
 })
+
+writeFileSync(
+  '.taprc',
+  `include: src/*/test
+`
+)
 
 export {}
