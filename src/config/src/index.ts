@@ -1,10 +1,10 @@
 import { argv, cwd, env } from '@tapjs/core'
 import { config as pluginConfig, defaultPlugins } from '@tapjs/test'
-import { lstat, readdir, readFile } from 'fs/promises'
+import { lstat, readdir, readFile, writeFile } from 'fs/promises'
 import { ConfigSet, Jack, OptionsResults } from 'jackspeak'
 import { createRequire } from 'module'
 import { relative, resolve } from 'node:path'
-import { dirname } from 'path'
+import { basename, dirname } from 'path'
 import { walkUp } from 'walk-up-path'
 import yaml from 'yaml'
 import baseConfig from './jack.js'
@@ -33,19 +33,18 @@ export class TapConfig<C extends ConfigSet = Unwrap<typeof baseConfig>> {
     this.jack = jack
   }
 
-  parse(args: string[] = argv) {
-    if (!this.values) {
-      const { values, positionals } = this.jack.parse(args)
-      this.values = values
-      this.positionals = positionals
-    }
-    return this as TapConfig<C> & {
-      values: OptionsResults<C>
-      positionals: string[]
-    }
+  parse(args: string[] = argv): this & {
+    values: OptionsResults<C>
+    positionals: string[]
+  } {
+    const v = this.values
+    const p = this.positionals
+    const { values, positionals } =
+      v && p ? { values: v, positionals: p } : this.jack.parse(args)
+    return Object.assign(this, { values, positionals })
   }
 
-  get(k: keyof OptionsResults<C>): OptionsResults<C>[typeof k] {
+  get<K extends keyof OptionsResults<C>>(k: K): OptionsResults<C>[K] {
     return this.parse().values[k]
   }
 
@@ -57,14 +56,65 @@ export class TapConfig<C extends ConfigSet = Unwrap<typeof baseConfig>> {
     return new TapConfig(pluginConfig(this.jack))
   }
 
-  async readYAMLConfig(rc: string) {
-    return parse(await readFile(rc, 'utf8')) as Record<string, any>
+  // load the file, and write the fields in data.
+  // if not present, create it.
+  async editConfigFile(data: OptionsResults<C>, configFile: string) {
+    const b = basename(configFile)
+    if (b === '.taprc') {
+      return this.editYAMLConfig(data, configFile)
+    } else if (b === 'package.json') {
+      return this.editPackageJsonConfig(data, configFile)
+    } else {
+      throw new Error(
+        'unrecognized config file type, must be ' +
+          'named .taprc or package.json: ' +
+          configFile
+      )
+    }
   }
 
-  async readPackageJsonConfig(pj: string) {
-    return JSON.parse(await readFile(pj, 'utf8'))?.tap as
-      | Record<string, any>
-      | undefined
+  async editYAMLConfig(data: OptionsResults<C>, configFile: string) {
+    const src: OptionsResults<C> =
+      (await this.readYAMLConfig(configFile)) || {}
+    return writeFile(configFile, yaml.stringify(Object.assign(src, data)))
+  }
+
+  async editPackageJsonConfig(
+    data: OptionsResults<C>,
+    configFile: string
+  ) {
+    const pj = await this.readPackageJson(configFile) || {}
+    const src:OptionsResults<C> = pj?.tap || {}
+    pj.tap = Object.assign(src, data)
+    return writeFile(configFile, JSON.stringify(pj, null, 2))
+  }
+
+  async readYAMLConfig(
+    rc: string
+  ): Promise<OptionsResults<C> | undefined> {
+    try {
+      return parse(await readFile(rc, 'utf8')) as OptionsResults<C>
+    } catch (er) {
+      return undefined
+    }
+  }
+
+  async readPackageJson(
+    pj: string
+  ): Promise<
+    (Record<string, any> & { tap?: OptionsResults<C> }) | undefined
+  > {
+    try {
+      return JSON.parse(await readFile(pj, 'utf8'))
+    } catch (er) {
+      return undefined
+    }
+  }
+
+  async readPackageJsonConfig(
+    pj: string
+  ): Promise<OptionsResults<C> | undefined> {
+    return (await this.readPackageJson(pj))?.tap
   }
 
   async readDepConfig(file: string) {
@@ -97,10 +147,15 @@ export class TapConfig<C extends ConfigSet = Unwrap<typeof baseConfig>> {
     }
   }
 
-  async loadConfigData(data: any, filename: string): Promise<void> {
-    if (!data && typeof data !== 'object') return
-    await this.extendConfigData(data, filename)
-    this.jack.setConfigValues(data, filename)
+  async loadConfigData(
+    data: any,
+    configFile: string
+  ): Promise<this & { configFile: string }> {
+    if (!!data && typeof data === 'object') {
+      await this.extendConfigData(data, configFile)
+      this.jack.setConfigValues(data, configFile)
+    }
+    return Object.assign(this, { configFile })
   }
 
   async extendConfigData(data: Record<string, any>, file: string) {
@@ -136,7 +191,7 @@ export class TapConfig<C extends ConfigSet = Unwrap<typeof baseConfig>> {
     }
   }
 
-  async loadConfigFile() {
+  async loadConfigFile(): Promise<this & { configFile: string }> {
     // start from cwd, walk up until we find a .git
     // or package.json, or env.HOME
     const home = env.HOME || ''
@@ -144,11 +199,11 @@ export class TapConfig<C extends ConfigSet = Unwrap<typeof baseConfig>> {
       const entries = await readdir(p)
       if (entries.includes('.taprc')) {
         this.globCwd = p
-        const file = (this.configFile = resolve(p, '.taprc'))
+        const file = resolve(p, '.taprc')
         return this.loadConfigData(await this.readYAMLConfig(file), file)
       } else if (entries.includes('package.json')) {
         this.globCwd = p
-        const file = (this.configFile = resolve(p, 'package.json'))
+        const file = resolve(p, 'package.json')
         return this.loadConfigData(
           await this.readPackageJsonConfig(file),
           file
@@ -158,10 +213,10 @@ export class TapConfig<C extends ConfigSet = Unwrap<typeof baseConfig>> {
         // this just sets the default config file, even though we didn't
         // get anything from it, so `tap plugin <add|rm>` knows where to
         // write the resulting config to.
-        this.configFile = resolve(p, '.taprc')
-        break
+        return Object.assign(this, { configFile: resolve(p, '.taprc') })
       }
     }
+    return Object.assign(this, { configFile: resolve(cwd, '.taprc') })
   }
 
   get pluginSignature() {
@@ -186,9 +241,8 @@ export class TapConfig<C extends ConfigSet = Unwrap<typeof baseConfig>> {
   }
 
   static async load() {
-    const j = new TapConfig().loadPluginConfigFields()
-    await j.loadConfigFile()
-    j.parse()
-    return j
+    return (
+      await new TapConfig().loadPluginConfigFields().loadConfigFile()
+    ).parse()
   }
 }
