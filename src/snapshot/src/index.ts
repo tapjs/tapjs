@@ -134,6 +134,27 @@ export class SnapshotPlugin {
     return snapshot
   }
 
+  get compareOptions(): Exclude<SnapshotOptions['compareOptions'], undefined> {
+    return this.#compareOptions
+  }
+  set compareOptions(fmt: Exclude<SnapshotOptions['compareOptions'], undefined>) {
+    this.#compareOptions = fmt
+  }
+
+  get cleanSnapshot(): SnapshotOptions['cleanSnapshot'] {
+    return this.#cleanSnapshot
+  }
+  set cleanSnapshot(fmt: SnapshotOptions['cleanSnapshot']) {
+    this.#cleanSnapshot = fmt
+  }
+
+  get formatSnapshot(): SnapshotOptions['formatSnapshot'] {
+    return this.#formatSnapshot
+  }
+  set formatSnapshot(fmt: SnapshotOptions['formatSnapshot']) {
+    this.#formatSnapshot = fmt
+  }
+
   get snapshotFile(): string {
     return this.#snapshot.file
   }
