@@ -171,6 +171,7 @@ const applyPlugins = (
         // check to see if there's any setters, and if so, set it there
         // otherwise, just set on the base
         let didSet = false
+        if (getCache.has(p)) getCache.delete(p)
         for (const t of ext) {
           let o: Object | null = t
           while (o) {
@@ -248,13 +249,15 @@ export class Test extends TestBase {
   }
 
   static pluginLoaded(
-    plugin: (t: TestBase, opts?: any) => any
+    // TS gets confused if we type this as "TestBase" for some reason
+    plugin: (t: any, opts?: any) => any
   ): boolean {
     return plugins.includes(plugin)
   }
 
   pluginLoaded<T extends any = any>(
-    plugin: (t: TestBase, opts?: any) => T
+    // TS gets confused if we type this as "TestBase" for some reason
+    plugin: (t: any, opts?: any) => T
   ): this is TestBase & T {
     return Test.pluginLoaded(plugin)
   }
