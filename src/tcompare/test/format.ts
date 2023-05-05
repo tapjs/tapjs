@@ -1,5 +1,6 @@
-import t from 'tap'
-import { format, Format } from '../'
+import { TAP } from '@tapjs/core'
+import { format, Format } from '../dist/cjs/index.js'
+const t = TAP()
 
 // this is here so we can work with assertion errors and other
 // inspection output from node 12 and 13, where cyclical refs
@@ -234,9 +235,9 @@ t.test('objectAsArray is null for non-arrays', t => {
 })
 
 t.test('streams are not arrays', t => {
-  const MP = require('minipass')
-  const readable = new MP().end('hello')
-  const writable = new MP()
+  const { Minipass } = require('minipass')
+  const readable = new Minipass().end('hello')
+  const writable = new Minipass()
   writable.pipe = null
   t.matchSnapshot(
     cleanNodeNames(new Format(readable).print())

@@ -3958,10 +3958,6 @@ Minipass {
   "_events": Null Object {},
   "_eventsCount": 0,
   "_maxListeners": undefined,
-  "pipes": Array [],
-  "buffer": Array [
-    Buffer <6865 6c6c 6f  hello>,
-  ],
   "writable": false,
   "readable": true,
 }
@@ -3972,8 +3968,6 @@ Minipass {
   "_events": Null Object {},
   "_eventsCount": 0,
   "_maxListeners": undefined,
-  "pipes": Array [],
-  "buffer": Array [],
   "writable": true,
   "readable": true,
   "pipe": null,

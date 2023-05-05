@@ -30,6 +30,7 @@
     "@types/diff": "^5.0.2",
     "@types/node": "^18.11.9",
     "@types/tap": "^15.0.7",
+    "minipass": "^5.0.0",
     "prettier": "^2.8.0",
     "ts-node": "^10.9.1",
     "typedoc": "^0.23.21",
@@ -47,8 +48,8 @@
     "endOfLine": "lf"
   },
   "scripts": {
-    "snap": "c8 tap",
-    "test": "c8 tap",
+    "snap": "tap",
+    "test": "tap",
     "preprepare": "rm -rf dist",
     "prepare": "tsc -p tsconfig-cjs.json && tsc -p tsconfig-esm.json",
     "postprepare": "bash fixup.sh",
@@ -63,14 +64,7 @@
   "tap": {
     "test-env": [
       "LC_ALL=sk"
-    ],
-    "coverage": false,
-    "node-arg": [
-      "--no-warnings",
-      "--loader",
-      "ts-node/esm"
-    ],
-    "ts": false
+    ]
   },
   "engines": {
     "node": ">=16"

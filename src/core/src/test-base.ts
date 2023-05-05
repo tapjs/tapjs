@@ -5,7 +5,7 @@ import * as stack from '@tapjs/stack'
 import type { Test, TestOpts } from '@tapjs/test'
 import Minipass from 'minipass'
 import assert from 'node:assert'
-import { basename } from 'node:path'
+import { relative } from 'node:path'
 import { hrtime } from 'node:process'
 import { Readable } from 'node:stream'
 import { format } from 'node:util'
@@ -570,15 +570,20 @@ export class TestBase extends Base {
   }
 
   get fullname(): string {
-    const main =
-      mainScript() + ' ' + argv.slice(2).join(' ').trim()
+    const main = (
+      mainScript('TAP') +
+      ' ' +
+      argv.slice(2).join(' ')
+    ).trim()
     return (
       (this.parent
         ? this.parent.fullname
-        : main.indexOf(cwd) === 0
-        ? main.substring(cwd.length + 1)
-        : basename(main)
-      ).replace(/\\/g, '/') +
+        : main === 'TAP'
+        ? 'TAP'
+        : relative(cwd, main)
+      )
+        .replace(/\\/g, '/')
+        .trim() +
       ' ' +
       (this.name || '').trim()
     ).trim()

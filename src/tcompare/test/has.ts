@@ -1,6 +1,8 @@
-import t from 'tap'
-import { has as compareHas, Has } from '../'
-const has = (t: Tap.Test, a: any, b: any) => {
+import { has as compareHas, Has } from '../dist/cjs/index.js'
+import { TAP } from '@tapjs/core'
+import { Test } from '@tapjs/test'
+const t = TAP()
+const has = (t: Test, a: any, b: any) => {
   const h = compareHas(a, b)
   t.matchSnapshot(h.diff)
   return h.match

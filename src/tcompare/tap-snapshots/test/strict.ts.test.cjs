@@ -5,10 +5,6 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/strict.ts TAP NaN > must match snapshot 1`] = `
-
-`
-
 exports[`test/strict.ts TAP array-likes > must match snapshot 1`] = `
 
 `
@@ -485,6 +481,10 @@ exports[`test/strict.ts TAP map > must match snapshot 9`] = `
 -    "b": 2,
    } => 6,
  }
+
+`
+
+exports[`test/strict.ts TAP NaN > must match snapshot 1`] = `
 
 `
 

@@ -1,7 +1,9 @@
-import t from 'tap'
-import { MatchStrict } from '../'
+import { TAP } from '@tapjs/core'
+import { Test } from '@tapjs/test'
+import { MatchStrict } from '../dist/cjs/index.js'
+const t = TAP()
 
-const match = (t: Tap.Test, a: any, b: any) => {
+const match = (t: Test, a: any, b: any) => {
   const m = new MatchStrict(a, { expect: b })
   t.matchSnapshot(m.print())
   return m.match

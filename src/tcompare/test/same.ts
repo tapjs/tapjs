@@ -1,9 +1,11 @@
-import t from 'tap'
-import type { FormatOptions } from '../'
-import * as compare from '../'
+import { TAP } from '@tapjs/core'
+import { Test } from '@tapjs/test'
+import type { FormatOptions } from '../dist/cjs/index.js'
+import * as compare from '../dist/cjs/index.js'
+const t = TAP()
 
 const same = (
-  t: Tap.Test,
+  t: Test,
   a: any,
   b: any,
   options: FormatOptions & { diffContext?: number } = {}
@@ -289,7 +291,7 @@ t.test('should handle functions', function (t) {
 
 t.test('should handle arguments', function (t) {
   var outer = arguments
-  ;(function inner(tt: Tap.Test) {
+  ;(function inner(tt: Test) {
     var inner = arguments
     tt.ok(same(t, outer, outer))
     tt.ok(same(t, outer, inner))

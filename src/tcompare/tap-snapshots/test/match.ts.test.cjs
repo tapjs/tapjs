@@ -352,68 +352,6 @@ exports[`test/match.ts TAP shallower shouldn't care about key order recursively 
 
 `
 
-exports[`test/match.ts TAP should handle RegExps > must match snapshot 1`] = `
---- expected
-+++ actual
-@@ -1,1 +1,1 @@
--/[a]/
-+/[b]/
-
-`
-
-exports[`test/match.ts TAP should handle RegExps > must match snapshot 2`] = `
---- expected
-+++ actual
-@@ -1,1 +1,1 @@
--/[a]/g
-+/[a]/i
-
-`
-
-exports[`test/match.ts TAP should handle RegExps > must match snapshot 3`] = `
-
-`
-
-exports[`test/match.ts TAP should handle RegExps > must match snapshot 4`] = `
-
-`
-
-exports[`test/match.ts TAP should handle RegExps > must match snapshot 5`] = `
---- expected
-+++ actual
-@@ -1,1 +1,5 @@
--/asdf/
-+Array [
-+  1,
-+  2,
-+  3,
-+]
-
-`
-
-exports[`test/match.ts TAP should handle RegExps > must match snapshot 6`] = `
-
-`
-
-exports[`test/match.ts TAP should handle RegExps > must match snapshot 7`] = `
-
-`
-
-exports[`test/match.ts TAP should handle RegExps > must match snapshot 8`] = `
-
-`
-
-exports[`test/match.ts TAP should handle RegExps > must match snapshot 9`] = `
---- expected
-+++ actual
-@@ -1,1 +1,3 @@
--/^FooBar$/
-+Object {
-+  "toString": Function toString(),
-+}
-
-`
-
 exports[`test/match.ts TAP should handle arguments > must match snapshot 1`] = `
 
 `
@@ -508,6 +446,68 @@ exports[`test/match.ts TAP should handle functions > must match snapshot 4`] = `
 `
 
 exports[`test/match.ts TAP should handle functions > must match snapshot 5`] = `
+
+`
+
+exports[`test/match.ts TAP should handle RegExps > must match snapshot 1`] = `
+--- expected
++++ actual
+@@ -1,1 +1,1 @@
+-/[a]/
++/[b]/
+
+`
+
+exports[`test/match.ts TAP should handle RegExps > must match snapshot 2`] = `
+--- expected
++++ actual
+@@ -1,1 +1,1 @@
+-/[a]/g
++/[a]/i
+
+`
+
+exports[`test/match.ts TAP should handle RegExps > must match snapshot 3`] = `
+
+`
+
+exports[`test/match.ts TAP should handle RegExps > must match snapshot 4`] = `
+
+`
+
+exports[`test/match.ts TAP should handle RegExps > must match snapshot 5`] = `
+--- expected
++++ actual
+@@ -1,1 +1,5 @@
+-/asdf/
++Array [
++  1,
++  2,
++  3,
++]
+
+`
+
+exports[`test/match.ts TAP should handle RegExps > must match snapshot 6`] = `
+
+`
+
+exports[`test/match.ts TAP should handle RegExps > must match snapshot 7`] = `
+
+`
+
+exports[`test/match.ts TAP should handle RegExps > must match snapshot 8`] = `
+
+`
+
+exports[`test/match.ts TAP should handle RegExps > must match snapshot 9`] = `
+--- expected
++++ actual
+@@ -1,1 +1,3 @@
+-/^FooBar$/
++Object {
++  "toString": Function toString(),
++}
 
 `
 

@@ -5,10 +5,6 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/same.ts TAP NaN matches NaN > must match snapshot 1`] = `
-
-`
-
 exports[`test/same.ts TAP another weird cycle case > must match snapshot 1`] = `
 --- expected
 +++ actual
@@ -592,6 +588,10 @@ exports[`test/same.ts TAP maps extra and missing > must match snapshot 2`] = `
 
 `
 
+exports[`test/same.ts TAP NaN matches NaN > must match snapshot 1`] = `
+
+`
+
 exports[`test/same.ts TAP null is as shallow as you'd expect > must match snapshot 1`] = `
 
 `
@@ -801,32 +801,6 @@ exports[`test/same.ts TAP sets extra and missing > must match snapshot 2`] = `
 
 `
 
-exports[`test/same.ts TAP should handle RegExps > must match snapshot 1`] = `
---- expected
-+++ actual
-@@ -1,1 +1,1 @@
--/[a]/
-+/[b]/
-
-`
-
-exports[`test/same.ts TAP should handle RegExps > must match snapshot 2`] = `
---- expected
-+++ actual
-@@ -1,1 +1,1 @@
--/[a]/g
-+/[a]/i
-
-`
-
-exports[`test/same.ts TAP should handle RegExps > must match snapshot 3`] = `
-
-`
-
-exports[`test/same.ts TAP should handle RegExps > must match snapshot 4`] = `
-
-`
-
 exports[`test/same.ts TAP should handle arguments > must match snapshot 1`] = `
 
 `
@@ -904,6 +878,32 @@ exports[`test/same.ts TAP should handle functions > must match snapshot 4`] = `
 `
 
 exports[`test/same.ts TAP should handle functions > must match snapshot 5`] = `
+
+`
+
+exports[`test/same.ts TAP should handle RegExps > must match snapshot 1`] = `
+--- expected
++++ actual
+@@ -1,1 +1,1 @@
+-/[a]/
++/[b]/
+
+`
+
+exports[`test/same.ts TAP should handle RegExps > must match snapshot 2`] = `
+--- expected
++++ actual
+@@ -1,1 +1,1 @@
+-/[a]/g
++/[a]/i
+
+`
+
+exports[`test/same.ts TAP should handle RegExps > must match snapshot 3`] = `
+
+`
+
+exports[`test/same.ts TAP should handle RegExps > must match snapshot 4`] = `
 
 `
 

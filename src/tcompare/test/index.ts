@@ -1,5 +1,6 @@
-import t from 'tap'
-import * as compare from '../'
+import { TAP } from '@tapjs/core'
+import * as compare from '../dist/cjs/index.js'
+const t = TAP()
 
 // not much of a test, but just verifying the interface exists
 const obj = { a: 1 }

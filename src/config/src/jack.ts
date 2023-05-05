@@ -470,6 +470,13 @@ export default jack({
                     for compapatibility with some older TAP parsers.)`,
     },
 
+    'omit-whitespace': {
+      description: 'Prune empty lines out of the output from child tests',
+    },
+    'no-omit-whitespace': {
+      description: `Preserve extra empty lines in the output.`
+    },
+
     versions: {
       short: 'V',
       description:
