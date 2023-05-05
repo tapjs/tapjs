@@ -56,7 +56,7 @@ const checkCoverage = async (report: Report) => {
   for (const th of thresholds) {
     const coverage = summary[th].pct
     if (coverage < 100) {
-      console.error(`ERROR: incomplete ${th} coverage (${coverage}%)`)
+      console.error(`# ERROR: incomplete ${th} coverage (${coverage}%)`)
       success = false
     }
   }
