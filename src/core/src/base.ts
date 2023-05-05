@@ -2,9 +2,8 @@
 
 import Domain from 'async-hook-domain'
 import { AsyncResource } from 'async_hooks'
-import Minipass, {
-  ContiguousData,
-  Encoding,
+import {
+  Minipass,
 } from 'minipass'
 import { hrtime } from 'node:process'
 import { format } from 'node:util'
@@ -260,8 +259,8 @@ export class Base {
   }
 
   write(
-    c: ContiguousData,
-    e?: Encoding | (() => any),
+    c: Minipass.ContiguousData,
+    e?: Minipass.Encoding | (() => any),
     cb?: () => any
   ) {
     if (this.buffered) {
@@ -275,7 +274,7 @@ export class Base {
 
     return this.stream.write(
       c,
-      e as Encoding | undefined,
+      e as Minipass.Encoding | undefined,
       cb
     )
   }

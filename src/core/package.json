@@ -50,7 +50,7 @@
     "async-hook-domain": "^3.0.2",
     "function-loop": "^3.0.0",
     "jackspeak": "^2.2.0",
-    "minipass": "^4.2.5",
+    "minipass": "^5.0.0",
     "tap-parser": "^13.0.0",
     "tcompare": "^6.0.0",
     "trivial-deferred": "^1.1.1"

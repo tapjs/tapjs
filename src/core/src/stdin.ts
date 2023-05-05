@@ -1,4 +1,4 @@
-import Minipass from 'minipass'
+import { Minipass } from 'minipass'
 import { Base, BaseOpts } from './base.js'
 
 export interface StdinOpts extends BaseOpts {

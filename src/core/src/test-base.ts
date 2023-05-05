@@ -3,7 +3,7 @@
 
 import * as stack from '@tapjs/stack'
 import type { Test, TestOpts } from '@tapjs/test'
-import Minipass from 'minipass'
+import { Minipass } from 'minipass'
 import assert from 'node:assert'
 import { relative } from 'node:path'
 import { hrtime } from 'node:process'

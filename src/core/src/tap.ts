@@ -1,8 +1,7 @@
 // The root Test object singleton
 import { Test, TestOpts } from '@tapjs/test'
-import Minipass, {
-  ContiguousData,
-  Encoding,
+import  {
+  Minipass,
 } from 'minipass'
 import { onExit } from 'signal-exit'
 import { FinalResults } from 'tap-parser'
@@ -97,8 +96,8 @@ class TAP extends Test {
   }
 
   write(
-    c: ContiguousData,
-    e?: Encoding | (() => any),
+    c: Minipass.ContiguousData,
+    e?: Minipass.Encoding | (() => any),
     cb?: () => any
   ) {
     if (!piped && stdout) {
