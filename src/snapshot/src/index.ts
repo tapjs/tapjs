@@ -170,7 +170,7 @@ export class SnapshotPlugin {
   matchSnapshot(found: any, ...[msg, extra]: MessageExtra): boolean {
     this.#t.currentAssert = this.#t.t.matchSnapshot
     const args = [msg, extra] as MessageExtra
-    const me = normalizeMessageExtra('should match snapshot', args)
+    const me = normalizeMessageExtra('must match snapshot', args)
     const m = this.#t.fullname + ' > ' + me[0]
     if (typeof found !== 'string') {
       found = (this.#formatSnapshot || defaultFormatSnapshot)(found)
@@ -208,7 +208,7 @@ export class SnapshotPlugin {
   ): Promise<boolean | Error> {
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
-      'promise should resolve to match snapshot',
+      'promise must resolve to match snapshot',
       args
     )
     const d = new Deferred<boolean | Error>()

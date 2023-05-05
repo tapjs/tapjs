@@ -16,7 +16,7 @@ const snapshotHeading = `/* IMPORTANT
 'use strict'`
 
 const snapshotExport = (k: string, v: string) =>
-  `exports[\`${escape(k)}\`] = \`\n${escape(v)}\n\``
+  `exports[\`${escape(k)}\`] = \`\n${escape(v)}\n\`\n`
 
 const snapshotData = (data: { [k: string]: string }) =>
   `${snapshotHeading}
