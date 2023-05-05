@@ -1,5 +1,5 @@
 // run the provided tests
-import { TAP } from '@tapjs/core'
+import { proc, TAP } from '@tapjs/core'
 import { plugin as SpawnPlugin } from '@tapjs/core/plugin/spawn'
 import { loaders, signature } from '@tapjs/test'
 import { foregroundChild } from 'foreground-child'
@@ -10,15 +10,14 @@ import { pathToFileURL } from 'url'
 import { build } from './build.js'
 import { findSuites } from './find-suites.js'
 import { Config, mainBin, mainCommand } from './index.js'
-import {report} from './report.js'
-type T = ReturnType<typeof TAP> & ReturnType<typeof SpawnPlugin>
+import { report } from './report.js'
 const require = createRequire(import.meta.url)
 const piLoader = pathToFileURL(require.resolve('@tapjs/processinfo/esm'))
 
 const node = process.execPath
-const t = TAP() as T
 
 export const run = async (args: string[], config: Config) => {
+  const t = TAP()
   // Make sure that we WANT to have the spawn plugin, otherwise
   // the runner really can't work.
   if (!config.pluginList.includes('@tapjs/core/plugin/spawn')) {
@@ -52,20 +51,25 @@ export const run = async (args: string[], config: Config) => {
     }
 
     return new Promise<void>((res, rej) => {
-      foregroundChild(node, argv, { env }, (code, signal) => {
-        if (code || signal) {
-          const er = new Error('run command failed')
-          rej(Object.assign(er, { code, signal }))
-          return
+      foregroundChild(
+        node,
+        [...(proc?.execArgv || []), ...argv],
+        { env },
+        (code, signal) => {
+          if (code || signal) {
+            const er = new Error('run command failed')
+            rej(Object.assign(er, { code, signal }))
+            return
+          }
+          res()
+          if (mainCommand === 'run') {
+            if (code) return code
+            if (signal) return signal
+            return
+          }
+          return false
         }
-        res()
-        if (mainCommand === 'run') {
-          if (code) return code
-          if (signal) return signal
-          return
-        }
-        return false
-      })
+      )
     })
   }
 
@@ -119,6 +123,7 @@ export const run = async (args: string[], config: Config) => {
 
   t.teardown(() => report([], config))
 
+  t.plan(files.length)
   t.jobs = values.jobs
   for (const f of files) {
     t.spawn(node, [...argv, resolve(f), ...testArgs], {
