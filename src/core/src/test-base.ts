@@ -21,6 +21,7 @@ import { TestPoint } from './test-point.js'
 import { Waiter } from './waiter.js'
 
 import { Extra } from './index.js'
+import { IMPLICIT } from './implicit-end-sigil.js'
 
 export type MessageExtra =
   | []
@@ -66,12 +67,6 @@ export interface TestBaseOpts extends BaseOpts {
    */
   cb?: (...args: any[]) => any
 }
-
-/**
- * Sigil for implicit end() calls that should not
- * trigger an error if the user then calls t.end()
- */
-const IMPLICIT = Symbol('implicit end')
 
 /**
  * Sigil to put in the queue to signal the end of all things
@@ -451,8 +446,8 @@ export class TestBase extends Base {
     this.#process()
   }
 
-  end(): this {
-    this.#end()
+  end(implicit?: typeof IMPLICIT): this {
+    this.#end(implicit)
     return this
   }
 
@@ -614,11 +609,12 @@ export class TestBase extends Base {
         // I AM BECOME EOF, DESTROYER OF STREAMS
         const eofRet = this.onEOF()
         if (isPromise(eofRet)) {
-          this.waitOn(eofRet)
-          eofRet.then(() => {
-            this.queue.push(EOF)
-            this.#process()
-          })
+          this.waitOn(
+            eofRet.then(() => {
+              this.queue.push(EOF)
+              this.#process()
+            })
+          )
         } else {
           this.parser.end()
         }
@@ -717,7 +713,21 @@ export class TestBase extends Base {
     // waiting around in the queue to be processed
     if (!this.#occupied && this.queue.length) {
       this.#process()
+    } else if (this.idle) {
+      // the root tap runner uses this event to know when it is safe to
+      // automatically end.
+      this.emit('idle')
     }
+  }
+
+  get idle() {
+    return (
+      !this.#processing &&
+      queueEmpty(this) &&
+      !this.pool.size &&
+      !this.subtests.length &&
+      !this.#occupied
+    )
   }
 
   #onBufferedEnd<T extends Base>(p: T) {
@@ -1099,7 +1109,6 @@ export class TestBase extends Base {
 
     this.#processing = false
     this.#process()
-    this.parser.end()
   }
 
   /**

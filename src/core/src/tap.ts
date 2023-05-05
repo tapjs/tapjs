@@ -7,9 +7,13 @@ import Minipass, {
 import { onExit } from 'signal-exit'
 import { FinalResults } from 'tap-parser'
 import { diags } from './diags.js'
+import { IMPLICIT } from './implicit-end-sigil.js'
 import { Extra } from './index.js'
 import { mainScript } from './main-script.js'
+import { plugin as AfterPlugin } from './plugin/after.js'
 import { env, proc } from './proc.js'
+import { TestBase } from './test-base.js'
+
 const stdout = proc?.stdout
 
 const privSym = Symbol('private constructor')
@@ -44,11 +48,13 @@ class TAP extends Test {
       bail: envFlag('TAP_BAIL'),
       debug: envFlag('TAP_DEBUG'),
       omitVersion: envFlag('TAP_OMIT_VERSION'),
+      preserveWhitespace: !envFlag('TAP_OMIT_WHITESPACE'),
       ...opts,
     }
 
     super(options)
     instance = this
+    this.on('idle', () => maybeAutoend())
     this.on('complete', results =>
       this.#oncomplete(results)
     )
@@ -56,22 +62,15 @@ class TAP extends Test {
     // only attach the teardown autoend if we're using the teardown plugin
     // tell typescript to chill, if it's not defined or defined as something
     // else.
-    //@ts-ignore
-    if (typeof this.teardown === 'function') {
-      //@ts-ignore
+    if (this.pluginLoaded(AfterPlugin)) {
       const { teardown } = this
       type TD = typeof teardown
-      //@ts-ignore
       this.teardown = (
-        //@ts-ignore
         ...args: Parameters<TD>
-      ): //@ts-ignore
-      ReturnType<TD> => {
+      ): ReturnType<TD> => {
         autoend = true
-        //@ts-ignore
         this.teardown = teardown
-        //@ts-ignore
-        return teardown.call(this, ...args)
+        return this.teardown(...args)
       }
     }
 
@@ -105,7 +104,6 @@ class TAP extends Test {
     if (!piped && stdout) {
       this.pipe(stdout)
     }
-    maybeAutoend()
     return super.write(c, e, cb)
   }
 
@@ -128,31 +126,23 @@ class TAP extends Test {
   }
 }
 
-const queueEmpty = () =>
-  !instance ||
-  instance.queue.length === 0 ||
-  (instance.queue.length === 1 &&
-    instance.queue[0] === 'TAP version 14\n')
-
 const shouldAutoend = (
   instance: TAP | undefined
-): instance is TAP =>
-  !!autoend &&
-  !!instance &&
-  queueEmpty() &&
-  !instance.occupied &&
-  !instance.pool.size &&
-  !instance.subtests.length
+): instance is TAP => !!autoend && !!instance?.idle
 
 let autoendTimer: NodeJS.Timer | undefined = undefined
 const maybeAutoend = () => {
+  clearTimeout(autoendTimer)
   if (!shouldAutoend(instance)) return
-  if (autoendTimer) clearTimeout(autoendTimer)
   autoendTimer = setTimeout(() => {
+    clearTimeout(autoendTimer)
     if (shouldAutoend(instance)) {
-      if (autoendTimer) clearTimeout(autoendTimer)
       autoendTimer = setTimeout(() => {
-        if (shouldAutoend(instance)) instance.end()
+        clearTimeout(autoendTimer)
+        if (shouldAutoend(instance)) {
+          ;(instance as unknown as TestBase).end(IMPLICIT)
+          autoend = false
+        }
       })
     }
   })
