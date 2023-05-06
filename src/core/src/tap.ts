@@ -1,14 +1,11 @@
 // The root Test object singleton
 import { Test, TestOpts } from '@tapjs/test'
-import  {
-  Minipass,
-} from 'minipass'
+import { Minipass } from 'minipass'
 import { onExit } from 'signal-exit'
 import { FinalResults } from 'tap-parser'
 import { diags } from './diags.js'
 import { IMPLICIT } from './implicit-end-sigil.js'
 import { Extra } from './index.js'
-import { mainScript } from './main-script.js'
 import { plugin as AfterPlugin } from './plugin/after.js'
 import { env, proc } from './proc.js'
 import { TestBase } from './test-base.js'
@@ -42,7 +39,7 @@ class TAP extends Test {
     /* c8 ignore stop */
 
     const options = {
-      name: mainScript('TAP'),
+      name: 'TAP',
       diagnostic: envFlag('TAP_DIAG'),
       bail: envFlag('TAP_BAIL'),
       debug: envFlag('TAP_DEBUG'),
