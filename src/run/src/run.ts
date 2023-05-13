@@ -11,13 +11,25 @@ import { build } from './build.js'
 import { findSuites } from './find-suites.js'
 import { Config, mainBin, mainCommand } from './index.js'
 import { report } from './report.js'
+import { rimraf } from 'rimraf'
+import {writeFile} from 'node:fs/promises'
+
 const require = createRequire(import.meta.url)
-const piLoader = pathToFileURL(require.resolve('@tapjs/processinfo/esm'))
+const piLoader = pathToFileURL(require.resolve('@tapjs/processinfo'))
 
 const node = process.execPath
 
-export const run = async (args: string[], config: Config) => {
-  const t = TAP()
+// TODO:
+// --output-file
+//    Pipe all TAP data to this file
+// --output-dir
+//    Pipe each test file into the associated file in dir with a .tap ext
+
+const buildWithSpawn = async (
+  t: ReturnType<typeof TAP>,
+  args: string[],
+  config: Config
+) => {
   // Make sure that we WANT to have the spawn plugin, otherwise
   // the runner really can't work.
   if (!config.pluginList.includes('@tapjs/core/plugin/spawn')) {
@@ -72,17 +84,20 @@ export const run = async (args: string[], config: Config) => {
       )
     })
   }
+}
+
+export const run = async (args: string[], config: Config) => {
+  const t = TAP()
+  await buildWithSpawn(t, args, config)
 
   // Maybe should accept an optList of loaders in the config?
   // It seems a bit heavy to require a full on plugin just to
   // specify a loader to add to the list.
-  for (const l of loaders) {
-    piLoader.searchParams.set(l, '1')
-  }
   const loader = String(piLoader)
   const argv = [
     '--no-warnings',
     `--loader=${loader}`,
+    ...loaders.map(l => `--loader=${l}`),
     '--enable-source-maps',
     ...(config.values?.['node-arg'] || []),
   ]
@@ -125,11 +140,59 @@ export const run = async (args: string[], config: Config) => {
 
   t.plan(files.length)
   t.jobs = values.jobs
+
+  const before = config.get('before')
+  if (before) {
+    t.before(
+      async () =>
+        new Promise<void>(res => {
+          foregroundChild(
+            node,
+            [...argv, resolve(before)],
+            (code, signal) => {
+              if (code || signal) return
+              res()
+              return false
+            }
+          )
+        })
+    )
+  }
+
+  const after = config.get('after')
+  if (after) {
+    t.after(
+      async () =>
+        new Promise<void>(res => {
+          foregroundChild(node, [...argv, resolve(after)], () => res())
+        })
+    )
+  }
+
+  const save = config.get('save')
+  const sf = save && resolve(config.globCwd, save)
+  const saveList:string[] = []
+  if (sf) {
+    t.after(async () => {
+      if (!saveList.length) await rimraf(sf)
+      else await writeFile(sf, saveList.map(s => `${s}\n`).join(''))
+    })
+  }
+
+  if (!config.get('changed') && !config.get('save')) {
+    await rimraf(resolve(config.globCwd, '.tap'))
+  }
+
   for (const f of files) {
     t.spawn(node, [...argv, resolve(f), ...testArgs], {
       buffered: !serial.some(s => f.toLowerCase().startsWith(s)),
       env,
       name: relative(config.globCwd, resolve(f)),
+    }).then(results => {
+      if (!save) return
+      if (!results?.ok) {
+        saveList.push(f)
+      }
     })
   }
 }

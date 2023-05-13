@@ -46,13 +46,14 @@
   "dependencies": {
     "@tapjs/config": ">=0.0.0-0",
     "@tapjs/core": ">=0.0.0-0",
-    "@tapjs/processinfo": "^1.0.10",
+    "@tapjs/processinfo": "^2.0.2",
     "@tapjs/test": ">=0.0.0-0",
     "c8": "^7.13.0",
     "foreground-child": "^3.1.1",
     "glob": "10",
     "opener": "^1.5.2",
-    "path-scurry": "^1.7.0"
+    "path-scurry": "^1.8.0",
+    "rimraf": "^5.0.0"
   },
   "devDependencies": {
     "@types/node": "^18.15.5",

@@ -259,9 +259,12 @@ export default jack({
                     If no prior test run data exists, then all default files
                     are run, as if --changed was not specified.`,
     },
+  })
 
+  .opt({
     save: {
       short: 's',
+      hint: 'file',
       description: `If <file> exists, then it should be a line- delimited list
                     of test files to run.  If <file> is not present, then all
                     command-line positional arguments are run.
@@ -474,7 +477,7 @@ export default jack({
       description: 'Prune empty lines out of the output from child tests',
     },
     'no-omit-whitespace': {
-      description: `Preserve extra empty lines in the output.`
+      description: `Preserve extra empty lines in the output.`,
     },
 
     versions: {

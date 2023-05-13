@@ -1,6 +1,6 @@
 import { Base } from './base.js'
 
-import ProcessInfo from '@tapjs/processinfo'
+import { ProcessInfo } from '@tapjs/processinfo'
 import {
   ChildProcess,
   IOType,

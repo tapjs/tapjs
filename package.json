@@ -26,7 +26,6 @@
   },
   "repository": "https://github.com/tapjs/tapjs",
   "dependencies": {
-    "@tapjs/processinfo": "^1.0.8",
     "glob": "^10.2.2"
   }
 }
