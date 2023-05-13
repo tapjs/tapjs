@@ -20,8 +20,8 @@ import { Spawn } from './spawn.js'
 import { TestPoint } from './test-point.js'
 import { Waiter } from './waiter.js'
 
-import { Extra } from './index.js'
 import { IMPLICIT } from './implicit-end-sigil.js'
+import { Extra } from './index.js'
 
 export type MessageExtra =
   | []
@@ -88,6 +88,17 @@ const isPromise = (p: any): p is Promise<any | void> =>
   typeof p.then === 'function'
 
 /**
+ * the promise returned by t.test(), t.spawn(), etc.
+ * If a subtest was not created (because of being marked skipped,
+ * the parent having bailed out, etc.) then the `subtest` field
+ * will be set to `null`.
+ */
+export interface PromiseWithSubtest<S extends Base>
+  extends Promise<FinalResults | null> {
+  subtest: S | null
+}
+
+/**
  * The TestBaseBase class is the base class for all plugins,
  * and eventually thus the Test class.
  *
@@ -96,7 +107,6 @@ const isPromise = (p: any): p is Promise<any | void> =>
  *
  * All other features are added with plugins.
  */
-
 export class TestBase extends Base {
   // NB: generated pluginified Test class needs to declare over this
   declare parent?: TestBase
@@ -955,8 +965,11 @@ export class TestBase extends Base {
     Class: { new (options: O): T },
     extra: TestOpts | TestBaseOpts | BaseOpts = {},
     caller: (...a: any[]) => unknown
-  ): Promise<FinalResults | null> {
-    if (this.bailedOut) return Promise.resolve(null)
+  ): PromiseWithSubtest<T> {
+    if (this.bailedOut)
+      return Object.assign(Promise.resolve(null), {
+        subtest: null,
+      })
 
     if (this.results || this.ended) {
       const er = new Error(
@@ -964,13 +977,17 @@ export class TestBase extends Base {
       )
       Error.captureStackTrace(er, caller)
       this.threw(er)
-      return Promise.resolve(null)
+      return Object.assign(Promise.resolve(null), {
+        subtest: null,
+      })
     }
 
     extra.childId = this.#nextChildId++
     if (this.shouldSkipChild(extra)) {
       this.pass(extra.name || '', extra)
-      return Promise.resolve(null)
+      return Object.assign(Promise.resolve(null), {
+        subtest: null,
+      })
     }
 
     extra.indent = '    '
@@ -1000,7 +1017,7 @@ export class TestBase extends Base {
     const d = new Deferred<FinalResults>()
     t.deferred = d
     this.#process()
-    return d.promise
+    return Object.assign(d.promise, { subtest: t })
   }
 
   threw(

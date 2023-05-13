@@ -1,8 +1,11 @@
 import { StdioOptions } from 'child_process'
-import { FinalResults } from 'tap-parser'
 import { BaseOpts } from '../index.js'
 import { Spawn } from '../spawn.js'
-import { TapPlugin, TestBase } from '../test-base.js'
+import {
+  PromiseWithSubtest,
+  TapPlugin,
+  TestBase,
+} from '../test-base.js'
 
 export interface SpawnOpts extends BaseOpts {
   cwd?: string
@@ -14,34 +17,36 @@ export interface SpawnOpts extends BaseOpts {
   signal?: string | null
 }
 
+export type PromiseWithSpawn = PromiseWithSubtest<Spawn>
+
 class SpawnPlugin {
   #t: TestBase
   constructor(t: TestBase) {
     this.#t = t
   }
-  spawn(cmd: string): Promise<FinalResults | null>
+  spawn(cmd: string): PromiseWithSpawn
   spawn(
     cmd: string,
     options: SpawnOpts,
     name?: string
-  ): Promise<FinalResults | null>
+  ): PromiseWithSpawn
   spawn(
     cmd: string,
     args: string | string[],
     name?: string
-  ): Promise<FinalResults | null>
+  ): PromiseWithSpawn
   spawn(
     cmd: string,
     args: string | string[],
     options: SpawnOpts,
     name?: string
-  ): Promise<FinalResults | null>
+  ): PromiseWithSpawn
   spawn(
     cmd: string,
     args?: string | string[] | SpawnOpts,
     options?: SpawnOpts | string,
     name?: string
-  ): Promise<FinalResults | null> {
+  ): PromiseWithSpawn {
     if (typeof args === 'string') {
       args = [args]
     }
@@ -63,5 +68,6 @@ class SpawnPlugin {
   }
 }
 
-export const plugin: TapPlugin<SpawnPlugin> = (t: TestBase) =>
-  new SpawnPlugin(t)
+export const plugin: TapPlugin<SpawnPlugin> = (
+  t: TestBase
+) => new SpawnPlugin(t)

@@ -6,11 +6,13 @@
 
 import {
   parseTestArgs,
+  PromiseWithSubtest,
   TestArgs,
   TestBase,
   TestBaseOpts,
 } from '@tapjs/core'
-import { FinalResults } from 'tap-parser'
+
+export type PromiseWithTest = PromiseWithSubtest<Test>
 
 import type { ConfigSet, Jack } from 'jackspeak'
 import { isConfigOption } from 'jackspeak'
@@ -81,55 +83,40 @@ export interface Test extends TTest {
     name: string,
     extra: TestOpts,
     cb?: (t: Test) => any
-  ): Promise<FinalResults | null>
-  test(
-    name: string,
-    cb?: (t: Test) => any
-  ): Promise<FinalResults | null>
+  ): PromiseWithTest
+  test(name: string, cb?: (t: Test) => any): PromiseWithTest
   test(
     extra: TestOpts,
     cb?: (t: Test) => any
-  ): Promise<FinalResults | null>
-  test(cb?: (t: Test) => any): Promise<FinalResults | null>
-  test(
-    ...args: TestArgs<Test>
-  ): Promise<FinalResults | null>
+  ): PromiseWithTest
+  test(cb?: (t: Test) => any): PromiseWithTest
+  test(...args: TestArgs<Test>): PromiseWithTest
 
   todo(
     name: string,
     extra: TestOpts,
     cb?: (t: Test) => any
-  ): Promise<FinalResults | null>
-  todo(
-    name: string,
-    cb?: (t: Test) => any
-  ): Promise<FinalResults | null>
+  ): PromiseWithTest
+  todo(name: string, cb?: (t: Test) => any): PromiseWithTest
   todo(
     extra: TestOpts,
     cb?: (t: Test) => any
-  ): Promise<FinalResults | null>
-  todo(cb?: (t: Test) => any): Promise<FinalResults | null>
-  todo(
-    ...args: TestArgs<Test>
-  ): Promise<FinalResults | null>
+  ): PromiseWithTest
+  todo(cb?: (t: Test) => any): PromiseWithTest
+  todo(...args: TestArgs<Test>): PromiseWithTest
 
   skip(
     name: string,
     extra: TestOpts,
     cb?: (t: Test) => any
-  ): Promise<FinalResults | null>
-  skip(
-    name: string,
-    cb?: (t: Test) => any
-  ): Promise<FinalResults | null>
+  ): PromiseWithTest
+  skip(name: string, cb?: (t: Test) => any): PromiseWithTest
   skip(
     extra: TestOpts,
     cb?: (t: Test) => any
-  ): Promise<FinalResults | null>
-  skip(cb?: (t: Test) => any): Promise<FinalResults | null>
-  skip(
-    ...args: TestArgs<Test>
-  ): Promise<FinalResults | null>
+  ): PromiseWithTest
+  skip(cb?: (t: Test) => any): PromiseWithTest
+  skip(...args: TestArgs<Test>): PromiseWithTest
 }
 
 const applyPlugins = (
@@ -271,19 +258,14 @@ export class Test extends TestBase {
     name: string,
     extra: TestOpts,
     cb: (t: Test) => any
-  ): Promise<FinalResults | null>
-  test(
-    name: string,
-    cb: (t: Test) => any
-  ): Promise<FinalResults | null>
+  ): PromiseWithTest
+  test(name: string, cb: (t: Test) => any): PromiseWithTest
   test(
     extra: TestOpts,
     cb: (t: Test) => any
-  ): Promise<FinalResults | null>
-  test(cb: (t: Test) => any): Promise<FinalResults | null>
-  test(
-    ...args: TestArgs<Test>
-  ): Promise<FinalResults | null> {
+  ): PromiseWithTest
+  test(cb: (t: Test) => any): PromiseWithTest
+  test(...args: TestArgs<Test>): PromiseWithTest {
     const extra = parseTestArgs(...args)
     return this.sub(Test, extra, this.test)
   }
@@ -292,19 +274,14 @@ export class Test extends TestBase {
     name: string,
     extra: TestOpts,
     cb: (t: Test) => any
-  ): Promise<FinalResults | null>
-  todo(
-    name: string,
-    cb: (t: Test) => any
-  ): Promise<FinalResults | null>
+  ): PromiseWithTest
+  todo(name: string, cb: (t: Test) => any): PromiseWithTest
   todo(
     extra: TestOpts,
     cb: (t: Test) => any
-  ): Promise<FinalResults | null>
-  todo(cb: (t: Test) => any): Promise<FinalResults | null>
-  todo(
-    ...args: TestArgs<Test>
-  ): Promise<FinalResults | null> {
+  ): PromiseWithTest
+  todo(cb: (t: Test) => any): PromiseWithTest
+  todo(...args: TestArgs<Test>): PromiseWithTest {
     const extra = parseTestArgs(...args)
     extra.todo = true
     return this.sub(Test, extra, this.todo)
@@ -314,19 +291,14 @@ export class Test extends TestBase {
     name: string,
     extra: TestOpts,
     cb: (t: Test) => any
-  ): Promise<FinalResults | null>
-  skip(
-    name: string,
-    cb: (t: Test) => any
-  ): Promise<FinalResults | null>
+  ): PromiseWithTest
+  skip(name: string, cb: (t: Test) => any): PromiseWithTest
   skip(
     extra: TestOpts,
     cb: (t: Test) => any
-  ): Promise<FinalResults | null>
-  skip(cb: (t: Test) => any): Promise<FinalResults | null>
-  skip(
-    ...args: TestArgs<Test>
-  ): Promise<FinalResults | null> {
+  ): PromiseWithTest
+  skip(cb: (t: Test) => any): PromiseWithTest
+  skip(...args: TestArgs<Test>): PromiseWithTest {
     const extra = parseTestArgs(...args)
     extra.skip = true
     return this.sub(Test, extra, this.skip)
