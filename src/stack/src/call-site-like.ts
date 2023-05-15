@@ -1,9 +1,3 @@
-// TODO: parse eval origin as if it's a stack trace line
-// That means that this.evalOrigin is a CallSiteLike, with file, type,
-// name, line, generated origin, etc.
-// When we toString, just toString() the eval origin.
-// That way nested evals still get sourceMap treatment, without this
-// weird ugly double-thingie.
 import { findSourceMap, SourceMap } from 'module'
 import { fileURLToPath } from 'url'
 import {

@@ -5,7 +5,6 @@ import { loaders, signature } from '@tapjs/test'
 import { foregroundChild } from 'foreground-child'
 import { Minipass } from 'minipass'
 import { mkdirpSync } from 'mkdirp'
-import { ChildProcess } from 'node:child_process'
 import { createWriteStream } from 'node:fs'
 import { writeFile } from 'node:fs/promises'
 import { createRequire } from 'node:module'
@@ -22,12 +21,6 @@ const require = createRequire(import.meta.url)
 const piLoader = pathToFileURL(require.resolve('@tapjs/processinfo'))
 
 const node = process.execPath
-
-// TODO:
-// --output-file
-//    Pipe all TAP data to this file
-// --output-dir
-//    Pipe each test file into the associated file in dir with a .tap ext
 
 const buildWithSpawn = async (
   t: ReturnType<typeof TAP>,
@@ -185,6 +178,8 @@ export const run = async (args: string[], config: Config) => {
     await rimraf(resolve(config.globCwd, '.tap'))
   }
 
+  t.teardown(() => report([], config))
+
   const outputFile = config.get('output-file')
   if (outputFile) {
     const m = new Minipass<string, string>({ encoding: 'utf8' })
@@ -195,7 +190,17 @@ export const run = async (args: string[], config: Config) => {
   }
 
   const outputDir = config.get('output-dir')
-  t.teardown(() => report([], config))
+
+  if (outputDir) {
+    t.on('spawn', subtest => {
+      const out = resolve(outputDir, subtest.name + '.tap')
+      mkdirpSync(dirname(out))
+      subtest.on('process', proc =>
+        proc.stdout.pipe(createWriteStream(out))
+      )
+    })
+  }
+
   for (const f of files) {
     const file = resolve(f)
     const buffered = !serial.some(s => file.toLowerCase().startsWith(s))
@@ -204,13 +209,6 @@ export const run = async (args: string[], config: Config) => {
       env,
       name: relative(config.globCwd, file),
     })
-    if (outputDir && p.subtest) {
-      p.subtest.on('process', (proc: ChildProcess) => {
-        const out = resolve(outputDir, f + '.tap')
-        mkdirpSync(dirname(out))
-        proc.stdout?.pipe(createWriteStream(out))
-      })
-    }
     if (save) {
       p.then(results => {
         if (!results?.ok) {

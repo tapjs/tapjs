@@ -4,22 +4,43 @@ import { ProcessInfo } from '@tapjs/processinfo'
 import { WithExternalID } from '@tapjs/processinfo/dist/cjs/spawn-opts.js'
 import {
   ChildProcess,
+  ChildProcessByStdio,
   IOType,
   SpawnOptions,
   StdioOptions,
 } from 'node:child_process'
 import { basename } from 'node:path'
+import { Readable, Stream, Writable } from 'node:stream'
 import { TestBaseOpts } from './test-base.js'
+
+export type ChildProcessWithStdout = ChildProcessByStdio<
+  null | Writable,
+  Readable,
+  null | Readable
+>
+
+const hasStdout = (
+  p: ChildProcess
+): p is ChildProcessWithStdout => !!p.stdout
 
 export interface SpawnEvents extends TapBaseEvents {
   preprocess: [WithExternalID<SpawnOptions>]
-  process: [ChildProcess]
+  process: [ChildProcessWithStdout]
 }
 
 export interface SpawnOpts extends TestBaseOpts {
   cwd?: string
   command?: string
   args?: string[]
+  /**
+   * Passed to child_process.spawn's 'stdio' option
+   *
+   * No matter what is specified here, stdout is *always* set to 'pipe',
+   * and stdio[3] is *always* set to 'ipc', because TAP uses these internally
+   * to communicate test results and timeout, respectively.
+   *
+   * So, this is only to set the behavior of stdin and stderr.
+   */
   stdio?: StdioOptions
   env?: { [k: string]: string } | typeof process.env
   exitCode?: number | null
@@ -31,7 +52,12 @@ export class Spawn extends Base<SpawnEvents> {
   public cwd: string
   public command: string
   public args: string[]
-  public stdio: Exclude<StdioOptions, IOType>
+  public stdio: [
+    IOType | Stream | number | null | undefined,
+    'pipe',
+    IOType | Stream | number | null | undefined,
+    'ipc'
+  ]
   public env: { [k: string]: string } | typeof process.env
   public proc: null | ChildProcess
   public cb: null | (() => void)
@@ -56,20 +82,28 @@ export class Spawn extends Base<SpawnEvents> {
     this.cwd = cwd
     this.command = command
     this.args = args
-    this.stdio = []
     if (options.stdio) {
       if (typeof options.stdio === 'string') {
-        this.stdio = [options.stdio, 'pipe', options.stdio]
+        this.stdio = [
+          options.stdio,
+          'pipe',
+          options.stdio,
+          'ipc',
+        ]
       } else {
         const [stdin, _, stderr] = options.stdio
-        this.stdio = [stdin, 'pipe', stderr]
+        /* c8 ignore start */
+        if (stdin === 'ipc' || stderr === 'ipc') {
+          throw new Error(
+            'cannot spawn subtest with ipc in stdin or stderr'
+          )
+        }
+        /* c8 ignore stop */
+        this.stdio = [stdin, 'pipe', stderr, 'ipc']
       }
     } else {
-      this.stdio = [0, 'pipe', 2]
+      this.stdio = [0, 'pipe', 2, 'ipc']
     }
-
-    // stdio[3] is always an IPC channel, for reporting timeouts
-    this.stdio[3] = 'ipc'
 
     const env = options.env || process.env
     this.env = {
@@ -126,7 +160,7 @@ export class Spawn extends Base<SpawnEvents> {
       options
     ))
     /* c8 ignore start */
-    if (!proc.stdout) {
+    if (!hasStdout(proc)) {
       return this.threw(
         'failed to open child process stdout',
         this.options
