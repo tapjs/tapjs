@@ -26,7 +26,7 @@ const envFlag = (key: string) =>
   env[key] === undefined ? undefined : env[key] === '1'
 
 let piped = false
-let pipedToStdout = false
+let registered = false
 let autoend = false
 class TAP extends Test {
   constructor(opts: TestOpts, priv: PrivateTAPCtor) {
@@ -73,24 +73,32 @@ class TAP extends Test {
     this.runMain(() => {})
   }
 
+  /**
+   * register this tap instance as being in charge of the current process
+   * ignore epipe errors, set exit code, etc.
+   * Happens automatically if piped to stdout.
+   */
+  register() {
+    if (registered) return
+    registered = true
+    registerTimeoutListener(this)
+    ignoreEPIPE()
+    this.once('bail', () => proc?.exit(1))
+    proc?.once('beforeExit', () => {
+      this.end()
+      if (!this.results) {
+        this.endAll()
+      }
+    })
+  }
+
   pipe<W extends Minipass.Writable>(
     dest: W,
     opts?: Minipass.PipeOptions
   ): W {
     piped = true
-    if (stdout && dest === (stdout as Minipass.Writable)) {
-      if (!pipedToStdout) {
-        pipedToStdout = true
-        registerTimeoutListener(this)
-        ignoreEPIPE()
-        this.once('bail', () => proc?.exit(1))
-        proc?.once('beforeExit', () => {
-          this.end()
-          if (!this.results) {
-            this.endAll()
-          }
-        })
-      }
+    if (stdout && dest === stdout) {
+      this.register()
     }
     return super.pipe(dest, opts)
   }
@@ -129,7 +137,7 @@ class TAP extends Test {
     }
 
     if (!results.ok) this.comment('fail')
-    if (pipedToStdout && !results.ok && proc) {
+    if (registered && !results.ok && proc) {
       proc.exitCode = 1
     }
   }
