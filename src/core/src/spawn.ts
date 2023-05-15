@@ -143,9 +143,6 @@ export class Spawn extends Base<SpawnEvents> {
     })
     proc.on('error', er => this.threw(er))
     this.emit('process', proc)
-    if (this.parent) {
-      this.parent.emit('spawn', this)
-    }
   }
 
   #onprocclose(code: number | null, signal: string | null) {

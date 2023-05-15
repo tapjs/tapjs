@@ -253,6 +253,15 @@ export class Base<
     cb()
   }
 
+  write (c: string) {
+    if (this.buffered) {
+      this.output += c
+      return true
+    }
+
+    return super.write(c)
+  }
+
   onbail(reason?: string) {
     this.bailedOut = reason || true
     this.emit('bailout', reason)

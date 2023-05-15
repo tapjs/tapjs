@@ -1005,7 +1005,7 @@ export class TestBase extends Base<TestBaseEvents> {
     }
 
     extra.indent = '    '
-    if (extra.buffered !== undefined) {
+    if (extra.buffered === undefined) {
       if (this.jobs > 1) {
         extra.buffered = true
       } else {
@@ -1015,9 +1015,7 @@ export class TestBase extends Base<TestBaseEvents> {
 
     extra.bail =
       extra.bail !== undefined ? extra.bail : this.bail
-    // XXX: remove after rebuild
-    ;(extra as unknown as { parent: TestBase }).parent =
-      this
+    extra.parent = this
     const st = stack.capture(80, caller)
     extra.stack = st.map(c => String(c)).join('\n')
     extra.at = st[0]

@@ -103,25 +103,11 @@ class TAP extends Test {
     return super.pipe(dest, opts)
   }
 
-  write(chunk: string, cb?: () => void): boolean
-  write(
-    chunk: string,
-    encoding?: Minipass.Encoding,
-    cb?: () => void
-  ): boolean
-  write(
-    chunk: string,
-    encoding?: Minipass.Encoding | (() => void),
-    cb?: () => void
-  ): boolean {
+  write(chunk: string): boolean {
     if (!piped && stdout) {
       this.pipe(stdout)
     }
-    if (typeof encoding === 'function') {
-      cb = encoding
-      encoding = 'utf8'
-    }
-    return super.write(chunk, encoding, cb)
+    return super.write(chunk)
   }
 
   #oncomplete(results: FinalResults) {

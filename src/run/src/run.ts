@@ -197,10 +197,12 @@ export const run = async (args: string[], config: Config) => {
   const outputDir = config.get('output-dir')
   t.teardown(() => report([], config))
   for (const f of files) {
-    const p = t.spawn(node, [...argv, resolve(f), ...testArgs], {
-      buffered: !serial.some(s => f.toLowerCase().startsWith(s)),
+    const file = resolve(f)
+    const buffered = !serial.some(s => file.toLowerCase().startsWith(s))
+    const p = t.spawn(node, [...argv, file, ...testArgs], {
+      buffered,
       env,
-      name: relative(config.globCwd, resolve(f)),
+      name: relative(config.globCwd, file),
     })
     if (outputDir && p.subtest) {
       p.subtest.on('process', (proc: ChildProcess) => {
