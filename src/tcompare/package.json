@@ -30,7 +30,7 @@
     "@types/diff": "^5.0.2",
     "@types/node": "^18.11.9",
     "@types/tap": "^15.0.7",
-    "minipass": "^5.0.0",
+    "minipass": "^6.0.0",
     "prettier": "^2.8.0",
     "ts-node": "^10.9.1",
     "typedoc": "^0.23.21",

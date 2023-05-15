@@ -2,9 +2,7 @@
 
 import Domain from 'async-hook-domain'
 import { AsyncResource } from 'async_hooks'
-import {
-  Minipass,
-} from 'minipass'
+import { Minipass } from 'minipass'
 import { hrtime } from 'node:process'
 import { format } from 'node:util'
 import {
@@ -16,6 +14,13 @@ import {
 import Deferred from 'trivial-deferred'
 import extraFromError from './extra-from-error.js'
 import type { Extra, TestBase } from './index.js'
+
+export interface TapBaseEvents
+  extends Minipass.Events<string> {
+  timeout: [threw?: Extra]
+  bailout: [reason?: string]
+  complete: [results: FinalResults]
+}
 
 export class TapWrap extends AsyncResource {
   test: Base
@@ -75,10 +80,9 @@ export interface BaseOpts extends Extra {
   silent?: boolean
 }
 
-export class Base {
-  stream: Minipass<string> = new Minipass<string>({
-    encoding: 'utf8',
-  })
+export class Base<
+  Events extends TapBaseEvents = TapBaseEvents
+> extends Minipass<string, string, Events> {
   readyToProcess: boolean = false
   options: BaseOpts
   indent: string
@@ -94,7 +98,7 @@ export class Base {
   lists: Lists
   name: string
   results?: FinalResults
-  parent?: Base
+  parent?: Base | TestBase
 
   bail: boolean
   strict: boolean
@@ -116,6 +120,7 @@ export class Base {
   deferred?: Deferred<FinalResults>
 
   constructor(options: BaseOpts = {}) {
+    super({ encoding: 'utf8' })
     // all tap streams are sync string minipasses
     this.hook = new TapWrap(this)
     this.options = options
@@ -258,31 +263,6 @@ export class Base {
     return this.write(this.indent + line)
   }
 
-  write(
-    c: Minipass.ContiguousData,
-    e?: Minipass.Encoding | (() => any),
-    cb?: () => any
-  ) {
-    if (this.buffered) {
-      this.output += c
-      return true
-    }
-    if (typeof e === 'function') {
-      cb = e
-      e = undefined
-    }
-
-    return this.stream.write(
-      c,
-      e as Minipass.Encoding | undefined,
-      cb
-    )
-  }
-
-  pipe(...args: Parameters<Minipass['pipe']>) {
-    return this.stream.pipe(...args)
-  }
-
   oncomplete(results: FinalResults) {
     if (this.start) {
       this.hrtime = hrtime.bigint() - this.start
@@ -311,7 +291,7 @@ export class Base {
       this.errors = errors
     }
 
-    this.stream.end()
+    super.end()
   }
 
   /**
@@ -335,14 +315,8 @@ export class Base {
    */
   ondone() {}
 
-  once(ev: string, handler: (...a: any[]) => any) {
-    return this.stream.once(ev, handler)
-  }
-  on(ev: string, handler: (...a: any[]) => any) {
-    return this.stream.on(ev, handler)
-  }
-  emit(ev: string, ...data: any[]) {
-    const ret = this.stream.emit(ev, ...data)
+  emit<Event extends keyof Events>(ev: Event, ...data: Events[Event]) {
+    const ret = super.emit(ev, ...data)
     if (ev === 'end') {
       this.ondone()
       this.hook.emitDestroy()

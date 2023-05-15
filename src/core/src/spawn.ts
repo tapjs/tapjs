@@ -1,13 +1,20 @@
-import { Base } from './base.js'
+import { Base, TapBaseEvents } from './base.js'
 
 import { ProcessInfo } from '@tapjs/processinfo'
+import { WithExternalID } from '@tapjs/processinfo/dist/cjs/spawn-opts.js'
 import {
   ChildProcess,
   IOType,
+  SpawnOptions,
   StdioOptions,
 } from 'node:child_process'
 import { basename } from 'node:path'
 import { TestBaseOpts } from './test-base.js'
+
+export interface SpawnEvents extends TapBaseEvents {
+  preprocess: [WithExternalID<SpawnOptions>]
+  process: [ChildProcess]
+}
 
 export interface SpawnOpts extends TestBaseOpts {
   cwd?: string
@@ -19,7 +26,7 @@ export interface SpawnOpts extends TestBaseOpts {
   signal?: string | null
 }
 
-export class Spawn extends Base {
+export class Spawn extends Base<SpawnEvents> {
   public declare options: SpawnOpts
   public cwd: string
   public command: string
@@ -110,13 +117,14 @@ export class Spawn extends Base {
       stdio: this.stdio,
       externalID: this.name,
     }
+    this.parent?.emit('spawn', this)
 
     this.emit('preprocess', options)
-    const proc = this.proc = ProcessInfo.spawn(
+    const proc = (this.proc = ProcessInfo.spawn(
       this.command,
       this.args,
       options
-    )
+    ))
     /* c8 ignore start */
     if (!proc.stdout) {
       return this.threw(

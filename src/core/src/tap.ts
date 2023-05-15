@@ -73,9 +73,12 @@ class TAP extends Test {
     this.runMain(() => {})
   }
 
-  pipe(...args: Parameters<Minipass['pipe']>) {
+  pipe<W extends Minipass.Writable>(
+    dest: W,
+    opts?: Minipass.PipeOptions
+  ): W {
     piped = true
-    if (stdout && args[0] === stdout) {
+    if (stdout && dest === (stdout as Minipass.Writable)) {
       if (!pipedToStdout) {
         pipedToStdout = true
         registerTimeoutListener(this)
@@ -89,18 +92,28 @@ class TAP extends Test {
         })
       }
     }
-    return super.pipe(...args)
+    return super.pipe(dest, opts)
   }
 
+  write(chunk: string, cb?: () => void): boolean
   write(
-    c: Minipass.ContiguousData,
-    e?: Minipass.Encoding | (() => any),
-    cb?: () => any
-  ) {
+    chunk: string,
+    encoding?: Minipass.Encoding,
+    cb?: () => void
+  ): boolean
+  write(
+    chunk: string,
+    encoding?: Minipass.Encoding | (() => void),
+    cb?: () => void
+  ): boolean {
     if (!piped && stdout) {
       this.pipe(stdout)
     }
-    return super.write(c, e, cb)
+    if (typeof encoding === 'function') {
+      cb = encoding
+      encoding = 'utf8'
+    }
+    return super.write(chunk, encoding, cb)
   }
 
   #oncomplete(results: FinalResults) {

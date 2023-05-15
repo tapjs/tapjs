@@ -51,6 +51,7 @@
     "c8": "^7.13.0",
     "foreground-child": "^3.1.1",
     "glob": "10",
+    "minipass": "^6.0.0",
     "opener": "^1.5.2",
     "path-scurry": "^1.8.0",
     "rimraf": "^5.0.0"

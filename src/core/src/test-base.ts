@@ -17,11 +17,12 @@ import extraFromError from './extra-from-error.js'
 import { mainScript } from './main-script.js'
 import { argv, cwd } from './proc.js'
 import { Spawn } from './spawn.js'
-import { TestPoint } from './test-point.js'
+import { Stdin } from './stdin.js'
+import { Result, TestPoint } from './test-point.js'
 import { Waiter } from './waiter.js'
 
 import { IMPLICIT } from './implicit-end-sigil.js'
-import { Extra } from './index.js'
+import { Extra, TapBaseEvents } from './index.js'
 
 export type MessageExtra =
   | []
@@ -98,6 +99,17 @@ export interface PromiseWithSubtest<S extends Base>
   subtest: S | null
 }
 
+export interface TestBaseEvents extends TapBaseEvents {
+  subtestStart: [p: Base]
+  idle: []
+  subtestEnd: [p: Base]
+  subtestProcess: [p: Base]
+  subtestAdd: [p: Base]
+  result: [res: Result]
+  stdin: [s: Stdin]
+  spawn: [s: Spawn]
+}
+
 /**
  * The TestBaseBase class is the base class for all plugins,
  * and eventually thus the Test class.
@@ -107,7 +119,7 @@ export interface PromiseWithSubtest<S extends Base>
  *
  * All other features are added with plugins.
  */
-export class TestBase extends Base {
+export class TestBase extends Base<TestBaseEvents> {
   // NB: generated pluginified Test class needs to declare over this
   declare parent?: TestBase
   declare options: TestBaseOpts
@@ -120,7 +132,9 @@ export class TestBase extends Base {
    */
   t!: Test
 
-  promise?: Promise<any> & { tapAbortPromise?: () => void }
+  donePromise?: Promise<any> & {
+    tapAbortPromise?: () => void
+  }
   jobs: number
   // #beforeEnd: [method: string | Symbol, ...args: any[]][] = []
   subtests: Base[] = []
@@ -412,7 +426,7 @@ export class TestBase extends Base {
 
     this.count = n
     message = message + ''
-    const res = { ok, message, extra }
+    const res: Result = { ok, message, extra }
 
     const tp = new TestPoint(ok, message, extra)
 
@@ -849,7 +863,7 @@ export class TestBase extends Base {
     })()
 
     if (ret && ret.then) {
-      this.promise = ret
+      this.donePromise = ret
       ret.tapAbortPromise = done
       ret.then(end, (er: any) => {
         if (!er || typeof er !== 'object') {
@@ -869,7 +883,7 @@ export class TestBase extends Base {
     if (!p.buffered) {
       this.emit('subtestStart', p)
       this.debug(' > subtest indented')
-      p.stream.pipe(this.parser, { end: false })
+      p.pipe(this.parser, { end: false })
       this.writeSubComment(p)
       this.debug('calling runMain', p.runMain.toString())
       p.runMain(() => {
@@ -1111,8 +1125,11 @@ export class TestBase extends Base {
       }
     }
 
-    if (this.promise && this.promise.tapAbortPromise)
-      this.promise.tapAbortPromise()
+    if (
+      this.donePromise &&
+      this.donePromise.tapAbortPromise
+    )
+      this.donePromise.tapAbortPromise()
 
     for (let i = 0; i < this.queue.length; i++) {
       const p = this.queue[i]
@@ -1137,6 +1154,4 @@ export class TestBase extends Base {
   ): boolean {
     return !!(extra.skip || extra.todo)
   }
-
-  // end flow control methods
 }

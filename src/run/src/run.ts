@@ -3,16 +3,19 @@ import { proc, TAP } from '@tapjs/core'
 import { plugin as SpawnPlugin } from '@tapjs/core/plugin/spawn'
 import { loaders, signature } from '@tapjs/test'
 import { foregroundChild } from 'foreground-child'
+import { ChildProcess } from 'node:child_process'
+import { createWriteStream } from 'node:fs'
+import { writeFile } from 'node:fs/promises'
 import { createRequire } from 'node:module'
-import { relative, sep } from 'node:path'
+import { dirname, relative, sep } from 'node:path'
 import { resolve } from 'path'
+import { rimraf } from 'rimraf'
 import { pathToFileURL } from 'url'
 import { build } from './build.js'
 import { findSuites } from './find-suites.js'
 import { Config, mainBin, mainCommand } from './index.js'
 import { report } from './report.js'
-import { rimraf } from 'rimraf'
-import {writeFile} from 'node:fs/promises'
+import { mkdirpSync } from 'mkdirp'
 
 const require = createRequire(import.meta.url)
 const piLoader = pathToFileURL(require.resolve('@tapjs/processinfo'))
@@ -136,8 +139,6 @@ export const run = async (args: string[], config: Config) => {
     ? values.serial.map(s => resolve(s).toLowerCase() + sep)
     : []
 
-  t.teardown(() => report([], config))
-
   t.plan(files.length)
   t.jobs = values.jobs
 
@@ -171,7 +172,7 @@ export const run = async (args: string[], config: Config) => {
 
   const save = config.get('save')
   const sf = save && resolve(config.globCwd, save)
-  const saveList:string[] = []
+  const saveList: string[] = []
   if (sf) {
     t.after(async () => {
       if (!saveList.length) await rimraf(sf)
@@ -183,16 +184,33 @@ export const run = async (args: string[], config: Config) => {
     await rimraf(resolve(config.globCwd, '.tap'))
   }
 
+  const outputFile = config.get('output-file')
+  if (outputFile) {
+    t.pipe(createWriteStream(outputFile))
+    t.pipe(process.stdout)
+  }
+
+  const outputDir = config.get('output-dir')
+  t.teardown(() => report([], config))
   for (const f of files) {
-    t.spawn(node, [...argv, resolve(f), ...testArgs], {
+    const p = t.spawn(node, [...argv, resolve(f), ...testArgs], {
       buffered: !serial.some(s => f.toLowerCase().startsWith(s)),
       env,
       name: relative(config.globCwd, resolve(f)),
-    }).then(results => {
-      if (!save) return
-      if (!results?.ok) {
-        saveList.push(f)
-      }
     })
+    if (outputDir && p.subtest) {
+      p.subtest.on('process', (proc: ChildProcess) => {
+        const out = resolve(outputDir, f + '.tap')
+        mkdirpSync(dirname(out))
+        proc.stdout?.pipe(createWriteStream(out))
+      })
+    }
+    if (save) {
+      p.then(results => {
+        if (!results?.ok) {
+          saveList.push(f)
+        }
+      })
+    }
   }
 }
