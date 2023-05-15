@@ -77,6 +77,15 @@ export interface BaseOpts extends Extra {
   debug?: boolean
   parser?: Parser
   buffered?: boolean
+
+  /**
+   * Setting silent:true in a subtest option makes it completely excluded
+   * from test output, UNLESS it fails.
+   *
+   * This was used historically for a few things which are now implemented
+   * with a more sophisticated promise management system, but can be handy in
+   * some rare situations.
+   */
   silent?: boolean
 }
 
