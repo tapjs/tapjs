@@ -3,6 +3,8 @@ import { proc, TAP } from '@tapjs/core'
 import { plugin as SpawnPlugin } from '@tapjs/core/plugin/spawn'
 import { loaders, signature } from '@tapjs/test'
 import { foregroundChild } from 'foreground-child'
+import { Minipass } from 'minipass'
+import { mkdirpSync } from 'mkdirp'
 import { ChildProcess } from 'node:child_process'
 import { createWriteStream } from 'node:fs'
 import { writeFile } from 'node:fs/promises'
@@ -15,7 +17,6 @@ import { build } from './build.js'
 import { findSuites } from './find-suites.js'
 import { Config, mainBin, mainCommand } from './index.js'
 import { report } from './report.js'
-import { mkdirpSync } from 'mkdirp'
 
 const require = createRequire(import.meta.url)
 const piLoader = pathToFileURL(require.resolve('@tapjs/processinfo'))
@@ -186,8 +187,11 @@ export const run = async (args: string[], config: Config) => {
 
   const outputFile = config.get('output-file')
   if (outputFile) {
-    t.pipe(createWriteStream(outputFile))
-    t.pipe(process.stdout)
+    const m = new Minipass<string, string>({ encoding: 'utf8' })
+    m.pipe(process.stdout)
+    m.pipe(createWriteStream(outputFile))
+    t.register()
+    t.pipe(m)
   }
 
   const outputDir = config.get('output-dir')
