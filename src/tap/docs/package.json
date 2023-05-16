@@ -1,0 +1,52 @@
+{
+  "name": "gatsby-starter-hello-world",
+  "private": true,
+  "description": "A simplified bare-bones starter for Gatsby",
+  "version": "0.1.0",
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write src/**/*.{js,jsx}",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+  },
+  "dependencies": {
+    "babel-plugin-styled-components": "^1.10.1",
+    "gatsby": "^2.8.2",
+    "gatsby-plugin-catch-links": "^2.0.15",
+    "gatsby-plugin-manifest": "^2.2.0",
+    "gatsby-plugin-meta-redirect": "^1.1.1",
+    "gatsby-plugin-offline": "^2.2.0",
+    "gatsby-plugin-react-helmet": "^3.1.0",
+    "gatsby-plugin-styled-components": "^3.0.7",
+    "gatsby-redirect-from": "^0.2.1",
+    "gatsby-remark-autolink-headers": "^2.0.18",
+    "gatsby-remark-prismjs": "^3.2.9",
+    "gatsby-source-filesystem": "^2.0.38",
+    "gatsby-transformer-remark": "^2.3.12",
+    "prismjs": "^1.16.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-helmet": "^5.2.1",
+    "rebass": "^3.1.1",
+    "styled-components": "^4.3.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.16.0",
+    "eslint-loader": "^2.1.2",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-react": "^7.13.0",
+    "gatsby-plugin-eslint": "^2.0.5",
+    "prettier": "^1.17.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  }
+}

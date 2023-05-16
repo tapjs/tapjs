@@ -1,0 +1,14 @@
+{
+  "name": "my-awesome-module",
+  "version": "1.2.3",
+  "devDependencies": {
+    "tap": "^13.0.0"
+  },
+  "scripts": {
+    "test": "tap"
+  },
+  "dependencies": {
+    "tap-yaml": "^1.0.0",
+    "yaml": "^1.5.0"
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "name": "tap",
+  "version": "16.3.4",
+  "author": "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me)",
+  "description": "A Test-Anything-Protocol library for JavaScript",
+  "homepage": "http://www.node-tap.org/",
+  "bin": {
+    "tap": "bin/run.js"
+  },
+  "main": "lib/tap.js",
+  "exports": {
+    ".": {
+      "import": "./lib/tap.mjs",
+      "default": "./lib/tap.js"
+    },
+    "./*": "./*",
+    "./": "./",
+    "./mocha": "./lib/mocha.js"
+  },
+  "engines": {
+    "node": ">=12"
+  },
+  "dependencies": {
+    "@isaacs/import-jsx": "^4.0.1",
+    "@types/react": "^17.0.52",
+    "chokidar": "^3.3.0",
+    "findit": "^2.0.0",
+    "foreground-child": "^2.0.0",
+    "fs-exists-cached": "^1.0.0",
+    "glob": "^7.2.3",
+    "ink": "^3.2.0",
+    "isexe": "^2.0.0",
+    "istanbul-lib-processinfo": "^2.0.3",
+    "jackspeak": "^1.4.2",
+    "libtap": "^1.4.0",
+    "minipass": "^3.3.4",
+    "mkdirp": "^1.0.4",
+    "nyc": "^15.1.0",
+    "opener": "^1.5.1",
+    "react": "^17.0.2",
+    "rimraf": "^3.0.0",
+    "signal-exit": "^3.0.6",
+    "source-map-support": "^0.5.16",
+    "tap-mocha-reporter": "^5.0.3",
+    "tap-parser": "^11.0.2",
+    "tap-yaml": "^1.0.2",
+    "tcompare": "^5.0.7",
+    "treport": "^3.0.4",
+    "which": "^2.0.2"
+  },
+  "devDependencies": {
+    "coveralls": "^3.1.1",
+    "eslint": "^7.32.0",
+    "flow-remove-types": "^2.193.0",
+    "node-preload": "^0.2.1",
+    "process-on-spawn": "^1.0.0",
+    "ts-node": "^8.5.2",
+    "typescript": "^3.7.2"
+  },
+  "peerDependencies": {
+    "coveralls": "^3.1.1",
+    "flow-remove-types": ">=2.112.0",
+    "ts-node": ">=8.5.2",
+    "typescript": ">=3.7.2"
+  },
+  "peerDependenciesMeta": {
+    "coveralls": {
+      "optional": true
+    },
+    "flow-remove-types": {
+      "optional": true
+    },
+    "ts-node": {
+      "optional": true
+    },
+    "typescript": {
+      "optional": true
+    }
+  },
+  "keywords": [
+    "assert",
+    "tap",
+    "test",
+    "testing"
+  ],
+  "license": "ISC",
+  "repository": "https://github.com/tapjs/node-tap.git",
+  "scripts": {
+    "snap": "node bin/run.js -M coverage-map.js",
+    "test": "node bin/run.js -M coverage-map.js",
+    "unit": "bash scripts/unit.sh",
+    "posttest": "rm -rf cli-tests-*",
+    "postsnap": "npm run lint:fix",
+    "postunit": "npm run posttest",
+    "t": "node bin/run.js -J -sfails.txt",
+    "preversion": "npm test",
+    "postversion": "npm publish",
+    "postpublish": "bash postpublish.sh",
+    "www:build": "cd docs; npm ci; npm run build",
+    "www:develop": "cd docs; npm run develop",
+    "start": "npm run www:develop",
+    "www:serve": "cd docs; npm run serve",
+    "lint": "eslint 'bin/*.js' 'lib/*.js' 'test/**/*.js'",
+    "lint:fix": "npm run lint -- --fix"
+  },
+  "tap": {
+    "test-regex": "^test/.*\\.js$",
+    "check-coverage": true
+  },
+  "nyc": {
+    "include": [
+      "bin/run.js",
+      "bin/jsx.js",
+      "lib/*.js",
+      "bin/jack.js"
+    ]
+  },
+  "files": [
+    "settings.js",
+    "bin/run.js",
+    "bin/jsx.js",
+    "bin/jack.js",
+    "lib"
+  ],
+  "bundleDependencies": [
+    "ink",
+    "treport",
+    "@types/react",
+    "@isaacs/import-jsx",
+    "react"
+  ],
+  "funding": {
+    "url": "https://github.com/sponsors/isaacs"
+  }
+}
