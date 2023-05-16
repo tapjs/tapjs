@@ -58,7 +58,7 @@
     "endOfLine": "lf"
   },
   "devDependencies": {
-    "@types/node": "^18.11.9",
+    "@types/node": "^20.1.5",
     "@types/tap": "^15.0.7",
     "prettier": "^2.6.2",
     "typedoc": "^0.23.21"
