@@ -202,6 +202,10 @@ export const run = async (args: string[], config: Config) => {
   }
 
   for (const f of files) {
+    if (f === '-' || f === '/dev/stdin') {
+      t.stdin()
+      continue
+    }
     const file = resolve(f)
     const buffered = !serial.some(s => file.toLowerCase().startsWith(s))
     const p = t.spawn(node, [...argv, file, ...testArgs], {

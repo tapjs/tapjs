@@ -57,15 +57,18 @@ export const findSuites = async (args: string[], config: Config) => {
     withFileTypes: true,
   })
   const { scurry } = g
-  const entries = new Set<Path>(
+  const entries = new Set<Path | '-' | '/dev/stdin'>(
     (
       await (!args.length
         ? g.walk()
-        : Promise.all(args.map(async a => scurry.cwd.resolve(a).lstat())))
+        : Promise.all(args.map(async a => {
+          if (a === '-' || a === '/dev/stdin') return a
+          return scurry.cwd.resolve(a).lstat()
+        })))
     ).filter(p => {
       if (!p) return false
       return true
-    }) as Path[]
+    }) as (Path | '-' | '/dev/stdin')[]
   )
   await expandDirectories(scurry, entries, g.ignore)
   const before = config.get('before')
@@ -79,6 +82,7 @@ export const findSuites = async (args: string[], config: Config) => {
 
   if (saveFileList.size) {
     for (const p of entries) {
+      if (typeof p === 'string') continue
       if (!saveFileList.has(p.relativePosix())) entries.delete(p)
     }
   }
@@ -87,18 +91,19 @@ export const findSuites = async (args: string[], config: Config) => {
     await pruneUnchanged(scurry, entries)
   }
 
-  return [...entries].map(p => p.relativePosix())
+  return [...entries].map(p => typeof p === 'string' ? p : p.relativePosix())
 }
 
 const expandDirectories = async (
   scurry: PathScurry,
-  entries: Set<Path>,
+  entries: Set<Path | '-' | '/dev/stdin'>,
   ignore: string | string[] | IgnoreLike | undefined
 ) => {
   // for each one that's a directory, expand it with the files it contains
   // then go back to the original dir when we're done expanding.
   const originalCwd = scurry.cwd
   for (const entry of entries) {
+    if (typeof entry === 'string') continue
     if (excludeEntry(entry.name.toLowerCase())) {
       entries.delete(entry)
       continue
@@ -121,7 +126,7 @@ const expandDirectories = async (
 
 // delete all the entries in the set that do not reference files
 // that have changed since the last run.
-const pruneUnchanged = async (scurry: PathScurry, entries: Set<Path>) => {
+const pruneUnchanged = async (scurry: PathScurry, entries: Set<Path | '-' | '/dev/stdin'>) => {
   const dir = scurry.resolve('.tap/processinfo')
   const db = new ProcessInfo({ dir })
   await db.load()
@@ -129,6 +134,7 @@ const pruneUnchanged = async (scurry: PathScurry, entries: Set<Path>) => {
   // then compare the mtime of the pi entry json file with the mtime
   // of all the files in its list. If none are newer, delete the entry
   for (const e of entries) {
+    if (typeof e === 'string') continue
     const pi = db.externalIDs.get(e.relativePosix())
     if (!pi) continue
     const pie = scurry.cwd.resolve(`.tap/processinfo/${pi.uuid}.json`)

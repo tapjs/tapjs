@@ -1,6 +1,7 @@
 // this has to do some wicked things with types, because c8's
 // declarations are somewhat lacking.
 import { Report } from 'c8'
+import { readdir } from 'fs/promises'
 import opener from 'opener'
 import { resolve } from 'path'
 import type { Config } from './index.js'
@@ -17,6 +18,17 @@ export const report = async (args: string[], config: Config) => {
     : rconf && rconf.length
     ? rconf
     : ['text']
+
+  // verify that we actually have coverage, otherwise don't even try
+  const tempDirectory = resolve(config.globCwd, '.tap/coverage')
+  const ok = await readdir(tempDirectory).then(
+    () => true,
+    () => false
+  )
+  if (!ok) {
+    console.error('# No coverage generated')
+    return
+  }
 
   const r = new Report({
     // no need to include/exclude, we already did that when we captured

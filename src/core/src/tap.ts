@@ -122,7 +122,7 @@ class TAP extends Test {
       setTimeout(() => console.log(`# time=${this.time}ms`))
     }
 
-    if (!results.ok) this.comment('fail')
+    if (!results.ok) this.comment('fail', results)
     if (registered && !results.ok && proc) {
       proc.exitCode = 1
     }
