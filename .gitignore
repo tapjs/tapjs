@@ -3,3 +3,5 @@
 !/src/test/node_modules
 /src/*/docs
 /src/*/dist
+/tap-snapshots
+/.tap
