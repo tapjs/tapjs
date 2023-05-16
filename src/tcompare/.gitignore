@@ -19,3 +19,4 @@
 !/map.js
 !/index.js
 !/.prettierignore
+!/typedoc.json

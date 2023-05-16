@@ -18,3 +18,4 @@
 !/.prettierignore
 !/.gitattributes
 !/tsconfig*.json
+!/typedoc.json

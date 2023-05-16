@@ -23,3 +23,4 @@
 !/.prettierignore
 !/src/
 !/tsconfig*.json
+!/typedoc.json

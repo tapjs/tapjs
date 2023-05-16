@@ -61,7 +61,7 @@
     "@types/node": "^20.1.5",
     "@types/tap": "^15.0.7",
     "prettier": "^2.6.2",
-    "typedoc": "^0.23.21"
+    "typedoc": "^0.24.7"
   },
   "license": "ISC"
 }

@@ -33,7 +33,7 @@
     "minipass": "^6.0.0",
     "prettier": "^2.8.0",
     "ts-node": "^10.9.1",
-    "typedoc": "^0.23.21",
+    "typedoc": "^0.24.7",
     "typescript": "^5.0.2"
   },
   "prettier": {
@@ -51,7 +51,7 @@
     "snap": "tap",
     "test": "tap",
     "preprepare": "rm -rf dist",
-    "prepare": "tsc -p tsconfig-cjs.json && tsc -p tsconfig-esm.json",
+    "prepare": "tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
     "postprepare": "bash fixup.sh",
     "pretest": "npm run prepare",
     "presnap": "npm run prepare",
@@ -59,7 +59,7 @@
     "preversion": "npm test",
     "postversion": "npm publish",
     "prepublishOnly": "git push origin --follow-tags",
-    "typedoc": "typedoc --tsconfig tsconfig-esm.json ./src/*.ts"
+    "typedoc": "typedoc ./src/*.ts"
   },
   "tap": {
     "test-env": [

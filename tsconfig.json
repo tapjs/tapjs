@@ -1,9 +1,35 @@
 {
-  "extends": "./tsconfig-base.json",
-  "include": ["src/index.ts"],
+  "files": [],
   "compilerOptions": {
-    "module": "commonjs",
-    "moduleResolution": "Node16",
-    "outDir": "dist/cjs"
-  }
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "declarationMap": true,
+    "inlineSources": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node16",
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "target": "es2022"
+  },
+  "references": [
+    { "path": "./src/asserts" },
+    { "path": "./src/config" },
+    { "path": "./src/core" },
+    { "path": "./src/filter" },
+    { "path": "./src/fixture" },
+    { "path": "./src/intercept" },
+    { "path": "./src/mock" },
+    { "path": "./src/nock" },
+    { "path": "./src/run" },
+    { "path": "./src/sinon" },
+    { "path": "./src/snapshot" },
+    { "path": "./src/stack" },
+    { "path": "./src/tap" },
+    { "path": "./src/tcompare" },
+    { "path": "./src/test" }
+  ]
 }
+
