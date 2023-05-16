@@ -1,5 +1,5 @@
 // The root Test object singleton
-import { Test, TestOpts } from '@tapjs/test'
+import { Test } from '@tapjs/test'
 import { Minipass } from 'minipass'
 import { onExit } from 'signal-exit'
 import { FinalResults } from 'tap-parser'
@@ -28,8 +28,49 @@ const envFlag = (key: string) =>
 let piped = false
 let registered = false
 let autoend = false
+
+/**
+ * This is a singleton subclass of the {@link Test} base class.
+ *
+ * Instantiate it by calling the exported {@link tap} method.
+ *
+ * It has all of the same plugins, fields, properties etc of a "normal"
+ * Test object, but with some additional characteristics to make it
+ * suitable for use as the root test runner.
+ *
+ * - The {@link TAP#register} method will hook onto the process object,
+ *   to set the exit code to 1 if there are test failures, and ignore any
+ *   `EPIPE` errors that happen on stdout.  (This is quite common in cases
+ *   where a test aborts, and then attempts to write more data.)
+ *
+ * - A brief summary is printed at the end of the test run.
+ *
+ * - If piped to stdout, then `this.register()` will be called automatically.
+ *
+ * - If not piped anywhere else, the first time it writes any data, it will
+ *   begin piping to stdout.
+ *
+ * - Options are set based on relevant environment variables, rather than
+ *   taking an options object, since in normal cases, it will be instantiated
+ *   automatically before any user code is run.
+ *
+ * - The test will automatically implicitly end when the process exits.  If
+ *   there are any unfinished tests at this time, they will be emitted as
+ *   failures.
+ *
+ * - If a `teardown` function is added, then the test will automatically
+ *   implicitly end if it is idle for 3 consecutive `setTimeout` deferrals.
+ *   This is a bit of a kludge, but it allows tests to run servers or other
+ *   things that would prevent a graceful process exit, and close them down
+ *   in a teardown function.
+ *
+ * - Lastly, since test files are often spawned by the runner using
+ *   `t.spawn()`, this class listens for the timeout signal, and attempts to
+ *   print diagnostic information about currently active handles and requests,
+ *   as these are usually the cause of a test hanging indefinitely.
+ */
 class TAP extends Test {
-  constructor(opts: TestOpts, priv: PrivateTAPCtor) {
+  constructor(priv: PrivateTAPCtor) {
     /* c8 ignore start */
     if (priv !== privateTAPCtor) {
       throw new Error(
@@ -45,7 +86,6 @@ class TAP extends Test {
       debug: envFlag('TAP_DEBUG'),
       omitVersion: envFlag('TAP_OMIT_VERSION'),
       preserveWhitespace: !envFlag('TAP_OMIT_WHITESPACE'),
-      ...opts,
     }
 
     super(options)
@@ -85,13 +125,17 @@ class TAP extends Test {
     ignoreEPIPE()
     this.once('bail', () => proc?.exit(1))
     proc?.once('beforeExit', () => {
-      this.end()
+      this.end(IMPLICIT)
       if (!this.results) {
         this.endAll()
       }
     })
   }
 
+  /**
+   * Just the normal Minipass.pipe method, but automatically registers
+   * if the destination is stdout.
+   */
   pipe<W extends Minipass.Writable>(
     dest: W,
     opts?: Minipass.PipeOptions
@@ -103,6 +147,10 @@ class TAP extends Test {
     return super.pipe(dest, opts)
   }
 
+  /**
+   * Just the normal Minipass.write method, but automatically pipes
+   * to stdout if not piped anywhere else.
+   */
   write(chunk: string): boolean {
     if (!piped && stdout) {
       this.pipe(stdout)
@@ -191,14 +239,14 @@ const registerTimeoutListener = (t: TAP) => {
       _getActiveRequests: () => any[]
     }
 
-    const handles = p
-      ._getActiveHandles()
-      .filter(
-        h =>
-          h !== process.stdout &&
-          h !== process.stdin &&
-          h !== process.stderr
-      )
+    /* c8 ignore start */
+    const handles = (p._getActiveHandles() || []).filter(
+      /* c8 ignore stop */
+      h =>
+        h !== process.stdout &&
+        h !== process.stdin &&
+        h !== process.stderr
+    )
     const requests = p._getActiveRequests()
 
     const extra: Extra = {

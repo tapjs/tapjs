@@ -78,7 +78,7 @@ type TTest = TestBase
 //{{TEST INTERFACE END}}
 
 export interface Test extends TTest {
-  end(): this
+  end(implicit?: symbol): this
   test(
     name: string,
     extra: TestOpts,
