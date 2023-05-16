@@ -62,6 +62,11 @@ export class Spawn extends Base<SpawnEvents> {
   public proc: null | ChildProcess
   public cb: null | (() => void)
 
+  // doesn't have to be cryptographically secure, just a gut check
+  #tapAbortKey: string = String(Math.random())
+
+  #childId: string
+
   constructor(options: SpawnOpts) {
     // figure out the name before calling super()
     const command = options.command
@@ -106,13 +111,15 @@ export class Spawn extends Base<SpawnEvents> {
     }
 
     const env = options.env || process.env
+    this.#childId = String(
+      options.childId || env.TAP_CHILD_ID || '0'
+    )
     this.env = {
       ...env,
-      TAP_CHILD_ID: String(
-        options.childId || env.TAP_CHILD_ID || '0'
-      ),
+      TAP_CHILD_ID: this.#childId,
       TAP: '1',
       TAP_BAIL: this.bail ? '1' : '0',
+      TAP_ABORT_KEY: this.#tapAbortKey,
     }
 
     this.proc = null
@@ -217,7 +224,11 @@ export class Spawn extends Base<SpawnEvents> {
     const proc = this.proc
     if (proc) {
       try {
-        proc.send({ tapAbort: 'timeout' })
+        proc.send({
+          tapAbort: 'timeout',
+          key: this.#tapAbortKey,
+          child: this.#childId,
+        })
         /* c8 ignore start */
       } catch (_) {}
       /* c8 ignore stop */
@@ -234,9 +245,13 @@ export class Spawn extends Base<SpawnEvents> {
             proc.kill('SIGKILL')
           }
         }, 500)
+        /* c8 ignore start */
         if (t.unref) t.unref()
+        /* c8 ignore stop */
       }, 500)
+      /* c8 ignore start */
       if (t.unref) t.unref()
+      /* c8 ignore stop */
     }
   }
 

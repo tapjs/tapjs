@@ -212,13 +212,27 @@ const registerTimeoutListener = (t: TAP) => {
   // this is a bit of a handshake agreement between the root TAP object
   // and the Spawn class. Because Windows cannot catch and process posix
   // signals, we have to use an IPC message to send the timeout signal.
+  // t.spawn() will always open an ipc channel on fd 3 for this purpose.
+  // The key and childId are just a basic gut check to ensure that we don't
+  // treat a message as a timeout unintentionally, though of course that
+  // would be extremely rare.
   process.on(
     'message',
-    (msg: { tapAbort?: string } | any) => {
+    (
+      msg:
+        | {
+            tapAbort?: string
+            key?: string
+            childId?: string
+          }
+        | any
+    ) => {
       if (
         msg &&
         typeof msg === 'object' &&
-        msg.tapAbort === 'timeout'
+        msg.tapAbort === 'timeout' &&
+        msg.key === process.env.TAP_ABORT_KEY &&
+        msg.childId === process.env.TAP_CHILD_ID
       ) {
         onProcessTimeout(null)
       }
