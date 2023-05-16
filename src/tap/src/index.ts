@@ -1,4 +1,5 @@
-import { TAP } from '@tapjs/core'
+import { TAP, tap } from '@tapjs/core'
+export type { TAP }
 export {
   Base,
   Counts,
@@ -7,7 +8,5 @@ export {
   TapWrap,
   TestBase,
 } from '@tapjs/core'
-type _TAP = ReturnType<typeof TAP>
-export type { _TAP as TAP }
 export { Test } from '@tapjs/test'
-export const t: _TAP = TAP()
+export const t: TAP = tap()

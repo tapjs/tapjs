@@ -1,7 +1,7 @@
-import { TAP } from '@tapjs/core'
+import { tap } from '@tapjs/core'
 import { Test } from '@tapjs/test'
 import { strict as compareStrict } from '../dist/cjs/index.js'
-const t = TAP()
+const t = tap()
 
 const strict = (t: Test, a: any, b: any) => {
   const s = compareStrict(a, b)

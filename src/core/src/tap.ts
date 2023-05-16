@@ -360,6 +360,5 @@ const ignoreEPIPE = () => {
   }
 }
 
-const getInstance = () =>
-  instance || new TAP({}, privateTAPCtor)
-export { getInstance as TAP }
+export const tap = () => instance || new TAP(privateTAPCtor)
+export type { TAP }

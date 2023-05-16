@@ -1,5 +1,5 @@
 // run the provided tests
-import { proc, TAP } from '@tapjs/core'
+import { proc, TAP, tap } from '@tapjs/core'
 import { plugin as SpawnPlugin } from '@tapjs/core/plugin/spawn'
 import { loaders, signature } from '@tapjs/test'
 import { foregroundChild } from 'foreground-child'
@@ -23,7 +23,7 @@ const piLoader = pathToFileURL(require.resolve('@tapjs/processinfo'))
 const node = process.execPath
 
 const buildWithSpawn = async (
-  t: ReturnType<typeof TAP>,
+  t: TAP,
   args: string[],
   config: Config
 ) => {
@@ -84,7 +84,7 @@ const buildWithSpawn = async (
 }
 
 export const run = async (args: string[], config: Config) => {
-  const t = TAP()
+  const t = tap()
   await buildWithSpawn(t, args, config)
 
   // Maybe should accept an optList of loaders in the config?

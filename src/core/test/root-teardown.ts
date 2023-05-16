@@ -1,5 +1,6 @@
-import { TAP } from '@tapjs/core'
-const t = TAP()
+import { tap } from '@tapjs/core'
+const t = tap()
+
 const interval = setInterval(() => {}, 10000)
 t.teardown(() => clearInterval(interval))
 // t.pass('this should not time out')

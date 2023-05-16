@@ -1,8 +1,7 @@
-import { TAP } from '@tapjs/core'
+import { tap } from '@tapjs/core'
+const t = tap()
 
 console.log('scratch.ts test file running')
-
-const t = TAP()
 
 t.test('hello', async t => {
   t.pass('spanning multiple lines', {

@@ -1,7 +1,7 @@
 import { MatchOnly } from '../dist/cjs/index.js'
 import { Test } from '@tapjs/test'
-import { TAP } from '@tapjs/core'
-const t = TAP()
+import { tap } from '@tapjs/core'
+const t = tap()
 
 const match = (t: Test, a: any, b: any) => {
   const m = new MatchOnly(a, { expect: b })

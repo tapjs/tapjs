@@ -1,7 +1,7 @@
-import { TAP } from '@tapjs/core'
+import { tap } from '@tapjs/core'
 import { Test } from '@tapjs/test'
 import * as compare from '../dist/cjs/index.js'
-const t = TAP()
+const t = tap()
 
 const match = (t: Test, a: any, b: any) => {
   const m = compare.match(a, b)

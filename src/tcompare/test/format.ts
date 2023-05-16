@@ -1,6 +1,6 @@
-import { TAP } from '@tapjs/core'
+import { tap } from '@tapjs/core'
 import { format, Format } from '../dist/cjs/index.js'
-const t = TAP()
+const t = tap()
 
 // this is here so we can work with assertion errors and other
 // inspection output from node 12 and 13, where cyclical refs

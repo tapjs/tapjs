@@ -1,3 +1,4 @@
-import { TAP } from '@tapjs/core'
-const t = TAP()
+import { tap } from '@tapjs/core'
+const t = tap()
+
 t.pass('this is fine')
