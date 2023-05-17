@@ -14,4 +14,4 @@ cat >dist/mjs/package.json <<!EOF
 }
 !EOF
 
-
+chmod 0755 dist/mjs/run.mjs
