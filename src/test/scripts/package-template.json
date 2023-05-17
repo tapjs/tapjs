@@ -24,8 +24,7 @@
   ],
   "scripts": {
     "preprepare": "rm -rf dist",
-    "prepare": "tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
-    "postprepare": "bash fixup.sh"
+    "prepare": "tsc -p tsconfig.json && tsc -p tsconfig-esm.json && bash fixup.sh"
   },
   "license": "ISC"
 }
