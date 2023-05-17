@@ -40,3 +40,12 @@ writeFileSync(
 spawnSync(build, builtins, {
   stdio: 'inherit',
 })
+
+writeFileSync(
+  '.taprc',
+  `# vim: set filetype=yaml :
+include: src/*/test
+typecheck: false
+`
+)
+

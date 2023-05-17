@@ -1,1 +1,3 @@
+# vim: set filetype=yaml :
 include: src/*/test
+typecheck: false

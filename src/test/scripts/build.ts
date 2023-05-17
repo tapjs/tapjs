@@ -299,10 +299,4 @@ spawnSync('npm', ['run', 'prepare'], {
   stdio: 'inherit',
 })
 
-writeFileSync(
-  '.taprc',
-  `include: src/*/test
-`
-)
-
 export {}
