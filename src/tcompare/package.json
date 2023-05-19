@@ -62,7 +62,8 @@
   "tap": {
     "test-env": [
       "LC_ALL=sk"
-    ]
+    ],
+    "coverage-map": "map.js"
   },
   "engines": {
     "node": ">=16"

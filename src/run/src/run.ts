@@ -22,11 +22,7 @@ const piLoader = pathToFileURL(require.resolve('@tapjs/processinfo'))
 
 const node = process.execPath
 
-const buildWithSpawn = async (
-  t: TAP,
-  args: string[],
-  config: Config
-) => {
+const buildWithSpawn = async (t: TAP, args: string[], config: Config) => {
   // Make sure that we WANT to have the spawn plugin, otherwise
   // the runner really can't work.
   if (!config.pluginList.includes('@tapjs/core/plugin/spawn')) {
@@ -83,6 +79,9 @@ const buildWithSpawn = async (
   }
 }
 
+const isStringArray = (a: any): a is string[] =>
+  Array.isArray(a) && !a.some(s => typeof s !== 'string')
+
 export const run = async (args: string[], config: Config) => {
   const t = tap()
   await buildWithSpawn(t, args, config)
@@ -108,6 +107,16 @@ export const run = async (args: string[], config: Config) => {
   /* c8 ignore stop */
 
   const files = await findSuites(args, config)
+
+  const coverageMap = config.get('coverage-map')
+  const map = !coverageMap
+    ? () => []
+    : (await import(resolve(config.globCwd, coverageMap))).default
+  if (typeof map !== 'function') {
+    throw new Error(
+      `Coverage map ${map} did not default export a function`
+    )
+  }
 
   /* c8 ignore start */
   const testArgs: string[] = values['test-arg'] || []
@@ -206,11 +215,26 @@ export const run = async (args: string[], config: Config) => {
       t.stdin()
       continue
     }
+    let coveredFiles: string | string[] | null = map(f)
+    const _TAPJS_PROCESSINFO_COVERAGE_ = coveredFiles === null ? '0' : '1'
+    if (typeof coveredFiles === 'string') coveredFiles = [coveredFiles]
+    else if (!isStringArray(coveredFiles)) {
+      throw new Error(
+        `Coverage map ${map} must return string array or null`
+      )
+    }
+    const _TAPJS_PROCESSINFO_COV_FILES_ = coveredFiles
+      .map(f => resolve(f))
+      .join('\n')
     const file = resolve(f)
     const buffered = !serial.some(s => file.toLowerCase().startsWith(s))
     const p = t.spawn(node, [...argv, file, ...testArgs], {
       buffered,
-      env,
+      env: {
+        ...env,
+        _TAPJS_PROCESSINFO_COVERAGE_,
+        _TAPJS_PROCESSINFO_COV_FILES_,
+      },
       name: relative(config.globCwd, file),
     })
     if (save) {

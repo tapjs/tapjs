@@ -216,6 +216,27 @@ export default jack({
     },
   })
 
+  .opt({
+    'coverage-map': {
+      hint: 'module',
+      description: `Provide a path to a node module (esm or cjs) that default
+                    exports a single function.  That function takes a test
+                    file as an argument, and returns an array of files to
+                    instrument with coverage when that file is run.
+
+                    This is useful in cases where a unit test should cover a
+                    single portion of the system under test, or where you wish
+                    to avoid tracking "accidental coverage" by integration
+                    tests.
+
+                    Return 'null' to not cover any files by this test.
+
+                    Return an empty array [] to cover the set that would be
+                    pulled in by default.  Ie, returning [] is equivalent to
+                    not using a coverage map at all.`,
+    },
+  })
+
   .flag({
     bail: {
       short: 'b',
