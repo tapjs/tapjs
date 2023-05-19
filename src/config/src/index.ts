@@ -77,7 +77,11 @@ export class TapConfig<C extends ConfigSet = Unwrap<typeof baseConfig>> {
   async editYAMLConfig(data: OptionsResults<C>, configFile: string) {
     const src: OptionsResults<C> =
       (await this.readYAMLConfig(configFile)) || {}
-    return writeFile(configFile, yaml.stringify(Object.assign(src, data)))
+    return writeFile(
+      configFile,
+      '# vim: set filetype=yaml :\n' +
+        yaml.stringify(Object.assign(src, data))
+    )
   }
 
   async editPackageJsonConfig(
