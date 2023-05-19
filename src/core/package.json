@@ -44,7 +44,7 @@
     "typedoc": "typedoc --tsconfig tsconfig-esm.json ./src/*.ts"
   },
   "dependencies": {
-    "@tapjs/processinfo": "^2.0.2",
+    "@tapjs/processinfo": "^2.1.0",
     "@tapjs/stack": ">=0.0.0-0",
     "@tapjs/test": ">=0.0.0-0",
     "async-hook-domain": "^3.0.2",
