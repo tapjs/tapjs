@@ -63,6 +63,7 @@
   "homepage": "https://github.com/tapjs/tapjs/src/nock#readme",
   "devDependencies": {
     "@types/node": "^20.1.5",
+    "minipass-fetch": "^3.0.3",
     "prettier": "^2.8.6",
     "ts-node": "^10.9.1",
     "typedoc": "^0.24.7",
