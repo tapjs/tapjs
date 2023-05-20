@@ -9,6 +9,8 @@ const builtins = globSync('*.ts', {
 })
   .map(f => basename(f, '.ts'))
   .map(p => `@tapjs/core/plugin/${p}`)
+  .concat('@tapjs/spawn')
+  .concat('@tapjs/stdin')
   .concat('@tapjs/asserts')
   .concat('@tapjs/snapshot')
   .concat('@tapjs/fixture')

@@ -1,6 +1,7 @@
 // run the provided tests
 import { proc, TAP, tap } from '@tapjs/core'
-import { plugin as SpawnPlugin } from '@tapjs/core/plugin/spawn'
+import { plugin as SpawnPlugin } from '@tapjs/spawn'
+import { plugin as StdinPlugin } from '@tapjs/stdin'
 import { loaders, signature } from '@tapjs/test'
 import { foregroundChild } from 'foreground-child'
 import { Minipass } from 'minipass'
@@ -25,10 +26,8 @@ const node = process.execPath
 const buildWithSpawn = async (t: TAP, args: string[], config: Config) => {
   // Make sure that we WANT to have the spawn plugin, otherwise
   // the runner really can't work.
-  if (!config.pluginList.includes('@tapjs/core/plugin/spawn')) {
-    throw new Error(
-      'tap runner requires the @tapjs/core/plugin/spawn plugin'
-    )
+  if (!config.pluginList.includes('@tapjs/spawn')) {
+    throw new Error('tap runner requires the @tapjs/spawn plugin')
   }
 
   // determine intended plugin list from plugin config
@@ -212,7 +211,11 @@ export const run = async (args: string[], config: Config) => {
 
   for (const f of files) {
     if (f === '-' || f === '/dev/stdin') {
-      t.stdin()
+      if (t.pluginLoaded(StdinPlugin)) {
+        t.stdin()
+      } else {
+        console.error('@tapjs/stdin plugin not loaded, skipping stdin')
+      }
       continue
     }
     let coveredFiles: string | string[] | null = map(f)

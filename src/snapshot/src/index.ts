@@ -134,10 +134,15 @@ export class SnapshotPlugin {
     return snapshot
   }
 
-  get compareOptions(): Exclude<SnapshotOptions['compareOptions'], undefined> {
+  get compareOptions(): Exclude<
+    SnapshotOptions['compareOptions'],
+    undefined
+  > {
     return this.#compareOptions
   }
-  set compareOptions(fmt: Exclude<SnapshotOptions['compareOptions'], undefined>) {
+  set compareOptions(
+    fmt: Exclude<SnapshotOptions['compareOptions'], undefined>
+  ) {
     this.#compareOptions = fmt
   }
 
@@ -168,6 +173,9 @@ export class SnapshotPlugin {
   }
 
   matchSnapshot(found: any, ...[msg, extra]: MessageExtra): boolean {
+    if (!this.#t.t.pluginLoaded(plugin)) {
+      throw new Error('snapshot plugin not loaded')
+    }
     this.#t.currentAssert = this.#t.t.matchSnapshot
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('must match snapshot', args)
@@ -221,6 +229,9 @@ export class SnapshotPlugin {
         return d.promise
       }
       let res: boolean | Error
+      if (!this.#t.t.pluginLoaded(plugin)) {
+        throw new Error('snapshot plugin not loaded')
+      }
       this.#t.currentAssert = this.#t.t.resolveMatchSnapshot
       try {
         res = this.matchSnapshot(await p, ...me)

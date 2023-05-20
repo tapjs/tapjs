@@ -153,9 +153,9 @@ export default jack({
 
                     ${defaultPlugins.map(s => `- ${s}`).join('\n')}
 
-                    The tap runner requires the @tapjs/core/plugin/spawn plugin
-                    to run tests. If removed, you'll have to run test files
-                    some other way.
+                    The tap runner requires the @tapjs/spawn plugin to run
+                    tests. If removed, you'll have to run test files some other
+                    way.
   `,
       default: [],
     },

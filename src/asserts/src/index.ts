@@ -92,6 +92,9 @@ export class Assertions {
    * Verify that the value is truthy
    */
   ok(obj: any, ...[msg, extra]: MessageExtra) {
+    if (!this.#t.t.pluginLoaded(plugin)) {
+      throw new Error('assert plugin not loaded')
+    }
     this.#t.currentAssert = this.#t.t.ok
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('should be equal', args)
@@ -102,6 +105,9 @@ export class Assertions {
    * Verify that the value is not truthy
    */
   notOk(obj: any, ...[msg, extra]: MessageExtra) {
+    if (!this.#t.t.pluginLoaded(plugin)) {
+      throw new Error('assert plugin not loaded')
+    }
     this.#t.currentAssert = this.#t.t.notOk
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('should be equal', args)
@@ -116,6 +122,9 @@ export class Assertions {
     wanted: T,
     ...[msg, extra]: MessageExtra
   ): found is T {
+    if (!this.#t.t.pluginLoaded(plugin)) {
+      throw new Error('assert plugin not loaded')
+    }
     this.#t.currentAssert = this.#t.t.equal
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('should be equal', args)
@@ -142,6 +151,9 @@ export class Assertions {
    * Verify that the values are not equal
    */
   not(found: any, doNotWant: any, ...[msg, extra]: MessageExtra) {
+    if (!this.#t.t.pluginLoaded(plugin)) {
+      throw new Error('assert plugin not loaded')
+    }
     this.#t.currentAssert = this.#t.t.not
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('should not be equal', args)
@@ -160,6 +172,9 @@ export class Assertions {
    * Verify that the value is loosely equivalent to the supplied pattern
    */
   same(found: any, wanted: any, ...[msg, extra]: MessageExtra) {
+    if (!this.#t.t.pluginLoaded(plugin)) {
+      throw new Error('assert plugin not loaded')
+    }
     this.#t.currentAssert = this.#t.t.same
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('should be equivalent', args)
@@ -173,6 +188,9 @@ export class Assertions {
    * Verify that the value is not loosely equivalent to the supplied pattern
    */
   notSame(found: any, doNotWant: any, ...[msg, extra]: MessageExtra) {
+    if (!this.#t.t.pluginLoaded(plugin)) {
+      throw new Error('assert plugin not loaded')
+    }
     this.#t.currentAssert = this.#t.t.notSame
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('should not be equivalent', args)
@@ -190,6 +208,9 @@ export class Assertions {
     wanted: T,
     ...[msg, extra]: MessageExtra
   ): found is T {
+    if (!this.#t.t.pluginLoaded(plugin)) {
+      throw new Error('assert plugin not loaded')
+    }
     this.#t.currentAssert = this.#t.t.strictSame
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('should be equivalent strictly', args)
@@ -208,6 +229,9 @@ export class Assertions {
     doNotWant: any,
     ...[msg, extra]: MessageExtra
   ) {
+    if (!this.#t.t.pluginLoaded(plugin)) {
+      throw new Error('assert plugin not loaded')
+    }
     this.#t.currentAssert = this.#t.t.strictNotSame
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
@@ -225,6 +249,9 @@ export class Assertions {
    * pattern, matching loosely.
    */
   has(found: any, wanted: any, ...[msg, extra]: MessageExtra) {
+    if (!this.#t.t.pluginLoaded(plugin)) {
+      throw new Error('assert plugin not loaded')
+    }
     this.#t.currentAssert = this.#t.t.has
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
@@ -242,6 +269,9 @@ export class Assertions {
    * in the pattern, matching loosely.
    */
   notHas(found: any, doNotWant: any, ...[msg, extra]: MessageExtra) {
+    if (!this.#t.t.pluginLoaded(plugin)) {
+      throw new Error('assert plugin not loaded')
+    }
     this.#t.currentAssert = this.#t.t.notHas
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
@@ -259,6 +289,9 @@ export class Assertions {
    * pattern, matching strictly.
    */
   hasStrict(found: any, wanted: any, ...[msg, extra]: MessageExtra) {
+    if (!this.#t.t.pluginLoaded(plugin)) {
+      throw new Error('assert plugin not loaded')
+    }
     this.#t.currentAssert = this.#t.t.hasStrict
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
@@ -279,6 +312,9 @@ export class Assertions {
    * or if they do not match the same type.
    */
   notHasStrict(found: any, doNotWant: any, ...[msg, extra]: MessageExtra) {
+    if (!this.#t.t.pluginLoaded(plugin)) {
+      throw new Error('assert plugin not loaded')
+    }
     this.#t.currentAssert = this.#t.t.notHasStrict
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
@@ -295,6 +331,9 @@ export class Assertions {
    * Verify that the value matches the pattern provided
    */
   match(found: any, wanted: any, ...[msg, extra]: MessageExtra) {
+    if (!this.#t.t.pluginLoaded(plugin)) {
+      throw new Error('assert plugin not loaded')
+    }
     this.#t.currentAssert = this.#t.t.match
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('should match pattern', args)
@@ -308,6 +347,9 @@ export class Assertions {
    * Verify that the value does NOT match the pattern provided.
    */
   notMatch(found: any, doNotWant: any, ...[msg, extra]: MessageExtra) {
+    if (!this.#t.t.pluginLoaded(plugin)) {
+      throw new Error('assert plugin not loaded')
+    }
     this.#t.currentAssert = this.#t.t.notMatch
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('should not match pattern', args)
@@ -326,6 +368,9 @@ export class Assertions {
     wanted: string | number | symbol,
     ...[msg, extra]: MessageExtra
   ) {
+    if (!this.#t.t.pluginLoaded(plugin)) {
+      throw new Error('assert plugin not loaded')
+    }
     this.#t.currentAssert = this.#t.t.hasProp
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
@@ -356,6 +401,9 @@ export class Assertions {
     wanted: string | number | symbol,
     ...[msg, extra]: MessageExtra
   ) {
+    if (!this.#t.t.pluginLoaded(plugin)) {
+      throw new Error('assert plugin not loaded')
+    }
     this.#t.currentAssert = this.#t.t.hasOwnProp
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
@@ -386,6 +434,9 @@ export class Assertions {
     wanted: Iterable<string | number | symbol>,
     ...[msg, extra]: MessageExtra
   ) {
+    if (!this.#t.t.pluginLoaded(plugin)) {
+      throw new Error('assert plugin not loaded')
+    }
     this.#t.currentAssert = this.#t.t.hasProps
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
@@ -429,6 +480,9 @@ export class Assertions {
     wanted: Iterable<string | number | symbol>,
     ...[msg, extra]: MessageExtra
   ) {
+    if (!this.#t.t.pluginLoaded(plugin)) {
+      throw new Error('assert plugin not loaded')
+    }
     this.#t.currentAssert = this.#t.t.hasOwnProps
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
@@ -474,6 +528,9 @@ export class Assertions {
     fn: Function | (() => any),
     ...[wanted, msg, extra]: ThrowsArgs
   ): boolean | Error {
+    if (!this.#t.t.pluginLoaded(plugin)) {
+      throw new Error('assert plugin not loaded')
+    }
     this.#t.currentAssert = this.#t.t.throws
     const args = [wanted, msg, extra] as ThrowsArgs
     const [w, m, e] = normalizeThrowsArgs(
@@ -510,6 +567,9 @@ export class Assertions {
     fn: Function | (() => any),
     ...[msg, extra]: MessageExtra
   ): boolean | Error {
+    if (!this.#t.t.pluginLoaded(plugin)) {
+      throw new Error('assert plugin not loaded')
+    }
     this.#t.currentAssert = this.#t.t.doesNotThrow
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
@@ -546,6 +606,9 @@ export class Assertions {
       return d.promise
     }
     let res!: boolean | Error
+    if (!this.#t.t.pluginLoaded(plugin)) {
+      throw new Error('assert plugin not loaded')
+    }
     this.#t.currentAssert = this.#t.t.rejects
     try {
       await p
@@ -590,6 +653,9 @@ export class Assertions {
         return d.promise
       }
       let res: boolean | Error
+      if (!this.#t.t.pluginLoaded(plugin)) {
+        throw new Error('assert plugin not loaded')
+      }
       this.#t.currentAssert = this.#t.t.resolves
       try {
         await p
@@ -632,6 +698,9 @@ export class Assertions {
         return d.promise
       }
       let res: boolean | Error
+      if (!this.#t.t.pluginLoaded(plugin)) {
+        throw new Error('assert plugin not loaded')
+      }
       this.#t.currentAssert = this.#t.t.resolveMatch
       try {
         res = this.match(await p, wanted, ...me)
@@ -662,6 +731,9 @@ export class Assertions {
   ): Promise<void> {
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(`expect ${event} to be emitted`, args)
+    if (!this.#t.t.pluginLoaded(plugin)) {
+      throw new Error('assert plugin not loaded')
+    }
     me[1].at = me[1].at || stack.at(this.#t.t.emits)
     me[1].stack = me[1].stack || stack.captureString(this.#t.t.emits)
     const d = new Deferred<void>()

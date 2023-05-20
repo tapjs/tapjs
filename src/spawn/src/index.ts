@@ -1,11 +1,11 @@
-import { StdioOptions } from 'child_process'
-import { BaseOpts } from '../index.js'
-import { Spawn } from '../spawn.js'
 import {
+  BaseOpts,
   PromiseWithSubtest,
+  Spawn,
   TapPlugin,
   TestBase,
-} from '../test-base.js'
+} from '@tapjs/core'
+import { StdioOptions } from 'child_process'
 
 export interface SpawnOpts extends BaseOpts {
   cwd?: string
@@ -25,11 +25,7 @@ class SpawnPlugin {
     this.#t = t
   }
   spawn(cmd: string): PromiseWithSpawn
-  spawn(
-    cmd: string,
-    options: SpawnOpts,
-    name?: string
-  ): PromiseWithSpawn
+  spawn(cmd: string, options: SpawnOpts, name?: string): PromiseWithSpawn
   spawn(
     cmd: string,
     args: string | string[],
@@ -68,6 +64,5 @@ class SpawnPlugin {
   }
 }
 
-export const plugin: TapPlugin<SpawnPlugin> = (
-  t: TestBase
-) => new SpawnPlugin(t)
+export const plugin: TapPlugin<SpawnPlugin> = (t: TestBase) =>
+  new SpawnPlugin(t)

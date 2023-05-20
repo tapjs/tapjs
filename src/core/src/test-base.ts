@@ -24,6 +24,24 @@ import { Waiter } from './waiter.js'
 import { IMPLICIT } from './implicit-end-sigil.js'
 import { Extra, TapBaseEvents } from './index.js'
 
+export interface TestBaseOpts extends BaseOpts {
+  /**
+   * The number of jobs to run in parallel. Defaults to 1
+   */
+  jobs?: number
+
+  /**
+   * Test function called when this Test is executed
+   * This is usually not set on the extra object, but as an argument to
+   * the `t.test(..)` method, just defined here so TS doesn't complain
+   * when we reference it in the various flow control machinery.
+   *
+   * @internal
+   */
+  cb?: (...args: any[]) => any
+}
+
+
 export type MessageExtra =
   | []
   | [string]
@@ -51,23 +69,6 @@ export type TapPlugin<
 > = unknown extends O
   ? (t: TestBase) => B
   : (t: TestBase, opts: O) => B
-
-export interface TestBaseOpts extends BaseOpts {
-  /**
-   * The number of jobs to run in parallel. Defaults to 1
-   */
-  jobs?: number
-
-  /**
-   * Test function called when this Test is executed
-   * This is usually not set on the extra object, but as an argument to
-   * the `t.test(..)` method, just defined here so TS doesn't complain
-   * when we reference it in the various flow control machinery.
-   *
-   * @internal
-   */
-  cb?: (...args: any[]) => any
-}
 
 /**
  * Sigil to put in the queue to signal the end of all things

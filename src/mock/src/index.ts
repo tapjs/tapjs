@@ -3,6 +3,7 @@ import * as stack from '@tapjs/stack'
 import { mockImport } from './mock-import.js'
 import { mockRequire } from './mock-require.js'
 import type { Mocks } from './mocks.js'
+import { plugin as AfterPlugin } from '@tapjs/core/plugin/after'
 
 declare var global: {
   [k: `__tapmock${string}`]: Mocks
@@ -25,6 +26,9 @@ export class TapMock {
    * @deprecated
    */
   mock(module: string, mocks: { [k: string]: any } = {}) {
+    if (!this.#t.t.pluginLoaded(plugin)) {
+      throw new Error('mock plugin not loaded')
+    }
     const at = stack.at(this.#t.t.mock)?.toJSON() || ''
     console.error(
       't.mock() is now t.mockRequire(). Please update your tests.',
@@ -40,10 +44,11 @@ export class TapMock {
    * Works with either ESM or CommonJS modules.
    */
   mockImport(module: string, mocks: { [k: string]: any } = {}) {
-    if (!this.#didTeardown && this.#t.t.teardown) {
+    if (!this.#didTeardown && this.#t.t.pluginLoaded(AfterPlugin)) {
       this.#didTeardown = true
       this.#t.t.teardown(() => this.#unmock())
     }
+    //@ts-ignore
     const [key, imp] = mockImport(module, mocks, this.#t.t.mockImport)
     this.#keys.push(key)
     return imp()
@@ -56,6 +61,9 @@ export class TapMock {
    * Only works with CommonJS modules.
    */
   mockRequire(module: string, mocks: { [k: string]: any } = {}) {
+    if (!this.#t.t.pluginLoaded(plugin)) {
+      throw new Error('mock plugin not loaded')
+    }
     if (!this.#didTeardown && this.#t.t.teardown) {
       this.#didTeardown = true
       this.#t.t.teardown(() => this.#unmock())

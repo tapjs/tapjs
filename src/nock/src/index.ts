@@ -109,6 +109,9 @@ export class TapNock {
   #snapshot(
     options: NockRecorderOptionsMaybe & NockRecorderLoadOptions = {}
   ) {
+    if (!this.#t.t.pluginLoaded(plugin)) {
+      throw new Error('nock plugin not loaded')
+    }
     const recorder = this.#getRecorder()
     if (!recorder) {
       const er = new Error(
@@ -117,7 +120,7 @@ export class TapNock {
       Error.captureStackTrace(er, this.nock.snapshot)
       throw er
     }
-    if (this.#t.t.writeSnapshot) {
+    if (this.#t.t.pluginLoaded(SnapshotPlugin) && this.#t.t.writeSnapshot) {
       recorder.start(this.#t.fullname, options)
       this.#recording = true
       return []

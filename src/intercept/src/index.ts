@@ -24,11 +24,13 @@ type CaptureResult<F extends (...a: any[]) => any> =
   | CaptureResultThrew<F>
   | CaptureResultBase<F>
 
-type CaptureResultsMethod<F extends (...a: any[]) => any> =
-  (() => CaptureResult<F>[]) & {
-    restore: () => void
-    calls: CaptureResult<F>[]
-  }
+type CaptureResultsMethod<F extends undefined | ((...a: any[]) => any)> =
+  F extends undefined
+    ? CaptureResultsMethod<() => any>
+    : (() => CaptureResult<Exclude<F, undefined>>[]) & {
+        restore: () => void
+        calls: CaptureResult<Exclude<F, undefined>>[]
+      }
 
 interface InterceptResultBase {
   at?: CallSiteLike

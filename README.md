@@ -25,3 +25,10 @@ Workspace for node-tap development.
 Run `npm run bootstrap` to build the `@tapjs/test` module with
 the default set of plugins, so that the other libraries can
 build properly. (This only has to be done once.)
+
+## Bootstrap and `skipLibCheck`
+
+Because there's a bootstrapping cycle between `@tapjs/core`,
+`@tapjs/test`, and all of the plugins, they MUST use
+`skipLibCheck: true` in their tsconfigs.  It should not be used
+in other packages.

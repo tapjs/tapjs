@@ -82,7 +82,9 @@ const pluginNames = plugins.map(p => {
   } catch (er) {
     throw (
       `'${p}' does not appear to be a tap plugin. Could not load ` +
-      'module with require().'
+      `module with require().\n${
+        er instanceof Error ? er.message : er
+      }`
     )
   }
   const n =

@@ -1,7 +1,7 @@
 import { Base, TapBaseEvents } from './base.js'
 
 import { ProcessInfo } from '@tapjs/processinfo'
-import { WithExternalID } from '@tapjs/processinfo/dist/cjs/spawn-opts.js'
+import { WithExternalID } from '@tapjs/processinfo'
 import {
   ChildProcess,
   ChildProcessByStdio,
