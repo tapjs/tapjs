@@ -1,6 +1,6 @@
 {
   "name": "tap-parser",
-  "version": "13.0.0",
+  "version": "13.0.1",
   "description": "parse the test anything protocol",
   "main": "dist/cjs/index.js",
   "types": "dist/cjs/index.d.ts",
