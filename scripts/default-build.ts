@@ -45,9 +45,10 @@ spawnSync(build, builtins, {
 
 writeFileSync(
   '.taprc',
-  `# vim: set filetype=yaml :
+  // have to break it up or else vim thinks *this* file is yaml lol
+  '# vi' +
+    `m: set filetype=yaml :
 include: src/*/test
 typecheck: false
 `
 )
-
