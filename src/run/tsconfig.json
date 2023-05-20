@@ -1,7 +1,6 @@
 {
   "include": ["src/*.ts"],
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
     "declaration": true,
     "declarationMap": true,
     "inlineSources": true,

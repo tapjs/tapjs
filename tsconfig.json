@@ -1,7 +1,6 @@
 {
   "files": [],
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
     "declaration": true,
     "declarationMap": true,
     "inlineSources": true,
