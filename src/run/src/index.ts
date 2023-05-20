@@ -8,6 +8,7 @@ import { help } from './help.js'
 import { plugin } from './plugin.js'
 import { report } from './report.js'
 import { run } from './run.js'
+import { version } from './version.js'
 const config = await TapConfig.load()
 const { values, positionals } = config.parse()
 
@@ -20,6 +21,12 @@ export const mainBin = fileURLToPath(import.meta.url)
 
 if (config.get('help') || mainCommand === 'help') {
   help(positionals, config)
+} else if (
+  config.get('version') ||
+  config.get('versions') ||
+  /^versions?/.test(mainCommand)
+) {
+  version(positionals, config)
 } else {
   switch (positionals[0]) {
     case 'run':

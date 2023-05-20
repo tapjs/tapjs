@@ -7,6 +7,10 @@
   "module": "./dist/mjs/index.js",
   "types": "./dist/mjs/index.d.ts",
   "exports": {
+    "./package.json": {
+      "import": "./package.json",
+      "require": "./package.json"
+    },
     ".": {
       "import": {
         "types": "./dist/mjs/index.d.ts",

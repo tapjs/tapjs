@@ -89,6 +89,19 @@ export default jack({
     `Print a coverage report using the 'coverage-reporter' config`
   )
 
+  .heading('tap version', 3)
+  .description(
+    `Print the version of tap in use
+
+    This is also run if the -v --version flag is set`
+  )
+  .heading('tap versions', 3)
+  .description(
+    `Print the versions of tap and its components and plugins.
+
+    This is also run if the -V --versions flag is set`
+  )
+
   .heading('tap dump-config', 3)
   .description('Print the resolved configuration in YAML format')
 
@@ -96,7 +109,11 @@ export default jack({
   .description('Print the test files that will be run by default')
 
   .heading('tap help', 3)
-  .description('Print usage information')
+  .description(
+    `Print usage information
+
+    This is also run if the -h --help flag is set.`
+  )
 
   .heading('Configuration')
   .description(

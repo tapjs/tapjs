@@ -9,6 +9,10 @@
   "main": "./dist/cjs/cjs.cjs",
   "types": "./dist/cjs/cjs.d.cts",
   "exports": {
+    "./package.json": {
+      "import": "./package.json",
+      "require": "./package.json"
+    },
     ".": {
       "import": {
         "types": "./dist/mjs/esm.d.mts",
