@@ -10,37 +10,46 @@ Workspace for node-tap development.
   line interface parsing, environment variables, and validation
 - [@tapjs/run](./src/run) The command line runner
 - default plugins:
-  - [@tapjs/typescript](./src/typescript)
-  - [@tapjs/before](./src/before)
-  - [@tapjs/before-each](./src/before-each)
-  - [@tapjs/after](./src/after)
-  - [@tapjs/after-each](./src/after-each)
-  - [@tapjs/spawn](./src/spawn)
-  - [@tapjs/stdin](./src/stdin)
-  - [@tapjs/asserts](./src/asserts)
-  - [@tapjs/snapshot](./src/snapshot)
-  - [@tapjs/fixture](./src/fixture)
-  - [@tapjs/mock](./src/mock)
-  - [@tapjs/intercept](./src/intercept)
-  - [@tapjs/filter](./src/filter)
+  - [@tapjs/typescript](./src/typescript) Adds typescript
+    support, and the `--typecheck` config option
+  - [@tapjs/before](./src/before) Adds `t.before()`
+  - [@tapjs/before-each](./src/before-each) Adds `t.beforeEach()`
+  - [@tapjs/after](./src/after) Adds `t.after()` and
+    `t.teardown()` (which are the same thing now)
+  - [@tapjs/after-each](./src/after-each) Adds `t.afterEach()`
+  - [@tapjs/spawn](./src/spawn) Adds `t.spawn()`
+  - [@tapjs/stdin](./src/stdin) Adds `t.stdin()`
+  - [@tapjs/asserts](./src/asserts) Adds all the various
+    assertion methods, like `t.equal()`, `t.match()`, etc.
+  - [@tapjs/snapshot](./src/snapshot) Adds `t.matchSnapshot()`
+  - [@tapjs/fixture](./src/fixture) Adds `t.testdir()` features
+  - [@tapjs/mock](./src/mock) Adds `t.mockRequire()` and
+    `t.mockImport()`
+  - [@tapjs/intercept](./src/intercept) Adds `t.intercept()` and
+    `t.capture()` functionality (sort of like a very scaled-down
+    minimal form of Sinon. If you want more, consider using the
+    `@tapjs/sinon` plugin.)
+  - [@tapjs/filter](./src/filter) Adds `t.only()` and support for
+    the `--grep` and `--only` cli options.
 - [tcompare](./src/tcompare) The library that does comparison and
   object formatting (use heavily by `@tapjs/asserts` methods).
 - [@tapjs/stack](./src/stack) Library for capturing stack frames,
   the descendant of `stack-utils`.
 - [@tapjs/nock](./src/nock) Optional plugin providing `t.nock()`
-  method.
+  method (descendent of `@npmjs/tap-nock`, and a significant
+  inspiration for tap's plugin architecture)
 - [@tapjs/sinon](./src/sinon) Optional plugin providing a
   [Sinon](https://sinonjs.org) sandbox at `t.sinon` that
   automatically restores at the end of the test.
+
+## Bootstrap and `skipLibCheck`
 
 Run `npm run bootstrap` to build the `@tapjs/test` module with
 the default set of plugins, so that the other libraries can
 build properly. (This only has to be done once, unless the build
 script or set of default plugins are changed, of course.)
 
-## Bootstrap and `skipLibCheck`
-
 Because there's a bootstrapping cycle between `@tapjs/core`,
 `@tapjs/test`, and all of the plugins, they MUST use
-`skipLibCheck: true` in their tsconfigs.  It should not be used
+`skipLibCheck: true` in their tsconfigs. It should not be used
 in other packages.
