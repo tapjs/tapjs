@@ -1,0 +1,87 @@
+{
+  "name": "@tapjs/after-each",
+  "version": "0.0.0-0",
+  "description": "a built-in tap extension for t.afterEach()",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/mjs/index.js",
+  "exports": {
+    "./package.json": {
+      "import": "./package.json",
+      "require": "./package.json"
+    },
+    ".": {
+      "import": {
+        "types": "./dist/mjs/index.d.ts",
+        "default": "./dist/mjs/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "preversion": "npm test",
+    "postversion": "npm publish",
+    "prepublishOnly": "git push origin --follow-tags",
+    "preprepare": "rm -rf dist",
+    "prepare": "tsc -p tsconfig.json && tsc -p tsconfig-esm.json && bash ./scripts/fixup.sh",
+    "pretest": "npm run prepare",
+    "presnap": "npm run prepare",
+    "test": "c8 tap",
+    "snap": "c8 tap",
+    "format": "prettier --write . --loglevel warn",
+    "typedoc": "typedoc --tsconfig tsconfig-esm.json ./src/*.ts"
+  },
+  "prettier": {
+    "semi": false,
+    "printWidth": 75,
+    "tabWidth": 2,
+    "useTabs": false,
+    "singleQuote": true,
+    "jsxSingleQuote": false,
+    "bracketSameLine": true,
+    "arrowParens": "avoid",
+    "endOfLine": "lf"
+  },
+  "tap": {
+    "coverage": false,
+    "node-arg": [
+      "--no-warnings",
+      "--loader",
+      "ts-node/esm"
+    ],
+    "ts": false
+  },
+  "keywords": [
+    "tap",
+    "spy",
+    "fake"
+  ],
+  "author": "Isaac Z. Schlueter",
+  "license": "BlueOak-1.0.0",
+  "bugs": {
+    "url": "https://github.com/tapjs/tapjs/issues"
+  },
+  "homepage": "https://github.com/tapjs/tapjs/src/spawn#readme",
+  "devDependencies": {
+    "@types/node": "^20.1.5",
+    "prettier": "^2.8.6",
+    "ts-node": "^10.9.1",
+    "typedoc": "^0.24.7",
+    "typescript": "^5.0.2"
+  },
+  "dependencies": {
+    "@tapjs/core": ">=0.0.0-0"
+  },
+  "engines": {
+    "node": "^14.17.0 || ^16.13.0 || >=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com/tapjs/tapjs"
+  }
+}

@@ -4,7 +4,7 @@ export const parseCallSiteLine = (line: string) => {
   return compile(tokenize(line))
 }
 
-interface LineRef {
+export interface LineRef {
   fileName: string
   lineNumber: number
   columnNumber: number

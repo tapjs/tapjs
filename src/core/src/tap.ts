@@ -91,7 +91,7 @@ class TAP extends Test {
     super(options)
     instance = this
     this.on('idle', () => maybeAutoend())
-    this.on('complete', results =>
+    this.on('complete', (results: FinalResults) =>
       this.#oncomplete(results)
     )
 

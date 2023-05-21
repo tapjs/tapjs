@@ -4,7 +4,7 @@
 // would hook into the onEOF point.
 import { TapPlugin, TestBase } from '../test-base.js'
 
-class After {
+export class After {
   #t: TestBase
   #onTeardown: (() => any)[] = []
   #didOnEOF: boolean = false

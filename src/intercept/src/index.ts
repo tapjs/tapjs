@@ -1,5 +1,5 @@
 import { TapPlugin, TestBase } from '@tapjs/core'
-import { plugin as TeardownPlugin } from '@tapjs/core/plugin/after'
+import { plugin as TeardownPlugin } from '@tapjs/after'
 import { at, CallSiteLike } from '@tapjs/stack'
 
 type M<O extends object> = {
@@ -7,45 +7,46 @@ type M<O extends object> = {
 }
 type Methods<O extends object> = M<O>[keyof M<O>]
 
-interface CaptureResultBase<F extends (...a: any[]) => any> {
+export interface CaptureResultBase<F extends (...a: any[]) => any> {
   args: Parameters<F>
   at?: CallSiteLike
 }
-interface CaptureResultReturned<F extends (...a: any[]) => any>
+export interface CaptureResultReturned<F extends (...a: any[]) => any>
   extends CaptureResultBase<F> {
   returned: any
 }
-interface CaptureResultThrew<F extends (...a: any[]) => any>
+export interface CaptureResultThrew<F extends (...a: any[]) => any>
   extends CaptureResultBase<F> {
   threw: true
 }
-type CaptureResult<F extends (...a: any[]) => any> =
+export type CaptureResult<F extends (...a: any[]) => any> =
   | CaptureResultReturned<F>
   | CaptureResultThrew<F>
   | CaptureResultBase<F>
 
-type CaptureResultsMethod<F extends undefined | ((...a: any[]) => any)> =
-  F extends undefined
-    ? CaptureResultsMethod<() => any>
-    : (() => CaptureResult<Exclude<F, undefined>>[]) & {
-        restore: () => void
-        calls: CaptureResult<Exclude<F, undefined>>[]
-      }
+export type CaptureResultsMethod<
+  F extends undefined | ((...a: any[]) => any)
+> = F extends undefined
+  ? CaptureResultsMethod<() => any>
+  : (() => CaptureResult<Exclude<F, undefined>>[]) & {
+      restore: () => void
+      calls: CaptureResult<Exclude<F, undefined>>[]
+    }
 
-interface InterceptResultBase {
+export interface InterceptResultBase {
   at?: CallSiteLike
   value: any
   success: boolean
   threw: boolean
 }
-interface InterceptResultGet extends InterceptResultBase {
+export interface InterceptResultGet extends InterceptResultBase {
   type: 'get'
 }
-interface InterceptResultSet extends InterceptResultBase {
+export interface InterceptResultSet extends InterceptResultBase {
   type: 'set'
 }
-type InterceptResult = InterceptResultGet | InterceptResultSet
-type InterceptResultsMethod = (() => InterceptResult[]) & {
+export type InterceptResult = InterceptResultGet | InterceptResultSet
+export type InterceptResultsMethod = (() => InterceptResult[]) & {
   restore: () => void
 }
 
@@ -205,7 +206,7 @@ export class Interceptor {
    * const results = t.capture(obj, 'foo', obj.foo)
    * ```
    *
-   * Automatically restores at `t.teardown()` if the `@tapjs/core/plugin/after`
+   * Automatically restores at `t.teardown()` if the `@tapjs/after`
    * plugin is not disabled.  Otherwise, it is important to call the
    * `restore()` method on the returned function when you are done capturing.
    */

@@ -3,7 +3,7 @@ import * as stack from '@tapjs/stack'
 import { mockImport } from './mock-import.js'
 import { mockRequire } from './mock-require.js'
 import type { Mocks } from './mocks.js'
-import { plugin as AfterPlugin } from '@tapjs/core/plugin/after'
+import { plugin as AfterPlugin } from '@tapjs/after'
 
 declare var global: {
   [k: `__tapmock${string}`]: Mocks

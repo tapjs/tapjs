@@ -33,7 +33,7 @@ export interface FilterOptions {
   grepInvert?: boolean
 }
 
-class Filter {
+export class Filter {
   #t: TestBase
   #grep: (string | RegExp)[] = []
   #grepInvert: boolean

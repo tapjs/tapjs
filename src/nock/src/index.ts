@@ -7,6 +7,8 @@ import NockRecorder, {
   NockRecorderLoadOptions,
   NockRecorderOptionsMaybe,
 } from './recorder.js'
+export * from './recorder.js'
+export { NockRecorder }
 
 /**
  * Just like the nock() function, but with a .snapshot() method

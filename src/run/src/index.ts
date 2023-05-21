@@ -9,8 +9,8 @@ import { plugin } from './plugin.js'
 import { report } from './report.js'
 import { run } from './run.js'
 import { version } from './version.js'
-const config = await TapConfig.load()
-const { values, positionals } = config.parse()
+export const config = await TapConfig.load()
+export const { values, positionals } = config.parse()
 
 export type Config = typeof config
 export type JackLoaded = typeof config.jack

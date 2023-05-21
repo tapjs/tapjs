@@ -46,7 +46,8 @@ class NockRecorder {
     }
     // used for findCallLocation within errors
     this.#caller = caller
-    // the snapshotFile for us will be the test's snapshot file with a different extension
+    // the snapshotFile for us will be the test's snapshot file with
+    // a different extension
     this.#snapshotFile = this.#test.t.snapshotFile.replace(
       /\.js\.test\.cjs$/,
       '.nock.json'

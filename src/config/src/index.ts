@@ -1,7 +1,7 @@
 import { argv, cwd, env } from '@tapjs/core'
 import { config as pluginConfig, defaultPlugins } from '@tapjs/test'
 import { lstat, readdir, readFile, writeFile } from 'fs/promises'
-import { ConfigSet, Jack, OptionsResults } from 'jackspeak'
+import { ConfigSet, Jack, OptionsResults, Unwrap } from 'jackspeak'
 import { createRequire } from 'module'
 import { relative, resolve } from 'node:path'
 import { basename, dirname } from 'path'
@@ -12,18 +12,20 @@ import { parseJson } from './vendor-json-parse-even-better-errors/index.js'
 // yaml v1 is commonjs only, so can't just import { parse } from 'yaml'
 const { parse } = yaml
 
+export type { baseConfig }
+
 const exists = async (f: string) =>
   lstat(f).then(
     () => true,
     () => false
   )
 
-type Unwrap<J> = J extends Jack<infer C> ? C : never
+export type BaseConfigSet = Unwrap<typeof baseConfig>
 
 // get the set of folders to check for a .taprc or a package.json
 // always stop when we find a .git
 // validate config files against this.jack
-export class TapConfig<C extends ConfigSet = Unwrap<typeof baseConfig>> {
+export class TapConfig<C extends ConfigSet = BaseConfigSet> {
   jack: Jack<C>
   values?: OptionsResults<C>
   positionals?: string[]

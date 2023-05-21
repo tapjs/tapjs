@@ -19,7 +19,7 @@ export interface SpawnOpts extends BaseOpts {
 
 export type PromiseWithSpawn = PromiseWithSubtest<Spawn>
 
-class SpawnPlugin {
+export class SpawnPlugin {
   #t: TestBase
   constructor(t: TestBase) {
     this.#t = t

@@ -2,7 +2,7 @@ import type { Test } from '@tapjs/test'
 import loop from 'function-loop'
 import { TestBase } from '../test-base.js'
 
-class BeforeEach {
+export class BeforeEach {
   static #refs = new Map<TestBase, BeforeEach>()
   #t: TestBase
   constructor(t: TestBase) {

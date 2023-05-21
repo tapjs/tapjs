@@ -83,11 +83,10 @@ t.test('intercept a property set/get', t => {
     an `args` array, an `at` CallSiteLike object, and either
     `threw: true` or `returned: <value>`.
 
-    If `t.teardown()` is available (ie, if the
-    `@tapjs/core/plugin/after` plugin is not disabled) then it
-    will be automatically restored on test teardown.  Otherwise,
-    `results.restore()` must be called to restore the original
-    method.
+    If `t.teardown()` is available (ie, if the `@tapjs/after`
+    plugin is not disabled) then it will be automatically
+    restored on test teardown.  Otherwise, `results.restore()`
+    must be called to restore the original method.
 
     Returned method also has a `calls` array which contains the
     results.

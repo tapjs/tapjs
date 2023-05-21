@@ -1,6 +1,6 @@
 import { TapPlugin, TestBase } from '../test-base.js'
 
-class Before {
+export class Before {
   #t: TestBase
   constructor(t: TestBase) {
     this.#t = t

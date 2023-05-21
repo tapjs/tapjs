@@ -3,7 +3,9 @@ import {
   CallSiteLikeJSON,
 } from '@tapjs/stack'
 
+export * from './waiter.js'
 export * from './base.js'
+export * from './test-point.js'
 export * from './parse-test-args.js'
 export * from './spawn.js'
 export * from './stdin.js'

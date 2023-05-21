@@ -8,6 +8,7 @@ import {
   FixtureDirContent,
   FixtureType,
 } from './fixture.js'
+export * from './fixture.js'
 
 export interface TestFixturesOptions {
   /**

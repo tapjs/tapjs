@@ -75,6 +75,8 @@ export type TapPlugin<
  */
 const EOF = Symbol('EOF')
 
+export type { EOF }
+
 export type QueueEntry =
   | string
   | TestPoint

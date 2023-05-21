@@ -2,6 +2,5 @@
   "entryPoints": ["src/*"],
   "name": "Node TAP",
   "entryPointStrategy": "packages",
-  "includeVersion": true,
-  "logLevel": "Verbose"
+  "includeVersion": true
 }

@@ -1,5 +1,5 @@
 import { TapPlugin, TestBase } from '@tapjs/core'
-import { plugin as TeardownPlugin } from '@tapjs/core/plugin/after'
+import { plugin as TeardownPlugin } from '@tapjs/after'
 import sinon from 'sinon'
 
 export interface TapSinonOpts {

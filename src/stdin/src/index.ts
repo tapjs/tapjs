@@ -11,7 +11,7 @@ import { FinalResults } from 'tap-parser'
 
 export type PromiseWithStdin = PromiseWithSubtest<Stdin>
 
-class StdinPlugin {
+export class StdinPlugin {
   #t: TestBase
   constructor(t: TestBase) {
     this.#t = t

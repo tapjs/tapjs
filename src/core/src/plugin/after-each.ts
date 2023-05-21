@@ -2,7 +2,7 @@ import type { Test } from '@tapjs/test'
 import loop from 'function-loop'
 import { TapPlugin, TestBase } from '../test-base.js'
 
-class AfterEach {
+export class AfterEach {
   static #refs = new Map<TestBase, AfterEach>()
   #t: TestBase
   constructor(t: TestBase) {

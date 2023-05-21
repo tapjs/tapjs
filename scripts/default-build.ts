@@ -1,22 +1,23 @@
 #!/usr/bin/env node --loader=ts-node/esm --no-warnings
 import { spawnSync } from 'child_process'
 import { writeFileSync } from 'fs'
-import { globSync } from 'glob'
-import { basename, resolve } from 'path'
+import { resolve } from 'path'
 
-const builtins = globSync('*.ts', {
-  cwd: resolve(__dirname, '../src/core/src/plugin'),
-})
-  .map(f => basename(f, '.ts'))
-  .map(p => `@tapjs/core/plugin/${p}`)
-  .concat('@tapjs/spawn')
-  .concat('@tapjs/stdin')
-  .concat('@tapjs/asserts')
-  .concat('@tapjs/snapshot')
-  .concat('@tapjs/fixture')
-  .concat('@tapjs/mock')
-  .concat('@tapjs/intercept')
-  .concat('@tapjs/filter')
+const builtins = [
+  '@tapjs/typescript',
+  '@tapjs/before',
+  '@tapjs/before-each',
+  '@tapjs/after',
+  '@tapjs/after-each',
+  '@tapjs/spawn',
+  '@tapjs/stdin',
+  '@tapjs/asserts',
+  '@tapjs/snapshot',
+  '@tapjs/fixture',
+  '@tapjs/mock',
+  '@tapjs/intercept',
+  '@tapjs/filter',
+]
 
 console.log('building Test class with:')
 console.log(builtins.map(b => `  ${b}`).join('\n'))
@@ -38,6 +39,26 @@ writeFileSync(
     2
   )}\n`
 )
+
+const prepare = (...p: string[]) => {
+  const res = spawnSync(
+    'npm',
+    [
+      'run',
+      'prepare',
+      ...p.reduce(
+        (s: string[], b) => s.concat('-w', b),
+        []
+      ),
+    ],
+    { stdio: 'inherit' }
+  )
+  if (res.status || res.signal) throw res
+}
+
+// make sure core and then all the builtins are built
+prepare('src/core')
+prepare(...builtins)
 
 spawnSync(build, builtins, {
   stdio: 'inherit',

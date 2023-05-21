@@ -22,6 +22,7 @@
     "typescript": "^5.0.4"
   },
   "scripts": {
+    "typedoc": "typedoc",
     "bootstrap": "bash ./scripts/bootstrap.sh"
   },
   "repository": "https://github.com/tapjs/tapjs",
