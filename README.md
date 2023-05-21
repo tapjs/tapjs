@@ -4,6 +4,8 @@ Workspace for node-tap development.
 
 - [tap](./src/tap) The main entry point module, which sets up the
   root test runner and exposes an alias to the cli runner.
+- [tap-parser](./src/parser) The module that parses
+  [TAP](https://testanything.org/)
 - [@tapjs/core](./src/core) Most of the basic moving parts of tap
 - [@tapjs/test](./src/test) The plugin-ified `Test` class.
 - [@tapjs/config](./src/config) Handling config files, command
