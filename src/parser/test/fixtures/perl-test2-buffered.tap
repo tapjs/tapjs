@@ -1,0 +1,25 @@
+# Seeded srand with seed '20160810' from local date.
+not ok 1 - empty {
+    1..0
+}
+ok 2 - my_test {
+    ok 1 - subtest event A
+    ok 2 - subtest event B
+    1..2
+}
+ok 3 - my_test_plan {
+    1..2
+    ok 1 - subtest event A
+    ok 2 - subtest event B
+}
+# Subtest: my_streamy_test
+    ok 1 - subtest event A
+    ok 2 - subtest event B
+    1..2
+ok 4 - Subtest: my_streamy_test
+# Subtest: my_streamy_test_plan
+    1..2
+    ok 1 - subtest event A
+    ok 2 - subtest event B
+ok 5 - Subtest: my_streamy_test_plan
+1..5

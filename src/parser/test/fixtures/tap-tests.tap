@@ -1,0 +1,678 @@
+TAP version 13
+# buffer_compare.js
+# TAP version 13
+# same buffers
+ok 1 should be equivalent
+# not same buffers
+ok 2 should not be equivalent
+# tests 2
+# pass  2
+# ok
+ok 3 test/buffer_compare.js
+
+# common.js
+ok 4 just setup, nothing relevant
+ok 5 test/common.js
+
+# consumer.js
+# TAP version 13
+# basic.tap
+ok 6 should be equivalent
+# indent.tap
+ok 7 should be equivalent
+# missing.tap
+ok 8 should be equivalent
+# skip-all.tap
+ok 9 should be equivalent
+# yamlish.tap
+ok 10 should be equivalent
+# tests 5
+# pass  5
+# ok
+ok 11 test/consumer.js
+
+# debug-test.js
+debug test
+t.plan=1
+'Debugger listening on port 5858\n'
+# TAP version 13
+# debug test
+ok 12 Should output debugger message
+# tests 1
+# pass  1
+# ok
+ok 13 test/debug-test.js
+
+# deep-strict.js
+# TAP version 13
+# strictDeepEquals shouldn't care about key order
+ok 14 should be strictly equal
+# strictDeepEquals shouldn't care about key order recursively
+ok 15 should be strictly equal
+# strictDeepEquals shoudn't care about key order (but still might)
+ok 16 should be strictly equal
+# tests 3
+# pass  3
+# ok
+ok 17 test/deep-strict.js
+
+# deep.js
+# TAP version 13
+# deepEquals shouldn't care about key order and types
+ok 18 should be equivalent
+# deepEquals shouldn't care about key order recursively and types
+ok 19 should be equivalent
+# deepEquals shoudn't care about key order (but still might) and types
+ok 20 should be equivalent
+# tests 3
+# pass  3
+# ok
+ok 21 test/deep.js
+
+# executed.sh
+ok 22 File with executable bit should be executed
+ok 23 test/executed.sh
+
+# exit-code.js
+# TAP version 13
+# exit code 1 when tap results show failure
+# test exits 0, has failures
+ok 24 should be equal
+ok 25 should be equal
+# test exits 1, has failures
+ok 26 should be equal
+ok 27 should be equal
+# test exits 1, has no failures
+ok 28 should be equal
+ok 29 should be equal
+# successes exit 0
+# test that does nothing, but exits 0
+ok 30 should be equal
+ok 31 should be equal
+# test that succeeds, and exits 0
+ok 32 should be equal
+ok 33 should be equal
+# tests 10
+# pass  10
+# ok
+ok 34 test/exit-code.js
+
+# expose-gc-test.js
+gc test
+t.plan=1
+assert gc does not exist
+# TAP version 13
+# gc test when the gc isn't there
+gc test
+t.plan=2
+gc test using --gc
+t.plan=1
+assert gc exists
+gc test using --expose-gc
+t.plan=1
+assert gc exists
+ok 35 should be equal
+# gc test when the gc should be there
+# test for gc using --gc
+ok 36 should be equal
+# test for gc using --expose-gc
+ok 37 should be equal
+# cleanup
+# tests 3
+# pass  3
+# ok
+ok 38 test/expose-gc-test.js
+
+# global-harness-async.js
+# TAP version 13
+# outer
+# inner 1
+ok 39 1-1
+# inner 2
+ok 40 2-1
+# inner 3
+ok 41 3-1
+ok 42 test/global-harness-async.js
+
+# independent-timeouts.js
+# TAP version 13
+# finishes in time
+# finishes in time too
+# tests 0
+# ok
+ok 43 test/independent-timeouts.js
+
+# isolated-conf-test.js
+# TAP version 13
+# one
+ok 44 should be equal
+ok 45 should be equal
+# two
+ok 46 should be equal
+ok 47 should be equal
+# tests 4
+# pass  4
+# ok
+ok 48 test/isolated-conf-test.js
+
+# meta-test.js
+# TAP version 13
+# meta test
+ok 49 sanity check
+ok 50 not ok
+ok 51 total test count
+ok 52 tests passed
+ok 53 tests failed
+ok 54 ok is boolean
+ok 55 skip is number
+ok 56 results isa Results
+ok 57 test isa Test
+ok 58 test isa Harness
+# tests 10
+# pass  10
+# ok
+ok 59 test/meta-test.js
+
+# nested-async.js
+# TAP version 13
+# Harness async test support
+ok 60 sync child A
+# sync child B
+# async grandchild A
+ok 61 (unnamed assert)
+# async grandchild B
+ok 62 (unnamed assert)
+# async child
+ok 63 sync grandchild in async child A
+# sync grandchild in async child B
+ok 64 (unnamed assert)
+# tests 5
+# pass  5
+# ok
+ok 65 test/nested-async.js
+
+# nested-test.js
+# TAP version 13
+# parent
+ok 66 p test
+# subtest
+ok 67 ch test
+# nested subtest
+ok 68 grch test
+# another subtest
+ok 69 ch test 2
+# tests 4
+# pass  4
+# ok
+ok 70 test/nested-test.js
+
+# non-tap-output.js
+# everything is fine
+# there are no errors
+# this output is not haiku.
+# is 8 ok?
+ok 71 , 8 can stay.
+# but: nevertheless, here we are
+# this: is indented
+# and: it
+# might: ~
+# be: yaml?
+ok 72 might be confusing
+ok 73 done now, exiting
+ok 74 test/non-tap-output.js
+
+# not-executed.sh
+# output-childtest-description.js
+# /Users/isaacs/dev/js/tap/test/nested-tests-fixture.js
+# TAP version 13
+# nested tests, parent and child pass
+ok 75 outputs parent description
+ok 76 outputs child description
+ok 77 outputs parent description before parent result
+ok 78 outputs parent result before child description
+ok 79 outputs child description before child result
+# tests 5
+# pass  5
+# ok
+ok 80 test/output-childtest-description.js
+
+# result-trap.js
+# TAP version 13
+# trap result
+ok 81 should be equal
+ok 82 should be equal
+# tests 2
+# pass  2
+# ok
+ok 83 test/result-trap.js
+
+# segv.js
+# TAP version 13
+# setup
+ok 84 compiled seg faulter
+# segv
+ok 85 should be equivalent
+ok 86 should be equivalent
+ok 87 should be equivalent
+ok 88 should be equivalent
+ok 89 should be equivalent
+ok 90 should be equal
+# cleanup
+ok 91 cleaned up
+# tests 8
+# pass  8
+# ok
+ok 92 test/segv.js
+
+# simple-harness-test-with-plan.js
+# TAP version 13
+# trivial success
+ok 93 it works
+# two tests
+ok 94 math should work
+ok 95 false should not be ok
+# tests 3
+# pass  3
+# ok
+ok 96 test/simple-harness-test-with-plan.js
+
+# simple-harness-test.js
+# TAP version 13
+# trivial success
+ok 97 it works
+# two tests
+ok 98 math should work
+ok 99 false should not be ok
+# tests 3
+# pass  3
+# ok
+ok 100 test/simple-harness-test.js
+
+# test-assert-todo-skip.js
+# TAP version 13
+# not much
+ok 101 always passes # SKIP skip it good
+ok 102 false # SKIP always fails
+ok 103 bonus # TODO remove todo directive
+ok 104 expected # TODO implement a thing
+ok 105 always passes without explanation # SKIP
+ok 106 false without explanation # SKIP
+ok 107 bonus without explanation # TODO
+ok 108 expected without explanation # TODO
+# tests 8
+# skip  4
+# todo  4
+ok 109 test/test-assert-todo-skip.js
+
+# test-descriptions.js
+# TAP version 13
+# captures test descriptions
+ok 110 exit cleanly
+ok 111 captures SKIP description
+ok 112 skip summary is not from file
+ok 113 todo summary is not from file
+not ok 114 captures TODO description
+  ---
+    file:   child_process.js
+    line:   707
+    column: 7
+    stack:
+      - |
+        getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)
+      - |
+        Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)
+      - |
+        Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)
+      - |
+        /Users/isaacs/dev/js/tap/test/test-descriptions.js:32:7
+      - |
+        ChildProcess.exithandler (child_process.js:707:7)
+      - |
+        emitTwo (events.js:87:13)
+      - |
+        ChildProcess.emit (events.js:169:7)
+      - |
+        maybeClose (child_process.js:984:16)
+      - |
+        Socket.<anonymous> (child_process.js:1153:11)
+      - |
+        emitOne (events.js:77:13)
+  ...
+ok 115 exit cleanly
+ok 116 captures SKIP description
+ok 117 skip summary is not in TAP output
+ok 118 todo summary is not in TAP output
+not ok 119 captures TODO description
+  ---
+    file:   child_process.js
+    line:   707
+    column: 7
+    stack:
+      - |
+        getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)
+      - |
+        Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)
+      - |
+        Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)
+      - |
+        /Users/isaacs/dev/js/tap/test/test-descriptions.js:18:7
+      - |
+        ChildProcess.exithandler (child_process.js:707:7)
+      - |
+        emitTwo (events.js:87:13)
+      - |
+        ChildProcess.emit (events.js:169:7)
+      - |
+        maybeClose (child_process.js:984:16)
+      - |
+        Process.ChildProcess._handle.onexit (child_process.js:1057:5)
+  ...
+ok 120 exit cleanly
+not ok 121 summarizes skipped count
+  ---
+    file:   child_process.js
+    line:   707
+    column: 7
+    stack:
+      - |
+        getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)
+      - |
+        Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)
+      - |
+        Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)
+      - |
+        /Users/isaacs/dev/js/tap/test/test-descriptions.js:23:7
+      - |
+        ChildProcess.exithandler (child_process.js:707:7)
+      - |
+        emitTwo (events.js:87:13)
+      - |
+        ChildProcess.emit (events.js:169:7)
+      - |
+        maybeClose (child_process.js:984:16)
+      - |
+        Process.ChildProcess._handle.onexit (child_process.js:1057:5)
+  ...
+not ok 122 summarizes todo count
+  ---
+    file:   child_process.js
+    line:   707
+    column: 7
+    stack:
+      - |
+        getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)
+      - |
+        Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)
+      - |
+        Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)
+      - |
+        /Users/isaacs/dev/js/tap/test/test-descriptions.js:24:7
+      - |
+        ChildProcess.exithandler (child_process.js:707:7)
+      - |
+        emitTwo (events.js:87:13)
+      - |
+        ChildProcess.emit (events.js:169:7)
+      - |
+        maybeClose (child_process.js:984:16)
+      - |
+        Process.ChildProcess._handle.onexit (child_process.js:1057:5)
+  ...
+# tests 13
+# pass  9
+# fail  4
+not ok 123 test/test-descriptions.js
+  ---
+    exit:    1
+    command: "/usr/local/bin/iojs test-descriptions.js"
+  ...
+
+# test-directives.js
+# TAP version 13
+# captures test descriptions
+# raw TAP > TAP consumer > TAP producer
+ok 124 overall result is PASS
+ok 125 captures ok SKIP
+ok 126 captures not ok SKIP
+ok 127 skip summary not in TAP output
+ok 128 captures ok TODO
+ok 129 captures not ok TODO
+ok 130 todo summary is not in TAP output
+ok 131 no ugly "undefined" in output
+# raw TAP > TAP consumer > summary
+ok 132 overall result is PASS
+ok 133 no SKIP in summary
+ok 134 skip summary is not in TAP output
+ok 135 no TODO in summary
+ok 136 todo summary is not in TAP output
+ok 137 no ugly "undefined" in output
+# TAP producer via require("tap")
+ok 138 overall result is PASS
+ok 139 captures ok SKIP
+ok 140 captures not ok SKIP
+ok 141 skip summary not in TAP output
+ok 142 captures ok TODO
+ok 143 captures not ok TODO
+ok 144 todo summary is not in TAP output
+ok 145 no ugly "undefined" in output
+# tests 22
+# pass  22
+# ok
+ok 146 test/test-directives.js
+
+# test-skip.js
+# TAP version 13
+ok 147 does not count as failure # SKIP
+# tests 1
+# skip  1
+ok 148 test/test-skip.js
+
+# test-test.js
+# TAP version 13
+# testing the test object
+ok 149 test object should be instanceof Test
+ok 150 test object should be instanceof Harness
+ok 151 test._Test should be the Test class
+ok 152 should have isNotDeepEqual method
+ok 153 isNotDeepEqual method should be a function
+ok 154 should have equals method
+ok 155 equals method should be a function
+ok 156 should have inequivalent method
+ok 157 inequivalent method should be a function
+ok 158 should have threw method
+ok 159 threw method should be a function
+ok 160 should have strictEqual method
+ok 161 strictEqual method should be a function
+ok 162 should have emit method
+ok 163 emit method should be a function
+ok 164 should have fail method
+ok 165 fail method should be a function
+ok 166 should have strictEquals method
+ok 167 strictEquals method should be a function
+ok 168 should have notLike method
+ok 169 notLike method should be a function
+ok 170 should have dissimilar method
+ok 171 dissimilar method should be a function
+ok 172 should have true method
+ok 173 true method should be a function
+ok 174 should have assert method
+ok 175 assert method should be a function
+ok 176 should have is method
+ok 177 is method should be a function
+ok 178 should have ok method
+ok 179 ok method should be a function
+ok 180 should have isEqual method
+ok 181 isEqual method should be a function
+ok 182 should have isDeeply method
+ok 183 isDeeply method should be a function
+ok 184 should have deepEqual method
+ok 185 deepEqual method should be a function
+ok 186 should have deepEquals method
+ok 187 deepEquals method should be a function
+ok 188 should have pass method
+ok 189 pass method should be a function
+ok 190 should have length method
+ok 191 length method should be a function
+ok 192 should have skip method
+ok 193 skip method should be a function
+ok 194 should have isNotEqual method
+ok 195 isNotEqual method should be a function
+ok 196 should have looseEquals method
+ok 197 looseEquals method should be a function
+ok 198 should have false method
+ok 199 false method should be a function
+ok 200 should have notDeeply method
+ok 201 notDeeply method should be a function
+ok 202 should have ifErr method
+ok 203 ifErr method should be a function
+ok 204 should have hasFields method
+ok 205 hasFields method should be a function
+ok 206 should have isNotDeeply method
+ok 207 isNotDeeply method should be a function
+ok 208 should have like method
+ok 209 like method should be a function
+ok 210 should have similar method
+ok 211 similar method should be a function
+ok 212 should have notOk method
+ok 213 notOk method should be a function
+ok 214 should have isDissimilar method
+ok 215 isDissimilar method should be a function
+ok 216 should have isEquivalent method
+ok 217 isEquivalent method should be a function
+ok 218 should have doesNotEqual method
+ok 219 doesNotEqual method should be a function
+ok 220 should have isSimilar method
+ok 221 isSimilar method should be a function
+ok 222 should have notDeepEqual method
+ok 223 notDeepEqual method should be a function
+ok 224 should have type method
+ok 225 type method should be a function
+ok 226 should have notok method
+ok 227 notok method should be a function
+ok 228 should have isInequivalent method
+ok 229 isInequivalent method should be a function
+ok 230 should have isNot method
+ok 231 isNot method should be a function
+ok 232 should have same method
+ok 233 same method should be a function
+ok 234 should have isInequal method
+ok 235 isInequal method should be a function
+ok 236 should have _endNice method
+ok 237 _endNice method should be a function
+ok 238 should have ifError method
+ok 239 ifError method should be a function
+ok 240 should have iferror method
+ok 241 iferror method should be a function
+ok 242 should have clear method
+ok 243 clear method should be a function
+ok 244 should have has method
+ok 245 has method should be a function
+ok 246 should have not method
+ok 247 not method should be a function
+ok 248 should have timeout method
+ok 249 timeout method should be a function
+ok 250 should have notSimilar method
+ok 251 notSimilar method should be a function
+ok 252 should have isUnlike method
+ok 253 isUnlike method should be a function
+ok 254 should have notEquals method
+ok 255 notEquals method should be a function
+ok 256 should have unsimilar method
+ok 257 unsimilar method should be a function
+ok 258 should have result method
+ok 259 result method should be a function
+ok 260 should have doesNotThrow method
+ok 261 doesNotThrow method should be a function
+ok 262 should have error method
+ok 263 error method should be a function
+ok 264 should have constructor method
+ok 265 constructor method should be a function
+ok 266 should have notEqual method
+ok 267 notEqual method should be a function
+ok 268 should have throws method
+ok 269 throws method should be a function
+ok 270 should have isLike method
+ok 271 isLike method should be a function
+ok 272 should have isNotSimilar method
+ok 273 isNotSimilar method should be a function
+ok 274 should have isNotEquivalent method
+ok 275 isNotEquivalent method should be a function
+ok 276 should have inequal method
+ok 277 inequal method should be a function
+ok 278 should have notEquivalent method
+ok 279 notEquivalent method should be a function
+ok 280 should have isNotLike method
+ok 281 isNotLike method should be a function
+ok 282 should have equivalent method
+ok 283 equivalent method should be a function
+ok 284 should have looseEqual method
+ok 285 looseEqual method should be a function
+ok 286 should have equal method
+ok 287 equal method should be a function
+ok 288 should have unlike method
+ok 289 unlike method should be a function
+ok 290 should have doesNotHave method
+ok 291 doesNotHave method should be a function
+ok 292 should have comment method
+ok 293 comment method should be a function
+ok 294 should have isa method
+ok 295 isa method should be a function
+# tests 147
+# pass  147
+# ok
+ok 296 test/test-test.js
+
+# timeout.js
+timeout test
+t.plan=2
+a assert
+b assert
+# TAP version 13
+# timeout test with plan only
+ok 297 a
+timeout test
+t.plan=2
+a assert
+b assert
+ok 298 b
+# timeout test with plan and end
+ok 299 a
+ok 300 b
+# tests 4
+# pass  4
+# ok
+ok 301 test/timeout.js
+
+# trivial-success.js
+ok 302 test/trivial-success.js
+
+# undefined_indented.js
+# TAP version 13
+# consume yaml
+ok 303 should be equivalent
+# tests 1
+# pass  1
+# ok
+ok 304 test/undefined_indented.js
+
+# valid-command.js
+# TAP version 13
+# valid command
+ok 305 should be equivalent
+ok 306 should be equivalent
+ok 307 should be equivalent
+ok 308 should be equivalent
+ok 309 should be equivalent
+ok 310 should be equal
+# tests 6
+# pass  6
+# ok
+ok 311 test/valid-command.js
+
+
+1..311
+# tests 311
+# pass  297
+# fail  5
+# skip  5
+# todo  4

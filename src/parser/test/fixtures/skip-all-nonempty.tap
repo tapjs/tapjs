@@ -1,0 +1,3 @@
+# TAP emitted by Test::More 0.98
+1..1 # SKIP Insufficient positron flux
+ok 1 found some spare flux in bottom drawer

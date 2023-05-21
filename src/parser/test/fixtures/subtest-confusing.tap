@@ -1,0 +1,10 @@
+TAP version 13
+ok 1 - a brace looks like this {
+    # Subtest: x
+        # Subtest: y
+        ok 1 - ypoint
+        1..1
+    ok 1 - y
+    1..1
+ok 2 - x
+1..2

@@ -1,0 +1,100 @@
+{
+  "name": "tap-parser",
+  "version": "13.0.1",
+  "description": "parse the test anything protocol",
+  "main": "dist/cjs/index.js",
+  "types": "dist/cjs/index.d.ts",
+  "module": "dist/mjs/index.js",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/mjs/index.d.ts",
+        "default": "./dist/mjs/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    },
+    "./package.json": {
+      "import": "./package.json",
+      "require": "./package.json"
+    }
+  },
+  "bin": {
+    "tap-parser": "bin/cmd.js"
+  },
+  "dependencies": {
+    "events-to-array": "^2.0.3",
+    "tap-yaml": "^1.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.9",
+    "@types/tap": "^15.0.6",
+    "c8": "^7.12.0",
+    "eslint-config-prettier": "^8.5.0",
+    "glob": "^10.0.0",
+    "minipass": "^5.0.0",
+    "prettier": "^2.7.1",
+    "tap": "^16.3.2",
+    "ts-node": "^10.9.1",
+    "typedoc": "^0.23.20",
+    "typescript": "^5.0.4"
+  },
+  "scripts": {
+    "snap": "c8 tap",
+    "test": "c8 tap",
+    "preprepare": "rm -rf dist",
+    "prepare": "tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
+    "postprepare": "bash ./scripts/fixup.sh",
+    "pretest": "npm run prepare",
+    "presnap": "npm run prepare",
+    "format": "prettier --write . --loglevel warn",
+    "preversion": "npm test",
+    "postversion": "npm publish",
+    "prepublishOnly": "git push origin --follow-tags",
+    "typedoc": "typedoc --tsconfig tsconfig-esm.json ./src/*.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tapjs/tap-parser.git"
+  },
+  "homepage": "https://github.com/tapjs/tap-parser",
+  "keywords": [
+    "tap",
+    "test",
+    "parser"
+  ],
+  "license": "MIT",
+  "files": [
+    "dist",
+    "bin"
+  ],
+  "prettier": {
+    "semi": false,
+    "printWidth": 80,
+    "tabWidth": 2,
+    "useTabs": false,
+    "singleQuote": true,
+    "jsxSingleQuote": false,
+    "bracketSameLine": true,
+    "arrowParens": "avoid",
+    "endOfLine": "lf"
+  },
+  "eslintIgnore": [
+    "/node_modules",
+    "/dist"
+  ],
+  "tap": {
+    "coverage": false,
+    "node-arg": [
+      "--no-warnings",
+      "--loader",
+      "ts-node/esm"
+    ],
+    "ts": false
+  },
+  "engines": {
+    "node": ">= 12"
+  }
+}

@@ -1,0 +1,14 @@
+TAP Version 13
+not ok 1 Resolve address
+  ---
+  message: "Failed with error 'hostname peebles.example.com not found'"
+  severity: fail
+  data:
+    got:
+      hostname: 'peebles.example.com'
+      address: ~
+    expected:
+      hostname: 'peebles.example.com'
+      address: '85.193.201.85'
+  ...
+1..1

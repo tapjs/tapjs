@@ -1,0 +1,6 @@
+TAP version 13
+not ok
+# Subtest: maybe a child
+    1..1
+    ok
+ok maybe a child

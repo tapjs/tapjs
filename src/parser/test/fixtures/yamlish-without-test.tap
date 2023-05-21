@@ -1,0 +1,7 @@
+TAP Version 13
+  ---
+  this: is yaml
+  but: no test here
+  ...
+ok - this is fine
+1..1

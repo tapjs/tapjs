@@ -1,0 +1,4 @@
+TAP version 13
+1..573
+not ok 1 - database handle
+Bail out! Couldn't connect to database.

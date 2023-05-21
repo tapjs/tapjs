@@ -1,0 +1,30 @@
+TAP version 13
+    # Subtest: foo
+    not ok 1 - should be equivalent
+      ---
+      found:
+        - xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
+      wanted:
+        - >-
+          xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+          yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
+      ...
+    1..1
+    # failed 1 of 1 tests
+not ok 1 - foo # time=13.457ms
+  ---
+  results:
+    plan:
+      start: 1
+      end: 1
+    count: 1
+    pass: 0
+    ok: false
+    fail: 1
+    time: 13.457
+  ...
+
+1..1
+# failed 1 of 1 tests
+# time=22.566ms

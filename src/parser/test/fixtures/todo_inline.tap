@@ -1,0 +1,6 @@
+1..5
+not ok 1 - Foo # TODO Just testing the todo interface.
+ok 2 - Unexpected success # TODO Just testing the todo interface.
+ok 3 - This is not todo
+ok 4 - #todo This is a todo with an empty description
+ok 5 - testTitle#todo is not a todo, it's a url

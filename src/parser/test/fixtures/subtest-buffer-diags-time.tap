@@ -1,0 +1,20 @@
+1..3
+
+ok 1 - first # time=12.34ms {
+    ok x
+    1..1
+}
+
+ok 2 - second { # time=12.34ms
+    ok x
+    1..1
+}
+
+ok 3 - third # time=43.21ms
+  ---
+  some: diagnostic
+  ...
+{
+    ok y
+    1..1
+}

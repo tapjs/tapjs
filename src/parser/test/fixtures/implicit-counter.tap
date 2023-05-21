@@ -1,0 +1,14 @@
+TAP version 13
+# before 1
+ok one
+ok two
+# before 3
+ok three
+ok four
+# after 4
+
+1..4
+# tests 4
+# pass  4
+
+# ok

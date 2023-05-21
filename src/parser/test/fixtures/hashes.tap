@@ -1,0 +1,8 @@
+TAP version 13
+ok 1 - contains \# hash
+ok 2 - directive # todo \# x # y
+ok 3 - escaped \\ slash \\# todo true
+ok 4 - not todo # hash # todo
+ok 5 - yes todo # todo # hash
+ok 6 - not todo \# hash \# todo
+1..6

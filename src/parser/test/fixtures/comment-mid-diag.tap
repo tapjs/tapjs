@@ -1,0 +1,16 @@
+# before version
+TAP version 13
+# after version, before plan
+1..2
+# before result
+not ok 1 - please keep my diags
+  # before diag
+  ---
+  # mid diag indent
+  after: comment
+# mid diag
+  ...
+  # after diag
+# before 2
+ok 2
+# after 2

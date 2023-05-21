@@ -1,0 +1,14 @@
+tap version 13
+1..2
+1..2
+ok subtest {
+    tap version 13
+    1..1
+1..99
+    ok
+}
+ok yaml
+  ---
+  ok: lamy
+1..99
+  ...

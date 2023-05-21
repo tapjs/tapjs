@@ -1,0 +1,6 @@
+not ok - 1
+    # Subtest: child
+    ok
+    1..1
+ok 2 - child
+1..2

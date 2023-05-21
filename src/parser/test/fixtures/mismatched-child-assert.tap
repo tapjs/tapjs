@@ -1,0 +1,6 @@
+TAP version 13
+# Subtest: some child
+    ok 1 - this is fine
+    1..1
+ok 1 - different name
+1..1

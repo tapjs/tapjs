@@ -1,0 +1,6 @@
+1..5
+ok 1
+ok 2    # skip rain delay
+ok 3    \#skip should not skip because escaped
+ok 4    notskip, because testTitle#skip is not a directive
+ok 5    #sKiPpPyYy weird spelling but ok, skip it

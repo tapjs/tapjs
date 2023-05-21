@@ -1,0 +1,4 @@
+pragma +strict
+100..1
+ok 1
+1..1

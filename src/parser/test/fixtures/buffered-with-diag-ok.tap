@@ -1,0 +1,9 @@
+ok 1 - child
+  ---
+  some: diagnostics
+  ...
+{
+    ok 1
+    1..1
+}
+1..1

@@ -1,0 +1,26 @@
+TAP version 13
+# Subtest: Test newlines in tap and console.log
+    ok 1 - Before console.log
+createdMultipleStepsWithWeightAndCapacity={
+  "name": "Multiple Steps with Weight and Capacity",
+  "usedByModels": [
+    {
+      "x": 1
+    }
+  ],
+  "stepsOrdered": {
+    "y": 2,
+    "steps": [
+      {
+        "z": 3
+      }
+    ]
+  },
+  "a": "bc"
+}
+    ok 2 - After console.log
+    1..2
+ok 1 - Test newlines in tap and console.log # time=4.137ms
+
+1..1
+# time=13.316ms
