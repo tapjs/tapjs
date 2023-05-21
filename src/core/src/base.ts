@@ -1,6 +1,4 @@
-// TODO: a LOT of things in this Base class should be #private
-
-import Domain from 'async-hook-domain'
+import { Domain } from 'async-hook-domain'
 import { AsyncResource } from 'async_hooks'
 import { Minipass } from 'minipass'
 import { hrtime } from 'node:process'
@@ -170,7 +168,7 @@ export class Base<
         (this.hookDomain = new Domain((er, type) => {
           if (!er || typeof er !== 'object')
             er = { error: er }
-          er.tapCaught = type
+          ;(er as { tapCaught?: string }).tapCaught = type
           this.threw(er)
         }))
     )
@@ -262,7 +260,7 @@ export class Base<
     cb()
   }
 
-  write (c: string) {
+  write(c: string) {
     if (this.buffered) {
       this.output += c
       return true
@@ -333,7 +331,10 @@ export class Base<
    */
   ondone() {}
 
-  emit<Event extends keyof Events>(ev: Event, ...data: Events[Event]) {
+  emit<Event extends keyof Events>(
+    ev: Event,
+    ...data: Events[Event]
+  ) {
     const ret = super.emit(ev, ...data)
     if (ev === 'end') {
       this.ondone()
