@@ -82,7 +82,10 @@ const isStringArray = (a: any): a is string[] =>
   Array.isArray(a) && !a.some(s => typeof s !== 'string')
 
 export const run = async (args: string[], config: Config) => {
+  const timeout = (config.get('timeout') || 30) * 1000
   const t = tap()
+  // we don't want to time out the runner, just the subtests
+  t.setTimeout(0)
   await buildWithSpawn(t, args, config)
 
   // Maybe should accept an optList of loaders in the config?
@@ -233,6 +236,7 @@ export const run = async (args: string[], config: Config) => {
     const buffered = !serial.some(s => file.toLowerCase().startsWith(s))
     const p = t.spawn(node, [...argv, file, ...testArgs], {
       buffered,
+      timeout,
       env: {
         ...env,
         _TAPJS_PROCESSINFO_COVERAGE_,
