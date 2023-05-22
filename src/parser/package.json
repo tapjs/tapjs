@@ -54,11 +54,7 @@
     "prepublishOnly": "git push origin --follow-tags",
     "typedoc": "typedoc --tsconfig tsconfig-esm.json ./src/*.ts"
   },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/tapjs/tap-parser.git"
-  },
-  "homepage": "https://github.com/tapjs/tap-parser",
+  "repository": "https://github.com/tapjs/tapjs",
   "keywords": [
     "tap",
     "test",

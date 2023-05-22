@@ -2,10 +2,7 @@
   "name": "tcompare",
   "version": "6.0.0",
   "description": "A comprehensive comparison library, for use in test frameworks",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tapjs/tcompare.git"
-  },
+  "repository": "https://github.com/tapjs/tapjs",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://izs.me)",
   "license": "ISC",
   "main": "./dist/cjs/index.js",
