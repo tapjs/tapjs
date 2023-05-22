@@ -55,10 +55,11 @@ export class TestFixtures {
     this.#createdTestdir = true
     if (!this.#didOnEOF && !this.#saveFixture) {
       this.#didOnEOF = true
-      const obe = this.#t.onEOF
+      const { onEOF } = this.#t
       this.#t.onEOF = async () => {
+        this.#t.onEOF = onEOF
         await rimraf(dir)
-        await obe()
+        await onEOF()
       }
     }
     return dir
