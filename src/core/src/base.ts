@@ -10,7 +10,7 @@ import {
   TapError,
 } from 'tap-parser'
 import Deferred from 'trivial-deferred'
-import extraFromError from './extra-from-error.js'
+import { extraFromError } from './extra-from-error.js'
 import type { Extra, TestBase } from './index.js'
 
 export interface TapBaseEvents
@@ -224,10 +224,10 @@ export class Base<
   }
 
   setTimeout(n: number) {
+    if (this.timer) {
+      clearTimeout(this.timer)
+    }
     if (n <= 0) {
-      if (this.timer) {
-        clearTimeout(this.timer)
-      }
       this.timer = undefined
     } else {
       this.timer = setTimeout(() => this.timeout(), n)
@@ -236,11 +236,15 @@ export class Base<
   }
 
   timeout(
-    options: { expired?: string } = { expired: this.name }
+    options: { expired?: string; message?: string } = {
+      expired: this.name,
+      message: 'timeout!',
+    }
   ) {
+    const { message = 'timeout!' } = options
     this.setTimeout(0)
     options.expired = options.expired || this.name
-    const threw = this.threw(new Error('timeout!'), options)
+    const threw = this.threw({ message }, options)
     if (threw) {
       this.emit('timeout', threw)
     }
@@ -367,6 +371,13 @@ export class Base<
     const message = er.message
     if (!extra) {
       extra = extraFromError(er, extra, this.options)
+    }
+
+    // timeouts don't generally have a useful callsite information,
+    // and no sense trying to capture it from @tapjs/stack
+    if (extra) {
+      extra.stack = ''
+      extra.at = {}
     }
 
     // if we ended, we have to report it SOMEWHERE, unless we're

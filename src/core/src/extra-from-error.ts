@@ -1,8 +1,8 @@
 import * as stack from '@tapjs/stack'
 import type { BaseOpts } from './base.js'
-import {Extra} from './index.js'
+import { Extra } from './index.js'
 
-const extraFromError = (
+export const extraFromError = (
   er: any,
   extra?: Extra,
   options?: BaseOpts
@@ -19,9 +19,13 @@ const extraFromError = (
 
   // pull out all fields from options, other than anything starting
   // with tapChild, or anything already set in the extra object.
-  extra = Object.fromEntries(
-    Object.entries(options || {}).filter(
-      ([k]) => !/^tapChild/.test(k) && !(k in (extra || {}))
+  extra = Object.assign(
+    extra || {},
+    Object.fromEntries(
+      Object.entries(options || {}).filter(
+        ([k]) =>
+          !/^tapChild/.test(k) && !(k in (extra || {}))
+      )
     )
   )
 
@@ -60,5 +64,3 @@ const extraFromError = (
 
   return extra
 }
-
-export default extraFromError

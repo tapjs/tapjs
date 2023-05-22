@@ -79,6 +79,8 @@ class TAP extends Test {
     }
     /* c8 ignore stop */
 
+    const timeout =
+      Number(process.env.TAP_TIMEOUT || '30') * 1000
     const options = {
       name: 'TAP',
       diagnostic: envFlag('TAP_DIAG'),
@@ -86,6 +88,7 @@ class TAP extends Test {
       debug: envFlag('TAP_DEBUG'),
       omitVersion: envFlag('TAP_OMIT_VERSION'),
       preserveWhitespace: !envFlag('TAP_OMIT_WHITESPACE'),
+      timeout,
     }
 
     super(options)
@@ -121,7 +124,7 @@ class TAP extends Test {
   register() {
     if (registered) return
     registered = true
-    registerTimeoutListener(this)
+    registerTimeoutListener()
     ignoreEPIPE()
     this.once('bail', () => proc?.exit(1))
     proc?.once('beforeExit', () => {
@@ -175,6 +178,29 @@ class TAP extends Test {
       proc.exitCode = 1
     }
   }
+
+  timeout(
+    options: {
+      expired?: string
+      signal?: NodeJS.Signals | null
+    } = { expired: this.name, signal: null }
+  ) {
+    const ret = super.timeout(
+      Object.assign(
+        getTimeoutExtra(options.signal),
+        options
+      )
+    )
+    // don't stick around
+    if (registered) {
+      const t = setTimeout(() => {
+        didProcessTimeout = true
+        alarmKill()
+      }, 100)
+      if (t.unref) t.unref()
+    }
+    return ret
+  }
 }
 
 const shouldAutoend = (
@@ -199,11 +225,13 @@ const maybeAutoend = () => {
   })
 }
 
-const registerTimeoutListener = (t: TAP) => {
+const registerTimeoutListener = () => {
   // SIGALRM means being forcibly killed due to timeout
-  let didProcessTimeout = false
+  const isTimeoutSignal = (signal: NodeJS.Signals | null) =>
+    signal === 'SIGALRM' ||
+    (signal === 'SIGINT' && !process.env.TAP_CHILD_ID)
   onExit((_, signal) => {
-    if (signal !== 'SIGALRM' || didProcessTimeout) {
+    if (!isTimeoutSignal(signal) || didProcessTimeout) {
       return
     }
     onProcessTimeout(signal)
@@ -223,7 +251,7 @@ const registerTimeoutListener = (t: TAP) => {
         | {
             tapAbort?: string
             key?: string
-            childId?: string
+            child?: string
           }
         | any
     ) => {
@@ -232,117 +260,141 @@ const registerTimeoutListener = (t: TAP) => {
         typeof msg === 'object' &&
         msg.tapAbort === 'timeout' &&
         msg.key === process.env.TAP_ABORT_KEY &&
-        msg.childId === process.env.TAP_CHILD_ID
+        msg.child === process.env.TAP_CHILD_ID
       ) {
-        onProcessTimeout(null)
+        onProcessTimeout('SIGALRM')
       }
     }
   )
   // We don't want the channel to keep the child running
   //@ts-ignore
   process.channel?.unref()
-
-  const onProcessTimeout = (
-    signal: NodeJS.Signals | null = null
-  ) => {
-    if (didProcessTimeout) return
-    didProcessTimeout = true
-
-    const p = process as unknown as {
-      _getActiveHandles: () => any[]
-      _getActiveRequests: () => any[]
-    }
-
-    /* c8 ignore start */
-    const handles = (p._getActiveHandles() || []).filter(
-      /* c8 ignore stop */
-      h =>
-        h !== process.stdout &&
-        h !== process.stdin &&
-        h !== process.stderr
-    )
-    const requests = p._getActiveRequests()
-
-    const extra: Extra = {
-      at: undefined,
-      signal,
-    }
-    if (requests.length) {
-      extra.requests = requests.map(r => {
-        /* c8 ignore start */
-        if (!r || typeof r !== 'object') return r
-        /* c8 ignore stop */
-        const ret: {
-          type: string
-          context?: any
-        } = {
-          type: r.constructor.name,
-        }
-
-        // most everything in node has a context these days
-        /* c8 ignore start */
-        if (r.context) ret.context = r.context
-        /* c8 ignore stop */
-
-        return ret
-      })
-    }
-
-    // Newer node versions don't have this as reliably.
-    /* c8 ignore start */
-    if (handles.length) {
-      extra.handles = handles.map(h => {
-        /* c8 ignore start */
-        if (!h || typeof h !== 'object') return h
-        /* c8 ignore stop */
-
-        const ret: {
-          type: string
-          msecs?: number
-          events?: string[]
-          sockname?: string
-          connectionKey?: string
-        } = {
-          type: h.constructor.name,
-        }
-
-        // all of this is very internal-ish
-        /* c8 ignore start */
-        if (h.msecs) ret.msecs = h.msecs
-        if (h._events) ret.events = Object.keys(h._events)
-        if (h._sockname) ret.sockname = h._sockname
-        if (h._connectionKey)
-          ret.connectionKey = h._connectionKey
-        /* c8 ignore stop */
-
-        return ret
-      })
-    }
-
-    // ignore coverage here because it happens after everything
-    // must have been shut down.
-    /* c8 ignore start */
-    if (!t.results && t.timeout) t.timeout(extra)
-    else {
-      console.error(
-        'possible timeout: timeout signal received after tap end'
-      )
-      if (extra.handles || extra.requests) {
-        delete extra.signal
-        if (!extra.at) {
-          delete extra.at
-        }
-        console.error(diags(extra))
-      }
-      try {
-        process.kill(process.pid, 'SIGALRM')
-      } catch (_) {
-        // kill isn't supported everywhere
-        process.exit(1)
-      }
-    }
-  }
   /* c8 ignore stop */
+}
+
+const getTimeoutExtra = (
+  signal: NodeJS.Signals | null = null
+) => {
+  const p = process as unknown as {
+    _getActiveHandles: () => any[]
+    _getActiveRequests: () => any[]
+  }
+
+  /* c8 ignore start */
+  const handles = (p._getActiveHandles() || []).filter(
+    /* c8 ignore stop */
+    h =>
+      h !== process.stdout &&
+      h !== process.stdin &&
+      h !== process.stderr
+  )
+  const requests = p._getActiveRequests()
+
+  const extra: Extra = {
+    at: undefined,
+    signal,
+  }
+  if (requests.length) {
+    extra.requests = requests.map(r => {
+      /* c8 ignore start */
+      if (!r || typeof r !== 'object') return r
+      /* c8 ignore stop */
+      const ret: {
+        type: string
+        context?: any
+      } = {
+        type: r.constructor.name,
+      }
+
+      // most everything in node has a context these days
+      /* c8 ignore start */
+      if (r.context) ret.context = r.context
+      /* c8 ignore stop */
+
+      return ret
+    })
+  }
+
+  // Newer node versions don't have this as reliably.
+  /* c8 ignore start */
+  if (handles.length) {
+    extra.handles = handles.map(h => {
+      /* c8 ignore start */
+      if (!h || typeof h !== 'object') return h
+      /* c8 ignore stop */
+
+      const ret: {
+        type: string
+        msecs?: number
+        events?: string[]
+        sockname?: string
+        connectionKey?: string
+      } = {
+        type: h.constructor.name,
+      }
+
+      // all of this is very internal-ish
+      /* c8 ignore start */
+      if (h.msecs) ret.msecs = h.msecs
+      if (h._events) ret.events = Object.keys(h._events)
+      if (h._sockname) ret.sockname = h._sockname
+      if (h._connectionKey)
+        ret.connectionKey = h._connectionKey
+      /* c8 ignore stop */
+
+      return ret
+    })
+  }
+
+  return extra
+}
+
+let didProcessTimeout = false
+const onProcessTimeout = (
+  signal: NodeJS.Signals | null = null
+) => {
+  if (didProcessTimeout || !instance) return
+  didProcessTimeout = true
+
+  const extra = getTimeoutExtra(signal)
+
+  if (signal === 'SIGINT') {
+    extra.message = 'interrupt!'
+  }
+
+  // ignore coverage here because it happens after everything
+  // must have been shut down.
+  /* c8 ignore start */
+  if (!instance.results) {
+    instance.timeout(extra)
+  } else {
+    console.error(
+      'possible timeout: SIGALRM received after tap end'
+    )
+    if (extra.handles || extra.requests) {
+      delete extra.signal
+      if (!extra.at) {
+        delete extra.at
+      }
+    }
+    console.error(diags(extra))
+    alarmKill()
+  }
+}
+
+const alarmKill = () => {
+  // SIGALRM isn't supported everywhere
+  /* c8 ignore start */
+  try {
+    process.kill(process.pid, 'SIGALRM')
+  } catch {
+    process.kill(process.pid, 'SIGKILL')
+  }
+  const t = setTimeout(() => {
+    process.kill(process.pid, 'SIGKILL')
+  }, 500)
+  /* c8 ignore stop */
+  if (t.unref) t.unref()
 }
 
 const ignoreEPIPE = () => {

@@ -13,7 +13,7 @@ import { FinalResults } from 'tap-parser'
 import Deferred from 'trivial-deferred'
 import { Base, BaseOpts } from './base.js'
 import { esc } from './esc.js'
-import extraFromError from './extra-from-error.js'
+import { extraFromError } from './extra-from-error.js'
 import { mainScript } from './main-script.js'
 import { argv, cwd } from './proc.js'
 import { Spawn } from './spawn.js'
@@ -764,7 +764,7 @@ export class TestBase extends Base<TestBaseEvents> {
     p.readyToProcess = true
     const to = p.options.timeout
     const dur =
-      to && p.passing() ? hrtime.bigint() - p.start : null
+      to && p.passing() ? Number(hrtime.bigint() - p.start)/1e6 : null
     if (dur && to && dur > to) {
       p.timeout()
     } else {
