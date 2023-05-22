@@ -48,7 +48,11 @@ export class TapMock {
       this.#didTeardown = true
       this.#t.t.teardown(() => this.#unmock())
     }
-    //@ts-ignore
+    /* c8 ignore start */
+    if (!this.#t.t.pluginLoaded(plugin)) {
+      throw new Error('mock plugin not loaded')
+    }
+    /* c8 ignore stop */
     const [key, imp] = mockImport(module, mocks, this.#t.t.mockImport)
     this.#keys.push(key)
     return imp()
@@ -68,9 +72,7 @@ export class TapMock {
       this.#didTeardown = true
       this.#t.t.teardown(() => this.#unmock())
     }
-    const [key, req] = mockRequire(module, mocks, this.#t.t.mockRequire)
-    this.#keys.push(key)
-    return req()
+    return mockRequire(module, mocks, this.#t.t.mockRequire)
   }
 
   #unmock() {

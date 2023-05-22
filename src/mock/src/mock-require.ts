@@ -1,7 +1,5 @@
-import Module, { builtinModules, createRequire } from 'module'
 import * as stack from '@tapjs/stack'
-import {fileURLToPath} from 'url'
-import {dirname} from 'path'
+import Module, { builtinModules, createRequire } from 'module'
 
 const builtinSet = new Set([
   ...builtinModules,
@@ -32,6 +30,7 @@ class MockedModule extends CorrectModule {
     mocker?: Mocker
   ) {
     super(id, parent)
+    this.filename ??= id
     this.#resolve = createRequire(this.filename).resolve
     if (parent instanceof MockedModule && parent.#mocker) {
       this.#mocker = parent.#mocker
@@ -122,7 +121,7 @@ export const mockRequire: (
   module: string,
   mocks: undefined | { [k: string]: any },
   caller: Function | ((...a: any[]) => any)
-) => [string, () => any] = (module, mocks, caller = mockRequire) => {
+) => any = (module, mocks, caller = mockRequire) => {
   const needIgnoreTap = !stack.getIgnoredPackages().includes('@tapjs')
   if (needIgnoreTap) stack.addIgnoredPackage('@tapjs')
   const at = stack.at(caller)
