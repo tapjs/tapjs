@@ -66,5 +66,6 @@
     "prettier": "^2.6.2",
     "typedoc": "^0.24.7"
   },
-  "license": "ISC"
+  "license": "BlueOak-1.0.0",
+  "repository": "https://github.com/tapjs/tapjs"
 }

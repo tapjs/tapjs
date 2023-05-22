@@ -7,7 +7,8 @@
 !/package-lock.json
 !/README.md
 !/CONTRIBUTING.md
-!/LICENSE{,.*}
+!/LICENSE
+!/LICENSE.*
 !/CHANGELOG.md
 !/example
 !/scripts

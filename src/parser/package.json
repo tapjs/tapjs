@@ -54,7 +54,6 @@
     "prepublishOnly": "git push origin --follow-tags",
     "typedoc": "typedoc --tsconfig tsconfig-esm.json ./src/*.ts"
   },
-  "repository": "https://github.com/tapjs/tapjs",
   "keywords": [
     "tap",
     "test",
@@ -91,5 +90,6 @@
   },
   "engines": {
     "node": ">= 12"
-  }
+  },
+  "repository": "https://github.com/tapjs/tapjs"
 }

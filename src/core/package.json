@@ -80,5 +80,6 @@
     "typedoc": "^0.24.7",
     "typescript": "^5.0.2"
   },
-  "license": "ISC"
+  "license": "BlueOak-1.0.0",
+  "repository": "https://github.com/tapjs/tapjs"
 }

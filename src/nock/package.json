@@ -82,8 +82,5 @@
   "engines": {
     "node": "^14.17.0 || ^16.13.0 || >=18.0.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com/tapjs/tapjs"
-  }
+  "repository": "https://github.com/tapjs/tapjs"
 }
