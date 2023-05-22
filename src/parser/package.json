@@ -32,7 +32,6 @@
     "@types/node": "^18.11.9",
     "@types/tap": "^15.0.6",
     "c8": "^7.12.0",
-    "eslint-config-prettier": "^8.5.0",
     "glob": "^10.0.0",
     "minipass": "^5.0.0",
     "prettier": "^2.7.1",

@@ -71,7 +71,6 @@
   "devDependencies": {
     "@types/node": "^20.1.5",
     "@types/opener": "^1.4.0",
-    "eslint-config-prettier": "^8.8.0",
     "prettier": "^2.8.6",
     "ts-node": "^10.9.1",
     "typedoc": "^0.24.7",
