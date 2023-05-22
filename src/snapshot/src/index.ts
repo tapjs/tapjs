@@ -78,7 +78,7 @@ export class SnapshotPlugin {
   #t: TestBase
   #provider: Exclude<SnapshotOptions['snapshotProvider'], undefined>
   #cleanSnapshot: SnapshotOptions['cleanSnapshot']
-  #formatSnapshot: SnapshotOptions['formatSnapshot']
+  #formatSnapshot: Exclude<SnapshotOptions['formatSnapshot'], undefined>
   #snapshot: SnapshotProvider
   writeSnapshot: boolean = false
   #compareOptions: CompareOptions
@@ -93,6 +93,8 @@ export class SnapshotPlugin {
     }
     if (typeof opts.formatSnapshot === 'function') {
       this.#formatSnapshot = opts.formatSnapshot
+    } else {
+      this.#formatSnapshot = o => o
     }
     // if the filename matches, and the provider type matches,
     // use the parent's snapshot provider object.  Otherwise,
@@ -153,11 +155,11 @@ export class SnapshotPlugin {
     this.#cleanSnapshot = fmt
   }
 
-  get formatSnapshot(): SnapshotOptions['formatSnapshot'] {
+  get formatSnapshot(): Exclude<SnapshotOptions['formatSnapshot'], undefined> {
     return this.#formatSnapshot
   }
   set formatSnapshot(fmt: SnapshotOptions['formatSnapshot']) {
-    this.#formatSnapshot = fmt
+    this.#formatSnapshot = fmt || (o => o)
   }
 
   get snapshotFile(): string {
