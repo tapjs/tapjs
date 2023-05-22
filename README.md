@@ -11,6 +11,14 @@ Workspace for node-tap development.
 - [@tapjs/config](./src/config) Handling config files, command
   line interface parsing, environment variables, and validation
 - [@tapjs/run](./src/run) The command line runner
+- [tcompare](./src/tcompare) The library that does comparison and
+  object formatting (use heavily by `@tapjs/asserts` methods).
+- [@tapjs/stack](./src/stack) Library for capturing stack frames,
+  the descendant of `stack-utils`.
+- [@tapjs/processinfo](https://github.com/tapjs/processinfo) The
+  library that tracks process information and code coverage
+  (hosted outside the monorepo, because it can't be tested by
+  a version of tap that uses itself without bootstrap paradoxes)
 - default plugins:
   - [@tapjs/typescript](./src/typescript) Adds typescript
     support, and the `--typecheck` config option
@@ -33,16 +41,13 @@ Workspace for node-tap development.
     `@tapjs/sinon` plugin.)
   - [@tapjs/filter](./src/filter) Adds `t.only()` and support for
     the `--grep` and `--only` cli options.
-- [tcompare](./src/tcompare) The library that does comparison and
-  object formatting (use heavily by `@tapjs/asserts` methods).
-- [@tapjs/stack](./src/stack) Library for capturing stack frames,
-  the descendant of `stack-utils`.
-- [@tapjs/nock](./src/nock) Optional plugin providing `t.nock()`
-  method (descendent of `@npmjs/tap-nock`, and a significant
-  inspiration for tap's plugin architecture)
-- [@tapjs/sinon](./src/sinon) Optional plugin providing a
-  [Sinon](https://sinonjs.org) sandbox at `t.sinon` that
-  automatically restores at the end of the test.
+- optional plugins:
+    - [@tapjs/nock](./src/nock) Optional plugin providing `t.nock()`
+      method (descendent of `@npmjs/tap-nock`, and a significant
+      inspiration for tap's plugin architecture)
+    - [@tapjs/sinon](./src/sinon) Optional plugin providing a
+      [Sinon](https://sinonjs.org) sandbox at `t.sinon` that
+      automatically restores at the end of the test.
 
 ## Bootstrap and `skipLibCheck`
 
