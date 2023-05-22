@@ -28,5 +28,6 @@
   "repository": "https://github.com/tapjs/tapjs",
   "dependencies": {
     "glob": "^10.2.5"
-  }
+  },
+  "license": "BlueOak-1.0.0"
 }
