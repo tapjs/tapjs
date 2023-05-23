@@ -1,6 +1,7 @@
 {
   "extends": "./tsconfig-base.json",
-  "include": ["src/index.ts"],
+  "include": ["src/*.ts"],
+  "exclude": ["./test", "./tap-snapshots", "./src/require-esm.ts"],
   "compilerOptions": {
     "module": "commonjs",
     "moduleResolution": "Node16",

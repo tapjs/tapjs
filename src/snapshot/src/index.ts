@@ -78,7 +78,7 @@ export class SnapshotPlugin {
   #t: TestBase
   #provider: Exclude<SnapshotOptions['snapshotProvider'], undefined>
   #cleanSnapshot: SnapshotOptions['cleanSnapshot']
-  #formatSnapshot: Exclude<SnapshotOptions['formatSnapshot'], undefined>
+  #formatSnapshot: SnapshotOptions['formatSnapshot']
   #snapshot: SnapshotProvider
   writeSnapshot: boolean = false
   #compareOptions: CompareOptions
@@ -93,8 +93,6 @@ export class SnapshotPlugin {
     }
     if (typeof opts.formatSnapshot === 'function') {
       this.#formatSnapshot = opts.formatSnapshot
-    } else {
-      this.#formatSnapshot = o => o
     }
     // if the filename matches, and the provider type matches,
     // use the parent's snapshot provider object.  Otherwise,
@@ -152,10 +150,12 @@ export class SnapshotPlugin {
     return this.#cleanSnapshot
   }
   set cleanSnapshot(fmt: SnapshotOptions['cleanSnapshot']) {
-    this.#cleanSnapshot = fmt
+    this.#cleanSnapshot = fmt || ((s: string) => s)
   }
 
-  get formatSnapshot(): Exclude<SnapshotOptions['formatSnapshot'], undefined> {
+  get formatSnapshot(): 
+    SnapshotOptions['formatSnapshot']
+   {
     return this.#formatSnapshot
   }
   set formatSnapshot(fmt: SnapshotOptions['formatSnapshot']) {
@@ -183,9 +183,36 @@ export class SnapshotPlugin {
     const me = normalizeMessageExtra('must match snapshot', args)
     const m = this.#t.fullname + ' > ' + me[0]
     if (typeof found !== 'string') {
+      if (!this.#formatSnapshot) {
+        for (
+          let p = this.#t.parent;
+          p && p.t.pluginLoaded(plugin);
+          p = p.parent
+        ) {
+          const fs = p.t.formatSnapshot
+          if (fs) {
+            this.#formatSnapshot = fs
+          }
+        }
+      }
       found = (this.#formatSnapshot || defaultFormatSnapshot)(found)
       if (typeof found !== 'string') {
         found = defaultFormatSnapshot(found)
+      }
+    }
+
+    // see if a parent had defined it if we don't.
+    // pretty common to define once on the root t for the whole test.
+    if (!this.#cleanSnapshot) {
+      for (
+        let p = this.#t.parent;
+        p && p.t.pluginLoaded(plugin);
+        p = p.parent
+      ) {
+        const cs = p.t.cleanSnapshot
+        if (cs) {
+          this.#cleanSnapshot = cs
+        }
       }
     }
 

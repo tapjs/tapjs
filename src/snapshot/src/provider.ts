@@ -1,5 +1,6 @@
 import { mkdirSync, statSync, unlinkSync, writeFileSync } from 'fs'
 import { dirname } from 'path'
+import { req } from './require.js'
 
 import type { SnapshotProvider } from './index.js'
 
@@ -86,8 +87,9 @@ export class SnapshotProviderDefault implements SnapshotProvider {
       if (!statSync(this.file).isFile()) {
         throw 'not a file'
       }
-      this.#snapshot = require(this.file)
-    } catch {
+      this.#snapshot = req(this.file)
+    } catch (er) {
+      console.error(er)
       throw new Error(`Snapshot file not found: ${this.file}${envMsg}`)
     }
   }
