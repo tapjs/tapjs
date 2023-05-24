@@ -5,6 +5,7 @@
 - Update to yaml version 2.
 - Stringify dates using the `!!timestamp` tag (while still
   supporting parsing `!date` tags)
+- Use the `yaml-types` implementations for most things.
 
 ## 1.0
 
