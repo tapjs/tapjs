@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/create-plugin",
-  "version": "0.0.0-0",
+  "version": "1.0.0",
   "description": "Create a tap plugin with 'npm init @tapjs/plugin'",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "bin": {
