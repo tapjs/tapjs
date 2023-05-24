@@ -75,7 +75,7 @@ export class Init {
    * If it ends up being set by a prompt, it'll always be a string, possibly
    * '' if no default is provided.
    */
-  values: Record<string, string | boolean>
+  values: Record<string, string>
   positionals: string[]
 
   #dir: string
@@ -148,7 +148,7 @@ export class Init {
     message: string,
     key: string,
     options: ReadOptions<string> = {}
-  ): Promise<string | boolean> {
+  ): Promise<string> {
     if (this.values[key] !== undefined) return this.values[key]
     if (
       options.default !== undefined &&
