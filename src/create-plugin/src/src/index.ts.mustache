@@ -33,15 +33,19 @@ export class <%&className%> {
 
   constructor(t: TestBase, opts: <%&className%>Options) {
     this.#t = t
-    // Do whatever else you need to in here.
-    // `this` will refer to the <%&className%> object, not the
-    // Test. If you need to reference the test, use this.#t to get
-    // at the TestBase root, or this.#t.t to get at the plugged in
+    // Do whatever setup you need to in here.
+    // At this point, the test has not started, and plugins have not
+    // yet been attached, but the TestBase is fully instantiated.
+    // `this` will always refer to the <%&className%> object, not the
+    // Test.
+    // If you need to reference the test after construction, use this.#t
+    // to get  at the TestBase root, or this.#t.t to get at the plugged
     // Test object.
   }
 
   // add properties, methods, getter/setter, anything you need to
   // do the stuff you wanna do in this plugin.
+  // After construction, this.#t.t will be the fully decorated Test instance.
 
   // If your plugin wants to check something provided by ANOTHER plugin,
   // for example, add a t.teardown() but only if the plugin providing
