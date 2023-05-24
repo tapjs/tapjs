@@ -1,0 +1,65 @@
+{
+  "name": "@tapjs/create-plugin",
+  "version": "0.0.0-0",
+  "description": "Create a tap plugin with 'npm init @tapjs/plugin'",
+  "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
+  "bin": {
+    "tapjs-create-plugin": "./index.js"
+  },
+  "type": "module",
+  "files": [
+    "./index.js",
+    "./index.d.ts",
+    "./index.js.map",
+    "./index.d.ts.map",
+    "./templates"
+  ],
+  "exports": {
+    "./package.json": {
+      "import": "./package.json",
+      "require": "./package.json"
+    }
+  },
+  "license": "BlueOak-1.0.0",
+  "scripts": {
+    "preversion": "npm test",
+    "postversion": "npm publish",
+    "prepublishOnly": "git push origin --follow-tags",
+    "prepare": "tsc",
+    "pretest": "npm run prepare",
+    "presnap": "npm run prepare",
+    "test": "tap",
+    "snap": "tap",
+    "format": "prettier --write . --loglevel warn",
+    "typedoc": "typedoc ./index.ts"
+  },
+  "prettier": {
+    "semi": false,
+    "printWidth": 75,
+    "tabWidth": 2,
+    "useTabs": false,
+    "singleQuote": true,
+    "jsxSingleQuote": false,
+    "bracketSameLine": true,
+    "arrowParens": "avoid",
+    "endOfLine": "lf"
+  },
+  "dependencies": {
+    "npm-init-template": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.1.5",
+    "prettier": "^2.8.6",
+    "ts-node": "^10.9.1",
+    "typedoc": "^0.24.7",
+    "typescript": "^5.0.2",
+    "tap": "^18.0.0-0"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "funding": {
+    "url": "https://github.com/sponsors/isaacs"
+  },
+  "repository": "https://github.com/tapjs/tapjs"
+}
