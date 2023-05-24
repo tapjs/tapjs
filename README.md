@@ -17,8 +17,8 @@ Workspace for node-tap development.
   the descendant of `stack-utils`.
 - [@tapjs/processinfo](https://github.com/tapjs/processinfo) The
   library that tracks process information and code coverage
-  (hosted outside the monorepo, because it can't be tested by
-  a version of tap that uses itself without bootstrap paradoxes)
+  (hosted outside the monorepo, because it can't be tested by a
+  version of tap that uses itself without bootstrap paradoxes)
 - default plugins:
   - [@tapjs/typescript](./src/typescript) Adds typescript
     support, and the `--typecheck` config option
@@ -42,16 +42,26 @@ Workspace for node-tap development.
   - [@tapjs/filter](./src/filter) Adds `t.only()` and support for
     the `--grep` and `--only` cli options.
 - optional plugins:
-    - [@tapjs/nock](./src/nock) Optional plugin providing `t.nock()`
-      method (descendent of `@npmjs/tap-nock`, and a significant
-      inspiration for tap's plugin architecture)
-    - [@tapjs/sinon](./src/sinon) Optional plugin providing a
-      [Sinon](https://sinonjs.org) sandbox at `t.sinon` that
-      automatically restores at the end of the test.
+  - [@tapjs/nock](./src/nock) Optional plugin providing
+    `t.nock()` method (descendent of `@npmjs/tap-nock`, and a
+    significant inspiration for tap's plugin architecture)
+  - [@tapjs/sinon](./src/sinon) Optional plugin providing a
+    [Sinon](https://sinonjs.org) sandbox at `t.sinon` that
+    automatically restores at the end of the test.
+  - [@tapjs/esbuild-kit](./src/esbuild-kit) Optional plugin that
+    loads TypeScript using
+    [`@esbuild-kit/cjs-loader`](https://github.com/esbuild-kit/cjs-loader)
+    and
+    [`@esbuild-kit/esm-loader`](https://github.com/esbuild-kit/esm-loader)
+    instead of
+    [`ts-node`](https://github.com/TypeStrong/ts-node).
 - other stuff:
-    - [npm-init-templates](./src/npm-init-templates) A library
-      for more easily creating `npm init` packages. This will
-      move out as soon as this version of tap is published.
+  - [npm-init-templates](./src/npm-init-templates) A library for
+    more easily creating `npm init` packages. This will move out
+    as soon as this version of tap is published.
+  - [@tapjs/create-plugin](./src/create-plugin) An `npm init`
+    library facilitating `npm init @tapjs/plugin` to create new
+    plugins.
 
 ## Bootstrap and `skipLibCheck`
 
