@@ -48,6 +48,10 @@ Workspace for node-tap development.
     - [@tapjs/sinon](./src/sinon) Optional plugin providing a
       [Sinon](https://sinonjs.org) sandbox at `t.sinon` that
       automatically restores at the end of the test.
+- other stuff:
+    - [npm-init-templates](./src/npm-init-templates) A library
+      for more easily creating `npm init` packages. This will
+      move out as soon as this version of tap is published.
 
 ## Bootstrap and `skipLibCheck`
 
