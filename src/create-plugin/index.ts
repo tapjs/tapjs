@@ -30,7 +30,7 @@ const target = await prompt('Folder to create in? ', 'target', {
   default: defTarget,
 })
 
-build({
+await build({
   templates: './src',
   target,
   exclude: values.git.trim().toLowerCase().startsWith('y')
