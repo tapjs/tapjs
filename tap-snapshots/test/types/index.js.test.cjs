@@ -8,16 +8,9 @@
 exports[`test/types/index.js TAP > types are there 1`] = `
 Array [
   Object {
-    "collection": "map",
-    "identify": Function identify(er),
-    "nodeClass": Function YAMLErrorObject(classYAMLErrorObjectextendsYAMLMap),
-    "tag": "!error",
-  },
-  Object {
     "identify": Function identify(value),
     "resolve": Function resolve(str),
-    "stringify": Function stringify(item, ctx, onComment, onChompKeep),
-    "tag": "!symbol",
+    "tag": "!re",
   },
   Object {
     "identify": Function identify(value),
@@ -27,30 +20,39 @@ Array [
   },
   Object {
     "identify": Function identify(value),
-    "options": Object {
-      "defaultType": "BLOCK_LITERAL",
-      "lineWidth": 76,
-    },
     "resolve": Function resolve(str),
-    "stringify": Function stringify(),
-    "tag": "!function",
-  },
-  Object {
-    "identify": Function identify(value),
-    "resolve": Function resolve(str),
-    "tag": "!re",
-  },
-  Object {
-    "collection": "map",
-    "identify": Function identify(value),
-    "nodeClass": Function YAMLDomain(classYAMLDomainextendsYAMLMap),
-    "tag": "!domain",
+    "stringify": Function stringify(item, ctx, onComment, onChompKeep),
+    "tag": "!symbol",
   },
   Object {
     "collection": "map",
     "identify": Function identify(v),
-    "nodeClass": Function YAMLNullObject(classYAMLNullObjectextendsYAMLMap),
+    "nodeClass": Function YAMLNullObject(classYAMLNullObjectextendsyaml_1.YAMLMap),
     "tag": "!nullobject",
+  },
+  Object {
+    "collection": "map",
+    "identify": Function identify(er),
+    "nodeClass": Function YAMLErrorObject(classYAMLErrorObjectextendsyaml_1.YAMLMap),
+    "tag": "!error",
+  },
+  Object {
+    "identify": Function identify(value),
+    "options": Object {
+      "defaultType": "BLOCK_LITERAL",
+    },
+    "resolve": Function resolve(str),
+    "stringify": Function stringify(i, ctx, onComment, onChompKeep),
+    "tag": "!class",
+  },
+  Object {
+    "identify": Function identify(value),
+    "options": Object {
+      "defaultType": "BLOCK_LITERAL",
+    },
+    "resolve": Function resolve(str),
+    "stringify": Function stringify(i, ctx, onComment, onChompKeep),
+    "tag": "!function",
   },
   Object {
     "identify": Function identify(value),
