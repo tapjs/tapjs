@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { randomInt } from 'node:crypto'
 import { Init } from 'npm-init-template'
 
