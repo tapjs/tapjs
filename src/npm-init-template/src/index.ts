@@ -62,9 +62,10 @@ export const defaultTemplateSettings: TemplateSettings = {
   },
 }
 
-defaultTemplateSettings.jsx = defaultTemplateSettings.js
-defaultTemplateSettings.ts = defaultTemplateSettings.js
-defaultTemplateSettings.tsx = defaultTemplateSettings.js
+defaultTemplateSettings.js = defaultTemplateSettings.json
+defaultTemplateSettings.jsx = defaultTemplateSettings.json
+defaultTemplateSettings.ts = defaultTemplateSettings.json
+defaultTemplateSettings.tsx = defaultTemplateSettings.json
 defaultTemplateSettings.xhtml = defaultTemplateSettings.html
 defaultTemplateSettings.xml = defaultTemplateSettings.html
 
