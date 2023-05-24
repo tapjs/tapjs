@@ -81,7 +81,9 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
       (await this.readYAMLConfig(configFile)) || {}
     return writeFile(
       configFile,
-      '# vim: set filetype=yaml :\n' +
+      // split up to un-confuse vim
+      '# vi' +
+        'm: set filetype=yaml :\n' +
         yaml.stringify(Object.assign(src, data))
     )
   }
@@ -105,6 +107,7 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
     try {
       return parse(await readFile(rc, 'utf8')) as OptionsResults<C>
     } catch (er) {
+      console.error('Error loading .taprc:', rc, er)
       return undefined
     }
   }
@@ -118,6 +121,7 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
         return res as { tap?: OptionsResults<C> }
       }
     } catch (er) {
+      console.error('Error loading package.json:', pj, er)
       return undefined
     }
   }

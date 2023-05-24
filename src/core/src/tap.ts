@@ -101,15 +101,16 @@ class TAP extends Test {
     // only attach the teardown autoend if we're using the teardown plugin
     // tell typescript to chill, if it's not defined or defined as something
     // else.
-    if (this.pluginLoaded(AfterPlugin)) {
-      const { teardown } = this
+    const td = this
+    if (td.pluginLoaded(AfterPlugin)) {
+      const { teardown } = td
       type TD = typeof teardown
-      this.teardown = (
+      td.teardown = (
         ...args: Parameters<TD>
       ): ReturnType<TD> => {
         autoend = true
-        this.teardown = teardown
-        return this.teardown(...args)
+        td.teardown = teardown
+        return td.teardown(...args)
       }
     }
 
