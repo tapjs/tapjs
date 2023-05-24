@@ -12,7 +12,7 @@
     "./index.d.ts",
     "./index.js.map",
     "./index.d.ts.map",
-    "./templates"
+    "./src"
   ],
   "exports": {
     "./package.json": {
