@@ -1,4 +1,4 @@
-# @tapjs/core
+# `@tapjs/core`
 
 This is the pluggable core of node-tap.
 

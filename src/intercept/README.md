@@ -1,4 +1,4 @@
-# @tapjs/intercept
+# `@tapjs/intercept`
 
 A default tap plugin for doing object/global property/method
 interception and observing.

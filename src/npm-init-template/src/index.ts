@@ -8,6 +8,8 @@ import { fileURLToPath } from 'url'
 import { parseArgs } from 'util'
 import { read, ReadOptions } from './read.js'
 
+export type { read, ReadOptions }
+
 /**
  * Options passed to {@link Init#build}
  */

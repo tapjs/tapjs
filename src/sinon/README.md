@@ -1,4 +1,4 @@
-# @tapjs/sinon
+# `@tapjs/sinon`
 
 A tap plugin for using [sinon](https://sinonjs.org)
 

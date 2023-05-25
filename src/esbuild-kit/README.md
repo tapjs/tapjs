@@ -1,4 +1,4 @@
-# @tapjs/esbuild-kit
+# `@tapjs/esbuild-kit`
 
 An alternative plugin to `@tapjs/typescript`. Load typescript
 tests using

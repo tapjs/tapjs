@@ -1,4 +1,4 @@
-# @tapjs/stack
+# `@tapjs/stack`
 
 A comprehensive library for dealing with stack traces, supporting
 source map lookup (when enabled in node with `--enable-source-maps`),
