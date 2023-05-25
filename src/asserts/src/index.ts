@@ -57,6 +57,7 @@ export type ErrorMatch =
 
 export type ThrowsArgs =
   | []
+  | [msg: string, extra?: Extra]
   | [wanted: ErrorMatch, ...messageExtra: MessageExtra]
 
 export type ExpectedEmit = [
