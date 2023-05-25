@@ -1,6 +1,6 @@
 {
   "name": "tap-yaml",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "Yaml handling for TAP parsers and generators",
   "module": "dist/mjs/index.js",
   "main": "dist/cjs/index.js",
