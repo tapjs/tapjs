@@ -182,6 +182,67 @@ export class Assertions {
   }
 
   /**
+   * Verify that the value is of the type specified
+   * Type can be either a string, or a constructor.
+   *
+   * If a string, then it can match either the `typeof` result
+   * or 'null' for `null` values, or the `name` property of the
+   * object's constructor.
+   */
+  type(obj: any, klass: string | Function, ...[msg, extra]: MessageExtra) {
+    if (!this.#t.t.pluginLoaded(plugin)) {
+      throw new Error('assert plugin not loaded')
+    }
+    this.#t.currentAssert = this.#t.t.type
+
+    const name =
+      typeof klass === 'function'
+        ? klass.name || '(anonymous constructor)'
+        : klass
+
+    const args = [msg, extra] as MessageExtra
+    const me = normalizeMessageExtra(`type is ${name}`, args)
+
+    // simplest case, it literally is the same thing
+    if (obj === klass) {
+      return this.#t.pass(me[0], me[1])
+    }
+
+    const tof = typeof obj
+    const type =
+      !obj && tof === 'object'
+        ? 'null'
+        : // treat as object, but not Object
+        // t.type(() => {}, Function)
+        tof === 'function' &&
+          typeof klass === 'function' &&
+          klass !== Object
+        ? 'object'
+        : tof
+
+    if (type === 'object' && klass !== 'object') {
+      if (typeof klass === 'function') {
+        me[1].found = Object.getPrototypeOf(obj).constructor.name
+        me[1].wanted = name
+        return this.ok(obj instanceof klass, ...me)
+      }
+
+      // check prototype chain for name
+      // at this point, we already know klass is not a function
+      // if the klass specified is an obj in the proto chain, pass
+      // if the name specified is the name of a ctor in the chain, pass
+      for (let p = obj; p; p = Object.getPrototypeOf(p)) {
+        const ctor = p.constructor && p.constructor.name
+        if (p === klass || ctor === name) {
+          return this.#t.pass(...me)
+        }
+      }
+    }
+
+    return this.equal(type, name, ...me)
+  }
+
+  /**
    * Verify that the value is loosely equivalent to the supplied pattern
    */
   same(found: any, wanted: any, ...[msg, extra]: MessageExtra) {

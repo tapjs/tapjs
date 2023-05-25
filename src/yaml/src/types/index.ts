@@ -12,11 +12,15 @@ import {
 
 import { date } from './date.js'
 import { timestamp } from './timestamp.js'
+import { bigint } from './bigint.js'
 
-export const customTags: Tags = [
+// prepend our custom tags so that they take priority over anything
+// enabled by default in the schema.
+const t: Tags = [
   regexp,
   sharedSymbol,
   symbol,
+  bigint,
   nullobject,
   error,
   classTag,
@@ -26,4 +30,7 @@ export const customTags: Tags = [
   'omap',
   'set',
   'binary',
+]
+export const customTags = (tags: Tags) => [
+  ...new Set(t.concat(tags)),
 ]
