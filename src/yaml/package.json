@@ -1,10 +1,10 @@
 {
-  "name": "tap-parser",
-  "version": "13.0.1",
-  "description": "parse the test anything protocol",
+  "name": "tap-yaml",
+  "version": "2.0.1",
+  "description": "Yaml handling for TAP parsers and generators",
+  "module": "dist/mjs/index.js",
   "main": "dist/cjs/index.js",
   "types": "dist/cjs/index.d.ts",
-  "module": "dist/mjs/index.js",
   "exports": {
     ".": {
       "import": {
@@ -21,27 +21,9 @@
       "require": "./package.json"
     }
   },
-  "bin": {
-    "tap-parser": "bin/cmd.js"
-  },
-  "dependencies": {
-    "events-to-array": "^2.0.3",
-    "tap-yaml": "^2.0.1"
-  },
-  "devDependencies": {
-    "@types/node": "^18.11.9",
-    "@types/tap": "^15.0.6",
-    "c8": "^7.12.0",
-    "glob": "^10.0.0",
-    "minipass": "^5.0.0",
-    "prettier": "^2.7.1",
-    "ts-node": "^10.9.1",
-    "typedoc": "^0.23.20",
-    "typescript": "^5.0.4"
-  },
   "scripts": {
-    "snap": "c8 tap",
-    "test": "c8 tap",
+    "snap": "tap",
+    "test": "tap",
     "preprepare": "rm -rf dist",
     "prepare": "tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
     "postprepare": "bash ./scripts/fixup.sh",
@@ -53,16 +35,10 @@
     "prepublishOnly": "git push origin --follow-tags",
     "typedoc": "typedoc --tsconfig tsconfig-esm.json ./src/*.ts"
   },
-  "keywords": [
-    "tap",
-    "test",
-    "parser"
-  ],
-  "license": "MIT",
-  "files": [
-    "dist",
-    "bin"
-  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tapjs/tap-yaml.git"
+  },
   "prettier": {
     "semi": false,
     "printWidth": 80,
@@ -74,21 +50,29 @@
     "arrowParens": "avoid",
     "endOfLine": "lf"
   },
-  "eslintIgnore": [
-    "/node_modules",
-    "/dist"
+  "keywords": [
+    "tap",
+    "yaml",
+    "test",
+    "testanything"
+  ],
+  "author": "Isaac Z. Schlueter <i@izs.me>",
+  "license": "BlueOak-1.0.0",
+  "dependencies": {
+    "yaml": "^2.3.0",
+    "yaml-types": "^0.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.2.3",
+    "prettier": "^2.7.1",
+    "tap": "^18.0.0-0",
+    "typedoc": "^0.24.7",
+    "typescript": "^5.0.4"
+  },
+  "files": [
+    "dist"
   ],
   "tap": {
-    "coverage": false,
-    "node-arg": [
-      "--no-warnings",
-      "--loader",
-      "ts-node/esm"
-    ],
-    "ts": false
-  },
-  "engines": {
-    "node": ">= 12"
-  },
-  "repository": "https://github.com/tapjs/tapjs"
+    "coverage-map": "map.js"
+  }
 }
