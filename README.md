@@ -7,6 +7,10 @@ Workspace for node-tap development.
 - [tap-parser](./src/parser) The module that parses
   [TAP](https://testanything.org/)
 - [@tapjs/core](./src/core) Most of the basic moving parts of tap
+- [tap-yaml](./src/yaml) Thin wrapper around
+  [YAML](https://github.com/eemeli/yaml) and
+  [yaml-types](https://github.com/eemeli/yaml-types) for
+  consistent handling of JavaScript values in YAML diagnostics.
 - [@tapjs/test](./src/test) The plugin-ified `Test` class.
 - [@tapjs/config](./src/config) Handling config files, command
   line interface parsing, environment variables, and validation
