@@ -5,11 +5,13 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/types/date.js TAP > first stringify 1`] = `
-!!timestamp 1979-07-01T00:00:00.000Z
-
-`
-
-exports[`test/types/date.js TAP > parsed stringified 1`] = `
-1979-07-01T00:00:00.000Z
+exports[`test/index.ts TAP > root api is a thing 1`] = `
+Object {
+  "default": Object {
+    "parse": Function parse(str),
+    "stringify": Function stringify(obj),
+  },
+  "parse": Function parse(str),
+  "stringify": Function stringify(obj),
+}
 `

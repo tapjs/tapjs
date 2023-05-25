@@ -5,9 +5,6 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/index.js TAP > root api is a thing 1`] = `
-Object {
-  "parse": Function (str),
-  "stringify": Function (obj),
-}
+exports[`test/types/date.ts TAP > parsed stringified 1`] = `
+1979-07-01T00:00:00.000Z
 `

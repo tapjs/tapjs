@@ -5,11 +5,9 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse.js TAP > it parses yaml 1`] = `
-Object {
-  "cycle": &ref_1 Object {
-    "a": 1,
-    "cycle": <*ref_1>,
-  },
-}
+exports[`test/stringify.ts TAP > it creates yaml 1`] = `
+cycle: &a1
+  a: 1
+  cycle: *a1
+
 `

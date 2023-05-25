@@ -5,11 +5,11 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/types/timestamp.js TAP > first stringify 1`] = `
-!!timestamp 1979-07-01T00:00:00.000Z
-
-`
-
-exports[`test/types/timestamp.js TAP > parsed stringified 1`] = `
-1979-07-01T00:00:00.000Z
+exports[`test/parse.ts TAP > it parses yaml 1`] = `
+Object {
+  "cycle": &ref_1 Object {
+    "a": 1,
+    "cycle": <*ref_1>,
+  },
+}
 `

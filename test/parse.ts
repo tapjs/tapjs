@@ -1,5 +1,5 @@
-const t = require('tap')
-const {parse} = require('../')
+import t from 'tap'
+import { parse } from '../'
 t.matchSnapshot(parse(`cycle:
   &a1
   a: 1
