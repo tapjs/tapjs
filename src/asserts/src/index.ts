@@ -38,10 +38,21 @@ const normalizeThrowsArgs = (
   return [wanted, message || defaultMessage, extra || {}]
 }
 
+export type ErrorMessageMatch = {
+  message: string | RegExp
+  [k: string]: any
+}
+
+export type ErrorNameMatch = {
+  name: string | RegExp
+  [k: string]: any
+}
+
 export type ErrorMatch =
   | Error
   | typeof Error
-  | { message: string; [k: string]: any }
+  | ErrorMessageMatch
+  | ErrorNameMatch
   | RegExp
 
 export type ThrowsArgs =
