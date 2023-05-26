@@ -53,7 +53,7 @@ t.test('destroy()', t => {
 })
 
 function bufferedTest(d?: { [k: string]: any }) {
-  return function (t: Tap.Test) {
+  return function (t: tap.Test) {
     const p = new Parser()
     const mid = Math.floor(tapContent.length / 2)
     const first = tapContent.slice(0, mid)
@@ -80,7 +80,7 @@ function bufferedTest(d?: { [k: string]: any }) {
 }
 
 function unbufferedTest(d?: { [k: string]: any }) {
-  return function (t: Tap.Test) {
+  return function (t: tap.Test) {
     const p = new Parser()
     const mid = 90
     const first = tapContent.slice(0, mid)

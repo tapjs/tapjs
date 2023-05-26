@@ -272,8 +272,10 @@ Array [
         "start": 1,
       },
       "skip": 0,
+      "skips": Array [],
       "time": null,
       "todo": 2,
+      "todos": Array [],
     },
   ],
 ]
@@ -546,8 +548,10 @@ Array [
         "start": 1,
       },
       "skip": 0,
+      "skips": Array [],
       "time": null,
       "todo": 2,
+      "todos": Array [],
     },
   ],
 ]

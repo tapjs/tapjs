@@ -64,6 +64,8 @@ export class Parser extends EventEmitter implements NodeJS.WritableStream {
   public count: number = 0
   public fail: number = 0
   public failures: TapError[] = []
+  public skips: (Result & { skip: string | true })[] = []
+  public todos: (Result & { todo: string | true })[] = []
   public level: number
   public name: string
   public ok: boolean = true
@@ -573,6 +575,9 @@ export class Parser extends EventEmitter implements NodeJS.WritableStream {
     if (res.ok) {
       this.pass++
       if (this.passes) this.passes.push(res)
+      const { skip, todo } = res
+      if (skip) this.skips.push({ ...res, skip })
+      if (todo) this.todos.push({ ...res, todo })
     } else {
       this.fail++
       if (!res.todo && !res.skip) {
@@ -582,7 +587,6 @@ export class Parser extends EventEmitter implements NodeJS.WritableStream {
     }
 
     if (res.skip) this.skip++
-
     if (res.todo) this.todo++
 
     this.emitAssert(res)

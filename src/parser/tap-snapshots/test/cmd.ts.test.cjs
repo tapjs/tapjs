@@ -748,18 +748,6 @@ exports[`test/cmd.ts TAP json output formatting --json=1 > stderr 1`] = `
 
 `
 
-exports[`test/cmd.ts TAP json output formatting -j 1 > error 1`] = `
-0
-`
-
-exports[`test/cmd.ts TAP json output formatting -j 1 > output 1`] = `
-
-`
-
-exports[`test/cmd.ts TAP json output formatting -j 1 > stderr 1`] = `
-
-`
-
 exports[`test/cmd.ts TAP json output formatting -j > error 1`] = `
 0
 `
@@ -769,6 +757,18 @@ exports[`test/cmd.ts TAP json output formatting -j > output 1`] = `
 `
 
 exports[`test/cmd.ts TAP json output formatting -j > stderr 1`] = `
+
+`
+
+exports[`test/cmd.ts TAP json output formatting -j 1 > error 1`] = `
+0
+`
+
+exports[`test/cmd.ts TAP json output formatting -j 1 > output 1`] = `
+
+`
+
+exports[`test/cmd.ts TAP json output formatting -j 1 > stderr 1`] = `
 
 `
 

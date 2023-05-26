@@ -17,7 +17,7 @@ t.test('re-exports stuff', t => {
   t.end()
 })
 
-t.test('passing no options and cb works fine', function (t: Tap.Test) {
+t.test('passing no options and cb works fine', function (t) {
   //@ts-ignore
   const p = new Parser(() => t.end())
   p.emit('complete')
@@ -54,7 +54,7 @@ t.test('end() can take chunk', function (t) {
   })
   t.test('encoding', function (t) {
     const p = new Parser()
-    p.end(Buffer.from('1..0\n').toString('hex'), 'hex', t.end)
+    p.end(Buffer.from('1..0\n').toString('hex'), 'hex', () => t.end())
   })
 })
 

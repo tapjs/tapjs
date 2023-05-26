@@ -14,6 +14,8 @@ export class FinalResults {
   public time: number | null
   public passes?: Result[]
   public plan: FinalPlan
+  public skips: (Result & { skip: true | string })[]
+  public todos: (Result & { todo: true | string })[]
   constructor(skipAll: boolean, self: Parser) {
     this.ok = self.ok
     this.count = self.count
@@ -25,6 +27,8 @@ export class FinalResults {
     this.plan = new FinalPlan(skipAll, self)
     this.failures = self.failures
     this.time = self.time
+    this.skips = self.skips
+    this.todos = self.todos
     if (self.passes) this.passes = self.passes
   }
 }

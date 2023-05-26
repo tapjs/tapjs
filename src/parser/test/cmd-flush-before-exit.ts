@@ -1,6 +1,12 @@
 import t from 'tap'
 
-const args = ['--no-warnings', '--loader', 'ts-node/esm', __filename]
+const args = [
+  '--no-warnings',
+  '--enable-source-maps',
+  '--loader',
+  'ts-node/esm',
+  __filename,
+]
 
 if (process.platform === 'win32') {
   t.plan(0, 'not relevant on windows, stdout is synchronous')
@@ -12,7 +18,7 @@ if (process.argv[2] === 'gen') {
     for (let i = 0; i < 10000; i++) {
       // sprinkle in some failures
       const assert = i % 39 > 0 ? 'pass' : 'fail'
-      t[assert]('this is some sample output')
+      t[assert]('this is some sample output', { diagnostic: false })
     }
   })
 } else if (process.argv[2] === 'cmd') {
@@ -29,6 +35,7 @@ if (process.argv[2] === 'gen') {
       NODE_DEBUG: '',
       TAP_DEBUG: '0',
       TAP_BAIL: '0',
+      TAP_DIAG: '0',
     },
     stdio: ['ignore', 'pipe', 'ignore'],
   })
@@ -50,10 +57,7 @@ if (process.argv[2] === 'gen') {
       new RegExp(`
     1..10000
     # failed 257 of 10000 tests
-not ok 1 - generate a lot of output # time=[0-9.]+m?s
-1..1
-# failed 1 test
-# time=[0-9.]+m?s\\n*$`)
+not ok 1 - generate a lot of output # time=[0-9.]+m?s`)
     )
     t.end()
   })

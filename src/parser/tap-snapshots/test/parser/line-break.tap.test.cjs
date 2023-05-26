@@ -163,8 +163,10 @@ Array [
             "start": 1,
           },
           "skip": 0,
+          "skips": Array [],
           "time": 13.457,
           "todo": 0,
+          "todos": Array [],
         },
       ],
       Array [
@@ -435,8 +437,10 @@ Array [
         "start": 1,
       },
       "skip": 0,
+      "skips": Array [],
       "time": 22.566,
       "todo": 0,
+      "todos": Array [],
     },
   ],
 ]
@@ -580,8 +584,10 @@ Array [
             "start": null,
           },
           "skip": 0,
+          "skips": Array [],
           "time": null,
           "todo": 0,
+          "todos": Array [],
         },
       ],
       Array [
@@ -712,8 +718,10 @@ Array [
         "start": null,
       },
       "skip": 0,
+      "skips": Array [],
       "time": null,
       "todo": 0,
+      "todos": Array [],
     },
   ],
 ]

@@ -152,7 +152,7 @@ ok 1 - child
 `,
   }
 
-  const runTest = (tap: string) => (t: Tap.Test, args: string[]) => {
+  const runTest = (tap: string) => (t: tap.Test, args: string[]) => {
     run(tap, args, (er, o, e) => {
       t.matchSnapshot(er, 'error')
       t.matchSnapshot(o, 'output', skipInspect)
@@ -189,7 +189,7 @@ t.test('json output formatting', t => {
 ok 1 - child
 1..1
 `
-  const test = (t: Tap.Test, args: string[]) => {
+  const test = (t: tap.Test, args: string[]) => {
     run(tap, args, (er, o, e) => {
       t.matchSnapshot(er, 'error')
       t.matchSnapshot(o, 'output')

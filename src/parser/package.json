@@ -30,8 +30,6 @@
   },
   "devDependencies": {
     "@types/node": "^18.11.9",
-    "@types/tap": "^15.0.6",
-    "c8": "^7.12.0",
     "glob": "^10.0.0",
     "minipass": "^5.0.0",
     "prettier": "^2.7.1",
@@ -40,11 +38,9 @@
     "typescript": "^5.0.4"
   },
   "scripts": {
-    "snap": "c8 tap",
-    "test": "c8 tap",
-    "preprepare": "rm -rf dist",
-    "prepare": "tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
-    "postprepare": "bash ./scripts/fixup.sh",
+    "snap": "tap",
+    "test": "tap",
+    "prepare": "tsc -p tsconfig.json && tsc -p tsconfig-esm.json && bash ./scripts/fixup.sh",
     "pretest": "npm run prepare",
     "presnap": "npm run prepare",
     "format": "prettier --write . --loglevel warn",
@@ -79,13 +75,9 @@
     "/dist"
   ],
   "tap": {
-    "coverage": false,
-    "node-arg": [
-      "--no-warnings",
-      "--loader",
-      "ts-node/esm"
-    ],
-    "ts": false
+    "include": "test/*.ts",
+    "coverage-map": "map.js",
+    "reporter": "tap"
   },
   "engines": {
     "node": ">= 12"
