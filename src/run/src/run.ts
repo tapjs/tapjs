@@ -203,9 +203,15 @@ export const run = async (args: string[], config: Config) => {
     t.after(async () => await writeSave(config, saveList))
   }
 
-  t.plan(files.length)
   t.jobs = values.jobs
-  t.teardown(() => report([], config))
+  const stdinOnly =
+    files.length === 1 &&
+    (files[0] === '-' || files[0] === '/dev/stdin') &&
+    t.pluginLoaded(StdinPlugin)
+
+  if (!stdinOnly) {
+    t.teardown(() => report([], config))
+  }
 
   const outputFile = config.get('output-file')
   if (outputFile) {
@@ -228,10 +234,15 @@ export const run = async (args: string[], config: Config) => {
     })
   }
 
+  if (!stdinOnly) {
+    t.plan(files.length)
+  }
+
   for (const f of files) {
     if (f === '-' || f === '/dev/stdin') {
       if (t.pluginLoaded(StdinPlugin)) {
-        t.stdin()
+        if (files.length === 1) t.stdinOnly()
+        else t.stdin()
       } else {
         console.error('@tapjs/stdin plugin not loaded, skipping stdin')
       }

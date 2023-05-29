@@ -41,7 +41,6 @@ export interface TestBaseOpts extends BaseOpts {
   cb?: (...args: any[]) => any
 }
 
-
 export type MessageExtra =
   | []
   | [string]
@@ -517,10 +516,11 @@ export class TestBase extends Base<TestBaseEvents> {
   }
 
   #end(implicit?: typeof IMPLICIT) {
-    if (this.#doingStdinOnly && implicit !== IMPLICIT)
+    if (this.#doingStdinOnly && implicit !== IMPLICIT) {
       throw new Error(
         'cannot explicitly end while in stdinOnly mode'
       )
+    }
     this.debug('END implicit=%j', implicit === IMPLICIT)
     if (this.ended && implicit === IMPLICIT) {
       this.debug('already ended, ignore implicit end')
@@ -578,7 +578,7 @@ export class TestBase extends Base<TestBaseEvents> {
     this.debug('set ended=true')
     this.ended = true
 
-    if (this.#planEnd === -1) {
+    if (this.#planEnd === -1 && !this.#doingStdinOnly) {
       this.debug(
         'END(%s) implicit plan',
         this.name,
@@ -967,7 +967,6 @@ export class TestBase extends Base<TestBaseEvents> {
         this.emit('subtestEnd', t)
       })
     })
-    stream.pause()
     stream.pipe(this.parser)
     stream.resume()
   }
