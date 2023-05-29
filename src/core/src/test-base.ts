@@ -764,7 +764,9 @@ export class TestBase extends Base<TestBaseEvents> {
     p.readyToProcess = true
     const to = p.options.timeout
     const dur =
-      to && p.passing() ? Number(hrtime.bigint() - p.start)/1e6 : null
+      to && p.passing()
+        ? Number(hrtime.bigint() - p.start) / 1e6
+        : null
     if (dur && to && dur > to) {
       p.timeout()
     } else {
