@@ -24,9 +24,7 @@
   "scripts": {
     "snap": "tap",
     "test": "tap",
-    "preprepare": "rm -rf dist",
-    "prepare": "tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
-    "postprepare": "bash ./scripts/fixup.sh",
+    "prepare": "tsc -p tsconfig.json && tsc -p tsconfig-esm.json && bash ./scripts/fixup.sh",
     "pretest": "npm run prepare",
     "presnap": "npm run prepare",
     "format": "prettier --write . --loglevel warn",
@@ -66,6 +64,7 @@
     "@types/node": "^20.2.3",
     "prettier": "^2.7.1",
     "tap": "^18.0.0-0",
+    "ts-node": "^10.9.1",
     "typedoc": "^0.24.7",
     "typescript": "^5.0.4"
   },
