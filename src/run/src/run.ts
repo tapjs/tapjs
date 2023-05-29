@@ -1,22 +1,27 @@
 // run the provided tests
 import { proc, TAP, tap } from '@tapjs/core'
+import {
+  report as testReport,
+  types as reportTypes,
+} from '@tapjs/reporter'
 import { plugin as SpawnPlugin } from '@tapjs/spawn'
 import { plugin as StdinPlugin } from '@tapjs/stdin'
 import { loaders, signature } from '@tapjs/test'
 import { foregroundChild } from 'foreground-child'
+import { glob } from 'glob'
 import { Minipass } from 'minipass'
 import { mkdirpSync } from 'mkdirp'
 import { createWriteStream } from 'node:fs'
-import { writeFile } from 'node:fs/promises'
 import { createRequire } from 'node:module'
 import { dirname, relative, sep } from 'node:path'
+import { pathToFileURL } from 'node:url'
 import { resolve } from 'path'
 import { rimraf } from 'rimraf'
-import { pathToFileURL } from 'url'
 import { build } from './build.js'
 import { findSuites } from './find-suites.js'
 import { Config, mainBin, mainCommand } from './index.js'
 import { report } from './report.js'
+import { readSave, writeSave } from './save-list.js'
 
 const require = createRequire(import.meta.url)
 const piLoader = pathToFileURL(require.resolve('@tapjs/processinfo'))
@@ -40,7 +45,7 @@ const buildWithSpawn = async (t: TAP, args: string[], config: Config) => {
   // If we didn't load with the spawn plugin, then it means that
   // it must have just been re-built.
   if (!t.pluginLoaded(SpawnPlugin)) {
-    if (process.env._TAP_RUN_REBUILD_RESPAWN === '1') {
+    if (process.env._TAP_RUN_REBUILD_RESPAWN_ === '1') {
       throw new Error('Failed to build a tap with the spawn plugin')
     }
     const argv = [
@@ -51,7 +56,7 @@ const buildWithSpawn = async (t: TAP, args: string[], config: Config) => {
     ]
     const env = {
       ...process.env,
-      _TAP_RUN_REBUILD_RESPAWN: '1',
+      _TAP_RUN_REBUILD_RESPAWN_: '1',
     }
 
     return new Promise<void>((res, rej) => {
@@ -80,6 +85,17 @@ const buildWithSpawn = async (t: TAP, args: string[], config: Config) => {
 
 const isStringArray = (a: any): a is string[] =>
   Array.isArray(a) && !a.some(s => typeof s !== 'string')
+
+const handleReporter = async (t: TAP, config: Config) => {
+  // figure out if we MUST use the 'tap' reporter
+  const reporter = config.get('reporter') as string
+  // TODO: if it's not in keyof reportTypes, then look it up as a module.
+  return await testReport(
+    reporter as 'tap' | keyof typeof reportTypes,
+    t,
+    config
+  )
+}
 
 export const run = async (args: string[], config: Config) => {
   const timeout = (config.get('timeout') || 30) * 1000
@@ -144,8 +160,16 @@ export const run = async (args: string[], config: Config) => {
     ? values.serial.map(s => resolve(s).toLowerCase() + sep)
     : []
 
-  t.plan(files.length)
-  t.jobs = values.jobs
+  const hasReporter = await handleReporter(t, config)
+  const stdio = hasReporter ? 'pipe' : 'inherit'
+
+  t.buffered = false
+
+  const saveList = await readSave(config)
+  // don't delete old coverage if only running subset of suites
+  if (!config.get('changed') && !saveList.length) {
+    await rimraf(resolve(config.globCwd, '.tap'))
+  }
 
   const before = config.get('before')
   if (before) {
@@ -175,20 +199,12 @@ export const run = async (args: string[], config: Config) => {
     )
   }
 
-  const save = config.get('save')
-  const sf = save && resolve(config.globCwd, save)
-  const saveList: string[] = []
-  if (sf) {
-    t.after(async () => {
-      if (!saveList.length) await rimraf(sf)
-      else await writeFile(sf, saveList.map(s => `${s}\n`).join(''))
-    })
+  if (config.get('save')) {
+    t.after(async () => await writeSave(config, saveList))
   }
 
-  if (!config.get('changed') && !config.get('save')) {
-    await rimraf(resolve(config.globCwd, '.tap'))
-  }
-
+  t.plan(files.length)
+  t.jobs = values.jobs
   t.teardown(() => report([], config))
 
   const outputFile = config.get('output-file')
@@ -221,7 +237,9 @@ export const run = async (args: string[], config: Config) => {
       }
       continue
     }
-    let coveredFiles: string | string[] | null = map(f)
+    let coveredFiles: string | string[] | null = await glob(map(f), {
+      cwd: config.globCwd,
+    })
     const _TAPJS_PROCESSINFO_COVERAGE_ = coveredFiles === null ? '0' : '1'
     if (typeof coveredFiles === 'string') coveredFiles = [coveredFiles]
     else if (!isStringArray(coveredFiles)) {
@@ -237,6 +255,7 @@ export const run = async (args: string[], config: Config) => {
     const p = t.spawn(node, [...argv, file, ...testArgs], {
       buffered,
       timeout,
+      stdio,
       env: {
         ...env,
         _TAPJS_PROCESSINFO_COVERAGE_,
@@ -244,7 +263,7 @@ export const run = async (args: string[], config: Config) => {
       },
       name: relative(config.globCwd, file),
     })
-    if (save) {
+    if (saveList.length) {
       p.then(results => {
         if (!results?.ok) {
           saveList.push(f)

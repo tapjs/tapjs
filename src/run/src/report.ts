@@ -5,6 +5,7 @@ import { readdir } from 'fs/promises'
 import opener from 'opener'
 import { resolve } from 'path'
 import type { Config } from './index.js'
+import { tap } from '@tapjs/core'
 
 export const report = async (args: string[], config: Config) => {
   const rconf = config.get('coverage-reporter')
@@ -26,7 +27,7 @@ export const report = async (args: string[], config: Config) => {
     () => false
   )
   if (!ok) {
-    console.error('# No coverage generated')
+    tap().comment('No coverage generated')
     return
   }
 
@@ -65,10 +66,13 @@ const checkCoverage = async (report: Report) => {
   ]
   const summary = map.getCoverageSummary()
   let success = true
+  // TODO: emit these as test failures?
+  // TODO: make levels configurable, just *default* to 100
+  const t = tap()
   for (const th of thresholds) {
     const coverage = summary[th].pct
     if (coverage < 100) {
-      console.error(`# ERROR: incomplete ${th} coverage (${coverage}%)`)
+      t.comment(`ERROR: incomplete ${th} coverage (${coverage}%)`)
       success = false
     }
   }

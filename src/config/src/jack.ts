@@ -27,6 +27,10 @@ const coverageReporters = [
   'text-summary',
 ]
 
+// Can't pull this directly out of @tapjs/reporter because
+// it's ESM only because ink is ESM only.
+const testReporters = ['base']
+
 export default jack({
   envPrefix: 'TAP',
   allowPositionals: true,
@@ -168,7 +172,10 @@ export default jack({
 
                     The default plugin set that ships with tap is:
 
-                    ${defaultPlugins.map(s => `- ${s}`).join('\n')}
+                    ${defaultPlugins
+                      .sort((a, b) => a.localeCompare(b, 'en'))
+                      .map(s => `- ${s}`)
+                      .join('\n')}
 
                     The tap runner requires the @tapjs/spawn plugin to run
                     tests. If removed, you'll have to run test files some other
@@ -182,14 +189,13 @@ export default jack({
     reporter: {
       short: 'R',
       hint: 'reporter',
-      description: `Use the specified reporter.  Defaults to
-                    'base' when colors are in use, or 'tap'
-                    when colors are disabled.
+      description: `Use the specified reporter.  Defaults to 'base' when colors
+                    are in use, or 'tap' when colors are disabled.
 
                     In addition to the built-in reporters provided by
-                    the treport and tap-mocha-reporter modules, the
-                    reporter option can also specify a command-line
-                    program or a module to load via require().
+                    the @tapjs/reporter module, the reporter option can also
+                    specify a command-line program or a module to load via
+                    require().
 
                     Command-line programs receive the raw TAP output
                     on their stdin.
@@ -198,7 +204,11 @@ export default jack({
                     writable stream class or a React.Component subclass.
                     Writable streams are instantiated and piped into.
                     React components are rendered using Ink, with tap={tap}
-                    as their only property.`,
+                    as their only property.
+
+                    Built-in test reporters:
+
+                    ${testReporters.map(r => `- ${r}`).join('\n')}`,
     },
   })
 
@@ -226,8 +236,9 @@ export default jack({
                     This can be run on its own at any time after a test run
                     that included coverage.
 
-                    Built-in coverage reporters:
-                    ${coverageReporters.join(' ')}`,
+                    Available coverage reporters:
+
+                    ${coverageReporters.map(r => `- ${r}`).join('\n')}`,
       validate: (s: any) =>
         Array.isArray(s) && !s.some(s => !coverageReporters.includes(s)),
     },

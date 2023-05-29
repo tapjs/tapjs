@@ -156,7 +156,7 @@ class TAP extends Test {
    * to stdout if not piped anywhere else.
    */
   write(chunk: string): boolean {
-    if (!piped && stdout) {
+    if (!registered && !piped && stdout) {
       this.pipe(stdout)
     }
     return super.write(chunk)
@@ -171,7 +171,7 @@ class TAP extends Test {
     // it's a bit extraneous.
     if (!env.TAP_CHILD_ID) {
       this.comment('pass', results.pass, '/', results.count)
-      setTimeout(() => console.log(`# time=${this.time}ms`))
+      this.comment(`time=${this.time}ms`)
     }
 
     if (!results.ok) this.comment('fail')

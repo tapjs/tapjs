@@ -1,0 +1,69 @@
+{
+  "name": "@tapjs/reporter",
+  "version": "0.0.0-0",
+  "description": "Pretty test output reporters for tap",
+  "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
+  "module": "./dist/index.js",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    },
+    "./package.json": {
+      "import": "./package.json",
+      "require": "./package.json"
+    }
+  },
+  "license": "BlueOak-1.0.0",
+  "scripts": {
+    "preversion": "npm test",
+    "postversion": "npm publish",
+    "prepublishOnly": "git push origin --follow-tags",
+    "prepare": "tsc && bash scripts/fixup.sh",
+    "pretest": "npm run prepare",
+    "presnap": "npm run prepare",
+    "test": "c8 tap",
+    "snap": "c8 tap",
+    "format": "prettier --write . --loglevel warn",
+    "typedoc": "typedoc ./src/*.ts"
+  },
+  "prettier": {
+    "semi": false,
+    "printWidth": 75,
+    "tabWidth": 2,
+    "useTabs": false,
+    "singleQuote": true,
+    "jsxSingleQuote": false,
+    "bracketSameLine": true,
+    "arrowParens": "avoid",
+    "endOfLine": "lf"
+  },
+  "dependencies": {
+    "@tapjs/config": ">=0.0.0-0",
+    "@tapjs/core": ">=0.0.0-0",
+    "@tapjs/test": ">=0.0.0-0",
+    "ink": "^4.2.0",
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/ms": "^0.7.31",
+    "@types/node": "^20.1.5",
+    "prettier": "^2.8.6",
+    "ts-node": "^10.9.1",
+    "typedoc": "^0.24.7",
+    "typescript": "^5.0.2"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "funding": {
+    "url": "https://github.com/sponsors/isaacs"
+  },
+  "repository": "https://github.com/tapjs/tapjs"
+}

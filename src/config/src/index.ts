@@ -1,4 +1,4 @@
-import { argv, cwd, env } from '@tapjs/core'
+import { argv, cwd, env, proc } from '@tapjs/core'
 import { config as pluginConfig, defaultPlugins } from '@tapjs/test'
 import { lstat, readdir, readFile, writeFile } from 'fs/promises'
 import { ConfigSet, Jack, OptionsResults, Unwrap } from 'jackspeak'
@@ -257,9 +257,31 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
     return [...pluginSet]
   }
 
+  loadColor() {
+    const c = this.get('color')
+    const color = !!(c !== undefined ? c : proc?.stdout?.isTTY)
+    const { values } = this.parse()
+    ;(values as OptionsResults<C> & { color: boolean }).color = color
+    return this
+  }
+
+  loadReporter() {
+    const r = this.get('reporter')
+    if (r !== undefined && process.env.TAP !== '1') return this
+    const reporter =
+      process.env.TAP === '1' ? 'tap' : this.get('color') ? 'base' : 'tap'
+    const { values } = this.parse()
+    ;(values as OptionsResults<C> & { reporter: string }).reporter =
+      reporter
+    return this
+  }
+
   static async load() {
     return (
       await new TapConfig().loadPluginConfigFields().loadConfigFile()
-    ).parse()
+    )
+      .loadColor()
+      .loadReporter()
+      .parse()
   }
 }

@@ -1,8 +1,8 @@
 import { ProcessInfo } from '@tapjs/processinfo'
 import { glob, Glob, IgnoreLike } from 'glob'
-import { readFile } from 'node:fs/promises'
 import type { Path, PathScurry } from 'path-scurry'
 import { Config } from './index.js'
+import { readSave } from './save-list.js'
 
 const alwaysExcludeNames = [
   '.tap',
@@ -39,14 +39,7 @@ const dirInclude = '**/*.@([mc]js|[jt]s*(x))'
 export const findSuites = async (args: string[], config: Config) => {
   const { values } = config.parse()
 
-  const saveFile = config.get('save')
-  const saveFileList: Set<string> = new Set(
-    !saveFile
-      ? []
-      : (await readFile(saveFile, 'utf8').catch(() => ''))
-          .trim()
-          .split('\n')
-  )
+  const saveList: Set<string> = new Set(await readSave(config))
 
   const ignore = [alwaysExcludePattern]
   if (values.exclude) ignore.push(values.exclude)
@@ -61,10 +54,12 @@ export const findSuites = async (args: string[], config: Config) => {
     (
       await (!args.length
         ? g.walk()
-        : Promise.all(args.map(async a => {
-          if (a === '-' || a === '/dev/stdin') return a
-          return scurry.cwd.resolve(a).lstat()
-        })))
+        : Promise.all(
+            args.map(async a => {
+              if (a === '-' || a === '/dev/stdin') return a
+              return scurry.cwd.resolve(a).lstat()
+            })
+          ))
     ).filter(p => {
       if (!p) return false
       return true
@@ -80,10 +75,10 @@ export const findSuites = async (args: string[], config: Config) => {
     entries.delete(scurry.cwd.resolve(after))
   }
 
-  if (saveFileList.size) {
+  if (saveList.size) {
     for (const p of entries) {
       if (typeof p === 'string') continue
-      if (!saveFileList.has(p.relativePosix())) entries.delete(p)
+      if (!saveList.has(p.relativePosix())) entries.delete(p)
     }
   }
 
@@ -91,7 +86,9 @@ export const findSuites = async (args: string[], config: Config) => {
     await pruneUnchanged(scurry, entries)
   }
 
-  return [...entries].map(p => typeof p === 'string' ? p : p.relativePosix())
+  return [...entries].map(p =>
+    typeof p === 'string' ? p : p.relativePosix()
+  )
 }
 
 const expandDirectories = async (
@@ -126,7 +123,10 @@ const expandDirectories = async (
 
 // delete all the entries in the set that do not reference files
 // that have changed since the last run.
-const pruneUnchanged = async (scurry: PathScurry, entries: Set<Path | '-' | '/dev/stdin'>) => {
+const pruneUnchanged = async (
+  scurry: PathScurry,
+  entries: Set<Path | '-' | '/dev/stdin'>
+) => {
   const dir = scurry.resolve('.tap/processinfo')
   const db = new ProcessInfo({ dir })
   await db.load()
