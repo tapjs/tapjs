@@ -42,7 +42,10 @@ export interface Pragmas {
   [pragma: string]: boolean
 }
 
+// TODO: declare event signatures
+
 export class Parser extends EventEmitter implements NodeJS.WritableStream {
+  // TODO: make these actually #private
   private child: Parser | null = null
   private current: Result | null = null
   private extraQueue: [string, string][] = []
@@ -155,7 +158,7 @@ export class Parser extends EventEmitter implements NodeJS.WritableStream {
 
     const resId = testPoint[2]
 
-    const res = new Result(testPoint)
+    const res = new Result(testPoint, this)
 
     if (resId && this.planStart !== -1) {
       const lessThanStart = res.id < this.planStart

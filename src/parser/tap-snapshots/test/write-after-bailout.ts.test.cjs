@@ -39,6 +39,7 @@ Array [
           "failures": Array [],
           "ok": false,
           "pass": 0,
+          "passes": undefined,
           "plan": FinalPlan {
             "comment": "",
             "end": 1,
@@ -71,6 +72,7 @@ Array [
       "failures": Array [],
       "ok": false,
       "pass": 0,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "",
         "end": null,

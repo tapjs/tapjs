@@ -374,6 +374,7 @@ Array [
       "failures": Array [],
       "ok": true,
       "pass": 6,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "",
         "end": 6,
@@ -389,7 +390,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "directive",
           "id": 2,
           "name": "directive",
           "ok": true,
@@ -403,7 +404,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "escaped \\\\ slash \\\\",
           "id": 3,
           "name": "escaped \\\\ slash \\\\",
           "ok": true,
@@ -417,7 +418,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "yes todo",
           "id": 5,
           "name": "yes todo",
           "ok": true,
@@ -803,6 +804,7 @@ Array [
       "failures": Array [],
       "ok": true,
       "pass": 6,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "",
         "end": 6,
@@ -818,7 +820,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "directive",
           "id": 2,
           "name": "directive",
           "ok": true,
@@ -832,7 +834,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "escaped \\\\ slash \\\\",
           "id": 3,
           "name": "escaped \\\\ slash \\\\",
           "ok": true,
@@ -846,7 +848,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "yes todo",
           "id": 5,
           "name": "yes todo",
           "ok": true,

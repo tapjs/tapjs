@@ -280,6 +280,7 @@ Array [
       ],
       "ok": false,
       "pass": 4,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "",
         "end": null,
@@ -572,6 +573,7 @@ Array [
       ],
       "ok": false,
       "pass": 4,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "",
         "end": null,

@@ -311,6 +311,7 @@ Array [
       "failures": Array [],
       "ok": true,
       "pass": 4,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "",
         "end": 5,
@@ -326,7 +327,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "Unexpected success",
           "id": 2,
           "name": "Unexpected success",
           "ok": true,
@@ -663,6 +664,7 @@ Array [
       "failures": Array [],
       "ok": true,
       "pass": 4,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "",
         "end": 5,
@@ -678,7 +680,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "Unexpected success",
           "id": 2,
           "name": "Unexpected success",
           "ok": true,

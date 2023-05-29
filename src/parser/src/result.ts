@@ -1,4 +1,5 @@
 import { OPEN_BRACE_EOL } from './brace-patterns.js'
+import { Parser } from './index.js'
 import { Directive, parseDirective } from './parse-directive.js'
 import { Plan } from './plan.js'
 
@@ -18,7 +19,7 @@ export class Result {
   public time: number | null = null
   public fullname: string = ''
 
-  constructor(parsed: string[]) {
+  constructor(parsed: string[], parser: Parser) {
     const ok = !parsed[1]
     const id = +(parsed[2] || 0)
     let buffered = parsed[4]
@@ -56,7 +57,7 @@ export class Result {
       } else {
         if (dirKey === 'time') {
           this.time = parseFloat(dirValue)
-        } /* c8 ignore start */ else {
+          /* c8 ignore start */
         }
         /* c8 ignore stop */
       }
@@ -70,5 +71,6 @@ export class Result {
     if (buffered === '{') this.buffered = true
 
     if (name) this.name = name.trim()
+    this.fullname = (parser.fullname + ' ' + this.name).trim()
   }
 }

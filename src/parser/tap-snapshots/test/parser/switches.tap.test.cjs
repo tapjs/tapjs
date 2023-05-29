@@ -106,6 +106,7 @@ Array [
       ],
       "ok": false,
       "pass": 0,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "",
         "end": 1,
@@ -224,6 +225,7 @@ Array [
       ],
       "ok": false,
       "pass": 0,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "",
         "end": 1,

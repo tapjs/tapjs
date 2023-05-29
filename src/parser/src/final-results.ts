@@ -16,19 +16,19 @@ export class FinalResults {
   public plan: FinalPlan
   public skips: (Result & { skip: true | string })[]
   public todos: (Result & { todo: true | string })[]
-  constructor(skipAll: boolean, self: Parser) {
-    this.ok = self.ok
-    this.count = self.count
-    this.pass = self.pass
-    this.fail = self.fail || 0
-    this.bailout = self.bailedOut || false
-    this.todo = self.todo || 0
-    this.skip = skipAll ? self.count : self.skip || 0
-    this.plan = new FinalPlan(skipAll, self)
-    this.failures = self.failures
-    this.time = self.time
-    this.skips = self.skips
-    this.todos = self.todos
-    if (self.passes) this.passes = self.passes
+  constructor(skipAll: boolean, parser: Parser) {
+    this.ok = parser.ok
+    this.count = parser.count
+    this.pass = parser.pass
+    this.fail = parser.fail || 0
+    this.bailout = parser.bailedOut || false
+    this.todo = parser.todo || 0
+    this.skip = skipAll ? parser.count : parser.skip || 0
+    this.plan = new FinalPlan(skipAll, parser)
+    this.failures = parser.failures
+    this.time = parser.time
+    this.skips = parser.skips
+    this.todos = parser.todos
+    if (parser.passes) this.passes = parser.passes
   }
 }

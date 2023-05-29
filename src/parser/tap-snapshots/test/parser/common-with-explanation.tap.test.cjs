@@ -398,6 +398,7 @@ Array [
       "failures": Array [],
       "ok": true,
       "pass": 6,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "",
         "end": 6,
@@ -808,6 +809,7 @@ Array [
       "failures": Array [],
       "ok": true,
       "pass": 6,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "",
         "end": 6,

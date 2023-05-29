@@ -52,6 +52,7 @@ Array [
           "failures": Array [],
           "ok": true,
           "pass": 1,
+          "passes": undefined,
           "plan": FinalPlan {
             "comment": "",
             "end": 1,
@@ -132,6 +133,7 @@ Array [
           "failures": Array [],
           "ok": true,
           "pass": 1,
+          "passes": undefined,
           "plan": FinalPlan {
             "comment": "",
             "end": 1,
@@ -196,6 +198,7 @@ Array [
       "failures": Array [],
       "ok": true,
       "pass": 2,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "",
         "end": 2,
@@ -208,7 +211,7 @@ Array [
         Object {
           "buffered": true,
           "diag": null,
-          "fullname": "",
+          "fullname": "skippy",
           "id": 2,
           "name": "skippy",
           "ok": true,
@@ -226,7 +229,7 @@ Array [
         Object {
           "buffered": true,
           "diag": null,
-          "fullname": "",
+          "fullname": "tbd",
           "id": 1,
           "name": "tbd",
           "ok": true,
@@ -326,6 +329,7 @@ Array [
           "failures": Array [],
           "ok": true,
           "pass": 1,
+          "passes": undefined,
           "plan": FinalPlan {
             "comment": "",
             "end": 1,
@@ -406,6 +410,7 @@ Array [
           "failures": Array [],
           "ok": true,
           "pass": 1,
+          "passes": undefined,
           "plan": FinalPlan {
             "comment": "",
             "end": 1,
@@ -470,6 +475,7 @@ Array [
       "failures": Array [],
       "ok": true,
       "pass": 2,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "",
         "end": 2,
@@ -482,7 +488,7 @@ Array [
         Object {
           "buffered": true,
           "diag": null,
-          "fullname": "",
+          "fullname": "skippy",
           "id": 2,
           "name": "skippy",
           "ok": true,
@@ -500,7 +506,7 @@ Array [
         Object {
           "buffered": true,
           "diag": null,
-          "fullname": "",
+          "fullname": "tbd",
           "id": 1,
           "name": "tbd",
           "ok": true,
@@ -621,6 +627,7 @@ Array [
       "failures": Array [],
       "ok": true,
       "pass": 2,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "",
         "end": 2,
@@ -633,7 +640,7 @@ Array [
         Object {
           "buffered": true,
           "diag": null,
-          "fullname": "",
+          "fullname": "skippy",
           "id": 2,
           "name": "skippy",
           "ok": true,
@@ -651,7 +658,7 @@ Array [
         Object {
           "buffered": true,
           "diag": null,
-          "fullname": "",
+          "fullname": "tbd",
           "id": 1,
           "name": "tbd",
           "ok": true,
@@ -751,6 +758,7 @@ Array [
           "failures": Array [],
           "ok": true,
           "pass": 1,
+          "passes": undefined,
           "plan": FinalPlan {
             "comment": "",
             "end": 1,
@@ -831,6 +839,7 @@ Array [
           "failures": Array [],
           "ok": true,
           "pass": 1,
+          "passes": undefined,
           "plan": FinalPlan {
             "comment": "",
             "end": 1,
@@ -895,6 +904,7 @@ Array [
       "failures": Array [],
       "ok": true,
       "pass": 2,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "",
         "end": 2,
@@ -907,7 +917,7 @@ Array [
         Object {
           "buffered": true,
           "diag": null,
-          "fullname": "",
+          "fullname": "skippy",
           "id": 2,
           "name": "skippy",
           "ok": true,
@@ -925,7 +935,7 @@ Array [
         Object {
           "buffered": true,
           "diag": null,
-          "fullname": "",
+          "fullname": "tbd",
           "id": 1,
           "name": "tbd",
           "ok": true,
@@ -1025,6 +1035,7 @@ Array [
           "failures": Array [],
           "ok": true,
           "pass": 1,
+          "passes": undefined,
           "plan": FinalPlan {
             "comment": "",
             "end": 1,
@@ -1105,6 +1116,7 @@ Array [
           "failures": Array [],
           "ok": true,
           "pass": 1,
+          "passes": undefined,
           "plan": FinalPlan {
             "comment": "",
             "end": 1,
@@ -1169,6 +1181,7 @@ Array [
       "failures": Array [],
       "ok": true,
       "pass": 2,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "",
         "end": 2,
@@ -1181,7 +1194,7 @@ Array [
         Object {
           "buffered": true,
           "diag": null,
-          "fullname": "",
+          "fullname": "skippy",
           "id": 2,
           "name": "skippy",
           "ok": true,
@@ -1199,7 +1212,7 @@ Array [
         Object {
           "buffered": true,
           "diag": null,
-          "fullname": "",
+          "fullname": "tbd",
           "id": 1,
           "name": "tbd",
           "ok": true,

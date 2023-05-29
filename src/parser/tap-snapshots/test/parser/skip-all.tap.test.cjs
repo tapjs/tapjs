@@ -36,6 +36,7 @@ Array [
       "failures": Array [],
       "ok": true,
       "pass": 0,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "SKIP Insufficient positron flux",
         "end": 0,
@@ -84,6 +85,7 @@ Array [
       "failures": Array [],
       "ok": true,
       "pass": 0,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "SKIP Insufficient positron flux",
         "end": 0,

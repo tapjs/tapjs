@@ -94,6 +94,7 @@ Array [
       ],
       "ok": false,
       "pass": 2,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "",
         "end": 10,
@@ -365,6 +366,7 @@ Array [
       ],
       "ok": false,
       "pass": 7,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "",
         "end": 10,
@@ -395,7 +397,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "Elegy 9B",
           "id": 9,
           "name": "Elegy 9B",
           "ok": true,
@@ -647,6 +649,7 @@ Array [
       ],
       "ok": false,
       "pass": 7,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "",
         "end": 10,
@@ -677,7 +680,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "Elegy 9B",
           "id": 9,
           "name": "Elegy 9B",
           "ok": true,
@@ -966,6 +969,7 @@ Array [
       ],
       "ok": false,
       "pass": 7,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "",
         "end": 10,
@@ -996,7 +1000,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "Elegy 9B",
           "id": 9,
           "name": "Elegy 9B",
           "ok": true,
@@ -1144,6 +1148,7 @@ Array [
       ],
       "ok": false,
       "pass": 2,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "",
         "end": 10,

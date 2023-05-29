@@ -32,6 +32,7 @@ Array [
       "failures": Array [],
       "ok": true,
       "pass": 0,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "SKIP Insufficient skipping",
         "end": 0,
@@ -96,6 +97,7 @@ Array [
       "failures": Array [],
       "ok": true,
       "pass": 0,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "SKIP Insufficient skipping",
         "end": 0,
@@ -145,6 +147,7 @@ Array [
       "failures": Array [],
       "ok": true,
       "pass": 0,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "SKIP Insufficient skipping",
         "end": 0,
@@ -214,6 +217,7 @@ Array [
       ],
       "ok": true,
       "pass": 0,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "SKIP Insufficient skipping",
         "end": 0,
@@ -283,6 +287,7 @@ Array [
       ],
       "ok": true,
       "pass": 0,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "SKIP Insufficient skipping",
         "end": 0,

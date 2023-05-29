@@ -116,6 +116,7 @@ Array [
       "failures": Array [],
       "ok": true,
       "pass": 4,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "just some plan comment",
         "end": 4,
@@ -280,6 +281,7 @@ Array [
       "failures": Array [],
       "ok": true,
       "pass": 4,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "just some plan comment",
         "end": 4,
@@ -413,6 +415,7 @@ Array [
       "failures": Array [],
       "ok": true,
       "pass": 4,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "just some plan comment",
         "end": 4,
@@ -577,6 +580,7 @@ Array [
       "failures": Array [],
       "ok": true,
       "pass": 4,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "just some plan comment",
         "end": 4,
@@ -741,6 +745,7 @@ Array [
       "failures": Array [],
       "ok": true,
       "pass": 4,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "just some plan comment",
         "end": 4,

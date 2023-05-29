@@ -2682,6 +2682,7 @@ Array [
       ],
       "ok": false,
       "pass": 114,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "",
         "end": null,
@@ -2694,7 +2695,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "always passes",
           "id": 102,
           "name": "always passes",
           "ok": true,
@@ -2708,7 +2709,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "false",
           "id": 103,
           "name": "false",
           "ok": true,
@@ -2722,7 +2723,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "always passes without explanation",
           "id": 106,
           "name": "always passes without explanation",
           "ok": true,
@@ -2736,7 +2737,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "false without explanation",
           "id": 107,
           "name": "false without explanation",
           "ok": true,
@@ -2754,7 +2755,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "bonus",
           "id": 104,
           "name": "bonus",
           "ok": true,
@@ -2768,7 +2769,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "expected",
           "id": 105,
           "name": "expected",
           "ok": true,
@@ -2782,7 +2783,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "bonus without explanation",
           "id": 108,
           "name": "bonus without explanation",
           "ok": true,
@@ -2796,7 +2797,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "expected without explanation",
           "id": 109,
           "name": "expected without explanation",
           "ok": true,
@@ -9823,6 +9824,7 @@ Array [
       ],
       "ok": false,
       "pass": 307,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "",
         "end": 312,
@@ -9835,7 +9837,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "always passes",
           "id": 102,
           "name": "always passes",
           "ok": true,
@@ -9849,7 +9851,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "false",
           "id": 103,
           "name": "false",
           "ok": true,
@@ -9863,7 +9865,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "always passes without explanation",
           "id": 106,
           "name": "always passes without explanation",
           "ok": true,
@@ -9877,7 +9879,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "false without explanation",
           "id": 107,
           "name": "false without explanation",
           "ok": true,
@@ -9891,7 +9893,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "does not count as failure",
           "id": 148,
           "name": "does not count as failure",
           "ok": true,
@@ -9909,7 +9911,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "bonus",
           "id": 104,
           "name": "bonus",
           "ok": true,
@@ -9923,7 +9925,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "expected",
           "id": 105,
           "name": "expected",
           "ok": true,
@@ -9937,7 +9939,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "bonus without explanation",
           "id": 108,
           "name": "bonus without explanation",
           "ok": true,
@@ -9951,7 +9953,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "expected without explanation",
           "id": 109,
           "name": "expected without explanation",
           "ok": true,
@@ -16355,6 +16357,7 @@ Array [
       ],
       "ok": false,
       "pass": 307,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "",
         "end": 312,
@@ -16367,7 +16370,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "always passes",
           "id": 102,
           "name": "always passes",
           "ok": true,
@@ -16381,7 +16384,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "false",
           "id": 103,
           "name": "false",
           "ok": true,
@@ -16395,7 +16398,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "always passes without explanation",
           "id": 106,
           "name": "always passes without explanation",
           "ok": true,
@@ -16409,7 +16412,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "false without explanation",
           "id": 107,
           "name": "false without explanation",
           "ok": true,
@@ -16423,7 +16426,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "does not count as failure",
           "id": 148,
           "name": "does not count as failure",
           "ok": true,
@@ -16441,7 +16444,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "bonus",
           "id": 104,
           "name": "bonus",
           "ok": true,
@@ -16455,7 +16458,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "expected",
           "id": 105,
           "name": "expected",
           "ok": true,
@@ -16469,7 +16472,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "bonus without explanation",
           "id": 108,
           "name": "bonus without explanation",
           "ok": true,
@@ -16483,7 +16486,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "expected without explanation",
           "id": 109,
           "name": "expected without explanation",
           "ok": true,
@@ -24156,6 +24159,7 @@ Array [
       ],
       "ok": false,
       "pass": 307,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "",
         "end": 312,
@@ -24168,7 +24172,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "always passes",
           "id": 102,
           "name": "always passes",
           "ok": true,
@@ -24182,7 +24186,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "false",
           "id": 103,
           "name": "false",
           "ok": true,
@@ -24196,7 +24200,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "always passes without explanation",
           "id": 106,
           "name": "always passes without explanation",
           "ok": true,
@@ -24210,7 +24214,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "false without explanation",
           "id": 107,
           "name": "false without explanation",
           "ok": true,
@@ -24224,7 +24228,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "does not count as failure",
           "id": 148,
           "name": "does not count as failure",
           "ok": true,
@@ -24242,7 +24246,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "bonus",
           "id": 104,
           "name": "bonus",
           "ok": true,
@@ -24256,7 +24260,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "expected",
           "id": 105,
           "name": "expected",
           "ok": true,
@@ -24270,7 +24274,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "bonus without explanation",
           "id": 108,
           "name": "bonus without explanation",
           "ok": true,
@@ -24284,7 +24288,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "expected without explanation",
           "id": 109,
           "name": "expected without explanation",
           "ok": true,
@@ -28252,6 +28256,7 @@ Array [
       ],
       "ok": false,
       "pass": 114,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "",
         "end": null,
@@ -28264,7 +28269,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "always passes",
           "id": 102,
           "name": "always passes",
           "ok": true,
@@ -28278,7 +28283,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "false",
           "id": 103,
           "name": "false",
           "ok": true,
@@ -28292,7 +28297,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "always passes without explanation",
           "id": 106,
           "name": "always passes without explanation",
           "ok": true,
@@ -28306,7 +28311,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "false without explanation",
           "id": 107,
           "name": "false without explanation",
           "ok": true,
@@ -28324,7 +28329,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "bonus",
           "id": 104,
           "name": "bonus",
           "ok": true,
@@ -28338,7 +28343,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "expected",
           "id": 105,
           "name": "expected",
           "ok": true,
@@ -28352,7 +28357,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "bonus without explanation",
           "id": 108,
           "name": "bonus without explanation",
           "ok": true,
@@ -28366,7 +28371,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "expected without explanation",
           "id": 109,
           "name": "expected without explanation",
           "ok": true,

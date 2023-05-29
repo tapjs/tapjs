@@ -49,6 +49,7 @@ Array [
       "failures": Array [],
       "ok": true,
       "pass": 1,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "",
         "end": 1,
@@ -61,7 +62,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "totally fine",
           "id": 1,
           "name": "totally fine",
           "ok": true,
@@ -147,6 +148,7 @@ Array [
       "failures": Array [],
       "ok": true,
       "pass": 1,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "",
         "end": 1,
@@ -159,7 +161,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "totally fine",
           "id": 1,
           "name": "totally fine",
           "ok": true,
@@ -228,6 +230,7 @@ Array [
       "failures": Array [],
       "ok": true,
       "pass": 1,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "",
         "end": 1,
@@ -240,7 +243,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "totally fine",
           "id": 1,
           "name": "totally fine",
           "ok": true,
@@ -326,6 +329,7 @@ Array [
       "failures": Array [],
       "ok": true,
       "pass": 1,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "",
         "end": 1,
@@ -338,7 +342,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "totally fine",
           "id": 1,
           "name": "totally fine",
           "ok": true,
@@ -424,6 +428,7 @@ Array [
       "failures": Array [],
       "ok": true,
       "pass": 1,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "",
         "end": 1,
@@ -436,7 +441,7 @@ Array [
         Object {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "totally fine",
           "id": 1,
           "name": "totally fine",
           "ok": true,

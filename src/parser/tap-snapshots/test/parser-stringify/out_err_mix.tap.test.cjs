@@ -32,6 +32,7 @@ Array [
       "failures": Array [],
       "ok": true,
       "pass": 0,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "no tests found",
         "end": 0,
@@ -96,6 +97,7 @@ Array [
       "failures": Array [],
       "ok": true,
       "pass": 0,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "no tests found",
         "end": 0,
@@ -145,6 +147,7 @@ Array [
       "failures": Array [],
       "ok": true,
       "pass": 0,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "no tests found",
         "end": 0,
@@ -222,6 +225,7 @@ Array [
       ],
       "ok": false,
       "pass": 0,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "no tests found",
         "end": 0,
@@ -301,6 +305,7 @@ Array [
       ],
       "ok": false,
       "pass": 0,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "no tests found",
         "end": 0,

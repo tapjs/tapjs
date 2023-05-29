@@ -120,6 +120,7 @@ Array [
               "failures": Array [],
               "ok": true,
               "pass": 2,
+              "passes": undefined,
               "plan": FinalPlan {
                 "comment": "",
                 "end": 2,
@@ -267,6 +268,7 @@ Array [
               "failures": Array [],
               "ok": true,
               "pass": 3,
+              "passes": undefined,
               "plan": FinalPlan {
                 "comment": "",
                 "end": 3,
@@ -332,6 +334,7 @@ Array [
           "failures": Array [],
           "ok": true,
           "pass": 2,
+          "passes": undefined,
           "plan": FinalPlan {
             "comment": "",
             "end": 2,
@@ -674,6 +677,7 @@ Array [
       "failures": Array [],
       "ok": true,
       "pass": 2,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "",
         "end": 2,
@@ -806,6 +810,7 @@ Array [
               "failures": Array [],
               "ok": true,
               "pass": 2,
+              "passes": undefined,
               "plan": FinalPlan {
                 "comment": "",
                 "end": 2,
@@ -953,6 +958,7 @@ Array [
               "failures": Array [],
               "ok": true,
               "pass": 3,
+              "passes": undefined,
               "plan": FinalPlan {
                 "comment": "",
                 "end": 3,
@@ -1018,6 +1024,7 @@ Array [
           "failures": Array [],
           "ok": true,
           "pass": 2,
+          "passes": undefined,
           "plan": FinalPlan {
             "comment": "",
             "end": 2,
@@ -1360,6 +1367,7 @@ Array [
       "failures": Array [],
       "ok": true,
       "pass": 2,
+      "passes": undefined,
       "plan": FinalPlan {
         "comment": "",
         "end": 2,
