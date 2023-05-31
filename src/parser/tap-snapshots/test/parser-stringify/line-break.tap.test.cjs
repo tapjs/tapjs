@@ -33,7 +33,7 @@ Array [
               ),
             ],
           },
-          "fullname": "foo",
+          "fullname": "foo should be equivalent",
           "id": 1,
           "name": "should be equivalent",
           "ok": false,
@@ -69,7 +69,7 @@ Array [
                   ),
                 ],
               },
-              "fullname": "foo",
+              "fullname": "foo should be equivalent",
               "id": 1,
               "name": "should be equivalent",
               "ok": false,
@@ -165,7 +165,7 @@ Bail out! should be equivalent
 exports[`test/parse-stringify.ts TAP line-break.tap bail > stringified flat 1`] = `
 TAP version 13
 # Subtest: foo
-not ok 1 - foo > should be equivalent
+not ok 1 - foo should be equivalent
   ---
   found:
     - xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -209,7 +209,7 @@ Array [
               ),
             ],
           },
-          "fullname": "foo",
+          "fullname": "foo should be equivalent",
           "id": 1,
           "name": "should be equivalent",
           "ok": false,
@@ -257,7 +257,7 @@ Array [
                   ),
                 ],
               },
-              "fullname": "foo",
+              "fullname": "foo should be equivalent",
               "id": 1,
               "name": "should be equivalent",
               "ok": false,
@@ -311,7 +311,7 @@ Array [
           "time": 13.457,
         },
       },
-      "fullname": "",
+      "fullname": "foo",
       "id": 1,
       "name": "foo",
       "ok": false,
@@ -365,7 +365,7 @@ Array [
               "time": 13.457,
             },
           },
-          "fullname": "",
+          "fullname": "foo",
           "id": 1,
           "name": "foo",
           "ok": false,
@@ -424,9 +424,9 @@ Array [
           ),
         ],
       },
-      "fullname": "",
+      "fullname": "foo should be equivalent",
       "id": 1,
-      "name": "foo > should be equivalent",
+      "name": "foo should be equivalent",
       "ok": false,
       "plan": null,
       "previous": null,
@@ -477,7 +477,7 @@ Array [
               "time": 13.457,
             },
           },
-          "fullname": "",
+          "fullname": "foo",
           "id": 1,
           "name": "foo",
           "ok": false,
@@ -554,7 +554,7 @@ not ok 1 - foo # time=13.457ms
 exports[`test/parse-stringify.ts TAP line-break.tap default settings > stringified flat 1`] = `
 TAP version 13
 # Subtest: foo
-not ok 1 - foo > should be equivalent
+not ok 1 - foo should be equivalent
   ---
   found:
     - xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -614,7 +614,7 @@ Array [
               ),
             ],
           },
-          "fullname": "foo",
+          "fullname": "foo should be equivalent",
           "id": 1,
           "name": "should be equivalent",
           "ok": false,
@@ -662,7 +662,7 @@ Array [
                   ),
                 ],
               },
-              "fullname": "foo",
+              "fullname": "foo should be equivalent",
               "id": 1,
               "name": "should be equivalent",
               "ok": false,
@@ -716,7 +716,7 @@ Array [
           "time": 13.457,
         },
       },
-      "fullname": "",
+      "fullname": "foo",
       "id": 1,
       "name": "foo",
       "ok": false,
@@ -770,7 +770,7 @@ Array [
               "time": 13.457,
             },
           },
-          "fullname": "",
+          "fullname": "foo",
           "id": 1,
           "name": "foo",
           "ok": false,
@@ -847,7 +847,7 @@ not ok 1 - foo # time=13.457ms
 exports[`test/parse-stringify.ts TAP line-break.tap strict > stringified flat 1`] = `
 TAP version 13
 # Subtest: foo
-not ok 1 - foo > should be equivalent
+not ok 1 - foo should be equivalent
   ---
   found:
     - xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -907,7 +907,7 @@ Array [
               ),
             ],
           },
-          "fullname": "foo",
+          "fullname": "foo should be equivalent",
           "id": 1,
           "name": "should be equivalent",
           "ok": false,
@@ -943,7 +943,7 @@ Array [
                   ),
                 ],
               },
-              "fullname": "foo",
+              "fullname": "foo should be equivalent",
               "id": 1,
               "name": "should be equivalent",
               "ok": false,
@@ -1039,7 +1039,7 @@ Bail out! should be equivalent
 exports[`test/parse-stringify.ts TAP line-break.tap strictBail > stringified flat 1`] = `
 TAP version 13
 # Subtest: foo
-not ok 1 - foo > should be equivalent
+not ok 1 - foo should be equivalent
   ---
   found:
     - xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx

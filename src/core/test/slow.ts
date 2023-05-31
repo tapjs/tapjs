@@ -12,14 +12,15 @@ t.test('hello', async t => {
 })
 
 t.test('this takes a sec', t => {
-  setTimeout(() => t.end(), 1000)
+  setTimeout(() => t.end(), 2500)
 })
 
 t.test('test with a skip', t => {
   t.fail('someday', { skip: 'do this eventually' })
+  t.fail('this is not ok')
   t.end()
 })
 
 t.test('this takes a sec', t => {
-  setTimeout(() => t.end(), 1000)
+  setTimeout(() => t.end(), 3000)
 })

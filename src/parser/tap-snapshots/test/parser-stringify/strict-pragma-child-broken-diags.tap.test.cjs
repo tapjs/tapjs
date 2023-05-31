@@ -28,7 +28,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "child",
+          "fullname": "child test point in child",
           "id": 1,
           "name": "test point in child",
           "ok": false,
@@ -62,7 +62,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "child",
+              "fullname": "child test point in child",
               "id": 1,
               "name": "test point in child",
               "ok": false,
@@ -169,7 +169,7 @@ exports[`test/parse-stringify.ts TAP strict-pragma-child-broken-diags.tap bail >
 TAP version 13
 pragma +strict
 # Subtest: child
-not ok 1 - child > test point in child
+not ok 1 - child test point in child
 Bail out! test point in child
       ...
       hello: world
@@ -200,7 +200,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "child",
+          "fullname": "child test point in child",
           "id": 1,
           "name": "test point in child",
           "ok": false,
@@ -238,7 +238,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "child",
+              "fullname": "child test point in child",
               "id": 1,
               "name": "test point in child",
               "ok": false,
@@ -291,7 +291,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "child",
       "id": 1,
       "name": "child",
       "ok": false,
@@ -333,7 +333,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "child",
           "id": 1,
           "name": "child",
           "ok": false,
@@ -395,9 +395,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "child test point in child",
       "id": 1,
-      "name": "child > test point in child",
+      "name": "child test point in child",
       "ok": false,
       "plan": null,
       "previous": null,
@@ -436,7 +436,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "child",
           "id": 1,
           "name": "child",
           "ok": false,
@@ -493,7 +493,7 @@ exports[`test/parse-stringify.ts TAP strict-pragma-child-broken-diags.tap defaul
 TAP version 13
 pragma +strict
 # Subtest: child
-not ok 1 - child > test point in child
+not ok 1 - child test point in child
 # test count(1) != plan(null)
 # failed 4 test
       ...
@@ -527,7 +527,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "child",
+          "fullname": "child test point in child",
           "id": 1,
           "name": "test point in child",
           "ok": false,
@@ -565,7 +565,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "child",
+              "fullname": "child test point in child",
               "id": 1,
               "name": "test point in child",
               "ok": false,
@@ -618,7 +618,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "child",
       "id": 1,
       "name": "child",
       "ok": false,
@@ -660,7 +660,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "child",
           "id": 1,
           "name": "child",
           "ok": false,
@@ -717,7 +717,7 @@ exports[`test/parse-stringify.ts TAP strict-pragma-child-broken-diags.tap strict
 TAP version 13
 pragma +strict
 # Subtest: child
-not ok 1 - child > test point in child
+not ok 1 - child test point in child
 # test count(1) != plan(null)
 # failed 4 test
       ...
@@ -751,7 +751,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "child",
+          "fullname": "child test point in child",
           "id": 1,
           "name": "test point in child",
           "ok": false,
@@ -785,7 +785,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "child",
+              "fullname": "child test point in child",
               "id": 1,
               "name": "test point in child",
               "ok": false,
@@ -892,7 +892,7 @@ exports[`test/parse-stringify.ts TAP strict-pragma-child-broken-diags.tap strict
 TAP version 13
 pragma +strict
 # Subtest: child
-not ok 1 - child > test point in child
+not ok 1 - child test point in child
 Bail out! test point in child
       ...
       hello: world

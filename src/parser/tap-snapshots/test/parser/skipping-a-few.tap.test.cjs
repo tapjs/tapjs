@@ -36,7 +36,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "approved operating system",
       "id": 1,
       "name": "approved operating system",
       "ok": true,
@@ -53,7 +53,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "approved operating system",
       "id": 1,
       "name": "approved operating system",
       "ok": true,
@@ -70,7 +70,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "approved operating system",
       "id": 1,
       "name": "approved operating system",
       "ok": true,
@@ -433,7 +433,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "approved operating system",
       "id": 1,
       "name": "approved operating system",
       "ok": true,
@@ -450,7 +450,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "approved operating system",
       "id": 1,
       "name": "approved operating system",
       "ok": true,
@@ -467,7 +467,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "approved operating system",
       "id": 1,
       "name": "approved operating system",
       "ok": true,

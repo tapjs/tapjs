@@ -24,7 +24,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test suite started",
       "id": 0,
       "name": "test suite started",
       "ok": true,
@@ -41,7 +41,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test suite started",
       "id": 0,
       "name": "test suite started",
       "ok": true,
@@ -58,7 +58,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test suite started",
       "id": 0,
       "name": "test suite started",
       "ok": true,
@@ -93,7 +93,7 @@ Array [
       "diag": Object {
         "Bogomips": 5226.88,
       },
-      "fullname": "",
+      "fullname": "bogomips",
       "id": 0,
       "name": "bogomips",
       "ok": true,
@@ -112,7 +112,7 @@ Array [
       "diag": Object {
         "Bogomips": 5226.88,
       },
-      "fullname": "",
+      "fullname": "bogomips",
       "id": 0,
       "name": "bogomips",
       "ok": true,
@@ -131,7 +131,7 @@ Array [
       "diag": Object {
         "Bogomips": 5226.88,
       },
-      "fullname": "",
+      "fullname": "bogomips",
       "id": 0,
       "name": "bogomips",
       "ok": true,
@@ -152,7 +152,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test suite finished",
       "id": 0,
       "name": "test suite finished",
       "ok": true,
@@ -169,7 +169,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test suite finished",
       "id": 0,
       "name": "test suite finished",
       "ok": true,
@@ -186,7 +186,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test suite finished",
       "id": 0,
       "name": "test suite finished",
       "ok": true,
@@ -256,7 +256,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test suite started",
       "id": 0,
       "name": "test suite started",
       "ok": true,
@@ -273,7 +273,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test suite started",
       "id": 0,
       "name": "test suite started",
       "ok": true,
@@ -290,7 +290,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test suite started",
       "id": 0,
       "name": "test suite started",
       "ok": true,
@@ -325,7 +325,7 @@ Array [
       "diag": Object {
         "Bogomips": 5226.88,
       },
-      "fullname": "",
+      "fullname": "bogomips",
       "id": 0,
       "name": "bogomips",
       "ok": true,
@@ -344,7 +344,7 @@ Array [
       "diag": Object {
         "Bogomips": 5226.88,
       },
-      "fullname": "",
+      "fullname": "bogomips",
       "id": 0,
       "name": "bogomips",
       "ok": true,
@@ -363,7 +363,7 @@ Array [
       "diag": Object {
         "Bogomips": 5226.88,
       },
-      "fullname": "",
+      "fullname": "bogomips",
       "id": 0,
       "name": "bogomips",
       "ok": true,
@@ -384,7 +384,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test suite finished",
       "id": 0,
       "name": "test suite finished",
       "ok": true,
@@ -401,7 +401,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test suite finished",
       "id": 0,
       "name": "test suite finished",
       "ok": true,
@@ -418,7 +418,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test suite finished",
       "id": 0,
       "name": "test suite finished",
       "ok": true,

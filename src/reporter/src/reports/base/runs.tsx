@@ -3,13 +3,14 @@ import { Box } from 'ink'
 import React, { FC, useEffect, useState } from 'react'
 import { TapReportOpts } from '../../index.js'
 import { listenCleanup } from '../../listen-cleanup.js'
-import { RunSummary } from './test-summary.js'
+import { TestSummary } from './test-summary.js'
 
 // Every time a test ends, print just the summary
 export const Runs: FC<Pick<TapReportOpts, 'tap'>> = ({ tap }) => {
   const [tests, updateTests] = useState<Base[]>([])
   const cleanup: (() => void)[] = []
   const doCleanup = () => {
+    // console.error('CLEANUP RUNS')
     for (const c of cleanup) c()
     cleanup.length = 0
   }
@@ -21,12 +22,14 @@ export const Runs: FC<Pick<TapReportOpts, 'tap'>> = ({ tap }) => {
     return doCleanup
   }, [tests])
   return (
-    <Box flexDirection="column">
-      {tests.map(test => (
-        <Box key={test.childId}>
-          <RunSummary test={test} />
-        </Box>
-      ))}
+    <Box flexDirection="column" paddingTop={1}>
+      {tests
+        .filter(t => !t.results)
+        .map(test => (
+          <Box key={test.childId}>
+            <TestSummary test={test} />
+          </Box>
+        ))}
     </Box>
   )
 }

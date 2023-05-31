@@ -194,7 +194,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "maybe a child",
       "id": 0,
       "name": "maybe a child",
       "ok": true,

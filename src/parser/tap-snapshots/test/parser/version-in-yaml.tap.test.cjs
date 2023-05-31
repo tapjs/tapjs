@@ -64,7 +64,7 @@ Array [
               TAP version 13
             ),
           },
-          "fullname": "child indented",
+          "fullname": "child indented some yaml",
           "id": 0,
           "name": "some yaml",
           "ok": false,
@@ -111,7 +111,7 @@ Array [
                   TAP version 13
                 ),
               },
-              "fullname": "child indented",
+              "fullname": "child indented some yaml",
               "id": 0,
               "name": "some yaml",
               "ok": false,
@@ -183,7 +183,7 @@ Array [
           TAP version 13
         ),
       },
-      "fullname": "child indented",
+      "fullname": "child indented some yaml",
       "id": 0,
       "name": "some yaml",
       "ok": false,
@@ -205,7 +205,7 @@ Array [
           TAP version 13
         ),
       },
-      "fullname": "child indented",
+      "fullname": "child indented some yaml",
       "id": 0,
       "name": "some yaml",
       "ok": false,
@@ -234,7 +234,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "child indented",
       "id": 1,
       "name": "child indented",
       "ok": false,
@@ -295,7 +295,7 @@ Array [
               TAP version 13
             ),
           },
-          "fullname": "child unindented",
+          "fullname": "child unindented some yaml",
           "id": 0,
           "name": "some yaml",
           "ok": false,
@@ -342,7 +342,7 @@ Array [
                   TAP version 13
                 ),
               },
-              "fullname": "child unindented",
+              "fullname": "child unindented some yaml",
               "id": 0,
               "name": "some yaml",
               "ok": false,
@@ -414,7 +414,7 @@ Array [
           TAP version 13
         ),
       },
-      "fullname": "child unindented",
+      "fullname": "child unindented some yaml",
       "id": 0,
       "name": "some yaml",
       "ok": false,
@@ -436,7 +436,7 @@ Array [
           TAP version 13
         ),
       },
-      "fullname": "child unindented",
+      "fullname": "child unindented some yaml",
       "id": 0,
       "name": "some yaml",
       "ok": false,
@@ -465,7 +465,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "child unindented",
       "id": 2,
       "name": "child unindented",
       "ok": false,
@@ -526,7 +526,7 @@ Array [
               TAP version 13
             ),
           },
-          "fullname": "",
+          "fullname": "some yaml",
           "id": 0,
           "name": "some yaml",
           "ok": false,
@@ -573,7 +573,7 @@ Array [
                   TAP version 13
                 ),
               },
-              "fullname": "",
+              "fullname": "some yaml",
               "id": 0,
               "name": "some yaml",
               "ok": false,
@@ -645,7 +645,7 @@ Array [
           TAP version 13
         ),
       },
-      "fullname": "",
+      "fullname": "some yaml",
       "id": 0,
       "name": "some yaml",
       "ok": false,
@@ -667,7 +667,7 @@ Array [
           TAP version 13
         ),
       },
-      "fullname": "",
+      "fullname": "some yaml",
       "id": 0,
       "name": "some yaml",
       "ok": false,
@@ -696,7 +696,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "child unnamed",
       "id": 3,
       "name": "child unnamed",
       "ok": false,
@@ -713,7 +713,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "child unnamed",
       "id": 3,
       "name": "child unnamed",
       "ok": false,
@@ -730,7 +730,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "child unnamed",
       "id": 3,
       "name": "child unnamed",
       "ok": false,
@@ -791,7 +791,7 @@ Array [
               TAP version 13
             ),
           },
-          "fullname": "child buffered",
+          "fullname": "child buffered some yaml",
           "id": 0,
           "name": "some yaml",
           "ok": false,
@@ -838,7 +838,7 @@ Array [
                   TAP version 13
                 ),
               },
-              "fullname": "child buffered",
+              "fullname": "child buffered some yaml",
               "id": 0,
               "name": "some yaml",
               "ok": false,
@@ -910,7 +910,7 @@ Array [
           TAP version 13
         ),
       },
-      "fullname": "child buffered",
+      "fullname": "child buffered some yaml",
       "id": 0,
       "name": "some yaml",
       "ok": false,
@@ -932,7 +932,7 @@ Array [
           TAP version 13
         ),
       },
-      "fullname": "child buffered",
+      "fullname": "child buffered some yaml",
       "id": 0,
       "name": "some yaml",
       "ok": false,
@@ -961,7 +961,7 @@ Array [
     Result {
       "buffered": true,
       "diag": null,
-      "fullname": "",
+      "fullname": "child buffered",
       "id": 4,
       "name": "child buffered",
       "ok": false,
@@ -1003,7 +1003,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "child indented",
           "id": 1,
           "name": "child indented",
           "ok": false,
@@ -1017,7 +1017,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "child unindented",
           "id": 2,
           "name": "child unindented",
           "ok": false,
@@ -1031,7 +1031,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "child unnamed",
           "id": 3,
           "name": "child unnamed",
           "ok": false,
@@ -1045,7 +1045,7 @@ Array [
         Result {
           "buffered": true,
           "diag": null,
-          "fullname": "",
+          "fullname": "child buffered",
           "id": 4,
           "name": "child buffered",
           "ok": false,
@@ -1136,7 +1136,7 @@ Array [
               TAP version 13
             ),
           },
-          "fullname": "child indented",
+          "fullname": "child indented some yaml",
           "id": 0,
           "name": "some yaml",
           "ok": false,
@@ -1171,7 +1171,7 @@ Array [
                   TAP version 13
                 ),
               },
-              "fullname": "child indented",
+              "fullname": "child indented some yaml",
               "id": 0,
               "name": "some yaml",
               "ok": false,
@@ -1243,7 +1243,7 @@ Array [
           TAP version 13
         ),
       },
-      "fullname": "child indented",
+      "fullname": "child indented some yaml",
       "id": 0,
       "name": "some yaml",
       "ok": false,
@@ -1265,7 +1265,7 @@ Array [
           TAP version 13
         ),
       },
-      "fullname": "child indented",
+      "fullname": "child indented some yaml",
       "id": 0,
       "name": "some yaml",
       "ok": false,

@@ -28,7 +28,7 @@ Array [
               TAP version 13
             ),
           },
-          "fullname": "child indented",
+          "fullname": "child indented some yaml",
           "id": 0,
           "name": "some yaml",
           "ok": false,
@@ -59,7 +59,7 @@ Array [
                   TAP version 13
                 ),
               },
-              "fullname": "child indented",
+              "fullname": "child indented some yaml",
               "id": 0,
               "name": "some yaml",
               "ok": false,
@@ -150,7 +150,7 @@ Bail out! some yaml
 exports[`test/parse-stringify.ts TAP version-in-yaml.tap bail > stringified flat 1`] = `
 TAP version 13
 # Subtest: child indented
-not ok 1 - child indented > some yaml
+not ok 1 - child indented some yaml
   ---
   version: |-
     
@@ -184,7 +184,7 @@ Array [
               TAP version 13
             ),
           },
-          "fullname": "child indented",
+          "fullname": "child indented some yaml",
           "id": 0,
           "name": "some yaml",
           "ok": false,
@@ -223,7 +223,7 @@ Array [
                   TAP version 13
                 ),
               },
-              "fullname": "child indented",
+              "fullname": "child indented some yaml",
               "id": 0,
               "name": "some yaml",
               "ok": false,
@@ -265,7 +265,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "child indented",
       "id": 1,
       "name": "child indented",
       "ok": false,
@@ -294,7 +294,7 @@ Array [
               TAP version 13
             ),
           },
-          "fullname": "child unindented",
+          "fullname": "child unindented some yaml",
           "id": 0,
           "name": "some yaml",
           "ok": false,
@@ -333,7 +333,7 @@ Array [
                   TAP version 13
                 ),
               },
-              "fullname": "child unindented",
+              "fullname": "child unindented some yaml",
               "id": 0,
               "name": "some yaml",
               "ok": false,
@@ -375,7 +375,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "child unindented",
       "id": 2,
       "name": "child unindented",
       "ok": false,
@@ -404,7 +404,7 @@ Array [
               TAP version 13
             ),
           },
-          "fullname": "",
+          "fullname": "some yaml",
           "id": 0,
           "name": "some yaml",
           "ok": false,
@@ -443,7 +443,7 @@ Array [
                   TAP version 13
                 ),
               },
-              "fullname": "",
+              "fullname": "some yaml",
               "id": 0,
               "name": "some yaml",
               "ok": false,
@@ -485,7 +485,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "child unnamed",
       "id": 3,
       "name": "child unnamed",
       "ok": false,
@@ -514,7 +514,7 @@ Array [
               TAP version 13
             ),
           },
-          "fullname": "child buffered",
+          "fullname": "child buffered some yaml",
           "id": 0,
           "name": "some yaml",
           "ok": false,
@@ -553,7 +553,7 @@ Array [
                   TAP version 13
                 ),
               },
-              "fullname": "child buffered",
+              "fullname": "child buffered some yaml",
               "id": 0,
               "name": "some yaml",
               "ok": false,
@@ -595,7 +595,7 @@ Array [
     Result {
       "buffered": true,
       "diag": null,
-      "fullname": "",
+      "fullname": "child buffered",
       "id": 4,
       "name": "child buffered",
       "ok": false,
@@ -629,7 +629,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "child indented",
           "id": 1,
           "name": "child indented",
           "ok": false,
@@ -643,7 +643,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "child unindented",
           "id": 2,
           "name": "child unindented",
           "ok": false,
@@ -657,7 +657,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "child unnamed",
           "id": 3,
           "name": "child unnamed",
           "ok": false,
@@ -671,7 +671,7 @@ Array [
         Result {
           "buffered": true,
           "diag": null,
-          "fullname": "",
+          "fullname": "child buffered",
           "id": 4,
           "name": "child buffered",
           "ok": false,
@@ -725,9 +725,9 @@ Array [
           TAP version 13
         ),
       },
-      "fullname": "",
+      "fullname": "child indented some yaml",
       "id": 1,
-      "name": "child indented > some yaml",
+      "name": "child indented some yaml",
       "ok": false,
       "plan": null,
       "previous": null,
@@ -747,9 +747,9 @@ Array [
           TAP version 13
         ),
       },
-      "fullname": "",
+      "fullname": "child unindented some yaml",
       "id": 2,
-      "name": "child unindented > some yaml",
+      "name": "child unindented some yaml",
       "ok": false,
       "plan": null,
       "previous": null,
@@ -769,7 +769,7 @@ Array [
           TAP version 13
         ),
       },
-      "fullname": "",
+      "fullname": "some yaml",
       "id": 3,
       "name": "some yaml",
       "ok": false,
@@ -786,7 +786,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "child unnamed",
       "id": 4,
       "name": "child unnamed",
       "ok": false,
@@ -808,9 +808,9 @@ Array [
           TAP version 13
         ),
       },
-      "fullname": "",
+      "fullname": "child buffered some yaml",
       "id": 5,
-      "name": "child buffered > some yaml",
+      "name": "child buffered some yaml",
       "ok": false,
       "plan": null,
       "previous": null,
@@ -841,7 +841,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "child indented",
           "id": 1,
           "name": "child indented",
           "ok": false,
@@ -855,7 +855,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "child unindented",
           "id": 2,
           "name": "child unindented",
           "ok": false,
@@ -869,7 +869,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "child unnamed",
           "id": 4,
           "name": "child unnamed",
           "ok": false,
@@ -883,7 +883,7 @@ Array [
         Result {
           "buffered": true,
           "diag": null,
-          "fullname": "",
+          "fullname": "child buffered",
           "id": 4,
           "name": "child buffered",
           "ok": false,
@@ -971,7 +971,7 @@ not ok 4 - child buffered
 exports[`test/parse-stringify.ts TAP version-in-yaml.tap default settings > stringified flat 1`] = `
 TAP version 13
 # Subtest: child indented
-not ok 1 - child indented > some yaml
+not ok 1 - child indented some yaml
   ---
   version: |-
     
@@ -980,7 +980,7 @@ not ok 1 - child indented > some yaml
 # failed 1 test
 not ok 2 - child indented
 # Subtest: child unindented
-not ok 3 - child unindented > some yaml
+not ok 3 - child unindented some yaml
   ---
   version: |-
     
@@ -998,7 +998,7 @@ not ok 5 - some yaml
 # failed 1 test
 not ok 6 - child unnamed
 # Subtest: child buffered
-not ok 7 - child buffered > some yaml
+not ok 7 - child buffered some yaml
   ---
   version: |-
     
@@ -1034,7 +1034,7 @@ Array [
               TAP version 13
             ),
           },
-          "fullname": "child indented",
+          "fullname": "child indented some yaml",
           "id": 0,
           "name": "some yaml",
           "ok": false,
@@ -1073,7 +1073,7 @@ Array [
                   TAP version 13
                 ),
               },
-              "fullname": "child indented",
+              "fullname": "child indented some yaml",
               "id": 0,
               "name": "some yaml",
               "ok": false,
@@ -1115,7 +1115,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "child indented",
       "id": 1,
       "name": "child indented",
       "ok": false,
@@ -1144,7 +1144,7 @@ Array [
               TAP version 13
             ),
           },
-          "fullname": "child unindented",
+          "fullname": "child unindented some yaml",
           "id": 0,
           "name": "some yaml",
           "ok": false,
@@ -1183,7 +1183,7 @@ Array [
                   TAP version 13
                 ),
               },
-              "fullname": "child unindented",
+              "fullname": "child unindented some yaml",
               "id": 0,
               "name": "some yaml",
               "ok": false,
@@ -1225,7 +1225,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "child unindented",
       "id": 2,
       "name": "child unindented",
       "ok": false,
@@ -1254,7 +1254,7 @@ Array [
               TAP version 13
             ),
           },
-          "fullname": "",
+          "fullname": "some yaml",
           "id": 0,
           "name": "some yaml",
           "ok": false,
@@ -1293,7 +1293,7 @@ Array [
                   TAP version 13
                 ),
               },
-              "fullname": "",
+              "fullname": "some yaml",
               "id": 0,
               "name": "some yaml",
               "ok": false,
@@ -1335,7 +1335,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "child unnamed",
       "id": 3,
       "name": "child unnamed",
       "ok": false,
@@ -1364,7 +1364,7 @@ Array [
               TAP version 13
             ),
           },
-          "fullname": "child buffered",
+          "fullname": "child buffered some yaml",
           "id": 0,
           "name": "some yaml",
           "ok": false,
@@ -1403,7 +1403,7 @@ Array [
                   TAP version 13
                 ),
               },
-              "fullname": "child buffered",
+              "fullname": "child buffered some yaml",
               "id": 0,
               "name": "some yaml",
               "ok": false,
@@ -1445,7 +1445,7 @@ Array [
     Result {
       "buffered": true,
       "diag": null,
-      "fullname": "",
+      "fullname": "child buffered",
       "id": 4,
       "name": "child buffered",
       "ok": false,
@@ -1479,7 +1479,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "child indented",
           "id": 1,
           "name": "child indented",
           "ok": false,
@@ -1493,7 +1493,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "child unindented",
           "id": 2,
           "name": "child unindented",
           "ok": false,
@@ -1507,7 +1507,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "child unnamed",
           "id": 3,
           "name": "child unnamed",
           "ok": false,
@@ -1521,7 +1521,7 @@ Array [
         Result {
           "buffered": true,
           "diag": null,
-          "fullname": "",
+          "fullname": "child buffered",
           "id": 4,
           "name": "child buffered",
           "ok": false,
@@ -1609,7 +1609,7 @@ not ok 4 - child buffered
 exports[`test/parse-stringify.ts TAP version-in-yaml.tap strict > stringified flat 1`] = `
 TAP version 13
 # Subtest: child indented
-not ok 1 - child indented > some yaml
+not ok 1 - child indented some yaml
   ---
   version: |-
     
@@ -1618,7 +1618,7 @@ not ok 1 - child indented > some yaml
 # failed 1 test
 not ok 2 - child indented
 # Subtest: child unindented
-not ok 3 - child unindented > some yaml
+not ok 3 - child unindented some yaml
   ---
   version: |-
     
@@ -1636,7 +1636,7 @@ not ok 5 - some yaml
 # failed 1 test
 not ok 6 - child unnamed
 # Subtest: child buffered
-not ok 7 - child buffered > some yaml
+not ok 7 - child buffered some yaml
   ---
   version: |-
     
@@ -1672,7 +1672,7 @@ Array [
               TAP version 13
             ),
           },
-          "fullname": "child indented",
+          "fullname": "child indented some yaml",
           "id": 0,
           "name": "some yaml",
           "ok": false,
@@ -1703,7 +1703,7 @@ Array [
                   TAP version 13
                 ),
               },
-              "fullname": "child indented",
+              "fullname": "child indented some yaml",
               "id": 0,
               "name": "some yaml",
               "ok": false,
@@ -1794,7 +1794,7 @@ Bail out! some yaml
 exports[`test/parse-stringify.ts TAP version-in-yaml.tap strictBail > stringified flat 1`] = `
 TAP version 13
 # Subtest: child indented
-not ok 1 - child indented > some yaml
+not ok 1 - child indented some yaml
   ---
   version: |-
     

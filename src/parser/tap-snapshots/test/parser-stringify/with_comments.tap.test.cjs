@@ -152,7 +152,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "# (t/todo.t at line 10 TODO?!)",
       "id": 2,
       "name": "# (t/todo.t at line 10 TODO?!)",
       "ok": true,
@@ -211,7 +211,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "# (t/todo.t at line 13 TODO?!)",
       "id": 5,
       "name": "# (t/todo.t at line 13 TODO?!)",
       "ok": true,
@@ -340,7 +340,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "# (t/todo.t at line 10 TODO?!)",
       "id": 2,
       "name": "# (t/todo.t at line 10 TODO?!)",
       "ok": true,
@@ -399,7 +399,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "# (t/todo.t at line 13 TODO?!)",
       "id": 5,
       "name": "# (t/todo.t at line 13 TODO?!)",
       "ok": true,
@@ -571,7 +571,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "# (t/todo.t at line 10 TODO?!)",
       "id": 2,
       "name": "# (t/todo.t at line 10 TODO?!)",
       "ok": true,
@@ -630,7 +630,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "# (t/todo.t at line 13 TODO?!)",
       "id": 5,
       "name": "# (t/todo.t at line 13 TODO?!)",
       "ok": true,

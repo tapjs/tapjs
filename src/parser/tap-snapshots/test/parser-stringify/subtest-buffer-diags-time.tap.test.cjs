@@ -27,7 +27,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "first",
+          "fullname": "first x",
           "id": 0,
           "name": "x",
           "ok": true,
@@ -84,7 +84,7 @@ Array [
     Result {
       "buffered": true,
       "diag": null,
-      "fullname": "",
+      "fullname": "first",
       "id": 1,
       "name": "first",
       "ok": true,
@@ -108,7 +108,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "second",
+          "fullname": "second x",
           "id": 0,
           "name": "x",
           "ok": true,
@@ -165,7 +165,7 @@ Array [
     Result {
       "buffered": true,
       "diag": null,
-      "fullname": "",
+      "fullname": "second",
       "id": 2,
       "name": "second",
       "ok": true,
@@ -189,7 +189,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "third",
+          "fullname": "third y",
           "id": 0,
           "name": "y",
           "ok": true,
@@ -248,7 +248,7 @@ Array [
       "diag": Object {
         "some": "diagnostic",
       },
-      "fullname": "",
+      "fullname": "third",
       "id": 3,
       "name": "third",
       "ok": true,
@@ -316,13 +316,13 @@ ok 3 - third # time=43.21ms
 exports[`test/parse-stringify.ts TAP subtest-buffer-diags-time.tap bail > stringified flat 1`] = `
 1..0
 # Subtest: first
-ok 1 - first > x
+ok 1 - first x
 ok 2 - first # time=12.34ms
 # Subtest: second
-ok 3 - second > x
+ok 3 - second x
 ok 4 - second # time=12.34ms
 # Subtest: third
-ok 5 - third > y
+ok 5 - third y
 ok 6 - third # time=43.21ms
   ---
   some: diagnostic
@@ -352,7 +352,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "first",
+          "fullname": "first x",
           "id": 0,
           "name": "x",
           "ok": true,
@@ -409,7 +409,7 @@ Array [
     Result {
       "buffered": true,
       "diag": null,
-      "fullname": "",
+      "fullname": "first",
       "id": 1,
       "name": "first",
       "ok": true,
@@ -433,7 +433,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "second",
+          "fullname": "second x",
           "id": 0,
           "name": "x",
           "ok": true,
@@ -490,7 +490,7 @@ Array [
     Result {
       "buffered": true,
       "diag": null,
-      "fullname": "",
+      "fullname": "second",
       "id": 2,
       "name": "second",
       "ok": true,
@@ -514,7 +514,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "third",
+          "fullname": "third y",
           "id": 0,
           "name": "y",
           "ok": true,
@@ -573,7 +573,7 @@ Array [
       "diag": Object {
         "some": "diagnostic",
       },
-      "fullname": "",
+      "fullname": "third",
       "id": 3,
       "name": "third",
       "ok": true,
@@ -625,9 +625,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "first x",
       "id": 1,
-      "name": "first > x",
+      "name": "first x",
       "ok": true,
       "plan": null,
       "previous": null,
@@ -642,9 +642,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "second x",
       "id": 2,
-      "name": "second > x",
+      "name": "second x",
       "ok": true,
       "plan": null,
       "previous": null,
@@ -659,9 +659,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "third y",
       "id": 3,
-      "name": "third > y",
+      "name": "third y",
       "ok": true,
       "plan": null,
       "previous": null,
@@ -734,13 +734,13 @@ ok 3 - third # time=43.21ms
 exports[`test/parse-stringify.ts TAP subtest-buffer-diags-time.tap default settings > stringified flat 1`] = `
 1..0
 # Subtest: first
-ok 1 - first > x
+ok 1 - first x
 ok 2 - first # time=12.34ms
 # Subtest: second
-ok 3 - second > x
+ok 3 - second x
 ok 4 - second # time=12.34ms
 # Subtest: third
-ok 5 - third > y
+ok 5 - third y
 ok 6 - third # time=43.21ms
   ---
   some: diagnostic
@@ -770,7 +770,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "first",
+          "fullname": "first x",
           "id": 0,
           "name": "x",
           "ok": true,
@@ -827,7 +827,7 @@ Array [
     Result {
       "buffered": true,
       "diag": null,
-      "fullname": "",
+      "fullname": "first",
       "id": 1,
       "name": "first",
       "ok": true,
@@ -851,7 +851,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "second",
+          "fullname": "second x",
           "id": 0,
           "name": "x",
           "ok": true,
@@ -908,7 +908,7 @@ Array [
     Result {
       "buffered": true,
       "diag": null,
-      "fullname": "",
+      "fullname": "second",
       "id": 2,
       "name": "second",
       "ok": true,
@@ -932,7 +932,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "third",
+          "fullname": "third y",
           "id": 0,
           "name": "y",
           "ok": true,
@@ -991,7 +991,7 @@ Array [
       "diag": Object {
         "some": "diagnostic",
       },
-      "fullname": "",
+      "fullname": "third",
       "id": 3,
       "name": "third",
       "ok": true,
@@ -1059,13 +1059,13 @@ ok 3 - third # time=43.21ms
 exports[`test/parse-stringify.ts TAP subtest-buffer-diags-time.tap strict > stringified flat 1`] = `
 1..0
 # Subtest: first
-ok 1 - first > x
+ok 1 - first x
 ok 2 - first # time=12.34ms
 # Subtest: second
-ok 3 - second > x
+ok 3 - second x
 ok 4 - second # time=12.34ms
 # Subtest: third
-ok 5 - third > y
+ok 5 - third y
 ok 6 - third # time=43.21ms
   ---
   some: diagnostic
@@ -1095,7 +1095,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "first",
+          "fullname": "first x",
           "id": 0,
           "name": "x",
           "ok": true,
@@ -1152,7 +1152,7 @@ Array [
     Result {
       "buffered": true,
       "diag": null,
-      "fullname": "",
+      "fullname": "first",
       "id": 1,
       "name": "first",
       "ok": true,
@@ -1176,7 +1176,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "second",
+          "fullname": "second x",
           "id": 0,
           "name": "x",
           "ok": true,
@@ -1233,7 +1233,7 @@ Array [
     Result {
       "buffered": true,
       "diag": null,
-      "fullname": "",
+      "fullname": "second",
       "id": 2,
       "name": "second",
       "ok": true,
@@ -1257,7 +1257,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "third",
+          "fullname": "third y",
           "id": 0,
           "name": "y",
           "ok": true,
@@ -1316,7 +1316,7 @@ Array [
       "diag": Object {
         "some": "diagnostic",
       },
-      "fullname": "",
+      "fullname": "third",
       "id": 3,
       "name": "third",
       "ok": true,
@@ -1384,13 +1384,13 @@ ok 3 - third # time=43.21ms
 exports[`test/parse-stringify.ts TAP subtest-buffer-diags-time.tap strictBail > stringified flat 1`] = `
 1..0
 # Subtest: first
-ok 1 - first > x
+ok 1 - first x
 ok 2 - first # time=12.34ms
 # Subtest: second
-ok 3 - second > x
+ok 3 - second x
 ok 4 - second # time=12.34ms
 # Subtest: third
-ok 5 - third > y
+ok 5 - third y
 ok 6 - third # time=43.21ms
   ---
   some: diagnostic

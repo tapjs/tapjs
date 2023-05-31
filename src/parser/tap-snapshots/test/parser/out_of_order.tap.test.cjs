@@ -16,7 +16,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Test that argument passing works",
       "id": 2,
       "name": "Test that argument passing works",
       "ok": true,
@@ -33,7 +33,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Test that argument passing works",
       "id": 2,
       "name": "Test that argument passing works",
       "ok": true,
@@ -50,7 +50,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Test that argument passing works",
       "id": 2,
       "name": "Test that argument passing works",
       "ok": true,
@@ -71,7 +71,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Test that passing arguments as references work",
       "id": 3,
       "name": "Test that passing arguments as references work",
       "ok": true,
@@ -88,7 +88,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Test that passing arguments as references work",
       "id": 3,
       "name": "Test that passing arguments as references work",
       "ok": true,
@@ -105,7 +105,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Test that passing arguments as references work",
       "id": 3,
       "name": "Test that passing arguments as references work",
       "ok": true,
@@ -126,7 +126,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Test a normal sub",
       "id": 4,
       "name": "Test a normal sub",
       "ok": true,
@@ -143,7 +143,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Test a normal sub",
       "id": 4,
       "name": "Test a normal sub",
       "ok": true,
@@ -160,7 +160,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Test a normal sub",
       "id": 4,
       "name": "Test a normal sub",
       "ok": true,
@@ -181,7 +181,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Detach test",
       "id": 6,
       "name": "Detach test",
       "ok": true,
@@ -198,7 +198,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Detach test",
       "id": 6,
       "name": "Detach test",
       "ok": true,
@@ -215,7 +215,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Detach test",
       "id": 6,
       "name": "Detach test",
       "ok": true,
@@ -236,7 +236,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Nested thread test",
       "id": 8,
       "name": "Nested thread test",
       "ok": true,
@@ -253,7 +253,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Nested thread test",
       "id": 8,
       "name": "Nested thread test",
       "ok": true,
@@ -270,7 +270,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Nested thread test",
       "id": 8,
       "name": "Nested thread test",
       "ok": true,
@@ -291,7 +291,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Nested thread test",
       "id": 9,
       "name": "Nested thread test",
       "ok": true,
@@ -308,7 +308,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Nested thread test",
       "id": 9,
       "name": "Nested thread test",
       "ok": true,
@@ -325,7 +325,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Nested thread test",
       "id": 9,
       "name": "Nested thread test",
       "ok": true,
@@ -346,7 +346,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Wanted 7, got 7",
       "id": 10,
       "name": "Wanted 7, got 7",
       "ok": true,
@@ -363,7 +363,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Wanted 7, got 7",
       "id": 10,
       "name": "Wanted 7, got 7",
       "ok": true,
@@ -380,7 +380,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Wanted 7, got 7",
       "id": 10,
       "name": "Wanted 7, got 7",
       "ok": true,
@@ -401,7 +401,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Wanted 7, got 7",
       "id": 11,
       "name": "Wanted 7, got 7",
       "ok": true,
@@ -418,7 +418,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Wanted 7, got 7",
       "id": 11,
       "name": "Wanted 7, got 7",
       "ok": true,
@@ -435,7 +435,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Wanted 7, got 7",
       "id": 11,
       "name": "Wanted 7, got 7",
       "ok": true,
@@ -456,7 +456,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Wanted 8, got 8",
       "id": 12,
       "name": "Wanted 8, got 8",
       "ok": true,
@@ -473,7 +473,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Wanted 8, got 8",
       "id": 12,
       "name": "Wanted 8, got 8",
       "ok": true,
@@ -490,7 +490,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Wanted 8, got 8",
       "id": 12,
       "name": "Wanted 8, got 8",
       "ok": true,
@@ -511,7 +511,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Wanted 8, got 8",
       "id": 13,
       "name": "Wanted 8, got 8",
       "ok": true,
@@ -528,7 +528,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Wanted 8, got 8",
       "id": 13,
       "name": "Wanted 8, got 8",
       "ok": true,
@@ -545,7 +545,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Wanted 8, got 8",
       "id": 13,
       "name": "Wanted 8, got 8",
       "ok": true,
@@ -667,7 +667,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Test that argument passing works",
       "id": 2,
       "name": "Test that argument passing works",
       "ok": true,
@@ -684,7 +684,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Test that argument passing works",
       "id": 2,
       "name": "Test that argument passing works",
       "ok": true,
@@ -701,7 +701,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Test that argument passing works",
       "id": 2,
       "name": "Test that argument passing works",
       "ok": true,
@@ -722,7 +722,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Test that passing arguments as references work",
       "id": 3,
       "name": "Test that passing arguments as references work",
       "ok": true,
@@ -739,7 +739,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Test that passing arguments as references work",
       "id": 3,
       "name": "Test that passing arguments as references work",
       "ok": true,
@@ -756,7 +756,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Test that passing arguments as references work",
       "id": 3,
       "name": "Test that passing arguments as references work",
       "ok": true,
@@ -777,7 +777,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Test a normal sub",
       "id": 4,
       "name": "Test a normal sub",
       "ok": true,
@@ -794,7 +794,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Test a normal sub",
       "id": 4,
       "name": "Test a normal sub",
       "ok": true,
@@ -811,7 +811,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Test a normal sub",
       "id": 4,
       "name": "Test a normal sub",
       "ok": true,
@@ -832,7 +832,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Detach test",
       "id": 6,
       "name": "Detach test",
       "ok": true,
@@ -849,7 +849,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Detach test",
       "id": 6,
       "name": "Detach test",
       "ok": true,
@@ -866,7 +866,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Detach test",
       "id": 6,
       "name": "Detach test",
       "ok": true,
@@ -887,7 +887,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Nested thread test",
       "id": 8,
       "name": "Nested thread test",
       "ok": true,
@@ -904,7 +904,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Nested thread test",
       "id": 8,
       "name": "Nested thread test",
       "ok": true,
@@ -921,7 +921,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Nested thread test",
       "id": 8,
       "name": "Nested thread test",
       "ok": true,
@@ -942,7 +942,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Nested thread test",
       "id": 9,
       "name": "Nested thread test",
       "ok": true,
@@ -959,7 +959,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Nested thread test",
       "id": 9,
       "name": "Nested thread test",
       "ok": true,
@@ -976,7 +976,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Nested thread test",
       "id": 9,
       "name": "Nested thread test",
       "ok": true,
@@ -997,7 +997,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Wanted 7, got 7",
       "id": 10,
       "name": "Wanted 7, got 7",
       "ok": true,
@@ -1014,7 +1014,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Wanted 7, got 7",
       "id": 10,
       "name": "Wanted 7, got 7",
       "ok": true,
@@ -1031,7 +1031,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Wanted 7, got 7",
       "id": 10,
       "name": "Wanted 7, got 7",
       "ok": true,
@@ -1052,7 +1052,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Wanted 7, got 7",
       "id": 11,
       "name": "Wanted 7, got 7",
       "ok": true,
@@ -1069,7 +1069,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Wanted 7, got 7",
       "id": 11,
       "name": "Wanted 7, got 7",
       "ok": true,
@@ -1086,7 +1086,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Wanted 7, got 7",
       "id": 11,
       "name": "Wanted 7, got 7",
       "ok": true,
@@ -1107,7 +1107,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Wanted 8, got 8",
       "id": 12,
       "name": "Wanted 8, got 8",
       "ok": true,
@@ -1124,7 +1124,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Wanted 8, got 8",
       "id": 12,
       "name": "Wanted 8, got 8",
       "ok": true,
@@ -1141,7 +1141,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Wanted 8, got 8",
       "id": 12,
       "name": "Wanted 8, got 8",
       "ok": true,
@@ -1162,7 +1162,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Wanted 8, got 8",
       "id": 13,
       "name": "Wanted 8, got 8",
       "ok": true,
@@ -1179,7 +1179,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Wanted 8, got 8",
       "id": 13,
       "name": "Wanted 8, got 8",
       "ok": true,
@@ -1196,7 +1196,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Wanted 8, got 8",
       "id": 13,
       "name": "Wanted 8, got 8",
       "ok": true,

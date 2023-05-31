@@ -35,7 +35,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "a set of tests to be done later",
+          "fullname": "a set of tests to be done later should have a thingie",
           "id": 1,
           "name": "should have a thingie",
           "ok": true,
@@ -56,7 +56,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "a set of tests to be done later",
+          "fullname": "a set of tests to be done later should have a second whoosits also",
           "id": 2,
           "name": "should have a second whoosits also",
           "ok": true,
@@ -88,7 +88,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "a set of tests to be done later the subset",
+              "fullname": "a set of tests to be done later the subset should be a child thingie",
               "id": 1,
               "name": "should be a child thingie",
               "ok": true,
@@ -109,7 +109,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "a set of tests to be done later the subset",
+              "fullname": "a set of tests to be done later the subset should also be a whoosits",
               "id": 2,
               "name": "should also be a whoosits",
               "ok": true,
@@ -141,7 +141,7 @@ Array [
                 Result {
                   "buffered": false,
                   "diag": null,
-                  "fullname": "a set of tests to be done later the subset has some of these things",
+                  "fullname": "a set of tests to be done later the subset has some of these things true is truthy",
                   "id": 1,
                   "name": "true is truthy",
                   "ok": true,
@@ -162,7 +162,7 @@ Array [
                 Result {
                   "buffered": false,
                   "diag": null,
-                  "fullname": "a set of tests to be done later the subset has some of these things",
+                  "fullname": "a set of tests to be done later the subset has some of these things ten is also truthy",
                   "id": 2,
                   "name": "ten is also truthy",
                   "ok": true,
@@ -236,7 +236,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "a set of tests to be done later the subset",
+              "fullname": "a set of tests to be done later the subset has some of these things",
               "id": 3,
               "name": "has some of these things",
               "ok": true,
@@ -371,7 +371,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "a set of tests to be done later",
+          "fullname": "a set of tests to be done later the subset",
           "id": 3,
           "name": "the subset",
           "ok": true,
@@ -470,7 +470,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "a set of tests to be done later",
+      "fullname": "a set of tests to be done later should have a thingie",
       "id": 1,
       "name": "should have a thingie",
       "ok": true,
@@ -487,7 +487,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "a set of tests to be done later",
+      "fullname": "a set of tests to be done later should have a thingie",
       "id": 1,
       "name": "should have a thingie",
       "ok": true,
@@ -508,7 +508,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "a set of tests to be done later",
+      "fullname": "a set of tests to be done later should have a second whoosits also",
       "id": 2,
       "name": "should have a second whoosits also",
       "ok": true,
@@ -525,7 +525,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "a set of tests to be done later",
+      "fullname": "a set of tests to be done later should have a second whoosits also",
       "id": 2,
       "name": "should have a second whoosits also",
       "ok": true,
@@ -550,7 +550,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "a set of tests to be done later the subset",
+      "fullname": "a set of tests to be done later the subset should be a child thingie",
       "id": 1,
       "name": "should be a child thingie",
       "ok": true,
@@ -567,7 +567,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "a set of tests to be done later the subset",
+      "fullname": "a set of tests to be done later the subset should be a child thingie",
       "id": 1,
       "name": "should be a child thingie",
       "ok": true,
@@ -588,7 +588,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "a set of tests to be done later the subset",
+      "fullname": "a set of tests to be done later the subset should also be a whoosits",
       "id": 2,
       "name": "should also be a whoosits",
       "ok": true,
@@ -605,7 +605,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "a set of tests to be done later the subset",
+      "fullname": "a set of tests to be done later the subset should also be a whoosits",
       "id": 2,
       "name": "should also be a whoosits",
       "ok": true,
@@ -630,7 +630,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "a set of tests to be done later the subset has some of these things",
+      "fullname": "a set of tests to be done later the subset has some of these things true is truthy",
       "id": 1,
       "name": "true is truthy",
       "ok": true,
@@ -647,7 +647,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "a set of tests to be done later the subset has some of these things",
+      "fullname": "a set of tests to be done later the subset has some of these things true is truthy",
       "id": 1,
       "name": "true is truthy",
       "ok": true,
@@ -668,7 +668,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "a set of tests to be done later the subset has some of these things",
+      "fullname": "a set of tests to be done later the subset has some of these things ten is also truthy",
       "id": 2,
       "name": "ten is also truthy",
       "ok": true,
@@ -685,7 +685,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "a set of tests to be done later the subset has some of these things",
+      "fullname": "a set of tests to be done later the subset has some of these things ten is also truthy",
       "id": 2,
       "name": "ten is also truthy",
       "ok": true,
@@ -734,7 +734,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "a set of tests to be done later",
       "id": 1,
       "name": "a set of tests to be done later",
       "ok": true,
@@ -766,7 +766,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "another set of tests",
+          "fullname": "another set of tests is a second set",
           "id": 1,
           "name": "is a second set",
           "ok": true,
@@ -787,7 +787,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "another set of tests",
+          "fullname": "another set of tests looks like english",
           "id": 2,
           "name": "looks like english",
           "ok": true,
@@ -808,7 +808,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "another set of tests",
+          "fullname": "another set of tests is marked TODO",
           "id": 3,
           "name": "is marked TODO",
           "ok": true,
@@ -921,7 +921,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "another set of tests",
+      "fullname": "another set of tests is a second set",
       "id": 1,
       "name": "is a second set",
       "ok": true,
@@ -938,7 +938,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "another set of tests",
+      "fullname": "another set of tests is a second set",
       "id": 1,
       "name": "is a second set",
       "ok": true,
@@ -959,7 +959,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "another set of tests",
+      "fullname": "another set of tests looks like english",
       "id": 2,
       "name": "looks like english",
       "ok": true,
@@ -976,7 +976,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "another set of tests",
+      "fullname": "another set of tests looks like english",
       "id": 2,
       "name": "looks like english",
       "ok": true,
@@ -997,7 +997,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "another set of tests",
+      "fullname": "another set of tests is marked TODO",
       "id": 3,
       "name": "is marked TODO",
       "ok": true,
@@ -1014,7 +1014,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "another set of tests",
+      "fullname": "another set of tests is marked TODO",
       "id": 3,
       "name": "is marked TODO",
       "ok": true,
@@ -1043,7 +1043,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "another set of tests",
       "id": 2,
       "name": "another set of tests",
       "ok": true,
@@ -1124,7 +1124,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "a set of tests to be done later",
+          "fullname": "a set of tests to be done later should have a thingie",
           "id": 1,
           "name": "should have a thingie",
           "ok": true,
@@ -1145,7 +1145,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "a set of tests to be done later",
+          "fullname": "a set of tests to be done later should have a second whoosits also",
           "id": 2,
           "name": "should have a second whoosits also",
           "ok": true,
@@ -1177,7 +1177,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "a set of tests to be done later the subset",
+              "fullname": "a set of tests to be done later the subset should be a child thingie",
               "id": 1,
               "name": "should be a child thingie",
               "ok": true,
@@ -1198,7 +1198,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "a set of tests to be done later the subset",
+              "fullname": "a set of tests to be done later the subset should also be a whoosits",
               "id": 2,
               "name": "should also be a whoosits",
               "ok": true,
@@ -1230,7 +1230,7 @@ Array [
                 Result {
                   "buffered": false,
                   "diag": null,
-                  "fullname": "a set of tests to be done later the subset has some of these things",
+                  "fullname": "a set of tests to be done later the subset has some of these things true is truthy",
                   "id": 1,
                   "name": "true is truthy",
                   "ok": true,
@@ -1251,7 +1251,7 @@ Array [
                 Result {
                   "buffered": false,
                   "diag": null,
-                  "fullname": "a set of tests to be done later the subset has some of these things",
+                  "fullname": "a set of tests to be done later the subset has some of these things ten is also truthy",
                   "id": 2,
                   "name": "ten is also truthy",
                   "ok": true,
@@ -1325,7 +1325,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "a set of tests to be done later the subset",
+              "fullname": "a set of tests to be done later the subset has some of these things",
               "id": 3,
               "name": "has some of these things",
               "ok": true,
@@ -1460,7 +1460,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "a set of tests to be done later",
+          "fullname": "a set of tests to be done later the subset",
           "id": 3,
           "name": "the subset",
           "ok": true,
@@ -1559,7 +1559,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "a set of tests to be done later",
+      "fullname": "a set of tests to be done later should have a thingie",
       "id": 1,
       "name": "should have a thingie",
       "ok": true,
@@ -1576,7 +1576,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "a set of tests to be done later",
+      "fullname": "a set of tests to be done later should have a thingie",
       "id": 1,
       "name": "should have a thingie",
       "ok": true,
@@ -1597,7 +1597,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "a set of tests to be done later",
+      "fullname": "a set of tests to be done later should have a second whoosits also",
       "id": 2,
       "name": "should have a second whoosits also",
       "ok": true,
@@ -1614,7 +1614,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "a set of tests to be done later",
+      "fullname": "a set of tests to be done later should have a second whoosits also",
       "id": 2,
       "name": "should have a second whoosits also",
       "ok": true,
@@ -1639,7 +1639,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "a set of tests to be done later the subset",
+      "fullname": "a set of tests to be done later the subset should be a child thingie",
       "id": 1,
       "name": "should be a child thingie",
       "ok": true,
@@ -1656,7 +1656,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "a set of tests to be done later the subset",
+      "fullname": "a set of tests to be done later the subset should be a child thingie",
       "id": 1,
       "name": "should be a child thingie",
       "ok": true,
@@ -1677,7 +1677,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "a set of tests to be done later the subset",
+      "fullname": "a set of tests to be done later the subset should also be a whoosits",
       "id": 2,
       "name": "should also be a whoosits",
       "ok": true,
@@ -1694,7 +1694,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "a set of tests to be done later the subset",
+      "fullname": "a set of tests to be done later the subset should also be a whoosits",
       "id": 2,
       "name": "should also be a whoosits",
       "ok": true,
@@ -1719,7 +1719,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "a set of tests to be done later the subset has some of these things",
+      "fullname": "a set of tests to be done later the subset has some of these things true is truthy",
       "id": 1,
       "name": "true is truthy",
       "ok": true,
@@ -1736,7 +1736,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "a set of tests to be done later the subset has some of these things",
+      "fullname": "a set of tests to be done later the subset has some of these things true is truthy",
       "id": 1,
       "name": "true is truthy",
       "ok": true,
@@ -1757,7 +1757,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "a set of tests to be done later the subset has some of these things",
+      "fullname": "a set of tests to be done later the subset has some of these things ten is also truthy",
       "id": 2,
       "name": "ten is also truthy",
       "ok": true,
@@ -1774,7 +1774,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "a set of tests to be done later the subset has some of these things",
+      "fullname": "a set of tests to be done later the subset has some of these things ten is also truthy",
       "id": 2,
       "name": "ten is also truthy",
       "ok": true,
@@ -1823,7 +1823,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "a set of tests to be done later",
       "id": 1,
       "name": "a set of tests to be done later",
       "ok": true,
@@ -1855,7 +1855,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "another set of tests",
+          "fullname": "another set of tests is a second set",
           "id": 1,
           "name": "is a second set",
           "ok": true,
@@ -1876,7 +1876,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "another set of tests",
+          "fullname": "another set of tests looks like english",
           "id": 2,
           "name": "looks like english",
           "ok": true,
@@ -1897,7 +1897,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "another set of tests",
+          "fullname": "another set of tests is marked TODO",
           "id": 3,
           "name": "is marked TODO",
           "ok": true,
@@ -2010,7 +2010,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "another set of tests",
+      "fullname": "another set of tests is a second set",
       "id": 1,
       "name": "is a second set",
       "ok": true,
@@ -2027,7 +2027,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "another set of tests",
+      "fullname": "another set of tests is a second set",
       "id": 1,
       "name": "is a second set",
       "ok": true,
@@ -2048,7 +2048,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "another set of tests",
+      "fullname": "another set of tests looks like english",
       "id": 2,
       "name": "looks like english",
       "ok": true,
@@ -2065,7 +2065,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "another set of tests",
+      "fullname": "another set of tests looks like english",
       "id": 2,
       "name": "looks like english",
       "ok": true,
@@ -2086,7 +2086,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "another set of tests",
+      "fullname": "another set of tests is marked TODO",
       "id": 3,
       "name": "is marked TODO",
       "ok": true,
@@ -2103,7 +2103,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "another set of tests",
+      "fullname": "another set of tests is marked TODO",
       "id": 3,
       "name": "is marked TODO",
       "ok": true,
@@ -2132,7 +2132,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "another set of tests",
       "id": 2,
       "name": "another set of tests",
       "ok": true,

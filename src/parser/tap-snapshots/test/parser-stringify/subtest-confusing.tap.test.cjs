@@ -34,7 +34,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "a brace looks like this x",
+              "fullname": "a brace looks like this x ypoint",
               "id": 1,
               "name": "ypoint",
               "ok": true,
@@ -91,7 +91,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "a brace looks like this",
+          "fullname": "a brace looks like this y",
           "id": 1,
           "name": "y",
           "ok": true,
@@ -148,7 +148,7 @@ Array [
     Result {
       "buffered": true,
       "diag": null,
-      "fullname": "",
+      "fullname": "a brace looks like this",
       "id": 1,
       "name": "a brace looks like this",
       "ok": true,
@@ -165,7 +165,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "x",
       "id": 2,
       "name": "x",
       "ok": true,
@@ -238,8 +238,8 @@ TAP version 13
 # Subtest: a brace looks like this
 # Subtest: x
 # Subtest: y
-ok 1 - a brace looks like this x > ypoint
-ok 2 - a brace looks like this > y
+ok 1 - a brace looks like this x ypoint
+ok 2 - a brace looks like this y
 ok 3 - a brace looks like this
 ok 4 - x
 1..4
@@ -275,7 +275,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "a brace looks like this x",
+              "fullname": "a brace looks like this x ypoint",
               "id": 1,
               "name": "ypoint",
               "ok": true,
@@ -332,7 +332,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "a brace looks like this",
+          "fullname": "a brace looks like this y",
           "id": 1,
           "name": "y",
           "ok": true,
@@ -389,7 +389,7 @@ Array [
     Result {
       "buffered": true,
       "diag": null,
-      "fullname": "",
+      "fullname": "a brace looks like this",
       "id": 1,
       "name": "a brace looks like this",
       "ok": true,
@@ -406,7 +406,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "x",
       "id": 2,
       "name": "x",
       "ok": true,
@@ -470,9 +470,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "a brace looks like this x ypoint",
       "id": 1,
-      "name": "a brace looks like this x > ypoint",
+      "name": "a brace looks like this x ypoint",
       "ok": true,
       "plan": null,
       "previous": null,
@@ -487,9 +487,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "a brace looks like this y",
       "id": 2,
-      "name": "a brace looks like this > y",
+      "name": "a brace looks like this y",
       "ok": true,
       "plan": null,
       "previous": null,
@@ -504,7 +504,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "x",
       "id": 3,
       "name": "x",
       "ok": true,
@@ -576,8 +576,8 @@ TAP version 13
 # Subtest: a brace looks like this
 # Subtest: x
 # Subtest: y
-ok 1 - a brace looks like this x > ypoint
-ok 2 - a brace looks like this > y
+ok 1 - a brace looks like this x ypoint
+ok 2 - a brace looks like this y
 ok 3 - a brace looks like this
 ok 4 - x
 1..4
@@ -613,7 +613,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "a brace looks like this x",
+              "fullname": "a brace looks like this x ypoint",
               "id": 1,
               "name": "ypoint",
               "ok": true,
@@ -670,7 +670,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "a brace looks like this",
+          "fullname": "a brace looks like this y",
           "id": 1,
           "name": "y",
           "ok": true,
@@ -727,7 +727,7 @@ Array [
     Result {
       "buffered": true,
       "diag": null,
-      "fullname": "",
+      "fullname": "a brace looks like this",
       "id": 1,
       "name": "a brace looks like this",
       "ok": true,
@@ -744,7 +744,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "x",
       "id": 2,
       "name": "x",
       "ok": true,
@@ -817,8 +817,8 @@ TAP version 13
 # Subtest: a brace looks like this
 # Subtest: x
 # Subtest: y
-ok 1 - a brace looks like this x > ypoint
-ok 2 - a brace looks like this > y
+ok 1 - a brace looks like this x ypoint
+ok 2 - a brace looks like this y
 ok 3 - a brace looks like this
 ok 4 - x
 1..4
@@ -854,7 +854,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "a brace looks like this x",
+              "fullname": "a brace looks like this x ypoint",
               "id": 1,
               "name": "ypoint",
               "ok": true,
@@ -911,7 +911,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "a brace looks like this",
+          "fullname": "a brace looks like this y",
           "id": 1,
           "name": "y",
           "ok": true,
@@ -968,7 +968,7 @@ Array [
     Result {
       "buffered": true,
       "diag": null,
-      "fullname": "",
+      "fullname": "a brace looks like this",
       "id": 1,
       "name": "a brace looks like this",
       "ok": true,
@@ -985,7 +985,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "x",
       "id": 2,
       "name": "x",
       "ok": true,
@@ -1058,8 +1058,8 @@ TAP version 13
 # Subtest: a brace looks like this
 # Subtest: x
 # Subtest: y
-ok 1 - a brace looks like this x > ypoint
-ok 2 - a brace looks like this > y
+ok 1 - a brace looks like this x ypoint
+ok 2 - a brace looks like this y
 ok 3 - a brace looks like this
 ok 4 - x
 1..4

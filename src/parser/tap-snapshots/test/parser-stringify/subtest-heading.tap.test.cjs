@@ -34,7 +34,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "x y",
+              "fullname": "x y ypoint",
               "id": 1,
               "name": "ypoint",
               "ok": true,
@@ -91,7 +91,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "x",
+          "fullname": "x y",
           "id": 1,
           "name": "y",
           "ok": true,
@@ -148,7 +148,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "x",
       "id": 1,
       "name": "x",
       "ok": true,
@@ -220,8 +220,8 @@ exports[`test/parse-stringify.ts TAP subtest-heading.tap bail > stringified flat
 TAP version 13
 # Subtest: x
 # Subtest: y
-ok 1 - x y > ypoint
-ok 2 - x > y
+ok 1 - x y ypoint
+ok 2 - x y
 ok 3 - x
 1..3
 
@@ -256,7 +256,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "x y",
+              "fullname": "x y ypoint",
               "id": 1,
               "name": "ypoint",
               "ok": true,
@@ -313,7 +313,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "x",
+          "fullname": "x y",
           "id": 1,
           "name": "y",
           "ok": true,
@@ -370,7 +370,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "x",
       "id": 1,
       "name": "x",
       "ok": true,
@@ -438,9 +438,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "x y ypoint",
       "id": 1,
-      "name": "x y > ypoint",
+      "name": "x y ypoint",
       "ok": true,
       "plan": null,
       "previous": null,
@@ -509,8 +509,8 @@ exports[`test/parse-stringify.ts TAP subtest-heading.tap default settings > stri
 TAP version 13
 # Subtest: x
 # Subtest: y
-ok 1 - x y > ypoint
-ok 2 - x > y
+ok 1 - x y ypoint
+ok 2 - x y
 ok 3 - x
 1..3
 
@@ -545,7 +545,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "x y",
+              "fullname": "x y ypoint",
               "id": 1,
               "name": "ypoint",
               "ok": true,
@@ -602,7 +602,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "x",
+          "fullname": "x y",
           "id": 1,
           "name": "y",
           "ok": true,
@@ -659,7 +659,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "x",
       "id": 1,
       "name": "x",
       "ok": true,
@@ -731,8 +731,8 @@ exports[`test/parse-stringify.ts TAP subtest-heading.tap strict > stringified fl
 TAP version 13
 # Subtest: x
 # Subtest: y
-ok 1 - x y > ypoint
-ok 2 - x > y
+ok 1 - x y ypoint
+ok 2 - x y
 ok 3 - x
 1..3
 
@@ -767,7 +767,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "x y",
+              "fullname": "x y ypoint",
               "id": 1,
               "name": "ypoint",
               "ok": true,
@@ -824,7 +824,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "x",
+          "fullname": "x y",
           "id": 1,
           "name": "y",
           "ok": true,
@@ -881,7 +881,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "x",
       "id": 1,
       "name": "x",
       "ok": true,
@@ -953,8 +953,8 @@ exports[`test/parse-stringify.ts TAP subtest-heading.tap strictBail > stringifie
 TAP version 13
 # Subtest: x
 # Subtest: y
-ok 1 - x y > ypoint
-ok 2 - x > y
+ok 1 - x y ypoint
+ok 2 - x y
 ok 3 - x
 1..3
 

@@ -6,56 +6,125 @@
 
 import { Base, Spawn } from '@tapjs/core'
 import { Box, Static, Text } from 'ink'
+import patchConsole from 'patch-console'
 import React, { FC, useEffect, useState } from 'react'
 import { Parser } from 'tap-parser'
 import { TapReportOpts } from '../../index.js'
 import { listenCleanup } from '../../listen-cleanup.js'
 import { TestSummary } from './test-summary.js'
 
-const proceduralComment =
-  /^# (Subtest(\n?$|: )|(todo|fail|pass|skip): [0-9]+\n?$)/
+patchConsole
 
-export interface StdioLog {
+const proceduralComment = /^# Subtest(?:\n?$|: )/
+
+export type LogEntry = StdioLog | TestLog | ConsoleLog
+
+export interface TestLog {
+  test: Base
+  previous?: LogEntry
+}
+
+const isTestLog = (p?: LogEntry): p is TestLog =>
+  !!p && (p as TestLog).test instanceof Base
+
+export const TestLogLine: FC<TestLog> = ({ test, previous }) => (
+  <Box paddingTop={!!previous && !isTestLog(previous) ? 1 : 0}>
+    <TestSummary test={test} />
+  </Box>
+)
+
+export interface ConsoleLog {
+  text: string
+  previous?: LogEntry
+}
+
+export const isConsoleLog = (p?: LogEntry): p is ConsoleLog =>
+  !!p &&
+  typeof (p as ConsoleLog).text === 'string' &&
+  !((p as TestLog).test instanceof Base)
+
+export const ConsoleLogLine: FC<ConsoleLog> = ({ text, previous }) => (
+  <Box paddingTop={!!previous && !isConsoleLog(previous) ? 1 : 0}>
+    <Text>{text}</Text>
+  </Box>
+)
+
+export interface StdioLog extends ConsoleLog {
   name: string
   fd: 0 | 1 | 2
-  text: string
 }
 
-export const StdioLogLine: FC<StdioLog> = ({ name, fd, text }) => {
-  const prefix = fd ? (
-    <>
-      <Text dimColor>{name}</Text>
-      <Text color={fd === 1 ? 'blue' : 'yellow'}>{fd + '>'}</Text>
-    </>
-  ) : (
-    <Text dimColor>{name}</Text>
-  )
-  const t = String(text).trim().split('\n')
+const isStdioLog = (p?: LogEntry): p is StdioLog =>
+  isConsoleLog(p) &&
+  typeof (p as StdioLog).name === 'string' &&
+  typeof (p as StdioLog).fd === 'number'
+
+export const StdioLogLine: FC<StdioLog> = ({
+  name,
+  fd,
+  text,
+  previous: p,
+}) => {
+  const prefix =
+    isStdioLog(p) && p.fd === fd && p.name === name ? (
+      <></>
+    ) : fd ? (
+      <Box gap={1} paddingTop={1}>
+        {fd === 1 ? (
+          <Text color="cyan" bold dimColor>{`1>`}</Text>
+        ) : fd === 2 ? (
+          <Text color="red" bold dimColor>{`2>`}</Text>
+        ) : (
+          <></>
+        )}
+        <Text dimColor>{name}</Text>
+      </Box>
+    ) : (
+      <Box paddingTop={1}>
+        <Text dimColor>{name}</Text>
+      </Box>
+    )
+
+  const t = String(text).trim()
   return (
-    <>
-      {t.map((l, key) => (
-        <Box key={key} gap={1}>
-          {prefix}
-          <Text>{l}</Text>
-        </Box>
-      ))}
-    </>
+    <Box flexDirection="column">
+      {prefix}
+      <Box>
+        <Text>{t}</Text>
+      </Box>
+    </Box>
   )
 }
-
-export type LogEntry = StdioLog | Base
 
 const tests = new Set<Base>()
 export const Log: FC<TapReportOpts> = ({ tap, config }) => {
+  if (tap.results)
+    return (
+      <Box>
+        <Text>ended</Text>
+      </Box>
+    )
+  // console.error('LOG RENDER')
   const [logs, updateLogs] = useState<LogEntry[]>([])
-  const appendLog = (l: LogEntry) => updateLogs(logs.concat(l))
+  const appendLog = (l: LogEntry) => {
+    const previous = logs[logs.length - 1]
+    l.previous = previous
+    updateLogs(logs.concat(l))
+  }
+
+  useEffect(
+    () =>
+      patchConsole((_stream, text) => {
+        appendLog({ text })
+      }),
+    [logs]
+  )
 
   useEffect(() => {
-    const u = (test: Base) => appendLog(test)
-    tap.on('subtestEnd', u)
-    return () => {
-      tap.removeListener('subtestEnd', u)
-    }
+    if (tap.results) return
+    return listenCleanup(tap, 'subtestEnd', (test: Base) =>
+      appendLog({ test })
+    )
   }, [logs])
 
   useEffect(() => {
@@ -115,17 +184,19 @@ export const Log: FC<TapReportOpts> = ({ tap, config }) => {
       tap.removeListener('subtestStart', handleStdio)
       doCleanup()
     }
-  }, [logs])
+  }, [logs, tests])
 
   return (
     <Static items={logs}>
-      {(log, key) =>
-        log instanceof Base ? (
-          <TestSummary test={log} key={key} />
-        ) : (
+      {(log, key) => {
+        return isTestLog(log) ? (
+          <TestLogLine {...log} key={key} />
+        ) : isStdioLog(log) ? (
           <StdioLogLine {...log} key={key} />
+        ) : (
+          <ConsoleLogLine {...log} key={key} />
         )
-      }
+      }}
     </Static>
   )
 }

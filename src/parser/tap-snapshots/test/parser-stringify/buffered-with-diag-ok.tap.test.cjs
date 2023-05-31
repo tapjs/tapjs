@@ -78,7 +78,7 @@ Array [
       "diag": Object {
         "some": "diagnostics",
       },
-      "fullname": "",
+      "fullname": "child",
       "id": 1,
       "name": "child",
       "ok": true,
@@ -227,7 +227,7 @@ Array [
       "diag": Object {
         "some": "diagnostics",
       },
-      "fullname": "",
+      "fullname": "child",
       "id": 1,
       "name": "child",
       "ok": true,
@@ -287,7 +287,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "child",
       "id": 1,
       "name": "child",
       "ok": true,
@@ -435,7 +435,7 @@ Array [
       "diag": Object {
         "some": "diagnostics",
       },
-      "fullname": "",
+      "fullname": "child",
       "id": 1,
       "name": "child",
       "ok": true,
@@ -584,7 +584,7 @@ Array [
       "diag": Object {
         "some": "diagnostics",
       },
-      "fullname": "",
+      "fullname": "child",
       "id": 1,
       "name": "child",
       "ok": true,

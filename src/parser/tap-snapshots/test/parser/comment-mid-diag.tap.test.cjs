@@ -78,7 +78,7 @@ Array [
       "diag": Object {
         "after": "comment",
       },
-      "fullname": "",
+      "fullname": "please keep my diags",
       "id": 1,
       "name": "please keep my diags",
       "ok": false,
@@ -97,7 +97,7 @@ Array [
       "diag": Object {
         "after": "comment",
       },
-      "fullname": "",
+      "fullname": "please keep my diags",
       "id": 1,
       "name": "please keep my diags",
       "ok": false,
@@ -116,7 +116,7 @@ Array [
       "diag": Object {
         "after": "comment",
       },
-      "fullname": "",
+      "fullname": "please keep my diags",
       "id": 1,
       "name": "please keep my diags",
       "ok": false,
@@ -243,7 +243,7 @@ Array [
           "diag": Object {
             "after": "comment",
           },
-          "fullname": "",
+          "fullname": "please keep my diags",
           "id": 1,
           "name": "please keep my diags",
           "ok": false,
@@ -348,7 +348,7 @@ Array [
       "diag": Object {
         "after": "comment",
       },
-      "fullname": "",
+      "fullname": "please keep my diags",
       "id": 1,
       "name": "please keep my diags",
       "ok": false,
@@ -367,7 +367,7 @@ Array [
       "diag": Object {
         "after": "comment",
       },
-      "fullname": "",
+      "fullname": "please keep my diags",
       "id": 1,
       "name": "please keep my diags",
       "ok": false,
@@ -386,7 +386,7 @@ Array [
       "diag": Object {
         "after": "comment",
       },
-      "fullname": "",
+      "fullname": "please keep my diags",
       "id": 1,
       "name": "please keep my diags",
       "ok": false,
@@ -450,7 +450,7 @@ Array [
           "diag": Object {
             "after": "comment",
           },
-          "fullname": "",
+          "fullname": "please keep my diags",
           "id": 1,
           "name": "please keep my diags",
           "ok": false,

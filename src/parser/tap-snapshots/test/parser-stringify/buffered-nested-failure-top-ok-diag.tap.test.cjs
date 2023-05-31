@@ -39,7 +39,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "my kids are fine",
+          "fullname": "my kids are fine no they aren't",
           "id": 0,
           "name": "no they aren't",
           "ok": false,
@@ -65,7 +65,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "my kids are fine",
+              "fullname": "my kids are fine no they aren't",
               "id": 0,
               "name": "no they aren't",
               "ok": false,
@@ -154,7 +154,7 @@ exports[`test/parse-stringify.ts TAP buffered-nested-failure-top-ok-diag.tap bai
 TAP version 13
 1..0
 # Subtest: my kids are fine
-not ok 1 - my kids are fine > no they aren't
+not ok 1 - my kids are fine no they aren't
 Bail out! no they aren't
 Bail out! no they aren't
 
@@ -194,7 +194,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "my kids are fine",
+          "fullname": "my kids are fine no they aren't",
           "id": 0,
           "name": "no they aren't",
           "ok": false,
@@ -220,7 +220,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "my kids are fine",
+              "fullname": "my kids are fine no they aren't",
               "id": 0,
               "name": "no they aren't",
               "ok": false,
@@ -264,7 +264,7 @@ Array [
       "diag": Object {
         "some": "diag",
       },
-      "fullname": "",
+      "fullname": "my kids are fine",
       "id": 1,
       "name": "my kids are fine",
       "ok": true,
@@ -320,9 +320,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "my kids are fine no they aren't",
       "id": 1,
-      "name": "my kids are fine > no they aren't",
+      "name": "my kids are fine no they aren't",
       "ok": false,
       "plan": null,
       "previous": null,
@@ -339,7 +339,7 @@ Array [
       "diag": Object {
         "some": "diag",
       },
-      "fullname": "",
+      "fullname": "my kids are fine",
       "id": 2,
       "name": "my kids are fine",
       "ok": true,
@@ -409,7 +409,7 @@ exports[`test/parse-stringify.ts TAP buffered-nested-failure-top-ok-diag.tap def
 TAP version 13
 1..0
 # Subtest: my kids are fine
-not ok 1 - my kids are fine > no they aren't
+not ok 1 - my kids are fine no they aren't
 # failed 1 test
 ok 2 - my kids are fine
   ---
@@ -452,7 +452,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "my kids are fine",
+          "fullname": "my kids are fine no they aren't",
           "id": 0,
           "name": "no they aren't",
           "ok": false,
@@ -478,7 +478,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "my kids are fine",
+              "fullname": "my kids are fine no they aren't",
               "id": 0,
               "name": "no they aren't",
               "ok": false,
@@ -522,7 +522,7 @@ Array [
       "diag": Object {
         "some": "diag",
       },
-      "fullname": "",
+      "fullname": "my kids are fine",
       "id": 1,
       "name": "my kids are fine",
       "ok": true,
@@ -585,7 +585,7 @@ exports[`test/parse-stringify.ts TAP buffered-nested-failure-top-ok-diag.tap str
 TAP version 13
 1..0
 # Subtest: my kids are fine
-not ok 1 - my kids are fine > no they aren't
+not ok 1 - my kids are fine no they aren't
 # failed 1 test
 ok 2 - my kids are fine
   ---
@@ -628,7 +628,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "my kids are fine",
+          "fullname": "my kids are fine no they aren't",
           "id": 0,
           "name": "no they aren't",
           "ok": false,
@@ -654,7 +654,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "my kids are fine",
+              "fullname": "my kids are fine no they aren't",
               "id": 0,
               "name": "no they aren't",
               "ok": false,
@@ -743,7 +743,7 @@ exports[`test/parse-stringify.ts TAP buffered-nested-failure-top-ok-diag.tap str
 TAP version 13
 1..0
 # Subtest: my kids are fine
-not ok 1 - my kids are fine > no they aren't
+not ok 1 - my kids are fine no they aren't
 Bail out! no they aren't
 Bail out! no they aren't
 

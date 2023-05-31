@@ -163,18 +163,13 @@ class TAP extends Test {
   }
 
   #oncomplete(results: FinalResults) {
-    if (results.fail) this.comment('fail:', results.fail)
-    if (results.todo) this.comment('todo:', results.todo)
-    if (results.skip) this.comment('skip:', results.skip)
-
     // only print this added info in the root test, otherwise
     // it's a bit extraneous.
     if (!env.TAP_CHILD_ID) {
-      this.comment('pass', results.pass, '/', results.count)
+      this.comment(results)
       this.comment(`time=${this.time}ms`)
     }
 
-    if (!results.ok) this.comment('fail')
     if (registered && !results.ok && proc) {
       proc.exitCode = 1
     }

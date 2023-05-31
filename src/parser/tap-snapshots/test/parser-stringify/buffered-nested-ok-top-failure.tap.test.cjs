@@ -39,7 +39,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "please sir, my son, he is sick",
+          "fullname": "please sir, my son, he is sick i got better",
           "id": 0,
           "name": "i got better",
           "ok": true,
@@ -88,7 +88,7 @@ Array [
     Result {
       "buffered": true,
       "diag": null,
-      "fullname": "",
+      "fullname": "please sir, my son, he is sick",
       "id": 1,
       "name": "please sir, my son, he is sick",
       "ok": false,
@@ -114,7 +114,7 @@ Array [
         Result {
           "buffered": true,
           "diag": null,
-          "fullname": "",
+          "fullname": "please sir, my son, he is sick",
           "id": 1,
           "name": "please sir, my son, he is sick",
           "ok": false,
@@ -167,7 +167,7 @@ exports[`test/parse-stringify.ts TAP buffered-nested-ok-top-failure.tap bail > s
 TAP version 13
 1..0
 # Subtest: please sir, my son, he is sick
-ok 1 - please sir, my son, he is sick > i got better
+ok 1 - please sir, my son, he is sick i got better
 not ok 2 - please sir, my son, he is sick
 Bail out! please sir, my son, he is sick
 
@@ -207,7 +207,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "please sir, my son, he is sick",
+          "fullname": "please sir, my son, he is sick i got better",
           "id": 0,
           "name": "i got better",
           "ok": true,
@@ -256,7 +256,7 @@ Array [
     Result {
       "buffered": true,
       "diag": null,
-      "fullname": "",
+      "fullname": "please sir, my son, he is sick",
       "id": 1,
       "name": "please sir, my son, he is sick",
       "ok": false,
@@ -282,7 +282,7 @@ Array [
         Result {
           "buffered": true,
           "diag": null,
-          "fullname": "",
+          "fullname": "please sir, my son, he is sick",
           "id": 1,
           "name": "please sir, my son, he is sick",
           "ok": false,
@@ -331,9 +331,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "please sir, my son, he is sick i got better",
       "id": 1,
-      "name": "please sir, my son, he is sick > i got better",
+      "name": "please sir, my son, he is sick i got better",
       "ok": true,
       "plan": null,
       "previous": null,
@@ -348,7 +348,7 @@ Array [
     Result {
       "buffered": true,
       "diag": null,
-      "fullname": "",
+      "fullname": "please sir, my son, he is sick",
       "id": 2,
       "name": "please sir, my son, he is sick",
       "ok": false,
@@ -381,7 +381,7 @@ Array [
         Result {
           "buffered": true,
           "diag": null,
-          "fullname": "",
+          "fullname": "please sir, my son, he is sick",
           "id": 2,
           "name": "please sir, my son, he is sick",
           "ok": false,
@@ -434,7 +434,7 @@ exports[`test/parse-stringify.ts TAP buffered-nested-ok-top-failure.tap default 
 TAP version 13
 1..0
 # Subtest: please sir, my son, he is sick
-ok 1 - please sir, my son, he is sick > i got better
+ok 1 - please sir, my son, he is sick i got better
 not ok 2 - please sir, my son, he is sick
 # failed 1 test
 
@@ -474,7 +474,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "please sir, my son, he is sick",
+          "fullname": "please sir, my son, he is sick i got better",
           "id": 0,
           "name": "i got better",
           "ok": true,
@@ -523,7 +523,7 @@ Array [
     Result {
       "buffered": true,
       "diag": null,
-      "fullname": "",
+      "fullname": "please sir, my son, he is sick",
       "id": 1,
       "name": "please sir, my son, he is sick",
       "ok": false,
@@ -549,7 +549,7 @@ Array [
         Result {
           "buffered": true,
           "diag": null,
-          "fullname": "",
+          "fullname": "please sir, my son, he is sick",
           "id": 1,
           "name": "please sir, my son, he is sick",
           "ok": false,
@@ -602,7 +602,7 @@ exports[`test/parse-stringify.ts TAP buffered-nested-ok-top-failure.tap strict >
 TAP version 13
 1..0
 # Subtest: please sir, my son, he is sick
-ok 1 - please sir, my son, he is sick > i got better
+ok 1 - please sir, my son, he is sick i got better
 not ok 2 - please sir, my son, he is sick
 # failed 1 test
 
@@ -642,7 +642,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "please sir, my son, he is sick",
+          "fullname": "please sir, my son, he is sick i got better",
           "id": 0,
           "name": "i got better",
           "ok": true,
@@ -691,7 +691,7 @@ Array [
     Result {
       "buffered": true,
       "diag": null,
-      "fullname": "",
+      "fullname": "please sir, my son, he is sick",
       "id": 1,
       "name": "please sir, my son, he is sick",
       "ok": false,
@@ -717,7 +717,7 @@ Array [
         Result {
           "buffered": true,
           "diag": null,
-          "fullname": "",
+          "fullname": "please sir, my son, he is sick",
           "id": 1,
           "name": "please sir, my son, he is sick",
           "ok": false,
@@ -770,7 +770,7 @@ exports[`test/parse-stringify.ts TAP buffered-nested-ok-top-failure.tap strictBa
 TAP version 13
 1..0
 # Subtest: please sir, my son, he is sick
-ok 1 - please sir, my son, he is sick > i got better
+ok 1 - please sir, my son, he is sick i got better
 not ok 2 - please sir, my son, he is sick
 Bail out! please sir, my son, he is sick
 

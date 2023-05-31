@@ -31,6 +31,6 @@ export const report = async (
     Type = types[Type]
   }
   tap.register()
-  render(<Type tap={tap} config={config}></Type>, { patchConsole: true })
+  render(<Type tap={tap} config={config}></Type>, { patchConsole: false })
   return true
 }

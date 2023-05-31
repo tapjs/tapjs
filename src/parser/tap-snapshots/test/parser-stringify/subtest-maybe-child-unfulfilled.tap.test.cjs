@@ -31,7 +31,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "x",
+          "fullname": "x not a subtest",
           "id": 1,
           "name": "not a subtest",
           "ok": true,
@@ -55,7 +55,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "x y",
+              "fullname": "x y ypoint",
               "id": 1,
               "name": "ypoint",
               "ok": true,
@@ -112,7 +112,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "x",
+          "fullname": "x y",
           "id": 2,
           "name": "y",
           "ok": true,
@@ -169,7 +169,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "x",
       "id": 1,
       "name": "x",
       "ok": true,
@@ -243,10 +243,10 @@ TAP version 13
 # just a comment
 # Subtest: x
 # Subtest: fake
-ok 1 - x > not a subtest
+ok 1 - x not a subtest
 # Subtest: y
-ok 2 - x y > ypoint
-ok 3 - x > y
+ok 2 - x y ypoint
+ok 3 - x y
 ok 4 - x
 1..4
 
@@ -278,7 +278,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "x",
+          "fullname": "x not a subtest",
           "id": 1,
           "name": "not a subtest",
           "ok": true,
@@ -302,7 +302,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "x y",
+              "fullname": "x y ypoint",
               "id": 1,
               "name": "ypoint",
               "ok": true,
@@ -359,7 +359,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "x",
+          "fullname": "x y",
           "id": 2,
           "name": "y",
           "ok": true,
@@ -416,7 +416,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "x",
       "id": 1,
       "name": "x",
       "ok": true,
@@ -484,9 +484,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "x not a subtest",
       "id": 1,
-      "name": "x > not a subtest",
+      "name": "x not a subtest",
       "ok": true,
       "plan": null,
       "previous": null,
@@ -501,9 +501,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "x y ypoint",
       "id": 2,
-      "name": "x y > ypoint",
+      "name": "x y ypoint",
       "ok": true,
       "plan": null,
       "previous": null,
@@ -574,10 +574,10 @@ TAP version 13
 # just a comment
 # Subtest: x
 # Subtest: fake
-ok 1 - x > not a subtest
+ok 1 - x not a subtest
 # Subtest: y
-ok 2 - x y > ypoint
-ok 3 - x > y
+ok 2 - x y ypoint
+ok 3 - x y
 ok 4 - x
 1..4
 
@@ -609,7 +609,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "x",
+          "fullname": "x not a subtest",
           "id": 1,
           "name": "not a subtest",
           "ok": true,
@@ -633,7 +633,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "x y",
+              "fullname": "x y ypoint",
               "id": 1,
               "name": "ypoint",
               "ok": true,
@@ -690,7 +690,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "x",
+          "fullname": "x y",
           "id": 2,
           "name": "y",
           "ok": true,
@@ -747,7 +747,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "x",
       "id": 1,
       "name": "x",
       "ok": true,
@@ -821,10 +821,10 @@ TAP version 13
 # just a comment
 # Subtest: x
 # Subtest: fake
-ok 1 - x > not a subtest
+ok 1 - x not a subtest
 # Subtest: y
-ok 2 - x y > ypoint
-ok 3 - x > y
+ok 2 - x y ypoint
+ok 3 - x y
 ok 4 - x
 1..4
 
@@ -856,7 +856,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "x",
+          "fullname": "x not a subtest",
           "id": 1,
           "name": "not a subtest",
           "ok": true,
@@ -880,7 +880,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "x y",
+              "fullname": "x y ypoint",
               "id": 1,
               "name": "ypoint",
               "ok": true,
@@ -937,7 +937,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "x",
+          "fullname": "x y",
           "id": 2,
           "name": "y",
           "ok": true,
@@ -994,7 +994,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "x",
       "id": 1,
       "name": "x",
       "ok": true,
@@ -1068,10 +1068,10 @@ TAP version 13
 # just a comment
 # Subtest: x
 # Subtest: fake
-ok 1 - x > not a subtest
+ok 1 - x not a subtest
 # Subtest: y
-ok 2 - x y > ypoint
-ok 3 - x > y
+ok 2 - x y ypoint
+ok 3 - x y
 ok 4 - x
 1..4
 

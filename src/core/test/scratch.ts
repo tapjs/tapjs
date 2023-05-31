@@ -16,5 +16,16 @@ t.comment('this is a comment')
 
 t.test('test with a todo', t => {
   t.todo('do this eventually')
+  t.test('nested fail', async t => {
+    t.test('way down in there', async t => {
+      await new Promise<void>(r => setTimeout(r, 100))
+      t.fail('nope')
+    })
+  })
+  t.end()
+})
+
+t.test('wrong plan', t => {
+  t.plan(1)
   t.end()
 })

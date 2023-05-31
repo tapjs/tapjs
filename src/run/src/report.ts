@@ -1,11 +1,11 @@
 // this has to do some wicked things with types, because c8's
 // declarations are somewhat lacking.
+import { tap } from '@tapjs/core'
 import { Report } from 'c8'
 import { readdir } from 'fs/promises'
 import opener from 'opener'
 import { resolve } from 'path'
 import type { Config } from './index.js'
-import { tap } from '@tapjs/core'
 
 export const report = async (args: string[], config: Config) => {
   const rconf = config.get('coverage-reporter')

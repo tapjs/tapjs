@@ -36,7 +36,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "found some spare flux in bottom drawer",
       "id": 1,
       "name": "found some spare flux in bottom drawer",
       "ok": true,
@@ -53,7 +53,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "found some spare flux in bottom drawer",
       "id": 1,
       "name": "found some spare flux in bottom drawer",
       "ok": true,
@@ -70,7 +70,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "found some spare flux in bottom drawer",
       "id": 1,
       "name": "found some spare flux in bottom drawer",
       "ok": true,
@@ -140,7 +140,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "found some spare flux in bottom drawer",
       "id": 1,
       "name": "found some spare flux in bottom drawer",
       "ok": true,
@@ -157,7 +157,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "found some spare flux in bottom drawer",
       "id": 1,
       "name": "found some spare flux in bottom drawer",
       "ok": true,
@@ -174,7 +174,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "found some spare flux in bottom drawer",
       "id": 1,
       "name": "found some spare flux in bottom drawer",
       "ok": true,

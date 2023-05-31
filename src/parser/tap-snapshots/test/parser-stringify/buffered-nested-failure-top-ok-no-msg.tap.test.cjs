@@ -262,7 +262,7 @@ Array [
     Result {
       "buffered": true,
       "diag": null,
-      "fullname": "",
+      "fullname": "my kids are fine",
       "id": 1,
       "name": "my kids are fine",
       "ok": true,
@@ -318,7 +318,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "my kids are fine",
       "id": 1,
       "name": "my kids are fine",
       "ok": false,
@@ -335,7 +335,7 @@ Array [
     Result {
       "buffered": true,
       "diag": null,
-      "fullname": "",
+      "fullname": "my kids are fine",
       "id": 2,
       "name": "my kids are fine",
       "ok": true,
@@ -510,7 +510,7 @@ Array [
     Result {
       "buffered": true,
       "diag": null,
-      "fullname": "",
+      "fullname": "my kids are fine",
       "id": 1,
       "name": "my kids are fine",
       "ok": true,

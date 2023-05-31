@@ -7,12 +7,12 @@ import { parseDirective } from './parse-directive.js'
 import { Plan } from './plan.js'
 import { Result, TapError } from './result.js'
 
-export type { Directive } from './parse-directive.js'
-export type { ParsedLine } from './line-type.js'
 export type { FinalPlan } from './final-plan.js'
 export { FinalResults } from './final-results.js'
 export { lineType, lineTypes } from './line-type.js'
+export type { ParsedLine } from './line-type.js'
 export { parseDirective } from './parse-directive.js'
+export type { Directive } from './parse-directive.js'
 export { Plan } from './plan.js'
 export { Result } from './result.js'
 export type { TapError } from './result.js'
@@ -157,7 +157,6 @@ export class Parser extends EventEmitter implements NodeJS.WritableStream {
     if (this.bailedOut) return
 
     const resId = testPoint[2]
-
     const res = new Result(testPoint, this)
 
     if (resId && this.planStart !== -1) {
@@ -461,25 +460,13 @@ export class Parser extends EventEmitter implements NodeJS.WritableStream {
       if (!res.bailout) {
         // comment a bit at the end so we know what happened.
         // but don't repeat these comments if they're already present.
-        if (res.plan.end !== res.count)
+        if (res.plan.end !== res.count) {
           this.emitComment(
             'test count(' + res.count + ') != plan(' + res.plan.end + ')',
             false,
             true
           )
-
-        if (res.fail > 0 && !res.ok)
-          this.emitComment(
-            'failed ' +
-              res.fail +
-              (res.count > 1 ? ' of ' + res.count + ' tests' : ' test'),
-            false,
-            true
-          )
-
-        if (res.todo > 0) this.emitComment('todo: ' + res.todo, false, true)
-
-        if (res.skip > 0) this.emitComment('skip: ' + res.skip, false, true)
+        }
       }
 
       this.emit('complete', this.results)
@@ -713,8 +700,6 @@ export class Parser extends EventEmitter implements NodeJS.WritableStream {
   }
 
   emitAssert(res: Result) {
-    res.fullname = this.fullname
-
     this.emit('assert', res)
 
     // see if we need to surface to the top level

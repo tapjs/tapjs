@@ -16,7 +16,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "1",
       "id": 0,
       "name": "1",
       "ok": false,
@@ -40,7 +40,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "child",
+          "fullname": "child foo",
           "id": 0,
           "name": "foo",
           "ok": true,
@@ -114,7 +114,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "child",
       "id": 2,
       "name": "child",
       "ok": true,
@@ -153,7 +153,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "1",
           "id": 0,
           "name": "1",
           "ok": false,
@@ -202,7 +202,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "1",
       "id": 1,
       "name": "1",
       "ok": false,
@@ -219,9 +219,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "child foo",
       "id": 2,
-      "name": "child > foo",
+      "name": "child foo",
       "ok": true,
       "plan": null,
       "previous": null,
@@ -236,7 +236,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "child",
       "id": 3,
       "name": "child",
       "ok": true,
@@ -274,7 +274,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "1",
           "id": 1,
           "name": "1",
           "ok": false,
@@ -315,7 +315,7 @@ Array [
 exports[`test/stringify-parse.ts TAP stringify flattened result > basic 1`] = `
 TAP version 13
 not ok 1 - 1
-ok 2 - child > foo
+ok 2 - child foo
 ok 3 - child
 # failed 1 of 2 tests
 1..3
@@ -325,7 +325,7 @@ ok 3 - child
 exports[`test/stringify-parse.ts TAP stringify flattened result > flattened 1`] = `
 TAP version 13
 not ok 1 - 1
-ok 2 - child > foo
+ok 2 - child foo
 ok 3 - child
 # failed 1 of 2 tests
 1..3
@@ -354,7 +354,7 @@ TAP version 13
 not ok 1 - 1
 pragma +strict
 # Subtest: child
-ok 2 - child > foo
+ok 2 - child foo
 pragma +strict
 ok 3 - child
 pragma -strict
@@ -368,7 +368,7 @@ pragma -strict
 exports[`test/stringify-parse.ts TAP stringify with bailout > basic 1`] = `
 TAP version 13
 not ok 1 - 1
-ok 2 - child > foo
+ok 2 - child foo
 ok 3 - child
 Bail out! cannot continue
 
@@ -377,7 +377,7 @@ Bail out! cannot continue
 exports[`test/stringify-parse.ts TAP stringify with bailout > flattened 1`] = `
 TAP version 13
 not ok 1 - 1
-ok 2 - child > foo
+ok 2 - child foo
 ok 3 - child
 Bail out! cannot continue
 

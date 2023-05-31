@@ -24,7 +24,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "does not count as failure",
       "id": 1,
       "name": "does not count as failure",
       "ok": false,
@@ -41,7 +41,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "does not count as failure",
       "id": 1,
       "name": "does not count as failure",
       "ok": false,
@@ -58,7 +58,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "does not count as failure",
       "id": 1,
       "name": "does not count as failure",
       "ok": false,
@@ -136,7 +136,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "does not count as failure",
       "id": 1,
       "name": "does not count as failure",
       "ok": false,
@@ -153,7 +153,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "does not count as failure",
       "id": 1,
       "name": "does not count as failure",
       "ok": false,
@@ -170,7 +170,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "does not count as failure",
       "id": 1,
       "name": "does not count as failure",
       "ok": false,

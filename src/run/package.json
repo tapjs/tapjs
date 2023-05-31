@@ -57,7 +57,7 @@
   "dependencies": {
     "@tapjs/config": ">=0.0.0-0",
     "@tapjs/core": ">=0.0.0-0",
-    "@tapjs/processinfo": "^2.1.4",
+    "@tapjs/processinfo": "^2.1.5",
     "@tapjs/test": ">=0.0.0-0",
     "c8": "^7.13.0",
     "foreground-child": "^3.1.1",

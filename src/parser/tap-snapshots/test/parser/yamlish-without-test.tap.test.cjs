@@ -56,7 +56,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "this is fine",
       "id": 0,
       "name": "this is fine",
       "ok": true,
@@ -73,7 +73,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "this is fine",
       "id": 0,
       "name": "this is fine",
       "ok": true,
@@ -90,7 +90,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "this is fine",
       "id": 0,
       "name": "this is fine",
       "ok": true,
@@ -192,7 +192,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "this is fine",
       "id": 0,
       "name": "this is fine",
       "ok": true,
@@ -209,7 +209,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "this is fine",
       "id": 0,
       "name": "this is fine",
       "ok": true,
@@ -226,7 +226,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "this is fine",
       "id": 0,
       "name": "this is fine",
       "ok": true,

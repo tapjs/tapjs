@@ -52,7 +52,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "child",
+          "fullname": "child test point in child",
           "id": 1,
           "name": "test point in child",
           "ok": false,
@@ -106,7 +106,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "child",
+              "fullname": "child test point in child",
               "id": 1,
               "name": "test point in child",
               "ok": false,
@@ -176,7 +176,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "child",
+      "fullname": "child test point in child",
       "id": 1,
       "name": "test point in child",
       "ok": false,
@@ -193,7 +193,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "child",
+      "fullname": "child test point in child",
       "id": 1,
       "name": "test point in child",
       "ok": false,
@@ -230,7 +230,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "child",
       "id": 1,
       "name": "child",
       "ok": false,
@@ -280,7 +280,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "child",
           "id": 1,
           "name": "child",
           "ok": false,
@@ -359,7 +359,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "child",
+          "fullname": "child test point in child",
           "id": 1,
           "name": "test point in child",
           "ok": false,
@@ -405,7 +405,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "child",
+              "fullname": "child test point in child",
               "id": 1,
               "name": "test point in child",
               "ok": false,
@@ -472,7 +472,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "child",
+      "fullname": "child test point in child",
       "id": 1,
       "name": "test point in child",
       "ok": false,
@@ -489,7 +489,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "child",
+      "fullname": "child test point in child",
       "id": 1,
       "name": "test point in child",
       "ok": false,

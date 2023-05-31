@@ -75,7 +75,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "my kids are fine",
+          "fullname": "my kids are fine no they aren't",
           "id": 0,
           "name": "no they aren't",
           "ok": false,
@@ -105,7 +105,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "my kids are fine",
+              "fullname": "my kids are fine no they aren't",
               "id": 0,
               "name": "no they aren't",
               "ok": false,
@@ -152,7 +152,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "my kids are fine",
+      "fullname": "my kids are fine no they aren't",
       "id": 0,
       "name": "no they aren't",
       "ok": false,
@@ -169,7 +169,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "my kids are fine",
+      "fullname": "my kids are fine no they aren't",
       "id": 0,
       "name": "no they aren't",
       "ok": false,
@@ -196,7 +196,7 @@ Array [
       "diag": Object {
         "some": "diag",
       },
-      "fullname": "",
+      "fullname": "my kids are fine",
       "id": 1,
       "name": "my kids are fine",
       "ok": true,
@@ -215,7 +215,7 @@ Array [
       "diag": Object {
         "some": "diag",
       },
-      "fullname": "",
+      "fullname": "my kids are fine",
       "id": 1,
       "name": "my kids are fine",
       "ok": true,
@@ -234,7 +234,7 @@ Array [
       "diag": Object {
         "some": "diag",
       },
-      "fullname": "",
+      "fullname": "my kids are fine",
       "id": 1,
       "name": "my kids are fine",
       "ok": true,
@@ -343,7 +343,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "my kids are fine",
+          "fullname": "my kids are fine no they aren't",
           "id": 0,
           "name": "no they aren't",
           "ok": false,
@@ -373,7 +373,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "my kids are fine",
+              "fullname": "my kids are fine no they aren't",
               "id": 0,
               "name": "no they aren't",
               "ok": false,
@@ -420,7 +420,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "my kids are fine",
+      "fullname": "my kids are fine no they aren't",
       "id": 0,
       "name": "no they aren't",
       "ok": false,
@@ -437,7 +437,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "my kids are fine",
+      "fullname": "my kids are fine no they aren't",
       "id": 0,
       "name": "no they aren't",
       "ok": false,

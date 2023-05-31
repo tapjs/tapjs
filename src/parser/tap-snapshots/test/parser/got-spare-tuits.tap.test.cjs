@@ -36,7 +36,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Creating test program",
       "id": 1,
       "name": "Creating test program",
       "ok": true,
@@ -53,7 +53,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Creating test program",
       "id": 1,
       "name": "Creating test program",
       "ok": true,
@@ -70,7 +70,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Creating test program",
       "id": 1,
       "name": "Creating test program",
       "ok": true,
@@ -91,7 +91,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Test program runs, no error",
       "id": 2,
       "name": "Test program runs, no error",
       "ok": true,
@@ -108,7 +108,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Test program runs, no error",
       "id": 2,
       "name": "Test program runs, no error",
       "ok": true,
@@ -125,7 +125,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Test program runs, no error",
       "id": 2,
       "name": "Test program runs, no error",
       "ok": true,
@@ -146,7 +146,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "infinite loop",
       "id": 3,
       "name": "infinite loop",
       "ok": false,
@@ -163,7 +163,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "infinite loop",
       "id": 3,
       "name": "infinite loop",
       "ok": false,
@@ -180,7 +180,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "infinite loop",
       "id": 3,
       "name": "infinite loop",
       "ok": false,
@@ -201,7 +201,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "infinite loop 2",
       "id": 4,
       "name": "infinite loop 2",
       "ok": false,
@@ -218,7 +218,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "infinite loop 2",
       "id": 4,
       "name": "infinite loop 2",
       "ok": false,
@@ -235,7 +235,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "infinite loop 2",
       "id": 4,
       "name": "infinite loop 2",
       "ok": false,
@@ -313,7 +313,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Creating test program",
       "id": 1,
       "name": "Creating test program",
       "ok": true,
@@ -330,7 +330,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Creating test program",
       "id": 1,
       "name": "Creating test program",
       "ok": true,
@@ -347,7 +347,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Creating test program",
       "id": 1,
       "name": "Creating test program",
       "ok": true,
@@ -368,7 +368,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Test program runs, no error",
       "id": 2,
       "name": "Test program runs, no error",
       "ok": true,
@@ -385,7 +385,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Test program runs, no error",
       "id": 2,
       "name": "Test program runs, no error",
       "ok": true,
@@ -402,7 +402,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Test program runs, no error",
       "id": 2,
       "name": "Test program runs, no error",
       "ok": true,
@@ -423,7 +423,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "infinite loop",
       "id": 3,
       "name": "infinite loop",
       "ok": false,
@@ -440,7 +440,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "infinite loop",
       "id": 3,
       "name": "infinite loop",
       "ok": false,
@@ -457,7 +457,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "infinite loop",
       "id": 3,
       "name": "infinite loop",
       "ok": false,
@@ -478,7 +478,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "infinite loop 2",
       "id": 4,
       "name": "infinite loop 2",
       "ok": false,
@@ -495,7 +495,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "infinite loop 2",
       "id": 4,
       "name": "infinite loop 2",
       "ok": false,
@@ -512,7 +512,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "infinite loop 2",
       "id": 4,
       "name": "infinite loop 2",
       "ok": false,

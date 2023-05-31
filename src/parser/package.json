@@ -76,8 +76,7 @@
   ],
   "tap": {
     "include": "test/*.ts",
-    "coverage-map": "map.js",
-    "reporter": "tap"
+    "coverage-map": "map.js"
   },
   "engines": {
     "node": ">= 12"

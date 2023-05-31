@@ -149,7 +149,7 @@ Array [
       "diag": Object {
         "some": "diagnostics",
       },
-      "fullname": "",
+      "fullname": "child",
       "id": 1,
       "name": "child",
       "ok": false,
@@ -168,7 +168,7 @@ Array [
       "diag": Object {
         "some": "diagnostics",
       },
-      "fullname": "",
+      "fullname": "child",
       "id": 1,
       "name": "child",
       "ok": false,
@@ -187,7 +187,7 @@ Array [
       "diag": Object {
         "some": "diagnostics",
       },
-      "fullname": "",
+      "fullname": "child",
       "id": 1,
       "name": "child",
       "ok": false,
@@ -231,7 +231,7 @@ Array [
           "diag": Object {
             "some": "diagnostics",
           },
-          "fullname": "",
+          "fullname": "child",
           "id": 1,
           "name": "child",
           "ok": false,
@@ -407,7 +407,7 @@ Array [
       "diag": Object {
         "some": "diagnostics",
       },
-      "fullname": "",
+      "fullname": "child",
       "id": 1,
       "name": "child",
       "ok": false,
@@ -426,7 +426,7 @@ Array [
       "diag": Object {
         "some": "diagnostics",
       },
-      "fullname": "",
+      "fullname": "child",
       "id": 1,
       "name": "child",
       "ok": false,
@@ -445,7 +445,7 @@ Array [
       "diag": Object {
         "some": "diagnostics",
       },
-      "fullname": "",
+      "fullname": "child",
       "id": 1,
       "name": "child",
       "ok": false,
@@ -477,7 +477,7 @@ Array [
           "diag": Object {
             "some": "diagnostics",
           },
-          "fullname": "",
+          "fullname": "child",
           "id": 1,
           "name": "child",
           "ok": false,

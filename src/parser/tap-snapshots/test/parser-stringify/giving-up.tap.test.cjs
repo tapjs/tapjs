@@ -24,7 +24,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "database handle",
       "id": 1,
       "name": "database handle",
       "ok": false,
@@ -50,7 +50,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "database handle",
           "id": 1,
           "name": "database handle",
           "ok": false,
@@ -123,7 +123,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "database handle",
       "id": 1,
       "name": "database handle",
       "ok": false,
@@ -149,7 +149,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "database handle",
           "id": 1,
           "name": "database handle",
           "ok": false,
@@ -198,7 +198,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "database handle",
       "id": 1,
       "name": "database handle",
       "ok": false,
@@ -224,7 +224,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "database handle",
           "id": 1,
           "name": "database handle",
           "ok": false,
@@ -297,7 +297,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "database handle",
       "id": 1,
       "name": "database handle",
       "ok": false,
@@ -323,7 +323,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "database handle",
           "id": 1,
           "name": "database handle",
           "ok": false,
@@ -396,7 +396,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "database handle",
       "id": 1,
       "name": "database handle",
       "ok": false,
@@ -422,7 +422,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "database handle",
           "id": 1,
           "name": "database handle",
           "ok": false,

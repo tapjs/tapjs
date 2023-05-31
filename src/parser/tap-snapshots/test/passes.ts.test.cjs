@@ -22,7 +22,7 @@ Array [
       "diag": Object {
         "message": "1 passed",
       },
-      "fullname": "",
+      "fullname": "this is fine",
       "id": 1,
       "name": "this is fine",
       "ok": true,
@@ -41,7 +41,7 @@ Array [
       "diag": Object {
         "message": "1 passed",
       },
-      "fullname": "",
+      "fullname": "this is fine",
       "id": 1,
       "name": "this is fine",
       "ok": true,
@@ -60,7 +60,7 @@ Array [
       "diag": Object {
         "message": "1 passed",
       },
-      "fullname": "",
+      "fullname": "this is fine",
       "id": 1,
       "name": "this is fine",
       "ok": true,
@@ -165,7 +165,7 @@ Array [
           "diag": Object {
             "message": "1 passed",
           },
-          "fullname": "",
+          "fullname": "this is fine",
           "id": 1,
           "name": "this is fine",
           "ok": true,

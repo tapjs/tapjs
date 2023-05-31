@@ -27,7 +27,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "test/debug-test.js",
+          "fullname": "test/debug-test.js Should output debugger message",
           "id": 1,
           "name": "Should output debugger message",
           "ok": true,
@@ -108,7 +108,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/debug-test.js",
       "id": 1,
       "name": "test/debug-test.js",
       "ok": true,
@@ -187,7 +187,7 @@ exports[`test/parse-stringify.ts TAP child-extra.tap bail > stringified flat 1`]
 TAP version 13
 # Subtest: test/debug-test.js
 # debug test
-ok 1 - test/debug-test.js > Should output debugger message
+ok 1 - test/debug-test.js Should output debugger message
 # tests 1
 # pass  1
 # ok
@@ -222,7 +222,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "test/debug-test.js",
+          "fullname": "test/debug-test.js Should output debugger message",
           "id": 1,
           "name": "Should output debugger message",
           "ok": true,
@@ -303,7 +303,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/debug-test.js",
       "id": 1,
       "name": "test/debug-test.js",
       "ok": true,
@@ -383,9 +383,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/debug-test.js Should output debugger message",
       "id": 1,
-      "name": "test/debug-test.js > Should output debugger message",
+      "name": "test/debug-test.js Should output debugger message",
       "ok": true,
       "plan": null,
       "previous": null,
@@ -461,7 +461,7 @@ exports[`test/parse-stringify.ts TAP child-extra.tap default settings > stringif
 TAP version 13
 # Subtest: test/debug-test.js
 # debug test
-ok 1 - test/debug-test.js > Should output debugger message
+ok 1 - test/debug-test.js Should output debugger message
 # tests 1
 # pass  1
 # ok
@@ -496,7 +496,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "test/debug-test.js",
+          "fullname": "test/debug-test.js Should output debugger message",
           "id": 1,
           "name": "Should output debugger message",
           "ok": true,
@@ -577,7 +577,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/debug-test.js",
       "id": 1,
       "name": "test/debug-test.js",
       "ok": true,
@@ -674,7 +674,7 @@ exports[`test/parse-stringify.ts TAP child-extra.tap strict > stringified flat 1
 TAP version 13
 # Subtest: test/debug-test.js
 # debug test
-ok 1 - test/debug-test.js > Should output debugger message
+ok 1 - test/debug-test.js Should output debugger message
 # tests 1
 # pass  1
 # ok
@@ -710,7 +710,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "test/debug-test.js",
+          "fullname": "test/debug-test.js Should output debugger message",
           "id": 1,
           "name": "Should output debugger message",
           "ok": true,
@@ -791,7 +791,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/debug-test.js",
       "id": 1,
       "name": "test/debug-test.js",
       "ok": true,
@@ -888,7 +888,7 @@ exports[`test/parse-stringify.ts TAP child-extra.tap strictBail > stringified fl
 TAP version 13
 # Subtest: test/debug-test.js
 # debug test
-ok 1 - test/debug-test.js > Should output debugger message
+ok 1 - test/debug-test.js Should output debugger message
 # tests 1
 # pass  1
 # ok

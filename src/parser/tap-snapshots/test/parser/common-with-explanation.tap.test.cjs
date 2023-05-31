@@ -68,7 +68,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "The object isa Board",
       "id": 1,
       "name": "The object isa Board",
       "ok": true,
@@ -85,7 +85,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "The object isa Board",
       "id": 1,
       "name": "The object isa Board",
       "ok": true,
@@ -102,7 +102,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "The object isa Board",
       "id": 1,
       "name": "The object isa Board",
       "ok": true,
@@ -123,7 +123,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Board size is zero",
       "id": 2,
       "name": "Board size is zero",
       "ok": true,
@@ -140,7 +140,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Board size is zero",
       "id": 2,
       "name": "Board size is zero",
       "ok": true,
@@ -157,7 +157,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Board size is zero",
       "id": 2,
       "name": "Board size is zero",
       "ok": true,
@@ -178,7 +178,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "The object isa Tile",
       "id": 3,
       "name": "The object isa Tile",
       "ok": true,
@@ -195,7 +195,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "The object isa Tile",
       "id": 3,
       "name": "The object isa Tile",
       "ok": true,
@@ -212,7 +212,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "The object isa Tile",
       "id": 3,
       "name": "The object isa Tile",
       "ok": true,
@@ -233,7 +233,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Get possible places to put the Tile",
       "id": 4,
       "name": "Get possible places to put the Tile",
       "ok": true,
@@ -250,7 +250,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Get possible places to put the Tile",
       "id": 4,
       "name": "Get possible places to put the Tile",
       "ok": true,
@@ -267,7 +267,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Get possible places to put the Tile",
       "id": 4,
       "name": "Get possible places to put the Tile",
       "ok": true,
@@ -288,7 +288,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Placing the tile produces no error",
       "id": 5,
       "name": "Placing the tile produces no error",
       "ok": true,
@@ -305,7 +305,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Placing the tile produces no error",
       "id": 5,
       "name": "Placing the tile produces no error",
       "ok": true,
@@ -322,7 +322,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Placing the tile produces no error",
       "id": 5,
       "name": "Placing the tile produces no error",
       "ok": true,
@@ -343,7 +343,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Board size is 1",
       "id": 6,
       "name": "Board size is 1",
       "ok": true,
@@ -360,7 +360,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Board size is 1",
       "id": 6,
       "name": "Board size is 1",
       "ok": true,
@@ -377,7 +377,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Board size is 1",
       "id": 6,
       "name": "Board size is 1",
       "ok": true,
@@ -479,7 +479,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "The object isa Board",
       "id": 1,
       "name": "The object isa Board",
       "ok": true,
@@ -496,7 +496,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "The object isa Board",
       "id": 1,
       "name": "The object isa Board",
       "ok": true,
@@ -513,7 +513,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "The object isa Board",
       "id": 1,
       "name": "The object isa Board",
       "ok": true,
@@ -534,7 +534,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Board size is zero",
       "id": 2,
       "name": "Board size is zero",
       "ok": true,
@@ -551,7 +551,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Board size is zero",
       "id": 2,
       "name": "Board size is zero",
       "ok": true,
@@ -568,7 +568,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Board size is zero",
       "id": 2,
       "name": "Board size is zero",
       "ok": true,
@@ -589,7 +589,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "The object isa Tile",
       "id": 3,
       "name": "The object isa Tile",
       "ok": true,
@@ -606,7 +606,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "The object isa Tile",
       "id": 3,
       "name": "The object isa Tile",
       "ok": true,
@@ -623,7 +623,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "The object isa Tile",
       "id": 3,
       "name": "The object isa Tile",
       "ok": true,
@@ -644,7 +644,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Get possible places to put the Tile",
       "id": 4,
       "name": "Get possible places to put the Tile",
       "ok": true,
@@ -661,7 +661,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Get possible places to put the Tile",
       "id": 4,
       "name": "Get possible places to put the Tile",
       "ok": true,
@@ -678,7 +678,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Get possible places to put the Tile",
       "id": 4,
       "name": "Get possible places to put the Tile",
       "ok": true,
@@ -699,7 +699,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Placing the tile produces no error",
       "id": 5,
       "name": "Placing the tile produces no error",
       "ok": true,
@@ -716,7 +716,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Placing the tile produces no error",
       "id": 5,
       "name": "Placing the tile produces no error",
       "ok": true,
@@ -733,7 +733,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Placing the tile produces no error",
       "id": 5,
       "name": "Placing the tile produces no error",
       "ok": true,
@@ -754,7 +754,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Board size is 1",
       "id": 6,
       "name": "Board size is 1",
       "ok": true,
@@ -771,7 +771,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Board size is 1",
       "id": 6,
       "name": "Board size is 1",
       "ok": true,
@@ -788,7 +788,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Board size is 1",
       "id": 6,
       "name": "Board size is 1",
       "ok": true,

@@ -28,7 +28,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "we are good",
       "id": 0,
       "name": "we are good",
       "ok": true,
@@ -45,7 +45,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "we are good",
       "id": 0,
       "name": "we are good",
       "ok": true,
@@ -62,7 +62,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "we are good",
       "id": 0,
       "name": "we are good",
       "ok": true,
@@ -83,7 +83,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "we are bad",
       "id": 2,
       "name": "we are bad",
       "ok": false,
@@ -100,7 +100,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "we are bad",
       "id": 2,
       "name": "we are bad",
       "ok": false,
@@ -117,7 +117,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "we are bad",
       "id": 2,
       "name": "we are bad",
       "ok": false,
@@ -138,7 +138,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "we are zesty!",
       "id": 0,
       "name": "we are zesty!",
       "ok": true,
@@ -155,7 +155,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "we are zesty!",
       "id": 0,
       "name": "we are zesty!",
       "ok": true,
@@ -172,7 +172,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "we are zesty!",
       "id": 0,
       "name": "we are zesty!",
       "ok": true,
@@ -202,7 +202,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "we are bad",
           "id": 2,
           "name": "we are bad",
           "ok": false,
@@ -257,7 +257,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "we are good",
       "id": 0,
       "name": "we are good",
       "ok": true,
@@ -274,7 +274,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "we are good",
       "id": 0,
       "name": "we are good",
       "ok": true,
@@ -291,7 +291,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "we are good",
       "id": 0,
       "name": "we are good",
       "ok": true,
@@ -312,7 +312,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "we are bad",
       "id": 2,
       "name": "we are bad",
       "ok": false,
@@ -329,7 +329,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "we are bad",
       "id": 2,
       "name": "we are bad",
       "ok": false,
@@ -346,7 +346,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "we are bad",
       "id": 2,
       "name": "we are bad",
       "ok": false,
@@ -376,7 +376,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "we are bad",
           "id": 2,
           "name": "we are bad",
           "ok": false,

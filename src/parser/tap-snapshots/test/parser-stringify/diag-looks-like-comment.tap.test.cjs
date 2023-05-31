@@ -43,7 +43,7 @@ Array [
             ),
             "pattern": "/SIGTERM/",
           },
-          "fullname": "-t 0.2",
+          "fullname": "-t 0.2 should match pattern provided",
           "id": 1,
           "name": "should match pattern provided",
           "ok": false,
@@ -89,7 +89,7 @@ Array [
                 ),
                 "pattern": "/SIGTERM/",
               },
-              "fullname": "-t 0.2",
+              "fullname": "-t 0.2 should match pattern provided",
               "id": 1,
               "name": "should match pattern provided",
               "ok": false,
@@ -194,7 +194,7 @@ Bail out! should match pattern provided
 exports[`test/parse-stringify.ts TAP diag-looks-like-comment.tap bail > stringified flat 1`] = `
 TAP version 13
 # Subtest: -t 0.2
-not ok 1 - -t 0.2 > should match pattern provided
+not ok 1 - -t 0.2 should match pattern provided
   ---
   found: |
     
@@ -257,7 +257,7 @@ Array [
             ),
             "pattern": "/SIGTERM/",
           },
-          "fullname": "-t 0.2",
+          "fullname": "-t 0.2 should match pattern provided",
           "id": 1,
           "name": "should match pattern provided",
           "ok": false,
@@ -311,7 +311,7 @@ Array [
                 ),
                 "pattern": "/SIGTERM/",
               },
-              "fullname": "-t 0.2",
+              "fullname": "-t 0.2 should match pattern provided",
               "id": 1,
               "name": "should match pattern provided",
               "ok": false,
@@ -353,7 +353,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "-t 0.2",
       "id": 1,
       "name": "-t 0.2",
       "ok": false,
@@ -387,7 +387,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "-t 0.2",
           "id": 1,
           "name": "-t 0.2",
           "ok": false,
@@ -456,9 +456,9 @@ Array [
         ),
         "pattern": "/SIGTERM/",
       },
-      "fullname": "",
+      "fullname": "-t 0.2 should match pattern provided",
       "id": 1,
-      "name": "-t 0.2 > should match pattern provided",
+      "name": "-t 0.2 should match pattern provided",
       "ok": false,
       "plan": null,
       "previous": null,
@@ -489,7 +489,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "-t 0.2",
           "id": 1,
           "name": "-t 0.2",
           "ok": false,
@@ -561,7 +561,7 @@ not ok 1 - -t 0.2
 exports[`test/parse-stringify.ts TAP diag-looks-like-comment.tap default settings > stringified flat 1`] = `
 TAP version 13
 # Subtest: -t 0.2
-not ok 1 - -t 0.2 > should match pattern provided
+not ok 1 - -t 0.2 should match pattern provided
   ---
   found: |
     
@@ -626,7 +626,7 @@ Array [
             ),
             "pattern": "/SIGTERM/",
           },
-          "fullname": "-t 0.2",
+          "fullname": "-t 0.2 should match pattern provided",
           "id": 1,
           "name": "should match pattern provided",
           "ok": false,
@@ -680,7 +680,7 @@ Array [
                 ),
                 "pattern": "/SIGTERM/",
               },
-              "fullname": "-t 0.2",
+              "fullname": "-t 0.2 should match pattern provided",
               "id": 1,
               "name": "should match pattern provided",
               "ok": false,
@@ -722,7 +722,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "-t 0.2",
       "id": 1,
       "name": "-t 0.2",
       "ok": false,
@@ -756,7 +756,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "-t 0.2",
           "id": 1,
           "name": "-t 0.2",
           "ok": false,
@@ -828,7 +828,7 @@ not ok 1 - -t 0.2
 exports[`test/parse-stringify.ts TAP diag-looks-like-comment.tap strict > stringified flat 1`] = `
 TAP version 13
 # Subtest: -t 0.2
-not ok 1 - -t 0.2 > should match pattern provided
+not ok 1 - -t 0.2 should match pattern provided
   ---
   found: |
     
@@ -893,7 +893,7 @@ Array [
             ),
             "pattern": "/SIGTERM/",
           },
-          "fullname": "-t 0.2",
+          "fullname": "-t 0.2 should match pattern provided",
           "id": 1,
           "name": "should match pattern provided",
           "ok": false,
@@ -939,7 +939,7 @@ Array [
                 ),
                 "pattern": "/SIGTERM/",
               },
-              "fullname": "-t 0.2",
+              "fullname": "-t 0.2 should match pattern provided",
               "id": 1,
               "name": "should match pattern provided",
               "ok": false,
@@ -1044,7 +1044,7 @@ Bail out! should match pattern provided
 exports[`test/parse-stringify.ts TAP diag-looks-like-comment.tap strictBail > stringified flat 1`] = `
 TAP version 13
 # Subtest: -t 0.2
-not ok 1 - -t 0.2 > should match pattern provided
+not ok 1 - -t 0.2 should match pattern provided
   ---
   found: |
     

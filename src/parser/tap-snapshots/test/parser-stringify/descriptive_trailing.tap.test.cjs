@@ -12,7 +12,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Interlock activated",
       "id": 1,
       "name": "Interlock activated",
       "ok": true,
@@ -29,7 +29,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Megathrusters are go",
       "id": 2,
       "name": "Megathrusters are go",
       "ok": true,
@@ -46,7 +46,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Head formed",
       "id": 3,
       "name": "Head formed",
       "ok": true,
@@ -63,7 +63,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Blazing sword formed",
       "id": 4,
       "name": "Blazing sword formed",
       "ok": true,
@@ -80,7 +80,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Robeast destroyed",
       "id": 5,
       "name": "Robeast destroyed",
       "ok": true,
@@ -160,7 +160,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Interlock activated",
       "id": 1,
       "name": "Interlock activated",
       "ok": true,
@@ -177,7 +177,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Megathrusters are go",
       "id": 2,
       "name": "Megathrusters are go",
       "ok": true,
@@ -194,7 +194,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Head formed",
       "id": 3,
       "name": "Head formed",
       "ok": true,
@@ -211,7 +211,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Blazing sword formed",
       "id": 4,
       "name": "Blazing sword formed",
       "ok": true,
@@ -228,7 +228,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Robeast destroyed",
       "id": 5,
       "name": "Robeast destroyed",
       "ok": true,
@@ -288,7 +288,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Interlock activated",
       "id": 1,
       "name": "Interlock activated",
       "ok": true,
@@ -305,7 +305,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Megathrusters are go",
       "id": 2,
       "name": "Megathrusters are go",
       "ok": true,
@@ -322,7 +322,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Head formed",
       "id": 3,
       "name": "Head formed",
       "ok": true,
@@ -339,7 +339,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Blazing sword formed",
       "id": 4,
       "name": "Blazing sword formed",
       "ok": true,
@@ -356,7 +356,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Robeast destroyed",
       "id": 5,
       "name": "Robeast destroyed",
       "ok": true,
@@ -435,7 +435,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Interlock activated",
       "id": 1,
       "name": "Interlock activated",
       "ok": true,
@@ -452,7 +452,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Megathrusters are go",
       "id": 2,
       "name": "Megathrusters are go",
       "ok": true,
@@ -469,7 +469,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Head formed",
       "id": 3,
       "name": "Head formed",
       "ok": true,
@@ -486,7 +486,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Blazing sword formed",
       "id": 4,
       "name": "Blazing sword formed",
       "ok": true,
@@ -503,7 +503,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Robeast destroyed",
       "id": 5,
       "name": "Robeast destroyed",
       "ok": true,
@@ -583,7 +583,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Interlock activated",
       "id": 1,
       "name": "Interlock activated",
       "ok": true,
@@ -600,7 +600,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Megathrusters are go",
       "id": 2,
       "name": "Megathrusters are go",
       "ok": true,
@@ -617,7 +617,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Head formed",
       "id": 3,
       "name": "Head formed",
       "ok": true,
@@ -634,7 +634,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Blazing sword formed",
       "id": 4,
       "name": "Blazing sword formed",
       "ok": true,
@@ -651,7 +651,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Robeast destroyed",
       "id": 5,
       "name": "Robeast destroyed",
       "ok": true,

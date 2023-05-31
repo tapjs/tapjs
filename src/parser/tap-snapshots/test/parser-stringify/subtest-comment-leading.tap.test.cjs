@@ -42,7 +42,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "nesting first",
+              "fullname": "nesting first true is ok",
               "id": 1,
               "name": "true is ok",
               "ok": true,
@@ -59,7 +59,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "nesting first",
+              "fullname": "nesting first doag is also okay",
               "id": 2,
               "name": "doag is also okay",
               "ok": true,
@@ -108,7 +108,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "nesting",
+          "fullname": "nesting first",
           "id": 1,
           "name": "first",
           "ok": true,
@@ -132,7 +132,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "nesting second",
+              "fullname": "nesting second but that is ok",
               "id": 1,
               "name": "but that is ok",
               "ok": true,
@@ -149,7 +149,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "nesting second",
+              "fullname": "nesting second this passes",
               "id": 2,
               "name": "this passes",
               "ok": true,
@@ -166,7 +166,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "nesting second",
+              "fullname": "nesting second nested ok",
               "id": 3,
               "name": "nested ok",
               "ok": true,
@@ -223,7 +223,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "nesting",
+          "fullname": "nesting second",
           "id": 2,
           "name": "second",
           "ok": true,
@@ -280,7 +280,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "nesting",
       "id": 1,
       "name": "nesting",
       "ok": true,
@@ -297,7 +297,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "this passes",
       "id": 2,
       "name": "this passes",
       "ok": true,
@@ -382,14 +382,14 @@ exports[`test/parse-stringify.ts TAP subtest-comment-leading.tap bail > stringif
 TAP version 13
 # Subtest: nesting
 # Subtest: first
-ok 1 - nesting first > true is ok
-ok 2 - nesting first > doag is also okay
-ok 3 - nesting > first # time=8.987ms
+ok 1 - nesting first true is ok
+ok 2 - nesting first doag is also okay
+ok 3 - nesting first # time=8.987ms
 # Subtest: second
-ok 4 - nesting second > but that is ok
-ok 5 - nesting second > this passes
-ok 6 - nesting second > nested ok
-ok 7 - nesting > second # time=5.988ms
+ok 4 - nesting second but that is ok
+ok 5 - nesting second this passes
+ok 6 - nesting second nested ok
+ok 7 - nesting second # time=5.988ms
 ok 8 - nesting # time=28.647ms
 ok 9 - this passes
 1..9
@@ -434,7 +434,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "nesting first",
+              "fullname": "nesting first true is ok",
               "id": 1,
               "name": "true is ok",
               "ok": true,
@@ -451,7 +451,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "nesting first",
+              "fullname": "nesting first doag is also okay",
               "id": 2,
               "name": "doag is also okay",
               "ok": true,
@@ -500,7 +500,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "nesting",
+          "fullname": "nesting first",
           "id": 1,
           "name": "first",
           "ok": true,
@@ -524,7 +524,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "nesting second",
+              "fullname": "nesting second but that is ok",
               "id": 1,
               "name": "but that is ok",
               "ok": true,
@@ -541,7 +541,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "nesting second",
+              "fullname": "nesting second this passes",
               "id": 2,
               "name": "this passes",
               "ok": true,
@@ -558,7 +558,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "nesting second",
+              "fullname": "nesting second nested ok",
               "id": 3,
               "name": "nested ok",
               "ok": true,
@@ -615,7 +615,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "nesting",
+          "fullname": "nesting second",
           "id": 2,
           "name": "second",
           "ok": true,
@@ -672,7 +672,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "nesting",
       "id": 1,
       "name": "nesting",
       "ok": true,
@@ -689,7 +689,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "this passes",
       "id": 2,
       "name": "this passes",
       "ok": true,
@@ -761,9 +761,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "nesting first true is ok",
       "id": 1,
-      "name": "nesting first > true is ok",
+      "name": "nesting first true is ok",
       "ok": true,
       "plan": null,
       "previous": null,
@@ -778,9 +778,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "nesting first doag is also okay",
       "id": 2,
-      "name": "nesting first > doag is also okay",
+      "name": "nesting first doag is also okay",
       "ok": true,
       "plan": null,
       "previous": null,
@@ -795,9 +795,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "nesting second but that is ok",
       "id": 3,
-      "name": "nesting second > but that is ok",
+      "name": "nesting second but that is ok",
       "ok": true,
       "plan": null,
       "previous": null,
@@ -812,9 +812,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "nesting second this passes",
       "id": 4,
-      "name": "nesting second > this passes",
+      "name": "nesting second this passes",
       "ok": true,
       "plan": null,
       "previous": null,
@@ -829,9 +829,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "nesting second nested ok",
       "id": 5,
-      "name": "nesting second > nested ok",
+      "name": "nesting second nested ok",
       "ok": true,
       "plan": null,
       "previous": null,
@@ -846,7 +846,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "this passes",
       "id": 6,
       "name": "this passes",
       "ok": true,
@@ -930,14 +930,14 @@ exports[`test/parse-stringify.ts TAP subtest-comment-leading.tap default setting
 TAP version 13
 # Subtest: nesting
 # Subtest: first
-ok 1 - nesting first > true is ok
-ok 2 - nesting first > doag is also okay
-ok 3 - nesting > first # time=8.987ms
+ok 1 - nesting first true is ok
+ok 2 - nesting first doag is also okay
+ok 3 - nesting first # time=8.987ms
 # Subtest: second
-ok 4 - nesting second > but that is ok
-ok 5 - nesting second > this passes
-ok 6 - nesting second > nested ok
-ok 7 - nesting > second # time=5.988ms
+ok 4 - nesting second but that is ok
+ok 5 - nesting second this passes
+ok 6 - nesting second nested ok
+ok 7 - nesting second # time=5.988ms
 ok 8 - nesting # time=28.647ms
 ok 9 - this passes
 1..9
@@ -982,7 +982,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "nesting first",
+              "fullname": "nesting first true is ok",
               "id": 1,
               "name": "true is ok",
               "ok": true,
@@ -999,7 +999,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "nesting first",
+              "fullname": "nesting first doag is also okay",
               "id": 2,
               "name": "doag is also okay",
               "ok": true,
@@ -1048,7 +1048,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "nesting",
+          "fullname": "nesting first",
           "id": 1,
           "name": "first",
           "ok": true,
@@ -1072,7 +1072,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "nesting second",
+              "fullname": "nesting second but that is ok",
               "id": 1,
               "name": "but that is ok",
               "ok": true,
@@ -1089,7 +1089,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "nesting second",
+              "fullname": "nesting second this passes",
               "id": 2,
               "name": "this passes",
               "ok": true,
@@ -1106,7 +1106,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "nesting second",
+              "fullname": "nesting second nested ok",
               "id": 3,
               "name": "nested ok",
               "ok": true,
@@ -1163,7 +1163,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "nesting",
+          "fullname": "nesting second",
           "id": 2,
           "name": "second",
           "ok": true,
@@ -1220,7 +1220,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "nesting",
       "id": 1,
       "name": "nesting",
       "ok": true,
@@ -1237,7 +1237,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "this passes",
       "id": 2,
       "name": "this passes",
       "ok": true,
@@ -1322,14 +1322,14 @@ exports[`test/parse-stringify.ts TAP subtest-comment-leading.tap strict > string
 TAP version 13
 # Subtest: nesting
 # Subtest: first
-ok 1 - nesting first > true is ok
-ok 2 - nesting first > doag is also okay
-ok 3 - nesting > first # time=8.987ms
+ok 1 - nesting first true is ok
+ok 2 - nesting first doag is also okay
+ok 3 - nesting first # time=8.987ms
 # Subtest: second
-ok 4 - nesting second > but that is ok
-ok 5 - nesting second > this passes
-ok 6 - nesting second > nested ok
-ok 7 - nesting > second # time=5.988ms
+ok 4 - nesting second but that is ok
+ok 5 - nesting second this passes
+ok 6 - nesting second nested ok
+ok 7 - nesting second # time=5.988ms
 ok 8 - nesting # time=28.647ms
 ok 9 - this passes
 1..9
@@ -1374,7 +1374,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "nesting first",
+              "fullname": "nesting first true is ok",
               "id": 1,
               "name": "true is ok",
               "ok": true,
@@ -1391,7 +1391,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "nesting first",
+              "fullname": "nesting first doag is also okay",
               "id": 2,
               "name": "doag is also okay",
               "ok": true,
@@ -1440,7 +1440,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "nesting",
+          "fullname": "nesting first",
           "id": 1,
           "name": "first",
           "ok": true,
@@ -1464,7 +1464,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "nesting second",
+              "fullname": "nesting second but that is ok",
               "id": 1,
               "name": "but that is ok",
               "ok": true,
@@ -1481,7 +1481,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "nesting second",
+              "fullname": "nesting second this passes",
               "id": 2,
               "name": "this passes",
               "ok": true,
@@ -1498,7 +1498,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "nesting second",
+              "fullname": "nesting second nested ok",
               "id": 3,
               "name": "nested ok",
               "ok": true,
@@ -1555,7 +1555,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "nesting",
+          "fullname": "nesting second",
           "id": 2,
           "name": "second",
           "ok": true,
@@ -1612,7 +1612,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "nesting",
       "id": 1,
       "name": "nesting",
       "ok": true,
@@ -1629,7 +1629,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "this passes",
       "id": 2,
       "name": "this passes",
       "ok": true,
@@ -1714,14 +1714,14 @@ exports[`test/parse-stringify.ts TAP subtest-comment-leading.tap strictBail > st
 TAP version 13
 # Subtest: nesting
 # Subtest: first
-ok 1 - nesting first > true is ok
-ok 2 - nesting first > doag is also okay
-ok 3 - nesting > first # time=8.987ms
+ok 1 - nesting first true is ok
+ok 2 - nesting first doag is also okay
+ok 3 - nesting first # time=8.987ms
 # Subtest: second
-ok 4 - nesting second > but that is ok
-ok 5 - nesting second > this passes
-ok 6 - nesting second > nested ok
-ok 7 - nesting > second # time=5.988ms
+ok 4 - nesting second but that is ok
+ok 5 - nesting second this passes
+ok 6 - nesting second nested ok
+ok 7 - nesting second # time=5.988ms
 ok 8 - nesting # time=28.647ms
 ok 9 - this passes
 1..9

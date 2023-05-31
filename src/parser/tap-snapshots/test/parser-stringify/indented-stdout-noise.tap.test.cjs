@@ -145,7 +145,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "index.js",
+          "fullname": "index.js boom",
           "id": 1,
           "name": "boom",
           "ok": true,
@@ -334,7 +334,7 @@ Array [
         },
         "timeout": 30000,
       },
-      "fullname": "",
+      "fullname": "index.js",
       "id": 1,
       "name": "index.js",
       "ok": false,
@@ -376,7 +376,7 @@ Array [
             },
             "timeout": 30000,
           },
-          "fullname": "",
+          "fullname": "index.js",
           "id": 1,
           "name": "index.js",
           "ok": false,
@@ -490,7 +490,7 @@ TAP version 13
 ## Contribution
 ## Other similar modules
 ## License
-ok 1 - index.js > boom # time=5.26ms
+ok 1 - index.js boom # time=5.26ms
 # time=12.555ms
     This module provides an easy way to export package.json data.
     It contains auto-discovery functionality, which means that it will
@@ -679,7 +679,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "index.js",
+          "fullname": "index.js boom",
           "id": 1,
           "name": "boom",
           "ok": true,
@@ -868,7 +868,7 @@ Array [
         },
         "timeout": 30000,
       },
-      "fullname": "",
+      "fullname": "index.js",
       "id": 1,
       "name": "index.js",
       "ok": false,
@@ -926,7 +926,7 @@ Array [
             },
             "timeout": 30000,
           },
-          "fullname": "",
+          "fullname": "index.js",
           "id": 1,
           "name": "index.js",
           "ok": false,
@@ -1087,9 +1087,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "index.js boom",
       "id": 1,
-      "name": "index.js > boom",
+      "name": "index.js boom",
       "ok": true,
       "plan": null,
       "previous": null,
@@ -1120,7 +1120,7 @@ Array [
         },
         "timeout": 30000,
       },
-      "fullname": "",
+      "fullname": "index.js",
       "id": 2,
       "name": "index.js",
       "ok": false,
@@ -1177,7 +1177,7 @@ Array [
             },
             "timeout": 30000,
           },
-          "fullname": "",
+          "fullname": "index.js",
           "id": 2,
           "name": "index.js",
           "ok": false,
@@ -1294,7 +1294,7 @@ TAP version 13
 ## Contribution
 ## Other similar modules
 ## License
-ok 1 - index.js > boom # time=5.26ms
+ok 1 - index.js boom # time=5.26ms
 # time=12.555ms
     This module provides an easy way to export package.json data.
     It contains auto-discovery functionality, which means that it will
@@ -1532,7 +1532,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "index.js",
+          "fullname": "index.js boom",
           "id": 1,
           "name": "boom",
           "ok": true,
@@ -1822,7 +1822,7 @@ Array [
         },
         "timeout": 30000,
       },
-      "fullname": "",
+      "fullname": "index.js",
       "id": 1,
       "name": "index.js",
       "ok": false,
@@ -1972,7 +1972,7 @@ Array [
             },
             "timeout": 30000,
           },
-          "fullname": "",
+          "fullname": "index.js",
           "id": 1,
           "name": "index.js",
           "ok": false,
@@ -2094,7 +2094,7 @@ TAP version 13
 ## Contribution
 ## Other similar modules
 ## License
-ok 1 - index.js > boom # time=5.26ms
+ok 1 - index.js boom # time=5.26ms
 # time=12.555ms
 # failed 24 test
     This module provides an easy way to export package.json data.
@@ -2333,7 +2333,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "index.js",
+          "fullname": "index.js boom",
           "id": 1,
           "name": "boom",
           "ok": true,
@@ -2623,7 +2623,7 @@ Array [
         },
         "timeout": 30000,
       },
-      "fullname": "",
+      "fullname": "index.js",
       "id": 1,
       "name": "index.js",
       "ok": false,
@@ -2757,7 +2757,7 @@ Array [
             },
             "timeout": 30000,
           },
-          "fullname": "",
+          "fullname": "index.js",
           "id": 1,
           "name": "index.js",
           "ok": false,
@@ -2876,7 +2876,7 @@ TAP version 13
 ## Contribution
 ## Other similar modules
 ## License
-ok 1 - index.js > boom # time=5.26ms
+ok 1 - index.js boom # time=5.26ms
 # time=12.555ms
 # failed 24 test
     This module provides an easy way to export package.json data.

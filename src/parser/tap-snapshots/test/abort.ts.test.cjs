@@ -34,7 +34,7 @@ FinalResults {
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "nope",
       "id": 2,
       "name": "nope",
       "ok": false,
@@ -155,7 +155,7 @@ FinalResults {
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "nope",
       "id": 2,
       "name": "nope",
       "ok": false,
@@ -216,7 +216,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "destroyed",
       "id": 1,
       "name": "destroyed",
       "ok": false,
@@ -233,7 +233,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "destroyed",
       "id": 1,
       "name": "destroyed",
       "ok": false,
@@ -250,7 +250,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "destroyed",
       "id": 1,
       "name": "destroyed",
       "ok": false,
@@ -288,7 +288,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "destroyed",
           "id": 1,
           "name": "destroyed",
           "ok": false,
@@ -350,7 +350,7 @@ FinalResults {
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "nope",
       "id": 2,
       "name": "nope",
       "ok": false,
@@ -404,7 +404,7 @@ FinalResults {
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "nope",
       "id": 2,
       "name": "nope",
       "ok": false,
@@ -461,7 +461,7 @@ FinalResults {
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "nope",
       "id": 2,
       "name": "nope",
       "ok": false,

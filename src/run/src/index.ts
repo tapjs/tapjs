@@ -19,6 +19,8 @@ export let mainCommand: string =
   positionals[0] || (values.help ? 'help' : 'run')
 export const mainBin = fileURLToPath(import.meta.url)
 
+process.title = 'tap'
+
 if (config.get('help') || mainCommand === 'help') {
   help(positionals, config)
 } else if (

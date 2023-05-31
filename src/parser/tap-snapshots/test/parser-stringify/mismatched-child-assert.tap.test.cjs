@@ -23,7 +23,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "some child",
+          "fullname": "some child this is fine",
           "id": 1,
           "name": "this is fine",
           "ok": true,
@@ -80,7 +80,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "different name",
       "id": 1,
       "name": "different name",
       "ok": true,
@@ -146,7 +146,7 @@ ok 1 - different name
 exports[`test/parse-stringify.ts TAP mismatched-child-assert.tap bail > stringified flat 1`] = `
 TAP version 13
 # Subtest: some child
-ok 1 - some child > this is fine
+ok 1 - some child this is fine
 ok 2 - different name
 1..2
 
@@ -170,7 +170,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "some child",
+          "fullname": "some child this is fine",
           "id": 1,
           "name": "this is fine",
           "ok": true,
@@ -227,7 +227,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "different name",
       "id": 1,
       "name": "different name",
       "ok": true,
@@ -291,9 +291,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "some child this is fine",
       "id": 1,
-      "name": "some child > this is fine",
+      "name": "some child this is fine",
       "ok": true,
       "plan": null,
       "previous": null,
@@ -308,7 +308,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "different name",
       "id": 2,
       "name": "different name",
       "ok": true,
@@ -373,7 +373,7 @@ ok 1 - different name
 exports[`test/parse-stringify.ts TAP mismatched-child-assert.tap default settings > stringified flat 1`] = `
 TAP version 13
 # Subtest: some child
-ok 1 - some child > this is fine
+ok 1 - some child this is fine
 ok 2 - different name
 1..2
 
@@ -397,7 +397,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "some child",
+          "fullname": "some child this is fine",
           "id": 1,
           "name": "this is fine",
           "ok": true,
@@ -454,7 +454,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "different name",
       "id": 1,
       "name": "different name",
       "ok": true,
@@ -520,7 +520,7 @@ ok 1 - different name
 exports[`test/parse-stringify.ts TAP mismatched-child-assert.tap strict > stringified flat 1`] = `
 TAP version 13
 # Subtest: some child
-ok 1 - some child > this is fine
+ok 1 - some child this is fine
 ok 2 - different name
 1..2
 
@@ -544,7 +544,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "some child",
+          "fullname": "some child this is fine",
           "id": 1,
           "name": "this is fine",
           "ok": true,
@@ -601,7 +601,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "different name",
       "id": 1,
       "name": "different name",
       "ok": true,
@@ -667,7 +667,7 @@ ok 1 - different name
 exports[`test/parse-stringify.ts TAP mismatched-child-assert.tap strictBail > stringified flat 1`] = `
 TAP version 13
 # Subtest: some child
-ok 1 - some child > this is fine
+ok 1 - some child this is fine
 ok 2 - different name
 1..2
 

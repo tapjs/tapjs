@@ -43,7 +43,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "test/debug-test.js",
+          "fullname": "test/debug-test.js Should output debugger message",
           "id": 1,
           "name": "Should output debugger message",
           "ok": true,
@@ -157,7 +157,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "test/debug-test.js",
+      "fullname": "test/debug-test.js Should output debugger message",
       "id": 1,
       "name": "Should output debugger message",
       "ok": true,
@@ -174,7 +174,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "test/debug-test.js",
+      "fullname": "test/debug-test.js Should output debugger message",
       "id": 1,
       "name": "Should output debugger message",
       "ok": true,
@@ -211,7 +211,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/debug-test.js",
       "id": 1,
       "name": "test/debug-test.js",
       "ok": true,
@@ -308,7 +308,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "test/debug-test.js",
+          "fullname": "test/debug-test.js Should output debugger message",
           "id": 1,
           "name": "Should output debugger message",
           "ok": true,
@@ -422,7 +422,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "test/debug-test.js",
+      "fullname": "test/debug-test.js Should output debugger message",
       "id": 1,
       "name": "Should output debugger message",
       "ok": true,
@@ -439,7 +439,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "test/debug-test.js",
+      "fullname": "test/debug-test.js Should output debugger message",
       "id": 1,
       "name": "Should output debugger message",
       "ok": true,
@@ -476,7 +476,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/debug-test.js",
       "id": 1,
       "name": "test/debug-test.js",
       "ok": true,

@@ -69,7 +69,7 @@ Array [
                 Result {
                   "buffered": false,
                   "diag": null,
-                  "fullname": "../tap/test/test/ok.js",
+                  "fullname": "../tap/test/test/ok.js true is ok",
                   "id": 1,
                   "name": "true is ok",
                   "ok": true,
@@ -90,7 +90,7 @@ Array [
                 Result {
                   "buffered": false,
                   "diag": null,
-                  "fullname": "../tap/test/test/ok.js",
+                  "fullname": "../tap/test/test/ok.js doag is also okay",
                   "id": 2,
                   "name": "doag is also okay",
                   "ok": true,
@@ -152,7 +152,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "../tap/test/test/ok.js",
+              "fullname": "../tap/test/test/ok.js first",
               "id": 1,
               "name": "first",
               "ok": true,
@@ -184,7 +184,7 @@ Array [
                 Result {
                   "buffered": false,
                   "diag": null,
-                  "fullname": "../tap/test/test/ok.js",
+                  "fullname": "../tap/test/test/ok.js but that is ok",
                   "id": 1,
                   "name": "but that is ok",
                   "ok": true,
@@ -205,7 +205,7 @@ Array [
                 Result {
                   "buffered": false,
                   "diag": null,
-                  "fullname": "../tap/test/test/ok.js",
+                  "fullname": "../tap/test/test/ok.js this passes",
                   "id": 2,
                   "name": "this passes",
                   "ok": true,
@@ -226,7 +226,7 @@ Array [
                 Result {
                   "buffered": false,
                   "diag": null,
-                  "fullname": "../tap/test/test/ok.js",
+                  "fullname": "../tap/test/test/ok.js nested ok",
                   "id": 3,
                   "name": "nested ok",
                   "ok": true,
@@ -304,7 +304,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "../tap/test/test/ok.js",
+              "fullname": "../tap/test/test/ok.js second",
               "id": 2,
               "name": "second",
               "ok": true,
@@ -414,7 +414,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "../tap/test/test/ok.js",
+          "fullname": "../tap/test/test/ok.js nesting",
           "id": 1,
           "name": "nesting",
           "ok": true,
@@ -435,7 +435,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "../tap/test/test/ok.js",
+          "fullname": "../tap/test/test/ok.js this passes",
           "id": 2,
           "name": "this passes",
           "ok": true,
@@ -509,7 +509,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js",
+      "fullname": "../tap/test/test/ok.js true is ok",
       "id": 1,
       "name": "true is ok",
       "ok": true,
@@ -526,7 +526,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js",
+      "fullname": "../tap/test/test/ok.js true is ok",
       "id": 1,
       "name": "true is ok",
       "ok": true,
@@ -547,7 +547,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js",
+      "fullname": "../tap/test/test/ok.js doag is also okay",
       "id": 2,
       "name": "doag is also okay",
       "ok": true,
@@ -564,7 +564,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js",
+      "fullname": "../tap/test/test/ok.js doag is also okay",
       "id": 2,
       "name": "doag is also okay",
       "ok": true,
@@ -585,7 +585,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js",
+      "fullname": "../tap/test/test/ok.js first",
       "id": 1,
       "name": "first",
       "ok": true,
@@ -602,7 +602,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js",
+      "fullname": "../tap/test/test/ok.js first",
       "id": 1,
       "name": "first",
       "ok": true,
@@ -627,7 +627,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js",
+      "fullname": "../tap/test/test/ok.js but that is ok",
       "id": 1,
       "name": "but that is ok",
       "ok": true,
@@ -644,7 +644,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js",
+      "fullname": "../tap/test/test/ok.js but that is ok",
       "id": 1,
       "name": "but that is ok",
       "ok": true,
@@ -665,7 +665,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js",
+      "fullname": "../tap/test/test/ok.js this passes",
       "id": 2,
       "name": "this passes",
       "ok": true,
@@ -682,7 +682,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js",
+      "fullname": "../tap/test/test/ok.js this passes",
       "id": 2,
       "name": "this passes",
       "ok": true,
@@ -703,7 +703,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js",
+      "fullname": "../tap/test/test/ok.js nested ok",
       "id": 3,
       "name": "nested ok",
       "ok": true,
@@ -720,7 +720,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js",
+      "fullname": "../tap/test/test/ok.js nested ok",
       "id": 3,
       "name": "nested ok",
       "ok": true,
@@ -745,7 +745,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js",
+      "fullname": "../tap/test/test/ok.js second",
       "id": 2,
       "name": "second",
       "ok": true,
@@ -762,7 +762,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js",
+      "fullname": "../tap/test/test/ok.js second",
       "id": 2,
       "name": "second",
       "ok": true,
@@ -787,7 +787,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js",
+      "fullname": "../tap/test/test/ok.js nesting",
       "id": 1,
       "name": "nesting",
       "ok": true,
@@ -804,7 +804,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js",
+      "fullname": "../tap/test/test/ok.js nesting",
       "id": 1,
       "name": "nesting",
       "ok": true,
@@ -825,7 +825,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js",
+      "fullname": "../tap/test/test/ok.js this passes",
       "id": 2,
       "name": "this passes",
       "ok": true,
@@ -842,7 +842,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js",
+      "fullname": "../tap/test/test/ok.js this passes",
       "id": 2,
       "name": "this passes",
       "ok": true,
@@ -867,7 +867,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "../tap/test/test/ok.js",
       "id": 1,
       "name": "../tap/test/test/ok.js",
       "ok": true,
@@ -982,7 +982,7 @@ Array [
                 Result {
                   "buffered": false,
                   "diag": null,
-                  "fullname": "../tap/test/test/ok.js",
+                  "fullname": "../tap/test/test/ok.js true is ok",
                   "id": 1,
                   "name": "true is ok",
                   "ok": true,
@@ -1003,7 +1003,7 @@ Array [
                 Result {
                   "buffered": false,
                   "diag": null,
-                  "fullname": "../tap/test/test/ok.js",
+                  "fullname": "../tap/test/test/ok.js doag is also okay",
                   "id": 2,
                   "name": "doag is also okay",
                   "ok": true,
@@ -1065,7 +1065,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "../tap/test/test/ok.js",
+              "fullname": "../tap/test/test/ok.js first",
               "id": 1,
               "name": "first",
               "ok": true,
@@ -1097,7 +1097,7 @@ Array [
                 Result {
                   "buffered": false,
                   "diag": null,
-                  "fullname": "../tap/test/test/ok.js",
+                  "fullname": "../tap/test/test/ok.js but that is ok",
                   "id": 1,
                   "name": "but that is ok",
                   "ok": true,
@@ -1118,7 +1118,7 @@ Array [
                 Result {
                   "buffered": false,
                   "diag": null,
-                  "fullname": "../tap/test/test/ok.js",
+                  "fullname": "../tap/test/test/ok.js this passes",
                   "id": 2,
                   "name": "this passes",
                   "ok": true,
@@ -1139,7 +1139,7 @@ Array [
                 Result {
                   "buffered": false,
                   "diag": null,
-                  "fullname": "../tap/test/test/ok.js",
+                  "fullname": "../tap/test/test/ok.js nested ok",
                   "id": 3,
                   "name": "nested ok",
                   "ok": true,
@@ -1217,7 +1217,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "../tap/test/test/ok.js",
+              "fullname": "../tap/test/test/ok.js second",
               "id": 2,
               "name": "second",
               "ok": true,
@@ -1327,7 +1327,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "../tap/test/test/ok.js",
+          "fullname": "../tap/test/test/ok.js nesting",
           "id": 1,
           "name": "nesting",
           "ok": true,
@@ -1348,7 +1348,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "../tap/test/test/ok.js",
+          "fullname": "../tap/test/test/ok.js this passes",
           "id": 2,
           "name": "this passes",
           "ok": true,
@@ -1422,7 +1422,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js",
+      "fullname": "../tap/test/test/ok.js true is ok",
       "id": 1,
       "name": "true is ok",
       "ok": true,
@@ -1439,7 +1439,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js",
+      "fullname": "../tap/test/test/ok.js true is ok",
       "id": 1,
       "name": "true is ok",
       "ok": true,
@@ -1460,7 +1460,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js",
+      "fullname": "../tap/test/test/ok.js doag is also okay",
       "id": 2,
       "name": "doag is also okay",
       "ok": true,
@@ -1477,7 +1477,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js",
+      "fullname": "../tap/test/test/ok.js doag is also okay",
       "id": 2,
       "name": "doag is also okay",
       "ok": true,
@@ -1498,7 +1498,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js",
+      "fullname": "../tap/test/test/ok.js first",
       "id": 1,
       "name": "first",
       "ok": true,
@@ -1515,7 +1515,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js",
+      "fullname": "../tap/test/test/ok.js first",
       "id": 1,
       "name": "first",
       "ok": true,
@@ -1540,7 +1540,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js",
+      "fullname": "../tap/test/test/ok.js but that is ok",
       "id": 1,
       "name": "but that is ok",
       "ok": true,
@@ -1557,7 +1557,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js",
+      "fullname": "../tap/test/test/ok.js but that is ok",
       "id": 1,
       "name": "but that is ok",
       "ok": true,
@@ -1578,7 +1578,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js",
+      "fullname": "../tap/test/test/ok.js this passes",
       "id": 2,
       "name": "this passes",
       "ok": true,
@@ -1595,7 +1595,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js",
+      "fullname": "../tap/test/test/ok.js this passes",
       "id": 2,
       "name": "this passes",
       "ok": true,
@@ -1616,7 +1616,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js",
+      "fullname": "../tap/test/test/ok.js nested ok",
       "id": 3,
       "name": "nested ok",
       "ok": true,
@@ -1633,7 +1633,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js",
+      "fullname": "../tap/test/test/ok.js nested ok",
       "id": 3,
       "name": "nested ok",
       "ok": true,
@@ -1658,7 +1658,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js",
+      "fullname": "../tap/test/test/ok.js second",
       "id": 2,
       "name": "second",
       "ok": true,
@@ -1675,7 +1675,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js",
+      "fullname": "../tap/test/test/ok.js second",
       "id": 2,
       "name": "second",
       "ok": true,
@@ -1700,7 +1700,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js",
+      "fullname": "../tap/test/test/ok.js nesting",
       "id": 1,
       "name": "nesting",
       "ok": true,
@@ -1717,7 +1717,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js",
+      "fullname": "../tap/test/test/ok.js nesting",
       "id": 1,
       "name": "nesting",
       "ok": true,
@@ -1738,7 +1738,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js",
+      "fullname": "../tap/test/test/ok.js this passes",
       "id": 2,
       "name": "this passes",
       "ok": true,
@@ -1755,7 +1755,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js",
+      "fullname": "../tap/test/test/ok.js this passes",
       "id": 2,
       "name": "this passes",
       "ok": true,
@@ -1780,7 +1780,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "../tap/test/test/ok.js",
       "id": 1,
       "name": "../tap/test/test/ok.js",
       "ok": true,

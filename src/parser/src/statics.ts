@@ -21,11 +21,7 @@ export const parse = (str: string, options: ParserOptions): EventLog => {
   if (flat) {
     const id = getId()
     parser.on('result', res => {
-      const name = []
-      if (res.fullname) name.push(res.fullname)
-      if (res.name) name.push(res.name)
-      res.name = name.join(' > ').trim()
-      res.fullname = ''
+      res.name = res.fullname
       res.id = id()
       events.push(['assert', res])
     })
@@ -84,10 +80,7 @@ export const stringify = (
             const res = item[1]
             if (flat) {
               res.id = id()
-              const name = []
-              if (res.fullname) name.push(res.fullname)
-              if (res.name) name.push(res.name)
-              res.name = name.join(' > ').trim()
+              res.name = res.fullname
             }
             return (
               (res.ok ? '' : 'not ') +

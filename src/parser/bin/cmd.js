@@ -209,11 +209,11 @@ function format(msg) {
 }
 
 const options = {
-  bail: bail,
-  preserveWhitespace: preserveWhitespace,
-  omitVersion: omitVersion,
-  strict: strict,
-  flat: flat,
+  bail,
+  preserveWhitespace,
+  omitVersion,
+  strict,
+  flat,
 }
 
 /* c8 ignore start */

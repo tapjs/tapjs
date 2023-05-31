@@ -20,7 +20,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 8,
       "name": "should be equal",
       "ok": true,
@@ -41,7 +41,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 9,
       "name": "should be equivalent",
       "ok": true,
@@ -66,7 +66,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 10,
       "name": "should be equal",
       "ok": true,
@@ -87,7 +87,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "(unnamed assert)",
       "id": 11,
       "name": "(unnamed assert)",
       "ok": true,
@@ -137,7 +137,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "should be equal",
           "id": 8,
           "name": "should be equal",
           "ok": true,
@@ -155,7 +155,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "should be equivalent",
           "id": 9,
           "name": "should be equivalent",
           "ok": true,
@@ -173,7 +173,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "should be equal",
           "id": 10,
           "name": "should be equal",
           "ok": true,
@@ -191,7 +191,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "(unnamed assert)",
           "id": 11,
           "name": "(unnamed assert)",
           "ok": true,
@@ -280,7 +280,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 8,
       "name": "should be equal",
       "ok": true,
@@ -301,7 +301,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 9,
       "name": "should be equivalent",
       "ok": true,
@@ -326,7 +326,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 10,
       "name": "should be equal",
       "ok": true,
@@ -347,7 +347,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "(unnamed assert)",
       "id": 11,
       "name": "(unnamed assert)",
       "ok": true,
@@ -397,7 +397,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "should be equal",
           "id": 8,
           "name": "should be equal",
           "ok": true,
@@ -415,7 +415,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "should be equivalent",
           "id": 9,
           "name": "should be equivalent",
           "ok": true,
@@ -433,7 +433,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "should be equal",
           "id": 10,
           "name": "should be equal",
           "ok": true,
@@ -451,7 +451,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "(unnamed assert)",
           "id": 11,
           "name": "(unnamed assert)",
           "ok": true,
@@ -508,7 +508,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 1,
       "name": "should be equal",
       "ok": true,
@@ -529,7 +529,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 2,
       "name": "should be equivalent",
       "ok": true,
@@ -554,7 +554,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 3,
       "name": "should be equal",
       "ok": true,
@@ -575,7 +575,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "(unnamed assert)",
       "id": 4,
       "name": "(unnamed assert)",
       "ok": true,
@@ -624,7 +624,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "should be equal",
           "id": 1,
           "name": "should be equal",
           "ok": true,
@@ -642,7 +642,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "should be equivalent",
           "id": 2,
           "name": "should be equivalent",
           "ok": true,
@@ -660,7 +660,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "should be equal",
           "id": 3,
           "name": "should be equal",
           "ok": true,
@@ -678,7 +678,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "(unnamed assert)",
           "id": 4,
           "name": "(unnamed assert)",
           "ok": true,
@@ -767,7 +767,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 8,
       "name": "should be equal",
       "ok": true,
@@ -788,7 +788,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 9,
       "name": "should be equivalent",
       "ok": true,
@@ -813,7 +813,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 10,
       "name": "should be equal",
       "ok": true,
@@ -834,7 +834,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "(unnamed assert)",
       "id": 11,
       "name": "(unnamed assert)",
       "ok": true,
@@ -884,7 +884,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "should be equal",
           "id": 8,
           "name": "should be equal",
           "ok": true,
@@ -902,7 +902,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "should be equivalent",
           "id": 9,
           "name": "should be equivalent",
           "ok": true,
@@ -920,7 +920,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "should be equal",
           "id": 10,
           "name": "should be equal",
           "ok": true,
@@ -938,7 +938,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "(unnamed assert)",
           "id": 11,
           "name": "(unnamed assert)",
           "ok": true,
@@ -1027,7 +1027,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 8,
       "name": "should be equal",
       "ok": true,
@@ -1048,7 +1048,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 9,
       "name": "should be equivalent",
       "ok": true,
@@ -1073,7 +1073,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 10,
       "name": "should be equal",
       "ok": true,
@@ -1094,7 +1094,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "(unnamed assert)",
       "id": 11,
       "name": "(unnamed assert)",
       "ok": true,
@@ -1144,7 +1144,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "should be equal",
           "id": 8,
           "name": "should be equal",
           "ok": true,
@@ -1162,7 +1162,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "should be equivalent",
           "id": 9,
           "name": "should be equivalent",
           "ok": true,
@@ -1180,7 +1180,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "should be equal",
           "id": 10,
           "name": "should be equal",
           "ok": true,
@@ -1198,7 +1198,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "(unnamed assert)",
           "id": 11,
           "name": "(unnamed assert)",
           "ok": true,

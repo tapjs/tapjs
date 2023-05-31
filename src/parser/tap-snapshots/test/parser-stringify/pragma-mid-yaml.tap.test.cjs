@@ -25,7 +25,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "some yaml",
       "id": 1,
       "name": "some yaml",
       "ok": true,
@@ -135,7 +135,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "some yaml",
       "id": 1,
       "name": "some yaml",
       "ok": true,
@@ -213,7 +213,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "some yaml",
       "id": 1,
       "name": "some yaml",
       "ok": true,
@@ -330,7 +330,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "some yaml",
       "id": 1,
       "name": "some yaml",
       "ok": true,
@@ -463,7 +463,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "some yaml",
       "id": 1,
       "name": "some yaml",
       "ok": true,

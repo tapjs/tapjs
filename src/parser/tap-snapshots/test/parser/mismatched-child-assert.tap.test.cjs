@@ -35,7 +35,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "some child",
+          "fullname": "some child this is fine",
           "id": 1,
           "name": "this is fine",
           "ok": true,
@@ -97,7 +97,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "some child",
+      "fullname": "some child this is fine",
       "id": 1,
       "name": "this is fine",
       "ok": true,
@@ -114,7 +114,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "some child",
+      "fullname": "some child this is fine",
       "id": 1,
       "name": "this is fine",
       "ok": true,
@@ -139,7 +139,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "different name",
       "id": 1,
       "name": "different name",
       "ok": true,
@@ -156,7 +156,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "different name",
       "id": 1,
       "name": "different name",
       "ok": true,
@@ -173,7 +173,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "different name",
       "id": 1,
       "name": "different name",
       "ok": true,
@@ -254,7 +254,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "some child",
+          "fullname": "some child this is fine",
           "id": 1,
           "name": "this is fine",
           "ok": true,
@@ -316,7 +316,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "some child",
+      "fullname": "some child this is fine",
       "id": 1,
       "name": "this is fine",
       "ok": true,
@@ -333,7 +333,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "some child",
+      "fullname": "some child this is fine",
       "id": 1,
       "name": "this is fine",
       "ok": true,
@@ -358,7 +358,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "different name",
       "id": 1,
       "name": "different name",
       "ok": true,
@@ -375,7 +375,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "different name",
       "id": 1,
       "name": "different name",
       "ok": true,
@@ -392,7 +392,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "different name",
       "id": 1,
       "name": "different name",
       "ok": true,

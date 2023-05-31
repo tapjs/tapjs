@@ -42,7 +42,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "All OK",
       "id": 1,
       "name": "All OK",
       "ok": true,
@@ -157,7 +157,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "All OK",
       "id": 1,
       "name": "All OK",
       "ok": true,
@@ -240,7 +240,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "All OK",
       "id": 1,
       "name": "All OK",
       "ok": true,
@@ -362,7 +362,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "All OK",
       "id": 1,
       "name": "All OK",
       "ok": true,
@@ -477,7 +477,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "All OK",
       "id": 1,
       "name": "All OK",
       "ok": true,

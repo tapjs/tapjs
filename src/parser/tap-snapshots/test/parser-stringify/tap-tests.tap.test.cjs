@@ -28,7 +28,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 1,
       "name": "should be equivalent",
       "ok": true,
@@ -49,7 +49,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should not be equivalent",
       "id": 2,
       "name": "should not be equivalent",
       "ok": true,
@@ -78,7 +78,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/buffer_compare.js",
       "id": 3,
       "name": "test/buffer_compare.js",
       "ok": true,
@@ -99,7 +99,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "just setup, nothing relevant",
       "id": 4,
       "name": "just setup, nothing relevant",
       "ok": true,
@@ -116,7 +116,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/common.js",
       "id": 5,
       "name": "test/common.js",
       "ok": true,
@@ -145,7 +145,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 6,
       "name": "should be equivalent",
       "ok": true,
@@ -166,7 +166,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 7,
       "name": "should be equivalent",
       "ok": true,
@@ -187,7 +187,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 8,
       "name": "should be equivalent",
       "ok": true,
@@ -208,7 +208,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 9,
       "name": "should be equivalent",
       "ok": true,
@@ -229,7 +229,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 10,
       "name": "should be equivalent",
       "ok": true,
@@ -258,7 +258,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/consumer.js",
       "id": 11,
       "name": "test/consumer.js",
       "ok": true,
@@ -299,7 +299,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Should output debugger message",
       "id": 12,
       "name": "Should output debugger message",
       "ok": true,
@@ -328,7 +328,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/debug-test.js",
       "id": 13,
       "name": "test/debug-test.js",
       "ok": true,
@@ -357,7 +357,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be strictly equal",
       "id": 14,
       "name": "should be strictly equal",
       "ok": true,
@@ -378,7 +378,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be strictly equal",
       "id": 15,
       "name": "should be strictly equal",
       "ok": true,
@@ -399,7 +399,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be strictly equal",
       "id": 16,
       "name": "should be strictly equal",
       "ok": true,
@@ -428,7 +428,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/deep-strict.js",
       "id": 17,
       "name": "test/deep-strict.js",
       "ok": true,
@@ -457,7 +457,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 18,
       "name": "should be equivalent",
       "ok": true,
@@ -478,7 +478,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 19,
       "name": "should be equivalent",
       "ok": true,
@@ -499,7 +499,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 20,
       "name": "should be equivalent",
       "ok": true,
@@ -528,7 +528,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/deep.js",
       "id": 21,
       "name": "test/deep.js",
       "ok": true,
@@ -549,7 +549,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "File with executable bit should be executed",
       "id": 22,
       "name": "File with executable bit should be executed",
       "ok": true,
@@ -566,7 +566,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/executed.sh",
       "id": 23,
       "name": "test/executed.sh",
       "ok": true,
@@ -599,7 +599,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 24,
       "name": "should be equal",
       "ok": true,
@@ -616,7 +616,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 25,
       "name": "should be equal",
       "ok": true,
@@ -637,7 +637,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 26,
       "name": "should be equal",
       "ok": true,
@@ -654,7 +654,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 27,
       "name": "should be equal",
       "ok": true,
@@ -675,7 +675,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 28,
       "name": "should be equal",
       "ok": true,
@@ -692,7 +692,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 29,
       "name": "should be equal",
       "ok": true,
@@ -717,7 +717,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 30,
       "name": "should be equal",
       "ok": true,
@@ -734,7 +734,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 31,
       "name": "should be equal",
       "ok": true,
@@ -755,7 +755,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 32,
       "name": "should be equal",
       "ok": true,
@@ -772,7 +772,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 33,
       "name": "should be equal",
       "ok": true,
@@ -801,7 +801,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/exit-code.js",
       "id": 34,
       "name": "test/exit-code.js",
       "ok": true,
@@ -874,7 +874,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 35,
       "name": "should be equal",
       "ok": true,
@@ -899,7 +899,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 36,
       "name": "should be equal",
       "ok": true,
@@ -920,7 +920,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 37,
       "name": "should be equal",
       "ok": true,
@@ -953,7 +953,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/expose-gc-test.js",
       "id": 38,
       "name": "test/expose-gc-test.js",
       "ok": true,
@@ -986,7 +986,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "1-1",
       "id": 39,
       "name": "1-1",
       "ok": true,
@@ -1007,7 +1007,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "2-1",
       "id": 40,
       "name": "2-1",
       "ok": true,
@@ -1028,7 +1028,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "3-1",
       "id": 41,
       "name": "3-1",
       "ok": true,
@@ -1045,7 +1045,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/global-harness-async.js",
       "id": 42,
       "name": "test/global-harness-async.js",
       "ok": true,
@@ -1086,7 +1086,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/independent-timeouts.js",
       "id": 43,
       "name": "test/independent-timeouts.js",
       "ok": true,
@@ -1115,7 +1115,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 44,
       "name": "should be equal",
       "ok": true,
@@ -1132,7 +1132,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 45,
       "name": "should be equal",
       "ok": true,
@@ -1153,7 +1153,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 46,
       "name": "should be equal",
       "ok": true,
@@ -1170,7 +1170,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 47,
       "name": "should be equal",
       "ok": true,
@@ -1199,7 +1199,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/isolated-conf-test.js",
       "id": 48,
       "name": "test/isolated-conf-test.js",
       "ok": true,
@@ -1228,7 +1228,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "sanity check",
       "id": 49,
       "name": "sanity check",
       "ok": true,
@@ -1245,7 +1245,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "not ok",
       "id": 50,
       "name": "not ok",
       "ok": true,
@@ -1262,7 +1262,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "total test count",
       "id": 51,
       "name": "total test count",
       "ok": true,
@@ -1279,7 +1279,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "tests passed",
       "id": 52,
       "name": "tests passed",
       "ok": true,
@@ -1296,7 +1296,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "tests failed",
       "id": 53,
       "name": "tests failed",
       "ok": true,
@@ -1313,7 +1313,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "ok is boolean",
       "id": 54,
       "name": "ok is boolean",
       "ok": true,
@@ -1330,7 +1330,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "skip is number",
       "id": 55,
       "name": "skip is number",
       "ok": true,
@@ -1347,7 +1347,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "results isa Results",
       "id": 56,
       "name": "results isa Results",
       "ok": true,
@@ -1364,7 +1364,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test isa Test",
       "id": 57,
       "name": "test isa Test",
       "ok": true,
@@ -1381,7 +1381,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test isa Harness",
       "id": 58,
       "name": "test isa Harness",
       "ok": true,
@@ -1410,7 +1410,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/meta-test.js",
       "id": 59,
       "name": "test/meta-test.js",
       "ok": true,
@@ -1439,7 +1439,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "sync child A",
       "id": 60,
       "name": "sync child A",
       "ok": true,
@@ -1464,7 +1464,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "(unnamed assert)",
       "id": 61,
       "name": "(unnamed assert)",
       "ok": true,
@@ -1485,7 +1485,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "(unnamed assert)",
       "id": 62,
       "name": "(unnamed assert)",
       "ok": true,
@@ -1506,7 +1506,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "sync grandchild in async child A",
       "id": 63,
       "name": "sync grandchild in async child A",
       "ok": true,
@@ -1527,7 +1527,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "(unnamed assert)",
       "id": 64,
       "name": "(unnamed assert)",
       "ok": true,
@@ -1556,7 +1556,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/nested-async.js",
       "id": 65,
       "name": "test/nested-async.js",
       "ok": true,
@@ -1585,7 +1585,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "p test",
       "id": 66,
       "name": "p test",
       "ok": true,
@@ -1606,7 +1606,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "ch test",
       "id": 67,
       "name": "ch test",
       "ok": true,
@@ -1627,7 +1627,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "grch test",
       "id": 68,
       "name": "grch test",
       "ok": true,
@@ -1648,7 +1648,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "ch test 2",
       "id": 69,
       "name": "ch test 2",
       "ok": true,
@@ -1677,7 +1677,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/nested-test.js",
       "id": 70,
       "name": "test/nested-test.js",
       "ok": true,
@@ -1714,7 +1714,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": ", 8 can stay.",
       "id": 71,
       "name": ", 8 can stay.",
       "ok": true,
@@ -1751,7 +1751,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "might be confusing",
       "id": 72,
       "name": "might be confusing",
       "ok": true,
@@ -1768,7 +1768,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "done now, exiting",
       "id": 73,
       "name": "done now, exiting",
       "ok": true,
@@ -1785,7 +1785,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/non-tap-output.js",
       "id": 74,
       "name": "test/non-tap-output.js",
       "ok": true,
@@ -1822,7 +1822,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "outputs parent description",
       "id": 75,
       "name": "outputs parent description",
       "ok": true,
@@ -1839,7 +1839,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "outputs child description",
       "id": 76,
       "name": "outputs child description",
       "ok": true,
@@ -1856,7 +1856,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "outputs parent description before parent result",
       "id": 77,
       "name": "outputs parent description before parent result",
       "ok": true,
@@ -1873,7 +1873,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "outputs parent result before child description",
       "id": 78,
       "name": "outputs parent result before child description",
       "ok": true,
@@ -1890,7 +1890,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "outputs child description before child result",
       "id": 79,
       "name": "outputs child description before child result",
       "ok": true,
@@ -1919,7 +1919,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/output-childtest-description.js",
       "id": 80,
       "name": "test/output-childtest-description.js",
       "ok": true,
@@ -1948,7 +1948,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 81,
       "name": "should be equal",
       "ok": true,
@@ -1965,7 +1965,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 82,
       "name": "should be equal",
       "ok": true,
@@ -1994,7 +1994,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/result-trap.js",
       "id": 83,
       "name": "test/result-trap.js",
       "ok": true,
@@ -2023,7 +2023,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "compiled seg faulter",
       "id": 84,
       "name": "compiled seg faulter",
       "ok": true,
@@ -2044,7 +2044,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 85,
       "name": "should be equivalent",
       "ok": true,
@@ -2061,7 +2061,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 86,
       "name": "should be equivalent",
       "ok": true,
@@ -2078,7 +2078,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 87,
       "name": "should be equivalent",
       "ok": true,
@@ -2095,7 +2095,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 88,
       "name": "should be equivalent",
       "ok": true,
@@ -2112,7 +2112,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 89,
       "name": "should be equivalent",
       "ok": true,
@@ -2129,7 +2129,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 90,
       "name": "should be equal",
       "ok": true,
@@ -2150,7 +2150,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "cleaned up",
       "id": 91,
       "name": "cleaned up",
       "ok": true,
@@ -2179,7 +2179,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/segv.js",
       "id": 92,
       "name": "test/segv.js",
       "ok": true,
@@ -2208,7 +2208,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "it works",
       "id": 93,
       "name": "it works",
       "ok": true,
@@ -2229,7 +2229,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "math should work",
       "id": 94,
       "name": "math should work",
       "ok": true,
@@ -2246,7 +2246,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "false should not be ok",
       "id": 95,
       "name": "false should not be ok",
       "ok": true,
@@ -2275,7 +2275,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/simple-harness-test-with-plan.js",
       "id": 96,
       "name": "test/simple-harness-test-with-plan.js",
       "ok": true,
@@ -2304,7 +2304,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "it works",
       "id": 97,
       "name": "it works",
       "ok": true,
@@ -2325,7 +2325,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "math should work",
       "id": 98,
       "name": "math should work",
       "ok": true,
@@ -2342,7 +2342,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "false should not be ok",
       "id": 99,
       "name": "false should not be ok",
       "ok": true,
@@ -2371,7 +2371,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/simple-harness-test.js",
       "id": 100,
       "name": "test/simple-harness-test.js",
       "ok": true,
@@ -2400,7 +2400,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "always passes",
       "id": 101,
       "name": "always passes",
       "ok": true,
@@ -2417,7 +2417,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "false",
       "id": 102,
       "name": "false",
       "ok": true,
@@ -2434,7 +2434,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "bonus",
       "id": 103,
       "name": "bonus",
       "ok": true,
@@ -2451,7 +2451,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "expected",
       "id": 104,
       "name": "expected",
       "ok": true,
@@ -2468,7 +2468,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "always passes without explanation",
       "id": 105,
       "name": "always passes without explanation",
       "ok": true,
@@ -2485,7 +2485,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "false without explanation",
       "id": 106,
       "name": "false without explanation",
       "ok": true,
@@ -2502,7 +2502,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "bonus without explanation",
       "id": 107,
       "name": "bonus without explanation",
       "ok": true,
@@ -2519,7 +2519,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "expected without explanation",
       "id": 108,
       "name": "expected without explanation",
       "ok": true,
@@ -2548,7 +2548,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/test-assert-todo-skip.js",
       "id": 109,
       "name": "test/test-assert-todo-skip.js",
       "ok": true,
@@ -2577,7 +2577,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "exit cleanly",
       "id": 110,
       "name": "exit cleanly",
       "ok": true,
@@ -2594,7 +2594,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "captures SKIP description",
       "id": 111,
       "name": "captures SKIP description",
       "ok": true,
@@ -2611,7 +2611,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "skip summary is not from file",
       "id": 112,
       "name": "skip summary is not from file",
       "ok": true,
@@ -2628,7 +2628,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "todo summary is not from file",
       "id": 113,
       "name": "todo summary is not from file",
       "ok": true,
@@ -2661,7 +2661,7 @@ Array [
           "emitOne (events.js:77:13)\\n",
         ],
       },
-      "fullname": "",
+      "fullname": "captures TODO description",
       "id": 114,
       "name": "captures TODO description",
       "ok": false,
@@ -2703,7 +2703,7 @@ Array [
               "emitOne (events.js:77:13)\\n",
             ],
           },
-          "fullname": "",
+          "fullname": "captures TODO description",
           "id": 114,
           "name": "captures TODO description",
           "ok": false,
@@ -3524,7 +3524,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 1,
       "name": "should be equivalent",
       "ok": true,
@@ -3545,7 +3545,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should not be equivalent",
       "id": 2,
       "name": "should not be equivalent",
       "ok": true,
@@ -3574,7 +3574,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/buffer_compare.js",
       "id": 3,
       "name": "test/buffer_compare.js",
       "ok": true,
@@ -3595,7 +3595,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "just setup, nothing relevant",
       "id": 4,
       "name": "just setup, nothing relevant",
       "ok": true,
@@ -3612,7 +3612,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/common.js",
       "id": 5,
       "name": "test/common.js",
       "ok": true,
@@ -3641,7 +3641,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 6,
       "name": "should be equivalent",
       "ok": true,
@@ -3662,7 +3662,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 7,
       "name": "should be equivalent",
       "ok": true,
@@ -3683,7 +3683,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 8,
       "name": "should be equivalent",
       "ok": true,
@@ -3704,7 +3704,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 9,
       "name": "should be equivalent",
       "ok": true,
@@ -3725,7 +3725,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 10,
       "name": "should be equivalent",
       "ok": true,
@@ -3754,7 +3754,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/consumer.js",
       "id": 11,
       "name": "test/consumer.js",
       "ok": true,
@@ -3795,7 +3795,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Should output debugger message",
       "id": 12,
       "name": "Should output debugger message",
       "ok": true,
@@ -3824,7 +3824,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/debug-test.js",
       "id": 13,
       "name": "test/debug-test.js",
       "ok": true,
@@ -3853,7 +3853,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be strictly equal",
       "id": 14,
       "name": "should be strictly equal",
       "ok": true,
@@ -3874,7 +3874,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be strictly equal",
       "id": 15,
       "name": "should be strictly equal",
       "ok": true,
@@ -3895,7 +3895,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be strictly equal",
       "id": 16,
       "name": "should be strictly equal",
       "ok": true,
@@ -3924,7 +3924,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/deep-strict.js",
       "id": 17,
       "name": "test/deep-strict.js",
       "ok": true,
@@ -3953,7 +3953,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 18,
       "name": "should be equivalent",
       "ok": true,
@@ -3974,7 +3974,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 19,
       "name": "should be equivalent",
       "ok": true,
@@ -3995,7 +3995,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 20,
       "name": "should be equivalent",
       "ok": true,
@@ -4024,7 +4024,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/deep.js",
       "id": 21,
       "name": "test/deep.js",
       "ok": true,
@@ -4045,7 +4045,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "File with executable bit should be executed",
       "id": 22,
       "name": "File with executable bit should be executed",
       "ok": true,
@@ -4062,7 +4062,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/executed.sh",
       "id": 23,
       "name": "test/executed.sh",
       "ok": true,
@@ -4095,7 +4095,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 24,
       "name": "should be equal",
       "ok": true,
@@ -4112,7 +4112,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 25,
       "name": "should be equal",
       "ok": true,
@@ -4133,7 +4133,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 26,
       "name": "should be equal",
       "ok": true,
@@ -4150,7 +4150,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 27,
       "name": "should be equal",
       "ok": true,
@@ -4171,7 +4171,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 28,
       "name": "should be equal",
       "ok": true,
@@ -4188,7 +4188,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 29,
       "name": "should be equal",
       "ok": true,
@@ -4213,7 +4213,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 30,
       "name": "should be equal",
       "ok": true,
@@ -4230,7 +4230,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 31,
       "name": "should be equal",
       "ok": true,
@@ -4251,7 +4251,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 32,
       "name": "should be equal",
       "ok": true,
@@ -4268,7 +4268,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 33,
       "name": "should be equal",
       "ok": true,
@@ -4297,7 +4297,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/exit-code.js",
       "id": 34,
       "name": "test/exit-code.js",
       "ok": true,
@@ -4370,7 +4370,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 35,
       "name": "should be equal",
       "ok": true,
@@ -4395,7 +4395,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 36,
       "name": "should be equal",
       "ok": true,
@@ -4416,7 +4416,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 37,
       "name": "should be equal",
       "ok": true,
@@ -4449,7 +4449,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/expose-gc-test.js",
       "id": 38,
       "name": "test/expose-gc-test.js",
       "ok": true,
@@ -4482,7 +4482,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "1-1",
       "id": 39,
       "name": "1-1",
       "ok": true,
@@ -4503,7 +4503,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "2-1",
       "id": 40,
       "name": "2-1",
       "ok": true,
@@ -4524,7 +4524,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "3-1",
       "id": 41,
       "name": "3-1",
       "ok": true,
@@ -4541,7 +4541,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/global-harness-async.js",
       "id": 42,
       "name": "test/global-harness-async.js",
       "ok": true,
@@ -4582,7 +4582,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/independent-timeouts.js",
       "id": 43,
       "name": "test/independent-timeouts.js",
       "ok": true,
@@ -4611,7 +4611,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 44,
       "name": "should be equal",
       "ok": true,
@@ -4628,7 +4628,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 45,
       "name": "should be equal",
       "ok": true,
@@ -4649,7 +4649,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 46,
       "name": "should be equal",
       "ok": true,
@@ -4666,7 +4666,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 47,
       "name": "should be equal",
       "ok": true,
@@ -4695,7 +4695,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/isolated-conf-test.js",
       "id": 48,
       "name": "test/isolated-conf-test.js",
       "ok": true,
@@ -4724,7 +4724,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "sanity check",
       "id": 49,
       "name": "sanity check",
       "ok": true,
@@ -4741,7 +4741,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "not ok",
       "id": 50,
       "name": "not ok",
       "ok": true,
@@ -4758,7 +4758,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "total test count",
       "id": 51,
       "name": "total test count",
       "ok": true,
@@ -4775,7 +4775,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "tests passed",
       "id": 52,
       "name": "tests passed",
       "ok": true,
@@ -4792,7 +4792,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "tests failed",
       "id": 53,
       "name": "tests failed",
       "ok": true,
@@ -4809,7 +4809,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "ok is boolean",
       "id": 54,
       "name": "ok is boolean",
       "ok": true,
@@ -4826,7 +4826,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "skip is number",
       "id": 55,
       "name": "skip is number",
       "ok": true,
@@ -4843,7 +4843,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "results isa Results",
       "id": 56,
       "name": "results isa Results",
       "ok": true,
@@ -4860,7 +4860,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test isa Test",
       "id": 57,
       "name": "test isa Test",
       "ok": true,
@@ -4877,7 +4877,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test isa Harness",
       "id": 58,
       "name": "test isa Harness",
       "ok": true,
@@ -4906,7 +4906,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/meta-test.js",
       "id": 59,
       "name": "test/meta-test.js",
       "ok": true,
@@ -4935,7 +4935,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "sync child A",
       "id": 60,
       "name": "sync child A",
       "ok": true,
@@ -4960,7 +4960,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "(unnamed assert)",
       "id": 61,
       "name": "(unnamed assert)",
       "ok": true,
@@ -4981,7 +4981,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "(unnamed assert)",
       "id": 62,
       "name": "(unnamed assert)",
       "ok": true,
@@ -5002,7 +5002,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "sync grandchild in async child A",
       "id": 63,
       "name": "sync grandchild in async child A",
       "ok": true,
@@ -5023,7 +5023,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "(unnamed assert)",
       "id": 64,
       "name": "(unnamed assert)",
       "ok": true,
@@ -5052,7 +5052,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/nested-async.js",
       "id": 65,
       "name": "test/nested-async.js",
       "ok": true,
@@ -5081,7 +5081,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "p test",
       "id": 66,
       "name": "p test",
       "ok": true,
@@ -5102,7 +5102,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "ch test",
       "id": 67,
       "name": "ch test",
       "ok": true,
@@ -5123,7 +5123,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "grch test",
       "id": 68,
       "name": "grch test",
       "ok": true,
@@ -5144,7 +5144,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "ch test 2",
       "id": 69,
       "name": "ch test 2",
       "ok": true,
@@ -5173,7 +5173,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/nested-test.js",
       "id": 70,
       "name": "test/nested-test.js",
       "ok": true,
@@ -5210,7 +5210,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": ", 8 can stay.",
       "id": 71,
       "name": ", 8 can stay.",
       "ok": true,
@@ -5247,7 +5247,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "might be confusing",
       "id": 72,
       "name": "might be confusing",
       "ok": true,
@@ -5264,7 +5264,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "done now, exiting",
       "id": 73,
       "name": "done now, exiting",
       "ok": true,
@@ -5281,7 +5281,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/non-tap-output.js",
       "id": 74,
       "name": "test/non-tap-output.js",
       "ok": true,
@@ -5318,7 +5318,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "outputs parent description",
       "id": 75,
       "name": "outputs parent description",
       "ok": true,
@@ -5335,7 +5335,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "outputs child description",
       "id": 76,
       "name": "outputs child description",
       "ok": true,
@@ -5352,7 +5352,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "outputs parent description before parent result",
       "id": 77,
       "name": "outputs parent description before parent result",
       "ok": true,
@@ -5369,7 +5369,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "outputs parent result before child description",
       "id": 78,
       "name": "outputs parent result before child description",
       "ok": true,
@@ -5386,7 +5386,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "outputs child description before child result",
       "id": 79,
       "name": "outputs child description before child result",
       "ok": true,
@@ -5415,7 +5415,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/output-childtest-description.js",
       "id": 80,
       "name": "test/output-childtest-description.js",
       "ok": true,
@@ -5444,7 +5444,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 81,
       "name": "should be equal",
       "ok": true,
@@ -5461,7 +5461,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 82,
       "name": "should be equal",
       "ok": true,
@@ -5490,7 +5490,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/result-trap.js",
       "id": 83,
       "name": "test/result-trap.js",
       "ok": true,
@@ -5519,7 +5519,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "compiled seg faulter",
       "id": 84,
       "name": "compiled seg faulter",
       "ok": true,
@@ -5540,7 +5540,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 85,
       "name": "should be equivalent",
       "ok": true,
@@ -5557,7 +5557,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 86,
       "name": "should be equivalent",
       "ok": true,
@@ -5574,7 +5574,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 87,
       "name": "should be equivalent",
       "ok": true,
@@ -5591,7 +5591,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 88,
       "name": "should be equivalent",
       "ok": true,
@@ -5608,7 +5608,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 89,
       "name": "should be equivalent",
       "ok": true,
@@ -5625,7 +5625,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 90,
       "name": "should be equal",
       "ok": true,
@@ -5646,7 +5646,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "cleaned up",
       "id": 91,
       "name": "cleaned up",
       "ok": true,
@@ -5675,7 +5675,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/segv.js",
       "id": 92,
       "name": "test/segv.js",
       "ok": true,
@@ -5704,7 +5704,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "it works",
       "id": 93,
       "name": "it works",
       "ok": true,
@@ -5725,7 +5725,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "math should work",
       "id": 94,
       "name": "math should work",
       "ok": true,
@@ -5742,7 +5742,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "false should not be ok",
       "id": 95,
       "name": "false should not be ok",
       "ok": true,
@@ -5771,7 +5771,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/simple-harness-test-with-plan.js",
       "id": 96,
       "name": "test/simple-harness-test-with-plan.js",
       "ok": true,
@@ -5800,7 +5800,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "it works",
       "id": 97,
       "name": "it works",
       "ok": true,
@@ -5821,7 +5821,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "math should work",
       "id": 98,
       "name": "math should work",
       "ok": true,
@@ -5838,7 +5838,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "false should not be ok",
       "id": 99,
       "name": "false should not be ok",
       "ok": true,
@@ -5867,7 +5867,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/simple-harness-test.js",
       "id": 100,
       "name": "test/simple-harness-test.js",
       "ok": true,
@@ -5896,7 +5896,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "always passes",
       "id": 101,
       "name": "always passes",
       "ok": true,
@@ -5913,7 +5913,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "false",
       "id": 102,
       "name": "false",
       "ok": true,
@@ -5930,7 +5930,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "bonus",
       "id": 103,
       "name": "bonus",
       "ok": true,
@@ -5947,7 +5947,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "expected",
       "id": 104,
       "name": "expected",
       "ok": true,
@@ -5964,7 +5964,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "always passes without explanation",
       "id": 105,
       "name": "always passes without explanation",
       "ok": true,
@@ -5981,7 +5981,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "false without explanation",
       "id": 106,
       "name": "false without explanation",
       "ok": true,
@@ -5998,7 +5998,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "bonus without explanation",
       "id": 107,
       "name": "bonus without explanation",
       "ok": true,
@@ -6015,7 +6015,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "expected without explanation",
       "id": 108,
       "name": "expected without explanation",
       "ok": true,
@@ -6044,7 +6044,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/test-assert-todo-skip.js",
       "id": 109,
       "name": "test/test-assert-todo-skip.js",
       "ok": true,
@@ -6073,7 +6073,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "exit cleanly",
       "id": 110,
       "name": "exit cleanly",
       "ok": true,
@@ -6090,7 +6090,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "captures SKIP description",
       "id": 111,
       "name": "captures SKIP description",
       "ok": true,
@@ -6107,7 +6107,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "skip summary is not from file",
       "id": 112,
       "name": "skip summary is not from file",
       "ok": true,
@@ -6124,7 +6124,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "todo summary is not from file",
       "id": 113,
       "name": "todo summary is not from file",
       "ok": true,
@@ -6157,7 +6157,7 @@ Array [
           "emitOne (events.js:77:13)\\n",
         ],
       },
-      "fullname": "",
+      "fullname": "captures TODO description",
       "id": 114,
       "name": "captures TODO description",
       "ok": false,
@@ -6174,7 +6174,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "exit cleanly",
       "id": 115,
       "name": "exit cleanly",
       "ok": true,
@@ -6191,7 +6191,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "captures SKIP description",
       "id": 116,
       "name": "captures SKIP description",
       "ok": true,
@@ -6208,7 +6208,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "skip summary is not in TAP output",
       "id": 117,
       "name": "skip summary is not in TAP output",
       "ok": true,
@@ -6225,7 +6225,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "todo summary is not in TAP output",
       "id": 118,
       "name": "todo summary is not in TAP output",
       "ok": true,
@@ -6257,7 +6257,7 @@ Array [
           "Process.ChildProcess._handle.onexit (child_process.js:1057:5)\\n",
         ],
       },
-      "fullname": "",
+      "fullname": "captures TODO description",
       "id": 119,
       "name": "captures TODO description",
       "ok": false,
@@ -6274,7 +6274,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "exit cleanly",
       "id": 120,
       "name": "exit cleanly",
       "ok": true,
@@ -6306,7 +6306,7 @@ Array [
           "Process.ChildProcess._handle.onexit (child_process.js:1057:5)\\n",
         ],
       },
-      "fullname": "",
+      "fullname": "summarizes skipped count",
       "id": 121,
       "name": "summarizes skipped count",
       "ok": false,
@@ -6338,7 +6338,7 @@ Array [
           "Process.ChildProcess._handle.onexit (child_process.js:1057:5)\\n",
         ],
       },
-      "fullname": "",
+      "fullname": "summarizes todo count",
       "id": 122,
       "name": "summarizes todo count",
       "ok": false,
@@ -6370,7 +6370,7 @@ Array [
         "command": "/usr/local/bin/iojs test-descriptions.js",
         "exit": 1,
       },
-      "fullname": "",
+      "fullname": "test/test-descriptions.js",
       "id": 123,
       "name": "test/test-descriptions.js",
       "ok": false,
@@ -6403,7 +6403,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "overall result is PASS",
       "id": 124,
       "name": "overall result is PASS",
       "ok": true,
@@ -6420,7 +6420,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "captures ok SKIP",
       "id": 125,
       "name": "captures ok SKIP",
       "ok": true,
@@ -6437,7 +6437,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "captures not ok SKIP",
       "id": 126,
       "name": "captures not ok SKIP",
       "ok": true,
@@ -6454,7 +6454,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "skip summary not in TAP output",
       "id": 127,
       "name": "skip summary not in TAP output",
       "ok": true,
@@ -6471,7 +6471,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "captures ok TODO",
       "id": 128,
       "name": "captures ok TODO",
       "ok": true,
@@ -6488,7 +6488,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "captures not ok TODO",
       "id": 129,
       "name": "captures not ok TODO",
       "ok": true,
@@ -6505,7 +6505,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "todo summary is not in TAP output",
       "id": 130,
       "name": "todo summary is not in TAP output",
       "ok": true,
@@ -6522,7 +6522,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "no ugly \\"undefined\\" in output",
       "id": 131,
       "name": "no ugly \\"undefined\\" in output",
       "ok": true,
@@ -6543,7 +6543,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "overall result is PASS",
       "id": 132,
       "name": "overall result is PASS",
       "ok": true,
@@ -6560,7 +6560,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "no SKIP in summary",
       "id": 133,
       "name": "no SKIP in summary",
       "ok": true,
@@ -6577,7 +6577,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "skip summary is not in TAP output",
       "id": 134,
       "name": "skip summary is not in TAP output",
       "ok": true,
@@ -6594,7 +6594,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "no TODO in summary",
       "id": 135,
       "name": "no TODO in summary",
       "ok": true,
@@ -6611,7 +6611,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "todo summary is not in TAP output",
       "id": 136,
       "name": "todo summary is not in TAP output",
       "ok": true,
@@ -6628,7 +6628,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "no ugly \\"undefined\\" in output",
       "id": 137,
       "name": "no ugly \\"undefined\\" in output",
       "ok": true,
@@ -6649,7 +6649,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "overall result is PASS",
       "id": 138,
       "name": "overall result is PASS",
       "ok": true,
@@ -6666,7 +6666,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "captures ok SKIP",
       "id": 139,
       "name": "captures ok SKIP",
       "ok": true,
@@ -6683,7 +6683,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "captures not ok SKIP",
       "id": 140,
       "name": "captures not ok SKIP",
       "ok": true,
@@ -6700,7 +6700,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "skip summary not in TAP output",
       "id": 141,
       "name": "skip summary not in TAP output",
       "ok": true,
@@ -6717,7 +6717,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "captures ok TODO",
       "id": 142,
       "name": "captures ok TODO",
       "ok": true,
@@ -6734,7 +6734,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "captures not ok TODO",
       "id": 143,
       "name": "captures not ok TODO",
       "ok": true,
@@ -6751,7 +6751,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "todo summary is not in TAP output",
       "id": 144,
       "name": "todo summary is not in TAP output",
       "ok": true,
@@ -6768,7 +6768,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "no ugly \\"undefined\\" in output",
       "id": 145,
       "name": "no ugly \\"undefined\\" in output",
       "ok": true,
@@ -6797,7 +6797,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/test-directives.js",
       "id": 146,
       "name": "test/test-directives.js",
       "ok": true,
@@ -6822,7 +6822,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "does not count as failure",
       "id": 147,
       "name": "does not count as failure",
       "ok": true,
@@ -6847,7 +6847,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/test-skip.js",
       "id": 148,
       "name": "test/test-skip.js",
       "ok": true,
@@ -6876,7 +6876,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test object should be instanceof Test",
       "id": 149,
       "name": "test object should be instanceof Test",
       "ok": true,
@@ -6893,7 +6893,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test object should be instanceof Harness",
       "id": 150,
       "name": "test object should be instanceof Harness",
       "ok": true,
@@ -6910,7 +6910,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test._Test should be the Test class",
       "id": 151,
       "name": "test._Test should be the Test class",
       "ok": true,
@@ -6927,7 +6927,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isNotDeepEqual method",
       "id": 152,
       "name": "should have isNotDeepEqual method",
       "ok": true,
@@ -6944,7 +6944,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isNotDeepEqual method should be a function",
       "id": 153,
       "name": "isNotDeepEqual method should be a function",
       "ok": true,
@@ -6961,7 +6961,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have equals method",
       "id": 154,
       "name": "should have equals method",
       "ok": true,
@@ -6978,7 +6978,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "equals method should be a function",
       "id": 155,
       "name": "equals method should be a function",
       "ok": true,
@@ -6995,7 +6995,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have inequivalent method",
       "id": 156,
       "name": "should have inequivalent method",
       "ok": true,
@@ -7012,7 +7012,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "inequivalent method should be a function",
       "id": 157,
       "name": "inequivalent method should be a function",
       "ok": true,
@@ -7029,7 +7029,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have threw method",
       "id": 158,
       "name": "should have threw method",
       "ok": true,
@@ -7046,7 +7046,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "threw method should be a function",
       "id": 159,
       "name": "threw method should be a function",
       "ok": true,
@@ -7063,7 +7063,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have strictEqual method",
       "id": 160,
       "name": "should have strictEqual method",
       "ok": true,
@@ -7080,7 +7080,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "strictEqual method should be a function",
       "id": 161,
       "name": "strictEqual method should be a function",
       "ok": true,
@@ -7097,7 +7097,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have emit method",
       "id": 162,
       "name": "should have emit method",
       "ok": true,
@@ -7114,7 +7114,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "emit method should be a function",
       "id": 163,
       "name": "emit method should be a function",
       "ok": true,
@@ -7131,7 +7131,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have fail method",
       "id": 164,
       "name": "should have fail method",
       "ok": true,
@@ -7148,7 +7148,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "fail method should be a function",
       "id": 165,
       "name": "fail method should be a function",
       "ok": true,
@@ -7165,7 +7165,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have strictEquals method",
       "id": 166,
       "name": "should have strictEquals method",
       "ok": true,
@@ -7182,7 +7182,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "strictEquals method should be a function",
       "id": 167,
       "name": "strictEquals method should be a function",
       "ok": true,
@@ -7199,7 +7199,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have notLike method",
       "id": 168,
       "name": "should have notLike method",
       "ok": true,
@@ -7216,7 +7216,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "notLike method should be a function",
       "id": 169,
       "name": "notLike method should be a function",
       "ok": true,
@@ -7233,7 +7233,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have dissimilar method",
       "id": 170,
       "name": "should have dissimilar method",
       "ok": true,
@@ -7250,7 +7250,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "dissimilar method should be a function",
       "id": 171,
       "name": "dissimilar method should be a function",
       "ok": true,
@@ -7267,7 +7267,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have true method",
       "id": 172,
       "name": "should have true method",
       "ok": true,
@@ -7284,7 +7284,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "true method should be a function",
       "id": 173,
       "name": "true method should be a function",
       "ok": true,
@@ -7301,7 +7301,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have assert method",
       "id": 174,
       "name": "should have assert method",
       "ok": true,
@@ -7318,7 +7318,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "assert method should be a function",
       "id": 175,
       "name": "assert method should be a function",
       "ok": true,
@@ -7335,7 +7335,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have is method",
       "id": 176,
       "name": "should have is method",
       "ok": true,
@@ -7352,7 +7352,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "is method should be a function",
       "id": 177,
       "name": "is method should be a function",
       "ok": true,
@@ -7369,7 +7369,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have ok method",
       "id": 178,
       "name": "should have ok method",
       "ok": true,
@@ -7386,7 +7386,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "ok method should be a function",
       "id": 179,
       "name": "ok method should be a function",
       "ok": true,
@@ -7403,7 +7403,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isEqual method",
       "id": 180,
       "name": "should have isEqual method",
       "ok": true,
@@ -7420,7 +7420,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isEqual method should be a function",
       "id": 181,
       "name": "isEqual method should be a function",
       "ok": true,
@@ -7437,7 +7437,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isDeeply method",
       "id": 182,
       "name": "should have isDeeply method",
       "ok": true,
@@ -7454,7 +7454,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isDeeply method should be a function",
       "id": 183,
       "name": "isDeeply method should be a function",
       "ok": true,
@@ -7471,7 +7471,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have deepEqual method",
       "id": 184,
       "name": "should have deepEqual method",
       "ok": true,
@@ -7488,7 +7488,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "deepEqual method should be a function",
       "id": 185,
       "name": "deepEqual method should be a function",
       "ok": true,
@@ -7505,7 +7505,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have deepEquals method",
       "id": 186,
       "name": "should have deepEquals method",
       "ok": true,
@@ -7522,7 +7522,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "deepEquals method should be a function",
       "id": 187,
       "name": "deepEquals method should be a function",
       "ok": true,
@@ -7539,7 +7539,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have pass method",
       "id": 188,
       "name": "should have pass method",
       "ok": true,
@@ -7556,7 +7556,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "pass method should be a function",
       "id": 189,
       "name": "pass method should be a function",
       "ok": true,
@@ -7573,7 +7573,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have length method",
       "id": 190,
       "name": "should have length method",
       "ok": true,
@@ -7590,7 +7590,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "length method should be a function",
       "id": 191,
       "name": "length method should be a function",
       "ok": true,
@@ -7607,7 +7607,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have skip method",
       "id": 192,
       "name": "should have skip method",
       "ok": true,
@@ -7624,7 +7624,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "skip method should be a function",
       "id": 193,
       "name": "skip method should be a function",
       "ok": true,
@@ -7641,7 +7641,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isNotEqual method",
       "id": 194,
       "name": "should have isNotEqual method",
       "ok": true,
@@ -7658,7 +7658,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isNotEqual method should be a function",
       "id": 195,
       "name": "isNotEqual method should be a function",
       "ok": true,
@@ -7675,7 +7675,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have looseEquals method",
       "id": 196,
       "name": "should have looseEquals method",
       "ok": true,
@@ -7692,7 +7692,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "looseEquals method should be a function",
       "id": 197,
       "name": "looseEquals method should be a function",
       "ok": true,
@@ -7709,7 +7709,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have false method",
       "id": 198,
       "name": "should have false method",
       "ok": true,
@@ -7726,7 +7726,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "false method should be a function",
       "id": 199,
       "name": "false method should be a function",
       "ok": true,
@@ -7743,7 +7743,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have notDeeply method",
       "id": 200,
       "name": "should have notDeeply method",
       "ok": true,
@@ -7760,7 +7760,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "notDeeply method should be a function",
       "id": 201,
       "name": "notDeeply method should be a function",
       "ok": true,
@@ -7777,7 +7777,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have ifErr method",
       "id": 202,
       "name": "should have ifErr method",
       "ok": true,
@@ -7794,7 +7794,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "ifErr method should be a function",
       "id": 203,
       "name": "ifErr method should be a function",
       "ok": true,
@@ -7811,7 +7811,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have hasFields method",
       "id": 204,
       "name": "should have hasFields method",
       "ok": true,
@@ -7828,7 +7828,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "hasFields method should be a function",
       "id": 205,
       "name": "hasFields method should be a function",
       "ok": true,
@@ -7845,7 +7845,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isNotDeeply method",
       "id": 206,
       "name": "should have isNotDeeply method",
       "ok": true,
@@ -7862,7 +7862,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isNotDeeply method should be a function",
       "id": 207,
       "name": "isNotDeeply method should be a function",
       "ok": true,
@@ -7879,7 +7879,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have like method",
       "id": 208,
       "name": "should have like method",
       "ok": true,
@@ -7896,7 +7896,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "like method should be a function",
       "id": 209,
       "name": "like method should be a function",
       "ok": true,
@@ -7913,7 +7913,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have similar method",
       "id": 210,
       "name": "should have similar method",
       "ok": true,
@@ -7930,7 +7930,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "similar method should be a function",
       "id": 211,
       "name": "similar method should be a function",
       "ok": true,
@@ -7947,7 +7947,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have notOk method",
       "id": 212,
       "name": "should have notOk method",
       "ok": true,
@@ -7964,7 +7964,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "notOk method should be a function",
       "id": 213,
       "name": "notOk method should be a function",
       "ok": true,
@@ -7981,7 +7981,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isDissimilar method",
       "id": 214,
       "name": "should have isDissimilar method",
       "ok": true,
@@ -7998,7 +7998,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isDissimilar method should be a function",
       "id": 215,
       "name": "isDissimilar method should be a function",
       "ok": true,
@@ -8015,7 +8015,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isEquivalent method",
       "id": 216,
       "name": "should have isEquivalent method",
       "ok": true,
@@ -8032,7 +8032,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isEquivalent method should be a function",
       "id": 217,
       "name": "isEquivalent method should be a function",
       "ok": true,
@@ -8049,7 +8049,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have doesNotEqual method",
       "id": 218,
       "name": "should have doesNotEqual method",
       "ok": true,
@@ -8066,7 +8066,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "doesNotEqual method should be a function",
       "id": 219,
       "name": "doesNotEqual method should be a function",
       "ok": true,
@@ -8083,7 +8083,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isSimilar method",
       "id": 220,
       "name": "should have isSimilar method",
       "ok": true,
@@ -8100,7 +8100,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isSimilar method should be a function",
       "id": 221,
       "name": "isSimilar method should be a function",
       "ok": true,
@@ -8117,7 +8117,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have notDeepEqual method",
       "id": 222,
       "name": "should have notDeepEqual method",
       "ok": true,
@@ -8134,7 +8134,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "notDeepEqual method should be a function",
       "id": 223,
       "name": "notDeepEqual method should be a function",
       "ok": true,
@@ -8151,7 +8151,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have type method",
       "id": 224,
       "name": "should have type method",
       "ok": true,
@@ -8168,7 +8168,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "type method should be a function",
       "id": 225,
       "name": "type method should be a function",
       "ok": true,
@@ -8185,7 +8185,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have notok method",
       "id": 226,
       "name": "should have notok method",
       "ok": true,
@@ -8202,7 +8202,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "notok method should be a function",
       "id": 227,
       "name": "notok method should be a function",
       "ok": true,
@@ -8219,7 +8219,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isInequivalent method",
       "id": 228,
       "name": "should have isInequivalent method",
       "ok": true,
@@ -8236,7 +8236,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isInequivalent method should be a function",
       "id": 229,
       "name": "isInequivalent method should be a function",
       "ok": true,
@@ -8253,7 +8253,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isNot method",
       "id": 230,
       "name": "should have isNot method",
       "ok": true,
@@ -8270,7 +8270,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isNot method should be a function",
       "id": 231,
       "name": "isNot method should be a function",
       "ok": true,
@@ -8287,7 +8287,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have same method",
       "id": 232,
       "name": "should have same method",
       "ok": true,
@@ -8304,7 +8304,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "same method should be a function",
       "id": 233,
       "name": "same method should be a function",
       "ok": true,
@@ -8321,7 +8321,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isInequal method",
       "id": 234,
       "name": "should have isInequal method",
       "ok": true,
@@ -8338,7 +8338,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isInequal method should be a function",
       "id": 235,
       "name": "isInequal method should be a function",
       "ok": true,
@@ -8355,7 +8355,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have _endNice method",
       "id": 236,
       "name": "should have _endNice method",
       "ok": true,
@@ -8372,7 +8372,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "_endNice method should be a function",
       "id": 237,
       "name": "_endNice method should be a function",
       "ok": true,
@@ -8389,7 +8389,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have ifError method",
       "id": 238,
       "name": "should have ifError method",
       "ok": true,
@@ -8406,7 +8406,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "ifError method should be a function",
       "id": 239,
       "name": "ifError method should be a function",
       "ok": true,
@@ -8423,7 +8423,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have iferror method",
       "id": 240,
       "name": "should have iferror method",
       "ok": true,
@@ -8440,7 +8440,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "iferror method should be a function",
       "id": 241,
       "name": "iferror method should be a function",
       "ok": true,
@@ -8457,7 +8457,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have clear method",
       "id": 242,
       "name": "should have clear method",
       "ok": true,
@@ -8474,7 +8474,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "clear method should be a function",
       "id": 243,
       "name": "clear method should be a function",
       "ok": true,
@@ -8491,7 +8491,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have has method",
       "id": 244,
       "name": "should have has method",
       "ok": true,
@@ -8508,7 +8508,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "has method should be a function",
       "id": 245,
       "name": "has method should be a function",
       "ok": true,
@@ -8525,7 +8525,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have not method",
       "id": 246,
       "name": "should have not method",
       "ok": true,
@@ -8542,7 +8542,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "not method should be a function",
       "id": 247,
       "name": "not method should be a function",
       "ok": true,
@@ -8559,7 +8559,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have timeout method",
       "id": 248,
       "name": "should have timeout method",
       "ok": true,
@@ -8576,7 +8576,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "timeout method should be a function",
       "id": 249,
       "name": "timeout method should be a function",
       "ok": true,
@@ -8593,7 +8593,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have notSimilar method",
       "id": 250,
       "name": "should have notSimilar method",
       "ok": true,
@@ -8610,7 +8610,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "notSimilar method should be a function",
       "id": 251,
       "name": "notSimilar method should be a function",
       "ok": true,
@@ -8627,7 +8627,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isUnlike method",
       "id": 252,
       "name": "should have isUnlike method",
       "ok": true,
@@ -8644,7 +8644,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isUnlike method should be a function",
       "id": 253,
       "name": "isUnlike method should be a function",
       "ok": true,
@@ -8661,7 +8661,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have notEquals method",
       "id": 254,
       "name": "should have notEquals method",
       "ok": true,
@@ -8678,7 +8678,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "notEquals method should be a function",
       "id": 255,
       "name": "notEquals method should be a function",
       "ok": true,
@@ -8695,7 +8695,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have unsimilar method",
       "id": 256,
       "name": "should have unsimilar method",
       "ok": true,
@@ -8712,7 +8712,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "unsimilar method should be a function",
       "id": 257,
       "name": "unsimilar method should be a function",
       "ok": true,
@@ -8729,7 +8729,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have result method",
       "id": 258,
       "name": "should have result method",
       "ok": true,
@@ -8746,7 +8746,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "result method should be a function",
       "id": 259,
       "name": "result method should be a function",
       "ok": true,
@@ -8763,7 +8763,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have doesNotThrow method",
       "id": 260,
       "name": "should have doesNotThrow method",
       "ok": true,
@@ -8780,7 +8780,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "doesNotThrow method should be a function",
       "id": 261,
       "name": "doesNotThrow method should be a function",
       "ok": true,
@@ -8797,7 +8797,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have error method",
       "id": 262,
       "name": "should have error method",
       "ok": true,
@@ -8814,7 +8814,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "error method should be a function",
       "id": 263,
       "name": "error method should be a function",
       "ok": true,
@@ -8831,7 +8831,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have constructor method",
       "id": 264,
       "name": "should have constructor method",
       "ok": true,
@@ -8848,7 +8848,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "constructor method should be a function",
       "id": 265,
       "name": "constructor method should be a function",
       "ok": true,
@@ -8865,7 +8865,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have notEqual method",
       "id": 266,
       "name": "should have notEqual method",
       "ok": true,
@@ -8882,7 +8882,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "notEqual method should be a function",
       "id": 267,
       "name": "notEqual method should be a function",
       "ok": true,
@@ -8899,7 +8899,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have throws method",
       "id": 268,
       "name": "should have throws method",
       "ok": true,
@@ -8916,7 +8916,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "throws method should be a function",
       "id": 269,
       "name": "throws method should be a function",
       "ok": true,
@@ -8933,7 +8933,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isLike method",
       "id": 270,
       "name": "should have isLike method",
       "ok": true,
@@ -8950,7 +8950,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isLike method should be a function",
       "id": 271,
       "name": "isLike method should be a function",
       "ok": true,
@@ -8967,7 +8967,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isNotSimilar method",
       "id": 272,
       "name": "should have isNotSimilar method",
       "ok": true,
@@ -8984,7 +8984,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isNotSimilar method should be a function",
       "id": 273,
       "name": "isNotSimilar method should be a function",
       "ok": true,
@@ -9001,7 +9001,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isNotEquivalent method",
       "id": 274,
       "name": "should have isNotEquivalent method",
       "ok": true,
@@ -9018,7 +9018,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isNotEquivalent method should be a function",
       "id": 275,
       "name": "isNotEquivalent method should be a function",
       "ok": true,
@@ -9035,7 +9035,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have inequal method",
       "id": 276,
       "name": "should have inequal method",
       "ok": true,
@@ -9052,7 +9052,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "inequal method should be a function",
       "id": 277,
       "name": "inequal method should be a function",
       "ok": true,
@@ -9069,7 +9069,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have notEquivalent method",
       "id": 278,
       "name": "should have notEquivalent method",
       "ok": true,
@@ -9086,7 +9086,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "notEquivalent method should be a function",
       "id": 279,
       "name": "notEquivalent method should be a function",
       "ok": true,
@@ -9103,7 +9103,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isNotLike method",
       "id": 280,
       "name": "should have isNotLike method",
       "ok": true,
@@ -9120,7 +9120,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isNotLike method should be a function",
       "id": 281,
       "name": "isNotLike method should be a function",
       "ok": true,
@@ -9137,7 +9137,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have equivalent method",
       "id": 282,
       "name": "should have equivalent method",
       "ok": true,
@@ -9154,7 +9154,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "equivalent method should be a function",
       "id": 283,
       "name": "equivalent method should be a function",
       "ok": true,
@@ -9171,7 +9171,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have looseEqual method",
       "id": 284,
       "name": "should have looseEqual method",
       "ok": true,
@@ -9188,7 +9188,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "looseEqual method should be a function",
       "id": 285,
       "name": "looseEqual method should be a function",
       "ok": true,
@@ -9205,7 +9205,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have equal method",
       "id": 286,
       "name": "should have equal method",
       "ok": true,
@@ -9222,7 +9222,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "equal method should be a function",
       "id": 287,
       "name": "equal method should be a function",
       "ok": true,
@@ -9239,7 +9239,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have unlike method",
       "id": 288,
       "name": "should have unlike method",
       "ok": true,
@@ -9256,7 +9256,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "unlike method should be a function",
       "id": 289,
       "name": "unlike method should be a function",
       "ok": true,
@@ -9273,7 +9273,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have doesNotHave method",
       "id": 290,
       "name": "should have doesNotHave method",
       "ok": true,
@@ -9290,7 +9290,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "doesNotHave method should be a function",
       "id": 291,
       "name": "doesNotHave method should be a function",
       "ok": true,
@@ -9307,7 +9307,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have comment method",
       "id": 292,
       "name": "should have comment method",
       "ok": true,
@@ -9324,7 +9324,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "comment method should be a function",
       "id": 293,
       "name": "comment method should be a function",
       "ok": true,
@@ -9341,7 +9341,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isa method",
       "id": 294,
       "name": "should have isa method",
       "ok": true,
@@ -9358,7 +9358,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isa method should be a function",
       "id": 295,
       "name": "isa method should be a function",
       "ok": true,
@@ -9387,7 +9387,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/test-test.js",
       "id": 296,
       "name": "test/test-test.js",
       "ok": true,
@@ -9432,7 +9432,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "a",
       "id": 297,
       "name": "a",
       "ok": true,
@@ -9465,7 +9465,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "b",
       "id": 298,
       "name": "b",
       "ok": true,
@@ -9486,7 +9486,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "a",
       "id": 299,
       "name": "a",
       "ok": true,
@@ -9503,7 +9503,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "b",
       "id": 300,
       "name": "b",
       "ok": true,
@@ -9532,7 +9532,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/timeout.js",
       "id": 301,
       "name": "test/timeout.js",
       "ok": true,
@@ -9553,7 +9553,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/trivial-success.js",
       "id": 302,
       "name": "test/trivial-success.js",
       "ok": true,
@@ -9582,7 +9582,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 303,
       "name": "should be equivalent",
       "ok": true,
@@ -9611,7 +9611,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/undefined_indented.js",
       "id": 304,
       "name": "test/undefined_indented.js",
       "ok": true,
@@ -9640,7 +9640,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 305,
       "name": "should be equivalent",
       "ok": true,
@@ -9657,7 +9657,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 306,
       "name": "should be equivalent",
       "ok": true,
@@ -9674,7 +9674,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 307,
       "name": "should be equivalent",
       "ok": true,
@@ -9691,7 +9691,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 308,
       "name": "should be equivalent",
       "ok": true,
@@ -9708,7 +9708,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 309,
       "name": "should be equivalent",
       "ok": true,
@@ -9725,7 +9725,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 310,
       "name": "should be equal",
       "ok": true,
@@ -9754,7 +9754,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/valid-command.js",
       "id": 311,
       "name": "test/valid-command.js",
       "ok": true,
@@ -9832,7 +9832,7 @@ Array [
               "emitOne (events.js:77:13)\\n",
             ],
           },
-          "fullname": "",
+          "fullname": "captures TODO description",
           "id": 114,
           "name": "captures TODO description",
           "ok": false,
@@ -9861,7 +9861,7 @@ Array [
               "Process.ChildProcess._handle.onexit (child_process.js:1057:5)\\n",
             ],
           },
-          "fullname": "",
+          "fullname": "captures TODO description",
           "id": 119,
           "name": "captures TODO description",
           "ok": false,
@@ -9890,7 +9890,7 @@ Array [
               "Process.ChildProcess._handle.onexit (child_process.js:1057:5)\\n",
             ],
           },
-          "fullname": "",
+          "fullname": "summarizes skipped count",
           "id": 121,
           "name": "summarizes skipped count",
           "ok": false,
@@ -9919,7 +9919,7 @@ Array [
               "Process.ChildProcess._handle.onexit (child_process.js:1057:5)\\n",
             ],
           },
-          "fullname": "",
+          "fullname": "summarizes todo count",
           "id": 122,
           "name": "summarizes todo count",
           "ok": false,
@@ -9936,7 +9936,7 @@ Array [
             "command": "/usr/local/bin/iojs test-descriptions.js",
             "exit": 1,
           },
-          "fullname": "",
+          "fullname": "test/test-descriptions.js",
           "id": 123,
           "name": "test/test-descriptions.js",
           "ok": false,
@@ -10125,7 +10125,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 1,
       "name": "should be equivalent",
       "ok": true,
@@ -10146,7 +10146,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should not be equivalent",
       "id": 2,
       "name": "should not be equivalent",
       "ok": true,
@@ -10175,7 +10175,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/buffer_compare.js",
       "id": 3,
       "name": "test/buffer_compare.js",
       "ok": true,
@@ -10196,7 +10196,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "just setup, nothing relevant",
       "id": 4,
       "name": "just setup, nothing relevant",
       "ok": true,
@@ -10213,7 +10213,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/common.js",
       "id": 5,
       "name": "test/common.js",
       "ok": true,
@@ -10242,7 +10242,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 6,
       "name": "should be equivalent",
       "ok": true,
@@ -10263,7 +10263,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 7,
       "name": "should be equivalent",
       "ok": true,
@@ -10284,7 +10284,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 8,
       "name": "should be equivalent",
       "ok": true,
@@ -10305,7 +10305,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 9,
       "name": "should be equivalent",
       "ok": true,
@@ -10326,7 +10326,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 10,
       "name": "should be equivalent",
       "ok": true,
@@ -10355,7 +10355,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/consumer.js",
       "id": 11,
       "name": "test/consumer.js",
       "ok": true,
@@ -10396,7 +10396,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Should output debugger message",
       "id": 12,
       "name": "Should output debugger message",
       "ok": true,
@@ -10425,7 +10425,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/debug-test.js",
       "id": 13,
       "name": "test/debug-test.js",
       "ok": true,
@@ -10454,7 +10454,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be strictly equal",
       "id": 14,
       "name": "should be strictly equal",
       "ok": true,
@@ -10475,7 +10475,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be strictly equal",
       "id": 15,
       "name": "should be strictly equal",
       "ok": true,
@@ -10496,7 +10496,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be strictly equal",
       "id": 16,
       "name": "should be strictly equal",
       "ok": true,
@@ -10525,7 +10525,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/deep-strict.js",
       "id": 17,
       "name": "test/deep-strict.js",
       "ok": true,
@@ -10554,7 +10554,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 18,
       "name": "should be equivalent",
       "ok": true,
@@ -10575,7 +10575,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 19,
       "name": "should be equivalent",
       "ok": true,
@@ -10596,7 +10596,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 20,
       "name": "should be equivalent",
       "ok": true,
@@ -10625,7 +10625,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/deep.js",
       "id": 21,
       "name": "test/deep.js",
       "ok": true,
@@ -10646,7 +10646,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "File with executable bit should be executed",
       "id": 22,
       "name": "File with executable bit should be executed",
       "ok": true,
@@ -10663,7 +10663,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/executed.sh",
       "id": 23,
       "name": "test/executed.sh",
       "ok": true,
@@ -10696,7 +10696,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 24,
       "name": "should be equal",
       "ok": true,
@@ -10713,7 +10713,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 25,
       "name": "should be equal",
       "ok": true,
@@ -10734,7 +10734,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 26,
       "name": "should be equal",
       "ok": true,
@@ -10751,7 +10751,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 27,
       "name": "should be equal",
       "ok": true,
@@ -10772,7 +10772,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 28,
       "name": "should be equal",
       "ok": true,
@@ -10789,7 +10789,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 29,
       "name": "should be equal",
       "ok": true,
@@ -10814,7 +10814,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 30,
       "name": "should be equal",
       "ok": true,
@@ -10831,7 +10831,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 31,
       "name": "should be equal",
       "ok": true,
@@ -10852,7 +10852,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 32,
       "name": "should be equal",
       "ok": true,
@@ -10869,7 +10869,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 33,
       "name": "should be equal",
       "ok": true,
@@ -10898,7 +10898,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/exit-code.js",
       "id": 34,
       "name": "test/exit-code.js",
       "ok": true,
@@ -10971,7 +10971,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 35,
       "name": "should be equal",
       "ok": true,
@@ -10996,7 +10996,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 36,
       "name": "should be equal",
       "ok": true,
@@ -11017,7 +11017,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 37,
       "name": "should be equal",
       "ok": true,
@@ -11050,7 +11050,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/expose-gc-test.js",
       "id": 38,
       "name": "test/expose-gc-test.js",
       "ok": true,
@@ -11083,7 +11083,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "1-1",
       "id": 39,
       "name": "1-1",
       "ok": true,
@@ -11104,7 +11104,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "2-1",
       "id": 40,
       "name": "2-1",
       "ok": true,
@@ -11125,7 +11125,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "3-1",
       "id": 41,
       "name": "3-1",
       "ok": true,
@@ -11142,7 +11142,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/global-harness-async.js",
       "id": 42,
       "name": "test/global-harness-async.js",
       "ok": true,
@@ -11183,7 +11183,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/independent-timeouts.js",
       "id": 43,
       "name": "test/independent-timeouts.js",
       "ok": true,
@@ -11212,7 +11212,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 44,
       "name": "should be equal",
       "ok": true,
@@ -11229,7 +11229,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 45,
       "name": "should be equal",
       "ok": true,
@@ -11250,7 +11250,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 46,
       "name": "should be equal",
       "ok": true,
@@ -11267,7 +11267,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 47,
       "name": "should be equal",
       "ok": true,
@@ -11296,7 +11296,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/isolated-conf-test.js",
       "id": 48,
       "name": "test/isolated-conf-test.js",
       "ok": true,
@@ -11325,7 +11325,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "sanity check",
       "id": 49,
       "name": "sanity check",
       "ok": true,
@@ -11342,7 +11342,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "not ok",
       "id": 50,
       "name": "not ok",
       "ok": true,
@@ -11359,7 +11359,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "total test count",
       "id": 51,
       "name": "total test count",
       "ok": true,
@@ -11376,7 +11376,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "tests passed",
       "id": 52,
       "name": "tests passed",
       "ok": true,
@@ -11393,7 +11393,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "tests failed",
       "id": 53,
       "name": "tests failed",
       "ok": true,
@@ -11410,7 +11410,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "ok is boolean",
       "id": 54,
       "name": "ok is boolean",
       "ok": true,
@@ -11427,7 +11427,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "skip is number",
       "id": 55,
       "name": "skip is number",
       "ok": true,
@@ -11444,7 +11444,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "results isa Results",
       "id": 56,
       "name": "results isa Results",
       "ok": true,
@@ -11461,7 +11461,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test isa Test",
       "id": 57,
       "name": "test isa Test",
       "ok": true,
@@ -11478,7 +11478,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test isa Harness",
       "id": 58,
       "name": "test isa Harness",
       "ok": true,
@@ -11507,7 +11507,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/meta-test.js",
       "id": 59,
       "name": "test/meta-test.js",
       "ok": true,
@@ -11536,7 +11536,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "sync child A",
       "id": 60,
       "name": "sync child A",
       "ok": true,
@@ -11561,7 +11561,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "(unnamed assert)",
       "id": 61,
       "name": "(unnamed assert)",
       "ok": true,
@@ -11582,7 +11582,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "(unnamed assert)",
       "id": 62,
       "name": "(unnamed assert)",
       "ok": true,
@@ -11603,7 +11603,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "sync grandchild in async child A",
       "id": 63,
       "name": "sync grandchild in async child A",
       "ok": true,
@@ -11624,7 +11624,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "(unnamed assert)",
       "id": 64,
       "name": "(unnamed assert)",
       "ok": true,
@@ -11653,7 +11653,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/nested-async.js",
       "id": 65,
       "name": "test/nested-async.js",
       "ok": true,
@@ -11682,7 +11682,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "p test",
       "id": 66,
       "name": "p test",
       "ok": true,
@@ -11703,7 +11703,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "ch test",
       "id": 67,
       "name": "ch test",
       "ok": true,
@@ -11724,7 +11724,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "grch test",
       "id": 68,
       "name": "grch test",
       "ok": true,
@@ -11745,7 +11745,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "ch test 2",
       "id": 69,
       "name": "ch test 2",
       "ok": true,
@@ -11774,7 +11774,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/nested-test.js",
       "id": 70,
       "name": "test/nested-test.js",
       "ok": true,
@@ -11811,7 +11811,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": ", 8 can stay.",
       "id": 71,
       "name": ", 8 can stay.",
       "ok": true,
@@ -11848,7 +11848,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "might be confusing",
       "id": 72,
       "name": "might be confusing",
       "ok": true,
@@ -11865,7 +11865,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "done now, exiting",
       "id": 73,
       "name": "done now, exiting",
       "ok": true,
@@ -11882,7 +11882,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/non-tap-output.js",
       "id": 74,
       "name": "test/non-tap-output.js",
       "ok": true,
@@ -11919,7 +11919,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "outputs parent description",
       "id": 75,
       "name": "outputs parent description",
       "ok": true,
@@ -11936,7 +11936,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "outputs child description",
       "id": 76,
       "name": "outputs child description",
       "ok": true,
@@ -11953,7 +11953,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "outputs parent description before parent result",
       "id": 77,
       "name": "outputs parent description before parent result",
       "ok": true,
@@ -11970,7 +11970,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "outputs parent result before child description",
       "id": 78,
       "name": "outputs parent result before child description",
       "ok": true,
@@ -11987,7 +11987,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "outputs child description before child result",
       "id": 79,
       "name": "outputs child description before child result",
       "ok": true,
@@ -12016,7 +12016,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/output-childtest-description.js",
       "id": 80,
       "name": "test/output-childtest-description.js",
       "ok": true,
@@ -12045,7 +12045,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 81,
       "name": "should be equal",
       "ok": true,
@@ -12062,7 +12062,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 82,
       "name": "should be equal",
       "ok": true,
@@ -12091,7 +12091,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/result-trap.js",
       "id": 83,
       "name": "test/result-trap.js",
       "ok": true,
@@ -12120,7 +12120,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "compiled seg faulter",
       "id": 84,
       "name": "compiled seg faulter",
       "ok": true,
@@ -12141,7 +12141,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 85,
       "name": "should be equivalent",
       "ok": true,
@@ -12158,7 +12158,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 86,
       "name": "should be equivalent",
       "ok": true,
@@ -12175,7 +12175,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 87,
       "name": "should be equivalent",
       "ok": true,
@@ -12192,7 +12192,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 88,
       "name": "should be equivalent",
       "ok": true,
@@ -12209,7 +12209,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 89,
       "name": "should be equivalent",
       "ok": true,
@@ -12226,7 +12226,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 90,
       "name": "should be equal",
       "ok": true,
@@ -12247,7 +12247,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "cleaned up",
       "id": 91,
       "name": "cleaned up",
       "ok": true,
@@ -12276,7 +12276,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/segv.js",
       "id": 92,
       "name": "test/segv.js",
       "ok": true,
@@ -12305,7 +12305,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "it works",
       "id": 93,
       "name": "it works",
       "ok": true,
@@ -12326,7 +12326,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "math should work",
       "id": 94,
       "name": "math should work",
       "ok": true,
@@ -12343,7 +12343,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "false should not be ok",
       "id": 95,
       "name": "false should not be ok",
       "ok": true,
@@ -12372,7 +12372,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/simple-harness-test-with-plan.js",
       "id": 96,
       "name": "test/simple-harness-test-with-plan.js",
       "ok": true,
@@ -12401,7 +12401,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "it works",
       "id": 97,
       "name": "it works",
       "ok": true,
@@ -12422,7 +12422,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "math should work",
       "id": 98,
       "name": "math should work",
       "ok": true,
@@ -12439,7 +12439,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "false should not be ok",
       "id": 99,
       "name": "false should not be ok",
       "ok": true,
@@ -12468,7 +12468,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/simple-harness-test.js",
       "id": 100,
       "name": "test/simple-harness-test.js",
       "ok": true,
@@ -12497,7 +12497,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "always passes",
       "id": 101,
       "name": "always passes",
       "ok": true,
@@ -12514,7 +12514,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "false",
       "id": 102,
       "name": "false",
       "ok": true,
@@ -12531,7 +12531,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "bonus",
       "id": 103,
       "name": "bonus",
       "ok": true,
@@ -12548,7 +12548,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "expected",
       "id": 104,
       "name": "expected",
       "ok": true,
@@ -12565,7 +12565,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "always passes without explanation",
       "id": 105,
       "name": "always passes without explanation",
       "ok": true,
@@ -12582,7 +12582,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "false without explanation",
       "id": 106,
       "name": "false without explanation",
       "ok": true,
@@ -12599,7 +12599,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "bonus without explanation",
       "id": 107,
       "name": "bonus without explanation",
       "ok": true,
@@ -12616,7 +12616,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "expected without explanation",
       "id": 108,
       "name": "expected without explanation",
       "ok": true,
@@ -12645,7 +12645,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/test-assert-todo-skip.js",
       "id": 109,
       "name": "test/test-assert-todo-skip.js",
       "ok": true,
@@ -12674,7 +12674,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "exit cleanly",
       "id": 110,
       "name": "exit cleanly",
       "ok": true,
@@ -12691,7 +12691,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "captures SKIP description",
       "id": 111,
       "name": "captures SKIP description",
       "ok": true,
@@ -12708,7 +12708,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "skip summary is not from file",
       "id": 112,
       "name": "skip summary is not from file",
       "ok": true,
@@ -12725,7 +12725,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "todo summary is not from file",
       "id": 113,
       "name": "todo summary is not from file",
       "ok": true,
@@ -12758,7 +12758,7 @@ Array [
           "emitOne (events.js:77:13)\\n",
         ],
       },
-      "fullname": "",
+      "fullname": "captures TODO description",
       "id": 114,
       "name": "captures TODO description",
       "ok": false,
@@ -12775,7 +12775,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "exit cleanly",
       "id": 115,
       "name": "exit cleanly",
       "ok": true,
@@ -12792,7 +12792,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "captures SKIP description",
       "id": 116,
       "name": "captures SKIP description",
       "ok": true,
@@ -12809,7 +12809,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "skip summary is not in TAP output",
       "id": 117,
       "name": "skip summary is not in TAP output",
       "ok": true,
@@ -12826,7 +12826,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "todo summary is not in TAP output",
       "id": 118,
       "name": "todo summary is not in TAP output",
       "ok": true,
@@ -12858,7 +12858,7 @@ Array [
           "Process.ChildProcess._handle.onexit (child_process.js:1057:5)\\n",
         ],
       },
-      "fullname": "",
+      "fullname": "captures TODO description",
       "id": 119,
       "name": "captures TODO description",
       "ok": false,
@@ -12875,7 +12875,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "exit cleanly",
       "id": 120,
       "name": "exit cleanly",
       "ok": true,
@@ -12907,7 +12907,7 @@ Array [
           "Process.ChildProcess._handle.onexit (child_process.js:1057:5)\\n",
         ],
       },
-      "fullname": "",
+      "fullname": "summarizes skipped count",
       "id": 121,
       "name": "summarizes skipped count",
       "ok": false,
@@ -12939,7 +12939,7 @@ Array [
           "Process.ChildProcess._handle.onexit (child_process.js:1057:5)\\n",
         ],
       },
-      "fullname": "",
+      "fullname": "summarizes todo count",
       "id": 122,
       "name": "summarizes todo count",
       "ok": false,
@@ -12971,7 +12971,7 @@ Array [
         "command": "/usr/local/bin/iojs test-descriptions.js",
         "exit": 1,
       },
-      "fullname": "",
+      "fullname": "test/test-descriptions.js",
       "id": 123,
       "name": "test/test-descriptions.js",
       "ok": false,
@@ -13004,7 +13004,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "overall result is PASS",
       "id": 124,
       "name": "overall result is PASS",
       "ok": true,
@@ -13021,7 +13021,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "captures ok SKIP",
       "id": 125,
       "name": "captures ok SKIP",
       "ok": true,
@@ -13038,7 +13038,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "captures not ok SKIP",
       "id": 126,
       "name": "captures not ok SKIP",
       "ok": true,
@@ -13055,7 +13055,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "skip summary not in TAP output",
       "id": 127,
       "name": "skip summary not in TAP output",
       "ok": true,
@@ -13072,7 +13072,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "captures ok TODO",
       "id": 128,
       "name": "captures ok TODO",
       "ok": true,
@@ -13089,7 +13089,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "captures not ok TODO",
       "id": 129,
       "name": "captures not ok TODO",
       "ok": true,
@@ -13106,7 +13106,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "todo summary is not in TAP output",
       "id": 130,
       "name": "todo summary is not in TAP output",
       "ok": true,
@@ -13123,7 +13123,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "no ugly \\"undefined\\" in output",
       "id": 131,
       "name": "no ugly \\"undefined\\" in output",
       "ok": true,
@@ -13144,7 +13144,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "overall result is PASS",
       "id": 132,
       "name": "overall result is PASS",
       "ok": true,
@@ -13161,7 +13161,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "no SKIP in summary",
       "id": 133,
       "name": "no SKIP in summary",
       "ok": true,
@@ -13178,7 +13178,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "skip summary is not in TAP output",
       "id": 134,
       "name": "skip summary is not in TAP output",
       "ok": true,
@@ -13195,7 +13195,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "no TODO in summary",
       "id": 135,
       "name": "no TODO in summary",
       "ok": true,
@@ -13212,7 +13212,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "todo summary is not in TAP output",
       "id": 136,
       "name": "todo summary is not in TAP output",
       "ok": true,
@@ -13229,7 +13229,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "no ugly \\"undefined\\" in output",
       "id": 137,
       "name": "no ugly \\"undefined\\" in output",
       "ok": true,
@@ -13250,7 +13250,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "overall result is PASS",
       "id": 138,
       "name": "overall result is PASS",
       "ok": true,
@@ -13267,7 +13267,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "captures ok SKIP",
       "id": 139,
       "name": "captures ok SKIP",
       "ok": true,
@@ -13284,7 +13284,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "captures not ok SKIP",
       "id": 140,
       "name": "captures not ok SKIP",
       "ok": true,
@@ -13301,7 +13301,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "skip summary not in TAP output",
       "id": 141,
       "name": "skip summary not in TAP output",
       "ok": true,
@@ -13318,7 +13318,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "captures ok TODO",
       "id": 142,
       "name": "captures ok TODO",
       "ok": true,
@@ -13335,7 +13335,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "captures not ok TODO",
       "id": 143,
       "name": "captures not ok TODO",
       "ok": true,
@@ -13352,7 +13352,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "todo summary is not in TAP output",
       "id": 144,
       "name": "todo summary is not in TAP output",
       "ok": true,
@@ -13369,7 +13369,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "no ugly \\"undefined\\" in output",
       "id": 145,
       "name": "no ugly \\"undefined\\" in output",
       "ok": true,
@@ -13398,7 +13398,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/test-directives.js",
       "id": 146,
       "name": "test/test-directives.js",
       "ok": true,
@@ -13423,7 +13423,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "does not count as failure",
       "id": 147,
       "name": "does not count as failure",
       "ok": true,
@@ -13448,7 +13448,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/test-skip.js",
       "id": 148,
       "name": "test/test-skip.js",
       "ok": true,
@@ -13477,7 +13477,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test object should be instanceof Test",
       "id": 149,
       "name": "test object should be instanceof Test",
       "ok": true,
@@ -13494,7 +13494,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test object should be instanceof Harness",
       "id": 150,
       "name": "test object should be instanceof Harness",
       "ok": true,
@@ -13511,7 +13511,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test._Test should be the Test class",
       "id": 151,
       "name": "test._Test should be the Test class",
       "ok": true,
@@ -13528,7 +13528,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isNotDeepEqual method",
       "id": 152,
       "name": "should have isNotDeepEqual method",
       "ok": true,
@@ -13545,7 +13545,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isNotDeepEqual method should be a function",
       "id": 153,
       "name": "isNotDeepEqual method should be a function",
       "ok": true,
@@ -13562,7 +13562,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have equals method",
       "id": 154,
       "name": "should have equals method",
       "ok": true,
@@ -13579,7 +13579,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "equals method should be a function",
       "id": 155,
       "name": "equals method should be a function",
       "ok": true,
@@ -13596,7 +13596,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have inequivalent method",
       "id": 156,
       "name": "should have inequivalent method",
       "ok": true,
@@ -13613,7 +13613,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "inequivalent method should be a function",
       "id": 157,
       "name": "inequivalent method should be a function",
       "ok": true,
@@ -13630,7 +13630,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have threw method",
       "id": 158,
       "name": "should have threw method",
       "ok": true,
@@ -13647,7 +13647,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "threw method should be a function",
       "id": 159,
       "name": "threw method should be a function",
       "ok": true,
@@ -13664,7 +13664,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have strictEqual method",
       "id": 160,
       "name": "should have strictEqual method",
       "ok": true,
@@ -13681,7 +13681,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "strictEqual method should be a function",
       "id": 161,
       "name": "strictEqual method should be a function",
       "ok": true,
@@ -13698,7 +13698,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have emit method",
       "id": 162,
       "name": "should have emit method",
       "ok": true,
@@ -13715,7 +13715,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "emit method should be a function",
       "id": 163,
       "name": "emit method should be a function",
       "ok": true,
@@ -13732,7 +13732,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have fail method",
       "id": 164,
       "name": "should have fail method",
       "ok": true,
@@ -13749,7 +13749,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "fail method should be a function",
       "id": 165,
       "name": "fail method should be a function",
       "ok": true,
@@ -13766,7 +13766,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have strictEquals method",
       "id": 166,
       "name": "should have strictEquals method",
       "ok": true,
@@ -13783,7 +13783,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "strictEquals method should be a function",
       "id": 167,
       "name": "strictEquals method should be a function",
       "ok": true,
@@ -13800,7 +13800,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have notLike method",
       "id": 168,
       "name": "should have notLike method",
       "ok": true,
@@ -13817,7 +13817,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "notLike method should be a function",
       "id": 169,
       "name": "notLike method should be a function",
       "ok": true,
@@ -13834,7 +13834,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have dissimilar method",
       "id": 170,
       "name": "should have dissimilar method",
       "ok": true,
@@ -13851,7 +13851,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "dissimilar method should be a function",
       "id": 171,
       "name": "dissimilar method should be a function",
       "ok": true,
@@ -13868,7 +13868,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have true method",
       "id": 172,
       "name": "should have true method",
       "ok": true,
@@ -13885,7 +13885,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "true method should be a function",
       "id": 173,
       "name": "true method should be a function",
       "ok": true,
@@ -13902,7 +13902,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have assert method",
       "id": 174,
       "name": "should have assert method",
       "ok": true,
@@ -13919,7 +13919,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "assert method should be a function",
       "id": 175,
       "name": "assert method should be a function",
       "ok": true,
@@ -13936,7 +13936,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have is method",
       "id": 176,
       "name": "should have is method",
       "ok": true,
@@ -13953,7 +13953,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "is method should be a function",
       "id": 177,
       "name": "is method should be a function",
       "ok": true,
@@ -13970,7 +13970,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have ok method",
       "id": 178,
       "name": "should have ok method",
       "ok": true,
@@ -13987,7 +13987,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "ok method should be a function",
       "id": 179,
       "name": "ok method should be a function",
       "ok": true,
@@ -14004,7 +14004,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isEqual method",
       "id": 180,
       "name": "should have isEqual method",
       "ok": true,
@@ -14021,7 +14021,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isEqual method should be a function",
       "id": 181,
       "name": "isEqual method should be a function",
       "ok": true,
@@ -14038,7 +14038,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isDeeply method",
       "id": 182,
       "name": "should have isDeeply method",
       "ok": true,
@@ -14055,7 +14055,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isDeeply method should be a function",
       "id": 183,
       "name": "isDeeply method should be a function",
       "ok": true,
@@ -14072,7 +14072,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have deepEqual method",
       "id": 184,
       "name": "should have deepEqual method",
       "ok": true,
@@ -14089,7 +14089,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "deepEqual method should be a function",
       "id": 185,
       "name": "deepEqual method should be a function",
       "ok": true,
@@ -14106,7 +14106,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have deepEquals method",
       "id": 186,
       "name": "should have deepEquals method",
       "ok": true,
@@ -14123,7 +14123,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "deepEquals method should be a function",
       "id": 187,
       "name": "deepEquals method should be a function",
       "ok": true,
@@ -14140,7 +14140,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have pass method",
       "id": 188,
       "name": "should have pass method",
       "ok": true,
@@ -14157,7 +14157,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "pass method should be a function",
       "id": 189,
       "name": "pass method should be a function",
       "ok": true,
@@ -14174,7 +14174,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have length method",
       "id": 190,
       "name": "should have length method",
       "ok": true,
@@ -14191,7 +14191,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "length method should be a function",
       "id": 191,
       "name": "length method should be a function",
       "ok": true,
@@ -14208,7 +14208,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have skip method",
       "id": 192,
       "name": "should have skip method",
       "ok": true,
@@ -14225,7 +14225,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "skip method should be a function",
       "id": 193,
       "name": "skip method should be a function",
       "ok": true,
@@ -14242,7 +14242,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isNotEqual method",
       "id": 194,
       "name": "should have isNotEqual method",
       "ok": true,
@@ -14259,7 +14259,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isNotEqual method should be a function",
       "id": 195,
       "name": "isNotEqual method should be a function",
       "ok": true,
@@ -14276,7 +14276,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have looseEquals method",
       "id": 196,
       "name": "should have looseEquals method",
       "ok": true,
@@ -14293,7 +14293,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "looseEquals method should be a function",
       "id": 197,
       "name": "looseEquals method should be a function",
       "ok": true,
@@ -14310,7 +14310,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have false method",
       "id": 198,
       "name": "should have false method",
       "ok": true,
@@ -14327,7 +14327,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "false method should be a function",
       "id": 199,
       "name": "false method should be a function",
       "ok": true,
@@ -14344,7 +14344,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have notDeeply method",
       "id": 200,
       "name": "should have notDeeply method",
       "ok": true,
@@ -14361,7 +14361,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "notDeeply method should be a function",
       "id": 201,
       "name": "notDeeply method should be a function",
       "ok": true,
@@ -14378,7 +14378,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have ifErr method",
       "id": 202,
       "name": "should have ifErr method",
       "ok": true,
@@ -14395,7 +14395,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "ifErr method should be a function",
       "id": 203,
       "name": "ifErr method should be a function",
       "ok": true,
@@ -14412,7 +14412,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have hasFields method",
       "id": 204,
       "name": "should have hasFields method",
       "ok": true,
@@ -14429,7 +14429,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "hasFields method should be a function",
       "id": 205,
       "name": "hasFields method should be a function",
       "ok": true,
@@ -14446,7 +14446,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isNotDeeply method",
       "id": 206,
       "name": "should have isNotDeeply method",
       "ok": true,
@@ -14463,7 +14463,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isNotDeeply method should be a function",
       "id": 207,
       "name": "isNotDeeply method should be a function",
       "ok": true,
@@ -14480,7 +14480,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have like method",
       "id": 208,
       "name": "should have like method",
       "ok": true,
@@ -14497,7 +14497,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "like method should be a function",
       "id": 209,
       "name": "like method should be a function",
       "ok": true,
@@ -14514,7 +14514,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have similar method",
       "id": 210,
       "name": "should have similar method",
       "ok": true,
@@ -14531,7 +14531,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "similar method should be a function",
       "id": 211,
       "name": "similar method should be a function",
       "ok": true,
@@ -14548,7 +14548,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have notOk method",
       "id": 212,
       "name": "should have notOk method",
       "ok": true,
@@ -14565,7 +14565,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "notOk method should be a function",
       "id": 213,
       "name": "notOk method should be a function",
       "ok": true,
@@ -14582,7 +14582,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isDissimilar method",
       "id": 214,
       "name": "should have isDissimilar method",
       "ok": true,
@@ -14599,7 +14599,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isDissimilar method should be a function",
       "id": 215,
       "name": "isDissimilar method should be a function",
       "ok": true,
@@ -14616,7 +14616,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isEquivalent method",
       "id": 216,
       "name": "should have isEquivalent method",
       "ok": true,
@@ -14633,7 +14633,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isEquivalent method should be a function",
       "id": 217,
       "name": "isEquivalent method should be a function",
       "ok": true,
@@ -14650,7 +14650,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have doesNotEqual method",
       "id": 218,
       "name": "should have doesNotEqual method",
       "ok": true,
@@ -14667,7 +14667,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "doesNotEqual method should be a function",
       "id": 219,
       "name": "doesNotEqual method should be a function",
       "ok": true,
@@ -14684,7 +14684,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isSimilar method",
       "id": 220,
       "name": "should have isSimilar method",
       "ok": true,
@@ -14701,7 +14701,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isSimilar method should be a function",
       "id": 221,
       "name": "isSimilar method should be a function",
       "ok": true,
@@ -14718,7 +14718,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have notDeepEqual method",
       "id": 222,
       "name": "should have notDeepEqual method",
       "ok": true,
@@ -14735,7 +14735,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "notDeepEqual method should be a function",
       "id": 223,
       "name": "notDeepEqual method should be a function",
       "ok": true,
@@ -14752,7 +14752,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have type method",
       "id": 224,
       "name": "should have type method",
       "ok": true,
@@ -14769,7 +14769,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "type method should be a function",
       "id": 225,
       "name": "type method should be a function",
       "ok": true,
@@ -14786,7 +14786,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have notok method",
       "id": 226,
       "name": "should have notok method",
       "ok": true,
@@ -14803,7 +14803,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "notok method should be a function",
       "id": 227,
       "name": "notok method should be a function",
       "ok": true,
@@ -14820,7 +14820,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isInequivalent method",
       "id": 228,
       "name": "should have isInequivalent method",
       "ok": true,
@@ -14837,7 +14837,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isInequivalent method should be a function",
       "id": 229,
       "name": "isInequivalent method should be a function",
       "ok": true,
@@ -14854,7 +14854,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isNot method",
       "id": 230,
       "name": "should have isNot method",
       "ok": true,
@@ -14871,7 +14871,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isNot method should be a function",
       "id": 231,
       "name": "isNot method should be a function",
       "ok": true,
@@ -14888,7 +14888,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have same method",
       "id": 232,
       "name": "should have same method",
       "ok": true,
@@ -14905,7 +14905,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "same method should be a function",
       "id": 233,
       "name": "same method should be a function",
       "ok": true,
@@ -14922,7 +14922,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isInequal method",
       "id": 234,
       "name": "should have isInequal method",
       "ok": true,
@@ -14939,7 +14939,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isInequal method should be a function",
       "id": 235,
       "name": "isInequal method should be a function",
       "ok": true,
@@ -14956,7 +14956,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have _endNice method",
       "id": 236,
       "name": "should have _endNice method",
       "ok": true,
@@ -14973,7 +14973,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "_endNice method should be a function",
       "id": 237,
       "name": "_endNice method should be a function",
       "ok": true,
@@ -14990,7 +14990,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have ifError method",
       "id": 238,
       "name": "should have ifError method",
       "ok": true,
@@ -15007,7 +15007,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "ifError method should be a function",
       "id": 239,
       "name": "ifError method should be a function",
       "ok": true,
@@ -15024,7 +15024,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have iferror method",
       "id": 240,
       "name": "should have iferror method",
       "ok": true,
@@ -15041,7 +15041,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "iferror method should be a function",
       "id": 241,
       "name": "iferror method should be a function",
       "ok": true,
@@ -15058,7 +15058,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have clear method",
       "id": 242,
       "name": "should have clear method",
       "ok": true,
@@ -15075,7 +15075,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "clear method should be a function",
       "id": 243,
       "name": "clear method should be a function",
       "ok": true,
@@ -15092,7 +15092,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have has method",
       "id": 244,
       "name": "should have has method",
       "ok": true,
@@ -15109,7 +15109,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "has method should be a function",
       "id": 245,
       "name": "has method should be a function",
       "ok": true,
@@ -15126,7 +15126,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have not method",
       "id": 246,
       "name": "should have not method",
       "ok": true,
@@ -15143,7 +15143,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "not method should be a function",
       "id": 247,
       "name": "not method should be a function",
       "ok": true,
@@ -15160,7 +15160,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have timeout method",
       "id": 248,
       "name": "should have timeout method",
       "ok": true,
@@ -15177,7 +15177,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "timeout method should be a function",
       "id": 249,
       "name": "timeout method should be a function",
       "ok": true,
@@ -15194,7 +15194,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have notSimilar method",
       "id": 250,
       "name": "should have notSimilar method",
       "ok": true,
@@ -15211,7 +15211,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "notSimilar method should be a function",
       "id": 251,
       "name": "notSimilar method should be a function",
       "ok": true,
@@ -15228,7 +15228,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isUnlike method",
       "id": 252,
       "name": "should have isUnlike method",
       "ok": true,
@@ -15245,7 +15245,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isUnlike method should be a function",
       "id": 253,
       "name": "isUnlike method should be a function",
       "ok": true,
@@ -15262,7 +15262,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have notEquals method",
       "id": 254,
       "name": "should have notEquals method",
       "ok": true,
@@ -15279,7 +15279,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "notEquals method should be a function",
       "id": 255,
       "name": "notEquals method should be a function",
       "ok": true,
@@ -15296,7 +15296,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have unsimilar method",
       "id": 256,
       "name": "should have unsimilar method",
       "ok": true,
@@ -15313,7 +15313,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "unsimilar method should be a function",
       "id": 257,
       "name": "unsimilar method should be a function",
       "ok": true,
@@ -15330,7 +15330,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have result method",
       "id": 258,
       "name": "should have result method",
       "ok": true,
@@ -15347,7 +15347,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "result method should be a function",
       "id": 259,
       "name": "result method should be a function",
       "ok": true,
@@ -15364,7 +15364,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have doesNotThrow method",
       "id": 260,
       "name": "should have doesNotThrow method",
       "ok": true,
@@ -15381,7 +15381,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "doesNotThrow method should be a function",
       "id": 261,
       "name": "doesNotThrow method should be a function",
       "ok": true,
@@ -15398,7 +15398,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have error method",
       "id": 262,
       "name": "should have error method",
       "ok": true,
@@ -15415,7 +15415,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "error method should be a function",
       "id": 263,
       "name": "error method should be a function",
       "ok": true,
@@ -15432,7 +15432,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have constructor method",
       "id": 264,
       "name": "should have constructor method",
       "ok": true,
@@ -15449,7 +15449,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "constructor method should be a function",
       "id": 265,
       "name": "constructor method should be a function",
       "ok": true,
@@ -15466,7 +15466,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have notEqual method",
       "id": 266,
       "name": "should have notEqual method",
       "ok": true,
@@ -15483,7 +15483,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "notEqual method should be a function",
       "id": 267,
       "name": "notEqual method should be a function",
       "ok": true,
@@ -15500,7 +15500,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have throws method",
       "id": 268,
       "name": "should have throws method",
       "ok": true,
@@ -15517,7 +15517,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "throws method should be a function",
       "id": 269,
       "name": "throws method should be a function",
       "ok": true,
@@ -15534,7 +15534,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isLike method",
       "id": 270,
       "name": "should have isLike method",
       "ok": true,
@@ -15551,7 +15551,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isLike method should be a function",
       "id": 271,
       "name": "isLike method should be a function",
       "ok": true,
@@ -15568,7 +15568,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isNotSimilar method",
       "id": 272,
       "name": "should have isNotSimilar method",
       "ok": true,
@@ -15585,7 +15585,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isNotSimilar method should be a function",
       "id": 273,
       "name": "isNotSimilar method should be a function",
       "ok": true,
@@ -15602,7 +15602,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isNotEquivalent method",
       "id": 274,
       "name": "should have isNotEquivalent method",
       "ok": true,
@@ -15619,7 +15619,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isNotEquivalent method should be a function",
       "id": 275,
       "name": "isNotEquivalent method should be a function",
       "ok": true,
@@ -15636,7 +15636,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have inequal method",
       "id": 276,
       "name": "should have inequal method",
       "ok": true,
@@ -15653,7 +15653,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "inequal method should be a function",
       "id": 277,
       "name": "inequal method should be a function",
       "ok": true,
@@ -15670,7 +15670,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have notEquivalent method",
       "id": 278,
       "name": "should have notEquivalent method",
       "ok": true,
@@ -15687,7 +15687,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "notEquivalent method should be a function",
       "id": 279,
       "name": "notEquivalent method should be a function",
       "ok": true,
@@ -15704,7 +15704,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isNotLike method",
       "id": 280,
       "name": "should have isNotLike method",
       "ok": true,
@@ -15721,7 +15721,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isNotLike method should be a function",
       "id": 281,
       "name": "isNotLike method should be a function",
       "ok": true,
@@ -15738,7 +15738,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have equivalent method",
       "id": 282,
       "name": "should have equivalent method",
       "ok": true,
@@ -15755,7 +15755,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "equivalent method should be a function",
       "id": 283,
       "name": "equivalent method should be a function",
       "ok": true,
@@ -15772,7 +15772,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have looseEqual method",
       "id": 284,
       "name": "should have looseEqual method",
       "ok": true,
@@ -15789,7 +15789,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "looseEqual method should be a function",
       "id": 285,
       "name": "looseEqual method should be a function",
       "ok": true,
@@ -15806,7 +15806,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have equal method",
       "id": 286,
       "name": "should have equal method",
       "ok": true,
@@ -15823,7 +15823,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "equal method should be a function",
       "id": 287,
       "name": "equal method should be a function",
       "ok": true,
@@ -15840,7 +15840,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have unlike method",
       "id": 288,
       "name": "should have unlike method",
       "ok": true,
@@ -15857,7 +15857,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "unlike method should be a function",
       "id": 289,
       "name": "unlike method should be a function",
       "ok": true,
@@ -15874,7 +15874,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have doesNotHave method",
       "id": 290,
       "name": "should have doesNotHave method",
       "ok": true,
@@ -15891,7 +15891,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "doesNotHave method should be a function",
       "id": 291,
       "name": "doesNotHave method should be a function",
       "ok": true,
@@ -15908,7 +15908,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have comment method",
       "id": 292,
       "name": "should have comment method",
       "ok": true,
@@ -15925,7 +15925,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "comment method should be a function",
       "id": 293,
       "name": "comment method should be a function",
       "ok": true,
@@ -15942,7 +15942,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isa method",
       "id": 294,
       "name": "should have isa method",
       "ok": true,
@@ -15959,7 +15959,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isa method should be a function",
       "id": 295,
       "name": "isa method should be a function",
       "ok": true,
@@ -15988,7 +15988,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/test-test.js",
       "id": 296,
       "name": "test/test-test.js",
       "ok": true,
@@ -16033,7 +16033,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "a",
       "id": 297,
       "name": "a",
       "ok": true,
@@ -16066,7 +16066,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "b",
       "id": 298,
       "name": "b",
       "ok": true,
@@ -16087,7 +16087,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "a",
       "id": 299,
       "name": "a",
       "ok": true,
@@ -16104,7 +16104,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "b",
       "id": 300,
       "name": "b",
       "ok": true,
@@ -16133,7 +16133,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/timeout.js",
       "id": 301,
       "name": "test/timeout.js",
       "ok": true,
@@ -16154,7 +16154,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/trivial-success.js",
       "id": 302,
       "name": "test/trivial-success.js",
       "ok": true,
@@ -16183,7 +16183,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 303,
       "name": "should be equivalent",
       "ok": true,
@@ -16212,7 +16212,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/undefined_indented.js",
       "id": 304,
       "name": "test/undefined_indented.js",
       "ok": true,
@@ -16241,7 +16241,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 305,
       "name": "should be equivalent",
       "ok": true,
@@ -16258,7 +16258,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 306,
       "name": "should be equivalent",
       "ok": true,
@@ -16275,7 +16275,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 307,
       "name": "should be equivalent",
       "ok": true,
@@ -16292,7 +16292,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 308,
       "name": "should be equivalent",
       "ok": true,
@@ -16309,7 +16309,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 309,
       "name": "should be equivalent",
       "ok": true,
@@ -16326,7 +16326,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 310,
       "name": "should be equal",
       "ok": true,
@@ -16355,7 +16355,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/valid-command.js",
       "id": 311,
       "name": "test/valid-command.js",
       "ok": true,
@@ -16432,7 +16432,7 @@ Array [
               "emitOne (events.js:77:13)\\n",
             ],
           },
-          "fullname": "",
+          "fullname": "captures TODO description",
           "id": 114,
           "name": "captures TODO description",
           "ok": false,
@@ -16461,7 +16461,7 @@ Array [
               "Process.ChildProcess._handle.onexit (child_process.js:1057:5)\\n",
             ],
           },
-          "fullname": "",
+          "fullname": "captures TODO description",
           "id": 119,
           "name": "captures TODO description",
           "ok": false,
@@ -16490,7 +16490,7 @@ Array [
               "Process.ChildProcess._handle.onexit (child_process.js:1057:5)\\n",
             ],
           },
-          "fullname": "",
+          "fullname": "summarizes skipped count",
           "id": 121,
           "name": "summarizes skipped count",
           "ok": false,
@@ -16519,7 +16519,7 @@ Array [
               "Process.ChildProcess._handle.onexit (child_process.js:1057:5)\\n",
             ],
           },
-          "fullname": "",
+          "fullname": "summarizes todo count",
           "id": 122,
           "name": "summarizes todo count",
           "ok": false,
@@ -16536,7 +16536,7 @@ Array [
             "command": "/usr/local/bin/iojs test-descriptions.js",
             "exit": 1,
           },
-          "fullname": "",
+          "fullname": "test/test-descriptions.js",
           "id": 123,
           "name": "test/test-descriptions.js",
           "ok": false,
@@ -18033,7 +18033,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 1,
       "name": "should be equivalent",
       "ok": true,
@@ -18054,7 +18054,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should not be equivalent",
       "id": 2,
       "name": "should not be equivalent",
       "ok": true,
@@ -18083,7 +18083,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/buffer_compare.js",
       "id": 3,
       "name": "test/buffer_compare.js",
       "ok": true,
@@ -18104,7 +18104,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "just setup, nothing relevant",
       "id": 4,
       "name": "just setup, nothing relevant",
       "ok": true,
@@ -18121,7 +18121,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/common.js",
       "id": 5,
       "name": "test/common.js",
       "ok": true,
@@ -18150,7 +18150,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 6,
       "name": "should be equivalent",
       "ok": true,
@@ -18171,7 +18171,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 7,
       "name": "should be equivalent",
       "ok": true,
@@ -18192,7 +18192,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 8,
       "name": "should be equivalent",
       "ok": true,
@@ -18213,7 +18213,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 9,
       "name": "should be equivalent",
       "ok": true,
@@ -18234,7 +18234,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 10,
       "name": "should be equivalent",
       "ok": true,
@@ -18263,7 +18263,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/consumer.js",
       "id": 11,
       "name": "test/consumer.js",
       "ok": true,
@@ -18304,7 +18304,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Should output debugger message",
       "id": 12,
       "name": "Should output debugger message",
       "ok": true,
@@ -18333,7 +18333,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/debug-test.js",
       "id": 13,
       "name": "test/debug-test.js",
       "ok": true,
@@ -18362,7 +18362,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be strictly equal",
       "id": 14,
       "name": "should be strictly equal",
       "ok": true,
@@ -18383,7 +18383,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be strictly equal",
       "id": 15,
       "name": "should be strictly equal",
       "ok": true,
@@ -18404,7 +18404,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be strictly equal",
       "id": 16,
       "name": "should be strictly equal",
       "ok": true,
@@ -18433,7 +18433,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/deep-strict.js",
       "id": 17,
       "name": "test/deep-strict.js",
       "ok": true,
@@ -18462,7 +18462,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 18,
       "name": "should be equivalent",
       "ok": true,
@@ -18483,7 +18483,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 19,
       "name": "should be equivalent",
       "ok": true,
@@ -18504,7 +18504,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 20,
       "name": "should be equivalent",
       "ok": true,
@@ -18533,7 +18533,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/deep.js",
       "id": 21,
       "name": "test/deep.js",
       "ok": true,
@@ -18554,7 +18554,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "File with executable bit should be executed",
       "id": 22,
       "name": "File with executable bit should be executed",
       "ok": true,
@@ -18571,7 +18571,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/executed.sh",
       "id": 23,
       "name": "test/executed.sh",
       "ok": true,
@@ -18604,7 +18604,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 24,
       "name": "should be equal",
       "ok": true,
@@ -18621,7 +18621,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 25,
       "name": "should be equal",
       "ok": true,
@@ -18642,7 +18642,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 26,
       "name": "should be equal",
       "ok": true,
@@ -18659,7 +18659,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 27,
       "name": "should be equal",
       "ok": true,
@@ -18680,7 +18680,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 28,
       "name": "should be equal",
       "ok": true,
@@ -18697,7 +18697,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 29,
       "name": "should be equal",
       "ok": true,
@@ -18722,7 +18722,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 30,
       "name": "should be equal",
       "ok": true,
@@ -18739,7 +18739,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 31,
       "name": "should be equal",
       "ok": true,
@@ -18760,7 +18760,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 32,
       "name": "should be equal",
       "ok": true,
@@ -18777,7 +18777,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 33,
       "name": "should be equal",
       "ok": true,
@@ -18806,7 +18806,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/exit-code.js",
       "id": 34,
       "name": "test/exit-code.js",
       "ok": true,
@@ -18879,7 +18879,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 35,
       "name": "should be equal",
       "ok": true,
@@ -18904,7 +18904,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 36,
       "name": "should be equal",
       "ok": true,
@@ -18925,7 +18925,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 37,
       "name": "should be equal",
       "ok": true,
@@ -18958,7 +18958,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/expose-gc-test.js",
       "id": 38,
       "name": "test/expose-gc-test.js",
       "ok": true,
@@ -18991,7 +18991,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "1-1",
       "id": 39,
       "name": "1-1",
       "ok": true,
@@ -19012,7 +19012,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "2-1",
       "id": 40,
       "name": "2-1",
       "ok": true,
@@ -19033,7 +19033,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "3-1",
       "id": 41,
       "name": "3-1",
       "ok": true,
@@ -19050,7 +19050,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/global-harness-async.js",
       "id": 42,
       "name": "test/global-harness-async.js",
       "ok": true,
@@ -19091,7 +19091,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/independent-timeouts.js",
       "id": 43,
       "name": "test/independent-timeouts.js",
       "ok": true,
@@ -19120,7 +19120,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 44,
       "name": "should be equal",
       "ok": true,
@@ -19137,7 +19137,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 45,
       "name": "should be equal",
       "ok": true,
@@ -19158,7 +19158,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 46,
       "name": "should be equal",
       "ok": true,
@@ -19175,7 +19175,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 47,
       "name": "should be equal",
       "ok": true,
@@ -19204,7 +19204,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/isolated-conf-test.js",
       "id": 48,
       "name": "test/isolated-conf-test.js",
       "ok": true,
@@ -19233,7 +19233,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "sanity check",
       "id": 49,
       "name": "sanity check",
       "ok": true,
@@ -19250,7 +19250,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "not ok",
       "id": 50,
       "name": "not ok",
       "ok": true,
@@ -19267,7 +19267,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "total test count",
       "id": 51,
       "name": "total test count",
       "ok": true,
@@ -19284,7 +19284,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "tests passed",
       "id": 52,
       "name": "tests passed",
       "ok": true,
@@ -19301,7 +19301,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "tests failed",
       "id": 53,
       "name": "tests failed",
       "ok": true,
@@ -19318,7 +19318,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "ok is boolean",
       "id": 54,
       "name": "ok is boolean",
       "ok": true,
@@ -19335,7 +19335,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "skip is number",
       "id": 55,
       "name": "skip is number",
       "ok": true,
@@ -19352,7 +19352,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "results isa Results",
       "id": 56,
       "name": "results isa Results",
       "ok": true,
@@ -19369,7 +19369,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test isa Test",
       "id": 57,
       "name": "test isa Test",
       "ok": true,
@@ -19386,7 +19386,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test isa Harness",
       "id": 58,
       "name": "test isa Harness",
       "ok": true,
@@ -19415,7 +19415,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/meta-test.js",
       "id": 59,
       "name": "test/meta-test.js",
       "ok": true,
@@ -19444,7 +19444,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "sync child A",
       "id": 60,
       "name": "sync child A",
       "ok": true,
@@ -19469,7 +19469,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "(unnamed assert)",
       "id": 61,
       "name": "(unnamed assert)",
       "ok": true,
@@ -19490,7 +19490,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "(unnamed assert)",
       "id": 62,
       "name": "(unnamed assert)",
       "ok": true,
@@ -19511,7 +19511,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "sync grandchild in async child A",
       "id": 63,
       "name": "sync grandchild in async child A",
       "ok": true,
@@ -19532,7 +19532,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "(unnamed assert)",
       "id": 64,
       "name": "(unnamed assert)",
       "ok": true,
@@ -19561,7 +19561,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/nested-async.js",
       "id": 65,
       "name": "test/nested-async.js",
       "ok": true,
@@ -19590,7 +19590,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "p test",
       "id": 66,
       "name": "p test",
       "ok": true,
@@ -19611,7 +19611,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "ch test",
       "id": 67,
       "name": "ch test",
       "ok": true,
@@ -19632,7 +19632,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "grch test",
       "id": 68,
       "name": "grch test",
       "ok": true,
@@ -19653,7 +19653,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "ch test 2",
       "id": 69,
       "name": "ch test 2",
       "ok": true,
@@ -19682,7 +19682,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/nested-test.js",
       "id": 70,
       "name": "test/nested-test.js",
       "ok": true,
@@ -19719,7 +19719,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": ", 8 can stay.",
       "id": 71,
       "name": ", 8 can stay.",
       "ok": true,
@@ -19756,7 +19756,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "might be confusing",
       "id": 72,
       "name": "might be confusing",
       "ok": true,
@@ -19773,7 +19773,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "done now, exiting",
       "id": 73,
       "name": "done now, exiting",
       "ok": true,
@@ -19790,7 +19790,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/non-tap-output.js",
       "id": 74,
       "name": "test/non-tap-output.js",
       "ok": true,
@@ -19827,7 +19827,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "outputs parent description",
       "id": 75,
       "name": "outputs parent description",
       "ok": true,
@@ -19844,7 +19844,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "outputs child description",
       "id": 76,
       "name": "outputs child description",
       "ok": true,
@@ -19861,7 +19861,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "outputs parent description before parent result",
       "id": 77,
       "name": "outputs parent description before parent result",
       "ok": true,
@@ -19878,7 +19878,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "outputs parent result before child description",
       "id": 78,
       "name": "outputs parent result before child description",
       "ok": true,
@@ -19895,7 +19895,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "outputs child description before child result",
       "id": 79,
       "name": "outputs child description before child result",
       "ok": true,
@@ -19924,7 +19924,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/output-childtest-description.js",
       "id": 80,
       "name": "test/output-childtest-description.js",
       "ok": true,
@@ -19953,7 +19953,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 81,
       "name": "should be equal",
       "ok": true,
@@ -19970,7 +19970,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 82,
       "name": "should be equal",
       "ok": true,
@@ -19999,7 +19999,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/result-trap.js",
       "id": 83,
       "name": "test/result-trap.js",
       "ok": true,
@@ -20028,7 +20028,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "compiled seg faulter",
       "id": 84,
       "name": "compiled seg faulter",
       "ok": true,
@@ -20049,7 +20049,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 85,
       "name": "should be equivalent",
       "ok": true,
@@ -20066,7 +20066,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 86,
       "name": "should be equivalent",
       "ok": true,
@@ -20083,7 +20083,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 87,
       "name": "should be equivalent",
       "ok": true,
@@ -20100,7 +20100,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 88,
       "name": "should be equivalent",
       "ok": true,
@@ -20117,7 +20117,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 89,
       "name": "should be equivalent",
       "ok": true,
@@ -20134,7 +20134,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 90,
       "name": "should be equal",
       "ok": true,
@@ -20155,7 +20155,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "cleaned up",
       "id": 91,
       "name": "cleaned up",
       "ok": true,
@@ -20184,7 +20184,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/segv.js",
       "id": 92,
       "name": "test/segv.js",
       "ok": true,
@@ -20213,7 +20213,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "it works",
       "id": 93,
       "name": "it works",
       "ok": true,
@@ -20234,7 +20234,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "math should work",
       "id": 94,
       "name": "math should work",
       "ok": true,
@@ -20251,7 +20251,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "false should not be ok",
       "id": 95,
       "name": "false should not be ok",
       "ok": true,
@@ -20280,7 +20280,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/simple-harness-test-with-plan.js",
       "id": 96,
       "name": "test/simple-harness-test-with-plan.js",
       "ok": true,
@@ -20309,7 +20309,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "it works",
       "id": 97,
       "name": "it works",
       "ok": true,
@@ -20330,7 +20330,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "math should work",
       "id": 98,
       "name": "math should work",
       "ok": true,
@@ -20347,7 +20347,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "false should not be ok",
       "id": 99,
       "name": "false should not be ok",
       "ok": true,
@@ -20376,7 +20376,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/simple-harness-test.js",
       "id": 100,
       "name": "test/simple-harness-test.js",
       "ok": true,
@@ -20405,7 +20405,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "always passes",
       "id": 101,
       "name": "always passes",
       "ok": true,
@@ -20422,7 +20422,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "false",
       "id": 102,
       "name": "false",
       "ok": true,
@@ -20439,7 +20439,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "bonus",
       "id": 103,
       "name": "bonus",
       "ok": true,
@@ -20456,7 +20456,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "expected",
       "id": 104,
       "name": "expected",
       "ok": true,
@@ -20473,7 +20473,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "always passes without explanation",
       "id": 105,
       "name": "always passes without explanation",
       "ok": true,
@@ -20490,7 +20490,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "false without explanation",
       "id": 106,
       "name": "false without explanation",
       "ok": true,
@@ -20507,7 +20507,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "bonus without explanation",
       "id": 107,
       "name": "bonus without explanation",
       "ok": true,
@@ -20524,7 +20524,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "expected without explanation",
       "id": 108,
       "name": "expected without explanation",
       "ok": true,
@@ -20553,7 +20553,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/test-assert-todo-skip.js",
       "id": 109,
       "name": "test/test-assert-todo-skip.js",
       "ok": true,
@@ -20582,7 +20582,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "exit cleanly",
       "id": 110,
       "name": "exit cleanly",
       "ok": true,
@@ -20599,7 +20599,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "captures SKIP description",
       "id": 111,
       "name": "captures SKIP description",
       "ok": true,
@@ -20616,7 +20616,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "skip summary is not from file",
       "id": 112,
       "name": "skip summary is not from file",
       "ok": true,
@@ -20633,7 +20633,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "todo summary is not from file",
       "id": 113,
       "name": "todo summary is not from file",
       "ok": true,
@@ -20666,7 +20666,7 @@ Array [
           "emitOne (events.js:77:13)\\n",
         ],
       },
-      "fullname": "",
+      "fullname": "captures TODO description",
       "id": 114,
       "name": "captures TODO description",
       "ok": false,
@@ -20683,7 +20683,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "exit cleanly",
       "id": 115,
       "name": "exit cleanly",
       "ok": true,
@@ -20700,7 +20700,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "captures SKIP description",
       "id": 116,
       "name": "captures SKIP description",
       "ok": true,
@@ -20717,7 +20717,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "skip summary is not in TAP output",
       "id": 117,
       "name": "skip summary is not in TAP output",
       "ok": true,
@@ -20734,7 +20734,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "todo summary is not in TAP output",
       "id": 118,
       "name": "todo summary is not in TAP output",
       "ok": true,
@@ -20766,7 +20766,7 @@ Array [
           "Process.ChildProcess._handle.onexit (child_process.js:1057:5)\\n",
         ],
       },
-      "fullname": "",
+      "fullname": "captures TODO description",
       "id": 119,
       "name": "captures TODO description",
       "ok": false,
@@ -20783,7 +20783,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "exit cleanly",
       "id": 120,
       "name": "exit cleanly",
       "ok": true,
@@ -20815,7 +20815,7 @@ Array [
           "Process.ChildProcess._handle.onexit (child_process.js:1057:5)\\n",
         ],
       },
-      "fullname": "",
+      "fullname": "summarizes skipped count",
       "id": 121,
       "name": "summarizes skipped count",
       "ok": false,
@@ -20847,7 +20847,7 @@ Array [
           "Process.ChildProcess._handle.onexit (child_process.js:1057:5)\\n",
         ],
       },
-      "fullname": "",
+      "fullname": "summarizes todo count",
       "id": 122,
       "name": "summarizes todo count",
       "ok": false,
@@ -20879,7 +20879,7 @@ Array [
         "command": "/usr/local/bin/iojs test-descriptions.js",
         "exit": 1,
       },
-      "fullname": "",
+      "fullname": "test/test-descriptions.js",
       "id": 123,
       "name": "test/test-descriptions.js",
       "ok": false,
@@ -20912,7 +20912,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "overall result is PASS",
       "id": 124,
       "name": "overall result is PASS",
       "ok": true,
@@ -20929,7 +20929,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "captures ok SKIP",
       "id": 125,
       "name": "captures ok SKIP",
       "ok": true,
@@ -20946,7 +20946,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "captures not ok SKIP",
       "id": 126,
       "name": "captures not ok SKIP",
       "ok": true,
@@ -20963,7 +20963,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "skip summary not in TAP output",
       "id": 127,
       "name": "skip summary not in TAP output",
       "ok": true,
@@ -20980,7 +20980,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "captures ok TODO",
       "id": 128,
       "name": "captures ok TODO",
       "ok": true,
@@ -20997,7 +20997,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "captures not ok TODO",
       "id": 129,
       "name": "captures not ok TODO",
       "ok": true,
@@ -21014,7 +21014,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "todo summary is not in TAP output",
       "id": 130,
       "name": "todo summary is not in TAP output",
       "ok": true,
@@ -21031,7 +21031,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "no ugly \\"undefined\\" in output",
       "id": 131,
       "name": "no ugly \\"undefined\\" in output",
       "ok": true,
@@ -21052,7 +21052,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "overall result is PASS",
       "id": 132,
       "name": "overall result is PASS",
       "ok": true,
@@ -21069,7 +21069,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "no SKIP in summary",
       "id": 133,
       "name": "no SKIP in summary",
       "ok": true,
@@ -21086,7 +21086,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "skip summary is not in TAP output",
       "id": 134,
       "name": "skip summary is not in TAP output",
       "ok": true,
@@ -21103,7 +21103,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "no TODO in summary",
       "id": 135,
       "name": "no TODO in summary",
       "ok": true,
@@ -21120,7 +21120,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "todo summary is not in TAP output",
       "id": 136,
       "name": "todo summary is not in TAP output",
       "ok": true,
@@ -21137,7 +21137,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "no ugly \\"undefined\\" in output",
       "id": 137,
       "name": "no ugly \\"undefined\\" in output",
       "ok": true,
@@ -21158,7 +21158,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "overall result is PASS",
       "id": 138,
       "name": "overall result is PASS",
       "ok": true,
@@ -21175,7 +21175,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "captures ok SKIP",
       "id": 139,
       "name": "captures ok SKIP",
       "ok": true,
@@ -21192,7 +21192,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "captures not ok SKIP",
       "id": 140,
       "name": "captures not ok SKIP",
       "ok": true,
@@ -21209,7 +21209,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "skip summary not in TAP output",
       "id": 141,
       "name": "skip summary not in TAP output",
       "ok": true,
@@ -21226,7 +21226,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "captures ok TODO",
       "id": 142,
       "name": "captures ok TODO",
       "ok": true,
@@ -21243,7 +21243,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "captures not ok TODO",
       "id": 143,
       "name": "captures not ok TODO",
       "ok": true,
@@ -21260,7 +21260,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "todo summary is not in TAP output",
       "id": 144,
       "name": "todo summary is not in TAP output",
       "ok": true,
@@ -21277,7 +21277,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "no ugly \\"undefined\\" in output",
       "id": 145,
       "name": "no ugly \\"undefined\\" in output",
       "ok": true,
@@ -21306,7 +21306,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/test-directives.js",
       "id": 146,
       "name": "test/test-directives.js",
       "ok": true,
@@ -21331,7 +21331,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "does not count as failure",
       "id": 147,
       "name": "does not count as failure",
       "ok": true,
@@ -21356,7 +21356,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/test-skip.js",
       "id": 148,
       "name": "test/test-skip.js",
       "ok": true,
@@ -21385,7 +21385,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test object should be instanceof Test",
       "id": 149,
       "name": "test object should be instanceof Test",
       "ok": true,
@@ -21402,7 +21402,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test object should be instanceof Harness",
       "id": 150,
       "name": "test object should be instanceof Harness",
       "ok": true,
@@ -21419,7 +21419,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test._Test should be the Test class",
       "id": 151,
       "name": "test._Test should be the Test class",
       "ok": true,
@@ -21436,7 +21436,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isNotDeepEqual method",
       "id": 152,
       "name": "should have isNotDeepEqual method",
       "ok": true,
@@ -21453,7 +21453,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isNotDeepEqual method should be a function",
       "id": 153,
       "name": "isNotDeepEqual method should be a function",
       "ok": true,
@@ -21470,7 +21470,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have equals method",
       "id": 154,
       "name": "should have equals method",
       "ok": true,
@@ -21487,7 +21487,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "equals method should be a function",
       "id": 155,
       "name": "equals method should be a function",
       "ok": true,
@@ -21504,7 +21504,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have inequivalent method",
       "id": 156,
       "name": "should have inequivalent method",
       "ok": true,
@@ -21521,7 +21521,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "inequivalent method should be a function",
       "id": 157,
       "name": "inequivalent method should be a function",
       "ok": true,
@@ -21538,7 +21538,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have threw method",
       "id": 158,
       "name": "should have threw method",
       "ok": true,
@@ -21555,7 +21555,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "threw method should be a function",
       "id": 159,
       "name": "threw method should be a function",
       "ok": true,
@@ -21572,7 +21572,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have strictEqual method",
       "id": 160,
       "name": "should have strictEqual method",
       "ok": true,
@@ -21589,7 +21589,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "strictEqual method should be a function",
       "id": 161,
       "name": "strictEqual method should be a function",
       "ok": true,
@@ -21606,7 +21606,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have emit method",
       "id": 162,
       "name": "should have emit method",
       "ok": true,
@@ -21623,7 +21623,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "emit method should be a function",
       "id": 163,
       "name": "emit method should be a function",
       "ok": true,
@@ -21640,7 +21640,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have fail method",
       "id": 164,
       "name": "should have fail method",
       "ok": true,
@@ -21657,7 +21657,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "fail method should be a function",
       "id": 165,
       "name": "fail method should be a function",
       "ok": true,
@@ -21674,7 +21674,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have strictEquals method",
       "id": 166,
       "name": "should have strictEquals method",
       "ok": true,
@@ -21691,7 +21691,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "strictEquals method should be a function",
       "id": 167,
       "name": "strictEquals method should be a function",
       "ok": true,
@@ -21708,7 +21708,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have notLike method",
       "id": 168,
       "name": "should have notLike method",
       "ok": true,
@@ -21725,7 +21725,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "notLike method should be a function",
       "id": 169,
       "name": "notLike method should be a function",
       "ok": true,
@@ -21742,7 +21742,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have dissimilar method",
       "id": 170,
       "name": "should have dissimilar method",
       "ok": true,
@@ -21759,7 +21759,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "dissimilar method should be a function",
       "id": 171,
       "name": "dissimilar method should be a function",
       "ok": true,
@@ -21776,7 +21776,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have true method",
       "id": 172,
       "name": "should have true method",
       "ok": true,
@@ -21793,7 +21793,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "true method should be a function",
       "id": 173,
       "name": "true method should be a function",
       "ok": true,
@@ -21810,7 +21810,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have assert method",
       "id": 174,
       "name": "should have assert method",
       "ok": true,
@@ -21827,7 +21827,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "assert method should be a function",
       "id": 175,
       "name": "assert method should be a function",
       "ok": true,
@@ -21844,7 +21844,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have is method",
       "id": 176,
       "name": "should have is method",
       "ok": true,
@@ -21861,7 +21861,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "is method should be a function",
       "id": 177,
       "name": "is method should be a function",
       "ok": true,
@@ -21878,7 +21878,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have ok method",
       "id": 178,
       "name": "should have ok method",
       "ok": true,
@@ -21895,7 +21895,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "ok method should be a function",
       "id": 179,
       "name": "ok method should be a function",
       "ok": true,
@@ -21912,7 +21912,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isEqual method",
       "id": 180,
       "name": "should have isEqual method",
       "ok": true,
@@ -21929,7 +21929,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isEqual method should be a function",
       "id": 181,
       "name": "isEqual method should be a function",
       "ok": true,
@@ -21946,7 +21946,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isDeeply method",
       "id": 182,
       "name": "should have isDeeply method",
       "ok": true,
@@ -21963,7 +21963,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isDeeply method should be a function",
       "id": 183,
       "name": "isDeeply method should be a function",
       "ok": true,
@@ -21980,7 +21980,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have deepEqual method",
       "id": 184,
       "name": "should have deepEqual method",
       "ok": true,
@@ -21997,7 +21997,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "deepEqual method should be a function",
       "id": 185,
       "name": "deepEqual method should be a function",
       "ok": true,
@@ -22014,7 +22014,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have deepEquals method",
       "id": 186,
       "name": "should have deepEquals method",
       "ok": true,
@@ -22031,7 +22031,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "deepEquals method should be a function",
       "id": 187,
       "name": "deepEquals method should be a function",
       "ok": true,
@@ -22048,7 +22048,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have pass method",
       "id": 188,
       "name": "should have pass method",
       "ok": true,
@@ -22065,7 +22065,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "pass method should be a function",
       "id": 189,
       "name": "pass method should be a function",
       "ok": true,
@@ -22082,7 +22082,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have length method",
       "id": 190,
       "name": "should have length method",
       "ok": true,
@@ -22099,7 +22099,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "length method should be a function",
       "id": 191,
       "name": "length method should be a function",
       "ok": true,
@@ -22116,7 +22116,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have skip method",
       "id": 192,
       "name": "should have skip method",
       "ok": true,
@@ -22133,7 +22133,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "skip method should be a function",
       "id": 193,
       "name": "skip method should be a function",
       "ok": true,
@@ -22150,7 +22150,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isNotEqual method",
       "id": 194,
       "name": "should have isNotEqual method",
       "ok": true,
@@ -22167,7 +22167,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isNotEqual method should be a function",
       "id": 195,
       "name": "isNotEqual method should be a function",
       "ok": true,
@@ -22184,7 +22184,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have looseEquals method",
       "id": 196,
       "name": "should have looseEquals method",
       "ok": true,
@@ -22201,7 +22201,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "looseEquals method should be a function",
       "id": 197,
       "name": "looseEquals method should be a function",
       "ok": true,
@@ -22218,7 +22218,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have false method",
       "id": 198,
       "name": "should have false method",
       "ok": true,
@@ -22235,7 +22235,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "false method should be a function",
       "id": 199,
       "name": "false method should be a function",
       "ok": true,
@@ -22252,7 +22252,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have notDeeply method",
       "id": 200,
       "name": "should have notDeeply method",
       "ok": true,
@@ -22269,7 +22269,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "notDeeply method should be a function",
       "id": 201,
       "name": "notDeeply method should be a function",
       "ok": true,
@@ -22286,7 +22286,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have ifErr method",
       "id": 202,
       "name": "should have ifErr method",
       "ok": true,
@@ -22303,7 +22303,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "ifErr method should be a function",
       "id": 203,
       "name": "ifErr method should be a function",
       "ok": true,
@@ -22320,7 +22320,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have hasFields method",
       "id": 204,
       "name": "should have hasFields method",
       "ok": true,
@@ -22337,7 +22337,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "hasFields method should be a function",
       "id": 205,
       "name": "hasFields method should be a function",
       "ok": true,
@@ -22354,7 +22354,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isNotDeeply method",
       "id": 206,
       "name": "should have isNotDeeply method",
       "ok": true,
@@ -22371,7 +22371,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isNotDeeply method should be a function",
       "id": 207,
       "name": "isNotDeeply method should be a function",
       "ok": true,
@@ -22388,7 +22388,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have like method",
       "id": 208,
       "name": "should have like method",
       "ok": true,
@@ -22405,7 +22405,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "like method should be a function",
       "id": 209,
       "name": "like method should be a function",
       "ok": true,
@@ -22422,7 +22422,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have similar method",
       "id": 210,
       "name": "should have similar method",
       "ok": true,
@@ -22439,7 +22439,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "similar method should be a function",
       "id": 211,
       "name": "similar method should be a function",
       "ok": true,
@@ -22456,7 +22456,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have notOk method",
       "id": 212,
       "name": "should have notOk method",
       "ok": true,
@@ -22473,7 +22473,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "notOk method should be a function",
       "id": 213,
       "name": "notOk method should be a function",
       "ok": true,
@@ -22490,7 +22490,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isDissimilar method",
       "id": 214,
       "name": "should have isDissimilar method",
       "ok": true,
@@ -22507,7 +22507,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isDissimilar method should be a function",
       "id": 215,
       "name": "isDissimilar method should be a function",
       "ok": true,
@@ -22524,7 +22524,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isEquivalent method",
       "id": 216,
       "name": "should have isEquivalent method",
       "ok": true,
@@ -22541,7 +22541,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isEquivalent method should be a function",
       "id": 217,
       "name": "isEquivalent method should be a function",
       "ok": true,
@@ -22558,7 +22558,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have doesNotEqual method",
       "id": 218,
       "name": "should have doesNotEqual method",
       "ok": true,
@@ -22575,7 +22575,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "doesNotEqual method should be a function",
       "id": 219,
       "name": "doesNotEqual method should be a function",
       "ok": true,
@@ -22592,7 +22592,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isSimilar method",
       "id": 220,
       "name": "should have isSimilar method",
       "ok": true,
@@ -22609,7 +22609,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isSimilar method should be a function",
       "id": 221,
       "name": "isSimilar method should be a function",
       "ok": true,
@@ -22626,7 +22626,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have notDeepEqual method",
       "id": 222,
       "name": "should have notDeepEqual method",
       "ok": true,
@@ -22643,7 +22643,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "notDeepEqual method should be a function",
       "id": 223,
       "name": "notDeepEqual method should be a function",
       "ok": true,
@@ -22660,7 +22660,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have type method",
       "id": 224,
       "name": "should have type method",
       "ok": true,
@@ -22677,7 +22677,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "type method should be a function",
       "id": 225,
       "name": "type method should be a function",
       "ok": true,
@@ -22694,7 +22694,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have notok method",
       "id": 226,
       "name": "should have notok method",
       "ok": true,
@@ -22711,7 +22711,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "notok method should be a function",
       "id": 227,
       "name": "notok method should be a function",
       "ok": true,
@@ -22728,7 +22728,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isInequivalent method",
       "id": 228,
       "name": "should have isInequivalent method",
       "ok": true,
@@ -22745,7 +22745,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isInequivalent method should be a function",
       "id": 229,
       "name": "isInequivalent method should be a function",
       "ok": true,
@@ -22762,7 +22762,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isNot method",
       "id": 230,
       "name": "should have isNot method",
       "ok": true,
@@ -22779,7 +22779,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isNot method should be a function",
       "id": 231,
       "name": "isNot method should be a function",
       "ok": true,
@@ -22796,7 +22796,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have same method",
       "id": 232,
       "name": "should have same method",
       "ok": true,
@@ -22813,7 +22813,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "same method should be a function",
       "id": 233,
       "name": "same method should be a function",
       "ok": true,
@@ -22830,7 +22830,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isInequal method",
       "id": 234,
       "name": "should have isInequal method",
       "ok": true,
@@ -22847,7 +22847,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isInequal method should be a function",
       "id": 235,
       "name": "isInequal method should be a function",
       "ok": true,
@@ -22864,7 +22864,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have _endNice method",
       "id": 236,
       "name": "should have _endNice method",
       "ok": true,
@@ -22881,7 +22881,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "_endNice method should be a function",
       "id": 237,
       "name": "_endNice method should be a function",
       "ok": true,
@@ -22898,7 +22898,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have ifError method",
       "id": 238,
       "name": "should have ifError method",
       "ok": true,
@@ -22915,7 +22915,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "ifError method should be a function",
       "id": 239,
       "name": "ifError method should be a function",
       "ok": true,
@@ -22932,7 +22932,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have iferror method",
       "id": 240,
       "name": "should have iferror method",
       "ok": true,
@@ -22949,7 +22949,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "iferror method should be a function",
       "id": 241,
       "name": "iferror method should be a function",
       "ok": true,
@@ -22966,7 +22966,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have clear method",
       "id": 242,
       "name": "should have clear method",
       "ok": true,
@@ -22983,7 +22983,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "clear method should be a function",
       "id": 243,
       "name": "clear method should be a function",
       "ok": true,
@@ -23000,7 +23000,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have has method",
       "id": 244,
       "name": "should have has method",
       "ok": true,
@@ -23017,7 +23017,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "has method should be a function",
       "id": 245,
       "name": "has method should be a function",
       "ok": true,
@@ -23034,7 +23034,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have not method",
       "id": 246,
       "name": "should have not method",
       "ok": true,
@@ -23051,7 +23051,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "not method should be a function",
       "id": 247,
       "name": "not method should be a function",
       "ok": true,
@@ -23068,7 +23068,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have timeout method",
       "id": 248,
       "name": "should have timeout method",
       "ok": true,
@@ -23085,7 +23085,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "timeout method should be a function",
       "id": 249,
       "name": "timeout method should be a function",
       "ok": true,
@@ -23102,7 +23102,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have notSimilar method",
       "id": 250,
       "name": "should have notSimilar method",
       "ok": true,
@@ -23119,7 +23119,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "notSimilar method should be a function",
       "id": 251,
       "name": "notSimilar method should be a function",
       "ok": true,
@@ -23136,7 +23136,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isUnlike method",
       "id": 252,
       "name": "should have isUnlike method",
       "ok": true,
@@ -23153,7 +23153,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isUnlike method should be a function",
       "id": 253,
       "name": "isUnlike method should be a function",
       "ok": true,
@@ -23170,7 +23170,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have notEquals method",
       "id": 254,
       "name": "should have notEquals method",
       "ok": true,
@@ -23187,7 +23187,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "notEquals method should be a function",
       "id": 255,
       "name": "notEquals method should be a function",
       "ok": true,
@@ -23204,7 +23204,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have unsimilar method",
       "id": 256,
       "name": "should have unsimilar method",
       "ok": true,
@@ -23221,7 +23221,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "unsimilar method should be a function",
       "id": 257,
       "name": "unsimilar method should be a function",
       "ok": true,
@@ -23238,7 +23238,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have result method",
       "id": 258,
       "name": "should have result method",
       "ok": true,
@@ -23255,7 +23255,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "result method should be a function",
       "id": 259,
       "name": "result method should be a function",
       "ok": true,
@@ -23272,7 +23272,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have doesNotThrow method",
       "id": 260,
       "name": "should have doesNotThrow method",
       "ok": true,
@@ -23289,7 +23289,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "doesNotThrow method should be a function",
       "id": 261,
       "name": "doesNotThrow method should be a function",
       "ok": true,
@@ -23306,7 +23306,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have error method",
       "id": 262,
       "name": "should have error method",
       "ok": true,
@@ -23323,7 +23323,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "error method should be a function",
       "id": 263,
       "name": "error method should be a function",
       "ok": true,
@@ -23340,7 +23340,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have constructor method",
       "id": 264,
       "name": "should have constructor method",
       "ok": true,
@@ -23357,7 +23357,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "constructor method should be a function",
       "id": 265,
       "name": "constructor method should be a function",
       "ok": true,
@@ -23374,7 +23374,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have notEqual method",
       "id": 266,
       "name": "should have notEqual method",
       "ok": true,
@@ -23391,7 +23391,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "notEqual method should be a function",
       "id": 267,
       "name": "notEqual method should be a function",
       "ok": true,
@@ -23408,7 +23408,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have throws method",
       "id": 268,
       "name": "should have throws method",
       "ok": true,
@@ -23425,7 +23425,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "throws method should be a function",
       "id": 269,
       "name": "throws method should be a function",
       "ok": true,
@@ -23442,7 +23442,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isLike method",
       "id": 270,
       "name": "should have isLike method",
       "ok": true,
@@ -23459,7 +23459,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isLike method should be a function",
       "id": 271,
       "name": "isLike method should be a function",
       "ok": true,
@@ -23476,7 +23476,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isNotSimilar method",
       "id": 272,
       "name": "should have isNotSimilar method",
       "ok": true,
@@ -23493,7 +23493,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isNotSimilar method should be a function",
       "id": 273,
       "name": "isNotSimilar method should be a function",
       "ok": true,
@@ -23510,7 +23510,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isNotEquivalent method",
       "id": 274,
       "name": "should have isNotEquivalent method",
       "ok": true,
@@ -23527,7 +23527,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isNotEquivalent method should be a function",
       "id": 275,
       "name": "isNotEquivalent method should be a function",
       "ok": true,
@@ -23544,7 +23544,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have inequal method",
       "id": 276,
       "name": "should have inequal method",
       "ok": true,
@@ -23561,7 +23561,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "inequal method should be a function",
       "id": 277,
       "name": "inequal method should be a function",
       "ok": true,
@@ -23578,7 +23578,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have notEquivalent method",
       "id": 278,
       "name": "should have notEquivalent method",
       "ok": true,
@@ -23595,7 +23595,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "notEquivalent method should be a function",
       "id": 279,
       "name": "notEquivalent method should be a function",
       "ok": true,
@@ -23612,7 +23612,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isNotLike method",
       "id": 280,
       "name": "should have isNotLike method",
       "ok": true,
@@ -23629,7 +23629,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isNotLike method should be a function",
       "id": 281,
       "name": "isNotLike method should be a function",
       "ok": true,
@@ -23646,7 +23646,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have equivalent method",
       "id": 282,
       "name": "should have equivalent method",
       "ok": true,
@@ -23663,7 +23663,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "equivalent method should be a function",
       "id": 283,
       "name": "equivalent method should be a function",
       "ok": true,
@@ -23680,7 +23680,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have looseEqual method",
       "id": 284,
       "name": "should have looseEqual method",
       "ok": true,
@@ -23697,7 +23697,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "looseEqual method should be a function",
       "id": 285,
       "name": "looseEqual method should be a function",
       "ok": true,
@@ -23714,7 +23714,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have equal method",
       "id": 286,
       "name": "should have equal method",
       "ok": true,
@@ -23731,7 +23731,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "equal method should be a function",
       "id": 287,
       "name": "equal method should be a function",
       "ok": true,
@@ -23748,7 +23748,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have unlike method",
       "id": 288,
       "name": "should have unlike method",
       "ok": true,
@@ -23765,7 +23765,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "unlike method should be a function",
       "id": 289,
       "name": "unlike method should be a function",
       "ok": true,
@@ -23782,7 +23782,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have doesNotHave method",
       "id": 290,
       "name": "should have doesNotHave method",
       "ok": true,
@@ -23799,7 +23799,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "doesNotHave method should be a function",
       "id": 291,
       "name": "doesNotHave method should be a function",
       "ok": true,
@@ -23816,7 +23816,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have comment method",
       "id": 292,
       "name": "should have comment method",
       "ok": true,
@@ -23833,7 +23833,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "comment method should be a function",
       "id": 293,
       "name": "comment method should be a function",
       "ok": true,
@@ -23850,7 +23850,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should have isa method",
       "id": 294,
       "name": "should have isa method",
       "ok": true,
@@ -23867,7 +23867,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "isa method should be a function",
       "id": 295,
       "name": "isa method should be a function",
       "ok": true,
@@ -23896,7 +23896,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/test-test.js",
       "id": 296,
       "name": "test/test-test.js",
       "ok": true,
@@ -23941,7 +23941,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "a",
       "id": 297,
       "name": "a",
       "ok": true,
@@ -23974,7 +23974,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "b",
       "id": 298,
       "name": "b",
       "ok": true,
@@ -23995,7 +23995,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "a",
       "id": 299,
       "name": "a",
       "ok": true,
@@ -24012,7 +24012,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "b",
       "id": 300,
       "name": "b",
       "ok": true,
@@ -24041,7 +24041,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/timeout.js",
       "id": 301,
       "name": "test/timeout.js",
       "ok": true,
@@ -24062,7 +24062,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/trivial-success.js",
       "id": 302,
       "name": "test/trivial-success.js",
       "ok": true,
@@ -24091,7 +24091,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 303,
       "name": "should be equivalent",
       "ok": true,
@@ -24120,7 +24120,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/undefined_indented.js",
       "id": 304,
       "name": "test/undefined_indented.js",
       "ok": true,
@@ -24149,7 +24149,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 305,
       "name": "should be equivalent",
       "ok": true,
@@ -24166,7 +24166,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 306,
       "name": "should be equivalent",
       "ok": true,
@@ -24183,7 +24183,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 307,
       "name": "should be equivalent",
       "ok": true,
@@ -24200,7 +24200,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 308,
       "name": "should be equivalent",
       "ok": true,
@@ -24217,7 +24217,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 309,
       "name": "should be equivalent",
       "ok": true,
@@ -24234,7 +24234,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 310,
       "name": "should be equal",
       "ok": true,
@@ -24263,7 +24263,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/valid-command.js",
       "id": 311,
       "name": "test/valid-command.js",
       "ok": true,
@@ -24397,7 +24397,7 @@ Array [
               "emitOne (events.js:77:13)\\n",
             ],
           },
-          "fullname": "",
+          "fullname": "captures TODO description",
           "id": 114,
           "name": "captures TODO description",
           "ok": false,
@@ -24426,7 +24426,7 @@ Array [
               "Process.ChildProcess._handle.onexit (child_process.js:1057:5)\\n",
             ],
           },
-          "fullname": "",
+          "fullname": "captures TODO description",
           "id": 119,
           "name": "captures TODO description",
           "ok": false,
@@ -24455,7 +24455,7 @@ Array [
               "Process.ChildProcess._handle.onexit (child_process.js:1057:5)\\n",
             ],
           },
-          "fullname": "",
+          "fullname": "summarizes skipped count",
           "id": 121,
           "name": "summarizes skipped count",
           "ok": false,
@@ -24484,7 +24484,7 @@ Array [
               "Process.ChildProcess._handle.onexit (child_process.js:1057:5)\\n",
             ],
           },
-          "fullname": "",
+          "fullname": "summarizes todo count",
           "id": 122,
           "name": "summarizes todo count",
           "ok": false,
@@ -24501,7 +24501,7 @@ Array [
             "command": "/usr/local/bin/iojs test-descriptions.js",
             "exit": 1,
           },
-          "fullname": "",
+          "fullname": "test/test-descriptions.js",
           "id": 123,
           "name": "test/test-descriptions.js",
           "ok": false,
@@ -26030,7 +26030,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 1,
       "name": "should be equivalent",
       "ok": true,
@@ -26051,7 +26051,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should not be equivalent",
       "id": 2,
       "name": "should not be equivalent",
       "ok": true,
@@ -26080,7 +26080,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/buffer_compare.js",
       "id": 3,
       "name": "test/buffer_compare.js",
       "ok": true,
@@ -26101,7 +26101,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "just setup, nothing relevant",
       "id": 4,
       "name": "just setup, nothing relevant",
       "ok": true,
@@ -26118,7 +26118,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/common.js",
       "id": 5,
       "name": "test/common.js",
       "ok": true,
@@ -26147,7 +26147,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 6,
       "name": "should be equivalent",
       "ok": true,
@@ -26168,7 +26168,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 7,
       "name": "should be equivalent",
       "ok": true,
@@ -26189,7 +26189,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 8,
       "name": "should be equivalent",
       "ok": true,
@@ -26210,7 +26210,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 9,
       "name": "should be equivalent",
       "ok": true,
@@ -26231,7 +26231,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 10,
       "name": "should be equivalent",
       "ok": true,
@@ -26260,7 +26260,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/consumer.js",
       "id": 11,
       "name": "test/consumer.js",
       "ok": true,
@@ -26301,7 +26301,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Should output debugger message",
       "id": 12,
       "name": "Should output debugger message",
       "ok": true,
@@ -26330,7 +26330,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/debug-test.js",
       "id": 13,
       "name": "test/debug-test.js",
       "ok": true,
@@ -26359,7 +26359,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be strictly equal",
       "id": 14,
       "name": "should be strictly equal",
       "ok": true,
@@ -26380,7 +26380,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be strictly equal",
       "id": 15,
       "name": "should be strictly equal",
       "ok": true,
@@ -26401,7 +26401,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be strictly equal",
       "id": 16,
       "name": "should be strictly equal",
       "ok": true,
@@ -26430,7 +26430,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/deep-strict.js",
       "id": 17,
       "name": "test/deep-strict.js",
       "ok": true,
@@ -26459,7 +26459,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 18,
       "name": "should be equivalent",
       "ok": true,
@@ -26480,7 +26480,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 19,
       "name": "should be equivalent",
       "ok": true,
@@ -26501,7 +26501,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 20,
       "name": "should be equivalent",
       "ok": true,
@@ -26530,7 +26530,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/deep.js",
       "id": 21,
       "name": "test/deep.js",
       "ok": true,
@@ -26551,7 +26551,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "File with executable bit should be executed",
       "id": 22,
       "name": "File with executable bit should be executed",
       "ok": true,
@@ -26568,7 +26568,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/executed.sh",
       "id": 23,
       "name": "test/executed.sh",
       "ok": true,
@@ -26601,7 +26601,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 24,
       "name": "should be equal",
       "ok": true,
@@ -26618,7 +26618,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 25,
       "name": "should be equal",
       "ok": true,
@@ -26639,7 +26639,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 26,
       "name": "should be equal",
       "ok": true,
@@ -26656,7 +26656,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 27,
       "name": "should be equal",
       "ok": true,
@@ -26677,7 +26677,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 28,
       "name": "should be equal",
       "ok": true,
@@ -26694,7 +26694,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 29,
       "name": "should be equal",
       "ok": true,
@@ -26719,7 +26719,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 30,
       "name": "should be equal",
       "ok": true,
@@ -26736,7 +26736,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 31,
       "name": "should be equal",
       "ok": true,
@@ -26757,7 +26757,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 32,
       "name": "should be equal",
       "ok": true,
@@ -26774,7 +26774,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 33,
       "name": "should be equal",
       "ok": true,
@@ -26803,7 +26803,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/exit-code.js",
       "id": 34,
       "name": "test/exit-code.js",
       "ok": true,
@@ -26876,7 +26876,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 35,
       "name": "should be equal",
       "ok": true,
@@ -26901,7 +26901,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 36,
       "name": "should be equal",
       "ok": true,
@@ -26922,7 +26922,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 37,
       "name": "should be equal",
       "ok": true,
@@ -26955,7 +26955,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/expose-gc-test.js",
       "id": 38,
       "name": "test/expose-gc-test.js",
       "ok": true,
@@ -26988,7 +26988,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "1-1",
       "id": 39,
       "name": "1-1",
       "ok": true,
@@ -27009,7 +27009,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "2-1",
       "id": 40,
       "name": "2-1",
       "ok": true,
@@ -27030,7 +27030,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "3-1",
       "id": 41,
       "name": "3-1",
       "ok": true,
@@ -27047,7 +27047,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/global-harness-async.js",
       "id": 42,
       "name": "test/global-harness-async.js",
       "ok": true,
@@ -27088,7 +27088,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/independent-timeouts.js",
       "id": 43,
       "name": "test/independent-timeouts.js",
       "ok": true,
@@ -27117,7 +27117,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 44,
       "name": "should be equal",
       "ok": true,
@@ -27134,7 +27134,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 45,
       "name": "should be equal",
       "ok": true,
@@ -27155,7 +27155,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 46,
       "name": "should be equal",
       "ok": true,
@@ -27172,7 +27172,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 47,
       "name": "should be equal",
       "ok": true,
@@ -27201,7 +27201,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/isolated-conf-test.js",
       "id": 48,
       "name": "test/isolated-conf-test.js",
       "ok": true,
@@ -27230,7 +27230,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "sanity check",
       "id": 49,
       "name": "sanity check",
       "ok": true,
@@ -27247,7 +27247,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "not ok",
       "id": 50,
       "name": "not ok",
       "ok": true,
@@ -27264,7 +27264,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "total test count",
       "id": 51,
       "name": "total test count",
       "ok": true,
@@ -27281,7 +27281,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "tests passed",
       "id": 52,
       "name": "tests passed",
       "ok": true,
@@ -27298,7 +27298,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "tests failed",
       "id": 53,
       "name": "tests failed",
       "ok": true,
@@ -27315,7 +27315,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "ok is boolean",
       "id": 54,
       "name": "ok is boolean",
       "ok": true,
@@ -27332,7 +27332,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "skip is number",
       "id": 55,
       "name": "skip is number",
       "ok": true,
@@ -27349,7 +27349,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "results isa Results",
       "id": 56,
       "name": "results isa Results",
       "ok": true,
@@ -27366,7 +27366,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test isa Test",
       "id": 57,
       "name": "test isa Test",
       "ok": true,
@@ -27383,7 +27383,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test isa Harness",
       "id": 58,
       "name": "test isa Harness",
       "ok": true,
@@ -27412,7 +27412,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/meta-test.js",
       "id": 59,
       "name": "test/meta-test.js",
       "ok": true,
@@ -27441,7 +27441,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "sync child A",
       "id": 60,
       "name": "sync child A",
       "ok": true,
@@ -27466,7 +27466,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "(unnamed assert)",
       "id": 61,
       "name": "(unnamed assert)",
       "ok": true,
@@ -27487,7 +27487,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "(unnamed assert)",
       "id": 62,
       "name": "(unnamed assert)",
       "ok": true,
@@ -27508,7 +27508,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "sync grandchild in async child A",
       "id": 63,
       "name": "sync grandchild in async child A",
       "ok": true,
@@ -27529,7 +27529,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "(unnamed assert)",
       "id": 64,
       "name": "(unnamed assert)",
       "ok": true,
@@ -27558,7 +27558,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/nested-async.js",
       "id": 65,
       "name": "test/nested-async.js",
       "ok": true,
@@ -27587,7 +27587,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "p test",
       "id": 66,
       "name": "p test",
       "ok": true,
@@ -27608,7 +27608,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "ch test",
       "id": 67,
       "name": "ch test",
       "ok": true,
@@ -27629,7 +27629,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "grch test",
       "id": 68,
       "name": "grch test",
       "ok": true,
@@ -27650,7 +27650,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "ch test 2",
       "id": 69,
       "name": "ch test 2",
       "ok": true,
@@ -27679,7 +27679,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/nested-test.js",
       "id": 70,
       "name": "test/nested-test.js",
       "ok": true,
@@ -27716,7 +27716,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": ", 8 can stay.",
       "id": 71,
       "name": ", 8 can stay.",
       "ok": true,
@@ -27753,7 +27753,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "might be confusing",
       "id": 72,
       "name": "might be confusing",
       "ok": true,
@@ -27770,7 +27770,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "done now, exiting",
       "id": 73,
       "name": "done now, exiting",
       "ok": true,
@@ -27787,7 +27787,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/non-tap-output.js",
       "id": 74,
       "name": "test/non-tap-output.js",
       "ok": true,
@@ -27824,7 +27824,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "outputs parent description",
       "id": 75,
       "name": "outputs parent description",
       "ok": true,
@@ -27841,7 +27841,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "outputs child description",
       "id": 76,
       "name": "outputs child description",
       "ok": true,
@@ -27858,7 +27858,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "outputs parent description before parent result",
       "id": 77,
       "name": "outputs parent description before parent result",
       "ok": true,
@@ -27875,7 +27875,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "outputs parent result before child description",
       "id": 78,
       "name": "outputs parent result before child description",
       "ok": true,
@@ -27892,7 +27892,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "outputs child description before child result",
       "id": 79,
       "name": "outputs child description before child result",
       "ok": true,
@@ -27921,7 +27921,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/output-childtest-description.js",
       "id": 80,
       "name": "test/output-childtest-description.js",
       "ok": true,
@@ -27950,7 +27950,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 81,
       "name": "should be equal",
       "ok": true,
@@ -27967,7 +27967,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 82,
       "name": "should be equal",
       "ok": true,
@@ -27996,7 +27996,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/result-trap.js",
       "id": 83,
       "name": "test/result-trap.js",
       "ok": true,
@@ -28025,7 +28025,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "compiled seg faulter",
       "id": 84,
       "name": "compiled seg faulter",
       "ok": true,
@@ -28046,7 +28046,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 85,
       "name": "should be equivalent",
       "ok": true,
@@ -28063,7 +28063,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 86,
       "name": "should be equivalent",
       "ok": true,
@@ -28080,7 +28080,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 87,
       "name": "should be equivalent",
       "ok": true,
@@ -28097,7 +28097,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 88,
       "name": "should be equivalent",
       "ok": true,
@@ -28114,7 +28114,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equivalent",
       "id": 89,
       "name": "should be equivalent",
       "ok": true,
@@ -28131,7 +28131,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "should be equal",
       "id": 90,
       "name": "should be equal",
       "ok": true,
@@ -28152,7 +28152,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "cleaned up",
       "id": 91,
       "name": "cleaned up",
       "ok": true,
@@ -28181,7 +28181,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/segv.js",
       "id": 92,
       "name": "test/segv.js",
       "ok": true,
@@ -28210,7 +28210,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "it works",
       "id": 93,
       "name": "it works",
       "ok": true,
@@ -28231,7 +28231,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "math should work",
       "id": 94,
       "name": "math should work",
       "ok": true,
@@ -28248,7 +28248,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "false should not be ok",
       "id": 95,
       "name": "false should not be ok",
       "ok": true,
@@ -28277,7 +28277,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/simple-harness-test-with-plan.js",
       "id": 96,
       "name": "test/simple-harness-test-with-plan.js",
       "ok": true,
@@ -28306,7 +28306,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "it works",
       "id": 97,
       "name": "it works",
       "ok": true,
@@ -28327,7 +28327,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "math should work",
       "id": 98,
       "name": "math should work",
       "ok": true,
@@ -28344,7 +28344,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "false should not be ok",
       "id": 99,
       "name": "false should not be ok",
       "ok": true,
@@ -28373,7 +28373,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/simple-harness-test.js",
       "id": 100,
       "name": "test/simple-harness-test.js",
       "ok": true,
@@ -28402,7 +28402,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "always passes",
       "id": 101,
       "name": "always passes",
       "ok": true,
@@ -28419,7 +28419,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "false",
       "id": 102,
       "name": "false",
       "ok": true,
@@ -28436,7 +28436,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "bonus",
       "id": 103,
       "name": "bonus",
       "ok": true,
@@ -28453,7 +28453,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "expected",
       "id": 104,
       "name": "expected",
       "ok": true,
@@ -28470,7 +28470,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "always passes without explanation",
       "id": 105,
       "name": "always passes without explanation",
       "ok": true,
@@ -28487,7 +28487,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "false without explanation",
       "id": 106,
       "name": "false without explanation",
       "ok": true,
@@ -28504,7 +28504,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "bonus without explanation",
       "id": 107,
       "name": "bonus without explanation",
       "ok": true,
@@ -28521,7 +28521,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "expected without explanation",
       "id": 108,
       "name": "expected without explanation",
       "ok": true,
@@ -28550,7 +28550,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "test/test-assert-todo-skip.js",
       "id": 109,
       "name": "test/test-assert-todo-skip.js",
       "ok": true,
@@ -28579,7 +28579,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "exit cleanly",
       "id": 110,
       "name": "exit cleanly",
       "ok": true,
@@ -28596,7 +28596,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "captures SKIP description",
       "id": 111,
       "name": "captures SKIP description",
       "ok": true,
@@ -28613,7 +28613,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "skip summary is not from file",
       "id": 112,
       "name": "skip summary is not from file",
       "ok": true,
@@ -28630,7 +28630,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "todo summary is not from file",
       "id": 113,
       "name": "todo summary is not from file",
       "ok": true,
@@ -28663,7 +28663,7 @@ Array [
           "emitOne (events.js:77:13)\\n",
         ],
       },
-      "fullname": "",
+      "fullname": "captures TODO description",
       "id": 114,
       "name": "captures TODO description",
       "ok": false,
@@ -28761,7 +28761,7 @@ Array [
               "emitOne (events.js:77:13)\\n",
             ],
           },
-          "fullname": "",
+          "fullname": "captures TODO description",
           "id": 114,
           "name": "captures TODO description",
           "ok": false,

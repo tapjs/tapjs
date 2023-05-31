@@ -308,7 +308,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "unfinished",
       "id": 2,
       "name": "unfinished",
       "ok": true,

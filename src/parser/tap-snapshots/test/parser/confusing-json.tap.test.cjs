@@ -35,7 +35,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "Test newlines in tap and console.log",
+          "fullname": "Test newlines in tap and console.log Before console.log",
           "id": 1,
           "name": "Before console.log",
           "ok": true,
@@ -92,7 +92,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "Test newlines in tap and console.log",
+          "fullname": "Test newlines in tap and console.log After console.log",
           "id": 2,
           "name": "After console.log",
           "ok": true,
@@ -254,7 +254,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "Test newlines in tap and console.log",
+      "fullname": "Test newlines in tap and console.log Before console.log",
       "id": 1,
       "name": "Before console.log",
       "ok": true,
@@ -271,7 +271,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "Test newlines in tap and console.log",
+      "fullname": "Test newlines in tap and console.log Before console.log",
       "id": 1,
       "name": "Before console.log",
       "ok": true,
@@ -328,7 +328,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "Test newlines in tap and console.log",
+      "fullname": "Test newlines in tap and console.log After console.log",
       "id": 2,
       "name": "After console.log",
       "ok": true,
@@ -345,7 +345,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "Test newlines in tap and console.log",
+      "fullname": "Test newlines in tap and console.log After console.log",
       "id": 2,
       "name": "After console.log",
       "ok": true,
@@ -370,7 +370,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Test newlines in tap and console.log",
       "id": 1,
       "name": "Test newlines in tap and console.log",
       "ok": true,
@@ -459,7 +459,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "Test newlines in tap and console.log",
+          "fullname": "Test newlines in tap and console.log Before console.log",
           "id": 1,
           "name": "Before console.log",
           "ok": true,
@@ -516,7 +516,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "Test newlines in tap and console.log",
+          "fullname": "Test newlines in tap and console.log After console.log",
           "id": 2,
           "name": "After console.log",
           "ok": true,
@@ -678,7 +678,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "Test newlines in tap and console.log",
+      "fullname": "Test newlines in tap and console.log Before console.log",
       "id": 1,
       "name": "Before console.log",
       "ok": true,
@@ -695,7 +695,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "Test newlines in tap and console.log",
+      "fullname": "Test newlines in tap and console.log Before console.log",
       "id": 1,
       "name": "Before console.log",
       "ok": true,
@@ -752,7 +752,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "Test newlines in tap and console.log",
+      "fullname": "Test newlines in tap and console.log After console.log",
       "id": 2,
       "name": "After console.log",
       "ok": true,
@@ -769,7 +769,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "Test newlines in tap and console.log",
+      "fullname": "Test newlines in tap and console.log After console.log",
       "id": 2,
       "name": "After console.log",
       "ok": true,
@@ -794,7 +794,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "Test newlines in tap and console.log",
       "id": 1,
       "name": "Test newlines in tap and console.log",
       "ok": true,

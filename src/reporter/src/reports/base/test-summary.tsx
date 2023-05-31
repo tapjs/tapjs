@@ -2,12 +2,15 @@ import { Base, Counts, Lists } from '@tapjs/core'
 import { Box, Text } from 'ink'
 import React, { FC, useEffect, useState } from 'react'
 
+import { stringify } from 'tap-yaml'
+
 export interface TestSummaryOpts {
   test: Base
 }
 
 // slightly more granular/precise ms
 import ms_ from 'ms'
+import { Result } from 'tap-parser'
 import { listenCleanup } from '../../listen-cleanup.js'
 const ms = (n: number) =>
   n < 1
@@ -36,28 +39,82 @@ export const TestTag: FC<TestSummaryOpts> = ({ test }) => {
       {' FAIL '}
     </Text>
   ) : !!todo ? (
-    <Text backgroundColor="#606" color="white" bold>
+    <Text backgroundColor="#808" color="white" bold>
       {' TODO '}
     </Text>
-  ) : !!skip ? (
+  ) : !!skip || test.results?.plan.skipAll ? (
     <Text backgroundColor="blue" color="white" bold>
       {' SKIP '}
     </Text>
   ) : (
-    <Text backgroundColor="green" color="black" bold>
+    <Text backgroundColor="#0a0" color="black" bold>
       {' PASS '}
     </Text>
   )
 }
 
-export const RunSummary: FC<TestSummaryOpts> = ({ test }) => {
-  if (test.results) {
-    return <TestSummary test={test} />
-  }
+const assertName = (r: Result, t: Base) => {
+  const fn = r.fullname
+  return fn.startsWith(t.name + ' ') ? fn.substring(t.name.length + 1) : fn
+}
+
+export interface ResultOpts {
+  result: Result
+  details?: boolean
+  test: Base
+}
+export const ResultTag: FC<ResultOpts> = ({
+  result,
+  details = false,
+  test,
+}) => {
+  const c = result.skip ? '~' : result.todo ? '☐' : !result.ok ? '✖' : '✓'
+  const textc = result.skip
+    ? 'cyan'
+    : result.todo
+    ? 'magenta'
+    : !result.ok
+    ? 'red'
+    : 'green'
+  const pref = (
+    <Text bold color={textc}>
+      {c}
+    </Text>
+  )
+  const st = result.skip || result.todo || result.tapError
+  const suff =
+    typeof st === 'string' ? <Text color={textc}>{st}</Text> : <></>
+  const name = assertName(result, test)
+
+  return (
+    <Box flexDirection="column">
+      <Box gap={1} paddingLeft={1}>
+        {pref}
+        <Text>{name}</Text>
+        {suff}
+      </Box>
+      <Box paddingLeft={4} flexDirection="column">
+        {!!details && !!result.diag && (
+          <>
+            <Text>...</Text>
+          <Text>{stringify(result.diag).trim()}</Text>
+            <Text>---</Text>
+          </>
+        )}
+      </Box>
+    </Box>
+  )
+}
+
+export const TestSummary: FC<TestSummaryOpts & { details?: boolean }> = ({
+  test,
+  details = false,
+}) => {
+  const { lists: lists_, counts: counts_, time: time_ } = test
 
   const [[counts, lists], updateCounts] = useState<[Counts, Lists]>([
-    test.counts,
-    test.lists,
+    counts_,
+    lists_,
   ])
   useEffect(
     () =>
@@ -67,24 +124,21 @@ export const RunSummary: FC<TestSummaryOpts> = ({ test }) => {
     [counts, lists]
   )
 
-  const [time, updateTime] = useState<number>(0)
+  const [time, updateTime] = useState<number>(time_ || 0)
   const [start] = useState<number>(Date.now())
   useEffect(() => {
-    if (test.time) return
-    const i = setInterval(() => updateTime(Date.now() - start), 123)
-    return () => clearInterval(i)
+    const i = test.time
+      ? null
+      : setInterval(() => updateTime(Date.now() - start), 247)
+    const maybeCT = () => (i === null ? null : clearTimeout(i))
+    const cleanup = listenCleanup(test, 'complete', maybeCT)
+    return () => {
+      maybeCT()
+      cleanup()
+    }
   }, [test.time])
 
-  return <TestSummary test={test} time={time} />
-}
-
-export const TestSummary: FC<TestSummaryOpts & { time?: number }> = ({
-  test,
-  time,
-}) => {
-  const { lists, counts } = test
   const { total, todo, skip, fail } = counts
-  if (time === undefined) time = test.time
 
   return (
     <Box flexDirection="column">
@@ -101,40 +155,55 @@ export const TestSummary: FC<TestSummaryOpts & { time?: number }> = ({
           {ms(time)}
         </Text>
       </Box>
-      {!!fail &&
-        lists.fail.map((f, i) => (
-          <Box key={i} gap={1}>
-            <Text color="red" bold>
-              ✖
-            </Text>
-            <Text>{f.fullname}</Text>
-          </Box>
-        ))}
-      {!!todo &&
-        lists.todo.map((f, i) => (
-          <Box key={i} gap={1}>
-            <Text color="magenta" bold>
-              ☐
-            </Text>
-            <Text>{f.fullname}</Text>
-            {typeof f.todo === 'string' && (
-              <Text color="magenta">{f.todo}</Text>
+      {!!test.results && (
+        <>
+          {!!test.results?.plan.skipAll &&
+            !!test.results.plan.skipReason && (
+              <Box gap={1} paddingLeft={1}>
+                <Text color="cyan" bold>
+                  ~
+                </Text>
+                <Text>{test.results.plan.skipReason}</Text>
+              </Box>
             )}
-          </Box>
-        ))}
-      {!!skip &&
-        lists.skip.map((f, i) => (
-          <Box key={i} gap={1}>
-            <Text color="cyan" bold>
-              ~
-            </Text>
-            <Text>{f.fullname}</Text>
-            {typeof f.skip === 'string' && (
-              <Text color="cyan">{f.skip}</Text>
-            )}
-          </Box>
-        ))}
-      {!!(fail || todo || skip) && <Box paddingTop={1}></Box>}
+          {!!skip &&
+            lists.skip.map((f, i) => (
+              <ResultTag
+                test={test}
+                result={f}
+                details={details}
+                key={i}
+              />
+            ))}
+          {!!todo &&
+            lists.todo.map((f, i) => (
+              <ResultTag
+                test={test}
+                result={f}
+                details={details}
+                key={i}
+              />
+            ))}
+          {!!fail &&
+            lists.fail.map((f, i) => (
+              <ResultTag
+                test={test}
+                result={f}
+                details={details}
+                key={i}
+              />
+            ))}
+          {!!(typeof test.options.signal === 'string') && (
+            <Box gap={1} paddingLeft={1}>
+              <Text color="red" bold>
+                ✖
+              </Text>
+              <Text>{test.options.signal}</Text>
+            </Box>
+          )}
+          {/* TODO: add a --passes config option to show all passing results if details:true */}
+        </>
+      )}
     </Box>
   )
 }

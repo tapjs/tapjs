@@ -16,7 +16,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "de-indenting the yamlish wrongly.",
       "id": 1,
       "name": "de-indenting the yamlish wrongly.",
       "ok": false,
@@ -46,7 +46,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "de-indenting the yamlish wrongly.",
           "id": 1,
           "name": "de-indenting the yamlish wrongly.",
           "ok": false,
@@ -111,7 +111,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "de-indenting the yamlish wrongly.",
       "id": 1,
       "name": "de-indenting the yamlish wrongly.",
       "ok": false,
@@ -141,7 +141,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "But this is not garbage",
       "id": 2,
       "name": "But this is not garbage",
       "ok": true,
@@ -158,7 +158,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "truncating the yamlish",
       "id": 3,
       "name": "truncating the yamlish",
       "ok": false,
@@ -184,7 +184,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "this is truncated weirdly",
       "id": 4,
       "name": "this is truncated weirdly",
       "ok": false,
@@ -222,7 +222,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "de-indenting the yamlish wrongly.",
           "id": 1,
           "name": "de-indenting the yamlish wrongly.",
           "ok": false,
@@ -236,7 +236,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "truncating the yamlish",
           "id": 3,
           "name": "truncating the yamlish",
           "ok": false,
@@ -250,7 +250,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "this is truncated weirdly",
           "id": 4,
           "name": "this is truncated weirdly",
           "ok": false,
@@ -299,7 +299,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "de-indenting the yamlish wrongly.",
       "id": 1,
       "name": "de-indenting the yamlish wrongly.",
       "ok": false,
@@ -329,7 +329,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "But this is not garbage",
       "id": 2,
       "name": "But this is not garbage",
       "ok": true,
@@ -346,7 +346,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "truncating the yamlish",
       "id": 3,
       "name": "truncating the yamlish",
       "ok": false,
@@ -372,7 +372,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "this is truncated weirdly",
       "id": 4,
       "name": "this is truncated weirdly",
       "ok": false,
@@ -409,7 +409,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "de-indenting the yamlish wrongly.",
           "id": 1,
           "name": "de-indenting the yamlish wrongly.",
           "ok": false,
@@ -423,7 +423,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "truncating the yamlish",
           "id": 3,
           "name": "truncating the yamlish",
           "ok": false,
@@ -437,7 +437,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "this is truncated weirdly",
           "id": 4,
           "name": "this is truncated weirdly",
           "ok": false,
@@ -524,7 +524,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "de-indenting the yamlish wrongly.",
       "id": 1,
       "name": "de-indenting the yamlish wrongly.",
       "ok": false,
@@ -554,7 +554,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "But this is not garbage",
       "id": 2,
       "name": "But this is not garbage",
       "ok": true,
@@ -571,7 +571,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "truncating the yamlish",
       "id": 3,
       "name": "truncating the yamlish",
       "ok": false,
@@ -597,7 +597,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "this is truncated weirdly",
       "id": 4,
       "name": "this is truncated weirdly",
       "ok": false,
@@ -635,7 +635,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "de-indenting the yamlish wrongly.",
           "id": 1,
           "name": "de-indenting the yamlish wrongly.",
           "ok": false,
@@ -662,7 +662,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "truncating the yamlish",
           "id": 3,
           "name": "truncating the yamlish",
           "ok": false,
@@ -689,7 +689,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "this is truncated weirdly",
           "id": 4,
           "name": "this is truncated weirdly",
           "ok": false,
@@ -776,7 +776,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "",
+      "fullname": "de-indenting the yamlish wrongly.",
       "id": 1,
       "name": "de-indenting the yamlish wrongly.",
       "ok": false,
@@ -806,7 +806,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "",
+          "fullname": "de-indenting the yamlish wrongly.",
           "id": 1,
           "name": "de-indenting the yamlish wrongly.",
           "ok": false,
