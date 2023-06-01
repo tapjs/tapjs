@@ -28,12 +28,35 @@ export class TapWrap extends AsyncResource {
   }
 }
 
+export interface CountsJSON {
+  total: number
+  pass: number
+  fail?: number
+  skip?: number
+  todo?: number
+  complete?: number
+}
+
 export class Counts {
   total: number = 0
   pass: number = 0
   fail: number = 0
   skip: number = 0
   todo: number = 0
+  complete?: number
+  constructor (c?: Counts | CountsJSON) {
+    if (c) Object.assign(this, c)
+  }
+  toJSON(): CountsJSON {
+    const c: CountsJSON = {
+      total: this.total,
+      pass: this.pass,
+    }
+    if (this.fail) c.fail = this.fail
+    if (this.todo) c.todo = this.todo
+    if (this.skip) c.skip = this.skip
+    return c
+  }
 }
 
 export class Lists {
@@ -244,7 +267,15 @@ export class Base<
     const { message = 'timeout!' } = options
     this.setTimeout(0)
     options.expired = options.expired || this.name
-    const threw = this.threw({ message }, options)
+    // timeouts don't generally have a useful callsite information,
+    // and no sense trying to capture it from @tapjs/stack
+    const extra = {
+      ...options,
+      stack: '',
+      at: {},
+    }
+
+    const threw = this.threw({ message }, extra)
     if (threw) {
       this.emit('timeout', threw)
     }
@@ -355,7 +386,7 @@ export class Base<
   threw(
     er: any,
     extra?: Extra,
-    proxy?: boolean
+    proxy: boolean = false
   ): Extra | void | undefined {
     this.hook.emitDestroy()
     this.hookDomain.destroy()
@@ -370,14 +401,7 @@ export class Base<
 
     const message = er.message
     if (!extra) {
-      extra = extraFromError(er, extra, this.options)
-    }
-
-    // timeouts don't generally have a useful callsite information,
-    // and no sense trying to capture it from @tapjs/stack
-    if (extra) {
-      extra.stack = ''
-      extra.at = {}
+      extra = extraFromError(er, extra)
     }
 
     // if we ended, we have to report it SOMEWHERE, unless we're

@@ -162,6 +162,7 @@ const parseLineRef = (s: string) =>
 type Sexpr = [token: string, ...children: Sexpr[]]
 type Token = [string, number]
 const tokenize = (line: string): Sexpr => {
+  line = line.replace(/^\s*at/, '')
   let depth = 0
   let toks: Token[] = []
   for (let i = 0; i < line.length; i++) {

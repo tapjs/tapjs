@@ -1,7 +1,43 @@
 import { tap } from '@tapjs/core'
 const t = tap()
 
-console.log('scratch.ts test file running')
+export interface ignoreme {
+  a: true
+  b: true
+  c: true
+  d: true
+  e: true
+  f: true
+  g: true
+  h: true
+  i: true
+  a1: true
+  b1: true
+  c1: true
+  d1: true
+  e1: true
+  f1: true
+  g1: true
+  h1: true
+  i1: true
+  a11: true
+  b11: true
+  c11: true
+  d11: true
+  e11: true
+  f11: true
+  g11: true
+  h11: true
+  i11: true
+}
+
+t.test('wrong plan sync', t => {
+  t.plan(1)
+  t.pass('this is fine')
+  t.pass('this is not')
+})
+
+// console.log('scratch.ts test file running')
 
 t.test('hello', async t => {
   t.pass('spanning multiple lines', {
@@ -25,7 +61,13 @@ t.test('test with a todo', t => {
   t.end()
 })
 
-t.test('wrong plan', t => {
+t.test('wrong plan with timeout', t => {
   t.plan(1)
-  t.end()
+  t.pass('this is fine')
+  setTimeout(() => t.pass('this is not'))
+})
+
+t.test('test after promise resolution', async t => {
+  t.pass('this is fine')
+  setTimeout(() => t.pass('this is not'))
 })

@@ -129,9 +129,12 @@ export class Parser extends EventEmitter implements NodeJS.WritableStream {
   }
 
   get fullname(): string {
-    return (
-      (this.parent ? this.parent.fullname + ' ' : '') + (this.name || '')
-    ).trim()
+    const n:string[] = []
+    const pn = (this.parent?.fullname ?? '').trim()
+    const mn = (this.name || '').trim()
+    if (pn) n.push(pn)
+    if (mn) n.push(mn)
+    return n.join(' > ')
   }
 
   tapError(

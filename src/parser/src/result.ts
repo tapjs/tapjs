@@ -71,6 +71,9 @@ export class Result {
     if (buffered === '{') this.buffered = true
 
     if (name) this.name = name.trim()
-    this.fullname = (parser.fullname + ' ' + this.name).trim()
+    const n: string[] = []
+    if (parser.fullname) n.push(parser.fullname)
+    if (this.name) n.push(this.name)
+    this.fullname = n.join(' > ').trim()
   }
 }

@@ -55,7 +55,8 @@ export const TestTag: FC<TestSummaryOpts> = ({ test }) => {
 
 const assertName = (r: Result, t: Base) => {
   const fn = r.fullname
-  return fn.startsWith(t.name + ' ') ? fn.substring(t.name.length + 1) : fn
+  const n = t.name + ' > '
+  return (fn.startsWith(n) ? fn.substring(n.length) : fn).trim()
 }
 
 export interface ResultOpts {
@@ -97,7 +98,7 @@ export const ResultTag: FC<ResultOpts> = ({
         {!!details && !!result.diag && (
           <>
             <Text>...</Text>
-          <Text>{stringify(result.diag).trim()}</Text>
+            <Text>{stringify(result.diag).trim()}</Text>
             <Text>---</Text>
           </>
         )}

@@ -152,6 +152,8 @@ export class TestBase extends Base<TestBaseEvents> {
   #planEnd: number = -1
   #printedResult: boolean = false
   #explicitEnded: boolean = false
+  #explicitPlan: boolean = false
+  #promiseEnded: boolean = false
   #multiEndThrew: boolean = false
   #n: number = 0
   #noparallel: boolean = false
@@ -275,8 +277,15 @@ export class TestBase extends Base<TestBaseEvents> {
       return
     }
 
-    if (this.#planEnd !== -1) {
+    if (this.#explicitPlan) {
       throw new Error('Cannot set plan more than once')
+    }
+    this.#explicitPlan = true
+
+    if (this.#planEnd !== -1) {
+      throw new Error(
+        'Cannot set plan after test has ended'
+      )
     }
 
     if (typeof n !== 'number' || n < 0) {
@@ -362,8 +371,14 @@ export class TestBase extends Base<TestBaseEvents> {
       if (!this.passing()) return
 
       const failMessage = this.#explicitEnded
-        ? 'test after end() was called'
-        : 'test count exceeds plan'
+        ? 'test assertion after end() was called'
+        : this.#promiseEnded
+        ? 'test assertion after Promise resolution'
+        : this.#explicitPlan
+        ? 'test assertion count exceeds plan'
+        : /* c8 ignore start */
+          'assertion after automatic end'
+      /* c8 ignore stop */
 
       const er = new Error(failMessage, {
         cause: {
@@ -372,7 +387,7 @@ export class TestBase extends Base<TestBaseEvents> {
         },
       })
       Error.captureStackTrace(er, fn || undefined)
-      this.threw(er)
+      this.threw(er, extraFromError(er))
       return
     }
 
@@ -555,8 +570,8 @@ export class TestBase extends Base<TestBaseEvents> {
       return this.#process()
     }
 
-    if (implicit !== IMPLICIT && !this.#multiEndThrew) {
-      if (this.#explicitEnded) {
+    if (implicit !== IMPLICIT) {
+      if (this.#explicitEnded && !this.#multiEndThrew) {
         this.#multiEndThrew = true
         const er = new Error(
           'test end() method called more than once'
@@ -597,18 +612,17 @@ export class TestBase extends Base<TestBaseEvents> {
       ' ' +
       argv.slice(2).join(' ')
     ).trim()
-    return (
+    const n: string[] = [
       (this.parent
         ? this.parent.fullname
         : main === 'TAP'
         ? 'TAP'
-        : relative(cwd, main)
-      )
-        .replace(/\\/g, '/')
-        .trim() +
-      ' ' +
-      (this.name || '').trim()
-    ).trim()
+        : relative(cwd, main).replace(/\\/g, '/')
+      ).trim(),
+    ]
+    const myName = (this.name || '').trim()
+    if (myName) n.push(myName)
+    return n.join(' > ')
   }
 
   #process() {
@@ -839,6 +853,7 @@ export class TestBase extends Base<TestBaseEvents> {
 
     const end = () => {
       this.debug(' > implicit end for promise')
+      this.#promiseEnded = true
       this.#end(IMPLICIT)
       done()
     }
@@ -1039,7 +1054,7 @@ export class TestBase extends Base<TestBaseEvents> {
   threw(
     er: any,
     extra?: Extra,
-    proxy?: boolean
+    proxy: boolean = false
   ): Extra | void | undefined {
     // this can happen if a beforeEach throws.  capture the error here
     // and raise it once we've started the test officially.
@@ -1059,7 +1074,7 @@ export class TestBase extends Base<TestBaseEvents> {
       er.test = this.name
     }
     if (!proxy) {
-      extra = extraFromError(er, extra, this.options)
+      extra = extraFromError(er, extra)
     }
     super.threw(er, extra, proxy)
 

@@ -7,8 +7,8 @@ import { listenCleanup } from '../../listen-cleanup.js'
 
 export const SuiteSummary: FC<Pick<TapReportOpts, 'tap'>> = ({ tap }) => {
   const [asserts, updateAsserts] = useState<Counts>(new Counts())
-  const [suites, updateSuites] = useState<Counts & { complete: number }>(
-    Object.assign(new Counts(), { complete: 0 })
+  const [suites, updateSuites] = useState<Counts & { complete?: number }>(
+    new Counts({ total: 0, pass: 0, complete: 0 })
   )
   const suitesCleanup: (() => void)[] = []
   const assertsCleanup: (() => void)[] = []
@@ -25,7 +25,7 @@ export const SuiteSummary: FC<Pick<TapReportOpts, 'tap'>> = ({ tap }) => {
   useEffect(() => {
     suitesCleanup.push(
       listenCleanup(tap, 'subtestAdd', test => {
-        updateSuites({ ...suites, total: suites.total + 1 })
+        updateSuites(new Counts({ ...suites, total: suites.total + 1 }))
         updateTests(tests.concat(test))
       })
     )
@@ -35,12 +35,12 @@ export const SuiteSummary: FC<Pick<TapReportOpts, 'tap'>> = ({ tap }) => {
         /* c8 ignore start */
         if (!results) return
         /* c8 ignore stop */
-        let { total, fail, pass, skip, todo, complete } = suites
+        let { total, fail, pass, skip, todo, complete = 0 } = suites
         complete++
         if (!results.ok) fail++
         else if (results.plan.skipAll) skip++
         else pass++
-        updateSuites({ total, fail, pass, skip, complete, todo })
+        updateSuites(new Counts({ total, fail, pass, skip, complete, todo }))
       })
     )
     return doSuitesCleanup
@@ -56,7 +56,7 @@ export const SuiteSummary: FC<Pick<TapReportOpts, 'tap'>> = ({ tap }) => {
           else if (r.skip) skip++
           else if (r.ok === false) fail++
           else pass++
-          updateAsserts({ total, fail, pass, skip, todo })
+          updateAsserts(new Counts({ total, fail, pass, skip, todo }))
         })
       )
     }

@@ -168,16 +168,22 @@ export class CallSiteLike {
       throw new Error('invalid call site information provided')
     }
 
-    if (this.#fileName && e && !this.#sourceMap) {
-      this.#sourceMap = findSourceMap(this.#fileName, e)
+    // We only do the sourcemap lookup if we're parsing from a CallSite
+    // If we get it from an Error stack line, then Node has already done
+    // the mapping for us, and when ts-node (and other in-place
+    // transpilers) create JavaScript, they use the same filename, leading
+    // to an incorrect double offset,.
+    if (this.#fileName && isCallSite(c) && !this.#sourceMap) {
+      this.#sourceMap = findSourceMap(this.#fileName, e || undefined)
       if (this.#sourceMap && typeof this.lineNumber === 'number') {
         // SourceMap.findEntry doesn't actually return the line/column
         // number, despite the property names, but rather the zero-indexed
         // line/column start of a mapping range, and must be looked up
         // using the zero-indexed line and column.
-        // To find the mapping, we look it up with the zero-indexed line/col,
-        // then figure out how far our line/col is from the mapping, and
-        // apply that same offset to the start of the origin in the mapping.
+        // To find the mapping, we look it up with the zero-indexed
+        // line/col, then figure out how far our line/col is from the
+        // mapping, and apply that same offset to the start of the origin
+        // in the mapping.
         const payload = this.#sourceMap.findEntry(
           Math.max(0, this.lineNumber - 1),
           Math.max(0, (this.columnNumber || 0) - 1)
@@ -195,6 +201,7 @@ export class CallSiteLike {
             lineNumber: this.lineNumber,
             columnNumber: this.columnNumber,
           }
+
           this.#fileName = payload.originalSource
           this.lineNumber = originalLine
           this.columnNumber = originalColumn
@@ -302,16 +309,15 @@ export class CallSiteLike {
     if (isConstructor) json.isConstructor = isConstructor
     if (generated && generated.fileName) {
       const f = this.#relativize(generated.fileName)
-      const gen: Record<string, string | number> = {}
-      if (typeof f === 'string' && f !== json.fileName) {
+      if (f && typeof f === 'string' && f !== json.fileName) {
+        const gen: Record<string, string | number> = {}
         gen.fileName = f
-      }
-      if (generated.lineNumber || generated.lineNumber === 0)
-        gen.lineNumber = generated.lineNumber
-      if (generated.columnNumber || generated.columnNumber === 0)
-        gen.columnNumber = generated.columnNumber
-      if (Object.keys(gen).length > 0) {
-        json.generated = gen
+        if (generated.lineNumber) gen.lineNumber = generated.lineNumber
+        if (generated.columnNumber)
+          gen.columnNumber = generated.columnNumber
+        if (Object.keys(gen).length > 0) {
+          json.generated = gen
+        }
       }
     }
     return json

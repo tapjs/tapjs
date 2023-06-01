@@ -166,7 +166,7 @@ class TAP extends Test {
     // only print this added info in the root test, otherwise
     // it's a bit extraneous.
     if (!env.TAP_CHILD_ID) {
-      this.comment(results)
+      this.comment(this.counts.toJSON())
       this.comment(`time=${this.time}ms`)
     }
 
