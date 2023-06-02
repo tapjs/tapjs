@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser.ts TAP strict-pragma-child-broken-diags.tap > output bail=false 1`] = `
+exports[`test/parser.ts > TAP > strict-pragma-child-broken-diags.tap > output bail=false 1`] = `
 Array [
   Array [
     "line",
@@ -52,7 +52,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "child test point in child",
+          "fullname": "child > test point in child",
           "id": 1,
           "name": "test point in child",
           "ok": false,
@@ -81,14 +81,6 @@ Array [
         "# test count(1) != plan(null)\\n",
       ],
       Array [
-        "line",
-        "# failed 4 test\\n",
-      ],
-      Array [
-        "comment",
-        "# failed 4 test\\n",
-      ],
-      Array [
         "complete",
         FinalResults {
           "bailout": false,
@@ -106,7 +98,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "child test point in child",
+              "fullname": "child > test point in child",
               "id": 1,
               "name": "test point in child",
               "ok": false,
@@ -176,7 +168,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "child test point in child",
+      "fullname": "child > test point in child",
       "id": 1,
       "name": "test point in child",
       "ok": false,
@@ -193,7 +185,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "child test point in child",
+      "fullname": "child > test point in child",
       "id": 1,
       "name": "test point in child",
       "ok": false,
@@ -216,10 +208,6 @@ Array [
   Array [
     "line",
     "    # test count(1) != plan(null)\\n",
-  ],
-  Array [
-    "line",
-    "    # failed 4 test\\n",
   ],
   Array [
     "line",
@@ -253,14 +241,6 @@ Array [
       "end": 1,
       "start": 1,
     },
-  ],
-  Array [
-    "line",
-    "# failed 3 test\\n",
-  ],
-  Array [
-    "comment",
-    "# failed 3 test\\n",
   ],
   Array [
     "complete",
@@ -312,7 +292,7 @@ Array [
 ]
 `
 
-exports[`test/parser.ts TAP strict-pragma-child-broken-diags.tap > output bail=true 1`] = `
+exports[`test/parser.ts > TAP > strict-pragma-child-broken-diags.tap > output bail=true 1`] = `
 Array [
   Array [
     "line",
@@ -359,7 +339,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "child test point in child",
+          "fullname": "child > test point in child",
           "id": 1,
           "name": "test point in child",
           "ok": false,
@@ -405,7 +385,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "child test point in child",
+              "fullname": "child > test point in child",
               "id": 1,
               "name": "test point in child",
               "ok": false,
@@ -472,7 +452,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "child test point in child",
+      "fullname": "child > test point in child",
       "id": 1,
       "name": "test point in child",
       "ok": false,
@@ -489,7 +469,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "child test point in child",
+      "fullname": "child > test point in child",
       "id": 1,
       "name": "test point in child",
       "ok": false,

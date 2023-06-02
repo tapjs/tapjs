@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser.ts TAP no-plan.tap > output bail=false 1`] = `
+exports[`test/parser.ts > TAP > no-plan.tap > output bail=false 1`] = `
 Array [
   Array [
     "line",
@@ -258,14 +258,6 @@ Array [
   Array [
     "comment",
     "# test count(4) != plan(null)\\n",
-  ],
-  Array [
-    "line",
-    "# failed 1 of 4 tests\\n",
-  ],
-  Array [
-    "comment",
-    "# failed 1 of 4 tests\\n",
   ],
   Array [
     "complete",
@@ -298,7 +290,7 @@ Array [
 ]
 `
 
-exports[`test/parser.ts TAP no-plan.tap > output bail=true 1`] = `
+exports[`test/parser.ts > TAP > no-plan.tap > output bail=true 1`] = `
 Array [
   Array [
     "line",
@@ -551,14 +543,6 @@ Array [
   Array [
     "comment",
     "# test count(4) != plan(null)\\n",
-  ],
-  Array [
-    "line",
-    "# failed 1 of 4 tests\\n",
-  ],
-  Array [
-    "comment",
-    "# failed 1 of 4 tests\\n",
   ],
   Array [
     "complete",

@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts TAP child-extra.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > child-extra.tap > bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -27,7 +27,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "test/debug-test.js Should output debugger message",
+          "fullname": "test/debug-test.js > Should output debugger message",
           "id": 1,
           "name": "Should output debugger message",
           "ok": true,
@@ -165,7 +165,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP child-extra.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > child-extra.tap > bail > stringified 1`] = `
 TAP version 13
 # Subtest: test/debug-test.js
     # debug test
@@ -183,11 +183,11 @@ ok 1 - test/debug-test.js # time=537.383ms
 
 `
 
-exports[`test/parse-stringify.ts TAP child-extra.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > child-extra.tap > bail > stringified flat 1`] = `
 TAP version 13
 # Subtest: test/debug-test.js
 # debug test
-ok 1 - test/debug-test.js Should output debugger message
+ok 1 - test/debug-test.js > Should output debugger message
 # tests 1
 # pass  1
 # ok
@@ -200,7 +200,7 @@ ok 2 - test/debug-test.js # time=537.383ms
 
 `
 
-exports[`test/parse-stringify.ts TAP child-extra.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > child-extra.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -222,7 +222,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "test/debug-test.js Should output debugger message",
+          "fullname": "test/debug-test.js > Should output debugger message",
           "id": 1,
           "name": "Should output debugger message",
           "ok": true,
@@ -360,7 +360,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP child-extra.tap default settings > parsed flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > child-extra.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "version",
@@ -383,9 +383,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "test/debug-test.js Should output debugger message",
+      "fullname": "test/debug-test.js > Should output debugger message",
       "id": 1,
-      "name": "test/debug-test.js Should output debugger message",
+      "name": "test/debug-test.js > Should output debugger message",
       "ok": true,
       "plan": null,
       "previous": null,
@@ -439,7 +439,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP child-extra.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > child-extra.tap > default settings > stringified 1`] = `
 TAP version 13
 # Subtest: test/debug-test.js
     # debug test
@@ -457,11 +457,11 @@ ok 1 - test/debug-test.js # time=537.383ms
 
 `
 
-exports[`test/parse-stringify.ts TAP child-extra.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > child-extra.tap > default settings > stringified flat 1`] = `
 TAP version 13
 # Subtest: test/debug-test.js
 # debug test
-ok 1 - test/debug-test.js Should output debugger message
+ok 1 - test/debug-test.js > Should output debugger message
 # tests 1
 # pass  1
 # ok
@@ -474,7 +474,7 @@ ok 2 - test/debug-test.js # time=537.383ms
 
 `
 
-exports[`test/parse-stringify.ts TAP child-extra.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > child-extra.tap > strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -496,7 +496,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "test/debug-test.js Should output debugger message",
+          "fullname": "test/debug-test.js > Should output debugger message",
           "id": 1,
           "name": "Should output debugger message",
           "ok": true,
@@ -602,10 +602,6 @@ Array [
     "# time=543.783ms\\n",
   ],
   Array [
-    "comment",
-    "# failed 3 test\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -651,7 +647,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP child-extra.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > child-extra.tap > strict > stringified 1`] = `
 TAP version 13
 # Subtest: test/debug-test.js
     # debug test
@@ -666,15 +662,14 @@ t.plan=1
 ok 1 - test/debug-test.js # time=537.383ms
 1..1
 # time=543.783ms
-# failed 3 test
 
 `
 
-exports[`test/parse-stringify.ts TAP child-extra.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > child-extra.tap > strict > stringified flat 1`] = `
 TAP version 13
 # Subtest: test/debug-test.js
 # debug test
-ok 1 - test/debug-test.js Should output debugger message
+ok 1 - test/debug-test.js > Should output debugger message
 # tests 1
 # pass  1
 # ok
@@ -684,11 +679,10 @@ t.plan=1
 ok 2 - test/debug-test.js # time=537.383ms
 1..2
 # time=543.783ms
-# failed 3 test
 
 `
 
-exports[`test/parse-stringify.ts TAP child-extra.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > child-extra.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -710,7 +704,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "test/debug-test.js Should output debugger message",
+          "fullname": "test/debug-test.js > Should output debugger message",
           "id": 1,
           "name": "Should output debugger message",
           "ok": true,
@@ -816,10 +810,6 @@ Array [
     "# time=543.783ms\\n",
   ],
   Array [
-    "comment",
-    "# failed 3 test\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -865,7 +855,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP child-extra.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > child-extra.tap > strictBail > stringified 1`] = `
 TAP version 13
 # Subtest: test/debug-test.js
     # debug test
@@ -880,15 +870,14 @@ t.plan=1
 ok 1 - test/debug-test.js # time=537.383ms
 1..1
 # time=543.783ms
-# failed 3 test
 
 `
 
-exports[`test/parse-stringify.ts TAP child-extra.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > child-extra.tap > strictBail > stringified flat 1`] = `
 TAP version 13
 # Subtest: test/debug-test.js
 # debug test
-ok 1 - test/debug-test.js Should output debugger message
+ok 1 - test/debug-test.js > Should output debugger message
 # tests 1
 # pass  1
 # ok
@@ -898,6 +887,5 @@ t.plan=1
 ok 2 - test/debug-test.js # time=537.383ms
 1..2
 # time=543.783ms
-# failed 3 test
 
 `

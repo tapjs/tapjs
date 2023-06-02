@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts TAP space_after_plan.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > space_after_plan.tap > bail > parsed 1`] = `
 Array [
   Array [
     "extra",
@@ -99,10 +99,6 @@ Array [
   Array [
     "comment",
     "# test count(5) != plan(null)\\n",
-  ],
-  Array [
-    "comment",
-    "# failed 1 of 5 tests\\n",
   ],
   Array [
     "complete",
@@ -141,7 +137,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP space_after_plan.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > space_after_plan.tap > bail > stringified 1`] = `
 1..5 
 ok 1
 ok 2
@@ -149,11 +145,10 @@ ok 3
 ok 4
 ok 5
 # test count(5) != plan(null)
-# failed 1 of 5 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP space_after_plan.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > space_after_plan.tap > bail > stringified flat 1`] = `
 1..5 
 ok 1
 ok 2
@@ -161,11 +156,10 @@ ok 3
 ok 4
 ok 5
 # test count(5) != plan(null)
-# failed 1 of 5 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP space_after_plan.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > space_after_plan.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "extra",
@@ -259,10 +253,6 @@ Array [
   Array [
     "comment",
     "# test count(5) != plan(null)\\n",
-  ],
-  Array [
-    "comment",
-    "# failed 1 of 5 tests\\n",
   ],
   Array [
     "complete",
@@ -301,7 +291,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP space_after_plan.tap default settings > parsed flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > space_after_plan.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "extra",
@@ -395,10 +385,6 @@ Array [
   Array [
     "comment",
     "# test count(5) != plan(null)\\n",
-  ],
-  Array [
-    "comment",
-    "# failed 1 of 5 tests\\n",
   ],
   Array [
     "plan",
@@ -444,7 +430,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP space_after_plan.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > space_after_plan.tap > default settings > stringified 1`] = `
 1..5 
 ok 1
 ok 2
@@ -452,11 +438,10 @@ ok 3
 ok 4
 ok 5
 # test count(5) != plan(null)
-# failed 1 of 5 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP space_after_plan.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > space_after_plan.tap > default settings > stringified flat 1`] = `
 1..5 
 ok 1
 ok 2
@@ -464,11 +449,10 @@ ok 3
 ok 4
 ok 5
 # test count(5) != plan(null)
-# failed 1 of 5 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP space_after_plan.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > space_after_plan.tap > strict > parsed 1`] = `
 Array [
   Array [
     "extra",
@@ -564,10 +548,6 @@ Array [
     "# test count(5) != plan(null)\\n",
   ],
   Array [
-    "comment",
-    "# failed 2 of 5 tests\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -608,7 +588,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP space_after_plan.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > space_after_plan.tap > strict > stringified 1`] = `
 1..5 
 ok 1
 ok 2
@@ -616,11 +596,10 @@ ok 3
 ok 4
 ok 5
 # test count(5) != plan(null)
-# failed 2 of 5 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP space_after_plan.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > space_after_plan.tap > strict > stringified flat 1`] = `
 1..5 
 ok 1
 ok 2
@@ -628,11 +607,10 @@ ok 3
 ok 4
 ok 5
 # test count(5) != plan(null)
-# failed 2 of 5 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP space_after_plan.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > space_after_plan.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "extra",
@@ -728,10 +706,6 @@ Array [
     "# test count(5) != plan(null)\\n",
   ],
   Array [
-    "comment",
-    "# failed 2 of 5 tests\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -772,7 +746,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP space_after_plan.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > space_after_plan.tap > strictBail > stringified 1`] = `
 1..5 
 ok 1
 ok 2
@@ -780,11 +754,10 @@ ok 3
 ok 4
 ok 5
 # test count(5) != plan(null)
-# failed 2 of 5 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP space_after_plan.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > space_after_plan.tap > strictBail > stringified flat 1`] = `
 1..5 
 ok 1
 ok 2
@@ -792,6 +765,5 @@ ok 3
 ok 4
 ok 5
 # test count(5) != plan(null)
-# failed 2 of 5 tests
 
 `

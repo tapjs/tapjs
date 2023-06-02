@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser.ts TAP perl-test2-streamed.tap > output bail=false 1`] = `
+exports[`test/parser.ts > TAP > perl-test2-streamed.tap > output bail=false 1`] = `
 Array [
   Array [
     "line",
@@ -35,7 +35,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "my_streamy_test subtest event A",
+          "fullname": "my_streamy_test > subtest event A",
           "id": 1,
           "name": "subtest event A",
           "ok": true,
@@ -56,7 +56,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "my_streamy_test subtest event B",
+          "fullname": "my_streamy_test > subtest event B",
           "id": 2,
           "name": "subtest event B",
           "ok": true,
@@ -118,7 +118,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "my_streamy_test subtest event A",
+      "fullname": "my_streamy_test > subtest event A",
       "id": 1,
       "name": "subtest event A",
       "ok": true,
@@ -135,7 +135,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "my_streamy_test subtest event A",
+      "fullname": "my_streamy_test > subtest event A",
       "id": 1,
       "name": "subtest event A",
       "ok": true,
@@ -156,7 +156,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "my_streamy_test subtest event B",
+      "fullname": "my_streamy_test > subtest event B",
       "id": 2,
       "name": "subtest event B",
       "ok": true,
@@ -173,7 +173,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "my_streamy_test subtest event B",
+      "fullname": "my_streamy_test > subtest event B",
       "id": 2,
       "name": "subtest event B",
       "ok": true,
@@ -276,7 +276,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "my_streamy_test_plan subtest event A",
+          "fullname": "my_streamy_test_plan > subtest event A",
           "id": 1,
           "name": "subtest event A",
           "ok": true,
@@ -297,7 +297,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "my_streamy_test_plan subtest event B",
+          "fullname": "my_streamy_test_plan > subtest event B",
           "id": 2,
           "name": "subtest event B",
           "ok": true,
@@ -351,7 +351,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "my_streamy_test_plan subtest event A",
+      "fullname": "my_streamy_test_plan > subtest event A",
       "id": 1,
       "name": "subtest event A",
       "ok": true,
@@ -368,7 +368,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "my_streamy_test_plan subtest event A",
+      "fullname": "my_streamy_test_plan > subtest event A",
       "id": 1,
       "name": "subtest event A",
       "ok": true,
@@ -389,7 +389,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "my_streamy_test_plan subtest event B",
+      "fullname": "my_streamy_test_plan > subtest event B",
       "id": 2,
       "name": "subtest event B",
       "ok": true,
@@ -406,7 +406,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "my_streamy_test_plan subtest event B",
+      "fullname": "my_streamy_test_plan > subtest event B",
       "id": 2,
       "name": "subtest event B",
       "ok": true,
@@ -512,7 +512,7 @@ Array [
 ]
 `
 
-exports[`test/parser.ts TAP perl-test2-streamed.tap > output bail=true 1`] = `
+exports[`test/parser.ts > TAP > perl-test2-streamed.tap > output bail=true 1`] = `
 Array [
   Array [
     "line",
@@ -542,7 +542,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "my_streamy_test subtest event A",
+          "fullname": "my_streamy_test > subtest event A",
           "id": 1,
           "name": "subtest event A",
           "ok": true,
@@ -563,7 +563,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "my_streamy_test subtest event B",
+          "fullname": "my_streamy_test > subtest event B",
           "id": 2,
           "name": "subtest event B",
           "ok": true,
@@ -625,7 +625,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "my_streamy_test subtest event A",
+      "fullname": "my_streamy_test > subtest event A",
       "id": 1,
       "name": "subtest event A",
       "ok": true,
@@ -642,7 +642,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "my_streamy_test subtest event A",
+      "fullname": "my_streamy_test > subtest event A",
       "id": 1,
       "name": "subtest event A",
       "ok": true,
@@ -663,7 +663,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "my_streamy_test subtest event B",
+      "fullname": "my_streamy_test > subtest event B",
       "id": 2,
       "name": "subtest event B",
       "ok": true,
@@ -680,7 +680,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "my_streamy_test subtest event B",
+      "fullname": "my_streamy_test > subtest event B",
       "id": 2,
       "name": "subtest event B",
       "ok": true,
@@ -783,7 +783,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "my_streamy_test_plan subtest event A",
+          "fullname": "my_streamy_test_plan > subtest event A",
           "id": 1,
           "name": "subtest event A",
           "ok": true,
@@ -804,7 +804,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "my_streamy_test_plan subtest event B",
+          "fullname": "my_streamy_test_plan > subtest event B",
           "id": 2,
           "name": "subtest event B",
           "ok": true,
@@ -858,7 +858,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "my_streamy_test_plan subtest event A",
+      "fullname": "my_streamy_test_plan > subtest event A",
       "id": 1,
       "name": "subtest event A",
       "ok": true,
@@ -875,7 +875,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "my_streamy_test_plan subtest event A",
+      "fullname": "my_streamy_test_plan > subtest event A",
       "id": 1,
       "name": "subtest event A",
       "ok": true,
@@ -896,7 +896,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "my_streamy_test_plan subtest event B",
+      "fullname": "my_streamy_test_plan > subtest event B",
       "id": 2,
       "name": "subtest event B",
       "ok": true,
@@ -913,7 +913,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "my_streamy_test_plan subtest event B",
+      "fullname": "my_streamy_test_plan > subtest event B",
       "id": 2,
       "name": "subtest event B",
       "ok": true,

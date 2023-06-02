@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts TAP confusing-json.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > confusing-json.tap > bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -23,7 +23,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "Test newlines in tap and console.log Before console.log",
+          "fullname": "Test newlines in tap and console.log > Before console.log",
           "id": 1,
           "name": "Before console.log",
           "ok": true,
@@ -40,7 +40,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "Test newlines in tap and console.log After console.log",
+          "fullname": "Test newlines in tap and console.log > After console.log",
           "id": 2,
           "name": "After console.log",
           "ok": true,
@@ -222,7 +222,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP confusing-json.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > confusing-json.tap > bail > stringified 1`] = `
 TAP version 13
 # Subtest: Test newlines in tap and console.log
     ok 1 - Before console.log
@@ -251,11 +251,11 @@ ok 1 - Test newlines in tap and console.log # time=4.137ms
 
 `
 
-exports[`test/parse-stringify.ts TAP confusing-json.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > confusing-json.tap > bail > stringified flat 1`] = `
 TAP version 13
 # Subtest: Test newlines in tap and console.log
-ok 1 - Test newlines in tap and console.log Before console.log
-ok 2 - Test newlines in tap and console.log After console.log
+ok 1 - Test newlines in tap and console.log > Before console.log
+ok 2 - Test newlines in tap and console.log > After console.log
 createdMultipleStepsWithWeightAndCapacity={
   "name": "Multiple Steps with Weight and Capacity",
   "usedByModels": [
@@ -279,7 +279,7 @@ ok 3 - Test newlines in tap and console.log # time=4.137ms
 
 `
 
-exports[`test/parse-stringify.ts TAP confusing-json.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > confusing-json.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -297,7 +297,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "Test newlines in tap and console.log Before console.log",
+          "fullname": "Test newlines in tap and console.log > Before console.log",
           "id": 1,
           "name": "Before console.log",
           "ok": true,
@@ -314,7 +314,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "Test newlines in tap and console.log After console.log",
+          "fullname": "Test newlines in tap and console.log > After console.log",
           "id": 2,
           "name": "After console.log",
           "ok": true,
@@ -496,7 +496,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP confusing-json.tap default settings > parsed flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > confusing-json.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "version",
@@ -575,9 +575,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "Test newlines in tap and console.log Before console.log",
+      "fullname": "Test newlines in tap and console.log > Before console.log",
       "id": 1,
-      "name": "Test newlines in tap and console.log Before console.log",
+      "name": "Test newlines in tap and console.log > Before console.log",
       "ok": true,
       "plan": null,
       "previous": null,
@@ -592,9 +592,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "Test newlines in tap and console.log After console.log",
+      "fullname": "Test newlines in tap and console.log > After console.log",
       "id": 2,
-      "name": "Test newlines in tap and console.log After console.log",
+      "name": "Test newlines in tap and console.log > After console.log",
       "ok": true,
       "plan": null,
       "previous": null,
@@ -648,7 +648,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP confusing-json.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > confusing-json.tap > default settings > stringified 1`] = `
 TAP version 13
 # Subtest: Test newlines in tap and console.log
     ok 1 - Before console.log
@@ -677,11 +677,11 @@ ok 1 - Test newlines in tap and console.log # time=4.137ms
 
 `
 
-exports[`test/parse-stringify.ts TAP confusing-json.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > confusing-json.tap > default settings > stringified flat 1`] = `
 TAP version 13
 # Subtest: Test newlines in tap and console.log
-ok 1 - Test newlines in tap and console.log Before console.log
-ok 2 - Test newlines in tap and console.log After console.log
+ok 1 - Test newlines in tap and console.log > Before console.log
+ok 2 - Test newlines in tap and console.log > After console.log
 createdMultipleStepsWithWeightAndCapacity={
   "name": "Multiple Steps with Weight and Capacity",
   "usedByModels": [
@@ -705,7 +705,7 @@ ok 3 - Test newlines in tap and console.log # time=4.137ms
 
 `
 
-exports[`test/parse-stringify.ts TAP confusing-json.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > confusing-json.tap > strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -723,7 +723,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "Test newlines in tap and console.log Before console.log",
+          "fullname": "Test newlines in tap and console.log > Before console.log",
           "id": 1,
           "name": "Before console.log",
           "ok": true,
@@ -740,7 +740,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "Test newlines in tap and console.log After console.log",
+          "fullname": "Test newlines in tap and console.log > After console.log",
           "id": 2,
           "name": "After console.log",
           "ok": true,
@@ -759,10 +759,6 @@ Array [
           "end": 2,
           "start": 1,
         },
-      ],
-      Array [
-        "comment",
-        "# failed 9 of 2 tests\\n",
       ],
       Array [
         "complete",
@@ -931,10 +927,6 @@ Array [
     "# time=13.316ms\\n",
   ],
   Array [
-    "comment",
-    "# failed 17 test\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -1036,13 +1028,12 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP confusing-json.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > confusing-json.tap > strict > stringified 1`] = `
 TAP version 13
 # Subtest: Test newlines in tap and console.log
     ok 1 - Before console.log
     ok 2 - After console.log
     1..2
-    # failed 9 of 2 tests
 createdMultipleStepsWithWeightAndCapacity={
   "name": "Multiple Steps with Weight and Capacity",
   "usedByModels": [
@@ -1063,16 +1054,14 @@ createdMultipleStepsWithWeightAndCapacity={
 ok 1 - Test newlines in tap and console.log # time=4.137ms
 1..1
 # time=13.316ms
-# failed 17 test
 
 `
 
-exports[`test/parse-stringify.ts TAP confusing-json.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > confusing-json.tap > strict > stringified flat 1`] = `
 TAP version 13
 # Subtest: Test newlines in tap and console.log
-ok 1 - Test newlines in tap and console.log Before console.log
-ok 2 - Test newlines in tap and console.log After console.log
-# failed 9 of 2 tests
+ok 1 - Test newlines in tap and console.log > Before console.log
+ok 2 - Test newlines in tap and console.log > After console.log
 createdMultipleStepsWithWeightAndCapacity={
   "name": "Multiple Steps with Weight and Capacity",
   "usedByModels": [
@@ -1093,11 +1082,10 @@ createdMultipleStepsWithWeightAndCapacity={
 ok 3 - Test newlines in tap and console.log # time=4.137ms
 1..3
 # time=13.316ms
-# failed 17 test
 
 `
 
-exports[`test/parse-stringify.ts TAP confusing-json.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > confusing-json.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -1115,7 +1103,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "Test newlines in tap and console.log Before console.log",
+          "fullname": "Test newlines in tap and console.log > Before console.log",
           "id": 1,
           "name": "Before console.log",
           "ok": true,
@@ -1132,7 +1120,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "Test newlines in tap and console.log After console.log",
+          "fullname": "Test newlines in tap and console.log > After console.log",
           "id": 2,
           "name": "After console.log",
           "ok": true,
@@ -1151,10 +1139,6 @@ Array [
           "end": 2,
           "start": 1,
         },
-      ],
-      Array [
-        "comment",
-        "# failed 9 of 2 tests\\n",
       ],
       Array [
         "complete",
@@ -1323,10 +1307,6 @@ Array [
     "# time=13.316ms\\n",
   ],
   Array [
-    "comment",
-    "# failed 17 test\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -1428,13 +1408,12 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP confusing-json.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > confusing-json.tap > strictBail > stringified 1`] = `
 TAP version 13
 # Subtest: Test newlines in tap and console.log
     ok 1 - Before console.log
     ok 2 - After console.log
     1..2
-    # failed 9 of 2 tests
 createdMultipleStepsWithWeightAndCapacity={
   "name": "Multiple Steps with Weight and Capacity",
   "usedByModels": [
@@ -1455,16 +1434,14 @@ createdMultipleStepsWithWeightAndCapacity={
 ok 1 - Test newlines in tap and console.log # time=4.137ms
 1..1
 # time=13.316ms
-# failed 17 test
 
 `
 
-exports[`test/parse-stringify.ts TAP confusing-json.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > confusing-json.tap > strictBail > stringified flat 1`] = `
 TAP version 13
 # Subtest: Test newlines in tap and console.log
-ok 1 - Test newlines in tap and console.log Before console.log
-ok 2 - Test newlines in tap and console.log After console.log
-# failed 9 of 2 tests
+ok 1 - Test newlines in tap and console.log > Before console.log
+ok 2 - Test newlines in tap and console.log > After console.log
 createdMultipleStepsWithWeightAndCapacity={
   "name": "Multiple Steps with Weight and Capacity",
   "usedByModels": [
@@ -1485,6 +1462,5 @@ createdMultipleStepsWithWeightAndCapacity={
 ok 3 - Test newlines in tap and console.log # time=4.137ms
 1..3
 # time=13.316ms
-# failed 17 test
 
 `

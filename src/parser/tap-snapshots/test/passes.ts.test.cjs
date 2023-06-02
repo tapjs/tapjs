@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/passes.ts TAP > saw expected events 1`] = `
+exports[`test/passes.ts > TAP > saw expected events 1`] = `
 Array [
   Array [
     "plan",
@@ -128,10 +128,6 @@ Array [
       "time": null,
       "todo": false,
     },
-  ],
-  Array [
-    "comment",
-    "# failed 1 of 2 tests\\n",
   ],
   Array [
     "complete",

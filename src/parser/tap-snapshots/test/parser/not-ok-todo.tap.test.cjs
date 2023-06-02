@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser.ts TAP not-ok-todo.tap > output bail=false 1`] = `
+exports[`test/parser.ts > TAP > not-ok-todo.tap > output bail=false 1`] = `
 Array [
   Array [
     "line",
@@ -262,14 +262,6 @@ Array [
   Array [
     "comment",
     "# Looks like you failed 1 test of 4.\\n",
-  ],
-  Array [
-    "line",
-    "# todo: 1\\n",
-  ],
-  Array [
-    "comment",
-    "# todo: 1\\n",
   ],
   Array [
     "complete",
@@ -298,7 +290,7 @@ Array [
 ]
 `
 
-exports[`test/parser.ts TAP not-ok-todo.tap > output bail=true 1`] = `
+exports[`test/parser.ts > TAP > not-ok-todo.tap > output bail=true 1`] = `
 Array [
   Array [
     "line",
@@ -555,14 +547,6 @@ Array [
   Array [
     "comment",
     "# Looks like you failed 1 test of 4.\\n",
-  ],
-  Array [
-    "line",
-    "# todo: 1\\n",
-  ],
-  Array [
-    "comment",
-    "# todo: 1\\n",
   ],
   Array [
     "complete",

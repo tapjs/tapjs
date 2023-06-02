@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser.ts TAP diag-looks-like-comment.tap > output bail=false 1`] = `
+exports[`test/parser.ts > TAP > diag-looks-like-comment.tap > output bail=false 1`] = `
 Array [
   Array [
     "line",
@@ -135,7 +135,7 @@ Array [
             ),
             "pattern": "/SIGTERM/",
           },
-          "fullname": "-t 0.2 should match pattern provided",
+          "fullname": "-t 0.2 > should match pattern provided",
           "id": 1,
           "name": "should match pattern provided",
           "ok": false,
@@ -158,14 +158,6 @@ Array [
           "end": 1,
           "start": 1,
         },
-      ],
-      Array [
-        "line",
-        "# failed 1 test\\n",
-      ],
-      Array [
-        "comment",
-        "# failed 1 test\\n",
       ],
       Array [
         "complete",
@@ -197,7 +189,7 @@ Array [
                 ),
                 "pattern": "/SIGTERM/",
               },
-              "fullname": "-t 0.2 should match pattern provided",
+              "fullname": "-t 0.2 > should match pattern provided",
               "id": 1,
               "name": "should match pattern provided",
               "ok": false,
@@ -340,7 +332,7 @@ Array [
         ),
         "pattern": "/SIGTERM/",
       },
-      "fullname": "-t 0.2 should match pattern provided",
+      "fullname": "-t 0.2 > should match pattern provided",
       "id": 1,
       "name": "should match pattern provided",
       "ok": false,
@@ -377,7 +369,7 @@ Array [
         ),
         "pattern": "/SIGTERM/",
       },
-      "fullname": "-t 0.2 should match pattern provided",
+      "fullname": "-t 0.2 > should match pattern provided",
       "id": 1,
       "name": "should match pattern provided",
       "ok": false,
@@ -392,10 +384,6 @@ Array [
   Array [
     "line",
     "    1..1\\n",
-  ],
-  Array [
-    "line",
-    "    # failed 1 test\\n",
   ],
   Array [
     "line",
@@ -429,14 +417,6 @@ Array [
       "end": 1,
       "start": 1,
     },
-  ],
-  Array [
-    "line",
-    "# failed 1 test\\n",
-  ],
-  Array [
-    "comment",
-    "# failed 1 test\\n",
   ],
   Array [
     "complete",
@@ -480,7 +460,7 @@ Array [
 ]
 `
 
-exports[`test/parser.ts TAP diag-looks-like-comment.tap > output bail=true 1`] = `
+exports[`test/parser.ts > TAP > diag-looks-like-comment.tap > output bail=true 1`] = `
 Array [
   Array [
     "line",
@@ -610,7 +590,7 @@ Array [
             ),
             "pattern": "/SIGTERM/",
           },
-          "fullname": "-t 0.2 should match pattern provided",
+          "fullname": "-t 0.2 > should match pattern provided",
           "id": 1,
           "name": "should match pattern provided",
           "ok": false,
@@ -660,7 +640,7 @@ Array [
                 ),
                 "pattern": "/SIGTERM/",
               },
-              "fullname": "-t 0.2 should match pattern provided",
+              "fullname": "-t 0.2 > should match pattern provided",
               "id": 1,
               "name": "should match pattern provided",
               "ok": false,
@@ -803,7 +783,7 @@ Array [
         ),
         "pattern": "/SIGTERM/",
       },
-      "fullname": "-t 0.2 should match pattern provided",
+      "fullname": "-t 0.2 > should match pattern provided",
       "id": 1,
       "name": "should match pattern provided",
       "ok": false,
@@ -840,7 +820,7 @@ Array [
         ),
         "pattern": "/SIGTERM/",
       },
-      "fullname": "-t 0.2 should match pattern provided",
+      "fullname": "-t 0.2 > should match pattern provided",
       "id": 1,
       "name": "should match pattern provided",
       "ok": false,

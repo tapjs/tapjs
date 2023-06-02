@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser.ts TAP bignum_many.tap > output bail=false 1`] = `
+exports[`test/parser.ts > TAP > bignum_many.tap > output bail=false 1`] = `
 Array [
   Array [
     "line",
@@ -775,14 +775,6 @@ Array [
   Array [
     "comment",
     "# test count(11) != plan(2)\\n",
-  ],
-  Array [
-    "line",
-    "# failed 9 of 11 tests\\n",
-  ],
-  Array [
-    "comment",
-    "# failed 9 of 11 tests\\n",
   ],
   Array [
     "complete",
@@ -974,7 +966,7 @@ Array [
 ]
 `
 
-exports[`test/parser.ts TAP bignum_many.tap > output bail=true 1`] = `
+exports[`test/parser.ts > TAP > bignum_many.tap > output bail=true 1`] = `
 Array [
   Array [
     "line",
@@ -1744,14 +1736,6 @@ Array [
   Array [
     "comment",
     "# test count(11) != plan(2)\\n",
-  ],
-  Array [
-    "line",
-    "# failed 9 of 11 tests\\n",
-  ],
-  Array [
-    "comment",
-    "# failed 9 of 11 tests\\n",
   ],
   Array [
     "complete",

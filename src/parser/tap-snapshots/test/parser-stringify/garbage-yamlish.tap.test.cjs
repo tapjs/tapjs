@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts TAP garbage-yamlish.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > garbage-yamlish.tap > bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -84,7 +84,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP garbage-yamlish.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > garbage-yamlish.tap > bail > stringified 1`] = `
 TAP version 13
 not ok 1 - de-indenting the yamlish wrongly.
 Bail out! de-indenting the yamlish wrongly.
@@ -92,7 +92,7 @@ Bail out! de-indenting the yamlish wrongly.
 
 `
 
-exports[`test/parse-stringify.ts TAP garbage-yamlish.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > garbage-yamlish.tap > bail > stringified flat 1`] = `
 TAP version 13
 not ok 1 - de-indenting the yamlish wrongly.
 Bail out! de-indenting the yamlish wrongly.
@@ -100,7 +100,7 @@ Bail out! de-indenting the yamlish wrongly.
 
 `
 
-exports[`test/parse-stringify.ts TAP garbage-yamlish.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > garbage-yamlish.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -209,10 +209,6 @@ Array [
     },
   ],
   Array [
-    "comment",
-    "# failed 3 of 4 tests\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -288,7 +284,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP garbage-yamlish.tap default settings > parsed flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > garbage-yamlish.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "version",
@@ -387,10 +383,6 @@ Array [
   Array [
     "extra",
     "     not ok 99 this is not a child test\\n",
-  ],
-  Array [
-    "comment",
-    "# failed 3 of 4 tests\\n",
   ],
   Array [
     "plan",
@@ -475,7 +467,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP garbage-yamlish.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > garbage-yamlish.tap > default settings > stringified 1`] = `
 TAP version 13
 not ok 1 - de-indenting the yamlish wrongly.
   ---
@@ -490,11 +482,10 @@ not ok 3 - truncating the yamlish
 not ok 4 - this is truncated weirdly
      not ok 99 this is not a child test
 1..4
-# failed 3 of 4 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP garbage-yamlish.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > garbage-yamlish.tap > default settings > stringified flat 1`] = `
 TAP version 13
 not ok 1 - de-indenting the yamlish wrongly.
   ---
@@ -509,11 +500,10 @@ not ok 3 - truncating the yamlish
 not ok 4 - this is truncated weirdly
      not ok 99 this is not a child test
 1..4
-# failed 3 of 4 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP garbage-yamlish.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > garbage-yamlish.tap > strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -620,10 +610,6 @@ Array [
       "end": 4,
       "start": 1,
     },
-  ],
-  Array [
-    "comment",
-    "# failed 7 of 4 tests\\n",
   ],
   Array [
     "complete",
@@ -727,7 +713,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP garbage-yamlish.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > garbage-yamlish.tap > strict > stringified 1`] = `
 TAP version 13
 not ok 1 - de-indenting the yamlish wrongly.
   ---
@@ -742,11 +728,10 @@ not ok 3 - truncating the yamlish
 not ok 4 - this is truncated weirdly
      not ok 99 this is not a child test
 1..4
-# failed 7 of 4 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP garbage-yamlish.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > garbage-yamlish.tap > strict > stringified flat 1`] = `
 TAP version 13
 not ok 1 - de-indenting the yamlish wrongly.
   ---
@@ -761,11 +746,10 @@ not ok 3 - truncating the yamlish
 not ok 4 - this is truncated weirdly
      not ok 99 this is not a child test
 1..4
-# failed 7 of 4 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP garbage-yamlish.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > garbage-yamlish.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -848,7 +832,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP garbage-yamlish.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > garbage-yamlish.tap > strictBail > stringified 1`] = `
 TAP version 13
 not ok 1 - de-indenting the yamlish wrongly.
 Bail out! de-indenting the yamlish wrongly.
@@ -856,7 +840,7 @@ Bail out! de-indenting the yamlish wrongly.
 
 `
 
-exports[`test/parse-stringify.ts TAP garbage-yamlish.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > garbage-yamlish.tap > strictBail > stringified flat 1`] = `
 TAP version 13
 not ok 1 - de-indenting the yamlish wrongly.
 Bail out! de-indenting the yamlish wrongly.

@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts TAP subtest-buffer-diags-time.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-buffer-diags-time.tap > bail > parsed 1`] = `
 Array [
   Array [
     "plan",
@@ -27,7 +27,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "first x",
+          "fullname": "first > x",
           "id": 0,
           "name": "x",
           "ok": true,
@@ -108,7 +108,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "second x",
+          "fullname": "second > x",
           "id": 0,
           "name": "x",
           "ok": true,
@@ -189,7 +189,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "third y",
+          "fullname": "third > y",
           "id": 0,
           "name": "y",
           "ok": true,
@@ -293,7 +293,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP subtest-buffer-diags-time.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-buffer-diags-time.tap > bail > stringified 1`] = `
 1..3
 # Subtest: first
     ok - x
@@ -313,16 +313,16 @@ ok 3 - third # time=43.21ms
 
 `
 
-exports[`test/parse-stringify.ts TAP subtest-buffer-diags-time.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-buffer-diags-time.tap > bail > stringified flat 1`] = `
 1..0
 # Subtest: first
-ok 1 - first x
+ok 1 - first > x
 ok 2 - first # time=12.34ms
 # Subtest: second
-ok 3 - second x
+ok 3 - second > x
 ok 4 - second # time=12.34ms
 # Subtest: third
-ok 5 - third y
+ok 5 - third > y
 ok 6 - third # time=43.21ms
   ---
   some: diagnostic
@@ -330,7 +330,7 @@ ok 6 - third # time=43.21ms
 
 `
 
-exports[`test/parse-stringify.ts TAP subtest-buffer-diags-time.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-buffer-diags-time.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "plan",
@@ -352,7 +352,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "first x",
+          "fullname": "first > x",
           "id": 0,
           "name": "x",
           "ok": true,
@@ -433,7 +433,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "second x",
+          "fullname": "second > x",
           "id": 0,
           "name": "x",
           "ok": true,
@@ -514,7 +514,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "third y",
+          "fullname": "third > y",
           "id": 0,
           "name": "y",
           "ok": true,
@@ -618,16 +618,16 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP subtest-buffer-diags-time.tap default settings > parsed flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-buffer-diags-time.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "assert",
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "first x",
+      "fullname": "first > x",
       "id": 1,
-      "name": "first x",
+      "name": "first > x",
       "ok": true,
       "plan": null,
       "previous": null,
@@ -642,9 +642,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "second x",
+      "fullname": "second > x",
       "id": 2,
-      "name": "second x",
+      "name": "second > x",
       "ok": true,
       "plan": null,
       "previous": null,
@@ -659,9 +659,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "third y",
+      "fullname": "third > y",
       "id": 3,
-      "name": "third y",
+      "name": "third > y",
       "ok": true,
       "plan": null,
       "previous": null,
@@ -711,7 +711,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP subtest-buffer-diags-time.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-buffer-diags-time.tap > default settings > stringified 1`] = `
 1..3
 # Subtest: first
     ok - x
@@ -731,16 +731,16 @@ ok 3 - third # time=43.21ms
 
 `
 
-exports[`test/parse-stringify.ts TAP subtest-buffer-diags-time.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-buffer-diags-time.tap > default settings > stringified flat 1`] = `
 1..0
 # Subtest: first
-ok 1 - first x
+ok 1 - first > x
 ok 2 - first # time=12.34ms
 # Subtest: second
-ok 3 - second x
+ok 3 - second > x
 ok 4 - second # time=12.34ms
 # Subtest: third
-ok 5 - third y
+ok 5 - third > y
 ok 6 - third # time=43.21ms
   ---
   some: diagnostic
@@ -748,7 +748,7 @@ ok 6 - third # time=43.21ms
 
 `
 
-exports[`test/parse-stringify.ts TAP subtest-buffer-diags-time.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-buffer-diags-time.tap > strict > parsed 1`] = `
 Array [
   Array [
     "plan",
@@ -770,7 +770,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "first x",
+          "fullname": "first > x",
           "id": 0,
           "name": "x",
           "ok": true,
@@ -851,7 +851,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "second x",
+          "fullname": "second > x",
           "id": 0,
           "name": "x",
           "ok": true,
@@ -932,7 +932,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "third y",
+          "fullname": "third > y",
           "id": 0,
           "name": "y",
           "ok": true,
@@ -1036,7 +1036,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP subtest-buffer-diags-time.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-buffer-diags-time.tap > strict > stringified 1`] = `
 1..3
 # Subtest: first
     ok - x
@@ -1056,16 +1056,16 @@ ok 3 - third # time=43.21ms
 
 `
 
-exports[`test/parse-stringify.ts TAP subtest-buffer-diags-time.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-buffer-diags-time.tap > strict > stringified flat 1`] = `
 1..0
 # Subtest: first
-ok 1 - first x
+ok 1 - first > x
 ok 2 - first # time=12.34ms
 # Subtest: second
-ok 3 - second x
+ok 3 - second > x
 ok 4 - second # time=12.34ms
 # Subtest: third
-ok 5 - third y
+ok 5 - third > y
 ok 6 - third # time=43.21ms
   ---
   some: diagnostic
@@ -1073,7 +1073,7 @@ ok 6 - third # time=43.21ms
 
 `
 
-exports[`test/parse-stringify.ts TAP subtest-buffer-diags-time.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-buffer-diags-time.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "plan",
@@ -1095,7 +1095,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "first x",
+          "fullname": "first > x",
           "id": 0,
           "name": "x",
           "ok": true,
@@ -1176,7 +1176,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "second x",
+          "fullname": "second > x",
           "id": 0,
           "name": "x",
           "ok": true,
@@ -1257,7 +1257,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "third y",
+          "fullname": "third > y",
           "id": 0,
           "name": "y",
           "ok": true,
@@ -1361,7 +1361,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP subtest-buffer-diags-time.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-buffer-diags-time.tap > strictBail > stringified 1`] = `
 1..3
 # Subtest: first
     ok - x
@@ -1381,16 +1381,16 @@ ok 3 - third # time=43.21ms
 
 `
 
-exports[`test/parse-stringify.ts TAP subtest-buffer-diags-time.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-buffer-diags-time.tap > strictBail > stringified flat 1`] = `
 1..0
 # Subtest: first
-ok 1 - first x
+ok 1 - first > x
 ok 2 - first # time=12.34ms
 # Subtest: second
-ok 3 - second x
+ok 3 - second > x
 ok 4 - second # time=12.34ms
 # Subtest: third
-ok 5 - third y
+ok 5 - third > y
 ok 6 - third # time=43.21ms
   ---
   some: diagnostic

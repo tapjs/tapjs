@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts TAP buffered-with-diag-not-ok.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-with-diag-not-ok.tap > bail > parsed 1`] = `
 Array [
   Array [
     "child",
@@ -144,7 +144,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP buffered-with-diag-not-ok.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-with-diag-not-ok.tap > bail > stringified 1`] = `
 # Subtest: child
     ok 1
     1..1
@@ -156,7 +156,7 @@ Bail out! child
 
 `
 
-exports[`test/parse-stringify.ts TAP buffered-with-diag-not-ok.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-with-diag-not-ok.tap > bail > stringified flat 1`] = `
 # Subtest: child
 ok 1 - child
 not ok 2 - child
@@ -167,7 +167,7 @@ Bail out! child
 
 `
 
-exports[`test/parse-stringify.ts TAP buffered-with-diag-not-ok.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-with-diag-not-ok.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "child",
@@ -261,10 +261,6 @@ Array [
     },
   ],
   Array [
-    "comment",
-    "# failed 1 test\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -314,7 +310,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP buffered-with-diag-not-ok.tap default settings > parsed flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-with-diag-not-ok.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "assert",
@@ -351,10 +347,6 @@ Array [
       "time": null,
       "todo": false,
     },
-  ],
-  Array [
-    "comment",
-    "# failed 1 test\\n",
   ],
   Array [
     "plan",
@@ -413,7 +405,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP buffered-with-diag-not-ok.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-with-diag-not-ok.tap > default settings > stringified 1`] = `
 # Subtest: child
     ok 1
     1..1
@@ -422,11 +414,10 @@ not ok 1 - child
   some: diagnostics
   ...
 1..1
-# failed 1 test
 
 `
 
-exports[`test/parse-stringify.ts TAP buffered-with-diag-not-ok.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-with-diag-not-ok.tap > default settings > stringified flat 1`] = `
 # Subtest: child
 ok 1 - child
 not ok 2 - child
@@ -434,11 +425,10 @@ not ok 2 - child
   some: diagnostics
   ...
 1..2
-# failed 1 test
 
 `
 
-exports[`test/parse-stringify.ts TAP buffered-with-diag-not-ok.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-with-diag-not-ok.tap > strict > parsed 1`] = `
 Array [
   Array [
     "child",
@@ -532,10 +522,6 @@ Array [
     },
   ],
   Array [
-    "comment",
-    "# failed 1 test\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -585,7 +571,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP buffered-with-diag-not-ok.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-with-diag-not-ok.tap > strict > stringified 1`] = `
 # Subtest: child
     ok 1
     1..1
@@ -594,11 +580,10 @@ not ok 1 - child
   some: diagnostics
   ...
 1..1
-# failed 1 test
 
 `
 
-exports[`test/parse-stringify.ts TAP buffered-with-diag-not-ok.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-with-diag-not-ok.tap > strict > stringified flat 1`] = `
 # Subtest: child
 ok 1 - child
 not ok 2 - child
@@ -606,11 +591,10 @@ not ok 2 - child
   some: diagnostics
   ...
 1..2
-# failed 1 test
 
 `
 
-exports[`test/parse-stringify.ts TAP buffered-with-diag-not-ok.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-with-diag-not-ok.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "child",
@@ -749,7 +733,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP buffered-with-diag-not-ok.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-with-diag-not-ok.tap > strictBail > stringified 1`] = `
 # Subtest: child
     ok 1
     1..1
@@ -761,7 +745,7 @@ Bail out! child
 
 `
 
-exports[`test/parse-stringify.ts TAP buffered-with-diag-not-ok.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-with-diag-not-ok.tap > strictBail > stringified flat 1`] = `
 # Subtest: child
 ok 1 - child
 not ok 2 - child

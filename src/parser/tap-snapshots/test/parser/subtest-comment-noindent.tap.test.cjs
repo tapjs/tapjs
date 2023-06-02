@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser.ts TAP subtest-comment-noindent.tap > output bail=false 1`] = `
+exports[`test/parser.ts > TAP > subtest-comment-noindent.tap > output bail=false 1`] = `
 Array [
   Array [
     "line",
@@ -69,7 +69,7 @@ Array [
                 Result {
                   "buffered": false,
                   "diag": null,
-                  "fullname": "../tap/test/test/ok.js nesting first true is ok",
+                  "fullname": "../tap/test/test/ok.js > nesting > first > true is ok",
                   "id": 1,
                   "name": "true is ok",
                   "ok": true,
@@ -90,7 +90,7 @@ Array [
                 Result {
                   "buffered": false,
                   "diag": null,
-                  "fullname": "../tap/test/test/ok.js nesting first doag is also okay",
+                  "fullname": "../tap/test/test/ok.js > nesting > first > doag is also okay",
                   "id": 2,
                   "name": "doag is also okay",
                   "ok": true,
@@ -152,7 +152,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "../tap/test/test/ok.js nesting first",
+              "fullname": "../tap/test/test/ok.js > nesting > first",
               "id": 1,
               "name": "first",
               "ok": true,
@@ -184,7 +184,7 @@ Array [
                 Result {
                   "buffered": false,
                   "diag": null,
-                  "fullname": "../tap/test/test/ok.js nesting second but that is ok",
+                  "fullname": "../tap/test/test/ok.js > nesting > second > but that is ok",
                   "id": 1,
                   "name": "but that is ok",
                   "ok": true,
@@ -205,7 +205,7 @@ Array [
                 Result {
                   "buffered": false,
                   "diag": null,
-                  "fullname": "../tap/test/test/ok.js nesting second this passes",
+                  "fullname": "../tap/test/test/ok.js > nesting > second > this passes",
                   "id": 2,
                   "name": "this passes",
                   "ok": true,
@@ -226,7 +226,7 @@ Array [
                 Result {
                   "buffered": false,
                   "diag": null,
-                  "fullname": "../tap/test/test/ok.js nesting second nested ok",
+                  "fullname": "../tap/test/test/ok.js > nesting > second > nested ok",
                   "id": 3,
                   "name": "nested ok",
                   "ok": true,
@@ -304,7 +304,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "../tap/test/test/ok.js nesting second",
+              "fullname": "../tap/test/test/ok.js > nesting > second",
               "id": 2,
               "name": "second",
               "ok": true,
@@ -414,7 +414,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "../tap/test/test/ok.js nesting",
+          "fullname": "../tap/test/test/ok.js > nesting",
           "id": 1,
           "name": "nesting",
           "ok": true,
@@ -435,7 +435,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "../tap/test/test/ok.js this passes",
+          "fullname": "../tap/test/test/ok.js > this passes",
           "id": 2,
           "name": "this passes",
           "ok": true,
@@ -517,7 +517,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js nesting first true is ok",
+      "fullname": "../tap/test/test/ok.js > nesting > first > true is ok",
       "id": 1,
       "name": "true is ok",
       "ok": true,
@@ -534,7 +534,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js nesting first true is ok",
+      "fullname": "../tap/test/test/ok.js > nesting > first > true is ok",
       "id": 1,
       "name": "true is ok",
       "ok": true,
@@ -555,7 +555,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js nesting first doag is also okay",
+      "fullname": "../tap/test/test/ok.js > nesting > first > doag is also okay",
       "id": 2,
       "name": "doag is also okay",
       "ok": true,
@@ -572,7 +572,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js nesting first doag is also okay",
+      "fullname": "../tap/test/test/ok.js > nesting > first > doag is also okay",
       "id": 2,
       "name": "doag is also okay",
       "ok": true,
@@ -601,7 +601,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js nesting second but that is ok",
+      "fullname": "../tap/test/test/ok.js > nesting > second > but that is ok",
       "id": 1,
       "name": "but that is ok",
       "ok": true,
@@ -618,7 +618,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js nesting second but that is ok",
+      "fullname": "../tap/test/test/ok.js > nesting > second > but that is ok",
       "id": 1,
       "name": "but that is ok",
       "ok": true,
@@ -639,7 +639,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js nesting second this passes",
+      "fullname": "../tap/test/test/ok.js > nesting > second > this passes",
       "id": 2,
       "name": "this passes",
       "ok": true,
@@ -656,7 +656,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js nesting second this passes",
+      "fullname": "../tap/test/test/ok.js > nesting > second > this passes",
       "id": 2,
       "name": "this passes",
       "ok": true,
@@ -677,7 +677,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js nesting second nested ok",
+      "fullname": "../tap/test/test/ok.js > nesting > second > nested ok",
       "id": 3,
       "name": "nested ok",
       "ok": true,
@@ -694,7 +694,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js nesting second nested ok",
+      "fullname": "../tap/test/test/ok.js > nesting > second > nested ok",
       "id": 3,
       "name": "nested ok",
       "ok": true,
@@ -731,7 +731,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js this passes",
+      "fullname": "../tap/test/test/ok.js > this passes",
       "id": 2,
       "name": "this passes",
       "ok": true,
@@ -748,7 +748,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js this passes",
+      "fullname": "../tap/test/test/ok.js > this passes",
       "id": 2,
       "name": "this passes",
       "ok": true,
@@ -836,7 +836,7 @@ Array [
 ]
 `
 
-exports[`test/parser.ts TAP subtest-comment-noindent.tap > output bail=true 1`] = `
+exports[`test/parser.ts > TAP > subtest-comment-noindent.tap > output bail=true 1`] = `
 Array [
   Array [
     "line",
@@ -900,7 +900,7 @@ Array [
                 Result {
                   "buffered": false,
                   "diag": null,
-                  "fullname": "../tap/test/test/ok.js nesting first true is ok",
+                  "fullname": "../tap/test/test/ok.js > nesting > first > true is ok",
                   "id": 1,
                   "name": "true is ok",
                   "ok": true,
@@ -921,7 +921,7 @@ Array [
                 Result {
                   "buffered": false,
                   "diag": null,
-                  "fullname": "../tap/test/test/ok.js nesting first doag is also okay",
+                  "fullname": "../tap/test/test/ok.js > nesting > first > doag is also okay",
                   "id": 2,
                   "name": "doag is also okay",
                   "ok": true,
@@ -983,7 +983,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "../tap/test/test/ok.js nesting first",
+              "fullname": "../tap/test/test/ok.js > nesting > first",
               "id": 1,
               "name": "first",
               "ok": true,
@@ -1015,7 +1015,7 @@ Array [
                 Result {
                   "buffered": false,
                   "diag": null,
-                  "fullname": "../tap/test/test/ok.js nesting second but that is ok",
+                  "fullname": "../tap/test/test/ok.js > nesting > second > but that is ok",
                   "id": 1,
                   "name": "but that is ok",
                   "ok": true,
@@ -1036,7 +1036,7 @@ Array [
                 Result {
                   "buffered": false,
                   "diag": null,
-                  "fullname": "../tap/test/test/ok.js nesting second this passes",
+                  "fullname": "../tap/test/test/ok.js > nesting > second > this passes",
                   "id": 2,
                   "name": "this passes",
                   "ok": true,
@@ -1057,7 +1057,7 @@ Array [
                 Result {
                   "buffered": false,
                   "diag": null,
-                  "fullname": "../tap/test/test/ok.js nesting second nested ok",
+                  "fullname": "../tap/test/test/ok.js > nesting > second > nested ok",
                   "id": 3,
                   "name": "nested ok",
                   "ok": true,
@@ -1135,7 +1135,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "../tap/test/test/ok.js nesting second",
+              "fullname": "../tap/test/test/ok.js > nesting > second",
               "id": 2,
               "name": "second",
               "ok": true,
@@ -1245,7 +1245,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "../tap/test/test/ok.js nesting",
+          "fullname": "../tap/test/test/ok.js > nesting",
           "id": 1,
           "name": "nesting",
           "ok": true,
@@ -1266,7 +1266,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "../tap/test/test/ok.js this passes",
+          "fullname": "../tap/test/test/ok.js > this passes",
           "id": 2,
           "name": "this passes",
           "ok": true,
@@ -1348,7 +1348,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js nesting first true is ok",
+      "fullname": "../tap/test/test/ok.js > nesting > first > true is ok",
       "id": 1,
       "name": "true is ok",
       "ok": true,
@@ -1365,7 +1365,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js nesting first true is ok",
+      "fullname": "../tap/test/test/ok.js > nesting > first > true is ok",
       "id": 1,
       "name": "true is ok",
       "ok": true,
@@ -1386,7 +1386,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js nesting first doag is also okay",
+      "fullname": "../tap/test/test/ok.js > nesting > first > doag is also okay",
       "id": 2,
       "name": "doag is also okay",
       "ok": true,
@@ -1403,7 +1403,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js nesting first doag is also okay",
+      "fullname": "../tap/test/test/ok.js > nesting > first > doag is also okay",
       "id": 2,
       "name": "doag is also okay",
       "ok": true,
@@ -1432,7 +1432,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js nesting second but that is ok",
+      "fullname": "../tap/test/test/ok.js > nesting > second > but that is ok",
       "id": 1,
       "name": "but that is ok",
       "ok": true,
@@ -1449,7 +1449,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js nesting second but that is ok",
+      "fullname": "../tap/test/test/ok.js > nesting > second > but that is ok",
       "id": 1,
       "name": "but that is ok",
       "ok": true,
@@ -1470,7 +1470,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js nesting second this passes",
+      "fullname": "../tap/test/test/ok.js > nesting > second > this passes",
       "id": 2,
       "name": "this passes",
       "ok": true,
@@ -1487,7 +1487,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js nesting second this passes",
+      "fullname": "../tap/test/test/ok.js > nesting > second > this passes",
       "id": 2,
       "name": "this passes",
       "ok": true,
@@ -1508,7 +1508,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js nesting second nested ok",
+      "fullname": "../tap/test/test/ok.js > nesting > second > nested ok",
       "id": 3,
       "name": "nested ok",
       "ok": true,
@@ -1525,7 +1525,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js nesting second nested ok",
+      "fullname": "../tap/test/test/ok.js > nesting > second > nested ok",
       "id": 3,
       "name": "nested ok",
       "ok": true,
@@ -1562,7 +1562,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js this passes",
+      "fullname": "../tap/test/test/ok.js > this passes",
       "id": 2,
       "name": "this passes",
       "ok": true,
@@ -1579,7 +1579,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "../tap/test/test/ok.js this passes",
+      "fullname": "../tap/test/test/ok.js > this passes",
       "id": 2,
       "name": "this passes",
       "ok": true,

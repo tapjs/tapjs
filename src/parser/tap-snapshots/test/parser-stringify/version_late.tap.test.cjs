@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts TAP version_late.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > version_late.tap > bail > parsed 1`] = `
 Array [
   Array [
     "plan",
@@ -137,7 +137,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP version_late.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > version_late.tap > bail > stringified 1`] = `
 1..5
 TAP version 13
 ok 1
@@ -148,7 +148,7 @@ ok 5
 
 `
 
-exports[`test/parse-stringify.ts TAP version_late.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > version_late.tap > bail > stringified flat 1`] = `
 1..0
 TAP version 13
 ok 1
@@ -159,7 +159,7 @@ ok 5
 
 `
 
-exports[`test/parse-stringify.ts TAP version_late.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > version_late.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "plan",
@@ -291,7 +291,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP version_late.tap default settings > parsed flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > version_late.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "extra",
@@ -422,7 +422,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP version_late.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > version_late.tap > default settings > stringified 1`] = `
 1..5
 TAP version 13
 ok 1
@@ -433,7 +433,7 @@ ok 5
 
 `
 
-exports[`test/parse-stringify.ts TAP version_late.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > version_late.tap > default settings > stringified flat 1`] = `
 1..0
 TAP version 13
 ok 1
@@ -444,7 +444,7 @@ ok 5
 
 `
 
-exports[`test/parse-stringify.ts TAP version_late.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > version_late.tap > strict > parsed 1`] = `
 Array [
   Array [
     "plan",
@@ -544,10 +544,6 @@ Array [
     },
   ],
   Array [
-    "comment",
-    "# failed 1 of 5 tests\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -585,7 +581,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP version_late.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > version_late.tap > strict > stringified 1`] = `
 1..5
 TAP version 13
 ok 1
@@ -593,11 +589,10 @@ ok 2
 ok 3
 ok 4
 ok 5
-# failed 1 of 5 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP version_late.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > version_late.tap > strict > stringified flat 1`] = `
 1..0
 TAP version 13
 ok 1
@@ -605,11 +600,10 @@ ok 2
 ok 3
 ok 4
 ok 5
-# failed 1 of 5 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP version_late.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > version_late.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "plan",
@@ -709,10 +703,6 @@ Array [
     },
   ],
   Array [
-    "comment",
-    "# failed 1 of 5 tests\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -750,7 +740,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP version_late.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > version_late.tap > strictBail > stringified 1`] = `
 1..5
 TAP version 13
 ok 1
@@ -758,11 +748,10 @@ ok 2
 ok 3
 ok 4
 ok 5
-# failed 1 of 5 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP version_late.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > version_late.tap > strictBail > stringified flat 1`] = `
 1..0
 TAP version 13
 ok 1
@@ -770,6 +759,5 @@ ok 2
 ok 3
 ok 4
 ok 5
-# failed 1 of 5 tests
 
 `

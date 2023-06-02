@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts TAP subtest-heading.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-heading.tap > bail > parsed 1`] = `
 Array [
   Array [
     "comment",
@@ -34,7 +34,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "x y ypoint",
+              "fullname": "x > y > ypoint",
               "id": 1,
               "name": "ypoint",
               "ok": true,
@@ -91,7 +91,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "x y",
+          "fullname": "x > y",
           "id": 1,
           "name": "y",
           "ok": true,
@@ -201,7 +201,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP subtest-heading.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-heading.tap > bail > stringified 1`] = `
 # Subtest: heading.js
 TAP version 13
 # Subtest: x
@@ -215,19 +215,19 @@ ok 1 - x
 
 `
 
-exports[`test/parse-stringify.ts TAP subtest-heading.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-heading.tap > bail > stringified flat 1`] = `
 # Subtest: heading.js
 TAP version 13
 # Subtest: x
 # Subtest: y
-ok 1 - x y ypoint
-ok 2 - x y
+ok 1 - x > y > ypoint
+ok 2 - x > y
 ok 3 - x
 1..3
 
 `
 
-exports[`test/parse-stringify.ts TAP subtest-heading.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-heading.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "comment",
@@ -256,7 +256,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "x y ypoint",
+              "fullname": "x > y > ypoint",
               "id": 1,
               "name": "ypoint",
               "ok": true,
@@ -313,7 +313,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "x y",
+          "fullname": "x > y",
           "id": 1,
           "name": "y",
           "ok": true,
@@ -423,7 +423,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP subtest-heading.tap default settings > parsed flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-heading.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "comment",
@@ -438,9 +438,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "x y ypoint",
+      "fullname": "x > y > ypoint",
       "id": 1,
-      "name": "x y ypoint",
+      "name": "x > y > ypoint",
       "ok": true,
       "plan": null,
       "previous": null,
@@ -490,7 +490,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP subtest-heading.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-heading.tap > default settings > stringified 1`] = `
 # Subtest: heading.js
 TAP version 13
 # Subtest: x
@@ -504,19 +504,19 @@ ok 1 - x
 
 `
 
-exports[`test/parse-stringify.ts TAP subtest-heading.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-heading.tap > default settings > stringified flat 1`] = `
 # Subtest: heading.js
 TAP version 13
 # Subtest: x
 # Subtest: y
-ok 1 - x y ypoint
-ok 2 - x y
+ok 1 - x > y > ypoint
+ok 2 - x > y
 ok 3 - x
 1..3
 
 `
 
-exports[`test/parse-stringify.ts TAP subtest-heading.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-heading.tap > strict > parsed 1`] = `
 Array [
   Array [
     "comment",
@@ -545,7 +545,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "x y ypoint",
+              "fullname": "x > y > ypoint",
               "id": 1,
               "name": "ypoint",
               "ok": true,
@@ -602,7 +602,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "x y",
+          "fullname": "x > y",
           "id": 1,
           "name": "y",
           "ok": true,
@@ -712,7 +712,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP subtest-heading.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-heading.tap > strict > stringified 1`] = `
 # Subtest: heading.js
 TAP version 13
 # Subtest: x
@@ -726,19 +726,19 @@ ok 1 - x
 
 `
 
-exports[`test/parse-stringify.ts TAP subtest-heading.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-heading.tap > strict > stringified flat 1`] = `
 # Subtest: heading.js
 TAP version 13
 # Subtest: x
 # Subtest: y
-ok 1 - x y ypoint
-ok 2 - x y
+ok 1 - x > y > ypoint
+ok 2 - x > y
 ok 3 - x
 1..3
 
 `
 
-exports[`test/parse-stringify.ts TAP subtest-heading.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-heading.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "comment",
@@ -767,7 +767,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "x y ypoint",
+              "fullname": "x > y > ypoint",
               "id": 1,
               "name": "ypoint",
               "ok": true,
@@ -824,7 +824,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "x y",
+          "fullname": "x > y",
           "id": 1,
           "name": "y",
           "ok": true,
@@ -934,7 +934,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP subtest-heading.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-heading.tap > strictBail > stringified 1`] = `
 # Subtest: heading.js
 TAP version 13
 # Subtest: x
@@ -948,13 +948,13 @@ ok 1 - x
 
 `
 
-exports[`test/parse-stringify.ts TAP subtest-heading.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-heading.tap > strictBail > stringified flat 1`] = `
 # Subtest: heading.js
 TAP version 13
 # Subtest: x
 # Subtest: y
-ok 1 - x y ypoint
-ok 2 - x y
+ok 1 - x > y > ypoint
+ok 2 - x > y
 ok 3 - x
 1..3
 

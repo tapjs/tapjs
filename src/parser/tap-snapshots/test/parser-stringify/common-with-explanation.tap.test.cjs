@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts TAP common-with-explanation.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > common-with-explanation.tap > bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -170,7 +170,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP common-with-explanation.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > common-with-explanation.tap > bail > stringified 1`] = `
 TAP version 13
 1..6
 #
@@ -186,7 +186,7 @@ ok 6 - Board size is 1
 
 `
 
-exports[`test/parse-stringify.ts TAP common-with-explanation.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > common-with-explanation.tap > bail > stringified flat 1`] = `
 TAP version 13
 1..0
 #
@@ -202,7 +202,7 @@ ok 6 - Board size is 1
 
 `
 
-exports[`test/parse-stringify.ts TAP common-with-explanation.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > common-with-explanation.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -367,7 +367,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP common-with-explanation.tap default settings > parsed flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > common-with-explanation.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "version",
@@ -531,7 +531,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP common-with-explanation.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > common-with-explanation.tap > default settings > stringified 1`] = `
 TAP version 13
 1..6
 #
@@ -547,7 +547,7 @@ ok 6 - Board size is 1
 
 `
 
-exports[`test/parse-stringify.ts TAP common-with-explanation.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > common-with-explanation.tap > default settings > stringified flat 1`] = `
 TAP version 13
 1..0
 #
@@ -563,7 +563,7 @@ ok 6 - Board size is 1
 
 `
 
-exports[`test/parse-stringify.ts TAP common-with-explanation.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > common-with-explanation.tap > strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -728,7 +728,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP common-with-explanation.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > common-with-explanation.tap > strict > stringified 1`] = `
 TAP version 13
 1..6
 #
@@ -744,7 +744,7 @@ ok 6 - Board size is 1
 
 `
 
-exports[`test/parse-stringify.ts TAP common-with-explanation.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > common-with-explanation.tap > strict > stringified flat 1`] = `
 TAP version 13
 1..0
 #
@@ -760,7 +760,7 @@ ok 6 - Board size is 1
 
 `
 
-exports[`test/parse-stringify.ts TAP common-with-explanation.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > common-with-explanation.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -925,7 +925,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP common-with-explanation.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > common-with-explanation.tap > strictBail > stringified 1`] = `
 TAP version 13
 1..6
 #
@@ -941,7 +941,7 @@ ok 6 - Board size is 1
 
 `
 
-exports[`test/parse-stringify.ts TAP common-with-explanation.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > common-with-explanation.tap > strictBail > stringified flat 1`] = `
 TAP version 13
 1..0
 #

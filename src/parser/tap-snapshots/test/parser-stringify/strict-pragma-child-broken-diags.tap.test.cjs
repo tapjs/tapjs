@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts TAP strict-pragma-child-broken-diags.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > strict-pragma-child-broken-diags.tap > bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -28,7 +28,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "child test point in child",
+          "fullname": "child > test point in child",
           "id": 1,
           "name": "test point in child",
           "ok": false,
@@ -62,7 +62,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "child test point in child",
+              "fullname": "child > test point in child",
               "id": 1,
               "name": "test point in child",
               "ok": false,
@@ -153,7 +153,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP strict-pragma-child-broken-diags.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > strict-pragma-child-broken-diags.tap > bail > stringified 1`] = `
 TAP version 13
 pragma +strict
 # Subtest: child
@@ -165,11 +165,11 @@ Bail out! test point in child
 
 `
 
-exports[`test/parse-stringify.ts TAP strict-pragma-child-broken-diags.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > strict-pragma-child-broken-diags.tap > bail > stringified flat 1`] = `
 TAP version 13
 pragma +strict
 # Subtest: child
-not ok 1 - child test point in child
+not ok 1 - child > test point in child
 Bail out! test point in child
       ...
       hello: world
@@ -177,7 +177,7 @@ Bail out! test point in child
 
 `
 
-exports[`test/parse-stringify.ts TAP strict-pragma-child-broken-diags.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > strict-pragma-child-broken-diags.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -200,7 +200,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "child test point in child",
+          "fullname": "child > test point in child",
           "id": 1,
           "name": "test point in child",
           "ok": false,
@@ -215,10 +215,6 @@ Array [
       Array [
         "comment",
         "# test count(1) != plan(null)\\n",
-      ],
-      Array [
-        "comment",
-        "# failed 4 test\\n",
       ],
       Array [
         "complete",
@@ -238,7 +234,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "child test point in child",
+              "fullname": "child > test point in child",
               "id": 1,
               "name": "test point in child",
               "ok": false,
@@ -312,10 +308,6 @@ Array [
     },
   ],
   Array [
-    "comment",
-    "# failed 3 test\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -371,7 +363,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP strict-pragma-child-broken-diags.tap default settings > parsed flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > strict-pragma-child-broken-diags.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "version",
@@ -395,9 +387,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "child test point in child",
+      "fullname": "child > test point in child",
       "id": 1,
-      "name": "child test point in child",
+      "name": "child > test point in child",
       "ok": false,
       "plan": null,
       "previous": null,
@@ -406,10 +398,6 @@ Array [
       "time": null,
       "todo": false,
     },
-  ],
-  Array [
-    "comment",
-    "# failed 3 test\\n",
   ],
   Array [
     "plan",
@@ -474,37 +462,33 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP strict-pragma-child-broken-diags.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > strict-pragma-child-broken-diags.tap > default settings > stringified 1`] = `
 TAP version 13
 pragma +strict
 # Subtest: child
     not ok 1 - test point in child
     # test count(1) != plan(null)
-    # failed 4 test
       ...
       hello: world
 not ok 1 - child
 1..1
-# failed 3 test
 
 `
 
-exports[`test/parse-stringify.ts TAP strict-pragma-child-broken-diags.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > strict-pragma-child-broken-diags.tap > default settings > stringified flat 1`] = `
 TAP version 13
 pragma +strict
 # Subtest: child
-not ok 1 - child test point in child
+not ok 1 - child > test point in child
 # test count(1) != plan(null)
-# failed 4 test
       ...
       hello: world
 not ok 2 - child
 1..2
-# failed 3 test
 
 `
 
-exports[`test/parse-stringify.ts TAP strict-pragma-child-broken-diags.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > strict-pragma-child-broken-diags.tap > strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -527,7 +511,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "child test point in child",
+          "fullname": "child > test point in child",
           "id": 1,
           "name": "test point in child",
           "ok": false,
@@ -542,10 +526,6 @@ Array [
       Array [
         "comment",
         "# test count(1) != plan(null)\\n",
-      ],
-      Array [
-        "comment",
-        "# failed 4 test\\n",
       ],
       Array [
         "complete",
@@ -565,7 +545,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "child test point in child",
+              "fullname": "child > test point in child",
               "id": 1,
               "name": "test point in child",
               "ok": false,
@@ -639,10 +619,6 @@ Array [
     },
   ],
   Array [
-    "comment",
-    "# failed 3 test\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -698,37 +674,33 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP strict-pragma-child-broken-diags.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > strict-pragma-child-broken-diags.tap > strict > stringified 1`] = `
 TAP version 13
 pragma +strict
 # Subtest: child
     not ok 1 - test point in child
     # test count(1) != plan(null)
-    # failed 4 test
       ...
       hello: world
 not ok 1 - child
 1..1
-# failed 3 test
 
 `
 
-exports[`test/parse-stringify.ts TAP strict-pragma-child-broken-diags.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > strict-pragma-child-broken-diags.tap > strict > stringified flat 1`] = `
 TAP version 13
 pragma +strict
 # Subtest: child
-not ok 1 - child test point in child
+not ok 1 - child > test point in child
 # test count(1) != plan(null)
-# failed 4 test
       ...
       hello: world
 not ok 2 - child
 1..2
-# failed 3 test
 
 `
 
-exports[`test/parse-stringify.ts TAP strict-pragma-child-broken-diags.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > strict-pragma-child-broken-diags.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -751,7 +723,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "child test point in child",
+          "fullname": "child > test point in child",
           "id": 1,
           "name": "test point in child",
           "ok": false,
@@ -785,7 +757,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "child test point in child",
+              "fullname": "child > test point in child",
               "id": 1,
               "name": "test point in child",
               "ok": false,
@@ -876,7 +848,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP strict-pragma-child-broken-diags.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > strict-pragma-child-broken-diags.tap > strictBail > stringified 1`] = `
 TAP version 13
 pragma +strict
 # Subtest: child
@@ -888,11 +860,11 @@ Bail out! test point in child
 
 `
 
-exports[`test/parse-stringify.ts TAP strict-pragma-child-broken-diags.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > strict-pragma-child-broken-diags.tap > strictBail > stringified flat 1`] = `
 TAP version 13
 pragma +strict
 # Subtest: child
-not ok 1 - child test point in child
+not ok 1 - child > test point in child
 Bail out! test point in child
       ...
       hello: world

@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/stringify-parse.ts TAP just parse some tap > basic 1`] = `
+exports[`test/stringify-parse.ts > TAP > just parse some tap > basic 1`] = `
 Array [
   Array [
     "version",
@@ -40,7 +40,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "child foo",
+          "fullname": "child > foo",
           "id": 0,
           "name": "foo",
           "ok": true,
@@ -140,10 +140,6 @@ Array [
     },
   ],
   Array [
-    "comment",
-    "# failed 1 of 2 tests\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -191,7 +187,7 @@ Array [
 ]
 `
 
-exports[`test/stringify-parse.ts TAP just parse some tap > flattened 1`] = `
+exports[`test/stringify-parse.ts > TAP > just parse some tap > flattened 1`] = `
 Array [
   Array [
     "version",
@@ -219,9 +215,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "child foo",
+      "fullname": "child > foo",
       "id": 2,
-      "name": "child foo",
+      "name": "child > foo",
       "ok": true,
       "plan": null,
       "previous": null,
@@ -252,10 +248,6 @@ Array [
     "pragma",
     "strict",
     false,
-  ],
-  Array [
-    "comment",
-    "# failed 1 of 2 tests\\n",
   ],
   Array [
     "plan",
@@ -312,27 +304,25 @@ Array [
 ]
 `
 
-exports[`test/stringify-parse.ts TAP stringify flattened result > basic 1`] = `
+exports[`test/stringify-parse.ts > TAP > stringify flattened result > basic 1`] = `
 TAP version 13
 not ok 1 - 1
-ok 2 - child foo
+ok 2 - child > foo
 ok 3 - child
-# failed 1 of 2 tests
 1..3
 
 `
 
-exports[`test/stringify-parse.ts TAP stringify flattened result > flattened 1`] = `
+exports[`test/stringify-parse.ts > TAP > stringify flattened result > flattened 1`] = `
 TAP version 13
 not ok 1 - 1
-ok 2 - child foo
+ok 2 - child > foo
 ok 3 - child
-# failed 1 of 2 tests
 1..3
 
 `
 
-exports[`test/stringify-parse.ts TAP stringify nested result > basic 1`] = `
+exports[`test/stringify-parse.ts > TAP > stringify nested result > basic 1`] = `
 TAP version 13
 not ok - 1
 pragma +strict
@@ -345,39 +335,37 @@ pragma +strict
 ok 2 - child
 pragma -strict
 1..2
-# failed 1 of 2 tests
 
 `
 
-exports[`test/stringify-parse.ts TAP stringify nested result > flattened 1`] = `
+exports[`test/stringify-parse.ts > TAP > stringify nested result > flattened 1`] = `
 TAP version 13
 not ok 1 - 1
 pragma +strict
 # Subtest: child
-ok 2 - child foo
+ok 2 - child > foo
 pragma +strict
 ok 3 - child
 pragma -strict
 ok 4 - child
 pragma -strict
 1..4
-# failed 1 of 2 tests
 
 `
 
-exports[`test/stringify-parse.ts TAP stringify with bailout > basic 1`] = `
+exports[`test/stringify-parse.ts > TAP > stringify with bailout > basic 1`] = `
 TAP version 13
 not ok 1 - 1
-ok 2 - child foo
+ok 2 - child > foo
 ok 3 - child
 Bail out! cannot continue
 
 `
 
-exports[`test/stringify-parse.ts TAP stringify with bailout > flattened 1`] = `
+exports[`test/stringify-parse.ts > TAP > stringify with bailout > flattened 1`] = `
 TAP version 13
 not ok 1 - 1
-ok 2 - child foo
+ok 2 - child > foo
 ok 3 - child
 Bail out! cannot continue
 

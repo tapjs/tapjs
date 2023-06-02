@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts TAP skip-one-ok.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > skip-one-ok.tap > bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -35,10 +35,6 @@ Array [
       "end": 1,
       "start": 1,
     },
-  ],
-  Array [
-    "comment",
-    "# skip: 1\\n",
   ],
   Array [
     "complete",
@@ -88,23 +84,21 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP skip-one-ok.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > skip-one-ok.tap > bail > stringified 1`] = `
 TAP version 13
 ok 1 - totally fine # SKIP
 1..1
-# skip: 1
 
 `
 
-exports[`test/parse-stringify.ts TAP skip-one-ok.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > skip-one-ok.tap > bail > stringified flat 1`] = `
 TAP version 13
 ok 1 - totally fine # SKIP
 1..1
-# skip: 1
 
 `
 
-exports[`test/parse-stringify.ts TAP skip-one-ok.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > skip-one-ok.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -134,10 +128,6 @@ Array [
       "end": 1,
       "start": 1,
     },
-  ],
-  Array [
-    "comment",
-    "# skip: 1\\n",
   ],
   Array [
     "complete",
@@ -187,7 +177,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP skip-one-ok.tap default settings > parsed flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > skip-one-ok.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "version",
@@ -209,10 +199,6 @@ Array [
       "time": null,
       "todo": false,
     },
-  ],
-  Array [
-    "comment",
-    "# skip: 1\\n",
   ],
   Array [
     "plan",
@@ -269,23 +255,21 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP skip-one-ok.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > skip-one-ok.tap > default settings > stringified 1`] = `
 TAP version 13
 ok 1 - totally fine # SKIP
 1..1
-# skip: 1
 
 `
 
-exports[`test/parse-stringify.ts TAP skip-one-ok.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > skip-one-ok.tap > default settings > stringified flat 1`] = `
 TAP version 13
 ok 1 - totally fine # SKIP
 1..1
-# skip: 1
 
 `
 
-exports[`test/parse-stringify.ts TAP skip-one-ok.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > skip-one-ok.tap > strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -315,10 +299,6 @@ Array [
       "end": 1,
       "start": 1,
     },
-  ],
-  Array [
-    "comment",
-    "# skip: 1\\n",
   ],
   Array [
     "complete",
@@ -368,23 +348,21 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP skip-one-ok.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > skip-one-ok.tap > strict > stringified 1`] = `
 TAP version 13
 ok 1 - totally fine # SKIP
 1..1
-# skip: 1
 
 `
 
-exports[`test/parse-stringify.ts TAP skip-one-ok.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > skip-one-ok.tap > strict > stringified flat 1`] = `
 TAP version 13
 ok 1 - totally fine # SKIP
 1..1
-# skip: 1
 
 `
 
-exports[`test/parse-stringify.ts TAP skip-one-ok.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > skip-one-ok.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -414,10 +392,6 @@ Array [
       "end": 1,
       "start": 1,
     },
-  ],
-  Array [
-    "comment",
-    "# skip: 1\\n",
   ],
   Array [
     "complete",
@@ -467,18 +441,16 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP skip-one-ok.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > skip-one-ok.tap > strictBail > stringified 1`] = `
 TAP version 13
 ok 1 - totally fine # SKIP
 1..1
-# skip: 1
 
 `
 
-exports[`test/parse-stringify.ts TAP skip-one-ok.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > skip-one-ok.tap > strictBail > stringified flat 1`] = `
 TAP version 13
 ok 1 - totally fine # SKIP
 1..1
-# skip: 1
 
 `

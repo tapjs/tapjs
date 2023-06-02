@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts TAP tap-tests-stdout.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > tap-tests-stdout.tap > bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -2820,7 +2820,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP tap-tests-stdout.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > tap-tests-stdout.tap > bail > stringified 1`] = `
 TAP version 13
 # buffer_compare.js
 # TAP version 13
@@ -3131,7 +3131,7 @@ Bail out! captures TODO description
 
 `
 
-exports[`test/parse-stringify.ts TAP tap-tests-stdout.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > tap-tests-stdout.tap > bail > stringified flat 1`] = `
 TAP version 13
 # buffer_compare.js
 # TAP version 13
@@ -3442,7 +3442,7 @@ Bail out! captures TODO description
 
 `
 
-exports[`test/parse-stringify.ts TAP tap-tests-stdout.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > tap-tests-stdout.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -9669,18 +9669,6 @@ Array [
     "# todo  4\\n",
   ],
   Array [
-    "comment",
-    "# failed 5 of 312 tests\\n",
-  ],
-  Array [
-    "comment",
-    "# todo: 4\\n",
-  ],
-  Array [
-    "comment",
-    "# skip: 5\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -9976,7 +9964,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP tap-tests-stdout.tap default settings > parsed flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > tap-tests-stdout.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "version",
@@ -16193,18 +16181,6 @@ Array [
   Array [
     "comment",
     "# todo  4\\n",
-  ],
-  Array [
-    "comment",
-    "# failed 5 of 312 tests\\n",
-  ],
-  Array [
-    "comment",
-    "# todo: 4\\n",
-  ],
-  Array [
-    "comment",
-    "# skip: 5\\n",
   ],
   Array [
     "plan",
@@ -16509,7 +16485,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP tap-tests-stdout.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > tap-tests-stdout.tap > default settings > stringified 1`] = `
 TAP version 13
 # buffer_compare.js
 # TAP version 13
@@ -17137,13 +17113,10 @@ ok 312 - test/valid-command.js
 # fail  5
 # skip  5
 # todo  4
-# failed 5 of 312 tests
-# todo: 4
-# skip: 5
 
 `
 
-exports[`test/parse-stringify.ts TAP tap-tests-stdout.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > tap-tests-stdout.tap > default settings > stringified flat 1`] = `
 TAP version 13
 # buffer_compare.js
 # TAP version 13
@@ -17771,13 +17744,10 @@ ok 312 - test/valid-command.js
 # fail  5
 # skip  5
 # todo  4
-# failed 5 of 312 tests
-# todo: 4
-# skip: 5
 
 `
 
-exports[`test/parse-stringify.ts TAP tap-tests-stdout.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > tap-tests-stdout.tap > strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -24004,18 +23974,6 @@ Array [
     "# todo  4\\n",
   ],
   Array [
-    "comment",
-    "# failed 5 of 312 tests\\n",
-  ],
-  Array [
-    "comment",
-    "# todo: 4\\n",
-  ],
-  Array [
-    "comment",
-    "# skip: 5\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -24311,7 +24269,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP tap-tests-stdout.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > tap-tests-stdout.tap > strict > stringified 1`] = `
 TAP version 13
 # buffer_compare.js
 # TAP version 13
@@ -24939,13 +24897,10 @@ ok 312 - test/valid-command.js
 # fail  5
 # skip  5
 # todo  4
-# failed 5 of 312 tests
-# todo: 4
-# skip: 5
 
 `
 
-exports[`test/parse-stringify.ts TAP tap-tests-stdout.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > tap-tests-stdout.tap > strict > stringified flat 1`] = `
 TAP version 13
 # buffer_compare.js
 # TAP version 13
@@ -25573,13 +25528,10 @@ ok 312 - test/valid-command.js
 # fail  5
 # skip  5
 # todo  4
-# failed 5 of 312 tests
-# todo: 4
-# skip: 5
 
 `
 
-exports[`test/parse-stringify.ts TAP tap-tests-stdout.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > tap-tests-stdout.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -28394,7 +28346,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP tap-tests-stdout.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > tap-tests-stdout.tap > strictBail > stringified 1`] = `
 TAP version 13
 # buffer_compare.js
 # TAP version 13
@@ -28705,7 +28657,7 @@ Bail out! captures TODO description
 
 `
 
-exports[`test/parse-stringify.ts TAP tap-tests-stdout.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > tap-tests-stdout.tap > strictBail > stringified flat 1`] = `
 TAP version 13
 # buffer_compare.js
 # TAP version 13

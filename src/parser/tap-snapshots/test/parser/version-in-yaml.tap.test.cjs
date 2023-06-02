@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser.ts TAP version-in-yaml.tap > output bail=false 1`] = `
+exports[`test/parser.ts > TAP > version-in-yaml.tap > output bail=false 1`] = `
 Array [
   Array [
     "line",
@@ -64,7 +64,7 @@ Array [
               TAP version 13
             ),
           },
-          "fullname": "child indented some yaml",
+          "fullname": "child indented > some yaml",
           "id": 0,
           "name": "some yaml",
           "ok": false,
@@ -89,14 +89,6 @@ Array [
         },
       ],
       Array [
-        "line",
-        "# failed 1 test\\n",
-      ],
-      Array [
-        "comment",
-        "# failed 1 test\\n",
-      ],
-      Array [
         "complete",
         FinalResults {
           "bailout": false,
@@ -111,7 +103,7 @@ Array [
                   TAP version 13
                 ),
               },
-              "fullname": "child indented some yaml",
+              "fullname": "child indented > some yaml",
               "id": 0,
               "name": "some yaml",
               "ok": false,
@@ -183,7 +175,7 @@ Array [
           TAP version 13
         ),
       },
-      "fullname": "child indented some yaml",
+      "fullname": "child indented > some yaml",
       "id": 0,
       "name": "some yaml",
       "ok": false,
@@ -205,7 +197,7 @@ Array [
           TAP version 13
         ),
       },
-      "fullname": "child indented some yaml",
+      "fullname": "child indented > some yaml",
       "id": 0,
       "name": "some yaml",
       "ok": false,
@@ -220,10 +212,6 @@ Array [
   Array [
     "line",
     "    1..1\\n",
-  ],
-  Array [
-    "line",
-    "    # failed 1 test\\n",
   ],
   Array [
     "line",
@@ -295,7 +283,7 @@ Array [
               TAP version 13
             ),
           },
-          "fullname": "child unindented some yaml",
+          "fullname": "child unindented > some yaml",
           "id": 0,
           "name": "some yaml",
           "ok": false,
@@ -320,14 +308,6 @@ Array [
         },
       ],
       Array [
-        "line",
-        "# failed 1 test\\n",
-      ],
-      Array [
-        "comment",
-        "# failed 1 test\\n",
-      ],
-      Array [
         "complete",
         FinalResults {
           "bailout": false,
@@ -342,7 +322,7 @@ Array [
                   TAP version 13
                 ),
               },
-              "fullname": "child unindented some yaml",
+              "fullname": "child unindented > some yaml",
               "id": 0,
               "name": "some yaml",
               "ok": false,
@@ -414,7 +394,7 @@ Array [
           TAP version 13
         ),
       },
-      "fullname": "child unindented some yaml",
+      "fullname": "child unindented > some yaml",
       "id": 0,
       "name": "some yaml",
       "ok": false,
@@ -436,7 +416,7 @@ Array [
           TAP version 13
         ),
       },
-      "fullname": "child unindented some yaml",
+      "fullname": "child unindented > some yaml",
       "id": 0,
       "name": "some yaml",
       "ok": false,
@@ -451,10 +431,6 @@ Array [
   Array [
     "line",
     "    1..1\\n",
-  ],
-  Array [
-    "line",
-    "    # failed 1 test\\n",
   ],
   Array [
     "line",
@@ -549,14 +525,6 @@ Array [
           "end": 1,
           "start": 1,
         },
-      ],
-      Array [
-        "line",
-        "# failed 1 test\\n",
-      ],
-      Array [
-        "comment",
-        "# failed 1 test\\n",
       ],
       Array [
         "complete",
@@ -685,10 +653,6 @@ Array [
   ],
   Array [
     "line",
-    "    # failed 1 test\\n",
-  ],
-  Array [
-    "line",
     "not ok 3 - child unnamed\\n",
   ],
   Array [
@@ -791,7 +755,7 @@ Array [
               TAP version 13
             ),
           },
-          "fullname": "child buffered some yaml",
+          "fullname": "child buffered > some yaml",
           "id": 0,
           "name": "some yaml",
           "ok": false,
@@ -816,14 +780,6 @@ Array [
         },
       ],
       Array [
-        "line",
-        "# failed 1 test\\n",
-      ],
-      Array [
-        "comment",
-        "# failed 1 test\\n",
-      ],
-      Array [
         "complete",
         FinalResults {
           "bailout": false,
@@ -838,7 +794,7 @@ Array [
                   TAP version 13
                 ),
               },
-              "fullname": "child buffered some yaml",
+              "fullname": "child buffered > some yaml",
               "id": 0,
               "name": "some yaml",
               "ok": false,
@@ -910,7 +866,7 @@ Array [
           TAP version 13
         ),
       },
-      "fullname": "child buffered some yaml",
+      "fullname": "child buffered > some yaml",
       "id": 0,
       "name": "some yaml",
       "ok": false,
@@ -932,7 +888,7 @@ Array [
           TAP version 13
         ),
       },
-      "fullname": "child buffered some yaml",
+      "fullname": "child buffered > some yaml",
       "id": 0,
       "name": "some yaml",
       "ok": false,
@@ -947,10 +903,6 @@ Array [
   Array [
     "line",
     "    1..1\\n",
-  ],
-  Array [
-    "line",
-    "    # failed 1 test\\n",
   ],
   Array [
     "line",
@@ -984,14 +936,6 @@ Array [
       "end": 4,
       "start": 1,
     },
-  ],
-  Array [
-    "line",
-    "# failed 4 of 4 tests\\n",
-  ],
-  Array [
-    "comment",
-    "# failed 4 of 4 tests\\n",
   ],
   Array [
     "complete",
@@ -1077,7 +1021,7 @@ Array [
 ]
 `
 
-exports[`test/parser.ts TAP version-in-yaml.tap > output bail=true 1`] = `
+exports[`test/parser.ts > TAP > version-in-yaml.tap > output bail=true 1`] = `
 Array [
   Array [
     "line",
@@ -1136,7 +1080,7 @@ Array [
               TAP version 13
             ),
           },
-          "fullname": "child indented some yaml",
+          "fullname": "child indented > some yaml",
           "id": 0,
           "name": "some yaml",
           "ok": false,
@@ -1171,7 +1115,7 @@ Array [
                   TAP version 13
                 ),
               },
-              "fullname": "child indented some yaml",
+              "fullname": "child indented > some yaml",
               "id": 0,
               "name": "some yaml",
               "ok": false,
@@ -1243,7 +1187,7 @@ Array [
           TAP version 13
         ),
       },
-      "fullname": "child indented some yaml",
+      "fullname": "child indented > some yaml",
       "id": 0,
       "name": "some yaml",
       "ok": false,
@@ -1265,7 +1209,7 @@ Array [
           TAP version 13
         ),
       },
-      "fullname": "child indented some yaml",
+      "fullname": "child indented > some yaml",
       "id": 0,
       "name": "some yaml",
       "ok": false,

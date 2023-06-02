@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser.ts TAP schwern-todo-quiet.tap > output bail=false 1`] = `
+exports[`test/parser.ts > TAP > schwern-todo-quiet.tap > output bail=false 1`] = `
 Array [
   Array [
     "line",
@@ -241,22 +241,6 @@ Array [
     "# Looks like you failed 1 test of 3.\\n",
   ],
   Array [
-    "line",
-    "# failed 2 of 3 tests\\n",
-  ],
-  Array [
-    "comment",
-    "# failed 2 of 3 tests\\n",
-  ],
-  Array [
-    "line",
-    "# todo: 1\\n",
-  ],
-  Array [
-    "comment",
-    "# todo: 1\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -298,7 +282,7 @@ Array [
 ]
 `
 
-exports[`test/parser.ts TAP schwern-todo-quiet.tap > output bail=true 1`] = `
+exports[`test/parser.ts > TAP > schwern-todo-quiet.tap > output bail=true 1`] = `
 Array [
   Array [
     "line",

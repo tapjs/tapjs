@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts TAP subtest-no-comment-mid-comment-indent.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-no-comment-mid-comment-indent.tap > bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -45,7 +45,7 @@ Array [
                 Result {
                   "buffered": false,
                   "diag": null,
-                  "fullname": "nesting true is ok",
+                  "fullname": "nesting > true is ok",
                   "id": 1,
                   "name": "true is ok",
                   "ok": true,
@@ -62,7 +62,7 @@ Array [
                 Result {
                   "buffered": false,
                   "diag": null,
-                  "fullname": "nesting doag is also okay",
+                  "fullname": "nesting > doag is also okay",
                   "id": 2,
                   "name": "doag is also okay",
                   "ok": true,
@@ -111,7 +111,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "nesting first",
+              "fullname": "nesting > first",
               "id": 1,
               "name": "first",
               "ok": true,
@@ -135,7 +135,7 @@ Array [
                 Result {
                   "buffered": false,
                   "diag": null,
-                  "fullname": "nesting but that is ok",
+                  "fullname": "nesting > but that is ok",
                   "id": 1,
                   "name": "but that is ok",
                   "ok": true,
@@ -152,7 +152,7 @@ Array [
                 Result {
                   "buffered": false,
                   "diag": null,
-                  "fullname": "nesting this passes",
+                  "fullname": "nesting > this passes",
                   "id": 2,
                   "name": "this passes",
                   "ok": true,
@@ -169,7 +169,7 @@ Array [
                 Result {
                   "buffered": false,
                   "diag": null,
-                  "fullname": "nesting nested ok",
+                  "fullname": "nesting > nested ok",
                   "id": 3,
                   "name": "nested ok",
                   "ok": true,
@@ -226,7 +226,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "nesting second",
+              "fullname": "nesting > second",
               "id": 2,
               "name": "second",
               "ok": true,
@@ -410,7 +410,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP subtest-no-comment-mid-comment-indent.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-no-comment-mid-comment-indent.tap > bail > stringified 1`] = `
 TAP version 13
 # Subtest
     # Subtest: nesting
@@ -434,19 +434,19 @@ ok 1 - ../tap/test/test/ok.js # time=205.826ms
 
 `
 
-exports[`test/parse-stringify.ts TAP subtest-no-comment-mid-comment-indent.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-no-comment-mid-comment-indent.tap > bail > stringified flat 1`] = `
 TAP version 13
 # Subtest
 # Subtest: nesting
 # Subtest
-ok 1 - nesting true is ok
-ok 2 - nesting doag is also okay
-ok 3 - nesting first # time=8.987ms
+ok 1 - nesting > true is ok
+ok 2 - nesting > doag is also okay
+ok 3 - nesting > first # time=8.987ms
 # Subtest
-ok 4 - nesting but that is ok
-ok 5 - nesting this passes
-ok 6 - nesting nested ok
-ok 7 - nesting second # time=5.988ms
+ok 4 - nesting > but that is ok
+ok 5 - nesting > this passes
+ok 6 - nesting > nested ok
+ok 7 - nesting > second # time=5.988ms
 ok 8 - nesting # time=28.647ms
 ok 9 - this passes
 ok 10 - ../tap/test/test/ok.js # time=205.826ms
@@ -454,7 +454,7 @@ ok 10 - ../tap/test/test/ok.js # time=205.826ms
 
 `
 
-exports[`test/parse-stringify.ts TAP subtest-no-comment-mid-comment-indent.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-no-comment-mid-comment-indent.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -494,7 +494,7 @@ Array [
                 Result {
                   "buffered": false,
                   "diag": null,
-                  "fullname": "nesting true is ok",
+                  "fullname": "nesting > true is ok",
                   "id": 1,
                   "name": "true is ok",
                   "ok": true,
@@ -511,7 +511,7 @@ Array [
                 Result {
                   "buffered": false,
                   "diag": null,
-                  "fullname": "nesting doag is also okay",
+                  "fullname": "nesting > doag is also okay",
                   "id": 2,
                   "name": "doag is also okay",
                   "ok": true,
@@ -560,7 +560,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "nesting first",
+              "fullname": "nesting > first",
               "id": 1,
               "name": "first",
               "ok": true,
@@ -584,7 +584,7 @@ Array [
                 Result {
                   "buffered": false,
                   "diag": null,
-                  "fullname": "nesting but that is ok",
+                  "fullname": "nesting > but that is ok",
                   "id": 1,
                   "name": "but that is ok",
                   "ok": true,
@@ -601,7 +601,7 @@ Array [
                 Result {
                   "buffered": false,
                   "diag": null,
-                  "fullname": "nesting this passes",
+                  "fullname": "nesting > this passes",
                   "id": 2,
                   "name": "this passes",
                   "ok": true,
@@ -618,7 +618,7 @@ Array [
                 Result {
                   "buffered": false,
                   "diag": null,
-                  "fullname": "nesting nested ok",
+                  "fullname": "nesting > nested ok",
                   "id": 3,
                   "name": "nested ok",
                   "ok": true,
@@ -675,7 +675,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "nesting second",
+              "fullname": "nesting > second",
               "id": 2,
               "name": "second",
               "ok": true,
@@ -859,7 +859,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP subtest-no-comment-mid-comment-indent.tap default settings > parsed flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-no-comment-mid-comment-indent.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "version",
@@ -870,9 +870,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "nesting true is ok",
+      "fullname": "nesting > true is ok",
       "id": 1,
-      "name": "nesting true is ok",
+      "name": "nesting > true is ok",
       "ok": true,
       "plan": null,
       "previous": null,
@@ -887,9 +887,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "nesting doag is also okay",
+      "fullname": "nesting > doag is also okay",
       "id": 2,
-      "name": "nesting doag is also okay",
+      "name": "nesting > doag is also okay",
       "ok": true,
       "plan": null,
       "previous": null,
@@ -904,9 +904,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "nesting first",
+      "fullname": "nesting > first",
       "id": 3,
-      "name": "nesting first",
+      "name": "nesting > first",
       "ok": true,
       "plan": null,
       "previous": null,
@@ -921,9 +921,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "nesting but that is ok",
+      "fullname": "nesting > but that is ok",
       "id": 4,
-      "name": "nesting but that is ok",
+      "name": "nesting > but that is ok",
       "ok": true,
       "plan": null,
       "previous": null,
@@ -938,9 +938,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "nesting this passes",
+      "fullname": "nesting > this passes",
       "id": 5,
-      "name": "nesting this passes",
+      "name": "nesting > this passes",
       "ok": true,
       "plan": null,
       "previous": null,
@@ -955,9 +955,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "nesting nested ok",
+      "fullname": "nesting > nested ok",
       "id": 6,
-      "name": "nesting nested ok",
+      "name": "nesting > nested ok",
       "ok": true,
       "plan": null,
       "previous": null,
@@ -972,9 +972,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "nesting second",
+      "fullname": "nesting > second",
       "id": 7,
-      "name": "nesting second",
+      "name": "nesting > second",
       "ok": true,
       "plan": null,
       "previous": null,
@@ -1058,7 +1058,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP subtest-no-comment-mid-comment-indent.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-no-comment-mid-comment-indent.tap > default settings > stringified 1`] = `
 TAP version 13
 # Subtest
     # Subtest: nesting
@@ -1082,19 +1082,19 @@ ok 1 - ../tap/test/test/ok.js # time=205.826ms
 
 `
 
-exports[`test/parse-stringify.ts TAP subtest-no-comment-mid-comment-indent.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-no-comment-mid-comment-indent.tap > default settings > stringified flat 1`] = `
 TAP version 13
 # Subtest
 # Subtest: nesting
 # Subtest
-ok 1 - nesting true is ok
-ok 2 - nesting doag is also okay
-ok 3 - nesting first # time=8.987ms
+ok 1 - nesting > true is ok
+ok 2 - nesting > doag is also okay
+ok 3 - nesting > first # time=8.987ms
 # Subtest
-ok 4 - nesting but that is ok
-ok 5 - nesting this passes
-ok 6 - nesting nested ok
-ok 7 - nesting second # time=5.988ms
+ok 4 - nesting > but that is ok
+ok 5 - nesting > this passes
+ok 6 - nesting > nested ok
+ok 7 - nesting > second # time=5.988ms
 ok 8 - nesting # time=28.647ms
 ok 9 - this passes
 ok 10 - ../tap/test/test/ok.js # time=205.826ms
@@ -1102,7 +1102,7 @@ ok 10 - ../tap/test/test/ok.js # time=205.826ms
 
 `
 
-exports[`test/parse-stringify.ts TAP subtest-no-comment-mid-comment-indent.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-no-comment-mid-comment-indent.tap > strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -1142,7 +1142,7 @@ Array [
                 Result {
                   "buffered": false,
                   "diag": null,
-                  "fullname": "nesting true is ok",
+                  "fullname": "nesting > true is ok",
                   "id": 1,
                   "name": "true is ok",
                   "ok": true,
@@ -1159,7 +1159,7 @@ Array [
                 Result {
                   "buffered": false,
                   "diag": null,
-                  "fullname": "nesting doag is also okay",
+                  "fullname": "nesting > doag is also okay",
                   "id": 2,
                   "name": "doag is also okay",
                   "ok": true,
@@ -1208,7 +1208,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "nesting first",
+              "fullname": "nesting > first",
               "id": 1,
               "name": "first",
               "ok": true,
@@ -1232,7 +1232,7 @@ Array [
                 Result {
                   "buffered": false,
                   "diag": null,
-                  "fullname": "nesting but that is ok",
+                  "fullname": "nesting > but that is ok",
                   "id": 1,
                   "name": "but that is ok",
                   "ok": true,
@@ -1249,7 +1249,7 @@ Array [
                 Result {
                   "buffered": false,
                   "diag": null,
-                  "fullname": "nesting this passes",
+                  "fullname": "nesting > this passes",
                   "id": 2,
                   "name": "this passes",
                   "ok": true,
@@ -1266,7 +1266,7 @@ Array [
                 Result {
                   "buffered": false,
                   "diag": null,
-                  "fullname": "nesting nested ok",
+                  "fullname": "nesting > nested ok",
                   "id": 3,
                   "name": "nested ok",
                   "ok": true,
@@ -1323,7 +1323,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "nesting second",
+              "fullname": "nesting > second",
               "id": 2,
               "name": "second",
               "ok": true,
@@ -1507,7 +1507,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP subtest-no-comment-mid-comment-indent.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-no-comment-mid-comment-indent.tap > strict > stringified 1`] = `
 TAP version 13
 # Subtest
     # Subtest: nesting
@@ -1531,19 +1531,19 @@ ok 1 - ../tap/test/test/ok.js # time=205.826ms
 
 `
 
-exports[`test/parse-stringify.ts TAP subtest-no-comment-mid-comment-indent.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-no-comment-mid-comment-indent.tap > strict > stringified flat 1`] = `
 TAP version 13
 # Subtest
 # Subtest: nesting
 # Subtest
-ok 1 - nesting true is ok
-ok 2 - nesting doag is also okay
-ok 3 - nesting first # time=8.987ms
+ok 1 - nesting > true is ok
+ok 2 - nesting > doag is also okay
+ok 3 - nesting > first # time=8.987ms
 # Subtest
-ok 4 - nesting but that is ok
-ok 5 - nesting this passes
-ok 6 - nesting nested ok
-ok 7 - nesting second # time=5.988ms
+ok 4 - nesting > but that is ok
+ok 5 - nesting > this passes
+ok 6 - nesting > nested ok
+ok 7 - nesting > second # time=5.988ms
 ok 8 - nesting # time=28.647ms
 ok 9 - this passes
 ok 10 - ../tap/test/test/ok.js # time=205.826ms
@@ -1551,7 +1551,7 @@ ok 10 - ../tap/test/test/ok.js # time=205.826ms
 
 `
 
-exports[`test/parse-stringify.ts TAP subtest-no-comment-mid-comment-indent.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-no-comment-mid-comment-indent.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -1591,7 +1591,7 @@ Array [
                 Result {
                   "buffered": false,
                   "diag": null,
-                  "fullname": "nesting true is ok",
+                  "fullname": "nesting > true is ok",
                   "id": 1,
                   "name": "true is ok",
                   "ok": true,
@@ -1608,7 +1608,7 @@ Array [
                 Result {
                   "buffered": false,
                   "diag": null,
-                  "fullname": "nesting doag is also okay",
+                  "fullname": "nesting > doag is also okay",
                   "id": 2,
                   "name": "doag is also okay",
                   "ok": true,
@@ -1657,7 +1657,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "nesting first",
+              "fullname": "nesting > first",
               "id": 1,
               "name": "first",
               "ok": true,
@@ -1681,7 +1681,7 @@ Array [
                 Result {
                   "buffered": false,
                   "diag": null,
-                  "fullname": "nesting but that is ok",
+                  "fullname": "nesting > but that is ok",
                   "id": 1,
                   "name": "but that is ok",
                   "ok": true,
@@ -1698,7 +1698,7 @@ Array [
                 Result {
                   "buffered": false,
                   "diag": null,
-                  "fullname": "nesting this passes",
+                  "fullname": "nesting > this passes",
                   "id": 2,
                   "name": "this passes",
                   "ok": true,
@@ -1715,7 +1715,7 @@ Array [
                 Result {
                   "buffered": false,
                   "diag": null,
-                  "fullname": "nesting nested ok",
+                  "fullname": "nesting > nested ok",
                   "id": 3,
                   "name": "nested ok",
                   "ok": true,
@@ -1772,7 +1772,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "nesting second",
+              "fullname": "nesting > second",
               "id": 2,
               "name": "second",
               "ok": true,
@@ -1956,7 +1956,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP subtest-no-comment-mid-comment-indent.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-no-comment-mid-comment-indent.tap > strictBail > stringified 1`] = `
 TAP version 13
 # Subtest
     # Subtest: nesting
@@ -1980,19 +1980,19 @@ ok 1 - ../tap/test/test/ok.js # time=205.826ms
 
 `
 
-exports[`test/parse-stringify.ts TAP subtest-no-comment-mid-comment-indent.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-no-comment-mid-comment-indent.tap > strictBail > stringified flat 1`] = `
 TAP version 13
 # Subtest
 # Subtest: nesting
 # Subtest
-ok 1 - nesting true is ok
-ok 2 - nesting doag is also okay
-ok 3 - nesting first # time=8.987ms
+ok 1 - nesting > true is ok
+ok 2 - nesting > doag is also okay
+ok 3 - nesting > first # time=8.987ms
 # Subtest
-ok 4 - nesting but that is ok
-ok 5 - nesting this passes
-ok 6 - nesting nested ok
-ok 7 - nesting second # time=5.988ms
+ok 4 - nesting > but that is ok
+ok 5 - nesting > this passes
+ok 6 - nesting > nested ok
+ok 7 - nesting > second # time=5.988ms
 ok 8 - nesting # time=28.647ms
 ok 9 - this passes
 ok 10 - ../tap/test/test/ok.js # time=205.826ms

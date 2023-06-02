@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts TAP giving-up.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > giving-up.tap > bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -88,7 +88,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP giving-up.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > giving-up.tap > bail > stringified 1`] = `
 TAP version 13
 1..573
 not ok 1 - database handle
@@ -96,7 +96,7 @@ Bail out! Couldn't connect to database.
 
 `
 
-exports[`test/parse-stringify.ts TAP giving-up.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > giving-up.tap > bail > stringified flat 1`] = `
 TAP version 13
 1..0
 not ok 1 - database handle
@@ -104,7 +104,7 @@ Bail out! Couldn't connect to database.
 
 `
 
-exports[`test/parse-stringify.ts TAP giving-up.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > giving-up.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -187,7 +187,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP giving-up.tap default settings > parsed flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > giving-up.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "version",
@@ -262,7 +262,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP giving-up.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > giving-up.tap > default settings > stringified 1`] = `
 TAP version 13
 1..573
 not ok 1 - database handle
@@ -270,7 +270,7 @@ Bail out! Couldn't connect to database.
 
 `
 
-exports[`test/parse-stringify.ts TAP giving-up.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > giving-up.tap > default settings > stringified flat 1`] = `
 TAP version 13
 1..0
 not ok 1 - database handle
@@ -278,7 +278,7 @@ Bail out! Couldn't connect to database.
 
 `
 
-exports[`test/parse-stringify.ts TAP giving-up.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > giving-up.tap > strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -361,7 +361,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP giving-up.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > giving-up.tap > strict > stringified 1`] = `
 TAP version 13
 1..573
 not ok 1 - database handle
@@ -369,7 +369,7 @@ Bail out! Couldn't connect to database.
 
 `
 
-exports[`test/parse-stringify.ts TAP giving-up.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > giving-up.tap > strict > stringified flat 1`] = `
 TAP version 13
 1..0
 not ok 1 - database handle
@@ -377,7 +377,7 @@ Bail out! Couldn't connect to database.
 
 `
 
-exports[`test/parse-stringify.ts TAP giving-up.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > giving-up.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -460,7 +460,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP giving-up.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > giving-up.tap > strictBail > stringified 1`] = `
 TAP version 13
 1..573
 not ok 1 - database handle
@@ -468,7 +468,7 @@ Bail out! Couldn't connect to database.
 
 `
 
-exports[`test/parse-stringify.ts TAP giving-up.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > giving-up.tap > strictBail > stringified flat 1`] = `
 TAP version 13
 1..0
 not ok 1 - database handle

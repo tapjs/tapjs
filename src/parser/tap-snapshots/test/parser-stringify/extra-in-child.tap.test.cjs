@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts TAP extra-in-child.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > extra-in-child.tap > bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -30,7 +30,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "test/01c-user-updates.js update profile should be equivalent",
+              "fullname": "test/01c-user-updates.js > update profile > should be equivalent",
               "id": 1,
               "name": "should be equivalent",
               "ok": true,
@@ -47,7 +47,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "test/01c-user-updates.js update profile should be equivalent",
+              "fullname": "test/01c-user-updates.js > update profile > should be equivalent",
               "id": 2,
               "name": "should be equivalent",
               "ok": true,
@@ -104,7 +104,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "test/01c-user-updates.js update profile",
+          "fullname": "test/01c-user-updates.js > update profile",
           "id": 1,
           "name": "update profile",
           "ok": true,
@@ -128,7 +128,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "test/01c-user-updates.js update email should be equivalent",
+              "fullname": "test/01c-user-updates.js > update email > should be equivalent",
               "id": 1,
               "name": "should be equivalent",
               "ok": true,
@@ -185,7 +185,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "test/01c-user-updates.js update email",
+          "fullname": "test/01c-user-updates.js > update email",
           "id": 2,
           "name": "update email",
           "ok": true,
@@ -407,7 +407,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP extra-in-child.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > extra-in-child.tap > bail > stringified 1`] = `
 TAP version 13
 # Subtest: test/01c-user-updates.js
     # Subtest: update profile
@@ -453,16 +453,16 @@ ok 1 - test/01c-user-updates.js # time=339.14ms
 
 `
 
-exports[`test/parse-stringify.ts TAP extra-in-child.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > extra-in-child.tap > bail > stringified flat 1`] = `
 TAP version 13
 # Subtest: test/01c-user-updates.js
 # Subtest: update profile
-ok 1 - test/01c-user-updates.js update profile should be equivalent
-ok 2 - test/01c-user-updates.js update profile should be equivalent
-ok 3 - test/01c-user-updates.js update profile # time=43.094ms
+ok 1 - test/01c-user-updates.js > update profile > should be equivalent
+ok 2 - test/01c-user-updates.js > update profile > should be equivalent
+ok 3 - test/01c-user-updates.js > update profile # time=43.094ms
 # Subtest: update email
-ok 4 - test/01c-user-updates.js update email should be equivalent
-ok 5 - test/01c-user-updates.js update email # time=24.16ms
+ok 4 - test/01c-user-updates.js > update email > should be equivalent
+ok 5 - test/01c-user-updates.js > update email # time=24.16ms
 # time=174.236ms
     null { _id: 'org.couchdb.user:user',
       _rev: '21-3d786fbf7428194ca288abe40c50cd0c',
@@ -496,7 +496,7 @@ ok 6 - test/01c-user-updates.js # time=339.14ms
 
 `
 
-exports[`test/parse-stringify.ts TAP extra-in-child.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > extra-in-child.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -521,7 +521,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "test/01c-user-updates.js update profile should be equivalent",
+              "fullname": "test/01c-user-updates.js > update profile > should be equivalent",
               "id": 1,
               "name": "should be equivalent",
               "ok": true,
@@ -538,7 +538,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "test/01c-user-updates.js update profile should be equivalent",
+              "fullname": "test/01c-user-updates.js > update profile > should be equivalent",
               "id": 2,
               "name": "should be equivalent",
               "ok": true,
@@ -595,7 +595,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "test/01c-user-updates.js update profile",
+          "fullname": "test/01c-user-updates.js > update profile",
           "id": 1,
           "name": "update profile",
           "ok": true,
@@ -619,7 +619,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "test/01c-user-updates.js update email should be equivalent",
+              "fullname": "test/01c-user-updates.js > update email > should be equivalent",
               "id": 1,
               "name": "should be equivalent",
               "ok": true,
@@ -676,7 +676,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "test/01c-user-updates.js update email",
+          "fullname": "test/01c-user-updates.js > update email",
           "id": 2,
           "name": "update email",
           "ok": true,
@@ -898,7 +898,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP extra-in-child.tap default settings > parsed flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > extra-in-child.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "version",
@@ -909,9 +909,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "test/01c-user-updates.js update profile should be equivalent",
+      "fullname": "test/01c-user-updates.js > update profile > should be equivalent",
       "id": 1,
-      "name": "test/01c-user-updates.js update profile should be equivalent",
+      "name": "test/01c-user-updates.js > update profile > should be equivalent",
       "ok": true,
       "plan": null,
       "previous": null,
@@ -926,9 +926,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "test/01c-user-updates.js update profile should be equivalent",
+      "fullname": "test/01c-user-updates.js > update profile > should be equivalent",
       "id": 2,
-      "name": "test/01c-user-updates.js update profile should be equivalent",
+      "name": "test/01c-user-updates.js > update profile > should be equivalent",
       "ok": true,
       "plan": null,
       "previous": null,
@@ -1047,9 +1047,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "test/01c-user-updates.js update email should be equivalent",
+      "fullname": "test/01c-user-updates.js > update email > should be equivalent",
       "id": 3,
-      "name": "test/01c-user-updates.js update email should be equivalent",
+      "name": "test/01c-user-updates.js > update email > should be equivalent",
       "ok": true,
       "plan": null,
       "previous": null,
@@ -1103,7 +1103,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP extra-in-child.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > extra-in-child.tap > default settings > stringified 1`] = `
 TAP version 13
 # Subtest: test/01c-user-updates.js
     # Subtest: update profile
@@ -1149,16 +1149,16 @@ ok 1 - test/01c-user-updates.js # time=339.14ms
 
 `
 
-exports[`test/parse-stringify.ts TAP extra-in-child.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > extra-in-child.tap > default settings > stringified flat 1`] = `
 TAP version 13
 # Subtest: test/01c-user-updates.js
 # Subtest: update profile
-ok 1 - test/01c-user-updates.js update profile should be equivalent
-ok 2 - test/01c-user-updates.js update profile should be equivalent
-ok 3 - test/01c-user-updates.js update profile # time=43.094ms
+ok 1 - test/01c-user-updates.js > update profile > should be equivalent
+ok 2 - test/01c-user-updates.js > update profile > should be equivalent
+ok 3 - test/01c-user-updates.js > update profile # time=43.094ms
 # Subtest: update email
-ok 4 - test/01c-user-updates.js update email should be equivalent
-ok 5 - test/01c-user-updates.js update email # time=24.16ms
+ok 4 - test/01c-user-updates.js > update email > should be equivalent
+ok 5 - test/01c-user-updates.js > update email # time=24.16ms
 # time=174.236ms
     null { _id: 'org.couchdb.user:user',
       _rev: '21-3d786fbf7428194ca288abe40c50cd0c',
@@ -1192,7 +1192,7 @@ ok 6 - test/01c-user-updates.js # time=339.14ms
 
 `
 
-exports[`test/parse-stringify.ts TAP extra-in-child.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > extra-in-child.tap > strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -1217,7 +1217,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "test/01c-user-updates.js update profile should be equivalent",
+              "fullname": "test/01c-user-updates.js > update profile > should be equivalent",
               "id": 1,
               "name": "should be equivalent",
               "ok": true,
@@ -1234,7 +1234,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "test/01c-user-updates.js update profile should be equivalent",
+              "fullname": "test/01c-user-updates.js > update profile > should be equivalent",
               "id": 2,
               "name": "should be equivalent",
               "ok": true,
@@ -1291,7 +1291,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "test/01c-user-updates.js update profile",
+          "fullname": "test/01c-user-updates.js > update profile",
           "id": 1,
           "name": "update profile",
           "ok": true,
@@ -1315,7 +1315,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "test/01c-user-updates.js update email should be equivalent",
+              "fullname": "test/01c-user-updates.js > update email > should be equivalent",
               "id": 1,
               "name": "should be equivalent",
               "ok": true,
@@ -1372,7 +1372,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "test/01c-user-updates.js update email",
+          "fullname": "test/01c-user-updates.js > update email",
           "id": 2,
           "name": "update email",
           "ok": true,
@@ -1395,10 +1395,6 @@ Array [
       Array [
         "comment",
         "# time=174.236ms\\n",
-      ],
-      Array [
-        "comment",
-        "# failed 26 of 2 tests\\n",
       ],
       Array [
         "complete",
@@ -1671,10 +1667,6 @@ Array [
     "# time=343.487ms\\n",
   ],
   Array [
-    "comment",
-    "# failed 26 test\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -1812,7 +1804,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP extra-in-child.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > extra-in-child.tap > strict > stringified 1`] = `
 TAP version 13
 # Subtest: test/01c-user-updates.js
     # Subtest: update profile
@@ -1826,7 +1818,6 @@ TAP version 13
     ok 2 - update email # time=24.16ms
     1..2
     # time=174.236ms
-    # failed 26 of 2 tests
     null { _id: 'org.couchdb.user:user',
       _rev: '21-3d786fbf7428194ca288abe40c50cd0c',
       password_scheme: 'pbkdf2',
@@ -1856,22 +1847,20 @@ TAP version 13
 ok 1 - test/01c-user-updates.js # time=339.14ms
 1..1
 # time=343.487ms
-# failed 26 test
 
 `
 
-exports[`test/parse-stringify.ts TAP extra-in-child.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > extra-in-child.tap > strict > stringified flat 1`] = `
 TAP version 13
 # Subtest: test/01c-user-updates.js
 # Subtest: update profile
-ok 1 - test/01c-user-updates.js update profile should be equivalent
-ok 2 - test/01c-user-updates.js update profile should be equivalent
-ok 3 - test/01c-user-updates.js update profile # time=43.094ms
+ok 1 - test/01c-user-updates.js > update profile > should be equivalent
+ok 2 - test/01c-user-updates.js > update profile > should be equivalent
+ok 3 - test/01c-user-updates.js > update profile # time=43.094ms
 # Subtest: update email
-ok 4 - test/01c-user-updates.js update email should be equivalent
-ok 5 - test/01c-user-updates.js update email # time=24.16ms
+ok 4 - test/01c-user-updates.js > update email > should be equivalent
+ok 5 - test/01c-user-updates.js > update email # time=24.16ms
 # time=174.236ms
-# failed 26 of 2 tests
     null { _id: 'org.couchdb.user:user',
       _rev: '21-3d786fbf7428194ca288abe40c50cd0c',
       password_scheme: 'pbkdf2',
@@ -1901,11 +1890,10 @@ ok 5 - test/01c-user-updates.js update email # time=24.16ms
 ok 6 - test/01c-user-updates.js # time=339.14ms
 1..6
 # time=343.487ms
-# failed 26 test
 
 `
 
-exports[`test/parse-stringify.ts TAP extra-in-child.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > extra-in-child.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -1930,7 +1918,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "test/01c-user-updates.js update profile should be equivalent",
+              "fullname": "test/01c-user-updates.js > update profile > should be equivalent",
               "id": 1,
               "name": "should be equivalent",
               "ok": true,
@@ -1947,7 +1935,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "test/01c-user-updates.js update profile should be equivalent",
+              "fullname": "test/01c-user-updates.js > update profile > should be equivalent",
               "id": 2,
               "name": "should be equivalent",
               "ok": true,
@@ -2004,7 +1992,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "test/01c-user-updates.js update profile",
+          "fullname": "test/01c-user-updates.js > update profile",
           "id": 1,
           "name": "update profile",
           "ok": true,
@@ -2028,7 +2016,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "test/01c-user-updates.js update email should be equivalent",
+              "fullname": "test/01c-user-updates.js > update email > should be equivalent",
               "id": 1,
               "name": "should be equivalent",
               "ok": true,
@@ -2085,7 +2073,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "test/01c-user-updates.js update email",
+          "fullname": "test/01c-user-updates.js > update email",
           "id": 2,
           "name": "update email",
           "ok": true,
@@ -2108,10 +2096,6 @@ Array [
       Array [
         "comment",
         "# time=174.236ms\\n",
-      ],
-      Array [
-        "comment",
-        "# failed 26 of 2 tests\\n",
       ],
       Array [
         "complete",
@@ -2384,10 +2368,6 @@ Array [
     "# time=343.487ms\\n",
   ],
   Array [
-    "comment",
-    "# failed 26 test\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -2525,7 +2505,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP extra-in-child.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > extra-in-child.tap > strictBail > stringified 1`] = `
 TAP version 13
 # Subtest: test/01c-user-updates.js
     # Subtest: update profile
@@ -2539,7 +2519,6 @@ TAP version 13
     ok 2 - update email # time=24.16ms
     1..2
     # time=174.236ms
-    # failed 26 of 2 tests
     null { _id: 'org.couchdb.user:user',
       _rev: '21-3d786fbf7428194ca288abe40c50cd0c',
       password_scheme: 'pbkdf2',
@@ -2569,22 +2548,20 @@ TAP version 13
 ok 1 - test/01c-user-updates.js # time=339.14ms
 1..1
 # time=343.487ms
-# failed 26 test
 
 `
 
-exports[`test/parse-stringify.ts TAP extra-in-child.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > extra-in-child.tap > strictBail > stringified flat 1`] = `
 TAP version 13
 # Subtest: test/01c-user-updates.js
 # Subtest: update profile
-ok 1 - test/01c-user-updates.js update profile should be equivalent
-ok 2 - test/01c-user-updates.js update profile should be equivalent
-ok 3 - test/01c-user-updates.js update profile # time=43.094ms
+ok 1 - test/01c-user-updates.js > update profile > should be equivalent
+ok 2 - test/01c-user-updates.js > update profile > should be equivalent
+ok 3 - test/01c-user-updates.js > update profile # time=43.094ms
 # Subtest: update email
-ok 4 - test/01c-user-updates.js update email should be equivalent
-ok 5 - test/01c-user-updates.js update email # time=24.16ms
+ok 4 - test/01c-user-updates.js > update email > should be equivalent
+ok 5 - test/01c-user-updates.js > update email # time=24.16ms
 # time=174.236ms
-# failed 26 of 2 tests
     null { _id: 'org.couchdb.user:user',
       _rev: '21-3d786fbf7428194ca288abe40c50cd0c',
       password_scheme: 'pbkdf2',
@@ -2614,6 +2591,5 @@ ok 5 - test/01c-user-updates.js update email # time=24.16ms
 ok 6 - test/01c-user-updates.js # time=339.14ms
 1..6
 # time=343.487ms
-# failed 26 test
 
 `

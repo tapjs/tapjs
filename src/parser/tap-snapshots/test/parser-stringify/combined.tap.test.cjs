@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts TAP combined.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > combined.tap > bail > parsed 1`] = `
 Array [
   Array [
     "plan",
@@ -118,7 +118,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP combined.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > combined.tap > bail > stringified 1`] = `
 1..10
 ok 1
 ok 2 - basset hounds got long ears
@@ -127,7 +127,7 @@ Bail out! all hell broke loose
 
 `
 
-exports[`test/parse-stringify.ts TAP combined.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > combined.tap > bail > stringified flat 1`] = `
 1..0
 ok 1
 ok 2 - basset hounds got long ears
@@ -136,7 +136,7 @@ Bail out! all hell broke loose
 
 `
 
-exports[`test/parse-stringify.ts TAP combined.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > combined.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "plan",
@@ -317,18 +317,6 @@ Array [
     },
   ],
   Array [
-    "comment",
-    "# failed 3 of 10 tests\\n",
-  ],
-  Array [
-    "comment",
-    "# todo: 2\\n",
-  ],
-  Array [
-    "comment",
-    "# skip: 1\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -420,7 +408,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP combined.tap default settings > parsed flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > combined.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "assert",
@@ -593,18 +581,6 @@ Array [
     },
   ],
   Array [
-    "comment",
-    "# failed 3 of 10 tests\\n",
-  ],
-  Array [
-    "comment",
-    "# todo: 2\\n",
-  ],
-  Array [
-    "comment",
-    "# skip: 1\\n",
-  ],
-  Array [
     "plan",
     Object {
       "end": 10,
@@ -703,7 +679,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP combined.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > combined.tap > default settings > stringified 1`] = `
 1..10
 ok 1
 ok 2 - basset hounds got long ears
@@ -715,13 +691,10 @@ ok 7 # SKIP contract negotiations
 ok 8 - Girls are such exquisite hell
 ok 9 - Elegy 9B # TODO
 not ok 10
-# failed 3 of 10 tests
-# todo: 2
-# skip: 1
 
 `
 
-exports[`test/parse-stringify.ts TAP combined.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > combined.tap > default settings > stringified flat 1`] = `
 1..0
 ok 1
 ok 2 - basset hounds got long ears
@@ -733,13 +706,10 @@ ok 7 # SKIP contract negotiations
 ok 8 - Girls are such exquisite hell
 ok 9 - Elegy 9B # TODO
 not ok 10
-# failed 3 of 10 tests
-# todo: 2
-# skip: 1
 
 `
 
-exports[`test/parse-stringify.ts TAP combined.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > combined.tap > strict > parsed 1`] = `
 Array [
   Array [
     "plan",
@@ -920,18 +890,6 @@ Array [
     },
   ],
   Array [
-    "comment",
-    "# failed 3 of 10 tests\\n",
-  ],
-  Array [
-    "comment",
-    "# todo: 2\\n",
-  ],
-  Array [
-    "comment",
-    "# skip: 1\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -1023,7 +981,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP combined.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > combined.tap > strict > stringified 1`] = `
 1..10
 ok 1
 ok 2 - basset hounds got long ears
@@ -1035,13 +993,10 @@ ok 7 # SKIP contract negotiations
 ok 8 - Girls are such exquisite hell
 ok 9 - Elegy 9B # TODO
 not ok 10
-# failed 3 of 10 tests
-# todo: 2
-# skip: 1
 
 `
 
-exports[`test/parse-stringify.ts TAP combined.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > combined.tap > strict > stringified flat 1`] = `
 1..0
 ok 1
 ok 2 - basset hounds got long ears
@@ -1053,13 +1008,10 @@ ok 7 # SKIP contract negotiations
 ok 8 - Girls are such exquisite hell
 ok 9 - Elegy 9B # TODO
 not ok 10
-# failed 3 of 10 tests
-# todo: 2
-# skip: 1
 
 `
 
-exports[`test/parse-stringify.ts TAP combined.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > combined.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "plan",
@@ -1172,7 +1124,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP combined.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > combined.tap > strictBail > stringified 1`] = `
 1..10
 ok 1
 ok 2 - basset hounds got long ears
@@ -1181,7 +1133,7 @@ Bail out! all hell broke loose
 
 `
 
-exports[`test/parse-stringify.ts TAP combined.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > combined.tap > strictBail > stringified flat 1`] = `
 1..0
 ok 1
 ok 2 - basset hounds got long ears

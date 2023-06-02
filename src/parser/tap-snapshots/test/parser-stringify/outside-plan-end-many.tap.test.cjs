@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts TAP outside-plan-end-many.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > outside-plan-end-many.tap > bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -96,10 +96,6 @@ Array [
     },
   ],
   Array [
-    "comment",
-    "# failed 2 of 4 tests\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -169,29 +165,27 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP outside-plan-end-many.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > outside-plan-end-many.tap > bail > stringified 1`] = `
 TAP version 13
 ok 1
 ok 420
 ok 5
 ok
 1..4
-# failed 2 of 4 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP outside-plan-end-many.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > outside-plan-end-many.tap > bail > stringified flat 1`] = `
 TAP version 13
 ok 1
 ok 2
 ok 3
 ok 4
 1..4
-# failed 2 of 4 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP outside-plan-end-many.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > outside-plan-end-many.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -282,10 +276,6 @@ Array [
     },
   ],
   Array [
-    "comment",
-    "# failed 2 of 4 tests\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -355,7 +345,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP outside-plan-end-many.tap default settings > parsed flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > outside-plan-end-many.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "version",
@@ -438,10 +428,6 @@ Array [
     },
   ],
   Array [
-    "comment",
-    "# failed 2 of 4 tests\\n",
-  ],
-  Array [
     "plan",
     Object {
       "end": 4,
@@ -518,29 +504,27 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP outside-plan-end-many.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > outside-plan-end-many.tap > default settings > stringified 1`] = `
 TAP version 13
 ok 1
 ok 420
 ok 5
 ok
 1..4
-# failed 2 of 4 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP outside-plan-end-many.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > outside-plan-end-many.tap > default settings > stringified flat 1`] = `
 TAP version 13
 ok 1
 ok 2
 ok 3
 ok 4
 1..4
-# failed 2 of 4 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP outside-plan-end-many.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > outside-plan-end-many.tap > strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -631,10 +615,6 @@ Array [
     },
   ],
   Array [
-    "comment",
-    "# failed 2 of 4 tests\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -704,29 +684,27 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP outside-plan-end-many.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > outside-plan-end-many.tap > strict > stringified 1`] = `
 TAP version 13
 ok 1
 ok 420
 ok 5
 ok
 1..4
-# failed 2 of 4 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP outside-plan-end-many.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > outside-plan-end-many.tap > strict > stringified flat 1`] = `
 TAP version 13
 ok 1
 ok 2
 ok 3
 ok 4
 1..4
-# failed 2 of 4 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP outside-plan-end-many.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > outside-plan-end-many.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -817,10 +795,6 @@ Array [
     },
   ],
   Array [
-    "comment",
-    "# failed 2 of 4 tests\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -890,24 +864,22 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP outside-plan-end-many.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > outside-plan-end-many.tap > strictBail > stringified 1`] = `
 TAP version 13
 ok 1
 ok 420
 ok 5
 ok
 1..4
-# failed 2 of 4 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP outside-plan-end-many.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > outside-plan-end-many.tap > strictBail > stringified flat 1`] = `
 TAP version 13
 ok 1
 ok 2
 ok 3
 ok 4
 1..4
-# failed 2 of 4 tests
 
 `

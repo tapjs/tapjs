@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/omit-version.ts TAP > saw expected events 1`] = `
+exports[`test/omit-version.ts > TAP > saw expected events 1`] = `
 Array [
   Array [
     "assert",
@@ -96,7 +96,7 @@ Array [
 ]
 `
 
-exports[`test/omit-version.ts TAP > saw expected lines 1`] = `
+exports[`test/omit-version.ts > TAP > saw expected lines 1`] = `
 Array [
   "ok 1 - this is fine\\n",
   "1..1\\n",

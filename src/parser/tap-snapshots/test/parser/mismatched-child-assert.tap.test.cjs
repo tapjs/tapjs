@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser.ts TAP mismatched-child-assert.tap > output bail=false 1`] = `
+exports[`test/parser.ts > TAP > mismatched-child-assert.tap > output bail=false 1`] = `
 Array [
   Array [
     "line",
@@ -35,7 +35,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "some child this is fine",
+          "fullname": "some child > this is fine",
           "id": 1,
           "name": "this is fine",
           "ok": true,
@@ -97,7 +97,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "some child this is fine",
+      "fullname": "some child > this is fine",
       "id": 1,
       "name": "this is fine",
       "ok": true,
@@ -114,7 +114,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "some child this is fine",
+      "fullname": "some child > this is fine",
       "id": 1,
       "name": "this is fine",
       "ok": true,
@@ -224,7 +224,7 @@ Array [
 ]
 `
 
-exports[`test/parser.ts TAP mismatched-child-assert.tap > output bail=true 1`] = `
+exports[`test/parser.ts > TAP > mismatched-child-assert.tap > output bail=true 1`] = `
 Array [
   Array [
     "line",
@@ -254,7 +254,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "some child this is fine",
+          "fullname": "some child > this is fine",
           "id": 1,
           "name": "this is fine",
           "ok": true,
@@ -316,7 +316,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "some child this is fine",
+      "fullname": "some child > this is fine",
       "id": 1,
       "name": "this is fine",
       "ok": true,
@@ -333,7 +333,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "some child this is fine",
+      "fullname": "some child > this is fine",
       "id": 1,
       "name": "this is fine",
       "ok": true,

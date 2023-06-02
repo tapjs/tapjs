@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts TAP got-spare-tuits.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > got-spare-tuits.tap > bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -88,10 +88,6 @@ Array [
     },
   ],
   Array [
-    "comment",
-    "# todo: 2\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -124,29 +120,27 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP got-spare-tuits.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > got-spare-tuits.tap > bail > stringified 1`] = `
 TAP version 13
 1..4
 ok 1 - Creating test program
 ok 2 - Test program runs, no error
 not ok 3 - infinite loop # TODO halting problem unsolved
 not ok 4 - infinite loop 2 # TODO halting problem unsolved
-# todo: 2
 
 `
 
-exports[`test/parse-stringify.ts TAP got-spare-tuits.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > got-spare-tuits.tap > bail > stringified flat 1`] = `
 TAP version 13
 1..0
 ok 1 - Creating test program
 ok 2 - Test program runs, no error
 not ok 3 - infinite loop # TODO halting problem unsolved
 not ok 4 - infinite loop 2 # TODO halting problem unsolved
-# todo: 2
 
 `
 
-exports[`test/parse-stringify.ts TAP got-spare-tuits.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > got-spare-tuits.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -229,10 +223,6 @@ Array [
     },
   ],
   Array [
-    "comment",
-    "# todo: 2\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -265,7 +255,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP got-spare-tuits.tap default settings > parsed flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > got-spare-tuits.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "version",
@@ -338,10 +328,6 @@ Array [
       "time": null,
       "todo": "halting problem unsolved",
     },
-  ],
-  Array [
-    "comment",
-    "# todo: 2\\n",
   ],
   Array [
     "plan",
@@ -383,29 +369,27 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP got-spare-tuits.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > got-spare-tuits.tap > default settings > stringified 1`] = `
 TAP version 13
 1..4
 ok 1 - Creating test program
 ok 2 - Test program runs, no error
 not ok 3 - infinite loop # TODO halting problem unsolved
 not ok 4 - infinite loop 2 # TODO halting problem unsolved
-# todo: 2
 
 `
 
-exports[`test/parse-stringify.ts TAP got-spare-tuits.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > got-spare-tuits.tap > default settings > stringified flat 1`] = `
 TAP version 13
 1..0
 ok 1 - Creating test program
 ok 2 - Test program runs, no error
 not ok 3 - infinite loop # TODO halting problem unsolved
 not ok 4 - infinite loop 2 # TODO halting problem unsolved
-# todo: 2
 
 `
 
-exports[`test/parse-stringify.ts TAP got-spare-tuits.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > got-spare-tuits.tap > strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -488,10 +472,6 @@ Array [
     },
   ],
   Array [
-    "comment",
-    "# todo: 2\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -524,29 +504,27 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP got-spare-tuits.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > got-spare-tuits.tap > strict > stringified 1`] = `
 TAP version 13
 1..4
 ok 1 - Creating test program
 ok 2 - Test program runs, no error
 not ok 3 - infinite loop # TODO halting problem unsolved
 not ok 4 - infinite loop 2 # TODO halting problem unsolved
-# todo: 2
 
 `
 
-exports[`test/parse-stringify.ts TAP got-spare-tuits.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > got-spare-tuits.tap > strict > stringified flat 1`] = `
 TAP version 13
 1..0
 ok 1 - Creating test program
 ok 2 - Test program runs, no error
 not ok 3 - infinite loop # TODO halting problem unsolved
 not ok 4 - infinite loop 2 # TODO halting problem unsolved
-# todo: 2
 
 `
 
-exports[`test/parse-stringify.ts TAP got-spare-tuits.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > got-spare-tuits.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -629,10 +607,6 @@ Array [
     },
   ],
   Array [
-    "comment",
-    "# todo: 2\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -665,24 +639,22 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP got-spare-tuits.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > got-spare-tuits.tap > strictBail > stringified 1`] = `
 TAP version 13
 1..4
 ok 1 - Creating test program
 ok 2 - Test program runs, no error
 not ok 3 - infinite loop # TODO halting problem unsolved
 not ok 4 - infinite loop 2 # TODO halting problem unsolved
-# todo: 2
 
 `
 
-exports[`test/parse-stringify.ts TAP got-spare-tuits.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > got-spare-tuits.tap > strictBail > stringified flat 1`] = `
 TAP version 13
 1..0
 ok 1 - Creating test program
 ok 2 - Test program runs, no error
 not ok 3 - infinite loop # TODO halting problem unsolved
 not ok 4 - infinite loop 2 # TODO halting problem unsolved
-# todo: 2
 
 `

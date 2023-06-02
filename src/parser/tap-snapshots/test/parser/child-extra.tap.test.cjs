@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser.ts TAP child-extra.tap > output bail=false 1`] = `
+exports[`test/parser.ts > TAP > child-extra.tap > output bail=false 1`] = `
 Array [
   Array [
     "line",
@@ -43,7 +43,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "test/debug-test.js Should output debugger message",
+          "fullname": "test/debug-test.js > Should output debugger message",
           "id": 1,
           "name": "Should output debugger message",
           "ok": true,
@@ -157,7 +157,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "test/debug-test.js Should output debugger message",
+      "fullname": "test/debug-test.js > Should output debugger message",
       "id": 1,
       "name": "Should output debugger message",
       "ok": true,
@@ -174,7 +174,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "test/debug-test.js Should output debugger message",
+      "fullname": "test/debug-test.js > Should output debugger message",
       "id": 1,
       "name": "Should output debugger message",
       "ok": true,
@@ -270,7 +270,7 @@ Array [
 ]
 `
 
-exports[`test/parser.ts TAP child-extra.tap > output bail=true 1`] = `
+exports[`test/parser.ts > TAP > child-extra.tap > output bail=true 1`] = `
 Array [
   Array [
     "line",
@@ -308,7 +308,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "test/debug-test.js Should output debugger message",
+          "fullname": "test/debug-test.js > Should output debugger message",
           "id": 1,
           "name": "Should output debugger message",
           "ok": true,
@@ -422,7 +422,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "test/debug-test.js Should output debugger message",
+      "fullname": "test/debug-test.js > Should output debugger message",
       "id": 1,
       "name": "Should output debugger message",
       "ok": true,
@@ -439,7 +439,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "test/debug-test.js Should output debugger message",
+      "fullname": "test/debug-test.js > Should output debugger message",
       "id": 1,
       "name": "Should output debugger message",
       "ok": true,

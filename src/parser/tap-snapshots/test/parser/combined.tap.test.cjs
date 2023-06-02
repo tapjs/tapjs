@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser.ts TAP combined.tap > output bail=false 1`] = `
+exports[`test/parser.ts > TAP > combined.tap > output bail=false 1`] = `
 Array [
   Array [
     "line",
@@ -570,30 +570,6 @@ Array [
     },
   ],
   Array [
-    "line",
-    "# failed 3 of 10 tests\\n",
-  ],
-  Array [
-    "comment",
-    "# failed 3 of 10 tests\\n",
-  ],
-  Array [
-    "line",
-    "# todo: 2\\n",
-  ],
-  Array [
-    "comment",
-    "# todo: 2\\n",
-  ],
-  Array [
-    "line",
-    "# skip: 1\\n",
-  ],
-  Array [
-    "comment",
-    "# skip: 1\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -679,7 +655,7 @@ Array [
 ]
 `
 
-exports[`test/parser.ts TAP combined.tap > output bail=true 1`] = `
+exports[`test/parser.ts > TAP > combined.tap > output bail=true 1`] = `
 Array [
   Array [
     "line",

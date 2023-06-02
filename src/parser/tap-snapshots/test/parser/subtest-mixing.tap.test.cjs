@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser.ts TAP subtest-mixing.tap > output bail=false 1`] = `
+exports[`test/parser.ts > TAP > subtest-mixing.tap > output bail=false 1`] = `
 Array [
   Array [
     "line",
@@ -54,7 +54,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "x1 y ypoint",
+              "fullname": "x1 > y > ypoint",
               "id": 1,
               "name": "ypoint",
               "ok": true,
@@ -124,7 +124,7 @@ Array [
         Result {
           "buffered": true,
           "diag": null,
-          "fullname": "x1 y",
+          "fullname": "x1 > y",
           "id": 1,
           "name": "y",
           "ok": true,
@@ -190,7 +190,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "x1 y ypoint",
+      "fullname": "x1 > y > ypoint",
       "id": 1,
       "name": "ypoint",
       "ok": true,
@@ -207,7 +207,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "x1 y ypoint",
+      "fullname": "x1 > y > ypoint",
       "id": 1,
       "name": "ypoint",
       "ok": true,
@@ -283,7 +283,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "x2 y ypoint",
+              "fullname": "x2 > y > ypoint",
               "id": 1,
               "name": "ypoint",
               "ok": true,
@@ -353,7 +353,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "x2 y",
+          "fullname": "x2 > y",
           "id": 1,
           "name": "y",
           "ok": true,
@@ -419,7 +419,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "x2 y ypoint",
+      "fullname": "x2 > y > ypoint",
       "id": 1,
       "name": "ypoint",
       "ok": true,
@@ -436,7 +436,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "x2 y ypoint",
+      "fullname": "x2 > y > ypoint",
       "id": 1,
       "name": "ypoint",
       "ok": true,
@@ -512,7 +512,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "x3 y ypoint",
+              "fullname": "x3 > y > ypoint",
               "id": 1,
               "name": "ypoint",
               "ok": true,
@@ -582,7 +582,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "x3 y",
+          "fullname": "x3 > y",
           "id": 1,
           "name": "y",
           "ok": true,
@@ -648,7 +648,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "x3 y ypoint",
+      "fullname": "x3 > y > ypoint",
       "id": 1,
       "name": "ypoint",
       "ok": true,
@@ -665,7 +665,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "x3 y ypoint",
+      "fullname": "x3 > y > ypoint",
       "id": 1,
       "name": "ypoint",
       "ok": true,
@@ -741,7 +741,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "x4 y ypoint",
+              "fullname": "x4 > y > ypoint",
               "id": 1,
               "name": "ypoint",
               "ok": true,
@@ -811,7 +811,7 @@ Array [
         Result {
           "buffered": true,
           "diag": null,
-          "fullname": "x4 y",
+          "fullname": "x4 > y",
           "id": 1,
           "name": "y",
           "ok": true,
@@ -877,7 +877,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "x4 y ypoint",
+      "fullname": "x4 > y > ypoint",
       "id": 1,
       "name": "ypoint",
       "ok": true,
@@ -894,7 +894,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "x4 y ypoint",
+      "fullname": "x4 > y > ypoint",
       "id": 1,
       "name": "ypoint",
       "ok": true,
@@ -970,7 +970,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "x5 y ypoint",
+              "fullname": "x5 > y > ypoint",
               "id": 1,
               "name": "ypoint",
               "ok": true,
@@ -1040,7 +1040,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "x5 y",
+          "fullname": "x5 > y",
           "id": 1,
           "name": "y",
           "ok": true,
@@ -1106,7 +1106,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "x5 y ypoint",
+      "fullname": "x5 > y > ypoint",
       "id": 1,
       "name": "ypoint",
       "ok": true,
@@ -1123,7 +1123,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "x5 y ypoint",
+      "fullname": "x5 > y > ypoint",
       "id": 1,
       "name": "ypoint",
       "ok": true,
@@ -1199,7 +1199,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "x6 y ypoint",
+              "fullname": "x6 > y > ypoint",
               "id": 1,
               "name": "ypoint",
               "ok": true,
@@ -1269,7 +1269,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "x6 y",
+          "fullname": "x6 > y",
           "id": 1,
           "name": "y",
           "ok": true,
@@ -1335,7 +1335,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "x6 y ypoint",
+      "fullname": "x6 > y > ypoint",
       "id": 1,
       "name": "ypoint",
       "ok": true,
@@ -1352,7 +1352,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "x6 y ypoint",
+      "fullname": "x6 > y > ypoint",
       "id": 1,
       "name": "ypoint",
       "ok": true,
@@ -1428,7 +1428,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "x7 y ypoint",
+              "fullname": "x7 > y > ypoint",
               "id": 1,
               "name": "ypoint",
               "ok": true,
@@ -1498,7 +1498,7 @@ Array [
         Result {
           "buffered": true,
           "diag": null,
-          "fullname": "x7 y",
+          "fullname": "x7 > y",
           "id": 1,
           "name": "y",
           "ok": true,
@@ -1564,7 +1564,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "x7 y ypoint",
+      "fullname": "x7 > y > ypoint",
       "id": 1,
       "name": "ypoint",
       "ok": true,
@@ -1581,7 +1581,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "x7 y ypoint",
+      "fullname": "x7 > y > ypoint",
       "id": 1,
       "name": "ypoint",
       "ok": true,
@@ -1657,7 +1657,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "x8 y ypoint",
+              "fullname": "x8 > y > ypoint",
               "id": 1,
               "name": "ypoint",
               "ok": true,
@@ -1727,7 +1727,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "x8 y",
+          "fullname": "x8 > y",
           "id": 1,
           "name": "y",
           "ok": true,
@@ -1793,7 +1793,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "x8 y ypoint",
+      "fullname": "x8 > y > ypoint",
       "id": 1,
       "name": "ypoint",
       "ok": true,
@@ -1810,7 +1810,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "x8 y ypoint",
+      "fullname": "x8 > y > ypoint",
       "id": 1,
       "name": "ypoint",
       "ok": true,
@@ -1886,7 +1886,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "x9 y ypoint",
+              "fullname": "x9 > y > ypoint",
               "id": 1,
               "name": "ypoint",
               "ok": true,
@@ -1956,7 +1956,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "x9 y",
+          "fullname": "x9 > y",
           "id": 1,
           "name": "y",
           "ok": true,
@@ -2022,7 +2022,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "x9 y ypoint",
+      "fullname": "x9 > y > ypoint",
       "id": 1,
       "name": "ypoint",
       "ok": true,
@@ -2039,7 +2039,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "x9 y ypoint",
+      "fullname": "x9 > y > ypoint",
       "id": 1,
       "name": "ypoint",
       "ok": true,
@@ -2123,7 +2123,7 @@ Array [
 ]
 `
 
-exports[`test/parser.ts TAP subtest-mixing.tap > output bail=true 1`] = `
+exports[`test/parser.ts > TAP > subtest-mixing.tap > output bail=true 1`] = `
 Array [
   Array [
     "line",
@@ -2172,7 +2172,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "x1 y ypoint",
+              "fullname": "x1 > y > ypoint",
               "id": 1,
               "name": "ypoint",
               "ok": true,
@@ -2242,7 +2242,7 @@ Array [
         Result {
           "buffered": true,
           "diag": null,
-          "fullname": "x1 y",
+          "fullname": "x1 > y",
           "id": 1,
           "name": "y",
           "ok": true,
@@ -2308,7 +2308,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "x1 y ypoint",
+      "fullname": "x1 > y > ypoint",
       "id": 1,
       "name": "ypoint",
       "ok": true,
@@ -2325,7 +2325,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "x1 y ypoint",
+      "fullname": "x1 > y > ypoint",
       "id": 1,
       "name": "ypoint",
       "ok": true,
@@ -2401,7 +2401,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "x2 y ypoint",
+              "fullname": "x2 > y > ypoint",
               "id": 1,
               "name": "ypoint",
               "ok": true,
@@ -2471,7 +2471,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "x2 y",
+          "fullname": "x2 > y",
           "id": 1,
           "name": "y",
           "ok": true,
@@ -2537,7 +2537,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "x2 y ypoint",
+      "fullname": "x2 > y > ypoint",
       "id": 1,
       "name": "ypoint",
       "ok": true,
@@ -2554,7 +2554,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "x2 y ypoint",
+      "fullname": "x2 > y > ypoint",
       "id": 1,
       "name": "ypoint",
       "ok": true,
@@ -2630,7 +2630,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "x3 y ypoint",
+              "fullname": "x3 > y > ypoint",
               "id": 1,
               "name": "ypoint",
               "ok": true,
@@ -2700,7 +2700,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "x3 y",
+          "fullname": "x3 > y",
           "id": 1,
           "name": "y",
           "ok": true,
@@ -2766,7 +2766,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "x3 y ypoint",
+      "fullname": "x3 > y > ypoint",
       "id": 1,
       "name": "ypoint",
       "ok": true,
@@ -2783,7 +2783,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "x3 y ypoint",
+      "fullname": "x3 > y > ypoint",
       "id": 1,
       "name": "ypoint",
       "ok": true,
@@ -2859,7 +2859,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "x4 y ypoint",
+              "fullname": "x4 > y > ypoint",
               "id": 1,
               "name": "ypoint",
               "ok": true,
@@ -2929,7 +2929,7 @@ Array [
         Result {
           "buffered": true,
           "diag": null,
-          "fullname": "x4 y",
+          "fullname": "x4 > y",
           "id": 1,
           "name": "y",
           "ok": true,
@@ -2995,7 +2995,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "x4 y ypoint",
+      "fullname": "x4 > y > ypoint",
       "id": 1,
       "name": "ypoint",
       "ok": true,
@@ -3012,7 +3012,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "x4 y ypoint",
+      "fullname": "x4 > y > ypoint",
       "id": 1,
       "name": "ypoint",
       "ok": true,
@@ -3088,7 +3088,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "x5 y ypoint",
+              "fullname": "x5 > y > ypoint",
               "id": 1,
               "name": "ypoint",
               "ok": true,
@@ -3158,7 +3158,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "x5 y",
+          "fullname": "x5 > y",
           "id": 1,
           "name": "y",
           "ok": true,
@@ -3224,7 +3224,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "x5 y ypoint",
+      "fullname": "x5 > y > ypoint",
       "id": 1,
       "name": "ypoint",
       "ok": true,
@@ -3241,7 +3241,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "x5 y ypoint",
+      "fullname": "x5 > y > ypoint",
       "id": 1,
       "name": "ypoint",
       "ok": true,
@@ -3317,7 +3317,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "x6 y ypoint",
+              "fullname": "x6 > y > ypoint",
               "id": 1,
               "name": "ypoint",
               "ok": true,
@@ -3387,7 +3387,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "x6 y",
+          "fullname": "x6 > y",
           "id": 1,
           "name": "y",
           "ok": true,
@@ -3453,7 +3453,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "x6 y ypoint",
+      "fullname": "x6 > y > ypoint",
       "id": 1,
       "name": "ypoint",
       "ok": true,
@@ -3470,7 +3470,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "x6 y ypoint",
+      "fullname": "x6 > y > ypoint",
       "id": 1,
       "name": "ypoint",
       "ok": true,
@@ -3546,7 +3546,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "x7 y ypoint",
+              "fullname": "x7 > y > ypoint",
               "id": 1,
               "name": "ypoint",
               "ok": true,
@@ -3616,7 +3616,7 @@ Array [
         Result {
           "buffered": true,
           "diag": null,
-          "fullname": "x7 y",
+          "fullname": "x7 > y",
           "id": 1,
           "name": "y",
           "ok": true,
@@ -3682,7 +3682,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "x7 y ypoint",
+      "fullname": "x7 > y > ypoint",
       "id": 1,
       "name": "ypoint",
       "ok": true,
@@ -3699,7 +3699,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "x7 y ypoint",
+      "fullname": "x7 > y > ypoint",
       "id": 1,
       "name": "ypoint",
       "ok": true,
@@ -3775,7 +3775,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "x8 y ypoint",
+              "fullname": "x8 > y > ypoint",
               "id": 1,
               "name": "ypoint",
               "ok": true,
@@ -3845,7 +3845,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "x8 y",
+          "fullname": "x8 > y",
           "id": 1,
           "name": "y",
           "ok": true,
@@ -3911,7 +3911,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "x8 y ypoint",
+      "fullname": "x8 > y > ypoint",
       "id": 1,
       "name": "ypoint",
       "ok": true,
@@ -3928,7 +3928,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "x8 y ypoint",
+      "fullname": "x8 > y > ypoint",
       "id": 1,
       "name": "ypoint",
       "ok": true,
@@ -4004,7 +4004,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "x9 y ypoint",
+              "fullname": "x9 > y > ypoint",
               "id": 1,
               "name": "ypoint",
               "ok": true,
@@ -4074,7 +4074,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "x9 y",
+          "fullname": "x9 > y",
           "id": 1,
           "name": "y",
           "ok": true,
@@ -4140,7 +4140,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "x9 y ypoint",
+      "fullname": "x9 > y > ypoint",
       "id": 1,
       "name": "ypoint",
       "ok": true,
@@ -4157,7 +4157,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "x9 y ypoint",
+      "fullname": "x9 > y > ypoint",
       "id": 1,
       "name": "ypoint",
       "ok": true,

@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts TAP todo_misparse.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > todo_misparse.tap > bail > parsed 1`] = `
 Array [
   Array [
     "plan",
@@ -31,10 +31,6 @@ Array [
       "time": null,
       "todo": true,
     },
-  ],
-  Array [
-    "comment",
-    "# todo: 1\\n",
   ],
   Array [
     "complete",
@@ -69,21 +65,19 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP todo_misparse.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > todo_misparse.tap > bail > stringified 1`] = `
 1..1
 not ok 1 - Hamlette # TODO
-# todo: 1
 
 `
 
-exports[`test/parse-stringify.ts TAP todo_misparse.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > todo_misparse.tap > bail > stringified flat 1`] = `
 1..0
 not ok 1 - Hamlette # TODO
-# todo: 1
 
 `
 
-exports[`test/parse-stringify.ts TAP todo_misparse.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > todo_misparse.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "plan",
@@ -109,10 +103,6 @@ Array [
       "time": null,
       "todo": true,
     },
-  ],
-  Array [
-    "comment",
-    "# todo: 1\\n",
   ],
   Array [
     "complete",
@@ -147,7 +137,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP todo_misparse.tap default settings > parsed flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > todo_misparse.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "assert",
@@ -165,10 +155,6 @@ Array [
       "time": null,
       "todo": true,
     },
-  ],
-  Array [
-    "comment",
-    "# todo: 1\\n",
   ],
   Array [
     "plan",
@@ -210,21 +196,19 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP todo_misparse.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > todo_misparse.tap > default settings > stringified 1`] = `
 1..1
 not ok 1 - Hamlette # TODO
-# todo: 1
 
 `
 
-exports[`test/parse-stringify.ts TAP todo_misparse.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > todo_misparse.tap > default settings > stringified flat 1`] = `
 1..0
 not ok 1 - Hamlette # TODO
-# todo: 1
 
 `
 
-exports[`test/parse-stringify.ts TAP todo_misparse.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > todo_misparse.tap > strict > parsed 1`] = `
 Array [
   Array [
     "plan",
@@ -250,10 +234,6 @@ Array [
       "time": null,
       "todo": true,
     },
-  ],
-  Array [
-    "comment",
-    "# todo: 1\\n",
   ],
   Array [
     "complete",
@@ -288,21 +268,19 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP todo_misparse.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > todo_misparse.tap > strict > stringified 1`] = `
 1..1
 not ok 1 - Hamlette # TODO
-# todo: 1
 
 `
 
-exports[`test/parse-stringify.ts TAP todo_misparse.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > todo_misparse.tap > strict > stringified flat 1`] = `
 1..0
 not ok 1 - Hamlette # TODO
-# todo: 1
 
 `
 
-exports[`test/parse-stringify.ts TAP todo_misparse.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > todo_misparse.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "plan",
@@ -328,10 +306,6 @@ Array [
       "time": null,
       "todo": true,
     },
-  ],
-  Array [
-    "comment",
-    "# todo: 1\\n",
   ],
   Array [
     "complete",
@@ -366,16 +340,14 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP todo_misparse.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > todo_misparse.tap > strictBail > stringified 1`] = `
 1..1
 not ok 1 - Hamlette # TODO
-# todo: 1
 
 `
 
-exports[`test/parse-stringify.ts TAP todo_misparse.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > todo_misparse.tap > strictBail > stringified flat 1`] = `
 1..0
 not ok 1 - Hamlette # TODO
-# todo: 1
 
 `

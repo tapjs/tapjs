@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts TAP fail-right-before-indented-child-diag.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > fail-right-before-indented-child-diag.tap > bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -88,7 +88,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP fail-right-before-indented-child-diag.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > fail-right-before-indented-child-diag.tap > bail > stringified 1`] = `
 TAP version 13
 not ok
   ...
@@ -97,7 +97,7 @@ Bail out!
 
 `
 
-exports[`test/parse-stringify.ts TAP fail-right-before-indented-child-diag.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > fail-right-before-indented-child-diag.tap > bail > stringified flat 1`] = `
 TAP version 13
 not ok 1
   ...
@@ -106,7 +106,7 @@ Bail out!
 
 `
 
-exports[`test/parse-stringify.ts TAP fail-right-before-indented-child-diag.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > fail-right-before-indented-child-diag.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -227,10 +227,6 @@ Array [
     "# test count(2) != plan(null)\\n",
   ],
   Array [
-    "comment",
-    "# failed 2 of 2 tests\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -281,7 +277,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP fail-right-before-indented-child-diag.tap default settings > parsed flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > fail-right-before-indented-child-diag.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "version",
@@ -336,10 +332,6 @@ Array [
   Array [
     "comment",
     "# test count(2) != plan(null)\\n",
-  ],
-  Array [
-    "comment",
-    "# failed 2 of 2 tests\\n",
   ],
   Array [
     "plan",
@@ -399,7 +391,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP fail-right-before-indented-child-diag.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > fail-right-before-indented-child-diag.tap > default settings > stringified 1`] = `
 TAP version 13
 not ok
   ...
@@ -410,11 +402,10 @@ not ok
     ok
 ok - maybe a child
 # test count(2) != plan(null)
-# failed 2 of 2 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP fail-right-before-indented-child-diag.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > fail-right-before-indented-child-diag.tap > default settings > stringified flat 1`] = `
 TAP version 13
 not ok 1
   ...
@@ -424,11 +415,10 @@ not ok 1
 ok 2 - maybe a child
 ok 3 - maybe a child
 # test count(2) != plan(null)
-# failed 2 of 2 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP fail-right-before-indented-child-diag.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > fail-right-before-indented-child-diag.tap > strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -547,10 +537,6 @@ Array [
   Array [
     "comment",
     "# test count(2) != plan(null)\\n",
-  ],
-  Array [
-    "comment",
-    "# failed 5 of 2 tests\\n",
   ],
   Array [
     "complete",
@@ -615,7 +601,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP fail-right-before-indented-child-diag.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > fail-right-before-indented-child-diag.tap > strict > stringified 1`] = `
 TAP version 13
 not ok
   ...
@@ -626,11 +612,10 @@ not ok
     ok
 ok - maybe a child
 # test count(2) != plan(null)
-# failed 5 of 2 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP fail-right-before-indented-child-diag.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > fail-right-before-indented-child-diag.tap > strict > stringified flat 1`] = `
 TAP version 13
 not ok 1
   ...
@@ -640,11 +625,10 @@ not ok 1
 ok 2 - maybe a child
 ok 3 - maybe a child
 # test count(2) != plan(null)
-# failed 5 of 2 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP fail-right-before-indented-child-diag.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > fail-right-before-indented-child-diag.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -735,7 +719,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP fail-right-before-indented-child-diag.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > fail-right-before-indented-child-diag.tap > strictBail > stringified 1`] = `
 TAP version 13
 not ok
   ...
@@ -744,7 +728,7 @@ Bail out!
 
 `
 
-exports[`test/parse-stringify.ts TAP fail-right-before-indented-child-diag.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > fail-right-before-indented-child-diag.tap > strictBail > stringified flat 1`] = `
 TAP version 13
 not ok 1
   ...

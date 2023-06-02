@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts TAP subtest-buffer-todo.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-buffer-todo.tap > bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -182,14 +182,6 @@ Array [
     },
   ],
   Array [
-    "comment",
-    "# todo: 1\\n",
-  ],
-  Array [
-    "comment",
-    "# skip: 1\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -252,7 +244,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP subtest-buffer-todo.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-buffer-todo.tap > bail > stringified 1`] = `
 TAP version 13
 # Subtest: tbd
     ok 1
@@ -263,12 +255,10 @@ ok 1 - tbd # TODO foo
     1..1
 ok 2 - skippy # SKIP
 1..2
-# todo: 1
-# skip: 1
 
 `
 
-exports[`test/parse-stringify.ts TAP subtest-buffer-todo.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-buffer-todo.tap > bail > stringified flat 1`] = `
 TAP version 13
 # Subtest: tbd
 ok 1 - tbd
@@ -277,12 +267,10 @@ ok 2 - tbd # TODO foo
 ok 3 - skippy
 ok 4 - skippy # SKIP
 1..4
-# todo: 1
-# skip: 1
 
 `
 
-exports[`test/parse-stringify.ts TAP subtest-buffer-todo.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-buffer-todo.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -459,14 +447,6 @@ Array [
     },
   ],
   Array [
-    "comment",
-    "# todo: 1\\n",
-  ],
-  Array [
-    "comment",
-    "# skip: 1\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -529,7 +509,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP subtest-buffer-todo.tap default settings > parsed flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-buffer-todo.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "version",
@@ -604,14 +584,6 @@ Array [
     },
   ],
   Array [
-    "comment",
-    "# todo: 1\\n",
-  ],
-  Array [
-    "comment",
-    "# skip: 1\\n",
-  ],
-  Array [
     "plan",
     Object {
       "end": 4,
@@ -681,7 +653,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP subtest-buffer-todo.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-buffer-todo.tap > default settings > stringified 1`] = `
 TAP version 13
 # Subtest: tbd
     ok 1
@@ -692,12 +664,10 @@ ok 1 - tbd # TODO foo
     1..1
 ok 2 - skippy # SKIP
 1..2
-# todo: 1
-# skip: 1
 
 `
 
-exports[`test/parse-stringify.ts TAP subtest-buffer-todo.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-buffer-todo.tap > default settings > stringified flat 1`] = `
 TAP version 13
 # Subtest: tbd
 ok 1 - tbd
@@ -706,12 +676,10 @@ ok 2 - tbd # TODO foo
 ok 3 - skippy
 ok 4 - skippy # SKIP
 1..4
-# todo: 1
-# skip: 1
 
 `
 
-exports[`test/parse-stringify.ts TAP subtest-buffer-todo.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-buffer-todo.tap > strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -888,14 +856,6 @@ Array [
     },
   ],
   Array [
-    "comment",
-    "# todo: 1\\n",
-  ],
-  Array [
-    "comment",
-    "# skip: 1\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -958,7 +918,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP subtest-buffer-todo.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-buffer-todo.tap > strict > stringified 1`] = `
 TAP version 13
 # Subtest: tbd
     ok 1
@@ -969,12 +929,10 @@ ok 1 - tbd # TODO foo
     1..1
 ok 2 - skippy # SKIP
 1..2
-# todo: 1
-# skip: 1
 
 `
 
-exports[`test/parse-stringify.ts TAP subtest-buffer-todo.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-buffer-todo.tap > strict > stringified flat 1`] = `
 TAP version 13
 # Subtest: tbd
 ok 1 - tbd
@@ -983,12 +941,10 @@ ok 2 - tbd # TODO foo
 ok 3 - skippy
 ok 4 - skippy # SKIP
 1..4
-# todo: 1
-# skip: 1
 
 `
 
-exports[`test/parse-stringify.ts TAP subtest-buffer-todo.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-buffer-todo.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -1165,14 +1121,6 @@ Array [
     },
   ],
   Array [
-    "comment",
-    "# todo: 1\\n",
-  ],
-  Array [
-    "comment",
-    "# skip: 1\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -1235,7 +1183,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP subtest-buffer-todo.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-buffer-todo.tap > strictBail > stringified 1`] = `
 TAP version 13
 # Subtest: tbd
     ok 1
@@ -1246,12 +1194,10 @@ ok 1 - tbd # TODO foo
     1..1
 ok 2 - skippy # SKIP
 1..2
-# todo: 1
-# skip: 1
 
 `
 
-exports[`test/parse-stringify.ts TAP subtest-buffer-todo.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > subtest-buffer-todo.tap > strictBail > stringified flat 1`] = `
 TAP version 13
 # Subtest: tbd
 ok 1 - tbd
@@ -1260,7 +1206,5 @@ ok 2 - tbd # TODO foo
 ok 3 - skippy
 ok 4 - skippy # SKIP
 1..4
-# todo: 1
-# skip: 1
 
 `

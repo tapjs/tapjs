@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts TAP unknown-amount-and-failures.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > unknown-amount-and-failures.tap > bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -141,7 +141,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP unknown-amount-and-failures.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > unknown-amount-and-failures.tap > bail > stringified 1`] = `
 TAP version 13
 ok 1 - retrieving servers from the database
 # need to ping 6 servers
@@ -156,7 +156,7 @@ Bail out! pinged saphire
 
 `
 
-exports[`test/parse-stringify.ts TAP unknown-amount-and-failures.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > unknown-amount-and-failures.tap > bail > stringified flat 1`] = `
 TAP version 13
 ok 1 - retrieving servers from the database
 # need to ping 6 servers
@@ -171,7 +171,7 @@ Bail out! pinged saphire
 
 `
 
-exports[`test/parse-stringify.ts TAP unknown-amount-and-failures.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > unknown-amount-and-failures.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -315,10 +315,6 @@ Array [
     },
   ],
   Array [
-    "comment",
-    "# failed 2 of 7 tests\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -386,7 +382,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP unknown-amount-and-failures.tap default settings > parsed flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > unknown-amount-and-failures.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "version",
@@ -520,10 +516,6 @@ Array [
       "time": null,
       "todo": false,
     },
-  ],
-  Array [
-    "comment",
-    "# failed 2 of 7 tests\\n",
   ],
   Array [
     "plan",
@@ -600,7 +592,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP unknown-amount-and-failures.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > unknown-amount-and-failures.tap > default settings > stringified 1`] = `
 TAP version 13
 ok 1 - retrieving servers from the database
 # need to ping 6 servers
@@ -619,11 +611,10 @@ not ok 6 - pinged quartz
   ...
 ok 7 - pinged gold
 1..7
-# failed 2 of 7 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP unknown-amount-and-failures.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > unknown-amount-and-failures.tap > default settings > stringified flat 1`] = `
 TAP version 13
 ok 1 - retrieving servers from the database
 # need to ping 6 servers
@@ -642,11 +633,10 @@ not ok 6 - pinged quartz
   ...
 ok 7 - pinged gold
 1..7
-# failed 2 of 7 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP unknown-amount-and-failures.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > unknown-amount-and-failures.tap > strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -790,10 +780,6 @@ Array [
     },
   ],
   Array [
-    "comment",
-    "# failed 2 of 7 tests\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -861,7 +847,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP unknown-amount-and-failures.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > unknown-amount-and-failures.tap > strict > stringified 1`] = `
 TAP version 13
 ok 1 - retrieving servers from the database
 # need to ping 6 servers
@@ -880,11 +866,10 @@ not ok 6 - pinged quartz
   ...
 ok 7 - pinged gold
 1..7
-# failed 2 of 7 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP unknown-amount-and-failures.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > unknown-amount-and-failures.tap > strict > stringified flat 1`] = `
 TAP version 13
 ok 1 - retrieving servers from the database
 # need to ping 6 servers
@@ -903,11 +888,10 @@ not ok 6 - pinged quartz
   ...
 ok 7 - pinged gold
 1..7
-# failed 2 of 7 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP unknown-amount-and-failures.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > unknown-amount-and-failures.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -1043,7 +1027,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP unknown-amount-and-failures.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > unknown-amount-and-failures.tap > strictBail > stringified 1`] = `
 TAP version 13
 ok 1 - retrieving servers from the database
 # need to ping 6 servers
@@ -1058,7 +1042,7 @@ Bail out! pinged saphire
 
 `
 
-exports[`test/parse-stringify.ts TAP unknown-amount-and-failures.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > unknown-amount-and-failures.tap > strictBail > stringified flat 1`] = `
 TAP version 13
 ok 1 - retrieving servers from the database
 # need to ping 6 servers

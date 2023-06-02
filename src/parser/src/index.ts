@@ -739,7 +739,10 @@ export class Parser extends EventEmitter implements NodeJS.WritableStream {
 
     if (line.slice(-1) !== '\n') line += '\n'
 
+    // XXX: is this still needed?
+    /* c8 ignore start */
     if (noDuplicate && this.comments.indexOf(line) !== -1) return
+    /* c8 ignore stop */
 
     this.comments.push(line)
     const dir = parseDirective(line.replace(/^\s*#\s*/, '').trim())

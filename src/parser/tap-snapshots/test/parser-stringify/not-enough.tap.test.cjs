@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts TAP not-enough.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > not-enough.tap > bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -112,10 +112,6 @@ Array [
     "# test count(4) != plan(5)\\n",
   ],
   Array [
-    "comment",
-    "# failed 1 of 4 tests\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -152,7 +148,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP not-enough.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > not-enough.tap > bail > stringified 1`] = `
 TAP version 13
 # before 1
 ok 1 - should be equal
@@ -165,11 +161,10 @@ ok 4 - (unnamed assert)
 # pass  4
 # ok
 # test count(4) != plan(5)
-# failed 1 of 4 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP not-enough.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > not-enough.tap > bail > stringified flat 1`] = `
 TAP version 13
 # before 1
 ok 1 - should be equal
@@ -182,11 +177,10 @@ ok 4 - (unnamed assert)
 # pass  4
 # ok
 # test count(4) != plan(5)
-# failed 1 of 4 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP not-enough.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > not-enough.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -293,10 +287,6 @@ Array [
     "# test count(4) != plan(5)\\n",
   ],
   Array [
-    "comment",
-    "# failed 1 of 4 tests\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -333,7 +323,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP not-enough.tap default settings > parsed flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > not-enough.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "version",
@@ -430,10 +420,6 @@ Array [
   Array [
     "comment",
     "# test count(4) != plan(5)\\n",
-  ],
-  Array [
-    "comment",
-    "# failed 1 of 4 tests\\n",
   ],
   Array [
     "plan",
@@ -479,7 +465,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP not-enough.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > not-enough.tap > default settings > stringified 1`] = `
 TAP version 13
 # before 1
 ok 1 - should be equal
@@ -492,11 +478,10 @@ ok 4 - (unnamed assert)
 # pass  4
 # ok
 # test count(4) != plan(5)
-# failed 1 of 4 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP not-enough.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > not-enough.tap > default settings > stringified flat 1`] = `
 TAP version 13
 # before 1
 ok 1 - should be equal
@@ -509,11 +494,10 @@ ok 4 - (unnamed assert)
 # pass  4
 # ok
 # test count(4) != plan(5)
-# failed 1 of 4 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP not-enough.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > not-enough.tap > strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -620,10 +604,6 @@ Array [
     "# test count(4) != plan(5)\\n",
   ],
   Array [
-    "comment",
-    "# failed 1 of 4 tests\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -660,7 +640,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP not-enough.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > not-enough.tap > strict > stringified 1`] = `
 TAP version 13
 # before 1
 ok 1 - should be equal
@@ -673,11 +653,10 @@ ok 4 - (unnamed assert)
 # pass  4
 # ok
 # test count(4) != plan(5)
-# failed 1 of 4 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP not-enough.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > not-enough.tap > strict > stringified flat 1`] = `
 TAP version 13
 # before 1
 ok 1 - should be equal
@@ -690,11 +669,10 @@ ok 4 - (unnamed assert)
 # pass  4
 # ok
 # test count(4) != plan(5)
-# failed 1 of 4 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP not-enough.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > not-enough.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -801,10 +779,6 @@ Array [
     "# test count(4) != plan(5)\\n",
   ],
   Array [
-    "comment",
-    "# failed 1 of 4 tests\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -841,7 +815,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP not-enough.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > not-enough.tap > strictBail > stringified 1`] = `
 TAP version 13
 # before 1
 ok 1 - should be equal
@@ -854,11 +828,10 @@ ok 4 - (unnamed assert)
 # pass  4
 # ok
 # test count(4) != plan(5)
-# failed 1 of 4 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP not-enough.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > not-enough.tap > strictBail > stringified flat 1`] = `
 TAP version 13
 # before 1
 ok 1 - should be equal
@@ -871,6 +844,5 @@ ok 4 - (unnamed assert)
 # pass  4
 # ok
 # test count(4) != plan(5)
-# failed 1 of 4 tests
 
 `

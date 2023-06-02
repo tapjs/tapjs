@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts TAP plan-invalid-strict.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > plan-invalid-strict.tap > bail > parsed 1`] = `
 Array [
   Array [
     "pragma",
@@ -36,10 +36,6 @@ Array [
       "end": 1,
       "start": 1,
     },
-  ],
-  Array [
-    "comment",
-    "# failed 1 test\\n",
   ],
   Array [
     "complete",
@@ -82,23 +78,21 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP plan-invalid-strict.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > plan-invalid-strict.tap > bail > stringified 1`] = `
 pragma +strict
 ok 1
 1..1
-# failed 1 test
 
 `
 
-exports[`test/parse-stringify.ts TAP plan-invalid-strict.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > plan-invalid-strict.tap > bail > stringified flat 1`] = `
 pragma +strict
 ok 1
 1..1
-# failed 1 test
 
 `
 
-exports[`test/parse-stringify.ts TAP plan-invalid-strict.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > plan-invalid-strict.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "pragma",
@@ -129,10 +123,6 @@ Array [
       "end": 1,
       "start": 1,
     },
-  ],
-  Array [
-    "comment",
-    "# failed 1 test\\n",
   ],
   Array [
     "complete",
@@ -175,7 +165,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP plan-invalid-strict.tap default settings > parsed flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > plan-invalid-strict.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "pragma",
@@ -198,10 +188,6 @@ Array [
       "time": null,
       "todo": false,
     },
-  ],
-  Array [
-    "comment",
-    "# failed 1 test\\n",
   ],
   Array [
     "plan",
@@ -251,23 +237,21 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP plan-invalid-strict.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > plan-invalid-strict.tap > default settings > stringified 1`] = `
 pragma +strict
 ok 1
 1..1
-# failed 1 test
 
 `
 
-exports[`test/parse-stringify.ts TAP plan-invalid-strict.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > plan-invalid-strict.tap > default settings > stringified flat 1`] = `
 pragma +strict
 ok 1
 1..1
-# failed 1 test
 
 `
 
-exports[`test/parse-stringify.ts TAP plan-invalid-strict.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > plan-invalid-strict.tap > strict > parsed 1`] = `
 Array [
   Array [
     "pragma",
@@ -298,10 +282,6 @@ Array [
       "end": 1,
       "start": 1,
     },
-  ],
-  Array [
-    "comment",
-    "# failed 1 test\\n",
   ],
   Array [
     "complete",
@@ -344,23 +324,21 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP plan-invalid-strict.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > plan-invalid-strict.tap > strict > stringified 1`] = `
 pragma +strict
 ok 1
 1..1
-# failed 1 test
 
 `
 
-exports[`test/parse-stringify.ts TAP plan-invalid-strict.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > plan-invalid-strict.tap > strict > stringified flat 1`] = `
 pragma +strict
 ok 1
 1..1
-# failed 1 test
 
 `
 
-exports[`test/parse-stringify.ts TAP plan-invalid-strict.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > plan-invalid-strict.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "pragma",
@@ -391,10 +369,6 @@ Array [
       "end": 1,
       "start": 1,
     },
-  ],
-  Array [
-    "comment",
-    "# failed 1 test\\n",
   ],
   Array [
     "complete",
@@ -437,18 +411,16 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP plan-invalid-strict.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > plan-invalid-strict.tap > strictBail > stringified 1`] = `
 pragma +strict
 ok 1
 1..1
-# failed 1 test
 
 `
 
-exports[`test/parse-stringify.ts TAP plan-invalid-strict.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > plan-invalid-strict.tap > strictBail > stringified flat 1`] = `
 pragma +strict
 ok 1
 1..1
-# failed 1 test
 
 `

@@ -56,7 +56,6 @@ if (process.argv[2] === 'gen') {
       output,
       new RegExp(`
     1..10000
-    # failed 257 of 10000 tests
 not ok 1 - generate a lot of output # time=[0-9.]+m?s`)
     )
     t.end()

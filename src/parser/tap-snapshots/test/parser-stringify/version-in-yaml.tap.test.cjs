@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts TAP version-in-yaml.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > version-in-yaml.tap > bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -28,7 +28,7 @@ Array [
               TAP version 13
             ),
           },
-          "fullname": "child indented some yaml",
+          "fullname": "child indented > some yaml",
           "id": 0,
           "name": "some yaml",
           "ok": false,
@@ -59,7 +59,7 @@ Array [
                   TAP version 13
                 ),
               },
-              "fullname": "child indented some yaml",
+              "fullname": "child indented > some yaml",
               "id": 0,
               "name": "some yaml",
               "ok": false,
@@ -133,7 +133,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP version-in-yaml.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > version-in-yaml.tap > bail > stringified 1`] = `
 TAP version 13
 # Subtest: child indented
     not ok - some yaml
@@ -147,10 +147,10 @@ Bail out! some yaml
 
 `
 
-exports[`test/parse-stringify.ts TAP version-in-yaml.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > version-in-yaml.tap > bail > stringified flat 1`] = `
 TAP version 13
 # Subtest: child indented
-not ok 1 - child indented some yaml
+not ok 1 - child indented > some yaml
   ---
   version: |-
     
@@ -161,7 +161,7 @@ Bail out! some yaml
 
 `
 
-exports[`test/parse-stringify.ts TAP version-in-yaml.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > version-in-yaml.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -184,7 +184,7 @@ Array [
               TAP version 13
             ),
           },
-          "fullname": "child indented some yaml",
+          "fullname": "child indented > some yaml",
           "id": 0,
           "name": "some yaml",
           "ok": false,
@@ -205,10 +205,6 @@ Array [
         },
       ],
       Array [
-        "comment",
-        "# failed 1 test\\n",
-      ],
-      Array [
         "complete",
         FinalResults {
           "bailout": false,
@@ -223,7 +219,7 @@ Array [
                   TAP version 13
                 ),
               },
-              "fullname": "child indented some yaml",
+              "fullname": "child indented > some yaml",
               "id": 0,
               "name": "some yaml",
               "ok": false,
@@ -294,7 +290,7 @@ Array [
               TAP version 13
             ),
           },
-          "fullname": "child unindented some yaml",
+          "fullname": "child unindented > some yaml",
           "id": 0,
           "name": "some yaml",
           "ok": false,
@@ -315,10 +311,6 @@ Array [
         },
       ],
       Array [
-        "comment",
-        "# failed 1 test\\n",
-      ],
-      Array [
         "complete",
         FinalResults {
           "bailout": false,
@@ -333,7 +325,7 @@ Array [
                   TAP version 13
                 ),
               },
-              "fullname": "child unindented some yaml",
+              "fullname": "child unindented > some yaml",
               "id": 0,
               "name": "some yaml",
               "ok": false,
@@ -425,10 +417,6 @@ Array [
         },
       ],
       Array [
-        "comment",
-        "# failed 1 test\\n",
-      ],
-      Array [
         "complete",
         FinalResults {
           "bailout": false,
@@ -514,7 +502,7 @@ Array [
               TAP version 13
             ),
           },
-          "fullname": "child buffered some yaml",
+          "fullname": "child buffered > some yaml",
           "id": 0,
           "name": "some yaml",
           "ok": false,
@@ -535,10 +523,6 @@ Array [
         },
       ],
       Array [
-        "comment",
-        "# failed 1 test\\n",
-      ],
-      Array [
         "complete",
         FinalResults {
           "bailout": false,
@@ -553,7 +537,7 @@ Array [
                   TAP version 13
                 ),
               },
-              "fullname": "child buffered some yaml",
+              "fullname": "child buffered > some yaml",
               "id": 0,
               "name": "some yaml",
               "ok": false,
@@ -614,10 +598,6 @@ Array [
       "end": 4,
       "start": 1,
     },
-  ],
-  Array [
-    "comment",
-    "# failed 4 of 4 tests\\n",
   ],
   Array [
     "complete",
@@ -709,7 +689,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP version-in-yaml.tap default settings > parsed flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > version-in-yaml.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "version",
@@ -725,9 +705,9 @@ Array [
           TAP version 13
         ),
       },
-      "fullname": "child indented some yaml",
+      "fullname": "child indented > some yaml",
       "id": 1,
-      "name": "child indented some yaml",
+      "name": "child indented > some yaml",
       "ok": false,
       "plan": null,
       "previous": null,
@@ -747,9 +727,9 @@ Array [
           TAP version 13
         ),
       },
-      "fullname": "child unindented some yaml",
+      "fullname": "child unindented > some yaml",
       "id": 2,
-      "name": "child unindented some yaml",
+      "name": "child unindented > some yaml",
       "ok": false,
       "plan": null,
       "previous": null,
@@ -808,9 +788,9 @@ Array [
           TAP version 13
         ),
       },
-      "fullname": "child buffered some yaml",
+      "fullname": "child buffered > some yaml",
       "id": 5,
-      "name": "child buffered some yaml",
+      "name": "child buffered > some yaml",
       "ok": false,
       "plan": null,
       "previous": null,
@@ -819,10 +799,6 @@ Array [
       "time": null,
       "todo": false,
     },
-  ],
-  Array [
-    "comment",
-    "# failed 4 of 4 tests\\n",
   ],
   Array [
     "plan",
@@ -921,7 +897,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP version-in-yaml.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > version-in-yaml.tap > default settings > stringified 1`] = `
 TAP version 13
 # Subtest: child indented
     not ok - some yaml
@@ -931,7 +907,6 @@ TAP version 13
         TAP version 13
       ...
     1..1
-    # failed 1 test
 not ok 1 - child indented
 # Subtest: child unindented
     not ok - some yaml
@@ -941,7 +916,6 @@ not ok 1 - child indented
         TAP version 13
       ...
     1..1
-    # failed 1 test
 not ok 2 - child unindented
 # Subtest
     not ok - some yaml
@@ -951,7 +925,6 @@ not ok 2 - child unindented
         TAP version 13
       ...
     1..1
-    # failed 1 test
 not ok 3 - child unnamed
 # Subtest: child buffered
     not ok - some yaml
@@ -961,32 +934,28 @@ not ok 3 - child unnamed
         TAP version 13
       ...
     1..1
-    # failed 1 test
 not ok 4 - child buffered
 1..4
-# failed 4 of 4 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP version-in-yaml.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > version-in-yaml.tap > default settings > stringified flat 1`] = `
 TAP version 13
 # Subtest: child indented
-not ok 1 - child indented some yaml
+not ok 1 - child indented > some yaml
   ---
   version: |-
     
     TAP version 13
   ...
-# failed 1 test
 not ok 2 - child indented
 # Subtest: child unindented
-not ok 3 - child unindented some yaml
+not ok 3 - child unindented > some yaml
   ---
   version: |-
     
     TAP version 13
   ...
-# failed 1 test
 not ok 4 - child unindented
 # Subtest
 not ok 5 - some yaml
@@ -995,23 +964,20 @@ not ok 5 - some yaml
     
     TAP version 13
   ...
-# failed 1 test
 not ok 6 - child unnamed
 # Subtest: child buffered
-not ok 7 - child buffered some yaml
+not ok 7 - child buffered > some yaml
   ---
   version: |-
     
     TAP version 13
   ...
-# failed 1 test
 not ok 8 - child buffered
 1..8
-# failed 4 of 4 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP version-in-yaml.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > version-in-yaml.tap > strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -1034,7 +1000,7 @@ Array [
               TAP version 13
             ),
           },
-          "fullname": "child indented some yaml",
+          "fullname": "child indented > some yaml",
           "id": 0,
           "name": "some yaml",
           "ok": false,
@@ -1055,10 +1021,6 @@ Array [
         },
       ],
       Array [
-        "comment",
-        "# failed 1 test\\n",
-      ],
-      Array [
         "complete",
         FinalResults {
           "bailout": false,
@@ -1073,7 +1035,7 @@ Array [
                   TAP version 13
                 ),
               },
-              "fullname": "child indented some yaml",
+              "fullname": "child indented > some yaml",
               "id": 0,
               "name": "some yaml",
               "ok": false,
@@ -1144,7 +1106,7 @@ Array [
               TAP version 13
             ),
           },
-          "fullname": "child unindented some yaml",
+          "fullname": "child unindented > some yaml",
           "id": 0,
           "name": "some yaml",
           "ok": false,
@@ -1165,10 +1127,6 @@ Array [
         },
       ],
       Array [
-        "comment",
-        "# failed 1 test\\n",
-      ],
-      Array [
         "complete",
         FinalResults {
           "bailout": false,
@@ -1183,7 +1141,7 @@ Array [
                   TAP version 13
                 ),
               },
-              "fullname": "child unindented some yaml",
+              "fullname": "child unindented > some yaml",
               "id": 0,
               "name": "some yaml",
               "ok": false,
@@ -1275,10 +1233,6 @@ Array [
         },
       ],
       Array [
-        "comment",
-        "# failed 1 test\\n",
-      ],
-      Array [
         "complete",
         FinalResults {
           "bailout": false,
@@ -1364,7 +1318,7 @@ Array [
               TAP version 13
             ),
           },
-          "fullname": "child buffered some yaml",
+          "fullname": "child buffered > some yaml",
           "id": 0,
           "name": "some yaml",
           "ok": false,
@@ -1385,10 +1339,6 @@ Array [
         },
       ],
       Array [
-        "comment",
-        "# failed 1 test\\n",
-      ],
-      Array [
         "complete",
         FinalResults {
           "bailout": false,
@@ -1403,7 +1353,7 @@ Array [
                   TAP version 13
                 ),
               },
-              "fullname": "child buffered some yaml",
+              "fullname": "child buffered > some yaml",
               "id": 0,
               "name": "some yaml",
               "ok": false,
@@ -1464,10 +1414,6 @@ Array [
       "end": 4,
       "start": 1,
     },
-  ],
-  Array [
-    "comment",
-    "# failed 4 of 4 tests\\n",
   ],
   Array [
     "complete",
@@ -1559,7 +1505,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP version-in-yaml.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > version-in-yaml.tap > strict > stringified 1`] = `
 TAP version 13
 # Subtest: child indented
     not ok - some yaml
@@ -1569,7 +1515,6 @@ TAP version 13
         TAP version 13
       ...
     1..1
-    # failed 1 test
 not ok 1 - child indented
 # Subtest: child unindented
     not ok - some yaml
@@ -1579,7 +1524,6 @@ not ok 1 - child indented
         TAP version 13
       ...
     1..1
-    # failed 1 test
 not ok 2 - child unindented
 # Subtest
     not ok - some yaml
@@ -1589,7 +1533,6 @@ not ok 2 - child unindented
         TAP version 13
       ...
     1..1
-    # failed 1 test
 not ok 3 - child unnamed
 # Subtest: child buffered
     not ok - some yaml
@@ -1599,32 +1542,28 @@ not ok 3 - child unnamed
         TAP version 13
       ...
     1..1
-    # failed 1 test
 not ok 4 - child buffered
 1..4
-# failed 4 of 4 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP version-in-yaml.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > version-in-yaml.tap > strict > stringified flat 1`] = `
 TAP version 13
 # Subtest: child indented
-not ok 1 - child indented some yaml
+not ok 1 - child indented > some yaml
   ---
   version: |-
     
     TAP version 13
   ...
-# failed 1 test
 not ok 2 - child indented
 # Subtest: child unindented
-not ok 3 - child unindented some yaml
+not ok 3 - child unindented > some yaml
   ---
   version: |-
     
     TAP version 13
   ...
-# failed 1 test
 not ok 4 - child unindented
 # Subtest
 not ok 5 - some yaml
@@ -1633,23 +1572,20 @@ not ok 5 - some yaml
     
     TAP version 13
   ...
-# failed 1 test
 not ok 6 - child unnamed
 # Subtest: child buffered
-not ok 7 - child buffered some yaml
+not ok 7 - child buffered > some yaml
   ---
   version: |-
     
     TAP version 13
   ...
-# failed 1 test
 not ok 8 - child buffered
 1..8
-# failed 4 of 4 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP version-in-yaml.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > version-in-yaml.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -1672,7 +1608,7 @@ Array [
               TAP version 13
             ),
           },
-          "fullname": "child indented some yaml",
+          "fullname": "child indented > some yaml",
           "id": 0,
           "name": "some yaml",
           "ok": false,
@@ -1703,7 +1639,7 @@ Array [
                   TAP version 13
                 ),
               },
-              "fullname": "child indented some yaml",
+              "fullname": "child indented > some yaml",
               "id": 0,
               "name": "some yaml",
               "ok": false,
@@ -1777,7 +1713,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP version-in-yaml.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > version-in-yaml.tap > strictBail > stringified 1`] = `
 TAP version 13
 # Subtest: child indented
     not ok - some yaml
@@ -1791,10 +1727,10 @@ Bail out! some yaml
 
 `
 
-exports[`test/parse-stringify.ts TAP version-in-yaml.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > version-in-yaml.tap > strictBail > stringified flat 1`] = `
 TAP version 13
 # Subtest: child indented
-not ok 1 - child indented some yaml
+not ok 1 - child indented > some yaml
   ---
   version: |-
     

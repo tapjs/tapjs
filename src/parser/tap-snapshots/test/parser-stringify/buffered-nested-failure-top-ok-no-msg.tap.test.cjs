@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts TAP buffered-nested-failure-top-ok-no-msg.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok-no-msg.tap > bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -139,7 +139,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP buffered-nested-failure-top-ok-no-msg.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok-no-msg.tap > bail > stringified 1`] = `
 TAP version 13
 1..1
 # Subtest: my kids are fine
@@ -150,7 +150,7 @@ Bail out!
 
 `
 
-exports[`test/parse-stringify.ts TAP buffered-nested-failure-top-ok-no-msg.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok-no-msg.tap > bail > stringified flat 1`] = `
 TAP version 13
 1..0
 # Subtest: my kids are fine
@@ -160,7 +160,7 @@ Bail out!
 
 `
 
-exports[`test/parse-stringify.ts TAP buffered-nested-failure-top-ok-no-msg.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok-no-msg.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -205,10 +205,6 @@ Array [
           "time": null,
           "todo": false,
         },
-      ],
-      Array [
-        "comment",
-        "# failed 1 test\\n",
       ],
       Array [
         "complete",
@@ -307,7 +303,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP buffered-nested-failure-top-ok-no-msg.tap default settings > parsed flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok-no-msg.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "version",
@@ -387,28 +383,26 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP buffered-nested-failure-top-ok-no-msg.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok-no-msg.tap > default settings > stringified 1`] = `
 TAP version 13
 1..1
 # Subtest: my kids are fine
     1..1
     not ok
-    # failed 1 test
 ok 1 - my kids are fine
 
 `
 
-exports[`test/parse-stringify.ts TAP buffered-nested-failure-top-ok-no-msg.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok-no-msg.tap > default settings > stringified flat 1`] = `
 TAP version 13
 1..0
 # Subtest: my kids are fine
 not ok 1 - my kids are fine
-# failed 1 test
 ok 2 - my kids are fine
 
 `
 
-exports[`test/parse-stringify.ts TAP buffered-nested-failure-top-ok-no-msg.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok-no-msg.tap > strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -453,10 +447,6 @@ Array [
           "time": null,
           "todo": false,
         },
-      ],
-      Array [
-        "comment",
-        "# failed 1 test\\n",
       ],
       Array [
         "complete",
@@ -555,28 +545,26 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP buffered-nested-failure-top-ok-no-msg.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok-no-msg.tap > strict > stringified 1`] = `
 TAP version 13
 1..1
 # Subtest: my kids are fine
     1..1
     not ok
-    # failed 1 test
 ok 1 - my kids are fine
 
 `
 
-exports[`test/parse-stringify.ts TAP buffered-nested-failure-top-ok-no-msg.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok-no-msg.tap > strict > stringified flat 1`] = `
 TAP version 13
 1..0
 # Subtest: my kids are fine
 not ok 1 - my kids are fine
-# failed 1 test
 ok 2 - my kids are fine
 
 `
 
-exports[`test/parse-stringify.ts TAP buffered-nested-failure-top-ok-no-msg.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok-no-msg.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -710,7 +698,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP buffered-nested-failure-top-ok-no-msg.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok-no-msg.tap > strictBail > stringified 1`] = `
 TAP version 13
 1..1
 # Subtest: my kids are fine
@@ -721,7 +709,7 @@ Bail out!
 
 `
 
-exports[`test/parse-stringify.ts TAP buffered-nested-failure-top-ok-no-msg.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok-no-msg.tap > strictBail > stringified flat 1`] = `
 TAP version 13
 1..0
 # Subtest: my kids are fine

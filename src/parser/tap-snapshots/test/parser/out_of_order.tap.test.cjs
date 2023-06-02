@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser.ts TAP out_of_order.tap > output bail=false 1`] = `
+exports[`test/parser.ts > TAP > out_of_order.tap > output bail=false 1`] = `
 Array [
   Array [
     "line",
@@ -616,14 +616,6 @@ Array [
   Array [
     "comment",
     "# test count(10) != plan(15)\\n",
-  ],
-  Array [
-    "line",
-    "# failed 1 of 10 tests\\n",
-  ],
-  Array [
-    "comment",
-    "# failed 1 of 10 tests\\n",
   ],
   Array [
     "complete",
@@ -656,7 +648,7 @@ Array [
 ]
 `
 
-exports[`test/parser.ts TAP out_of_order.tap > output bail=true 1`] = `
+exports[`test/parser.ts > TAP > out_of_order.tap > output bail=true 1`] = `
 Array [
   Array [
     "line",
@@ -1267,14 +1259,6 @@ Array [
   Array [
     "comment",
     "# test count(10) != plan(15)\\n",
-  ],
-  Array [
-    "line",
-    "# failed 1 of 10 tests\\n",
-  ],
-  Array [
-    "comment",
-    "# failed 1 of 10 tests\\n",
   ],
   Array [
     "complete",

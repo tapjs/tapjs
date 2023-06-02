@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts TAP indented-stdout-noise.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > indented-stdout-noise.tap > bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -145,7 +145,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "index.js boom",
+          "fullname": "index.js > boom",
           "id": 1,
           "name": "boom",
           "ok": true,
@@ -414,7 +414,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP indented-stdout-noise.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > indented-stdout-noise.tap > bail > stringified 1`] = `
 TAP version 13
 # Subtest: index.js
     # Subtest: boom
@@ -478,7 +478,7 @@ Bail out! index.js
 
 `
 
-exports[`test/parse-stringify.ts TAP indented-stdout-noise.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > indented-stdout-noise.tap > bail > stringified flat 1`] = `
 TAP version 13
 # Subtest: index.js
 # Subtest: boom
@@ -490,7 +490,7 @@ TAP version 13
 ## Contribution
 ## Other similar modules
 ## License
-ok 1 - index.js boom # time=5.26ms
+ok 1 - index.js > boom # time=5.26ms
 # time=12.555ms
     This module provides an easy way to export package.json data.
     It contains auto-discovery functionality, which means that it will
@@ -539,7 +539,7 @@ Bail out! index.js
 
 `
 
-exports[`test/parse-stringify.ts TAP indented-stdout-noise.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > indented-stdout-noise.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -679,7 +679,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "index.js boom",
+          "fullname": "index.js > boom",
           "id": 1,
           "name": "boom",
           "ok": true,
@@ -897,10 +897,6 @@ Array [
     "# time=209.666ms\\n",
   ],
   Array [
-    "comment",
-    "# failed 1 test\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -964,7 +960,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP indented-stdout-noise.tap default settings > parsed flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > indented-stdout-noise.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "version",
@@ -1087,9 +1083,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "index.js boom",
+      "fullname": "index.js > boom",
       "id": 1,
-      "name": "index.js boom",
+      "name": "index.js > boom",
       "ok": true,
       "plan": null,
       "previous": null,
@@ -1139,10 +1135,6 @@ Array [
   Array [
     "comment",
     "# time=209.666ms\\n",
-  ],
-  Array [
-    "comment",
-    "# failed 1 test\\n",
   ],
   Array [
     "plan",
@@ -1215,7 +1207,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP indented-stdout-noise.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > indented-stdout-noise.tap > default settings > stringified 1`] = `
 TAP version 13
 # Subtest: index.js
     # Subtest: boom
@@ -1278,11 +1270,10 @@ not ok 1 - index.js # time=201.609ms
 1..1
 # failed 1 of 1 tests
 # time=209.666ms
-# failed 1 test
 
 `
 
-exports[`test/parse-stringify.ts TAP indented-stdout-noise.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > indented-stdout-noise.tap > default settings > stringified flat 1`] = `
 TAP version 13
 # Subtest: index.js
 # Subtest: boom
@@ -1294,7 +1285,7 @@ TAP version 13
 ## Contribution
 ## Other similar modules
 ## License
-ok 1 - index.js boom # time=5.26ms
+ok 1 - index.js > boom # time=5.26ms
 # time=12.555ms
     This module provides an easy way to export package.json data.
     It contains auto-discovery functionality, which means that it will
@@ -1342,11 +1333,10 @@ not ok 2 - index.js # time=201.609ms
 1..2
 # failed 1 of 1 tests
 # time=209.666ms
-# failed 1 test
 
 `
 
-exports[`test/parse-stringify.ts TAP indented-stdout-noise.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > indented-stdout-noise.tap > strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -1380,10 +1370,6 @@ Array [
                   "end": 0,
                   "start": 1,
                 },
-              ],
-              Array [
-                "comment",
-                "# failed 4 test\\n",
               ],
               Array [
                 "complete",
@@ -1441,10 +1427,6 @@ Array [
               "end": 0,
               "start": 1,
             },
-          ],
-          Array [
-            "comment",
-            "# failed 5 test\\n",
           ],
           Array [
             "complete",
@@ -1532,7 +1514,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "index.js boom",
+          "fullname": "index.js > boom",
           "id": 1,
           "name": "boom",
           "ok": true,
@@ -1555,10 +1537,6 @@ Array [
       Array [
         "comment",
         "# time=12.555ms\\n",
-      ],
-      Array [
-        "comment",
-        "# failed 24 test\\n",
       ],
       Array [
         "complete",
@@ -1851,10 +1829,6 @@ Array [
     "# time=209.666ms\\n",
   ],
   Array [
-    "comment",
-    "# failed 24 test\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -2010,15 +1984,13 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP indented-stdout-noise.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > indented-stdout-noise.tap > strict > stringified 1`] = `
 TAP version 13
 # Subtest: index.js
     # Subtest: boom
         # Subtest: npm install package line
             1..0 # no tests found
-            # failed 4 test
         1..0 # no tests found
-        # failed 5 test
     # package - Easy package.json exports.
     ## Intro
     ## Installation
@@ -2029,7 +2001,6 @@ TAP version 13
     ok 1 - boom # time=5.26ms
     1..1
     # time=12.555ms
-    # failed 24 test
     This module provides an easy way to export package.json data.
     It contains auto-discovery functionality, which means that it will
     find your package.json file automatically. Cool, ugh?
@@ -2076,17 +2047,14 @@ not ok 1 - index.js # time=201.609ms
 1..1
 # failed 1 of 1 tests
 # time=209.666ms
-# failed 24 test
 
 `
 
-exports[`test/parse-stringify.ts TAP indented-stdout-noise.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > indented-stdout-noise.tap > strict > stringified flat 1`] = `
 TAP version 13
 # Subtest: index.js
 # Subtest: boom
 # Subtest: npm install package line
-# failed 4 test
-# failed 5 test
 # package - Easy package.json exports.
 ## Intro
 ## Installation
@@ -2094,9 +2062,8 @@ TAP version 13
 ## Contribution
 ## Other similar modules
 ## License
-ok 1 - index.js boom # time=5.26ms
+ok 1 - index.js > boom # time=5.26ms
 # time=12.555ms
-# failed 24 test
     This module provides an easy way to export package.json data.
     It contains auto-discovery functionality, which means that it will
     find your package.json file automatically. Cool, ugh?
@@ -2143,11 +2110,10 @@ not ok 2 - index.js # time=201.609ms
 1..2
 # failed 1 of 1 tests
 # time=209.666ms
-# failed 24 test
 
 `
 
-exports[`test/parse-stringify.ts TAP indented-stdout-noise.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > indented-stdout-noise.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -2181,10 +2147,6 @@ Array [
                   "end": 0,
                   "start": 1,
                 },
-              ],
-              Array [
-                "comment",
-                "# failed 4 test\\n",
               ],
               Array [
                 "complete",
@@ -2242,10 +2204,6 @@ Array [
               "end": 0,
               "start": 1,
             },
-          ],
-          Array [
-            "comment",
-            "# failed 5 test\\n",
           ],
           Array [
             "complete",
@@ -2333,7 +2291,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "index.js boom",
+          "fullname": "index.js > boom",
           "id": 1,
           "name": "boom",
           "ok": true,
@@ -2356,10 +2314,6 @@ Array [
       Array [
         "comment",
         "# time=12.555ms\\n",
-      ],
-      Array [
-        "comment",
-        "# failed 24 test\\n",
       ],
       Array [
         "complete",
@@ -2795,15 +2749,13 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP indented-stdout-noise.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > indented-stdout-noise.tap > strictBail > stringified 1`] = `
 TAP version 13
 # Subtest: index.js
     # Subtest: boom
         # Subtest: npm install package line
             1..0 # no tests found
-            # failed 4 test
         1..0 # no tests found
-        # failed 5 test
     # package - Easy package.json exports.
     ## Intro
     ## Installation
@@ -2814,7 +2766,6 @@ TAP version 13
     ok 1 - boom # time=5.26ms
     1..1
     # time=12.555ms
-    # failed 24 test
     This module provides an easy way to export package.json data.
     It contains auto-discovery functionality, which means that it will
     find your package.json file automatically. Cool, ugh?
@@ -2862,13 +2813,11 @@ Bail out! index.js
 
 `
 
-exports[`test/parse-stringify.ts TAP indented-stdout-noise.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > indented-stdout-noise.tap > strictBail > stringified flat 1`] = `
 TAP version 13
 # Subtest: index.js
 # Subtest: boom
 # Subtest: npm install package line
-# failed 4 test
-# failed 5 test
 # package - Easy package.json exports.
 ## Intro
 ## Installation
@@ -2876,9 +2825,8 @@ TAP version 13
 ## Contribution
 ## Other similar modules
 ## License
-ok 1 - index.js boom # time=5.26ms
+ok 1 - index.js > boom # time=5.26ms
 # time=12.555ms
-# failed 24 test
     This module provides an easy way to export package.json data.
     It contains auto-discovery functionality, which means that it will
     find your package.json file automatically. Cool, ugh?

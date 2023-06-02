@@ -1,7 +1,7 @@
 import t from 'tap'
 import type { FinalResults } from '../'
-import { Parser } from '../'
 import * as DefaultExport from '../'
+import { Parser } from '../'
 
 t.test('re-exports stuff', t => {
   t.match(DefaultExport, {
@@ -27,7 +27,9 @@ t.test('it has a name', t => {
   t.plan(1)
   const p = new Parser({ name: 'root' })
   p.on('child', c =>
-    c.on('child', (c: Parser) => t.equal(c.fullname, 'root child grandchild'))
+    c.on('child', (c: Parser) =>
+      t.equal(c.fullname, 'root > child > grandchild')
+    )
   )
 
   p.end(

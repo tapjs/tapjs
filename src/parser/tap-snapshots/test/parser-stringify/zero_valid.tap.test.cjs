@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts TAP zero_valid.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > zero_valid.tap > bail > parsed 1`] = `
 Array [
   Array [
     "plan",
@@ -105,10 +105,6 @@ Array [
     },
   ],
   Array [
-    "comment",
-    "# failed 1 of 5 tests\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -160,29 +156,27 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP zero_valid.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > zero_valid.tap > bail > stringified 1`] = `
 1..5
 ok 1 - One
 ok 2 - Two
 ok - Three
 ok - Four
 ok 5 - Five
-# failed 1 of 5 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP zero_valid.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > zero_valid.tap > bail > stringified flat 1`] = `
 1..0
 ok 1 - One
 ok 2 - Two
 ok 3 - Three
 ok 4 - Four
 ok 5 - Five
-# failed 1 of 5 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP zero_valid.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > zero_valid.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "plan",
@@ -282,10 +276,6 @@ Array [
     },
   ],
   Array [
-    "comment",
-    "# failed 1 of 5 tests\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -337,7 +327,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP zero_valid.tap default settings > parsed flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > zero_valid.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "assert",
@@ -429,10 +419,6 @@ Array [
     },
   ],
   Array [
-    "comment",
-    "# failed 1 of 5 tests\\n",
-  ],
-  Array [
     "plan",
     Object {
       "end": 5,
@@ -491,29 +477,27 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP zero_valid.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > zero_valid.tap > default settings > stringified 1`] = `
 1..5
 ok 1 - One
 ok 2 - Two
 ok - Three
 ok - Four
 ok 5 - Five
-# failed 1 of 5 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP zero_valid.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > zero_valid.tap > default settings > stringified flat 1`] = `
 1..0
 ok 1 - One
 ok 2 - Two
 ok 3 - Three
 ok 4 - Four
 ok 5 - Five
-# failed 1 of 5 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP zero_valid.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > zero_valid.tap > strict > parsed 1`] = `
 Array [
   Array [
     "plan",
@@ -613,10 +597,6 @@ Array [
     },
   ],
   Array [
-    "comment",
-    "# failed 1 of 5 tests\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -668,29 +648,27 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP zero_valid.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > zero_valid.tap > strict > stringified 1`] = `
 1..5
 ok 1 - One
 ok 2 - Two
 ok - Three
 ok - Four
 ok 5 - Five
-# failed 1 of 5 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP zero_valid.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > zero_valid.tap > strict > stringified flat 1`] = `
 1..0
 ok 1 - One
 ok 2 - Two
 ok 3 - Three
 ok 4 - Four
 ok 5 - Five
-# failed 1 of 5 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP zero_valid.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > zero_valid.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "plan",
@@ -790,10 +768,6 @@ Array [
     },
   ],
   Array [
-    "comment",
-    "# failed 1 of 5 tests\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -845,24 +819,22 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP zero_valid.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > zero_valid.tap > strictBail > stringified 1`] = `
 1..5
 ok 1 - One
 ok 2 - Two
 ok - Three
 ok - Four
 ok 5 - Five
-# failed 1 of 5 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP zero_valid.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > zero_valid.tap > strictBail > stringified flat 1`] = `
 1..0
 ok 1 - One
 ok 2 - Two
 ok 3 - Three
 ok 4 - Four
 ok 5 - Five
-# failed 1 of 5 tests
 
 `

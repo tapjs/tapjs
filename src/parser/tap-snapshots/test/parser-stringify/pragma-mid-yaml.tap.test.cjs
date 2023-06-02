@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts TAP pragma-mid-yaml.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > pragma-mid-yaml.tap > bail > parsed 1`] = `
 Array [
   Array [
     "pragma",
@@ -91,7 +91,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP pragma-mid-yaml.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > pragma-mid-yaml.tap > bail > stringified 1`] = `
 pragma +foo
 1..1
 ok 1 - some yaml
@@ -103,7 +103,7 @@ pragma +foo
 
 `
 
-exports[`test/parse-stringify.ts TAP pragma-mid-yaml.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > pragma-mid-yaml.tap > bail > stringified flat 1`] = `
 pragma +foo
 1..0
 ok 1 - some yaml
@@ -115,7 +115,7 @@ pragma +foo
 
 `
 
-exports[`test/parse-stringify.ts TAP pragma-mid-yaml.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > pragma-mid-yaml.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "pragma",
@@ -201,7 +201,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP pragma-mid-yaml.tap default settings > parsed flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > pragma-mid-yaml.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "pragma",
@@ -286,7 +286,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP pragma-mid-yaml.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > pragma-mid-yaml.tap > default settings > stringified 1`] = `
 pragma +foo
 1..1
 ok 1 - some yaml
@@ -298,7 +298,7 @@ pragma +foo
 
 `
 
-exports[`test/parse-stringify.ts TAP pragma-mid-yaml.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > pragma-mid-yaml.tap > default settings > stringified flat 1`] = `
 pragma +foo
 1..0
 ok 1 - some yaml
@@ -310,7 +310,7 @@ pragma +foo
 
 `
 
-exports[`test/parse-stringify.ts TAP pragma-mid-yaml.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > pragma-mid-yaml.tap > strict > parsed 1`] = `
 Array [
   Array [
     "pragma",
@@ -364,10 +364,6 @@ Array [
     "  ...\\n",
   ],
   Array [
-    "comment",
-    "# failed 3 test\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -417,7 +413,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP pragma-mid-yaml.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > pragma-mid-yaml.tap > strict > stringified 1`] = `
 pragma +foo
 1..1
 ok 1 - some yaml
@@ -426,11 +422,10 @@ ok 1 - some yaml
 pragma +foo
   name: some yaml
   ...
-# failed 3 test
 
 `
 
-exports[`test/parse-stringify.ts TAP pragma-mid-yaml.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > pragma-mid-yaml.tap > strict > stringified flat 1`] = `
 pragma +foo
 1..0
 ok 1 - some yaml
@@ -439,11 +434,10 @@ ok 1 - some yaml
 pragma +foo
   name: some yaml
   ...
-# failed 3 test
 
 `
 
-exports[`test/parse-stringify.ts TAP pragma-mid-yaml.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > pragma-mid-yaml.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "pragma",
@@ -497,10 +491,6 @@ Array [
     "  ...\\n",
   ],
   Array [
-    "comment",
-    "# failed 3 test\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -550,7 +540,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP pragma-mid-yaml.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > pragma-mid-yaml.tap > strictBail > stringified 1`] = `
 pragma +foo
 1..1
 ok 1 - some yaml
@@ -559,11 +549,10 @@ ok 1 - some yaml
 pragma +foo
   name: some yaml
   ...
-# failed 3 test
 
 `
 
-exports[`test/parse-stringify.ts TAP pragma-mid-yaml.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > pragma-mid-yaml.tap > strictBail > stringified flat 1`] = `
 pragma +foo
 1..0
 ok 1 - some yaml
@@ -572,6 +561,5 @@ ok 1 - some yaml
 pragma +foo
   name: some yaml
   ...
-# failed 3 test
 
 `

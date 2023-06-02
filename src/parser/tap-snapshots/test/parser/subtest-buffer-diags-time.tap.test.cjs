@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser.ts TAP subtest-buffer-diags-time.tap > output bail=false 1`] = `
+exports[`test/parser.ts > TAP > subtest-buffer-diags-time.tap > output bail=false 1`] = `
 Array [
   Array [
     "line",
@@ -39,7 +39,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "first x",
+          "fullname": "first > x",
           "id": 0,
           "name": "x",
           "ok": true,
@@ -101,7 +101,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "first x",
+      "fullname": "first > x",
       "id": 0,
       "name": "x",
       "ok": true,
@@ -118,7 +118,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "first x",
+      "fullname": "first > x",
       "id": 0,
       "name": "x",
       "ok": true,
@@ -175,7 +175,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "second x",
+          "fullname": "second > x",
           "id": 0,
           "name": "x",
           "ok": true,
@@ -237,7 +237,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "second x",
+      "fullname": "second > x",
       "id": 0,
       "name": "x",
       "ok": true,
@@ -254,7 +254,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "second x",
+      "fullname": "second > x",
       "id": 0,
       "name": "x",
       "ok": true,
@@ -327,7 +327,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "third y",
+          "fullname": "third > y",
           "id": 0,
           "name": "y",
           "ok": true,
@@ -389,7 +389,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "third y",
+      "fullname": "third > y",
       "id": 0,
       "name": "y",
       "ok": true,
@@ -406,7 +406,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "third y",
+      "fullname": "third > y",
       "id": 0,
       "name": "y",
       "ok": true,
@@ -472,7 +472,7 @@ Array [
 ]
 `
 
-exports[`test/parser.ts TAP subtest-buffer-diags-time.tap > output bail=true 1`] = `
+exports[`test/parser.ts > TAP > subtest-buffer-diags-time.tap > output bail=true 1`] = `
 Array [
   Array [
     "line",
@@ -506,7 +506,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "first x",
+          "fullname": "first > x",
           "id": 0,
           "name": "x",
           "ok": true,
@@ -568,7 +568,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "first x",
+      "fullname": "first > x",
       "id": 0,
       "name": "x",
       "ok": true,
@@ -585,7 +585,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "first x",
+      "fullname": "first > x",
       "id": 0,
       "name": "x",
       "ok": true,
@@ -642,7 +642,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "second x",
+          "fullname": "second > x",
           "id": 0,
           "name": "x",
           "ok": true,
@@ -704,7 +704,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "second x",
+      "fullname": "second > x",
       "id": 0,
       "name": "x",
       "ok": true,
@@ -721,7 +721,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "second x",
+      "fullname": "second > x",
       "id": 0,
       "name": "x",
       "ok": true,
@@ -794,7 +794,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "third y",
+          "fullname": "third > y",
           "id": 0,
           "name": "y",
           "ok": true,
@@ -856,7 +856,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "third y",
+      "fullname": "third > y",
       "id": 0,
       "name": "y",
       "ok": true,
@@ -873,7 +873,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "third y",
+      "fullname": "third > y",
       "id": 0,
       "name": "y",
       "ok": true,

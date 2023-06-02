@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts TAP offset-mismatch.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > offset-mismatch.tap > bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -124,10 +124,6 @@ Array [
     "# ok\\n",
   ],
   Array [
-    "comment",
-    "# failed 4 of 4 tests\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -233,7 +229,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP offset-mismatch.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > offset-mismatch.tap > bail > stringified 1`] = `
 TAP version 13
 # beep
 ok 8 - should be equal
@@ -245,11 +241,10 @@ ok 11 - (unnamed assert)
 # tests 4
 # pass  4
 # ok
-# failed 4 of 4 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP offset-mismatch.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > offset-mismatch.tap > bail > stringified flat 1`] = `
 TAP version 13
 # beep
 ok 1 - should be equal
@@ -261,11 +256,10 @@ ok 4 - (unnamed assert)
 # tests 4
 # pass  4
 # ok
-# failed 4 of 4 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP offset-mismatch.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > offset-mismatch.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -384,10 +378,6 @@ Array [
     "# ok\\n",
   ],
   Array [
-    "comment",
-    "# failed 4 of 4 tests\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -493,7 +483,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP offset-mismatch.tap default settings > parsed flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > offset-mismatch.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "version",
@@ -602,10 +592,6 @@ Array [
   Array [
     "comment",
     "# ok\\n",
-  ],
-  Array [
-    "comment",
-    "# failed 4 of 4 tests\\n",
   ],
   Array [
     "plan",
@@ -720,7 +706,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP offset-mismatch.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > offset-mismatch.tap > default settings > stringified 1`] = `
 TAP version 13
 # beep
 ok 8 - should be equal
@@ -732,11 +718,10 @@ ok 11 - (unnamed assert)
 # tests 4
 # pass  4
 # ok
-# failed 4 of 4 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP offset-mismatch.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > offset-mismatch.tap > default settings > stringified flat 1`] = `
 TAP version 13
 # beep
 ok 1 - should be equal
@@ -748,11 +733,10 @@ ok 4 - (unnamed assert)
 # tests 4
 # pass  4
 # ok
-# failed 4 of 4 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP offset-mismatch.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > offset-mismatch.tap > strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -871,10 +855,6 @@ Array [
     "# ok\\n",
   ],
   Array [
-    "comment",
-    "# failed 4 of 4 tests\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -980,7 +960,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP offset-mismatch.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > offset-mismatch.tap > strict > stringified 1`] = `
 TAP version 13
 # beep
 ok 8 - should be equal
@@ -992,11 +972,10 @@ ok 11 - (unnamed assert)
 # tests 4
 # pass  4
 # ok
-# failed 4 of 4 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP offset-mismatch.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > offset-mismatch.tap > strict > stringified flat 1`] = `
 TAP version 13
 # beep
 ok 1 - should be equal
@@ -1008,11 +987,10 @@ ok 4 - (unnamed assert)
 # tests 4
 # pass  4
 # ok
-# failed 4 of 4 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP offset-mismatch.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > offset-mismatch.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -1131,10 +1109,6 @@ Array [
     "# ok\\n",
   ],
   Array [
-    "comment",
-    "# failed 4 of 4 tests\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -1240,7 +1214,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP offset-mismatch.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > offset-mismatch.tap > strictBail > stringified 1`] = `
 TAP version 13
 # beep
 ok 8 - should be equal
@@ -1252,11 +1226,10 @@ ok 11 - (unnamed assert)
 # tests 4
 # pass  4
 # ok
-# failed 4 of 4 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP offset-mismatch.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > offset-mismatch.tap > strictBail > stringified flat 1`] = `
 TAP version 13
 # beep
 ok 1 - should be equal
@@ -1268,6 +1241,5 @@ ok 4 - (unnamed assert)
 # tests 4
 # pass  4
 # ok
-# failed 4 of 4 tests
 
 `

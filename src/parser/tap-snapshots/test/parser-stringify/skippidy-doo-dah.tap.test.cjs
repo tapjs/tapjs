@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts TAP skippidy-doo-dah.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > skippidy-doo-dah.tap > bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -35,10 +35,6 @@ Array [
       "time": null,
       "todo": false,
     },
-  ],
-  Array [
-    "comment",
-    "# skip: 1\\n",
   ],
   Array [
     "complete",
@@ -88,23 +84,21 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP skippidy-doo-dah.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > skippidy-doo-dah.tap > bail > stringified 1`] = `
 TAP version 13
 1..1
 ok 1 - x # SKIP doo dah
-# skip: 1
 
 `
 
-exports[`test/parse-stringify.ts TAP skippidy-doo-dah.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > skippidy-doo-dah.tap > bail > stringified flat 1`] = `
 TAP version 13
 1..0
 ok 1 - x # SKIP doo dah
-# skip: 1
 
 `
 
-exports[`test/parse-stringify.ts TAP skippidy-doo-dah.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > skippidy-doo-dah.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -134,10 +128,6 @@ Array [
       "time": null,
       "todo": false,
     },
-  ],
-  Array [
-    "comment",
-    "# skip: 1\\n",
   ],
   Array [
     "complete",
@@ -187,7 +177,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP skippidy-doo-dah.tap default settings > parsed flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > skippidy-doo-dah.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "version",
@@ -209,10 +199,6 @@ Array [
       "time": null,
       "todo": false,
     },
-  ],
-  Array [
-    "comment",
-    "# skip: 1\\n",
   ],
   Array [
     "plan",
@@ -269,23 +255,21 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP skippidy-doo-dah.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > skippidy-doo-dah.tap > default settings > stringified 1`] = `
 TAP version 13
 1..1
 ok 1 - x # SKIP doo dah
-# skip: 1
 
 `
 
-exports[`test/parse-stringify.ts TAP skippidy-doo-dah.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > skippidy-doo-dah.tap > default settings > stringified flat 1`] = `
 TAP version 13
 1..0
 ok 1 - x # SKIP doo dah
-# skip: 1
 
 `
 
-exports[`test/parse-stringify.ts TAP skippidy-doo-dah.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > skippidy-doo-dah.tap > strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -315,10 +299,6 @@ Array [
       "time": null,
       "todo": false,
     },
-  ],
-  Array [
-    "comment",
-    "# skip: 1\\n",
   ],
   Array [
     "complete",
@@ -368,23 +348,21 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP skippidy-doo-dah.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > skippidy-doo-dah.tap > strict > stringified 1`] = `
 TAP version 13
 1..1
 ok 1 - x # SKIP doo dah
-# skip: 1
 
 `
 
-exports[`test/parse-stringify.ts TAP skippidy-doo-dah.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > skippidy-doo-dah.tap > strict > stringified flat 1`] = `
 TAP version 13
 1..0
 ok 1 - x # SKIP doo dah
-# skip: 1
 
 `
 
-exports[`test/parse-stringify.ts TAP skippidy-doo-dah.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > skippidy-doo-dah.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -414,10 +392,6 @@ Array [
       "time": null,
       "todo": false,
     },
-  ],
-  Array [
-    "comment",
-    "# skip: 1\\n",
   ],
   Array [
     "complete",
@@ -467,18 +441,16 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP skippidy-doo-dah.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > skippidy-doo-dah.tap > strictBail > stringified 1`] = `
 TAP version 13
 1..1
 ok 1 - x # SKIP doo dah
-# skip: 1
 
 `
 
-exports[`test/parse-stringify.ts TAP skippidy-doo-dah.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > skippidy-doo-dah.tap > strictBail > stringified flat 1`] = `
 TAP version 13
 1..0
 ok 1 - x # SKIP doo dah
-# skip: 1
 
 `

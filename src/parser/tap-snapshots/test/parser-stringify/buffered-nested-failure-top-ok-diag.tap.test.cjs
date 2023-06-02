@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts TAP buffered-nested-failure-top-ok-diag.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok-diag.tap > bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -39,7 +39,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "my kids are fine no they aren't",
+          "fullname": "my kids are fine > no they aren't",
           "id": 0,
           "name": "no they aren't",
           "ok": false,
@@ -65,7 +65,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "my kids are fine no they aren't",
+              "fullname": "my kids are fine > no they aren't",
               "id": 0,
               "name": "no they aren't",
               "ok": false,
@@ -139,7 +139,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP buffered-nested-failure-top-ok-diag.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok-diag.tap > bail > stringified 1`] = `
 TAP version 13
 1..1
 # Subtest: my kids are fine
@@ -150,17 +150,17 @@ Bail out! no they aren't
 
 `
 
-exports[`test/parse-stringify.ts TAP buffered-nested-failure-top-ok-diag.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok-diag.tap > bail > stringified flat 1`] = `
 TAP version 13
 1..0
 # Subtest: my kids are fine
-not ok 1 - my kids are fine no they aren't
+not ok 1 - my kids are fine > no they aren't
 Bail out! no they aren't
 Bail out! no they aren't
 
 `
 
-exports[`test/parse-stringify.ts TAP buffered-nested-failure-top-ok-diag.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok-diag.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -194,7 +194,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "my kids are fine no they aren't",
+          "fullname": "my kids are fine > no they aren't",
           "id": 0,
           "name": "no they aren't",
           "ok": false,
@@ -207,10 +207,6 @@ Array [
         },
       ],
       Array [
-        "comment",
-        "# failed 1 test\\n",
-      ],
-      Array [
         "complete",
         FinalResults {
           "bailout": false,
@@ -220,7 +216,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "my kids are fine no they aren't",
+              "fullname": "my kids are fine > no they aren't",
               "id": 0,
               "name": "no they aren't",
               "ok": false,
@@ -309,7 +305,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP buffered-nested-failure-top-ok-diag.tap default settings > parsed flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok-diag.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "version",
@@ -320,9 +316,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "my kids are fine no they aren't",
+      "fullname": "my kids are fine > no they aren't",
       "id": 1,
-      "name": "my kids are fine no they aren't",
+      "name": "my kids are fine > no they aren't",
       "ok": false,
       "plan": null,
       "previous": null,
@@ -391,13 +387,12 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP buffered-nested-failure-top-ok-diag.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok-diag.tap > default settings > stringified 1`] = `
 TAP version 13
 1..1
 # Subtest: my kids are fine
     1..1
     not ok - no they aren't
-    # failed 1 test
 ok 1 - my kids are fine
   ---
   some: diag
@@ -405,12 +400,11 @@ ok 1 - my kids are fine
 
 `
 
-exports[`test/parse-stringify.ts TAP buffered-nested-failure-top-ok-diag.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok-diag.tap > default settings > stringified flat 1`] = `
 TAP version 13
 1..0
 # Subtest: my kids are fine
-not ok 1 - my kids are fine no they aren't
-# failed 1 test
+not ok 1 - my kids are fine > no they aren't
 ok 2 - my kids are fine
   ---
   some: diag
@@ -418,7 +412,7 @@ ok 2 - my kids are fine
 
 `
 
-exports[`test/parse-stringify.ts TAP buffered-nested-failure-top-ok-diag.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok-diag.tap > strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -452,7 +446,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "my kids are fine no they aren't",
+          "fullname": "my kids are fine > no they aren't",
           "id": 0,
           "name": "no they aren't",
           "ok": false,
@@ -465,10 +459,6 @@ Array [
         },
       ],
       Array [
-        "comment",
-        "# failed 1 test\\n",
-      ],
-      Array [
         "complete",
         FinalResults {
           "bailout": false,
@@ -478,7 +468,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "my kids are fine no they aren't",
+              "fullname": "my kids are fine > no they aren't",
               "id": 0,
               "name": "no they aren't",
               "ok": false,
@@ -567,13 +557,12 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP buffered-nested-failure-top-ok-diag.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok-diag.tap > strict > stringified 1`] = `
 TAP version 13
 1..1
 # Subtest: my kids are fine
     1..1
     not ok - no they aren't
-    # failed 1 test
 ok 1 - my kids are fine
   ---
   some: diag
@@ -581,12 +570,11 @@ ok 1 - my kids are fine
 
 `
 
-exports[`test/parse-stringify.ts TAP buffered-nested-failure-top-ok-diag.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok-diag.tap > strict > stringified flat 1`] = `
 TAP version 13
 1..0
 # Subtest: my kids are fine
-not ok 1 - my kids are fine no they aren't
-# failed 1 test
+not ok 1 - my kids are fine > no they aren't
 ok 2 - my kids are fine
   ---
   some: diag
@@ -594,7 +582,7 @@ ok 2 - my kids are fine
 
 `
 
-exports[`test/parse-stringify.ts TAP buffered-nested-failure-top-ok-diag.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok-diag.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -628,7 +616,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "my kids are fine no they aren't",
+          "fullname": "my kids are fine > no they aren't",
           "id": 0,
           "name": "no they aren't",
           "ok": false,
@@ -654,7 +642,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "my kids are fine no they aren't",
+              "fullname": "my kids are fine > no they aren't",
               "id": 0,
               "name": "no they aren't",
               "ok": false,
@@ -728,7 +716,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP buffered-nested-failure-top-ok-diag.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok-diag.tap > strictBail > stringified 1`] = `
 TAP version 13
 1..1
 # Subtest: my kids are fine
@@ -739,11 +727,11 @@ Bail out! no they aren't
 
 `
 
-exports[`test/parse-stringify.ts TAP buffered-nested-failure-top-ok-diag.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok-diag.tap > strictBail > stringified flat 1`] = `
 TAP version 13
 1..0
 # Subtest: my kids are fine
-not ok 1 - my kids are fine no they aren't
+not ok 1 - my kids are fine > no they aren't
 Bail out! no they aren't
 Bail out! no they aren't
 

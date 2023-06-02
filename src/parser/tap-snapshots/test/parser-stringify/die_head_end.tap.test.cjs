@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts TAP die_head_end.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > die_head_end.tap > bail > parsed 1`] = `
 Array [
   Array [
     "assert",
@@ -78,10 +78,6 @@ Array [
   Array [
     "comment",
     "# test count(4) != plan(null)\\n",
-  ],
-  Array [
-    "comment",
-    "# failed 1 of 4 tests\\n",
   ],
   Array [
     "complete",
@@ -120,27 +116,25 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP die_head_end.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > die_head_end.tap > bail > stringified 1`] = `
 ok 1
 ok 2
 ok 3
 ok 4
 # test count(4) != plan(null)
-# failed 1 of 4 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP die_head_end.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > die_head_end.tap > bail > stringified flat 1`] = `
 ok 1
 ok 2
 ok 3
 ok 4
 # test count(4) != plan(null)
-# failed 1 of 4 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP die_head_end.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > die_head_end.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "assert",
@@ -213,10 +207,6 @@ Array [
   Array [
     "comment",
     "# test count(4) != plan(null)\\n",
-  ],
-  Array [
-    "comment",
-    "# failed 1 of 4 tests\\n",
   ],
   Array [
     "complete",
@@ -255,7 +245,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP die_head_end.tap default settings > parsed flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > die_head_end.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "assert",
@@ -328,10 +318,6 @@ Array [
   Array [
     "comment",
     "# test count(4) != plan(null)\\n",
-  ],
-  Array [
-    "comment",
-    "# failed 1 of 4 tests\\n",
   ],
   Array [
     "plan",
@@ -377,27 +363,25 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP die_head_end.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > die_head_end.tap > default settings > stringified 1`] = `
 ok 1
 ok 2
 ok 3
 ok 4
 # test count(4) != plan(null)
-# failed 1 of 4 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP die_head_end.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > die_head_end.tap > default settings > stringified flat 1`] = `
 ok 1
 ok 2
 ok 3
 ok 4
 # test count(4) != plan(null)
-# failed 1 of 4 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP die_head_end.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > die_head_end.tap > strict > parsed 1`] = `
 Array [
   Array [
     "assert",
@@ -472,10 +456,6 @@ Array [
     "# test count(4) != plan(null)\\n",
   ],
   Array [
-    "comment",
-    "# failed 1 of 4 tests\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -512,27 +492,25 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP die_head_end.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > die_head_end.tap > strict > stringified 1`] = `
 ok 1
 ok 2
 ok 3
 ok 4
 # test count(4) != plan(null)
-# failed 1 of 4 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP die_head_end.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > die_head_end.tap > strict > stringified flat 1`] = `
 ok 1
 ok 2
 ok 3
 ok 4
 # test count(4) != plan(null)
-# failed 1 of 4 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP die_head_end.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > die_head_end.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "assert",
@@ -607,10 +585,6 @@ Array [
     "# test count(4) != plan(null)\\n",
   ],
   Array [
-    "comment",
-    "# failed 1 of 4 tests\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -647,22 +621,20 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP die_head_end.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > die_head_end.tap > strictBail > stringified 1`] = `
 ok 1
 ok 2
 ok 3
 ok 4
 # test count(4) != plan(null)
-# failed 1 of 4 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP die_head_end.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > die_head_end.tap > strictBail > stringified flat 1`] = `
 ok 1
 ok 2
 ok 3
 ok 4
 # test count(4) != plan(null)
-# failed 1 of 4 tests
 
 `

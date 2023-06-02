@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser.ts TAP buffered-nested-ok-top-failure-diag.tap > output bail=false 1`] = `
+exports[`test/parser.ts > TAP > buffered-nested-ok-top-failure-diag.tap > output bail=false 1`] = `
 Array [
   Array [
     "line",
@@ -75,7 +75,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "please sir, my son, he is sick i got better",
+          "fullname": "please sir, my son, he is sick > i got better",
           "id": 0,
           "name": "i got better",
           "ok": true,
@@ -129,7 +129,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "please sir, my son, he is sick i got better",
+      "fullname": "please sir, my son, he is sick > i got better",
       "id": 0,
       "name": "i got better",
       "ok": true,
@@ -146,7 +146,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "please sir, my son, he is sick i got better",
+      "fullname": "please sir, my son, he is sick > i got better",
       "id": 0,
       "name": "i got better",
       "ok": true,
@@ -220,14 +220,6 @@ Array [
     },
   ],
   Array [
-    "line",
-    "# failed 1 test\\n",
-  ],
-  Array [
-    "comment",
-    "# failed 1 test\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -271,7 +263,7 @@ Array [
 ]
 `
 
-exports[`test/parser.ts TAP buffered-nested-ok-top-failure-diag.tap > output bail=true 1`] = `
+exports[`test/parser.ts > TAP > buffered-nested-ok-top-failure-diag.tap > output bail=true 1`] = `
 Array [
   Array [
     "line",
@@ -341,7 +333,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "please sir, my son, he is sick i got better",
+          "fullname": "please sir, my son, he is sick > i got better",
           "id": 0,
           "name": "i got better",
           "ok": true,
@@ -395,7 +387,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "please sir, my son, he is sick i got better",
+      "fullname": "please sir, my son, he is sick > i got better",
       "id": 0,
       "name": "i got better",
       "ok": true,
@@ -412,7 +404,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "please sir, my son, he is sick i got better",
+      "fullname": "please sir, my son, he is sick > i got better",
       "id": 0,
       "name": "i got better",
       "ok": true,

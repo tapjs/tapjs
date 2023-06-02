@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser.ts TAP indented-stdout-noise.tap > output bail=false 1`] = `
+exports[`test/parser.ts > TAP > indented-stdout-noise.tap > output bail=false 1`] = `
 Array [
   Array [
     "line",
@@ -359,7 +359,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "index.js boom",
+          "fullname": "index.js > boom",
           "id": 1,
           "name": "boom",
           "ok": true,
@@ -697,7 +697,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "index.js boom",
+      "fullname": "index.js > boom",
       "id": 1,
       "name": "boom",
       "ok": true,
@@ -714,7 +714,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "index.js boom",
+      "fullname": "index.js > boom",
       "id": 1,
       "name": "boom",
       "ok": true,
@@ -922,14 +922,6 @@ Array [
     "# time=209.666ms\\n",
   ],
   Array [
-    "line",
-    "# failed 1 test\\n",
-  ],
-  Array [
-    "comment",
-    "# failed 1 test\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -987,7 +979,7 @@ Array [
 ]
 `
 
-exports[`test/parser.ts TAP indented-stdout-noise.tap > output bail=true 1`] = `
+exports[`test/parser.ts > TAP > indented-stdout-noise.tap > output bail=true 1`] = `
 Array [
   Array [
     "line",
@@ -1341,7 +1333,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "index.js boom",
+          "fullname": "index.js > boom",
           "id": 1,
           "name": "boom",
           "ok": true,
@@ -1679,7 +1671,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "index.js boom",
+      "fullname": "index.js > boom",
       "id": 1,
       "name": "boom",
       "ok": true,
@@ -1696,7 +1688,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "index.js boom",
+      "fullname": "index.js > boom",
       "id": 1,
       "name": "boom",
       "ok": true,

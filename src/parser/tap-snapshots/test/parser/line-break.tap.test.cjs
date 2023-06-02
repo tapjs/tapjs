@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser.ts TAP line-break.tap > output bail=false 1`] = `
+exports[`test/parser.ts > TAP > line-break.tap > output bail=false 1`] = `
 Array [
   Array [
     "line",
@@ -81,7 +81,7 @@ Array [
               ),
             ],
           },
-          "fullname": "foo should be equivalent",
+          "fullname": "foo > should be equivalent",
           "id": 1,
           "name": "should be equivalent",
           "ok": false,
@@ -114,14 +114,6 @@ Array [
         "# failed 1 of 1 tests\\n",
       ],
       Array [
-        "line",
-        "# failed 1 test\\n",
-      ],
-      Array [
-        "comment",
-        "# failed 1 test\\n",
-      ],
-      Array [
         "complete",
         FinalResults {
           "bailout": false,
@@ -141,7 +133,7 @@ Array [
                   ),
                 ],
               },
-              "fullname": "foo should be equivalent",
+              "fullname": "foo > should be equivalent",
               "id": 1,
               "name": "should be equivalent",
               "ok": false,
@@ -230,7 +222,7 @@ Array [
           ),
         ],
       },
-      "fullname": "foo should be equivalent",
+      "fullname": "foo > should be equivalent",
       "id": 1,
       "name": "should be equivalent",
       "ok": false,
@@ -257,7 +249,7 @@ Array [
           ),
         ],
       },
-      "fullname": "foo should be equivalent",
+      "fullname": "foo > should be equivalent",
       "id": 1,
       "name": "should be equivalent",
       "ok": false,
@@ -276,10 +268,6 @@ Array [
   Array [
     "line",
     "    # failed 1 of 1 tests\\n",
-  ],
-  Array [
-    "line",
-    "    # failed 1 test\\n",
   ],
   Array [
     "line",
@@ -387,14 +375,6 @@ Array [
     "# time=22.566ms\\n",
   ],
   Array [
-    "line",
-    "# failed 1 test\\n",
-  ],
-  Array [
-    "comment",
-    "# failed 1 test\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -448,7 +428,7 @@ Array [
 ]
 `
 
-exports[`test/parser.ts TAP line-break.tap > output bail=true 1`] = `
+exports[`test/parser.ts > TAP > line-break.tap > output bail=true 1`] = `
 Array [
   Array [
     "line",
@@ -524,7 +504,7 @@ Array [
               ),
             ],
           },
-          "fullname": "foo should be equivalent",
+          "fullname": "foo > should be equivalent",
           "id": 1,
           "name": "should be equivalent",
           "ok": false,
@@ -564,7 +544,7 @@ Array [
                   ),
                 ],
               },
-              "fullname": "foo should be equivalent",
+              "fullname": "foo > should be equivalent",
               "id": 1,
               "name": "should be equivalent",
               "ok": false,
@@ -653,7 +633,7 @@ Array [
           ),
         ],
       },
-      "fullname": "foo should be equivalent",
+      "fullname": "foo > should be equivalent",
       "id": 1,
       "name": "should be equivalent",
       "ok": false,
@@ -680,7 +660,7 @@ Array [
           ),
         ],
       },
-      "fullname": "foo should be equivalent",
+      "fullname": "foo > should be equivalent",
       "id": 1,
       "name": "should be equivalent",
       "ok": false,

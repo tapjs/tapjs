@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts TAP diag-looks-like-comment.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > diag-looks-like-comment.tap > bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -43,7 +43,7 @@ Array [
             ),
             "pattern": "/SIGTERM/",
           },
-          "fullname": "-t 0.2 should match pattern provided",
+          "fullname": "-t 0.2 > should match pattern provided",
           "id": 1,
           "name": "should match pattern provided",
           "ok": false,
@@ -89,7 +89,7 @@ Array [
                 ),
                 "pattern": "/SIGTERM/",
               },
-              "fullname": "-t 0.2 should match pattern provided",
+              "fullname": "-t 0.2 > should match pattern provided",
               "id": 1,
               "name": "should match pattern provided",
               "ok": false,
@@ -163,7 +163,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP diag-looks-like-comment.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > diag-looks-like-comment.tap > bail > stringified 1`] = `
 TAP version 13
 # Subtest: -t 0.2
     not ok 1 - should match pattern provided
@@ -191,10 +191,10 @@ Bail out! should match pattern provided
 
 `
 
-exports[`test/parse-stringify.ts TAP diag-looks-like-comment.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > diag-looks-like-comment.tap > bail > stringified flat 1`] = `
 TAP version 13
 # Subtest: -t 0.2
-not ok 1 - -t 0.2 should match pattern provided
+not ok 1 - -t 0.2 > should match pattern provided
   ---
   found: |
     
@@ -219,7 +219,7 @@ Bail out! should match pattern provided
 
 `
 
-exports[`test/parse-stringify.ts TAP diag-looks-like-comment.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > diag-looks-like-comment.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -257,7 +257,7 @@ Array [
             ),
             "pattern": "/SIGTERM/",
           },
-          "fullname": "-t 0.2 should match pattern provided",
+          "fullname": "-t 0.2 > should match pattern provided",
           "id": 1,
           "name": "should match pattern provided",
           "ok": false,
@@ -276,10 +276,6 @@ Array [
           "end": 1,
           "start": 1,
         },
-      ],
-      Array [
-        "comment",
-        "# failed 1 test\\n",
       ],
       Array [
         "complete",
@@ -311,7 +307,7 @@ Array [
                 ),
                 "pattern": "/SIGTERM/",
               },
-              "fullname": "-t 0.2 should match pattern provided",
+              "fullname": "-t 0.2 > should match pattern provided",
               "id": 1,
               "name": "should match pattern provided",
               "ok": false,
@@ -374,10 +370,6 @@ Array [
     },
   ],
   Array [
-    "comment",
-    "# failed 1 test\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -425,7 +417,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP diag-looks-like-comment.tap default settings > parsed flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > diag-looks-like-comment.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "version",
@@ -456,9 +448,9 @@ Array [
         ),
         "pattern": "/SIGTERM/",
       },
-      "fullname": "-t 0.2 should match pattern provided",
+      "fullname": "-t 0.2 > should match pattern provided",
       "id": 1,
-      "name": "-t 0.2 should match pattern provided",
+      "name": "-t 0.2 > should match pattern provided",
       "ok": false,
       "plan": null,
       "previous": null,
@@ -467,10 +459,6 @@ Array [
       "time": null,
       "todo": false,
     },
-  ],
-  Array [
-    "comment",
-    "# failed 1 test\\n",
   ],
   Array [
     "plan",
@@ -527,7 +515,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP diag-looks-like-comment.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > diag-looks-like-comment.tap > default settings > stringified 1`] = `
 TAP version 13
 # Subtest: -t 0.2
     not ok 1 - should match pattern provided
@@ -551,17 +539,15 @@ TAP version 13
       pattern: /SIGTERM/
       ...
     1..1
-    # failed 1 test
 not ok 1 - -t 0.2
 1..1
-# failed 1 test
 
 `
 
-exports[`test/parse-stringify.ts TAP diag-looks-like-comment.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > diag-looks-like-comment.tap > default settings > stringified flat 1`] = `
 TAP version 13
 # Subtest: -t 0.2
-not ok 1 - -t 0.2 should match pattern provided
+not ok 1 - -t 0.2 > should match pattern provided
   ---
   found: |
     
@@ -581,14 +567,12 @@ not ok 1 - -t 0.2 should match pattern provided
     1..1
   pattern: /SIGTERM/
   ...
-# failed 1 test
 not ok 2 - -t 0.2
 1..2
-# failed 1 test
 
 `
 
-exports[`test/parse-stringify.ts TAP diag-looks-like-comment.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > diag-looks-like-comment.tap > strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -626,7 +610,7 @@ Array [
             ),
             "pattern": "/SIGTERM/",
           },
-          "fullname": "-t 0.2 should match pattern provided",
+          "fullname": "-t 0.2 > should match pattern provided",
           "id": 1,
           "name": "should match pattern provided",
           "ok": false,
@@ -645,10 +629,6 @@ Array [
           "end": 1,
           "start": 1,
         },
-      ],
-      Array [
-        "comment",
-        "# failed 1 test\\n",
       ],
       Array [
         "complete",
@@ -680,7 +660,7 @@ Array [
                 ),
                 "pattern": "/SIGTERM/",
               },
-              "fullname": "-t 0.2 should match pattern provided",
+              "fullname": "-t 0.2 > should match pattern provided",
               "id": 1,
               "name": "should match pattern provided",
               "ok": false,
@@ -743,10 +723,6 @@ Array [
     },
   ],
   Array [
-    "comment",
-    "# failed 1 test\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -794,7 +770,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP diag-looks-like-comment.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > diag-looks-like-comment.tap > strict > stringified 1`] = `
 TAP version 13
 # Subtest: -t 0.2
     not ok 1 - should match pattern provided
@@ -818,17 +794,15 @@ TAP version 13
       pattern: /SIGTERM/
       ...
     1..1
-    # failed 1 test
 not ok 1 - -t 0.2
 1..1
-# failed 1 test
 
 `
 
-exports[`test/parse-stringify.ts TAP diag-looks-like-comment.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > diag-looks-like-comment.tap > strict > stringified flat 1`] = `
 TAP version 13
 # Subtest: -t 0.2
-not ok 1 - -t 0.2 should match pattern provided
+not ok 1 - -t 0.2 > should match pattern provided
   ---
   found: |
     
@@ -848,14 +822,12 @@ not ok 1 - -t 0.2 should match pattern provided
     1..1
   pattern: /SIGTERM/
   ...
-# failed 1 test
 not ok 2 - -t 0.2
 1..2
-# failed 1 test
 
 `
 
-exports[`test/parse-stringify.ts TAP diag-looks-like-comment.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > diag-looks-like-comment.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -893,7 +865,7 @@ Array [
             ),
             "pattern": "/SIGTERM/",
           },
-          "fullname": "-t 0.2 should match pattern provided",
+          "fullname": "-t 0.2 > should match pattern provided",
           "id": 1,
           "name": "should match pattern provided",
           "ok": false,
@@ -939,7 +911,7 @@ Array [
                 ),
                 "pattern": "/SIGTERM/",
               },
-              "fullname": "-t 0.2 should match pattern provided",
+              "fullname": "-t 0.2 > should match pattern provided",
               "id": 1,
               "name": "should match pattern provided",
               "ok": false,
@@ -1013,7 +985,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP diag-looks-like-comment.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > diag-looks-like-comment.tap > strictBail > stringified 1`] = `
 TAP version 13
 # Subtest: -t 0.2
     not ok 1 - should match pattern provided
@@ -1041,10 +1013,10 @@ Bail out! should match pattern provided
 
 `
 
-exports[`test/parse-stringify.ts TAP diag-looks-like-comment.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > diag-looks-like-comment.tap > strictBail > stringified flat 1`] = `
 TAP version 13
 # Subtest: -t 0.2
-not ok 1 - -t 0.2 should match pattern provided
+not ok 1 - -t 0.2 > should match pattern provided
   ---
   found: |
     

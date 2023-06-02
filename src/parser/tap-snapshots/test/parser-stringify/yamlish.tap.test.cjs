@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts TAP yamlish.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > yamlish.tap > bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -106,7 +106,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP yamlish.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > yamlish.tap > bail > stringified 1`] = `
 TAP version 13
 not ok 1 - Resolve address
   ---
@@ -124,7 +124,7 @@ Bail out! Resolve address
 
 `
 
-exports[`test/parse-stringify.ts TAP yamlish.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > yamlish.tap > bail > stringified flat 1`] = `
 TAP version 13
 not ok 1 - Resolve address
   ---
@@ -142,7 +142,7 @@ Bail out! Resolve address
 
 `
 
-exports[`test/parse-stringify.ts TAP yamlish.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > yamlish.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -185,10 +185,6 @@ Array [
       "end": 1,
       "start": 1,
     },
-  ],
-  Array [
-    "comment",
-    "# failed 1 test\\n",
   ],
   Array [
     "complete",
@@ -251,7 +247,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP yamlish.tap default settings > parsed flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > yamlish.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "version",
@@ -286,10 +282,6 @@ Array [
       "time": null,
       "todo": false,
     },
-  ],
-  Array [
-    "comment",
-    "# failed 1 test\\n",
   ],
   Array [
     "plan",
@@ -359,7 +351,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP yamlish.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > yamlish.tap > default settings > stringified 1`] = `
 TAP version 13
 not ok 1 - Resolve address
   ---
@@ -374,11 +366,10 @@ not ok 1 - Resolve address
       address: 85.193.201.85
   ...
 1..1
-# failed 1 test
 
 `
 
-exports[`test/parse-stringify.ts TAP yamlish.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > yamlish.tap > default settings > stringified flat 1`] = `
 TAP version 13
 not ok 1 - Resolve address
   ---
@@ -393,11 +384,10 @@ not ok 1 - Resolve address
       address: 85.193.201.85
   ...
 1..1
-# failed 1 test
 
 `
 
-exports[`test/parse-stringify.ts TAP yamlish.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > yamlish.tap > strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -440,10 +430,6 @@ Array [
       "end": 1,
       "start": 1,
     },
-  ],
-  Array [
-    "comment",
-    "# failed 1 test\\n",
   ],
   Array [
     "complete",
@@ -506,7 +492,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP yamlish.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > yamlish.tap > strict > stringified 1`] = `
 TAP version 13
 not ok 1 - Resolve address
   ---
@@ -521,11 +507,10 @@ not ok 1 - Resolve address
       address: 85.193.201.85
   ...
 1..1
-# failed 1 test
 
 `
 
-exports[`test/parse-stringify.ts TAP yamlish.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > yamlish.tap > strict > stringified flat 1`] = `
 TAP version 13
 not ok 1 - Resolve address
   ---
@@ -540,11 +525,10 @@ not ok 1 - Resolve address
       address: 85.193.201.85
   ...
 1..1
-# failed 1 test
 
 `
 
-exports[`test/parse-stringify.ts TAP yamlish.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > yamlish.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -645,7 +629,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP yamlish.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > yamlish.tap > strictBail > stringified 1`] = `
 TAP version 13
 not ok 1 - Resolve address
   ---
@@ -663,7 +647,7 @@ Bail out! Resolve address
 
 `
 
-exports[`test/parse-stringify.ts TAP yamlish.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > yamlish.tap > strictBail > stringified flat 1`] = `
 TAP version 13
 not ok 1 - Resolve address
   ---

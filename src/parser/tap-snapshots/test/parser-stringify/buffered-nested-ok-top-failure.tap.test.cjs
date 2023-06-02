@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts TAP buffered-nested-ok-top-failure.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-ok-top-failure.tap > bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -39,7 +39,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "please sir, my son, he is sick i got better",
+          "fullname": "please sir, my son, he is sick > i got better",
           "id": 0,
           "name": "i got better",
           "ok": true,
@@ -152,7 +152,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP buffered-nested-ok-top-failure.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-ok-top-failure.tap > bail > stringified 1`] = `
 TAP version 13
 1..1
 # Subtest: please sir, my son, he is sick
@@ -163,17 +163,17 @@ Bail out! please sir, my son, he is sick
 
 `
 
-exports[`test/parse-stringify.ts TAP buffered-nested-ok-top-failure.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-ok-top-failure.tap > bail > stringified flat 1`] = `
 TAP version 13
 1..0
 # Subtest: please sir, my son, he is sick
-ok 1 - please sir, my son, he is sick i got better
+ok 1 - please sir, my son, he is sick > i got better
 not ok 2 - please sir, my son, he is sick
 Bail out! please sir, my son, he is sick
 
 `
 
-exports[`test/parse-stringify.ts TAP buffered-nested-ok-top-failure.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-ok-top-failure.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -207,7 +207,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "please sir, my son, he is sick i got better",
+          "fullname": "please sir, my son, he is sick > i got better",
           "id": 0,
           "name": "i got better",
           "ok": true,
@@ -269,10 +269,6 @@ Array [
     },
   ],
   Array [
-    "comment",
-    "# failed 1 test\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -320,7 +316,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP buffered-nested-ok-top-failure.tap default settings > parsed flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-ok-top-failure.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "version",
@@ -331,9 +327,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "please sir, my son, he is sick i got better",
+      "fullname": "please sir, my son, he is sick > i got better",
       "id": 1,
-      "name": "please sir, my son, he is sick i got better",
+      "name": "please sir, my son, he is sick > i got better",
       "ok": true,
       "plan": null,
       "previous": null,
@@ -359,10 +355,6 @@ Array [
       "time": null,
       "todo": false,
     },
-  ],
-  Array [
-    "comment",
-    "# failed 1 test\\n",
   ],
   Array [
     "plan",
@@ -419,28 +411,26 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP buffered-nested-ok-top-failure.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-ok-top-failure.tap > default settings > stringified 1`] = `
 TAP version 13
 1..1
 # Subtest: please sir, my son, he is sick
     1..1
     ok - i got better
 not ok 1 - please sir, my son, he is sick
-# failed 1 test
 
 `
 
-exports[`test/parse-stringify.ts TAP buffered-nested-ok-top-failure.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-ok-top-failure.tap > default settings > stringified flat 1`] = `
 TAP version 13
 1..0
 # Subtest: please sir, my son, he is sick
-ok 1 - please sir, my son, he is sick i got better
+ok 1 - please sir, my son, he is sick > i got better
 not ok 2 - please sir, my son, he is sick
-# failed 1 test
 
 `
 
-exports[`test/parse-stringify.ts TAP buffered-nested-ok-top-failure.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-ok-top-failure.tap > strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -474,7 +464,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "please sir, my son, he is sick i got better",
+          "fullname": "please sir, my son, he is sick > i got better",
           "id": 0,
           "name": "i got better",
           "ok": true,
@@ -536,10 +526,6 @@ Array [
     },
   ],
   Array [
-    "comment",
-    "# failed 1 test\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -587,28 +573,26 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP buffered-nested-ok-top-failure.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-ok-top-failure.tap > strict > stringified 1`] = `
 TAP version 13
 1..1
 # Subtest: please sir, my son, he is sick
     1..1
     ok - i got better
 not ok 1 - please sir, my son, he is sick
-# failed 1 test
 
 `
 
-exports[`test/parse-stringify.ts TAP buffered-nested-ok-top-failure.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-ok-top-failure.tap > strict > stringified flat 1`] = `
 TAP version 13
 1..0
 # Subtest: please sir, my son, he is sick
-ok 1 - please sir, my son, he is sick i got better
+ok 1 - please sir, my son, he is sick > i got better
 not ok 2 - please sir, my son, he is sick
-# failed 1 test
 
 `
 
-exports[`test/parse-stringify.ts TAP buffered-nested-ok-top-failure.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-ok-top-failure.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -642,7 +626,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "please sir, my son, he is sick i got better",
+          "fullname": "please sir, my son, he is sick > i got better",
           "id": 0,
           "name": "i got better",
           "ok": true,
@@ -755,7 +739,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP buffered-nested-ok-top-failure.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-ok-top-failure.tap > strictBail > stringified 1`] = `
 TAP version 13
 1..1
 # Subtest: please sir, my son, he is sick
@@ -766,11 +750,11 @@ Bail out! please sir, my son, he is sick
 
 `
 
-exports[`test/parse-stringify.ts TAP buffered-nested-ok-top-failure.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-ok-top-failure.tap > strictBail > stringified flat 1`] = `
 TAP version 13
 1..0
 # Subtest: please sir, my son, he is sick
-ok 1 - please sir, my son, he is sick i got better
+ok 1 - please sir, my son, he is sick > i got better
 not ok 2 - please sir, my son, he is sick
 Bail out! please sir, my son, he is sick
 

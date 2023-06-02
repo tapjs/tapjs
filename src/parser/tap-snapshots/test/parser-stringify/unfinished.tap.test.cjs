@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts TAP unfinished.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > unfinished.tap > bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -58,10 +58,6 @@ Array [
     "# test count(2) != plan(5)\\n",
   ],
   Array [
-    "comment",
-    "# failed 1 of 2 tests\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -98,27 +94,25 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP unfinished.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > unfinished.tap > bail > stringified 1`] = `
 TAP version 13
 1..5
 ok 1
 ok 2
 # test count(2) != plan(5)
-# failed 1 of 2 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP unfinished.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > unfinished.tap > bail > stringified flat 1`] = `
 TAP version 13
 1..0
 ok 1
 ok 2
 # test count(2) != plan(5)
-# failed 1 of 2 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP unfinished.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > unfinished.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -171,10 +165,6 @@ Array [
     "# test count(2) != plan(5)\\n",
   ],
   Array [
-    "comment",
-    "# failed 1 of 2 tests\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -211,7 +201,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP unfinished.tap default settings > parsed flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > unfinished.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "version",
@@ -254,10 +244,6 @@ Array [
   Array [
     "comment",
     "# test count(2) != plan(5)\\n",
-  ],
-  Array [
-    "comment",
-    "# failed 1 of 2 tests\\n",
   ],
   Array [
     "plan",
@@ -303,27 +289,25 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP unfinished.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > unfinished.tap > default settings > stringified 1`] = `
 TAP version 13
 1..5
 ok 1
 ok 2
 # test count(2) != plan(5)
-# failed 1 of 2 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP unfinished.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > unfinished.tap > default settings > stringified flat 1`] = `
 TAP version 13
 1..0
 ok 1
 ok 2
 # test count(2) != plan(5)
-# failed 1 of 2 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP unfinished.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > unfinished.tap > strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -376,10 +360,6 @@ Array [
     "# test count(2) != plan(5)\\n",
   ],
   Array [
-    "comment",
-    "# failed 1 of 2 tests\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -416,27 +396,25 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP unfinished.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > unfinished.tap > strict > stringified 1`] = `
 TAP version 13
 1..5
 ok 1
 ok 2
 # test count(2) != plan(5)
-# failed 1 of 2 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP unfinished.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > unfinished.tap > strict > stringified flat 1`] = `
 TAP version 13
 1..0
 ok 1
 ok 2
 # test count(2) != plan(5)
-# failed 1 of 2 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP unfinished.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > unfinished.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -489,10 +467,6 @@ Array [
     "# test count(2) != plan(5)\\n",
   ],
   Array [
-    "comment",
-    "# failed 1 of 2 tests\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -529,22 +503,20 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP unfinished.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > unfinished.tap > strictBail > stringified 1`] = `
 TAP version 13
 1..5
 ok 1
 ok 2
 # test count(2) != plan(5)
-# failed 1 of 2 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP unfinished.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > unfinished.tap > strictBail > stringified flat 1`] = `
 TAP version 13
 1..0
 ok 1
 ok 2
 # test count(2) != plan(5)
-# failed 1 of 2 tests
 
 `

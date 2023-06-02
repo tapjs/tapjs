@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser.ts TAP sequence_misparse.tap > output bail=false 1`] = `
+exports[`test/parser.ts > TAP > sequence_misparse.tap > output bail=false 1`] = `
 Array [
   Array [
     "line",
@@ -309,14 +309,6 @@ Array [
       "time": null,
       "todo": false,
     },
-  ],
-  Array [
-    "line",
-    "# skip: 1\\n",
-  ],
-  Array [
-    "comment",
-    "# skip: 1\\n",
   ],
   Array [
     "complete",
@@ -360,7 +352,7 @@ Array [
 ]
 `
 
-exports[`test/parser.ts TAP sequence_misparse.tap > output bail=true 1`] = `
+exports[`test/parser.ts > TAP > sequence_misparse.tap > output bail=true 1`] = `
 Array [
   Array [
     "line",
@@ -664,14 +656,6 @@ Array [
       "time": null,
       "todo": false,
     },
-  ],
-  Array [
-    "line",
-    "# skip: 1\\n",
-  ],
-  Array [
-    "comment",
-    "# skip: 1\\n",
   ],
   Array [
     "complete",

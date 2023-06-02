@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts TAP indent.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > indent.tap > bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -43,7 +43,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "first true is ok",
+          "fullname": "first > true is ok",
           "id": 1,
           "name": "true is ok",
           "ok": true,
@@ -60,7 +60,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "first doag is also okay",
+          "fullname": "first > doag is also okay",
           "id": 2,
           "name": "doag is also okay",
           "ok": true,
@@ -133,7 +133,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "second no plan",
+          "fullname": "second > no plan",
           "id": 1,
           "name": "no plan",
           "ok": true,
@@ -165,7 +165,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "second this passes granddaughter",
+              "fullname": "second > this passes > granddaughter",
               "id": 0,
               "name": "granddaughter",
               "ok": false,
@@ -186,7 +186,7 @@ Array [
                 "ok": 1,
                 "this": "is not tap",
               },
-              "fullname": "second this passes grandson",
+              "fullname": "second > this passes > grandson",
               "id": 0,
               "name": "grandson",
               "ok": true,
@@ -203,7 +203,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "second this passes grandchild",
+              "fullname": "second > this passes > grandchild",
               "id": 0,
               "name": "grandchild",
               "ok": false,
@@ -214,14 +214,6 @@ Array [
               "time": null,
               "todo": true,
             },
-          ],
-          Array [
-            "comment",
-            "# todo: 1\\n",
-          ],
-          Array [
-            "comment",
-            "# skip: 1\\n",
           ],
           Array [
             "complete",
@@ -260,7 +252,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "second this passes",
+          "fullname": "second > this passes",
           "id": 2,
           "name": "this passes",
           "ok": true,
@@ -372,7 +364,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP indent.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > indent.tap > bail > stringified 1`] = `
 TAP version 13
 1..2
 # nesting
@@ -393,8 +385,6 @@ ok 1 - first # time=2.589ms
           it: is yaml
           ...
         not ok - grandchild # TODO
-        # todo: 1
-        # skip: 1
     ok 2 - this passes # time=1200ms
     1..2
           ---
@@ -405,28 +395,26 @@ ok 2 - second # time=1.2ms
 
 `
 
-exports[`test/parse-stringify.ts TAP indent.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > indent.tap > bail > stringified flat 1`] = `
 TAP version 13
 1..0
 # nesting
 # Subtest: first
-ok 1 - first true is ok # time=1.234ms
-ok 2 - first doag is also okay # time=1.234ms
+ok 1 - first > true is ok # time=1.234ms
+ok 2 - first > doag is also okay # time=1.234ms
 ok 3 - first # time=2.589ms
 # Subtest: second
-ok 4 - second no plan # time=1.001ms
+ok 4 - second > no plan # time=1.001ms
 # Subtest: this passes
-not ok 5 - second this passes granddaughter # SKIP for no raisin
-ok 6 - second this passes grandson # time=1001ms
+not ok 5 - second > this passes > granddaughter # SKIP for no raisin
+ok 6 - second > this passes > grandson # time=1001ms
   ---
   ok: 1
   this: is not tap
   it: is yaml
   ...
-not ok 7 - second this passes grandchild # TODO
-# todo: 1
-# skip: 1
-ok 8 - second this passes # time=1200ms
+not ok 7 - second > this passes > grandchild # TODO
+ok 8 - second > this passes # time=1200ms
           ---
           ok: 1
           this: is not tap or yaml
@@ -435,7 +423,7 @@ ok 9 - second # time=1.2ms
 
 `
 
-exports[`test/parse-stringify.ts TAP indent.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > indent.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -473,7 +461,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "first true is ok",
+          "fullname": "first > true is ok",
           "id": 1,
           "name": "true is ok",
           "ok": true,
@@ -490,7 +478,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "first doag is also okay",
+          "fullname": "first > doag is also okay",
           "id": 2,
           "name": "doag is also okay",
           "ok": true,
@@ -563,7 +551,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "second no plan",
+          "fullname": "second > no plan",
           "id": 1,
           "name": "no plan",
           "ok": true,
@@ -595,7 +583,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "second this passes granddaughter",
+              "fullname": "second > this passes > granddaughter",
               "id": 0,
               "name": "granddaughter",
               "ok": false,
@@ -616,7 +604,7 @@ Array [
                 "ok": 1,
                 "this": "is not tap",
               },
-              "fullname": "second this passes grandson",
+              "fullname": "second > this passes > grandson",
               "id": 0,
               "name": "grandson",
               "ok": true,
@@ -633,7 +621,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "second this passes grandchild",
+              "fullname": "second > this passes > grandchild",
               "id": 0,
               "name": "grandchild",
               "ok": false,
@@ -644,14 +632,6 @@ Array [
               "time": null,
               "todo": true,
             },
-          ],
-          Array [
-            "comment",
-            "# todo: 1\\n",
-          ],
-          Array [
-            "comment",
-            "# skip: 1\\n",
           ],
           Array [
             "complete",
@@ -690,7 +670,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "second this passes",
+          "fullname": "second > this passes",
           "id": 2,
           "name": "this passes",
           "ok": true,
@@ -802,7 +782,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP indent.tap default settings > parsed flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > indent.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "version",
@@ -817,9 +797,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "first true is ok",
+      "fullname": "first > true is ok",
       "id": 1,
-      "name": "first true is ok",
+      "name": "first > true is ok",
       "ok": true,
       "plan": null,
       "previous": null,
@@ -834,9 +814,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "first doag is also okay",
+      "fullname": "first > doag is also okay",
       "id": 2,
-      "name": "first doag is also okay",
+      "name": "first > doag is also okay",
       "ok": true,
       "plan": null,
       "previous": null,
@@ -851,9 +831,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "second no plan",
+      "fullname": "second > no plan",
       "id": 3,
-      "name": "second no plan",
+      "name": "second > no plan",
       "ok": true,
       "plan": null,
       "previous": null,
@@ -868,9 +848,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "second this passes granddaughter",
+      "fullname": "second > this passes > granddaughter",
       "id": 4,
-      "name": "second this passes granddaughter",
+      "name": "second > this passes > granddaughter",
       "ok": false,
       "plan": null,
       "previous": null,
@@ -889,9 +869,9 @@ Array [
         "ok": 1,
         "this": "is not tap",
       },
-      "fullname": "second this passes grandson",
+      "fullname": "second > this passes > grandson",
       "id": 5,
-      "name": "second this passes grandson",
+      "name": "second > this passes > grandson",
       "ok": true,
       "plan": null,
       "previous": null,
@@ -906,9 +886,9 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "second this passes grandchild",
+      "fullname": "second > this passes > grandchild",
       "id": 6,
-      "name": "second this passes grandchild",
+      "name": "second > this passes > grandchild",
       "ok": false,
       "plan": null,
       "previous": null,
@@ -968,7 +948,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP indent.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > indent.tap > default settings > stringified 1`] = `
 TAP version 13
 1..2
 # nesting
@@ -989,8 +969,6 @@ ok 1 - first # time=2.589ms
           it: is yaml
           ...
         not ok - grandchild # TODO
-        # todo: 1
-        # skip: 1
     ok 2 - this passes # time=1200ms
     1..2
           ---
@@ -1001,28 +979,26 @@ ok 2 - second # time=1.2ms
 
 `
 
-exports[`test/parse-stringify.ts TAP indent.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > indent.tap > default settings > stringified flat 1`] = `
 TAP version 13
 1..0
 # nesting
 # Subtest: first
-ok 1 - first true is ok # time=1.234ms
-ok 2 - first doag is also okay # time=1.234ms
+ok 1 - first > true is ok # time=1.234ms
+ok 2 - first > doag is also okay # time=1.234ms
 ok 3 - first # time=2.589ms
 # Subtest: second
-ok 4 - second no plan # time=1.001ms
+ok 4 - second > no plan # time=1.001ms
 # Subtest: this passes
-not ok 5 - second this passes granddaughter # SKIP for no raisin
-ok 6 - second this passes grandson # time=1001ms
+not ok 5 - second > this passes > granddaughter # SKIP for no raisin
+ok 6 - second > this passes > grandson # time=1001ms
   ---
   ok: 1
   this: is not tap
   it: is yaml
   ...
-not ok 7 - second this passes grandchild # TODO
-# todo: 1
-# skip: 1
-ok 8 - second this passes # time=1200ms
+not ok 7 - second > this passes > grandchild # TODO
+ok 8 - second > this passes # time=1200ms
           ---
           ok: 1
           this: is not tap or yaml
@@ -1031,7 +1007,7 @@ ok 9 - second # time=1.2ms
 
 `
 
-exports[`test/parse-stringify.ts TAP indent.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > indent.tap > strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -1069,7 +1045,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "first true is ok",
+          "fullname": "first > true is ok",
           "id": 1,
           "name": "true is ok",
           "ok": true,
@@ -1086,7 +1062,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "first doag is also okay",
+          "fullname": "first > doag is also okay",
           "id": 2,
           "name": "doag is also okay",
           "ok": true,
@@ -1159,7 +1135,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "second no plan",
+          "fullname": "second > no plan",
           "id": 1,
           "name": "no plan",
           "ok": true,
@@ -1191,7 +1167,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "second this passes granddaughter",
+              "fullname": "second > this passes > granddaughter",
               "id": 0,
               "name": "granddaughter",
               "ok": false,
@@ -1212,7 +1188,7 @@ Array [
                 "ok": 1,
                 "this": "is not tap",
               },
-              "fullname": "second this passes grandson",
+              "fullname": "second > this passes > grandson",
               "id": 0,
               "name": "grandson",
               "ok": true,
@@ -1229,7 +1205,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "second this passes grandchild",
+              "fullname": "second > this passes > grandchild",
               "id": 0,
               "name": "grandchild",
               "ok": false,
@@ -1240,18 +1216,6 @@ Array [
               "time": null,
               "todo": true,
             },
-          ],
-          Array [
-            "comment",
-            "# failed 3 of 3 tests\\n",
-          ],
-          Array [
-            "comment",
-            "# todo: 1\\n",
-          ],
-          Array [
-            "comment",
-            "# skip: 1\\n",
           ],
           Array [
             "complete",
@@ -1301,7 +1265,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "second this passes",
+          "fullname": "second > this passes",
           "id": 2,
           "name": "this passes",
           "ok": true,
@@ -1320,10 +1284,6 @@ Array [
           "end": 2,
           "start": 1,
         },
-      ],
-      Array [
-        "comment",
-        "# failed 1 of 2 tests\\n",
       ],
       Array [
         "complete",
@@ -1428,7 +1388,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP indent.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > indent.tap > strict > stringified 1`] = `
 TAP version 13
 1..2
 # nesting
@@ -1449,12 +1409,8 @@ ok 1 - first # time=2.589ms
           it: is yaml
           ...
         not ok - grandchild # TODO
-        # failed 3 of 3 tests
-        # todo: 1
-        # skip: 1
     ok 2 - this passes # time=1200ms
     1..2
-    # failed 1 of 2 tests
           ---
           ok: 1
           this: is not tap or yaml
@@ -1463,30 +1419,26 @@ ok 2 - second # time=1.2ms
 
 `
 
-exports[`test/parse-stringify.ts TAP indent.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > indent.tap > strict > stringified flat 1`] = `
 TAP version 13
 1..0
 # nesting
 # Subtest: first
-ok 1 - first true is ok # time=1.234ms
-ok 2 - first doag is also okay # time=1.234ms
+ok 1 - first > true is ok # time=1.234ms
+ok 2 - first > doag is also okay # time=1.234ms
 ok 3 - first # time=2.589ms
 # Subtest: second
-ok 4 - second no plan # time=1.001ms
+ok 4 - second > no plan # time=1.001ms
 # Subtest: this passes
-not ok 5 - second this passes granddaughter # SKIP for no raisin
-ok 6 - second this passes grandson # time=1001ms
+not ok 5 - second > this passes > granddaughter # SKIP for no raisin
+ok 6 - second > this passes > grandson # time=1001ms
   ---
   ok: 1
   this: is not tap
   it: is yaml
   ...
-not ok 7 - second this passes grandchild # TODO
-# failed 3 of 3 tests
-# todo: 1
-# skip: 1
-ok 8 - second this passes # time=1200ms
-# failed 1 of 2 tests
+not ok 7 - second > this passes > grandchild # TODO
+ok 8 - second > this passes # time=1200ms
           ---
           ok: 1
           this: is not tap or yaml
@@ -1495,7 +1447,7 @@ ok 9 - second # time=1.2ms
 
 `
 
-exports[`test/parse-stringify.ts TAP indent.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > indent.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -1533,7 +1485,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "first true is ok",
+          "fullname": "first > true is ok",
           "id": 1,
           "name": "true is ok",
           "ok": true,
@@ -1550,7 +1502,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "first doag is also okay",
+          "fullname": "first > doag is also okay",
           "id": 2,
           "name": "doag is also okay",
           "ok": true,
@@ -1623,7 +1575,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "second no plan",
+          "fullname": "second > no plan",
           "id": 1,
           "name": "no plan",
           "ok": true,
@@ -1655,7 +1607,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "second this passes granddaughter",
+              "fullname": "second > this passes > granddaughter",
               "id": 0,
               "name": "granddaughter",
               "ok": false,
@@ -1676,7 +1628,7 @@ Array [
                 "ok": 1,
                 "this": "is not tap",
               },
-              "fullname": "second this passes grandson",
+              "fullname": "second > this passes > grandson",
               "id": 0,
               "name": "grandson",
               "ok": true,
@@ -1693,7 +1645,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "second this passes grandchild",
+              "fullname": "second > this passes > grandchild",
               "id": 0,
               "name": "grandchild",
               "ok": false,
@@ -1704,18 +1656,6 @@ Array [
               "time": null,
               "todo": true,
             },
-          ],
-          Array [
-            "comment",
-            "# failed 3 of 3 tests\\n",
-          ],
-          Array [
-            "comment",
-            "# todo: 1\\n",
-          ],
-          Array [
-            "comment",
-            "# skip: 1\\n",
           ],
           Array [
             "complete",
@@ -1765,7 +1705,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "second this passes",
+          "fullname": "second > this passes",
           "id": 2,
           "name": "this passes",
           "ok": true,
@@ -1784,10 +1724,6 @@ Array [
           "end": 2,
           "start": 1,
         },
-      ],
-      Array [
-        "comment",
-        "# failed 1 of 2 tests\\n",
       ],
       Array [
         "complete",
@@ -1892,7 +1828,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP indent.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > indent.tap > strictBail > stringified 1`] = `
 TAP version 13
 1..2
 # nesting
@@ -1913,12 +1849,8 @@ ok 1 - first # time=2.589ms
           it: is yaml
           ...
         not ok - grandchild # TODO
-        # failed 3 of 3 tests
-        # todo: 1
-        # skip: 1
     ok 2 - this passes # time=1200ms
     1..2
-    # failed 1 of 2 tests
           ---
           ok: 1
           this: is not tap or yaml
@@ -1927,30 +1859,26 @@ ok 2 - second # time=1.2ms
 
 `
 
-exports[`test/parse-stringify.ts TAP indent.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > indent.tap > strictBail > stringified flat 1`] = `
 TAP version 13
 1..0
 # nesting
 # Subtest: first
-ok 1 - first true is ok # time=1.234ms
-ok 2 - first doag is also okay # time=1.234ms
+ok 1 - first > true is ok # time=1.234ms
+ok 2 - first > doag is also okay # time=1.234ms
 ok 3 - first # time=2.589ms
 # Subtest: second
-ok 4 - second no plan # time=1.001ms
+ok 4 - second > no plan # time=1.001ms
 # Subtest: this passes
-not ok 5 - second this passes granddaughter # SKIP for no raisin
-ok 6 - second this passes grandson # time=1001ms
+not ok 5 - second > this passes > granddaughter # SKIP for no raisin
+ok 6 - second > this passes > grandson # time=1001ms
   ---
   ok: 1
   this: is not tap
   it: is yaml
   ...
-not ok 7 - second this passes grandchild # TODO
-# failed 3 of 3 tests
-# todo: 1
-# skip: 1
-ok 8 - second this passes # time=1200ms
-# failed 1 of 2 tests
+not ok 7 - second > this passes > grandchild # TODO
+ok 8 - second > this passes # time=1200ms
           ---
           ok: 1
           this: is not tap or yaml

@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser.ts TAP skip-all-with-test.tap > output bail=false 1`] = `
+exports[`test/parser.ts > TAP > skip-all-with-test.tap > output bail=false 1`] = `
 Array [
   Array [
     "line",
@@ -89,22 +89,6 @@ Array [
   Array [
     "comment",
     "# test count(1) != plan(0)\\n",
-  ],
-  Array [
-    "line",
-    "# failed 1 test\\n",
-  ],
-  Array [
-    "comment",
-    "# failed 1 test\\n",
-  ],
-  Array [
-    "line",
-    "# skip: 1\\n",
-  ],
-  Array [
-    "comment",
-    "# skip: 1\\n",
   ],
   Array [
     "complete",
@@ -137,7 +121,7 @@ Array [
 ]
 `
 
-exports[`test/parser.ts TAP skip-all-with-test.tap > output bail=true 1`] = `
+exports[`test/parser.ts > TAP > skip-all-with-test.tap > output bail=true 1`] = `
 Array [
   Array [
     "line",
@@ -221,22 +205,6 @@ Array [
   Array [
     "comment",
     "# test count(1) != plan(0)\\n",
-  ],
-  Array [
-    "line",
-    "# failed 1 test\\n",
-  ],
-  Array [
-    "comment",
-    "# failed 1 test\\n",
-  ],
-  Array [
-    "line",
-    "# skip: 1\\n",
-  ],
-  Array [
-    "comment",
-    "# skip: 1\\n",
   ],
   Array [
     "complete",

@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser.ts TAP subtest-confusing.tap > output bail=false 1`] = `
+exports[`test/parser.ts > TAP > subtest-confusing.tap > output bail=false 1`] = `
 Array [
   Array [
     "line",
@@ -54,7 +54,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "a brace looks like this x ypoint",
+              "fullname": "a brace looks like this > x > ypoint",
               "id": 1,
               "name": "ypoint",
               "ok": true,
@@ -128,7 +128,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "a brace looks like this y",
+          "fullname": "a brace looks like this > y",
           "id": 1,
           "name": "y",
           "ok": true,
@@ -198,7 +198,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "a brace looks like this x ypoint",
+      "fullname": "a brace looks like this > x > ypoint",
       "id": 1,
       "name": "ypoint",
       "ok": true,
@@ -215,7 +215,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "a brace looks like this x ypoint",
+      "fullname": "a brace looks like this > x > ypoint",
       "id": 1,
       "name": "ypoint",
       "ok": true,
@@ -240,7 +240,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "a brace looks like this y",
+      "fullname": "a brace looks like this > y",
       "id": 1,
       "name": "y",
       "ok": true,
@@ -257,7 +257,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "a brace looks like this y",
+      "fullname": "a brace looks like this > y",
       "id": 1,
       "name": "y",
       "ok": true,
@@ -384,7 +384,7 @@ Array [
 ]
 `
 
-exports[`test/parser.ts TAP subtest-confusing.tap > output bail=true 1`] = `
+exports[`test/parser.ts > TAP > subtest-confusing.tap > output bail=true 1`] = `
 Array [
   Array [
     "line",
@@ -433,7 +433,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "a brace looks like this x ypoint",
+              "fullname": "a brace looks like this > x > ypoint",
               "id": 1,
               "name": "ypoint",
               "ok": true,
@@ -507,7 +507,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "a brace looks like this y",
+          "fullname": "a brace looks like this > y",
           "id": 1,
           "name": "y",
           "ok": true,
@@ -577,7 +577,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "a brace looks like this x ypoint",
+      "fullname": "a brace looks like this > x > ypoint",
       "id": 1,
       "name": "ypoint",
       "ok": true,
@@ -594,7 +594,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "a brace looks like this x ypoint",
+      "fullname": "a brace looks like this > x > ypoint",
       "id": 1,
       "name": "ypoint",
       "ok": true,
@@ -619,7 +619,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "a brace looks like this y",
+      "fullname": "a brace looks like this > y",
       "id": 1,
       "name": "y",
       "ok": true,
@@ -636,7 +636,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "a brace looks like this y",
+      "fullname": "a brace looks like this > y",
       "id": 1,
       "name": "y",
       "ok": true,

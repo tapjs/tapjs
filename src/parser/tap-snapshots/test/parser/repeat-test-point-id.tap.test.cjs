@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser.ts TAP repeat-test-point-id.tap > output bail=false 1`] = `
+exports[`test/parser.ts > TAP > repeat-test-point-id.tap > output bail=false 1`] = `
 Array [
   Array [
     "line",
@@ -277,14 +277,6 @@ Array [
       "end": 3,
       "start": 1,
     },
-  ],
-  Array [
-    "line",
-    "# failed 2 of 3 tests\\n",
-  ],
-  Array [
-    "comment",
-    "# failed 2 of 3 tests\\n",
   ],
   Array [
     "complete",
@@ -368,7 +360,7 @@ Array [
 ]
 `
 
-exports[`test/parser.ts TAP repeat-test-point-id.tap > output bail=true 1`] = `
+exports[`test/parser.ts > TAP > repeat-test-point-id.tap > output bail=true 1`] = `
 Array [
   Array [
     "line",
@@ -640,14 +632,6 @@ Array [
       "end": 3,
       "start": 1,
     },
-  ],
-  Array [
-    "line",
-    "# failed 2 of 3 tests\\n",
-  ],
-  Array [
-    "comment",
-    "# failed 2 of 3 tests\\n",
   ],
   Array [
     "complete",

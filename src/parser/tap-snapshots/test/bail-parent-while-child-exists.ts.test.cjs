@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/bail-parent-while-child-exists.ts TAP > must match snapshot 1`] = `
+exports[`test/bail-parent-while-child-exists.ts > TAP > must match snapshot 1`] = `
 Array [
   Array [
     "version",

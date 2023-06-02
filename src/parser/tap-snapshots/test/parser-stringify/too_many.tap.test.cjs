@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts TAP too_many.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > too_many.tap > bail > parsed 1`] = `
 Array [
   Array [
     "plan",
@@ -155,10 +155,6 @@ Array [
     "# test count(7) != plan(3)\\n",
   ],
   Array [
-    "comment",
-    "# failed 4 of 7 tests\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -264,7 +260,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP too_many.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > too_many.tap > bail > stringified 1`] = `
 1..3
 ok 1
 ok 2
@@ -274,11 +270,10 @@ ok 5
 ok 6
 ok 7
 # test count(7) != plan(3)
-# failed 4 of 7 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP too_many.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > too_many.tap > bail > stringified flat 1`] = `
 1..0
 ok 1
 ok 2
@@ -288,11 +283,10 @@ ok 5
 ok 6
 ok 7
 # test count(7) != plan(3)
-# failed 4 of 7 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP too_many.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > too_many.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "plan",
@@ -442,10 +436,6 @@ Array [
     "# test count(7) != plan(3)\\n",
   ],
   Array [
-    "comment",
-    "# failed 4 of 7 tests\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -551,7 +541,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP too_many.tap default settings > parsed flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > too_many.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "assert",
@@ -691,10 +681,6 @@ Array [
   Array [
     "comment",
     "# test count(7) != plan(3)\\n",
-  ],
-  Array [
-    "comment",
-    "# failed 4 of 7 tests\\n",
   ],
   Array [
     "plan",
@@ -809,7 +795,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP too_many.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > too_many.tap > default settings > stringified 1`] = `
 1..3
 ok 1
 ok 2
@@ -819,11 +805,10 @@ ok 5
 ok 6
 ok 7
 # test count(7) != plan(3)
-# failed 4 of 7 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP too_many.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > too_many.tap > default settings > stringified flat 1`] = `
 1..0
 ok 1
 ok 2
@@ -833,11 +818,10 @@ ok 5
 ok 6
 ok 7
 # test count(7) != plan(3)
-# failed 4 of 7 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP too_many.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > too_many.tap > strict > parsed 1`] = `
 Array [
   Array [
     "plan",
@@ -987,10 +971,6 @@ Array [
     "# test count(7) != plan(3)\\n",
   ],
   Array [
-    "comment",
-    "# failed 4 of 7 tests\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -1096,7 +1076,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP too_many.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > too_many.tap > strict > stringified 1`] = `
 1..3
 ok 1
 ok 2
@@ -1106,11 +1086,10 @@ ok 5
 ok 6
 ok 7
 # test count(7) != plan(3)
-# failed 4 of 7 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP too_many.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > too_many.tap > strict > stringified flat 1`] = `
 1..0
 ok 1
 ok 2
@@ -1120,11 +1099,10 @@ ok 5
 ok 6
 ok 7
 # test count(7) != plan(3)
-# failed 4 of 7 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP too_many.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > too_many.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "plan",
@@ -1274,10 +1252,6 @@ Array [
     "# test count(7) != plan(3)\\n",
   ],
   Array [
-    "comment",
-    "# failed 4 of 7 tests\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -1383,7 +1357,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP too_many.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > too_many.tap > strictBail > stringified 1`] = `
 1..3
 ok 1
 ok 2
@@ -1393,11 +1367,10 @@ ok 5
 ok 6
 ok 7
 # test count(7) != plan(3)
-# failed 4 of 7 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP too_many.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > too_many.tap > strictBail > stringified flat 1`] = `
 1..0
 ok 1
 ok 2
@@ -1407,6 +1380,5 @@ ok 5
 ok 6
 ok 7
 # test count(7) != plan(3)
-# failed 4 of 7 tests
 
 `

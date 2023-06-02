@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts TAP bignum_many.tap bail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > bignum_many.tap > bail > parsed 1`] = `
 Array [
   Array [
     "plan",
@@ -243,10 +243,6 @@ Array [
     "# test count(11) != plan(2)\\n",
   ],
   Array [
-    "comment",
-    "# failed 9 of 11 tests\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -442,7 +438,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP bignum_many.tap bail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > bignum_many.tap > bail > stringified 1`] = `
 1..2
 ok 1
 ok 2
@@ -456,11 +452,10 @@ ok 100003
 ok 100004
 ok 100005
 # test count(11) != plan(2)
-# failed 9 of 11 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP bignum_many.tap bail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > bignum_many.tap > bail > stringified flat 1`] = `
 1..0
 ok 1
 ok 2
@@ -474,11 +469,10 @@ ok 9
 ok 10
 ok 11
 # test count(11) != plan(2)
-# failed 9 of 11 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP bignum_many.tap default settings > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > bignum_many.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "plan",
@@ -716,10 +710,6 @@ Array [
     "# test count(11) != plan(2)\\n",
   ],
   Array [
-    "comment",
-    "# failed 9 of 11 tests\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -915,7 +905,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP bignum_many.tap default settings > parsed flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > bignum_many.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "assert",
@@ -1145,10 +1135,6 @@ Array [
     "# test count(11) != plan(2)\\n",
   ],
   Array [
-    "comment",
-    "# failed 9 of 11 tests\\n",
-  ],
-  Array [
     "plan",
     Object {
       "end": 11,
@@ -1351,7 +1337,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP bignum_many.tap default settings > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > bignum_many.tap > default settings > stringified 1`] = `
 1..2
 ok 1
 ok 2
@@ -1365,11 +1351,10 @@ ok 100003
 ok 100004
 ok 100005
 # test count(11) != plan(2)
-# failed 9 of 11 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP bignum_many.tap default settings > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > bignum_many.tap > default settings > stringified flat 1`] = `
 1..0
 ok 1
 ok 2
@@ -1383,11 +1368,10 @@ ok 9
 ok 10
 ok 11
 # test count(11) != plan(2)
-# failed 9 of 11 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP bignum_many.tap strict > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > bignum_many.tap > strict > parsed 1`] = `
 Array [
   Array [
     "plan",
@@ -1625,10 +1609,6 @@ Array [
     "# test count(11) != plan(2)\\n",
   ],
   Array [
-    "comment",
-    "# failed 9 of 11 tests\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -1824,7 +1804,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP bignum_many.tap strict > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > bignum_many.tap > strict > stringified 1`] = `
 1..2
 ok 1
 ok 2
@@ -1838,11 +1818,10 @@ ok 100003
 ok 100004
 ok 100005
 # test count(11) != plan(2)
-# failed 9 of 11 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP bignum_many.tap strict > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > bignum_many.tap > strict > stringified flat 1`] = `
 1..0
 ok 1
 ok 2
@@ -1856,11 +1835,10 @@ ok 9
 ok 10
 ok 11
 # test count(11) != plan(2)
-# failed 9 of 11 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP bignum_many.tap strictBail > parsed 1`] = `
+exports[`test/parse-stringify.ts > TAP > bignum_many.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "plan",
@@ -2098,10 +2076,6 @@ Array [
     "# test count(11) != plan(2)\\n",
   ],
   Array [
-    "comment",
-    "# failed 9 of 11 tests\\n",
-  ],
-  Array [
     "complete",
     FinalResults {
       "bailout": false,
@@ -2297,7 +2271,7 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts TAP bignum_many.tap strictBail > stringified 1`] = `
+exports[`test/parse-stringify.ts > TAP > bignum_many.tap > strictBail > stringified 1`] = `
 1..2
 ok 1
 ok 2
@@ -2311,11 +2285,10 @@ ok 100003
 ok 100004
 ok 100005
 # test count(11) != plan(2)
-# failed 9 of 11 tests
 
 `
 
-exports[`test/parse-stringify.ts TAP bignum_many.tap strictBail > stringified flat 1`] = `
+exports[`test/parse-stringify.ts > TAP > bignum_many.tap > strictBail > stringified flat 1`] = `
 1..0
 ok 1
 ok 2
@@ -2329,6 +2302,5 @@ ok 9
 ok 10
 ok 11
 # test count(11) != plan(2)
-# failed 9 of 11 tests
 
 `

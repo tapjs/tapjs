@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser.ts TAP indent.tap > output bail=false 1`] = `
+exports[`test/parser.ts > TAP > indent.tap > output bail=false 1`] = `
 Array [
   Array [
     "line",
@@ -67,7 +67,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "first true is ok",
+          "fullname": "first > true is ok",
           "id": 1,
           "name": "true is ok",
           "ok": true,
@@ -88,7 +88,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "first doag is also okay",
+          "fullname": "first > doag is also okay",
           "id": 2,
           "name": "doag is also okay",
           "ok": true,
@@ -142,7 +142,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "first true is ok",
+      "fullname": "first > true is ok",
       "id": 1,
       "name": "true is ok",
       "ok": true,
@@ -159,7 +159,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "first true is ok",
+      "fullname": "first > true is ok",
       "id": 1,
       "name": "true is ok",
       "ok": true,
@@ -180,7 +180,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "first doag is also okay",
+      "fullname": "first > doag is also okay",
       "id": 2,
       "name": "doag is also okay",
       "ok": true,
@@ -197,7 +197,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "first doag is also okay",
+      "fullname": "first > doag is also okay",
       "id": 2,
       "name": "doag is also okay",
       "ok": true,
@@ -250,7 +250,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "second no plan",
+          "fullname": "second > no plan",
           "id": 1,
           "name": "no plan",
           "ok": true,
@@ -294,7 +294,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "second this passes granddaughter",
+              "fullname": "second > this passes > granddaughter",
               "id": 0,
               "name": "granddaughter",
               "ok": false,
@@ -339,7 +339,7 @@ Array [
                 "ok": 1,
                 "this": "is not tap",
               },
-              "fullname": "second this passes grandson",
+              "fullname": "second > this passes > grandson",
               "id": 0,
               "name": "grandson",
               "ok": true,
@@ -376,7 +376,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "second this passes grandchild",
+              "fullname": "second > this passes > grandchild",
               "id": 0,
               "name": "grandchild",
               "ok": false,
@@ -387,22 +387,6 @@ Array [
               "time": null,
               "todo": true,
             },
-          ],
-          Array [
-            "line",
-            "# todo: 1\\n",
-          ],
-          Array [
-            "comment",
-            "# todo: 1\\n",
-          ],
-          Array [
-            "line",
-            "# skip: 1\\n",
-          ],
-          Array [
-            "comment",
-            "# skip: 1\\n",
           ],
           Array [
             "complete",
@@ -487,14 +471,6 @@ Array [
       ],
       Array [
         "line",
-        "    # todo: 1\\n",
-      ],
-      Array [
-        "line",
-        "    # skip: 1\\n",
-      ],
-      Array [
-        "line",
         "ok 2 - this passes # time=1.200s\\n",
       ],
       Array [
@@ -502,7 +478,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "second this passes",
+          "fullname": "second > this passes",
           "id": 2,
           "name": "this passes",
           "ok": true,
@@ -564,7 +540,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "second no plan",
+      "fullname": "second > no plan",
       "id": 1,
       "name": "no plan",
       "ok": true,
@@ -581,7 +557,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "second no plan",
+      "fullname": "second > no plan",
       "id": 1,
       "name": "no plan",
       "ok": true,
@@ -610,7 +586,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "second this passes granddaughter",
+      "fullname": "second > this passes > granddaughter",
       "id": 0,
       "name": "granddaughter",
       "ok": false,
@@ -627,7 +603,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "second this passes granddaughter",
+      "fullname": "second > this passes > granddaughter",
       "id": 0,
       "name": "granddaughter",
       "ok": false,
@@ -672,7 +648,7 @@ Array [
         "ok": 1,
         "this": "is not tap",
       },
-      "fullname": "second this passes grandson",
+      "fullname": "second > this passes > grandson",
       "id": 0,
       "name": "grandson",
       "ok": true,
@@ -693,7 +669,7 @@ Array [
         "ok": 1,
         "this": "is not tap",
       },
-      "fullname": "second this passes grandson",
+      "fullname": "second > this passes > grandson",
       "id": 0,
       "name": "grandson",
       "ok": true,
@@ -730,7 +706,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "second this passes grandchild",
+      "fullname": "second > this passes > grandchild",
       "id": 0,
       "name": "grandchild",
       "ok": false,
@@ -747,7 +723,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "second this passes grandchild",
+      "fullname": "second > this passes > grandchild",
       "id": 0,
       "name": "grandchild",
       "ok": false,
@@ -768,14 +744,6 @@ Array [
                 it: is garbage
       
     ),
-  ],
-  Array [
-    "line",
-    "        # todo: 1\\n",
-  ],
-  Array [
-    "line",
-    "        # skip: 1\\n",
   ],
   Array [
     "line",
@@ -833,7 +801,7 @@ Array [
 ]
 `
 
-exports[`test/parser.ts TAP indent.tap > output bail=true 1`] = `
+exports[`test/parser.ts > TAP > indent.tap > output bail=true 1`] = `
 Array [
   Array [
     "line",
@@ -895,7 +863,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "first true is ok",
+          "fullname": "first > true is ok",
           "id": 1,
           "name": "true is ok",
           "ok": true,
@@ -916,7 +884,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "first doag is also okay",
+          "fullname": "first > doag is also okay",
           "id": 2,
           "name": "doag is also okay",
           "ok": true,
@@ -970,7 +938,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "first true is ok",
+      "fullname": "first > true is ok",
       "id": 1,
       "name": "true is ok",
       "ok": true,
@@ -987,7 +955,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "first true is ok",
+      "fullname": "first > true is ok",
       "id": 1,
       "name": "true is ok",
       "ok": true,
@@ -1008,7 +976,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "first doag is also okay",
+      "fullname": "first > doag is also okay",
       "id": 2,
       "name": "doag is also okay",
       "ok": true,
@@ -1025,7 +993,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "first doag is also okay",
+      "fullname": "first > doag is also okay",
       "id": 2,
       "name": "doag is also okay",
       "ok": true,
@@ -1078,7 +1046,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "second no plan",
+          "fullname": "second > no plan",
           "id": 1,
           "name": "no plan",
           "ok": true,
@@ -1122,7 +1090,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "second this passes granddaughter",
+              "fullname": "second > this passes > granddaughter",
               "id": 0,
               "name": "granddaughter",
               "ok": false,
@@ -1167,7 +1135,7 @@ Array [
                 "ok": 1,
                 "this": "is not tap",
               },
-              "fullname": "second this passes grandson",
+              "fullname": "second > this passes > grandson",
               "id": 0,
               "name": "grandson",
               "ok": true,
@@ -1204,7 +1172,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "second this passes grandchild",
+              "fullname": "second > this passes > grandchild",
               "id": 0,
               "name": "grandchild",
               "ok": false,
@@ -1215,22 +1183,6 @@ Array [
               "time": null,
               "todo": true,
             },
-          ],
-          Array [
-            "line",
-            "# todo: 1\\n",
-          ],
-          Array [
-            "comment",
-            "# todo: 1\\n",
-          ],
-          Array [
-            "line",
-            "# skip: 1\\n",
-          ],
-          Array [
-            "comment",
-            "# skip: 1\\n",
           ],
           Array [
             "complete",
@@ -1315,14 +1267,6 @@ Array [
       ],
       Array [
         "line",
-        "    # todo: 1\\n",
-      ],
-      Array [
-        "line",
-        "    # skip: 1\\n",
-      ],
-      Array [
-        "line",
         "ok 2 - this passes # time=1.200s\\n",
       ],
       Array [
@@ -1330,7 +1274,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "second this passes",
+          "fullname": "second > this passes",
           "id": 2,
           "name": "this passes",
           "ok": true,
@@ -1392,7 +1336,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "second no plan",
+      "fullname": "second > no plan",
       "id": 1,
       "name": "no plan",
       "ok": true,
@@ -1409,7 +1353,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "second no plan",
+      "fullname": "second > no plan",
       "id": 1,
       "name": "no plan",
       "ok": true,
@@ -1438,7 +1382,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "second this passes granddaughter",
+      "fullname": "second > this passes > granddaughter",
       "id": 0,
       "name": "granddaughter",
       "ok": false,
@@ -1455,7 +1399,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "second this passes granddaughter",
+      "fullname": "second > this passes > granddaughter",
       "id": 0,
       "name": "granddaughter",
       "ok": false,
@@ -1500,7 +1444,7 @@ Array [
         "ok": 1,
         "this": "is not tap",
       },
-      "fullname": "second this passes grandson",
+      "fullname": "second > this passes > grandson",
       "id": 0,
       "name": "grandson",
       "ok": true,
@@ -1521,7 +1465,7 @@ Array [
         "ok": 1,
         "this": "is not tap",
       },
-      "fullname": "second this passes grandson",
+      "fullname": "second > this passes > grandson",
       "id": 0,
       "name": "grandson",
       "ok": true,
@@ -1558,7 +1502,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "second this passes grandchild",
+      "fullname": "second > this passes > grandchild",
       "id": 0,
       "name": "grandchild",
       "ok": false,
@@ -1575,7 +1519,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "second this passes grandchild",
+      "fullname": "second > this passes > grandchild",
       "id": 0,
       "name": "grandchild",
       "ok": false,
@@ -1596,14 +1540,6 @@ Array [
                 it: is garbage
       
     ),
-  ],
-  Array [
-    "line",
-    "        # todo: 1\\n",
-  ],
-  Array [
-    "line",
-    "        # skip: 1\\n",
   ],
   Array [
     "line",

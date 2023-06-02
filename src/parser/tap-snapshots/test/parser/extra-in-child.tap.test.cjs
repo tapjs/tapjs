@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser.ts TAP extra-in-child.tap > output bail=false 1`] = `
+exports[`test/parser.ts > TAP > extra-in-child.tap > output bail=false 1`] = `
 Array [
   Array [
     "line",
@@ -46,7 +46,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "test/01c-user-updates.js update profile should be equivalent",
+              "fullname": "test/01c-user-updates.js > update profile > should be equivalent",
               "id": 1,
               "name": "should be equivalent",
               "ok": true,
@@ -67,7 +67,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "test/01c-user-updates.js update profile should be equivalent",
+              "fullname": "test/01c-user-updates.js > update profile > should be equivalent",
               "id": 2,
               "name": "should be equivalent",
               "ok": true,
@@ -141,7 +141,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "test/01c-user-updates.js update profile",
+          "fullname": "test/01c-user-updates.js > update profile",
           "id": 1,
           "name": "update profile",
           "ok": true,
@@ -173,7 +173,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "test/01c-user-updates.js update email should be equivalent",
+              "fullname": "test/01c-user-updates.js > update email > should be equivalent",
               "id": 1,
               "name": "should be equivalent",
               "ok": true,
@@ -347,7 +347,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "test/01c-user-updates.js update email",
+          "fullname": "test/01c-user-updates.js > update email",
           "id": 2,
           "name": "update email",
           "ok": true,
@@ -421,7 +421,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "test/01c-user-updates.js update profile should be equivalent",
+      "fullname": "test/01c-user-updates.js > update profile > should be equivalent",
       "id": 1,
       "name": "should be equivalent",
       "ok": true,
@@ -438,7 +438,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "test/01c-user-updates.js update profile should be equivalent",
+      "fullname": "test/01c-user-updates.js > update profile > should be equivalent",
       "id": 1,
       "name": "should be equivalent",
       "ok": true,
@@ -459,7 +459,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "test/01c-user-updates.js update profile should be equivalent",
+      "fullname": "test/01c-user-updates.js > update profile > should be equivalent",
       "id": 2,
       "name": "should be equivalent",
       "ok": true,
@@ -476,7 +476,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "test/01c-user-updates.js update profile should be equivalent",
+      "fullname": "test/01c-user-updates.js > update profile > should be equivalent",
       "id": 2,
       "name": "should be equivalent",
       "ok": true,
@@ -717,7 +717,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "test/01c-user-updates.js update email should be equivalent",
+      "fullname": "test/01c-user-updates.js > update email > should be equivalent",
       "id": 1,
       "name": "should be equivalent",
       "ok": true,
@@ -734,7 +734,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "test/01c-user-updates.js update email should be equivalent",
+      "fullname": "test/01c-user-updates.js > update email > should be equivalent",
       "id": 1,
       "name": "should be equivalent",
       "ok": true,
@@ -830,7 +830,7 @@ Array [
 ]
 `
 
-exports[`test/parser.ts TAP extra-in-child.tap > output bail=true 1`] = `
+exports[`test/parser.ts > TAP > extra-in-child.tap > output bail=true 1`] = `
 Array [
   Array [
     "line",
@@ -871,7 +871,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "test/01c-user-updates.js update profile should be equivalent",
+              "fullname": "test/01c-user-updates.js > update profile > should be equivalent",
               "id": 1,
               "name": "should be equivalent",
               "ok": true,
@@ -892,7 +892,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "test/01c-user-updates.js update profile should be equivalent",
+              "fullname": "test/01c-user-updates.js > update profile > should be equivalent",
               "id": 2,
               "name": "should be equivalent",
               "ok": true,
@@ -966,7 +966,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "test/01c-user-updates.js update profile",
+          "fullname": "test/01c-user-updates.js > update profile",
           "id": 1,
           "name": "update profile",
           "ok": true,
@@ -998,7 +998,7 @@ Array [
             Result {
               "buffered": false,
               "diag": null,
-              "fullname": "test/01c-user-updates.js update email should be equivalent",
+              "fullname": "test/01c-user-updates.js > update email > should be equivalent",
               "id": 1,
               "name": "should be equivalent",
               "ok": true,
@@ -1172,7 +1172,7 @@ Array [
         Result {
           "buffered": false,
           "diag": null,
-          "fullname": "test/01c-user-updates.js update email",
+          "fullname": "test/01c-user-updates.js > update email",
           "id": 2,
           "name": "update email",
           "ok": true,
@@ -1246,7 +1246,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "test/01c-user-updates.js update profile should be equivalent",
+      "fullname": "test/01c-user-updates.js > update profile > should be equivalent",
       "id": 1,
       "name": "should be equivalent",
       "ok": true,
@@ -1263,7 +1263,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "test/01c-user-updates.js update profile should be equivalent",
+      "fullname": "test/01c-user-updates.js > update profile > should be equivalent",
       "id": 1,
       "name": "should be equivalent",
       "ok": true,
@@ -1284,7 +1284,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "test/01c-user-updates.js update profile should be equivalent",
+      "fullname": "test/01c-user-updates.js > update profile > should be equivalent",
       "id": 2,
       "name": "should be equivalent",
       "ok": true,
@@ -1301,7 +1301,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "test/01c-user-updates.js update profile should be equivalent",
+      "fullname": "test/01c-user-updates.js > update profile > should be equivalent",
       "id": 2,
       "name": "should be equivalent",
       "ok": true,
@@ -1542,7 +1542,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "test/01c-user-updates.js update email should be equivalent",
+      "fullname": "test/01c-user-updates.js > update email > should be equivalent",
       "id": 1,
       "name": "should be equivalent",
       "ok": true,
@@ -1559,7 +1559,7 @@ Array [
     Result {
       "buffered": false,
       "diag": null,
-      "fullname": "test/01c-user-updates.js update email should be equivalent",
+      "fullname": "test/01c-user-updates.js > update email > should be equivalent",
       "id": 1,
       "name": "should be equivalent",
       "ok": true,
