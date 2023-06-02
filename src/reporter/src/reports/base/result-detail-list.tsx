@@ -6,9 +6,9 @@ import { TapReportOpts } from '../../index.js'
 import { listenCleanup } from '../../listen-cleanup.js'
 import { TestSummary } from './test-summary.js'
 
-const bannerWords = '  🌈 RESULTS 🌈  '
-const Banner = () => (
-  <Box marginY={1} flexDirection="column">
+const bannerWords = '  🌈 TEST COMPLETE 🌈  '
+const Banner: FC<{}> = () => (
+  <Box flexDirection="column">
     <Text backgroundColor="#fff">{' '.repeat(bannerWords.length)}</Text>
     <Text bold color="black" backgroundColor="#fff">
       {bannerWords}
@@ -26,20 +26,26 @@ export const ResultDetailList: FC<Pick<TapReportOpts, 'tap'>> = ({
       listenCleanup(tap, 'subtestAdd', (t: Base) =>
         updateTests(tests.concat(t))
       ),
-    [tests]
+    [tap, tests, updateTests]
   )
   const t = tests.filter(
     t =>
-      !!t.results && (t.lists.fail.length || t.lists.skip.length || t.lists.todo.length)
+      !!t.results &&
+      (t.lists.fail.length || t.lists.skip.length || t.lists.todo.length)
+  )
+  let [done, setDone] = useState<boolean>(false)
+  useEffect(
+    () => listenCleanup(tap, 'complete', () => setDone(true)),
+    [tap, setDone]
   )
 
-  return !t.length ? (
+  return !done ? (
     <></>
   ) : (
-    <Box flexDirection="column">
+    <Box flexDirection="column" marginTop={1}>
       <Banner />
       {t.map((test, key) => (
-        <Box key={key} flexDirection="column">
+        <Box key={key} flexDirection="column" marginTop={1}>
           <TestSummary test={test} details={true} />
         </Box>
       ))}

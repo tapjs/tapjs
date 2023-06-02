@@ -45,7 +45,7 @@ export const isConsoleLog = (p?: LogEntry): p is ConsoleLog =>
 
 export const ConsoleLogLine: FC<ConsoleLog> = ({ text, previous }) => (
   <Box paddingTop={!!previous && !isConsoleLog(previous) ? 1 : 0}>
-    <Text>{text}</Text>
+    <Text>{text.trimEnd()}</Text>
   </Box>
 )
 
@@ -178,25 +178,22 @@ export const Log: FC<TapReportOpts> = ({ tap, config }) => {
     }
     doCleanup()
     for (const t of tests) handleStdio(t)
-
-    tap.on('subtestStart', handleStdio)
-    return () => {
-      tap.removeListener('subtestStart', handleStdio)
-      doCleanup()
-    }
+    cleanup.push(listenCleanup(tap, 'subtestStart', handleStdio))
+    return doCleanup
   }, [logs, tests])
 
   return (
     <Static items={logs}>
-      {(log, key) => {
-        return isTestLog(log) ? (
-          <TestLogLine {...log} key={key} />
-        ) : isStdioLog(log) ? (
-          <StdioLogLine {...log} key={key} />
-        ) : (
-          <ConsoleLogLine {...log} key={key} />
-        )
-      }}
+      {(log, key) => <LogLine {...log} key={key} />}
     </Static>
   )
 }
+
+const LogLine: FC<LogEntry> = log =>
+  isTestLog(log) ? (
+    <TestLogLine {...log} />
+  ) : isStdioLog(log) ? (
+    <StdioLogLine {...log} />
+  ) : (
+    <ConsoleLogLine {...log} />
+  )

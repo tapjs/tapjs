@@ -21,15 +21,16 @@ export const Runs: FC<Pick<TapReportOpts, 'tap'>> = ({ tap }) => {
     cleanup.push(listenCleanup(tap, 'subtestEnd', remove))
     return doCleanup
   }, [tests])
-  return (
-    <Box flexDirection="column" paddingTop={1}>
-      {tests
-        .filter(t => !t.results)
-        .map(test => (
-          <Box key={test.childId}>
-            <TestSummary test={test} />
-          </Box>
-        ))}
+  const t = tests.filter(t => !t.results)
+  return !t.length ? (
+    <></>
+  ) : (
+    <Box flexDirection="column" marginTop={1}>
+      {t.map(test => (
+        <Box key={test.childId}>
+          <TestSummary test={test} />
+        </Box>
+      ))}
     </Box>
   )
 }

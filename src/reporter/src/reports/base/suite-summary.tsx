@@ -22,6 +22,10 @@ export const SuiteSummary: FC<Pick<TapReportOpts, 'tap'>> = ({ tap }) => {
   }
 
   const [tests, updateTests] = useState<Base[]>([])
+  // multiple subtests can end in the same tick, so we need to track
+  // this in a local var as well as the component render state so that
+  // they don't clobber each others' totals.
+  let suites_ = suites
   useEffect(() => {
     suitesCleanup.push(
       listenCleanup(tap, 'subtestAdd', test => {
@@ -35,16 +39,17 @@ export const SuiteSummary: FC<Pick<TapReportOpts, 'tap'>> = ({ tap }) => {
         /* c8 ignore start */
         if (!results) return
         /* c8 ignore stop */
-        let { total, fail, pass, skip, todo, complete = 0 } = suites
+        let { total, fail, pass, skip, todo, complete = 0 } = suites_
         complete++
         if (!results.ok) fail++
         else if (results.plan.skipAll) skip++
         else pass++
-        updateSuites(new Counts({ total, fail, pass, skip, complete, todo }))
+        suites_ = new Counts({ total, fail, pass, skip, complete, todo })
+        updateSuites(suites_)
       })
     )
     return doSuitesCleanup
-  }, [suites, tests])
+  }, [suites, updateSuites])
 
   useEffect(() => {
     for (const test of tests) {
@@ -64,7 +69,7 @@ export const SuiteSummary: FC<Pick<TapReportOpts, 'tap'>> = ({ tap }) => {
   }, [tests, asserts])
 
   return (
-    <Box>
+    <Box marginTop={1}>
       <Box flexDirection="row" gap={2} alignSelf="flex-end">
         <Box flexDirection="column">
           <Text bold>Suites:</Text>
@@ -75,10 +80,16 @@ export const SuiteSummary: FC<Pick<TapReportOpts, 'tap'>> = ({ tap }) => {
           <Text color="green">{asserts.pass} pass</Text>
         </Box>
         <Box flexDirection="column" alignItems="flex-end">
-          <Text color="red" dimColor={suites.fail === 0} bold={suites.fail !== 0}>
+          <Text
+            color="red"
+            dimColor={suites.fail === 0}
+            bold={suites.fail !== 0}>
             {suites.fail} fail
           </Text>
-          <Text color="red" dimColor={asserts.fail === 0} bold={asserts.fail !== 0}>
+          <Text
+            color="red"
+            dimColor={asserts.fail === 0}
+            bold={asserts.fail !== 0}>
             {asserts.fail} fail
           </Text>
         </Box>
