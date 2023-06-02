@@ -1,6 +1,7 @@
 import { Base, Counts, Lists } from '@tapjs/core'
 import { Box, Text } from 'ink'
 import React, { FC, useEffect, useState } from 'react'
+import { Diff } from '../../diff.js'
 
 import { stringify } from 'tap-yaml'
 
@@ -87,6 +88,8 @@ export const ResultTag: FC<ResultOpts> = ({
     typeof st === 'string' ? <Text color={textc}>{st}</Text> : <></>
   const name = assertName(result, test)
 
+  const { diff, ...otherDiags } = result.diag || {}
+
   return (
     <Box flexDirection="column">
       <Box gap={1} paddingLeft={1}>
@@ -97,8 +100,9 @@ export const ResultTag: FC<ResultOpts> = ({
       <Box paddingLeft={4} flexDirection="column">
         {!!details && !!result.diag && (
           <>
+            <Diff diff={diff} />
             <Text>...</Text>
-            <Text>{stringify(result.diag).trim()}</Text>
+            <Text>{stringify(otherDiags).trim()}</Text>
             <Text>---</Text>
           </>
         )}

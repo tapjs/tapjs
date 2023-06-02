@@ -51,7 +51,8 @@
     "cli-highlight": "^2.1.11",
     "ink": "^4.2.0",
     "patch-console": "^2.0.0",
-    "react": "^18.2.0"
+    "react": "^18.2.0",
+    "string-length": "^5.0.1"
   },
   "devDependencies": {
     "@types/ms": "^0.7.31",

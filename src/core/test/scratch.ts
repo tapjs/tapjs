@@ -55,7 +55,15 @@ t.test('test with a todo', t => {
   t.test('nested fail', async t => {
     t.test('way down in there', async t => {
       await new Promise<void>(r => setTimeout(r, 100))
-      t.fail('nope')
+      t.match({
+        a: 1,
+        b: 2,
+        c: 3,
+      }, {
+        a: 2,
+        b: 2,
+        c: 2,
+      }, 'nope')
     })
   })
   t.end()
