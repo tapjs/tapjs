@@ -241,7 +241,7 @@ export const run = async (args: string[], config: Config) => {
     t.plan(files.length)
   }
 
-  for (const f of files) {
+  for (const f of files.sort((a, b) => a.localeCompare(b, 'en'))) {
     if (f === '-' || f === '/dev/stdin') {
       if (t.pluginLoaded(StdinPlugin)) {
         if (files.length === 1) t.stdinOnly()
@@ -258,7 +258,7 @@ export const run = async (args: string[], config: Config) => {
     if (typeof coveredFiles === 'string') coveredFiles = [coveredFiles]
     else if (!isStringArray(coveredFiles)) {
       throw new Error(
-        `Coverage map ${map} must return string array or null`
+        `Coverage map ${map} must return string, string[], or null`
       )
     }
     const _TAPJS_PROCESSINFO_COV_FILES_ = coveredFiles
