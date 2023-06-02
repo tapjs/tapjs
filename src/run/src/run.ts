@@ -165,7 +165,10 @@ export const run = async (args: string[], config: Config) => {
 
   t.buffered = false
 
-  const saveList = await readSave(config)
+  const readSaveList = await readSave(config)
+  const saveList =
+    config.get('save') && !readSaveList.length ? files : readSaveList
+
   // don't delete old coverage if only running subset of suites
   if (!config.get('changed') && !saveList.length) {
     await rimraf(resolve(config.globCwd, '.tap'))
@@ -276,8 +279,8 @@ export const run = async (args: string[], config: Config) => {
     })
     if (saveList.length) {
       p.then(results => {
-        if (!results?.ok) {
-          saveList.push(f)
+        if (results?.ok && saveList.includes(f)) {
+          saveList.splice(saveList.indexOf(f), 1)
         }
       })
     }
