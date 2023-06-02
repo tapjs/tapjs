@@ -38,7 +38,19 @@ export const report = async (args: string[], config: Config) => {
     tempDirectory: resolve(config.globCwd, '.tap/coverage'),
     excludeNodeModules: true,
   })
+  // XXX: istanbul-reports just dumps to process.stderr, which collides
+  // with our ink-based reporters. Hijack it and write with console.log
+  // so that patch-console can put it in the intended place (or ignore it).
+  // TODO: make istanbul-reports more configurable.
+  const { write } = process.stdout
+  const stdout: (string)[] = []
+  process.stdout.write = c => {
+    stdout.push(String(c))
+    return true
+  }
   await r.run()
+  process.stdout.write = write
+  console.log(stdout.join('').trimEnd())
   if (reporter.includes('html')) {
     opener(resolve(config.globCwd, '.tap/report/index.html'))
   }
