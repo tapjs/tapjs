@@ -13,6 +13,7 @@ export interface TestSummaryOpts {
 import ms_ from 'ms'
 import { Result } from 'tap-parser'
 import { listenCleanup } from '../../listen-cleanup.js'
+import { Source } from '../../source.js'
 const ms = (n: number) =>
   n < 1
     ? `${Math.round(n * 1000)}µs`
@@ -88,7 +89,7 @@ export const ResultTag: FC<ResultOpts> = ({
     typeof st === 'string' ? <Text color={textc}>{st}</Text> : <></>
   const name = assertName(result, test)
 
-  const { diff, ...otherDiags } = result.diag || {}
+  const { diff, at, source, ...otherDiags } = result.diag || {}
 
   return (
     <Box flexDirection="column">
@@ -101,9 +102,8 @@ export const ResultTag: FC<ResultOpts> = ({
         {!!details && !!result.diag && (
           <>
             <Diff diff={diff} />
-            <Text>...</Text>
-            <Text>{stringify(otherDiags).trim()}</Text>
-            <Text>---</Text>
+            <Source at={at} source={source} />
+            <Text dimColor>{stringify(otherDiags).trim()}</Text>
           </>
         )}
       </Box>

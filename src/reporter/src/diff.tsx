@@ -18,7 +18,7 @@ const Line: FC<{ line: string }> = ({ line }) =>
   )
 
 const White: FC<{ line: string }> = ({ line }) => (
-  <Text backgroundColor="#fff" color="#111" bold dimColor>
+  <Text backgroundColor="#eee" color="#111" bold dimColor>
     {line}
   </Text>
 )
@@ -27,15 +27,15 @@ const Ctx: FC<{ line: string }> = ({ line }) => {
   const f = line.match(/^(\@\@.*?\@\@)( .*)$/)
   return f ? (
     <Box>
-      <Text bold backgroundColor="#FFFFFF" color="#d700ff">
+      <Text bold backgroundColor="#eee" color="#d700ff">
         {f[1]}
       </Text>
-      <Text bold backgroundColor="#FFFFFF" color="#5f87d7">
+      <Text bold backgroundColor="#eee" color="#5f87d7">
         {f[1]}
       </Text>
     </Box>
   ) : (
-    <Text bold backgroundColor="#FFFFFF" color="#d700ff">
+    <Text bold backgroundColor="#eee" color="#d700ff">
       {line}
     </Text>
   )
@@ -55,8 +55,7 @@ const Red: FC<{ line: string }> = ({ line }) => (
 export const Diff: FC<{ diff: any }> = ({ diff = '' }) => {
   if (typeof diff !== 'string') return <Text>{'1: ' + JSON.stringify(diff)}</Text>
   const sd: string = diff.trimEnd()
-  if (!sd) return <Text>{'2: ' + JSON.stringify(diff)}</Text>
-
+  if (!sd) return <></>
 
   let width = 0
   const maxLen = Math.max(columns - 5, 0)
