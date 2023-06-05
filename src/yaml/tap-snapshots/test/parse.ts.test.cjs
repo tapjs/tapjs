@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse.ts TAP > it parses yaml 1`] = `
+exports[`test/parse.ts > TAP > it parses yaml 1`] = `
 Object {
   "cycle": &ref_1 Object {
     "a": 1,

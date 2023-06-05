@@ -5,6 +5,6 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/types/date.ts TAP > parsed stringified 1`] = `
+exports[`test/types/date.ts > TAP > parsed stringified 1`] = `
 1979-07-01T00:00:00.000Z
 `

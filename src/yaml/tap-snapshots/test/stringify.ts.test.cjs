@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/stringify.ts TAP > it creates yaml 1`] = `
+exports[`test/stringify.ts > TAP > it creates yaml 1`] = `
 cycle: &a1
   a: 1
   cycle: *a1

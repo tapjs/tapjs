@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/index.ts TAP > root api is a thing 1`] = `
+exports[`test/index.ts > TAP > root api is a thing 1`] = `
 Object {
   "default": Object {
     "parse": Function parse(str),

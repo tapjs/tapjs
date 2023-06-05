@@ -8,11 +8,11 @@ import {
   regexp,
   sharedSymbol,
   symbol,
+  bigint,
 } from 'yaml-types'
 
 import { date } from './date.js'
 import { timestamp } from './timestamp.js'
-import { bigint } from './bigint.js'
 
 // prepend our custom tags so that they take priority over anything
 // enabled by default in the schema.

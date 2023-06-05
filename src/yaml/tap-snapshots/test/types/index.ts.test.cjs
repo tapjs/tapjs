@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/types/index.ts TAP > types are there 1`] = `
+exports[`test/types/index.ts > TAP > types are there 1`] = `
 Array [
   Object {
     "identify": Function identify(value),
