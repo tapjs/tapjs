@@ -146,11 +146,16 @@ const pruneUnchanged = async (
     }
 
     let del = true
-    for (const f of pi.files || []) {
-      const fst = await scurry.cwd.resolve(f).lstat()
-      if (!fst || !fst.mtime || fst.mtime > piMtime) {
-        del = false
-        break
+    OUTER: for (const f of pi.files || []) {
+      const sources = pi.sources[f] || [f]
+      for (const f of sources) {
+        // if the stat is missing, then the file isn't there,
+        // and that's definitely a change
+        const fm = (await scurry.cwd.resolve(f).lstat())?.mtime || Infinity
+        if (fm > piMtime) {
+          del = false
+          break OUTER
+        }
       }
     }
 
