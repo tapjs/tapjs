@@ -1,6 +1,8 @@
 import { tap } from '@tapjs/core'
 const t = tap()
 
+// This interface is here just so that the sourcemaps
+// will blow up more obviously if line numbers are off.
 export interface ignoreme {
   a: true
   b: true
@@ -37,7 +39,7 @@ t.test('wrong plan sync', t => {
   t.pass('this is not')
 })
 
-// console.log('scratch.ts test file running')
+console.log('scratch.ts test file running')
 
 t.test('hello', async t => {
   t.pass('spanning multiple lines', {
