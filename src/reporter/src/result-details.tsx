@@ -7,7 +7,7 @@ import { Source } from './source.js'
 
 export const ResultDetails: FC<{ result: Result }> = ({ result }) => {
   if (!result.diag) return <></>
-  const { diff, at, source, ...otherDiags } = result.diag
+  const { test, diff, at, source, ...otherDiags } = result.diag
 
   return (
     <Box paddingLeft={4} flexDirection="column">
