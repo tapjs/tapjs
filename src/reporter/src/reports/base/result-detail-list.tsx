@@ -1,9 +1,9 @@
-import { Base } from '@tapjs/core'
 import { Box, Text } from 'ink'
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC } from 'react'
+import { useIsDone } from '../../hooks/use-is-done.js'
+import { useSubtests } from '../../hooks/use-subtests.js'
 
 import { TapReportOpts } from '../../index.js'
-import { listenCleanup } from '../../listen-cleanup.js'
 import { TestSummary } from './test-summary.js'
 
 const bannerWords = '  🌈 TEST COMPLETE 🌈  '
@@ -20,24 +20,11 @@ const Banner: FC<{}> = () => (
 export const ResultDetailList: FC<Pick<TapReportOpts, 'tap'>> = ({
   tap,
 }) => {
-  const [tests, updateTests] = useState<Base[]>([])
-  useEffect(
-    () =>
-      listenCleanup(tap, 'subtestAdd', (t: Base) =>
-        updateTests(tests.concat(t))
-      ),
-    [tap, tests, updateTests]
-  )
+  const tests = useSubtests(tap, 'finished')
   const t = tests.filter(
-    t =>
-      !!t.results &&
-      (t.lists.fail.length || t.lists.skip.length || t.lists.todo.length)
+    t => t.lists.fail.length || t.lists.skip.length || t.lists.todo.length
   )
-  let [done, setDone] = useState<boolean>(false)
-  useEffect(
-    () => listenCleanup(tap, 'complete', () => setDone(true)),
-    [tap, setDone]
-  )
+  const done = useIsDone(tap)
 
   return !done ? (
     <></>
