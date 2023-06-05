@@ -10,18 +10,16 @@ export const ResultDetailList: FC<Pick<TapReportOpts, 'tap'>> = ({
   tap,
 }) => {
   const tests = useSubtests(tap, 'finished')
-  const t = tests.filter(
-    t => t.lists.fail.length || t.lists.skip.length || t.lists.todo.length
-  )
+  const t = tests.filter(t => t.lists.fail.length)
   const done = useIsDone(tap)
 
   return !done ? (
     <></>
   ) : (
-    <Box flexDirection="column" marginTop={1} gap={1}>
+    <Box flexDirection="column" gap={1}>
       {t.map((test, key) => (
         <Box key={key} flexDirection="column">
-          <TestSummary test={test} details={true} />
+          <TestSummary test={test} showCallsite={true} />
         </Box>
       ))}
     </Box>

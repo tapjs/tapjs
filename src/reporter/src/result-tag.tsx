@@ -9,12 +9,14 @@ export interface ResultOpts {
   result: Result
   details?: boolean
   test: Base
+  showCallsite?: boolean
 }
 
 export const ResultTag: FC<ResultOpts> = ({
   result,
   details = false,
   test,
+  showCallsite = false,
 }) => {
   const c = result.skip ? '~' : result.todo ? '☐' : !result.ok ? '✖' : '✓'
   const textc = result.skip
@@ -29,9 +31,21 @@ export const ResultTag: FC<ResultOpts> = ({
       {c}
     </Text>
   )
-  const st = result.skip || result.todo || result.tapError
+  let st = result.skip || result.todo || result.tapError
   const suff =
     typeof st === 'string' ? <Text color={textc}>{st}</Text> : <></>
+  const at = result.diag?.at
+  const fileName = at?.fileName
+  const callsite =
+    showCallsite && at && fileName ? (
+      <Text dimColor>
+        {fileName}
+        {at.lineNumber ? `:${at.lineNumber}` : ''}
+        {at.columnNumber ? `:${at.columnNumber}` : ''}
+      </Text>
+    ) : (
+      <></>
+    )
   const name = assertName(result, test)
 
   return (
@@ -40,6 +54,7 @@ export const ResultTag: FC<ResultOpts> = ({
         {pref}
         <Text>{name}</Text>
         {suff}
+        {callsite}
       </Box>
       {!!details && <ResultDetails result={result} />}
     </Box>
