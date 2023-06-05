@@ -64,6 +64,7 @@
   "devDependencies": {
     "@types/node": "^20.1.5",
     "prettier": "^2.6.2",
+    "sync-content": "^1.0.1",
     "typedoc": "^0.24.7"
   },
   "license": "BlueOak-1.0.0",

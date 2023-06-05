@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
+sync-content dist-tmp dist
+rm -rf dist-tmp
 
-rm -rf dist
-mv dist-tmp dist
 cat >dist/cjs/package.json <<!EOF
 {
   "type": "commonjs"

@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
-
-rm -rf dist
-mv dist-tmp dist
+sync-content dist-tmp dist
+rm -rf dist-tmp
 
 # the tap-dir module has to look at either __dirname or
 # import.meta.url, and each blows up in the other import

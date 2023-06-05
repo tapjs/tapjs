@@ -1,6 +1,7 @@
 /*
 /.*
 
+!/scripts
 /.attic
 !/fixup.sh
 !/tsconfig*.json

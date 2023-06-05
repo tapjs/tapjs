@@ -33,6 +33,7 @@
     "glob": "^10.0.0",
     "minipass": "^5.0.0",
     "prettier": "^2.7.1",
+    "sync-content": "^1.0.1",
     "ts-node": "^10.9.1",
     "typedoc": "^0.23.20",
     "typescript": "^5.0.4"
