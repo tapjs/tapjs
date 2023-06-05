@@ -8,9 +8,11 @@ export interface TapReportOpts {
   config: Config
 }
 
-import { Base } from './reports/base/index.js'
+import { Base } from './base/index.js'
+import { Terse } from './terse/index.js'
 export const types = {
   base: Base,
+  terse: Terse
 }
 
 export const report = async (

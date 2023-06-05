@@ -1,7 +1,7 @@
 import { Box } from 'ink'
 import React, { FC } from 'react'
-import { useSubtests } from '../../hooks/use-subtests.js'
-import { TapReportOpts } from '../../index.js'
+import { useSubtests } from '../hooks/use-subtests.js'
+import { TapReportOpts } from '../index.js'
 import { TestSummary } from './test-summary.js'
 
 // Every time a test ends, print just the summary

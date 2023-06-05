@@ -15,18 +15,12 @@ import {
   StdioLog,
   TestLog,
   useLog,
-} from '../../hooks/use-log.js'
-import { TapReportOpts } from '../../index.js'
+} from '../hooks/use-log.js'
+import { TapReportOpts } from '../index.js'
 import { TestSummary } from './test-summary.js'
 
-export const TestLogLine: FC<TestLog> = ({ test, previous }) => (
-  <Box paddingTop={!!previous && !isTestLog(previous) ? 1 : 0}>
-    <TestSummary test={test} />
-  </Box>
-)
-
 export const ConsoleLogLine: FC<ConsoleLog> = ({ text, previous }) => (
-  <Box paddingTop={!!previous && !isConsoleLog(previous) ? 1 : 0}>
+  <Box>
     <Text>{text.trimEnd()}</Text>
   </Box>
 )
@@ -41,7 +35,7 @@ export const StdioLogLine: FC<StdioLog> = ({
     isStdioLog(p) && p.fd === fd && p.name === name ? (
       <></>
     ) : fd ? (
-      <Box gap={1} paddingTop={1}>
+      <Box>
         {fd === 1 ? (
           <Text color="cyan" bold dimColor>{`1>`}</Text>
         ) : fd === 2 ? (
@@ -52,7 +46,7 @@ export const StdioLogLine: FC<StdioLog> = ({
         <Text dimColor>{name}</Text>
       </Box>
     ) : (
-      <Box paddingTop={1}>
+      <Box>
         <Text dimColor>{name}</Text>
       </Box>
     )
@@ -81,7 +75,7 @@ export const Log: FC<TapReportOpts> = ({ tap, config }) => {
 
 const LogLine: FC<LogEntry> = log =>
   isTestLog(log) ? (
-    <TestLogLine {...log} />
+    <></>
   ) : isStdioLog(log) ? (
     <StdioLogLine {...log} />
   ) : (

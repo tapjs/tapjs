@@ -1,11 +1,11 @@
 import { Base } from '@tapjs/core'
 import { Box, Text } from 'ink'
 import React, { FC } from 'react'
-import { useCountsLists } from '../../hooks/use-counts-lists.js'
-import { useTestTime } from '../../hooks/use-test-time.js'
-import { ms } from '../../ms.js'
-import { TestBadge } from '../../test-badge.js'
-import { TestResultsList } from '../../test-results-list.js'
+import { useCountsLists } from '../hooks/use-counts-lists.js'
+import { useTestTime } from '../hooks/use-test-time.js'
+import { ms } from '../ms.js'
+import { TestBadge } from '../test-badge.js'
+import { TestResultsList } from '../test-results-list.js'
 
 export interface TestSummaryOpts {
   test: Base

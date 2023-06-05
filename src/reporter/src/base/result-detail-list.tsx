@@ -1,9 +1,9 @@
 import { Box, Text } from 'ink'
 import React, { FC } from 'react'
-import { useIsDone } from '../../hooks/use-is-done.js'
-import { useSubtests } from '../../hooks/use-subtests.js'
+import { useIsDone } from '../hooks/use-is-done.js'
+import { useSubtests } from '../hooks/use-subtests.js'
 
-import { TapReportOpts } from '../../index.js'
+import { TapReportOpts } from '../index.js'
 import { TestSummary } from './test-summary.js'
 
 const bannerWords = '  🌈 TEST COMPLETE 🌈  '
