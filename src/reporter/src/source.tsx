@@ -39,6 +39,7 @@ export const Source: FC<SourceOpts> = ({ source, at }) => {
       lineNumbers: true,
       theme: 'moria',
       padding: 0,
+      maxWidth: process.stdout.columns && process.stdout.columns - 5,
     }).split('\n')
     if (stringLength(lines[lines.length - 1]) === 0) lines.pop()
     const ctx = 4
@@ -50,7 +51,6 @@ export const Source: FC<SourceOpts> = ({ source, at }) => {
     const after = lines.slice(at.lineNumber, endLine)
     const len = Math.min(...before.map(l => stringLength(l)))
     const title = chalk
-      .ansi256(252)
       .bgAnsi256(234)
       .dim(at.fileName.padEnd(len))
     const caret =
