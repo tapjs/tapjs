@@ -260,6 +260,7 @@ export class CallSiteLike {
     if (this.generated && this.generated.fileName) {
       const { fileName, lineNumber, columnNumber } = this.generated
       g = this.#relativize(fileName) || ''
+      if (g === this.fileName) g = ''
       if (g) {
         if (
           typeof lineNumber === 'number' &&
