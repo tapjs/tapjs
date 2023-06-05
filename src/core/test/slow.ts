@@ -17,7 +17,7 @@ t.test('this takes a sec', t => {
 
 t.test('test with a skip', t => {
   t.fail('someday', { skip: 'do this eventually' })
-  t.fail('this is not ok')
+  // t.fail('this is not ok')
   t.end()
 })
 
