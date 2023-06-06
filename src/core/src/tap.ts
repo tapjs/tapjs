@@ -6,7 +6,6 @@ import { FinalResults } from 'tap-parser'
 import { diags } from './diags.js'
 import { IMPLICIT } from './implicit-end-sigil.js'
 import { Extra } from './index.js'
-import { plugin as AfterPlugin } from '@tapjs/after'
 import { env, proc } from './proc.js'
 import { TestBase } from './test-base.js'
 
@@ -99,11 +98,13 @@ class TAP extends Test {
     )
 
     // only attach the teardown autoend if we're using the teardown plugin
-    // tell typescript to chill, if it's not defined or defined as something
-    // else.
-    const td = this
-    if (td.pluginLoaded(AfterPlugin)) {
-      const { teardown } = td
+    // we test in this convoluted manner rather than this.pluginLoaded
+    // because otherwise we have a cyclical dep link between @tapjs/core
+    // and @tapjs/after which prevents TS from being able to build properly
+    // from a cold start.
+    const td = this as (typeof this & { teardown?: (fn: () => any) => void })
+    const { teardown } = td
+    if (td.plugins.has('after') && typeof teardown === 'function') {
       type TD = typeof teardown
       td.teardown = (
         ...args: Parameters<TD>

@@ -1,7 +1,3 @@
-// TODO: it might be good to split this into two, so that t.after()
-// and t.teardown() maintain their distinction.
-// After would hook into the onbeforeend point, and teardown
-// would hook into the onEOF point.
 import { TapPlugin, TestBase } from '@tapjs/core'
 
 export class After {

@@ -3,7 +3,6 @@ import { Test } from '@tapjs/test';
 import { onExit } from 'signal-exit';
 import { diags } from './diags.js';
 import { IMPLICIT } from './implicit-end-sigil.js';
-import { plugin as AfterPlugin } from '@tapjs/after';
 import { env, proc } from './proc.js';
 const stdout = proc?.stdout;
 const privSym = Symbol('private constructor');
@@ -77,11 +76,13 @@ class TAP extends Test {
         this.on('idle', () => maybeAutoend());
         this.on('complete', (results) => this.#oncomplete(results));
         // only attach the teardown autoend if we're using the teardown plugin
-        // tell typescript to chill, if it's not defined or defined as something
-        // else.
+        // we test in this convoluted manner rather than this.pluginLoaded
+        // because otherwise we have a cyclical dep link between @tapjs/core
+        // and @tapjs/after which prevents TS from being able to build properly
+        // from a cold start.
         const td = this;
-        if (td.pluginLoaded(AfterPlugin)) {
-            const { teardown } = td;
+        const { teardown } = td;
+        if (td.plugins.has('after') && typeof teardown === 'function') {
             td.teardown = (...args) => {
                 autoend = true;
                 td.teardown = teardown;
