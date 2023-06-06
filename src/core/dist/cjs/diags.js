@@ -1,0 +1,25 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.diags = void 0;
+const tap_yaml_1 = __importDefault(require("tap-yaml"));
+const clean_yaml_object_js_1 = require("./clean-yaml-object.js");
+const diags = (obj) => {
+    const clean = (0, clean_yaml_object_js_1.cleanYamlObject)(obj);
+    if (!clean ||
+        typeof clean !== 'object' ||
+        !Object.keys(clean).length) {
+        return '';
+    }
+    return ('  ---\n' +
+        tap_yaml_1.default
+            .stringify(clean)
+            .split('\n')
+            .map(l => (l.trim() ? '  ' + l : l.trim()))
+            .join('\n') +
+        '  ...\n');
+};
+exports.diags = diags;
+//# sourceMappingURL=diags.js.map

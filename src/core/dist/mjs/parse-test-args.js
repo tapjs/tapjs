@@ -1,0 +1,52 @@
+export const parseTestArgs = (...args) => {
+    let name = undefined;
+    let extra = undefined;
+    let cb = undefined;
+    // this only works if it's literally the 4th argument.
+    // used internally.
+    const defaultName = args[3] || '';
+    for (let i = 0; i < 3 && i < args.length; i++) {
+        const arg = args[i];
+        if (name === undefined &&
+            (typeof arg === 'string' || typeof arg === 'number'))
+            name = '' + arg;
+        else if (arg && typeof arg === 'object') {
+            extra = arg;
+            if (name === undefined)
+                name = null;
+        }
+        else if (typeof arg === 'function') {
+            if (extra === undefined)
+                extra = {};
+            if (name === undefined)
+                name = null;
+            cb = arg;
+        }
+        else if (arg === false) {
+            // it's handy while developing to put a ! in front of a
+            // function to temporarily make a test todo
+            continue;
+        }
+        else if (typeof arg !== 'undefined')
+            throw new TypeError('unknown argument passed to parseTestArgs: ' +
+                typeof arg);
+    }
+    if (!extra)
+        extra = {};
+    if (!cb && defaultName !== '/dev/stdin') {
+        extra.todo = extra.todo || true;
+    }
+    if (!name && extra.name)
+        name = extra.name;
+    if (!name && cb && cb.name)
+        name = cb.name;
+    name = name || defaultName;
+    extra.name = name;
+    const opts = extra;
+    opts.cb = cb || todoCb;
+    return opts;
+};
+const todoCb = () => {
+    throw new Error('callback called for TODO test');
+};
+//# sourceMappingURL=parse-test-args.js.map

@@ -1,0 +1,1 @@
+{"version":3,"file":"implicit-end-sigil.js","sourceRoot":"","sources":["../../src/implicit-end-sigil.ts"],"names":[],"mappings":"AAAA;;;GAGG;AACH,MAAM,CAAC,MAAM,QAAQ,GAAG,MAAM,CAAC,cAAc,CAAC,CAAA","sourcesContent":["/**\n * Sigil for implicit end() calls that should not\n * trigger an error if the user then calls t.end()\n */\nexport const IMPLICIT = Symbol('implicit end')\n"]}
