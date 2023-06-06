@@ -1,4 +1,6 @@
-#!/usr/bin/env node --enable-source-maps
+#!/usr/bin/env node
+//@ts-ignore
+process.setSourceMapsEnabled(true)
 import { TapConfig, LoadedConfig } from '@tapjs/config'
 import { fileURLToPath } from 'url'
 import { build } from './build.js'
