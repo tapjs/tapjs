@@ -1,6 +1,6 @@
+import type { LoadedConfig } from '@tapjs/config'
 import yaml from 'yaml'
-import type { Config } from './index.js'
-export const dumpConfig = (args: string[], config: Config) => {
+export const dumpConfig = (_: string[], config: LoadedConfig) => {
   const { values } = config.parse()
   const v = Object.fromEntries(
     Object.entries(values).filter(

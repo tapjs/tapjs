@@ -1,6 +1,6 @@
 // manage plugins
 import { defaultPlugins } from '@tapjs/test'
-import { Config } from './index.js'
+import { LoadedConfig } from '@tapjs/config'
 
 import { foregroundChild } from 'foreground-child'
 import { lstat } from 'node:fs/promises'
@@ -11,7 +11,7 @@ const exists = (f: string) =>
     () => false
   )
 
-export const plugin = async (args: string[], config: Config) => {
+export const plugin = async (args: string[], config: LoadedConfig) => {
   switch (args[0]) {
     case 'add':
       return add(args.slice(1), config)
@@ -56,7 +56,7 @@ const uninstall = async (pkgs: string[]) => {
   })
 }
 
-const sets = (config: Config) => {
+const sets = (config: LoadedConfig) => {
   /* c8 ignore start */
   const pc = new Set(config.get('plugin') || [])
   /* c8 ignore stop */
@@ -65,7 +65,7 @@ const sets = (config: Config) => {
   return { pc, pl, def }
 }
 
-const add = async (args: string[], config: Config) => {
+const add = async (args: string[], config: LoadedConfig) => {
   if (!args.length) throw new Error('no plugin name provided')
 
   const { pc, pl, def } = sets(config)
@@ -121,7 +121,7 @@ const add = async (args: string[], config: Config) => {
   }
 }
 
-const rm = async (args: string[], config: Config) => {
+const rm = async (args: string[], config: LoadedConfig) => {
   const { pc, pl, def } = sets(config)
 
   const removed = new Set<string>()
@@ -170,6 +170,6 @@ const rm = async (args: string[], config: Config) => {
   }
 }
 
-const list = async (_: string[], config: Config) => {
+const list = async (_: string[], config: LoadedConfig) => {
   console.log(config.pluginList.join('\n'))
 }

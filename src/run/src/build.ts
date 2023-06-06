@@ -1,7 +1,7 @@
+import type { LoadedConfig } from '@tapjs/config'
 import { foregroundChild } from 'foreground-child'
 import { createRequire } from 'node:module'
 import { resolve, sep } from 'node:path'
-import type { Config } from './index.js'
 import { mainCommand } from './index.js'
 const require = createRequire(import.meta.url)
 const tm = require.resolve('@tapjs/test')
@@ -17,7 +17,7 @@ const tmbin = resolve(
 const execArgs = ['--loader=ts-node/esm', '--no-warnings']
 const node = process.execPath
 
-export const build = async (args: string[], config: Config) => {
+export const build = async (args: string[], config: LoadedConfig) => {
   if (args.length !== 0) {
     throw new TypeError('build command does not take positional arguments')
   }

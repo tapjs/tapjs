@@ -1,5 +1,5 @@
 #!/usr/bin/env node --enable-source-maps
-import { TapConfig } from '@tapjs/config'
+import { TapConfig, LoadedConfig } from '@tapjs/config'
 import { fileURLToPath } from 'url'
 import { build } from './build.js'
 import { dumpConfig } from './dump-config.js'
@@ -9,12 +9,11 @@ import { plugin } from './plugin.js'
 import { report } from './report.js'
 import { run } from './run.js'
 import { version } from './version.js'
-export const config = await TapConfig.load()
+export const config:LoadedConfig = await TapConfig.load()
 export const { values, positionals } = config.parse()
 
-export type Config = typeof config
-export type JackLoaded = typeof config.jack
-export type ConfigValues = typeof values
+export type JackLoaded = LoadedConfig['jack']
+export type ConfigValues = LoadedConfig['values']
 export let mainCommand: string =
   positionals[0] || (values.help ? 'help' : 'run')
 export const mainBin = fileURLToPath(import.meta.url)

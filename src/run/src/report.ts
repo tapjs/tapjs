@@ -5,9 +5,9 @@ import { Report } from 'c8'
 import { readdir } from 'fs/promises'
 import opener from 'opener'
 import { resolve } from 'path'
-import type { Config } from './index.js'
+import { LoadedConfig } from '@tapjs/config'
 
-export const report = async (args: string[], config: Config) => {
+export const report = async (args: string[], config: LoadedConfig) => {
   const rconf = config.get('coverage-reporter')
   // if there are args passed in, use that. The config is used if
   // calling this at the end of `tap run`

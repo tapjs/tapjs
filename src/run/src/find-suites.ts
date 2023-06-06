@@ -1,7 +1,7 @@
+import { LoadedConfig } from '@tapjs/config'
 import { ProcessInfo } from '@tapjs/processinfo'
 import { glob, Glob, IgnoreLike } from 'glob'
 import type { Path, PathScurry } from 'path-scurry'
-import { Config } from './index.js'
 import { readSave } from './save-list.js'
 
 const alwaysExcludeNames = [
@@ -36,7 +36,7 @@ const dirInclude = '**/*.@([mc]js|[jt]s*(x))'
 //    Figure out which files in the suite have changed since last run,
 //    and only run those. Do not delete coverage history ever.
 
-export const findSuites = async (args: string[], config: Config) => {
+export const findSuites = async (args: string[], config: LoadedConfig) => {
   const { values } = config.parse()
 
   const saveList: Set<string> = new Set(await readSave(config))

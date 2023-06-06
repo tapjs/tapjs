@@ -276,12 +276,26 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
     return this
   }
 
-  static async load() {
-    return (
+  static #loaded: LoadedConfig | undefined
+  static async load(): Promise<LoadedConfig> {
+    if (this.#loaded) return this.#loaded
+    return (this.#loaded = (
       await new TapConfig().loadPluginConfigFields().loadConfigFile()
     )
       .loadColor()
       .loadReporter()
-      .parse()
+      .parse())
   }
 }
+
+export type LoadedConfig = ReturnType<
+  ReturnType<
+    ReturnType<
+      Awaited<
+        ReturnType<
+          ReturnType<TapConfig['loadPluginConfigFields']>['loadConfigFile']
+        >
+      >['loadColor']
+    >['loadReporter']
+  >['parse']
+>

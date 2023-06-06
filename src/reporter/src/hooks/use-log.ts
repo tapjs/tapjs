@@ -1,5 +1,5 @@
 import { Base, Spawn } from '@tapjs/core'
-import { Config } from '@tapjs/run'
+import { LoadedConfig } from '@tapjs/config'
 import patchConsole from 'patch-console'
 import { useState } from 'react'
 import { Parser } from 'tap-parser'
@@ -39,7 +39,7 @@ export const isStdioLog = (p?: LogEntry): p is StdioLog =>
   typeof (p as StdioLog).name === 'string' &&
   typeof (p as StdioLog).fd === 'number'
 
-export const useLog = (test: Base, config: Config) => {
+export const useLog = (test: Base, config: LoadedConfig) => {
   const [logs, updateLogs] = useState<LogEntry[]>([])
   const appendLog = (l: LogEntry) => {
     const previous = logs[logs.length - 1]

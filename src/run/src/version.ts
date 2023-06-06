@@ -3,7 +3,7 @@ import { readFileSync } from 'fs'
 import { createRequire } from 'module'
 import { resolve } from 'path'
 import * as yaml from 'yaml'
-import type { Config } from './index.js'
+import { LoadedConfig } from '@tapjs/config'
 
 const require = createRequire(import.meta.url)
 
@@ -12,12 +12,13 @@ const allPkgs = [
   '@tapjs/config',
   '@tapjs/core',
   '@tapjs/processinfo',
+  '@tapjs/report',
   '@tapjs/run',
   '@tapjs/stack',
   '@tapjs/test',
-  'tcompare',
-  'treport',
   'tap-parser',
+  'tap-yaml',
+  'tcompare',
 ]
 
 const tryGetVersion = (pkg: string): string | undefined => {
@@ -52,7 +53,7 @@ const tryGetVersion = (pkg: string): string | undefined => {
   } catch {}
 }
 
-export const version = async (args: string[], config: Config) => {
+export const version = async (args: string[], config: LoadedConfig) => {
   const showAll = config.get('versions') || args[0] === 'versions'
   return showAll ? printAllVersions() : printTapVersion()
 }

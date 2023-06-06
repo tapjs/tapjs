@@ -1,11 +1,11 @@
 import { TAP } from '@tapjs/core'
-import { Config } from '@tapjs/run'
+import { LoadedConfig } from '@tapjs/config'
 import { render } from 'ink'
 import React from 'react'
 
 export interface TapReportOpts {
   tap: TAP
-  config: Config
+  config: LoadedConfig
 }
 
 import { Base } from './base/index.js'
@@ -18,7 +18,7 @@ export const types = {
 export const report = async (
   Type: 'tap' | keyof typeof types | React.FC<TapReportOpts>,
   tap: TAP,
-  config: Config
+  config: LoadedConfig
 ): Promise<boolean> => {
   if (Type === 'tap' || process.env.TAP === '1') {
     // just show the tap.

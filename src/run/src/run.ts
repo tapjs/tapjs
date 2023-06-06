@@ -1,4 +1,5 @@
 // run the provided tests
+import { LoadedConfig } from '@tapjs/config'
 import { proc, TAP, tap } from '@tapjs/core'
 import {
   report as testReport,
@@ -19,7 +20,7 @@ import { resolve } from 'path'
 import { rimraf } from 'rimraf'
 import { build } from './build.js'
 import { findSuites } from './find-suites.js'
-import { Config, mainBin, mainCommand } from './index.js'
+import { mainBin, mainCommand } from './index.js'
 import { report } from './report.js'
 import { readSave, writeSave } from './save-list.js'
 
@@ -28,7 +29,11 @@ const piLoader = pathToFileURL(require.resolve('@tapjs/processinfo'))
 
 const node = process.execPath
 
-const buildWithSpawn = async (t: TAP, args: string[], config: Config) => {
+const buildWithSpawn = async (
+  t: TAP,
+  args: string[],
+  config: LoadedConfig
+) => {
   // Make sure that we WANT to have the spawn plugin, otherwise
   // the runner really can't work.
   if (!config.pluginList.includes('@tapjs/spawn')) {
@@ -86,7 +91,7 @@ const buildWithSpawn = async (t: TAP, args: string[], config: Config) => {
 const isStringArray = (a: any): a is string[] =>
   Array.isArray(a) && !a.some(s => typeof s !== 'string')
 
-const handleReporter = async (t: TAP, config: Config) => {
+const handleReporter = async (t: TAP, config: LoadedConfig) => {
   // figure out if we MUST use the 'tap' reporter
   const reporter = config.get('reporter') as string
   // TODO: if it's not in keyof reportTypes, then look it up as a module.
@@ -97,7 +102,7 @@ const handleReporter = async (t: TAP, config: Config) => {
   )
 }
 
-export const run = async (args: string[], config: Config) => {
+export const run = async (args: string[], config: LoadedConfig) => {
   const timeout = (config.get('timeout') || 30) * 1000
   const t = tap()
   // we don't want to time out the runner, just the subtests
