@@ -1,5 +1,5 @@
 import type { Test } from '@tapjs/test'
-import loop from 'function-loop'
+import { loop } from 'function-loop'
 import { TestBase } from '@tapjs/core'
 
 export class BeforeEach {

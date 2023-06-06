@@ -6,7 +6,7 @@ import { FinalResults } from 'tap-parser'
 import { diags } from './diags.js'
 import { IMPLICIT } from './implicit-end-sigil.js'
 import { Extra } from './index.js'
-import { plugin as AfterPlugin } from './plugin/after.js'
+import { plugin as AfterPlugin } from '@tapjs/after'
 import { env, proc } from './proc.js'
 import { TestBase } from './test-base.js'
 

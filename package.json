@@ -16,7 +16,9 @@
     "endOfLine": "lf"
   },
   "devDependencies": {
+    "async-hook-domain": "^4.0.1",
     "prettier": "^2.6.2",
+    "trivial-deferred": "^2.0.0",
     "ts-node": "^10.9.1",
     "typedoc": "^0.24.7",
     "typescript": "^5.0.4"
