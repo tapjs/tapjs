@@ -18,6 +18,7 @@
   "devDependencies": {
     "async-hook-domain": "^4.0.1",
     "events-to-array": "^2.0.3",
+    "minipass": "^6.0.2",
     "prettier": "^2.6.2",
     "sync-content": "^1.0.1",
     "trivial-deferred": "^2.0.0",
