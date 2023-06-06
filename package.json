@@ -21,6 +21,7 @@
     "async-hook-domain": "^4.0.1",
     "diff": "^5.1.0",
     "events-to-array": "^2.0.3",
+    "function-loop": "^4.0.0",
     "minipass": "^6.0.2",
     "prettier": "^2.6.2",
     "sync-content": "^1.0.1",
