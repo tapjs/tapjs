@@ -36,7 +36,7 @@ jobs:
           node-version: 18.x
           cache: npm
       - name: Bootstrap
-        run: npm run bootstrap
+        run: TS_NODE_TRANSPILE_ONLY=1 npm run bootstrap
       - name: Generate typedocs
         run: npm run typedoc
 

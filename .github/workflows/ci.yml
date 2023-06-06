@@ -30,7 +30,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install
         run: |
-          npm run bootstrap
+          TS_NODE_TRANSPILE_ONLY=1 npm run bootstrap
       - name: Run tests
         run: |
           npm test --color=always -- -c -t0
