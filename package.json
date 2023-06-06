@@ -35,7 +35,7 @@
     "prismjs-terminal": "^1.2.1",
     "react": "^18.2.0",
     "string-length": "^5.0.1",
-    "sync-content": "^1.0.1",
+    "sync-content": "^1.0.2",
     "trivial-deferred": "^2.0.0",
     "ts-node": "^10.9.1",
     "typedoc": "^0.24.7",
