@@ -51,7 +51,6 @@
   "scripts": {
     "snap": "tap",
     "test": "tap",
-    "preprepare": "rm -rf dist",
     "prepare": "tsc -p tsconfig.json && tsc -p tsconfig-esm.json && bash scripts/fixup.sh",
     "pretest": "npm run prepare",
     "presnap": "npm run prepare",

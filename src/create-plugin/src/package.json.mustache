@@ -28,7 +28,6 @@
     "preversion": "npm test",
     "postversion": "npm publish",
     "prepublishOnly": "git push origin --follow-tags",
-    "preprepare": "rm -rf dist",
     "prepare": "tsc -p tsconfig.json && tsc -p tsconfig-esm.json && bash ./scripts/fixup.sh",
     "pretest": "npm run prepare",
     "presnap": "npm run prepare",
@@ -56,7 +55,8 @@
     "prettier": "^2.8.7",
     "ts-node": "^10.9.1",
     "typedoc": "^0.24.7",
-    "typescript": "^5.0.2"
+    "typescript": "^5.0.2",
+    "sync-content": "^1.0.1"
   },
   "engines": {
     "node": ">=16.17"

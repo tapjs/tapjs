@@ -35,7 +35,6 @@
     "preversion": "npm test",
     "postversion": "npm publish",
     "prepublishOnly": "git push origin --follow-tags",
-    "preprepare": "rm -rf dist",
     "prepare": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json && bash ./scripts/fixup.sh",
     "pretest": "npm run prepare",
     "presnap": "npm run prepare",
