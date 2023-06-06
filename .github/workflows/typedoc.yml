@@ -35,8 +35,10 @@ jobs:
         with:
           node-version: 18.x
           cache: npm
+      - name: Bootstrap
+        run: npm run bootstrap
       - name: Install dependencies
-        run: npm ci
+        run: npm install
       - name: Generate typedocs
         run: npm run typedoc
 
