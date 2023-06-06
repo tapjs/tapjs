@@ -1,23 +1,14 @@
 #!/usr/bin/env node --loader=ts-node/esm --no-warnings
 import { spawnSync } from 'child_process'
-import { writeFileSync } from 'fs'
+import { readFileSync, writeFileSync } from 'fs'
 import { resolve } from 'path'
 
-const builtins = [
-  '@tapjs/typescript',
-  '@tapjs/before',
-  '@tapjs/before-each',
-  '@tapjs/after',
-  '@tapjs/after-each',
-  '@tapjs/spawn',
-  '@tapjs/stdin',
-  '@tapjs/asserts',
-  '@tapjs/snapshot',
-  '@tapjs/fixture',
-  '@tapjs/mock',
-  '@tapjs/intercept',
-  '@tapjs/filter',
-]
+const builtins = readFileSync(
+  __dirname + '/default-plugins.txt',
+  'utf8'
+)
+  .trim()
+  .split('\n').map(p => `@tapjs/${p}`)
 
 console.log('building Test class with:')
 console.log(builtins.map(b => `  ${b}`).join('\n'))

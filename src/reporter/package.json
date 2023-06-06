@@ -48,6 +48,7 @@
     "@tapjs/config": ">=0.0.0-0",
     "@tapjs/core": ">=0.0.0-0",
     "@tapjs/test": ">=0.0.0-0",
+    "chalk": "^5.2.0",
     "ink": "^4.2.0",
     "patch-console": "^2.0.0",
     "prismjs": "^1.29.0",
