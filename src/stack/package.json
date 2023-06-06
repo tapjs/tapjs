@@ -60,7 +60,7 @@
   "dependencies": {
     "@tapjs/core": ">=0.0.0-0",
     "tcompare": "6",
-    "trivial-deferred": "^1.1.2"
+    "trivial-deferred": "^2.0.0"
   },
   "devDependencies": {
     "@types/node": "^20.1.5",

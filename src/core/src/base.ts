@@ -9,7 +9,7 @@ import {
   Result,
   TapError,
 } from 'tap-parser'
-import Deferred from 'trivial-deferred'
+import { Deferred } from 'trivial-deferred'
 import { extraFromError } from './extra-from-error.js'
 import type { Extra, TestBase } from './index.js'
 

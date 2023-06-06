@@ -35,7 +35,7 @@ const node_path_1 = require("node:path");
 const node_process_1 = require("node:process");
 const node_util_1 = require("node:util");
 const tap_parser_1 = require("tap-parser");
-const trivial_deferred_1 = __importDefault(require("trivial-deferred"));
+const trivial_deferred_1 = require("trivial-deferred");
 const base_js_1 = require("./base.js");
 const esc_js_1 = require("./esc.js");
 const extra_from_error_js_1 = require("./extra-from-error.js");
@@ -829,7 +829,7 @@ class TestBase extends base_js_1.Base {
         this.queue.push(t);
         this.subtests.push(t);
         this.emit('subtestAdd', t);
-        const d = new trivial_deferred_1.default();
+        const d = new trivial_deferred_1.Deferred();
         t.deferred = d;
         this.#process();
         return Object.assign(d.promise, { subtest: t });

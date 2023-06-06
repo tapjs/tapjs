@@ -6,7 +6,7 @@ import { relative } from 'node:path';
 import { hrtime } from 'node:process';
 import { format } from 'node:util';
 import { FinalResults } from 'tap-parser';
-import Deferred from 'trivial-deferred';
+import { Deferred } from 'trivial-deferred';
 import { Base } from './base.js';
 import { esc } from './esc.js';
 import { extraFromError } from './extra-from-error.js';

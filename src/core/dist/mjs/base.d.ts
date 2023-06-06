@@ -4,7 +4,7 @@ import { Domain } from 'async-hook-domain';
 import { AsyncResource } from 'async_hooks';
 import { Minipass } from 'minipass';
 import { FinalResults, Parser, Result, TapError } from 'tap-parser';
-import Deferred from 'trivial-deferred';
+import { Deferred } from 'trivial-deferred';
 import type { Extra, TestBase } from './index.js';
 export interface TapBaseEvents extends Minipass.Events<string> {
     timeout: [threw?: Extra];

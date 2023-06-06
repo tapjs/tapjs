@@ -56,7 +56,7 @@
     "minipass": "^6.0.0",
     "tap-parser": "^13.0.0",
     "tcompare": "^6.0.0",
-    "trivial-deferred": "^1.1.1"
+    "trivial-deferred": "^2.0.0"
   },
   "prettier": {
     "semi": false,

@@ -15,7 +15,7 @@ import {
   same,
   strict,
 } from 'tcompare'
-import Deferred from 'trivial-deferred'
+import { Deferred } from 'trivial-deferred'
 
 export interface AssertOptions {
   compareOptions?: CompareOptions
