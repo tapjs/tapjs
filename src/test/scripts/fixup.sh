@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+sync-content dist-tmp dist
+rm -rf dist-tmp
 
 cat >dist/cjs/package.json <<!EOF
 {

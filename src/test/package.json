@@ -46,6 +46,7 @@
     "glob": "^10.0.0",
     "jackspeak": "^2.2.1",
     "mkdirp": "^3.0.0",
+    "sync-content": "^1.0.1",
     "tap-parser": "^13.0.0",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.2"
@@ -64,7 +65,6 @@
   "devDependencies": {
     "@types/node": "^20.1.5",
     "prettier": "^2.6.2",
-    "sync-content": "^1.0.1",
     "typedoc": "^0.24.7"
   },
   "license": "BlueOak-1.0.0",
