@@ -6,11 +6,9 @@ import { createRequire } from 'module'
 import { relative, resolve } from 'node:path'
 import { basename, dirname } from 'path'
 import { walkUp } from 'walk-up-path'
-import yaml from 'yaml'
+import { parse as yamlParse, stringify as yamlStringify } from 'tap-yaml'
 import baseConfig from './jack.js'
-import { parseJson } from './vendor-json-parse-even-better-errors/index.js'
-// yaml v1 is commonjs only, so can't just import { parse } from 'yaml'
-const { parse } = yaml
+import { parse as jsonParse, stringify as jsonStringify } from 'polite-json'
 
 export type { baseConfig }
 
@@ -84,7 +82,7 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
       // split up to un-confuse vim
       '# vi' +
         'm: set filetype=yaml :\n' +
-        yaml.stringify(Object.assign(src, data))
+        yamlStringify(Object.assign(src, data))
     )
   }
 
@@ -98,14 +96,14 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
       tap && typeof tap === 'object' && !Array.isArray(tap) ? tap : {}
     ) as OptionsResults<C>
     pj.tap = Object.assign(src, data)
-    return writeFile(configFile, parseJson.stringify(pj))
+    return writeFile(configFile, jsonStringify(pj))
   }
 
   async readYAMLConfig(
     rc: string
   ): Promise<OptionsResults<C> | undefined> {
     try {
-      return parse(await readFile(rc, 'utf8')) as OptionsResults<C>
+      return yamlParse(await readFile(rc, 'utf8')) as OptionsResults<C>
     } catch (er) {
       console.error('Error loading .taprc:', rc, er)
       return undefined
@@ -116,7 +114,7 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
     pj: string
   ): Promise<{ tap?: OptionsResults<C> } | undefined> {
     try {
-      const res = parseJson(await readFile(pj, 'utf8'))
+      const res = jsonParse(await readFile(pj, 'utf8'))
       if (res && typeof res === 'object' && !Array.isArray(res)) {
         return res as { tap?: OptionsResults<C> }
       }
