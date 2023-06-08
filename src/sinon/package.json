@@ -47,6 +47,7 @@
   "homepage": "https://github.com/tapjs/tapjs/src/sinon#readme",
   "dependencies": {
     "@tapjs/core": ">=0.0.0-0",
+    "@tapjs/after": ">=0.0.0-0",
     "sinon": "^15.0.3"
   },
   "engines": {
