@@ -563,7 +563,9 @@ export class TestBase extends Base {
             queueEmpty(this) &&
             !this.pool.size &&
             !this.subtests.length &&
-            !this.#occupied);
+            !this.#occupied &&
+            // if we have a plan, don't autoend until the plan is complete.
+            this.#planEnd === -1);
     }
     #onBufferedEnd(p) {
         p.ondone = p.constructor.prototype.ondone;

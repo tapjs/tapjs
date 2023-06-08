@@ -36,8 +36,8 @@
     "dist"
   ],
   "scripts": {
-    "snap": "c8 tap",
-    "test": "c8 tap",
+    "snap": "tap",
+    "test": "tap",
     "prepare": "tsc -p tsconfig.json && tsc -p tsconfig-esm.json && bash scripts/fixup.sh",
     "pretest": "npm run prepare",
     "presnap": "npm run prepare",

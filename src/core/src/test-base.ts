@@ -767,7 +767,9 @@ export class TestBase extends Base<TestBaseEvents> {
       queueEmpty(this) &&
       !this.pool.size &&
       !this.subtests.length &&
-      !this.#occupied
+      !this.#occupied &&
+      // if we have a plan, don't autoend until the plan is complete.
+      this.#planEnd === -1
     )
   }
 

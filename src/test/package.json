@@ -30,8 +30,8 @@
     "scripts"
   ],
   "scripts": {
-    "snap": "c8 tap",
-    "test": "c8 tap",
+    "snap": "tap",
+    "test": "tap",
     "build": "tsc -p tsconfig.json && tsc -p tsconfig-esm.json && bash fixup.sh",
     "pretest": "npm run build",
     "presnap": "npm run build",

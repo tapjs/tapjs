@@ -69,6 +69,8 @@
     "yaml-types": "^0.3.0"
   },
   "scripts": {
+    "test": "nx run-many -t test",
+    "snap": "nx run-many -t snap",
     "typedoc": "typedoc",
     "bootstrap": "bash ./scripts/bootstrap.sh",
     "build": "node ./scripts/default-build.mjs"

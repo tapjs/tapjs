@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/basic.ts TAP arthur: set cli options > stderr 1`] = `
+exports[`test/basic.ts > TAP > arthur: set cli options > stderr 1`] = `
 after first {
   answer: 'an african or european swallow?',
   blerp: 'blerp',
@@ -28,7 +28,7 @@ done
 
 `
 
-exports[`test/basic.ts TAP arthur: set cli options > stdout 1`] = `
+exports[`test/basic.ts > TAP > arthur: set cli options > stdout 1`] = `
 What is your name? What is your quest? 
 
 build complete, running commands in arthur-king-of-the-britons-i-seek-the-holy-grail
@@ -52,11 +52,11 @@ build complete, running commands in arthur-king-of-the-britons-i-seek-the-holy-g
 <p>A: an african or european swallow?.</p>
 </body>
 name = Arthur, King of the Britons
-export default <% name %>
+export default "Arthur, King of the Britons"
 
 `
 
-exports[`test/basic.ts TAP galahad: accept default (to great peril) > stderr 1`] = `
+exports[`test/basic.ts > TAP > galahad: accept default (to great peril) > stderr 1`] = `
 after first { name: 'Sir Galahad of Camelot' }
 after second {
   name: 'Sir Galahad of Camelot',
@@ -74,11 +74,11 @@ Node.js v18.16.0
 
 `
 
-exports[`test/basic.ts TAP galahad: accept default (to great peril) > stdout 1`] = `
+exports[`test/basic.ts > TAP > galahad: accept default (to great peril) > stdout 1`] = `
 What is your name? What is your quest? 
 `
 
-exports[`test/basic.ts TAP lancelot: basic init script behavior > stderr 1`] = `
+exports[`test/basic.ts > TAP > lancelot: basic init script behavior > stderr 1`] = `
 after first { includeExtra: 'includeExtra', name: 'Sir Lancelot of Camelot' }
 after second {
   includeExtra: 'includeExtra',
@@ -96,7 +96,7 @@ done
 
 `
 
-exports[`test/basic.ts TAP lancelot: basic init script behavior > stdout 1`] = `
+exports[`test/basic.ts > TAP > lancelot: basic init script behavior > stdout 1`] = `
 What is your name? What is your quest? What is your favorite color? (blue) 
 
 build complete, running commands in sir-lancelot-of-camelot-to-seek-the-holy-grail
@@ -120,6 +120,6 @@ build complete, running commands in sir-lancelot-of-camelot-to-seek-the-holy-gra
 <p>A: blue.</p>
 </body>
 name = Sir Lancelot of Camelot
-export default <% name %>
+export default "Sir Lancelot of Camelot"
 
 `

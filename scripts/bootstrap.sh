@@ -39,4 +39,5 @@ done
 
 nx run-many --target=prepare
 node --loader=ts-node/esm --no-warnings scripts/default-build.ts
-# npm install
+# lastly, run the actual install to do all the linking
+npm install
