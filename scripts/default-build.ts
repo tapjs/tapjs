@@ -49,7 +49,12 @@ const prepare = (...p: string[]) => {
 // make sure core and then all the builtins are built
 prepare('src/core', ...builtins)
 
-spawnSync(build, builtins, {
+spawnSync(process.execPath, [
+  '--loader=ts-node/esm',
+  '--no-warnings',
+  build,
+  ...builtins,
+], {
   stdio: 'inherit',
 })
 
