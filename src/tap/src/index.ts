@@ -1,5 +1,4 @@
 import { TAP, tap } from '@tapjs/core'
-export type { TAP }
 export {
   Base,
   Counts,
@@ -9,6 +8,7 @@ export {
   TestBase,
 } from '@tapjs/core'
 export { Test } from '@tapjs/test'
+export type { TAP }
 export const t: TAP = tap()
 
 // People really like doing `import { test } from 'tap'`

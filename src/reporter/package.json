@@ -56,14 +56,6 @@
     "react": "^18.2.0",
     "string-length": "^5.0.1"
   },
-  "devDependencies": {
-    "@types/ms": "^0.7.31",
-    "@types/node": "^20.1.5",
-    "prettier": "^2.8.6",
-    "ts-node": "^10.9.1",
-    "typedoc": "^0.24.7",
-    "typescript": "^5.0.2"
-  },
   "engines": {
     "node": ">=16"
   },

@@ -1,5 +1,3 @@
-#!/usr/bin/env node --loader=ts-node/esm --no-warnings
-
 import { globSync } from 'glob'
 import { ConfigOptionBase, isConfigOption } from 'jackspeak'
 import { mkdirp } from 'mkdirp'

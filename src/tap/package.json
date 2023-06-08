@@ -34,14 +34,6 @@
     "@tapjs/core": ">=0.0.0-0",
     "@tapjs/run": ">=0.0.0-0"
   },
-  "devDependencies": {
-    "@types/node": "^20.1.5",
-    "prettier": "^2.8.7",
-    "sync-content": "^1.0.1",
-    "ts-node": "^10.9.1",
-    "typedoc": "^0.24.7",
-    "typescript": "^5.0.2"
-  },
   "keywords": [
     "assert",
     "tap",

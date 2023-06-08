@@ -63,13 +63,6 @@
     ],
     "ts": false
   },
-  "devDependencies": {
-    "@types/node": "^20.1.5",
-    "prettier": "^2.8.7",
-    "ts-node": "^10.9.1",
-    "typedoc": "^0.24.7",
-    "typescript": "^5.0.2"
-  },
   "engines": {
     "node": ">=14"
   },

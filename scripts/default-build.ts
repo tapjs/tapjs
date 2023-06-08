@@ -1,4 +1,3 @@
-#!/usr/bin/env node --loader=ts-node/esm --no-warnings
 import { spawnSync } from 'child_process'
 import { readFileSync, writeFileSync } from 'fs'
 import { resolve } from 'path'
@@ -8,7 +7,8 @@ const builtins = readFileSync(
   'utf8'
 )
   .trim()
-  .split('\n').map(p => `@tapjs/${p}`)
+  .split('\n')
+  .map(p => `@tapjs/${p}`)
 
 console.log('building Test class with:')
 console.log(builtins.map(b => `  ${b}`).join('\n'))
@@ -33,14 +33,13 @@ writeFileSync(
 
 const prepare = (...p: string[]) => {
   const res = spawnSync(
-    'npm',
+    'npx',
     [
-      'run',
+      'nx',
+      'run-many',
+      '-t',
       'prepare',
-      ...p.reduce(
-        (s: string[], b) => s.concat('-w', b),
-        []
-      ),
+      '--projects={' + p.join(',') + '}',
     ],
     { stdio: 'inherit' }
   )
@@ -48,8 +47,7 @@ const prepare = (...p: string[]) => {
 }
 
 // make sure core and then all the builtins are built
-prepare('src/core')
-prepare(...builtins)
+prepare('src/core', ...builtins)
 
 spawnSync(build, builtins, {
   stdio: 'inherit',

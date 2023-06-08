@@ -4,7 +4,7 @@
   "description": "the pluggable Test class for node-tap",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "bin": {
-    "generate-tap-test-class": "./scripts/build.ts"
+    "generate-tap-test-class": "./scripts/build.mjs"
   },
   "main": "./dist/cjs/index.js",
   "module": "./dist/mjs/index.js",
@@ -32,13 +32,13 @@
   "scripts": {
     "snap": "c8 tap",
     "test": "c8 tap",
-    "prepare": "tsc -p tsconfig.json && tsc -p tsconfig-esm.json && bash fixup.sh",
-    "pretest": "npm run prepare",
-    "presnap": "npm run prepare",
+    "build": "tsc -p tsconfig.json && tsc -p tsconfig-esm.json && bash fixup.sh",
+    "pretest": "npm run build",
+    "presnap": "npm run build",
     "format": "prettier --write . --loglevel warn",
     "preversion": "npm test",
     "postversion": "npm publish",
-    "prepublishOnly": "git push origin --follow-tags",
+    "prepublishOnly": "npm run build && git push origin --follow-tags",
     "typedoc": "typedoc --tsconfig tsconfig-esm.json ./src/*.ts"
   },
   "dependencies": {
@@ -61,11 +61,6 @@
     "bracketSameLine": true,
     "arrowParens": "avoid",
     "endOfLine": "lf"
-  },
-  "devDependencies": {
-    "@types/node": "^20.1.5",
-    "prettier": "^2.6.2",
-    "typedoc": "^0.24.7"
   },
   "license": "BlueOak-1.0.0",
   "repository": "https://github.com/tapjs/tapjs"

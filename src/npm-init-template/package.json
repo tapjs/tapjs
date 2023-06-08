@@ -49,19 +49,6 @@
     "arrowParens": "avoid",
     "endOfLine": "lf"
   },
-  "devDependencies": {
-    "@npmcli/promise-spawn": "^6.0.2",
-    "@types/mustache": "^4.2.2",
-    "@types/node": "^20.1.5",
-    "@types/npmcli__promise-spawn": "^6.0.0",
-    "minipass": "^6.0.2",
-    "prettier": "^2.8.6",
-    "sync-content": "^1.0.1",
-    "tap": ">=18.0.0-0",
-    "ts-node": "^10.9.1",
-    "typedoc": "^0.24.7",
-    "typescript": "^5.0.2"
-  },
   "engines": {
     "node": ">=16"
   },

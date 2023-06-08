@@ -52,13 +52,6 @@
     "@esbuild-kit/cjs-loader": "^2.4.2",
     "@esbuild-kit/esm-loader": "^2.5.5"
   },
-  "devDependencies": {
-    "@types/node": "^20.1.5",
-    "prettier": "^2.8.7",
-    "ts-node": "^10.9.1",
-    "typedoc": "^0.24.7",
-    "typescript": "^5.0.2"
-  },
   "engines": {
     "node": ">=16.17"
   }

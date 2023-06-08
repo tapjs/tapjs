@@ -60,14 +60,6 @@
     "yaml": "^2.3.0",
     "yaml-types": "^0.3.0"
   },
-  "devDependencies": {
-    "@types/node": "^20.2.3",
-    "prettier": "^2.7.1",
-    "tap": "^18.0.0-0",
-    "ts-node": "^10.9.1",
-    "typedoc": "^0.24.7",
-    "typescript": "^5.0.4"
-  },
   "files": [
     "dist"
   ],

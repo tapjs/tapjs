@@ -1,0 +1,73 @@
+{
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "nx-cloud",
+      "options": {
+        "cacheableOperations": [
+          "preversion",
+          "prepare",
+          "pretest",
+          "presnap",
+          "test",
+          "snap",
+          "format",
+          "typedoc"
+        ],
+        "accessToken": "ZWFiM2M5NWUtMTgyNS00YTg5LTgyYjAtMDFhYjExZWNiZjg0fHJlYWQtd3JpdGU="
+      }
+    }
+  },
+  "targetDefaults": {
+    "build": {
+      "dependsOn": [
+        "^prepare"
+      ],
+      "outputs": [
+        "{projectRoot}/dist"
+      ]
+    },
+    "prepare": {
+      "dependsOn": [
+        "^prepare"
+      ],
+      "outputs": [
+        "{projectRoot}/dist"
+      ]
+    },
+    "pretest": {
+      "dependsOn": [
+        "^prepare"
+      ],
+      "outputs": [
+        "{projectRoot}/dist"
+      ]
+    },
+    "presnap": {
+      "dependsOn": [
+        "^prepare"
+      ],
+      "outputs": [
+        "{projectRoot}/dist"
+      ]
+    },
+    "test": {
+      "outputs": [
+        "{projectRoot}/.tap"
+      ]
+    },
+    "snap": {
+      "outputs": [
+        "{projectRoot}/tap-snapshots",
+        "{projectRoot}/.tap"
+      ]
+    },
+    "typedoc": {
+      "outputs": [
+        "{projectRoot}/docs"
+      ]
+    }
+  },
+  "affected": {
+    "defaultBase": "main"
+  }
+}

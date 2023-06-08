@@ -45,19 +45,13 @@
     "arrowParens": "avoid",
     "endOfLine": "lf"
   },
-  "tap": {
-    "coverage": false,
-    "node-arg": [
-      "--no-warnings",
-      "--loader",
-      "ts-node/esm"
-    ],
-    "ts": false
-  },
   "dependencies": {
     "@tapjs/config": ">=0.0.0-0",
     "@tapjs/core": ">=0.0.0-0",
     "@tapjs/processinfo": "2.2",
+    "@tapjs/reporter": ">=0.0.0-0",
+    "@tapjs/spawn": ">=0.0.0-0",
+    "@tapjs/stdin": ">=0.0.0-0",
     "@tapjs/test": ">=0.0.0-0",
     "c8": "^7.13.0",
     "foreground-child": "^3.1.1",
@@ -66,15 +60,8 @@
     "mkdirp": "^3.0.1",
     "opener": "^1.5.2",
     "path-scurry": "^1.9.2",
-    "rimraf": "^5.0.0"
-  },
-  "devDependencies": {
-    "@types/node": "^20.1.5",
-    "@types/opener": "^1.4.0",
-    "prettier": "^2.8.6",
-    "ts-node": "^10.9.1",
-    "typedoc": "^0.24.7",
-    "typescript": "^5.0.2"
+    "rimraf": "^5.0.0",
+    "tap-yaml": "^2.1.0"
   },
   "engines": {
     "node": ">=14"

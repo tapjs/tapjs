@@ -6,11 +6,16 @@ set -e
 # install all the dev deps from the root package
 npm install --no-workspaces
 
-# manually build and link the internal subdeps
+# TODO: ln -s all packages into place.
+# then run nx run-many prepare
+# We don't have to build @tapjs/test, because it's already there
+# then, do the build script
+
+# manually build and link all workspace packages
 mkdir -p node_modules/@tapjs
 
 linkpkg () {
-  src=src/$1
+  src=$1
   pkg=$(wspkg "$1")
   rm -rf node_modules/"$pkg"
   if [[ "$pkg" = @*/* ]]; then
@@ -20,37 +25,13 @@ linkpkg () {
   fi
 }
 wspkg () {
-  node -p "require('./src/$1/package.json').name"
+  node -p "require('./$1/package.json').name"
 }
 
-# link @tapjs/test, but do not build
-linkpkg test
-
-internaldeps=(
-  yaml
-  parser
-  stack
-  tcompare
-  core
-  after
-  config
-  npm-init-template
-)
-for d in "${internaldeps[@]}"; do
-  linkpkg "$d"
-  npm run prepare -w "src/$d"
+for i in src/*; do
+  linkpkg "$i"
 done
 
-# build all default plugins
-defaultplugins=($(cat ./scripts/default-plugins.txt))
-for d in "${defaultplugins[@]}"; do
-  linkpkg "$d"
-  npm run prepare -w "src/$d"
-done
-
-# run requires reporter, need to build that next, but with its deps
-linkpkg reporter
-npm run prepare -w src/reporter
-
+nx run-many --target=prepare
 node --loader=ts-node/esm --no-warnings scripts/default-build.ts
-npm install --workspaces
+# npm install
