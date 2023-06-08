@@ -3,14 +3,10 @@ name: ci
 on:
   push:
     paths-ignore:
-      - 'docs/**'
-      - 'docs-content/**'
-      - '*.md'
+      - '**/*.md'
   pull_request:
     paths-ignore:
-      - 'docs/**'
-      - 'docs-content/**'
-      - '*.md'
+      - '**/*.md'
 
 jobs:
   test:
@@ -18,7 +14,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x, 18.x, 19.x]
+        node-version: [16.x, 18.x]
         os: [ubuntu-latest]
 
     steps:
