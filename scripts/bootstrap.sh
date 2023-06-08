@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-set -x
+if [ "$DEBUG" = "1" ]; then
+  set -x
+fi
 set -e
 
 # install all the dev deps from the root package
@@ -17,6 +19,9 @@ mkdir -p node_modules/@tapjs
 linkpkg () {
   src=$1
   pkg=$(wspkg "$1")
+  if [ -h node_modules/"$pkg" ]; then
+    return 0
+  fi
   rm -rf node_modules/"$pkg"
   if [[ "$pkg" = @*/* ]]; then
     ln -s ../../"$src" node_modules/"$pkg"

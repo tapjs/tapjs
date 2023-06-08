@@ -51,17 +51,6 @@
     "ts-node": "^10.9.1",
     "typescript": "^5.0.2"
   },
-  "prettier": {
-    "semi": false,
-    "printWidth": 60,
-    "tabWidth": 2,
-    "useTabs": false,
-    "singleQuote": true,
-    "jsxSingleQuote": false,
-    "bracketSameLine": true,
-    "arrowParens": "avoid",
-    "endOfLine": "lf"
-  },
   "license": "BlueOak-1.0.0",
   "repository": "https://github.com/tapjs/tapjs"
 }

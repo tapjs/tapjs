@@ -37,26 +37,6 @@
     "format": "prettier --write . --loglevel warn",
     "typedoc": "typedoc --tsconfig tsconfig-esm.json ./src/*.ts"
   },
-  "prettier": {
-    "semi": false,
-    "printWidth": 75,
-    "tabWidth": 2,
-    "useTabs": false,
-    "singleQuote": true,
-    "jsxSingleQuote": false,
-    "bracketSameLine": true,
-    "arrowParens": "avoid",
-    "endOfLine": "lf"
-  },
-  "tap": {
-    "coverage": false,
-    "node-arg": [
-      "--no-warnings",
-      "--loader",
-      "ts-node/esm"
-    ],
-    "ts": false
-  },
   "dependencies": {
     "tcompare": "6",
     "trivial-deferred": "^2.0.0"

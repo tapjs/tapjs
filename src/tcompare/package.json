@@ -28,17 +28,6 @@
   "dependencies": {
     "diff": "^5.1.0"
   },
-  "prettier": {
-    "semi": false,
-    "printWidth": 60,
-    "tabWidth": 2,
-    "useTabs": false,
-    "singleQuote": true,
-    "jsxSingleQuote": false,
-    "bracketSameLine": true,
-    "arrowParens": "avoid",
-    "endOfLine": "lf"
-  },
   "scripts": {
     "snap": "tap",
     "test": "tap",
@@ -52,9 +41,6 @@
     "typedoc": "typedoc ./src/*.ts"
   },
   "tap": {
-    "test-env": [
-      "LC_ALL=sk"
-    ],
     "coverage-map": "map.js"
   },
   "engines": {

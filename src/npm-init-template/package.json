@@ -38,17 +38,6 @@
     "format": "prettier --write . --loglevel warn",
     "typedoc": "typedoc --tsconfig tsconfig-esm.json ./src/*.ts"
   },
-  "prettier": {
-    "semi": false,
-    "printWidth": 75,
-    "tabWidth": 2,
-    "useTabs": false,
-    "singleQuote": true,
-    "jsxSingleQuote": false,
-    "bracketSameLine": true,
-    "arrowParens": "avoid",
-    "endOfLine": "lf"
-  },
   "engines": {
     "node": ">=16"
   },

@@ -37,17 +37,6 @@
     "type": "git",
     "url": "git+https://github.com/tapjs/tap-yaml.git"
   },
-  "prettier": {
-    "semi": false,
-    "printWidth": 80,
-    "tabWidth": 2,
-    "useTabs": false,
-    "singleQuote": true,
-    "jsxSingleQuote": false,
-    "bracketSameLine": true,
-    "arrowParens": "avoid",
-    "endOfLine": "lf"
-  },
   "keywords": [
     "tap",
     "yaml",

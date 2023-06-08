@@ -50,21 +50,6 @@
     "dist",
     "bin"
   ],
-  "prettier": {
-    "semi": false,
-    "printWidth": 80,
-    "tabWidth": 2,
-    "useTabs": false,
-    "singleQuote": true,
-    "jsxSingleQuote": false,
-    "bracketSameLine": true,
-    "arrowParens": "avoid",
-    "endOfLine": "lf"
-  },
-  "eslintIgnore": [
-    "/node_modules",
-    "/dist"
-  ],
   "tap": {
     "include": "test/*.ts",
     "coverage-map": "map.js"
