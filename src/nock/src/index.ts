@@ -23,7 +23,8 @@ export type NockMethod = ((
   enableNetConnect: (typeof nock)['enableNetConnect']
   disableNetConnect: (typeof nock)['disableNetConnect']
   snapshot: (
-    options?: NockRecorderOptionsMaybe & NockRecorderLoadOptions
+    options?: NockRecorderOptionsMaybe &
+      NockRecorderLoadOptions
   ) => nock.Scope[]
 }
 
@@ -126,19 +127,31 @@ export class TapNock {
     while (parent) {
       if (TapNock.#refs.has(parent)) {
         return true
+        /* c8 ignore start */
       }
+      // it's *almost* impossible to hit this, since it would mean that
+      // somehow a child test was created outside of the normal subtest
+      // creation, while ITS child was created as a normal plugged-in Test,
+      // but it is theoretically possible
       parent = parent.parent
     }
+    /* c8 ignore stop */
     return false
   }
 
   #snapshot(
-    options: NockRecorderOptionsMaybe & NockRecorderLoadOptions = {}
+    options: NockRecorderOptionsMaybe &
+      NockRecorderLoadOptions = {}
   ): nock.Scope[] {
+    // safety precaution
+    /* c8 ignore start */
     if (!this.#t.t.pluginLoaded(plugin)) {
       throw new Error('nock plugin not loaded')
     }
+    /* c8 ignore stop */
     const recorder = this.#getRecorder()
+    // safety precaution
+    /* c8 ignore start */
     if (!recorder) {
       const er = new Error(
         'Cannot use t.nock.snapshot() without the @tapjs/snapshot plugin'
@@ -146,6 +159,7 @@ export class TapNock {
       Error.captureStackTrace(er, this.nock.snapshot)
       throw er
     }
+    /* c8 ignore stop */
     if (
       this.#t.t.pluginLoaded(SnapshotPlugin) &&
       this.#t.t.writeSnapshot
@@ -161,13 +175,19 @@ export class TapNock {
   }
 
   #getRecorder(): NockRecorder | undefined {
+    // safety precaution
+    /* c8 ignore start */
     if (!this.#t.t.pluginLoaded(SnapshotPlugin)) {
       return undefined
     }
+    /* c8 ignore stop */
     let t = this.#t
     let tn: TapNock = this
     let tnp: TapNock | undefined = this
-    while (t.parent && (tnp = TapNock.#refs.get(t.parent))) {
+    while (
+      t.parent &&
+      (tnp = TapNock.#refs.get(t.parent))
+    ) {
       t = t.parent
       tn = tnp
     }

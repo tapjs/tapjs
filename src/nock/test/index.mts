@@ -24,7 +24,7 @@ t.test('disableNetConnect/enableNetConnect work', async t => {
   server.listen({ host: '127.0.0.1', port: 65100 })
 
   // disable network connections
-  nock.disableNetConnect()
+  t.nock.disableNetConnect()
 
   t.teardown(() => {
     // stop the server

@@ -42,11 +42,16 @@ class NockRecorder {
     caller: Function | ((...a: any[]) => any)
   ) {
     this.#test = test
+
+    // safety precaution.
+    /* c8 ignore start */
     if (!this.#test.t.pluginLoaded(SnapshotPlugin)) {
       throw new Error(
         '@tapjs/nock: cannot record if snapshots are not enabled'
       )
     }
+    /* c8 ignore stop */
+
     // used for findCallLocation within errors
     this.#caller = caller
     // the snapshotFile for us will be the test's snapshot file with

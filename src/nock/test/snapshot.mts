@@ -95,6 +95,7 @@ t.test(
     const readTest = new Test({
       name: 'read snapshot',
       writeSnapshot: false,
+      snapshotFile: sf,
     }).applyPlugin(plugin)
     t.throws(() => readTest.nock.snapshot(), {
       message: /Missing snapshot data for test/,
