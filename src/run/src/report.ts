@@ -31,6 +31,7 @@ export const report = async (
   )
   if (!ok) {
     tap().comment('No coverage generated')
+    process.exitCode = 1
     return
   }
 
