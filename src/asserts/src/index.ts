@@ -48,11 +48,17 @@ export type ErrorNameMatch = {
   [k: string]: any
 }
 
+export type ErrorCodeMatch = {
+  code: string | RegExp
+  [k: string]: any
+}
+
 export type ErrorMatch =
   | Error
   | typeof Error
   | ErrorMessageMatch
   | ErrorNameMatch
+  | ErrorCodeMatch
   | RegExp
 
 export type ThrowsArgs =
