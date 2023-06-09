@@ -113,7 +113,7 @@ export class Filter {
   }
 }
 
-export const plugin: TapPlugin<Filter, FilterOptions> = (t, opts = {}) =>
+export const plugin: TapPlugin<Filter, FilterOptions> = (t, opts) =>
   new Filter(t, opts)
 
 export const config = {

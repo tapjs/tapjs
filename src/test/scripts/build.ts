@@ -48,9 +48,8 @@ const hasLoader = new Map<string, string>()
 const signature = plugins
   .sort((a, b) => a.localeCompare(b, 'en'))
   .join('\n')
-const signatureCode = `export const signature = ${JSON.stringify(
-  signature
-)}\n`
+const signatureCode = `export const signature = \`${signature}\`
+`
 const configs = new Map<
   string,
   {
@@ -126,31 +125,27 @@ const pluginNames = plugins.map(p => {
   return name
 })
 
-const pluginImport =
-  plugins
-    .map(
-      (p, i) =>
-        `import * as _${
-          pluginNames[i]
-        } from ${JSON.stringify(p)}\n`
-    )
-    .join('') +
-  [...hasPlugin.values()]
-    .map(name => `export const ${name} = _${name}.plugin\n`)
-    .join('')
+const pluginImport = plugins
+  .map(
+    (p, i) =>
+      `import * as ${pluginNames[i]} from ${JSON.stringify(
+        p
+      )}\n`
+  )
+  .join('')
 
 const pluginsConfig = (() => {
   let code = `export const config = <C extends ConfigSet>(jack: Jack<C>) => `
   if (!hasConfig.size) return code + 'jack\n'
 
   code += '{\n'
-  let c = 0
   for (const [p, name] of hasConfig.entries()) {
+    let c = 0
     for (const [field, cfg] of Object.entries(
       configs.get(p) || {}
     )) {
       const jf = JSON.stringify(field)
-      code += `  const config_${c} = _${name}.config[${jf}]\n`
+      code += `  const config_${name}_${c} = ${name}.config[${jf}]\n`
       const t = JSON.stringify(cfg.type)
       const m = JSON.stringify(!!cfg.multiple)
       const msg = `Invalid config option ${jf} defined in plugin: ${p}`
@@ -158,7 +153,7 @@ const pluginsConfig = (() => {
         throw new Error(msg)
       }
       const mc = JSON.stringify(msg)
-      code += `  if (!isConfigOption(config_${c}, ${t}, ${m})) {\n`
+      code += `  if (!isConfigOption(config_${name}_${c}, ${t}, ${m})) {\n`
       code += `    throw new Error(${mc})\n`
       code += '  }\n'
       c++
@@ -167,9 +162,9 @@ const pluginsConfig = (() => {
 
   // now ts should know that they're all legit, and we've verified
   // here as well, so the build would fail if they weren't.
-  c = 0
   code += '  return jack\n'
-  for (const p of hasConfig.keys()) {
+  for (const [p, name] of hasConfig.entries()) {
+    let c = 0
     const fp = `From plugin: ${p}`
     code += `    .heading(${JSON.stringify(fp)})\n`
     for (const [field, cfg] of Object.entries(
@@ -188,7 +183,7 @@ const pluginsConfig = (() => {
           : cfg.multiple
           ? 'optList'
           : 'opt'
-      code += `    .${fn}({[${jf}]: config_${c++}})\n`
+      code += `    .${fn}({[${jf}]: config_${name}_${c++}})\n`
     }
   }
 
@@ -197,53 +192,31 @@ const pluginsConfig = (() => {
   return code
 })()
 
-const pluginsCode = `const plugins: PI[] = [
+const pluginsCode = `const plugins = () => {
+  if (plugins_) return plugins_
+  return (plugins_ = [
 ${[...hasPlugin.values()]
-  .map(name => `  ${name},\n`)
-  .join('')}]
-export const pluginsLoaded = new Map<string, PI>([
+  .map(name => `    ${name}.plugin,\n`)
+  .join('')}  ])
+}
+
+const pluginsLoaded = () => {
+  if (pluginsLoaded_) return pluginsLoaded_
+  return (pluginsLoaded_ = new Map<string, PI>([
 ${[...hasPlugin.values()]
   .map(
     name =>
-      `  ['${name.substring('Plugin_'.length)}', ${name}],`
+      `    ['${name.substring(
+        'Plugin_'.length
+      )}', ${name}.plugin],`
   )
   .join('\n')}
-])
+  ]))
+}
 
-type Plug =
-  | TestBase
-  | { t: Test }
-${[...hasPlugin.values()]
-  .map(name => `  | ReturnType<typeof ${name}>\n`)
-  .join('')}
-type PlugKeys =
-  | keyof TestBase
-  | 't'
-${[...hasPlugin.values()]
-  .map(name => `  | keyof ReturnType<typeof ${name}>\n`)
-  .join('')}`
-
-const opts = `type SecondParam<
-  T extends [any] | [any, any],
-> = T extends [any, any] ? T[1] : unknown
-
-${[...hasPlugin.values()]
-  .map(
-    name =>
-      `export type ${name}_Opts = SecondParam<
-  Parameters<typeof ${name}>
->\n`
-  )
-  .join('')}
-export type TestOpts = TestBaseOpts${[...hasPlugin.values()]
-  .map(name => `\n  & ${name}_Opts`)
-  .join('')}
-`
-
-const testInterface = `type TTest = TestBase
-${[...hasPlugin.values()]
-  .map(name => `  & ReturnType<typeof ${name}>\n`)
-  .join('')}
+type PluginSet = [${[...hasPlugin.values()]
+  .map(name => `  typeof ${name}.plugin,\n`)
+  .join('')}]
 `
 
 const pluginLoaders = `export const loaders = ${JSON.stringify(
@@ -260,12 +233,16 @@ const swapTag = (
 ): string => {
   const st = '//{{' + tag + ' START}}\n'
   const et = '//{{' + tag + ' END}}\n'
-  const start = src.indexOf(st)
+  const start = src.indexOf(st) + st.length
   const end = src.indexOf(et)
+  const mid = src.substring(start, end)
   return (
     src.substring(0, start) +
+    // if it has something other than comments, include it
+    (mid.replace(/\s*^\/\/.*\n/gm, '').trim() &&
+      mid.trimEnd().replace(/^/gm, '// ') + '\n') +
     code +
-    src.substring(end + et.length)
+    src.substring(end)
   )
 }
 
@@ -283,13 +260,11 @@ const swapTags = (
 writeFileSync(
   out,
   swapTags(template, {
-    'HEADER COMMENT': `// This file is automatically generated, please do not edit\n`,
+    'HEADER COMMENT': `// This file is automatically generated, edits will be lost on rebuild\n`,
     'PLUGIN IMPORT': pluginImport,
     'PLUGINS CODE': pluginsCode,
     'PLUGINS CONFIG': pluginsConfig,
-    OPTS: opts,
     'PLUGIN SIGNATURE': signatureCode,
-    'TEST INTERFACE': testInterface,
     LOADERS: pluginLoaders,
   })
 )
