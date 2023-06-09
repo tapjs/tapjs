@@ -28,7 +28,7 @@ writeFileSync(
     builtins,
     null,
     2
-  )}\n`
+  ).replace(/"/g, `'`).replace(/'\n\]/, `',\n]`)}\n`
 )
 
 const prepare = (...p: string[]) => {
