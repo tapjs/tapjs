@@ -11,7 +11,6 @@ const alwaysExcludeNames = [
   '.hg',
   'node_modules',
   'tap-snapshots',
-  'tap-testdir-*',
 ]
 
 const excludeEntry = (e: string) =>
@@ -21,11 +20,11 @@ const alwaysExcludePattern = `**/@(${alwaysExcludeNames.join('|')})/**`
 
 const defaultInclude =
   '**/{' +
-  '@(test*(s)|__test*(s)__)/**/*,' +
-  '*.@(test*(s)|spec),' +
-  'test*(s)' +
-  '}.@([mc]js|[jt]s*(x))'
-const dirInclude = '**/*.@([mc]js|[jt]s*(x))'
+  '@(test?(s)|__test?(s)__)/**/*,' +
+  '*.@(test?(s)|spec),' +
+  'test?(s)' +
+  '}.@([mc][jt]s|[jt]s?(x))'
+const dirInclude = '**/*.@([mc][jt]s|[jt]s?(x))'
 
 // --save=<file>
 //    only run the files in the list, write failures back to it.

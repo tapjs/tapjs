@@ -441,10 +441,10 @@ export default jack({
       hint: 'pattern',
       default:
         '**/{' +
-        '@(test*(s)|__test*(s)__)/**/*,' +
-        '*.@(test*(s)|spec),' +
-        'test*(s)' +
-        '}.@([mc]js|[jt]s*(x))',
+        '@(test?(s)|__test?(s)__)/**/*,' +
+        '*.@(test?(s)|spec),' +
+        'test?(s)' +
+        '}.@([mc][jt]s|[jt]s?(x))',
       description: `A glob expression pattern indicating tests to run if no
                     positional arguments are provided to the 'tap run' command.
 
