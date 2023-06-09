@@ -1,8 +1,7 @@
 /node_modules
-/src/*/node_modules
+/src/*/node_modules/**
 /src/*/.tap
-!/src/test/node_modules
-/src/*/node_modules/.cache
+!/src/test/node_modules/@tapjs/.test-built
 /src/*/docs
 /src/*/dist
 !/src/test/dist
@@ -10,3 +9,4 @@
 !/src/after/dist
 /tap-snapshots
 /.tap
+/src/*/.tap
