@@ -5,9 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[
-  `test/basic.ts > TAP > arthur: set cli options > stderr 1`
-] = `
+exports[`test/basic.ts > TAP > arthur: set cli options > stderr 1`] = `
 after first {
   answer: 'an african or european swallow?',
   blerp: 'blerp',
@@ -27,16 +25,18 @@ starting build {
   question: 'What is the air speed velocity of an unladen swallow?'
 }
 done
-
 `
 
-exports[
-  `test/basic.ts > TAP > arthur: set cli options > stdout 1`
-] = `
+exports[`test/basic.ts > TAP > arthur: set cli options > stdout 1`] = `
 What is your name? What is your quest? 
-
 build complete, running commands in arthur-king-of-the-britons-i-seek-the-holy-grail
-[ 'package.json', 'quest.html', 'raw.txt', 'src' ]
+[
+  'package.json',
+  'quest.html',
+  'raw.txt',
+  'some-random-extension.extension',
+  'src'
+]
 [ 'index.ts', 'noextension', 'other-module.js' ]
 {
   "name": "Arthur, King of the Britons",
@@ -57,12 +57,9 @@ build complete, running commands in arthur-king-of-the-britons-i-seek-the-holy-g
 </body>
 name = Arthur, King of the Britons
 export default "Arthur, King of the Britons"
-
 `
 
-exports[
-  `test/basic.ts > TAP > galahad: accept default (to great peril) > stderr 1`
-] = `
+exports[`test/basic.ts > TAP > galahad: accept default (to great peril) > stderr 1`] = `
 after first { name: 'Sir Galahad of Camelot' }
 after second {
   name: 'Sir Galahad of Camelot',
@@ -71,24 +68,14 @@ after second {
 {CWD}/test/fixture/index.mjs:##
   throw new Error('AAAHHHH!!!!')
         ^
-
 Error: AAAHHHH!!!!
-
-
-
-Node.js v18.16.0
-
 `
 
-exports[
-  `test/basic.ts > TAP > galahad: accept default (to great peril) > stdout 1`
-] = `
+exports[`test/basic.ts > TAP > galahad: accept default (to great peril) > stdout 1`] = `
 What is your name? What is your quest? 
 `
 
-exports[
-  `test/basic.ts > TAP > lancelot: basic init script behavior > stderr 1`
-] = `
+exports[`test/basic.ts > TAP > lancelot: basic init script behavior > stderr 1`] = `
 after first { includeExtra: 'includeExtra', name: 'Sir Lancelot of Camelot' }
 after second {
   includeExtra: 'includeExtra',
@@ -103,16 +90,19 @@ starting build {
   answer: 'blue'
 }
 done
-
 `
 
-exports[
-  `test/basic.ts > TAP > lancelot: basic init script behavior > stdout 1`
-] = `
+exports[`test/basic.ts > TAP > lancelot: basic init script behavior > stdout 1`] = `
 What is your name? What is your quest? What is your favorite color? (blue) 
-
 build complete, running commands in sir-lancelot-of-camelot-to-seek-the-holy-grail
-[ 'extra.file', 'package.json', 'quest.html', 'raw.txt', 'src' ]
+[
+  'extra.file',
+  'package.json',
+  'quest.html',
+  'raw.txt',
+  'some-random-extension.extension',
+  'src'
+]
 [ 'index.ts', 'noextension', 'other-module.js' ]
 {
   "name": "Sir Lancelot of Camelot",
@@ -133,5 +123,4 @@ build complete, running commands in sir-lancelot-of-camelot-to-seek-the-holy-gra
 </body>
 name = Sir Lancelot of Camelot
 export default "Sir Lancelot of Camelot"
-
 `

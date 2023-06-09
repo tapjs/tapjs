@@ -7,21 +7,20 @@ import { fileURLToPath } from 'url'
 import { Init } from '../dist/mjs/index.js'
 
 // filter out node's --loader warnings
+const loaderLine =
+  /is an experimental feature|to show where the warning was created/
+const versionLine = /Node\.js v\d+\.\d+\.\d+/
 t.cleanSnapshot = s =>
   s
     .split('\n')
-    .filter(
-      l =>
-        !/is an experimental feature|to show where the warning was created/.test(
-          l
-        )
-    )
+    .filter(l => !loaderLine.test(l) && !versionLine.test(l) && l.trim())
     .join('\n')
     .replace(
       /file:\/\/.*?test\/fixture\/index\.mjs:[0-9]+$/gm,
       '{CWD}/test/fixture/index.mjs:##'
     )
     .replace(/^    at .*$/gm, '')
+    .replace(/\n+$/, '')
 
 const node = process.execPath
 const fixture = resolve(
