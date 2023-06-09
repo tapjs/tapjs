@@ -5,9 +5,9 @@ import { Box, Text } from 'ink'
 import React, { FC } from 'react'
 
 // a non-paren part followed by 0 or 1 or 2 parened parts
-const re = /^([^(]+)( \([^)]+\))?( \([^)]+\))?$/
+const re = /^([^(]+)(?: (\([^)]+\)))?(?: (\([^)]+\)))?$/
 export const Stack: FC<{ stack?: string }> = ({ stack }) => {
-  if (!stack) return <></>
+  if (!stack?.trim()) return <></>
 
   return (
     <Box flexDirection="column">
@@ -19,14 +19,18 @@ export const Stack: FC<{ stack?: string }> = ({ stack }) => {
           // don't match, oh well
           if (!p)
             return (
-              <Text dimColor key={key}>
-                {line}
-              </Text>
+              <Box overflow="visible" key={key}>
+                <Text dimColor>{line}</Text>
+              </Box>
             )
           if (p[3]) {
             // got two paren bits, then the first and last are what we want
             return (
-              <Box key={key}>
+              <Box
+                key={key}
+                gap={1}
+                overflow="visible"
+                flexWrap="wrap">
                 <Text dimColor>{p[1]}</Text>
                 <Text dimColor>{p[3]}</Text>
               </Box>
@@ -34,7 +38,7 @@ export const Stack: FC<{ stack?: string }> = ({ stack }) => {
           } else if (p[2] && /:\d+:\d+$/.test(p[1])) {
             // got one paren bit, if the first is the generated, hide it
             return (
-              <Box key={key}>
+              <Box key={key} overflow="visible">
                 <Text dimColor>{unparen(p[2])}</Text>
               </Box>
             )
