@@ -5,7 +5,9 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts > TAP > yamlish-that-is-not-yaml.tap > bail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > yamlish-that-is-not-yaml.tap > bail > parsed 1`
+] = `
 Array [
   Array [
     "version",
@@ -115,7 +117,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > yamlish-that-is-not-yaml.tap > bail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > yamlish-that-is-not-yaml.tap > bail > stringified 1`
+] = `
 TAP version 13
 not ok 1 - expected yaml, got a sea turtle
   ---
@@ -149,7 +153,9 @@ Bail out! expected yaml, got a sea turtle
 
 `
 
-exports[`test/parse-stringify.ts > TAP > yamlish-that-is-not-yaml.tap > bail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > yamlish-that-is-not-yaml.tap > bail > stringified flat 1`
+] = `
 TAP version 13
 not ok 1 - expected yaml, got a sea turtle
   ---
@@ -183,7 +189,9 @@ Bail out! expected yaml, got a sea turtle
 
 `
 
-exports[`test/parse-stringify.ts > TAP > yamlish-that-is-not-yaml.tap > default settings > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > yamlish-that-is-not-yaml.tap > default settings > parsed 1`
+] = `
 Array [
   Array [
     "version",
@@ -297,7 +305,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > yamlish-that-is-not-yaml.tap > default settings > parsed flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > yamlish-that-is-not-yaml.tap > default settings > parsed flat 1`
+] = `
 Array [
   Array [
     "version",
@@ -410,7 +420,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > yamlish-that-is-not-yaml.tap > default settings > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > yamlish-that-is-not-yaml.tap > default settings > stringified 1`
+] = `
 TAP version 13
 not ok 1 - expected yaml, got a sea turtle
   ---
@@ -444,7 +456,9 @@ not ok 1 - expected yaml, got a sea turtle
 
 `
 
-exports[`test/parse-stringify.ts > TAP > yamlish-that-is-not-yaml.tap > default settings > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > yamlish-that-is-not-yaml.tap > default settings > stringified flat 1`
+] = `
 TAP version 13
 not ok 1 - expected yaml, got a sea turtle
   ---
@@ -478,7 +492,9 @@ not ok 1 - expected yaml, got a sea turtle
 
 `
 
-exports[`test/parse-stringify.ts > TAP > yamlish-that-is-not-yaml.tap > strict > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > yamlish-that-is-not-yaml.tap > strict > parsed 1`
+] = `
 Array [
   Array [
     "version",
@@ -621,7 +637,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > yamlish-that-is-not-yaml.tap > strict > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > yamlish-that-is-not-yaml.tap > strict > stringified 1`
+] = `
 TAP version 13
 not ok 1 - expected yaml, got a sea turtle
   ---
@@ -655,7 +673,9 @@ not ok 1 - expected yaml, got a sea turtle
 
 `
 
-exports[`test/parse-stringify.ts > TAP > yamlish-that-is-not-yaml.tap > strict > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > yamlish-that-is-not-yaml.tap > strict > stringified flat 1`
+] = `
 TAP version 13
 not ok 1 - expected yaml, got a sea turtle
   ---
@@ -689,7 +709,9 @@ not ok 1 - expected yaml, got a sea turtle
 
 `
 
-exports[`test/parse-stringify.ts > TAP > yamlish-that-is-not-yaml.tap > strictBail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > yamlish-that-is-not-yaml.tap > strictBail > parsed 1`
+] = `
 Array [
   Array [
     "version",
@@ -828,7 +850,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > yamlish-that-is-not-yaml.tap > strictBail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > yamlish-that-is-not-yaml.tap > strictBail > stringified 1`
+] = `
 TAP version 13
 not ok 1 - expected yaml, got a sea turtle
   ---
@@ -862,7 +886,9 @@ Bail out! expected yaml, got a sea turtle
 
 `
 
-exports[`test/parse-stringify.ts > TAP > yamlish-that-is-not-yaml.tap > strictBail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > yamlish-that-is-not-yaml.tap > strictBail > stringified flat 1`
+] = `
 TAP version 13
 not ok 1 - expected yaml, got a sea turtle
   ---

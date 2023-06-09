@@ -44,7 +44,10 @@ export interface Pragmas {
 
 // TODO: declare event signatures
 
-export class Parser extends EventEmitter implements NodeJS.WritableStream {
+export class Parser
+  extends EventEmitter
+  implements NodeJS.WritableStream
+{
   // TODO: make these actually #private
   private child: Parser | null = null
   private current: Result | null = null
@@ -114,7 +117,8 @@ export class Parser extends EventEmitter implements NodeJS.WritableStream {
 
     this.name = options.name || ''
     this.parent = options.parent || null
-    this.closingTestPoint = (this.parent && options.closingTestPoint) || null
+    this.closingTestPoint =
+      (this.parent && options.closingTestPoint) || null
     this.root = options.parent ? options.parent.root : this
     this.passes = options.passes ? [] : null
     this.level = options.level || 0
@@ -129,7 +133,7 @@ export class Parser extends EventEmitter implements NodeJS.WritableStream {
   }
 
   get fullname(): string {
-    const n:string[] = []
+    const n: string[] = []
     const pn = (this.parent?.fullname ?? '').trim()
     const mn = (this.name || '').trim()
     if (pn) n.push(pn)
@@ -174,7 +178,8 @@ export class Parser extends EventEmitter implements NodeJS.WritableStream {
     }
 
     if (resId && this.pointsSeen.has(res.id)) {
-      res.tapError = 'test point id ' + resId + ' appears multiple times'
+      res.tapError =
+        'test point id ' + resId + ' appears multiple times'
       /* c8 ignore start */
       res.previous = this.pointsSeen.get(res.id) || null
       /* c8 ignore stop */
@@ -184,7 +189,8 @@ export class Parser extends EventEmitter implements NodeJS.WritableStream {
     }
 
     if (this.child) {
-      if (!this.child.closingTestPoint) this.child.closingTestPoint = res
+      if (!this.child.closingTestPoint)
+        this.child.closingTestPoint = res
       this.emitResult()
       // can only bail out here in the case of a child with broken diags
       // anything else would have bailed out already.
@@ -324,7 +330,9 @@ export class Parser extends EventEmitter implements NodeJS.WritableStream {
   processYamlish() {
     /* c8 ignore start */
     if (!this.current) {
-      throw new Error('called processYamlish without a current test point')
+      throw new Error(
+        'called processYamlish without a current test point'
+      )
     }
     /* c8 ignore stop */
     const yamlish = this.yamlish
@@ -334,7 +342,10 @@ export class Parser extends EventEmitter implements NodeJS.WritableStream {
     try {
       diags = yaml.parse(yamlish)
     } catch (er) {
-      this.nonTap(this.yind + '---\n' + yamlish + this.yind + '...\n', true)
+      this.nonTap(
+        this.yind + '---\n' + yamlish + this.yind + '...\n',
+        true
+      )
       return
     }
 
@@ -343,8 +354,14 @@ export class Parser extends EventEmitter implements NodeJS.WritableStream {
     // that come ahead of buffered subtests.
   }
 
-  write(chunk: string | Uint8Array | Buffer, cb?: (...x: any[]) => any): boolean
-  write(chunk: string | Uint8Array | Buffer, encoding?: BufferEncoding): boolean
+  write(
+    chunk: string | Uint8Array | Buffer,
+    cb?: (...x: any[]) => any
+  ): boolean
+  write(
+    chunk: string | Uint8Array | Buffer,
+    encoding?: BufferEncoding
+  ): boolean
   write(
     chunk: string | Uint8Array | Buffer,
     encoding?: BufferEncoding,
@@ -395,7 +412,10 @@ export class Parser extends EventEmitter implements NodeJS.WritableStream {
     encoding?: BufferEncoding,
     cb?: (...a: any[]) => any
   ): this
-  end(chunk?: string | Buffer | Uint8Array, cb?: (...a: any[]) => any): this
+  end(
+    chunk?: string | Buffer | Uint8Array,
+    cb?: (...a: any[]) => any
+  ): this
   end(cb?: (...a: any[]) => any): this
   end(
     chunk?: string | Buffer | Uint8Array | ((...a: any[]) => any),
@@ -422,7 +442,8 @@ export class Parser extends EventEmitter implements NodeJS.WritableStream {
 
     if (this.syntheticBailout && this.level === 0) {
       this.syntheticBailout = false
-      const reason = this.bailedOut === true ? '' : ' ' + this.bailedOut
+      const reason =
+        this.bailedOut === true ? '' : ' ' + this.bailedOut
       this.emit('line', 'Bail out!' + reason + '\n')
     }
 
@@ -441,12 +462,16 @@ export class Parser extends EventEmitter implements NodeJS.WritableStream {
         if (this.buffered) {
           this.planStart = 1
           this.planEnd = 0
-        } else this.plan(1, 0, 'no tests found', '1..0 # no tests found\n')
+        } else
+          this.plan(1, 0, 'no tests found', '1..0 # no tests found\n')
         skipAll = true
       } else {
         this.tapError('no plan', '')
       }
-    } else if (this.ok && this.count !== this.planEnd - this.planStart + 1) {
+    } else if (
+      this.ok &&
+      this.count !== this.planEnd - this.planStart + 1
+    ) {
       this.tapError('incorrect number of tests', '')
     }
 
@@ -465,7 +490,11 @@ export class Parser extends EventEmitter implements NodeJS.WritableStream {
         // but don't repeat these comments if they're already present.
         if (res.plan.end !== res.count) {
           this.emitComment(
-            'test count(' + res.count + ') != plan(' + res.plan.end + ')',
+            'test count(' +
+              res.count +
+              ') != plan(' +
+              res.plan.end +
+              ')',
             false,
             true
           )
@@ -583,7 +612,13 @@ export class Parser extends EventEmitter implements NodeJS.WritableStream {
     if (res.todo) this.todo++
 
     this.emitAssert(res)
-    if (this.bail && !res.ok && !res.todo && !res.skip && !this.bailingOut) {
+    if (
+      this.bail &&
+      !res.ok &&
+      !res.todo &&
+      !res.skip &&
+      !this.bailingOut
+    ) {
       this.maybeChild = null
       const ind = new Array(this.level + 1).join('    ')
       let p: Parser
@@ -603,7 +638,9 @@ export class Parser extends EventEmitter implements NodeJS.WritableStream {
     const maybeBuffered = this.current && this.current.buffered
     const unindentStream = !maybeBuffered && this.maybeChild
     const indentStream =
-      !maybeBuffered && !unindentStream && lineTypes.subtestIndent.test(line)
+      !maybeBuffered &&
+      !unindentStream &&
+      lineTypes.subtestIndent.test(line)
 
     // If we have any other result waiting in the wings, we need to emit
     // that now.  A buffered test emits its test point at the *end* of
@@ -647,7 +684,9 @@ export class Parser extends EventEmitter implements NodeJS.WritableStream {
     }
 
     this.maybeChild = null
-    this.child.name = subtestComment.substring('# Subtest: '.length).trim()
+    this.child.name = subtestComment
+      .substring('# Subtest: '.length)
+      .trim()
 
     // at some point, we may wish to move 100% to preferring
     // the Subtest comment on the parent level.  If so, uncomment
@@ -785,7 +824,11 @@ export class Parser extends EventEmitter implements NodeJS.WritableStream {
     // This allows omitting even parsing the version if the test is
     // an indented child test.  Several parsers get upset when they
     // see an indented version field.
-    if (this.omitVersion && lineTypes.version.test(line) && !this.yind) {
+    if (
+      this.omitVersion &&
+      lineTypes.version.test(line) &&
+      !this.yind
+    ) {
       return
     }
 
@@ -812,7 +855,8 @@ export class Parser extends EventEmitter implements NodeJS.WritableStream {
     }
 
     // just a \n, emit only if we care about whitespace
-    const validLine = this.preserveWhitespace || line.trim() || this.yind
+    const validLine =
+      this.preserveWhitespace || line.trim() || this.yind
     if (line === '\n') return validLine && this.emit('line', line)
 
     // buffered subtest with diagnostics

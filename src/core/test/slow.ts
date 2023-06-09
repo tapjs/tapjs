@@ -8,7 +8,7 @@ t.test('hello', async t => {
     diagnostic: true,
   })
   t.pass('next line indented weirdly', { diagnostic: true })
-                  t.equal(2, 2, { skip: true })
+  t.equal(2, 2, { skip: true })
 })
 
 t.test('this takes a sec', t => {

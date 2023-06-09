@@ -5,7 +5,9 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts > TAP > skip-all-nonempty.tap > bail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > skip-all-nonempty.tap > bail > parsed 1`
+] = `
 Array [
   Array [
     "comment",
@@ -69,21 +71,27 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > skip-all-nonempty.tap > bail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > skip-all-nonempty.tap > bail > stringified 1`
+] = `
 # TAP emitted by Test::More 0.98
 1..1 # SKIP Insufficient positron flux
 ok 1 - found some spare flux in bottom drawer
 
 `
 
-exports[`test/parse-stringify.ts > TAP > skip-all-nonempty.tap > bail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > skip-all-nonempty.tap > bail > stringified flat 1`
+] = `
 # TAP emitted by Test::More 0.98
 1..0 # SKIP Insufficient positron flux
 ok 1 - found some spare flux in bottom drawer
 
 `
 
-exports[`test/parse-stringify.ts > TAP > skip-all-nonempty.tap > default settings > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > skip-all-nonempty.tap > default settings > parsed 1`
+] = `
 Array [
   Array [
     "comment",
@@ -147,7 +155,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > skip-all-nonempty.tap > default settings > parsed flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > skip-all-nonempty.tap > default settings > parsed flat 1`
+] = `
 Array [
   Array [
     "comment",
@@ -210,21 +220,27 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > skip-all-nonempty.tap > default settings > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > skip-all-nonempty.tap > default settings > stringified 1`
+] = `
 # TAP emitted by Test::More 0.98
 1..1 # SKIP Insufficient positron flux
 ok 1 - found some spare flux in bottom drawer
 
 `
 
-exports[`test/parse-stringify.ts > TAP > skip-all-nonempty.tap > default settings > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > skip-all-nonempty.tap > default settings > stringified flat 1`
+] = `
 # TAP emitted by Test::More 0.98
 1..0 # SKIP Insufficient positron flux
 ok 1 - found some spare flux in bottom drawer
 
 `
 
-exports[`test/parse-stringify.ts > TAP > skip-all-nonempty.tap > strict > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > skip-all-nonempty.tap > strict > parsed 1`
+] = `
 Array [
   Array [
     "comment",
@@ -288,21 +304,27 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > skip-all-nonempty.tap > strict > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > skip-all-nonempty.tap > strict > stringified 1`
+] = `
 # TAP emitted by Test::More 0.98
 1..1 # SKIP Insufficient positron flux
 ok 1 - found some spare flux in bottom drawer
 
 `
 
-exports[`test/parse-stringify.ts > TAP > skip-all-nonempty.tap > strict > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > skip-all-nonempty.tap > strict > stringified flat 1`
+] = `
 # TAP emitted by Test::More 0.98
 1..0 # SKIP Insufficient positron flux
 ok 1 - found some spare flux in bottom drawer
 
 `
 
-exports[`test/parse-stringify.ts > TAP > skip-all-nonempty.tap > strictBail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > skip-all-nonempty.tap > strictBail > parsed 1`
+] = `
 Array [
   Array [
     "comment",
@@ -366,14 +388,18 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > skip-all-nonempty.tap > strictBail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > skip-all-nonempty.tap > strictBail > stringified 1`
+] = `
 # TAP emitted by Test::More 0.98
 1..1 # SKIP Insufficient positron flux
 ok 1 - found some spare flux in bottom drawer
 
 `
 
-exports[`test/parse-stringify.ts > TAP > skip-all-nonempty.tap > strictBail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > skip-all-nonempty.tap > strictBail > stringified flat 1`
+] = `
 # TAP emitted by Test::More 0.98
 1..0 # SKIP Insufficient positron flux
 ok 1 - found some spare flux in bottom drawer

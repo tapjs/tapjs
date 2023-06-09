@@ -2,6 +2,7 @@
 /src/*/node_modules
 /src/*/.tap
 !/src/test/node_modules
+/src/*/node_modules/.cache
 /src/*/docs
 /src/*/dist
 !/src/test/dist

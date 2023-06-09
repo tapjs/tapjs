@@ -11,9 +11,7 @@ export class Has extends Same {
   }
 
   isArray() {
-    return (
-      super.isArray() && new Format(this.expect).isArray()
-    )
+    return super.isArray() && new Format(this.expect).isArray()
   }
 
   // just return the entries that exist in the expect object

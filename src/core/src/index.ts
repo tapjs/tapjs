@@ -1,7 +1,4 @@
-import {
-  CallSiteLike,
-  CallSiteLikeJSON,
-} from '@tapjs/stack'
+import { CallSiteLike, CallSiteLikeJSON } from '@tapjs/stack'
 
 export * from './waiter.js'
 export * from './base.js'

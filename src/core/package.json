@@ -41,7 +41,7 @@
     "prepare": "tsc -p tsconfig.json && tsc -p tsconfig-esm.json && bash scripts/fixup.sh",
     "pretest": "npm run prepare",
     "presnap": "npm run prepare",
-    "format": "prettier --write . --loglevel warn",
+    "format": "prettier --write . --loglevel warn --ignore-path ../../.prettierignore --cache",
     "preversion": "npm test",
     "postversion": "npm publish",
     "prepublishOnly": "git push origin --follow-tags",

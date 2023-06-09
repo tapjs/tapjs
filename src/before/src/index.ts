@@ -14,9 +14,7 @@ export class Before {
   before(fn: () => any) {
     this.#t.currentAssert = this.before
     if (this.#t.printedResult) {
-      throw new Error(
-        't.before() called after starting tests'
-      )
+      throw new Error('t.before() called after starting tests')
     }
 
     if (this.#t.occupied) {
@@ -48,6 +46,4 @@ export const plugin: TapPlugin<Before> = (t: TestBase) =>
   new Before(t)
 
 const isPromise = (p: any): p is Promise<any | void> =>
-  !!p &&
-  typeof p === 'object' &&
-  typeof p.then === 'function'
+  !!p && typeof p === 'object' && typeof p.then === 'function'

@@ -5,7 +5,9 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parser.ts > TAP > buffered-with-diag-not-ok.tap > output bail=false 1`] = `
+exports[
+  `test/parser.ts > TAP > buffered-with-diag-not-ok.tap > output bail=false 1`
+] = `
 Array [
   Array [
     "line",
@@ -255,7 +257,9 @@ Array [
 ]
 `
 
-exports[`test/parser.ts > TAP > buffered-with-diag-not-ok.tap > output bail=true 1`] = `
+exports[
+  `test/parser.ts > TAP > buffered-with-diag-not-ok.tap > output bail=true 1`
+] = `
 Array [
   Array [
     "line",

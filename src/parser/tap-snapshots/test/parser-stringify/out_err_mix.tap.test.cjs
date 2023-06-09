@@ -5,7 +5,9 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts > TAP > out_err_mix.tap > bail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > out_err_mix.tap > bail > parsed 1`
+] = `
 Array [
   Array [
     "extra",
@@ -56,21 +58,27 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > out_err_mix.tap > bail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > out_err_mix.tap > bail > stringified 1`
+] = `
 one
 three
 1..0 # no tests found
 
 `
 
-exports[`test/parse-stringify.ts > TAP > out_err_mix.tap > bail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > out_err_mix.tap > bail > stringified flat 1`
+] = `
 one
 three
 1..0 # no tests found
 
 `
 
-exports[`test/parse-stringify.ts > TAP > out_err_mix.tap > default settings > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > out_err_mix.tap > default settings > parsed 1`
+] = `
 Array [
   Array [
     "extra",
@@ -121,7 +129,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > out_err_mix.tap > default settings > parsed flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > out_err_mix.tap > default settings > parsed flat 1`
+] = `
 Array [
   Array [
     "extra",
@@ -171,21 +181,27 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > out_err_mix.tap > default settings > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > out_err_mix.tap > default settings > stringified 1`
+] = `
 one
 three
 1..0 # no tests found
 
 `
 
-exports[`test/parse-stringify.ts > TAP > out_err_mix.tap > default settings > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > out_err_mix.tap > default settings > stringified flat 1`
+] = `
 one
 three
 1..0 # no tests found
 
 `
 
-exports[`test/parse-stringify.ts > TAP > out_err_mix.tap > strict > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > out_err_mix.tap > strict > parsed 1`
+] = `
 Array [
   Array [
     "extra",
@@ -245,21 +261,27 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > out_err_mix.tap > strict > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > out_err_mix.tap > strict > stringified 1`
+] = `
 one
 three
 1..0 # no tests found
 
 `
 
-exports[`test/parse-stringify.ts > TAP > out_err_mix.tap > strict > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > out_err_mix.tap > strict > stringified flat 1`
+] = `
 one
 three
 1..0 # no tests found
 
 `
 
-exports[`test/parse-stringify.ts > TAP > out_err_mix.tap > strictBail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > out_err_mix.tap > strictBail > parsed 1`
+] = `
 Array [
   Array [
     "extra",
@@ -319,14 +341,18 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > out_err_mix.tap > strictBail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > out_err_mix.tap > strictBail > stringified 1`
+] = `
 one
 three
 1..0 # no tests found
 
 `
 
-exports[`test/parse-stringify.ts > TAP > out_err_mix.tap > strictBail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > out_err_mix.tap > strictBail > stringified flat 1`
+] = `
 one
 three
 1..0 # no tests found

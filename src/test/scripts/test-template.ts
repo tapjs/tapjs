@@ -32,14 +32,8 @@ const copyFunction = (t: Test, plug: Plug, v: Function) => {
     const ret = v.apply(thisArg, args)
     return ret === thisArg ? t : ret
   }
-  const vv = Object.assign(
-    Object.assign(f, v),
-    copyToString(v)
-  )
-  const nameProp = Reflect.getOwnPropertyDescriptor(
-    v,
-    'name'
-  )
+  const vv = Object.assign(Object.assign(f, v), copyToString(v))
+  const nameProp = Reflect.getOwnPropertyDescriptor(v, 'name')
   if (nameProp) {
     Reflect.defineProperty(f, 'name', nameProp)
   }
@@ -50,22 +44,20 @@ type PI<O extends TestBaseOpts | any = any> =
   | ((t: TestBase, opts: O) => Plug)
   | ((t: TestBase) => Plug)
 
-type PluginResult<
-  P extends ((t: TestBase, opts: any) => any)[]
-> = P extends [
-  infer H extends (t: TestBase, opts: any) => any,
-  ...infer T extends ((t: TestBase, opts: any) => any)[]
-]
-  ? ReturnType<H> & PluginResult<T>
-  : {}
-
-type AnyReturnValue<A extends ((...a: any[]) => any)[]> =
-  A extends [
-    infer H extends (...a: any[]) => any,
-    ...infer T extends ((...a: any[]) => any)[]
+type PluginResult<P extends ((t: TestBase, opts: any) => any)[]> =
+  P extends [
+    infer H extends (t: TestBase, opts: any) => any,
+    ...infer T extends ((t: TestBase, opts: any) => any)[]
   ]
-    ? ReturnType<H> | AnyReturnValue<T>
-    : never
+    ? ReturnType<H> & PluginResult<T>
+    : {}
+
+type AnyReturnValue<A extends ((...a: any[]) => any)[]> = A extends [
+  infer H extends (...a: any[]) => any,
+  ...infer T extends ((...a: any[]) => any)[]
+]
+  ? ReturnType<H> | AnyReturnValue<T>
+  : never
 
 type Plug =
   | TestBase
@@ -103,10 +95,7 @@ const plugins = () => {
   if (plugins_) return plugins_
   return (plugins_ = [])
 }
-type PluginSet = (
-  | TapPlugin<any>
-  | TapPlugin<any, TestBaseOpts>
-)[]
+type PluginSet = (TapPlugin<any> | TapPlugin<any, TestBaseOpts>)[]
 const pluginsLoaded = () => {
   if (pluginsLoaded_) return pluginsLoaded_
   return (pluginsLoaded_ = new Map<string, PI>())
@@ -171,9 +160,7 @@ export interface Test<
   todo(
     cb?: (t: Test<Ext> & Ext) => any
   ): PromiseWithSubtest<Test<Ext> & Ext>
-  todo(
-    ...args: TestArgs<Test>
-  ): PromiseWithSubtest<Test<Ext> & Ext>
+  todo(...args: TestArgs<Test>): PromiseWithSubtest<Test<Ext> & Ext>
 
   skip(
     name: string,
@@ -191,17 +178,11 @@ export interface Test<
   skip(
     cb?: (t: Test<Ext> & Ext) => any
   ): PromiseWithSubtest<Test<Ext> & Ext>
-  skip(
-    ...args: TestArgs<Test>
-  ): PromiseWithSubtest<Test<Ext> & Ext>
+  skip(...args: TestArgs<Test>): PromiseWithSubtest<Test<Ext> & Ext>
 
-  applyPlugin<
-    B extends Object,
-    O extends unknown = unknown
-  >(
+  applyPlugin<B extends Object, O extends unknown = unknown>(
     plugin: TapPlugin<B, O>
-  ): Test<Ext & ReturnType<typeof plugin>> &
-    ReturnType<typeof plugin>
+  ): Test<Ext & ReturnType<typeof plugin>> & ReturnType<typeof plugin>
 }
 
 const applyPlugins = (base: Test): Test => {
@@ -229,10 +210,7 @@ const applyPlugins = (base: Test): Test => {
       },
       getOwnPropertyDescriptor(_, p) {
         for (const t of ext) {
-          const prop = Reflect.getOwnPropertyDescriptor(
-            t,
-            p
-          )
+          const prop = Reflect.getOwnPropertyDescriptor(t, p)
           if (prop) return prop
         }
         return undefined
@@ -246,10 +224,7 @@ const applyPlugins = (base: Test): Test => {
           let o: Object | null = t
           while (o) {
             // assign to the all plugs that can receive it
-            const prop = Reflect.getOwnPropertyDescriptor(
-              o,
-              p
-            )
+            const prop = Reflect.getOwnPropertyDescriptor(o, p)
             if (prop) {
               if (prop.set || prop.writable) {
                 //@ts-ignore
@@ -316,12 +291,13 @@ export class Test<
     return applyPlugins(this) as Test<Ext> & Ext
   }
 
-  applyPlugin<
-    B extends Object,
-    O extends unknown = unknown
-  >(plugin: TapPlugin<B, O>): Test<Ext & B> & B {
+  applyPlugin<B extends Object, O extends unknown = unknown>(
+    plugin: TapPlugin<B, O>
+  ): Test<Ext & B> & B {
     if (this.parent) {
-      throw new Error('Plugins can only be applied at run-time to root test')
+      throw new Error(
+        'Plugins can only be applied at run-time to root test'
+      )
     }
     if (this.printedResult) {
       throw new Error('Plugins must be applied prior to any tests')
@@ -381,11 +357,9 @@ export class Test<
     ...args: TestArgs<Test<Ext> & Ext>
   ): PromiseWithSubtest<Test<Ext> & Ext> {
     const extra = parseTestArgs(...args)
-    return this.sub(
-      Test,
-      extra,
-      this.test
-    ) as PromiseWithSubtest<Test<Ext> & Ext>
+    return this.sub(Test, extra, this.test) as PromiseWithSubtest<
+      Test<Ext> & Ext
+    >
   }
 
   todo(
@@ -409,11 +383,9 @@ export class Test<
   ): PromiseWithSubtest<Test<Ext> & Ext> {
     const extra = parseTestArgs(...args)
     extra.todo = true
-    return this.sub(
-      Test,
-      extra,
-      this.todo
-    ) as PromiseWithSubtest<Test<Ext> & Ext>
+    return this.sub(Test, extra, this.todo) as PromiseWithSubtest<
+      Test<Ext> & Ext
+    >
   }
 
   skip(
@@ -437,10 +409,8 @@ export class Test<
   ): PromiseWithSubtest<Test<Ext> & Ext> {
     const extra = parseTestArgs(...args)
     extra.skip = true
-    return this.sub(
-      Test,
-      extra,
-      this.skip
-    ) as PromiseWithSubtest<Test<Ext> & Ext>
+    return this.sub(Test, extra, this.skip) as PromiseWithSubtest<
+      Test<Ext> & Ext
+    >
   }
 }

@@ -5,7 +5,9 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts > TAP > yamlish-looks-like-child.tap > bail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > yamlish-looks-like-child.tap > bail > parsed 1`
+] = `
 Array [
   Array [
     "plan",
@@ -104,7 +106,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > yamlish-looks-like-child.tap > bail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > yamlish-looks-like-child.tap > bail > stringified 1`
+] = `
 1..3
 ok 1 - callback happened
   ---
@@ -117,7 +121,9 @@ ok 3 - should come last
 
 `
 
-exports[`test/parse-stringify.ts > TAP > yamlish-looks-like-child.tap > bail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > yamlish-looks-like-child.tap > bail > stringified flat 1`
+] = `
 1..0
 ok 1 - callback happened
   ---
@@ -130,7 +136,9 @@ ok 3 - should come last
 
 `
 
-exports[`test/parse-stringify.ts > TAP > yamlish-looks-like-child.tap > default settings > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > yamlish-looks-like-child.tap > default settings > parsed 1`
+] = `
 Array [
   Array [
     "plan",
@@ -229,7 +237,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > yamlish-looks-like-child.tap > default settings > parsed flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > yamlish-looks-like-child.tap > default settings > parsed flat 1`
+] = `
 Array [
   Array [
     "assert",
@@ -327,7 +337,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > yamlish-looks-like-child.tap > default settings > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > yamlish-looks-like-child.tap > default settings > stringified 1`
+] = `
 1..3
 ok 1 - callback happened
   ---
@@ -340,7 +352,9 @@ ok 3 - should come last
 
 `
 
-exports[`test/parse-stringify.ts > TAP > yamlish-looks-like-child.tap > default settings > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > yamlish-looks-like-child.tap > default settings > stringified flat 1`
+] = `
 1..0
 ok 1 - callback happened
   ---
@@ -353,7 +367,9 @@ ok 3 - should come last
 
 `
 
-exports[`test/parse-stringify.ts > TAP > yamlish-looks-like-child.tap > strict > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > yamlish-looks-like-child.tap > strict > parsed 1`
+] = `
 Array [
   Array [
     "plan",
@@ -452,7 +468,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > yamlish-looks-like-child.tap > strict > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > yamlish-looks-like-child.tap > strict > stringified 1`
+] = `
 1..3
 ok 1 - callback happened
   ---
@@ -465,7 +483,9 @@ ok 3 - should come last
 
 `
 
-exports[`test/parse-stringify.ts > TAP > yamlish-looks-like-child.tap > strict > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > yamlish-looks-like-child.tap > strict > stringified flat 1`
+] = `
 1..0
 ok 1 - callback happened
   ---
@@ -478,7 +498,9 @@ ok 3 - should come last
 
 `
 
-exports[`test/parse-stringify.ts > TAP > yamlish-looks-like-child.tap > strictBail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > yamlish-looks-like-child.tap > strictBail > parsed 1`
+] = `
 Array [
   Array [
     "plan",
@@ -577,7 +599,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > yamlish-looks-like-child.tap > strictBail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > yamlish-looks-like-child.tap > strictBail > stringified 1`
+] = `
 1..3
 ok 1 - callback happened
   ---
@@ -590,7 +614,9 @@ ok 3 - should come last
 
 `
 
-exports[`test/parse-stringify.ts > TAP > yamlish-looks-like-child.tap > strictBail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > yamlish-looks-like-child.tap > strictBail > stringified flat 1`
+] = `
 1..0
 ok 1 - callback happened
   ---

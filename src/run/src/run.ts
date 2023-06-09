@@ -202,7 +202,9 @@ export const run = async (args: string[], config: LoadedConfig) => {
     t.after(
       async () =>
         new Promise<void>(res => {
-          foregroundChild(node, [...argv, resolve(after)], () => res())
+          foregroundChild(node, [...argv, resolve(after)], () =>
+            res()
+          )
         })
     )
   }
@@ -252,15 +254,19 @@ export const run = async (args: string[], config: LoadedConfig) => {
         if (files.length === 1) t.stdinOnly()
         else t.stdin()
       } else {
-        console.error('@tapjs/stdin plugin not loaded, skipping stdin')
+        console.error(
+          '@tapjs/stdin plugin not loaded, skipping stdin'
+        )
       }
       continue
     }
     let coveredFiles: string | string[] | null = await glob(map(f), {
       cwd: config.globCwd,
     })
-    const _TAPJS_PROCESSINFO_COVERAGE_ = coveredFiles === null ? '0' : '1'
-    if (typeof coveredFiles === 'string') coveredFiles = [coveredFiles]
+    const _TAPJS_PROCESSINFO_COVERAGE_ =
+      coveredFiles === null ? '0' : '1'
+    if (typeof coveredFiles === 'string')
+      coveredFiles = [coveredFiles]
     else if (!isStringArray(coveredFiles)) {
       throw new Error(
         `Coverage map ${map} must return string, string[], or null`
@@ -270,7 +276,9 @@ export const run = async (args: string[], config: LoadedConfig) => {
       .map(f => resolve(f))
       .join('\n')
     const file = resolve(f)
-    const buffered = !serial.some(s => file.toLowerCase().startsWith(s))
+    const buffered = !serial.some(s =>
+      file.toLowerCase().startsWith(s)
+    )
     const p = t.spawn(node, [...argv, file, ...testArgs], {
       buffered,
       timeout,

@@ -32,7 +32,7 @@ export class After {
     }
     #callTeardown() {
         let fn;
-        while (fn = this.#onTeardown.shift()) {
+        while ((fn = this.#onTeardown.shift())) {
             try {
                 const ret = fn.call(this.#t.t);
                 if (isPromise(ret)) {
@@ -55,7 +55,5 @@ export class After {
     }
 }
 export const plugin = (t) => new After(t);
-const isPromise = (p) => !!p &&
-    typeof p === 'object' &&
-    typeof p.then === 'function';
+const isPromise = (p) => !!p && typeof p === 'object' && typeof p.then === 'function';
 //# sourceMappingURL=index.js.map

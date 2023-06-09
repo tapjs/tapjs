@@ -38,9 +38,7 @@ Or in `package.json`:
 ```json
 {
   "tap": {
-    "plugins": [
-      "@tapjs/nock"
-    ]
+    "plugins": ["@tapjs/nock"]
   }
 }
 ```

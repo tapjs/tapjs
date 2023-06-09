@@ -30,12 +30,26 @@ export const useSuiteTotals = (test: Base) => {
           /* c8 ignore start */
           if (!results) return
           /* c8 ignore stop */
-          let { total, fail, pass, skip, todo, complete = 0 } = suites_
+          let {
+            total,
+            fail,
+            pass,
+            skip,
+            todo,
+            complete = 0,
+          } = suites_
           complete++
           if (!results.ok) fail++
           else if (results.plan.skipAll) skip++
           else pass++
-          suites_ = new Counts({ total, fail, pass, skip, complete, todo })
+          suites_ = new Counts({
+            total,
+            fail,
+            pass,
+            skip,
+            complete,
+            todo,
+          })
           updateSuites(suites_)
         })
       )

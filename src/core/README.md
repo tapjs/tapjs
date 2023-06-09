@@ -47,11 +47,7 @@ be combined with the built-in `TestBaseOpts` interface, and
 required when tests are instantiated.
 
 ```ts
-import {
-  TestBase,
-  TapPlugin,
-  AssertionOpts,
-} from '@tapjs/core'
+import { TestBase, TapPlugin, AssertionOpts } from '@tapjs/core'
 import { cleanup, render } from '@testing-library/react'
 import { ReactElement } from 'react'
 import { RenderResult } from '@testing-library/react'

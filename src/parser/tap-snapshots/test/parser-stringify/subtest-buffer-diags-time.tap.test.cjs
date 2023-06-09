@@ -5,7 +5,9 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts > TAP > subtest-buffer-diags-time.tap > bail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > subtest-buffer-diags-time.tap > bail > parsed 1`
+] = `
 Array [
   Array [
     "plan",
@@ -293,7 +295,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > subtest-buffer-diags-time.tap > bail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > subtest-buffer-diags-time.tap > bail > stringified 1`
+] = `
 1..3
 # Subtest: first
     ok - x
@@ -313,7 +317,9 @@ ok 3 - third # time=43.21ms
 
 `
 
-exports[`test/parse-stringify.ts > TAP > subtest-buffer-diags-time.tap > bail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > subtest-buffer-diags-time.tap > bail > stringified flat 1`
+] = `
 1..0
 # Subtest: first
 ok 1 - first > x
@@ -330,7 +336,9 @@ ok 6 - third # time=43.21ms
 
 `
 
-exports[`test/parse-stringify.ts > TAP > subtest-buffer-diags-time.tap > default settings > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > subtest-buffer-diags-time.tap > default settings > parsed 1`
+] = `
 Array [
   Array [
     "plan",
@@ -618,7 +626,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > subtest-buffer-diags-time.tap > default settings > parsed flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > subtest-buffer-diags-time.tap > default settings > parsed flat 1`
+] = `
 Array [
   Array [
     "assert",
@@ -711,7 +721,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > subtest-buffer-diags-time.tap > default settings > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > subtest-buffer-diags-time.tap > default settings > stringified 1`
+] = `
 1..3
 # Subtest: first
     ok - x
@@ -731,7 +743,9 @@ ok 3 - third # time=43.21ms
 
 `
 
-exports[`test/parse-stringify.ts > TAP > subtest-buffer-diags-time.tap > default settings > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > subtest-buffer-diags-time.tap > default settings > stringified flat 1`
+] = `
 1..0
 # Subtest: first
 ok 1 - first > x
@@ -748,7 +762,9 @@ ok 6 - third # time=43.21ms
 
 `
 
-exports[`test/parse-stringify.ts > TAP > subtest-buffer-diags-time.tap > strict > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > subtest-buffer-diags-time.tap > strict > parsed 1`
+] = `
 Array [
   Array [
     "plan",
@@ -1036,7 +1052,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > subtest-buffer-diags-time.tap > strict > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > subtest-buffer-diags-time.tap > strict > stringified 1`
+] = `
 1..3
 # Subtest: first
     ok - x
@@ -1056,7 +1074,9 @@ ok 3 - third # time=43.21ms
 
 `
 
-exports[`test/parse-stringify.ts > TAP > subtest-buffer-diags-time.tap > strict > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > subtest-buffer-diags-time.tap > strict > stringified flat 1`
+] = `
 1..0
 # Subtest: first
 ok 1 - first > x
@@ -1073,7 +1093,9 @@ ok 6 - third # time=43.21ms
 
 `
 
-exports[`test/parse-stringify.ts > TAP > subtest-buffer-diags-time.tap > strictBail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > subtest-buffer-diags-time.tap > strictBail > parsed 1`
+] = `
 Array [
   Array [
     "plan",
@@ -1361,7 +1383,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > subtest-buffer-diags-time.tap > strictBail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > subtest-buffer-diags-time.tap > strictBail > stringified 1`
+] = `
 1..3
 # Subtest: first
     ok - x
@@ -1381,7 +1405,9 @@ ok 3 - third # time=43.21ms
 
 `
 
-exports[`test/parse-stringify.ts > TAP > subtest-buffer-diags-time.tap > strictBail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > subtest-buffer-diags-time.tap > strictBail > stringified flat 1`
+] = `
 1..0
 # Subtest: first
 ok 1 - first > x

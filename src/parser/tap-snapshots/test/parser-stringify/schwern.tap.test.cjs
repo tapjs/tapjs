@@ -5,7 +5,9 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts > TAP > schwern.tap > bail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > schwern.tap > bail > parsed 1`
+] = `
 Array [
   Array [
     "plan",
@@ -65,19 +67,25 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > schwern.tap > bail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > schwern.tap > bail > stringified 1`
+] = `
 1..1
 ok 1 - 42
 
 `
 
-exports[`test/parse-stringify.ts > TAP > schwern.tap > bail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > schwern.tap > bail > stringified flat 1`
+] = `
 1..0
 ok 1 - 42
 
 `
 
-exports[`test/parse-stringify.ts > TAP > schwern.tap > default settings > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > schwern.tap > default settings > parsed 1`
+] = `
 Array [
   Array [
     "plan",
@@ -137,7 +145,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > schwern.tap > default settings > parsed flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > schwern.tap > default settings > parsed flat 1`
+] = `
 Array [
   Array [
     "assert",
@@ -196,19 +206,25 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > schwern.tap > default settings > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > schwern.tap > default settings > stringified 1`
+] = `
 1..1
 ok 1 - 42
 
 `
 
-exports[`test/parse-stringify.ts > TAP > schwern.tap > default settings > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > schwern.tap > default settings > stringified flat 1`
+] = `
 1..0
 ok 1 - 42
 
 `
 
-exports[`test/parse-stringify.ts > TAP > schwern.tap > strict > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > schwern.tap > strict > parsed 1`
+] = `
 Array [
   Array [
     "plan",
@@ -268,19 +284,25 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > schwern.tap > strict > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > schwern.tap > strict > stringified 1`
+] = `
 1..1
 ok 1 - 42
 
 `
 
-exports[`test/parse-stringify.ts > TAP > schwern.tap > strict > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > schwern.tap > strict > stringified flat 1`
+] = `
 1..0
 ok 1 - 42
 
 `
 
-exports[`test/parse-stringify.ts > TAP > schwern.tap > strictBail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > schwern.tap > strictBail > parsed 1`
+] = `
 Array [
   Array [
     "plan",
@@ -340,13 +362,17 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > schwern.tap > strictBail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > schwern.tap > strictBail > stringified 1`
+] = `
 1..1
 ok 1 - 42
 
 `
 
-exports[`test/parse-stringify.ts > TAP > schwern.tap > strictBail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > schwern.tap > strictBail > stringified flat 1`
+] = `
 1..0
 ok 1 - 42
 

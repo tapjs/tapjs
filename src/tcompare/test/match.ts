@@ -15,22 +15,14 @@ t.test("shouldn't care about key order and types", t => {
 })
 
 t.test('should notice objects with different shapes', t => {
-  t.notOk(
-    match(t, { a: 1, b: 'a thing' }, { a: 1, b: undefined })
-  )
+  t.notOk(match(t, { a: 1, b: 'a thing' }, { a: 1, b: undefined }))
   t.ok(match(t, { a: 1 }, { a: 1, b: undefined }))
   t.notOk(match(t, { at: null }, { at: { line: Number } }))
   t.end()
 })
 
 t.test('extra keys in object are ok', t => {
-  t.ok(
-    match(
-      t,
-      { a: 1, b: null, c: 'ok' },
-      { a: 1, b: undefined }
-    )
-  )
+  t.ok(match(t, { a: 1, b: null, c: 'ok' }, { a: 1, b: undefined }))
   t.end()
 })
 
@@ -42,9 +34,7 @@ t.test('should notice objects with different keys', t => {
 t.test('should handle dates', t => {
   t.notOk(match(t, new Date('1972-08-01'), null))
   t.notOk(match(t, new Date('1972-08-01'), undefined))
-  t.ok(
-    match(t, new Date('1972-08-01'), new Date('1972-08-01'))
-  )
+  t.ok(match(t, new Date('1972-08-01'), new Date('1972-08-01')))
   t.ok(
     match(
       t,
@@ -244,28 +234,25 @@ t.test(
   }
 )
 
-t.test(
-  "match shouldn't blow up on circular data structures",
-  t => {
-    var x1: { [k: string]: any } = { z: 4 }
-    var y1: { [k: string]: any } = { x: x1 }
-    x1.y = y1
+t.test("match shouldn't blow up on circular data structures", t => {
+  var x1: { [k: string]: any } = { z: 4 }
+  var y1: { [k: string]: any } = { x: x1 }
+  x1.y = y1
 
-    var x2: { [k: string]: any } = { z: 4 }
-    var y2: { [k: string]: any } = { x: x2 }
-    x2.y = y2
+  var x2: { [k: string]: any } = { z: 4 }
+  var y2: { [k: string]: any } = { x: x2 }
+  x2.y = y2
 
-    t.ok(match(t, x1, x2))
+  t.ok(match(t, x1, x2))
 
-    x1.other = x2
-    x2.other = x1
-    t.ok(match(t, x1, x2))
+  x1.other = x2
+  x2.other = x1
+  t.ok(match(t, x1, x2))
 
-    x2.other = x2
-    t.ok(match(t, x1, x2))
-    t.end()
-  }
-)
+  x2.other = x2
+  t.ok(match(t, x1, x2))
+  t.end()
+})
 
 t.test('regexps match strings', t => {
   {
@@ -307,9 +294,7 @@ t.test('ctors and other fun things', t => {
   }
   class Cls {}
 
-  t.notOk(
-    match(t, Buffer.from('asdf'), Buffer.from('asdff'))
-  )
+  t.notOk(match(t, Buffer.from('asdf'), Buffer.from('asdff')))
 
   var d = new Date('1979-07-01T19:10:00.000Z').toISOString()
 
@@ -399,9 +384,7 @@ t.test('symbology', t => {
 
   t.notOk(match(t, { a: Symbol('a') }, { a: 'Symbol(a)' }))
   t.notOk(match(t, { a: 'Symbol(a)' }, { a: Symbol('a') }))
-  t.notOk(
-    match(t, { a: 'Symbol(a)' }, { a: Symbol.for('a') })
-  )
+  t.notOk(match(t, { a: 'Symbol(a)' }, { a: Symbol.for('a') }))
   t.notOk(match(t, { a: 'Symbol(a)' }, { a: Symbol }))
   t.end()
 })
@@ -476,9 +459,7 @@ t.test('iterables match one another', t => {
 t.test('diffs of errors with \\n in the message', t => {
   const er: Error & { foo?: string } = new Error('foo\nbar')
   er.foo = 'bar'
-  const er2: Error & { foo?: string } = new Error(
-    'foo\nbar'
-  )
+  const er2: Error & { foo?: string } = new Error('foo\nbar')
   er2.foo = 'two'
   t.notOk(
     match(t, er, er2),

@@ -37,7 +37,10 @@ class NockRecorder {
   #state = STOPPED
   #test
 
-  constructor(test: TestBase, caller: Function | ((...a: any[]) => any)) {
+  constructor(
+    test: TestBase,
+    caller: Function | ((...a: any[]) => any)
+  ) {
     this.#test = test
     if (!this.#test.t.pluginLoaded(SnapshotPlugin)) {
       throw new Error(
@@ -102,7 +105,9 @@ class NockRecorder {
     }
 
     const load: (scope: nock.Definition) => nock.Definition =
-      typeof options.load === 'function' ? options.load : scope => scope
+      typeof options.load === 'function'
+        ? options.load
+        : scope => scope
 
     // turn the json data into real nocks and return them
     const nocks = this.#snapshot[key].map(scope => load(scope))

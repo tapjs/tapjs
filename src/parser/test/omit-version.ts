@@ -7,7 +7,14 @@ ok 1 - this is fine
 
 import { Parser as P } from '../'
 import etoa from 'events-to-array'
-const ignore = ['pipe', 'unpipe', 'prefinish', 'finish', 'newListener', 'line']
+const ignore = [
+  'pipe',
+  'unpipe',
+  'prefinish',
+  'finish',
+  'newListener',
+  'line',
+]
 const p = new P({ omitVersion: true })
 const events = etoa(p, ignore)
 p.on('version', function (version) {

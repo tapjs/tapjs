@@ -5,7 +5,9 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/write-after-bailout.ts > TAP > child calling _parse after bailout > events 1`] = `
+exports[
+  `test/write-after-bailout.ts > TAP > child calling _parse after bailout > events 1`
+] = `
 Array [
   Array [
     "version",

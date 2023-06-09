@@ -5,7 +5,9 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts > TAP > tap-tests.tap > bail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > tap-tests.tap > bail > parsed 1`
+] = `
 Array [
   Array [
     "version",
@@ -2855,7 +2857,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > tap-tests.tap > bail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > tap-tests.tap > bail > stringified 1`
+] = `
 TAP version 13
 # buffer_compare.js
 # TAP version 13
@@ -3178,7 +3182,9 @@ Bail out! captures TODO description
 
 `
 
-exports[`test/parse-stringify.ts > TAP > tap-tests.tap > bail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > tap-tests.tap > bail > stringified flat 1`
+] = `
 TAP version 13
 # buffer_compare.js
 # TAP version 13
@@ -3501,7 +3507,9 @@ Bail out! captures TODO description
 
 `
 
-exports[`test/parse-stringify.ts > TAP > tap-tests.tap > default settings > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > tap-tests.tap > default settings > parsed 1`
+] = `
 Array [
   Array [
     "version",
@@ -10090,7 +10098,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > tap-tests.tap > default settings > parsed flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > tap-tests.tap > default settings > parsed flat 1`
+] = `
 Array [
   Array [
     "version",
@@ -16678,7 +16688,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > tap-tests.tap > default settings > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > tap-tests.tap > default settings > stringified 1`
+] = `
 TAP version 13
 # buffer_compare.js
 # TAP version 13
@@ -17329,7 +17341,9 @@ ok 311 - test/valid-command.js
 
 `
 
-exports[`test/parse-stringify.ts > TAP > tap-tests.tap > default settings > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > tap-tests.tap > default settings > stringified flat 1`
+] = `
 TAP version 13
 # buffer_compare.js
 # TAP version 13
@@ -17980,7 +17994,9 @@ ok 311 - test/valid-command.js
 
 `
 
-exports[`test/parse-stringify.ts > TAP > tap-tests.tap > strict > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > tap-tests.tap > strict > parsed 1`
+] = `
 Array [
   Array [
     "version",
@@ -24657,7 +24673,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > tap-tests.tap > strict > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > tap-tests.tap > strict > stringified 1`
+] = `
 TAP version 13
 # buffer_compare.js
 # TAP version 13
@@ -25308,7 +25326,9 @@ ok 311 - test/valid-command.js
 
 `
 
-exports[`test/parse-stringify.ts > TAP > tap-tests.tap > strict > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > tap-tests.tap > strict > stringified flat 1`
+] = `
 TAP version 13
 # buffer_compare.js
 # TAP version 13
@@ -25959,7 +25979,9 @@ ok 311 - test/valid-command.js
 
 `
 
-exports[`test/parse-stringify.ts > TAP > tap-tests.tap > strictBail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > tap-tests.tap > strictBail > parsed 1`
+] = `
 Array [
   Array [
     "version",
@@ -28865,7 +28887,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > tap-tests.tap > strictBail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > tap-tests.tap > strictBail > stringified 1`
+] = `
 TAP version 13
 # buffer_compare.js
 # TAP version 13
@@ -29188,7 +29212,9 @@ Bail out! captures TODO description
 
 `
 
-exports[`test/parse-stringify.ts > TAP > tap-tests.tap > strictBail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > tap-tests.tap > strictBail > stringified flat 1`
+] = `
 TAP version 13
 # buffer_compare.js
 # TAP version 13

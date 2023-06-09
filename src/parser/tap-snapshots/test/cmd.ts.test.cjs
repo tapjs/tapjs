@@ -77,15 +77,21 @@ exports[`test/cmd.ts > TAP > basic > bail > silent > stderr 1`] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > bail > silent strict > error 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > bail > silent strict > error 1`
+] = `
 0
 `
 
-exports[`test/cmd.ts > TAP > basic > bail > silent strict > output 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > bail > silent strict > output 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > bail > silent strict > stderr 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > bail > silent strict > stderr 1`
+] = `
 
 `
 
@@ -117,95 +123,141 @@ exports[`test/cmd.ts > TAP > basic > bail_reason > b w > error 1`] = `
 0
 `
 
-exports[`test/cmd.ts > TAP > basic > bail_reason > b w > output 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > bail_reason > b w > output 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > bail_reason > b w > stderr 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > bail_reason > b w > stderr 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > bail_reason > flat > error 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > bail_reason > flat > error 1`
+] = `
 0
 `
 
-exports[`test/cmd.ts > TAP > basic > bail_reason > flat > output 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > bail_reason > flat > output 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > bail_reason > flat > stderr 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > bail_reason > flat > stderr 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > bail_reason > flat tap > error 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > bail_reason > flat tap > error 1`
+] = `
 0
 `
 
-exports[`test/cmd.ts > TAP > basic > bail_reason > flat tap > output 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > bail_reason > flat tap > output 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > bail_reason > flat tap > stderr 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > bail_reason > flat tap > stderr 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > bail_reason > lines > error 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > bail_reason > lines > error 1`
+] = `
 0
 `
 
-exports[`test/cmd.ts > TAP > basic > bail_reason > lines > output 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > bail_reason > lines > output 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > bail_reason > lines > stderr 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > bail_reason > lines > stderr 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > bail_reason > no args > error 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > bail_reason > no args > error 1`
+] = `
 0
 `
 
-exports[`test/cmd.ts > TAP > basic > bail_reason > no args > output 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > bail_reason > no args > output 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > bail_reason > no args > stderr 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > bail_reason > no args > stderr 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > bail_reason > silent > error 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > bail_reason > silent > error 1`
+] = `
 0
 `
 
-exports[`test/cmd.ts > TAP > basic > bail_reason > silent > output 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > bail_reason > silent > output 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > bail_reason > silent > stderr 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > bail_reason > silent > stderr 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > bail_reason > silent strict > error 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > bail_reason > silent strict > error 1`
+] = `
 0
 `
 
-exports[`test/cmd.ts > TAP > basic > bail_reason > silent strict > output 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > bail_reason > silent strict > output 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > bail_reason > silent strict > stderr 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > bail_reason > silent strict > stderr 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > bail_reason > strict > error 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > bail_reason > strict > error 1`
+] = `
 0
 `
 
-exports[`test/cmd.ts > TAP > basic > bail_reason > strict > output 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > bail_reason > strict > output 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > bail_reason > strict > stderr 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > bail_reason > strict > stderr 1`
+] = `
 
 `
 
@@ -293,15 +345,21 @@ exports[`test/cmd.ts > TAP > basic > fail > silent > stderr 1`] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > fail > silent strict > error 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > fail > silent strict > error 1`
+] = `
 0
 `
 
-exports[`test/cmd.ts > TAP > basic > fail > silent strict > output 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > fail > silent strict > output 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > fail > silent strict > stderr 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > fail > silent strict > stderr 1`
+] = `
 
 `
 
@@ -329,111 +387,165 @@ exports[`test/cmd.ts > TAP > basic > fail > t > stderr 1`] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > failing_child_with_broken_tap > b w > error 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > failing_child_with_broken_tap > b w > error 1`
+] = `
 0
 `
 
-exports[`test/cmd.ts > TAP > basic > failing_child_with_broken_tap > b w > output 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > failing_child_with_broken_tap > b w > output 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > failing_child_with_broken_tap > b w > stderr 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > failing_child_with_broken_tap > b w > stderr 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > failing_child_with_broken_tap > flat > error 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > failing_child_with_broken_tap > flat > error 1`
+] = `
 0
 `
 
-exports[`test/cmd.ts > TAP > basic > failing_child_with_broken_tap > flat > output 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > failing_child_with_broken_tap > flat > output 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > failing_child_with_broken_tap > flat > stderr 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > failing_child_with_broken_tap > flat > stderr 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > failing_child_with_broken_tap > flat tap > error 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > failing_child_with_broken_tap > flat tap > error 1`
+] = `
 0
 `
 
-exports[`test/cmd.ts > TAP > basic > failing_child_with_broken_tap > flat tap > output 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > failing_child_with_broken_tap > flat tap > output 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > failing_child_with_broken_tap > flat tap > stderr 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > failing_child_with_broken_tap > flat tap > stderr 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > failing_child_with_broken_tap > lines > error 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > failing_child_with_broken_tap > lines > error 1`
+] = `
 0
 `
 
-exports[`test/cmd.ts > TAP > basic > failing_child_with_broken_tap > lines > output 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > failing_child_with_broken_tap > lines > output 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > failing_child_with_broken_tap > lines > stderr 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > failing_child_with_broken_tap > lines > stderr 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > failing_child_with_broken_tap > no args > error 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > failing_child_with_broken_tap > no args > error 1`
+] = `
 0
 `
 
-exports[`test/cmd.ts > TAP > basic > failing_child_with_broken_tap > no args > output 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > failing_child_with_broken_tap > no args > output 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > failing_child_with_broken_tap > no args > stderr 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > failing_child_with_broken_tap > no args > stderr 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > failing_child_with_broken_tap > silent > error 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > failing_child_with_broken_tap > silent > error 1`
+] = `
 0
 `
 
-exports[`test/cmd.ts > TAP > basic > failing_child_with_broken_tap > silent > output 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > failing_child_with_broken_tap > silent > output 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > failing_child_with_broken_tap > silent > stderr 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > failing_child_with_broken_tap > silent > stderr 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > failing_child_with_broken_tap > silent strict > error 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > failing_child_with_broken_tap > silent strict > error 1`
+] = `
 0
 `
 
-exports[`test/cmd.ts > TAP > basic > failing_child_with_broken_tap > silent strict > output 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > failing_child_with_broken_tap > silent strict > output 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > failing_child_with_broken_tap > silent strict > stderr 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > failing_child_with_broken_tap > silent strict > stderr 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > failing_child_with_broken_tap > strict > error 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > failing_child_with_broken_tap > strict > error 1`
+] = `
 0
 `
 
-exports[`test/cmd.ts > TAP > basic > failing_child_with_broken_tap > strict > output 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > failing_child_with_broken_tap > strict > output 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > failing_child_with_broken_tap > strict > stderr 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > failing_child_with_broken_tap > strict > stderr 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > failing_child_with_broken_tap > t > error 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > failing_child_with_broken_tap > t > error 1`
+] = `
 0
 `
 
-exports[`test/cmd.ts > TAP > basic > failing_child_with_broken_tap > t > output 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > failing_child_with_broken_tap > t > output 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > failing_child_with_broken_tap > t > stderr 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > failing_child_with_broken_tap > t > stderr 1`
+] = `
 
 `
 
@@ -441,95 +553,141 @@ exports[`test/cmd.ts > TAP > basic > pass_mostly > b w > error 1`] = `
 0
 `
 
-exports[`test/cmd.ts > TAP > basic > pass_mostly > b w > output 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > pass_mostly > b w > output 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > pass_mostly > b w > stderr 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > pass_mostly > b w > stderr 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > pass_mostly > flat > error 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > pass_mostly > flat > error 1`
+] = `
 0
 `
 
-exports[`test/cmd.ts > TAP > basic > pass_mostly > flat > output 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > pass_mostly > flat > output 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > pass_mostly > flat > stderr 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > pass_mostly > flat > stderr 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > pass_mostly > flat tap > error 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > pass_mostly > flat tap > error 1`
+] = `
 0
 `
 
-exports[`test/cmd.ts > TAP > basic > pass_mostly > flat tap > output 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > pass_mostly > flat tap > output 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > pass_mostly > flat tap > stderr 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > pass_mostly > flat tap > stderr 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > pass_mostly > lines > error 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > pass_mostly > lines > error 1`
+] = `
 0
 `
 
-exports[`test/cmd.ts > TAP > basic > pass_mostly > lines > output 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > pass_mostly > lines > output 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > pass_mostly > lines > stderr 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > pass_mostly > lines > stderr 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > pass_mostly > no args > error 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > pass_mostly > no args > error 1`
+] = `
 0
 `
 
-exports[`test/cmd.ts > TAP > basic > pass_mostly > no args > output 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > pass_mostly > no args > output 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > pass_mostly > no args > stderr 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > pass_mostly > no args > stderr 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > pass_mostly > silent > error 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > pass_mostly > silent > error 1`
+] = `
 0
 `
 
-exports[`test/cmd.ts > TAP > basic > pass_mostly > silent > output 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > pass_mostly > silent > output 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > pass_mostly > silent > stderr 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > pass_mostly > silent > stderr 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > pass_mostly > silent strict > error 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > pass_mostly > silent strict > error 1`
+] = `
 0
 `
 
-exports[`test/cmd.ts > TAP > basic > pass_mostly > silent strict > output 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > pass_mostly > silent strict > output 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > pass_mostly > silent strict > stderr 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > pass_mostly > silent strict > stderr 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > pass_mostly > strict > error 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > pass_mostly > strict > error 1`
+] = `
 0
 `
 
-exports[`test/cmd.ts > TAP > basic > pass_mostly > strict > output 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > pass_mostly > strict > output 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > pass_mostly > strict > stderr 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > pass_mostly > strict > stderr 1`
+] = `
 
 `
 
@@ -545,111 +703,165 @@ exports[`test/cmd.ts > TAP > basic > pass_mostly > t > stderr 1`] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > passing_child_with_broken_tap > b w > error 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > passing_child_with_broken_tap > b w > error 1`
+] = `
 0
 `
 
-exports[`test/cmd.ts > TAP > basic > passing_child_with_broken_tap > b w > output 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > passing_child_with_broken_tap > b w > output 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > passing_child_with_broken_tap > b w > stderr 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > passing_child_with_broken_tap > b w > stderr 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > passing_child_with_broken_tap > flat > error 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > passing_child_with_broken_tap > flat > error 1`
+] = `
 0
 `
 
-exports[`test/cmd.ts > TAP > basic > passing_child_with_broken_tap > flat > output 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > passing_child_with_broken_tap > flat > output 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > passing_child_with_broken_tap > flat > stderr 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > passing_child_with_broken_tap > flat > stderr 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > passing_child_with_broken_tap > flat tap > error 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > passing_child_with_broken_tap > flat tap > error 1`
+] = `
 0
 `
 
-exports[`test/cmd.ts > TAP > basic > passing_child_with_broken_tap > flat tap > output 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > passing_child_with_broken_tap > flat tap > output 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > passing_child_with_broken_tap > flat tap > stderr 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > passing_child_with_broken_tap > flat tap > stderr 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > passing_child_with_broken_tap > lines > error 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > passing_child_with_broken_tap > lines > error 1`
+] = `
 0
 `
 
-exports[`test/cmd.ts > TAP > basic > passing_child_with_broken_tap > lines > output 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > passing_child_with_broken_tap > lines > output 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > passing_child_with_broken_tap > lines > stderr 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > passing_child_with_broken_tap > lines > stderr 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > passing_child_with_broken_tap > no args > error 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > passing_child_with_broken_tap > no args > error 1`
+] = `
 0
 `
 
-exports[`test/cmd.ts > TAP > basic > passing_child_with_broken_tap > no args > output 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > passing_child_with_broken_tap > no args > output 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > passing_child_with_broken_tap > no args > stderr 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > passing_child_with_broken_tap > no args > stderr 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > passing_child_with_broken_tap > silent > error 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > passing_child_with_broken_tap > silent > error 1`
+] = `
 0
 `
 
-exports[`test/cmd.ts > TAP > basic > passing_child_with_broken_tap > silent > output 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > passing_child_with_broken_tap > silent > output 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > passing_child_with_broken_tap > silent > stderr 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > passing_child_with_broken_tap > silent > stderr 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > passing_child_with_broken_tap > silent strict > error 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > passing_child_with_broken_tap > silent strict > error 1`
+] = `
 0
 `
 
-exports[`test/cmd.ts > TAP > basic > passing_child_with_broken_tap > silent strict > output 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > passing_child_with_broken_tap > silent strict > output 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > passing_child_with_broken_tap > silent strict > stderr 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > passing_child_with_broken_tap > silent strict > stderr 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > passing_child_with_broken_tap > strict > error 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > passing_child_with_broken_tap > strict > error 1`
+] = `
 0
 `
 
-exports[`test/cmd.ts > TAP > basic > passing_child_with_broken_tap > strict > output 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > passing_child_with_broken_tap > strict > output 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > passing_child_with_broken_tap > strict > stderr 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > passing_child_with_broken_tap > strict > stderr 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > passing_child_with_broken_tap > t > error 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > passing_child_with_broken_tap > t > error 1`
+] = `
 0
 `
 
-exports[`test/cmd.ts > TAP > basic > passing_child_with_broken_tap > t > output 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > passing_child_with_broken_tap > t > output 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > basic > passing_child_with_broken_tap > t > stderr 1`] = `
+exports[
+  `test/cmd.ts > TAP > basic > passing_child_with_broken_tap > t > stderr 1`
+] = `
 
 `
 
@@ -712,63 +924,93 @@ exports[`test/cmd.ts > TAP > help > stderr 1`] = `
 
 `
 
-exports[`test/cmd.ts > TAP > json output formatting > --json -f > error 1`] = `
+exports[
+  `test/cmd.ts > TAP > json output formatting > --json -f > error 1`
+] = `
 0
 `
 
-exports[`test/cmd.ts > TAP > json output formatting > --json -f > output 1`] = `
+exports[
+  `test/cmd.ts > TAP > json output formatting > --json -f > output 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > json output formatting > --json -f > stderr 1`] = `
+exports[
+  `test/cmd.ts > TAP > json output formatting > --json -f > stderr 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > json output formatting > --json 1 > error 1`] = `
+exports[
+  `test/cmd.ts > TAP > json output formatting > --json 1 > error 1`
+] = `
 0
 `
 
-exports[`test/cmd.ts > TAP > json output formatting > --json 1 > output 1`] = `
+exports[
+  `test/cmd.ts > TAP > json output formatting > --json 1 > output 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > json output formatting > --json 1 > stderr 1`] = `
+exports[
+  `test/cmd.ts > TAP > json output formatting > --json 1 > stderr 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > json output formatting > --json=1 > error 1`] = `
+exports[
+  `test/cmd.ts > TAP > json output formatting > --json=1 > error 1`
+] = `
 0
 `
 
-exports[`test/cmd.ts > TAP > json output formatting > --json=1 > output 1`] = `
+exports[
+  `test/cmd.ts > TAP > json output formatting > --json=1 > output 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > json output formatting > --json=1 > stderr 1`] = `
+exports[
+  `test/cmd.ts > TAP > json output formatting > --json=1 > stderr 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > json output formatting > -j > error 1`] = `
+exports[
+  `test/cmd.ts > TAP > json output formatting > -j > error 1`
+] = `
 0
 `
 
-exports[`test/cmd.ts > TAP > json output formatting > -j > output 1`] = `
+exports[
+  `test/cmd.ts > TAP > json output formatting > -j > output 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > json output formatting > -j > stderr 1`] = `
+exports[
+  `test/cmd.ts > TAP > json output formatting > -j > stderr 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > json output formatting > -j 1 > error 1`] = `
+exports[
+  `test/cmd.ts > TAP > json output formatting > -j 1 > error 1`
+] = `
 0
 `
 
-exports[`test/cmd.ts > TAP > json output formatting > -j 1 > output 1`] = `
+exports[
+  `test/cmd.ts > TAP > json output formatting > -j 1 > output 1`
+] = `
 
 `
 
-exports[`test/cmd.ts > TAP > json output formatting > -j 1 > stderr 1`] = `
+exports[
+  `test/cmd.ts > TAP > json output formatting > -j 1 > stderr 1`
+] = `
 
 `
 

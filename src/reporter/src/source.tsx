@@ -50,9 +50,7 @@ export const Source: FC<SourceOpts> = ({ source, at }) => {
     const before = lines.slice(startLine, at.lineNumber)
     const after = lines.slice(at.lineNumber, endLine)
     const len = Math.min(...before.map(l => stringLength(l)))
-    const title = chalk
-      .bgAnsi256(234)
-      .dim(at.fileName.padEnd(len))
+    const title = chalk.bgAnsi256(234).dim(at.fileName.padEnd(len))
     const caret =
       at.columnNumber && at.columnNumber < stringLength(line)
         ? chalk.ansi256(252).bgAnsi256(234)(

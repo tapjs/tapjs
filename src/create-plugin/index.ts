@@ -21,10 +21,13 @@ values.className = name
   .split('-')
   .map(s => s.charAt(0).toUpperCase() + s.substring(1))
   .join('')
-await prompt('Plugin description: ', 'description', { default: '' })
+await prompt('Plugin description: ', 'description', {
+  default: '',
+})
 await prompt('Run npm install? ', 'install', { default: 'Yes' })
 await prompt('Run git init? ', 'git', { default: 'Yes' })
-const defTarget = positionals[0] || String(values.name.split('/').pop())
+const defTarget =
+  positionals[0] || String(values.name.split('/').pop())
 
 const target = await prompt('Folder to create in? ', 'target', {
   default: defTarget,

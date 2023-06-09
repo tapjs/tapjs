@@ -19,7 +19,9 @@ const node = process.execPath
 
 export const build = async (args: string[], config: LoadedConfig) => {
   if (args.length !== 0) {
-    throw new TypeError('build command does not take positional arguments')
+    throw new TypeError(
+      'build command does not take positional arguments'
+    )
   }
 
   const argv = [...execArgs, tmbin, ...config.pluginList]
@@ -32,7 +34,12 @@ export const build = async (args: string[], config: LoadedConfig) => {
         return
       }
       if (code || signal) {
-        rej(Object.assign(new Error('build failed'), { code, signal }))
+        rej(
+          Object.assign(new Error('build failed'), {
+            code,
+            signal,
+          })
+        )
       } else {
         res()
       }

@@ -9,11 +9,15 @@ import { TestSummary } from './test-summary.js'
 const bannerWords = '  🌈 TEST COMPLETE 🌈  '
 const Banner: FC<{}> = () => (
   <Box flexDirection="column">
-    <Text backgroundColor="#fff">{' '.repeat(bannerWords.length)}</Text>
+    <Text backgroundColor="#fff">
+      {' '.repeat(bannerWords.length)}
+    </Text>
     <Text bold color="black" backgroundColor="#fff">
       {bannerWords}
     </Text>
-    <Text backgroundColor="#fff">{' '.repeat(bannerWords.length)}</Text>
+    <Text backgroundColor="#fff">
+      {' '.repeat(bannerWords.length)}
+    </Text>
   </Box>
 )
 
@@ -22,7 +26,10 @@ export const ResultDetailList: FC<Pick<TapReportOpts, 'tap'>> = ({
 }) => {
   const tests = useSubtests(tap, 'finished')
   const t = tests.filter(
-    t => t.lists.fail.length || t.lists.skip.length || t.lists.todo.length
+    t =>
+      t.lists.fail.length ||
+      t.lists.skip.length ||
+      t.lists.todo.length
   )
   const done = useIsDone(tap)
 

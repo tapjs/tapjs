@@ -17,7 +17,12 @@ export const Stack: FC<{ stack?: string }> = ({ stack }) => {
         .map((line, key) => {
           const p = line.match(re)
           // don't match, oh well
-          if (!p) return <Text dimColor key={key}>{line}</Text>
+          if (!p)
+            return (
+              <Text dimColor key={key}>
+                {line}
+              </Text>
+            )
           if (p[3]) {
             // got two paren bits, then the first and last are what we want
             return (
@@ -36,10 +41,15 @@ export const Stack: FC<{ stack?: string }> = ({ stack }) => {
           }
 
           // no generated callsite, just show as normal
-          return <Text dimColor key={key}>{line}</Text>
+          return (
+            <Text dimColor key={key}>
+              {line}
+            </Text>
+          )
         })}
     </Box>
   )
 }
 
-const unparen = (s: string): string => s.trim().replace(/^\(|\)$/g, '')
+const unparen = (s: string): string =>
+  s.trim().replace(/^\(|\)$/g, '')

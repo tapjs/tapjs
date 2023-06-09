@@ -5,7 +5,9 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts > TAP > echo.tap > bail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > echo.tap > bail > parsed 1`
+] = `
 Array [
   Array [
     "plan",
@@ -48,17 +50,23 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > echo.tap > bail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > echo.tap > bail > stringified 1`
+] = `
 1..0
 
 `
 
-exports[`test/parse-stringify.ts > TAP > echo.tap > bail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > echo.tap > bail > stringified flat 1`
+] = `
 1..0
 
 `
 
-exports[`test/parse-stringify.ts > TAP > echo.tap > default settings > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > echo.tap > default settings > parsed 1`
+] = `
 Array [
   Array [
     "plan",
@@ -101,7 +109,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > echo.tap > default settings > parsed flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > echo.tap > default settings > parsed flat 1`
+] = `
 Array [
   Array [
     "plan",
@@ -143,17 +153,23 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > echo.tap > default settings > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > echo.tap > default settings > stringified 1`
+] = `
 1..0
 
 `
 
-exports[`test/parse-stringify.ts > TAP > echo.tap > default settings > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > echo.tap > default settings > stringified flat 1`
+] = `
 1..0
 
 `
 
-exports[`test/parse-stringify.ts > TAP > echo.tap > strict > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > echo.tap > strict > parsed 1`
+] = `
 Array [
   Array [
     "plan",
@@ -196,17 +212,23 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > echo.tap > strict > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > echo.tap > strict > stringified 1`
+] = `
 1..0
 
 `
 
-exports[`test/parse-stringify.ts > TAP > echo.tap > strict > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > echo.tap > strict > stringified flat 1`
+] = `
 1..0
 
 `
 
-exports[`test/parse-stringify.ts > TAP > echo.tap > strictBail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > echo.tap > strictBail > parsed 1`
+] = `
 Array [
   Array [
     "plan",
@@ -249,12 +271,16 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > echo.tap > strictBail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > echo.tap > strictBail > stringified 1`
+] = `
 1..0
 
 `
 
-exports[`test/parse-stringify.ts > TAP > echo.tap > strictBail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > echo.tap > strictBail > stringified flat 1`
+] = `
 1..0
 
 `

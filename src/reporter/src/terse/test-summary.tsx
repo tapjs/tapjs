@@ -16,7 +16,7 @@ export interface TestSummaryOpts {
 export const TestSummary: FC<TestSummaryOpts> = ({
   test,
   details = false,
-  showCallsite = false
+  showCallsite = false,
 }) => {
   const [counts, lists] = useCountsLists(test)
   const time = useTestTime(test)
@@ -37,7 +37,12 @@ export const TestSummary: FC<TestSummaryOpts> = ({
           {ms(time)}
         </Text>
       </Box>
-      <TestResultsList test={test} lists={lists} details={details} showCallsite={showCallsite} />
+      <TestResultsList
+        test={test}
+        lists={lists}
+        details={details}
+        showCallsite={showCallsite}
+      />
     </Box>
   )
 }

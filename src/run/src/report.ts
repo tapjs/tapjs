@@ -7,7 +7,10 @@ import opener from 'opener'
 import { resolve } from 'path'
 import { LoadedConfig } from '@tapjs/config'
 
-export const report = async (args: string[], config: LoadedConfig) => {
+export const report = async (
+  args: string[],
+  config: LoadedConfig
+) => {
   const rconf = config.get('coverage-reporter')
   // if there are args passed in, use that. The config is used if
   // calling this at the end of `tap run`
@@ -43,7 +46,7 @@ export const report = async (args: string[], config: LoadedConfig) => {
   // so that patch-console can put it in the intended place (or ignore it).
   // TODO: make istanbul-reports more configurable.
   const { write } = process.stdout
-  const stdout: (string)[] = []
+  const stdout: string[] = []
   process.stdout.write = c => {
     stdout.push(String(c))
     return true
@@ -57,7 +60,10 @@ export const report = async (args: string[], config: LoadedConfig) => {
   await checkCoverage(r, config)
 }
 
-const checkCoverage = async (report: Report, config: LoadedConfig) => {
+const checkCoverage = async (
+  report: Report,
+  config: LoadedConfig
+) => {
   const cr = config.get('coverage-reporter')
   const comment = cr && !cr.includes('text')
   interface Summary {

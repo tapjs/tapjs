@@ -21,9 +21,15 @@ setTimeout(function () {
 t.test('child calling _parse after bailout', function (t) {
   const p = new Parser()
 
-  const events = etoa(p, ['pipe', 'unpipe', 'prefinish', 'finish', 'line'])
+  const events = etoa(p, [
+    'pipe',
+    'unpipe',
+    'prefinish',
+    'finish',
+    'line',
+  ])
 
-  p.on('assert', (res) => t.fail('no assertions expected', { res }))
+  p.on('assert', res => t.fail('no assertions expected', { res }))
   p.on('complete', function () {
     t.matchSnapshot(events, 'events')
     t.end()

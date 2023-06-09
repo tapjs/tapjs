@@ -6,22 +6,14 @@ import { readFileSync, writeFileSync } from 'node:fs'
 import { basename, resolve } from 'node:path'
 
 if (typeof process.argv[2] !== 'string') {
-  console.error(
-    'usage: generate-tap-test-class [...plugins]'
-  )
+  console.error('usage: generate-tap-test-class [...plugins]')
   process.exit(1)
 }
 
-const templateFile = resolve(
-  __dirname,
-  './test-template.ts'
-)
+const templateFile = resolve(__dirname, './test-template.ts')
 let template = readFileSync(templateFile, 'utf8')
 
-const dir = resolve(
-  __dirname,
-  '../node_modules/@tapjs/.test-built'
-)
+const dir = resolve(__dirname, '../node_modules/@tapjs/.test-built')
 mkdirp.sync(resolve(dir, 'src'))
 const out = resolve(dir, 'src/index.ts')
 
@@ -31,8 +23,7 @@ const copies = globSync(
 )
 for (const f of copies) {
   const b = basename(f)
-  const t =
-    b === 'package-template.json' ? 'package.json' : b
+  const t = b === 'package-template.json' ? 'package.json' : b
   writeFileSync(resolve(dir, t), readFileSync(f))
 }
 
@@ -128,9 +119,7 @@ const pluginNames = plugins.map(p => {
 const pluginImport = plugins
   .map(
     (p, i) =>
-      `import * as ${pluginNames[i]} from ${JSON.stringify(
-        p
-      )}\n`
+      `import * as ${pluginNames[i]} from ${JSON.stringify(p)}\n`
   )
   .join('')
 
@@ -141,9 +130,7 @@ const pluginsConfig = (() => {
   code += '{\n'
   for (const [p, name] of hasConfig.entries()) {
     let c = 0
-    for (const [field, cfg] of Object.entries(
-      configs.get(p) || {}
-    )) {
+    for (const [field, cfg] of Object.entries(configs.get(p) || {})) {
       const jf = JSON.stringify(field)
       code += `  const config_${name}_${c} = ${name}.config[${jf}]\n`
       const t = JSON.stringify(cfg.type)
@@ -167,9 +154,7 @@ const pluginsConfig = (() => {
     let c = 0
     const fp = `From plugin: ${p}`
     code += `    .heading(${JSON.stringify(fp)})\n`
-    for (const [field, cfg] of Object.entries(
-      configs.get(p) || {}
-    )) {
+    for (const [field, cfg] of Object.entries(configs.get(p) || {})) {
       const jf = JSON.stringify(field)
       const fn =
         cfg.type === 'boolean'
@@ -206,9 +191,7 @@ const pluginsLoaded = () => {
 ${[...hasPlugin.values()]
   .map(
     name =>
-      `    ['${name.substring(
-        'Plugin_'.length
-      )}', ${name}.plugin],`
+      `    ['${name.substring('Plugin_'.length)}', ${name}.plugin],`
   )
   .join('\n')}
   ]))
@@ -226,11 +209,7 @@ const pluginLoaders = `export const loaders = ${JSON.stringify(
 )}
 `
 
-const swapTag = (
-  src: string,
-  tag: string,
-  code: string
-): string => {
+const swapTag = (src: string, tag: string, code: string): string => {
   const st = '//{{' + tag + ' START}}\n'
   const et = '//{{' + tag + ' END}}\n'
   const start = src.indexOf(st) + st.length

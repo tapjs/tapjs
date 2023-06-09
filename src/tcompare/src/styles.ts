@@ -3,9 +3,7 @@ import type { Format } from './format.js'
 // can't use buf.toString('ascii') because that unmasks high bytes
 const bufToAscii = (buf: Buffer) =>
   buf
-    .map(c =>
-      c <= 0x20 || c >= 0x7f ? '.'.charCodeAt(0) : c
-    )
+    .map(c => (c <= 0x20 || c >= 0x7f ? '.'.charCodeAt(0) : c))
     .toString()
 
 export interface Style {
@@ -65,11 +63,7 @@ export interface Style {
   stringTail: (indent: string) => string
 
   diffable: boolean
-  start: (
-    indent: string,
-    key: string,
-    sep: string
-  ) => string
+  start: (indent: string, key: string, sep: string) => string
 }
 
 export const styles: { [style: string]: Style } = {}
@@ -186,9 +180,7 @@ styles.js = {
   circular: node => `*ref_${node.id}`,
   nodeId: id => `&ref_${id} `,
   errorEmpty: (er, cls) =>
-    `new ${cls}(${
-      er.message ? JSON.stringify(er.message) : ''
-    })`,
+    `new ${cls}(${er.message ? JSON.stringify(er.message) : ''})`,
   errorHead: (er, cls) =>
     `Object.assign(new ${cls}(${
       er.message ? JSON.stringify(er.message) : ''
@@ -208,8 +200,7 @@ styles.js = {
   bufferEmpty: () => 'Buffer.alloc(0)',
   bufferStart: () => 'Buffer.from("',
   bufferBody: buf => buf.toString('hex'),
-  bufferEnd: buf =>
-    '", "hex") /* ' + bufToAscii(buf) + ' */',
+  bufferEnd: buf => '", "hex") /* ' + bufToAscii(buf) + ' */',
 
   bufferHead: () => 'Buffer.from(\n',
   bufferKey: () => '',

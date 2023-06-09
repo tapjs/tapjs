@@ -17,7 +17,7 @@ then it uses `sinon.defaultConfig`, which enables everything.
 Install `@tapjs/sinon`, and add `'@tapjs/sinon'` to your plugin
 config list in `package.json` or `.taprc`.
 
-``` bash
+```bash
 # install the plugin:
 npx tap plugin add @tapjs/sinon
 
@@ -60,12 +60,16 @@ t.test('another test', async t => {
   // myAPI.hello is no longer a sinon stub
 })
 
-t.test('sinon with a config object', {
-  sinon: {
-    injectInto: null,
-    useFakeTimers: true,
+t.test(
+  'sinon with a config object',
+  {
+    sinon: {
+      injectInto: null,
+      useFakeTimers: true,
+    },
+  },
+  async t => {
+    // t.sinon only has the configured setup here
   }
-}, async t => {
-  // t.sinon only has the configured setup here
-})
+)
 ```

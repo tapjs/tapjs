@@ -20,24 +20,16 @@ export class Spawn extends Base {
             throw new TypeError('no command provided');
         }
         options = options || {};
-        const cwd = typeof options.cwd === 'string'
-            ? options.cwd
-            : process.cwd();
+        const cwd = typeof options.cwd === 'string' ? options.cwd : process.cwd();
         const args = options.args || [];
-        options.name =
-            options.name || Spawn.procName(cwd, command, args);
+        options.name = options.name || Spawn.procName(cwd, command, args);
         super(options);
         this.cwd = cwd;
         this.command = command;
         this.args = args;
         if (options.stdio) {
             if (typeof options.stdio === 'string') {
-                this.stdio = [
-                    options.stdio,
-                    'pipe',
-                    options.stdio,
-                    'ipc',
-                ];
+                this.stdio = [options.stdio, 'pipe', options.stdio, 'ipc'];
             }
             else {
                 const [stdin, _, stderr] = options.stdio;
@@ -122,8 +114,7 @@ export class Spawn extends Base {
             this.results.plan.skipAll &&
             !code &&
             !signal) {
-            this.options.skip =
-                this.results.plan.skipReason || true;
+            this.options.skip = this.results.plan.skipReason || true;
         }
         if (code || signal) {
             if (this.results) {
@@ -184,9 +175,7 @@ export class Spawn extends Base {
                 args
                     .map(a => a.indexOf(cwd) === 0
                     ? './' +
-                        a
-                            .substring(cwd.length + 1)
-                            .replace(/\\/g, '/')
+                        a.substring(cwd.length + 1).replace(/\\/g, '/')
                     : a)
                     .join(' ')
                     .trim()

@@ -75,21 +75,15 @@ export class Format {
     this.bufferChunkSize =
       this.style.bufferChunkSize === Infinity
         ? Infinity
-        : options.bufferChunkSize ||
-          this.style.bufferChunkSize
+        : options.bufferChunkSize || this.style.bufferChunkSize
 
     // for printing child values of pojos and maps
     this.key = options.key
 
     // for printing Map keys
     this.isKey = !!options.isKey
-    if (
-      this.isKey &&
-      !(this.parent && this.parent.isMap())
-    ) {
-      throw new Error(
-        'isKey should only be set for Map keys'
-      )
+    if (this.isKey && !(this.parent && this.parent.isMap())) {
+      throw new Error('isKey should only be set for Map keys')
     }
 
     this.level = this.parent ? this.parent.level + 1 : 0
@@ -104,9 +98,7 @@ export class Format {
   }
 
   incId(): number {
-    return this.parent
-      ? this.parent.incId()
-      : (this.idCounter += 1)
+    return this.parent ? this.parent.incId() : (this.idCounter += 1)
   }
 
   getId(): number {
@@ -136,11 +128,7 @@ export class Format {
     return false
   }
 
-  child(
-    obj: any,
-    options: FormatOptions,
-    cls?: typeof Format
-  ) {
+  child(obj: any, options: FormatOptions, cls?: typeof Format) {
     // This raises an error because ts thinks 'typeof Class' is
     // a normal function, not an instantiable class. Ignore.
     //@ts-expect-error
@@ -276,9 +264,7 @@ export class Format {
     // this should be impossible
     /* c8 ignore start */
     if (typeof this.memo !== 'string') {
-      throw new Error(
-        'failed to build memo string in print() method'
-      )
+      throw new Error('failed to build memo string in print() method')
     }
     /* c8 ignore stop */
     return this.memo
@@ -373,9 +359,7 @@ export class Format {
       ? this.style.mapKeyValSep()
       : this.style.pojoKeyValSep()
     this.memo =
-      this.style.start(indent, key, sep) +
-      this.nodeId() +
-      this.memo
+      this.style.start(indent, key, sep) + this.nodeId() + this.memo
   }
 
   printEnd(): void {
@@ -401,9 +385,7 @@ export class Format {
   getKey(): string {
     return this.parent && this.parent.isMap()
       ? this.style.mapKeyStart() +
-          this.parent
-            .child(this.key, { isKey: true }, Format)
-            .print()
+          this.parent.child(this.key, { isKey: true }, Format).print()
       : JSON.stringify(this.key)
   }
 
@@ -439,10 +421,7 @@ export class Format {
       this.memo +=
         this.style.bufferKey(this.key) +
         this.style.bufferKeySep() +
-        this.style.bufferLine(
-          this.object,
-          this.bufferChunkSize
-        )
+        this.style.bufferLine(this.object, this.bufferChunkSize)
     } else if (this.object.length === 0) {
       this.memo += this.style.bufferEmpty()
     } else if (this.bufferIsShort()) {
@@ -553,9 +532,7 @@ export class Format {
     // can never get here unless obj is already a map
     /* c8 ignore start */
     if (!(obj instanceof Map)) {
-      throw new TypeError(
-        'cannot get map entries for non-Map object'
-      )
+      throw new TypeError('cannot get map entries for non-Map object')
     }
     /* c8 ignore stop */
     return [...obj.entries()]
@@ -696,17 +673,11 @@ export class Format {
   }
 
   printErrorEmpty(): void {
-    this.memo += this.style.errorEmpty(
-      this.object,
-      this.getClass()
-    )
+    this.memo += this.style.errorEmpty(this.object, this.getClass())
   }
 
   printErrorHead(): void {
-    this.memo += this.style.errorHead(
-      this.object,
-      this.getClass()
-    )
+    this.memo += this.style.errorHead(this.object, this.getClass())
   }
 
   printErrorTail(): void {
@@ -730,10 +701,7 @@ export class Format {
       if (proto) {
         const desc = Object.getOwnPropertyDescriptors(proto)
         for (const [name, prop] of Object.entries(desc)) {
-          if (
-            prop.enumerable &&
-            typeof prop.get === 'function'
-          ) {
+          if (prop.enumerable && typeof prop.get === 'function') {
             // public wrappers around internal things are worth showing
             own.add(name)
           }
@@ -781,9 +749,10 @@ export class Format {
   }
 
   getPojoEntries(obj: any): [string, any][] {
-    const ent: [string, any][] = this.getPojoKeys(obj).map(
-      k => [k, obj[k]]
-    )
+    const ent: [string, any][] = this.getPojoKeys(obj).map(k => [
+      k,
+      obj[k],
+    ])
     return this.sort
       ? ent.sort((a, b) => a[0].localeCompare(b[0], 'en'))
       : ent

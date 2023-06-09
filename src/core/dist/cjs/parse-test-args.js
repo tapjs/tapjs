@@ -31,8 +31,7 @@ const parseTestArgs = (...args) => {
             continue;
         }
         else if (typeof arg !== 'undefined')
-            throw new TypeError('unknown argument passed to parseTestArgs: ' +
-                typeof arg);
+            throw new TypeError('unknown argument passed to parseTestArgs: ' + typeof arg);
     }
     if (!extra)
         extra = {};

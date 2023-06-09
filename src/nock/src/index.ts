@@ -23,8 +23,7 @@ export type NockMethod = ((
   enableNetConnect: (typeof nock)['enableNetConnect']
   disableNetConnect: (typeof nock)['disableNetConnect']
   snapshot: (
-    options?: NockRecorderOptionsMaybe &
-      NockRecorderLoadOptions
+    options?: NockRecorderOptionsMaybe & NockRecorderLoadOptions
   ) => nock.Scope[]
 }
 
@@ -134,8 +133,7 @@ export class TapNock {
   }
 
   #snapshot(
-    options: NockRecorderOptionsMaybe &
-      NockRecorderLoadOptions = {}
+    options: NockRecorderOptionsMaybe & NockRecorderLoadOptions = {}
   ): nock.Scope[] {
     if (!this.#t.t.pluginLoaded(plugin)) {
       throw new Error('nock plugin not loaded')
@@ -169,10 +167,7 @@ export class TapNock {
     let t = this.#t
     let tn: TapNock = this
     let tnp: TapNock | undefined = this
-    while (
-      t.parent &&
-      (tnp = TapNock.#refs.get(t.parent))
-    ) {
+    while (t.parent && (tnp = TapNock.#refs.get(t.parent))) {
       t = t.parent
       tn = tnp
     }

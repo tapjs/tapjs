@@ -39,7 +39,7 @@ export class After {
 
   #callTeardown() {
     let fn: (() => any) | undefined
-    while (fn = this.#onTeardown.shift()) {
+    while ((fn = this.#onTeardown.shift())) {
       try {
         const ret = fn.call(this.#t.t)
         if (isPromise(ret)) {
@@ -60,10 +60,7 @@ export class After {
   }
 }
 
-export const plugin: TapPlugin<After> = (t: TestBase) =>
-  new After(t)
+export const plugin: TapPlugin<After> = (t: TestBase) => new After(t)
 
 const isPromise = (p: any): p is Promise<any | void> =>
-  !!p &&
-  typeof p === 'object' &&
-  typeof p.then === 'function'
+  !!p && typeof p === 'object' && typeof p.then === 'function'

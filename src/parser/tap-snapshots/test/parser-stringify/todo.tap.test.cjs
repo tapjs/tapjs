@@ -5,7 +5,9 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts > TAP > todo.tap > bail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > todo.tap > bail > parsed 1`
+] = `
 Array [
   Array [
     "version",
@@ -562,7 +564,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > todo.tap > bail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > todo.tap > bail > stringified 1`
+] = `
 TAP version 14
 # Subtest: a set of tests to be done later
     ok 1 - should have a thingie # TODO
@@ -589,7 +593,9 @@ ok 2 - another set of tests
 
 `
 
-exports[`test/parse-stringify.ts > TAP > todo.tap > bail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > todo.tap > bail > stringified flat 1`
+] = `
 TAP version 14
 # Subtest: a set of tests to be done later
 ok 1 - a set of tests to be done later > should have a thingie # TODO
@@ -612,7 +618,9 @@ ok 13 - another set of tests
 
 `
 
-exports[`test/parse-stringify.ts > TAP > todo.tap > default settings > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > todo.tap > default settings > parsed 1`
+] = `
 Array [
   Array [
     "version",
@@ -1169,7 +1177,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > todo.tap > default settings > parsed flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > todo.tap > default settings > parsed flat 1`
+] = `
 Array [
   Array [
     "version",
@@ -1368,7 +1378,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > todo.tap > default settings > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > todo.tap > default settings > stringified 1`
+] = `
 TAP version 14
 # Subtest: a set of tests to be done later
     ok 1 - should have a thingie # TODO
@@ -1395,7 +1407,9 @@ ok 2 - another set of tests
 
 `
 
-exports[`test/parse-stringify.ts > TAP > todo.tap > default settings > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > todo.tap > default settings > stringified flat 1`
+] = `
 TAP version 14
 # Subtest: a set of tests to be done later
 ok 1 - a set of tests to be done later > should have a thingie # TODO
@@ -1418,7 +1432,9 @@ ok 13 - another set of tests
 
 `
 
-exports[`test/parse-stringify.ts > TAP > todo.tap > strict > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > todo.tap > strict > parsed 1`
+] = `
 Array [
   Array [
     "version",
@@ -1975,7 +1991,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > todo.tap > strict > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > todo.tap > strict > stringified 1`
+] = `
 TAP version 14
 # Subtest: a set of tests to be done later
     ok 1 - should have a thingie # TODO
@@ -2002,7 +2020,9 @@ ok 2 - another set of tests
 
 `
 
-exports[`test/parse-stringify.ts > TAP > todo.tap > strict > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > todo.tap > strict > stringified flat 1`
+] = `
 TAP version 14
 # Subtest: a set of tests to be done later
 ok 1 - a set of tests to be done later > should have a thingie # TODO
@@ -2025,7 +2045,9 @@ ok 13 - another set of tests
 
 `
 
-exports[`test/parse-stringify.ts > TAP > todo.tap > strictBail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > todo.tap > strictBail > parsed 1`
+] = `
 Array [
   Array [
     "version",
@@ -2582,7 +2604,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > todo.tap > strictBail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > todo.tap > strictBail > stringified 1`
+] = `
 TAP version 14
 # Subtest: a set of tests to be done later
     ok 1 - should have a thingie # TODO
@@ -2609,7 +2633,9 @@ ok 2 - another set of tests
 
 `
 
-exports[`test/parse-stringify.ts > TAP > todo.tap > strictBail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > todo.tap > strictBail > stringified flat 1`
+] = `
 TAP version 14
 # Subtest: a set of tests to be done later
 ok 1 - a set of tests to be done later > should have a thingie # TODO

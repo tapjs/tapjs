@@ -80,7 +80,10 @@ export class CallSiteLike {
     if (this.evalOrigin) this.evalOrigin.cwd = cwd
   }
 
-  constructor(e: Error | null, c: NodeJS.CallSite | string | Compiled) {
+  constructor(
+    e: Error | null,
+    c: NodeJS.CallSite | string | Compiled
+  ) {
     if (typeof c === 'string') {
       c = parseCallSiteLine(c)
     }
@@ -119,7 +122,8 @@ export class CallSiteLike {
         this.evalOrigin = new CallSiteLike(e, c.evalOrigin)
       }
 
-      this.lineNumber = c.lineNumber === undefined ? null : c.lineNumber
+      this.lineNumber =
+        c.lineNumber === undefined ? null : c.lineNumber
       this.columnNumber =
         c.columnNumber === undefined ? null : c.columnNumber
       const fileName = c.fileName
@@ -197,7 +201,8 @@ export class CallSiteLike {
           const originalColumn = payload.originalColumn + offset[1]
           const genFilename = this.#relativize(this.#fileName)
           this.generated = {
-            fileName: typeof genFilename === 'string' ? genFilename : null,
+            fileName:
+              typeof genFilename === 'string' ? genFilename : null,
             lineNumber: this.lineNumber,
             columnNumber: this.columnNumber,
           }
@@ -235,7 +240,9 @@ export class CallSiteLike {
     if (this.isConstructor && fname) {
       fname = `new ${fname}`
     }
-    let ev = this.evalOrigin ? `eval at ${this.evalOrigin.toString()}` : ''
+    let ev = this.evalOrigin
+      ? `eval at ${this.evalOrigin.toString()}`
+      : ''
     if (ev) {
       ev = fname ? ` (${ev})` : ev
     }
@@ -300,7 +307,11 @@ export class CallSiteLike {
     if (columnNumber || columnNumber === 0)
       json.columnNumber = columnNumber
     if (evalOrigin) json.evalOrigin = evalOrigin.toJSON()
-    if (typeName !== null && typeName !== 'Object' && typeName !== 'Test')
+    if (
+      typeName !== null &&
+      typeName !== 'Object' &&
+      typeName !== 'Test'
+    )
       json.typeName = typeName
     if (methodName !== null) json.methodName = methodName
     if (functionName !== null) json.functionName = functionName
@@ -313,7 +324,8 @@ export class CallSiteLike {
       if (f && typeof f === 'string' && f !== json.fileName) {
         const gen: Record<string, string | number> = {}
         gen.fileName = f
-        if (generated.lineNumber) gen.lineNumber = generated.lineNumber
+        if (generated.lineNumber)
+          gen.lineNumber = generated.lineNumber
         if (generated.columnNumber)
           gen.columnNumber = generated.columnNumber
         if (Object.keys(gen).length > 0) {

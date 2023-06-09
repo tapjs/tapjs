@@ -11,27 +11,17 @@ const strict = (t: Test, a: any, b: any) => {
 
 t.test('symbology', t => {
   // symbols only match if they're the same symbol
-  t.ok(
-    strict(
-      t,
-      { a: Symbol.for('a') },
-      { a: Symbol.for('a') }
-    )
-  )
+  t.ok(strict(t, { a: Symbol.for('a') }, { a: Symbol.for('a') }))
   const a = Symbol('a')
   t.ok(strict(t, a, a))
 
   t.notOk(strict(t, { a: Symbol('a') }, { a: Symbol('a') }))
-  t.notOk(
-    strict(t, { a: Symbol('a') }, { a: Symbol.for('a') })
-  )
+  t.notOk(strict(t, { a: Symbol('a') }, { a: Symbol.for('a') }))
 
   t.notOk(strict(t, { a: Symbol('a') }, { a: Symbol }))
   t.notOk(strict(t, { a: Symbol('a') }, { a: 'Symbol(a)' }))
   t.notOk(strict(t, { a: 'Symbol(a)' }, { a: Symbol('a') }))
-  t.notOk(
-    strict(t, { a: 'Symbol(a)' }, { a: Symbol.for('a') })
-  )
+  t.notOk(strict(t, { a: 'Symbol(a)' }, { a: Symbol.for('a') }))
   t.notOk(strict(t, { a: 'Symbol(a)' }, { a: Symbol }))
   t.end()
 })
@@ -105,18 +95,12 @@ t.test('basic', t => {
   // 4. buffers are compared by value
   var bufferA = Buffer.from('abc')
   var bufferB = Buffer.from('abc')
-  t.ok(
-    strict(t, bufferA, bufferB),
-    'buffers are compared by value'
-  )
+  t.ok(strict(t, bufferA, bufferB), 'buffers are compared by value')
 
   // 5. dates are compared by numeric (time) value
   var dateA = new Date('2001-01-11')
   var dateB = new Date('2001-01-11')
-  t.ok(
-    strict(t, dateA, dateB),
-    'dates are compared by time value'
-  )
+  t.ok(strict(t, dateA, dateB), 'dates are compared by time value')
 
   // 6. regexps are compared by their properties
   var rexpA = /^h[oe][wl][dl][oy]$/
@@ -130,15 +114,9 @@ t.test('basic', t => {
   t.ok(strict(t, {}, {}), 'bare objects check out')
   var a = { a: 'a' }
   var b: any = a
-  t.ok(
-    strict(t, a, b),
-    'identical object references check out'
-  )
+  t.ok(strict(t, a, b), 'identical object references check out')
   b = { a: 'a' }
-  t.ok(
-    strict(t, a, b),
-    'identical simple object values check out'
-  )
+  t.ok(strict(t, a, b), 'identical simple object values check out')
 
   t.ok(strict(t, [0, 1], [0, 1]), 'arrays check out')
 
@@ -149,10 +127,7 @@ t.test('basic', t => {
   eeA.on('error', onerror)
   var eeB = new EventEmitter()
   eeB.on('error', onerror)
-  t.ok(
-    strict(t, eeA, eeB),
-    'more complex objects check out'
-  )
+  t.ok(strict(t, eeA, eeB), 'more complex objects check out')
 
   var cyclicA: { [k: string]: any } = {}
   cyclicA.x = cyclicA
@@ -231,10 +206,7 @@ t.test('basic', t => {
     },
   }
   z.v.v.v.v.v.v.v.v.v.v.v.v.v.v.v.v = z
-  t.ok(
-    strict(t, y, z),
-    'deeply recursive data structures also work'
-  )
+  t.ok(strict(t, y, z), 'deeply recursive data structures also work')
 
   t.ok(
     strict(t, heinous, awful),
@@ -263,18 +235,12 @@ t.test('basic', t => {
     strict(t, 1, '1'),
     'strict equality, no coercion between strings and numbers'
   )
-  t.notOk(
-    strict(t, 'ok', 'nok'),
-    'different strings are different'
-  )
+  t.notOk(strict(t, 'ok', 'nok'), 'different strings are different')
   t.notOk(
     strict(t, 0, '0'),
     'strict equality, no coercion between strings and numbers'
   )
-  t.notOk(
-    strict(t, undefined, null),
-    'so many kinds of nothingness!'
-  )
+  t.notOk(strict(t, undefined, null), 'so many kinds of nothingness!')
   t.notOk(
     strict(
       t,
@@ -293,14 +259,8 @@ t.test('basic', t => {
   // 3. null is an object
   t.notOk(strict(t, {}, null), 'null is of type object')
   t.notOk(strict(t, null, {}), 'null is of type object')
-  t.notOk(
-    strict(t, null, undefined),
-    'null is of type object'
-  )
-  t.notOk(
-    strict(t, undefined, null),
-    'null is of type object'
-  )
+  t.notOk(strict(t, null, undefined), 'null is of type object')
+  t.notOk(strict(t, undefined, null), 'null is of type object')
 
   // 4. buffers are compared by both byte length (for speed) and value
   bufferB = Buffer.from('abcd')
@@ -316,10 +276,7 @@ t.test('basic', t => {
 
   // 5. dates
   dateB = new Date('2001-01-12')
-  t.notOk(
-    strict(t, dateA, dateB),
-    'different dates are not the same'
-  )
+  t.notOk(strict(t, dateA, dateB), 'different dates are not the same')
 
   // 6. regexps
   rexpB = /^(howdy|hello)$/
@@ -342,10 +299,7 @@ t.test('basic', t => {
   })(1, 2, 3)
 
   // 8. objects present edge cases galore
-  t.notOk(
-    strict(t, [], {}),
-    "different object types shouldn't match"
-  )
+  t.notOk(strict(t, [], {}), "different object types shouldn't match")
 
   var nullstructor = Object.create(null)
   t.notOk(
@@ -354,37 +308,22 @@ t.test('basic', t => {
   )
 
   b = { b: 'b' }
-  t.notOk(
-    strict(t, a, b),
-    "different object values aren't the same"
-  )
+  t.notOk(strict(t, a, b), "different object values aren't the same")
 
   var c = { b: 'b', c: undefined }
-  t.notOk(
-    strict(t, b, c),
-    "different object values aren't the same"
-  )
+  t.notOk(strict(t, b, c), "different object values aren't the same")
 
   function ondata(data: any) {
     console.log(data)
   }
   eeB.on('data', ondata)
-  t.notOk(
-    strict(t, eeA, eeB),
-    "changed objects don't match"
-  )
+  t.notOk(strict(t, eeA, eeB), "changed objects don't match")
 
   awful.granular.stuff[2] = 3
-  t.notOk(
-    strict(t, heinous, awful),
-    'small changes should be found'
-  )
+  t.notOk(strict(t, heinous, awful), 'small changes should be found')
 
   awful.granular.stuff[2] = 2
-  t.ok(
-    strict(t, heinous, awful),
-    'small changes should be fixable'
-  )
+  t.ok(strict(t, heinous, awful), 'small changes should be fixable')
 
   t.end()
 })
@@ -474,13 +413,7 @@ t.test('iterables match one another', t => {
   const b = new And(1, 2)
   const arr = [1, 2]
   t.ok(strict(t, a, b), 'iterables match one another')
-  t.notOk(
-    strict(t, a, arr),
-    'iterable does not strictly match array'
-  )
-  t.notOk(
-    strict(t, arr, b),
-    'array does not strictly match iterable'
-  )
+  t.notOk(strict(t, a, arr), 'iterable does not strictly match array')
+  t.notOk(strict(t, arr, b), 'array does not strictly match iterable')
   t.end()
 })

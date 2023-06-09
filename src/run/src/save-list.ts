@@ -14,7 +14,10 @@ export const readSave = async (config: LoadedConfig) => {
   const d = await readFile(file, 'utf8').catch(() => '')
   return (list = d.trim().split('\n'))
 }
-export const writeSave = async (config: LoadedConfig, list: string[]) => {
+export const writeSave = async (
+  config: LoadedConfig,
+  list: string[]
+) => {
   const save = config.get('save')
   if (!save) return
   if (!file) file = resolve(save, config.globCwd)

@@ -1,0 +1,6 @@
+/node_modules
+/src/*/example
+/.github
+/src/*/dist
+/src/*/tap-snapshots
+/tap-snapshots

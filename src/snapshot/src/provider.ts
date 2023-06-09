@@ -26,7 +26,10 @@ ${Object.entries(data)
   .join('\n')}`
 
 const escape = (s: string) =>
-  s.replace(/\\/g, '\\\\').replace(/\`/g, '\\`').replace(/\$\{/g, '\\${')
+  s
+    .replace(/\\/g, '\\\\')
+    .replace(/\`/g, '\\`')
+    .replace(/\$\{/g, '\\${')
 
 /**
  * This is the default snapshot provider that ships with the plugin.
@@ -89,7 +92,9 @@ export class SnapshotProviderDefault implements SnapshotProvider {
       this.#snapshot = req(this.file)
     } catch (er) {
       console.error(er)
-      throw new Error(`Snapshot file not found: ${this.file}${envMsg}`)
+      throw new Error(
+        `Snapshot file not found: ${this.file}${envMsg}`
+      )
     }
   }
 }

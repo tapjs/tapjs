@@ -31,10 +31,7 @@ if (!result.match) {
 
 // raw classes exported also
 import { MatchOnly } from 'tcompare'
-const mo = new MatchOnly(
-  { a: 1, b: 2 },
-  { expect: { a: Number } }
-)
+const mo = new MatchOnly({ a: 1, b: 2 }, { expect: { a: Number } })
 const diff: string = mo.print()
 console.log(mo.match) // false
 console.log(diff)

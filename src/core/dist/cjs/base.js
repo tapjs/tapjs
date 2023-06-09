@@ -106,8 +106,7 @@ class Base extends minipass_1.Minipass {
         this.bail = !!options.bail;
         this.strict = !!options.strict;
         this.omitVersion = !!options.omitVersion;
-        this.preserveWhitespace =
-            options.preserveWhitespace !== false;
+        this.preserveWhitespace = options.preserveWhitespace !== false;
         this.buffered = !!options.buffered;
         this.bailedOut = false;
         this.errors = [];
@@ -126,9 +125,7 @@ class Base extends minipass_1.Minipass {
             er.tapCaught = type;
             this.threw(er);
         })));
-        this.debug = !!options.debug
-            ? debug(this.name)
-            : () => { };
+        this.debug = !!options.debug ? debug(this.name) : () => { };
         this.parser =
             options.parser ||
                 new tap_parser_1.Parser({
@@ -230,8 +227,7 @@ class Base extends minipass_1.Minipass {
         if (this.start) {
             this.hrtime = node_process_1.hrtime.bigint() - this.start;
             this.time =
-                results.time ||
-                    Math.floor(Number(this.hrtime) / 1000) / 1000;
+                results.time || Math.floor(Number(this.hrtime) / 1000) / 1000;
         }
         this.debug('ONCOMPLETE %j %j', this.name, results);
         if (this.results) {
@@ -302,8 +298,8 @@ class Base extends minipass_1.Minipass {
         // a bit excessive. Do not print it here if it would trigger
         // a plan exceeded error, or if we already have results.
         if (this.results ||
-            this.parser.planEnd !== -1 &&
-                this.parser.count >= this.parser.planEnd) {
+            (this.parser.planEnd !== -1 &&
+                this.parser.count >= this.parser.planEnd)) {
             this.debug('Base.threw, but have results', this.results, er);
             const alreadyBailing = !this.results?.ok && this.bail;
             if (this.results)

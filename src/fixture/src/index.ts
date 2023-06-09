@@ -44,7 +44,10 @@ export class TestFixtures {
     this.#t = t
   }
 
-  fixture<T extends FixtureType>(type: T, content: FixtureContent<T>) {
+  fixture<T extends FixtureType>(
+    type: T,
+    content: FixtureContent<T>
+  ) {
     return new Fixture(type, content)
   }
 
@@ -96,7 +99,9 @@ export class TestFixtures {
     }
 
     return (
-      p.testdirName + '-' + (t.name || 'unnamed test').replace(re, '-')
+      p.testdirName +
+      '-' +
+      (t.name || 'unnamed test').replace(re, '-')
     )
   }
 }

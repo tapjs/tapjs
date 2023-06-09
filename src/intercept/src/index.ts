@@ -264,9 +264,11 @@ export class Interceptor {
    * logic to restore, since it's not actually modifying anything.
    * The results hang off the function as the 'calls' property.
    */
-  captureFn(
-    original: (...a: any[]) => any
-  ): ((...a: any[]) => any) & { calls: CaptureResult<typeof original>[] } {
+  captureFn(original: (...a: any[]) => any): ((
+    ...a: any[]
+  ) => any) & {
+    calls: CaptureResult<typeof original>[]
+  } {
     type F = typeof original
     const calls: CaptureResult<F>[] = []
     return Object.assign(

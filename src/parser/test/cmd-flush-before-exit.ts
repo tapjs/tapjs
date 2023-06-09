@@ -18,11 +18,17 @@ if (process.argv[2] === 'gen') {
     for (let i = 0; i < 10000; i++) {
       // sprinkle in some failures
       const assert = i % 39 > 0 ? 'pass' : 'fail'
-      t[assert]('this is some sample output', { diagnostic: false })
+      t[assert]('this is some sample output', {
+        diagnostic: false,
+      })
     }
   })
 } else if (process.argv[2] === 'cmd') {
-  process.argv = [process.execPath, require.resolve('../bin/cmd.js'), '-t']
+  process.argv = [
+    process.execPath,
+    require.resolve('../bin/cmd.js'),
+    '-t',
+  ]
   require('../bin/cmd.js')
 } else if (process.argv[2] === 'pipe') {
   process.stdin.pipe(process.stdout)

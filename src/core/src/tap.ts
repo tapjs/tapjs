@@ -78,8 +78,7 @@ class TAP extends Test {
     }
     /* c8 ignore stop */
 
-    const timeout =
-      Number(process.env.TAP_TIMEOUT || '30') * 1000
+    const timeout = Number(process.env.TAP_TIMEOUT || '30') * 1000
     const options = {
       name: 'TAP',
       diagnostic: envFlag('TAP_DIAG'),
@@ -102,13 +101,13 @@ class TAP extends Test {
     // because otherwise we have a cyclical dep link between @tapjs/core
     // and @tapjs/after which prevents TS from being able to build properly
     // from a cold start.
-    const td = this as (typeof this & { teardown?: (fn: () => any) => void })
+    const td = this as typeof this & {
+      teardown?: (fn: () => any) => void
+    }
     const { teardown } = td
     if (td.plugins.has('after') && typeof teardown === 'function') {
       type TD = typeof teardown
-      td.teardown = (
-        ...args: Parameters<TD>
-      ): ReturnType<TD> => {
+      td.teardown = (...args: Parameters<TD>): ReturnType<TD> => {
         autoend = true
         td.teardown = teardown
         return td.teardown(...args)
@@ -183,10 +182,7 @@ class TAP extends Test {
     } = { expired: this.name, signal: null }
   ) {
     const ret = super.timeout(
-      Object.assign(
-        getTimeoutExtra(options.signal),
-        options
-      )
+      Object.assign(getTimeoutExtra(options.signal), options)
     )
     // don't stick around
     if (registered) {
@@ -200,9 +196,8 @@ class TAP extends Test {
   }
 }
 
-const shouldAutoend = (
-  instance: TAP | undefined
-): instance is TAP => !!autoend && !!instance?.idle
+const shouldAutoend = (instance: TAP | undefined): instance is TAP =>
+  !!autoend && !!instance?.idle
 
 let autoendTimer: NodeJS.Timer | undefined = undefined
 const maybeAutoend = () => {
@@ -269,9 +264,7 @@ const registerTimeoutListener = () => {
   /* c8 ignore stop */
 }
 
-const getTimeoutExtra = (
-  signal: NodeJS.Signals | null = null
-) => {
+const getTimeoutExtra = (signal: NodeJS.Signals | null = null) => {
   const p = process as unknown as {
     _getActiveHandles: () => any[]
     _getActiveRequests: () => any[]
@@ -335,8 +328,7 @@ const getTimeoutExtra = (
       if (h.msecs) ret.msecs = h.msecs
       if (h._events) ret.events = Object.keys(h._events)
       if (h._sockname) ret.sockname = h._sockname
-      if (h._connectionKey)
-        ret.connectionKey = h._connectionKey
+      if (h._connectionKey) ret.connectionKey = h._connectionKey
       /* c8 ignore stop */
 
       return ret
@@ -347,9 +339,7 @@ const getTimeoutExtra = (
 }
 
 let didProcessTimeout = false
-const onProcessTimeout = (
-  signal: NodeJS.Signals | null = null
-) => {
+const onProcessTimeout = (signal: NodeJS.Signals | null = null) => {
   if (didProcessTimeout || !instance) return
   didProcessTimeout = true
 
@@ -365,9 +355,7 @@ const onProcessTimeout = (
   if (!instance.results) {
     instance.timeout(extra)
   } else {
-    console.error(
-      'possible timeout: SIGALRM received after tap end'
-    )
+    console.error('possible timeout: SIGALRM received after tap end')
     if (extra.handles || extra.requests) {
       delete extra.signal
       if (!extra.at) {

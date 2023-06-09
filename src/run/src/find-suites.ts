@@ -16,7 +16,9 @@ const alwaysExcludeNames = [
 const excludeEntry = (e: string) =>
   alwaysExcludeNames.includes(e) || e.startsWith('tap-testdir-')
 
-const alwaysExcludePattern = `**/@(${alwaysExcludeNames.join('|')})/**`
+const alwaysExcludePattern = `**/@(${alwaysExcludeNames.join(
+  '|'
+)})/**`
 
 const defaultInclude =
   '**/{' +
@@ -35,7 +37,10 @@ const dirInclude = '**/*.@([mc][jt]s|[jt]s?(x))'
 //    Figure out which files in the suite have changed since last run,
 //    and only run those. Do not delete coverage history ever.
 
-export const findSuites = async (args: string[], config: LoadedConfig) => {
+export const findSuites = async (
+  args: string[],
+  config: LoadedConfig
+) => {
   const { values } = config.parse()
 
   const saveList: Set<string> = new Set(await readSave(config))
@@ -150,7 +155,8 @@ const pruneUnchanged = async (
       for (const f of sources) {
         // if the stat is missing, then the file isn't there,
         // and that's definitely a change
-        const fm = (await scurry.cwd.resolve(f).lstat())?.mtime || Infinity
+        const fm =
+          (await scurry.cwd.resolve(f).lstat())?.mtime || Infinity
         if (fm > piMtime) {
           del = false
           break OUTER

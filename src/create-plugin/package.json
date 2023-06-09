@@ -30,7 +30,7 @@
     "presnap": "npm run prepare",
     "test": "tap",
     "snap": "tap",
-    "format": "prettier --write . --loglevel warn",
+    "format": "prettier --write . --loglevel warn --ignore-path ../../.prettierignore --cache",
     "typedoc": "typedoc ./index.ts"
   },
   "dependencies": {

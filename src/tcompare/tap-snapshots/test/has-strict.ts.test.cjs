@@ -5,11 +5,15 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/has-strict.ts > TAP > iterables match one another > must match snapshot 1`] = `
+exports[
+  `test/has-strict.ts > TAP > iterables match one another > must match snapshot 1`
+] = `
 
 `
 
-exports[`test/has-strict.ts > TAP > iterables match one another > must match snapshot 2`] = `
+exports[
+  `test/has-strict.ts > TAP > iterables match one another > must match snapshot 2`
+] = `
 --- expected
 +++ actual
 @@ -1,4 +1,4 @@
@@ -21,7 +25,9 @@ exports[`test/has-strict.ts > TAP > iterables match one another > must match sna
 
 `
 
-exports[`test/has-strict.ts > TAP > iterables match one another > must match snapshot 3`] = `
+exports[
+  `test/has-strict.ts > TAP > iterables match one another > must match snapshot 3`
+] = `
 --- expected
 +++ actual
 @@ -1,4 +1,4 @@
@@ -48,11 +54,15 @@ exports[`test/has-strict.ts > TAP > must match snapshot 2`] = `
 
 `
 
-exports[`test/has-strict.ts > TAP > url object matches normal object (ctors not relevant) > must match snapshot 1`] = `
+exports[
+  `test/has-strict.ts > TAP > url object matches normal object (ctors not relevant) > must match snapshot 1`
+] = `
 
 `
 
-exports[`test/has-strict.ts > TAP > url object matches normal object (ctors not relevant) > must match snapshot 2`] = `
+exports[
+  `test/has-strict.ts > TAP > url object matches normal object (ctors not relevant) > must match snapshot 2`
+] = `
 --- expected
 +++ actual
 @@ -1,3 +1,3 @@
@@ -63,19 +73,27 @@ exports[`test/has-strict.ts > TAP > url object matches normal object (ctors not 
 
 `
 
-exports[`test/has-strict.ts > TAP > url object matches normal object (ctors not relevant) > must match snapshot 3`] = `
+exports[
+  `test/has-strict.ts > TAP > url object matches normal object (ctors not relevant) > must match snapshot 3`
+] = `
 
 `
 
-exports[`test/has-strict.ts > TAP > url object matches normal object (ctors not relevant) > must match snapshot 4`] = `
+exports[
+  `test/has-strict.ts > TAP > url object matches normal object (ctors not relevant) > must match snapshot 4`
+] = `
 
 `
 
-exports[`test/has-strict.ts > TAP > url object matches normal object (ctors not relevant) > must match snapshot 5`] = `
+exports[
+  `test/has-strict.ts > TAP > url object matches normal object (ctors not relevant) > must match snapshot 5`
+] = `
 
 `
 
-exports[`test/has-strict.ts > TAP > url object matches normal object (ctors not relevant) > must match snapshot 6`] = `
+exports[
+  `test/has-strict.ts > TAP > url object matches normal object (ctors not relevant) > must match snapshot 6`
+] = `
 --- expected
 +++ actual
 @@ -1,3 +1,3 @@

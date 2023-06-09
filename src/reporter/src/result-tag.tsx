@@ -18,7 +18,13 @@ export const ResultTag: FC<ResultOpts> = ({
   test,
   showCallsite = false,
 }) => {
-  const c = result.skip ? '~' : result.todo ? '☐' : !result.ok ? '✖' : '✓'
+  const c = result.skip
+    ? '~'
+    : result.todo
+    ? '☐'
+    : !result.ok
+    ? '✖'
+    : '✓'
   const textc = result.skip
     ? 'cyan'
     : result.todo

@@ -5,7 +5,9 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/match-only.ts > TAP > only specified fields must be present > must match snapshot 1`] = `
+exports[
+  `test/match-only.ts > TAP > only specified fields must be present > must match snapshot 1`
+] = `
 --- expected
 +++ actual
 @@ -1,2 +1,3 @@
@@ -15,6 +17,8 @@ exports[`test/match-only.ts > TAP > only specified fields must be present > must
 
 `
 
-exports[`test/match-only.ts > TAP > only specified fields must be present > must match snapshot 2`] = `
+exports[
+  `test/match-only.ts > TAP > only specified fields must be present > must match snapshot 2`
+] = `
 
 `

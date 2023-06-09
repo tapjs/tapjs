@@ -5,7 +5,9 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts > TAP > head_fail.tap > bail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > head_fail.tap > bail > parsed 1`
+] = `
 Array [
   Array [
     "comment",
@@ -97,7 +99,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > head_fail.tap > bail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > head_fail.tap > bail > stringified 1`
+] = `
 # comments
 ok 1
 not ok 2
@@ -105,7 +109,9 @@ Bail out!
 
 `
 
-exports[`test/parse-stringify.ts > TAP > head_fail.tap > bail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > head_fail.tap > bail > stringified flat 1`
+] = `
 # comments
 ok 1
 not ok 2
@@ -113,7 +119,9 @@ Bail out!
 
 `
 
-exports[`test/parse-stringify.ts > TAP > head_fail.tap > default settings > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > head_fail.tap > default settings > parsed 1`
+] = `
 Array [
   Array [
     "comment",
@@ -255,7 +263,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > head_fail.tap > default settings > parsed flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > head_fail.tap > default settings > parsed flat 1`
+] = `
 Array [
   Array [
     "comment",
@@ -396,7 +406,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > head_fail.tap > default settings > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > head_fail.tap > default settings > stringified 1`
+] = `
 # comments
 ok 1
 not ok 2
@@ -409,7 +421,9 @@ ok 4
 
 `
 
-exports[`test/parse-stringify.ts > TAP > head_fail.tap > default settings > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > head_fail.tap > default settings > stringified flat 1`
+] = `
 # comments
 ok 1
 not ok 2
@@ -422,7 +436,9 @@ ok 4
 
 `
 
-exports[`test/parse-stringify.ts > TAP > head_fail.tap > strict > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > head_fail.tap > strict > parsed 1`
+] = `
 Array [
   Array [
     "comment",
@@ -564,7 +580,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > head_fail.tap > strict > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > head_fail.tap > strict > stringified 1`
+] = `
 # comments
 ok 1
 not ok 2
@@ -577,7 +595,9 @@ ok 4
 
 `
 
-exports[`test/parse-stringify.ts > TAP > head_fail.tap > strict > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > head_fail.tap > strict > stringified flat 1`
+] = `
 # comments
 ok 1
 not ok 2
@@ -590,7 +610,9 @@ ok 4
 
 `
 
-exports[`test/parse-stringify.ts > TAP > head_fail.tap > strictBail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > head_fail.tap > strictBail > parsed 1`
+] = `
 Array [
   Array [
     "comment",
@@ -682,7 +704,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > head_fail.tap > strictBail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > head_fail.tap > strictBail > stringified 1`
+] = `
 # comments
 ok 1
 not ok 2
@@ -690,7 +714,9 @@ Bail out!
 
 `
 
-exports[`test/parse-stringify.ts > TAP > head_fail.tap > strictBail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > head_fail.tap > strictBail > stringified flat 1`
+] = `
 # comments
 ok 1
 not ok 2

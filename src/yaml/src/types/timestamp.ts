@@ -3,5 +3,6 @@
 // See: https://github.com/eemeli/yaml/issues/475
 import { Schema } from 'yaml'
 const schema = new Schema({ resolveKnownTags: true })
-export const timestamp = schema.knownTags['tag:yaml.org,2002:timestamp']
+export const timestamp =
+  schema.knownTags['tag:yaml.org,2002:timestamp']
 timestamp.default = false

@@ -9,10 +9,7 @@ export type TestArgs<T extends Base> =
       cb?: false | ((t: T) => any),
       defaultName?: string
     ]
-  | [
-      extra: TestOpts | BaseOpts,
-      cb?: ((t: T) => any) | false
-    ]
+  | [extra: TestOpts | BaseOpts, cb?: ((t: T) => any) | false]
   | [name: string | number, cb?: ((t: T) => any) | false]
   | [cb?: ((t: T) => any) | false]
   | [name: string]
@@ -22,8 +19,7 @@ export const parseTestArgs = <T extends Base>(
   ...args: TestArgs<T>
 ): TestOpts => {
   let name: string | null | undefined = undefined
-  let extra: TestOpts | BaseOpts | null | undefined =
-    undefined
+  let extra: TestOpts | BaseOpts | null | undefined = undefined
   let cb: ((t: T) => any) | null | undefined = undefined
 
   // this only works if it's literally the 4th argument.
@@ -50,8 +46,7 @@ export const parseTestArgs = <T extends Base>(
       continue
     } else if (typeof arg !== 'undefined')
       throw new TypeError(
-        'unknown argument passed to parseTestArgs: ' +
-          typeof arg
+        'unknown argument passed to parseTestArgs: ' + typeof arg
       )
   }
 

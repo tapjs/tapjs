@@ -5,7 +5,9 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/abort.ts > TAP > buffered abort > empty diags > lines 1`] = `
+exports[
+  `test/abort.ts > TAP > buffered abort > empty diags > lines 1`
+] = `
 Array [
   "ok 1 - nesting {\\n",
   "    1..2\\n",
@@ -25,7 +27,9 @@ Array [
 ]
 `
 
-exports[`test/abort.ts > TAP > buffered abort > empty diags > results 1`] = `
+exports[
+  `test/abort.ts > TAP > buffered abort > empty diags > results 1`
+] = `
 FinalResults {
   "bailout": false,
   "count": 2,
@@ -64,7 +68,9 @@ FinalResults {
 }
 `
 
-exports[`test/abort.ts > TAP > buffered abort > no diags > lines 1`] = `
+exports[
+  `test/abort.ts > TAP > buffered abort > no diags > lines 1`
+] = `
 Array [
   "ok 1 - nesting {\\n",
   "    1..2\\n",
@@ -84,7 +90,9 @@ Array [
 ]
 `
 
-exports[`test/abort.ts > TAP > buffered abort > no diags > results 1`] = `
+exports[
+  `test/abort.ts > TAP > buffered abort > no diags > results 1`
+] = `
 FinalResults {
   "bailout": false,
   "count": 2,
@@ -123,7 +131,9 @@ FinalResults {
 }
 `
 
-exports[`test/abort.ts > TAP > buffered abort > with diags > lines 1`] = `
+exports[
+  `test/abort.ts > TAP > buffered abort > with diags > lines 1`
+] = `
 Array [
   "ok 1 - nesting {\\n",
   "    1..2\\n",
@@ -146,7 +156,9 @@ Array [
 ]
 `
 
-exports[`test/abort.ts > TAP > buffered abort > with diags > results 1`] = `
+exports[
+  `test/abort.ts > TAP > buffered abort > with diags > results 1`
+] = `
 FinalResults {
   "bailout": false,
   "count": 2,
@@ -318,7 +330,9 @@ Array [
 ]
 `
 
-exports[`test/abort.ts > TAP > unbuffered abort > empty diags > lines 1`] = `
+exports[
+  `test/abort.ts > TAP > unbuffered abort > empty diags > lines 1`
+] = `
 Array [
   "ok 1 - nesting {\\n",
   "    1..2\\n",
@@ -333,7 +347,9 @@ Array [
 ]
 `
 
-exports[`test/abort.ts > TAP > unbuffered abort > empty diags > results 1`] = `
+exports[
+  `test/abort.ts > TAP > unbuffered abort > empty diags > results 1`
+] = `
 FinalResults {
   "bailout": false,
   "count": 2,
@@ -372,7 +388,9 @@ FinalResults {
 }
 `
 
-exports[`test/abort.ts > TAP > unbuffered abort > no diags > lines 1`] = `
+exports[
+  `test/abort.ts > TAP > unbuffered abort > no diags > lines 1`
+] = `
 Array [
   "ok 1 - nesting {\\n",
   "    1..2\\n",
@@ -387,7 +405,9 @@ Array [
 ]
 `
 
-exports[`test/abort.ts > TAP > unbuffered abort > no diags > results 1`] = `
+exports[
+  `test/abort.ts > TAP > unbuffered abort > no diags > results 1`
+] = `
 FinalResults {
   "bailout": false,
   "count": 2,
@@ -426,7 +446,9 @@ FinalResults {
 }
 `
 
-exports[`test/abort.ts > TAP > unbuffered abort > with diags > lines 1`] = `
+exports[
+  `test/abort.ts > TAP > unbuffered abort > with diags > lines 1`
+] = `
 Array [
   "ok 1 - nesting {\\n",
   "    1..2\\n",
@@ -444,7 +466,9 @@ Array [
 ]
 `
 
-exports[`test/abort.ts > TAP > unbuffered abort > with diags > results 1`] = `
+exports[
+  `test/abort.ts > TAP > unbuffered abort > with diags > results 1`
+] = `
 FinalResults {
   "bailout": false,
   "count": 2,

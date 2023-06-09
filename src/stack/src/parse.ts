@@ -36,7 +36,8 @@ const compile = (sexpr: Sexpr): Compiled => {
   // another eval origin, or 1 or 2 [lineref]s
   const lrMatch = parseLineRef(sexpr[0])
   if (lrMatch) {
-    const src = sexpr[1] && sexpr[1][0] ? parseLineRef(sexpr[1][0]) : null
+    const src =
+      sexpr[1] && sexpr[1][0] ? parseLineRef(sexpr[1][0]) : null
     if (!src) {
       // just a single lineref, parse and return
       return {
@@ -114,7 +115,11 @@ const compile = (sexpr: Sexpr): Compiled => {
   const src = !isNative && parseLineRef(sexpr[sexpr.length - 1][0])
   const source = !src
     ? { isNative }
-    : { fileName: src[1], lineNumber: +src[2], columnNumber: +src[3] }
+    : {
+        fileName: src[1],
+        lineNumber: +src[2],
+        columnNumber: +src[3],
+      }
   if (sexpr.length === 2) {
     return {
       [isCompiled]: true,

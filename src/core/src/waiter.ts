@@ -17,9 +17,7 @@ export class Waiter {
   ) {
     this.cb = cb
     this.expectReject = !!expectReject
-    this.promise = new Promise<void>(
-      res => (this.resolve = res)
-    )
+    this.promise = new Promise<void>(res => (this.resolve = res))
     promise
       .then(value => {
         if (this.done) {

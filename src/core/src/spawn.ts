@@ -19,9 +19,8 @@ export type ChildProcessWithStdout = ChildProcessByStdio<
   null | Readable
 >
 
-const hasStdout = (
-  p: ChildProcess
-): p is ChildProcessWithStdout => !!p.stdout
+const hasStdout = (p: ChildProcess): p is ChildProcessWithStdout =>
+  !!p.stdout
 
 export interface SpawnEvents extends TapBaseEvents {
   preprocess: [WithExternalID<SpawnOptions>]
@@ -75,13 +74,10 @@ export class Spawn extends Base<SpawnEvents> {
     }
     options = options || {}
     const cwd =
-      typeof options.cwd === 'string'
-        ? options.cwd
-        : process.cwd()
+      typeof options.cwd === 'string' ? options.cwd : process.cwd()
     const args = options.args || []
 
-    options.name =
-      options.name || Spawn.procName(cwd, command, args)
+    options.name = options.name || Spawn.procName(cwd, command, args)
     super(options)
 
     this.cwd = cwd
@@ -89,12 +85,7 @@ export class Spawn extends Base<SpawnEvents> {
     this.args = args
     if (options.stdio) {
       if (typeof options.stdio === 'string') {
-        this.stdio = [
-          options.stdio,
-          'pipe',
-          options.stdio,
-          'ipc',
-        ]
+        this.stdio = [options.stdio, 'pipe', options.stdio, 'ipc']
       } else {
         const [stdin, _, stderr] = options.stdio
         /* c8 ignore start */
@@ -111,9 +102,7 @@ export class Spawn extends Base<SpawnEvents> {
     }
 
     const env = options.env || process.env
-    this.#childId = String(
-      options.childId || env.TAP_CHILD_ID || '0'
-    )
+    this.#childId = String(options.childId || env.TAP_CHILD_ID || '0')
     this.env = {
       ...env,
       TAP_CHILD_ID: this.#childId,
@@ -199,8 +188,7 @@ export class Spawn extends Base<SpawnEvents> {
       !code &&
       !signal
     ) {
-      this.options.skip =
-        this.results.plan.skipReason || true
+      this.options.skip = this.results.plan.skipReason || true
     }
 
     if (code || signal) {
@@ -212,9 +200,7 @@ export class Spawn extends Base<SpawnEvents> {
     return this.#callCb()
   }
 
-  timeout(
-    options: { expired?: string } = { expired: this.name }
-  ) {
+  timeout(options: { expired?: string } = { expired: this.name }) {
     // try to send the timeout signal.  If the child test process is
     // using node-tap as the test runner, and not caught in a busy
     // loop, it will trigger a dump of outstanding handles and refs.
@@ -255,11 +241,7 @@ export class Spawn extends Base<SpawnEvents> {
     }
   }
 
-  static procName(
-    cwd: string,
-    command: string,
-    args: string[]
-  ) {
+  static procName(cwd: string, command: string, args: string[]) {
     return (
       command === process.execPath
         ? basename(process.execPath) +
@@ -268,9 +250,7 @@ export class Spawn extends Base<SpawnEvents> {
             .map(a =>
               a.indexOf(cwd) === 0
                 ? './' +
-                  a
-                    .substring(cwd.length + 1)
-                    .replace(/\\/g, '/')
+                  a.substring(cwd.length + 1).replace(/\\/g, '/')
                 : a
             )
             .join(' ')

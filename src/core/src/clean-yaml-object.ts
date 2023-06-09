@@ -14,9 +14,7 @@ const tryReadFile = (path: string) => {
 const hasOwn = (obj: { [k: string]: any }, key: string) =>
   Object.prototype.hasOwnProperty.call(obj, key)
 
-export const cleanYamlObject = (object: {
-  [k: string]: any
-}) => {
+export const cleanYamlObject = (object: { [k: string]: any }) => {
   const res = { ...object }
   if (hasOwn(res, 'stack') && !hasOwn(res, 'at')) {
     res.at = stack.parseStack(res.stack.split('\n'))[0]
@@ -37,14 +35,10 @@ export const cleanYamlObject = (object: {
       const lines = content.split('\n')
       if (res.at.lineNumber <= lines.length) {
         const startLine = Math.max(res.at.lineNumber - 3, 0)
-        const endLine = Math.min(
-          res.at.lineNumber + 2,
-          lines.length
-        )
+        const endLine = Math.min(res.at.lineNumber + 2, lines.length)
         const caret =
           res.at.columnNumber &&
-          res.at.columnNumber <=
-            lines[res.at.lineNumber - 1].length
+          res.at.columnNumber <= lines[res.at.lineNumber - 1].length
             ? ['-'.repeat(res.at.columnNumber - 1) + '^']
             : []
         const context = lines

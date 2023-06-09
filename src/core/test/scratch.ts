@@ -47,7 +47,7 @@ t.test('hello', async t => {
   })
   t.comment('nested comment')
   t.pass('next line indented weirdly', { diagnostic: true })
-                  t.equal(2, 2, { todo: true })
+  t.equal(2, 2, { todo: true })
 })
 
 t.comment('this is a comment')
@@ -57,15 +57,19 @@ t.test('test with a todo', t => {
   t.test('nested fail', async t => {
     t.test('way down in there', async t => {
       await new Promise<void>(r => setTimeout(r, 100))
-      t.match({
-        a: 1,
-        b: 2,
-        c: 3,
-      }, {
-        a: 2,
-        b: 2,
-        c: 2,
-      }, 'nope')
+      t.match(
+        {
+          a: 1,
+          b: 2,
+          c: 3,
+        },
+        {
+          a: 2,
+          b: 2,
+          c: 2,
+        },
+        'nope'
+      )
     })
   })
   t.end()

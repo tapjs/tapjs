@@ -17,10 +17,7 @@ const cleanNodeNames = (str: string) =>
       /\s+"name": "AssertionError \[ERR_ASSERTION\]",\n/g,
       '\n'
     )
-    .replace(
-      /AssertionError \[ERR_ASSERTION\]/g,
-      'AssertionError'
-    )
+    .replace(/AssertionError \[ERR_ASSERTION\]/g, 'AssertionError')
     // remove enumerable domain:null field
     .replace(/\s+"domain": null,\n/g, '\n')
     .replace(
@@ -63,11 +60,7 @@ t.test('gnarly object, many points of view', t => {
         zed: true,
       }),
     }),
-    p: new Set<any>([
-      { x: 'y', z: true },
-      { a: 1 },
-      { b: 2 },
-    ]),
+    p: new Set<any>([{ x: 'y', z: true }, { a: 1 }, { b: 2 }]),
     s: new Set<any>([{ b: 2 }, { c: 3 }]),
     m: new Map<any, any>([
       [k, 1],
@@ -137,10 +130,7 @@ t.test('gnarly object, many points of view', t => {
 
   const styles = ['pretty', 'js', 'tight']
   for (const style of styles) {
-    t.matchSnapshot(
-      cleanNodeNames(format(f, { style })),
-      style
-    )
+    t.matchSnapshot(cleanNodeNames(format(f, { style })), style)
   }
 
   t.test('different points of view', t => {
@@ -158,10 +148,7 @@ t.test('gnarly object, many points of view', t => {
 })
 
 t.test('sorting', t => {
-  t.matchSnapshot(
-    format({ b: 1, a: 2 }, { sort: true }),
-    'sort it'
-  )
+  t.matchSnapshot(format({ b: 1, a: 2 }, { sort: true }), 'sort it')
   t.equal(
     format({ b: 1, a: 2 }, { sort: true }),
     format({ a: 2, b: 1 }, { sort: true }),
@@ -178,11 +165,7 @@ t.test('other misc', t => {
 
   const s = new Format(true)
   t.matchSnapshot(s.print())
-  t.equal(
-    s.memo,
-    s.print(),
-    'printing multiple times is memoized'
-  )
+  t.equal(s.memo, s.print(), 'printing multiple times is memoized')
 
   const parent = new Format([1])
   t.throws(
@@ -222,9 +205,7 @@ t.test('format iterable', t => {
       yield this.b
     }
   }
-  const s = new Format(
-    new And(new And(1, 2), new And(3, 4))
-  )
+  const s = new Format(new And(new And(1, 2), new And(3, 4)))
   t.matchSnapshot(s.print())
   t.end()
 })
@@ -239,12 +220,8 @@ t.test('streams are not arrays', t => {
   const readable = new Minipass().end('hello')
   const writable = new Minipass()
   writable.pipe = null
-  t.matchSnapshot(
-    cleanNodeNames(new Format(readable).print())
-  )
-  t.matchSnapshot(
-    cleanNodeNames(new Format(writable).print())
-  )
+  t.matchSnapshot(cleanNodeNames(new Format(readable).print()))
+  t.matchSnapshot(cleanNodeNames(new Format(writable).print()))
   t.end()
 })
 
@@ -281,10 +258,7 @@ t.test('hidden props and getters', t => {
   const nullObj = Object.create(null)
   nullObj.isNullObject = true
   t.matchSnapshot(new Format(one).print(), 'own props only')
-  t.matchSnapshot(
-    new Format(nullObj).print(),
-    'own props only'
-  )
+  t.matchSnapshot(new Format(nullObj).print(), 'own props only')
   t.matchSnapshot(
     new Format(one, {
       includeGetters: true,
@@ -359,17 +333,9 @@ t.test('nodeId() method', t => {
   f.memo = 'memo'
   t.equal(f.nodeId(), '', 'nothing without an id')
   t.equal(f.getId(), 1)
-  t.equal(
-    f.nodeId(),
-    '&ref_1 ',
-    'id prefix set when id set'
-  )
+  t.equal(f.nodeId(), '&ref_1 ', 'id prefix set when id set')
   t.equal(f.getId(), 1, 'id is consistent')
-  t.equal(
-    f.nodeId(),
-    '&ref_1 ',
-    'id prefix set when id set'
-  )
+  t.equal(f.nodeId(), '&ref_1 ', 'id prefix set when id set')
   const f2 = new Format(f.object, { parent: f })
   t.equal(f2.getId(), 1, 'same object, same id')
   const f3 = new Format({ ok: true }, { parent: f })

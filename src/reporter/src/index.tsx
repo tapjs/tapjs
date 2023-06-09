@@ -12,7 +12,7 @@ import { Base } from './base/index.js'
 import { Terse } from './terse/index.js'
 export const types = {
   base: Base,
-  terse: Terse
+  terse: Terse,
 }
 
 export const report = async (
@@ -33,6 +33,8 @@ export const report = async (
     Type = types[Type]
   }
   tap.register()
-  render(<Type tap={tap} config={config}></Type>, { patchConsole: false })
+  render(<Type tap={tap} config={config}></Type>, {
+    patchConsole: false,
+  })
   return true
 }

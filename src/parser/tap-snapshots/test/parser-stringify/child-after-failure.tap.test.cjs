@@ -5,7 +5,9 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts > TAP > child-after-failure.tap > bail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > child-after-failure.tap > bail > parsed 1`
+] = `
 Array [
   Array [
     "assert",
@@ -76,19 +78,25 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > child-after-failure.tap > bail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > child-after-failure.tap > bail > stringified 1`
+] = `
 not ok - 1
 Bail out! 1
 
 `
 
-exports[`test/parse-stringify.ts > TAP > child-after-failure.tap > bail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > child-after-failure.tap > bail > stringified flat 1`
+] = `
 not ok 1 - 1
 Bail out! 1
 
 `
 
-exports[`test/parse-stringify.ts > TAP > child-after-failure.tap > default settings > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > child-after-failure.tap > default settings > parsed 1`
+] = `
 Array [
   Array [
     "assert",
@@ -244,7 +252,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > child-after-failure.tap > default settings > parsed flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > child-after-failure.tap > default settings > parsed flat 1`
+] = `
 Array [
   Array [
     "assert",
@@ -335,7 +345,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > child-after-failure.tap > default settings > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > child-after-failure.tap > default settings > stringified 1`
+] = `
 not ok - 1
 # Subtest: child
     ok
@@ -345,7 +357,9 @@ ok 2 - child
 
 `
 
-exports[`test/parse-stringify.ts > TAP > child-after-failure.tap > default settings > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > child-after-failure.tap > default settings > stringified flat 1`
+] = `
 not ok 1 - 1
 # Subtest: child
 ok 2 - child
@@ -354,7 +368,9 @@ ok 3 - child
 
 `
 
-exports[`test/parse-stringify.ts > TAP > child-after-failure.tap > strict > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > child-after-failure.tap > strict > parsed 1`
+] = `
 Array [
   Array [
     "assert",
@@ -510,7 +526,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > child-after-failure.tap > strict > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > child-after-failure.tap > strict > stringified 1`
+] = `
 not ok - 1
 # Subtest: child
     ok
@@ -520,7 +538,9 @@ ok 2 - child
 
 `
 
-exports[`test/parse-stringify.ts > TAP > child-after-failure.tap > strict > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > child-after-failure.tap > strict > stringified flat 1`
+] = `
 not ok 1 - 1
 # Subtest: child
 ok 2 - child
@@ -529,7 +549,9 @@ ok 3 - child
 
 `
 
-exports[`test/parse-stringify.ts > TAP > child-after-failure.tap > strictBail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > child-after-failure.tap > strictBail > parsed 1`
+] = `
 Array [
   Array [
     "assert",
@@ -600,13 +622,17 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > child-after-failure.tap > strictBail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > child-after-failure.tap > strictBail > stringified 1`
+] = `
 not ok - 1
 Bail out! 1
 
 `
 
-exports[`test/parse-stringify.ts > TAP > child-after-failure.tap > strictBail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > child-after-failure.tap > strictBail > stringified flat 1`
+] = `
 not ok 1 - 1
 Bail out! 1
 

@@ -8,7 +8,9 @@ import { builtinModules } from 'module'
 import loader from './loader-url.js'
 
 const isWindows =
-  typeof process === 'object' && process && process.platform === 'win32'
+  typeof process === 'object' &&
+  process &&
+  process.platform === 'win32'
 
 const loaderSymbol = Symbol.for('__tapmockLoader')
 declare var global: {
@@ -46,7 +48,10 @@ const mungeMocks = (
       }
     } else if (/^(node:|file:\/\/\/|https?:\/\/)/.test(k)) {
       mocks[k] = m
-    } else if (/^\.\.?\//.test(k) || (isWindows && /^\.\.?\\/.test(k))) {
+    } else if (
+      /^\.\.?\//.test(k) ||
+      (isWindows && /^\.\.?\\/.test(k))
+    ) {
       mocks[String(pathToFileURL(resolve(dir, k)))] = m
     } else {
       // absolute package name

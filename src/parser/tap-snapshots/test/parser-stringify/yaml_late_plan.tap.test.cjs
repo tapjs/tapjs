@@ -5,7 +5,9 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts > TAP > yaml_late_plan.tap > bail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > yaml_late_plan.tap > bail > parsed 1`
+] = `
 Array [
   Array [
     "version",
@@ -105,7 +107,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > yaml_late_plan.tap > bail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > yaml_late_plan.tap > bail > stringified 1`
+] = `
 TAP version 13
 ok - test suite started
 ok - bogomips
@@ -117,7 +121,9 @@ ok - test suite finished
 
 `
 
-exports[`test/parse-stringify.ts > TAP > yaml_late_plan.tap > bail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > yaml_late_plan.tap > bail > stringified flat 1`
+] = `
 TAP version 13
 ok 1 - test suite started
 ok 2 - bogomips
@@ -129,7 +135,9 @@ ok 3 - test suite finished
 
 `
 
-exports[`test/parse-stringify.ts > TAP > yaml_late_plan.tap > default settings > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > yaml_late_plan.tap > default settings > parsed 1`
+] = `
 Array [
   Array [
     "version",
@@ -229,7 +237,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > yaml_late_plan.tap > default settings > parsed flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > yaml_late_plan.tap > default settings > parsed flat 1`
+] = `
 Array [
   Array [
     "version",
@@ -328,7 +338,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > yaml_late_plan.tap > default settings > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > yaml_late_plan.tap > default settings > stringified 1`
+] = `
 TAP version 13
 ok - test suite started
 ok - bogomips
@@ -340,7 +352,9 @@ ok - test suite finished
 
 `
 
-exports[`test/parse-stringify.ts > TAP > yaml_late_plan.tap > default settings > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > yaml_late_plan.tap > default settings > stringified flat 1`
+] = `
 TAP version 13
 ok 1 - test suite started
 ok 2 - bogomips
@@ -352,7 +366,9 @@ ok 3 - test suite finished
 
 `
 
-exports[`test/parse-stringify.ts > TAP > yaml_late_plan.tap > strict > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > yaml_late_plan.tap > strict > parsed 1`
+] = `
 Array [
   Array [
     "version",
@@ -452,7 +468,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > yaml_late_plan.tap > strict > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > yaml_late_plan.tap > strict > stringified 1`
+] = `
 TAP version 13
 ok - test suite started
 ok - bogomips
@@ -464,7 +482,9 @@ ok - test suite finished
 
 `
 
-exports[`test/parse-stringify.ts > TAP > yaml_late_plan.tap > strict > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > yaml_late_plan.tap > strict > stringified flat 1`
+] = `
 TAP version 13
 ok 1 - test suite started
 ok 2 - bogomips
@@ -476,7 +496,9 @@ ok 3 - test suite finished
 
 `
 
-exports[`test/parse-stringify.ts > TAP > yaml_late_plan.tap > strictBail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > yaml_late_plan.tap > strictBail > parsed 1`
+] = `
 Array [
   Array [
     "version",
@@ -576,7 +598,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > yaml_late_plan.tap > strictBail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > yaml_late_plan.tap > strictBail > stringified 1`
+] = `
 TAP version 13
 ok - test suite started
 ok - bogomips
@@ -588,7 +612,9 @@ ok - test suite finished
 
 `
 
-exports[`test/parse-stringify.ts > TAP > yaml_late_plan.tap > strictBail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > yaml_late_plan.tap > strictBail > stringified flat 1`
+] = `
 TAP version 13
 ok 1 - test suite started
 ok 2 - bogomips

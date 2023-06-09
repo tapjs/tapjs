@@ -53,7 +53,10 @@ const tryGetVersion = (pkg: string): string | undefined => {
   } catch {}
 }
 
-export const version = async (args: string[], config: LoadedConfig) => {
+export const version = async (
+  args: string[],
+  config: LoadedConfig
+) => {
   const showAll = config.get('versions') || args[0] === 'versions'
   return showAll ? printAllVersions() : printTapVersion()
 }

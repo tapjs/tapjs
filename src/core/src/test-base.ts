@@ -41,11 +41,7 @@ export interface TestBaseOpts extends BaseOpts {
   cb?: (...args: any[]) => any
 }
 
-export type MessageExtra =
-  | []
-  | [string]
-  | [Extra]
-  | [string, Extra]
+export type MessageExtra = [] | [string] | [Extra] | [string, Extra]
 export const normalizeMessageExtra = (
   defaultMessage: string,
   [message, extra]: MessageExtra
@@ -59,8 +55,7 @@ export const normalizeMessageExtra = (
 
 const queueEmpty = <T extends TestBase>(t: T) =>
   t.queue.length === 0 ||
-  (t.queue.length === 1 &&
-    t.queue[0] === 'TAP version 14\n')
+  (t.queue.length === 1 && t.queue[0] === 'TAP version 14\n')
 
 export type TapPlugin<
   B extends Object,
@@ -86,9 +81,7 @@ export type QueueEntry =
   | (() => any)
 
 const isPromise = (p: any): p is Promise<any | void> =>
-  !!p &&
-  typeof p === 'object' &&
-  typeof p.then === 'function'
+  !!p && typeof p === 'object' && typeof p.then === 'function'
 
 /**
  * the promise returned by t.test(), t.spawn(), etc.
@@ -161,8 +154,7 @@ export class TestBase extends Base<TestBaseEvents> {
   #pushedEnd: boolean = false
   #pushedBeforeEnd: boolean = false
   #nextChildId: number = 1
-  #currentAssert: null | Function | ((..._: any) => any) =
-    null
+  #currentAssert: null | Function | ((..._: any) => any) = null
   #processing: boolean = false
   #doingStdinOnly: boolean = false
 
@@ -183,8 +175,7 @@ export class TestBase extends Base<TestBaseEvents> {
   constructor(options: TestBaseOpts) {
     super(options)
 
-    this.jobs =
-      (options.jobs && Math.max(options.jobs, 1)) || 1
+    this.jobs = (options.jobs && Math.max(options.jobs, 1)) || 1
 
     if (typeof options.diagnostic === 'boolean') {
       this.diagnostic = options.diagnostic
@@ -210,9 +201,7 @@ export class TestBase extends Base<TestBaseEvents> {
       this.parent.bailout(message)
     } else {
       this.#process()
-      message = message
-        ? ' ' + ('' + esc(message)).trim()
-        : ''
+      message = message ? ' ' + ('' + esc(message)).trim() : ''
       message = message.replace(/[\r\n]/g, ' ')
       this.parser.write('Bail out!' + message + '\n')
     }
@@ -226,8 +215,7 @@ export class TestBase extends Base<TestBaseEvents> {
   comment(...args: any[]) {
     const body = format(...args)
     const message =
-      ('# ' + body.split(/\r?\n/).join('\n# ')).trim() +
-      '\n'
+      ('# ' + body.split(/\r?\n/).join('\n# ')).trim() + '\n'
 
     if (this.results) {
       this.write(message)
@@ -241,9 +229,7 @@ export class TestBase extends Base<TestBaseEvents> {
    * Called when the test times out.
    * Options are passed as diagnostics to the threw() method
    */
-  timeout(
-    options: { expired?: string } = { expired: this.name }
-  ) {
+  timeout(options: { expired?: string } = { expired: this.name }) {
     options = options || {}
     options.expired = options.expired || this.name
     if (this.#occupied && this.#occupied instanceof Base) {
@@ -260,8 +246,7 @@ export class TestBase extends Base<TestBaseEvents> {
    */
   pragma(set: { [k: string]: boolean }) {
     const p = Object.keys(set).reduce(
-      (acc, i) =>
-        acc + 'pragma ' + (set[i] ? '+' : '-') + i + '\n',
+      (acc, i) => acc + 'pragma ' + (set[i] ? '+' : '-') + i + '\n',
       ''
     )
     this.queue.push(p)
@@ -283,9 +268,7 @@ export class TestBase extends Base<TestBaseEvents> {
     this.#explicitPlan = true
 
     if (this.#planEnd !== -1) {
-      throw new Error(
-        'Cannot set plan after test has ended'
-      )
+      throw new Error('Cannot set plan after test has ended')
     }
 
     if (typeof n !== 'number' || n < 0) {
@@ -343,9 +326,7 @@ export class TestBase extends Base<TestBaseEvents> {
    * The current assertion being processed.  May only be set if
    * not already set.
    */
-  set currentAssert(
-    fn: null | Function | ((...a: any[]) => any)
-  ) {
+  set currentAssert(fn: null | Function | ((...a: any[]) => any)) {
     if (!this.#currentAssert && typeof fn === 'function') {
       this.#currentAssert = fn
     }
@@ -408,11 +389,7 @@ export class TestBase extends Base<TestBaseEvents> {
       this.assertStack = null
     }
 
-    if (
-      typeof extra.stack === 'string' &&
-      extra.stack &&
-      !extra.at
-    ) {
+    if (typeof extra.stack === 'string' && extra.stack && !extra.at) {
       const at = stack.parseStack(extra.stack)[0]
       if (at) extra.at = at
     }
@@ -462,10 +439,7 @@ export class TestBase extends Base<TestBaseEvents> {
     }
 
     if (front) {
-      if (
-        extra.tapChildBuffer ||
-        extra.tapChildBuffer === ''
-      ) {
+      if (extra.tapChildBuffer || extra.tapChildBuffer === '') {
         this.writeSubComment(tp)
         this.parser.write(extra.tapChildBuffer)
       }
@@ -498,9 +472,7 @@ export class TestBase extends Base<TestBaseEvents> {
    */
   writeSubComment<T extends TestPoint | Base>(p: T) {
     const comment =
-      '# Subtest' +
-      (p.name ? ': ' + esc(p.name) : '') +
-      '\n'
+      '# Subtest' + (p.name ? ': ' + esc(p.name) : '') + '\n'
     this.parser.write(comment)
   }
   // end TAP otput generating methods
@@ -533,9 +505,7 @@ export class TestBase extends Base<TestBaseEvents> {
 
   #end(implicit?: typeof IMPLICIT) {
     if (this.#doingStdinOnly && implicit !== IMPLICIT) {
-      throw new Error(
-        'cannot explicitly end while in stdinOnly mode'
-      )
+      throw new Error('cannot explicitly end while in stdinOnly mode')
     }
     this.debug('END implicit=%j', implicit === IMPLICIT)
     if (this.ended && implicit === IMPLICIT) {
@@ -577,10 +547,7 @@ export class TestBase extends Base<TestBaseEvents> {
         const er = new Error(
           'test end() method called more than once'
         )
-        Error.captureStackTrace(
-          er,
-          this.#currentAssert || this.end
-        )
+        Error.captureStackTrace(er, this.#currentAssert || this.end)
         er.cause = {
           test: this.name,
         }
@@ -595,11 +562,7 @@ export class TestBase extends Base<TestBaseEvents> {
     this.ended = true
 
     if (this.#planEnd === -1 && !this.#doingStdinOnly) {
-      this.debug(
-        'END(%s) implicit plan',
-        this.name,
-        this.count
-      )
+      this.debug('END(%s) implicit plan', this.name, this.count)
       this.plan(this.count)
     }
 
@@ -630,11 +593,7 @@ export class TestBase extends Base<TestBaseEvents> {
     if (this.#processing) {
       return this.debug(' < already processing')
     }
-    this.debug(
-      '\nPROCESSING(%s)',
-      this.name,
-      this.queue.length
-    )
+    this.debug('\nPROCESSING(%s)', this.name, this.queue.length)
     this.#processing = true
 
     while (!this.#occupied) {
@@ -662,10 +621,7 @@ export class TestBase extends Base<TestBaseEvents> {
         }
       } else if (p instanceof TestPoint) {
         this.debug(' > TESTPOINT')
-        if (
-          p.extra.tapChildBuffer ||
-          p.extra.tapChildBuffer === ''
-        ) {
+        if (p.extra.tapChildBuffer || p.extra.tapChildBuffer === '') {
           this.writeSubComment(p)
           this.parser.write(p.extra.tapChildBuffer)
         }
@@ -720,10 +676,7 @@ export class TestBase extends Base<TestBaseEvents> {
       /* c8 ignore stop */
     }
 
-    while (
-      !this.#noparallel &&
-      this.pool.size < this.jobs
-    ) {
+    while (!this.#noparallel && this.pool.size < this.jobs) {
       const p = this.subtests.shift()
       if (!p) {
         break
@@ -744,11 +697,7 @@ export class TestBase extends Base<TestBaseEvents> {
       }
     }
 
-    this.debug(
-      'done processing',
-      this.queue,
-      this.#occupied
-    )
+    this.debug('done processing', this.queue, this.#occupied)
     this.#processing = false
 
     // just in case any tests ended, and we have sync stuff still
@@ -776,8 +725,7 @@ export class TestBase extends Base<TestBaseEvents> {
 
   #onBufferedEnd<T extends Base>(p: T) {
     p.ondone = p.constructor.prototype.ondone
-    p.results =
-      p.results || new FinalResults(true, p.parser)
+    p.results = p.results || new FinalResults(true, p.parser)
     p.readyToProcess = true
     const to = p.options.timeout
     const dur =
@@ -809,8 +757,7 @@ export class TestBase extends Base<TestBaseEvents> {
     this.debug('onIndentedEnd', p.name)
     this.emit('subtestProcess', p)
     p.ondone = p.constructor.prototype.ondone
-    p.results =
-      p.results || new FinalResults(true, p.parser)
+    p.results = p.results || new FinalResults(true, p.parser)
     this.debug('#onIndentedEnd', this.name, p.name)
     this.#noparallel = false
     const sti = this.subtests.indexOf(p)
@@ -818,8 +765,7 @@ export class TestBase extends Base<TestBaseEvents> {
     p.readyToProcess = true
     p.options.time = p.time
     const to = p.options.timeout
-    const dur =
-      to && p.passing() ? hrtime.bigint() - p.start : null
+    const dur = to && p.passing() ? hrtime.bigint() - p.start : null
     if (dur && to && dur > to) {
       p.timeout()
     } else {
@@ -827,20 +773,12 @@ export class TestBase extends Base<TestBaseEvents> {
     }
     this.debug('#onIndentedEnd %s(%s)', this.name, p.name)
     this.#occupied = null
-    this.debug(
-      'OIE(%s) >shift into queue',
-      this.name,
-      this.queue
-    )
+    this.debug('OIE(%s) >shift into queue', this.name, this.queue)
     p.options.stack = ''
 
     this.printResult(p.passing(), p.name, p.options, true)
 
-    this.debug(
-      'OIE(%s) shifted into queue',
-      this.name,
-      this.queue
-    )
+    this.debug('OIE(%s) shifted into queue', this.name, this.queue)
     p.deferred?.resolve(p.results)
     this.emit('subtestEnd', p)
     this.#process()
@@ -921,12 +859,7 @@ export class TestBase extends Base<TestBaseEvents> {
       // finished!  do the thing!
       this.#occupied = null
       if (!p.passing() || !p.silent) {
-        this.printResult(
-          p.passing(),
-          p.name,
-          p.options,
-          true
-        )
+        this.printResult(p.passing(), p.name, p.options, true)
       }
     } else {
       this.#occupied = p
@@ -947,9 +880,7 @@ export class TestBase extends Base<TestBaseEvents> {
     const stream = ((extra && extra.tapStream) ||
       process.stdin) as Minipass
     if (!stream) {
-      throw new Error(
-        'cannot read stdin without stdin stream'
-      )
+      throw new Error('cannot read stdin without stdin stream')
     }
 
     if (
@@ -961,9 +892,7 @@ export class TestBase extends Base<TestBaseEvents> {
       this.pool.size ||
       this.subtests.length
     ) {
-      throw new Error(
-        'Cannot use stdinOnly on a test in progress'
-      )
+      throw new Error('Cannot use stdinOnly on a test in progress')
     }
 
     this.#doingStdinOnly = true
@@ -1037,8 +966,7 @@ export class TestBase extends Base<TestBaseEvents> {
       }
     }
 
-    extra.bail =
-      extra.bail !== undefined ? extra.bail : this.bail
+    extra.bail = extra.bail !== undefined ? extra.bail : this.bail
     extra.parent = this
     const st = stack.capture(80, caller)
     extra.stack = st.map(c => String(c)).join('\n')
@@ -1105,10 +1033,7 @@ export class TestBase extends Base<TestBaseEvents> {
         this.#end(IMPLICIT)
       }
     }
-    if (
-      this.#occupied &&
-      this.#occupied instanceof Waiter
-    ) {
+    if (this.#occupied && this.#occupied instanceof Waiter) {
       this.#occupied.abort(
         Object.assign(
           new Error('error thrown while awaiting Promise'),
@@ -1138,11 +1063,8 @@ export class TestBase extends Base<TestBaseEvents> {
     this.#processing = true
     if (this.#occupied) {
       const p = this.#occupied
-      if (p instanceof Waiter)
-        p.abort(new Error('test unfinished'))
-      else if (
-        typeof (p as TestBase | Spawn).endAll === 'function'
-      )
+      if (p instanceof Waiter) p.abort(new Error('test unfinished'))
+      else if (typeof (p as TestBase | Spawn).endAll === 'function')
         (p as TestBase | Spawn).endAll(true)
       else p.parser.abort('test unfinished')
       this.#occupied = null
@@ -1157,10 +1079,7 @@ export class TestBase extends Base<TestBaseEvents> {
       }
     }
 
-    if (
-      this.donePromise &&
-      this.donePromise.tapAbortPromise
-    )
+    if (this.donePromise && this.donePromise.tapAbortPromise)
       this.donePromise.tapAbortPromise()
 
     for (let i = 0; i < this.queue.length; i++) {

@@ -5,7 +5,9 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts > TAP > not-ok-todo.tap > bail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > not-ok-todo.tap > bail > parsed 1`
+] = `
 Array [
   Array [
     "comment",
@@ -128,7 +130,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > not-ok-todo.tap > bail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > not-ok-todo.tap > bail > stringified 1`
+] = `
 # TAP emitted by Test::More 0.98
 ok 1 - should be equal
 not ok 2 - should be equivalent # TODO but we will fix it later
@@ -140,7 +144,9 @@ ok 4 - (unnamed assert)
 
 `
 
-exports[`test/parse-stringify.ts > TAP > not-ok-todo.tap > bail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > not-ok-todo.tap > bail > stringified flat 1`
+] = `
 # TAP emitted by Test::More 0.98
 ok 1 - should be equal
 not ok 2 - should be equivalent # TODO but we will fix it later
@@ -152,7 +158,9 @@ ok 4 - (unnamed assert)
 
 `
 
-exports[`test/parse-stringify.ts > TAP > not-ok-todo.tap > default settings > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > not-ok-todo.tap > default settings > parsed 1`
+] = `
 Array [
   Array [
     "comment",
@@ -275,7 +283,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > not-ok-todo.tap > default settings > parsed flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > not-ok-todo.tap > default settings > parsed flat 1`
+] = `
 Array [
   Array [
     "comment",
@@ -397,7 +407,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > not-ok-todo.tap > default settings > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > not-ok-todo.tap > default settings > stringified 1`
+] = `
 # TAP emitted by Test::More 0.98
 ok 1 - should be equal
 not ok 2 - should be equivalent # TODO but we will fix it later
@@ -409,7 +421,9 @@ ok 4 - (unnamed assert)
 
 `
 
-exports[`test/parse-stringify.ts > TAP > not-ok-todo.tap > default settings > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > not-ok-todo.tap > default settings > stringified flat 1`
+] = `
 # TAP emitted by Test::More 0.98
 ok 1 - should be equal
 not ok 2 - should be equivalent # TODO but we will fix it later
@@ -421,7 +435,9 @@ ok 4 - (unnamed assert)
 
 `
 
-exports[`test/parse-stringify.ts > TAP > not-ok-todo.tap > strict > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > not-ok-todo.tap > strict > parsed 1`
+] = `
 Array [
   Array [
     "comment",
@@ -544,7 +560,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > not-ok-todo.tap > strict > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > not-ok-todo.tap > strict > stringified 1`
+] = `
 # TAP emitted by Test::More 0.98
 ok 1 - should be equal
 not ok 2 - should be equivalent # TODO but we will fix it later
@@ -556,7 +574,9 @@ ok 4 - (unnamed assert)
 
 `
 
-exports[`test/parse-stringify.ts > TAP > not-ok-todo.tap > strict > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > not-ok-todo.tap > strict > stringified flat 1`
+] = `
 # TAP emitted by Test::More 0.98
 ok 1 - should be equal
 not ok 2 - should be equivalent # TODO but we will fix it later
@@ -568,7 +588,9 @@ ok 4 - (unnamed assert)
 
 `
 
-exports[`test/parse-stringify.ts > TAP > not-ok-todo.tap > strictBail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > not-ok-todo.tap > strictBail > parsed 1`
+] = `
 Array [
   Array [
     "comment",
@@ -691,7 +713,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > not-ok-todo.tap > strictBail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > not-ok-todo.tap > strictBail > stringified 1`
+] = `
 # TAP emitted by Test::More 0.98
 ok 1 - should be equal
 not ok 2 - should be equivalent # TODO but we will fix it later
@@ -703,7 +727,9 @@ ok 4 - (unnamed assert)
 
 `
 
-exports[`test/parse-stringify.ts > TAP > not-ok-todo.tap > strictBail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > not-ok-todo.tap > strictBail > stringified flat 1`
+] = `
 # TAP emitted by Test::More 0.98
 ok 1 - should be equal
 not ok 2 - should be equivalent # TODO but we will fix it later

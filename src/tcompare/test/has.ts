@@ -167,9 +167,7 @@ t.test('complex object', t => {
   t.ok(
     has(t, a, {
       c: {
-        s: new Set([
-          new Map<any, any>([[{ s: new Set() }, a]]),
-        ]),
+        s: new Set([new Map<any, any>([[{ s: new Set() }, a]])]),
       },
     })
   )
@@ -185,13 +183,15 @@ t.test('complex object', t => {
 })
 
 t.test('errors', t => {
-  const er: Error & { code?: number; signal?: string } =
-    new Error('foo')
+  const er: Error & { code?: number; signal?: string } = new Error(
+    'foo'
+  )
   er.code = 1
   er.signal = 'blerg'
   t.ok(has(t, er, { code: 1 }))
-  const er2: Error & { code?: number; signal?: string } =
-    new Error('foo')
+  const er2: Error & { code?: number; signal?: string } = new Error(
+    'foo'
+  )
   er2.signal = 'blerg'
   t.ok(has(t, er, er2))
   t.ok(has(t, er, new Error('foo')))
@@ -240,15 +240,12 @@ t.test('error message', t => {
   t.end()
 })
 
-t.test(
-  'small set cannot satisfy big set expectation',
-  t => {
-    const a = new Set([1])
-    const b = new Set([1, 2, 3])
-    t.notOk(has(t, a, b))
-    t.end()
-  }
-)
+t.test('small set cannot satisfy big set expectation', t => {
+  const a = new Set([1])
+  const b = new Set([1, 2, 3])
+  t.notOk(has(t, a, b))
+  t.end()
+})
 
 t.test('sort pojos', t => {
   const a = {
@@ -305,12 +302,9 @@ t.test('undefined/null matches missing', t => {
   t.end()
 })
 
-t.test(
-  'pojo can match against array with same fields',
-  t => {
-    const a = Object.assign([1, 2, 3], { foo: 'bar' })
-    const b = { foo: 'bar' }
-    t.ok(has(t, a, b))
-    t.end()
-  }
-)
+t.test('pojo can match against array with same fields', t => {
+  const a = Object.assign([1, 2, 3], { foo: 'bar' })
+  const b = { foo: 'bar' }
+  t.ok(has(t, a, b))
+  t.end()
+})

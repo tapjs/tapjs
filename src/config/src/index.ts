@@ -5,10 +5,16 @@ import { ConfigSet, Jack, OptionsResults, Unwrap } from 'jackspeak'
 import { createRequire } from 'module'
 import { relative, resolve } from 'node:path'
 import { basename, dirname } from 'path'
+import {
+  parse as jsonParse,
+  stringify as jsonStringify,
+} from 'polite-json'
+import {
+  parse as yamlParse,
+  stringify as yamlStringify,
+} from 'tap-yaml'
 import { walkUp } from 'walk-up-path'
-import { parse as yamlParse, stringify as yamlStringify } from 'tap-yaml'
 import baseConfig from './jack.js'
-import { parse as jsonParse, stringify as jsonStringify } from 'polite-json'
 
 export type { baseConfig }
 
@@ -103,7 +109,9 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
     rc: string
   ): Promise<OptionsResults<C> | undefined> {
     try {
-      return yamlParse(await readFile(rc, 'utf8')) as OptionsResults<C>
+      return yamlParse(
+        await readFile(rc, 'utf8')
+      ) as OptionsResults<C>
     } catch (er) {
       console.error('Error loading .taprc:', rc, er)
       return undefined
@@ -179,7 +187,10 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
     const stack: [Record<string, any>, string, string][] = [
       [data, file, file],
     ]
-    while (typeof data.extends === 'string' && !seen.has(data.extends)) {
+    while (
+      typeof data.extends === 'string' &&
+      !seen.has(data.extends)
+    ) {
       const { extends: ext } = data
       const resolved = await this.resolveExtension(ext, file)
       const extension = await this.readDepConfig(resolved)
@@ -215,7 +226,10 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
       if (entries.includes('.taprc')) {
         this.globCwd = p
         const file = resolve(p, '.taprc')
-        return this.loadConfigData(await this.readYAMLConfig(file), file)
+        return this.loadConfigData(
+          await this.readYAMLConfig(file),
+          file
+        )
       } else if (entries.includes('package.json')) {
         this.globCwd = p
         const file = resolve(p, 'package.json')
@@ -223,15 +237,22 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
           await this.readPackageJsonConfig(file),
           file
         )
-      } else if (entries.includes('.git') || relative(home, p) === '') {
+      } else if (
+        entries.includes('.git') ||
+        relative(home, p) === ''
+      ) {
         this.globCwd = p
         // this just sets the default config file, even though we didn't
         // get anything from it, so `tap plugin <add|rm>` knows where to
         // write the resulting config to.
-        return Object.assign(this, { configFile: resolve(p, '.taprc') })
+        return Object.assign(this, {
+          configFile: resolve(p, '.taprc'),
+        })
       }
     }
-    return Object.assign(this, { configFile: resolve(cwd, '.taprc') })
+    return Object.assign(this, {
+      configFile: resolve(cwd, '.taprc'),
+    })
   }
 
   get pluginSignature() {
@@ -267,7 +288,11 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
     const r = this.get('reporter')
     if (r !== undefined && process.env.TAP !== '1') return this
     const reporter =
-      process.env.TAP === '1' ? 'tap' : this.get('color') ? 'base' : 'tap'
+      process.env.TAP === '1'
+        ? 'tap'
+        : this.get('color')
+        ? 'base'
+        : 'tap'
     const { values } = this.parse()
     ;(values as OptionsResults<C> & { reporter: string }).reporter =
       reporter
@@ -291,7 +316,9 @@ export type LoadedConfig = ReturnType<
     ReturnType<
       Awaited<
         ReturnType<
-          ReturnType<TapConfig['loadPluginConfigFields']>['loadConfigFile']
+          ReturnType<
+            TapConfig['loadPluginConfigFields']
+          >['loadConfigFile']
         >
       >['loadColor']
     >['loadReporter']

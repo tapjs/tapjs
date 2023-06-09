@@ -25,7 +25,11 @@ export class SpawnPlugin {
     this.#t = t
   }
   spawn(cmd: string): PromiseWithSpawn
-  spawn(cmd: string, options: SpawnOpts, name?: string): PromiseWithSpawn
+  spawn(
+    cmd: string,
+    options: SpawnOpts,
+    name?: string
+  ): PromiseWithSpawn
   spawn(
     cmd: string,
     args: string | string[],

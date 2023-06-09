@@ -5,7 +5,9 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts > TAP > comment-mid-diag-postplan.tap > bail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > comment-mid-diag-postplan.tap > bail > parsed 1`
+] = `
 Array [
   Array [
     "comment",
@@ -104,7 +106,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > comment-mid-diag-postplan.tap > bail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > comment-mid-diag-postplan.tap > bail > stringified 1`
+] = `
 # before version
 TAP version 13
 # after version, before result
@@ -119,7 +123,9 @@ Bail out! please keep my diags
 
 `
 
-exports[`test/parse-stringify.ts > TAP > comment-mid-diag-postplan.tap > bail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > comment-mid-diag-postplan.tap > bail > stringified flat 1`
+] = `
 # before version
 TAP version 13
 # after version, before result
@@ -134,7 +140,9 @@ Bail out! please keep my diags
 
 `
 
-exports[`test/parse-stringify.ts > TAP > comment-mid-diag-postplan.tap > default settings > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > comment-mid-diag-postplan.tap > default settings > parsed 1`
+] = `
 Array [
   Array [
     "comment",
@@ -355,7 +363,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > comment-mid-diag-postplan.tap > default settings > parsed flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > comment-mid-diag-postplan.tap > default settings > parsed flat 1`
+] = `
 Array [
   Array [
     "comment",
@@ -503,7 +513,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > comment-mid-diag-postplan.tap > default settings > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > comment-mid-diag-postplan.tap > default settings > stringified 1`
+] = `
 # before version
 TAP version 13
 # after version, before result
@@ -528,7 +540,9 @@ ok 2 - child
 
 `
 
-exports[`test/parse-stringify.ts > TAP > comment-mid-diag-postplan.tap > default settings > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > comment-mid-diag-postplan.tap > default settings > stringified flat 1`
+] = `
 # before version
 TAP version 13
 # after version, before result
@@ -552,7 +566,9 @@ ok 4 - child
 
 `
 
-exports[`test/parse-stringify.ts > TAP > comment-mid-diag-postplan.tap > strict > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > comment-mid-diag-postplan.tap > strict > parsed 1`
+] = `
 Array [
   Array [
     "comment",
@@ -773,7 +789,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > comment-mid-diag-postplan.tap > strict > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > comment-mid-diag-postplan.tap > strict > stringified 1`
+] = `
 # before version
 TAP version 13
 # after version, before result
@@ -798,7 +816,9 @@ ok 2 - child
 
 `
 
-exports[`test/parse-stringify.ts > TAP > comment-mid-diag-postplan.tap > strict > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > comment-mid-diag-postplan.tap > strict > stringified flat 1`
+] = `
 # before version
 TAP version 13
 # after version, before result
@@ -822,7 +842,9 @@ ok 4 - child
 
 `
 
-exports[`test/parse-stringify.ts > TAP > comment-mid-diag-postplan.tap > strictBail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > comment-mid-diag-postplan.tap > strictBail > parsed 1`
+] = `
 Array [
   Array [
     "comment",
@@ -921,7 +943,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > comment-mid-diag-postplan.tap > strictBail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > comment-mid-diag-postplan.tap > strictBail > stringified 1`
+] = `
 # before version
 TAP version 13
 # after version, before result
@@ -936,7 +960,9 @@ Bail out! please keep my diags
 
 `
 
-exports[`test/parse-stringify.ts > TAP > comment-mid-diag-postplan.tap > strictBail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > comment-mid-diag-postplan.tap > strictBail > stringified flat 1`
+] = `
 # before version
 TAP version 13
 # after version, before result

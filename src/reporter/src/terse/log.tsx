@@ -19,7 +19,10 @@ import {
 import { TapReportOpts } from '../index.js'
 import { TestSummary } from './test-summary.js'
 
-export const ConsoleLogLine: FC<ConsoleLog> = ({ text, previous }) => (
+export const ConsoleLogLine: FC<ConsoleLog> = ({
+  text,
+  previous,
+}) => (
   <Box>
     <Text>{text.trimEnd()}</Text>
   </Box>

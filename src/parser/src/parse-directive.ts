@@ -1,11 +1,15 @@
 import { OPEN_BRACE_EOL } from './brace-patterns.js'
 export type Directive = 'todo' | 'skip' | 'time'
 
-export const parseDirective = (line: string): [Directive, any] | false => {
+export const parseDirective = (
+  line: string
+): [Directive, any] | false => {
   if (!line.trim()) return false
 
   line = line.replace(OPEN_BRACE_EOL, '').trim()
-  const time = line.match(/^time=((?:[1-9][0-9]*|0)(?:\.[0-9]+)?)(ms|s)$/i)
+  const time = line.match(
+    /^time=((?:[1-9][0-9]*|0)(?:\.[0-9]+)?)(ms|s)$/i
+  )
   if (time) {
     let n = +time[1]
     if (time[2] === 's') {

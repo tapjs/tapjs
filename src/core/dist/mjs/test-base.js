@@ -22,15 +22,12 @@ export const normalizeMessageExtra = (defaultMessage, [message, extra]) => {
     return [message || defaultMessage, extra || {}];
 };
 const queueEmpty = (t) => t.queue.length === 0 ||
-    (t.queue.length === 1 &&
-        t.queue[0] === 'TAP version 14\n');
+    (t.queue.length === 1 && t.queue[0] === 'TAP version 14\n');
 /**
  * Sigil to put in the queue to signal the end of all things
  */
 const EOF = Symbol('EOF');
-const isPromise = (p) => !!p &&
-    typeof p === 'object' &&
-    typeof p.then === 'function';
+const isPromise = (p) => !!p && typeof p === 'object' && typeof p.then === 'function';
 /**
  * The TestBaseBase class is the base class for all plugins,
  * and eventually thus the Test class.
@@ -89,8 +86,7 @@ export class TestBase extends Base {
     }
     constructor(options) {
         super(options);
-        this.jobs =
-            (options.jobs && Math.max(options.jobs, 1)) || 1;
+        this.jobs = (options.jobs && Math.max(options.jobs, 1)) || 1;
         if (typeof options.diagnostic === 'boolean') {
             this.diagnostic = options.diagnostic;
         }
@@ -112,9 +108,7 @@ export class TestBase extends Base {
         }
         else {
             this.#process();
-            message = message
-                ? ' ' + ('' + esc(message)).trim()
-                : '';
+            message = message ? ' ' + ('' + esc(message)).trim() : '';
             message = message.replace(/[\r\n]/g, ' ');
             this.parser.write('Bail out!' + message + '\n');
         }
@@ -126,8 +120,7 @@ export class TestBase extends Base {
      */
     comment(...args) {
         const body = format(...args);
-        const message = ('# ' + body.split(/\r?\n/).join('\n# ')).trim() +
-            '\n';
+        const message = ('# ' + body.split(/\r?\n/).join('\n# ')).trim() + '\n';
         if (this.results) {
             this.write(message);
         }
@@ -273,9 +266,7 @@ export class TestBase extends Base {
             extra.stack = this.assertStack;
             this.assertStack = null;
         }
-        if (typeof extra.stack === 'string' &&
-            extra.stack &&
-            !extra.at) {
+        if (typeof extra.stack === 'string' && extra.stack && !extra.at) {
             const at = stack.parseStack(extra.stack)[0];
             if (at)
                 extra.at = at;
@@ -315,8 +306,7 @@ export class TestBase extends Base {
             front = true;
         }
         if (front) {
-            if (extra.tapChildBuffer ||
-                extra.tapChildBuffer === '') {
+            if (extra.tapChildBuffer || extra.tapChildBuffer === '') {
                 this.writeSubComment(tp);
                 this.parser.write(extra.tapChildBuffer);
             }
@@ -345,9 +335,7 @@ export class TestBase extends Base {
      * The leading `# Subtest` comment that introduces a child test
      */
     writeSubComment(p) {
-        const comment = '# Subtest' +
-            (p.name ? ': ' + esc(p.name) : '') +
-            '\n';
+        const comment = '# Subtest' + (p.name ? ': ' + esc(p.name) : '') + '\n';
         this.parser.write(comment);
     }
     // end TAP otput generating methods
@@ -475,8 +463,7 @@ export class TestBase extends Base {
             }
             else if (p instanceof TestPoint) {
                 this.debug(' > TESTPOINT');
-                if (p.extra.tapChildBuffer ||
-                    p.extra.tapChildBuffer === '') {
+                if (p.extra.tapChildBuffer || p.extra.tapChildBuffer === '') {
                     this.writeSubComment(p);
                     this.parser.write(p.extra.tapChildBuffer);
                 }
@@ -526,8 +513,7 @@ export class TestBase extends Base {
             }
             /* c8 ignore stop */
         }
-        while (!this.#noparallel &&
-            this.pool.size < this.jobs) {
+        while (!this.#noparallel && this.pool.size < this.jobs) {
             const p = this.subtests.shift();
             if (!p) {
                 break;
@@ -570,8 +556,7 @@ export class TestBase extends Base {
     }
     #onBufferedEnd(p) {
         p.ondone = p.constructor.prototype.ondone;
-        p.results =
-            p.results || new FinalResults(true, p.parser);
+        p.results = p.results || new FinalResults(true, p.parser);
         p.readyToProcess = true;
         const to = p.options.timeout;
         const dur = to && p.passing()
@@ -599,8 +584,7 @@ export class TestBase extends Base {
         this.debug('onIndentedEnd', p.name);
         this.emit('subtestProcess', p);
         p.ondone = p.constructor.prototype.ondone;
-        p.results =
-            p.results || new FinalResults(true, p.parser);
+        p.results = p.results || new FinalResults(true, p.parser);
         this.debug('#onIndentedEnd', this.name, p.name);
         this.#noparallel = false;
         const sti = this.subtests.indexOf(p);
@@ -793,8 +777,7 @@ export class TestBase extends Base {
                 extra.buffered = false;
             }
         }
-        extra.bail =
-            extra.bail !== undefined ? extra.bail : this.bail;
+        extra.bail = extra.bail !== undefined ? extra.bail : this.bail;
         extra.parent = this;
         const st = stack.capture(80, caller);
         extra.stack = st.map(c => String(c)).join('\n');
@@ -848,8 +831,7 @@ export class TestBase extends Base {
                 this.#end(IMPLICIT);
             }
         }
-        if (this.#occupied &&
-            this.#occupied instanceof Waiter) {
+        if (this.#occupied && this.#occupied instanceof Waiter) {
             this.#occupied.abort(Object.assign(new Error('error thrown while awaiting Promise'), { thrown: er }));
         }
         this.#process();
@@ -889,8 +871,7 @@ export class TestBase extends Base {
                 this.fail('test unfinished', options);
             }
         }
-        if (this.donePromise &&
-            this.donePromise.tapAbortPromise)
+        if (this.donePromise && this.donePromise.tapAbortPromise)
             this.donePromise.tapAbortPromise();
         for (let i = 0; i < this.queue.length; i++) {
             const p = this.queue[i];

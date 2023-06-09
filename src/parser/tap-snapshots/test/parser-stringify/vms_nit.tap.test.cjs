@@ -5,7 +5,9 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts > TAP > vms_nit.tap > bail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > vms_nit.tap > bail > parsed 1`
+] = `
 Array [
   Array [
     "plan",
@@ -86,7 +88,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > vms_nit.tap > bail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > vms_nit.tap > bail > stringified 1`
+] = `
 1..2
 not 
 ok 1
@@ -94,7 +98,9 @@ ok 2
 
 `
 
-exports[`test/parse-stringify.ts > TAP > vms_nit.tap > bail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > vms_nit.tap > bail > stringified flat 1`
+] = `
 1..0
 not 
 ok 1
@@ -102,7 +108,9 @@ ok 2
 
 `
 
-exports[`test/parse-stringify.ts > TAP > vms_nit.tap > default settings > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > vms_nit.tap > default settings > parsed 1`
+] = `
 Array [
   Array [
     "plan",
@@ -183,7 +191,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > vms_nit.tap > default settings > parsed flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > vms_nit.tap > default settings > parsed flat 1`
+] = `
 Array [
   Array [
     "extra",
@@ -263,7 +273,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > vms_nit.tap > default settings > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > vms_nit.tap > default settings > stringified 1`
+] = `
 1..2
 not 
 ok 1
@@ -271,7 +283,9 @@ ok 2
 
 `
 
-exports[`test/parse-stringify.ts > TAP > vms_nit.tap > default settings > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > vms_nit.tap > default settings > stringified flat 1`
+] = `
 1..0
 not 
 ok 1
@@ -279,7 +293,9 @@ ok 2
 
 `
 
-exports[`test/parse-stringify.ts > TAP > vms_nit.tap > strict > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > vms_nit.tap > strict > parsed 1`
+] = `
 Array [
   Array [
     "plan",
@@ -365,7 +381,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > vms_nit.tap > strict > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > vms_nit.tap > strict > stringified 1`
+] = `
 1..2
 not 
 ok 1
@@ -373,7 +391,9 @@ ok 2
 
 `
 
-exports[`test/parse-stringify.ts > TAP > vms_nit.tap > strict > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > vms_nit.tap > strict > stringified flat 1`
+] = `
 1..0
 not 
 ok 1
@@ -381,7 +401,9 @@ ok 2
 
 `
 
-exports[`test/parse-stringify.ts > TAP > vms_nit.tap > strictBail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > vms_nit.tap > strictBail > parsed 1`
+] = `
 Array [
   Array [
     "plan",
@@ -467,7 +489,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > vms_nit.tap > strictBail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > vms_nit.tap > strictBail > stringified 1`
+] = `
 1..2
 not 
 ok 1
@@ -475,7 +499,9 @@ ok 2
 
 `
 
-exports[`test/parse-stringify.ts > TAP > vms_nit.tap > strictBail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > vms_nit.tap > strictBail > stringified flat 1`
+] = `
 1..0
 not 
 ok 1

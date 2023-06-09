@@ -28,32 +28,18 @@ t.matchSnapshot(new compare.Format(obj).print())
 t.matchSnapshot(new compare.Same(obj, { expect }).print())
 t.matchSnapshot(new compare.Strict(obj, { expect }).print())
 t.matchSnapshot(new compare.Has(obj, { expect }).print())
-t.matchSnapshot(
-  new compare.HasStrict(obj, { expect }).print()
-)
+t.matchSnapshot(new compare.HasStrict(obj, { expect }).print())
 t.matchSnapshot(new compare.Match(obj, { expect }).print())
-t.matchSnapshot(
-  new compare.MatchOnly(obj, { expect }).print()
-)
-t.matchSnapshot(
-  new compare.MatchStrict(obj, { expect }).print()
-)
+t.matchSnapshot(new compare.MatchOnly(obj, { expect }).print())
+t.matchSnapshot(new compare.MatchStrict(obj, { expect }).print())
 t.matchSnapshot(new compare.Format(obj, opt).print())
-t.matchSnapshot(
-  new compare.Same(obj, { expect, ...opt }).print()
-)
-t.matchSnapshot(
-  new compare.Strict(obj, { expect, ...opt }).print()
-)
-t.matchSnapshot(
-  new compare.Has(obj, { expect, ...opt }).print()
-)
+t.matchSnapshot(new compare.Same(obj, { expect, ...opt }).print())
+t.matchSnapshot(new compare.Strict(obj, { expect, ...opt }).print())
+t.matchSnapshot(new compare.Has(obj, { expect, ...opt }).print())
 t.matchSnapshot(
   new compare.HasStrict(obj, { expect, ...opt }).print()
 )
-t.matchSnapshot(
-  new compare.Match(obj, { expect, ...opt }).print()
-)
+t.matchSnapshot(new compare.Match(obj, { expect, ...opt }).print())
 t.matchSnapshot(
   new compare.MatchOnly(obj, { expect, ...opt }).print()
 )

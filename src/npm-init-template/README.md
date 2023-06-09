@@ -27,7 +27,9 @@ import { Init } from 'npm-init-template'
 
 // Provide it with the path to this file, so we know how to find
 // the template files.  If using commonjs, use __filename instead.
-const { prompt, build, values, positionals, run } = new Init(import.meta.url)
+const { prompt, build, values, positionals, run } = new Init(
+  import.meta.url
+)
 
 // any prompts that the user already set in the command line,
 // like with --foo=bar will be automatically set in the values
@@ -36,8 +38,13 @@ const { prompt, build, values, positionals, run } = new Init(import.meta.url)
 await prompt('What is your name?', 'name')
 await prompt('What is your quest?', 'quest')
 // third arg is passed as options to `read`
-await prompt('What is your favorite color?', 'color', { default: 'blue' })
-await prompt('What is the flight average velocity of an unladen sparrow?', 'sparrow')
+await prompt('What is your favorite color?', 'color', {
+  default: 'blue',
+})
+await prompt(
+  'What is the flight average velocity of an unladen sparrow?',
+  'sparrow'
+)
 
 if (values.sparrow === "I don't know") {
   throw new Error('AAAHHHH!!!!')
@@ -84,7 +91,7 @@ await build({
   // use `target: '.'`
   // this is required.
   // positionals is the positional arguments read by parseArgs
-  target: positionals[0] || `${values.name}-${values.quest}`
+  target: positionals[0] || `${values.name}-${values.quest}`,
 
   // glob pattern(s) of template files to include, defaults to '**'
   // You can use this for example to conditionally only include
@@ -109,11 +116,16 @@ templates](https://github.com/janl/mustache.js/), something like
 this:
 
 ```html
-<html><body style="background-color:{{ color }}">
-<h1>Hello, {{name}}!</h1>
-<p>Good luck on {{quest}}.</p>
-<p>The average flight velocity of an unladen sparrow is {{ sparrow }}.</p>
-</body>
+<html>
+  <body style="background-color:{{ color }}">
+    <h1>Hello, {{name}}!</h1>
+    <p>Good luck on {{quest}}.</p>
+    <p>
+      The average flight velocity of an unladen sparrow is {{ sparrow
+      }}.
+    </p>
+  </body>
+</html>
 ```
 
 JSON files use `JSON.stringify` as the default escaping
@@ -131,13 +143,17 @@ Templates can also include each other as partials, each will be
 loaded with its name relative to the templates folder.
 
 ```html
-<html><body style="background-color:{{ color }}">
-<h1>Hello, {{name}}!</h1>
-<p>Good luck on {{quest}}.</p>
-<p>The average flight velocity of an unladen sparrow is {{ sparrow }}.</p>
+<html>
+  <body style="background-color:{{ color }}">
+    <h1>Hello, {{name}}!</h1>
+    <p>Good luck on {{quest}}.</p>
+    <p>
+      The average flight velocity of an unladen sparrow is {{ sparrow
+      }}.
+    </p>
 
-<p>Your `package.json` file is:</p>
-<pre>{{>package.json}}</pre>
-
-</body>
+    <p>Your `package.json` file is:</p>
+    <pre>{{>package.json}}</pre>
+  </body>
+</html>
 ```

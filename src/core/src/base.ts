@@ -3,18 +3,12 @@ import { AsyncResource } from 'async_hooks'
 import { Minipass } from 'minipass'
 import { hrtime } from 'node:process'
 import { format } from 'node:util'
-import {
-  FinalResults,
-  Parser,
-  Result,
-  TapError,
-} from 'tap-parser'
+import { FinalResults, Parser, Result, TapError } from 'tap-parser'
 import { Deferred } from 'trivial-deferred'
 import { extraFromError } from './extra-from-error.js'
 import type { Extra, TestBase } from './index.js'
 
-export interface TapBaseEvents
-  extends Minipass.Events<string> {
+export interface TapBaseEvents extends Minipass.Events<string> {
   timeout: [threw?: Extra]
   bailout: [reason?: string]
   complete: [results: FinalResults]
@@ -71,9 +65,7 @@ const debug =
   (...args: any[]) => {
     const prefix = `TAP ${process.pid} ${name}: `
     const msg = format(...args).trim()
-    console.error(
-      prefix + msg.split('\n').join(`\n${prefix}`)
-    )
+    console.error(prefix + msg.split('\n').join(`\n${prefix}`))
   }
 
 export interface BaseOpts extends Extra {
@@ -171,8 +163,7 @@ export class Base<
     this.bail = !!options.bail
     this.strict = !!options.strict
     this.omitVersion = !!options.omitVersion
-    this.preserveWhitespace =
-      options.preserveWhitespace !== false
+    this.preserveWhitespace = options.preserveWhitespace !== false
     this.buffered = !!options.buffered
     this.bailedOut = false
     this.errors = []
@@ -189,15 +180,12 @@ export class Base<
     this.hook.runInAsyncScope(
       () =>
         (this.hookDomain = new Domain((er, type) => {
-          if (!er || typeof er !== 'object')
-            er = { error: er }
+          if (!er || typeof er !== 'object') er = { error: er }
           ;(er as { tapCaught?: string }).tapCaught = type
           this.threw(er)
         }))
     )
-    this.debug = !!options.debug
-      ? debug(this.name)
-      : () => {}
+    this.debug = !!options.debug ? debug(this.name) : () => {}
 
     this.parser =
       options.parser ||
@@ -219,12 +207,8 @@ export class Base<
 
   setupParser() {
     this.parser.on('line', l => this.online(l))
-    this.parser.once('bailout', reason =>
-      this.onbail(reason)
-    )
-    this.parser.on('complete', result =>
-      this.oncomplete(result)
-    )
+    this.parser.once('bailout', reason => this.onbail(reason))
+    this.parser.on('complete', result => this.oncomplete(result))
 
     this.parser.on('result', () => this.counts.total++)
     this.parser.on('pass', () => this.counts.pass++)
@@ -318,8 +302,7 @@ export class Base<
     if (this.start) {
       this.hrtime = hrtime.bigint() - this.start
       this.time =
-        results.time ||
-        Math.floor(Number(this.hrtime) / 1000) / 1000
+        results.time || Math.floor(Number(this.hrtime) / 1000) / 1000
     }
 
     this.debug('ONCOMPLETE %j %j', this.name, results)
@@ -410,14 +393,10 @@ export class Base<
     // a plan exceeded error, or if we already have results.
     if (
       this.results ||
-      this.parser.planEnd !== -1 &&
-      this.parser.count >= this.parser.planEnd
+      (this.parser.planEnd !== -1 &&
+        this.parser.count >= this.parser.planEnd)
     ) {
-      this.debug(
-        'Base.threw, but have results',
-        this.results,
-        er
-      )
+      this.debug('Base.threw, but have results', this.results, er)
       const alreadyBailing = !this.results?.ok && this.bail
       if (this.results) this.results.ok = false
       if (this.parent) {
@@ -435,9 +414,7 @@ export class Base<
         delete extra.stack
         delete extra.at
         console.error('%s: %s', er.name || 'Error', message)
-        console.error(
-          er.stack.split(/\n/).slice(1).join('\n')
-        )
+        console.error(er.stack.split(/\n/).slice(1).join('\n'))
         console.error(extra)
       }
     } else {

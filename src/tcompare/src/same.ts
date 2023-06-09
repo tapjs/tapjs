@@ -86,17 +86,12 @@ export class Same extends Format {
   test() {
     const a = this.object
     const b = this.expect
-    return typeof a === 'function' &&
-      typeof b === 'function'
+    return typeof a === 'function' && typeof b === 'function'
       ? a === b ||
-          (a.name === b.name &&
-            a.toString() === b.toString())
+          (a.name === b.name && a.toString() === b.toString())
       : typeof a === 'symbol' || typeof b === 'symbol'
-      ? typeof a === typeof b &&
-        a.toString() === b.toString()
-      : typeof a !== 'object' &&
-        typeof b !== 'object' &&
-        a == b
+      ? typeof a === typeof b && a.toString() === b.toString()
+      : typeof a !== 'object' && typeof b !== 'object' && a == b
       ? true
       : a === b
       ? true
@@ -222,11 +217,7 @@ export class Same extends Format {
     }
     /* c8 ignore stop */
 
-    if (
-      this.parent ||
-      this.match ||
-      this.memoExpect === this.memo
-    ) {
+    if (this.parent || this.match || this.memoExpect === this.memo) {
       return (this.memoDiff = '')
     }
 
@@ -250,10 +241,7 @@ export class Same extends Format {
     options: FormatOptions | SameOptions,
     cls?: typeof Same
   ) {
-    const expectKey = hasOwnProperty.call(
-      options,
-      'expectKey'
-    )
+    const expectKey = hasOwnProperty.call(options, 'expectKey')
       ? (options as SameOptions).expectKey
       : options.key
     return super.child(
@@ -315,8 +303,7 @@ export class Same extends Format {
       : this.style.pojoKeyValSep()
     const start = this.style.start(indent, key, sep)
     this.memo = start + this.nodeId() + this.memo
-    this.memoExpect =
-      start + this.nodeId() + this.memoExpect
+    this.memoExpect = start + this.nodeId() + this.memoExpect
   }
 
   printEnd(): void {
@@ -445,15 +432,9 @@ export class Same extends Format {
     // nothing to do
   }
   printErrorHead() {
-    const headObj = this.style.errorHead(
-      this.object,
-      this.getClass()
-    )
+    const headObj = this.style.errorHead(this.object, this.getClass())
     this.memo = headObj + this.memo
-    const headExp = this.style.errorHead(
-      this.expect,
-      this.getClass()
-    )
+    const headExp = this.style.errorHead(this.expect, this.getClass())
     this.memoExpect = headExp + this.memoExpect
   }
   printErrorTail() {

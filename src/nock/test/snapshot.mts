@@ -2,7 +2,7 @@
 import fs from 'fs'
 import http from 'http'
 import fetch from 'node-fetch'
-import path, {resolve} from 'path'
+import path, { resolve } from 'path'
 import tap, { Test } from 'tap'
 import { fileURLToPath } from 'url'
 import { plugin } from '../dist/mjs/index.js'
@@ -14,10 +14,7 @@ const server = http.createServer((req, res) => {
   res.writeHead(200, { 'content-type': 'application/json' })
   res.end(
     JSON.stringify({
-      hello:
-        req.url === '/'
-          ? 'world'
-          : String(req.url).slice(1),
+      hello: req.url === '/' ? 'world' : String(req.url).slice(1),
     })
   )
 })
@@ -32,23 +29,20 @@ const flushSnapshots = () => {
 t.afterEach(flushSnapshots)
 t.beforeEach(flushSnapshots)
 
-t.test(
-  'throws when snapshot file does not exist',
-  async t => {
-    const noDataTest = new Test({
-      name: 'snapshots disabled, no data',
-      writeSnapshot: false,
-    }).applyPlugin(plugin)
+t.test('throws when snapshot file does not exist', async t => {
+  const noDataTest = new Test({
+    name: 'snapshots disabled, no data',
+    writeSnapshot: false,
+  }).applyPlugin(plugin)
 
-    t.throws(() => noDataTest.nock.snapshot(), {
-      message: /Missing snapshot data for test/,
-      code: 'EMISSINGSNAPSHOT',
-      at: {
-        fileName: /test[\\\/]snapshot\.mts$/,
-      },
-    })
-  }
-)
+  t.throws(() => noDataTest.nock.snapshot(), {
+    message: /Missing snapshot data for test/,
+    code: 'EMISSINGSNAPSHOT',
+    at: {
+      fileName: /test[\\\/]snapshot\.mts$/,
+    },
+  })
+})
 
 t.test(
   'throws when snapshot file exists, but does not contain snapshots for test',
@@ -81,10 +75,7 @@ t.test(
       /\.test\.cjs$/,
       '.nock.json'
     )
-    t.ok(
-      fs.existsSync(snapshotFile),
-      'snapshot file was written'
-    )
+    t.ok(fs.existsSync(snapshotFile), 'snapshot file was written')
     const snapshotData = JSON.parse(
       fs.readFileSync(snapshotFile, 'utf8')
     )
@@ -135,11 +126,7 @@ t.test('snapshots work', async t => {
     const res = await fetch('http://127.0.0.1:65200')
     writeTest.equal(res.status, 200, 'got a 200')
     const body = await res.json()
-    writeTest.same(
-      body,
-      { hello: 'world' },
-      'got response body'
-    )
+    writeTest.same(body, { hello: 'world' }, 'got response body')
   }, 'real request worked')
 
   writeTest.end()
@@ -149,10 +136,7 @@ t.test('snapshots work', async t => {
     /\.test\.cjs$/,
     '.nock.json'
   )
-  t.ok(
-    fs.existsSync(snapshotFile),
-    'snapshot file was written'
-  )
+  t.ok(fs.existsSync(snapshotFile), 'snapshot file was written')
 
   // now stop the server
   server.close()
@@ -174,11 +158,7 @@ t.test('snapshots work', async t => {
     const afterRes = await fetch('http://127.0.0.1:65200')
     t.equal(afterRes.status, 200, 'got a 200')
     const afterBody = await afterRes.json()
-    t.same(
-      afterBody,
-      { hello: 'world' },
-      'got response body'
-    )
+    t.same(afterBody, { hello: 'world' }, 'got response body')
   }, 'nock request worked')
 
   readTest.end()
@@ -215,16 +195,9 @@ t.test('snapshots work with transforms', async t => {
   await writeTest.resolves(async () => {
     const res = await fetch('http://127.0.0.1:65200')
     writeTest.equal(res.status, 200, 'got a 200')
-    writeTest.ok(
-      res.headers.has('date'),
-      'has a date header'
-    )
+    writeTest.ok(res.headers.has('date'), 'has a date header')
     const body = await res.json()
-    writeTest.same(
-      body,
-      { hello: 'world' },
-      'got response body'
-    )
+    writeTest.same(body, { hello: 'world' }, 'got response body')
   }, 'real request worked')
 
   writeTest.end()
@@ -234,10 +207,7 @@ t.test('snapshots work with transforms', async t => {
     /\.test\.cjs$/,
     '.nock.json'
   )
-  t.ok(
-    fs.existsSync(snapshotFile),
-    'snapshot file was written'
-  )
+  t.ok(fs.existsSync(snapshotFile), 'snapshot file was written')
 
   // now stop the server
   server.close()
@@ -292,9 +262,7 @@ t.test('snapshots and nocks can co-exist', async t => {
   t.teardown(() => server.close())
 
   const runTests = async (writeSnapshot: boolean) => {
-    const parentTest = new Test({ writeSnapshot }).applyPlugin(
-      plugin
-    )
+    const parentTest = new Test({ writeSnapshot }).applyPlugin(plugin)
     await parentTest.test(
       'test with snapshot',
       async snapshotTest => {
@@ -315,9 +283,7 @@ t.test('snapshots and nocks can co-exist', async t => {
               .get('/')
               .reply(200, { hello: 'grandchild' })
 
-            const res = await fetch(
-              'http://127.0.0.1:65200'
-            )
+            const res = await fetch('http://127.0.0.1:65200')
             t.equal(res.status, 200)
             const body = await res.json()
             t.same(body, { hello: 'grandchild' })
@@ -325,9 +291,7 @@ t.test('snapshots and nocks can co-exist', async t => {
         )
 
         await snapshotTest.resolves(async () => {
-          const res = await fetch(
-            'http://127.0.0.1:65200/snapshot'
-          )
+          const res = await fetch('http://127.0.0.1:65200/snapshot')
           t.equal(res.status, 200)
           const body = await res.json()
           t.same(body, { hello: 'snapshot' })
@@ -341,9 +305,7 @@ t.test('snapshots and nocks can co-exist', async t => {
               .get('/')
               .reply(200, { hello: 'grandchild2' })
 
-            const res = await fetch(
-              'http://127.0.0.1:65200'
-            )
+            const res = await fetch('http://127.0.0.1:65200')
             t.equal(res.status, 200)
             const body = await res.json()
             t.same(body, { hello: 'grandchild2' })
@@ -352,30 +314,24 @@ t.test('snapshots and nocks can co-exist', async t => {
       }
     )
 
-    await parentTest.test(
-      'test with nock',
-      async nockTest => {
-        nockTest
-          .nock('http://127.0.0.1:65200')
-          .get('/')
-          .reply(200, { hello: 'nock' })
+    await parentTest.test('test with nock', async nockTest => {
+      nockTest
+        .nock('http://127.0.0.1:65200')
+        .get('/')
+        .reply(200, { hello: 'nock' })
 
-        const res = await fetch('http://127.0.0.1:65200')
-        t.equal(res.status, 200)
-        const body = await res.json()
-        t.same(body, { hello: 'nock' })
-      }
-    )
+      const res = await fetch('http://127.0.0.1:65200')
+      t.equal(res.status, 200)
+      const body = await res.json()
+      t.same(body, { hello: 'nock' })
+    })
 
     parentTest.end()
 
     t.ok(parentTest.results?.ok, 'parentTest passed')
   }
 
-  await t.resolves(
-    runTests(true),
-    'tests run with snapshot enabled'
-  )
+  await t.resolves(runTests(true), 'tests run with snapshot enabled')
   server.close()
   await t.resolves(
     runTests(false),
@@ -403,9 +359,7 @@ t.test(
       parentTest.nock.snapshot()
 
       await parentTest.resolves(async () => {
-        const res = await fetch(
-          'http://127.0.0.1:65200/parent1'
-        )
+        const res = await fetch('http://127.0.0.1:65200/parent1')
         parentTest.equal(res.status, 200, 'got a 200')
         const body = await res.json()
         parentTest.same(
@@ -415,67 +369,54 @@ t.test(
         )
       }, 'first parent request worked')
 
-      await parentTest.test(
-        'child test',
-        async childTest => {
-          childTest.nock.snapshot()
+      await parentTest.test('child test', async childTest => {
+        childTest.nock.snapshot()
 
-          await childTest.resolves(async () => {
-            const res = await fetch(
-              'http://127.0.0.1:65200/child1'
-            )
-            childTest.equal(res.status, 200, 'got a 200')
-            const body = await res.json()
-            childTest.same(
-              body,
-              { hello: 'child1' },
-              'got response body'
-            )
-          }, 'first child request worked')
-
-          await childTest.test(
-            'grandchild test',
-            async grandchildTest => {
-              grandchildTest.nock.snapshot()
-
-              await grandchildTest.resolves(async () => {
-                const res = await fetch(
-                  'http://127.0.0.1:65200/grandchild1'
-                )
-                grandchildTest.equal(
-                  res.status,
-                  200,
-                  'got a 200'
-                )
-                const body = await res.json()
-                grandchildTest.same(
-                  body,
-                  { hello: 'grandchild1' },
-                  'got response body'
-                )
-              }, 'first grandchild request worked')
-            }
+        await childTest.resolves(async () => {
+          const res = await fetch('http://127.0.0.1:65200/child1')
+          childTest.equal(res.status, 200, 'got a 200')
+          const body = await res.json()
+          childTest.same(
+            body,
+            { hello: 'child1' },
+            'got response body'
           )
+        }, 'first child request worked')
 
-          await childTest.resolves(async () => {
-            const res = await fetch(
-              'http://127.0.0.1:65200/child2'
-            )
-            childTest.equal(res.status, 200, 'got a 200')
-            const body = await res.json()
-            childTest.same(
-              body,
-              { hello: 'child2' },
-              'got response body'
-            )
-          }, 'second child request worked')
-        }
-      )
+        await childTest.test(
+          'grandchild test',
+          async grandchildTest => {
+            grandchildTest.nock.snapshot()
+
+            await grandchildTest.resolves(async () => {
+              const res = await fetch(
+                'http://127.0.0.1:65200/grandchild1'
+              )
+              grandchildTest.equal(res.status, 200, 'got a 200')
+              const body = await res.json()
+              grandchildTest.same(
+                body,
+                { hello: 'grandchild1' },
+                'got response body'
+              )
+            }, 'first grandchild request worked')
+          }
+        )
+
+        await childTest.resolves(async () => {
+          const res = await fetch('http://127.0.0.1:65200/child2')
+          childTest.equal(res.status, 200, 'got a 200')
+          const body = await res.json()
+          childTest.same(
+            body,
+            { hello: 'child2' },
+            'got response body'
+          )
+        }, 'second child request worked')
+      })
 
       await parentTest.resolves(async () => {
-        const res = await fetch(
-          'http://127.0.0.1:65200/parent2'
-        )
+        const res = await fetch('http://127.0.0.1:65200/parent2')
         parentTest.equal(res.status, 200, 'got a 200')
         const body = await res.json()
         parentTest.same(
@@ -485,26 +426,19 @@ t.test(
         )
       }, 'second parent request worked')
 
-      await parentTest.test(
-        'second child test',
-        async childTest => {
-          childTest.nock.snapshot()
+      await parentTest.test('second child test', async childTest => {
+        childTest.nock.snapshot()
 
-          await childTest.resolves(async () => {
-            const res = await fetch(
-              'http://127.0.0.1:65200/child2.1'
-            )
-            childTest.equal(res.status, 200)
-            const body = await res.json()
-            childTest.same(body, { hello: 'child2.1' })
-          }, 'second child first request worked')
-        }
-      )
+        await childTest.resolves(async () => {
+          const res = await fetch('http://127.0.0.1:65200/child2.1')
+          childTest.equal(res.status, 200)
+          const body = await res.json()
+          childTest.same(body, { hello: 'child2.1' })
+        }, 'second child first request worked')
+      })
 
       await parentTest.resolves(async () => {
-        const res = await fetch(
-          'http://127.0.0.1:65200/parent3'
-        )
+        const res = await fetch('http://127.0.0.1:65200/parent3')
         parentTest.equal(res.status, 200, 'got a 200')
         const body = await res.json()
         parentTest.same(
@@ -518,20 +452,11 @@ t.test(
       t.ok(parentTest.results?.ok, 'parentTest passed')
     }
 
-    await t.resolves(
-      runTests(true),
-      'snapshot writing tests pass'
-    )
+    await t.resolves(runTests(true), 'snapshot writing tests pass')
 
-    t.ok(
-      fs.existsSync(snapshotFile),
-      'snapshot file was written'
-    )
+    t.ok(fs.existsSync(snapshotFile), 'snapshot file was written')
     server.close()
 
-    await t.resolves(
-      runTests(false),
-      'snapshot reading tests pass'
-    )
+    await t.resolves(runTests(false), 'snapshot reading tests pass')
   }
 )

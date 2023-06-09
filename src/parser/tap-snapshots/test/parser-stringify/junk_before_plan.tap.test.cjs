@@ -5,7 +5,9 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts > TAP > junk_before_plan.tap > bail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > junk_before_plan.tap > bail > parsed 1`
+] = `
 Array [
   Array [
     "extra",
@@ -73,7 +75,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > junk_before_plan.tap > bail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > junk_before_plan.tap > bail > stringified 1`
+] = `
 this is junk
 # this is a comment
 1..1
@@ -81,7 +85,9 @@ ok 1
 
 `
 
-exports[`test/parse-stringify.ts > TAP > junk_before_plan.tap > bail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > junk_before_plan.tap > bail > stringified flat 1`
+] = `
 this is junk
 # this is a comment
 1..0
@@ -89,7 +95,9 @@ ok 1
 
 `
 
-exports[`test/parse-stringify.ts > TAP > junk_before_plan.tap > default settings > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > junk_before_plan.tap > default settings > parsed 1`
+] = `
 Array [
   Array [
     "extra",
@@ -157,7 +165,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > junk_before_plan.tap > default settings > parsed flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > junk_before_plan.tap > default settings > parsed flat 1`
+] = `
 Array [
   Array [
     "extra",
@@ -224,7 +234,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > junk_before_plan.tap > default settings > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > junk_before_plan.tap > default settings > stringified 1`
+] = `
 this is junk
 # this is a comment
 1..1
@@ -232,7 +244,9 @@ ok 1
 
 `
 
-exports[`test/parse-stringify.ts > TAP > junk_before_plan.tap > default settings > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > junk_before_plan.tap > default settings > stringified flat 1`
+] = `
 this is junk
 # this is a comment
 1..0
@@ -240,7 +254,9 @@ ok 1
 
 `
 
-exports[`test/parse-stringify.ts > TAP > junk_before_plan.tap > strict > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > junk_before_plan.tap > strict > parsed 1`
+] = `
 Array [
   Array [
     "extra",
@@ -313,7 +329,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > junk_before_plan.tap > strict > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > junk_before_plan.tap > strict > stringified 1`
+] = `
 this is junk
 # this is a comment
 1..1
@@ -321,7 +339,9 @@ ok 1
 
 `
 
-exports[`test/parse-stringify.ts > TAP > junk_before_plan.tap > strict > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > junk_before_plan.tap > strict > stringified flat 1`
+] = `
 this is junk
 # this is a comment
 1..0
@@ -329,7 +349,9 @@ ok 1
 
 `
 
-exports[`test/parse-stringify.ts > TAP > junk_before_plan.tap > strictBail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > junk_before_plan.tap > strictBail > parsed 1`
+] = `
 Array [
   Array [
     "extra",
@@ -402,7 +424,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > junk_before_plan.tap > strictBail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > junk_before_plan.tap > strictBail > stringified 1`
+] = `
 this is junk
 # this is a comment
 1..1
@@ -410,7 +434,9 @@ ok 1
 
 `
 
-exports[`test/parse-stringify.ts > TAP > junk_before_plan.tap > strictBail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > junk_before_plan.tap > strictBail > stringified flat 1`
+] = `
 this is junk
 # this is a comment
 1..0

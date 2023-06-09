@@ -40,9 +40,7 @@ const tpMessage = (description, extra) => {
     else if (extra.time) {
         message += ' # time=' + extra.time + 'ms';
     }
-    const diagYaml = extra.diagnostic
-        ? '\n' + (0, diags_js_1.diags)(extra)
-        : '';
+    const diagYaml = extra.diagnostic ? '\n' + (0, diags_js_1.diags)(extra) : '';
     message += diagYaml + '\n';
     return message;
 };

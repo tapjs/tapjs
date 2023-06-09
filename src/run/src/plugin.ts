@@ -11,7 +11,10 @@ const exists = (f: string) =>
     () => false
   )
 
-export const plugin = async (args: string[], config: LoadedConfig) => {
+export const plugin = async (
+  args: string[],
+  config: LoadedConfig
+) => {
   switch (args[0]) {
     case 'add':
       return add(args.slice(1), config)
@@ -108,7 +111,10 @@ const add = async (args: string[], config: LoadedConfig) => {
     await build([], config)
 
     // save the config change
-    await config.editConfigFile({ plugin: [...pc] }, config.configFile)
+    await config.editConfigFile(
+      { plugin: [...pc] },
+      config.configFile
+    )
 
     console.log('successfully added plugin(s):')
     console.log([...added].join('\n'))
@@ -165,7 +171,9 @@ const rm = async (args: string[], config: LoadedConfig) => {
   if (needRemove.size) {
     console.log('The following packages can likely be removed:')
     console.log(
-      `npm rm ${[...needRemove].map(p => JSON.stringify(p)).join(' ')}`
+      `npm rm ${[...needRemove]
+        .map(p => JSON.stringify(p))
+        .join(' ')}`
     )
   }
 }

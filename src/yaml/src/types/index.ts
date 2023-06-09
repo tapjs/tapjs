@@ -31,6 +31,4 @@ const t: Tags = [
   'set',
   'binary',
 ]
-export const customTags = (tags: Tags) => [
-  ...new Set(t.concat(tags)),
-]
+export const customTags = (tags: Tags) => [...new Set(t.concat(tags))]

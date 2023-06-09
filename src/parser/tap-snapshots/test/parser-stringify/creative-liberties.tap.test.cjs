@@ -5,7 +5,9 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts > TAP > creative-liberties.tap > bail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > creative-liberties.tap > bail > parsed 1`
+] = `
 Array [
   Array [
     "version",
@@ -221,7 +223,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > creative-liberties.tap > bail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > creative-liberties.tap > bail > stringified 1`
+] = `
 TAP version 13
 ok - created Board
 ok
@@ -251,7 +255,9 @@ ok - board has 7 tiles + starter tile
 
 `
 
-exports[`test/parse-stringify.ts > TAP > creative-liberties.tap > bail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > creative-liberties.tap > bail > stringified flat 1`
+] = `
 TAP version 13
 ok 1 - created Board
 ok 2
@@ -281,7 +287,9 @@ ok 9 - board has 7 tiles + starter tile
 
 `
 
-exports[`test/parse-stringify.ts > TAP > creative-liberties.tap > default settings > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > creative-liberties.tap > default settings > parsed 1`
+] = `
 Array [
   Array [
     "version",
@@ -497,7 +505,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > creative-liberties.tap > default settings > parsed flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > creative-liberties.tap > default settings > parsed flat 1`
+] = `
 Array [
   Array [
     "version",
@@ -712,7 +722,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > creative-liberties.tap > default settings > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > creative-liberties.tap > default settings > stringified 1`
+] = `
 TAP version 13
 ok - created Board
 ok
@@ -742,7 +754,9 @@ ok - board has 7 tiles + starter tile
 
 `
 
-exports[`test/parse-stringify.ts > TAP > creative-liberties.tap > default settings > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > creative-liberties.tap > default settings > stringified flat 1`
+] = `
 TAP version 13
 ok 1 - created Board
 ok 2
@@ -772,7 +786,9 @@ ok 9 - board has 7 tiles + starter tile
 
 `
 
-exports[`test/parse-stringify.ts > TAP > creative-liberties.tap > strict > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > creative-liberties.tap > strict > parsed 1`
+] = `
 Array [
   Array [
     "version",
@@ -988,7 +1004,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > creative-liberties.tap > strict > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > creative-liberties.tap > strict > stringified 1`
+] = `
 TAP version 13
 ok - created Board
 ok
@@ -1018,7 +1036,9 @@ ok - board has 7 tiles + starter tile
 
 `
 
-exports[`test/parse-stringify.ts > TAP > creative-liberties.tap > strict > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > creative-liberties.tap > strict > stringified flat 1`
+] = `
 TAP version 13
 ok 1 - created Board
 ok 2
@@ -1048,7 +1068,9 @@ ok 9 - board has 7 tiles + starter tile
 
 `
 
-exports[`test/parse-stringify.ts > TAP > creative-liberties.tap > strictBail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > creative-liberties.tap > strictBail > parsed 1`
+] = `
 Array [
   Array [
     "version",
@@ -1264,7 +1286,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > creative-liberties.tap > strictBail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > creative-liberties.tap > strictBail > stringified 1`
+] = `
 TAP version 13
 ok - created Board
 ok
@@ -1294,7 +1318,9 @@ ok - board has 7 tiles + starter tile
 
 `
 
-exports[`test/parse-stringify.ts > TAP > creative-liberties.tap > strictBail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > creative-liberties.tap > strictBail > stringified flat 1`
+] = `
 TAP version 13
 ok 1 - created Board
 ok 2

@@ -86,7 +86,8 @@ export const useLog = (test: Base, config: LoadedConfig) => {
             })
           }
           const { proc } = test
-          if (proc) cleanup.push(listenCleanup(proc.stderr, 'data', l))
+          if (proc)
+            cleanup.push(listenCleanup(proc.stderr, 'data', l))
           else
             test.once('process', proc =>
               cleanup.push(listenCleanup(proc.stderr, 'data', l))

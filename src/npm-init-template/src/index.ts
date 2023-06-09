@@ -174,7 +174,9 @@ export class Init {
     root: string = path
   ): Promise<Record<string, string>> {
     const promises: Promise<Record<string, string>>[] = []
-    for (const f of await readdir(path, { withFileTypes: true })) {
+    for (const f of await readdir(path, {
+      withFileTypes: true,
+    })) {
       const p = resolve(path, f.name)
       if (f.isDirectory()) {
         promises.push(this.#load(p, root))
@@ -227,7 +229,11 @@ export class Init {
     /* c8 ignore start */
     const inc = typeof include === 'string' ? [include] : include
     const exc =
-      typeof exclude === 'string' ? [exclude] : !exclude ? [] : exclude
+      typeof exclude === 'string'
+        ? [exclude]
+        : !exclude
+        ? []
+        : exclude
     /* c8 ignore stop */
 
     for (const [f, template] of Object.entries(partials)) {

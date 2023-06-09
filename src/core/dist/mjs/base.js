@@ -3,7 +3,7 @@ import { AsyncResource } from 'async_hooks';
 import { Minipass } from 'minipass';
 import { hrtime } from 'node:process';
 import { format } from 'node:util';
-import { Parser, } from 'tap-parser';
+import { Parser } from 'tap-parser';
 import { extraFromError } from './extra-from-error.js';
 export class TapWrap extends AsyncResource {
     test;
@@ -100,8 +100,7 @@ export class Base extends Minipass {
         this.bail = !!options.bail;
         this.strict = !!options.strict;
         this.omitVersion = !!options.omitVersion;
-        this.preserveWhitespace =
-            options.preserveWhitespace !== false;
+        this.preserveWhitespace = options.preserveWhitespace !== false;
         this.buffered = !!options.buffered;
         this.bailedOut = false;
         this.errors = [];
@@ -120,9 +119,7 @@ export class Base extends Minipass {
             er.tapCaught = type;
             this.threw(er);
         })));
-        this.debug = !!options.debug
-            ? debug(this.name)
-            : () => { };
+        this.debug = !!options.debug ? debug(this.name) : () => { };
         this.parser =
             options.parser ||
                 new Parser({
@@ -224,8 +221,7 @@ export class Base extends Minipass {
         if (this.start) {
             this.hrtime = hrtime.bigint() - this.start;
             this.time =
-                results.time ||
-                    Math.floor(Number(this.hrtime) / 1000) / 1000;
+                results.time || Math.floor(Number(this.hrtime) / 1000) / 1000;
         }
         this.debug('ONCOMPLETE %j %j', this.name, results);
         if (this.results) {
@@ -296,8 +292,8 @@ export class Base extends Minipass {
         // a bit excessive. Do not print it here if it would trigger
         // a plan exceeded error, or if we already have results.
         if (this.results ||
-            this.parser.planEnd !== -1 &&
-                this.parser.count >= this.parser.planEnd) {
+            (this.parser.planEnd !== -1 &&
+                this.parser.count >= this.parser.planEnd)) {
             this.debug('Base.threw, but have results', this.results, er);
             const alreadyBailing = !this.results?.ok && this.bail;
             if (this.results)

@@ -5,7 +5,9 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts > TAP > delayed.tap > bail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > delayed.tap > bail > parsed 1`
+] = `
 Array [
   Array [
     "plan",
@@ -118,7 +120,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > delayed.tap > bail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > delayed.tap > bail > stringified 1`
+] = `
 1..5
 ok 1 - 00000
 ok 2
@@ -127,7 +131,9 @@ Bail out!
 
 `
 
-exports[`test/parse-stringify.ts > TAP > delayed.tap > bail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > delayed.tap > bail > stringified flat 1`
+] = `
 1..0
 ok 1 - 00000
 ok 2
@@ -136,7 +142,9 @@ Bail out!
 
 `
 
-exports[`test/parse-stringify.ts > TAP > delayed.tap > default settings > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > delayed.tap > default settings > parsed 1`
+] = `
 Array [
   Array [
     "plan",
@@ -279,7 +287,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > delayed.tap > default settings > parsed flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > delayed.tap > default settings > parsed flat 1`
+] = `
 Array [
   Array [
     "assert",
@@ -421,7 +431,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > delayed.tap > default settings > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > delayed.tap > default settings > stringified 1`
+] = `
 1..5
 ok 1 - 00000
 ok 2
@@ -431,7 +443,9 @@ ok 5 - 00000
 
 `
 
-exports[`test/parse-stringify.ts > TAP > delayed.tap > default settings > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > delayed.tap > default settings > stringified flat 1`
+] = `
 1..0
 ok 1 - 00000
 ok 2
@@ -441,7 +455,9 @@ ok 5 - 00000
 
 `
 
-exports[`test/parse-stringify.ts > TAP > delayed.tap > strict > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > delayed.tap > strict > parsed 1`
+] = `
 Array [
   Array [
     "plan",
@@ -584,7 +600,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > delayed.tap > strict > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > delayed.tap > strict > stringified 1`
+] = `
 1..5
 ok 1 - 00000
 ok 2
@@ -594,7 +612,9 @@ ok 5 - 00000
 
 `
 
-exports[`test/parse-stringify.ts > TAP > delayed.tap > strict > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > delayed.tap > strict > stringified flat 1`
+] = `
 1..0
 ok 1 - 00000
 ok 2
@@ -604,7 +624,9 @@ ok 5 - 00000
 
 `
 
-exports[`test/parse-stringify.ts > TAP > delayed.tap > strictBail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > delayed.tap > strictBail > parsed 1`
+] = `
 Array [
   Array [
     "plan",
@@ -717,7 +739,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > delayed.tap > strictBail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > delayed.tap > strictBail > stringified 1`
+] = `
 1..5
 ok 1 - 00000
 ok 2
@@ -726,7 +750,9 @@ Bail out!
 
 `
 
-exports[`test/parse-stringify.ts > TAP > delayed.tap > strictBail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > delayed.tap > strictBail > stringified flat 1`
+] = `
 1..0
 ok 1 - 00000
 ok 2

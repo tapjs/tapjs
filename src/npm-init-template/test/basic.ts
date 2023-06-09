@@ -4,7 +4,7 @@ import { dirname, resolve } from 'path'
 import { Readable, Writable } from 'stream'
 import t from 'tap'
 import { fileURLToPath } from 'url'
-import {Init} from '../dist/mjs/index.js'
+import { Init } from '../dist/mjs/index.js'
 
 // filter out node's --loader warnings
 t.cleanSnapshot = s =>
@@ -17,11 +17,17 @@ t.cleanSnapshot = s =>
         )
     )
     .join('\n')
-    .replace(/file:\/\/.*?test\/fixture\/index\.mjs:[0-9]+$/gm, '{CWD}/test/fixture/index.mjs:##')
+    .replace(
+      /file:\/\/.*?test\/fixture\/index\.mjs:[0-9]+$/gm,
+      '{CWD}/test/fixture/index.mjs:##'
+    )
     .replace(/^    at .*$/gm, '')
 
 const node = process.execPath
-const fixture = resolve(dirname(fileURLToPath(import.meta.url)), 'fixture')
+const fixture = resolve(
+  dirname(fileURLToPath(import.meta.url)),
+  'fixture'
+)
 const script = resolve(fixture, 'index.mjs')
 
 const respond = async (
@@ -48,10 +54,15 @@ const bridgeKeeper = async (
   cwd: string,
   response: string[]
 ) => {
-  const p = spawn(node, [script, ...args], { cwd, stdio: 'pipe', env })
+  const p = spawn(node, [script, ...args], {
+    cwd,
+    stdio: 'pipe',
+    env,
+  })
 
   const { stdin, stdout, stderr } = p
-  if (!stdin || !stdout || !stderr) throw new Error('did not open stdio??')
+  if (!stdin || !stdout || !stderr)
+    throw new Error('did not open stdio??')
 
   const out: Buffer[] = []
   stdout.on('data', c => {
@@ -130,7 +141,7 @@ t.test('galahad: accept default (to great peril)', async t => {
     [],
     { npm_config_yes: 'true' },
     cwd,
-    response,
+    response
   )
   t.equal(code, 1, 'thrown off the bridge')
   t.equal(signal, null, 'no termination signal')

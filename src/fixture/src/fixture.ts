@@ -1,5 +1,10 @@
 import { mkdirpSync } from 'mkdirp'
-import { linkSync, statSync, symlinkSync, writeFileSync } from 'node:fs'
+import {
+  linkSync,
+  statSync,
+  symlinkSync,
+  writeFileSync,
+} from 'node:fs'
 import { dirname, resolve } from 'path'
 
 export type FixtureType = 'file' | 'dir' | 'link' | 'symlink'
@@ -25,9 +30,10 @@ export type FixtureContent<T> = T extends 'file'
   ? FixtureDir
   : never
 
-const assertValidContent: (type: FixtureType, content: any) => void = <
-  T extends FixtureType
->(
+const assertValidContent: (
+  type: FixtureType,
+  content: any
+) => void = <T extends FixtureType>(
   type: T,
   content: any
 ): asserts content is FixtureContent<T> => {
@@ -43,7 +49,9 @@ const assertValidContent: (type: FixtureType, content: any) => void = <
         !Buffer.isBuffer(content) &&
         !(content instanceof Uint8Array)
       ) {
-        throw new TypeError('file fixture must have string/buffer content')
+        throw new TypeError(
+          'file fixture must have string/buffer content'
+        )
       }
       break
     case 'link':
@@ -82,7 +90,11 @@ export class Fixture<T extends FixtureType> {
       f instanceof Uint8Array
     ) {
       f = new Fixture('file', f)
-    } else if (f && typeof f === 'object' && !(f instanceof Fixture)) {
+    } else if (
+      f &&
+      typeof f === 'object' &&
+      !(f instanceof Fixture)
+    ) {
       f = new Fixture('dir', f)
     } else if (!(f instanceof Fixture)) {
       throw new Error('invalid fixture type: ' + f)
@@ -112,7 +124,11 @@ export class Fixture<T extends FixtureType> {
     // create all those symlinks we were asked for
     if (isRoot) {
       for (const [abs, target] of Object.entries(symlinks)) {
-        symlinkSync(target, abs, isDir(abs, target) ? 'junction' : 'file')
+        symlinkSync(
+          target,
+          abs,
+          isDir(abs, target) ? 'junction' : 'file'
+        )
       }
     }
   }

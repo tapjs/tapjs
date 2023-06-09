@@ -48,11 +48,7 @@ t.test('ctor usage', t => {
 })
 
 t.test('simple diff nested in object', t => {
-  same(
-    t,
-    { a: { b: [{ x: true }] } },
-    { a: { b: [{ x: false }] } }
-  )
+  same(t, { a: { b: [{ x: true }] } }, { a: { b: [{ x: false }] } })
   t.end()
 })
 
@@ -63,38 +59,23 @@ t.test('symbology', t => {
   t.notOk(same(t, { a: Symbol('a') }, { a: Symbol }))
   t.notOk(same(t, { a: Symbol('a') }, { a: 'Symbol(a)' }))
   t.notOk(same(t, { a: 'Symbol(a)' }, { a: Symbol('a') }))
-  t.notOk(
-    same(t, { a: 'Symbol(a)' }, { a: Symbol.for('a') })
-  )
+  t.notOk(same(t, { a: 'Symbol(a)' }, { a: Symbol.for('a') }))
   t.notOk(same(t, { a: 'Symbol(a)' }, { a: Symbol }))
   t.end()
 })
 
 t.test('diffing strings', t => {
-  const str1 =
-    'str1' + ('asdf'.repeat(10) + '\n').repeat(25)
+  const str1 = 'str1' + ('asdf'.repeat(10) + '\n').repeat(25)
   const str2 =
     'str2' +
     ('asdf'.repeat(10) + '\n').repeat(10) +
     ('foo'.repeat(5) + '\n').repeat(5) +
     ('asdf'.repeat(10) + '\n').repeat(10)
-  t.notOk(
-    same(t, str1, str2),
-    'multi-line strings that do not match'
-  )
+  t.notOk(same(t, str1, str2), 'multi-line strings that do not match')
   t.ok(same(t, '', ''), 'empty strings match')
-  t.notOk(
-    same(t, '', str1),
-    'multi-line string is not empty string'
-  )
-  t.notOk(
-    same(t, str1, ''),
-    'multi-line string is not empty string'
-  )
-  t.ok(
-    same(t, { str1 }, { str1 }),
-    'multi-line string in an object'
-  )
+  t.notOk(same(t, '', str1), 'multi-line string is not empty string')
+  t.notOk(same(t, str1, ''), 'multi-line string is not empty string')
+  t.ok(same(t, { str1 }, { str1 }), 'multi-line string in an object')
   t.end()
 })
 
@@ -207,36 +188,25 @@ t.test('NaN matches NaN', function (t) {
   t.end()
 })
 
-t.test(
-  "shouldn't care about key order and types",
-  function (t) {
-    t.ok(same(t, { a: 1, b: 2 }, { b: 2, a: '1' }))
-    t.end()
-  }
-)
+t.test("shouldn't care about key order and types", function (t) {
+  t.ok(same(t, { a: 1, b: 2 }, { b: 2, a: '1' }))
+  t.end()
+})
 
-t.test(
-  'should notice objects with different shapes',
-  function (t) {
-    t.notOk(same(t, { a: 1 }, { a: 1, b: undefined }))
-    t.end()
-  }
-)
+t.test('should notice objects with different shapes', function (t) {
+  t.notOk(same(t, { a: 1 }, { a: 1, b: undefined }))
+  t.end()
+})
 
-t.test(
-  'should notice objects with different keys',
-  function (t) {
-    t.notOk(same(t, { a: 1, b: 2 }, { a: 1, c: 2 }))
-    t.end()
-  }
-)
+t.test('should notice objects with different keys', function (t) {
+  t.notOk(same(t, { a: 1, b: 2 }, { a: 1, c: 2 }))
+  t.end()
+})
 
 t.test('should handle dates', function (t) {
   t.notOk(same(t, new Date('1972-08-01'), null))
   t.notOk(same(t, new Date('1972-08-01'), undefined))
-  t.ok(
-    same(t, new Date('1972-08-01'), new Date('1972-08-01'))
-  )
+  t.ok(same(t, new Date('1972-08-01'), new Date('1972-08-01')))
   t.ok(
     same(
       t,
@@ -398,48 +368,45 @@ t.test('flexible about key order and types', function (t) {
   t.end()
 })
 
-t.test(
-  'properly handle circular data structures',
-  function (t) {
-    var x1: { [k: string]: any } = { z: 4 }
-    var y1: { [k: string]: any } = { x: x1 }
-    x1.y = y1
+t.test('properly handle circular data structures', function (t) {
+  var x1: { [k: string]: any } = { z: 4 }
+  var y1: { [k: string]: any } = { x: x1 }
+  x1.y = y1
 
-    var x2: { [k: string]: any } = { z: 4 }
-    var y2: { [k: string]: any } = { x: x2 }
-    x2.y = y2
+  var x2: { [k: string]: any } = { z: 4 }
+  var y2: { [k: string]: any } = { x: x2 }
+  x2.y = y2
 
-    t.ok(same(t, x1, x2))
-    x1.other = x2
-    x2.other = x1
-    t.ok(same(t, x1, x2))
-    x2.other = x2
-    t.notOk(same(t, x1, x2), 'should not match')
+  t.ok(same(t, x1, x2))
+  x1.other = x2
+  x2.other = x1
+  t.ok(same(t, x1, x2))
+  x2.other = x2
+  t.notOk(same(t, x1, x2), 'should not match')
 
-    // matching circularity
-    const obj = () => {
-      const a: { [k: string]: any } = {
-        ONE: 1,
-        x: { TWO: 2 },
-      }
-      a.x.a = a
-      return a
+  // matching circularity
+  const obj = () => {
+    const a: { [k: string]: any } = {
+      ONE: 1,
+      x: { TWO: 2 },
     }
-    const a = obj()
-    const b = obj()
-    t.ok(same(t, a, b))
-
-    // non-matching circularity
-    b.x.a = b.x
-    t.notOk(same(t, a, b))
-
-    // mismatch the circularity entirely
-    a.x = { happy: true }
-    t.notOk(same(t, a, b))
-
-    t.end()
+    a.x.a = a
+    return a
   }
-)
+  const a = obj()
+  const b = obj()
+  t.ok(same(t, a, b))
+
+  // non-matching circularity
+  b.x.a = b.x
+  t.notOk(same(t, a, b))
+
+  // mismatch the circularity entirely
+  a.x = { happy: true }
+  t.notOk(same(t, a, b))
+
+  t.end()
+})
 
 t.test('should match empty Buffers', function (t) {
   t.ok(same(t, Buffer.from([]), Buffer.from([])))
@@ -465,14 +432,9 @@ t.test('should notice different Buffers', function (t) {
 
   var shortb = Buffer.from([0, 1])
   var longb = Buffer.alloc(320)
-  for (var i = 0; i < 160; i++)
-    longb.writeUInt16LE(i, i * 2)
+  for (var i = 0; i < 160; i++) longb.writeUInt16LE(i, i * 2)
   t.notOk(
-    same(
-      t,
-      { x: { y: { z: shortb } } },
-      { x: { y: { z: longb } } }
-    )
+    same(t, { x: { y: { z: shortb } } }, { x: { y: { z: longb } } })
   )
   t.end()
 })
@@ -605,9 +567,7 @@ t.test('iterables match one another', t => {
 t.test('diffs of errors with \\n in the message', t => {
   const er: Error & { foo?: string } = new Error('foo\nbar')
   er.foo = 'bar'
-  const er2: Error & { foo?: string } = new Error(
-    'foo\nbar'
-  )
+  const er2: Error & { foo?: string } = new Error('foo\nbar')
   er2.foo = 'two'
   t.notOk(
     same(t, er, er2),
@@ -651,10 +611,7 @@ t.test('hidden props and getters', t => {
   const one = new Hidden(1)
   const two = new Hidden(1)
   t.ok(same(t, one, two), 'own props only')
-  t.ok(
-    same(t, one, two, { includeGetters: true }),
-    'include getters'
-  )
+  t.ok(same(t, one, two, { includeGetters: true }), 'include getters')
   t.notOk(
     same(t, one, two, { includeEnumerable: true }),
     'all enumerable'
@@ -709,12 +666,9 @@ t.test('array is not the same as object', t => {
   t.end()
 })
 
-t.test(
-  'inherited fields will satisfy ownprop expects',
-  t => {
-    const a = Object.create({ a: 1 })
-    const b = { a: 1 }
-    t.ok(same(t, a, b))
-    t.end()
-  }
-)
+t.test('inherited fields will satisfy ownprop expects', t => {
+  const a = Object.create({ a: 1 })
+  const b = { a: 1 }
+  t.ok(same(t, a, b))
+  t.end()
+})

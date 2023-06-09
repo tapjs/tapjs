@@ -5,7 +5,9 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts > TAP > mismatched-child-assert.tap > bail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > mismatched-child-assert.tap > bail > parsed 1`
+] = `
 Array [
   Array [
     "version",
@@ -133,7 +135,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > mismatched-child-assert.tap > bail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > mismatched-child-assert.tap > bail > stringified 1`
+] = `
 TAP version 13
 # Subtest: some child
     ok 1 - this is fine
@@ -143,7 +147,9 @@ ok 1 - different name
 
 `
 
-exports[`test/parse-stringify.ts > TAP > mismatched-child-assert.tap > bail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > mismatched-child-assert.tap > bail > stringified flat 1`
+] = `
 TAP version 13
 # Subtest: some child
 ok 1 - some child > this is fine
@@ -152,7 +158,9 @@ ok 2 - different name
 
 `
 
-exports[`test/parse-stringify.ts > TAP > mismatched-child-assert.tap > default settings > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > mismatched-child-assert.tap > default settings > parsed 1`
+] = `
 Array [
   Array [
     "version",
@@ -280,7 +288,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > mismatched-child-assert.tap > default settings > parsed flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > mismatched-child-assert.tap > default settings > parsed flat 1`
+] = `
 Array [
   Array [
     "version",
@@ -360,7 +370,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > mismatched-child-assert.tap > default settings > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > mismatched-child-assert.tap > default settings > stringified 1`
+] = `
 TAP version 13
 # Subtest: some child
     ok 1 - this is fine
@@ -370,7 +382,9 @@ ok 1 - different name
 
 `
 
-exports[`test/parse-stringify.ts > TAP > mismatched-child-assert.tap > default settings > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > mismatched-child-assert.tap > default settings > stringified flat 1`
+] = `
 TAP version 13
 # Subtest: some child
 ok 1 - some child > this is fine
@@ -379,7 +393,9 @@ ok 2 - different name
 
 `
 
-exports[`test/parse-stringify.ts > TAP > mismatched-child-assert.tap > strict > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > mismatched-child-assert.tap > strict > parsed 1`
+] = `
 Array [
   Array [
     "version",
@@ -507,7 +523,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > mismatched-child-assert.tap > strict > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > mismatched-child-assert.tap > strict > stringified 1`
+] = `
 TAP version 13
 # Subtest: some child
     ok 1 - this is fine
@@ -517,7 +535,9 @@ ok 1 - different name
 
 `
 
-exports[`test/parse-stringify.ts > TAP > mismatched-child-assert.tap > strict > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > mismatched-child-assert.tap > strict > stringified flat 1`
+] = `
 TAP version 13
 # Subtest: some child
 ok 1 - some child > this is fine
@@ -526,7 +546,9 @@ ok 2 - different name
 
 `
 
-exports[`test/parse-stringify.ts > TAP > mismatched-child-assert.tap > strictBail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > mismatched-child-assert.tap > strictBail > parsed 1`
+] = `
 Array [
   Array [
     "version",
@@ -654,7 +676,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > mismatched-child-assert.tap > strictBail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > mismatched-child-assert.tap > strictBail > stringified 1`
+] = `
 TAP version 13
 # Subtest: some child
     ok 1 - this is fine
@@ -664,7 +688,9 @@ ok 1 - different name
 
 `
 
-exports[`test/parse-stringify.ts > TAP > mismatched-child-assert.tap > strictBail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > mismatched-child-assert.tap > strictBail > stringified flat 1`
+] = `
 TAP version 13
 # Subtest: some child
 ok 1 - some child > this is fine

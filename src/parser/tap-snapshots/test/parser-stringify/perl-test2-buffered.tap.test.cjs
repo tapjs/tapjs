@@ -5,7 +5,9 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts > TAP > perl-test2-buffered.tap > bail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > perl-test2-buffered.tap > bail > parsed 1`
+] = `
 Array [
   Array [
     "comment",
@@ -127,7 +129,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > perl-test2-buffered.tap > bail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > perl-test2-buffered.tap > bail > stringified 1`
+] = `
 # Seeded srand with seed '20160810' from local date.
 # Subtest: empty
     1..0
@@ -136,7 +140,9 @@ Bail out! empty
 
 `
 
-exports[`test/parse-stringify.ts > TAP > perl-test2-buffered.tap > bail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > perl-test2-buffered.tap > bail > stringified flat 1`
+] = `
 # Seeded srand with seed '20160810' from local date.
 # Subtest: empty
 
@@ -145,7 +151,9 @@ Bail out! empty
 
 `
 
-exports[`test/parse-stringify.ts > TAP > perl-test2-buffered.tap > default settings > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > perl-test2-buffered.tap > default settings > parsed 1`
+] = `
 Array [
   Array [
     "comment",
@@ -663,7 +671,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > perl-test2-buffered.tap > default settings > parsed flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > perl-test2-buffered.tap > default settings > parsed flat 1`
+] = `
 Array [
   Array [
     "comment",
@@ -911,7 +921,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > perl-test2-buffered.tap > default settings > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > perl-test2-buffered.tap > default settings > stringified 1`
+] = `
 # Seeded srand with seed '20160810' from local date.
 # Subtest: empty
     1..0
@@ -940,7 +952,9 @@ ok 5 - Subtest: my_streamy_test_plan
 
 `
 
-exports[`test/parse-stringify.ts > TAP > perl-test2-buffered.tap > default settings > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > perl-test2-buffered.tap > default settings > stringified flat 1`
+] = `
 # Seeded srand with seed '20160810' from local date.
 # Subtest: empty
 
@@ -965,7 +979,9 @@ ok 13 - Subtest: my_streamy_test_plan
 
 `
 
-exports[`test/parse-stringify.ts > TAP > perl-test2-buffered.tap > strict > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > perl-test2-buffered.tap > strict > parsed 1`
+] = `
 Array [
   Array [
     "comment",
@@ -1483,7 +1499,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > perl-test2-buffered.tap > strict > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > perl-test2-buffered.tap > strict > stringified 1`
+] = `
 # Seeded srand with seed '20160810' from local date.
 # Subtest: empty
     1..0
@@ -1512,7 +1530,9 @@ ok 5 - Subtest: my_streamy_test_plan
 
 `
 
-exports[`test/parse-stringify.ts > TAP > perl-test2-buffered.tap > strict > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > perl-test2-buffered.tap > strict > stringified flat 1`
+] = `
 # Seeded srand with seed '20160810' from local date.
 # Subtest: empty
 
@@ -1537,7 +1557,9 @@ ok 13 - Subtest: my_streamy_test_plan
 
 `
 
-exports[`test/parse-stringify.ts > TAP > perl-test2-buffered.tap > strictBail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > perl-test2-buffered.tap > strictBail > parsed 1`
+] = `
 Array [
   Array [
     "comment",
@@ -1659,7 +1681,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > perl-test2-buffered.tap > strictBail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > perl-test2-buffered.tap > strictBail > stringified 1`
+] = `
 # Seeded srand with seed '20160810' from local date.
 # Subtest: empty
     1..0
@@ -1668,7 +1692,9 @@ Bail out! empty
 
 `
 
-exports[`test/parse-stringify.ts > TAP > perl-test2-buffered.tap > strictBail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > perl-test2-buffered.tap > strictBail > stringified flat 1`
+] = `
 # Seeded srand with seed '20160810' from local date.
 # Subtest: empty
 

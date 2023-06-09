@@ -23,8 +23,7 @@ export const extraFromError = (
     extra || {},
     Object.fromEntries(
       Object.entries(options || {}).filter(
-        ([k]) =>
-          !/^tapChild/.test(k) && !(k in (extra || {}))
+        ([k]) => !/^tapChild/.test(k) && !(k in (extra || {}))
       )
     )
   )

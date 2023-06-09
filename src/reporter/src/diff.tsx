@@ -53,7 +53,8 @@ const Red: FC<{ line: string }> = ({ line }) => (
 )
 
 export const Diff: FC<{ diff: any }> = ({ diff = '' }) => {
-  if (typeof diff !== 'string') return <Text>{'1: ' + JSON.stringify(diff)}</Text>
+  if (typeof diff !== 'string')
+    return <Text>{'1: ' + JSON.stringify(diff)}</Text>
   const sd: string = diff.trimEnd()
   if (!sd) return <></>
 
@@ -63,7 +64,9 @@ export const Diff: FC<{ diff: any }> = ({ diff = '' }) => {
     if (stringLength(line) > width) {
       width = Math.min(maxLen, stringLength(line))
     }
-    return line !== '\\ No newline at end of file' && !/^\=+$/.test(line)
+    return (
+      line !== '\\ No newline at end of file' && !/^\=+$/.test(line)
+    )
   })
   return (
     <Box flexDirection="column">

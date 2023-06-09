@@ -25,7 +25,13 @@ export const useAssertTotals = (test: Base) => {
             else if (r.skip) skip++
             else if (r.ok === false) fail++
             else pass++
-            asserts_ = new Counts({ total, fail, pass, skip, todo })
+            asserts_ = new Counts({
+              total,
+              fail,
+              pass,
+              skip,
+              todo,
+            })
             updateAsserts(asserts_)
           })
         )

@@ -5,7 +5,9 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts > TAP > skip-all-with-test.tap > bail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > skip-all-with-test.tap > bail > parsed 1`
+] = `
 Array [
   Array [
     "version",
@@ -77,7 +79,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > skip-all-with-test.tap > bail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > skip-all-with-test.tap > bail > stringified 1`
+] = `
 TAP version 13
 ok
 1..0
@@ -85,7 +89,9 @@ ok
 
 `
 
-exports[`test/parse-stringify.ts > TAP > skip-all-with-test.tap > bail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > skip-all-with-test.tap > bail > stringified flat 1`
+] = `
 TAP version 13
 ok 1
 1..1
@@ -93,7 +99,9 @@ ok 1
 
 `
 
-exports[`test/parse-stringify.ts > TAP > skip-all-with-test.tap > default settings > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > skip-all-with-test.tap > default settings > parsed 1`
+] = `
 Array [
   Array [
     "version",
@@ -165,7 +173,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > skip-all-with-test.tap > default settings > parsed flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > skip-all-with-test.tap > default settings > parsed flat 1`
+] = `
 Array [
   Array [
     "version",
@@ -236,7 +246,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > skip-all-with-test.tap > default settings > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > skip-all-with-test.tap > default settings > stringified 1`
+] = `
 TAP version 13
 ok
 1..0
@@ -244,7 +256,9 @@ ok
 
 `
 
-exports[`test/parse-stringify.ts > TAP > skip-all-with-test.tap > default settings > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > skip-all-with-test.tap > default settings > stringified flat 1`
+] = `
 TAP version 13
 ok 1
 1..1
@@ -252,7 +266,9 @@ ok 1
 
 `
 
-exports[`test/parse-stringify.ts > TAP > skip-all-with-test.tap > strict > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > skip-all-with-test.tap > strict > parsed 1`
+] = `
 Array [
   Array [
     "version",
@@ -324,7 +340,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > skip-all-with-test.tap > strict > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > skip-all-with-test.tap > strict > stringified 1`
+] = `
 TAP version 13
 ok
 1..0
@@ -332,7 +350,9 @@ ok
 
 `
 
-exports[`test/parse-stringify.ts > TAP > skip-all-with-test.tap > strict > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > skip-all-with-test.tap > strict > stringified flat 1`
+] = `
 TAP version 13
 ok 1
 1..1
@@ -340,7 +360,9 @@ ok 1
 
 `
 
-exports[`test/parse-stringify.ts > TAP > skip-all-with-test.tap > strictBail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > skip-all-with-test.tap > strictBail > parsed 1`
+] = `
 Array [
   Array [
     "version",
@@ -412,7 +434,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > skip-all-with-test.tap > strictBail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > skip-all-with-test.tap > strictBail > stringified 1`
+] = `
 TAP version 13
 ok
 1..0
@@ -420,7 +444,9 @@ ok
 
 `
 
-exports[`test/parse-stringify.ts > TAP > skip-all-with-test.tap > strictBail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > skip-all-with-test.tap > strictBail > stringified flat 1`
+] = `
 TAP version 13
 ok 1
 1..1

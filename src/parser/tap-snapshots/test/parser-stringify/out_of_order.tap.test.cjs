@@ -5,7 +5,9 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts > TAP > out_of_order.tap > bail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > out_of_order.tap > bail > parsed 1`
+] = `
 Array [
   Array [
     "assert",
@@ -246,7 +248,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > out_of_order.tap > bail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > out_of_order.tap > bail > stringified 1`
+] = `
 ok 2 - Test that argument passing works
 ok 3 - Test that passing arguments as references work
 ok 4 - Test a normal sub
@@ -267,7 +271,9 @@ ok 15 - Check so that tid for threads work for main thread
 
 `
 
-exports[`test/parse-stringify.ts > TAP > out_of_order.tap > bail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > out_of_order.tap > bail > stringified flat 1`
+] = `
 ok 1 - Test that argument passing works
 ok 2 - Test that passing arguments as references work
 ok 3 - Test a normal sub
@@ -288,7 +294,9 @@ ok 15 - Check so that tid for threads work for main thread
 
 `
 
-exports[`test/parse-stringify.ts > TAP > out_of_order.tap > default settings > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > out_of_order.tap > default settings > parsed 1`
+] = `
 Array [
   Array [
     "assert",
@@ -529,7 +537,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > out_of_order.tap > default settings > parsed flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > out_of_order.tap > default settings > parsed flat 1`
+] = `
 Array [
   Array [
     "assert",
@@ -769,7 +779,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > out_of_order.tap > default settings > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > out_of_order.tap > default settings > stringified 1`
+] = `
 ok 2 - Test that argument passing works
 ok 3 - Test that passing arguments as references work
 ok 4 - Test a normal sub
@@ -790,7 +802,9 @@ ok 15 - Check so that tid for threads work for main thread
 
 `
 
-exports[`test/parse-stringify.ts > TAP > out_of_order.tap > default settings > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > out_of_order.tap > default settings > stringified flat 1`
+] = `
 ok 1 - Test that argument passing works
 ok 2 - Test that passing arguments as references work
 ok 3 - Test a normal sub
@@ -811,7 +825,9 @@ ok 15 - Check so that tid for threads work for main thread
 
 `
 
-exports[`test/parse-stringify.ts > TAP > out_of_order.tap > strict > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > out_of_order.tap > strict > parsed 1`
+] = `
 Array [
   Array [
     "assert",
@@ -1069,7 +1085,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > out_of_order.tap > strict > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > out_of_order.tap > strict > stringified 1`
+] = `
 ok 2 - Test that argument passing works
 ok 3 - Test that passing arguments as references work
 ok 4 - Test a normal sub
@@ -1090,7 +1108,9 @@ ok 15 - Check so that tid for threads work for main thread
 
 `
 
-exports[`test/parse-stringify.ts > TAP > out_of_order.tap > strict > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > out_of_order.tap > strict > stringified flat 1`
+] = `
 ok 1 - Test that argument passing works
 ok 2 - Test that passing arguments as references work
 ok 3 - Test a normal sub
@@ -1111,7 +1131,9 @@ ok 15 - Check so that tid for threads work for main thread
 
 `
 
-exports[`test/parse-stringify.ts > TAP > out_of_order.tap > strictBail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > out_of_order.tap > strictBail > parsed 1`
+] = `
 Array [
   Array [
     "assert",
@@ -1369,7 +1391,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > out_of_order.tap > strictBail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > out_of_order.tap > strictBail > stringified 1`
+] = `
 ok 2 - Test that argument passing works
 ok 3 - Test that passing arguments as references work
 ok 4 - Test a normal sub
@@ -1390,7 +1414,9 @@ ok 15 - Check so that tid for threads work for main thread
 
 `
 
-exports[`test/parse-stringify.ts > TAP > out_of_order.tap > strictBail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > out_of_order.tap > strictBail > stringified flat 1`
+] = `
 ok 1 - Test that argument passing works
 ok 2 - Test that passing arguments as references work
 ok 3 - Test a normal sub

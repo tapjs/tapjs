@@ -26,10 +26,13 @@ try {
     typeof global[loaderSymbol] === 'string' &&
     global[loaderSymbol] !== import.meta.url
   ) {
-    throw Object.assign(new Error('Multiple tapMock loaders detected'), {
-      found: global[loaderSymbol],
-      wanted: import.meta.url,
-    })
+    throw Object.assign(
+      new Error('Multiple tapMock loaders detected'),
+      {
+        found: global[loaderSymbol],
+        wanted: import.meta.url,
+      }
+    )
   }
 }
 
@@ -140,8 +143,11 @@ export const getFormat: ResolveFunction = async (
     ? { url, format: 'module' }
     : nextResolve(url, context)
 
-export const getSource: LoadFunction = async (url, context, nextLoad) =>
-  load(url, context, nextLoad)
+export const getSource: LoadFunction = async (
+  url,
+  context,
+  nextLoad
+) => load(url, context, nextLoad)
 
 export const load: LoadFunction = async (url, context, nextLoad) => {
   if (url.startsWith('tapmock://')) {
@@ -181,7 +187,12 @@ export const resolve: ResolveFunction = async (
     return nextResolve(url, context)
   }
   const m = global[`__tapmock${key}`]
-  if (!m || !m.mocks || typeof m.mocks !== 'object' || m.key !== key) {
+  if (
+    !m ||
+    !m.mocks ||
+    typeof m.mocks !== 'object' ||
+    m.key !== key
+  ) {
     return nextResolve(url, context)
   }
 
@@ -205,5 +216,9 @@ export const resolve: ResolveFunction = async (
 
   const mockRes = new URL(`tapmock://${key}/`)
   mockRes.searchParams.set('url', resolvedURL)
-  return { url: `${mockRes}`, format: 'module', shortCircuit: true }
+  return {
+    url: `${mockRes}`,
+    format: 'module',
+    shortCircuit: true,
+  }
 }

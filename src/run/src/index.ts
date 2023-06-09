@@ -11,7 +11,7 @@ import { plugin } from './plugin.js'
 import { report } from './report.js'
 import { run } from './run.js'
 import { version } from './version.js'
-export const config:LoadedConfig = await TapConfig.load()
+export const config: LoadedConfig = await TapConfig.load()
 export const { values, positionals } = config.parse()
 
 export type JackLoaded = LoadedConfig['jack']

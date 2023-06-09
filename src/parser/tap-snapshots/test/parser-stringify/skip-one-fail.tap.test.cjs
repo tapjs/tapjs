@@ -5,7 +5,9 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/parse-stringify.ts > TAP > skip-one-fail.tap > bail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > skip-one-fail.tap > bail > parsed 1`
+] = `
 Array [
   Array [
     "version",
@@ -69,21 +71,27 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > skip-one-fail.tap > bail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > skip-one-fail.tap > bail > stringified 1`
+] = `
 TAP version 13
 not ok 1 - does not count as failure # SKIP
 1..1
 
 `
 
-exports[`test/parse-stringify.ts > TAP > skip-one-fail.tap > bail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > skip-one-fail.tap > bail > stringified flat 1`
+] = `
 TAP version 13
 not ok 1 - does not count as failure # SKIP
 1..1
 
 `
 
-exports[`test/parse-stringify.ts > TAP > skip-one-fail.tap > default settings > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > skip-one-fail.tap > default settings > parsed 1`
+] = `
 Array [
   Array [
     "version",
@@ -147,7 +155,9 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > skip-one-fail.tap > default settings > parsed flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > skip-one-fail.tap > default settings > parsed flat 1`
+] = `
 Array [
   Array [
     "version",
@@ -210,21 +220,27 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > skip-one-fail.tap > default settings > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > skip-one-fail.tap > default settings > stringified 1`
+] = `
 TAP version 13
 not ok 1 - does not count as failure # SKIP
 1..1
 
 `
 
-exports[`test/parse-stringify.ts > TAP > skip-one-fail.tap > default settings > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > skip-one-fail.tap > default settings > stringified flat 1`
+] = `
 TAP version 13
 not ok 1 - does not count as failure # SKIP
 1..1
 
 `
 
-exports[`test/parse-stringify.ts > TAP > skip-one-fail.tap > strict > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > skip-one-fail.tap > strict > parsed 1`
+] = `
 Array [
   Array [
     "version",
@@ -288,21 +304,27 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > skip-one-fail.tap > strict > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > skip-one-fail.tap > strict > stringified 1`
+] = `
 TAP version 13
 not ok 1 - does not count as failure # SKIP
 1..1
 
 `
 
-exports[`test/parse-stringify.ts > TAP > skip-one-fail.tap > strict > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > skip-one-fail.tap > strict > stringified flat 1`
+] = `
 TAP version 13
 not ok 1 - does not count as failure # SKIP
 1..1
 
 `
 
-exports[`test/parse-stringify.ts > TAP > skip-one-fail.tap > strictBail > parsed 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > skip-one-fail.tap > strictBail > parsed 1`
+] = `
 Array [
   Array [
     "version",
@@ -366,14 +388,18 @@ Array [
 ]
 `
 
-exports[`test/parse-stringify.ts > TAP > skip-one-fail.tap > strictBail > stringified 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > skip-one-fail.tap > strictBail > stringified 1`
+] = `
 TAP version 13
 not ok 1 - does not count as failure # SKIP
 1..1
 
 `
 
-exports[`test/parse-stringify.ts > TAP > skip-one-fail.tap > strictBail > stringified flat 1`] = `
+exports[
+  `test/parse-stringify.ts > TAP > skip-one-fail.tap > strictBail > stringified flat 1`
+] = `
 TAP version 13
 not ok 1 - does not count as failure # SKIP
 1..1

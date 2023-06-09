@@ -24,7 +24,9 @@ t.test('some child test', t => {
     { args: ['the number is', 5], returned: undefined },
   ])
   functionThatLogs(1)
-  t.match(results(), [{ args: ['the number is', 1], returned: undefined }])
+  t.match(results(), [
+    { args: ['the number is', 1], returned: undefined },
+  ])
   // when the test ends, the original is restored
   t.end()
 })
@@ -33,9 +35,12 @@ t.test('capture with an implementation', t => {
   const results = t.capture(console, 'log', () => {
     throw new Error('thrown from stub')
   })
-  t.throws(() => {
-    functionThatLogs(3)
-  }, { message: 'thrown from stub' })
+  t.throws(
+    () => {
+      functionThatLogs(3)
+    },
+    { message: 'thrown from stub' }
+  )
   t.match(results(), { args: ['the number is', 3], threw: true })
   t.end()
 })
@@ -45,7 +50,9 @@ t.test('capture and still call the function', t => {
   const results = t.capture(console, 'log', console.log)
   // actually logs to the console
   functionThatLogs(1)
-  t.match(results(), [{ args: ['the number is', 1], returned: undefined }])
+  t.match(results(), [
+    { args: ['the number is', 1], returned: undefined },
+  ])
   t.end()
 })
 
@@ -55,7 +62,9 @@ t.test('intercept a property set/get', t => {
   // it at the end of the test.
   // If a value is provided, then we still actually set to a
   // setter/getter so that we can track accesses.
-  const results = t.intercept(process, 'version', { value: '1.2.3' })
+  const results = t.intercept(process, 'version', {
+    value: '1.2.3',
+  })
   t.equal(process.version, '1.2.3')
   process.version = '2.4.6'
   // we didn't make it writable, so this didn't do anything.
@@ -77,37 +86,37 @@ t.test('intercept a property set/get', t => {
 
 - `t.capture(obj, method, implementation = () => {}): CaptureResultFunction`
 
-    Replaces `obj[method]` with the supplied implementation.
+  Replaces `obj[method]` with the supplied implementation.
 
-    The `results()` method will return an array of objects with
-    an `args` array, an `at` CallSiteLike object, and either
-    `threw: true` or `returned: <value>`.
+  The `results()` method will return an array of objects with
+  an `args` array, an `at` CallSiteLike object, and either
+  `threw: true` or `returned: <value>`.
 
-    If `t.teardown()` is available (ie, if the `@tapjs/after`
-    plugin is not disabled) then it will be automatically
-    restored on test teardown.  Otherwise, `results.restore()`
-    must be called to restore the original method.
+  If `t.teardown()` is available (ie, if the `@tapjs/after`
+  plugin is not disabled) then it will be automatically
+  restored on test teardown. Otherwise, `results.restore()`
+  must be called to restore the original method.
 
-    Returned method also has a `calls` array which contains the
-    results.
+  Returned method also has a `calls` array which contains the
+  results.
 
 - `t.intercept(obj, property, desc?: PropertyDescriptor, strictMode: boolean = true): InterceptResultsFunction`
 
-    Similar to `t.capture()`, but can be used to track get/set
-    operations for any arbitrary property.  The results function
-    returns a list of objects with:
+  Similar to `t.capture()`, but can be used to track get/set
+  operations for any arbitrary property. The results function
+  returns a list of objects with:
 
-    - `type` 'get' for get operations, 'set' for set operations
-    - `value` The value that was returned by a get, or set in a
-      set.
-    - `at` call site where the get/set occurred.
-    - `threw` whether or not the call threw.
-    - `success` whether or not the call was sucessful.
+  - `type` 'get' for get operations, 'set' for set operations
+  - `value` The value that was returned by a get, or set in a
+    set.
+  - `at` call site where the get/set occurred.
+  - `threw` whether or not the call threw.
+  - `success` whether or not the call was sucessful.
 
 - `t.captureFn(original: (...a:any[]) => any): WrappedFunction`
 
-    Similar to `t.capture()`, but just wraps the function and
-    returns it.
+  Similar to `t.capture()`, but just wraps the function and
+  returns it.
 
-    Returned function has a `calls` array property containing the
-    results.
+  Returned function has a `calls` array property containing the
+  results.

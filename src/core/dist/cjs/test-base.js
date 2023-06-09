@@ -52,15 +52,12 @@ const normalizeMessageExtra = (defaultMessage, [message, extra]) => {
 };
 exports.normalizeMessageExtra = normalizeMessageExtra;
 const queueEmpty = (t) => t.queue.length === 0 ||
-    (t.queue.length === 1 &&
-        t.queue[0] === 'TAP version 14\n');
+    (t.queue.length === 1 && t.queue[0] === 'TAP version 14\n');
 /**
  * Sigil to put in the queue to signal the end of all things
  */
 const EOF = Symbol('EOF');
-const isPromise = (p) => !!p &&
-    typeof p === 'object' &&
-    typeof p.then === 'function';
+const isPromise = (p) => !!p && typeof p === 'object' && typeof p.then === 'function';
 /**
  * The TestBaseBase class is the base class for all plugins,
  * and eventually thus the Test class.
@@ -119,8 +116,7 @@ class TestBase extends base_js_1.Base {
     }
     constructor(options) {
         super(options);
-        this.jobs =
-            (options.jobs && Math.max(options.jobs, 1)) || 1;
+        this.jobs = (options.jobs && Math.max(options.jobs, 1)) || 1;
         if (typeof options.diagnostic === 'boolean') {
             this.diagnostic = options.diagnostic;
         }
@@ -142,9 +138,7 @@ class TestBase extends base_js_1.Base {
         }
         else {
             this.#process();
-            message = message
-                ? ' ' + ('' + (0, esc_js_1.esc)(message)).trim()
-                : '';
+            message = message ? ' ' + ('' + (0, esc_js_1.esc)(message)).trim() : '';
             message = message.replace(/[\r\n]/g, ' ');
             this.parser.write('Bail out!' + message + '\n');
         }
@@ -156,8 +150,7 @@ class TestBase extends base_js_1.Base {
      */
     comment(...args) {
         const body = (0, node_util_1.format)(...args);
-        const message = ('# ' + body.split(/\r?\n/).join('\n# ')).trim() +
-            '\n';
+        const message = ('# ' + body.split(/\r?\n/).join('\n# ')).trim() + '\n';
         if (this.results) {
             this.write(message);
         }
@@ -303,9 +296,7 @@ class TestBase extends base_js_1.Base {
             extra.stack = this.assertStack;
             this.assertStack = null;
         }
-        if (typeof extra.stack === 'string' &&
-            extra.stack &&
-            !extra.at) {
+        if (typeof extra.stack === 'string' && extra.stack && !extra.at) {
             const at = stack.parseStack(extra.stack)[0];
             if (at)
                 extra.at = at;
@@ -345,8 +336,7 @@ class TestBase extends base_js_1.Base {
             front = true;
         }
         if (front) {
-            if (extra.tapChildBuffer ||
-                extra.tapChildBuffer === '') {
+            if (extra.tapChildBuffer || extra.tapChildBuffer === '') {
                 this.writeSubComment(tp);
                 this.parser.write(extra.tapChildBuffer);
             }
@@ -375,9 +365,7 @@ class TestBase extends base_js_1.Base {
      * The leading `# Subtest` comment that introduces a child test
      */
     writeSubComment(p) {
-        const comment = '# Subtest' +
-            (p.name ? ': ' + (0, esc_js_1.esc)(p.name) : '') +
-            '\n';
+        const comment = '# Subtest' + (p.name ? ': ' + (0, esc_js_1.esc)(p.name) : '') + '\n';
         this.parser.write(comment);
     }
     // end TAP otput generating methods
@@ -505,8 +493,7 @@ class TestBase extends base_js_1.Base {
             }
             else if (p instanceof test_point_js_1.TestPoint) {
                 this.debug(' > TESTPOINT');
-                if (p.extra.tapChildBuffer ||
-                    p.extra.tapChildBuffer === '') {
+                if (p.extra.tapChildBuffer || p.extra.tapChildBuffer === '') {
                     this.writeSubComment(p);
                     this.parser.write(p.extra.tapChildBuffer);
                 }
@@ -556,8 +543,7 @@ class TestBase extends base_js_1.Base {
             }
             /* c8 ignore stop */
         }
-        while (!this.#noparallel &&
-            this.pool.size < this.jobs) {
+        while (!this.#noparallel && this.pool.size < this.jobs) {
             const p = this.subtests.shift();
             if (!p) {
                 break;
@@ -600,8 +586,7 @@ class TestBase extends base_js_1.Base {
     }
     #onBufferedEnd(p) {
         p.ondone = p.constructor.prototype.ondone;
-        p.results =
-            p.results || new tap_parser_1.FinalResults(true, p.parser);
+        p.results = p.results || new tap_parser_1.FinalResults(true, p.parser);
         p.readyToProcess = true;
         const to = p.options.timeout;
         const dur = to && p.passing()
@@ -629,8 +614,7 @@ class TestBase extends base_js_1.Base {
         this.debug('onIndentedEnd', p.name);
         this.emit('subtestProcess', p);
         p.ondone = p.constructor.prototype.ondone;
-        p.results =
-            p.results || new tap_parser_1.FinalResults(true, p.parser);
+        p.results = p.results || new tap_parser_1.FinalResults(true, p.parser);
         this.debug('#onIndentedEnd', this.name, p.name);
         this.#noparallel = false;
         const sti = this.subtests.indexOf(p);
@@ -823,8 +807,7 @@ class TestBase extends base_js_1.Base {
                 extra.buffered = false;
             }
         }
-        extra.bail =
-            extra.bail !== undefined ? extra.bail : this.bail;
+        extra.bail = extra.bail !== undefined ? extra.bail : this.bail;
         extra.parent = this;
         const st = stack.capture(80, caller);
         extra.stack = st.map(c => String(c)).join('\n');
@@ -878,8 +861,7 @@ class TestBase extends base_js_1.Base {
                 this.#end(implicit_end_sigil_js_1.IMPLICIT);
             }
         }
-        if (this.#occupied &&
-            this.#occupied instanceof waiter_js_1.Waiter) {
+        if (this.#occupied && this.#occupied instanceof waiter_js_1.Waiter) {
             this.#occupied.abort(Object.assign(new Error('error thrown while awaiting Promise'), { thrown: er }));
         }
         this.#process();
@@ -919,8 +901,7 @@ class TestBase extends base_js_1.Base {
                 this.fail('test unfinished', options);
             }
         }
-        if (this.donePromise &&
-            this.donePromise.tapAbortPromise)
+        if (this.donePromise && this.donePromise.tapAbortPromise)
             this.donePromise.tapAbortPromise();
         for (let i = 0; i < this.queue.length; i++) {
             const p = this.queue[i];

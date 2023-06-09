@@ -53,7 +53,12 @@ export const TestResultsList: FC<TestResultsListOpts> = ({
     (s: RLG, f: ReactElement | Result) => {
       const el =
         f instanceof Result ? (
-          <ResultTag result={f} details={details} test={test}  showCallsite={showCallsite} />
+          <ResultTag
+            result={f}
+            details={details}
+            test={test}
+            showCallsite={showCallsite}
+          />
         ) : (
           f
         )

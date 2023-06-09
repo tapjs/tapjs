@@ -33,9 +33,7 @@ export class Match extends Has {
       : pattern === Function
       ? typeof obj === 'function'
       : pattern === Number
-      ? typeof obj === 'number' &&
-        obj === obj &&
-        isFinite(obj)
+      ? typeof obj === 'number' && obj === obj && isFinite(obj)
       : pattern === String
       ? typeof obj === 'string'
       : pattern === Symbol
@@ -67,11 +65,9 @@ export class Match extends Has {
       ? false
       : this.isMap() && !(pattern instanceof Map)
       ? false
-      : typeof pattern === 'function' &&
-        typeof obj === 'object'
+      : typeof pattern === 'function' && typeof obj === 'object'
       ? obj instanceof pattern
-      : typeof obj !== 'object' ||
-        typeof pattern !== 'object'
+      : typeof obj !== 'object' || typeof pattern !== 'object'
       ? false
       : 'COMPLEX'
   }

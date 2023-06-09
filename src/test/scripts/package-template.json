@@ -19,9 +19,7 @@
       }
     }
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "prepare": "tsc -p tsconfig.json && tsc -p tsconfig-esm.json && bash fixup.sh"
   },

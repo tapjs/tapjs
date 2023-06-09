@@ -53,9 +53,7 @@ const tpMessage = (
     message += ' # time=' + extra.time + 'ms'
   }
 
-  const diagYaml = extra.diagnostic
-    ? '\n' + diags(extra)
-    : ''
+  const diagYaml = extra.diagnostic ? '\n' + diags(extra) : ''
   message += diagYaml + '\n'
 
   return message

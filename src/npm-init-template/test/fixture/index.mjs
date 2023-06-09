@@ -25,7 +25,8 @@ if (/robin/i.test(values.name)) {
     default: 'blue',
   })
 } else {
-  values.question = 'What is the air speed velocity of an unladen swallow?'
+  values.question =
+    'What is the air speed velocity of an unladen swallow?'
   await prompt(values.question, 'answer')
 }
 

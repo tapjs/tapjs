@@ -79,8 +79,10 @@ export type ExpectedEmit = [
 const objects = (...a: any[]): boolean =>
   !a.some(o => !!o && typeof o === 'object')
 
-const hasOwn = <T extends {}>(obj: T, key: string | number | symbol) =>
-  Object.prototype.hasOwnProperty.call(obj, key)
+const hasOwn = <T extends {}>(
+  obj: T,
+  key: string | number | symbol
+) => Object.prototype.hasOwnProperty.call(obj, key)
 
 export class Assertions {
   #t: TestBase
@@ -196,7 +198,11 @@ export class Assertions {
    * or 'null' for `null` values, or the `name` property of the
    * object's constructor.
    */
-  type(obj: any, klass: string | Function, ...[msg, extra]: MessageExtra) {
+  type(
+    obj: any,
+    klass: string | Function,
+    ...[msg, extra]: MessageExtra
+  ) {
     if (!this.#t.t.pluginLoaded(plugin)) {
       throw new Error('assert plugin not loaded')
     }
@@ -294,7 +300,10 @@ export class Assertions {
     }
     this.#t.currentAssert = this.#t.t.strictSame
     const args = [msg, extra] as MessageExtra
-    const me = normalizeMessageExtra('should be equivalent strictly', args)
+    const me = normalizeMessageExtra(
+      'should be equivalent strictly',
+      args
+    )
     const { match, diff } = strict(found, wanted, this.#opts)
     if (match) return this.#t.pass(...me)
     Object.assign(me[1], { diff })
@@ -392,7 +401,11 @@ export class Assertions {
    * Note that this will pass if the value has *some* of the listed properties,
    * or if they do not match the same type.
    */
-  notHasStrict(found: any, doNotWant: any, ...[msg, extra]: MessageExtra) {
+  notHasStrict(
+    found: any,
+    doNotWant: any,
+    ...[msg, extra]: MessageExtra
+  ) {
     if (!this.#t.t.pluginLoaded(plugin)) {
       throw new Error('assert plugin not loaded')
     }
@@ -427,7 +440,11 @@ export class Assertions {
   /**
    * Verify that the value does NOT match the pattern provided.
    */
-  notMatch(found: any, doNotWant: any, ...[msg, extra]: MessageExtra) {
+  notMatch(
+    found: any,
+    doNotWant: any,
+    ...[msg, extra]: MessageExtra
+  ) {
     if (!this.#t.t.pluginLoaded(plugin)) {
       throw new Error('assert plugin not loaded')
     }
@@ -526,7 +543,10 @@ export class Assertions {
     )
     Object.assign(me[1], { found, wanted })
     if (!isIterable(wanted)) {
-      return this.#t.fail('property list must be iterable object', me[1])
+      return this.#t.fail(
+        'property list must be iterable object',
+        me[1]
+      )
     }
     for (const prop of wanted) {
       if (!['string', 'number', 'symbol'].includes(typeof prop)) {
@@ -572,7 +592,10 @@ export class Assertions {
     )
     Object.assign(me[1], { found, wanted })
     if (!isIterable(wanted)) {
-      return this.#t.fail('property list must be iterable object', me[1])
+      return this.#t.fail(
+        'property list must be iterable object',
+        me[1]
+      )
     }
     for (const prop of wanted) {
       if (!['string', 'number', 'symbol'].includes(typeof prop)) {
@@ -633,7 +656,12 @@ export class Assertions {
       }
       return (
         (w
-          ? this.match(isRegExp(wanted) ? er.message : er, wanted, m, e)
+          ? this.match(
+              isRegExp(wanted) ? er.message : er,
+              wanted,
+              m,
+              e
+            )
           : this.#t.pass(m, e)) && er
       )
     }
@@ -683,7 +711,9 @@ export class Assertions {
     const p: Promise<T> =
       typeof fnOrPromise === 'function' ? fnOrPromise() : fnOrPromise
     if (!isPromise(p)) {
-      d.reject(new Error('did not provide a promise or async function'))
+      d.reject(
+        new Error('did not provide a promise or async function')
+      )
       return d.promise
     }
     let res!: boolean | Error
@@ -728,9 +758,13 @@ export class Assertions {
     this.#t.waitOn(d.promise)
     try {
       const p =
-        typeof fnOrPromise === 'function' ? fnOrPromise() : fnOrPromise
+        typeof fnOrPromise === 'function'
+          ? fnOrPromise()
+          : fnOrPromise
       if (!isPromise(p)) {
-        d.reject(new Error('did not provide a promise or async function'))
+        d.reject(
+          new Error('did not provide a promise or async function')
+        )
         return d.promise
       }
       let res: boolean | Error
@@ -773,9 +807,13 @@ export class Assertions {
     this.#t.waitOn(d.promise)
     try {
       const p =
-        typeof fnOrPromise === 'function' ? fnOrPromise() : fnOrPromise
+        typeof fnOrPromise === 'function'
+          ? fnOrPromise()
+          : fnOrPromise
       if (!isPromise(p)) {
-        d.reject(new Error('did not provide a promise or async function'))
+        d.reject(
+          new Error('did not provide a promise or async function')
+        )
         return d.promise
       }
       let res: boolean | Error
@@ -811,7 +849,10 @@ export class Assertions {
     ...[msg, extra]: MessageExtra
   ): Promise<void> {
     const args = [msg, extra] as MessageExtra
-    const me = normalizeMessageExtra(`expect ${event} to be emitted`, args)
+    const me = normalizeMessageExtra(
+      `expect ${event} to be emitted`,
+      args
+    )
     if (!this.#t.t.pluginLoaded(plugin)) {
       throw new Error('assert plugin not loaded')
     }
@@ -822,7 +863,13 @@ export class Assertions {
       pending[0] = true
       d.resolve()
     }
-    const pending: ExpectedEmit = [false, emitter, event, handler, ...me]
+    const pending: ExpectedEmit = [
+      false,
+      emitter,
+      event,
+      handler,
+      ...me,
+    ]
     this.#pendingEmits.push(pending)
     if (emitter instanceof EventEmitter) {
       emitter.once(event, handler)

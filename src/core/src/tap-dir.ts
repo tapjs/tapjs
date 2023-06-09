@@ -5,6 +5,5 @@ import { fileURLToPath } from 'url'
 /* c8 ignore start */
 //@ts-ignore
 const u = dirname(dirname(fileURLToPath(import.meta.url)))
-export const tapDir =
-  basename(u) === 'dist' ? dirname(u) : u
+export const tapDir = basename(u) === 'dist' ? dirname(u) : u
 /* c8 ignore stop */

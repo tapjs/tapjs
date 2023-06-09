@@ -4,7 +4,9 @@ import { useAssertTotals } from './hooks/use-assert-totals.js'
 import { useSuiteTotals } from './hooks/use-suite-totals.js'
 import { TapReportOpts } from './index.js'
 
-export const SuiteSummary: FC<Pick<TapReportOpts, 'tap'>> = ({ tap }) => {
+export const SuiteSummary: FC<Pick<TapReportOpts, 'tap'>> = ({
+  tap,
+}) => {
   const suites = useSuiteTotals(tap)
   const asserts = useAssertTotals(tap)
 
@@ -50,7 +52,8 @@ export const SuiteSummary: FC<Pick<TapReportOpts, 'tap'>> = ({ tap }) => {
               <Text color="magenta">{asserts.todo} todo</Text>
             )}
             <Text bold dimColor>
-              {asserts.pass + asserts.fail} of {asserts.total} complete
+              {asserts.pass + asserts.fail} of {asserts.total}{' '}
+              complete
             </Text>
           </Box>
         </Box>
