@@ -5,6 +5,8 @@ import {
   mainScript,
   MessageExtra,
   normalizeMessageExtra,
+} from '@tapjs/core'
+import type {
   TapPlugin,
   TestBase,
 } from '@tapjs/core'
@@ -15,9 +17,12 @@ import { SnapshotProviderDefault } from './provider.js'
 import { CompareOptions, format, strict } from 'tcompare'
 
 const isPromise = (p: any): p is Promise<any | void> =>
-  !!p && typeof p === 'object' && typeof p.then === 'function'
+  !!p &&
+  typeof p === 'object' &&
+  typeof p.then === 'function'
 
-const defaultFormatSnapshot = (obj: any) => format(obj, { sort: true })
+const defaultFormatSnapshot = (obj: any) =>
+  format(obj, { sort: true })
 
 /**
  * Interface provided by the class set in the `snapshotProvider` option.
@@ -73,10 +78,19 @@ export interface SnapshotOptions {
   cleanSnapshot?: (snapshotData: string) => string
 }
 
+export const plugin: TapPlugin<
+  SnapshotPlugin,
+  SnapshotOptions
+> = (t: TestBase, opts: SnapshotOptions = {}) =>
+  new SnapshotPlugin(t, opts)
+
 export class SnapshotPlugin {
   static #refs = new Map<TestBase, SnapshotPlugin>()
   #t: TestBase
-  #provider: Exclude<SnapshotOptions['snapshotProvider'], undefined>
+  #provider: Exclude<
+    SnapshotOptions['snapshotProvider'],
+    undefined
+  >
   #cleanSnapshot: SnapshotOptions['cleanSnapshot']
   #formatSnapshot: SnapshotOptions['formatSnapshot']
   #snapshot: SnapshotProvider
@@ -87,7 +101,10 @@ export class SnapshotPlugin {
     SnapshotPlugin.#refs.set(t, this)
     this.#compareOptions = opts.compareOptions || {}
     this.#t = t
-    const snapshotFile = SnapshotPlugin.#getFilename(t, opts)
+    const snapshotFile = SnapshotPlugin.#getFilename(
+      t,
+      opts
+    )
     if (typeof opts.cleanSnapshot === 'function') {
       this.#cleanSnapshot = opts.cleanSnapshot
     }
@@ -100,7 +117,8 @@ export class SnapshotPlugin {
     const p = t.parent && SnapshotPlugin.#refs.get(t.parent)
     const pp = p && p.#provider
     const pf = p && p.snapshotFile
-    this.#provider = opts.snapshotProvider || pp || SnapshotProviderDefault
+    this.#provider =
+      opts.snapshotProvider || pp || SnapshotProviderDefault
 
     if (typeof opts.writeSnapshot === 'boolean') {
       this.writeSnapshot = opts.writeSnapshot
@@ -141,7 +159,10 @@ export class SnapshotPlugin {
     return this.#compareOptions
   }
   set compareOptions(
-    fmt: Exclude<SnapshotOptions['compareOptions'], undefined>
+    fmt: Exclude<
+      SnapshotOptions['compareOptions'],
+      undefined
+    >
   ) {
     this.#compareOptions = fmt
   }
@@ -153,12 +174,12 @@ export class SnapshotPlugin {
     this.#cleanSnapshot = fmt || ((s: string) => s)
   }
 
-  get formatSnapshot(): 
-    SnapshotOptions['formatSnapshot']
-   {
+  get formatSnapshot(): SnapshotOptions['formatSnapshot'] {
     return this.#formatSnapshot
   }
-  set formatSnapshot(fmt: SnapshotOptions['formatSnapshot']) {
+  set formatSnapshot(
+    fmt: SnapshotOptions['formatSnapshot']
+  ) {
     this.#formatSnapshot = fmt || (o => o)
   }
 
@@ -166,7 +187,9 @@ export class SnapshotPlugin {
     return this.#snapshot.file
   }
   set snapshotFile(f: string) {
-    const p = this.#t.parent && SnapshotPlugin.#refs.get(this.#t.parent)
+    const p =
+      this.#t.parent &&
+      SnapshotPlugin.#refs.get(this.#t.parent)
     if (p && this.#snapshot === p.#snapshot) {
       this.#snapshot = this.#newSnapshot(f)
     } else {
@@ -174,13 +197,19 @@ export class SnapshotPlugin {
     }
   }
 
-  matchSnapshot(found: any, ...[msg, extra]: MessageExtra): boolean {
+  matchSnapshot(
+    found: any,
+    ...[msg, extra]: MessageExtra
+  ): boolean {
     if (!this.#t.t.pluginLoaded(plugin)) {
       throw new Error('snapshot plugin not loaded')
     }
     this.#t.currentAssert = this.#t.t.matchSnapshot
     const args = [msg, extra] as MessageExtra
-    const me = normalizeMessageExtra('must match snapshot', args)
+    const me = normalizeMessageExtra(
+      'must match snapshot',
+      args
+    )
     const m = this.#t.fullname + ' > ' + me[0]
     if (typeof found !== 'string') {
       if (!this.#formatSnapshot) {
@@ -195,7 +224,9 @@ export class SnapshotPlugin {
           }
         }
       }
-      found = (this.#formatSnapshot || defaultFormatSnapshot)(found)
+      found = (
+        this.#formatSnapshot || defaultFormatSnapshot
+      )(found)
       if (typeof found !== 'string') {
         found = defaultFormatSnapshot(found)
       }
@@ -228,7 +259,11 @@ export class SnapshotPlugin {
     if (found === wanted) {
       return this.#t.pass(...me)
     }
-    const { diff } = strict(found, wanted, this.#compareOptions)
+    const { diff } = strict(
+      found,
+      wanted,
+      this.#compareOptions
+    )
 
     Object.assign(me[1], {
       found,
@@ -252,9 +287,15 @@ export class SnapshotPlugin {
     this.#t.waitOn(d.promise)
     try {
       const p =
-        typeof fnOrPromise === 'function' ? fnOrPromise() : fnOrPromise
+        typeof fnOrPromise === 'function'
+          ? fnOrPromise()
+          : fnOrPromise
       if (!isPromise(p)) {
-        d.reject(new Error('did not provide a promise or async function'))
+        d.reject(
+          new Error(
+            'did not provide a promise or async function'
+          )
+        )
         return d.promise
       }
       let res: boolean | Error
@@ -275,7 +316,10 @@ export class SnapshotPlugin {
     }
   }
 
-  static #getFilename(t: TestBase, opts: SnapshotOptions): string {
+  static #getFilename(
+    t: TestBase,
+    opts: SnapshotOptions
+  ): string {
     if (opts.snapshotFile) {
       return opts.snapshotFile
     }
@@ -290,15 +334,15 @@ export class SnapshotPlugin {
     const tail =
       args.length === 0
         ? ''
-        : '-' + args.join(' ').replace(/[^a-zA-Z0-9\._\-]/g, '-')
-    return resolve(cwd, 'tap-snapshots', head + tail + '.test.cjs')
+        : '-' +
+          args.join(' ').replace(/[^a-zA-Z0-9\._\-]/g, '-')
+    return resolve(
+      cwd,
+      'tap-snapshots',
+      head + tail + '.test.cjs'
+    )
   }
 }
-
-export const plugin: TapPlugin<SnapshotPlugin, SnapshotOptions> = (
-  t: TestBase,
-  opts: SnapshotOptions = {}
-) => new SnapshotPlugin(t, opts)
 
 export const config = {
   snapshot: {
