@@ -8,10 +8,11 @@ set -e
 # install all the dev deps from the root package
 npm install --no-workspaces
 
-# TODO: ln -s all packages into place.
+# ln -s all packages into place.
 # then run nx run-many prepare
 # We don't have to build @tapjs/test, because it's already there
-# then, do the build script
+# then, do the default build script just for good measure, and a
+# normal npm install to link the `tap` executable into place.
 
 # manually build and link all workspace packages
 mkdir -p node_modules/@tapjs
@@ -22,6 +23,7 @@ linkpkg () {
   if [ -h node_modules/"$pkg" ]; then
     return 0
   fi
+  echo -n $'\r'"> link workspace: $pkg                  "$'\r'
   rm -rf node_modules/"$pkg"
   if [[ "$pkg" = @*/* ]]; then
     ln -s ../../"$src" node_modules/"$pkg"
@@ -36,6 +38,7 @@ wspkg () {
 for i in src/*; do
   linkpkg "$i"
 done
+echo -n "                                      "$'\r'
 
 nx run-many --target=prepare
 node --loader=ts-node/esm --no-warnings scripts/default-build.ts
