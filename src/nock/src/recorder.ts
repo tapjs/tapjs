@@ -49,10 +49,12 @@ class NockRecorder {
     // the snapshotFile for us will be the test's snapshot file with
     // a different extension
     this.#snapshotFile = this.#test.t.snapshotFile.replace(
-      /\.js\.test\.cjs$/,
+      /\.test\.cjs$/,
       '.nock.json'
     )
-    this.#test.t.teardown(() => this.writeSnapshot())
+    this.#test.t.teardown(() => {
+      this.writeSnapshot()
+    })
   }
 
   #getKey(name: string) {
@@ -95,7 +97,7 @@ class NockRecorder {
     }
 
     // if the snapshot file has no data for our test, throw an error here
-    if (!Object.prototype.hasOwnProperty.call(this.#snapshot, key)) {
+    if (!Array.isArray(this.#snapshot[key])) {
       throw new ErrMissingSnapshotData(this.#test, this.#caller)
     }
 

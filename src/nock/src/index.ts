@@ -1,7 +1,7 @@
 import { TapPlugin, TestBase } from '@tapjs/core'
 import { plugin as SnapshotPlugin } from '@tapjs/snapshot'
-import { at } from '@tapjs/stack'
-import nock, { removeInterceptor } from 'nock'
+import { at, CallSiteLike } from '@tapjs/stack'
+import nock from 'nock'
 import { ErrMockNotSatisfied } from './errors.js'
 import NockRecorder, {
   NockRecorderLoadOptions,
@@ -10,6 +10,8 @@ import NockRecorder, {
 export * from './recorder.js'
 export { NockRecorder }
 
+const { removeInterceptor } = nock
+
 /**
  * Just like the nock() function, but with a .snapshot() method
  *
@@ -17,43 +19,66 @@ export { NockRecorder }
  */
 export type NockMethod = ((
   ...args: Parameters<typeof nock>
-) => ReturnType<typeof nock>) & {
-  snapshot: () => void
+) => ReturnType<typeof nock> & { at?: CallSiteLike }) & {
+  enableNetConnect: (typeof nock)['enableNetConnect']
+  disableNetConnect: (typeof nock)['disableNetConnect']
+  snapshot: (
+    options?: NockRecorderOptionsMaybe &
+      NockRecorderLoadOptions
+  ) => nock.Scope[]
 }
 
 export class TapNock {
   static #refs = new Map<TestBase, TapNock>()
 
   // Construct the t.nock() method with t.nock.snapshot() attached
-  static #nockMethod(tn: TapNock) {
-    const nockMethod = (...args: Parameters<typeof nock>) => {
-      tn.#doTeardown()
+  static #nockMethod(tn: TapNock): NockMethod {
+    const nockMethod = (
+      ...args: Parameters<typeof nock>
+    ): ReturnType<typeof nock> & { at?: CallSiteLike } => {
       tn.#getRecorder()?.pause()
       nock.disableNetConnect()
       const _scope = Object.assign(nock(...args), {
-        _at: at(),
+        _at: at(TapNock.#nockMethod),
       })
       tn.#scopes.push(_scope)
       return _scope
     }
     return Object.assign(nockMethod, {
-      snapshot: () => tn.#snapshot(),
-      disableNetConnect: nock.disableNetConnect,
-      enableNetConnect: nock.enableNetConnect,
+      // these two we always do globally
+      enableNetConnect: () => nock.enableNetConnect(),
+      disableNetConnect: () => {
+        return nock.disableNetConnect()
+      },
+      snapshot: (
+        options: NockRecorderOptionsMaybe &
+          NockRecorderLoadOptions = {}
+      ) => tn.#snapshot(options),
     })
   }
 
   #t: TestBase
   #recorder?: NockRecorder
   #recording: boolean = false
-  nock: NockMethod
+  #nock?: NockMethod
   #scopes: nock.Scope[] = []
   #didTeardown: boolean = false
 
   constructor(t: TestBase) {
     TapNock.#refs.set(t, this)
     this.#t = t
-    this.nock = TapNock.#nockMethod(this)
+  }
+
+  // Lazily attach, since the teardown() method doesn't exist at
+  // construct time, since it's provided by another plugin.
+  // While we're at it, save the work of setting up the nock method
+  // as well, until it's actually accessed for the first time.
+  get nock() {
+    this.#doTeardown()
+    if (!this.#nock) {
+      this.#nock = TapNock.#nockMethod(this)
+    }
+    return this.#nock
   }
 
   #doTeardown() {
@@ -109,8 +134,9 @@ export class TapNock {
   }
 
   #snapshot(
-    options: NockRecorderOptionsMaybe & NockRecorderLoadOptions = {}
-  ) {
+    options: NockRecorderOptionsMaybe &
+      NockRecorderLoadOptions = {}
+  ): nock.Scope[] {
     if (!this.#t.t.pluginLoaded(plugin)) {
       throw new Error('nock plugin not loaded')
     }
@@ -122,7 +148,10 @@ export class TapNock {
       Error.captureStackTrace(er, this.nock.snapshot)
       throw er
     }
-    if (this.#t.t.pluginLoaded(SnapshotPlugin) && this.#t.t.writeSnapshot) {
+    if (
+      this.#t.t.pluginLoaded(SnapshotPlugin) &&
+      this.#t.t.writeSnapshot
+    ) {
       recorder.start(this.#t.fullname, options)
       this.#recording = true
       return []
@@ -140,15 +169,19 @@ export class TapNock {
     let t = this.#t
     let tn: TapNock = this
     let tnp: TapNock | undefined = this
-    while (t.parent && (tnp = TapNock.#refs.get(t.parent))) {
+    while (
+      t.parent &&
+      (tnp = TapNock.#refs.get(t.parent))
+    ) {
       t = t.parent
       tn = tnp
     }
     if (!tn.#recorder) {
-      tn.#recorder = new NockRecorder(t, TapNock.prototype.#snapshot)
+      tn.#recorder = new NockRecorder(t, this.nock.snapshot)
     }
     return tn.#recorder
   }
 }
 
-export const plugin: TapPlugin<TapNock> = (t: TestBase) => new TapNock(t)
+export const plugin: TapPlugin<TapNock> = (t: TestBase) =>
+  new TapNock(t)

@@ -5,12 +5,11 @@ import nock from 'nock/types/index'
 export class ErrMissingSnapshotData extends Error {
   at?: CallSiteLike
   code: string
-  stack: ''
   constructor (test:TestBase, from: Function | ((...a:any[])=>any)) {
     super(`Missing snapshot data for test: ${test.fullname}`)
     this.at = at(from)
+    Error.captureStackTrace(this, from)
     this.code = 'EMISSINGSNAPSHOT'
-    this.stack = ''
   }
 }
 
