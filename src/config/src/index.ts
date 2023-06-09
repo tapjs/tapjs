@@ -1,4 +1,4 @@
-import { argv, cwd, env, proc } from '@tapjs/core'
+import { argv, cwd, env } from '@tapjs/core'
 import { config as pluginConfig, defaultPlugins } from '@tapjs/test'
 import { lstat, readdir, readFile, writeFile } from 'fs/promises'
 import { ConfigSet, Jack, OptionsResults, Unwrap } from 'jackspeak'
@@ -276,9 +276,11 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
     return [...pluginSet]
   }
 
-  loadColor() {
+  async loadColor() {
     const c = this.get('color')
-    const color = !!(c !== undefined ? c : proc?.stdout?.isTTY)
+    const color = !!(c !== undefined
+      ? c
+      : (await import('chalk')).supportsColor)
     const { values } = this.parse()
     ;(values as OptionsResults<C> & { color: boolean }).color = color
     return this
@@ -302,25 +304,28 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
   static #loaded: LoadedConfig | undefined
   static async load(): Promise<LoadedConfig> {
     if (this.#loaded) return this.#loaded
-    return (this.#loaded = (
-      await new TapConfig().loadPluginConfigFields().loadConfigFile()
-    )
-      .loadColor()
-      .loadReporter()
-      .parse())
+    const a = new TapConfig()
+    const b = a.loadPluginConfigFields()
+    const c = await b.loadConfigFile()
+    const d = await c.loadColor()
+    const e = d.loadReporter()
+    const f = e.parse()
+    return (this.#loaded = f)
   }
 }
 
 export type LoadedConfig = ReturnType<
   ReturnType<
-    ReturnType<
-      Awaited<
-        ReturnType<
+    Awaited<
+      ReturnType<
+        Awaited<
           ReturnType<
-            TapConfig['loadPluginConfigFields']
-          >['loadConfigFile']
-        >
-      >['loadColor']
+            ReturnType<
+              TapConfig['loadPluginConfigFields']
+            >['loadConfigFile']
+          >
+        >['loadColor']
+      >
     >['loadReporter']
   >['parse']
 >
