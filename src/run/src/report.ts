@@ -54,10 +54,12 @@ export const report = async (args: string[], config: LoadedConfig) => {
   if (reporter.includes('html')) {
     opener(resolve(config.globCwd, '.tap/report/index.html'))
   }
-  await checkCoverage(r)
+  await checkCoverage(r, config)
 }
 
-const checkCoverage = async (report: Report) => {
+const checkCoverage = async (report: Report, config: LoadedConfig) => {
+  const cr = config.get('coverage-reporter')
+  const comment = cr && !cr.includes('text')
   interface Summary {
     lines: { pct: number }
     functions: { pct: number }
@@ -84,7 +86,9 @@ const checkCoverage = async (report: Report) => {
   for (const th of thresholds) {
     const coverage = summary[th].pct
     if (coverage < 100) {
-      t.comment(`ERROR: incomplete ${th} coverage (${coverage}%)`)
+      if (comment) {
+        t.comment(`ERROR: incomplete ${th} coverage (${coverage}%)`)
+      }
       success = false
     }
   }
