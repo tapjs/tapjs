@@ -299,10 +299,15 @@ class Base extends minipass_1.Minipass {
         }
         // if we ended, we have to report it SOMEWHERE, unless we're
         // already in the process of bailing out, in which case it's
-        // a bit excessive.
-        if (this.results) {
-            const alreadyBailing = !this.results.ok && this.bail;
-            this.results.ok = false;
+        // a bit excessive. Do not print it here if it would trigger
+        // a plan exceeded error, or if we already have results.
+        if (this.results ||
+            this.parser.planEnd !== -1 &&
+                this.parser.count >= this.parser.planEnd) {
+            this.debug('Base.threw, but have results', this.results, er);
+            const alreadyBailing = !this.results?.ok && this.bail;
+            if (this.results)
+                this.results.ok = false;
             if (this.parent) {
                 this.parent.threw(er, extra, true);
             }

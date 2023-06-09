@@ -40,16 +40,21 @@ export class After {
   #callTeardown() {
     let fn: (() => any) | undefined
     while (fn = this.#onTeardown.shift()) {
-      const ret = fn.call(this.#t.t)
-      if (isPromise(ret)) {
-        this.#t.waitOn(ret, w => {
-          if (w.rejected) {
-            this.#t.threw(w.value)
-          } else {
-            this.#callTeardown()
-          }
-        })
-        return ret
+      try {
+        const ret = fn.call(this.#t.t)
+        if (isPromise(ret)) {
+          this.#t.waitOn(ret, w => {
+            if (w.rejected) {
+              this.#t.threw(w.value)
+            } else {
+              this.#callTeardown()
+            }
+          })
+          return ret
+        }
+      } catch (e) {
+        this.#t.threw(e)
+        return
       }
     }
   }

@@ -239,6 +239,7 @@ export class TestBase extends Base {
         const fn = this.#currentAssert;
         this.#currentAssert = null;
         if (this.#planEnd !== -1 && n > this.#planEnd) {
+            // prevent infinite regress of "plan exceeded" fails
             if (!this.passing())
                 return;
             const failMessage = this.#explicitEnded
@@ -595,6 +596,7 @@ export class TestBase extends Base {
         this.#process();
     }
     #onIndentedEnd(p) {
+        this.debug('onIndentedEnd', p.name);
         this.emit('subtestProcess', p);
         p.ondone = p.constructor.prototype.ondone;
         p.results =
@@ -680,6 +682,7 @@ export class TestBase extends Base {
         this.debug('MAIN post', this);
     }
     #processSubtest(p) {
+        this.debug('processSubtest', p.name);
         this.debug(' > subtest');
         this.#occupied = p;
         if (!p.buffered) {
@@ -687,9 +690,9 @@ export class TestBase extends Base {
             this.debug(' > subtest indented');
             p.pipe(this.parser, { end: false });
             this.writeSubComment(p);
-            this.debug('calling runMain', p.runMain.toString());
+            this.debug('calling runMain', p.name);
             p.runMain(() => {
-                this.debug('in runMain', p.runMain.toString());
+                this.debug('runMain callback', p.name);
                 this.#onIndentedEnd(p);
             });
         }
@@ -807,6 +810,7 @@ export class TestBase extends Base {
         return Object.assign(d.promise, { subtest: t });
     }
     threw(er, extra, proxy = false) {
+        this.debug('TestBase.threw', er);
         // this can happen if a beforeEach throws.  capture the error here
         // and raise it once we've started the test officially.
         if (this.parent && !this.started) {
@@ -826,7 +830,14 @@ export class TestBase extends Base {
             extra = extraFromError(er, extra);
         }
         super.threw(er, extra, proxy);
-        if (!this.results) {
+        // Handle the failure here, but only if we (a) don't have
+        // results yet (indicating an end) and (b) are not currently
+        // at the plan end (which would mean that any failure is
+        // ignored to prevent infinite regress in "plan exceeded"
+        // failures)
+        if (!this.results &&
+            (this.#planEnd === -1 || this.count < this.#planEnd)) {
+            this.debug('no results yet, fail here', this.fullname);
             const msg = typeof extra?.message === 'string'
                 ? extra.message
                 : typeof er.message === 'string'
