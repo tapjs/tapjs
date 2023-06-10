@@ -2,6 +2,7 @@ import t from 'tap'
 // used to raise errors with deps in them
 import { createPatch } from 'diff'
 import { globSync } from 'glob'
+import { dirname } from 'path'
 import {
   addIgnoredPackage,
   at,
@@ -21,22 +22,6 @@ import {
   setFilterIgnoredPackages,
   setFilterNodeInternals,
 } from '../dist/cjs/index.js'
-
-const todo = [
-  at,
-  capture,
-  captureError,
-  captureErrorString,
-  captureString,
-  getCwd,
-  getFilterIgnoredPackages,
-  getFilterNodeInternals,
-  parseStack,
-  setCwd,
-  setFilterIgnoredPackages,
-  setFilterNodeInternals,
-]
-todo
 
 t.test('capture tests', t => {
   const foo = () => bar()
@@ -289,31 +274,61 @@ t.test('filterDeps', t => {
       })
       return 'wtf?'
     } catch (e) {
-      return ((e as Error).stack as string).split('\n').slice(1).join('\n')
+      return ((e as Error).stack as string)
+        .split('\n')
+        .slice(1)
+        .join('\n')
     }
   }
 
   t.equal(getFilterIgnoredPackages(), true, 'filter by default')
   t.strictSame(getIgnoredPackages(), ['@tapjs', 'function-loop'])
   const stack = getStack()
-  const unfiltered = parseStack(stack).map(c => String(c) + '\n').join('')
+  const unfiltered = parseStack(stack)
+    .map(c => String(c) + '\n')
+    .join('')
   addIgnoredPackage('glob')
-  t.strictSame(getIgnoredPackages(), ['@tapjs', 'function-loop', 'glob'])
-  const noGlob = parseStack(stack).map(c => String(c) + '\n').join('')
+  t.strictSame(getIgnoredPackages(), [
+    '@tapjs',
+    'function-loop',
+    'glob',
+  ])
+  const noGlob = parseStack(stack)
+    .map(c => String(c) + '\n')
+    .join('')
   addIgnoredPackage('diff')
-  t.strictSame(getIgnoredPackages(), ['@tapjs', 'function-loop', 'glob', 'diff'])
+  t.strictSame(getIgnoredPackages(), [
+    '@tapjs',
+    'function-loop',
+    'glob',
+    'diff',
+  ])
 
   setFilterIgnoredPackages(false)
   t.equal(getFilterIgnoredPackages(), false, 'filter off')
-  const unfiltered2 = parseStack(stack).map(c => String(c) + '\n').join('')
-  t.equal(unfiltered2, unfiltered, 'unfiltered when filter turned off')
+  const unfiltered2 = parseStack(stack)
+    .map(c => String(c) + '\n')
+    .join('')
+  t.equal(
+    unfiltered2,
+    unfiltered,
+    'unfiltered when filter turned off'
+  )
   setFilterIgnoredPackages(true)
   t.equal(getFilterIgnoredPackages(), true, 'filter on again')
 
-  const noGlobDiff = parseStack(stack).map(c => String(c) + '\n').join('')
+  const noGlobDiff = parseStack(stack)
+    .map(c => String(c) + '\n')
+    .join('')
   removeIgnoredPackage('glob')
-  t.strictSame(getIgnoredPackages(), ['@tapjs', 'function-loop', 'diff'])
-  const noDiff = parseStack(stack).map(c => String(c) + '\n').join('')
+  t.strictSame(getIgnoredPackages(), [
+    '@tapjs',
+    'function-loop',
+    'diff',
+  ])
+  const noDiff = parseStack(stack)
+    .map(c => String(c) + '\n')
+    .join('')
   // put it back as it was
   removeIgnoredPackage('diff')
   t.strictSame(getIgnoredPackages(), ['@tapjs', 'function-loop'])
@@ -327,5 +342,18 @@ t.test('filterDeps', t => {
   t.notMatch(noGlobDiff, /node_modules.glob/)
   t.notMatch(noGlobDiff, /node_modules.diff/)
 
+  t.end()
+})
+
+t.test('cwd', t => {
+  const d = dirname(__dirname)
+  setCwd(d)
+  t.equal(getCwd(), d)
+  const a = at()
+  t.match(a?.fileName, /^test.index.ts$/)
+  setCwd(__dirname)
+  t.equal(getCwd(), __dirname)
+  const b = at()
+  t.match(b?.fileName, /^index.ts$/)
   t.end()
 })
