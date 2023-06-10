@@ -17,7 +17,10 @@ const hasOwn = (obj: { [k: string]: any }, key: string) =>
 export const cleanYamlObject = (object: { [k: string]: any }) => {
   const res = { ...object }
   if (hasOwn(res, 'stack') && !hasOwn(res, 'at')) {
-    res.at = stack.parseStack(res.stack.split('\n'))[0]
+    const st = Array.isArray(res.stack)
+      ? res.stack.map(s => String(s).trimEnd() + '\n').join('')
+      : String(res.stack)
+    res.at = stack.parseStack(st)[0]
   }
 
   if (

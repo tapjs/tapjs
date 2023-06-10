@@ -14,7 +14,10 @@ const hasOwn = (obj, key) => Object.prototype.hasOwnProperty.call(obj, key);
 export const cleanYamlObject = (object) => {
     const res = { ...object };
     if (hasOwn(res, 'stack') && !hasOwn(res, 'at')) {
-        res.at = stack.parseStack(res.stack.split('\n'))[0];
+        const st = Array.isArray(res.stack)
+            ? res.stack.map(s => String(s).trimEnd() + '\n').join('')
+            : String(res.stack);
+        res.at = stack.parseStack(st)[0];
     }
     if (res.at &&
         res.at instanceof stack.CallSiteLike &&

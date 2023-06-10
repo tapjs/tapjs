@@ -6,7 +6,7 @@
     "inlineSources": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "node16",
+    "moduleResolution": "Node16",
     "resolveJsonModule": true,
     "sourceMap": true,
     "strict": true,

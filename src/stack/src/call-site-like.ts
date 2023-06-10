@@ -223,7 +223,7 @@ export class CallSiteLike {
     if (f.startsWith(`${this.#cwd}/`)) {
       return f.substring(this.#cwd.length + 1)
     }
-    return fileName
+    return f
   }
 
   toString(): string {

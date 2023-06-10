@@ -161,8 +161,8 @@ const compile = (sexpr: Sexpr): Compiled => {
   return { [isCompiled]: true, fname, ...source }
 }
 
-const parseLineRef = (s: string) =>
-  s.match(/(.+):([1-9][0-9]*):([1-9][0-9]*)$/)
+const lineRefRE = /(.+):([1-9][0-9]*):([1-9][0-9]*)$/
+const parseLineRef = (s: string) => s.match(lineRefRE)
 
 type Sexpr = [token: string, ...children: Sexpr[]]
 type Token = [string, number]
