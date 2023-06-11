@@ -61,11 +61,11 @@ type AnyReturnValue<A extends ((...a: any[]) => any)[]> = A extends [
 
 type Plug =
   | TestBase
-  | { t: Test<PluginResult<PluginSet>> }
+  | { t: Test<BuiltPlugins> }
   | AnyReturnValue<PluginSet>
 type Plugged = TestBase & {
-  t: Test<PluginResult<PluginSet>>
-} & PluginResult<PluginSet>
+  t: Test<BuiltPlugins>
+} & BuiltPlugins
 type PlugKeys = keyof Plugged
 
 // options
@@ -120,8 +120,11 @@ export const signature = ''
 type TTest<P extends PluginSet = PluginSet> = TestBase &
   PluginResult<P>
 
+// Condense to interface so the inline doc isn't overwhelming
+export interface BuiltPlugins extends PluginResult<PluginSet> {}
+
 export interface Test<
-  Ext extends PluginResult<PluginSet> = PluginResult<PluginSet>
+  Ext extends BuiltPlugins = BuiltPlugins
 > extends TTest {
   end(implicit?: symbol): this
   test(
@@ -284,7 +287,7 @@ const applyPlugins = (base: Test): Test => {
 }
 
 export class Test<
-  Ext extends PluginResult<PluginSet> = PluginResult<PluginSet>
+  Ext extends BuiltPlugins = BuiltPlugins
 > extends TestBase {
   constructor(opts: TestOpts) {
     super(opts)
