@@ -94,33 +94,23 @@ exports[`test/has.ts > TAP > buffer > must match snapshot 2`] = `
 
 `
 
-exports[
-  `test/has.ts > TAP > complex object > must match snapshot 1`
-] = `
+exports[`test/has.ts > TAP > complex object > must match snapshot 1`] = `
 
 `
 
-exports[
-  `test/has.ts > TAP > complex object > must match snapshot 2`
-] = `
+exports[`test/has.ts > TAP > complex object > must match snapshot 2`] = `
 
 `
 
-exports[
-  `test/has.ts > TAP > complex object > must match snapshot 3`
-] = `
+exports[`test/has.ts > TAP > complex object > must match snapshot 3`] = `
 
 `
 
-exports[
-  `test/has.ts > TAP > complex object > must match snapshot 4`
-] = `
+exports[`test/has.ts > TAP > complex object > must match snapshot 4`] = `
 
 `
 
-exports[
-  `test/has.ts > TAP > complex object > must match snapshot 5`
-] = `
+exports[`test/has.ts > TAP > complex object > must match snapshot 5`] = `
 --- expected
 +++ actual
 @@ -1,3 +1,2 @@
@@ -130,9 +120,7 @@ exports[
 
 `
 
-exports[
-  `test/has.ts > TAP > complex object > must match snapshot 6`
-] = `
+exports[`test/has.ts > TAP > complex object > must match snapshot 6`] = `
 
 `
 
@@ -151,15 +139,11 @@ exports[`test/has.ts > TAP > date > must match snapshot 2`] = `
 
 `
 
-exports[
-  `test/has.ts > TAP > error message > must match snapshot 1`
-] = `
+exports[`test/has.ts > TAP > error message > must match snapshot 1`] = `
 
 `
 
-exports[
-  `test/has.ts > TAP > error message > must match snapshot 2`
-] = `
+exports[`test/has.ts > TAP > error message > must match snapshot 2`] = `
 
 `
 
@@ -195,21 +179,15 @@ exports[`test/has.ts > TAP > errors > must match snapshot 6`] = `
 
 `
 
-exports[
-  `test/has.ts > TAP > iterables match one another > must match snapshot 1`
-] = `
+exports[`test/has.ts > TAP > iterables match one another > must match snapshot 1`] = `
 
 `
 
-exports[
-  `test/has.ts > TAP > iterables match one another > must match snapshot 2`
-] = `
+exports[`test/has.ts > TAP > iterables match one another > must match snapshot 2`] = `
 
 `
 
-exports[
-  `test/has.ts > TAP > iterables match one another > must match snapshot 3`
-] = `
+exports[`test/has.ts > TAP > iterables match one another > must match snapshot 3`] = `
 
 `
 
@@ -289,9 +267,7 @@ exports[`test/has.ts > TAP > map > must match snapshot 9`] = `
 
 `
 
-exports[
-  `test/has.ts > TAP > pojo can match against array with same fields > must match snapshot 1`
-] = `
+exports[`test/has.ts > TAP > pojo can match against array with same fields > must match snapshot 1`] = `
 
 `
 
@@ -351,9 +327,7 @@ exports[`test/has.ts > TAP > set > must match snapshot 6`] = `
 
 `
 
-exports[
-  `test/has.ts > TAP > small set cannot satisfy big set expectation > must match snapshot 1`
-] = `
+exports[`test/has.ts > TAP > small set cannot satisfy big set expectation > must match snapshot 1`] = `
 --- expected
 +++ actual
 @@ -1,5 +1,3 @@
@@ -382,14 +356,10 @@ exports[`test/has.ts > TAP > sort pojos > must match snapshot 1`] = `
 
 `
 
-exports[
-  `test/has.ts > TAP > undefined/null matches missing > must match snapshot 1`
-] = `
+exports[`test/has.ts > TAP > undefined/null matches missing > must match snapshot 1`] = `
 
 `
 
-exports[
-  `test/has.ts > TAP > undefined/null matches missing > must match snapshot 2`
-] = `
+exports[`test/has.ts > TAP > undefined/null matches missing > must match snapshot 2`] = `
 
 `

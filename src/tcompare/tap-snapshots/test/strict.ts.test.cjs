@@ -5,15 +5,11 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[
-  `test/strict.ts > TAP > array-likes > must match snapshot 1`
-] = `
+exports[`test/strict.ts > TAP > array-likes > must match snapshot 1`] = `
 
 `
 
-exports[
-  `test/strict.ts > TAP > array-likes > must match snapshot 2`
-] = `
+exports[`test/strict.ts > TAP > array-likes > must match snapshot 2`] = `
 --- expected
 +++ actual
 @@ -1,5 +1,5 @@
@@ -336,15 +332,11 @@ exports[`test/strict.ts > TAP > basic > must match snapshot 9`] = `
 
 `
 
-exports[
-  `test/strict.ts > TAP > iterables match one another > must match snapshot 1`
-] = `
+exports[`test/strict.ts > TAP > iterables match one another > must match snapshot 1`] = `
 
 `
 
-exports[
-  `test/strict.ts > TAP > iterables match one another > must match snapshot 2`
-] = `
+exports[`test/strict.ts > TAP > iterables match one another > must match snapshot 2`] = `
 --- expected
 +++ actual
 @@ -1,4 +1,4 @@
@@ -356,9 +348,7 @@ exports[
 
 `
 
-exports[
-  `test/strict.ts > TAP > iterables match one another > must match snapshot 3`
-] = `
+exports[`test/strict.ts > TAP > iterables match one another > must match snapshot 3`] = `
 --- expected
 +++ actual
 @@ -1,4 +1,4 @@
@@ -557,33 +547,23 @@ exports[`test/strict.ts > TAP > set > must match snapshot 7`] = `
 
 `
 
-exports[
-  `test/strict.ts > TAP > symbology > must match snapshot 1`
-] = `
+exports[`test/strict.ts > TAP > symbology > must match snapshot 1`] = `
 
 `
 
-exports[
-  `test/strict.ts > TAP > symbology > must match snapshot 2`
-] = `
+exports[`test/strict.ts > TAP > symbology > must match snapshot 2`] = `
 
 `
 
-exports[
-  `test/strict.ts > TAP > symbology > must match snapshot 3`
-] = `
+exports[`test/strict.ts > TAP > symbology > must match snapshot 3`] = `
 
 `
 
-exports[
-  `test/strict.ts > TAP > symbology > must match snapshot 4`
-] = `
+exports[`test/strict.ts > TAP > symbology > must match snapshot 4`] = `
 
 `
 
-exports[
-  `test/strict.ts > TAP > symbology > must match snapshot 5`
-] = `
+exports[`test/strict.ts > TAP > symbology > must match snapshot 5`] = `
 --- expected
 +++ actual
 @@ -1,3 +1,3 @@
@@ -594,9 +574,7 @@ exports[
 
 `
 
-exports[
-  `test/strict.ts > TAP > symbology > must match snapshot 6`
-] = `
+exports[`test/strict.ts > TAP > symbology > must match snapshot 6`] = `
 --- expected
 +++ actual
 @@ -1,3 +1,3 @@
@@ -607,9 +585,7 @@ exports[
 
 `
 
-exports[
-  `test/strict.ts > TAP > symbology > must match snapshot 7`
-] = `
+exports[`test/strict.ts > TAP > symbology > must match snapshot 7`] = `
 --- expected
 +++ actual
 @@ -1,3 +1,3 @@
@@ -620,9 +596,7 @@ exports[
 
 `
 
-exports[
-  `test/strict.ts > TAP > symbology > must match snapshot 8`
-] = `
+exports[`test/strict.ts > TAP > symbology > must match snapshot 8`] = `
 --- expected
 +++ actual
 @@ -1,3 +1,3 @@
@@ -633,9 +607,7 @@ exports[
 
 `
 
-exports[
-  `test/strict.ts > TAP > symbology > must match snapshot 9`
-] = `
+exports[`test/strict.ts > TAP > symbology > must match snapshot 9`] = `
 --- expected
 +++ actual
 @@ -1,3 +1,3 @@

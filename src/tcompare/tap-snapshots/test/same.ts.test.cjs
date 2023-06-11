@@ -5,9 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[
-  `test/same.ts > TAP > another weird cycle case > must match snapshot 1`
-] = `
+exports[`test/same.ts > TAP > another weird cycle case > must match snapshot 1`] = `
 --- expected
 +++ actual
 @@ -1,5 +1,3 @@
@@ -20,9 +18,7 @@ exports[
 
 `
 
-exports[
-  `test/same.ts > TAP > array is not the same as object > must match snapshot 1`
-] = `
+exports[`test/same.ts > TAP > array is not the same as object > must match snapshot 1`] = `
 --- expected
 +++ actual
 @@ -1,5 +1,5 @@
@@ -39,39 +35,27 @@ exports[
 
 `
 
-exports[
-  `test/same.ts > TAP > array-likes > must match snapshot 1`
-] = `
+exports[`test/same.ts > TAP > array-likes > must match snapshot 1`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > array-likes > must match snapshot 2`
-] = `
+exports[`test/same.ts > TAP > array-likes > must match snapshot 2`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > array-likes > must match snapshot 3`
-] = `
+exports[`test/same.ts > TAP > array-likes > must match snapshot 3`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > array-likes > must match snapshot 4`
-] = `
+exports[`test/same.ts > TAP > array-likes > must match snapshot 4`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > array-likes > must match snapshot 5`
-] = `
+exports[`test/same.ts > TAP > array-likes > must match snapshot 5`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > array-likes > must match snapshot 6`
-] = `
+exports[`test/same.ts > TAP > array-likes > must match snapshot 6`] = `
 --- expected
 +++ actual
 @@ -1,6 +1,5 @@
@@ -89,9 +73,7 @@ exports[
 
 `
 
-exports[
-  `test/same.ts > TAP > arrays extra and missing > must match snapshot 1`
-] = `
+exports[`test/same.ts > TAP > arrays extra and missing > must match snapshot 1`] = `
 --- expected
 +++ actual
 @@ -1,7 +1,5 @@
@@ -105,9 +87,7 @@ exports[
 
 `
 
-exports[
-  `test/same.ts > TAP > arrays extra and missing > must match snapshot 2`
-] = `
+exports[`test/same.ts > TAP > arrays extra and missing > must match snapshot 2`] = `
 --- expected
 +++ actual
 @@ -1,5 +1,7 @@
@@ -121,9 +101,7 @@ exports[
 
 `
 
-exports[
-  `test/same.ts > TAP > collections missing all entries > must match snapshot 1`
-] = `
+exports[`test/same.ts > TAP > collections missing all entries > must match snapshot 1`] = `
 --- expected
 +++ actual
 @@ -1,3 +1,2 @@
@@ -133,9 +111,7 @@ exports[
 
 `
 
-exports[
-  `test/same.ts > TAP > collections missing all entries > must match snapshot 2`
-] = `
+exports[`test/same.ts > TAP > collections missing all entries > must match snapshot 2`] = `
 --- expected
 +++ actual
 @@ -1,3 +1,2 @@
@@ -145,9 +121,7 @@ exports[
 
 `
 
-exports[
-  `test/same.ts > TAP > collections missing all entries > must match snapshot 3`
-] = `
+exports[`test/same.ts > TAP > collections missing all entries > must match snapshot 3`] = `
 --- expected
 +++ actual
 @@ -1,3 +1,1 @@
@@ -158,9 +132,7 @@ exports[
 
 `
 
-exports[
-  `test/same.ts > TAP > collections missing all entries > must match snapshot 4`
-] = `
+exports[`test/same.ts > TAP > collections missing all entries > must match snapshot 4`] = `
 --- expected
 +++ actual
 @@ -1,3 +1,1 @@
@@ -180,9 +152,7 @@ exports[`test/same.ts > TAP > ctor usage > must match snapshot 1`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > customize diff context > must match snapshot 1`
-] = `
+exports[`test/same.ts > TAP > customize diff context > must match snapshot 1`] = `
 --- expected
 +++ actual
 @@ -6,3 +6,3 @@
@@ -193,9 +163,7 @@ exports[
 
 `
 
-exports[
-  `test/same.ts > TAP > different arrays don't match > must match snapshot 1`
-] = `
+exports[`test/same.ts > TAP > different arrays don't match > must match snapshot 1`] = `
 --- expected
 +++ actual
 @@ -1,6 +1,5 @@
@@ -208,9 +176,7 @@ exports[
 
 `
 
-exports[
-  `test/same.ts > TAP > different arrays don't match > must match snapshot 2`
-] = `
+exports[`test/same.ts > TAP > different arrays don't match > must match snapshot 2`] = `
 --- expected
 +++ actual
 @@ -1,5 +1,5 @@
@@ -223,9 +189,7 @@ exports[
 
 `
 
-exports[
-  `test/same.ts > TAP > different numbers don't match > must match snapshot 1`
-] = `
+exports[`test/same.ts > TAP > different numbers don't match > must match snapshot 1`] = `
 --- expected
 +++ actual
 @@ -1,1 +1,1 @@
@@ -234,9 +198,7 @@ exports[
 
 `
 
-exports[
-  `test/same.ts > TAP > different numbers don't match > must match snapshot 2`
-] = `
+exports[`test/same.ts > TAP > different numbers don't match > must match snapshot 2`] = `
 --- expected
 +++ actual
 @@ -1,1 +1,1 @@
@@ -245,9 +207,7 @@ exports[
 
 `
 
-exports[
-  `test/same.ts > TAP > different numbers don't match > must match snapshot 3`
-] = `
+exports[`test/same.ts > TAP > different numbers don't match > must match snapshot 3`] = `
 --- expected
 +++ actual
 @@ -1,1 +1,1 @@
@@ -256,9 +216,7 @@ exports[
 
 `
 
-exports[
-  `test/same.ts > TAP > diffing strings > must match snapshot 1`
-] = `
+exports[`test/same.ts > TAP > diffing strings > must match snapshot 1`] = `
 --- expected
 +++ actual
 @@ -1,28 +1,28 @@
@@ -299,15 +257,11 @@ exports[
 
 `
 
-exports[
-  `test/same.ts > TAP > diffing strings > must match snapshot 2`
-] = `
+exports[`test/same.ts > TAP > diffing strings > must match snapshot 2`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > diffing strings > must match snapshot 3`
-] = `
+exports[`test/same.ts > TAP > diffing strings > must match snapshot 3`] = `
 --- expected
 +++ actual
 @@ -1,28 +1,1 @@
@@ -343,9 +297,7 @@ exports[
 
 `
 
-exports[
-  `test/same.ts > TAP > diffing strings > must match snapshot 4`
-] = `
+exports[`test/same.ts > TAP > diffing strings > must match snapshot 4`] = `
 --- expected
 +++ actual
 @@ -1,1 +1,28 @@
@@ -381,15 +333,11 @@ exports[
 
 `
 
-exports[
-  `test/same.ts > TAP > diffing strings > must match snapshot 5`
-] = `
+exports[`test/same.ts > TAP > diffing strings > must match snapshot 5`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > diffs of errors with \\n in the message > must match snapshot 1`
-] = `
+exports[`test/same.ts > TAP > diffs of errors with \\n in the message > must match snapshot 1`] = `
 --- expected
 +++ actual
 @@ -1,4 +1,4 @@
@@ -401,9 +349,7 @@ exports[
 
 `
 
-exports[
-  `test/same.ts > TAP > diffs of errors with \\n in the message > must match snapshot 2`
-] = `
+exports[`test/same.ts > TAP > diffs of errors with \\n in the message > must match snapshot 2`] = `
 --- expected
 +++ actual
 @@ -1,6 +1,6 @@
@@ -417,15 +363,11 @@ exports[
 
 `
 
-exports[
-  `test/same.ts > TAP > empty arrays match > must match snapshot 1`
-] = `
+exports[`test/same.ts > TAP > empty arrays match > must match snapshot 1`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > empty arrays match > must match snapshot 2`
-] = `
+exports[`test/same.ts > TAP > empty arrays match > must match snapshot 2`] = `
 
 `
 
@@ -486,27 +428,19 @@ exports[`test/same.ts > TAP > errors > must match snapshot 7`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > flexible about key order and types > must match snapshot 1`
-] = `
+exports[`test/same.ts > TAP > flexible about key order and types > must match snapshot 1`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > hidden props and getters > must match snapshot 1`
-] = `
+exports[`test/same.ts > TAP > hidden props and getters > must match snapshot 1`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > hidden props and getters > must match snapshot 2`
-] = `
+exports[`test/same.ts > TAP > hidden props and getters > must match snapshot 2`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > hidden props and getters > must match snapshot 3`
-] = `
+exports[`test/same.ts > TAP > hidden props and getters > must match snapshot 3`] = `
 --- expected
 +++ actual
 @@ -1,2 +1,3 @@
@@ -516,33 +450,23 @@ exports[
 
 `
 
-exports[
-  `test/same.ts > TAP > inherited fields will satisfy ownprop expects > must match snapshot 1`
-] = `
+exports[`test/same.ts > TAP > inherited fields will satisfy ownprop expects > must match snapshot 1`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > iterables match one another > must match snapshot 1`
-] = `
+exports[`test/same.ts > TAP > iterables match one another > must match snapshot 1`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > iterables match one another > must match snapshot 2`
-] = `
+exports[`test/same.ts > TAP > iterables match one another > must match snapshot 2`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > iterables match one another > must match snapshot 3`
-] = `
+exports[`test/same.ts > TAP > iterables match one another > must match snapshot 3`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > iterator that doesnt play nice > must match snapshot 1`
-] = `
+exports[`test/same.ts > TAP > iterator that doesnt play nice > must match snapshot 1`] = `
 --- expected
 +++ actual
 @@ -1,1 +1,5 @@
@@ -644,9 +568,7 @@ exports[`test/same.ts > TAP > map > must match snapshot 9`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > maps extra and missing > must match snapshot 1`
-] = `
+exports[`test/same.ts > TAP > maps extra and missing > must match snapshot 1`] = `
 --- expected
 +++ actual
 @@ -1,3 +1,2 @@
@@ -656,9 +578,7 @@ exports[
 
 `
 
-exports[
-  `test/same.ts > TAP > maps extra and missing > must match snapshot 2`
-] = `
+exports[`test/same.ts > TAP > maps extra and missing > must match snapshot 2`] = `
 --- expected
 +++ actual
 @@ -1,2 +1,3 @@
@@ -668,33 +588,23 @@ exports[
 
 `
 
-exports[
-  `test/same.ts > TAP > NaN matches NaN > must match snapshot 1`
-] = `
+exports[`test/same.ts > TAP > NaN matches NaN > must match snapshot 1`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > null is as shallow as you'd expect > must match snapshot 1`
-] = `
+exports[`test/same.ts > TAP > null is as shallow as you'd expect > must match snapshot 1`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > null is as shallow as you'd expect > must match snapshot 2`
-] = `
+exports[`test/same.ts > TAP > null is as shallow as you'd expect > must match snapshot 2`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > null is as shallow as you'd expect > must match snapshot 3`
-] = `
+exports[`test/same.ts > TAP > null is as shallow as you'd expect > must match snapshot 3`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > obj cycles, expect does not > must match snapshot 1`
-] = `
+exports[`test/same.ts > TAP > obj cycles, expect does not > must match snapshot 1`] = `
 --- expected
 +++ actual
 @@ -1,8 +1,9 @@
@@ -710,15 +620,11 @@ exports[
 
 `
 
-exports[
-  `test/same.ts > TAP > pojos extra and missing > must match snapshot 1`
-] = `
+exports[`test/same.ts > TAP > pojos extra and missing > must match snapshot 1`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > pojos extra and missing > must match snapshot 2`
-] = `
+exports[`test/same.ts > TAP > pojos extra and missing > must match snapshot 2`] = `
 --- expected
 +++ actual
 @@ -1,3 +1,2 @@
@@ -728,9 +634,7 @@ exports[
 
 `
 
-exports[
-  `test/same.ts > TAP > pojos extra and missing > must match snapshot 3`
-] = `
+exports[`test/same.ts > TAP > pojos extra and missing > must match snapshot 3`] = `
 --- expected
 +++ actual
 @@ -1,2 +1,3 @@
@@ -740,21 +644,15 @@ exports[
 
 `
 
-exports[
-  `test/same.ts > TAP > properly handle circular data structures > must match snapshot 1`
-] = `
+exports[`test/same.ts > TAP > properly handle circular data structures > must match snapshot 1`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > properly handle circular data structures > must match snapshot 2`
-] = `
+exports[`test/same.ts > TAP > properly handle circular data structures > must match snapshot 2`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > properly handle circular data structures > must match snapshot 3`
-] = `
+exports[`test/same.ts > TAP > properly handle circular data structures > must match snapshot 3`] = `
 --- expected
 +++ actual
 @@ -1,3 +1,9 @@
@@ -771,15 +669,11 @@ exports[
 
 `
 
-exports[
-  `test/same.ts > TAP > properly handle circular data structures > must match snapshot 4`
-] = `
+exports[`test/same.ts > TAP > properly handle circular data structures > must match snapshot 4`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > properly handle circular data structures > must match snapshot 5`
-] = `
+exports[`test/same.ts > TAP > properly handle circular data structures > must match snapshot 5`] = `
 --- expected
 +++ actual
 @@ -1,5 +1,5 @@
@@ -792,9 +686,7 @@ exports[
 
 `
 
-exports[
-  `test/same.ts > TAP > properly handle circular data structures > must match snapshot 6`
-] = `
+exports[`test/same.ts > TAP > properly handle circular data structures > must match snapshot 6`] = `
 --- expected
 +++ actual
 @@ -1,6 +1,5 @@
@@ -808,15 +700,11 @@ exports[
 
 `
 
-exports[
-  `test/same.ts > TAP > same arrays match > must match snapshot 1`
-] = `
+exports[`test/same.ts > TAP > same arrays match > must match snapshot 1`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > same shouldn't care about key order recursively and types > must match snapshot 1`
-] = `
+exports[`test/same.ts > TAP > same shouldn't care about key order recursively and types > must match snapshot 1`] = `
 
 `
 
@@ -879,9 +767,7 @@ exports[`test/same.ts > TAP > set > must match snapshot 7`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > sets extra and missing > must match snapshot 1`
-] = `
+exports[`test/same.ts > TAP > sets extra and missing > must match snapshot 1`] = `
 --- expected
 +++ actual
 @@ -1,10 +1,6 @@
@@ -898,9 +784,7 @@ exports[
 
 `
 
-exports[
-  `test/same.ts > TAP > sets extra and missing > must match snapshot 2`
-] = `
+exports[`test/same.ts > TAP > sets extra and missing > must match snapshot 2`] = `
 --- expected
 +++ actual
 @@ -1,6 +1,10 @@
@@ -917,39 +801,27 @@ exports[
 
 `
 
-exports[
-  `test/same.ts > TAP > should handle arguments > must match snapshot 1`
-] = `
+exports[`test/same.ts > TAP > should handle arguments > must match snapshot 1`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > should handle arguments > must match snapshot 2`
-] = `
+exports[`test/same.ts > TAP > should handle arguments > must match snapshot 2`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > should handle arguments > must match snapshot 3`
-] = `
+exports[`test/same.ts > TAP > should handle arguments > must match snapshot 3`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > should handle bigint > must match snapshot 1`
-] = `
+exports[`test/same.ts > TAP > should handle bigint > must match snapshot 1`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > should handle bigint > must match snapshot 2`
-] = `
+exports[`test/same.ts > TAP > should handle bigint > must match snapshot 2`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > should handle bigint > must match snapshot 3`
-] = `
+exports[`test/same.ts > TAP > should handle bigint > must match snapshot 3`] = `
 --- expected
 +++ actual
 @@ -1,1 +1,1 @@
@@ -958,9 +830,7 @@ exports[
 
 `
 
-exports[
-  `test/same.ts > TAP > should handle dates > must match snapshot 1`
-] = `
+exports[`test/same.ts > TAP > should handle dates > must match snapshot 1`] = `
 --- expected
 +++ actual
 @@ -1,1 +1,1 @@
@@ -969,9 +839,7 @@ exports[
 
 `
 
-exports[
-  `test/same.ts > TAP > should handle dates > must match snapshot 2`
-] = `
+exports[`test/same.ts > TAP > should handle dates > must match snapshot 2`] = `
 --- expected
 +++ actual
 @@ -1,1 +1,1 @@
@@ -980,33 +848,23 @@ exports[
 
 `
 
-exports[
-  `test/same.ts > TAP > should handle dates > must match snapshot 3`
-] = `
+exports[`test/same.ts > TAP > should handle dates > must match snapshot 3`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > should handle dates > must match snapshot 4`
-] = `
+exports[`test/same.ts > TAP > should handle dates > must match snapshot 4`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > should handle functions > must match snapshot 1`
-] = `
+exports[`test/same.ts > TAP > should handle functions > must match snapshot 1`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > should handle functions > must match snapshot 2`
-] = `
+exports[`test/same.ts > TAP > should handle functions > must match snapshot 2`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > should handle functions > must match snapshot 3`
-] = `
+exports[`test/same.ts > TAP > should handle functions > must match snapshot 3`] = `
 --- expected
 +++ actual
 @@ -1,1 +1,1 @@
@@ -1015,21 +873,15 @@ exports[
 
 `
 
-exports[
-  `test/same.ts > TAP > should handle functions > must match snapshot 4`
-] = `
+exports[`test/same.ts > TAP > should handle functions > must match snapshot 4`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > should handle functions > must match snapshot 5`
-] = `
+exports[`test/same.ts > TAP > should handle functions > must match snapshot 5`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > should handle RegExps > must match snapshot 1`
-] = `
+exports[`test/same.ts > TAP > should handle RegExps > must match snapshot 1`] = `
 --- expected
 +++ actual
 @@ -1,1 +1,1 @@
@@ -1038,9 +890,7 @@ exports[
 
 `
 
-exports[
-  `test/same.ts > TAP > should handle RegExps > must match snapshot 2`
-] = `
+exports[`test/same.ts > TAP > should handle RegExps > must match snapshot 2`] = `
 --- expected
 +++ actual
 @@ -1,1 +1,1 @@
@@ -1049,39 +899,27 @@ exports[
 
 `
 
-exports[
-  `test/same.ts > TAP > should handle RegExps > must match snapshot 3`
-] = `
+exports[`test/same.ts > TAP > should handle RegExps > must match snapshot 3`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > should handle RegExps > must match snapshot 4`
-] = `
+exports[`test/same.ts > TAP > should handle RegExps > must match snapshot 4`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > should match empty Buffers > must match snapshot 1`
-] = `
+exports[`test/same.ts > TAP > should match empty Buffers > must match snapshot 1`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > should match similar Buffers > must match snapshot 1`
-] = `
+exports[`test/same.ts > TAP > should match similar Buffers > must match snapshot 1`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > should match similar Buffers > must match snapshot 2`
-] = `
+exports[`test/same.ts > TAP > should match similar Buffers > must match snapshot 2`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > should notice different Buffers > must match snapshot 1`
-] = `
+exports[`test/same.ts > TAP > should notice different Buffers > must match snapshot 1`] = `
 --- expected
 +++ actual
 @@ -1,1 +1,1 @@
@@ -1090,9 +928,7 @@ exports[
 
 `
 
-exports[
-  `test/same.ts > TAP > should notice different Buffers > must match snapshot 2`
-] = `
+exports[`test/same.ts > TAP > should notice different Buffers > must match snapshot 2`] = `
 --- expected
 +++ actual
 @@ -1,18 +1,7 @@
@@ -1118,9 +954,7 @@ exports[
 
 `
 
-exports[
-  `test/same.ts > TAP > should notice objects with different keys > must match snapshot 1`
-] = `
+exports[`test/same.ts > TAP > should notice objects with different keys > must match snapshot 1`] = `
 --- expected
 +++ actual
 @@ -1,3 +1,3 @@
@@ -1131,21 +965,15 @@ exports[
 
 `
 
-exports[
-  `test/same.ts > TAP > should notice objects with different shapes > must match snapshot 1`
-] = `
+exports[`test/same.ts > TAP > should notice objects with different shapes > must match snapshot 1`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > shouldn't care about key order and types > must match snapshot 1`
-] = `
+exports[`test/same.ts > TAP > shouldn't care about key order and types > must match snapshot 1`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > simple diff nested in object > must match snapshot 1`
-] = `
+exports[`test/same.ts > TAP > simple diff nested in object > must match snapshot 1`] = `
 --- expected
 +++ actual
 @@ -1,9 +1,9 @@
@@ -1225,27 +1053,19 @@ exports[`test/same.ts > TAP > symbology > must match snapshot 7`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > the same number matches > must match snapshot 1`
-] = `
+exports[`test/same.ts > TAP > the same number matches > must match snapshot 1`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > the same number matches > must match snapshot 2`
-] = `
+exports[`test/same.ts > TAP > the same number matches > must match snapshot 2`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > the same number matches > must match snapshot 3`
-] = `
+exports[`test/same.ts > TAP > the same number matches > must match snapshot 3`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > tricky mismatched nesting > must match snapshot 1`
-] = `
+exports[`test/same.ts > TAP > tricky mismatched nesting > must match snapshot 1`] = `
 --- expected
 +++ actual
 @@ -1,5 +1,3 @@
@@ -1258,9 +1078,7 @@ exports[
 
 `
 
-exports[
-  `test/same.ts > TAP > tricky mismatched nesting > must match snapshot 2`
-] = `
+exports[`test/same.ts > TAP > tricky mismatched nesting > must match snapshot 2`] = `
 --- expected
 +++ actual
 @@ -1,11 +1,3 @@
@@ -1279,9 +1097,7 @@ exports[
 
 `
 
-exports[
-  `test/same.ts > TAP > tricky mismatched nesting > must match snapshot 3`
-] = `
+exports[`test/same.ts > TAP > tricky mismatched nesting > must match snapshot 3`] = `
 --- expected
 +++ actual
 @@ -1,11 +1,5 @@
@@ -1300,38 +1116,26 @@ exports[
 
 `
 
-exports[
-  `test/same.ts > TAP > undefined and null are Close Enough > must match snapshot 1`
-] = `
+exports[`test/same.ts > TAP > undefined and null are Close Enough > must match snapshot 1`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > undefined and null are Close Enough > must match snapshot 2`
-] = `
+exports[`test/same.ts > TAP > undefined and null are Close Enough > must match snapshot 2`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > undefined and null are Close Enough > must match snapshot 3`
-] = `
+exports[`test/same.ts > TAP > undefined and null are Close Enough > must match snapshot 3`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > undefined is the same as itself > must match snapshot 1`
-] = `
+exports[`test/same.ts > TAP > undefined is the same as itself > must match snapshot 1`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > undefined is the same as itself > must match snapshot 2`
-] = `
+exports[`test/same.ts > TAP > undefined is the same as itself > must match snapshot 2`] = `
 
 `
 
-exports[
-  `test/same.ts > TAP > undefined is the same as itself > must match snapshot 3`
-] = `
+exports[`test/same.ts > TAP > undefined is the same as itself > must match snapshot 3`] = `
 
 `
