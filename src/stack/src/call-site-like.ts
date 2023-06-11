@@ -216,9 +216,9 @@ export class CallSiteLike {
   }
 
   #relativize(fileName?: string | null) {
-    if (!fileName || this.#cwd === undefined) return fileName
     let f = fileName
-    if (f.startsWith('file://')) f = fileURLToPath(f)
+    if (f?.startsWith('file://')) f = fileURLToPath(f)
+    if (!f || this.#cwd === undefined) return f
     else f = f.replace(/\\/g, '/')
     if (f.startsWith(`${this.#cwd}/`)) {
       return f.substring(this.#cwd.length + 1)
@@ -307,12 +307,18 @@ export class CallSiteLike {
     if (columnNumber || columnNumber === 0)
       json.columnNumber = columnNumber
     if (evalOrigin) json.evalOrigin = evalOrigin.toJSON()
+
+    // These get hella noisy in most tests, just save the clutter
+    /* c8 ignore start */
     if (
       typeName !== null &&
       typeName !== 'Object' &&
       typeName !== 'Test'
-    )
+    ) {
       json.typeName = typeName
+    }
+    /* c8 ignore stop */
+
     if (methodName !== null) json.methodName = methodName
     if (functionName !== null) json.functionName = functionName
     if (isEval) json.isEval = isEval
