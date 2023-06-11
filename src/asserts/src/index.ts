@@ -12,6 +12,7 @@ import {
   has,
   hasStrict,
   match,
+  matchOnly,
   same,
   strict,
 } from 'tcompare'
@@ -89,9 +90,18 @@ export class Assertions {
   #opts: CompareOptions
   #pendingEmits: ExpectedEmit[] = []
   #setOnBeforeEnd: boolean = false
-  constructor(t: TestBase, { compareOptions = {} }: AssertOptions) {
+  constructor(t: TestBase, { compareOptions }: AssertOptions) {
     this.#t = t
-    this.#opts = compareOptions
+    // TODO: this is a pita to do in each plugin
+    // Either there should be a straightforward interface for declaring
+    // which fields get inherited, or maybe add some logic in TestBase
+    // to inherit all but the select few that can't be.
+    if (!compareOptions) {
+      for (let p = t.parent; p && !compareOptions; p = p.parent) {
+        compareOptions = p.options.compareOptions
+      }
+    }
+    this.#opts = compareOptions || {}
   }
 
   #onBeforeEnd() {
@@ -438,6 +448,23 @@ export class Assertions {
   }
 
   /**
+   * Verify that the value matches the pattern provided, with no
+   * extra properties.
+   */
+  matchOnly(found: any, wanted: any, ...[msg, extra]: MessageExtra) {
+    if (!this.#t.t.pluginLoaded(plugin)) {
+      throw new Error('assert plugin not loaded')
+    }
+    this.#t.currentAssert = this.#t.t.matchOnly
+    const args = [msg, extra] as MessageExtra
+    const me = normalizeMessageExtra('should match pattern', args)
+    const { match: ok, diff } = matchOnly(found, wanted, this.#opts)
+    if (ok) return this.#t.pass(...me)
+    Object.assign(me[1], { diff })
+    return this.#t.fail(...me)
+  }
+
+  /**
    * Verify that the value does NOT match the pattern provided.
    */
   notMatch(
@@ -601,7 +628,7 @@ export class Assertions {
       if (!['string', 'number', 'symbol'].includes(typeof prop)) {
         Object.assign(me[1], { invalidProperty: prop })
         return this.#t.fail(
-          'invalid property in hasProps assertion',
+          'invalid property in hasOwnProps assertion',
           me[1]
         )
       }
@@ -616,6 +643,61 @@ export class Assertions {
         }
       } catch (er) {
         return this.#t.fail((er as Error)?.message || me[0], me[1])
+      }
+    }
+    return this.#t.pass(...me)
+  }
+
+  /**
+   * Verify that the object has all of the properties listed in the
+   * `wanted` list, using Object#hasOwnProperties(), and no others
+   */
+  hasOwnPropsOnly<T extends {}>(
+    found: T,
+    wanted: Iterable<string | number | symbol>,
+    ...[msg, extra]: MessageExtra
+  ) {
+    if (!this.#t.t.pluginLoaded(plugin)) {
+      throw new Error('assert plugin not loaded')
+    }
+    this.#t.currentAssert = this.#t.t.hasOwnPropsOnly
+    const args = [msg, extra] as MessageExtra
+    const me = normalizeMessageExtra(
+      'should have all specified properties',
+      args
+    )
+    Object.assign(me[1], { found, wanted })
+    if (!isIterable(wanted)) {
+      return this.#t.fail(
+        'property list must be iterable object',
+        me[1]
+      )
+    }
+    const seen = new Set<string | symbol | number>()
+    for (const prop of wanted) {
+      seen.add(prop)
+      if (!['string', 'number', 'symbol'].includes(typeof prop)) {
+        return this.#t.fail(
+          'invalid property in hasOwnPropsOnly assertion',
+          { ...me[1], invalidProperty: prop }
+        )
+      }
+      try {
+        if (
+          !(
+            hasOwn(found, prop) &&
+            (found as { [k: typeof prop]: any })[prop] !== undefined
+          )
+        ) {
+          return this.#t.fail(...me)
+        }
+      } catch (er) {
+        return this.#t.fail((er as Error)?.message || me[0], me[1])
+      }
+    }
+    for (const prop of Object.keys(found)) {
+      if (!seen.has(prop)) {
+        return this.#t.fail(me[0], { ...me[1], doNotWant: prop })
       }
     }
     return this.#t.pass(...me)
