@@ -18,6 +18,7 @@ import { dirname, relative, sep } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { resolve } from 'path'
 import { rimraf } from 'rimraf'
+import { FinalResults } from 'tap-parser'
 import { build } from './build.js'
 import { findSuites } from './find-suites.js'
 import { mainBin, mainCommand } from './index.js'
@@ -291,7 +292,7 @@ export const run = async (args: string[], config: LoadedConfig) => {
       name: relative(config.globCwd, file),
     })
     if (saveList.length) {
-      p.then(results => {
+      p.then((results: FinalResults | null) => {
         if (results?.ok && saveList.includes(f)) {
           saveList.splice(saveList.indexOf(f), 1)
         }
