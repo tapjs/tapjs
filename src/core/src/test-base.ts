@@ -969,8 +969,8 @@ export class TestBase extends Base<TestBaseEvents> {
     extra.bail = extra.bail !== undefined ? extra.bail : this.bail
     extra.parent = this
     const st = stack.capture(80, caller)
-    extra.stack = st.map(c => String(c)).join('\n')
     extra.at = st[0]
+    extra.stack = st.map(c => String(c)).join('\n')
     extra.context = this.context
 
     const t = new Class(extra as O)
@@ -1072,8 +1072,6 @@ export class TestBase extends Base<TestBaseEvents> {
       this.#process()
       if (queueEmpty(this)) {
         const options = Object.assign({}, this.options)
-        this.options.at = undefined
-        this.options.stack = ''
         options.test = this.name
         this.fail('test unfinished', options)
       }

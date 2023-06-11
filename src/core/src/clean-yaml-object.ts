@@ -29,8 +29,7 @@ export const cleanYamlObject = (object: { [k: string]: any }) => {
     res.at.fileName &&
     res.at.absoluteFileName &&
     res.at.lineNumber &&
-    !res.source &&
-    !res.parent
+    !res.source
   ) {
     const file = res.at.absoluteFileName
     const content = tryReadFile(file)
