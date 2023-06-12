@@ -240,19 +240,26 @@ export class CallSiteLike {
     if (this.isConstructor && fname) {
       fname = `new ${fname}`
     }
-    let ev = this.evalOrigin
-      ? `eval at ${this.evalOrigin.toString()}`
-      : ''
-    if (ev) {
-      ev = fname ? ` (${ev})` : ev
-    }
+    let ev = ''
     const nat = this.isNative ? 'native' : ''
     let file = this.fileName || ''
-    const hasLC =
-      this.lineNumber !== undefined &&
-      this.lineNumber !== null &&
-      this.columnNumber !== undefined &&
-      this.columnNumber !== null
+    const hasLC = this.lineNumber && this.columnNumber
+    if (this.evalOrigin) {
+      ev = `eval at ${this.evalOrigin.toString()}`
+      if (hasLC) {
+        const f = this.fileName || '<anonymous>'
+        let lr = `${f}:${this.lineNumber}:${this.columnNumber}`
+        if (this.generated && this.generated.fileName) {
+          const f = this.generated.fileName
+          const { lineNumber: l, columnNumber: c } = this.generated
+          lr = `${f}:${l}:${c} (${lr})`
+        }
+        ev += `, ${lr}`
+      }
+      ev = fname ? ` (${ev})` : ev
+      return `${fname}${ev}`
+    }
+
     if (!nat && (file || hasLC)) {
       if (hasLC) {
         file = file || '<anonymous>'
@@ -327,7 +334,11 @@ export class CallSiteLike {
     if (isConstructor) json.isConstructor = isConstructor
     if (generated && generated.fileName) {
       const f = this.#relativize(generated.fileName)
-      if (f && typeof f === 'string' && f !== json.fileName) {
+      if (
+        f &&
+        typeof f === 'string' &&
+        (f !== json.fileName || f === '<anonymous>')
+      ) {
         const gen: Record<string, string | number> = {}
         gen.fileName = f
         if (generated.lineNumber)
