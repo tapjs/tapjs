@@ -36,10 +36,16 @@ export const isCompiledCallSiteLine = (c: any) =>
 
 const lineRef =
   '(?:((?:node:|file:)?[^:]+):([1-9][0-9]*):([1-9][0-9]*)|(native))'
+const lineRefLoose = '(?:(.+):([1-9][0-9]*):([1-9][0-9]*))'
+const lineRefLooseRe = new RegExp(lineRefLoose)
 const bareLineRef = `^(?:${lineRef})$`
 const bareLineRefRe = new RegExp(bareLineRef)
+const bareLineRefLoose = `^${lineRefLoose}$`
+const bareLineRefLooseRe = new RegExp(bareLineRefLoose)
 const parenLineRef = `\\(${lineRef}\\)`
 const parenLineRefExec = new RegExp(parenLineRef, 'g')
+const parenLineRefLoose = `([^(]+) \\(${lineRefLoose}\\)$`
+const parenLineRefLooseRe = new RegExp(parenLineRefLoose)
 const trailingLineRefs = `((?: ${parenLineRef})+)$`
 const trailingLineRefsRe = new RegExp(trailingLineRefs)
 // $1 - evalOrigin fname
@@ -65,6 +71,24 @@ export const parseCallSiteLine = (line: string): Compiled => {
     c.fileName = s[s.length - 1]
     s.pop()
     c.fname = (c.fname + ' (' + s.join('] (') + ']').trim()
+  }
+  // if we ended up with an fname and nothing else, try a more liberal approach
+  if (c.fname && !c.fileName && !c.columnNumber && !c.lineNumber) {
+    const bl = c.fname.match(bareLineRefLooseRe)
+    if (bl) {
+      c.fname = undefined
+      c.fileName = bl[1]
+      c.lineNumber = +bl[2]
+      c.columnNumber = +bl[3]
+    } else {
+      const pl = c.fname.match(parenLineRefLooseRe)
+      if (pl) {
+        c.fname = pl[1]
+        c.fileName = pl[2]
+        c.lineNumber = +pl[3]
+        c.columnNumber = +pl[4]
+      }
+    }
   }
   return c
 }
@@ -125,8 +149,11 @@ const compileLineRefParse = (
 ): LineRef | NativeLineRef | Compiled => {
   if (other === 'native') {
     return { isNative: true, [isCompiled]: true }
+    // no other types defined, but could be eventually?
+    /* c8 ignore start */
   } else if (other) {
     return { fileName: other, [isCompiled]: true }
+    /* c8 igore stop */
   } else if (file && line && col) {
     return {
       fileName: file,
@@ -135,7 +162,7 @@ const compileLineRefParse = (
       [isCompiled]: true,
     }
   } else {
-    return { fname: other || file, [isCompiled]: true }
+    return { fname: file, [isCompiled]: true }
   }
 }
 
@@ -180,20 +207,19 @@ const parseLineRefs = (line: string): Compiled => {
   const generated = lineRefs.pop()
   // shouldn't be any left, but possible if you had a function name
   // that looked like a line ref, though V8 puts [] around those
+  /* c8 ignore start */
   pre += lineRefs
-    .map(
-      lr =>
-        isLineRef(lr)
-          ? ` (${lr.fileName}:${lr.lineNumber}:${lr.columnNumber})`
-          : lr.isNative
-          ? ` (native)`
-          : lr.fileName
-          ? /* c8 ignore start */
-            ` (${lr.fileName})`
-          : ''
-      /* c8 ignore stop */
+    .map(lr =>
+      isLineRef(lr)
+        ? ` (${lr.fileName}:${lr.lineNumber}:${lr.columnNumber})`
+        : lr.isNative
+        ? ` (native)`
+        : lr.fileName
+        ? ` (${lr.fileName})`
+        : ''
     )
     .join('')
+  /* c8 ignore stop */
 
   const r = {
     fname: pre,
