@@ -168,7 +168,7 @@ const pluginsConfig = (() => {
           : cfg.multiple
           ? 'optList'
           : 'opt'
-      code += `    .${fn}({[${jf}]: config_${name}_${c++}})\n`
+      code += `    .${fn}({ ${jf}: config_${name}_${c++} })\n`
     }
   }
 
