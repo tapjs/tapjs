@@ -5,9 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[
-  `test/parse-stringify.ts > TAP > confusing-json.tap > bail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > confusing-json.tap > bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -224,9 +222,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > confusing-json.tap > bail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > confusing-json.tap > bail > stringified 1`] = `
 TAP version 13
 # Subtest: Test newlines in tap and console.log
     ok 1 - Before console.log
@@ -255,9 +251,7 @@ ok 1 - Test newlines in tap and console.log # time=4.137ms
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > confusing-json.tap > bail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > confusing-json.tap > bail > stringified flat 1`] = `
 TAP version 13
 # Subtest: Test newlines in tap and console.log
 ok 1 - Test newlines in tap and console.log > Before console.log
@@ -285,9 +279,7 @@ ok 3 - Test newlines in tap and console.log # time=4.137ms
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > confusing-json.tap > default settings > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > confusing-json.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -504,9 +496,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > confusing-json.tap > default settings > parsed flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > confusing-json.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "version",
@@ -658,9 +648,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > confusing-json.tap > default settings > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > confusing-json.tap > default settings > stringified 1`] = `
 TAP version 13
 # Subtest: Test newlines in tap and console.log
     ok 1 - Before console.log
@@ -689,9 +677,7 @@ ok 1 - Test newlines in tap and console.log # time=4.137ms
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > confusing-json.tap > default settings > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > confusing-json.tap > default settings > stringified flat 1`] = `
 TAP version 13
 # Subtest: Test newlines in tap and console.log
 ok 1 - Test newlines in tap and console.log > Before console.log
@@ -719,9 +705,7 @@ ok 3 - Test newlines in tap and console.log # time=4.137ms
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > confusing-json.tap > strict > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > confusing-json.tap > strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -1044,9 +1028,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > confusing-json.tap > strict > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > confusing-json.tap > strict > stringified 1`] = `
 TAP version 13
 # Subtest: Test newlines in tap and console.log
     ok 1 - Before console.log
@@ -1075,9 +1057,7 @@ ok 1 - Test newlines in tap and console.log # time=4.137ms
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > confusing-json.tap > strict > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > confusing-json.tap > strict > stringified flat 1`] = `
 TAP version 13
 # Subtest: Test newlines in tap and console.log
 ok 1 - Test newlines in tap and console.log > Before console.log
@@ -1105,9 +1085,7 @@ ok 3 - Test newlines in tap and console.log # time=4.137ms
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > confusing-json.tap > strictBail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > confusing-json.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -1430,9 +1408,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > confusing-json.tap > strictBail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > confusing-json.tap > strictBail > stringified 1`] = `
 TAP version 13
 # Subtest: Test newlines in tap and console.log
     ok 1 - Before console.log
@@ -1461,9 +1437,7 @@ ok 1 - Test newlines in tap and console.log # time=4.137ms
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > confusing-json.tap > strictBail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > confusing-json.tap > strictBail > stringified flat 1`] = `
 TAP version 13
 # Subtest: Test newlines in tap and console.log
 ok 1 - Test newlines in tap and console.log > Before console.log

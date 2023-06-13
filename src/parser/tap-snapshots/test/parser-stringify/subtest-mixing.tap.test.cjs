@@ -5,9 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[
-  `test/parse-stringify.ts > TAP > subtest-mixing.tap > bail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > subtest-mixing.tap > bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -1363,9 +1361,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > subtest-mixing.tap > bail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > subtest-mixing.tap > bail > stringified 1`] = `
 TAP version 13
 # All of these should be semantically equivalent
 # Subtest: x1
@@ -1435,9 +1431,7 @@ ok 9 - x9
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > subtest-mixing.tap > bail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > subtest-mixing.tap > bail > stringified flat 1`] = `
 TAP version 13
 # All of these should be semantically equivalent
 # Subtest: x1
@@ -1489,9 +1483,7 @@ ok 27 - x9
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > subtest-mixing.tap > default settings > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > subtest-mixing.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -2847,9 +2839,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > subtest-mixing.tap > default settings > parsed flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > subtest-mixing.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "version",
@@ -3052,9 +3042,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > subtest-mixing.tap > default settings > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > subtest-mixing.tap > default settings > stringified 1`] = `
 TAP version 13
 # All of these should be semantically equivalent
 # Subtest: x1
@@ -3124,9 +3112,7 @@ ok 9 - x9
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > subtest-mixing.tap > default settings > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > subtest-mixing.tap > default settings > stringified flat 1`] = `
 TAP version 13
 # All of these should be semantically equivalent
 # Subtest: x1
@@ -3178,9 +3164,7 @@ ok 27 - x9
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > subtest-mixing.tap > strict > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > subtest-mixing.tap > strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -4536,9 +4520,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > subtest-mixing.tap > strict > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > subtest-mixing.tap > strict > stringified 1`] = `
 TAP version 13
 # All of these should be semantically equivalent
 # Subtest: x1
@@ -4608,9 +4590,7 @@ ok 9 - x9
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > subtest-mixing.tap > strict > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > subtest-mixing.tap > strict > stringified flat 1`] = `
 TAP version 13
 # All of these should be semantically equivalent
 # Subtest: x1
@@ -4662,9 +4642,7 @@ ok 27 - x9
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > subtest-mixing.tap > strictBail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > subtest-mixing.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -6020,9 +5998,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > subtest-mixing.tap > strictBail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > subtest-mixing.tap > strictBail > stringified 1`] = `
 TAP version 13
 # All of these should be semantically equivalent
 # Subtest: x1
@@ -6092,9 +6068,7 @@ ok 9 - x9
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > subtest-mixing.tap > strictBail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > subtest-mixing.tap > strictBail > stringified flat 1`] = `
 TAP version 13
 # All of these should be semantically equivalent
 # Subtest: x1

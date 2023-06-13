@@ -5,9 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[
-  `test/parse-stringify.ts > TAP > comment-mid-diag.tap > bail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > comment-mid-diag.tap > bail > parsed 1`] = `
 Array [
   Array [
     "comment",
@@ -122,9 +120,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > comment-mid-diag.tap > bail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > comment-mid-diag.tap > bail > stringified 1`] = `
 # before version
 TAP version 13
 # after version, before plan
@@ -142,9 +138,7 @@ Bail out! please keep my diags
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > comment-mid-diag.tap > bail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > comment-mid-diag.tap > bail > stringified flat 1`] = `
 # before version
 TAP version 13
 # after version, before plan
@@ -162,9 +156,7 @@ Bail out! please keep my diags
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > comment-mid-diag.tap > default settings > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > comment-mid-diag.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "comment",
@@ -296,9 +288,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > comment-mid-diag.tap > default settings > parsed flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > comment-mid-diag.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "comment",
@@ -429,9 +419,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > comment-mid-diag.tap > default settings > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > comment-mid-diag.tap > default settings > stringified 1`] = `
 # before version
 TAP version 13
 # after version, before plan
@@ -450,9 +438,7 @@ ok 2
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > comment-mid-diag.tap > default settings > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > comment-mid-diag.tap > default settings > stringified flat 1`] = `
 # before version
 TAP version 13
 # after version, before plan
@@ -471,9 +457,7 @@ ok 2
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > comment-mid-diag.tap > strict > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > comment-mid-diag.tap > strict > parsed 1`] = `
 Array [
   Array [
     "comment",
@@ -605,9 +589,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > comment-mid-diag.tap > strict > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > comment-mid-diag.tap > strict > stringified 1`] = `
 # before version
 TAP version 13
 # after version, before plan
@@ -626,9 +608,7 @@ ok 2
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > comment-mid-diag.tap > strict > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > comment-mid-diag.tap > strict > stringified flat 1`] = `
 # before version
 TAP version 13
 # after version, before plan
@@ -647,9 +627,7 @@ ok 2
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > comment-mid-diag.tap > strictBail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > comment-mid-diag.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "comment",
@@ -764,9 +742,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > comment-mid-diag.tap > strictBail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > comment-mid-diag.tap > strictBail > stringified 1`] = `
 # before version
 TAP version 13
 # after version, before plan
@@ -784,9 +760,7 @@ Bail out! please keep my diags
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > comment-mid-diag.tap > strictBail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > comment-mid-diag.tap > strictBail > stringified flat 1`] = `
 # before version
 TAP version 13
 # after version, before plan

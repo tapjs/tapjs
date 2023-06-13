@@ -5,9 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[
-  `test/parse-stringify.ts > TAP > pragma-invalid.tap > bail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > pragma-invalid.tap > bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -84,9 +82,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > pragma-invalid.tap > bail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > pragma-invalid.tap > bail > stringified 1`] = `
 TAP version 13
 1..1
 pragma +this is not a valid pragma
@@ -96,9 +92,7 @@ ok
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > pragma-invalid.tap > bail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > pragma-invalid.tap > bail > stringified flat 1`] = `
 TAP version 13
 1..0
 pragma +this is not a valid pragma
@@ -108,9 +102,7 @@ ok 1
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > pragma-invalid.tap > default settings > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > pragma-invalid.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -187,9 +179,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > pragma-invalid.tap > default settings > parsed flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > pragma-invalid.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "version",
@@ -265,9 +255,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > pragma-invalid.tap > default settings > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > pragma-invalid.tap > default settings > stringified 1`] = `
 TAP version 13
 1..1
 pragma +this is not a valid pragma
@@ -277,9 +265,7 @@ ok
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > pragma-invalid.tap > default settings > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > pragma-invalid.tap > default settings > stringified flat 1`] = `
 TAP version 13
 1..0
 pragma +this is not a valid pragma
@@ -289,9 +275,7 @@ ok 1
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > pragma-invalid.tap > strict > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > pragma-invalid.tap > strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -377,9 +361,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > pragma-invalid.tap > strict > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > pragma-invalid.tap > strict > stringified 1`] = `
 TAP version 13
 1..1
 pragma +this is not a valid pragma
@@ -389,9 +371,7 @@ ok
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > pragma-invalid.tap > strict > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > pragma-invalid.tap > strict > stringified flat 1`] = `
 TAP version 13
 1..0
 pragma +this is not a valid pragma
@@ -401,9 +381,7 @@ ok 1
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > pragma-invalid.tap > strictBail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > pragma-invalid.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -489,9 +467,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > pragma-invalid.tap > strictBail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > pragma-invalid.tap > strictBail > stringified 1`] = `
 TAP version 13
 1..1
 pragma +this is not a valid pragma
@@ -501,9 +477,7 @@ ok
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > pragma-invalid.tap > strictBail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > pragma-invalid.tap > strictBail > stringified flat 1`] = `
 TAP version 13
 1..0
 pragma +this is not a valid pragma

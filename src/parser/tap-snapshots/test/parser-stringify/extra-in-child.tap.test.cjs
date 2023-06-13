@@ -5,9 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[
-  `test/parse-stringify.ts > TAP > extra-in-child.tap > bail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > extra-in-child.tap > bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -409,9 +407,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > extra-in-child.tap > bail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > extra-in-child.tap > bail > stringified 1`] = `
 TAP version 13
 # Subtest: test/01c-user-updates.js
     # Subtest: update profile
@@ -457,9 +453,7 @@ ok 1 - test/01c-user-updates.js # time=339.14ms
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > extra-in-child.tap > bail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > extra-in-child.tap > bail > stringified flat 1`] = `
 TAP version 13
 # Subtest: test/01c-user-updates.js
 # Subtest: update profile
@@ -502,9 +496,7 @@ ok 6 - test/01c-user-updates.js # time=339.14ms
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > extra-in-child.tap > default settings > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > extra-in-child.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -906,9 +898,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > extra-in-child.tap > default settings > parsed flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > extra-in-child.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "version",
@@ -1113,9 +1103,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > extra-in-child.tap > default settings > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > extra-in-child.tap > default settings > stringified 1`] = `
 TAP version 13
 # Subtest: test/01c-user-updates.js
     # Subtest: update profile
@@ -1161,9 +1149,7 @@ ok 1 - test/01c-user-updates.js # time=339.14ms
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > extra-in-child.tap > default settings > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > extra-in-child.tap > default settings > stringified flat 1`] = `
 TAP version 13
 # Subtest: test/01c-user-updates.js
 # Subtest: update profile
@@ -1206,9 +1192,7 @@ ok 6 - test/01c-user-updates.js # time=339.14ms
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > extra-in-child.tap > strict > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > extra-in-child.tap > strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -1820,9 +1804,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > extra-in-child.tap > strict > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > extra-in-child.tap > strict > stringified 1`] = `
 TAP version 13
 # Subtest: test/01c-user-updates.js
     # Subtest: update profile
@@ -1868,9 +1850,7 @@ ok 1 - test/01c-user-updates.js # time=339.14ms
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > extra-in-child.tap > strict > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > extra-in-child.tap > strict > stringified flat 1`] = `
 TAP version 13
 # Subtest: test/01c-user-updates.js
 # Subtest: update profile
@@ -1913,9 +1893,7 @@ ok 6 - test/01c-user-updates.js # time=339.14ms
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > extra-in-child.tap > strictBail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > extra-in-child.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -2527,9 +2505,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > extra-in-child.tap > strictBail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > extra-in-child.tap > strictBail > stringified 1`] = `
 TAP version 13
 # Subtest: test/01c-user-updates.js
     # Subtest: update profile
@@ -2575,9 +2551,7 @@ ok 1 - test/01c-user-updates.js # time=339.14ms
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > extra-in-child.tap > strictBail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > extra-in-child.tap > strictBail > stringified flat 1`] = `
 TAP version 13
 # Subtest: test/01c-user-updates.js
 # Subtest: update profile

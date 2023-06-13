@@ -5,9 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[
-  `test/parse-stringify.ts > TAP > skipping-a-few.tap > bail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > skipping-a-few.tap > bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -200,9 +198,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > skipping-a-few.tap > bail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > skipping-a-few.tap > bail > stringified 1`] = `
 TAP version 13
 1..5
 ok 1 - approved operating system
@@ -214,9 +210,7 @@ ok 5 # SKIP no /sys directory
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > skipping-a-few.tap > bail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > skipping-a-few.tap > bail > stringified flat 1`] = `
 TAP version 13
 1..0
 ok 1 - approved operating system
@@ -228,9 +222,7 @@ ok 5 # SKIP no /sys directory
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > skipping-a-few.tap > default settings > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > skipping-a-few.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -423,9 +415,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > skipping-a-few.tap > default settings > parsed flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > skipping-a-few.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "version",
@@ -617,9 +607,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > skipping-a-few.tap > default settings > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > skipping-a-few.tap > default settings > stringified 1`] = `
 TAP version 13
 1..5
 ok 1 - approved operating system
@@ -631,9 +619,7 @@ ok 5 # SKIP no /sys directory
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > skipping-a-few.tap > default settings > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > skipping-a-few.tap > default settings > stringified flat 1`] = `
 TAP version 13
 1..0
 ok 1 - approved operating system
@@ -645,9 +631,7 @@ ok 5 # SKIP no /sys directory
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > skipping-a-few.tap > strict > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > skipping-a-few.tap > strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -840,9 +824,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > skipping-a-few.tap > strict > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > skipping-a-few.tap > strict > stringified 1`] = `
 TAP version 13
 1..5
 ok 1 - approved operating system
@@ -854,9 +836,7 @@ ok 5 # SKIP no /sys directory
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > skipping-a-few.tap > strict > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > skipping-a-few.tap > strict > stringified flat 1`] = `
 TAP version 13
 1..0
 ok 1 - approved operating system
@@ -868,9 +848,7 @@ ok 5 # SKIP no /sys directory
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > skipping-a-few.tap > strictBail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > skipping-a-few.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -1063,9 +1041,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > skipping-a-few.tap > strictBail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > skipping-a-few.tap > strictBail > stringified 1`] = `
 TAP version 13
 1..5
 ok 1 - approved operating system
@@ -1077,9 +1053,7 @@ ok 5 # SKIP no /sys directory
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > skipping-a-few.tap > strictBail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > skipping-a-few.tap > strictBail > stringified flat 1`] = `
 TAP version 13
 1..0
 ok 1 - approved operating system

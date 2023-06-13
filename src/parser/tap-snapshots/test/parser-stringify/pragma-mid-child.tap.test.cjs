@@ -5,9 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[
-  `test/parse-stringify.ts > TAP > pragma-mid-child.tap > bail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > pragma-mid-child.tap > bail > parsed 1`] = `
 Array [
   Array [
     "pragma",
@@ -140,9 +138,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > pragma-mid-child.tap > bail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > pragma-mid-child.tap > bail > stringified 1`] = `
 pragma +foo
 1..1
 # Subtest
@@ -153,9 +149,7 @@ ok
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > pragma-mid-child.tap > bail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > pragma-mid-child.tap > bail > stringified flat 1`] = `
 pragma +foo
 1..0
 # Subtest
@@ -165,9 +159,7 @@ ok 2
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > pragma-mid-child.tap > default settings > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > pragma-mid-child.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "pragma",
@@ -300,9 +292,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > pragma-mid-child.tap > default settings > parsed flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > pragma-mid-child.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "pragma",
@@ -370,9 +360,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > pragma-mid-child.tap > default settings > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > pragma-mid-child.tap > default settings > stringified 1`] = `
 pragma +foo
 1..1
 # Subtest
@@ -383,9 +371,7 @@ ok
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > pragma-mid-child.tap > default settings > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > pragma-mid-child.tap > default settings > stringified flat 1`] = `
 pragma +foo
 1..0
 # Subtest
@@ -395,9 +381,7 @@ ok 2
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > pragma-mid-child.tap > strict > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > pragma-mid-child.tap > strict > parsed 1`] = `
 Array [
   Array [
     "pragma",
@@ -535,9 +519,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > pragma-mid-child.tap > strict > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > pragma-mid-child.tap > strict > stringified 1`] = `
 pragma +foo
 1..1
 # Subtest
@@ -548,9 +530,7 @@ ok
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > pragma-mid-child.tap > strict > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > pragma-mid-child.tap > strict > stringified flat 1`] = `
 pragma +foo
 1..0
 # Subtest
@@ -560,9 +540,7 @@ ok 2
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > pragma-mid-child.tap > strictBail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > pragma-mid-child.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "pragma",
@@ -700,9 +678,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > pragma-mid-child.tap > strictBail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > pragma-mid-child.tap > strictBail > stringified 1`] = `
 pragma +foo
 1..1
 # Subtest
@@ -713,9 +689,7 @@ ok
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > pragma-mid-child.tap > strictBail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > pragma-mid-child.tap > strictBail > stringified flat 1`] = `
 pragma +foo
 1..0
 # Subtest

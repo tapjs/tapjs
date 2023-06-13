@@ -5,9 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[
-  `test/parse-stringify.ts > TAP > descriptive_trailing.tap > bail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > descriptive_trailing.tap > bail > parsed 1`] = `
 Array [
   Array [
     "assert",
@@ -135,9 +133,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > descriptive_trailing.tap > bail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > descriptive_trailing.tap > bail > stringified 1`] = `
 ok 1 - Interlock activated
 ok 2 - Megathrusters are go
 ok 3 - Head formed
@@ -147,9 +143,7 @@ ok 5 - Robeast destroyed
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > descriptive_trailing.tap > bail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > descriptive_trailing.tap > bail > stringified flat 1`] = `
 ok 1 - Interlock activated
 ok 2 - Megathrusters are go
 ok 3 - Head formed
@@ -159,9 +153,7 @@ ok 5 - Robeast destroyed
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > descriptive_trailing.tap > default settings > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > descriptive_trailing.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "assert",
@@ -289,9 +281,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > descriptive_trailing.tap > default settings > parsed flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > descriptive_trailing.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "assert",
@@ -418,9 +408,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > descriptive_trailing.tap > default settings > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > descriptive_trailing.tap > default settings > stringified 1`] = `
 ok 1 - Interlock activated
 ok 2 - Megathrusters are go
 ok 3 - Head formed
@@ -430,9 +418,7 @@ ok 5 - Robeast destroyed
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > descriptive_trailing.tap > default settings > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > descriptive_trailing.tap > default settings > stringified flat 1`] = `
 ok 1 - Interlock activated
 ok 2 - Megathrusters are go
 ok 3 - Head formed
@@ -442,9 +428,7 @@ ok 5 - Robeast destroyed
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > descriptive_trailing.tap > strict > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > descriptive_trailing.tap > strict > parsed 1`] = `
 Array [
   Array [
     "assert",
@@ -572,9 +556,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > descriptive_trailing.tap > strict > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > descriptive_trailing.tap > strict > stringified 1`] = `
 ok 1 - Interlock activated
 ok 2 - Megathrusters are go
 ok 3 - Head formed
@@ -584,9 +566,7 @@ ok 5 - Robeast destroyed
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > descriptive_trailing.tap > strict > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > descriptive_trailing.tap > strict > stringified flat 1`] = `
 ok 1 - Interlock activated
 ok 2 - Megathrusters are go
 ok 3 - Head formed
@@ -596,9 +576,7 @@ ok 5 - Robeast destroyed
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > descriptive_trailing.tap > strictBail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > descriptive_trailing.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "assert",
@@ -726,9 +704,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > descriptive_trailing.tap > strictBail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > descriptive_trailing.tap > strictBail > stringified 1`] = `
 ok 1 - Interlock activated
 ok 2 - Megathrusters are go
 ok 3 - Head formed
@@ -738,9 +714,7 @@ ok 5 - Robeast destroyed
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > descriptive_trailing.tap > strictBail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > descriptive_trailing.tap > strictBail > stringified flat 1`] = `
 ok 1 - Interlock activated
 ok 2 - Megathrusters are go
 ok 3 - Head formed

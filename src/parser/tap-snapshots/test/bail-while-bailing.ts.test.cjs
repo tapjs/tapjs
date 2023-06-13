@@ -5,9 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[
-  `test/bail-while-bailing.ts > TAP > must match snapshot 1`
-] = `
+exports[`test/bail-while-bailing.ts > TAP > must match snapshot 1`] = `
 Array [
   Array [
     "version",

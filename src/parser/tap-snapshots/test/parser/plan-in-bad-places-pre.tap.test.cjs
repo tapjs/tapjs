@@ -5,9 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[
-  `test/parser.ts > TAP > plan-in-bad-places-pre.tap > output bail=false 1`
-] = `
+exports[`test/parser.ts > TAP > plan-in-bad-places-pre.tap > output bail=false 1`] = `
 Array [
   Array [
     "line",
@@ -295,9 +293,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parser.ts > TAP > plan-in-bad-places-pre.tap > output bail=true 1`
-] = `
+exports[`test/parser.ts > TAP > plan-in-bad-places-pre.tap > output bail=true 1`] = `
 Array [
   Array [
     "line",

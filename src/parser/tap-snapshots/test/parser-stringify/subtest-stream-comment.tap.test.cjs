@@ -5,9 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[
-  `test/parse-stringify.ts > TAP > subtest-stream-comment.tap > bail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > subtest-stream-comment.tap > bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -352,9 +350,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > subtest-stream-comment.tap > bail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > subtest-stream-comment.tap > bail > stringified 1`] = `
 TAP version 13
 # Subtest: nesting
     1..2
@@ -376,9 +372,7 @@ ok 2 - this passes
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > subtest-stream-comment.tap > bail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > subtest-stream-comment.tap > bail > stringified flat 1`] = `
 TAP version 13
 # Subtest: nesting
 # Subtest: first
@@ -397,9 +391,7 @@ ok 9 - this passes
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > subtest-stream-comment.tap > default settings > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > subtest-stream-comment.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -744,9 +736,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > subtest-stream-comment.tap > default settings > parsed flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > subtest-stream-comment.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "version",
@@ -898,9 +888,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > subtest-stream-comment.tap > default settings > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > subtest-stream-comment.tap > default settings > stringified 1`] = `
 TAP version 13
 # Subtest: nesting
     1..2
@@ -922,9 +910,7 @@ ok 2 - this passes
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > subtest-stream-comment.tap > default settings > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > subtest-stream-comment.tap > default settings > stringified flat 1`] = `
 TAP version 13
 # Subtest: nesting
 # Subtest: first
@@ -943,9 +929,7 @@ ok 9 - this passes
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > subtest-stream-comment.tap > strict > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > subtest-stream-comment.tap > strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -1290,9 +1274,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > subtest-stream-comment.tap > strict > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > subtest-stream-comment.tap > strict > stringified 1`] = `
 TAP version 13
 # Subtest: nesting
     1..2
@@ -1314,9 +1296,7 @@ ok 2 - this passes
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > subtest-stream-comment.tap > strict > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > subtest-stream-comment.tap > strict > stringified flat 1`] = `
 TAP version 13
 # Subtest: nesting
 # Subtest: first
@@ -1335,9 +1315,7 @@ ok 9 - this passes
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > subtest-stream-comment.tap > strictBail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > subtest-stream-comment.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -1682,9 +1660,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > subtest-stream-comment.tap > strictBail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > subtest-stream-comment.tap > strictBail > stringified 1`] = `
 TAP version 13
 # Subtest: nesting
     1..2
@@ -1706,9 +1682,7 @@ ok 2 - this passes
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > subtest-stream-comment.tap > strictBail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > subtest-stream-comment.tap > strictBail > stringified flat 1`] = `
 TAP version 13
 # Subtest: nesting
 # Subtest: first

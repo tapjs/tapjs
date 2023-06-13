@@ -5,9 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[
-  `test/parse-stringify.ts > TAP > skip-all.tap > bail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > skip-all.tap > bail > parsed 1`] = `
 Array [
   Array [
     "comment",
@@ -54,25 +52,19 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > skip-all.tap > bail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > skip-all.tap > bail > stringified 1`] = `
 # TAP emitted by Test::More 0.98
 1..0 # SKIP Insufficient positron flux
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > skip-all.tap > bail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > skip-all.tap > bail > stringified flat 1`] = `
 # TAP emitted by Test::More 0.98
 1..0 # SKIP Insufficient positron flux
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > skip-all.tap > default settings > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > skip-all.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "comment",
@@ -119,9 +111,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > skip-all.tap > default settings > parsed flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > skip-all.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "comment",
@@ -167,25 +157,19 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > skip-all.tap > default settings > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > skip-all.tap > default settings > stringified 1`] = `
 # TAP emitted by Test::More 0.98
 1..0 # SKIP Insufficient positron flux
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > skip-all.tap > default settings > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > skip-all.tap > default settings > stringified flat 1`] = `
 # TAP emitted by Test::More 0.98
 1..0 # SKIP Insufficient positron flux
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > skip-all.tap > strict > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > skip-all.tap > strict > parsed 1`] = `
 Array [
   Array [
     "comment",
@@ -232,25 +216,19 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > skip-all.tap > strict > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > skip-all.tap > strict > stringified 1`] = `
 # TAP emitted by Test::More 0.98
 1..0 # SKIP Insufficient positron flux
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > skip-all.tap > strict > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > skip-all.tap > strict > stringified flat 1`] = `
 # TAP emitted by Test::More 0.98
 1..0 # SKIP Insufficient positron flux
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > skip-all.tap > strictBail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > skip-all.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "comment",
@@ -297,17 +275,13 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > skip-all.tap > strictBail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > skip-all.tap > strictBail > stringified 1`] = `
 # TAP emitted by Test::More 0.98
 1..0 # SKIP Insufficient positron flux
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > skip-all.tap > strictBail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > skip-all.tap > strictBail > stringified flat 1`] = `
 # TAP emitted by Test::More 0.98
 1..0 # SKIP Insufficient positron flux
 

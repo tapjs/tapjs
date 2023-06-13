@@ -5,9 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[
-  `test/parse-stringify.ts > TAP > line-break.tap > bail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > line-break.tap > bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -145,9 +143,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > line-break.tap > bail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > line-break.tap > bail > stringified 1`] = `
 TAP version 13
 # Subtest: foo
     not ok 1 - should be equivalent
@@ -166,9 +162,7 @@ Bail out! should be equivalent
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > line-break.tap > bail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > line-break.tap > bail > stringified flat 1`] = `
 TAP version 13
 # Subtest: foo
 not ok 1 - foo > should be equivalent
@@ -187,9 +181,7 @@ Bail out! should be equivalent
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > line-break.tap > default settings > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > line-break.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -403,9 +395,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > line-break.tap > default settings > parsed flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > line-break.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "version",
@@ -513,9 +503,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > line-break.tap > default settings > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > line-break.tap > default settings > stringified 1`] = `
 TAP version 13
 # Subtest: foo
     not ok 1 - should be equivalent
@@ -549,9 +537,7 @@ not ok 1 - foo # time=13.457ms
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > line-break.tap > default settings > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > line-break.tap > default settings > stringified flat 1`] = `
 TAP version 13
 # Subtest: foo
 not ok 1 - foo > should be equivalent
@@ -584,9 +570,7 @@ not ok 2 - foo # time=13.457ms
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > line-break.tap > strict > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > line-break.tap > strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -800,9 +784,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > line-break.tap > strict > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > line-break.tap > strict > stringified 1`] = `
 TAP version 13
 # Subtest: foo
     not ok 1 - should be equivalent
@@ -836,9 +818,7 @@ not ok 1 - foo # time=13.457ms
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > line-break.tap > strict > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > line-break.tap > strict > stringified flat 1`] = `
 TAP version 13
 # Subtest: foo
 not ok 1 - foo > should be equivalent
@@ -871,9 +851,7 @@ not ok 2 - foo # time=13.457ms
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > line-break.tap > strictBail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > line-break.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -1011,9 +989,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > line-break.tap > strictBail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > line-break.tap > strictBail > stringified 1`] = `
 TAP version 13
 # Subtest: foo
     not ok 1 - should be equivalent
@@ -1032,9 +1008,7 @@ Bail out! should be equivalent
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > line-break.tap > strictBail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > line-break.tap > strictBail > stringified flat 1`] = `
 TAP version 13
 # Subtest: foo
 not ok 1 - foo > should be equivalent

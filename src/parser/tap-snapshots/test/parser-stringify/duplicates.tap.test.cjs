@@ -5,9 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[
-  `test/parse-stringify.ts > TAP > duplicates.tap > bail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > duplicates.tap > bail > parsed 1`] = `
 Array [
   Array [
     "plan",
@@ -282,9 +280,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > duplicates.tap > bail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > duplicates.tap > bail > stringified 1`] = `
 1..10
 ok 1
 ok 2
@@ -301,9 +297,7 @@ ok 10
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > duplicates.tap > bail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > duplicates.tap > bail > stringified flat 1`] = `
 1..0
 ok 1
 ok 2
@@ -320,9 +314,7 @@ ok 11
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > duplicates.tap > default settings > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > duplicates.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "plan",
@@ -597,9 +589,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > duplicates.tap > default settings > parsed flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > duplicates.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "assert",
@@ -873,9 +863,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > duplicates.tap > default settings > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > duplicates.tap > default settings > stringified 1`] = `
 1..10
 ok 1
 ok 2
@@ -892,9 +880,7 @@ ok 10
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > duplicates.tap > default settings > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > duplicates.tap > default settings > stringified flat 1`] = `
 1..0
 ok 1
 ok 2
@@ -911,9 +897,7 @@ ok 11
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > duplicates.tap > strict > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > duplicates.tap > strict > parsed 1`] = `
 Array [
   Array [
     "plan",
@@ -1188,9 +1172,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > duplicates.tap > strict > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > duplicates.tap > strict > stringified 1`] = `
 1..10
 ok 1
 ok 2
@@ -1207,9 +1189,7 @@ ok 10
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > duplicates.tap > strict > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > duplicates.tap > strict > stringified flat 1`] = `
 1..0
 ok 1
 ok 2
@@ -1226,9 +1206,7 @@ ok 11
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > duplicates.tap > strictBail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > duplicates.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "plan",
@@ -1503,9 +1481,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > duplicates.tap > strictBail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > duplicates.tap > strictBail > stringified 1`] = `
 1..10
 ok 1
 ok 2
@@ -1522,9 +1498,7 @@ ok 10
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > duplicates.tap > strictBail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > duplicates.tap > strictBail > stringified flat 1`] = `
 1..0
 ok 1
 ok 2

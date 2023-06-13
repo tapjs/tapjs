@@ -5,9 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[
-  `test/parse-stringify.ts > TAP > subtest-no-comment-leading-comment.tap > bail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > subtest-no-comment-leading-comment.tap > bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -412,9 +410,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > subtest-no-comment-leading-comment.tap > bail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > subtest-no-comment-leading-comment.tap > bail > stringified 1`] = `
 TAP version 13
 # Subtest: ../tap/test/test/ok.js
     # Subtest
@@ -438,9 +434,7 @@ ok 1 - ../tap/test/test/ok.js # time=205.826ms
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > subtest-no-comment-leading-comment.tap > bail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > subtest-no-comment-leading-comment.tap > bail > stringified flat 1`] = `
 TAP version 13
 # Subtest: ../tap/test/test/ok.js
 # Subtest
@@ -460,9 +454,7 @@ ok 10 - ../tap/test/test/ok.js # time=205.826ms
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > subtest-no-comment-leading-comment.tap > default settings > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > subtest-no-comment-leading-comment.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -867,9 +859,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > subtest-no-comment-leading-comment.tap > default settings > parsed flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > subtest-no-comment-leading-comment.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "version",
@@ -1068,9 +1058,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > subtest-no-comment-leading-comment.tap > default settings > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > subtest-no-comment-leading-comment.tap > default settings > stringified 1`] = `
 TAP version 13
 # Subtest: ../tap/test/test/ok.js
     # Subtest
@@ -1094,9 +1082,7 @@ ok 1 - ../tap/test/test/ok.js # time=205.826ms
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > subtest-no-comment-leading-comment.tap > default settings > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > subtest-no-comment-leading-comment.tap > default settings > stringified flat 1`] = `
 TAP version 13
 # Subtest: ../tap/test/test/ok.js
 # Subtest
@@ -1116,9 +1102,7 @@ ok 10 - ../tap/test/test/ok.js # time=205.826ms
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > subtest-no-comment-leading-comment.tap > strict > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > subtest-no-comment-leading-comment.tap > strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -1523,9 +1507,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > subtest-no-comment-leading-comment.tap > strict > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > subtest-no-comment-leading-comment.tap > strict > stringified 1`] = `
 TAP version 13
 # Subtest: ../tap/test/test/ok.js
     # Subtest
@@ -1549,9 +1531,7 @@ ok 1 - ../tap/test/test/ok.js # time=205.826ms
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > subtest-no-comment-leading-comment.tap > strict > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > subtest-no-comment-leading-comment.tap > strict > stringified flat 1`] = `
 TAP version 13
 # Subtest: ../tap/test/test/ok.js
 # Subtest
@@ -1571,9 +1551,7 @@ ok 10 - ../tap/test/test/ok.js # time=205.826ms
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > subtest-no-comment-leading-comment.tap > strictBail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > subtest-no-comment-leading-comment.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -1978,9 +1956,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > subtest-no-comment-leading-comment.tap > strictBail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > subtest-no-comment-leading-comment.tap > strictBail > stringified 1`] = `
 TAP version 13
 # Subtest: ../tap/test/test/ok.js
     # Subtest
@@ -2004,9 +1980,7 @@ ok 1 - ../tap/test/test/ok.js # time=205.826ms
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > subtest-no-comment-leading-comment.tap > strictBail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > subtest-no-comment-leading-comment.tap > strictBail > stringified flat 1`] = `
 TAP version 13
 # Subtest: ../tap/test/test/ok.js
 # Subtest

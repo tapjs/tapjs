@@ -5,9 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[
-  `test/parse-stringify.ts > TAP > not-ok.tap > bail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > not-ok.tap > bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -107,9 +105,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > not-ok.tap > bail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > not-ok.tap > bail > stringified 1`] = `
 TAP version 13
 # beep
 ok 1 - should be equal
@@ -119,9 +115,7 @@ Bail out! should be equivalent
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > not-ok.tap > bail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > not-ok.tap > bail > stringified flat 1`] = `
 TAP version 13
 # beep
 ok 1 - should be equal
@@ -131,9 +125,7 @@ Bail out! should be equivalent
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > not-ok.tap > default settings > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > not-ok.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -283,9 +275,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > not-ok.tap > default settings > parsed flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > not-ok.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "version",
@@ -434,9 +424,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > not-ok.tap > default settings > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > not-ok.tap > default settings > stringified 1`] = `
 TAP version 13
 # beep
 ok 1 - should be equal
@@ -451,9 +439,7 @@ ok 4 - (unnamed assert)
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > not-ok.tap > default settings > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > not-ok.tap > default settings > stringified flat 1`] = `
 TAP version 13
 # beep
 ok 1 - should be equal
@@ -468,9 +454,7 @@ ok 4 - (unnamed assert)
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > not-ok.tap > strict > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > not-ok.tap > strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -620,9 +604,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > not-ok.tap > strict > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > not-ok.tap > strict > stringified 1`] = `
 TAP version 13
 # beep
 ok 1 - should be equal
@@ -637,9 +619,7 @@ ok 4 - (unnamed assert)
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > not-ok.tap > strict > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > not-ok.tap > strict > stringified flat 1`] = `
 TAP version 13
 # beep
 ok 1 - should be equal
@@ -654,9 +634,7 @@ ok 4 - (unnamed assert)
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > not-ok.tap > strictBail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > not-ok.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -756,9 +734,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > not-ok.tap > strictBail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > not-ok.tap > strictBail > stringified 1`] = `
 TAP version 13
 # beep
 ok 1 - should be equal
@@ -768,9 +744,7 @@ Bail out! should be equivalent
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > not-ok.tap > strictBail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > not-ok.tap > strictBail > stringified flat 1`] = `
 TAP version 13
 # beep
 ok 1 - should be equal

@@ -5,9 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[
-  `test/parse-stringify.ts > TAP > no-numbers.tap > bail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > no-numbers.tap > bail > parsed 1`] = `
 Array [
   Array [
     "plan",
@@ -103,9 +101,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > no-numbers.tap > bail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > no-numbers.tap > bail > stringified 1`] = `
 1..3
 ok - we are good
 not ok 2 - we are bad
@@ -113,9 +109,7 @@ Bail out! we are bad
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > no-numbers.tap > bail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > no-numbers.tap > bail > stringified flat 1`] = `
 1..0
 ok 1 - we are good
 not ok 2 - we are bad
@@ -123,9 +117,7 @@ Bail out! we are bad
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > no-numbers.tap > default settings > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > no-numbers.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "plan",
@@ -234,9 +226,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > no-numbers.tap > default settings > parsed flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > no-numbers.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "assert",
@@ -344,9 +334,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > no-numbers.tap > default settings > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > no-numbers.tap > default settings > stringified 1`] = `
 1..3
 ok - we are good
 not ok 2 - we are bad
@@ -354,9 +342,7 @@ ok - we are zesty!
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > no-numbers.tap > default settings > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > no-numbers.tap > default settings > stringified flat 1`] = `
 1..0
 ok 1 - we are good
 not ok 2 - we are bad
@@ -364,9 +350,7 @@ ok 3 - we are zesty!
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > no-numbers.tap > strict > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > no-numbers.tap > strict > parsed 1`] = `
 Array [
   Array [
     "plan",
@@ -475,9 +459,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > no-numbers.tap > strict > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > no-numbers.tap > strict > stringified 1`] = `
 1..3
 ok - we are good
 not ok 2 - we are bad
@@ -485,9 +467,7 @@ ok - we are zesty!
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > no-numbers.tap > strict > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > no-numbers.tap > strict > stringified flat 1`] = `
 1..0
 ok 1 - we are good
 not ok 2 - we are bad
@@ -495,9 +475,7 @@ ok 3 - we are zesty!
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > no-numbers.tap > strictBail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > no-numbers.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "plan",
@@ -593,9 +571,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > no-numbers.tap > strictBail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > no-numbers.tap > strictBail > stringified 1`] = `
 1..3
 ok - we are good
 not ok 2 - we are bad
@@ -603,9 +579,7 @@ Bail out! we are bad
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > no-numbers.tap > strictBail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > no-numbers.tap > strictBail > stringified flat 1`] = `
 1..0
 ok 1 - we are good
 not ok 2 - we are bad

@@ -5,9 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[
-  `test/parse-stringify.ts > TAP > strict-pragma-child-broken-diags.tap > bail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > strict-pragma-child-broken-diags.tap > bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -155,9 +153,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > strict-pragma-child-broken-diags.tap > bail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > strict-pragma-child-broken-diags.tap > bail > stringified 1`] = `
 TAP version 13
 pragma +strict
 # Subtest: child
@@ -169,9 +165,7 @@ Bail out! test point in child
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > strict-pragma-child-broken-diags.tap > bail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > strict-pragma-child-broken-diags.tap > bail > stringified flat 1`] = `
 TAP version 13
 pragma +strict
 # Subtest: child
@@ -183,9 +177,7 @@ Bail out! test point in child
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > strict-pragma-child-broken-diags.tap > default settings > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > strict-pragma-child-broken-diags.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -371,9 +363,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > strict-pragma-child-broken-diags.tap > default settings > parsed flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > strict-pragma-child-broken-diags.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "version",
@@ -472,9 +462,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > strict-pragma-child-broken-diags.tap > default settings > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > strict-pragma-child-broken-diags.tap > default settings > stringified 1`] = `
 TAP version 13
 pragma +strict
 # Subtest: child
@@ -487,9 +475,7 @@ not ok 1 - child
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > strict-pragma-child-broken-diags.tap > default settings > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > strict-pragma-child-broken-diags.tap > default settings > stringified flat 1`] = `
 TAP version 13
 pragma +strict
 # Subtest: child
@@ -502,9 +488,7 @@ not ok 2 - child
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > strict-pragma-child-broken-diags.tap > strict > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > strict-pragma-child-broken-diags.tap > strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -690,9 +674,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > strict-pragma-child-broken-diags.tap > strict > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > strict-pragma-child-broken-diags.tap > strict > stringified 1`] = `
 TAP version 13
 pragma +strict
 # Subtest: child
@@ -705,9 +687,7 @@ not ok 1 - child
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > strict-pragma-child-broken-diags.tap > strict > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > strict-pragma-child-broken-diags.tap > strict > stringified flat 1`] = `
 TAP version 13
 pragma +strict
 # Subtest: child
@@ -720,9 +700,7 @@ not ok 2 - child
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > strict-pragma-child-broken-diags.tap > strictBail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > strict-pragma-child-broken-diags.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -870,9 +848,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > strict-pragma-child-broken-diags.tap > strictBail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > strict-pragma-child-broken-diags.tap > strictBail > stringified 1`] = `
 TAP version 13
 pragma +strict
 # Subtest: child
@@ -884,9 +860,7 @@ Bail out! test point in child
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > strict-pragma-child-broken-diags.tap > strictBail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > strict-pragma-child-broken-diags.tap > strictBail > stringified flat 1`] = `
 TAP version 13
 pragma +strict
 # Subtest: child

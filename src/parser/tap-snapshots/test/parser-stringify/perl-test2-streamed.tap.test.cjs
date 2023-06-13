@@ -5,9 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[
-  `test/parse-stringify.ts > TAP > perl-test2-streamed.tap > bail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > perl-test2-streamed.tap > bail > parsed 1`] = `
 Array [
   Array [
     "comment",
@@ -250,9 +248,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > perl-test2-streamed.tap > bail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > perl-test2-streamed.tap > bail > stringified 1`] = `
 # Seeded srand with seed '20160809' from local date.
 # Subtest: my_streamy_test
     ok 1 - subtest event A
@@ -268,9 +264,7 @@ ok 2 - Subtest: my_streamy_test_plan
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > perl-test2-streamed.tap > bail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > perl-test2-streamed.tap > bail > stringified flat 1`] = `
 # Seeded srand with seed '20160809' from local date.
 # Subtest: my_streamy_test
 ok 1 - my_streamy_test > subtest event A
@@ -284,9 +278,7 @@ ok 6 - Subtest: my_streamy_test_plan
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > perl-test2-streamed.tap > default settings > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > perl-test2-streamed.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "comment",
@@ -529,9 +521,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > perl-test2-streamed.tap > default settings > parsed flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > perl-test2-streamed.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "comment",
@@ -679,9 +669,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > perl-test2-streamed.tap > default settings > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > perl-test2-streamed.tap > default settings > stringified 1`] = `
 # Seeded srand with seed '20160809' from local date.
 # Subtest: my_streamy_test
     ok 1 - subtest event A
@@ -697,9 +685,7 @@ ok 2 - Subtest: my_streamy_test_plan
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > perl-test2-streamed.tap > default settings > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > perl-test2-streamed.tap > default settings > stringified flat 1`] = `
 # Seeded srand with seed '20160809' from local date.
 # Subtest: my_streamy_test
 ok 1 - my_streamy_test > subtest event A
@@ -713,9 +699,7 @@ ok 6 - Subtest: my_streamy_test_plan
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > perl-test2-streamed.tap > strict > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > perl-test2-streamed.tap > strict > parsed 1`] = `
 Array [
   Array [
     "comment",
@@ -958,9 +942,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > perl-test2-streamed.tap > strict > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > perl-test2-streamed.tap > strict > stringified 1`] = `
 # Seeded srand with seed '20160809' from local date.
 # Subtest: my_streamy_test
     ok 1 - subtest event A
@@ -976,9 +958,7 @@ ok 2 - Subtest: my_streamy_test_plan
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > perl-test2-streamed.tap > strict > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > perl-test2-streamed.tap > strict > stringified flat 1`] = `
 # Seeded srand with seed '20160809' from local date.
 # Subtest: my_streamy_test
 ok 1 - my_streamy_test > subtest event A
@@ -992,9 +972,7 @@ ok 6 - Subtest: my_streamy_test_plan
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > perl-test2-streamed.tap > strictBail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > perl-test2-streamed.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "comment",
@@ -1237,9 +1215,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > perl-test2-streamed.tap > strictBail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > perl-test2-streamed.tap > strictBail > stringified 1`] = `
 # Seeded srand with seed '20160809' from local date.
 # Subtest: my_streamy_test
     ok 1 - subtest event A
@@ -1255,9 +1231,7 @@ ok 2 - Subtest: my_streamy_test_plan
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > perl-test2-streamed.tap > strictBail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > perl-test2-streamed.tap > strictBail > stringified flat 1`] = `
 # Seeded srand with seed '20160809' from local date.
 # Subtest: my_streamy_test
 ok 1 - my_streamy_test > subtest event A

@@ -5,9 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[
-  `test/parse-stringify.ts > TAP > child-extra.tap > bail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > child-extra.tap > bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -167,9 +165,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > child-extra.tap > bail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > child-extra.tap > bail > stringified 1`] = `
 TAP version 13
 # Subtest: test/debug-test.js
     # debug test
@@ -187,9 +183,7 @@ ok 1 - test/debug-test.js # time=537.383ms
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > child-extra.tap > bail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > child-extra.tap > bail > stringified flat 1`] = `
 TAP version 13
 # Subtest: test/debug-test.js
 # debug test
@@ -206,9 +200,7 @@ ok 2 - test/debug-test.js # time=537.383ms
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > child-extra.tap > default settings > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > child-extra.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -368,9 +360,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > child-extra.tap > default settings > parsed flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > child-extra.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "version",
@@ -449,9 +439,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > child-extra.tap > default settings > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > child-extra.tap > default settings > stringified 1`] = `
 TAP version 13
 # Subtest: test/debug-test.js
     # debug test
@@ -469,9 +457,7 @@ ok 1 - test/debug-test.js # time=537.383ms
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > child-extra.tap > default settings > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > child-extra.tap > default settings > stringified flat 1`] = `
 TAP version 13
 # Subtest: test/debug-test.js
 # debug test
@@ -488,9 +474,7 @@ ok 2 - test/debug-test.js # time=537.383ms
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > child-extra.tap > strict > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > child-extra.tap > strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -663,9 +647,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > child-extra.tap > strict > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > child-extra.tap > strict > stringified 1`] = `
 TAP version 13
 # Subtest: test/debug-test.js
     # debug test
@@ -683,9 +665,7 @@ ok 1 - test/debug-test.js # time=537.383ms
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > child-extra.tap > strict > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > child-extra.tap > strict > stringified flat 1`] = `
 TAP version 13
 # Subtest: test/debug-test.js
 # debug test
@@ -702,9 +682,7 @@ ok 2 - test/debug-test.js # time=537.383ms
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > child-extra.tap > strictBail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > child-extra.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -877,9 +855,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > child-extra.tap > strictBail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > child-extra.tap > strictBail > stringified 1`] = `
 TAP version 13
 # Subtest: test/debug-test.js
     # debug test
@@ -897,9 +873,7 @@ ok 1 - test/debug-test.js # time=537.383ms
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > child-extra.tap > strictBail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > child-extra.tap > strictBail > stringified flat 1`] = `
 TAP version 13
 # Subtest: test/debug-test.js
 # debug test

@@ -5,9 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[
-  `test/parse-stringify.ts > TAP > indent.tap > bail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > indent.tap > bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -366,9 +364,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > indent.tap > bail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > indent.tap > bail > stringified 1`] = `
 TAP version 13
 1..2
 # nesting
@@ -399,9 +395,7 @@ ok 2 - second # time=1.2ms
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > indent.tap > bail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > indent.tap > bail > stringified flat 1`] = `
 TAP version 13
 1..0
 # nesting
@@ -429,9 +423,7 @@ ok 9 - second # time=1.2ms
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > indent.tap > default settings > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > indent.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -790,9 +782,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > indent.tap > default settings > parsed flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > indent.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "version",
@@ -958,9 +948,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > indent.tap > default settings > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > indent.tap > default settings > stringified 1`] = `
 TAP version 13
 1..2
 # nesting
@@ -991,9 +979,7 @@ ok 2 - second # time=1.2ms
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > indent.tap > default settings > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > indent.tap > default settings > stringified flat 1`] = `
 TAP version 13
 1..0
 # nesting
@@ -1021,9 +1007,7 @@ ok 9 - second # time=1.2ms
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > indent.tap > strict > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > indent.tap > strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -1404,9 +1388,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > indent.tap > strict > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > indent.tap > strict > stringified 1`] = `
 TAP version 13
 1..2
 # nesting
@@ -1437,9 +1419,7 @@ ok 2 - second # time=1.2ms
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > indent.tap > strict > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > indent.tap > strict > stringified flat 1`] = `
 TAP version 13
 1..0
 # nesting
@@ -1467,9 +1447,7 @@ ok 9 - second # time=1.2ms
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > indent.tap > strictBail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > indent.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -1850,9 +1828,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > indent.tap > strictBail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > indent.tap > strictBail > stringified 1`] = `
 TAP version 13
 1..2
 # nesting
@@ -1883,9 +1859,7 @@ ok 2 - second # time=1.2ms
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > indent.tap > strictBail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > indent.tap > strictBail > stringified flat 1`] = `
 TAP version 13
 1..0
 # nesting

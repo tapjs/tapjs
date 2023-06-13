@@ -5,9 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[
-  `test/parse-stringify.ts > TAP > indented-stdout-noise.tap > bail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > indented-stdout-noise.tap > bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -416,9 +414,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > indented-stdout-noise.tap > bail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > indented-stdout-noise.tap > bail > stringified 1`] = `
 TAP version 13
 # Subtest: index.js
     # Subtest: boom
@@ -482,9 +478,7 @@ Bail out! index.js
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > indented-stdout-noise.tap > bail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > indented-stdout-noise.tap > bail > stringified flat 1`] = `
 TAP version 13
 # Subtest: index.js
 # Subtest: boom
@@ -545,9 +539,7 @@ Bail out! index.js
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > indented-stdout-noise.tap > default settings > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > indented-stdout-noise.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -968,9 +960,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > indented-stdout-noise.tap > default settings > parsed flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > indented-stdout-noise.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "version",
@@ -1217,9 +1207,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > indented-stdout-noise.tap > default settings > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > indented-stdout-noise.tap > default settings > stringified 1`] = `
 TAP version 13
 # Subtest: index.js
     # Subtest: boom
@@ -1285,9 +1273,7 @@ not ok 1 - index.js # time=201.609ms
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > indented-stdout-noise.tap > default settings > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > indented-stdout-noise.tap > default settings > stringified flat 1`] = `
 TAP version 13
 # Subtest: index.js
 # Subtest: boom
@@ -1350,9 +1336,7 @@ not ok 2 - index.js # time=201.609ms
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > indented-stdout-noise.tap > strict > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > indented-stdout-noise.tap > strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -2000,9 +1984,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > indented-stdout-noise.tap > strict > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > indented-stdout-noise.tap > strict > stringified 1`] = `
 TAP version 13
 # Subtest: index.js
     # Subtest: boom
@@ -2068,9 +2050,7 @@ not ok 1 - index.js # time=201.609ms
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > indented-stdout-noise.tap > strict > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > indented-stdout-noise.tap > strict > stringified flat 1`] = `
 TAP version 13
 # Subtest: index.js
 # Subtest: boom
@@ -2133,9 +2113,7 @@ not ok 2 - index.js # time=201.609ms
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > indented-stdout-noise.tap > strictBail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > indented-stdout-noise.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -2771,9 +2749,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > indented-stdout-noise.tap > strictBail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > indented-stdout-noise.tap > strictBail > stringified 1`] = `
 TAP version 13
 # Subtest: index.js
     # Subtest: boom
@@ -2837,9 +2813,7 @@ Bail out! index.js
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > indented-stdout-noise.tap > strictBail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > indented-stdout-noise.tap > strictBail > stringified flat 1`] = `
 TAP version 13
 # Subtest: index.js
 # Subtest: boom

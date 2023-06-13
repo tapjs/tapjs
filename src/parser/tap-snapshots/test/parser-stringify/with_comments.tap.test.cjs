@@ -5,9 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[
-  `test/parse-stringify.ts > TAP > with_comments.tap > bail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > with_comments.tap > bail > parsed 1`] = `
 Array [
   Array [
     "comment",
@@ -94,9 +92,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > with_comments.tap > bail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > with_comments.tap > bail > stringified 1`] = `
 # and stuff
 1..5 todo 1 2 4 5;
 # yeah, that
@@ -106,9 +102,7 @@ Bail out!
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > with_comments.tap > bail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > with_comments.tap > bail > stringified flat 1`] = `
 # and stuff
 1..5 todo 1 2 4 5;
 # yeah, that
@@ -118,9 +112,7 @@ Bail out!
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > with_comments.tap > default settings > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > with_comments.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "comment",
@@ -304,9 +296,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > with_comments.tap > default settings > parsed flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > with_comments.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "comment",
@@ -497,9 +487,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > with_comments.tap > default settings > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > with_comments.tap > default settings > stringified 1`] = `
 # and stuff
 1..5 todo 1 2 4 5;
 # yeah, that
@@ -516,9 +504,7 @@ ok 5 - \\# (t/todo.t at line 13 TODO?!)
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > with_comments.tap > default settings > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > with_comments.tap > default settings > stringified flat 1`] = `
 # and stuff
 1..5 todo 1 2 4 5;
 # yeah, that
@@ -535,9 +521,7 @@ ok 5 - \\# (t/todo.t at line 13 TODO?!)
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > with_comments.tap > strict > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > with_comments.tap > strict > parsed 1`] = `
 Array [
   Array [
     "comment",
@@ -725,9 +709,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > with_comments.tap > strict > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > with_comments.tap > strict > stringified 1`] = `
 # and stuff
 1..5 todo 1 2 4 5;
 # yeah, that
@@ -744,9 +726,7 @@ ok 5 - \\# (t/todo.t at line 13 TODO?!)
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > with_comments.tap > strict > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > with_comments.tap > strict > stringified flat 1`] = `
 # and stuff
 1..5 todo 1 2 4 5;
 # yeah, that
@@ -763,9 +743,7 @@ ok 5 - \\# (t/todo.t at line 13 TODO?!)
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > with_comments.tap > strictBail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > with_comments.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "comment",
@@ -856,9 +834,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > with_comments.tap > strictBail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > with_comments.tap > strictBail > stringified 1`] = `
 # and stuff
 1..5 todo 1 2 4 5;
 # yeah, that
@@ -868,9 +844,7 @@ Bail out!
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > with_comments.tap > strictBail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > with_comments.tap > strictBail > stringified flat 1`] = `
 # and stuff
 1..5 todo 1 2 4 5;
 # yeah, that

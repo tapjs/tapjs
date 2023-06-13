@@ -5,9 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[
-  `test/parse-stringify.ts > TAP > buffered-nested-ok-top-failure-diag.tap > bail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-ok-top-failure-diag.tap > bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -158,9 +156,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > buffered-nested-ok-top-failure-diag.tap > bail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-ok-top-failure-diag.tap > bail > stringified 1`] = `
 TAP version 13
 1..1
 # Subtest: please sir, my son, he is sick
@@ -174,9 +170,7 @@ Bail out! please sir, my son, he is sick
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > buffered-nested-ok-top-failure-diag.tap > bail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-ok-top-failure-diag.tap > bail > stringified flat 1`] = `
 TAP version 13
 1..0
 # Subtest: please sir, my son, he is sick
@@ -189,9 +183,7 @@ Bail out! please sir, my son, he is sick
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > buffered-nested-ok-top-failure-diag.tap > default settings > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-ok-top-failure-diag.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -338,9 +330,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > buffered-nested-ok-top-failure-diag.tap > default settings > parsed flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-ok-top-failure-diag.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "version",
@@ -439,9 +429,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > buffered-nested-ok-top-failure-diag.tap > default settings > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-ok-top-failure-diag.tap > default settings > stringified 1`] = `
 TAP version 13
 1..1
 # Subtest: please sir, my son, he is sick
@@ -454,9 +442,7 @@ not ok 1 - please sir, my son, he is sick
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > buffered-nested-ok-top-failure-diag.tap > default settings > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-ok-top-failure-diag.tap > default settings > stringified flat 1`] = `
 TAP version 13
 1..0
 # Subtest: please sir, my son, he is sick
@@ -468,9 +454,7 @@ not ok 2 - please sir, my son, he is sick
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > buffered-nested-ok-top-failure-diag.tap > strict > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-ok-top-failure-diag.tap > strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -617,9 +601,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > buffered-nested-ok-top-failure-diag.tap > strict > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-ok-top-failure-diag.tap > strict > stringified 1`] = `
 TAP version 13
 1..1
 # Subtest: please sir, my son, he is sick
@@ -632,9 +614,7 @@ not ok 1 - please sir, my son, he is sick
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > buffered-nested-ok-top-failure-diag.tap > strict > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-ok-top-failure-diag.tap > strict > stringified flat 1`] = `
 TAP version 13
 1..0
 # Subtest: please sir, my son, he is sick
@@ -646,9 +626,7 @@ not ok 2 - please sir, my son, he is sick
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > buffered-nested-ok-top-failure-diag.tap > strictBail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-ok-top-failure-diag.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -799,9 +777,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > buffered-nested-ok-top-failure-diag.tap > strictBail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-ok-top-failure-diag.tap > strictBail > stringified 1`] = `
 TAP version 13
 1..1
 # Subtest: please sir, my son, he is sick
@@ -815,9 +791,7 @@ Bail out! please sir, my son, he is sick
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > buffered-nested-ok-top-failure-diag.tap > strictBail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-ok-top-failure-diag.tap > strictBail > stringified flat 1`] = `
 TAP version 13
 1..0
 # Subtest: please sir, my son, he is sick

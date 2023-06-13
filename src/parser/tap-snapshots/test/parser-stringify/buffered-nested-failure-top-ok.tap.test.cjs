@@ -5,9 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[
-  `test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok.tap > bail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok.tap > bail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -141,9 +139,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok.tap > bail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok.tap > bail > stringified 1`] = `
 TAP version 13
 1..1
 # Subtest: my kids are fine
@@ -154,9 +150,7 @@ Bail out! no they aren't
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok.tap > bail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok.tap > bail > stringified flat 1`] = `
 TAP version 13
 1..0
 # Subtest: my kids are fine
@@ -166,9 +160,7 @@ Bail out! no they aren't
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok.tap > default settings > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -311,9 +303,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok.tap > default settings > parsed flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "version",
@@ -393,9 +383,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok.tap > default settings > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok.tap > default settings > stringified 1`] = `
 TAP version 13
 1..1
 # Subtest: my kids are fine
@@ -405,9 +393,7 @@ ok 1 - my kids are fine
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok.tap > default settings > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok.tap > default settings > stringified flat 1`] = `
 TAP version 13
 1..0
 # Subtest: my kids are fine
@@ -416,9 +402,7 @@ ok 2 - my kids are fine
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok.tap > strict > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok.tap > strict > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -561,9 +545,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok.tap > strict > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok.tap > strict > stringified 1`] = `
 TAP version 13
 1..1
 # Subtest: my kids are fine
@@ -573,9 +555,7 @@ ok 1 - my kids are fine
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok.tap > strict > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok.tap > strict > stringified flat 1`] = `
 TAP version 13
 1..0
 # Subtest: my kids are fine
@@ -584,9 +564,7 @@ ok 2 - my kids are fine
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok.tap > strictBail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "version",
@@ -720,9 +698,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok.tap > strictBail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok.tap > strictBail > stringified 1`] = `
 TAP version 13
 1..1
 # Subtest: my kids are fine
@@ -733,9 +709,7 @@ Bail out! no they aren't
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok.tap > strictBail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > buffered-nested-failure-top-ok.tap > strictBail > stringified flat 1`] = `
 TAP version 13
 1..0
 # Subtest: my kids are fine

@@ -5,9 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[
-  `test/stringify-parse.ts > TAP > just parse some tap > basic 1`
-] = `
+exports[`test/stringify-parse.ts > TAP > just parse some tap > basic 1`] = `
 Array [
   Array [
     "version",
@@ -189,9 +187,7 @@ Array [
 ]
 `
 
-exports[
-  `test/stringify-parse.ts > TAP > just parse some tap > flattened 1`
-] = `
+exports[`test/stringify-parse.ts > TAP > just parse some tap > flattened 1`] = `
 Array [
   Array [
     "version",
@@ -308,9 +304,7 @@ Array [
 ]
 `
 
-exports[
-  `test/stringify-parse.ts > TAP > stringify flattened result > basic 1`
-] = `
+exports[`test/stringify-parse.ts > TAP > stringify flattened result > basic 1`] = `
 TAP version 13
 not ok 1 - 1
 ok 2 - child > foo
@@ -319,9 +313,7 @@ ok 3 - child
 
 `
 
-exports[
-  `test/stringify-parse.ts > TAP > stringify flattened result > flattened 1`
-] = `
+exports[`test/stringify-parse.ts > TAP > stringify flattened result > flattened 1`] = `
 TAP version 13
 not ok 1 - 1
 ok 2 - child > foo
@@ -330,9 +322,7 @@ ok 3 - child
 
 `
 
-exports[
-  `test/stringify-parse.ts > TAP > stringify nested result > basic 1`
-] = `
+exports[`test/stringify-parse.ts > TAP > stringify nested result > basic 1`] = `
 TAP version 13
 not ok - 1
 pragma +strict
@@ -348,9 +338,7 @@ pragma -strict
 
 `
 
-exports[
-  `test/stringify-parse.ts > TAP > stringify nested result > flattened 1`
-] = `
+exports[`test/stringify-parse.ts > TAP > stringify nested result > flattened 1`] = `
 TAP version 13
 not ok 1 - 1
 pragma +strict
@@ -365,9 +353,7 @@ pragma -strict
 
 `
 
-exports[
-  `test/stringify-parse.ts > TAP > stringify with bailout > basic 1`
-] = `
+exports[`test/stringify-parse.ts > TAP > stringify with bailout > basic 1`] = `
 TAP version 13
 not ok 1 - 1
 ok 2 - child > foo
@@ -376,9 +362,7 @@ Bail out! cannot continue
 
 `
 
-exports[
-  `test/stringify-parse.ts > TAP > stringify with bailout > flattened 1`
-] = `
+exports[`test/stringify-parse.ts > TAP > stringify with bailout > flattened 1`] = `
 TAP version 13
 not ok 1 - 1
 ok 2 - child > foo

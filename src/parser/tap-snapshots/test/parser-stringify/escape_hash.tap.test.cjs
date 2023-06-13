@@ -5,9 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[
-  `test/parse-stringify.ts > TAP > escape_hash.tap > bail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > escape_hash.tap > bail > parsed 1`] = `
 Array [
   Array [
     "plan",
@@ -101,9 +99,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > escape_hash.tap > bail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > escape_hash.tap > bail > stringified 1`] = `
 1..3
 ok 1 - Not a \\# TODO
 ok 2 - Not a \\# SKIP
@@ -111,9 +107,7 @@ ok 3 - Escaped \\\\\\#
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > escape_hash.tap > bail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > escape_hash.tap > bail > stringified flat 1`] = `
 1..0
 ok 1 - Not a \\# TODO
 ok 2 - Not a \\# SKIP
@@ -121,9 +115,7 @@ ok 3 - Escaped \\\\\\#
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > escape_hash.tap > default settings > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > escape_hash.tap > default settings > parsed 1`] = `
 Array [
   Array [
     "plan",
@@ -217,9 +209,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > escape_hash.tap > default settings > parsed flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > escape_hash.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
     "assert",
@@ -312,9 +302,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > escape_hash.tap > default settings > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > escape_hash.tap > default settings > stringified 1`] = `
 1..3
 ok 1 - Not a \\# TODO
 ok 2 - Not a \\# SKIP
@@ -322,9 +310,7 @@ ok 3 - Escaped \\\\\\#
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > escape_hash.tap > default settings > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > escape_hash.tap > default settings > stringified flat 1`] = `
 1..0
 ok 1 - Not a \\# TODO
 ok 2 - Not a \\# SKIP
@@ -332,9 +318,7 @@ ok 3 - Escaped \\\\\\#
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > escape_hash.tap > strict > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > escape_hash.tap > strict > parsed 1`] = `
 Array [
   Array [
     "plan",
@@ -428,9 +412,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > escape_hash.tap > strict > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > escape_hash.tap > strict > stringified 1`] = `
 1..3
 ok 1 - Not a \\# TODO
 ok 2 - Not a \\# SKIP
@@ -438,9 +420,7 @@ ok 3 - Escaped \\\\\\#
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > escape_hash.tap > strict > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > escape_hash.tap > strict > stringified flat 1`] = `
 1..0
 ok 1 - Not a \\# TODO
 ok 2 - Not a \\# SKIP
@@ -448,9 +428,7 @@ ok 3 - Escaped \\\\\\#
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > escape_hash.tap > strictBail > parsed 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > escape_hash.tap > strictBail > parsed 1`] = `
 Array [
   Array [
     "plan",
@@ -544,9 +522,7 @@ Array [
 ]
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > escape_hash.tap > strictBail > stringified 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > escape_hash.tap > strictBail > stringified 1`] = `
 1..3
 ok 1 - Not a \\# TODO
 ok 2 - Not a \\# SKIP
@@ -554,9 +530,7 @@ ok 3 - Escaped \\\\\\#
 
 `
 
-exports[
-  `test/parse-stringify.ts > TAP > escape_hash.tap > strictBail > stringified flat 1`
-] = `
+exports[`test/parse-stringify.ts > TAP > escape_hash.tap > strictBail > stringified flat 1`] = `
 1..0
 ok 1 - Not a \\# TODO
 ok 2 - Not a \\# SKIP
