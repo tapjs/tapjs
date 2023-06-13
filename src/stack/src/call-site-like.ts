@@ -62,6 +62,7 @@ export class CallSiteLike {
   get fileName() {
     return this.#relativize(this.#fileName)
   }
+
   get absoluteFileName() {
     if (!this.#fileName) return this.#fileName
     else if (this.#fileName.startsWith('file://')) {
@@ -102,14 +103,6 @@ export class CallSiteLike {
       this.typeName = c.getTypeName()
       this.methodName = c.getMethodName()
       this.functionName = c.getFunctionName()
-      if (
-        this.typeName &&
-        this.functionName === this.methodName &&
-        this.functionName &&
-        !this.functionName.startsWith(this.typeName)
-      ) {
-        this.functionName = `${this.typeName}.${this.functionName}`
-      }
       this.isEval = c.isEval()
       this.isNative = c.isNative()
       this.isToplevel = c.isToplevel()
@@ -129,17 +122,18 @@ export class CallSiteLike {
       const fileName = c.fileName
       this.#fileName = typeof fileName === 'string' ? fileName : null
       this.generated = c.generated
-      let fname = c.fname
+      let fname = c.fname?.trim()
       let method: null | string = null
       this.isNative = !!c.isNative
 
       if (fname) {
-        if (fname && fname.startsWith('new ')) {
+        if (fname.startsWith('new ')) {
           this.isConstructor = true
           fname = fname.substring('new '.length).trim()
         } else {
           this.isConstructor = false
         }
+        this.methodName = null
         const methodMatch = fname.match(methodRe)
         if (methodMatch) {
           fname = methodMatch[1]
@@ -148,20 +142,19 @@ export class CallSiteLike {
         const dots = fname.split('.')
         const m = dots.pop()
         if (m !== undefined) {
-          this.typeName = dots.join('.') || null
-        } else {
-          this.typeName = null
-        }
-        if (fname) {
-          this.functionName = fname
+          this.typeName = dots.join('.').trim() || null
+          this.methodName = method || m
+          if (this.methodName.match(/^get |set /)) {
+            this.methodName = this.methodName.substring(4)
+          }
+          this.functionName = m
+          // we know it's not undefined, but TS is afraid of pop()
+          /* c8 ignore start */
         } else {
           this.functionName = null
+          this.typeName = null
         }
-        if (method && fname === method) {
-          this.methodName = method
-        } else {
-          this.methodName = null
-        }
+        /* c8 ignore stop */
       } else {
         this.isConstructor = false
         this.typeName = null
@@ -170,6 +163,18 @@ export class CallSiteLike {
       }
     } else {
       throw new Error('invalid call site information provided')
+    }
+
+    // This is a slight deviation from the CallSite API, but it's very useful
+    // to have a field that's the actual function with type and method name.
+    if (
+      this.typeName &&
+      this.functionName &&
+      !this.functionName.startsWith(this.typeName)
+    ) {
+      this.functionName = `${this.typeName}.${this.functionName}`
+    } else if (this.functionName === this.methodName) {
+      this.methodName = null
     }
 
     // We only do the sourcemap lookup if we're parsing from a CallSite
@@ -189,20 +194,27 @@ export class CallSiteLike {
         // mapping, and apply that same offset to the start of the origin
         // in the mapping.
         const payload = this.#sourceMap.findEntry(
+          // safety bounds around numbers here, impossible to hit
+          // if we're looking up actual call sites though.
+          /* c8 ignore start */
           Math.max(0, this.lineNumber - 1),
           Math.max(0, (this.columnNumber || 0) - 1)
+          /* c8 ignore stop */
         )
         if (payload) {
           const offset = [
             this.lineNumber - payload.generatedLine,
+            /* c8 ignore start */
             (this.columnNumber || 1) - payload.generatedColumn,
+            /* c8 ignore stop */
           ]
           const originalLine = payload.originalLine + offset[0]
           const originalColumn = payload.originalColumn + offset[1]
           const genFilename = this.#relativize(this.#fileName)
           this.generated = {
-            fileName:
-              typeof genFilename === 'string' ? genFilename : null,
+            /* c8 ignore start */
+            fileName: genFilename || null,
+            /* c8 ignore stop */
             lineNumber: this.lineNumber,
             columnNumber: this.columnNumber,
           }
@@ -228,14 +240,28 @@ export class CallSiteLike {
 
   toString(): string {
     let fname = this.functionName || ''
-    const tn = this.typeName
-      ? this.typeName + '.' + (this.methodName || '<anonymous>')
-      : ''
+    let tn = ''
+    let tnGet = ''
+    let tnSet = ''
+    if (this.typeName) {
+      const mn = this.methodName || '<anonymous>'
+      tn = this.typeName + '.' + mn
+      tnGet = this.typeName + '.get ' + mn
+      tnSet = this.typeName + '.set ' + mn
+    }
     if (!fname && tn) {
       fname = tn
     }
-    if (fname && this.methodName && fname !== tn) {
-      fname += ` [as ${this.methodName}]`
+    const mn = this.methodName
+    if (
+      fname &&
+      tn &&
+      mn &&
+      fname !== tn &&
+      fname !== tnGet &&
+      fname !== tnSet
+    ) {
+      fname += ` [as ${mn}]`
     }
     if (this.isConstructor && fname) {
       fname = `new ${fname}`
@@ -256,24 +282,35 @@ export class CallSiteLike {
         }
         ev += `, ${lr}`
       }
+      // should always have an fname at this point
+      /* c8 ignore start */
       ev = fname ? ` (${ev})` : ev
+      /* c8 ignore stop */
       return `${fname}${ev}`
     }
 
-    if (!nat && (file || hasLC)) {
+    if (file || hasLC) {
       if (hasLC) {
+        /* c8 ignore start */
         file = file || '<anonymous>'
+        /* c8 ignore stop */
         file += `:${this.lineNumber}:${this.columnNumber}`
       }
     } else if (nat) {
       file = 'native'
+      // impossible in normal cases
+      /* c8 ignore start */
     } else {
       file = ''
     }
+    /* c8 ignore stop */
     let g = ''
     if (this.generated && this.generated.fileName) {
       const { fileName, lineNumber, columnNumber } = this.generated
-      g = this.#relativize(fileName) || ''
+      g = this.#relativize(fileName) as string
+      /* c8 ignore start */
+      if (!g) g = ''
+      /* c8 ignore stop */
       if (g === this.fileName) g = ''
       if (g) {
         if (
@@ -315,16 +352,9 @@ export class CallSiteLike {
       json.columnNumber = columnNumber
     if (evalOrigin) json.evalOrigin = evalOrigin.toJSON()
 
-    // These get hella noisy in most tests, just save the clutter
-    /* c8 ignore start */
-    if (
-      typeName !== null &&
-      typeName !== 'Object' &&
-      typeName !== 'Test'
-    ) {
+    if (typeName !== null) {
       json.typeName = typeName
     }
-    /* c8 ignore stop */
 
     if (methodName !== null) json.methodName = methodName
     if (functionName !== null) json.functionName = functionName

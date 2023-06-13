@@ -8,10 +8,6 @@ export interface LineRef {
   columnNumber: number
   [isCompiled]: true
 }
-export interface AnonLineRef {
-  fileName: string
-  [isCompiled]: true
-}
 
 export interface NativeLineRef {
   isNative: true
@@ -39,23 +35,41 @@ export const isCompiledCallSiteLine = (c: any) =>
   !!c && typeof c === 'object' && c[isCompiled] === true
 
 const lineRef =
-  '(?:([^:]+):([1-9][0-9]*):([1-9][0-9]*)|(<anonymous>|native))'
+  '(?:((?:node:|file:)?[^:]+):([1-9][0-9]*):([1-9][0-9]*)|(native))'
 const bareLineRef = `^(?:${lineRef})$`
 const bareLineRefRe = new RegExp(bareLineRef)
 const parenLineRef = `\\(${lineRef}\\)`
 const parenLineRefExec = new RegExp(parenLineRef, 'g')
-const trailingLineRefs = `(?: (${parenLineRef}))+$`
+const trailingLineRefs = `((?: ${parenLineRef})+)$`
 const trailingLineRefsRe = new RegExp(trailingLineRefs)
 // $1 - evalOrigin fname
 // $2 - evalOrigin linerefs (origin src)
 // $3 - lineref (generated if $4)
 // $4 - src lineref ($3 is generated if present)
-const evalOrigin = `eval at(.*?)((?: ${parenLineRef})+), (${lineRef}(?: \\((${lineRef})\\))?)`
+const evalOrigin = `eval at(.*?)((?: ${parenLineRef})+)(?:, (${lineRef}(?: \\((${lineRef})\\))?))?`
 const bareEvalOrigin = `^${evalOrigin}$`
+const bareEvalOriginRe = new RegExp(bareEvalOrigin)
 const withEvalOrigin = `(.*?) \\((${evalOrigin})\\)$`
 const withEvalOriginRe = new RegExp(withEvalOrigin)
 
+// this is the first-phase parse, which might be confused by a line like
+// Cls.[foo (parens) bar] (file:1:2)
+// If we get a fname containing `[`, and the file name contains `] (`,
+// then we chop off the bit from the fileName and put it back on fname.
+// This heuristic assumes that parens are more likely to appear in
+// method names than filenames, which has been a safe assumption so far.
 export const parseCallSiteLine = (line: string): Compiled => {
+  const c = parseCallSiteLine_(line)
+  if (c.fname?.includes('[') && c.fileName?.includes('] (')) {
+    const s = c.fileName.split('] (')
+    c.fileName = s[s.length - 1]
+    s.pop()
+    c.fname = (c.fname + ' (' + s.join('] (') + ']').trim()
+  }
+  return c
+}
+
+const parseCallSiteLine_ = (line: string): Compiled => {
   line = line.replace(/^\s+at /, '')
 
   // just a lineref, nothing else:
@@ -73,13 +87,13 @@ export const parseCallSiteLine = (line: string): Compiled => {
   }
 
   // an eval origin subsection
-  const em = line.match(bareEvalOrigin)
+  const em = line.match(bareEvalOriginRe)
   if (em) {
     // we ignore the part that comes after the `,` because that is part of
     // the parent's call site, not the evalOrigin
     return {
       ...parseLineRefs(em[2]),
-      fname: em[1].trim(),
+      fname: em[1],
     }
   }
 
@@ -88,7 +102,7 @@ export const parseCallSiteLine = (line: string): Compiled => {
     const evalOrigin = parseCallSiteLine(wem[2])
     return {
       ...parseLineRefs(wem[9]),
-      fname: wem[1].trim(),
+      fname: wem[1],
       isEval: true,
       evalOrigin,
       [isCompiled]: true,
@@ -108,7 +122,7 @@ const compileLineRefParse = (
   line: string | undefined,
   col: string | undefined,
   other: string | undefined
-): LineRef | AnonLineRef | NativeLineRef | Compiled => {
+): LineRef | NativeLineRef | Compiled => {
   if (other === 'native') {
     return { isNative: true, [isCompiled]: true }
   } else if (other) {
@@ -136,7 +150,7 @@ const parseLineRefs = (line: string): Compiled => {
   }
 
   const lineRefs: Compiled[] = []
-  const tms = tm[0].trim()
+  const tms = tm[0]
   let pre = line.substring(0, tm.index)
   let m: RegExpExecArray | null
   while ((m = parenLineRefExec.exec(tms))) {
@@ -146,7 +160,8 @@ const parseLineRefs = (line: string): Compiled => {
   if (lineRefs.length === 1) {
     const bm = pre.match(bareLineRefRe)
     if (bm && bm[1] && bm[2] && bm[3]) {
-      pre = ''
+      pre = pre.substring(0, bm.index)
+      // pre = ''
       lineRefs.unshift({
         fileName: bm[1],
         lineNumber: +bm[2],
@@ -171,11 +186,11 @@ const parseLineRefs = (line: string): Compiled => {
         ? ` (${lr.fileName}:${lr.lineNumber}:${lr.columnNumber})`
         : lr.isNative
         ? ` (native)`
-        : lr.fname
-        ? ` (${lr.fname})`
         : lr.fileName
+      /* c8 ignore start */
         ? ` (${lr.fileName})`
         : ''
+      /* c8 ignore stop */
     )
     .join('')
 
