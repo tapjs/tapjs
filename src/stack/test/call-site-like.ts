@@ -22,7 +22,10 @@ t.test('create from string error stack line', t => {
   c.cwd = cwd
   t.equal(c.cwd, cwd)
   t.equal(c.fileName, 'test/fixtures/capture.ts')
-  t.equal(c.absoluteFileName, resolve(cwd, 'test/fixtures/capture.ts'))
+  t.equal(
+    c.absoluteFileName,
+    resolve(cwd, 'test/fixtures/capture.ts')
+  )
   t.equal(c.generated, undefined)
   t.matchOnly(c.toJSON(), {
     fileName: 'test/fixtures/capture.ts',

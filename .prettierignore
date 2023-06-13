@@ -4,3 +4,5 @@
 /src/*/dist
 /src/*/tap-snapshots
 /tap-snapshots
+/src/*/test/**/fixture
+/src/*/test/**/fixtures

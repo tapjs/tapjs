@@ -123,9 +123,8 @@ type TTest<P extends PluginSet = PluginSet> = TestBase &
 // Condense to interface so the inline doc isn't overwhelming
 export interface BuiltPlugins extends PluginResult<PluginSet> {}
 
-export interface Test<
-  Ext extends BuiltPlugins = BuiltPlugins
-> extends TTest {
+export interface Test<Ext extends BuiltPlugins = BuiltPlugins>
+  extends TTest {
   end(implicit?: symbol): this
   test(
     name: string,

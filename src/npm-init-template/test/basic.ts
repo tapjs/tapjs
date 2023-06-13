@@ -13,7 +13,9 @@ const versionLine = /Node\.js v\d+\.\d+\.\d+/
 t.cleanSnapshot = s =>
   s
     .split('\n')
-    .filter(l => !loaderLine.test(l) && !versionLine.test(l) && l.trim())
+    .filter(
+      l => !loaderLine.test(l) && !versionLine.test(l) && l.trim()
+    )
     .join('\n')
     .replace(
       /file:\/\/.*?test\/fixture\/index\.mjs:[0-9]+$/gm,

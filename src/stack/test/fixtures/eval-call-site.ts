@@ -10,16 +10,16 @@ stack
 `
 const getStackSymbol = Symbol('get (stack) <symbol> lol')
 class Foo {
-  get callSiteStack () {
+  get callSiteStack() {
     return this.#privateGetStack(true)
   }
-  get stringStack () {
+  get stringStack() {
     return this.#privateGetStack(false)
   }
-  #privateGetStack (cs: boolean) {
+  #privateGetStack(cs: boolean) {
     return this[getStackSymbol](cs)
   }
-  [getStackSymbol] (cs: boolean) {
+  [getStackSymbol](cs: boolean) {
     return eval(code)(cs)
   }
 }

@@ -215,7 +215,7 @@ export const captureError = (e: Error): CallSiteLike[] =>
     // errors almost always have stacks
     /* c8 ignore start */
     (e.stack || '')
-    /* c8 ignore stop */
+      /* c8 ignore stop */
       .trim()
       .split('\n')
       .slice(1)

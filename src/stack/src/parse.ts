@@ -181,15 +181,16 @@ const parseLineRefs = (line: string): Compiled => {
   // shouldn't be any left, but possible if you had a function name
   // that looked like a line ref, though V8 puts [] around those
   pre += lineRefs
-    .map(lr =>
-      isLineRef(lr)
-        ? ` (${lr.fileName}:${lr.lineNumber}:${lr.columnNumber})`
-        : lr.isNative
-        ? ` (native)`
-        : lr.fileName
-      /* c8 ignore start */
-        ? ` (${lr.fileName})`
-        : ''
+    .map(
+      lr =>
+        isLineRef(lr)
+          ? ` (${lr.fileName}:${lr.lineNumber}:${lr.columnNumber})`
+          : lr.isNative
+          ? ` (native)`
+          : lr.fileName
+          ? /* c8 ignore start */
+            ` (${lr.fileName})`
+          : ''
       /* c8 ignore stop */
     )
     .join('')
