@@ -55,7 +55,7 @@ const buildWithSpawn = async (
       throw new Error('Failed to build a tap with the spawn plugin')
     }
     const argv = [
-      '--no-warnings',
+      '--no-warnings=ExperimentalLoader',
       '--loader=ts-node/esm',
       mainBin,
       ...args,
@@ -113,12 +113,14 @@ export const run = async (args: string[], config: LoadedConfig) => {
   // Maybe should accept an optList of loaders in the config?
   // It seems a bit heavy to require a full on plugin just to
   // specify a loader to add to the list.
+  // OTOH, you probably do want to have some other setup
+  // in many cases, as shown in the @tapjs/typescript plugin.
   const loader = String(piLoader)
   const argv = [
-    '--no-warnings',
-    `--loader=${loader}`,
+    '--no-warnings=ExperimentalLoader',
     ...loaders.map(l => `--loader=${l}`),
     '--enable-source-maps',
+    `--loader=${loader}`,
     ...(config.values?.['node-arg'] || []),
   ]
 
