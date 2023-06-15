@@ -13,7 +13,16 @@ if (typeof process.argv[2] !== 'string') {
 const templateFile = resolve(__dirname, './test-template.ts')
 let template = readFileSync(templateFile, 'utf8')
 
-const dir = resolve(__dirname, '../node_modules/@tapjs/.test-built')
+const defaultTarget = resolve(
+  __dirname,
+  '../node_modules/@tapjs/.test-built'
+)
+
+// override in testing, otherwise always the default
+/* c8 ignore start */
+const dir = process.env._TESTING_TEST_BUILD_TARGET_ || defaultTarget
+/* c8 ignore stop */
+
 mkdirp.sync(resolve(dir, 'src'))
 const out = resolve(dir, 'src/index.ts')
 
@@ -157,17 +166,11 @@ const pluginsConfig = (() => {
     for (const [field, cfg] of Object.entries(configs.get(p) || {})) {
       const jf = JSON.stringify(field)
       const fn =
-        cfg.type === 'boolean'
-          ? cfg.multiple
-            ? 'flagList'
-            : 'flag'
+        (cfg.type === 'boolean'
+          ? 'flag'
           : cfg.type === 'number'
-          ? cfg.multiple
-            ? 'numList'
-            : 'num'
-          : cfg.multiple
-          ? 'optList'
-          : 'opt'
+          ? 'num'
+          : 'opt') + (cfg.multiple ? 'List' : '')
       code += `    .${fn}({ ${jf}: config_${name}_${c++} })\n`
     }
   }
@@ -197,7 +200,8 @@ ${[...hasPlugin.values()]
   ]))
 }
 
-type PluginSet = [${[...hasPlugin.values()]
+type PluginSet = [
+${[...hasPlugin.values()]
   .map(name => `  typeof ${name}.plugin,\n`)
   .join('')}]
 `
@@ -248,9 +252,6 @@ writeFileSync(
   })
 )
 
-spawnSync('npm', ['run', 'prepare'], {
-  cwd: dir,
-  stdio: 'inherit',
-})
+spawnSync('npm', ['run', 'prepare'], { cwd: dir, stdio: 'inherit' })
 
 export {}

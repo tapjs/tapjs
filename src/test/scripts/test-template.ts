@@ -189,7 +189,10 @@ export interface Test<Ext extends BuiltPlugins = BuiltPlugins>
 
 const applyPlugins = (base: Test): Test => {
   const ext: Plug[] = plugins()
-    .map(p => p(base, base.options as any))
+    // typecast in case we have *only* option-less plugins.
+    .map(p =>
+      (p as TapPlugin<Plug, TestBaseOpts>)(base, base.options)
+    )
     .concat(base)
   const getCache = new Map<any, any>()
   // extend the proxy with Object.create, and then set the toStringTag
