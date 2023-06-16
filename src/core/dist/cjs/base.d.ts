@@ -107,6 +107,7 @@ export declare class Base<Events extends TapBaseEvents = TapBaseEvents> extends 
     }): void;
     runMain(cb: () => void): void;
     get started(): boolean;
+    get printedOutput(): boolean;
     main(cb: () => void): void;
     write(c: string): boolean;
     onbail(reason?: string): void;

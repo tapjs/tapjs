@@ -77,12 +77,14 @@ const pluginNames = plugins.map(p => {
   try {
     imp = require(p)
   } catch (er) {
-    throw (
+    /* c8 ignore start */
+    console.error(
       `'${p}' does not appear to be a tap plugin. Could not load ` +
-      `module with require().\n${
-        er instanceof Error ? er.message : er
-      }`
+        `module with require().`,
+      er instanceof Error ? er.message : er
     )
+    /* c8 ignore start */
+    process.exit(1)
   }
   const n =
     'Plugin_' +
@@ -117,10 +119,11 @@ const pluginNames = plugins.map(p => {
     isPlugin = true
   }
   if (!isPlugin) {
-    throw (
+    console.error(
       `'${p}' does not appear to be a tap plugin, as it does not export ` +
-      'a plugin function, config object, or loader module identifier.'
+        'a plugin function, config object, or loader module identifier.'
     )
+    process.exit(1)
   }
   return name
 })
@@ -144,9 +147,10 @@ const pluginsConfig = (() => {
       code += `  const config_${name}_${c} = ${name}.config[${jf}]\n`
       const t = JSON.stringify(cfg.type)
       const m = JSON.stringify(!!cfg.multiple)
-      const msg = `Invalid config option ${jf} defined in plugin: ${p}`
+      const msg = `Invalid config option '${field}' defined in plugin: '${p}'`
       if (!isConfigOption(cfg, cfg.type, !!cfg.multiple)) {
-        throw new Error(msg)
+        console.error(msg)
+        process.exit(1)
       }
       const mc = JSON.stringify(msg)
       code += `  if (!isConfigOption(config_${name}_${c}, ${t}, ${m})) {\n`
@@ -188,22 +192,14 @@ ${[...hasPlugin.values()]
   .join('')}  ])
 }
 
-const pluginsLoaded = () => {
-  if (pluginsLoaded_) return pluginsLoaded_
-  return (pluginsLoaded_ = new Map<string, PI>([
-${[...hasPlugin.values()]
-  .map(
-    name =>
-      `    ['${name.substring('Plugin_'.length)}', ${name}.plugin],`
-  )
-  .join('\n')}
-  ]))
-}
-
-type PluginSet = [
+type PluginSet = ${
+  hasPlugin.size
+    ? `[
 ${[...hasPlugin.values()]
   .map(name => `  typeof ${name}.plugin,\n`)
-  .join('')}]
+  .join('')}]`
+    : '(TapPlugin<any> | TapPlugin<any, TestBaseOpts>)[]'
+}
 `
 
 const pluginLoaders = `export const loaders = ${JSON.stringify(

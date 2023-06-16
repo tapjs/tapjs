@@ -2,24 +2,30 @@ import type { Base, BaseOpts } from './base.js'
 
 import { TestOpts } from '@tapjs/test'
 
-export type TestArgs<T extends Base> =
+export type TestArgs<
+  T extends Base,
+  O extends TestOpts | BaseOpts = TestOpts | BaseOpts
+> =
   | [
       name?: string | number,
-      extra?: TestOpts | BaseOpts,
+      extra?: O,
       cb?: false | ((t: T) => any),
       defaultName?: string
     ]
-  | [extra: TestOpts | BaseOpts, cb?: ((t: T) => any) | false]
+  | [extra: O, cb?: ((t: T) => any) | false]
   | [name: string | number, cb?: ((t: T) => any) | false]
   | [cb?: ((t: T) => any) | false]
   | [name: string]
-  | [extra: TestOpts | BaseOpts]
+  | [extra: O]
 
-export const parseTestArgs = <T extends Base>(
-  ...args: TestArgs<T>
-): TestOpts => {
+export const parseTestArgs = <
+  T extends Base,
+  O extends TestOpts | BaseOpts = TestOpts | BaseOpts
+>(
+  ...args: TestArgs<T, O>
+): O => {
   let name: string | null | undefined = undefined
-  let extra: TestOpts | BaseOpts | null | undefined = undefined
+  let extra: O | null | undefined = undefined
   let cb: ((t: T) => any) | null | undefined = undefined
 
   // this only works if it's literally the 4th argument.
@@ -37,7 +43,7 @@ export const parseTestArgs = <T extends Base>(
       extra = arg
       if (name === undefined) name = null
     } else if (typeof arg === 'function') {
-      if (extra === undefined) extra = {}
+      if (extra === undefined) extra = {} as O
       if (name === undefined) name = null
       cb = arg
     } else if (arg === false) {
@@ -50,7 +56,7 @@ export const parseTestArgs = <T extends Base>(
       )
   }
 
-  if (!extra) extra = {}
+  if (!extra) extra = {} as O
 
   if (!cb && defaultName !== '/dev/stdin') {
     extra.todo = extra.todo || true
@@ -64,7 +70,7 @@ export const parseTestArgs = <T extends Base>(
   extra.name = name
   const opts = extra as TestOpts
   opts.cb = cb || todoCb
-  return opts
+  return opts as O
 }
 
 const todoCb = () => {

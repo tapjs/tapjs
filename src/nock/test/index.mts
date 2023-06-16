@@ -1,15 +1,32 @@
 import nock from 'nock'
+import fetch from 'node-fetch'
 import { createServer } from 'node:http'
 import tap, { Test } from 'tap'
 import { plugin } from '../dist/mjs/index.js'
-import fetch from 'node-fetch'
 const t = tap.applyPlugin(plugin)
 
+t.equal(
+  tap.pluginLoaded(plugin),
+  false,
+  'plugin not loaded on og root'
+)
+//@ts-expect-error
+t.equal(tap.nock, undefined, 'no nock object on og root')
+
 t.test('patch adds nock feature', async t => {
+  t.equal(t.pluginLoaded(plugin), true, 'pluginLoaded() true')
   t.ok(t.nock, 'nock property is set')
   t.ok(t.nock.disableNetConnect, 'disableNetConnect is present')
   t.ok(t.nock.enableNetConnect, 'enableNetConnect is present')
   t.ok(t.nock.snapshot, 'snapshot is present')
+  t.test('child test', t => {
+    t.equal(t.pluginLoaded(plugin), true, 'pluginLoaded() true')
+    t.ok(t.nock, 'nock property is set')
+    t.ok(t.nock.disableNetConnect, 'disableNetConnect is present')
+    t.ok(t.nock.enableNetConnect, 'enableNetConnect is present')
+    t.ok(t.nock.snapshot, 'snapshot is present')
+    t.end()
+  })
 })
 
 t.test('disableNetConnect/enableNetConnect work', async t => {

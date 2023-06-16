@@ -80,6 +80,7 @@ export class Base extends Minipass {
     hrtime;
     silent;
     deferred;
+    #printedOutput = false;
     constructor(options = {}) {
         super({ encoding: 'utf8' });
         // all tap streams are sync string minipasses
@@ -199,10 +200,14 @@ export class Base extends Minipass {
     get started() {
         return this.#started;
     }
+    get printedOutput() {
+        return this.#printedOutput;
+    }
     main(cb) {
         cb();
     }
     write(c) {
+        this.#printedOutput = true;
         if (this.buffered) {
             this.output += c;
             return true;

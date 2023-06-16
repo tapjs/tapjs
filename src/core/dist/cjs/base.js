@@ -86,6 +86,7 @@ class Base extends minipass_1.Minipass {
     hrtime;
     silent;
     deferred;
+    #printedOutput = false;
     constructor(options = {}) {
         super({ encoding: 'utf8' });
         // all tap streams are sync string minipasses
@@ -205,10 +206,14 @@ class Base extends minipass_1.Minipass {
     get started() {
         return this.#started;
     }
+    get printedOutput() {
+        return this.#printedOutput;
+    }
     main(cb) {
         cb();
     }
     write(c) {
+        this.#printedOutput = true;
         if (this.buffered) {
             this.output += c;
             return true;

@@ -24,8 +24,15 @@ const copyToString = (v: Function) => ({
     toString: () => 'function toString() { [native code] }',
   }),
 })
-const copyFunction = (t: Test, plug: Plug, v: Function) => {
-  const f: (this: Plug, ...args: any) => any = function (
+const copyFunction = <
+  Ext extends BuiltPlugins,
+  Opts extends TestOpts
+>(
+  t: Test<Ext, Opts>,
+  plug: Plug<Opts>,
+  v: Function
+) => {
+  const f: (this: Plug<Opts>, ...args: any) => any = function (
     ...args: any[]
   ) {
     const thisArg = this === t ? plug : this
@@ -39,10 +46,6 @@ const copyFunction = (t: Test, plug: Plug, v: Function) => {
   }
   return vv
 }
-
-type PI<O extends TestBaseOpts | any = any> =
-  | ((t: TestBase, opts: O) => Plug)
-  | ((t: TestBase) => Plug)
 
 type PluginResult<P extends ((t: TestBase, opts: any) => any)[]> =
   P extends [
@@ -59,9 +62,15 @@ type AnyReturnValue<A extends ((...a: any[]) => any)[]> = A extends [
   ? ReturnType<H> | AnyReturnValue<T>
   : never
 
-type Plug =
+type Plug<Opt extends TestOpts> =
   | TestBase
-  | { t: Test<BuiltPlugins> }
+  | {
+      t: Test<BuiltPlugins>
+      pluginLoaded<T extends any = any>(
+        plugin: (t: any, opts?: any) => T
+      ): boolean
+      plugins: TapPlugin<any, Opt>[]
+    }
   | AnyReturnValue<PluginSet>
 type Plugged = TestBase & {
   t: Test<BuiltPlugins>
@@ -88,7 +97,6 @@ export type PluginOpts<
 export type TestOpts = TestBaseOpts & PluginOpts<PluginSet>
 
 let plugins_: PluginSet
-let pluginsLoaded_: Map<string, PI>
 
 //{{PLUGINS CODE START}}
 const plugins = () => {
@@ -96,10 +104,6 @@ const plugins = () => {
   return (plugins_ = [])
 }
 type PluginSet = (TapPlugin<any> | TapPlugin<any, TestBaseOpts>)[]
-const pluginsLoaded = () => {
-  if (pluginsLoaded_) return pluginsLoaded_
-  return (pluginsLoaded_ = new Map<string, PI>())
-}
 //{{PLUGINS CODE END}}
 
 //{{PLUGINS CONFIG START}}
@@ -123,75 +127,90 @@ type TTest<P extends PluginSet = PluginSet> = TestBase &
 // Condense to interface so the inline doc isn't overwhelming
 export interface BuiltPlugins extends PluginResult<PluginSet> {}
 
-export interface Test<Ext extends BuiltPlugins = BuiltPlugins>
-  extends TTest {
+export interface Test<
+  Ext extends BuiltPlugins = BuiltPlugins,
+  Opts extends TestOpts = TestOpts
+> extends TTest {
   end(implicit?: symbol): this
   test(
     name: string,
-    extra: TestOpts,
-    cb?: (t: Test<Ext> & Ext) => any
-  ): PromiseWithSubtest<Test<Ext> & Ext>
+    extra: Opts,
+    cb?: (t: Test<Ext, Opts> & Ext) => any
+  ): PromiseWithSubtest<Test<Ext, Opts> & Ext>
   test(
     name: string,
-    cb?: (t: Test<Ext> & Ext) => any
-  ): PromiseWithSubtest<Test<Ext>>
+    cb?: (t: Test<Ext, Opts> & Ext) => any
+  ): PromiseWithSubtest<Test<Ext, Opts>>
   test(
-    extra: TestOpts,
-    cb?: (t: Test<Ext> & Ext) => any
-  ): PromiseWithSubtest<Test<Ext> & Ext>
+    extra: Opts,
+    cb?: (t: Test<Ext, Opts> & Ext) => any
+  ): PromiseWithSubtest<Test<Ext, Opts> & Ext>
   test(
-    cb?: (t: Test<Ext> & Ext) => any
-  ): PromiseWithSubtest<Test<Ext> & Ext>
+    cb?: (t: Test<Ext, Opts> & Ext) => any
+  ): PromiseWithSubtest<Test<Ext, Opts> & Ext>
   test(
-    ...args: TestArgs<Test<Ext> & Ext>
-  ): PromiseWithSubtest<Test<Ext> & Ext>
+    ...args: TestArgs<Test<Ext, Opts> & Ext>
+  ): PromiseWithSubtest<Test<Ext, Opts> & Ext>
 
   todo(
     name: string,
-    extra: TestOpts,
-    cb?: (t: Test<Ext> & Ext) => any
-  ): PromiseWithSubtest<Test<Ext> & Ext>
+    extra: Opts,
+    cb?: (t: Test<Ext, Opts> & Ext) => any
+  ): PromiseWithSubtest<Test<Ext, Opts> & Ext>
   todo(
     name: string,
-    cb?: (t: Test<Ext> & Ext) => any
-  ): PromiseWithSubtest<Test<Ext> & Ext>
+    cb?: (t: Test<Ext, Opts> & Ext) => any
+  ): PromiseWithSubtest<Test<Ext, Opts> & Ext>
   todo(
-    extra: TestOpts,
-    cb?: (t: Test<Ext> & Ext) => any
-  ): PromiseWithSubtest<Test<Ext> & Ext>
+    extra: Opts,
+    cb?: (t: Test<Ext, Opts> & Ext) => any
+  ): PromiseWithSubtest<Test<Ext, Opts> & Ext>
   todo(
-    cb?: (t: Test<Ext> & Ext) => any
-  ): PromiseWithSubtest<Test<Ext> & Ext>
-  todo(...args: TestArgs<Test>): PromiseWithSubtest<Test<Ext> & Ext>
+    cb?: (t: Test<Ext, Opts> & Ext) => any
+  ): PromiseWithSubtest<Test<Ext, Opts> & Ext>
+  todo(
+    ...args: TestArgs<Test<Ext, Opts> & Ext, Opts>
+  ): PromiseWithSubtest<Test<Ext, Opts> & Ext>
 
   skip(
     name: string,
-    extra: TestOpts,
-    cb?: (t: Test<Ext> & Ext) => any
-  ): PromiseWithSubtest<Test<Ext> & Ext>
+    extra: Opts,
+    cb?: (t: Test<Ext, Opts> & Ext) => any
+  ): PromiseWithSubtest<Test<Ext, Opts> & Ext>
   skip(
     name: string,
-    cb?: (t: Test<Ext> & Ext) => any
-  ): PromiseWithSubtest<Test<Ext> & Ext>
+    cb?: (t: Test<Ext, Opts> & Ext) => any
+  ): PromiseWithSubtest<Test<Ext, Opts> & Ext>
   skip(
-    extra: TestOpts,
-    cb?: (t: Test<Ext> & Ext) => any
-  ): PromiseWithSubtest<Test<Ext> & Ext>
+    extra: Opts,
+    cb?: (t: Test<Ext, Opts> & Ext) => any
+  ): PromiseWithSubtest<Test<Ext, Opts> & Ext>
   skip(
-    cb?: (t: Test<Ext> & Ext) => any
-  ): PromiseWithSubtest<Test<Ext> & Ext>
-  skip(...args: TestArgs<Test>): PromiseWithSubtest<Test<Ext> & Ext>
+    cb?: (t: Test<Ext, Opts> & Ext) => any
+  ): PromiseWithSubtest<Test<Ext, Opts> & Ext>
+  skip(
+    ...args: TestArgs<Test<Ext, Opts> & Ext, Opts>
+  ): PromiseWithSubtest<Test<Ext, Opts> & Ext>
 
   applyPlugin<B extends Object, O extends unknown = unknown>(
     plugin: TapPlugin<B, O>
   ): Test<Ext & ReturnType<typeof plugin>> & ReturnType<typeof plugin>
 }
 
-const applyPlugins = (base: Test): Test => {
-  const ext: Plug[] = plugins()
+const applyPlugins = <
+  Ext extends BuiltPlugins,
+  Opts extends TestOpts
+>(
+  base: Test<Ext, Opts>,
+  plugs: (TapPlugin<any, Opts> | TapPlugin<any>)[] = plugins() as (
+    | TapPlugin<any>
+    | TapPlugin<any, Opts>
+  )[]
+): Test<Ext, Opts> & Ext => {
+  const ext: Plug<Opts>[] = plugs
     // typecast in case we have *only* option-less plugins.
     .map(p =>
-      (p as TapPlugin<Plug, TestBaseOpts>)(base, base.options)
+      (p as TapPlugin<Plug<Opts>, TestBaseOpts>)(base, base.options)
     )
     .concat(base)
   const getCache = new Map<any, any>()
@@ -267,7 +286,7 @@ const applyPlugins = (base: Test): Test => {
             // the correct toString and are called on the correct object
             // Otherwise attempting to access #private props will fail.
             if (typeof v === 'function') {
-              const vv = copyFunction(t, plug, v)
+              const vv: Function = copyFunction<Ext, Opts>(t, plug, v)
               getCache.set(p, vv)
               return vv
             } else if (p === 'parent') {
@@ -284,138 +303,183 @@ const applyPlugins = (base: Test): Test => {
     value: 'Test',
   })
   Object.assign(base, { t })
-  ext.unshift({ t })
+  ext.unshift({
+    t,
+    pluginLoaded<T extends any = any>(
+      plugin: (t: any, opts?: any) => T
+    ) {
+      return plugs.includes(plugin)
+    },
+    get plugins() {
+      return [...plugs]
+    },
+  })
   return t
 }
 
+const kPluginSet = Symbol('@tapjs/test construction plugin set')
+const kClass = Symbol('@tapjs/test construction class')
+type PluginExtensionOption<
+  E extends BuiltPlugins = BuiltPlugins,
+  O extends TestOpts = TestOpts
+> = {
+  [kPluginSet]: TapPlugin<any, O>[]
+  [kClass]?: typeof Test<E, O>
+}
+
+// TODO:
+// static Test.plugins = set of plugin functions
+// get plugins = array of plugin functions
+// applyPlugin = new Test with extra plugin added, in addition to current
+// Proxy object keeps reference to Test object's #plugins array
+// test.#Test = reference to extended class maybe?
 export class Test<
-  Ext extends BuiltPlugins = BuiltPlugins
+  Ext extends BuiltPlugins = BuiltPlugins,
+  Opts extends TestOpts = TestOpts
 > extends TestBase {
-  constructor(opts: TestOpts) {
+  #Class: typeof Test<Ext, Opts>
+  #pluginSet: TapPlugin<any, Opts>[]
+
+  constructor(
+    opts: Opts,
+    __INTERNAL: PluginExtensionOption<Ext, Opts> = {
+      [kPluginSet]: plugins() as TapPlugin<any, Opts>[],
+      [kClass]: Test,
+    }
+  ) {
     super(opts)
-    return applyPlugins(this) as Test<Ext> & Ext
+    this.#Class = __INTERNAL[kClass] as typeof Test<Ext, Opts>
+    const pluginSet = __INTERNAL[kPluginSet]
+    this.#pluginSet = pluginSet
+    type T = Test<Ext, Opts> & Ext
+    return applyPlugins(this, pluginSet) as T
   }
 
   applyPlugin<B extends Object, O extends unknown = unknown>(
     plugin: TapPlugin<B, O>
-  ): Test<Ext & B> & B {
-    if (this.parent) {
-      throw new Error(
-        'Plugins can only be applied at run-time to root test'
-      )
-    }
-    if (this.printedResult) {
+  ): Test<Ext & B, Opts & O> & Ext & B {
+    if (this.printedOutput) {
       throw new Error('Plugins must be applied prior to any tests')
     }
-    const ps = plugins()
 
-    // don't add to the list if already present.
-    // tell TS to overlook the dynamic type sins
-    //@ts-ignore
-    if (!ps.includes(plugin)) {
-      //@ts-ignore
-      ps.push(plugin)
+    if (this.#pluginSet.includes(plugin as TapPlugin<B, Opts>)) {
+      throw new Error('Plugin already applied')
     }
 
-    return applyPlugins(this) as Test<Ext & B> & B
-  }
-
-  static get plugins() {
-    return pluginsLoaded()
-  }
-
-  static pluginLoaded(
-    // TS gets confused if we type this as "TestBase" for some reason
-    plugin: (t: any, opts?: any) => any
-  ): boolean {
-    return plugins().includes(plugin)
+    type ExtExt = Ext & B
+    type ExtOpts = Opts & O
+    const p = plugin as TapPlugin<B, ExtOpts>
+    const pluginSetExtended: TapPlugin<any, ExtOpts>[] = (
+      this.#pluginSet as TapPlugin<any, ExtOpts>[]
+    ).concat([p])
+    const extended = this as unknown as Test<ExtExt, ExtOpts> & ExtExt
+    class TestExtended extends Test<ExtExt, ExtOpts> {
+      constructor(
+        opts: ExtOpts,
+        __INTERNAL: PluginExtensionOption<ExtExt, ExtOpts> = {
+          [kPluginSet]: pluginSetExtended,
+          [kClass]: TestExtended,
+        }
+      ) {
+        super(opts, __INTERNAL)
+      }
+    }
+    extended.#pluginSet = pluginSetExtended
+    extended.#Class = TestExtended
+    return applyPlugins<ExtExt, ExtOpts>(extended, pluginSetExtended)
   }
 
   pluginLoaded<T extends any = any>(
-    // TS gets confused if we type this as "TestBase" for some reason
     plugin: (t: any, opts?: any) => T
   ): this is TestBase & T {
-    return Test.pluginLoaded(plugin)
+    plugin
+    return false
   }
 
-  get plugins() {
-    return Test.plugins
+  get plugins(): TapPlugin<any, Opts>[] {
+    return []
   }
 
   test(
     name: string,
-    extra: TestOpts,
-    cb: (t: Test<Ext> & Ext) => any
-  ): PromiseWithSubtest<Test<Ext> & Ext>
+    extra: Opts,
+    cb: (t: Test<Ext, Opts> & Ext) => any
+  ): PromiseWithSubtest<Test<Ext, Opts> & Ext>
   test(
     name: string,
-    cb: (t: Test<Ext> & Ext) => any
-  ): PromiseWithSubtest<Test<Ext> & Ext>
+    cb: (t: Test<Ext, Opts> & Ext) => any
+  ): PromiseWithSubtest<Test<Ext, Opts> & Ext>
   test(
-    extra: TestOpts,
-    cb: (t: Test<Ext> & Ext) => any
-  ): PromiseWithSubtest<Test<Ext> & Ext>
+    extra: Opts,
+    cb: (t: Test<Ext, Opts> & Ext) => any
+  ): PromiseWithSubtest<Test<Ext, Opts> & Ext>
   test(
-    cb: (t: Test<Ext> & Ext) => any
-  ): PromiseWithSubtest<Test<Ext> & Ext>
+    cb: (t: Test<Ext, Opts> & Ext) => any
+  ): PromiseWithSubtest<Test<Ext, Opts> & Ext>
   test(
-    ...args: TestArgs<Test<Ext> & Ext>
-  ): PromiseWithSubtest<Test<Ext> & Ext> {
-    const extra = parseTestArgs(...args)
-    return this.sub(Test, extra, this.test) as PromiseWithSubtest<
-      Test<Ext> & Ext
-    >
+    ...args: TestArgs<Test<Ext, Opts> & Ext, Opts>
+  ): PromiseWithSubtest<Test<Ext, Opts> & Ext> {
+    const extra = parseTestArgs<Test<Ext, Opts> & Ext, Opts>(...args)
+    return this.sub(
+      this.#Class,
+      extra,
+      this.test
+    ) as PromiseWithSubtest<Test<Ext, Opts> & Ext>
   }
 
   todo(
     name: string,
-    extra: TestOpts,
-    cb: (t: Test<Ext> & Ext) => any
-  ): PromiseWithSubtest<Test<Ext> & Ext>
+    extra: Opts,
+    cb: (t: Test<Ext, Opts> & Ext) => any
+  ): PromiseWithSubtest<Test<Ext, Opts> & Ext>
   todo(
     name: string,
-    cb: (t: Test<Ext> & Ext) => any
-  ): PromiseWithSubtest<Test<Ext> & Ext>
+    cb: (t: Test<Ext, Opts> & Ext) => any
+  ): PromiseWithSubtest<Test<Ext, Opts> & Ext>
   todo(
-    extra: TestOpts,
-    cb: (t: Test<Ext> & Ext) => any
-  ): PromiseWithSubtest<Test<Ext> & Ext>
+    extra: Opts,
+    cb: (t: Test<Ext, Opts> & Ext) => any
+  ): PromiseWithSubtest<Test<Ext, Opts> & Ext>
   todo(
-    cb: (t: Test<Ext> & Ext) => any
-  ): PromiseWithSubtest<Test<Ext> & Ext>
+    cb: (t: Test<Ext, Opts> & Ext) => any
+  ): PromiseWithSubtest<Test<Ext, Opts> & Ext>
   todo(
-    ...args: TestArgs<Test<Ext> & Ext>
-  ): PromiseWithSubtest<Test<Ext> & Ext> {
-    const extra = parseTestArgs(...args)
+    ...args: TestArgs<Test<Ext, Opts> & Ext, Opts>
+  ): PromiseWithSubtest<Test<Ext, Opts> & Ext> {
+    const extra = parseTestArgs<Test<Ext, Opts> & Ext, Opts>(...args)
     extra.todo = true
-    return this.sub(Test, extra, this.todo) as PromiseWithSubtest<
-      Test<Ext> & Ext
-    >
+    return this.sub(
+      this.#Class,
+      extra,
+      this.todo
+    ) as PromiseWithSubtest<Test<Ext, Opts> & Ext>
   }
 
   skip(
     name: string,
-    extra: TestOpts,
-    cb: (t: Test<Ext> & Ext) => any
-  ): PromiseWithSubtest<Test<Ext> & Ext>
+    extra: Opts,
+    cb: (t: Test<Ext, Opts> & Ext) => any
+  ): PromiseWithSubtest<Test<Ext, Opts> & Ext>
   skip(
     name: string,
-    cb: (t: Test<Ext> & Ext) => any
-  ): PromiseWithSubtest<Test<Ext> & Ext>
+    cb: (t: Test<Ext, Opts> & Ext) => any
+  ): PromiseWithSubtest<Test<Ext, Opts> & Ext>
   skip(
-    extra: TestOpts,
-    cb: (t: Test<Ext> & Ext) => any
-  ): PromiseWithSubtest<Test<Ext> & Ext>
+    extra: Opts,
+    cb: (t: Test<Ext, Opts> & Ext) => any
+  ): PromiseWithSubtest<Test<Ext, Opts> & Ext>
   skip(
-    cb: (t: Test<Ext> & Ext) => any
-  ): PromiseWithSubtest<Test<Ext> & Ext>
+    cb: (t: Test<Ext, Opts> & Ext) => any
+  ): PromiseWithSubtest<Test<Ext, Opts> & Ext>
   skip(
-    ...args: TestArgs<Test<Ext> & Ext>
-  ): PromiseWithSubtest<Test<Ext> & Ext> {
-    const extra = parseTestArgs(...args)
+    ...args: TestArgs<Test<Ext, Opts> & Ext, Opts>
+  ): PromiseWithSubtest<Test<Ext, Opts> & Ext> {
+    const extra = parseTestArgs<Test<Ext, Opts> & Ext, Opts>(...args)
     extra.skip = true
-    return this.sub(Test, extra, this.skip) as PromiseWithSubtest<
-      Test<Ext> & Ext
-    >
+    return this.sub(
+      this.#Class,
+      extra,
+      this.skip
+    ) as PromiseWithSubtest<Test<Ext, Opts> & Ext>
   }
 }

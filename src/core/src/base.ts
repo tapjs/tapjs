@@ -141,6 +141,8 @@ export class Base<
 
   deferred?: Deferred<FinalResults>
 
+  #printedOutput: boolean = false
+
   constructor(options: BaseOpts = {}) {
     super({ encoding: 'utf8' })
     // all tap streams are sync string minipasses
@@ -271,8 +273,13 @@ export class Base<
     this.#started = true
     this.hook.runInAsyncScope(this.main, this, cb)
   }
+
   get started() {
     return this.#started
+  }
+
+  get printedOutput() {
+    return this.#printedOutput
   }
 
   main(cb: () => void) {
@@ -280,6 +287,7 @@ export class Base<
   }
 
   write(c: string) {
+    this.#printedOutput = true
     if (this.buffered) {
       this.output += c
       return true

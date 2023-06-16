@@ -85,7 +85,7 @@ class TAP extends test_1.Test {
         // from a cold start.
         const td = this;
         const { teardown } = td;
-        if (td.plugins.has('after') && typeof teardown === 'function') {
+        if (typeof teardown === 'function') {
             td.teardown = (...args) => {
                 autoend = true;
                 td.teardown = teardown;

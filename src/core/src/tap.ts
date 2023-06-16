@@ -105,7 +105,7 @@ class TAP extends Test {
       teardown?: (fn: () => any) => void
     }
     const { teardown } = td
-    if (td.plugins.has('after') && typeof teardown === 'function') {
+    if (typeof teardown === 'function') {
       type TD = typeof teardown
       td.teardown = (...args: Parameters<TD>): ReturnType<TD> => {
         autoend = true
