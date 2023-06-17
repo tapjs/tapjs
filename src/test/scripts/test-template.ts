@@ -294,9 +294,7 @@ const applyPlugins = <
     })
   )
   Object.defineProperty(t, Symbol.toStringTag, {
-    get() {
-      return 'Test'
-    },
+    value: 'Test',
   })
   // assign a reference to the extended Test for use in plugin at run-time
   Object.assign(base, { t })
