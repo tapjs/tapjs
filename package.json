@@ -70,6 +70,7 @@
   },
   "scripts": {
     "test": "nx run-many -t test",
+    "test:bootstrap": "bash ./scripts/test-bootstrap.sh",
     "snap": "nx run-many -t snap",
     "format": "nx run-many -t format",
     "typedoc": "typedoc",
