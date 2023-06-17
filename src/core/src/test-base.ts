@@ -930,7 +930,7 @@ export class TestBase extends Base<TestBaseEvents> {
    */
   sub<T extends Base, O extends BaseOpts>(
     Class: { new (options: O): T },
-    extra: TestOpts | TestBaseOpts | BaseOpts = {},
+    extra: O | TestOpts | TestBaseOpts | BaseOpts = {},
     caller: (...a: any[]) => unknown
   ): PromiseWithSubtest<T> {
     if (this.bailedOut)

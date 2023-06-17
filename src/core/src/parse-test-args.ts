@@ -37,15 +37,15 @@ export const parseTestArgs = <
     if (
       name === undefined &&
       (typeof arg === 'string' || typeof arg === 'number')
-    )
+    ) {
       name = '' + arg
-    else if (arg && typeof arg === 'object') {
+    } else if (arg && typeof arg === 'object') {
       extra = arg
       if (name === undefined) name = null
     } else if (typeof arg === 'function') {
       if (extra === undefined) extra = {} as O
       if (name === undefined) name = null
-      cb = arg
+      cb = arg as (t: T) => any
     } else if (arg === false) {
       // it's handy while developing to put a ! in front of a
       // function to temporarily make a test todo
@@ -58,16 +58,17 @@ export const parseTestArgs = <
 
   if (!extra) extra = {} as O
 
+  const bex = extra as BaseOpts
   if (!cb && defaultName !== '/dev/stdin') {
-    extra.todo = extra.todo || true
+    bex.todo = bex.todo || true
   }
 
-  if (!name && extra.name) name = extra.name
+  if (!name && bex.name) name = bex.name
 
   if (!name && cb && cb.name) name = cb.name
 
   name = name || defaultName
-  extra.name = name
+  bex.name = name
   const opts = extra as TestOpts
   opts.cb = cb || todoCb
   return opts as O

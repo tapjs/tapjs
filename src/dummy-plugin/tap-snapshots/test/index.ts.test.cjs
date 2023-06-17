@@ -8,16 +8,10 @@
 exports[`test/index.ts > TAP > plugin adds methods > must match snapshot 1`] = `
 Object {
   "flag": false,
-  "flagSet": Array [
-    false,
-  ],
-  "num": null,
-  "numSet": Array [
-    null,
-  ],
-  "opt": undefined,
-  "optSet": Array [
-    "",
-  ],
+  "flagSet": Array [],
+  "num": 0,
+  "numSet": Array [],
+  "opt": "",
+  "optSet": Array [],
 }
 `

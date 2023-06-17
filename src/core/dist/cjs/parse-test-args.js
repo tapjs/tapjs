@@ -11,8 +11,9 @@ const parseTestArgs = (...args) => {
     for (let i = 0; i < 3 && i < args.length; i++) {
         const arg = args[i];
         if (name === undefined &&
-            (typeof arg === 'string' || typeof arg === 'number'))
+            (typeof arg === 'string' || typeof arg === 'number')) {
             name = '' + arg;
+        }
         else if (arg && typeof arg === 'object') {
             extra = arg;
             if (name === undefined)
@@ -35,15 +36,16 @@ const parseTestArgs = (...args) => {
     }
     if (!extra)
         extra = {};
+    const bex = extra;
     if (!cb && defaultName !== '/dev/stdin') {
-        extra.todo = extra.todo || true;
+        bex.todo = bex.todo || true;
     }
-    if (!name && extra.name)
-        name = extra.name;
+    if (!name && bex.name)
+        name = bex.name;
     if (!name && cb && cb.name)
         name = cb.name;
     name = name || defaultName;
-    extra.name = name;
+    bex.name = name;
     const opts = extra;
     opts.cb = cb || todoCb;
     return opts;

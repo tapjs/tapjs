@@ -37,7 +37,9 @@ const copyFunction = <
   ) {
     const thisArg = this === t ? plug : this
     const ret = v.apply(thisArg, args)
-    return ret === thisArg ? t : ret
+    // If a plugin method returns 'this', and it's the plugin,
+    // then we return the extended Test instead.
+    return ret === thisArg && thisArg === plug ? t : ret
   }
   const vv = Object.assign(Object.assign(f, v), copyToString(v))
   const nameProp = Reflect.getOwnPropertyDescriptor(v, 'name')
@@ -108,9 +110,11 @@ type PluginSet = (TapPlugin<any> | TapPlugin<any, TestBaseOpts>)[]
 
 //{{PLUGINS CONFIG START}}
 // just referenced to keep prettier/tslint happy
+/* c8 ignore start */
 isConfigOption
 const c = <T extends ConfigSet>(j: Jack<T>) => j
 c
+/* c8 ignore stop */
 //{{PLUGINS CONFIG END}}
 
 //{{LOADERS START}}
@@ -232,13 +236,6 @@ const applyPlugins = <
         }
         return [...new Set(k)]
       },
-      getOwnPropertyDescriptor(_, p) {
-        for (const t of ext) {
-          const prop = Reflect.getOwnPropertyDescriptor(t, p)
-          if (prop) return prop
-        }
-        return undefined
-      },
       set(_, p, v) {
         // check to see if there's any setters, and if so, set it there
         // otherwise, just set on the base
@@ -268,7 +265,6 @@ const applyPlugins = <
         return true
       },
       get(_, p) {
-        if (p === Symbol.toStringTag) return 'Test'
         if (p === 'parent') {
           return base.parent?.t
         }
@@ -289,8 +285,6 @@ const applyPlugins = <
               const vv: Function = copyFunction<Ext, Opts>(t, plug, v)
               getCache.set(p, vv)
               return vv
-            } else if (p === 'parent') {
-              return v?.t
             } else {
               return v
             }
@@ -300,15 +294,21 @@ const applyPlugins = <
     })
   )
   Object.defineProperty(t, Symbol.toStringTag, {
-    value: 'Test',
+    get() {
+      return 'Test'
+    },
   })
+  // assign a reference to the extended Test for use in plugin at run-time
   Object.assign(base, { t })
+  // put the .t self-ref and plugin inspection on top of the stack
   ext.unshift({
     t,
-    pluginLoaded<T extends any = any>(
-      plugin: (t: any, opts?: any) => T
-    ) {
-      return plugs.includes(plugin)
+    get pluginLoaded() {
+      return <T extends any = any>(
+        plugin: (t: any, opts?: any) => T
+      ) => {
+        return plugs.includes(plugin)
+      }
     },
     get plugins() {
       return [...plugs]
@@ -352,14 +352,25 @@ export class Test<
     const pluginSet = __INTERNAL[kPluginSet]
     this.#pluginSet = pluginSet
     type T = Test<Ext, Opts> & Ext
+    // need to ignore this because it's a ctor that returns a value.
+    /* c8 ignore start */
     return applyPlugins(this, pluginSet) as T
   }
+  /* c8 ignore stop */
+
+  /* c8 ignore start */
+  get [Symbol.toStringTag]() {
+    return 'Test'
+  }
+  /* c8 ignore stop */
 
   applyPlugin<B extends Object, O extends unknown = unknown>(
     plugin: TapPlugin<B, O>
   ): Test<Ext & B, Opts & O> & Ext & B {
     if (this.printedOutput) {
-      throw new Error('Plugins must be applied prior to any tests')
+      throw new Error(
+        'Plugins must be applied prior to any test output'
+      )
     }
 
     if (this.#pluginSet.includes(plugin as TapPlugin<B, Opts>)) {
@@ -389,13 +400,16 @@ export class Test<
     return applyPlugins<ExtExt, ExtOpts>(extended, pluginSetExtended)
   }
 
+  // actually no way to get at this, since we always call applyPlugins in the
+  // Test constructor, so there's always *something* here, but it nevertheless
+  // seems sensible to have some stubs in place. At least, they are relevant
+  // for establishing the typed interface.
   pluginLoaded<T extends any = any>(
     plugin: (t: any, opts?: any) => T
   ): this is TestBase & T {
     plugin
     return false
   }
-
   get plugins(): TapPlugin<any, Opts>[] {
     return []
   }
