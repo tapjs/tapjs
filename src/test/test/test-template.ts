@@ -4,7 +4,7 @@ import { TestBase } from '@tapjs/core'
 import { plugin } from '@tapjs/dummy-plugin'
 import { Test } from '../scripts/test-template'
 
-t.cleanSnapshot = s => s.replace(/# time=.*m?s$/mg, '# time={TIME}')
+t.cleanSnapshot = s => s.replace(/# time=.*m?s$/gm, '# time={TIME}')
 
 t.test('make a test, do some stuff with it', async t => {
   const tt = new Test({ name: 'my test' })
