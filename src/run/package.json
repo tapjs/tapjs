@@ -35,14 +35,14 @@
     "typedoc": "typedoc ./src/*.ts"
   },
   "dependencies": {
-    "@tapjs/config": ">=0.0.0-0",
+    "@tapjs/config": ">=2.0.0-0",
     "@tapjs/core": ">=0.0.0-0",
     "@tapjs/processinfo": "^2.2.5",
     "@tapjs/reporter": ">=0.0.0-0",
     "@tapjs/spawn": ">=0.0.0-0",
     "@tapjs/stdin": ">=0.0.0-0",
     "@tapjs/test": ">=0.0.0-0",
-    "c8": "^7.13.0",
+    "c8": "^8.0.0",
     "foreground-child": "^3.1.1",
     "glob": "10",
     "minipass": "^6.0.2",
