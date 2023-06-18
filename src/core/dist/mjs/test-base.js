@@ -72,6 +72,7 @@ export class TestBase extends Base {
     #currentAssert = null;
     #processing = false;
     #doingStdinOnly = false;
+    #calledOnEOF = false;
     /**
      * true if the test has printed at least one TestPoint
      */
@@ -360,7 +361,7 @@ export class TestBase extends Base {
         if (this.#doingStdinOnly && implicit !== IMPLICIT) {
             throw new Error('cannot explicitly end while in stdinOnly mode');
         }
-        this.debug('END implicit=%j', implicit === IMPLICIT);
+        this.debug('END %s implicit=%j', this.name, implicit === IMPLICIT);
         if (this.ended && implicit === IMPLICIT) {
             this.debug('already ended, ignore implicit end');
             return;
@@ -449,15 +450,32 @@ export class TestBase extends Base {
             }
             else if (p === EOF) {
                 this.debug(' > EOF', this.name);
-                // I AM BECOME EOF, DESTROYER OF STREAMS
-                const eofRet = this.onEOF();
-                if (isPromise(eofRet)) {
-                    this.waitOn(eofRet.then(() => {
-                        this.queue.push(EOF);
-                        this.#process();
-                    }));
+                if (!this.#calledOnEOF) {
+                    this.#calledOnEOF = true;
+                    // I AM BECOME EOF, DESTROYER OF STREAMS
+                    this.debug('call onEOF', this.name);
+                    const eofRet = this.onEOF();
+                    if (isPromise(eofRet)) {
+                        this.debug('onEOF is promise');
+                        this.waitOn(eofRet, w => {
+                            if (w.rejected) {
+                                // threw on the parent, since we're EOFing already
+                                this.debug('eofRet reject', w.value);
+                                this.comment('error thrown in teardown');
+                                this.threw(w.value);
+                            }
+                            this.queue.push(EOF);
+                            this.#process();
+                        });
+                        break;
+                    }
+                }
+                if (this.#occupied) {
+                    this.debug('eof occupied', this.name);
+                    this.queue.push(EOF);
                 }
                 else {
+                    this.debug('eof end parser', this.name);
                     this.parser.end();
                 }
             }
@@ -585,7 +603,6 @@ export class TestBase extends Base {
         this.emit('subtestProcess', p);
         p.ondone = p.constructor.prototype.ondone;
         p.results = p.results || new FinalResults(true, p.parser);
-        this.debug('#onIndentedEnd', this.name, p.name);
         this.#noparallel = false;
         const sti = this.subtests.indexOf(p);
         if (sti !== -1)
@@ -793,7 +810,7 @@ export class TestBase extends Base {
         return Object.assign(d.promise, { subtest: t });
     }
     threw(er, extra, proxy = false) {
-        this.debug('TestBase.threw', er);
+        this.debug('TestBase.threw', this.name, er.message);
         // this can happen if a beforeEach throws.  capture the error here
         // and raise it once we've started the test officially.
         if (this.parent && !this.started) {
@@ -812,27 +829,36 @@ export class TestBase extends Base {
         if (!proxy) {
             extra = extraFromError(er, extra);
         }
-        super.threw(er, extra, proxy);
+        this.debug('T.t call Base.threw', this.name, extra);
+        const ended = !!this.results ||
+            this.#explicitPlan && this.count === this.#planEnd;
+        this.parser.ok = false;
+        super.threw(er, extra, proxy, ended);
         // Handle the failure here, but only if we (a) don't have
         // results yet (indicating an end) and (b) are not currently
         // at the plan end (which would mean that any failure is
         // ignored to prevent infinite regress in "plan exceeded"
         // failures)
-        if (!this.results &&
-            (this.#planEnd === -1 || this.count < this.#planEnd)) {
-            this.debug('no results yet, fail here', this.fullname);
+        if (!ended) {
             const msg = typeof extra?.message === 'string'
                 ? extra.message
                 : typeof er.message === 'string'
                     ? er.message
                     : '';
             this.fail(msg, extra || {});
-            if (!proxy) {
-                this.#end(IMPLICIT);
+            if (this.ended || this.#pushedEnd) {
+                this.ended = false;
+                this.#pushedEnd = false;
+                this.end(IMPLICIT);
             }
         }
         if (this.#occupied && this.#occupied instanceof Waiter) {
             this.#occupied.abort(Object.assign(new Error('error thrown while awaiting Promise'), { thrown: er }));
+            this.#occupied = null;
+        }
+        if (!proxy) {
+            this.#end(IMPLICIT);
+            this.#processing = false;
         }
         this.#process();
     }

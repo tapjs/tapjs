@@ -377,7 +377,8 @@ export class Base<
   threw(
     er: any,
     extra?: Extra,
-    proxy: boolean = false
+    proxy: boolean = false,
+    ended: boolean = false
   ): Extra | void | undefined {
     this.hook.emitDestroy()
     this.hookDomain.destroy()
@@ -400,11 +401,12 @@ export class Base<
     // a bit excessive. Do not print it here if it would trigger
     // a plan exceeded error, or if we already have results.
     if (
+      ended ||
       this.results ||
       (this.parser.planEnd !== -1 &&
         this.parser.count >= this.parser.planEnd)
     ) {
-      this.debug('Base.threw, but have results', this.results, er)
+      this.debug('Base.threw, but finished', this.name, this.results, er.message)
       const alreadyBailing = !this.results?.ok && this.bail
       if (this.results) this.results.ok = false
       if (this.parent) {

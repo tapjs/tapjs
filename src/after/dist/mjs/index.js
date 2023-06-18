@@ -36,18 +36,11 @@ export class After {
             try {
                 const ret = fn.call(this.#t.t);
                 if (isPromise(ret)) {
-                    this.#t.waitOn(ret, w => {
-                        if (w.rejected) {
-                            this.#t.threw(w.value);
-                        }
-                        else {
-                            this.#callTeardown();
-                        }
-                    });
-                    return ret;
+                    return ret.then(() => this.#callTeardown());
                 }
             }
             catch (e) {
+                this.#onTeardown.length = 0;
                 this.#t.threw(e);
                 return;
             }

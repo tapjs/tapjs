@@ -282,7 +282,7 @@ class Base extends minipass_1.Minipass {
     end() {
         return this;
     }
-    threw(er, extra, proxy = false) {
+    threw(er, extra, proxy = false, ended = false) {
         this.hook.emitDestroy();
         this.hookDomain.destroy();
         if (typeof er === 'string') {
@@ -302,10 +302,11 @@ class Base extends minipass_1.Minipass {
         // already in the process of bailing out, in which case it's
         // a bit excessive. Do not print it here if it would trigger
         // a plan exceeded error, or if we already have results.
-        if (this.results ||
+        if (ended ||
+            this.results ||
             (this.parser.planEnd !== -1 &&
                 this.parser.count >= this.parser.planEnd)) {
-            this.debug('Base.threw, but have results', this.results, er);
+            this.debug('Base.threw, but finished', this.name, this.results, er.message);
             const alreadyBailing = !this.results?.ok && this.bail;
             if (this.results)
                 this.results.ok = false;

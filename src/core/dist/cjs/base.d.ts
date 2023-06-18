@@ -133,7 +133,7 @@ export declare class Base<Events extends TapBaseEvents = TapBaseEvents> extends 
     ondone(): void;
     emit<Event extends keyof Events>(ev: Event, ...data: Events[Event]): boolean;
     end(): this;
-    threw(er: any, extra?: Extra, proxy?: boolean): Extra | void | undefined;
+    threw(er: any, extra?: Extra, proxy?: boolean, ended?: boolean): Extra | void | undefined;
     passing(): boolean;
 }
 //# sourceMappingURL=base.d.ts.map
