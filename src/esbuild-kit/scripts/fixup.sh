@@ -1,14 +1,12 @@
 #!/usr/bin/env bash
-sync-content dist-tmp dist
-rm -rf dist-tmp
 
-cat >dist/cjs/package.json <<!EOF
+cat >dist-tmp/cjs/package.json <<!EOF
 {
   "type": "commonjs"
 }
 !EOF
 
-cat >dist/mjs/package.json <<!EOF
+cat >dist-tmp/mjs/package.json <<!EOF
 {
   "type": "module"
 }
@@ -23,10 +21,13 @@ cat >dist/mjs/package.json <<!EOF
 # 4. Uncomment these lines, changing the 'some-module' to the actual
 #    module name:
 #
-# rm dist/mjs/some-module.*
-# mv dist/mjs/some-module-esm.mjs dist/mjs/some-module.js
-# mv dist/mjs/some-module-esm.d.mts dist/mjs/some-module.d.ts
+# rm dist-tmp/mjs/some-module.*
+# mv dist-tmp/mjs/some-module-esm.mjs dist-tmp/mjs/some-module.js
+# mv dist-tmp/mjs/some-module-esm.d.mts dist-tmp/mjs/some-module.d.ts
 #
 # 5. If you want, you can also remove the ESM version from the CJS
 #    build, or exclude it in tsconfig.json, but it won't hurt anything
 #    just by being there.
+
+sync-content dist-tmp dist
+rm -rf dist-tmp

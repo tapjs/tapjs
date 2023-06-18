@@ -1,17 +1,18 @@
 #!/usr/bin/env bash
-sync-content dist-tmp dist
-rm -rf dist-tmp
 
-cat >dist/cjs/package.json <<!EOF
+cat >dist-tmp/cjs/package.json <<!EOF
 {
   "type": "commonjs"
 }
 !EOF
 
-cat >dist/mjs/package.json <<!EOF
+cat >dist-tmp/mjs/package.json <<!EOF
 {
   "type": "module"
 }
 !EOF
 
-chmod 0755 dist/mjs/run.mjs
+chmod 0755 dist-tmp/mjs/run.mjs
+
+sync-content dist-tmp dist
+rm -rf dist-tmp
