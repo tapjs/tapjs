@@ -1,10 +1,11 @@
-import { Result } from 'tap-parser'
 import { Base } from '@tapjs/core'
+import { Result } from 'tap-parser'
 
 export const assertName = (r: Result, t: Base) => {
   const fn = r.fullname
   const dt = r.diag?.test
   const tn = t.name + ' > '
-  const n = (fn.startsWith(tn) ? fn.substring(tn.length) : fn).trim()
-  return dt ? `${dt} > ${n}` : n
+  let n = fn
+  if (n.startsWith(tn)) n = n.substring(tn.length).trim()
+  return dt && !n.startsWith(`${dt} > `) ? `${dt} > ${n}` : n
 }

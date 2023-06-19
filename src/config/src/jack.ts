@@ -29,7 +29,7 @@ const coverageReporters = [
 
 // Can't pull this directly out of @tapjs/reporter because
 // it's ESM only because ink is ESM only.
-const testReporters = ['base']
+const testReporters = ['base', 'terse']
 
 export default jack({
   envPrefix: 'TAP',
@@ -204,7 +204,7 @@ export default jack({
                     writable stream class or a React.Component subclass.
                     Writable streams are instantiated and piped into.
                     React components are rendered using Ink, with tap={tap}
-                    as their only property.
+                    and config={loadedConfig} as their properties.
 
                     Built-in test reporters:
 

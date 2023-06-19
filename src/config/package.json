@@ -45,6 +45,9 @@
     "polite-json": "^4.0.1",
     "walk-up-path": "^3.0.1"
   },
+  "tap": {
+    "coverage-map": "map.js"
+  },
   "engines": {
     "node": ">=14"
   },

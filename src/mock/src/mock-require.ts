@@ -56,7 +56,7 @@ class MockedModule extends CorrectModule {
     }
 
     const s = this.#mocker.getSeen(requiredFilePath)
-    if (s) return s
+    if (s) return s.exports
 
     const mod = new MockedModule(requiredFilePath, this)
     this.#mocker.setSeen(requiredFilePath, mod)

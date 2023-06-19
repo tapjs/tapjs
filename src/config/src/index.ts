@@ -6,6 +6,7 @@ import { createRequire } from 'module'
 import { relative, resolve } from 'node:path'
 import { basename, dirname } from 'path'
 import {
+  kIndent,
   parse as jsonParse,
   stringify as jsonStringify,
 } from 'polite-json'
@@ -65,7 +66,18 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
 
   // load the file, and write the fields in data.
   // if not present, create it.
-  async editConfigFile(data: OptionsResults<C>, configFile: string) {
+  async editConfigFile(
+    data: OptionsResults<C>,
+    configFile = this.configFile
+  ) {
+    // we'll always have a config file by the time we get here
+    /* c8 ignore start */
+    if (!configFile)
+      throw new Error('cannot edit without a configFile')
+    /* c8 ignore stop */
+    // also set the fields
+    await this.loadConfigData(data, configFile)
+    if (this.values) Object.assign(this.values, data)
     const b = basename(configFile)
     if (b === '.taprc') {
       return this.editYAMLConfig(data, configFile)
@@ -82,7 +94,7 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
 
   async editYAMLConfig(data: OptionsResults<C>, configFile: string) {
     const src: OptionsResults<C> =
-      (await this.readYAMLConfig(configFile)) || {}
+      (await this.readYAMLConfig(configFile, true)) || {}
     return writeFile(
       configFile,
       // split up to un-confuse vim
@@ -96,30 +108,34 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
     data: OptionsResults<C>,
     configFile: string
   ) {
-    const pj: any = (await this.readPackageJson(configFile)) || {}
+    const pj: any =
+      (await this.readPackageJson(configFile, true)) || {}
     const { tap = {} } = pj
     const src = (
       tap && typeof tap === 'object' && !Array.isArray(tap) ? tap : {}
     ) as OptionsResults<C>
     pj.tap = Object.assign(src, data)
+    if (undefined === pj[kIndent]) pj[kIndent] = 2
     return writeFile(configFile, jsonStringify(pj))
   }
 
   async readYAMLConfig(
-    rc: string
+    rc: string,
+    silent: boolean = false
   ): Promise<OptionsResults<C> | undefined> {
     try {
       return yamlParse(
         await readFile(rc, 'utf8')
       ) as OptionsResults<C>
     } catch (er) {
-      console.error('Error loading .taprc:', rc, er)
+      if (!silent) console.error('Error loading .taprc:', rc, er)
       return undefined
     }
   }
 
   async readPackageJson(
-    pj: string
+    pj: string,
+    silent: boolean = false
   ): Promise<{ tap?: OptionsResults<C> } | undefined> {
     try {
       const res = jsonParse(await readFile(pj, 'utf8'))
@@ -127,9 +143,10 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
         return res as { tap?: OptionsResults<C> }
       }
     } catch (er) {
-      console.error('Error loading package.json:', pj, er)
-      return undefined
+      if (!silent)
+        console.error('Error loading package.json:', pj, er)
     }
+    return undefined
   }
 
   async readPackageJsonConfig(
@@ -141,8 +158,11 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
   }
 
   async readDepConfig(file: string) {
-    if (file.endsWith('.taprc')) return this.readYAMLConfig(file)
-    else return this.readPackageJsonConfig(file)
+    // people like yaml files to end in .yaml or .yml, but package.json
+    // should always be a file named 'package.json'
+    return basename(file) === 'package.json'
+      ? this.readPackageJsonConfig(file)
+      : this.readYAMLConfig(file)
   }
 
   async resolveExtension(ext: string, file: string) {
@@ -192,13 +212,20 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
       !seen.has(data.extends)
     ) {
       const { extends: ext } = data
-      const resolved = await this.resolveExtension(ext, file)
-      const extension = await this.readDepConfig(resolved)
-      if (!extension) break
-      seen.add(ext)
-      stack.unshift([extension, ext, resolved])
-      file = resolved
-      data = extension
+      delete data.extends
+      try {
+        const resolved = await this.resolveExtension(ext, file)
+        const extension = await this.readDepConfig(resolved)
+        if (!extension) break
+        seen.add(ext)
+        stack.unshift([extension, ext, resolved])
+        file = resolved
+        data = extension
+      } catch (er) {
+        throw Object.assign(er as Error, {
+          extendedFrom: [ext, ...stack.map(([_, ext]) => ext)],
+        })
+      }
     }
 
     // now we have a stack of all the configs, apply in reverse order so the
@@ -220,9 +247,10 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
   async loadConfigFile(): Promise<this & { configFile: string }> {
     // start from cwd, walk up until we find a .git
     // or package.json, or env.HOME
-    const home = env.HOME || ''
+    const home = env.HOME || cwd
     for (const p of walkUp(cwd)) {
-      const entries = await readdir(p)
+      const entries = await readdir(p).catch(() => null)
+      if (!entries) break
       if (entries.includes('.taprc')) {
         this.globCwd = p
         const file = resolve(p, '.taprc')
@@ -237,20 +265,21 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
           await this.readPackageJsonConfig(file),
           file
         )
-      } else if (
-        entries.includes('.git') ||
-        relative(home, p) === ''
-      ) {
-        this.globCwd = p
+      } else if (entries.includes('.git')) {
         // this just sets the default config file, even though we didn't
         // get anything from it, so `tap plugin <add|rm>` knows where to
         // write the resulting config to.
         return Object.assign(this, {
+          globCwd: p,
           configFile: resolve(p, '.taprc'),
         })
+      } else if (relative(home, p) === '') {
+        // got to ~, just use cwd
+        break
       }
     }
     return Object.assign(this, {
+      globCwd: cwd,
       configFile: resolve(cwd, '.taprc'),
     })
   }
@@ -288,13 +317,9 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
 
   loadReporter() {
     const r = this.get('reporter')
-    if (r !== undefined && process.env.TAP !== '1') return this
+    if (r !== undefined && env.TAP !== '1') return this
     const reporter =
-      process.env.TAP === '1'
-        ? 'tap'
-        : this.get('color')
-        ? 'base'
-        : 'tap'
+      env.TAP === '1' || !this.get('color') ? 'tap' : 'base'
     const { values } = this.parse()
     ;(values as OptionsResults<C> & { reporter: string }).reporter =
       reporter
