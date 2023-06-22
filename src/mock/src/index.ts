@@ -51,9 +51,11 @@ export class TapMock {
    * To *remove* a property, set it as undefined in the override.
    */
   createMock<
-    B extends { [k: PropertyKey]: any },
-    O extends { [k: string]: any }
+    B extends { [k: PropertyKey]: any } | Array<any>,
+    O extends { [k: string]: any } | Array<any>
   >(bases: B, overrides: O): MockedObject<B, O> {
+    if (Array.isArray(overrides))
+      return overrides as unknown as MockedObject<B, O>
     return Object.fromEntries(
       Object.entries(bases)
         .map(([k, v]) => {
@@ -148,7 +150,9 @@ export class TapMock {
   }
 }
 
-export type MockedObject<B, O> = B extends { [k: PropertyKey]: any }
+export type MockedObject<B, O> = O extends Array<any>
+  ? O
+  : B extends { [k: PropertyKey]: any }
   ? O extends { [k: string]: any }
     ? {
         [k in keyof B]: k extends keyof O
