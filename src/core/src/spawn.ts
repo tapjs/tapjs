@@ -47,19 +47,19 @@ export interface SpawnOpts extends TestBaseOpts {
 }
 
 export class Spawn extends Base<SpawnEvents> {
-  public declare options: SpawnOpts
-  public cwd: string
-  public command: string
-  public args: string[]
-  public stdio: [
+  declare options: SpawnOpts
+  cwd: string
+  command: string
+  args: string[]
+  stdio: [
     IOType | Stream | number | null | undefined,
     'pipe',
     IOType | Stream | number | null | undefined,
     'ipc'
   ]
-  public env: { [k: string]: string } | typeof process.env
-  public proc: null | ChildProcess
-  public cb: null | (() => void)
+  env: { [k: string]: string } | typeof process.env
+  proc: null | ChildProcess
+  cb: null | (() => void)
 
   // doesn't have to be cryptographically secure, just a gut check
   #tapAbortKey: string = String(Math.random())
@@ -70,7 +70,7 @@ export class Spawn extends Base<SpawnEvents> {
     // figure out the name before calling super()
     const command = options.command
     if (!command) {
-      throw new TypeError('no command provided')
+      throw new TypeError('no command provided for t.spawn()')
     }
     options = options || {}
     const cwd =

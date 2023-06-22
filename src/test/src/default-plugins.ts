@@ -12,4 +12,5 @@ export const defaultPlugins = [
   '@tapjs/mock',
   '@tapjs/intercept',
   '@tapjs/filter',
+  '@tapjs/worker',
 ]

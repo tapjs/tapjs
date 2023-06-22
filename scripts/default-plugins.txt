@@ -11,3 +11,4 @@ fixture
 mock
 intercept
 filter
+worker

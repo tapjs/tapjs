@@ -20,6 +20,7 @@ import { Spawn } from './spawn.js'
 import { Stdin } from './stdin.js'
 import { Result, TestPoint } from './test-point.js'
 import { Waiter } from './waiter.js'
+import { Worker } from './worker.js'
 
 import { IMPLICIT } from './implicit-end-sigil.js'
 import { Extra, TapBaseEvents } from './index.js'
@@ -103,6 +104,7 @@ export interface TestBaseEvents extends TapBaseEvents {
   result: [res: Result]
   stdin: [s: Stdin]
   spawn: [s: Spawn]
+  worker: [w: Worker]
 }
 
 /**

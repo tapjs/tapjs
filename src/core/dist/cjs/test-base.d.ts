@@ -9,6 +9,7 @@ import { Spawn } from './spawn.js';
 import { Stdin } from './stdin.js';
 import { Result, TestPoint } from './test-point.js';
 import { Waiter } from './waiter.js';
+import { Worker } from './worker.js';
 import { IMPLICIT } from './implicit-end-sigil.js';
 import { Extra, TapBaseEvents } from './index.js';
 export interface TestBaseOpts extends BaseOpts {
@@ -53,6 +54,7 @@ export interface TestBaseEvents extends TapBaseEvents {
     result: [res: Result];
     stdin: [s: Stdin];
     spawn: [s: Spawn];
+    worker: [w: Worker];
 }
 /**
  * The TestBaseBase class is the base class for all plugins,
@@ -177,7 +179,7 @@ export declare class TestBase extends Base<TestBaseEvents> {
      */
     sub<T extends Base, O extends BaseOpts>(Class: {
         new (options: O): T;
-    }, extra: TestOpts | BaseOpts | TestBaseOpts | O | undefined, caller: (...a: any[]) => unknown): PromiseWithSubtest<T>;
+    }, extra: TestBaseOpts | BaseOpts | TestOpts | O | undefined, caller: (...a: any[]) => unknown): PromiseWithSubtest<T>;
     threw(er: any, extra?: Extra, proxy?: boolean): Extra | void | undefined;
     onbail(message?: string): void;
     endAll(sub?: boolean): void;

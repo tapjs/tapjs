@@ -20,7 +20,7 @@ class Spawn extends base_js_1.Base {
         // figure out the name before calling super()
         const command = options.command;
         if (!command) {
-            throw new TypeError('no command provided');
+            throw new TypeError('no command provided for t.spawn()');
         }
         options = options || {};
         const cwd = typeof options.cwd === 'string' ? options.cwd : process.cwd();

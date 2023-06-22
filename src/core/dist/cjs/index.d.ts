@@ -1,15 +1,16 @@
 import { CallSiteLike, CallSiteLikeJSON } from '@tapjs/stack';
-export * from './waiter.js';
 export * from './base.js';
-export * from './test-point.js';
+export * from './test-base.js';
+export * from './main-script.js';
 export * from './parse-test-args.js';
+export * from './proc.js';
 export * from './spawn.js';
 export * from './stdin.js';
 export * from './tap-dir.js';
-export * from './test-base.js';
-export * from './main-script.js';
-export * from './proc.js';
 export * from './tap.js';
+export * from './test-point.js';
+export * from './waiter.js';
+export * from './worker.js';
 /**
  * The extra info passed to assertions.
  * Extended by BaseOpts, TestBaseOpts, and ultimately TestOpts, since

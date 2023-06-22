@@ -10,3 +10,4 @@
 /tap-snapshots
 /.tap
 /src/*/.tap
+/src/core/scratchpad/.tap

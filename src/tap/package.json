@@ -45,7 +45,8 @@
     "@tapjs/snapshot": ">=0.0.0-0",
     "@tapjs/spawn": ">=0.0.0-0",
     "@tapjs/stdin": ">=0.0.0-0",
-    "@tapjs/typescript": ">=0.0.0-0"
+    "@tapjs/typescript": ">=0.0.0-0",
+    "@tapjs/worker": ">=0.0.0-0"
   },
   "keywords": [
     "assert",
