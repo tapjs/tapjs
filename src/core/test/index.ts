@@ -1,3 +1,7 @@
 // put tests here
 import t from 'tap'
-t.pass('need tests', { todo: true })
+import * as core from '../dist/cjs/index.js'
+t.equal(core.proc, process)
+t.equal(core.env, process.env)
+t.equal(core.argv, process.argv)
+t.equal(t, core.tap())

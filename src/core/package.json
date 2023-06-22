@@ -47,6 +47,9 @@
     "prepublishOnly": "git push origin --follow-tags",
     "typedoc": "typedoc --tsconfig tsconfig-esm.json ./src/*.ts"
   },
+  "tap": {
+    "coverage-map": "map.js"
+  },
   "dependencies": {
     "@tapjs/processinfo": "^2.2.5",
     "@tapjs/stack": ">=0.0.0-0",

@@ -4,6 +4,9 @@ exports.Worker = void 0;
 // the .worker() method is only added to the root test object
 // See https://github.com/tapjs/node-tap/issues/812
 class Worker {
+    constructor() {
+        throw new Error('TODO');
+    }
 }
 exports.Worker = Worker;
 //# sourceMappingURL=worker.js.map
