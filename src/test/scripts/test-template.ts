@@ -19,6 +19,12 @@ import {
 import type { ConfigSet, Jack } from 'jackspeak'
 import { isConfigOption } from 'jackspeak'
 
+const kInspect = Symbol.for('nodejs.util.inspect.custom')
+import { inspect } from 'node:util'
+const copyInspect = (v: Function) => ({
+  [kInspect]: (...args: any[]) => inspect(v, ...args),
+})
+
 const copyToString = (v: Function) => ({
   toString: Object.assign(() => v.toString(), {
     toString: () => 'function toString() { [native code] }',
@@ -41,7 +47,7 @@ const copyFunction = <
     // then we return the extended Test instead.
     return ret === thisArg && thisArg === plug ? t : ret
   }
-  const vv = Object.assign(Object.assign(f, v), copyToString(v))
+  const vv = Object.assign(Object.assign(f, v), copyToString(v), copyInspect(v))
   const nameProp = Reflect.getOwnPropertyDescriptor(v, 'name')
   if (nameProp) {
     Reflect.defineProperty(f, 'name', nameProp)
