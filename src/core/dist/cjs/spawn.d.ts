@@ -1,5 +1,6 @@
 /// <reference types="node" />
 /// <reference types="node" />
+/// <reference types="node" />
 import { Base, TapBaseEvents } from './base.js';
 import { WithExternalID } from '@tapjs/processinfo';
 import { ChildProcess, ChildProcessByStdio, IOType, SpawnOptions, StdioOptions } from 'node:child_process';
@@ -26,7 +27,7 @@ export interface SpawnOpts extends TestBaseOpts {
     stdio?: StdioOptions;
     env?: {
         [k: string]: string;
-    } | typeof process.env;
+    } | NodeJS.ProcessEnv;
     exitCode?: number | null;
     signal?: string | null;
 }

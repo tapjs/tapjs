@@ -1,6 +1,7 @@
 // The root Test object singleton
 import { Test } from '@tapjs/test'
 import { Minipass } from 'minipass'
+import { parentPort, isMainThread } from 'node:worker_threads'
 import { onExit } from 'signal-exit'
 import { FinalResults } from 'tap-parser'
 import { diags } from './diags.js'
@@ -229,6 +230,26 @@ const registerTimeoutListener = () => {
     onProcessTimeout(signal)
   })
 
+  const onMessage = (
+    msg:
+      | {
+          tapAbort?: string
+          key?: string
+          child?: string
+        }
+      | any
+  ) => {
+    if (
+      msg &&
+      typeof msg === 'object' &&
+      msg.tapAbort === 'timeout' &&
+      msg.key === process.env.TAP_ABORT_KEY &&
+      msg.child === process.env.TAP_CHILD_ID
+    ) {
+      onProcessTimeout('SIGALRM')
+    }
+  }
+
   // this is a bit of a handshake agreement between the root TAP object
   // and the Spawn class. Because Windows cannot catch and process posix
   // signals, we have to use an IPC message to send the timeout signal.
@@ -236,31 +257,13 @@ const registerTimeoutListener = () => {
   // The key and childId are just a basic gut check to ensure that we don't
   // treat a message as a timeout unintentionally, though of course that
   // would be extremely rare.
-  process.on(
-    'message',
-    (
-      msg:
-        | {
-            tapAbort?: string
-            key?: string
-            child?: string
-          }
-        | any
-    ) => {
-      if (
-        msg &&
-        typeof msg === 'object' &&
-        msg.tapAbort === 'timeout' &&
-        msg.key === process.env.TAP_ABORT_KEY &&
-        msg.child === process.env.TAP_CHILD_ID
-      ) {
-        onProcessTimeout('SIGALRM')
-      }
-    }
-  )
+  process.on('message', onMessage)
+  parentPort?.on('message', onMessage)
+
   // We don't want the channel to keep the child running
   //@ts-ignore
   process.channel?.unref()
+  parentPort?.unref()
   /* c8 ignore stop */
 }
 
@@ -368,6 +371,9 @@ const onProcessTimeout = (signal: NodeJS.Signals | null = null) => {
 }
 
 const alarmKill = () => {
+  // can only kill in main thread, worker threads will be terminated
+  if (!isMainThread) return
+
   // SIGALRM isn't supported everywhere
   /* c8 ignore start */
   try {

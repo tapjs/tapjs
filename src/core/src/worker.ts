@@ -1,8 +1,8 @@
 // the .worker() method is only added to the root test object
 // See https://github.com/tapjs/node-tap/issues/812
 import { Base, TapBaseEvents } from './base.js'
-import { TestBaseOpts } from './test-base.js'
 import { env } from './proc.js'
+import { TestBaseOpts } from './test-base.js'
 
 import { format } from 'node:util'
 import { Worker as NodeWorker } from 'node:worker_threads'
@@ -13,6 +13,7 @@ export interface WorkerEvents extends TapBaseEvents {}
 export interface WorkerOpts extends TestBaseOpts {
   workerData?: any
   threadId?: number
+  env?: { [k: string]: string } | NodeJS.ProcessEnv
 }
 
 export class Worker extends Base<WorkerEvents> {
@@ -21,6 +22,13 @@ export class Worker extends Base<WorkerEvents> {
   filename: string
   cb?: () => void
   #worker?: NodeWorker
+  #childId: string
+  #env: { [k: string]: string } | NodeJS.ProcessEnv
+  // doesn't have to be cryptographically secure, just a gut check
+  #tapAbortKey: string = String(Math.random())
+  #timedOut?: { expired?: string }
+  #parserEnded: boolean = false
+  #workerEnded: boolean = false
 
   constructor(options: WorkerOpts) {
     const { filename } = options
@@ -28,7 +36,9 @@ export class Worker extends Base<WorkerEvents> {
       throw new TypeError('no filename provided for t.worker()')
     }
     super(options)
+    this.#childId = String(options.childId || env.TAP_CHILD_ID || '0')
     this.filename = filename
+    this.#env = options.env || env
   }
 
   main(cb: () => void) {
@@ -43,39 +53,79 @@ export class Worker extends Base<WorkerEvents> {
     })
 
     this.parent?.emit('worker', this)
-
-    this.#worker = new NodeWorker(this.filename, {
+    const options = {
       ...this.options,
       stdout: true,
-      // TODO: take options.env like Spawn does
       env: {
-        ...env,
+        ...this.#env,
         TAP: '1',
-        TAP_CHILD_ID: String(this.childId),
+        TAP_CHILD_ID: this.#childId,
+        TAP_BAIL: this.bail ? '1' : '0',
+        TAP_ABORT_KEY: this.#tapAbortKey,
       },
-    })
+    }
+    this.emit('preprocess', options)
+    this.#worker = new NodeWorker(this.filename, options)
     this.#worker.stdout.pipe(this.parser)
     this.#worker.on('error', e => this.threw(e))
-    this.#worker.on('exit', () => this.setTimeout(0))
+    this.#worker.on('exit', () => this.#onworkerexit())
     this.#worker.on('message', m => this.comment(m))
+    this.emit('process', this.#worker)
   }
 
-  // TODO: if we time out, terminate worker like how spawn terminates proc
+  #onworkerexit() {
+    if (this.#timedOut) super.timeout(this.#timedOut)
+    this.#workerEnded = true
+    if (this.#parserEnded) this.#callCb()
+    this.setTimeout(0)
+  }
 
-  // TODO: both parser complete AND workerexit have to happen?
-  // or should we terminate here?  give it a moment to exit if it hasn't?
+  timeout(options: { expired?: string } = { expired: this.name }) {
+    this.#timedOut = options
+    // try to send the timeout signal.  If the child test process is
+    // using node-tap as the test runner, and not caught in a busy
+    // loop, it will trigger a dump of outstanding handles and refs.
+    // If that doesn't do the job, then we fall back to thread termination.
+    const worker = this.#worker
+    if (worker) {
+      try {
+        worker.postMessage({
+          tapAbort: 'timeout',
+          key: this.#tapAbortKey,
+          child: this.childId,
+        })
+        /* c8 ignore start */
+      } catch (_) {}
+      /* c8 ignore stop */
+      const t = setTimeout(() => {
+        // try to give it a chance to note the timeout and report handles
+        try {
+          worker.terminate()
+        } catch (er) {}
+      }, 500)
+      /* c8 ignore start */
+      if (t.unref) t.unref()
+      /* c8 ignore stop */
+    }
+  }
+
   oncomplete(results: FinalResults) {
     super.oncomplete(results)
+    this.#parserEnded = true
+    if (this.#workerEnded) this.#callCb()
+  }
+
+  #callCb() {
     const { cb } = this
     /* c8 ignore start */
     if (!cb) {
-      throw new Error('tap worker finished parser before receiving cb??')
+      throw new Error(
+        'tap worker finished before receiving cb??'
+      )
     }
     /* c8 ignore stop */
     cb()
   }
-
-  // TODO: use message port to send timeout signal like spawn() ipc
 
   comment(...args: any[]) {
     const body = format(...args)

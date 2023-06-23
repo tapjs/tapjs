@@ -1,5 +1,6 @@
 // The root Test object singleton
 import { Test } from '@tapjs/test';
+import { parentPort, isMainThread } from 'node:worker_threads';
 import { onExit } from 'signal-exit';
 import { diags } from './diags.js';
 import { IMPLICIT } from './implicit-end-sigil.js';
@@ -186,14 +187,7 @@ const registerTimeoutListener = () => {
         }
         onProcessTimeout(signal);
     });
-    // this is a bit of a handshake agreement between the root TAP object
-    // and the Spawn class. Because Windows cannot catch and process posix
-    // signals, we have to use an IPC message to send the timeout signal.
-    // t.spawn() will always open an ipc channel on fd 3 for this purpose.
-    // The key and childId are just a basic gut check to ensure that we don't
-    // treat a message as a timeout unintentionally, though of course that
-    // would be extremely rare.
-    process.on('message', (msg) => {
+    const onMessage = (msg) => {
         if (msg &&
             typeof msg === 'object' &&
             msg.tapAbort === 'timeout' &&
@@ -201,10 +195,20 @@ const registerTimeoutListener = () => {
             msg.child === process.env.TAP_CHILD_ID) {
             onProcessTimeout('SIGALRM');
         }
-    });
+    };
+    // this is a bit of a handshake agreement between the root TAP object
+    // and the Spawn class. Because Windows cannot catch and process posix
+    // signals, we have to use an IPC message to send the timeout signal.
+    // t.spawn() will always open an ipc channel on fd 3 for this purpose.
+    // The key and childId are just a basic gut check to ensure that we don't
+    // treat a message as a timeout unintentionally, though of course that
+    // would be extremely rare.
+    process.on('message', onMessage);
+    parentPort?.on('message', onMessage);
     // We don't want the channel to keep the child running
     //@ts-ignore
     process.channel?.unref();
+    parentPort?.unref();
     /* c8 ignore stop */
 };
 const getTimeoutExtra = (signal = null) => {
@@ -292,6 +296,9 @@ const onProcessTimeout = (signal = null) => {
     }
 };
 const alarmKill = () => {
+    // can only kill in main thread, worker threads will be terminated
+    if (!isMainThread)
+        return;
     // SIGALRM isn't supported everywhere
     /* c8 ignore start */
     try {

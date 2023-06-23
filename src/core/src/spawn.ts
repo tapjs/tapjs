@@ -1,7 +1,6 @@
 import { Base, TapBaseEvents } from './base.js'
 
-import { ProcessInfo } from '@tapjs/processinfo'
-import { WithExternalID } from '@tapjs/processinfo'
+import { ProcessInfo, WithExternalID } from '@tapjs/processinfo'
 import {
   ChildProcess,
   ChildProcessByStdio,
@@ -41,7 +40,7 @@ export interface SpawnOpts extends TestBaseOpts {
    * So, this is only to set the behavior of stdin and stderr.
    */
   stdio?: StdioOptions
-  env?: { [k: string]: string } | typeof process.env
+  env?: { [k: string]: string } | NodeJS.ProcessEnv
   exitCode?: number | null
   signal?: string | null
 }
@@ -63,6 +62,8 @@ export class Spawn extends Base<SpawnEvents> {
 
   // doesn't have to be cryptographically secure, just a gut check
   #tapAbortKey: string = String(Math.random())
+
+  #timedOut?: { expired?: string }
 
   #childId: string
 
@@ -176,6 +177,7 @@ export class Spawn extends Base<SpawnEvents> {
   }
 
   #onprocclose(code: number | null, signal: string | null) {
+    if (this.#timedOut) super.timeout(this.#timedOut)
     this.debug('SPAWN close %j %s', code, signal)
     this.options.exitCode = code
     this.options.signal = signal
@@ -201,6 +203,8 @@ export class Spawn extends Base<SpawnEvents> {
   }
 
   timeout(options: { expired?: string } = { expired: this.name }) {
+    // defer calling super.timeout() until we actually kill the process.
+    this.#timedOut = options
     // try to send the timeout signal.  If the child test process is
     // using node-tap as the test runner, and not caught in a busy
     // loop, it will trigger a dump of outstanding handles and refs.
@@ -226,7 +230,6 @@ export class Spawn extends Base<SpawnEvents> {
         const t = setTimeout(() => {
           const { signal, exitCode } = this.options
           if (!signal && exitCode === undefined) {
-            super.timeout(options)
             // that didn't work, use forceful termination
             proc.kill('SIGKILL')
           }

@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.tap = void 0;
 // The root Test object singleton
 const test_1 = require("@tapjs/test");
+const node_worker_threads_1 = require("node:worker_threads");
 const signal_exit_1 = require("signal-exit");
 const diags_js_1 = require("./diags.js");
 const implicit_end_sigil_js_1 = require("./implicit-end-sigil.js");
@@ -189,14 +190,7 @@ const registerTimeoutListener = () => {
         }
         onProcessTimeout(signal);
     });
-    // this is a bit of a handshake agreement between the root TAP object
-    // and the Spawn class. Because Windows cannot catch and process posix
-    // signals, we have to use an IPC message to send the timeout signal.
-    // t.spawn() will always open an ipc channel on fd 3 for this purpose.
-    // The key and childId are just a basic gut check to ensure that we don't
-    // treat a message as a timeout unintentionally, though of course that
-    // would be extremely rare.
-    process.on('message', (msg) => {
+    const onMessage = (msg) => {
         if (msg &&
             typeof msg === 'object' &&
             msg.tapAbort === 'timeout' &&
@@ -204,10 +198,20 @@ const registerTimeoutListener = () => {
             msg.child === process.env.TAP_CHILD_ID) {
             onProcessTimeout('SIGALRM');
         }
-    });
+    };
+    // this is a bit of a handshake agreement between the root TAP object
+    // and the Spawn class. Because Windows cannot catch and process posix
+    // signals, we have to use an IPC message to send the timeout signal.
+    // t.spawn() will always open an ipc channel on fd 3 for this purpose.
+    // The key and childId are just a basic gut check to ensure that we don't
+    // treat a message as a timeout unintentionally, though of course that
+    // would be extremely rare.
+    process.on('message', onMessage);
+    node_worker_threads_1.parentPort?.on('message', onMessage);
     // We don't want the channel to keep the child running
     //@ts-ignore
     process.channel?.unref();
+    node_worker_threads_1.parentPort?.unref();
     /* c8 ignore stop */
 };
 const getTimeoutExtra = (signal = null) => {
@@ -295,6 +299,9 @@ const onProcessTimeout = (signal = null) => {
     }
 };
 const alarmKill = () => {
+    // can only kill in main thread, worker threads will be terminated
+    if (!node_worker_threads_1.isMainThread)
+        return;
     // SIGALRM isn't supported everywhere
     /* c8 ignore start */
     try {
