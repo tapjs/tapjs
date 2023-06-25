@@ -2,13 +2,12 @@ import * as os from 'node:os'
 import t from 'tap'
 const p = os.availableParallelism?.() || os.cpus().length || 1
 if (undefined === process.argv[2]) {
-  t.jobs = p * 4
-  for (let i = 0; i < p * 10; i++) {
+  t.jobs = p
+  for (let i = 0; i < t.jobs * 4; i++) {
     t.spawn(
       process.execPath,
       [
-        '--no-warnings=ExperimentalLoader',
-        __dirname + '/spawn.js',
+        __filename,
         String(i),
       ],
       'expensive computation'

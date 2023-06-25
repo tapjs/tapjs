@@ -5,11 +5,10 @@ var os = require("node:os");
 var tap_1 = require("tap");
 var p = ((_a = os.availableParallelism) === null || _a === void 0 ? void 0 : _a.call(os)) || os.cpus().length || 1;
 if (undefined === process.argv[2]) {
-    tap_1.default.jobs = p * 4;
-    for (var i = 0; i < p * 10; i++) {
+    tap_1.default.jobs = p;
+    for (var i = 0; i < tap_1.default.jobs * 4; i++) {
         tap_1.default.spawn(process.execPath, [
-            '--no-warnings=ExperimentalLoader',
-            __dirname + '/spawn.js',
+            __filename,
             String(i),
         ], 'expensive computation');
     }
