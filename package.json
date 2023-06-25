@@ -19,7 +19,7 @@
     "@esbuild-kit/cjs-loader": "^2.4.2",
     "@esbuild-kit/esm-loader": "^2.5.5",
     "@npmcli/promise-spawn": "^6.0.2",
-    "@tapjs/processinfo": "^2.2.5",
+    "@tapjs/processinfo": "^2.2.6",
     "@types/diff": "^5.0.3",
     "@types/ms": "^0.7.31",
     "@types/mustache": "^4.2.2",
