@@ -278,7 +278,7 @@ export const run = async (args: string[], config: LoadedConfig) => {
     const _TAPJS_PROCESSINFO_COV_FILES_ = coveredFiles
       .map(f => resolve(f))
       .join('\n')
-    const file = resolve(f)
+    const file = resolve(config.globCwd, f)
     const buffered = !serial.some(s =>
       file.toLowerCase().startsWith(s)
     )
@@ -292,6 +292,7 @@ export const run = async (args: string[], config: LoadedConfig) => {
         _TAPJS_PROCESSINFO_COV_FILES_,
       },
       name: relative(config.globCwd, file),
+      cwd: config.globCwd,
     })
     if (saveList.length) {
       p.then((results: FinalResults | null) => {

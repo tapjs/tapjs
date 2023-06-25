@@ -1,6 +1,7 @@
 import { LoadedConfig } from '@tapjs/config'
 import { ProcessInfo } from '@tapjs/processinfo'
 import { glob, Glob, IgnoreLike } from 'glob'
+import { resolve } from 'node:path'
 import type { Path, PathScurry } from 'path-scurry'
 import { readSave } from './save-list.js'
 
@@ -61,7 +62,7 @@ export const findSuites = async (
         : Promise.all(
             args.map(async a => {
               if (a === '-' || a === '/dev/stdin') return a
-              return scurry.cwd.resolve(a).lstat()
+              return scurry.cwd.resolve(resolve(a)).lstat()
             })
           ))
     ).filter(p => {
