@@ -1,13 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Base = exports.Lists = exports.Counts = exports.TapWrap = void 0;
+exports.Base = void 0;
 const async_hook_domain_1 = require("async-hook-domain");
 const async_hooks_1 = require("async_hooks");
 const minipass_1 = require("minipass");
 const node_process_1 = require("node:process");
 const node_util_1 = require("node:util");
 const tap_parser_1 = require("tap-parser");
+const counts_js_1 = require("./counts.js");
 const extra_from_error_js_1 = require("./extra-from-error.js");
+const lists_js_1 = require("./lists.js");
 class TapWrap extends async_hooks_1.AsyncResource {
     test;
     constructor(test) {
@@ -15,40 +17,6 @@ class TapWrap extends async_hooks_1.AsyncResource {
         this.test = test;
     }
 }
-exports.TapWrap = TapWrap;
-class Counts {
-    total = 0;
-    pass = 0;
-    fail = 0;
-    skip = 0;
-    todo = 0;
-    complete;
-    constructor(c) {
-        if (c)
-            Object.assign(this, c);
-    }
-    toJSON() {
-        const c = {
-            total: this.total,
-            pass: this.pass,
-        };
-        if (this.fail)
-            c.fail = this.fail;
-        if (this.todo)
-            c.todo = this.todo;
-        if (this.skip)
-            c.skip = this.skip;
-        return c;
-    }
-}
-exports.Counts = Counts;
-class Lists {
-    fail = [];
-    todo = [];
-    skip = [];
-    pass = [];
-}
-exports.Lists = Lists;
 const debug = (name) => (...args) => {
     const prefix = `TAP ${process.pid} ${name}: `;
     const msg = (0, node_util_1.format)(...args).trim();
@@ -92,8 +60,8 @@ class Base extends minipass_1.Minipass {
         // all tap streams are sync string minipasses
         this.hook = new TapWrap(this);
         this.options = options;
-        this.counts = new Counts();
-        this.lists = new Lists();
+        this.counts = new counts_js_1.Counts();
+        this.lists = new lists_js_1.Lists();
         this.silent = !!options.silent;
         // if it's null or an object, inherit from it.  otherwise, copy it.
         const ctx = options.context;
@@ -120,12 +88,15 @@ class Base extends minipass_1.Minipass {
         this.output = '';
         this.indent = options.indent || '';
         this.name = options.name || '(unnamed test)';
-        this.hook.runInAsyncScope(() => (this.hookDomain = new async_hook_domain_1.Domain((er, type) => {
-            if (!er || typeof er !== 'object')
-                er = { error: er };
-            er.tapCaught = type;
-            this.threw(er);
-        })));
+        this.hook.runInAsyncScope(() => {
+            this.hookDomain = new async_hook_domain_1.Domain((er, type) => {
+                /* c8 ignore start */
+                if (!er || typeof er !== 'object')
+                    er = { error: er };
+                er.tapCaught = type;
+                this.threw(er);
+            });
+        });
         this.debug = !!options.debug ? debug(this.name) : () => { };
         this.parser =
             options.parser ||
@@ -175,7 +146,10 @@ class Base extends minipass_1.Minipass {
         }
         else {
             this.timer = setTimeout(() => this.timeout(), n);
-            this.timer.unref();
+            /* c8 ignore start */
+            if (this.timer.unref)
+                this.timer.unref();
+            /* c8 ignore stop */
         }
     }
     timeout(options = {
@@ -189,10 +163,13 @@ class Base extends minipass_1.Minipass {
         // and no sense trying to capture it from @tapjs/stack
         const extra = {
             ...options,
+            message,
             stack: '',
             at: {},
         };
         const threw = this.threw({ message }, extra);
+        delete extra.stack;
+        delete extra.at;
         if (threw) {
             this.emit('timeout', threw);
         }
@@ -235,9 +212,12 @@ class Base extends minipass_1.Minipass {
                 results.time || Math.floor(Number(this.hrtime) / 1000) / 1000;
         }
         this.debug('ONCOMPLETE %j %j', this.name, results);
+        // should only ever happen once, but just in case
+        /* c8 ignore start */
         if (this.results) {
             Object.assign(results, this.results);
         }
+        /* c8 ignore stop */
         this.results = results;
         this.emit('complete', results);
         const errors = results.failures
@@ -283,6 +263,7 @@ class Base extends minipass_1.Minipass {
         return this;
     }
     threw(er, extra, proxy = false, ended = false) {
+        this.debug('BASE.threw', er);
         this.hook.emitDestroy();
         this.hookDomain.destroy();
         if (typeof er === 'string') {
@@ -298,16 +279,22 @@ class Base extends minipass_1.Minipass {
         if (!extra) {
             extra = (0, extra_from_error_js_1.extraFromError)(er, extra);
         }
+        this.parser.ok = false;
         // if we ended, we have to report it SOMEWHERE, unless we're
         // already in the process of bailing out, in which case it's
         // a bit excessive. Do not print it here if it would trigger
         // a plan exceeded error, or if we already have results.
         if (ended ||
             this.results ||
+            /* c8 ignore start */
             (this.parser.planEnd !== -1 &&
-                this.parser.count >= this.parser.planEnd)) {
+                this.parser.count >= this.parser.planEnd)
+        /* c8 ignore stop */
+        ) {
             this.debug('Base.threw, but finished', this.name, this.results, er.message);
-            const alreadyBailing = !this.results?.ok && this.bail;
+            const alreadyBailing = (this.results?.ok === false && this.bail) ||
+                this.parser.bailedOut ||
+                this.results?.bailout;
             if (this.results)
                 this.results.ok = false;
             if (this.parent) {
@@ -327,13 +314,13 @@ class Base extends minipass_1.Minipass {
                 }
                 delete extra.stack;
                 delete extra.at;
-                console.error('%s: %s', er.name || 'Error', message);
+                /* c8 ignore start */
+                const name = er.name || 'Error';
+                /* c8 ignore stop */
+                console.error('%s: %s', name, message);
                 console.error(er.stack.split(/\n/).slice(1).join('\n'));
                 console.error(extra);
             }
-        }
-        else {
-            this.parser.ok = false;
         }
         return extra;
     }

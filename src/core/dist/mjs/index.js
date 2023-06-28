@@ -2,6 +2,8 @@
 // extends Test which extends TestBase, so has to be present
 // in the exports right away.
 export * from './base.js';
+export * from './counts.js';
+export * from './lists.js';
 export * from './test-base.js';
 export * from './main-script.js';
 export * from './parse-test-args.js';

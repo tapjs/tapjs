@@ -1,6 +1,6 @@
-import { TapPlugin, TestBase } from '@tapjs/core'
 import { plugin as TeardownPlugin } from '@tapjs/after'
-import { at, CallSiteLike } from '@tapjs/stack'
+import { TapPlugin, TestBase } from '@tapjs/core'
+import { at, CallSiteLike, captureString } from '@tapjs/stack'
 
 type M<O extends object> = {
   [k in keyof O]: O[k] extends (...a: any[]) => any ? k : never
@@ -10,6 +10,7 @@ type Methods<O extends object> = M<O>[keyof M<O>]
 export interface CaptureResultBase<F extends (...a: any[]) => any> {
   args: Parameters<F>
   at?: CallSiteLike
+  stack?: string
 }
 export interface CaptureResultReturned<F extends (...a: any[]) => any>
   extends CaptureResultBase<F> {
@@ -35,6 +36,7 @@ export type CaptureResultsMethod<
 
 export interface InterceptResultBase {
   at?: CallSiteLike
+  stack?: string
   value: any
   success: boolean
   threw: boolean
@@ -112,7 +114,10 @@ export class Interceptor {
     }
 
     const base = desc as PropertyDescriptor
-    const interceptor: PropertyDescriptor = {
+    const interceptor: PropertyDescriptor & {
+      get: () => any
+      set: (v: any) => void
+    } = {
       enumerable: desc.enumerable,
       configurable: true,
 
@@ -129,6 +134,7 @@ export class Interceptor {
           resList.push({
             type: 'get',
             at: at(interceptor.get),
+            stack: captureString(interceptor.get),
             value,
             threw,
             success,
@@ -176,6 +182,7 @@ export class Interceptor {
           resList.push({
             type: 'set',
             at: at(interceptor.set),
+            stack: captureString(interceptor.set),
             value,
             success,
             threw,
@@ -240,8 +247,6 @@ export class Interceptor {
     Object.defineProperty(obj, method, {
       enumerable: prop ? prop.enumerable : true,
       writable: true,
-      get: undefined,
-      set: undefined,
       value: fn,
       configurable: true,
     })
@@ -264,28 +269,29 @@ export class Interceptor {
    * logic to restore, since it's not actually modifying anything.
    * The results hang off the function as the 'calls' property.
    */
-  captureFn(original: (...a: any[]) => any): ((
-    ...a: any[]
-  ) => any) & {
-    calls: CaptureResult<typeof original>[]
+  captureFn<F extends (this: any, ...a: any[]) => any>(
+    original: F
+  ): ((...a: any[]) => any) & {
+    calls: CaptureResult<F>[]
   } {
-    type F = typeof original
     const calls: CaptureResult<F>[] = []
     return Object.assign(
       function wrapped(this: any, ...args: Parameters<F>) {
         const res: CaptureResultBase<F> = {
           args,
           at: at(wrapped),
+          stack: captureString(wrapped),
         }
         let threw = true
         calls.push(res)
         try {
-          ;(res as CaptureResultReturned<F>).returned = original.call(
+          const returned = res as CaptureResultReturned<F>
+          returned.returned = original.call(
             this,
             ...args
           )
           threw = false
-          calls.push(res as CaptureResultReturned<F>)
+          return returned.returned
         } finally {
           if (threw) {
             ;(res as CaptureResultThrew<F>).threw = true

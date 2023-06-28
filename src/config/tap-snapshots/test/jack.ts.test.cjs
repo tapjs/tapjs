@@ -282,6 +282,7 @@ Object {
       - @tapjs/spawn
       - @tapjs/stdin
       - @tapjs/typescript
+      - @tapjs/worker
       
                           The tap runner requires the @tapjs/spawn plugin to run
                           tests. If removed, you'll have to run test files some other

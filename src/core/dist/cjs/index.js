@@ -18,6 +18,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // extends Test which extends TestBase, so has to be present
 // in the exports right away.
 __exportStar(require("./base.js"), exports);
+__exportStar(require("./counts.js"), exports);
+__exportStar(require("./lists.js"), exports);
 __exportStar(require("./test-base.js"), exports);
 __exportStar(require("./main-script.js"), exports);
 __exportStar(require("./parse-test-args.js"), exports);

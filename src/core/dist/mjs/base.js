@@ -4,44 +4,15 @@ import { Minipass } from 'minipass';
 import { hrtime } from 'node:process';
 import { format } from 'node:util';
 import { Parser } from 'tap-parser';
+import { Counts } from './counts.js';
 import { extraFromError } from './extra-from-error.js';
-export class TapWrap extends AsyncResource {
+import { Lists } from './lists.js';
+class TapWrap extends AsyncResource {
     test;
     constructor(test) {
         super(`tap.${test.constructor.name}`);
         this.test = test;
     }
-}
-export class Counts {
-    total = 0;
-    pass = 0;
-    fail = 0;
-    skip = 0;
-    todo = 0;
-    complete;
-    constructor(c) {
-        if (c)
-            Object.assign(this, c);
-    }
-    toJSON() {
-        const c = {
-            total: this.total,
-            pass: this.pass,
-        };
-        if (this.fail)
-            c.fail = this.fail;
-        if (this.todo)
-            c.todo = this.todo;
-        if (this.skip)
-            c.skip = this.skip;
-        return c;
-    }
-}
-export class Lists {
-    fail = [];
-    todo = [];
-    skip = [];
-    pass = [];
 }
 const debug = (name) => (...args) => {
     const prefix = `TAP ${process.pid} ${name}: `;
@@ -114,12 +85,15 @@ export class Base extends Minipass {
         this.output = '';
         this.indent = options.indent || '';
         this.name = options.name || '(unnamed test)';
-        this.hook.runInAsyncScope(() => (this.hookDomain = new Domain((er, type) => {
-            if (!er || typeof er !== 'object')
-                er = { error: er };
-            er.tapCaught = type;
-            this.threw(er);
-        })));
+        this.hook.runInAsyncScope(() => {
+            this.hookDomain = new Domain((er, type) => {
+                /* c8 ignore start */
+                if (!er || typeof er !== 'object')
+                    er = { error: er };
+                er.tapCaught = type;
+                this.threw(er);
+            });
+        });
         this.debug = !!options.debug ? debug(this.name) : () => { };
         this.parser =
             options.parser ||
@@ -169,7 +143,10 @@ export class Base extends Minipass {
         }
         else {
             this.timer = setTimeout(() => this.timeout(), n);
-            this.timer.unref();
+            /* c8 ignore start */
+            if (this.timer.unref)
+                this.timer.unref();
+            /* c8 ignore stop */
         }
     }
     timeout(options = {
@@ -183,10 +160,13 @@ export class Base extends Minipass {
         // and no sense trying to capture it from @tapjs/stack
         const extra = {
             ...options,
+            message,
             stack: '',
             at: {},
         };
         const threw = this.threw({ message }, extra);
+        delete extra.stack;
+        delete extra.at;
         if (threw) {
             this.emit('timeout', threw);
         }
@@ -229,9 +209,12 @@ export class Base extends Minipass {
                 results.time || Math.floor(Number(this.hrtime) / 1000) / 1000;
         }
         this.debug('ONCOMPLETE %j %j', this.name, results);
+        // should only ever happen once, but just in case
+        /* c8 ignore start */
         if (this.results) {
             Object.assign(results, this.results);
         }
+        /* c8 ignore stop */
         this.results = results;
         this.emit('complete', results);
         const errors = results.failures
@@ -277,6 +260,7 @@ export class Base extends Minipass {
         return this;
     }
     threw(er, extra, proxy = false, ended = false) {
+        this.debug('BASE.threw', er);
         this.hook.emitDestroy();
         this.hookDomain.destroy();
         if (typeof er === 'string') {
@@ -292,16 +276,22 @@ export class Base extends Minipass {
         if (!extra) {
             extra = extraFromError(er, extra);
         }
+        this.parser.ok = false;
         // if we ended, we have to report it SOMEWHERE, unless we're
         // already in the process of bailing out, in which case it's
         // a bit excessive. Do not print it here if it would trigger
         // a plan exceeded error, or if we already have results.
         if (ended ||
             this.results ||
+            /* c8 ignore start */
             (this.parser.planEnd !== -1 &&
-                this.parser.count >= this.parser.planEnd)) {
+                this.parser.count >= this.parser.planEnd)
+        /* c8 ignore stop */
+        ) {
             this.debug('Base.threw, but finished', this.name, this.results, er.message);
-            const alreadyBailing = !this.results?.ok && this.bail;
+            const alreadyBailing = (this.results?.ok === false && this.bail) ||
+                this.parser.bailedOut ||
+                this.results?.bailout;
             if (this.results)
                 this.results.ok = false;
             if (this.parent) {
@@ -321,13 +311,13 @@ export class Base extends Minipass {
                 }
                 delete extra.stack;
                 delete extra.at;
-                console.error('%s: %s', er.name || 'Error', message);
+                /* c8 ignore start */
+                const name = er.name || 'Error';
+                /* c8 ignore stop */
+                console.error('%s: %s', name, message);
                 console.error(er.stack.split(/\n/).slice(1).join('\n'));
                 console.error(extra);
             }
-        }
-        else {
-            this.parser.ok = false;
         }
         return extra;
     }

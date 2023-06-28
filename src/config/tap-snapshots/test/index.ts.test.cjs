@@ -19,4 +19,5 @@ exports[`test/index.ts > TAP > get plugin list > must match snapshot 1`] = `
 @tapjs/spawn
 @tapjs/stdin
 @tapjs/typescript
+@tapjs/worker
 `

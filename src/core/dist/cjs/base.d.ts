@@ -3,41 +3,19 @@
 import { Domain } from 'async-hook-domain';
 import { AsyncResource } from 'async_hooks';
 import { Minipass } from 'minipass';
-import { FinalResults, Parser, Result, TapError } from 'tap-parser';
+import { FinalResults, Parser, TapError } from 'tap-parser';
 import { Deferred } from 'trivial-deferred';
+import { Counts } from './counts.js';
 import type { Extra, TestBase } from './index.js';
+import { Lists } from './lists.js';
 export interface TapBaseEvents extends Minipass.Events<string> {
     timeout: [threw?: Extra];
     bailout: [reason?: string];
     complete: [results: FinalResults];
 }
-export declare class TapWrap extends AsyncResource {
+declare class TapWrap extends AsyncResource {
     test: Base;
     constructor(test: Base);
-}
-export interface CountsJSON {
-    total: number;
-    pass: number;
-    fail?: number;
-    skip?: number;
-    todo?: number;
-    complete?: number;
-}
-export declare class Counts {
-    total: number;
-    pass: number;
-    fail: number;
-    skip: number;
-    todo: number;
-    complete?: number;
-    constructor(c?: Counts | CountsJSON);
-    toJSON(): CountsJSON;
-}
-export declare class Lists {
-    fail: Result[];
-    todo: Result[];
-    skip: Result[];
-    pass: Result[];
 }
 export interface BaseOpts extends Extra {
     bail?: boolean;
@@ -136,4 +114,5 @@ export declare class Base<Events extends TapBaseEvents = TapBaseEvents> extends 
     threw(er: any, extra?: Extra, proxy?: boolean, ended?: boolean): Extra | void | undefined;
     passing(): boolean;
 }
+export {};
 //# sourceMappingURL=base.d.ts.map

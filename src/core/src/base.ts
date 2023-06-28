@@ -3,10 +3,12 @@ import { AsyncResource } from 'async_hooks'
 import { Minipass } from 'minipass'
 import { hrtime } from 'node:process'
 import { format } from 'node:util'
-import { FinalResults, Parser, Result, TapError } from 'tap-parser'
+import { FinalResults, Parser, TapError } from 'tap-parser'
 import { Deferred } from 'trivial-deferred'
+import { Counts } from './counts.js'
 import { extraFromError } from './extra-from-error.js'
 import type { Extra, TestBase } from './index.js'
+import { Lists } from './lists.js'
 
 export interface TapBaseEvents extends Minipass.Events<string> {
   timeout: [threw?: Extra]
@@ -14,50 +16,12 @@ export interface TapBaseEvents extends Minipass.Events<string> {
   complete: [results: FinalResults]
 }
 
-export class TapWrap extends AsyncResource {
+class TapWrap extends AsyncResource {
   test: Base
   constructor(test: Base) {
     super(`tap.${test.constructor.name}`)
     this.test = test
   }
-}
-
-export interface CountsJSON {
-  total: number
-  pass: number
-  fail?: number
-  skip?: number
-  todo?: number
-  complete?: number
-}
-
-export class Counts {
-  total: number = 0
-  pass: number = 0
-  fail: number = 0
-  skip: number = 0
-  todo: number = 0
-  complete?: number
-  constructor(c?: Counts | CountsJSON) {
-    if (c) Object.assign(this, c)
-  }
-  toJSON(): CountsJSON {
-    const c: CountsJSON = {
-      total: this.total,
-      pass: this.pass,
-    }
-    if (this.fail) c.fail = this.fail
-    if (this.todo) c.todo = this.todo
-    if (this.skip) c.skip = this.skip
-    return c
-  }
-}
-
-export class Lists {
-  fail: Result[] = []
-  todo: Result[] = []
-  skip: Result[] = []
-  pass: Result[] = []
 }
 
 const debug =
@@ -179,14 +143,15 @@ export class Base<
     this.output = ''
     this.indent = options.indent || ''
     this.name = options.name || '(unnamed test)'
-    this.hook.runInAsyncScope(
-      () =>
-        (this.hookDomain = new Domain((er, type) => {
-          if (!er || typeof er !== 'object') er = { error: er }
-          ;(er as { tapCaught?: string }).tapCaught = type
-          this.threw(er)
-        }))
-    )
+    this.hook.runInAsyncScope(() => {
+      this.hookDomain = new Domain((er, type) => {
+        /* c8 ignore start */
+        if (!er || typeof er !== 'object') er = { error: er }
+        /* c8 ignore stop */
+        ;(er as { tapCaught?: string }).tapCaught = type
+        this.threw(er)
+      })
+    })
     this.debug = !!options.debug ? debug(this.name) : () => {}
 
     this.parser =
@@ -240,7 +205,9 @@ export class Base<
       this.timer = undefined
     } else {
       this.timer = setTimeout(() => this.timeout(), n)
-      this.timer.unref()
+      /* c8 ignore start */
+      if (this.timer.unref) this.timer.unref()
+      /* c8 ignore stop */
     }
   }
 
@@ -255,13 +222,16 @@ export class Base<
     options.expired = options.expired || this.name
     // timeouts don't generally have a useful callsite information,
     // and no sense trying to capture it from @tapjs/stack
-    const extra = {
+    const extra: Extra = {
       ...options,
+      message,
       stack: '',
       at: {},
     }
 
     const threw = this.threw({ message }, extra)
+    delete extra.stack
+    delete extra.at
     if (threw) {
       this.emit('timeout', threw)
     }
@@ -315,9 +285,12 @@ export class Base<
 
     this.debug('ONCOMPLETE %j %j', this.name, results)
 
+    // should only ever happen once, but just in case
+    /* c8 ignore start */
     if (this.results) {
       Object.assign(results, this.results)
     }
+    /* c8 ignore stop */
 
     this.results = results
     this.emit('complete', results)
@@ -380,6 +353,7 @@ export class Base<
     proxy: boolean = false,
     ended: boolean = false
   ): Extra | void | undefined {
+    this.debug('BASE.threw', er)
     this.hook.emitDestroy()
     this.hookDomain.destroy()
     if (typeof er === 'string') {
@@ -396,6 +370,8 @@ export class Base<
       extra = extraFromError(er, extra)
     }
 
+    this.parser.ok = false
+
     // if we ended, we have to report it SOMEWHERE, unless we're
     // already in the process of bailing out, in which case it's
     // a bit excessive. Do not print it here if it would trigger
@@ -403,11 +379,21 @@ export class Base<
     if (
       ended ||
       this.results ||
+      /* c8 ignore start */
       (this.parser.planEnd !== -1 &&
         this.parser.count >= this.parser.planEnd)
+      /* c8 ignore stop */
     ) {
-      this.debug('Base.threw, but finished', this.name, this.results, er.message)
-      const alreadyBailing = !this.results?.ok && this.bail
+      this.debug(
+        'Base.threw, but finished',
+        this.name,
+        this.results,
+        er.message
+      )
+      const alreadyBailing =
+        (this.results?.ok === false && this.bail) ||
+        this.parser.bailedOut ||
+        this.results?.bailout
       if (this.results) this.results.ok = false
       if (this.parent) {
         this.parent.threw(er, extra, true)
@@ -423,12 +409,13 @@ export class Base<
         }
         delete extra.stack
         delete extra.at
-        console.error('%s: %s', er.name || 'Error', message)
+        /* c8 ignore start */
+        const name = er.name || 'Error'
+        /* c8 ignore stop */
+        console.error('%s: %s', name, message)
         console.error(er.stack.split(/\n/).slice(1).join('\n'))
         console.error(extra)
       }
-    } else {
-      this.parser.ok = false
     }
 
     return extra
