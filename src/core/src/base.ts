@@ -146,7 +146,9 @@ export class Base<
     this.hook.runInAsyncScope(() => {
       this.hookDomain = new Domain((er, type) => {
         /* c8 ignore start */
-        if (!er || typeof er !== 'object') er = { error: er }
+        if (!er || typeof er !== 'object') {
+          er = { error: er }
+        }
         /* c8 ignore stop */
         ;(er as { tapCaught?: string }).tapCaught = type
         this.threw(er)

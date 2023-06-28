@@ -4,7 +4,6 @@ export {
   Counts,
   Spawn,
   Stdin,
-  TapWrap,
   TestBase,
 } from '@tapjs/core'
 export { Test } from '@tapjs/test'

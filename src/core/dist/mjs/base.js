@@ -88,8 +88,11 @@ export class Base extends Minipass {
         this.hook.runInAsyncScope(() => {
             this.hookDomain = new Domain((er, type) => {
                 /* c8 ignore start */
-                if (!er || typeof er !== 'object')
+                if (!er || typeof er !== 'object') {
                     er = { error: er };
+                }
+                /* c8 ignore stop */
+                ;
                 er.tapCaught = type;
                 this.threw(er);
             });
