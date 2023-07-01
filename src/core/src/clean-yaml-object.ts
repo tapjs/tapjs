@@ -103,8 +103,6 @@ export const cleanYamlObject = (object: { [k: string]: any }) => {
           ws,
           fs
         ).replace(/^=+\n/, '')
-      } else {
-        res.note = 'object identities differ'
       }
     }
     if (res.diff === '--- expected\n+++ actual\n') {
@@ -134,20 +132,25 @@ export const deleteAlways = new Set([
   'indent',
   'skip',
   'bail',
-  'grep',
-  'grepInvert',
-  'only',
   'diagnostic',
   'buffered',
   'parent',
+  // TODO: keys added by plugins, but referenced here
+  // How can this list be adjusted by plugins?
+  'grep',
+  'grepInvert',
+  'only',
   'saveFixture',
   'env',
 ])
 export const deleteIfEmpty = new Set([
   'at',
   'stack',
-  'runOnly',
   'context',
+
+  // TODO: keys added by plugins, but referenced here
+  // How can this list be adjusted by plugins?
+  'runOnly',
   'compareOptions',
 ])
 export const deleteIfMatch = [

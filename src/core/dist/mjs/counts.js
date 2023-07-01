@@ -20,6 +20,8 @@ export class Counts {
             c.todo = this.todo;
         if (this.skip)
             c.skip = this.skip;
+        if (this.complete)
+            c.complete = this.complete;
         return c;
     }
 }

@@ -31,8 +31,9 @@ const parseTestArgs = (...args) => {
             // function to temporarily make a test todo
             continue;
         }
-        else if (typeof arg !== 'undefined')
-            throw new TypeError('unknown argument passed to parseTestArgs: ' + typeof arg);
+        else if (typeof arg !== 'undefined') {
+            throw new TypeError('invalid test argument: ' + typeof arg);
+        }
     }
     if (!extra)
         extra = {};

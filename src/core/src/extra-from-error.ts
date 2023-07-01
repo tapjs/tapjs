@@ -8,6 +8,8 @@ export const extraFromError = (
   options?: BaseOpts
 ) => {
   // the yaml module puts big stuff here, pluck it off
+  // otherwise it's quite noisy when we throw as a result of
+  // trying to parse invalid tap diagnostics.
   if (
     er.source &&
     typeof er.source === 'object' &&
@@ -19,11 +21,12 @@ export const extraFromError = (
 
   // pull out all fields from options, other than anything starting
   // with tapChild, or anything already set in the extra object.
+  options = options ?? {}
   extra = Object.assign(
-    extra || {},
+    extra ?? {},
     Object.fromEntries(
-      Object.entries(options || {}).filter(
-        ([k]) => !/^tapChild/.test(k) && !(k in (extra || {}))
+      Object.entries(options).filter(
+        ([k]) => !/^tapChild/.test(k) && !(k in (extra ?? {}))
       )
     )
   )
@@ -34,23 +37,9 @@ export const extraFromError = (
   }
 
   const st = stack.captureError(er)
-  const message = er.message
-    ? er.message
-    : er.stack
-    ? er.stack.split('\n')[0]
-    : ''
   if (st && st.length) {
     extra.stack = st.map(c => String(c)).join('\n')
     extra.at = st[0]
-  }
-
-  if (message) {
-    try {
-      Object.defineProperty(er, 'message', {
-        value: message,
-        configurable: true,
-      })
-    } catch {}
   }
 
   if (er.name && er.name !== 'Error') {
@@ -58,7 +47,7 @@ export const extraFromError = (
   }
 
   // grab any other rando props
-  const { message: _, ...props } = er
+  const { message: _, name: __, ...props } = er
   Object.assign(extra, props)
 
   return extra

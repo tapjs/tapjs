@@ -831,7 +831,7 @@ export class TestBase extends Base {
         }
         this.debug('T.t call Base.threw', this.name, extra);
         const ended = !!this.results ||
-            this.#explicitPlan && this.count === this.#planEnd;
+            (this.#explicitPlan && this.count === this.#planEnd);
         this.parser.ok = false;
         super.threw(er, extra, proxy, ended);
         // Handle the failure here, but only if we (a) don't have
@@ -844,7 +844,9 @@ export class TestBase extends Base {
                 ? extra.message
                 : typeof er.message === 'string'
                     ? er.message
-                    : '';
+                    : er.stack
+                        ? er.stack.split('\n')[0]
+                        : '';
             this.fail(msg, extra || {});
             if (this.ended || this.#pushedEnd) {
                 this.ended = false;

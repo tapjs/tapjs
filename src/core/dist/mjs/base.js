@@ -291,7 +291,7 @@ export class Base extends Minipass {
                 this.parser.count >= this.parser.planEnd)
         /* c8 ignore stop */
         ) {
-            this.debug('Base.threw, but finished', this.name, this.results, er.message);
+            this.debug('Base.threw, but finished', this.name, this.results, message);
             const alreadyBailing = (this.results?.ok === false && this.bail) ||
                 this.parser.bailedOut ||
                 this.results?.bailout;
@@ -309,16 +309,17 @@ export class Base extends Minipass {
                 console.error(er);
             }
             else {
-                if (message) {
-                    er.message = message;
-                }
                 delete extra.stack;
                 delete extra.at;
                 /* c8 ignore start */
                 const name = er.name || 'Error';
                 /* c8 ignore stop */
                 console.error('%s: %s', name, message);
-                console.error(er.stack.split(/\n/).slice(1).join('\n'));
+                /* c8 ignore start */
+                if (er.stack) {
+                    console.error(er.stack.split(/\n/).slice(1).join('\n'));
+                }
+                /* c8 ignore stop */
                 console.error(extra);
             }
         }

@@ -6,17 +6,19 @@ export type TestArgs<
   T extends Base,
   O extends TestOpts | BaseOpts = TestOpts | BaseOpts
 > =
+  | []
+  | [name: string]
+  | [cb: ((t: T) => any) | false]
+  | [extra: O]
+  | [name: string | number, cb: ((t: T) => any) | false]
+  | [name: string | number, extra: O]
+  | [extra: O, cb: ((t: T) => any) | false]
   | [
-      name?: string | number,
-      extra?: O,
-      cb?: false | ((t: T) => any),
+      name: string | number,
+      extra: O,
+      cb: false | ((t: T) => any),
       defaultName?: string
     ]
-  | [extra: O, cb?: ((t: T) => any) | false]
-  | [name: string | number, cb?: ((t: T) => any) | false]
-  | [cb?: ((t: T) => any) | false]
-  | [name: string]
-  | [extra: O]
 
 export const parseTestArgs = <
   T extends Base,
@@ -50,10 +52,9 @@ export const parseTestArgs = <
       // it's handy while developing to put a ! in front of a
       // function to temporarily make a test todo
       continue
-    } else if (typeof arg !== 'undefined')
-      throw new TypeError(
-        'unknown argument passed to parseTestArgs: ' + typeof arg
-      )
+    } else if (typeof arg !== 'undefined') {
+      throw new TypeError('invalid test argument: ' + typeof arg)
+    }
   }
 
   if (!extra) extra = {} as O

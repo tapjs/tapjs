@@ -1,7 +1,12 @@
+// basically just a fancy Deferred, wrapped around an existing promise.
+// The callback function is called when it's been either resolved or
+// rejected. The Waiter internal promise is resolved if the wrapped
+// promise matches our expectation. The value member is the resolved
+// value or rejection error.
 export class Waiter {
     cb;
     ready = false;
-    value = null;
+    value = undefined;
     resolved = false;
     rejected = false;
     done = false;
@@ -15,9 +20,12 @@ export class Waiter {
         this.promise = new Promise(res => (this.resolve = res));
         promise
             .then(value => {
+            // promises should always resolve/reject at most one time.
+            /* c8 ignore start */
             if (this.done) {
                 return;
             }
+            /* c8 ignore stop */
             this.resolved = true;
             this.value = value;
             this.done = true;
@@ -26,9 +34,12 @@ export class Waiter {
             .catch(er => this.reject(er));
     }
     reject(er) {
+        // promises should always resolve/reject at most one time.
+        /* c8 ignore start */
         if (this.done) {
             return;
         }
+        /* c8 ignore stop */
         this.value = er;
         this.rejected = true;
         this.done = true;
@@ -36,9 +47,11 @@ export class Waiter {
     }
     // TODO: consider AbortSignal maybe?
     abort(er) {
+        /* c8 ignore start */
         if (this.done) {
             return;
         }
+        /* c8 ignore stop */
         this.ready = true;
         this.finishing = false;
         this.done = true;
@@ -51,8 +64,8 @@ export class Waiter {
     finish() {
         if (this.ready && this.done && !this.finishing) {
             this.finishing = true;
-            this.cb && this.cb(this);
-            this.resolve && this.resolve();
+            this.cb?.(this);
+            this.resolve?.();
         }
     }
 }

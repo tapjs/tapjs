@@ -25,6 +25,7 @@ export class Counts {
     if (this.fail) c.fail = this.fail
     if (this.todo) c.todo = this.todo
     if (this.skip) c.skip = this.skip
+    if (this.complete) c.complete = this.complete
     return c
   }
 }

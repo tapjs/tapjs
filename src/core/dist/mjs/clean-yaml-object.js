@@ -85,9 +85,6 @@ export const cleanYamlObject = (object) => {
             if (fw !== ff) {
                 res.diff = createTwoFilesPatch('expected', 'actual', ws, fs).replace(/^=+\n/, '');
             }
-            else {
-                res.note = 'object identities differ';
-            }
         }
         if (res.diff === '--- expected\n+++ actual\n') {
             delete res.diff;
@@ -113,20 +110,24 @@ export const deleteAlways = new Set([
     'indent',
     'skip',
     'bail',
-    'grep',
-    'grepInvert',
-    'only',
     'diagnostic',
     'buffered',
     'parent',
+    // TODO: keys added by plugins, but referenced here
+    // How can this list be adjusted by plugins?
+    'grep',
+    'grepInvert',
+    'only',
     'saveFixture',
     'env',
 ]);
 export const deleteIfEmpty = new Set([
     'at',
     'stack',
-    'runOnly',
     'context',
+    // TODO: keys added by plugins, but referenced here
+    // How can this list be adjusted by plugins?
+    'runOnly',
     'compareOptions',
 ]);
 export const deleteIfMatch = [
