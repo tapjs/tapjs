@@ -1,5 +1,4 @@
 import {
-  Extra,
   parseTestArgs,
   PromiseWithSubtest,
   Stdin,
@@ -7,7 +6,6 @@ import {
   TapPlugin,
   TestBase,
 } from '@tapjs/core'
-import { FinalResults } from 'tap-parser'
 
 export type PromiseWithStdin = PromiseWithSubtest<Stdin>
 
@@ -16,16 +14,23 @@ export class StdinPlugin {
   constructor(t: TestBase) {
     this.#t = t
   }
-  stdin(name: string, extra?: StdinOpts): PromiseWithStdin
-  stdin(extra?: StdinOpts): Promise<FinalResults | null>
-  stdin(name?: string | Extra, extra?: StdinOpts): PromiseWithStdin {
+  stdin(): PromiseWithStdin
+  stdin(name: string): PromiseWithStdin
+  stdin(name: string, extra: StdinOpts): PromiseWithStdin
+  stdin(extra: StdinOpts): PromiseWithStdin
+  stdin(
+    name?: string | StdinOpts,
+    extra?: StdinOpts
+  ): PromiseWithStdin {
     if (name && typeof name === 'object') {
       extra = name
       name = undefined
     }
+    name ??= '/dev/stdin'
+    extra ??= {}
     return this.#t.sub(
       Stdin,
-      parseTestArgs<Stdin>(name, extra, false, '/dev/stdin'),
+      parseTestArgs<Stdin>(name, extra),
       this.stdin
     )
   }
