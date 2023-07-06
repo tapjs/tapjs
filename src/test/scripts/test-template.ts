@@ -18,9 +18,9 @@ import {
 
 import type { ConfigSet, Jack } from 'jackspeak'
 import { isConfigOption } from 'jackspeak'
+import { inspect } from 'node:util'
 
 const kInspect = Symbol.for('nodejs.util.inspect.custom')
-import { inspect } from 'node:util'
 const copyInspect = (v: Function) => ({
   [kInspect]: (...args: any[]) => inspect(v, ...args),
 })
@@ -47,7 +47,11 @@ const copyFunction = <
     // then we return the extended Test instead.
     return ret === thisArg && thisArg === plug ? t : ret
   }
-  const vv = Object.assign(Object.assign(f, v), copyToString(v), copyInspect(v))
+  const vv = Object.assign(
+    Object.assign(f, v),
+    copyToString(v),
+    copyInspect(v)
+  )
   const nameProp = Reflect.getOwnPropertyDescriptor(v, 'name')
   if (nameProp) {
     Reflect.defineProperty(f, 'name', nameProp)
@@ -142,22 +146,26 @@ export interface Test<
   Opts extends TestOpts = TestOpts
 > extends TTest {
   end(implicit?: symbol): this
+
   test(
     name: string,
     extra: Opts,
-    cb?: (t: Test<Ext, Opts> & Ext) => any
+    cb: (t: Test<Ext, Opts> & Ext) => any
   ): PromiseWithSubtest<Test<Ext, Opts> & Ext>
   test(
     name: string,
-    cb?: (t: Test<Ext, Opts> & Ext) => any
-  ): PromiseWithSubtest<Test<Ext, Opts>>
+    cb: (t: Test<Ext, Opts> & Ext) => any
+  ): PromiseWithSubtest<Test<Ext, Opts> & Ext>
   test(
     extra: Opts,
-    cb?: (t: Test<Ext, Opts> & Ext) => any
+    cb: (t: Test<Ext, Opts> & Ext) => any
   ): PromiseWithSubtest<Test<Ext, Opts> & Ext>
+  test(name: string): PromiseWithSubtest<Test<Ext, Opts> & Ext>
+  test(extra: Opts): PromiseWithSubtest<Test<Ext, Opts> & Ext>
   test(
-    cb?: (t: Test<Ext, Opts> & Ext) => any
+    cb: (t: Test<Ext, Opts> & Ext) => any
   ): PromiseWithSubtest<Test<Ext, Opts> & Ext>
+  test(): PromiseWithSubtest<Test<Ext, Opts> & Ext>
   test(
     ...args: TestArgs<Test<Ext, Opts> & Ext>
   ): PromiseWithSubtest<Test<Ext, Opts> & Ext>
@@ -165,41 +173,47 @@ export interface Test<
   todo(
     name: string,
     extra: Opts,
-    cb?: (t: Test<Ext, Opts> & Ext) => any
+    cb: (t: Test<Ext, Opts> & Ext) => any
   ): PromiseWithSubtest<Test<Ext, Opts> & Ext>
   todo(
     name: string,
-    cb?: (t: Test<Ext, Opts> & Ext) => any
+    cb: (t: Test<Ext, Opts> & Ext) => any
   ): PromiseWithSubtest<Test<Ext, Opts> & Ext>
   todo(
     extra: Opts,
-    cb?: (t: Test<Ext, Opts> & Ext) => any
+    cb: (t: Test<Ext, Opts> & Ext) => any
   ): PromiseWithSubtest<Test<Ext, Opts> & Ext>
+  todo(name: string): PromiseWithSubtest<Test<Ext, Opts> & Ext>
+  todo(extra: Opts): PromiseWithSubtest<Test<Ext, Opts> & Ext>
   todo(
-    cb?: (t: Test<Ext, Opts> & Ext) => any
+    cb: (t: Test<Ext, Opts> & Ext) => any
   ): PromiseWithSubtest<Test<Ext, Opts> & Ext>
+  todo(): PromiseWithSubtest<Test<Ext, Opts> & Ext>
   todo(
-    ...args: TestArgs<Test<Ext, Opts> & Ext, Opts>
+    ...args: TestArgs<Test<Ext, Opts> & Ext>
   ): PromiseWithSubtest<Test<Ext, Opts> & Ext>
 
   skip(
     name: string,
     extra: Opts,
-    cb?: (t: Test<Ext, Opts> & Ext) => any
+    cb: (t: Test<Ext, Opts> & Ext) => any
   ): PromiseWithSubtest<Test<Ext, Opts> & Ext>
   skip(
     name: string,
-    cb?: (t: Test<Ext, Opts> & Ext) => any
+    cb: (t: Test<Ext, Opts> & Ext) => any
   ): PromiseWithSubtest<Test<Ext, Opts> & Ext>
   skip(
     extra: Opts,
-    cb?: (t: Test<Ext, Opts> & Ext) => any
+    cb: (t: Test<Ext, Opts> & Ext) => any
   ): PromiseWithSubtest<Test<Ext, Opts> & Ext>
+  skip(name: string): PromiseWithSubtest<Test<Ext, Opts> & Ext>
+  skip(extra: Opts): PromiseWithSubtest<Test<Ext, Opts> & Ext>
   skip(
-    cb?: (t: Test<Ext, Opts> & Ext) => any
+    cb: (t: Test<Ext, Opts> & Ext) => any
   ): PromiseWithSubtest<Test<Ext, Opts> & Ext>
+  skip(): PromiseWithSubtest<Test<Ext, Opts> & Ext>
   skip(
-    ...args: TestArgs<Test<Ext, Opts> & Ext, Opts>
+    ...args: TestArgs<Test<Ext, Opts> & Ext>
   ): PromiseWithSubtest<Test<Ext, Opts> & Ext>
 
   applyPlugin<B extends Object, O extends unknown = unknown>(
