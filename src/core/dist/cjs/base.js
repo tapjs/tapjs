@@ -8,13 +8,20 @@ const node_process_1 = require("node:process");
 const node_util_1 = require("node:util");
 const tap_parser_1 = require("tap-parser");
 const counts_js_1 = require("./counts.js");
+const diags_js_1 = require("./diags.js");
 const extra_from_error_js_1 = require("./extra-from-error.js");
 const lists_js_1 = require("./lists.js");
 class TapWrap extends async_hooks_1.AsyncResource {
     test;
+    onDestroy;
     constructor(test) {
         super(`tap.${test.constructor.name}`);
         this.test = test;
+    }
+    emitDestroy() {
+        this.onDestroy?.();
+        super.emitDestroy();
+        return this;
     }
 }
 const debug = (name) => (...args) => {
@@ -312,18 +319,11 @@ class Base extends minipass_1.Minipass {
                 console.error(er);
             }
             else {
-                delete extra.stack;
-                delete extra.at;
                 /* c8 ignore start */
                 const name = er.name || 'Error';
                 /* c8 ignore stop */
                 console.error('%s: %s', name, message);
-                /* c8 ignore start */
-                if (er.stack) {
-                    console.error(er.stack.split(/\n/).slice(1).join('\n'));
-                }
-                /* c8 ignore stop */
-                console.error(extra);
+                console.error((0, diags_js_1.diags)(extra));
             }
         }
         return extra;

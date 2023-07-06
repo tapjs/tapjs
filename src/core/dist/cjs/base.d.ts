@@ -15,7 +15,9 @@ export interface TapBaseEvents extends Minipass.Events<string> {
 }
 declare class TapWrap extends AsyncResource {
     test: Base;
+    onDestroy?: () => void;
     constructor(test: Base);
+    emitDestroy(): this;
 }
 export interface BaseOpts extends Extra {
     bail?: boolean;

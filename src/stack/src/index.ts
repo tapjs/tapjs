@@ -41,7 +41,18 @@ export const getFilterNodeInternals = () => filterNodeInternals
 export const setFilterNodeInternals = (s: boolean) =>
   (filterNodeInternals = s)
 
-const ignoredPackages: string[] = ['@tapjs', 'function-loop']
+// these are packages that function somewhat like node internals,
+// for tap's purposes, and @tapjs packages themselves, when loaded
+// from node_modules.
+const ignoredPackages: string[] = [
+  '@tapjs',
+  'ts-node',
+  'pirates',
+  'function-loop',
+  '@cspotcode/source-map-support',
+  'signal-exit',
+  'async-hook-domain',
+]
 let dirty: boolean = false
 
 /**

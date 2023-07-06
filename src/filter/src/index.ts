@@ -1,4 +1,5 @@
 import {
+  env,
   Extra,
   parseTestArgs,
   TapPlugin,
@@ -43,8 +44,8 @@ export class Filter {
     this.#t = t
     if (opts.grep !== undefined) {
       this.#grep = !Array.isArray(opts.grep) ? [opts.grep] : opts.grep
-    } else if (process.env.TAP_GREP !== undefined) {
-      this.#grep = process.env.TAP_GREP.split('\n').map(g => {
+    } else if (env.TAP_GREP !== undefined) {
+      this.#grep = env.TAP_GREP.split('\n').map(g => {
         const p = g.match(/^\/(.*)\/([a-z]*)$/)
         g = p ? p[1] : g
         const flags = p ? p[2] : ''
@@ -54,12 +55,12 @@ export class Filter {
     if (opts.grepInvert !== undefined) {
       this.#grepInvert = !!opts.grepInvert
     } else {
-      this.#grepInvert = process.env.TAP_INVERT === '1'
+      this.#grepInvert = env.TAP_INVERT === '1'
     }
     if (opts.runOnly !== undefined) {
       this.#runOnly = !!opts.runOnly
     } else {
-      this.#runOnly = process.env.TAP_ONLY === '1'
+      this.#runOnly = env.TAP_ONLY === '1'
     }
 
     const { shouldSkipChild } = t

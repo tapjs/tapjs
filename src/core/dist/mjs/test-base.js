@@ -191,7 +191,7 @@ export class TestBase extends Base {
      * A passing (ok) Test Point
      */
     pass(...[msg, extra]) {
-        this.currentAssert = (this.t || this).pass;
+        this.currentAssert = this.pass;
         const args = [msg, extra];
         const me = normalizeMessageExtra('(unnamed test)', args);
         this.printResult(true, ...me);
@@ -201,7 +201,7 @@ export class TestBase extends Base {
      * A failing (not ok) Test Point
      */
     fail(...[msg, extra]) {
-        this.currentAssert = (this.t || this).fail;
+        this.currentAssert = this.fail;
         const args = [msg, extra];
         const me = normalizeMessageExtra('(unnamed test)', args);
         this.printResult(false, ...me);
@@ -227,7 +227,7 @@ export class TestBase extends Base {
      * Print a Test Point
      */
     printResult(ok, message, extra, front = false) {
-        this.currentAssert = (this.t || this).printResult;
+        this.currentAssert = this.printResult;
         this.#printedResult = true;
         const n = this.count + 1;
         const fn = this.#currentAssert;
@@ -272,7 +272,7 @@ export class TestBase extends Base {
             if (at)
                 extra.at = at;
         }
-        if (!extra.at && typeof fn === 'function') {
+        if (!extra.at && extra.at !== null && typeof fn === 'function') {
             const showStack = !ok && !extra.skip && !extra.todo;
             const showAt = showStack || extra.diagnostic === true;
             if (showAt) {
@@ -634,7 +634,7 @@ export class TestBase extends Base {
         if (typeof this.options.timeout === 'number') {
             this.setTimeout(this.options.timeout);
         }
-        this.debug('MAIN pre', this);
+        this.debug('MAIN pre', this.name);
         const end = () => {
             this.debug(' > implicit end for promise');
             this.#promiseEnded = true;
@@ -680,7 +680,7 @@ export class TestBase extends Base {
         }
         else
             done();
-        this.debug('MAIN post', this);
+        this.debug('MAIN post', this.name);
     }
     #processSubtest(p) {
         this.debug('processSubtest', p.name);
@@ -820,8 +820,10 @@ export class TestBase extends Base {
             };
             return;
         }
+        // suppress the callsite for non-error throws, since
+        // it'll always just be useless noise pointing back here.
         if (!er || typeof er !== 'object') {
-            er = { error: er };
+            er = { error: er, at: null };
         }
         if (this.name && !proxy) {
             er.test = this.name;
@@ -846,8 +848,10 @@ export class TestBase extends Base {
                     ? er.message
                     : er.stack
                         ? er.stack.split('\n')[0]
-                        : '';
-            this.fail(msg, extra || {});
+                        : typeof er.error === 'string'
+                            ? er.error
+                            : '';
+            this.fail(msg, extra || { at: null });
             if (this.ended || this.#pushedEnd) {
                 this.ended = false;
                 this.#pushedEnd = false;

@@ -29,7 +29,7 @@ export interface Extra {
   bail?: boolean
   todo?: string | boolean
   skip?: string | boolean
-  at?: CallSiteLike | CallSiteLikeJSON
+  at?: CallSiteLike | CallSiteLikeJSON | null
   stack?: string
   source?: string
   found?: any

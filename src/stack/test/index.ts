@@ -282,24 +282,28 @@ t.test('filterDeps', t => {
   }
 
   t.equal(getFilterIgnoredPackages(), true, 'filter by default')
-  t.strictSame(getIgnoredPackages(), ['@tapjs', 'function-loop'])
+  const defaultIgnored = [
+    '@tapjs',
+    'ts-node',
+    'pirates',
+    'function-loop',
+    '@cspotcode/source-map-support',
+    'signal-exit',
+    'async-hook-domain',
+  ]
+  t.strictSame(getIgnoredPackages(), defaultIgnored)
   const stack = getStack()
   const unfiltered = parseStack(stack)
     .map(c => String(c) + '\n')
     .join('')
   addIgnoredPackage('glob')
-  t.strictSame(getIgnoredPackages(), [
-    '@tapjs',
-    'function-loop',
-    'glob',
-  ])
+  t.strictSame(getIgnoredPackages(), [...defaultIgnored, 'glob'])
   const noGlob = parseStack(stack)
     .map(c => String(c) + '\n')
     .join('')
   addIgnoredPackage('diff')
   t.strictSame(getIgnoredPackages(), [
-    '@tapjs',
-    'function-loop',
+    ...defaultIgnored,
     'glob',
     'diff',
   ])
@@ -321,17 +325,13 @@ t.test('filterDeps', t => {
     .map(c => String(c) + '\n')
     .join('')
   removeIgnoredPackage('glob')
-  t.strictSame(getIgnoredPackages(), [
-    '@tapjs',
-    'function-loop',
-    'diff',
-  ])
+  t.strictSame(getIgnoredPackages(), [...defaultIgnored, 'diff'])
   const noDiff = parseStack(stack)
     .map(c => String(c) + '\n')
     .join('')
   // put it back as it was
   removeIgnoredPackage('diff')
-  t.strictSame(getIgnoredPackages(), ['@tapjs', 'function-loop'])
+  t.strictSame(getIgnoredPackages(), defaultIgnored)
 
   t.match(unfiltered, /node_modules.glob/)
   t.match(unfiltered, /node_modules.diff/)

@@ -148,14 +148,15 @@ t.test('test Base.threw() handling', t => {
     const threw = b.threw(er)
     t.matchOnly(threw, {
       test: 'basic',
+      at: CallSiteLike,
+      stack: String,
     })
     t.equal((er as Error & { test?: string }).test, 'basic')
     t.match(
       errs().map(({ args }) => args),
       [
         ['%s: %s', 'Error', 'oops'],
-        [er.stack?.split('\n').slice(1).join('\n')],
-        [{ test: 'basic' }],
+        [String],
       ]
     )
     t.equal(b.parser.ok, false)

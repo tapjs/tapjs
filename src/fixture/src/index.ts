@@ -1,5 +1,5 @@
 // module code goes here
-import { argv, mainScript, TapPlugin, TestBase } from '@tapjs/core'
+import { argv, mainScript, TapPlugin, TestBase, env } from '@tapjs/core'
 import { basename, dirname, resolve, sep } from 'node:path'
 import { rimraf, rimrafSync } from 'rimraf'
 import {
@@ -39,7 +39,7 @@ export class TestFixtures {
     if (opts.saveFixture !== undefined) {
       this.#saveFixture = !!opts.saveFixture
     } else {
-      this.#saveFixture = process.env.TAP_SAVE_FIXTURE === '1'
+      this.#saveFixture = env.TAP_SAVE_FIXTURE === '1'
     }
     this.#t = t
   }

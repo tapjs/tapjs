@@ -1,7 +1,8 @@
 // The root Test object singleton
 import { Test } from '@tapjs/test'
+import { Domain } from 'async-hook-domain'
 import { Minipass } from 'minipass'
-import { parentPort, isMainThread } from 'node:worker_threads'
+import { isMainThread, parentPort } from 'node:worker_threads'
 import { onExit } from 'signal-exit'
 import { FinalResults } from 'tap-parser'
 import { diags } from './diags.js'
@@ -77,14 +78,17 @@ class TAP extends Test {
         'the TAP singleton should not be instantiated directly'
       )
     }
+    const timeoutEnv = env.TAP_TIMEOUT || '30'
     /* c8 ignore stop */
 
-    const timeout = Number(process.env.TAP_TIMEOUT || '30') * 1000
+    const timeout = Number(timeoutEnv) * 1000
     const options = {
       name: 'TAP',
       diagnostic: envFlag('TAP_DIAG'),
       bail: envFlag('TAP_BAIL'),
-      debug: envFlag('TAP_DEBUG'),
+      debug:
+        envFlag('TAP_DEBUG') ||
+        /\btap\b/i.test(env['NODE_DEBUG'] || ''),
       omitVersion: envFlag('TAP_OMIT_VERSION'),
       preserveWhitespace: !envFlag('TAP_OMIT_WHITESPACE'),
       timeout,
@@ -135,6 +139,12 @@ class TAP extends Test {
         this.endAll()
       }
     })
+    // create a root domain to handle throws that happen outside
+    // of any subtest.
+    const rootDomain = new Domain((er, type) =>
+      this.hookDomain.onerror(er, type)
+    )
+    this.hook.onDestroy = () => rootDomain.destroy()
   }
 
   /**
@@ -186,6 +196,9 @@ class TAP extends Test {
       Object.assign(getTimeoutExtra(options.signal), options)
     )
     // don't stick around
+    // this is just a defense if the SIGALRM signal is caught, since
+    // we'll exit forcibly anyway.
+    /* c8 ignore start */
     if (registered) {
       const t = setTimeout(() => {
         didProcessTimeout = true
@@ -193,6 +206,7 @@ class TAP extends Test {
       }, 100)
       if (t.unref) t.unref()
     }
+    /* c8 ignore stop */
     return ret
   }
 }
@@ -221,8 +235,7 @@ const maybeAutoend = () => {
 const registerTimeoutListener = () => {
   // SIGALRM means being forcibly killed due to timeout
   const isTimeoutSignal = (signal: NodeJS.Signals | null) =>
-    signal === 'SIGALRM' ||
-    (signal === 'SIGINT' && !process.env.TAP_CHILD_ID)
+    signal === 'SIGALRM' || (signal === 'SIGINT' && !env.TAP_CHILD_ID)
   onExit((_, signal) => {
     if (!isTimeoutSignal(signal) || didProcessTimeout) {
       return
@@ -243,26 +256,30 @@ const registerTimeoutListener = () => {
       msg &&
       typeof msg === 'object' &&
       msg.tapAbort === 'timeout' &&
-      msg.key === process.env.TAP_ABORT_KEY &&
-      msg.child === process.env.TAP_CHILD_ID
+      msg.key === env.TAP_ABORT_KEY &&
+      msg.child === env.TAP_CHILD_ID
     ) {
       onProcessTimeout('SIGALRM')
     }
   }
 
   // this is a bit of a handshake agreement between the root TAP object
-  // and the Spawn class. Because Windows cannot catch and process posix
-  // signals, we have to use an IPC message to send the timeout signal.
-  // t.spawn() will always open an ipc channel on fd 3 for this purpose.
+  // and the Spawn and Worker classes. Because Windows cannot catch and
+  // process posix signals, we have to use an IPC message to send the
+  // timeout signal.
+  // t.spawn() will always open an ipc channel on fd 3 for this purpose,
+  // and t.worker() will use the worker message port.
   // The key and childId are just a basic gut check to ensure that we don't
   // treat a message as a timeout unintentionally, though of course that
   // would be extremely rare.
-  process.on('message', onMessage)
+
+  /* c8 ignore start */
+  proc?.on('message', onMessage)
   parentPort?.on('message', onMessage)
 
   // We don't want the channel to keep the child running
   //@ts-ignore
-  process.channel?.unref()
+  proc?.channel?.unref()
   parentPort?.unref()
   /* c8 ignore stop */
 }
@@ -276,10 +293,7 @@ const getTimeoutExtra = (signal: NodeJS.Signals | null = null) => {
   /* c8 ignore start */
   const handles = (p._getActiveHandles() || []).filter(
     /* c8 ignore stop */
-    h =>
-      h !== process.stdout &&
-      h !== process.stdin &&
-      h !== process.stderr
+    h => h !== proc?.stdout && h !== proc?.stdin && h !== proc?.stderr
   )
   const requests = p._getActiveRequests()
 
@@ -343,7 +357,11 @@ const getTimeoutExtra = (signal: NodeJS.Signals | null = null) => {
 
 let didProcessTimeout = false
 const onProcessTimeout = (signal: NodeJS.Signals | null = null) => {
+  // pretty much impossible to do this, since we forcibly exit,
+  // but it is theoretically possible if SIGALRM is caught.
+  /* c8 ignore start */
   if (didProcessTimeout || !instance) return
+  /* c8 ignore stop */
   didProcessTimeout = true
 
   const extra = getTimeoutExtra(signal)
@@ -374,19 +392,20 @@ const alarmKill = () => {
   // can only kill in main thread, worker threads will be terminated
   if (!isMainThread) return
 
-  // SIGALRM isn't supported everywhere
+  // SIGALRM isn't supported everywhere,
+  // and we won't be able to catch it on windows anyway.
   /* c8 ignore start */
   try {
-    process.kill(process.pid, 'SIGALRM')
+    proc?.kill(proc?.pid, 'SIGALRM')
   } catch {
-    process.kill(process.pid, 'SIGKILL')
+    proc?.kill(proc?.pid, 'SIGKILL')
   }
   const t = setTimeout(() => {
-    process.kill(process.pid, 'SIGKILL')
+    proc?.kill(proc?.pid, 'SIGKILL')
   }, 500)
-  /* c8 ignore stop */
   if (t.unref) t.unref()
 }
+/* c8 ignore stop */
 
 const ignoreEPIPE = () => {
   /* c8 ignore start */
