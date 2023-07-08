@@ -88,7 +88,7 @@ t.test('spawn something', t => {
       cwd: process.cwd(),
       env: {
         x: 'y',
-        TAP_CHILD_ID: '0',
+        TAP_CHILD_ID: String,
         TAP: '1',
         TAP_BAIL: '0',
         TAP_ABORT_KEY: String,

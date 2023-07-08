@@ -45,7 +45,7 @@ export declare class Spawn extends Base<SpawnEvents> {
     ];
     env: {
         [k: string]: string;
-    } | typeof process.env;
+    } | NodeJS.ProcessEnv;
     proc: null | ChildProcess;
     cb: null | (() => void);
     constructor(options: SpawnOpts);

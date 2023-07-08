@@ -56,9 +56,9 @@ export class Spawn extends Base<SpawnEvents> {
     IOType | Stream | number | null | undefined,
     'ipc'
   ]
-  env: { [k: string]: string } | typeof process.env
-  proc: null | ChildProcess
-  cb: null | (() => void)
+  env: { [k: string]: string } | NodeJS.ProcessEnv
+  proc: null | ChildProcess = null
+  cb: null | (() => void) = null
 
   // doesn't have to be cryptographically secure, just a gut check
   #tapAbortKey: string = String(Math.random())
@@ -110,9 +110,6 @@ export class Spawn extends Base<SpawnEvents> {
       TAP_BAIL: this.bail ? '1' : '0',
       TAP_ABORT_KEY: this.#tapAbortKey,
     }
-
-    this.proc = null
-    this.cb = null
   }
 
   endAll() {

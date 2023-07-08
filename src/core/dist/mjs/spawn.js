@@ -8,8 +8,8 @@ export class Spawn extends Base {
     args;
     stdio;
     env;
-    proc;
-    cb;
+    proc = null;
+    cb = null;
     // doesn't have to be cryptographically secure, just a gut check
     #tapAbortKey = String(Math.random());
     #timedOut;
@@ -53,8 +53,6 @@ export class Spawn extends Base {
             TAP_BAIL: this.bail ? '1' : '0',
             TAP_ABORT_KEY: this.#tapAbortKey,
         };
-        this.proc = null;
-        this.cb = null;
     }
     endAll() {
         if (this.proc) {
