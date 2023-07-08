@@ -26,7 +26,7 @@ class Stdin extends base_js_1.Base {
             this.parent.emit('stdin', this);
         }
         this.inputStream.resume();
-        this.once('end', cb);
+        s.once('end', cb);
     }
     threw(er, extra, proxy) {
         extra = super.threw(er, extra, proxy);

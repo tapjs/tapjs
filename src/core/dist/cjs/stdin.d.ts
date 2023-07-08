@@ -1,5 +1,4 @@
 /// <reference types="node" />
-/// <reference types="node" />
 import { Minipass } from 'minipass';
 import { Base, BaseOpts, TapBaseEvents } from './base.js';
 export interface StdinOpts extends BaseOpts {
@@ -8,7 +7,7 @@ export interface StdinOpts extends BaseOpts {
 export interface StdinEvents extends TapBaseEvents {
 }
 export declare class Stdin extends Base<StdinEvents> {
-    inputStream: NodeJS.ReadableStream | Minipass<string | Buffer>;
+    inputStream: NodeJS.ReadableStream | Minipass;
     constructor(options: StdinOpts);
     main(cb: () => void): void;
     threw(er: any, extra?: any, proxy?: boolean): void;

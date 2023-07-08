@@ -8,7 +8,7 @@ export interface StdinOpts extends BaseOpts {
 export interface StdinEvents extends TapBaseEvents {}
 
 export class Stdin extends Base<StdinEvents> {
-  inputStream: NodeJS.ReadableStream | Minipass<string | Buffer>
+  inputStream: NodeJS.ReadableStream | Minipass
   constructor(options: StdinOpts) {
     super({
       ...options,
@@ -32,7 +32,7 @@ export class Stdin extends Base<StdinEvents> {
       this.parent.emit('stdin', this)
     }
     this.inputStream.resume()
-    this.once('end', cb)
+    s.once('end', cb)
   }
 
   threw(er: any, extra?: any, proxy?: boolean) {
