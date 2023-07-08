@@ -60,12 +60,11 @@ export const StdioLogLine: FC<StdioLog> = ({
       </Box>
     )
 
-  const t = String(text).trim()
   return (
     <Box flexDirection="column">
       {prefix}
       <Box>
-        <Text>{t}</Text>
+        <Text>{String(text).trimEnd()}</Text>
       </Box>
     </Box>
   )
