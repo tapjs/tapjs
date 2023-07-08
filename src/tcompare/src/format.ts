@@ -184,7 +184,7 @@ export class Format {
   isStream(): boolean {
     const s = this.object
     return (
-      s &&
+      !!s &&
       typeof s === 'object' &&
       (typeof s.pipe === 'function' || // readable
         typeof s.pipeTo === 'function' || // whatwg readable
