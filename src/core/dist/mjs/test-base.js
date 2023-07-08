@@ -15,12 +15,7 @@ import { argv, cwd } from './proc.js';
 import { TestPoint } from './test-point.js';
 import { Waiter } from './waiter.js';
 import { IMPLICIT } from './implicit-end-sigil.js';
-export const normalizeMessageExtra = (defaultMessage, [message, extra]) => {
-    if (message && typeof message === 'object') {
-        return [defaultMessage, message];
-    }
-    return [message || defaultMessage, extra || {}];
-};
+import { normalizeMessageExtra } from './normalize-message-extra.js';
 const queueEmpty = (t) => t.queue.length === 0 ||
     (t.queue.length === 1 && t.queue[0] === 'TAP version 14\n');
 /**

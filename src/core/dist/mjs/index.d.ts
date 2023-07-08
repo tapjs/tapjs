@@ -3,6 +3,7 @@ export * from './base.js';
 export * from './counts.js';
 export * from './lists.js';
 export * from './test-base.js';
+export * from './normalize-message-extra.js';
 export * from './main-script.js';
 export * from './parse-test-args.js';
 export * from './proc.js';
@@ -41,4 +42,5 @@ export interface Extra {
     test?: string;
     [k: string]: any;
 }
+export type MessageExtra = [] | [string] | [Extra] | [string, Extra];
 //# sourceMappingURL=index.d.ts.map

@@ -28,7 +28,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.TestBase = exports.normalizeMessageExtra = void 0;
+exports.TestBase = void 0;
 const stack = __importStar(require("@tapjs/stack"));
 const node_assert_1 = __importDefault(require("node:assert"));
 const node_path_1 = require("node:path");
@@ -44,13 +44,7 @@ const proc_js_1 = require("./proc.js");
 const test_point_js_1 = require("./test-point.js");
 const waiter_js_1 = require("./waiter.js");
 const implicit_end_sigil_js_1 = require("./implicit-end-sigil.js");
-const normalizeMessageExtra = (defaultMessage, [message, extra]) => {
-    if (message && typeof message === 'object') {
-        return [defaultMessage, message];
-    }
-    return [message || defaultMessage, extra || {}];
-};
-exports.normalizeMessageExtra = normalizeMessageExtra;
+const normalize_message_extra_js_1 = require("./normalize-message-extra.js");
 const queueEmpty = (t) => t.queue.length === 0 ||
     (t.queue.length === 1 && t.queue[0] === 'TAP version 14\n');
 /**
@@ -223,7 +217,7 @@ class TestBase extends base_js_1.Base {
     pass(...[msg, extra]) {
         this.currentAssert = this.pass;
         const args = [msg, extra];
-        const me = (0, exports.normalizeMessageExtra)('(unnamed test)', args);
+        const me = (0, normalize_message_extra_js_1.normalizeMessageExtra)('(unnamed test)', args);
         this.printResult(true, ...me);
         return true;
     }
@@ -233,7 +227,7 @@ class TestBase extends base_js_1.Base {
     fail(...[msg, extra]) {
         this.currentAssert = this.fail;
         const args = [msg, extra];
-        const me = (0, exports.normalizeMessageExtra)('(unnamed test)', args);
+        const me = (0, normalize_message_extra_js_1.normalizeMessageExtra)('(unnamed test)', args);
         this.printResult(false, ...me);
         return !!(me[1].todo || me[1].skip);
     }

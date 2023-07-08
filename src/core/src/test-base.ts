@@ -23,7 +23,8 @@ import { Waiter } from './waiter.js'
 import { Worker } from './worker.js'
 
 import { IMPLICIT } from './implicit-end-sigil.js'
-import { Extra, TapBaseEvents } from './index.js'
+import { Extra, MessageExtra, TapBaseEvents } from './index.js'
+import { normalizeMessageExtra } from './normalize-message-extra.js'
 
 export interface TestBaseOpts extends BaseOpts {
   /**
@@ -40,18 +41,6 @@ export interface TestBaseOpts extends BaseOpts {
    * @internal
    */
   cb?: (...args: any[]) => any
-}
-
-export type MessageExtra = [] | [string] | [Extra] | [string, Extra]
-export const normalizeMessageExtra = (
-  defaultMessage: string,
-  [message, extra]: MessageExtra
-): [string, Extra] => {
-  if (message && typeof message === 'object') {
-    return [defaultMessage, message]
-  }
-
-  return [message || defaultMessage, extra || {}]
 }
 
 const queueEmpty = <T extends TestBase>(t: T) =>

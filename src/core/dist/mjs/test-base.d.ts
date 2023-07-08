@@ -11,7 +11,7 @@ import { Result, TestPoint } from './test-point.js';
 import { Waiter } from './waiter.js';
 import { Worker } from './worker.js';
 import { IMPLICIT } from './implicit-end-sigil.js';
-import { Extra, TapBaseEvents } from './index.js';
+import { Extra, MessageExtra, TapBaseEvents } from './index.js';
 export interface TestBaseOpts extends BaseOpts {
     /**
      * The number of jobs to run in parallel. Defaults to 1
@@ -27,8 +27,6 @@ export interface TestBaseOpts extends BaseOpts {
      */
     cb?: (...args: any[]) => any;
 }
-export type MessageExtra = [] | [string] | [Extra] | [string, Extra];
-export declare const normalizeMessageExtra: (defaultMessage: string, [message, extra]: MessageExtra) => [string, Extra];
 export type TapPlugin<B extends Object, O extends TestBaseOpts | any = unknown> = unknown extends O ? (t: TestBase) => B : (t: TestBase, opts: O) => B;
 /**
  * Sigil to put in the queue to signal the end of all things
