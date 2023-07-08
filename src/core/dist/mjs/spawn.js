@@ -20,7 +20,6 @@ export class Spawn extends Base {
         if (!command) {
             throw new TypeError('no command provided for t.spawn()');
         }
-        options = options || {};
         const cwd = typeof options.cwd === 'string' ? options.cwd : process.cwd();
         const args = options.args || [];
         options.name = options.name || Spawn.procName(cwd, command, args);
@@ -96,9 +95,11 @@ export class Spawn extends Base {
         proc.stdout.pipe(this.parser);
         try {
             //@ts-ignore
-            proc.stdio[3]?.unref();
+            proc.stdio[3].unref();
+            /* c8 ignore start */
         }
         catch (_) { }
+        /* c8 ignore stop */
         proc.on('close', (code, signal) => {
             this.#onprocclose(code, signal);
         });
@@ -148,6 +149,9 @@ export class Spawn extends Base {
             }
             catch (_) { }
             /* c8 ignore stop */
+            // this whole bit has to be ignored because there is no way to test
+            // signals on Windows without mocking to the point of irrelevance
+            /* c8 ignore start */
             const t = setTimeout(() => {
                 // try to give it a chance to note the timeout and report handles
                 try {
@@ -161,14 +165,13 @@ export class Spawn extends Base {
                         proc.kill('SIGKILL');
                     }
                 }, 500);
-                /* c8 ignore start */
                 if (t.unref)
                     t.unref();
-                /* c8 ignore stop */
+                proc.once('close', () => clearTimeout(t));
             }, 500);
-            /* c8 ignore start */
             if (t.unref)
                 t.unref();
+            proc.once('close', () => clearTimeout(t));
             /* c8 ignore stop */
         }
     }

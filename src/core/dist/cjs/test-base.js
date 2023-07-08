@@ -199,8 +199,8 @@ class TestBase extends base_js_1.Base {
         if (this.#planEnd !== -1) {
             throw new Error('Cannot set plan after test has ended');
         }
-        if (typeof n !== 'number' || n < 0) {
-            throw new TypeError('plan must be a number');
+        if (typeof n !== 'number' || n < 0 || n !== Math.floor(n)) {
+            throw new TypeError('plan must be a non-negative integer');
         }
         // Cannot get any tests after a trailing plan, or a plan of 0
         const ending = this.count !== 0 || n === 0;

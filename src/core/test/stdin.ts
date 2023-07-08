@@ -69,7 +69,7 @@ t.test('timeout', t => {
     t.end()
   }
   s.main(() => {})
-  setTimeout(() => {}, 10)
+  setTimeout(() => {}, 100)
 })
 
 t.test('stream error', t => {
