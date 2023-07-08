@@ -46,7 +46,7 @@
   },
   "dependencies": {
     "@tapjs/core": ">=0.0.0-0",
-    "glob": "^10.0.0",
+    "glob": "^10.3.2",
     "jackspeak": "^2.2.1",
     "mkdirp": "^3.0.0",
     "sync-content": "^1.0.1",

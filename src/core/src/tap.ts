@@ -1,7 +1,7 @@
 // The root Test object singleton
 import { Test } from '@tapjs/test'
 import { Domain } from 'async-hook-domain'
-import { Minipass } from 'minipass'
+import { Minipass, PipeOptions } from 'minipass'
 import { isMainThread, parentPort } from 'node:worker_threads'
 import { onExit } from 'signal-exit'
 import { FinalResults } from 'tap-parser'
@@ -153,7 +153,7 @@ class TAP extends Test {
    */
   pipe<W extends Minipass.Writable>(
     dest: W,
-    opts?: Minipass.PipeOptions
+    opts?: PipeOptions
   ): W {
     piped = true
     if (stdout && dest === stdout) {

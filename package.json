@@ -35,11 +35,10 @@
     "events-to-array": "^2.0.3",
     "foreground-child": "^3.1.1",
     "function-loop": "^4.0.0",
-    "glob": "^10.0.0",
     "ink": "^4.2.0",
     "jackspeak": "^2.2.1",
     "minimatch": "^9.0.1",
-    "minipass": "^6.0.2",
+    "minipass": "^7.0.1",
     "mkdirp": "^3.0.1",
     "mustache": "^4.2.0",
     "nock": "^13.3.1",
@@ -78,8 +77,8 @@
     "build": "node ./scripts/default-build.mjs"
   },
   "repository": "https://github.com/tapjs/tapjs",
+  "license": "BlueOak-1.0.0",
   "dependencies": {
-    "glob": "^10.2.5"
-  },
-  "license": "BlueOak-1.0.0"
+    "glob": "^10.3.2"
+  }
 }

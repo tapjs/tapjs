@@ -1,6 +1,6 @@
 /// <reference types="node" />
 import { Test } from '@tapjs/test';
-import { Minipass } from 'minipass';
+import { Minipass, PipeOptions } from 'minipass';
 declare const privSym: unique symbol;
 type PrivateTAPCtor = {
     [privSym]: true;
@@ -58,7 +58,7 @@ declare class TAP extends Test {
      * Just the normal Minipass.pipe method, but automatically registers
      * if the destination is stdout.
      */
-    pipe<W extends Minipass.Writable>(dest: W, opts?: Minipass.PipeOptions): W;
+    pipe<W extends Minipass.Writable>(dest: W, opts?: PipeOptions): W;
     /**
      * Just the normal Minipass.write method, but automatically pipes
      * to stdout if not piped anywhere else.

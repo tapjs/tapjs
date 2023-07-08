@@ -34,7 +34,7 @@ const main = () => {
     }
   }
 
-  t.jobs = 4
+  t.jobs = 5
   t.equal(tap(), t)
 
   for (const c of Object.keys(cases)) {
