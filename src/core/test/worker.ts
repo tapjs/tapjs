@@ -234,12 +234,15 @@ t.test('send message from worker to make a comment', t => {
       `,
   })
   w.main(async () => {
+    // the message is async, so can come in arbitrary order when
+    // putting the system under load by running entire suite.
+    const res = String(await w.concat())
+    t.match(res, `# { hello: 'world', childId: '1234' }\n`)
     t.equal(
-      await w.concat(),
+      res.split(`# { hello: 'world', childId: '1234' }\n`).join(''),
       `TAP version 14
 1..1
 ok 1
-# { hello: 'world', childId: '1234' }
 `
     )
     t.end()
