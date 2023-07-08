@@ -66,6 +66,14 @@ Array [
               ],
               Array [
                 "line",
+                "TAP version 14\\n",
+              ],
+              Array [
+                "version",
+                14,
+              ],
+              Array [
+                "line",
                 "1..0 # no tests found\\n",
               ],
               Array [
@@ -127,7 +135,19 @@ Array [
           ],
           Array [
             "line",
+            "    TAP version 14\\n",
+          ],
+          Array [
+            "line",
             "    1..0 # no tests found\\n",
+          ],
+          Array [
+            "line",
+            "TAP version 14\\n",
+          ],
+          Array [
+            "version",
+            14,
           ],
           Array [
             "line",
@@ -344,7 +364,15 @@ Array [
       ],
       Array [
         "line",
+        "        TAP version 14\\n",
+      ],
+      Array [
+        "line",
         "        1..0 # no tests found\\n",
+      ],
+      Array [
+        "line",
+        "    TAP version 14\\n",
       ],
       Array [
         "line",
@@ -682,7 +710,15 @@ Array [
   ],
   Array [
     "line",
+    "            TAP version 14\\n",
+  ],
+  Array [
+    "line",
     "            1..0 # no tests found\\n",
+  ],
+  Array [
+    "line",
+    "        TAP version 14\\n",
   ],
   Array [
     "line",
@@ -1040,6 +1076,14 @@ Array [
               ],
               Array [
                 "line",
+                "TAP version 14\\n",
+              ],
+              Array [
+                "version",
+                14,
+              ],
+              Array [
+                "line",
                 "1..0 # no tests found\\n",
               ],
               Array [
@@ -1101,7 +1145,19 @@ Array [
           ],
           Array [
             "line",
+            "    TAP version 14\\n",
+          ],
+          Array [
+            "line",
             "    1..0 # no tests found\\n",
+          ],
+          Array [
+            "line",
+            "TAP version 14\\n",
+          ],
+          Array [
+            "version",
+            14,
           ],
           Array [
             "line",
@@ -1318,7 +1374,15 @@ Array [
       ],
       Array [
         "line",
+        "        TAP version 14\\n",
+      ],
+      Array [
+        "line",
         "        1..0 # no tests found\\n",
+      ],
+      Array [
+        "line",
+        "    TAP version 14\\n",
       ],
       Array [
         "line",
@@ -1656,7 +1720,15 @@ Array [
   ],
   Array [
     "line",
+    "            TAP version 14\\n",
+  ],
+  Array [
+    "line",
     "            1..0 # no tests found\\n",
+  ],
+  Array [
+    "line",
+    "        TAP version 14\\n",
   ],
   Array [
     "line",

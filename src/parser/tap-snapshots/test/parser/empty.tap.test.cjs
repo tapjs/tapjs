@@ -9,6 +9,14 @@ exports[`test/parser.ts > TAP > empty.tap > output bail=false 1`] = `
 Array [
   Array [
     "line",
+    "TAP version 14\\n",
+  ],
+  Array [
+    "version",
+    14,
+  ],
+  Array [
+    "line",
     "1..0 # no tests found\\n",
   ],
   Array [
@@ -48,6 +56,14 @@ Array [
 
 exports[`test/parser.ts > TAP > empty.tap > output bail=true 1`] = `
 Array [
+  Array [
+    "line",
+    "TAP version 14\\n",
+  ],
+  Array [
+    "version",
+    14,
+  ],
   Array [
     "line",
     "1..0 # no tests found\\n",

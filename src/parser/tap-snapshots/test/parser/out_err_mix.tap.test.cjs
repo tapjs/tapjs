@@ -25,6 +25,14 @@ Array [
   ],
   Array [
     "line",
+    "TAP version 14\\n",
+  ],
+  Array [
+    "version",
+    14,
+  ],
+  Array [
+    "line",
     "1..0 # no tests found\\n",
   ],
   Array [
@@ -79,6 +87,14 @@ Array [
   Array [
     "extra",
     "three\\n",
+  ],
+  Array [
+    "line",
+    "TAP version 14\\n",
+  ],
+  Array [
+    "version",
+    14,
   ],
   Array [
     "line",

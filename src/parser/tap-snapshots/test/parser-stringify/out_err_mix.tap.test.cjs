@@ -16,6 +16,10 @@ Array [
     "three\\n",
   ],
   Array [
+    "version",
+    14,
+  ],
+  Array [
     "plan",
     Plan {
       "comment": "no tests found",
@@ -59,6 +63,7 @@ Array [
 exports[`test/parse-stringify.ts > TAP > out_err_mix.tap > bail > stringified 1`] = `
 one
 three
+TAP version 14
 1..0 # no tests found
 
 `
@@ -66,6 +71,7 @@ three
 exports[`test/parse-stringify.ts > TAP > out_err_mix.tap > bail > stringified flat 1`] = `
 one
 three
+TAP version 14
 1..0 # no tests found
 
 `
@@ -79,6 +85,10 @@ Array [
   Array [
     "extra",
     "three\\n",
+  ],
+  Array [
+    "version",
+    14,
   ],
   Array [
     "plan",
@@ -132,6 +142,10 @@ Array [
     "three\\n",
   ],
   Array [
+    "version",
+    14,
+  ],
+  Array [
     "plan",
     Object {
       "end": 0,
@@ -174,6 +188,7 @@ Array [
 exports[`test/parse-stringify.ts > TAP > out_err_mix.tap > default settings > stringified 1`] = `
 one
 three
+TAP version 14
 1..0 # no tests found
 
 `
@@ -181,6 +196,7 @@ three
 exports[`test/parse-stringify.ts > TAP > out_err_mix.tap > default settings > stringified flat 1`] = `
 one
 three
+TAP version 14
 1..0 # no tests found
 
 `
@@ -194,6 +210,10 @@ Array [
   Array [
     "extra",
     "three\\n",
+  ],
+  Array [
+    "version",
+    14,
   ],
   Array [
     "plan",
@@ -248,6 +268,7 @@ Array [
 exports[`test/parse-stringify.ts > TAP > out_err_mix.tap > strict > stringified 1`] = `
 one
 three
+TAP version 14
 1..0 # no tests found
 
 `
@@ -255,6 +276,7 @@ three
 exports[`test/parse-stringify.ts > TAP > out_err_mix.tap > strict > stringified flat 1`] = `
 one
 three
+TAP version 14
 1..0 # no tests found
 
 `
@@ -268,6 +290,10 @@ Array [
   Array [
     "extra",
     "three\\n",
+  ],
+  Array [
+    "version",
+    14,
   ],
   Array [
     "plan",
@@ -322,6 +348,7 @@ Array [
 exports[`test/parse-stringify.ts > TAP > out_err_mix.tap > strictBail > stringified 1`] = `
 one
 three
+TAP version 14
 1..0 # no tests found
 
 `
@@ -329,6 +356,7 @@ three
 exports[`test/parse-stringify.ts > TAP > out_err_mix.tap > strictBail > stringified flat 1`] = `
 one
 three
+TAP version 14
 1..0 # no tests found
 
 `

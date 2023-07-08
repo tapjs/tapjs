@@ -73,7 +73,7 @@ t.test('handle throws in main function', t => {
   b.runMain(() => {})
   t.equal(b.started, true)
   b.concat().then(r => {
-    t.equal(r, '1..0 # no tests found\n')
+    t.equal(r, 'TAP version 14\n1..0 # no tests found\n')
     t.equal(er, expect)
     t.end()
   })

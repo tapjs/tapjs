@@ -33,6 +33,10 @@ Array [
                 "# Subtest: npm install package line\\n",
               ],
               Array [
+                "version",
+                14,
+              ],
+              Array [
                 "plan",
                 Plan {
                   "comment": "no tests found",
@@ -71,6 +75,10 @@ Array [
                 "close",
               ],
             ],
+          ],
+          Array [
+            "version",
+            14,
           ],
           Array [
             "plan",
@@ -419,7 +427,9 @@ TAP version 13
 # Subtest: index.js
     # Subtest: boom
         # Subtest: npm install package line
+            TAP version 14
             1..0 # no tests found
+        TAP version 14
         1..0 # no tests found
     # package - Easy package.json exports.
     ## Intro
@@ -483,6 +493,8 @@ TAP version 13
 # Subtest: index.js
 # Subtest: boom
 # Subtest: npm install package line
+TAP version 14
+TAP version 14
 # package - Easy package.json exports.
 ## Intro
 ## Installation
@@ -567,6 +579,10 @@ Array [
                 "# Subtest: npm install package line\\n",
               ],
               Array [
+                "version",
+                14,
+              ],
+              Array [
                 "plan",
                 Plan {
                   "comment": "no tests found",
@@ -605,6 +621,10 @@ Array [
                 "close",
               ],
             ],
+          ],
+          Array [
+            "version",
+            14,
           ],
           Array [
             "plan",
@@ -1212,7 +1232,9 @@ TAP version 13
 # Subtest: index.js
     # Subtest: boom
         # Subtest: npm install package line
+            TAP version 14
             1..0 # no tests found
+        TAP version 14
         1..0 # no tests found
     # package - Easy package.json exports.
     ## Intro
@@ -1278,6 +1300,8 @@ TAP version 13
 # Subtest: index.js
 # Subtest: boom
 # Subtest: npm install package line
+TAP version 14
+TAP version 14
 # package - Easy package.json exports.
 ## Intro
 ## Installation
@@ -1364,6 +1388,10 @@ Array [
                 "# Subtest: npm install package line\\n",
               ],
               Array [
+                "version",
+                14,
+              ],
+              Array [
                 "plan",
                 Plan {
                   "comment": "no tests found",
@@ -1419,6 +1447,10 @@ Array [
                 "close",
               ],
             ],
+          ],
+          Array [
+            "version",
+            14,
           ],
           Array [
             "plan",
@@ -1989,7 +2021,9 @@ TAP version 13
 # Subtest: index.js
     # Subtest: boom
         # Subtest: npm install package line
+            TAP version 14
             1..0 # no tests found
+        TAP version 14
         1..0 # no tests found
     # package - Easy package.json exports.
     ## Intro
@@ -2055,6 +2089,8 @@ TAP version 13
 # Subtest: index.js
 # Subtest: boom
 # Subtest: npm install package line
+TAP version 14
+TAP version 14
 # package - Easy package.json exports.
 ## Intro
 ## Installation
@@ -2141,6 +2177,10 @@ Array [
                 "# Subtest: npm install package line\\n",
               ],
               Array [
+                "version",
+                14,
+              ],
+              Array [
                 "plan",
                 Plan {
                   "comment": "no tests found",
@@ -2196,6 +2236,10 @@ Array [
                 "close",
               ],
             ],
+          ],
+          Array [
+            "version",
+            14,
           ],
           Array [
             "plan",
@@ -2754,7 +2798,9 @@ TAP version 13
 # Subtest: index.js
     # Subtest: boom
         # Subtest: npm install package line
+            TAP version 14
             1..0 # no tests found
+        TAP version 14
         1..0 # no tests found
     # package - Easy package.json exports.
     ## Intro
@@ -2818,6 +2864,8 @@ TAP version 13
 # Subtest: index.js
 # Subtest: boom
 # Subtest: npm install package line
+TAP version 14
+TAP version 14
 # package - Easy package.json exports.
 ## Intro
 ## Installation

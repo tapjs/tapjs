@@ -20,6 +20,7 @@ Array [
   "        1..2\\n",
   "    }\\n",
   "}\\n",
+  "TAP version 14\\n",
   "not ok 2 - nope\\n",
   "1..2\\n",
 ]
@@ -79,6 +80,7 @@ Array [
   "        1..2\\n",
   "    }\\n",
   "}\\n",
+  "TAP version 14\\n",
   "not ok 2 - \\n",
   "1..2\\n",
 ]
@@ -141,6 +143,7 @@ Array [
   "        1..2\\n",
   "    }\\n",
   "}\\n",
+  "TAP version 14\\n",
   "not ok 2 - nope\\n",
   "1..2\\n",
 ]
@@ -328,6 +331,7 @@ Array [
   "        not ok 2 - nope\\n",
   "    not ok 1 - nope\\n",
   "}\\n",
+  "TAP version 14\\n",
   "not ok 2 - nope\\n",
   "1..2\\n",
 ]
@@ -382,6 +386,7 @@ Array [
   "        not ok 2 - nope\\n",
   "    not ok 1 - nope\\n",
   "}\\n",
+  "TAP version 14\\n",
   "not ok 2 - nope\\n",
   "1..2\\n",
 ]
@@ -439,6 +444,7 @@ Array [
   "          ...\\n",
   "    not ok 1 - nope\\n",
   "}\\n",
+  "TAP version 14\\n",
   "not ok 2 - nope\\n",
   "1..2\\n",
 ]

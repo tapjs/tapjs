@@ -57,6 +57,7 @@ export class Parser
   private previousChild: Parser | null = null
   private yamlish: string = ''
   private yind: string = ''
+  private sawVersion: boolean = false
 
   public aborted: boolean = false
   public bail: boolean = false
@@ -462,8 +463,12 @@ export class Parser
         if (this.buffered) {
           this.planStart = 1
           this.planEnd = 0
-        } else
+        } else {
+          if (!this.sawVersion) {
+            this.version(14, 'TAP version 14\n')
+          }
           this.plan(1, 0, 'no tests found', '1..0 # no tests found\n')
+        }
         skipAll = true
       } else {
         this.tapError('no plan', '')
@@ -515,6 +520,7 @@ export class Parser
       this.count === 0 &&
       !this.current
     ) {
+      this.sawVersion = true
       this.emit('line', line)
       this.emit('version', version)
     } else this.nonTap(line)
@@ -736,6 +742,7 @@ export class Parser
 
     if (this.planEnd === -1) point += '1..' + n + '\n'
 
+    if (!this.sawVersion) this.write('TAP version 14\n')
     this.write(point)
     this.aborted = true
     this.end()

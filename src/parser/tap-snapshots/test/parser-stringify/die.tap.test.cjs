@@ -8,6 +8,10 @@
 exports[`test/parse-stringify.ts > TAP > die.tap > bail > parsed 1`] = `
 Array [
   Array [
+    "version",
+    14,
+  ],
+  Array [
     "plan",
     Plan {
       "comment": "no tests found",
@@ -49,17 +53,23 @@ Array [
 `
 
 exports[`test/parse-stringify.ts > TAP > die.tap > bail > stringified 1`] = `
+TAP version 14
 1..0 # no tests found
 
 `
 
 exports[`test/parse-stringify.ts > TAP > die.tap > bail > stringified flat 1`] = `
+TAP version 14
 1..0 # no tests found
 
 `
 
 exports[`test/parse-stringify.ts > TAP > die.tap > default settings > parsed 1`] = `
 Array [
+  Array [
+    "version",
+    14,
+  ],
   Array [
     "plan",
     Plan {
@@ -104,6 +114,10 @@ Array [
 exports[`test/parse-stringify.ts > TAP > die.tap > default settings > parsed flat 1`] = `
 Array [
   Array [
+    "version",
+    14,
+  ],
+  Array [
     "plan",
     Object {
       "end": 0,
@@ -144,17 +158,23 @@ Array [
 `
 
 exports[`test/parse-stringify.ts > TAP > die.tap > default settings > stringified 1`] = `
+TAP version 14
 1..0 # no tests found
 
 `
 
 exports[`test/parse-stringify.ts > TAP > die.tap > default settings > stringified flat 1`] = `
+TAP version 14
 1..0 # no tests found
 
 `
 
 exports[`test/parse-stringify.ts > TAP > die.tap > strict > parsed 1`] = `
 Array [
+  Array [
+    "version",
+    14,
+  ],
   Array [
     "plan",
     Plan {
@@ -197,17 +217,23 @@ Array [
 `
 
 exports[`test/parse-stringify.ts > TAP > die.tap > strict > stringified 1`] = `
+TAP version 14
 1..0 # no tests found
 
 `
 
 exports[`test/parse-stringify.ts > TAP > die.tap > strict > stringified flat 1`] = `
+TAP version 14
 1..0 # no tests found
 
 `
 
 exports[`test/parse-stringify.ts > TAP > die.tap > strictBail > parsed 1`] = `
 Array [
+  Array [
+    "version",
+    14,
+  ],
   Array [
     "plan",
     Plan {
@@ -250,11 +276,13 @@ Array [
 `
 
 exports[`test/parse-stringify.ts > TAP > die.tap > strictBail > stringified 1`] = `
+TAP version 14
 1..0 # no tests found
 
 `
 
 exports[`test/parse-stringify.ts > TAP > die.tap > strictBail > stringified flat 1`] = `
+TAP version 14
 1..0 # no tests found
 
 `
