@@ -8,16 +8,16 @@ export const useSubtests = (
   which: 'active' | 'finished' | 'all' = 'all'
 ) => {
   const [tests, updateTests] = useState<Base[]>([])
-  const add = (test: Base) =>
-    updateTests([...new Set([...tests, test])])
-  const remove = (test: Base) =>
-    updateTests(tests.filter(t => t !== test))
+  const addActive = (test: Base) =>
+    updateTests([...new Set([...tests, test].filter(t => !t.results))])
+  const removeActive = (test: Base) =>
+    updateTests(tests.filter(t => t !== test && !t.results))
 
   useCleanup(
     cleanup => {
       if (which === 'active') {
-        cleanup.push(listenCleanup(test, 'subtestAdd', add))
-        cleanup.push(listenCleanup(test, 'subtestEnd', remove))
+        cleanup.push(listenCleanup(test, 'subtestAdd', addActive))
+        cleanup.push(listenCleanup(test, 'subtestEnd', removeActive))
       } else {
         cleanup.push(
           listenCleanup(
