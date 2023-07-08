@@ -36,13 +36,12 @@ export class TestBase extends Base {
     /**
      * Attached when the Test class is instantiated from a TestBase,
      * as a reference to the final plugged-in Test instance.
-     * If TestBase is used directly, outside the context of a plugin,
-     * then this will be undefined, so watch out.
+     * If TestBase is used directly (outside the context of a plugin)
+     * or during plugin setup time, this will be undefined, so watch out.
      */
     t;
     donePromise;
     jobs;
-    // #beforeEnd: [method: string | Symbol, ...args: any[]][] = []
     subtests = [];
     pool = new Set();
     queue = ['TAP version 14\n'];
