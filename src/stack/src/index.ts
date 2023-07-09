@@ -112,6 +112,23 @@ export const setFilterIgnoredPackages = (s: boolean) =>
  */
 export const getFilterIgnoredPackages = () => filterIgnoredPackages
 
+// detect the first line of Error.stack, 'Error: blah'
+const isErrorStackHead = (c?: CallSiteLike): boolean =>
+  !!c &&
+  c.lineNumber === null &&
+  c.columnNumber === null &&
+  c.this === undefined &&
+  c.evalOrigin === undefined &&
+  c.function === undefined &&
+  c.typeName === null &&
+  c.methodName === null &&
+  typeof c.functionName === 'string' &&
+  c.isEval === false &&
+  c.isNative === false &&
+  c.isToplevel === false &&
+  c.isConstructor === false &&
+  c.generated === undefined
+
 const filter = (c: CallSiteLike): boolean => {
   const s = c.fileName
   // technically this is possible, but super unlikely
@@ -131,6 +148,7 @@ const filter = (c: CallSiteLike): boolean => {
 
 const clean = (c: CallSiteLike[]): CallSiteLike[] => {
   const filtered = c.filter(filter)
+  while (isErrorStackHead(filtered[0])) filtered.shift()
   if (cwd !== undefined) {
     for (const c of filtered) {
       c.cwd = cwd
@@ -253,7 +271,7 @@ export const captureErrorString = (e: Error): string =>
 export const parseStack = (s: string): CallSiteLike[] =>
   clean(
     s
-      .trim()
+      .trimEnd()
       .split('\n')
       .filter(l => !!l.trim())
       .map(line => new CallSiteLike(null, line))

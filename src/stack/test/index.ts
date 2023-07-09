@@ -357,3 +357,10 @@ t.test('cwd', t => {
   t.match(b?.fileName, /^index.ts$/)
   t.end()
 })
+
+t.test('parseStack with Error object noise', t => {
+  const stack = String(new Error('trace').stack)
+  const headless = stack.split('\n').slice(1).join('\n')
+  t.match(parseStack(stack), parseStack(headless), 'head is removed')
+  t.end()
+})
