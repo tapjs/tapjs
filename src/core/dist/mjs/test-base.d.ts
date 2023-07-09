@@ -1,5 +1,5 @@
 /// <reference types="node" />
-import * as stack from '@tapjs/stack';
+/// <reference types="node" />
 import type { Test, TestOpts } from '@tapjs/test';
 import { Minipass } from 'minipass';
 import { Readable } from 'node:stream';
@@ -84,8 +84,6 @@ export declare class TestBase extends Base<TestBaseEvents> {
     cb?: (...args: any[]) => any;
     count: number;
     ended: boolean;
-    assertAt: stack.CallSiteLike | null;
-    assertStack: string | null;
     diagnostic: null | boolean;
     /**
      * true if the test has printed at least one TestPoint
@@ -109,7 +107,7 @@ export declare class TestBase extends Base<TestBaseEvents> {
      * Called when the test times out.
      * Options are passed as diagnostics to the threw() method
      */
-    timeout(options?: {
+    timeout(options?: Extra & {
         expired?: string;
     }): void;
     /**
@@ -123,7 +121,7 @@ export declare class TestBase extends Base<TestBaseEvents> {
      * Specify the number of Test Points expected by this test.
      * Outputs a TAP plan line.
      */
-    plan(n: number, comment?: string): void;
+    plan(n: number, comment?: string, implicit?: typeof IMPLICIT): void;
     /**
      * A passing (ok) Test Point
      */
@@ -167,7 +165,7 @@ export declare class TestBase extends Base<TestBaseEvents> {
      * If used, then no other subtests or assertions are allowed.
      */
     stdinOnly<T extends BaseOpts>(extra?: T & {
-        tapStream?: Readable | Minipass;
+        tapStream?: Readable | Minipass<string | Buffer>;
     }): void;
     /**
      * Mount a subtest, using this Test object as a harness.

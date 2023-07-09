@@ -77,8 +77,6 @@ class TestBase extends base_js_1.Base {
     cb;
     count = 0;
     ended = false;
-    assertAt = null;
-    assertStack = null;
     diagnostic = null;
     #planEnd = -1;
     #printedResult = false;
@@ -145,20 +143,27 @@ class TestBase extends base_js_1.Base {
     comment(...args) {
         const body = (0, node_util_1.format)(...args);
         const message = ('# ' + body.split(/\r?\n/).join('\n# ')).trim() + '\n';
-        if (this.results) {
-            this.write(message);
+        if (this.results || this.ended || this.#pushedEnd) {
+            // the fallback to console.log is a bit weird,
+            // but the only alternative seems to be to just lose it.
+            if (this.parent)
+                this.parent.comment(...args);
+            else
+                console.log(message.trimEnd());
+        }
+        else if (this.#occupied) {
+            this.queue.push(message);
+            this.#process();
         }
         else {
-            this.queue.push(message);
+            this.write(message);
         }
-        this.#process();
     }
     /**
      * Called when the test times out.
      * Options are passed as diagnostics to the threw() method
      */
     timeout(options = { expired: this.name }) {
-        options = options || {};
         options.expired = options.expired || this.name;
         if (this.#occupied && this.#occupied instanceof base_js_1.Base) {
             this.#occupied.timeout(options);
@@ -181,14 +186,14 @@ class TestBase extends base_js_1.Base {
      * Specify the number of Test Points expected by this test.
      * Outputs a TAP plan line.
      */
-    plan(n, comment) {
+    plan(n, comment, implicit) {
         if (this.bailedOut) {
             return;
         }
         if (this.#explicitPlan) {
             throw new Error('Cannot set plan more than once');
         }
-        this.#explicitPlan = true;
+        this.#explicitPlan = implicit !== implicit_end_sigil_js_1.IMPLICIT;
         if (this.#planEnd !== -1) {
             throw new Error('Cannot set plan after test has ended');
         }
@@ -253,12 +258,16 @@ class TestBase extends base_js_1.Base {
         this.currentAssert = this.printResult;
         this.#printedResult = true;
         const n = this.count + 1;
-        const fn = this.#currentAssert;
+        const fn = this.currentAssert;
         this.#currentAssert = null;
         if (this.#planEnd !== -1 && n > this.#planEnd) {
             // prevent infinite regress of "plan exceeded" fails
             if (!this.passing())
                 return;
+            // the 'automatic end' can only occur with the root TAP object
+            // and even then, pretty hard to trigger, since it would mean
+            // going several turns of the event loop and hitting it at just
+            // the right time before the process quits.
             const failMessage = this.#explicitEnded
                 ? 'test assertion after end() was called'
                 : this.#promiseEnded
@@ -274,28 +283,25 @@ class TestBase extends base_js_1.Base {
                     plan: this.#planEnd,
                 },
             });
-            Error.captureStackTrace(er, fn || undefined);
+            Error.captureStackTrace(er, fn);
             this.threw(er, (0, extra_from_error_js_1.extraFromError)(er));
             return;
         }
-        extra = extra || {};
         if (extra.expectFail) {
             ok = !ok;
         }
-        if (this.assertAt) {
-            extra.at = this.assertAt;
-            this.assertAt = null;
+        if (extra.at === null) {
+            delete extra.at;
+            delete extra.stack;
         }
-        if (this.assertStack) {
-            extra.stack = this.assertStack;
-            this.assertStack = null;
+        else if (typeof extra.stack === 'string' &&
+            extra.stack &&
+            !extra.at) {
+            const parsed = stack.parseStack(extra.stack);
+            extra.at = parsed[0];
+            extra.stack = parsed.map(c => String(c) + '\n').join('');
         }
-        if (typeof extra.stack === 'string' && extra.stack && !extra.at) {
-            const at = stack.parseStack(extra.stack)[0];
-            if (at)
-                extra.at = at;
-        }
-        if (!extra.at && extra.at !== null && typeof fn === 'function') {
+        else if (!extra.at && typeof fn === 'function') {
             const showStack = !ok && !extra.skip && !extra.todo;
             const showAt = showStack || extra.diagnostic === true;
             if (showAt) {
@@ -359,7 +365,11 @@ class TestBase extends base_js_1.Base {
      * The leading `# Subtest` comment that introduces a child test
      */
     writeSubComment(p) {
-        const comment = '# Subtest' + (p.name ? ': ' + (0, esc_js_1.esc)(p.name) : '') + '\n';
+        // name will generally always be set
+        /* c8 ignore start */
+        const stn = p.name ? ': ' + (0, esc_js_1.esc)(p.name) : '';
+        /* c8 ignore stop */
+        const comment = `# Subtest${stn}\n`;
         this.parser.write(comment);
     }
     // end TAP otput generating methods
@@ -417,14 +427,16 @@ class TestBase extends base_js_1.Base {
             return this.#process();
         }
         if (implicit !== implicit_end_sigil_js_1.IMPLICIT) {
-            if (this.#explicitEnded && !this.#multiEndThrew) {
-                this.#multiEndThrew = true;
-                const er = new Error('test end() method called more than once');
-                Error.captureStackTrace(er, this.#currentAssert || this.end);
-                er.cause = {
-                    test: this.name,
-                };
-                this.threw(er);
+            if (this.#explicitEnded) {
+                if (!this.#multiEndThrew) {
+                    this.#multiEndThrew = true;
+                    const er = new Error('test end() method called more than once');
+                    Error.captureStackTrace(er, this.#currentAssert || this.end);
+                    er.cause = {
+                        test: this.name,
+                    };
+                    this.threw(er);
+                }
                 return;
             }
             this.debug('set #explicitEnded=true');
@@ -434,7 +446,7 @@ class TestBase extends base_js_1.Base {
         this.ended = true;
         if (this.#planEnd === -1 && !this.#doingStdinOnly) {
             this.debug('END(%s) implicit plan', this.name, this.count);
-            this.plan(this.count);
+            this.plan(this.count, '', implicit_end_sigil_js_1.IMPLICIT);
         }
         this.queue.push(EOF);
         this.#process();
@@ -450,7 +462,10 @@ class TestBase extends base_js_1.Base {
                     ? 'TAP'
                     : (0, node_path_1.relative)(proc_js_1.cwd, main).replace(/\\/g, '/')).trim(),
         ];
+        // tests will generally always have a name
+        /* c8 ignore start */
         const myName = (this.name || '').trim();
+        /* c8 ignore stop */
         if (myName)
             n.push(myName);
         return n.join(' > ');
@@ -493,14 +508,8 @@ class TestBase extends base_js_1.Base {
                         break;
                     }
                 }
-                if (this.#occupied) {
-                    this.debug('eof occupied', this.name);
-                    this.queue.push(EOF);
-                }
-                else {
-                    this.debug('eof end parser', this.name);
-                    this.parser.end();
-                }
+                this.debug('eof end parser', this.name);
+                this.parser.end();
             }
             else if (p instanceof test_point_js_1.TestPoint) {
                 this.debug(' > TESTPOINT');
@@ -625,7 +634,10 @@ class TestBase extends base_js_1.Base {
         this.debug('onIndentedEnd', p.name);
         this.emit('subtestProcess', p);
         p.ondone = p.constructor.prototype.ondone;
+        // we'll generally already have a results by now, but just to be sure
+        /* c8 ignore start */
         p.results = p.results || new tap_parser_1.FinalResults(true, p.parser);
+        /* c8 ignore stop */
         this.#noparallel = false;
         const sti = this.subtests.indexOf(p);
         if (sti !== -1)
@@ -684,7 +696,7 @@ class TestBase extends base_js_1.Base {
             }
             catch (er) {
                 if (!er || typeof er !== 'object') {
-                    er = { error: er };
+                    er = { error: er, at: null };
                 }
                 er.tapCaught = 'testFunctionThrow';
                 this.threw(er);
@@ -695,7 +707,7 @@ class TestBase extends base_js_1.Base {
             ret.tapAbortPromise = done;
             ret.then(end, (er) => {
                 if (!er || typeof er !== 'object') {
-                    er = { error: er };
+                    er = { error: er, at: null };
                 }
                 er.tapCaught = 'returnedPromiseRejection';
                 done(er);
@@ -742,11 +754,12 @@ class TestBase extends base_js_1.Base {
      * If used, then no other subtests or assertions are allowed.
      */
     stdinOnly(extra) {
-        const stream = ((extra && extra.tapStream) ||
-            process.stdin);
+        const stream = (extra?.tapStream ?? process.stdin);
+        /* c8 ignore start */
         if (!stream) {
             throw new Error('cannot read stdin without stdin stream');
         }
+        /* c8 ignore stop */
         if (this.queue.length !== 1 ||
             this.queue[0] !== 'TAP version 14\n' ||
             this.#processing ||
@@ -819,9 +832,11 @@ class TestBase extends base_js_1.Base {
         }
         extra.bail = extra.bail !== undefined ? extra.bail : this.bail;
         extra.parent = this;
-        const st = stack.capture(80, caller);
-        extra.at = st[0];
-        extra.stack = st.map(c => String(c)).join('\n');
+        if (!extra.at && extra.at !== null) {
+            const st = stack.capture(80, caller);
+            extra.at = st[0];
+            extra.stack = st.map(c => String(c)).join('\n');
+        }
         extra.context = this.context;
         const t = new Class(extra);
         this.queue.push(t);
