@@ -283,6 +283,8 @@ export const run = async (args: string[], config: LoadedConfig) => {
       file.toLowerCase().startsWith(s)
     )
     const p = t.spawn(node, [...argv, file, ...testArgs], {
+      at: null,
+      stack: '',
       buffered,
       timeout,
       stdio,
