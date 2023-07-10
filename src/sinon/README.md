@@ -73,3 +73,36 @@ t.test(
   }
 )
 ```
+
+## Using with Fake Timers
+
+Sinon does not behave properly if fake timers are assigned to the
+same global object more than once, resulting in a `'Can't install
+fake timers twice on the same global object.'` error.
+
+By default, this library sets `{ useFakeTimers: false }` in the
+options to avoid this. You can enable fake timers in a given test
+by setting it in the `sinon` option as shown in the examples
+above, but note that it can only be used in a single place in a
+test heirarchy.
+
+For example:
+
+```js
+// ok, works fine
+t.test('fake timers test one', { sinon: { useFakeTimers: true }}, t => {
+  t.test('child test', t => {
+    // etc.
+  })
+})
+t.test('second fake timers test', { sinon: { useFakeTimers: true }}, t => {
+  // etc.
+})
+
+// this, however, does not work:
+t.test('parent', { sinon: { useFakeTimers: true }}, t => {
+  t.test('child', { sinon: { useFakeTimers: true }}, t => {
+    // will throw an error
+  })
+})
+```
