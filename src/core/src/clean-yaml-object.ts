@@ -20,7 +20,9 @@ export const cleanYamlObject = (object: { [k: string]: any }) => {
     const st = Array.isArray(res.stack)
       ? res.stack.map(s => String(s).trimEnd() + '\n').join('')
       : String(res.stack)
-    res.at = stack.parseStack(st)[0]
+    const p = stack.parseStack(st)
+    res.at = p[0]
+    res.stack = p.map(c => String(c) + '\n').join('')
   }
 
   if (

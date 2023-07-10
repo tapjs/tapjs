@@ -227,6 +227,26 @@ ok 2 - child
 
 `
 
+exports[`test/test-base.ts > TAP > subtest stuff > skipped sub > must match snapshot 1`] = `
+TAP version 14
+ok 1 - blah # SKIP
+1..1
+
+`
+
+exports[`test/test-base.ts > TAP > subtest stuff > skipped sub, no name > must match snapshot 1`] = `
+TAP version 14
+ok 1 - (unnamed test) # SKIP
+1..1
+
+`
+
+exports[`test/test-base.ts > TAP > subtest stuff > sub after bailout > must match snapshot 1`] = `
+TAP version 14
+Bail out!
+
+`
+
 exports[`test/test-base.ts > TAP > timeouts > occupied > must match snapshot 1`] = `
 TAP version 14
 # Subtest: child

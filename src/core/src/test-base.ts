@@ -947,10 +947,11 @@ export class TestBase extends Base<TestBaseEvents> {
     extra: O | TestOpts | TestBaseOpts | BaseOpts = {},
     caller: (...a: any[]) => unknown
   ): PromiseWithSubtest<T> {
-    if (this.bailedOut)
+    if (this.bailedOut) {
       return Object.assign(Promise.resolve(null), {
         subtest: null,
       })
+    }
 
     if (this.results || this.ended) {
       const er = new Error(
@@ -1031,7 +1032,10 @@ export class TestBase extends Base<TestBaseEvents> {
     this.debug('T.t call Base.threw', this.name, extra)
     const ended =
       !!this.results ||
+      // should be impossible, when we hit the plan end, we end
+      /* c8 ignore start */
       (this.#explicitPlan && this.count === this.#planEnd)
+    /* c8 ignore stop */
     this.parser.ok = false
     super.threw(er, extra, proxy, ended)
 
@@ -1051,7 +1055,14 @@ export class TestBase extends Base<TestBaseEvents> {
           : typeof er.error === 'string'
           ? er.error
           : ''
-      this.fail(msg, extra || { at: null })
+      extra ??= { at: null }
+      if (msg === '') extra.at = null
+      if (er.stack) {
+        const p = stack.parseStack(er.stack)
+        extra.at = p[0]
+        extra.stack = p.map(c => String(c) + '\n').join('')
+      }
+      this.fail(msg, extra)
       if (this.ended || this.#pushedEnd) {
         this.ended = false
         this.#pushedEnd = false
@@ -1113,15 +1124,14 @@ export class TestBase extends Base<TestBaseEvents> {
     for (let i = 0; i < this.queue.length; i++) {
       const p = this.queue[i]
       if (p instanceof Base && !p.readyToProcess) {
-        const cn = p.constructor.name.toLowerCase()
-        const msg = `child test left in queue: t.${cn} ${p.name}`
+        const msg = `child test left in queue: ${p.name}`
         this.queue[i] = new TestPoint(false, msg, p.options)
+        this.count ++
       }
-      this.#end(IMPLICIT)
     }
 
     this.#processing = false
-    this.#process()
+    this.#end(IMPLICIT)
   }
 
   /**

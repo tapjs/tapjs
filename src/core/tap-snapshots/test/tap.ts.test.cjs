@@ -454,7 +454,7 @@ Object {
     ok 1 - this is fine
     not ok 2 - poop
       ---
-      stack: |-
+      stack: |
         throwError (test/tap.ts:##:##)
         Object.<anonymous> (test/tap.ts:##:##)
       at:
@@ -508,9 +508,9 @@ Object {
         Domain.onerror (dist/cjs/base.js:##:##) (src/base.ts:##:##)
         Domain.onerror (dist/cjs/tap.js:##:##) (src/tap.ts:##:##)
       source: |2
-                  ? er.error
-                  : ''
-              this.fail(msg, extra || { at: null })
+                extra.stack = p.map(c => String(c) + '\\\\n').join('')
+              }
+              this.fail(msg, extra)
         -----------^
               if (this.ended || this.#pushedEnd) {
                 this.ended = false

@@ -507,6 +507,32 @@ t.test('bail on fail', t => {
     )
     t.notMatch(res, ' - this is fine')
   })
+  t.test('bailing sub', async t => {
+    const tb = new T({ name: 'parent', bail: false })
+    tb.test('bailer', { bail: true }, tb => {
+      tb.fail('nope')
+      tb.pass('this is fine')
+      tb.end()
+    })
+    tb.end()
+    const res = await tb.concat()
+    t.match(
+      res,
+      `
+      source: |2
+            const tb = new T({ name: 'parent', bail: false })
+            tb.test('bailer', { bail: true }, tb => {
+              tb.fail('nope')
+        ---------^
+              tb.pass('this is fine')
+              tb.end()
+      ...
+    
+    Bail out! nope
+Bail out! nope
+`
+    )
+  })
   t.end()
 })
 
@@ -685,10 +711,13 @@ t.test('processing edge cases', t => {
     tb.queue.push(['asyncMethod'])
     tb.pass('after pushing async method on queue')
     tb.end()
-    t.match(await tb.concat(), `
+    t.match(
+      await tb.concat(),
+      `
           throw new Error('nope')
     ------------^
-`)
+`
+    )
   })
   t.test('multiple parallel buffered tests', async t => {
     const tb = new T({ name: 'root', jobs: 2 })
@@ -699,16 +728,27 @@ t.test('processing edge cases', t => {
     tb.end()
     t.matchSnapshot(await tb.concat())
   })
-  t.test('multiple parallel buffered tests, then bailout', async t => {
-    const tb = new T({ name: 'root', jobs: 2 })
-    tb.test('one', { buffered: true }, t => setTimeout(() => t.end()))
-    tb.test('two', { buffered: true }, t => setTimeout(() => t.end()))
-    tb.test('tre', { buffered: true }, t => setTimeout(() => t.end()))
-    tb.test('for', { buffered: true }, t => setTimeout(() => t.end()))
-    tb.bailout()
-    tb.end()
-    t.matchSnapshot(await tb.concat())
-  })
+  t.test(
+    'multiple parallel buffered tests, then bailout',
+    async t => {
+      const tb = new T({ name: 'root', jobs: 2 })
+      tb.test('one', { buffered: true }, t =>
+        setTimeout(() => t.end())
+      )
+      tb.test('two', { buffered: true }, t =>
+        setTimeout(() => t.end())
+      )
+      tb.test('tre', { buffered: true }, t =>
+        setTimeout(() => t.end())
+      )
+      tb.test('for', { buffered: true }, t =>
+        setTimeout(() => t.end())
+      )
+      tb.bailout()
+      tb.end()
+      t.matchSnapshot(await tb.concat())
+    }
+  )
   t.end()
 })
 
@@ -719,7 +759,9 @@ t.test('buffered test that runs long', async t => {
     setTimeout(() => t.end(), 50)
   })
   tb.end()
-  t.match(await tb.concat(), `
+  t.match(
+    await tb.concat(),
+    `
 not ok 2 - timeout!
   ---
   expired: buffered
@@ -728,7 +770,8 @@ not ok 2 - timeout!
   ...
 
 1..2
-`)
+`
+  )
 })
 
 t.test('indented test that runs long', async t => {
@@ -738,7 +781,9 @@ t.test('indented test that runs long', async t => {
     setTimeout(() => t.end(), 50)
   })
   tb.end()
-  t.match(await tb.concat(), `
+  t.match(
+    await tb.concat(),
+    `
 not ok 2 - timeout!
   ---
   expired: buffered
@@ -747,7 +792,8 @@ not ok 2 - timeout!
   ...
 
 1..2
-`)
+`
+  )
 })
 
 t.test('child test with rejected async method', async t => {
@@ -756,7 +802,9 @@ t.test('child test with rejected async method', async t => {
     throw new Error('nope')
   })
   tb.end()
-  t.match(await tb.concat(), `
+  t.match(
+    await tb.concat(),
+    `
       tapCaught: returnedPromiseRejection
       test: child
       source: |2
@@ -766,7 +814,8 @@ t.test('child test with rejected async method', async t => {
         ----------^
           })
           tb.end()
-`)
+`
+  )
 })
 
 t.test('child test with non-error rejection', async t => {
@@ -775,7 +824,9 @@ t.test('child test with non-error rejection', async t => {
     throw 'nope'
   })
   tb.end()
-  t.match(await tb.concat(), `
+  t.match(
+    await tb.concat(),
+    `
 # Subtest: child
     not ok 1 - nope
       ---
@@ -783,7 +834,8 @@ t.test('child test with non-error rejection', async t => {
       tapCaught: returnedPromiseRejection
       test: child
       ...
-`)
+`
+  )
 })
 
 t.test('child test with throwing function', async t => {
@@ -792,7 +844,9 @@ t.test('child test with throwing function', async t => {
     throw new Error('nope')
   })
   tb.end()
-  t.match(await tb.concat(), `
+  t.match(
+    await tb.concat(),
+    `
       tapCaught: testFunctionThrow
       test: child
       source: |2
@@ -802,7 +856,8 @@ t.test('child test with throwing function', async t => {
         ----------^
           })
           tb.end()
-`)
+`
+  )
 })
 
 t.test('child test with non-error throw', async t => {
@@ -811,7 +866,9 @@ t.test('child test with non-error throw', async t => {
     throw 'nope'
   })
   tb.end()
-  t.match(await tb.concat(), `
+  t.match(
+    await tb.concat(),
+    `
 # Subtest: child
     not ok 1 - nope
       ---
@@ -819,5 +876,181 @@ t.test('child test with non-error throw', async t => {
       tapCaught: testFunctionThrow
       test: child
       ...
+`
+  )
+})
+
+t.test('subtest stuff', t => {
+  t.test('sub after bailout', async t => {
+    const tb = new T({ name: 'subber' })
+    tb.bailout()
+    const p = tb.test(t => t.end())
+    t.hasStrict(p, { subtest: null })
+    t.equal(await p, null)
+    t.matchSnapshot(await tb.concat())
+  })
+  t.test('sub after end', async t => {
+    const tb = new T({ name: 'root' })
+    tb.test('dom', async tb => {
+      tb.end()
+      const p = tb.test('sub', t => t.end())
+      t.hasStrict(p, { subtest: null })
+      t.equal(await p, null)
+    })
+    tb.end()
+    const res = await tb.concat()
+    t.match(
+      res,
+      `
+# Subtest: dom
+    1..0
+not ok 1 - dom # time=`
+    )
+    t.match(res, 'cannot create subtest after parent test ends')
+  })
+  t.test('skipped sub', async t => {
+    const tb = new T({ name: 'skipsub' })
+    const p = tb.test('blah', { skip: true }, async () => {})
+    t.hasStrict(p, { subtest: null })
+    t.equal(await p, null)
+    tb.end()
+    t.matchSnapshot(await tb.concat())
+  })
+  t.test('skipped sub, no name', async t => {
+    const tb = new T({ name: 'skipsub' })
+    const p = tb.test({ skip: true }, async () => {})
+    t.hasStrict(p, { subtest: null })
+    t.equal(await p, null)
+    tb.end()
+    t.matchSnapshot(await tb.concat())
+  })
+  t.end()
+})
+
+t.test('threw stuff', t => {
+  t.test('threw before start', async t => {
+    const tb = new T({ name: 'parent' })
+    tb.waitOn(new Promise<void>(r => setTimeout(r)))
+    const p = tb.test('child', t => t.end())
+    p.subtest?.threw('nope')
+    tb.end()
+    t.match(
+      await tb.concat(),
+      `TAP version 14
+# Subtest: child
+    not ok 1 - nope
+      ---
+      error: nope
+      test: child
+      ...
+    
+    1..1
+not ok 1 - child`
+    )
+  })
+  t.test('threw after plan end', async t => {
+    const tb = new T({ name: 'parent' })
+    tb.test('child', tb => {
+      tb.plan(1)
+      tb.pass('ok')
+      tb.threw('yolo')
+    })
+    tb.end()
+    t.match(await tb.concat(), `
+not ok 2 - yolo
+  ---
+  error: yolo
+  test: child
+  ...
+
+1..2
 `)
+  })
+  t.test('threw no message, but has stack', async t => {
+    const tb = new T({ name: 'thrower' })
+    const stack = new Error('hello').stack
+    tb.threw({ stack })
+    tb.end()
+    const res = await tb.concat()
+    t.match(res, `TAP version 14
+not ok 1 - Error: hello
+  ---
+  stack: |
+    Test.<anonymous> (test/test-base.ts:971:19)`)
+  })
+  t.test('no message of any kind', async t => {
+    const tb = new T({ name: 'thrower' })
+    tb.threw({ a: 1 })
+    tb.end()
+    t.equal(await tb.concat(), `TAP version 14
+not ok 1 - (unnamed test)
+  ---
+  a: 1
+  test: thrower
+  ...
+
+1..1
+`)
+  })
+  t.end()
+})
+
+t.test('endAll', t => {
+  t.test('waiter', async t => {
+    const tb = new T({ name: 'waiter' })
+    tb.waitOn(new Promise<void>(r => setTimeout(r)), w => {
+      t.equal(w.done, true)
+      t.match(w.value, new Error('test unfinished'))
+    })
+    tb.endAll()
+  })
+  t.test('sub in progress', async t => {
+    const tb =new T({ name: 'subs' })
+    tb.test('subtest', t => setTimeout(() => t.end()))
+    tb.endAll()
+    t.match(await tb.concat(), `TAP version 14
+# Subtest: subtest
+    not ok 1 - test unfinished
+`)
+  })
+  t.test('async sub in progress', async t => {
+    const tb =new T({ name: 'subs' })
+    tb.test('subtest', () => new Promise<void>(r => setTimeout(r)))
+    tb.endAll()
+    t.match(await tb.concat(), `TAP version 14
+# Subtest: subtest
+    not ok 1 - test unfinished
+`)
+  })
+  t.test('sub without endAll method', async t => {
+    const tb = new T({ name: 'subs' })
+    tb.test('subtest', t => {
+      //@ts-expect-error
+      t.endAll = null
+      setTimeout(() => t.end())
+    })
+    tb.endAll()
+    t.match(await tb.concat(), `TAP version 14
+# Subtest: subtest
+    
+    not ok 1 - test unfinished
+    
+    1..1
+not ok 1 - subtest`)
+  })
+  t.test('subs left in queue', async t => {
+    const tb = new T({ name: 'subs' })
+    tb.test('one', () => {})
+    tb.test('two', () => {})
+    tb.test('tre', () => {})
+    tb.test('for', () => {})
+    tb.endAll()
+    t.match(await tb.concat(), `
+not ok 2 - child test left in queue: two
+not ok 3 - child test left in queue: tre
+not ok 4 - child test left in queue: for
+1..4
+`)
+  })
+  t.end()
 })
