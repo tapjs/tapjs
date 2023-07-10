@@ -1,9 +1,8 @@
 {
   "extends": "./tsconfig-base.json",
-  "include": ["src/**/*.ts", "src/**/*.cts"],
+  "include": ["src/**/*.ts", "src/**/*.mts"],
   "compilerOptions": {
-    "module": "commonjs",
-    "outDir": "dist-tmp/cjs",
-    "moduleResolution": "Node16"
+    "module": "esnext",
+    "outDir": "dist-tmp/mjs"
   }
 }

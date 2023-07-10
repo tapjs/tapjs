@@ -59,13 +59,16 @@
     "preversion": "npm test",
     "postversion": "npm publish",
     "prepublishOnly": "git push origin --follow-tags",
-    "prepare": "tsc -p tsconfig.json && tsc -p tsconfig-esm.json && bash ./scripts/fixup.sh",
+    "prepare": "tsc -p tsconfig-cjs.json && tsc -p tsconfig.json && bash ./scripts/fixup.sh",
     "pretest": "npm run prepare",
     "presnap": "npm run prepare",
     "test": "tap",
     "snap": "tap",
     "format": "prettier --write . --loglevel warn --ignore-path ../../.prettierignore --cache",
-    "typedoc": "typedoc --tsconfig tsconfig-esm.json ./src/*.ts"
+    "typedoc": "typedoc --tsconfig tsconfig.json ./src/*.ts"
+  },
+  "tap": {
+    "coverage-map": "map.js"
   },
   "funding": {
     "url": "https://github.com/sponsors/isaacs"

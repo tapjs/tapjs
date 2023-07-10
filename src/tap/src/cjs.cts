@@ -32,9 +32,11 @@ declare global {
     export type TestBase = items.TestBase
     export type Stdin = items.Stdin
     export type Spawn = items.Spawn
+    export type Worker = items.Worker
     export type Test = items.Test
     export type TAP = items.TAP
     export type Counts = items.Counts
+    export type Lists = items.Lists
   }
 }
 export = t as TAP & typeof items
