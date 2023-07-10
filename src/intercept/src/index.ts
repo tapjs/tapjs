@@ -15,6 +15,7 @@ export interface CaptureResultBase<F extends (...a: any[]) => any> {
 export interface CaptureResultReturned<F extends (...a: any[]) => any>
   extends CaptureResultBase<F> {
   returned: any
+  threw: false
 }
 export interface CaptureResultThrew<F extends (...a: any[]) => any>
   extends CaptureResultBase<F> {
@@ -74,9 +75,9 @@ export class Interceptor {
     let orig = Object.getOwnPropertyDescriptor(obj, prop)
     let src = obj
     while (!orig && src) {
-      src = Object.getPrototypeOf(src)
-      if (!src) break
-      orig = Object.getOwnPropertyDescriptor(src, prop)
+      if (!(orig = Object.getOwnPropertyDescriptor(src, prop))) {
+        src = Object.getPrototypeOf(src)
+      }
     }
 
     let restore: () => void
@@ -92,14 +93,15 @@ export class Interceptor {
         restore = () => {}
       }
     } else {
+      // have an original, on the object itself
       restore = () => {
-        Object.assign(src, prop, orig)
+        Object.defineProperty(obj, prop, orig as PropertyDescriptor)
         restore = () => {}
       }
     }
 
-    if (this.#t.t.pluginLoaded(TeardownPlugin)) {
-      this.#t.t.teardown(restore)
+    if (this.#t.t?.pluginLoaded(TeardownPlugin)) {
+      this.#t.t?.teardown(restore)
     }
 
     if (!desc) {
@@ -153,13 +155,14 @@ export class Interceptor {
           } else if (base.get) {
             if (strictMode) {
               const er = new TypeError(
-                `Cannot set property ${String(
+                `Cannot set property '${String(
                   prop
-                )} of ${Object.prototype.toString.call(
+                )}' of ${Object.prototype.toString.call(
                   obj
                 )} which has only a getter`
               )
               Error.captureStackTrace(er, interceptor.set)
+              throw er
             }
           } else {
             if (base.writable) {
@@ -236,8 +239,8 @@ export class Interceptor {
           restore = () => {}
         }
 
-    if (this.#t.t.pluginLoaded(TeardownPlugin)) {
-      this.#t.t.teardown(restore)
+    if (this.#t.t?.pluginLoaded(TeardownPlugin)) {
+      this.#t.t?.teardown(restore)
     }
 
     const fn = Object.assign(this.captureFn(impl), {
@@ -287,6 +290,7 @@ export class Interceptor {
         try {
           const returned = res as CaptureResultReturned<F>
           returned.returned = original.call(this, ...args)
+          returned.threw = false
           threw = false
           return returned.returned
         } finally {
