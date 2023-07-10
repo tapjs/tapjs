@@ -13,22 +13,21 @@ export class Before {
    */
   before(fn: () => any) {
     this.#t.currentAssert = this.before
-    if (this.#t.printedResult) {
-      throw new Error('t.before() called after starting tests')
-    }
-
     if (this.#t.occupied) {
-      this.#t.queue.push(() => this.#call(fn))
+      this.#t.queue.push(() => this.#call(fn, true))
     } else {
       this.#call(fn)
     }
   }
 
-  #call(fn: () => any) {
+  #call(fn: () => any, deferred = false) {
+    this.#t.currentAssert = this.before
     // if it throws, we let it kill the test
     const ret = fn.call(this.#t.t)
 
-    if (isPromise(ret)) {
+    // no need to waitOn it if we're already deferred, because the
+    // TestBase will already wait on functions that return promises.
+    if (isPromise(ret) && !deferred) {
       this.#t.waitOn(ret, w => {
         if (w.rejected) {
           // sort of a mini bailout, just for this one test
@@ -39,6 +38,8 @@ export class Before {
         }
       })
     }
+
+    return ret
   }
 }
 

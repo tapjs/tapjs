@@ -16,8 +16,9 @@ import { TestPoint } from './test-point.js';
 import { Waiter } from './waiter.js';
 import { IMPLICIT } from './implicit-end-sigil.js';
 import { normalizeMessageExtra } from './normalize-message-extra.js';
+const VERSION = 'TAP version 14\n';
 const queueEmpty = (t) => t.queue.length === 0 ||
-    (t.queue.length === 1 && t.queue[0] === 'TAP version 14\n');
+    (t.queue.length === 1 && t.queue[0] === VERSION);
 /**
  * Sigil to put in the queue to signal the end of all things
  */
@@ -44,7 +45,7 @@ export class TestBase extends Base {
     jobs;
     subtests = [];
     pool = new Set();
-    queue = ['TAP version 14\n'];
+    queue = [VERSION];
     cb;
     count = 0;
     ended = false;
@@ -353,7 +354,15 @@ export class TestBase extends Base {
             this.#occupied = null;
             this.#process();
         }, expectReject);
-        this.queue.push(w);
+        // if the top of the queue is still the version line, we come
+        // in after that. otherwise, it should be the next thing processed.
+        if (this.queue[0] === VERSION) {
+            this.queue.shift();
+            this.queue.unshift(VERSION, w);
+        }
+        else {
+            this.queue.unshift(w);
+        }
         this.#process();
         return w.promise;
     }
@@ -728,7 +737,7 @@ export class TestBase extends Base {
         }
         /* c8 ignore stop */
         if (this.queue.length !== 1 ||
-            this.queue[0] !== 'TAP version 14\n' ||
+            this.queue[0] !== VERSION ||
             this.#processing ||
             this.results ||
             this.#occupied ||

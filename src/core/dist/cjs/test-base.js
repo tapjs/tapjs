@@ -45,8 +45,9 @@ const test_point_js_1 = require("./test-point.js");
 const waiter_js_1 = require("./waiter.js");
 const implicit_end_sigil_js_1 = require("./implicit-end-sigil.js");
 const normalize_message_extra_js_1 = require("./normalize-message-extra.js");
+const VERSION = 'TAP version 14\n';
 const queueEmpty = (t) => t.queue.length === 0 ||
-    (t.queue.length === 1 && t.queue[0] === 'TAP version 14\n');
+    (t.queue.length === 1 && t.queue[0] === VERSION);
 /**
  * Sigil to put in the queue to signal the end of all things
  */
@@ -73,7 +74,7 @@ class TestBase extends base_js_1.Base {
     jobs;
     subtests = [];
     pool = new Set();
-    queue = ['TAP version 14\n'];
+    queue = [VERSION];
     cb;
     count = 0;
     ended = false;
@@ -382,7 +383,15 @@ class TestBase extends base_js_1.Base {
             this.#occupied = null;
             this.#process();
         }, expectReject);
-        this.queue.push(w);
+        // if the top of the queue is still the version line, we come
+        // in after that. otherwise, it should be the next thing processed.
+        if (this.queue[0] === VERSION) {
+            this.queue.shift();
+            this.queue.unshift(VERSION, w);
+        }
+        else {
+            this.queue.unshift(w);
+        }
         this.#process();
         return w.promise;
     }
@@ -757,7 +766,7 @@ class TestBase extends base_js_1.Base {
         }
         /* c8 ignore stop */
         if (this.queue.length !== 1 ||
-            this.queue[0] !== 'TAP version 14\n' ||
+            this.queue[0] !== VERSION ||
             this.#processing ||
             this.results ||
             this.#occupied ||

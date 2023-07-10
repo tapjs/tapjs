@@ -26,6 +26,8 @@ import { IMPLICIT } from './implicit-end-sigil.js'
 import { Extra, MessageExtra, TapBaseEvents } from './index.js'
 import { normalizeMessageExtra } from './normalize-message-extra.js'
 
+const VERSION = 'TAP version 14\n'
+
 export interface TestBaseOpts extends BaseOpts {
   /**
    * The number of jobs to run in parallel. Defaults to 1
@@ -45,7 +47,7 @@ export interface TestBaseOpts extends BaseOpts {
 
 const queueEmpty = <T extends TestBase>(t: T) =>
   t.queue.length === 0 ||
-  (t.queue.length === 1 && t.queue[0] === 'TAP version 14\n')
+  (t.queue.length === 1 && t.queue[0] === VERSION)
 
 export type TapPlugin<
   B extends Object,
@@ -124,7 +126,7 @@ export class TestBase extends Base<TestBaseEvents> {
   jobs: number
   subtests: Base[] = []
   pool: Set<Base> = new Set()
-  queue: QueueEntry[] = ['TAP version 14\n']
+  queue: QueueEntry[] = [VERSION]
   cb?: (...args: any[]) => any
   count: number = 0
   ended: boolean = false
@@ -496,7 +498,14 @@ export class TestBase extends Base<TestBaseEvents> {
       },
       expectReject
     )
-    this.queue.push(w)
+    // if the top of the queue is still the version line, we come
+    // in after that. otherwise, it should be the next thing processed.
+    if (this.queue[0] === VERSION) {
+      this.queue.shift()
+      this.queue.unshift(VERSION, w)
+    } else {
+      this.queue.unshift(w)
+    }
     this.#process()
     return w.promise
   }
@@ -901,7 +910,7 @@ export class TestBase extends Base<TestBaseEvents> {
 
     if (
       this.queue.length !== 1 ||
-      this.queue[0] !== 'TAP version 14\n' ||
+      this.queue[0] !== VERSION ||
       this.#processing ||
       this.results ||
       this.#occupied ||
