@@ -286,10 +286,7 @@ export class Interceptor {
         calls.push(res)
         try {
           const returned = res as CaptureResultReturned<F>
-          returned.returned = original.call(
-            this,
-            ...args
-          )
+          returned.returned = original.call(this, ...args)
           threw = false
           return returned.returned
         } finally {

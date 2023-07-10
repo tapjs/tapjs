@@ -956,7 +956,9 @@ not ok 1 - child`
       tb.threw('yolo')
     })
     tb.end()
-    t.match(await tb.concat(), `
+    t.match(
+      await tb.concat(),
+      `
 not ok 2 - yolo
   ---
   error: yolo
@@ -964,7 +966,8 @@ not ok 2 - yolo
   ...
 
 1..2
-`)
+`
+    )
   })
   t.test('threw no message, but has stack', async t => {
     const tb = new T({ name: 'thrower' })
@@ -972,17 +975,22 @@ not ok 2 - yolo
     tb.threw({ stack })
     tb.end()
     const res = await tb.concat()
-    t.match(res, `TAP version 14
+    t.match(
+      res,
+      `TAP version 14
 not ok 1 - Error: hello
   ---
   stack: |
-    Test.<anonymous> (test/test-base.ts:971:19)`)
+    Test.<anonymous> (test/test-base.ts:`
+    )
   })
   t.test('no message of any kind', async t => {
     const tb = new T({ name: 'thrower' })
     tb.threw({ a: 1 })
     tb.end()
-    t.equal(await tb.concat(), `TAP version 14
+    t.equal(
+      await tb.concat(),
+      `TAP version 14
 not ok 1 - (unnamed test)
   ---
   a: 1
@@ -990,7 +998,8 @@ not ok 1 - (unnamed test)
   ...
 
 1..1
-`)
+`
+    )
   })
   t.end()
 })
@@ -1005,22 +1014,28 @@ t.test('endAll', t => {
     tb.endAll()
   })
   t.test('sub in progress', async t => {
-    const tb =new T({ name: 'subs' })
+    const tb = new T({ name: 'subs' })
     tb.test('subtest', t => setTimeout(() => t.end()))
     tb.endAll()
-    t.match(await tb.concat(), `TAP version 14
+    t.match(
+      await tb.concat(),
+      `TAP version 14
 # Subtest: subtest
     not ok 1 - test unfinished
-`)
+`
+    )
   })
   t.test('async sub in progress', async t => {
-    const tb =new T({ name: 'subs' })
+    const tb = new T({ name: 'subs' })
     tb.test('subtest', () => new Promise<void>(r => setTimeout(r)))
     tb.endAll()
-    t.match(await tb.concat(), `TAP version 14
+    t.match(
+      await tb.concat(),
+      `TAP version 14
 # Subtest: subtest
     not ok 1 - test unfinished
-`)
+`
+    )
   })
   t.test('sub without endAll method', async t => {
     const tb = new T({ name: 'subs' })
@@ -1030,13 +1045,16 @@ t.test('endAll', t => {
       setTimeout(() => t.end())
     })
     tb.endAll()
-    t.match(await tb.concat(), `TAP version 14
+    t.match(
+      await tb.concat(),
+      `TAP version 14
 # Subtest: subtest
     
     not ok 1 - test unfinished
     
     1..1
-not ok 1 - subtest`)
+not ok 1 - subtest`
+    )
   })
   t.test('subs left in queue', async t => {
     const tb = new T({ name: 'subs' })
@@ -1045,12 +1063,15 @@ not ok 1 - subtest`)
     tb.test('tre', () => {})
     tb.test('for', () => {})
     tb.endAll()
-    t.match(await tb.concat(), `
+    t.match(
+      await tb.concat(),
+      `
 not ok 2 - child test left in queue: two
 not ok 3 - child test left in queue: tre
 not ok 4 - child test left in queue: for
 1..4
-`)
+`
+    )
   })
   t.end()
 })

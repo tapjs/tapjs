@@ -269,13 +269,17 @@ export interface Test<
   Ext extends BuiltPlugins = BuiltPlugins,
   Opts extends TestOpts = TestOpts
 > extends TTest {
-  end(implicit?: symbol): this
+  end(): this
+  plan(n: number, comment?: string): void
 }
 
 export class Test<
-  Ext extends BuiltPlugins = BuiltPlugins,
-  Opts extends TestOpts = TestOpts
-> extends TestBase implements TTest {
+    Ext extends BuiltPlugins = BuiltPlugins,
+    Opts extends TestOpts = TestOpts
+  >
+  extends TestBase
+  implements TTest
+{
   #Class: typeof Test<Ext, Opts>
   #pluginSet: TapPlugin<any, Opts>[]
 

@@ -35,7 +35,6 @@ ok 1 - this is fine
 # Subtest: rejected child
     1..1
     ok 1 - child is fine
-    # error thrown in teardown
 not ok 2 - rejected child # time={TIME}
 
 not ok 3 - broken promise
@@ -89,8 +88,8 @@ not ok 3 - ohno
   stack: {STACK}
   at:
     fileName: test/index.ts
-    lineNumber: 89
-    columnNumber: 13
+    lineNumber: ##
+    columnNumber: ##
     typeName: Test
     methodName: <anonymous>
     functionName: Test.<anonymous>

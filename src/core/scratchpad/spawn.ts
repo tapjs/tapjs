@@ -6,10 +6,7 @@ if (undefined === process.argv[2]) {
   for (let i = 0; i < t.jobs * 4; i++) {
     t.spawn(
       process.execPath,
-      [
-        __filename,
-        String(i),
-      ],
+      [__filename, String(i)],
       'expensive computation'
     )
   }

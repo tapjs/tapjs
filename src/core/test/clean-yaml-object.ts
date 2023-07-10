@@ -1,26 +1,42 @@
-import { at, CallSiteLike, CallSiteLikeJSON, captureString } from '@tapjs/stack'
+import {
+  at,
+  CallSiteLike,
+  CallSiteLikeJSON,
+  captureString,
+} from '@tapjs/stack'
 import t from 'tap'
 import { cleanYamlObject } from '../dist/cjs/clean-yaml-object.js'
+
+t.cleanSnapshot = s =>
+  s
+    .replace(/lineNumber: [0-9]+/, 'lineNumber: ##')
+    .replace(/columnNumber: [0-9]+/, 'columnNumber: ##')
+    .replace(/"lineNumber": [0-9]+/, '"lineNumber": ##')
+    .replace(/"columnNumber": [0-9]+/, '"columnNumber": ##')
 
 t.matchSnapshot(cleanYamlObject({}), 'empty object')
 
 t.test('callsite reporting', t => {
   const stack = captureString()
   const b = cleanYamlObject({
-    stack: stack.trimEnd().split('\n')
+    stack: stack.trimEnd().split('\n'),
   })
-  t.matchOnly(b, {
-    stack: b.stack,
-    at: {
-      columnNumber: Number,
-      fileName: 'test/clean-yaml-object.ts',
-      lineNumber: Number,
-      methodName: '<anonymous>',
-      typeName: 'Test',
-      functionName: 'Test.<anonymous>',
+  t.matchOnly(
+    b,
+    {
+      stack: b.stack,
+      at: {
+        columnNumber: Number,
+        fileName: 'test/clean-yaml-object.ts',
+        lineNumber: Number,
+        methodName: '<anonymous>',
+        typeName: 'Test',
+        functionName: 'Test.<anonymous>',
+      },
+      source: String,
     },
-    source: String,
-  }, 'handle array stacks that tap used to use long ago')
+    'handle array stacks that tap used to use long ago'
+  )
   const c = cleanYamlObject({
     stack,
   })
@@ -55,10 +71,13 @@ t.test('callsite reporting', t => {
   )
   const nc: CallSiteLike | CallSiteLikeJSON = at() || {}
   nc.columnNumber = Infinity
-  t.matchSnapshot(cleanYamlObject({
-    no: 'caret',
-    at: nc,
-  }), 'no caret')
+  t.matchSnapshot(
+    cleanYamlObject({
+      no: 'caret',
+      at: nc,
+    }),
+    'no caret'
+  )
   t.end()
 })
 

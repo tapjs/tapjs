@@ -108,6 +108,7 @@ class TAP extends Test {
         ignoreEPIPE();
         this.once('bail', () => proc?.exit(1));
         proc?.once('beforeExit', () => {
+            ;
             this.end(IMPLICIT);
             if (!this.results) {
                 this.endAll();

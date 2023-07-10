@@ -1,11 +1,17 @@
+import { TestOpts } from '@tapjs/test'
 import t, { Test } from 'tap'
 import { plugin } from '../dist/cjs/index.js'
 t.equal(t.pluginLoaded(plugin), true, 'plugin is loaded')
 
 t.cleanSnapshot = s =>
   s
+    .replace(/lineNumber: [0-9]+/, 'lineNumber: ##')
+    .replace(/columnNumber: [0-9]+/, 'columnNumber: ##')
     .replace(/# time=[0-9\.]+m?s$/gm, '# time={TIME}')
-    .replace(/stack: [|>]-?\n(.|\n)+\n  at:/g, 'stack: {STACK}\n  at:')
+    .replace(
+      /stack: [|>]-?\n(.|\n)+\n  at:/g,
+      'stack: {STACK}\n  at:'
+    )
     .replace(/lineNumber: \d+/, 'lineNumber: ##')
     .replace(/columnNumber: \d+/, 'columnNumber: ##')
 
@@ -51,8 +57,16 @@ t.test('handle async teardown', async t => {
   t.equal(teardownStarted, false, 'not run yet, child still running')
   t.equal(teardownDone, false, 'not run yet, child still running')
   await p
-  t.equal(teardownStarted, true, 'ran teardown, but not done with it yet')
-  t.equal(teardownDone, false, 'ran teardown, but not done with it yet')
+  t.equal(
+    teardownStarted,
+    true,
+    'ran teardown, but not done with it yet'
+  )
+  t.equal(
+    teardownDone,
+    false,
+    'ran teardown, but not done with it yet'
+  )
   t.matchSnapshot(await output, 'test output')
   t.equal(teardownDone, true, 'finished teardown')
 })
@@ -96,7 +110,7 @@ t.test('teardown that throws', async t => {
 })
 
 t.test('teardown that rejects', async t => {
-  const tt = new Test({ name: 'rejecty test' })
+  const tt = new Test({ name: 'rejecty test' } as TestOpts)
   const output = tt.concat()
   tt.pass('this is fine')
   tt.test('rejected child', { diagnostic: false }, async t => {

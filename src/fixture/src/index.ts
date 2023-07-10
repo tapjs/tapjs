@@ -1,5 +1,11 @@
 // module code goes here
-import { argv, mainScript, TapPlugin, TestBase, env } from '@tapjs/core'
+import {
+  argv,
+  mainScript,
+  TapPlugin,
+  TestBase,
+  env,
+} from '@tapjs/core'
 import { basename, dirname, resolve, sep } from 'node:path'
 import { rimraf, rimrafSync } from 'rimraf'
 import {

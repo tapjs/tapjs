@@ -9,7 +9,9 @@ export const useSubtests = (
 ) => {
   const [tests, updateTests] = useState<Base[]>([])
   const addActive = (test: Base) =>
-    updateTests([...new Set([...tests, test].filter(t => !t.results))])
+    updateTests([
+      ...new Set([...tests, test].filter(t => !t.results)),
+    ])
   const removeActive = (test: Base) =>
     updateTests(tests.filter(t => t !== test && !t.results))
 

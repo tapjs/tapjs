@@ -252,6 +252,8 @@ export class TestBase extends Base<TestBaseEvents> {
    * Specify the number of Test Points expected by this test.
    * Outputs a TAP plan line.
    */
+  plan(n: number, comment?: string): void
+  plan(n: number, comment: string, implicit: typeof IMPLICIT): void
   plan(n: number, comment?: string, implicit?: typeof IMPLICIT) {
     if (this.bailedOut) {
       return
@@ -1126,7 +1128,7 @@ export class TestBase extends Base<TestBaseEvents> {
       if (p instanceof Base && !p.readyToProcess) {
         const msg = `child test left in queue: ${p.name}`
         this.queue[i] = new TestPoint(false, msg, p.options)
-        this.count ++
+        this.count++
       }
     }
 

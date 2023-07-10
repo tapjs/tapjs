@@ -154,10 +154,7 @@ t.test('test Base.threw() handling', t => {
     t.equal((er as Error & { test?: string }).test, 'basic')
     t.match(
       errs().map(({ args }) => args),
-      [
-        ['%s: %s', 'Error', 'oops'],
-        [String],
-      ]
+      [['%s: %s', 'Error', 'oops'], [String]]
     )
     t.equal(b.parser.ok, false)
     t.match(b.results, { ok: false })

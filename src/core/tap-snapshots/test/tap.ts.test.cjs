@@ -656,7 +656,7 @@ Object {
                 const t = tap()
                 t.test('child test', () => {})
             ------^
-              }
+              },
             }
           ...
         
@@ -674,7 +674,7 @@ Object {
             const t = tap()
             t.test('child test', () => {})
         ------^
-          }
+          },
         }
       ...
     

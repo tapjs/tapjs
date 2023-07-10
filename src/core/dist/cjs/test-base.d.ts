@@ -121,7 +121,8 @@ export declare class TestBase extends Base<TestBaseEvents> {
      * Specify the number of Test Points expected by this test.
      * Outputs a TAP plan line.
      */
-    plan(n: number, comment?: string, implicit?: typeof IMPLICIT): void;
+    plan(n: number, comment?: string): void;
+    plan(n: number, comment: string, implicit: typeof IMPLICIT): void;
     /**
      * A passing (ok) Test Point
      */

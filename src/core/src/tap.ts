@@ -134,7 +134,7 @@ class TAP extends Test {
     ignoreEPIPE()
     this.once('bail', () => proc?.exit(1))
     proc?.once('beforeExit', () => {
-      this.end(IMPLICIT)
+      ;(this as unknown as TestBase).end(IMPLICIT)
       if (!this.results) {
         this.endAll()
       }
@@ -151,10 +151,7 @@ class TAP extends Test {
    * Just the normal Minipass.pipe method, but automatically registers
    * if the destination is stdout.
    */
-  pipe<W extends Minipass.Writable>(
-    dest: W,
-    opts?: PipeOptions
-  ): W {
+  pipe<W extends Minipass.Writable>(dest: W, opts?: PipeOptions): W {
     piped = true
     if (stdout && dest === stdout) {
       this.register()

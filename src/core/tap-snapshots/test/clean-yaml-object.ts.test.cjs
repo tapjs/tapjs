@@ -8,10 +8,10 @@
 exports[`test/clean-yaml-object.ts > TAP > callsite reporting > invalid callsite is fine 1`] = `
 Object {
   "at": Object {
-    "columnNumber": 69,
+    "columnNumber": ##,
     "fileName": "this file does not exist",
     "functionName": "Fake.foo()",
-    "lineNumber": 420,
+    "lineNumber": ##,
     "methodName": "foo()",
     "typeName": "Fake",
   },
@@ -24,7 +24,7 @@ t.test('callsite reporting', t => {
   const stack = captureString()
 ------------------------------^
   const b = cleanYamlObject({
-    stack: stack.trimEnd().split('\\n')
+    stack: stack.trimEnd().split('\\n'),
 
 `
 
@@ -43,7 +43,7 @@ Object {
   "at": Object {
     "columnNumber": null,
     "fileName": "test/clean-yaml-object.ts",
-    "lineNumber": 56,
+    "lineNumber": ##,
     "typeName": "Test",
   },
   "no": "caret",
@@ -52,7 +52,7 @@ Object {
       )
       const nc: CallSiteLike | CallSiteLikeJSON = at() || {}
       nc.columnNumber = Infinity
-      t.matchSnapshot(cleanYamlObject({
+      t.matchSnapshot(
     
   ),
 }

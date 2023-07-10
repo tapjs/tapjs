@@ -182,10 +182,6 @@ class TestBase extends base_js_1.Base {
         this.queue.push(p);
         this.#process();
     }
-    /**
-     * Specify the number of Test Points expected by this test.
-     * Outputs a TAP plan line.
-     */
     plan(n, comment, implicit) {
         if (this.bailedOut) {
             return;

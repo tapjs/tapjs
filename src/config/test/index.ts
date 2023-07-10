@@ -616,7 +616,11 @@ t.test('edit package.json config', async t => {
 
 t.test('edit package.json config create tap obj', async t => {
   const dir = t.testdir({
-    'package.json': JSON.stringify({name: 'testing', tap: []}, null, '\t\t'),
+    'package.json': JSON.stringify(
+      { name: 'testing', tap: [] },
+      null,
+      '\t\t'
+    ),
   })
   const { TapConfig } = t.mockRequire('../dist/cjs/index.js', {
     '@tapjs/core': t.createMock(core, {

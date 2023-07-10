@@ -1,11 +1,5 @@
 import { TAP, tap } from '@tapjs/core'
-export {
-  Base,
-  Counts,
-  Spawn,
-  Stdin,
-  TestBase,
-} from '@tapjs/core'
+export { Base, Counts, Spawn, Stdin, TestBase } from '@tapjs/core'
 export { Test } from '@tapjs/test'
 export type { TAP }
 export const t: TAP = tap()

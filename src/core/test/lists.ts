@@ -1,5 +1,5 @@
 import t from 'tap'
-import {Parser, Result} from 'tap-parser'
+import { Parser, Result } from 'tap-parser'
 import { Lists } from '../dist/cjs/lists.js'
 const lists = new Lists()
 t.same(lists, {

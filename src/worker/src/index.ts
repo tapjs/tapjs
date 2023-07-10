@@ -6,8 +6,7 @@ import {
   TestBase,
 } from '@tapjs/core'
 
-export interface WorkerOpts extends BaseOpts {
-}
+export interface WorkerOpts extends BaseOpts {}
 
 import { isMainThread, workerData } from 'node:worker_threads'
 
@@ -22,14 +21,11 @@ export class WorkerPlugin {
     this.isMainThread = isMainThread
     if (!isMainThread) this.#workerData = workerData
   }
-  get workerData () {
+  get workerData() {
     return this.#workerData
   }
   worker(filename: string): PromiseWithWorker
-  worker(
-    filename: string,
-    name?: string
-  ): PromiseWithWorker
+  worker(filename: string, name?: string): PromiseWithWorker
   worker(
     filename: string,
     options: WorkerOpts,

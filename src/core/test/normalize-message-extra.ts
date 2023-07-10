@@ -12,8 +12,12 @@ const cases: [string, MessageExtra, [string, Extra]][] = [
 
 t.plan(cases.length)
 for (const [defaultMessage, messageExtra, expect] of cases) {
-  t.strictSame(normalizeMessageExtra(defaultMessage, messageExtra), expect, {
-    defaultMessage,
-    messageExtra,
-  })
+  t.strictSame(
+    normalizeMessageExtra(defaultMessage, messageExtra),
+    expect,
+    {
+      defaultMessage,
+      messageExtra,
+    }
+  )
 }

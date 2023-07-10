@@ -18,9 +18,9 @@ t.same(c.toJSON(), {
 
 const d = new Counts(c.toJSON())
 d.fail++
-d.todo ++
-d.pass ++
-d.skip ++
+d.todo++
+d.pass++
+d.skip++
 d.complete = 4
 d.total += 4
 

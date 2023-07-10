@@ -111,6 +111,7 @@ class TAP extends test_1.Test {
         ignoreEPIPE();
         this.once('bail', () => proc_js_1.proc?.exit(1));
         proc_js_1.proc?.once('beforeExit', () => {
+            ;
             this.end(implicit_end_sigil_js_1.IMPLICIT);
             if (!this.results) {
                 this.endAll();

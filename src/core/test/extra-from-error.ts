@@ -37,15 +37,11 @@ t.matchOnly(
 )
 
 t.matchOnly(
-  extraFromError(
-    new Error('tapChild'),
-    undefined,
-    {
-      tapChildName: 'tap child',
-      tapChildAge: 7,
-      other: 'thing',
-    }
-  ),
+  extraFromError(new Error('tapChild'), undefined, {
+    tapChildName: 'tap child',
+    tapChildAge: 7,
+    other: 'thing',
+  }),
   {
     at: CallSiteLike,
     stack: String,

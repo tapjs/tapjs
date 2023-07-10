@@ -3,7 +3,7 @@ import { parseTestArgs } from '../dist/cjs/parse-test-args.js'
 import { TestBase, TestBaseOpts } from '../dist/cjs/test-base.js'
 
 const cb = (_: TestBase) => {}
-function named (_: TestBase) {}
+function named(_: TestBase) {}
 const extra: TestBaseOpts = { extra: true }
 
 const empty = parseTestArgs()
@@ -14,13 +14,25 @@ t.matchSnapshot(parseTestArgs(cb), 'cb only')
 t.matchSnapshot(parseTestArgs(false), 'false cb only')
 t.matchSnapshot(parseTestArgs(named), 'named cb only')
 t.matchSnapshot(parseTestArgs('test name', cb), 'string name and cb')
-t.matchSnapshot(parseTestArgs('test name', named), 'string name and named cb')
-t.matchSnapshot(parseTestArgs('test name', false), 'string name and false cb')
+t.matchSnapshot(
+  parseTestArgs('test name', named),
+  'string name and named cb'
+)
+t.matchSnapshot(
+  parseTestArgs('test name', false),
+  'string name and false cb'
+)
 t.matchSnapshot(parseTestArgs(extra), 'extra only')
 t.matchSnapshot(parseTestArgs('name', extra), 'name and extra')
 t.matchSnapshot(parseTestArgs<TestBase>(extra, cb), 'extra and cb')
-t.matchSnapshot(parseTestArgs<TestBase>(extra, named), 'extra and named cb')
-t.matchSnapshot(parseTestArgs<TestBase>(extra, false), 'extra and false cb')
+t.matchSnapshot(
+  parseTestArgs<TestBase>(extra, named),
+  'extra and named cb'
+)
+t.matchSnapshot(
+  parseTestArgs<TestBase>(extra, false),
+  'extra and false cb'
+)
 t.matchSnapshot(
   parseTestArgs<TestBase>('name', extra, cb),
   'name extra and cb'

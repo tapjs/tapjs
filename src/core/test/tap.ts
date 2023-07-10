@@ -21,7 +21,10 @@ const main = () => {
       .replace(/\(([^:]+):[0-9]+:[0-9]+\)/g, '($1:##:##)')
       .replace(/lineNumber: [0-9]+/g, 'lineNumber: ##')
       .replace(/columnNumber: [0-9]+/g, 'columnNumber: ##')
-      .replace(/After\.#callTeardown \([^)]+\)/g, 'After.#callTeardown (...)')
+      .replace(
+        /After\.#callTeardown \([^)]+\)/g,
+        'After.#callTeardown (...)'
+      )
       .replace(/TAP\.#t\.onEOF \([^)]+\)/g, 'TAP.#t.onEOF (...)')
   t.formatSnapshot = (res: Result) => {
     return {
@@ -241,7 +244,7 @@ const cases: Record<string, () => any> = {
   unfinished: () => {
     const t = tap()
     t.test('child test', () => {})
-  }
+  },
 }
 
 const fn = process.argv[2] ? cases[process.argv[2]] : main
