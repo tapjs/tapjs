@@ -1,6 +1,15 @@
 import { TAP, tap } from '@tapjs/core'
-export { Base, Counts, Spawn, Stdin, TestBase, Lists, Worker } from '@tapjs/core'
+export {
+  Base,
+  Counts,
+  Lists,
+  Spawn,
+  Stdin,
+  TestBase,
+  Worker,
+} from '@tapjs/core'
 export { Test } from '@tapjs/test'
+export type { TestOpts } from '@tapjs/test'
 export type { TAP }
 export const t: TAP = tap()
 
