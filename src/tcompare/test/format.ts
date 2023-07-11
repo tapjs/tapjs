@@ -363,3 +363,27 @@ t.test('error without name/message', t => {
     })
   }
 })
+
+t.test('do not fail on throwing getter', t => {
+  const obj = {
+    a: 1,
+    b: {
+      c: 2,
+    },
+    get d() {
+      throw new Error('no d for you')
+    },
+    get e() {
+      return 3
+    },
+  }
+  t.equal(format(obj), `Object {
+  "a": 1,
+  "b": Object {
+    "c": 2,
+  },
+  "d": undefined,
+  "e": 3,
+}`)
+  t.end()
+})

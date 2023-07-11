@@ -2,8 +2,8 @@
 // directly by comparators for their "simplePrint" methods.
 // It doesn't do comparison, just formatting.
 
-import { styles } from './styles.js'
 import type { Style } from './styles.js'
+import { styles } from './styles.js'
 
 const arrayFrom = (obj: any) => {
   try {
@@ -749,10 +749,13 @@ export class Format {
   }
 
   getPojoEntries(obj: any): [string, any][] {
-    const ent: [string, any][] = this.getPojoKeys(obj).map(k => [
-      k,
-      obj[k],
-    ])
+    const ent: [string, any][] = this.getPojoKeys(obj).map(k => {
+      try {
+        return [k, obj[k]]
+      } catch {
+        return [k, undefined]
+      }
+    })
     return this.sort
       ? ent.sort((a, b) => a[0].localeCompare(b[0], 'en'))
       : ent
