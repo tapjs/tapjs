@@ -1,14 +1,15 @@
 import {
+  BaseOpts,
   env,
   Extra,
   parseTestArgs,
+  PromiseWithSubtest,
   TapPlugin,
   TestArgs,
   TestBase,
   TestBaseOpts,
 } from '@tapjs/core'
 import type { Test, TestOpts } from '@tapjs/test'
-import type { FinalResults } from 'tap-parser'
 
 export interface FilterOptions {
   /**
@@ -62,66 +63,74 @@ export class Filter {
     } else {
       this.#runOnly = env.TAP_ONLY === '1'
     }
+    if (this.#grep?.length) t.options.grep = this.#grep
 
     const { shouldSkipChild } = t
-    t.shouldSkipChild = extra => {
-      const opts = extra as FilterOptions & Extra & TestBaseOpts
-      const [pattern, ...rest] = this.#grep
-      if (pattern !== undefined) {
-        const m =
-          typeof pattern === 'string'
-            ? (opts.name || '').includes(pattern)
-            : pattern.test(opts.name || '')
-        const match = this.#grepInvert ? !m : m
-        if (!match) {
-          const p = `filter${
-            this.#grepInvert ? ' out' : ''
-          }: ${pattern}`
-          opts.skip = p
-          return shouldSkipChild(opts)
-        } else {
-          opts.grep = rest
-        }
-      }
-      if (this.#runOnly && !opts.only) {
-        const p = 'filter: only'
+    t.shouldSkipChild = extra =>
+      this.#shouldSkipChild(extra, shouldSkipChild)
+  }
+
+  #shouldSkipChild(
+    extra: TestBaseOpts | BaseOpts | TestOpts,
+    shouldSkipChild: (
+      extra: TestBaseOpts | BaseOpts | TestOpts
+    ) => boolean
+  ) {
+    const opts = extra as FilterOptions & Extra & TestBaseOpts
+    const [pattern, ...rest] = this.#grep
+    if (pattern !== undefined) {
+      /* c8 ignore start */
+      const name = opts.name || ''
+      /* c8 ignore stop */
+      const m =
+        typeof pattern === 'string'
+          ? name.includes(pattern)
+          : pattern.test(name)
+      const match = this.#grepInvert ? !m : m
+      if (!match) {
+        const p = `filter${
+          this.#grepInvert ? ' out' : ''
+        }: ${pattern}`
         opts.skip = p
         return shouldSkipChild(opts)
+      } else {
+        opts.grep = rest
       }
-      if (opts.only && !this.#runOnly) {
-        this.#t.comment(
-          '%j has `only` set but all tests run',
-          extra.name
-        )
-      }
-      if (typeof opts.runOnly === 'undefined') {
-        opts.runOnly = this.#runOnly
-      }
+    }
+    if (this.#runOnly && !opts.only) {
+      const p = 'filter: only'
+      opts.skip = p
       return shouldSkipChild(opts)
     }
+    if (opts.only && !this.#runOnly) {
+      this.#t.comment(
+        '%j has `only` set but all tests run',
+        extra.name
+      )
+    }
+    if (typeof opts.runOnly === 'undefined') {
+      opts.runOnly = this.#runOnly
+    }
+    return shouldSkipChild(opts)
   }
 
   only(
     name: string,
     extra: TestOpts,
     cb: (t: Test) => any
-  ): Promise<FinalResults | null>
-  only(
-    name: string,
-    cb: (t: Test) => any
-  ): Promise<FinalResults | null>
+  ): PromiseWithSubtest<Test>
+  only(name: string, cb: (t: Test) => any): PromiseWithSubtest<Test>
   only(
     extra: TestOpts,
     cb: (t: Test) => any
-  ): Promise<FinalResults | null>
-  only(cb: (t: Test) => any): Promise<FinalResults | null>
-  only(...args: TestArgs<Test>): Promise<FinalResults | null> {
+  ): PromiseWithSubtest<Test>
+  only(cb: (t: Test) => any): PromiseWithSubtest<Test>
+  only(...args: TestArgs<Test>): PromiseWithSubtest<Test> {
     const extra = parseTestArgs(...args)
-    return this.#t.t.test(
-      extra.name || '',
-      { ...extra, only: true },
-      extra.cb
-    )
+    /* c8 ignore start */
+    const name = extra.name || ''
+    /* c8 ignore stop */
+    return this.#t.t.test(name, { ...extra, only: true }, extra.cb)
   }
 }
 
@@ -158,6 +167,7 @@ export const config = {
     description:
       'Invert the matches to --grep patterns. (Like grep -v)',
   },
+
   'no-invert': {
     type: 'boolean',
     short: 'I',
