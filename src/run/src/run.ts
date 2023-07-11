@@ -105,7 +105,11 @@ const handleReporter = async (t: TAP, config: LoadedConfig) => {
 
 export const run = async (args: string[], config: LoadedConfig) => {
   const timeout = (config.get('timeout') || 30) * 1000
-  const t = tap()
+  const t = tap({
+    // don't filter the suites themselves, filters go inside
+    grep: [],
+    only: false,
+  })
   // we don't want to time out the runner, just the subtests
   t.setTimeout(0)
   await buildWithSpawn(t, args, config)

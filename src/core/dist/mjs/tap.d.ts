@@ -1,5 +1,5 @@
 /// <reference types="node" />
-import { Test } from '@tapjs/test';
+import { Test, TestOpts } from '@tapjs/test';
 import { Minipass, PipeOptions } from 'minipass';
 declare const privSym: unique symbol;
 type PrivateTAPCtor = {
@@ -47,7 +47,7 @@ type PrivateTAPCtor = {
  */
 declare class TAP extends Test {
     #private;
-    constructor(priv: PrivateTAPCtor);
+    constructor(priv: PrivateTAPCtor, opts?: TestOpts);
     /**
      * register this tap instance as being in charge of the current process
      * ignore epipe errors, set exit code, etc.
@@ -69,6 +69,6 @@ declare class TAP extends Test {
         signal?: NodeJS.Signals | null;
     }): void;
 }
-export declare const tap: () => TAP;
+export declare const tap: (opts?: TestOpts) => TAP;
 export type { TAP };
 //# sourceMappingURL=tap.d.ts.map

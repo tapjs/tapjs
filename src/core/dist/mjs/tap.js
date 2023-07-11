@@ -57,7 +57,7 @@ let autoend = false;
  *   as these are usually the cause of a test hanging indefinitely.
  */
 class TAP extends Test {
-    constructor(priv) {
+    constructor(priv, opts = {}) {
         /* c8 ignore start */
         if (priv !== privateTAPCtor) {
             throw new Error('the TAP singleton should not be instantiated directly');
@@ -74,6 +74,7 @@ class TAP extends Test {
             omitVersion: envFlag('TAP_OMIT_VERSION'),
             preserveWhitespace: !envFlag('TAP_OMIT_WHITESPACE'),
             timeout,
+            ...opts,
         };
         super(options);
         instance = this;
@@ -346,5 +347,5 @@ const ignoreEPIPE = () => {
         return emit.call(stdout, ev, ...args);
     };
 };
-export const tap = () => instance || new TAP(privateTAPCtor);
+export const tap = (opts) => instance || new TAP(privateTAPCtor, opts);
 //# sourceMappingURL=tap.js.map

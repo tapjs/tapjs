@@ -11,7 +11,8 @@ type Result = {
 }
 
 const main = () => {
-  const t = tap()
+  const t = tap({ some: 'options' })
+  t.equal(t.options.some, 'options')
   const clean = (s: string) =>
     s
       .replace(/# time=[0-9.]+m?s\n/g, '# time={TIME}\n')

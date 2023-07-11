@@ -1,5 +1,5 @@
 // The root Test object singleton
-import { Test } from '@tapjs/test'
+import { Test, TestOpts } from '@tapjs/test'
 import { Domain } from 'async-hook-domain'
 import { Minipass, PipeOptions } from 'minipass'
 import { isMainThread, parentPort } from 'node:worker_threads'
@@ -71,7 +71,7 @@ let autoend = false
  *   as these are usually the cause of a test hanging indefinitely.
  */
 class TAP extends Test {
-  constructor(priv: PrivateTAPCtor) {
+  constructor(priv: PrivateTAPCtor, opts: TestOpts = {}) {
     /* c8 ignore start */
     if (priv !== privateTAPCtor) {
       throw new Error(
@@ -92,6 +92,7 @@ class TAP extends Test {
       omitVersion: envFlag('TAP_OMIT_VERSION'),
       preserveWhitespace: !envFlag('TAP_OMIT_WHITESPACE'),
       timeout,
+      ...opts,
     }
 
     super(options)
@@ -419,5 +420,6 @@ const ignoreEPIPE = () => {
   }
 }
 
-export const tap = () => instance || new TAP(privateTAPCtor)
+export const tap = (opts?: TestOpts) =>
+  instance || new TAP(privateTAPCtor, opts)
 export type { TAP }
