@@ -30,6 +30,42 @@ export type FixtureContent<T> = T extends 'file'
   ? FixtureDir
   : never
 
+type GetType<T extends FixtureDirContent> = T extends Fixture<
+  infer Type
+>
+  ? Type
+  : T extends string | Buffer | Uint8Array
+  ? 'file'
+  : T extends number | symbol | bigint
+  ? never
+  : T extends {}
+  ? 'dir'
+  : never
+
+const validateDirContents = (
+  content: Record<string, FixtureDirContent>,
+  seen: Set<Record<string, FixtureDirContent>>
+) => {
+  for (const [f, v] of Object.entries(content)) {
+    const t = rawToType(v)
+    if (
+      v &&
+      typeof v === 'object' &&
+      t === 'dir' &&
+      !(v instanceof Fixture)
+    ) {
+      const r = v as Record<string, FixtureDirContent>
+      if (seen.has(r)) {
+        throw new Error(
+          'cycle detected in t.fixture contents at ' + f
+        )
+      }
+      seen.add(r)
+      validateDirContents(r, seen)
+    }
+  }
+}
+
 const assertValidContent: (
   type: FixtureType,
   content: any
@@ -42,6 +78,7 @@ const assertValidContent: (
       if (!content || typeof content !== 'object') {
         throw new TypeError('dir fixture must have object content')
       }
+      validateDirContents(content, new Set([content]))
       break
     case 'file':
       if (
@@ -65,6 +102,36 @@ const assertValidContent: (
   }
 }
 
+const rawToType = (f: FixtureDirContent): FixtureType => {
+  if (f instanceof Fixture) {
+    return f.type
+  } else if (
+    typeof f === 'string' ||
+    Buffer.isBuffer(f) ||
+    f instanceof Uint8Array
+  ) {
+    return 'file'
+  } else if (f && typeof f === 'object') {
+    return 'dir'
+  }
+  throw new Error('invalid fixture type: ' + f)
+}
+
+const rawToFixture = (
+  f: FixtureDirContent
+): Fixture<GetType<typeof f>> =>
+  f instanceof Fixture ? f : new Fixture(rawToType(f), f)
+
+const isSymlinkF = (
+  f: Fixture<FixtureType>
+): f is Fixture<'symlink'> => f.type === 'symlink'
+const isLinkF = (f: Fixture<FixtureType>): f is Fixture<'link'> =>
+  f.type === 'link'
+const isDirF = (f: Fixture<FixtureType>): f is Fixture<'dir'> =>
+  f.type === 'dir'
+const isFileF = (f: Fixture<FixtureType>): f is Fixture<'file'> =>
+  f.type === 'file'
+
 export class Fixture<T extends FixtureType> {
   type: T
   content: FixtureContent<T>
@@ -81,45 +148,31 @@ export class Fixture<T extends FixtureType> {
   // have to gather up symlinks for the end
   static make(
     abs: string,
-    f: FixtureDirContent,
+    content: FixtureDirContent,
     symlinks: null | { [k: string]: string } = null
   ) {
-    if (
-      typeof f === 'string' ||
-      Buffer.isBuffer(f) ||
-      f instanceof Uint8Array
-    ) {
-      f = new Fixture('file', f)
-    } else if (
-      f &&
-      typeof f === 'object' &&
-      !(f instanceof Fixture)
-    ) {
-      f = new Fixture('dir', f)
-    } else if (!(f instanceof Fixture)) {
-      throw new Error('invalid fixture type: ' + f)
-    }
+    const f = rawToFixture(content)
 
     const isRoot = symlinks === null
     symlinks = symlinks || {}
 
-    switch (f.type) {
-      case 'symlink':
-        // have to gather up symlinks for the end, because windows
-        symlinks[abs] = f.content
-        break
-      case 'link':
-        linkSync(resolve(dirname(abs), f.content), abs)
-        break
-      case 'dir':
-        mkdirpSync(abs)
-        for (const [name, fixture] of Object.entries(f.content))
-          Fixture.make(`${abs}/${name}`, fixture, symlinks)
-        break
-      case 'file':
-        writeFileSync(abs, f.content)
-        break
+    if (isSymlinkF(f)) {
+      // have to gather up symlinks for the end, because windows
+      symlinks[abs] = f.content
+    } else if (isLinkF(f)) {
+      linkSync(resolve(dirname(abs), f.content), abs)
+    } else if (isDirF(f)) {
+      mkdirpSync(abs)
+      for (const [name, fixture] of Object.entries(f.content))
+        Fixture.make(`${abs}/${name}`, fixture, symlinks)
+    } else if (isFileF(f)) {
+      writeFileSync(abs, f.content)
+      /* c8 ignore start */
+    } else {
+      // already validated above, impossible here
+      throw new Error('uknown fixture type: ' + f.type)
     }
+    /* c8 ignore stop */
 
     // create all those symlinks we were asked for
     if (isRoot) {

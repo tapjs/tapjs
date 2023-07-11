@@ -1,10 +1,10 @@
 // module code goes here
 import {
   argv,
+  env,
   mainScript,
   TapPlugin,
   TestBase,
-  env,
 } from '@tapjs/core'
 import { basename, dirname, resolve, sep } from 'node:path'
 import { rimraf, rimrafSync } from 'rimraf'
@@ -104,11 +104,11 @@ export class TestFixtures {
       return dir + sep + base
     }
 
-    return (
-      p.testdirName +
-      '-' +
-      (t.name || 'unnamed test').replace(re, '-')
-    )
+    /* c8 ignore start */
+    const name = t.name || 'unnamed test'
+    /* c8 ignore stop */
+
+    return `${p.testdirName}-${name.replace(re, '-')}`
   }
 }
 
