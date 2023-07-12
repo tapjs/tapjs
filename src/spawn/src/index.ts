@@ -59,12 +59,12 @@ export class SpawnPlugin {
       args = []
     }
     options = options || {}
-    if (options.name === undefined) {
+    if (options.name === undefined && name !== undefined) {
       options.name = name
     }
     options.command = cmd
-    options.args = args
-    return this.#t.sub(Spawn, options, this.spawn)
+    options.args = args !== undefined ? args : []
+    return this.#t.sub(Spawn, options, this.#t.t.spawn)
   }
 }
 
