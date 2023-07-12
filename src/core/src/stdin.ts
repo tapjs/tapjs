@@ -2,13 +2,13 @@ import { Minipass } from 'minipass'
 import { Base, BaseOpts, TapBaseEvents } from './base.js'
 
 export interface StdinOpts extends BaseOpts {
-  tapStream?: NodeJS.ReadableStream | Minipass
+  tapStream?: NodeJS.ReadableStream | Minipass<Buffer> | Minipass<string>
 }
 
 export interface StdinEvents extends TapBaseEvents {}
 
 export class Stdin extends Base<StdinEvents> {
-  inputStream: NodeJS.ReadableStream | Minipass
+  inputStream: NodeJS.ReadableStream | Minipass<Buffer> | Minipass<string>
   constructor(options: StdinOpts) {
     super({
       ...options,

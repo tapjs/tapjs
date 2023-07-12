@@ -9,6 +9,12 @@ import {
 
 export type PromiseWithStdin = PromiseWithSubtest<Stdin>
 
+/* c8 ignore start */
+const stdinCB = () => {
+  throw new Error('this should not be called')
+}
+/* c8 ignore stop */
+
 export class StdinPlugin {
   #t: TestBase
   constructor(t: TestBase) {
@@ -30,7 +36,7 @@ export class StdinPlugin {
     extra ??= {}
     return this.#t.sub(
       Stdin,
-      parseTestArgs<Stdin>(name, extra),
+      parseTestArgs<Stdin>(name, extra, stdinCB),
       this.stdin
     )
   }
