@@ -2,6 +2,11 @@ import { env, TapPlugin } from '@tapjs/core'
 
 // This just adds the ts-node/esm loader
 export const loader = 'ts-node/esm'
+
+// ts-node/esm should come AHEAD of other loaders in the args list,
+// otherwise any other resolve()'s won't be run
+export const preload = true
+
 let didSet = false
 export const plugin: TapPlugin<{}> = () => {
   if (!didSet) {

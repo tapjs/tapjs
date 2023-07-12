@@ -44,6 +44,7 @@ const seen = new Set<string>()
 const hasConfig = new Map<string, string>()
 const hasPlugin = new Map<string, string>()
 const hasLoader = new Map<string, string>()
+const preloaders = new Map<string, string>()
 
 const signature = plugins
   .sort((a, b) => a.localeCompare(b, 'en'))
@@ -73,6 +74,7 @@ const pluginNames = plugins.map(p => {
       >
     }
     loader?: string
+    preload?: boolean
   }
   try {
     imp = require(p)
@@ -116,6 +118,7 @@ const pluginNames = plugins.map(p => {
   }
   if (typeof imp.loader === 'string') {
     hasLoader.set(p, imp.loader)
+    if (imp.preload === true) preloaders.set(p, imp.loader)
     isPlugin = true
   }
   if (!isPlugin) {
@@ -202,11 +205,17 @@ ${[...hasPlugin.values()]
 }
 `
 
-const pluginLoaders = `export const loaders = ${JSON.stringify(
+const pluginLoaders = `const preloaders = new Set<string>(${
+  JSON.stringify([...preloaders.values()], null, 2)
+})
+
+export const loaders: string[] = ${JSON.stringify(
   [...hasLoader.values()],
   null,
   2
-)}
+)}.sort(
+  (a, b) => preloaders.has(a) ? -1 : preloaders.has(b) ? 1 : 0
+)
 `
 
 const swapTag = (src: string, tag: string, code: string): string => {
