@@ -1,10 +1,11 @@
-import { createRequire } from 'module'
-import { isAbsolute } from 'path'
-import { pathToFileURL } from 'url'
+import { createRequire } from 'node:module'
+import { isAbsolute } from 'node:path'
+import { pathToFileURL } from 'node:url'
+import { exportLine } from './export-line.js'
+import { isRelativeRequire } from './is-relative-require.js'
 import type { Mocks } from './mocks.js'
-export { plugin } from './index.js'
-
 export * from './index.js'
+export { plugin } from './index.js'
 export { mockImport } from './mock-import.js'
 export { mockRequire } from './mock-require.js'
 
@@ -27,7 +28,7 @@ try {
     global[loaderSymbol] !== import.meta.url
   ) {
     throw Object.assign(
-      new Error('Multiple tapMock loaders detected'),
+      new Error('Multiple @tapjs/mock loaders detected'),
       {
         found: global[loaderSymbol],
         wanted: import.meta.url,
@@ -38,60 +39,22 @@ try {
 
 const { hasOwnProperty } = Object.prototype
 const hasOwn = (o: any, k: PropertyKey) => hasOwnProperty.call(o, k)
-const [_, ...version] = (
-  process.version.match(/v([0-9]+)\.([0-9]+)\.([0-9]+)/) || [
-    '',
-    '0',
-    '0',
-    '0',
-  ]
-).map(n => +n)
 
-if (version[0] < 14) {
-  throw new Error('this loader requires node v14 or higher')
-}
-
-const stringExports = version[0] >= 16
-
-type MocksWithMocks = Omit<Mocks, 'mocks'> & {
+type MocksWithMocks = Mocks & {
   mocks: Exclude<Mocks['mocks'], undefined>
 }
 const hasMocks = (m: any): m is MocksWithMocks => !!m && !!m.mocks
 
 const buildSrc = (m: MocksWithMocks, key: string, url: string) => {
-  const mock = m.mocks[url]
-  let hasDefault = false
+  /* c8 ignore start */
+  const mock = m.mocks[url] || {}
+  /* c8 ignore stop */
   const keySrc = `__tapmock${key}`
   const mockSrc = `global.${keySrc}.mocks[${JSON.stringify(url)}]`
-  let i = 0
-  const src = Object.keys(mock || {}).map(k => {
-    if (k === 'default') {
-      hasDefault = true
-      return `const defExp = ${mockSrc}.default
-export default defExp\n`
-    } else {
-      const kSrc = JSON.stringify(k)
-      // older node versions can't rename exports, oh well.
-      // means mock keys must all be valid identifiers.
-      if (stringExports) {
-        return `const exp${i} = ${mockSrc}[${kSrc}]
-export {exp${i++} as ${kSrc}}\n`
-      } else {
-        try {
-          new Function(`let ${k}`)
-        } catch (_) {
-          // make it throw from where the user actually called this
-          const er = new Error(
-            `invalid identifier in mock object: ${kSrc}`
-          )
-          er.stack = er.message + '\n' + m.caller.stack
-          throw er
-        }
-        return `export const ${k} = ${mockSrc}[${kSrc}]\n`
-      }
-    }
-  })
-  if (!hasDefault) {
+  const src = Object.keys(mock).map(k =>
+    exportLine(k, mockSrc, m.caller.stack)
+  )
+  if (!Object.keys(mock).includes('default')) {
     src.push(`const defExp = ${mockSrc}
 export default defExp\n`)
   }
@@ -133,7 +96,7 @@ type NextLoadFunction = (
   context: Context
 ) => Promise<LoadResult>
 
-// for node 14
+// legacy functions for node 14
 export const getFormat: ResolveFunction = async (
   url,
   context,
@@ -141,7 +104,7 @@ export const getFormat: ResolveFunction = async (
 ) =>
   url.startsWith('tapmock://')
     ? { url, format: 'module' }
-    : nextResolve(url, context)
+    : resolve(url, context, nextResolve)
 
 export const getSource: LoadFunction = async (
   url,
@@ -154,14 +117,19 @@ export const load: LoadFunction = async (url, context, nextLoad) => {
     const u = new URL(url)
     const key = u.host
     const mockURL = u.searchParams.get('url')
+    // very strange and unlikely
+    /* c8 ignore start */
     if (!key || !mockURL) {
       return nextLoad(url, context)
     }
+    /* c8 ignore stop */
 
     const m = global[`__tapmock${key}`]
+    /* c8 ignore start */
     if (!hasMocks(m) || !hasOwn(m.mocks, mockURL)) {
       return nextLoad(mockURL, context)
     }
+    /* c8 ignore stop */
 
     const source = buildSrc(m, key, mockURL)
     return {
@@ -187,6 +155,9 @@ export const resolve: ResolveFunction = async (
     return nextResolve(url, context)
   }
   const m = global[`__tapmock${key}`]
+  // it would be very strange to get here, would indicate that there
+  // was a literal ?tapmock=... on the import url, but not one we put there
+  /* c8 ignore start */
   if (
     !m ||
     !m.mocks ||
@@ -195,22 +166,43 @@ export const resolve: ResolveFunction = async (
   ) {
     return nextResolve(url, context)
   }
+  /* c8 ignore stop */
 
   const resolvedURL = hasOwn(m.mocks, url)
     ? url
-    : String(new URL(url, context.parentURL))
+    : isRelativeRequire(url)
+    ? String(new URL(url, context.parentURL))
+    : isAbsolute(url)
+    ? String(pathToFileURL(url))
+    : url
+
   if (!hasOwn(m.mocks, resolvedURL)) {
     // parent is mocked, but this module isn't, so the things IT loads
     // should be loaded from the mock, even though it isn't. Need to
     // call require.resolve() here so that it doesn't get confused when
     // loading deps out of node_modules.
+    // If a node builtin is mocked, and another builtin references it, then
+    // the builtin will get the original builtin, not the mock. This is a
+    // shortcoming owing to the fact that there's no way here to tack a
+    // search param on the "url" for an internal module. If it causes problems,
+    // then the solution could be to swap out internal modules with a known
+    // url type like tapmockBuiltin://node:fs or something, and use that as
+    // the indicator that its builtin deps might need to be mocked. For now,
+    // it's just a known design limitation, because that's a bit tricky to
+    // get just right.
     const { resolve } = createRequire(context.parentURL)
-    const mocker = new URL(
-      url.startsWith('file://')
+    const ru =
+      url.startsWith('file://') || isAbsolute(url)
         ? url
-        : pathToFileURL(isAbsolute(url) ? url : resolve(url))
-    )
-    mocker.searchParams.set('tapmock', key)
+        : resolve(url)
+    let mocker = ru.startsWith('file://')
+      ? new URL(ru)
+      : isAbsolute(ru)
+      ? pathToFileURL(ru)
+      : // unmocked internal node module, like 'fs' or 'node:path'
+        ru
+    if (typeof mocker === 'object')
+      mocker.searchParams.set('tapmock', key)
     return nextResolve(String(mocker), context)
   }
 

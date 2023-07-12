@@ -39,9 +39,11 @@ class MockedModule extends CorrectModule {
       this.#mocker = parent.#mocker
     } else if (mocker) {
       this.#mocker = mocker
+      /* c8 ignore start */
     } else {
       throw new Error('no mocker provided to MockedModule')
     }
+    /* c8 ignore stop */
   }
 
   require(id: string): any {
@@ -99,10 +101,6 @@ class Mocker {
     this.module.load(filePath)
   }
 
-  hasSeen(filePath: string) {
-    return this.#seen.has(filePath)
-  }
-
   getSeen(filePath: string) {
     return this.#seen.get(filePath)
   }
@@ -122,9 +120,9 @@ class Mocker {
 
 export const mockRequire: (
   module: string,
-  mocks: undefined | { [k: string]: any },
-  caller: Function | ((...a: any[]) => any)
-) => any = (module, mocks, caller = mockRequire) => {
+  mocks?: { [k: string]: any },
+  caller?: Function | ((...a: any[]) => any)
+) => any = (module, mocks = {}, caller = mockRequire) => {
   const needIgnoreTap = !stack.getIgnoredPackages().includes('@tapjs')
   if (needIgnoreTap) stack.addIgnoredPackage('@tapjs')
   const at = stack.at(caller)

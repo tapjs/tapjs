@@ -1,16 +1,12 @@
 import * as stack from '@tapjs/stack'
-import { dirname, resolve } from 'path'
+import { dirname, isAbsolute, resolve } from 'path'
 import { pathToFileURL } from 'url'
 import { Mocks } from './mocks.js'
 
 import { randomBytes } from 'crypto'
 import { builtinModules } from 'module'
+import { isRelativeRequire } from './is-relative-require.js'
 import loader from './loader-url.js'
-
-const isWindows =
-  typeof process === 'object' &&
-  process &&
-  process.platform === 'win32'
 
 const loaderSymbol = Symbol.for('__tapmockLoader')
 declare var global: {
@@ -26,10 +22,9 @@ const builtinSet = new Set([
 // turn all the mocks we get into either the exports provided,
 // if it's an object, or { default: <value> } otherwise.
 const mungeMocks = (
-  mocksInput: undefined | { [k: string]: any },
+  mocksInput: { [k: string]: any },
   dir: string
 ): { [k: string]: { [j: string]: any } } => {
-  if (!mocksInput) return {}
   const mocks = Object.create(null)
   for (const [k, v] of Object.entries(mocksInput)) {
     const m = v && typeof v === 'object' ? v : { default: v }
@@ -46,12 +41,9 @@ const mungeMocks = (
           mocks[prefixed] = m
         }
       }
-    } else if (/^(node:|file:\/\/\/|https?:\/\/)/.test(k)) {
+    } else if (/^(file:\/\/\/|https?:\/\/)/.test(k)) {
       mocks[k] = m
-    } else if (
-      /^\.\.?\//.test(k) ||
-      (isWindows && /^\.\.?\\/.test(k))
-    ) {
+    } else if (isRelativeRequire(k) || isAbsolute(k)) {
       mocks[String(pathToFileURL(resolve(dir, k)))] = m
     } else {
       // absolute package name
@@ -63,7 +55,7 @@ const mungeMocks = (
 
 export const mockImport: (
   module: string,
-  mocks?: undefined | { [k: string]: any },
+  mocks?: { [k: string]: any },
   caller?: Function | ((...a: any[]) => any)
 ) => [string, () => Promise<any>] = (
   module,
@@ -85,6 +77,9 @@ export const mockImport: (
 
   // TODO this shouldn't be a restriction, actually. I can just use
   // different keys for each @tapjs/mock module in play
+  // It's intentionally very impossible to change once set, so it won't
+  // actually get to this point, and will throw earlier if it's a problem
+  /* c8 ignore start */
   if (global[loaderSymbol] !== loader) {
     const msg = `Cannot mock ESM. Run with --loader=@tapjs/mock to enable. (Are multiple @tapjs/mock modules in use?)`
     const er = Object.assign(new Error(msg), {
@@ -94,6 +89,7 @@ export const mockImport: (
     Error.captureStackTrace(er, caller)
     throw er
   }
+  /* c8 ignore stop */
 
   const key = randomBytes(8).toString('hex')
 

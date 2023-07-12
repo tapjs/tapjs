@@ -4,5 +4,11 @@
   "compilerOptions": {
     "module": "esnext",
     "outDir": "dist-tmp/mjs"
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "commonjs",
+      "outDir": "dist-tmp/mjs"
+    }
   }
 }

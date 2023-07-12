@@ -12,8 +12,8 @@
     },
     ".": {
       "import": {
-        "types": "./dist/mjs/index.d.ts",
-        "default": "./dist/mjs/index.js"
+        "types": "./dist/mjs/loader.d.ts",
+        "default": "./dist/mjs/loader.js"
       },
       "require": {
         "types": "./dist/cjs/index.d.ts",
@@ -42,6 +42,9 @@
     "snap": "tap",
     "format": "prettier --write . --loglevel warn --ignore-path ../../.prettierignore --cache",
     "typedoc": "typedoc --tsconfig tsconfig.json ./src/*.ts"
+  },
+  "tap": {
+    "coverage-map": "map.js"
   },
   "engines": {
     "node": ">=14"

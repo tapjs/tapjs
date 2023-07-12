@@ -85,15 +85,18 @@ export class TapMock {
    * @deprecated
    */
   mock(module: string, mocks: { [k: string]: any } = {}) {
-    if (!this.#t.t.pluginLoaded(plugin)) {
-      throw new Error('mock plugin not loaded')
-    }
+    /* c8 ignore start */
     const at = stack.at(this.#t.t.mock)?.toJSON() || ''
+    /* c8 ignore stop */
     console.error(
       't.mock() is now t.mockRequire(). Please update your tests.',
       at
     )
-    return this.mockRequire(module, mocks)
+    if (!this.#didTeardown && this.#t.t.pluginLoaded(AfterPlugin)) {
+      this.#didTeardown = true
+      this.#t.t.teardown(() => this.unmock())
+    }
+    return mockRequire(module, mocks, this.#t.t.mock)
   }
 
   /**
@@ -108,13 +111,8 @@ export class TapMock {
   mockImport(module: string, mocks: { [k: string]: any } = {}) {
     if (!this.#didTeardown && this.#t.t.pluginLoaded(AfterPlugin)) {
       this.#didTeardown = true
-      this.#t.t.teardown(() => this.#unmock())
+      this.#t.t.teardown(() => this.unmock())
     }
-    /* c8 ignore start */
-    if (!this.#t.t.pluginLoaded(plugin)) {
-      throw new Error('mock plugin not loaded')
-    }
-    /* c8 ignore stop */
     const [key, imp] = mockImport(module, mocks, this.#t.t.mockImport)
     this.#keys.push(key)
     return imp()
@@ -130,17 +128,14 @@ export class TapMock {
    * TypeScript lacks a way to infer imports dynamically.
    */
   mockRequire(module: string, mocks: { [k: string]: any } = {}) {
-    if (!this.#t.t.pluginLoaded(plugin)) {
-      throw new Error('mock plugin not loaded')
-    }
-    if (!this.#didTeardown && this.#t.t.teardown) {
+    if (!this.#didTeardown && this.#t.t.pluginLoaded(AfterPlugin)) {
       this.#didTeardown = true
-      this.#t.t.teardown(() => this.#unmock())
+      this.#t.t.teardown(() => this.unmock())
     }
     return mockRequire(module, mocks, this.#t.t.mockRequire)
   }
 
-  #unmock() {
+  unmock() {
     for (const k of this.#keys) {
       const m = global[`__tapmock${k}`]
       if (m) {
@@ -150,6 +145,7 @@ export class TapMock {
   }
 }
 
+// overrides in O, shadowed by values in B
 export type MockedObject<B, O> = O extends Array<any>
   ? O
   : B extends { [k: PropertyKey]: any }
@@ -164,6 +160,6 @@ export type MockedObject<B, O> = O extends Array<any>
 
 export { mockImport } from './mock-import.js'
 export { mockRequire } from './mock-require.js'
-export const loader = '@tapjs/mock/loader'
+export const loader = '@tapjs/mock'
 export const plugin: TapPlugin<TapMock> = (t: TestBase) =>
   new TapMock(t)
