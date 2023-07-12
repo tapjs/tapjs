@@ -37,7 +37,7 @@ export class StdinPlugin {
     return this.#t.sub(
       Stdin,
       parseTestArgs<Stdin>(name, extra, stdinCB),
-      this.stdin
+      this.#t.t.stdin
     )
   }
 }

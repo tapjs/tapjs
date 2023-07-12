@@ -45,7 +45,7 @@ export class WorkerPlugin {
       options.name = name
     }
     options.filename = filename
-    return this.#t.sub(Worker, options, this.worker)
+    return this.#t.sub(Worker, options, this.#t.t.worker)
   }
 }
 
