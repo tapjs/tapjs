@@ -1,3 +1,4 @@
+import type { TapPlugin, TestBase } from '@tapjs/core'
 import {
   argv,
   cwd,
@@ -6,7 +7,6 @@ import {
   MessageExtra,
   normalizeMessageExtra,
 } from '@tapjs/core'
-import type { TapPlugin, TestBase } from '@tapjs/core'
 import { relative, resolve } from 'path'
 import { Deferred } from 'trivial-deferred'
 import { SnapshotProviderDefault } from './provider.js'
@@ -16,8 +16,10 @@ import { CompareOptions, format, strict } from 'tcompare'
 const isPromise = (p: any): p is Promise<any | void> =>
   !!p && typeof p === 'object' && typeof p.then === 'function'
 
-const defaultFormatSnapshot = (obj: any) =>
-  format(obj, { sort: true })
+const defaultFormatSnapshot =
+  (co: CompareOptions = {}) =>
+  (obj: any) =>
+    format(obj, { sort: true, ...co })
 
 /**
  * Interface provided by the class set in the `snapshotProvider` option.
@@ -147,23 +149,26 @@ export class SnapshotPlugin {
     return this.#compareOptions
   }
   set compareOptions(
-    fmt: Exclude<SnapshotOptions['compareOptions'], undefined>
+    cmt: Exclude<SnapshotOptions['compareOptions'], undefined>
   ) {
-    this.#compareOptions = fmt
+    this.#compareOptions = cmt
+    this.#t.options.compareOptions = cmt
   }
 
   get cleanSnapshot(): SnapshotOptions['cleanSnapshot'] {
     return this.#cleanSnapshot
   }
-  set cleanSnapshot(fmt: SnapshotOptions['cleanSnapshot']) {
-    this.#cleanSnapshot = fmt || ((s: string) => s)
+  set cleanSnapshot(clean: SnapshotOptions['cleanSnapshot']) {
+    this.#cleanSnapshot = clean
+    this.#t.options.cleanSnapshot = clean
   }
 
   get formatSnapshot(): SnapshotOptions['formatSnapshot'] {
     return this.#formatSnapshot
   }
-  set formatSnapshot(fmt: SnapshotOptions['formatSnapshot']) {
-    this.#formatSnapshot = fmt || (o => o)
+  set formatSnapshot(format: SnapshotOptions['formatSnapshot']) {
+    this.#formatSnapshot = format
+    this.#t.options.formatSnapshot = format
   }
 
   get snapshotFile(): string {
@@ -180,9 +185,6 @@ export class SnapshotPlugin {
   }
 
   matchSnapshot(found: any, ...[msg, extra]: MessageExtra): boolean {
-    if (!this.#t.t.pluginLoaded(plugin)) {
-      throw new Error('snapshot plugin not loaded')
-    }
     this.#t.currentAssert = this.#t.t.matchSnapshot
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('must match snapshot', args)
@@ -200,9 +202,12 @@ export class SnapshotPlugin {
           }
         }
       }
-      found = (this.#formatSnapshot || defaultFormatSnapshot)(found)
+      const format =
+        this.#formatSnapshot ||
+        defaultFormatSnapshot(this.#compareOptions)
+      found = format(found)
       if (typeof found !== 'string') {
-        found = defaultFormatSnapshot(found)
+        found = defaultFormatSnapshot(this.#compareOptions)(found)
       }
     }
 
@@ -247,41 +252,38 @@ export class SnapshotPlugin {
   async resolveMatchSnapshot<T extends any = any>(
     fnOrPromise: Promise<T> | (() => Promise<T>),
     ...[msg, extra]: MessageExtra
-  ): Promise<boolean | Error> {
+  ): Promise<boolean> {
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(
       'promise must resolve to match snapshot',
       args
     )
-    const d = new Deferred<boolean | Error>()
-    this.#t.waitOn(d.promise)
+
+    let p!: Promise<T>
     try {
-      const p =
+      p =
         typeof fnOrPromise === 'function'
           ? fnOrPromise()
           : fnOrPromise
-      if (!isPromise(p)) {
-        d.reject(
-          new Error('did not provide a promise or async function')
-        )
-        return d.promise
-      }
-      let res: boolean | Error
-      if (!this.#t.t.pluginLoaded(plugin)) {
-        throw new Error('snapshot plugin not loaded')
-      }
-      this.#t.currentAssert = this.#t.t.resolveMatchSnapshot
-      try {
-        res = this.matchSnapshot(await p, ...me)
-      } catch (er) {
-        res = this.#t.fail(...me) || (er as Error)
-      }
-      d.resolve(res)
-      return d.promise
     } catch (er) {
-      d.reject(er)
-      return d.promise
+      p = Promise.reject(er)
     }
+
+    if (!isPromise(p)) {
+      return this.#t.fail(
+        'no promise or async function provided to t.resolveMatchSnapshot'
+      )
+    }
+
+    const d = new Deferred<boolean>()
+    this.#t.waitOn(d.promise)
+    this.#t.currentAssert = this.#t.t.resolveMatchSnapshot
+    try {
+      d.resolve(this.matchSnapshot(await p, ...me))
+    } catch (er) {
+      d.resolve(this.#t.fail(...me))
+    }
+    return d.promise
   }
 
   static #getFilename(t: TestBase, opts: SnapshotOptions): string {

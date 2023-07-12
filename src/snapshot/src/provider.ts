@@ -4,8 +4,7 @@ import type { SnapshotProvider } from './index.js'
 import { req } from './require.js'
 
 const envMsg = `
-Run with TAP_SNAPSHOT=1 in the environment
-to create snapshots`
+Run with TAP_SNAPSHOT=1 in the environment to create snapshots`
 
 const snapshotHeading = `/* IMPORTANT
  * This snapshot file is auto-generated, but designed for humans.
@@ -46,20 +45,20 @@ export class SnapshotProviderDefault implements SnapshotProvider {
   }
 
   read(msg: string): string {
-    // bump the index if this one gets used again
-    const index = this.#indexes.get(msg) || 1
-    this.#indexes.set(msg, index + 1)
-
     if (!this.#snapshot) {
       this.#load()
     }
 
+    // bump the index if this one gets used again
+    const index = this.#indexes.get(msg) || 1
+
     const entry = msg + ' ' + index
     const s = this.#snapshot?.[entry]
     if (s === undefined) {
-      throw new Error(`Snapshot entry not found: "${entry}"${envMsg}`)
+      throw new Error(`Snapshot entry not found: "${msg}"${envMsg}`)
     }
 
+    this.#indexes.set(msg, index + 1)
     return s.replace(/^\n|\n$/g, '')
   }
 
@@ -91,7 +90,6 @@ export class SnapshotProviderDefault implements SnapshotProvider {
       }
       this.#snapshot = req(this.file)
     } catch (er) {
-      console.error(er)
       throw new Error(
         `Snapshot file not found: ${this.file}${envMsg}`
       )
