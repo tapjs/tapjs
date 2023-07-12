@@ -298,9 +298,11 @@ export class TestBase extends Base {
         if (front) {
             tp.message = tp.message.trimEnd() + '\n\n';
         }
+        // push to the front when we are occupied by a waiter and have ended,
+        // otherwise the relevant awaited assertion will be lost.
         if (this.#occupied &&
             this.#occupied instanceof Waiter &&
-            this.#occupied.finishing) {
+            this.#pushedEnd) {
             front = true;
         }
         if (front) {

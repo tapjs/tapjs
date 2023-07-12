@@ -216,6 +216,17 @@ ok 2 - after pushing unknown method on queue
 
 `
 
+exports[`test/test-base.ts > TAP > push awaited assertion to top if ended implicitly > must match snapshot 1`] = `
+TAP version 14
+# Subtest: child test
+    ok 1 - this is fine
+    1..1
+ok 1 - child test # time={TIME}
+
+1..1
+
+`
+
 exports[`test/test-base.ts > TAP > stdinOnly mode > basic stdinOnly mode > must match snapshot 1`] = `
 TAP version 14
 1..2

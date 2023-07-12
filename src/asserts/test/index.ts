@@ -527,3 +527,9 @@ t.test('emits', async t => {
   t.match(res, /\nnot ok [0-9] - failure on EventEmitter/)
   t.match(res, /\nnot ok [0-9] - failure on EventTarget/)
 })
+
+t.test('rejects does not have to be awaited', async t => {
+  t.rejects(new Promise((_, rej) => setTimeout(() => rej(new Error('ok')))), {
+    message: 'ok',
+  })
+})
