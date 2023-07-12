@@ -1,12 +1,10 @@
 import {
-  BaseOpts,
   PromiseWithSubtest,
-  Worker,
   TapPlugin,
   TestBase,
+  Worker,
+  WorkerOpts,
 } from '@tapjs/core'
-
-export interface WorkerOpts extends BaseOpts {}
 
 import { isMainThread, workerData } from 'node:worker_threads'
 
@@ -19,11 +17,16 @@ export class WorkerPlugin {
   constructor(t: TestBase) {
     this.#t = t
     this.isMainThread = isMainThread
+    // covered by tests, but V8 coverage doesn't extend to worker threads
+    /* c8 ignore start */
     if (!isMainThread) this.#workerData = workerData
+    /* c8 ignore stop */
   }
+
   get workerData() {
     return this.#workerData
   }
+
   worker(filename: string): PromiseWithWorker
   worker(filename: string, name?: string): PromiseWithWorker
   worker(
@@ -41,7 +44,7 @@ export class WorkerPlugin {
       options = {}
     }
     options = options || {}
-    if (options.name === undefined) {
+    if (options.name === undefined && name !== undefined) {
       options.name = name
     }
     options.filename = filename

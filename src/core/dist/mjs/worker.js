@@ -154,7 +154,7 @@ export class Worker extends Base {
     static procName(filename, ev) {
         const pref = '<worker> node';
         if (ev)
-            return `${pref} -e ${JSON.stringify(filename)}`;
+            return `${pref} -e <inline code>`;
         if (filename.indexOf(cwd) === 0) {
             filename = './' + filename.substring(cwd.length + 1);
         }

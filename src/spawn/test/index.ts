@@ -12,7 +12,7 @@ import {
 } from '@tapjs/core'
 import { Test, TestOpts } from '@tapjs/test'
 
-t.test('parse options and spawn some stuff', t => {
+t.test('parse options', t => {
   const opts: any[] = []
   class T extends Test {
     sub<T extends Base, O extends BaseOpts>(

@@ -157,7 +157,7 @@ class Worker extends base_js_1.Base {
     static procName(filename, ev) {
         const pref = '<worker> node';
         if (ev)
-            return `${pref} -e ${JSON.stringify(filename)}`;
+            return `${pref} -e <inline code>`;
         if (filename.indexOf(proc_js_1.cwd) === 0) {
             filename = './' + filename.substring(proc_js_1.cwd.length + 1);
         }
