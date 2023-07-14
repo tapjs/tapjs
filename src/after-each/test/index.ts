@@ -32,6 +32,73 @@ t.test('basic behavior', async t => {
   ])
 })
 
+t.test('async test functions', async t => {
+  const tt = new Test({ name: 'testy' } as TestOpts)
+  const log: string[][] = []
+  tt.afterEach(tt => {
+    log.push(['root ae', tt.name])
+  })
+  tt.test('parent', async tt => {
+    tt.afterEach(tt => {
+      log.push(['parent ae', tt.name])
+    })
+    tt.test('child', async tt => {
+      log.push(['child main'])
+      tt.pass('this is fine')
+    })
+  })
+  tt.test('parent 2', async tt => {
+    tt.afterEach(tt => {
+      log.push(['parent 2 ae', tt.name])
+    })
+    tt.test('child 2', async tt => {
+      log.push(['child 2 main'])
+      tt.pass('this is fine')
+    })
+  })
+  tt.end()
+  await tt.concat()
+  t.strictSame(log, [
+    ['child main'],
+    ['parent ae', 'child'],
+    ['root ae', 'child'],
+    ['root ae', 'parent'],
+    ['child 2 main'],
+    ['parent 2 ae', 'child 2'],
+    ['root ae', 'child 2'],
+    ['root ae', 'parent 2'],
+  ])
+})
+
+t.test('async test functions, ae from root only', async t => {
+  const tt = new Test({ name: 'testy' } as TestOpts)
+  const log: string[][] = []
+  // fine to not be a void function
+  tt.afterEach(tt => log.push(['root ae', tt.name]))
+  tt.test('parent', async tt => {
+    tt.test('child', async tt => {
+      log.push(['child main'])
+      tt.pass('this is fine')
+    })
+  })
+  tt.test('parent 2', async tt => {
+    tt.test('child 2', async tt => {
+      log.push(['child 2 main'])
+      tt.pass('this is fine')
+    })
+  })
+  tt.end()
+  await tt.concat()
+  t.strictSame(log, [
+    ['child main'],
+    ['root ae', 'child'],
+    ['root ae', 'parent'],
+    ['child 2 main'],
+    ['root ae', 'child 2'],
+    ['root ae', 'parent 2'],
+  ])
+})
+
 t.test('async afterEach is awaited', async t => {
   const tt = new Test({ name: 'testy' } as TestOpts)
   const log: string[][] = []

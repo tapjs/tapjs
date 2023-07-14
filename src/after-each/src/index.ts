@@ -1,6 +1,6 @@
+import { TapPlugin, TestBase } from '@tapjs/core'
 import type { Test } from '@tapjs/test'
 import { loop } from 'function-loop'
-import { TapPlugin, TestBase } from '@tapjs/core'
 
 export class AfterEach {
   static #refs = new Map<TestBase, AfterEach>()
@@ -9,7 +9,10 @@ export class AfterEach {
     this.#t = t
     AfterEach.#refs.set(t, this)
     const pae = t.parent && AfterEach.#refs.get(t.parent)
-    if (pae && pae.#onAfterEach.length) {
+    if (
+      pae &&
+      (pae.#onAfterEach.length || pae.#parentOnAfterEach.length)
+    ) {
       this.#parentOnAfterEach = [
         ...pae.#onAfterEach,
         ...pae.#parentOnAfterEach,
@@ -24,9 +27,9 @@ export class AfterEach {
       }
     }
   }
-  #onAfterEach: ((t: Test) => void)[] = []
-  #parentOnAfterEach: ((t: Test) => void)[] = []
-  afterEach(fn: (t: Test) => void | Promise<void>) {
+  #onAfterEach: ((t: Test) => any)[] = []
+  #parentOnAfterEach: ((t: Test) => any)[] = []
+  afterEach(fn: (t: Test) => any) {
     this.#onAfterEach.push(fn)
   }
   #runAfterEach(cb: () => void) {
