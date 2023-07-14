@@ -20,7 +20,7 @@ import { resolve } from 'path'
 import { rimraf } from 'rimraf'
 import { FinalResults } from 'tap-parser'
 import { build } from './build.js'
-import { findSuites } from './find-suites.js'
+import { list } from './list.js'
 import { mainBin, mainCommand } from './index.js'
 import { report } from './report.js'
 import { readSave, writeSave } from './save-list.js'
@@ -136,7 +136,7 @@ export const run = async (args: string[], config: LoadedConfig) => {
   }
   /* c8 ignore stop */
 
-  const files = await findSuites(args, config)
+  const files = await list(args, config)
 
   const coverageMap = config.get('coverage-map')
   const map = !coverageMap

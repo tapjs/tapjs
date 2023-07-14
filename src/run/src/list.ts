@@ -4,6 +4,7 @@ import { glob, Glob, IgnoreLike } from 'glob'
 import { resolve } from 'node:path'
 import type { Path, PathScurry } from 'path-scurry'
 import { readSave } from './save-list.js'
+import { mainCommand } from './index.js'
 
 const alwaysExcludeNames = [
   '.tap',
@@ -38,7 +39,7 @@ const dirInclude = '**/*.@([mc][jt]s|[jt]s?(x))'
 //    Figure out which files in the suite have changed since last run,
 //    and only run those. Do not delete coverage history ever.
 
-export const findSuites = async (
+export const list = async (
   args: string[],
   config: LoadedConfig
 ) => {
@@ -91,9 +92,13 @@ export const findSuites = async (
     await pruneUnchanged(scurry, entries)
   }
 
-  return [...entries].map(p =>
+  const files = [...entries].map(p =>
     typeof p === 'string' ? p : p.relativePosix()
   )
+  if (mainCommand === 'list') {
+    console.log(files.join('\n').trimEnd())
+  }
+  return files
 }
 
 const expandDirectories = async (

@@ -52,6 +52,9 @@
     "rimraf": "^5.0.0",
     "tap-yaml": "^2.1.0"
   },
+  "tap": {
+    "coverage-map": "map.js"
+  },
   "engines": {
     "node": ">=14"
   },

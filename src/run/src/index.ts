@@ -5,7 +5,7 @@ import { TapConfig, LoadedConfig } from '@tapjs/config'
 import { fileURLToPath } from 'url'
 import { build } from './build.js'
 import { dumpConfig } from './dump-config.js'
-import { findSuites } from './find-suites.js'
+import { list } from './list.js'
 import { help } from './help.js'
 import { plugin } from './plugin.js'
 import { report } from './report.js'
@@ -18,6 +18,7 @@ export type JackLoaded = LoadedConfig['jack']
 export type ConfigValues = LoadedConfig['values']
 export let mainCommand: string =
   positionals[0] || (values.help ? 'help' : 'run')
+
 export const mainBin = fileURLToPath(import.meta.url)
 
 process.title = 'tap'
@@ -52,9 +53,8 @@ if (config.get('help') || mainCommand === 'help') {
       plugin(positionals.slice(1), config)
       break
 
-    case 'list-files':
-      const f = await findSuites(positionals.slice(1), config)
-      console.log(f.join('\n'))
+    case 'list':
+      list(positionals.slice(1), config)
       break
 
     case undefined:
