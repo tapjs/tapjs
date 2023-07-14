@@ -7,6 +7,6 @@ export const dumpConfig = (_: string[], config: LoadedConfig) => {
       ([_, v]) => !Array.isArray(v) || v.length
     )
   )
-  console.log('# ' + 'vim: set filetype=yaml :')
-  console.log(yaml.stringify(v).replace(/\n$/, ''))
+  console.log('# v' + 'im: set filetype=yaml :')
+  console.log(yaml.stringify(v).trimEnd())
 }
