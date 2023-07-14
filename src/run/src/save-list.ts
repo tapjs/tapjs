@@ -10,9 +10,9 @@ export const readSave = async (config: LoadedConfig) => {
   if (list) return list
   const save = config.get('save')
   if (!save) return (list = [])
-  if (!file) file = resolve(save, config.globCwd)
-  const d = await readFile(file, 'utf8').catch(() => '')
-  return (list = d.trim().split('\n'))
+  if (!file) file = resolve(config.globCwd, save)
+  const d = (await readFile(file, 'utf8').catch(() => '')).trim()
+  return (list = d ? d.split('\n') : [])
 }
 export const writeSave = async (
   config: LoadedConfig,
@@ -20,7 +20,7 @@ export const writeSave = async (
 ) => {
   const save = config.get('save')
   if (!save) return
-  if (!file) file = resolve(save, config.globCwd)
+  if (!file) file = resolve(config.globCwd, save)
   if (!list.length) await unlink(file)
   else await writeFile(file, list.join('\n') + '\n', 'utf8')
 }
