@@ -1,8 +1,8 @@
-import { createRequire } from 'node:module'
 import { isAbsolute } from 'node:path'
 import { pathToFileURL } from 'node:url'
+import { resolveImport } from 'resolve-import'
+import { isRelativeRequire } from 'resolve-import/is-relative-require'
 import { exportLine } from './export-line.js'
-import { isRelativeRequire } from './is-relative-require.js'
 import type { Mocks } from './mocks.js'
 export * from './index.js'
 export { plugin } from './index.js'
@@ -190,17 +190,7 @@ export const resolve: ResolveFunction = async (
     // the indicator that its builtin deps might need to be mocked. For now,
     // it's just a known design limitation, because that's a bit tricky to
     // get just right.
-    const { resolve } = createRequire(context.parentURL)
-    const ru =
-      url.startsWith('file://') || isAbsolute(url)
-        ? url
-        : resolve(url)
-    let mocker = ru.startsWith('file://')
-      ? new URL(ru)
-      : isAbsolute(ru)
-      ? pathToFileURL(ru)
-      : // unmocked internal node module, like 'fs' or 'node:path'
-        ru
+    let mocker = await resolveImport(url, context.parentURL)
     if (typeof mocker === 'object')
       mocker.searchParams.set('tapmock', key)
     return nextResolve(String(mocker), context)

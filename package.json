@@ -54,6 +54,7 @@
     "prismjs-terminal": "^1.2.2",
     "react": "^18.2.0",
     "read": "^2.1.0",
+    "resolve-import": "^1.0.0",
     "rimraf": "^5.0.0",
     "sinon": "^15.2.0",
     "string-length": "^6.0.0",

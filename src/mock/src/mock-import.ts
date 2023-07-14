@@ -4,8 +4,8 @@ import { pathToFileURL } from 'url'
 import { Mocks } from './mocks.js'
 
 import { randomBytes } from 'crypto'
-import { builtinModules } from 'module'
-import { isRelativeRequire } from './is-relative-require.js'
+import { builtinSet } from 'resolve-import/builtin-set'
+import { isRelativeRequire } from 'resolve-import/is-relative-require'
 import loader from './loader-url.js'
 
 const loaderSymbol = Symbol.for('__tapmockLoader')
@@ -13,11 +13,6 @@ declare var global: {
   [loaderSymbol]: string
   [k: `__tapmock${string}`]: Mocks
 }
-
-const builtinSet = new Set([
-  ...builtinModules,
-  ...builtinModules.map(m => `node:${m}`),
-])
 
 // turn all the mocks we get into either the exports provided,
 // if it's an object, or { default: <value> } otherwise.
