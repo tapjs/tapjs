@@ -111,13 +111,97 @@ t.test('mockImport without mocks', async t => {
   t.teardown(() => stack.addIgnoredPackage('@tapjs'))
 
   t.testdir({
-    'file.mjs': `export default 'hello'`
+    'file.mjs': `export default 'hello'`,
   })
   const mod = resolve(t.testdirName, 'file.mjs')
   const [key, importer] = mockImport(mod)
   t.type(key, 'string')
   t.strictSame(await importer(), {
     __proto__: null,
-    default: 'hello'
+    default: 'hello',
+  })
+})
+
+t.test('argv checking various ways', async t => {
+  // verify that we're not just getting it by accident lol
+  const unmocked = process.argv.slice(-2)
+  t.strictNotSame(unmocked, ['hello', 'world'])
+
+  const d = t.testdir({
+    'direct.mjs': `export default process.argv`,
+    'argv-via-core.mjs': `
+      import { argv } from '@tapjs/core'
+      export default argv
+    `,
+    'proc-via-core.mjs': `
+      import { proc } from '@tapjs/core'
+      export default proc?.argv
+    `,
+    'config-positionals.mjs': `
+      import { TapConfig } from '@tapjs/config'
+      const config = await TapConfig.load()
+      const { positionals } = config.parse()
+      export default positionals
+    `,
+  })
+
+  // verify that the modules are cached and get the original value
+  // when argv hasn't been mutated.
+  t.test('original values', async t => {
+    const direct = await t.mockImport(resolve(d, 'direct.mjs'))
+    const argvViaCore = await t.mockImport(
+      resolve(d, 'argv-via-core.mjs')
+    )
+    const procViaCore = await t.mockImport(
+      resolve(d, 'proc-via-core.mjs')
+    )
+    const configPos = await t.mockImport(
+      resolve(d, 'config-positionals.mjs')
+    )
+
+    for (const { default: value } of [
+      direct,
+      argvViaCore,
+      procViaCore,
+    ]) {
+      t.type(value, Array)
+      t.strictSame(value.slice(-2), unmocked)
+    }
+    // we might have an argv less than 2 items, so this one will be empty,
+    // because it drops the execPath and main
+    const c = configPos.default
+    t.type(c, Array)
+    t.strictSame(c, process.argv.slice(2))
+  })
+
+  t.test('mocked values', async t => {
+    const { argv } = process
+    t.teardown(() => (process.argv = argv))
+    process.argv = [
+      process.execPath,
+      process.argv[1],
+      'hello',
+      'world',
+    ]
+    const direct = await t.mockImport(resolve(d, 'direct.mjs'))
+    const argvViaCore = await t.mockImport(
+      resolve(d, 'argv-via-core.mjs')
+    )
+    const procViaCore = await t.mockImport(
+      resolve(d, 'proc-via-core.mjs')
+    )
+    const configPos = await t.mockImport(
+      resolve(d, 'config-positionals.mjs')
+    )
+
+    for (const { default: value } of [
+      direct,
+      argvViaCore,
+      procViaCore,
+      configPos,
+    ]) {
+      t.type(value, Array)
+      t.strictSame(value.slice(-2), ['hello', 'world'])
+    }
   })
 })

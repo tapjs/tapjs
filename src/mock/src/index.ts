@@ -160,6 +160,6 @@ export type MockedObject<B, O> = O extends Array<any>
 
 export { mockImport } from './mock-import.js'
 export { mockRequire } from './mock-require.js'
-export const loader = '@tapjs/mock'
+export const loader = '@tapjs/mock/loader'
 export const plugin: TapPlugin<TapMock> = (t: TestBase) =>
   new TapMock(t)

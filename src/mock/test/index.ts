@@ -14,7 +14,7 @@ import * as fs from 'node:fs'
 t.equal(mockImport, MIfromIndex)
 t.equal(mockRequire, MRfromIndex)
 t.equal(t.pluginLoaded(plugin), true, 'plugin loaded by default')
-t.equal(loader, '@tapjs/mock', 'loader')
+t.equal(loader, '@tapjs/mock/loader', 'loader')
 
 t.test('mockRequire', t => {
   const dir = t.testdir({

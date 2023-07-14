@@ -76,7 +76,7 @@ export const mockImport: (
   // actually get to this point, and will throw earlier if it's a problem
   /* c8 ignore start */
   if (global[loaderSymbol] !== loader) {
-    const msg = `Cannot mock ESM. Run with --loader=@tapjs/mock to enable. (Are multiple @tapjs/mock modules in use?)`
+    const msg = `Cannot mock ESM. Run with --loader=@tapjs/mock/loader to enable. (Are multiple @tapjs/mock modules in use?)`
     const er = Object.assign(new Error(msg), {
       found: global.__tapmockLoader,
       wanted: loader,
