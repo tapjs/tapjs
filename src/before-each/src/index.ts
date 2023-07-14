@@ -24,14 +24,14 @@ export class BeforeEach {
       }
     }
   }
-  #onBeforeEach: ((t: Test) => void)[]
+  #onBeforeEach: ((t: Test) => any)[]
 
   /**
    * Run the supplied function before any child tests.
    *
    * The test about to run is passed in as an argument to the function
    */
-  beforeEach(fn: (t: Test) => void | Promise<void>) {
+  beforeEach(fn: (t: Test) => any) {
     this.#onBeforeEach.push(fn)
   }
   #runBeforeEach(cb: () => void) {
