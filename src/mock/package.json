@@ -57,6 +57,6 @@
     "@tapjs/after": ">=0.0.0-0",
     "@tapjs/core": ">=0.0.0-0",
     "@tapjs/stack": ">=0.0.0-0",
-    "resolve-import": "^1.0.0"
+    "resolve-import": "^1.0.4"
   }
 }
