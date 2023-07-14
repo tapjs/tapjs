@@ -287,7 +287,7 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
   get pluginSignature() {
     return this.pluginList
       .sort((a, b) => a.localeCompare(b, 'en'))
-      .join('\n')
+      .join('\n').trim()
   }
 
   get pluginList() {
