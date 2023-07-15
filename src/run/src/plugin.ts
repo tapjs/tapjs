@@ -1,6 +1,8 @@
 // manage plugins
-import { defaultPlugins } from '@tapjs/test'
+import '@tapjs/core'
 import { LoadedConfig } from '@tapjs/config'
+
+import { defaultPlugins } from '@tapjs/test'
 
 import { foregroundChild } from 'foreground-child'
 import { lstat } from 'node:fs/promises'

@@ -21,7 +21,7 @@ import { rimraf } from 'rimraf'
 import { FinalResults } from 'tap-parser'
 import { build } from './build.js'
 import { list } from './list.js'
-import { mainBin, mainCommand } from './index.js'
+import { mainBin, mainCommand } from './main-config.js'
 import { report } from './report.js'
 import { readSave, writeSave } from './save-list.js'
 

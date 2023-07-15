@@ -14,7 +14,7 @@ t.test('build does not take positional args', async t => {
     value: [...process.argv.slice(0, 2), 'build', 'x'],
   })
   const { build } = (await t.mockImport('../dist/build.js', {
-    '../dist/index.js': {
+    '../dist/main-config.js': {
       mainCommand: 'build',
     },
   })) as typeof import('../dist/build.js')
@@ -29,7 +29,7 @@ t.test('build success, main command, allow fg exit', async t => {
     value: [...process.argv.slice(0, 2), 'build'],
   })
   const { build } = (await t.mockImport('../dist/build.js', {
-    '../dist/index.js': {
+    '../dist/main-config.js': {
       mainCommand: 'build',
     },
     'foreground-child': {
@@ -65,7 +65,7 @@ t.test('build failure, main command, allow fg exit', async t => {
     value: [...process.argv.slice(0, 2), 'build'],
   })
   const { build } = (await t.mockImport('../dist/build.js', {
-    '../dist/index.js': {
+    '../dist/main-config.js': {
       mainCommand: 'build',
     },
     'foreground-child': {
@@ -101,7 +101,7 @@ t.test('build success, subcommand, cancel exit', async t => {
     value: [...process.argv.slice(0, 2), 'build'],
   })
   const { build } = (await t.mockImport('../dist/build.js', {
-    '../dist/index.js': {
+    '../dist/main-config.js': {
       mainCommand: 'run',
     },
     'foreground-child': {
@@ -137,7 +137,7 @@ t.test('build fail, subcommand, fail with status', async t => {
     value: [...process.argv.slice(0, 2), 'build'],
   })
   const { build } = (await t.mockImport('../dist/build.js', {
-    '../dist/index.js': {
+    '../dist/main-config.js': {
       mainCommand: 'run',
     },
     'foreground-child': {

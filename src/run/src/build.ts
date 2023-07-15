@@ -1,7 +1,7 @@
 import type { LoadedConfig } from '@tapjs/config'
 import { foregroundChild } from 'foreground-child'
 import { createRequire } from 'node:module'
-import { mainCommand } from './index.js'
+import { mainCommand } from './main-config.js'
 const require = createRequire(import.meta.url)
 const tmbin = require.resolve('.bin/generate-tap-test-class')
 const execArgs = ['--loader=ts-node/esm', '--no-warnings']

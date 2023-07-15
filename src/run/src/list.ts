@@ -3,8 +3,8 @@ import { ProcessInfo } from '@tapjs/processinfo'
 import { glob, Glob, IgnoreLike } from 'glob'
 import { resolve } from 'node:path'
 import type { Path, PathScurry } from 'path-scurry'
+import { mainCommand } from './main-config.js'
 import { readSave } from './save-list.js'
-import { mainCommand } from './index.js'
 
 const alwaysExcludeNames = [
   '.tap',
@@ -39,10 +39,7 @@ const dirInclude = '**/*.@([mc][jt]s|[jt]s?(x))'
 //    Figure out which files in the suite have changed since last run,
 //    and only run those. Do not delete coverage history ever.
 
-export const list = async (
-  args: string[],
-  config: LoadedConfig
-) => {
+export const list = async (args: string[], config: LoadedConfig) => {
   const { values } = config.parse()
 
   const saveList: Set<string> = new Set(await readSave(config))
@@ -96,7 +93,15 @@ export const list = async (
     typeof p === 'string' ? p : p.relativePosix()
   )
   if (mainCommand === 'list') {
-    console.log(files.join('\n').trimEnd())
+    if (files.length) {
+      console.log(files.join('\n').trimEnd())
+    } else {
+      console.error('No files found.')
+      process.exitCode = 1
+      if (args.length === 1 && /^plugins?$/.test(args[0])) {
+        console.error(`(Did you mean 'tap plugin list'?)`)
+      }
+    }
   }
   return files
 }
