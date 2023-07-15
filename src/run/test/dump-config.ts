@@ -14,7 +14,7 @@ const logs = t.capture(console, 'log')
 
 await t.mockImport('../dist/index.js')
 
-const calls = logs().map(({ args }) => args)
+const calls = logs.args()
 t.strictSame(calls[0], ['# v' + 'im: set filetype=yaml :'])
 t.match(calls[1], ['timeout: 123\n'])
 t.match(calls[1], ['include: "**"\n'])

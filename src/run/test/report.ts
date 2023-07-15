@@ -135,14 +135,8 @@ t.test('run a text report', async t => {
   const logs = t.capture(console, 'log')
   await report([], config as unknown as LoadedConfig)
   t.equal(config.validated, false, 'nothing to validate')
-  t.strictSame(
-    logs().map(({ args }) => args),
-    [['report']]
-  )
-  t.strictSame(
-    comments().map(({ args }) => args),
-    []
-  )
+  t.strictSame(logs.args(), [['report']])
+  t.strictSame(comments.args(), [])
 })
 
 t.test('run an html report', async t => {
@@ -170,14 +164,8 @@ t.test('run an html report', async t => {
   const logs = t.capture(console, 'log')
   await report(['html'], config as unknown as LoadedConfig)
   t.equal(config.validated, true)
-  t.strictSame(
-    logs().map(({ args }) => args),
-    []
-  )
-  t.strictSame(
-    comments().map(({ args }) => args),
-    []
-  )
+  t.strictSame(logs.args(), [])
+  t.strictSame(comments.args(), [])
   t.equal(openerRan, true)
   t.equal(readFileSync(htmlReport, 'utf8'), 'report')
   t.strictSame(exitCode(), [])
@@ -200,14 +188,8 @@ t.test('no coverage files generated', async t => {
   const exitCode = t.intercept(process, 'exitCode')
   await report([], config as unknown as LoadedConfig)
   t.equal(config.validated, false, 'nothing to validate')
-  t.strictSame(
-    logs().map(({ args }) => args),
-    []
-  )
-  t.strictSame(
-    comments().map(({ args }) => args),
-    [['No coverage generated']]
-  )
+  t.strictSame(logs.args(), [])
+  t.strictSame(comments.args(), [['No coverage generated']])
   t.match(exitCode(), [{ type: 'set', value: 1, success: true }])
 })
 
@@ -228,14 +210,8 @@ t.test('no coverage summary generated', async t => {
   const exitCode = t.intercept(process, 'exitCode')
   await report([], config as unknown as LoadedConfig)
   t.equal(config.validated, false, 'nothing to validate')
-  t.strictSame(
-    logs().map(({ args }) => args),
-    [['report']]
-  )
-  t.strictSame(
-    comments().map(({ args }) => args),
-    [['No coverage generated']]
-  )
+  t.strictSame(logs.args(), [['report']])
+  t.strictSame(comments.args(), [['No coverage generated']])
   t.match(exitCode(), [{ type: 'set', value: 1, success: true }])
 })
 
@@ -262,19 +238,13 @@ t.test('not full coverage', async t => {
   const exitCode = t.intercept(process, 'exitCode')
   await report(['html'], config as unknown as LoadedConfig)
   t.equal(config.validated, true)
-  t.strictSame(
-    logs().map(({ args }) => args),
-    []
-  )
-  t.strictSame(
-    comments().map(({ args }) => args),
-    [
-      ['ERROR: incomplete statements coverage (50%)'],
-      ['ERROR: incomplete branches coverage (50%)'],
-      ['ERROR: incomplete functions coverage (50%)'],
-      ['ERROR: incomplete lines coverage (50%)'],
-    ]
-  )
+  t.strictSame(logs.args(), [])
+  t.strictSame(comments.args(), [
+    ['ERROR: incomplete statements coverage (50%)'],
+    ['ERROR: incomplete branches coverage (50%)'],
+    ['ERROR: incomplete functions coverage (50%)'],
+    ['ERROR: incomplete lines coverage (50%)'],
+  ])
   t.equal(openerRan, true)
   t.equal(readFileSync(htmlReport, 'utf8'), 'report')
   t.match(exitCode(), [{ type: 'set', value: 1, success: true }])

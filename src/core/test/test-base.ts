@@ -227,10 +227,7 @@ t.test('comments', t => {
     tb.end()
     tb.comment('after end', { lost: false })
     t.matchSnapshot(await tb.concat())
-    t.strictSame(
-      logs().map(({ args }) => args),
-      [['# after end { lost: false }']]
-    )
+    t.strictSame(logs.args(), [['# after end { lost: false }']])
   })
   t.end()
 })
@@ -472,16 +469,21 @@ ok 2 - waiting for waiter
   )
 })
 
-t.test('push awaited assertion to top if ended implicitly', async t => {
-  const tb = new T({ name: 'waiter push' })
-  tb.test('child test', async t => {
-    t.waitOn(new Promise<void>(r => setTimeout(r)).then(() => {
-      t.pass('this is fine')
-    }))
-  })
-  tb.end()
-  t.matchSnapshot(await tb.concat())
-})
+t.test(
+  'push awaited assertion to top if ended implicitly',
+  async t => {
+    const tb = new T({ name: 'waiter push' })
+    tb.test('child test', async t => {
+      t.waitOn(
+        new Promise<void>(r => setTimeout(r)).then(() => {
+          t.pass('this is fine')
+        })
+      )
+    })
+    tb.end()
+    t.matchSnapshot(await tb.concat())
+  }
+)
 
 t.test('bail on fail', t => {
   t.test('while occupied', async t => {

@@ -90,10 +90,7 @@ t.test('test Base.threw() handling', t => {
       stack: String,
       test: 'basic',
     })
-    t.same(
-      errs().map(({ args }) => args),
-      []
-    )
+    t.same(errs.args(), [])
     t.equal((er as Error & { test: string }).test, 'basic')
     t.equal(b.parser.ok, false)
     t.end()
@@ -152,10 +149,7 @@ t.test('test Base.threw() handling', t => {
       stack: String,
     })
     t.equal((er as Error & { test?: string }).test, 'basic')
-    t.match(
-      errs().map(({ args }) => args),
-      [['%s: %s', 'Error', 'oops'], [String]]
-    )
+    t.match(errs.args(), [['%s: %s', 'Error', 'oops'], [String]])
     t.equal(b.parser.ok, false)
     t.match(b.results, { ok: false })
     t.end()
@@ -171,10 +165,7 @@ t.test('test Base.threw() handling', t => {
     t.matchOnly(threw, {
       test: 'basic',
     })
-    t.match(
-      errs().map(({ args }) => args),
-      [[{ message: 'stack free', test: 'basic' }]]
-    )
+    t.match(errs.args(), [[{ message: 'stack free', test: 'basic' }]])
     t.equal(b.parser.ok, false)
     t.match(b.results, { ok: false })
     t.end()
@@ -191,10 +182,7 @@ t.test('test Base.threw() handling', t => {
       error: 1234,
       test: 'basic',
     })
-    t.match(
-      errs().map(({ args }) => args),
-      [[{ error: 1234, test: 'basic' }]]
-    )
+    t.match(errs.args(), [[{ error: 1234, test: 'basic' }]])
     t.equal(b.parser.ok, false)
     t.match(b.results, { ok: false })
     t.end()
@@ -275,10 +263,7 @@ t.test('debug debugs stuff', t => {
   const errs = t.capture(console, 'error')
   const b = new Base({ debug: true, name: 'debuggery' })
   b.runMain(() => {
-    t.match(
-      errs().map(({ args }) => args),
-      [[/TAP \d+ debuggery: BASE runMain/]]
-    )
+    t.match(errs.args(), [[/TAP \d+ debuggery: BASE runMain/]])
     t.end()
   })
 })

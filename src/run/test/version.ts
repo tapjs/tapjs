@@ -22,8 +22,9 @@ t.test('basic version', async t => {
     } as unknown as LoadedConfig
     t.test(c, async t => {
       const logs = t.capture(console, 'log')
+      console.log
       await version([c], config)
-      const result = logs().map(({ args }) => args) as string[][]
+      const result = logs.args()
       t.match(result, [[String]])
       t.equal(result.length, 1)
       t.equal(result[0].length, 1)
@@ -43,7 +44,7 @@ t.test('basic versions', async t => {
     t.test(c, async t => {
       const logs = t.capture(console, 'log')
       await version([c], config)
-      const result = logs().map(({ args }) => args) as string[][]
+      const result = logs.args()
       t.match(result, [[/tap: [0-9]+\.[0-9]+.[0-9]+(-.+)?\n/]])
       t.equal(result.length, 1)
       t.equal(result[0].length, 1)
