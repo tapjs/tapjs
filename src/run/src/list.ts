@@ -52,17 +52,59 @@ export const list = async (args: string[], config: LoadedConfig) => {
     cwd: config.globCwd,
     withFileTypes: true,
   })
+
   const { scurry } = g
+  // resolve non-existent paths as globs in the actual cwd
+  // turn everything into a Path in our main scurry, except
+  // stdin designators, which are left as strings
+  // This way the expected behavior of "the thing glob says"
+  // will work the same way across platforms, *and* the tests
+  // are all resolved to absolute paths that can be run from
+  // the cwd context of the project root.
   const entries = new Set<Path | '-' | '/dev/stdin'>(
     (
-      await (!args.length
-        ? g.walk()
-        : Promise.all(
-            args.map(async a => {
-              if (a === '-' || a === '/dev/stdin') return a
-              return scurry.cwd.resolve(resolve(a)).lstat()
-            })
-          ))
+      await Promise.all(
+        (
+          await (!args.length
+            ? g.walk()
+            : Promise.all(
+                args.map(async a => {
+                  if (a === '-' || a === '/dev/stdin') return a
+                  const st = await scurry.cwd
+                    .resolve(resolve(a))
+                    .lstat()
+                  if (st) return st
+                  return glob(a, { absolute: true })
+                })
+              ))
+        ).reduce(
+          (
+            set: (
+              | string
+              | Path
+              | Promise<Path | undefined>
+              | undefined
+            )[],
+            entry: string | Path | string[]
+          ) => {
+            // stat the glob results a second time, even though we know
+            // that they exist, because we need their stat info later.
+            if (Array.isArray(entry)) {
+              set.push(
+                ...entry.map(e => scurry.cwd.resolve(e).lstat())
+              )
+            } else if (entry === '-' || entry === '/dev/stdin') {
+              set.push(entry)
+            } else if (typeof entry === 'string') {
+              set.push(scurry.cwd.resolve(entry).lstat())
+            } else {
+              set.push(entry)
+            }
+            return set
+          },
+          []
+        )
+      )
     ).filter(p => {
       if (!p) return false
       return true
