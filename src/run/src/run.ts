@@ -138,6 +138,14 @@ export const run = async (args: string[], config: LoadedConfig) => {
 
   process.env._TAPJS_PROCESSINFO_CWD_ = config.globCwd
   const files = await list(args, config)
+  if (args.length && !files.length) {
+    console.error(
+      'No valid test files found matching ' +
+        args.map(a => JSON.stringify(a)).join(' ')
+    )
+    process.exitCode = 1
+    return
+  }
 
   const coverageMap = config.get('coverage-map')
   const map = !coverageMap
