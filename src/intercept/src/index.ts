@@ -14,7 +14,7 @@ export interface CaptureResultBase<F extends (...a: any[]) => any> {
 }
 export interface CaptureResultReturned<F extends (...a: any[]) => any>
   extends CaptureResultBase<F> {
-  returned: any
+  returned: ReturnType<F>
   threw: false
 }
 export interface CaptureResultThrew<F extends (...a: any[]) => any>
@@ -27,13 +27,18 @@ export type CaptureResult<F extends (...a: any[]) => any> =
   | CaptureResultBase<F>
 
 export type CaptureResultsMethod<
-  F extends undefined | ((...a: any[]) => any)
-> = F extends undefined
-  ? CaptureResultsMethod<() => any>
-  : (() => CaptureResult<Exclude<F, undefined>>[]) & {
-      restore: () => void
-      calls: CaptureResult<Exclude<F, undefined>>[]
-    }
+  T extends {},
+  M extends Methods<T>,
+  F = T[M]
+> = (() => CaptureResult<
+  F extends (...a: any[]) => any ? F : (...a: any[]) => any
+>[]) & {
+  restore: () => void
+  calls: CaptureResult<(...a: any[]) => any>[]
+  args: () => Parameters<
+    F extends (...a: any[]) => any ? F : (...a: any[]) => any
+  >[]
+}
 
 export interface InterceptResultBase {
   at?: CallSiteLike
@@ -223,8 +228,8 @@ export class Interceptor {
   capture<T extends {}, M extends Methods<T>>(
     obj: T,
     method: M,
-    impl: (...a: any[]) => any = () => {}
-  ): CaptureResultsMethod<typeof impl> {
+    impl: (...a: any[]) => any = (..._: any[]) => {}
+  ): CaptureResultsMethod<T, M> {
     const prop = Object.getOwnPropertyDescriptor(obj, method)
 
     // if we don't have a prop we can restore by just deleting
@@ -263,6 +268,15 @@ export class Interceptor {
       {
         restore: () => restore(),
         calls: fn.calls,
+        args: () => {
+          const r = fn.calls.slice()
+          fn.calls.length = 0
+          return r.map(({ args }) => args) as Parameters<
+            T[M] extends (...a: any[]) => any
+              ? T[M]
+              : (...a: any[]) => any
+          >[]
+        },
       }
     )
   }
@@ -276,8 +290,10 @@ export class Interceptor {
     original: F
   ): ((...a: any[]) => any) & {
     calls: CaptureResult<F>[]
+    args: () => Parameters<F>[]
   } {
     const calls: CaptureResult<F>[] = []
+    const args = () => calls.map(({ args }) => args)
     return Object.assign(
       function wrapped(this: any, ...args: Parameters<F>) {
         const res: CaptureResultBase<F> = {
@@ -299,7 +315,7 @@ export class Interceptor {
           }
         }
       },
-      { calls }
+      { calls, args }
     )
   }
 }

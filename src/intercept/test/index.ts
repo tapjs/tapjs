@@ -389,12 +389,19 @@ t.test('capture', t => {
   })
 
   t.test('custom impl, hasOwn method, return', t => {
-    const obj = { a: () => 1 }
-    let res!: CaptureResultsMethod<() => 2>
+    const obj = { a: (..._: number[]) => 1 }
+    let res!: CaptureResultsMethod<typeof obj, 'a'>
     t.test('child test that does the capturing', t => {
       res = t.capture(obj, 'a', () => 2)
       t.equal(obj.a(), 2)
       t.match(res(), [{ returned: 2, threw: false }])
+      t.equal(obj.a(1, 2, 3), 2)
+      t.strictSame(res.args(), [[1, 2, 3]])
+      //@ts-expect-error
+      t.equal(obj.a('x'), 2)
+      //@ts-expect-error
+      t.equal(obj.a(true), 2)
+      t.strictSame(res.args(), [['x'], [true]])
       t.end()
     })
     t.equal(obj.a(), 1)
