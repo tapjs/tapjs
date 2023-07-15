@@ -1,11 +1,11 @@
 // this has to do some wicked things with types, because c8's
 // declarations are somewhat lacking.
+import { LoadedConfig } from '@tapjs/config'
 import { tap } from '@tapjs/core'
 import { Report } from 'c8'
 import { readdir } from 'fs/promises'
 import opener from 'opener'
 import { resolve } from 'path'
-import { LoadedConfig } from '@tapjs/config'
 
 export const report = async (
   args: string[],
@@ -26,7 +26,7 @@ export const report = async (
   // verify that we actually have coverage, otherwise don't even try
   const tempDirectory = resolve(config.globCwd, '.tap/coverage')
   const ok = await readdir(tempDirectory).then(
-    () => true,
+    entries => !!entries.length,
     () => false
   )
   if (!ok) {
@@ -55,7 +55,8 @@ export const report = async (
   }
   await r.run()
   process.stdout.write = write
-  console.log(stdout.join('').trimEnd())
+  const s = stdout.join('').trimEnd()
+  if (s) console.log(s)
   if (reporter.includes('html')) {
     opener(resolve(config.globCwd, '.tap/report/index.html'))
   }
@@ -88,9 +89,23 @@ const checkCoverage = async (
   ]
   const summary = map.getCoverageSummary()
   let success = true
-  // TODO: emit these as test failures?
-  // TODO: make levels configurable, just *default* to 100
+
   const t = tap()
+
+  // if we didn't get anything, that means that even though it wrote
+  // some coverage files, it didn't actually cover anything, which can
+  // happen, for example if the test crashes before actually loading.
+  if (
+    Math.max(...Object.values(summary).map(({ pct }) => pct)) === 0
+  ) {
+    tap().comment('No coverage generated')
+    process.exitCode = 1
+    return
+  }
+
+  // TODO: make levels configurable, just *default* to 100
+  // only comment it if not using the text reporter, because that makes
+  // it pretty obvious where the shortcomings are already.
   for (const th of thresholds) {
     const coverage = summary[th].pct
     if (coverage < 100) {
