@@ -74,7 +74,7 @@ Object {
     ),
     "type": "string",
   },
-  "coverage-reporter": Object {
+  "coverage-report": Object {
     "description": String(
       Output coverage information using the specified
                           istanbul coverage reporter type.

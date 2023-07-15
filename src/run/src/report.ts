@@ -11,11 +11,11 @@ export const report = async (
   args: string[],
   config: LoadedConfig
 ) => {
-  const rconf = config.get('coverage-reporter')
+  const rconf = config.get('coverage-report')
   // if there are args passed in, use that. The config is used if
   // calling this at the end of `tap run`
   if (args.length) {
-    config.jack.validate({ 'coverage-reporter': args })
+    config.jack.validate({ 'coverage-report': args })
   }
   const reporter = args.length
     ? args
@@ -42,7 +42,8 @@ export const report = async (
     tempDirectory: resolve(config.globCwd, '.tap/coverage'),
     excludeNodeModules: true,
   })
-  // XXX: istanbul-reports just dumps to process.stderr, which collides
+
+  // XXX: istanbul-reports just dumps to process.stdout, which collides
   // with our ink-based reporters. Hijack it and write with console.log
   // so that patch-console can put it in the intended place (or ignore it).
   // TODO: make istanbul-reports more configurable.
@@ -65,7 +66,7 @@ const checkCoverage = async (
   report: Report,
   config: LoadedConfig
 ) => {
-  const cr = config.get('coverage-reporter')
+  const cr = config.get('coverage-report')
   const comment = cr && !cr.includes('text')
   interface Summary {
     lines: { pct: number }

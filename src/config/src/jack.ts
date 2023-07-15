@@ -90,7 +90,11 @@ export default jack({
 
   .heading('tap report', 3)
   .description(
-    `Print a coverage report using the 'coverage-reporter' config`
+    `Print a coverage report using the 'coverage-report' config.
+
+    Coverage reporters can also be specified as positional arguments,
+    for example 'tap report html'.
+    `
   )
 
   .heading('tap version', 3)
@@ -222,7 +226,7 @@ export default jack({
   })
 
   .optList({
-    'coverage-reporter': {
+    'coverage-report': {
       hint: 'type',
       description: `Output coverage information using the specified
                     istanbul coverage reporter type.
