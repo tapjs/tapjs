@@ -136,6 +136,7 @@ export const run = async (args: string[], config: LoadedConfig) => {
   }
   /* c8 ignore stop */
 
+  process.env._TAPJS_PROCESSINFO_CWD_ = config.globCwd
   const files = await list(args, config)
 
   const coverageMap = config.get('coverage-map')
@@ -267,21 +268,28 @@ export const run = async (args: string[], config: LoadedConfig) => {
       }
       continue
     }
-    let coveredFiles: string | string[] | null = await glob(map(f), {
-      cwd: config.globCwd,
-    })
-    const _TAPJS_PROCESSINFO_COVERAGE_ =
-      coveredFiles === null ? '0' : '1'
-    if (typeof coveredFiles === 'string')
-      coveredFiles = [coveredFiles]
-    else if (!isStringArray(coveredFiles)) {
+    const mapped: null | string | string[] = map(f)
+    if (
+      mapped !== null &&
+      typeof mapped !== 'string' &&
+      !isStringArray(mapped)
+    ) {
       throw new Error(
         `Coverage map ${map} must return string, string[], or null`
       )
     }
-    const _TAPJS_PROCESSINFO_COV_FILES_ = coveredFiles
-      .map(f => resolve(f))
-      .join('\n')
+    let coveredFiles: null | string[] =
+      mapped === null
+        ? null
+        : await glob(mapped, {
+            cwd: config.globCwd,
+            absolute: true,
+          })
+    const _TAPJS_PROCESSINFO_COVERAGE_ =
+      coveredFiles === null ? '0' : '1'
+    const _TAPJS_PROCESSINFO_COV_FILES_ = (coveredFiles || []).join(
+      '\n'
+    )
     const file = resolve(config.globCwd, f)
     const buffered = !serial.some(s =>
       file.toLowerCase().startsWith(s)

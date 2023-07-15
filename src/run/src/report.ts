@@ -35,6 +35,13 @@ export const report = async (
     return
   }
 
+  // C8 report only works when run from the cwd where the files are
+  const cwd = process.cwd()
+  /* c8 ignore start */
+  try {
+    process.chdir(config.globCwd)
+  } catch {}
+  /* c8 ignore stop */
   const r = new Report({
     // no need to include/exclude, we already did that when we captured
     reporter,
@@ -61,6 +68,11 @@ export const report = async (
     opener(resolve(config.globCwd, '.tap/report/index.html'))
   }
   await checkCoverage(r, config)
+  /* c8 ignore start */
+  try {
+    process.chdir(cwd)
+  } catch {}
+  /* c8 ignore stop */
 }
 
 const checkCoverage = async (
@@ -98,7 +110,7 @@ const checkCoverage = async (
   if (
     Math.max(...Object.values(summary).map(({ pct }) => pct)) === 0
   ) {
-    tap().comment('No coverage generated')
+    t.comment('No coverage generated')
     process.exitCode = 1
     return
   }
