@@ -8,13 +8,13 @@ type M<O extends object> = {
 type Methods<O extends object> = M<O>[keyof M<O>]
 
 export interface CaptureResultBase<F extends (...a: any[]) => any> {
-  args: Parameters<F>
+  args: OverloadParams<F>
   at?: CallSiteLike
   stack?: string
 }
 export interface CaptureResultReturned<F extends (...a: any[]) => any>
   extends CaptureResultBase<F> {
-  returned: ReturnType<F>
+  returned: OverloadReturnType<F>
   threw: false
 }
 export interface CaptureResultThrew<F extends (...a: any[]) => any>
@@ -26,6 +26,85 @@ export type CaptureResult<F extends (...a: any[]) => any> =
   | CaptureResultThrew<F>
   | CaptureResultBase<F>
 
+// like ReturnType<F>, but aware of up to 10 overloads
+type OverloadReturnType<F> = TupleUnion<
+  UnarrayArray<FilterTupleUnknown<ORTuple<F>>>
+>
+
+type Unarray<A> = A extends (infer V)[] ? V : A
+type UnarrayArray<L> = L extends [infer H, ...infer T]
+  ? H extends unknown[]
+    ? T extends unknown[][]
+      ? [Unarray<H>, ...UnarrayArray<T>]
+      : [Unarray<H>]
+    : true
+  : L
+
+type ORTuple<F> = F extends {
+  (...a: any[]): infer A0
+  (...a: any[]): infer A1
+  (...a: any[]): infer A2
+  (...a: any[]): infer A3
+  (...a: any[]): infer A4
+  (...a: any[]): infer A5
+  (...a: any[]): infer A6
+  (...a: any[]): infer A7
+  (...a: any[]): infer A8
+  (...a: any[]): infer A9
+}
+  ? [A0[], A1[], A2[], A3[], A4[], A5[], A6[], A7[], A8[], A9[]]
+  : never
+
+// like Parameters<F>, but aware of up to 10 overloads
+type OverloadParams<F> = TupleUnion<FilterUnknown<OPTuple<F>>>
+
+type OPTuple<F> = F extends {
+  (...a: infer A0): any
+  (...a: infer A1): any
+  (...a: infer A2): any
+  (...a: infer A3): any
+  (...a: infer A4): any
+  (...a: infer A5): any
+  (...a: infer A6): any
+  (...a: infer A7): any
+  (...a: infer A8): any
+  (...a: infer A9): any
+}
+  ? [A0, A1, A2, A3, A4, A5, A6, A7, A8, A9]
+  : never
+
+type NeverUnknown<T extends unknown[]> = unknown[] extends T
+  ? (T extends {}[] ? true : false) extends true
+    ? any[]
+    : never
+  : T
+
+type NeverTupleUnknown<T extends unknown[]> = unknown[] extends T
+  ? (T extends {}[] ? true : false) extends true
+    ? any[]
+    : never[]
+  : T
+
+type FilterUnknown<L> = L extends [infer H, ...infer T]
+  ? H extends unknown[]
+    ? T extends unknown[][]
+      ? [NeverUnknown<H>, ...FilterUnknown<T>]
+      : [NeverUnknown<H>]
+    : FilterUnknown<T>
+  : L
+
+type FilterTupleUnknown<L> = L extends [infer H, ...infer T]
+  ? H extends unknown[]
+    ? T extends unknown[][]
+      ? [NeverTupleUnknown<H>, ...FilterTupleUnknown<T>]
+      : [NeverTupleUnknown<H>]
+    : FilterTupleUnknown<T>
+  : L
+
+type TupleUnion<L> = L extends [infer H, ...infer T]
+  ? H | TupleUnion<T>
+  : never
+
 export type CaptureResultsMethod<
   T extends {},
   M extends Methods<T>,
@@ -35,8 +114,8 @@ export type CaptureResultsMethod<
 >[]) & {
   restore: () => void
   calls: CaptureResult<(...a: any[]) => any>[]
-  args: () => Parameters<
-    F extends (...a: any[]) => any ? F : (...a: any[]) => any
+  args: () => OverloadParams<
+    F extends { (...a: any[]): any } ? F : (...a: any[]) => any
   >[]
 }
 
@@ -271,8 +350,8 @@ export class Interceptor {
         args: () => {
           const r = fn.calls.slice()
           fn.calls.length = 0
-          return r.map(({ args }) => args) as Parameters<
-            T[M] extends (...a: any[]) => any
+          return r.map(({ args }) => args) as OverloadParams<
+            T[M] extends { (...a: any[]): any }
               ? T[M]
               : (...a: any[]) => any
           >[]
@@ -290,12 +369,12 @@ export class Interceptor {
     original: F
   ): ((...a: any[]) => any) & {
     calls: CaptureResult<F>[]
-    args: () => Parameters<F>[]
+    args: () => OverloadParams<F>[]
   } {
     const calls: CaptureResult<F>[] = []
     const args = () => calls.map(({ args }) => args)
     return Object.assign(
-      function wrapped(this: any, ...args: Parameters<F>) {
+      function wrapped(this: any, ...args: OverloadParams<F>) {
         const res: CaptureResultBase<F> = {
           args,
           at: at(wrapped),

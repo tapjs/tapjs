@@ -344,7 +344,7 @@ t.test('captureFn', t => {
   t.test('return', t => {
     const fn = () => 1
     const wrapped = t.captureFn(fn)
-    t.equal(wrapped(), 1)
+    t.equal(wrapped(2), 1)
     t.match(wrapped.calls, [
       {
         args: [],
@@ -353,6 +353,7 @@ t.test('captureFn', t => {
         returned: 1,
       },
     ])
+    t.strictSame(wrapped.args(), [[ 2 ]])
     t.end()
   })
 
