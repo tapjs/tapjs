@@ -157,6 +157,7 @@ const clean = (c: CallSiteLike[]): CallSiteLike[] => {
   return filtered
 }
 
+let capturing = false
 /**
  * Get an array of {@link CallSiteLike} objects for the current location,
  * from the call to the `fn` argument supplied, limited to the number of
@@ -164,6 +165,18 @@ const clean = (c: CallSiteLike[]): CallSiteLike[] => {
  *
  * If the `limit` argument is 0, then the current `Error.stackTraceLimit`
  * value will be used.
+ *
+ * This method is not re-entry safe, due to the fact that it relies on
+ * temporarily overriding the global Error.prepareStackTrace. As a result,
+ * if a capture() is triggered in any of the methods used by the
+ * CallSiteLike constructor (for example, if @tapjs/intercept is used to
+ * capture the process.cwd() method, which is used by path.resolve()),
+ * then that will cause problems. To work around this, if a re-entry is
+ * detected, then an empty stack of [] is returned.
+ *
+ * Even if it was made re-entry safe, it would be easy to accidentally
+ * trigger an infinite recursion and stack overflow in such a scenario, so
+ * returning an empty stack in the case of re-entry is the best workaround.
  */
 export function capture(
   limit: number,
@@ -178,6 +191,8 @@ export function capture(
   limit: number | Function | ((...a: any[]) => any) = 0,
   fn: Function | ((...a: any[]) => any) = capture
 ): CallSiteLike[] {
+  if (capturing) return []
+  capturing = true
   if (typeof limit === 'function') {
     fn = limit
     limit = 0
@@ -194,6 +209,7 @@ export function capture(
   const { stack } = obj
   Object.assign(Error, { prepareStackTrace, stackTraceLimit })
   const st = clean(stack)
+  capturing = false
   return limit === 0 ? st : st.slice(0, limit)
 }
 
