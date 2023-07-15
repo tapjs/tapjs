@@ -111,10 +111,13 @@ export default jack({
   )
 
   .heading('tap dump-config', 3)
-  .description('Print the resolved configuration in YAML format')
+  .description('Print the resolved configuration in YAML format.')
 
-  .heading('tap list-files', 3)
-  .description('Print the test files that will be run by default')
+  .heading('tap list', 3)
+  .description(
+    `Print the test files that will be run, according to the configuration
+    and positional arguments.`
+  )
 
   .heading('tap help', 3)
   .description(
