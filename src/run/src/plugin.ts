@@ -1,12 +1,13 @@
 // manage plugins
-import '@tapjs/core'
 import { LoadedConfig } from '@tapjs/config'
+import '@tapjs/core'
 
 import { defaultPlugins } from '@tapjs/test'
 
 import { foregroundChild } from 'foreground-child'
 import { lstat } from 'node:fs/promises'
 import { build } from './build.js'
+import { pkgExists } from './pkg-exists.js'
 const exists = (f: string) =>
   lstat(f).then(
     () => true,
@@ -37,12 +38,18 @@ export const plugin = async (
   }
 }
 
+const quiet = ['--no-audit', '--loglevel=silent', '--no-progress']
 const install = async (pkgs: string[]) => {
-  const args = ['install', '--loglevel=silent', '--save-dev', ...pkgs]
-  await new Promise<void>(res => {
+  const args = ['install', ...quiet, '--save-dev', ...pkgs]
+  await new Promise<void>((res, rej) => {
     foregroundChild('npm', args, (code, signal) => {
       // allow error exit to proceed
-      if (code || signal) return
+      if (code || signal) {
+        rej(
+          Object.assign(new Error('install failed'), { code, signal })
+        )
+        return
+      }
       res()
       return false
     })
@@ -50,13 +57,12 @@ const install = async (pkgs: string[]) => {
 }
 
 const uninstall = async (pkgs: string[]) => {
-  const args = ['rm', '--loglevel=silent', '--no-audit', ...pkgs]
+  const args = ['rm', ...quiet, ...pkgs]
   await new Promise<void>(res => {
     foregroundChild('npm', args, (code, signal) => {
       // allow error exit to proceed
-      if (code || signal) return
       res()
-      return false
+      return code || signal ? undefined : false
     })
   })
 }
@@ -76,6 +82,7 @@ const add = async (args: string[], config: LoadedConfig) => {
   const { pc, pl, def } = sets(config)
   const added = new Set<string>()
   const needInstall = new Set<string>()
+  const needCleanup = new Set<string>()
 
   for (const plugin of args) {
     // already present
@@ -90,7 +97,14 @@ const add = async (args: string[], config: LoadedConfig) => {
     }
 
     pc.add(plugin)
-    if (!(await exists(plugin))) needInstall.add(plugin)
+    // if it's not a file on disk, need to try to install it
+    if (!(await exists(plugin))) {
+      needInstall.add(plugin)
+      // only rollback if it wasn't there to begin with
+      if (!(await pkgExists(plugin))) {
+        needCleanup.add(plugin)
+      }
+    }
   }
 
   if (!added.size) {
@@ -98,14 +112,16 @@ const add = async (args: string[], config: LoadedConfig) => {
     return
   }
 
-  // install anything that needs to be installed
-  if (needInstall.size) {
-    await install([...needInstall])
-  }
-
   // roll back if it fails!
   let success = false
+  let installed = false
   try {
+    // install anything that needs to be installed
+    if (needInstall.size) {
+      await install([...needInstall])
+      installed = true
+    }
+
     // ok, that succeeded, update the config
     config.values.plugin = [...pc]
 
@@ -121,10 +137,20 @@ const add = async (args: string[], config: LoadedConfig) => {
     console.log('successfully added plugin(s):')
     console.log([...added].join('\n'))
     success = true
+  } catch {
+    success = false
   } finally {
-    if (needInstall.size && !success) {
-      console.error('Build failed, attempting to clean up')
-      await uninstall([...needInstall])
+    if (!success) {
+      process.exitCode = 1
+      if (needInstall.size && !installed) {
+        console.error('install failed')
+      } else {
+        console.error('build failed')
+      }
+      if (installed && needCleanup.size) {
+        console.error('attempting to clean up added packages')
+        await uninstall([...needCleanup])
+      }
     }
   }
 }
@@ -147,6 +173,7 @@ const rm = async (args: string[], config: LoadedConfig) => {
     }
 
     pc.delete(plugin)
+    // if it's not a file on disk, then we probably need to uninstall a pkg
     if (!(await exists(plugin))) needRemove.add(plugin)
   }
 
