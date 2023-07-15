@@ -316,3 +316,11 @@ t.test('call site with an eval origin', t => {
   t.equal(c.absoluteFileName, null, 'no filename, no abs filename')
   t.end()
 })
+
+t.test('relativizing path outside of cwd returns abs', t => {
+  const p = resolve('/a/b/c')
+  const c = new CallSiteLike(null, `    at Type.method (${p}:420:69)`)
+  c.cwd = process.cwd()
+  t.equal(c.fileName, p)
+  t.end()
+})
