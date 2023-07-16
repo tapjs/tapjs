@@ -410,7 +410,10 @@ export default jack({
       description: `A node program to be run before test files are executed.
 
                     Exiting with a non-zero status code or a signal will fail
-                    the test run and exit the process in error.`,
+                    the test run and exit the process in error.
+
+                    Relative 'before' paths are resolved against the project
+                    config root, even if specified on the cli.`,
     },
 
     after: {
@@ -422,7 +425,10 @@ export default jack({
                     fails.
 
                     Exiting with a non-zero status code or a signal will fail
-                    the test run and exit the process in error.`,
+                    the test run and exit the process in error.
+
+                    Relative 'after' paths are resolved against the project
+                    config root, even if specified on the cli.`,
     },
 
     'output-file': {

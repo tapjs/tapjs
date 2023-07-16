@@ -17,6 +17,9 @@ Object {
       
                           Exiting with a non-zero status code or a signal will fail
                           the test run and exit the process in error.
+      
+                          Relative 'after' paths are resolved against the project
+                          config root, even if specified on the cli.
     ),
     "type": "string",
   },
@@ -31,6 +34,9 @@ Object {
       
                           Exiting with a non-zero status code or a signal will fail
                           the test run and exit the process in error.
+      
+                          Relative 'before' paths are resolved against the project
+                          config root, even if specified on the cli.
     ),
     "type": "string",
   },
