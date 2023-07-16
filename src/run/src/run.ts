@@ -1,93 +1,36 @@
 // run the provided tests
 import { LoadedConfig } from '@tapjs/config'
-import { proc, TAP, tap } from '@tapjs/core'
+import { TAP, tap } from '@tapjs/core'
 import {
   report as testReport,
   types as reportTypes,
 } from '@tapjs/reporter'
-import { plugin as SpawnPlugin } from '@tapjs/spawn'
 import { plugin as StdinPlugin } from '@tapjs/stdin'
-import { loaders, signature } from '@tapjs/test'
+import { loaders } from '@tapjs/test'
 import { foregroundChild } from 'foreground-child'
 import { glob } from 'glob'
 import { Minipass } from 'minipass'
 import { mkdirpSync } from 'mkdirp'
 import { createWriteStream } from 'node:fs'
 import { createRequire } from 'node:module'
-import { dirname, relative, sep } from 'node:path'
+import { dirname, relative } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { resolve } from 'path'
 import { rimraf } from 'rimraf'
 import { FinalResults } from 'tap-parser'
-import { build } from './build.js'
+import { buildWithSpawn } from './build-with-spawn.js'
+import { getCoverageMap } from './coverage-map.js'
 import { list } from './list.js'
-import { mainBin, mainCommand } from './main-config.js'
 import { report } from './report.js'
 import { readSave, writeSave } from './save-list.js'
+
+import { values } from './main-config.js'
+import { testIsSerial } from './test-is-serial.js'
 
 const require = createRequire(import.meta.url)
 const piLoader = pathToFileURL(require.resolve('@tapjs/processinfo'))
 
 const node = process.execPath
-
-const buildWithSpawn = async (
-  t: TAP,
-  args: string[],
-  config: LoadedConfig
-) => {
-  // Make sure that we WANT to have the spawn plugin, otherwise
-  // the runner really can't work.
-  if (!config.pluginList.includes('@tapjs/spawn')) {
-    throw new Error('tap runner requires the @tapjs/spawn plugin')
-  }
-
-  // determine intended plugin list from plugin config
-  // if it doesn't match what's in the Test signature, then
-  // rebuild first.
-  if (config.pluginSignature !== signature) {
-    await build([], config)
-  }
-
-  // If we didn't load with the spawn plugin, then it means that
-  // it must have just been re-built.
-  if (!t.pluginLoaded(SpawnPlugin)) {
-    if (process.env._TAP_RUN_REBUILD_RESPAWN_ === '1') {
-      throw new Error('Failed to build a tap with the spawn plugin')
-    }
-    const argv = [
-      '--no-warnings=ExperimentalLoader',
-      '--loader=ts-node/esm',
-      mainBin,
-      ...args,
-    ]
-    const env = {
-      ...process.env,
-      _TAP_RUN_REBUILD_RESPAWN_: '1',
-    }
-
-    return new Promise<void>((res, rej) => {
-      foregroundChild(
-        node,
-        [...(proc?.execArgv || []), ...argv],
-        { env },
-        (code, signal) => {
-          if (code || signal) {
-            const er = new Error('run command failed')
-            rej(Object.assign(er, { code, signal }))
-            return
-          }
-          res()
-          if (mainCommand === 'run') {
-            if (code) return code
-            if (signal) return signal
-            return
-          }
-          return false
-        }
-      )
-    })
-  }
-}
 
 const isStringArray = (a: any): a is string[] =>
   Array.isArray(a) && !a.some(s => typeof s !== 'string')
@@ -106,9 +49,9 @@ const handleReporter = async (t: TAP, config: LoadedConfig) => {
 export const run = async (args: string[], config: LoadedConfig) => {
   const timeout = (config.get('timeout') || 30) * 1000
   const t = tap({
-    // don't filter the suites themselves, filters go inside
-    grep: [],
-    only: false,
+    // special runner context so plugins can behave differently.
+    // currently, this is only used by @tapjs/filter
+    context: Symbol.for('tap.isRunner'),
   })
   // we don't want to time out the runner, just the subtests
   t.setTimeout(0)
@@ -125,10 +68,9 @@ export const run = async (args: string[], config: LoadedConfig) => {
     ...loaders.map(l => `--loader=${l}`),
     '--enable-source-maps',
     `--loader=${loader}`,
-    ...(config.values?.['node-arg'] || []),
+    ...(values?.['node-arg'] || []),
   ]
 
-  const { values } = config.parse()
   // impossible, include has a default, but Jack's TS doesn't know that
   /* c8 ignore start */
   if (values.include === undefined) {
@@ -147,15 +89,7 @@ export const run = async (args: string[], config: LoadedConfig) => {
     return
   }
 
-  const coverageMap = config.get('coverage-map')
-  const map = !coverageMap
-    ? () => []
-    : (await import(resolve(config.globCwd, coverageMap))).default
-  if (typeof map !== 'function') {
-    throw new Error(
-      `Coverage map ${map} did not default export a function`
-    )
-  }
+  const map = await getCoverageMap(config)
 
   /* c8 ignore start */
   const testArgs: string[] = values['test-arg'] || []
@@ -177,10 +111,6 @@ export const run = async (args: string[], config: LoadedConfig) => {
   }
   /* c8 ignore stop */
 
-  const serial = values.serial
-    ? values.serial.map(s => resolve(s).toLowerCase() + sep)
-    : []
-
   const hasReporter = await handleReporter(t, config)
   const stdio = hasReporter ? 'pipe' : 'inherit'
 
@@ -195,41 +125,14 @@ export const run = async (args: string[], config: LoadedConfig) => {
     await rimraf(resolve(config.globCwd, '.tap'))
   }
 
-  const before = config.get('before')
-  if (before) {
-    t.before(
-      async () =>
-        new Promise<void>(res => {
-          foregroundChild(
-            node,
-            [...argv, resolve(before)],
-            (code, signal) => {
-              if (code || signal) return
-              res()
-              return false
-            }
-          )
-        })
-    )
-  }
-
-  const after = config.get('after')
-  if (after) {
-    t.after(
-      async () =>
-        new Promise<void>(res => {
-          foregroundChild(node, [...argv, resolve(after)], () =>
-            res()
-          )
-        })
-    )
-  }
+  runBefore(t, argv, config)
+  runAfter(t, argv, config)
 
   if (config.get('save')) {
     t.after(async () => await writeSave(config, saveList))
   }
 
-  t.jobs = values.jobs
+  t.jobs = Math.min(values.jobs, files.length)
   const stdinOnly =
     files.length === 1 &&
     (files[0] === '-' || files[0] === '/dev/stdin') &&
@@ -237,32 +140,11 @@ export const run = async (args: string[], config: LoadedConfig) => {
 
   if (!stdinOnly) {
     t.teardown(() => report([], config))
-  }
-
-  const outputFile = config.get('output-file')
-  if (outputFile) {
-    const m = new Minipass<string, string>({ encoding: 'utf8' })
-    m.pipe(process.stdout)
-    m.pipe(createWriteStream(outputFile))
-    t.register()
-    t.pipe(m)
-  }
-
-  const outputDir = config.get('output-dir')
-
-  if (outputDir) {
-    t.on('spawn', subtest => {
-      const out = resolve(outputDir, subtest.name + '.tap')
-      mkdirpSync(dirname(out))
-      subtest.on('process', proc =>
-        proc.stdout.pipe(createWriteStream(out))
-      )
-    })
-  }
-
-  if (!stdinOnly) {
     t.plan(files.length)
   }
+
+  outputFile(t, config)
+  outputDir(t, config)
 
   for (const f of files.sort((a, b) => a.localeCompare(b, 'en'))) {
     if (f === '-' || f === '/dev/stdin') {
@@ -299,9 +181,7 @@ export const run = async (args: string[], config: LoadedConfig) => {
       '\n'
     )
     const file = resolve(config.globCwd, f)
-    const buffered = !serial.some(s =>
-      file.toLowerCase().startsWith(s)
-    )
+    const buffered = !testIsSerial(file)
     const p = t.spawn(node, [...argv, file, ...testArgs], {
       at: null,
       stack: '',
@@ -323,5 +203,63 @@ export const run = async (args: string[], config: LoadedConfig) => {
         }
       })
     }
+  }
+}
+
+const runBefore = (t: TAP, argv: string[], config: LoadedConfig) => {
+  const before = config.get('before')
+  if (before) {
+    t.before(
+      async () =>
+        new Promise<void>(res => {
+          foregroundChild(
+            node,
+            [...argv, resolve(before)],
+            (code, signal) => {
+              if (code || signal) return
+              res()
+              return false
+            }
+          )
+        })
+    )
+  }
+}
+
+const runAfter = (t: TAP, argv: string[], config: LoadedConfig) => {
+  const after = config.get('after')
+  if (after) {
+    t.after(
+      async () =>
+        new Promise<void>(res => {
+          foregroundChild(node, [...argv, resolve(after)], () =>
+            res()
+          )
+        })
+    )
+  }
+}
+
+const outputFile = (t: TAP, config: LoadedConfig) => {
+  const outputFile = config.get('output-file')
+  if (outputFile) {
+    const m = new Minipass<string, string>({ encoding: 'utf8' })
+    m.pipe(process.stdout)
+    m.pipe(createWriteStream(outputFile))
+    t.register()
+    t.pipe(m)
+  }
+}
+
+const outputDir = (t: TAP, config: LoadedConfig) => {
+  const outputDir = config.get('output-dir')
+  if (outputDir) {
+    t.on('spawn', subtest => {
+      const out = resolve(outputDir, subtest.name + '.tap')
+      mkdirpSync(dirname(out))
+      subtest.on('process', proc =>
+        proc.stdout.pipe(createWriteStream(out))
+      )
+    })
   }
 }
