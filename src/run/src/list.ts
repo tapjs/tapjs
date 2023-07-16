@@ -3,7 +3,7 @@ import { ProcessInfo } from '@tapjs/processinfo'
 import { glob, Glob, IgnoreLike } from 'glob'
 import { resolve } from 'node:path'
 import type { Path, PathScurry } from 'path-scurry'
-import { mainCommand } from './main-config.js'
+import { mainCommand, values } from './main-config.js'
 import { readSave } from './save-list.js'
 
 const alwaysExcludeNames = [
@@ -15,9 +15,6 @@ const alwaysExcludeNames = [
   'tap-snapshots',
 ]
 
-const excludeEntry = (e: string) =>
-  alwaysExcludeNames.includes(e) || e.startsWith('tap-testdir-')
-
 const alwaysExcludePattern = `**/@(${alwaysExcludeNames.join(
   '|'
 )}|tap-testdir-*)/**`
@@ -28,7 +25,7 @@ const defaultInclude =
   '*.@(test?(s)|spec),' +
   'test?(s)' +
   '}.@([mc][jt]s|[jt]s?(x))'
-const dirInclude = '**/*.@([mc][jt]s|[jt]s?(x))'
+const dirInclude = '**/*.@(?([mc])[jt]s?(x))'
 
 // --save=<file>
 //    only run the files in the list, write failures back to it.
@@ -40,8 +37,6 @@ const dirInclude = '**/*.@([mc][jt]s|[jt]s?(x))'
 //    and only run those. Do not delete coverage history ever.
 
 export const list = async (args: string[], config: LoadedConfig) => {
-  const { values } = config.parse()
-
   const saveList: Set<string> = new Set(await readSave(config))
 
   const ignore = [alwaysExcludePattern]
@@ -95,8 +90,6 @@ export const list = async (args: string[], config: LoadedConfig) => {
               )
             } else if (entry === '-' || entry === '/dev/stdin') {
               set.push(entry)
-            } else if (typeof entry === 'string') {
-              set.push(scurry.cwd.resolve(entry).lstat())
             } else {
               set.push(entry)
             }
@@ -106,7 +99,10 @@ export const list = async (args: string[], config: LoadedConfig) => {
         )
       )
     ).filter(p => {
+      // enoents should already be filtered out by glob, but just in case
+      /* c8 ignore start */
       if (!p) return false
+      /* c8 ignore stop */
       return true
     }) as (Path | '-' | '/dev/stdin')[]
   )
@@ -127,7 +123,8 @@ export const list = async (args: string[], config: LoadedConfig) => {
     }
   }
 
-  if (config.get('changed')) {
+  const foundEntries = entries.size !== 0
+  if (config.get('changed') && foundEntries) {
     await pruneUnchanged(scurry, entries)
   }
 
@@ -135,8 +132,9 @@ export const list = async (args: string[], config: LoadedConfig) => {
     typeof p === 'string' ? p : p.relativePosix()
   )
   if (mainCommand === 'list') {
-    if (files.length) {
-      console.log(files.join('\n').trimEnd())
+    if (foundEntries) {
+      // don't report an error if we found something but it's just not new
+      if (files.length) console.log(files.join('\n').trimEnd())
     } else {
       console.error('No files found.')
       process.exitCode = 1
@@ -158,10 +156,6 @@ const expandDirectories = async (
   const originalCwd = scurry.cwd
   for (const entry of entries) {
     if (typeof entry === 'string') continue
-    if (excludeEntry(entry.name.toLowerCase())) {
-      entries.delete(entry)
-      continue
-    }
     if (entry.isDirectory()) {
       entries.delete(entry)
       scurry.chdir(entry)
@@ -203,7 +197,7 @@ const pruneUnchanged = async (
     }
 
     let del = true
-    OUTER: for (const f of pi.files || []) {
+    OUTER: for (const f of pi.files) {
       const sources = pi.sources[f] || [f]
       for (const f of sources) {
         // if the stat is missing, then the file isn't there,

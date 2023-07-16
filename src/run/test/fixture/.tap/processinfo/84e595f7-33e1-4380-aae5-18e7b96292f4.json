@@ -1,0 +1,30 @@
+{
+  "date": "2023-07-16T00:25:40.873Z",
+  "argv": [
+    "/usr/local/bin/node",
+    "/Users/isaacs/dev/tapjs/tapjs/src/run/test/fixture/test/bar.mjs"
+  ],
+  "execArgv": [
+    "--no-warnings=ExperimentalLoader",
+    "--loader=ts-node/esm",
+    "--loader=@tapjs/mock/loader",
+    "--enable-source-maps",
+    "--loader=file:///Users/isaacs/dev/tapjs/tapjs/node_modules/@tapjs/processinfo/dist/cjs/index.js"
+  ],
+  "NODE_OPTIONS": "\"--loader=file:///Users/isaacs/dev/tapjs/tapjs/node_modules/@tapjs/processinfo/dist/mjs/esm.mjs\" \"--no-warnings=ExperimentalLoader\"",
+  "cwd": "/Users/isaacs/dev/tapjs/tapjs/src/run/test/fixture",
+  "pid": 35744,
+  "ppid": 35743,
+  "parent": null,
+  "uuid": "84e595f7-33e1-4380-aae5-18e7b96292f4",
+  "files": [
+    "/Users/isaacs/dev/tapjs/tapjs/src/run/test/fixture/test/bar.mjs",
+    "/Users/isaacs/dev/tapjs/tapjs/src/run/test/fixture/bar.mjs"
+  ],
+  "sources": {},
+  "root": "84e595f7-33e1-4380-aae5-18e7b96292f4",
+  "externalID": "test/bar.mjs",
+  "code": 0,
+  "signal": null,
+  "runtime": 9.813458
+}
