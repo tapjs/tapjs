@@ -11,7 +11,7 @@ import {
 } from '@tapjs/core'
 import type { Test, TestOpts } from '@tapjs/test'
 
-export interface FilterOptions {
+export interface FilterOptions extends TestBaseOpts {
   /**
    * Set to true to run in contexts where `runOnly` is set
    */
@@ -43,8 +43,19 @@ export class Filter {
 
   constructor(t: TestBase, opts: FilterOptions) {
     this.#t = t
-    if (opts.grep !== undefined) {
-      this.#grep = !Array.isArray(opts.grep) ? [opts.grep] : opts.grep
+
+    // don't filter test files when we're the cli test runner
+    const { grep, grepInvert, runOnly } =
+      opts.context === Symbol.for('tap.isRunner')
+        ? ({
+            grep: [],
+            grepInvert: false,
+            runOnly: false,
+          } as FilterOptions)
+        : opts
+
+    if (grep !== undefined) {
+      this.#grep = !Array.isArray(grep) ? [grep] : grep
     } else if (env.TAP_GREP !== undefined) {
       this.#grep = env.TAP_GREP.split('\n').map(g => {
         const p = g.match(/^\/(.*)\/([a-z]*)$/)
@@ -53,13 +64,13 @@ export class Filter {
         return new RegExp(g, flags)
       })
     }
-    if (opts.grepInvert !== undefined) {
-      this.#grepInvert = !!opts.grepInvert
+    if (grepInvert !== undefined) {
+      this.#grepInvert = !!grepInvert
     } else {
       this.#grepInvert = env.TAP_INVERT === '1'
     }
-    if (opts.runOnly !== undefined) {
-      this.#runOnly = !!opts.runOnly
+    if (runOnly !== undefined) {
+      this.#runOnly = !!runOnly
     } else {
       this.#runOnly = env.TAP_ONLY === '1'
     }

@@ -53,6 +53,17 @@ t.test('warn if using only() unnecessarily', async t =>
   t.matchSnapshot(await run({ name: 'run it all' }))
 )
 
+t.test('cli runner runs everything no matter what', async t =>
+  t.matchSnapshot(
+    await run({
+      name: 'pretend cli',
+      context: Symbol.for('tap.isRunner'),
+      grep: /unicorn|dog/,
+      grepInvert: true,
+    })
+  )
+)
+
 t.test('get defaults from env', t => {
   t.test('grep', async t => {
     const { TAP_GREP } = process.env

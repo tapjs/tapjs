@@ -5,6 +5,48 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
+exports[`test/index.ts > TAP > cli runner runs everything no matter what > must match snapshot 1`] = `
+TAP version 14
+# Subtest: cat
+    # Subtest: hiss
+        ok 1 - sssss
+        1..1
+    ok 1 - hiss # time={TIME}
+    
+    # Subtest: purr
+        ok 1 - rrrrr
+        1..1
+    ok 2 - purr # time={TIME}
+    
+    ok 3 - meow
+    1..3
+ok 1 - cat # time={TIME}
+
+# "unicorn" has \`only\` set but all tests run
+# Subtest: unicorn
+    ok 1 - this is fine
+    1..1
+ok 2 - unicorn # time={TIME}
+
+# Subtest: dog
+    # Subtest: growl
+        ok 1 - grrr
+        1..1
+    ok 1 - growl # time={TIME}
+    
+    # Subtest: howl
+        ok 1 - howww
+        1..1
+    ok 2 - howl # time={TIME}
+    
+    ok 3 - woof
+    1..3
+ok 3 - dog # time={TIME}
+
+1..3
+
+`
+
 exports[`test/index.ts > TAP > get defaults from env > grep > must match snapshot 1`] = `
 TAP version 14
 # Subtest: cat
