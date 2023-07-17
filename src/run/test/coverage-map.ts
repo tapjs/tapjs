@@ -42,6 +42,16 @@ t.test('load a coverage map from esm', async t => {
   t.equal(map('x'), 'this is fine')
 })
 
+t.test('coverage-map config must be a module', async t => {
+  const dir = t.testdir()
+  await t.rejects(
+    getCoverageMap({
+      globCwd: dir,
+      get: () => 'map.js',
+    } as unknown as LoadedConfig)
+  )
+})
+
 t.test('map must be a function', async t => {
   const dir = t.testdir({
     'package.json': '{ "type": "module" }',
@@ -67,13 +77,14 @@ t.test('map must return string, string[], or null', async t => {
     `,
   })
   const map = await getCoverageMap({
-      globCwd: dir,
-      get: () => 'map.js',
-    } as unknown as LoadedConfig)
+    globCwd: dir,
+    get: () => 'map.js',
+  } as unknown as LoadedConfig)
   t.equal(map('string'), 'string')
   t.strictSame(map('arr'), ['a', 'b'])
   t.equal(map('null'), null)
   t.throws(() => map('other'), {
-    message: /^Coverage map .* must return string, string\[\], or null/,
+    message:
+      /^Coverage map .* must return string, string\[\], or null/,
   })
 })

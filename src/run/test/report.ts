@@ -9,10 +9,10 @@ let globCwd = t.testdirName
 t.beforeEach(t => (globCwd = t.testdirName))
 
 interface Summary {
-  lines: { pct: number }
-  functions: { pct: number }
-  statements: { pct: number }
-  branches: { pct: number }
+  lines: { pct: number | 'Unknown' }
+  functions: { pct: number | 'Unknown' }
+  statements: { pct: number | 'Unknown' }
+  branches: { pct: number | 'Unknown' }
 }
 
 const validCoverageReports = new Set(['text', 'none', 'html'])
@@ -39,14 +39,14 @@ class MockConfig {
 
 // set this explicitly in tests
 const summaryZero: Summary = {
-  lines: { pct: 0 },
-  functions: { pct: 0 },
-  statements: { pct: 0 },
-  branches: { pct: 0 },
+  lines: { pct: 'Unknown' },
+  functions: { pct: 'Unknown' },
+  statements: { pct: 'Unknown' },
+  branches: { pct: 'Unknown' },
 }
 const summary50: Summary = {
   lines: { pct: 50 },
-  functions: { pct: 50 },
+  functions: { pct: 'Unknown' },
   statements: { pct: 50 },
   branches: { pct: 50 },
 }
@@ -242,7 +242,7 @@ t.test('not full coverage', async t => {
   t.strictSame(comments.args(), [
     ['ERROR: incomplete statements coverage (50%)'],
     ['ERROR: incomplete branches coverage (50%)'],
-    ['ERROR: incomplete functions coverage (50%)'],
+    ['ERROR: incomplete functions coverage (0%)'],
     ['ERROR: incomplete lines coverage (50%)'],
   ])
   t.equal(openerRan, true)

@@ -108,7 +108,9 @@ const checkCoverage = async (
   // some coverage files, it didn't actually cover anything, which can
   // happen, for example if the test crashes before actually loading.
   if (
-    Math.max(...Object.values(summary).map(({ pct }) => pct)) === 0
+    Math.max(
+      ...thresholds.map(th => Number(summary[th].pct) || 0)
+    ) === 0
   ) {
     t.comment('No coverage generated')
     process.exitCode = 1
@@ -119,7 +121,7 @@ const checkCoverage = async (
   // only comment it if not using the text reporter, because that makes
   // it pretty obvious where the shortcomings are already.
   for (const th of thresholds) {
-    const coverage = summary[th].pct
+    const coverage = Number(summary[th].pct) || 0
     if (coverage < 100) {
       if (comment) {
         t.comment(`ERROR: incomplete ${th} coverage (${coverage}%)`)
