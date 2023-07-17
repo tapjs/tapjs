@@ -142,10 +142,14 @@ export class Spawn extends Base {
                     tapAbort: 'timeout',
                     key: this.#tapAbortKey,
                     child: this.#childId,
-                });
-                /* c8 ignore start */
+                    // If the process ends while/before sending this message,
+                    // then just ignore it. the eventual kills will be no-ops,
+                    // and since we're done with this process, the success here
+                    // doesn't matter.
+                    /* c8 ignore start */
+                }, () => { });
             }
-            catch (_) { }
+            catch { }
             /* c8 ignore stop */
             // this whole bit has to be ignored because there is no way to test
             // signals on Windows without mocking to the point of irrelevance

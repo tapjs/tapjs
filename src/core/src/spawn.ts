@@ -212,13 +212,20 @@ export class Spawn extends Base<SpawnEvents> {
     const proc = this.proc
     if (proc) {
       try {
-        proc.send({
-          tapAbort: 'timeout',
-          key: this.#tapAbortKey,
-          child: this.#childId,
-        })
-        /* c8 ignore start */
-      } catch (_) {}
+        proc.send(
+          {
+            tapAbort: 'timeout',
+            key: this.#tapAbortKey,
+            child: this.#childId,
+            // If the process ends while/before sending this message,
+            // then just ignore it. the eventual kills will be no-ops,
+            // and since we're done with this process, the success here
+            // doesn't matter.
+            /* c8 ignore start */
+          },
+          () => {}
+        )
+      } catch {}
       /* c8 ignore stop */
 
       // this whole bit has to be ignored because there is no way to test

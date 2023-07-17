@@ -623,7 +623,8 @@ export class TestBase extends Base {
         p.readyToProcess = true;
         p.options.time = p.time;
         const to = p.options.timeout;
-        const dur = to && p.passing() ? hrtime.bigint() - p.start : null;
+        const now = hrtime.bigint();
+        const dur = to && p.passing() ? Number(now - p.start) / 1e6 : null;
         if (dur && to && dur > to) {
             p.timeout();
         }

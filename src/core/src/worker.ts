@@ -99,7 +99,7 @@ export class Worker extends Base<WorkerEvents> {
           child: this.childId,
         })
         /* c8 ignore start */
-      } catch (_) {}
+      } catch {}
       // need to ignore this bit because there's no way (by design) to
       // ignore the timeout signal, but it's theoretically possible that
       // it could be dropped or some busy-wait process prevents it from
