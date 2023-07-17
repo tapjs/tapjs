@@ -176,7 +176,7 @@ export const run = async (args: string[], config: LoadedConfig) => {
       '\n'
     )
     const file = resolve(config.globCwd, f)
-    const buffered = !testIsSerial(file)
+    const buffered = !testIsSerial(file) && t.jobs > 1
     const p = t.spawn(node, [...argv, file, ...testArgs], {
       at: null,
       stack: '',
