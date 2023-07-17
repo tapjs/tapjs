@@ -7,5 +7,7 @@ export const testIsSerial = (file: string) => {
       s => resolve(s).toLowerCase() + sep
     )
   }
-  return serial.some(s => file.toLowerCase().startsWith(s))
+  // tack the sep onto the end so that if the config specifies an
+  // individual file, rather than a dir, it still matches.
+  return serial.some(s => (file.toLowerCase() + sep).startsWith(s))
 }

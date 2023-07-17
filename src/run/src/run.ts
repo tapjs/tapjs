@@ -7,13 +7,9 @@ import {
 } from '@tapjs/reporter'
 import { plugin as StdinPlugin } from '@tapjs/stdin'
 import { loaders } from '@tapjs/test'
-import { foregroundChild } from 'foreground-child'
 import { glob } from 'glob'
-import { Minipass } from 'minipass'
-import { mkdirpSync } from 'mkdirp'
-import { createWriteStream } from 'node:fs'
 import { createRequire } from 'node:module'
-import { dirname, relative } from 'node:path'
+import { relative } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { resolve } from 'path'
 import { rimraf } from 'rimraf'
@@ -21,19 +17,19 @@ import { FinalResults } from 'tap-parser'
 import { buildWithSpawn } from './build-with-spawn.js'
 import { getCoverageMap } from './coverage-map.js'
 import { list } from './list.js'
-import { report } from './report.js'
-import { readSave, writeSave } from './save-list.js'
-
 import { values } from './main-config.js'
+import { outputDir } from './output-dir.js'
+import { outputFile } from './output-file.js'
+import { report } from './report.js'
+import { runAfter } from './run-after.js'
+import { runBefore } from './run-before.js'
+import { readSave, writeSave } from './save-list.js'
 import { testIsSerial } from './test-is-serial.js'
 
 const require = createRequire(import.meta.url)
 const piLoader = pathToFileURL(require.resolve('@tapjs/processinfo'))
 
 const node = process.execPath
-
-const isStringArray = (a: any): a is string[] =>
-  Array.isArray(a) && !a.some(s => typeof s !== 'string')
 
 const handleReporter = async (t: TAP, config: LoadedConfig) => {
   // figure out if we MUST use the 'tap' reporter
@@ -53,9 +49,13 @@ export const run = async (args: string[], config: LoadedConfig) => {
     // currently, this is only used by @tapjs/filter
     context: Symbol.for('tap.isRunner'),
   })
+  // if we have to rebuild, then it'll re-spawn, so we do not continue
+  if (await buildWithSpawn(t, config)) {
+    return
+  }
+
   // we don't want to time out the runner, just the subtests
   t.setTimeout(0)
-  await buildWithSpawn(t, args, config)
 
   // Maybe should accept an optList of loaders in the config?
   // It seems a bit heavy to require a full on plugin just to
@@ -158,16 +158,7 @@ export const run = async (args: string[], config: LoadedConfig) => {
       }
       continue
     }
-    const mapped: null | string | string[] = map(f)
-    if (
-      mapped !== null &&
-      typeof mapped !== 'string' &&
-      !isStringArray(mapped)
-    ) {
-      throw new Error(
-        `Coverage map ${map} must return string, string[], or null`
-      )
-    }
+    const mapped = map(f)
     let coveredFiles: null | string[] =
       mapped === null
         ? null
@@ -203,63 +194,5 @@ export const run = async (args: string[], config: LoadedConfig) => {
         }
       })
     }
-  }
-}
-
-const runBefore = (t: TAP, argv: string[], config: LoadedConfig) => {
-  const before = config.get('before')
-  if (before) {
-    t.before(
-      async () =>
-        new Promise<void>(res => {
-          foregroundChild(
-            node,
-            [...argv, resolve(before)],
-            (code, signal) => {
-              if (code || signal) return
-              res()
-              return false
-            }
-          )
-        })
-    )
-  }
-}
-
-const runAfter = (t: TAP, argv: string[], config: LoadedConfig) => {
-  const after = config.get('after')
-  if (after) {
-    t.after(
-      async () =>
-        new Promise<void>(res => {
-          foregroundChild(node, [...argv, resolve(after)], () =>
-            res()
-          )
-        })
-    )
-  }
-}
-
-const outputFile = (t: TAP, config: LoadedConfig) => {
-  const outputFile = config.get('output-file')
-  if (outputFile) {
-    const m = new Minipass<string, string>({ encoding: 'utf8' })
-    m.pipe(process.stdout)
-    m.pipe(createWriteStream(outputFile))
-    t.register()
-    t.pipe(m)
-  }
-}
-
-const outputDir = (t: TAP, config: LoadedConfig) => {
-  const outputDir = config.get('output-dir')
-  if (outputDir) {
-    t.on('spawn', subtest => {
-      const out = resolve(outputDir, subtest.name + '.tap')
-      mkdirpSync(dirname(out))
-      subtest.on('process', proc =>
-        proc.stdout.pipe(createWriteStream(out))
-      )
-    })
   }
 }

@@ -1,5 +1,9 @@
 import { LoadedConfig } from '@tapjs/config'
 import { resolve } from 'path'
+
+const isStringArray = (a: any): a is string[] =>
+  Array.isArray(a) && !a.some(s => typeof s !== 'string')
+
 export const getCoverageMap = async (config: LoadedConfig) => {
   const coverageMap = config.get('coverage-map')
   const map = (
@@ -12,5 +16,17 @@ export const getCoverageMap = async (config: LoadedConfig) => {
       `Coverage map ${map} did not default export a function`
     )
   }
-  return map
+  return (f: string) => {
+    const mapped: null | string | string[] = map(f)
+    if (
+      mapped !== null &&
+      typeof mapped !== 'string' &&
+      !isStringArray(mapped)
+    ) {
+      throw new Error(
+        `Coverage map ${coverageMap} must return string, string[], or null`
+      )
+    }
+    return mapped
+  }
 }

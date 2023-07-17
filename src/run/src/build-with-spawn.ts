@@ -1,17 +1,16 @@
 import { LoadedConfig } from '@tapjs/config'
-import { proc, TAP } from '@tapjs/core'
 import { plugin as SpawnPlugin } from '@tapjs/spawn'
 import { signature } from '@tapjs/test'
 import { foregroundChild } from 'foreground-child'
 import { build } from './build.js'
-import { mainBin, mainCommand } from './main-config.js'
+
+import type { TAP } from '@tapjs/core'
 
 const node = process.execPath
 export const buildWithSpawn = async (
   t: TAP,
-  args: string[],
   config: LoadedConfig
-) => {
+): Promise<boolean> => {
   // Make sure that we WANT to have the spawn plugin, otherwise
   // the runner really can't work.
   if (!config.pluginList.includes('@tapjs/spawn')) {
@@ -27,41 +26,29 @@ export const buildWithSpawn = async (
 
   // If we didn't load with the spawn plugin, then it means that
   // it must have just been re-built.
+  // if we're already in such a respawn, error out to prevent infinite
+  // process bomb, because obviously it didn't work.
+  // otherwise, try to respawn the runner with the same args, in the hopes
+  // that the reloaded version of the test will have the spawn plugin
+  // we just built.
   if (!t.pluginLoaded(SpawnPlugin)) {
     if (process.env._TAP_RUN_REBUILD_RESPAWN_ === '1') {
       throw new Error('Failed to build a tap with the spawn plugin')
     }
-    const argv = [
-      '--no-warnings=ExperimentalLoader',
-      '--loader=ts-node/esm',
-      mainBin,
-      ...args,
-    ]
-    const env = {
-      ...process.env,
-      _TAP_RUN_REBUILD_RESPAWN_: '1',
-    }
+    process.env._TAP_RUN_REBUILD_RESPAWN_ = '1'
 
-    return new Promise<void>((res, rej) => {
+    // let fg child terminate this process
+    // we just tell run() that we did respawn, so it should no-op
+    return new Promise<boolean>(res => {
       foregroundChild(
         node,
-        [...(proc?.execArgv || []), ...argv],
-        { env },
-        (code, signal) => {
-          if (code || signal) {
-            const er = new Error('run command failed')
-            rej(Object.assign(er, { code, signal }))
-            return
-          }
-          res()
-          if (mainCommand === 'run') {
-            if (code) return code
-            if (signal) return signal
-            return
-          }
-          return false
+        [...process.execArgv, ...process.argv.slice(1)],
+        () => {
+          res(true)
         }
       )
     })
   }
+
+  return false
 }
