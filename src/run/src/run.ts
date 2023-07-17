@@ -21,8 +21,8 @@ import { values } from './main-config.js'
 import { outputDir } from './output-dir.js'
 import { outputFile } from './output-file.js'
 import { report } from './report.js'
-import { runAfter } from './run-after.js'
-import { runBefore } from './run-before.js'
+import { runAfter } from './after.js'
+import { runBefore } from './before.js'
 import { readSave, writeSave } from './save-list.js'
 import { testIsSerial } from './test-is-serial.js'
 
@@ -63,12 +63,20 @@ export const run = async (args: string[], config: LoadedConfig) => {
   // OTOH, you probably do want to have some other setup
   // in many cases, as shown in the @tapjs/typescript plugin.
   const loader = String(piLoader)
+
+  // these all default to an empty array
+  /* c8 ignore start */
+  const testArgs: string[] = values['test-arg'] || []
+  const testEnv: string[] = values['test-env'] || []
+  const nodeArgs: string[] = values['node-arg'] || []
+  /* c8 ignore stop */
+
   const argv = [
     '--no-warnings=ExperimentalLoader',
     ...loaders.map(l => `--loader=${l}`),
     '--enable-source-maps',
     `--loader=${loader}`,
-    ...(values?.['node-arg'] || []),
+    ...nodeArgs,
   ]
 
   // impossible, include has a default, but Jack's TS doesn't know that
@@ -91,10 +99,6 @@ export const run = async (args: string[], config: LoadedConfig) => {
 
   const map = await getCoverageMap(config)
 
-  /* c8 ignore start */
-  const testArgs: string[] = values['test-arg'] || []
-  const testEnv: string[] = values['test-env'] || []
-  /* c8 ignore stop */
   const env = { ...process.env }
   for (const e of testEnv) {
     if (!e.includes('=')) delete env[e]

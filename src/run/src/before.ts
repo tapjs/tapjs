@@ -15,8 +15,8 @@ export const runBefore = (t: TAP, argv: string[], config: LoadedConfig) => {
             node,
             [...argv, resolve(before)],
             (code, signal) => {
-              if (code || signal) return
               res()
+              if (code || signal) return
               return false
             }
           )
