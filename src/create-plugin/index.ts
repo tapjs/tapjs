@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { randomInt } from 'node:crypto'
+import { basename } from 'node:path'
 import { Init } from 'npm-init-template'
 
 const { prompt, build, values, positionals, run } = new Init(
@@ -12,9 +13,35 @@ const rc = () => chars.charAt(randomInt(chars.length))
 const str = (): string =>
   `${rc()}${rc()}${rc()}${rc()}-${rc()}${rc()}${rc()}${rc()}`
 
-const name = await prompt('Plugin name: ', 'name', {
-  default: `tap-plugin-${str()}`,
-})
+const slugify = (s: string) =>
+  s
+    .toLowerCase()
+    .replace(/[^a-z0-9_.]+/g, ' ')
+    .trim()
+    .replace(/ /g, '-')
+
+const pkgName = (s: string) => {
+  if (/^@[^\/]+\/.+$/.test(s)) {
+    const sp = s.split('/')
+    return (
+      '@' +
+      slugify(sp[0].substring(1)) +
+      '/' +
+      slugify(sp.slice(1).join('/'))
+    )
+  } else {
+    return slugify(s)
+  }
+}
+
+const defName =
+  (positionals[0] && pkgName(positionals[0])) || `tap-plugin-${str()}`
+
+const name = values.name = pkgName(
+  await prompt('Plugin package name: ', 'name', {
+    default: defName,
+  })
+)
 values.className = name
   .replace(/^.*?\/([^\/]+)$/, '$1')
   .replace(/^tap-plugin[-.]/, '')
@@ -26,8 +53,7 @@ await prompt('Plugin description: ', 'description', {
 })
 await prompt('Run npm install? ', 'install', { default: 'Yes' })
 await prompt('Run git init? ', 'git', { default: 'Yes' })
-const defTarget =
-  positionals[0] || String(values.name.split('/').pop())
+const defTarget = positionals[0] ? positionals[0] : basename(name)
 
 const target = await prompt('Folder to create in? ', 'target', {
   default: defTarget,
@@ -43,6 +69,10 @@ await build({
 
 if (values.install.trim().toLowerCase().startsWith('y')) {
   await run('npm install')
+}
+
+if (values.git.trim().toLowerCase().startsWith('y')) {
+  await run('git init')
 }
 
 console.log(`

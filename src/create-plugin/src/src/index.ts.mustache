@@ -39,8 +39,8 @@ export class <%&className%> {
     // `this` will always refer to the <%&className%> object, not the
     // Test.
     // If you need to reference the test after construction, use this.#t
-    // to get  at the TestBase root, or this.#t.t to get at the plugged
-    // Test object.
+    // to get at the original TestBase object, or this.#t.t to get at the
+    // fully plugged Test object.
   }
 
   // add properties, methods, getter/setter, anything you need to
@@ -55,7 +55,9 @@ export class <%&className%> {
   //    import { plugin as TeardownPlugin } from '@tapjs/after'
   //
   // 2. Wrap the other plugin method call in a type check:
-  //    if (this.#t.t.pluginLoaded(TeardownPlugin)) { t.teardown(...) }
+  //    if (this.#t.t.pluginLoaded(TeardownPlugin)) {
+  //      t.teardown(...)
+  //    }
   //
   // By doing this, TypeScript will know that the this.#t.t object
   // has the properties and methods created by that plugin.
@@ -66,6 +68,11 @@ export class <%&className%> {
 // Technically you don't *have* to export a plugin() method, for
 // example if your plugin only exists to create a loader or config,
 // but at least one of plugin, config, and/or loader must be present.
+//
+// If you prefer to not use classes, you can also just return any object
+// here. For example, if your plugin does some setup or checks on each
+// test creation, but doesn't add any properties or methods, then you can
+// do that in this function, and just return `{}`
 export const plugin: TapPlugin<<%&className%>, <%&className%>Options> = (
   t: TestBase,
   opts: <%&className%>Options
@@ -82,20 +89,27 @@ export const plugin: TapPlugin<<%&className%>, <%&className%>Options> = (
 // export const config = {
 //   'my-config-flag': {
 //     type: 'boolean', // or 'string' or 'number'.  Required
-//     // short: 'F', // must be single char, optional
-//     // multiple: true, // if it can be set multiple times
-//     // default: true, // optional, must match type/multiple
+//     // optional, must be single char if specified
+//     // short: 'F',
+//
+//     // optional, set to true if the option can be set multiple times
+//     // multiple: true,
+//
+//     // optionally set a default value. Must match the type, and if it's
+//     // multiple:true, then it must be an array of that type.
+//     // Eg: { type: 'string', multiple: true } would have to be a string[]
+//     // default: true,
+//
 //     description: 'A helpful description the --help output',
 //   },
 // }
 //
-// Any configs defined here will, if set either with a default or
-// in the config file or cli options, will also show up on the
-// environment.  'my-config-flag' becomes 'env.TAP_MY_CONFIG_FLAG'
+// Any configs defined here, if set either with a default or in the
+// config file or cli options, will also show up on the environment.
+// A config like 'my-config-flag' becomes 'env.TAP_MY_CONFIG_FLAG'
 
 // To export a custom loader, add it to the package.json "exports",
-// following the same cjs/esm pattern used for '.', and define
-// the path here. Any tests spawned by the runner will load using
-// the hook you specify, whenever the plugin is active.
+// and define the path here. Any tests spawned by the runner will load
+// using the hook you specify, whenever the plugin is active.
 //
 // export const loader = '<%&name%>/loader'
