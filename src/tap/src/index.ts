@@ -1,4 +1,5 @@
-import { TAP, tap } from '@tapjs/core'
+import { PromiseWithSubtest, TAP, tap } from '@tapjs/core'
+import type { BuiltPlugins, Test, TestOpts } from '@tapjs/test'
 export {
   Base,
   Counts,
@@ -20,10 +21,35 @@ export const t: TAP = tap()
 // not exist in the user's actual test environment, so the set is
 // pretty limited, but `test` and `plan` are the only ones normally
 // used in this way.
+// Explicitly define types for subtest methods otherwise TS slaps a
+// bunch of 'any' types because of the .bind()
+// Technically these types aren't accurate if a plugin is loaded at
+// runtime, but that's sort of what you buy into when changing types
+// dynamically.
 export const plan = t.plan.bind(t)
-export const test = t.test.bind(t)
-export const skip = t.skip.bind(t)
-export const todo = t.todo.bind(t)
+
+type SubtestMethod = {
+  (
+    name: string,
+    extra: TestOpts,
+    cb: (t: Test<BuiltPlugins, TestOpts> & BuiltPlugins) => any
+  ): PromiseWithSubtest<Test<BuiltPlugins, TestOpts> & BuiltPlugins>
+  (
+    name: string,
+    cb: (t: Test<BuiltPlugins, TestOpts> & BuiltPlugins) => any
+  ): PromiseWithSubtest<Test<BuiltPlugins, TestOpts> & BuiltPlugins>
+  (
+    extra: TestOpts,
+    cb: (t: Test<BuiltPlugins, TestOpts> & BuiltPlugins) => any
+  ): PromiseWithSubtest<Test<BuiltPlugins, TestOpts> & BuiltPlugins>
+  (
+    cb: (t: Test<BuiltPlugins, TestOpts> & BuiltPlugins) => any
+  ): PromiseWithSubtest<Test<BuiltPlugins, TestOpts> & BuiltPlugins>
+}
+export const test = t.test.bind(t) as SubtestMethod
+export const skip = t.skip.bind(t) as SubtestMethod
+export const todo = t.todo.bind(t) as SubtestMethod
+
 export const bailout = t.bailout.bind(t)
 export const comment = t.comment.bind(t)
 export const timeout = t.timeout.bind(t)
