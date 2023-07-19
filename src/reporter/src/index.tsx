@@ -25,7 +25,7 @@ export const report = async (
     tap.pipe(process.stdout)
     return false
   }
-  // TODO: look up report as a module if not a builtin
+  // TODO: look up report as a module if not a builtin?
   if (typeof Type === 'string') {
     if (!types.hasOwnProperty(Type)) {
       throw new TypeError(`unknown report type: ${Type}`)

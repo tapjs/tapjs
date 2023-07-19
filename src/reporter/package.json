@@ -20,6 +20,9 @@
       "require": "./package.json"
     }
   },
+  "tap": {
+    "coverage-map": "map.js"
+  },
   "license": "BlueOak-1.0.0",
   "scripts": {
     "preversion": "npm test",
@@ -51,5 +54,8 @@
   "funding": {
     "url": "https://github.com/sponsors/isaacs"
   },
-  "repository": "https://github.com/tapjs/tapjs"
+  "repository": "https://github.com/tapjs/tapjs",
+  "devDependencies": {
+    "ink-testing-library": "^3.0.0"
+  }
 }
