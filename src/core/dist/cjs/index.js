@@ -21,6 +21,7 @@ __exportStar(require("./base.js"), exports);
 __exportStar(require("./counts.js"), exports);
 __exportStar(require("./lists.js"), exports);
 __exportStar(require("./test-base.js"), exports);
+__exportStar(require("./minimal.js"), exports);
 __exportStar(require("./normalize-message-extra.js"), exports);
 __exportStar(require("./main-script.js"), exports);
 __exportStar(require("./parse-test-args.js"), exports);

@@ -3,7 +3,7 @@
 import type { Test, TestOpts } from '@tapjs/test';
 import { Minipass } from 'minipass';
 import { Readable } from 'node:stream';
-import { FinalResults } from 'tap-parser';
+import { FinalResults, Result as ParserResult } from 'tap-parser';
 import { Base, BaseOpts } from './base.js';
 import { Spawn } from './spawn.js';
 import { Stdin } from './stdin.js';

@@ -12,25 +12,7 @@ import {
 
 // A utility class to use because the TestBase class doens't have
 // the t.test() method, and calling t.sub() directly is awkward af
-
-class T extends TestBase {
-  constructor(opts: TestBaseOpts) {
-    super(opts)
-    if (!this.parent) this.runMain(() => {})
-  }
-  test(
-    name: string,
-    extra: TestBaseOpts,
-    cb: (t: T) => any
-  ): PromiseWithSubtest<T>
-  test(name: string, cb: (t: T) => any): PromiseWithSubtest<T>
-  test(extra: TestBaseOpts, cb: (t: T) => any): PromiseWithSubtest<T>
-  test(cb: (t: T) => any): PromiseWithSubtest<T>
-  test(...args: TestArgs<T, TestBaseOpts>): PromiseWithSubtest<T> {
-    const extra = parseTestArgs<T, TestBaseOpts>(...args)
-    return this.sub(T, extra, this.test) as PromiseWithSubtest<T>
-  }
-}
+import { Minimal as T } from '../dist/cjs/minimal.js'
 
 const clean = (s: string): string =>
   s
