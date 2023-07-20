@@ -15,6 +15,7 @@ import { argv, cwd } from './proc.js';
 import { TestPoint } from './test-point.js';
 import { Waiter } from './waiter.js';
 import { IMPLICIT } from './implicit-end-sigil.js';
+import { Counts, } from './index.js';
 import { normalizeMessageExtra } from './normalize-message-extra.js';
 const VERSION = 'TAP version 14\n';
 const queueEmpty = (t) => t.queue.length === 0 ||
@@ -67,6 +68,21 @@ export class TestBase extends Base {
     #doingStdinOnly = false;
     #calledOnEOF = false;
     /**
+     * Subtests that are currently in process
+     */
+    activeSubtests = new Set();
+    /**
+     * Count of all asserts in this and all child tests,
+     * excluding child test summary points
+     */
+    assertTotals = new Counts({
+        total: 0,
+        fail: 0,
+        pass: 0,
+        skip: 0,
+        todo: 0,
+    });
+    /**
      * true if the test has printed at least one TestPoint
      */
     get printedResult() {
@@ -80,6 +96,10 @@ export class TestBase extends Base {
     }
     constructor(options) {
         super(options);
+        this.parser.on('result', r => {
+            this.#onParserResult(r);
+            this.emit('assert', r);
+        });
         this.jobs = (options.jobs && Math.max(options.jobs, 1)) || 1;
         if (typeof options.diagnostic === 'boolean') {
             this.diagnostic = options.diagnostic;
@@ -551,8 +571,9 @@ export class TestBase extends Base {
                 break;
             }
             this.debug('start subtest', p);
-            this.emit('subtestStart', p);
+            this.activeSubtests.add(p);
             this.pool.add(p);
+            this.emit('subtestStart', p);
             if (this.bailedOut) {
                 this.#onBufferedEnd(p);
             }
@@ -604,6 +625,7 @@ export class TestBase extends Base {
             p.options.time = p.time;
         if (this.#occupied === p)
             this.#occupied = null;
+        this.activeSubtests.delete(p);
         p.deferred?.resolve(p.results);
         this.emit('subtestEnd', p);
         this.#process();
@@ -637,6 +659,7 @@ export class TestBase extends Base {
         p.options.stack = '';
         this.printResult(p.passing(), p.name, p.options, true);
         this.debug('OIE(%s) shifted into queue', this.name, this.queue);
+        this.activeSubtests.delete(p);
         p.deferred?.resolve(p.results);
         this.emit('subtestEnd', p);
         this.#process();
@@ -701,6 +724,7 @@ export class TestBase extends Base {
         this.debug(' > subtest');
         this.#occupied = p;
         if (!p.buffered) {
+            this.activeSubtests.add(p);
             this.emit('subtestStart', p);
             this.debug(' > subtest indented');
             p.pipe(this.parser, { end: false });
@@ -764,10 +788,12 @@ export class TestBase extends Base {
                 childId: this.#nextChildId++,
             });
             this.emit('subtestAdd', t);
+            this.activeSubtests.add(t);
             this.emit('subtestStart', t);
             this.emit('subtestProcess', t);
             p.on('complete', () => {
                 t.time = p.time;
+                this.activeSubtests.delete(t);
                 this.emit('subtestEnd', t);
             });
         });
@@ -826,6 +852,10 @@ export class TestBase extends Base {
         t.deferred = d;
         this.#process();
         return Object.assign(d.promise, { subtest: t });
+    }
+    #onParserResult(r) {
+        this.assertTotals.total++;
+        this.assertTotals[r.todo ? 'todo' : r.skip ? 'skip' : !r.ok ? 'fail' : 'pass']++;
     }
     threw(er, extra, proxy = false) {
         this.debug('TestBase.threw', this.name, er.message);

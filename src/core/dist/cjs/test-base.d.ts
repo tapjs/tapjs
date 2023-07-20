@@ -11,7 +11,7 @@ import { Result, TestPoint } from './test-point.js';
 import { Waiter } from './waiter.js';
 import { Worker } from './worker.js';
 import { IMPLICIT } from './implicit-end-sigil.js';
-import { Extra, MessageExtra, TapBaseEvents } from './index.js';
+import { Counts, Extra, MessageExtra, TapBaseEvents } from './index.js';
 export interface TestBaseOpts extends BaseOpts {
     /**
      * The number of jobs to run in parallel. Defaults to 1
@@ -50,6 +50,7 @@ export interface TestBaseEvents extends TapBaseEvents {
     subtestProcess: [p: Base];
     subtestAdd: [p: Base];
     result: [res: Result];
+    assert: [res: ParserResult];
     stdin: [s: Stdin];
     spawn: [s: Spawn];
     worker: [w: Worker];
@@ -85,6 +86,15 @@ export declare class TestBase extends Base<TestBaseEvents> {
     count: number;
     ended: boolean;
     diagnostic: null | boolean;
+    /**
+     * Subtests that are currently in process
+     */
+    activeSubtests: Set<Base>;
+    /**
+     * Count of all asserts in this and all child tests,
+     * excluding child test summary points
+     */
+    assertTotals: Counts;
     /**
      * true if the test has printed at least one TestPoint
      */

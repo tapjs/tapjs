@@ -1,14 +1,7 @@
 import { Minipass } from 'minipass'
 import t from 'tap'
-import {
-  parseTestArgs,
-  TestArgs,
-} from '../dist/cjs/parse-test-args.js'
-import {
-  PromiseWithSubtest,
-  TestBase,
-  TestBaseOpts,
-} from '../dist/cjs/test-base.js'
+import { Counts } from '../dist/cjs/counts.js'
+import { TestBase, TestBaseOpts } from '../dist/cjs/test-base.js'
 
 // A utility class to use because the TestBase class doens't have
 // the t.test() method, and calling t.sub() directly is awkward af
@@ -1069,4 +1062,241 @@ not ok 4 - child test left in queue: for
     )
   })
   t.end()
+})
+
+t.test('subtest start/end/active behavior', async t => {
+  const tb = new T({ name: 'parent' })
+  let sawSubtestStarts = 0
+  let sawSubtestEnds = 0
+  tb.on('subtestStart', sub => {
+    sawSubtestStarts++
+    t.equal(tb.activeSubtests.has(sub), true)
+  })
+  tb.on('subtestEnd', sub => {
+    sawSubtestEnds++
+    t.equal(tb.activeSubtests.has(sub), false)
+  })
+  tb.jobs = 4
+  const childHandler = (tb: T) => {
+    setTimeout(() => tb.end(), Math.random() * 100)
+  }
+  tb.test('one', childHandler)
+  tb.test('two', childHandler)
+  tb.test('tre', childHandler)
+  tb.test('for', childHandler)
+  t.equal(tb.activeSubtests.size, 4)
+  tb.end()
+  await tb.concat()
+  t.equal(tb.activeSubtests.size, 0)
+  t.equal(sawSubtestStarts, 4)
+  t.equal(sawSubtestEnds, 4)
+})
+
+t.test('child asserts and assertTotals', async t => {
+  const tb = new T({ name: 'root' })
+  type R = {
+    name: string
+    ok: boolean
+    todo: boolean
+    skip: boolean
+    counts: {
+      total: number
+      pass: number
+      fail: number
+      skip: number
+      todo: number
+    }
+  }
+  const seen: R[] = []
+
+  tb.on('assert', r => {
+    const { pass, fail, todo, skip, total } = tb.assertTotals
+    t.equal(pass + fail + todo + skip, total, 'total is sum')
+    seen.push({
+      name: r.name,
+      ok: r.ok,
+      todo: !!r.todo,
+      skip: !!r.skip,
+      counts: { ...tb.assertTotals },
+    })
+  })
+
+  tb.pass('zro before children')
+
+  tb.test('parent', async tb => {
+    tb.jobs = 2
+    tb.test('one', async tb => {
+      tb.pass('one this is fine')
+      await new Promise<void>(r => setTimeout(r))
+      tb.fail('two not ok')
+      tb.fail('tre not ok but todo', { todo: true })
+      tb.fail('for not ok but skip', { skip: true })
+    })
+    tb.test('two', async tb => {
+      tb.fail('fiv not alright')
+      tb.pass('six passing todo', { todo: true })
+      tb.pass('svn passing skip', { skip: true })
+      tb.pass('eit yes alright')
+    })
+  })
+  tb.pass('nin after children')
+
+  tb.end()
+  await tb.concat()
+
+  const expect = [
+    {
+      name: 'zro before children',
+      ok: true,
+      todo: false,
+      skip: false,
+      counts: {
+        total: 1,
+        pass: 1,
+        fail: 0,
+        skip: 0,
+        todo: 0,
+        complete: undefined,
+      },
+    },
+    {
+      name: 'one this is fine',
+      ok: true,
+      todo: false,
+      skip: false,
+      counts: {
+        total: 2,
+        pass: 2,
+        fail: 0,
+        skip: 0,
+        todo: 0,
+        complete: undefined,
+      },
+    },
+    {
+      name: 'two not ok',
+      ok: false,
+      todo: false,
+      skip: false,
+      counts: {
+        total: 3,
+        pass: 2,
+        fail: 1,
+        skip: 0,
+        todo: 0,
+        complete: undefined,
+      },
+    },
+    {
+      name: 'tre not ok but todo',
+      ok: false,
+      todo: true,
+      skip: false,
+      counts: {
+        total: 4,
+        pass: 2,
+        fail: 1,
+        skip: 0,
+        todo: 1,
+        complete: undefined,
+      },
+    },
+    {
+      name: 'for not ok but skip',
+      ok: false,
+      todo: false,
+      skip: true,
+      counts: {
+        total: 5,
+        pass: 2,
+        fail: 1,
+        skip: 1,
+        todo: 1,
+        complete: undefined,
+      },
+    },
+    {
+      name: 'fiv not alright',
+      ok: false,
+      todo: false,
+      skip: false,
+      counts: {
+        total: 6,
+        pass: 2,
+        fail: 2,
+        skip: 1,
+        todo: 1,
+        complete: undefined,
+      },
+    },
+    {
+      name: 'six passing todo',
+      ok: true,
+      todo: true,
+      skip: false,
+      counts: {
+        total: 7,
+        pass: 2,
+        fail: 2,
+        skip: 1,
+        todo: 2,
+        complete: undefined,
+      },
+    },
+    {
+      name: 'svn passing skip',
+      ok: true,
+      todo: false,
+      skip: true,
+      counts: {
+        total: 8,
+        pass: 2,
+        fail: 2,
+        skip: 2,
+        todo: 2,
+        complete: undefined,
+      },
+    },
+    {
+      name: 'eit yes alright',
+      ok: true,
+      todo: false,
+      skip: false,
+      counts: {
+        total: 9,
+        pass: 3,
+        fail: 2,
+        skip: 2,
+        todo: 2,
+        complete: undefined,
+      },
+    },
+    {
+      name: 'nin after children',
+      ok: true,
+      todo: false,
+      skip: false,
+      counts: {
+        total: 10,
+        pass: 4,
+        fail: 2,
+        skip: 2,
+        todo: 2,
+        complete: undefined,
+      },
+    },
+  ]
+
+  t.strictSame(seen, expect)
+  t.strictSame(
+    tb.assertTotals,
+    new Counts({
+      total: 10,
+      pass: 4,
+      fail: 2,
+      skip: 2,
+      todo: 2,
+      complete: undefined,
+    })
+  )
 })
