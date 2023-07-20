@@ -454,7 +454,11 @@ t.test('rejects', async t => {
 
   //@ts-expect-error
   t.notOk(await a.rejects(() => {}))
-  t.ok(await a.rejects(() => { throw new Error('ok') }))
+  t.ok(
+    await a.rejects(() => {
+      throw new Error('ok')
+    })
+  )
 })
 
 t.test('resolves', async t => {
@@ -468,13 +472,24 @@ t.test('resolves', async t => {
   )
 
   t.equal(await a.resolves(Promise.reject('hello')), 'hello')
-  t.equal(await a.resolves(async () => { throw 'hello' }), 'hello')
+  t.equal(
+    await a.resolves(async () => {
+      throw 'hello'
+    }),
+    'hello'
+  )
   t.equal(
     await a.resolves(async function n() {
       throw 'hello'
-    }), 'hello'
+    }),
+    'hello'
   )
-  t.equal(await a.resolves(() => { throw 'hello' }), 'hello')
+  t.equal(
+    await a.resolves(() => {
+      throw 'hello'
+    }),
+    'hello'
+  )
 
   //@ts-expect-error
   t.notOk(await a.resolves(true))
@@ -489,16 +504,26 @@ t.test('resolveMatch', async t => {
       return 'hello'
     }, 'hel')
   )
-  t.notOk(await a.resolveMatch(Promise.resolve({a: 1}), { a: String }))
+  t.notOk(
+    await a.resolveMatch(Promise.resolve({ a: 1 }), { a: String })
+  )
 
   t.notOk(await a.resolveMatch(Promise.reject('hello'), 'hello'))
-  t.notOk(await a.resolveMatch(async () => { throw 'hello' }, 'hello'))
+  t.notOk(
+    await a.resolveMatch(async () => {
+      throw 'hello'
+    }, 'hello')
+  )
   t.notOk(
     await a.resolveMatch(async function n() {
       throw 'hello'
     }, 'hello')
   )
-  t.notOk(await a.resolveMatch(() => { throw 'hello' }, 'hello'))
+  t.notOk(
+    await a.resolveMatch(() => {
+      throw 'hello'
+    }, 'hello')
+  )
 
   //@ts-expect-error
   t.notOk(await a.resolveMatch(true))
@@ -521,7 +546,7 @@ t.test('emits', async t => {
   await Promise.all([pe, pt])
 
   tt.end()
-  const res = (await tt.concat())
+  const res = await tt.concat()
   t.match(res, /\nok [0-9] - success on EventEmitter/)
   t.match(res, /\nok [0-9] - success on EventTarget/)
   t.match(res, /\nnot ok [0-9] - failure on EventEmitter/)
@@ -529,7 +554,10 @@ t.test('emits', async t => {
 })
 
 t.test('rejects does not have to be awaited', async t => {
-  t.rejects(new Promise((_, rej) => setTimeout(() => rej(new Error('ok')))), {
-    message: 'ok',
-  })
+  t.rejects(
+    new Promise((_, rej) => setTimeout(() => rej(new Error('ok')))),
+    {
+      message: 'ok',
+    }
+  )
 })
