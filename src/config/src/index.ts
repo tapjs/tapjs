@@ -287,7 +287,8 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
   get pluginSignature() {
     return this.pluginList
       .sort((a, b) => a.localeCompare(b, 'en'))
-      .join('\n').trim()
+      .join('\n')
+      .trim()
   }
 
   get pluginList() {
@@ -307,9 +308,12 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
 
   async loadColor() {
     const c = this.get('color')
-    const color = !!(c !== undefined
-      ? c
-      : (await import('chalk')).supportsColor)
+    const chalk = (await import('chalk')).default
+    if (c === false) {
+      process.env.FORCE_COLOR = '0'
+      chalk.level = 0
+    }
+    const color = !!(c !== undefined ? c : chalk.level !== 0)
     const { values } = this.parse()
     ;(values as OptionsResults<C> & { color: boolean }).color = color
     return this
