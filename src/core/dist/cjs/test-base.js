@@ -177,7 +177,7 @@ class TestBase extends base_js_1.Base {
             this.#process();
         }
         else {
-            this.write(message);
+            this.parser.write(message);
         }
     }
     /**

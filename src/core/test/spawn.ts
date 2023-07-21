@@ -207,6 +207,30 @@ t.test('no tests, no reason', t => {
   })
 })
 
+t.test('no tests, no reason, no TAP at all', t => {
+  const s = new Spawn({
+    command: process.execPath,
+    args: ['-e', ''],
+    stdio: 'pipe',
+  })
+  t.strictSame(s.stdio, ['pipe', 'pipe', 'pipe', 'ipc'])
+  s.main(async () => {
+    t.equal(
+      await s.concat(),
+      'TAP version 14\n1..0 # no tests found\n'
+    )
+    t.equal(s.options.skip, 'no tests found')
+    t.match(s.results?.plan, {
+      start: 1,
+      end: 0,
+      skipAll: true,
+      skipReason: 'no tests found',
+      comment: 'no tests found',
+    })
+    t.end()
+  })
+})
+
 t.test('abort unfinished', t => {
   const s = new Spawn({
     command: process.execPath,

@@ -148,7 +148,7 @@ export class TestBase extends Base {
             this.#process();
         }
         else {
-            this.write(message);
+            this.parser.write(message);
         }
     }
     /**

@@ -245,7 +245,7 @@ export class TestBase extends Base<TestBaseEvents> {
       this.queue.push(message)
       this.#process()
     } else {
-      this.write(message)
+      this.parser.write(message)
     }
   }
 
