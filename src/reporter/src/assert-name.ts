@@ -1,5 +1,5 @@
-import { Base } from '@tapjs/core'
-import { Result } from 'tap-parser'
+import type { Base } from '@tapjs/core'
+import type { Result } from 'tap-parser'
 
 export const assertName = (r: Result, t: Base) => {
   const fn = r.fullname

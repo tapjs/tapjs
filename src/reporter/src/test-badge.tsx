@@ -10,7 +10,7 @@ export const TestBadge: FC<TestBadgeOpts> = ({ test }) => {
   const { results, counts } = test
   if (!results) {
     return (
-      <Text backgroundColor="yellow" color="black" bold>
+      <Text backgroundColor="yellow" color="#000" bold>
         {' RUNS '}
       </Text>
     )
@@ -21,19 +21,19 @@ export const TestBadge: FC<TestBadgeOpts> = ({ test }) => {
   } = results
   const { fail, todo, skip } = counts
   return !ok || !!fail ? (
-    <Text backgroundColor="red" color="white" bold>
+    <Text backgroundColor="red" color="#fff" bold>
       {' FAIL '}
     </Text>
   ) : !!todo ? (
-    <Text backgroundColor="#808" color="white" bold>
+    <Text backgroundColor="#808" color="#fff" bold>
       {' TODO '}
     </Text>
   ) : !!skip || skipAll ? (
-    <Text backgroundColor="blue" color="white" bold>
+    <Text backgroundColor="blue" color="#fff" bold>
       {' SKIP '}
     </Text>
   ) : (
-    <Text backgroundColor="#0a0" color="black" bold>
+    <Text backgroundColor="#0a0" color="#000" bold>
       {' PASS '}
     </Text>
   )

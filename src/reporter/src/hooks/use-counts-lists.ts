@@ -12,7 +12,7 @@ export const useCountsLists = (test: Base): [Counts, Lists] => {
       listenCleanup(test.parser, 'result', () =>
         update([test.counts, test.lists])
       ),
-    [counts, lists]
+    [test, counts, lists]
   )
   return [counts, lists]
 }

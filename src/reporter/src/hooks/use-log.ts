@@ -1,5 +1,5 @@
-import { Base, Spawn } from '@tapjs/core'
 import { LoadedConfig } from '@tapjs/config'
+import { Base, Spawn, TestBase } from '@tapjs/core'
 import patchConsole from 'patch-console'
 import { useState } from 'react'
 import { Parser } from 'tap-parser'
@@ -39,13 +39,24 @@ export const isStdioLog = (p?: LogEntry): p is StdioLog =>
   typeof (p as StdioLog).name === 'string' &&
   typeof (p as StdioLog).fd === 'number'
 
-export const useLog = (test: Base, config: LoadedConfig) => {
-  const [logs, updateLogs] = useState<LogEntry[]>([])
+// prevent same-tick state updates from clobbering each other
+// by keeping a persistent copy of the logs for any given test.
+const LOGS = new Map<TestBase, LogEntry[]>()
+
+export const useLog = (test: TestBase, config: LoadedConfig) => {
+  const fromCache = LOGS.get(test) || []
+  LOGS.set(test, fromCache)
+
+  const [logs, updateLogs] = useState<LogEntry[]>(fromCache)
   const appendLog = (l: LogEntry) => {
+    const logs = LOGS.get(test) as LogEntry[]
     const previous = logs[logs.length - 1]
     l.previous = previous
-    updateLogs(logs.concat(l))
+    const newLogs = logs.concat(l)
+    LOGS.set(test, newLogs)
+    updateLogs(newLogs)
   }
+  const tests = useSubtests(test, 'all')
 
   useCleanup(
     cleanup => {
@@ -54,18 +65,8 @@ export const useLog = (test: Base, config: LoadedConfig) => {
           appendLog({ text })
         })
       )
-      cleanup.push(
-        listenCleanup(test, 'subtestEnd', (test: Base) =>
-          appendLog({ test })
-        )
-      )
-    },
-    [logs]
-  )
-  const tests = useSubtests(test, 'all')
-  useCleanup(
-    (cleanup, doCleanup) => {
-      const handleStdio = (test: Base) => {
+
+      for (const test of tests) {
         // stdout that isn't tap is "extra"
         cleanup.push(
           listenCleanup(test.parser, 'extra', (c: string) => {
@@ -76,30 +77,36 @@ export const useLog = (test: Base, config: LoadedConfig) => {
             })
           })
         )
-        // only spanwned procs will have stderr
-        if (test instanceof Spawn) {
-          const l = (c: string) => {
-            appendLog({
-              name: test.name,
-              fd: 2,
-              text: String(c),
+
+        cleanup.push(
+          listenCleanup(test, 'complete', () => appendLog({ test }))
+        )
+
+        const { proc } = test as Spawn
+        if (proc) {
+          cleanup.push(
+            listenCleanup(proc.stderr, 'data', c => {
+              appendLog({
+                name: test.name,
+                fd: 2,
+                text: String(c),
+              })
             })
-          }
-          const { proc } = test
-          if (proc)
-            cleanup.push(listenCleanup(proc.stderr, 'data', l))
-          else
-            test.once('process', proc =>
-              cleanup.push(listenCleanup(proc.stderr, 'data', l))
-            )
+          )
         }
+
         // treat comments a little like a stdio log
         if (config.get('comments')) {
           const onChild = (p: Parser) => {
             cleanup.push(listenCleanup(p, 'child', onChild))
             cleanup.push(
               listenCleanup(p, 'comment', c => {
+                // just a precaution, we don't actually listen in time
+                // to get these, because we're not hooking onto the parser
+                // until it's already been emitted.
+                /* c8 ignore start */
                 if (proceduralComment.test(c)) return
+                /* c8 ignore stop */
                 appendLog({
                   name: p.fullname,
                   fd: 0,
@@ -111,9 +118,6 @@ export const useLog = (test: Base, config: LoadedConfig) => {
           onChild(test.parser)
         }
       }
-      doCleanup()
-      for (const t of tests) handleStdio(t)
-      cleanup.push(listenCleanup(test, 'subtestStart', handleStdio))
     },
     [logs, tests]
   )

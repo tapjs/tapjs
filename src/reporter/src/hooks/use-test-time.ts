@@ -6,7 +6,7 @@ export const useTestTime = (
   test: Base,
   interval: number = 247
 ): number => {
-  const [time, updateTime] = useState<number>(test.time || 0)
+  const [time, updateTime] = useState<number>(test.time)
   const [start] = useState<number>(Date.now())
   useEffect(() => {
     const i = test.time

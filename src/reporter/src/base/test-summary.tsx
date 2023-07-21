@@ -32,9 +32,11 @@ export const TestSummary: FC<TestSummaryOpts> = ({
         {!!(fail || todo || skip) && <Text>of</Text>}
         <Text bold>{total}</Text>
         {!(fail || todo || skip) && <Text color="green">OK</Text>}
-        <Text bold dimColor>
-          {ms(time)}
-        </Text>
+        {time !== 0 && (
+          <Text bold dimColor>
+            {ms(time)}
+          </Text>
+        )}
       </Box>
       <TestResultsList test={test} lists={lists} details={details} />
     </Box>

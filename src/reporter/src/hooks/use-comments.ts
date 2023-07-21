@@ -18,11 +18,10 @@ export const useComments = (test: Base) => {
     () =>
       listenCleanup(test.parser, 'comment', (c: string) => {
         c = c.trim()
-        if (/^# Subtest($|: )/.test(c) || !c) return
         comments_.push(c)
         updateComments([...comments_])
       }),
-    [comments]
+    [comments, test]
   )
 
   return comments
