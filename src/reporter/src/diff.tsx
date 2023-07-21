@@ -4,6 +4,29 @@ import React, { FC } from 'react'
 
 import stringLength from 'string-length'
 
+// Color scheme to work with protanopia, deuteranopia, and tritanopia,
+// since diffs use color as a meaningful indicator.
+// should this be configurable?
+const theme = {
+  green: {
+    bg: '#3A7500',
+    fg: '#F2FFE5',
+  },
+  red: {
+    bg: '#AC3EA3',
+    fg: '#FFE5F1',
+  },
+  ctx: {
+    fg: '#E599FF',
+    bg: '#333',
+    extra: '#5f87d7',
+  },
+  white: {
+    fg: '#ccc',
+    bg: '#333',
+  },
+}
+
 const columns = process.stdout.columns || 80
 
 const Line: FC<{ line: string }> = ({ line }) =>
@@ -18,7 +41,9 @@ const Line: FC<{ line: string }> = ({ line }) =>
   )
 
 const White: FC<{ line: string }> = ({ line }) => (
-  <Text backgroundColor="#eee" color="#111" bold dimColor>
+  <Text
+    backgroundColor={theme.white.bg}
+    color={theme.white.fg}>
     {line}
   </Text>
 )
@@ -27,27 +52,30 @@ const Ctx: FC<{ line: string }> = ({ line }) => {
   const f = line.match(/^(\@\@.*?\@\@)( .*)$/)
   return f ? (
     <Box>
-      <Text bold backgroundColor="#eee" color="#d700ff">
+      <Text bold backgroundColor={theme.ctx.bg} color={theme.ctx.fg}>
         {f[1]}
       </Text>
-      <Text bold backgroundColor="#eee" color="#5f87d7">
-        {f[1]}
+      <Text
+        bold
+        backgroundColor={theme.ctx.bg}
+        color={theme.ctx.extra}>
+        {f[2]}
       </Text>
     </Box>
   ) : (
-    <Text bold backgroundColor="#eee" color="#d700ff">
+    <Text bold backgroundColor={theme.ctx.bg} color={theme.ctx.fg}>
       {line}
     </Text>
   )
 }
 
 const Green: FC<{ line: string }> = ({ line }) => (
-  <Text color="#005F00" backgroundColor="#D7FFAF">
+  <Text color={theme.green.fg} backgroundColor={theme.green.bg}>
     {line}
   </Text>
 )
 const Red: FC<{ line: string }> = ({ line }) => (
-  <Text color="#5F0000" backgroundColor="#FFAFD7">
+  <Text color={theme.red.fg} backgroundColor={theme.red.bg}>
     {line}
   </Text>
 )
