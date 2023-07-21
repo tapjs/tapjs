@@ -17,9 +17,9 @@ const theme = {
     fg: '#FFE5F1',
   },
   ctx: {
-    fg: '#E599FF',
     bg: '#333',
-    extra: '#5f87d7',
+    fg: '#759EEF',
+    extra: '#E599FF',
   },
   white: {
     fg: '#ccc',
