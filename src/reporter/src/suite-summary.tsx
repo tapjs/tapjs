@@ -11,7 +11,7 @@ export const SuiteSummary: FC<Pick<TapReportOpts, 'tap'>> = ({
   const asserts = useAssertTotals(tap)
 
   return (
-    <Box marginTop={1}>
+    <Box marginY={1}>
       <Box flexDirection="row" gap={2} alignSelf="flex-end">
         <Box flexDirection="column">
           <Text bold>Suites:</Text>
