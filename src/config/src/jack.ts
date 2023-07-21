@@ -2,15 +2,7 @@ import { env } from '@tapjs/core'
 import { defaultPlugins } from '@tapjs/test'
 import { jack } from 'jackspeak'
 
-import * as os from 'node:os'
-/* c8 ignore start */
-const defaultParallel = Math.max(
-  16,
-  typeof os.availableParallelism === 'function'
-    ? os.availableParallelism()
-    : Math.min(os.cpus().length, 1)
-)
-/* c8 ignore stop */
+import { jobs } from './jobs.js'
 
 const coverageReporters = [
   'clover',
@@ -394,11 +386,11 @@ export default jack({
     jobs: {
       hint: 'n',
       short: 'j',
-      default: defaultParallel,
+      default: jobs,
       description: `Run up to <n> test files in parallel.
 
-                    By default, this will be set to the number of CPUs on
-                    the system (${defaultParallel}).
+                    By default, this will be set based on the number of CPUs
+                    on the system.
 
                     Set --jobs=1 to disable parallelization entirely.`,
     },

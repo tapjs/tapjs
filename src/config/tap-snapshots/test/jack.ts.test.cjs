@@ -180,8 +180,8 @@ Object {
     "description": String(
       Run up to <n> test files in parallel.
       
-                          By default, this will be set to the number of CPUs on
-                          the system (16).
+                          By default, this will be set based on the number of CPUs
+                          on the system.
       
                           Set --jobs=1 to disable parallelization entirely.
     ),
