@@ -31,9 +31,12 @@ export const TestResultsList: FC<TestResultsListOpts> = ({
       </Box>
     )
   }
-  // TODO: add a --passes config option to show all passing
-  // results if details:true
-  resultsList.push(...lists.skip, ...lists.todo, ...lists.fail)
+  resultsList.push(
+    ...lists.pass,
+    ...lists.skip,
+    ...lists.todo,
+    ...lists.fail
+  )
 
   if (typeof test.options.signal === 'string') {
     resultsList.push(

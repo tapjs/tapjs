@@ -92,6 +92,7 @@ class TAP extends Test {
       omitVersion: envFlag('TAP_OMIT_VERSION'),
       preserveWhitespace: !envFlag('TAP_OMIT_WHITESPACE'),
       timeout,
+      passes: envFlag('TAP_PASSES'),
       ...opts,
     }
 

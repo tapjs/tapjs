@@ -112,6 +112,7 @@ export class Base extends Minipass {
                     strict: this.strict,
                     omitVersion: this.omitVersion,
                     preserveWhitespace: this.preserveWhitespace,
+                    passes: this.options.passes,
                     name: this.name,
                 });
         this.setupParser();
@@ -126,7 +127,12 @@ export class Base extends Minipass {
         this.parser.once('bailout', reason => this.onbail(reason));
         this.parser.on('complete', result => this.oncomplete(result));
         this.parser.on('result', () => this.counts.total++);
-        this.parser.on('pass', () => this.counts.pass++);
+        this.parser.on('pass', res => {
+            if (this.options.passes) {
+                this.lists.pass.push(res);
+            }
+            this.counts.pass++;
+        });
         this.parser.on('todo', res => {
             this.counts.todo++;
             this.lists.todo.push(res);

@@ -27,6 +27,10 @@ export interface BaseOpts extends Extra {
     skip?: boolean | string;
     todo?: boolean | string;
     timeout?: number;
+    /**
+     * track passes in the results lists, default false
+     */
+    passes?: boolean;
     time?: number;
     tapChildBuffer?: string;
     stack?: string;

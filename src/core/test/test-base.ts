@@ -1300,3 +1300,30 @@ t.test('child asserts and assertTotals', async t => {
     })
   )
 })
+
+t.test('passes:true gets passed down', async t => {
+  const tb = new T({ name: 'passer', passes: true })
+  const { subtest } = tb.test('child passer', tb => {
+    t.equal(tb.options.passes, true)
+    tb.pass('this is fine')
+    tb.end()
+  })
+  tb.end()
+  await tb.concat()
+  t.same(subtest?.lists.pass, [
+    {
+      ok: true,
+      name: 'this is fine',
+      id: 1,
+      buffered: false,
+      tapError: null,
+      skip: false,
+      todo: false,
+      previous: null,
+      plan: null,
+      diag: null,
+      time: null,
+      fullname: 'child passer > this is fine',
+    },
+  ])
+})

@@ -256,6 +256,14 @@ Object {
     "short": "o",
     "type": "string",
   },
+  "passes": Object {
+    "description": String(
+      Include passing tests in assertion summary reports.
+      
+            Note: this usually makes test output QUITE noisy.
+    ),
+    "type": "boolean",
+  },
   "plugin": Object {
     "default": Array [],
     "description": String(

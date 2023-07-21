@@ -281,6 +281,12 @@ export default jack({
       description: 'Print all tap comments to process.stderr',
     },
 
+    passes: {
+      description: `Include passing tests in assertion summary reports.
+
+      Note: this usually makes test output QUITE noisy.`,
+    },
+
     color: {
       short: 'c',
       description: 'Use colors (Default for TTY)',

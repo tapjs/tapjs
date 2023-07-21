@@ -602,10 +602,10 @@ export class Parser
     this.count++
     if (res.ok) {
       this.pass++
-      if (this.passes) this.passes.push(res)
       const { skip, todo } = res
       if (skip) this.skips.push({ ...res, skip })
       if (todo) this.todos.push({ ...res, todo })
+      if (!skip && !todo && this.passes) this.passes.push(res)
     } else {
       this.fail++
       if (!res.todo && !res.skip) {

@@ -1038,6 +1038,10 @@ export class TestBase extends Base<TestBaseEvents> {
     }
     extra.context = this.context
 
+    if (extra.passes === undefined && this.options.passes !== undefined) {
+      extra.passes = !!this.options.passes
+    }
+
     const t = new Class(extra as O)
 
     this.queue.push(t)

@@ -844,6 +844,9 @@ export class TestBase extends Base {
             extra.stack = st.map(c => String(c)).join('\n');
         }
         extra.context = this.context;
+        if (extra.passes === undefined && this.options.passes !== undefined) {
+            extra.passes = !!this.options.passes;
+        }
         const t = new Class(extra);
         this.queue.push(t);
         this.subtests.push(t);

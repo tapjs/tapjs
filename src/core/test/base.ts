@@ -340,3 +340,28 @@ t.test('timeout method', t => {
 
   t.end()
 })
+
+t.test('track passes in lists if passes:true in options', async t => {
+  const b = new Base({ passes: true, name: 'passer' })
+  b.parser.end(`TAP version 14
+ok 1 - this is fine
+ok 2 - skipped test # SKIP
+ok 3 - skipped with message # SKIP with a message
+ok 4 - todo test # TODO
+ok 5 - todo test with message # TODO with a message
+ok 6 - skip for filter # SKIP filter: blarg
+ok 7 - skip for grep # SKIP filter: only
+ok 8 - another normal pass
+1..8
+`)
+  await b.concat()
+  t.equal(b.results?.passes?.length, 2)
+  t.equal(b.lists?.pass?.length, 2)
+  t.strictSame(b.results?.passes, b.lists?.pass)
+  t.matchSnapshot(b.results)
+  t.matchSnapshot(b.lists)
+  t.matchSnapshot(b.counts)
+  t.matchSnapshot(b.context)
+  t.equal(b.passing(), true)
+  t.end()
+})

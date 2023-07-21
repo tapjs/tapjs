@@ -49,6 +49,11 @@ export interface BaseOpts extends Extra {
   todo?: boolean | string
   timeout?: number
 
+  /**
+   * track passes in the results lists, default false
+   */
+  passes?: boolean
+
   time?: number
   tapChildBuffer?: string
   stack?: string
@@ -170,6 +175,7 @@ export class Base<
         strict: this.strict,
         omitVersion: this.omitVersion,
         preserveWhitespace: this.preserveWhitespace,
+        passes: this.options.passes,
         name: this.name,
       })
     this.setupParser()
@@ -187,7 +193,12 @@ export class Base<
     this.parser.on('complete', result => this.oncomplete(result))
 
     this.parser.on('result', () => this.counts.total++)
-    this.parser.on('pass', () => this.counts.pass++)
+    this.parser.on('pass', res => {
+      if (this.options.passes) {
+        this.lists.pass.push(res)
+      }
+      this.counts.pass++
+    })
     this.parser.on('todo', res => {
       this.counts.todo++
       this.lists.todo.push(res)
