@@ -44,7 +44,7 @@
     "mustache": "^4.2.0",
     "nock": "^13.3.1",
     "node-fetch": "^3.3.1",
-    "nx": "16.3.2",
+    "nx": "^16.5.4",
     "nx-cloud": "latest",
     "opener": "^1.5.2",
     "patch-console": "^2.0.0",
