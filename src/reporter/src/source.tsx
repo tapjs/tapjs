@@ -45,7 +45,9 @@ export const Source: FC<SourceOpts> = ({ source, at }) => {
     const ctx = 4
     const startLine = Math.max(at.lineNumber - ctx, 0)
     const endLine = Math.min(at.lineNumber + ctx, lines.length)
-    const numLen = endLine.toString().length + 1
+    const numLen = at.lineNumber.toString().length
+    const maxNumLen = lines.length.toString().length
+    const excess = maxNumLen - numLen
     const line = lines[at.lineNumber - 1]
     const before = lines.slice(startLine, at.lineNumber)
     const after = lines.slice(at.lineNumber, endLine)
@@ -55,8 +57,9 @@ export const Source: FC<SourceOpts> = ({ source, at }) => {
       at.columnNumber && at.columnNumber < stringLength(line)
         ? chalk.ansi256(252).bgAnsi256(234)(
             chalk.red(
-              '-'.repeat(numLen + at.columnNumber - 1) +
-                chalk.bold('^') +
+              ' '.repeat(excess) +
+                '━'.repeat(numLen + at.columnNumber) +
+                chalk.bold('┛') +
                 ' '.repeat(len - (numLen + at.columnNumber))
             )
           )
