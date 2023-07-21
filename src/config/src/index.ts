@@ -322,9 +322,9 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
   loadReporter() {
     const r = this.get('reporter')
     if (r !== undefined && env.TAP !== '1') return this
-    const reporter =
-      env.TAP === '1' || !this.get('color') ? 'tap' : 'base'
     const { values } = this.parse()
+    const reporter =
+      env.TAP === '1' || !values.color ? 'tap' : 'base'
     ;(values as OptionsResults<C> & { reporter: string }).reporter =
       reporter
     return this
