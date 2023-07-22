@@ -40,9 +40,8 @@ for i in src/*; do
 done
 echo -n "                                      "$'\r'
 
-# don't rebuild core until AFTER Test and plugins are built
+# need to rebuild tap after plugins
 nx run-many --target=prepare --exclude tap
-nx run-many --target=prepare -p @tapjs/core
 nx run-many --target=prepare -p tap
 node --loader=ts-node/esm --no-warnings scripts/default-build.ts
 # lastly, run the actual install to do all the linking

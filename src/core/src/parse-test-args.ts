@@ -2,10 +2,9 @@ import type { Base, BaseOpts } from './base.js'
 
 import { TestOpts } from '@tapjs/test'
 
-export type TestArgs<
-  T extends Base,
-  O extends TestOpts | BaseOpts = TestOpts | BaseOpts
-> =
+type Opts = Exclude<BaseOpts, 'parent'> & { parent?: any }
+
+export type TestArgs<T extends Base, O extends Opts = Opts> =
   | []
   | [name: string]
   | [cb: ((t: T) => any) | false]
@@ -20,10 +19,7 @@ export type TestArgs<
       defaultName?: string
     ]
 
-export const parseTestArgs = <
-  T extends Base,
-  O extends TestOpts | BaseOpts = TestOpts | BaseOpts
->(
+export const parseTestArgs = <T extends Base, O extends Opts = Opts>(
   ...args: TestArgs<T, O>
 ): O => {
   let name: string | null | undefined = undefined
