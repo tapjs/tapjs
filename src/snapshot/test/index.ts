@@ -254,16 +254,20 @@ t.test('set snapshot file', { saveFixture: true }, t => {
     parent: '',
     child: '',
   })
-  t.test('parent', { snapshotFile: resolve(d, 'parent') }, t => {
-    t.matchSnapshot({ a: 1 })
-    t.test('child', t => {
-      t.snapshotFile = resolve(d, 'blah')
-      t.snapshotFile = resolve(d, 'child')
-      t.matchSnapshot({ child: true })
+  t.test(
+    'parent',
+    { writeSnapshot: true, snapshotFile: resolve(d, 'parent') },
+    t => {
+      t.matchSnapshot({ a: 1 })
+      t.test('child', t => {
+        t.snapshotFile = resolve(d, 'blah')
+        t.snapshotFile = resolve(d, 'child')
+        t.matchSnapshot({ child: true })
+        t.end()
+      })
       t.end()
-    })
-    t.end()
-  })
+    }
+  )
   t.end()
 })
 
