@@ -7,7 +7,7 @@ import t from 'tap'
 import { getTest } from '../fixtures/get-test.js'
 chalk.level = 3
 
-t.cleanSnapshot = s => s.replace(/[0-9]+m?s/g, '{TIME}')
+t.cleanSnapshot = s => s.replace(/[0-9.]+m?s/g, '{TIME}')
 
 const { Terse } = (await t.mockImport('../../dist/terse/index.js', {
   chalk,
