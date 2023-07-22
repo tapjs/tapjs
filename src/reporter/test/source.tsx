@@ -1,9 +1,7 @@
-import chalk from 'chalk'
+import './fixtures/chalk.js'
 import { render } from 'ink-testing-library'
 import React from 'react'
 import t from 'tap'
-
-chalk.level = 3
 
 import { at, CallSiteLike } from '@tapjs/stack'
 import { Source } from '../dist/source.js'

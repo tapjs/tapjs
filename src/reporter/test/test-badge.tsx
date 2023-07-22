@@ -1,12 +1,11 @@
 import { Base } from '@tapjs/core'
 import { Test } from '@tapjs/test'
-import chalk from 'chalk'
+import './fixtures/chalk.js'
 import { render } from 'ink-testing-library'
 import React from 'react'
 import t from 'tap'
 import { TestBadge } from '../dist/test-badge.js'
 
-chalk.level = 3
 
 const run = async (t: Test, test: any) =>
   t.matchSnapshot(

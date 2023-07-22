@@ -1,12 +1,11 @@
 import { Minimal } from '@tapjs/core'
-import chalk from 'chalk'
+import chalk from './fixtures/chalk.js'
 import { Box, Text } from 'ink'
 import { render } from 'ink-testing-library'
 import React from 'react'
 import t from 'tap'
 import * as tapParser from 'tap-parser'
 
-chalk.level = 3
 const { TestResultsList } = (await t.mockImport(
   '../dist/test-results-list.js',
   {

@@ -1,10 +1,9 @@
-import chalk from 'chalk'
+import './fixtures/chalk.js'
 import { createTwoFilesPatch } from 'diff'
 import { render } from 'ink-testing-library'
 import React from 'react'
 import t from 'tap'
 import { Diff } from '../dist/diff.js'
-chalk.level = 3
 
 t.test('diff some stuff', async t => {
   const found = {

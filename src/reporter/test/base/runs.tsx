@@ -1,12 +1,10 @@
 import { Minimal } from '@tapjs/core'
-import chalk from 'chalk'
+import '../fixtures/chalk.js'
 import { render } from 'ink-testing-library'
 import React from 'react'
 import t from 'tap'
 import { Runs } from '../../dist/base/runs.js'
 import { sleep } from '../fixtures/sleep.js'
-
-chalk.level = 3
 
 const tb = new Minimal({ name: 'gump' })
 tb.jobs = 5

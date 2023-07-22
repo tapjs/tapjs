@@ -1,10 +1,9 @@
-import chalk from 'chalk'
+import chalk from '../fixtures/chalk.js'
 import { Box, Text } from 'ink'
 import { render } from 'ink-testing-library'
 import React from 'react'
 import t from 'tap'
 import { getTest } from '../fixtures/get-test.js'
-chalk.level = 3
 
 const { ResultDetailList } = (await t.mockImport(
   '../../dist/base/result-detail-list.js',

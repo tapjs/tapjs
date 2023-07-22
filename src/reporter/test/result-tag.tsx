@@ -1,3 +1,4 @@
+import './fixtures/chalk.js'
 import { Base } from '@tapjs/core'
 import { render } from 'ink-testing-library'
 import React from 'react'
@@ -6,9 +7,7 @@ import { Result } from 'tap-parser'
 import { ResultTag } from '../dist/result-tag.js'
 
 import { at } from '@tapjs/stack'
-import chalk from 'chalk'
 import { createTwoFilesPatch } from 'diff'
-chalk.level = 3
 
 const getRes = (opts: { [k: string]: any } = {}) =>
   Object.assign(
@@ -104,26 +103,26 @@ t.test('fail, with diag, no line/column numbers', t => {
 })
 
 t.test('fail, with diag and details', t => {
-  t.matchSnapshot(
-    render(
-      <ResultTag
-        details
-        test={{ name: 'test name' } as unknown as Base}
-        result={getRes({
-          ok: false,
-          diag: {
-            at: at(),
-            diff: createTwoFilesPatch(
-              'expected',
-              'actual',
-              JSON.stringify({ x: 1 }, null, 2),
-              JSON.stringify({ x: 2, y: 1 }, null, 2)
-            ),
-          },
-        })}
-      />
-    ).lastFrame()
-  )
+  const actual = render(
+    <ResultTag
+      details
+      test={{ name: 'test name' } as unknown as Base}
+      result={getRes({
+        ok: false,
+        diag: {
+          at: at(),
+          diff: createTwoFilesPatch(
+            'expected',
+            'actual',
+            JSON.stringify({ x: 1 }, null, 2),
+            JSON.stringify({ x: 2, y: 1 }, null, 2)
+          ),
+        },
+      })}
+    />
+  ).lastFrame()
+
+  t.matchSnapshot(actual)
   t.end()
 })
 

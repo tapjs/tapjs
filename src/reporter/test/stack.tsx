@@ -4,8 +4,7 @@ import React from 'react'
 import { Stack } from '../dist/stack.js'
 import { render } from 'ink-testing-library'
 
-import chalk from 'chalk'
-chalk.level = 3
+import './fixtures/chalk.js'
 
 // output generated from the @tapjs/stack parser test fixture
 const stack = [

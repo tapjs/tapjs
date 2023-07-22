@@ -1,11 +1,10 @@
 import { Counts, CountsJSON } from '@tapjs/core'
 import { Test } from '@tapjs/test'
-import chalk from 'chalk'
+import chalk from './fixtures/chalk.js'
 import { render } from 'ink-testing-library'
 import React from 'react'
 import t from 'tap'
 
-chalk.level = 3
 
 const run = async (
   t: Test,

@@ -1,13 +1,12 @@
 import { LoadedConfig } from '@tapjs/config'
 import {Minimal} from '@tapjs/core'
-import chalk from 'chalk'
+import chalk from '../fixtures/chalk.js'
 import { Box, Text } from 'ink'
 import { render } from 'ink-testing-library'
 import React from 'react'
 import t from 'tap'
 import { logs } from '../fixtures/logs.js'
 
-chalk.level = 3
 
 const { Log } = (await t.mockImport('../../dist/terse/log.js', {
   chalk,
