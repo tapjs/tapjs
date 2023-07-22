@@ -37,7 +37,6 @@ export const isCompiledCallSiteLine = (c: any) =>
 const lineRef =
   '(?:((?:node:|file:)?[^:]+):([1-9][0-9]*):([1-9][0-9]*)|(native))'
 const lineRefLoose = '(?:(.+):([1-9][0-9]*):([1-9][0-9]*))'
-const lineRefLooseRe = new RegExp(lineRefLoose)
 const bareLineRef = `^(?:${lineRef})$`
 const bareLineRefRe = new RegExp(bareLineRef)
 const bareLineRefLoose = `^${lineRefLoose}$`
