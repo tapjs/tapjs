@@ -19,8 +19,10 @@ export const TestSummary: FC<TestSummaryOpts> = ({
   const [counts, lists] = useCountsLists(test)
   const time = useTestTime(test)
 
-  const { total, todo, skip, fail } = counts
-  return test.parser.ok ? (
+  const { total, todo, fail, skip } = counts
+  // terse only makes noise if something requires action,
+  // either a failing test or todo item
+  return !(fail || todo) ? (
     <></>
   ) : (
     <Box flexDirection="column">
@@ -29,17 +31,14 @@ export const TestSummary: FC<TestSummaryOpts> = ({
         <Text>{test.name}</Text>
         {!!fail && <Text color="red">{fail} failed</Text>}
         {!!todo && <Text color="magenta">{todo} todo</Text>}
-        {!!(fail || skip) && <Text>of</Text>}
+        {!!skip && <Text color="cyan">{skip} skip</Text>}
+        <Text>of</Text>
         <Text bold>{total}</Text>
         <Text bold dimColor>
           {ms(time)}
         </Text>
       </Box>
-      <TestResultsList
-        test={test}
-        lists={lists}
-        details={details}
-      />
+      <TestResultsList test={test} lists={lists} details={details} />
     </Box>
   )
 }

@@ -10,12 +10,14 @@ export interface TestResultsListOpts {
   details?: boolean
 }
 
+const isResult = (r: any): r is Result =>
+  !!r && typeof r === 'object' && typeof r.ok === 'boolean'
+
 export const TestResultsList: FC<TestResultsListOpts> = ({
   test,
   lists,
   details = false,
 }) => {
-  const showCallsite = !details
   const { results } = test
   if (!results) return <></>
 
@@ -53,12 +55,11 @@ export const TestResultsList: FC<TestResultsListOpts> = ({
   type RLG = (ReactElement[] | ReactElement)[]
   const resultsListGrouped: RLG = resultsList.reduce(
     (s: RLG, f: ReactElement | Result) => {
-      const el =
-        f instanceof Result ? (
-          <ResultTag result={f} details={details} test={test} />
-        ) : (
-          f
-        )
+      const el = isResult(f) ? (
+        <ResultTag result={f} details={details} test={test} />
+      ) : (
+        f
+      )
       if (!details || !(f instanceof Result) || !f.diag) {
         let l = s[s.length - 1]
         if (!Array.isArray(l)) {

@@ -43,19 +43,13 @@ export const StdioLogLine: FC<StdioLog> = ({
   const prefix =
     isStdioLog(p) && p.fd === fd && p.name === name ? (
       <></>
-    ) : fd ? (
+    ) : (
       <Box gap={1} paddingTop={1}>
         {fd === 1 ? (
           <Text color="cyan" bold dimColor>{`1>`}</Text>
-        ) : fd === 2 ? (
-          <Text color="red" bold dimColor>{`2>`}</Text>
         ) : (
-          <></>
+          <Text color="red" bold dimColor>{`2>`}</Text>
         )}
-        <Text dimColor>{name}</Text>
-      </Box>
-    ) : (
-      <Box paddingTop={1}>
         <Text dimColor>{name}</Text>
       </Box>
     )

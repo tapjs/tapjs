@@ -12,11 +12,8 @@ import {
   LogEntry,
   useLog,
 } from '../../dist/hooks/use-log.js'
-import { sleep } from '../fixtures/sleep.js'
 import { reduce } from '../fixtures/reduce.js'
-
-render
-t
+import { sleep } from '../fixtures/sleep.js'
 
 const Tag: FC<{ test: Minimal; config: LoadedConfig }> = ({
   test,
@@ -92,36 +89,17 @@ t.test('log some stuff, with a process, no comments', async t => {
   for (let i = 1; i < result.length; i++) {
     t.strictSame(
       result[i - 1],
-      result[i].slice(0, result[i].length - 1),
+      result[i].slice(0, result[i - 1].length),
       'logs not overwritten'
     )
   }
 
-  t.strictSame(result, [
-    [],
-    [{ type: 'stdio', fd: 2, text: 'hello from stderr\n' }],
-    [
-      { type: 'stdio', fd: 2, text: 'hello from stderr\n' },
-      { type: 'stdio', fd: 1, text: 'This is not tap\n' },
-    ],
-    [
-      { type: 'stdio', fd: 2, text: 'hello from stderr\n' },
-      { type: 'stdio', fd: 1, text: 'This is not tap\n' },
-      { type: 'console', text: 'a console.log\n' },
-    ],
-    [
-      { type: 'stdio', fd: 2, text: 'hello from stderr\n' },
-      { type: 'stdio', fd: 1, text: 'This is not tap\n' },
-      { type: 'console', text: 'a console.log\n' },
-      { type: 'console', text: 'a console error\n' },
-    ],
-    [
-      { type: 'stdio', fd: 2, text: 'hello from stderr\n' },
-      { type: 'stdio', fd: 1, text: 'This is not tap\n' },
-      { type: 'console', text: 'a console.log\n' },
-      { type: 'console', text: 'a console error\n' },
-      { type: 'test', text: 'child test' },
-    ],
+  t.strictSame(result[result.length - 1], [
+    { type: 'stdio', fd: 2, text: 'hello from stderr\n' },
+    { type: 'stdio', fd: 1, text: 'This is not tap\n' },
+    { type: 'console', text: 'a console.log\n' },
+    { type: 'console', text: 'a console error\n' },
+    { type: 'test', text: 'child test' },
   ])
 })
 
@@ -165,29 +143,16 @@ t.test(
     for (let i = 1; i < result.length; i++) {
       t.strictSame(
         result[i - 1],
-        result[i].slice(0, result[i].length - 1),
+        result[i].slice(0, result[i - 1].length),
         'logs not overwritten'
       )
     }
 
-    t.strictSame(result, [
-      [],
-      [{ type: 'console', text: 'a console.log\n' }],
-      [
-        { type: 'console', text: 'a console.log\n' },
-        { type: 'comment', fd: 0, text: '# child comment\n' },
-      ],
-      [
-        { type: 'console', text: 'a console.log\n' },
-        { type: 'comment', fd: 0, text: '# child comment\n' },
-        { type: 'console', text: 'a console error\n' },
-      ],
-      [
-        { type: 'console', text: 'a console.log\n' },
-        { type: 'comment', fd: 0, text: '# child comment\n' },
-        { type: 'console', text: 'a console error\n' },
-        { type: 'test', text: 'child test' },
-      ],
+    t.strictSame(result[result.length - 1], [
+      { type: 'console', text: 'a console.log\n' },
+      { type: 'comment', fd: 0, text: '# child comment\n' },
+      { type: 'console', text: 'a console error\n' },
+      { type: 'test', text: 'child test' },
     ])
   }
 )

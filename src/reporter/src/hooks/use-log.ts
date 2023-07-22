@@ -7,6 +7,17 @@ import { listenCleanup } from '../listen-cleanup.js'
 import { useCleanup } from './use-cleanup.js'
 import { useSubtests } from './use-subtests.js'
 
+const isBase = (o: any): o is Base =>
+  !!o &&
+  typeof o === 'object' &&
+  // only relevant when mocking the import in our own tests
+  /* c8 ignore start */
+  (o instanceof Base ||
+    (typeof o.name === 'string' &&
+      !!o.parser &&
+      typeof o.parser === 'object'))
+/* c8 ignore stop */
+
 const proceduralComment = /^# Subtest(?:\n?$|: )/
 
 export type LogEntry = StdioLog | TestLog | ConsoleLog
@@ -17,7 +28,7 @@ export interface TestLog {
 }
 
 export const isTestLog = (p?: LogEntry): p is TestLog =>
-  !!p && (p as TestLog).test instanceof Base
+  !!p && isBase((p as TestLog).test)
 
 export interface ConsoleLog {
   text: string
@@ -27,7 +38,7 @@ export interface ConsoleLog {
 export const isConsoleLog = (p?: LogEntry): p is ConsoleLog =>
   !!p &&
   typeof (p as ConsoleLog).text === 'string' &&
-  !((p as TestLog).test instanceof Base)
+  !isBase((p as TestLog).test)
 
 export interface StdioLog extends ConsoleLog {
   name: string
