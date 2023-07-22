@@ -19,7 +19,7 @@ export const ResultDetailList: FC<Pick<TapReportOpts, 'tap'>> = ({
     <Box flexDirection="column" gap={1}>
       {t.map((test, key) => (
         <Box key={key} flexDirection="column">
-          <TestSummary test={test} showCallsite={true} />
+          <TestSummary test={test} />
         </Box>
       ))}
     </Box>

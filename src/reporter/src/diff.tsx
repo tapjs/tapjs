@@ -17,7 +17,7 @@ const theme = {
     fg: '#FFE5F1',
   },
   ctx: {
-    bg: '#333',
+    bg: '#222',
     fg: '#759EEF',
     extra: '#E599FF',
   },
@@ -80,9 +80,7 @@ const Red: FC<{ line: string }> = ({ line }) => (
   </Text>
 )
 
-export const Diff: FC<{ diff: any }> = ({ diff = '' }) => {
-  if (typeof diff !== 'string')
-    return <Text>{'1: ' + JSON.stringify(diff)}</Text>
+export const Diff: FC<{ diff: string }> = ({ diff = '' }) => {
   const sd: string = diff.trimEnd()
   if (!sd) return <></>
 

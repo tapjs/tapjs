@@ -8,15 +8,14 @@ export interface TestResultsListOpts {
   test: Base
   lists: Lists
   details?: boolean
-  showCallsite?: boolean
 }
 
 export const TestResultsList: FC<TestResultsListOpts> = ({
   test,
   lists,
   details = false,
-  showCallsite = false,
 }) => {
+  const showCallsite = !details
   const { results } = test
   if (!results) return <></>
 
@@ -56,12 +55,7 @@ export const TestResultsList: FC<TestResultsListOpts> = ({
     (s: RLG, f: ReactElement | Result) => {
       const el =
         f instanceof Result ? (
-          <ResultTag
-            result={f}
-            details={details}
-            test={test}
-            showCallsite={showCallsite}
-          />
+          <ResultTag result={f} details={details} test={test} />
         ) : (
           f
         )

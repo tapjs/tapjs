@@ -9,15 +9,14 @@ export interface ResultOpts {
   result: Result
   details?: boolean
   test: Base
-  showCallsite?: boolean
 }
 
 export const ResultTag: FC<ResultOpts> = ({
   result,
   details = false,
   test,
-  showCallsite = false,
 }) => {
+  const showCallsite = !details
   const c = result.skip
     ? '~'
     : result.todo
@@ -46,8 +45,9 @@ export const ResultTag: FC<ResultOpts> = ({
     showCallsite && at && fileName ? (
       <Text dimColor>
         {fileName}
-        {at.lineNumber ? `:${at.lineNumber}` : ''}
-        {at.columnNumber ? `:${at.columnNumber}` : ''}
+        {at.lineNumber && at.columnNumber
+          ? `:${at.lineNumber}:${at.columnNumber}`
+          : ''}
       </Text>
     ) : (
       <></>

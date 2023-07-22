@@ -10,13 +10,11 @@ import { TestResultsList } from '../test-results-list.js'
 export interface TestSummaryOpts {
   test: Base
   details?: boolean
-  showCallsite?: boolean
 }
 
 export const TestSummary: FC<TestSummaryOpts> = ({
   test,
   details = false,
-  showCallsite = false,
 }) => {
   const [counts, lists] = useCountsLists(test)
   const time = useTestTime(test)
@@ -41,7 +39,6 @@ export const TestSummary: FC<TestSummaryOpts> = ({
         test={test}
         lists={lists}
         details={details}
-        showCallsite={showCallsite}
       />
     </Box>
   )

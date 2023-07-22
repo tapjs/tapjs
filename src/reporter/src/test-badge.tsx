@@ -17,6 +17,7 @@ export const TestBadge: FC<TestBadgeOpts> = ({ test }) => {
   }
   const {
     ok,
+    skip: resultsSkip,
     plan: { skipAll },
   } = results
   const { fail, todo, skip } = counts
@@ -28,7 +29,7 @@ export const TestBadge: FC<TestBadgeOpts> = ({ test }) => {
     <Text backgroundColor="#808" color="#fff" bold>
       {' TODO '}
     </Text>
-  ) : !!skip || skipAll ? (
+  ) : !!skip || skipAll || !!resultsSkip ? (
     <Text backgroundColor="blue" color="#fff" bold>
       {' SKIP '}
     </Text>
