@@ -3,9 +3,9 @@ import { Box, Text } from 'ink'
 import { render } from 'ink-testing-library'
 import React, { FC } from 'react'
 import t from 'tap'
-import { promisify } from 'util'
 import { useIsDone } from '../../dist/hooks/use-is-done.js'
-const sleep = promisify(setTimeout)
+import { sleep } from '../fixtures/sleep.js'
+import { reduce } from '../fixtures/reduce.js'
 
 const Tag: FC<{ test: Minimal }> = ({ test }) => {
   const done = useIsDone(test)
@@ -27,10 +27,5 @@ t.test('check if test is done', async t => {
   await tb.concat()
   app.unmount()
 
-  const red = (list: string[]) =>
-    list.reduce((list: string[], entry) => {
-      if (entry !== list[list.length - 1]) list.push(entry)
-      return list
-    }, [])
-  t.strictSame(red(app.frames), ['false', 'true'])
+  t.strictSame(reduce(app.frames), ['false', 'true'])
 })

@@ -4,10 +4,10 @@ import { Box, Text } from 'ink'
 import { render } from 'ink-testing-library'
 import React, { FC } from 'react'
 import t from 'tap'
-import { promisify } from 'util'
 import { useSubtests } from '../../dist/hooks/use-subtests.js'
 
-const sleep = promisify(setTimeout)
+import { getTest } from '../fixtures/get-test.js'
+import { reduce } from '../fixtures/reduce.js'
 
 const Tag: FC<{
   test: Minimal
@@ -21,64 +21,6 @@ const Tag: FC<{
   )
 }
 
-const getTest = () => {
-  const tb = new Minimal({ name: 'parent' })
-  tb.jobs = 4
-  sleep(64).then(async () => {
-    // children end out of order
-    const { subtest: zro } = tb.test('zro', () => {})
-    const { subtest: one } = tb.test('one', () => {})
-    const { subtest: two } = tb.test('two', () => {})
-    const { subtest: tre } = tb.test('tre', () => {})
-    const { subtest: fur } = tb.test('fur', () => {})
-    const { subtest: fiv } = tb.test('fiv', () => {})
-    const { subtest: six } = tb.test('six', () => {})
-    const { subtest: svn } = tb.test('svn', () => {})
-    const { subtest: eit } = tb.test('eit', () => {})
-    const { subtest: nin } = tb.test('nin', () => {})
-    if (
-      !zro ||
-      !one ||
-      !two ||
-      !tre ||
-      !fur ||
-      !fiv ||
-      !six ||
-      !svn ||
-      !eit ||
-      !nin
-    ) {
-      throw new Error('failed to get one or more subtests')
-    }
-
-    tb.end()
-
-    one.end()
-    two.end()
-    await sleep(10)
-    fur.end()
-    await sleep(10)
-    fiv.end()
-    await sleep(10)
-    tre.end()
-    svn.end()
-    await sleep(10)
-    eit.end()
-    nin.end()
-    await sleep(10)
-    six.end()
-    zro.end()
-  })
-
-  return tb
-}
-
-const red = (list: string[]) =>
-  list.reduce((list: string[], entry) => {
-    if (entry !== list[list.length - 1]) list.push(entry)
-    return list
-  }, [])
-
 const containsPrevious = (t: Test, list: string[][]) => {
   for (let i = 1; i < list.length; i++) {
     t.strictSame(list[i - 1], list[i].slice(0, -1))
@@ -89,7 +31,7 @@ t.test('all subtests', async t => {
   const tb = getTest()
   const app = render(<Tag test={tb} which="all" />)
   await tb.concat()
-  const frames = red(app.frames).map(j => JSON.parse(j))
+  const frames = reduce(app.frames).map(j => JSON.parse(j))
   containsPrevious(t, frames)
   t.strictSame(frames[frames.length - 1], [
     'zro',
@@ -109,7 +51,7 @@ t.test('finished subtests', async t => {
   const tb = getTest()
   const app = render(<Tag test={tb} which="finished" />)
   await tb.concat()
-  const frames = red(app.frames).map(j => JSON.parse(j))
+  const frames = reduce(app.frames).map(j => JSON.parse(j))
   containsPrevious(t, frames)
   t.strictSame(frames[frames.length - 1], [
     'one',
@@ -129,7 +71,7 @@ t.test('active subtests', async t => {
   const tb = getTest()
   const app = render(<Tag test={tb} which="active" />)
   await tb.concat()
-  const frames = red(app.frames).map(j => JSON.parse(j))
+  const frames = reduce(app.frames).map(j => JSON.parse(j))
   t.strictSame(frames, [
     [],
     ['zro'],

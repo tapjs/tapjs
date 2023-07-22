@@ -3,9 +3,8 @@ import { Box, Text } from 'ink'
 import { render } from 'ink-testing-library'
 import React, { FC } from 'react'
 import t from 'tap'
-import { promisify } from 'util'
 import { useTestTime } from '../../dist/hooks/use-test-time.js'
-const sleep = promisify(setTimeout)
+import { sleep } from '../fixtures/sleep.js'
 
 const Tag: FC<{ test: Minimal }> = ({ test }) => {
   const time = useTestTime(test, 32)
@@ -38,7 +37,7 @@ t.test('get the time', async t => {
   }
 })
 
-t.test('finished test just returns test.time', async t=> {
+t.test('finished test just returns test.time', async t => {
   const tb = new Minimal({ name: 'parent' })
   tb.pass('this is fine')
   tb.end()

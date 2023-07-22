@@ -5,7 +5,6 @@ import { render } from 'ink-testing-library'
 import { Minipass } from 'minipass'
 import React, { FC } from 'react'
 import t from 'tap'
-import { promisify } from 'util'
 import {
   isConsoleLog,
   isStdioLog,
@@ -13,7 +12,8 @@ import {
   LogEntry,
   useLog,
 } from '../../dist/hooks/use-log.js'
-const sleep = promisify(setTimeout)
+import { sleep } from '../fixtures/sleep.js'
+import { reduce } from '../fixtures/reduce.js'
 
 render
 t
@@ -85,13 +85,7 @@ t.test('log some stuff, with a process, no comments', async t => {
   app.rerender(<Box></Box>)
   app.unmount()
 
-  const red = (list: string[]) =>
-    list.reduce((list: string[], entry) => {
-      if (entry !== list[list.length - 1]) list.push(entry)
-      return list
-    }, [])
-
-  const result = red(app.frames)
+  const result = reduce(app.frames)
     .filter(f => f.trim())
     .map(j => JSON.parse(j))
 
@@ -164,12 +158,7 @@ t.test(
     app.rerender(<Box></Box>)
     app.unmount()
 
-    const red = (list: string[]) =>
-      list.reduce((list: string[], entry) => {
-        if (entry !== list[list.length - 1]) list.push(entry)
-        return list
-      }, [])
-    const result = red(app.frames)
+    const result = reduce(app.frames)
       .filter(f => f.trim())
       .map(j => JSON.parse(j))
 

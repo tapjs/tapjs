@@ -3,9 +3,8 @@ import { Box, Text } from 'ink'
 import { render } from 'ink-testing-library'
 import React, { FC } from 'react'
 import t from 'tap'
-import { promisify } from 'util'
 import { useAssertTotals } from '../../dist/hooks/use-assert-totals.js'
-const sleep = promisify(setTimeout)
+import { sleep } from '../fixtures/sleep.js'
 
 const Tag: FC<{ test: Minimal }> = ({ test }) => {
   const totals = useAssertTotals(test)

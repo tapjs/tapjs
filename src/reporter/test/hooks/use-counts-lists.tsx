@@ -4,9 +4,9 @@ import { render } from 'ink-testing-library'
 import React, { FC } from 'react'
 import t from 'tap'
 import { Result } from 'tap-parser'
-import { promisify } from 'util'
 import { useCountsLists } from '../../dist/hooks/use-counts-lists.js'
-const sleep = promisify(setTimeout)
+import { sleep } from '../fixtures/sleep.js'
+import { reduce } from '../fixtures/reduce.js'
 
 const Tag: FC<{ test: Minimal }> = ({ test }) => {
   const [counts, lists] = useCountsLists(test)
@@ -49,13 +49,8 @@ t.test('show counts and lists', async t => {
   await tb.concat()
   app.unmount()
 
-  const red = (list: string[]) =>
-    list.reduce((list: string[], entry) => {
-      if (entry !== list[list.length - 1]) list.push(entry)
-      return list
-    }, [])
   t.strictSame(
-    red(app.frames).map(j => JSON.parse(j)),
+    reduce(app.frames).map(j => JSON.parse(j)),
     [
       {
         counts: { total: 0, pass: 0 },

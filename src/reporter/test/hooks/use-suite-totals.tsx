@@ -3,15 +3,9 @@ import { Box, Text } from 'ink'
 import { render } from 'ink-testing-library'
 import React, { FC } from 'react'
 import t from 'tap'
-import { promisify } from 'util'
 import { useSuiteTotals } from '../../dist/hooks/use-suite-totals.js'
-const sleep = promisify(setTimeout)
-
-const red = (list: string[]) =>
-  list.reduce((list: string[], entry) => {
-    if (entry !== list[list.length - 1]) list.push(entry)
-    return list
-  }, [])
+import { sleep } from '../fixtures/sleep.js'
+import { reduce } from '../fixtures/reduce.js'
 
 const Tag: FC<{ test: Minimal }> = ({ test }) => {
   const suiteTotals = useSuiteTotals(test)
@@ -80,7 +74,7 @@ t.test('suite totals', async t => {
 
   await tb.concat()
 
-  const frames = red(app.frames).map(j => JSON.parse(j))
+  const frames = reduce(app.frames).map(j => JSON.parse(j))
   t.strictSame(frames, [
     { total: 0, pass: 0 },
     { total: 1, pass: 0, skip: 1, complete: 1 },
