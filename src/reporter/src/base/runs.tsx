@@ -1,12 +1,12 @@
+import { TestBase } from '@tapjs/core'
 import { Box } from 'ink'
 import React, { FC } from 'react'
 import { useSubtests } from '../hooks/use-subtests.js'
-import { TapReportOpts } from '../index.js'
 import { TestSummary } from './test-summary.js'
 
 // Every time a test ends, print just the summary
-export const Runs: FC<Pick<TapReportOpts, 'tap'>> = ({ tap }) => {
-  const t = useSubtests(tap, 'active')
+export const Runs: FC<{ test: TestBase }> = ({ test }) => {
+  const t = useSubtests(test, 'active')
   return !t.length ? (
     <></>
   ) : (

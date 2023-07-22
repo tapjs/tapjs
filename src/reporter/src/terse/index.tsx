@@ -5,12 +5,12 @@ import { TapReportOpts } from '../index.js'
 import { SuiteSummary } from '../suite-summary.js'
 import { ResultDetailList } from './result-detail-list.js'
 
-export const Terse: FC<Pick<TapReportOpts, 'tap'>> = ({ tap }) => (
+export const Terse: FC<TapReportOpts> = ({ test }) => (
   <Box flexDirection="column">
-    <ResultDetailList tap={tap} />
-    <SuiteSummary tap={tap} />
+    <ResultDetailList test={test} />
+    <SuiteSummary test={test} />
     <Box flexDirection="column">
-      {useComments(tap).map((c, key) => (
+      {useComments(test).map((c, key) => (
         <Box key={key}>
           <Text dimColor>{c}</Text>
         </Box>

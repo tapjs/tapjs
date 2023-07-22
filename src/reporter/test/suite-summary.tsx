@@ -24,7 +24,7 @@ const run = async (
       },
     }
   )) as typeof import('../dist/suite-summary.js')
-  t.matchSnapshot(render(<SuiteSummary tap={t} />).lastFrame())
+  t.matchSnapshot(render(<SuiteSummary test={t} />).lastFrame())
 }
 
 t.test('1 passing of 1', t =>

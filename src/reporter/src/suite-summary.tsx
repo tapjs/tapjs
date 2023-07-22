@@ -34,9 +34,9 @@ const Todo: FC<CountsJSON> = ({ todo = 0 }) =>
     <></>
   )
 
-export const SuiteSummary: FC<{ tap: TestBase }> = ({ tap }) => {
-  const suites = useSuiteTotals(tap)
-  const asserts = useAssertTotals(tap)
+export const SuiteSummary: FC<{ test: TestBase }> = ({ test }) => {
+  const suites = useSuiteTotals(test)
+  const asserts = useAssertTotals(test)
 
   return (
     <Box marginY={1}>

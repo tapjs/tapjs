@@ -7,14 +7,14 @@ import { Log } from './log.js'
 import { ResultDetailList } from './result-detail-list.js'
 import { Runs } from './runs.js'
 
-export const Base: FC<TapReportOpts> = ({ tap, config }) => (
+export const Base: FC<TapReportOpts> = ({ test, config }) => (
   <Box flexDirection="column">
-    <Log tap={tap} config={config} />
-    <ResultDetailList tap={tap} />
-    <Runs tap={tap} />
-    <SuiteSummary tap={tap} />
+    <Log test={test} config={config} />
+    <ResultDetailList test={test} />
+    <Runs test={test} />
+    <SuiteSummary test={test} />
     <Box flexDirection="column">
-      {useComments(tap).map((c, key) => (
+      {useComments(test).map((c, key) => (
         <Box key={key}>
           <Text dimColor>{c}</Text>
         </Box>

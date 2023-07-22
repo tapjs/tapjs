@@ -1,10 +1,10 @@
-import { TAP } from '@tapjs/core'
+import { TAP, TestBase } from '@tapjs/core'
 import { LoadedConfig } from '@tapjs/config'
 import { render } from 'ink'
 import React from 'react'
 
 export interface TapReportOpts {
-  tap: TAP
+  test: TestBase
   config: LoadedConfig
 }
 
@@ -33,7 +33,7 @@ export const report = async (
     Type = types[Type]
   }
   tap.register()
-  render(<Type tap={tap} config={config}></Type>, {
+  render(<Type test={tap} config={config}></Type>, {
     patchConsole: false,
   })
   return true

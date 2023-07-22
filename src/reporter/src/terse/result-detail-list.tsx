@@ -1,17 +1,16 @@
+import { TestBase } from '@tapjs/core'
 import { Box } from 'ink'
 import React, { FC } from 'react'
 import { useIsDone } from '../hooks/use-is-done.js'
 import { useSubtests } from '../hooks/use-subtests.js'
-
-import { TapReportOpts } from '../index.js'
 import { TestSummary } from './test-summary.js'
 
-export const ResultDetailList: FC<Pick<TapReportOpts, 'tap'>> = ({
-  tap,
+export const ResultDetailList: FC<{ test: TestBase }> = ({
+  test,
 }) => {
-  const tests = useSubtests(tap, 'finished')
+  const tests = useSubtests(test, 'finished')
   const t = tests.filter(t => t.lists.fail.length)
-  const done = useIsDone(tap)
+  const done = useIsDone(test)
 
   return !done ? (
     <></>

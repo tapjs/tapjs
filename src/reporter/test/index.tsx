@@ -95,7 +95,7 @@ t.test('render with a custom tag', async t => {
     mockConfig as unknown as LoadedConfig
   )
   t.strictSame(rendered, {
-    tap: mockTap,
+    test: mockTap,
     config: mockConfig,
   })
   t.equal(registered, true)
@@ -126,7 +126,7 @@ t.test('render with known type', async t => {
     mockConfig as unknown as LoadedConfig
   )
   t.strictSame(rendered, {
-    tap: mockTap,
+    test: mockTap,
     config: mockConfig,
   })
   t.equal(registered, true)

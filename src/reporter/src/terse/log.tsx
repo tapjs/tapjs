@@ -8,16 +8,13 @@ import { Box, Static, Text } from 'ink'
 import React, { FC } from 'react'
 import {
   ConsoleLog,
-  isConsoleLog,
   isStdioLog,
   isTestLog,
   LogEntry,
   StdioLog,
-  TestLog,
   useLog,
 } from '../hooks/use-log.js'
 import { TapReportOpts } from '../index.js'
-import { TestSummary } from './test-summary.js'
 
 export const ConsoleLogLine: FC<ConsoleLog> = ({
   text,
@@ -65,10 +62,10 @@ export const StdioLogLine: FC<StdioLog> = ({
   )
 }
 
-export const Log: FC<TapReportOpts> = ({ tap, config }) => {
-  if (tap.results) return <></>
+export const Log: FC<TapReportOpts> = ({ test, config }) => {
+  if (test.results) return <></>
 
-  const logs = useLog(tap, config)
+  const logs = useLog(test, config)
   return (
     <Static items={logs}>
       {(log, key) => <LogLine {...log} key={key} />}

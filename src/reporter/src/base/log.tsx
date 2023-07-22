@@ -70,10 +70,10 @@ export const StdioLogLine: FC<StdioLog> = ({
   )
 }
 
-export const Log: FC<TapReportOpts> = ({ tap, config }) => {
-  if (tap.results) return <></>
+export const Log: FC<TapReportOpts> = ({ test, config }) => {
+  if (test.results) return <></>
 
-  const logs = useLog(tap, config)
+  const logs = useLog(test, config)
   return (
     <Static items={logs}>
       {(log, key) => <LogLine {...log} key={key} />}
