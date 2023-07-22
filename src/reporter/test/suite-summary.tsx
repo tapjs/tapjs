@@ -16,6 +16,10 @@ const run = async (
     '../dist/suite-summary.js',
     {
       chalk,
+      '../dist/hooks/use-test-time.js': {
+        useTestTime: () => 123,
+      },
+      '../dist/ms.js': { ms: () => '{TIME}' },
       '../dist/hooks/use-assert-totals.js': {
         useAssertTotals: () => new Counts(asserts),
       },

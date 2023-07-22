@@ -71,7 +71,7 @@ exports[`test/base/index.tsx > TAP > yes comments and passes > must match snapsh
  [1m[35m☐[39m[22m todo
 [1m[48;2;0;170;0m[38;2;0;0;0m PASS [39m[49m[22m fiv [1m1[22m [32mOK[39m [2m{TIME}[22m
 
-[31m[2m2>[22m[39m [{TIME}vn[22m
+[31m[2m2>[22m[39m [2msvn[22m
 # comment in svn
 
 [1m[48;2;0;170;0m[38;2;0;0;0m PASS [39m[49m[22m tre [1m1[22m [32mOK[39m [2m{TIME}[22m

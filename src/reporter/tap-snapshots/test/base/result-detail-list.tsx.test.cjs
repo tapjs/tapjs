@@ -25,7 +25,7 @@ exports[`test/base/result-detail-list.tsx > TAP > must match snapshot 1`] = `
     [48;5;234m[38;2;143;165;209m21 [38;5;252m      [38;2;147;205;255m})[38;5;252m                                                          [39m[49m
     XXX mock stack XXX
 
-[1m[44m[38;2;255;255;255m SKIP [39m[49m[22m two [36m1 skip[39m of [1m1[22m [2m3.{TIME}[22m
+[1m[44m[38;2;255;255;255m SKIP [39m[49m[22m two [36m1 skip[39m of [1m1[22m [2m{TIME}[22m
  [1m[36m~[39m[22m skip
 
 [1m[48;2;136;0;136m[38;2;255;255;255m TODO [39m[49m[22m fur [35m1 todo[39m of [1m1[22m [2m{TIME}[22m

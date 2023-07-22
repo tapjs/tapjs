@@ -10,6 +10,7 @@ const { TestSummary } = (await t.mockImport(
   '../../dist/terse/test-summary.js',
   {
     chalk,
+    '../../dist/ms.js': { ms: () => '{TIME}' },
     '../../dist/hooks/use-test-time.js': {
       useTestTime: () => 123,
     },
@@ -78,4 +79,3 @@ t.test('all the details', async t => {
   )
   t.end()
 })
-

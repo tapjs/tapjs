@@ -6,11 +6,15 @@ import t from 'tap'
 import { getTest } from '../fixtures/get-test.js'
 chalk.level = 3
 
-t.cleanSnapshot = s => s.replace(/[0-9.]+m?s/g, '{TIME}')
-
 const { ResultDetailList } = (await t.mockImport(
   '../../dist/base/result-detail-list.js',
   {
+    '../../dist/ms.js': {
+      ms: () => '{TIME}',
+    },
+    '../../dist/hooks/use-test-time.js': {
+      useTestTime: () => 123,
+    },
     chalk,
     '../../dist/stack.js': {
       Stack: () => (

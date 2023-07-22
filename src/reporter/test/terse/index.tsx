@@ -7,10 +7,14 @@ import t from 'tap'
 import { getTest } from '../fixtures/get-test.js'
 chalk.level = 3
 
-t.cleanSnapshot = s => s.replace(/[0-9.]+m?s/g, '{TIME}')
-
 const { Terse } = (await t.mockImport('../../dist/terse/index.js', {
   chalk,
+  '../../dist/ms.js': {
+    ms: () => '{TIME}',
+  },
+  '../../dist/hooks/use-test-time.js': {
+    useTestTime: () => 123,
+  },
   '../../dist/stack.js': {
     Stack: () => (
       <Box>
@@ -18,7 +22,6 @@ const { Terse } = (await t.mockImport('../../dist/terse/index.js', {
       </Box>
     ),
   },
-  '../../dist/terse/log.js': await import('../../dist/terse/log.js'),
 })) as typeof import('../../dist/terse/index.js')
 
 t.test('no comments or passes', async t => {

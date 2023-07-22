@@ -10,6 +10,7 @@ const { TestSummary } = (await t.mockImport(
   '../../dist/base/test-summary.js',
   {
     chalk,
+    '../../dist/ms.js': { ms: () => '{TIME}' },
     '../../dist/hooks/use-test-time.js': {
       useTestTime: () => 123,
     },
