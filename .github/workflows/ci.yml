@@ -29,4 +29,4 @@ jobs:
           TS_NODE_TRANSPILE_ONLY=1 npm run bootstrap
       - name: Run tests
         run: |
-          npm test --color=always -- -c -t0
+          npm test -ws --color=always -- -c -t0
