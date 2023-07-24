@@ -6,6 +6,9 @@
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "type": "module",
+  "bin": {
+    "tap-run": "./dist/index.js"
+  },
   "files": [
     "dist"
   ],
