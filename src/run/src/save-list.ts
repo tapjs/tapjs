@@ -21,6 +21,6 @@ export const writeSave = async (
   const save = config.get('save')
   if (!save) return
   if (!file) file = resolve(config.globCwd, save)
-  if (!list.length) await unlink(file)
+  if (!list.length) await unlink(file).catch(() => {})
   else await writeFile(file, list.join('\n') + '\n', 'utf8')
 }
