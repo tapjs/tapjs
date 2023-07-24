@@ -223,7 +223,12 @@ if (json === 'silent' || json === 'lines') {
   if (json === 'lines') {
     parser.on('line', l => process.stdout.write(l))
   }
-  parser.on('complete', () => (process.exitCode = parser.ok ? 0 : 1))
+  parser.on('complete', () => {
+    process.exitCode = parser.ok ? 0 : 1
+    if (!parser.ok) {
+      console.error('not ok??', parser.results)
+    }
+  })
   process.stdin.pipe(parser)
 } else {
   const input = []
@@ -232,7 +237,15 @@ if (json === 'silent' || json === 'lines') {
     .on('end', () => {
       const buf = Buffer.concat(input)
       const result = Parser.parse(buf, options)
-      const summary = result[result.length - 1]
+      let i = result.length -1
+      while (result[i] && Array.isArray(result[i])) {
+        if (result[i][0] === 'finish' || result[i][0] === 'close') {
+          i--
+        } else {
+          break
+        }
+      }
+      const summary = result[i]
       console.log(format(result))
       /* c8 ignore start */
       if (summary[0] !== 'complete' || !summary[1].ok) {
