@@ -102,7 +102,7 @@ t.test('--version, run version', async t => {
   t.strictSame(positionals, [])
   t.equal(mainCommand, 'version')
   t.equal(mainBin, mainBinActual)
-  t.strictSame(args, [])
+  t.strictSame(args, ['version'])
 })
 
 t.test('--versions, run versions', async t => {
@@ -118,5 +118,5 @@ t.test('--versions, run versions', async t => {
   t.strictSame(positionals, [])
   t.equal(mainCommand, 'versions')
   t.equal(mainBin, mainBinActual)
-  t.strictSame(args, [])
+  t.strictSame(args, ['versions'])
 })

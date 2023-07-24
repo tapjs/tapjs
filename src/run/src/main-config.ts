@@ -32,7 +32,15 @@ const commands = new Set([
 ])
 if (!commands.has(mainCommand)) mainCommand = 'run'
 
-export const args =
-  positionals[0] === mainCommand ? positionals.slice(1) : positionals
+export const args = positionals.slice(
+  positionals[0] === mainCommand && !/^versions?$/.test(mainCommand)
+    ? 1
+    : 0
+)
+
+if (mainCommand === 'version' || mainCommand === 'versions') {
+  args.length = 0
+  args.push(mainCommand)
+}
 
 export const mainBin = String(new URL('index.js', import.meta.url))
