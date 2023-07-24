@@ -1,0 +1,8 @@
+{
+  "extends": "./build.json",
+  "exclude": ["../test", "../tap-snapshots", "../src/require-esm.ts"],
+  "compilerOptions": {
+    "module": "commonjs",
+    "outDir": "../dist-tmp/cjs"
+  }
+}

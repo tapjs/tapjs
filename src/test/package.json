@@ -32,18 +32,18 @@
   "scripts": {
     "snap": "tap",
     "test": "tap",
-    "build": "tsc -p tsconfig.json && tsc -p tsconfig-esm.json && bash fixup.sh",
+    "build": "tsc -p tsconfig/cjs.json && tsc -p tsconfig/esm.json && bash scripts/fixup.sh",
     "pretest": "npm run build",
     "presnap": "npm run build",
     "format": "prettier --write . --loglevel warn --ignore-path ../../.prettierignore --cache",
-    "preversion": "npm test",
-    "postversion": "npm publish",
-    "prepublishOnly": "npm run build && git push origin --follow-tags",
-    "typedoc": "typedoc --tsconfig tsconfig-esm.json ./src/*.ts"
+    "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
   },
   "tap": {
     "coverage-map": "map.js"
   },
+  "bundleDependencies": [
+    "@tapjs/.test-built"
+  ],
   "dependencies": {
     "@tapjs/core": ">=0.0.0-0",
     "glob": "^10.3.2",

@@ -1,0 +1,7 @@
+{
+  "extends": "./build.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "outDir": "../dist-tmp/cjs"
+  }
+}

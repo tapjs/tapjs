@@ -1,16 +1,15 @@
 #!/usr/bin/env bash
+sync-content dist-tmp dist
+rm -rf dist-tmp
 
-cat >dist-tmp/cjs/package.json <<!EOF
+cat >dist/cjs/package.json <<!EOF
 {
   "type": "commonjs"
 }
 !EOF
 
-cat >dist-tmp/mjs/package.json <<!EOF
+cat >dist/mjs/package.json <<!EOF
 {
   "type": "module"
 }
 !EOF
-
-sync-content dist-tmp dist
-rm -rf dist-tmp

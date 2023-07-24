@@ -24,16 +24,23 @@ const dir = process.env._TESTING_TEST_BUILD_TARGET_ || defaultTarget
 /* c8 ignore stop */
 
 mkdirp.sync(resolve(dir, 'src'))
+mkdirp.sync(resolve(dir, 'tsconfig'))
+mkdirp.sync(resolve(dir, 'scripts'))
 const out = resolve(dir, 'src/index.ts')
 
 const copies = globSync(
-  ['LICENSE.md', 'tsconfig*.json', 'fixup.sh', 'package-template.json'],
-  { cwd: __dirname, absolute: true }
+  [
+    'LICENSE.md',
+    'tsconfig.json',
+    'tsconfig/*.json',
+    'scripts/fixup.sh',
+    'package-template.json',
+  ],
+  { cwd: __dirname }
 )
 for (const f of copies) {
-  const b = basename(f)
-  const t = b === 'package-template.json' ? 'package.json' : b
-  writeFileSync(resolve(dir, t), readFileSync(f))
+  const t = f === 'package-template.json' ? 'package.json' : f
+  writeFileSync(resolve(dir, t), readFileSync(resolve(__dirname, f)))
 }
 
 const plugins = process.argv.slice(2)
@@ -205,9 +212,11 @@ ${[...hasPlugin.values()]
 }
 `
 
-const pluginLoaders = `const preloaders = new Set<string>(${
-  JSON.stringify([...preloaders.values()], null, 2)
-})
+const pluginLoaders = `const preloaders = new Set<string>(${JSON.stringify(
+  [...preloaders.values()],
+  null,
+  2
+)})
 
 export const loaders: string[] = ${JSON.stringify(
   [...hasLoader.values()],

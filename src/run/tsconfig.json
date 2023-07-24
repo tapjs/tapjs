@@ -1,6 +1,6 @@
 {
-  "include": ["src/*.ts"],
   "compilerOptions": {
+    "jsx": "react",
     "declaration": true,
     "declarationMap": true,
     "inlineSources": true,

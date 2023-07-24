@@ -62,7 +62,7 @@ t.test('good plugins', async t => {
     stderr: '',
     stdout: `
 > @tapjs/test-built@0.0.0-0 prepare
-> tsc -p tsconfig.json && tsc -p tsconfig-esm.json && bash fixup.sh
+> tsc -p tsconfig/cjs.json && tsc -p tsconfig/esm.json && bash fixup.sh
 
 `,
   })
@@ -192,7 +192,7 @@ t.test('disambiguate plugin names', async t => {
     stderr: '',
     stdout: `
 > @tapjs/test-built@0.0.0-0 prepare
-> tsc -p tsconfig.json && tsc -p tsconfig-esm.json && bash fixup.sh
+> tsc -p tsconfig/cjs.json && tsc -p tsconfig/esm.json && bash fixup.sh
 
 `,
   })

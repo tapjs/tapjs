@@ -30,6 +30,25 @@
   "engines": {
     "node": ">=16.17"
   },
+  "bundleDependencies": [
+    "@tapjs/after",
+    "@tapjs/after-each",
+    "@tapjs/asserts",
+    "@tapjs/before",
+    "@tapjs/before-each",
+    "@tapjs/core",
+    "@tapjs/filter",
+    "@tapjs/fixture",
+    "@tapjs/intercept",
+    "@tapjs/mock",
+    "@tapjs/run",
+    "@tapjs/snapshot",
+    "@tapjs/spawn",
+    "@tapjs/stdin",
+    "@tapjs/test",
+    "@tapjs/typescript",
+    "@tapjs/worker"
+  ],
   "dependencies": {
     "@tapjs/after": ">=0.0.0-0",
     "@tapjs/after-each": ">=0.0.0-0",
@@ -45,6 +64,7 @@
     "@tapjs/snapshot": ">=0.0.0-0",
     "@tapjs/spawn": ">=0.0.0-0",
     "@tapjs/stdin": ">=0.0.0-0",
+    "@tapjs/test": ">=0.0.0-0",
     "@tapjs/typescript": ">=0.0.0-0",
     "@tapjs/worker": ">=0.0.0-0"
   },
@@ -56,16 +76,13 @@
   ],
   "license": "ISC",
   "scripts": {
-    "preversion": "npm test",
-    "postversion": "npm publish",
-    "prepublishOnly": "git push origin --follow-tags",
-    "prepare": "tsc -p tsconfig.json && tsc -p tsconfig-esm.json && bash ./scripts/fixup.sh",
+    "prepare": "tsc -p tsconfig/cjs.json && tsc -p tsconfig/esm.json && bash ./scripts/fixup.sh",
     "pretest": "npm run prepare",
     "presnap": "npm run prepare",
     "test": "tap",
     "snap": "tap",
     "format": "prettier --write . --loglevel warn --ignore-path ../../.prettierignore --cache",
-    "typedoc": "typedoc --tsconfig tsconfig.json ./src/*.ts"
+    "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
   },
   "tap": {
     "coverage-map": "map.js"

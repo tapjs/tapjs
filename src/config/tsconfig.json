@@ -1,9 +1,16 @@
 {
-  "extends": "./tsconfig-base.json",
-  "include": ["src/*.ts"],
   "compilerOptions": {
-    "module": "commonjs",
-    "moduleResolution": "Node16",
-    "outDir": "dist-tmp/cjs"
+    "declaration": true,
+    "declarationMap": true,
+    "inlineSources": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node16",
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "target": "es2022",
+    "module": "commonjs"
   }
 }

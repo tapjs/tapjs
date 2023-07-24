@@ -1,5 +1,10 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["./src/index.ts"],
+  "include": [
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    "./src/**/*.mts",
+    "./src/**/*.cts"
+  ],
   "exclude": ["./test", "./tap-snapshots"]
 }

@@ -21,7 +21,8 @@
   },
   "files": ["dist"],
   "scripts": {
-    "prepare": "tsc -p tsconfig.json && tsc -p tsconfig-esm.json && bash fixup.sh"
+    "prepare": "tsc -p tsconfig/cjs.json && tsc -p tsconfig/esm.json && bash scripts/fixup.sh",
+    "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
   },
   "license": "BlueOak-1.0.0"
 }

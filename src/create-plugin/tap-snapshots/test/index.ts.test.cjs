@@ -59,14 +59,14 @@ Object {
   "scripts": Object {
     "format": "prettier --write . --loglevel warn",
     "postversion": "npm publish",
-    "prepare": "tsc -p tsconfig.json && tsc -p tsconfig-esm.json && bash ./scripts/fixup.sh",
+    "prepare": "tsc -p tsconfig.cjs.json && tsc -p tsconfig.esm.json && bash ./scripts/fixup.sh",
     "prepublishOnly": "git push origin --follow-tags",
     "presnap": "npm run prepare",
     "pretest": "npm run prepare",
     "preversion": "npm test",
     "snap": "tap",
     "test": "tap",
-    "typedoc": "typedoc --tsconfig tsconfig-esm.json ./src/*.ts",
+    "typedoc": "typedoc --tsconfig tsconfig.esm.json ./src/*.ts",
   },
   "version": "0.0.0-0",
 }

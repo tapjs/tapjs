@@ -1,5 +1,4 @@
 {
-  "include": ["src/**/*.ts", "src/**/*.tsx"],
   "compilerOptions": {
     "jsx": "react",
     "declaration": true,
