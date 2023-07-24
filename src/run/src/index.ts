@@ -39,6 +39,8 @@ switch (mainCommand) {
     report(args, config)
     break
 
+  // XXX: should really make this `tap config list`
+  // and have commands for setting/getting individual fields
   case 'dump-config':
     dumpConfig(args, config)
     break
