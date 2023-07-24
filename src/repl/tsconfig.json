@@ -6,12 +6,13 @@
     "inlineSources": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "node16",
     "resolveJsonModule": true,
-    "skipLibCheck": true,
     "sourceMap": true,
     "strict": true,
     "target": "es2022",
-    "module": "commonjs"
+    "module": "esnext",
+    "moduleResolution": "Node16",
+    "skipLibCheck": true,
+    "outDir": "dist-tmp"
   }
 }

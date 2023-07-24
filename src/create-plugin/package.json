@@ -22,7 +22,7 @@
   },
   "license": "BlueOak-1.0.0",
   "scripts": {
-    "prepare": "tsc",
+    "prepare": "tsc -p tsconfig/build.json",
     "pretest": "npm run prepare",
     "presnap": "npm run prepare",
     "test": "tap",

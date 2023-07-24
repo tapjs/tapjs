@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "jsx": "react",
     "declaration": true,
     "declarationMap": true,
     "inlineSources": true,
