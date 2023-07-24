@@ -27,7 +27,7 @@ mkdirp.sync(resolve(dir, 'src'))
 const out = resolve(dir, 'src/index.ts')
 
 const copies = globSync(
-  ['tsconfig*.json', 'fixup.sh', 'package-template.json'],
+  ['LICENSE.md', 'tsconfig*.json', 'fixup.sh', 'package-template.json'],
   { cwd: __dirname, absolute: true }
 )
 for (const f of copies) {

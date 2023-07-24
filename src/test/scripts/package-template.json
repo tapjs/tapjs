@@ -23,5 +23,5 @@
   "scripts": {
     "prepare": "tsc -p tsconfig.json && tsc -p tsconfig-esm.json && bash fixup.sh"
   },
-  "license": "ISC"
+  "license": "BlueOak-1.0.0"
 }
