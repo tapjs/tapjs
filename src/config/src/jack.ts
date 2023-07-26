@@ -276,6 +276,14 @@ export default jack({
                     then a summary report will be printed instead of the full
                     text report.`,
     },
+
+    'coverage-add': {
+      description: `Do not replace the coverage and processinfo records from
+                    any previous runs, and instead add to it.
+
+                    This behavior is implied when doing partial runs with
+                    the --changed and --save options.`
+    }
   })
 
   .opt({

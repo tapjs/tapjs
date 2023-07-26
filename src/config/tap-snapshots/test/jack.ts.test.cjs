@@ -60,6 +60,16 @@ Object {
     "description": "Print all tap comments to process.stderr",
     "type": "boolean",
   },
+  "coverage-add": Object {
+    "description": String(
+      Do not replace the coverage and processinfo records from
+                          any previous runs, and instead add to it.
+      
+                          This behavior is implied when doing partial runs with
+                          the --changed and --save options.
+    ),
+    "type": "boolean",
+  },
   "coverage-map": Object {
     "description": String(
       Provide a path to a node module (esm or cjs) that default
