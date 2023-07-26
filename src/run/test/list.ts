@@ -1,7 +1,13 @@
 import t from 'tap'
 
 import * as core from '@tapjs/core'
-import { unlinkSync, utimesSync, writeFileSync } from 'fs'
+import {
+  readdirSync,
+  readFileSync,
+  unlinkSync,
+  utimesSync,
+  writeFileSync,
+} from 'fs'
 import { resolve } from 'path'
 import { fileURLToPath } from 'url'
 import * as mainConfig from '../dist/main-config.js'
@@ -217,20 +223,57 @@ t.test('list some test files', async t => {
 t.test('filter changed files', async t => {
   const fixture = fileURLToPath(new URL('fixture', import.meta.url))
   const cwd = process.cwd()
-  process.chdir(fixture)
+
+  const files = (dir: string): Record<string, Buffer> =>
+    Object.fromEntries(
+      readdirSync(dir)
+        .map(f => {
+          try {
+            return [f, readFileSync(resolve(dir, f))]
+          } catch {
+            return [f, undefined]
+          }
+        })
+        .filter(([_, c]) => c !== undefined)
+    )
+
+  const piFooRecord = {
+    ...JSON.parse(readFileSync(resolve(fixture, '.tap/processinfo/uuid-foo.json'), 'utf8')),
+    files: [
+      resolve(t.testdirName, 'test/foo.mjs'),
+      resolve(t.testdirName, 'foo.mjs'),
+    ],
+  }
+  const piBarRecord = {
+    ...JSON.parse(readFileSync(resolve(fixture, '.tap/processinfo/uuid-bar.json'), 'utf8')),
+    files: [
+      resolve(t.testdirName, 'test/bar.mjs'),
+      resolve(t.testdirName, 'bar.mjs'),
+    ],
+  }
+  const dir = t.testdir({
+    ...files(resolve(fixture)),
+    test: files(resolve(fixture, 'test')),
+    '.tap': {
+      processinfo: {
+        'uuid-foo.json': JSON.stringify(piFooRecord),
+        'uuid-bar.json': JSON.stringify(piBarRecord),
+      },
+    },
+  })
+
+  process.chdir(dir)
   t.teardown(() => process.chdir(cwd))
-  t.intercept(mainConfig.config, 'globCwd', { value: fixture })
+  t.intercept(mainConfig.config, 'globCwd', { value: dir })
 
   const touch = (path: string, d: Date = new Date()) =>
     utimesSync(path, d, d)
 
-  const fooUuid = '0e19020d-2c30-4929-accb-d381e447bd34'
-  const barUuid = '84e595f7-33e1-4380-aae5-18e7b96292f4'
-  const srcFoo = resolve(fixture, 'foo.mjs')
-  const srcBar = resolve(fixture, 'bar.mjs')
-  const testFoo = resolve(fixture, 'test/foo.mjs')
-  const testBar = resolve(fixture, 'test/bar.mjs')
-  const testNew = resolve(fixture, 'test/new.mjs')
+  const srcFoo = resolve(dir, 'foo.mjs')
+  const srcBar = resolve(dir, 'bar.mjs')
+  const testFoo = resolve(dir, 'test/foo.mjs')
+  const testBar = resolve(dir, 'test/bar.mjs')
+  const testNew = resolve(dir, 'test/new.mjs')
   try {
     unlinkSync(testNew)
   } catch {}
@@ -240,10 +283,11 @@ t.test('filter changed files', async t => {
     } catch {}
   })
 
-  const piFoo = resolve(fixture, `.tap/processinfo/${fooUuid}.json`)
-  const piBar = resolve(fixture, `.tap/processinfo/${barUuid}.json`)
+  const piFoo = resolve(dir, `.tap/processinfo/uuid-foo.json`)
+  const piBar = resolve(dir, `.tap/processinfo/uuid-bar.json`)
 
-  const start = new Date('2020-02-20T20:20:20.202Z')
+  const piDate = new Date('2023-01-01T00:00:00.000Z')
+  const start = new Date('2020-02-02T02:22:22.222Z')
   touch(srcFoo, start)
   touch(srcBar, start)
   touch(piFoo, start)
@@ -256,7 +300,7 @@ t.test('filter changed files', async t => {
     '../dist/main-config.js': t.createMock(mainConfig, {
       mainCommand: 'run',
     }),
-    '@tapjs/core': t.createMock(core, { cwd: fixture }),
+    '@tapjs/core': t.createMock(core, { cwd: dir }),
     '../dist/save-list.js': {
       readSave: async () => [],
     },
@@ -278,9 +322,10 @@ t.test('filter changed files', async t => {
   })
 
   t.test('changed tests', async t => {
+    const DAY = 1000 * 60 * 60 * 24
     t.intercept(mainConfig.values, 'changed', { value: true })
 
-    date = new Date(date.getTime() + 100000)
+    date = new Date(piDate.getTime() + DAY)
     touch(testFoo, date)
     touch(testBar, date)
     t.strictSame(
@@ -289,15 +334,28 @@ t.test('filter changed files', async t => {
       'all tests changed'
     )
 
-    touch(piBar, date)
-    touch(piFoo, date)
+    date = new Date(date.getTime() + DAY)
+    writeFileSync(
+      piBar,
+      JSON.stringify({
+        ...JSON.parse(readFileSync(piBar, 'utf8')),
+        date: date.toISOString(),
+      })
+    )
+    writeFileSync(
+      piFoo,
+      JSON.stringify({
+        ...JSON.parse(readFileSync(piFoo, 'utf8')),
+        date: date.toISOString(),
+      })
+    )
     t.strictSame(
       sort(await list([], mainConfig.config)),
       [],
       'no tests changed'
     )
 
-    date = new Date(date.getTime() + 100000)
+    date = new Date(date.getTime() + DAY)
     touch(srcFoo, date)
     t.strictSame(
       sort(await list([], mainConfig.config)),
@@ -311,7 +369,7 @@ t.test('filter changed files', async t => {
       'still run stdin if file filtered out'
     )
 
-    writeFileSync(resolve(fixture, 'test/new.mjs'), '')
+    writeFileSync(resolve(dir, 'test/new.mjs'), '')
     t.strictSame(
       sort(await list([], mainConfig.config)),
       ['test/foo.mjs', 'test/new.mjs'],
@@ -324,6 +382,5 @@ t.test('filter changed files', async t => {
       ['test/bar.mjs', 'test/foo.mjs', 'test/new.mjs'],
       'deleting the source file is a change'
     )
-    writeFileSync(srcBar, '')
   })
 })

@@ -181,39 +181,25 @@ const pruneUnchanged = async (
   const dir = scurry.resolve('.tap/processinfo')
   const db = new ProcessInfo({ dir })
   await db.load()
-  // for each entry in the list, find relativePosix() in pi.externalIDs
-  // then compare the mtime of the pi entry json file with the mtime
-  // of all the files in its list. If none are newer, delete the entry
+  // for each entry in the list, find it in the processinfo db's list
+  // of externalIDs with changed files. but, we only need to check the
+  // ones for which there is SOME externalID node in the processinfo,
+  // because otherwise that means it's never been run.
+  const ids = new Map<string, Path>()
   for (const e of entries) {
     if (typeof e === 'string') continue
-    const pi = db.externalIDs.get(e.relativePosix())
-    if (!pi) continue
-    const pie = scurry.cwd.resolve(`.tap/processinfo/${pi.uuid}.json`)
-    const piMtime = (await pie.lstat())?.mtime
-    const entryMtime = (await e.lstat())?.mtime
-
-    if (!piMtime || !entryMtime || entryMtime > piMtime) {
+    const rp = e.relativePosix()
+    const pi = db.externalIDs.get(rp)
+    if (!pi) {
+      // if there's no processinfo entry for it, then it must be new
+      // so don't even check it.
       continue
     }
-
-    let del = true
-    OUTER: for (const f of pi.files) {
-      const sources = pi.sources[f] || [f]
-      for (const f of sources) {
-        // if the stat is missing, then the file isn't there,
-        // and that's definitely a change
-        const fm =
-          (await scurry.cwd.resolve(f).lstat())?.mtime || Infinity
-        if (fm > piMtime) {
-          del = false
-          break OUTER
-        }
-      }
-    }
-
-    if (del) {
-      // either we failed to load the test, pi entry, or one of the files,
-      // or all the files are newer than the pi entry.
+    ids.set(rp, e)
+  }
+  const changed = await db.externalIDsChanged(id => ids.has(id))
+  for (const [id, e] of ids.entries()) {
+    if (!changed.has(id)) {
       entries.delete(e)
     }
   }

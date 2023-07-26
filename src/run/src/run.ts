@@ -132,6 +132,7 @@ export const run = async (args: string[], config: LoadedConfig) => {
   // don't delete old coverage if only running subset of suites
   if (!config.get('changed') && !saveList.length) {
     await rimraf(resolve(config.globCwd, '.tap/processinfo'))
+    await rimraf(resolve(config.globCwd, '.tap/coverage'))
   }
 
   runBefore(t, argv, config)
