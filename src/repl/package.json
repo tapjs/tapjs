@@ -1,0 +1,56 @@
+{
+  "name": "@tapjs/repl",
+  "version": "0.0.0-0",
+  "description": "TAP repl",
+  "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "type": "module",
+  "bin": {
+    "tap-repl": "./dist/bin.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    },
+    "./package.json": {
+      "import": "./package.json",
+      "require": "./package.json"
+    }
+  },
+  "license": "BlueOak-1.0.0",
+  "scripts": {
+    "prepare": "tsc -p tsconfig/esm.json && bash scripts/fixup.sh",
+    "pretest": "npm run prepare",
+    "presnap": "npm run prepare",
+    "test": "tap",
+    "snap": "tap",
+    "format": "prettier --write . --loglevel warn --ignore-path ../../.prettierignore --cache",
+    "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
+  },
+  "dependencies": {
+    "@tapjs/config": ">=2.0.0-0",
+    "@tapjs/processinfo": "^2.4.1",
+    "@tapjs/run": ">=0.0.0-0",
+    "chokidar": "^3.5.3",
+    "foreground-child": "^3.1.1",
+    "tap-parser": "^13.0.1",
+    "tap-yaml": "^2.1.0"
+  },
+  "tap": {
+    "coverage-map": "map.js"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "funding": {
+    "url": "https://github.com/sponsors/isaacs"
+  },
+  "repository": "https://github.com/tapjs/tapjs"
+}
