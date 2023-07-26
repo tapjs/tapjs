@@ -19,6 +19,10 @@ import { ProcessInfo, ProcessInfoNode } from '@tapjs/processinfo'
 import { ChildProcess, spawn, SpawnOptions } from 'node:child_process'
 import { readdirSync, statSync } from 'node:fs'
 import { readFile } from 'node:fs/promises'
+import {resolveImport} from 'resolve-import'
+import {fileURLToPath} from 'node:url'
+
+const tapBin = fileURLToPath(await resolveImport('../index.js', import.meta.url))
 
 type Callback = (er: Error | null, result: any) => void
 
@@ -373,7 +377,8 @@ export class Repl {
 
   // spawn the tap runner with the specified arguments
   spawnTap(args: string[], options: SpawnOptions, cb: Callback) {
-    this.#spawn('tap-run', args, options, cb)
+    const argv = [...process.execArgv, tapBin, ...args]
+    this.#spawn(process.execPath, argv, options, cb)
   }
 
   runTests(args: string[], cb: Callback) {

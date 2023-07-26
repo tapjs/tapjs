@@ -21,14 +21,14 @@
         "default": "./dist/cjs/index.js"
       }
     },
-    "./plugin/*": {
+    "./proc": {
       "import": {
-        "types": "./dist/mjs/plugin/*.js",
-        "default": "./dist/mjs/plugin/*.js"
+        "types": "./dist/mjs/proc.d.ts",
+        "default": "./dist/mjs/proc.js"
       },
       "require": {
-        "types": "./dist/cjs/plugin/*.js",
-        "default": "./dist/cjs/plugin/*.js"
+        "types": "./dist/cjs/proc.d.ts",
+        "default": "./dist/cjs/proc.js"
       }
     }
   },

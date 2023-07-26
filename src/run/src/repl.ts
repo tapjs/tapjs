@@ -1,9 +1,9 @@
 import { LoadedConfig } from '@tapjs/config'
-import {env} from '@tapjs/core'
+import { env } from '@tapjs/core/proc'
 import { ProcessInfo } from '@tapjs/processinfo'
-import { Repl } from '@tapjs/repl'
 import { resolve } from 'path'
 import { stringify } from 'tap-yaml'
+import { Repl } from './repl/index.js'
 
 export const repl = async (args: string[], config: LoadedConfig) => {
   if (env._TAP_REPL === '1') {
