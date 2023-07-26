@@ -37,7 +37,7 @@
     "function-loop": "^4.0.0",
     "ink": "^4.3.0",
     "ink-testing-library": "^3.0.0",
-    "jackspeak": "^2.2.1",
+    "jackspeak": "^2.2.2",
     "minimatch": "^9.0.1",
     "minipass": "^7.0.2",
     "mkdirp": "^3.0.1",

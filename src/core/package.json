@@ -52,7 +52,7 @@
     "@tapjs/stack": ">=0.0.0-0",
     "@tapjs/test": ">=0.0.0-0",
     "async-hook-domain": "^4.0.1",
-    "jackspeak": "^2.2.1",
+    "jackspeak": "^2.2.2",
     "minipass": "^7.0.2",
     "tap-parser": "^13.0.0",
     "tcompare": "^6.0.0",
