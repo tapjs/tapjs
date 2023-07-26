@@ -325,6 +325,8 @@ export class Repl {
     // always save failures to our save file
     env.TAP_SAVE = this.saveFile
 
+    env._TAP_REPL = '1'
+
     this.input.setRawMode?.(false)
     this.proc = spawn(cmd, args, {
       ...options,
@@ -371,10 +373,7 @@ export class Repl {
 
   // spawn the tap runner with the specified arguments
   spawnTap(args: string[], options: SpawnOptions, cb: Callback) {
-    if (args[0] === 'repl') {
-      return cb(null, 'you are already in the tap repl')
-    }
-    this.#spawn('tap', args, options, cb)
+    this.#spawn('tap-run', args, options, cb)
   }
 
   runTests(args: string[], cb: Callback) {

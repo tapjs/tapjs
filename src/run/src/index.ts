@@ -10,6 +10,7 @@ import { plugin } from './plugin.js'
 import { report } from './report.js'
 import { run } from './run.js'
 import { version } from './version.js'
+import { repl } from './repl.js'
 
 export type JackLoaded = LoadedConfig['jack']
 export type ConfigValues = LoadedConfig['values']
@@ -25,6 +26,10 @@ switch (mainCommand) {
   case 'versions':
   case 'version':
     version(args, config)
+    break
+
+  case 'repl':
+    repl(args, config)
     break
 
   case 'run':
