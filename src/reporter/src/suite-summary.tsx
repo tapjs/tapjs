@@ -62,7 +62,7 @@ export const SuiteSummary: FC<{ test: TestBase }> = ({ test }) => {
         <Todo {...asserts} />
         <Box flexDirection="column" alignItems="flex-end">
           <Complete {...asserts} />
-          <Complete {...asserts} />
+          <Complete {...suites} />
         </Box>
       </Box>
     </Box>
