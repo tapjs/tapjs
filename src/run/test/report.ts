@@ -1,8 +1,10 @@
 import { LoadedConfig } from '@tapjs/config'
+import * as CORE from '@tapjs/core'
 import { mkdirp } from 'mkdirp'
 import { readFileSync } from 'node:fs'
 import { writeFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
+
 import t from 'tap'
 
 let globCwd = t.testdirName
@@ -15,13 +17,34 @@ interface Summary {
   branches: { pct: number | 'Unknown' }
 }
 
-const validCoverageReports = new Set(['text', 'none', 'html'])
+const mockMainConf: { mainCommand: 'run' | 'report' } = {
+  mainCommand: 'run',
+}
+
+const validCoverageReports = new Set([
+  'clover',
+  'cobertura',
+  'html',
+  'json',
+  'json-summary',
+  'lcov',
+  'lcovonly',
+  'none',
+  'teamcity',
+  'text',
+  'text-lcov',
+  'text-summary',
+])
 class MockConfig {
   #coverageReport: string[]
   validated: boolean = false
   globCwd: string = globCwd
+  showFullCoverage?: boolean
   jack: {
-    validate: (obj: { 'coverage-report': any }) => void
+    validate: (obj: {
+      'coverage-report': any
+      'show-full-coverage': any
+    }) => void
   }
   constructor(coverageReport: string[] = []) {
     this.#coverageReport = coverageReport
@@ -30,10 +53,14 @@ class MockConfig {
     }
   }
   get(k: string) {
-    if (k !== 'coverage-report') {
-      throw new Error('should only look up coverage-report config')
+    switch (k) {
+      case 'coverage-report':
+        return this.#coverageReport
+      case 'show-full-coverage':
+        return this.showFullCoverage
+      default:
+        throw new Error('should only look up coverage configs')
     }
-    return this.#coverageReport
   }
 }
 
@@ -93,15 +120,24 @@ class MockReport {
   }
 
   async run() {
-    await mkdirp(this.reportsDirectory)
+    await mkdirp(resolve(this.reportsDirectory, 'lcov-report'))
     if (this.reporter.includes('html')) {
       await writeFile(
         resolve(this.reportsDirectory, 'index.html'),
         'report'
       )
     }
+    if (this.reporter.includes('lcov')) {
+      await writeFile(
+        resolve(this.reportsDirectory, 'lcov-report/index.html'),
+        'report'
+      )
+    }
     if (this.reporter.includes('text')) {
       process.stdout.write('report')
+    }
+    if (this.reporter.includes('text-summary')) {
+      process.stdout.write('summary')
     }
   }
 
@@ -113,11 +149,11 @@ class MockReport {
 }
 
 const mockTap = { comment: () => {} }
-const mockCore = {
+const mockCore = t.createMock(CORE, {
   tap: () => mockTap,
-}
+})
 
-t.test('run a text report', async t => {
+t.test('omit text report for full coverage run', async t => {
   summary = summary100
   t.testdir({
     '.tap': {
@@ -130,45 +166,112 @@ t.test('run a text report', async t => {
   const { report } = (await t.mockImport('../dist/report.js', {
     c8: { Report: MockReport },
     '@tapjs/core': mockCore,
+    '../dist/main-config.js': mockMainConf,
   })) as typeof import('../dist/report.js')
   const config = new MockConfig(['text'])
   const logs = t.capture(console, 'log')
   await report([], config as unknown as LoadedConfig)
   t.equal(config.validated, false, 'nothing to validate')
-  t.strictSame(logs.args(), [['report']])
+  t.strictSame(logs.args(), [], 'show nothing if full coverage')
   t.strictSame(comments.args(), [])
 })
 
-t.test('run an html report', async t => {
+t.test('show full coverage explicit report', async t => {
   summary = summary100
   t.testdir({
     '.tap': {
       coverage: {
-        'file.json': JSON.stringify({}),
+        'file.json': '{}',
       },
     },
   })
   const comments = t.capture(mockTap, 'comment')
-  let openerRan = false
-  const htmlReport = resolve(globCwd, '.tap/report/index.html')
-  const exitCode = t.intercept(process, 'exitCode')
   const { report } = (await t.mockImport('../dist/report.js', {
     c8: { Report: MockReport },
     '@tapjs/core': mockCore,
-    opener: (file: string) => {
-      t.equal(file, htmlReport)
-      openerRan = true
-    },
+    '../dist/main-config.js': { mainCommand: 'report' },
   })) as typeof import('../dist/report.js')
-  const config = new MockConfig([])
+  const config = new MockConfig(['text'])
   const logs = t.capture(console, 'log')
-  await report(['html'], config as unknown as LoadedConfig)
-  t.equal(config.validated, true)
-  t.strictSame(logs.args(), [])
+  await report([], config as unknown as LoadedConfig)
+  t.equal(config.validated, false, 'nothing to validate')
+  t.strictSame(logs.args(), [['report']], 'show full coverage report')
   t.strictSame(comments.args(), [])
-  t.equal(openerRan, true)
-  t.equal(readFileSync(htmlReport, 'utf8'), 'report')
-  t.strictSame(exitCode(), [])
+})
+
+t.test('explicit report, full cov report explicit off', async t => {
+  summary = summary100
+  t.testdir({
+    '.tap': {
+      coverage: {
+        'file.json': '{}',
+      },
+    },
+  })
+  const comments = t.capture(mockTap, 'comment')
+  const { report } = (await t.mockImport('../dist/report.js', {
+    c8: { Report: MockReport },
+    '@tapjs/core': mockCore,
+    '../dist/main-config.js': { mainCommand: 'report' },
+  })) as typeof import('../dist/report.js')
+  const config = new MockConfig(['text'])
+  config.showFullCoverage = false
+  const logs = t.capture(console, 'log')
+  await report(['text'], config as unknown as LoadedConfig)
+  t.strictSame(
+    logs.args(),
+    [['summary']],
+    'show full coverage summary'
+  )
+  t.strictSame(comments.args(), [])
+})
+
+t.test('run an html report', async t => {
+  const cases: [string, string][] = [
+    ['html', 'index.html'],
+    ['lcov', 'lcov-report/index.html'],
+  ]
+  for (const [style, file] of cases) {
+    t.test(style, async t => {
+      summary = summary100
+      t.testdir({
+        '.tap': {
+          coverage: {
+            'file.json': JSON.stringify({}),
+          },
+        },
+      })
+      const comments = t.capture(mockTap, 'comment')
+      let openerRan = false
+      const htmlReport = resolve(globCwd, '.tap/report', file)
+      const exitCode = t.intercept(process, 'exitCode')
+      const { report } = (await t.mockImport('../dist/report.js', {
+        c8: { Report: MockReport },
+        '@tapjs/core': mockCore,
+        opener: (file: string) => {
+          t.equal(file, htmlReport)
+          openerRan = true
+        },
+        '../dist/main-config.js': { mainCommand: 'report' },
+      })) as typeof import('../dist/report.js')
+      const config = new MockConfig([])
+      const logs = t.capture(console, 'log')
+      await report([style], config as unknown as LoadedConfig)
+      t.equal(config.validated, true)
+      if (style === 'html') t.strictSame(logs.args(), [])
+      else {
+        const expect = `lcov report: ${resolve(
+          t.testdirName,
+          '.tap/report/lcov.info'
+        )}`
+        t.strictSame(logs.args(), [[expect]])
+      }
+      t.strictSame(comments.args(), [])
+      t.equal(openerRan, true)
+      t.equal(readFileSync(htmlReport, 'utf8'), 'report')
+      t.strictSame(exitCode(), [])
+    })
+  }
 })
 
 t.test('no coverage files generated', async t => {

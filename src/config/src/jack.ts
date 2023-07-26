@@ -246,6 +246,38 @@ export default jack({
     },
   })
 
+  .flag({
+    'show-full-coverage': {
+      description: `Show the '100' lines in the default 'text' coverage
+                    reporter for every file that has full coverage. Defaults to
+                    false for all commands other than 'tap report'. Has no
+                    effect on any other coverage report styles.
+
+                    If not set, and the test suite has full coverage, then no
+                    text coverage report will be generated when running tests.
+                    It can be assumed in this case that no news is good news,
+                    and a zero-exit test process means full coverage was
+                    generated. When generating any other test report styles,
+                    files with full coverage are still reported.
+
+                    When running 'tap report', this defaults to true, because
+                    presumably you do want to see something if explicitly
+                    requesting a coverage report, even if it's just a list of
+                    green 100s.
+
+                    When running 'tap report --no-show-full-coverage',
+                    with this config explicitly set false, it will omit the
+                    default text report on full coverage, and behave like
+                    running 'tap report none' (ie, print nothing).
+
+                    When running 'tap report text --no-show-full-coverage',
+                    explicitly requesting a text report and also explicitly
+                    requesting that full coverage text report *not* be shown,
+                    then a summary report will be printed instead of the full
+                    text report.`,
+    },
+  })
+
   .opt({
     'coverage-map': {
       hint: 'module',

@@ -7,6 +7,17 @@ import { readdir } from 'fs/promises'
 import opener from 'opener'
 import { resolve } from 'path'
 
+import { mainCommand } from './main-config.js'
+
+const reporterFiles = {
+  clover: 'clover.xml',
+  cobertura: 'cobertura-coverage.xml',
+  json: 'coverage-final.json',
+  'json-summary': 'coverage-summary.json',
+  lcov: 'lcov.info',
+  lcovonly: 'lcov.info',
+}
+
 export const report = async (
   args: string[],
   config: LoadedConfig
@@ -42,13 +53,45 @@ export const report = async (
     process.chdir(config.globCwd)
   } catch {}
   /* c8 ignore stop */
-  const r = new Report({
+
+  let showFullCoverage = config.get('show-full-coverage')
+  let r = new Report({
+    skipFull: !showFullCoverage,
     // no need to include/exclude, we already did that when we captured
     reporter,
     reportsDirectory: resolve(config.globCwd, '.tap/report'),
     tempDirectory: resolve(config.globCwd, '.tap/coverage'),
     excludeNodeModules: true,
   })
+
+  // See if we need to generate a text report, or if we should skip it
+  // because --show-full-coverage is false and we have full coverage.
+  if (reporter.includes('text') && !showFullCoverage) {
+    const summary = await getSummary(r)
+    if (isFullCoverage(summary)) {
+      if (mainCommand === 'report' && showFullCoverage !== false) {
+        r = new Report({
+          skipFull: false,
+          reporter,
+          reportsDirectory: resolve(config.globCwd, '.tap/report'),
+          tempDirectory: resolve(config.globCwd, '.tap/coverage'),
+          excludeNodeModules: true,
+        })
+      } else {
+        // don't show the text report, it's just noise.
+        // but make `tap report html --no-show-full-coverage` still
+        // output a summary, at least, so it doesn't seem broken
+        const txt = reporter.indexOf('text')
+        if (txt !== -1) {
+          const none = args.includes('text') ? 'text-summary' : 'none'
+          reporter.splice(txt, 1)
+          if (reporter.length === 0) {
+            reporter.push(none)
+          }
+        }
+      }
+    }
+  }
 
   // XXX: istanbul-reports just dumps to process.stdout, which collides
   // with our ink-based reporters. Hijack it and write with console.log
@@ -64,9 +107,20 @@ export const report = async (
   process.stdout.write = write
   const s = stdout.join('').trimEnd()
   if (s) console.log(s)
+  for (const [style, filename] of Object.entries(reporterFiles)) {
+    if (reporter.includes(style)) {
+      const f = resolve(config.globCwd, '.tap/report', filename)
+      console.log(`${style} report: ${f}`)
+    }
+  }
   if (reporter.includes('html')) {
     opener(resolve(config.globCwd, '.tap/report/index.html'))
+  } else if (reporter.includes('lcov')) {
+    opener(
+      resolve(config.globCwd, '.tap/report/lcov-report/index.html')
+    )
   }
+
   await checkCoverage(r, config)
   /* c8 ignore start */
   try {
@@ -75,31 +129,50 @@ export const report = async (
   /* c8 ignore stop */
 }
 
-const checkCoverage = async (
-  report: Report,
-  config: LoadedConfig
-) => {
-  const cr = config.get('coverage-report')
-  const comment = cr && !cr.includes('text')
-  interface Summary {
-    lines: { pct: number }
-    functions: { pct: number }
-    statements: { pct: number }
-    branches: { pct: number }
-  }
+interface Summary {
+  lines: { pct: number }
+  functions: { pct: number }
+  statements: { pct: number }
+  branches: { pct: number }
+}
+
+const summaries = new Map<Report, Summary>()
+const getSummary = async (report: Report) => {
+  const c = summaries.get(report)
+  if (c) return c
   const r = report as Report & {
     getCoverageMapFromAllCoverageFiles(): Promise<{
       getCoverageSummary: () => Summary
     }>
   }
   const map = await r.getCoverageMapFromAllCoverageFiles()
-  const thresholds: (keyof Summary)[] = [
-    'statements',
-    'branches',
-    'functions',
-    'lines',
-  ]
   const summary = map.getCoverageSummary()
+  summaries.set(report, summary)
+  return summary
+}
+
+const thresholds: (keyof Summary)[] = [
+  'statements',
+  'branches',
+  'functions',
+  'lines',
+]
+
+const isEmptyCoverage = (summary: Summary) =>
+  Math.max(...thresholds.map(th => Number(summary[th].pct) || 0)) ===
+  0
+
+const isFullCoverage = (summary: Summary) =>
+  Math.min(...thresholds.map(th => Number(summary[th].pct) || 0)) ===
+  100
+
+const checkCoverage = async (
+  report: Report,
+  config: LoadedConfig
+) => {
+  const cr = config.get('coverage-report')
+  const comment = cr && !cr.includes('text')
+  const summary = await getSummary(report)
   let success = true
 
   const t = tap()
@@ -107,11 +180,7 @@ const checkCoverage = async (
   // if we didn't get anything, that means that even though it wrote
   // some coverage files, it didn't actually cover anything, which can
   // happen, for example if the test crashes before actually loading.
-  if (
-    Math.max(
-      ...thresholds.map(th => Number(summary[th].pct) || 0)
-    ) === 0
-  ) {
+  if (isEmptyCoverage(summary)) {
     t.comment('No coverage generated')
     process.exitCode = 1
     return
