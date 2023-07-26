@@ -50,11 +50,19 @@ type Result = {
 const run = async (
   cwd: string,
   args: string[] = [],
-  stdin?: string
+  stdin?: string,
+  testEnv: Record<string, string | undefined> = {}
 ): Promise<Result> => {
-  const env = Object.fromEntries(
-    Object.entries(process.env).filter(([k]) => !/TAP/.test(k))
+  const env = Object.assign(
+    Object.fromEntries(
+      Object.entries(process.env).filter(([k]) => !/TAP/.test(k))
+    ),
+    testEnv
   )
+  for (const [k, v] of Object.entries(env)) {
+    if (v === undefined) delete env[k]
+  }
+
   // nx tries very hard to be a "real" terminal, even when it isn't.
   // hard-code these so that we don't get spurious snapshot mismatches
   // when running in nx vs running via npm scripts directly.
@@ -232,6 +240,75 @@ ok 1 - this is standard input
   t.equal(signal, null)
   t.equal(stderr, '')
   t.matchSnapshot(stdout)
+})
+
+t.test('no files found to run', async t => {
+  const cwd = t.testdir({
+    '.taprc': `
+coverage-map: map.mjs
+    `,
+    '.git': {},
+    'map.mjs': `
+    export default () => 'foo.mjs'
+    `,
+    'foo.test.mjs': `
+      import t from 'tap'
+      import { foo } from './foo.mjs'
+      t.equal(foo(), 'foo')
+    `,
+    'foo.mjs': `
+      export const foo = () => 'foo'
+    `,
+  })
+  // run once to make sure it is unchanged
+  const { code, stderr, stdout } = await run(cwd, [], undefined, {
+    TAP_EXCLUDE: undefined,
+    TAP_INCLUDE: undefined,
+  })
+  t.equal(code, 0)
+
+  t.test('no args, no files found to test', async t => {
+    const { code, stdout, stderr } = await run(cwd, [], undefined, {
+      TAP_EXCLUDE: '*.test.mjs',
+    })
+    t.equal(code, 1)
+    t.equal(stdout, '')
+    t.equal(stderr, 'No test files found\n')
+  })
+
+  t.test('args, no files found to test', async t => {
+    const { code, stdout, stderr } = await run(cwd, ['blah'])
+    t.equal(code, 1)
+    t.equal(stdout, '')
+    t.equal(stderr, 'No valid test files found matching "blah"\n')
+  })
+
+  t.test('no args, no changed', async t => {
+    const { code, stdout, stderr } = await run(cwd, [], undefined, {
+      TAP_CHANGED: '1',
+    })
+    t.equal(code, 0)
+    t.equal(stdout, 'No new tests to run\n')
+    t.equal(stderr, '')
+  })
+
+  t.test('valid arg, no changed', async t => {
+    const { code, stdout, stderr } = await run(cwd, ['foo.test.mjs'], undefined, {
+      TAP_CHANGED: '1',
+    })
+    t.equal(code, 0)
+    t.equal(stdout, 'No new tests to run\n')
+    t.equal(stderr, '')
+  })
+
+  t.test('invalid arg, no changed', async t => {
+    const { code, stdout, stderr } = await run(cwd, ['blah'], undefined, {
+      TAP_CHANGED: '1',
+    })
+    t.equal(code, 1)
+    t.equal(stdout, '')
+    t.equal(stderr, 'No valid test files found matching "blah"\n')
+  })
 })
 
 t.test('run stdin with a file', async t => {

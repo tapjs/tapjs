@@ -355,6 +355,12 @@ t.test('filter changed files', async t => {
       'no tests changed'
     )
 
+    t.strictSame(
+      sort(await list([], mainConfig.config, true)),
+      ['test/bar.mjs', 'test/foo.mjs'],
+      'no prune unchanged internal param'
+    )
+
     date = new Date(date.getTime() + DAY)
     touch(srcFoo, date)
     t.strictSame(

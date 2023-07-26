@@ -87,13 +87,30 @@ export const run = async (args: string[], config: LoadedConfig) => {
   /* c8 ignore stop */
 
   process.env._TAPJS_PROCESSINFO_CWD_ = config.globCwd
+  process.env._TAPJS_PROCESSINFO_EXCLUDE_ = String(
+    // don't consider snapshots and fixtures, or else we'll
+    // always think that all tests are new after generating!
+    /[\\\/](tap-testdir-[^\\\/]|tap-snapshots)[\\\/]/
+  )
   const files = await list(args, config)
-  if (args.length && !files.length) {
-    console.error(
-      'No valid test files found matching ' +
-        args.map(a => JSON.stringify(a)).join(' ')
-    )
-    process.exitCode = 1
+  if (!files.length) {
+    // see if we WOULD have gotten files, if not for the fact that they
+    // are all unchanged.
+    const unpruned = config.get('changed')
+      ? await list(args, config, true)
+      : []
+    if (args.length && !unpruned.length) {
+      console.error(
+        'No valid test files found matching ' +
+          args.map(a => JSON.stringify(a)).join(' ')
+      )
+      process.exitCode = 1
+    } else if (unpruned.length) {
+      console.log('No new tests to run')
+    } else {
+      console.error('No test files found')
+      process.exitCode = 1
+    }
     return
   }
 
@@ -130,7 +147,11 @@ export const run = async (args: string[], config: LoadedConfig) => {
     config.get('save') && !readSaveList.length ? files : readSaveList
 
   // don't delete old coverage if only running subset of suites
-  if (!config.get('changed') && !saveList.length) {
+  if (
+    !config.get('changed') &&
+    !saveList.length &&
+    !config.get('coverage-add')
+  ) {
     await rimraf(resolve(config.globCwd, '.tap/processinfo'))
     await rimraf(resolve(config.globCwd, '.tap/coverage'))
   }

@@ -36,7 +36,11 @@ const dirInclude = '**/*.@(?([mc])[jt]s?(x))'
 //    Figure out which files in the suite have changed since last run,
 //    and only run those. Do not delete coverage history ever.
 
-export const list = async (args: string[], config: LoadedConfig) => {
+export const list = async (
+  args: string[],
+  config: LoadedConfig,
+  noPruneUnchanged: boolean = false
+) => {
   const saveList: Set<string> = new Set(await readSave(config))
 
   const ignore = [alwaysExcludePattern]
@@ -124,7 +128,7 @@ export const list = async (args: string[], config: LoadedConfig) => {
   }
 
   const foundEntries = entries.size !== 0
-  if (config.get('changed') && foundEntries) {
+  if (config.get('changed') && foundEntries && !noPruneUnchanged) {
     await pruneUnchanged(scurry, entries)
   }
 
