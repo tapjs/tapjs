@@ -96,7 +96,8 @@ cls
   clear the screen
 
 parse [<options>]
-  parse some TAP. See 'parse -h' for options
+  parse TAP from stdin and print results
+  see 'parse -h' for options
 
 plugin [add <plugin> | rm <plugin> | list]
   manage tap plugins (see tap --help for details)

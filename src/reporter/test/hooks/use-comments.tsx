@@ -39,6 +39,7 @@ t.test('show comments', async t => {
   tb.comment('after child test')
   tb.end()
   await tb.concat()
+  await sleep(64)
   app.unmount()
 
   t.strictSame(reduce(app.frames), [

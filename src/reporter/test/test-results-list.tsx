@@ -5,6 +5,7 @@ import { render } from 'ink-testing-library'
 import React from 'react'
 import t from 'tap'
 import * as tapParser from 'tap-parser'
+import { sleep } from './fixtures/sleep.js'
 
 const { TestResultsList } = (await t.mockImport(
   '../dist/test-results-list.js',
@@ -45,6 +46,7 @@ t.test('passing test results, details, no callsite', async t => {
   const app = render(
     <TestResultsList test={tb} lists={tb.lists} details />
   )
+  await sleep(64)
   t.equal(app.lastFrame(), '', 'empty, just a passing test')
   app.unmount()
 })
