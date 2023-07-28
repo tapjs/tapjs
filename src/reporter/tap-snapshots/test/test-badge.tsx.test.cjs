@@ -13,6 +13,10 @@ exports[`test/test-badge.tsx > TAP > fail ok=false > must match snapshot 1`] = `
 [1m[41m[38;2;255;255;255m FAIL [39m[49m[22m
 `
 
+exports[`test/test-badge.tsx > TAP > ok, but exited with signal > must match snapshot 1`] = `
+[1m[41m[38;2;255;255;255m FAIL [39m[49m[22m
+`
+
 exports[`test/test-badge.tsx > TAP > pass > must match snapshot 1`] = `
 [1m[48;2;0;170;0m[38;2;0;0;0m PASS [39m[49m[22m
 `

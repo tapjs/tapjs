@@ -13,7 +13,12 @@ const bin = fileURLToPath(
 const node = process.execPath
 
 t.cleanSnapshot = s =>
-  s.replace(/# time=[0-9.]+m?s/g, '# time={TIME}')
+  s
+    .replace(/# time=[0-9.]+m?s/g, '# time={TIME}')
+    .replace(
+      /\n  ---\n(.|\n)*?\n  \.\.\.\n/g,
+      '\n  ---\n  {DIAGS}\n  ...\n'
+    )
 
 t.test('if respawn for rebuild, do nothing', async t => {
   let buildWithSpawnCalled = false
@@ -140,6 +145,8 @@ t.test('fail to find all named test files', async t => {
 })
 
 t.test('set test envs', async t => {
+  // testdirs are excluded by default, so use a different name
+  t.testdirName = t.testdirName.replace(/tap-testdir/, 'XXX-testdir')
   const cwd = t.testdir({
     'env.test.js': `
       import t from 'tap'
@@ -243,6 +250,9 @@ ok 1 - this is standard input
 })
 
 t.test('no files found to run', async t => {
+  // testdirs are excluded by default, so use a different name
+  t.testdirName = t.testdirName.replace(/tap-testdir/, 'XXX-testdir')
+
   const cwd = t.testdir({
     '.taprc': `
 coverage-map: map.mjs
@@ -261,7 +271,7 @@ coverage-map: map.mjs
     `,
   })
   // run once to make sure it is unchanged
-  const { code, stderr, stdout } = await run(cwd, [], undefined, {
+  const { code } = await run(cwd, [], undefined, {
     TAP_EXCLUDE: undefined,
     TAP_INCLUDE: undefined,
   })
@@ -293,18 +303,28 @@ coverage-map: map.mjs
   })
 
   t.test('valid arg, no changed', async t => {
-    const { code, stdout, stderr } = await run(cwd, ['foo.test.mjs'], undefined, {
-      TAP_CHANGED: '1',
-    })
+    const { code, stdout, stderr } = await run(
+      cwd,
+      ['foo.test.mjs'],
+      undefined,
+      {
+        TAP_CHANGED: '1',
+      }
+    )
     t.equal(code, 0)
     t.equal(stdout, 'No new tests to run\n')
     t.equal(stderr, '')
   })
 
   t.test('invalid arg, no changed', async t => {
-    const { code, stdout, stderr } = await run(cwd, ['blah'], undefined, {
-      TAP_CHANGED: '1',
-    })
+    const { code, stdout, stderr } = await run(
+      cwd,
+      ['blah'],
+      undefined,
+      {
+        TAP_CHANGED: '1',
+      }
+    )
     t.equal(code, 1)
     t.equal(stdout, '')
     t.equal(stderr, 'No valid test files found matching "blah"\n')
@@ -312,6 +332,9 @@ coverage-map: map.mjs
 })
 
 t.test('run stdin with a file', async t => {
+  // testdirs are excluded by default, so use a different name
+  t.testdirName = t.testdirName.replace(/tap-testdir/, 'XXX-testdir')
+
   const cwd = t.testdir({
     'env.test.js': `
       import t from 'tap'

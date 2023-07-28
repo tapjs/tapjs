@@ -48,7 +48,6 @@ const main = () => {
         __filename,
         c,
       ])
-      t.comment([...process.execArgv, __filename, c])
       const out: Buffer[] = []
       const err: Buffer[] = []
       child.stdout.on('data', c => out.push(c))
@@ -86,9 +85,9 @@ const cases: Record<string, () => any> = {
   },
 
   timeoutSigint: () => {
+    delete process.env.TAP_CHILD_ID
     const t = tap()
     t.pass('this is fine')
-    delete process.env.TAP_CHILD_ID
     process.emit('SIGINT')
   },
 

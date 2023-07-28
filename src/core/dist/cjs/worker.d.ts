@@ -5,6 +5,7 @@ import { TestBaseOpts } from './test-base.js';
 import { Worker as NodeWorker } from 'node:worker_threads';
 import { FinalResults } from 'tap-parser';
 export interface WorkerEvents extends TapBaseEvents {
+    process: [NodeWorker];
 }
 export interface WorkerOpts extends TestBaseOpts {
     workerData?: any;

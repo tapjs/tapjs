@@ -43,6 +43,12 @@ export interface SpawnOpts extends TestBaseOpts {
   env?: { [k: string]: string } | NodeJS.ProcessEnv
   exitCode?: number | null
   signal?: string | null
+  /**
+   * Used for tracking the test process for tap --changed etc
+   * Typically set to the test name. Unlikely that you should
+   * ever set this, outside of tap itself.
+   */
+  externalID?: string
 }
 
 export class Spawn extends Base<SpawnEvents> {
@@ -59,6 +65,7 @@ export class Spawn extends Base<SpawnEvents> {
   env: { [k: string]: string } | NodeJS.ProcessEnv
   proc: null | ChildProcess = null
   cb: null | (() => void) = null
+  externalID?: string
 
   // doesn't have to be cryptographically secure, just a gut check
   #tapAbortKey: string = String(Math.random())
@@ -80,6 +87,7 @@ export class Spawn extends Base<SpawnEvents> {
     options.name = options.name || Spawn.procName(cwd, command, args)
     super(options)
 
+    this.externalID = options.externalID
     this.cwd = cwd
     this.command = command
     this.args = args
@@ -142,7 +150,7 @@ export class Spawn extends Base<SpawnEvents> {
       cwd: this.cwd,
       env: this.env,
       stdio: this.stdio,
-      externalID: this.name,
+      externalID: this.externalID,
     }
     this.parent?.emit('spawn', this)
 
@@ -175,10 +183,10 @@ export class Spawn extends Base<SpawnEvents> {
   }
 
   #onprocclose(code: number | null, signal: string | null) {
+    this.options.exitCode = this.options.exitCode || code
+    this.options.signal = this.options.signal || signal
     if (this.#timedOut) super.timeout(this.#timedOut)
     this.debug('SPAWN close %j %s', code, signal)
-    this.options.exitCode = code
-    this.options.signal = signal
 
     // spawn closing with no tests is treated as a skip.
     if (

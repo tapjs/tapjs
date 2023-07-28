@@ -13,6 +13,7 @@ class Spawn extends base_js_1.Base {
     env;
     proc = null;
     cb = null;
+    externalID;
     // doesn't have to be cryptographically secure, just a gut check
     #tapAbortKey = String(Math.random());
     #timedOut;
@@ -27,6 +28,7 @@ class Spawn extends base_js_1.Base {
         const args = options.args || [];
         options.name = options.name || Spawn.procName(cwd, command, args);
         super(options);
+        this.externalID = options.externalID;
         this.cwd = cwd;
         this.command = command;
         this.args = args;
@@ -83,7 +85,7 @@ class Spawn extends base_js_1.Base {
             cwd: this.cwd,
             env: this.env,
             stdio: this.stdio,
-            externalID: this.name,
+            externalID: this.externalID,
         };
         this.parent?.emit('spawn', this);
         this.emit('preprocess', options);
@@ -108,11 +110,11 @@ class Spawn extends base_js_1.Base {
         this.emit('process', proc);
     }
     #onprocclose(code, signal) {
+        this.options.exitCode = this.options.exitCode || code;
+        this.options.signal = this.options.signal || signal;
         if (this.#timedOut)
             super.timeout(this.#timedOut);
         this.debug('SPAWN close %j %s', code, signal);
-        this.options.exitCode = code;
-        this.options.signal = signal;
         // spawn closing with no tests is treated as a skip.
         if (this.results &&
             this.results.plan &&

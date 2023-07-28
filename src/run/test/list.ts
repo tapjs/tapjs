@@ -221,6 +221,10 @@ t.test('list some test files', async t => {
 })
 
 t.test('filter changed files', async t => {
+  // testdirs are excluded from file tracking by default, so
+  // use a different directory name.
+  t.testdirName = t.testdirName.replace(/tap-testdir/, 'XXX-testdir')
+
   const fixture = fileURLToPath(new URL('fixture', import.meta.url))
   const cwd = process.cwd()
 
@@ -238,14 +242,24 @@ t.test('filter changed files', async t => {
     )
 
   const piFooRecord = {
-    ...JSON.parse(readFileSync(resolve(fixture, '.tap/processinfo/uuid-foo.json'), 'utf8')),
+    ...JSON.parse(
+      readFileSync(
+        resolve(fixture, '.tap/processinfo/uuid-foo.json'),
+        'utf8'
+      )
+    ),
     files: [
       resolve(t.testdirName, 'test/foo.mjs'),
       resolve(t.testdirName, 'foo.mjs'),
     ],
   }
   const piBarRecord = {
-    ...JSON.parse(readFileSync(resolve(fixture, '.tap/processinfo/uuid-bar.json'), 'utf8')),
+    ...JSON.parse(
+      readFileSync(
+        resolve(fixture, '.tap/processinfo/uuid-bar.json'),
+        'utf8'
+      )
+    ),
     files: [
       resolve(t.testdirName, 'test/bar.mjs'),
       resolve(t.testdirName, 'bar.mjs'),

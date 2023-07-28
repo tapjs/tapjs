@@ -8,7 +8,9 @@ import { format } from 'node:util'
 import { Worker as NodeWorker } from 'node:worker_threads'
 import { FinalResults } from 'tap-parser'
 
-export interface WorkerEvents extends TapBaseEvents {}
+export interface WorkerEvents extends TapBaseEvents {
+  process: [NodeWorker]
+}
 
 export interface WorkerOpts extends TestBaseOpts {
   workerData?: any

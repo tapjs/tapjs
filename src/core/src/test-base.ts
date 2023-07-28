@@ -1038,7 +1038,10 @@ export class TestBase extends Base<TestBaseEvents> {
     }
     extra.context = this.context
 
-    if (extra.passes === undefined && this.options.passes !== undefined) {
+    if (
+      extra.passes === undefined &&
+      this.options.passes !== undefined
+    ) {
       extra.passes = !!this.options.passes
     }
 

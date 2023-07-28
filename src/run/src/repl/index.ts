@@ -1,30 +1,31 @@
-import { LoadedConfig, TapConfig } from '@tapjs/config'
+import { LoadedConfig } from '@tapjs/config'
+import { ProcessInfo, ProcessInfoNode } from '@tapjs/processinfo'
 import chalk from 'chalk'
 import { FSWatcher, watch } from 'chokidar'
-import { mkdirp } from 'mkdirp'
-import {
-  dirname,
-  isAbsolute,
-  relative,
-  resolve,
-  sep,
-} from 'node:path'
-import { REPLServer, start } from 'node:repl'
+import { ChildProcess, spawn, SpawnOptions } from 'node:child_process'
+import { readFile } from 'node:fs/promises'
+import { isAbsolute, relative, resolve } from 'node:path'
+import type { REPLServer } from 'node:repl'
+import { start } from 'node:repl'
+import { fileURLToPath } from 'node:url'
+import { resolveImport } from 'resolve-import'
 import { rimrafSync } from 'rimraf'
 import { stringify } from 'tap-yaml'
+import { Deferred } from 'trivial-deferred'
 import { options } from './chokidar-options.js'
+import { fileCompleter } from './file-completer.js'
+import { filterCompletions } from './filter-completions.js'
+import { processinfoCompletions } from './processinfo-completions.js'
 import { Watch } from './watch.js'
 
-import { ProcessInfo, ProcessInfoNode } from '@tapjs/processinfo'
-import { ChildProcess, spawn, SpawnOptions } from 'node:child_process'
-import { readdirSync, statSync } from 'node:fs'
-import { readFile } from 'node:fs/promises'
-import {resolveImport} from 'resolve-import'
-import {fileURLToPath} from 'node:url'
+const tapBin = fileURLToPath(
+  await resolveImport('../index.js', import.meta.url)
+)
 
-const tapBin = fileURLToPath(await resolveImport('../index.js', import.meta.url))
+type NodeCallback = (er: Error | null, result: any) => void
 
-type Callback = (er: Error | null, result: any) => void
+const KILL_TIMEOUT =
+  Number(process.env._TAP_REPL_KILL_TIMEOUT) || 2000
 
 type PrintedProcessInfoNode = {
   date: string
@@ -86,7 +87,7 @@ i [<filename | uuid>]
   print process info for the specified test file in the last run, or
   show a list of process info keys if no id provided
 
-w
+w [ on | off ]
   toggle the file watcher on/off
 
 w?
@@ -129,7 +130,6 @@ export class Repl {
   config: LoadedConfig
   dir: string
   saveFile: string
-  explicitRunFile: string
   // the process always inherits our stdio
   proc?: ChildProcess
 
@@ -139,6 +139,9 @@ export class Repl {
 
   #piReloading: boolean = false
   #piWatcher: FSWatcher
+  #queue: [string, Deferred<any>][] = []
+
+  #inputEnded: boolean = false
 
   constructor(
     config: LoadedConfig,
@@ -155,10 +158,10 @@ export class Repl {
     this.processInfo = processInfo
     this.saveFile =
       config.get('save') || resolve(this.dir, 'repl_failures')
-    this.explicitRunFile = resolve(this.dir, 'repl_explicit_run')
 
-    this.watch = new Watch(this.dir, this.processInfo)
-    this.watch.on('change', () => this.#onWatchChange())
+    this.watch = new Watch(this.processInfo, () =>
+      this.#onWatchChange()
+    )
 
     this.#piWatcher = watch(resolve(this.dir, 'processinfo'), options)
     this.#piWatcher.on('all', () => this.#piReload())
@@ -177,12 +180,27 @@ export class Repl {
       input: this.input,
       output: this.output,
       prompt: 'TAP> ',
-      eval: (input: string, _: any, __: any, cb: Callback) =>
-        this.parseCommand(input, _, __, cb),
+      eval: (input: string, _: any, __: any, cb: NodeCallback) =>
+        this.parseCommand(input).then((res?: any) => {
+          cb(null, res)
+          while (this.#queue.length && !this.proc) {
+            const [input, d] = this.#queue[0]
+            this.#queue.shift()
+            d.resolve(this.parseCommand(input))
+          }
+          if (this.#inputEnded && !this.#queue.length && !this.proc) {
+            this.exit()
+          }
+        }),
       /* c8 ignore start */
       completer: (input: string) => this.completer(input),
       /* c8 ignore stop */
-      writer: res => (res !== undefined ? stringify(res) : ''),
+      writer: res =>
+        res === undefined
+          ? ''
+          : typeof res === 'string'
+          ? res
+          : stringify(res),
       // we don't actually eval anything, save the CPU cycles
       useGlobal: true,
     })
@@ -200,11 +218,21 @@ export class Repl {
     )
     /* c8 ignore stop */
 
-    this.input.on('end', () => this.watch.close())
-    this.input.on('close', () => this.watch.close())
-    process.on('SIGINT', () => this.onSigint())
+    this.input.on('end', () => this.#onInputEnd())
+    this.input.on('close', () => this.#onInputEnd())
+    const osi = () => this.#onSigint()
+    process.removeAllListeners('SIGINT')
+    process.on('SIGINT', osi)
+    // suppress the "press ^C again to exit" message
     this.repl.removeAllListeners('SIGINT')
-    this.repl.on('SIGINT', () => this.onSigint())
+    this.repl.on('SIGINT', osi)
+  }
+
+  #onInputEnd() {
+    this.#inputEnded = true
+    if (!this.proc) {
+      this.exit()
+    }
   }
 
   #killProc(signal: 'SIGINT' | 'SIGTERM' | 'SIGKILL' = 'SIGINT') {
@@ -217,11 +245,11 @@ export class Repl {
         ? 'SIGKILL'
         : null
     if (next) {
-      setTimeout(() => this.#killProc(next), 200).unref?.()
+      setTimeout(() => this.#killProc(next), KILL_TIMEOUT)?.unref?.()
     }
   }
 
-  onSigint() {
+  #onSigint() {
     this.output.write(this.proc ? '\n' : '^C\n')
     if (this.proc) {
       this.#killProc('SIGINT')
@@ -232,8 +260,15 @@ export class Repl {
     }
   }
 
-  parseCommand(input: string, _: any, __: any, cb: Callback) {
-    if (this.proc) return cb(null, 'command in progress, please wait')
+  async parseCommand(input: string): Promise<any | void> {
+    if (this.proc) {
+      const d = new Deferred<any>()
+      this.#queue.push([input, d])
+      return d.promise
+    }
+    if (!this.input.isTTY) {
+      this.output.write(input)
+    }
     const words = input
       .trim()
       .split(' ')
@@ -242,40 +277,40 @@ export class Repl {
     const args = words.slice(1)
     switch (cmd) {
       case 'r':
-        return this.runTests(args, cb)
+        return this.runTests(args)
       case 'n':
-        return this.runChanged(args, cb)
+        return this.runChanged(args)
       case 'f':
-        return this.runFailed(args, cb)
+        return this.runFailed(args)
       case 'f?':
-        return this.showFailed(cb)
+        return this.showFailed()
       case 'u':
-        return this.updateSnapshots(args, cb)
+        return this.updateSnapshots(args)
       case 'w':
-        return this.toggleWatch(cb)
+        return this.toggleWatch(args)
       case 'w?':
-        return this.showWatch(cb)
+        return this.showWatch()
       case 'c':
-        return this.report(args, cb)
+        return this.report(args)
       case 'i':
-        return this.info(args, cb)
+        return this.info(args)
       case 'cls':
-        return this.cls(cb)
+        return this.cls()
       case 'parse':
-        return this.spawnParser(args, cb)
+        return this.spawnParser(args)
       case 'tap':
-        return this.spawnTap(args, {}, cb)
+        return this.spawnTap(args)
+      case 'list':
       case 'plugin':
       case 'build':
       case 'version':
       case 'versions':
-      case 'list':
       case 'dump-config':
-        return this.spawnTap(words, {}, cb)
+        return this.spawnTap(words)
       case 'exit':
         return this.exit()
       case '':
-        return cb(null, undefined)
+        return
 
       case '-h':
       case '--help':
@@ -283,21 +318,28 @@ export class Repl {
       case 'help':
       case '?':
       default:
-        return this.help(cb)
+        return this.help()
     }
   }
 
-  cls(cb: Callback) {
-    this.output.write('\u001b[2J\u001b[H')
-    return cb(null, undefined)
+  async cls() {
+    return '\x1b[2J\x1b[H'
+  }
+
+  #setRawMode (mode: boolean) {
+    // ignored to avoid the ?., which is only there because the stream
+    // might not have this method.
+    /* c8 ignore start */
+    this.input.setRawMode?.(mode)
+    /* c8 ignore stop */
   }
 
   exit() {
-    this.input.setRawMode?.(false)
+    this.#setRawMode(false)
     this.showCursor()
-    this.repl?.close()
-    this.watch.close()
-    this.#piWatcher.close()
+    this.repl?.close?.()
+    this.watch?.close?.()
+    this.#piWatcher?.close?.()
     this.#killProc('SIGTERM')
   }
 
@@ -305,111 +347,119 @@ export class Repl {
     this.output.write('\x1b[?25h')
   }
 
-  help(cb: Callback) {
-    this.output.write(usage)
-    cb(null, undefined)
+  async help() {
+    return usage
   }
 
-  #spawn(
+  async #spawn(
     cmd: string,
     args: string[],
-    options: SpawnOptions = {},
-    cb: (err: Error | null, result: any) => void
+    options: SpawnOptions = {}
   ) {
     /* c8 ignore start */
-    if (this.proc) return cb(null, 'command in progress, please wait')
+    if (this.proc) return 'command in progress, please wait'
     /* c8 ignore stop */
     this.repl?.pause()
     options.stdio = 'inherit'
     // inherit environment except what is specified, if anything
     // delete anything specified as undefined
     const env = { ...process.env, ...(options.env || {}) }
-    for (const [k, v] of Object.entries(env)) {
-      if (v === undefined) delete env[k]
-    }
     // always save failures to our save file
     env.TAP_SAVE = this.saveFile
 
     env._TAP_REPL = '1'
 
-    this.input.setRawMode?.(false)
-    this.proc = spawn(cmd, args, {
+    this.#setRawMode(false)
+    const proc = (this.proc = spawn(cmd, args, {
       ...options,
       env,
       stdio: 'inherit',
+    }))
+    return new Promise<any | void>(res => {
+      proc.on('close', (code, signal) =>
+        res(this.#onSpawnClose(code, signal))
+      )
     })
-    this.proc.on('close', (code, signal) =>
-      this.#onSpawnClose(code, signal, cb)
-    )
   }
 
   async #onSpawnClose(
     code: null | number,
-    signal: null | NodeJS.Signals,
-    cb: (err: Error | null, result: any) => void
+    signal: null | NodeJS.Signals
   ) {
     this.proc = undefined
     this.repl?.resume()
-    this.input.setRawMode?.(true)
+    this.#setRawMode(true)
     this.showCursor()
     if (this.#haveChanges) {
-      const c = await this.processInfo.externalIDsChanged()
+      // only care about top-level externalID processes here.
+      // if the user set an externalID on a t.spawn() process in a test,
+      // then that's not relevant.
+      const c = await this.processInfo.externalIDsChanged(
+        (_, c) => !c.parent
+      )
       this.#haveChanges = c.size !== 0
     }
+    // *exceptionally* challenging to trigger in a test environment
+    // in a reasonable way.
+    // Handle case when a valid file change is made while the test suite
+    // is running, where the change occurs *after* that specific test runs.
+    /* c8 ignore start */
     if (this.#haveChanges) {
       this.output.write(stringify({ code, signal }))
-      return this.runChanged([], cb)
+      return this.runChanged([])
     } else {
-      cb(null, { code, signal })
+      /* c8 ignore stop */
+      return { code, signal }
     }
   }
 
-  #onWatchChange() {
+  async #onWatchChange() {
     if (!this.proc) {
       this.output.write('change detected\n')
-      this.runChanged([], (_, result) => {
-        this.output.write(stringify(result) + '\n')
-        this.repl?.displayPrompt()
-      })
+      this.output.write(stringify(await this.runChanged([])) + '\n')
+      this.repl?.displayPrompt()
     } else {
       this.#haveChanges = true
     }
   }
 
   // spawn the tap runner with the specified arguments
-  spawnTap(args: string[], options: SpawnOptions, cb: Callback) {
+  async spawnTap(args: string[], options?: SpawnOptions) {
     const argv = [...process.execArgv, tapBin, ...args]
-    this.#spawn(process.execPath, argv, options, cb)
+    return this.#spawn(process.execPath, argv, options)
   }
 
-  runTests(args: string[], cb: Callback) {
+  async runTests(args: string[]) {
     // run all the tests in the suite like normal
     // If we have any args, then use a saveFile so that we don't
     // blow away our coverage and processinfo
-    const TAP_COVERAGE_ADD = args.length ? '1' : '0'
     rimrafSync(this.saveFile)
-    const env = { TAP_CHANGED: '0', TAP_COVERAGE_ADD }
-    this.spawnTap(['run', ...args], { env }, cb)
+    const env = args.length
+      ? { TAP_CHANGED: '0', TAP_COVERAGE_ADD: '1' }
+      : process.env
+    return this.spawnTap(['run', ...args], { env })
   }
 
-  runChanged(args: string[], cb: Callback) {
+  async runChanged(args: string[]) {
     rimrafSync(this.saveFile)
-    this.spawnTap(['run', ...args], { env: { TAP_CHANGED: '1' } }, cb)
+    return this.spawnTap(['run', ...args], {
+      env: { TAP_CHANGED: '1' },
+    })
   }
 
-  async showFailed(cb: Callback) {
+  async showFailed() {
     const fails = (
       await readFile(this.saveFile, 'utf8').catch(() => '')
     ).trim()
-    if (!fails) return cb(null, 'no failed tests from previous runs')
-    else cb(null, fails.split('\n'))
+    if (!fails) return 'no failed tests from previous runs'
+    else return fails.split('\n')
   }
 
-  async runFailed(args: string[], cb: Callback) {
-    this.spawnTap(['run', ...args], {}, cb)
+  async runFailed(args: string[]) {
+    return this.spawnTap(['run', ...args])
   }
 
-  updateSnapshots(args: string[], cb: Callback) {
+  updateSnapshots(args: string[]) {
     const TAP_COVERAGE_ADD = args.length ? '1' : '0'
     rimrafSync(this.saveFile)
     const env = {
@@ -417,21 +467,25 @@ export class Repl {
       TAP_SNAPSHOT: '1',
       TAP_COVERAGE_ADD,
     }
-    this.spawnTap(['run', ...args], { env }, cb)
+    this.spawnTap(['run', ...args], { env })
   }
 
-  async toggleWatch(cb?: Callback) {
-    if (this.watch.watching) {
-      this.watch.close()
-      return cb?.(null, 'not watching files for changes')
-    }
-    await this.watch.start()
-    cb?.(null, 'watching files for changes (run w? to list them)')
+  async toggleWatch(args: string[]) {
+    const on =
+      args[0] === 'on'
+        ? true
+        : /* c8 ignore start */
+        args[1] === 'off'
+        ? false
+        : /* c8 ignore stop */
+          !this.watch.watching
+    this.watch[on ? 'start' : 'close']()
+    return this.showWatch()
   }
 
-  async showWatch(cb: Callback) {
+  async showWatch() {
     const w = this.watch
-    if (!w.watching) return cb(null, 'not watching files for changes')
+    if (!w.watching) return 'not watching files for changes'
     const { watchedFiles } = w
     const localFiles: string[] = []
     let deps: number = 0
@@ -454,11 +508,11 @@ export class Repl {
       'dependency files watched': deps,
     }
 
-    return cb(null, res)
+    return res
   }
 
-  report(args: string[], cb: Callback) {
-    this.spawnTap(['report', ...args], {}, cb)
+  async report(args: string[]) {
+    return this.spawnTap(['report', ...args])
   }
 
   #printPIN(
@@ -482,46 +536,44 @@ export class Repl {
     if (node.children) {
       pin.children = Object.fromEntries(
         [...node.children]
+          // nondeterministic
+          /* c8 ignore start */
           .sort(({ date: a }, { date: b }) =>
             a.localeCompare(b, 'en')
           )
+          /* c8 ignore stop */
           .map(c => [c.uuid, this.#printPIN(c)])
       )
     }
     if (node.code !== null) pin.code = node.code
+    /* c8 ignore start */
     if (node.signal !== null) pin.signal = node.signal
+    /* c8 ignore stop */
     if (node.runtime) pin.runtime = node.runtime
     return pin
   }
 
-  info(args: string[], cb: Callback) {
+  async info(args: string[]) {
     if (!args.length) {
-      return cb(null, {
+      return {
         'Provide a test id to get information': [
           ...this.processInfo.externalIDs.keys(),
         ],
-      })
+      }
     }
-
-    return cb(
-      null,
-      Object.fromEntries(
-        args.map(id => {
-          const pin =
-            this.processInfo.externalIDs.get(id) ||
-            this.processInfo.uuids.get(id)
-          return [
-            id,
-            pin ? this.#printPIN(pin, true) : 'no data found',
-          ]
-        })
-      )
+    return Object.fromEntries(
+      args.map(id => {
+        const pin =
+          this.processInfo.externalIDs.get(id) ||
+          this.processInfo.uuids.get(id)
+        return [id, pin ? this.#printPIN(pin, true) : 'no data found']
+      })
     )
   }
 
-  spawnParser(args: string[], cb: Callback) {
+  async spawnParser(args: string[]) {
     this.output.write('Parsing TAP from stdin. Press ^D to finish.\n')
-    this.#spawn('tap-parser', args, {}, cb)
+    this.#spawn('tap-parser', args)
   }
 
   completer(input: string) {
@@ -537,7 +589,7 @@ export class Repl {
       case 'u':
       case 'n':
       case 'f':
-        return this.#fileCompleter(cmd, args, input)
+        return fileCompleter(args, input)
       case 'f?':
       case 'w':
       case 'w?':
@@ -550,66 +602,13 @@ export class Repl {
       case 'dump-config':
         return [[cmd], input]
       case 'i':
-        return this.#piCompleter(cmd, args, input)
+        return processinfoCompletions(
+          this.processInfo,
+          args,
+          input
+        )
       default:
-        return [this.#filterCompletions(commands, input), input]
+        return [filterCompletions(commands, input), input]
     }
-  }
-
-  #piCompleter(cmd: string, args: string[], input: string) {
-    const lw = args.pop() || ''
-    const ids = (
-      lw === ''
-        ? [...this.processInfo.externalIDs.keys()]
-        : [
-            ...this.processInfo.externalIDs.keys(),
-            ...this.processInfo.uuids.keys(),
-          ]
-    ).filter(id => !args.includes(id))
-    const matches = this.#filterCompletions(
-      ids.map(id => [cmd, ...args].join(' ') + ' ' + id),
-      input
-    )
-    if (matches.length === 1) {
-      matches[0] += ' '
-    }
-    return [matches, input]
-  }
-
-  #fileCompleter(cmd: string, args: string[], input: string) {
-    const lw = args.pop() || ''
-    const d = dirname(lw)
-    const dir = lw.endsWith(sep) ? lw : d === '.' ? '' : d + sep
-    try {
-      const matches = this.#filterCompletions(
-        readdirSync(dir || '.')
-          .map(f => (statSync(dir + f).isDirectory() ? f + sep : f))
-          .map(f => [cmd, ...args].join(' ') + ' ' + dir + f),
-        input
-      )
-      if (matches.length === 1 && !matches[0].endsWith(sep)) {
-        matches[0] += ' '
-      }
-      return [matches, input]
-    } catch {
-      return [[], input]
-    }
-  }
-
-  #filterCompletions(list: string[], input: string) {
-    const hits = list.filter(l => l.startsWith(input))
-    return hits.length ? hits : list
-  }
-
-  static async start(
-    input: NodeJS.ReadStream = process.stdin,
-    output: NodeJS.WriteStream = process.stdout
-  ) {
-    const config = await TapConfig.load()
-    const repl = new Repl(config, input, output)
-    await mkdirp(repl.dir)
-    repl.start()
-    await repl.toggleWatch()
-    return repl
   }
 }

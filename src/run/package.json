@@ -37,7 +37,7 @@
   "dependencies": {
     "@tapjs/config": ">=2.0.0-0",
     "@tapjs/core": ">=0.0.0-0",
-    "@tapjs/processinfo": "^2.4.1",
+    "@tapjs/processinfo": "^2.5.0",
     "@tapjs/reporter": ">=0.0.0-0",
     "@tapjs/spawn": ">=0.0.0-0",
     "@tapjs/stdin": ">=0.0.0-0",
@@ -52,7 +52,8 @@
     "path-scurry": "^1.9.2",
     "resolve-import": "^1.0.4",
     "rimraf": "^5.0.0",
-    "tap-yaml": "^2.1.0"
+    "tap-yaml": "^2.1.0",
+    "trivial-deferred": "^2.0.0"
   },
   "tap": {
     "coverage-map": "map.js"

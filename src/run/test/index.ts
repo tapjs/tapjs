@@ -91,7 +91,7 @@ t.test('dump-config', async t => {
 })
 
 t.test('other commands', t => {
-  const commands = ['build', 'plugin', 'list', 'report']
+  const commands = ['build', 'plugin', 'list', 'report', 'repl']
   t.plan(commands.length)
   for (const cmd of commands) {
     t.test(cmd, async t => {

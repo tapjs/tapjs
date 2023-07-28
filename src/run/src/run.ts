@@ -90,7 +90,7 @@ export const run = async (args: string[], config: LoadedConfig) => {
   process.env._TAPJS_PROCESSINFO_EXCLUDE_ = String(
     // don't consider snapshots and fixtures, or else we'll
     // always think that all tests are new after generating!
-    /[\\\/](tap-testdir-[^\\\/]|tap-snapshots)[\\\/]/
+    /(^node:|[\\\/](tap-testdir-[^\\\/]+|tap-snapshots)[\\\/])/
   )
   const files = await list(args, config)
   if (!files.length) {
@@ -215,6 +215,8 @@ export const run = async (args: string[], config: LoadedConfig) => {
     )
     const file = resolve(config.globCwd, f)
     const buffered = !testIsSerial(file) && t.jobs > 1
+    const name = relative(config.globCwd, file)
+
     const p = t.spawn(node, [...argv, file, ...testArgs], {
       at: null,
       stack: '',
@@ -226,9 +228,11 @@ export const run = async (args: string[], config: LoadedConfig) => {
         _TAPJS_PROCESSINFO_COVERAGE_,
         _TAPJS_PROCESSINFO_COV_FILES_,
       },
-      name: relative(config.globCwd, file),
+      name,
       cwd: config.globCwd,
+      externalID: name,
     })
+
     if (saveList.length) {
       testPromises.push(
         p.then((results: FinalResults | null) => {

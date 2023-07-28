@@ -30,6 +30,12 @@ export interface SpawnOpts extends TestBaseOpts {
     } | NodeJS.ProcessEnv;
     exitCode?: number | null;
     signal?: string | null;
+    /**
+     * Used for tracking the test process for tap --changed etc
+     * Typically set to the test name. Unlikely that you should
+     * ever set this, outside of tap itself.
+     */
+    externalID?: string;
 }
 export declare class Spawn extends Base<SpawnEvents> {
     #private;
@@ -48,6 +54,7 @@ export declare class Spawn extends Base<SpawnEvents> {
     } | NodeJS.ProcessEnv;
     proc: null | ChildProcess;
     cb: null | (() => void);
+    externalID?: string;
     constructor(options: SpawnOpts);
     endAll(): void;
     main(cb: () => void): void | import("./index.js").Extra;

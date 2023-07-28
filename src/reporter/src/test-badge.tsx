@@ -7,7 +7,7 @@ export interface TestBadgeOpts {
 }
 
 export const TestBadge: FC<TestBadgeOpts> = ({ test }) => {
-  const { results, counts } = test
+  const { results, counts, options } = test
   if (!results) {
     return (
       <Text backgroundColor="yellow" color="#000" bold>
@@ -21,7 +21,7 @@ export const TestBadge: FC<TestBadgeOpts> = ({ test }) => {
     plan: { skipAll },
   } = results
   const { fail, todo, skip } = counts
-  return !ok || !!fail ? (
+  return !ok || !!fail || options.signal || options.exitCode ? (
     <Text backgroundColor="red" color="#fff" bold>
       {' FAIL '}
     </Text>

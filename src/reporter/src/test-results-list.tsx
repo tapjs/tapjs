@@ -22,7 +22,12 @@ export const TestResultsList: FC<TestResultsListOpts> = ({
   if (!results) return <></>
 
   const resultsList: (ReactElement | Result)[] = []
-  if (results.plan.skipAll && results.plan.skipReason) {
+  if (
+    results.plan.skipAll &&
+    results.plan.skipReason &&
+    !test.options.signal &&
+    !test.options.exitCode
+  ) {
     resultsList.push(
       <Box gap={1} paddingLeft={1}>
         <Text color="cyan" bold>

@@ -6,6 +6,7 @@ const test_1 = require("@tapjs/test");
 const async_hook_domain_1 = require("async-hook-domain");
 const node_worker_threads_1 = require("node:worker_threads");
 const signal_exit_1 = require("signal-exit");
+const signals_1 = require("signal-exit/signals");
 const diags_js_1 = require("./diags.js");
 const implicit_end_sigil_js_1 = require("./implicit-end-sigil.js");
 const proc_js_1 = require("./proc.js");
@@ -19,6 +20,7 @@ const envFlag = (key) => proc_js_1.env[key] === undefined ? undefined : proc_js_
 let piped = false;
 let registered = false;
 let autoend = false;
+let exitSignal = undefined;
 /**
  * This is a singleton subclass of the {@link Test} base class.
  *
@@ -110,6 +112,7 @@ class TAP extends test_1.Test {
             return;
         registered = true;
         registerTimeoutListener();
+        registerSignalListener(this);
         ignoreEPIPE();
         this.once('bail', () => proc_js_1.proc?.exit(1));
         proc_js_1.proc?.once('beforeExit', () => {
@@ -152,7 +155,14 @@ class TAP extends test_1.Test {
             this.comment(this.counts.toJSON());
             this.comment(`time=${this.time}ms`);
         }
-        if (registered && !results.ok && proc_js_1.proc) {
+        if (registered && proc_js_1.proc && !results.ok) {
+            // very finicky timing-specific behavior
+            /* c8 ignore start */
+            if (exitSignal && proc_js_1.proc.kill && proc_js_1.proc.pid) {
+                proc_js_1.proc.kill(proc_js_1.proc.pid, exitSignal);
+                setTimeout(() => { }, 200);
+            }
+            /* c8 ignore stop */
             proc_js_1.proc.exitCode = 1;
         }
     }
@@ -174,6 +184,50 @@ class TAP extends test_1.Test {
         return ret;
     }
 }
+// Proxy any signal we receive to any child processes or workers,
+// even those waiting to be initiated, or awaiting processing.
+const registerSignalListener = (t) => {
+    for (const signal of signals_1.signals) {
+        // don't capture timeout signals, those are handled elsewhere
+        if (isTimeoutSignal(signal))
+            continue;
+        // Ignored for test coverage because it's almost impossible
+        // to trigger reliably, but definitely something encountered
+        // frequently when running and terminating test runs in dev
+        /* c8 ignore start */
+        try {
+            // make sure any subsequent test procs get the signal
+            process.once(signal, () => {
+                exitSignal ??= signal;
+                const { pool, subtests } = t;
+                const onST = (t) => {
+                    if (pool.has(t)) {
+                        t.options.signal = signal;
+                        t.parser.ok = false;
+                        if (t.results)
+                            t.results.ok = false;
+                    }
+                    const s = t;
+                    const w = t;
+                    s.proc?.kill?.(signal);
+                    w.worker?.terminate?.();
+                    s.on('process', proc => proc?.kill?.(signal));
+                    w.on('process', worker => worker?.terminate?.());
+                };
+                for (const st of [...pool, ...subtests]) {
+                    if (st.constructor.name === 'Spawn' ||
+                        st.constructor.name === 'Worker') {
+                        onST(st);
+                    }
+                }
+                t.on('spawn', onST);
+                t.on('worker', onST);
+            });
+        }
+        catch { }
+        /* c8 ignore stop */
+    }
+};
 const shouldAutoend = (instance) => !!autoend && !!instance?.idle;
 let autoendTimer = undefined;
 const maybeAutoend = () => {
@@ -194,9 +248,10 @@ const maybeAutoend = () => {
         }
     });
 };
+// SIGALRM means being forcibly killed due to timeout
+// SIGINT without a child id is the user pressing ^C
+const isTimeoutSignal = (signal) => signal === 'SIGALRM' || (signal === 'SIGINT' && !proc_js_1.env.TAP_CHILD_ID);
 const registerTimeoutListener = () => {
-    // SIGALRM means being forcibly killed due to timeout
-    const isTimeoutSignal = (signal) => signal === 'SIGALRM' || (signal === 'SIGINT' && !proc_js_1.env.TAP_CHILD_ID);
     (0, signal_exit_1.onExit)((_, signal) => {
         if (!isTimeoutSignal(signal) || didProcessTimeout) {
             return;

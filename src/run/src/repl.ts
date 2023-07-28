@@ -18,15 +18,12 @@ export const repl = async (args: string[], config: LoadedConfig) => {
     process.stdout,
     await ProcessInfo.load({ dir })
   )
+  r.start()
   if (args.length) {
-    r.parseCommand(args.join(' '), null, null, (err, result) => {
-      if (err) throw err
-      if (result !== undefined) {
-        console.log(stringify(result))
-      }
-      r.start()
-    })
-  } else {
-    r.start()
+    const result = await r.parseCommand(args.join(' '))
+    if (result !== undefined) {
+      console.log(stringify(result))
+      r.repl?.displayPrompt()
+    }
   }
 }

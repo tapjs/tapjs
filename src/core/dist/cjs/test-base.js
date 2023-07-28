@@ -873,7 +873,8 @@ class TestBase extends base_js_1.Base {
             extra.stack = st.map(c => String(c)).join('\n');
         }
         extra.context = this.context;
-        if (extra.passes === undefined && this.options.passes !== undefined) {
+        if (extra.passes === undefined &&
+            this.options.passes !== undefined) {
             extra.passes = !!this.options.passes;
         }
         const t = new Class(extra);

@@ -88,20 +88,7 @@ ok 1 - env.test.js # time={TIME}
     1..1
 not ok 2 - failer.test.js # time={TIME}
   ---
-  timeout: 30000
-  stdio: inherit
-  cwd: /Users/isaacs/dev/tapjs/tapjs/src/run/test/tap-testdir-run-save-test-failures
-  command: /usr/local/bin/node
-  args:
-    - --no-warnings=ExperimentalLoader
-    - --loader=ts-node/esm
-    - --loader=@tapjs/mock/loader
-    - --enable-source-maps
-    - --loader=file:///Users/isaacs/dev/tapjs/tapjs/node_modules/@tapjs/processinfo/dist/cjs/index.js
-    - /Users/isaacs/dev/tapjs/tapjs/src/run/test/tap-testdir-run-save-test-failures/failer.test.js
-  context: !symbol/shared tap.isRunner
-  exitCode: 1
-  signal: null
+  {DIAGS}
   ...
 
 # No coverage generated

@@ -80,6 +80,7 @@ t.test('spawn something', t => {
     args,
     env: { x: 'y' },
     stdio: [0, 1, 2],
+    externalID: 'yolo',
   })
   t.strictSame(s.stdio, [0, 'pipe', 2, 'ipc'])
   t.equal(s.proc, null)
@@ -94,7 +95,7 @@ t.test('spawn something', t => {
         TAP_ABORT_KEY: String,
       },
       stdio: [0, 'pipe', 2, 'ipc'],
-      externalID: String,
+      externalID: 'yolo',
     })
   })
   s.on('process', proc => t.type(proc, ChildProcess))
