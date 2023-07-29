@@ -524,9 +524,9 @@ Object {
 
 exports[`test/tap.ts > TAP > timeoutMessage > must match snapshot 1`] = `
 Object {
-  "code": 1,
+  "code": null,
   "name": "timeoutMessage",
-  "signal": null,
+  "signal": "SIGNAL",
   "stderr": "",
   "stdout": String(
     TAP version 14
@@ -572,6 +572,49 @@ Object {
 }
 `
 
+exports[`test/tap.ts > TAP > timeoutSigalrmWithChild > must match snapshot 1`] = `
+Object {
+  "code": null,
+  "name": "timeoutSigalrmWithChild",
+  "signal": "SIGNAL",
+  "stderr": "",
+  "stdout": String(
+    TAP version 14
+    # Subtest: child test
+        not ok 1 - timeout!
+          ---
+          signal: SIGALRM
+          requests:
+            - type: FileHandleCloseReq
+          expired: TAP
+          message: timeout!
+          test: child test
+          ...
+        
+        1..1
+    not ok 1 - child test # time={TIME}
+      ---
+      at:
+        fileName: test/tap.ts
+        lineNumber: ##
+        columnNumber: ##
+        functionName: timeoutSigalrmWithChild
+        isToplevel: true
+      source: |2
+          timeoutSigalrmWithChild: () => {
+            const t = tap()
+            t.test('child test', () => {})
+        ------^
+            process.emit('SIGALRM')
+          },
+      ...
+    
+    1..1
+    
+  ),
+}
+`
+
 exports[`test/tap.ts > TAP > timeoutSigalrmWithHandle > must match snapshot 1`] = `
 Object {
   "code": null,
@@ -603,27 +646,17 @@ Object {
 }
 `
 
-exports[`test/tap.ts > TAP > timeoutSigint > must match snapshot 1`] = `
+exports[`test/tap.ts > TAP > topLevel > must match snapshot 1`] = `
 Object {
-  "code": null,
-  "name": "timeoutSigint",
-  "signal": "SIGNAL",
+  "code": 0,
+  "name": "topLevel",
+  "signal": null,
   "stderr": "",
   "stdout": String(
     TAP version 14
     ok 1 - this is fine
-    not ok 2 - interrupt!
-      ---
-      signal: SIGINT
-      requests:
-        - type: FileHandleCloseReq
-      message: interrupt!
-      expired: TAP
-      test: TAP
-      ...
-    
-    1..2
-    # { total: 2, pass: 1, fail: 1 }
+    1..1
+    # { total: 1, pass: 1 }
     # time={TIME}
     
   ),

@@ -283,12 +283,14 @@ t.test('timeout method', t => {
       return Base.prototype.threw.call(b, er, extra)
     }
     b.on('timeout', threw => {
+      t.equal(b.timedOut, true)
       t.matchOnly(threw, {
         message: 'timeout!',
         expired: 'timer',
       })
       t.end()
     })
+    t.equal(b.timedOut, false)
     b.timeout()
   })
 

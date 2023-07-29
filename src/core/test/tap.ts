@@ -1,6 +1,7 @@
 import { spawn } from 'child_process'
 import { Minipass } from 'minipass'
 import { tap } from '../dist/cjs/tap.js'
+import { env } from '../dist/cjs/proc.js'
 
 type Result = {
   code: number | null
@@ -69,26 +70,33 @@ const main = () => {
 }
 
 const cases: Record<string, () => any> = {
+  topLevel: () => {
+    delete process.env.TAP_CHILD_ID
+    delete env.TAP_CHILD_ID
+    const t = tap()
+    t.pass('this is fine')
+  },
+
   timeoutSigalrm: () => {
     const t = tap()
     t.pass('this is fine')
     process.emit('SIGALRM')
   },
 
-  timeoutSigalrmWithHandle: () => {
+  timeoutSigalrmWithChild: () => {
     const t = tap()
-    t.pass('this is fine')
-    require('http')
-      .createServer(() => {})
-      .listen(13245)
+    t.test('child test', () => {})
     process.emit('SIGALRM')
   },
 
-  timeoutSigint: () => {
-    delete process.env.TAP_CHILD_ID
+  timeoutSigalrmWithHandle: () => {
     const t = tap()
     t.pass('this is fine')
-    process.emit('SIGINT')
+    const s = require('http')
+      .createServer(() => {})
+    s.listen(13245)
+    process.emit('SIGALRM')
+    setTimeout(() => s.close())
   },
 
   timeoutMessage: () => {

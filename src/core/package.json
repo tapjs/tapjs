@@ -54,7 +54,7 @@
     "async-hook-domain": "^4.0.1",
     "jackspeak": "^2.2.2",
     "minipass": "^7.0.2",
-    "signal-exit": "^4.0.2",
+    "signal-exit": "4.1",
     "tap-parser": "^13.0.0",
     "tcompare": "^6.0.0",
     "trivial-deferred": "^2.0.0"

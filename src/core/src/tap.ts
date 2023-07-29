@@ -3,12 +3,11 @@ import { Test, TestOpts } from '@tapjs/test'
 import { Domain } from 'async-hook-domain'
 import { Minipass, PipeOptions } from 'minipass'
 import { isMainThread, parentPort } from 'node:worker_threads'
-import { onExit } from 'signal-exit'
-import { signals } from 'signal-exit/signals'
+import { Handler, onExit } from 'signal-exit'
 import { FinalResults } from 'tap-parser'
 import { diags } from './diags.js'
 import { IMPLICIT } from './implicit-end-sigil.js'
-import { Extra, Spawn, Worker } from './index.js'
+import { Extra } from './index.js'
 import { env, proc } from './proc.js'
 import { TestBase } from './test-base.js'
 
@@ -135,8 +134,7 @@ class TAP extends Test {
   register() {
     if (registered) return
     registered = true
-    registerTimeoutListener()
-    registerSignalListener(this)
+    registerTimeoutListener(this)
     ignoreEPIPE()
     this.once('bail', () => proc?.exit(1))
     proc?.once('beforeExit', () => {
@@ -202,66 +200,23 @@ class TAP extends Test {
       signal?: NodeJS.Signals | null
     } = { expired: this.name, signal: null }
   ) {
-    const ret = super.timeout(
-      Object.assign(getTimeoutExtra(options.signal), options)
+    const occ = this.occupied
+    const extra = Object.assign(
+      getTimeoutExtra(options.signal),
+      options
     )
+    super.timeout(extra)
+    if (occ) this.emit('timeout', extra)
     // don't stick around
     // this is just a defense if the SIGALRM signal is caught, since
     // we'll exit forcibly anyway.
     /* c8 ignore start */
     if (registered) {
-      const t = setTimeout(() => {
+      setTimeout(() => {
         didProcessTimeout = true
         alarmKill()
-      }, 100)
-      if (t.unref) t.unref()
+      }, 10000)?.unref?.()
     }
-    /* c8 ignore stop */
-    return ret
-  }
-}
-
-// Proxy any signal we receive to any child processes or workers,
-// even those waiting to be initiated, or awaiting processing.
-const registerSignalListener = (t: TAP) => {
-  for (const signal of signals) {
-    // don't capture timeout signals, those are handled elsewhere
-    if (isTimeoutSignal(signal)) continue
-
-    // Ignored for test coverage because it's almost impossible
-    // to trigger reliably, but definitely something encountered
-    // frequently when running and terminating test runs in dev
-    /* c8 ignore start */
-    try {
-      // make sure any subsequent test procs get the signal
-      process.once(signal, () => {
-        exitSignal ??= signal
-        const { pool, subtests } = t
-        const onST = (t: any) => {
-          if (pool.has(t)) {
-            t.options.signal = signal
-            t.parser.ok = false
-            if (t.results) t.results.ok = false
-          }
-          const s = t as unknown as Spawn
-          const w = t as unknown as Worker
-          s.proc?.kill?.(signal)
-          w.worker?.terminate?.()
-          s.on('process', proc => proc?.kill?.(signal))
-          w.on('process', worker => worker?.terminate?.())
-        }
-        for (const st of [...pool, ...subtests]) {
-          if (
-            st.constructor.name === 'Spawn' ||
-            st.constructor.name === 'Worker'
-          ) {
-            onST(st)
-          }
-        }
-        t.on('spawn', onST)
-        t.on('worker', onST)
-      })
-    } catch {}
     /* c8 ignore stop */
   }
 }
@@ -288,18 +243,15 @@ const maybeAutoend = () => {
 }
 
 // SIGALRM means being forcibly killed due to timeout
-// SIGINT without a child id is the user pressing ^C
-const isTimeoutSignal = (signal: NodeJS.Signals | null) =>
-  signal === 'SIGALRM' || (signal === 'SIGINT' && !env.TAP_CHILD_ID)
-
-const registerTimeoutListener = () => {
-  onExit((_, signal) => {
-    if (!isTimeoutSignal(signal) || didProcessTimeout) {
-      return
+const registerTimeoutListener = (t: TAP) => {
+  const oe: Handler = (_, sig) => {
+    if (sig === 'SIGALRM' && !didProcessTimeout) {
+      onProcessTimeout(t, sig)
+      onExit(oe)
+      return true
     }
-    onProcessTimeout(signal)
-  })
-
+  }
+  onExit(oe)
   const onMessage = (
     msg:
       | {
@@ -316,7 +268,7 @@ const registerTimeoutListener = () => {
       msg.key === env.TAP_ABORT_KEY &&
       msg.child === env.TAP_CHILD_ID
     ) {
-      onProcessTimeout('SIGALRM')
+      onProcessTimeout(t, 'SIGALRM')
     }
   }
 
@@ -413,27 +365,25 @@ const getTimeoutExtra = (signal: NodeJS.Signals | null = null) => {
 }
 
 let didProcessTimeout = false
-const onProcessTimeout = (signal: NodeJS.Signals | null = null) => {
+const onProcessTimeout = (
+  t: TAP,
+  signal: NodeJS.Signals | null = null
+) => {
   // pretty much impossible to do this, since we forcibly exit,
   // but it is theoretically possible if SIGALRM is caught.
   /* c8 ignore start */
-  if (didProcessTimeout || !instance) return
+  if (didProcessTimeout) return
   /* c8 ignore stop */
   didProcessTimeout = true
 
   const extra = getTimeoutExtra(signal)
 
-  if (signal === 'SIGINT') {
-    extra.message = 'interrupt!'
-  }
-
   // ignore coverage here because it happens after everything
   // must have been shut down.
   /* c8 ignore start */
-  if (!instance.results) {
-    instance.timeout(extra)
+  if (!t.results) {
+    t.timeout(extra)
   } else {
-    console.error('possible timeout: SIGALRM received after tap end')
     if (extra.handles || extra.requests) {
       delete extra.signal
       if (!extra.at) {
@@ -441,8 +391,9 @@ const onProcessTimeout = (signal: NodeJS.Signals | null = null) => {
       }
     }
     console.error(diags(extra))
-    alarmKill()
   }
+  // defer to print the timeout failure before termination
+  setTimeout(() => alarmKill())
 }
 
 const alarmKill = () => {

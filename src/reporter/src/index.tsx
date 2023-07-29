@@ -1,5 +1,5 @@
-import { TAP, TestBase } from '@tapjs/core'
 import { LoadedConfig } from '@tapjs/config'
+import { TAP, TestBase } from '@tapjs/core'
 import { render } from 'ink'
 import React from 'react'
 
@@ -33,6 +33,8 @@ export const report = async (
     Type = types[Type]
   }
   tap.register()
+  // always show the cursor when we finish
+  tap.on('complete', () => process.stdout.write('\x1b[?25h'))
   render(<Type test={tap} config={config}></Type>, {
     patchConsole: false,
   })

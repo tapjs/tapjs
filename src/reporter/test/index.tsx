@@ -87,6 +87,7 @@ t.test('render with a custom tag', async t => {
   let registered = false
   const mockTap = {
     register: () => (registered = true),
+    on: () => {},
   }
   const mockConfig = {}
   await report(
@@ -118,6 +119,7 @@ t.test('render with known type', async t => {
   let registered = false
   const mockTap = {
     register: () => (registered = true),
+    on: () => {},
   }
   const mockConfig = {}
   await report(

@@ -90,6 +90,7 @@ export class Base<
   hookDomain!: Domain
   timer?: NodeJS.Timeout
 
+  timedOut: boolean = false
   parser: Parser
   debug: (...args: any[]) => void
   counts: Counts
@@ -237,6 +238,7 @@ export class Base<
       message: 'timeout!',
     }
   ) {
+    this.timedOut = true
     const { message = 'timeout!' } = options
     this.setTimeout(0)
     options.expired = options.expired || this.name

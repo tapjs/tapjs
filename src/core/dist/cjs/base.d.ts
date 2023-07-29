@@ -60,6 +60,7 @@ export declare class Base<Events extends TapBaseEvents = TapBaseEvents> extends 
     hook: TapWrap;
     hookDomain: Domain;
     timer?: NodeJS.Timeout;
+    timedOut: boolean;
     parser: Parser;
     debug: (...args: any[]) => void;
     counts: Counts;

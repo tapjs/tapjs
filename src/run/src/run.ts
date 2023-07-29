@@ -22,6 +22,7 @@ import { list } from './list.js'
 import { values } from './main-config.js'
 import { outputDir } from './output-dir.js'
 import { outputFile } from './output-file.js'
+import {proxyFatalSignals} from './proxy-fatal-signals.js'
 import { report } from './report.js'
 import { readSave, writeSave } from './save-list.js'
 import { testIsSerial } from './test-is-serial.js'
@@ -56,6 +57,10 @@ export const run = async (args: string[], config: LoadedConfig) => {
 
   // we don't want to time out the runner, just the subtests
   t.setTimeout(0)
+
+  // proxy all fatal signals to child processes, so that we can report
+  // their status properly.
+  proxyFatalSignals(t)
 
   // Maybe should accept an optList of loaders in the config?
   // It seems a bit heavy to require a full on plugin just to

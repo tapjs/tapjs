@@ -35,6 +35,7 @@ export class Base extends Minipass {
     // in the hook, so tsc doesn't see it.
     hookDomain;
     timer;
+    timedOut = false;
     parser;
     debug;
     counts;
@@ -169,6 +170,7 @@ export class Base extends Minipass {
         expired: this.name,
         message: 'timeout!',
     }) {
+        this.timedOut = true;
         const { message = 'timeout!' } = options;
         this.setTimeout(0);
         options.expired = options.expired || this.name;
