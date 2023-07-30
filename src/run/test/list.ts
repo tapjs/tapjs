@@ -225,7 +225,7 @@ t.test('filter changed files', async t => {
   // use a different directory name.
   t.testdirName = t.testdirName.replace(/tap-testdir/, 'XXX-testdir')
 
-  const fixture = fileURLToPath(new URL('fixture', import.meta.url))
+  const fixture = fileURLToPath(new URL('fixtures/project', import.meta.url))
   const cwd = process.cwd()
 
   const files = (dir: string): Record<string, Buffer> =>

@@ -76,6 +76,21 @@ ok 1 - child # time={TIME}
 
 `
 
+exports[`test/test-base.ts > TAP > comments > after getting results, write to parent > must match snapshot 1`] = `
+TAP version 14
+# Subtest: child
+    # Subtest: fast
+        1..0
+    ok 1 - fast # time={TIME}
+    
+    1..1
+ok 1 - child # time={TIME}
+
+# oncomplete { world: true }
+1..1
+
+`
+
 exports[`test/test-base.ts > TAP > comments > before end > must match snapshot 1`] = `
 # before end { world: true }
 TAP version 14
@@ -87,6 +102,14 @@ exports[`test/test-base.ts > TAP > comments > nowhere to go, writes to console >
 TAP version 14
 ok 1 - this is fine
 1..1
+
+`
+
+exports[`test/test-base.ts > TAP > comments > oncomplete, no parent, write to stream > must match snapshot 1`] = `
+TAP version 14
+ok 1 - this is fine
+1..1
+# oncomplete { world: true }
 
 `
 

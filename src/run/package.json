@@ -54,7 +54,8 @@
     "rimraf": "^5.0.0",
     "signal-exit": "^4.1.0",
     "tap-yaml": "^2.1.0",
-    "trivial-deferred": "^2.0.0"
+    "trivial-deferred": "^2.0.0",
+    "which": "^3.0.1"
   },
   "tap": {
     "coverage-map": "map.js"

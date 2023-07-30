@@ -15,47 +15,6 @@ t.beforeEach(t =>
   t.intercept(process, 'env', { value: { ...originalEnv } })
 )
 
-t.test('pipe tap to stdout if TAP=1 in env', async t => {
-  process.env.TAP = '1'
-  const { report } = (await t.mockImport(
-    '../dist/index.js'
-  )) as typeof import('../dist/index.js')
-  let piped: null | typeof process.stdout = null
-  t.equal(
-    await report(
-      'base',
-      {
-        pipe: (dest: typeof piped) => {
-          piped = dest
-        },
-      } as unknown as TAP,
-      {} as unknown as LoadedConfig
-    ),
-    false
-  )
-  t.equal(piped, process.stdout, 'piped to stdout')
-})
-
-t.test('pipe tap to stdout if reporter=tap', async t => {
-  const { report } = (await t.mockImport(
-    '../dist/index.js'
-  )) as typeof import('../dist/index.js')
-  let piped: null | typeof process.stdout = null
-  t.equal(
-    await report(
-      'tap',
-      {
-        pipe: (dest: typeof piped) => {
-          piped = dest
-        },
-      } as unknown as TAP,
-      {} as unknown as LoadedConfig
-    ),
-    false
-  )
-  t.equal(piped, process.stdout, 'piped to stdout')
-})
-
 t.test('unknown report type', async t => {
   const { report } = (await t.mockImport(
     '../dist/index.js'

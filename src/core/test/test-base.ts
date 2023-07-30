@@ -5,6 +5,7 @@ import { TestBase, TestBaseOpts } from '../dist/cjs/test-base.js'
 
 // A utility class to use because the TestBase class doens't have
 // the t.test() method, and calling t.sub() directly is awkward af
+import { FinalResults } from 'tap-parser'
 import { Minimal as T } from '../dist/cjs/minimal.js'
 
 const clean = (s: string): string =>
@@ -192,6 +193,29 @@ t.test('comments', t => {
       t.end()
       t.comment('after end', { world: true })
     })
+    tb.end()
+    t.matchSnapshot(await tb.concat())
+  })
+  t.test('after getting results, write to parent', async t => {
+    const tb = new T({ name: 'comment' })
+    tb.test('child', t => {
+      t.test('fast', t => t.end())
+      t.on('complete', () => t.comment('oncomplete', { world: true }))
+      t.end()
+    })
+    tb.end()
+    t.matchSnapshot(await tb.concat())
+  })
+  t.test('oncomplete, no parent, write to stream', async t => {
+    // simulates behavior of the TAP class which writes its
+    // summary comments oncomplete.
+    const tb = new (class extends T {
+      oncomplete(results: FinalResults) {
+        this.comment('oncomplete', { world: true })
+        return super.oncomplete(results)
+      }
+    })({ name: 'comment' })
+    tb.pass('this is fine')
     tb.end()
     t.matchSnapshot(await tb.concat())
   })

@@ -194,16 +194,19 @@ export default jack({
                     In addition to the built-in reporters provided by
                     the @tapjs/reporter module, the reporter option can also
                     specify a command-line program or a module to load via
-                    require().
+                    import().
 
                     Command-line programs receive the raw TAP output
                     on their stdin.
 
-                    Modules loaded via require() must export either a
-                    writable stream class or a React.Component subclass.
+                    Modules loaded via import() must default export a writable
+                    stream class, React function component, or a
+                    React.Component subclass.
+
                     Writable streams are instantiated and piped into.
-                    React components are rendered using Ink, with tap={tap}
-                    and config={loadedConfig} as their properties.
+
+                    React components are rendered using Ink, with tap={tap} and
+                    config={loadedConfig} as their properties.
 
                     Built-in test reporters:
 

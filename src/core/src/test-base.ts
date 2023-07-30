@@ -239,8 +239,13 @@ export class TestBase extends Base<TestBaseEvents> {
     if (this.results || this.ended || this.#pushedEnd) {
       // the fallback to console.log is a bit weird,
       // but the only alternative seems to be to just lose it.
-      if (this.parent) this.parent.comment(...args)
-      else console.log(message.trimEnd())
+      if (this.parent) {
+        this.parent.comment(...args)
+      } else if (this.writable && !this.#pushedEnd) {
+        super.write(message)
+      } else {
+        console.log(message.trimEnd())
+      }
     } else if (this.#occupied) {
       this.queue.push(message)
       this.#process()

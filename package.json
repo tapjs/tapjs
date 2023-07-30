@@ -18,7 +18,6 @@
   "devDependencies": {
     "@esbuild-kit/cjs-loader": "^2.4.2",
     "@esbuild-kit/esm-loader": "^2.5.5",
-    "@npmcli/promise-spawn": "^6.0.2",
     "@tapjs/processinfo": "^2.5.0",
     "@types/diff": "^5.0.3",
     "@types/ms": "^0.7.31",
@@ -28,6 +27,7 @@
     "@types/npmcli__promise-spawn": "^6.0.0",
     "@types/opener": "^1.4.0",
     "@types/sinon": "^10.0.13",
+    "@types/which": "^3.0.0",
     "async-hook-domain": "^4.0.1",
     "c8": "^8.0.0",
     "chalk": "^5.2.0",
@@ -67,6 +67,7 @@
     "typedoc": "^0.24.7",
     "typescript": "^5.0.4",
     "walk-up-path": "^3.0.1",
+    "which": "^3.0.1",
     "yaml": "^2.3.1",
     "yaml-types": "^0.3.0"
   },

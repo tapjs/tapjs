@@ -374,3 +374,4 @@ ok 1 - this is standard input
   t.equal(stderr, '')
   t.matchSnapshot(stdout)
 })
+

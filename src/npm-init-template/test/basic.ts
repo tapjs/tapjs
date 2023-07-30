@@ -1,4 +1,3 @@
-// import spawn from '@npmcli/promise-spawn'
 import { spawn } from 'child_process'
 import { dirname, resolve } from 'path'
 import { Readable, Writable } from 'stream'

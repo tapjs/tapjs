@@ -16,16 +16,10 @@ export const types = {
 }
 
 export const report = async (
-  Type: 'tap' | keyof typeof types | React.FC<TapReportOpts>,
+  Type: keyof typeof types | React.FC<TapReportOpts>,
   tap: TAP,
   config: LoadedConfig
 ): Promise<boolean> => {
-  if (Type === 'tap' || process.env.TAP === '1') {
-    // just show the tap.
-    tap.pipe(process.stdout)
-    return false
-  }
-  // TODO: look up report as a module if not a builtin?
   if (typeof Type === 'string') {
     if (!types.hasOwnProperty(Type)) {
       throw new TypeError(`unknown report type: ${Type}`)

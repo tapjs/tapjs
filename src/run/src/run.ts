@@ -1,10 +1,6 @@
 // run the provided tests
 import { LoadedConfig } from '@tapjs/config'
-import { TAP, tap } from '@tapjs/core'
-import {
-  report as testReport,
-  types as reportTypes,
-} from '@tapjs/reporter'
+import { tap } from '@tapjs/core'
 import { plugin as StdinPlugin } from '@tapjs/stdin'
 import { loaders } from '@tapjs/test'
 import { glob } from 'glob'
@@ -18,11 +14,12 @@ import { runAfter } from './after.js'
 import { runBefore } from './before.js'
 import { buildWithSpawn } from './build-with-spawn.js'
 import { getCoverageMap } from './coverage-map.js'
+import { handleReporter } from './handle-reporter.js'
 import { list } from './list.js'
 import { values } from './main-config.js'
 import { outputDir } from './output-dir.js'
 import { outputFile } from './output-file.js'
-import {proxyFatalSignals} from './proxy-fatal-signals.js'
+import { proxyFatalSignals } from './proxy-fatal-signals.js'
 import { report } from './report.js'
 import { readSave, writeSave } from './save-list.js'
 import { testIsSerial } from './test-is-serial.js'
@@ -31,17 +28,6 @@ const require = createRequire(import.meta.url)
 const piLoader = pathToFileURL(require.resolve('@tapjs/processinfo'))
 
 const node = process.execPath
-
-const handleReporter = async (t: TAP, config: LoadedConfig) => {
-  // figure out if we MUST use the 'tap' reporter
-  const reporter = config.get('reporter') as string
-  // TODO: if it's not in keyof reportTypes, then look it up as a module.
-  return await testReport(
-    reporter as 'tap' | keyof typeof reportTypes,
-    t,
-    config
-  )
-}
 
 export const run = async (args: string[], config: LoadedConfig) => {
   const timeout = (config.get('timeout') || 30) * 1000
