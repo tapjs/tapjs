@@ -1034,7 +1034,7 @@ export class TestBase extends Base<TestBaseEvents> {
       }
     }
 
-    extra.bail = extra.bail !== undefined ? extra.bail : this.bail
+    extra.bail ??= this.bail
     extra.parent = this
     if (!extra.at && extra.at !== null) {
       const st = stack.capture(80, caller)
@@ -1042,6 +1042,8 @@ export class TestBase extends Base<TestBaseEvents> {
       extra.stack = st.map(c => String(c)).join('\n')
     }
     extra.context = this.context
+
+    if (this.options.debug) extra.debug ??= true
 
     if (
       extra.passes === undefined &&
@@ -1126,8 +1128,14 @@ export class TestBase extends Base<TestBaseEvents> {
       extra ??= { at: null }
       if (msg === '') extra.at = null
       if (er.stack) {
-        const p = stack.parseStack(er.stack)
-        extra.at = p[0]
+        // trim off the first line if it looks like the standard
+        // error `Name: message` line.
+        const f = `${er.name}: ${er.message}\n`
+        const st = er.stack.startsWith(f)
+          ? er.stack.substring(f.length)
+          : er.stack
+        const p = stack.parseStack(st)
+        extra.at = p[0] || null
         extra.stack = p.map(c => String(c) + '\n').join('')
       }
       this.fail(msg, extra)

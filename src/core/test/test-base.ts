@@ -1351,3 +1351,32 @@ t.test('passes:true gets passed down', async t => {
     },
   ])
 })
+
+t.test('throw an error with entirely internal frames', async t => {
+  const er = Object.assign(new Error('internal stuff'), {
+    stack: `Error: internal stuff
+    at InternalFunction (node:internal/blah:420:69)
+    at node:child_process:1:3333
+`,
+  })
+  const tb = new T({ name: 'internal thrower' })
+  tb.test('child', t => {
+    t.pass('about to throw')
+    throw er
+  })
+  tb.end()
+  t.matchSnapshot(await tb.concat())
+})
+
+t.test('debug is inherited', async t => {
+  t.capture(console, 'error')
+  const tb = new T({ name: 'parent', debug: true, jobs: 4 })
+  const { subtest: wd } = tb.test('with debug', async () => {})
+  const { subtest: wod } = tb.test(
+    'without debug',
+    { debug: false },
+    async () => {}
+  )
+  t.match(wd, { options: { debug: true } })
+  t.match(wod, { options: { debug: false } })
+})

@@ -96,3 +96,17 @@ t.test('nameless error', t => {
   t.equal(er.message, '')
   t.end()
 })
+
+t.test('internal error', t => {
+  const er = Object.assign(new Error('internal stuff'), {
+    stack: `Error: internal stuff
+    at InternalFunction (node:internal/blah:420:69)
+    at node:child_process:1:3333
+`,
+  })
+  t.matchOnly(extraFromError(er), {
+    at: null,
+    stack: '',
+  })
+  t.end()
+})

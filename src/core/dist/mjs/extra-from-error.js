@@ -22,11 +22,20 @@ export const extraFromError = (er, extra, options) => {
         extra.stack = st.map(c => String(c)).join('\n');
         extra.at = st[0];
     }
+    else if (typeof er.stack === 'string') {
+        // if we failed to capture it, but it has a stack, then that means
+        // that all of the stack frames were internal, because the error was
+        // generated from native code in a dep that tap ignores (or if not
+        // native code, then something else that escaped the async-hook-domain).
+        // A common cause of this is import() errors.
+        extra.stack = '';
+        extra.at = null;
+    }
     if (er.name && er.name !== 'Error') {
         extra.type = er.name;
     }
     // grab any other rando props
-    const { message: _, name: __, ...props } = er;
+    const { message: _, name: __, stack: ___, ...props } = er;
     Object.assign(extra, props);
     return extra;
 };

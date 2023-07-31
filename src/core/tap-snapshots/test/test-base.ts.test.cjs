@@ -281,6 +281,37 @@ Bail out!
 
 `
 
+exports[`test/test-base.ts > TAP > throw an error with entirely internal frames > must match snapshot 1`] = `
+TAP version 14
+# Subtest: child
+    ok 1 - about to throw
+    not ok 2 - internal stuff
+      ---
+      tapCaught: testFunctionThrow
+      test: child
+      ...
+    
+    1..2
+not ok 1 - child # time={TIME}
+  ---
+  at:
+    fileName: test/test-base.ts
+    lineNumber: ##
+    columnNumber: ##
+    typeName: Test
+  source: |2
+      })
+      const tb = new T({ name: 'internal thrower' })
+      tb.test('child', t => {
+    -----^
+        t.pass('about to throw')
+        throw er
+  ...
+
+1..1
+
+`
+
 exports[`test/test-base.ts > TAP > timeouts > occupied > must match snapshot 1`] = `
 TAP version 14
 # Subtest: child
