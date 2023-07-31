@@ -74,7 +74,7 @@
   "scripts": {
     "test": "nx run-many -t test",
     "test:bootstrap": "bash ./scripts/test-bootstrap.sh",
-    "snap": "TAP_TIMEOUT=240 nx run-many -t snap",
+    "snap": "TAP_TYPECHECK=0 TAP_TIMEOUT=240 nx run-many -t snap",
     "format": "nx run-many -t format",
     "typedoc": "typedoc",
     "bootstrap": "bash ./scripts/bootstrap.sh",

@@ -25,8 +25,14 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: Install
+        env:
+          TS_NODE_TRANSPILE_ONLY: '1'
         run: |
-          TS_NODE_TRANSPILE_ONLY=1 npm run bootstrap
+          npm run bootstrap
       - name: Run tests
+        env:
+          TAP_TYPECHECK: '0'
+          TAP_TIMEOUT: '0'
+          TAP_COLOR: '1'
         run: |
-          npm test -ws --color=always -- -c -t0
+          npm test -ws --color=always
