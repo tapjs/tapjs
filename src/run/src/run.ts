@@ -30,7 +30,7 @@ const piLoader = pathToFileURL(require.resolve('@tapjs/processinfo'))
 const node = process.execPath
 
 export const run = async (args: string[], config: LoadedConfig) => {
-  const timeout = (config.get('timeout') || 30) * 1000
+  const timeout = (config.get('timeout') ?? 30) * 1000
   const t = tap({
     // special runner context so plugins can behave differently.
     // currently, this is only used by @tapjs/filter
