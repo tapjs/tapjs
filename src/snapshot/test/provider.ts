@@ -79,7 +79,7 @@ Run with TAP_SNAPSHOT=1 in the environment to create snapshots`,
   const pe3 = new SnapshotProviderDefault(e3)
   unlinkSync(e3)
   mkdirSync(e3)
-  t.throws(() => pe3.save(), { code: 'EPERM' })
+  t.throws(() => pe3.save(), { code: /EPERM|EISDIR/ })
 
   t.end()
 })
