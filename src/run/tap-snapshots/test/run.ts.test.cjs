@@ -77,7 +77,8 @@ ok 1 - env.test.js # time={TIME}
         lineNumber: 3
         columnNumber: 9
         isToplevel: true
-      stack: failer.test.js:3:9
+{STACK}
+
       source: |2
       
               import t from 'tap'

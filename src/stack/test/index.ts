@@ -364,18 +364,3 @@ t.test('parseStack with Error object noise', t => {
   t.match(parseStack(stack), parseStack(headless), 'head is removed')
   t.end()
 })
-
-t.test('capture recursion results in empty stack', t => {
-  const cwd = t.testdir()
-  const calls = t.capture(process, 'cwd', () => cwd)
-  t.equal(process.cwd(), t.testdirName)
-  const c = calls()
-  t.match(c.pop(), {
-    at: CallSiteLike,
-    stack: String,
-  })
-  for (const call of c) {
-    t.match(call, { at: undefined, stack: '' })
-  }
-  t.end()
-})

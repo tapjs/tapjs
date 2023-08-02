@@ -1,7 +1,12 @@
 import { spawn } from 'child_process'
 import { Minipass } from 'minipass'
-import { tap } from '../dist/cjs/tap.js'
 import { env } from '../dist/cjs/proc.js'
+import { tap } from '../dist/cjs/tap.js'
+
+// force this because otherwise the output will be different
+// in all the tests we run.
+process.env.TAP_BAIL = '0'
+env.TAP_BAIL = '0'
 
 type Result = {
   code: number | null
@@ -28,6 +33,8 @@ const main = () => {
         'After.#callTeardown (...)'
       )
       .replace(/TAP\.#t\.onEOF \([^)]+\)/g, 'TAP.#t.onEOF (...)')
+      // node 16 puts this here and node 18 doesn't
+      .replace(/^\s*Function\.all\n/gm, '')
   t.formatSnapshot = (res: Result) => {
     return {
       ...res,
@@ -92,8 +99,7 @@ const cases: Record<string, () => any> = {
   timeoutSigalrmWithHandle: () => {
     const t = tap()
     t.pass('this is fine')
-    const s = require('http')
-      .createServer(() => {})
+    const s = require('http').createServer(() => {})
     s.listen(13245)
     process.emit('SIGALRM')
     setTimeout(() => s.close())

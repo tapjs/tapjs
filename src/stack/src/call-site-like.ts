@@ -182,8 +182,18 @@ export class CallSiteLike {
     // the mapping for us, and when ts-node (and other in-place
     // transpilers) create JavaScript, they use the same filename, leading
     // to an incorrect double offset,.
-    if (this.#fileName && isCallSite(c) && !this.#sourceMap) {
-      this.#sourceMap = findSourceMap(this.#fileName, e || undefined)
+    if (
+      this.#fileName &&
+      isCallSite(c) &&
+      !this.#sourceMap &&
+      !this.#fileName.startsWith('node:')
+    ) {
+      // Passing an object that isn't an actual Error object to
+      // findSourceMap causes problems in node 16
+      /* c8 ignore start */
+      const sme = e && e instanceof Error ? e : undefined
+      /* c8 ignore stop */
+      this.#sourceMap = findSourceMap(this.#fileName, sme)
       if (this.#sourceMap && typeof this.lineNumber === 'number') {
         // SourceMap.findEntry doesn't actually return the line/column
         // number, despite the property names, but rather the zero-indexed
@@ -229,6 +239,7 @@ export class CallSiteLike {
 
   #relativize(fileName?: string | null) {
     let f = fileName
+    if (f?.startsWith('node:')) return f
     if (f?.startsWith('file://')) f = fileURLToPath(f)
     if (!f || this.#cwd === undefined) return f
     else f = f.replace(/\\/g, '/')

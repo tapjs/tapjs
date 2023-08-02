@@ -29,7 +29,14 @@ class Worker extends base_js_1.Base {
         this.#childId = String(options.childId || proc_js_1.env.TAP_CHILD_ID || '1');
         this.filename = filename;
         this.eval = !!options.eval;
-        this.env = options.env || proc_js_1.env;
+        this.env = {
+            ...(options.env || proc_js_1.env),
+            TAP: '1',
+            TAP_CHILD_ID: this.#childId,
+            TAP_BAIL: this.bail ? '1' : '0',
+            TAP_ABORT_KEY: this.#tapAbortKey,
+        };
+        this.bail = !!options.bail;
     }
     main(cb) {
         this.cb = cb;
@@ -45,13 +52,7 @@ class Worker extends base_js_1.Base {
             ...this.options,
             eval: this.eval,
             stdout: true,
-            env: {
-                ...this.env,
-                TAP: '1',
-                TAP_CHILD_ID: this.#childId,
-                TAP_BAIL: this.bail ? '1' : '0',
-                TAP_ABORT_KEY: this.#tapAbortKey,
-            },
+            env: this.env,
         };
         this.emit('preprocess', options);
         this.worker = new node_worker_threads_1.Worker(this.filename, options);

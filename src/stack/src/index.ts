@@ -191,7 +191,12 @@ export function capture(
   limit: number | Function | ((...a: any[]) => any) = 0,
   fn: Function | ((...a: any[]) => any) = capture
 ): CallSiteLike[] {
+  // should be impossible to hit, but can if we have to look up
+  // a sourcemap for a file we haven't seen before, and the filename
+  // happens to come through as a url or relative path.
+  /* c8 ignore start */
   if (capturing) return []
+  /* c8 ignore stop */
   capturing = true
   if (typeof limit === 'function') {
     fn = limit

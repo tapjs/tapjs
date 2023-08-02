@@ -44,7 +44,14 @@ export class Worker extends Base<WorkerEvents> {
     this.#childId = String(options.childId || env.TAP_CHILD_ID || '1')
     this.filename = filename
     this.eval = !!options.eval
-    this.env = options.env || env
+    this.env = {
+      ...(options.env || env),
+      TAP: '1',
+      TAP_CHILD_ID: this.#childId,
+      TAP_BAIL: this.bail ? '1' : '0',
+      TAP_ABORT_KEY: this.#tapAbortKey,
+    }
+    this.bail = !!options.bail
   }
 
   main(cb: () => void) {
@@ -63,13 +70,7 @@ export class Worker extends Base<WorkerEvents> {
       ...this.options,
       eval: this.eval,
       stdout: true,
-      env: {
-        ...this.env,
-        TAP: '1',
-        TAP_CHILD_ID: this.#childId,
-        TAP_BAIL: this.bail ? '1' : '0',
-        TAP_ABORT_KEY: this.#tapAbortKey,
-      },
+      env: this.env,
     }
     this.emit('preprocess', options)
     this.worker = new NodeWorker(this.filename, options)

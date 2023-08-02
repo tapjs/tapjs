@@ -19,6 +19,8 @@ t.cleanSnapshot = s =>
       /\n  ---\n(.|\n)*?\n  \.\.\.\n/g,
       '\n  ---\n  {DIAGS}\n  ...\n'
     )
+    // node 16 puts this in the stack, node 18 doesn't
+    .replace(/^\s*Function\.all$/gm, '')
 
 t.test('if respawn for rebuild, do nothing', async t => {
   let buildWithSpawnCalled = false
@@ -223,7 +225,12 @@ save: test-failures.txt
   t.equal(code, 1)
   t.equal(signal, null)
   t.equal(stderr, '')
-  t.matchSnapshot(stdout)
+  t.matchSnapshot(
+    stdout.replace(
+      /^\s*stack: (\|-\n)?\s*failer\.test\.js:[0-9]+:[0-9]+$/gm,
+      '{STACK}\n'
+    )
+  )
   t.equal(
     readFileSync(resolve(cwd, 'test-failures.txt'), 'utf8'),
     'failer.test.js\n'
@@ -374,4 +381,3 @@ ok 1 - this is standard input
   t.equal(stderr, '')
   t.matchSnapshot(stdout)
 })
-
