@@ -4,7 +4,10 @@ import { createRequire } from 'node:module'
 import { mainCommand } from './main-config.js'
 const require = createRequire(import.meta.url)
 const tmbin = require.resolve('.bin/generate-tap-test-class')
-const execArgs = ['--loader=ts-node/esm', '--no-warnings']
+const execArgs = [
+  '--loader=ts-node/esm',
+  '--no-warnings=ExperimentalLoader',
+]
 const node = process.execPath
 
 export const build = async (args: string[], config: LoadedConfig) => {

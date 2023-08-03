@@ -63,7 +63,7 @@
     "sync-content": "^1.0.2",
     "tap": "^18.0.0-0",
     "trivial-deferred": "^2.0.0",
-    "ts-node": "^10.9.1",
+    "ts-node": "github:TypeStrong/ts-node#8f6f4e5",
     "typedoc": "^0.24.7",
     "typescript": "^5.0.4",
     "walk-up-path": "^3.0.1",

@@ -51,7 +51,7 @@
     "mkdirp": "^3.0.0",
     "sync-content": "^1.0.1",
     "tap-parser": "^13.0.0",
-    "ts-node": "^10.9.1",
+    "ts-node": "github:TypeStrong/ts-node#8f6f4e5",
     "typescript": "^5.0.2"
   },
   "license": "BlueOak-1.0.0",
