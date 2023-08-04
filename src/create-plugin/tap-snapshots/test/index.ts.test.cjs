@@ -42,9 +42,6 @@ Object {
   "main": "./dist/cjs/index.js",
   "module": "./dist/mjs/index.js",
   "name": "@xyz/my-plugin-name",
-  "peerDependencies": Object {
-    "@tapjs/core": "^0.0.0-0",
-  },
   "prettier": Object {
     "arrowParens": "avoid",
     "bracketSameLine": true,

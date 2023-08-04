@@ -214,7 +214,14 @@ Once published, add to projects by running:
         ]
       )
       const pj = readFileSync(t.testdirName + '/package.json', 'utf8')
-      t.matchSnapshot(JSON.parse(pj))
+      const manifest = JSON.parse(pj)
+      t.strictSame(manifest.peerDependencies, {
+        '@tapjs/core': `^${coreVersion}`,
+      })
+      // don't put that in the snapshot, because otherwise it'll fail
+      // in the test we run on everything when bumping versions
+      delete manifest.peerDependencies
+      t.matchSnapshot(manifest)
       res()
     })
   })
