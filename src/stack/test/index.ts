@@ -16,6 +16,7 @@ import {
   getFilterIgnoredPackages,
   getFilterNodeInternals,
   getIgnoredPackages,
+  getIgnoredPackagesRE,
   parseStack,
   removeIgnoredPackage,
   setCwd,
@@ -362,5 +363,46 @@ t.test('parseStack with Error object noise', t => {
   const stack = String(new Error('trace').stack)
   const headless = stack.split('\n').slice(1).join('\n')
   t.match(parseStack(stack), parseStack(headless), 'head is removed')
+  t.end()
+})
+
+t.test('ignoring @tapjs ignores the built test as well', t => {
+  // gutcheck that we start with @tapjs ignored
+  t.equal(
+    getIgnoredPackages().includes('@tapjs'),
+    true,
+    'includes @tapjs to start'
+  )
+  // make sure that isn't there also
+  removeIgnoredPackage('@tapjs/test')
+  const ignored = getIgnoredPackagesRE()
+  t.match(
+    ignored?.toString(),
+    /\btest-built\b/,
+    'ignoring the built test module'
+  )
+  removeIgnoredPackage('@tapjs')
+  removeIgnoredPackage('@tapjs/test')
+  t.notMatch(
+    getIgnoredPackagesRE()?.toString(),
+    /\btest-built\b/,
+    'not ignored if tapjs not ignored'
+  )
+  addIgnoredPackage('@tapjs/test')
+  t.match(
+    ignored?.toString(),
+    /\btest-built\b/,
+    'ignoring the built test module if @tapjs/test is present'
+  )
+  removeIgnoredPackage('@tapjs/test')
+  addIgnoredPackage('@tapjs/core')
+  t.notMatch(
+    getIgnoredPackagesRE()?.toString(),
+    /\btest-built\b/,
+    'not ignored if other @tapjs modules are ignored, only @tapjs and @tapjs/test'
+  )
+  // leave it how we found it
+  removeIgnoredPackage('@tapjs/core')
+  addIgnoredPackage('@tapjs')
   t.end()
 })

@@ -1,5 +1,7 @@
-import { builtinModules } from 'module'
+import { builtinModules } from 'node:module'
+import { resolve } from 'node:path'
 import { CallSiteLike } from './call-site-like.js'
+import { requireResolve } from './require-resolve.js'
 export { CallSiteLike, CallSiteLikeJSON } from './call-site-like.js'
 export type { GeneratedResult } from './call-site-like.js'
 export type { Compiled, LineRef } from './parse.js'
@@ -86,16 +88,44 @@ export const removeIgnoredPackage = (s: string) => {
 export const getIgnoredPackages = () =>
   Object.freeze(ignoredPackages.slice(0))
 
+const getTestBuiltPath = () => {
+  const p = requireResolve('@tapjs/test')
+  // we'll always find the test class in this project
+  /* c8 ignore start */
+  if (!p) return ''
+  /* c8 ignore stop */
+  return resolve(p, '../../../test-built')
+}
+
 const buildIgnoredPackages = () => {
   // just a safety precaution, no reason to ever do this
   /* c8 ignore start */
   if (!ignoredPackages.length) return undefined
   /* c8 ignore stop */
-  const p = ignoredPackages.map(s => regExpEscape(s))
-  return new RegExp(
-    `[/\\\\]node_modules[/\\\\](?:${p.join('|')})([/\\\\]|$)`
-  )
+  const p = ignoredPackages.map(s => regExpEscape(s)).join('|')
+  const nm = `[/\\\\]node_modules[/\\\\](?:${p})([/\\\\]|$)`
+  // if we are ignoring @tapjs/test, then also ignore its built
+  // plugged-in implementation. This is only relevant when developing
+  // this project, or other cases where @tapjs/test may be linked,
+  // because when it's loaded from node_modules, it'll be excluded
+  // by virtue of being in that folder anyhow.
+  const built =
+    ignoredPackages.includes('@tapjs') ||
+    ignoredPackages.includes('@tapjs/test')
+      ? getTestBuiltPath()
+      : ''
+  const re = built ? `${built}([/\\\\].*|$)|${nm}` : nm
+  return new RegExp(re)
 }
+
+/**
+ * exported for testing, no real purpose, but also no harm in looking
+ */
+export const getIgnoredPackagesRE = () =>
+  !dirty
+    ? ignoredPackagesRE
+    : (ignoredPackagesRE = buildIgnoredPackages())
+
 let ignoredPackagesRE: RegExp | undefined = buildIgnoredPackages()
 let filterIgnoredPackages = true
 
