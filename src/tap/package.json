@@ -4,7 +4,9 @@
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "description": "A Test-Anything-Protocol library for JavaScript",
   "homepage": "http://www.node-tap.org/",
-  "bin": "./dist/mjs/run.mjs",
+  "bin": {
+    "tap": "dist/mjs/run.mjs"
+  },
   "module": "./dist/mjs/esm.mjs",
   "main": "./dist/cjs/cjs.cjs",
   "types": "./dist/cjs/cjs.d.cts",
@@ -90,5 +92,8 @@
   "funding": {
     "url": "https://github.com/sponsors/isaacs"
   },
-  "repository": "https://github.com/tapjs/tapjs"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tapjs/tapjs.git"
+  }
 }

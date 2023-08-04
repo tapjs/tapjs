@@ -60,5 +60,8 @@
     "trivial-deferred": "^2.0.0"
   },
   "license": "BlueOak-1.0.0",
-  "repository": "https://github.com/tapjs/tapjs"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tapjs/tapjs.git"
+  }
 }

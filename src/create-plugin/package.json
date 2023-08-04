@@ -4,7 +4,7 @@
   "description": "Create a tap plugin with 'npm init @tapjs/plugin'",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "bin": {
-    "tapjs-create-plugin": "./index.js"
+    "tapjs-create-plugin": "index.js"
   },
   "type": "module",
   "files": [
@@ -40,5 +40,8 @@
   "funding": {
     "url": "https://github.com/sponsors/isaacs"
   },
-  "repository": "https://github.com/tapjs/tapjs"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tapjs/tapjs.git"
+  }
 }

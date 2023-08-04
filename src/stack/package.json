@@ -47,5 +47,8 @@
   "funding": {
     "url": "https://github.com/sponsors/isaacs"
   },
-  "repository": "https://github.com/tapjs/tapjs"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tapjs/tapjs.git"
+  }
 }

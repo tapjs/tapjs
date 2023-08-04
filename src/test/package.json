@@ -4,7 +4,7 @@
   "description": "the pluggable Test class for node-tap",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "bin": {
-    "generate-tap-test-class": "./scripts/build.mjs"
+    "generate-tap-test-class": "scripts/build.mjs"
   },
   "main": "./dist/cjs/index.js",
   "module": "./dist/mjs/index.js",
@@ -57,5 +57,8 @@
     "typescript": "^5.0.2"
   },
   "license": "BlueOak-1.0.0",
-  "repository": "https://github.com/tapjs/tapjs"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tapjs/tapjs.git"
+  }
 }

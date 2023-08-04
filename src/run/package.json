@@ -7,7 +7,7 @@
   "module": "./dist/index.js",
   "type": "module",
   "bin": {
-    "tap-run": "./dist/index.js"
+    "tap-run": "dist/index.js"
   },
   "files": [
     "dist"
@@ -69,5 +69,8 @@
   "funding": {
     "url": "https://github.com/sponsors/isaacs"
   },
-  "repository": "https://github.com/tapjs/tapjs"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tapjs/tapjs.git"
+  }
 }
