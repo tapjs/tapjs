@@ -1,6 +1,6 @@
 {
   "name": "npm-init-template",
-  "version": "1.0.2",
+  "version": "1.0.3-1",
   "description": "Create 'npm init' packages easily with templates and prompts",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "main": "./dist/cjs/index.js",
