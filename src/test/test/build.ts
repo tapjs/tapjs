@@ -22,7 +22,7 @@ const build = async (target: string, plugins: string[]) => {
   return new Promise<Result>((res, rej) => {
     const c = spawn(
       process.execPath,
-      ['--no-warnings', buildScript, ...plugins],
+      ['--no-warnings=ExperimentalLoader', buildScript, ...plugins],
       {
         env: {
           ...process.env,
