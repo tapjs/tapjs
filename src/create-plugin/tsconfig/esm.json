@@ -1,0 +1,6 @@
+{
+  "extends": "./build.json",
+  "compilerOptions": {
+    "module": "esnext"
+  }
+}

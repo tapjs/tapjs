@@ -2,7 +2,7 @@ import type { Base, BaseOpts } from './base.js'
 
 import { TestOpts } from '@tapjs/test'
 
-type Opts = Exclude<BaseOpts, 'parent'> & { parent?: any }
+export type Opts = Exclude<BaseOpts, 'parent'> & { parent?: any }
 
 export type TestArgs<T extends Base, O extends Opts = Opts> =
   | []

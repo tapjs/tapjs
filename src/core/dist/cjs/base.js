@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Base = void 0;
+exports.Base = exports.TapWrap = void 0;
 const async_hook_domain_1 = require("async-hook-domain");
 const async_hooks_1 = require("async_hooks");
 const minipass_1 = require("minipass");
@@ -24,6 +24,7 @@ class TapWrap extends async_hooks_1.AsyncResource {
         return this;
     }
 }
+exports.TapWrap = TapWrap;
 const debug = (name) => (...args) => {
     const prefix = `TAP ${process.pid} ${name}: `;
     const msg = (0, node_util_1.format)(...args).trim();

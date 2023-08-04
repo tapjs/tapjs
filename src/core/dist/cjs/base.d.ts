@@ -13,7 +13,7 @@ export interface TapBaseEvents extends Minipass.Events<string> {
     bailout: [reason?: string];
     complete: [results: FinalResults];
 }
-declare class TapWrap extends AsyncResource {
+export declare class TapWrap extends AsyncResource {
     test: Base;
     onDestroy?: () => void;
     constructor(test: Base);
@@ -121,5 +121,4 @@ export declare class Base<Events extends TapBaseEvents = TapBaseEvents> extends 
     threw(er: any, extra?: Extra, proxy?: boolean, ended?: boolean): Extra | void | undefined;
     passing(): boolean;
 }
-export {};
 //# sourceMappingURL=base.d.ts.map

@@ -8,7 +8,7 @@ import { Counts } from './counts.js';
 import { diags } from './diags.js';
 import { extraFromError } from './extra-from-error.js';
 import { Lists } from './lists.js';
-class TapWrap extends AsyncResource {
+export class TapWrap extends AsyncResource {
     test;
     onDestroy;
     constructor(test) {
