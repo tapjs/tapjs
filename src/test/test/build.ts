@@ -18,24 +18,31 @@ interface Result {
   code: number | null
   signal: NodeJS.Signals | null
 }
-const build = async (target: string, plugins: string[]) => {
+const build = async (
+  target: string,
+  plugins: string[],
+  expectFail = false
+) => {
+  const cmd = `_TESTING_TEST_BUILD_TARGET_=${target} ${
+    process.execPath
+  } ${[buildScript, ...plugins]
+    .map(a => JSON.stringify(a))
+    .join(' ')}`
   return new Promise<Result>((res, rej) => {
-    const c = spawn(
-      process.execPath,
-      ['--no-warnings=ExperimentalLoader', buildScript, ...plugins],
-      {
-        env: {
-          ...process.env,
-          _TESTING_TEST_BUILD_TARGET_: target,
-        },
-      }
-    )
+    const c = spawn(process.execPath, [buildScript, ...plugins], {
+      env: {
+        ...process.env,
+        _TESTING_TEST_BUILD_TARGET_: target,
+      },
+    })
     c.on('error', rej)
     const out: Buffer[] = []
     const err: Buffer[] = []
     c.stdout.on('data', c => out.push(c))
     c.stderr.on('data', c => err.push(c))
     c.on('close', (code, signal) => {
+      if (expectFail !== !!(code || signal))
+        console.error(cmd, { code, signal })
       res({
         target,
         plugins,
@@ -72,7 +79,7 @@ t.test('missing plugin', async t => {
   const dir = t.testdir()
   const plugin = resolve(dir, 'plugin')
   const target = resolve(dir, 'target')
-  const res = await build(target, [plugin])
+  const res = await build(target, [plugin], true)
   t.matchOnly(res, {
     target,
     plugins: [plugin],
@@ -101,7 +108,7 @@ t.test('invalid plugin', async t => {
   })
   const plugin = resolve(dir, 'plugin')
   const target = resolve(dir, 'target')
-  const res = await build(target, [plugin])
+  const res = await build(target, [plugin], true)
   t.same(res, {
     target,
     plugins: [plugin],
@@ -130,7 +137,7 @@ t.test('invalid config', async t => {
   })
   const plugin = resolve(dir, 'plugin')
   const target = resolve(dir, 'target')
-  const res = await build(target, [plugin])
+  const res = await build(target, [plugin], true)
   t.same(res, {
     target,
     plugins: [plugin],
@@ -145,7 +152,7 @@ t.test('no plugins specified', async t => {
   const target = t.testdir()
   // verify that it'll create the target as needed
   rimrafSync(target)
-  const res = await build(target, [])
+  const res = await build(target, [], true)
   t.same(res, {
     target,
     plugins: [],

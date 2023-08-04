@@ -43,6 +43,9 @@ echo -n "                                      "$'\r'
 # need to rebuild tap after plugins
 nx run-many --target=prepare --exclude tap
 nx run-many --target=prepare -p tap
-node --loader=ts-node/esm --no-warnings scripts/default-build.ts
+node \
+  --loader=ts-node/esm \
+  --no-warnings=ExperimentalLoader \
+  scripts/default-build.mts
 # lastly, run the actual install to do all the linking
 npm install

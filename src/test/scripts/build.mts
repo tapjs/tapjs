@@ -3,12 +3,18 @@ import { ConfigOptionBase, isConfigOption } from 'jackspeak'
 import { mkdirp } from 'mkdirp'
 import { spawnSync } from 'node:child_process'
 import { readFileSync, writeFileSync } from 'node:fs'
+import { createRequire } from 'node:module'
 import { basename, resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
+
+const require = createRequire(import.meta.url)
 
 if (typeof process.argv[2] !== 'string') {
   console.error('usage: generate-tap-test-class [...plugins]')
   process.exit(1)
 }
+
+const __dirname = resolve(fileURLToPath(import.meta.url), '..')
 
 const templateFile = resolve(__dirname, './test-template.ts')
 let template = readFileSync(templateFile, 'utf8')

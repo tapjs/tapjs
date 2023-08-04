@@ -1,7 +1,7 @@
 import t from 'tap'
 
 const args = [
-  '--no-warnings',
+  '--no-warnings=ExperimentalLoader',
   '--enable-source-maps',
   '--loader',
   'ts-node/esm',

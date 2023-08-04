@@ -1,4 +1,9 @@
 #!/usr/bin/env node
+
+import { spawnSync } from 'node:child_process'
+import { dirname, resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
+
 const no = ['--no-warnings=ExperimentalLoader']
 
 // We'll always have *something* here when testing.
@@ -7,16 +12,18 @@ if (process.env.NODE_OPTIONS) no.push(process.env.NODE_OPTIONS)
 /* c8 ignore stop */
 
 process.env.NODE_OPTIONS = [...new Set(no)].join(' ')
-import { spawnSync } from 'node:child_process'
-import { dirname, resolve } from 'node:path'
-import { fileURLToPath } from 'node:url'
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
+const tsconfig = resolve(__dirname, 'tsconfig.json')
+
+process.env.TS_NODE_PROJECT = tsconfig
 
 const res = spawnSync(
   process.execPath,
   [
     '--loader=ts-node/esm',
     '--no-warnings=ExperimentalLoader',
-    resolve(dirname(fileURLToPath(import.meta.url)), './build.ts'),
+    resolve(__dirname, './build.mts'),
     ...process.argv.slice(2),
   ],
   { stdio: 'inherit' }

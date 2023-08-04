@@ -1,7 +1,7 @@
 import { spawnSync } from 'child_process'
 import { readFileSync, writeFileSync } from 'fs'
 import { resolve } from 'path'
-import {fileURLToPath} from 'url'
+import { fileURLToPath } from 'url'
 
 const __dirname = resolve(fileURLToPath(import.meta.url), '..')
 
@@ -16,10 +16,7 @@ const builtins = readFileSync(
 console.log('building Test class with:')
 console.log(builtins.map(b => `  ${b}`).join('\n'))
 
-const build = resolve(
-  __dirname,
-  '../src/test/scripts/build.ts'
-)
+const build = resolve(__dirname, '../src/test/scripts/build.mts')
 
 const defaultPluginsFile = resolve(
   __dirname,
@@ -27,11 +24,9 @@ const defaultPluginsFile = resolve(
 )
 writeFileSync(
   defaultPluginsFile,
-  `export const defaultPlugins = ${JSON.stringify(
-    builtins,
-    null,
-    2
-  ).replace(/"/g, `'`).replace(/'\n\]/, `',\n]`)}\n`
+  `export const defaultPlugins = ${JSON.stringify(builtins, null, 2)
+    .replace(/"/g, `'`)
+    .replace(/'\n\]/, `',\n]`)}\n`
 )
 
 const prepare = (...p: string[]) => {
@@ -52,14 +47,18 @@ const prepare = (...p: string[]) => {
 // make sure core and then all the builtins are built
 prepare('src/core', ...builtins)
 
-spawnSync(process.execPath, [
-  '--loader=ts-node/esm',
-  '--no-warnings',
-  build,
-  ...builtins,
-], {
-  stdio: 'inherit',
-})
+spawnSync(
+  process.execPath,
+  [
+    '--loader=ts-node/esm',
+    '--no-warnings=ExperimentalLoader',
+    build,
+    ...builtins,
+  ],
+  {
+    stdio: 'inherit',
+  }
+)
 
 writeFileSync(
   '.taprc',
