@@ -221,14 +221,17 @@ const version = (pkgs: string[], level: string) => {
   const changed = new Set([...names])
   const oldVersion = new Map<string, string>()
   for (const p of changed) {
-    const l = names.has(p)
-      ? level
-      : level.startsWith('pre')
-      ? 'prepatch'
-      : 'patch'
     const pkg = manifests[p]
     if (!pkg) throw `2: invalid package name or ws folder: ${p}`
     oldVersion.set(pkg.name, pkg.version)
+
+    const l = names.has(p)
+      ? level
+      : level.startsWith('pre')
+      ? parse(pkg.version)?.prerelease
+        ? 'prerelease'
+        : 'prepatch'
+      : 'patch'
 
     const nv = isReleaseType(l) ? inc(pkg.version, l) : parse(l)
     if (!nv) throw `invalid version generated: ${l}`
