@@ -79,7 +79,9 @@
     "format": "nx run-many -t format",
     "typedoc": "typedoc",
     "bootstrap": "bash ./scripts/bootstrap.sh",
-    "build": "node ./scripts/default-build.mjs"
+    "build": "node ./scripts/default-build.mjs",
+    "pindeps": "node ./scripts/version.mjs pindeps",
+    "v": "node ./scripts/version.mjs"
   },
   "repository": "https://github.com/tapjs/tapjs",
   "license": "BlueOak-1.0.0",
