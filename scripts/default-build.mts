@@ -1,6 +1,9 @@
 import { spawnSync } from 'child_process'
 import { readFileSync, writeFileSync } from 'fs'
 import { resolve } from 'path'
+import {fileURLToPath} from 'url'
+
+const __dirname = resolve(fileURLToPath(import.meta.url), '..')
 
 const builtins = readFileSync(
   __dirname + '/default-plugins.txt',

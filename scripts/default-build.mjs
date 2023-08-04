@@ -7,8 +7,8 @@ const res = spawnSync(
   process.execPath,
   [
     '--loader=ts-node/esm',
-    '--no-warnings',
-    resolve(dirname(fileURLToPath(import.meta.url)), './default-build.ts'),
+    '--no-warnings=ExperimentalLoader',
+    resolve(dirname(fileURLToPath(import.meta.url)), './default-build.mts'),
   ],
   { stdio: 'inherit' }
 )
