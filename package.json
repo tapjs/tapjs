@@ -81,7 +81,8 @@
     "bootstrap": "bash ./scripts/bootstrap.sh",
     "build": "node ./scripts/default-build.mjs",
     "pindeps": "node ./scripts/version.mjs pindeps",
-    "v": "node ./scripts/version.mjs"
+    "v": "node ./scripts/version.mjs",
+    "pub": "node ./scripts/version.mjs pub"
   },
   "repository": "https://github.com/tapjs/tapjs",
   "license": "BlueOak-1.0.0",

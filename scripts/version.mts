@@ -98,17 +98,21 @@ const run = (
   return res
 }
 
-const npm = (o: string | SpawnSyncOptions, ...args: string[]) => {
-  const defopt: SpawnSyncOptions = {
+const npm = (
+  o: string | (SpawnSyncOptions & { quiet?: boolean }),
+  ...args: string[]
+) => {
+  const defopt: SpawnSyncOptions & { quiet?: boolean } = {
+    quiet: false,
     stdio: [null, 'pipe', 'inherit'],
   }
   const opt = typeof o === 'object' ? { ...defopt, ...o } : defopt
   if (typeof o === 'string') args.unshift(o)
   console.log(`npm ${args.map(a => JSON.stringify(a)).join(' ')}`)
   const res = run('npm', args, opt)
-  if (res.stdout && res.stdout.trim())
+  if (!opt.quiet && res.stdout && res.stdout.trim())
     console.log(res.stdout.trimEnd())
-  if (res.stderr && res.stderr.trim())
+  if (!opt.quiet && res.stderr && res.stderr.trim())
     console.error(res.stderr.trimEnd())
   return res
 }
@@ -135,6 +139,7 @@ type DepSet = {
 type Manifest = {
   name: string
   version: string
+  private?: boolean
   dependencies?: DepSet
   devDependencies?: DepSet
   peerDependencies?: DepSet
@@ -402,6 +407,28 @@ const publish = (names: string[], pre: boolean = false) => {
   )
 }
 
+// publish any packages whose versions do not match what's on npm
+const pubAll = () => {
+  const pkgs: Manifest[] = []
+  for (const mani of new Set([...Object.values(manifests)])) {
+    if (mani.private) continue
+    const v = JSON.parse(
+      npm({ quiet: true }, 'view', mani.name, 'versions', '--json')
+        .stdout
+    )
+    if (v === mani.version || v.includes(mani.version)) continue
+    pkgs.push(mani)
+  }
+  if (!pkgs.length) {
+    console.log('all packages published')
+    return
+  }
+  for (const p of pkgs) {
+    const tag = parse(p.version)?.prerelease ? 'pre' : 'latest'
+    npm({ stdio: 'inherit' }, 'publish', '-ws', p.name, '--tag', tag)
+  }
+}
+
 const usage = `Usage: node ${relative(
   process.cwd(),
   process.argv[1].replace(/\.mts$/, '.mjs')
@@ -429,6 +456,11 @@ proper values, and write manifests, but not commit or publish anything.`
     pinDeps()
     const wrote = writeManifests()
     if (wrote.length) npm('i')
+    process.exit(0)
+  }
+
+  if (process.argv[2] === 'pub') {
+    pubAll()
     process.exit(0)
   }
 
