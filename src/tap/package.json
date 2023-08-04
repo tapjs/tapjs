@@ -32,25 +32,6 @@
   "engines": {
     "node": ">=16.17"
   },
-  "bundleDependencies": [
-    "@tapjs/after",
-    "@tapjs/after-each",
-    "@tapjs/asserts",
-    "@tapjs/before",
-    "@tapjs/before-each",
-    "@tapjs/core",
-    "@tapjs/filter",
-    "@tapjs/fixture",
-    "@tapjs/intercept",
-    "@tapjs/mock",
-    "@tapjs/run",
-    "@tapjs/snapshot",
-    "@tapjs/spawn",
-    "@tapjs/stdin",
-    "@tapjs/test",
-    "@tapjs/typescript",
-    "@tapjs/worker"
-  ],
   "dependencies": {
     "@tapjs/after": "0.0.0-1",
     "@tapjs/after-each": "0.0.0-1",
