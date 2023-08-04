@@ -38,7 +38,7 @@
     "coverage-map": "map.js"
   },
   "dependencies": {
-    "tcompare": "6",
+    "tcompare": "6.0.0",
     "trivial-deferred": "^2.0.0"
   },
   "engines": {

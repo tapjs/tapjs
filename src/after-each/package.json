@@ -44,7 +44,7 @@
   },
   "homepage": "https://github.com/tapjs/tapjs/src/spawn#readme",
   "dependencies": {
-    "@tapjs/core": ">=0.0.0-0",
+    "@tapjs/core": "0.0.0-0",
     "function-loop": "^4.0.0"
   },
   "engines": {

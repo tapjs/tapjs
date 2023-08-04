@@ -38,7 +38,7 @@
     "coverage-map": "map.js"
   },
   "dependencies": {
-    "@tapjs/core": ">=0.0.0-0",
+    "@tapjs/core": "0.0.0-0",
     "mkdirp": "^3.0.0",
     "rimraf": "^5.0.0"
   },

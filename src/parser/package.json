@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "events-to-array": "^2.0.3",
-    "tap-yaml": "^2.0.1"
+    "tap-yaml": "2.1.0"
   },
   "scripts": {
     "snap": "tap",

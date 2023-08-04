@@ -35,7 +35,7 @@
     "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
   },
   "dependencies": {
-    "@tapjs/core": ">=0.0.0-0",
+    "@tapjs/core": "0.0.0-0",
     "@esbuild-kit/cjs-loader": "^2.4.2",
     "@esbuild-kit/esm-loader": "^2.5.5"
   },

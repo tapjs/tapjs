@@ -44,7 +44,7 @@
   },
   "homepage": "https://github.com/tapjs/tapjs/src/stdin#readme",
   "dependencies": {
-    "@tapjs/core": ">=0.0.0-0"
+    "@tapjs/core": "0.0.0-0"
   },
   "engines": {
     "node": "^14.17.0 || ^16.13.0 || >=18.0.0"

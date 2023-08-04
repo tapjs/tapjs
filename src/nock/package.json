@@ -42,9 +42,9 @@
   },
   "homepage": "https://github.com/tapjs/tapjs/src/nock#readme",
   "dependencies": {
-    "@tapjs/core": ">=0.0.0-0",
-    "@tapjs/snapshot": ">=0.0.0-0",
-    "@tapjs/stack": ">=0.0.0-0",
+    "@tapjs/core": "0.0.0-0",
+    "@tapjs/snapshot": "0.0.0-0",
+    "@tapjs/stack": "0.0.0-0",
     "nock": "^13.2.4"
   },
   "engines": {
