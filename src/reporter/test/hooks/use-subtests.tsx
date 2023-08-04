@@ -55,6 +55,7 @@ t.test('finished subtests', async t => {
   const app = render(<Tag test={tb} which="finished" />)
   tb.go()
   await tb.concat()
+  await sleep(64)
   const frames = reduce(app.frames).map(j => JSON.parse(j))
   containsPrevious(t, frames)
   t.strictSame(frames[frames.length - 1], [
@@ -76,6 +77,7 @@ t.test('active subtests', async t => {
   const app = render(<Tag test={tb} which="active" />)
   tb.go()
   await tb.concat()
+  await sleep(64)
   const frames = reduce(app.frames).map(j => JSON.parse(j))
   t.strictSame(frames, [
     [],
