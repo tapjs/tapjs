@@ -27,7 +27,8 @@
   },
   "files": [
     "dist",
-    "scripts"
+    "scripts",
+    "test-built"
   ],
   "scripts": {
     "snap": "tap",
@@ -41,14 +42,11 @@
   "tap": {
     "coverage-map": "map.js"
   },
-  "bundleDependencies": [
-    "@tapjs/test-built"
-  ],
   "peerDependencies": {
     "@tapjs/core": "0.0.0-1"
   },
   "dependencies": {
-    "@tapjs/test-built": "*",
+    "@tapjs/test-built": "file:./test-built",
     "glob": "^10.3.2",
     "jackspeak": "^2.2.2",
     "mkdirp": "^3.0.0",

@@ -21,7 +21,7 @@ let template = readFileSync(templateFile, 'utf8')
 
 const defaultTarget = resolve(
   __dirname,
-  '../node_modules/@tapjs/test-built'
+  '../test-built'
 )
 
 // override in testing, otherwise always the default
