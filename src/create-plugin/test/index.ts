@@ -8,6 +8,12 @@ import { fileURLToPath } from 'url'
 const binURL = await resolveImport('../index.js', import.meta.url)
 const bin = fileURLToPath(binURL)
 
+const {
+  default: { version: coreVersion },
+} = await import('@tapjs/core/package.json', {
+  assert: { type: 'json' },
+})
+
 class MockInit {
   constructor(from: string) {
     if (!from.startsWith(binURL + '?'))
@@ -72,6 +78,7 @@ t.test('no positionals, accept all the defaults', async t => {
     'npm-init-template': { Init: MockInit },
   })
   t.matchOnly(values, {
+    coreVersion,
     name: /^tap-plugin-[a-z]{4}-[a-z]{4}$/,
     className: /^[A-Z][a-z]{3}[A-Z][a-z]{3}$/,
     description: '',
@@ -118,6 +125,7 @@ t.test('positional arg, change some defaults', async t => {
     'npm-init-template': { Init: MockInit },
   })
   t.matchOnly(values, {
+    coreVersion,
     name: 'name',
     className: 'Name',
     description: 'a description',
@@ -205,11 +213,8 @@ Once published, add to projects by running:
           '',
         ]
       )
-      t.matchSnapshot(
-        JSON.parse(
-          readFileSync(t.testdirName + '/package.json', 'utf8')
-        )
-      )
+      const pj = readFileSync(t.testdirName + '/package.json', 'utf8')
+      t.matchSnapshot(JSON.parse(pj))
       res()
     })
   })

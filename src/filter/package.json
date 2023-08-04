@@ -34,8 +34,10 @@
     "format": "prettier --write . --loglevel warn --ignore-path ../../.prettierignore --cache",
     "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
   },
+  "peerDependencies": {
+    "@tapjs/core": "0.0.0-0"
+  },
   "dependencies": {
-    "@tapjs/core": "0.0.0-0",
     "tcompare": "6.0.0",
     "trivial-deferred": "^2.0.0"
   },

@@ -50,9 +50,11 @@
     "url": "https://github.com/sponsors/isaacs"
   },
   "repository": "https://github.com/tapjs/tapjs",
+  "peerDependencies": {
+    "@tapjs/core": "0.0.0-0"
+  },
   "dependencies": {
     "@tapjs/after": "0.0.0-0",
-    "@tapjs/core": "0.0.0-0",
     "@tapjs/stack": "0.0.0-0",
     "resolve-import": "^1.0.4"
   }

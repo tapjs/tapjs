@@ -44,8 +44,10 @@
   "bundleDependencies": [
     "@tapjs/.test-built"
   ],
+  "peerDependencies": {
+    "@tapjs/core": "0.0.0-0"
+  },
   "dependencies": {
-    "@tapjs/core": "0.0.0-0",
     "glob": "^10.3.2",
     "jackspeak": "^2.2.2",
     "mkdirp": "^3.0.0",

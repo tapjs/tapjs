@@ -31,6 +31,7 @@
     "typedoc": "typedoc ./index.ts"
   },
   "dependencies": {
+    "@tapjs/core": "0.0.0-0",
     "npm-init-template": "1.0.2"
   },
   "engines": {

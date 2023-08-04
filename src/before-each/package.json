@@ -43,8 +43,10 @@
     "url": "https://github.com/tapjs/tapjs/issues"
   },
   "homepage": "https://github.com/tapjs/tapjs/src/spawn#readme",
+  "peerDependencies": {
+    "@tapjs/core": "0.0.0-0"
+  },
   "dependencies": {
-    "@tapjs/core": "0.0.0-0",
     "function-loop": "^4.0.0"
   },
   "engines": {

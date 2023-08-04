@@ -42,9 +42,11 @@
     "url": "https://github.com/tapjs/tapjs/issues"
   },
   "homepage": "https://github.com/tapjs/tapjs/src/sinon#readme",
+  "peerDependencies": {
+    "@tapjs/core": "0.0.0-0"
+  },
   "dependencies": {
     "@tapjs/after": "0.0.0-0",
-    "@tapjs/core": "0.0.0-0",
     "sinon": "^15.2.0"
   },
   "engines": {

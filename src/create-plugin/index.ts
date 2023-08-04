@@ -2,10 +2,17 @@
 import { randomInt } from 'node:crypto'
 import { basename } from 'node:path'
 import { Init } from 'npm-init-template'
+const {
+  default: { version: coreVersion },
+} = await import('@tapjs/core/package.json', {
+  assert: { type: 'json' },
+})
 
 const { prompt, build, values, positionals, run } = new Init(
   import.meta.url
 )
+
+values.coreVersion = `^${coreVersion}`
 
 // random chars for a default name
 const chars = 'bcdfghjklmnpqrstvwxz'
@@ -37,11 +44,11 @@ const pkgName = (s: string) => {
 const defName =
   (positionals[0] && pkgName(positionals[0])) || `tap-plugin-${str()}`
 
-const name = values.name = pkgName(
+const name = (values.name = pkgName(
   await prompt('Plugin package name: ', 'name', {
     default: defName,
   })
-)
+))
 values.className = name
   .replace(/^.*?\/([^\/]+)$/, '$1')
   .replace(/^tap-plugin[-.]/, '')

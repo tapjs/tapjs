@@ -7,16 +7,13 @@
 'use strict'
 exports[`test/index.ts > TAP > actually build and verify > must match snapshot 1`] = `
 Object {
-  "dependencies": Object {
-    "@tapjs/core": ">=0.0.0-0",
-  },
   "description": "plugin description",
   "devDependencies": Object {
-    "@types/node": "^20.1.5",
+    "@types/node": "^20.3.1",
     "prettier": "^2.8.7",
-    "sync-content": "^1.0.1",
-    "ts-node": "^10.9.1",
-    "typedoc": "^0.24.7",
+    "sync-content": "^1.0.2",
+    "ts-node": "github:TypeStrong/ts-node#8f6f4e5",
+    "typedoc": "^0.24.8",
     "typescript": "^5.1.3",
   },
   "engines": Object {
@@ -45,6 +42,9 @@ Object {
   "main": "./dist/cjs/index.js",
   "module": "./dist/mjs/index.js",
   "name": "@xyz/my-plugin-name",
+  "peerDependencies": Object {
+    "@tapjs/core": "^0.0.0-0",
+  },
   "prettier": Object {
     "arrowParens": "avoid",
     "bracketSameLine": true,

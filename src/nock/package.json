@@ -41,8 +41,10 @@
     "url": "https://github.com/tapjs/tapjs/issues"
   },
   "homepage": "https://github.com/tapjs/tapjs/src/nock#readme",
+  "peerDependencies": {
+    "@tapjs/core": "0.0.0-0"
+  },
   "dependencies": {
-    "@tapjs/core": "0.0.0-0",
     "@tapjs/snapshot": "0.0.0-0",
     "@tapjs/stack": "0.0.0-0",
     "nock": "^13.2.4"

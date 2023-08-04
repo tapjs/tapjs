@@ -48,7 +48,7 @@
   "bugs": {
     "url": "https://github.com/tapjs/tapjs/issues"
   },
-  "dependencies": {
+  "peerDependencies": {
     "@tapjs/core": "0.0.0-0"
   },
   "engines": {

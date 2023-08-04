@@ -43,7 +43,7 @@
     "url": "https://github.com/tapjs/tapjs/issues"
   },
   "homepage": "https://github.com/tapjs/tapjs/src/stdin#readme",
-  "dependencies": {
+  "peerDependencies": {
     "@tapjs/core": "0.0.0-0"
   },
   "engines": {
