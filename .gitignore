@@ -1,7 +1,8 @@
 /node_modules
-/src/*/node_modules/**
+/src/*/node_modules/*
+/src/*/node_modules/.*
 /src/*/.tap
-!/src/test/node_modules/@tapjs/.test-built
+!/src/test/node_modules/@tapjs
 /src/*/docs
 /src/*/dist
 !/src/test/dist

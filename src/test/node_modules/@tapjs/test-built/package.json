@@ -1,7 +1,7 @@
 {
   "name": "@tapjs/test-built",
   "private": true,
-  "version": "0.0.0-0",
+  "version": "0.0.0",
   "description": "the plugged in Test class for node-tap",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "main": "./dist/cjs/index.js",
