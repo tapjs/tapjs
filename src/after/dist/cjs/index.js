@@ -1,6 +1,15 @@
 "use strict";
+/**
+ * Plugin class providing {@link After#after} and {@link After#teardown}
+ * on the {@link Test} class.
+ *
+ * @module
+ */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.plugin = exports.After = void 0;
+/**
+ * Implementation class returned by plugin function
+ */
 class After {
     #t;
     #onTeardown = [];
@@ -9,15 +18,14 @@ class After {
         this.#t = t;
     }
     /**
-     * Alias for `t.after(fn)`
+     * Alias for {@link After#after}
      */
     teardown(fn) {
         return this.after(fn);
     }
     /**
-     * Just run the supplied function right away.
-     * Runs after the test is completely finished, and before the next
-     * test starts.
+     * Runs the supplied function after the test is completely finished, and
+     * before the next test starts.
      */
     after(fn) {
         this.#onTeardown.push(fn);
@@ -33,6 +41,11 @@ class After {
             };
         }
     }
+    /**
+     * call the teardown functions
+     *
+     * @internal
+     */
     #callTeardown() {
         let fn;
         while ((fn = this.#onTeardown.shift())) {
@@ -51,6 +64,9 @@ class After {
     }
 }
 exports.After = After;
+/**
+ * Plugin method that creates the {@link After} instance
+ */
 const plugin = (t) => new After(t);
 exports.plugin = plugin;
 const isPromise = (p) => !!p && typeof p === 'object' && typeof p.then === 'function';

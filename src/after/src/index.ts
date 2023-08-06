@@ -1,5 +1,15 @@
+/**
+ * Plugin class providing {@link After#after} and {@link After#teardown}
+ * on the {@link Test} class.
+ *
+ * @module
+ */
+
 import { TapPlugin, TestBase } from '@tapjs/core'
 
+/**
+ * Implementation class returned by plugin function
+ */
 export class After {
   #t: TestBase
   #onTeardown: (() => any)[] = []
@@ -9,16 +19,15 @@ export class After {
   }
 
   /**
-   * Alias for `t.after(fn)`
+   * Alias for {@link After#after}
    */
   teardown(fn: () => any) {
     return this.after(fn)
   }
 
   /**
-   * Just run the supplied function right away.
-   * Runs after the test is completely finished, and before the next
-   * test starts.
+   * Runs the supplied function after the test is completely finished, and
+   * before the next test starts.
    */
   after(fn: () => any) {
     this.#onTeardown.push(fn)
@@ -36,6 +45,11 @@ export class After {
     }
   }
 
+  /**
+   * call the teardown functions
+   *
+   * @internal
+   */
   #callTeardown(): void | Promise<void> {
     let fn: (() => any) | undefined
     while ((fn = this.#onTeardown.shift())) {
@@ -53,6 +67,9 @@ export class After {
   }
 }
 
+/**
+ * Plugin method that creates the {@link After} instance
+ */
 export const plugin: TapPlugin<After> = (t: TestBase) => new After(t)
 
 const isPromise = (p: any): p is Promise<any | void> =>

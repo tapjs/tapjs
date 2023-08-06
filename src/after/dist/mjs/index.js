@@ -1,3 +1,12 @@
+/**
+ * Plugin class providing {@link After#after} and {@link After#teardown}
+ * on the {@link Test} class.
+ *
+ * @module
+ */
+/**
+ * Implementation class returned by plugin function
+ */
 export class After {
     #t;
     #onTeardown = [];
@@ -6,15 +15,14 @@ export class After {
         this.#t = t;
     }
     /**
-     * Alias for `t.after(fn)`
+     * Alias for {@link After#after}
      */
     teardown(fn) {
         return this.after(fn);
     }
     /**
-     * Just run the supplied function right away.
-     * Runs after the test is completely finished, and before the next
-     * test starts.
+     * Runs the supplied function after the test is completely finished, and
+     * before the next test starts.
      */
     after(fn) {
         this.#onTeardown.push(fn);
@@ -30,6 +38,11 @@ export class After {
             };
         }
     }
+    /**
+     * call the teardown functions
+     *
+     * @internal
+     */
     #callTeardown() {
         let fn;
         while ((fn = this.#onTeardown.shift())) {
@@ -47,6 +60,9 @@ export class After {
         }
     }
 }
+/**
+ * Plugin method that creates the {@link After} instance
+ */
 export const plugin = (t) => new After(t);
 const isPromise = (p) => !!p && typeof p === 'object' && typeof p.then === 'function';
 //# sourceMappingURL=index.js.map
