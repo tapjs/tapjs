@@ -41,6 +41,7 @@
     "@tapjs/test": "0.0.0-2",
     "chalk": "^5.2.0",
     "ink": "^4.2.0",
+    "ms": "^2.1.3",
     "patch-console": "^2.0.0",
     "prismjs": "^1.29.0",
     "prismjs-terminal": "^1.2.2",
