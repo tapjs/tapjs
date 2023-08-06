@@ -6,6 +6,7 @@
  */
 
 import { TapPlugin, TestBase } from '@tapjs/core'
+import { isPromise } from 'is-actual-promise'
 
 /**
  * Implementation class returned by plugin function
@@ -71,6 +72,3 @@ export class After {
  * Plugin method that creates the {@link After} instance
  */
 export const plugin: TapPlugin<After> = (t: TestBase) => new After(t)
-
-const isPromise = (p: any): p is Promise<any | void> =>
-  !!p && typeof p === 'object' && typeof p.then === 'function'

@@ -4,6 +4,7 @@
  *
  * @module
  */
+import { isPromise } from 'is-actual-promise';
 /**
  * Implementation class returned by plugin function
  */
@@ -64,5 +65,4 @@ export class After {
  * Plugin method that creates the {@link After} instance
  */
 export const plugin = (t) => new After(t);
-const isPromise = (p) => !!p && typeof p === 'object' && typeof p.then === 'function';
 //# sourceMappingURL=index.js.map

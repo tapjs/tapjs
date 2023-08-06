@@ -52,5 +52,8 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tapjs/tapjs.git"
+  },
+  "dependencies": {
+    "is-actual-promise": "^1.0.0"
   }
 }

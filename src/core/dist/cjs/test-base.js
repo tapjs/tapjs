@@ -30,6 +30,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TestBase = void 0;
 const stack = __importStar(require("@tapjs/stack"));
+const is_actual_promise_1 = require("is-actual-promise");
 const node_assert_1 = __importDefault(require("node:assert"));
 const node_path_1 = require("node:path");
 const node_process_1 = require("node:process");
@@ -53,7 +54,6 @@ const queueEmpty = (t) => t.queue.length === 0 ||
  * Sigil to put in the queue to signal the end of all things
  */
 const EOF = Symbol('EOF');
-const isPromise = (p) => !!p && typeof p === 'object' && typeof p.then === 'function';
 /**
  * The TestBaseBase class is the base class for all plugins,
  * and eventually thus the Test class.
@@ -442,7 +442,7 @@ class TestBase extends base_js_1.Base {
             }
             else {
                 const ret = obe();
-                if (isPromise(ret)) {
+                if ((0, is_actual_promise_1.isPromise)(ret)) {
                     // this will make the next section return this.#process()
                     this.waitOn(ret);
                 }
@@ -525,7 +525,7 @@ class TestBase extends base_js_1.Base {
                     // I AM BECOME EOF, DESTROYER OF STREAMS
                     this.debug('call onEOF', this.name);
                     const eofRet = this.onEOF();
-                    if (isPromise(eofRet)) {
+                    if ((0, is_actual_promise_1.isPromise)(eofRet)) {
                         this.debug('onEOF is promise');
                         this.waitOn(eofRet, w => {
                             if (w.rejected) {
@@ -564,7 +564,7 @@ class TestBase extends base_js_1.Base {
             else if (typeof p === 'function') {
                 this.debug(' > FUNCTION');
                 const ret = p();
-                if (isPromise(ret)) {
+                if ((0, is_actual_promise_1.isPromise)(ret)) {
                     this.waitOn(ret);
                 }
             }
@@ -577,7 +577,7 @@ class TestBase extends base_js_1.Base {
                     continue;
                 }
                 const ret = fn.call(this, ...p);
-                if (isPromise(ret)) {
+                if ((0, is_actual_promise_1.isPromise)(ret)) {
                     // returned promise
                     ret.then(() => {
                         this.#processing = false;

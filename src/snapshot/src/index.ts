@@ -7,14 +7,11 @@ import {
   MessageExtra,
   normalizeMessageExtra,
 } from '@tapjs/core'
+import { isPromise } from 'is-actual-promise'
 import { relative, resolve } from 'path'
+import { CompareOptions, format, strict } from 'tcompare'
 import { Deferred } from 'trivial-deferred'
 import { SnapshotProviderDefault } from './provider.js'
-
-import { CompareOptions, format, strict } from 'tcompare'
-
-const isPromise = (p: any): p is Promise<any | void> =>
-  !!p && typeof p === 'object' && typeof p.then === 'function'
 
 const defaultFormatSnapshot =
   (co: CompareOptions = {}) =>

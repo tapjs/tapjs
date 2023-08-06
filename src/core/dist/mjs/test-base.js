@@ -1,6 +1,7 @@
 // lifecycle methods like beforeEach, afterEach, teardown
 // defined in plugins/lifecycle.ts
 import * as stack from '@tapjs/stack';
+import { isPromise } from 'is-actual-promise';
 import assert from 'node:assert';
 import { relative } from 'node:path';
 import { hrtime } from 'node:process';
@@ -24,7 +25,6 @@ const queueEmpty = (t) => t.queue.length === 0 ||
  * Sigil to put in the queue to signal the end of all things
  */
 const EOF = Symbol('EOF');
-const isPromise = (p) => !!p && typeof p === 'object' && typeof p.then === 'function';
 /**
  * The TestBaseBase class is the base class for all plugins,
  * and eventually thus the Test class.

@@ -7,6 +7,7 @@ import {
 } from '@tapjs/core'
 import * as stack from '@tapjs/stack'
 import EventEmitter from 'events'
+import { isPromise } from 'is-actual-promise'
 import {
   CompareOptions,
   has,
@@ -918,9 +919,6 @@ const isIterable = (it: any) =>
 
 const isRegExp = (re: any): re is RegExp =>
   Object.prototype.toString.call(re) === '[object RegExp]'
-
-const isPromise = (p: any): p is Promise<any | void> =>
-  !!p && typeof p === 'object' && typeof p.then === 'function'
 
 export const plugin: TapPlugin<Assertions, AssertOptions> = (
   t: TestBase,

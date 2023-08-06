@@ -7,6 +7,7 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.plugin = exports.After = void 0;
+const is_actual_promise_1 = require("is-actual-promise");
 /**
  * Implementation class returned by plugin function
  */
@@ -34,7 +35,7 @@ class After {
             const onEOF = this.#t.onEOF;
             this.#t.onEOF = () => {
                 const ret = onEOF();
-                if (isPromise(ret)) {
+                if ((0, is_actual_promise_1.isPromise)(ret)) {
                     return ret.then(() => this.#callTeardown());
                 }
                 return this.#callTeardown();
@@ -51,7 +52,7 @@ class After {
         while ((fn = this.#onTeardown.shift())) {
             try {
                 const ret = fn.call(this.#t.t);
-                if (isPromise(ret)) {
+                if ((0, is_actual_promise_1.isPromise)(ret)) {
                     return ret.then(() => this.#callTeardown());
                 }
             }
@@ -69,5 +70,4 @@ exports.After = After;
  */
 const plugin = (t) => new After(t);
 exports.plugin = plugin;
-const isPromise = (p) => !!p && typeof p === 'object' && typeof p.then === 'function';
 //# sourceMappingURL=index.js.map

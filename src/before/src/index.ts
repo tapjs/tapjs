@@ -1,4 +1,5 @@
 import { TapPlugin, TestBase } from '@tapjs/core'
+import { isPromise } from 'is-actual-promise'
 
 export class Before {
   #t: TestBase
@@ -45,6 +46,3 @@ export class Before {
 
 export const plugin: TapPlugin<Before> = (t: TestBase) =>
   new Before(t)
-
-const isPromise = (p: any): p is Promise<any | void> =>
-  !!p && typeof p === 'object' && typeof p.then === 'function'
