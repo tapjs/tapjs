@@ -1,6 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Counts = void 0;
+/**
+ * Class representing a count of all the assertions in a test
+ */
 class Counts {
     total = 0;
     pass = 0;

@@ -1,3 +1,9 @@
+/**
+ * Main export of the @tapjs/core module, providing the bulk of
+ * the internal machinery of tests.
+ *
+ * @module
+ */
 // base and test-base have to come before tap.js, because it
 // extends Test which extends TestBase, so has to be present
 // in the exports right away.

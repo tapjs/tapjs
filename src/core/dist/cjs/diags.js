@@ -6,6 +6,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.diags = void 0;
 const tap_yaml_1 = __importDefault(require("tap-yaml"));
 const clean_yaml_object_js_1 = require("./clean-yaml-object.js");
+/**
+ * Print the YAML diagnostics based on the {@link Extra} object received
+ */
 const diags = (obj) => {
     const clean = (0, clean_yaml_object_js_1.cleanYamlObject)(obj);
     if (!clean ||

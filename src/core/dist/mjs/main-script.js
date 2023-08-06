@@ -1,4 +1,7 @@
 import { argv, proc } from './proc.js';
+/**
+ * Get the name of the main script for this process
+ */
 export const mainScript = (def = 'TAP') => {
     //@ts-ignore
     if (typeof repl !== 'undefined' || '_eval' in proc) {

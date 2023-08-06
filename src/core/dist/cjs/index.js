@@ -1,4 +1,10 @@
 "use strict";
+/**
+ * Main export of the @tapjs/core module, providing the bulk of
+ * the internal machinery of tests.
+ *
+ * @module
+ */
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     var desc = Object.getOwnPropertyDescriptor(m, k);

@@ -2,6 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.mainScript = void 0;
 const proc_js_1 = require("./proc.js");
+/**
+ * Get the name of the main script for this process
+ */
 const mainScript = (def = 'TAP') => {
     //@ts-ignore
     if (typeof repl !== 'undefined' || '_eval' in proc_js_1.proc) {

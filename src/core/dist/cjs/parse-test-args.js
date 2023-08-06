@@ -1,6 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.parseTestArgs = void 0;
+/**
+ * Normalize the arguments provided to a subtest method
+ */
 const parseTestArgs = (...args) => {
     let name = undefined;
     let extra = undefined;

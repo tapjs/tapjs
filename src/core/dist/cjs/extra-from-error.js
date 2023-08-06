@@ -25,11 +25,16 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.extraFromError = void 0;
 const stack = __importStar(require("@tapjs/stack"));
+/**
+ * Create an {@link Extra} object based on a thrown Error
+ */
 const extraFromError = (er, extra, options) => {
     // the yaml module puts big stuff here, pluck it off
     // otherwise it's quite noisy when we throw as a result of
     // trying to parse invalid tap diagnostics.
-    if (er.source &&
+    if (!!er &&
+        typeof er === 'object' &&
+        er.source &&
         typeof er.source === 'object' &&
         er.source.context) {
         const { context, ...source } = er.source;

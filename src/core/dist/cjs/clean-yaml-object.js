@@ -37,6 +37,11 @@ const tryReadFile = (path) => {
     }
 };
 const hasOwn = (obj, key) => Object.prototype.hasOwnProperty.call(obj, key);
+/**
+ * Prepare an object for printing to YAML diagnostics.
+ *
+ * Looks up source, calculates diffs of actual/expected values, and so on.
+ */
 const cleanYamlObject = (object) => {
     const res = { ...object };
     if (hasOwn(res, 'stack') && !hasOwn(res, 'at')) {
@@ -130,6 +135,11 @@ const cleanYamlObject = (object) => {
     return res;
 };
 exports.cleanYamlObject = cleanYamlObject;
+/**
+ * Properties that are *always* removed from the diagnostics, either because
+ * they are internal (eg, `time`), overly noisy (eg, `parent`), or captured
+ * elsewhere in the TAP output (eg, `skip`).
+ */
 exports.deleteAlways = new Set([
     'todo',
     'time',
@@ -150,6 +160,10 @@ exports.deleteAlways = new Set([
     'saveFixture',
     'env',
 ]);
+/**
+ * Fields on this list are removed from YAML diagnostics if they are empty
+ * (ie, falsey, empty array, or object with no keys)
+ */
 exports.deleteIfEmpty = new Set([
     'at',
     'stack',
@@ -159,9 +173,14 @@ exports.deleteIfEmpty = new Set([
     'runOnly',
     'compareOptions',
 ]);
+/**
+ * Fields are removed from YAML diagnostics if they match any of these
+ * patterns.
+ */
 exports.deleteIfMatch = [
     /^_?tapChild/,
     /^tapStream/,
+    // TODO: create a @tapjs/mocha plugin
     /^tapMochaTest/,
 ];
 const shouldDeleteKey = (key, value) => exports.deleteAlways.has(key) ||
@@ -174,6 +193,9 @@ const isEmpty = (obj) => {
     }
     if (typeof obj !== 'object') {
         return false;
+    }
+    if (Array.isArray(obj)) {
+        return obj.length === 0;
     }
     for (const _ in obj) {
         return false;

@@ -1,14 +1,26 @@
+/**
+ * Plugin class providing {@link Before#before} on the {@link Test} class.
+ *
+ * @module
+ */
+
 import { TapPlugin, TestBase } from '@tapjs/core'
 import { isPromise } from 'is-actual-promise'
 
+/**
+ * Implementation class returned by plugin function
+ */
 export class Before {
   #t: TestBase
+
   constructor(t: TestBase) {
     this.#t = t
   }
 
   /**
-   * Just run the supplied function right away.
+   * Just run the supplied function right away, but do not run any
+   * child tests until it has completed.
+   *
    * This is handy when some setup may require asynchronous actions, and
    * tests should wait until after it completes.
    */
@@ -44,5 +56,8 @@ export class Before {
   }
 }
 
+/**
+ * Plugin method that creates the {@link Before} instance
+ */
 export const plugin: TapPlugin<Before> = (t: TestBase) =>
   new Before(t)

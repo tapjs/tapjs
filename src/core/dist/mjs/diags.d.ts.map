@@ -1,1 +1,1 @@
-{"version":3,"file":"diags.d.ts","sourceRoot":"","sources":["../../src/diags.ts"],"names":[],"mappings":"AAGA,eAAO,MAAM,KAAK;;YAkBjB,CAAA"}
+{"version":3,"file":"diags.d.ts","sourceRoot":"","sources":["../../src/diags.ts"],"names":[],"mappings":"AAEA,OAAO,EAAE,KAAK,EAAE,MAAM,YAAY,CAAA;AAElC;;GAEG;AACH,eAAO,MAAM,KAAK,QAAS,KAAK,WAkB/B,CAAA"}

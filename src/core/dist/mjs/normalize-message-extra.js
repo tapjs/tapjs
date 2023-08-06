@@ -1,3 +1,6 @@
+/**
+ * Normalize the {@link MessageExtra} arguments to test assertion methods
+ */
 export const normalizeMessageExtra = (defaultMessage, [message, extra]) => {
     if (message && typeof message === 'object') {
         return [defaultMessage, message];

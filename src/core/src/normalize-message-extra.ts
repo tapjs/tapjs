@@ -1,5 +1,8 @@
 import { Extra, MessageExtra } from './index.js'
 
+/**
+ * Normalize the {@link MessageExtra} arguments to test assertion methods
+ */
 export const normalizeMessageExtra = (
   defaultMessage: string,
   [message, extra]: MessageExtra

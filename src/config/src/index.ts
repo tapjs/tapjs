@@ -1,3 +1,9 @@
+/**
+ * Module that handles all TAP configuration needs
+ *
+ * @module
+ */
+
 import { argv, cwd, env } from '@tapjs/core'
 import { config as pluginConfig, defaultPlugins } from '@tapjs/test'
 import { lstat, readdir, readFile, writeFile } from 'fs/promises'
@@ -25,22 +31,49 @@ const exists = async (f: string) =>
     () => false
   )
 
+/**
+ * The base config set (before any plugins) that TAP responds to
+ */
 export type BaseConfigSet = Unwrap<typeof baseConfig>
 
-// get the set of folders to check for a .taprc or a package.json
-// always stop when we find a .git
-// validate config files against this.jack
+/**
+ * Class that handles configuration for TAP.
+ *
+ * Typically, {@link TapConfig.load} is the way to get one of these.
+ */
 export class TapConfig<C extends ConfigSet = BaseConfigSet> {
+  /**
+   * The {@link https://npmjs.com/jackspeak | JackSpeak} object
+   * representing TAP's configuration
+   */
   jack: Jack<C>
+  /**
+   * Parsed values in effect
+   */
   values?: OptionsResults<C>
+  /**
+   * positional arguments to the TAP process
+   */
   positionals?: string[]
+  /**
+   * The effective current working directory for various globbing actions.
+   * The root of the project where a .taprc, package.json, or .git was
+   * found.
+   */
   globCwd: string = cwd
+  /**
+   * The file providing configuration, either a package.json or .taprc.
+   * If undefined, it means that we don't have a config file.
+   */
   configFile?: string
 
   constructor(jack: Jack<C> = baseConfig) {
     this.jack = jack
   }
 
+  /**
+   * Parse the arguments and set configuration and positionals accordingly.
+   */
   parse(args: string[] = argv): this & {
     values: OptionsResults<C>
     positionals: string[]
@@ -52,20 +85,32 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
     return Object.assign(this, { values, positionals })
   }
 
+  /**
+   * Get a configuration value, as we currently know it
+   */
   get<K extends keyof OptionsResults<C>>(k: K): OptionsResults<C>[K] {
     return this.parse().values[k]
   }
 
+  /**
+   * Add fields to the config set. Used when loading plugins that export
+   * a `config` object.
+   */
   addFields<F extends ConfigSet>(fields: F) {
     return new TapConfig(this.jack.addFields(fields))
   }
 
+  /**
+   * Load configuration fields exported by active plugins
+   */
   loadPluginConfigFields() {
     return new TapConfig(pluginConfig(this.jack))
   }
 
-  // load the file, and write the fields in data.
-  // if not present, create it.
+  /**
+   * load the file, and write the fields in data. If the file is not present,
+   * create it.
+   */
   async editConfigFile(
     data: OptionsResults<C>,
     configFile = this.configFile
@@ -92,6 +137,9 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
     }
   }
 
+  /**
+   * Edit a yaml .taprc file
+   */
   async editYAMLConfig(data: OptionsResults<C>, configFile: string) {
     const src: OptionsResults<C> =
       (await this.readYAMLConfig(configFile, true)) || {}
@@ -104,6 +152,9 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
     )
   }
 
+  /**
+   * Edit the `"tap"` section of a package.json file
+   */
   async editPackageJsonConfig(
     data: OptionsResults<C>,
     configFile: string
@@ -119,6 +170,9 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
     return writeFile(configFile, jsonStringify(pj))
   }
 
+  /**
+   * Read configuration from a yaml .taprc file
+   */
   async readYAMLConfig(
     rc: string,
     silent: boolean = false
@@ -133,6 +187,9 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
     }
   }
 
+  /**
+   * Read a package.json file
+   */
   async readPackageJson(
     pj: string,
     silent: boolean = false
@@ -149,6 +206,9 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
     return undefined
   }
 
+  /**
+   * Read the configuration from the `"tap"` object in a package.json file
+   */
   async readPackageJsonConfig(
     pj: string
   ): Promise<OptionsResults<C> | undefined> {
@@ -157,6 +217,9 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
       | undefined
   }
 
+  /**
+   * Read the configuration from a dependency
+   */
   async readDepConfig(file: string) {
     // people like yaml files to end in .yaml or .yml, but package.json
     // should always be a file named 'package.json'
@@ -165,6 +228,9 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
       : this.readYAMLConfig(file)
   }
 
+  /**
+   * Resolve the source of an `extends` field in TAP configs
+   */
   async resolveExtension(ext: string, file: string) {
     const asFile = resolve(dirname(file), ext)
     if (await exists(asFile)) {
@@ -190,6 +256,9 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
     }
   }
 
+  /**
+   * Load some configuration fields from a config file
+   */
   async loadConfigData(
     data: any,
     configFile: string
@@ -201,6 +270,9 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
     return Object.assign(this, { configFile })
   }
 
+  /**
+   * Apply the extension from a resolved `extends` field in the config.
+   */
   async extendConfigData(data: Record<string, any>, file: string) {
     const seen = new Set<string>([file])
     // config, extension, resolved extension
@@ -244,6 +316,9 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
     }
   }
 
+  /**
+   * Load configuration from a file
+   */
   async loadConfigFile(): Promise<this & { configFile: string }> {
     // start from cwd, walk up until we find a .git
     // or package.json, or env.HOME
@@ -284,6 +359,9 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
     })
   }
 
+  /**
+   * The signature of all plugin modules that ought to be loaded.
+   */
   get pluginSignature() {
     return this.pluginList
       .sort((a, b) => a.localeCompare(b, 'en'))
@@ -291,6 +369,9 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
       .trim()
   }
 
+  /**
+   * The list of all plugins that ought to be loaded.
+   */
   get pluginList() {
     const {
       values: { plugin = [] },
@@ -306,6 +387,10 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
     return [...pluginSet]
   }
 
+  /**
+   * Determine whether the TAP process should show colors. Update chalk
+   * accordingly.
+   */
   async loadColor() {
     const c = this.get('color')
     const chalk = (await import('chalk')).default
@@ -319,6 +404,11 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
     return this
   }
 
+  /**
+   * Load the reporter that ought to be used, based on the configured
+   * value, the `TAP` environment variable, and whether or not we have
+   * colors enabled.
+   */
   loadReporter() {
     const r = this.get('reporter')
     if (r !== undefined && env.TAP !== '1') return this
@@ -330,7 +420,13 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
     return this
   }
 
+  /**
+   * cache of the loaded config
+   */
   static #loaded: LoadedConfig | undefined
+  /**
+   * Load the configuration and return a Promise to a {@link TapConfig} object
+   */
   static async load(): Promise<LoadedConfig> {
     if (this.#loaded) return this.#loaded
     const a = new TapConfig()
@@ -343,6 +439,9 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
   }
 }
 
+/**
+ * A fully loaded {@link TapConfig} object
+ */
 export type LoadedConfig = ReturnType<
   ReturnType<
     Awaited<

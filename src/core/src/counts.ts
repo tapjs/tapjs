@@ -1,3 +1,6 @@
+/**
+ * JSON object representation of {@link Counts}
+ */
 export interface CountsJSON {
   total: number
   pass: number
@@ -7,6 +10,9 @@ export interface CountsJSON {
   complete?: number
 }
 
+/**
+ * Class representing a count of all the assertions in a test
+ */
 export class Counts {
   total: number = 0
   pass: number = 0

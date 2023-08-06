@@ -5,6 +5,13 @@ const base_js_1 = require("./base.js");
 const processinfo_1 = require("@tapjs/processinfo");
 const node_path_1 = require("node:path");
 const hasStdout = (p) => !!p.stdout;
+/**
+ * Class representing a spawned TAP process
+ *
+ * Instantiated by `t.spawn()`, typically.
+ *
+ * @internal
+ */
 class Spawn extends base_js_1.Base {
     cwd;
     command;
@@ -14,6 +21,7 @@ class Spawn extends base_js_1.Base {
     proc = null;
     cb = null;
     externalID;
+    // Used when providing timeout signal.
     // doesn't have to be cryptographically secure, just a gut check
     #tapAbortKey = String(Math.random());
     #timedOut;

@@ -1,3 +1,8 @@
+/**
+ * The definition for all TAP configuration that is not provided by plugins
+ *
+ * @module
+ */
 import { env } from '@tapjs/core'
 import { defaultPlugins } from '@tapjs/test'
 import { jack } from 'jackspeak'
@@ -20,9 +25,12 @@ const coverageReporters = [
 ]
 
 // Can't pull this directly out of @tapjs/reporter because
-// it's ESM only because ink is ESM only.
+// reporter is ESM only because ink is ESM only.
 const testReporters = ['base', 'terse']
 
+/**
+ * @see {@link https://npmjs.com/jackspeak}
+ */
 export default jack({
   envPrefix: 'TAP',
   allowPositionals: true,

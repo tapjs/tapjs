@@ -186,7 +186,7 @@ export declare class TestBase extends Base<TestBaseEvents> {
      */
     sub<T extends Base, O extends BaseOpts>(Class: {
         new (options: O): T;
-    }, extra: TestBaseOpts | BaseOpts | TestOpts | O | undefined, caller: (...a: any[]) => unknown): PromiseWithSubtest<T>;
+    }, extra: BaseOpts | TestBaseOpts | TestOpts | O | undefined, caller: (...a: any[]) => unknown): PromiseWithSubtest<T>;
     threw(er: any, extra?: Extra, proxy?: boolean): Extra | void | undefined;
     onbail(message?: string): void;
     endAll(sub?: boolean): void;

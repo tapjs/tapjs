@@ -4,6 +4,11 @@ import { TestOpts } from '@tapjs/test'
 
 export type Opts = Exclude<BaseOpts, 'parent'> & { parent?: any }
 
+/**
+ * Argument signatures that may be passed to a subtest method.
+ *
+ * If a callback is not provided, then the test is marked as `todo`.
+ */
 export type TestArgs<T extends Base, O extends Opts = Opts> =
   | []
   | [name: string]
@@ -19,6 +24,9 @@ export type TestArgs<T extends Base, O extends Opts = Opts> =
       defaultName?: string
     ]
 
+/**
+ * Normalize the arguments provided to a subtest method
+ */
 export const parseTestArgs = <T extends Base, O extends Opts = Opts>(
   ...args: TestArgs<T, O>
 ): O => {

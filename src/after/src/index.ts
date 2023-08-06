@@ -15,6 +15,7 @@ export class After {
   #t: TestBase
   #onTeardown: (() => any)[] = []
   #didOnEOF: boolean = false
+
   constructor(t: TestBase) {
     this.#t = t
   }

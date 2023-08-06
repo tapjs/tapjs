@@ -2,6 +2,13 @@ import { Base } from './base.js';
 import { ProcessInfo } from '@tapjs/processinfo';
 import { basename } from 'node:path';
 const hasStdout = (p) => !!p.stdout;
+/**
+ * Class representing a spawned TAP process
+ *
+ * Instantiated by `t.spawn()`, typically.
+ *
+ * @internal
+ */
 export class Spawn extends Base {
     cwd;
     command;
@@ -11,6 +18,7 @@ export class Spawn extends Base {
     proc = null;
     cb = null;
     externalID;
+    // Used when providing timeout signal.
     // doesn't have to be cryptographically secure, just a gut check
     #tapAbortKey = String(Math.random());
     #timedOut;

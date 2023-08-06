@@ -1,3 +1,6 @@
+/**
+ * Class representing a count of all the assertions in a test
+ */
 export class Counts {
     total = 0;
     pass = 0;

@@ -1,10 +1,21 @@
+/**
+ * Plugin class providing {@link BeforeEach#beforeEach} on the {@link Test}
+ * class.
+ *
+ * @module
+ */
+
 import type { Test } from '@tapjs/test'
 import { loop } from 'function-loop'
 import { TestBase } from '@tapjs/core'
 
+/**
+ * Implementation class returned by plugin
+ */
 export class BeforeEach {
   static #refs = new Map<TestBase, BeforeEach>()
   #t: TestBase
+
   constructor(t: TestBase) {
     this.#t = t
     BeforeEach.#refs.set(t, this)
@@ -24,16 +35,22 @@ export class BeforeEach {
       }
     }
   }
+
   #onBeforeEach: ((t: Test) => any)[]
 
   /**
-   * Run the supplied function before any child tests.
+   * Run the supplied function before any child tests, and all of their
+   * children, and so on.
    *
-   * The test about to run is passed in as an argument to the function
+   * The test about to run is an argument to the function. While its test
+   * method has not yet run, it is safe to call test methods on it, but note
+   * that this may potentially be confusing if for example you call `t.plan()`
+   * and this conflicts with the `t.plan()` called in the test method.
    */
   beforeEach(fn: (t: Test) => any) {
     this.#onBeforeEach.push(fn)
   }
+
   #runBeforeEach(cb: () => void) {
     const onerr = (er: any) => {
       this.#t.threw(er)
@@ -47,4 +64,7 @@ export class BeforeEach {
   }
 }
 
+/**
+ * plugin method that instantiates the {@link BeforeEach} object
+ */
 export const plugin = (t: TestBase) => new BeforeEach(t)

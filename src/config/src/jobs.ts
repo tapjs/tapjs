@@ -1,11 +1,17 @@
-// Heuristic to find a nice ergonomic number of jobs
-// to do in parallel by default.
-// If we use ALL the available CPUs, then that can actually
-// make tests more flaky in some cases, because things will
-// start to drag.
-// Especially, if there's a ton of CPUs, like on a hosted CI
-// system, we don't want to flood the system too aggressively.
-// But, we do want to parallelize tests quite a bit by default.
+/**
+ * Heuristic to find a nice ergonomic number of jobs to do in parallel by
+ * default.
+ *
+ * If we use ALL the available CPUs, then that can actually make tests more
+ * flaky in some cases, because things will start to drag.
+ *
+ * Especially, if there's a ton of CPUs, like on a hosted CI system, we don't
+ * want to flood the system too aggressively, since memory may be constrained.
+ * But, we do want to parallelize tests quite a bit by default, as this can
+ * speed things up considerably.
+ *
+ * @module
+ */
 
 import * as os from 'node:os'
 const max = Math.max(

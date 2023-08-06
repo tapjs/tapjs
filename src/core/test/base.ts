@@ -1,6 +1,7 @@
 import { CallSiteLike } from '@tapjs/stack'
 import t from 'tap'
 import { Base } from '../dist/cjs/base.js'
+import { Minimal } from '../dist/cjs/minimal.js'
 
 t.test('basic instantiation', t => {
   const b = new Base({})
@@ -366,4 +367,24 @@ ok 8 - another normal pass
   t.matchSnapshot(b.context)
   t.equal(b.passing(), true)
   t.end()
+})
+
+t.test('silent test is silent, unless it fails', async t => {
+  const tb = new Minimal({ name: 'parent' })
+  tb.test('one', async () => {})
+  tb.test('silent', { silent: true }, async tb => {
+    t.equal(tb.buffered, true)
+    t.equal(tb.silent, true)
+  })
+  tb.test('two', async () => {})
+  tb.test('not so silent', { silent: true }, async tb => {
+    t.equal(tb.buffered, true)
+    t.equal(tb.silent, true)
+    tb.fail('ohno')
+  })
+  tb.end()
+  const res = await tb.concat()
+  t.match(res, '\n# Subtest: not so silent\n    not ok 1 - ohno\n')
+  t.notMatch(res, '\n# Subtest: silent\n')
+  t.notMatch(res, /ok [0-9]+ - silent\n/)
 })

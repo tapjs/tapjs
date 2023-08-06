@@ -1,3 +1,6 @@
+/**
+ * Normalize the arguments provided to a subtest method
+ */
 export const parseTestArgs = (...args) => {
     let name = undefined;
     let extra = undefined;

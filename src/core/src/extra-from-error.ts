@@ -2,6 +2,9 @@ import * as stack from '@tapjs/stack'
 import type { BaseOpts } from './base.js'
 import { Extra } from './index.js'
 
+/**
+ * Create an {@link Extra} object based on a thrown Error
+ */
 export const extraFromError = (
   er: any,
   extra?: Extra,
@@ -11,6 +14,8 @@ export const extraFromError = (
   // otherwise it's quite noisy when we throw as a result of
   // trying to parse invalid tap diagnostics.
   if (
+    !!er &&
+    typeof er === 'object' &&
     er.source &&
     typeof er.source === 'object' &&
     er.source.context

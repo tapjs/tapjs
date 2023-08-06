@@ -16,6 +16,12 @@ t.cleanSnapshot = s =>
 
 t.matchSnapshot(cleanYamlObject({}), 'empty object')
 
+t.strictSame(cleanYamlObject({
+  at: [],
+  context: {},
+  runOnly: null,
+}), {}, 'deleteIfEmpty fields')
+
 t.test('callsite reporting', t => {
   const stack = captureString()
   const b = cleanYamlObject({

@@ -12,6 +12,9 @@ import { basename } from 'node:path'
 import { Readable, Stream, Writable } from 'node:stream'
 import { TestBaseOpts } from './test-base.js'
 
+/**
+ * A child process that is known to have a stdout stream
+ */
 export type ChildProcessWithStdout = ChildProcessByStdio<
   null | Writable,
   Readable,
@@ -21,11 +24,25 @@ export type ChildProcessWithStdout = ChildProcessByStdio<
 const hasStdout = (p: ChildProcess): p is ChildProcessWithStdout =>
   !!p.stdout
 
+/**
+ * Events emitted by the {@link Spawn} class
+ */
 export interface SpawnEvents extends TapBaseEvents {
+  /**
+   * Emitted immediately before the child process is spawned. If the
+   * options are mutated, then the changes *will* take effect.
+   */
   preprocess: [WithExternalID<SpawnOptions>]
+  /**
+   * Emitted immediately after the child process is spawned, providing
+   * the actual `ChildProcess` object as an argument
+   */
   process: [ChildProcessWithStdout]
 }
 
+/**
+ * Options that may be provided to the {@link Spawn} class
+ */
 export interface SpawnOpts extends TestBaseOpts {
   cwd?: string
   command?: string
@@ -51,6 +68,13 @@ export interface SpawnOpts extends TestBaseOpts {
   externalID?: string
 }
 
+/**
+ * Class representing a spawned TAP process
+ *
+ * Instantiated by `t.spawn()`, typically.
+ *
+ * @internal
+ */
 export class Spawn extends Base<SpawnEvents> {
   declare options: SpawnOpts
   cwd: string
@@ -67,6 +91,7 @@ export class Spawn extends Base<SpawnEvents> {
   cb: null | (() => void) = null
   externalID?: string
 
+  // Used when providing timeout signal.
   // doesn't have to be cryptographically secure, just a gut check
   #tapAbortKey: string = String(Math.random())
 
