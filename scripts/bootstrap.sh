@@ -38,6 +38,7 @@ wspkg () {
 for i in src/*; do
   linkpkg "$i"
 done
+linkpkg src/test/test-built
 echo -n "                                      "$'\r'
 
 # need to rebuild tap after plugins
