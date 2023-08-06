@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/reporter",
-  "version": "0.0.0-2",
+  "version": "0.0.0-3",
   "description": "Pretty test output reporters for tap",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "module": "./dist/index.js",
