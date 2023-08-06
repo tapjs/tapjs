@@ -353,7 +353,8 @@ class Base extends minipass_1.Minipass {
     /**
      * Stream write method.
      *
-     * For buffered tests, this collects the output in the {@link Base#output}
+     * For buffered tests, this collects the output in the
+     * {@link Base#output}
      * field. Sets {@link Base#printedOutput} to `true` when called.
      */
     write(c) {
@@ -449,7 +450,8 @@ class Base extends minipass_1.Minipass {
     }
     /**
      * Mark the test as ended. In this base class, this is a no-op, but
-     * in {@link TestBase}, it also triggers the other end-of-test operations.
+     * in {@link TestBase}, it also triggers the other end-of-test
+     * operations.
      */
     end() {
         return this;

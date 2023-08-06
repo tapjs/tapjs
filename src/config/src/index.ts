@@ -39,7 +39,8 @@ export type BaseConfigSet = Unwrap<typeof baseConfig>
 /**
  * Class that handles configuration for TAP.
  *
- * Typically, {@link TapConfig.load} is the way to get one of these.
+ * Typically, {@link TapConfig.load} is the way to get one of
+ * these.
  */
 export class TapConfig<C extends ConfigSet = BaseConfigSet> {
   /**
@@ -425,7 +426,8 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
    */
   static #loaded: LoadedConfig | undefined
   /**
-   * Load the configuration and return a Promise to a {@link TapConfig} object
+   * Load the configuration and return a Promise to a
+   * {@link TapConfig} object
    */
   static async load(): Promise<LoadedConfig> {
     if (this.#loaded) return this.#loaded

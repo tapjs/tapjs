@@ -79,6 +79,9 @@ type PluginResult<P extends ((t: TestBase, opts: any) => any)[]> =
     ? ReturnType<H> & PluginResult<T>
     : {}
 
+/**
+ * Union type of the return values of an array of functions
+ */
 type AnyReturnValue<A extends ((...a: any[]) => any)[]> = A extends [
   infer H extends (...a: any[]) => any,
   ...infer T extends ((...a: any[]) => any)[]
@@ -109,6 +112,9 @@ type SecondParam<T extends [any] | [any, any]> = T extends [
   ? S
   : unknown
 
+/**
+ * The union of the second parameters of all loaded plugin methods
+ */
 export type PluginOpts<
   P extends ((t: TestBase, opts: any) => any)[]
 > = P extends [
@@ -118,6 +124,12 @@ export type PluginOpts<
   ? SecondParam<Parameters<H>> & PluginOpts<T>
   : {}
 
+/**
+ * Options that may be provided to `t.test()`. Extends
+ * {@link Extra}, {@link BaseOpts},
+ * {@link TestBaseOpts}, and the second argument to all plugin
+ * methods currently in use.
+ */
 export type TestOpts = TestBaseOpts & PluginOpts<PluginSet>
 
 let plugins_: PluginSet
@@ -249,10 +261,15 @@ export const signature = `@tapjs/after
 @tapjs/worker`
 //{{PLUGIN SIGNATURE END}}
 
+/**
+ * Union type of {@link TestBase} plus all plugin return values
+ */
 type TTest<P extends PluginSet = PluginSet> = TestBase &
   PluginResult<P>
 
-// Condense to interface so the inline doc isn't overwhelming
+/**
+ * Interface that is the assembled result of every loaded plugin.
+ */
 export interface BuiltPlugins extends PluginResult<PluginSet> {}
 
 const applyPlugins = <
@@ -379,6 +396,9 @@ type PluginExtensionOption<
   [kClass]?: typeof Test<E, O>
 }
 
+/**
+ * interface defining the fully extended {@link Test} class.
+ */
 export interface Test<
   Ext extends BuiltPlugins = BuiltPlugins,
   Opts extends TestOpts = TestOpts
@@ -387,6 +407,12 @@ export interface Test<
   plan(n: number, comment?: string): void
 }
 
+/**
+ * This is the class that is extended for the root {@link TAP} test,
+ * and used to instantiate test objects in its child tests. It extends
+ * {@link TestBase}, and implements the union of return values of all
+ * loaded plugins via a Proxy.
+ */
 export class Test<
     Ext extends BuiltPlugins = BuiltPlugins,
     Opts extends TestOpts = TestOpts
@@ -397,6 +423,14 @@ export class Test<
   #Class: typeof Test<Ext, Opts>
   #pluginSet: TapPlugin<any, Opts>[]
 
+  /**
+   * @param opts Test options for this instance
+   *
+   * @param __INTERNAL Extension option used by the subclasses created in
+   * {@link Test#applyPlugin}.
+   *
+   * @internal
+   */
   constructor(
     opts: Opts,
     __INTERNAL: PluginExtensionOption<Ext, Opts> = {
@@ -421,6 +455,25 @@ export class Test<
   }
   /* c8 ignore stop */
 
+  /**
+   * Add a plugin at run-time.
+   *
+   * Creates a subclass of {@link Test} which has the specified
+   * plugin, and which applies the plugin to all child tests it creates.
+   *
+   * Typically, it's best to load plugins using configuration, set via the
+   * `tap plugin <add|rm>` command.
+   *
+   * However, in some cases, for example while developing plugins or if a
+   * certain plugin is only needed in a small number of tests, it can be
+   * useful to apply it after the fact.
+   *
+   * This is best used sparingly, as it may result in poor typescript
+   * compilation performance, which can manifest in slower test start-up times
+   * and lag loading autocomplete in editors. If you find yourself calling
+   * applyPlugin often, consider whether it'd be better to just add the plugin
+   * to the entire test suite, so that it can be built up front.
+   */
   applyPlugin<B extends Object, O extends unknown = unknown>(
     plugin: TapPlugin<B, O>
   ): Test<Ext & B, Opts & O> & Ext & B {
@@ -457,20 +510,29 @@ export class Test<
     return applyPlugins<ExtExt, ExtOpts>(extended, pluginSetExtended)
   }
 
-  // actually no way to get at this, since we always call applyPlugins in the
-  // Test constructor, so there's always *something* here, but it nevertheless
-  // seems sensible to have some stubs in place. At least, they are relevant
-  // for establishing the typed interface.
+  // NB: this isn't ever actually called, because we add a pluginLoaded
+  // method in the applyPlugins proxy, but it's here to establish the
+  // type interface.
+  /**
+   * Return true if the specified plugin is loaded. Asserts that the
+   * test object in question implements the return value of the plugin.
+   */
   pluginLoaded<T extends any = any>(
     plugin: (t: any, opts?: any) => T
   ): this is TestBase & T {
     plugin
     return false
   }
+  /**
+   * Return the set of plugins loaded by this Test
+   */
   get plugins(): TapPlugin<any, Opts>[] {
     return []
   }
 
+  /**
+   * Create a subtest
+   */
   test(
     name: string,
     extra: Opts,
@@ -498,6 +560,9 @@ export class Test<
     ) as PromiseWithSubtest<Test<Ext, Opts> & Ext>
   }
 
+  /**
+   * Create a subtest which is marked as `todo`
+   */
   todo(
     name: string,
     extra: Opts,
@@ -526,6 +591,9 @@ export class Test<
     ) as PromiseWithSubtest<Test<Ext, Opts> & Ext>
   }
 
+  /**
+   * Create a subtest which is marked as `skip`
+   */
   skip(
     name: string,
     extra: Opts,

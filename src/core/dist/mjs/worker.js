@@ -1,9 +1,14 @@
-// the .worker() method is only added to the root test object
-// See https://github.com/tapjs/node-tap/issues/812
 import { Base } from './base.js';
 import { cwd, env } from './proc.js';
 import { format } from 'node:util';
 import { Worker as NodeWorker } from 'node:worker_threads';
+/**
+ * Class representing a TAP generating node worker thread
+ *
+ * Instantiated by `t.worker()`, typically.
+ *
+ * @internal
+ */
 export class Worker extends Base {
     eval;
     filename;

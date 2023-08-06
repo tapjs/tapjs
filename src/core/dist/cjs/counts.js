@@ -3,6 +3,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Counts = void 0;
 /**
  * Class representing a count of all the assertions in a test
+ *
+ * The {@link Counts#complete} field is only used when counting tests and
+ * tracking their completion status.
+ *
+ * @internal
  */
 class Counts {
     total = 0;
@@ -10,7 +15,7 @@ class Counts {
     fail = 0;
     skip = 0;
     todo = 0;
-    complete;
+    complete = 0;
     constructor(c) {
         if (c)
             Object.assign(this, c);

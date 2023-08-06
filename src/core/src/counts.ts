@@ -12,6 +12,11 @@ export interface CountsJSON {
 
 /**
  * Class representing a count of all the assertions in a test
+ *
+ * The {@link Counts#complete} field is only used when counting tests and
+ * tracking their completion status.
+ *
+ * @internal
  */
 export class Counts {
   total: number = 0
@@ -19,7 +24,7 @@ export class Counts {
   fail: number = 0
   skip: number = 0
   todo: number = 0
-  complete?: number
+  complete: number = 0
   constructor(c?: Counts | CountsJSON) {
     if (c) Object.assign(this, c)
   }

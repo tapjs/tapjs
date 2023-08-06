@@ -1,12 +1,17 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Worker = void 0;
-// the .worker() method is only added to the root test object
-// See https://github.com/tapjs/node-tap/issues/812
 const base_js_1 = require("./base.js");
 const proc_js_1 = require("./proc.js");
 const node_util_1 = require("node:util");
 const node_worker_threads_1 = require("node:worker_threads");
+/**
+ * Class representing a TAP generating node worker thread
+ *
+ * Instantiated by `t.worker()`, typically.
+ *
+ * @internal
+ */
 class Worker extends base_js_1.Base {
     eval;
     filename;

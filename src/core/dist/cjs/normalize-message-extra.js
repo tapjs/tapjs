@@ -2,7 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.normalizeMessageExtra = void 0;
 /**
- * Normalize the {@link MessageExtra} arguments to test assertion methods
+ * Normalize the {@link MessageExtra} arguments to test assertion
+ * methods
  */
 const normalizeMessageExtra = (defaultMessage, [message, extra]) => {
     if (message && typeof message === 'object') {

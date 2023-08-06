@@ -8,7 +8,7 @@ t.same(c, {
   fail: 0,
   skip: 0,
   todo: 0,
-  complete: undefined,
+  complete: 0,
   toJSON: c.toJSON,
 })
 t.same(c.toJSON(), {

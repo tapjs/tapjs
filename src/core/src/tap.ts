@@ -1,4 +1,15 @@
-// The root Test object singleton
+/**
+ * The root TAP object singleton, the `t` you get when you
+ * `import t from 'tap'`
+ *
+ * Inherits from {@link Test}, with all plugins applied, and has additional
+ * functionality to automatically pipe to standard output, set the process
+ * exit code appropriately, and infer options from environment variables.
+ *
+ * @module
+ *
+ * @see {@link TAP}
+ */
 import { Test, TestOpts } from '@tapjs/test'
 import { Domain } from 'async-hook-domain'
 import { Minipass, PipeOptions } from 'minipass'
@@ -41,9 +52,9 @@ let exitSignal: NodeJS.Signals | undefined = undefined
  * Test object, but with some additional characteristics to make it
  * suitable for use as the root test runner.
  *
- * - The {@link TAP#register} method will hook onto the process object,
- *   to set the exit code to 1 if there are test failures, and ignore any
- *   `EPIPE` errors that happen on stdout.  (This is quite common in cases
+ * - The {@link TAP#register} method will hook onto the process
+ *   object, to set the exit code to 1 if there are test failures, and ignore
+ *   any `EPIPE` errors that happen on stdout.  (This is quite common in cases
  *   where a test aborts, and then attempts to write more data.)
  *
  * - A brief summary is printed at the end of the test run.
@@ -73,6 +84,9 @@ let exitSignal: NodeJS.Signals | undefined = undefined
  *   as these are usually the cause of a test hanging indefinitely.
  */
 class TAP extends Test {
+  /**
+   * @internal
+   */
   constructor(priv: PrivateTAPCtor, opts: TestOpts = {}) {
     /* c8 ignore start */
     if (priv !== privateTAPCtor) {
@@ -107,8 +121,8 @@ class TAP extends Test {
 
     // only attach the teardown autoend if we're using the teardown plugin
     // we test in this convoluted manner rather than this.pluginLoaded
-    // because otherwise we have a cyclical dep link between @tapjs/core
-    // and @tapjs/after which prevents TS from being able to build properly
+    // because otherwise we have a cyclical dep link between `@tapjs/core`
+    // and `@tapjs/after` which prevents TS from being able to build properly
     // from a cold start.
     const td = this as typeof this & {
       teardown?: (fn: () => any) => void
@@ -129,6 +143,7 @@ class TAP extends Test {
   /**
    * register this tap instance as being in charge of the current process
    * ignore epipe errors, set exit code, etc.
+   *
    * Happens automatically if piped to stdout.
    */
   register() {
@@ -194,6 +209,17 @@ class TAP extends Test {
     }
   }
 
+  /**
+   * Similar to the normal {@link TestBase#timeout}, but with the added
+   * feature that it will kill the process with `SIGALRM` if it has been
+   * registered, and will decorate the diagnostics with some information
+   * about currently running handles and requests, as these may be the
+   * reason the process is not gracefully closing in time.
+   *
+   * The root test runner will time out if the process receives a `SIGALRM`
+   * signal, or if it receives a timeout message via IPC or worker thread
+   * channel.
+   */
   timeout(
     options: {
       expired?: string
@@ -430,6 +456,13 @@ const ignoreEPIPE = () => {
   }
 }
 
+/**
+ * The exported function instantiates a {@link TAP} object if we don't
+ * already have one, or return the one that was previously instantiated.
+ *
+ * Options may be provided, which will override the environment settings,
+ * but they are ignored if the instance was already created.
+ */
 export const tap = (opts?: TestOpts) =>
   instance || new TAP(privateTAPCtor, opts)
 export type { TAP }

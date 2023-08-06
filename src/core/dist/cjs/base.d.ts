@@ -327,7 +327,8 @@ export declare class Base<Events extends TapBaseEvents = TapBaseEvents> extends 
     /**
      * Stream write method.
      *
-     * For buffered tests, this collects the output in the {@link Base#output}
+     * For buffered tests, this collects the output in the
+     * {@link Base#output}
      * field. Sets {@link Base#printedOutput} to `true` when called.
      */
     write(c: string): boolean;
@@ -370,7 +371,8 @@ export declare class Base<Events extends TapBaseEvents = TapBaseEvents> extends 
     emit<Event extends keyof Events>(ev: Event, ...data: Events[Event]): boolean;
     /**
      * Mark the test as ended. In this base class, this is a no-op, but
-     * in {@link TestBase}, it also triggers the other end-of-test operations.
+     * in {@link TestBase}, it also triggers the other end-of-test
+     * operations.
      */
     end(): this;
     /**

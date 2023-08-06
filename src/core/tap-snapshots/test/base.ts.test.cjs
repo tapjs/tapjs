@@ -320,7 +320,7 @@ Lists {
 
 exports[`test/base.ts > TAP > basic instantiation > must match snapshot 3`] = `
 Counts {
-  "complete": undefined,
+  "complete": 0,
   "fail": 1,
   "pass": 1,
   "skip": 5,
@@ -584,7 +584,7 @@ Lists {
 
 exports[`test/base.ts > TAP > track passes in lists if passes:true in options > must match snapshot 3`] = `
 Counts {
-  "complete": undefined,
+  "complete": 0,
   "fail": 0,
   "pass": 2,
   "skip": 3,

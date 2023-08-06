@@ -1,12 +1,22 @@
 import { Minipass } from 'minipass'
 import { Base, BaseOpts, TapBaseEvents } from './base.js'
 
+/**
+ * Options that may be provided to the {@link Stdin} class
+ */
 export interface StdinOpts extends BaseOpts {
   tapStream?: NodeJS.ReadableStream | Minipass<Buffer> | Minipass<string>
 }
 
 export interface StdinEvents extends TapBaseEvents {}
 
+/**
+ * Class representing standard input as a TAP stream
+ *
+ * Instantiated by `t.stdin()`, typically.
+ *
+ * @internal
+ */
 export class Stdin extends Base<StdinEvents> {
   inputStream: NodeJS.ReadableStream | Minipass<Buffer> | Minipass<string>
   constructor(options: StdinOpts) {

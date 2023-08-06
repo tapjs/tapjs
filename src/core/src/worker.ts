@@ -1,5 +1,3 @@
-// the .worker() method is only added to the root test object
-// See https://github.com/tapjs/node-tap/issues/812
 import { Base, TapBaseEvents } from './base.js'
 import { cwd, env } from './proc.js'
 import { TestBaseOpts } from './test-base.js'
@@ -8,17 +6,45 @@ import { format } from 'node:util'
 import { Worker as NodeWorker } from 'node:worker_threads'
 import { FinalResults } from 'tap-parser'
 
+/**
+ * Events emitted by {@link Worker} instances
+ */
 export interface WorkerEvents extends TapBaseEvents {
   process: [NodeWorker]
 }
 
+/**
+ * Options that can be provided to a {@link Worker}
+ */
 export interface WorkerOpts extends TestBaseOpts {
+  /**
+   * Data that will be available on `t.workerData` on the root {@link TAP}
+   * object in the worker thread.
+   */
   workerData?: any
+  /**
+   * Set internally to the numeric thread identifier once the worker is
+   * instantiated.
+   */
   threadId?: number
+  /**
+   * Environment variables that are set in the worker thread
+   */
   env?: { [k: string]: string } | NodeJS.ProcessEnv
+  /**
+   * If true, treat the `filename` argument as a string of JavaScript to
+   * be evaluated by Node in the worker thread.
+   */
   eval?: boolean
 }
 
+/**
+ * Class representing a TAP generating node worker thread
+ *
+ * Instantiated by `t.worker()`, typically.
+ *
+ * @internal
+ */
 export class Worker extends Base<WorkerEvents> {
   declare options: WorkerOpts
 

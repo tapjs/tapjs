@@ -1,6 +1,6 @@
 /**
- * Plugin class providing {@link BeforeEach#beforeEach} on the {@link Test}
- * class.
+ * Plugin class providing {@link BeforeEach#beforeEach} on
+ * the {@link Test} class.
  *
  * @module
  */

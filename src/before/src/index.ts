@@ -1,5 +1,6 @@
 /**
- * Plugin class providing {@link Before#before} on the {@link Test} class.
+ * Plugin class providing {@link Before#before} on the
+ * {@link Test} class.
  *
  * @module
  */

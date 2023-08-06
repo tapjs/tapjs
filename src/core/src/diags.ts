@@ -3,7 +3,8 @@ import { cleanYamlObject } from './clean-yaml-object.js'
 import { Extra } from './index.js'
 
 /**
- * Print the YAML diagnostics based on the {@link Extra} object received
+ * Print the YAML diagnostics based on the {@link Extra} object
+ * received
  */
 export const diags = (obj: Extra) => {
   const clean = cleanYamlObject(obj)

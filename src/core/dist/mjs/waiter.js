@@ -1,14 +1,37 @@
-// basically just a fancy Deferred, wrapped around an existing promise.
-// The callback function is called when it's been either resolved or
-// rejected. The Waiter internal promise is resolved if the wrapped
-// promise matches our expectation. The value member is the resolved
-// value or rejection error.
+/**
+ * Basically a fancy Deferred, wrapped around an existing promise, used by
+ * the {@link TestBase#waitOn | t.waitOn} method, and tracked in the
+ * {@link TestBase#queue}.
+ *
+ * The callback function is called when it's been either resolved or
+ * rejected. The Waiter internal promise is resolved if the wrapped
+ * promise matches our expectation. The value member is the resolved
+ * value or rejection error.
+ */
 export class Waiter {
+    /**
+     * Callback to call when the promise resolves, or null if not provided
+     */
     cb;
+    /**
+     * whether or not this waiter is ready to process
+     */
     ready = false;
+    /**
+     * The resolved value, or the error that was raised on rejection
+     */
     value = undefined;
+    /**
+     * True if the promise resolved successfully
+     */
     resolved = false;
+    /**
+     * True if the promise rejected
+     */
     rejected = false;
+    /**
+     * Set when the Waiter's promise has either resolved or rejected
+     */
     done = false;
     finishing = false;
     expectReject;
@@ -33,6 +56,9 @@ export class Waiter {
         })
             .catch(er => this.reject(er));
     }
+    /**
+     * called when the promise rejects
+     */
     reject(er) {
         // promises should always resolve/reject at most one time.
         /* c8 ignore start */
@@ -46,6 +72,10 @@ export class Waiter {
         this.finish();
     }
     // TODO: consider AbortSignal maybe?
+    /**
+     * Tell the waiter to abandon the promise and stop waiting.
+     * Called when tests time out or bail out.
+     */
     abort(er) {
         /* c8 ignore start */
         if (this.done) {
@@ -61,6 +91,10 @@ export class Waiter {
         this.rejected = !this.expectReject;
         return this.finish();
     }
+    /**
+     * Called when the waiter is ready, and processed by its owning
+     * {@link TestBase}
+     */
     finish() {
         if (this.ready && this.done && !this.finishing) {
             this.finishing = true;

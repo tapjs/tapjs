@@ -1,4 +1,11 @@
 import { Base } from './base.js';
+/**
+ * Class representing standard input as a TAP stream
+ *
+ * Instantiated by `t.stdin()`, typically.
+ *
+ * @internal
+ */
 export class Stdin extends Base {
     inputStream;
     constructor(options) {

@@ -1,5 +1,10 @@
 /**
  * Class representing a count of all the assertions in a test
+ *
+ * The {@link Counts#complete} field is only used when counting tests and
+ * tracking their completion status.
+ *
+ * @internal
  */
 export class Counts {
     total = 0;
@@ -7,7 +12,7 @@ export class Counts {
     fail = 0;
     skip = 0;
     todo = 0;
-    complete;
+    complete = 0;
     constructor(c) {
         if (c)
             Object.assign(this, c);

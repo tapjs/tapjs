@@ -1180,7 +1180,7 @@ t.test('child asserts and assertTotals', async t => {
         fail: 0,
         skip: 0,
         todo: 0,
-        complete: undefined,
+        complete: 0,
       },
     },
     {
@@ -1194,7 +1194,7 @@ t.test('child asserts and assertTotals', async t => {
         fail: 0,
         skip: 0,
         todo: 0,
-        complete: undefined,
+        complete: 0,
       },
     },
     {
@@ -1208,7 +1208,7 @@ t.test('child asserts and assertTotals', async t => {
         fail: 1,
         skip: 0,
         todo: 0,
-        complete: undefined,
+        complete: 0,
       },
     },
     {
@@ -1222,7 +1222,7 @@ t.test('child asserts and assertTotals', async t => {
         fail: 1,
         skip: 0,
         todo: 1,
-        complete: undefined,
+        complete: 0,
       },
     },
     {
@@ -1236,7 +1236,7 @@ t.test('child asserts and assertTotals', async t => {
         fail: 1,
         skip: 1,
         todo: 1,
-        complete: undefined,
+        complete: 0,
       },
     },
     {
@@ -1250,7 +1250,7 @@ t.test('child asserts and assertTotals', async t => {
         fail: 2,
         skip: 1,
         todo: 1,
-        complete: undefined,
+        complete: 0,
       },
     },
     {
@@ -1264,7 +1264,7 @@ t.test('child asserts and assertTotals', async t => {
         fail: 2,
         skip: 1,
         todo: 2,
-        complete: undefined,
+        complete: 0,
       },
     },
     {
@@ -1278,7 +1278,7 @@ t.test('child asserts and assertTotals', async t => {
         fail: 2,
         skip: 2,
         todo: 2,
-        complete: undefined,
+        complete: 0,
       },
     },
     {
@@ -1292,7 +1292,7 @@ t.test('child asserts and assertTotals', async t => {
         fail: 2,
         skip: 2,
         todo: 2,
-        complete: undefined,
+        complete: 0,
       },
     },
     {
@@ -1306,7 +1306,7 @@ t.test('child asserts and assertTotals', async t => {
         fail: 2,
         skip: 2,
         todo: 2,
-        complete: undefined,
+        complete: 0,
       },
     },
   ]
@@ -1320,7 +1320,7 @@ t.test('child asserts and assertTotals', async t => {
       fail: 2,
       skip: 2,
       todo: 2,
-      complete: undefined,
+      complete: 0,
     })
   )
 })

@@ -3,6 +3,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.TestPoint = void 0;
 const diags_js_1 = require("./diags.js");
 const esc_js_1 = require("./esc.js");
+/**
+ * Object representing a single test point `ok` / `not ok` line
+ */
 class TestPoint {
     ok;
     name;

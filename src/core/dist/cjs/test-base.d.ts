@@ -12,6 +12,9 @@ import { Waiter } from './waiter.js';
 import { Worker } from './worker.js';
 import { IMPLICIT } from './implicit-end-sigil.js';
 import { Counts, Extra, MessageExtra, TapBaseEvents } from './index.js';
+/**
+ * Options that can be passed to TestBase objects
+ */
 export interface TestBaseOpts extends BaseOpts {
     /**
      * The number of jobs to run in parallel. Defaults to 1
@@ -27,12 +30,14 @@ export interface TestBaseOpts extends BaseOpts {
      */
     cb?: (...args: any[]) => any;
 }
-export type TapPlugin<B extends Object, O extends TestBaseOpts | any = unknown> = unknown extends O ? (t: TestBase) => B : (t: TestBase, opts: O) => B;
 /**
  * Sigil to put in the queue to signal the end of all things
  */
 declare const EOF: unique symbol;
 export type { EOF };
+/**
+ * Entries in the {@link Test#queue} awaiting processing
+ */
 export type QueueEntry = string | TestPoint | Base | typeof EOF | Waiter | [method: string, ...args: any[]] | (() => any);
 /**
  * the promise returned by t.test(), t.spawn(), etc.
@@ -43,24 +48,85 @@ export type QueueEntry = string | TestPoint | Base | typeof EOF | Waiter | [meth
 export interface PromiseWithSubtest<S extends Base> extends Promise<FinalResults | null> {
     subtest: S | null;
 }
+/**
+ * Events emitted by TestBase and inherited classes
+ */
 export interface TestBaseEvents extends TapBaseEvents {
+    /**
+     * Emitted when a subtest begins running
+     *
+     * @event
+     */
     subtestStart: [p: Base];
-    idle: [];
+    /**
+     * Emitted when a subtest is completed and no longer active, but may
+     * not yet have been processed by the parent test.
+     *
+     * @event
+     */
     subtestEnd: [p: Base];
+    /**
+     * Emitted when a subtest begins to be processed.
+     *
+     * @event
+     */
     subtestProcess: [p: Base];
+    /**
+     * Emitted when a subtest is added to its parent's management
+     *
+     * @event
+     */
     subtestAdd: [p: Base];
+    /**
+     * Emitted whenever the test has an assertion result, with the minimal
+     * `{ ok, message, extra }` result object.
+     *
+     * @event
+     */
     result: [res: Result];
+    /**
+     * Emitted when the parser emits a result, with the full parser result
+     * object
+     *
+     * @event
+     */
     assert: [res: ParserResult];
+    /**
+     * Emitted when a child test is initiated that will process stdin
+     * as a TAP stream
+     *
+     * @event
+     */
     stdin: [s: Stdin];
+    /**
+     * Emitted when a child test is initiated that will process a subprocess
+     * output as a TAP stream
+     *
+     * @event
+     */
     spawn: [s: Spawn];
+    /**
+     * Emitted when a child test is initiated that will process a node
+     * Worker thread's output as a TAP stream
+     *
+     * @event
+     */
     worker: [w: Worker];
+    /**
+     * Emitted when the test is in an idle state, not waiting
+     * for anything, with nothing in its queue. Used by the root
+     * {@link TAP} singleton to know when to automatically terminate.
+     *
+     * @event
+     */
+    idle: [];
 }
 /**
- * The TestBaseBase class is the base class for all plugins,
- * and eventually thus the Test class.
+ * The TestBase class is the parent class of {@link Test}, and passed
+ * to all plugins at instantiation time.
  *
  * This implements subtest functionality, TAP stream generation,
- * lifecycle events, and only the most basic pass/fail assertions.
+ * lifecycle events, and only the basic pass/fail assertion methods.
  *
  * All other features are added with plugins.
  */
@@ -107,15 +173,28 @@ export declare class TestBase extends Base<TestBaseEvents> {
     /**
      * immediately exit this and all parent tests with a TAP
      * Bail out! message.
+     *
+     * @group TAP generation methods
      */
     bailout(message?: string): void;
     /**
      * output a TAP comment, formatted like console.log()
+     *
+     * If the test is currently awaiting a child test, it will be deferred
+     * until after the child test completes.
+     *
+     * If the test is already completed, the comment will be emitted
+     * on the parent, or if no parent is available, it will be printed
+     * to standard output.
+     *
+     * @group TAP generation methods
      */
     comment(...args: any[]): void;
     /**
      * Called when the test times out.
      * Options are passed as diagnostics to the threw() method
+     *
+     * @group TAP generation methods
      */
     timeout(options?: Extra & {
         expired?: string;
@@ -123,6 +202,8 @@ export declare class TestBase extends Base<TestBaseEvents> {
     /**
      * Set TAP pragma configs to affect the behavior of the parser.
      * Only `strict` is supported by the parser.
+     *
+     * @group TAP generation methods
      */
     pragma(set: {
         [k: string]: boolean;
@@ -130,15 +211,21 @@ export declare class TestBase extends Base<TestBaseEvents> {
     /**
      * Specify the number of Test Points expected by this test.
      * Outputs a TAP plan line.
+     *
+     * @group TAP generation methods
      */
     plan(n: number, comment?: string): void;
     plan(n: number, comment: string, implicit: typeof IMPLICIT): void;
     /**
-     * A passing (ok) Test Point
+     * A passing (ok) Test Point.
+     *
+     * @group TAP generation methods
      */
     pass(...[msg, extra]: MessageExtra): boolean;
     /**
      * A failing (not ok) Test Point
+     *
+     * @group TAP generation methods
      */
     fail(...[msg, extra]: MessageExtra): boolean;
     /**
@@ -152,22 +239,38 @@ export declare class TestBase extends Base<TestBaseEvents> {
      */
     set currentAssert(fn: null | Function | ((...a: any[]) => any));
     /**
-     * Print a Test Point
+     * Explicitly mark the test as completed, outputting the TAP plan line if
+     * needed.
+     *
+     * This is not required to be called if the test function returns a promise,
+     * or if a plan is explicitly declared and eventually fulfilled.
+     *
+     * @group TAP generation methods
      */
-    printResult(ok: boolean, message: string, extra: Extra, front?: boolean): void;
     end(implicit?: typeof IMPLICIT): this;
-    /**
-     * The leading `# Subtest` comment that introduces a child test
-     */
-    writeSubComment<T extends TestPoint | Base>(p: T): void;
     /**
      * Await the end of a Promise before proceeding.
      * The supplied callback is called with the Waiter object.
+     *
+     * This is primarily internal, but is used in some plugins, whenever
+     * a promise must be awaited before proceeding. In normal test usage,
+     * it's usually best to simply use an async test function and `await`
+     * promises as normal.
      */
     waitOn(promise: Promise<any | void>, cb?: (w: Waiter) => any, expectReject?: boolean): Promise<void>;
+    /**
+     * The full name of the test, starting with the main script name,
+     * and including all parent names.
+     */
     get fullname(): string;
+    /**
+     * True if the test is currently in an idle state
+     */
     get idle(): boolean;
     /**
+     * The main function that starts a test running. Generally no need
+     * to call this directly.
+     *
      * @internal
      */
     main(cb: () => void): void;
@@ -180,19 +283,40 @@ export declare class TestBase extends Base<TestBaseEvents> {
     }): void;
     /**
      * Mount a subtest, using this Test object as a harness.
-     * Exposed mainly so that it can be used by builtin plugins.
+     * Exposed so that it can be used by some builtin plugins, but perhaps
+     * the least convenient way imaginable to create subtests. Just use
+     * `t.test()` to do that, it's much easier.
      *
      * @internal
      */
     sub<T extends Base, O extends BaseOpts>(Class: {
         new (options: O): T;
-    }, extra: BaseOpts | TestBaseOpts | TestOpts | O | undefined, caller: (...a: any[]) => unknown): PromiseWithSubtest<T>;
+    }, extra: BaseOpts | TestOpts | TestBaseOpts | O | undefined, caller: (...a: any[]) => unknown): PromiseWithSubtest<T>;
+    /**
+     * Method called when an unrecoverable error is encountered in a test.
+     *
+     * Typically, in tests you would not call this, you'd just actually throw
+     * an error.
+     *
+     * @internal
+     */
     threw(er: any, extra?: Extra, proxy?: boolean): Extra | void | undefined;
+    /**
+     * Method called when the parser encounters a bail out
+     */
     onbail(message?: string): void;
+    /**
+     * Called when a test times out or bails out, or the process ends,
+     * marking all currently active or queued subtests as incomplete.
+     *
+     * No need to ever call this directly, exposed so that it can be extended
+     * by {@link Spawn} and {@link Worker}, which have special behaviors
+     * that are required when a process hangs indefinitely.
+     */
     endAll(sub?: boolean): void;
     /**
      * Return true if the child test represented by the options object
-     * should be skipped.  Extended by the grep/only filtering plugins.
+     * should be skipped.  Extended by the `@tapjs/filter` plugin.
      */
     shouldSkipChild(extra: TestOpts | TestBaseOpts | BaseOpts): boolean;
 }

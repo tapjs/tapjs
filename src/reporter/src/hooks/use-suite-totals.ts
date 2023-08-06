@@ -1,37 +1,28 @@
-import { Base, Counts, CountsJSON } from '@tapjs/core'
+import { Base, Counts } from '@tapjs/core'
 import { useState } from 'react'
 import { listenCleanup } from '../listen-cleanup.js'
 import { useCleanup } from './use-cleanup.js'
 
-type CountsTotalJSON = CountsJSON & { total: number }
-class CountsTotal extends Counts {
-  complete: number
-  constructor(c?: CountsTotal | CountsTotalJSON) {
-    super(c)
-    this.complete = c?.complete ?? 0
-  }
-}
-
-const SUITES = new Map<Base, CountsTotal>()
+const SUITES = new Map<Base, Counts>()
 
 export const useSuiteTotals = (test: Base) => {
   // multiple subtests can end in the same tick, so we need to track
   // this in a local var as well as the component render state so that
   // they don't clobber each other's totals.
-  const fromCache = SUITES.get(test) || new CountsTotal()
+  const fromCache = SUITES.get(test) || new Counts()
   SUITES.set(test, fromCache)
 
-  const [suites, updateSuites] = useState<CountsTotal>(fromCache)
+  const [suites, updateSuites] = useState<Counts>(fromCache)
 
   const addSuite = () => {
-    const suites = SUITES.get(test) as CountsTotal
+    const suites = SUITES.get(test) as Counts
     suites.total++
-    SUITES.set(test, new CountsTotal(suites))
+    SUITES.set(test, new Counts(suites))
     updateSuites(suites)
   }
 
   const finishSuite = (t: Base) => {
-    const suites = SUITES.get(test) as CountsTotal
+    const suites = SUITES.get(test) as Counts
     const { results } = t
     // will always have results when the subtest ends
     /* c8 ignore start */
@@ -43,7 +34,7 @@ export const useSuiteTotals = (test: Base) => {
     else if (results.plan.skipAll) skip++
     else pass++
 
-    const ns = new CountsTotal({
+    const ns = new Counts({
       total,
       fail,
       pass,

@@ -1,5 +1,3 @@
-// lifecycle methods like beforeEach, afterEach, teardown
-// defined in plugins/lifecycle.ts
 import * as stack from '@tapjs/stack';
 import { isPromise } from 'is-actual-promise';
 import assert from 'node:assert';
@@ -26,11 +24,11 @@ const queueEmpty = (t) => t.queue.length === 0 ||
  */
 const EOF = Symbol('EOF');
 /**
- * The TestBaseBase class is the base class for all plugins,
- * and eventually thus the Test class.
+ * The TestBase class is the parent class of {@link Test}, and passed
+ * to all plugins at instantiation time.
  *
  * This implements subtest functionality, TAP stream generation,
- * lifecycle events, and only the most basic pass/fail assertions.
+ * lifecycle events, and only the basic pass/fail assertion methods.
  *
  * All other features are added with plugins.
  */
@@ -115,6 +113,8 @@ export class TestBase extends Base {
     /**
      * immediately exit this and all parent tests with a TAP
      * Bail out! message.
+     *
+     * @group TAP generation methods
      */
     bailout(message) {
         if (this.parent && (this.results || this.ended)) {
@@ -131,6 +131,15 @@ export class TestBase extends Base {
     }
     /**
      * output a TAP comment, formatted like console.log()
+     *
+     * If the test is currently awaiting a child test, it will be deferred
+     * until after the child test completes.
+     *
+     * If the test is already completed, the comment will be emitted
+     * on the parent, or if no parent is available, it will be printed
+     * to standard output.
+     *
+     * @group TAP generation methods
      */
     comment(...args) {
         const body = format(...args);
@@ -159,6 +168,8 @@ export class TestBase extends Base {
     /**
      * Called when the test times out.
      * Options are passed as diagnostics to the threw() method
+     *
+     * @group TAP generation methods
      */
     timeout(options = { expired: this.name }) {
         options.expired = options.expired || this.name;
@@ -173,6 +184,8 @@ export class TestBase extends Base {
     /**
      * Set TAP pragma configs to affect the behavior of the parser.
      * Only `strict` is supported by the parser.
+     *
+     * @group TAP generation methods
      */
     pragma(set) {
         const p = Object.keys(set).reduce((acc, i) => acc + 'pragma ' + (set[i] ? '+' : '-') + i + '\n', '');
@@ -209,23 +222,27 @@ export class TestBase extends Base {
         }
     }
     /**
-     * A passing (ok) Test Point
+     * A passing (ok) Test Point.
+     *
+     * @group TAP generation methods
      */
     pass(...[msg, extra]) {
         this.currentAssert = this.pass;
         const args = [msg, extra];
         const me = normalizeMessageExtra('(unnamed test)', args);
-        this.printResult(true, ...me);
+        this.#printResult(true, ...me);
         return true;
     }
     /**
      * A failing (not ok) Test Point
+     *
+     * @group TAP generation methods
      */
     fail(...[msg, extra]) {
         this.currentAssert = this.fail;
         const args = [msg, extra];
         const me = normalizeMessageExtra('(unnamed test)', args);
-        this.printResult(false, ...me);
+        this.#printResult(false, ...me);
         return !!(me[1].todo || me[1].skip);
     }
     /**
@@ -245,10 +262,14 @@ export class TestBase extends Base {
         }
     }
     /**
-     * Print a Test Point
+     * Print a Test Point.
+     *
+     * @group TAP generation methods
+     *
+     * @internal
      */
-    printResult(ok, message, extra, front = false) {
-        this.currentAssert = this.printResult;
+    #printResult(ok, message, extra, front = false) {
+        this.currentAssert = this.#printResult;
         this.#printedResult = true;
         const n = this.count + 1;
         const fn = this.currentAssert;
@@ -332,7 +353,7 @@ export class TestBase extends Base {
         }
         if (front) {
             if (extra.tapChildBuffer || extra.tapChildBuffer === '') {
-                this.writeSubComment(tp);
+                this.#writeSubComment(tp);
                 this.parser.write(extra.tapChildBuffer);
             }
             this.emit('result', res);
@@ -352,14 +373,25 @@ export class TestBase extends Base {
         }
         this.#process();
     }
+    /**
+     * Explicitly mark the test as completed, outputting the TAP plan line if
+     * needed.
+     *
+     * This is not required to be called if the test function returns a promise,
+     * or if a plan is explicitly declared and eventually fulfilled.
+     *
+     * @group TAP generation methods
+     */
     end(implicit) {
         this.#end(implicit);
         return this;
     }
     /**
      * The leading `# Subtest` comment that introduces a child test
+     *
+     * @internal
      */
-    writeSubComment(p) {
+    #writeSubComment(p) {
         // name will generally always be set
         /* c8 ignore start */
         const stn = p.name ? ': ' + esc(p.name) : '';
@@ -372,6 +404,11 @@ export class TestBase extends Base {
     /**
      * Await the end of a Promise before proceeding.
      * The supplied callback is called with the Waiter object.
+     *
+     * This is primarily internal, but is used in some plugins, whenever
+     * a promise must be awaited before proceeding. In normal test usage,
+     * it's usually best to simply use an async test function and `await`
+     * promises as normal.
      */
     waitOn(promise, cb, expectReject = false) {
         const w = new Waiter(promise, w => {
@@ -454,6 +491,10 @@ export class TestBase extends Base {
         this.queue.push(EOF);
         this.#process();
     }
+    /**
+     * The full name of the test, starting with the main script name,
+     * and including all parent names.
+     */
     get fullname() {
         const main = (mainScript('TAP') +
             ' ' +
@@ -517,7 +558,7 @@ export class TestBase extends Base {
             else if (p instanceof TestPoint) {
                 this.debug(' > TESTPOINT');
                 if (p.extra.tapChildBuffer || p.extra.tapChildBuffer === '') {
-                    this.writeSubComment(p);
+                    this.#writeSubComment(p);
                     this.parser.write(p.extra.tapChildBuffer);
                 }
                 this.emit('res', p.res);
@@ -599,6 +640,9 @@ export class TestBase extends Base {
             this.emit('idle');
         }
     }
+    /**
+     * True if the test is currently in an idle state
+     */
     get idle() {
         return (!this.#processing &&
             queueEmpty(this) &&
@@ -662,7 +706,7 @@ export class TestBase extends Base {
         this.#occupied = null;
         this.debug('OIE(%s) >shift into queue', this.name, this.queue);
         p.options.stack = '';
-        this.printResult(p.passing(), p.name, p.options, true);
+        this.#printResult(p.passing(), p.name, p.options, true);
         this.debug('OIE(%s) shifted into queue', this.name, this.queue);
         this.activeSubtests.delete(p);
         p.deferred?.resolve(p.results);
@@ -670,6 +714,9 @@ export class TestBase extends Base {
         this.#process();
     }
     /**
+     * The main function that starts a test running. Generally no need
+     * to call this directly.
+     *
      * @internal
      */
     main(cb) {
@@ -733,7 +780,7 @@ export class TestBase extends Base {
             this.emit('subtestStart', p);
             this.debug(' > subtest indented');
             p.pipe(this.parser, { end: false });
-            this.writeSubComment(p);
+            this.#writeSubComment(p);
             this.debug('calling runMain', p.name);
             p.runMain(() => {
                 this.debug('runMain callback', p.name);
@@ -746,7 +793,7 @@ export class TestBase extends Base {
             // finished!  do the thing!
             this.#occupied = null;
             if (!p.passing() || !p.silent) {
-                this.printResult(p.passing(), p.name, p.options, true);
+                this.#printResult(p.passing(), p.name, p.options, true);
             }
         }
         else {
@@ -807,7 +854,9 @@ export class TestBase extends Base {
     }
     /**
      * Mount a subtest, using this Test object as a harness.
-     * Exposed mainly so that it can be used by builtin plugins.
+     * Exposed so that it can be used by some builtin plugins, but perhaps
+     * the least convenient way imaginable to create subtests. Just use
+     * `t.test()` to do that, it's much easier.
      *
      * @internal
      */
@@ -868,6 +917,14 @@ export class TestBase extends Base {
         this.assertTotals.total++;
         this.assertTotals[r.todo ? 'todo' : r.skip ? 'skip' : !r.ok ? 'fail' : 'pass']++;
     }
+    /**
+     * Method called when an unrecoverable error is encountered in a test.
+     *
+     * Typically, in tests you would not call this, you'd just actually throw
+     * an error.
+     *
+     * @internal
+     */
     threw(er, extra, proxy = false) {
         this.debug('TestBase.threw', this.name, er.message);
         // this can happen if a beforeEach throws.  capture the error here
@@ -944,6 +1001,9 @@ export class TestBase extends Base {
         }
         this.#process();
     }
+    /**
+     * Method called when the parser encounters a bail out
+     */
     onbail(message) {
         super.onbail(message);
         this.#end(IMPLICIT);
@@ -951,6 +1011,14 @@ export class TestBase extends Base {
             this.endAll();
         }
     }
+    /**
+     * Called when a test times out or bails out, or the process ends,
+     * marking all currently active or queued subtests as incomplete.
+     *
+     * No need to ever call this directly, exposed so that it can be extended
+     * by {@link Spawn} and {@link Worker}, which have special behaviors
+     * that are required when a process hangs indefinitely.
+     */
     endAll(sub = false) {
         if (this.bailedOut)
             return;
@@ -992,7 +1060,7 @@ export class TestBase extends Base {
     }
     /**
      * Return true if the child test represented by the options object
-     * should be skipped.  Extended by the grep/only filtering plugins.
+     * should be skipped.  Extended by the `@tapjs/filter` plugin.
      */
     shouldSkipChild(extra) {
         return !!(extra.skip || extra.todo);

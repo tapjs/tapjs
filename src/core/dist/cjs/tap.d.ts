@@ -1,4 +1,16 @@
 /// <reference types="node" />
+/**
+ * The root TAP object singleton, the `t` you get when you
+ * `import t from 'tap'`
+ *
+ * Inherits from {@link Test}, with all plugins applied, and has additional
+ * functionality to automatically pipe to standard output, set the process
+ * exit code appropriately, and infer options from environment variables.
+ *
+ * @module
+ *
+ * @see {@link TAP}
+ */
 import { Test, TestOpts } from '@tapjs/test';
 import { Minipass, PipeOptions } from 'minipass';
 declare const privSym: unique symbol;
@@ -14,9 +26,9 @@ type PrivateTAPCtor = {
  * Test object, but with some additional characteristics to make it
  * suitable for use as the root test runner.
  *
- * - The {@link TAP#register} method will hook onto the process object,
- *   to set the exit code to 1 if there are test failures, and ignore any
- *   `EPIPE` errors that happen on stdout.  (This is quite common in cases
+ * - The {@link TAP#register} method will hook onto the process
+ *   object, to set the exit code to 1 if there are test failures, and ignore
+ *   any `EPIPE` errors that happen on stdout.  (This is quite common in cases
  *   where a test aborts, and then attempts to write more data.)
  *
  * - A brief summary is printed at the end of the test run.
@@ -47,10 +59,14 @@ type PrivateTAPCtor = {
  */
 declare class TAP extends Test {
     #private;
+    /**
+     * @internal
+     */
     constructor(priv: PrivateTAPCtor, opts?: TestOpts);
     /**
      * register this tap instance as being in charge of the current process
      * ignore epipe errors, set exit code, etc.
+     *
      * Happens automatically if piped to stdout.
      */
     register(): void;
@@ -64,11 +80,29 @@ declare class TAP extends Test {
      * to stdout if not piped anywhere else.
      */
     write(chunk: string): boolean;
+    /**
+     * Similar to the normal {@link TestBase#timeout}, but with the added
+     * feature that it will kill the process with `SIGALRM` if it has been
+     * registered, and will decorate the diagnostics with some information
+     * about currently running handles and requests, as these may be the
+     * reason the process is not gracefully closing in time.
+     *
+     * The root test runner will time out if the process receives a `SIGALRM`
+     * signal, or if it receives a timeout message via IPC or worker thread
+     * channel.
+     */
     timeout(options?: {
         expired?: string;
         signal?: NodeJS.Signals | null;
     }): void;
 }
+/**
+ * The exported function instantiates a {@link TAP} object if we don't
+ * already have one, or return the one that was previously instantiated.
+ *
+ * Options may be provided, which will override the environment settings,
+ * but they are ignored if the instance was already created.
+ */
 export declare const tap: (opts?: TestOpts) => TAP;
 export type { TAP };
 //# sourceMappingURL=tap.d.ts.map

@@ -2,12 +2,19 @@ import { diags } from './diags.js'
 import { esc } from './esc.js'
 import { Extra } from './index.js'
 
+/**
+ * Very simple result object, just indicating pass/fail status,
+ * message, and the {@link Extra} object provided to the assertion method.
+ */
 export interface Result {
   ok: boolean
   message: string
   extra: Extra
 }
 
+/**
+ * Object representing a single test point `ok` / `not ok` line
+ */
 export class TestPoint {
   ok: 'ok ' | 'not ok '
   name: string

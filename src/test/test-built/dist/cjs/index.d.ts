@@ -22,10 +22,19 @@ type SecondParam<T extends [any] | [any, any]> = T extends [
     any,
     infer S
 ] ? S : unknown;
+/**
+ * The union of the second parameters of all loaded plugin methods
+ */
 export type PluginOpts<P extends ((t: TestBase, opts: any) => any)[]> = P extends [
     infer H extends (t: TestBase, opts: any) => any,
     ...infer T extends ((t: TestBase, opts: any) => any)[]
 ] ? SecondParam<Parameters<H>> & PluginOpts<T> : {};
+/**
+ * Options that may be provided to `t.test()`. Extends
+ * {@link Extra}, {@link BaseOpts},
+ * {@link TestBaseOpts}, and the second argument to all plugin
+ * methods currently in use.
+ */
 export type TestOpts = TestBaseOpts & PluginOpts<PluginSet>;
 type PluginSet = [
     typeof Plugin_after.plugin,
@@ -160,7 +169,13 @@ export declare const config: <C extends ConfigSet>(jack: Jack<C>) => Jack<C & im
 }>>;
 export declare const loaders: string[];
 export declare const signature = "@tapjs/after\n@tapjs/after-each\n@tapjs/asserts\n@tapjs/before\n@tapjs/before-each\n@tapjs/filter\n@tapjs/fixture\n@tapjs/intercept\n@tapjs/mock\n@tapjs/snapshot\n@tapjs/spawn\n@tapjs/stdin\n@tapjs/typescript\n@tapjs/worker";
+/**
+ * Union type of {@link TestBase} plus all plugin return values
+ */
 type TTest<P extends PluginSet = PluginSet> = TestBase & PluginResult<P>;
+/**
+ * Interface that is the assembled result of every loaded plugin.
+ */
 export interface BuiltPlugins extends PluginResult<PluginSet> {
 }
 declare const kPluginSet: unique symbol;
@@ -169,25 +184,77 @@ type PluginExtensionOption<E extends BuiltPlugins = BuiltPlugins, O extends Test
     [kPluginSet]: TapPlugin<any, O>[];
     [kClass]?: typeof Test<E, O>;
 };
+/**
+ * interface defining the fully extended {@link Test} class.
+ */
 export interface Test<Ext extends BuiltPlugins = BuiltPlugins, Opts extends TestOpts = TestOpts> extends TTest {
     end(): this;
     plan(n: number, comment?: string): void;
 }
+/**
+ * This is the class that is extended for the root {@link TAP} test,
+ * and used to instantiate test objects in its child tests. It extends
+ * {@link TestBase}, and implements the union of return values of all
+ * loaded plugins via a Proxy.
+ */
 export declare class Test<Ext extends BuiltPlugins = BuiltPlugins, Opts extends TestOpts = TestOpts> extends TestBase implements TTest {
     #private;
+    /**
+     * @param opts Test options for this instance
+     *
+     * @param __INTERNAL Extension option used by the subclasses created in
+     * {@link Test#applyPlugin}.
+     *
+     * @internal
+     */
     constructor(opts: Opts, __INTERNAL?: PluginExtensionOption<Ext, Opts>);
     get [Symbol.toStringTag](): string;
+    /**
+     * Add a plugin at run-time.
+     *
+     * Creates a subclass of {@link Test} which has the specified
+     * plugin, and which applies the plugin to all child tests it creates.
+     *
+     * Typically, it's best to load plugins using configuration, set via the
+     * `tap plugin <add|rm>` command.
+     *
+     * However, in some cases, for example while developing plugins or if a
+     * certain plugin is only needed in a small number of tests, it can be
+     * useful to apply it after the fact.
+     *
+     * This is best used sparingly, as it may result in poor typescript
+     * compilation performance, which can manifest in slower test start-up times
+     * and lag loading autocomplete in editors. If you find yourself calling
+     * applyPlugin often, consider whether it'd be better to just add the plugin
+     * to the entire test suite, so that it can be built up front.
+     */
     applyPlugin<B extends Object, O extends unknown = unknown>(plugin: TapPlugin<B, O>): Test<Ext & B, Opts & O> & Ext & B;
+    /**
+     * Return true if the specified plugin is loaded. Asserts that the
+     * test object in question implements the return value of the plugin.
+     */
     pluginLoaded<T extends any = any>(plugin: (t: any, opts?: any) => T): this is TestBase & T;
+    /**
+     * Return the set of plugins loaded by this Test
+     */
     get plugins(): TapPlugin<any, Opts>[];
+    /**
+     * Create a subtest
+     */
     test(name: string, extra: Opts, cb: (t: Test<Ext, Opts> & Ext) => any): PromiseWithSubtest<Test<Ext, Opts> & Ext>;
     test(name: string, cb: (t: Test<Ext, Opts> & Ext) => any): PromiseWithSubtest<Test<Ext, Opts> & Ext>;
     test(extra: Opts, cb: (t: Test<Ext, Opts> & Ext) => any): PromiseWithSubtest<Test<Ext, Opts> & Ext>;
     test(cb: (t: Test<Ext, Opts> & Ext) => any): PromiseWithSubtest<Test<Ext, Opts> & Ext>;
+    /**
+     * Create a subtest which is marked as `todo`
+     */
     todo(name: string, extra: Opts, cb: (t: Test<Ext, Opts> & Ext) => any): PromiseWithSubtest<Test<Ext, Opts> & Ext>;
     todo(name: string, cb: (t: Test<Ext, Opts> & Ext) => any): PromiseWithSubtest<Test<Ext, Opts> & Ext>;
     todo(extra: Opts, cb: (t: Test<Ext, Opts> & Ext) => any): PromiseWithSubtest<Test<Ext, Opts> & Ext>;
     todo(cb: (t: Test<Ext, Opts> & Ext) => any): PromiseWithSubtest<Test<Ext, Opts> & Ext>;
+    /**
+     * Create a subtest which is marked as `skip`
+     */
     skip(name: string, extra: Opts, cb: (t: Test<Ext, Opts> & Ext) => any): PromiseWithSubtest<Test<Ext, Opts> & Ext>;
     skip(name: string, cb: (t: Test<Ext, Opts> & Ext) => any): PromiseWithSubtest<Test<Ext, Opts> & Ext>;
     skip(extra: Opts, cb: (t: Test<Ext, Opts> & Ext) => any): PromiseWithSubtest<Test<Ext, Opts> & Ext>;

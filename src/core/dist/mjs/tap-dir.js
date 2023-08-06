@@ -1,3 +1,9 @@
+/**
+ * Module that provides the location of the `@tapjs/core` module
+ * Abstracted so that it can be built in two different ways depending
+ * on whether we're building for CJS or ESM.
+ * @module
+ */
 // this form only works in the mjs.
 // it'll be overwritten by the tap-dir-cjs.js output in cjs mode
 import { basename, dirname } from 'path';

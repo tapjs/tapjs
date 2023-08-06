@@ -1,6 +1,6 @@
 /**
- * Plugin class providing {@link AfterEach#afterEach} on the {@link Test}
- * class.
+ * Plugin class providing {@link AfterEach#afterEach}
+ * on the {@link Test} class.
  *
  * @module
  */

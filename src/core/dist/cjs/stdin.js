@@ -2,6 +2,13 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Stdin = void 0;
 const base_js_1 = require("./base.js");
+/**
+ * Class representing standard input as a TAP stream
+ *
+ * Instantiated by `t.stdin()`, typically.
+ *
+ * @internal
+ */
 class Stdin extends base_js_1.Base {
     inputStream;
     constructor(options) {

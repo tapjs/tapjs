@@ -44,7 +44,7 @@ export const setFilterNodeInternals = (s: boolean) =>
   (filterNodeInternals = s)
 
 // these are packages that function somewhat like node internals,
-// for tap's purposes, and @tapjs packages themselves, when loaded
+// for tap's purposes, and `@tapjs` packages themselves, when loaded
 // from node_modules.
 const ignoredPackages: string[] = [
   '@tapjs',
@@ -199,7 +199,7 @@ let capturing = false
  * This method is not re-entry safe, due to the fact that it relies on
  * temporarily overriding the global Error.prepareStackTrace. As a result,
  * if a capture() is triggered in any of the methods used by the
- * CallSiteLike constructor (for example, if @tapjs/intercept is used to
+ * CallSiteLike constructor (for example, if `@tapjs/intercept` is used to
  * capture the process.cwd() method, which is used by path.resolve()),
  * then that will cause problems. To work around this, if a re-entry is
  * detected, then an empty stack of [] is returned.

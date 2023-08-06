@@ -251,9 +251,23 @@ const applyPlugins = (base, plugs = plugins()) => {
 };
 const kPluginSet = Symbol('@tapjs/test construction plugin set');
 const kClass = Symbol('@tapjs/test construction class');
+/**
+ * This is the class that is extended for the root {@link TAP} test,
+ * and used to instantiate test objects in its child tests. It extends
+ * {@link TestBase}, and implements the union of return values of all
+ * loaded plugins via a Proxy.
+ */
 export class Test extends TestBase {
     #Class;
     #pluginSet;
+    /**
+     * @param opts Test options for this instance
+     *
+     * @param __INTERNAL Extension option used by the subclasses created in
+     * {@link Test#applyPlugin}.
+     *
+     * @internal
+     */
     constructor(opts, __INTERNAL = {
         [kPluginSet]: plugins(),
         [kClass]: Test,
@@ -272,6 +286,25 @@ export class Test extends TestBase {
         return 'Test';
     }
     /* c8 ignore stop */
+    /**
+     * Add a plugin at run-time.
+     *
+     * Creates a subclass of {@link Test} which has the specified
+     * plugin, and which applies the plugin to all child tests it creates.
+     *
+     * Typically, it's best to load plugins using configuration, set via the
+     * `tap plugin <add|rm>` command.
+     *
+     * However, in some cases, for example while developing plugins or if a
+     * certain plugin is only needed in a small number of tests, it can be
+     * useful to apply it after the fact.
+     *
+     * This is best used sparingly, as it may result in poor typescript
+     * compilation performance, which can manifest in slower test start-up times
+     * and lag loading autocomplete in editors. If you find yourself calling
+     * applyPlugin often, consider whether it'd be better to just add the plugin
+     * to the entire test suite, so that it can be built up front.
+     */
     applyPlugin(plugin) {
         if (this.printedOutput) {
             throw new Error('Plugins must be applied prior to any test output');
@@ -294,14 +327,20 @@ export class Test extends TestBase {
         extended.#Class = TestExtended;
         return applyPlugins(extended, pluginSetExtended);
     }
-    // actually no way to get at this, since we always call applyPlugins in the
-    // Test constructor, so there's always *something* here, but it nevertheless
-    // seems sensible to have some stubs in place. At least, they are relevant
-    // for establishing the typed interface.
+    // NB: this isn't ever actually called, because we add a pluginLoaded
+    // method in the applyPlugins proxy, but it's here to establish the
+    // type interface.
+    /**
+     * Return true if the specified plugin is loaded. Asserts that the
+     * test object in question implements the return value of the plugin.
+     */
     pluginLoaded(plugin) {
         plugin;
         return false;
     }
+    /**
+     * Return the set of plugins loaded by this Test
+     */
     get plugins() {
         return [];
     }

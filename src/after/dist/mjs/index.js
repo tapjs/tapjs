@@ -1,6 +1,6 @@
 /**
- * Plugin class providing {@link After#after} and {@link After#teardown}
- * on the {@link Test} class.
+ * Plugin class providing {@link After#after} and
+ * {@link After#teardown} on the {@link Test} class.
  *
  * @module
  */

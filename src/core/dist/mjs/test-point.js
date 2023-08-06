@@ -1,5 +1,8 @@
 import { diags } from './diags.js';
 import { esc } from './esc.js';
+/**
+ * Object representing a single test point `ok` / `not ok` line
+ */
 export class TestPoint {
     ok;
     name;
