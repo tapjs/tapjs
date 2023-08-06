@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/config",
-  "version": "2.0.0-2",
+  "version": "2.0.0-3",
   "description": "Utility loading and managing tap configuration",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "main": "./dist/cjs/index.js",
@@ -35,8 +35,8 @@
     "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
   },
   "peerDependencies": {
-    "@tapjs/core": "0.0.0-2",
-    "@tapjs/test": "0.0.0-2"
+    "@tapjs/core": "0.0.0-3",
+    "@tapjs/test": "0.0.0-3"
   },
   "dependencies": {
     "chalk": "^5.2.0",
