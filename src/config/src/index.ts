@@ -393,16 +393,21 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
    * accordingly.
    */
   async loadColor() {
-    const c = this.get('color')
+    let c = this.get('color')
     const chalk = (await import('chalk')).default
-    if (c === false) {
-      process.env.FORCE_COLOR = '0'
+    let color: boolean
+    if (
+      env.TAP !== '1' &&
+      (c === true || (c === undefined && chalk.level > 0))
+    ) {
+      color = true
+      chalk.level = Math.max(chalk.level, 1) as 0 | 1 | 2 | 3
+      env.FORCE_COLOR = String(chalk.level)
+    } else {
+      color = false
       chalk.level = 0
-    } else if (c === true) {
-      process.env.FORCE_COLOR = '3'
-      chalk.level = 3
+      env.FORCE_COLOR = '0'
     }
-    const color = !!(c !== undefined ? c : chalk.level !== 0)
     const { values } = this.parse()
     ;(values as OptionsResults<C> & { color: boolean }).color = color
     return this
@@ -417,8 +422,7 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
     const r = this.get('reporter')
     if (r !== undefined && env.TAP !== '1') return this
     const { values } = this.parse()
-    const reporter =
-      env.TAP === '1' || !values.color ? 'tap' : 'base'
+    const reporter = env.TAP === '1' || !values.color ? 'tap' : 'base'
     ;(values as OptionsResults<C> & { reporter: string }).reporter =
       reporter
     return this

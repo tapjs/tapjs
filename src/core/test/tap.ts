@@ -2,6 +2,7 @@ import { spawn } from 'child_process'
 import { Minipass } from 'minipass'
 import { env } from '../dist/cjs/proc.js'
 import { tap } from '../dist/cjs/tap.js'
+import stripAnsi from 'strip-ansi-cjs'
 
 // force this because otherwise the output will be different
 // in all the tests we run.
@@ -20,7 +21,7 @@ const main = () => {
   const t = tap({ some: 'options' })
   t.equal(t.options.some, 'options')
   const clean = (s: string) =>
-    s
+    stripAnsi(s)
       .replace(/# time=[0-9.]+m?s\n/g, '# time={TIME}\n')
       .replace(/(\n    at [^\n]+)+/g, '\n    {JS STACK}')
       .replace(/connectionKey: [0-9a-z:.]+/g, 'connectionKey: {...}')
