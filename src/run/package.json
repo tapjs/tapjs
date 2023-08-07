@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "@tapjs/config": "2.0.0-6",
-    "@tapjs/processinfo": "^2.5.0",
+    "@tapjs/processinfo": "^2.5.2",
     "@tapjs/reporter": "0.0.0-7",
     "@tapjs/spawn": "0.0.0-6",
     "@tapjs/stdin": "0.0.0-6",
