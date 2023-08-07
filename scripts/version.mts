@@ -402,13 +402,24 @@ const publish = (names: string[], pre: boolean = false) => {
   }
   // push worked, try to publish, skip any private packages
   const pn = names.filter(n => !manifests[n].private)
+  // always publish tap last
+  const noTap = names.filter(n => n !== 'tap')
   npm(
     { stdio: 'inherit' },
     'publish',
     '--access=public',
     `--tag=${pre ? 'pre' : 'latest'}`,
-    ...pn.map(n => `-w=${n}`)
+    ...noTap.map(n => `-w=${n}`)
   )
+  if (pn.includes('tap')) {
+    npm(
+      { stdio: 'inherit' },
+      'publish',
+      '--access=public',
+      `--tag=${pre ? 'pre' : 'latest'}`,
+      '-w=tap'
+    )
+  }
 }
 
 // publish any packages whose versions do not match what's on npm
