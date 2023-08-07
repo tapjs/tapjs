@@ -1,21 +1,25 @@
-import type { Result, TapError } from './result.js'
 import { FinalPlan } from './final-plan.js'
 import type { Parser } from './index.js'
+import type { Result, TapError } from './result.js'
 
+/**
+ * The summary results provided in the `complete` event when the TAP
+ * stream ends.
+ */
 export class FinalResults {
-  public ok: boolean
-  public count: number
-  public pass: number
-  public fail: number
-  public bailout: boolean | string
-  public todo: number
-  public skip: number
-  public failures: TapError[]
-  public time: number | null
-  public passes?: Result[]
-  public plan: FinalPlan
-  public skips: (Result & { skip: true | string })[]
-  public todos: (Result & { todo: true | string })[]
+  ok: boolean
+  count: number
+  pass: number
+  fail: number
+  bailout: boolean | string
+  todo: number
+  skip: number
+  failures: TapError[]
+  time: number | null
+  passes?: Result[]
+  plan: FinalPlan
+  skips: (Result & { skip: true | string })[]
+  todos: (Result & { todo: true | string })[]
   constructor(skipAll: boolean, parser: Parser) {
     this.ok = parser.ok
     this.count = parser.count

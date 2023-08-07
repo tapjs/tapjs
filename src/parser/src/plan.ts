@@ -1,3 +1,6 @@
+/**
+ * A class representing the TAP plan line
+ */
 export class Plan {
   public start: number
   public end: number

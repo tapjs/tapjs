@@ -1,3 +1,6 @@
+/**
+ * Static `parse()` and `stringify()` methods
+ */
 import etoa from 'events-to-array'
 type EventLog = ReturnType<typeof etoa>
 import { Parser, ParserOptions } from './index.js'
@@ -12,6 +15,9 @@ const getId = (): { (): number; current: number } => {
   return id
 }
 
+/**
+ * Parse a TAP text stream into a log of all the events encountered
+ */
 export const parse = (
   str: string,
   options: ParserOptions
@@ -39,10 +45,13 @@ export const parse = (
   return events
 }
 
+/**
+ * Turn an EventLog from {@link parse} into a TAP string
+ */
 export const stringify = (
   msg: EventLog,
   { flat = false, indent = '', id = getId() }
-) => {
+):string => {
   const ind = flat ? '' : indent
   return (
     ind +

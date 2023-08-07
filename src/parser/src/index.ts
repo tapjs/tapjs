@@ -48,54 +48,60 @@ export class Parser
   extends EventEmitter
   implements NodeJS.WritableStream
 {
-  // TODO: make these actually #private
-  private child: Parser | null = null
-  private current: Result | null = null
-  private extraQueue: [string, string][] = []
-  private maybeChild: string | null = null
-  private postPlan: boolean = false
-  private previousChild: Parser | null = null
-  private yamlish: string = ''
-  private yind: string = ''
-  private sawVersion: boolean = false
+  #child: Parser | null = null
+  #current: Result | null = null
+  #extraQueue: [string, string][] = []
+  #maybeChild: string | null = null
+  #postPlan: boolean = false
+  #previousChild: Parser | null = null
+  #yamlish: string = ''
+  #yind: string = ''
+  #sawVersion: boolean = false
 
-  public aborted: boolean = false
-  public bail: boolean = false
-  public bailedOut: boolean | string = false
-  private bailingOut: boolean | string = false
-  public braceLevel: number = 0
-  public buffer: string = ''
-  public buffered: boolean
-  public closingTestPoint: Result | null = null
-  public comments: string[] = []
-  public count: number = 0
-  public fail: number = 0
-  public failures: TapError[] = []
-  public skips: (Result & { skip: string | true })[] = []
-  public todos: (Result & { todo: string | true })[] = []
-  public level: number
-  public name: string
-  public ok: boolean = true
-  public omitVersion: boolean
-  public parent: Parser | null = null
-  public pass: number = 0
-  public passes: Result[] | null
-  public planComment: string = ''
-  public planEnd: number = -1
-  public planStart: number = -1
-  public pointsSeen: Map<number, Result> = new Map()
-  public pragmas: Pragmas
-  public preserveWhitespace: boolean
-  public readonly readable: false = false
-  public readonly writable: true = true
-  public results: FinalResults | null = null
-  public root: Parser
-  public skip: number = 0
-  public strict: boolean
-  public syntheticBailout: boolean = false
-  public syntheticPlan: boolean = false
-  public time: number | null = null
-  public todo: number = 0
+  aborted: boolean = false
+  bail: boolean = false
+  bailedOut: boolean | string = false
+  #bailingOut: boolean | string = false
+  braceLevel: number = 0
+  buffer: string = ''
+  buffered: boolean
+  closingTestPoint: Result | null = null
+  comments: string[] = []
+  count: number = 0
+  fail: number = 0
+  failures: TapError[] = []
+  skips: (Result & { skip: string | true })[] = []
+  todos: (Result & { todo: string | true })[] = []
+  level: number
+  name: string
+  ok: boolean = true
+  omitVersion: boolean
+  parent: Parser | null = null
+  pass: number = 0
+  passes: Result[] | null
+  planComment: string = ''
+  planEnd: number = -1
+  planStart: number = -1
+  pointsSeen: Map<number, Result> = new Map()
+  pragmas: Pragmas
+  preserveWhitespace: boolean
+  results: FinalResults | null = null
+  root: Parser
+  skip: number = 0
+  strict: boolean
+  syntheticBailout: boolean = false
+  syntheticPlan: boolean = false
+  time: number | null = null
+  todo: number = 0
+
+  /* c8 ignore start */
+  get readable(): false {
+    return false
+  }
+  get writable(): true {
+    return true
+  }
+  /* c8 ignore stop */
 
   constructor(onComplete?: (results: FinalResults) => any)
   constructor(
@@ -160,7 +166,7 @@ export class Parser
   parseTestPoint(testPoint: RegExpMatchArray, line: string) {
     // need to hold off on this when we have a child so we can
     // associate the closing test point with the test.
-    if (!this.child) this.emitResult()
+    if (!this.#child) this.emitResult()
 
     if (this.bailedOut) return
 
@@ -189,9 +195,9 @@ export class Parser
       this.pointsSeen.set(res.id, res)
     }
 
-    if (this.child) {
-      if (!this.child.closingTestPoint)
-        this.child.closingTestPoint = res
+    if (this.#child) {
+      if (!this.#child.closingTestPoint)
+        this.#child.closingTestPoint = res
       this.emitResult()
       // can only bail out here in the case of a child with broken diags
       // anything else would have bailed out already.
@@ -203,11 +209,11 @@ export class Parser
     if (!res.skip && !res.todo) this.ok = this.ok && res.ok
 
     // hold onto it, because we might get yamlish diagnostics
-    this.current = res
+    this.#current = res
   }
 
   nonTap(data: string, didLine: boolean = false) {
-    if (this.bailingOut && /^( {4})*\}\n$/.test(data)) return
+    if (this.#bailingOut && /^( {4})*\}\n$/.test(data)) return
 
     if (this.strict) {
       const err = {
@@ -225,8 +231,8 @@ export class Parser
         .slice(0, -1)
         .forEach(line => {
           line += '\n'
-          if (this.current || this.extraQueue.length)
-            this.extraQueue.push(['line', line])
+          if (this.#current || this.#extraQueue.length)
+            this.#extraQueue.push(['line', line])
           else this.emit('line', line)
         })
 
@@ -239,8 +245,8 @@ export class Parser
         data.replace(/\n$/, '').replace(/^/gm, '    ') + '\n',
         true
       )
-    else if (!fromChild && (this.current || this.extraQueue.length))
-      this.extraQueue.push(['extra', data])
+    else if (!fromChild && (this.#current || this.#extraQueue.length))
+      this.#extraQueue.push(['extra', data])
     else this.emit('extra', data)
   }
 
@@ -252,7 +258,7 @@ export class Parser
     }
 
     // can't put a plan in a child.
-    if (this.child || this.yind) {
+    if (this.#child || this.#yind) {
       this.nonTap(line)
       return
     }
@@ -299,7 +305,7 @@ export class Parser
           this.tapError(res, line)
         }
       }
-      this.postPlan = true
+      this.#postPlan = true
     }
 
     this.emit('line', line)
@@ -307,36 +313,36 @@ export class Parser
   }
 
   resetYamlish() {
-    this.yind = ''
-    this.yamlish = ''
+    this.#yind = ''
+    this.#yamlish = ''
   }
 
   // that moment when you realize it's not what you thought it was
   yamlGarbage() {
-    const yamlGarbage = this.yind + '---\n' + this.yamlish
+    const yamlGarbage = this.#yind + '---\n' + this.#yamlish
     this.emitResult()
     if (this.bailedOut) return
     this.nonTap(yamlGarbage, true)
   }
 
   yamlishLine(line: string) {
-    if (line === this.yind + '...\n') {
+    if (line === this.#yind + '...\n') {
       // end the yaml block
       this.processYamlish()
     } else {
-      this.yamlish += line
+      this.#yamlish += line
     }
   }
 
   processYamlish() {
     /* c8 ignore start */
-    if (!this.current) {
+    if (!this.#current) {
       throw new Error(
         'called processYamlish without a current test point'
       )
     }
     /* c8 ignore stop */
-    const yamlish = this.yamlish
+    const yamlish = this.#yamlish
     this.resetYamlish()
 
     let diags: any
@@ -344,13 +350,13 @@ export class Parser
       diags = yaml.parse(yamlish)
     } catch (er) {
       this.nonTap(
-        this.yind + '---\n' + yamlish + this.yind + '...\n',
+        this.#yind + '---\n' + yamlish + this.#yind + '...\n',
         true
       )
       return
     }
 
-    this.current.diag = diags
+    this.#current.diag = diags
     // we still don't emit the result here yet, to support diags
     // that come ahead of buffered subtests.
   }
@@ -437,7 +443,7 @@ export class Parser
     }
 
     // if we have yamlish, means we didn't finish with a ...
-    if (this.yamlish) this.yamlGarbage()
+    if (this.#yamlish) this.yamlGarbage()
 
     this.emitResult()
 
@@ -464,7 +470,7 @@ export class Parser
           this.planStart = 1
           this.planEnd = 0
         } else {
-          if (!this.sawVersion) {
+          if (!this.#sawVersion) {
             this.version(14, 'TAP version 14\n')
           }
           this.plan(1, 0, 'no tests found', '1..0 # no tests found\n')
@@ -518,9 +524,9 @@ export class Parser
       version >= 13 &&
       this.planStart === -1 &&
       this.count === 0 &&
-      !this.current
+      !this.#current
     ) {
-      this.sawVersion = true
+      this.#sawVersion = true
       this.emit('line', line)
       this.emit('version', version)
     } else this.nonTap(line)
@@ -528,7 +534,7 @@ export class Parser
 
   pragma(key: string, value: boolean, line: string) {
     // can't put a pragma in a child or yaml block
-    if (this.child) {
+    if (this.#child) {
       this.nonTap(line)
       return
     }
@@ -547,16 +553,16 @@ export class Parser
   bailout(reason: string, synthetic: boolean = false) {
     this.syntheticBailout = synthetic
 
-    if (this.bailingOut) return
+    if (this.#bailingOut) return
 
     // Guard because emitting a result can trigger a forced bailout
     // if the harness decides that failures should be bailouts.
-    this.bailingOut = reason || true
+    this.#bailingOut = reason || true
 
     if (!synthetic) this.emitResult()
-    else this.current = null
+    else this.#current = null
 
-    this.bailedOut = this.bailingOut
+    this.bailedOut = this.#bailingOut
     this.ok = false
     if (!synthetic) {
       // synthetic bailouts get emitted on end
@@ -572,19 +578,19 @@ export class Parser
   }
 
   clearExtraQueue() {
-    for (let c = 0; c < this.extraQueue.length; c++) {
-      this.emit(this.extraQueue[c][0], this.extraQueue[c][1])
+    for (let c = 0; c < this.#extraQueue.length; c++) {
+      this.emit(this.#extraQueue[c][0], this.#extraQueue[c][1])
     }
-    this.extraQueue.length = 0
+    this.#extraQueue.length = 0
   }
 
   endChild() {
-    if (this.child && (!this.bailingOut || this.child.count)) {
-      if (this.child.closingTestPoint)
-        this.child.time = this.child.closingTestPoint.time || null
-      this.previousChild = this.child
-      this.child.end()
-      this.child = null
+    if (this.#child && (!this.#bailingOut || this.#child.count)) {
+      if (this.#child.closingTestPoint)
+        this.#child.time = this.#child.closingTestPoint.time || null
+      this.#previousChild = this.#child
+      this.#child.end()
+      this.#child = null
     }
   }
 
@@ -594,10 +600,10 @@ export class Parser
     this.endChild()
     this.resetYamlish()
 
-    if (!this.current) return this.clearExtraQueue()
+    if (!this.#current) return this.clearExtraQueue()
 
-    const res = this.current
-    this.current = null
+    const res = this.#current
+    this.#current = null
 
     this.count++
     if (res.ok) {
@@ -623,9 +629,9 @@ export class Parser
       !res.ok &&
       !res.todo &&
       !res.skip &&
-      !this.bailingOut
+      !this.#bailingOut
     ) {
-      this.maybeChild = null
+      this.#maybeChild = null
       const ind = new Array(this.level + 1).join('    ')
       let p: Parser
       for (p = this; p.parent; p = p.parent);
@@ -641,8 +647,8 @@ export class Parser
   // 4-space indents can be plucked off to try to find a relevant
   // TAP line type, and if so, start the unnamed child.
   startChild(line: string) {
-    const maybeBuffered = this.current && this.current.buffered
-    const unindentStream = !maybeBuffered && this.maybeChild
+    const maybeBuffered = this.#current && this.#current.buffered
+    const unindentStream = !maybeBuffered && this.#maybeChild
     const indentStream =
       !maybeBuffered &&
       !unindentStream &&
@@ -655,22 +661,22 @@ export class Parser
 
     if (this.bailedOut) return
 
-    this.child = new Parser({
+    this.#child = new Parser({
       bail: this.bail,
       parent: this,
       level: this.level + 1,
       buffered: maybeBuffered || undefined,
-      closingTestPoint: (maybeBuffered && this.current) || undefined,
+      closingTestPoint: (maybeBuffered && this.#current) || undefined,
       preserveWhitespace: this.preserveWhitespace,
       omitVersion: true,
       strict: this.strict,
     })
 
-    this.child.on('complete', results => {
+    this.#child.on('complete', results => {
       if (!results.ok) this.ok = false
     })
 
-    this.child.on('line', l => {
+    this.#child.on('line', l => {
       if (l.trim() || this.preserveWhitespace) l = '    ' + l
       this.emit('line', l)
     })
@@ -683,14 +689,14 @@ export class Parser
     if (indentStream) {
       subtestComment = line
       line = ''
-    } else if (maybeBuffered && this.current) {
-      subtestComment = '# Subtest: ' + this.current.name + '\n'
+    } else if (maybeBuffered && this.#current) {
+      subtestComment = '# Subtest: ' + this.#current.name + '\n'
     } else {
-      subtestComment = this.maybeChild || '# Subtest\n'
+      subtestComment = this.#maybeChild || '# Subtest\n'
     }
 
-    this.maybeChild = null
-    this.child.name = subtestComment
+    this.#maybeChild = null
+    this.#child.name = subtestComment
       .substring('# Subtest: '.length)
       .trim()
 
@@ -698,10 +704,10 @@ export class Parser
     // the Subtest comment on the parent level.  If so, uncomment
     // this line, and remove the child.emitComment below.
     // this.emit('comment', subtestComment)
-    if (!this.child.buffered) this.emit('line', subtestComment)
-    this.emit('child', this.child)
-    this.child.emitComment(subtestComment, true)
-    if (line) this.child.parse(line)
+    if (!this.#child.buffered) this.emit('line', subtestComment)
+    this.emit('child', this.#child)
+    this.#child.emitComment(subtestComment, true)
+    if (line) this.#child.parse(line)
   }
 
   destroy(er?: Error) {
@@ -709,9 +715,9 @@ export class Parser
   }
 
   abort(message: string = '', extra?: any) {
-    if (this.child) {
-      const b = this.child.buffered
-      this.child.abort(message, extra)
+    if (this.#child) {
+      const b = this.#child.buffered
+      this.#child.abort(message, extra)
       extra = null
       if (b) this.write('\n}\n')
     }
@@ -729,7 +735,7 @@ export class Parser
       ? '  ---\n  ' + dump.split('\n').join('\n  ') + '\n  ...\n'
       : '\n'
 
-    const n = (this.count || 0) + 1 + (this.current ? 1 : 0)
+    const n = (this.count || 0) + 1 + (this.#current ? 1 : 0)
 
     if (this.planEnd !== -1 && this.planEnd < n && this.parent) {
       // skip it, let the parent do this.
@@ -742,7 +748,7 @@ export class Parser
 
     if (this.planEnd === -1) point += '1..' + n + '\n'
 
-    if (!this.sawVersion) this.write('TAP version 14\n')
+    if (!this.#sawVersion) this.write('TAP version 14\n')
     this.write(point)
     this.aborted = true
     this.end()
@@ -752,9 +758,9 @@ export class Parser
     this.emit('assert', res)
 
     // see if we need to surface to the top level
-    const c = this.child || this.previousChild
+    const c = this.#child || this.#previousChild
     if (c) {
-      this.previousChild = null
+      this.#previousChild = null
       if (
         res.name === c.name &&
         c.results &&
@@ -795,10 +801,10 @@ export class Parser
     if (dir && dir[0] === 'time' && typeof dir[1] === 'number')
       this.time = dir[1]
 
-    if (this.current || this.extraQueue.length) {
+    if (this.#current || this.#extraQueue.length) {
       // no way to get here with skipLine being true
-      this.extraQueue.push(['line', line])
-      this.extraQueue.push(['comment', line])
+      this.#extraQueue.push(['line', line])
+      this.#extraQueue.push(['comment', line])
     } else {
       if (!skipLine) this.emit('line', line)
       this.emit('comment', line)
@@ -812,8 +818,8 @@ export class Parser
     // sometimes empty lines get trimmed, but are still part of
     // a subtest or a yaml block.  Otherwise, nothing to parse!
     if (line === '\n') {
-      if (this.child) line = '    ' + line
-      else if (this.yind) line = this.yind + line
+      if (this.#child) line = '    ' + line
+      else if (this.#yind) line = this.#yind + line
     }
 
     // If we're bailing out, then the only thing we want to see is the
@@ -821,7 +827,7 @@ export class Parser
     // But!  if we're bailing out a nested child, and ANOTHER nested child
     // comes after that one, then we don't want the second child's } to
     // also show up, or it looks weird.
-    if (this.bailingOut) {
+    if (this.#bailingOut) {
       if (!/^\s*}\n$/.test(line)) return
       else if (!this.braceLevel || line.length < this.braceLevel)
         this.braceLevel = line.length
@@ -834,7 +840,7 @@ export class Parser
     if (
       this.omitVersion &&
       lineTypes.version.test(line) &&
-      !this.yind
+      !this.#yind
     ) {
       return
     }
@@ -854,7 +860,7 @@ export class Parser
     // where the test point is emitted AFTER the line that follows it.
 
     // buffered subtests must end with a }
-    if (this.child && this.child.buffered && line === '}\n') {
+    if (this.#child && this.#child.buffered && line === '}\n') {
       this.endChild()
       this.emit('line', line)
       this.emitResult()
@@ -863,19 +869,19 @@ export class Parser
 
     // just a \n, emit only if we care about whitespace
     const validLine =
-      this.preserveWhitespace || line.trim() || this.yind
+      this.preserveWhitespace || line.trim() || this.#yind
     if (line === '\n') return validLine && this.emit('line', line)
 
     // buffered subtest with diagnostics
     if (
-      this.current &&
+      this.#current &&
       line === '{\n' &&
-      this.current.diag &&
-      !this.current.buffered &&
-      !this.child
+      this.#current.diag &&
+      !this.#current.buffered &&
+      !this.#child
     ) {
       this.emit('line', line)
-      this.current.buffered = true
+      this.#current.buffered = true
       return
     }
 
@@ -896,17 +902,17 @@ export class Parser
     // comments in the midst of yaml (though, perhaps, that's questionable
     // behavior), but any actual TAP means that the yaml block was just
     // not valid.
-    if (this.yind) this.yamlGarbage()
+    if (this.#yind) this.yamlGarbage()
 
     // If it's anything other than a comment or garbage, then any
     // maybeChild is just an unsatisfied promise.
-    if (this.maybeChild) {
-      this.emitComment(this.maybeChild)
-      this.maybeChild = null
+    if (this.#maybeChild) {
+      this.emitComment(this.#maybeChild)
+      this.#maybeChild = null
     }
 
     // nothing but comments can come after a trailing plan
-    if (this.postPlan) {
+    if (this.#postPlan) {
       this.nonTap(line)
       return
     }
@@ -957,7 +963,7 @@ export class Parser
     if (type[0] === 'subtest') {
       // this is potentially a subtest.  Not indented.
       // hold until later.
-      this.maybeChild = line
+      this.#maybeChild = line
       /* c8 ignore start */
     } else {
       throw new Error('Unhandled case: ' + type[0])
@@ -967,9 +973,9 @@ export class Parser
 
   parseIndent(line: string, indent: string) {
     // still belongs to the child, so pass it along.
-    if (this.child && line.substring(0, 4) === '    ') {
+    if (this.#child && line.substring(0, 4) === '    ') {
       line = line.substring(4)
-      this.child.write(line)
+      this.#child.write(line)
       return
     }
 
@@ -982,8 +988,8 @@ export class Parser
     // - A comment, or garbage
 
     // continuing/ending yaml block
-    if (this.yind) {
-      if (line.indexOf(this.yind) === 0) {
+    if (this.#yind) {
+      if (line.indexOf(this.#yind) === 0) {
         this.emit('line', line)
         this.yamlishLine(line)
         return
@@ -996,8 +1002,8 @@ export class Parser
     }
 
     // start a yaml block under a test point
-    if (this.current && !this.yind && line === indent + '---\n') {
-      this.yind = indent
+    if (this.#current && !this.#yind && line === indent + '---\n') {
+      this.#yind = indent
       this.emit('line', line)
       return
     }
@@ -1008,8 +1014,8 @@ export class Parser
     // Child tests are always indented 4 spaces.
     if (line.substring(0, 4) === '    ') {
       if (
-        this.maybeChild ||
-        (this.current && this.current.buffered) ||
+        this.#maybeChild ||
+        (this.#current && this.#current.buffered) ||
         lineTypes.subtestIndent.test(line)
       ) {
         this.startChild(line)

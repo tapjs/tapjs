@@ -1,6 +1,18 @@
 import { OPEN_BRACE_EOL } from './brace-patterns.js'
+
+/**
+ * Directive types supported by this library.
+ *
+ * `'time'` is not officially in the specification, but node-tap has
+ * supported it for a long time, and uses it to report how long
+ * subtests take to complete.
+ */
 export type Directive = 'todo' | 'skip' | 'time'
 
+/**
+ * Parse a "directive", the bit that follows the `#` character
+ * on a TestPoint line.
+ */
 export const parseDirective = (
   line: string
 ): [Directive, any] | false => {

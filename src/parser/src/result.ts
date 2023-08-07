@@ -3,8 +3,18 @@ import { Parser } from './index.js'
 import { Directive, parseDirective } from './parse-directive.js'
 import { Plan } from './plan.js'
 
+/**
+ * An indication that a violation of the TAP specification has occurred
+ *
+ * This can indicate a test point that exceeds the plan, a test point 
+ * encountered after a trailing plan, or in the case of `pragma +strict`,
+ * any non-TAP data.
+ */
 export type TapError = Result | { tapError: string; [k: string]: any }
 
+/**
+ * A representation of a TestPoint result, with diagnostics if present.
+ */
 export class Result {
   public ok: boolean
   public name: string = ''
