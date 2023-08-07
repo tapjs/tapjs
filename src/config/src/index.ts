@@ -398,6 +398,9 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
     if (c === false) {
       process.env.FORCE_COLOR = '0'
       chalk.level = 0
+    } else if (c === true) {
+      process.env.FORCE_COLOR = '3'
+      chalk.level = 3
     }
     const color = !!(c !== undefined ? c : chalk.level !== 0)
     const { values } = this.parse()
