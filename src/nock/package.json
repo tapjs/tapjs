@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/nock",
-  "version": "3.0.0-6",
+  "version": "3.0.0-7",
   "description": "a nock extension for tap",
   "main": "./dist/cjs/index.js",
   "module": "./dist/mjs/index.js",
@@ -42,10 +42,10 @@
   },
   "homepage": "https://github.com/tapjs/tapjs/src/nock#readme",
   "peerDependencies": {
-    "@tapjs/core": "0.0.0-6"
+    "@tapjs/core": "0.0.0-7"
   },
   "dependencies": {
-    "@tapjs/snapshot": "0.0.0-6",
+    "@tapjs/snapshot": "0.0.0-7",
     "@tapjs/stack": "0.0.0-2",
     "nock": "^13.2.4"
   },
