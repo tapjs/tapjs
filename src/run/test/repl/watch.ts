@@ -36,12 +36,27 @@ t.test('watch some files', async t => {
       ['one', {}],
       ['two', {}],
     ]),
+    externalIDsChanged: async (
+      f: (id: string, n: any) => boolean
+    ) => {
+      if (f('one', pi.files.get('one'))) {
+        return new Set([pi.files.get('one')])
+      } else {
+        return new Set()
+      }
+    },
   }
   let sawChange = false
   const w = new Watch(
     pi as unknown as ProcessInfo,
     () => (sawChange = true)
   )
+
+  // only validate changes where the pi node is a root process node
+  t.equal(await w.validateChanges(), true)
+  Object.assign(pi.files.get('one') || {}, { parent: true })
+  t.equal(await w.validateChanges(), false)
+
   t.equal(mockChokidar.files, undefined)
   mockFSWatcher.emit('all', 'change', 'blah blah blah')
   t.equal(sawChange, false)

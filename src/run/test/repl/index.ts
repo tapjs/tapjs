@@ -1,8 +1,9 @@
 import { LoadedConfig } from '@tapjs/config'
-import { ChildProcess, spawn } from 'child_process'
+import { ChildProcess, spawn, SpawnOptions } from 'child_process'
 import { WatchOptions } from 'chokidar'
 import { readdirSync, utimesSync, writeFileSync } from 'fs'
 import { Minipass } from 'minipass'
+import * as CP from 'node:child_process'
 import EventEmitter from 'node:events'
 import { resolve } from 'node:path'
 import { ReplOptions } from 'node:repl'
@@ -61,6 +62,33 @@ const mockRepl = new (class extends EventEmitter {
     return super.on(ev, listener)
   }
 })()
+
+const mockSpawn = (
+  cmd: string,
+  args: string[],
+  options: SpawnOptions
+) => {
+  t.equal(options.stdio, 'inherit')
+  t.equal(options.env?._TAP_REPL, '1')
+  let exited = false
+  const exit = (
+    code: number | null,
+    signal: NodeJS.Signals | null
+  ) => {
+    if (!exited) {
+      exited = true
+      proc.emit('close', code, signal)
+    }
+  }
+  const proc = Object.assign(new EventEmitter(), {
+    cmd,
+    args,
+    kill: (signal: NodeJS.Signals) => exit(null, signal),
+    exit: (code: number) => exit(code, null),
+  })
+  setTimeout(() => proc.exit(0))
+  return proc
+}
 
 type Result = {
   code: null | number
@@ -185,9 +213,12 @@ t.test('show help', async t => {
   t.equal(await r.parseCommand('cls'), '\u001b[2J\u001b[H')
   t.equal(await r.parseCommand(''), undefined)
 
-  t.equal(await r.parseCommand('f?'), 'no failed tests from previous runs')
+  t.equal(
+    await r.parseCommand('f?'),
+    'no failed tests from previous runs'
+  )
 
-  let spawnTapCalled:any = false
+  let spawnTapCalled: any = false
   //@ts-ignore
   r.spawnTap = (args: string[]) => {
     spawnTapCalled = args
@@ -243,7 +274,7 @@ t.test('sigint handling', async t => {
     kill: (sig: NodeJS.Signals) => {
       proc.killed = sig
       r.proc = undefined
-    }
+    },
   }
   Object.assign(r, { proc })
   if (!r.repl) throw new Error('no repl??')
@@ -467,34 +498,6 @@ cp.test.mjs:
     t.matchSnapshot(res.stdout)
   })
 
-  t.test('watch for changes', async t => {
-    const p = run(dir, ['w', 'on'])
-    const { stdout, stdin } = p.proc
-    if (!stdin || !stdout) throw new Error('no stdio??')
-    const f = resolve(dir, 'foo.test.mjs')
-    let out = ''
-    const onData = (c: Buffer) => {
-      out += c
-      if (/change detected/.test(out)) {
-        stdout.removeListener('data', onData)
-        // do one more touch while the tests are running, to exercize
-        // the "change detected, but no changed files actually" path,
-        // because the pi db updates after the change happens but before
-        // the test can be run again.
-        setTimeout(() => {
-          utimesSync(f, new Date(), new Date())
-          stdin.end()
-        })
-      } else {
-        utimesSync(f, new Date(), new Date())
-      }
-    }
-    stdout.on('data', onData)
-    stdin.write('w on\n')
-    const res = await p
-    t.match(res.stdout, /change detected/)
-  })
-
   t.test('run a coverage report', async t => {
     const res = await run(dir, ['c'], '')
     t.match(
@@ -514,4 +517,88 @@ cp.test.mjs:
     t.match(res, { code: 0, signal: null })
     t.matchSnapshot(res.stdout)
   })
+})
+
+t.test('watch for changes that happen during a test run', async t => {
+  const { Repl } = (await t.mockImport('../../dist/repl/index.js', {
+    'node:repl': { start: mockRepl.start.bind(mockRepl) },
+    chokidar: { watch: mockChokidar.watch.bind(mockChokidar) },
+    'node:child_process': t.createMock(CP, { spawn: mockSpawn }),
+  })) as typeof import('../../dist/repl/index.js')
+
+  const dir = t.testdir({ '.tap': { processinfo: {} } })
+  const input = new Minipass<string>({ encoding: 'utf8' })
+  const output = new Minipass<string>({ encoding: 'utf8' })
+  const r = new Repl(
+    {
+      globCwd: dir,
+      get: () => {},
+    } as unknown as LoadedConfig,
+    input as unknown as NodeJS.ReadStream,
+    output as unknown as NodeJS.WriteStream
+  )
+  let paused = false
+  Object.assign(r, {
+    repl: {
+      pause: () => (paused = true),
+      displayPrompt: () => output.write('<PROMPT>'),
+      setupHistory: () => {},
+      on: () => {},
+      removeAllListeners: () => {},
+      close: () => output.end(),
+      resume: () => (paused = false),
+    },
+  })
+
+  // emit a change while a process is active, but turns out not valid
+  Object.assign(r.watch, {
+    validateChanges: async () => false,
+  })
+  r.spawnTap([])
+  t.equal(paused, true, 'repl is paused')
+  r.watch.onChange()
+  await new Promise<void>((res, rej) => {
+    if (!r.proc) rej(new Error('expected to have a process going'))
+    else r.proc.on('close', () => res())
+  })
+  t.equal(r.proc, undefined)
+  t.equal(paused, false, 'repl is resumed')
+
+  // now emit a change while in progress, but it IS valid
+  Object.assign(r.watch, {
+    validateChanges: async () => true,
+  })
+  r.spawnTap([])
+  r.watch.onChange()
+  await new Promise<void>((res, rej) => {
+    if (!r.proc) rej(new Error('expected to have a process going'))
+    else r.proc.on('close', () => res())
+  })
+  t.not(r.proc, undefined)
+  // don't run forever though
+  Object.assign(r.watch, {
+    validateChanges: async () => false,
+  })
+  await new Promise<void>((res, rej) => {
+    if (!r.proc) rej(new Error('expected to have a process going'))
+    else r.proc.on('close', () => res())
+  })
+  t.equal(r.proc, undefined)
+
+  // now spawn a change when we're NOT already running
+  r.watch.onChange()
+  await new Promise<void>((res, rej) => {
+    if (!r.proc) rej(new Error('expected to have a process going'))
+    else r.proc.on('close', () => res())
+  })
+  const showCursor = '\x1B[?25h'
+  const out = output.read()
+  t.equal(
+    out?.split(showCursor).join(''),
+    `code: 0
+signal: null
+change detected
+`,
+    'got expected output'
+  )
 })

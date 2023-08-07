@@ -326,7 +326,7 @@ export class Repl {
     return '\x1b[2J\x1b[H'
   }
 
-  #setRawMode (mode: boolean) {
+  #setRawMode(mode: boolean) {
     // ignored to avoid the ?., which is only there because the stream
     // might not have this method.
     /* c8 ignore start */
@@ -360,7 +360,6 @@ export class Repl {
     if (this.proc) return 'command in progress, please wait'
     /* c8 ignore stop */
     this.repl?.pause()
-    options.stdio = 'inherit'
     // inherit environment except what is specified, if anything
     // delete anything specified as undefined
     const env = { ...process.env, ...(options.env || {}) }
@@ -390,25 +389,13 @@ export class Repl {
     this.repl?.resume()
     this.#setRawMode(true)
     this.showCursor()
-    if (this.#haveChanges) {
-      // only care about top-level externalID processes here.
-      // if the user set an externalID on a t.spawn() process in a test,
-      // then that's not relevant.
-      const c = await this.processInfo.externalIDsChanged(
-        (_, c) => !c.parent
-      )
-      this.#haveChanges = c.size !== 0
-    }
-    // *exceptionally* challenging to trigger in a test environment
-    // in a reasonable way.
-    // Handle case when a valid file change is made while the test suite
-    // is running, where the change occurs *after* that specific test runs.
-    /* c8 ignore start */
-    if (this.#haveChanges) {
+    if (this.#haveChanges && (await this.watch.validateChanges())) {
+      // A change occurred while the process was running, and we've validated
+      // that it wasn't made irrelevant by the test eventually running that
+      // file.
       this.output.write(stringify({ code, signal }))
       return this.runChanged([])
     } else {
-      /* c8 ignore stop */
       return { code, signal }
     }
   }
@@ -602,11 +589,7 @@ export class Repl {
       case 'dump-config':
         return [[cmd], input]
       case 'i':
-        return processinfoCompletions(
-          this.processInfo,
-          args,
-          input
-        )
+        return processinfoCompletions(this.processInfo, args, input)
       default:
         return [filterCompletions(commands, input), input]
     }

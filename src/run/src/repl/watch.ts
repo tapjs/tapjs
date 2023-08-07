@@ -29,6 +29,20 @@ export class Watch {
     this.onChange = onChange
   }
 
+  // Validate that a change which occurs mid-process is still relevant
+  // later. If a change is made to a test file while tests are running,
+  // it might end up being made obsolete by the test running after the
+  // change has occurred.
+  async validateChanges() {
+    // only care about top-level externalID processes here.
+    // if the user set an externalID on a t.spawn() process in a test,
+    // then that's not relevant.
+    const c = await this.processInfo.externalIDsChanged(
+      (_, c) => !c.parent
+    )
+    return c.size !== 0
+  }
+
   start() {
     const files: string[] = []
     for (const f of this.processInfo.files.keys()) {
