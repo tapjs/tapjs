@@ -16,6 +16,17 @@ export interface ReadOptions<T extends string | number = string> {
   terminal?: boolean
   replace?: string
 }
-export const read = async <T extends string | number = string>(
+
+export type ReadMethod<T extends string | number = string> = (
   options: ReadOptions<T>
-): Promise<T | string> => read_(options)
+) => Promise<T | string>
+
+/**
+ * just a re-export of the `read` module, but with
+ * the types specified
+ */
+export async function read<T extends string | number = string>(
+  options: ReadOptions<T>
+): Promise<T | string> {
+  return (read_ as ReadMethod<T>)(options)
+}

@@ -39,15 +39,24 @@ export interface BuildOptions {
   exclude?: string | string[]
 }
 
+/**
+ * Template settings by file extension
+ */
 export interface TemplateSettings {
   [ext: string]: TemplateSetting
 }
 
+/**
+ * Tags and escape function for a given file extension
+ */
 export interface TemplateSetting {
   tags?: [string, string]
   escape?: (raw: string) => string
 }
 
+/**
+ * Default settings passed to mustache
+ */
 export const defaultTemplateSettings: TemplateSettings = {
   // html-likes use the default mustache escaping
   html: {},
@@ -71,6 +80,10 @@ defaultTemplateSettings.tsx = defaultTemplateSettings.json
 defaultTemplateSettings.xhtml = defaultTemplateSettings.html
 defaultTemplateSettings.xml = defaultTemplateSettings.html
 
+/**
+ * Main class instantiated to prompt for values, build up the data
+ * object, and run whatever commands are necessary.
+ */
 export class Init {
   /**
    * Parsed command-line values from `util.parseArgs()`.
@@ -107,7 +120,8 @@ export class Init {
         ([k, v]) =>
           v === true
             ? [k, k]
-            : // It's not actually possible to make a key false if it's not known
+            : // It's not actually possible to make a key false if
+            // it's not known
             /* c8 ignore start */
             typeof v === 'string'
             ? [k, v]
@@ -210,6 +224,9 @@ export class Init {
     await writeFile(path, contents)
   }
 
+  /**
+   * Fill in all templates and write files to the target directory
+   */
   async build({
     templates = './templates',
     templateSettings = {},
