@@ -38,8 +38,9 @@ t.test('log some assert totals', async t => {
   await tb.concat()
 
   app.unmount()
+  const frames = app.frames.filter(f => f.trim())
 
-  t.strictSame(JSON.parse(String(app.lastFrame())), {
+  t.strictSame(JSON.parse(String(frames.pop())), {
     total: 6,
     pass: 2,
     fail: 2,

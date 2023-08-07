@@ -28,7 +28,7 @@ t.test('get the time', async t => {
   tb.end()
   await tb.concat()
   app.unmount()
-  const f = app.frames.map(n => +n)
+  const f = app.frames.filter(n => n.trim()).map(n => +n)
   t.equal(f[0], 0, 'first time is 0')
   t.ok(f.length > 1, 'got some time numbers')
   for (let i = 1; i < f.length; i++) {
@@ -44,7 +44,7 @@ t.test('finished test just returns test.time', async t => {
   await tb.concat()
   const app = render(<Tag test={tb} />)
   app.unmount()
-  const f = app.frames.map(n => +n)
+  const f = app.frames.filter(n => n.trim()).map(n => +n)
   for (const i of f) {
     t.equal(i, tb.time, 'reported time is test.time')
   }

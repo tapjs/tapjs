@@ -42,8 +42,7 @@ t.test('show comments', async t => {
   await sleep(64)
   app.unmount()
 
-  t.strictSame(reduce(app.frames), [
-    '',
+  t.strictSame(reduce(app.frames).filter(f => f.trim()), [
     '# before child test',
     '# before child test\n# comment while occupied',
     '# before child test\n# comment while occupied\n# after child test',

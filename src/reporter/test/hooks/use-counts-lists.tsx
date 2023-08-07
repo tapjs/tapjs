@@ -50,7 +50,7 @@ t.test('show counts and lists', async t => {
   app.unmount()
 
   t.strictSame(
-    reduce(app.frames).map(j => JSON.parse(j)),
+    reduce(app.frames).filter(j => j.trim()).map(j => JSON.parse(j)),
     [
       {
         counts: { total: 0, pass: 0 },

@@ -27,5 +27,5 @@ t.test('check if test is done', async t => {
   await tb.concat()
   app.unmount()
 
-  t.strictSame(reduce(app.frames), ['false', 'true'])
+  t.strictSame(reduce(app.frames).filter(f => f.trim()), ['false', 'true'])
 })
