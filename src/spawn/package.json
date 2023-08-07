@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/spawn",
-  "version": "0.0.0-7",
+  "version": "0.0.0-8",
   "description": "a built-in tap extension for t.spawn()",
   "main": "./dist/cjs/index.js",
   "module": "./dist/mjs/index.js",
@@ -44,7 +44,7 @@
   },
   "homepage": "https://github.com/tapjs/tapjs/src/spawn#readme",
   "peerDependencies": {
-    "@tapjs/core": "0.0.0-7"
+    "@tapjs/core": "0.0.0-8"
   },
   "engines": {
     "node": "^14.17.0 || ^16.13.0 || >=18.0.0"

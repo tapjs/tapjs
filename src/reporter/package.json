@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/reporter",
-  "version": "0.0.0-8",
+  "version": "0.0.0-9",
   "description": "Pretty test output reporters for tap",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "module": "./dist/index.js",
@@ -34,11 +34,11 @@
     "typedoc": "typedoc ./src/*.ts"
   },
   "peerDependencies": {
-    "@tapjs/core": "0.0.0-7"
+    "@tapjs/core": "0.0.0-8"
   },
   "dependencies": {
-    "@tapjs/config": "2.0.0-7",
-    "@tapjs/test": "0.0.0-7",
+    "@tapjs/config": "2.0.0-8",
+    "@tapjs/test": "0.0.0-8",
     "chalk": "^5.2.0",
     "ink": "^4.2.0",
     "ms": "^2.1.3",
