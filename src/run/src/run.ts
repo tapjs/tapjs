@@ -4,10 +4,9 @@ import { tap } from '@tapjs/core'
 import { plugin as StdinPlugin } from '@tapjs/stdin'
 import { loaders } from '@tapjs/test'
 import { glob } from 'glob'
-import { createRequire } from 'node:module'
 import { relative } from 'node:path'
-import { pathToFileURL } from 'node:url'
 import { resolve } from 'path'
+import { resolveImport } from 'resolve-import'
 import { rimraf } from 'rimraf'
 import { FinalResults } from 'tap-parser'
 import { runAfter } from './after.js'
@@ -24,8 +23,16 @@ import { report } from './report.js'
 import { readSave, writeSave } from './save-list.js'
 import { testIsSerial } from './test-is-serial.js'
 
-const require = createRequire(import.meta.url)
-const piLoader = pathToFileURL(require.resolve('@tapjs/processinfo'))
+const piLoaderURL = await resolveImport(
+  '@tapjs/processinfo/esm',
+  import.meta.url
+)
+/* c8 ignore start */
+if (!piLoaderURL) {
+  throw new Error('could not get @tapjs/processinfo loader')
+}
+/* c8 ignore stop */
+const piLoader = String(piLoaderURL)
 
 const node = process.execPath
 
@@ -53,7 +60,6 @@ export const run = async (args: string[], config: LoadedConfig) => {
   // specify a loader to add to the list.
   // OTOH, you probably do want to have some other setup/config
   // in many cases, as seen in the @tapjs/typescript plugin.
-  const loader = String(piLoader)
 
   // these all default to an empty array
   /* c8 ignore start */
@@ -66,7 +72,7 @@ export const run = async (args: string[], config: LoadedConfig) => {
     '--no-warnings=ExperimentalLoader',
     ...loaders.map(l => `--loader=${l}`),
     '--enable-source-maps',
-    `--loader=${loader}`,
+    `--loader=${piLoader}`,
     ...nodeArgs,
   ]
 

@@ -1,8 +1,8 @@
 {
   "result": [
     {
-      "scriptId": "631",
-      "url": "file:///Users/isaacs/dev/tapjs/tapjs/src/run/test/fixture/bar.mjs",
+      "scriptId": "625",
+      "url": "file:///Users/isaacs/dev/tapjs/tapjs/src/run/test/fixtures/project/foo.mjs",
       "functions": [
         {
           "functionName": "",
@@ -16,7 +16,7 @@
           "isBlockCoverage": true
         },
         {
-          "functionName": "bar",
+          "functionName": "foo",
           "ranges": [
             {
               "startOffset": 19,
@@ -29,6 +29,6 @@
       ]
     }
   ],
-  "timestamp": 127695.385334,
+  "timestamp": 698895.124876,
   "source-map-cache": {}
 }
