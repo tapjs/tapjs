@@ -148,7 +148,10 @@ class MockReport {
   }
 }
 
-const mockTap = { comment: () => {} }
+const mockTap = {
+  comment: () => {},
+  debug: () => {},
+}
 const mockCore = t.createMock(CORE, {
   tap: () => mockTap,
 })

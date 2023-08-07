@@ -127,7 +127,12 @@ class TAP extends test_1.Test {
         registered = true;
         registerTimeoutListener(this);
         ignoreEPIPE();
-        this.once('bail', () => proc_js_1.proc?.exit(1));
+        /* c8 ignore start */
+        this.once('bail', () => {
+            this.debug('bailout, exit 1');
+            proc_js_1.proc?.exit(1);
+        });
+        /* c8 ignore stop */
         proc_js_1.proc?.once('beforeExit', () => {
             ;
             this.end(implicit_end_sigil_js_1.IMPLICIT);
@@ -176,6 +181,7 @@ class TAP extends test_1.Test {
                 setTimeout(() => { }, 200);
             }
             /* c8 ignore stop */
+            this.debug('TAP results not ok, setting exitCode', results);
             proc_js_1.proc.exitCode = 1;
         }
     }

@@ -151,7 +151,12 @@ class TAP extends Test {
     registered = true
     registerTimeoutListener(this)
     ignoreEPIPE()
-    this.once('bail', () => proc?.exit(1))
+    /* c8 ignore start */
+    this.once('bail', () => {
+      this.debug('bailout, exit 1')
+      proc?.exit(1)
+    })
+    /* c8 ignore stop */
     proc?.once('beforeExit', () => {
       ;(this as unknown as TestBase).end(IMPLICIT)
       if (!this.results) {
@@ -205,6 +210,7 @@ class TAP extends Test {
         setTimeout(() => {}, 200)
       }
       /* c8 ignore stop */
+      this.debug('TAP results not ok, setting exitCode', results)
       proc.exitCode = 1
     }
   }

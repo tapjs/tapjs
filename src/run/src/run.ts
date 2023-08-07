@@ -95,10 +95,12 @@ export const run = async (args: string[], config: LoadedConfig) => {
         'No valid test files found matching ' +
           args.map(a => JSON.stringify(a)).join(' ')
       )
+      t.debug('runner/run exit=1 no files found, args')
       process.exitCode = 1
     } else if (unpruned.length) {
       console.log('No new tests to run')
     } else {
+      t.debug('runner/run exit=1 no files found, no args')
       console.error('No test files found')
       process.exitCode = 1
     }
