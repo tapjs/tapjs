@@ -11,6 +11,11 @@ import {
 } from '@tapjs/core'
 import type { Test, TestOpts } from '@tapjs/test'
 
+/**
+ * Options added by this plugin
+ *
+ * @group Test Options
+ */
 export interface FilterOptions extends TestBaseOpts {
   /**
    * Set to true to run in contexts where `runOnly` is set
@@ -35,6 +40,10 @@ export interface FilterOptions extends TestBaseOpts {
   grepInvert?: boolean
 }
 
+/**
+ * Class that provides the {@link Filter#only} method, and extends the
+ * {@link TestBase#shouldSkipChild} method to respect the grep option
+ */
 export class Filter {
   #t: TestBase
   #grep: (string | RegExp)[] = []
@@ -125,6 +134,10 @@ export class Filter {
     return shouldSkipChild(opts)
   }
 
+  /**
+   * Run a child test that will run when the `--only` config is set,
+   * or `{ runOnly: true }` is set in the parent test options.
+   */
   only(
     name: string,
     extra: TestOpts,
@@ -145,9 +158,17 @@ export class Filter {
   }
 }
 
+/**
+ * plugin method that instantiates a {@link Filter} object
+ */
 export const plugin: TapPlugin<Filter, FilterOptions> = (t, opts) =>
   new Filter(t, opts)
 
+/**
+ * Configuration options added by this plugin
+ *
+ * @group Configuration
+ */
 export const config = {
   only: {
     type: 'boolean',

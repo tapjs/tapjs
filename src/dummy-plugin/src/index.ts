@@ -1,5 +1,8 @@
 import { TapPlugin, TestBase } from '@tapjs/core'
 
+/**
+ * Just an example plugin for use in tests and docs
+ */
 export class DummyPlugin {
   myOwnDummyProp: string
   #t: TestBase
@@ -57,8 +60,14 @@ export class DummyPlugin {
   }
 }
 
+/**
+ * The plugin function that instantiates a DummyPlugin
+ */
 export const plugin: TapPlugin<DummyPlugin> = t => new DummyPlugin(t)
 
+/**
+ * Config fields added by this plugin
+ */
 export const config = {
   'dummy-flag': {
     type: 'boolean',
@@ -83,4 +92,7 @@ export const config = {
   },
 }
 
+/**
+ * A node es loader used when this plugin is active
+ */
 export const loader = '@tapjs/dummy-plugin/loader'

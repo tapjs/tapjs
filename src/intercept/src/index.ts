@@ -9,6 +9,7 @@ import { at, CallSiteLike, captureString } from '@tapjs/stack'
 export type MethodsObject<O extends object> = {
   [k in keyof O]: O[k] extends (...a: any[]) => any ? k : never
 }
+
 /**
  * The union type of all methods in an object
  */
@@ -23,6 +24,7 @@ export interface CaptureResultBase<F extends (...a: any[]) => any> {
   at?: CallSiteLike
   stack?: string
 }
+
 /**
  * Results of {@link Interceptor#capture} where function returned
  */
@@ -191,22 +193,26 @@ export interface InterceptResultBase {
   success: boolean
   threw: boolean
 }
+
 /**
  * Result from {@link Interceptor#intercept} for gets
  */
 export interface InterceptResultGet extends InterceptResultBase {
   type: 'get'
 }
+
 /**
  * Result from {@link Interceptor#intercept} for sets
  */
 export interface InterceptResultSet extends InterceptResultBase {
   type: 'set'
 }
+
 /**
  * Result from {@link Interceptor#intercept}
  */
 export type InterceptResult = InterceptResultGet | InterceptResultSet
+
 /**
  * Method returned by {@link Interceptor#intercept}
  */
@@ -214,6 +220,10 @@ export type InterceptResultsMethod = (() => InterceptResult[]) & {
   restore: () => void
 }
 
+/**
+ * Implementation class providing the {@link Interceptor#intercept},
+ * {@link Interceptor#capture}, and {@link Interceptor#captureFn} methods.
+ */
 export class Interceptor {
   #t: TestBase
 
@@ -222,7 +232,13 @@ export class Interceptor {
   }
 
   /**
-   * Intercept and track object property sets and gets
+   * Intercept and track object property sets and gets.
+   *
+   * If a PropertyDescriptor is set, then it will be used as the replacement
+   * value. Otherwise, the original descriptor will be used.
+   *
+   * If the `strictMode` param is set, then attempts to write to read-only
+   * properties will throw an error.
    */
   intercept<T extends object>(
     obj: T,
@@ -441,6 +457,9 @@ export class Interceptor {
    * Just wrap the function and return it.  Does not have any
    * logic to restore, since it's not actually modifying anything.
    * The results hang off the function as the 'calls' property.
+   *
+   * The added `fn.args()` method will return an array of the arguments
+   * passed to each call since the last time it was inspected.
    */
   captureFn<F extends (this: any, ...a: any[]) => any>(
     original: F
@@ -475,4 +494,7 @@ export class Interceptor {
   }
 }
 
+/**
+ * plugin method that instantiates an {@link Interceptor}
+ */
 export const plugin: TapPlugin<Interceptor> = t => new Interceptor(t)

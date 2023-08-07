@@ -13,6 +13,16 @@ const env = (...keys: string[]) => {
 }
 let didWarning = false
 let didEnv = false
+
+/**
+ * Plugin function enabling esbuild-kit for running typescript tests
+ *
+ * The plugin function sets the esbuild-kit environment variables
+ * based on the tap configs, and prints a warning when used along with
+ * the `@tapjs/typescript` plugin, as this can cause strange conflicts,
+ * or at the very least, unnecessarily slow down tests by compiling the
+ * typescript twice.
+ */
 export const plugin: TapPlugin<{}> = () => {
   if (!didEnv) {
     env('ESBK_TSCONFIG_PATH', 'ESBK_DISABLE_CACHE')
@@ -30,6 +40,11 @@ Please run: tap plugin rm @tapjs/typescript
   return {}
 }
 
+/**
+ * Configuration fields added by this plugin.
+ *
+ * @group Configuration
+ */
 export const config = {
   'esbk-tsconfig-path': {
     type: 'string',
