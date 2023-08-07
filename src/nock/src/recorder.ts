@@ -1,3 +1,8 @@
+/**
+ * Implementation of the `t.nock.snapshot()` functionality, which records
+ * actual requests and then writes them to a file when snapshots are being
+ * generated, or returns the cached values normally.
+ */
 import { TestBase } from '@tapjs/core'
 import { plugin as SnapshotPlugin } from '@tapjs/snapshot'
 import { CallSiteLike } from '@tapjs/stack'
@@ -12,23 +17,43 @@ const PAUSED = Symbol('nock.tap.paused')
 const RECORDING = Symbol('nock.tap.recording')
 const STOPPED = Symbol('nock.tap.stopped')
 
+/**
+ * Same as a {@link nock.Scope | nock.Scope}, but decorated with
+ * call site information about where the scope was created.
+ */
 export interface ScopeWithAt extends nock.Scope {
   _at?: CallSiteLike
 }
 
+/**
+ * Options passed to the {@link NockRecorder}
+ * @internal
+ */
 export interface NockRecorderOptions {
   key: string
   clean: (scope: nock.Definition) => nock.Definition
 }
+
+/**
+ * Options where we might not actually have the fields
+ */
 export interface NockRecorderOptionsMaybe {
   key?: string
   clean?: (scope: nock.Definition) => nock.Definition
 }
+
+/**
+ * Options for the {@link NockRecorder#load} method
+ */
 export interface NockRecorderLoadOptions {
   load?: (def: nock.Definition) => nock.Definition
 }
 
-class NockRecorder {
+/**
+ * Class providing the implementation of the `t.nock.snapshot()`
+ * functionality
+ */
+export class NockRecorder {
   #caller: Function | ((...a: any[]) => any)
   #indexes = new Map<string, number>()
   #snapshot: { [k: string]: nock.Definition[] } = {}
@@ -90,6 +115,14 @@ class NockRecorder {
     return this.#state === RECORDING
   }
 
+  /**
+   * Attempt to load the recorded nock snapshot json file.
+   *
+   * If snapshots are being written, then make actual requests and
+   * save the recorded values to the snapshot json file.
+   *
+   * Otherwise, load http request results from the snapshot json.
+   */
   load(name: string, options: NockRecorderLoadOptions = {}) {
     const key = this.#getKey(name)
 
@@ -120,6 +153,9 @@ class NockRecorder {
     return scopes
   }
 
+  /**
+   * Start recording http requests
+   */
   start(name: string, options: NockRecorderOptionsMaybe = {}) {
     if (this.#stack.length) {
       this.#saveState(this.#stack[this.#stack.length - 1])
@@ -143,6 +179,9 @@ class NockRecorder {
     }
   }
 
+  /**
+   * Finish the recording and write state
+   */
   finish() {
     // finish will be called in the reverse order that start was called in, so
     // we pop the most recent test off the stack, store the recorded data for
@@ -151,6 +190,9 @@ class NockRecorder {
     if (def) this.#saveState(def)
   }
 
+  /**
+   * pause the recording
+   */
   pause() {
     if (!this.recording) {
       return
@@ -165,6 +207,9 @@ class NockRecorder {
     this.#state = PAUSED
   }
 
+  /**
+   * resume recording
+   */
   resume() {
     if (!this.paused) {
       return
@@ -178,6 +223,9 @@ class NockRecorder {
     })
   }
 
+  /**
+   * Write the recorded snapshot json to the appropriate file
+   */
   writeSnapshot() {
     if (!this.recording) {
       return
@@ -197,5 +245,3 @@ class NockRecorder {
     )
   }
 }
-
-export default NockRecorder

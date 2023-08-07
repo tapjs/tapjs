@@ -3,7 +3,8 @@ import { plugin as SnapshotPlugin } from '@tapjs/snapshot'
 import { at, CallSiteLike } from '@tapjs/stack'
 import nock from 'nock'
 import { ErrMockNotSatisfied } from './errors.js'
-import NockRecorder, {
+import {
+  NockRecorder,
   NockRecorderLoadOptions,
   NockRecorderOptionsMaybe,
 } from './recorder.js'
@@ -15,7 +16,8 @@ const { removeInterceptor } = nock
 /**
  * Just like the nock() function, but with a .snapshot() method
  *
- * Note that t.nock.snapshot() requires @tapjs/snapshot being loaded.
+ * t.nock.snapshot() requires that @tapjs/snapshot is not disabled, but this
+ * plugin will otherwise function normally without it.
  */
 export type NockMethod = ((
   ...args: Parameters<typeof nock>
@@ -27,6 +29,10 @@ export type NockMethod = ((
   ) => nock.Scope[]
 }
 
+/**
+ * Implementation class providing the {@link TapNock#nock} method
+ * on the Test class.
+ */
 export class TapNock {
   static #refs = new Map<TestBase, TapNock>()
 
@@ -68,10 +74,12 @@ export class TapNock {
     this.#t = t
   }
 
-  // Lazily attach, since the teardown() method doesn't exist at
-  // construct time, since it's provided by another plugin.
-  // While we're at it, save the work of setting up the nock method
-  // as well, until it's actually accessed for the first time.
+  /**
+   * Lazily attached property, since the teardown() method doesn't exist at
+   * construct time, because it's provided by another plugin. While we're at
+   * it, save the work of setting up the nock method as well, until it's
+   * actually accessed for the first time.
+   */
   get nock() {
     this.#doTeardown()
     if (!this.#nock) {
@@ -193,5 +201,8 @@ export class TapNock {
   }
 }
 
+/**
+ * Plugin method that instantiates a {@link TapNock}
+ */
 export const plugin: TapPlugin<TapNock> = (t: TestBase) =>
   new TapNock(t)

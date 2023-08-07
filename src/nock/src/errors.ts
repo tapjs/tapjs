@@ -1,7 +1,10 @@
-import { at, CallSiteLike } from '@tapjs/stack'
 import { TestBase } from '@tapjs/core'
-import nock from 'nock/types/index'
+import { at, CallSiteLike } from '@tapjs/stack'
+import { ScopeWithAt } from './recorder.js'
 
+/**
+ * Error thrown when snapshot data is missing and we try to use it
+ */
 export class ErrMissingSnapshotData extends Error {
   at?: CallSiteLike
   code: string
@@ -16,11 +19,14 @@ export class ErrMissingSnapshotData extends Error {
   }
 }
 
+/**
+ * Error raised when the mocks are not satisfied at test end
+ */
 export class ErrMockNotSatisfied extends Error {
   at?: CallSiteLike
   code: string
   stack: ''
-  constructor(scope: nock.Scope & { _at?: CallSiteLike }) {
+  constructor(scope: ScopeWithAt) {
     super(
       `Mocks not yet satisfied:\n${scope.pendingMocks().join('\n')}`
     )
