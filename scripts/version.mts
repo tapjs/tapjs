@@ -400,13 +400,14 @@ const publish = (names: string[], pre: boolean = false) => {
     // delete the remote tags if it doesn't work
     rollbacks.push(() => git('push', 'origin', `:${pv}`))
   }
-  // push worked, try to publish
+  // push worked, try to publish, skip any private packages
+  const pn = names.filter(n => !manifests[n].private)
   npm(
     { stdio: 'inherit' },
     'publish',
     '--access=public',
     `--tag=${pre ? 'pre' : 'latest'}`,
-    ...names.map(n => `-w=${n}`)
+    ...pn.map(n => `-w=${n}`)
   )
 }
 
