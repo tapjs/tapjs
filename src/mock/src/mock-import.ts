@@ -1,3 +1,7 @@
+/**
+ * Implementation of the mockImport method
+ * @module
+ */
 import * as stack from '@tapjs/stack'
 import { dirname, isAbsolute, resolve } from 'path'
 import { pathToFileURL } from 'url'
@@ -48,6 +52,13 @@ const mungeMocks = (
   return mocks
 }
 
+/**
+ * Function that performs a mock `import()`
+ *
+ * Returns a function that returns the mock key string, and method that
+ * loads the asynchronous function that will load the module and return
+ * a Promise to its exports.
+ */
 export const mockImport: (
   module: string,
   mocks?: { [k: string]: any },

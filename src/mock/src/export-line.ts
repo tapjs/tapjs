@@ -1,4 +1,7 @@
-// utility used in creating the source of a mocked import module
+/**
+ * utility used in creating the source of a mocked import module
+ * @module
+ */
 const [_, version] = process?.version?.match(
   /v([0-9]+)\.[0-9]+\.[0-9]+$/
 ) || ['', '0']
@@ -6,6 +9,10 @@ const [_, version] = process?.version?.match(
 const stringExports = +version >= 16
 
 const exportIndex = new Map<string, number>()
+
+/**
+ * Create the `export` lines in the generated module source
+ */
 export const exportLine = (
   k: string,
   mockSrc: string,

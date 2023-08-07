@@ -1,4 +1,8 @@
 import type { CallSiteLike } from '@tapjs/stack'
+
+/**
+ * The mock objects created for mockImport
+ */
 export interface Mocks {
   key: string
   unmock: () => void

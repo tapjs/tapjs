@@ -40,7 +40,10 @@ try {
 const { hasOwnProperty } = Object.prototype
 const hasOwn = (o: any, k: PropertyKey) => hasOwnProperty.call(o, k)
 
-type MocksWithMocks = Mocks & {
+/**
+ * Mocks that have mock data attached
+ */
+export type MocksWithMocks = Mocks & {
   mocks: Exclude<Mocks['mocks'], undefined>
 }
 const hasMocks = (m: any): m is MocksWithMocks => !!m && !!m.mocks
@@ -61,42 +64,96 @@ export default defExp\n`)
   return src.join('\n')
 }
 
+/**
+ * Context information passed to loader methods
+ *
+ * @internal
+ * @group Node Loader API
+ */
 export interface Context {
   importAssertions: { [k: string]: string }
   conditions: string[]
   parentURL?: string
 }
+
+/**
+ * Result returned by a `resolve()` method
+ *
+ * @internal
+ * @group Node Loader API
+ */
 export interface ResolveResult {
   format?: null | 'builtin' | 'commonjs' | 'json' | 'module' | 'wasm'
   importAssertions?: { [k: string]: string }
   shortCircuit?: boolean
   url: string
 }
+
+/**
+ * Result returned by a `load()` method
+ *
+ * @internal
+ * @group Node Loader API
+ */
 export interface LoadResult {
   format: string
   shortCircuit?: boolean
   source: string | ArrayBuffer | Uint8Array
 }
+
+/**
+ * The next `resolve()` function in the list *
+ *
+ * @internal
+ * @group Node Loader API
+ */
 export type NextResolveFunction = (
   url: string,
   context: Context
 ) => Promise<ResolveResult>
+
+/**
+ * A `resolve()` function in a loader
+ *
+ * @internal
+ * @group Node Loader API
+ */
 export type ResolveFunction = (
   url: string,
   context: Context,
   nextResolve: NextResolveFunction
 ) => Promise<ResolveResult>
+
+/**
+ * A `load()` function exported by a loader
+ *
+ * @internal
+ * @group Node Loader API
+ */
 export type LoadFunction = (
   url: string,
   context: Context,
   nextLoad: NextLoadFunction
 ) => Promise<LoadResult>
+
+/**
+ * The next `load()` function in the chain
+ *
+ * @internal
+ * @group Node Loader API
+ */
 export type NextLoadFunction = (
   url: string,
   context: Context
 ) => Promise<LoadResult>
 
-// legacy functions for node 14
+// TODO: node 14 isn't supported, maybe delete these?
+/**
+ * Legacy loader API
+ *
+ * @internal
+ * @group Node Loader API
+ */
 export const getFormat: ResolveFunction = async (
   url,
   context,
@@ -106,12 +163,24 @@ export const getFormat: ResolveFunction = async (
     ? { url, format: 'module' }
     : resolve(url, context, nextResolve)
 
+/**
+ * Legacy loader API
+ *
+ * @internal
+ * @group Node Loader API
+ */
 export const getSource: LoadFunction = async (
   url,
   context,
   nextLoad
 ) => load(url, context, nextLoad)
 
+/**
+ * Tell node how to load our `tapmock://` fake modules
+ *
+ * @internal
+ * @group Node Loader API
+ */
 export const load: LoadFunction = async (url, context, nextLoad) => {
   if (url.startsWith('tapmock://')) {
     const u = new URL(url)
@@ -141,6 +210,13 @@ export const load: LoadFunction = async (url, context, nextLoad) => {
   return nextLoad(url, context)
 }
 
+/**
+ * Tell node how to resolve our `tapmock://...` synthetic modules,
+ * and their mocks.
+ *
+ * @internal
+ * @group Node Loader API
+ */
 export const resolve: ResolveFunction = async (
   url,
   context,
