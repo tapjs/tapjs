@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/asserts",
-  "version": "0.0.0-8",
+  "version": "0.0.0-9",
   "description": "",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "main": "./dist/cjs/index.js",
@@ -38,7 +38,7 @@
     "coverage-map": "./map.js"
   },
   "peerDependencies": {
-    "@tapjs/core": "0.0.0-8"
+    "@tapjs/core": "0.0.0-9"
   },
   "dependencies": {
     "is-actual-promise": "^1.0.0",
