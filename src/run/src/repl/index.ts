@@ -27,7 +27,10 @@ type NodeCallback = (er: Error | null, result: any) => void
 const KILL_TIMEOUT =
   Number(process.env._TAP_REPL_KILL_TIMEOUT) || 2000
 
-type PrintedProcessInfoNode = {
+/**
+ * A {@link ProcessInfoNode}, as printed to the repl output.
+ */
+export type PrintedProcessInfoNode = {
   date: string
   command: string
   args: string[]

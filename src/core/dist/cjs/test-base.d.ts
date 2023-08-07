@@ -36,7 +36,7 @@ export interface TestBaseOpts extends BaseOpts {
 declare const EOF: unique symbol;
 export type { EOF };
 /**
- * Entries in the {@link Test#queue} awaiting processing
+ * Entries in the {@link TestBase#queue} awaiting processing
  */
 export type QueueEntry = string | TestPoint | Base | typeof EOF | Waiter | [method: string, ...args: any[]] | (() => any);
 /**

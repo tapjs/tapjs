@@ -61,37 +61,37 @@ export default defExp\n`)
   return src.join('\n')
 }
 
-interface Context {
+export interface Context {
   importAssertions: { [k: string]: string }
   conditions: string[]
   parentURL?: string
 }
-interface ResolveResult {
+export interface ResolveResult {
   format?: null | 'builtin' | 'commonjs' | 'json' | 'module' | 'wasm'
   importAssertions?: { [k: string]: string }
   shortCircuit?: boolean
   url: string
 }
-interface LoadResult {
+export interface LoadResult {
   format: string
   shortCircuit?: boolean
   source: string | ArrayBuffer | Uint8Array
 }
-type NextResolveFunction = (
+export type NextResolveFunction = (
   url: string,
   context: Context
 ) => Promise<ResolveResult>
-type ResolveFunction = (
+export type ResolveFunction = (
   url: string,
   context: Context,
   nextResolve: NextResolveFunction
 ) => Promise<ResolveResult>
-type LoadFunction = (
+export type LoadFunction = (
   url: string,
   context: Context,
   nextLoad: NextLoadFunction
 ) => Promise<LoadResult>
-type NextLoadFunction = (
+export type NextLoadFunction = (
   url: string,
   context: Context
 ) => Promise<LoadResult>

@@ -30,10 +30,9 @@ export type PluginOpts<P extends ((t: TestBase, opts: any) => any)[]> = P extend
     ...infer T extends ((t: TestBase, opts: any) => any)[]
 ] ? SecondParam<Parameters<H>> & PluginOpts<T> : {};
 /**
- * Options that may be provided to `t.test()`. Extends
- * {@link Extra}, {@link BaseOpts},
- * {@link TestBaseOpts}, and the second argument to all plugin
- * methods currently in use.
+ * Options that may be provided to `t.test()`. Extends {@link Extra},
+ * {@link BaseOpts}, {@link TestBaseOpts}, and the second
+ * argument to all plugin methods currently in use.
  */
 export type TestOpts = TestBaseOpts & PluginOpts<PluginSet>;
 type PluginSet = [

@@ -113,10 +113,9 @@ export type PluginOpts<
   : {}
 
 /**
- * Options that may be provided to `t.test()`. Extends
- * {@link Extra}, {@link BaseOpts},
- * {@link TestBaseOpts}, and the second argument to all plugin
- * methods currently in use.
+ * Options that may be provided to `t.test()`. Extends {@link Extra},
+ * {@link BaseOpts}, {@link TestBaseOpts}, and the second
+ * argument to all plugin methods currently in use.
  */
 export type TestOpts = TestBaseOpts & PluginOpts<PluginSet>
 

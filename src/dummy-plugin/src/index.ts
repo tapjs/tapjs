@@ -1,6 +1,6 @@
 import { TapPlugin, TestBase } from '@tapjs/core'
 
-class DummyPlugin {
+export class DummyPlugin {
   myOwnDummyProp: string
   #t: TestBase
   #dummyConfig?: {

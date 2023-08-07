@@ -63,7 +63,7 @@ const EOF = Symbol('EOF')
 export type { EOF }
 
 /**
- * Entries in the {@link Test#queue} awaiting processing
+ * Entries in the {@link TestBase#queue} awaiting processing
  */
 export type QueueEntry =
   | string
