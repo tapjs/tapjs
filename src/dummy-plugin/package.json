@@ -3,8 +3,6 @@
   "private": true,
   "version": "0.0.0-9",
   "description": "an example plugin for use in testing tap itself",
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/mjs/index.js",
   "exports": {
     "./package.json": {
       "import": "./package.json",

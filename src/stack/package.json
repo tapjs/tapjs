@@ -3,8 +3,6 @@
   "version": "0.0.0-2",
   "description": "Utility for working with stack traces",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/mjs/index.js",
   "exports": {
     "./package.json": {
       "import": "./package.json",

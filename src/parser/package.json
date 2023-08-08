@@ -2,9 +2,6 @@
   "name": "tap-parser",
   "version": "15.0.0-0",
   "description": "parse the test anything protocol",
-  "main": "dist/cjs/index.js",
-  "types": "dist/cjs/index.d.ts",
-  "module": "dist/mjs/index.js",
   "exports": {
     ".": {
       "import": {

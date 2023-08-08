@@ -6,9 +6,6 @@
   "bin": {
     "generate-tap-test-class": "scripts/build.mjs"
   },
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/mjs/index.js",
-  "types": "./dist/mjs/index.d.ts",
   "exports": {
     "./package.json": {
       "import": "./package.json",

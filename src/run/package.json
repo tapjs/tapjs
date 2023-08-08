@@ -3,8 +3,6 @@
   "version": "0.0.0-10",
   "description": "Command-line interface for the node-tap runner",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
   "type": "module",
   "bin": {
     "tap-run": "dist/index.js"

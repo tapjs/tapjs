@@ -2,8 +2,6 @@
   "name": "@tapjs/sinon",
   "version": "0.0.0-9",
   "description": "a sinon extension for tap",
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/mjs/index.js",
   "exports": {
     "./package.json": {
       "import": "./package.json",

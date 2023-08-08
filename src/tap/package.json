@@ -7,9 +7,6 @@
   "bin": {
     "tap": "dist/mjs/run.mjs"
   },
-  "module": "./dist/mjs/esm.mjs",
-  "main": "./dist/cjs/cjs.cjs",
-  "types": "./dist/cjs/cjs.d.cts",
   "exports": {
     "./package.json": {
       "import": "./package.json",

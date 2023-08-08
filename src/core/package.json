@@ -3,9 +3,6 @@
   "version": "0.0.0-9",
   "description": "pluggable core of node-tap",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/mjs/index.js",
-  "types": "./dist/mjs/index.d.ts",
   "exports": {
     "./package.json": {
       "import": "./package.json",
