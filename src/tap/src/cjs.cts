@@ -1,5 +1,17 @@
-import { t, TAP } from './index.js'
+/**
+ * The main tap export, CJS style
+ *
+ * The only different between this and the ESM export is that, because a
+ * CJS default export cannot co-exist with exported types, we have to make
+ * the types available as a global namespace. Which, isn't exactly the most
+ * elegant thing in the world, since it can conflict with any other module
+ * that defines a `tap` global namespace, but at least it's common enough
+ * that it doesn't read as too strange or unintuitive.
+ *
+ * @module
+ */
 import * as items from './index.js'
+import { t, TAP } from './index.js'
 
 // this has to be done in a somewhat tricky way, because Test objects are
 // actually proxies, in order to host all of their plugins. Those proxies
@@ -24,19 +36,38 @@ Object.defineProperty(t, 'default', {
   configurable: true,
 })
 
-// Because we can't export types in a clean way, this is the hacky workaround
+// Can't export types along with a default export, so this conventional hack
 // Just dump em into the global in the 'tap' namespace.
 declare global {
+  /**
+   * All exported types from the `@tapjs/core` module are exported
+   * here into the global `tap` namespace.
+   */
   namespace tap {
     export type Base = items.Base
-    export type TestBase = items.TestBase
-    export type Stdin = items.Stdin
-    export type Spawn = items.Spawn
-    export type Worker = items.Worker
-    export type Test = items.Test
-    export type TAP = items.TAP
+    export type BaseOpts = items.BaseOpts
     export type Counts = items.Counts
+    export type Extra = items.Extra
     export type Lists = items.Lists
+    export type Minimal = items.Minimal
+    export type Spawn = items.Spawn
+    export type SpawnEvents = items.SpawnEvents
+    export type SpawnOpts = items.SpawnOpts
+    export type Stdin = items.Stdin
+    export type StdinEvents = items.StdinEvents
+    export type StdinOpts = items.StdinOpts
+    export type TapBaseEvents = items.TapBaseEvents
+    export type TestBase = items.TestBase
+    export type TestBaseEvents = items.TestBaseEvents
+    export type TestBaseOpts = items.TestBaseOpts
+    export type Worker = items.Worker
+    export type WorkerEvents = items.WorkerEvents
+    export type WorkerOpts = items.WorkerOpts
+
+    export type TapPlugin<
+      T extends Object,
+      O extends unknown = unknown
+    > = items.TapPlugin<T, O>
   }
 }
 export = t as TAP & typeof items

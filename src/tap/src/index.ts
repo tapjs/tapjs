@@ -2,12 +2,25 @@ import { PromiseWithSubtest, TAP, tap } from '@tapjs/core'
 import type { BuiltPlugins, Test, TestOpts } from '@tapjs/test'
 export {
   Base,
+  BaseOpts,
   Counts,
+  Extra,
   Lists,
+  Minimal,
   Spawn,
+  SpawnEvents,
+  SpawnOpts,
   Stdin,
+  StdinEvents,
+  StdinOpts,
+  TapBaseEvents,
+  TapPlugin,
   TestBase,
+  TestBaseEvents,
+  TestBaseOpts,
   Worker,
+  WorkerEvents,
+  WorkerOpts,
 } from '@tapjs/core'
 export { Test } from '@tapjs/test'
 export type { TestOpts } from '@tapjs/test'
@@ -49,6 +62,12 @@ type SubtestMethod = {
 export const test = t.test.bind(t) as SubtestMethod
 export const skip = t.skip.bind(t) as SubtestMethod
 export const todo = t.todo.bind(t) as SubtestMethod
+
+// because t.only is provided by a plugin which can be disabled,
+// it has to be conditionally handled here. When building without
+// the `@tapjs/filter` plugin, this will be undefined.
+const o = t as TAP & { only?: SubtestMethod }
+export const only = o.only?.bind(o) as SubtestMethod
 
 export const bailout = t.bailout.bind(t)
 export const comment = t.comment.bind(t)
