@@ -14,6 +14,8 @@ import {
   hasStrict,
   match,
   matchOnly,
+  matchOnlyStrict,
+  matchStrict,
   same,
   strict,
 } from 'tcompare'
@@ -446,6 +448,93 @@ export class Assertions {
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('should not match pattern', args)
     const { match: ok } = matchOnly(found, doNotWant, this.#opts)
+    if (!ok) return this.#t.pass(...me)
+    Object.assign(me[1], { found, doNotWant })
+    return this.#t.fail(...me)
+  }
+
+  /**
+   * Verify that the value matches the pattern provided, with no
+   * extra properties.
+   */
+  matchOnlyStrict(
+    found: any,
+    wanted: any,
+    ...[msg, extra]: MessageExtra
+  ) {
+    // this.#t.currentAssert = this.#t.t.matchOnlyStrict
+    const args = [msg, extra] as MessageExtra
+    const me = normalizeMessageExtra('should match pattern', args)
+    const { match: ok, diff } = matchOnlyStrict(
+      found,
+      wanted,
+      this.#opts
+    )
+    if (ok) return this.#t.pass(...me)
+    Object.assign(me[1], { diff })
+    return this.#t.fail(...me)
+  }
+
+  /**
+   * Verify that the value does not match the pattern provided, with no
+   * extra properties. Ie, it might either not match, or have extra props.
+   */
+  notMatchOnlyStrict(
+    found: any,
+    doNotWant: any,
+    ...[msg, extra]: MessageExtra
+  ) {
+    // this.#t.currentAssert = this.#t.t.notMatchOnlyStrict
+    const args = [msg, extra] as MessageExtra
+    const me = normalizeMessageExtra('should not match pattern', args)
+    const { match: ok } = matchOnlyStrict(
+      found,
+      doNotWant,
+      this.#opts
+    )
+    if (!ok) return this.#t.pass(...me)
+    Object.assign(me[1], { found, doNotWant })
+    return this.#t.fail(...me)
+  }
+
+  /**
+   * Verify that the value matches the pattern provided, but fail if any
+   * fields *only* match via type coercion.
+   *
+   * For example,
+   *
+   * ```ts
+   * t.matchStrict({ a: 1 }, { a: Number }, 'this passes')
+   * t.matchStrict({ a: 1 }, { a: '1' }, 'this fails')
+   * ```
+   */
+  matchStrict(
+    found: any,
+    wanted: any,
+    ...[msg, extra]: MessageExtra
+  ) {
+    this.#t.currentAssert = this.#t.t.matchStrict
+    const args = [msg, extra] as MessageExtra
+    const me = normalizeMessageExtra('should match pattern', args)
+    const { match: ok, diff } = matchStrict(found, wanted, this.#opts)
+    if (ok) return this.#t.pass(...me)
+    Object.assign(me[1], { diff })
+    return this.#t.fail(...me)
+  }
+
+  /**
+   * Verify that the value does not match the pattern provided, without
+   * type coercion.
+   */
+  notMatchStrict(
+    found: any,
+    doNotWant: any,
+    ...[msg, extra]: MessageExtra
+  ) {
+    this.#t.currentAssert = this.#t.t.notMatchStrict
+    const args = [msg, extra] as MessageExtra
+    const me = normalizeMessageExtra('should not match pattern', args)
+    const { match: ok } = matchStrict(found, doNotWant, this.#opts)
     if (!ok) return this.#t.pass(...me)
     Object.assign(me[1], { found, doNotWant })
     return this.#t.fail(...me)

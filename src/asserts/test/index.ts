@@ -219,6 +219,40 @@ t.test('matchOnly, notMatchOnly', t => {
   t.end()
 })
 
+t.test('matchStrict, notMatchStrict', t => {
+  const [_, a] = ta()
+
+  t.ok(a.matchStrict({ a: 1 }, { a: Number }))
+  t.ok(a.matchStrict({ a: 1, b: 2 }, { a: Number }))
+  t.notOk(a.matchStrict({ a: '1' }, { a: Number }))
+  t.notOk(a.matchStrict({ a: '1' }, { a: 1 }))
+
+  t.notOk(a.notMatchStrict({ a: 1 }, { a: Number }))
+  t.notOk(a.notMatchStrict({ a: 1, b: 2 }, { a: Number }))
+  t.ok(a.notMatchStrict({ a: '1' }, { a: Number }))
+  t.ok(a.notMatchStrict({ a: '1' }, { a: 1 }))
+
+  t.end()
+})
+
+
+t.test('matchOnlyStrict, notMatchOnlyStrict', t => {
+  const [_, a] = ta()
+
+  t.ok(a.matchOnlyStrict({ a: 1 }, { a: Number }))
+  t.notOk(a.matchOnlyStrict({ a: 1, b: 2 }, { a: Number }))
+  t.notOk(a.matchOnlyStrict({ a: '1' }, { a: Number }))
+  t.notOk(a.matchOnlyStrict({ a: '1' }, { a: 1 }))
+
+  t.notOk(a.notMatchOnlyStrict({ a: 1 }, { a: Number }))
+  t.ok(a.notMatchOnlyStrict({ a: 1, b: 2 }, { a: Number }))
+  t.ok(a.notMatchOnlyStrict({ a: '1' }, { a: Number }))
+  t.ok(a.notMatchOnlyStrict({ a: '1' }, { a: 1 }))
+
+  t.end()
+})
+
+
 t.test('hasProp, hasOwnProp, hasProps, hasOwnProps', t => {
   const [_, a] = ta()
   t.ok(a.hasProp({ a: 1 }, 'a'))
