@@ -5,181 +5,203 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/index.ts > TAP > must match snapshot 1`] = `
+exports[`test/index.ts > TAP > format 1`] = `
 Object {
   "a": 1,
 }
 `
 
-exports[`test/index.ts > TAP > must match snapshot 10`] = `
-Object {
-  "diff": "",
-  "match": true,
-}
-`
-
-exports[`test/index.ts > TAP > must match snapshot 11`] = `
-Object {
-  "diff": "",
-  "match": true,
-}
-`
-
-exports[`test/index.ts > TAP > must match snapshot 12`] = `
-Object {
-  "diff": "",
-  "match": true,
-}
-`
-
-exports[`test/index.ts > TAP > must match snapshot 13`] = `
-Object {
-  "diff": "",
-  "match": true,
-}
-`
-
-exports[`test/index.ts > TAP > must match snapshot 14`] = `
-Object {
-  "diff": "",
-  "match": true,
-}
-`
-
-exports[`test/index.ts > TAP > must match snapshot 15`] = `
-Object {
-  "diff": "",
-  "match": true,
-}
-`
-
-exports[`test/index.ts > TAP > must match snapshot 16`] = `
-Object {
-  "diff": "",
-  "match": true,
-}
-`
-
-exports[`test/index.ts > TAP > must match snapshot 17`] = `
+exports[`test/index.ts > TAP > Format 1`] = `
 Object {
   "a": 1,
 }
 `
 
-exports[`test/index.ts > TAP > must match snapshot 18`] = `
-
-`
-
-exports[`test/index.ts > TAP > must match snapshot 19`] = `
-
-`
-
-exports[`test/index.ts > TAP > must match snapshot 2`] = `
-Object {
-  "diff": "",
-  "match": true,
-}
-`
-
-exports[`test/index.ts > TAP > must match snapshot 20`] = `
-
-`
-
-exports[`test/index.ts > TAP > must match snapshot 21`] = `
-
-`
-
-exports[`test/index.ts > TAP > must match snapshot 22`] = `
-
-`
-
-exports[`test/index.ts > TAP > must match snapshot 23`] = `
-
-`
-
-exports[`test/index.ts > TAP > must match snapshot 24`] = `
-
-`
-
-exports[`test/index.ts > TAP > must match snapshot 25`] = `
+exports[`test/index.ts > TAP > Format 2`] = `
 {
   "a": 1,
 }
 `
 
-exports[`test/index.ts > TAP > must match snapshot 26`] = `
-
-`
-
-exports[`test/index.ts > TAP > must match snapshot 27`] = `
-
-`
-
-exports[`test/index.ts > TAP > must match snapshot 28`] = `
-
-`
-
-exports[`test/index.ts > TAP > must match snapshot 29`] = `
-
-`
-
-exports[`test/index.ts > TAP > must match snapshot 3`] = `
-Object {
-  "diff": "",
-  "match": true,
-}
-`
-
-exports[`test/index.ts > TAP > must match snapshot 30`] = `
-
-`
-
-exports[`test/index.ts > TAP > must match snapshot 31`] = `
-
-`
-
-exports[`test/index.ts > TAP > must match snapshot 32`] = `
-
-`
-
-exports[`test/index.ts > TAP > must match snapshot 4`] = `
-Object {
-  "diff": "",
-  "match": true,
-}
-`
-
-exports[`test/index.ts > TAP > must match snapshot 5`] = `
-Object {
-  "diff": "",
-  "match": true,
-}
-`
-
-exports[`test/index.ts > TAP > must match snapshot 6`] = `
-Object {
-  "diff": "",
-  "match": true,
-}
-`
-
-exports[`test/index.ts > TAP > must match snapshot 7`] = `
-Object {
-  "diff": "",
-  "match": true,
-}
-`
-
-exports[`test/index.ts > TAP > must match snapshot 8`] = `
-Object {
-  "diff": "",
-  "match": true,
-}
-`
-
-exports[`test/index.ts > TAP > must match snapshot 9`] = `
+exports[`test/index.ts > TAP > format opt 1`] = `
 {
   "a": 1,
+}
+`
+
+exports[`test/index.ts > TAP > has 1`] = `
+Object {
+  "diff": "",
+  "match": true,
+}
+`
+
+exports[`test/index.ts > TAP > Has 1`] = `
+
+`
+
+exports[`test/index.ts > TAP > Has 2`] = `
+
+`
+
+exports[`test/index.ts > TAP > has opt 1`] = `
+Object {
+  "diff": "",
+  "match": true,
+}
+`
+
+exports[`test/index.ts > TAP > hasStrict 1`] = `
+Object {
+  "diff": "",
+  "match": true,
+}
+`
+
+exports[`test/index.ts > TAP > HasStrict 1`] = `
+
+`
+
+exports[`test/index.ts > TAP > HasStrict 2`] = `
+
+`
+
+exports[`test/index.ts > TAP > hasStrict opt 1`] = `
+Object {
+  "diff": "",
+  "match": true,
+}
+`
+
+exports[`test/index.ts > TAP > match 1`] = `
+Object {
+  "diff": "",
+  "match": true,
+}
+`
+
+exports[`test/index.ts > TAP > Match 1`] = `
+
+`
+
+exports[`test/index.ts > TAP > Match 2`] = `
+
+`
+
+exports[`test/index.ts > TAP > match opt 1`] = `
+Object {
+  "diff": "",
+  "match": true,
+}
+`
+
+exports[`test/index.ts > TAP > matchOnly 1`] = `
+Object {
+  "diff": "",
+  "match": true,
+}
+`
+
+exports[`test/index.ts > TAP > MatchOnly 1`] = `
+
+`
+
+exports[`test/index.ts > TAP > MatchOnly 2`] = `
+
+`
+
+exports[`test/index.ts > TAP > matchOnly opt 1`] = `
+Object {
+  "diff": "",
+  "match": true,
+}
+`
+
+exports[`test/index.ts > TAP > matchOnlyStrict 1`] = `
+Object {
+  "diff": "",
+  "match": true,
+}
+`
+
+exports[`test/index.ts > TAP > MatchOnlyStrict 1`] = `
+
+`
+
+exports[`test/index.ts > TAP > MatchOnlyStrict 2`] = `
+
+`
+
+exports[`test/index.ts > TAP > matchOnlyStrict opt 1`] = `
+Object {
+  "diff": "",
+  "match": true,
+}
+`
+
+exports[`test/index.ts > TAP > matchStrict 1`] = `
+Object {
+  "diff": "",
+  "match": true,
+}
+`
+
+exports[`test/index.ts > TAP > MatchStrict 1`] = `
+
+`
+
+exports[`test/index.ts > TAP > MatchStrict 2`] = `
+
+`
+
+exports[`test/index.ts > TAP > matchStrict opt 1`] = `
+Object {
+  "diff": "",
+  "match": true,
+}
+`
+
+exports[`test/index.ts > TAP > same 1`] = `
+Object {
+  "diff": "",
+  "match": true,
+}
+`
+
+exports[`test/index.ts > TAP > Same 1`] = `
+
+`
+
+exports[`test/index.ts > TAP > Same 2`] = `
+
+`
+
+exports[`test/index.ts > TAP > same opt 1`] = `
+Object {
+  "diff": "",
+  "match": true,
+}
+`
+
+exports[`test/index.ts > TAP > strict 1`] = `
+Object {
+  "diff": "",
+  "match": true,
+}
+`
+
+exports[`test/index.ts > TAP > Strict 1`] = `
+
+`
+
+exports[`test/index.ts > TAP > Strict 2`] = `
+
+`
+
+exports[`test/index.ts > TAP > strict opt 1`] = `
+Object {
+  "diff": "",
+  "match": true,
 }
 `
 

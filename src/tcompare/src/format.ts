@@ -1,8 +1,4 @@
-// Format is the base class for all other comparators, and used
-// directly by comparators for their "simplePrint" methods.
-// It doesn't do comparison, just formatting.
-
-import type { Style } from './styles.js'
+import { Style, StyleType } from './styles.js'
 import { styles } from './styles.js'
 
 const arrayFrom = (obj: any) => {
@@ -16,23 +12,73 @@ const arrayFrom = (obj: any) => {
 const { toString } = Object.prototype
 const objToString = (obj: any) => toString.call(obj)
 
+/**
+ * The base class for all other comparators, and used
+ * directly by comparators for their "simplePrint" methods.
+ * It doesn't do comparison, just formatting.
+ */
 export interface FormatOptions {
+  /** set when formatting keys and values of collections */
   parent?: Format
+  /** sort items alphabetically by key */
   sort?: boolean
-  // overridden in child classes when doing simplePrint()
+  /**
+   * test whether an object has been seen, and get a reference to the
+   * Format handling them, if so.
+   *
+   * overridden in child classes when doing simplePrint()
+   */
   seen?: (obj?: any) => false | Format
-  style?: string
+  /** how to print this thing */
+  style?: StyleType
+  /**
+   * optinally override {@link Style#bufferChunkSize }
+   * */
   bufferChunkSize?: number
+  /**
+   * Set when printing child fields
+   *
+   * @internal
+   */
   key?: any
-  // used when formatting Map keys
+  /**
+   * used when formatting Map keys
+   *
+   * @internal
+   */
   isKey?: boolean
+  /**
+   * level within the object graph being printed
+   *
+   * @internal
+   */
   level?: number
+  /**
+   * indentation level of this object within the object graph
+   *
+   * @internal
+   */
   indent?: string
+  /**
+   * used when provisionally exploring a path for comparison
+   *
+   * @internal
+   */
   provisional?: boolean
+  /**
+   * Include any and all enumerable properties, including those inherited on
+   * the prototype chain. By default, only `own` properties are printed.
+   */
   includeEnumerable?: boolean
+  /**
+   * Include getter properties
+   */
   includeGetters?: boolean
 
-  // ignored in this class, but used in all children
+  /**
+   * The object being compared against in comparison classes. (Not used
+   * in {@link Format}.)
+   */
   expect?: any
 }
 

@@ -1,5 +1,9 @@
 import { Format } from './format.js'
 import { Same } from './same.js'
+/**
+ * The same as {@link Same}, but ignore any fields present in the
+ * test object and not present in the expect pattern.
+ */
 export class Has extends Same {
   // don't care about object shape, only that it has
   // matching fields of the same type.

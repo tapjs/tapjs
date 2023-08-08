@@ -1,5 +1,6 @@
 import { tap } from '@tapjs/core'
 import { format, Format } from '../dist/cjs/index.js'
+import { StyleType } from '../src/styles.js'
 const t = tap()
 
 // this is here so we can work with assertion errors and other
@@ -128,7 +129,7 @@ t.test('gnarly object, many points of view', t => {
   f.s.add(f)
   f.m.set(f, k)
 
-  const styles = ['pretty', 'js', 'tight']
+  const styles: StyleType[] = ['pretty', 'js', 'tight']
   for (const style of styles) {
     t.matchSnapshot(cleanNodeNames(format(f, { style })), style)
   }
@@ -174,7 +175,7 @@ t.test('other misc', t => {
   )
 
   t.throws(
-    () => new Format(1, { style: 'nyancat' }),
+    () => new Format(1, { style: 'nyancat' as StyleType }),
     new TypeError(`unknown style: nyancat`)
   )
 
@@ -345,7 +346,7 @@ t.test('nodeId() method', t => {
 
 t.test('error without name/message', t => {
   const objs = [{ hello: 'world' }, {}]
-  const styles = ['pretty', 'js', 'tight']
+  const styles: StyleType[] = ['pretty', 'js', 'tight']
 
   t.plan(objs.length)
   for (const obj of objs) {
@@ -377,13 +378,16 @@ t.test('do not fail on throwing getter', t => {
       return 3
     },
   }
-  t.equal(format(obj), `Object {
+  t.equal(
+    format(obj),
+    `Object {
   "a": 1,
   "b": Object {
     "c": 2,
   },
   "d": undefined,
   "e": 3,
-}`)
+}`
+  )
   t.end()
 })

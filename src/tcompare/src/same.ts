@@ -1,21 +1,3 @@
-// Same is the base class for all comparators
-//
-// We walk through both of the expect and actual objects,
-// creating a Same node for each field in common, based on
-// their similarity:
-// - true (they're a match) omit from the result (the child node is discarded)
-// - false (they're simply nonmatching) format both expect and object
-// - COMPLEX - walk through child nodes
-//   - if match: child node is discarded
-//   - else, child node is retained (along with its non-matching children)
-//
-// We 'discard' by just having the print method return ''
-//
-// When walking child nodes, we use the shouldCompare(key) method to determine
-// whether to check a given field.  In this class, this is always true (because
-// we are testing for full deep sameness), but in Has classes, it's more
-// complicated (only test nodes that exist in the expect object).
-
 import { createTwoFilesPatch } from 'diff'
 
 import { Format, FormatOptions } from './format.js'
@@ -31,14 +13,41 @@ const arrayFrom = (obj: any) => {
 const { hasOwnProperty } = Object.prototype
 const { defineProperty } = Object
 
+/**
+ * Options for all comparator operations
+ */
 export interface SameOptions extends FormatOptions {
+  /** the pattern to test against */
   expect: any
   parent?: Same
   key?: any
   expectKey?: any
+  /**
+   * how many lines of context to print around changes in diffs
+   * @default 10
+   */
   diffContext?: number
 }
 
+/**
+ * Base class for all comparators
+ *
+ * We walk through both of the expect and actual objects,
+ * creating a Same node for each field in common, based on
+ * their similarity:
+ * - true (they're a match) omit from the result (the child node is discarded)
+ * - false (they're simply nonmatching) format both expect and object
+ * - COMPLEX - walk through child nodes
+ *   - if match: child node is discarded
+ *   - else, child node is retained (along with its non-matching children)
+ *
+ * We 'discard' by just having the print method return ''
+ *
+ * When walking child nodes, we use the shouldCompare(key) method to determine
+ * whether to check a given field.  In this class, this is always true (because
+ * we are testing for full deep sameness), but in {@link Has} and subclasses,
+ * it's more complicated (only test nodes that exist in the expect object).
+ */
 export class Same extends Format {
   provisional: boolean
   expect: any

@@ -1,5 +1,24 @@
 import { Format } from './format.js'
 import { Has } from './has.js'
+
+/**
+ * The loosed and most flexibly magical matching strategy.
+ *
+ * - If the objects pass the {@link Has} test, then return true.
+ * - If the pattern is a regular expression, then test it against the
+ *   string form of the test value.
+ * - If the pattern is a string, and the test value is a string, then test
+ *   that the pattern appears somewhere in the test value.
+ * - If the pattern is a string, and the test value is a Date, then test
+ *   parse the pattern as a Date and verify that they have the same value
+ * - If the pattern is a constructor, then test that the value is an
+ *   instance of the constructor. In the case of scalar constructors, like
+ *   Number, Boolean, etc, also pass if the `typeof` the value matches.
+ *   That is `Match(1, { expect: Number })` passes.
+ * - If the pattern is the `Array` constructor, then pass for any iterable
+ *   valuef.
+ */
+
 export class Match extends Has {
   test(): boolean | 'COMPLEX' {
     const obj = this.object

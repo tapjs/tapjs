@@ -16,8 +16,9 @@ import {
   strict,
   has,
   hasStrict,
-  matchOnly,
   matchStrict,
+  matchOnly,
+  matchOnlyStrict,
 } from 'tcompare'
 import type { Result } from 'tcompare'
 
@@ -99,8 +100,12 @@ object. (That is, `{diff:string, match:boolean}`.)
   properties that are not present in the `pattern`.
 - `matchStrict(object, pattern, [options])` - Same comparison
   testing as `match()`, but will fail when two values are
-  equivalent but not strictly equal. (That is, when `a == b &&
-!(a === b)`.)
+  equivalent but not strictly equal. (That is, when
+  `a == b && !(a === b)`.)
+- `matchOnlyStrict(object, pattern, [options])` - Same comparison
+  testing as `matchOnly()`, but will fail when two values are
+  equivalent but not strictly equal. (That is, when
+  `a == b && !(a === b)`.)
 
 There are classes exported to correspond to each of these. All of these are
 instantiated like `new Format(object, options)`. An `expect` option is
@@ -125,6 +130,7 @@ Format
     |   +-- Match
     |       +-- MatchStrict (fails if a==b && a!==b)
     +-- MatchOnly (uses Match.prototype.test)
+    +-- MatchOnlyStrict (uses MatchStrict.prototype.test)
 ```
 
 In order to compare or print an object, instantiate one of the
