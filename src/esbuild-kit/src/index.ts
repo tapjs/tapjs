@@ -46,11 +46,21 @@ Please run: tap plugin rm @tapjs/typescript
  * @group Configuration
  */
 export const config = {
+  /**
+   * String option. Tell `@esbuild-kit` where to find your tsconfig.json file.
+   *
+   * @group Configuration
+   */
   'esbk-tsconfig-path': {
     type: 'string',
     description: `Tell @esbuild-kit where to find your
                   tsconfig.json file.`,
   },
+  /**
+   * Flag. Tell `@esbuild-kit` not to use a cache
+   *
+   * @group Configuration
+   */
   'esbk-disable-cache': {
     type: 'boolean',
     description: `Tell @esbuild-kit not to use a cache`,

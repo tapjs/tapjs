@@ -170,6 +170,14 @@ export const plugin: TapPlugin<Filter, FilterOptions> = (t, opts) =>
  * @group Configuration
  */
 export const config = {
+  /**
+   * flag
+   *
+   * Only run tests with {only: true} option, or created with t.only(...)
+   * function.
+   *
+   * @group Configuration
+   */
   only: {
     type: 'boolean',
     short: 'O',
@@ -177,6 +185,21 @@ export const config = {
                     t.only(...) function.`,
   },
 
+  /**
+   * string option
+   *
+   * Only run subtests tests matching the specified pattern.
+   *
+   * Patterns are matched against top-level subtests in each
+   * file.  To filter tests at subsequent levels, specify this
+   * option multiple times.
+   *
+   * To specify regular expression flags, format pattern like a
+   * JavaScript RegExp literal.  For example: '/xyz/i' for
+   * case-insensitive matching.
+   *
+   * @group Configuration
+   */
   grep: {
     type: 'string',
     multiple: true,
@@ -193,6 +216,13 @@ export const config = {
                   case-insensitive matching.`,
   },
 
+  /**
+   * flag
+   *
+   * Invert the matches to --grep patterns. (Like grep -v)
+   *
+   * @group Configuration
+   */
   invert: {
     type: 'boolean',
     short: 'i',
@@ -200,6 +230,13 @@ export const config = {
       'Invert the matches to --grep patterns. (Like grep -v)',
   },
 
+  /**
+   * flag
+   *
+   * Do not invert the matches to --grep patterns. (default)
+   *
+   * @group Configuration
+   */
   'no-invert': {
     type: 'boolean',
     short: 'I',

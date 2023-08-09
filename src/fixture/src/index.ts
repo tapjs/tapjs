@@ -117,7 +117,19 @@ export const plugin: TapPlugin<TestFixtures, TestFixturesOptions> = (
   opts: TestFixturesOptions
 ) => new TestFixtures(t, opts)
 
+/**
+ * Options added by this plugin
+ *
+ * @group Configuration
+ */
 export const config = {
+  /**
+   * flag
+   *
+   * Do not clean up fixtures created with t.testdir()
+   *
+   * @group Configuration
+   */
   'save-fixture': {
     type: 'boolean',
     short: 'F',

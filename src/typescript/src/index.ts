@@ -20,7 +20,33 @@ export const plugin: TapPlugin<{}> = () => {
   return {}
 }
 
+/**
+ * Options added by this plugin
+ *
+ * @group Configuration
+ */
 export const config = {
+
+  /**
+   * flag
+   *
+   * Type-check typescript test files, in addition to transpiling and running
+   * them.
+   *
+   * This defaults to being set, and type checking your tests is generally a
+   * good idea. However, it is also often considerably slower, adding as much
+   * as half a second to each test suite file, which can be painful if you have
+   * a lot of test files.
+   *
+   * If you find that your typescript tests are taking too long to run, and
+   * decide to disable type checking, it is best to enable it in CI, for
+   * example by setting TAP_TYPECHECK=1 in the environment.
+   *
+   * The `"skipLibCheck": true` option in tsconfig will also speed things up a
+   * bit, at the expense of some type safety.
+   *
+   * @group Configuration
+   */
   typecheck: {
     type: 'boolean',
     default: true,

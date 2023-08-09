@@ -29,6 +29,10 @@ const coverageReporters = [
 const testReporters = ['base', 'terse']
 
 /**
+ * Configuration options for TAP core.
+ *
+ * Documentation available via `tap -h`
+ *
  * @see {@link https://npmjs.com/jackspeak}
  */
 export default jack({
