@@ -3,7 +3,7 @@ import {
   Assertions,
   AssertOptions,
   plugin,
-} from '../dist/cjs/index.js'
+} from '../dist/mjs/index.js'
 t.equal(t.pluginLoaded(plugin), true, 'plugin loaded by default')
 
 import { EventEmitter } from 'node:events'

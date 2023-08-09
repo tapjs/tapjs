@@ -1,5 +1,5 @@
 import t from 'tap'
-import { diags } from '../dist/cjs/diags.js'
+import { diags } from '../dist/mjs/diags.js'
 
 t.matchSnapshot(diags({}), 'empty object')
 //@ts-expect-error

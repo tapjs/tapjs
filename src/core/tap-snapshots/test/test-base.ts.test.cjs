@@ -288,7 +288,6 @@ TAP version 14
     not ok 2 - internal stuff
       ---
       tapCaught: testFunctionThrow
-      test: child
       ...
     
     1..2
@@ -319,8 +318,6 @@ TAP version 14
       ---
       a: 1
       expired: timeout
-      message: timeout!
-      test: child
       ...
     
     1..1
@@ -349,7 +346,6 @@ TAP version 14
 not ok 1 - timeout!
   ---
   expired: timeout
-  message: timeout!
   test: timeout
   ...
 

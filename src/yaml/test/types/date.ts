@@ -1,5 +1,5 @@
 import t from 'tap'
-import * as yaml from '../..'
+import * as yaml from '../../src/index.js'
 const o = new Date('1979-07-01')
 const s1 = yaml.stringify(o)
 t.equal(s1, '!!timestamp 1979-07-01\n', 'first stringify')

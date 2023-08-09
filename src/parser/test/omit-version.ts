@@ -5,7 +5,7 @@ ok 1 - this is fine
 1..1
 `
 
-import { Parser as P } from '../'
+import { Parser as P } from '../dist/mjs/index.js'
 import etoa from 'events-to-array'
 const ignore = [
   'pipe',

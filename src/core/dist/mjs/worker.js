@@ -2,6 +2,7 @@ import { Base } from './base.js';
 import { cwd, env } from './proc.js';
 import { format } from 'node:util';
 import { Worker as NodeWorker } from 'node:worker_threads';
+import { throwToParser } from './throw-to-parser.js';
 /**
  * Class representing a TAP generating node worker thread
  *
@@ -63,6 +64,9 @@ export class Worker extends Base {
         this.worker.on('exit', () => this.#onworkerexit());
         this.worker.on('message', m => this.comment(m));
         this.emit('process', this.worker);
+    }
+    threw(er, extra) {
+        return throwToParser(this.parser, super.threw(er, extra));
     }
     #onworkerexit() {
         this.#workerEnded = true;

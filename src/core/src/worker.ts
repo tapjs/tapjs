@@ -1,10 +1,12 @@
 import { Base, TapBaseEvents } from './base.js'
 import { cwd, env } from './proc.js'
-import { TestBaseOpts } from './test-base.js'
 
 import { format } from 'node:util'
 import { Worker as NodeWorker } from 'node:worker_threads'
 import { FinalResults } from 'tap-parser'
+import { Extra } from './index.js'
+import { TestBaseOpts } from './test-base.js'
+import { throwToParser } from './throw-to-parser.js'
 
 /**
  * Events emitted by {@link Worker} instances
@@ -105,6 +107,10 @@ export class Worker extends Base<WorkerEvents> {
     this.worker.on('exit', () => this.#onworkerexit())
     this.worker.on('message', m => this.comment(m))
     this.emit('process', this.worker)
+  }
+
+  threw(er: any, extra?: Extra): Extra | void | undefined {
+    return throwToParser(this.parser, super.threw(er, extra))
   }
 
   #onworkerexit() {

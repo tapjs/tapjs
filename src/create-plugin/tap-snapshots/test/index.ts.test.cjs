@@ -39,8 +39,6 @@ Object {
     "dist",
   ],
   "license": "BlueOak-1.0.0",
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/mjs/index.js",
   "name": "@xyz/my-plugin-name",
   "prettier": Object {
     "arrowParens": "avoid",

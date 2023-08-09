@@ -5,6 +5,7 @@ const base_js_1 = require("./base.js");
 const proc_js_1 = require("./proc.js");
 const node_util_1 = require("node:util");
 const node_worker_threads_1 = require("node:worker_threads");
+const throw_to_parser_js_1 = require("./throw-to-parser.js");
 /**
  * Class representing a TAP generating node worker thread
  *
@@ -66,6 +67,9 @@ class Worker extends base_js_1.Base {
         this.worker.on('exit', () => this.#onworkerexit());
         this.worker.on('message', m => this.comment(m));
         this.emit('process', this.worker);
+    }
+    threw(er, extra) {
+        return (0, throw_to_parser_js_1.throwToParser)(this.parser, super.threw(er, extra));
     }
     #onworkerexit() {
         this.#workerEnded = true;

@@ -1,7 +1,11 @@
 import { TestBase, TestBaseOpts } from '@tapjs/core'
 import { CallSiteLike } from '@tapjs/stack'
 import t from 'tap'
-import { CaptureResultsMethod, InterceptResultsMethod, plugin } from '../dist/cjs/index.js'
+import {
+  CaptureResultsMethod,
+  InterceptResultsMethod,
+  plugin,
+} from '../dist/mjs/index.js'
 t.equal(t.pluginLoaded(plugin), true, 'plugin is loaded')
 
 // restore() calls are duplicated to cover the no-op, just ensure
@@ -353,12 +357,14 @@ t.test('captureFn', t => {
         returned: 1,
       },
     ])
-    t.strictSame(wrapped.args(), [[ 2 ]])
+    t.strictSame(wrapped.args(), [[2]])
     t.end()
   })
 
   t.test('throw', t => {
-    const fn = () => { throw new Error('nope') }
+    const fn = () => {
+      throw new Error('nope')
+    }
     const wrapped = t.captureFn(fn)
     t.throws(() => wrapped(), { message: 'nope' })
     t.match(wrapped.calls, [
@@ -412,7 +418,9 @@ t.test('capture', t => {
 
   t.test('custom impl, hasOwn method, throw', t => {
     const obj = { a: () => 1 }
-    const res = t.capture(obj, 'a', () => { throw new Error('nope') })
+    const res = t.capture(obj, 'a', () => {
+      throw new Error('nope')
+    })
     t.throws(() => obj.a())
     t.match(res(), [{ threw: true }])
     res.restore()
@@ -422,7 +430,11 @@ t.test('capture', t => {
   })
 
   t.test('inherited method', t => {
-    class A { a(n: number) { return n } }
+    class A {
+      a(n: number) {
+        return n
+      }
+    }
     const obj = new A()
     const res = t.capture(obj, 'a')
     t.equal(obj.a(1), undefined)

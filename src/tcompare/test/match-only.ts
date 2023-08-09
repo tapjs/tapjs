@@ -1,7 +1,5 @@
-import { MatchOnly } from '../dist/cjs/index.js'
-import { Test } from '@tapjs/test'
-import { tap } from '@tapjs/core'
-const t = tap()
+import t, { Test } from 'tap'
+import { MatchOnly } from '../dist/mjs/index.js'
 
 const match = (t: Test, a: any, b: any) => {
   const m = new MatchOnly(a, { expect: b })

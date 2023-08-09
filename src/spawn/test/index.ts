@@ -1,5 +1,5 @@
 import t from 'tap'
-import { plugin } from '../dist/cjs/index.js'
+import { plugin } from '../dist/mjs/index.js'
 
 t.equal(t.pluginLoaded(plugin), true, 'plugin loaded by default')
 

@@ -3,6 +3,7 @@
   "version": "2.0.0-9",
   "description": "Utility loading and managing tap configuration",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
+  "type": "module",
   "exports": {
     "./package.json": {
       "import": "./package.json",

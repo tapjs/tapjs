@@ -5,7 +5,7 @@ import {
   captureString,
 } from '@tapjs/stack'
 import t from 'tap'
-import { cleanYamlObject } from '../dist/cjs/clean-yaml-object.js'
+import { cleanYamlObject } from '../dist/mjs/clean-yaml-object.js'
 
 t.cleanSnapshot = s =>
   s
@@ -16,11 +16,15 @@ t.cleanSnapshot = s =>
 
 t.matchSnapshot(cleanYamlObject({}), 'empty object')
 
-t.strictSame(cleanYamlObject({
-  at: [],
-  context: {},
-  runOnly: null,
-}), {}, 'deleteIfEmpty fields')
+t.strictSame(
+  cleanYamlObject({
+    at: [],
+    context: {},
+    runOnly: null,
+  }),
+  {},
+  'deleteIfEmpty fields'
+)
 
 t.test('callsite reporting', t => {
   const stack = captureString()
@@ -177,5 +181,22 @@ t.test('pruning keys', t => {
     {}
   )
 
+  t.end()
+})
+
+t.test('elide inline t.worker code', t => {
+  t.strictSame(
+    cleanYamlObject({
+      eval: true,
+      filename: 'some\ninline\ncode',
+    }),
+    { eval: true, filename: '<inline code>' }
+  )
+  t.end()
+})
+
+t.test('do not delete non-string message', t => {
+  t.strictSame(cleanYamlObject({ message: true }), { message: true })
+  t.strictSame(cleanYamlObject({ message: 'x' }), {})
   t.end()
 })

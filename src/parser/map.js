@@ -1,3 +1,3 @@
-const { basename } = require('path')
-module.exports = t =>
-  basename(t) === 'cmd.js' ? 'bin/cmd.js' : ['src/*.ts']
+import { basename } from 'path'
+export default t =>
+  basename(t) === 'cmd.ts' ? 'bin/cmd.cjs' : ['src/*.ts']

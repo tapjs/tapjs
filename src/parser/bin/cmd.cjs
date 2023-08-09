@@ -4,7 +4,7 @@
 // cases and conditionals as uncovered branches, when it's clear
 // that they're actually being run.
 
-const { Parser } = require('../')
+const { Parser } = require('../dist/cjs/index.js')
 const util = require('util')
 
 const args = process.argv.slice(2)

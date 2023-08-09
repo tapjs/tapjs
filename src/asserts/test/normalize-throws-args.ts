@@ -1,7 +1,7 @@
 import { Extra } from '@tapjs/core'
 import t from 'tap'
-import { ErrorMatch, ThrowsArgs } from '../dist/cjs/index.js'
-import { normalizeThrowsArgs } from '../dist/cjs/normalize-throws-args.js'
+import { ErrorMatch, ThrowsArgs } from '../dist/mjs/index.js'
+import { normalizeThrowsArgs } from '../dist/mjs/normalize-throws-args.js'
 
 // [[...args], [...expect]][]
 const cases: [ThrowsArgs, [ErrorMatch | undefined, string, Extra]][] =

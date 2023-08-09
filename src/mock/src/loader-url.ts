@@ -4,4 +4,4 @@
  */
 // placeholder, will be overwritten by either
 // loader-url-cjs.js or loader-url-esm.js
-export default '@tapjs/mock/loader'
+export const loaderURL = '@tapjs/mock/loader'

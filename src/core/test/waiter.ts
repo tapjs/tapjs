@@ -1,6 +1,6 @@
 import t from 'tap'
 import { Deferred } from 'trivial-deferred'
-import { Waiter } from '../dist/cjs/waiter.js'
+import { Waiter } from '../dist/mjs/waiter.js'
 
 t.test('passing promise', async t => {
   const d = new Deferred<string>()

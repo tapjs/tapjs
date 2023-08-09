@@ -1,5 +1,5 @@
-/// <reference types="node" />
-/// <reference types="node" />
+/// <reference types="node" resolution-mode="require"/>
+/// <reference types="node" resolution-mode="require"/>
 import { Minipass } from 'minipass';
 import { Base, BaseOpts, TapBaseEvents } from './base.js';
 /**

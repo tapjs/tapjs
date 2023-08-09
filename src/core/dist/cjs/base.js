@@ -16,6 +16,7 @@ const counts_js_1 = require("./counts.js");
 const diags_js_1 = require("./diags.js");
 const extra_from_error_js_1 = require("./extra-from-error.js");
 const lists_js_1 = require("./lists.js");
+const message_from_error_js_1 = require("./message-from-error.js");
 /**
  * Wrapper for the async-hook-domain that catches errors thrown during
  * test operation.
@@ -477,48 +478,51 @@ class Base extends minipass_1.Minipass {
         if (this.name && !proxy) {
             er.test = this.name;
         }
-        const message = er.message;
+        const message = (0, message_from_error_js_1.messageFromError)(er);
         if (!extra) {
             extra = (0, extra_from_error_js_1.extraFromError)(er, extra);
         }
+        extra.message = message;
         this.parser.ok = false;
+        // if possible to handle it here, then return the info so that this
+        // Base subclass can do its thing
+        if (!ended &&
+            !this.results &&
+            /* c8 ignore start */
+            (this.parser.planEnd === -1 ||
+                this.parser.count < this.parser.planEnd)
+        /* c8 ignore stop */
+        ) {
+            return extra;
+        }
         // if we ended, we have to report it SOMEWHERE, unless we're
         // already in the process of bailing out, in which case it's
         // a bit excessive. Do not print it here if it would trigger
         // a plan exceeded error, or if we already have results.
-        if (ended ||
-            this.results ||
-            /* c8 ignore start */
-            (this.parser.planEnd !== -1 &&
-                this.parser.count >= this.parser.planEnd)
-        /* c8 ignore stop */
-        ) {
-            this.debug('Base.threw, but finished', this.name, this.results, message);
-            const alreadyBailing = (this.results?.ok === false && this.bail) ||
-                this.parser.bailedOut ||
-                this.results?.bailout;
-            if (this.results)
-                this.results.ok = false;
-            if (this.parent) {
-                this.parent.threw(er, extra, true);
-            }
-            else if (alreadyBailing) {
-                // we are already bailing out, and this is the top level,
-                // just make our way hastily to the nearest exit.
-                return;
-            }
-            else if (!er.stack) {
+        this.debug('Base.threw, but finished', this.name, this.results, extra.message);
+        const alreadyBailing = (this.results?.ok === false && this.bail) ||
+            this.parser.bailedOut ||
+            this.results?.bailout;
+        if (this.results)
+            this.results.ok = false;
+        if (this.parent) {
+            this.parent.threw(er, extra, true);
+        }
+        else if (!alreadyBailing) {
+            // not already bailing out, so print the error as best we can
+            if (!er.stack) {
                 console.error(er);
             }
             else {
                 /* c8 ignore start */
                 const name = er.name || 'Error';
                 /* c8 ignore stop */
-                console.error('%s: %s', name, message);
+                console.error('%s: %s', name, extra.message);
                 console.error((0, diags_js_1.diags)(extra));
             }
         }
-        return extra;
+        // we are already bailing out, and this is the top level,
+        // just make our way hastily to the nearest exit.
     }
     /**
      * returns true if the test has not as yet encountered any failures

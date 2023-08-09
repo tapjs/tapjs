@@ -1,5 +1,5 @@
 import t from 'tap'
-import { defaultPlugins } from '../dist/cjs/index.js'
+import { defaultPlugins } from '../dist/mjs/index.js'
 
 t.match(defaultPlugins, Array)
 for (const d of defaultPlugins) t.type(d, 'string')

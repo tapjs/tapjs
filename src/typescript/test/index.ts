@@ -1,10 +1,10 @@
 import * as core from '@tapjs/core'
 import t from 'tap'
-import { config, loader } from '../dist/cjs/index.js'
+import { config, loader } from '../dist/mjs/index.js'
 t.equal(loader, 'ts-node/esm')
 t.matchSnapshot(config)
 
-t.test('no typecheck setting, no effect', t => {
+t.test('no typecheck setting, no effect', async t => {
   const mock = {
     '@tapjs/core': t.createMock(core, {
       env: {
@@ -16,17 +16,17 @@ t.test('no typecheck setting, no effect', t => {
   const {
     '@tapjs/core': { env },
   } = mock
-  const { plugin } = t.mockRequire(
-    '../dist/cjs/index.js',
+  const { plugin } = await t.mockImport(
+    '../dist/mjs/index.js',
     mock
-  ) as typeof import('../dist/cjs/index.js')
+  ) as typeof import('../dist/mjs/index.js')
   plugin(t)
   plugin(t)
   t.equal(env.TS_NODE_TRANSPILE_ONLY, undefined)
   t.end()
 })
 
-t.test('typecheck true => transpile only false', t => {
+t.test('typecheck true => transpile only false', async t => {
   const mock = {
     '@tapjs/core': t.createMock(core, {
       env: {
@@ -38,17 +38,17 @@ t.test('typecheck true => transpile only false', t => {
   const {
     '@tapjs/core': { env },
   } = mock
-  const { plugin } = t.mockRequire(
-    '../dist/cjs/index.js',
+  const { plugin } = await t.mockImport(
+    '../dist/mjs/index.js',
     mock
-  ) as typeof import('../dist/cjs/index.js')
+  ) as typeof import('../dist/mjs/index.js')
   plugin(t)
   plugin(t)
   t.equal(env.TS_NODE_TRANSPILE_ONLY, '0')
   t.end()
 })
 
-t.test('typecheck false => transpile only true', t => {
+t.test('typecheck false => transpile only true', async t => {
   const mock = {
     '@tapjs/core': t.createMock(core, {
       env: {
@@ -60,10 +60,10 @@ t.test('typecheck false => transpile only true', t => {
   const {
     '@tapjs/core': { env },
   } = mock
-  const { plugin } = t.mockRequire(
-    '../dist/cjs/index.js',
+  const { plugin } = await t.mockImport(
+    '../dist/mjs/index.js',
     mock
-  ) as typeof import('../dist/cjs/index.js')
+  ) as typeof import('../dist/mjs/index.js')
   plugin(t)
   plugin(t)
   t.equal(env.TS_NODE_TRANSPILE_ONLY, '1')

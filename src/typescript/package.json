@@ -2,6 +2,7 @@
   "name": "@tapjs/typescript",
   "version": "0.0.0-9",
   "description": "a built-in tap extension that adds typescript support",
+  "type": "module",
   "exports": {
     "./package.json": {
       "import": "./package.json",

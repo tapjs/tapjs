@@ -1,7 +1,6 @@
-import { tap } from '@tapjs/core'
-import * as compare from '../dist/cjs/index.js'
-import { StyleType } from '../src/styles.js'
-const t = tap()
+import t from 'tap'
+import * as compare from '../dist/mjs/index.js'
+import { StyleType } from '../dist/mjs/styles.js'
 
 // not much of a test, but just verifying the interface exists
 const obj = { a: 1 }

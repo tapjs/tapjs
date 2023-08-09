@@ -2,6 +2,7 @@
   "name": "@tapjs/nock",
   "version": "3.0.0-9",
   "description": "a nock extension for tap",
+  "type": "module",
   "exports": {
     "./package.json": {
       "import": "./package.json",

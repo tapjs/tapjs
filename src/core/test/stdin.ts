@@ -1,7 +1,7 @@
 import { Minipass } from 'minipass'
 import t from 'tap'
-import { Stdin } from '../dist/cjs/stdin.js'
-import { TestBase } from '../dist/cjs/test-base.js'
+import { Stdin } from '../dist/mjs/stdin.js'
+import { TestBase } from '../dist/mjs/test-base.js'
 
 t.test('basic instantiation uses process.stdin', t => {
   const s = new Stdin({})

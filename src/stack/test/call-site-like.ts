@@ -1,12 +1,16 @@
 import { dirname, resolve } from 'path'
 import t from 'tap'
-import { CallSiteLike } from '../dist/cjs/index.js'
+import { CallSiteLike } from '../dist/mjs/index.js'
 import { callSiteStack } from './fixtures/eval-call-site.js'
 
+const __dirname = resolve(
+  fileURLToPath(new URL('.', import.meta.url))
+)
 const cwd = resolve(__dirname, '..')
 
 t.options.compareOptions = { style: 'js' }
 
+import { fileURLToPath } from 'url'
 import { at, error, stack } from './fixtures/capture.js'
 
 t.test('create with invalid content throws', t => {
@@ -322,5 +326,27 @@ t.test('relativizing path outside of cwd returns abs', t => {
   const c = new CallSiteLike(null, `    at Type.method (${p}:420:69)`)
   c.cwd = process.cwd()
   t.equal(c.fileName, p)
+  t.equal(c.absoluteFileName, p)
+  t.end()
+})
+
+t.test('use typeName as functionName if needed', t => {
+  const p = resolve('/a/b/c')
+  const c = new CallSiteLike(null, `    at Type.method (${p}:420:69)`)
+  // missing functionName only happens when loading from an actual
+  // CallSite object, so simulate it here for convenience
+  c.functionName = null
+  t.equal(c.toString(), `Type.method (${p}:420:69)`)
+  t.end()
+})
+
+t.test('<anonymous> method name', t => {
+  const p = resolve('/a/b/c')
+  const c = new CallSiteLike(null, `    at Type.method (${p}:420:69)`)
+  // missing functionName only happens when loading from an actual
+  // CallSite object, so simulate it here for convenience
+  c.functionName = null
+  c.methodName = null
+  t.equal(c.toString(), `Type.<anonymous> (${p}:420:69)`)
   t.end()
 })

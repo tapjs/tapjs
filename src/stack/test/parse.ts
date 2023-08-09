@@ -2,7 +2,7 @@ import t from 'tap'
 import {
   isCompiledCallSiteLine,
   parseCallSiteLine,
-} from '../dist/cjs/parse.js'
+} from '../dist/mjs/parse.js'
 
 t.equal(isCompiledCallSiteLine({}), false)
 t.equal(isCompiledCallSiteLine(null), false)

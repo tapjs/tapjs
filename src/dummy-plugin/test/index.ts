@@ -1,5 +1,6 @@
 import t from 'tap'
-import { plugin, config, loader } from '../dist/cjs/index.js'
+import { config, loader, plugin } from '../dist/mjs/index.js'
+
 const withPlug = t.applyPlugin(plugin)
 t.test('loader has global preload only', async t => {
   //@ts-ignore
@@ -7,6 +8,13 @@ t.test('loader has global preload only', async t => {
   t.matchOnly(loader, { globalPreload: Function })
   t.equal(loader.globalPreload(), 'global.DUMMY_PLUGIN_LOADED = true')
 })
+
+t.test('just verify the other exports', t => {
+  t.equal(loader, '@tapjs/dummy-plugin/loader')
+  t.matchSnapshot(config)
+  t.end()
+})
+
 t.test('plugin adds stuff', async t => {
   t.equal(withPlug.testBase.name, 'TAP')
   t.equal(withPlug.whoami(), withPlug)

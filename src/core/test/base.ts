@@ -1,7 +1,7 @@
 import { CallSiteLike } from '@tapjs/stack'
 import t from 'tap'
-import { Base } from '../dist/cjs/base.js'
-import { Minimal } from '../dist/cjs/minimal.js'
+import { Base } from '../dist/mjs/base.js'
+import { Minimal } from '../dist/mjs/minimal.js'
 
 t.test('basic instantiation', t => {
   const b = new Base({})
@@ -106,6 +106,7 @@ t.test('test Base.threw() handling', t => {
       }),
       {
         some: 'diags',
+        message: 'oops',
       }
     )
     t.equal((er as Error & { test: string }).test, 'basic')
@@ -129,6 +130,7 @@ t.test('test Base.threw() handling', t => {
       {
         some: 'diags',
         test: 'child test',
+        message: 'oops',
       }
     )
     t.equal((er as Error & { test?: string }).test, undefined)
@@ -144,11 +146,7 @@ t.test('test Base.threw() handling', t => {
     t.match(b.results, { ok: true })
     const er = new Error('oops')
     const threw = b.threw(er)
-    t.matchOnly(threw, {
-      test: 'basic',
-      at: CallSiteLike,
-      stack: String,
-    })
+    t.equal(threw, undefined)
     t.equal((er as Error & { test?: string }).test, 'basic')
     t.match(errs.args(), [['%s: %s', 'Error', 'oops'], [String]])
     t.equal(b.parser.ok, false)
@@ -163,9 +161,7 @@ t.test('test Base.threw() handling', t => {
     t.match(b.results, { ok: true })
     const er = 'stack free'
     const threw = b.threw(er)
-    t.matchOnly(threw, {
-      test: 'basic',
-    })
+    t.equal(threw, undefined)
     t.match(errs.args(), [[{ message: 'stack free', test: 'basic' }]])
     t.equal(b.parser.ok, false)
     t.match(b.results, { ok: false })
@@ -179,10 +175,7 @@ t.test('test Base.threw() handling', t => {
     t.match(b.results, { ok: true })
     const er = 1234
     const threw = b.threw(er)
-    t.matchOnly(threw, {
-      error: 1234,
-      test: 'basic',
-    })
+    t.equal(threw, undefined)
     t.match(errs.args(), [[{ error: 1234, test: 'basic' }]])
     t.equal(b.parser.ok, false)
     t.match(b.results, { ok: false })
@@ -213,11 +206,7 @@ t.test('test Base.threw() handling', t => {
     t.match(b.results, { ok: true })
     const er = new Error('oops')
     const threw = b.threw(er)
-    t.matchOnly(threw, {
-      test: 'basic',
-      at: CallSiteLike,
-      stack: String,
-    })
+    t.equal(threw, undefined)
     t.equal(calledParentThrew, true)
     t.end()
   })

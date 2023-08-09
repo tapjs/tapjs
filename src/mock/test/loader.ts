@@ -1,7 +1,11 @@
 import * as fs from 'node:fs'
+import { fileURLToPath } from 'node:url'
 import { relative, resolve } from 'path'
+import { resolveImport } from 'resolve-import'
 import t from 'tap'
 import { pathToFileURL } from 'url'
+
+const __dirname = fileURLToPath(new URL('.', import.meta.url))
 
 interface Context {
   importAssertions: { [k: string]: string }
@@ -45,7 +49,7 @@ type Loader = {
   resolve: ResolveFunction
 }
 
-import type { Mocks } from '../dist/cjs/mocks.js'
+import type { Mocks } from '../dist/mjs/mocks.js'
 
 const loaderSymbol = Symbol.for('__tapmockLoader')
 declare var global: {
@@ -74,9 +78,10 @@ t.test('loader exists', async t => {
   })
   t.equal(
     global[loaderSymbol],
-    String(pathToFileURL(require.resolve('../dist/mjs/loader.js')))
+    String(
+      await resolveImport('../dist/mjs/loader.js', import.meta.url)
+    )
   )
-  t.end()
 })
 
 t.test('cannot load loader multiple times', async t => {
@@ -293,9 +298,9 @@ t.test('mockImport without explicit default', async t => {
 t.test('mock node:fs', t => {
   const dir = t.testdir({
     'file.cjs': `
-      exports.foo = require('./foo.js')
+      exports.foo = require('./foo.cjs')
     `,
-    'foo.js': `
+    'foo.cjs': `
       module.exports = [
         require('fs').statSync(__filename),
         require('fs').lstatSync(__filename),

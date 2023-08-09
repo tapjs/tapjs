@@ -22,7 +22,7 @@ exports[`test/clean-yaml-object.ts > TAP > callsite reporting > must match snaps
 
 t.test('callsite reporting', t => {
   const stack = captureString()
-------------------------------^
+----------------^
   const b = cleanYamlObject({
     stack: stack.trimEnd().split('\\n'),
 
@@ -32,7 +32,7 @@ exports[`test/clean-yaml-object.ts > TAP > callsite reporting > must match snaps
   })
   t.matchSnapshot(c.source)
   const a = at()
----------------^
+------------^
   const d = cleanYamlObject({ at: a })
   t.matchOnly(d, {
 

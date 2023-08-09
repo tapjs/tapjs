@@ -5,11 +5,14 @@ import {
   mockImport as MIfromIndex,
   mockRequire as MRfromIndex,
   plugin,
-} from '../dist/cjs/index.js'
-import { mockImport } from '../dist/cjs/mock-import.js'
-import { mockRequire } from '../dist/cjs/mock-require.js'
+} from '../dist/mjs/index.js'
+import { mockImport } from '../dist/mjs/mock-import.js'
+import { mockRequire } from '../dist/mjs/mock-require.js'
+
+const __dirname = fileURLToPath(new URL('.', import.meta.url))
 
 import * as fs from 'node:fs'
+import {fileURLToPath} from 'url'
 
 t.equal(mockImport, MIfromIndex)
 t.equal(mockRequire, MRfromIndex)
@@ -19,15 +22,15 @@ t.equal(loader, '@tapjs/mock/loader', 'loader')
 t.test('mockRequire', t => {
   const dir = t.testdir({
     'file.cjs': `
-      exports.foo = require('./foo.js')
+      exports.foo = require('./foo.cjs')
     `,
-    'foo.js': `
+    'foo.cjs': `
       module.exports = 'original foo'
     `,
   })
   const rel = './' + relative(__dirname, dir) + '/'
   const mocked = t.mockRequire(rel + 'file.cjs', {
-    [rel + 'foo.js']: 'mocked foo',
+    [rel + 'foo.cjs']: 'mocked foo',
   })
   t.strictSame(mocked, { foo: 'mocked foo' })
   t.end()
@@ -37,15 +40,15 @@ t.test('deprecated t.mock alias', t => {
   const logs = t.capture(console, 'error')
   const dir = t.testdir({
     'file.cjs': `
-      exports.foo = require('./foo.js')
+      exports.foo = require('./foo.cjs')
     `,
-    'foo.js': `
+    'foo.cjs': `
       module.exports = 'original foo'
     `,
   })
   const rel = './' + relative(__dirname, dir) + '/'
   const mocked = t.mock(rel + 'file.cjs', {
-    [rel + 'foo.js']: 'mocked foo',
+    [rel + 'foo.cjs']: 'mocked foo',
   })
   t.strictSame(mocked, { foo: 'mocked foo' })
   t.match(logs(), [
@@ -79,9 +82,9 @@ t.test('mockImport', async t => {
 t.test('createMock', t => {
   const dir = t.testdir({
     'file.cjs': `
-      exports.foo = require('./foo.js')
+      exports.foo = require('./foo.cjs')
     `,
-    'foo.js': `
+    'foo.cjs': `
       module.exports = [
         require('fs').statSync(__filename),
         require('fs').lstatSync(__filename),
@@ -99,9 +102,9 @@ t.test('createMock', t => {
 t.test('createMock nested', t => {
   const dir = t.testdir({
     'file.cjs': `
-      exports.foo = require('./foo.js')
+      exports.foo = require('./foo.cjs')
     `,
-    'foo.js': `
+    'foo.cjs': `
       module.exports = [
         require('fs').statSync(__filename),
         require('fs').lstatSync(__filename),

@@ -132,6 +132,16 @@ const cleanYamlObject = (object) => {
             delete res[key];
         }
     }
+    // if the 'message' is a string, then we print it on the
+    // test point, so no need to repeat in the diags
+    if (typeof res.message === 'string')
+        delete res.message;
+    // worker: remove inline code
+    if (res.eval === true &&
+        typeof res.filename === 'string' &&
+        res.filename.includes('\n')) {
+        res.filename = '<inline code>';
+    }
     return res;
 };
 exports.cleanYamlObject = cleanYamlObject;

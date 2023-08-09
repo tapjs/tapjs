@@ -1,6 +1,6 @@
 import { TestBase } from '@tapjs/core'
 import t from 'tap'
-import { config, plugin } from '../dist/cjs/index.js'
+import { config, plugin } from '../dist/mjs/index.js'
 
 t.matchSnapshot(config, 'config')
 
@@ -43,9 +43,9 @@ t.test('set the configs from tap configs', async t => {
   delete process.env.ESBK_DISABLE_CACHE
   process.env.TAP_ESBK_TSCONFIG_PATH = 'some-path'
   process.env.TAP_ESBK_DISABLE_CACHE = '1'
-  const { plugin } = t.mockRequire(
-    '../dist/cjs/index.js'
-  ) as typeof import('../dist/cjs/index.js')
+  const { plugin } = await t.mockImport(
+    '../dist/mjs/index.js'
+  ) as typeof import('../dist/mjs/index.js')
   const tb = new TestBase({ name: 'esbk env test' })
   plugin(tb)
   t.match(process.env, {

@@ -6,7 +6,7 @@
  */
 'use strict'
 exports[`test/index.ts > TAP > root api is a thing 1`] = `
-Object {
+Null Object {
   "default": Object {
     "parse": Function parse(str),
     "stringify": Function stringify(obj),

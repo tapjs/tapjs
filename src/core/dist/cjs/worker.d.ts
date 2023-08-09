@@ -1,9 +1,10 @@
-/// <reference types="node" />
-/// <reference types="node" />
+/// <reference types="node" resolution-mode="require"/>
+/// <reference types="node" resolution-mode="require"/>
 import { Base, TapBaseEvents } from './base.js';
-import { TestBaseOpts } from './test-base.js';
 import { Worker as NodeWorker } from 'node:worker_threads';
 import { FinalResults } from 'tap-parser';
+import { Extra } from './index.js';
+import { TestBaseOpts } from './test-base.js';
 /**
  * Events emitted by {@link Worker} instances
  */
@@ -55,6 +56,7 @@ export declare class Worker extends Base<WorkerEvents> {
     } | NodeJS.ProcessEnv;
     constructor(options: WorkerOpts);
     main(cb: () => void): void;
+    threw(er: any, extra?: Extra): Extra | void | undefined;
     timeout(options?: {
         expired?: string;
     }): void;

@@ -1,1 +1,1 @@
-import './date'
+import './date.js'

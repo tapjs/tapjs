@@ -1,5 +1,5 @@
 import tap from 'tap'
-import { plugin } from '../dist/cjs/index.js'
+import { plugin } from '../dist/mjs/index.js'
 
 const t = tap.applyPlugin(plugin)
 

@@ -1,8 +1,8 @@
 import { ChildProcess } from 'child_process'
 import { basename } from 'path'
 import t from 'tap'
-import { Spawn } from '../dist/cjs/spawn.js'
-import { TestBase } from '../dist/cjs/test-base.js'
+import { Spawn } from '../dist/mjs/spawn.js'
+import { TestBase } from '../dist/mjs/test-base.js'
 
 t.test('procName', t => {
   const { procName } = Spawn
@@ -167,7 +167,6 @@ t.test('timeout', t => {
 not ok 1 - timeout!
   ---
   expired: ${s.name}
-  message: timeout!
   ...
 
 1..1

@@ -1,7 +1,7 @@
 import {
   at as stackAt,
   capture as stackCapture,
-} from '../../dist/cjs/index.js'
+} from '../../dist/mjs/index.js'
 
 const getError = () =>
   new Error('test error') as Error & { stack: string }

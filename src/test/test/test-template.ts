@@ -2,7 +2,7 @@ import t from 'tap'
 
 import { TestBase } from '@tapjs/core'
 import { plugin } from '@tapjs/dummy-plugin'
-import { Test } from '../scripts/test-template'
+import { Test } from '../scripts/test-template.js'
 
 t.cleanSnapshot = s => s.replace(/# time=.*m?s$/gm, '# time={TIME}')
 

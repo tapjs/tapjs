@@ -1,12 +1,10 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const fs_1 = require("fs");
+import { readFileSync } from 'fs';
 // import it so that node sees the source map
-require("./error.js");
+import './error.js';
 const errFile = require.resolve('./error.js');
-const code = (0, fs_1.readFileSync)(errFile, 'utf8') + '\nerror()';
+const code = readFileSync(errFile, 'utf8') + '\nerror()';
 const evalError = () => {
     eval(code);
 };
 evalError();
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZXZhbC1lcnJvci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbImV2YWwtZXJyb3IudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSwyQkFBaUM7QUFDakMsNkNBQTZDO0FBQzdDLHNCQUFtQjtBQUNuQixNQUFNLE9BQU8sR0FBRyxPQUFPLENBQUMsT0FBTyxDQUFDLFlBQVksQ0FBQyxDQUFBO0FBQzdDLE1BQU0sSUFBSSxHQUFHLElBQUEsaUJBQVksRUFBQyxPQUFPLEVBQUUsTUFBTSxDQUFDLEdBQUcsV0FBVyxDQUFBO0FBQ3hELE1BQU0sU0FBUyxHQUFHLEdBQUcsRUFBRTtJQUNyQixJQUFJLENBQUMsSUFBSSxDQUFDLENBQUE7QUFDWixDQUFDLENBQUE7QUFDRCxTQUFTLEVBQUUsQ0FBQSJ9
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZXZhbC1lcnJvci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbImV2YWwtZXJyb3IudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsT0FBTyxFQUFFLFlBQVksRUFBRSxNQUFNLElBQUksQ0FBQTtBQUNqQyw2Q0FBNkM7QUFDN0MsT0FBTyxZQUFZLENBQUE7QUFDbkIsTUFBTSxPQUFPLEdBQUcsT0FBTyxDQUFDLE9BQU8sQ0FBQyxZQUFZLENBQUMsQ0FBQTtBQUM3QyxNQUFNLElBQUksR0FBRyxZQUFZLENBQUMsT0FBTyxFQUFFLE1BQU0sQ0FBQyxHQUFHLFdBQVcsQ0FBQTtBQUN4RCxNQUFNLFNBQVMsR0FBRyxHQUFHLEVBQUU7SUFDckIsSUFBSSxDQUFDLElBQUksQ0FBQyxDQUFBO0FBQ1osQ0FBQyxDQUFBO0FBQ0QsU0FBUyxFQUFFLENBQUEifQ==

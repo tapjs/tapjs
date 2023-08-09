@@ -2,6 +2,7 @@
   "name": "@tapjs/esbuild-kit",
   "version": "0.0.0-9",
   "description": "Alternative to @tapjs/typescript. Load typescript using @esbuild-kit/cjs-loader and @esbuild-kit/esm-loader instead of ts-node.",
+  "type": "module",
   "exports": {
     "./package.json": {
       "import": "./package.json",

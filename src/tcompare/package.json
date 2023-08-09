@@ -4,6 +4,7 @@
   "description": "A comprehensive comparison library, for use in test frameworks",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://izs.me)",
   "license": "ISC",
+  "type": "module",
   "exports": {
     "./package.json": {
       "import": "./package.json",

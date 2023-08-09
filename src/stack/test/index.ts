@@ -3,6 +3,7 @@ import t from 'tap'
 import { createPatch } from 'diff'
 import { globSync } from 'glob'
 import { dirname } from 'path'
+import { fileURLToPath } from 'url'
 import {
   addIgnoredPackage,
   at,
@@ -22,7 +23,10 @@ import {
   setCwd,
   setFilterIgnoredPackages,
   setFilterNodeInternals,
-} from '../dist/cjs/index.js'
+} from '../dist/mjs/index.js'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
 t.test('capture tests', t => {
   const foo = () => bar()

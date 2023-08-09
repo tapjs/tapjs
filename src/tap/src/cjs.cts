@@ -10,7 +10,9 @@
  *
  * @module
  */
+//@ts-ignore
 import * as items from './index.js'
+//@ts-ignore
 import { t, TAP } from './index.js'
 
 // this has to be done in a somewhat tricky way, because Test objects are

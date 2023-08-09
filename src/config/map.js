@@ -1,2 +1,2 @@
-const { basename } = require('path')
-module.exports = t => `src/${basename(t)}`
+import { basename } from 'path'
+export default t => `src/${basename(t)}`

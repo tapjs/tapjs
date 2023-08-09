@@ -1,5 +1,5 @@
 import t from 'tap'
-import { exportLine } from '../dist/cjs/export-line.js'
+import { exportLine } from '../dist/mjs/export-line.js'
 
 t.test('create some export lines', t => {
   t.equal(
@@ -29,19 +29,11 @@ export default defExp
   t.end()
 })
 
-t.test('pretend to be node 14', t => {
-  const desc = Object.getOwnPropertyDescriptor(
-    process,
-    'version'
-  ) as PropertyDescriptor
-  Object.defineProperty(process, 'version', {
-    value: 'v14.0.0',
-    writable: true,
-    configurable: true,
-    enumerable: true,
-  })
-  t.teardown(() => Object.defineProperty(process, 'version', desc))
-  const { exportLine } = t.mockRequire('../dist/cjs/export-line.js')
+t.test('pretend to be node 14', async t => {
+  t.intercept(process, 'version', { value: 'v14.0.0' })
+  const { exportLine } = (await t.mockImport(
+    '../dist/mjs/export-line.js'
+  )) as typeof import('../dist/mjs/export-line.js')
 
   t.equal(
     exportLine('key', 'mockSrc', 'callerStack'),
@@ -67,19 +59,11 @@ export default defExp
   t.end()
 })
 
-t.test('pretend to not know the version', t => {
-  const desc = Object.getOwnPropertyDescriptor(
-    process,
-    'version'
-  ) as PropertyDescriptor
-  Object.defineProperty(process, 'version', {
-    value: undefined,
-    writable: true,
-    configurable: true,
-    enumerable: true,
-  })
-  t.teardown(() => Object.defineProperty(process, 'version', desc))
-  const { exportLine } = t.mockRequire('../dist/cjs/export-line.js')
+t.test('pretend to not know the version', async t => {
+  t.intercept(process, 'version', { value: undefined })
+  const { exportLine } = (await t.mockImport(
+    '../dist/mjs/export-line.js'
+  )) as typeof import('../dist/mjs/export-line.js')
 
   t.equal(
     exportLine('key', 'mockSrc', 'callerStack'),

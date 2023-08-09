@@ -1,6 +1,6 @@
 import t from 'tap'
-import { parseTestArgs } from '../dist/cjs/parse-test-args.js'
-import { TestBase, TestBaseOpts } from '../dist/cjs/test-base.js'
+import { parseTestArgs } from '../dist/mjs/parse-test-args.js'
+import { TestBase, TestBaseOpts } from '../dist/mjs/test-base.js'
 
 const cb = (_: TestBase) => {}
 function named(_: TestBase) {}

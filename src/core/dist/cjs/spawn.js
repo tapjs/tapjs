@@ -4,6 +4,7 @@ exports.Spawn = void 0;
 const base_js_1 = require("./base.js");
 const processinfo_1 = require("@tapjs/processinfo");
 const node_path_1 = require("node:path");
+const throw_to_parser_js_1 = require("./throw-to-parser.js");
 const hasStdout = (p) => !!p.stdout;
 /**
  * Class representing a spawned TAP process
@@ -189,6 +190,9 @@ class Spawn extends base_js_1.Base {
             proc.once('close', () => clearTimeout(t));
             /* c8 ignore stop */
         }
+    }
+    threw(er, extra) {
+        return (0, throw_to_parser_js_1.throwToParser)(this.parser, super.threw(er, extra));
     }
     static procName(cwd, command, args) {
         return (command === process.execPath

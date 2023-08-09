@@ -938,8 +938,8 @@ export class TestBase extends Base {
         }
         // suppress the callsite for non-error throws, since
         // it'll always just be useless noise pointing back here.
-        if (!er || typeof er !== 'object') {
-            er = { error: er, at: null };
+        if (typeof er === 'string') {
+            er = { message: er, at: null };
         }
         if (this.name && !proxy) {
             er.test = this.name;
@@ -954,29 +954,27 @@ export class TestBase extends Base {
             (this.#explicitPlan && this.count === this.#planEnd);
         /* c8 ignore stop */
         this.parser.ok = false;
-        super.threw(er, extra, proxy, ended);
+        const threwInfo = super.threw(er, extra, proxy, ended);
         // Handle the failure here, but only if we (a) don't have
         // results yet (indicating an end) and (b) are not currently
         // at the plan end (which would mean that any failure is
         // ignored to prevent infinite regress in "plan exceeded"
         // failures)
-        if (!ended) {
-            const msg = typeof extra?.message === 'string'
-                ? extra.message
-                : typeof er.message === 'string'
-                    ? er.message
-                    : er.stack
-                        ? er.stack.split('\n')[0]
-                        : typeof er.error === 'string'
-                            ? er.error
-                            : '';
+        if (!ended && threwInfo) {
+            const msg = threwInfo.message;
             extra ??= { at: null };
-            if (msg === '')
-                extra.at = null;
-            if (er.stack) {
+            if (this.parent && extra.test === this.name) {
+                // remove extraneous indicator if it's already nested
+                // in a TAP subtest
+                delete extra.test;
+            }
+            if (extra.error === msg) {
+                delete extra.error;
+            }
+            if (er.stack && typeof er.stack === 'string') {
                 // trim off the first line if it looks like the standard
                 // error `Name: message` line.
-                const f = `${er.name}: ${er.message}\n`;
+                const f = `${er.name || 'Error'}: ${er.message}\n`;
                 const st = er.stack.startsWith(f)
                     ? er.stack.substring(f.length)
                     : er.stack;
@@ -984,6 +982,8 @@ export class TestBase extends Base {
                 extra.at = p[0] || null;
                 extra.stack = p.map(c => String(c) + '\n').join('');
             }
+            if (!extra.at && !extra.stack)
+                extra.at = null;
             this.fail(msg, extra);
             if (this.ended || this.#pushedEnd) {
                 this.ended = false;

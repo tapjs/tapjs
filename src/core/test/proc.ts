@@ -1,19 +1,19 @@
 import t from 'tap'
-import { argv, cwd, env, proc } from '../dist/cjs/proc.js'
+import { argv, cwd, env, proc } from '../dist/mjs/proc.js'
 t.equal(proc, process)
 t.equal(argv, process.argv)
 t.equal(cwd, process.cwd())
 t.equal(env, process.env)
 
-t.test('fallbacks', t => {
+t.test('fallbacks', async t => {
   const process_ = process
   Object.defineProperty(globalThis, 'process', {
     value: undefined,
     configurable: true,
   })
-  const { proc, argv, cwd, env } = t.mockRequire(
-    '../dist/cjs/proc.js'
-  ) as typeof import('../dist/cjs/proc.js')
+  const { proc, argv, cwd, env } = await t.mockImport(
+    '../dist/mjs/proc.js'
+  ) as typeof import('../dist/mjs/proc.js')
   Object.defineProperty(globalThis, 'process', {
     value: process_,
     configurable: true,

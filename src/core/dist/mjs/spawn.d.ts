@@ -1,10 +1,11 @@
-/// <reference types="node" />
-/// <reference types="node" />
-/// <reference types="node" />
+/// <reference types="node" resolution-mode="require"/>
+/// <reference types="node" resolution-mode="require"/>
+/// <reference types="node" resolution-mode="require"/>
 import { Base, TapBaseEvents } from './base.js';
 import { WithExternalID } from '@tapjs/processinfo';
 import { ChildProcess, ChildProcessByStdio, IOType, SpawnOptions, StdioOptions } from 'node:child_process';
 import { Readable, Stream, Writable } from 'node:stream';
+import { Extra } from './index.js';
 import { TestBaseOpts } from './test-base.js';
 /**
  * A child process that is known to have a stdout stream
@@ -81,10 +82,11 @@ export declare class Spawn extends Base<SpawnEvents> {
     externalID?: string;
     constructor(options: SpawnOpts);
     endAll(): void;
-    main(cb: () => void): void | import("./index.js").Extra;
+    main(cb: () => void): void | Extra;
     timeout(options?: {
         expired?: string;
     }): void;
+    threw(er: any, extra?: Extra): Extra | void | undefined;
     static procName(cwd: string, command: string, args: string[]): string;
 }
 //# sourceMappingURL=spawn.d.ts.map

@@ -1,10 +1,17 @@
 import { spawn } from 'node:child_process'
 import { resolve } from 'node:path'
+import { resolveImport } from 'resolve-import'
 import { rimrafSync } from 'rimraf'
 import t from 'tap'
-const buildScript = require.resolve('../scripts/build.mjs')
+const buildScriptURL = await resolveImport(
+  '../scripts/build.mjs',
+  import.meta.url
+)
+if (!buildScriptURL) throw new Error('could not load build script')
+const buildScript = fileURLToPath(buildScriptURL)
 
 import os from 'node:os'
+import { fileURLToPath } from 'node:url'
 const p = os.availableParallelism
   ? os.availableParallelism()
   : os.cpus().length

@@ -6,7 +6,7 @@ echo:
 	echo $(FILES)
 
 %.js: %.ts
-	tsc --inlineSourceMap --module commonjs --target es2022 --moduleResolution node16 --declaration $<
+	tsc --inlineSourceMap --module esnext --target es2022 --moduleResolution node16 --declaration $<
 
 clean:
 	rm -f $(FILES) *.d.ts *.map

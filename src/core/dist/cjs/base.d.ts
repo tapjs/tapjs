@@ -3,8 +3,8 @@
  *
  * @module
  */
-/// <reference types="node" />
-/// <reference types="node" />
+/// <reference types="node" resolution-mode="require"/>
+/// <reference types="node" resolution-mode="require"/>
 import { Domain } from 'async-hook-domain';
 import { AsyncResource } from 'async_hooks';
 import { Minipass } from 'minipass';
@@ -42,6 +42,9 @@ export declare class TapWrap extends AsyncResource {
     constructor(test: Base);
     emitDestroy(): this;
 }
+/**
+ * A number indicating an amount of milliseconds
+ */
 export type MILLISECONDS = number;
 /**
  * Options that may be passed to any TAP-generating class

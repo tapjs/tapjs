@@ -7,6 +7,7 @@ import { parseDirective } from './parse-directive.js'
 import { Plan } from './plan.js'
 import { Result, TapError } from './result.js'
 
+/* c8 ignore start */
 export type { FinalPlan } from './final-plan.js'
 export { FinalResults } from './final-results.js'
 export { lineType, lineTypes } from './line-type.js'
@@ -17,6 +18,7 @@ export { Plan } from './plan.js'
 export { Result } from './result.js'
 export type { TapError } from './result.js'
 export type { EventLog }
+/* c8 ignore stop */
 
 import type etoa from 'events-to-array'
 import { parse, stringify } from './statics.js'

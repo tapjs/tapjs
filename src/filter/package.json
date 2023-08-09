@@ -3,6 +3,7 @@
   "version": "0.0.0-9",
   "description": "tap plugin providing t.only() and grep option",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
+  "type": "module",
   "exports": {
     "./package.json": {
       "import": "./package.json",

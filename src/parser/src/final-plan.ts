@@ -4,15 +4,15 @@ import type { Parser } from './index.js'
  * provided in the `complete` event.
  */
 export class FinalPlan {
-  start: number | null
-  end: number | null
+  start: number | null = null
+  end: number | null = null
   skipAll: boolean
   skipReason: string
   comment: string
 
   constructor(skipAll: boolean, self: Parser) {
-    this.start = self.planStart === -1 ? null : self.planStart
-    this.end = self.planStart === -1 ? null : self.planEnd
+    if (self.planStart >= 0) this.start = self.planStart
+    if (self.planEnd >= 0) this.end = self.planEnd
     this.skipAll = skipAll
     this.skipReason = skipAll ? self.planComment : ''
     this.comment = self.planComment || ''

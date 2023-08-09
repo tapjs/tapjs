@@ -1,6 +1,6 @@
 import t from 'tap'
 import { Parser, Result } from 'tap-parser'
-import { Lists } from '../dist/cjs/lists.js'
+import { Lists } from '../dist/mjs/lists.js'
 const lists = new Lists()
 t.same(lists, {
   fail: [],

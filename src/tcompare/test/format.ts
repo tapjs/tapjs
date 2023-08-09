@@ -1,7 +1,8 @@
-import { tap } from '@tapjs/core'
-import { format, Format } from '../dist/cjs/index.js'
-import { StyleType } from '../src/styles.js'
-const t = tap()
+import t from 'tap'
+import { Minipass } from 'minipass'
+import assert from 'node:assert'
+import { format, Format } from '../dist/mjs/index.js'
+import { StyleType } from '../dist/mjs/styles.js'
 
 // this is here so we can work with assertion errors and other
 // inspection output from node 12 and 13, where cyclical refs
@@ -107,7 +108,7 @@ t.test('gnarly object, many points of view', t => {
     }),
     assert: (() => {
       try {
-        require('assert').equal(k, o)
+        assert.equal(k, o)
       } catch (er) {
         return er
       }
@@ -217,10 +218,9 @@ t.test('objectAsArray is null for non-arrays', t => {
 })
 
 t.test('streams are not arrays', t => {
-  const { Minipass } = require('minipass')
   const readable = new Minipass().end('hello')
   const writable = new Minipass()
-  writable.pipe = null
+  Object.assign(writable, { pipe: null })
   t.matchSnapshot(cleanNodeNames(new Format(readable).print()))
   t.matchSnapshot(cleanNodeNames(new Format(writable).print()))
   t.end()

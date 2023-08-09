@@ -2,9 +2,14 @@ import * as stack from '@tapjs/stack'
 import { CallSiteLike } from '@tapjs/stack'
 import { relative, resolve } from 'path'
 import t from 'tap'
-import { pathToFileURL } from 'url'
-import { mockImport } from '../dist/cjs/mock-import.js'
-import type { Mocks } from '../dist/cjs/mocks.js'
+import { fileURLToPath, pathToFileURL } from 'url'
+import { mockImport } from '../dist/mjs/mock-import.js'
+import type { Mocks } from '../dist/mjs/mocks.js'
+
+const __dirname = resolve(
+  fileURLToPath(new URL('.', import.meta.url))
+)
+const __filename = resolve(fileURLToPath(import.meta.url))
 
 const loaderSymbol = Symbol.for('__tapmockLoader')
 declare var global: {
@@ -85,7 +90,7 @@ t.test('generate some mock imports', async t => {
     caller: {
       path: __filename,
       dir: __dirname,
-      url: pathToFileURL(__filename),
+      url: new URL(import.meta.url),
       at: CallSiteLike,
       stack: String,
     },

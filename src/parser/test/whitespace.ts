@@ -1,4 +1,4 @@
-import { Parser } from '../'
+import { Parser } from '../dist/mjs/index.js'
 import t from 'tap'
 const data = [
   'TAP version 13',

@@ -1,4 +1,9 @@
+import { createRequire } from 'module'
 import t from 'tap'
+import { fileURLToPath } from 'url'
+
+const require = createRequire(import.meta.url)
+const __filename = fileURLToPath(import.meta.url)
 
 const args = [
   '--no-warnings=ExperimentalLoader',
@@ -26,10 +31,10 @@ if (process.argv[2] === 'gen') {
 } else if (process.argv[2] === 'cmd') {
   process.argv = [
     process.execPath,
-    require.resolve('../bin/cmd.js'),
+    require.resolve('../bin/cmd.cjs'),
     '-t',
   ]
-  require('../bin/cmd.js')
+  require('../bin/cmd.cjs')
 } else if (process.argv[2] === 'pipe') {
   process.stdin.pipe(process.stdout)
 } else {

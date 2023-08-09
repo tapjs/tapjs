@@ -1,12 +1,9 @@
 import { Minipass } from 'minipass'
 import t from 'tap'
-import { Counts } from '../dist/cjs/counts.js'
-import { TestBase, TestBaseOpts } from '../dist/cjs/test-base.js'
-
-// A utility class to use because the TestBase class doens't have
-// the t.test() method, and calling t.sub() directly is awkward af
 import { FinalResults } from 'tap-parser'
-import { Minimal as T } from '../dist/cjs/minimal.js'
+import { Counts } from '../dist/mjs/counts.js'
+import { Minimal as T } from '../dist/mjs/minimal.js'
+import { TestBase, TestBaseOpts } from '../dist/mjs/test-base.js'
 
 const clean = (s: string): string =>
   s
@@ -654,15 +651,14 @@ t.test('end stuff', t => {
   t.end()
 })
 
-t.test('fullname when mainScript not available', t => {
-  const { TestBase } = t.mockRequire('../dist/cjs/test-base.js', {
-    '../dist/cjs/main-script.js': {
+t.test('fullname when mainScript not available', async t => {
+  const { TestBase } = (await t.mockImport('../dist/mjs/index.js', {
+    '../dist/mjs/main-script.js': {
       mainScript: (def: string) => def,
     },
-  })
+  })) as typeof import('../dist/mjs/index.js')
   const tb = new TestBase({ name: 'full name' })
   t.equal(tb.fullname, 'TAP > full name')
-  t.end()
 })
 
 t.test('processing edge cases', t => {
@@ -777,7 +773,6 @@ t.test('buffered test that runs long', async t => {
 not ok 2 - timeout!
   ---
   expired: buffered
-  message: timeout!
   test: buffered
   ...
 
@@ -799,7 +794,6 @@ t.test('indented test that runs long', async t => {
 not ok 2 - timeout!
   ---
   expired: buffered
-  message: timeout!
   test: buffered
   ...
 
@@ -818,7 +812,6 @@ t.test('child test with rejected async method', async t => {
     await tb.concat(),
     `
       tapCaught: returnedPromiseRejection
-      test: child
       source: |2
           const tb = new T({ name: 'parent' })
           tb.test('child', async () => {
@@ -830,7 +823,7 @@ t.test('child test with rejected async method', async t => {
   )
 })
 
-t.test('child test with non-error rejection', async t => {
+t.test('child test with thrown string', async t => {
   const tb = new T({ name: 'parent' })
   tb.test('child', async () => {
     throw 'nope'
@@ -842,9 +835,26 @@ t.test('child test with non-error rejection', async t => {
 # Subtest: child
     not ok 1 - nope
       ---
-      error: nope
       tapCaught: returnedPromiseRejection
-      test: child
+      ...
+`
+  )
+})
+
+t.test('child test with thrown other kind of thing', async t => {
+  const tb = new T({ name: 'parent' })
+  tb.test('child', async () => {
+    throw 7
+  })
+  tb.end()
+  t.match(
+    await tb.concat(),
+    `
+# Subtest: child
+    not ok 1 - unhandled error
+      ---
+      error: 7
+      tapCaught: returnedPromiseRejection
       ...
 `
   )
@@ -860,7 +870,6 @@ t.test('child test with throwing function', async t => {
     await tb.concat(),
     `
       tapCaught: testFunctionThrow
-      test: child
       source: |2
           const tb = new T({ name: 'parent' })
           tb.test('child', () => {
@@ -884,9 +893,7 @@ t.test('child test with non-error throw', async t => {
 # Subtest: child
     not ok 1 - nope
       ---
-      error: nope
       tapCaught: testFunctionThrow
-      test: child
       ...
 `
   )
@@ -951,10 +958,6 @@ t.test('threw stuff', t => {
       `TAP version 14
 # Subtest: child
     not ok 1 - nope
-      ---
-      error: nope
-      test: child
-      ...
     
     1..1
 not ok 1 - child`
@@ -973,7 +976,6 @@ not ok 1 - child`
       `
 not ok 2 - yolo
   ---
-  error: yolo
   test: child
   ...
 
@@ -1003,7 +1005,7 @@ not ok 1 - Error: hello
     t.equal(
       await tb.concat(),
       `TAP version 14
-not ok 1 - (unnamed test)
+not ok 1 - unhandled error
   ---
   a: 1
   test: thrower

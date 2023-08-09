@@ -239,9 +239,10 @@ export class CallSiteLike {
 
   #relativize(fileName?: string | null) {
     let f = fileName
-    if (f?.startsWith('node:')) return f
-    if (f?.startsWith('file://')) f = fileURLToPath(f)
-    if (!f || this.#cwd === undefined) return f
+    if (!f) return f
+    if (f.startsWith('node:')) return f
+    if (f.startsWith('file://')) f = fileURLToPath(f)
+    if (this.#cwd === undefined) return f
     else f = f.replace(/\\/g, '/')
     if (f.startsWith(`${this.#cwd}/`)) {
       return f.substring(this.#cwd.length + 1)

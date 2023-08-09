@@ -1,8 +1,11 @@
 import { spawn } from 'child_process'
 import { Minipass } from 'minipass'
-import { env } from '../dist/cjs/proc.js'
-import { tap } from '../dist/cjs/tap.js'
 import stripAnsi from 'strip-ansi-cjs'
+import { fileURLToPath } from 'url'
+import { env } from '../dist/mjs/proc.js'
+import { tap } from '../dist/mjs/tap.js'
+
+const __filename = fileURLToPath(import.meta.url)
 
 // force this because otherwise the output will be different
 // in all the tests we run.
@@ -27,6 +30,7 @@ const main = () => {
       .replace(/connectionKey: [0-9a-z:.]+/g, 'connectionKey: {...}')
       .replace(/^TAP [0-9]+ /gm, 'TAP {PID} ')
       .replace(/\(([^:]+):[0-9]+:[0-9]+\)/g, '($1:##:##)')
+      .replace(/([^:]+):[0-9]+:[0-9]+/g, '$1:##:##')
       .replace(/lineNumber: [0-9]+/g, 'lineNumber: ##')
       .replace(/columnNumber: [0-9]+/g, 'columnNumber: ##')
       .replace(
@@ -36,6 +40,8 @@ const main = () => {
       .replace(/TAP\.#t\.onEOF \([^)]+\)/g, 'TAP.#t.onEOF (...)')
       // node 16 puts this here and node 18 doesn't
       .replace(/^\s*Function\.all\n/gm, '')
+      .replace(/^\s*async Promise\.all[^\n]*\n/gm, '')
+
   t.formatSnapshot = (res: Result) => {
     return {
       ...res,
@@ -99,11 +105,14 @@ const cases: Record<string, () => any> = {
 
   timeoutSigalrmWithHandle: () => {
     const t = tap()
-    t.pass('this is fine')
-    const s = require('http').createServer(() => {})
-    s.listen(13245)
-    process.emit('SIGALRM')
-    setTimeout(() => s.close())
+    t.test('server', async t => {
+      t.pass('this is fine')
+      const http = await import('http')
+      const s = http.createServer(() => {})
+      s.listen(13245)
+      process.emit('SIGALRM')
+      setTimeout(() => s.close())
+    })
   },
 
   timeoutMessage: () => {

@@ -1,6 +1,6 @@
 import eventsToArray from 'events-to-array'
-import t from 'tap'
-import { Parser } from '../'
+import t, { Test } from 'tap'
+import { Parser } from '../dist/mjs/index.js'
 const tapContent = `ok 1 - nesting {
     1..2
     # Subtest: first
@@ -53,7 +53,7 @@ t.test('destroy()', t => {
 })
 
 function bufferedTest(d?: { [k: string]: any }) {
-  return function (t: tap.Test) {
+  return function (t: Test) {
     const p = new Parser()
     const mid = Math.floor(tapContent.length / 2)
     const first = tapContent.slice(0, mid)
@@ -80,7 +80,7 @@ function bufferedTest(d?: { [k: string]: any }) {
 }
 
 function unbufferedTest(d?: { [k: string]: any }) {
-  return function (t: tap.Test) {
+  return function (t: Test) {
     const p = new Parser()
     const mid = 90
     const first = tapContent.slice(0, mid)

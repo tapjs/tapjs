@@ -1,7 +1,10 @@
+import { fileURLToPath } from 'node:url'
 import { Worker as NodeWorker } from 'node:worker_threads'
 import t from 'tap'
-import { TestBase } from '../dist/cjs/test-base.js'
-import { Worker } from '../dist/cjs/worker.js'
+import { TestBase } from '../dist/mjs/test-base.js'
+import { Worker } from '../dist/mjs/worker.js'
+
+const __filename = fileURLToPath(import.meta.url)
 
 t.test('basic instantiation', t => {
   t.throws(() => new Worker({}), {
@@ -133,7 +136,6 @@ t.test('timeout', t => {
 not ok 1 - timeout!
   ---
   expired: ${w.name}
-  message: timeout!
   ...
 
 1..1

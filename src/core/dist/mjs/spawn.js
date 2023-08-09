@@ -1,6 +1,7 @@
 import { Base } from './base.js';
 import { ProcessInfo } from '@tapjs/processinfo';
 import { basename } from 'node:path';
+import { throwToParser } from './throw-to-parser.js';
 const hasStdout = (p) => !!p.stdout;
 /**
  * Class representing a spawned TAP process
@@ -186,6 +187,9 @@ export class Spawn extends Base {
             proc.once('close', () => clearTimeout(t));
             /* c8 ignore stop */
         }
+    }
+    threw(er, extra) {
+        return throwToParser(this.parser, super.threw(er, extra));
     }
     static procName(cwd, command, args) {
         return (command === process.execPath

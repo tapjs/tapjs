@@ -101,7 +101,7 @@ Object {
         isToplevel: true
       stack: |-
         notOk (test/tap.ts:##:##)
-        Object.<anonymous> (test/tap.ts:##:##)
+        test/tap.ts:##:##
       source: |2
       
           ok: () => tap().pass('this is fine'),
@@ -161,7 +161,7 @@ Object {
       ---
       stack: |-
         planExceeded (test/tap.ts:##:##)
-        Object.<anonymous> (test/tap.ts:##:##)
+        test/tap.ts:##:##
       at:
         fileName: test/tap.ts
         lineNumber: ##
@@ -423,7 +423,7 @@ Object {
   "code": 1,
   "name": "teardownThrowNonerror",
   "signal": null,
-  "stderr": "{ error: 'poop', at: null, test: 'TAP' }\\n",
+  "stderr": "{ message: 'poop', at: null, test: 'TAP' }\\n",
   "stdout": String(
     TAP version 14
     ok 1 - x
@@ -456,7 +456,7 @@ Object {
       ---
       stack: |
         throwError (test/tap.ts:##:##)
-        Object.<anonymous> (test/tap.ts:##:##)
+        test/tap.ts:##:##
       at:
         fileName: test/tap.ts
         lineNumber: ##
@@ -489,31 +489,8 @@ Object {
     ok 1 - this is fine
     not ok 2 - not an error
       ---
-      error: not an error
       tapCaught: unhandledRejection
       test: TAP
-      at:
-        fileName: src/test-base.ts
-        lineNumber: ##
-        columnNumber: ##
-        typeName: TAP
-        methodName: threw
-        functionName: TAP.threw
-        generated:
-          fileName: dist/cjs/test-base.js
-          lineNumber: ##
-          columnNumber: ##
-      stack: |-
-        TAP.threw (dist/cjs/test-base.js:##:##) (src/test-base.ts:##:##)
-        Domain.onerror (dist/cjs/base.js:##:##) (src/base.ts:##:##)
-        Domain.onerror (dist/cjs/tap.js:##:##) (src/tap.ts:##:##)
-      source: |2
-                extra.stack = p.map(c => String(c) + '\\\\n').join('')
-              }
-              this.fail(msg, extra)
-        -----------^
-              if (this.ended || this.#pushedEnd) {
-                this.ended = false
       ...
     
     1..2
@@ -537,7 +514,6 @@ Object {
       requests:
         - type: FileHandleCloseReq
       expired: TAP
-      message: timeout!
       test: TAP
       ...
     
@@ -562,7 +538,6 @@ Object {
       requests:
         - type: FileHandleCloseReq
       expired: TAP
-      message: timeout!
       test: TAP
       ...
     
@@ -587,8 +562,6 @@ Object {
           requests:
             - type: FileHandleCloseReq
           expired: TAP
-          message: timeout!
-          test: child test
           ...
         
         1..1
@@ -623,24 +596,23 @@ Object {
   "stderr": "",
   "stdout": String(
     TAP version 14
-    ok 1 - this is fine
-    not ok 2 - timeout!
-      ---
-      signal: SIGALRM
-      requests:
-        - type: FileHandleCloseReq
-      handles:
-        - type: Server
-          events:
-            - request
-            - connection
-          connectionKey: {...}
-      expired: TAP
-      message: timeout!
-      test: TAP
-      ...
-    
-    1..2
+    # Subtest: server
+        ok 1 - this is fine
+        not ok 2 - timeout!
+          ---
+          signal: SIGALRM
+          requests:
+            - type: FileHandleCloseReq
+          handles:
+            - type: Server
+              events:
+                - request
+                - connection
+              connectionKey: {...}
+          expired: TAP
+          ...
+        
+        1..2
     
   ),
 }
@@ -682,7 +654,7 @@ Object {
             isToplevel: true
           stack: |-
             unfinished (test/tap.ts:##:##)
-            Object.<anonymous> (test/tap.ts:##:##)
+            test/tap.ts:##:##
           test: child test
           source: |2
               unfinished: () => {

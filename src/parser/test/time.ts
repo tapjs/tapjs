@@ -1,5 +1,5 @@
 import t from 'tap'
-import { FinalResults, Parser } from '../'
+import { FinalResults, Parser } from '../dist/mjs/index.js'
 
 type Time = number | null
 

@@ -1,8 +1,6 @@
-import { tap } from '@tapjs/core'
-import { Test } from '@tapjs/test'
-import type { FormatOptions } from '../dist/cjs/index.js'
-import * as compare from '../dist/cjs/index.js'
-const t = tap()
+import t, { Test } from 'tap'
+import type { FormatOptions } from '../dist/mjs/index.js'
+import * as compare from '../dist/mjs/index.js'
 
 const same = (
   t: Test,

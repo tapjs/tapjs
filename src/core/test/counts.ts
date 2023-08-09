@@ -1,5 +1,5 @@
 import t from 'tap'
-import { Counts } from '../dist/cjs/counts.js'
+import { Counts } from '../dist/mjs/counts.js'
 
 const c = new Counts()
 t.same(c, {

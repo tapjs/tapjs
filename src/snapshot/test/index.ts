@@ -3,7 +3,7 @@ import {
   config,
   plugin,
   SnapshotProvider,
-} from '../dist/cjs/index.js'
+} from '../dist/mjs/index.js'
 
 import { Test } from '@tapjs/test'
 import { basename, resolve } from 'path'

@@ -3,8 +3,8 @@ import { readFileSync } from 'fs'
 import { tmpdir } from 'os'
 import { resolve } from 'path'
 import t from 'tap'
-import { TapConfig } from '../dist/cjs/index.js'
-import jack from '../dist/cjs/jack.js'
+import { TapConfig } from '../dist/mjs/index.js'
+import jack from '../dist/mjs/jack.js'
 t.test('basic tests', async t => {
   const tc = new TapConfig()
   t.equal(tc.jack, jack)
@@ -15,7 +15,7 @@ t.test('basic tests', async t => {
 
 t.test('reporter from env or config', t => {
   t.test('default, with color', async t => {
-    const { TapConfig } = t.mockRequire('../dist/cjs/index.js', {
+    const { TapConfig } = await t.mockImport('../dist/mjs/index.js', {
       '@tapjs/core': t.createMock(core, {
         env: {
           TAP: undefined,
@@ -23,7 +23,7 @@ t.test('reporter from env or config', t => {
           TAP_COLOR: '1',
         },
       }),
-    }) as typeof import('../dist/cjs/index.js')
+    }) as typeof import('../dist/mjs/index.js')
     const tc = await TapConfig.load()
     t.equal(tc.get('reporter'), 'base')
     t.equal(tc.get('reporter'), 'base', 'cache coverage')
@@ -39,10 +39,10 @@ t.test('reporter from env or config', t => {
         },
       }),
     }
-    const { TapConfig } = t.mockRequire(
-      '../dist/cjs/index.js',
+    const { TapConfig } = await t.mockImport(
+      '../dist/mjs/index.js',
       m
-    ) as typeof import('../dist/cjs/index.js')
+    ) as typeof import('../dist/mjs/index.js')
     t.equal((await TapConfig.load()).get('reporter'), 'tap')
   })
 
@@ -56,10 +56,10 @@ t.test('reporter from env or config', t => {
         },
       }),
     }
-    const { TapConfig } = t.mockRequire('../dist/cjs/index.js', {
+    const { TapConfig } = await t.mockImport('../dist/mjs/index.js', {
       ...m,
-      '../dist/cjs/jack.js': t.mockRequire('../dist/cjs/jack.js', m),
-    }) as typeof import('../dist/cjs/index.js')
+      '../dist/mjs/jack.js': await t.mockImport('../dist/mjs/jack.js', m),
+    }) as typeof import('../dist/mjs/index.js')
     t.equal((await TapConfig.load()).get('reporter'), 'tap')
   })
 
@@ -73,10 +73,10 @@ t.test('reporter from env or config', t => {
         },
       }),
     }
-    const { TapConfig } = t.mockRequire('../dist/cjs/index.js', {
+    const { TapConfig } = await t.mockImport('../dist/mjs/index.js', {
       ...m,
-      '../dist/cjs/jack.js': t.mockRequire('../dist/cjs/jack.js', m),
-    }) as typeof import('../dist/cjs/index.js')
+      '../dist/mjs/jack.js': await t.mockImport('../dist/mjs/jack.js', m),
+    }) as typeof import('../dist/mjs/index.js')
     t.equal((await TapConfig.load()).get('reporter'), 'base')
   })
 
@@ -84,7 +84,7 @@ t.test('reporter from env or config', t => {
 })
 
 t.test('get plugin list', async t => {
-  const { TapConfig } = t.mockRequire('../dist/cjs/index.js', {
+  const { TapConfig } = await t.mockImport('../dist/mjs/index.js', {
     '@tapjs/core': t.createMock(core, {
       env: {
         TAP_PLUGIN: '!@tapjs/mock\n@tapjs/nock',
@@ -102,7 +102,7 @@ t.test('get plugin list', async t => {
 
 t.test('default config file in cwd if readdir fails', async t => {
   const d = resolve(tmpdir(), String(Math.random()))
-  const { TapConfig } = t.mockRequire('../dist/cjs/index.js', {
+  const { TapConfig } = await t.mockImport('../dist/mjs/index.js', {
     '@tapjs/core': t.createMock(core, {
       cwd: d,
     }),
@@ -122,7 +122,7 @@ t.test('default config file in cwd if walkup gets home', async t => {
     },
   })
 
-  const { TapConfig } = t.mockRequire('../dist/cjs/index.js', {
+  const { TapConfig } = await t.mockImport('../dist/mjs/index.js', {
     '@tapjs/core': t.createMock(core, {
       cwd: resolve(dir, 'where/the/heart/is'),
       env: {
@@ -145,7 +145,7 @@ t.test('home defaults to . if not in env', async t => {
     },
   })
 
-  const { TapConfig } = t.mockRequire('../dist/cjs/index.js', {
+  const { TapConfig } = await t.mockImport('../dist/mjs/index.js', {
     '@tapjs/core': t.createMock(core, {
       cwd: resolve(dir, 'where/the/heart/is'),
       env: {
@@ -171,7 +171,7 @@ t.test(
       },
     })
 
-    const { TapConfig } = t.mockRequire('../dist/cjs/index.js', {
+    const { TapConfig } = await t.mockImport('../dist/mjs/index.js', {
       '@tapjs/core': t.createMock(core, {
         cwd: resolve(dir, 'proj/nested/sub/directory'),
       }),
@@ -195,7 +195,7 @@ t.test('use first config file found in walkup', async t => {
     },
   })
 
-  const { TapConfig } = t.mockRequire('../dist/cjs/index.js', {
+  const { TapConfig } = await t.mockImport('../dist/mjs/index.js', {
     '@tapjs/core': t.createMock(core, {
       cwd: resolve(dir, 'proj/nested/sub/directory'),
     }),
@@ -208,7 +208,7 @@ t.test('config from .taprc', async t => {
   const dir = t.testdir({
     '.taprc': 'color: true\njobs: 3\nreporter: blargggg\n',
   })
-  const { TapConfig } = t.mockRequire('../dist/cjs/index.js', {
+  const { TapConfig } = await t.mockImport('../dist/mjs/index.js', {
     '@tapjs/core': t.createMock(core, {
       cwd: dir,
       // filter out all TAP* envs
@@ -235,7 +235,7 @@ t.test('config from package.json', async t => {
       },
     }),
   })
-  const { TapConfig } = t.mockRequire('../dist/cjs/index.js', {
+  const { TapConfig } = await t.mockImport('../dist/mjs/index.js', {
     '@tapjs/core': t.createMock(core, {
       cwd: dir,
       // filter out all TAP* envs
@@ -263,7 +263,7 @@ this
   const errs: any[][] = []
   console.error = (...a: any[]) => errs.push(a)
   t.teardown(() => (console.error = error))
-  const { TapConfig } = t.mockRequire('../dist/cjs/index.js', {
+  const { TapConfig } = await t.mockImport('../dist/mjs/index.js', {
     '@tapjs/core': t.createMock(core, {
       cwd: dir,
       // filter out all TAP* envs
@@ -296,7 +296,7 @@ this
   const errs: any[][] = []
   console.error = (...a: any[]) => errs.push(a)
   t.teardown(() => (console.error = error))
-  const { TapConfig } = t.mockRequire('../dist/cjs/index.js', {
+  const { TapConfig } = await t.mockImport('../dist/mjs/index.js', {
     '@tapjs/core': t.createMock(core, {
       cwd: dir,
       // filter out all TAP* envs
@@ -323,7 +323,7 @@ t.test('.taprc extends file', async t => {
     '.taprc': 'color: true\nextends: base-taprc.yml\n',
     'base-taprc.yml': 'jobs: 3\nreporter: blargggg\n',
   })
-  const { TapConfig } = t.mockRequire('../dist/cjs/index.js', {
+  const { TapConfig } = await t.mockImport('../dist/mjs/index.js', {
     '@tapjs/core': t.createMock(core, {
       cwd: dir,
       // filter out all TAP* envs
@@ -352,7 +352,7 @@ t.test('package.json extends file', async t => {
       },
     },
   })
-  const { TapConfig } = t.mockRequire('../dist/cjs/index.js', {
+  const { TapConfig } = await t.mockImport('../dist/mjs/index.js', {
     '@tapjs/core': t.createMock(core, {
       cwd: resolve(dir, 'some/sub/directory'),
       // filter out all TAP* envs
@@ -374,7 +374,7 @@ t.test('extension has invalid field', async t => {
     '.taprc': 'color: true\nextends: base-taprc.yml\n',
     'base-taprc.yml': 'jobs: true\nreporter: blargggg\n',
   })
-  const { TapConfig } = t.mockRequire('../dist/cjs/index.js', {
+  const { TapConfig } = await t.mockImport('../dist/mjs/index.js', {
     '@tapjs/core': t.createMock(core, {
       cwd: dir,
       // filter out all TAP* envs
@@ -406,7 +406,7 @@ t.test('extend from dep .taprc', async t => {
       },
     },
   })
-  const { TapConfig } = t.mockRequire('../dist/cjs/index.js', {
+  const { TapConfig } = await t.mockImport('../dist/mjs/index.js', {
     '@tapjs/core': t.createMock(core, {
       cwd: dir,
       // filter out all TAP* envs
@@ -439,7 +439,7 @@ t.test('extend from dep package.json', async t => {
       },
     },
   })
-  const { TapConfig } = t.mockRequire('../dist/cjs/index.js', {
+  const { TapConfig } = await t.mockImport('../dist/mjs/index.js', {
     '@tapjs/core': t.createMock(core, {
       cwd: dir,
       // filter out all TAP* envs
@@ -468,7 +468,7 @@ t.test('extend from dep package.json, but no config', async t => {
       },
     },
   })
-  const { TapConfig } = t.mockRequire('../dist/cjs/index.js', {
+  const { TapConfig } = await t.mockImport('../dist/mjs/index.js', {
     '@tapjs/core': t.createMock(core, {
       cwd: dir,
       // filter out all TAP* envs
@@ -491,7 +491,7 @@ t.test('extend from missing dep', async t => {
       'config-base': {},
     },
   })
-  const { TapConfig } = t.mockRequire('../dist/cjs/index.js', {
+  const { TapConfig } = await t.mockImport('../dist/mjs/index.js', {
     '@tapjs/core': t.createMock(core, {
       cwd: dir,
       // filter out all TAP* envs
@@ -515,7 +515,7 @@ t.test('edit .taprc config', async t => {
   const dir = t.testdir({
     '.taprc': 'color: true\njobs: 3\nreporter: blargggg\n',
   })
-  const { TapConfig } = t.mockRequire('../dist/cjs/index.js', {
+  const { TapConfig } = await t.mockImport('../dist/mjs/index.js', {
     '@tapjs/core': t.createMock(core, {
       cwd: dir,
       // filter out all TAP* envs
@@ -541,7 +541,7 @@ t.test('edit .taprc config', async t => {
 
 t.test('create .taprc config', async t => {
   const dir = t.testdir({ '.git': {} })
-  const { TapConfig } = t.mockRequire('../dist/cjs/index.js', {
+  const { TapConfig } = await t.mockImport('../dist/mjs/index.js', {
     '@tapjs/core': t.createMock(core, {
       cwd: dir,
       // filter out all TAP* envs
@@ -580,7 +580,7 @@ t.test('edit package.json config', async t => {
       '\t\t'
     ),
   })
-  const { TapConfig } = t.mockRequire('../dist/cjs/index.js', {
+  const { TapConfig } = await t.mockImport('../dist/mjs/index.js', {
     '@tapjs/core': t.createMock(core, {
       cwd: dir,
       // filter out all TAP* envs
@@ -622,7 +622,7 @@ t.test('edit package.json config create tap obj', async t => {
       '\t\t'
     ),
   })
-  const { TapConfig } = t.mockRequire('../dist/cjs/index.js', {
+  const { TapConfig } = await t.mockImport('../dist/mjs/index.js', {
     '@tapjs/core': t.createMock(core, {
       cwd: dir,
       // filter out all TAP* envs
@@ -662,7 +662,7 @@ t.test('edit package.json config create tap obj', async t => {
 
 t.test('create package.json config', async t => {
   const dir = t.testdir({ '.git': {} })
-  const { TapConfig } = t.mockRequire('../dist/cjs/index.js', {
+  const { TapConfig } = await t.mockImport('../dist/mjs/index.js', {
     '@tapjs/core': t.createMock(core, {
       cwd: dir,
       // filter out all TAP* envs
@@ -699,7 +699,7 @@ t.test('create package.json config', async t => {
 
 t.test('cannot write config file with unrecognized name', async t => {
   const dir = t.testdir({})
-  const { TapConfig } = t.mockRequire('../dist/cjs/index.js', {
+  const { TapConfig } = await t.mockImport('../dist/mjs/index.js', {
     '@tapjs/core': t.createMock(core, {
       cwd: dir,
       // filter out all TAP* envs

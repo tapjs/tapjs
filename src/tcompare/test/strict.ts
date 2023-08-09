@@ -1,7 +1,6 @@
-import { tap } from '@tapjs/core'
-import { Test } from '@tapjs/test'
-import { strict as compareStrict } from '../dist/cjs/index.js'
-const t = tap()
+import EventEmitter from 'node:events'
+import t, { Test } from 'tap'
+import { strict as compareStrict } from '../dist/mjs/index.js'
 
 const strict = (t: Test, a: any, b: any) => {
   const s = compareStrict(a, b)
@@ -41,11 +40,10 @@ t.test('array-likes', t => {
 })
 
 t.test('basic', t => {
-  var EventEmitter = require('events').EventEmitter
   function functionA(a: any) {
     return a
   }
-  var heinous = {
+  const heinous = {
     nothin: null,
     nope: undefined,
     number: 0,
@@ -59,7 +57,7 @@ t.test('basic', t => {
   }
   heinous.granular.self = heinous
 
-  var awful = {
+  const awful = {
     nothin: null,
     nope: undefined,
     number: 0,
@@ -73,7 +71,7 @@ t.test('basic', t => {
   }
   awful.granular.self = awful
 
-  var functionB = functionA
+  const functionB = functionA
 
   // 1. === gets the job done
   t.ok(strict(t, null, null), 'null is the same as itself')
@@ -93,18 +91,18 @@ t.test('basic', t => {
   )
 
   // 4. buffers are compared by value
-  var bufferA = Buffer.from('abc')
-  var bufferB = Buffer.from('abc')
+  const bufferA = Buffer.from('abc')
+  let bufferB = Buffer.from('abc')
   t.ok(strict(t, bufferA, bufferB), 'buffers are compared by value')
 
   // 5. dates are compared by numeric (time) value
-  var dateA = new Date('2001-01-11')
-  var dateB = new Date('2001-01-11')
+  const dateA = new Date('2001-01-11')
+  let dateB = new Date('2001-01-11')
   t.ok(strict(t, dateA, dateB), 'dates are compared by time value')
 
   // 6. regexps are compared by their properties
-  var rexpA = /^h[oe][wl][dl][oy]$/
-  var rexpB = /^h[oe][wl][dl][oy]$/
+  const rexpA = /^h[oe][wl][dl][oy]$/
+  let rexpB = /^h[oe][wl][dl][oy]$/
   t.ok(
     strict(t, rexpA, rexpB),
     'regexps are compared by their properties'
@@ -112,8 +110,8 @@ t.test('basic', t => {
 
   // 8. loads of tests for objects
   t.ok(strict(t, {}, {}), 'bare objects check out')
-  var a = { a: 'a' }
-  var b: any = a
+  const a = { a: 'a' }
+  let b: any = a
   t.ok(strict(t, a, b), 'identical object references check out')
   b = { a: 'a' }
   t.ok(strict(t, a, b), 'identical simple object values check out')
@@ -123,22 +121,22 @@ t.test('basic', t => {
   function onerror(error: Error) {
     console.error(error.stack)
   }
-  var eeA = new EventEmitter()
+  const eeA = new EventEmitter()
   eeA.on('error', onerror)
-  var eeB = new EventEmitter()
+  const eeB = new EventEmitter()
   eeB.on('error', onerror)
   t.ok(strict(t, eeA, eeB), 'more complex objects check out')
 
-  var cyclicA: { [k: string]: any } = {}
+  const cyclicA: { [k: string]: any } = {}
   cyclicA.x = cyclicA
-  var cyclicB: { [k: string]: any } = {}
+  const cyclicB: { [k: string]: any } = {}
   cyclicB.x = cyclicB
   t.ok(
     strict(t, cyclicA, cyclicB),
     'can handle cyclic data structures'
   )
 
-  var y = {
+  const y = {
     v: {
       v: {
         v: {
@@ -172,7 +170,7 @@ t.test('basic', t => {
     },
   }
   y.v.v.v.v.v.v.v.v.v.v.v.v.v.v.v.v = y
-  var z = {
+  const z = {
     v: {
       v: {
         v: {
@@ -286,11 +284,11 @@ t.test('basic', t => {
   )
 
   // 7. arguments
-  var outer = (function (..._: any[]) {
+  const outer = (function (..._: any[]) {
     return arguments
   })(1, 2, 3)
   ;(function inner(_a: number, _b: number, _c: number) {
-    var inner = arguments
+    const inner = arguments
     t.ok(strict(t, outer, outer))
     t.ok(strict(t, outer, inner))
     // arguments only match arguments, not arrays
@@ -301,7 +299,7 @@ t.test('basic', t => {
   // 8. objects present edge cases galore
   t.notOk(strict(t, [], {}), "different object types shouldn't match")
 
-  var nullstructor = Object.create(null)
+  const nullstructor = Object.create(null)
   t.notOk(
     strict(t, {}, nullstructor),
     'Object.create(null).constructor === undefined'
@@ -310,7 +308,7 @@ t.test('basic', t => {
   b = { b: 'b' }
   t.notOk(strict(t, a, b), "different object values aren't the same")
 
-  var c = { b: 'b', c: undefined }
+  const c = { b: 'b', c: undefined }
   t.notOk(strict(t, b, c), "different object values aren't the same")
 
   function ondata(data: any) {
@@ -334,10 +332,10 @@ t.test('NaN', t => {
 })
 
 t.test('set', function (t) {
-  var obj = { a: 1 }
-  var a = new Set([1, 2, 3, 4, obj])
-  var b = new Set([obj, 2, 4, 3, 1])
-  var c = new Set([4, 3, 2, 1, { a: 1 }])
+  const obj = { a: 1 }
+  const a = new Set([1, 2, 3, 4, obj])
+  const b = new Set([obj, 2, 4, 3, 1])
+  const c = new Set([4, 3, 2, 1, { a: 1 }])
   t.ok(strict(t, a, b))
   t.ok(strict(t, a, c))
   t.ok(strict(t, b, c))
@@ -349,35 +347,35 @@ t.test('set', function (t) {
 })
 
 t.test('map', function (t) {
-  var obj = { a: 1 }
-  var a = new Map<any, any>([
+  const obj = { a: 1 }
+  const a = new Map<any, any>([
     [1, 2],
     [3, 4],
     [5, obj],
     [obj, 6],
   ])
-  var b = new Map<any, any>([
+  const b = new Map<any, any>([
     [3, 4],
     [5, obj],
     [obj, 6],
     [1, 2],
   ])
   // values match, but not strictly
-  var c = new Map<any, any>([
+  const c = new Map<any, any>([
     [3, 4],
     [5, { a: '1' }],
     [obj, 6],
     [1, 2],
   ])
   // keys don't match
-  var d = new Map<any, any>([
+  const d = new Map<any, any>([
     [3, 4],
     [5, { a: 1 }],
     [{ a: 1, b: 2 }, 6],
     [1, 2],
   ])
   // keys that do match
-  var e = new Map<any, any>([
+  const e = new Map<any, any>([
     [3, 4],
     [5, { a: 1 }],
     [{ a: 1 }, 6],

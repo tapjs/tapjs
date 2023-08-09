@@ -1,7 +1,7 @@
 import { mkdirSync, statSync, unlinkSync } from 'fs'
 import { resolve } from 'path'
 import t from 'tap'
-import { SnapshotProviderDefault } from '../dist/cjs/provider.js'
+import { SnapshotProviderDefault } from '../dist/mjs/provider.js'
 
 t.type(SnapshotProviderDefault, Function)
 

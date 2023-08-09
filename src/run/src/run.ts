@@ -87,7 +87,7 @@ export const run = async (args: string[], config: LoadedConfig) => {
   process.env._TAPJS_PROCESSINFO_EXCLUDE_ = String(
     // don't consider snapshots and fixtures, or else we'll
     // always think that all tests are new after generating!
-    /(^node:|[\\\/](tap-testdir-[^\\\/]+|tap-snapshots)[\\\/])/
+    /(^(node|tapmock):|[\\\/](tap-testdir-[^\\\/]+|tap-snapshots)[\\\/])/
   )
   const files = await list(args, config)
   if (!files.length) {

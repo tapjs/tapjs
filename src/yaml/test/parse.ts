@@ -1,5 +1,5 @@
 import t from 'tap'
-import { parse } from '../'
+import { parse } from '../src/index.js'
 t.matchSnapshot(
   parse(`cycle:
   &a1

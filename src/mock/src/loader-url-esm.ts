@@ -7,6 +7,6 @@
 import { dirname, resolve } from 'path'
 import { fileURLToPath, pathToFileURL } from 'url'
 
-export default `${pathToFileURL(
+export const loaderURL = `${pathToFileURL(
   resolve(dirname(fileURLToPath(import.meta.url)), 'loader.js')
 )}`

@@ -2,6 +2,7 @@
   "name": "@tapjs/sinon",
   "version": "0.0.0-9",
   "description": "a sinon extension for tap",
+  "type": "module",
   "exports": {
     "./package.json": {
       "import": "./package.json",

@@ -30,9 +30,9 @@ export class FinalResults {
     this.skip = skipAll ? parser.count : parser.skip || 0
     this.plan = new FinalPlan(skipAll, parser)
     this.failures = parser.failures
+    this.passes = parser.passes || undefined
     this.time = parser.time
     this.skips = parser.skips
     this.todos = parser.todos
-    if (parser.passes) this.passes = parser.passes
   }
 }

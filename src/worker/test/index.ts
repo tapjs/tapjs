@@ -1,5 +1,5 @@
 import t from 'tap'
-import { plugin } from '../dist/cjs/index.js'
+import { plugin } from '../dist/mjs/index.js'
 
 t.equal(t.pluginLoaded(plugin), true, 'plugin loaded by default')
 
@@ -48,8 +48,8 @@ t.test('spawn a worker with inline code', t => {
   t.worker(
     `
     const t = require('tap')
-    t.equal(t.isMainThread, false)
-    t.strictSame(t.workerData, { a: 1 })
+    t.equal(t.isMainThread, false, 'not in the main thread')
+    t.strictSame(t.workerData, { a: 1 }, 'got worker data')
     `,
     { eval: true, workerData: { a: 1 } }
   )

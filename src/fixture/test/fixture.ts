@@ -1,6 +1,6 @@
 import { lstatSync, statSync } from 'fs'
 import t from 'tap'
-import { Fixture } from '../dist/cjs/fixture.js'
+import { Fixture } from '../dist/mjs/fixture.js'
 
 t.test('fixture type validation', t => {
   t.equal(new Fixture('file', 'hello').type, 'file')

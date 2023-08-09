@@ -10,7 +10,9 @@ import {
 } from 'node:child_process'
 import { basename } from 'node:path'
 import { Readable, Stream, Writable } from 'node:stream'
+import { Extra } from './index.js'
 import { TestBaseOpts } from './test-base.js'
+import { throwToParser } from './throw-to-parser.js'
 
 /**
  * A child process that is known to have a stdout stream
@@ -283,6 +285,10 @@ export class Spawn extends Base<SpawnEvents> {
       proc.once('close', () => clearTimeout(t))
       /* c8 ignore stop */
     }
+  }
+
+  threw(er: any, extra?: Extra): Extra | void | undefined {
+    return throwToParser(this.parser, super.threw(er, extra))
   }
 
   static procName(cwd: string, command: string, args: string[]) {

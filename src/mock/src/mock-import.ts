@@ -10,7 +10,7 @@ import { Mocks } from './mocks.js'
 import { randomBytes } from 'crypto'
 import { builtinSet } from 'resolve-import/builtin-set'
 import { isRelativeRequire } from 'resolve-import/is-relative-require'
-import loader from './loader-url.js'
+import { loaderURL } from './loader-url.js'
 
 const loaderSymbol = Symbol.for('__tapmockLoader')
 declare var global: {
@@ -86,11 +86,11 @@ export const mockImport: (
   // It's intentionally very impossible to change once set, so it won't
   // actually get to this point, and will throw earlier if it's a problem
   /* c8 ignore start */
-  if (global[loaderSymbol] !== loader) {
+  if (global[loaderSymbol] !== loaderURL) {
     const msg = `Cannot mock ESM. Run with --loader=@tapjs/mock/loader to enable. (Are multiple @tapjs/mock modules in use?)`
     const er = Object.assign(new Error(msg), {
       found: global.__tapmockLoader,
-      wanted: loader,
+      wanted: loaderURL,
     })
     Error.captureStackTrace(er, caller)
     throw er
