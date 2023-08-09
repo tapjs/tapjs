@@ -166,10 +166,12 @@ export interface BaseOpts extends Extra {
   parser?: Parser
   /**
    * True if this test should be buffered, and only processed once
-   * complete. Used when running tests in parallel, unlikely that there's
-   * any reason to set this explicitly.
+   * complete.
    *
-   * @internal
+   * Defaults to true when `t.jobs` is set to a value greater than 1.
+   *
+   * If set false in that case, then the test will NOT be run in parallel,
+   * so this provides a way to control the parallelism within a test suite.
    */
   buffered?: boolean
 
