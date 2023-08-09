@@ -1,5 +1,5 @@
 import * as stack from '@tapjs/stack'
-import type { Test, TestOpts } from '@tapjs/test'
+import type { Test } from '@tapjs/test'
 import { isPromise } from 'is-actual-promise'
 import { Minipass } from 'minipass'
 import assert from 'node:assert'
@@ -1105,7 +1105,7 @@ export class TestBase extends Base<TestBaseEvents> {
    */
   sub<T extends Base, O extends BaseOpts>(
     Class: { new (options: O): T },
-    extra: O | TestOpts | TestBaseOpts | BaseOpts = {},
+    extra: O | TestBaseOpts = {},
     caller: (...a: any[]) => unknown
   ): PromiseWithSubtest<T> {
     if (this.bailedOut) {
@@ -1340,8 +1340,8 @@ export class TestBase extends Base<TestBaseEvents> {
    * Return true if the child test represented by the options object
    * should be skipped.  Extended by the `@tapjs/filter` plugin.
    */
-  shouldSkipChild(
-    extra: TestOpts | TestBaseOpts | BaseOpts
+  shouldSkipChild<O extends BaseOpts>(
+    extra: O | TestBaseOpts | BaseOpts
   ): boolean {
     return !!(extra.skip || extra.todo)
   }

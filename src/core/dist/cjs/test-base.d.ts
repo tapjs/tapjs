@@ -1,6 +1,6 @@
 /// <reference types="node" resolution-mode="require"/>
 /// <reference types="node" resolution-mode="require"/>
-import type { Test, TestOpts } from '@tapjs/test';
+import type { Test } from '@tapjs/test';
 import { Minipass } from 'minipass';
 import { Readable } from 'node:stream';
 import { FinalResults, Result as ParserResult } from 'tap-parser';
@@ -291,7 +291,7 @@ export declare class TestBase extends Base<TestBaseEvents> {
      */
     sub<T extends Base, O extends BaseOpts>(Class: {
         new (options: O): T;
-    }, extra: BaseOpts | TestOpts | TestBaseOpts | O | undefined, caller: (...a: any[]) => unknown): PromiseWithSubtest<T>;
+    }, extra: TestBaseOpts | O | undefined, caller: (...a: any[]) => unknown): PromiseWithSubtest<T>;
     /**
      * Method called when an unrecoverable error is encountered in a test.
      *
@@ -318,6 +318,6 @@ export declare class TestBase extends Base<TestBaseEvents> {
      * Return true if the child test represented by the options object
      * should be skipped.  Extended by the `@tapjs/filter` plugin.
      */
-    shouldSkipChild(extra: TestOpts | TestBaseOpts | BaseOpts): boolean;
+    shouldSkipChild<O extends BaseOpts>(extra: O | TestBaseOpts | BaseOpts): boolean;
 }
 //# sourceMappingURL=test-base.d.ts.map
