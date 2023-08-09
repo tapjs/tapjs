@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/before",
-  "version": "0.0.0-9",
+  "version": "0.0.0-10",
   "description": "a built-in tap extension for t.before()",
   "type": "module",
   "exports": {
@@ -43,7 +43,7 @@
   },
   "homepage": "https://github.com/tapjs/tapjs/src/spawn#readme",
   "peerDependencies": {
-    "@tapjs/core": "0.0.0-9"
+    "@tapjs/core": "0.0.0-10"
   },
   "engines": {
     "node": "^14.17.0 || ^16.13.0 || >=18.0.0"

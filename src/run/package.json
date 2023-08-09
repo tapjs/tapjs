@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/run",
-  "version": "0.0.0-10",
+  "version": "0.0.0-11",
   "description": "Command-line interface for the node-tap runner",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "type": "module",
@@ -33,15 +33,15 @@
     "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
   },
   "peerDependencies": {
-    "@tapjs/core": "0.0.0-9"
+    "@tapjs/core": "0.0.0-10"
   },
   "dependencies": {
-    "@tapjs/config": "2.0.0-9",
+    "@tapjs/config": "2.0.0-10",
     "@tapjs/processinfo": "^2.5.5",
-    "@tapjs/reporter": "0.0.0-10",
-    "@tapjs/spawn": "0.0.0-9",
-    "@tapjs/stdin": "0.0.0-9",
-    "@tapjs/test": "0.0.0-9",
+    "@tapjs/reporter": "0.0.0-11",
+    "@tapjs/spawn": "0.0.0-10",
+    "@tapjs/stdin": "0.0.0-10",
+    "@tapjs/test": "0.0.0-10",
     "c8": "^8.0.0",
     "chokidar": "^3.5.3",
     "foreground-child": "^3.1.1",
