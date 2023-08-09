@@ -40,7 +40,7 @@
     "ink": "^4.3.0",
     "ink-testing-library": "^3.0.0",
     "is-actual-promise": "^1.0.0",
-    "jackspeak": "^2.2.2",
+    "jackspeak": "^2.2.3",
     "minimatch": "^9.0.1",
     "minipass": "^7.0.2",
     "mkdirp": "^3.0.1",
