@@ -5,7 +5,7 @@ import { readFileSync } from 'fs'
 import { relative } from 'path'
 import { resolveImport } from 'resolve-import'
 import { fileURLToPath } from 'url'
-const binURL = await resolveImport('../index.js', import.meta.url)
+const binURL = await resolveImport('../dist/index.js', import.meta.url)
 const bin = fileURLToPath(binURL)
 
 const {
@@ -74,7 +74,7 @@ t.beforeEach(() => {
 const logs = t.capture(console, 'log')
 
 t.test('no positionals, accept all the defaults', async t => {
-  await t.mockImport('../index.js', {
+  await t.mockImport('../dist/index.js', {
     'npm-init-template': { Init: MockInit },
   })
   t.matchOnly(values, {
@@ -121,7 +121,7 @@ t.test('positional arg, change some defaults', async t => {
     git: 'no',
   }
   positionals.push('target-location')
-  await t.mockImport('../index.js', {
+  await t.mockImport('../dist/index.js', {
     'npm-init-template': { Init: MockInit },
   })
   t.matchOnly(values, {

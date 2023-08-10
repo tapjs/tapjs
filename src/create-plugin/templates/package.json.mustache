@@ -2,6 +2,7 @@
   "name": <% name %>,
   "version": "0.0.0-0",
   "description": <% description %>,
+  "type": "module",
   "exports": {
     "./package.json": {
       "import": "./package.json",
@@ -26,13 +27,13 @@
     "preversion": "npm test",
     "postversion": "npm publish",
     "prepublishOnly": "git push origin --follow-tags",
-    "prepare": "tsc -p tsconfig.cjs.json && tsc -p tsconfig.esm.json && bash ./scripts/fixup.sh",
+    "prepare": "tsc -p tsconfig/cjs.json && tsc -p tsconfig/esm.json && bash ./scripts/fixup.sh",
     "pretest": "npm run prepare",
     "presnap": "npm run prepare",
     "test": "tap",
     "snap": "tap",
     "format": "prettier --write . --loglevel warn",
-    "typedoc": "typedoc --tsconfig tsconfig.esm.json ./src/*.ts"
+    "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
   },
   "prettier": {
     "semi": false,

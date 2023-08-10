@@ -4,15 +4,19 @@
   "description": "Create a tap plugin with 'npm init @tapjs/plugin'",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "bin": {
-    "tapjs-create-plugin": "index.js"
+    "tapjs-create-plugin": "dist/bin.js"
   },
   "type": "module",
   "files": [
+    "./bin.js",
+    "./bin.d.ts",
+    "./bin.js.map",
+    "./bin.d.ts.map",
     "./index.js",
     "./index.d.ts",
     "./index.js.map",
     "./index.d.ts.map",
-    "./src"
+    "./templates"
   ],
   "exports": {
     "./package.json": {
@@ -22,7 +26,7 @@
   },
   "license": "BlueOak-1.0.0",
   "scripts": {
-    "prepare": "tsc -p tsconfig/esm.json",
+    "prepare": "tsc -p tsconfig/esm.json && bash scripts/fixup.sh",
     "pretest": "npm run prepare",
     "presnap": "npm run prepare",
     "test": "tap",
