@@ -12,9 +12,9 @@ export const Terse: FC<TapReportOpts> = ({ test }) => (
     <SuiteSummary test={test} />
     <Box flexDirection="column">
       {useComments(test).map((c, key) => (
-        <Box key={key}>
-          <Text dimColor>{c}</Text>
-        </Box>
+        <Text key={key} dimColor>
+          {c}
+        </Text>
       ))}
       <TimedOut test={test} />
     </Box>

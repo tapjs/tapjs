@@ -181,6 +181,7 @@ class TestBase extends base_js_1.Base {
             }
             else if (this.writable && !this.#pushedEnd) {
                 super.write(message);
+                this.parser.emit('comment', message.trim());
             }
             else {
                 console.log(message.trimEnd());

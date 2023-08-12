@@ -16,9 +16,9 @@ export const Base: FC<TapReportOpts> = ({ test, config }) => (
     <SuiteSummary test={test} />
     <Box flexDirection="column">
       {useComments(test).map((c, key) => (
-        <Box key={key}>
-          <Text dimColor>{c}</Text>
-        </Box>
+        <Text key={key} dimColor>
+          {c}
+        </Text>
       ))}
       <TimedOut test={test} />
     </Box>

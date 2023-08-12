@@ -17,9 +17,10 @@ export const useComments = (test: Base) => {
   useEffect(
     () =>
       listenCleanup(test.parser, 'comment', (c: string) => {
-        c = c.trim()
-        comments_.push(c)
-        updateComments([...comments_])
+        if (c.trim()) {
+          comments_.push(c.trimEnd())
+          updateComments([...comments_])
+        }
       }),
     [comments, test]
   )

@@ -309,6 +309,7 @@ export class TestBase extends Base<TestBaseEvents> {
         this.parent.comment(...args)
       } else if (this.writable && !this.#pushedEnd) {
         super.write(message)
+        this.parser.emit('comment', message.trim())
       } else {
         console.log(message.trimEnd())
       }

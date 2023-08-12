@@ -152,6 +152,7 @@ export class TestBase extends Base {
             }
             else if (this.writable && !this.#pushedEnd) {
                 super.write(message);
+                this.parser.emit('comment', message.trim());
             }
             else {
                 console.log(message.trimEnd());
