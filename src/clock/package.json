@@ -47,7 +47,7 @@
     "endOfLine": "lf"
   },
   "peerDependencies": {
-    "@tapjs/core": "^0.0.0-10"
+    "@tapjs/core": "0.0.0-10"
   },
   "devDependencies": {
     "@types/node": "^20.3.1",

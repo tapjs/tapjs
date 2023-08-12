@@ -4,6 +4,7 @@
   "workspaces": [
     "src/*"
   ],
+  "type": "module",
   "prettier": {
     "semi": false,
     "printWidth": 70,
