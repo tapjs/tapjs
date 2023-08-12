@@ -67,6 +67,9 @@ Workspace for node-tap development.
     Optional plugin providing `t.nock()` method (descendent of
     `@npmjs/tap-nock`, and a significant inspiration for tap's
     plugin architecture)
+  - [`@tapjs/clock`](https://github.com/tapjs/tapjs/tree/main/src/clock)
+    Optional plugin providing a
+    [clock-mock](https://github.com/isaacs/clock-mock) object on `t.clock`
   - [`@tapjs/sinon`](https://github.com/tapjs/tapjs/tree/main/src/sinon)
     Optional plugin providing a [Sinon](https://sinonjs.org)
     sandbox at `t.sinon` that automatically restores at the end
