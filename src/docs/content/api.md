@@ -2,7 +2,7 @@
 title: API
 eleventyNavigation:
   key: API
-  order: 5
+  order: 10
 ---
 
 The full API usage in test programs.

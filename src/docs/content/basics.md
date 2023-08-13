@@ -2,7 +2,7 @@
 title: tap basics
 eleventyNavigation:
   key: Basics
-  order: 10
+  order: 1
 ---
 
 stub
