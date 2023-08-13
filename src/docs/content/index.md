@@ -24,7 +24,7 @@ Included out of the box:
   - [lots of helpful assertion methods](./plugins/asserts.md)
   - [snapshot testing](./plugins/snapshot.md)
   - [object interception/spying](./plugins/intercept.md)
-  - [module mocking](./plugins/mocks.md)
+  - [module mocking](./plugins/mock.md)
   - [file system fixture management](./plugins/fixture.md)
   - [comprehensive TypeScript support](./plugins/typescript.md)
   - [before/after/etc lifecycle hooks](./plugins/lifecycle.md)
