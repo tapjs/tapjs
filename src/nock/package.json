@@ -35,7 +35,7 @@
     "tap",
     "nock"
   ],
-  "license": "ISC",
+  "license": "BlueOak-1.0.0",
   "bugs": {
     "url": "https://github.com/tapjs/tapjs/issues"
   },

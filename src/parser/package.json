@@ -40,7 +40,7 @@
     "test",
     "parser"
   ],
-  "license": "MIT",
+  "license": "BlueOak-1.0.0",
   "files": [
     "dist",
     "bin"
