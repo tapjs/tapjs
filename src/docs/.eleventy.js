@@ -4,7 +4,7 @@ const { dirname, resolve, join, relative } = require('path')
 const cheerio = require('cheerio')
 const contentDir = resolve(__dirname, './content')
 
-const pathPrefix = '/docs/'
+const pathPrefix = '/'
 
 const mdIt = require('markdown-it')
 const mdItAnchor = require('markdown-it-anchor')
