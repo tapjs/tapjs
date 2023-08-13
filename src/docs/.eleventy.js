@@ -22,7 +22,6 @@ module.exports = eleventyConfig => {
   eleventyConfig.addPlugin(pluginNavigation)
   eleventyConfig.addPassthroughCopy({
     'content/static': 'static',
-    'content/pricing.schema.json': 'pricing.schema.json',
   })
   eleventyConfig.addPassthroughCopy('content/*.{jpg,png,gif}')
   eleventyConfig.addPassthroughCopy(
