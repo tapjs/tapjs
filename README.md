@@ -2,6 +2,67 @@
 
 Workspace for node-tap development.
 
+## Dev Commands
+
+Do this at least once to get everything set up and ready to go:
+
+```
+npm run bootstrap
+```
+
+(Note: `npm install` _will not work_ until you do this, because
+the generated TypeScript eats its own tail.)
+
+---
+
+Build the test class (required after any plugin or core changes):
+
+```
+npm run build
+```
+
+---
+
+Any other builds:
+
+```
+npm run prepare -w src/{whatever}
+```
+
+---
+
+After adding or removing workspaces:
+
+```
+npm i
+```
+
+---
+
+Run all tests in all workspaces:
+
+```
+npm test
+```
+
+---
+
+Run all tests, saving snapshots:
+
+```
+npm run snap
+```
+
+---
+
+Build and serve docs:
+
+```
+npm start
+```
+
+## Contents
+
 - [tap](https://github.com/tapjs/tapjs/tree/main/src/tap) The
   main entry point module, which sets up the root test runner and
   exposes an alias to the cli runner.
