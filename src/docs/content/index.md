@@ -40,7 +40,7 @@ Additional plugins are available for:
 - [Sinon integration](./plugins/sinon.md)
 - [Clock/timer mocking](./plugins/clock.md)
 - [Nock integration](./plugins/nock.md)
-- [ESBuild Kit integration](./plugins/tsbuild-kit.md)
+- [ESBuild Kit integration](./plugins/esbuild-kit.md)
 - Possibly other things I don't even know about, since any tap
   plugin is just an npm package. You can also [write your
   own](./plugins/create.md) if you want something not on this
