@@ -17,6 +17,9 @@
     "endOfLine": "lf"
   },
   "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy-navigation": "^0.3.5",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
     "@esbuild-kit/cjs-loader": "^2.4.2",
     "@esbuild-kit/esm-loader": "^2.5.5",
     "@tapjs/processinfo": "^2.5.6",
@@ -33,9 +36,11 @@
     "async-hook-domain": "^4.0.1",
     "c8": "^8.0.0",
     "chalk": "^5.3.0",
+    "cheerio": "^1.0.0-rc.12",
     "chokidar": "^3.5.3",
     "clock-mock": "^2.0.1",
     "diff": "^5.1.0",
+    "eleventy-plugin-toc": "^1.1.5",
     "events-to-array": "^2.0.3",
     "foreground-child": "^3.1.1",
     "function-loop": "^4.0.0",
@@ -43,6 +48,8 @@
     "ink-testing-library": "^3.0.0",
     "is-actual-promise": "^1.0.0",
     "jackspeak": "^2.2.3",
+    "markdown-it": "^13.0.1",
+    "markdown-it-anchor": "^8.6.7",
     "minimatch": "^9.0.1",
     "minipass": "^7.0.2",
     "mkdirp": "^3.0.1",
@@ -78,6 +85,7 @@
     "yaml-types": "^0.3.0"
   },
   "scripts": {
+    "start": "npm run start -w src/docs",
     "test": "nx run-many -t test",
     "test:bootstrap": "bash ./scripts/test-bootstrap.sh",
     "snap": "TAP_TYPECHECK=0 TAP_TIMEOUT=240 nx run-many -t snap",
