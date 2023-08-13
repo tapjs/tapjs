@@ -1,7 +1,9 @@
 ---
 title: tap Nock Plugin (optional)
+eleventyNavigation:
+  key: Nock
+  parent: Plugins
+  order: 120
 ---
-
-# Nock Plugin (optional)
 
 stub

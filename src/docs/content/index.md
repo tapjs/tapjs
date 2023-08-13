@@ -1,8 +1,9 @@
 ---
 title: node-tap
+eleventyNavigation:
+  key: Home
+  order: 0
 ---
-
-# node-tap
 
 A batteries-included and plugin extensible [<abbr title="Test
 Anything Protocol">TAP</abbr>](https://testanything.org) test
