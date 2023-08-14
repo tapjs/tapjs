@@ -257,13 +257,10 @@ const applyPlugins = (base, plugs = plugins()) => {
             }
         },
     }));
-    Object.defineProperty(t, Symbol.toStringTag, {
-        value: 'Test',
-    });
     // assign a reference to the extended Test for use in plugin at run-time
     Object.assign(base, { t });
     // put the .t self-ref and plugin inspection on top of the stack
-    ext.unshift({
+    const top = {
         t,
         get pluginLoaded() {
             return (plugin) => {
@@ -273,7 +270,11 @@ const applyPlugins = (base, plugs = plugins()) => {
         get plugins() {
             return [...plugs];
         },
+    };
+    Object.defineProperty(top, Symbol.toStringTag, {
+        value: 'Test',
     });
+    ext.unshift(top);
     return t;
 };
 const kPluginSet = Symbol('@tapjs/test construction plugin set');
