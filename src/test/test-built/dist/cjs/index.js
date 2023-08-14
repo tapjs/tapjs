@@ -309,11 +309,6 @@ class Test extends core_1.TestBase {
         return applyPlugins(this, pluginSet);
     }
     /* c8 ignore stop */
-    /* c8 ignore start */
-    get [Symbol.toStringTag]() {
-        return 'Test';
-    }
-    /* c8 ignore stop */
     /**
      * Add a plugin at run-time.
      *

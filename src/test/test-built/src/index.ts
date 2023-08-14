@@ -449,12 +449,6 @@ export class Test<
   }
   /* c8 ignore stop */
 
-  /* c8 ignore start */
-  get [Symbol.toStringTag]() {
-    return 'Test'
-  }
-  /* c8 ignore stop */
-
   /**
    * Add a plugin at run-time.
    *

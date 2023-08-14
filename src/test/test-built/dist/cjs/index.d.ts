@@ -207,7 +207,6 @@ export declare class Test<Ext extends BuiltPlugins = BuiltPlugins, Opts extends 
      * @internal
      */
     constructor(opts: Opts, __INTERNAL?: PluginExtensionOption<Ext, Opts>);
-    get [Symbol.toStringTag](): string;
     /**
      * Add a plugin at run-time.
      *
