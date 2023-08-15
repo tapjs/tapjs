@@ -47,6 +47,8 @@ export class BeforeEach {
    * method has not yet run, it is safe to call test methods on it, but note
    * that this may potentially be confusing if for example you call `t.plan()`
    * and this conflicts with the `t.plan()` called in the test method.
+   *
+   * @group Test Lifecycle Management
    */
   beforeEach(fn: (t: Test) => any) {
     this.#onBeforeEach.push(fn)

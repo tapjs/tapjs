@@ -24,6 +24,8 @@ export class Before {
    *
    * This is handy when some setup may require asynchronous actions, and
    * tests should wait until after it completes.
+   *
+   * @group Test Lifecycle Management
    */
   before(fn: () => any) {
     this.#t.currentAssert = this.before

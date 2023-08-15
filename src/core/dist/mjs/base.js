@@ -54,16 +54,22 @@ export class Base extends Minipass {
     indent;
     /**
      * TapWrap AsyncResource that limits the async-hook-domain
+     *
+     * @group Internal Machinery
      */
     hook;
     // this actually is deterministically set in the ctor, but
     // in the hook, so tsc doesn't see it.
     /**
      * the async-hook-domain that catches throws and Promise rejections
+     *
+     * @group Internal Machinery
      */
     hookDomain;
     /**
      * The timer that fires when the test times out
+     *
+     * @group Internal Machinery
      */
     timer;
     /**
@@ -73,6 +79,8 @@ export class Base extends Minipass {
     timedOut = false;
     /**
      * The tap parser attached to this TAP stream
+     *
+     * @group Internal Machinery
      */
     parser;
     /**
@@ -82,23 +90,33 @@ export class Base extends Minipass {
     debug;
     /**
      * The count of all assertions that this stream emitted
+     *
+     * @group Test Reflection
      */
     counts;
     /**
      * Lists of todo, skip, and failure test points. If `passes: true` is
      * set in the options, then passing test points will also be tracked.
+     *
+     * @group Test Reflection
      */
     lists;
     /**
      * the name of this test
+     *
+     * @group Test Reflection
      */
     name;
     /**
      * Set on completion. The results of the test run.
+     *
+     * @group Test Reflection
      */
     results;
     /**
      * Parent test of this TAP stream
+     *
+     * @group Internal Machinery
      */
     parent;
     /**
@@ -121,6 +139,8 @@ export class Base extends Minipass {
     preserveWhitespace;
     /**
      * Unrecoverable TAP protocol errors in the stream
+     *
+     * @group Test Reflection
      */
     errors;
     /**
@@ -136,29 +156,43 @@ export class Base extends Minipass {
     context;
     /**
      * the TAP stream data for buffered tests
+     *
+     * @internal
+     *
+     * @group Internal Machinery
      */
     output;
     /**
      * True if this test should be buffered and only processed on completion
      *
      * @internal
+     *
+     * @group Internal Machinery
      */
     buffered;
     /**
      * True if this test emitted a bailout
+     *
+     * @group Test Reflection
      */
     bailedOut;
     /**
      * high resolution bigint time when this test started
+     *
+     * @group Internal Machinery
      */
     start;
     #started = false;
     /**
      * Amount of time in milliseconds that this test took to complete.
+     *
+     * @group Test Reflection
      */
     time;
     /**
      * High resolution time in ns that this test took to complete.
+     *
+     * @group Test Reflection
      */
     hrtime;
     /**
@@ -167,6 +201,8 @@ export class Base extends Minipass {
     silent;
     /**
      * A `Deferred` promise wrapper that is resolved when this test completes.
+     *
+     * @group Internal Machinery
      */
     deferred;
     #printedOutput = false;
@@ -277,6 +313,8 @@ export class Base extends Minipass {
      *
      * Calling `setTimeout(0)` will remove the timer and allow the test to run
      * indefinitely.
+     *
+     * @group Test Lifecycle Management
      */
     setTimeout(n) {
         if (this.timer) {
@@ -299,6 +337,8 @@ export class Base extends Minipass {
      * timeout behavior specific to the type of thing they represent.
      *
      * @internal
+     *
+     * @group Internal Machinery
      */
     timeout(options = {
         expired: this.name,
@@ -329,6 +369,8 @@ export class Base extends Minipass {
      * Initializes the TapWrap hook
      *
      * @internal
+     *
+     * @group Internal Machinery
      */
     runMain(cb) {
         this.debug('BASE runMain');
@@ -337,13 +379,17 @@ export class Base extends Minipass {
         this.hook.runInAsyncScope(this.main, this, cb);
     }
     /**
-     * getter for the high resolution time when this test began
+     * Returns true if this test has begun
+     *
+     * @group Test Reflection
      */
     get started() {
         return this.#started;
     }
     /**
      * True if the test has printed *some* output of any kind
+     *
+     * @group Test Reflection
      */
     get printedOutput() {
         return this.#printedOutput;
@@ -351,6 +397,10 @@ export class Base extends Minipass {
     /**
      * The main test function. For this Base class, this is a no-op. Subclasses
      * implement this in their specific ways.
+     *
+     * @internal
+     *
+     * @group Internal Machinery
      */
     main(cb) {
         cb();
@@ -362,6 +412,13 @@ export class Base extends Minipass {
      * {@link @tapjs/core!base.Base#output}
      * field. Sets {@link @tapjs/core!base.Base#printedOutput} to `true` when
      * called.
+     *
+     * Note: you *probably* never need to call this. Instead, use the various
+     * assertion methods and other parts of the API.
+     *
+     * @internal
+     *
+     * @group Internal Machinery
      */
     write(c) {
         this.#printedOutput = true;
@@ -384,6 +441,8 @@ export class Base extends Minipass {
      * Method called when parser emits a line of TAP data
      *
      * @internal
+     *
+     * @group Internal Machinery
      */
     #online(line) {
         this.debug('LINE %j', line, [this.name, this.indent]);
@@ -394,6 +453,10 @@ export class Base extends Minipass {
      *
      * Extended by {@link @tapjs/core!worker.Worker} and
      * {@link @tapjs/core!tap.TAP} classes
+     *
+     * @internal
+     *
+     * @group Internal Machinery
      */
     oncomplete(results) {
         if (this.start) {
@@ -428,11 +491,19 @@ export class Base extends Minipass {
      *
      * If the function returns a Promise, it will be awaited before ending
      * the TAP stream.
+     *
+     * @internal
+     *
+     * @group Internal Machinery
      */
     onbeforeend() { }
     /**
      * extension point for plugins that want to be notified when the test
      * is completely done, and terminating its parser.
+     *
+     * @internal
+     *
+     * @group Internal Machinery
      */
     onEOF() { }
     /**
@@ -440,12 +511,18 @@ export class Base extends Minipass {
      * processed and it's safe to move on to the next one.
      *
      * @internal
+     *
+     * @group Internal Machinery
      */
     ondone() { }
     /**
      * EventEmitter emit method, but closes the
      * {@link @tapjs/core!base.Base#hook} and
      * {@link @tapjs/core!base.Base#hookDomain} when emitting `'end'`.
+     *
+     * @internal
+     *
+     * @group Internal Machinery
      */
     emit(ev, ...data) {
         const ret = super.emit(ev, ...data);
@@ -471,6 +548,8 @@ export class Base extends Minipass {
      * an error.
      *
      * @internal
+     *
+     * @group Internal Machinery
      */
     threw(er, extra, proxy = false, ended = false) {
         this.debug('BASE.threw', er);
@@ -533,6 +612,8 @@ export class Base extends Minipass {
     }
     /**
      * returns true if the test has not as yet encountered any failures
+     *
+     * @group Test Reflection
      */
     passing() {
         return this.parser.ok;

@@ -111,6 +111,8 @@ export class Assertions {
 
   /**
    * Verify that the value is truthy
+   *
+   * @group Assertion Methods
    */
   ok(obj: any, ...[msg, extra]: MessageExtra) {
     this.#t.currentAssert = this.#t.t.ok
@@ -121,6 +123,8 @@ export class Assertions {
 
   /**
    * Verify that the value is not truthy
+   *
+   * @group Assertion Methods
    */
   notOk(obj: any, ...[msg, extra]: MessageExtra) {
     this.#t.currentAssert = this.#t.t.notOk
@@ -131,6 +135,8 @@ export class Assertions {
 
   /**
    * Verify that the values are equal
+   *
+   * @group Assertion Methods
    */
   equal<T extends unknown>(
     found: any,
@@ -161,6 +167,8 @@ export class Assertions {
 
   /**
    * Verify that the values are not equal
+   *
+   * @group Assertion Methods
    */
   not(found: any, doNotWant: any, ...[msg, extra]: MessageExtra) {
     this.#t.currentAssert = this.#t.t.not
@@ -184,6 +192,8 @@ export class Assertions {
    * If a string, then it can match either the `typeof` result
    * or 'null' for `null` values, or the `name` property of the
    * object's constructor.
+   *
+   * @group Assertion Methods
    */
   type(
     obj: any,
@@ -251,6 +261,8 @@ export class Assertions {
 
   /**
    * Verify that the value is loosely equivalent to the supplied pattern
+   *
+   * @group Assertion Methods
    */
   same(found: any, wanted: any, ...[msg, extra]: MessageExtra) {
     this.#t.currentAssert = this.#t.t.same
@@ -264,6 +276,8 @@ export class Assertions {
 
   /**
    * Verify that the value is not loosely equivalent to the supplied pattern
+   *
+   * @group Assertion Methods
    */
   notSame(found: any, doNotWant: any, ...[msg, extra]: MessageExtra) {
     this.#t.currentAssert = this.#t.t.notSame
@@ -277,6 +291,8 @@ export class Assertions {
 
   /**
    * Verify that the value is strictly equivalent to the supplied pattern
+   *
+   * @group Assertion Methods
    */
   strictSame<T extends unknown>(
     found: any,
@@ -298,6 +314,8 @@ export class Assertions {
   /**
    * Verify that the value is not strictly equivalent to the supplied
    * pattern object
+   *
+   * @group Assertion Methods
    */
   strictNotSame(
     found: any,
@@ -319,6 +337,8 @@ export class Assertions {
   /**
    * Verify that the object has all of the properties and values in the
    * pattern, matching loosely.
+   *
+   * @group Assertion Methods
    */
   has(found: any, wanted: any, ...[msg, extra]: MessageExtra) {
     this.#t.currentAssert = this.#t.t.has
@@ -336,6 +356,8 @@ export class Assertions {
   /**
    * Verify that the object does NOT have all of the properties and values
    * in the pattern, matching loosely.
+   *
+   * @group Assertion Methods
    */
   notHas(found: any, doNotWant: any, ...[msg, extra]: MessageExtra) {
     this.#t.currentAssert = this.#t.t.notHas
@@ -353,6 +375,8 @@ export class Assertions {
   /**
    * Verify that the value has all of the properties and values in the
    * pattern, matching strictly.
+   *
+   * @group Assertion Methods
    */
   hasStrict(found: any, wanted: any, ...[msg, extra]: MessageExtra) {
     this.#t.currentAssert = this.#t.t.hasStrict
@@ -373,6 +397,8 @@ export class Assertions {
    *
    * Note that this will pass if the value has *some* of the listed properties,
    * or if they do not match the same type.
+   *
+   * @group Assertion Methods
    */
   notHasStrict(
     found: any,
@@ -393,6 +419,8 @@ export class Assertions {
 
   /**
    * Verify that the value matches the pattern provided
+   *
+   * @group Assertion Methods
    */
   match(found: any, wanted: any, ...[msg, extra]: MessageExtra) {
     this.#t.currentAssert = this.#t.t.match
@@ -406,6 +434,8 @@ export class Assertions {
 
   /**
    * Verify that the value does NOT match the pattern provided.
+   *
+   * @group Assertion Methods
    */
   notMatch(
     found: any,
@@ -424,6 +454,8 @@ export class Assertions {
   /**
    * Verify that the value matches the pattern provided, with no
    * extra properties.
+   *
+   * @group Assertion Methods
    */
   matchOnly(found: any, wanted: any, ...[msg, extra]: MessageExtra) {
     this.#t.currentAssert = this.#t.t.matchOnly
@@ -438,6 +470,8 @@ export class Assertions {
   /**
    * Verify that the value does not match the pattern provided, with no
    * extra properties. Ie, it might either not match, or have extra props.
+   *
+   * @group Assertion Methods
    */
   notMatchOnly(
     found: any,
@@ -456,6 +490,8 @@ export class Assertions {
   /**
    * Verify that the value matches the pattern provided, with no
    * extra properties.
+   *
+   * @group Assertion Methods
    */
   matchOnlyStrict(
     found: any,
@@ -478,6 +514,8 @@ export class Assertions {
   /**
    * Verify that the value does not match the pattern provided, with no
    * extra properties. Ie, it might either not match, or have extra props.
+   *
+   * @group Assertion Methods
    */
   notMatchOnlyStrict(
     found: any,
@@ -507,6 +545,8 @@ export class Assertions {
    * t.matchStrict({ a: 1 }, { a: Number }, 'this passes')
    * t.matchStrict({ a: 1 }, { a: '1' }, 'this fails')
    * ```
+   *
+   * @group Assertion Methods
    */
   matchStrict(
     found: any,
@@ -525,6 +565,8 @@ export class Assertions {
   /**
    * Verify that the value does not match the pattern provided, without
    * type coercion.
+   *
+   * @group Assertion Methods
    */
   notMatchStrict(
     found: any,
@@ -543,6 +585,8 @@ export class Assertions {
   /**
    * Verify that the object has the wanted property, anywhere in its
    * prototype chain.
+   *
+   * @group Assertion Methods
    */
   hasProp<T extends {}>(
     found: T,
@@ -573,6 +617,8 @@ export class Assertions {
   /**
    * Verify that the object has the wanted property, using
    * Object#hasOwnProperty
+   *
+   * @group Assertion Methods
    */
   hasOwnProp<T extends {}>(
     found: T,
@@ -603,6 +649,8 @@ export class Assertions {
   /**
    * Verify that the object has all of the properties in the `wanted`
    * list, anywhere in its prototype chain.
+   *
+   * @group Assertion Methods
    */
   hasProps<T extends {}>(
     found: T,
@@ -649,6 +697,8 @@ export class Assertions {
   /**
    * Verify that the object has all of the properties listed in the
    * `wanted` list, using Object#hasOwnProperties()
+   *
+   * @group Assertion Methods
    */
   hasOwnProps<T extends {}>(
     found: T,
@@ -695,6 +745,8 @@ export class Assertions {
   /**
    * Verify that the object has all of the properties listed in the
    * `wanted` list, using Object#hasOwnProperties(), and no others
+   *
+   * @group Assertion Methods
    */
   hasOwnPropsOnly<T extends {}>(
     found: T,
@@ -750,6 +802,8 @@ export class Assertions {
    * `t.match()`.
    *
    * Returns false on failure, or the error object thrown on success
+   *
+   * @group Assertion Methods
    */
   throws(
     fn: Function | (() => any),
@@ -791,6 +845,8 @@ export class Assertions {
    * Returns the error object if it throws and that does not fail the test
    * (by virtue of being marked skip or todo). Otherwise returns the
    * passing status, like other assertions.
+   *
+   * @group Assertion Methods
    */
   doesNotThrow(
     fn: Function | (() => any),
@@ -815,6 +871,8 @@ export class Assertions {
    * resolves to the error object rejected if it rejects as expected,
    * 'false' if it does not, or 'true' if it fails to reject but is marked
    * as skip/todo.
+   *
+   * @group Assertion Methods
    */
   async rejects<T extends any = any>(
     fnOrPromise: (() => Promise<T>) | Promise<T>,
@@ -868,6 +926,8 @@ export class Assertions {
    * Resolves to 'true' if the promise resolves successfully, 'false' if
    * it rejects and fails, or the rejection error if it rejects but the
    * failure is accepted by by being marked todo or skip
+   *
+   * @group Assertion Methods
    */
   async resolves<T extends any = any>(
     fnOrPromise: Promise<T> | (() => Promise<T>),
@@ -910,6 +970,8 @@ export class Assertions {
    * Resolves to true if it passes, false if the promise rejects or the match
    * fails, or the rejection error value if the promise rejects but the
    * assertion passes by being marked todo/skip.
+   *
+   * @group Assertion Methods
    */
   async resolveMatch<T extends any = any>(
     fnOrPromise: Promise<T> | (() => Promise<T>),
@@ -956,6 +1018,8 @@ export class Assertions {
    * the test, if the event never emits, but the returned promise can be
    * a handy way to pause a test until an event happens, if you are
    * reasonably confident that it will fire.
+   *
+   * @group Assertion Methods
    */
   emits(
     emitter: EventEmitter | EventTarget,

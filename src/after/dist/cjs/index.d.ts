@@ -14,11 +14,15 @@ export declare class After {
     constructor(t: TestBase);
     /**
      * Alias for {@link @tapjs/after!After#after}
+     *
+     * @group Test Lifecycle Management
      */
     teardown(fn: () => any): void;
     /**
      * Runs the supplied function after the test is completely finished, and
      * before the next test starts.
+     *
+     * @group Test Lifecycle Management
      */
     after(fn: () => any): void;
 }

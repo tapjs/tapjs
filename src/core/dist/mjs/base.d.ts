@@ -95,6 +95,8 @@ export interface BaseOpts extends Extra {
      * The TAP data from a buffered test.
      *
      * @internal
+     *
+     * @group Internal Machinery
      */
     tapChildBuffer?: string;
     /**
@@ -125,6 +127,8 @@ export interface BaseOpts extends Extra {
      * Number of spaces that this test is indented.
      *
      * @internal
+     *
+     * @group Internal Machinery
      */
     indent?: string;
     /**
@@ -136,6 +140,8 @@ export interface BaseOpts extends Extra {
      * Parser to use for this TAP stream.
      *
      * @internal
+     *
+     * @group Internal Machinery
      */
     parser?: Parser;
     /**
@@ -175,14 +181,20 @@ export declare class Base<Events extends TapBaseEvents = TapBaseEvents> extends 
     indent: string;
     /**
      * TapWrap AsyncResource that limits the async-hook-domain
+     *
+     * @group Internal Machinery
      */
     hook: TapWrap;
     /**
      * the async-hook-domain that catches throws and Promise rejections
+     *
+     * @group Internal Machinery
      */
     hookDomain: Domain;
     /**
      * The timer that fires when the test times out
+     *
+     * @group Internal Machinery
      */
     timer?: NodeJS.Timeout;
     /**
@@ -192,6 +204,8 @@ export declare class Base<Events extends TapBaseEvents = TapBaseEvents> extends 
     timedOut: boolean;
     /**
      * The tap parser attached to this TAP stream
+     *
+     * @group Internal Machinery
      */
     parser: Parser;
     /**
@@ -201,23 +215,33 @@ export declare class Base<Events extends TapBaseEvents = TapBaseEvents> extends 
     debug: (...args: any[]) => void;
     /**
      * The count of all assertions that this stream emitted
+     *
+     * @group Test Reflection
      */
     counts: Counts;
     /**
      * Lists of todo, skip, and failure test points. If `passes: true` is
      * set in the options, then passing test points will also be tracked.
+     *
+     * @group Test Reflection
      */
     lists: Lists;
     /**
      * the name of this test
+     *
+     * @group Test Reflection
      */
     name: string;
     /**
      * Set on completion. The results of the test run.
+     *
+     * @group Test Reflection
      */
     results?: FinalResults;
     /**
      * Parent test of this TAP stream
+     *
+     * @group Internal Machinery
      */
     parent?: Base | TestBase;
     /**
@@ -240,6 +264,8 @@ export declare class Base<Events extends TapBaseEvents = TapBaseEvents> extends 
     preserveWhitespace: boolean;
     /**
      * Unrecoverable TAP protocol errors in the stream
+     *
+     * @group Test Reflection
      */
     errors: TapError[];
     /**
@@ -255,28 +281,42 @@ export declare class Base<Events extends TapBaseEvents = TapBaseEvents> extends 
     context: any;
     /**
      * the TAP stream data for buffered tests
+     *
+     * @internal
+     *
+     * @group Internal Machinery
      */
     output: string;
     /**
      * True if this test should be buffered and only processed on completion
      *
      * @internal
+     *
+     * @group Internal Machinery
      */
     buffered: boolean;
     /**
      * True if this test emitted a bailout
+     *
+     * @group Test Reflection
      */
     bailedOut: string | boolean;
     /**
      * high resolution bigint time when this test started
+     *
+     * @group Internal Machinery
      */
     start: bigint;
     /**
      * Amount of time in milliseconds that this test took to complete.
+     *
+     * @group Test Reflection
      */
     time: MILLISECONDS;
     /**
      * High resolution time in ns that this test took to complete.
+     *
+     * @group Test Reflection
      */
     hrtime: bigint;
     /**
@@ -285,6 +325,8 @@ export declare class Base<Events extends TapBaseEvents = TapBaseEvents> extends 
     silent: boolean;
     /**
      * A `Deferred` promise wrapper that is resolved when this test completes.
+     *
+     * @group Internal Machinery
      */
     deferred?: Deferred<FinalResults>;
     constructor(options?: BaseOpts);
@@ -296,6 +338,8 @@ export declare class Base<Events extends TapBaseEvents = TapBaseEvents> extends 
      *
      * Calling `setTimeout(0)` will remove the timer and allow the test to run
      * indefinitely.
+     *
+     * @group Test Lifecycle Management
      */
     setTimeout(n: MILLISECONDS): void;
     /**
@@ -304,6 +348,8 @@ export declare class Base<Events extends TapBaseEvents = TapBaseEvents> extends 
      * timeout behavior specific to the type of thing they represent.
      *
      * @internal
+     *
+     * @group Internal Machinery
      */
     timeout(options?: {
         expired?: string;
@@ -315,19 +361,29 @@ export declare class Base<Events extends TapBaseEvents = TapBaseEvents> extends 
      * Initializes the TapWrap hook
      *
      * @internal
+     *
+     * @group Internal Machinery
      */
     runMain(cb: () => void): void;
     /**
-     * getter for the high resolution time when this test began
+     * Returns true if this test has begun
+     *
+     * @group Test Reflection
      */
     get started(): boolean;
     /**
      * True if the test has printed *some* output of any kind
+     *
+     * @group Test Reflection
      */
     get printedOutput(): boolean;
     /**
      * The main test function. For this Base class, this is a no-op. Subclasses
      * implement this in their specific ways.
+     *
+     * @internal
+     *
+     * @group Internal Machinery
      */
     main(cb: () => void): void;
     /**
@@ -337,6 +393,13 @@ export declare class Base<Events extends TapBaseEvents = TapBaseEvents> extends 
      * {@link @tapjs/core!base.Base#output}
      * field. Sets {@link @tapjs/core!base.Base#printedOutput} to `true` when
      * called.
+     *
+     * Note: you *probably* never need to call this. Instead, use the various
+     * assertion methods and other parts of the API.
+     *
+     * @internal
+     *
+     * @group Internal Machinery
      */
     write(c: string): boolean;
     /**
@@ -350,6 +413,10 @@ export declare class Base<Events extends TapBaseEvents = TapBaseEvents> extends 
      *
      * Extended by {@link @tapjs/core!worker.Worker} and
      * {@link @tapjs/core!tap.TAP} classes
+     *
+     * @internal
+     *
+     * @group Internal Machinery
      */
     oncomplete(results: FinalResults): void;
     /**
@@ -358,11 +425,19 @@ export declare class Base<Events extends TapBaseEvents = TapBaseEvents> extends 
      *
      * If the function returns a Promise, it will be awaited before ending
      * the TAP stream.
+     *
+     * @internal
+     *
+     * @group Internal Machinery
      */
     onbeforeend(): Promise<void> | void;
     /**
      * extension point for plugins that want to be notified when the test
      * is completely done, and terminating its parser.
+     *
+     * @internal
+     *
+     * @group Internal Machinery
      */
     onEOF(): Promise<void> | void;
     /**
@@ -370,12 +445,18 @@ export declare class Base<Events extends TapBaseEvents = TapBaseEvents> extends 
      * processed and it's safe to move on to the next one.
      *
      * @internal
+     *
+     * @group Internal Machinery
      */
     ondone(): void;
     /**
      * EventEmitter emit method, but closes the
      * {@link @tapjs/core!base.Base#hook} and
      * {@link @tapjs/core!base.Base#hookDomain} when emitting `'end'`.
+     *
+     * @internal
+     *
+     * @group Internal Machinery
      */
     emit<Event extends keyof Events>(ev: Event, ...data: Events[Event]): boolean;
     /**
@@ -391,10 +472,14 @@ export declare class Base<Events extends TapBaseEvents = TapBaseEvents> extends 
      * an error.
      *
      * @internal
+     *
+     * @group Internal Machinery
      */
     threw(er: any, extra?: Extra, proxy?: boolean, ended?: boolean): Extra | void | undefined;
     /**
      * returns true if the test has not as yet encountered any failures
+     *
+     * @group Test Reflection
      */
     passing(): boolean;
 }

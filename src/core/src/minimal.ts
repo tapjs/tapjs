@@ -23,6 +23,9 @@ export class Minimal extends TestBase {
     super(opts)
     if (!this.parent) this.runMain(() => {})
   }
+  /**
+   * Spawn a subtest that is also a {@link @tapjs/core!minimal.Minimal}
+   */
   test(
     name: string,
     extra: TestBaseOpts,

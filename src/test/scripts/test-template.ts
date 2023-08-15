@@ -304,7 +304,22 @@ export interface Test<
   Ext extends BuiltPlugins = BuiltPlugins,
   Opts extends TestOpts = TestOpts
 > extends TTest {
+  /**
+   * Explicitly mark the test as completed, outputting the TAP plan line if
+   * needed.
+   *
+   * This is not required to be called if the test function returns a promise,
+   * or if a plan is explicitly declared and eventually fulfilled.
+   *
+   * @group Test Lifecycle Management
+   */
   end(): this
+  /**
+   * Specify the number of Test Points expected by this test.
+   * Outputs a TAP plan line.
+   *
+   * @group Test Lifecycle Management
+   */
   plan(n: number, comment?: string): void
 }
 
@@ -369,6 +384,8 @@ export class Test<
    * and lag loading autocomplete in editors. If you find yourself calling
    * applyPlugin often, consider whether it'd be better to just add the plugin
    * to the entire test suite, so that it can be built up front.
+   *
+   * @group Plugin Management
    */
   applyPlugin<B extends Object, O extends unknown = unknown>(
     plugin: TapPlugin<B, O>
@@ -416,6 +433,8 @@ export class Test<
   /**
    * Return true if the specified plugin is loaded. Asserts that the
    * test object in question implements the return value of the plugin.
+   *
+   * @group Plugin Management
    */
   pluginLoaded<T extends any = any>(
     plugin: (t: any, opts?: any) => T
@@ -425,13 +444,17 @@ export class Test<
   }
   /**
    * Return the set of plugins loaded by this Test
+   *
+   * @group Plugin Management
    */
   get plugins(): TapPlugin<any, Opts>[] {
     return []
   }
 
   /**
-   * Create a subtest
+   * Create a child Test object and parse its output as a subtest
+   *
+   * @group Subtest Methods
    */
   test(
     name: string,
@@ -462,6 +485,8 @@ export class Test<
 
   /**
    * Create a subtest which is marked as `todo`
+   *
+   * @group Subtest Methods
    */
   todo(
     name: string,
@@ -493,6 +518,8 @@ export class Test<
 
   /**
    * Create a subtest which is marked as `skip`
+   *
+   * @group Subtest Methods
    */
   skip(
     name: string,

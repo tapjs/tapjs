@@ -47,6 +47,8 @@ export interface TestBaseOpts extends BaseOpts {
    * when we reference it in the various flow control machinery.
    *
    * @internal
+   *
+   * @group Internal Machinery
    */
   cb?: (...args: any[]) => any
 }
@@ -181,42 +183,68 @@ export class TestBase extends Base<TestBaseEvents> {
    * as a reference to the final plugged-in Test instance.
    * If TestBase is used directly (outside the context of a plugin)
    * or during plugin setup time, this will be undefined, so watch out.
+   *
+   * @group Test Reflection
    */
   t!: Test
 
+  /**
+   * A promise that resolves when the test is done.
+   *
+   * @group Internal Machinery
+   */
   donePromise?: Promise<any> & {
     tapAbortPromise?: () => void
   }
+
   /**
    * The number of subtests to run in parallel, if allowed
+   *
+   * @group Test Lifecycle Management
    */
   jobs: number
+
   /**
    * Array of all subtests that have been added/scheduled,
    * and have not yet completed.
+   *
+   * @group Internal Machinery
    */
   subtests: Base[] = []
   /**
    * The pool of parallel tests currently in process
+   *
+   * @group Internal Machinery
    */
   pool: Set<Base> = new Set()
   /**
    * Queue of items awaiting processing. Can be any
    * {@link @tapjs/core!test-base.QueueEntry} item.
+   *
+   * @group Internal Machinery
    */
   queue: QueueEntry[] = [VERSION]
   /**
    * Function that will get this test as an argument when it is processed
+   *
+   * @internal
+   *
+   * @group Internal Machinery
    */
   cb?: (...args: any[]) => any
+
   /**
    * The count of all assertions this test has seen
+   *
+   * @group Test Reflection
    */
   count: number = 0
+
   /**
    * Set true when {@link @tapjs/core!test-base.TestBase#end} is called
    */
   ended: boolean = false
+
   /**
    * Show diagnostics for this test. A value of `null` means that
    * diagnostics will be shown only if the test is failing.
@@ -242,12 +270,16 @@ export class TestBase extends Base<TestBaseEvents> {
 
   /**
    * Subtests that are currently in process.
+   *
+   * @group Internal Machinery
    */
   activeSubtests: Set<Base> = new Set()
 
   /**
    * Count of all asserts in this and all child tests,
    * excluding child test summary points
+   *
+   * @group Test Reflection
    */
   assertTotals: Counts = new Counts({
     total: 0,
@@ -259,6 +291,8 @@ export class TestBase extends Base<TestBaseEvents> {
 
   /**
    * true if the test has printed at least one TestPoint
+   *
+   * @group Test Reflection
    */
   get printedResult(): boolean {
     return this.#printedResult
@@ -266,6 +300,8 @@ export class TestBase extends Base<TestBaseEvents> {
 
   /**
    * true if the test is currently waiting for something to finish
+   *
+   * @group Test Reflection
    */
   get occupied(): boolean {
     return !!this.#occupied
@@ -295,12 +331,11 @@ export class TestBase extends Base<TestBaseEvents> {
       this.hook.runInAsyncScope(cb, this.t || this, ...args)
   }
 
-  // TAP output generating methods
   /**
    * immediately exit this and all parent tests with a TAP
    * Bail out! message.
    *
-   * @group TAP generation methods
+   * @group Test Lifecycle Management
    */
   bailout(message?: string) {
     if (this.parent && (this.results || this.ended)) {
@@ -355,7 +390,9 @@ export class TestBase extends Base<TestBaseEvents> {
    * Called when the test times out.
    * Options are passed as diagnostics to the threw() method
    *
-   * @group TAP generation methods
+   * @internal
+   *
+   * @group Internal Machinery
    */
   timeout(
     options: Extra & { expired?: string } = { expired: this.name }
@@ -388,7 +425,7 @@ export class TestBase extends Base<TestBaseEvents> {
    * Specify the number of Test Points expected by this test.
    * Outputs a TAP plan line.
    *
-   * @group TAP generation methods
+   * @group Test Lifecycle Management
    */
   plan(n: number, comment?: string): void
   plan(n: number, comment: string, implicit: typeof IMPLICIT): void
@@ -431,7 +468,7 @@ export class TestBase extends Base<TestBaseEvents> {
   /**
    * A passing (ok) Test Point.
    *
-   * @group TAP generation methods
+   * @group Assertion Methods
    */
   pass(...[msg, extra]: MessageExtra) {
     this.currentAssert = this.pass
@@ -444,7 +481,7 @@ export class TestBase extends Base<TestBaseEvents> {
   /**
    * A failing (not ok) Test Point
    *
-   * @group TAP generation methods
+   * @group Assertion Methods
    */
   fail(...[msg, extra]: MessageExtra) {
     this.currentAssert = this.fail
@@ -455,16 +492,14 @@ export class TestBase extends Base<TestBaseEvents> {
   }
 
   /**
-   * The current assertion being processed.  May only be set if
-   * not already set.
+   * The current assertion being processed. Set at the start of all
+   * assertions, and used for calculating stack traces.
+   *
+   * @group Internal Machinery
    */
   get currentAssert() {
     return this.#currentAssert
   }
-  /**
-   * The current assertion being processed.  May only be set if
-   * not already set.
-   */
   set currentAssert(fn: null | Function | ((...a: any[]) => any)) {
     if (!this.#currentAssert && typeof fn === 'function') {
       this.#currentAssert = fn
@@ -477,6 +512,8 @@ export class TestBase extends Base<TestBaseEvents> {
    * @group TAP generation methods
    *
    * @internal
+   *
+   * @group Internal Machinery
    */
   #printResult(
     ok: boolean,
@@ -612,7 +649,7 @@ export class TestBase extends Base<TestBaseEvents> {
    * This is not required to be called if the test function returns a promise,
    * or if a plan is explicitly declared and eventually fulfilled.
    *
-   * @group TAP generation methods
+   * @group Test Lifecycle Management
    */
   end(implicit?: typeof IMPLICIT): this {
     this.#end(implicit)
@@ -623,6 +660,8 @@ export class TestBase extends Base<TestBaseEvents> {
    * The leading `# Subtest` comment that introduces a child test
    *
    * @internal
+   *
+   * @group Internal Machinery
    */
   #writeSubComment<T extends TestPoint | Base>(p: T) {
     // name will generally always be set
@@ -640,10 +679,13 @@ export class TestBase extends Base<TestBaseEvents> {
    * Await the end of a Promise before proceeding.
    * The supplied callback is called with the Waiter object.
    *
-   * This is primarily internal, but is used in some plugins, whenever
-   * a promise must be awaited before proceeding. In normal test usage,
-   * it's usually best to simply use an async test function and `await`
-   * promises as normal.
+   * This is internal, used in some plugins when a promise must be awaited
+   * before proceeding. In normal test usage, it's usually best to simply use
+   * an async test function and `await` promises as normal.
+   *
+   * @internal
+   *
+   * @group Internal Machinery
    */
   waitOn(
     promise: Promise<any | void>,
@@ -986,6 +1028,8 @@ export class TestBase extends Base<TestBaseEvents> {
    * to call this directly.
    *
    * @internal
+   *
+   * @group Internal Machinery
    */
   main(cb: () => void) {
     if (typeof this.options.timeout === 'number') {
@@ -1074,6 +1118,8 @@ export class TestBase extends Base<TestBaseEvents> {
   /**
    * Parse stdin as the only tap stream (ie, not as a child test)
    * If used, then no other subtests or assertions are allowed.
+   *
+   * @group Subtest Methods
    */
   stdinOnly<T extends BaseOpts>(
     extra?: T & { tapStream?: Readable | Minipass<string | Buffer> }
@@ -1131,6 +1177,8 @@ export class TestBase extends Base<TestBaseEvents> {
    * Exposed so that it can be used by some builtin plugins, but perhaps
    * the least convenient way imaginable to create subtests. Just use
    * `t.test()` to do that, it's much easier.
+   *
+   * @group Subtest Methods
    *
    * @internal
    */
@@ -1217,6 +1265,8 @@ export class TestBase extends Base<TestBaseEvents> {
    * an error.
    *
    * @internal
+   *
+   * @group Internal Machinery
    */
   threw(
     er: any,
@@ -1310,6 +1360,19 @@ export class TestBase extends Base<TestBaseEvents> {
 
   /**
    * Method called when the parser encounters a bail out
+   *
+   * To listen to bailout events, listen to the
+   * {@link @tapjs/core!base.TapBaseEvents#bailout} event:
+   *
+   * ```ts
+   * t.on('bailout', message => {
+   *   // test bailed out!
+   * })
+   * ```
+   *
+   * @internal
+   *
+   * @group Internal Machinery
    */
   onbail(message?: string) {
     super.onbail(message)
@@ -1327,6 +1390,10 @@ export class TestBase extends Base<TestBaseEvents> {
    * {@link @tapjs/core!spawn.Spawn} and {@link @tapjs/core!worker.Worker},
    * which have special behaviors that are required when a process hangs
    * indefinitely.
+   *
+   * @internal
+   *
+   * @group Internal Machinery
    */
   endAll(sub: boolean = false) {
     if (this.bailedOut) return
@@ -1371,6 +1438,10 @@ export class TestBase extends Base<TestBaseEvents> {
   /**
    * Return true if the child test represented by the options object
    * should be skipped.  Extended by the `@tapjs/filter` plugin.
+   *
+   * @internal
+   *
+   * @group Internal Machinery
    */
   shouldSkipChild<O extends BaseOpts>(
     extra: O | TestBaseOpts | BaseOpts

@@ -139,6 +139,10 @@ export class SnapshotPlugin {
     return snapshot
   }
 
+  /**
+   * Options that will be used when formatting snapshots and diffing/comparing
+   * objects using any assertion methods.
+   */
   get compareOptions(): Exclude<
     SnapshotOptions['compareOptions'],
     undefined
@@ -152,6 +156,11 @@ export class SnapshotPlugin {
     this.#t.options.compareOptions = cmt
   }
 
+  /**
+   * Method that will be called on snapshot strings. This can be used
+   * to remove transient run-specific data from snapshots using simple
+   * string transforms.
+   */
   get cleanSnapshot(): SnapshotOptions['cleanSnapshot'] {
     return this.#cleanSnapshot
   }
@@ -160,6 +169,13 @@ export class SnapshotPlugin {
     this.#t.options.cleanSnapshot = clean
   }
 
+  /**
+   * Function that turns an object into a snapshot string.
+   *
+   * By default {@link tcompare!format} is used. If a string is returned,
+   * then that string is the snapshot string. If any other type is returned,
+   * then the returned value will be formatted using {@link tcompare!format}.
+   */
   get formatSnapshot(): SnapshotOptions['formatSnapshot'] {
     return this.#formatSnapshot
   }
@@ -168,6 +184,9 @@ export class SnapshotPlugin {
     this.#t.options.formatSnapshot = format
   }
 
+  /**
+   * The file where snapshots will be written to and read from
+   */
   get snapshotFile(): string {
     return this.#snapshot.file
   }
@@ -181,6 +200,15 @@ export class SnapshotPlugin {
     }
   }
 
+  /**
+   * In `--snapshot` mode, takes a snapshot of the object provided, and writes
+   * to the snapshot file.
+   *
+   * Otherwise, reads the snapshot file, and verifies that a snapshot of the
+   * object provided matches the stored snapshot.
+   *
+   * @group Assertion Methods
+   */
   matchSnapshot(found: any, ...[msg, extra]: MessageExtra): boolean {
     this.#t.currentAssert = this.#t.t.matchSnapshot
     const args = [msg, extra] as MessageExtra
@@ -246,6 +274,12 @@ export class SnapshotPlugin {
     return this.#t.fail(...me)
   }
 
+  /**
+   * Resolve a promise, and verify that the resulting value matches the
+   * snapshot.
+   *
+   * @group Assertion Methods
+   */
   async resolveMatchSnapshot<T extends any = any>(
     fnOrPromise: Promise<T> | (() => Promise<T>),
     ...[msg, extra]: MessageExtra

@@ -23,6 +23,8 @@ export class After {
 
   /**
    * Alias for {@link @tapjs/after!After#after}
+   *
+   * @group Test Lifecycle Management
    */
   teardown(fn: () => any) {
     return this.after(fn)
@@ -31,6 +33,8 @@ export class After {
   /**
    * Runs the supplied function after the test is completely finished, and
    * before the next test starts.
+   *
+   * @group Test Lifecycle Management
    */
   after(fn: () => any) {
     this.#onTeardown.push(fn)

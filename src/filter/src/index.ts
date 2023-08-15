@@ -138,6 +138,8 @@ export class Filter {
   /**
    * Run a child test that will run when the `--only` config is set,
    * or `{ runOnly: true }` is set in the parent test options.
+   *
+   * @group Subtest Methods
    */
   only(
     name: string,

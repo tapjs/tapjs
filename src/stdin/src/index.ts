@@ -20,6 +20,11 @@ export class StdinPlugin {
   constructor(t: TestBase) {
     this.#t = t
   }
+  /**
+   * Parse standard input as a child test
+   *
+   * @group Subtest Methods
+   */
   stdin(): PromiseWithStdin
   stdin(name: string): PromiseWithStdin
   stdin(name: string, extra: StdinOpts): PromiseWithStdin

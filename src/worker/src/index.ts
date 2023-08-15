@@ -13,7 +13,15 @@ export type PromiseWithWorker = PromiseWithSubtest<Worker>
 export class WorkerPlugin {
   #t: TestBase
   #workerData?: any
+
+  /**
+   * True if in the main thread. False when running in a worker thread
+   * spawned by {@link @tapjs/worker!WorkerPlugin#worker | t.worker}
+   *
+   * @group Test Reflection
+   */
   isMainThread: boolean
+
   constructor(t: TestBase) {
     this.#t = t
     this.isMainThread = isMainThread
@@ -23,10 +31,21 @@ export class WorkerPlugin {
     /* c8 ignore stop */
   }
 
+  /**
+   * In the worker thread, the worker data that was provided to the
+   * {@link @tapjs/worker!WorkerPlugin#worker | t.worker} method.
+   *
+   * In the main thread, this field is `undefined`.
+   */
   get workerData() {
     return this.#workerData
   }
 
+  /**
+   * Start a Node Worker thread and parse its standard output as a child test
+   *
+   * @group Subtest Methods
+   */
   worker(filename: string): PromiseWithWorker
   worker(filename: string, name?: string): PromiseWithWorker
   worker(

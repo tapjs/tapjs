@@ -262,6 +262,8 @@ export class Interceptor {
    *
    * If the `strictMode` param is set, then attempts to write to read-only
    * properties will throw an error.
+   *
+   * @group Spies, Mocks, and Fixtures
    */
   intercept<T extends object>(
     obj: T,
@@ -419,6 +421,8 @@ export class Interceptor {
    * Automatically restores at `t.teardown()` if the `@tapjs/after`
    * plugin is not disabled.  Otherwise, it is important to call the
    * `restore()` method on the returned function when you are done capturing.
+   *
+   * @group Spies, Mocks, and Fixtures
    */
   capture<T extends {}, M extends Methods<T>>(
     obj: T,
@@ -483,6 +487,8 @@ export class Interceptor {
    *
    * The added `fn.args()` method will return an array of the arguments
    * passed to each call since the last time it was inspected.
+   *
+   * @group Spies, Mocks, and Fixtures
    */
   captureFn<F extends (this: any, ...a: any[]) => any>(
     original: F

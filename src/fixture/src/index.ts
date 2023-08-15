@@ -50,6 +50,12 @@ export class TestFixtures {
     this.#t = t
   }
 
+  /**
+   * Create a fixture object for use in a
+   * {@link @tapjs/fixture!index.TestFixtures#testdir} method.
+   *
+   * @group Spies, Mocks, and Fixtures
+   */
   fixture<T extends FixtureType>(
     type: T,
     content: FixtureContent<T>
@@ -57,6 +63,18 @@ export class TestFixtures {
     return new Fixture(type, content)
   }
 
+  /**
+   * Create a test directory, optionally filling it up with contents
+   *
+   * If the `@tapjs/after` plugin is loaded, the testdir will be automatically
+   * deleted at the end of the test.
+   *
+   * To _not_ delete the directory after the test, use the
+   * `saveFixture: true` option when creating the test, or specify
+   * `--save-fixture` on the command line or in the tap configuration.
+   *
+   * @group Spies, Mocks, and Fixtures
+   */
   testdir(content?: FixtureDirContent) {
     const dir = resolve(this.testdirName)
     rimrafSync(dir)
@@ -74,6 +92,16 @@ export class TestFixtures {
     return dir
   }
 
+  /**
+   * The name of the folder that this test will use with
+   * {@link @tapjs/fixture!index.TestFixtures#testdir}.
+   *
+   * By default, it uses a folder name based on the name of the test file
+   * and subtest, prepended with `tap-testdir-...`, which is automatically
+   * omitted from consideration in coverage and other analysis.
+   *
+   * @group Spies, Mocks, and Fixtures
+   */
   get testdirName() {
     return this.#testdir
   }

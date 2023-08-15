@@ -338,6 +338,8 @@ class Test extends core_1.TestBase {
      * and lag loading autocomplete in editors. If you find yourself calling
      * applyPlugin often, consider whether it'd be better to just add the plugin
      * to the entire test suite, so that it can be built up front.
+     *
+     * @group Plugin Management
      */
     applyPlugin(plugin) {
         if (this.printedOutput) {
@@ -371,6 +373,8 @@ class Test extends core_1.TestBase {
     /**
      * Return true if the specified plugin is loaded. Asserts that the
      * test object in question implements the return value of the plugin.
+     *
+     * @group Plugin Management
      */
     pluginLoaded(plugin) {
         plugin;
@@ -378,6 +382,8 @@ class Test extends core_1.TestBase {
     }
     /**
      * Return the set of plugins loaded by this Test
+     *
+     * @group Plugin Management
      */
     get plugins() {
         return [];

@@ -24,6 +24,11 @@ export class SpawnPlugin {
   constructor(t: TestBase) {
     this.#t = t
   }
+  /**
+   * Spawn a child process and parse its standard output as a subtest
+   *
+   * @group Subtest Methods
+   */
   spawn(cmd: string): PromiseWithSpawn
   spawn(
     cmd: string,

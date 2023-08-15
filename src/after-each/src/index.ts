@@ -48,6 +48,8 @@ export class AfterEach {
    * The test that has just completed is passed in as an argument to the
    * function. Note that at this point, the test is fully ended, so attempting
    * to call assertion methods on it will raise an error.
+   *
+   * @group Test Lifecycle Management
    */
   afterEach(fn: (t: Test) => any) {
     this.#onAfterEach.push(fn)

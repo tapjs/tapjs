@@ -68,33 +68,54 @@ class TestBase extends base_js_1.Base {
      * as a reference to the final plugged-in Test instance.
      * If TestBase is used directly (outside the context of a plugin)
      * or during plugin setup time, this will be undefined, so watch out.
+     *
+     * @group Test Reflection
      */
     t;
+    /**
+     * A promise that resolves when the test is done.
+     *
+     * @group Internal Machinery
+     */
     donePromise;
     /**
      * The number of subtests to run in parallel, if allowed
+     *
+     * @group Test Lifecycle Management
      */
     jobs;
     /**
      * Array of all subtests that have been added/scheduled,
      * and have not yet completed.
+     *
+     * @group Internal Machinery
      */
     subtests = [];
     /**
      * The pool of parallel tests currently in process
+     *
+     * @group Internal Machinery
      */
     pool = new Set();
     /**
      * Queue of items awaiting processing. Can be any
      * {@link @tapjs/core!test-base.QueueEntry} item.
+     *
+     * @group Internal Machinery
      */
     queue = [VERSION];
     /**
      * Function that will get this test as an argument when it is processed
+     *
+     * @internal
+     *
+     * @group Internal Machinery
      */
     cb;
     /**
      * The count of all assertions this test has seen
+     *
+     * @group Test Reflection
      */
     count = 0;
     /**
@@ -124,11 +145,15 @@ class TestBase extends base_js_1.Base {
     #calledOnEOF = false;
     /**
      * Subtests that are currently in process.
+     *
+     * @group Internal Machinery
      */
     activeSubtests = new Set();
     /**
      * Count of all asserts in this and all child tests,
      * excluding child test summary points
+     *
+     * @group Test Reflection
      */
     assertTotals = new index_js_1.Counts({
         total: 0,
@@ -139,12 +164,16 @@ class TestBase extends base_js_1.Base {
     });
     /**
      * true if the test has printed at least one TestPoint
+     *
+     * @group Test Reflection
      */
     get printedResult() {
         return this.#printedResult;
     }
     /**
      * true if the test is currently waiting for something to finish
+     *
+     * @group Test Reflection
      */
     get occupied() {
         return !!this.#occupied;
@@ -166,12 +195,11 @@ class TestBase extends base_js_1.Base {
     #setCB(cb) {
         this.cb = (...args) => this.hook.runInAsyncScope(cb, this.t || this, ...args);
     }
-    // TAP output generating methods
     /**
      * immediately exit this and all parent tests with a TAP
      * Bail out! message.
      *
-     * @group TAP generation methods
+     * @group Test Lifecycle Management
      */
     bailout(message) {
         if (this.parent && (this.results || this.ended)) {
@@ -227,7 +255,9 @@ class TestBase extends base_js_1.Base {
      * Called when the test times out.
      * Options are passed as diagnostics to the threw() method
      *
-     * @group TAP generation methods
+     * @internal
+     *
+     * @group Internal Machinery
      */
     timeout(options = { expired: this.name }) {
         options.expired = options.expired || this.name;
@@ -282,7 +312,7 @@ class TestBase extends base_js_1.Base {
     /**
      * A passing (ok) Test Point.
      *
-     * @group TAP generation methods
+     * @group Assertion Methods
      */
     pass(...[msg, extra]) {
         this.currentAssert = this.pass;
@@ -294,7 +324,7 @@ class TestBase extends base_js_1.Base {
     /**
      * A failing (not ok) Test Point
      *
-     * @group TAP generation methods
+     * @group Assertion Methods
      */
     fail(...[msg, extra]) {
         this.currentAssert = this.fail;
@@ -304,16 +334,14 @@ class TestBase extends base_js_1.Base {
         return !!(me[1].todo || me[1].skip);
     }
     /**
-     * The current assertion being processed.  May only be set if
-     * not already set.
+     * The current assertion being processed. Set at the start of all
+     * assertions, and used for calculating stack traces.
+     *
+     * @group Internal Machinery
      */
     get currentAssert() {
         return this.#currentAssert;
     }
-    /**
-     * The current assertion being processed.  May only be set if
-     * not already set.
-     */
     set currentAssert(fn) {
         if (!this.#currentAssert && typeof fn === 'function') {
             this.#currentAssert = fn;
@@ -325,6 +353,8 @@ class TestBase extends base_js_1.Base {
      * @group TAP generation methods
      *
      * @internal
+     *
+     * @group Internal Machinery
      */
     #printResult(ok, message, extra, front = false) {
         this.currentAssert = this.#printResult;
@@ -438,7 +468,7 @@ class TestBase extends base_js_1.Base {
      * This is not required to be called if the test function returns a promise,
      * or if a plan is explicitly declared and eventually fulfilled.
      *
-     * @group TAP generation methods
+     * @group Test Lifecycle Management
      */
     end(implicit) {
         this.#end(implicit);
@@ -448,6 +478,8 @@ class TestBase extends base_js_1.Base {
      * The leading `# Subtest` comment that introduces a child test
      *
      * @internal
+     *
+     * @group Internal Machinery
      */
     #writeSubComment(p) {
         // name will generally always be set
@@ -463,10 +495,13 @@ class TestBase extends base_js_1.Base {
      * Await the end of a Promise before proceeding.
      * The supplied callback is called with the Waiter object.
      *
-     * This is primarily internal, but is used in some plugins, whenever
-     * a promise must be awaited before proceeding. In normal test usage,
-     * it's usually best to simply use an async test function and `await`
-     * promises as normal.
+     * This is internal, used in some plugins when a promise must be awaited
+     * before proceeding. In normal test usage, it's usually best to simply use
+     * an async test function and `await` promises as normal.
+     *
+     * @internal
+     *
+     * @group Internal Machinery
      */
     waitOn(promise, cb, expectReject = false) {
         const w = new waiter_js_1.Waiter(promise, w => {
@@ -776,6 +811,8 @@ class TestBase extends base_js_1.Base {
      * to call this directly.
      *
      * @internal
+     *
+     * @group Internal Machinery
      */
     main(cb) {
         if (typeof this.options.timeout === 'number') {
@@ -865,6 +902,8 @@ class TestBase extends base_js_1.Base {
     /**
      * Parse stdin as the only tap stream (ie, not as a child test)
      * If used, then no other subtests or assertions are allowed.
+     *
+     * @group Subtest Methods
      */
     stdinOnly(extra) {
         const stream = (extra?.tapStream ?? process.stdin);
@@ -915,6 +954,8 @@ class TestBase extends base_js_1.Base {
      * Exposed so that it can be used by some builtin plugins, but perhaps
      * the least convenient way imaginable to create subtests. Just use
      * `t.test()` to do that, it's much easier.
+     *
+     * @group Subtest Methods
      *
      * @internal
      */
@@ -982,6 +1023,8 @@ class TestBase extends base_js_1.Base {
      * an error.
      *
      * @internal
+     *
+     * @group Internal Machinery
      */
     threw(er, extra, proxy = false) {
         this.debug('TestBase.threw', this.name, er.message);
@@ -1061,6 +1104,19 @@ class TestBase extends base_js_1.Base {
     }
     /**
      * Method called when the parser encounters a bail out
+     *
+     * To listen to bailout events, listen to the
+     * {@link @tapjs/core!base.TapBaseEvents#bailout} event:
+     *
+     * ```ts
+     * t.on('bailout', message => {
+     *   // test bailed out!
+     * })
+     * ```
+     *
+     * @internal
+     *
+     * @group Internal Machinery
      */
     onbail(message) {
         super.onbail(message);
@@ -1077,6 +1133,10 @@ class TestBase extends base_js_1.Base {
      * {@link @tapjs/core!spawn.Spawn} and {@link @tapjs/core!worker.Worker},
      * which have special behaviors that are required when a process hangs
      * indefinitely.
+     *
+     * @internal
+     *
+     * @group Internal Machinery
      */
     endAll(sub = false) {
         if (this.bailedOut)
@@ -1120,6 +1180,10 @@ class TestBase extends base_js_1.Base {
     /**
      * Return true if the child test represented by the options object
      * should be skipped.  Extended by the `@tapjs/filter` plugin.
+     *
+     * @internal
+     *
+     * @group Internal Machinery
      */
     shouldSkipChild(extra) {
         return !!(extra.skip || extra.todo);

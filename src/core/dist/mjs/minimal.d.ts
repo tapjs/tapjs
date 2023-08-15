@@ -14,6 +14,9 @@ import { PromiseWithSubtest, TestBase, TestBaseOpts } from './test-base.js';
  */
 export declare class Minimal extends TestBase {
     constructor(opts: TestBaseOpts);
+    /**
+     * Spawn a subtest that is also a {@link @tapjs/core!minimal.Minimal}
+     */
     test(name: string, extra: TestBaseOpts, cb: (t: Minimal) => any): PromiseWithSubtest<Minimal>;
     test(name: string, cb: (t: Minimal) => any): PromiseWithSubtest<Minimal>;
     test(extra: TestBaseOpts, cb: (t: Minimal) => any): PromiseWithSubtest<Minimal>;

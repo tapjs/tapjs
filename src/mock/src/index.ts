@@ -10,8 +10,10 @@ declare var global: {
 }
 
 /**
- * Implementation class providing the {@link TapMock#mockRequire},
- * {@link TapMock#mockImport}, and {@link TapMock#createMock} methods.
+ * Implementation class providing the
+ * {@link @tapjs/mock!index.TapMock#mockRequire},
+ * {@link @tapjs/mock!index.TapMock#mockImport}, and
+ * {@link @tapjs/mock!index.TapMock#createMock} methods.
  */
 export class TapMock {
   #t: TestBase
@@ -55,6 +57,8 @@ export class TapMock {
    * ```
    *
    * To *remove* a property, set it as undefined in the override.
+   *
+   * @group Spies, Mocks, and Fixtures
    */
   createMock<
     B extends { [k: PropertyKey]: any } | Array<any>,
@@ -84,10 +88,12 @@ export class TapMock {
   }
 
   /**
-   * Deprecated alias for {@link TapMock#mockRequire}
+   * Deprecated alias for {@link @tapjs/mock!index.TapMock#mockRequire}
    *
    * Prints a warning to stderr the first time it used, otherwise
    * identical.
+   *
+   * @group Spies, Mocks, and Fixtures
    *
    * @deprecated
    */
@@ -113,7 +119,7 @@ export class TapMock {
    * Works with either ESM or CommonJS modules, but as with `import()` of
    * CommonJS modules, the `module.exports` value will be set as the
    * `default` property on the resolved object, making
-   * {@link TapMock#mockRequire} somewhat more intuitive in those cases.
+   * {@link @tapjs/mock!index.TapMock#mockRequire} somewhat more intuitive in those cases.
    *
    * For type info, cast result to `as typeof import(...)`, as
    * TypeScript lacks a way to infer imports dynamically.
@@ -125,6 +131,8 @@ export class TapMock {
    *   some: { tricky: 'mocks' },
    * }) as typeof import('../my-thing.js')
    * ```
+   *
+   * @group Spies, Mocks, and Fixtures
    */
   mockImport(module: string, mocks: { [k: string]: any } = {}) {
     if (!this.#didTeardown && this.#t.t.pluginLoaded(AfterPlugin)) {
@@ -151,6 +159,9 @@ export class TapMock {
    * const myThing = t.mockRequire('../my-thing.js', {
    *   some: { tricky: 'mocks' },
    * }) as typeof import('../my-thing.js')
+   * ```
+   *
+   * @group Spies, Mocks, and Fixtures
    */
   mockRequire(module: string, mocks: { [k: string]: any } = {}) {
     if (!this.#didTeardown && this.#t.t.pluginLoaded(AfterPlugin)) {
@@ -164,6 +175,8 @@ export class TapMock {
    * Unwind the mocks and free up the memory at the end of the test.
    *
    * Called automatically if the `@tapjs/after` plugin is not disabled.
+   *
+   * @group Spies, Mocks, and Fixtures
    */
   unmock() {
     for (const k of this.#keys) {
@@ -195,12 +208,12 @@ export { mockImport } from './mock-import.js'
 export { mockRequire } from './mock-require.js'
 
 /**
- * Loader that supports {@link TapMock#mockImport}
+ * Loader that supports {@link @tapjs/mock!index.TapMock#mockImport}
  */
 export const loader = '@tapjs/mock/loader'
 
 /**
- * plugin method that instantiates {@link TapMock}
+ * plugin method that instantiates {@link @tapjs/mock!index.TapMock}
  */
 export const plugin: TapPlugin<TapMock> = (t: TestBase) =>
   new TapMock(t)
