@@ -12,7 +12,7 @@ import { TestBaseOpts } from './test-base.js';
  */
 export type ChildProcessWithStdout = ChildProcessByStdio<null | Writable, Readable, null | Readable>;
 /**
- * Events emitted by the {@link Spawn} class
+ * Events emitted by the {@link @tapjs/core!spawn.Spawn} class
  */
 export interface SpawnEvents extends TapBaseEvents {
     /**
@@ -27,7 +27,7 @@ export interface SpawnEvents extends TapBaseEvents {
     process: [ChildProcessWithStdout];
 }
 /**
- * Options that may be provided to the {@link Spawn} class
+ * Options that may be provided to the {@link @tapjs/core!spawn.Spawn} class
  */
 export interface SpawnOpts extends TestBaseOpts {
     cwd?: string;

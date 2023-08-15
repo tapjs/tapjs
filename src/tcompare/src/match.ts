@@ -4,7 +4,7 @@ import { Has } from './has.js'
 /**
  * The loosed and most flexibly magical matching strategy.
  *
- * - If the objects pass the {@link Has} test, then return true.
+ * - If the objects pass the {@link tcompare!has.Has} test, then return true.
  * - If the pattern is a regular expression, then test it against the
  *   string form of the test value.
  * - If the pattern is a string, and the test value is a string, then test

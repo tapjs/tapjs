@@ -1,8 +1,8 @@
 import yaml from 'tap-yaml';
 import { cleanYamlObject } from './clean-yaml-object.js';
 /**
- * Print the YAML diagnostics based on the {@link Extra} object
- * received
+ * Print the YAML diagnostics based on the {@link @tapjs/core!index.Extra}
+ * object received
  */
 export const diags = (obj) => {
     const clean = cleanYamlObject(obj);

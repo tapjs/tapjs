@@ -288,7 +288,7 @@ const js: Style = {
 }
 
 /**
- * same as the {@link js} style, but no indentation or \n
+ * same as the {@link tcompare!styles.js} style, but no indentation or \n
  *
  * Not suitable for diffs, as everything is printed on one line.
  */

@@ -3,8 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Waiter = void 0;
 /**
  * Basically a fancy Deferred, wrapped around an existing promise, used by
- * the {@link TestBase#waitOn | t.waitOn} method, and tracked in the
- * {@link TestBase#queue}.
+ * the {@link @tapjs/core!test-base.TestBase#waitOn} method, and
+ * tracked in the {@link @tapjs/core!test-base.TestBase#queue}.
  *
  * The callback function is called when it's been either resolved or
  * rejected. The Waiter internal promise is resolved if the wrapped
@@ -96,7 +96,7 @@ class Waiter {
     }
     /**
      * Called when the waiter is ready, and processed by its owning
-     * {@link TestBase}
+     * {@link @tapjs/core!test-base.TestBase}
      */
     finish() {
         if (this.ready && this.done && !this.finishing) {

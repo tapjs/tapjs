@@ -1,6 +1,6 @@
 import * as stack from '@tapjs/stack';
 /**
- * Create an {@link Extra} object based on a thrown Error
+ * Create an {@link @tapjs/core!index.Extra} object based on a thrown Error
  */
 export const extraFromError = (er, extra, options) => {
     // the yaml module puts big stuff here, pluck it off

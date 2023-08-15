@@ -1,7 +1,7 @@
 import { Has } from './has.js'
 import { Strict } from './strict.js'
 /**
- * The same as {@link Has}, but strictly compare all properties
+ * The same as {@link tcompare!has.Has}, but strictly compare all properties
  */
 export class HasStrict extends Has {
   test() {

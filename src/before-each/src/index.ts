@@ -1,6 +1,7 @@
 /**
- * Plugin class providing {@link BeforeEach#beforeEach} on
- * the {@link Test} class.
+ * Plugin class providing
+ * {@link @tapjs/before-each!BeforeEach#beforeEach} on the
+ * {@link @tapjs/test!index.Test} class.
  *
  * @module
  */
@@ -65,6 +66,6 @@ export class BeforeEach {
 }
 
 /**
- * plugin method that instantiates the {@link BeforeEach} object
+ * plugin method that instantiates the {@link @tapjs/before-each!BeforeEach} object
  */
 export const plugin = (t: TestBase) => new BeforeEach(t)

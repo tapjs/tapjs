@@ -208,7 +208,7 @@ ${[...hasPlugin.values()]
   .join('')}  ])
 }
 
-type PluginSet = ${
+export type PluginSet = ${
   hasPlugin.size
     ? `[
 ${[...hasPlugin.values()]

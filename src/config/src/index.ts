@@ -39,7 +39,7 @@ export type BaseConfigSet = Unwrap<typeof baseConfig>
 /**
  * Class that handles configuration for TAP.
  *
- * Typically, {@link TapConfig.load} is the way to get one of
+ * Typically, {@link @tapjs/config!index.TapConfig.load} is the way to get one of
  * these.
  */
 export class TapConfig<C extends ConfigSet = BaseConfigSet> {
@@ -434,7 +434,7 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
   static #loaded: LoadedConfig | undefined
   /**
    * Load the configuration and return a Promise to a
-   * {@link TapConfig} object
+   * {@link @tapjs/config!index.TapConfig} object
    */
   static async load(): Promise<LoadedConfig> {
     if (this.#loaded) return this.#loaded
@@ -449,20 +449,21 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
 }
 
 /**
- * A fully loaded {@link TapConfig} object
+ * A fully loaded {@link @tapjs/config!index.TapConfig} object
  */
-export type LoadedConfig = ReturnType<
-  ReturnType<
-    Awaited<
-      ReturnType<
-        Awaited<
-          ReturnType<
+export interface LoadedConfig
+  extends ReturnType<
+    ReturnType<
+      Awaited<
+        ReturnType<
+          Awaited<
             ReturnType<
-              TapConfig['loadPluginConfigFields']
-            >['loadConfigFile']
-          >
-        >['loadColor']
-      >
-    >['loadReporter']
-  >['parse']
->
+              ReturnType<
+                TapConfig['loadPluginConfigFields']
+              >['loadConfigFile']
+            >
+          >['loadColor']
+        >
+      >['loadReporter']
+    >['parse']
+  > {}

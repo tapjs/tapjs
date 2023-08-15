@@ -28,7 +28,9 @@ const KILL_TIMEOUT =
   Number(process.env._TAP_REPL_KILL_TIMEOUT) || 2000
 
 /**
- * A {@link ProcessInfoNode}, as printed to the repl output.
+ * A {@link
+ * https://tapjs.github.io/processinfo/classes/process_info_node.ProcessInfoNode.html
+ * | ProcessInfoNode}, as printed to the repl output.
  */
 export type PrintedProcessInfoNode = {
   date: string

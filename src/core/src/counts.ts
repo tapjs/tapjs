@@ -1,5 +1,5 @@
 /**
- * JSON object representation of {@link Counts}
+ * JSON object representation of {@link @tapjs/core!counts.Counts}
  */
 export interface CountsJSON {
   total: number
@@ -13,7 +13,7 @@ export interface CountsJSON {
 /**
  * Class representing a count of all the assertions in a test
  *
- * The {@link Counts#complete} field is only used when counting tests and
+ * The {@link @tapjs/core!counts.Counts#complete} field is only used when counting tests and
  * tracking their completion status.
  *
  * @internal

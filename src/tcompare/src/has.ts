@@ -1,7 +1,7 @@
 import { Format } from './format.js'
 import { Same } from './same.js'
 /**
- * The same as {@link Same}, but ignore any fields present in the
+ * The same as {@link tcompare!same.Same}, but ignore any fields present in the
  * test object and not present in the expect pattern.
  */
 export class Has extends Same {

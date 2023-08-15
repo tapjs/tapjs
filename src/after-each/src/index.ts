@@ -1,6 +1,6 @@
 /**
- * Plugin class providing {@link AfterEach#afterEach}
- * on the {@link Test} class.
+ * Plugin class providing {@link @tapjs/after-each!AfterEach#afterEach}
+ * on the {@link @tapjs/test!index.Test} class.
  *
  * @module
  */
@@ -67,7 +67,7 @@ export class AfterEach {
 }
 
 /**
- * Plugin method that creates the {@link AfterEach} instance
+ * Plugin method that creates the {@link @tapjs/after-each!AfterEach} instance
  */
 export const plugin: TapPlugin<AfterEach> = (t: TestBase) =>
   new AfterEach(t)

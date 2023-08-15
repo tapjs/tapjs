@@ -50,7 +50,7 @@ export const format = (
   obj: any,
   options: FormatOptions = {}
 ): string => new Format(obj, options).print()
-/** convenience method for {@link Same} */
+/** convenience method for {@link tcompare!same.Same} */
 export const same = fn(Same)
 /** convenience method for {@link Strict} */
 export const strict = fn(Strict)

@@ -63,7 +63,8 @@ const EOF = Symbol('EOF')
 export type { EOF }
 
 /**
- * Entries in the {@link TestBase#queue} awaiting processing
+ * Entries in the {@link @tapjs/core!test-base.TestBase#queue} awaiting
+ * processing
  */
 export type QueueEntry =
   | string
@@ -152,7 +153,8 @@ export interface TestBaseEvents extends TapBaseEvents {
   /**
    * Emitted when the test is in an idle state, not waiting
    * for anything, with nothing in its queue. Used by the root
-   * {@link TAP} singleton to know when to automatically terminate.
+   * {@link @tapjs/core!tap.TAP} singleton to know when to automatically
+   * terminate.
    *
    * @event
    */
@@ -160,7 +162,8 @@ export interface TestBaseEvents extends TapBaseEvents {
 }
 
 /**
- * The TestBase class is the parent class of {@link Test}, and passed
+ * The TestBase class is the parent class of {@link @tapjs/test!index.Test},
+ * and passed
  * to all plugins at instantiation time.
  *
  * This implements subtest functionality, TAP stream generation,
@@ -184,13 +187,40 @@ export class TestBase extends Base<TestBaseEvents> {
   donePromise?: Promise<any> & {
     tapAbortPromise?: () => void
   }
+  /**
+   * The number of subtests to run in parallel, if allowed
+   */
   jobs: number
+  /**
+   * Array of all subtests that have been added/scheduled,
+   * and have not yet completed.
+   */
   subtests: Base[] = []
+  /**
+   * The pool of parallel tests currently in process
+   */
   pool: Set<Base> = new Set()
+  /**
+   * Queue of items awaiting processing. Can be any
+   * {@link @tapjs/core!test-base.QueueEntry} item.
+   */
   queue: QueueEntry[] = [VERSION]
+  /**
+   * Function that will get this test as an argument when it is processed
+   */
   cb?: (...args: any[]) => any
+  /**
+   * The count of all assertions this test has seen
+   */
   count: number = 0
+  /**
+   * Set true when {@link @tapjs/core!test-base.TestBase#end} is called
+   */
   ended: boolean = false
+  /**
+   * Show diagnostics for this test. A value of `null` means that
+   * diagnostics will be shown only if the test is failing.
+   */
   diagnostic: null | boolean = null
 
   #planEnd: number = -1
@@ -211,7 +241,7 @@ export class TestBase extends Base<TestBaseEvents> {
   #calledOnEOF: boolean = false
 
   /**
-   * Subtests that are currently in process
+   * Subtests that are currently in process.
    */
   activeSubtests: Set<Base> = new Set()
 
@@ -905,11 +935,11 @@ export class TestBase extends Base<TestBaseEvents> {
       p.name,
       p.results.bailout
     )
-    this.pool.delete(p)
     p.options.tapChildBuffer = p.output || ''
     p.options.stack = ''
     if (p.time) p.options.time = p.time
     if (this.#occupied === p) this.#occupied = null
+    this.pool.delete(p)
     this.activeSubtests.delete(p)
     p.deferred?.resolve(p.results)
     this.emit('subtestEnd', p)
@@ -1293,9 +1323,10 @@ export class TestBase extends Base<TestBaseEvents> {
    * Called when a test times out or bails out, or the process ends,
    * marking all currently active or queued subtests as incomplete.
    *
-   * No need to ever call this directly, exposed so that it can be extended
-   * by {@link Spawn} and {@link Worker}, which have special behaviors
-   * that are required when a process hangs indefinitely.
+   * No need to ever call this directly, exposed so that it can be extended by
+   * {@link @tapjs/core!spawn.Spawn} and {@link @tapjs/core!worker.Worker},
+   * which have special behaviors that are required when a process hangs
+   * indefinitely.
    */
   endAll(sub: boolean = false) {
     if (this.bailedOut) return

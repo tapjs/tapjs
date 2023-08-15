@@ -27,7 +27,7 @@ const hasStdout = (p: ChildProcess): p is ChildProcessWithStdout =>
   !!p.stdout
 
 /**
- * Events emitted by the {@link Spawn} class
+ * Events emitted by the {@link @tapjs/core!spawn.Spawn} class
  */
 export interface SpawnEvents extends TapBaseEvents {
   /**
@@ -43,7 +43,7 @@ export interface SpawnEvents extends TapBaseEvents {
 }
 
 /**
- * Options that may be provided to the {@link Spawn} class
+ * Options that may be provided to the {@link @tapjs/core!spawn.Spawn} class
  */
 export interface SpawnOpts extends TestBaseOpts {
   cwd?: string

@@ -1,9 +1,9 @@
 import { Match } from './match.js'
 
 /**
- * Identical to {@link Match}, *except* in the case of two simple types.
- * If the value loosely equals the expected pattern, but is not strictly
- * equal, then the test returns false.
+ * Identical to {@link tcompare!match.Match}, *except* in the case of two
+ * simple types. If the value loosely equals the expected pattern, but is not
+ * strictly equal, then the test returns false.
  */
 export class MatchStrict extends Match {
   test() {

@@ -32,7 +32,7 @@ export interface FormatOptions {
   /** how to print this thing */
   style?: StyleType
   /**
-   * optinally override {@link Style#bufferChunkSize }
+   * optinally override {@link tcompare!styles.Style#bufferChunkSize }
    * */
   bufferChunkSize?: number
   /**
@@ -77,7 +77,7 @@ export interface FormatOptions {
 
   /**
    * The object being compared against in comparison classes. (Not used
-   * in {@link Format}.)
+   * in {@link tcompare!format.Format}.)
    */
   expect?: any
 }

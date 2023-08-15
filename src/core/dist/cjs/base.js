@@ -321,8 +321,9 @@ class Base extends minipass_1.Minipass {
         }
     }
     /**
-     * Run the `main` test function. Called by {@link TestBase} when
-     * starting a subtest. Initializes the TapWrap hook
+     * Run the `main` test function. Called by
+     * {@link @tapjs/core!test-base.TestBase} when starting a subtest.
+     * Initializes the TapWrap hook
      *
      * @internal
      */
@@ -355,8 +356,9 @@ class Base extends minipass_1.Minipass {
      * Stream write method.
      *
      * For buffered tests, this collects the output in the
-     * {@link Base#output}
-     * field. Sets {@link Base#printedOutput} to `true` when called.
+     * {@link @tapjs/core!base.Base#output}
+     * field. Sets {@link @tapjs/core!base.Base#printedOutput} to `true` when
+     * called.
      */
     write(c) {
         this.#printedOutput = true;
@@ -369,7 +371,7 @@ class Base extends minipass_1.Minipass {
     /**
      * Method called when the parser encounters a bail out
      *
-     * Extended by {@link TestBase}
+     * Extended by {@link @tapjs/core!test-base.TestBase}
      */
     onbail(reason) {
         this.bailedOut = reason || true;
@@ -387,7 +389,8 @@ class Base extends minipass_1.Minipass {
     /**
      * Method called when the parser completes and emits its final results
      *
-     * Extended by {@link Worker} and {@link TAP} classes
+     * Extended by {@link @tapjs/core!worker.Worker} and
+     * {@link @tapjs/core!tap.TAP} classes
      */
     oncomplete(results) {
         if (this.start) {
@@ -437,8 +440,9 @@ class Base extends minipass_1.Minipass {
      */
     ondone() { }
     /**
-     * EventEmitter emit method, but closes the {@link Base#hook} and
-     * {@link Base#hookDomain} when emitting `'end'`.
+     * EventEmitter emit method, but closes the
+     * {@link @tapjs/core!base.Base#hook} and
+     * {@link @tapjs/core!base.Base#hookDomain} when emitting `'end'`.
      */
     emit(ev, ...data) {
         const ret = super.emit(ev, ...data);
@@ -451,8 +455,8 @@ class Base extends minipass_1.Minipass {
     }
     /**
      * Mark the test as ended. In this base class, this is a no-op, but
-     * in {@link TestBase}, it also triggers the other end-of-test
-     * operations.
+     * in {@link @tapjs/core!test-base.TestBase}, it also triggers the other
+     * end-of-test operations.
      */
     end() {
         return this;

@@ -26,7 +26,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.extraFromError = void 0;
 const stack = __importStar(require("@tapjs/stack"));
 /**
- * Create an {@link Extra} object based on a thrown Error
+ * Create an {@link @tapjs/core!index.Extra} object based on a thrown Error
  */
 const extraFromError = (er, extra, options) => {
     // the yaml module puts big stuff here, pluck it off

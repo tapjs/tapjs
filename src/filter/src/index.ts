@@ -41,8 +41,9 @@ export interface FilterOptions extends TestBaseOpts {
 }
 
 /**
- * Class that provides the {@link Filter#only} method, and extends the
- * {@link TestBase#shouldSkipChild} method to respect the grep option
+ * Class that provides the {@link @tapjs/filter!Filter#only} method, and
+ * extends the {@link @tapjs/core!test-base.TestBase#shouldSkipChild} method to
+ * respect the grep option
  */
 export class Filter {
   #t: TestBase
@@ -159,7 +160,7 @@ export class Filter {
 }
 
 /**
- * plugin method that instantiates a {@link Filter} object
+ * plugin method that instantiates a {@link @tapjs/filter!Filter} object
  */
 export const plugin: TapPlugin<Filter, FilterOptions> = (t, opts) =>
   new Filter(t, opts)

@@ -3,7 +3,7 @@ import type { BaseOpts } from './base.js'
 import { Extra } from './index.js'
 
 /**
- * Create an {@link Extra} object based on a thrown Error
+ * Create an {@link @tapjs/core!index.Extra} object based on a thrown Error
  */
 export const extraFromError = (
   er: any,

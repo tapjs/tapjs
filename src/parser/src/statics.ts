@@ -46,7 +46,7 @@ export const parse = (
 }
 
 /**
- * Turn an EventLog from {@link parse} into a TAP string
+ * Turn an EventLog from {@link tap-parser!statics.parse} into a TAP string
  */
 export const stringify = (
   msg: EventLog,

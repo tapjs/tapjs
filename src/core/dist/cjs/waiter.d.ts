@@ -1,7 +1,7 @@
 /**
  * Basically a fancy Deferred, wrapped around an existing promise, used by
- * the {@link TestBase#waitOn | t.waitOn} method, and tracked in the
- * {@link TestBase#queue}.
+ * the {@link @tapjs/core!test-base.TestBase#waitOn} method, and
+ * tracked in the {@link @tapjs/core!test-base.TestBase#queue}.
  *
  * The callback function is called when it's been either resolved or
  * rejected. The Waiter internal promise is resolved if the wrapped
@@ -49,7 +49,7 @@ export declare class Waiter {
     abort(er: Error): void;
     /**
      * Called when the waiter is ready, and processed by its owning
-     * {@link TestBase}
+     * {@link @tapjs/core!test-base.TestBase}
      */
     finish(): void;
 }

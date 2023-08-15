@@ -1,6 +1,6 @@
 /**
- * Plugin class providing {@link Before#before} on the
- * {@link Test} class.
+ * Plugin class providing {@link @tapjs/before!Before#before} on the
+ * {@link @tapjs/test!index.Test} class.
  *
  * @module
  */
@@ -58,7 +58,7 @@ export class Before {
 }
 
 /**
- * Plugin method that creates the {@link Before} instance
+ * Plugin method that creates the {@link @tapjs/before!Before} instance
  */
 export const plugin: TapPlugin<Before> = (t: TestBase) =>
   new Before(t)

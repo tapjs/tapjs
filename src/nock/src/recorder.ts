@@ -26,7 +26,8 @@ export interface ScopeWithAt extends nock.Scope {
 }
 
 /**
- * Options passed to the {@link NockRecorder}
+ * Options passed to the {@link @tapjs/nock!recorder.NockRecorder}
+ *
  * @internal
  */
 export interface NockRecorderOptions {
@@ -43,7 +44,7 @@ export interface NockRecorderOptionsMaybe {
 }
 
 /**
- * Options for the {@link NockRecorder#load} method
+ * Options for the {@link @tapjs/nock!recorder.NockRecorder#load} method
  */
 export interface NockRecorderLoadOptions {
   load?: (def: nock.Definition) => nock.Definition

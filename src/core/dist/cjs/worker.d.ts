@@ -6,18 +6,18 @@ import { FinalResults } from 'tap-parser';
 import { Extra } from './index.js';
 import { TestBaseOpts } from './test-base.js';
 /**
- * Events emitted by {@link Worker} instances
+ * Events emitted by {@link @tapjs/core!worker.Worker} instances
  */
 export interface WorkerEvents extends TapBaseEvents {
     process: [NodeWorker];
 }
 /**
- * Options that can be provided to a {@link Worker}
+ * Options that can be provided to a {@link @tapjs/core!worker.Worker}
  */
 export interface WorkerOpts extends TestBaseOpts {
     /**
-     * Data that will be available on `t.workerData` on the root {@link TAP}
-     * object in the worker thread.
+     * Data that will be available on `t.workerData` on the root
+     * {@link @tapjs/core!tap.TAP} object in the worker thread.
      */
     workerData?: any;
     /**

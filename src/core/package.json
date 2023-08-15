@@ -52,7 +52,7 @@
     "async-hook-domain": "^4.0.1",
     "is-actual-promise": "^1.0.0",
     "jackspeak": "^2.2.3",
-    "minipass": "^7.0.2",
+    "minipass": "^7.0.3",
     "signal-exit": "4.1",
     "tap-parser": "15.0.0-1",
     "tcompare": "6.0.1-2",

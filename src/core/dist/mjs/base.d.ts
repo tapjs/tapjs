@@ -310,8 +310,9 @@ export declare class Base<Events extends TapBaseEvents = TapBaseEvents> extends 
         message?: string;
     }): void;
     /**
-     * Run the `main` test function. Called by {@link TestBase} when
-     * starting a subtest. Initializes the TapWrap hook
+     * Run the `main` test function. Called by
+     * {@link @tapjs/core!test-base.TestBase} when starting a subtest.
+     * Initializes the TapWrap hook
      *
      * @internal
      */
@@ -333,20 +334,22 @@ export declare class Base<Events extends TapBaseEvents = TapBaseEvents> extends 
      * Stream write method.
      *
      * For buffered tests, this collects the output in the
-     * {@link Base#output}
-     * field. Sets {@link Base#printedOutput} to `true` when called.
+     * {@link @tapjs/core!base.Base#output}
+     * field. Sets {@link @tapjs/core!base.Base#printedOutput} to `true` when
+     * called.
      */
     write(c: string): boolean;
     /**
      * Method called when the parser encounters a bail out
      *
-     * Extended by {@link TestBase}
+     * Extended by {@link @tapjs/core!test-base.TestBase}
      */
     onbail(reason?: string): void;
     /**
      * Method called when the parser completes and emits its final results
      *
-     * Extended by {@link Worker} and {@link TAP} classes
+     * Extended by {@link @tapjs/core!worker.Worker} and
+     * {@link @tapjs/core!tap.TAP} classes
      */
     oncomplete(results: FinalResults): void;
     /**
@@ -370,14 +373,15 @@ export declare class Base<Events extends TapBaseEvents = TapBaseEvents> extends 
      */
     ondone(): void;
     /**
-     * EventEmitter emit method, but closes the {@link Base#hook} and
-     * {@link Base#hookDomain} when emitting `'end'`.
+     * EventEmitter emit method, but closes the
+     * {@link @tapjs/core!base.Base#hook} and
+     * {@link @tapjs/core!base.Base#hookDomain} when emitting `'end'`.
      */
     emit<Event extends keyof Events>(ev: Event, ...data: Events[Event]): boolean;
     /**
      * Mark the test as ended. In this base class, this is a no-op, but
-     * in {@link TestBase}, it also triggers the other end-of-test
-     * operations.
+     * in {@link @tapjs/core!test-base.TestBase}, it also triggers the other
+     * end-of-test operations.
      */
     end(): this;
     /**

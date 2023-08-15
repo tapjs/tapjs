@@ -189,9 +189,9 @@ const clean = (c: CallSiteLike[]): CallSiteLike[] => {
 
 let capturing = false
 /**
- * Get an array of {@link CallSiteLike} objects for the current location,
- * from the call to the `fn` argument supplied, limited to the number of
- * frames specified by `limit`.
+ * Get an array of {@link @tapjs/stack!call-site-like.CallSiteLike} objects for
+ * the current location, from the call to the `fn` argument supplied, limited
+ * to the number of frames specified by `limit`.
  *
  * If the `limit` argument is 0, then the current `Error.stackTraceLimit`
  * value will be used.
@@ -260,8 +260,8 @@ export const at: (
 }
 
 /**
- * Same as {@link capture}, but return the `toString()` values of the
- * {@link CallSiteLike} objects
+ * Same as {@link @tapjs/stack!index.capture}, but return the `toString()`
+ * values of the {@link @tapjs/stack!call-site-like.CallSiteLike} objects
  */
 export function captureString(
   limit: number,

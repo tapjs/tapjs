@@ -1,7 +1,8 @@
 import { Extra } from './index.js';
 /**
  * Very simple result object, just indicating pass/fail status,
- * message, and the {@link Extra} object provided to the assertion method.
+ * message, and the {@link @tapjs/core!index.Extra} object provided to the
+ * assertion method.
  */
 export interface Result {
     ok: boolean;

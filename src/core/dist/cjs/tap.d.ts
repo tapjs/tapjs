@@ -3,13 +3,14 @@
  * The root TAP object singleton, the `t` you get when you
  * `import t from 'tap'`
  *
- * Inherits from {@link Test}, with all plugins applied, and has additional
- * functionality to automatically pipe to standard output, set the process
- * exit code appropriately, and infer options from environment variables.
+ * Inherits from {@link @tapjs/test!index.Test}, with all plugins applied, and
+ * has additional functionality to automatically pipe to standard output, set
+ * the process exit code appropriately, and infer options from environment
+ * variables.
  *
  * @module
  *
- * @see {@link TAP}
+ * @see {@link @tapjs/core!tap.TAP}
  */
 import { Test, TestOpts } from '@tapjs/test';
 import { Minipass, PipeOptions } from 'minipass';
@@ -18,15 +19,16 @@ type PrivateTAPCtor = {
     [privSym]: true;
 };
 /**
- * This is a singleton subclass of the {@link Test} base class.
+ * This is a singleton subclass of the {@link @tapjs/test!index.Test} base
+ * class.
  *
- * Instantiate it by calling the exported {@link tap} method.
+ * Instantiate it by calling the exported {@link @tapjs/core!tap.tap} method.
  *
  * It has all of the same plugins, fields, properties etc of a "normal"
  * Test object, but with some additional characteristics to make it
  * suitable for use as the root test runner.
  *
- * - The {@link TAP#register} method will hook onto the process
+ * - The {@link @tapjs/core!tap.TAP#register} method will hook onto the process
  *   object, to set the exit code to 1 if there are test failures, and ignore
  *   any `EPIPE` errors that happen on stdout.  (This is quite common in cases
  *   where a test aborts, and then attempts to write more data.)
@@ -81,11 +83,11 @@ declare class TAP extends Test {
      */
     write(chunk: string): boolean;
     /**
-     * Similar to the normal {@link TestBase#timeout}, but with the added
-     * feature that it will kill the process with `SIGALRM` if it has been
-     * registered, and will decorate the diagnostics with some information
-     * about currently running handles and requests, as these may be the
-     * reason the process is not gracefully closing in time.
+     * Similar to the normal {@link @tapjs/core!test-base.TestBase#timeout}, but
+     * with the added feature that it will kill the process with `SIGALRM` if it
+     * has been registered, and will decorate the diagnostics with some
+     * information about currently running handles and requests, as these may be
+     * the reason the process is not gracefully closing in time.
      *
      * The root test runner will time out if the process receives a `SIGALRM`
      * signal, or if it receives a timeout message via IPC or worker thread
@@ -97,8 +99,9 @@ declare class TAP extends Test {
     }): void;
 }
 /**
- * The exported function instantiates a {@link TAP} object if we don't
- * already have one, or return the one that was previously instantiated.
+ * The exported function instantiates a {@link @tapjs/core!tap.TAP} object if
+ * we don't already have one, or return the one that was previously
+ * instantiated.
  *
  * Options may be provided, which will override the environment settings,
  * but they are ignored if the instance was already created.

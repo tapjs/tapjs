@@ -14,11 +14,11 @@ import * as Plugin_stdin from "@tapjs/stdin";
 import * as Plugin_typescript from "@tapjs/typescript";
 import * as Plugin_worker from "@tapjs/worker";
 import type { ConfigSet, Jack } from 'jackspeak';
-type PluginResult<P extends ((t: TestBase, opts: any) => any)[]> = P extends [
+export type PluginResult<P extends ((t: TestBase, opts: any) => any)[]> = P extends [
     infer H extends (t: TestBase, opts: any) => any,
     ...infer T extends ((t: TestBase, opts: any) => any)[]
 ] ? ReturnType<H> & PluginResult<T> : {};
-type SecondParam<T extends [any] | [any, any]> = T extends [
+export type SecondParam<T extends [any] | [any, any]> = T extends [
     any,
     infer S
 ] ? S : unknown;
@@ -30,12 +30,13 @@ export type PluginOpts<P extends ((t: TestBase, opts: any) => any)[]> = P extend
     ...infer T extends ((t: TestBase, opts: any) => any)[]
 ] ? SecondParam<Parameters<H>> & PluginOpts<T> : {};
 /**
- * Options that may be provided to `t.test()`. Extends {@link Extra},
- * {@link BaseOpts}, {@link TestBaseOpts}, and the second
- * argument to all plugin methods currently in use.
+ * Options that may be provided to `t.test()`. Extends
+ * {@link @tapjs/core!index.Extra}, {@link @tapjs/core!base.BaseOpts},
+ * {@link @tapjs/core!test-base.TestBaseOpts}, and the second argument to all
+ * plugin methods currently in use.
  */
 export type TestOpts = TestBaseOpts & PluginOpts<PluginSet>;
-type PluginSet = [
+export type PluginSet = [
     typeof Plugin_after.plugin,
     typeof Plugin_afterEach.plugin,
     typeof Plugin_asserts.plugin,
@@ -169,9 +170,10 @@ export declare const config: <C extends ConfigSet>(jack: Jack<C>) => Jack<C & im
 export declare const loaders: string[];
 export declare const signature = "@tapjs/after\n@tapjs/after-each\n@tapjs/asserts\n@tapjs/before\n@tapjs/before-each\n@tapjs/filter\n@tapjs/fixture\n@tapjs/intercept\n@tapjs/mock\n@tapjs/snapshot\n@tapjs/spawn\n@tapjs/stdin\n@tapjs/typescript\n@tapjs/worker";
 /**
- * Union type of {@link TestBase} plus all plugin return values
+ * Union type of {@link @tapjs/core!test-base.TestBase} plus all plugin return
+ * values
  */
-type TTest<P extends PluginSet = PluginSet> = TestBase & PluginResult<P>;
+export type TTest<P extends PluginSet = PluginSet> = TestBase & PluginResult<P>;
 /**
  * Interface that is the assembled result of every loaded plugin.
  */
@@ -179,22 +181,22 @@ export interface BuiltPlugins extends PluginResult<PluginSet> {
 }
 declare const kPluginSet: unique symbol;
 declare const kClass: unique symbol;
-type PluginExtensionOption<E extends BuiltPlugins = BuiltPlugins, O extends TestOpts = TestOpts> = {
+export type PluginExtensionOption<E extends BuiltPlugins = BuiltPlugins, O extends TestOpts = TestOpts> = {
     [kPluginSet]: TapPlugin<any, O>[];
     [kClass]?: typeof Test<E, O>;
 };
 /**
- * interface defining the fully extended {@link Test} class.
+ * interface defining the fully extended {@link @tapjs/test!index.Test} class.
  */
 export interface Test<Ext extends BuiltPlugins = BuiltPlugins, Opts extends TestOpts = TestOpts> extends TTest {
     end(): this;
     plan(n: number, comment?: string): void;
 }
 /**
- * This is the class that is extended for the root {@link TAP} test,
- * and used to instantiate test objects in its child tests. It extends
- * {@link TestBase}, and implements the union of return values of all
- * loaded plugins via a Proxy.
+ * This is the class that is extended for the root {@link @tapjs/core!tap.TAP}
+ * test, and used to instantiate test objects in its child tests. It extends
+ * {@link @tapjs/core!test-base.TestBase}, and implements the union of return
+ * values of all loaded plugins via a Proxy.
  */
 export declare class Test<Ext extends BuiltPlugins = BuiltPlugins, Opts extends TestOpts = TestOpts> extends TestBase implements TTest {
     #private;
@@ -202,7 +204,7 @@ export declare class Test<Ext extends BuiltPlugins = BuiltPlugins, Opts extends 
      * @param opts Test options for this instance
      *
      * @param __INTERNAL Extension option used by the subclasses created in
-     * {@link Test#applyPlugin}.
+     * {@link @tapjs/test!index.Test#applyPlugin}.
      *
      * @internal
      */
@@ -210,8 +212,9 @@ export declare class Test<Ext extends BuiltPlugins = BuiltPlugins, Opts extends 
     /**
      * Add a plugin at run-time.
      *
-     * Creates a subclass of {@link Test} which has the specified
-     * plugin, and which applies the plugin to all child tests it creates.
+     * Creates a subclass of {@link @tapjs/test!index.Test} which has the
+     * specified plugin, and which applies the plugin to all child tests it
+     * creates.
      *
      * Typically, it's best to load plugins using configuration, set via the
      * `tap plugin <add|rm>` command.

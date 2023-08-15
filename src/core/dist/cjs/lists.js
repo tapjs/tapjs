@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Lists = void 0;
 /**
- * List of {@link Result} objects corresponding to test points
- * encountered in a TAP stream.
+ * List of {@link tap-parser!result.Result} objects corresponding to test
+ * points encountered in a TAP stream.
  */
 class Lists {
     fail = [];

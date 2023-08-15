@@ -30,8 +30,8 @@ export type NockMethod = ((
 }
 
 /**
- * Implementation class providing the {@link TapNock#nock} method
- * on the Test class.
+ * Implementation class providing the {@link @tapjs/nock!index.TapNock#nock}
+ * method on the {@link @tapjs/test!index.Test} class.
  */
 export class TapNock {
   static #refs = new Map<TestBase, TapNock>()
@@ -202,7 +202,7 @@ export class TapNock {
 }
 
 /**
- * Plugin method that instantiates a {@link TapNock}
+ * Plugin method that instantiates a {@link @tapjs/nock!index.TapNock}
  */
 export const plugin: TapPlugin<TapNock> = (t: TestBase) =>
   new TapNock(t)

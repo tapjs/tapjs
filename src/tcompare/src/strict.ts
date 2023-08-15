@@ -1,7 +1,7 @@
 import { Format } from './format.js'
 import { Same } from './same.js'
 /**
- * The same as {@link Same}, but without type coercion
+ * The same as {@link tcompare!same.Same}, but without type coercion
  */
 export class Strict extends Same {
   test() {

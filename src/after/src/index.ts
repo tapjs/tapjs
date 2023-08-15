@@ -1,6 +1,7 @@
 /**
- * Plugin class providing {@link After#after} and
- * {@link After#teardown} on the {@link Test} class.
+ * Plugin class providing {@link @tapjs/after!After#after} and
+ * {@link @tapjs/after!After#teardown} on the
+ * {@link @tapjs/test!index.Test} class.
  *
  * @module
  */
@@ -21,7 +22,7 @@ export class After {
   }
 
   /**
-   * Alias for {@link After#after}
+   * Alias for {@link @tapjs/after!After#after}
    */
   teardown(fn: () => any) {
     return this.after(fn)
@@ -70,6 +71,6 @@ export class After {
 }
 
 /**
- * Plugin method that creates the {@link After} instance
+ * Plugin method that creates the {@link @tapjs/after!After} instance
  */
 export const plugin: TapPlugin<After> = (t: TestBase) => new After(t)

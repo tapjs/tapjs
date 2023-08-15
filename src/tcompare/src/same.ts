@@ -45,8 +45,9 @@ export interface SameOptions extends FormatOptions {
  *
  * When walking child nodes, we use the shouldCompare(key) method to determine
  * whether to check a given field.  In this class, this is always true (because
- * we are testing for full deep sameness), but in {@link Has} and subclasses,
- * it's more complicated (only test nodes that exist in the expect object).
+ * we are testing for full deep sameness), but in {@link tcompare!has.Has} and
+ * subclasses, it's more complicated (only test nodes that exist in the expect
+ * object).
  */
 export class Same extends Format {
   provisional: boolean

@@ -49,7 +49,10 @@ let plugins_;
 //   if (plugins_) return plugins_
 //   return (plugins_ = [])
 // }
-// type PluginSet = (TapPlugin<any> | TapPlugin<any, TestBaseOpts>)[]
+// export type PluginSet = (
+//   | TapPlugin<any>
+//   | TapPlugin<any, TestBaseOpts>
+// )[]
 const plugins = () => {
     if (plugins_)
         return plugins_;
@@ -233,7 +236,7 @@ const applyPlugins = (base, plugs = plugins()) => {
     // assign a reference to the extended Test for use in plugin at run-time
     Object.assign(base, { t });
     // put the .t self-ref and plugin inspection on top of the stack
-    const top = {
+    ext.unshift({
         t,
         get pluginLoaded() {
             return (plugin) => {
@@ -243,20 +246,22 @@ const applyPlugins = (base, plugs = plugins()) => {
         get plugins() {
             return [...plugs];
         },
-    };
-    Object.defineProperty(top, Symbol.toStringTag, {
-        value: 'Test',
     });
-    ext.unshift(top);
+    // no matter where it lands, make sure we have the correct toStringTag
+    for (const t of ext) {
+        Object.defineProperty(t, Symbol.toStringTag, {
+            value: 'Test',
+        });
+    }
     return t;
 };
 const kPluginSet = Symbol('@tapjs/test construction plugin set');
 const kClass = Symbol('@tapjs/test construction class');
 /**
- * This is the class that is extended for the root {@link TAP} test,
- * and used to instantiate test objects in its child tests. It extends
- * {@link TestBase}, and implements the union of return values of all
- * loaded plugins via a Proxy.
+ * This is the class that is extended for the root {@link @tapjs/core!tap.TAP}
+ * test, and used to instantiate test objects in its child tests. It extends
+ * {@link @tapjs/core!test-base.TestBase}, and implements the union of return
+ * values of all loaded plugins via a Proxy.
  */
 export class Test extends TestBase {
     #Class;
@@ -265,7 +270,7 @@ export class Test extends TestBase {
      * @param opts Test options for this instance
      *
      * @param __INTERNAL Extension option used by the subclasses created in
-     * {@link Test#applyPlugin}.
+     * {@link @tapjs/test!index.Test#applyPlugin}.
      *
      * @internal
      */
@@ -285,8 +290,9 @@ export class Test extends TestBase {
     /**
      * Add a plugin at run-time.
      *
-     * Creates a subclass of {@link Test} which has the specified
-     * plugin, and which applies the plugin to all child tests it creates.
+     * Creates a subclass of {@link @tapjs/test!index.Test} which has the
+     * specified plugin, and which applies the plugin to all child tests it
+     * creates.
      *
      * Typically, it's best to load plugins using configuration, set via the
      * `tap plugin <add|rm>` command.
