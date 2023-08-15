@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/spawn",
-  "version": "0.0.0-11",
+  "version": "0.0.0-12",
   "description": "a built-in tap extension for t.spawn()",
   "type": "module",
   "exports": {
@@ -43,7 +43,7 @@
   },
   "homepage": "https://github.com/tapjs/tapjs/src/spawn#readme",
   "peerDependencies": {
-    "@tapjs/core": "0.0.0-11"
+    "@tapjs/core": "0.0.0-12"
   },
   "engines": {
     "node": "^14.17.0 || ^16.13.0 || >=18.0.0"

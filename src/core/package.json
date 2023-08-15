@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/core",
-  "version": "0.0.0-11",
+  "version": "0.0.0-12",
   "description": "pluggable core of node-tap",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "type": "module",
@@ -47,15 +47,15 @@
   },
   "dependencies": {
     "@tapjs/processinfo": "^2.5.6",
-    "@tapjs/stack": "0.0.0-3",
-    "@tapjs/test": "0.0.0-11",
+    "@tapjs/stack": "0.0.0-4",
+    "@tapjs/test": "0.0.0-12",
     "async-hook-domain": "^4.0.1",
     "is-actual-promise": "^1.0.0",
     "jackspeak": "^2.2.3",
     "minipass": "^7.0.3",
     "signal-exit": "4.1",
-    "tap-parser": "15.0.0-1",
-    "tcompare": "6.0.1-2",
+    "tap-parser": "15.0.0-2",
+    "tcompare": "6.0.1-3",
     "trivial-deferred": "^2.0.0"
   },
   "license": "BlueOak-1.0.0",

@@ -1,6 +1,6 @@
 {
   "name": "tap-parser",
-  "version": "15.0.0-1",
+  "version": "15.0.0-2",
   "description": "parse the test anything protocol",
   "type": "module",
   "exports": {
