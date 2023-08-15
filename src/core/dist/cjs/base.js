@@ -176,6 +176,13 @@ class Base extends minipass_1.Minipass {
     #printedOutput = false;
     constructor(options = {}) {
         super({ encoding: 'utf8' });
+        // always use the constructor name as toStringTag, so we get
+        // [object Test] or [object TAP] and the appropriate typeName
+        // in stack traces.
+        Object.defineProperty(this, Symbol.toStringTag, {
+            value: this.constructor.name,
+            configurable: true,
+        });
         // all tap streams are sync string minipasses
         this.hook = new TapWrap(this);
         this.options = options;

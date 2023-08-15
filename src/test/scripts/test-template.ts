@@ -259,7 +259,7 @@ const applyPlugins = <
   // assign a reference to the extended Test for use in plugin at run-time
   Object.assign(base, { t })
   // put the .t self-ref and plugin inspection on top of the stack
-  ext.unshift({
+  const top = {
     t,
     get pluginLoaded() {
       return <T extends any = any>(
@@ -271,14 +271,19 @@ const applyPlugins = <
     get plugins() {
       return [...plugs]
     },
-  })
-
-  // no matter where it lands, make sure we have the correct toStringTag
-  for (const t of ext) {
-    Object.defineProperty(t, Symbol.toStringTag, {
-      value: 'Test',
-    })
   }
+  ext.unshift(top)
+
+  //@ts-ignore
+  const tst: string = base[Symbol.toStringTag]
+  Object.defineProperty(t, Symbol.toStringTag, {
+    value: tst,
+    configurable: true,
+  })
+  Object.defineProperty(top, Symbol.toStringTag, {
+    value: tst,
+    configurable: true,
+  })
   return t
 }
 
@@ -398,6 +403,10 @@ export class Test<
     }
     extended.#pluginSet = pluginSetExtended
     extended.#Class = TestExtended
+    Object.defineProperty(TestExtended,  'name', {
+      value: 'Test',
+      configurable: true,
+    })
     return applyPlugins<ExtExt, ExtOpts>(extended, pluginSetExtended)
   }
 

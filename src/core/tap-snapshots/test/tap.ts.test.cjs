@@ -311,7 +311,7 @@ Object {
     Error: poop
       ---
       stack: >-
-        Test.<anonymous> (test/tap.ts:##:##)
+        TAP.<anonymous> (test/tap.ts:##:##)
     
         After.#callTeardown (...)
     
@@ -328,9 +328,9 @@ Object {
         fileName: test/tap.ts
         lineNumber: ##
         columnNumber: ##
-        typeName: Test
+        typeName: TAP
         methodName: <anonymous>
-        functionName: Test.<anonymous>
+        functionName: TAP.<anonymous>
       test: TAP
       source: |2
             const t = tap()
@@ -377,7 +377,7 @@ Object {
     Error: poop
       ---
       stack: >-
-        Test.<anonymous> (test/tap.ts:##:##)
+        TAP.<anonymous> (test/tap.ts:##:##)
     
         After.#callTeardown (...)
     
@@ -394,9 +394,9 @@ Object {
         fileName: test/tap.ts
         lineNumber: ##
         columnNumber: ##
-        typeName: Test
+        typeName: TAP
         methodName: <anonymous>
-        functionName: Test.<anonymous>
+        functionName: TAP.<anonymous>
       test: TAP
       source: |2
             const t = tap()

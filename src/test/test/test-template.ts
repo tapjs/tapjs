@@ -96,7 +96,7 @@ t.test('make a test, do some stuff with it', async t => {
     t.strictSame(ttd.plugins, [plugin])
     t.equal(ttd.parent, td)
     t.equal(ttd.t, ttd)
-    t.equal(ttd[Symbol.toStringTag], 'Test')
+    t.equal(String(ttd), '[object Test]', 'correct toStringTag')
     t.equal(Object.prototype.toString.call(ttd), '[object Test]')
     // method caching and cache invalidation
     const m = ttd.method
@@ -120,7 +120,7 @@ t.test('make a test, do some stuff with it', async t => {
     ttd.end()
   })
   td.end()
-  t.equal(tt[Symbol.toStringTag], 'Test')
+  t.equal(String(tt), '[object Test]', 'correct toStringTag')
   t.equal(Object.prototype.toString.call(tt), '[object Test]')
   t.matchSnapshot(await output, 'extended test output')
 })

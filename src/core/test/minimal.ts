@@ -9,7 +9,11 @@ t.cleanSnapshot = (s: string): string =>
 
 t.test('run the minimal test with subtests', async t => {
   const tb = new Minimal({ name: 'hello' })
-  tb.test('world', async tb => tb.pass('world'))
+  t.equal(String(tb), '[object Minimal]')
+  tb.test('world', async tb => {
+    t.equal(String(tb), '[object Minimal]')
+    tb.pass('world')
+  })
   tb.end()
   t.matchSnapshot(await tb.concat())
 })

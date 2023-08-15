@@ -236,7 +236,7 @@ const applyPlugins = (base, plugs = plugins()) => {
     // assign a reference to the extended Test for use in plugin at run-time
     Object.assign(base, { t });
     // put the .t self-ref and plugin inspection on top of the stack
-    ext.unshift({
+    const top = {
         t,
         get pluginLoaded() {
             return (plugin) => {
@@ -246,13 +246,18 @@ const applyPlugins = (base, plugs = plugins()) => {
         get plugins() {
             return [...plugs];
         },
+    };
+    ext.unshift(top);
+    //@ts-ignore
+    const tst = base[Symbol.toStringTag];
+    Object.defineProperty(t, Symbol.toStringTag, {
+        value: tst,
+        configurable: true,
     });
-    // no matter where it lands, make sure we have the correct toStringTag
-    for (const t of ext) {
-        Object.defineProperty(t, Symbol.toStringTag, {
-            value: 'Test',
-        });
-    }
+    Object.defineProperty(top, Symbol.toStringTag, {
+        value: tst,
+        configurable: true,
+    });
     return t;
 };
 const kPluginSet = Symbol('@tapjs/test construction plugin set');
@@ -327,6 +332,10 @@ export class Test extends TestBase {
         }
         extended.#pluginSet = pluginSetExtended;
         extended.#Class = TestExtended;
+        Object.defineProperty(TestExtended, 'name', {
+            value: 'Test',
+            configurable: true,
+        });
         return applyPlugins(extended, pluginSetExtended);
     }
     // NB: this isn't ever actually called, because we add a pluginLoaded
