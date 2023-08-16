@@ -223,8 +223,6 @@ class TestBase extends base_js_1.Base {
      * If the test is already completed, the comment will be emitted
      * on the parent, or if no parent is available, it will be printed
      * to standard output.
-     *
-     * @group TAP generation methods
      */
     comment(...args) {
         const body = (0, node_util_1.format)(...args);
@@ -272,8 +270,6 @@ class TestBase extends base_js_1.Base {
     /**
      * Set TAP pragma configs to affect the behavior of the parser.
      * Only `strict` is supported by the parser.
-     *
-     * @group TAP generation methods
      */
     pragma(set) {
         const p = Object.keys(set).reduce((acc, i) => acc + 'pragma ' + (set[i] ? '+' : '-') + i + '\n', '');
@@ -349,8 +345,6 @@ class TestBase extends base_js_1.Base {
     }
     /**
      * Print a Test Point.
-     *
-     * @group TAP generation methods
      *
      * @internal
      *

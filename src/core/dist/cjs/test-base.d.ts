@@ -247,8 +247,6 @@ export declare class TestBase extends Base<TestBaseEvents> {
      * If the test is already completed, the comment will be emitted
      * on the parent, or if no parent is available, it will be printed
      * to standard output.
-     *
-     * @group TAP generation methods
      */
     comment(...args: any[]): void;
     /**
@@ -265,8 +263,6 @@ export declare class TestBase extends Base<TestBaseEvents> {
     /**
      * Set TAP pragma configs to affect the behavior of the parser.
      * Only `strict` is supported by the parser.
-     *
-     * @group TAP generation methods
      */
     pragma(set: {
         [k: string]: boolean;
