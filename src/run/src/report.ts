@@ -66,10 +66,12 @@ export const report = async (
   })
 
   // See if we need to generate a text report, or if we should skip it
-  // because --show-full-coverage is false and we have full coverage.
+  // because --show-full-coverage is false and we have full coverage,
+  // or alternatively, there's NO coverage, and we'll print the warning
+  // anyway.
   if (reporter.includes('text') && !showFullCoverage) {
     const summary = await getSummary(r)
-    if (isFullCoverage(summary)) {
+    if (isFullCoverage(summary) || isEmptyCoverage(summary)) {
       if (mainCommand === 'report' && showFullCoverage !== false) {
         r = new Report({
           skipFull: false,

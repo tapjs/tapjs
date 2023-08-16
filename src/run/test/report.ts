@@ -316,7 +316,7 @@ t.test('no coverage summary generated', async t => {
   const exitCode = t.intercept(process, 'exitCode')
   await report([], config as unknown as LoadedConfig)
   t.equal(config.validated, false, 'nothing to validate')
-  t.strictSame(logs.args(), [['report']])
+  t.strictSame(logs.args(), [])
   t.strictSame(comments.args(), [['No coverage generated']])
   t.match(exitCode(), [{ type: 'set', value: 1, success: true }])
 })
