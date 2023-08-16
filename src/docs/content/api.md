@@ -5,7 +5,17 @@ eleventyNavigation:
   order: 10
 ---
 
-The full API usage in test programs.
+The API presented in test programs is the combination of the base
+class defined by `@tapjs/core` and all [plugins](./plugins.md)
+that are currently loaded.
 
-This should perhaps be built somehow from the typedoc analysis of
-the `Test` class? Not sure how to go about that though.
+By default, a set of plugins are included with `tap`, providing
+the most common utilities that tests will need to use.
+
+The methods and properties are documented in detail [in the
+generated
+TypeDocs](https://tapjs.github.io/tapjs/classes/_tapjs_test.index.Test.html)
+for the `Test` class.
+
+See [TAP Basics](./basics.md) for information about using these
+objects to write tests.
