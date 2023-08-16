@@ -37,7 +37,7 @@ module.exports = eleventyConfig => {
     const $ = cheerio.load(content)
     for (const link of $('a[href]')) {
       const { href } = link.attribs
-      if (/^https?:/.test(href) || !/\.(md|json)(#.*)?$/.test(href)) {
+      if (/^https?:/.test(href) || !/\.(md|json|11ty\.js)(#.*)?$/.test(href)) {
         continue
       }
       const file = href.startsWith('/')
@@ -46,7 +46,7 @@ module.exports = eleventyConfig => {
       const rel = relative(contentDir, file)
       const url = join(
         pathPrefix,
-        join('/', rel).replace(/(?:\/index)?\.md(#.*)?$/, '$1')
+        join('/', rel).replace(/(?:\/index)?\.(?:md|11ty.js)(#.*)?$/, '$1')
       )
       link.attribs.href = url
     }

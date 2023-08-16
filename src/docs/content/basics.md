@@ -191,7 +191,7 @@ it has some drawbacks:
 - You can only run one test at a time.
 - You don't get coverage information without extra steps.
 
-The `tap` [command line interface](./cli.md) will run tests in
+The `tap` [command line interface](./cli.11ty.js) will run tests in
 parallel (as much as your system and configuration allow), with
 the correct loaders all assembled in the arguments, and format
 the output so that excessive noise is eliminated, and actionable

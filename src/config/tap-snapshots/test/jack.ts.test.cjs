@@ -18,7 +18,7 @@ Object {
                           Exiting with a non-zero status code or a signal will fail
                           the test run and exit the process in error.
       
-                          Relative 'after' paths are resolved against the project
+                          Relative \`after\` paths are resolved against the project
                           config root, even if specified on the cli.
     ),
     "type": "string",
@@ -35,7 +35,7 @@ Object {
                           Exiting with a non-zero status code or a signal will fail
                           the test run and exit the process in error.
       
-                          Relative 'before' paths are resolved against the project
+                          Relative \`before\` paths are resolved against the project
                           config root, even if specified on the cli.
     ),
     "type": "string",
@@ -82,7 +82,7 @@ Object {
                           to avoid tracking "accidental coverage" by integration
                           tests.
       
-                          Return 'null' to not cover any files by this test.
+                          Return \`null\` to not cover any files by this test.
       
                           Return an empty array [] to cover the set that would be
                           pulled in by default.  Ie, returning [] is equivalent to
@@ -95,10 +95,10 @@ Object {
       Output coverage information using the specified
                           istanbul coverage reporter type.
       
-                          Default is 'text' when running on the command line, or
-                          'text-lcov' when piping to coveralls.
+                          Default is \`text\` when running on the command line, or
+                          \`text-lcov\` when piping to coveralls.
       
-                          If 'html' is used, then the report will be opened in a web
+                          If \`html\` is used, then the report will be opened in a web
                           browser after running.
       
                           This can be run on its own at any time after a test run
@@ -139,7 +139,7 @@ Object {
     "default": "**/@(fixture*(s)|dist)/**",
     "description": String(
       A glob pattern indicating which filenames should NEVER
-                          be run as tests.  This overrides the 'include' option.
+                          be run as tests.  This overrides the \`include\` option.
       
                           Defaults to excluding any folders named dist, fixture, or
                           fixtures.
@@ -170,17 +170,17 @@ Object {
     "default": "**/{@(test?(s)|__test?(s)__)/**/*,*.@(test?(s)|spec),test?(s)}.@([mc][jt]s|[jt]s?(x))",
     "description": String(
       A glob expression pattern indicating tests to run if no
-                          positional arguments are provided to the 'tap run' command.
+                          positional arguments are provided to the \`tap run\` command.
       
                           By default, tap will search for all files ending in .ts,
                           .tsx, .cts, .mts, .js, .jsx, .cjs, or .mjs, in a top-level
                           folder named test, tests, or __tests__, or any file ending
-                          in '.spec.' or '.test.' before a supported extension, or a
-                          top-level file named 'test.(js,jsx,...)' or
-                          'tests.(js,jsx,...)'
+                          in \`.spec.\` or \`.test.\` before a supported extension, or a
+                          top-level file named \`test.(js,jsx,...)\` or
+                          \`tests.(js,jsx,...)\`
       
-                          No files excluded by the 'exclude' option will be loaded,
-                          meaning so dependencies, build artifacts in 'dist', and
+                          No files excluded by the \`exclude\` option will be loaded,
+                          meaning so dependencies, build artifacts in \`dist\`, and
                           test fixtures and snapshots will be ignored.
     ),
     "type": "string",
@@ -224,7 +224,7 @@ Object {
     "default": Array [],
     "description": String(
       Pass an argument to Node binary in all child processes.
-                          Run 'node --help' to see a list of all relevant arguments.
+                          Run \`node --help\` to see a list of all relevant arguments.
                           This can be specified multiple times to pass multiple args
                           to Node.
     ),
@@ -233,7 +233,7 @@ Object {
   },
   "omit-version": Object {
     "description": String(
-      Do not print the 'TAP version 14' line. (This may be needed
+      Do not print the \`TAP version 14\` line. (This may be needed
                           for compapatibility with some older TAP parsers.)
     ),
     "type": "boolean",
@@ -251,7 +251,7 @@ Object {
                           analysis.
       
                           Files will be created to match the folder structure and
-                          filenames of test files run, but with '.tap' appended to
+                          filenames of test files run, but with \`.tap\` appended to
                           the filenames.
     ),
     "short": "d",
@@ -280,7 +280,7 @@ Object {
       Configure the tap Test class with the specified plugin.
       
                           Typically this is set in a .taprc file, not on the command
-                          line, and can be managed using the 'tap plugin <add|rm>'
+                          line, and can be managed using the \`tap plugin <add|rm>\`
                           command.
       
                           If the set of plugins does not match that which tap was
@@ -289,7 +289,7 @@ Object {
       
                           To *exclude* a plugin which has been previously included
                           (perhaps by being part of tap's default set), add it to
-                          this list prefixed by a '!' character.
+                          this list prefixed by a \`!\` character.
       
                           The default plugin set that ships with tap is:
       
@@ -318,8 +318,8 @@ Object {
   },
   "reporter": Object {
     "description": String(
-      Use the specified reporter.  Defaults to 'base' when colors
-                          are in use, or 'tap' when colors are disabled.
+      Use the specified reporter.  Defaults to \`base\` when colors
+                          are in use, or \`tap\` when colors are disabled.
       
                           In addition to the built-in reporters provided by
                           the @tapjs/reporter module, the reporter option can also
@@ -385,9 +385,9 @@ Object {
   },
   "show-full-coverage": Object {
     "description": String(
-      Show the '100' lines in the default 'text' coverage
+      Show the \`100\` lines in the default \`text\` coverage
                           reporter for every file that has full coverage. Defaults to
-                          false for all commands other than 'tap report'. Has no
+                          false for all commands other than \`tap report\`. Has no
                           effect on any other coverage report styles.
       
                           If not set, and the test suite has full coverage, then no
@@ -397,17 +397,17 @@ Object {
                           generated. When generating any other test report styles,
                           files with full coverage are still reported.
       
-                          When running 'tap report', this defaults to true, because
+                          When running \`tap report\`, this defaults to true, because
                           presumably you do want to see something if explicitly
                           requesting a coverage report, even if it's just a list of
                           green 100s.
       
-                          When running 'tap report --no-show-full-coverage',
+                          When running \`tap report --no-show-full-coverage\`,
                           with this config explicitly set false, it will omit the
                           default text report on full coverage, and behave like
-                          running 'tap report none' (ie, print nothing).
+                          running \`tap report none\` (ie, print nothing).
       
-                          When running 'tap report text --no-show-full-coverage',
+                          When running \`tap report text --no-show-full-coverage\`,
                           explicitly requesting a text report and also explicitly
                           requesting that full coverage text report *not* be shown,
                           then a summary report will be printed instead of the full
@@ -431,7 +431,7 @@ Object {
       Pass a key=value (ie, --test-env=key=value) to set an
                           environment variable in the process where tests are run.
       
-                          If a value is not provided, such as '--test-env=key', then
+                          If a value is not provided, such as \`--test-env=key\`, then
                           the key is ensured to not be set in the environment.  To
                           set a key to the empty string, use --test-env=key=
     ),

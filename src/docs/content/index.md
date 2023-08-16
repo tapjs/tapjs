@@ -17,7 +17,7 @@ TypeDocs.](https://tapjs.github.io/tapjs)_
 
 Included out of the box:
 
-- A [CLI](./cli.md) for running tests, managing plugins,
+- A [CLI](/cli.11ty.js) for running tests, managing plugins,
   inspecting test results, watching tests in a repl, and lots
   more.
 - A suite of [plugins](./plugins.md) built in by default,

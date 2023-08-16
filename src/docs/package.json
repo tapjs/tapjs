@@ -1,6 +1,7 @@
 {
   "name": "@tapjs/docs",
   "version": "1.0.0",
+  "private": true,
   "description": "The content for https://node-tap.org",
   "keywords": [],
   "author": "",
