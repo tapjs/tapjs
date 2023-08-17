@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/worker",
-  "version": "0.0.0-12",
+  "version": "0.0.0-13",
   "description": "a built-in tap extension for t.worker()",
   "type": "module",
   "exports": {
@@ -43,7 +43,7 @@
   },
   "homepage": "https://github.com/tapjs/tapjs/src/worker#readme",
   "peerDependencies": {
-    "@tapjs/core": "0.0.0-12"
+    "@tapjs/core": "0.0.0-13"
   },
   "engines": {
     "node": "^14.17.0 || ^16.13.0 || >=18.0.0"
