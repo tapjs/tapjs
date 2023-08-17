@@ -1,7 +1,7 @@
 ---
-title: tap Test Reporter
+title: tap Reporting Results
 eleventyNavigation:
-  key: Reporter
+  key: Reporting Results
   order: 40
 ---
 

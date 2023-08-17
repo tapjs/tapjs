@@ -341,15 +341,15 @@ export const config = {
   snapshot: {
     type: 'boolean',
     short: 'S',
-    description: `Generate snapshot files for 't.matchSnapshot()'
+    description: `Generate snapshot files for \`t.matchSnapshot()\`
                   assertions.
 
-                  Defaults to true if the TAP_SNAPSHOT environment variable
-                  is set to '1', or if the npm_lifecycle_event environment
-                  variable is set to either 'snap' or 'snapshot'.
+                  Defaults to true if the \`TAP_SNAPSHOT\` environment variable
+                  is set to \`1\`, or if the \`npm_lifecycle_event\` environment
+                  variable is set to either \`snap\` or \`snapshot\`.
 
-                  That is, if you put "scripts": { "snap": "tap" } in your
-                  package.json file, then 'npm run snap' will generate
+                  That is, if you put \`"scripts": { "snap": "tap" }\` in your
+                  package.json file, then \`npm run snap\` will generate
                   snapshots.
     `,
   },

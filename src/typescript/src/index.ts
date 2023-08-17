@@ -40,7 +40,7 @@ export const config = {
    *
    * If you find that your typescript tests are taking too long to run, and
    * decide to disable type checking, it is best to enable it in CI, for
-   * example by setting TAP_TYPECHECK=1 in the environment.
+   * example by setting `TAP_TYPECHECK=1` in the environment.
    *
    * The `"skipLibCheck": true` option in tsconfig will also speed things up a
    * bit, at the expense of some type safety.
@@ -62,9 +62,9 @@ export const config = {
                   If you find that your typescript tests are taking too
                   long to run, and decide to disable type checking, it is
                   best to enable it in CI, for example by setting
-                  TAP_TYPECHECK=1 in the environment.
+                  \`TAP_TYPECHECK=1\` in the environment.
 
-                  The '"skipLibCheck": true' option in tsconfig will also
+                  The \`"skipLibCheck": true\` option in tsconfig will also
                   speed things up a bit, at the expense of some type safety.
     `,
   },

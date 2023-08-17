@@ -12,10 +12,7 @@ Object {
     "type": "boolean",
   },
   "esbk-tsconfig-path": Object {
-    "description": String(
-      Tell @esbuild-kit where to find your
-                        tsconfig.json file.
-    ),
+    "description": "Tell @esbuild-kit where to find your tsconfig.json file.",
     "type": "string",
   },
 }

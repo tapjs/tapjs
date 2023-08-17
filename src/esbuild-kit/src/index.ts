@@ -53,8 +53,7 @@ export const config = {
    */
   'esbk-tsconfig-path': {
     type: 'string',
-    description: `Tell @esbuild-kit where to find your
-                  tsconfig.json file.`,
+    description: `Tell @esbuild-kit where to find your tsconfig.json file.`,
   },
   /**
    * Flag. Tell `@esbuild-kit` not to use a cache

@@ -154,13 +154,13 @@ export const config = {
   /**
    * flag
    *
-   * Do not clean up fixtures created with t.testdir()
+   * Do not clean up fixtures created with `t.testdir()`
    *
    * @group Configuration
    */
   'save-fixture': {
     type: 'boolean',
     short: 'F',
-    description: 'Do not clean up fixtures created with t.testdir()',
+    description: 'Do not clean up fixtures created with `t.testdir()`',
   },
 }

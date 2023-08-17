@@ -176,16 +176,16 @@ export const config = {
   /**
    * flag
    *
-   * Only run tests with {only: true} option, or created with t.only(...)
-   * function.
+   * Only run tests with `{only: true}` option, or created with the
+   * `t.only(...)` function.
    *
    * @group Configuration
    */
   only: {
     type: 'boolean',
     short: 'O',
-    description: `Only run tests with {only: true} option, or created with
-                    t.only(...) function.`,
+    description: `Only run tests with \`{only: true}\` option, or created with
+                  the \`t.only(...)\` function.`,
   },
 
   /**
@@ -198,7 +198,7 @@ export const config = {
    * option multiple times.
    *
    * To specify regular expression flags, format pattern like a
-   * JavaScript RegExp literal.  For example: '/xyz/i' for
+   * JavaScript RegExp literal.  For example: `/xyz/i` for
    * case-insensitive matching.
    *
    * @group Configuration
@@ -215,7 +215,7 @@ export const config = {
                   option multiple times.
 
                   To specify regular expression flags, format pattern like a
-                  JavaScript RegExp literal.  For example: '/xyz/i' for
+                  JavaScript RegExp literal.  For example: \`/xyz/i\` for
                   case-insensitive matching.`,
   },
 
