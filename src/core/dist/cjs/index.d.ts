@@ -7,6 +7,7 @@
 import { CallSiteLike, CallSiteLikeJSON } from '@tapjs/stack';
 export * from './base.js';
 export * from './counts.js';
+export * from './extra-from-error.js';
 export * from './lists.js';
 export * from './main-script.js';
 export * from './minimal.js';
@@ -43,6 +44,11 @@ export interface Extra {
     at?: CallSiteLike | CallSiteLikeJSON | null;
     stack?: string;
     source?: string;
+    errorOrigin?: {
+        at?: CallSiteLike | CallSiteLikeJSON | null;
+        stack?: string;
+        source?: string;
+    };
     found?: any;
     wanted?: any;
     doNotWant?: any;

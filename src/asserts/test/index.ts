@@ -235,7 +235,6 @@ t.test('matchStrict, notMatchStrict', t => {
   t.end()
 })
 
-
 t.test('matchOnlyStrict, notMatchOnlyStrict', t => {
   const [_, a] = ta()
 
@@ -251,7 +250,6 @@ t.test('matchOnlyStrict, notMatchOnlyStrict', t => {
 
   t.end()
 })
-
 
 t.test('hasProp, hasOwnProp, hasProps, hasOwnProps', t => {
   const [_, a] = ta()
@@ -422,6 +420,30 @@ t.test('throws, doesNotThrow', t => {
   t.notOk(a.throws(() => {}))
 
   t.ok(a.doesNotThrow(() => {}))
+  t.equal(
+    a.doesNotThrow(() => {
+      throw 'yo'
+    }),
+    false
+  )
+  t.equal(
+    a.doesNotThrow(
+      () => {
+        throw 'yo'
+      },
+      { skip: true }
+    ),
+    'yo'
+  )
+  t.equal(
+    a.doesNotThrow(
+      () => {
+        throw undefined
+      },
+      { skip: true }
+    ),
+    true
+  )
   t.match(
     a.doesNotThrow(
       () => {
@@ -451,6 +473,12 @@ t.test('rejects', async t => {
       throw new Error('ok')
     }),
     { message: 'ok' }
+  )
+  t.equal(
+    await a.rejects(async () => {
+      throw undefined
+    }),
+    true
   )
   t.ok(
     await a.rejects(async function named() {
@@ -505,23 +533,55 @@ t.test('resolves', async t => {
     })
   )
 
-  t.equal(await a.resolves(Promise.reject('hello')), 'hello')
+  t.equal(await a.resolves(Promise.reject('hello')), false)
+  t.equal(
+    await a.resolves(Promise.reject('hello'), { skip: true }),
+    'hello'
+  )
   t.equal(
     await a.resolves(async () => {
-      throw 'hello'
+      throw undefined
     }),
-    'hello'
+    false
   )
   t.equal(
     await a.resolves(async function n() {
       throw 'hello'
     }),
-    'hello'
+    false
   )
   t.equal(
     await a.resolves(() => {
       throw 'hello'
     }),
+    false
+  )
+
+  t.equal(
+    await a.resolves(
+      async () => {
+        throw undefined
+      },
+      { skip: true }
+    ),
+    true
+  )
+  t.equal(
+    await a.resolves(
+      async function n() {
+        throw 'hello'
+      },
+      { todo: true }
+    ),
+    'hello'
+  )
+  t.equal(
+    await a.resolves(
+      () => {
+        throw 'hello'
+      },
+      { todo: true }
+    ),
     'hello'
   )
 
@@ -547,6 +607,11 @@ t.test('resolveMatch', async t => {
     await a.resolveMatch(async () => {
       throw 'hello'
     }, 'hello')
+  )
+  t.notOk(
+    await a.resolveMatch(async () => {
+      throw undefined
+    }, 'undefined')
   )
   t.notOk(
     await a.resolveMatch(async function n() {
@@ -594,4 +659,40 @@ t.test('rejects does not have to be awaited', async t => {
       message: 'ok',
     }
   )
+})
+
+t.test('t.error', async t => {
+  const [tt, a] = ta()
+  const er = new Error('er message')
+  const erNoMsg = new Error()
+  a.error(undefined)
+  a.error(undefined, 'undefined pass with message')
+  a.error(null, 'null passes')
+  a.error(er)
+  a.error(er, 'error with message')
+  a.error(erNoMsg)
+  a.error(erNoMsg, 'error without message')
+  a.error(true)
+  a.error(true, 'truthy non-error error')
+  a.error(false)
+  a.error(false, 'falsey non-error error')
+  tt.end()
+  const res = await tt.concat()
+  const lines = `TAP version 14
+ok 1 - should not error
+ok 2 - undefined pass with message
+ok 3 - null passes
+not ok 4 - er message
+not ok 5 - er message
+not ok 6 - should not error
+not ok 7 - error without message
+not ok 8 - non-Error error encountered
+not ok 9 - truthy non-error error
+not ok 10 - non-Error error encountered
+not ok 11 - falsey non-error error
+1..11`.split('\n')
+  for (const l of lines) {
+    t.match(res, l)
+  }
+  t.match(res, 'errorOrigin:', 'shows error origin')
 })

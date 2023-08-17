@@ -26,9 +26,34 @@ exports[`test/suite-summary.tsx > TAP > all the things > must match snapshot 1`]
 
 `
 
+exports[`test/suite-summary.tsx > TAP > comments > must match snapshot 1`] = `
+
+[1mAsserts:[22m  [32m0 pass[39m  [31m[2m0 fail[22m[39m  [2m0 of 1 complete[22m
+[1mSuites:[22m   [32m1 pass[39m  [31m[2m0 fail[22m[39m  [2m1 of 1 complete[22m
+
+[2mone[22m
+[2mtwo[22m
+`
+
 exports[`test/suite-summary.tsx > TAP > skip only > must match snapshot 1`] = `
 
 [1mAsserts:[22m  [32m0 pass[39m  [31m[2m0 fail[22m[39m  [36m1 skip[39m  [2m0 of 99 complete[22m
 [1mSuites:[22m   [32m0 pass[39m  [31m[2m0 fail[22m[39m  [36m1 skip[39m  [2m0 of 10 complete[22m
 
+`
+
+exports[`test/suite-summary.tsx > TAP > timed out with signal > must match snapshot 1`] = `
+
+[1mAsserts:[22m  [32m0 pass[39m  [31m[2m0 fail[22m[39m  [2m0 of 1 complete[22m
+[1mSuites:[22m   [32m1 pass[39m  [31m[2m0 fail[22m[39m  [2m1 of 1 complete[22m
+
+[1m[31mTimed out (SIGALRM)[39m[22m
+`
+
+exports[`test/suite-summary.tsx > TAP > timed out without signal > must match snapshot 1`] = `
+
+[1mAsserts:[22m  [32m0 pass[39m  [31m[2m0 fail[22m[39m  [2m0 of 1 complete[22m
+[1mSuites:[22m   [32m1 pass[39m  [31m[2m0 fail[22m[39m  [2m1 of 1 complete[22m
+
+[1m[31mTimed out [39m[22m
 `

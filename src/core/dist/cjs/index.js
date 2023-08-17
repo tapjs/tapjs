@@ -23,6 +23,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.tap = void 0;
 __exportStar(require("./base.js"), exports);
 __exportStar(require("./counts.js"), exports);
+__exportStar(require("./extra-from-error.js"), exports);
 __exportStar(require("./lists.js"), exports);
 __exportStar(require("./main-script.js"), exports);
 __exportStar(require("./minimal.js"), exports);

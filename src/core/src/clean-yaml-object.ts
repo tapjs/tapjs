@@ -30,6 +30,10 @@ export const cleanYamlObject = (object: { [k: string]: any }) => {
     res.stack = p.map(c => String(c) + '\n').join('')
   }
 
+  if (res.errorOrigin && typeof res.errorOrigin === 'object') {
+    res.errorOrigin = cleanYamlObject(res.errorOrigin)
+  }
+
   if (
     res.at &&
     res.at instanceof stack.CallSiteLike &&

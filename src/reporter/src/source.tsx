@@ -17,6 +17,17 @@ export interface SourceOpts {
         fileName?: string
         columnNumber?: number
       }
+  errorOrigin?: {
+    source?: string
+    at?:
+      | CallSiteLike
+      | {
+          lineNumber?: number
+          fileName?: string
+          columnNumber?: number
+        }
+  }
+  isErrorOrigin?: boolean
 }
 
 /**
@@ -24,7 +35,20 @@ export interface SourceOpts {
  * and it'll return a prettied up source line with the callsite
  * highlighted
  */
-export const Source: FC<SourceOpts> = ({ source, at }) => {
+export const Source: FC<SourceOpts> = ({
+  source,
+  at,
+  errorOrigin,
+  isErrorOrigin = false,
+}) => {
+  if (errorOrigin && typeof errorOrigin === 'object') {
+    return (
+      <>
+        <Source source={source} at={at} />
+        <Source {...errorOrigin} isErrorOrigin={true} />
+      </>
+    )
+  }
   if (at && at.lineNumber && at.columnNumber && at.fileName) {
     try {
       const lines: string[] = highlightFileSync(at.fileName, {
@@ -47,7 +71,9 @@ export const Source: FC<SourceOpts> = ({ source, at }) => {
       const before = lines.slice(startLine, at.lineNumber - 1)
       const after = lines.slice(at.lineNumber, endLine)
       const len = Math.min(...before.map(l => stringLength(l)))
-      const title = chalk.bgAnsi256(234).dim(at.fileName.padEnd(len))
+      const msg =
+        (isErrorOrigin ? 'error origin: ' : '') + at.fileName
+      const title = chalk.bgAnsi256(234).dim(msg.padEnd(len))
       const caret =
         at.columnNumber &&
         at.columnNumber < stringLength(line) &&

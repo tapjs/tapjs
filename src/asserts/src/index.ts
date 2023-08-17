@@ -1,5 +1,6 @@
 import {
   Extra,
+  extraFromError,
   MessageExtra,
   normalizeMessageExtra,
   TapPlugin,
@@ -863,7 +864,12 @@ export class Assertions {
       fn()
       return this.#t.pass(...me)
     } catch (er) {
-      return this.#t.fail(...me) && (er as Error)
+      // pull the errorOrigin from the thrown error, if possible
+      const res =
+        er !== undefined && er !== null
+          ? this.error(er, ...me)
+          : this.#t.fail(...me)
+      return (res && (er as Error)) || res
     }
   }
 
@@ -880,6 +886,8 @@ export class Assertions {
   ): Promise<boolean | Error> {
     const args = [wanted, msg, extra] as ThrowsArgs
     const [w, m, e] = normalizeThrowsArgs('expected to reject', args)
+    this.#t.currentAssert = this.#t.t.rejects
+    e.at = e.at || stack.at(this.#t.currentAssert)
 
     let p!: Promise<T>
     try {
@@ -893,13 +901,13 @@ export class Assertions {
 
     if (!isPromise(p)) {
       return this.#t.fail(
-        'no promise or async function provided to t.rejects'
+        'no promise or async function provided to t.rejects',
+        e
       )
     }
 
     const d = new Deferred<boolean | Error>()
     this.#t.waitOn(d.promise)
-    this.#t.currentAssert = this.#t.t.rejects
     try {
       await p
       d.resolve(this.#t.fail(m, e))
@@ -916,7 +924,8 @@ export class Assertions {
       d.resolve(
         (w
           ? this.match(isRegExp(w) ? er.message : er, w, m, e)
-          : this.#t.pass(m, e)) && er
+          : this.#t.pass(m, e)) &&
+          (er || true)
       )
     }
     return d.promise
@@ -936,6 +945,7 @@ export class Assertions {
     this.#t.currentAssert = this.#t.t.resolves
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra('expected to resolve', args)
+    me[1].at = me[1].at || stack.at(this.#t.currentAssert)
 
     let p!: Promise<T>
     try {
@@ -949,7 +959,8 @@ export class Assertions {
 
     if (!isPromise(p)) {
       return this.#t.fail(
-        'no promise or async function provided to t.resolves'
+        'no promise or async function provided to t.resolves',
+        me[1]
       )
     }
 
@@ -959,7 +970,12 @@ export class Assertions {
       await p
       d.resolve(this.#t.pass(...me))
     } catch (er) {
-      d.resolve(this.#t.fail(...me) || (er as Error))
+      // pull the errorOrigin from the thrown error, if possible
+      const res =
+        er !== undefined && er !== null
+          ? this.error(er, ...me)
+          : this.#t.fail(...me)
+      d.resolve((res && (er as Error)) || res)
     }
     return d.promise
   }
@@ -983,6 +999,9 @@ export class Assertions {
       'expected to resolve and match provided pattern',
       args
     )
+    this.#t.currentAssert = this.#t.t.resolveMatch
+    me[1].at = me[1].at || stack.at(this.#t.currentAssert)
+
     let p!: Promise<T>
     try {
       p =
@@ -995,17 +1014,22 @@ export class Assertions {
 
     if (!isPromise(p)) {
       return this.#t.fail(
-        'no promise or async function provided to t.resolveMatch'
+        'no promise or async function provided to t.resolveMatch',
+        me[1]
       )
     }
 
     const d = new Deferred<boolean>()
     this.#t.waitOn(d.promise)
-    this.#t.currentAssert = this.#t.t.resolveMatch
     try {
       d.resolve(this.match(await p, wanted, ...me))
     } catch (er) {
-      d.resolve(this.#t.fail(...me))
+      // pull the errorOrigin from the thrown error, if possible
+      d.resolve(
+        er !== undefined && er !== null
+          ? this.error(er, ...me)
+          : this.#t.fail(...me)
+      )
     }
     return d.promise
   }
@@ -1060,6 +1084,38 @@ export class Assertions {
       }
     }
     return d.promise
+  }
+
+  error(er: unknown, ...[msg, extra]: MessageExtra) {
+    const args = [msg, extra] as MessageExtra
+    const me = normalizeMessageExtra(`should not error`, args)
+    this.#t.currentAssert = this.#t.t.error
+
+    if (er === undefined || er === null) return this.#t.pass(...me)
+
+    if (!(er instanceof Error)) {
+      return this.#t.fail(
+        ...normalizeMessageExtra('non-Error error encountered', [
+          msg,
+          { ...me[1], found: er },
+        ] as MessageExtra)
+      )
+    }
+    // ok, we got an error, that's a problem
+    me[1].message = (er as Error)?.message || me[0]
+    const { at, stack } = me[1]
+    const ex = extraFromError(er, me[1])
+    // put the error's origin on the object, but let the normal
+    // diags parsing show us where the failed assertion happened,
+    // or respect the at/stack added by another caller.
+    ex.errorOrigin = {
+      at: ex.at,
+      stack: ex.stack,
+    }
+    ex.at = at
+    ex.stack = stack
+    // always going to have *something* here.
+    return this.#t.fail(ex.message as string, ex)
   }
 }
 

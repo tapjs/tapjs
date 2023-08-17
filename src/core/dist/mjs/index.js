@@ -6,6 +6,7 @@
  */
 export * from './base.js';
 export * from './counts.js';
+export * from './extra-from-error.js';
 export * from './lists.js';
 export * from './main-script.js';
 export * from './minimal.js';

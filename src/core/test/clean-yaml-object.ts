@@ -9,10 +9,10 @@ import { cleanYamlObject } from '../dist/mjs/clean-yaml-object.js'
 
 t.cleanSnapshot = s =>
   s
-    .replace(/lineNumber: [0-9]+/, 'lineNumber: ##')
-    .replace(/columnNumber: [0-9]+/, 'columnNumber: ##')
-    .replace(/"lineNumber": [0-9]+/, '"lineNumber": ##')
-    .replace(/"columnNumber": [0-9]+/, '"columnNumber": ##')
+    .replace(/lineNumber: [0-9]+/g, 'lineNumber: ##')
+    .replace(/columnNumber: [0-9]+/g, 'columnNumber: ##')
+    .replace(/"lineNumber": [0-9]+/g, '"lineNumber": ##')
+    .replace(/"columnNumber": [0-9]+/g, '"columnNumber": ##')
 
 t.matchSnapshot(cleanYamlObject({}), 'empty object')
 
@@ -85,6 +85,117 @@ t.test('callsite reporting', t => {
     cleanYamlObject({
       no: 'caret',
       at: nc,
+    }),
+    'no caret'
+  )
+  t.end()
+})
+
+t.test('callsite reporting with error origin', t => {
+  const originStack = captureString()
+  // just a line here so it's clearly not the same
+  const stack = captureString()
+  const b = cleanYamlObject({
+    stack: stack.trimEnd().split('\n'),
+    errorOrigin: {
+      stack: originStack.trimEnd().split('\n'),
+    },
+  })
+  t.matchOnly(
+    b,
+    {
+      stack: b.stack,
+      at: {
+        columnNumber: Number,
+        fileName: 'test/clean-yaml-object.ts',
+        lineNumber: Number,
+        methodName: '<anonymous>',
+        typeName: 'Test',
+        functionName: 'Test.<anonymous>',
+      },
+      source: String,
+      errorOrigin: {
+        stack: b.errorOrigin.stack,
+        at: {
+          columnNumber: Number,
+          fileName: 'test/clean-yaml-object.ts',
+          lineNumber: Number,
+          methodName: '<anonymous>',
+          typeName: 'Test',
+          functionName: 'Test.<anonymous>',
+        },
+        source: String,
+      },
+    },
+    'handle array stacks that tap used to use long ago'
+  )
+
+  const c = cleanYamlObject({
+    stack,
+    errorOrigin: { stack: originStack },
+  })
+  t.matchOnly(c, {
+    stack: String,
+    at: {
+      columnNumber: Number,
+      fileName: 'test/clean-yaml-object.ts',
+      lineNumber: Number,
+      methodName: '<anonymous>',
+      typeName: 'Test',
+      functionName: 'Test.<anonymous>',
+    },
+    source: String,
+    errorOrigin: {
+      stack: String,
+      at: {
+        columnNumber: Number,
+        fileName: 'test/clean-yaml-object.ts',
+        lineNumber: Number,
+        methodName: '<anonymous>',
+        typeName: 'Test',
+        functionName: 'Test.<anonymous>',
+      },
+      source: String,
+    },
+  })
+  t.matchSnapshot(c.source)
+  t.matchSnapshot(c.errorOrigin.source)
+  const a = at()
+  // just a line so they're clearly different
+  const oat = at()
+  const d = cleanYamlObject({ at: a, errorOrigin: { at: oat } })
+  t.matchOnly(d, {
+    source: String,
+    at: a?.toJSON(),
+    errorOrigin: {
+      source: String,
+      at: oat?.toJSON(),
+    },
+  })
+  t.matchSnapshot(d.source)
+  t.matchSnapshot(d.errorOrigin.source)
+  t.matchSnapshot(
+    cleanYamlObject({
+      at: new CallSiteLike(
+        null,
+        '    at Fake.foo() (this file does not exist:420:69)'
+      ),
+      errorOrigin: new CallSiteLike(
+        null,
+        '    at Fake.errorOrigin() (other not exist file:420:69)'
+      ),
+    }),
+    'invalid callsite is fine'
+  )
+  const nc: CallSiteLike | CallSiteLikeJSON = at() || {}
+  nc.columnNumber = Infinity
+  const onc: CallSiteLike | CallSiteLikeJSON = at() || {}
+  onc.columnNumber = Infinity
+  t.matchSnapshot(
+    cleanYamlObject({
+      no: 'caret',
+      at: nc,
+      errorOrigin: { at: onc },
     }),
     'no caret'
   )

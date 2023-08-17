@@ -52,6 +52,9 @@ const cleanYamlObject = (object) => {
         res.at = p[0];
         res.stack = p.map(c => String(c) + '\n').join('');
     }
+    if (res.errorOrigin && typeof res.errorOrigin === 'object') {
+        res.errorOrigin = (0, exports.cleanYamlObject)(res.errorOrigin);
+    }
     if (res.at &&
         res.at instanceof stack.CallSiteLike &&
         res.at.fileName &&

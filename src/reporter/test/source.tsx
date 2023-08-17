@@ -1,13 +1,30 @@
-import './fixtures/chalk.js'
 import { render } from 'ink-testing-library'
 import React from 'react'
 import t from 'tap'
+import './fixtures/chalk.js'
 
 import { at, CallSiteLike } from '@tapjs/stack'
 import { Source } from '../dist/source.js'
 
 t.test('show source with callsite', t => {
   const app = render(<Source at={at()} source={'diag source'} />)
+  t.matchSnapshot(app.lastFrame())
+  t.end()
+})
+
+t.test('show source with callsite and origin callsite', t => {
+  const originAt = at()
+  // just a line here so it's clearly different
+  const app = render(
+    <Source
+      at={at()}
+      source={'diag source'}
+      errorOrigin={{
+        at: originAt,
+        source: 'origin source',
+      }}
+    />
+  )
   t.matchSnapshot(app.lastFrame())
   t.end()
 })
