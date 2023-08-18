@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/config",
-  "version": "2.0.0-13",
+  "version": "2.0.0-14",
   "description": "Utility loading and managing tap configuration",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "type": "module",

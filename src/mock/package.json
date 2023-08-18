@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/mock",
-  "version": "0.0.0-13",
+  "version": "0.0.0-14",
   "description": "tap plugin adding t.mockRequire() and t.mockImport()",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "type": "module",

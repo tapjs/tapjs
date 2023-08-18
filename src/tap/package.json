@@ -1,6 +1,6 @@
 {
   "name": "tap",
-  "version": "18.0.0-16",
+  "version": "18.0.0-17",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "description": "A Test-Anything-Protocol library for JavaScript",
   "homepage": "http://www.node-tap.org/",
@@ -40,8 +40,8 @@
     "@tapjs/filter": "0.0.0-13",
     "@tapjs/fixture": "0.0.0-13",
     "@tapjs/intercept": "0.0.0-13",
-    "@tapjs/mock": "0.0.0-13",
-    "@tapjs/run": "0.0.0-14",
+    "@tapjs/mock": "0.0.0-14",
+    "@tapjs/run": "0.0.0-15",
     "@tapjs/snapshot": "0.0.0-13",
     "@tapjs/spawn": "0.0.0-13",
     "@tapjs/stdin": "0.0.0-13",
