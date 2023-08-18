@@ -147,34 +147,6 @@ export type NextLoadFunction = (
   context: Context
 ) => Promise<LoadResult>
 
-// TODO: node 14 isn't supported, maybe delete these?
-/**
- * Legacy loader API
- *
- * @internal
- * @group Node Loader API
- */
-export const getFormat: ResolveFunction = async (
-  url,
-  context,
-  nextResolve
-) =>
-  url.startsWith('tapmock://')
-    ? { url, format: 'module' }
-    : resolve(url, context, nextResolve)
-
-/**
- * Legacy loader API
- *
- * @internal
- * @group Node Loader API
- */
-export const getSource: LoadFunction = async (
-  url,
-  context,
-  nextLoad
-) => load(url, context, nextLoad)
-
 /**
  * Tell node how to load our `tapmock://` fake modules
  *

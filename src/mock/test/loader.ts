@@ -43,8 +43,6 @@ type NextLoadFunction = (
 ) => Promise<LoadResult>
 
 type Loader = {
-  getFormat: ResolveFunction
-  getSource: LoadFunction
   load: LoadFunction
   resolve: ResolveFunction
 }
@@ -71,8 +69,6 @@ t.test('loader exists', async t => {
     'index is re-exported on loader'
   )
   t.match(loader, {
-    getFormat: Function,
-    getSource: Function,
     load: Function,
     resolve: Function,
   })
@@ -312,67 +308,5 @@ t.test('mock node:fs', t => {
     fs: t.createMock(fs, { statSync: () => 'mocked statSync' }),
   })
   t.match(mocked, { foo: ['mocked statSync', fs.Stats] })
-  t.end()
-})
-
-t.test('legacy functions', t => {
-  t.test('getFormat', async t => {
-    t.strictSame(
-      await loader.getFormat(
-        'tapmock://blah',
-        {
-          importAssertions: {},
-          conditions: [],
-        },
-        () => Promise.resolve({ url: 'tapmock://blah' })
-      ),
-      {
-        url: 'tapmock://blah',
-        format: 'module',
-      }
-    )
-    let calledNext: boolean = false
-    await loader.getFormat(
-      'node:fs',
-      {
-        importAssertions: {},
-        conditions: [],
-      },
-      async (url, context) => {
-        calledNext = true
-        t.equal(url, 'node:fs')
-        t.strictSame(context, {
-          importAssertions: {},
-          conditions: [],
-        })
-        return { url: 'node:fs' }
-      }
-    )
-    t.equal(calledNext, true)
-  })
-
-  t.test('getSource', async t => {
-    let calledNext: boolean = false
-    loader.getSource(
-      'node:fs',
-      {
-        importAssertions: {},
-        conditions: [],
-      },
-      async (url, context) => {
-        calledNext = true
-        t.equal(url, 'node:fs')
-        t.strictSame(context, {
-          importAssertions: {},
-          conditions: [],
-        })
-        return {
-          format: 'builtin',
-          source: 'console.log("yolo")',
-        }
-      }
-    )
-    t.equal(calledNext, true)
-  })
   t.end()
 })
