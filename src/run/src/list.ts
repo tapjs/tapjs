@@ -44,7 +44,7 @@ export const list = async (
   const saveList: Set<string> = new Set(await readSave(config))
 
   const ignore = [alwaysExcludePattern]
-  if (values.exclude) ignore.push(values.exclude)
+  if (values.exclude) ignore.push(...(values.exclude))
 
   const g = new Glob(values.include || defaultInclude, {
     ignore,

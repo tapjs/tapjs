@@ -59,7 +59,9 @@ export default jack({
     then it will be treated as a test file to run.`
   )
 
-  .heading('tap plugin [add <plugin> | rm <plugin> | list]', 3, { pre: true })
+  .heading('tap plugin [add <plugin> | rm <plugin> | list]', 3, {
+    pre: true,
+  })
   .description(`Manage plugins`)
   .heading('tap plugin add <plugin>', 4, { pre: true })
   .description(
@@ -134,7 +136,7 @@ export default jack({
   .description(
     `Tap will look for configuration data first in a .taprc file in the
      project root, and then in the "tap" object in the project package.json
-     file.  ('Project root' means the nearest folder at or above the current
+     file. ('Project root' means the nearest folder at or above the current
      working directory containing package.json, .taprc, or .git.)
 
      The config object may set any of the following fields, as well as the
@@ -142,7 +144,7 @@ export default jack({
      file name, relative to the config file that references it.
 
      If the "extends" field resolves to a file on disk, then that will be read
-     as the base configuration object.  (It may also extend yet another config
+     as the base configuration object. (It may also extend yet another config
      file, and so on.)
 
      If the "extends" field specifies a package name, then it must be
@@ -155,7 +157,7 @@ export default jack({
 
      Additionally, all config options that are modified from their defaults
      will be set in the environment with the \`TAP_\` prefix, and will be read
-     from the environment if so specified.  For example, specifying
+     from the environment if so specified. For example, specifying
      \`--omit-version\` on the command line, or \`omit-version: true\` in a
      .taprc file, will set \`TAP_OMIT_VERSION=1\` in the environment.
 
@@ -200,8 +202,8 @@ export default jack({
     reporter: {
       short: 'R',
       hint: 'reporter',
-      description: `Use the specified reporter.  Defaults to \`base\` when colors
-                    are in use, or \`tap\` when colors are disabled.
+      description: `Use the specified reporter. Defaults to \`base\` when
+                    colors are in use, or \`tap\` when colors are disabled.
 
                     In addition to the built-in reporters provided by
                     the @tapjs/reporter module, the reporter option can also
@@ -217,8 +219,8 @@ export default jack({
 
                     Writable streams are instantiated and piped into.
 
-                    React components are rendered using Ink, with tap={tap} and
-                    config={loadedConfig} as their properties.
+                    React components are rendered using Ink, with \`tap={tap}\`
+                    and \`config={loadedConfig}\` as their properties.
 
                     Built-in test reporters:
 
@@ -230,7 +232,7 @@ export default jack({
     'reporter-arg': {
       hint: 'arg',
       short: 'r',
-      description: `Args to pass to command-line reporters.  Ignored when using
+      description: `Args to pass to command-line reporters. Ignored when using
                     built-in reporters or module reporters.`,
     },
   })
@@ -244,8 +246,8 @@ export default jack({
                     Default is \`text\` when running on the command line, or
                     \`text-lcov\` when piping to coveralls.
 
-                    If \`html\` is used, then the report will be opened in a web
-                    browser after running.
+                    If \`html\` is used, then the report will be opened in a
+                    web browser after running.
 
                     This can be run on its own at any time after a test run
                     that included coverage.
@@ -280,10 +282,10 @@ export default jack({
                     requesting a coverage report, even if it's just a list of
                     green 100s.
 
-                    When running \`tap report --no-show-full-coverage\`,
-                    with this config explicitly set false, it will omit the
-                    default text report on full coverage, and behave like
-                    running \`tap report none\` (ie, print nothing).
+                    When running \`tap report --no-show-full-coverage\`, with
+                    this config explicitly set false, it will omit the default
+                    text report on full coverage, and behave like running \`tap
+                    report none\` (ie, print nothing).
 
                     When running \`tap report text --no-show-full-coverage\`,
                     explicitly requesting a text report and also explicitly
@@ -297,15 +299,15 @@ export default jack({
                     any previous runs, and instead add to it.
 
                     This behavior is implied when doing partial runs with
-                    the --changed and --save options.`
-    }
+                    the --changed and --save options.`,
+    },
   })
 
   .opt({
     'coverage-map': {
       hint: 'module',
       description: `Provide a path to a node module (esm or cjs) that default
-                    exports a single function.  That function takes a test
+                    exports a single function. That function takes a test
                     file as an argument, and returns an array of files to
                     instrument with coverage when that file is run.
 
@@ -317,7 +319,7 @@ export default jack({
                     Return \`null\` to not cover any files by this test.
 
                     Return an empty array [] to cover the set that would be
-                    pulled in by default.  Ie, returning [] is equivalent to
+                    pulled in by default. Ie, returning [] is equivalent to
                     not using a coverage map at all.`,
     },
   })
@@ -378,7 +380,7 @@ export default jack({
       short: 's',
       hint: 'file',
       description: `If <file> exists, then it should be a line- delimited list
-                    of test files to run.  If <file> is not present, then all
+                    of test files to run. If <file> is not present, then all
                     command-line positional arguments are run.
 
                     After the set of test files are run, any failed test files
@@ -424,7 +426,7 @@ export default jack({
     files: {
       hint: 'filename',
       description: `Alternative way to specify test set rather than using
-                    positional arguments.  Supported as an option so that
+                    positional arguments. Supported as an option so that
                     test file arguments can be specified in .taprc and
                     package.json files.`,
     },
@@ -432,7 +434,7 @@ export default jack({
 
   .heading('Test Running Options')
   .description(
-    `Tap runs multiple test files in parallel.  This generally
+    `Tap runs multiple test files in parallel. This generally
      results in a speedier test run, but can also cause problems if
      your test files are not designed to be independent from one
      another.
@@ -487,7 +489,7 @@ export default jack({
     'output-file': {
       hint: 'filename',
       short: 'o',
-      description: `Send the raw TAP output to the specified file.  Reporter
+      description: `Send the raw TAP output to the specified file. Reporter
                     output will still be printed to stdout, but the file will
                     contain the raw TAP for later replay or analysis.`,
     },
@@ -495,9 +497,9 @@ export default jack({
     'output-dir': {
       hint: 'dir',
       short: 'd',
-      description: `Send the raw TAP output to the specified directory.  A
+      description: `Send the raw TAP output to the specified directory. A
                     separate .tap file will be created for each test file that
-                    is run.  Reporter output will still be printed to stdout,
+                    is run. Reporter output will still be printed to stdout,
                     but the files will contain the raw TAP for later replay or
                     analysis.
 
@@ -505,47 +507,50 @@ export default jack({
                     filenames of test files run, but with \`.tap\` appended to
                     the filenames.`,
     },
+  })
 
+  .optList({
     include: {
       hint: 'pattern',
-      default:
-        '**/{' +
-        '@(test?(s)|__test?(s)__)/**/*,' +
-        '*.@(test?(s)|spec),' +
-        'test?(s)' +
-        '}.@([mc][jt]s|[jt]s?(x))',
+      default: [
+        // any js/ts/jsx program in a test folder
+        '**/@(test?(s)|__test?(s)__)/**/*.@([mc][jt]s|[jt]s?(x))',
+        // any js/ts/jsx file named .test.ext or .spec.ext
+        '**/*.@(test?(s)|spec).@([mc][jt]s|[jt]s?(x))',
+        // any js/ts/jsx file named test.ext or tests.ext
+        '**/test?(s).@([mc][jt]s|[jt]s?(x))',
+      ],
       description: `A glob expression pattern indicating tests to run if no
-                    positional arguments are provided to the \`tap run\` command.
+                    positional arguments are provided to the \`tap run\`
+                    command.
 
                     By default, tap will search for all files ending in .ts,
                     .tsx, .cts, .mts, .js, .jsx, .cjs, or .mjs, in a top-level
                     folder named test, tests, or __tests__, or any file ending
-                    in \`.spec.\` or \`.test.\` before a supported extension, or a
-                    top-level file named \`test.(js,jsx,...)\` or
+                    in \`.spec.\` or \`.test.\` before a supported extension,
+                    or a top-level file named \`test.(js,jsx,...)\` or
                     \`tests.(js,jsx,...)\`
 
                     No files excluded by the \`exclude\` option will be loaded,
-                    meaning so dependencies, build artifacts in \`dist\`, and
-                    test fixtures and snapshots will be ignored.`,
+                    meaning that dependencies, build artifacts in \`dist\`,
+                    test fixtures, and snapshots will be ignored.`,
     },
 
     exclude: {
       hint: 'pattern',
-      default: '**/@(fixture*(s)|dist)/**',
+      default: ['**/@(fixture*(s)|dist)/**'],
       description: `A glob pattern indicating which filenames should NEVER
-                    be run as tests.  This overrides the \`include\` option.
+                    be run as tests. This overrides the \`include\` option.
 
                     Defaults to excluding any folders named dist, fixture, or
                     fixtures.
 
-                    Note: folders named tap-snapshots, node_modules, .git, and
-                    .hg are ALWAYS excluded from the default test file set.  If
-                    you wish to run tests in these folders, then name the test
+                    Note: folders named tap-snapshots, node_modules, or .git
+                    are ALWAYS excluded from the default test file set. If you
+                    wish to run tests in these folders, then name the test
                     files on the command line as positional arguments.`,
     },
-  })
 
-  .optList({
     serial: {
       hint: 'dir',
       description: `Mark all test files anywhere within the specified
@@ -566,9 +571,9 @@ export default jack({
       description: `Pass a key=value (ie, --test-env=key=value) to set an
                     environment variable in the process where tests are run.
 
-                    If a value is not provided, such as \`--test-env=key\`, then
-                    the key is ensured to not be set in the environment.  To
-                    set a key to the empty string, use --test-env=key=`,
+                    If a value is not provided, such as \`--test-env=key\`,
+                    then the key is ensured to not be set in the environment.
+                    To set a key to the empty string, use --test-env=key=`,
       default: [],
     },
 
@@ -587,8 +592,8 @@ export default jack({
     debug: { description: 'Turn on debug mode' },
 
     'omit-version': {
-      description: `Do not print the \`TAP version 14\` line. (This may be needed
-                    for compapatibility with some older TAP parsers.)`,
+      description: `Do not print the \`TAP version 14\` line. (This may be
+                    needed for compapatibility with some older TAP parsers.)`,
     },
 
     'omit-whitespace': {

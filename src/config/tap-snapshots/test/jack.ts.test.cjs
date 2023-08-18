@@ -73,7 +73,7 @@ Object {
   "coverage-map": Object {
     "description": String(
       Provide a path to a node module (esm or cjs) that default
-                          exports a single function.  That function takes a test
+                          exports a single function. That function takes a test
                           file as an argument, and returns an array of files to
                           instrument with coverage when that file is run.
       
@@ -85,7 +85,7 @@ Object {
                           Return \`null\` to not cover any files by this test.
       
                           Return an empty array [] to cover the set that would be
-                          pulled in by default.  Ie, returning [] is equivalent to
+                          pulled in by default. Ie, returning [] is equivalent to
                           not using a coverage map at all.
     ),
     "type": "string",
@@ -98,8 +98,8 @@ Object {
                           Default is \`text\` when running on the command line, or
                           \`text-lcov\` when piping to coveralls.
       
-                          If \`html\` is used, then the report will be opened in a web
-                          browser after running.
+                          If \`html\` is used, then the report will be opened in a
+                          web browser after running.
       
                           This can be run on its own at any time after a test run
                           that included coverage.
@@ -136,25 +136,28 @@ Object {
     "type": "boolean",
   },
   "exclude": Object {
-    "default": "**/@(fixture*(s)|dist)/**",
+    "default": Array [
+      "**/@(fixture*(s)|dist)/**",
+    ],
     "description": String(
       A glob pattern indicating which filenames should NEVER
-                          be run as tests.  This overrides the \`include\` option.
+                          be run as tests. This overrides the \`include\` option.
       
                           Defaults to excluding any folders named dist, fixture, or
                           fixtures.
       
-                          Note: folders named tap-snapshots, node_modules, .git, and
-                          .hg are ALWAYS excluded from the default test file set.  If
-                          you wish to run tests in these folders, then name the test
+                          Note: folders named tap-snapshots, node_modules, or .git
+                          are ALWAYS excluded from the default test file set. If you
+                          wish to run tests in these folders, then name the test
                           files on the command line as positional arguments.
     ),
+    "multiple": true,
     "type": "string",
   },
   "files": Object {
     "description": String(
       Alternative way to specify test set rather than using
-                          positional arguments.  Supported as an option so that
+                          positional arguments. Supported as an option so that
                           test file arguments can be specified in .taprc and
                           package.json files.
     ),
@@ -167,22 +170,28 @@ Object {
     "type": "boolean",
   },
   "include": Object {
-    "default": "**/{@(test?(s)|__test?(s)__)/**/*,*.@(test?(s)|spec),test?(s)}.@([mc][jt]s|[jt]s?(x))",
+    "default": Array [
+      "**/@(test?(s)|__test?(s)__)/**/*.@([mc][jt]s|[jt]s?(x))",
+      "**/*.@(test?(s)|spec).@([mc][jt]s|[jt]s?(x))",
+      "**/test?(s).@([mc][jt]s|[jt]s?(x))",
+    ],
     "description": String(
       A glob expression pattern indicating tests to run if no
-                          positional arguments are provided to the \`tap run\` command.
+                          positional arguments are provided to the \`tap run\`
+                          command.
       
                           By default, tap will search for all files ending in .ts,
                           .tsx, .cts, .mts, .js, .jsx, .cjs, or .mjs, in a top-level
                           folder named test, tests, or __tests__, or any file ending
-                          in \`.spec.\` or \`.test.\` before a supported extension, or a
-                          top-level file named \`test.(js,jsx,...)\` or
+                          in \`.spec.\` or \`.test.\` before a supported extension,
+                          or a top-level file named \`test.(js,jsx,...)\` or
                           \`tests.(js,jsx,...)\`
       
                           No files excluded by the \`exclude\` option will be loaded,
-                          meaning so dependencies, build artifacts in \`dist\`, and
-                          test fixtures and snapshots will be ignored.
+                          meaning that dependencies, build artifacts in \`dist\`,
+                          test fixtures, and snapshots will be ignored.
     ),
+    "multiple": true,
     "type": "string",
   },
   "jobs": Object {
@@ -233,8 +242,8 @@ Object {
   },
   "omit-version": Object {
     "description": String(
-      Do not print the \`TAP version 14\` line. (This may be needed
-                          for compapatibility with some older TAP parsers.)
+      Do not print the \`TAP version 14\` line. (This may be
+                          needed for compapatibility with some older TAP parsers.)
     ),
     "type": "boolean",
   },
@@ -244,9 +253,9 @@ Object {
   },
   "output-dir": Object {
     "description": String(
-      Send the raw TAP output to the specified directory.  A
+      Send the raw TAP output to the specified directory. A
                           separate .tap file will be created for each test file that
-                          is run.  Reporter output will still be printed to stdout,
+                          is run. Reporter output will still be printed to stdout,
                           but the files will contain the raw TAP for later replay or
                           analysis.
       
@@ -259,7 +268,7 @@ Object {
   },
   "output-file": Object {
     "description": String(
-      Send the raw TAP output to the specified file.  Reporter
+      Send the raw TAP output to the specified file. Reporter
                           output will still be printed to stdout, but the file will
                           contain the raw TAP for later replay or analysis.
     ),
@@ -318,8 +327,8 @@ Object {
   },
   "reporter": Object {
     "description": String(
-      Use the specified reporter.  Defaults to \`base\` when colors
-                          are in use, or \`tap\` when colors are disabled.
+      Use the specified reporter. Defaults to \`base\` when
+                          colors are in use, or \`tap\` when colors are disabled.
       
                           In addition to the built-in reporters provided by
                           the @tapjs/reporter module, the reporter option can also
@@ -335,8 +344,8 @@ Object {
       
                           Writable streams are instantiated and piped into.
       
-                          React components are rendered using Ink, with tap={tap} and
-                          config={loadedConfig} as their properties.
+                          React components are rendered using Ink, with \`tap={tap}\`
+                          and \`config={loadedConfig}\` as their properties.
       
                           Built-in test reporters:
       
@@ -348,7 +357,7 @@ Object {
   },
   "reporter-arg": Object {
     "description": String(
-      Args to pass to command-line reporters.  Ignored when using
+      Args to pass to command-line reporters. Ignored when using
                           built-in reporters or module reporters.
     ),
     "multiple": true,
@@ -358,7 +367,7 @@ Object {
   "save": Object {
     "description": String(
       If <file> exists, then it should be a line- delimited list
-                          of test files to run.  If <file> is not present, then all
+                          of test files to run. If <file> is not present, then all
                           command-line positional arguments are run.
       
                           After the set of test files are run, any failed test files
@@ -402,10 +411,10 @@ Object {
                           requesting a coverage report, even if it's just a list of
                           green 100s.
       
-                          When running \`tap report --no-show-full-coverage\`,
-                          with this config explicitly set false, it will omit the
-                          default text report on full coverage, and behave like
-                          running \`tap report none\` (ie, print nothing).
+                          When running \`tap report --no-show-full-coverage\`, with
+                          this config explicitly set false, it will omit the default
+                          text report on full coverage, and behave like running \`tap
+                          report none\` (ie, print nothing).
       
                           When running \`tap report text --no-show-full-coverage\`,
                           explicitly requesting a text report and also explicitly
@@ -431,9 +440,9 @@ Object {
       Pass a key=value (ie, --test-env=key=value) to set an
                           environment variable in the process where tests are run.
       
-                          If a value is not provided, such as \`--test-env=key\`, then
-                          the key is ensured to not be set in the environment.  To
-                          set a key to the empty string, use --test-env=key=
+                          If a value is not provided, such as \`--test-env=key\`,
+                          then the key is ensured to not be set in the environment.
+                          To set a key to the empty string, use --test-env=key=
     ),
     "multiple": true,
     "type": "string",
