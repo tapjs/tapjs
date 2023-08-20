@@ -269,6 +269,23 @@ const cases: Record<string, () => any> = {
     const t = tap()
     t.test('child test', () => {})
   },
+
+  boundMethods: () => {
+    const t = tap()
+    const { test, end, beforeEach, afterEach } = t
+    beforeEach(t => console.error('beforeEach', t.name))
+    afterEach(t => console.error('afterEach', t.name))
+    test('child test', t => {
+      const { test, end } = t
+      test('second child', t => {
+        const { pass, end } = t
+        pass('this is fine')
+        end()
+      })
+      end()
+    })
+    end()
+  },
 }
 
 const fn = process.argv[2] ? cases[process.argv[2]] : main

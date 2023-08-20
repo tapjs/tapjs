@@ -53,7 +53,10 @@ const copyFunction = <
   const f: (this: Plug<Opts>, ...args: any) => any = function (
     ...args: any[]
   ) {
-    const thisArg = this === t ? plug : this
+    // if you do `const { method } = t` then calling `method` will
+    // call it on the plugin that provided it.
+    // So no need to pre-bind anything, really.
+    const thisArg = this === t || this === undefined ? plug : this
     const ret = v.apply(thisArg, args)
     // If a plugin method returns 'this', and it's the plugin,
     // then we return the extended Test instead.

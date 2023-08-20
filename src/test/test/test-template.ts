@@ -144,3 +144,10 @@ t.test('generate some output', async t => {
   tt.end()
   t.matchSnapshot(await output, 'test output')
 })
+
+t.test('plugin methods get bound to the plugin', t => {
+  const tt = new Test({ name: 'binder' }).applyPlugin(plugin)
+  const { whoami } = tt
+  t.equal(whoami(), tt)
+  t.end()
+})

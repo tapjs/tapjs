@@ -19,6 +19,35 @@ Object {
 }
 `
 
+exports[`test/tap.ts > TAP > boundMethods > must match snapshot 1`] = `
+Object {
+  "code": 0,
+  "name": "boundMethods",
+  "signal": null,
+  "stderr": String(
+    beforeEach child test
+    beforeEach second child
+    afterEach second child
+    afterEach child test
+    
+  ),
+  "stdout": String(
+    TAP version 14
+    # Subtest: child test
+        # Subtest: second child
+            ok 1 - this is fine
+            1..1
+        ok 1 - second child # time={TIME}
+        
+        1..1
+    ok 1 - child test # time={TIME}
+    
+    1..1
+    
+  ),
+}
+`
+
 exports[`test/tap.ts > TAP > closeEvenIfExitingHard > must match snapshot 1`] = `
 Object {
   "code": 0,
@@ -662,7 +691,6 @@ Object {
                 t.test('child test', () => {})
             ------^
               },
-            }
           ...
         
         1..1
@@ -680,7 +708,6 @@ Object {
             t.test('child test', () => {})
         ------^
           },
-        }
       ...
     
     1..1
