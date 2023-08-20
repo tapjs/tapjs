@@ -59,17 +59,3 @@ spawnSync(
     stdio: 'inherit',
   }
 )
-
-writeFileSync(
-  '.taprc',
-  // have to break it up or else vim thinks *this* file is yaml lol
-  '# vi' +
-    `m: set filetype=yaml :
-include: src/*/test
-typecheck: false
-# sort in slovakian so that sorts get weird if we forget to
-# localeCompare with the 'en' locale specifically.
-test-env:
-  - LC_ALL=sk
-`
-)
