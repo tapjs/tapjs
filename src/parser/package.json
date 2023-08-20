@@ -46,7 +46,9 @@
     "bin"
   ],
   "tap": {
-    "include": "test/*.ts",
+    "include": [
+      "test/*.ts"
+    ],
     "coverage-map": "map.js"
   },
   "engines": {
