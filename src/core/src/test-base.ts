@@ -263,7 +263,7 @@ export class TestBase extends Base<TestBaseEvents> {
   #pushedEnd: boolean = false
   #pushedBeforeEnd: boolean = false
   #nextChildId: number = 1
-  #currentAssert: null | Function | ((..._: any) => any) = null
+  #currentAssert?: Function | ((..._: any) => any)
   #processing: boolean = false
   #doingStdinOnly: boolean = false
   #calledOnEOF: boolean = false
@@ -496,7 +496,7 @@ export class TestBase extends Base<TestBaseEvents> {
   get currentAssert() {
     return this.#currentAssert
   }
-  set currentAssert(fn: null | Function | ((...a: any[]) => any)) {
+  set currentAssert(fn: undefined | Function | ((...a: any[]) => any)) {
     if (!this.#currentAssert && typeof fn === 'function') {
       this.#currentAssert = fn
     }
@@ -520,7 +520,7 @@ export class TestBase extends Base<TestBaseEvents> {
 
     const n = this.count + 1
     const fn = this.currentAssert
-    this.#currentAssert = null
+    this.#currentAssert = undefined
 
     if (this.#planEnd !== -1 && n > this.#planEnd) {
       // prevent infinite regress of "plan exceeded" fails

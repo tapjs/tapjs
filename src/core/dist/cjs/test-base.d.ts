@@ -293,8 +293,8 @@ export declare class TestBase extends Base<TestBaseEvents> {
      *
      * @group Internal Machinery
      */
-    get currentAssert(): null | Function | ((...a: any[]) => any);
-    set currentAssert(fn: null | Function | ((...a: any[]) => any));
+    get currentAssert(): undefined | Function | ((...a: any[]) => any);
+    set currentAssert(fn: undefined | Function | ((...a: any[]) => any));
     /**
      * Explicitly mark the test as completed, outputting the TAP plan line if
      * needed.

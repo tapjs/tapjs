@@ -110,7 +110,7 @@ export class TestBase extends Base {
     #pushedEnd = false;
     #pushedBeforeEnd = false;
     #nextChildId = 1;
-    #currentAssert = null;
+    #currentAssert;
     #processing = false;
     #doingStdinOnly = false;
     #calledOnEOF = false;
@@ -326,7 +326,7 @@ export class TestBase extends Base {
         this.#printedResult = true;
         const n = this.count + 1;
         const fn = this.currentAssert;
-        this.#currentAssert = null;
+        this.#currentAssert = undefined;
         if (this.#planEnd !== -1 && n > this.#planEnd) {
             // prevent infinite regress of "plan exceeded" fails
             if (!this.passing())
