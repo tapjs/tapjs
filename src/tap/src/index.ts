@@ -145,8 +145,7 @@ export type MaybePlugin<P extends (...a: any[]) => any> = Maybe<
 >
 
 // conditional exports, only available if plugins loaded
-// we still export the type, it'll just be undefined at runtime if
-// that particular plugin is disabled.
+// it'll just be undefined if that particular plugin is disabled.
 const { only } = t as MaybePlugin<typeof Filter>
 const { after } = t as MaybePlugin<typeof After>
 const { before } = t as MaybePlugin<typeof Before>
