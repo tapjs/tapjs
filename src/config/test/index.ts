@@ -15,15 +15,18 @@ t.test('basic tests', async t => {
 
 t.test('reporter from env or config', t => {
   t.test('default, with color', async t => {
-    const { TapConfig } = await t.mockImport('../dist/mjs/index.js', {
-      '@tapjs/core': t.createMock(core, {
-        env: {
-          TAP: undefined,
-          TAP_REPORTER: undefined,
-          TAP_COLOR: '1',
-        },
-      }),
-    }) as typeof import('../dist/mjs/index.js')
+    const { TapConfig } = (await t.mockImport(
+      '../dist/mjs/index.js',
+      {
+        '@tapjs/core': t.createMock(core, {
+          env: {
+            TAP: undefined,
+            TAP_REPORTER: undefined,
+            TAP_COLOR: '1',
+          },
+        }),
+      }
+    )) as typeof import('../dist/mjs/index.js')
     const tc = await TapConfig.load()
     t.equal(tc.get('reporter'), 'base')
     t.equal(tc.get('reporter'), 'base', 'cache coverage')
@@ -39,10 +42,10 @@ t.test('reporter from env or config', t => {
         },
       }),
     }
-    const { TapConfig } = await t.mockImport(
+    const { TapConfig } = (await t.mockImport(
       '../dist/mjs/index.js',
       m
-    ) as typeof import('../dist/mjs/index.js')
+    )) as typeof import('../dist/mjs/index.js')
     t.equal((await TapConfig.load()).get('reporter'), 'tap')
   })
 
@@ -56,10 +59,16 @@ t.test('reporter from env or config', t => {
         },
       }),
     }
-    const { TapConfig } = await t.mockImport('../dist/mjs/index.js', {
-      ...m,
-      '../dist/mjs/jack.js': await t.mockImport('../dist/mjs/jack.js', m),
-    }) as typeof import('../dist/mjs/index.js')
+    const { TapConfig } = (await t.mockImport(
+      '../dist/mjs/index.js',
+      {
+        ...m,
+        '../dist/mjs/jack.js': await t.mockImport(
+          '../dist/mjs/jack.js',
+          m
+        ),
+      }
+    )) as typeof import('../dist/mjs/index.js')
     t.equal((await TapConfig.load()).get('reporter'), 'tap')
   })
 
@@ -73,10 +82,16 @@ t.test('reporter from env or config', t => {
         },
       }),
     }
-    const { TapConfig } = await t.mockImport('../dist/mjs/index.js', {
-      ...m,
-      '../dist/mjs/jack.js': await t.mockImport('../dist/mjs/jack.js', m),
-    }) as typeof import('../dist/mjs/index.js')
+    const { TapConfig } = (await t.mockImport(
+      '../dist/mjs/index.js',
+      {
+        ...m,
+        '../dist/mjs/jack.js': await t.mockImport(
+          '../dist/mjs/jack.js',
+          m
+        ),
+      }
+    )) as typeof import('../dist/mjs/index.js')
     t.equal((await TapConfig.load()).get('reporter'), 'base')
   })
 
@@ -737,4 +752,13 @@ t.test('addFields', async t => {
   //@ts-expect-error
   t.equal(tc.get(key), undefined)
   t.equal(ext.get(key), true)
+})
+
+t.test('expandInclude', async t => {
+  const tc = await TapConfig.load()
+  t.equal(tc.expandInclude('xyz'), 'xyz')
+  t.match(
+    tc.expandInclude('xyz.__EXTENSIONS__'),
+    /^xyz\.@\((?:([a-z]+)\|)*[a-z]+\)$/
+  )
 })

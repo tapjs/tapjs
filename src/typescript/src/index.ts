@@ -21,12 +21,16 @@ export const plugin: TapPlugin<{}> = () => {
 }
 
 /**
+ * File types that this plugin adds support for
+ */
+export const testFileExtensions = ['ts', 'cts', 'mts', 'tsx', 'jsx']
+
+/**
  * Options added by this plugin
  *
  * @group Configuration
  */
 export const config = {
-
   /**
    * flag
    *

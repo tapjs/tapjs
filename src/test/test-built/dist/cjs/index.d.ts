@@ -14,6 +14,7 @@ import * as Plugin_stdin from "@tapjs/stdin";
 import * as Plugin_typescript from "@tapjs/typescript";
 import * as Plugin_worker from "@tapjs/worker";
 import type { ConfigSet, Jack } from 'jackspeak';
+export declare const testFileExtensions: Set<string>;
 export type PluginResult<P extends ((t: TestBase, opts: any) => any)[]> = P extends [
     infer H extends (t: TestBase, opts: any) => any,
     ...infer T extends ((t: TestBase, opts: any) => any)[]

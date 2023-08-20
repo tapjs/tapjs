@@ -20,6 +20,10 @@ import type { ConfigSet, Jack } from 'jackspeak'
 import { isConfigOption } from 'jackspeak'
 import { inspect } from 'node:util'
 
+export const testFileExtensions = new Set(['js', 'cjs', 'mjs'])
+//{{FILE TYPES START}}
+//{{FILE TYPES END}}
+
 const kInspect = Symbol.for('nodejs.util.inspect.custom')
 const copyInspect = (v: Function) => ({
   [kInspect]: (...args: any[]) => inspect(v, ...args),
@@ -71,9 +75,6 @@ export type PluginResult<
   ? ReturnType<H> & PluginResult<T>
   : {}
 
-/**
- * Union type of the return values of an array of functions
- */
 type AnyReturnValue<A extends ((...a: any[]) => any)[]> = A extends [
   infer H extends (...a: any[]) => any,
   ...infer T extends ((...a: any[]) => any)[]

@@ -26,7 +26,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Test = exports.signature = exports.loaders = exports.config = void 0;
+exports.Test = exports.signature = exports.loaders = exports.config = exports.testFileExtensions = void 0;
 const core_1 = require("@tapjs/core");
 //{{PLUGIN IMPORT START}}
 const Plugin_after = __importStar(require("@tapjs/after"));
@@ -45,6 +45,14 @@ const Plugin_typescript = __importStar(require("@tapjs/typescript"));
 const Plugin_worker = __importStar(require("@tapjs/worker"));
 const jackspeak_1 = require("jackspeak");
 const node_util_1 = require("node:util");
+exports.testFileExtensions = new Set(['js', 'cjs', 'mjs']);
+//{{FILE TYPES START}}
+exports.testFileExtensions.add("ts");
+exports.testFileExtensions.add("cts");
+exports.testFileExtensions.add("mts");
+exports.testFileExtensions.add("tsx");
+exports.testFileExtensions.add("jsx");
+//{{FILE TYPES END}}
 const kInspect = Symbol.for('nodejs.util.inspect.custom');
 const copyInspect = (v) => ({
     [kInspect]: (...args) => (0, node_util_1.inspect)(v, ...args),

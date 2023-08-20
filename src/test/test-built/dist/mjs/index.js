@@ -19,6 +19,14 @@ import * as Plugin_typescript from "@tapjs/typescript";
 import * as Plugin_worker from "@tapjs/worker";
 import { isConfigOption } from 'jackspeak';
 import { inspect } from 'node:util';
+export const testFileExtensions = new Set(['js', 'cjs', 'mjs']);
+//{{FILE TYPES START}}
+testFileExtensions.add("ts");
+testFileExtensions.add("cts");
+testFileExtensions.add("mts");
+testFileExtensions.add("tsx");
+testFileExtensions.add("jsx");
+//{{FILE TYPES END}}
 const kInspect = Symbol.for('nodejs.util.inspect.custom');
 const copyInspect = (v) => ({
     [kInspect]: (...args) => inspect(v, ...args),

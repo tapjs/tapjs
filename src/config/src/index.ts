@@ -5,7 +5,11 @@
  */
 
 import { argv, cwd, env } from '@tapjs/core'
-import { config as pluginConfig, defaultPlugins } from '@tapjs/test'
+import {
+  config as pluginConfig,
+  defaultPlugins,
+  testFileExtensions,
+} from '@tapjs/test'
 import { lstat, readdir, readFile, writeFile } from 'fs/promises'
 import { ConfigSet, Jack, OptionsResults, Unwrap } from 'jackspeak'
 import { createRequire } from 'module'
@@ -68,6 +72,11 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
    */
   configFile?: string
 
+  /**
+   * The file extensions that tap knows how to load, updated by plugins
+   */
+  testFileExtensions: Set<string> = testFileExtensions
+
   constructor(jack: Jack<C> = baseConfig) {
     this.jack = jack
   }
@@ -81,9 +90,32 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
   } {
     const v = this.values
     const p = this.positionals
-    const { values, positionals } =
-      v && p ? { values: v, positionals: p } : this.jack.parse(args)
+    if (v && p) {
+      return this as this & {
+        values: OptionsResults<C>
+        positionals: string[]
+      }
+    }
+    const { values, positionals } = this.jack.parse(args)
+    const { include } = values as unknown as { include: string[] }
+    for (let i = 0; i < include.length; i++) {
+      const inc = include[i]
+      if (inc.includes('__EXTENSIONS__')) {
+        include[i] = this.expandInclude(inc)
+      }
+    }
+
     return Object.assign(this, { values, positionals })
+  }
+
+  /**
+   * replace __EXTENSIONS__ in a glob with the actual testFileExtensions
+   */
+  expandInclude(inc: string) {
+    return inc.replace(
+      /__EXTENSIONS__/g,
+      `@(${[...this.testFileExtensions].join('|')})`
+    )
   }
 
   /**

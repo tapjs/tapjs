@@ -19,10 +19,7 @@ const __dirname = resolve(fileURLToPath(import.meta.url), '..')
 const templateFile = resolve(__dirname, './test-template.ts')
 let template = readFileSync(templateFile, 'utf8')
 
-const defaultTarget = resolve(
-  __dirname,
-  '../test-built'
-)
+const defaultTarget = resolve(__dirname, '../test-built')
 
 // override in testing, otherwise always the default
 /* c8 ignore start */
@@ -58,6 +55,7 @@ const hasConfig = new Map<string, string>()
 const hasPlugin = new Map<string, string>()
 const hasLoader = new Map<string, string>()
 const preloaders = new Map<string, string>()
+const testFileExtensions = new Set<string>()
 
 const signature = plugins
   .sort((a, b) => a.localeCompare(b, 'en'))
@@ -88,6 +86,7 @@ const pluginNames = plugins.map(p => {
     }
     loader?: string
     preload?: boolean
+    testFileExtensions?: string[]
   }
   try {
     imp = require(p)
@@ -140,6 +139,26 @@ const pluginNames = plugins.map(p => {
         'a plugin function, config object, or loader module identifier.'
     )
     process.exit(1)
+  }
+  // we can't reasonably add more file types if we didn't add some
+  // functionality.
+  if (imp.testFileExtensions !== undefined) {
+    const invalidTestFileExtensions = () => {
+      console.error(
+        `'${p}' exports an invalid testFileExtensions. Must be string[].`
+      )
+      process.exit(1)
+    }
+    if (!Array.isArray(imp.testFileExtensions)) {
+      invalidTestFileExtensions()
+    } else {
+      for (const k of imp.testFileExtensions) {
+        if (typeof k !== 'string') {
+          invalidTestFileExtensions()
+        }
+        testFileExtensions.add(k)
+      }
+    }
   }
   return name
 })
@@ -233,6 +252,10 @@ export const loaders: string[] = ${JSON.stringify(
 )
 `
 
+const testFileExtensionsCode = [...testFileExtensions]
+  .map(ext => `testFileExtensions.add(${JSON.stringify(ext)})\n`)
+  .join('')
+
 const swapTag = (src: string, tag: string, code: string): string => {
   const st = '//{{' + tag + ' START}}\n'
   const et = '//{{' + tag + ' END}}\n'
@@ -269,6 +292,7 @@ writeFileSync(
     'PLUGINS CONFIG': pluginsConfig,
     'PLUGIN SIGNATURE': signatureCode,
     LOADERS: pluginLoaders,
+    'FILE TYPES': testFileExtensionsCode,
   })
 )
 

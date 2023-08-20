@@ -24,8 +24,8 @@ const defaultInclude =
   '@(test?(s)|__test?(s)__)/**/*,' +
   '*.@(test?(s)|spec),' +
   'test?(s)' +
-  '}.@([mc][jt]s|[jt]s?(x))'
-const dirInclude = '**/*.@(?([mc])[jt]s?(x))'
+  '}.__EXTENSIONS__'
+const dirInclude = '**/*.__EXTENSIONS__'
 
 // --save=<file>
 //    only run the files in the list, write failures back to it.
@@ -44,13 +44,16 @@ export const list = async (
   const saveList: Set<string> = new Set(await readSave(config))
 
   const ignore = [alwaysExcludePattern]
-  if (values.exclude) ignore.push(...(values.exclude))
+  if (values.exclude) ignore.push(...values.exclude)
 
-  const g = new Glob(values.include || defaultInclude, {
-    ignore,
-    cwd: config.globCwd,
-    withFileTypes: true,
-  })
+  const g = new Glob(
+    values.include || config.expandInclude(defaultInclude),
+    {
+      ignore,
+      cwd: config.globCwd,
+      withFileTypes: true,
+    }
+  )
 
   const { scurry } = g
   // resolve non-existent paths as globs in the actual cwd
@@ -110,7 +113,7 @@ export const list = async (
       return true
     }) as (Path | '-' | '/dev/stdin')[]
   )
-  await expandDirectories(scurry, entries, g.ignore)
+  await expandDirectories(config, scurry, entries, g.ignore)
   const before = config.get('before')
   const after = config.get('after')
   if (before) {
@@ -151,6 +154,7 @@ export const list = async (
 }
 
 const expandDirectories = async (
+  config: LoadedConfig,
   scurry: PathScurry,
   entries: Set<Path | '-' | '/dev/stdin'>,
   ignore: string | string[] | IgnoreLike | undefined
@@ -164,7 +168,7 @@ const expandDirectories = async (
       entries.delete(entry)
       scurry.chdir(entry)
       // if we match a dir, then pull in any runnable files from within it
-      for (const s of await glob(dirInclude, {
+      for (const s of await glob(config.expandInclude(dirInclude), {
         scurry,
         ignore,
         withFileTypes: true,

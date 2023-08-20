@@ -171,25 +171,52 @@ Object {
   },
   "include": Object {
     "default": Array [
-      "**/@(test?(s)|__test?(s)__)/**/*.@([mc][jt]s|[jt]s?(x))",
-      "**/*.@(test?(s)|spec).@([mc][jt]s|[jt]s?(x))",
-      "**/test?(s).@([mc][jt]s|[jt]s?(x))",
+      "**/@(test?(s)|__test?(s)__)/**/*.__EXTENSIONS__",
+      "**/*.@(test?(s)|spec).__EXTENSIONS__",
+      "**/test?(s).__EXTENSIONS__",
     ],
     "description": String(
       A glob expression pattern indicating tests to run if no
                           positional arguments are provided to the \`tap run\`
                           command.
       
-                          By default, tap will search for all files ending in .ts,
-                          .tsx, .cts, .mts, .js, .jsx, .cjs, or .mjs, in a top-level
-                          folder named test, tests, or __tests__, or any file ending
-                          in \`.spec.\` or \`.test.\` before a supported extension,
-                          or a top-level file named \`test.(js,jsx,...)\` or
-                          \`tests.(js,jsx,...)\`
+                          The special token \`__EXTENSIONS__\` will expand to the
+                          list of known file type extensions that tap knows how to
+                          process. When the \`@tapjs/typescript\` plugin is loaded
+                          (default), this will be:
+      
+                          - js
+                          - cjs
+                          - mjs
+                          - jsx
+                          - ts
+                          - cts
+                          - mts
+                          - tsx
+      
+                          Without the typescript plugin, this will be just the file
+                          extensions known to Node:
+      
+                          - js
+                          - cjs
+                          - mjs
+      
+                          By default, tap will search for all files ending in these
+                          known file type extensions in the following ways:
+      
+                          - a top-level folder named test, tests, or __tests__
+                          - any file ending in \`.spec.\` or \`.test.\` before a
+                            supported extension, or
+                          - a top-level file named \`test.(js,jsx,...)\` or
+                            \`tests.(js,jsx,...)\`
       
                           No files excluded by the \`exclude\` option will be loaded,
                           meaning that dependencies, build artifacts in \`dist\`,
-                          test fixtures, and snapshots will be ignored.
+                          test fixtures, snapshots, and source control metadata will
+                          be ignored.
+      
+                          The glob patterns are expanded without the \`dot\` option,
+                          so any file starting with a . will be ignored.
     ),
     "multiple": true,
     "type": "string",

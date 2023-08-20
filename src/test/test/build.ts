@@ -155,6 +155,70 @@ t.test('invalid config', async t => {
   })
 })
 
+t.test('invalid testFileExtensions, not an array', async t => {
+  const dir = t.testdir({
+    plugin: {
+      'index.cjs': `
+        exports.plugin = () => ({ x: true })
+        exports.testFileExtensions = true
+      `,
+      'index.mjs': `
+        export const plugin = () => ({ x: true })
+        exports const testFileExtensions = true
+      `,
+      'package.json': JSON.stringify({
+        name: 'bad-plugin',
+        main: 'index.cjs',
+        module: 'index.mjs',
+      }),
+    },
+    target: {},
+  })
+  const plugin = resolve(dir, 'plugin')
+  const target = resolve(dir, 'target')
+  const res = await build(target, [plugin], true)
+  t.same(res, {
+    target,
+    plugins: [plugin],
+    code: 1,
+    signal: null,
+    stderr: `'${plugin}' exports an invalid testFileExtensions. Must be string[].\n`,
+    stdout: '',
+  })
+})
+
+t.test('invalid testFileExtensions, contains non-string', async t => {
+  const dir = t.testdir({
+    plugin: {
+      'index.cjs': `
+        exports.plugin = () => ({ x: true })
+        exports.testFileExtensions = ['a', 1]
+      `,
+      'index.mjs': `
+        export const plugin = () => ({ x: true })
+        exports const testFileExtensions = ['a', 1]
+      `,
+      'package.json': JSON.stringify({
+        name: 'bad-plugin',
+        main: 'index.cjs',
+        module: 'index.mjs',
+      }),
+    },
+    target: {},
+  })
+  const plugin = resolve(dir, 'plugin')
+  const target = resolve(dir, 'target')
+  const res = await build(target, [plugin], true)
+  t.same(res, {
+    target,
+    plugins: [plugin],
+    code: 1,
+    signal: null,
+    stderr: `'${plugin}' exports an invalid testFileExtensions. Must be string[].\n`,
+    stdout: '',
+  })
+})
+
 t.test('no plugins specified', async t => {
   const target = t.testdir()
   // verify that it'll create the target as needed

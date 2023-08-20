@@ -15,6 +15,11 @@ let didWarning = false
 let didEnv = false
 
 /**
+ * File types that this plugin adds support for
+ */
+export const testFileExtensions = ['ts', 'cts', 'mts', 'tsx', 'jsx']
+
+/**
  * Plugin function enabling esbuild-kit for running typescript tests
  *
  * The plugin function sets the esbuild-kit environment variables
