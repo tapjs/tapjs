@@ -21,6 +21,7 @@
   "scripts": {
     "start": "eleventy --serve",
     "prebuild": "rm -rf _site",
-    "build": "eleventy"
+    "build": "eleventy",
+    "test": "npm run build"
   }
 }

@@ -1,4 +1,4 @@
-var test = require('tap').test
+import { test } from 'tap'
 
 test('beep', function (t) {
   t.plan(2)
