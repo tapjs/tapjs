@@ -56,8 +56,10 @@ declare global {
     export type SpawnEvents = items.SpawnEvents
     export type SpawnOpts = items.SpawnOpts
     export type Stdin = items.Stdin
-    export type StdinEvents = items.StdinEvents
     export type StdinOpts = items.StdinOpts
+    export type TapFile = items.TapFile
+    export type TapFileEvents = items.TapFileEvents
+    export type TapFileOpts = items.TapFileOpts
     export type TapBaseEvents = items.TapBaseEvents
     export type TestBase = items.TestBase
     export type TestBaseEvents = items.TestBaseEvents
