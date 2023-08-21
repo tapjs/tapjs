@@ -972,6 +972,10 @@ export class TestBase extends Base {
         this.queue.push(t);
         this.subtests.push(t);
         this.emit('subtestAdd', t);
+        // this would make its way here eventually anyway, but the
+        // test bailing out might be waiting for its turn in the pool
+        // to be processed, and bailout should happen ASAP.
+        t.on('bailout', reason => this.bailout(reason));
         const d = new Deferred();
         t.deferred = d;
         this.#process();
