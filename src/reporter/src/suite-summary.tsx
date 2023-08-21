@@ -2,6 +2,7 @@ import { CountsJSON, TestBase } from '@tapjs/core'
 import { Box, Text } from 'ink'
 import React, { FC } from 'react'
 import { useAssertTotals } from './hooks/use-assert-totals.js'
+import { useBailedOut } from './hooks/use-bailed-out.js'
 import { useComments } from './hooks/use-comments.js'
 import { useSuiteTotals } from './hooks/use-suite-totals.js'
 import { TimedOut } from './timed-out.js'
@@ -39,45 +40,60 @@ const Todo: FC<CountsJSON> = ({ todo = 0 }) =>
 export const SuiteSummary: FC<{ test: TestBase }> = ({ test }) => {
   const suites = useSuiteTotals(test)
   const asserts = useAssertTotals(test)
+  const bailedOut = useBailedOut(test)
+  const comments = useComments(test)
 
   return (
     <Box flexDirection="column">
-      <Box marginY={1}>
-        <Box flexDirection="row" gap={2} alignSelf="flex-end">
-          <Box flexDirection="column">
-            <Text bold>Asserts:</Text>
-            <Text bold>Suites:</Text>
-          </Box>
-          <Box flexDirection="column" alignItems="flex-end">
-            <Pass {...asserts} />
-            <Pass {...suites} />
-          </Box>
-          <Box flexDirection="column" alignItems="flex-end">
-            <Fail {...asserts} />
-            <Fail {...suites} />
-          </Box>
-          {(!!suites.skip || !!asserts.skip) && (
-            <Box flexDirection="column" alignItems="flex-end">
-              <Skip {...asserts} />
-              <Skip {...suites} />
+      <Box marginY={1} flexDirection="column">
+        <Box>
+          <Box flexDirection="row" gap={2} alignSelf="flex-end">
+            <Box flexDirection="column">
+              <Text bold>Asserts:</Text>
+              <Text bold>Suites:</Text>
             </Box>
-          )}
-          <Todo {...asserts} />
-          <Box flexDirection="column" alignItems="flex-end">
-            <Complete {...asserts} />
-            <Complete {...suites} />
+            <Box flexDirection="column" alignItems="flex-end">
+              <Pass {...asserts} />
+              <Pass {...suites} />
+            </Box>
+            <Box flexDirection="column" alignItems="flex-end">
+              <Fail {...asserts} />
+              <Fail {...suites} />
+            </Box>
+            {(!!suites.skip || !!asserts.skip) && (
+              <Box flexDirection="column" alignItems="flex-end">
+                <Skip {...asserts} />
+                <Skip {...suites} />
+              </Box>
+            )}
+            <Todo {...asserts} />
+            <Box flexDirection="column" alignItems="flex-end">
+              <Complete {...asserts} />
+              <Complete {...suites} />
+            </Box>
           </Box>
         </Box>
-      </Box>
-
-      <Box flexDirection="column">
-        {useComments(test).map((c, key) => (
-          <Text key={key} dimColor>
-            {c}
-          </Text>
-        ))}
+        {bailedOut && (
+          <Box gap={1}>
+            <Text color="red" bold>
+              Bailout!
+            </Text>
+            <Text>{bailedOut}</Text>
+          </Box>
+        )}
         <TimedOut test={test} />
       </Box>
+      {comments.length ? (
+        <Box flexDirection="column" marginBottom={1}>
+          {comments.map((c, key) => (
+            <Text key={key} dimColor>
+              {c}
+            </Text>
+          ))}
+        </Box>
+      ) : (
+        <></>
+      )}
     </Box>
   )
 }

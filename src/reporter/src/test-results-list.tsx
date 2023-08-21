@@ -18,15 +18,17 @@ export const TestResultsList: FC<TestResultsListOpts> = ({
   lists,
   details = false,
 }) => {
-  const { results } = test
+  const { results, options, bailedOut } = test
+  const { exitCode, signal } = options
   if (!results) return <></>
 
   const resultsList: (ReactElement | Result)[] = []
   if (
     results.plan.skipAll &&
     results.plan.skipReason &&
-    !test.options.signal &&
-    !test.options.exitCode
+    !bailedOut &&
+    !signal &&
+    !exitCode
   ) {
     resultsList.push(
       <Box gap={1} paddingLeft={1}>
@@ -51,6 +53,16 @@ export const TestResultsList: FC<TestResultsListOpts> = ({
           ✖
         </Text>
         <Text>{test.options.signal}</Text>
+      </Box>
+    )
+  }
+  if (bailedOut && !details) {
+    resultsList.push(
+      <Box gap={1} paddingLeft={1}>
+        <Text color="red" bold>
+          Bailout!
+        </Text>
+        <Text>{bailedOut}</Text>
       </Box>
     )
   }

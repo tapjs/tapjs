@@ -1,10 +1,10 @@
 import { Minimal } from '@tapjs/core'
-import chalk from './fixtures/chalk.js'
 import { Box, Text } from 'ink'
 import { render } from 'ink-testing-library'
 import React from 'react'
 import t from 'tap'
 import * as tapParser from 'tap-parser'
+import chalk from './fixtures/chalk.js'
 import { sleep } from './fixtures/sleep.js'
 
 const { TestResultsList } = (await t.mockImport(
@@ -133,6 +133,28 @@ t.test('exit signal', async t => {
   const app = render(
     <TestResultsList test={tb} lists={tb.lists} details />
   )
+  t.matchSnapshot(app.lastFrame())
+  app.unmount()
+})
+
+t.test('bailout for no raisin', async t => {
+  const tb = new Minimal({ name: 'bailer' })
+  tb.pass('this is fine')
+  tb.fail('nope')
+  tb.bailout()
+  await tb.concat()
+  const app = render(<TestResultsList test={tb} lists={tb.lists} />)
+  t.matchSnapshot(app.lastFrame())
+  app.unmount()
+})
+
+t.test('bailout with raisin', async t => {
+  const tb = new Minimal({ name: 'bailer' })
+  tb.pass('this is fine')
+  tb.fail('nope')
+  tb.bailout('i have my raisins')
+  await tb.concat()
+  const app = render(<TestResultsList test={tb} lists={tb.lists} />)
   t.matchSnapshot(app.lastFrame())
   app.unmount()
 })

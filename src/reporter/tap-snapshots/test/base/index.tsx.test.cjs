@@ -56,6 +56,7 @@ exports[`test/base/index.tsx > TAP > no comments or passes > must match snapshot
 [1mSuites:[22m   [32m8 pass[39m  [1m[31m1 fail[39m[22m  [36m1 skip[39m          [2m9 of 10 complete[22m
 
 [2m# subtests initiated, ending[22m
+
 `
 
 exports[`test/base/index.tsx > TAP > yes comments and passes > must match snapshot 1`] = `
@@ -117,4 +118,5 @@ exports[`test/base/index.tsx > TAP > yes comments and passes > must match snapsh
 [1mSuites:[22m   [32m8 pass[39m  [1m[31m1 fail[39m[22m  [36m1 skip[39m          [2m9 of 10 complete[22m
 
 [2m# subtests initiated, ending[22m
+
 `

@@ -11,7 +11,7 @@ const run = async (t: Test, test: any) =>
     render(<TestBadge test={test as unknown as Base} />).lastFrame()
   )
 
-t.test('test in progress', t => run(t, {}))
+t.test('test in progress', t => run(t, { options: {} }))
 t.test('pass', t =>
   run(t, { results: { ok: true, plan: {} }, counts: {}, options: {} })
 )
@@ -62,5 +62,19 @@ t.test('ok, but exited with signal', t =>
     results: { ok: true, plan: { skipAll: true } },
     counts: {},
     options: { signal: 'SIGINT' },
+  })
+)
+t.test('bailed out for no raisin', t =>
+  run(t, {
+    results: { bailout: true },
+    options: {},
+    bailedOut: true,
+  })
+)
+t.test('bailed out with reason', t =>
+  run(t, {
+    results: { bailout: 'i have my reasons' },
+    options: {},
+    bailedOut: 'i have my reasons',
   })
 )

@@ -5,6 +5,14 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
+exports[`test/test-badge.tsx > TAP > bailed out for no raisin > must match snapshot 1`] = `
+[1m[41m[38;2;255;255;255m FAIL [39m[49m[22m
+`
+
+exports[`test/test-badge.tsx > TAP > bailed out with reason > must match snapshot 1`] = `
+[1m[41m[38;2;255;255;255m FAIL [39m[49m[22m
+`
+
 exports[`test/test-badge.tsx > TAP > fail counts.fail > must match snapshot 1`] = `
 [1m[41m[38;2;255;255;255m FAIL [39m[49m[22m
 `

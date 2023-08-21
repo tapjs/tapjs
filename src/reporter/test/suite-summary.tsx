@@ -10,7 +10,8 @@ const run = async (
   suites: CountsJSON,
   asserts: CountsJSON,
   comments: string[] = [],
-  timedOut: any = null
+  timedOut: any = null,
+  bailedOut: string | boolean = false
 ) => {
   const { SuiteSummary } = (await t.mockImport(
     '../dist/suite-summary.js',
@@ -31,6 +32,9 @@ const run = async (
       },
       '../dist/hooks/use-suite-totals.js': {
         useSuiteTotals: () => new Counts(suites),
+      },
+      '../dist/hooks/use-bailed-out.js': {
+        useBailedOut: () => bailedOut,
       },
     }
   )) as typeof import('../dist/suite-summary.js')
@@ -74,4 +78,26 @@ t.test('timed out with signal', t =>
 
 t.test('timed out without signal', t =>
   run(t, { pass: 1, total: 1 }, { pass: 0, total: 1 }, [], {})
+)
+
+t.test('bailed out for no raisin', t =>
+  run(
+    t,
+    { pass: 1, fail: 1, skip: 14, total: 16 },
+    { pass: 1, fail: 2, skip: 14, total: 17 },
+    [],
+    false,
+    true
+  )
+)
+
+t.test('bailed out for with raisin', t =>
+  run(
+    t,
+    { pass: 1, fail: 1, skip: 14, total: 16 },
+    { pass: 1, fail: 2, skip: 14, total: 17 },
+    [],
+    false,
+    'i have my raisins'
+  )
 )

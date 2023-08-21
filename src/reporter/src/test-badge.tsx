@@ -7,7 +7,8 @@ export interface TestBadgeOpts {
 }
 
 export const TestBadge: FC<TestBadgeOpts> = ({ test }) => {
-  const { results, counts, options } = test
+  const { results, counts, options, bailedOut } = test
+  const { exitCode, signal } = options
   if (!results) {
     return (
       <Text backgroundColor="yellow" color="#000" bold>
@@ -15,13 +16,11 @@ export const TestBadge: FC<TestBadgeOpts> = ({ test }) => {
       </Text>
     )
   }
-  const {
-    ok,
-    skip: resultsSkip,
-    plan: { skipAll },
-  } = results
-  const { fail, todo, skip } = counts
-  return !ok || !!fail || options.signal || options.exitCode ? (
+  const { ok, skip: resultsSkip, plan } = results
+  // we don't get these things on a bailout
+  const { skipAll } = plan || {}
+  const { fail, todo, skip } = counts || {}
+  return !ok || !!fail || signal || bailedOut || exitCode ? (
     <Text backgroundColor="red" color="#fff" bold>
       {' FAIL '}
     </Text>
