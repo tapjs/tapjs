@@ -953,7 +953,7 @@ class TestBase extends base_js_1.Base {
      *
      * @internal
      */
-    sub(Class, extra = {}, caller) {
+    sub(Class, extra = {}, caller = this.sub) {
         if (this.bailedOut) {
             return Object.assign(Promise.resolve(null), {
                 subtest: null,

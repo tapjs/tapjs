@@ -21,6 +21,7 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.tap = void 0;
+__exportStar(require("./tap-file.js"), exports);
 __exportStar(require("./base.js"), exports);
 __exportStar(require("./counts.js"), exports);
 __exportStar(require("./extra-from-error.js"), exports);

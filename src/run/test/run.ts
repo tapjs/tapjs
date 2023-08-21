@@ -1,9 +1,7 @@
-import { LoadedConfig } from '@tapjs/config'
-import * as CORE from '@tapjs/core'
 import { spawn } from 'child_process'
 import t from 'tap'
 
-import { readFileSync } from 'fs'
+import { readFileSync, statSync, writeFileSync } from 'fs'
 import { resolve } from 'path'
 import { resolveImport } from 'resolve-import'
 import { fileURLToPath } from 'url'
@@ -21,31 +19,6 @@ t.cleanSnapshot = s =>
     )
     // node 16 puts this in the stack, node 18 doesn't
     .replace(/^\s*Function\.all$/gm, '')
-
-t.test('if respawn for rebuild, do nothing', async t => {
-  let buildWithSpawnCalled = false
-  // don't let env be modified here.
-  const originalEnv = { ...process.env }
-  t.intercept(process, 'env', { value: { ...originalEnv } })
-  const { run } = (await t.mockImport('../dist/run.js', {
-    '../dist/build-with-spawn.js': {
-      buildWithSpawn: async () => {
-        buildWithSpawnCalled = true
-        return true
-      },
-    },
-    '@tapjs/core': {
-      ...CORE,
-      tap: () => ({
-        setTimeout: () => {
-          throw new Error('should not have proceeded')
-        },
-      }),
-    },
-  })) as typeof import('../dist/run.js')
-  await run([], { get: () => undefined } as unknown as LoadedConfig)
-  t.equal(buildWithSpawnCalled, true)
-})
 
 type Result = {
   code: null | number
@@ -186,6 +159,7 @@ coverage-map: map.js
 })
 
 t.test('save test failures', async t => {
+  t.testdirName = t.testdirName.replace(/tap-testdir/, 'XXX-testdir')
   const cwd = t.testdir({
     'failer.test.js': `
       import t from 'tap'
@@ -204,7 +178,7 @@ t.test('save test failures', async t => {
       export const env = () => process.env
     `,
     'map.js': `
-      export default () => null
+      export default () => 'env.js'
     `,
     // make it think this is the project root
     '.taprc': `
@@ -220,21 +194,42 @@ save: test-failures.txt
   process.env.TEST_DELETED_ENV = 'deleteme'
   process.env.TEST_EMPTY_ENV = 'eraseme'
   process.env.TEST_FULL_ENV = 'fillme'
-  process.env.SAVE_TEST_DEBUG = '1'
-  const { code, signal, stdout, stderr } = await run(cwd)
-  t.equal(code, 1)
-  t.equal(signal, null)
-  t.equal(stderr, '')
-  t.matchSnapshot(
-    stdout.replace(
-      /^\s*stack: (\|-\n)?\s*failer\.test\.js:[0-9]+:[0-9]+$/gm,
-      '{STACK}\n'
+
+  t.test('save the failure', async t => {
+    const { code, signal, stdout, stderr } = await run(cwd)
+    t.equal(code, 1)
+    t.equal(signal, null)
+    t.equal(stderr, '')
+    t.matchSnapshot(
+      stdout.replace(
+        /^\s*stack: (\|-\n)?\s*failer\.test\.js:[0-9]+:[0-9]+$/gm,
+        '{STACK}\n'
+      )
     )
-  )
-  t.equal(
-    readFileSync(resolve(cwd, 'test-failures.txt'), 'utf8'),
-    'failer.test.js\n'
-  )
+    t.equal(
+      readFileSync(resolve(cwd, 'test-failures.txt'), 'utf8'),
+      'failer.test.js\n'
+    )
+  })
+
+  t.test('fix the failure', async t => {
+    // now make it pass, and the file is deleted
+    writeFileSync(
+      resolve(cwd, 'failer.test.js'),
+      `
+        import t from 'tap'
+        t.pass('this is fine')
+      `
+    )
+    const { code, signal, stdout, stderr } = await run(cwd)
+    t.equal(code, 0)
+    t.equal(signal, null)
+    t.equal(stderr, '')
+    t.matchSnapshot(stdout)
+    t.throws(() => statSync(resolve(cwd, 'test-failures.txt')), {
+      code: 'ENOENT',
+    })
+  })
 })
 
 t.test('run stdin only', async t => {
@@ -303,10 +298,11 @@ coverage-map: map.mjs
   t.test('no args, no changed', async t => {
     const { code, stdout, stderr } = await run(cwd, [], undefined, {
       TAP_CHANGED: '1',
+      TAP_DEBUG_PRUNED: '1',
     })
     t.equal(code, 0)
-    t.equal(stdout, 'No new tests to run\n')
     t.equal(stderr, '')
+    t.equal(stdout, 'No new tests to run\n')
   })
 
   t.test('valid arg, no changed', async t => {

@@ -26,6 +26,7 @@ import {
   Extra,
   MessageExtra,
   TapBaseEvents,
+  TapFile,
 } from './index.js'
 import { normalizeMessageExtra } from './normalize-message-extra.js'
 
@@ -152,6 +153,12 @@ export interface TestBaseEvents extends TapBaseEvents {
    * @event
    */
   worker: [w: Worker]
+  /**
+   * Emitted when a child tests is initiated that replays a .tap file.
+   *
+   * @event
+   */
+  tapFile: [tf: TapFile]
   /**
    * Emitted when the test is in an idle state, not waiting
    * for anything, with nothing in its queue. Used by the root
@@ -496,7 +503,9 @@ export class TestBase extends Base<TestBaseEvents> {
   get currentAssert() {
     return this.#currentAssert
   }
-  set currentAssert(fn: undefined | Function | ((...a: any[]) => any)) {
+  set currentAssert(
+    fn: undefined | Function | ((...a: any[]) => any)
+  ) {
     if (!this.#currentAssert && typeof fn === 'function') {
       this.#currentAssert = fn
     }
@@ -1179,7 +1188,7 @@ export class TestBase extends Base<TestBaseEvents> {
   sub<T extends Base, O extends BaseOpts>(
     Class: { new (options: O): T },
     extra: O | TestBaseOpts = {},
-    caller: (...a: any[]) => unknown
+    caller: (...a: any[]) => unknown = this.sub
   ): PromiseWithSubtest<T> {
     if (this.bailedOut) {
       return Object.assign(Promise.resolve(null), {

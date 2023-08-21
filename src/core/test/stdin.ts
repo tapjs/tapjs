@@ -5,7 +5,7 @@ import { TestBase } from '../dist/mjs/test-base.js'
 
 t.test('basic instantiation uses process.stdin', t => {
   const s = new Stdin({})
-  t.equal(s.inputStream, process.stdin)
+  t.equal(s.tapStream, process.stdin)
   t.end()
 })
 
@@ -19,7 +19,7 @@ t.test('process some tap', t => {
   })
   const s = new Stdin({ tapStream, parent })
   t.equal(emitted, undefined)
-  t.equal(s.inputStream, tapStream)
+  t.equal(s.tapStream, tapStream)
   t.equal(tapStream.paused, true)
   tapStream.write('TAP version 14\n1..3\n')
   s.main(() => {

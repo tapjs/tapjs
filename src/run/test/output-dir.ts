@@ -5,45 +5,53 @@ import { resolve } from 'path'
 import t from 'tap'
 
 t.test('if no output-dir, do nothing special', async t => {
-  let mkdirpCalled = false
+  const mkdirpCalled: string[] = []
   const { outputDir } = (await t.mockImport('../dist/output-dir.js', {
     mkdirp: {
-      mkdirpSync: () => (mkdirpCalled = true),
+      mkdirpSync: (p: string) => mkdirpCalled.push(p),
     },
   })) as typeof import('../dist/output-dir.js')
   const tt = new EventEmitter()
   outputDir(
     tt as unknown as TAP,
-    { get: () => undefined } as unknown as LoadedConfig
+    {
+      get: () => undefined,
+      globCwd: t.testdir(),
+    } as unknown as LoadedConfig
   )
-  tt.emit('spawn')
-  t.equal(mkdirpCalled, false, 'should not make a dir')
+  tt.emit(
+    'spawn',
+    Object.assign(new EventEmitter(), { name: 'yolo' })
+  )
+  t.strictSame(
+    mkdirpCalled,
+    [resolve(t.testdirName, '.tap/test-results')],
+    'only create the internal test-results dir'
+  )
 })
 
 t.test('if has output-dir, do stuff on spawn', async t => {
-  let mkdirpCalled = false
-  let createWriteStreamCalled = false
+  const mkdirpCalled: string[] = []
+  const createWriteStreamCalled: string[] = []
   let pipeCalled = false
   const expectDir = resolve('output-dir')
   const expectFile = resolve(expectDir, 'test-name.tap')
   const { outputDir } = (await t.mockImport('../dist/output-dir.js', {
     mkdirp: {
-      mkdirpSync: (dir: string) => {
-        t.equal(dir, expectDir)
-        mkdirpCalled = true
-      },
+      mkdirpSync: (p: string) => mkdirpCalled.push(p),
     },
     fs: {
-      createWriteStream: (file: string) => {
-        createWriteStreamCalled = true
-        t.equal(file, expectFile)
-      },
+      createWriteStream: (file: string) =>
+        createWriteStreamCalled.push(file),
     },
   })) as typeof import('../dist/output-dir.js')
   const tt = new EventEmitter()
   outputDir(
     tt as unknown as TAP,
-    { get: () => 'output-dir' } as unknown as LoadedConfig
+    {
+      get: () => 'output-dir',
+      globCwd: t.testdir(),
+    } as unknown as LoadedConfig
   )
   const st = Object.assign(new EventEmitter(), { name: 'test-name' })
   tt.emit('spawn', st)
@@ -54,7 +62,13 @@ t.test('if has output-dir, do stuff on spawn', async t => {
       },
     },
   })
-  t.equal(mkdirpCalled, true)
-  t.equal(createWriteStreamCalled, true)
+  t.strictSame(mkdirpCalled, [
+    expectDir,
+    resolve(t.testdirName, '.tap/test-results'),
+  ])
+  t.strictSame(createWriteStreamCalled, [
+    expectFile,
+    resolve(t.testdirName, '.tap/test-results/test-name.tap'),
+  ])
   t.equal(pipeCalled, true)
 })

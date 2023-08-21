@@ -32,5 +32,7 @@ export const report = async (
   render(<Type test={tap} config={config}></Type>, {
     patchConsole: false,
   })
-  return true
+
+  // give it a turn of the event loop to mount before doing tap stuff
+  return new Promise<true>(r => setTimeout(() => r(true)))
 }

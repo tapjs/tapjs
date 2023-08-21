@@ -56,7 +56,20 @@ ok 2 - env.test.js # time={TIME}
 
 `
 
-exports[`test/run.ts > TAP > save test failures > must match snapshot 1`] = `
+exports[`test/run.ts > TAP > save test failures > fix the failure > must match snapshot 1`] = `
+TAP version 14
+1..1
+# Subtest: failer.test.js
+    ok 1 - this is fine
+    1..1
+ok 1 - failer.test.js # time={TIME}
+
+# { total: 1, pass: 1 }
+# time={TIME}
+
+`
+
+exports[`test/run.ts > TAP > save test failures > save the failure > must match snapshot 1`] = `
 TAP version 14
 1..2
 # Subtest: env.test.js
@@ -87,7 +100,6 @@ not ok 2 - failer.test.js # time={TIME}
   {DIAGS}
   ...
 
-# No coverage generated
 # { total: 2, pass: 1, fail: 1 }
 # time={TIME}
 

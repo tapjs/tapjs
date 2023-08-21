@@ -5,6 +5,7 @@
  * @module
  */
 import { CallSiteLike, CallSiteLikeJSON } from '@tapjs/stack';
+export * from './tap-file.js';
 export * from './base.js';
 export * from './counts.js';
 export * from './extra-from-error.js';

@@ -1,14 +1,16 @@
 import { Minipass } from 'minipass'
-import { Base, BaseOpts, TapBaseEvents } from './base.js'
+import { BaseOpts } from './base.js'
+import { TapFile } from './tap-file.js'
 
 /**
  * Options that may be provided to the {@link @tapjs/core!stdin.Stdin} class
  */
 export interface StdinOpts extends BaseOpts {
-  tapStream?: NodeJS.ReadableStream | Minipass<Buffer> | Minipass<string>
+  tapStream?:
+    | NodeJS.ReadableStream
+    | Minipass<Buffer>
+    | Minipass<string>
 }
-
-export interface StdinEvents extends TapBaseEvents {}
 
 /**
  * Class representing standard input as a TAP stream
@@ -17,38 +19,20 @@ export interface StdinEvents extends TapBaseEvents {}
  *
  * @internal
  */
-export class Stdin extends Base<StdinEvents> {
-  inputStream: NodeJS.ReadableStream | Minipass<Buffer> | Minipass<string>
+export class Stdin extends TapFile {
+  caughtName: string = 'stdinError'
+  emitName: string = 'stdin'
+  declare filename: '/dev/stdin'
+  declare tapStream:
+    | NodeJS.ReadableStream
+    | Minipass<Buffer>
+    | Minipass<string>
   constructor(options: StdinOpts) {
     super({
+      tapStream: process.stdin,
+      name: '/dev/stdin',
       ...options,
-      name: options.name || '/dev/stdin',
+      filename: '/dev/stdin',
     })
-    this.inputStream = options.tapStream || process.stdin
-    this.inputStream.pause()
-  }
-
-  main(cb: () => void) {
-    this.inputStream.on('error', er => {
-      er.tapCaught = 'stdinError'
-      this.threw(er)
-    })
-    if (this.options.timeout) {
-      this.setTimeout(this.options.timeout)
-    }
-    const s = this.inputStream as Minipass
-    s.pipe(this.parser)
-    if (this.parent) {
-      this.parent.emit('stdin', this)
-    }
-    this.inputStream.resume()
-    s.once('end', cb)
-  }
-
-  threw(er: any, extra?: any, proxy?: boolean) {
-    extra = super.threw(er, extra, proxy)
-    Object.assign(this.options, extra)
-    this.parser.abort(er.message, extra)
-    this.parser.end()
   }
 }

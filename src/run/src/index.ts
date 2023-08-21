@@ -23,6 +23,10 @@ switch (mainCommand) {
     ;(await import('./repl.js')).repl(args, config)
     break
 
+  case 'replay':
+    ;(await import('./replay.js')).replay(args, config)
+    break
+
   case 'run':
     ;(await import('./run.js')).run(args, config)
     break

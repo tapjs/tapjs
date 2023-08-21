@@ -1,4 +1,4 @@
-import { Base } from './base.js';
+import { TapFile } from './tap-file.js';
 /**
  * Class representing standard input as a TAP stream
  *
@@ -6,37 +6,16 @@ import { Base } from './base.js';
  *
  * @internal
  */
-export class Stdin extends Base {
-    inputStream;
+export class Stdin extends TapFile {
+    caughtName = 'stdinError';
+    emitName = 'stdin';
     constructor(options) {
         super({
+            tapStream: process.stdin,
+            name: '/dev/stdin',
             ...options,
-            name: options.name || '/dev/stdin',
+            filename: '/dev/stdin',
         });
-        this.inputStream = options.tapStream || process.stdin;
-        this.inputStream.pause();
-    }
-    main(cb) {
-        this.inputStream.on('error', er => {
-            er.tapCaught = 'stdinError';
-            this.threw(er);
-        });
-        if (this.options.timeout) {
-            this.setTimeout(this.options.timeout);
-        }
-        const s = this.inputStream;
-        s.pipe(this.parser);
-        if (this.parent) {
-            this.parent.emit('stdin', this);
-        }
-        this.inputStream.resume();
-        s.once('end', cb);
-    }
-    threw(er, extra, proxy) {
-        extra = super.threw(er, extra, proxy);
-        Object.assign(this.options, extra);
-        this.parser.abort(er.message, extra);
-        this.parser.end();
     }
 }
 //# sourceMappingURL=stdin.js.map

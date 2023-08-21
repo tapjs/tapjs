@@ -1,14 +1,13 @@
 /// <reference types="node" resolution-mode="require"/>
 /// <reference types="node" resolution-mode="require"/>
 import { Minipass } from 'minipass';
-import { Base, BaseOpts, TapBaseEvents } from './base.js';
+import { BaseOpts } from './base.js';
+import { TapFile } from './tap-file.js';
 /**
  * Options that may be provided to the {@link @tapjs/core!stdin.Stdin} class
  */
 export interface StdinOpts extends BaseOpts {
     tapStream?: NodeJS.ReadableStream | Minipass<Buffer> | Minipass<string>;
-}
-export interface StdinEvents extends TapBaseEvents {
 }
 /**
  * Class representing standard input as a TAP stream
@@ -17,10 +16,11 @@ export interface StdinEvents extends TapBaseEvents {
  *
  * @internal
  */
-export declare class Stdin extends Base<StdinEvents> {
-    inputStream: NodeJS.ReadableStream | Minipass<Buffer> | Minipass<string>;
+export declare class Stdin extends TapFile {
+    caughtName: string;
+    emitName: string;
+    filename: '/dev/stdin';
+    tapStream: NodeJS.ReadableStream | Minipass<Buffer> | Minipass<string>;
     constructor(options: StdinOpts);
-    main(cb: () => void): void;
-    threw(er: any, extra?: any, proxy?: boolean): void;
 }
 //# sourceMappingURL=stdin.d.ts.map

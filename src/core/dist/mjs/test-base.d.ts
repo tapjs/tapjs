@@ -11,7 +11,7 @@ import { Result, TestPoint } from './test-point.js';
 import { Waiter } from './waiter.js';
 import { Worker } from './worker.js';
 import { IMPLICIT } from './implicit-end-sigil.js';
-import { Counts, Extra, MessageExtra, TapBaseEvents } from './index.js';
+import { Counts, Extra, MessageExtra, TapBaseEvents, TapFile } from './index.js';
 /**
  * Options that can be passed to TestBase objects
  */
@@ -115,6 +115,12 @@ export interface TestBaseEvents extends TapBaseEvents {
      * @event
      */
     worker: [w: Worker];
+    /**
+     * Emitted when a child tests is initiated that replays a .tap file.
+     *
+     * @event
+     */
+    tapFile: [tf: TapFile];
     /**
      * Emitted when the test is in an idle state, not waiting
      * for anything, with nothing in its queue. Used by the root
@@ -357,7 +363,7 @@ export declare class TestBase extends Base<TestBaseEvents> {
      */
     sub<T extends Base, O extends BaseOpts>(Class: {
         new (options: O): T;
-    }, extra: TestBaseOpts | O | undefined, caller: (...a: any[]) => unknown): PromiseWithSubtest<T>;
+    }, extra?: O | TestBaseOpts, caller?: (...a: any[]) => unknown): PromiseWithSubtest<T>;
     /**
      * Method called when an unrecoverable error is encountered in a test.
      *

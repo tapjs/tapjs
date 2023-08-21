@@ -31,6 +31,7 @@ const commands = new Set([
   'plugin',
   'list',
   'repl',
+  'replay',
 ])
 
 if (!commands.has(mainCommand)) {
