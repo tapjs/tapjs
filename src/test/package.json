@@ -21,6 +21,16 @@
         "types": "./dist/cjs/index.d.ts",
         "default": "./dist/cjs/index.js"
       }
+    },
+    "./built": {
+      "import": {
+        "types": "./test-built/dist/mjs/index.d.ts",
+        "default": "./test-built/dist/mjs/index.js"
+      },
+      "require": {
+        "types": "./test-built/dist/cjs/index.d.ts",
+        "default": "./test-built/dist/cjs/index.js"
+      }
     }
   },
   "files": [
@@ -44,7 +54,6 @@
     "@tapjs/core": "0.0.0-14"
   },
   "dependencies": {
-    "@tapjs/test-built": "file:./test-built",
     "glob": "^10.3.3",
     "jackspeak": "2.3",
     "mkdirp": "^3.0.0",
