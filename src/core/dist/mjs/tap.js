@@ -28,7 +28,6 @@ const envFlag = (key) => env[key] === undefined ? undefined : env[key] === '1';
 let piped = false;
 let registered = false;
 let autoend = false;
-let exitSignal = undefined;
 /**
  * This is a singleton subclass of the {@link @tapjs/test!index.Test} base
  * class.
@@ -173,13 +172,6 @@ class TAP extends Test {
             this.comment(`time=${this.time}ms`);
         }
         if (registered && proc && !results.ok) {
-            // very finicky timing-specific behavior
-            /* c8 ignore start */
-            if (exitSignal && proc.kill && proc.pid) {
-                proc.kill(proc.pid, exitSignal);
-                setTimeout(() => { }, 200);
-            }
-            /* c8 ignore stop */
             this.debug('TAP results not ok, setting exitCode', results);
             proc.exitCode = 1;
         }

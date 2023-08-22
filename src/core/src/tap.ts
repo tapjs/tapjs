@@ -42,8 +42,6 @@ let piped = false
 let registered = false
 let autoend = false
 
-let exitSignal: NodeJS.Signals | undefined = undefined
-
 /**
  * This is a singleton subclass of the {@link @tapjs/test!index.Test} base
  * class.
@@ -205,13 +203,6 @@ class TAP extends Test {
     }
 
     if (registered && proc && !results.ok) {
-      // very finicky timing-specific behavior
-      /* c8 ignore start */
-      if (exitSignal && proc.kill && proc.pid) {
-        proc.kill(proc.pid, exitSignal)
-        setTimeout(() => {}, 200)
-      }
-      /* c8 ignore stop */
       this.debug('TAP results not ok, setting exitCode', results)
       proc.exitCode = 1
     }
