@@ -12,7 +12,8 @@ import { cwd as procCwd } from './proc.js'
 import { throwToParser } from './throw-to-parser.js'
 
 /**
- * Options that may be provided to the {@link @tapjs/core!stdin.TapFile} class
+ * Options that may be provided to the {@link @tapjs/core!tap-file.TapFile}
+ * class
  */
 export interface TapFileOpts extends BaseOpts {
   /**

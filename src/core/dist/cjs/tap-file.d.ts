@@ -9,7 +9,8 @@
 import { Minipass } from 'minipass';
 import { Base, BaseOpts, TapBaseEvents } from './base.js';
 /**
- * Options that may be provided to the {@link @tapjs/core!stdin.TapFile} class
+ * Options that may be provided to the {@link @tapjs/core!tap-file.TapFile}
+ * class
  */
 export interface TapFileOpts extends BaseOpts {
     /**
