@@ -20,7 +20,7 @@ Included out of the box:
 - A [CLI](/cli.11ty.js) for running tests, managing plugins,
   inspecting test results, watching tests in a repl, and lots
   more.
-- A suite of [plugins](./plugins.md) built in by default,
+- A suite of [plugins](./plugins/index.md) built in by default,
   providing functionality such as:
   - [lots of helpful assertion methods](./plugins/asserts.md)
   - [snapshot testing](./plugins/snapshot.md)

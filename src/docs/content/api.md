@@ -6,7 +6,7 @@ eleventyNavigation:
 ---
 
 The API presented in test programs is the combination of the base
-class defined by `@tapjs/core` and all [plugins](./plugins.md)
+class defined by `@tapjs/core` and all [plugins](./plugins/index.md)
 that are currently loaded.
 
 By default, a set of plugins are included with `tap`, providing
@@ -29,7 +29,7 @@ accurate and you don't have to come here to read it.
 The [root test
 object](https://tapjs.github.io/tapjs/classes/_tapjs_core.tap.TAP.html)
 is the default export of the `tap` package. It is a
-[plugged-in](./plugins.md) singleton `Test` subclass, with all of
+[plugged-in](./plugins/index.md) singleton `Test` subclass, with all of
 the same assertions, methods, and so on, plus a few additional
 features.
 
