@@ -6,4 +6,4 @@ eleventyNavigation:
   order: 130
 ---
 
-stub
+[[README-INCLUDE=@tapjs/sinon]]

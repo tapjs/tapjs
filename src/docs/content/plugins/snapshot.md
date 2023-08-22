@@ -6,4 +6,4 @@ eleventyNavigation:
   order: 70
 ---
 
-stub
+[[README-INCLUDE=@tapjs/snapshot]]

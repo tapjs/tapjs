@@ -6,4 +6,4 @@ eleventyNavigation:
   order: 110
 ---
 
-stub
+[[README-INCLUDE=@tapjs/esbuild-kit]]

@@ -6,4 +6,4 @@ eleventyNavigation:
   order: 80
 ---
 
-stub
+[[README-INCLUDE=@tapjs/spawn]]

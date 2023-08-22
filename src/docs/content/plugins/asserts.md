@@ -6,4 +6,4 @@ eleventyNavigation:
   order: 10
 ---
 
-stub
+[[README-INCLUDE=@tapjs/asserts]]

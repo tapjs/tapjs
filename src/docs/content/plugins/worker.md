@@ -6,4 +6,4 @@ eleventyNavigation:
   order: 95
 ---
 
-stub
+[[README-INCLUDE=@tapjs/worker]]

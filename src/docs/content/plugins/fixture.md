@@ -6,4 +6,4 @@ eleventyNavigation:
   order: 30
 ---
 
-stub
+[[README-INCLUDE=@tapjs/fixture]]

@@ -6,4 +6,4 @@ eleventyNavigation:
   order: 40
 ---
 
-stub
+[[README-INCLUDE=@tapjs/intercept]]

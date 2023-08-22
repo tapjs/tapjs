@@ -6,6 +6,20 @@ eleventyNavigation:
   order: 50
 ---
 
-after, after-each, before, before-each
+This describes plugins that add various test lifecycle hooks.
 
-stub
+## `@tapjs/before`
+
+[[README-INCLUDE=@tapjs/before]]
+
+## `@tapjs/before-each`
+
+[[README-INCLUDE=@tapjs/before-each]]
+
+## `@tapjs/after`
+
+[[README-INCLUDE=@tapjs/after]]
+
+## `@tapjs/after-each`
+
+[[README-INCLUDE=@tapjs/after-each]]

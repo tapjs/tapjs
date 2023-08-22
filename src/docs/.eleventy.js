@@ -3,7 +3,6 @@ const pluginNavigation = require('@11ty/eleventy-navigation')
 const { dirname, resolve, join, relative } = require('path')
 const cheerio = require('cheerio')
 const contentDir = resolve(__dirname, './content')
-
 const pathPrefix = '/'
 
 const mdIt = require('markdown-it')
@@ -12,6 +11,16 @@ const mdOpts = { html: true }
 const mdAnchorOpts = {}
 const md = mdIt(mdOpts).use(mdItAnchor, mdAnchorOpts)
 const pluginTOC = require('eleventy-plugin-toc')
+
+const { readFileSync } = require('fs')
+const maybeReadFile = p => {
+  try {
+    return readFileSync(p, 'utf8')
+  } catch (er) {
+    console.error('failed readingh file', p, er)
+    return ''
+  }
+}
 
 module.exports = eleventyConfig => {
   eleventyConfig.setLibrary('md', md)
@@ -30,11 +39,44 @@ module.exports = eleventyConfig => {
 
   eleventyConfig.setDataDeepMerge(true)
 
+  const readmeReplacements = new Map()
+  eleventyConfig.addTransform('readmeInclude', function (content) {
+    const re = /\[\[README-INCLUDE=([^\]]+)\]\]/g
+    let match
+    const replacements = []
+    while ((match = re.exec(content))) {
+      const pkg = match[1]
+      replacements.push(match[0])
+      if (readmeReplacements.has(match[0])) continue
+      const rm = md.render(
+        maybeReadFile(
+          resolve(
+            require.resolve(`${pkg}/package.json`),
+            '../README.md'
+          )
+        ).replace(
+          /^# [^\n]+\n/,
+          `[\`${pkg}\`](https://tapjs.github.io/tapjs/modules/${pkg.replace(
+            /[@\/-]/g,
+            '_'
+          )}.html)\n`
+        )
+      )
+      readmeReplacements.set(match[0], rm)
+    }
+    for (const r of replacements) {
+      content = content.split(r).join(readmeReplacements.get(r))
+    }
+    return content
+  })
+
   // turn github markdown friendly links like ./blah.md or /content/blah.md
   // into their appropriate urls, like /blah
   eleventyConfig.addTransform('localLinks', function (content) {
     const { inputPath } = this
     const $ = cheerio.load(content)
+    // update the "From plugin" headings in the CLI config page to link
+    // to the relevant plugin docs page.
     for (const h2 of $('h2')) {
       const $h2 = $(h2)
       const m = $h2.html().match(/^From plugin: @tapjs\/([^ ]+)$/)

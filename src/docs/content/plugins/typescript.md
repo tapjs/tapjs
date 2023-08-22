@@ -6,4 +6,4 @@ eleventyNavigation:
   order: 90
 ---
 
-stub
+[[README-INCLUDE=@tapjs/typescript]]

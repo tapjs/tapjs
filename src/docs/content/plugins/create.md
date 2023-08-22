@@ -6,4 +6,4 @@ eleventyNavigation:
   order: 1
 ---
 
-stub
+[[README-INCLUDE=@tapjs/create-plugin]]

@@ -6,4 +6,4 @@ eleventyNavigation:
   order: 20
 ---
 
-stub
+[[README-INCLUDE=@tapjs/filter]]

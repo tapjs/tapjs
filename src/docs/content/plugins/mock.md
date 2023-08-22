@@ -6,4 +6,4 @@ eleventyNavigation:
   order: 60
 ---
 
-stub
+[[README-INCLUDE=@tapjs/mock]]

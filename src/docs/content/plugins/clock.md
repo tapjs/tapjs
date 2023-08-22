@@ -6,4 +6,4 @@ eleventyNavigation:
   order: 100
 ---
 
-stub
+[[README-INCLUDE=@tapjs/clock]]

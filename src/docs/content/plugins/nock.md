@@ -6,4 +6,4 @@ eleventyNavigation:
   order: 120
 ---
 
-stub
+[[README-INCLUDE=@tapjs/nock]]
