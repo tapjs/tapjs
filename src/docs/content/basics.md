@@ -198,7 +198,7 @@ the output so that excessive noise is eliminated, and actionable
 information is clearly highlighted.
 
 <pre
-style="background:#111;color:#eee;line-height:1.4;padding:1rem;">$ tap t.mts
+style="background:#111;color:#eee;line-height:1.4;padding:10px;">$ tap t.mts
 <span style="color:black;background:green"> PASS </span> t.mts 2 <span style="color:green">OK</span> <span color="#999">1.052s</span>
 
 <div style="width:min-content;background:white;color:black">                       
