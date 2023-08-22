@@ -1,5 +1,6 @@
 // Exports a loader, which does all the work.
 export const loader = '@tapjs/esbuild-kit/loader'
+export const preload = true
 import type { TapPlugin } from '@tapjs/core'
 
 // the plugin just sets the configs for esbk, doesn't
