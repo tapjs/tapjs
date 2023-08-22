@@ -4,5 +4,6 @@ const { default: jack } = (await t.mockImport('../dist/mjs/jack.js', {
 })) as typeof import('../dist/mjs/jack.js')
 t.matchSnapshot(jack.toJSON())
 t.throws(() =>
-  jack.setConfigValues({ 'coverage-report': ['invalid'] })
+  //@ts-expect-error
+  jack.setConfigValues({ 'unknown key': ['invalid'] })
 )

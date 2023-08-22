@@ -25,9 +25,6 @@ export const report = async (
   const rconf = config.get('coverage-report')
   // if there are args passed in, use that. The config is used if
   // calling this at the end of `tap run`
-  if (args.length) {
-    config.jack.validate({ 'coverage-report': args })
-  }
   const reporter = args.length
     ? args
     : rconf && rconf.length

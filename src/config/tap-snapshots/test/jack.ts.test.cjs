@@ -60,16 +60,6 @@ Object {
     "description": "Print all tap comments to process.stderr",
     "type": "boolean",
   },
-  "coverage-add": Object {
-    "description": String(
-      Do not replace the coverage and processinfo records from
-                          any previous runs, and instead add to it.
-      
-                          This behavior is implied when doing partial runs with
-                          the --changed and --save options.
-    ),
-    "type": "boolean",
-  },
   "coverage-map": Object {
     "description": String(
       Provide a path to a node module (esm or cjs) that default
@@ -91,20 +81,22 @@ Object {
     "type": "string",
   },
   "coverage-report": Object {
+    "default": Array [
+      "text",
+    ],
     "description": String(
       Output coverage information using the specified
                           istanbul coverage reporter type.
       
-                          Default is \`text\` when running on the command line, or
-                          \`text-lcov\` when piping to coveralls.
+                          Default is \`text\`.
       
-                          If \`html\` is used, then the report will be opened in a
-                          web browser after running.
+                          If \`html\` or \`lcov\` is used, then the HTML report will
+                          be opened in a web browser after running.
       
                           This can be run on its own at any time after a test run
                           that included coverage.
       
-                          Available coverage reporters:
+                          Built-in coverage reporters:
       
                           - clover
       - cobertura
@@ -121,10 +113,9 @@ Object {
     ),
     "multiple": true,
     "type": "string",
-    "validate": Function validate(s),
   },
   "debug": Object {
-    "description": "Turn on debug mode",
+    "description": "Turn on debug mode (very noisy)",
     "type": "boolean",
   },
   "diag": Object {
@@ -344,9 +335,8 @@ Object {
       - @tapjs/typescript
       - @tapjs/worker
       
-                          The tap runner requires the @tapjs/spawn plugin to run
-                          tests. If removed, you'll have to run test files some other
-                          way.
+                          Even if excluded, the runner will use some of these plugins
+                          in its own operation.
         
     ),
     "multiple": true,
@@ -358,16 +348,16 @@ Object {
                           colors are in use, or \`tap\` when colors are disabled.
       
                           In addition to the built-in reporters provided by
-                          the @tapjs/reporter module, the reporter option can also
-                          specify a command-line program or a module to load via
-                          import().
+                          the \`@tapjs/reporter\` module, the reporter option can
+                          also specify a command-line program or a module to load
+                          via \`import()\`.
       
-                          Command-line programs receive the raw TAP output
-                          on their stdin.
+                          Command-line programs receive the raw TAP output on their
+                          stdin.
       
                           Modules loaded via import() must default export a writable
-                          stream class, React function component, or a
-                          React.Component subclass.
+                          stream class, \`React\` function component, or a
+                          \`React.Component\` subclass.
       
                           Writable streams are instantiated and piped into.
       
@@ -495,20 +485,6 @@ Object {
   "versions": Object {
     "description": "Show the version of tap and relevant tap libraries in use.",
     "short": "V",
-    "type": "boolean",
-  },
-  "watch": Object {
-    "description": String(
-      Watch for changes in the test suite or covered program.
-      
-                          Runs the suite normally one time, and from then on, re-run
-                          just the portions of the suite that are required whenever a
-                          file changes.
-      
-                          Opens a REPL to trigger tests and perform various
-                          actions.
-    ),
-    "short": "w",
     "type": "boolean",
   },
 }

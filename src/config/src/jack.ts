@@ -87,13 +87,6 @@ export default jack({
   .heading('tap plugin list', 4, { pre: true })
   .description('List the plugins in use')
 
-  .heading('tap build', 3, { pre: true })
-  .description(
-    `Rebuild tap with the configured plugins. This is done automatically when
-    running tests if the set of plugins does not match what tap was previously
-    built with.`
-  )
-
   .heading('tap report', 3, { pre: true })
   .description(
     `Print a coverage report using the \`coverage-report\` config.
@@ -101,6 +94,33 @@ export default jack({
     Coverage reporters can also be specified as positional arguments,
     for example \`tap report html\`.
     `
+  )
+
+  .heading('tap replay', 3, { pre: true })
+  .description(
+    `Replay the results of the last test run, optionally specifying
+    reporter, test files to filter, and so on.
+
+    This does *not* run the actual tests again, it just pipes their
+    TAP standard output through the reporter, but it can be useful to
+    view the results of the previous test run.`
+  )
+
+  .heading('tap repl', 3, { pre: true })
+  .description(
+    `Open a REPL for interacting with the test suite. This can be used to
+    watch files for changes, print coverage reports, or interact with the
+    saved process info of past runs.
+
+    Run \`tap repl help\` for a list of REPL commands, or run \`help\` in
+    the REPL itself.`
+  )
+
+  .heading('tap build', 3, { pre: true })
+  .description(
+    `Rebuild tap with the configured plugins. This is done automatically when
+    running tests if the set of plugins does not match what tap was previously
+    built with.`
   )
 
   .heading('tap version', 3, { pre: true })
@@ -190,9 +210,8 @@ export default jack({
                       .map(s => `- ${s}`)
                       .join('\n')}
 
-                    The tap runner requires the @tapjs/spawn plugin to run
-                    tests. If removed, you'll have to run test files some other
-                    way.
+                    Even if excluded, the runner will use some of these plugins
+                    in its own operation.
   `,
       default: [],
     },
@@ -206,16 +225,16 @@ export default jack({
                     colors are in use, or \`tap\` when colors are disabled.
 
                     In addition to the built-in reporters provided by
-                    the @tapjs/reporter module, the reporter option can also
-                    specify a command-line program or a module to load via
-                    import().
+                    the \`@tapjs/reporter\` module, the reporter option can
+                    also specify a command-line program or a module to load
+                    via \`import()\`.
 
-                    Command-line programs receive the raw TAP output
-                    on their stdin.
+                    Command-line programs receive the raw TAP output on their
+                    stdin.
 
                     Modules loaded via import() must default export a writable
-                    stream class, React function component, or a
-                    React.Component subclass.
+                    stream class, \`React\` function component, or a
+                    \`React.Component\` subclass.
 
                     Writable streams are instantiated and piped into.
 
@@ -240,26 +259,23 @@ export default jack({
   .optList({
     'coverage-report': {
       hint: 'type',
+      default: ['text'],
       description: `Output coverage information using the specified
                     istanbul coverage reporter type.
 
-                    Default is \`text\` when running on the command line, or
-                    \`text-lcov\` when piping to coveralls.
+                    Default is \`text\`.
 
-                    If \`html\` is used, then the report will be opened in a
-                    web browser after running.
+                    If \`html\` or \`lcov\` is used, then the HTML report will
+                    be opened in a web browser after running.
 
                     This can be run on its own at any time after a test run
                     that included coverage.
 
-                    Available coverage reporters:
+                    Built-in coverage reporters:
 
                     ${coverageReporters
                       .map(r => `- ${r}`)
-                      .join('\n')}`,
-      validate: (s: any) =>
-        Array.isArray(s) &&
-        !s.some(s => !coverageReporters.includes(s)),
+                        .join('\n')}`,
     },
   })
 
@@ -292,14 +308,6 @@ export default jack({
                     requesting that full coverage text report *not* be shown,
                     then a summary report will be printed instead of the full
                     text report.`,
-    },
-
-    'coverage-add': {
-      description: `Do not replace the coverage and processinfo records from
-                    any previous runs, and instead add to it.
-
-                    This behavior is implied when doing partial runs with
-                    the --changed and --save options.`,
     },
   })
 
@@ -351,18 +359,6 @@ export default jack({
     'no-color': {
       short: 'C',
       description: 'Do not use colors (Default for non-TTY)',
-    },
-
-    watch: {
-      short: 'w',
-      description: `Watch for changes in the test suite or covered program.
-
-                    Runs the suite normally one time, and from then on, re-run
-                    just the portions of the suite that are required whenever a
-                    file changes.
-
-                    Opens a REPL to trigger tests and perform various
-                    actions.`,
     },
 
     changed: {
@@ -616,7 +612,7 @@ export default jack({
 
   .heading('Other Options')
   .flag({
-    debug: { description: 'Turn on debug mode' },
+    debug: { description: 'Turn on debug mode (very noisy)' },
 
     'omit-version': {
       description: `Do not print the \`TAP version 14\` line. (This may be

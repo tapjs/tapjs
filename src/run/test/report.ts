@@ -37,20 +37,10 @@ const validCoverageReports = new Set([
 ])
 class MockConfig {
   #coverageReport: string[]
-  validated: boolean = false
   globCwd: string = globCwd
   showFullCoverage?: boolean
-  jack: {
-    validate: (obj: {
-      'coverage-report': any
-      'show-full-coverage': any
-    }) => void
-  }
   constructor(coverageReport: string[] = []) {
     this.#coverageReport = coverageReport
-    this.jack = {
-      validate: () => (this.validated = true),
-    }
   }
   get(k: string) {
     switch (k) {
@@ -174,7 +164,6 @@ t.test('omit text report for full coverage run', async t => {
   const config = new MockConfig(['text'])
   const logs = t.capture(console, 'log')
   await report([], config as unknown as LoadedConfig)
-  t.equal(config.validated, false, 'nothing to validate')
   t.strictSame(logs.args(), [], 'show nothing if full coverage')
   t.strictSame(comments.args(), [])
 })
@@ -197,7 +186,6 @@ t.test('show full coverage explicit report', async t => {
   const config = new MockConfig(['text'])
   const logs = t.capture(console, 'log')
   await report([], config as unknown as LoadedConfig)
-  t.equal(config.validated, false, 'nothing to validate')
   t.strictSame(logs.args(), [['report']], 'show full coverage report')
   t.strictSame(comments.args(), [])
 })
@@ -260,7 +248,6 @@ t.test('run an html report', async t => {
       const config = new MockConfig([])
       const logs = t.capture(console, 'log')
       await report([style], config as unknown as LoadedConfig)
-      t.equal(config.validated, true)
       if (style === 'html') t.strictSame(logs.args(), [])
       else {
         const expect = `lcov report: ${resolve(
@@ -293,7 +280,6 @@ t.test('no coverage files generated', async t => {
   const logs = t.capture(console, 'log')
   const exitCode = t.intercept(process, 'exitCode')
   await report([], config as unknown as LoadedConfig)
-  t.equal(config.validated, false, 'nothing to validate')
   t.strictSame(logs.args(), [])
   t.strictSame(comments.args(), [['No coverage generated']])
   t.match(exitCode(), [{ type: 'set', value: 1, success: true }])
@@ -315,7 +301,6 @@ t.test('no coverage summary generated', async t => {
   const logs = t.capture(console, 'log')
   const exitCode = t.intercept(process, 'exitCode')
   await report([], config as unknown as LoadedConfig)
-  t.equal(config.validated, false, 'nothing to validate')
   t.strictSame(logs.args(), [])
   t.strictSame(comments.args(), [['No coverage generated']])
   t.match(exitCode(), [{ type: 'set', value: 1, success: true }])
@@ -343,7 +328,6 @@ t.test('not full coverage', async t => {
   const logs = t.capture(console, 'log')
   const exitCode = t.intercept(process, 'exitCode')
   await report(['html'], config as unknown as LoadedConfig)
-  t.equal(config.validated, true)
   t.strictSame(logs.args(), [])
   t.strictSame(comments.args(), [
     ['ERROR: incomplete statements coverage (50%)'],

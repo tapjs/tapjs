@@ -1,4 +1,190 @@
-# Changelog
+---
+title: Changelog
+eleventyNavigation:
+  order: 500
+  key: Changelog
+---
+
+## 18.0
+
+Major rewrite.
+
+### Highlights
+
+- full support for both ES Modules and CommonJS
+- extensible plugin system
+- fully exported TypeScript type information (including
+  functionality added by plugins)
+- updated config behavior
+- update cli behavior
+- more powerful repl
+- lots of added functionality
+
+### CLI
+
+Instead of always treating positional arguments as test names,
+the tap CLI now takes a subcommand as the first argument. If a
+known subcommand is not the first argument, or if no subcommand
+is provided, then it is treated as `tap run ...`.
+
+The `tap plugin [add|rm|list]` command is added.
+
+The `tap repl` command is added, replacing `tap --watch`. Run
+`tap repl help` for a list of repl commands.
+
+The `tap replay` command is added, which replays the results of
+the previous test run without running the tests again.
+
+The `tap report` command is added, which runs a coverage report
+from the most recent test run.
+
+The `tap list` command is added, which will print a list of test
+files that will be run.
+
+The `tap dump-config` command is added, taking the place of the
+`--dump-config` flag from previous versions. Only configuration
+fields that are changed from their default values are shown,
+making it more suitable for piping to a `.taprc` file.
+
+The `tap-parallel-ok` and `tap-parallel-not-ok` files are no
+longer relevant. Instead, the `--serial` config can be used to
+specify folders where tests may not be run in parallel.
+Otherwise, tests are always run in parallel.
+
+Tap no longer automatically reports coverage to coveralls when a
+`COVERALLS_REPO_TOKEN` is present in the environment.
+
+Wherever possible, noise has been reduced, and useful information
+is surfaced. The goal is to show as little information as is
+helpful, and no less.
+
+### Plugins
+
+Almost all functionality previously provided in the `Test` class
+directly is now offloaded to plugins, which can be added or
+removed by use of the `tap plugin` command or the `plugin`
+configuration option.
+
+Plugins are modules that at least one of the export the following
+fields:
+
+A **loader**, which will be added to the set of loaders used to
+execute test files.
+
+A **config** object, to add configuration fields that tap knows
+how to handle.
+
+A list of **testFileExtensions**, adding to the set that tap will
+load by default.
+
+A **plugin** method, which takes a `Test` object and its options
+as an argument, and can return any object. Whatever methods and
+properties are on the returned object will be present on the
+corresponding `Test` object used in tests.
+
+### Configuration
+
+Configuration has been rewritten for greater strictness,
+reliability, and extensibility, but some things that used to work
+no longer do.
+
+All configuration fields are exported to the environment in
+`UPPER_SNAKE` case, with the prefix `TAP_`. Options that can take
+multiple values are delimited by a `\n` character.
+
+The special `extends` option can be used in a `.taprc` or
+the `tap` section of a `package.json` file to inherit
+configuration from another file or a dependency package. The
+`--rcfile` option is removed, since it would be extraneous. To
+use a different config file, put something like this in your
+`package.json` file:
+
+```json
+{
+  "tap": {
+    "extends": "./my-tap-configs.yaml"
+  }
+}
+```
+
+The `test-ignore` option is replaced with `exclude`, and is now a
+glob rather than a regular expression. The `exclude` option can
+be specified multiple times on the command line, or as an array
+of strings in a config file.
+
+The `test-regexp` string option is replaced with the `include`
+option, and is now a glob rather than a regular expression. The
+`include` option can be specified multiple times on the command
+line, or as an array of strings in a config file. The `include`
+option may also contain the special token `__EXTENSIONS__` which
+expands to a glob pattern matching all file extensions that tap
+knows how to load.
+
+The `jsx`, `flow`, and `ts` options are removed. To disable
+TypeScript and JSX support, remove the `@tapjs/typescript`
+plugin with `tap plugin rm @tapjs/typescript`.
+
+The `passes` option is added, which will report on all passing
+tests as well as failures.
+
+The `--cov`, `--no-cov`, `--coverage` and `--check-coverage`
+options are removed, along with `--lines`, `--branches`,
+`--statements`, `--functions`, and `--100`. Coverage is always
+generated, and less than full coverage (or no coverage) is
+considered a test failure.
+
+Options related to `nyc` is removed, as nyc is no longer
+used.
+
+The options `--expose-gc`, `--harmony`, `--debug`, and
+`--debug-brk` are remoed, as they are extraneous with
+`--node-arg`.
+
+The `--libtap-settings` option is removed, as libtap is no longer
+used.
+
+The `--nyc-version` and `--parser-version` options are removed,
+in favor of the `tap versions` command, which prints all versions
+of relevant modules.
+
+Additional configuration options are added by plugins.
+
+### Test Framework Functionality Changes
+
+The `t` objects provided to test programs are now proxies that
+pull in the functionality of all loaded plugins. _Mostly_
+everything works the same as before, but inspecting the objects
+or depending on edge cases might be subtly different.
+
+Much of the added functionality can be turned off by disabling
+the relevant plugins that provide it, but it is present by
+default. Similarly, much more functionality can be added by
+adding plugins, but is not included by default.
+
+The `t.intercept`, `t.capture`, and `t.captureFn` methods are
+added, enabling "spies" and mocks for methods and properties.
+
+The `t.mock` method is now `t.mockRequire`. An asynchronous
+`t.mockImport` is added for mocking modules loaded via
+`import()`.  The `t.createMock` method can be used to swap out
+one or more properties of an object passed to `t.mockRequire` or
+`t.mockImport`.
+
+The `t.worker` method can be used to spawn subtest processes as
+worker threads. `t.isMainThread` can be inspected to know if the
+test is running in the main thread rather than a worker.
+`t.workerData` will be set to any data provided to the worker
+thread.
+
+The `t.matchOnly`, `t.matchStrict`, and `t.matchOnlyStrict`
+methods are added, along with their negated counterparts.
+
+The `t.error`, `t.doesNotThrow`, `t.resolves`, and
+`t.resolveMatch` now show both the origin callsite of the error
+on failure, as well as the callsite where the test assertion was
+made.
+
+Assertion aliases are removed.
 
 ## 16.2 - 2022-05-04
 
