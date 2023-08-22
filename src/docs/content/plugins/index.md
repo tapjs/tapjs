@@ -73,15 +73,15 @@ JavaScript dialects.
 
 The `config` export allows a plugin to define configuration
 values that will be parsed from the command line or from tap
-[config files](../config.md).
+[config files](../cli.md#configuration).
 
 The object must be a value that can be passed to jackspeak's
 [`Jack#addFields`](https://isaacs.github.io/jackspeak/classes/index.Jack.html#addFields)
 method. For example, the `@tapjs/snapshot` plugin [exports a
 `snapshot`
 config](https://github.com/tapjs/tapjs/blob/0b315bf/src/snapshot/src/index.ts#L340),
-which tells it to save snapshots rather than compare against
-them.
+which tells it to save new snapshots rather than compare against
+stored snapshots.
 
 ## `testFileExtensions`
 

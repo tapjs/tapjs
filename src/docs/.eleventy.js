@@ -35,9 +35,20 @@ module.exports = eleventyConfig => {
   eleventyConfig.addTransform('localLinks', function (content) {
     const { inputPath } = this
     const $ = cheerio.load(content)
+    for (const h2 of $('h2')) {
+      const $h2 = $(h2)
+      const m = $h2.html().match(/^From plugin: @tapjs\/([^ ]+)$/)
+      if (!m) continue
+      $h2.html(
+        `From plugin: <a href="/plugins/${m[1]}">@tapjs/${m[1]}</a>`
+      )
+    }
     for (const link of $('a[href]')) {
       const { href } = link.attribs
-      if (/^https?:/.test(href) || !/\.(md|json|11ty\.js)(#.*)?$/.test(href)) {
+      if (
+        /^https?:/.test(href) ||
+        !/\.(md|json|11ty\.js)(#.*)?$/.test(href)
+      ) {
         continue
       }
       const file = href.startsWith('/')
@@ -46,7 +57,10 @@ module.exports = eleventyConfig => {
       const rel = relative(contentDir, file)
       const url = join(
         pathPrefix,
-        join('/', rel).replace(/(?:\/index)?\.(?:md|11ty.js)(#.*)?$/, '$1')
+        join('/', rel).replace(
+          /(?:\/index)?\.(?:md|11ty.js)(#.*)?$/,
+          '/$1'
+        )
       )
       link.attribs.href = url
     }
