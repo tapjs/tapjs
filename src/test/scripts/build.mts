@@ -219,21 +219,21 @@ const pluginsConfig = (() => {
   return code
 })()
 
-const pluginsCode = `const plugins = () => {
-  if (plugins_) return plugins_
-  return (plugins_ = [
-${[...hasPlugin.values()]
-  .map(name => `    ${name}.plugin,\n`)
-  .join('')}  ])
-}
-
-export type PluginSet = ${
+const pluginsCode = `export type PluginSet = ${
   hasPlugin.size
     ? `[
 ${[...hasPlugin.values()]
   .map(name => `  typeof ${name}.plugin,\n`)
   .join('')}]`
     : '(TapPlugin<any> | TapPlugin<any, TestBaseOpts>)[]'
+}
+
+const plugins = () => {
+  if (plugins_) return plugins_
+  return (plugins_ = [
+${[...hasPlugin.values()]
+  .map(name => `    ${name}.plugin,\n`)
+  .join('')}  ])
 }
 `
 
@@ -243,6 +243,11 @@ const pluginLoaders = `const preloaders = new Set<string>(${JSON.stringify(
   2
 )})
 
+/**
+ * The set of \`loader\` strings exported by plugins. If a plugin exports
+ * \`preload = true\`, then it will be sorted to the start of this list, so
+ * that Node loads it before other loaders.
+ */
 export const loaders: string[] = ${JSON.stringify(
   [...hasLoader.values()],
   null,
