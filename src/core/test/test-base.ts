@@ -348,13 +348,6 @@ t.test('assertions after end', t => {
   t.end()
 })
 
-t.test('expect fail assertion', async t => {
-  const tb = new T({ name: 'expect fail' })
-  tb.fail('double reverse fail', { expectFail: true })
-  tb.end()
-  t.matchSnapshot(await tb.concat())
-})
-
 t.test('capture at/stack for assertions', t => {
   t.test('capture at/stack for failing assertion', async t => {
     const tb = new T({ name: 'fail assert' })

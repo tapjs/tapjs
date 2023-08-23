@@ -59,7 +59,6 @@ export interface Extra {
     expired?: string;
     type?: string;
     error?: any;
-    expectFail?: boolean;
     diagnostic?: boolean;
     tapChildBuffer?: string;
     test?: string;

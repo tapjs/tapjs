@@ -560,10 +560,6 @@ export class TestBase extends Base<TestBaseEvents> {
       return
     }
 
-    if (extra.expectFail) {
-      ok = !ok
-    }
-
     if (extra.at === null) {
       delete extra.at
       delete extra.stack

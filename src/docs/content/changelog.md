@@ -184,6 +184,8 @@ The `t.error`, `t.doesNotThrow`, `t.resolves`, and
 on failure, as well as the callsite where the test assertion was
 made.
 
+The `expectFail` assertion option is removed.
+
 Assertion aliases are removed.
 
 ## 16.2 - 2022-05-04

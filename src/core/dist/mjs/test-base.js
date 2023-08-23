@@ -354,9 +354,6 @@ export class TestBase extends Base {
             this.threw(er, extraFromError(er));
             return;
         }
-        if (extra.expectFail) {
-            ok = !ok;
-        }
         if (extra.at === null) {
             delete extra.at;
             delete extra.stack;

@@ -74,7 +74,6 @@ export interface Extra {
   // error properties
   type?: string
   error?: any
-  expectFail?: boolean
   diagnostic?: boolean
   tapChildBuffer?: string
   test?: string

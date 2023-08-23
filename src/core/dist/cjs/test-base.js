@@ -383,9 +383,6 @@ class TestBase extends base_js_1.Base {
             this.threw(er, (0, extra_from_error_js_1.extraFromError)(er));
             return;
         }
-        if (extra.expectFail) {
-            ok = !ok;
-        }
         if (extra.at === null) {
             delete extra.at;
             delete extra.stack;
