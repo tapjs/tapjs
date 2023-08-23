@@ -42,7 +42,8 @@ linkpkg src/test/test-built
 echo -n "                                      "$'\r'
 
 # need to rebuild tap after plugins
-nx run-many --target=prepare --exclude tap
+nx run-many --target=prepare --exclude tap,@tapjs/run
+nx run-many --target=prepare -p @tapjs/run
 nx run-many --target=prepare -p tap
 node \
   --loader=ts-node/esm \
