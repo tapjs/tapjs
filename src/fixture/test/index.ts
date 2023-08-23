@@ -32,14 +32,34 @@ t.test('generate some fixtures', t => {
   t.end()
 })
 
-t.test('save fixture', t => {
+t.test('save fixture with option', t => {
   let dir!: string
+  t.equal(t.saveFixture, false)
   t.teardown(() => rmdirSync(dir))
   t.test(
     'child test that saves its fixture',
     { saveFixture: true },
     t => {
       dir = t.testdir()
+      t.equal(t.saveFixture, true)
+      t.equal(lstatSync(dir).isDirectory(), true)
+      t.end()
+    }
+  )
+  t.equal(lstatSync(dir).isDirectory(), true)
+  t.end()
+})
+
+t.test('save fixture with property', t => {
+  let dir!: string
+  t.equal(t.saveFixture, false)
+  t.teardown(() => rmdirSync(dir))
+  t.test(
+    'child test that saves its fixture',
+    t => {
+      t.saveFixture = true
+      dir = t.testdir()
+      t.equal(t.saveFixture, true)
       t.equal(lstatSync(dir).isDirectory(), true)
       t.end()
     }

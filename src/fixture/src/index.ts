@@ -64,6 +64,20 @@ export class TestFixtures {
   }
 
   /**
+   * Set whether the fixture should be saved or not
+   *
+   * Must be set *BEFORE* calling
+   * {@link @tapjs/fixture!index.TestFixtures#testdir}, or it will not have any
+   * effect.
+   */
+  set saveFixture(save: boolean) {
+    this.#saveFixture = save
+  }
+  get saveFixture() {
+    return this.#saveFixture
+  }
+
+  /**
    * Create a test directory, optionally filling it up with contents
    *
    * If the `@tapjs/after` plugin is loaded, the testdir will be automatically
