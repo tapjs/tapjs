@@ -1086,6 +1086,27 @@ export class Assertions {
     return d.promise
   }
 
+  /**
+   * Assert that an error object is not provided.
+   *
+   * Like with {@link @tapjs/asserts!index.Assertions#doesNotThrow}, you
+   * can also usually just throw the error, and tap will handle that
+   * reasonably.
+   *
+   * This is useful in cases where you just want to assert that a callback did
+   * not receive an error, without necessarily aborting the callback function
+   * entirely. Both the origin of the error and the location of the failed
+   * assertion will be printed in the test results.
+   *
+   * It is also used internally in
+   * {@link @tapjs/asserts!index.Assertions#resolves},
+   * {@link @tapjs/asserts!index.Assertions#doesNotThrow},
+   * and {@link @tapjs/asserts!index.Assertions#resolveMatch} to show both
+   * the source of a raised error as well as the callsite where the assertion
+   * failed.
+   *
+   * @group Assertion Methods
+   */
   error(er: unknown, ...[msg, extra]: MessageExtra) {
     const args = [msg, extra] as MessageExtra
     const me = normalizeMessageExtra(`should not error`, args)

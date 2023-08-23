@@ -32,6 +32,10 @@ const simple = <T extends Same>(o: T): Result => ({
 })
 
 type Class<T> = { new (obj: any, options: SameOptions): T }
+
+/**
+ * Options that can be used to set how diffs are formatted.
+ */
 export type CompareOptions = FormatOptions &
   Pick<SameOptions, 'diffContext'>
 const fn =

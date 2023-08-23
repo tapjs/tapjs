@@ -9,8 +9,39 @@ A `plugin` is a package that adds functionality to node-tap by
 exporting special values on known named exports. It can do so in
 any or all of the following ways.
 
-All of these fields are optional, but at least one of `plugin`,
+All of the fields are optional, but at least one of `plugin`,
 `loader`, or `config` _must_ be exported.
+
+## Managing Plugins
+
+The easiest way to manage plugins is by using the `tap plugin`
+command. This handles all of the installation, building, updating
+the configs, and so on.
+
+You can also manually specify plugins by updating the
+`plugin` config value in `.taprc` or `package.json`, or on the
+command line.
+
+By default, built in plugins are always present unless they are
+explicitly excluded. To exclude a built in plugin in the
+configuration, prefix its name with a `!` character.
+
+For example, if you run `tap plugin rm @tapjs/typescript`, then
+your `.taprc` file will be updated to:
+
+```yaml
+plugin:
+  - "!@tapjs/typescript"
+```
+
+## Rebuilding the `Test` Class
+
+The [`Test`
+class](https://tapjs.github.io/tapjs/classes/_tapjs_test.index.Test.html)
+must be regenerated on every plugin change. This is done
+automatically by the [cli](../cli.11ty.js) whenever tests are
+run, but you can also explicitly rebuild by running `tap build`
+at any time.
 
 ## `plugin`
 
@@ -104,3 +135,61 @@ file types that node doesn't already know how to run won't work.
 - Plugins _should_ be written in TypeScript, or failing that,
   provide complete type information so that users' tests can
   infer the types of added properties and methods appropriately.
+
+## Plugin Collisions
+
+The _first_ plugin in a list that provides a given method or
+property will be the one that "wins", as far as the object
+presented in test code is concerned.
+
+However, _within_ a given plugin, it only sees itself and the
+`TestBase` object it's been given. For example, if returning an
+object constructed from a class defined in the plugin, `this`
+will refer to that object, always.
+
+```js
+// first-plugin
+export const plugin = (t: TestBase) => {
+  return {
+    // this is the first plugin to register this value
+    // so this is what shows up on the Test object
+    myVal: 4,
+    getFirstPluginVal() {
+      return this.myVal // always returns 4
+    },
+    // this is the first plugin to register this method
+    // so this is what shows up on the Test object
+    getFour() {
+      return 4
+    },
+  }
+}
+```
+
+```js
+// second-plugin
+export const plugin = (t: TestBase) => {
+  return {
+    // user will never see this, because first-plugin registered it
+    myVal: 5,
+    getSecondPluginValue() {
+      return this.myVal // always returns 5
+    },
+    // overridden, this isn't the 'getFour' that the user will see
+    getFour() {
+      return 'four'
+    },
+  }
+}
+```
+
+Then in the test:
+
+```js
+import t from 'tap'
+console.log(t.myVal) // 4, not 5
+console.log(t.getFour()) // 4, not 'four'
+console.log(t.getFirstPluginVal()) // 4
+console.log(t.getSecondPluginVal()) // 5
+```
+

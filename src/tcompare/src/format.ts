@@ -1,5 +1,4 @@
-import { Style, StyleType } from './styles.js'
-import { styles } from './styles.js'
+import { Style, styles, StyleType } from './styles.js'
 
 const arrayFrom = (obj: any) => {
   try {
@@ -13,28 +12,42 @@ const { toString } = Object.prototype
 const objToString = (obj: any) => toString.call(obj)
 
 /**
- * The base class for all other comparators, and used
- * directly by comparators for their "simplePrint" methods.
- * It doesn't do comparison, just formatting.
+ * Options to control the formatting of objects.
  */
 export interface FormatOptions {
-  /** set when formatting keys and values of collections */
-  parent?: Format
   /** sort items alphabetically by key */
   sort?: boolean
-  /**
-   * test whether an object has been seen, and get a reference to the
-   * Format handling them, if so.
-   *
-   * overridden in child classes when doing simplePrint()
-   */
-  seen?: (obj?: any) => false | Format
   /** how to print this thing */
   style?: StyleType
   /**
    * optinally override {@link tcompare!styles.Style#bufferChunkSize }
    * */
   bufferChunkSize?: number
+  /**
+   * Include any and all enumerable properties, including those inherited on
+   * the prototype chain. By default, only `own` properties are printed.
+   */
+  includeEnumerable?: boolean
+  /**
+   * Include getter properties
+   */
+  includeGetters?: boolean
+
+  /**
+   * set when formatting keys and values of collections
+   *
+   * @internal
+   * */
+  parent?: Format
+  /**
+   * test whether an object has been seen, and get a reference to the
+   * Format handling them, if so.
+   *
+   * overridden in child classes when doing simplePrint()
+   *
+   * @internal
+   */
+  seen?: (obj?: any) => false | Format
   /**
    * Set when printing child fields
    *
@@ -66,22 +79,19 @@ export interface FormatOptions {
    */
   provisional?: boolean
   /**
-   * Include any and all enumerable properties, including those inherited on
-   * the prototype chain. By default, only `own` properties are printed.
-   */
-  includeEnumerable?: boolean
-  /**
-   * Include getter properties
-   */
-  includeGetters?: boolean
-
-  /**
    * The object being compared against in comparison classes. (Not used
    * in {@link tcompare!format.Format}.)
+   *
+   * @internal
    */
   expect?: any
 }
 
+/**
+ * The base class for all other comparators, and used
+ * directly by comparators for their "simplePrint" methods.
+ * It doesn't do comparison, just formatting.
+ */
 export class Format {
   options: FormatOptions
   parent: Format | null

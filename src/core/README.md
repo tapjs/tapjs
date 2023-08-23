@@ -2,198 +2,94 @@
 
 This is the pluggable core of node-tap.
 
-The `TestBase` class has the basic flow-control and child-test
-aspects of a tap `Test` object, but only the `t.pass()` and
-`t.fail()` assertions.
+The `TestBase` class has the basic flow-control aspects of a tap
+`Test` object, but only the `t.pass()` and `t.fail()` assertions.
 
 All other assertions and features are added via plugins.
 
-## Writing Plugins
+Full documentation available in [the
+typedocs](https://tapjs.github.io/tapjs/modules/_tapjs_core.html).
 
-Tap plugins are a function that takes a `Test` object and an
-`options` object, and returns an object that is used as the
-extension.
+## Class `Base`
 
-For example, to add a `isString` method to all tests, you could
-define a plugin like this:
+This is the base class of all sorts of test objects. It inherits
+from [minipass](https://isaacs.github.io/minipass/).
 
-```ts
-import { TestBase, TapPlugin, AssertionOpts } from '@tapjs/core'
-export const plugin: TapPlugin = t => {
-  return {
-    isString: (
-      s: any,
-      msg: string = 'expect string',
-      extra: AssertionOpts = {}
-    ) => {
-      // note: 'this' here is the plugin object
-      if (typeof s === 'string') {
-        return t.pass(msg)
-      } else {
-        return t.fail(msg, {
-          ...extra,
-          expect: 'string',
-          actual: typeof s,
-        })
-      }
-    }
-}
-```
+## Class `TestBase`
 
-The object returned by a plugin can be any sort of thing. If you
-want to use a class with private properties, that's totally fine
-as well. Whatever type is expected as the second argument will
-be combined with the built-in `TestBaseOpts` interface, and
-required when tests are instantiated.
+This provides the core flow control and `TAP` generation
+facilities. The `Test` class inherits from this.
 
-```ts
-import { TestBase, TapPlugin, AssertionOpts } from '@tapjs/core'
-import { cleanup, render } from '@testing-library/react'
-import { ReactElement } from 'react'
-import { RenderResult } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
-class ReactTest {
-  #result: RenderResult
-  constructor(node: ReactElement) {
-    this.#result = render(node)
-  }
-  findByText(text: string) {
-    return this.#result.findByText(text)
-  }
-  // add other helpful methods here...
-}
-export const plugin: TapPlugin = (t, { node: ReactElement }) => {
-  return new ReactTest(node)
-}
-```
+## Class `Spawn`
 
-When loaded, this plugin would make it so that every test must
-supply a `{ node: ReactElement }` option, and would have a
-`t.findByText()` method.
+A child test class representing a child process that emits `TAP`
+on its standard output.
 
-## Loading Plugins
+## Class `Worker`
 
-The easiest way to load plugins is by running:
+A child test class representing a worker thread that emits `TAP`
+on its standard output.
 
-```
-tap plugin add <package or local module>
-```
+## Class `Stdin`
 
-This will also regenerate the Test class, so types are kept in
-sync.
+A child test class representing `TAP` parsed from standard input.
 
-Remove plugins with `tap plugin remove <plugin>`.
+## Class `TapFile`
 
-### Specifying Plugins Manually
+A child test class representing a file containing `TAP` data.
 
-Plugins are specified in the `plugins` array of the root tap
-config. That is, either `.taprc` in the project directory, or
-the `"tap"` stanza in the `package.json` file.
+## Class `Counts`
 
-Whenever the `plugins` option is changed, you must run `tap
-generate` to generate the `Test` class properly. This is done
-automatically on demand when running `tap` or `tap run
-[...files]`, but its often a good idea to do so before writing
-tests so that editor hinting is accurate.
+An object used to count pass, fail, todo, skip, total,
+and completed tests.
 
-## Built-In plugins
+## Class `Lists`
 
-Out of the box, tap comes with the following plugins loaded:
+An object containing lists of test results.
 
-- `@tapjs/core/plugin/before-each` Adds `t.beforeEach(fn)`
-- `@tapjs/core/plugin/after-each` Adds `t.afterEach(fn)`
-- `@tapjs/core/plugin/stdin` Adds `t.stdin()`
-- `@tapjs/core/plugin/spawn` Adds `t.spawn()`
-- `@tapjs/asserts` All other assertions, like `t.match()`,
-  `t.type()`, `t.has()`, and so on.
-- `@tapjs/snapshot` Providing the `t.matchSnapshot()` method.
-- `@tapjs/fixture` Providing the `t.testdir()` method.
-- `@tapjs/mock` Providing the `t.mock()` method.
+## Class `TestPoint`
 
-To _prevent_ loading any of these plugins, you can include them
-in the `plugins` config, prefixed with a `!`. For example, if
-you wanted to replace `t.mock()` with a different mocking plugin,
-you could do this:
+An object representing a single `ok`/`not ok` test point.
 
-```json
-{
-  "tap": {
-    "plugins": ["!@tapjs/mock", "my-mock-plugin"]
-  }
-}
-```
+## Class `Minimal`
 
-## Plugin Collisions
+A very minimal Test class with no plugins, which can be used in
+tap internal tests.
 
-The _first_ plugin in a list that provides a given method or
-property will be the one that "wins", as far as the object
-presented in test code is concerned.
+It is essentially just the TestBase class, but automatically
+starting in the constructor, and with a .test() method so that it
+can be used somewhat like a "normal" Test instance.
 
-However, _within_ a given plugin, it only sees itself and the
-`TestBase` object it's been given. For example, if returning an
-object constructed from a class defined in the plugin, `this`
-will refer to that object, always.
+The reason that this method does not live on TestBase itself is
+that it would make it more awkward to define on the Test class,
+with all its plugins and extensions.
 
-```js
-// first-plugin
-export const plugin = (t: TestBase) => {
-  return {
-    // this is the first plugin to register this value
-    // so this is what shows up on the Test object
-    myVal: 4,
-    getFirstPluginVal() {
-      return this.myVal // always returns 4
-    },
-    // this is the first plugin to register this method
-    // so this is what shows up on the Test object
-    getFour() {
-      return 4
-    },
-  }
-}
-```
+Only useful if you want a Test without any plugins, for some
+reason.
 
-```js
-// second-plugin
-export const plugin = (t: TestBase) => {
-  return {
-    // user will never see this, because first-plugin registered it
-    myVal: 5,
-    getSecondPluginValue() {
-      return this.myVal // always returns 5
-    },
-    // overridden, this isn't the 'getFour' that the user will see
-    getFour() {
-      return 'four'
-    },
-  }
-}
-```
+## `proc`, `argv`, `cwd`, `env`
 
-Then in the test:
+Captured values of `process`, `process.argv`, `process.cwd()`,
+and `process.env` at the start of the process, in case they
+change later on or are not available for some other reason.
 
-```js
-import t from 'tap'
-console.log(t.myVal) // 4, not 5
-console.log(t.getFour()) // 4, not 'four'
-console.log(t.getFirstPluginVal()) // 4
-console.log(t.getSecondPluginVal()) // 5
-```
+## `tapDir`
 
-## Accessing the Constructed Plugged-In Test Object
+The string path to the location of `@tapjs/core`.
 
-If you need access to the constructed `Test` object, you can get
-that after the initial plugin load, via `t.t`. However, it will
-be `undefined` until all plugins are done loading.
+## `mainScript(defaultName = 'TAP'): string`
 
-```js
-// my-plugin.ts
-export const plugin = (t: TestBase) => {
-  // here, t.t === undefined
-  return {
-    someMethod() {
-      // here, t.t is the object with all the plugins applied
-    },
-  }
-}
-```
+The path to the main module that node ran.
+
+## `TapPlugin<PluginValue, OptionsValue>`
+
+The type of a plugin function which returns `PluginValue` and
+optionally which takes `OptionsValue` as options.
+
+## `Extra`
+
+The extra info passed to assertions.
+
+Extended by BaseOpts, TestBaseOpts, and ultimately TestOpts,
+since any subtest is also an assertion, and can take all the same
+assertion options.
