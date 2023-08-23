@@ -7,9 +7,22 @@ t.equal(t.pluginLoaded(plugin), true, 'plugin is loaded')
 t.cleanSnapshot = s =>
   s.replace(/# time=[0-9.]+m?s/g, '# time={TIME}')
 
-const run = async (opts: TestOpts): Promise<string> => {
+const run = async (
+  opts: TestOpts,
+  setRunOnly: boolean | null = null
+): Promise<string> => {
   const tt = new Test(opts)
   tt.runMain(() => {})
+  t.equal(
+    tt.runOnly,
+    process.env.TAP_ONLY
+      ? process.env.TAP_ONLY === '1'
+      : !!opts.runOnly
+  )
+  if (setRunOnly !== null) {
+    tt.runOnly = setRunOnly
+    t.equal(tt.runOnly, setRunOnly)
+  }
   tt.test('cat', async tt => {
     tt.test('hiss', async tt => tt.pass('sssss'))
     tt.test('purr', async tt => tt.pass('rrrrr'))
@@ -47,6 +60,10 @@ t.test('only', async t =>
   t.matchSnapshot(
     await run({ name: 'only the lonely', runOnly: true })
   )
+)
+
+t.test('only, but by setting t.runOnly', async t =>
+  t.matchSnapshot(await run({ name: 'only the lonely' }, true))
 )
 
 t.test('warn if using only() unnecessarily', async t =>

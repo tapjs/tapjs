@@ -153,6 +153,19 @@ ok 3 - dog # SKIP filter: only
 
 `
 
+exports[`test/index.ts > TAP > only, but by setting t.runOnly > must match snapshot 1`] = `
+TAP version 14
+ok 1 - cat # SKIP filter: only
+# Subtest: unicorn
+    ok 1 - this is fine
+    1..1
+ok 2 - unicorn # time={TIME}
+
+ok 3 - dog # SKIP filter: only
+1..3
+
+`
+
 exports[`test/index.ts > TAP > warn if using only() unnecessarily > must match snapshot 1`] = `
 TAP version 14
 # Subtest: cat

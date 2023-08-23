@@ -51,6 +51,13 @@ export class Filter {
   #grepInvert: boolean
   #runOnly: boolean
 
+  get runOnly() {
+    return this.#runOnly
+  }
+  set runOnly(o: boolean) {
+    this.#runOnly = o
+  }
+
   constructor(t: TestBase, opts: FilterOptions) {
     this.#t = t
 
