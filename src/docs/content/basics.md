@@ -217,11 +217,10 @@ That `# No coverage generated` warning is telling you that this
 dummy example test was kind of pointless, because it didn't
 actually test anything.
 
-If your test doesn't provide any code coverage,
-then it didn't really test anything, and is not very helpful.
-That's why tap exits with an error status code when no coverage
-is generated, or when the tests don't fully cover the program
-you're testing.
+If your test doesn't provide any code coverage, then it didn't
+really test anything, and is not very helpful. That's why tap
+exits with an error status code when no coverage is generated, or
+when the tests don't fully cover the program you're testing.
 
 See the [Code Coverage](./coverage.md) guide for more information
 about how to get the most out of code coverage with tap.
@@ -251,3 +250,48 @@ If there's some test functionality you need, and it's not already
 present, you can check for an existing [plugin](./plugins/index.md)
 that might provide it, or [create one
 youself](./plugins/create.md).
+
+## Note about "Expected Failures" and "Run Until Good" Testing
+
+Occasionally people ask for a way to run a test multiple times,
+and consider it "passing" if it passes at least once. Or even,
+run a test, and expect it to fail, but don't treat that as a
+failure.
+
+An "expected failure" should be either marked as `todo` (meaning
+that you'll get to it later), conditionally skipped on platforms
+that don't support the feature (eg, doing unixy things on
+Windows, or vice versa), or deleted from the test suite.
+
+Ignoring test failures is an very bad practice, as it reduces
+confidence in your tests, which means that you can't just relax
+and focus on your code.
+
+```ts
+import t from 'tap'
+
+// this is fine
+t.test('unixy thing', {
+  skip: process.platform === 'win32' ? 'unix only' : false,
+}, t => {
+  t.equal(doUnixyThing(), true)
+  t.end()
+})
+
+// this is also fine
+t.test('froblz is the blortsh', { todo: 'froblz not yet implemented' }, t => {
+  t.equal(froblz(), 'the blortsh')
+})
+```
+
+If you have a test that _sometimes_ passes, but is flaky, then
+that is a problem. Fix the problem! Let the test framework help
+you. Factor your code into more reasonable pieces that can be
+tested independently from one another. There are a lot of
+options, don't settle for having to remember which failures are
+"ok" and which are "real". All test failures are worth fixing!
+Why even have a test if you're ok with it failing?
+
+Tap will never support such a thing. (Actually, it probably is
+possible to do somehow with plugins. But don't! It's a horrible
+idea!)

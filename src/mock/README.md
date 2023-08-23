@@ -1,5 +1,83 @@
 # `@tapjs/mock`
 
-tap plugin adding t.mockRequire() and t.mockImport()
+A default tap plugin adding `t.mockRequire()`, `t.mockImport()`,
+and `t.createMock()`
 
-stub
+## USAGE
+
+This plugin is installed with tap by default. If you had
+previously removed it, you can `tap plugin add @tapjs/mock` to
+bring it back.
+
+This is the way to do dependency injection at the module level.
+When the loaded module, or anything it loads, loads something
+that you've mocked, it'll get your mock instead of the real
+thing. Useful for getting into those hard to trigger code paths.
+
+```ts
+// test.mts
+import t from 'tap'
+
+t.test('handls stat failure by throwing', async t => {
+  const mockStatSync = (p: string) => {
+    t.equal(p, 'filename.txt')
+    throw Object.assign(new Error('expected error'), { code: 'ENOENT' })
+  }
+  // do 'as typeof import(...)' so that TS knows what it returns
+  const thingThatDoesStat = await t.import(
+    '../dist/my-statty-thing.js',
+    { 'node:fs': { statSync: mockStatSync } }
+  ) as typeof import('../dist/my-statty-thing.js')
+
+  t.throws(() => thingThatDoesStat('filename.txt'), {
+    message: 'expected error',
+    code: 'ENOENT',
+  })
+})
+```
+
+### `t.mockImport(module, [mocks]): Promise<any>`
+
+Load the module with `import()`.  If any mocks are provided, then
+they'll override the module's imported deps. This works for both
+ESM and CommonJS modules.
+
+### `t.mockRequire(module, [mocks]): any`
+
+Same as `t.mockImport()`, but synchronously using `require()`
+instead. This only works with CommonJS, and only mocks CommonJS
+modules loaded.
+
+### `t.createMock(originalModule, mockOverrides): mockedModule`
+
+Sometimes you only want to override one function or property,
+perhaps buried deep within a module's exports, but leave all the
+rest of it intact.
+
+This function makes it easy to do that.
+
+```ts
+import * from 'tap'
+import * as FS from 'node:fs'
+
+t.test('situation where we get a bogus file descriptor', async t => {
+  const { thing } = await t.mockImport(
+    '../dist/my-thing.js',
+    { 'node:fs': t.createMock(FS, { openSync: () => true }) }
+  ) as typeof import('../dist/my-thing.js')
+  t.throws(() => thing(), {
+    // imagine this is the error we get for some reason
+    message: 'got non-numeric file descriptor: true',
+  })
+})
+```
+
+## Loader
+
+The `t.mockImport()` function relies on the `@tapjs/mock/loader`
+loader being used, which this plugin adds to tap's set of
+loaders.
+
+If you run tests directly with node, and they use `t.mockImport`
+then you'll have to include `--loader=@tapjs/mock/loader` to the
+command line arguments ahead of the main script filename.
