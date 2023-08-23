@@ -7,6 +7,7 @@ import {
 
 import { Test } from '@tapjs/test'
 import { basename, resolve } from 'path'
+import { pathToFileURL } from 'url'
 
 t.equal(t.pluginLoaded(plugin), true, 'plugin loaded by default')
 t.matchSnapshot(config, 'config')
@@ -260,8 +261,13 @@ t.test('set snapshot file', { saveFixture: true }, t => {
     t => {
       t.matchSnapshot({ a: 1 })
       t.test('child', t => {
-        t.snapshotFile = resolve(d, 'blah')
-        t.snapshotFile = resolve(d, 'child')
+        // setting to URL actually saves it as a path string
+        const b = resolve(d, 'blah')
+        t.snapshotFile = String(pathToFileURL(b))
+        t.equal(t.snapshotFile, b)
+        const f = resolve(d, 'child')
+        t.snapshotFile = pathToFileURL(f)
+        t.equal(t.snapshotFile, f)
         t.matchSnapshot({ child: true })
         t.end()
       })

@@ -11,6 +11,7 @@ import { isPromise } from 'is-actual-promise'
 import { relative, resolve } from 'path'
 import { CompareOptions, format, strict } from 'tcompare'
 import { Deferred } from 'trivial-deferred'
+import { fileURLToPath } from 'url'
 import { SnapshotProviderDefault } from './provider.js'
 
 const defaultFormatSnapshot =
@@ -190,9 +191,12 @@ export class SnapshotPlugin {
   get snapshotFile(): string {
     return this.#snapshot.file
   }
-  set snapshotFile(f: string) {
+  set snapshotFile(f: string | URL) {
     const p =
       this.#t.parent && SnapshotPlugin.#refs.get(this.#t.parent)
+    if (f instanceof URL || f.startsWith('file://')) {
+      f = fileURLToPath(f)
+    }
     if (p && this.#snapshot === p.#snapshot) {
       this.#snapshot = this.#newSnapshot(f)
     } else {
