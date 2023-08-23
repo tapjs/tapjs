@@ -22,6 +22,9 @@
     "start": "eleventy --serve",
     "prebuild": "rm -rf _site",
     "build": "eleventy",
-    "test": "npm run build"
+    "test": "npm run build",
+    "predeploy": "npm run build",
+    "deploy": "surge ./_site/docs/",
+    "deploy:prod": "npm run deploy -- node-tap.surge.sh"
   }
 }

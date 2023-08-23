@@ -73,6 +73,7 @@
     "sinon": "^15.2.0",
     "string-length": "^6.0.0",
     "strip-ansi-cjs": "npm:strip-ansi@^6.0.1",
+    "surge": "^0.23.1",
     "sync-content": "^1.0.2",
     "tap": "^18.0.0-0",
     "trivial-deferred": "^2.0.0",
@@ -86,6 +87,8 @@
   },
   "scripts": {
     "start": "npm run start -w src/docs",
+    "predocsbuild": "npm run bootstrap",
+    "docsbuild": "npm run build -w src/docs",
     "test": "nx run-many -t test",
     "test:bootstrap": "bash ./scripts/test-bootstrap.sh",
     "snap": "TAP_TYPECHECK=0 TAP_TIMEOUT=240 nx run-many -t snap",
@@ -95,7 +98,9 @@
     "build": "node ./scripts/default-build.mjs",
     "pindeps": "node ./scripts/version.mjs pindeps",
     "v": "node ./scripts/version.mjs",
-    "pub": "node ./scripts/version.mjs pub"
+    "pub": "npm run v -- pub",
+    "deploy:docs": "npm run deploy:prod -w src/docs",
+    "postv": "npm run deploy:docs"
   },
   "repository": "https://github.com/tapjs/tapjs",
   "license": "BlueOak-1.0.0",
