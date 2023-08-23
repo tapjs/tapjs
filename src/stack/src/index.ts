@@ -152,7 +152,7 @@ const isErrorStackHead = (c?: CallSiteLike): boolean =>
   c.function === undefined &&
   c.typeName === null &&
   c.methodName === null &&
-  typeof c.functionName === 'string' &&
+  (typeof c.functionName === 'string' || !c.functionName) &&
   c.isEval === false &&
   c.isNative === false &&
   c.isToplevel === false &&
@@ -249,8 +249,11 @@ export function capture(
 }
 
 /**
- * Get the current callsite location, from the location specified
- * by `fn`.
+ * Get the call site in the stack either where `at()` is called, or
+ * where the supplied `fn` function is called.
+ *
+ * If `fn` is provided, and is not in the current call stack, then
+ * `undefined` will be returned.
  */
 export const at: (
   fn?: Function | ((...a: any[]) => any)
@@ -287,25 +290,45 @@ export function captureString(
 }
 
 /**
- * Get an array of {@link CallSiteLike} objects corresponding to the
- * stack trace of the Error object provided.
+ * Get an array of {@link CallSiteLike} objects corresponding to the stack
+ * trace of the Error object provided.
+ *
+ * This does _not_ actually look at the current call site, or do anything
+ * magical with the V8 engine. It's just parsing a string.
+ *
+ * While some effort is made to interpret stacks correctly when an Error
+ * contains a `name` and `message`, remember that the `Error.stack` property in
+ * JavaScript is remarkably sloppy. In some cases, if the `Error.message`
+ * contains `\n` and some lines after the first look like stack trace lines,
+ * incorrect data may result. It's only as good as the stack you pass to it.
  */
-export const captureError = (e: Error): CallSiteLike[] =>
-  clean(
-    // errors almost always have stacks
-    /* c8 ignore start */
-    (e.stack || '')
-      /* c8 ignore stop */
-      .trim()
+export const captureError = (e: Error): CallSiteLike[] => {
+  // errors almost always have these fields
+  const { stack = '', message = '', name = '' } = e
+  const head = name && message ? `${name}: ${message}\n` : ''
+  const cleanHead = !!head && stack.startsWith(head)
+  const s = cleanHead ? stack.substring(head.length) : stack
+  const cleaned = clean(
+    s
+      .trimEnd()
       .split('\n')
-      .slice(1)
       .filter(l => !!l)
       .map(line => new CallSiteLike(e, line))
   )
+  // if we didn't clean the header cleanly, then sweep the stack for
+  // any weird junk it might contain
+  return cleanHead
+    ? cleaned
+    : cleaned.filter(c => !isErrorStackHead(c))
+}
 
 /**
- * Get a processed string stack corresponding to the
- * stack trace of the Error object provided.
+ * Get a processed string stack corresponding to the stack trace of the Error
+ * object provided.
+ *
+ * This method has all the same caveats as {@link captureError}. If the
+ * object provided has a weird looking `stack` property, then you might get
+ * weird results.
  */
 export const captureErrorString = (e: Error): string =>
   captureError(e)

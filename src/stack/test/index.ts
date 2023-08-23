@@ -410,3 +410,39 @@ t.test('ignoring @tapjs ignores the built test as well', t => {
   addIgnoredPackage('@tapjs')
   t.end()
 })
+
+t.test('not fooled by long messages', t => {
+  const foo = () => bar()
+  const bar = () => baz()
+  const baz = () => {
+    const short = new Error('trace')
+    const long = new Error(`long
+message
+containing
+    newlines
+and a whole ass stack witaf ${short.stack}
+why is javascript like this?? i swear, i love it, but this kinda crap makes
+it difficult sometimes
+
+      `)
+    long.stack = `${long.name}: ${long.message}
+${short.stack?.split('\n').slice(1).join('\n')}`
+    const ugly = {
+      name: 'hello',
+      message: 'lawl message errors yolo',
+      stack: long.stack,
+    } as Error
+    const headless = {
+      stack: ugly.stack,
+    } as Error
+    return [short, long, ugly, headless]
+  }
+
+  const [short, long, ugly, headless] = foo()
+  t.match(captureError(long), captureError(short))
+  t.equal(captureErrorString(long), captureErrorString(short))
+  // this one we just have to deal with, it won't be correct, but
+  // there's really no way to handle it other than to do our best.
+  t.equal(captureErrorString(ugly), captureErrorString(headless))
+  t.end()
+})
