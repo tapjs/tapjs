@@ -4,6 +4,14 @@
   "entryPointStrategy": "packages",
   "includeVersion": true,
   "readme": "./README.md",
+  "customCss": "./typedoc.css",
+  "darkHighlightTheme": "dark-plus",
+  "visibilityFilters": {
+    "protected": false,
+    "private": false,
+    "inherited": true,
+    "external": false
+  },
   "compilerOptions": {
     "jsx": "react",
     "declaration": true,
