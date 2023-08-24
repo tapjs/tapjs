@@ -7,13 +7,53 @@ import {
 } from '@tapjs/core'
 import { StdioOptions } from 'child_process'
 
+/**
+ * Options for `t.spawn()`
+ *
+ * All of the normal Base and Extra options are also allowed.
+ */
 export interface SpawnOpts extends BaseOpts {
+  /**
+   * the current working directory of the subprocess
+   */
   cwd?: string
+  /**
+   * the command to run (set by first argument to t.spawn)
+   *
+   * @internal
+   */
   command?: string
+  /**
+   * arguments to subprocess (set by second argument to t.spawn)
+   *
+   * @internal
+   */
   args?: string[]
+  /**
+   * ChildProcess `stdio` option.
+   * Standard output is always set to `'pipe'`, because that's how it
+   * communicates test results, and file descriptor 3 is set to an IPC
+   * channel for sending timeout signals.
+   */
   stdio?: StdioOptions
+  /**
+   * Environment variables for the subprocess
+   * Defaults to `process.env`
+   */
   env?: { [k: string]: string } | typeof process.env
+  /**
+   * Set on exit. The exit code of the process, or null if terminated
+   * with a signal.
+   *
+   * @internal
+   */
   exitCode?: number | null
+  /**
+   * Set on exit. Terminating signal, or null of not terminated with a
+   * signal.
+   *
+   * @internal
+   */
   signal?: string | null
 }
 
