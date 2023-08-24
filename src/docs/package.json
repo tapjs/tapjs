@@ -26,5 +26,8 @@
     "predeploy": "npm run build",
     "deploy": "surge ./_site/docs/",
     "deploy:prod": "npm run deploy -- node-tap.surge.sh"
+  },
+  "engines": {
+    "node": ">=16"
   }
 }

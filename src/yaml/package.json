@@ -49,5 +49,8 @@
   ],
   "tap": {
     "coverage-map": "map.js"
+  },
+  "engines": {
+    "node": ">=16"
   }
 }

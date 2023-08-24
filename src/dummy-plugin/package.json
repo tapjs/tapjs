@@ -51,7 +51,7 @@
     "@tapjs/core": "0.0.0-15"
   },
   "engines": {
-    "node": "^14.17.0 || ^16.13.0 || >=18.0.0"
+    "node": ">=16"
   },
   "repository": {
     "type": "git",

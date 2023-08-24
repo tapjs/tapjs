@@ -43,7 +43,7 @@
     "coverage-map": "map.js"
   },
   "engines": {
-    "node": ">=14"
+    "node": ">=16"
   },
   "funding": {
     "url": "https://github.com/sponsors/isaacs"

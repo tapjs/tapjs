@@ -66,5 +66,8 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tapjs/tapjs.git"
+  },
+  "engines": {
+    "node": ">=16"
   }
 }

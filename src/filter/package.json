@@ -41,7 +41,7 @@
     "trivial-deferred": "^2.0.0"
   },
   "engines": {
-    "node": ">=14"
+    "node": ">=16"
   },
   "funding": {
     "url": "https://github.com/sponsors/isaacs"

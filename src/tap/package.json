@@ -28,7 +28,7 @@
     "dist"
   ],
   "engines": {
-    "node": ">=16.17"
+    "node": ">=16"
   },
   "dependencies": {
     "@tapjs/after": "0.0.0-15",

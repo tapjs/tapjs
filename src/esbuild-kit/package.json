@@ -41,6 +41,6 @@
     "@esbuild-kit/esm-loader": "^2.5.5"
   },
   "engines": {
-    "node": ">=16.17"
+    "node": ">=16"
   }
 }
