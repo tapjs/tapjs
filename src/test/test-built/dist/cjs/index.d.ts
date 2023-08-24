@@ -112,6 +112,10 @@ export declare const config: <C extends ConfigSet>(jack: Jack<C>) => Jack<C & im
     };
 }> & import("jackspeak").ConfigSetFromMetaSet<"boolean", false, {
     invert: {
+        /**
+         * Utility type to combine the array of plugins into a single combined
+         * return type.
+         */
         type: string;
         short: string;
         description: string;

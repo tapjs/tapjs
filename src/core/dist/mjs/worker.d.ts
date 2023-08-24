@@ -21,11 +21,6 @@ export interface WorkerOpts extends TestBaseOpts {
      */
     workerData?: any;
     /**
-     * Set internally to the numeric thread identifier once the worker is
-     * instantiated.
-     */
-    threadId?: number;
-    /**
      * Environment variables that are set in the worker thread
      */
     env?: {
@@ -36,6 +31,13 @@ export interface WorkerOpts extends TestBaseOpts {
      * be evaluated by Node in the worker thread.
      */
     eval?: boolean;
+    /**
+     * Set internally to the numeric thread identifier once the worker is
+     * instantiated.
+     *
+     * @internal
+     */
+    threadId?: number;
 }
 /**
  * Class representing a TAP generating node worker thread
