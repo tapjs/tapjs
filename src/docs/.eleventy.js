@@ -11,6 +11,7 @@ const mdOpts = { html: true }
 const mdAnchorOpts = {}
 const md = mdIt(mdOpts).use(mdItAnchor, mdAnchorOpts)
 const pluginTOC = require('eleventy-plugin-toc')
+const { EleventyRenderPlugin } = require('@11ty/eleventy')
 
 const { readFileSync } = require('fs')
 const maybeReadFile = p => {
@@ -24,7 +25,13 @@ const maybeReadFile = p => {
 
 module.exports = eleventyConfig => {
   eleventyConfig.setLibrary('md', md)
-
+  eleventyConfig.addPlugin(EleventyRenderPlugin)
+  eleventyConfig.addGlobalData(
+    'tapVersion',
+    JSON.parse(
+      maybeReadFile(resolve(__dirname, '../tap/package.json'))
+    ).version
+  )
   eleventyConfig.setUseGitIgnore(false)
   eleventyConfig.addPlugin(pluginTOC)
   eleventyConfig.addPlugin(pluginSyntaxHighlight)

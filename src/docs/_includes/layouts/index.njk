@@ -1,0 +1,41 @@
+---
+layout: base.njk
+---
+
+<div class="hero__Container">
+  <div class="hero__Content">
+    <div class="hero__OuterCircle"></div>
+    <div class="hero__InnerCircle"></div>
+    <div class="hero__InnerBits">
+      <img
+        src="/static/big-logo.gif"
+        alt="tap logo"
+        class="hero__Logo" />
+      <h1 class="hero__Title">
+        {{ metadata.description }}
+      </h1>
+      <a class="button-link" href="/basics">Get Started</a>
+    </div>
+  </div>
+</div>
+
+<section class="features">
+  <section class="no-fancy-dsl">
+    <img src="/static/brain.gif" alt="brain">
+    {% renderFile "./_includes/no-fancy-dsl.md" %}
+  </section>
+  <section class="batteries-included">
+    <img src="/static/batteries.gif" alt="batteries">
+    {% renderFile "./_includes/batteries-included.md" %}
+  </section>
+  <a class="button-link" href="/basics">Get Started</a>
+</section>
+
+<section class="why-tap">
+  <img src="/static/question-mark.gif" alt="(?)">
+  {% renderFile "./_includes/why-tap.md" %}
+</section>
+
+<footer>
+  {% renderFile "./_includes/footer.md" %}
+</footer>

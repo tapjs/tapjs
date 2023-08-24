@@ -9,10 +9,13 @@
   </head>
 
   <body>
-    <div id="sidebar">
-      <nav>
-{{ collections.all | eleventyNavigation | eleventyNavigationToHtml | safe }}
-      </nav>
+    <div id="top">
+      <h1><a href="/">Node TAP <small>{{ tapVersion }}</small></a></h1>
+      <div id="site-nav">
+        <nav>
+  {{ collections.all | eleventyNavigation | eleventyNavigationToHtml | safe }}
+        </nav>
+      </div>
     </div>
 
     <main>
