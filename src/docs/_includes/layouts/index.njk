@@ -10,7 +10,7 @@ layout: base.njk
       <img
         src="/static/big-logo.gif"
         alt="tap logo"
-        class="hero__Logo" />
+        class="hero__Logo">
       <h1 class="hero__Title">
         {{ metadata.description }}
       </h1>
@@ -32,10 +32,12 @@ layout: base.njk
 </section>
 
 <section class="why-tap">
-  <img src="/static/question-mark.gif" alt="(?)">
+  <div class="EncircledImage__GreyCircle">
+    <div class="EncircledImage__WhiteCircle">
+      <img src="/static/question-mark.gif" alt="(?)">
+    </div>
+  </div>
   {% renderFile "./_includes/why-tap.md" %}
 </section>
 
-<footer>
-  {% renderFile "./_includes/footer.md" %}
-</footer>
+<footer>{% renderFile "./_includes/footer.md" %}</footer>
