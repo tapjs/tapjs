@@ -1,22 +1,29 @@
 import { LoadedConfig } from '@tapjs/config'
 import { TAP, TestBase } from '@tapjs/core'
 import { render } from 'ink'
-import React from 'react'
+import React, { FC } from 'react'
+import { Base } from './base.js'
+import * as components from './components.js'
+import * as hooks from './hooks.js'
+import { Terse } from './terse.js'
+import * as utils from './utils.js'
+
+export { Base, Terse, hooks, components, utils }
 
 export interface TapReportOpts {
   test: TestBase
   config: LoadedConfig
 }
 
-import { Base } from './base/index.js'
-import { Terse } from './terse/index.js'
-export const types = {
-  base: Base,
-  terse: Terse,
+export const types: Record<string, FC<TapReportOpts>> = {}
+export const addType = (name: string, report: FC<TapReportOpts>) => {
+  types[name] = report
 }
+addType('base', Base)
+addType('terse', Terse)
 
 export const report = async (
-  Type: keyof typeof types | React.FC<TapReportOpts>,
+  Type: string | React.FC<TapReportOpts>,
   tap: TAP,
   config: LoadedConfig
 ): Promise<boolean> => {

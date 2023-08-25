@@ -18,10 +18,10 @@ const Tag: FC<{ test: Minimal }> = ({ test }) => {
 t.test('get the time', async t => {
   const tb = new Minimal({ name: 'parent' })
   tb.jobs = 1
-  tb.test('one', () => sleep(32))
-  tb.test('two', () => sleep(32))
-  const { subtest: tre } = tb.test('tre', () => sleep(128))
-  tb.test('fur', () => sleep(32))
+  tb.test('one', () => sleep(1))
+  tb.test('two', () => sleep(2))
+  const { subtest: tre } = tb.test('tre', () => sleep(32))
+  tb.test('fur', () => sleep(4))
   if (!tre) throw new Error('did not get subtest')
   const app = render(<Tag test={tre} />)
   tb.pass('this is fine')

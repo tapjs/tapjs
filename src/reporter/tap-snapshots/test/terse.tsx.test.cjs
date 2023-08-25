@@ -5,26 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/base/index.tsx > TAP > no comments or passes > must match snapshot 1`] = `
-[1m[41m[38;2;255;255;255m FAIL [39m[49m[22m one [31m1 failed[39m of [1m1[22m [2m{TIME}[22m
- [1m[31m✖[39m[22m nope [2mtest/fixtures/get-test.ts:17:54[22m
-[1m[44m[38;2;255;255;255m SKIP [39m[49m[22m two [36m1 skip[39m of [1m1[22m [2m{TIME}[22m
- [1m[36m~[39m[22m skip
-[1m[48;2;136;0;136m[38;2;255;255;255m TODO [39m[49m[22m fur [35m1 todo[39m of [1m1[22m [2m{TIME}[22m
- [1m[35m☐[39m[22m todo
-[1m[48;2;0;170;0m[38;2;0;0;0m PASS [39m[49m[22m fiv [1m1[22m [32mOK[39m [2m{TIME}[22m
-[1m[48;2;0;170;0m[38;2;0;0;0m PASS [39m[49m[22m tre [1m1[22m [32mOK[39m [2m{TIME}[22m
-[1m[48;2;136;0;136m[38;2;255;255;255m TODO [39m[49m[22m svn [35m1 todo[39m of [1m1[22m [2m{TIME}[22m
- [1m[35m☐[39m[22m todo [35mmessage[39m
-[1m[48;2;0;170;0m[38;2;0;0;0m PASS [39m[49m[22m eit [1m1[22m [32mOK[39m [2m{TIME}[22m
-[1m[48;2;0;170;0m[38;2;0;0;0m PASS [39m[49m[22m nin [1m1[22m [32mOK[39m [2m{TIME}[22m
-[1m[44m[38;2;255;255;255m SKIP [39m[49m[22m six [36m1 skip[39m of [1m1[22m [2m{TIME}[22m
- [1m[36m~[39m[22m nope [36mmessage[39m
-[1m[44m[38;2;255;255;255m SKIP [39m[49m[22m zro [1m0[22m [32mOK[39m [2m{TIME}[22m
-
-[48;2;255;255;255m                       [49m
-[1m[48;2;255;255;255m[30m  🌈 TEST COMPLETE 🌈  [39m[49m[22m
-[48;2;255;255;255m                       [49m
+exports[`test/terse.tsx > TAP > no comments or passes > must match snapshot 1`] = `
 
 [1m[41m[38;2;255;255;255m FAIL [39m[49m[22m one [31m1 failed[39m of [1m1[22m [2m{TIME}[22m
  [1m[31m✖[39m[22m nope
@@ -40,17 +21,11 @@ exports[`test/base/index.tsx > TAP > no comments or passes > must match snapshot
     [48;5;234m[38;2;143;165;209m21 [38;5;252m      [38;2;147;205;255m})[38;5;252m                                                          [39m[49m
     XXX mock stack XXX
 
-[1m[44m[38;2;255;255;255m SKIP [39m[49m[22m two [36m1 skip[39m of [1m1[22m [2m{TIME}[22m
- [1m[36m~[39m[22m skip
-
 [1m[48;2;136;0;136m[38;2;255;255;255m TODO [39m[49m[22m fur [35m1 todo[39m of [1m1[22m [2m{TIME}[22m
  [1m[35m☐[39m[22m todo
 
 [1m[48;2;136;0;136m[38;2;255;255;255m TODO [39m[49m[22m svn [35m1 todo[39m of [1m1[22m [2m{TIME}[22m
  [1m[35m☐[39m[22m todo [35mmessage[39m
-
-[1m[44m[38;2;255;255;255m SKIP [39m[49m[22m six [36m1 skip[39m of [1m1[22m [2m{TIME}[22m
- [1m[36m~[39m[22m nope [36mmessage[39m
 
 [1mAsserts:[22m  [32m5 pass[39m  [1m[31m1 fail[39m[22m  [36m2 skip[39m  [35m2 todo[39m  [2m6 of 10 complete[22m
 [1mSuites:[22m   [32m8 pass[39m  [1m[31m1 fail[39m[22m  [36m1 skip[39m          [2m9 of 10 complete[22m
@@ -59,34 +34,13 @@ exports[`test/base/index.tsx > TAP > no comments or passes > must match snapshot
 
 `
 
-exports[`test/base/index.tsx > TAP > yes comments and passes > must match snapshot 1`] = `
-[1m[41m[38;2;255;255;255m FAIL [39m[49m[22m one [31m1 failed[39m of [1m1[22m [2m{TIME}[22m
- [1m[31m✖[39m[22m nope [2mtest/fixtures/get-test.ts:17:54[22m
+exports[`test/terse.tsx > TAP > yes comments and passes > must match snapshot 1`] = `
 
 [31m[2m2>[22m[39m [2mtwo[22m
 # comment in two
 
-[1m[44m[38;2;255;255;255m SKIP [39m[49m[22m two [36m1 skip[39m of [1m1[22m [2m{TIME}[22m
- [1m[36m~[39m[22m skip
-[1m[48;2;136;0;136m[38;2;255;255;255m TODO [39m[49m[22m fur [35m1 todo[39m of [1m1[22m [2m{TIME}[22m
- [1m[35m☐[39m[22m todo
-[1m[48;2;0;170;0m[38;2;0;0;0m PASS [39m[49m[22m fiv [1m1[22m [32mOK[39m [2m{TIME}[22m
-
 [31m[2m2>[22m[39m [2msvn[22m
 # comment in svn
-
-[1m[48;2;0;170;0m[38;2;0;0;0m PASS [39m[49m[22m tre [1m1[22m [32mOK[39m [2m{TIME}[22m
-[1m[48;2;136;0;136m[38;2;255;255;255m TODO [39m[49m[22m svn [35m1 todo[39m of [1m1[22m [2m{TIME}[22m
- [1m[35m☐[39m[22m todo [35mmessage[39m
-[1m[48;2;0;170;0m[38;2;0;0;0m PASS [39m[49m[22m eit [1m1[22m [32mOK[39m [2m{TIME}[22m
-[1m[48;2;0;170;0m[38;2;0;0;0m PASS [39m[49m[22m nin [1m1[22m [32mOK[39m [2m{TIME}[22m
-[1m[44m[38;2;255;255;255m SKIP [39m[49m[22m six [36m1 skip[39m of [1m1[22m [2m{TIME}[22m
- [1m[36m~[39m[22m nope [36mmessage[39m
-[1m[44m[38;2;255;255;255m SKIP [39m[49m[22m zro [1m0[22m [32mOK[39m [2m{TIME}[22m
-
-[48;2;255;255;255m                       [49m
-[1m[48;2;255;255;255m[30m  🌈 TEST COMPLETE 🌈  [39m[49m[22m
-[48;2;255;255;255m                       [49m
 
 [1m[41m[38;2;255;255;255m FAIL [39m[49m[22m one [31m1 failed[39m of [1m1[22m [2m{TIME}[22m
  [1m[31m✖[39m[22m nope
@@ -102,17 +56,11 @@ exports[`test/base/index.tsx > TAP > yes comments and passes > must match snapsh
     [48;5;234m[38;2;143;165;209m21 [38;5;252m      [38;2;147;205;255m})[38;5;252m                                                          [39m[49m
     XXX mock stack XXX
 
-[1m[44m[38;2;255;255;255m SKIP [39m[49m[22m two [36m1 skip[39m of [1m1[22m [2m{TIME}[22m
- [1m[36m~[39m[22m skip
-
 [1m[48;2;136;0;136m[38;2;255;255;255m TODO [39m[49m[22m fur [35m1 todo[39m of [1m1[22m [2m{TIME}[22m
  [1m[35m☐[39m[22m todo
 
 [1m[48;2;136;0;136m[38;2;255;255;255m TODO [39m[49m[22m svn [35m1 todo[39m of [1m1[22m [2m{TIME}[22m
  [1m[35m☐[39m[22m todo [35mmessage[39m
-
-[1m[44m[38;2;255;255;255m SKIP [39m[49m[22m six [36m1 skip[39m of [1m1[22m [2m{TIME}[22m
- [1m[36m~[39m[22m nope [36mmessage[39m
 
 [1mAsserts:[22m  [32m5 pass[39m  [1m[31m1 fail[39m[22m  [36m2 skip[39m  [35m2 todo[39m  [2m6 of 10 complete[22m
 [1mSuites:[22m   [32m8 pass[39m  [1m[31m1 fail[39m[22m  [36m1 skip[39m          [2m9 of 10 complete[22m

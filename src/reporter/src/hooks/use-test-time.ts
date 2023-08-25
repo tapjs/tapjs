@@ -1,5 +1,5 @@
 import { Base } from '@tapjs/core'
-import { useEffect, useState } from 'react'
+import { useLayoutEffect, useState } from 'react'
 import { listenCleanup } from '../listen-cleanup.js'
 
 export const useTestTime = (
@@ -8,7 +8,7 @@ export const useTestTime = (
 ): number => {
   const [time, updateTime] = useState<number>(test.time)
   const [start] = useState<number>(Date.now())
-  useEffect(() => {
+  useLayoutEffect(() => {
     const i = test.time
       ? null
       : setInterval(() => updateTime(Date.now() - start), interval)

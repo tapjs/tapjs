@@ -4,7 +4,6 @@ import { render } from 'ink-testing-library'
 import React, { FC } from 'react'
 import t from 'tap'
 import { useComments } from '../../dist/hooks/use-comments.js'
-import { sleep } from '../fixtures/sleep.js'
 import { reduce } from '../fixtures/reduce.js'
 
 const Tag: FC<{ test: Minimal }> = ({ test }) => {
@@ -23,7 +22,6 @@ const Tag: FC<{ test: Minimal }> = ({ test }) => {
 t.test('show comments', async t => {
   const tb = new Minimal({ name: 'commenter' })
   const app = render(<Tag test={tb} />)
-  await sleep(64)
   tb.pass('this is fine')
   tb.comment('before child test')
   tb.test('child test', async tb => {
@@ -39,12 +37,13 @@ t.test('show comments', async t => {
   tb.comment('after child test')
   tb.end()
   await tb.concat()
-  await sleep(64)
-  app.unmount()
 
-  t.strictSame(reduce(app.frames).filter(f => f.trim()), [
-    '# before child test',
-    '# before child test\n# comment while occupied',
-    '# before child test\n# comment while occupied\n# after child test',
-  ])
+  t.strictSame(
+    reduce(app.frames).filter(f => f.trim()),
+    [
+      '# before child test',
+      '# before child test\n# comment while occupied',
+      '# before child test\n# comment while occupied\n# after child test',
+    ]
+  )
 })

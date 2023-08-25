@@ -24,20 +24,17 @@ t.test('suite totals', async t => {
     // children end out of order
     const { subtest: zro } = tb.test('zro', t => t.plan(0))
     const { subtest: one } = tb.test('one', t => t.fail('nope'))
-    await sleep(32)
     const { subtest: two } = tb.test('two', t => t.pass('fine'))
     const { subtest: tre } = tb.test('tre', () => {})
     const { subtest: fur } = tb.test('fur', t =>
       t.pass('skip', { skip: true })
     )
-    await sleep(32)
     const { subtest: fiv } = tb.test('fiv', t =>
       t.plan(0, 'no tests found')
     )
     const { subtest: six } = tb.test('six', t =>
       t.pass('todo', { todo: true })
     )
-    await sleep(32)
     const { subtest: svn } = tb.test('svn', t =>
       t.fail('todo', { todo: true })
     )
@@ -61,12 +58,9 @@ t.test('suite totals', async t => {
     tb.end()
     one.end()
     two.end()
-    await sleep(64)
     fur.end()
-    await sleep(64)
     tre.end()
     svn.end()
-    await sleep(64)
     eit.end()
     nin.end()
     six.end()

@@ -21,7 +21,6 @@ t.test('already bailed test is just true', async t => {
   tb.bailout('bailout reason')
   await tb.concat()
   const app = render(<Tag test={tb} />)
-  await sleep(64)
   app.unmount()
   t.strictSame(
     reduce(app.frames).filter(f => f.trim()),
@@ -32,7 +31,6 @@ t.test('already bailed test is just true', async t => {
 t.test('note when test bails out', async t => {
   const tb = new Minimal({ name: 'bailer' })
   const app = render(<Tag test={tb} />)
-  await sleep(64)
   tb.pass('this is fine')
   tb.test('child test', async () => sleep(64))
   tb.pass('this is fine')

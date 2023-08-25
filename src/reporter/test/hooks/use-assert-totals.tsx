@@ -4,7 +4,6 @@ import { render } from 'ink-testing-library'
 import React, { FC } from 'react'
 import t from 'tap'
 import { useAssertTotals } from '../../dist/hooks/use-assert-totals.js'
-import { sleep } from '../fixtures/sleep.js'
 
 const Tag: FC<{ test: Minimal }> = ({ test }) => {
   const totals = useAssertTotals(test)
@@ -22,17 +21,13 @@ t.test('log some assert totals', async t => {
   // app loading needs to be deferred for the lodash
   // debounce that ink does. Never a problem irl, because
   // the asserts all come from async child test processes.
-  await sleep(32)
   tb.test('child test', async tb => {
     tb.pass('this is fine')
     tb.fail('not quite as fine')
-    await sleep(32)
     tb.pass('will be fine', { todo: true })
     tb.pass('dont care if its fine', { skip: true })
-    await sleep(32)
     tb.pass('this is fine also')
     tb.fail('second fail')
-    await sleep(32)
   })
   tb.end()
   await tb.concat()

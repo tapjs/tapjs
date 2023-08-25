@@ -4,7 +4,7 @@ const { useCleanup } = (await t.mockImport(
   {
     react: {
       // mock returns the value so we can call the cleanup fn
-      useEffect: (fn: Function) => fn(),
+      useLayoutEffect: (fn: Function) => fn(),
     },
   }
 )) as typeof import('../../dist/hooks/use-cleanup.js')

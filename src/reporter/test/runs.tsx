@@ -1,10 +1,11 @@
 import { Minimal } from '@tapjs/core'
-import '../fixtures/chalk.js'
+import './fixtures/chalk.js'
+
 import { render } from 'ink-testing-library'
 import React from 'react'
 import t from 'tap'
-import { Runs } from '../../dist/base/runs.js'
-import { sleep } from '../fixtures/sleep.js'
+import { Runs } from '../dist/runs.js'
+import { sleep } from './fixtures/sleep.js'
 
 const tb = new Minimal({ name: 'gump' })
 tb.jobs = 5

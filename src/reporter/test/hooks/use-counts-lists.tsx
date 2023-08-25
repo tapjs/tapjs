@@ -5,7 +5,6 @@ import React, { FC } from 'react'
 import t from 'tap'
 import { Result } from 'tap-parser'
 import { useCountsLists } from '../../dist/hooks/use-counts-lists.js'
-import { sleep } from '../fixtures/sleep.js'
 import { reduce } from '../fixtures/reduce.js'
 
 const Tag: FC<{ test: Minimal }> = ({ test }) => {
@@ -31,7 +30,6 @@ const Tag: FC<{ test: Minimal }> = ({ test }) => {
 t.test('show counts and lists', async t => {
   const tb = new Minimal({ name: 'commenter' })
   const app = render(<Tag test={tb} />)
-  await sleep(64)
   tb.pass('this is fine')
   tb.comment('before child test')
   tb.test('child test', async tb => {
@@ -50,7 +48,9 @@ t.test('show counts and lists', async t => {
   app.unmount()
 
   t.strictSame(
-    reduce(app.frames).filter(j => j.trim()).map(j => JSON.parse(j)),
+    reduce(app.frames)
+      .filter(j => j.trim())
+      .map(j => JSON.parse(j)),
     [
       {
         counts: { total: 0, pass: 0 },

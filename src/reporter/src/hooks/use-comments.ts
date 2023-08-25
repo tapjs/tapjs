@@ -1,5 +1,5 @@
 import { Base } from '@tapjs/core'
-import { useEffect, useState } from 'react'
+import { useLayoutEffect, useState } from 'react'
 import { listenCleanup } from '../listen-cleanup.js'
 
 // We can sometimes get multiple comments all synchronously in the
@@ -10,11 +10,13 @@ import { listenCleanup } from '../listen-cleanup.js'
 const log = new Map<Base, string[]>()
 
 export const useComments = (test: Base) => {
-  const [comments, updateComments] = useState<string[]>([])
   const comments_ = log.get(test) || []
+  const [comments, updateComments] = useState<string[]>([
+    ...comments_,
+  ])
   if (!log.has(test)) log.set(test, comments_)
 
-  useEffect(
+  useLayoutEffect(
     () =>
       listenCleanup(test.parser, 'comment', (c: string) => {
         if (c.trim()) {
@@ -25,5 +27,5 @@ export const useComments = (test: Base) => {
     [comments, test]
   )
 
-  return comments
+  return [...comments_]
 }

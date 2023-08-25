@@ -46,7 +46,6 @@ t.test('passing test results, details, no callsite', async t => {
   const app = render(
     <TestResultsList test={tb} lists={tb.lists} details />
   )
-  await sleep(64)
   t.equal(app.lastFrame(), '', 'empty, just a passing test')
   app.unmount()
 })

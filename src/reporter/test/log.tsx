@@ -1,29 +1,29 @@
+import chalk from './fixtures/chalk.js'
+
 import { LoadedConfig } from '@tapjs/config'
-import {Minimal} from '@tapjs/core'
-import chalk from '../fixtures/chalk.js'
+import { Minimal } from '@tapjs/core'
 import { Box, Text } from 'ink'
 import { render } from 'ink-testing-library'
 import React from 'react'
 import t from 'tap'
-import { logs } from '../fixtures/logs.js'
+import { logs } from './fixtures/logs.js'
 
-
-const { Log } = (await t.mockImport('../../dist/terse/log.js', {
+const { Log } = (await t.mockImport('../dist/log.js', {
   chalk,
-  '../../dist/terse/test-summary.js': {
+  '../dist/test-summary.js': {
     TestSummary: ({ test }: { test: { name: string } }) => (
       <Box>
         <Text>XXX test summary {test.name} XXX</Text>
       </Box>
     ),
   },
-  '../../dist/hooks/use-log.js': t.createMock(
-    await import('../../dist/hooks/use-log.js'),
+  '../dist/hooks/use-log.js': t.createMock(
+    await import('../dist/hooks/use-log.js'),
     {
       useLog: () => logs,
     }
   ),
-})) as typeof import('../../dist/terse/log.js')
+})) as typeof import('../dist/log.js')
 
 t.matchSnapshot(
   render(<Log test={t} config={{} as LoadedConfig} />).lastFrame()

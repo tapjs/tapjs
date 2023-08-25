@@ -4,8 +4,8 @@ import { render } from 'ink-testing-library'
 import React, { FC } from 'react'
 import t from 'tap'
 import { useIsDone } from '../../dist/hooks/use-is-done.js'
-import { sleep } from '../fixtures/sleep.js'
 import { reduce } from '../fixtures/reduce.js'
+import { sleep } from '../fixtures/sleep.js'
 
 const Tag: FC<{ test: Minimal }> = ({ test }) => {
   const done = useIsDone(test)
@@ -19,7 +19,6 @@ const Tag: FC<{ test: Minimal }> = ({ test }) => {
 t.test('check if test is done', async t => {
   const tb = new Minimal({ name: 'done test' })
   const app = render(<Tag test={tb} />)
-  await sleep(64)
   tb.pass('this is fine')
   tb.test('child test', async () => sleep(64))
   tb.pass('this is fine')
@@ -27,5 +26,8 @@ t.test('check if test is done', async t => {
   await tb.concat()
   app.unmount()
 
-  t.strictSame(reduce(app.frames).filter(f => f.trim()), ['false', 'true'])
+  t.strictSame(
+    reduce(app.frames).filter(f => f.trim()),
+    ['false', 'true']
+  )
 })

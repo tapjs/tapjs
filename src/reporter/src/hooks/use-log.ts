@@ -54,7 +54,11 @@ export const isStdioLog = (p?: LogEntry): p is StdioLog =>
 // by keeping a persistent copy of the logs for any given test.
 const LOGS = new Map<TestBase, LogEntry[]>()
 
-export const useLog = (test: TestBase, config: LoadedConfig) => {
+export const useLog = (
+  test: TestBase,
+  config: LoadedConfig,
+  includeTests: boolean = false
+) => {
   const fromCache = LOGS.get(test) || []
   LOGS.set(test, fromCache)
 
@@ -89,9 +93,13 @@ export const useLog = (test: TestBase, config: LoadedConfig) => {
           })
         )
 
-        cleanup.push(
-          listenCleanup(test, 'complete', () => appendLog({ test }))
-        )
+        // the terse report does not show log lines for tests
+        // completing, just the other stuff.
+        if (includeTests) {
+          cleanup.push(
+            listenCleanup(test, 'complete', () => appendLog({ test }))
+          )
+        }
 
         const { proc } = test as Spawn
         if (proc) {

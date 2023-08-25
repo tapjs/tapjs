@@ -21,7 +21,6 @@ t.test('unknown report type', async t => {
   )) as typeof import('../dist/index.js')
   await t.rejects(
     report(
-      //@ts-expect-error
       'blorgeebloop',
       {} as unknown as TAP,
       {} as unknown as LoadedConfig
@@ -71,7 +70,7 @@ t.test('render with known type', async t => {
     ink: t.createMock(INK, {
       render,
     }),
-    '../dist/base/index.js': {
+    '../dist/base.js': {
       Base: Tag,
     },
   })) as typeof import('../dist/index.js')

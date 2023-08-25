@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useLayoutEffect } from 'react'
 
 // push cleanup functions onto the array, and they'll be cleaned up
 export const useCleanup = (
@@ -8,7 +8,7 @@ export const useCleanup = (
   ) => void | undefined | (() => void),
   deps: any[]
 ) =>
-  useEffect(() => {
+  useLayoutEffect(() => {
     const cleanup: (() => any)[] = []
     let c: (() => void) | void | undefined = undefined
     const doCleanup = () => {

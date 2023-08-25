@@ -13,13 +13,13 @@ import {
   useLog,
 } from '../../dist/hooks/use-log.js'
 import { reduce } from '../fixtures/reduce.js'
-import { sleep } from '../fixtures/sleep.js'
 
-const Tag: FC<{ test: Minimal; config: LoadedConfig }> = ({
-  test,
-  config,
-}) => {
-  const log = useLog(test, config).map(entry => {
+const Tag: FC<{
+  test: Minimal
+  config: LoadedConfig
+  includeTests: boolean
+}> = ({ test, config, includeTests = true }) => {
+  const log = useLog(test, config, includeTests).map(entry => {
     if (isTestLog(entry))
       return { type: 'test', text: entry.test.name }
     else if (isStdioLog(entry))
@@ -52,19 +52,16 @@ t.test('log some stuff, with a process, no comments', async t => {
     <Tag
       test={tb}
       config={{ get: () => false } as unknown as LoadedConfig}
+      includeTests
     />
   )
-  await sleep(64)
   tb.pass('this is fine')
   tb.comment('before child test')
   tb.test('child test', async tb => {
     Object.assign(tb, { proc })
     tb.pass('this is fine')
-    await sleep(64)
     proc.stderr.write('hello from stderr\n')
-    await sleep(64)
     tb.parser.write('\nThis is not tap\n')
-    await sleep(64)
     tb.fail('not quite as fine')
     console.log('a console.log')
     tb.comment('child comment')
@@ -95,8 +92,8 @@ t.test('log some stuff, with a process, no comments', async t => {
   }
 
   t.strictSame(result[result.length - 1], [
-    { type: 'stdio', fd: 2, text: 'hello from stderr\n' },
     { type: 'stdio', fd: 1, text: 'This is not tap\n' },
+    { type: 'stdio', fd: 2, text: 'hello from stderr\n' },
     { type: 'console', text: 'a console.log\n' },
     { type: 'console', text: 'a console error\n' },
     { type: 'test', text: 'child test' },
@@ -111,9 +108,9 @@ t.test(
       <Tag
         test={tb}
         config={{ get: () => true } as unknown as LoadedConfig}
+        includeTests
       />
     )
-    await sleep(64)
     tb.pass('this is fine')
     tb.comment('before child test')
     tb.test('child test', async tb => {
@@ -149,6 +146,7 @@ t.test(
     }
 
     t.strictSame(result[result.length - 1], [
+      { type: 'stdio', fd: 1, text: 'This is not tap\n' },
       { type: 'console', text: 'a console.log\n' },
       { type: 'comment', fd: 0, text: '# child comment\n' },
       { type: 'console', text: 'a console error\n' },

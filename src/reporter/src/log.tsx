@@ -8,16 +8,28 @@ import { Box, Static, Text } from 'ink'
 import React, { FC } from 'react'
 import {
   ConsoleLog,
+  isConsoleLog,
   isStdioLog,
   isTestLog,
   LogEntry,
   StdioLog,
+  TestLog,
   useLog,
-} from '../hooks/use-log.js'
-import { TapReportOpts } from '../index.js'
+} from './hooks/use-log.js'
+import { TapReportOpts } from './index.js'
+import { TestSummary } from './test-summary.js'
 
-export const ConsoleLogLine: FC<ConsoleLog> = ({ text }) => (
-  <Box>
+export const TestLogLine: FC<TestLog> = ({ test, previous }) => (
+  <Box paddingTop={!!previous && !isTestLog(previous) ? 1 : 0}>
+    <TestSummary test={test} />
+  </Box>
+)
+
+export const ConsoleLogLine: FC<ConsoleLog> = ({
+  text,
+  previous,
+}) => (
+  <Box paddingTop={!!previous && !isConsoleLog(previous) ? 1 : 0}>
     <Text>{text.trimEnd()}</Text>
   </Box>
 )
@@ -42,21 +54,24 @@ export const StdioLogLine: FC<StdioLog> = ({
       </Box>
     )
 
-  const t = String(text).trim()
   return (
     <Box flexDirection="column">
       {prefix}
       <Box>
-        <Text>{t}</Text>
+        <Text>{String(text).trimEnd()}</Text>
       </Box>
     </Box>
   )
 }
 
-export const Log: FC<TapReportOpts> = ({ test, config }) => {
+export interface LogOpts extends TapReportOpts {
+  includeTests?: boolean
+}
+
+export const Log: FC<LogOpts> = ({ test, config, includeTests }) => {
   if (test.results) return <></>
 
-  const logs = useLog(test, config)
+  const logs = useLog(test, config, includeTests)
   return (
     <Static items={logs}>
       {(log, key) => <LogLine {...log} key={key} />}
@@ -66,7 +81,7 @@ export const Log: FC<TapReportOpts> = ({ test, config }) => {
 
 const LogLine: FC<LogEntry> = log =>
   isTestLog(log) ? (
-    <></>
+    <TestLogLine {...log} />
   ) : isStdioLog(log) ? (
     <StdioLogLine {...log} />
   ) : (

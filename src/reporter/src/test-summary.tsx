@@ -1,25 +1,45 @@
 import { Base } from '@tapjs/core'
 import { Box, Text } from 'ink'
 import React, { FC } from 'react'
-import { useCountsLists } from '../hooks/use-counts-lists.js'
-import { useTestTime } from '../hooks/use-test-time.js'
-import { ms } from '../ms.js'
-import { TestBadge } from '../test-badge.js'
-import { TestResultsList } from '../test-results-list.js'
+import { useCountsLists } from './hooks/use-counts-lists.js'
+import { useTestTime } from './hooks/use-test-time.js'
+import { ms } from './ms.js'
+import { TestBadge } from './test-badge.js'
+import { TestResultsList } from './test-results-list.js'
 
 export interface TestSummaryOpts {
+  /**
+   * The test being summarized
+   */
   test: Base
+  /**
+   * Set to show assertion details.
+   *
+   * This is left unset in the log component, then set to true when
+   * summarizing at the end of the run.
+   */
   details?: boolean
+
+  /**
+   * Set to omit passing tests.
+   *
+   * This is true in the `terse` report, false in the `base` report.
+   */
+  omitPassing?: boolean
 }
 
 export const TestSummary: FC<TestSummaryOpts> = ({
   test,
   details = false,
+  omitPassing = false,
 }) => {
   const [counts, lists] = useCountsLists(test)
   const time = useTestTime(test)
 
   const { total, todo, skip, fail } = counts
+  const { exitCode, signal } = test.options
+  const ok = !todo && !skip && !fail && !exitCode && !signal
+  if (!fail && !todo && omitPassing) return <></>
 
   return (
     <Box flexDirection="column">
@@ -31,7 +51,7 @@ export const TestSummary: FC<TestSummaryOpts> = ({
         {!!skip && <Text color="cyan">{skip} skip</Text>}
         {!!(fail || todo || skip) && <Text>of</Text>}
         <Text bold>{total}</Text>
-        {!(fail || todo || skip) && <Text color="green">OK</Text>}
+        {ok && <Text color="green">OK</Text>}
         {time !== 0 && (
           <Text bold dimColor>
             {ms(time)}

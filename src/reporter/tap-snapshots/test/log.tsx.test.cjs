@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/base/log.tsx > TAP > must match snapshot 1`] = `
+exports[`test/log.tsx > TAP > must match snapshot 1`] = `
 
 XXX test summary zro XXX
 XXX test summary one XXX
