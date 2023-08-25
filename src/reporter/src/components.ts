@@ -1,6 +1,7 @@
 /**
  * All components are exported on the `@tapjs/reporter/components` import path
  */
+export * from './bailed-out.js'
 export * from './diff.js'
 export * from './hanging-indent.js'
 export * from './log.js'

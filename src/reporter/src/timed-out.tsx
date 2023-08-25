@@ -9,7 +9,8 @@ export const TimedOut: FC<{ test: Base }> = ({ test }) => {
   return timedOut ? (
     <Box>
       <Text color="red" bold>
-        Timed out {timedOut.signal && <>({timedOut.signal})</>}
+        Timed out
+        {timedOut.signal && ` (${timedOut.signal})`}
       </Text>
     </Box>
   ) : (

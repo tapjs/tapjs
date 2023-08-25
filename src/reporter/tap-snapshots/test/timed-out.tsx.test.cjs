@@ -6,7 +6,7 @@
  */
 'use strict'
 exports[`test/timed-out.tsx > TAP > time out a test with no signal > must match snapshot 1`] = `
-[1m[31mTimed out [39m[22m
+[1m[31mTimed out[39m[22m
 `
 
 exports[`test/timed-out.tsx > TAP > time out a test with SIGALRM > must match snapshot 1`] = `

@@ -1,8 +1,8 @@
 import { CountsJSON, TestBase } from '@tapjs/core'
 import { Box, Text } from 'ink'
 import React, { FC } from 'react'
+import { BailedOut } from './bailed-out.js'
 import { useAssertTotals } from './hooks/use-assert-totals.js'
-import { useBailedOut } from './hooks/use-bailed-out.js'
 import { useComments } from './hooks/use-comments.js'
 import { useSuiteTotals } from './hooks/use-suite-totals.js'
 import { TimedOut } from './timed-out.js'
@@ -40,7 +40,6 @@ const Todo: FC<CountsJSON> = ({ todo = 0 }) =>
 export const SuiteSummary: FC<{ test: TestBase }> = ({ test }) => {
   const suites = useSuiteTotals(test)
   const asserts = useAssertTotals(test)
-  const bailedOut = useBailedOut(test)
   const comments = useComments(test)
 
   return (
@@ -73,14 +72,7 @@ export const SuiteSummary: FC<{ test: TestBase }> = ({ test }) => {
             </Box>
           </Box>
         </Box>
-        {bailedOut && (
-          <Box gap={1}>
-            <Text color="red" bold>
-              Bailout!
-            </Text>
-            <Text>{bailedOut}</Text>
-          </Box>
-        )}
+        <BailedOut test={test} />
         <TimedOut test={test} />
       </Box>
       {comments.length ? (

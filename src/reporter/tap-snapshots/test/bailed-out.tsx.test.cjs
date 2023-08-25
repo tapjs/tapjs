@@ -5,10 +5,10 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/hooks/use-timed-out.tsx > TAP > time out a test with no signal > must match snapshot 1`] = `
-[1m[31mTimed out[39m[22m
+exports[`test/bailed-out.tsx > TAP > bail out for no raisin > must match snapshot 1`] = `
+[1m[31mBailout![39m[22m
 `
 
-exports[`test/hooks/use-timed-out.tsx > TAP > time out a test with SIGALRM > must match snapshot 1`] = `
-[1m[31mTimed out (SIGALRM)[39m[22m
+exports[`test/bailed-out.tsx > TAP > bail out with message > must match snapshot 1`] = `
+[1m[31mBailout! (some sort of raisin)[39m[22m
 `
