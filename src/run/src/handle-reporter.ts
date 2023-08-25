@@ -12,7 +12,7 @@ import { resolveImport } from 'resolve-import'
 import which from 'which'
 
 const rawTap = (t: TAP) => pipe(t, process.stdout)
-const pipe = (t: TAP, dest: Writable) => {
+const pipe = (t: TAP, dest: Writable): false => {
   t.pipe(dest)
   return false
 }
@@ -36,6 +36,12 @@ export const handleReporter = async (
   const reporter = config.get('reporter') as string
   if (reporter === 'tap' || process.env.TAP === '1') {
     return rawTap(t)
+  }
+
+  if (reporter === 'silent') {
+    t.register()
+    t.resume()
+    return true
   }
 
   // if it's one of the keys we know, then use that
@@ -86,7 +92,9 @@ export const handleReporter = async (
   } catch {}
 
   console.error(
-    `Could not load ${JSON.stringify(reporter)} reporter. Displaying raw TAP.`
+    `Could not load ${JSON.stringify(
+      reporter
+    )} reporter. Displaying raw TAP.`
   )
   return rawTap(t)
 }

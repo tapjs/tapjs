@@ -127,6 +127,26 @@ t.test('builtin reporter', async t => {
   t.strictSame(reporterCalled, [['base', tb, config]])
 })
 
+t.test('silent', async t => {
+  let registerCalled = false
+  const tb = Object.assign(
+    new Minimal({
+      name: 'base reporter',
+    }),
+    {
+      register: () => (registerCalled = true),
+      pipe: () => {
+        throw new Error('should not pipe anywhere')
+      },
+    }
+  )
+  const config = { get: () => 'silent' } as unknown as LoadedConfig
+  t.equal(await handleReporter(tb as unknown as TAP, config), true)
+  t.strictSame(reporterCalled, [])
+  t.equal(tb.flowing, true)
+  t.equal(registerCalled, true, 'register called')
+})
+
 t.test('custom react reporter', async t => {
   const u = await resolveImport(
     './fixtures/custom-react-reporter/index.js',

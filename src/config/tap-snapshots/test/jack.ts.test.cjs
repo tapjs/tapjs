@@ -368,6 +368,8 @@ Object {
       
                           - base
       - terse
+      - tap
+      - silent
     ),
     "short": "R",
     "type": "string",

@@ -26,7 +26,7 @@ const coverageReporters = [
 
 // Can't pull this directly out of @tapjs/reporter because
 // reporter is ESM only because ink is ESM only.
-const testReporters = ['base', 'terse']
+const testReporters = ['base', 'terse', 'tap', 'silent']
 
 /**
  * Configuration options for TAP core.
@@ -43,8 +43,8 @@ export default jack({
 })
   .heading('TAP - Test Anything Protocol library for JavaScript')
   .description(
-    `Short options are parsed gnu-style, so for example \`-bCRspec\` would be
-     equivalent to \`--bail --no-color --reporter=spec\`
+    `Short options are parsed gnu-style, so for example \`-bCRterse\` would be
+     equivalent to \`--bail --no-color --reporter=terse\`
 
      Much more documentation available at: <https://www.node-tap.org/>`
   )
