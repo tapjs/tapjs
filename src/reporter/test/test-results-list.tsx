@@ -5,7 +5,6 @@ import React from 'react'
 import t from 'tap'
 import * as tapParser from 'tap-parser'
 import chalk from './fixtures/chalk.js'
-import { sleep } from './fixtures/sleep.js'
 
 const { TestResultsList } = (await t.mockImport(
   '../dist/test-results-list.js',
@@ -32,9 +31,7 @@ const { TestResultsList } = (await t.mockImport(
 t.test('passing test results, details, no callsite', async t => {
   const tb = new Minimal({ name: 'passer' })
   tb.pass('this is fine')
-  const notFinished = render(
-    <TestResultsList test={tb} lists={tb.lists} />
-  )
+  const notFinished = render(<TestResultsList test={tb} />)
   t.equal(
     notFinished.lastFrame(),
     '',
@@ -43,9 +40,7 @@ t.test('passing test results, details, no callsite', async t => {
   notFinished.unmount()
   tb.end()
   await tb.concat()
-  const app = render(
-    <TestResultsList test={tb} lists={tb.lists} details />
-  )
+  const app = render(<TestResultsList test={tb} details />)
   t.equal(app.lastFrame(), '', 'empty, just a passing test')
   app.unmount()
 })
@@ -53,9 +48,7 @@ t.test('passing test results, details, no callsite', async t => {
 t.test('show passing test result', async t => {
   const tb = new Minimal({ name: 'passer', passes: true })
   tb.pass('this is fine')
-  const notFinished = render(
-    <TestResultsList test={tb} lists={tb.lists} />
-  )
+  const notFinished = render(<TestResultsList test={tb} />)
   t.equal(
     notFinished.lastFrame(),
     '',
@@ -64,9 +57,7 @@ t.test('show passing test result', async t => {
   notFinished.unmount()
   tb.end()
   await tb.concat()
-  const app = render(
-    <TestResultsList test={tb} lists={tb.lists} details />
-  )
+  const app = render(<TestResultsList test={tb} details />)
   t.matchSnapshot(app.lastFrame(), 'show passing test')
   app.unmount()
 })
@@ -81,9 +72,7 @@ t.test('test with other types of points', async t => {
   tb.fail('fail, skip message', { skip: 'dont worry about it' })
   tb.end()
   await tb.concat()
-  const app = render(
-    <TestResultsList test={tb} lists={tb.lists} details />
-  )
+  const app = render(<TestResultsList test={tb} details />)
   t.matchSnapshot(app.lastFrame())
   app.unmount()
 })
@@ -92,9 +81,7 @@ t.test('skipAll no message', async t => {
   const tb = new Minimal({ name: 'skipAll quiet' })
   tb.plan(0)
   await tb.concat()
-  const app = render(
-    <TestResultsList test={tb} lists={tb.lists} details />
-  )
+  const app = render(<TestResultsList test={tb} details />)
   t.matchSnapshot(app.lastFrame())
   app.unmount()
 })
@@ -103,9 +90,7 @@ t.test('skipAll custom message', async t => {
   const tb = new Minimal({ name: 'skipAll custom' })
   tb.plan(0, 'skip it all')
   await tb.concat()
-  const app = render(
-    <TestResultsList test={tb} lists={tb.lists} details />
-  )
+  const app = render(<TestResultsList test={tb} details />)
   t.matchSnapshot(app.lastFrame())
   app.unmount()
 })
@@ -114,9 +99,7 @@ t.test('skipAll default no tests found message', async t => {
   const tb = new Minimal({ name: 'skipAll no tests' })
   tb.plan(0, 'no tests found')
   await tb.concat()
-  const app = render(
-    <TestResultsList test={tb} lists={tb.lists} details />
-  )
+  const app = render(<TestResultsList test={tb} details />)
   t.matchSnapshot(app.lastFrame())
   app.unmount()
 })
@@ -129,9 +112,7 @@ t.test('exit signal', async t => {
   tb.options.signal = 'SIGNOOOOOOPE'
   tb.end()
   await tb.concat()
-  const app = render(
-    <TestResultsList test={tb} lists={tb.lists} details />
-  )
+  const app = render(<TestResultsList test={tb} details />)
   t.matchSnapshot(app.lastFrame())
   app.unmount()
 })
@@ -142,7 +123,7 @@ t.test('bailout for no raisin', async t => {
   tb.fail('nope')
   tb.bailout()
   await tb.concat()
-  const app = render(<TestResultsList test={tb} lists={tb.lists} />)
+  const app = render(<TestResultsList test={tb} />)
   t.matchSnapshot(app.lastFrame())
   app.unmount()
 })
@@ -153,7 +134,7 @@ t.test('bailout with raisin', async t => {
   tb.fail('nope')
   tb.bailout('i have my raisins')
   await tb.concat()
-  const app = render(<TestResultsList test={tb} lists={tb.lists} />)
+  const app = render(<TestResultsList test={tb} />)
   t.matchSnapshot(app.lastFrame())
   app.unmount()
 })

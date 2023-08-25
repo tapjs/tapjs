@@ -37,22 +37,11 @@ t.test('simple passing, but omit passing', async t => {
   tb.pass('this is fine')
   tb.end()
   await tb.concat()
-  t.matchSnapshot(
-    render(<TestSummary test={tb} omitPassing />).lastFrame()
-  )
+  t.matchSnapshot(render(<TestSummary test={tb} />).lastFrame())
 })
 
 t.test('failing test', async t => {
   const tb = new Minimal({ name: 'failer' })
-  tb.fail('expected failure')
-  tb.end()
-  await tb.concat()
-  t.matchSnapshot(render(<TestSummary test={tb} />).lastFrame())
-})
-
-t.test('failing test, omitPassing', async t => {
-  const tb = new Minimal({ name: 'failer' })
-  tb.pass('this is fine')
   tb.fail('expected failure')
   tb.end()
   await tb.concat()
@@ -83,22 +72,6 @@ t.test('all the things', async t => {
   t.end()
 })
 
-t.test('all the things, omit passing', async t => {
-  const tb = new Minimal({ name: 'all the things' })
-  tb.pass('fine')
-  tb.fail('nope')
-  tb.pass('skip', { skip: true })
-  tb.fail('skip msg', { skip: 'message' })
-  tb.fail('todo', { todo: true })
-  tb.pass('todo msg', { todo: 'message' })
-  tb.end()
-  await tb.concat()
-  t.matchSnapshot(
-    render(<TestSummary omitPassing test={tb} />).lastFrame()
-  )
-  t.end()
-})
-
 t.test('all the details', async t => {
   const tb = new Minimal({ name: 'all the things' })
   tb.pass('fine')
@@ -111,22 +84,6 @@ t.test('all the details', async t => {
   await tb.concat()
   t.matchSnapshot(
     render(<TestSummary details test={tb} />).lastFrame()
-  )
-  t.end()
-})
-
-t.test('all the details, omitPassing', async t => {
-  const tb = new Minimal({ name: 'all the things' })
-  tb.pass('fine')
-  tb.fail('nope')
-  tb.pass('skip', { skip: true })
-  tb.fail('skip msg', { skip: 'message' })
-  tb.fail('todo', { todo: true })
-  tb.pass('todo msg', { todo: 'message' })
-  tb.end()
-  await tb.concat()
-  t.matchSnapshot(
-    render(<TestSummary omitPassing details test={tb} />).lastFrame()
   )
   t.end()
 })

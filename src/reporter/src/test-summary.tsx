@@ -19,27 +19,18 @@ export interface TestSummaryOpts {
    * summarizing at the end of the run.
    */
   details?: boolean
-
-  /**
-   * Set to omit passing tests.
-   *
-   * This is true in the `terse` report, false in the `base` report.
-   */
-  omitPassing?: boolean
 }
 
 export const TestSummary: FC<TestSummaryOpts> = ({
   test,
   details = false,
-  omitPassing = false,
 }) => {
-  const [counts, lists] = useCountsLists(test)
+  const [counts] = useCountsLists(test)
   const time = useTestTime(test)
 
   const { total, todo, skip, fail } = counts
   const { exitCode, signal } = test.options
   const ok = !todo && !skip && !fail && !exitCode && !signal
-  if (!fail && !todo && omitPassing) return <></>
 
   return (
     <Box flexDirection="column">
@@ -58,7 +49,7 @@ export const TestSummary: FC<TestSummaryOpts> = ({
           </Text>
         )}
       </Box>
-      <TestResultsList test={test} lists={lists} details={details} />
+      <TestResultsList test={test} details={details} />
     </Box>
   )
 }

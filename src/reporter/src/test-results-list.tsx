@@ -6,7 +6,6 @@ import { ResultTag } from './result-tag.js'
 
 export interface TestResultsListOpts {
   test: Base
-  lists: Lists
   details?: boolean
 }
 
@@ -15,12 +14,12 @@ const isResult = (r: any): r is Result =>
 
 export const TestResultsList: FC<TestResultsListOpts> = ({
   test,
-  lists,
   details = false,
 }) => {
   const { results, options, bailedOut } = test
   const { exitCode, signal } = options
   if (!results) return <></>
+  const lists = test.lists
 
   const resultsList: (ReactElement | Result)[] = []
   if (
