@@ -1,5 +1,14 @@
 import { TapPlugin, TestBase } from '@tapjs/core'
 
+// adds 'dummy' to the list of reporters that can be used
+// Note that the package.json exports route this path to
+// ./load-reporter for import(), but ./no-op for require()
+// That way, we only try to load the esm-only modules in esm
+// mode, which is necessary because ink et al are esm-only.
+// That's fine, though, because the tap runner runs in esm
+// mode, so the reporter will be applied where it matters.
+import '@tapjs/dummy-plugin/load-reporter'
+
 /**
  * Just an example plugin for use in tests and docs
  */

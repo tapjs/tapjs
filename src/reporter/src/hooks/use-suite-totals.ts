@@ -50,9 +50,6 @@ export const useSuiteTotals = (test: Base) => {
     cleanup => {
       cleanup.push(listenCleanup(test, 'subtestAdd', addSuite))
       cleanup.push(listenCleanup(test, 'subtestEnd', finishSuite))
-      cleanup.push(
-        listenCleanup(test, 'complete', () => SUITES.delete(test))
-      )
     },
     [test, suites]
   )

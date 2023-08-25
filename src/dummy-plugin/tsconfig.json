@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "rootDir": "src",
     "jsx": "react",
     "declaration": true,
     "declarationMap": true,

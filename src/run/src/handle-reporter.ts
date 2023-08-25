@@ -17,8 +17,6 @@ const pipe = (t: TAP, dest: Writable): false => {
   return false
 }
 
-const builtinReporters = Object.keys(reportTypes)
-
 /**
  * Return type indicates whether or not stderr is also being handled.
  * If a stream or raw TAP is used, then `false` is returned, indicating
@@ -45,7 +43,7 @@ export const handleReporter = async (
   }
 
   // if it's one of the keys we know, then use that
-  if (builtinReporters.includes(reporter)) {
+  if (reportTypes[reporter]) {
     const Type = reporter as keyof typeof reportTypes
     return await testReport(Type, t, config)
   }

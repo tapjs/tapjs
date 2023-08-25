@@ -15,15 +15,16 @@ export interface TapReportOpts {
   config: LoadedConfig
 }
 
-export const types: Record<string, FC<TapReportOpts>> = {}
-export const addType = (name: string, report: FC<TapReportOpts>) => {
+export type Reporter = FC<TapReportOpts>
+export const types: Record<string, Reporter> = {}
+export const addType = (name: string, report: Reporter) => {
   types[name] = report
 }
 addType('base', Base)
 addType('terse', Terse)
 
 export const report = async (
-  Type: string | React.FC<TapReportOpts>,
+  Type: string | Reporter,
   tap: TAP,
   config: LoadedConfig
 ): Promise<boolean> => {

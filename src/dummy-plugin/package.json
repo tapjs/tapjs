@@ -23,11 +23,21 @@
       "import": {
         "types": "./dist/mjs/loader.d.mts",
         "default": "./dist/mjs/loader.mjs"
-      },
-      "require": {
-        "types": "./dist/cjs/loader.d.mts",
-        "default": "./dist/cjs/loader.mjs"
       }
+    },
+    "./reporter": {
+      "import": {
+        "types": "./dist/mjs/reporter.d.ts",
+        "default": "./dist/mjs/reporter.js"
+      },
+      "require": "./dist/cjs/no-op.js"
+    },
+    "./load-reporter": {
+      "import": {
+        "types": "./dist/mjs/load-reporter.d.ts",
+        "default": "./dist/mjs/load-reporter.js"
+      },
+      "require": "./dist/cjs/no-op.js"
     }
   },
   "files": [
