@@ -1,10 +1,10 @@
+import './fixtures/chalk.js'
+
 import t from 'tap'
 
+import { render } from 'ink-testing-library'
 import React from 'react'
 import { Stack } from '../dist/stack.js'
-import { render } from 'ink-testing-library'
-
-import './fixtures/chalk.js'
 
 // output generated from the @tapjs/stack parser test fixture
 const stack = [
@@ -59,7 +59,9 @@ const stack = [
   'Mine.doSomething (relative/path/to/file.js:10:32) (relative/path/to/source.ts:88:99)',
   '[(remote:433:42)] (eval at Object.evalError (/absolute/test/fixtures/eval-error.js:9:5) (/absolute/test/fixtures/eval-error.ts:7:3), <anonymous>:99:22 (<anonymous>:2:9))',
   'WHEN I WROTE the following pages, or rather the bulk of them, I lived alone, in the woods, a mile from any neighbor, in a house which I had built myself, on the shore of Walden Pond, in Concord, Massachusetts, and earned my living by the labor of my hands only. I lived there two years and two months. At present I am a sojourner in civilized life again. (walden:1:1)',
-].map(l => `${l}\n`).join('')
+]
+  .map(l => `${l}\n`)
+  .join('')
 
 t.test('show a stack', async t => {
   const app = render(<Stack stack={stack} />)

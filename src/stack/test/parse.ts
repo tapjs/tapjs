@@ -55,6 +55,7 @@ const cases = [
   '    at [(funky:433:42)] (eval at Object.evalError (test/fixtures/eval-error.js:9:5) (test/fixtures/eval-error.ts:7:3), <anonymous>:99:22 (<anonymous>:2:9))',
   '    at Object.[some (weird) [<symbolism>]] [as foo] (__dirname/generate-parse-fixture.js:420:69)',
   '    at Foo.get stringStack (test/fixtures/eval-call-site.ts:17:33)',
+  '    at Object.a (s) d [f] (__dirname/generate-parse-fixture.js:420:69)',
 ]
 
 for (const c of cases) {

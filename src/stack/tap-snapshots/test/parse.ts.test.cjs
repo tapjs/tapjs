@@ -367,8 +367,18 @@ Object {
 exports[`test/parse.ts > TAP > Object.a (s) d [f] (__dirname/generate-parse-fixture.js:420:69) > must match snapshot 1`] = `
 Object {
   "columnNumber": 69,
-  "fileName": "s) d [f] (__dirname/generate-parse-fixture.js",
-  "fname": "Object.a",
+  "fileName": "__dirname/generate-parse-fixture.js",
+  "fname": "Object.a (s) d [f]",
+  "generated": undefined,
+  "lineNumber": 420,
+}
+`
+
+exports[`test/parse.ts > TAP > Object.a (s) d [f] (__dirname/generate-parse-fixture.js:420:69) > must match snapshot 2`] = `
+Object {
+  "columnNumber": 69,
+  "fileName": "__dirname/generate-parse-fixture.js",
+  "fname": "Object.a (s) d [f]",
   "generated": undefined,
   "lineNumber": 420,
 }
@@ -377,8 +387,8 @@ Object {
 exports[`test/parse.ts > TAP > Object.a (w) [<s>] (__dirname/generate-parse-fixture.js:420:69) > must match snapshot 1`] = `
 Object {
   "columnNumber": 69,
-  "fileName": "w) [<s>] (__dirname/generate-parse-fixture.js",
-  "fname": "Object.a",
+  "fileName": "__dirname/generate-parse-fixture.js",
+  "fname": "Object.a (w) [<s>]",
   "generated": undefined,
   "lineNumber": 420,
 }

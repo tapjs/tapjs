@@ -59,17 +59,19 @@ const withEvalOriginRe = new RegExp(withEvalOrigin)
 
 // this is the first-phase parse, which might be confused by a line like
 // Cls.[foo (parens) bar] (file:1:2)
-// If we get a fname containing `[`, and the file name contains `] (`,
-// then we chop off the bit from the fileName and put it back on fname.
+// If we get a filename containing (, then chop off the bit from that
+// point and put it back on fname.
+//
 // This heuristic assumes that parens are more likely to appear in
 // method names than filenames, which has been a safe assumption so far.
 export const parseCallSiteLine = (line: string): Compiled => {
   const c = parseCallSiteLine_(line)
-  if (c.fname?.includes('[') && c.fileName?.includes('] (')) {
-    const s = c.fileName.split('] (')
-    c.fileName = s[s.length - 1]
-    s.pop()
-    c.fname = (c.fname + ' (' + s.join('] (') + ']').trim()
+  const paren = c.fileName?.lastIndexOf(' (')
+  if (c.fileName && paren && paren !== -1) {
+    const s = c.fileName.substring(0, paren)
+    const f = c.fileName.substring(paren + 2)
+    c.fname += ` (${s}`
+    c.fileName = f
   }
   // if we ended up with an fname and nothing else, try a more liberal approach
   if (c.fname && !c.fileName && !c.columnNumber && !c.lineNumber) {
