@@ -45,7 +45,8 @@ export const handleReporter = async (
   // if it's one of the keys we know, then use that
   if (reportTypes[reporter]) {
     const Type = reporter as keyof typeof reportTypes
-    return await testReport(Type, t, config)
+    testReport(Type, t, config)
+    return true
   }
 
   // ok, not one of those, check to see if we can import it
@@ -72,7 +73,8 @@ export const handleReporter = async (
         return pipe(t, dest)
       } else {
         // React function component
-        return await testReport(imported, t, config)
+        testReport(imported, t, config)
+        return true
       }
     }
   }

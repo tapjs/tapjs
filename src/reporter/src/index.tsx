@@ -27,7 +27,7 @@ export const report = async (
   Type: string | Reporter,
   tap: TAP,
   config: LoadedConfig
-): Promise<boolean> => {
+) => {
   if (typeof Type === 'string') {
     if (!types.hasOwnProperty(Type)) {
       throw new TypeError(`unknown report type: ${Type}`)
@@ -40,7 +40,5 @@ export const report = async (
   render(<Type test={tap} config={config}></Type>, {
     patchConsole: false,
   })
-
-  // give it a turn of the event loop to mount before doing tap stuff
-  return new Promise<true>(r => setTimeout(() => r(true)))
+  return true
 }
