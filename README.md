@@ -143,7 +143,7 @@ npm start
     instead of
     [`ts-node`](https://github.com/TypeStrong/ts-node).
 - other stuff:
-  - [npm-init-templates](https://github.com/tapjs/tapjs/tree/main/src/npm-init-templates)
+  - [npm-init-template](https://github.com/tapjs/tapjs/tree/main/src/npm-init-template)
     A library for more easily creating `npm init` packages. This
     will move out as soon as this version of tap is published.
   - [`@tapjs/create-plugin`](https://github.com/tapjs/tapjs/tree/main/src/create-plugin)
