@@ -1,5 +1,5 @@
 const t = require('tap')
-const { loaderURL } = require('#loader-url')
+const { loaderURL } = require('../dist/cjs/loader-url.js')
 const { pathToFileURL } = require('node:url')
 t.equal(
   loaderURL,

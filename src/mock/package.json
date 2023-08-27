@@ -26,12 +26,6 @@
       }
     }
   },
-  "imports": {
-    "#loader-url": {
-      "require": "./dist/cjs/loader-url-cjs.js",
-      "import": "./dist/mjs/loader-url-esm.js"
-    }
-  },
   "files": [
     "dist"
   ],

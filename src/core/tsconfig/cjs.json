@@ -1,6 +1,5 @@
 {
   "extends": "./build.json",
-  "exclude": ["../test", "../tap-snapshots", "../src/tap-dir.ts"],
   "compilerOptions": {
     "module": "commonjs",
     "outDir": "../dist-tmp/cjs"

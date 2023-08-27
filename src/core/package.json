@@ -30,18 +30,6 @@
       }
     }
   },
-  "imports": {
-    "#tap-dir": {
-      "import": {
-        "types": "./dist/mjs/tap-dir.d.ts",
-        "default": "./dist/mjs/tap-dir.js"
-      },
-      "require": {
-        "types": "./dist/cjs/tap-dir-cjs.d.ts",
-        "default": "./dist/cjs/tap-dir-cjs.js"
-      }
-    }
-  },
   "files": [
     "dist"
   ],

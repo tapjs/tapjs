@@ -21,7 +21,7 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.tap = void 0;
-__exportStar(require("#tap-dir"), exports);
+__exportStar(require("./tap-file.js"), exports);
 __exportStar(require("./base.js"), exports);
 __exportStar(require("./counts.js"), exports);
 __exportStar(require("./extra-from-error.js"), exports);
@@ -33,7 +33,7 @@ __exportStar(require("./parse-test-args.js"), exports);
 __exportStar(require("./proc.js"), exports);
 __exportStar(require("./spawn.js"), exports);
 __exportStar(require("./stdin.js"), exports);
-__exportStar(require("./tap-file.js"), exports);
+__exportStar(require("./tap-dir.js"), exports);
 __exportStar(require("./test-base.js"), exports);
 __exportStar(require("./test-point.js"), exports);
 __exportStar(require("./waiter.js"), exports);

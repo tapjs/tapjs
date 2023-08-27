@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "rootDir": "./src",
     "declaration": true,
     "declarationMap": true,
     "inlineSources": true,

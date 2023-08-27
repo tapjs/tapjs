@@ -20,12 +20,6 @@
       }
     }
   },
-  "imports": {
-    "#require": {
-      "import": "./dist/mjs/require-esm.js",
-      "require": "./dist/cjs/require.js"
-    }
-  },
   "files": [
     "dist"
   ],
