@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/test",
-  "version": "0.0.0-15",
+  "version": "0.0.0-16",
   "description": "the pluggable Test class for node-tap",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "bin": {
@@ -51,7 +51,7 @@
     "coverage-map": "map.js"
   },
   "peerDependencies": {
-    "@tapjs/core": "0.0.0-15"
+    "@tapjs/core": "0.0.0-16"
   },
   "dependencies": {
     "glob": "^10.3.3",
