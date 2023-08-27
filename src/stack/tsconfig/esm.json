@@ -1,5 +1,10 @@
 {
   "extends": "./build.json",
+  "exclude": [
+    "../test",
+    "../tap-snapshots",
+    "../src/require-resolve.ts"
+  ],
   "compilerOptions": {
     "module": "esnext",
     "outDir": "../dist-tmp/mjs"

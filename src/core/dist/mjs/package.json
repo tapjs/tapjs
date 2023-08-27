@@ -1,3 +1,6 @@
 {
-  "type": "module"
+  "type": "module",
+  "imports": {
+    "#tap-dir": "./tap-dir.js"
+  }
 }

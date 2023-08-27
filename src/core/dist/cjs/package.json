@@ -1,3 +1,6 @@
 {
-  "type": "commonjs"
+  "type": "commonjs",
+  "imports": {
+    "#tap-dir": "./tap-dir-cjs.js"
+  }
 }

@@ -1,4 +1,4 @@
-import { requireResolve } from '../dist/mjs/require-resolve.js'
+import { requireResolve } from '#require-resolve'
 import t from 'tap'
 import { createRequire } from 'node:module'
 const require = createRequire(import.meta.url)

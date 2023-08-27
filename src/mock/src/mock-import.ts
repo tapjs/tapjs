@@ -10,7 +10,7 @@ import { Mocks } from './mocks.js'
 import { randomBytes } from 'crypto'
 import { builtinSet } from 'resolve-import/builtin-set'
 import { isRelativeRequire } from 'resolve-import/is-relative-require'
-import { loaderURL } from './loader-url.js'
+import { loaderURL } from '#loader-url'
 
 const loaderSymbol = Symbol.for('__tapmockLoader')
 declare var global: {

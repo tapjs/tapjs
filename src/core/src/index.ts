@@ -7,7 +7,7 @@
 
 import { CallSiteLike, CallSiteLikeJSON } from '@tapjs/stack'
 
-export * from './tap-file.js'
+export * from '#tap-dir'
 export * from './base.js'
 export * from './counts.js'
 export * from './extra-from-error.js'
@@ -19,7 +19,7 @@ export * from './parse-test-args.js'
 export * from './proc.js'
 export * from './spawn.js'
 export * from './stdin.js'
-export * from './tap-dir.js'
+export * from './tap-file.js'
 export * from './test-base.js'
 export * from './test-point.js'
 export * from './waiter.js'

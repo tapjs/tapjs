@@ -1,5 +1,5 @@
 import t from 'tap'
-import { loaderURL } from '../dist/mjs/loader-url.js'
+import { loaderURL } from '#loader-url'
 import { createRequire } from 'node:module'
 import { pathToFileURL } from 'node:url'
 const require = createRequire(import.meta.url)

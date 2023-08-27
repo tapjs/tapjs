@@ -1,7 +1,7 @@
+import { requireResolve } from '#require-resolve'
 import { builtinModules } from 'node:module'
 import { resolve } from 'node:path'
 import { CallSiteLike } from './call-site-like.js'
-import { requireResolve } from './require-resolve.js'
 export { CallSiteLike, CallSiteLikeJSON } from './call-site-like.js'
 export type { GeneratedResult } from './call-site-like.js'
 export type { Compiled, LineRef } from './parse.js'

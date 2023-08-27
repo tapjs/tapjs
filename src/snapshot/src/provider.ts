@@ -1,7 +1,7 @@
 import { mkdirSync, statSync, unlinkSync, writeFileSync } from 'fs'
 import { dirname } from 'path'
 import type { SnapshotProvider } from './index.js'
-import { req } from './require.js'
+import { req } from '#require'
 
 const envMsg = `
 Run with TAP_SNAPSHOT=1 in the environment to create snapshots`
