@@ -39,10 +39,8 @@ switch (mainCommand) {
     ;(await import('./report.js')).report(args, config)
     break
 
-  // XXX: should really make this `tap config list`
-  // and have commands for setting/getting individual fields
-  case 'dump-config':
-    ;(await import('./dump-config.js')).dumpConfig(args, config)
+  case 'config':
+    ;(await import('./config.js')).config(args, config)
     break
 
   case 'plugin':

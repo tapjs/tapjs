@@ -27,11 +27,11 @@ const commands = new Set([
   'run',
   'build',
   'report',
-  'dump-config',
   'plugin',
   'list',
   'repl',
   'replay',
+  'config',
 ])
 
 if (!commands.has(mainCommand)) {

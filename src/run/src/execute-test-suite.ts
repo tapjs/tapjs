@@ -83,6 +83,9 @@ export const executeTestSuite = async <
         'No valid test files found matching ' +
           args.map(a => JSON.stringify(a)).join(' ')
       )
+      if (args.length === 2 && args[0] === 'edit' && args[1] === 'config') {
+        console.error(`(Did you mean 'tap config edit'?)`)
+      }
       t.debug('runner exit=1 no files found, args')
       process.exitCode = 1
     } else if (unpruned.length) {

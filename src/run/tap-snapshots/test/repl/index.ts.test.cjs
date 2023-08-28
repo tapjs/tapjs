@@ -254,7 +254,7 @@ versions
 list
   print the list of test files that will be run by default
 
-dump-config
+config
   show the config options currently in use
 
 tap [<args>]

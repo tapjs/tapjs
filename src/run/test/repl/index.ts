@@ -426,7 +426,7 @@ coverage-map: map.js
       'version',
       'versions',
       'list',
-      'dump-config',
+      'config',
     ]) {
       t.strictSame(r.completer(fc), [[fc], fc])
     }

@@ -75,19 +75,19 @@ t.test('run', async t => {
   }
 })
 
-t.test('dump-config', async t => {
-  let dumpConfigRan = false
+t.test('config', async t => {
+  let configRan = false
   t.intercept(process, 'argv', {
-    value: [...process.argv.slice(0, 2), 'dump-config'],
+    value: [...process.argv.slice(0, 2), 'config'],
   })
   await t.mockImport('../dist/index.js', {
-    '../dist/dump-config.js': {
-      dumpConfig: () => {
-        dumpConfigRan = true
+    '../dist/config.js': {
+      config: () => {
+        configRan = true
       },
     },
   })
-  t.equal(dumpConfigRan, true)
+  t.equal(configRan, true)
 })
 
 t.test('other commands', t => {

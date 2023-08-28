@@ -526,7 +526,7 @@ t.test('extend from missing dep', async t => {
   })
 })
 
-t.test('edit .taprc config', async t => {
+t.test('edit .taprc config, add fields only', async t => {
   const dir = t.testdir({
     '.taprc': 'color: true\njobs: 3\nreporter: blargggg\n',
   })
@@ -551,6 +551,34 @@ t.test('edit .taprc config', async t => {
     readFileSync(resolve(dir, '.taprc'), 'utf8'),
     '# vi' +
       'm: set filetype=yaml :\ncolor: true\njobs: 3\nreporter: newrep\n'
+  )
+})
+
+t.test('edit .taprc config, overwrite', async t => {
+  const dir = t.testdir({
+    '.taprc': 'color: true\njobs: 3\nreporter: blargggg\n',
+  })
+  const { TapConfig } = await t.mockImport('../dist/mjs/index.js', {
+    '@tapjs/core': t.createMock(core, {
+      cwd: dir,
+      // filter out all TAP* envs
+      env: Object.fromEntries(
+        Object.keys(core.env)
+          .filter(k => k.startsWith('TAP'))
+          .map(k => [k, undefined])
+      ),
+    }),
+  })
+  const tc = await TapConfig.load()
+  t.equal(tc.get('jobs'), 3)
+  t.equal(tc.get('color'), true)
+  t.equal(tc.get('reporter'), 'blargggg')
+  await tc.editConfigFile({ reporter: 'newrep' }, undefined, true)
+  t.equal(tc.get('reporter'), 'newrep')
+  t.equal(
+    readFileSync(resolve(dir, '.taprc'), 'utf8'),
+    '# vi' +
+      'm: set filetype=yaml :\nreporter: newrep\n'
   )
 })
 
@@ -620,6 +648,52 @@ t.test('edit package.json config', async t => {
         tap: {
           color: true,
           jobs: 3,
+          reporter: 'newrep',
+        },
+      },
+      null,
+      '\t\t'
+    ) + '\n'
+  )
+})
+
+t.test('edit package.json config, overwrite', async t => {
+  const dir = t.testdir({
+    'package.json': JSON.stringify(
+      {
+        tap: {
+          color: true,
+          jobs: 3,
+          reporter: 'blargggg',
+        },
+      },
+      null,
+      '\t\t'
+    ),
+  })
+  const { TapConfig } = await t.mockImport('../dist/mjs/index.js', {
+    '@tapjs/core': t.createMock(core, {
+      cwd: dir,
+      // filter out all TAP* envs
+      env: Object.fromEntries(
+        Object.keys(core.env)
+          .filter(k => k.startsWith('TAP'))
+          .map(k => [k, undefined])
+      ),
+    }),
+  })
+  const tc = await TapConfig.load()
+  t.equal(tc.get('jobs'), 3)
+  t.equal(tc.get('color'), true)
+  t.equal(tc.get('reporter'), 'blargggg')
+  await tc.editConfigFile({ reporter: 'newrep' }, undefined, true)
+  t.equal(tc.get('reporter'), 'newrep')
+  t.equal(
+    readFileSync(resolve(dir, 'package.json'), 'utf8'),
+    // preserve indentation
+    JSON.stringify(
+      {
+        tap: {
           reporter: 'newrep',
         },
       },

@@ -164,13 +164,6 @@ ok 1 - this is fine
 
 `
 
-exports[`test/test-base.ts > TAP > expect fail assertion > must match snapshot 1`] = `
-TAP version 14
-ok 1 - double reverse fail
-1..1
-
-`
-
 exports[`test/test-base.ts > TAP > plan > leading plan sets end count > must match snapshot 1`] = `
 TAP version 14
 1..2

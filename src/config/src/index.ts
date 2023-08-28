@@ -71,6 +71,10 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
    * If undefined, it means that we don't have a config file.
    */
   configFile?: string
+  /**
+   * values read from the config file, if loaded
+   */
+  valuesFromConfigFile?: OptionsResults<C>
 
   /**
    * The file extensions that tap knows how to load, updated by plugins
@@ -146,7 +150,8 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
    */
   async editConfigFile(
     data: OptionsResults<C>,
-    configFile = this.configFile
+    configFile = this.configFile,
+    overwrite: boolean = false
   ) {
     // we'll always have a config file by the time we get here
     /* c8 ignore start */
@@ -158,9 +163,9 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
     if (this.values) Object.assign(this.values, data)
     const b = basename(configFile)
     if (b === '.taprc') {
-      return this.editYAMLConfig(data, configFile)
+      return this.editYAMLConfig(data, configFile, overwrite)
     } else if (b === 'package.json') {
-      return this.editPackageJsonConfig(data, configFile)
+      return this.editPackageJsonConfig(data, configFile, overwrite)
     } else {
       throw new Error(
         'unrecognized config file type, must be ' +
@@ -173,7 +178,7 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
   /**
    * Edit a yaml .taprc file
    */
-  async editYAMLConfig(data: OptionsResults<C>, configFile: string) {
+  async editYAMLConfig(data: OptionsResults<C>, configFile: string, overwrite: boolean = false) {
     const src: OptionsResults<C> =
       (await this.readYAMLConfig(configFile, true)) || {}
     return writeFile(
@@ -181,7 +186,7 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
       // split up to un-confuse vim
       '# vi' +
         'm: set filetype=yaml :\n' +
-        yamlStringify(Object.assign(src, data))
+        yamlStringify(overwrite ? data : Object.assign(src, data))
     )
   }
 
@@ -190,7 +195,8 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
    */
   async editPackageJsonConfig(
     data: OptionsResults<C>,
-    configFile: string
+    configFile: string,
+    overwrite: boolean = false
   ) {
     const pj: any =
       (await this.readPackageJson(configFile, true)) || {}
@@ -198,7 +204,7 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
     const src = (
       tap && typeof tap === 'object' && !Array.isArray(tap) ? tap : {}
     ) as OptionsResults<C>
-    pj.tap = Object.assign(src, data)
+    pj.tap = overwrite ? data : Object.assign(src, data)
     if (undefined === pj[kIndent]) pj[kIndent] = 2
     return writeFile(configFile, jsonStringify(pj))
   }
@@ -295,12 +301,20 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
   async loadConfigData(
     data: any,
     configFile: string
-  ): Promise<this & { configFile: string }> {
+  ): Promise<
+    this & {
+      configFile: string
+      valuesFromConfigFile: OptionsResults<C>
+    }
+  > {
     if (!!data && typeof data === 'object') {
       await this.extendConfigData(data, configFile)
       this.jack.setConfigValues(data, configFile)
     }
-    return Object.assign(this, { configFile })
+    return Object.assign(this, {
+      configFile,
+      valuesFromConfigFile: data || {},
+    })
   }
 
   /**
@@ -352,7 +366,12 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
   /**
    * Load configuration from a file
    */
-  async loadConfigFile(): Promise<this & { configFile: string }> {
+  async loadConfigFile(): Promise<
+    this & {
+      configFile: string
+      valuesFromConfigFile: OptionsResults<C>
+    }
+  > {
     // start from cwd, walk up until we find a .git
     // or package.json, or env.HOME
     const home = env.HOME || cwd
@@ -380,6 +399,7 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
         return Object.assign(this, {
           globCwd: p,
           configFile: resolve(p, '.taprc'),
+          valuesFromConfigFile: {},
         })
       } else if (relative(home, p) === '') {
         // got to ~, just use cwd
@@ -389,6 +409,7 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
     return Object.assign(this, {
       globCwd: cwd,
       configFile: resolve(cwd, '.taprc'),
+      valuesFromConfigFile: {},
     })
   }
 

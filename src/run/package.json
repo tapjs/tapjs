@@ -56,6 +56,7 @@
     "rimraf": "^5.0.0",
     "signal-exit": "^4.1.0",
     "tap-yaml": "2.1.1-1",
+    "tcompare": "^6.0.1-4",
     "trivial-deferred": "^2.0.0",
     "ts-node": "github:TypeStrong/ts-node#8f6f4e5",
     "which": "^3.0.1"

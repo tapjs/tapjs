@@ -41,10 +41,10 @@ from the most recent test run.
 The `tap list` command is added, which will print a list of test
 files that will be run.
 
-The `tap dump-config` command is added, taking the place of the
-`--dump-config` flag from previous versions. Only configuration
-fields that are changed from their default values are shown,
-making it more suitable for piping to a `.taprc` file.
+The `tap config [list [<key>] | edit | dump]` command is added,
+taking the place of the `--dump-config` flag from previous
+versions. This makes it much easier to inspect how and where
+configurations are set, and edit them as needed.
 
 The `tap-parallel-ok` and `tap-parallel-not-ok` files are no
 longer relevant. Instead, the `--serial` config can be used to

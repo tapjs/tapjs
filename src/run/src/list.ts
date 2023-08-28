@@ -145,8 +145,11 @@ export const list = async (
     } else {
       console.error('No files found.')
       process.exitCode = 1
-      if (args.length === 1 && /^plugins?$/.test(args[0])) {
-        console.error(`(Did you mean 'tap plugin list'?)`)
+      if (args.length === 1) {
+        const maybe = args[0].match(/^(plugin|config)s?$/)
+        if (maybe) {
+          console.error(`(Did you mean 'tap ${maybe[1]} list'?)`)
+        }
       }
     }
   }

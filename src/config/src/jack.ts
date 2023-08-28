@@ -136,8 +136,61 @@ export default jack({
     This is also run if the -V --versions flag is set`
   )
 
-  .heading('tap dump-config', 3, { pre: true })
-  .description('Print the resolved configuration in YAML format.')
+  .heading('tap config [get | list | dump | set | edit]', 3, {
+    pre: true,
+  })
+  .description('Print or edit configuration in YAML format.')
+
+  .heading('tap config get <key> [<key> ...]', 4, { pre: true })
+  .description(
+    `Print the resolved values of the keys specified.
+
+    If any keys are undefined (because they have no default and are not
+    set), they are omitted.`
+  )
+
+  .heading('tap config list [<key> ...]', 4, { pre: true })
+  .description(
+    `Print the configuration from the config file, and from all environment
+    variables, command-line options, and defaults.
+
+    Items are sorted, and keys are highlighted.
+
+    If one or more key names are provided, then the results will be filtered
+    to only show those configuration keys.`
+  )
+
+  .heading('tap config dump', 4, { pre: true })
+  .description(
+    `Current effect configuration is dumped in YAML format, without
+    any highlighting or sorting.`
+  )
+
+  .heading('tap config set <key=val> [<key=val> ...]', 4, { pre: true })
+  .description(
+    `Set the specified keys and values.
+
+    Boolean values must be set to literal 'true' or 'false'.
+
+    Array values can be set multiple times.
+
+    To delete a value, set it with \`key=\` (ie, provide an empty value).
+    This can be used for example to clear out an array field and then
+    fill it, rather than appending to it.`
+  )
+
+  .heading('tap config edit', 4, { pre: true })
+  .description(
+    `Open the tap configuration in YAML format in your editor. Upon
+    saving and quitting, if the configuration has changed, and is valid,
+    then it will be written to the relevant config file. That is, if your
+    tap configs are coming from a "tap" section in package.json, then
+    they'll be written there, in JSON format. If they're coming from a
+    .taprc file in the project root, then they'll be written there in
+    YAML format.
+
+    All comments and empty lines in the file will be removed.`
+  )
 
   .heading('tap list', 3, { pre: true })
   .description(
@@ -275,7 +328,7 @@ export default jack({
 
                     ${coverageReporters
                       .map(r => `- ${r}`)
-                        .join('\n')}`,
+                      .join('\n')}`,
     },
   })
 

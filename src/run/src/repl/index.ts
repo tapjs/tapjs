@@ -63,7 +63,7 @@ const commands = [
   'version',
   'versions',
   'list',
-  'dump-config',
+  'config',
   'tap',
 ]
 
@@ -120,7 +120,7 @@ versions
 list
   print the list of test files that will be run by default
 
-dump-config
+config
   show the config options currently in use
 
 tap [<args>]
@@ -310,7 +310,7 @@ export class Repl {
       case 'build':
       case 'version':
       case 'versions':
-      case 'dump-config':
+      case 'config':
         return this.spawnTap(words)
       case 'exit':
         return this.exit()
@@ -591,7 +591,7 @@ export class Repl {
       case 'version':
       case 'versions':
       case 'list':
-      case 'dump-config':
+      case 'config':
         return [[cmd], input]
       case 'i':
         return processinfoCompletions(this.processInfo, args, input)

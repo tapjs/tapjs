@@ -295,6 +295,21 @@ coverage-map: map.mjs
     t.equal(stderr, 'No valid test files found matching "blah"\n')
   })
 
+  t.test('did you mean to edit the config?', async t => {
+    const { code, stdout, stderr } = await run(cwd, [
+      'edit',
+      'config',
+    ])
+    t.equal(code, 1)
+    t.equal(stdout, '')
+    t.equal(
+      stderr,
+      `No valid test files found matching "edit" "config"
+(Did you mean 'tap config edit'?)
+`
+    )
+  })
+
   t.test('no args, no changed', async t => {
     const { code, stdout, stderr } = await run(cwd, [], undefined, {
       TAP_CHANGED: '1',

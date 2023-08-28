@@ -11,15 +11,11 @@ Object {
     "description": String(
       A node program to be executed after tests are finished.
       
-                          This will be run even if a test in the series fails with
-                          a bailout, but it will *not* be run if a --before script
-                          fails.
+      This will be run even if a test in the series fails with a bailout, but it will *not* be run if a --before script fails.
       
-                          Exiting with a non-zero status code or a signal will fail
-                          the test run and exit the process in error.
+      Exiting with a non-zero status code or a signal will fail the test run and exit the process in error.
       
-                          Relative \`after\` paths are resolved against the project
-                          config root, even if specified on the cli.
+      Relative \`after\` paths are resolved against the project config root, even if specified on the cli.
     ),
     "type": "string",
   },
@@ -32,21 +28,17 @@ Object {
     "description": String(
       A node program to be run before test files are executed.
       
-                          Exiting with a non-zero status code or a signal will fail
-                          the test run and exit the process in error.
+      Exiting with a non-zero status code or a signal will fail the test run and exit the process in error.
       
-                          Relative \`before\` paths are resolved against the project
-                          config root, even if specified on the cli.
+      Relative \`before\` paths are resolved against the project config root, even if specified on the cli.
     ),
     "type": "string",
   },
   "changed": Object {
     "description": String(
-      Only run tests for files that have changed since the last
-                          run.
+      Only run tests for files that have changed since the last run.
       
-                          If no prior test run data exists, then all default files
-                          are run, as if --changed was not specified.
+      If no prior test run data exists, then all default files are run, as if --changed was not specified.
     ),
     "short": "n",
     "type": "boolean",
@@ -62,21 +54,13 @@ Object {
   },
   "coverage-map": Object {
     "description": String(
-      Provide a path to a node module (esm or cjs) that default
-                          exports a single function. That function takes a test
-                          file as an argument, and returns an array of files to
-                          instrument with coverage when that file is run.
+      Provide a path to a node module (esm or cjs) that default exports a single function. That function takes a test file as an argument, and returns an array of files to instrument with coverage when that file is run.
       
-                          This is useful in cases where a unit test should cover a
-                          single portion of the system under test, or where you wish
-                          to avoid tracking "accidental coverage" by integration
-                          tests.
+      This is useful in cases where a unit test should cover a single portion of the system under test, or where you wish to avoid tracking "accidental coverage" by integration tests.
       
-                          Return \`null\` to not cover any files by this test.
+      Return \`null\` to not cover any files by this test.
       
-                          Return an empty array [] to cover the set that would be
-                          pulled in by default. Ie, returning [] is equivalent to
-                          not using a coverage map at all.
+      Return an empty array [] to cover the set that would be pulled in by default. Ie, returning [] is equivalent to not using a coverage map at all.
     ),
     "type": "string",
   },
@@ -85,20 +69,17 @@ Object {
       "text",
     ],
     "description": String(
-      Output coverage information using the specified
-                          istanbul coverage reporter type.
+      Output coverage information using the specified istanbul coverage reporter type.
       
-                          Default is \`text\`.
+      Default is \`text\`.
       
-                          If \`html\` or \`lcov\` is used, then the HTML report will
-                          be opened in a web browser after running.
+      If \`html\` or \`lcov\` is used, then the HTML report will be opened in a web browser after running.
       
-                          This can be run on its own at any time after a test run
-                          that included coverage.
+      This can be run on its own at any time after a test run that included coverage.
       
-                          Built-in coverage reporters:
+      Built-in coverage reporters:
       
-                          - clover
+      - clover
       - cobertura
       - html
       - json
@@ -119,11 +100,7 @@ Object {
     "type": "boolean",
   },
   "diag": Object {
-    "description": String(
-      Set to show diagnostics by default for both passing and
-                          failing tests. If not set, then diagnostics are printed by
-                          default for failing tests, and not for passing tests.
-    ),
+    "description": "Set to show diagnostics by default for both passing and failing tests. If not set, then diagnostics are printed by default for failing tests, and not for passing tests.",
     "type": "boolean",
   },
   "exclude": Object {
@@ -131,27 +108,17 @@ Object {
       "**/@(fixture*(s)|dist)/**",
     ],
     "description": String(
-      A glob pattern indicating which filenames should NEVER
-                          be run as tests. This overrides the \`include\` option.
+      A glob pattern indicating which filenames should NEVER be run as tests. This overrides the \`include\` option.
       
-                          Defaults to excluding any folders named dist, fixture, or
-                          fixtures.
+      Defaults to excluding any folders named dist, fixture, or fixtures.
       
-                          Note: folders named tap-snapshots, node_modules, or .git
-                          are ALWAYS excluded from the default test file set. If you
-                          wish to run tests in these folders, then name the test
-                          files on the command line as positional arguments.
+      Note: folders named tap-snapshots, node_modules, or .git are ALWAYS excluded from the default test file set. If you wish to run tests in these folders, then name the test files on the command line as positional arguments.
     ),
     "multiple": true,
     "type": "string",
   },
   "files": Object {
-    "description": String(
-      Alternative way to specify test set rather than using
-                          positional arguments. Supported as an option so that
-                          test file arguments can be specified in .taprc and
-                          package.json files.
-    ),
+    "description": "Alternative way to specify test set rather than using positional arguments. Supported as an option so that test file arguments can be specified in .taprc and package.json files.",
     "multiple": true,
     "type": "string",
   },
@@ -167,47 +134,34 @@ Object {
       "**/test?(s).__EXTENSIONS__",
     ],
     "description": String(
-      A glob expression pattern indicating tests to run if no
-                          positional arguments are provided to the \`tap run\`
-                          command.
+      A glob expression pattern indicating tests to run if no positional arguments are provided to the \`tap run\` command.
       
-                          The special token \`__EXTENSIONS__\` will expand to the
-                          list of known file type extensions that tap knows how to
-                          process. When the \`@tapjs/typescript\` plugin is loaded
-                          (default), this will be:
+      The special token \`__EXTENSIONS__\` will expand to the list of known file type extensions that tap knows how to process. When the \`@tapjs/typescript\` plugin is loaded (default), this will be:
       
-                          - js
-                          - cjs
-                          - mjs
-                          - jsx
-                          - ts
-                          - cts
-                          - mts
-                          - tsx
+      - js
+      - cjs
+      - mjs
+      - jsx
+      - ts
+      - cts
+      - mts
+      - tsx
       
-                          Without the typescript plugin, this will be just the file
-                          extensions known to Node:
+      Without the typescript plugin, this will be just the file extensions known to Node:
       
-                          - js
-                          - cjs
-                          - mjs
+      - js
+      - cjs
+      - mjs
       
-                          By default, tap will search for all files ending in these
-                          known file type extensions in the following ways:
+      By default, tap will search for all files ending in these known file type extensions in the following ways:
       
-                          - a top-level folder named test, tests, or __tests__
-                          - any file ending in \`.spec.\` or \`.test.\` before a
-                            supported extension, or
-                          - a top-level file named \`test.(js,jsx,...)\` or
-                            \`tests.(js,jsx,...)\`
+      - a top-level folder named test, tests, or __tests__
+      - any file ending in \`.spec.\` or \`.test.\` before a supported extension, or
+      - a top-level file named \`test.(js,jsx,...)\` or \`tests.(js,jsx,...)\`
       
-                          No files excluded by the \`exclude\` option will be loaded,
-                          meaning that dependencies, build artifacts in \`dist\`,
-                          test fixtures, snapshots, and source control metadata will
-                          be ignored.
+      No files excluded by the \`exclude\` option will be loaded, meaning that dependencies, build artifacts in \`dist\`, test fixtures, snapshots, and source control metadata will be ignored.
       
-                          The glob patterns are expanded without the \`dot\` option,
-                          so any file starting with a . will be ignored.
+      The glob patterns are expanded without the \`dot\` option, so any file starting with a . will be ignored.
     ),
     "multiple": true,
     "type": "string",
@@ -217,10 +171,9 @@ Object {
     "description": String(
       Run up to <n> test files in parallel.
       
-                          By default, this will be set based on the number of CPUs
-                          on the system.
+      By default, this will be set based on the number of CPUs on the system.
       
-                          Set --jobs=1 to disable parallelization entirely.
+      Set --jobs=1 to disable parallelization entirely.
     ),
     "short": "j",
     "type": "number",
@@ -236,11 +189,7 @@ Object {
     "type": "boolean",
   },
   "no-diag": Object {
-    "description": String(
-      Do not show diagnostics by default for passing or failing
-                          tests. If not set, then diagnostics are printed by default
-                          for failing tests, and not for passing tests.
-    ),
+    "description": "Do not show diagnostics by default for passing or failing tests. If not set, then diagnostics are printed by default for failing tests, and not for passing tests.",
     "type": "boolean",
   },
   "no-omit-whitespace": Object {
@@ -249,20 +198,12 @@ Object {
   },
   "node-arg": Object {
     "default": Array [],
-    "description": String(
-      Pass an argument to Node binary in all child processes.
-                          Run \`node --help\` to see a list of all relevant arguments.
-                          This can be specified multiple times to pass multiple args
-                          to Node.
-    ),
+    "description": "Pass an argument to Node binary in all child processes. Run \`node --help\` to see a list of all relevant arguments. This can be specified multiple times to pass multiple args to Node.",
     "multiple": true,
     "type": "string",
   },
   "omit-version": Object {
-    "description": String(
-      Do not print the \`TAP version 14\` line. (This may be
-                          needed for compapatibility with some older TAP parsers.)
-    ),
+    "description": "Do not print the \`TAP version 14\` line. (This may be needed for compapatibility with some older TAP parsers.)",
     "type": "boolean",
   },
   "omit-whitespace": Object {
@@ -271,25 +212,15 @@ Object {
   },
   "output-dir": Object {
     "description": String(
-      Send the raw TAP output to the specified directory. A
-                          separate .tap file will be created for each test file that
-                          is run. Reporter output will still be printed to stdout,
-                          but the files will contain the raw TAP for later replay or
-                          analysis.
+      Send the raw TAP output to the specified directory. A separate .tap file will be created for each test file that is run. Reporter output will still be printed to stdout, but the files will contain the raw TAP for later replay or analysis.
       
-                          Files will be created to match the folder structure and
-                          filenames of test files run, but with \`.tap\` appended to
-                          the filenames.
+      Files will be created to match the folder structure and filenames of test files run, but with \`.tap\` appended to the filenames.
     ),
     "short": "d",
     "type": "string",
   },
   "output-file": Object {
-    "description": String(
-      Send the raw TAP output to the specified file. Reporter
-                          output will still be printed to stdout, but the file will
-                          contain the raw TAP for later replay or analysis.
-    ),
+    "description": "Send the raw TAP output to the specified file. Reporter output will still be printed to stdout, but the file will contain the raw TAP for later replay or analysis.",
     "short": "o",
     "type": "string",
   },
@@ -297,7 +228,7 @@ Object {
     "description": String(
       Include passing tests in assertion summary reports.
       
-            Note: this usually makes test output QUITE noisy.
+      Note: this usually makes test output QUITE noisy.
     ),
     "type": "boolean",
   },
@@ -306,21 +237,15 @@ Object {
     "description": String(
       Configure the tap Test class with the specified plugin.
       
-                          Typically this is set in a .taprc file, not on the command
-                          line, and can be managed using the \`tap plugin <add|rm>\`
-                          command.
+      Typically this is set in a .taprc file, not on the command line, and can be managed using the \`tap plugin <add|rm>\` command.
       
-                          If the set of plugins does not match that which tap was
-                          built with previously, then it will rebuild the Test class
-                          prior to running tests.
+      If the set of plugins does not match that which tap was built with previously, then it will rebuild the Test class prior to running tests.
       
-                          To *exclude* a plugin which has been previously included
-                          (perhaps by being part of tap's default set), add it to
-                          this list prefixed by a \`!\` character.
+      To *exclude* a plugin which has been previously included (perhaps by being part of tap's default set), add it to this list prefixed by a \`!\` character.
       
-                          The default plugin set that ships with tap is:
+      The default plugin set that ships with tap is:
       
-                          - @tapjs/after
+      - @tapjs/after
       - @tapjs/after-each
       - @tapjs/asserts
       - @tapjs/before
@@ -335,38 +260,28 @@ Object {
       - @tapjs/typescript
       - @tapjs/worker
       
-                          Even if excluded, the runner will use some of these plugins
-                          in its own operation.
-        
+      Even if excluded, the runner will use some of these plugins in its own operation.
     ),
     "multiple": true,
     "type": "string",
   },
   "reporter": Object {
     "description": String(
-      Use the specified reporter. Defaults to \`base\` when
-                          colors are in use, or \`tap\` when colors are disabled.
+      Use the specified reporter. Defaults to \`base\` when colors are in use, or \`tap\` when colors are disabled.
       
-                          In addition to the built-in reporters provided by
-                          the \`@tapjs/reporter\` module, the reporter option can
-                          also specify a command-line program or a module to load
-                          via \`import()\`.
+      In addition to the built-in reporters provided by the \`@tapjs/reporter\` module, the reporter option can also specify a command-line program or a module to load via \`import()\`.
       
-                          Command-line programs receive the raw TAP output on their
-                          stdin.
+      Command-line programs receive the raw TAP output on their stdin.
       
-                          Modules loaded via import() must default export a writable
-                          stream class, \`React\` function component, or a
-                          \`React.Component\` subclass.
+      Modules loaded via import() must default export a writable stream class, \`React\` function component, or a \`React.Component\` subclass.
       
-                          Writable streams are instantiated and piped into.
+      Writable streams are instantiated and piped into.
       
-                          React components are rendered using Ink, with \`tap={tap}\`
-                          and \`config={loadedConfig}\` as their properties.
+      React components are rendered using Ink, with \`tap={tap}\` and \`config={loadedConfig}\` as their properties.
       
-                          Built-in test reporters:
+      Built-in test reporters:
       
-                          - base
+      - base
       - terse
       - tap
       - silent
@@ -375,93 +290,55 @@ Object {
     "type": "string",
   },
   "reporter-arg": Object {
-    "description": String(
-      Args to pass to command-line reporters. Ignored when using
-                          built-in reporters or module reporters.
-    ),
+    "description": "Args to pass to command-line reporters. Ignored when using built-in reporters or module reporters.",
     "multiple": true,
     "short": "r",
     "type": "string",
   },
   "save": Object {
     "description": String(
-      If <file> exists, then it should be a line- delimited list
-                          of test files to run. If <file> is not present, then all
-                          command-line positional arguments are run.
+      If <file> exists, then it should be a line- delimited list of test files to run. If <file> is not present, then all command-line positional arguments are run.
       
-                          After the set of test files are run, any failed test files
-                          are written back to the save file.
+      After the set of test files are run, any failed test files are written back to the save file.
       
-                          This way, repeated runs with -s<file> will re-run failures
-                          until all the failures are passing, and then once again run
-                          all tests.
+      This way, repeated runs with -s<file> will re-run failures until all the failures are passing, and then once again run all tests.
       
-                          Its a good idea to .gitignore the file used for this
-                          purpose, as it will churn a lot.
+      Its a good idea to .gitignore the file used for this purpose, as it will churn a lot.
     ),
     "short": "s",
     "type": "string",
   },
   "serial": Object {
-    "description": String(
-      Mark all test files anywhere within the specified
-                          directory as serial tests, not to be run in parallel with
-                          any other test files.
-    ),
+    "description": "Mark all test files anywhere within the specified directory as serial tests, not to be run in parallel with any other test files.",
     "multiple": true,
     "type": "string",
   },
   "show-full-coverage": Object {
     "description": String(
-      Show the \`100\` lines in the default \`text\` coverage
-                          reporter for every file that has full coverage. Defaults to
-                          false for all commands other than \`tap report\`. Has no
-                          effect on any other coverage report styles.
+      Show the \`100\` lines in the default \`text\` coverage reporter for every file that has full coverage. Defaults to false for all commands other than \`tap report\`. Has no effect on any other coverage report styles.
       
-                          If not set, and the test suite has full coverage, then no
-                          text coverage report will be generated when running tests.
-                          It can be assumed in this case that no news is good news,
-                          and a zero-exit test process means full coverage was
-                          generated. When generating any other test report styles,
-                          files with full coverage are still reported.
+      If not set, and the test suite has full coverage, then no text coverage report will be generated when running tests. It can be assumed in this case that no news is good news, and a zero-exit test process means full coverage was generated. When generating any other test report styles, files with full coverage are still reported.
       
-                          When running \`tap report\`, this defaults to true, because
-                          presumably you do want to see something if explicitly
-                          requesting a coverage report, even if it's just a list of
-                          green 100s.
+      When running \`tap report\`, this defaults to true, because presumably you do want to see something if explicitly requesting a coverage report, even if it's just a list of green 100s.
       
-                          When running \`tap report --no-show-full-coverage\`, with
-                          this config explicitly set false, it will omit the default
-                          text report on full coverage, and behave like running \`tap
-                          report none\` (ie, print nothing).
+      When running \`tap report --no-show-full-coverage\`, with this config explicitly set false, it will omit the default text report on full coverage, and behave like running \`tap report none\` (ie, print nothing).
       
-                          When running \`tap report text --no-show-full-coverage\`,
-                          explicitly requesting a text report and also explicitly
-                          requesting that full coverage text report *not* be shown,
-                          then a summary report will be printed instead of the full
-                          text report.
+      When running \`tap report text --no-show-full-coverage\`, explicitly requesting a text report and also explicitly requesting that full coverage text report *not* be shown, then a summary report will be printed instead of the full text report.
     ),
     "type": "boolean",
   },
   "test-arg": Object {
     "default": Array [],
-    "description": String(
-      Pass an argument to test files spawned by the tap command
-                          line executable. This can be specified multiple times to
-                          pass multiple args to test scripts.
-    ),
+    "description": "Pass an argument to test files spawned by the tap command line executable. This can be specified multiple times to pass multiple args to test scripts.",
     "multiple": true,
     "type": "string",
   },
   "test-env": Object {
     "default": Array [],
     "description": String(
-      Pass a key=value (ie, --test-env=key=value) to set an
-                          environment variable in the process where tests are run.
+      Pass a key=value (ie, --test-env=key=value) to set an environment variable in the process where tests are run.
       
-                          If a value is not provided, such as \`--test-env=key\`,
-                          then the key is ensured to not be set in the environment.
-                          To set a key to the empty string, use --test-env=key=
+      If a value is not provided, such as \`--test-env=key\`, then the key is ensured to not be set in the environment. To set a key to the empty string, use --test-env=key=
     ),
     "multiple": true,
     "type": "string",
@@ -469,12 +346,9 @@ Object {
   "timeout": Object {
     "default": 30,
     "description": String(
-      Time out test files after <n> seconds. Defaults to 30.
-                          Setting to 0 allows tests to run forever.
+      Time out test files after <n> seconds. Defaults to 30. Setting to 0 allows tests to run forever.
       
-                          When a test process calls t.setTimeout(n) on the top-level
-                          tap object, it also updates this value for that specific
-                          process.
+      When a test process calls t.setTimeout(n) on the top-level tap object, it also updates this value for that specific process.
     ),
     "short": "t",
     "type": "number",
