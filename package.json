@@ -98,6 +98,7 @@
     "build": "node ./scripts/default-build.mjs",
     "pindeps": "node ./scripts/version.mjs pindeps",
     "v": "node ./scripts/version.mjs",
+    "p": "bash ./scripts/bump-changed.sh",
     "pub": "npm run v -- pub",
     "deploy:docs": "npm run deploy:prod -w src/docs",
     "postv": "npm run deploy:docs"
