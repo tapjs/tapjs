@@ -1,7 +1,9 @@
-import t from 'tap'
 import { spawn } from 'node:child_process'
-import { resolve } from 'node:path'
-const bin = resolve('dist/mjs/run.mjs')
+import { fileURLToPath } from 'node:url'
+import t from 'tap'
+const bin = fileURLToPath(
+  new URL('../dist/mjs/run.mjs', import.meta.url)
+)
 t.test('runner just loads runner', t => {
   const proc = spawn(process.execPath, [
     '--loader=ts-node/esm',
@@ -9,6 +11,8 @@ t.test('runner just loads runner', t => {
     bin,
     '-h',
   ])
+  proc.stdout.resume()
+  proc.stderr.resume()
   proc.on('close', (code, signal) => {
     t.strictSame([code, signal], [0, null])
     t.end()
