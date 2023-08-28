@@ -124,6 +124,10 @@ export class Filter {
       } else {
         opts.grep = rest
       }
+    } else if (this.#grep) {
+      // just set to an empty array so it doesn't try to load from the
+      // env once we've exhausted the pattern parts.
+      opts.grep = []
     }
     if (this.#runOnly && !opts.only) {
       const p = 'filter: only'

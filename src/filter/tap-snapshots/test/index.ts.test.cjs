@@ -39,8 +39,25 @@ ok 2 - unicorn # time={TIME}
         1..1
     ok 2 - howl # time={TIME}
     
-    ok 3 - woof
-    1..3
+    # Subtest: dig
+        # Subtest: dig
+            # Subtest: keep digging
+                # Subtest: dig some more
+                    ok 1 - found it
+                    1..1
+                ok 1 - dig some more # time={TIME}
+                
+                1..1
+            ok 1 - keep digging # time={TIME}
+            
+            1..1
+        ok 1 - dig # time={TIME}
+        
+        1..1
+    ok 3 - dig # time={TIME}
+    
+    ok 4 - woof
+    1..4
 ok 3 - dog # time={TIME}
 
 1..3
@@ -49,15 +66,32 @@ ok 3 - dog # time={TIME}
 
 exports[`test/index.ts > TAP > get defaults from env > grep > must match snapshot 1`] = `
 TAP version 14
-# Subtest: cat
-    ok 1 - hiss # SKIP filter: /meow/
-    ok 2 - purr # SKIP filter: /meow/
-    ok 3 - meow
-    1..3
-ok 1 - cat # time={TIME}
+ok 1 - cat # SKIP filter: /dOg/i
+ok 2 - unicorn # SKIP filter: /dOg/i
+# Subtest: dog
+    ok 1 - growl # SKIP filter: /dig/
+    ok 2 - howl # SKIP filter: /dig/
+    # Subtest: dig
+        # Subtest: dig
+            # Subtest: keep digging
+                # Subtest: dig some more
+                    ok 1 - found it
+                    1..1
+                ok 1 - dig some more # time={TIME}
+                
+                1..1
+            ok 1 - keep digging # time={TIME}
+            
+            1..1
+        ok 1 - dig # time={TIME}
+        
+        1..1
+    ok 3 - dig # time={TIME}
+    
+    ok 4 - woof
+    1..4
+ok 3 - dog # time={TIME}
 
-ok 2 - unicorn # SKIP filter: /cAt/i
-ok 3 - dog # SKIP filter: /cAt/i
 1..3
 
 `
@@ -200,8 +234,25 @@ ok 2 - unicorn # time={TIME}
         1..1
     ok 2 - howl # time={TIME}
     
-    ok 3 - woof
-    1..3
+    # Subtest: dig
+        # Subtest: dig
+            # Subtest: keep digging
+                # Subtest: dig some more
+                    ok 1 - found it
+                    1..1
+                ok 1 - dig some more # time={TIME}
+                
+                1..1
+            ok 1 - keep digging # time={TIME}
+            
+            1..1
+        ok 1 - dig # time={TIME}
+        
+        1..1
+    ok 3 - dig # time={TIME}
+    
+    ok 4 - woof
+    1..4
 ok 3 - dog # time={TIME}
 
 1..3

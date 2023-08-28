@@ -34,6 +34,13 @@ const run = async (
   tt.test('dog', async tt => {
     tt.test('growl', async tt => tt.pass('grrr'))
     tt.test('howl', async tt => tt.pass('howww'))
+    tt.test('dig', async tt =>
+      tt.test('dig', async tt =>
+        tt.test('keep digging', async tt =>
+          tt.test('dig some more', async tt => tt.pass('found it'))
+        )
+      )
+    )
     tt.pass('woof')
   })
   tt.end()
@@ -91,7 +98,7 @@ t.test('get defaults from env', t => {
         delete process.env.TAP_GREP
       })
     }
-    process.env.TAP_GREP = '/cAt/i\nmeow'
+    process.env.TAP_GREP = '/dOg/i\ndig'
     t.matchSnapshot(await run({ name: 'env grep' }))
   })
   t.test('grep invert', async t => {
