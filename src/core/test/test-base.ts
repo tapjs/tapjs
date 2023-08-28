@@ -1375,3 +1375,41 @@ t.test('debug is inherited', async t => {
   t.match(wd, { options: { debug: true } })
   t.match(wod, { options: { debug: false } })
 })
+
+t.test('asserts while occupied and ended', async t => {
+  const tb = new T({ name: 'parent' })
+
+  const x = (a: any, b: any) => {
+    tb[a == 'a' ? 'pass' : 'fail']('should be equal', {
+      found: a,
+      wanted: 'a',
+    })
+    tb[b == 'b' ? 'pass' : 'fail']('should be equal', {
+      found: b,
+      wanted: 'b',
+    })
+  }
+  tb.on('idle', () => {
+    tb.end()
+    setTimeout(() => tb.endAll())
+  })
+  tb.test('parent', async tb => {
+    tb.test('child', async t => {
+      await Promise.resolve(true)
+      t.pass('this is fine')
+      x('a', 'b')
+      await Promise.resolve(true)
+      t.pass('this is fine')
+    })
+    tb.test('child 2', async t => {
+      await Promise.resolve(true)
+      t.pass('this is fine')
+      x('a', 'b')
+      await Promise.resolve(true)
+      t.pass('this is fine')
+    })
+  })
+  const output = await tb.concat()
+  t.equal(tb.passing(), true)
+  t.matchSnapshot(output)
+})

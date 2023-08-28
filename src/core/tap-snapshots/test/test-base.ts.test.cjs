@@ -5,6 +5,32 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
+exports[`test/test-base.ts > TAP > asserts while occupied and ended > must match snapshot 1`] = `
+TAP version 14
+# Subtest: parent
+    # Subtest: child
+        ok 1 - this is fine
+        ok 2 - this is fine
+        1..2
+    ok 1 - child # time={TIME}
+    
+    # Subtest: child 2
+        ok 1 - this is fine
+        ok 2 - this is fine
+        1..2
+    ok 2 - child 2 # time={TIME}
+    
+    1..2
+ok 1 - parent # time={TIME}
+
+ok 2 - should be equal
+ok 3 - should be equal
+ok 4 - should be equal
+ok 5 - should be equal
+1..5
+
+`
+
 exports[`test/test-base.ts > TAP > bailout > bail no message > bailout no message 1`] = `
 TAP version 14
 Bail out!

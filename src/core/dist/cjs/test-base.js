@@ -136,7 +136,8 @@ class TestBase extends base_js_1.Base {
     #n = 0;
     #noparallel = false;
     #occupied = null;
-    #pushedEnd = false;
+    // set to true if the end should be explicit
+    #awaitingEnd = false;
     #pushedBeforeEnd = false;
     #nextChildId = 1;
     #currentAssert;
@@ -227,13 +228,13 @@ class TestBase extends base_js_1.Base {
     comment(...args) {
         const body = (0, node_util_1.format)(...args);
         const message = ('# ' + body.split(/\r?\n/).join('\n# ')).trim() + '\n';
-        if (this.results || this.ended || this.#pushedEnd) {
+        if (this.results || this.ended || this.#awaitingEnd) {
             // the fallback to console.log is a bit weird,
             // but the only alternative seems to be to just lose it.
             if (this.parent) {
                 this.parent.comment(...args);
             }
-            else if (this.writable && !this.#pushedEnd) {
+            else if (this.writable && !this.#awaitingEnd) {
                 super.write(message);
                 this.parser.emit('comment', message.trim());
             }
@@ -427,7 +428,7 @@ class TestBase extends base_js_1.Base {
         // otherwise the relevant awaited assertion will be lost.
         if (this.#occupied &&
             this.#occupied instanceof waiter_js_1.Waiter &&
-            this.#pushedEnd) {
+            this.#awaitingEnd) {
             front = true;
         }
         if (front) {
@@ -544,10 +545,7 @@ class TestBase extends base_js_1.Base {
         // the semantic checks on counts and such will be off.
         if (!queueEmpty(this) || this.#occupied) {
             this.debug('#end: queue not empty, or occupied');
-            if (!this.#pushedEnd) {
-                this.queue.push(['#end', implicit]);
-            }
-            this.#pushedEnd = true;
+            this.#awaitingEnd = implicit === implicit_end_sigil_js_1.IMPLICIT ? implicit_end_sigil_js_1.IMPLICIT : true;
             return this.#process();
         }
         if (implicit !== implicit_end_sigil_js_1.IMPLICIT) {
@@ -667,7 +665,7 @@ class TestBase extends base_js_1.Base {
             else if (Array.isArray(p)) {
                 this.debug(' > METHOD');
                 const m = p.shift();
-                const fn = (m === '#end' ? this.#end : this[m]);
+                const fn = this[m];
                 if (typeof fn !== 'function') {
                     this.debug(' > weird method not found in queue??', m, typeof this[m]);
                     continue;
@@ -719,6 +717,9 @@ class TestBase extends base_js_1.Base {
             this.#process();
         }
         else if (this.idle) {
+            if (this.#awaitingEnd) {
+                this.#end(this.#awaitingEnd === implicit_end_sigil_js_1.IMPLICIT ? implicit_end_sigil_js_1.IMPLICIT : undefined);
+            }
             // the root tap runner uses this event to know when it is safe to
             // automatically end.
             this.emit('idle');
@@ -737,7 +738,6 @@ class TestBase extends base_js_1.Base {
             this.#planEnd === -1);
     }
     #onBufferedEnd(p) {
-        p.ondone = p.constructor.prototype.ondone;
         p.results = p.results || new tap_parser_1.FinalResults(true, p.parser);
         p.readyToProcess = true;
         const to = p.options.timeout;
@@ -766,7 +766,6 @@ class TestBase extends base_js_1.Base {
     #onIndentedEnd(p) {
         this.debug('onIndentedEnd', p.name);
         this.emit('subtestProcess', p);
-        p.ondone = p.constructor.prototype.ondone;
         // we'll generally already have a results by now, but just to be sure
         /* c8 ignore start */
         p.results = p.results || new tap_parser_1.FinalResults(true, p.parser);
@@ -822,7 +821,10 @@ class TestBase extends base_js_1.Base {
             if (this.results || this.bailedOut)
                 cb();
             else
-                this.ondone = () => cb();
+                this.ondone = () => {
+                    super.ondone();
+                    cb();
+                };
         };
         // This bit of overly clever line-noise wraps the call to user-code
         // in a try-catch. We can't rely on the domain for this yet, because
@@ -868,10 +870,7 @@ class TestBase extends base_js_1.Base {
             p.pipe(this.parser, { end: false });
             this.#writeSubComment(p);
             this.debug('calling runMain', p.name);
-            p.runMain(() => {
-                this.debug('runMain callback', p.name);
-                this.#onIndentedEnd(p);
-            });
+            p.runMain(() => this.#onIndentedEnd(p));
         }
         else if (p.readyToProcess) {
             this.emit('subtestProcess', p);
@@ -1081,9 +1080,9 @@ class TestBase extends base_js_1.Base {
             if (!extra.at && !extra.stack)
                 extra.at = null;
             this.fail(msg, extra);
-            if (this.ended || this.#pushedEnd) {
+            if (this.ended || this.#awaitingEnd) {
                 this.ended = false;
-                this.#pushedEnd = false;
+                this.#awaitingEnd = false;
                 this.end(implicit_end_sigil_js_1.IMPLICIT);
             }
         }

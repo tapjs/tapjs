@@ -267,7 +267,8 @@ export class TestBase extends Base<TestBaseEvents> {
   #n: number = 0
   #noparallel: boolean = false
   #occupied: null | Waiter | Base = null
-  #pushedEnd: boolean = false
+  // set to true if the end should be explicit
+  #awaitingEnd: typeof IMPLICIT | boolean = false
   #pushedBeforeEnd: boolean = false
   #nextChildId: number = 1
   #currentAssert?: Function | ((..._: any) => any)
@@ -372,12 +373,12 @@ export class TestBase extends Base<TestBaseEvents> {
     const message =
       ('# ' + body.split(/\r?\n/).join('\n# ')).trim() + '\n'
 
-    if (this.results || this.ended || this.#pushedEnd) {
+    if (this.results || this.ended || this.#awaitingEnd) {
       // the fallback to console.log is a bit weird,
       // but the only alternative seems to be to just lose it.
       if (this.parent) {
         this.parent.comment(...args)
-      } else if (this.writable && !this.#pushedEnd) {
+      } else if (this.writable && !this.#awaitingEnd) {
         super.write(message)
         this.parser.emit('comment', message.trim())
       } else {
@@ -612,7 +613,7 @@ export class TestBase extends Base<TestBaseEvents> {
     if (
       this.#occupied &&
       this.#occupied instanceof Waiter &&
-      this.#pushedEnd
+      this.#awaitingEnd
     ) {
       front = true
     }
@@ -744,10 +745,7 @@ export class TestBase extends Base<TestBaseEvents> {
     // the semantic checks on counts and such will be off.
     if (!queueEmpty(this) || this.#occupied) {
       this.debug('#end: queue not empty, or occupied')
-      if (!this.#pushedEnd) {
-        this.queue.push(['#end', implicit])
-      }
-      this.#pushedEnd = true
+      this.#awaitingEnd = implicit === IMPLICIT ? IMPLICIT : true
       return this.#process()
     }
 
@@ -872,9 +870,7 @@ export class TestBase extends Base<TestBaseEvents> {
       } else if (Array.isArray(p)) {
         this.debug(' > METHOD')
         const m = p.shift() as keyof this
-        const fn = (m === '#end' ? this.#end : this[m]) as (
-          ...a: any[]
-        ) => any
+        const fn = this[m] as (...a: any[]) => any
         if (typeof fn !== 'function') {
           this.debug(
             ' > weird method not found in queue??',
@@ -935,6 +931,11 @@ export class TestBase extends Base<TestBaseEvents> {
     if (!this.#occupied && this.queue.length) {
       this.#process()
     } else if (this.idle) {
+      if (this.#awaitingEnd) {
+        this.#end(
+          this.#awaitingEnd === IMPLICIT ? IMPLICIT : undefined
+        )
+      }
       // the root tap runner uses this event to know when it is safe to
       // automatically end.
       this.emit('idle')
@@ -957,7 +958,6 @@ export class TestBase extends Base<TestBaseEvents> {
   }
 
   #onBufferedEnd<T extends Base>(p: T) {
-    p.ondone = p.constructor.prototype.ondone
     p.results = p.results || new FinalResults(true, p.parser)
     p.readyToProcess = true
     const to = p.options.timeout
@@ -990,7 +990,6 @@ export class TestBase extends Base<TestBaseEvents> {
   #onIndentedEnd<T extends Base>(p: T) {
     this.debug('onIndentedEnd', p.name)
     this.emit('subtestProcess', p)
-    p.ondone = p.constructor.prototype.ondone
     // we'll generally already have a results by now, but just to be sure
     /* c8 ignore start */
     p.results = p.results || new FinalResults(true, p.parser)
@@ -1047,7 +1046,11 @@ export class TestBase extends Base<TestBaseEvents> {
       if (er) this.threw(er)
 
       if (this.results || this.bailedOut) cb()
-      else this.ondone = () => cb()
+      else
+        this.ondone = () => {
+          super.ondone()
+          cb()
+        }
     }
 
     // This bit of overly clever line-noise wraps the call to user-code
@@ -1093,10 +1096,7 @@ export class TestBase extends Base<TestBaseEvents> {
       p.pipe(this.parser, { end: false })
       this.#writeSubComment(p)
       this.debug('calling runMain', p.name)
-      p.runMain(() => {
-        this.debug('runMain callback', p.name)
-        this.#onIndentedEnd(p)
-      })
+      p.runMain(() => this.#onIndentedEnd(p))
     } else if (p.readyToProcess) {
       this.emit('subtestProcess', p)
       this.debug(' > subtest buffered, finished')
@@ -1338,9 +1338,9 @@ export class TestBase extends Base<TestBaseEvents> {
       }
       if (!extra.at && !extra.stack) extra.at = null
       this.fail(msg, extra)
-      if (this.ended || this.#pushedEnd) {
+      if (this.ended || this.#awaitingEnd) {
         this.ended = false
-        this.#pushedEnd = false
+        this.#awaitingEnd = false
         this.end(IMPLICIT)
       }
     }
