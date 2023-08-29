@@ -80,11 +80,13 @@ module.exports = eleventyConfig => {
     return content
   })
 
-  eleventyConfig.addFilter('selfLinks', function(content) {
+  eleventyConfig.addFilter('selfLinks', function (content) {
     if (!content) return content
     const $ = cheerio.load(content)
     // add a self-link on the TOC-ified headings
-    for (const hn of $('h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]')) {
+    for (const hn of $(
+      'h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]'
+    )) {
       const { tabindex, id } = hn.attribs
       if (!tabindex || !id) {
         console.error('no ti or no id', tabindex, id, hn.attribs)
@@ -93,7 +95,10 @@ module.exports = eleventyConfig => {
       const $hn = $(hn)
       const content = $hn.html()
       console.error('adding self-link', content)
-      $hn.html(content + `<a tabindex="-1" class="selflink" href="#${id}">#</a>`)
+      $hn.html(
+        content +
+          `<a tabindex="-1" class="selflink" href="#${id}">#</a>`
+      )
     }
     // return content
     return '<!doctype html><html>' + $('html').html() + '</html>'
@@ -108,10 +113,10 @@ module.exports = eleventyConfig => {
     // to the relevant plugin docs page.
     for (const h2 of $('h2')) {
       const $h2 = $(h2)
-      const m = $h2.html().match(/^From plugin: @tapjs\/([^ ]+)$/)
+      const m = $h2.html().match(/^From plugin: @tapjs\/([^ <]+)(.*$)/)
       if (!m) continue
       $h2.html(
-        `From plugin: <a href="/plugins/${m[1]}">@tapjs/${m[1]}</a>`
+        `From plugin: <a href="/plugins/${m[1]}">@tapjs/${m[1]}</a>${m[2]}`
       )
     }
     for (const link of $('a[href]')) {
