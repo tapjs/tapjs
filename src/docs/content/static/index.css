@@ -506,6 +506,8 @@ a code {
 pre code {
   border: none;
   outline: none;
+  background: none;
+  color: inherit;
 }
 pre {
   color: #ccc;
