@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/stack",
-  "version": "0.0.0-5",
+  "version": "0.0.0-6",
   "description": "Utility for working with stack traces",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "type": "module",
