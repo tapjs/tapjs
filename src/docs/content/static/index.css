@@ -27,7 +27,6 @@ html {
   }
 }
 
-
 h1,
 h2,
 h3,
@@ -57,11 +56,13 @@ p {
 a {
   color: #204dff;
   font-weight: 600;
+  text-decoration: none;
 }
 a:active,
 a:focus,
 a:hover {
   color: #09f;
+  text-decoration: underline;
 }
 
 #top {
@@ -477,7 +478,7 @@ body.content main {
   #sidebar ul,
   #sidebar li {
     display: inline-block;
-    padding: 0!important;
+    padding: 0 !important;
   }
   #sidebar ul li a {
     display: inline-block;
@@ -485,12 +486,30 @@ body.content main {
   }
 }
 
-pre, code, kbd {
-	font-family: Fira Code, Iosevka SS09 Web, Monoid, Jetbrains Mono, DejaVu Sans Code, Cascadia Code, Victor Mono, Lilex, monospace!important;
+pre,
+code,
+kbd {
+  font-family: Fira Code, Iosevka SS09 Web, Monoid, Jetbrains Mono,
+    DejaVu Sans Code, Cascadia Code, Victor Mono, Lilex, monospace !important;
+}
+code {
+  background: #fff;
+  outline: 2px solid #eee;
+  font-weight: normal;
+  color: #2d2d2d;
+  border-radius: 3px;
+  padding: 0 3px;
+}
+a code {
+  color: inherit;
+}
+pre code {
+  border: none;
+  outline: none;
 }
 pre {
-  color:#ccc;
+  color: #ccc;
   background: #2d2d2d;
   padding: 1em;
-  line-height: 1.55!important;
+  line-height: 1.55 !important;
 }
