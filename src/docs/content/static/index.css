@@ -394,7 +394,8 @@ footer {
 }
 footer p {
   max-width: 800px;
-  margin: 1rem auto;
+  margin: 0.5rem auto;
+  text-align: center;
   font-style: italic;
   font-size: 0.8em;
 }
