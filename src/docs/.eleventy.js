@@ -18,12 +18,13 @@ const maybeReadFile = p => {
   try {
     return readFileSync(p, 'utf8')
   } catch (er) {
-    console.error('failed readingh file', p, er)
+    console.error('failed reading file', p, er)
     return ''
   }
 }
 
 module.exports = eleventyConfig => {
+  eleventyConfig.setQuietMode(true)
   eleventyConfig.setLibrary('md', md)
   eleventyConfig.addPlugin(EleventyRenderPlugin)
   eleventyConfig.addGlobalData(
@@ -89,12 +90,10 @@ module.exports = eleventyConfig => {
     )) {
       const { tabindex, id } = hn.attribs
       if (!tabindex || !id) {
-        console.error('no ti or no id', tabindex, id, hn.attribs)
         continue
       }
       const $hn = $(hn)
       const content = $hn.html()
-      console.error('adding self-link', content)
       $hn.html(
         content +
           `<a tabindex="-1" class="selflink" href="#${id}">#</a>`
