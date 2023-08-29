@@ -304,7 +304,7 @@ be available in this scope.
 ```js
 import * as FS from 'node:fs'
 
-t.test('reads symbolic links properly', t => {
+t.test('reads symbolic links properly', async t => {
   // setup the environment
   // this will automatically get torn down at the end
   const dir = t.testdir({
