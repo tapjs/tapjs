@@ -516,6 +516,7 @@ pre code {
   color: inherit;
 }
 pre {
+  border-radius: 3px;
   color: #ccc;
   background: #2d2d2d;
   padding: 1em;
