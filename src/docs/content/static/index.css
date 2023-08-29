@@ -502,12 +502,14 @@ code {
   font-weight: normal;
   color: #2d2d2d;
   border-radius: 3px;
-  padding: 0 3px;
+  padding: 0 2px;
+  margin-right: 2px;
 }
 a code {
   color: inherit;
 }
 pre code {
+  margin: 0;
   border: none;
   outline: none;
   background: none;
