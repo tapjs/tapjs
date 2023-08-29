@@ -3,41 +3,25 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="{{ '/static/opensans/style.css' | url }}">
+    <link rel="stylesheet" href="{{ '/static/Fira_Code_v6/fira_code.css' | url }}">
+    <link rel="stylesheet" href="{{ '/static/prismjs-tomorrow.css' | url }}">
     <link rel="stylesheet" href="{{ '/static/index.css' | url }}">
-    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="{{ '/static/tap-format.css' | url }}">
+    <link rel="icon" href="{{ '/static/favicon.ico' | url }}" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title or metadata.title }}</title>
     <meta name="description" content="{{ description or metadata.description }}">
   </head>
 
-  <body class="{% if page.url != "/" %}{{ page.url | slugify }}{% else %}index{% endif %}">
-    <div id="top">
-      <div id="top-inner">
-        <h1><a href="/">Node TAP <small>{{ tapVersion }}</small></a></h1>
-        <div id="site-nav">
-          <nav>
-{% set topNavPages = collections.all | eleventyNavigation %}
-<ul>
-{%- for entry in topNavPages %}
-  <li{% if entry.url == page.url %} class="current-page"{% endif %}>
-    <a href="{{ entry.url }}">{{ entry.title }}</a>
-  </li>
-{%- endfor %}
-</ul>
-          </nav>
-        </div>
-      </div>
-    </div>
-
+  <body class="{% if page.url != "/" %}content {{ page.url | slugify }}{% else %}index{% endif %}">
+    {% renderFile "./_includes/layouts/top-nav.njk", {
+      collections: collections,
+      eleventyNavigation: eleventyNavigation,
+      page: page,
+      tapVersion: tapVersion
+    } %}
     <main>
-
-    {% if eleventyNavigation and eleventyNavigation.key %}
-    <div id="sidebar">
-      {{ collections.all | eleventyNavigation | eleventyNavigationToHtml({activeListItemClass: "current-page", activeKey: eleventyNavigation.key })  | safe }}
-      {{ content | toc({ ul: true }) | safe }}
-    </div>
-    {% endif %}
-
-    {{ content | safe }}
-  </main>
+      {{ content | safe }}
+    </main>
+  </body>
 </html>

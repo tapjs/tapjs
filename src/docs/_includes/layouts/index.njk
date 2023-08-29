@@ -4,8 +4,11 @@ layout: base.njk
 
 <section class="hero__Container">
   <div class="hero__Content">
-    <div class="hero__OuterCircle"></div>
-    <div class="hero__InnerCircle"></div>
+    <div class="hero__Circles">
+      <div class="hero__OuterCircle">
+        <div class="hero__InnerCircle"></div>
+      </div>
+    </div>
     <div class="hero__InnerBits">
       <img
         src="/static/big-logo.gif"
@@ -25,7 +28,7 @@ layout: base.njk
     <div class="features__Columns">
       <section class="no-fancy-dsl">
         <img src="/static/brain.gif" alt="brain" />
-        {% renderFile "./_includes/no-fancy-dsl.md" %}
+        <div>{% renderFile "./_includes/no-fancy-dsl.md" %}</div>
       </section>
       <img
         src="/static/separator.svg"
@@ -33,7 +36,9 @@ layout: base.njk
         class="features__Separator" />
       <section class="batteries-included">
         <img src="/static/batteries.gif" alt="batteries" />
-        {% renderFile "./_includes/batteries-included.md" %}
+        <div>
+          {% renderFile "./_includes/batteries-included.md" %}
+        </div>
       </section>
     </div>
     <a class="button-link" href="/basics">Get Started</a>

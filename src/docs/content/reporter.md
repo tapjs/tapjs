@@ -35,8 +35,7 @@ Both reporters are designed to be as accessible as possible,
 featuring diff and syntax highlighting color choices that are
 amenable to any level of color sensitivity.
 
-<pre
-style="background:#111;color:#eee;line-height:1.4;padding:10px;">$ tap t.mts
+<pre>$ tap t.mts
 <span style="color:black;background:green"> PASS </span> t.mts 2 <span style="color:green">OK</span> <span color="#999">1.052s</span>
 
 <div style="width:min-content;background:white;color:black">                       
@@ -79,7 +78,7 @@ set the arguments to the reporter program.
 
 For example,
 
-<pre style="line-height:1.4;padding:10px;background-color:#111;color:#eee;white-space:pre">$ npm install --save-dev tap-mocha-reporter
+<pre>$ npm install --save-dev tap-mocha-reporter
 $ tap -R tap-mocha-reporter -r nyan
  <span style="color:#0f0">94</span>  <span style="color:cyan">-</span><span style="color:#0f0">_-</span><span style="color:yellow">_-</span><span style="color:orange">_-</span><span style="color:red">_-</span><span style="color:purple">_-</span><span style="color:blue">_-</span><span style="color:cyan">_-</span><span style="color:#0f0">_-</span><span style="color:yellow">_-</span><span style="color:orange">_-</span><span style="color:red">_-</span><span style="color:purple">_-</span><span style="color:blue">_-</span><span style="color:cyan">_-</span><span style="color:#0f0">_-</span><span style="color:yellow">_-</span><span style="color:orange">_-</span><span style="color:red">_-</span><span style="color:purple">_-</span><span style="color:blue">_-</span><span style="color:cyan">_-</span><span style="color:#0f0">_-</span><span style="color:yellow">_-</span><span style="color:orange">_-</span><span style="color:red">_-</span>_,------,
  <span style="color:red">0</span>   <span style="color:cyan">-</span><span style="color:#0f0">_-</span><span style="color:yellow">_-</span><span style="color:orange">_-</span><span style="color:red">_-</span><span style="color:purple">_-</span><span style="color:blue">_-</span><span style="color:cyan">_-</span><span style="color:#0f0">_-</span><span style="color:yellow">_-</span><span style="color:orange">_-</span><span style="color:red">_-</span><span style="color:purple">_-</span><span style="color:blue">_-</span><span style="color:cyan">_-</span><span style="color:#0f0">_-</span><span style="color:yellow">_-</span><span style="color:orange">_-</span><span style="color:red">_-</span><span style="color:purple">_-</span><span style="color:blue">_-</span><span style="color:cyan">_-</span><span style="color:#0f0">_-</span><span style="color:yellow">_-</span><span style="color:orange">_-</span><span style="color:red">_-</span>_|   /\_/\ 

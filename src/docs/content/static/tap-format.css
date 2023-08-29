@@ -1,0 +1,29 @@
+/* TAP format highlighting */
+
+.token.bailout,
+.token.fail {
+  color: #f00;
+  font-weight: bold;
+}
+
+.token.subtest,
+.token.version,
+.token.plan {
+  color: #adf;
+}
+
+.token.pass {
+  color: #0f0;
+}
+
+.token.comment {
+  color: slategray;
+}
+
+.token.todo {
+  color: #f0f;
+}
+
+.token.skip {
+  color: #0ff;
+}

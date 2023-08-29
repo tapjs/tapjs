@@ -9,7 +9,7 @@ module.exports = class {
       title: 'tap CLI',
       eleventyNavigation: {
         key: 'CLI',
-        order: 20,
+        order: 4,
       },
       templateEngineOverride: '11ty.js,md',
     }

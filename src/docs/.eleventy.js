@@ -80,6 +80,25 @@ module.exports = eleventyConfig => {
     return content
   })
 
+  eleventyConfig.addFilter('selfLinks', function(content) {
+    if (!content) return content
+    const $ = cheerio.load(content)
+    // add a self-link on the TOC-ified headings
+    for (const hn of $('h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]')) {
+      const { tabindex, id } = hn.attribs
+      if (!tabindex || !id) {
+        console.error('no ti or no id', tabindex, id, hn.attribs)
+        continue
+      }
+      const $hn = $(hn)
+      const content = $hn.html()
+      console.error('adding self-link', content)
+      $hn.html(content + `<a tabindex="-1" class="selflink" href="#${id}">#</a>`)
+    }
+    // return content
+    return '<!doctype html><html>' + $('html').html() + '</html>'
+  })
+
   // turn github markdown friendly links like ./blah.md or /content/blah.md
   // into their appropriate urls, like /blah
   eleventyConfig.addTransform('localLinks', function (content) {

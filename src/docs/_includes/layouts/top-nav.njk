@@ -1,0 +1,17 @@
+<div id="top">
+  <div id="top-inner">
+    <h1><a href="/"><span>Node TAP</span> <small><span>{{ tapVersion }}</span></small></a></h1>
+    <div id="site-nav">
+      <nav>
+        {% set topNavPages = collections.all | eleventyNavigation %}
+        <ul>
+          {%- for entry in topNavPages %}
+          <li{% if entry.url == page.url %} class="current-page"{% endif %}>
+            <a href="{{ entry.url }}">{{ entry.title }}</a>
+          </li>
+          {%- endfor %}
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>

@@ -16,6 +16,17 @@ html {
   /* make room for top menu */
   scroll-padding-top: 5rem;
 }
+@media screen and (max-width: 650px) {
+  html {
+    scroll-padding-top: 7rem;
+  }
+}
+@media screen and (max-width: 300px) {
+  html {
+    scroll-padding-top: 11rem;
+  }
+}
+
 
 h1,
 h2,
@@ -24,6 +35,16 @@ h4,
 h5,
 h6 {
   font-family: Trebuchet MS, Arial, Helvetica, sans-serif;
+}
+h1 a.selflink,
+h2 a.selflink,
+h3 a.selflink,
+h4 a.selflink,
+h5 a.selflink,
+h6 a.selflink {
+  color: #ccc;
+  text-decoration: none;
+  padding-left: 0.5rem;
 }
 
 li,
@@ -47,13 +68,13 @@ a:hover {
   box-sizing: border-box;
   display: flex;
   background-color: rgb(255, 255, 255);
-  box-shadow: rgb(184, 179, 179) 0px 0px 10px 0px;
+  box-shadow: rgb(184, 179, 179) 0 0 10px 0;
   -webkit-box-align: center;
   align-items: center;
   font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;
   z-index: 3;
   position: sticky;
-  top: 0px;
+  top: 0;
 }
 #top-inner {
   box-sizing: border-box;
@@ -64,13 +85,18 @@ a:hover {
   justify-content: space-between;
   -webkit-box-align: center;
   align-items: center;
-  padding: 0px 20px;
-}
-#top h1 {
-  margin: 1rem 0;
-  font-size: 2rem;
+  padding: 0 10px;
 }
 #top h1 a {
+  display: flex;
+  align-items: bottom;
+  gap: 10px;
+  justify-content: start;
+  font-size: 2rem;
+  flex-wrap: wrap;
+  white-space: nowrap;
+  vertical-align: bottom;
+
   text-transform: uppercase;
   color: rgb(51, 51, 51);
   margin: 0;
@@ -79,7 +105,7 @@ a:hover {
   padding: 0 10px;
   letter-spacing: 1px;
   text-shadow: rgba(136, 136, 136, 0.32) 1px -2px 1px;
-  text-decoration-line: none;
+  text-decoration: none;
 }
 #top h1 a:hover,
 #top h1 a:active,
@@ -90,17 +116,20 @@ a:hover {
 #top h1 a small {
   text-transform: none;
   font-size: 13px;
+  position: relative;
+  padding-right: 12ex;
+  padding-top: 8px;
+}
+#top h1 a small span {
+  position: absolute;
+  bottom: 4px;
+  left: 0;
 }
 
-#top #site-nav {
-  display: flex;
-  align-items: flex-end;
-}
 #top #site-nav a {
-  padding-top: 5px;
+  padding: 5px 10px;
   padding-right: 10px;
-  margin-top: 0px;
-  margin-right: 5px;
+  margin: 0;
   line-height: 1.5;
   font-weight: 600;
   text-decoration-line: none;
@@ -116,7 +145,6 @@ a:hover {
   color: #09f;
 }
 
-/* I hate this, figure out a better way to show the nav */
 #top nav ul,
 #top nav li {
   display: block;
@@ -125,27 +153,11 @@ a:hover {
   list-style: none;
 }
 #top nav ul {
+  align-items: flex-end;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
-  gap: 10px;
-  justify-content: space-between;
-}
-#top nav ul ul {
-  overflow: hidden;
-  position: absolute;
-  height: 0;
-  background: #fff;
-  display: block;
-}
-#top nav ul li:focus ul,
-#top nav ul li:active ul,
-#top nav ul li:hover ul {
-  height: auto;
-  box-shadow: rgba(51, 51, 51, 0.05) 0 5px 5px 5px;
-}
-#top nav ul ul li a {
-  padding: 0.5rem;
-  display: block;
+  justify-content: end;
 }
 
 .hero__Container {
@@ -153,10 +165,18 @@ a:hover {
   padding: 20px 0;
 }
 .hero__Content {
-  margin: -90px auto 0;
   display: flex;
   position: relative;
   width: 800px;
+  max-width: 100%;
+  margin: -90px auto 0;
+  padding: 0 0 0;
+  min-height: fit-content(900px);
+}
+.hero__Circles {
+  width: 100%;
+  position: absolute;
+  z-index: 0;
 }
 .hero__OuterCircle {
   background-color: rgb(241, 241, 241);
@@ -169,6 +189,7 @@ a:hover {
   height: auto;
   padding-top: 100%;
   margin: 0 auto;
+  top: 0;
 }
 .hero__InnerCircle {
   background-color: rgb(248, 248, 248);
@@ -180,20 +201,25 @@ a:hover {
   width: 80%;
   height: auto;
   padding-top: 80%;
+  top: 0;
   top: 10%;
-  left: 0px;
+  left: 0;
   margin: auto;
-  box-shadow: rgba(51, 51, 51, 0.05) 1px 1px 15px 0px;
-  right: 0px;
+  box-shadow: rgba(51, 51, 51, 0.05) 1px 1px 15px 0;
+  right: 0;
 }
 .hero__InnerBits {
-  position: absolute;
+  position: relative;
   max-width: 600px;
-  left: 0px;
-  right: 0px;
-  margin: auto;
+  left: 0;
+  right: 0;
+  margin: 25% auto 50px;
   text-align: center;
-  top: 25%;
+}
+@media screen and (min-width: 500px) {
+  .hero__InnerBits {
+    margin-bottom: 10%;
+  }
 }
 .hero__Logo {
   box-sizing: border-box;
@@ -236,10 +262,10 @@ a:hover {
 }
 
 .index .features {
-  padding: 70px 20px;
+  padding: 40px 20px;
   margin: -80px auto 0;
   background-color: rgb(255, 255, 255);
-  box-shadow: rgba(51, 51, 51, 0.07) 0px 0px 11px 5px;
+  box-shadow: rgba(51, 51, 51, 0.07) 0 0 11px 5px;
   position: relative;
   z-index: 2;
 }
@@ -260,6 +286,7 @@ a:hover {
 .index .features__Columns {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 .index .features__Columns section {
   display: flex;
@@ -270,11 +297,38 @@ a:hover {
 .index .features__Columns section img {
   padding-bottom: 20px;
   max-width: 150px;
+  max-height: 150px;
   margin: 0 auto;
+  height: auto;
+}
+@media screen and (max-width: 768px) {
+  .index .features__Columns img.features__Separator {
+    display: none;
+  }
+  .index .features__Columns {
+    flex-direction: column;
+    align-items: center;
+  }
+  .index .features__Columns section {
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+  .index .features h3 {
+    text-align: left;
+  }
+}
+@media screen and (max-width: 500px) {
+  .index .features__Columns section {
+    flex-direction: column;
+  }
+  .index .features h3 {
+    text-align: center;
+  }
 }
 
 .why-tap {
-  box-shadow: rgba(51, 51, 51, 0.2) 11px 0px 11px 0px;
+  box-shadow: rgba(51, 51, 51, 0.2) 0 0 11px 0;
   z-index: 2;
 }
 
@@ -306,10 +360,10 @@ a:hover {
   margin-top: auto;
   top: 50%;
   margin-top: -65px;
-  right: 0px;
+  right: 0;
   left: 50%;
   margin-left: -65px;
-  bottom: 0px;
+  bottom: 0;
   position: absolute;
 }
 .why-tap img {
@@ -344,4 +398,99 @@ footer p {
   padding: 0 1rem;
   font-style: italic;
   font-size: 0.8em;
+}
+
+/* content stuff */
+body.content main {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+#content {
+  overflow: auto;
+  flex-basis: max-content;
+  flex-grow: 1;
+  min-width: 0;
+  padding: 0 2rem 7rem;
+}
+#content pre {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+#content img,
+#content pre {
+  width: 100%;
+}
+
+#sidebar {
+  min-width: 12rem;
+  width: 12rem;
+  padding-top: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 0px;
+  box-shadow: rgba(51, 51, 51, 0.19) 1px 0px 10px 1px;
+  background-color: rgb(241, 241, 241);
+}
+#sidebar ul,
+#sidebar li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+#sidebar a {
+  border-radius: 4px;
+  padding: 0.2rem 0 0.2rem 1rem;
+  display: block;
+  text-decoration: none;
+  font-weight: normal;
+  color: #333;
+  overflow-x: hidden;
+  font-size: 14px;
+  font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;
+}
+#sidebar a:hover,
+#sidebar a:focus,
+#sidebar a:active {
+  color: #09f;
+}
+#sidebar li.current-page > a {
+  background: #ff9;
+  color: #333;
+}
+#sidebar ul ul {
+  padding-left: 0.5rem;
+}
+#sidebar nav.toc {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #ccc;
+}
+
+@media screen and (max-width: 600px) {
+  body.content main {
+    flex-direction: column;
+  }
+  #sidebar {
+    width: 100%;
+    padding: 1rem;
+  }
+  #sidebar ul,
+  #sidebar li {
+    display: inline-block;
+    padding: 0!important;
+  }
+  #sidebar ul li a {
+    display: inline-block;
+    padding: 0 0.5rem 0 0;
+  }
+}
+
+pre, code, kbd {
+	font-family: Fira Code, Iosevka SS09 Web, Monoid, Jetbrains Mono, DejaVu Sans Code, Cascadia Code, Victor Mono, Lilex, monospace!important;
+}
+pre {
+  color:#ccc;
+  background: #2d2d2d;
+  padding: 1em;
+  line-height: 1.55!important;
 }

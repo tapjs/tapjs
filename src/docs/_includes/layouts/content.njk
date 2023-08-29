@@ -1,8 +1,21 @@
 ---
 layout: base.njk
 ---
-{% if title %}
-<h1>{{ title }}</h1>
+
+{% if eleventyNavigation and eleventyNavigation.key %}
+<section id="sidebar">
+  {{ content | readmeInclude | toc({ ul: true }) | safe }}
+  {{ collections.all | eleventyNavigation | eleventyNavigationToHtml({
+    activeListItemClass: "current-page",
+    activeKey: eleventyNavigation.key
+  }) | safe }}
+</section>
 {% endif %}
 
-{{ content | readmeInclude | safe }}
+<section id="content">
+  {% if title %}
+  <h1>{{ title }}</h1>
+  {% endif %}
+
+  {{ content | readmeInclude | selfLinks | safe }}
+</section>

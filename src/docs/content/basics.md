@@ -1,10 +1,9 @@
 ---
 title: TAP Basics
 eleventyNavigation:
-  key: Basics
-  order: 1
+  key: Docs
+  order: 6
 ---
-
 Node-tap is a test framework library that you can use to write
 tests, and a command line program that can be used to run tests
 (and manage plugins, watch code for changes, analyze coverage,
@@ -12,6 +11,14 @@ etc.)
 
 You _can_ use any of the parts independently, but they are
 designed to work well together.
+
+## Installing Tap
+
+You know the drill.
+
+```bash
+npm install tap --save-dev
+```
 
 ## Writing Tests
 
@@ -197,8 +204,7 @@ the correct loaders all assembled in the arguments, and format
 the output so that excessive noise is eliminated, and actionable
 information is clearly highlighted.
 
-<pre
-style="background:#111;color:#eee;line-height:1.4;padding:10px;">$ tap t.mts
+<pre>$ tap t.mts
 <span style="color:black;background:green"> PASS </span> t.mts 2 <span style="color:green">OK</span> <span color="#999">1.052s</span>
 
 <div style="width:min-content;background:white;color:black">                       
