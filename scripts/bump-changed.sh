@@ -2,4 +2,4 @@
 
 LEVEL=${1:-prerelease}
 shift
-echo npm run v -- "$LEVEL" $(bash scripts/changed-workspaces.sh) "${@}"
+npm run v -- "$LEVEL" $(bash scripts/changed-workspaces.sh) "${@}"
