@@ -55,7 +55,7 @@
   },
   "dependencies": {
     "glob": "^10.3.3",
-    "jackspeak": "2.3",
+    "jackspeak": "^2.3.1",
     "mkdirp": "^3.0.0",
     "sync-content": "^1.0.1",
     "tap-parser": "15.0.0-2",

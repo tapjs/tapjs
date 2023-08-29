@@ -47,7 +47,7 @@
     "ink": "^4.3.1",
     "ink-testing-library": "^3.0.0",
     "is-actual-promise": "^1.0.0",
-    "jackspeak": "2.3",
+    "jackspeak": "^2.3.1",
     "markdown-it": "^13.0.1",
     "markdown-it-anchor": "^8.6.7",
     "minimatch": "^9.0.1",
