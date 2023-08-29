@@ -153,6 +153,10 @@ a:hover {
   padding: 0;
   list-style: none;
 }
+#top nav li.current-page a {
+  background: #0ff;
+  border-radius: 4px;
+}
 #top nav ul {
   align-items: flex-end;
   display: flex;
