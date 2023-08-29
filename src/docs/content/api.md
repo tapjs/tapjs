@@ -2,6 +2,7 @@
 title: API
 eleventyNavigation:
   key: API
+  parent: Docs
   order: 10
 ---
 

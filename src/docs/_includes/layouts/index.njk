@@ -2,7 +2,7 @@
 layout: base.njk
 ---
 
-<div class="hero__Container">
+<section class="hero__Container">
   <div class="hero__Content">
     <div class="hero__OuterCircle"></div>
     <div class="hero__InnerCircle"></div>
@@ -10,34 +10,45 @@ layout: base.njk
       <img
         src="/static/big-logo.gif"
         alt="tap logo"
-        class="hero__Logo">
+        class="hero__Logo" />
       <h1 class="hero__Title">
         {{ metadata.description }}
       </h1>
       <a class="button-link" href="/basics">Get Started</a>
     </div>
   </div>
-</div>
+</section>
 
 <section class="features">
-  <section class="no-fancy-dsl">
-    <img src="/static/brain.gif" alt="brain">
-    {% renderFile "./_includes/no-fancy-dsl.md" %}
-  </section>
-  <section class="batteries-included">
-    <img src="/static/batteries.gif" alt="batteries">
-    {% renderFile "./_includes/batteries-included.md" %}
-  </section>
-  <a class="button-link" href="/basics">Get Started</a>
+  <div class="features__Content">
+    <h2>Node-Tap Features</h2>
+    <div class="features__Columns">
+      <section class="no-fancy-dsl">
+        <img src="/static/brain.gif" alt="brain" />
+        {% renderFile "./_includes/no-fancy-dsl.md" %}
+      </section>
+      <img
+        src="/static/separator.svg"
+        alt="separator"
+        class="features__Separator" />
+      <section class="batteries-included">
+        <img src="/static/batteries.gif" alt="batteries" />
+        {% renderFile "./_includes/batteries-included.md" %}
+      </section>
+    </div>
+    <a class="button-link" href="/basics">Get Started</a>
+  </div>
 </section>
 
 <section class="why-tap">
-  <div class="EncircledImage__GreyCircle">
-    <div class="EncircledImage__WhiteCircle">
-      <img src="/static/question-mark.gif" alt="(?)">
+  <div class="why-tap__Content">
+    <div class="EncircledImage__GreyCircle">
+      <div class="EncircledImage__WhiteCircle">
+        <img src="/static/question-mark.gif" alt="(?)" />
+      </div>
     </div>
+    {% renderFile "./_includes/why-tap.md" %}
   </div>
-  {% renderFile "./_includes/why-tap.md" %}
 </section>
 
 <footer>{% renderFile "./_includes/footer.md" %}</footer>

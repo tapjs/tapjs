@@ -2,6 +2,7 @@
 title: tap Custom Reporters
 eleventyNavigation:
   key: Custom Reporters
+  parent: Docs
   order: 555
 ---
 

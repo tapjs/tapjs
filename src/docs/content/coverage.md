@@ -2,6 +2,7 @@
 title: tap Code Coverage
 eleventyNavigation:
   key: Coverage
+  parent: Docs
   order: 30
 ---
 

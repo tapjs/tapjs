@@ -45,9 +45,12 @@ module.exports = eleventyConfig => {
   )
 
   eleventyConfig.setDataDeepMerge(true)
+  eleventyConfig.addFilter('json', function (obj) {
+    return JSON.stringify(obj, null, 2)
+  })
 
   const readmeReplacements = new Map()
-  eleventyConfig.addTransform('readmeInclude', function (content) {
+  eleventyConfig.addFilter('readmeInclude', function (content) {
     const re = /\[\[README-INCLUDE=([^\]]+)\]\]/g
     let match
     const replacements = []

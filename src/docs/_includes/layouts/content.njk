@@ -5,5 +5,4 @@ layout: base.njk
 <h1>{{ title }}</h1>
 {% endif %}
 
-{{ content | toc({ ul: true }) | safe }}
-{{ content | safe }}
+{{ content | readmeInclude | safe }}

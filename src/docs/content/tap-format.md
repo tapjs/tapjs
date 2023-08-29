@@ -2,6 +2,7 @@
 title: Test Anything Protocol
 eleventyNavigation:
   key: TAP Protocol
+  parent: Docs
   order: 110
 ---
 

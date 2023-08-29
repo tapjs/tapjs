@@ -2,6 +2,7 @@
 title: tap Reporting Results
 eleventyNavigation:
   key: Reporting Results
+  parent: Docs
   order: 40
 ---
 
@@ -46,6 +47,9 @@ style="background:#111;color:#eee;line-height:1.4;padding:10px;">$ tap t.mts
 
 <span style="color:#999"># { total: 2, pass: 2 }
 # time=1091.538ms</span></pre>
+
+Those are just the built-in reports. You can [write your own
+using the `@tapjs/reporter` library](./writing-custom-reporters.md).
 
 ## Ink-Based Reporters
 

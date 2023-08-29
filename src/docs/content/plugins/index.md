@@ -2,6 +2,7 @@
 title: tap plugins
 eleventyNavigation:
   key: Plugins
+  parent: Docs
   order: 50
 ---
 

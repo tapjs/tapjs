@@ -36,7 +36,7 @@ injected globals, and so on. Because each test runs in its own
 process, there's no chance of tests becoming dependent on one
 another's leaked globals or causing other confusing situations.
 
-### Tests should help, not get in the way
+### Tests should fun and helpful
 
 The goal of tests is to help you write code. They add reliability
 to your program by adding a layer of "yes, this does what I think
@@ -45,6 +45,12 @@ TDD, or just finger-painting until it feels right and then
 writing tests to verify what you did, writing the tests should
 feel empowering and straightforward, _reducing_ cognitive load
 rather than increasing it.
+
+Software tests should be a security blanket and a quality
+ratchet, giving you the support to undertake massive refactoring
+and fix bugs without worrying. It shouldn't be a purification
+rite or a hazing ritual. It should be fun, because making stuff
+is fun, and it helps you make better stuff.
 
 ### Type information must be accurate and complete
 
@@ -169,13 +175,6 @@ either delete that code or refactor it into a more easily tested
 module.
 
 ---
-
-Software testing should help you build software. It should be a
-security blanket and a quality ratchet, giving you the support to
-undertake massive refactoring and fix bugs without worrying. It
-shouldn't be a purification rite or a hazing ritual. It should be
-fun, because making stuff is fun, and it helps you make better
-stuff.
 
 There are many opinions left off of this list! Reasonable people
 can disagree. But if you find yourself nodding along, [maybe tap

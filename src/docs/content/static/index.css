@@ -1,4 +1,347 @@
+html,
+body,
+div,
+a {
+  margin: 0;
+  padding: 0;
+}
+* {
+  box-sizing: border-box;
+}
 html {
+  font-family: Open Sans, Arial, Helvetica, sans-serif;
+  line-height: 1.15;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  /* make room for top menu */
+  scroll-padding-top: 5rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Trebuchet MS, Arial, Helvetica, sans-serif;
+}
+
+li,
+p {
+  font-size: 15px;
+  color: #333;
+  line-height: 1.6;
+}
+
+a {
+  color: #204dff;
+  font-weight: 600;
+}
+a:active,
+a:focus,
+a:hover {
+  color: #09f;
+}
+
+#top {
+  box-sizing: border-box;
+  display: flex;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgb(184, 179, 179) 0px 0px 10px 0px;
+  -webkit-box-align: center;
+  align-items: center;
+  font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;
+  z-index: 3;
+  position: sticky;
+  top: 0px;
+}
+#top-inner {
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  margin-top: auto;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  align-items: center;
+  padding: 0px 20px;
+}
+#top h1 {
+  margin: 1rem 0;
+  font-size: 2rem;
+}
+#top h1 a {
+  text-transform: uppercase;
+  color: rgb(51, 51, 51);
+  margin: 0;
+  font-weight: 700;
+  font-size: 26px;
+  padding: 0 10px;
+  letter-spacing: 1px;
+  text-shadow: rgba(136, 136, 136, 0.32) 1px -2px 1px;
+  text-decoration-line: none;
+}
+#top h1 a:hover,
+#top h1 a:active,
+#top h1 a:focus {
+  color: #09f;
+  text-shadow: none;
+}
+#top h1 a small {
+  text-transform: none;
+  font-size: 13px;
+}
+
+#top #site-nav {
+  display: flex;
+  align-items: flex-end;
+}
+#top #site-nav a {
+  padding-top: 5px;
+  padding-right: 10px;
+  margin-top: 0px;
+  margin-right: 5px;
+  line-height: 1.5;
+  font-weight: 600;
+  text-decoration-line: none;
+  font-size: 14px;
+  letter-spacing: 1px;
+  display: block;
+  font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;
+  color: rgb(51, 51, 51);
+}
+#top #site-nav a:hover,
+#top #site-nav a:focus,
+#top #site-nav a:active {
+  color: #09f;
+}
+
+/* I hate this, figure out a better way to show the nav */
+#top nav ul,
+#top nav li {
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#top nav ul {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: space-between;
+}
+#top nav ul ul {
+  overflow: hidden;
+  position: absolute;
+  height: 0;
+  background: #fff;
+  display: block;
+}
+#top nav ul li:focus ul,
+#top nav ul li:active ul,
+#top nav ul li:hover ul {
+  height: auto;
+  box-shadow: rgba(51, 51, 51, 0.05) 0 5px 5px 5px;
+}
+#top nav ul ul li a {
+  padding: 0.5rem;
+  display: block;
+}
+
+.hero__Container {
+  background-color: rgb(233, 233, 233);
+  padding: 20px 0;
+}
+.hero__Content {
+  margin: -90px auto 0;
+  display: flex;
+  position: relative;
   width: 800px;
+}
+.hero__OuterCircle {
+  background-color: rgb(241, 241, 241);
+  position: relative;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  width: 100%;
+  height: auto;
+  padding-top: 100%;
+  margin: 0 auto;
+}
+.hero__InnerCircle {
+  background-color: rgb(248, 248, 248);
+  position: absolute;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  width: 80%;
+  height: auto;
+  padding-top: 80%;
+  top: 10%;
+  left: 0px;
+  margin: auto;
+  box-shadow: rgba(51, 51, 51, 0.05) 1px 1px 15px 0px;
+  right: 0px;
+}
+.hero__InnerBits {
+  position: absolute;
+  max-width: 600px;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+  text-align: center;
+  top: 25%;
+}
+.hero__Logo {
+  box-sizing: border-box;
+  margin: 0 auto;
+  height: auto;
+  max-width: 60%;
+  text-align: center;
+}
+.hero__Title {
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.index .button-link {
+  color: rgb(255, 255, 255);
+  background-color: rgb(230, 131, 255);
+  text-decoration: none;
+  text-align: center;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+  padding-top: 15px;
+  font-size: 14px;
+  display: block;
+  width: 180px;
+  margin: 20px auto;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+  transition-property: background-color;
+  padding: 15px;
+  font-weight: 600;
+}
+.index a.button-link:hover,
+.index a.button-link:focus,
+.index a.button-link:active {
+  background-color: rgb(214, 48, 255);
+}
+
+.index .features {
+  padding: 70px 20px;
+  margin: -80px auto 0;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(51, 51, 51, 0.07) 0px 0px 11px 5px;
+  position: relative;
+  z-index: 2;
+}
+.index .features h2 {
+  font-size: 20px;
+  text-align: center;
+}
+.index .features h3 {
+  font-size: 16px;
+  text-align: center;
+}
+.index .features__Content {
+  display: flex;
+  max-width: 900px;
+  margin: auto;
+  flex-direction: column;
+}
+.index .features__Columns {
+  display: flex;
+  flex-direction: row;
+}
+.index .features__Columns section {
+  display: flex;
+  flex-direction: column;
+  padding: 0 30px;
+  max-width: 500px;
+}
+.index .features__Columns section img {
+  padding-bottom: 20px;
+  max-width: 150px;
+  margin: 0 auto;
+}
+
+.why-tap {
+  box-shadow: rgba(51, 51, 51, 0.2) 11px 0px 11px 0px;
+  z-index: 2;
+}
+
+.why-tap .why-tap__Content {
+  max-width: 800px;
+  margin: auto;
+  padding: 40px 20px 1rem;
+}
+
+.EncircledImage__GreyCircle {
+  width: 180px;
+  height: 180px;
+  background-color: rgb(241, 241, 241);
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  margin: auto;
+  position: relative;
+}
+.EncircledImage__WhiteCircle {
+  width: 130px;
+  height: 130px;
+  background-color: rgb(255, 255, 255);
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  margin-top: auto;
+  top: 50%;
+  margin-top: -65px;
+  right: 0px;
+  left: 50%;
+  margin-left: -65px;
+  bottom: 0px;
+  position: absolute;
+}
+.why-tap img {
+  box-sizing: border-box;
+  max-width: 100%;
+  height: auto;
+  width: 80px;
+  position: absolute;
+  top: 50%;
+  margin-top: -48px;
+  left: 50%;
+  margin-left: -40px;
+}
+
+.index hr {
+  display: block;
+  height: 1px;
   margin: 1rem auto;
+  width: 50%;
+  background: 1px solid #666;
+}
+
+footer {
+  padding: 1rem;
+  position: relative;
+  z-index: -1;
+  background: #fff;
+}
+footer p {
+  max-width: 800px;
+  margin: 1rem auto;
+  padding: 0 1rem;
+  font-style: italic;
+  font-size: 0.8em;
 }
