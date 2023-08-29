@@ -121,7 +121,7 @@ export default (testFile) =>
   : testFile.replace(/^test/, 'src')
 ```
 
-## Handling Actually Impossible Cases
+## Handling Impossible Cases
 
 There may be cases where a code path is actually impossible, but
 rather than delete it, we may want to keep it as a defensive
@@ -159,9 +159,9 @@ switch (enumValue) {
 }
 ```
 
-## Is it actually impossible to test?
+## Is it _actually_ impossible to cover? Or just annoying?
 
-It is worth thinking carefully about whether it is _actually_
+It is worth thinking carefully about whether it really is
 impossible to test an "impossible" edge case. A common policy is
 to require that every `c8 ignore` comment includes a
 justification for _why_ that section of code is untestable. (A
@@ -173,12 +173,15 @@ By carefully splitting a program into modules, and using the
 inject dependencies, or the [`t.intercept` and
 `t.capture`](./plugins/intercept.md) methods to override methods
 and properties of objects, it is often possible to provide
-coverage for "impossible" edge cases.
+coverage for "impossible" edge cases quite easily. Of course, if
+you mock your whole program, you aren't testing much, but it's a
+useful tool for getting into many tricky corners.
 
 The
 [`@tapjs/clock`](https://tapjs.github.io/tapjs/modules/_tapjs_clock.html)
 plugin can also be added to handle subtle timing edge cases.
 
-If you find yourself using `c8 ignore`, it should be treated as a
-code smell indicating that the code can likely be more
-effectively factored.
+If you find yourself using `c8 ignore` for things like error
+conditions and platform-specific behaviors, it should be treated
+as a code smell indicating that the code can likely be more
+effectively factored and tested.
