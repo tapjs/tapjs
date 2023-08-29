@@ -423,6 +423,7 @@ body.content main {
 }
 
 #sidebar {
+  min-height: calc(100vh - 4.5rem);
   min-width: 12rem;
   width: 12rem;
   padding-top: 1rem;
