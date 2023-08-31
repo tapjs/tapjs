@@ -159,6 +159,8 @@ class TAP extends Test {
     /* c8 ignore stop */
     proc?.once('beforeExit', () => {
       ;(this as unknown as TestBase).end(IMPLICIT)
+    })
+    proc?.once('exit', () => {
       if (!this.results) {
         this.endAll()
       }

@@ -137,6 +137,8 @@ class TAP extends test_1.Test {
         proc_js_1.proc?.once('beforeExit', () => {
             ;
             this.end(implicit_end_sigil_js_1.IMPLICIT);
+        });
+        proc_js_1.proc?.once('exit', () => {
             if (!this.results) {
                 this.endAll();
             }

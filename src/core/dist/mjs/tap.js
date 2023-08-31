@@ -134,6 +134,8 @@ class TAP extends Test {
         proc?.once('beforeExit', () => {
             ;
             this.end(IMPLICIT);
+        });
+        proc?.once('exit', () => {
             if (!this.results) {
                 this.endAll();
             }
