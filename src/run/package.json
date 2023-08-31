@@ -51,15 +51,17 @@
     "minipass": "^7.0.3",
     "mkdirp": "^3.0.1",
     "opener": "^1.5.2",
+    "pacote": "^17.0.3",
     "path-scurry": "^1.9.2",
     "resolve-import": "^1.0.4",
     "rimraf": "^5.0.0",
+    "semver": "^7.5.4",
     "signal-exit": "^4.1.0",
     "tap-yaml": "2.1.1-1",
     "tcompare": "6.0.1-4",
     "trivial-deferred": "^2.0.0",
     "ts-node": "github:TypeStrong/ts-node#8f6f4e5",
-    "which": "^3.0.1"
+    "which": "^4.0.0"
   },
   "tap": {
     "coverage-map": "map.js"

@@ -1,11 +1,18 @@
-import t from 'tap'
+import t, { Test } from 'tap'
 
 import { LoadedConfig } from '@tapjs/config'
 import { resolve } from 'node:path'
 
-const quiet = ['--no-audit', '--loglevel=silent', '--no-progress']
+const nope = () => {
+  throw new Error('nope')
+}
 
 class MockConfig {
+  constructor(t: Test) {
+    this.globCwd = t.testdirName
+  }
+
+  globCwd: string
   pluginList: string[] = ['a', 'b', 'c']
   edited?: { plugin: string[] }
   configFile: string = '/path/to/.taprc'
@@ -35,7 +42,7 @@ t.test('unknown plugin command', async t => {
   const { plugin } = (await t.mockImport(
     '../dist/plugin.js'
   )) as typeof import('../dist/plugin.js')
-  t.rejects(plugin(['asdf'], new MockConfig().l), {
+  t.rejects(plugin(['asdf'], new MockConfig(t).l), {
     message: 'Unknown plugin command: asdf',
   })
 })
@@ -47,16 +54,12 @@ t.test('list plugins', async t => {
   const logs = t.capture(console, 'log')
   const errs = t.capture(console, 'error')
   t.test('no args', async t => {
-    await plugin([], new MockConfig().l)
-    t.strictSame(logs.args(), [['a\nb\nc']])
-    t.strictSame(errs.args(), [
-      [
-        `(use 'tap plugin add ...' to add plugins, or 'tap plugin rm ...' to remove them)`,
-      ],
-    ])
+    await plugin([], new MockConfig(t).l)
+    t.matchSnapshot(logs.args())
+    t.matchSnapshot(errs.args())
   })
   t.test('explicitly list', async t => {
-    await plugin(['list'], new MockConfig().l)
+    await plugin(['list'], new MockConfig(t).l)
     t.strictSame(logs.args(), [['a\nb\nc']])
     t.strictSame(errs(), [])
   })
@@ -67,14 +70,12 @@ t.test('remove plugin', async t => {
 
   t.test('remove existing custom plugin', async t => {
     let buildRan = false
-    const config = new MockConfig()
+    const config = new MockConfig(t)
     const { plugin } = (await t.mockImport('../dist/plugin.js', {
       '../dist/build.js': {
         build: () => (buildRan = true),
         'foreground-child': {
-          foregroundChild: () => {
-            throw new Error('nope')
-          },
+          foregroundChild: nope,
         },
       },
     })) as typeof import('../dist/plugin.js')
@@ -93,16 +94,14 @@ t.test('remove plugin', async t => {
 
   t.test('remove builtin default plugin', async t => {
     let buildRan = false
-    const config = new MockConfig()
+    const config = new MockConfig(t)
     config.pluginList.push('@tapjs/mock')
 
     const { plugin } = (await t.mockImport('../dist/plugin.js', {
       '../dist/build.js': {
         build: () => (buildRan = true),
         'foreground-child': {
-          foregroundChild: () => {
-            throw new Error('nope')
-          },
+          foregroundChild: nope,
         },
       },
     })) as typeof import('../dist/plugin.js')
@@ -140,7 +139,7 @@ t.test('remove plugin', async t => {
     })
     const p = resolve(dir, 'my-plugin')
     let buildRan = false
-    const config = new MockConfig()
+    const config = new MockConfig(t)
     config.pluginList.push(p)
     config.values.plugin.push(p)
 
@@ -148,9 +147,7 @@ t.test('remove plugin', async t => {
       '../dist/build.js': {
         build: () => (buildRan = true),
         'foreground-child': {
-          foregroundChild: () => {
-            throw new Error('nope')
-          },
+          foregroundChild: nope,
         },
       },
     })) as typeof import('../dist/plugin.js')
@@ -168,16 +165,14 @@ t.test('remove plugin', async t => {
   })
 
   t.test('remove already missing plugin', async t => {
-    const config = new MockConfig()
+    const config = new MockConfig(t)
     let buildRan = false
 
     const { plugin } = (await t.mockImport('../dist/plugin.js', {
       '../dist/build.js': {
         build: () => (buildRan = true),
         'foreground-child': {
-          foregroundChild: () => {
-            throw new Error('nope')
-          },
+          foregroundChild: nope,
         },
       },
     })) as typeof import('../dist/plugin.js')
@@ -194,9 +189,11 @@ t.test('remove plugin', async t => {
 
 t.test('adding plugins', async t => {
   const logs = t.capture(console, 'log')
+  const errs = t.capture(console, 'error')
+  const exitCode = t.intercept(process, 'exitCode')
 
   t.test('fail if no name provided', async t => {
-    const config = new MockConfig()
+    const config = new MockConfig(t)
     const { plugin } = (await t.mockImport(
       '../dist/plugin.js'
     )) as typeof import('../dist/plugin.js')
@@ -207,10 +204,16 @@ t.test('adding plugins', async t => {
   })
 
   t.test('already present', async t => {
-    const config = new MockConfig()
-    const { plugin } = (await t.mockImport(
-      '../dist/plugin.js'
-    )) as typeof import('../dist/plugin.js')
+    const config = new MockConfig(t)
+    const { plugin } = (await t.mockImport('../dist/plugin.js', {
+      '../dist/get-install-set.js': {
+        getInstallSet: () => ({
+          added: new Set(),
+          needInstall: new Set(),
+          needCleanup: new Set(),
+        }),
+      },
+    })) as typeof import('../dist/plugin.js')
     await plugin(['add', 'a', 'b', 'c'], config.l)
     t.strictSame(logs.args(), [
       ['nothing to do, all plugins already installed'],
@@ -218,26 +221,22 @@ t.test('adding plugins', async t => {
   })
 
   t.test('add previously removed default plugin', async t => {
-    const config = new MockConfig()
+    const config = new MockConfig(t)
     config.values.plugin.push('!@tapjs/mock')
     config.pluginList.push('!@tapjs/mock')
     let buildRan = false
     const { plugin } = (await t.mockImport('../dist/plugin.js', {
       '../dist/build.js': { build: () => (buildRan = true) },
       'foreground-child': {
-        foregroundChild: () => {
-          throw new Error('nope')
-        },
+        foregroundChild: nope,
       },
     })) as typeof import('../dist/plugin.js')
     await plugin(['add', '@tapjs/mock'], config.l)
     t.equal(buildRan, true)
     t.strictSame(config.values.plugin, ['a', 'b', 'c'])
     t.strictSame(config.edited, { plugin: ['a', 'b', 'c'] })
-    t.strictSame(logs.args(), [
-      ['successfully added plugin(s):'],
-      ['@tapjs/mock'],
-    ])
+    t.matchSnapshot(logs.args())
+    t.matchSnapshot(errs.args())
   })
 
   t.test('add a plugin that is a file on disk', async t => {
@@ -256,130 +255,162 @@ t.test('adding plugins', async t => {
     })
     const p = resolve(dir, 'my-plugin')
     let buildRan = false
-    const config = new MockConfig()
+    const config = new MockConfig(t)
     const { plugin } = (await t.mockImport('../dist/plugin.js', {
       '../dist/build.js': { build: () => (buildRan = true) },
-      'foreground-child': {
-        foregroundChild: () => {
-          throw new Error('nope')
+      '../dist/get-install-set.js': {
+        getInstallSet: async (_: any, c: LoadedConfig) => {
+          c.values.plugin?.push(p)
+          return {
+            added: new Set([p]),
+            needInstall: new Set(),
+            needCleanup: new Set(),
+          }
         },
+      },
+      '../dist/npm.js': {
+        npmBg: nope,
+        npmFg: nope,
+        install: nope,
+        uninstall: nope,
       },
     })) as typeof import('../dist/plugin.js')
     await plugin(['add', p], config.l)
     t.equal(buildRan, true)
     t.strictSame(config.values.plugin, ['a', 'b', 'c', p])
     t.strictSame(config.edited, { plugin: ['a', 'b', 'c', p] })
-    t.strictSame(logs.args(), [
-      ['successfully added plugin(s):'],
-      [p],
-    ])
+    t.matchSnapshot(logs.args())
+    t.matchSnapshot(errs.args())
   })
 
   t.test('add plugin as a dev dep', async t => {
-    for (const needInstall of [true, false]) {
-      t.test(`needInstall=${needInstall}`, async t => {
-        let buildRan = false
-        const p = 'dep-plugin'
-        const config = new MockConfig()
-        const { plugin } = (await t.mockImport('../dist/plugin.js', {
-          '../dist/build.js': { build: () => (buildRan = true) },
-          'foreground-child': {
-            foregroundChild: (
-              cmd: string,
-              args: string[],
-              cb: (
-                code: number | null,
-                signal: null | NodeJS.Signals
-              ) => false | void
-            ) => {
-              t.equal(cmd, 'npm')
-              t.strictSame(args, [
-                'install',
-                ...quiet,
-                '--save-dev',
-                p,
-              ])
-              t.equal(cb(0, null), false)
-            },
-            '../dist/pkg-exists.js': {
-              pkgExists: async () => !needInstall,
-            },
-          },
-        })) as typeof import('../dist/plugin.js')
-        await plugin(['add', p], config.l)
-        t.equal(buildRan, true)
-        t.strictSame(config.values.plugin, ['a', 'b', 'c', p])
-        t.strictSame(config.edited, { plugin: ['a', 'b', 'c', p] })
-        t.strictSame(logs.args(), [
-          ['successfully added plugin(s):'],
-          [p],
-        ])
-      })
-    }
+    let buildRan = false
+    let installRan = false
+    const p = 'dep-plugin'
+    const config = new MockConfig(t)
+    const { plugin } = (await t.mockImport('../dist/plugin.js', {
+      '../dist/build.js': { build: () => (buildRan = true) },
+      '../dist/get-install-set.js': {
+        getInstallSet: (_: any, c: LoadedConfig) => {
+          c.values.plugin?.push(p)
+          return {
+            added: new Set([p]),
+            needInstall: new Set([`${p}@1.2.3`]),
+            needCleanup: new Set([p]),
+          }
+        },
+      },
+      '../dist/npm.js': {
+        npmBg: nope,
+        npmFg: nope,
+        uninstall: nope,
+        install: (args: string[], c: any) => {
+          t.strictSame(args, [`${p}@1.2.3`])
+          t.equal(c, config)
+          installRan = true
+        },
+      },
+    })) as typeof import('../dist/plugin.js')
+    await plugin(['add', p], config.l)
+    t.equal(buildRan, true)
+    t.equal(installRan, true)
+    t.strictSame(config.values.plugin, ['a', 'b', 'c', p])
+    t.strictSame(config.edited, { plugin: ['a', 'b', 'c', p] })
+    t.matchSnapshot(logs.args())
+    t.matchSnapshot(errs.args())
   })
 
-  t.test('fail to build installed plugin', async t => {
-    for (const needInstall of [true, false]) {
-      t.test(`needInstall=${needInstall}`, async t => {
-        const errs = t.capture(console, 'error')
-        const exitCode = t.intercept(process, 'exitCode')
-        let buildRan = false
-        let installRan = false
-        let uninstallRan = false
-        const p = 'dep-plugin'
-        const config = new MockConfig()
-        const { plugin } = (await t.mockImport('../dist/plugin.js', {
-          '../dist/build.js': {
-            build: async () => {
-              buildRan = true
-              throw new Error('build fail in test')
-            },
-          },
-          '../dist/pkg-exists.js': {
-            pkgExists: async () => !needInstall,
-          },
-          'foreground-child': {
-            foregroundChild: (
-              cmd: string,
-              args: string[],
-              cb: (
-                code: number | null,
-                signal: null | NodeJS.Signals
-              ) => false | void
-            ) => {
-              t.equal(cmd, 'npm')
-              if (!installRan) {
-                installRan = true
-                t.strictSame(args, [
-                  'install',
-                  ...quiet,
-                  '--save-dev',
-                  p,
-                ])
-              } else {
-                uninstallRan = true
-                t.strictSame(args, ['rm', ...quiet, p])
-              }
-              t.equal(cb(0, null), false)
-            },
-          },
-        })) as typeof import('../dist/plugin.js')
-        await plugin(['add', p], config.l)
-        t.equal(buildRan, true)
-        t.equal(installRan, true)
-        t.equal(uninstallRan, needInstall)
-        t.strictSame(config.values.plugin, ['a', 'b', 'c', p])
-        t.strictSame(config.edited, undefined)
-        t.strictSame(logs(), [])
-        t.strictSame(errs.args(), [
-          ['build failed'],
-          ...(needInstall
-            ? [['attempting to clean up added packages']]
-            : []),
-        ])
-        t.match(exitCode(), [{ type: 'set', value: 1 }])
-      })
-    }
+  t.test('fail to build installed plugin, no cleanup', async t => {
+    let buildRan = false
+    let installRan = false
+    let uninstallRan = false
+    const p = 'dep-plugin'
+    const config = new MockConfig(t)
+    const { plugin } = (await t.mockImport('../dist/plugin.js', {
+      '../dist/build.js': {
+        build: async () => {
+          buildRan = true
+          throw new Error('build fail in test')
+        },
+      },
+      '../dist/get-install-set.js': {
+        getInstallSet: (_: any, c: LoadedConfig) => {
+          c.values.plugin?.push(p)
+          return {
+            added: new Set([p]),
+            needInstall: new Set([`${p}@1.2.3`]),
+            needCleanup: new Set(),
+          }
+        },
+      },
+      '../dist/npm.js': {
+        install: (args: string[], c: any) => {
+          installRan = true
+          t.equal(c, config)
+          t.strictSame(args, [`${p}@1.2.3`])
+        },
+        uninstall: () => {
+          uninstallRan = true
+          throw new Error('should not uninstall anything')
+        },
+      },
+    })) as typeof import('../dist/plugin.js')
+    await plugin(['add', p], config.l)
+    t.equal(buildRan, true)
+    t.equal(installRan, true)
+    t.equal(uninstallRan, false)
+    t.strictSame(config.values.plugin, ['a', 'b', 'c', p])
+    t.strictSame(config.edited, undefined)
+    t.matchSnapshot(logs.args())
+    t.matchSnapshot(errs.args())
+    t.match(exitCode(), [{ type: 'set', value: 1 }])
+  })
+
+  t.test('fail to build installed plugin, with cleanup', async t => {
+    let buildRan = false
+    let installRan = false
+    let uninstallRan = false
+    const p = 'dep-plugin'
+    const config = new MockConfig(t)
+    const { plugin } = (await t.mockImport('../dist/plugin.js', {
+      '../dist/build.js': {
+        build: async () => {
+          buildRan = true
+          throw new Error('build fail in test')
+        },
+      },
+      '../dist/get-install-set.js': {
+        getInstallSet: (_: any, c: LoadedConfig) => {
+          c.values.plugin?.push(p)
+          return {
+            added: new Set([p]),
+            needInstall: new Set([`${p}@1.2.3`]),
+            needCleanup: new Set([p]),
+          }
+        },
+      },
+      '../dist/npm.js': {
+        install: (args: string[], c: any) => {
+          installRan = true
+          t.equal(c, config)
+          t.strictSame(args, [`${p}@1.2.3`])
+        },
+        uninstall: async (args: string[], c: any) => {
+          uninstallRan = true
+          t.equal(c, config)
+          t.strictSame(args, [p])
+        },
+      },
+    })) as typeof import('../dist/plugin.js')
+    await plugin(['add', p], config.l)
+    t.equal(buildRan, true)
+    t.equal(installRan, true)
+    t.equal(uninstallRan, true)
+    t.strictSame(config.values.plugin, ['a', 'b', 'c', p])
+    t.strictSame(config.edited, undefined)
+    t.matchSnapshot(logs.args())
+    t.matchSnapshot(errs.args())
+    t.match(exitCode(), [{ type: 'set', value: 1 }])
   })
 
   t.test('fail to install plugin', async t => {
@@ -388,28 +419,29 @@ t.test('adding plugins', async t => {
     let buildRan = false
     let installRan = false
     const p = 'dep-plugin'
-    const config = new MockConfig()
+    const config = new MockConfig(t)
     const { plugin } = (await t.mockImport('../dist/plugin.js', {
+      '../dist/get-install-set.js': {
+        getInstallSet: () => ({
+          added: new Set([p]),
+          needInstall: new Set([`${p}@1.2.3`]),
+          needCleanup: new Set([p]),
+        }),
+      },
       '../dist/build.js': {
         build: async () => (buildRan = true),
       },
       '../dist/pkg-exists.js': {
         pkgExists: async () => false,
       },
-      'foreground-child': {
-        foregroundChild: (
-          cmd: string,
-          args: string[],
-          cb: (
-            code: number | null,
-            signal: null | NodeJS.Signals
-          ) => false | void
-        ) => {
-          t.equal(cmd, 'npm')
+      '../dist/npm.js': {
+        install: (args: string[], c: any) => {
+          t.equal(c, config)
+          t.strictSame(args, [`${p}@1.2.3`])
           installRan = true
-          t.strictSame(args, ['install', ...quiet, '--save-dev', p])
-          t.equal(cb(1, null), undefined)
+          throw new Error('install fail in test')
         },
+        uninstall: nope,
       },
     })) as typeof import('../dist/plugin.js')
     await plugin(['add', p], config.l)
@@ -417,8 +449,8 @@ t.test('adding plugins', async t => {
     t.equal(buildRan, false)
     t.strictSame(config.values.plugin, ['a', 'b', 'c'])
     t.strictSame(config.edited, undefined)
-    t.strictSame(logs(), [])
-    t.strictSame(errs.args(), [['install failed']])
+    t.matchSnapshot(logs.args())
+    t.matchSnapshot(errs.args())
     t.match(exitCode(), [{ type: 'set', value: 1 }])
   })
 
@@ -429,7 +461,7 @@ t.test('adding plugins', async t => {
     let installRan = false
     let uninstallRan = false
     const p = 'dep-plugin'
-    const config = new MockConfig()
+    const config = new MockConfig(t)
     const { plugin } = (await t.mockImport('../dist/plugin.js', {
       '../dist/build.js': {
         build: async () => {
@@ -437,28 +469,27 @@ t.test('adding plugins', async t => {
           throw new Error('build fail in test')
         },
       },
-      '../dist/pkg-exists.js': {
-        pkgExists: async () => false,
-      },
-      'foreground-child': {
-        foregroundChild: (
-          cmd: string,
-          args: string[],
-          cb: (
-            code: number | null,
-            signal: null | NodeJS.Signals
-          ) => false | void
-        ) => {
-          t.equal(cmd, 'npm')
-          if (!installRan) {
-            installRan = true
-            t.strictSame(args, ['install', ...quiet, '--save-dev', p])
-            t.equal(cb(0, null), false)
-          } else {
-            uninstallRan = true
-            t.strictSame(args, ['rm', ...quiet, p])
-            t.equal(cb(0, 'SIGINT'), undefined)
+      '../dist/get-install-set.js': {
+        getInstallSet: (_: any, c: LoadedConfig) => {
+          c.values.plugin?.push(p)
+          return {
+            added: new Set([p]),
+            needInstall: new Set([`${p}@1.2.3`]),
+            needCleanup: new Set([p]),
           }
+        },
+      },
+      '../dist/npm.js': {
+        install: (args: string[], c: any) => {
+          t.equal(c, config)
+          t.strictSame(args, [`${p}@1.2.3`])
+          installRan = true
+        },
+        uninstall: async (args: string[], c: any) => {
+          uninstallRan = true
+          t.equal(c, config)
+          t.strictSame(args, [p])
+          throw new Error('uninstall fail in test')
         },
       },
     })) as typeof import('../dist/plugin.js')
@@ -469,10 +500,7 @@ t.test('adding plugins', async t => {
     t.strictSame(config.values.plugin, ['a', 'b', 'c', p])
     t.strictSame(config.edited, undefined)
     t.strictSame(logs(), [])
-    t.strictSame(errs.args(), [
-      ['build failed'],
-      ['attempting to clean up added packages'],
-    ])
+    t.matchSnapshot(errs.args())
     t.match(exitCode(), [{ type: 'set', value: 1 }])
   })
 })

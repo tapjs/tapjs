@@ -1,13 +1,17 @@
 // manage plugins
 import { LoadedConfig } from '@tapjs/config'
+// load core so that the Test class is ready
 import '@tapjs/core'
-
 import { defaultPlugins } from '@tapjs/test'
 
-import { foregroundChild } from 'foreground-child'
+import chalk from 'chalk'
+
 import { lstat } from 'node:fs/promises'
+
 import { build } from './build.js'
-import { pkgExists } from './pkg-exists.js'
+import { getInstallSet } from './get-install-set.js'
+import { install, uninstall } from './npm.js'
+
 const exists = (f: string) =>
   lstat(f).then(
     () => true,
@@ -38,79 +42,20 @@ export const plugin = async (
   }
 }
 
-const quiet = ['--no-audit', '--loglevel=silent', '--no-progress']
-const install = async (pkgs: string[]) => {
-  const args = ['install', ...quiet, '--save-dev', ...pkgs]
-  await new Promise<void>((res, rej) => {
-    foregroundChild('npm', args, (code, signal) => {
-      // allow error exit to proceed
-      if (code || signal) {
-        rej(
-          Object.assign(new Error('install failed'), { code, signal })
-        )
-        return
-      }
-      res()
-      return false
-    })
-  })
-}
-
-const uninstall = async (pkgs: string[]) => {
-  const args = ['rm', ...quiet, ...pkgs]
-  await new Promise<void>(res => {
-    foregroundChild('npm', args, (code, signal) => {
-      // allow error exit to proceed
-      res()
-      return code || signal ? undefined : false
-    })
-  })
-}
-
-const sets = (config: LoadedConfig) => {
-  /* c8 ignore start */
-  const pc = new Set(config.get('plugin') || [])
-  /* c8 ignore stop */
-  const pl = new Set(config.pluginList)
-  const def = new Set(defaultPlugins)
-  return { pc, pl, def }
-}
-
 const add = async (args: string[], config: LoadedConfig) => {
   if (!args.length) throw new Error('no plugin name provided')
 
-  const { pc, pl, def } = sets(config)
-  const added = new Set<string>()
-  const needInstall = new Set<string>()
-  const needCleanup = new Set<string>()
-
-  for (const plugin of args) {
-    // already present
-    if (pl.has(plugin)) continue
-
-    added.add(plugin)
-
-    // possibly default that was excluded
-    if (pc.has(`!${plugin}`)) {
-      pc.delete(`!${plugin}`)
-      if (def.has(plugin)) continue
-    }
-
-    pc.add(plugin)
-    // if it's not a file on disk, need to try to install it
-    if (!(await exists(plugin))) {
-      needInstall.add(plugin)
-      // only rollback if it wasn't there to begin with
-      if (!(await pkgExists(plugin))) {
-        needCleanup.add(plugin)
-      }
-    }
-  }
+  const { added, needInstall, needCleanup } = await getInstallSet(
+    args,
+    config
+  )
 
   if (!added.size) {
     console.log('nothing to do, all plugins already installed')
     return
   }
+
+  console.error('adding plugins:', [...added])
 
   // roll back if it fails!
   let success = false
@@ -118,11 +63,15 @@ const add = async (args: string[], config: LoadedConfig) => {
   try {
     // install anything that needs to be installed
     if (needInstall.size) {
-      await install([...needInstall])
+      console.error('installing:', [...needInstall])
+      await install([...needInstall], config)
       installed = true
     }
 
     // ok, that succeeded, update the config
+    /* c8 ignore start */
+    const pc = config.get('plugin') || []
+    /* c8 ignore stop */
     config.values.plugin = [...pc]
 
     // now rebuild
@@ -137,42 +86,49 @@ const add = async (args: string[], config: LoadedConfig) => {
     console.log('successfully added plugin(s):')
     console.log([...added].join('\n'))
     success = true
-  } catch {
-    success = false
+  } catch (er) {
+    if (er instanceof Error) {
+      console.error(chalk.red(er.message))
+    }
   } finally {
     if (!success) {
       process.exitCode = 1
-      if (needInstall.size && !installed) {
-        console.error('install failed')
-      } else {
-        console.error('build failed')
-      }
+      const what =
+        needInstall.size && !installed ? 'install' : 'build'
+      console.error(chalk.red(`${what} failed`))
       if (installed && needCleanup.size) {
         console.error('attempting to clean up added packages')
-        await uninstall([...needCleanup])
+        await uninstall([...needCleanup], config).catch(() =>
+          console.error(chalk.red('uninstall failed'))
+        )
       }
     }
   }
 }
 
 const rm = async (args: string[], config: LoadedConfig) => {
-  const { pc, pl, def } = sets(config)
+  /* c8 ignore start */
+  const pc = config.get('plugin') || []
+  /* c8 ignore stop */
+  const pl = config.pluginList
 
   const removed = new Set<string>()
   const needRemove = new Set<string>()
   for (const plugin of args) {
     // not present, nothing to do
-    if (!pl.has(plugin)) continue
+    if (!pl.includes(plugin)) continue
 
     removed.add(plugin)
 
     // possibly a default
-    if (def.has(plugin)) {
-      pc.add(`!${plugin}`)
+    if (defaultPlugins.includes(plugin)) {
+      pc.push(`!${plugin}`)
       continue
     }
 
-    pc.delete(plugin)
+    if (pc.includes(plugin)) {
+      pc.splice(pc.indexOf(plugin), 1)
+    }
     // if it's not a file on disk, then we probably need to uninstall a pkg
     if (!(await exists(plugin))) needRemove.add(plugin)
   }
@@ -193,7 +149,7 @@ const rm = async (args: string[], config: LoadedConfig) => {
   // if not present, do nothing and exit
   // if a default plugin, then add the !plugin to the config
   // else, rm plugin from config
-  // if not a file on disk, and exists in nm, npm rm
+  // if not a file on disk, and exists in nm, echo npm rm command
   // rebuild
   console.log('successfully removed plugin(s):')
   console.log([...removed].join('\n'))
