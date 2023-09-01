@@ -296,9 +296,9 @@ have a way to perform the same action in two different ways, but
 yielding the same result. In a case like this, you can define
 both of them as children of a shared parent subtest for the
 feature. In this example, we're using a
-[fixture](/docs/api/fixtures/) which will get automatically
+[fixture](./plugins/fixture.md) which will get automatically
 removed after the subtest block is completed and requiring our
-module defining [mocks](/docs/api/mocks/) which is only going to
+module defining [mocks](./plugins/mock.md) which is only going to
 be available in this scope.
 
 ```js

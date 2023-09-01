@@ -19,6 +19,7 @@ Major rewrite.
 - update cli behavior
 - more powerful repl
 - lots of added functionality
+- Mocha-like DSL removed (may return someday as an optional plugin)
 
 ### CLI
 
@@ -290,13 +291,11 @@ features.
 
 - Update the default `--test-regex` config so that a top-level `test.js` or
   `tests.js` file will be included.
-- Add [`t.hasStrict()`](/docs/api/#thasstrict) method.
+- Add `t.hasStrict()` method.
 
 ## 14.7 - 2019-10-14
 
-- Add the [`t.testdir()`](/docs/api/#ttestdirfixtures) and
-  [`t.fixture()`](/docs/api/#tfixturetype-content) methods. See [testing
-  with fixtures](/docs/api/fixtures/).
+- Add the `t.testdir()` and `t.fixture()` methods.
 - Capture the stack trace more helpfully in "subtest after end" errors.
 - Expose timing info on all test objects
 - Expose error origin on `t.error()` meta info so it can be shown in report
@@ -312,7 +311,7 @@ features.
 
 ## 14.5 - 2019-07-28
 
-- Support [`t.formatSnapshot`](/docs/api/#tformatsnapshot--function)
+- Support `t.formatSnapshot`
   returning a non-string value.
 
 ## 14.4 - 2019-07-02
@@ -350,7 +349,7 @@ features.
 
 ## 13.1 - 2019-04-28
 
-- Add [repl](/docs/watch/) for controlling `--watch` behavior.
+- Add repl for controlling `--watch` behavior.
 - Add `t.cleanSnapshot` and `t.formatSnapshot` for customizing snapshot
   formatting.
 
@@ -362,7 +361,7 @@ through this changelog if you use previous versions of tap more than casually.
 
 ### Reporting
 
-The [reporting engine](/docs/reporting/) has gotten a massive overhaul.
+The [reporting engine](./reporter.md) has gotten a massive overhaul.
 
 - Brand new reporter [treport](http://npm.im/treport), built using React and
   [ink](http://npm.im/ink), which reports on parallel tests in progress, and
@@ -421,10 +420,10 @@ my-reporter-module` works, whether that is a CLI program, a stream module, or
 
 ### Coverage Related Things
 
-- Default to [coverage](/docs/coverage/) being turned on. (Defaulting to
+- Default to [coverage](./coverage.md) being turned on. (Defaulting to
   `check-coverage` at 100% will come in v14.)
-- Add support for [coverage maps](/docs/coverage/coverage-map/) for
-  specifying which test file should cover which (or any) program file(s).
+- Add support for coverage maps for specifying which test file
+  should cover which (or any) program file(s).
 
 ### Configuration
 
@@ -501,7 +500,7 @@ will resolve to a value matching the supplied pattern.
 
 Add support for [snapshot testing](/snapshots/).
 
-Improved implementation of [Mocha-like DSL](/docs/api/mochalike/)
+Improved implementation of Mocha-like DSL
 
 ### BREAKING CHANGES:
 
@@ -512,13 +511,15 @@ Improved implementation of [Mocha-like DSL](/docs/api/mochalike/)
 
 ## 10.7 2017-06-24
 
-Add support for [filtering tests using 'only'](/docs/api/only).
+Add support for [filtering tests using
+'only'](./plugins/filter.md)
 
 Don't show grep/only skips in the default reporter output.
 
 ## 10.6 2017-06-23
 
-Add support for [filtering tests using regular expressions](/docs/api/grep).
+Add support for [filtering tests using regular
+expressions](./plugins/filter.md).
 
 ## 10.5 2017-06-20
 
@@ -560,8 +561,8 @@ system, and run that many parallel jobs.
 
 ## 10.0 2017-01-28
 
-Full rewrite to support [parallel tests](/docs/api/parallel-tests/). Pass `-j4` on
-[the command-line](/docs/cli/) to run 4 test files at once in parallel.
+Full rewrite to support parallel tests. Pass `-j4` on
+the command-line to run 4 test files at once in parallel.
 
 This also refactors a lot of the grimier bits of the codebase, splits
 the one mega-Test class into a proper OOP hierarchy, and pulls a bunch
@@ -573,10 +574,9 @@ Somehow, in the process, it also fixed an odd timing bug with
 It truly is a luxury to have a massive pile of tests when it's time to
 refactor.
 
-The [mocha-like DSL](/docs/api/mochalike/) is now much more functional, and
-documented.
+The mocha-like DSL is now much more functional, and documented.
 
-Now supports passng `-T` or `--timeout=0` to the [CLI](/docs/cli/) to not
+Now supports passng `-T` or `--timeout=0` to the CLI to not
 impose a timeout on tests.
 
 ## 9.0 2017-01-07
@@ -584,7 +584,7 @@ impose a timeout on tests.
 Buffered subtests!
 
 This adds support for outputting subtests in the
-[buffered](/docs/api/docs/api/subtests) format, where the summary test point _precedes_
+buffered format, where the summary test point _precedes_
 the indented subtest output, rather than coming afterwards.
 
 This sets the stage for parallel tests, coming in v10. Mostly, it's

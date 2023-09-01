@@ -44,7 +44,8 @@ to test. If we make an _intentional_ change to the output, then we
 need to manually update a large number of large strings, possibly
 scattered throughout the test suite. The inevitable result is
 that we either make the tests less comprehensive, or even worse,
-treat some as "known failures".
+treat some as ["known
+failures"](https://node-tap.org/basics/#note-about-%22expected-failures%22-and-%22run-until-good%22-testing).
 
 ## Testing Output with Snapshots
 
@@ -120,10 +121,10 @@ exports[`tagger.test.mjs TAP > output 1`] = `
 
 If the argument passed to `t.matchSnapshot()` isn't a string,
 then it will be converted to a string using
-[tcompare.format](http://npm.im/tcompare). This is typically
-pretty easy for humans to understand, but of course if you prefer
-to use `JSON.stringify` or something else, you can do so easily
-enough. The
+[tcompare.format](https://tapjs.github.io/tapjs/modules/tcompare.html).
+This is typically pretty easy for humans to understand, but of
+course if you prefer to use `JSON.stringify` or something else,
+you can do so easily enough. The
 [t.formatSnapshot](https://tapjs.github.io/tapjs/classes/_tapjs_test.index.Test.html#formatSnapshot)
 can be used to customize this for an entire test.
 
@@ -286,13 +287,19 @@ t.test('foo', async t => {
   // this writes to ./test/tap-snapshots/foo.test.cjs'
   // either path or file URL or file URL string is fine, but
   // it'll always store it as the actual path.
-  t.snapshotFile = new URL('../tap-snapshots/foo.test.cjs', import.meta.url)
+  t.snapshotFile = new URL(
+    '../tap-snapshots/foo.test.cjs',
+    import.meta.url
+  )
   t.matchSnapshot('foo')
 })
 
 t.test('bar', async t => {
   // this writes to ./test/tap-snapshots/bar.test.cjs'
-  t.snapshotFile = new URL('../tap-snapshots/bar.test.cjs', import.meta.url)
+  t.snapshotFile = new URL(
+    '../tap-snapshots/bar.test.cjs',
+    import.meta.url
+  )
   t.matchSnapshot('bar')
 })
 

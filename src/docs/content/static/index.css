@@ -472,6 +472,7 @@ body.content main {
     flex-direction: column;
   }
   #sidebar {
+    min-height: 0;
     width: 100%;
     padding: 1rem;
   }

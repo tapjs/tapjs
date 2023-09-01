@@ -118,8 +118,13 @@ module.exports = eleventyConfig => {
         `From plugin: <a href="/plugins/${m[1]}">@tapjs/${m[1]}</a>${m[2]}`
       )
     }
+    const prod = /^https:\/\/(www\.)?node-tap(\.org|\.surge\.sh)\//
     for (const link of $('a[href]')) {
       const { href } = link.attribs
+      if (prod.test(href)) {
+        link.attribs.href = href.replace(prod, '/')
+      }
+
       if (
         /^https?:/.test(href) ||
         !/\.(md|json|11ty\.js)(#.*)?$/.test(href)
@@ -169,7 +174,7 @@ module.exports = eleventyConfig => {
       input: 'content',
       includes: '../_includes',
       layouts: '../_includes/layouts',
-      output: '_site/docs',
+      output: '_site',
     },
   }
 }
