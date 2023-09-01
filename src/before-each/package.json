@@ -32,9 +32,7 @@
     "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
   },
   "keywords": [
-    "tap",
-    "spy",
-    "fake"
+    "tapjs plugin"
   ],
   "author": "Isaac Z. Schlueter",
   "license": "BlueOak-1.0.0",

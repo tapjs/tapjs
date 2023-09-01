@@ -4,6 +4,9 @@
   "description": "Tap plugin to provide t.testdir() and t.fixture()",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "type": "module",
+  "keywords": [
+    "tapjs plugin"
+  ],
   "exports": {
     "./package.json": {
       "import": "./package.json",

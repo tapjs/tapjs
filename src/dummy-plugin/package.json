@@ -4,6 +4,9 @@
   "version": "0.0.0-18",
   "description": "an example plugin for use in testing tap itself",
   "type": "module",
+  "keywords": [
+    "tapjs plugin"
+  ],
   "exports": {
     "./package.json": {
       "import": "./package.json",

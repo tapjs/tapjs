@@ -32,7 +32,7 @@
     "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
   },
   "keywords": [
-    "tap",
+    "tapjs plugin",
     "nock"
   ],
   "license": "BlueOak-1.0.0",

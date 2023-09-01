@@ -20,6 +20,9 @@
       }
     }
   },
+  "keywords": [
+    "tapjs plugin"
+  ],
   "files": [
     "dist"
   ],

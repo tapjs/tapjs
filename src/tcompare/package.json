@@ -5,6 +5,14 @@
   "author": "Isaac Z. Schlueter <i@izs.me> (https://izs.me)",
   "license": "BlueOak-1.0.0",
   "type": "module",
+  "keywords": [
+    "deepEqual",
+    "match",
+    "compare",
+    "object",
+    "comparison",
+    "diff"
+  ],
   "exports": {
     "./package.json": {
       "import": "./package.json",

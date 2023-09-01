@@ -4,6 +4,11 @@
   "description": "Pretty test output reporters for tap",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "type": "module",
+  "keywords": [
+    "tapjs",
+    "ink",
+    "reporter"
+  ],
   "files": [
     "dist"
   ],

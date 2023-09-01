@@ -24,6 +24,9 @@
       "require": "./package.json"
     }
   },
+  "keywords": [
+    "tapjs plugin"
+  ],
   "license": "BlueOak-1.0.0",
   "scripts": {
     "prepare": "tsc -p tsconfig/esm.json && bash scripts/fixup.sh",

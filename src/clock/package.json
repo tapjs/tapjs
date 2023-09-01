@@ -22,6 +22,9 @@
   "files": [
     "dist"
   ],
+  "keywords": [
+    "tapjs plugin"
+  ],
   "license": "BlueOak-1.0.0",
   "scripts": {
     "prepare": "tsc -p tsconfig/cjs.json && tsc -p tsconfig/esm.json && bash ./scripts/fixup.sh",

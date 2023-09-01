@@ -32,7 +32,7 @@
     "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
   },
   "keywords": [
-    "tap",
+    "tapjs plugin",
     "sinon"
   ],
   "author": "Isaac Z. Schlueter",

@@ -53,7 +53,11 @@
     "assert",
     "tap",
     "test",
-    "testing"
+    "testing",
+    "framework",
+    "cli",
+    "tapjs",
+    "tapjs plugin"
   ],
   "license": "BlueOak-1.0.0",
   "scripts": {

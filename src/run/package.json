@@ -4,6 +4,11 @@
   "description": "Command-line interface for the node-tap runner",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "type": "module",
+  "keywords": [
+    "tapjs",
+    "runner",
+    "cli"
+  ],
   "bin": {
     "tap-run": "dist/index.js"
   },

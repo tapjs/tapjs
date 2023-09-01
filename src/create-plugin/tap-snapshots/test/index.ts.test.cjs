@@ -38,6 +38,9 @@ Object {
   "files": Array [
     "dist",
   ],
+  "keywords": Array [
+    "tapjs plugin",
+  ],
   "license": "BlueOak-1.0.0",
   "name": "@xyz/my-plugin-name",
   "prettier": Object {

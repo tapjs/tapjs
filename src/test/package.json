@@ -3,6 +3,9 @@
   "version": "0.0.0-18",
   "description": "the pluggable Test class for node-tap",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
+  "keywords": [
+    "tapjs plugin"
+  ],
   "bin": {
     "generate-tap-test-class": "scripts/build.mjs"
   },
