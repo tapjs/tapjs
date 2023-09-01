@@ -403,7 +403,7 @@ const publish = (names: string[], pre: boolean = false) => {
   // push worked, try to publish, skip any private packages
   const pn = names.filter(n => !manifests[n].private)
   // always publish tap last
-  const noTap = names.filter(n => n !== 'tap')
+  const noTap = pn.filter(n => n !== 'tap')
   npm(
     { stdio: 'inherit' },
     'publish',
