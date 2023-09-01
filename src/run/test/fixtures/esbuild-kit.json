@@ -1,0 +1,470 @@
+{
+  "name": "@tapjs/esbuild-kit",
+  "dist-tags": {
+    "latest": "0.0.0-1",
+    "pre": "0.0.0-17"
+  },
+  "versions": {
+    "0.0.0-1": {
+      "name": "@tapjs/esbuild-kit",
+      "version": "0.0.0-1",
+      "dependencies": {
+        "@esbuild-kit/cjs-loader": "^2.4.2",
+        "@esbuild-kit/esm-loader": "^2.5.5"
+      },
+      "peerDependencies": {
+        "@tapjs/core": "0.0.0-1"
+      },
+      "dist": {
+        "integrity": "sha512-47MZvlzWPmVYE8V8aDFWLgtS19U+iDhJEcyOJtQEIqzJc+DWTmRVdwKBffvSdV8XEj6+p5OtAuscTOdbjBf1Pw==",
+        "shasum": "1259e0ccb7e573cc0e2521272100c442ea2011a6",
+        "tarball": "https://registry.npmjs.org/@tapjs/esbuild-kit/-/esbuild-kit-0.0.0-1.tgz",
+        "fileCount": 13,
+        "unpackedSize": 11569,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIF8lP+cyoX8PnuCLPIy9mS7zyODij9S58kwe38oAHbDBAiBxifhPbWkfcQummYWkKLIv+Hi0MFzUCsSRKfAaYkqBlw=="
+          }
+        ]
+      },
+      "engines": {
+        "node": ">=16.17"
+      }
+    },
+    "0.0.0-2": {
+      "name": "@tapjs/esbuild-kit",
+      "version": "0.0.0-2",
+      "dependencies": {
+        "@esbuild-kit/cjs-loader": "^2.4.2",
+        "@esbuild-kit/esm-loader": "^2.5.5"
+      },
+      "peerDependencies": {
+        "@tapjs/core": "0.0.0-2"
+      },
+      "dist": {
+        "integrity": "sha512-S8GnkdDyzEALbwe7imkMgEN9cTGKeua/F4RHCwirfawwVHPpPqpXdKsgizV8OP7QrkDtVU3E6MPnGw39vBqu6g==",
+        "shasum": "fe59b3c5eee23143e51b3811a01e7c13b600e155",
+        "tarball": "https://registry.npmjs.org/@tapjs/esbuild-kit/-/esbuild-kit-0.0.0-2.tgz",
+        "fileCount": 13,
+        "unpackedSize": 11569,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIFr9dPAk7FDf85lBrZmt18b/BRBQqXdAy/Ayo2++vG5nAiAoZ/1bMtIQoRuwR0lFb2uoq1xSb/aDZe5bhu28UvP68A=="
+          }
+        ]
+      },
+      "engines": {
+        "node": ">=16.17"
+      }
+    },
+    "0.0.0-3": {
+      "name": "@tapjs/esbuild-kit",
+      "version": "0.0.0-3",
+      "dependencies": {
+        "@esbuild-kit/cjs-loader": "^2.4.2",
+        "@esbuild-kit/esm-loader": "^2.5.5"
+      },
+      "peerDependencies": {
+        "@tapjs/core": "0.0.0-3"
+      },
+      "dist": {
+        "integrity": "sha512-BD4a57SC5IIUJCSveyhSu7mtmnr+FpcpQCn4nCHVVbkKClzgJdCqs0K6Q3LfkHQ1n7W/5RCjL2ggYBw5R1eeXQ==",
+        "shasum": "15b9d8d4c8a81e45661c442560c9630ef7143453",
+        "tarball": "https://registry.npmjs.org/@tapjs/esbuild-kit/-/esbuild-kit-0.0.0-3.tgz",
+        "fileCount": 13,
+        "unpackedSize": 11569,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIEzDea4/lyakYqaM7jGPdNiv5A7r6UR5b0XjizMCYTjaAiBH+C2ugttd8F/u/34qECO3AMba0dLoHgJrW7+y/sh02w=="
+          }
+        ]
+      },
+      "engines": {
+        "node": ">=16.17"
+      }
+    },
+    "0.0.0-4": {
+      "name": "@tapjs/esbuild-kit",
+      "version": "0.0.0-4",
+      "dependencies": {
+        "@esbuild-kit/cjs-loader": "^2.4.2",
+        "@esbuild-kit/esm-loader": "^2.5.5"
+      },
+      "peerDependencies": {
+        "@tapjs/core": "0.0.0-4"
+      },
+      "dist": {
+        "integrity": "sha512-8M4MD6/1AODO1uacvqSNI+Ilv/ZYZwJpCmiKW4mRSxUXwM4gKBm4gISXIOKtO7ckArLw/Z5HbccdZ7Djz3+Hlg==",
+        "shasum": "873d12bb99c8b44e85c0da84d7cb75f79113cbc9",
+        "tarball": "https://registry.npmjs.org/@tapjs/esbuild-kit/-/esbuild-kit-0.0.0-4.tgz",
+        "fileCount": 13,
+        "unpackedSize": 11569,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCICOGgE7/Xt9ULqjgFhTFqSpZ+hBv+OPfXxZIkRycTFw7AiEAqktm4lZ/sj8ko8YFZzqvVyGuw1e59oVHHQCNBFMmdqc="
+          }
+        ]
+      },
+      "engines": {
+        "node": ">=16.17"
+      }
+    },
+    "0.0.0-5": {
+      "name": "@tapjs/esbuild-kit",
+      "version": "0.0.0-5",
+      "dependencies": {
+        "@esbuild-kit/cjs-loader": "^2.4.2",
+        "@esbuild-kit/esm-loader": "^2.5.5"
+      },
+      "peerDependencies": {
+        "@tapjs/core": "0.0.0-5"
+      },
+      "dist": {
+        "integrity": "sha512-Rz9mu7gTi9so/ZcunHhkTxxlHsuT1SxHvO0a79YZvc+XeAFUejPNXArAfeigDQ/8CyZ50BAe5oyOajHu38Kh7Q==",
+        "shasum": "fc58ca6d9d562269639f102d02f21a8a01193049",
+        "tarball": "https://registry.npmjs.org/@tapjs/esbuild-kit/-/esbuild-kit-0.0.0-5.tgz",
+        "fileCount": 13,
+        "unpackedSize": 14500,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIF8Fn/1s1ctRYhQeL8KDkRbwqfw3YjqWCDLAhzLP5x+JAiBFKBej5Uyublux1v1t2n/aZQKRSnPm3a9H+ANarjemLA=="
+          }
+        ]
+      },
+      "engines": {
+        "node": ">=16.17"
+      }
+    },
+    "0.0.0-6": {
+      "name": "@tapjs/esbuild-kit",
+      "version": "0.0.0-6",
+      "dependencies": {
+        "@esbuild-kit/cjs-loader": "^2.4.2",
+        "@esbuild-kit/esm-loader": "^2.5.5"
+      },
+      "peerDependencies": {
+        "@tapjs/core": "0.0.0-6"
+      },
+      "dist": {
+        "integrity": "sha512-McVcj+IHQ43sonmwj/Nw1XjzCyOVw3ny+lp4bKF2o4Zcx0UxeIh+r7WnCazfWaMLZQOPi3FEevafSQrbZspYxg==",
+        "shasum": "0cd2ea44036b388b3f57b0a2086cbc0e36f18608",
+        "tarball": "https://registry.npmjs.org/@tapjs/esbuild-kit/-/esbuild-kit-0.0.0-6.tgz",
+        "fileCount": 13,
+        "unpackedSize": 14500,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIAnXHyAafd5x6Ub40YjtiovcqroiKroeiufsGkRPXN8xAiEA37K6ZT5F7U5QjfqfWc6152zPmBqTLiMf/tJtDUFktFg="
+          }
+        ]
+      },
+      "engines": {
+        "node": ">=16.17"
+      }
+    },
+    "0.0.0-7": {
+      "name": "@tapjs/esbuild-kit",
+      "version": "0.0.0-7",
+      "dependencies": {
+        "@esbuild-kit/cjs-loader": "^2.4.2",
+        "@esbuild-kit/esm-loader": "^2.5.5"
+      },
+      "peerDependencies": {
+        "@tapjs/core": "0.0.0-7"
+      },
+      "dist": {
+        "integrity": "sha512-kAjJfQ8Jg/ghBgA9uWl92DeZholsZsPZiMlTQdtZ6HtIXoCPoKpVKB+5OKBHLGQTHr7wRyoD3CG4yknR4oYGnQ==",
+        "shasum": "4e0047a5d2e699d441f2b7c10968bf4492e8d3f8",
+        "tarball": "https://registry.npmjs.org/@tapjs/esbuild-kit/-/esbuild-kit-0.0.0-7.tgz",
+        "fileCount": 13,
+        "unpackedSize": 14500,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIE2gVmX/zsIdiLhDQbtOuDzXIl+UpCXxgDRhTriitMgWAiEA7YErc4Vrnw0azmGU7mbIgbakU1atXJTx9vPl4rZQpjA="
+          }
+        ]
+      },
+      "engines": {
+        "node": ">=16.17"
+      }
+    },
+    "0.0.0-8": {
+      "name": "@tapjs/esbuild-kit",
+      "version": "0.0.0-8",
+      "dependencies": {
+        "@esbuild-kit/cjs-loader": "^2.4.2",
+        "@esbuild-kit/esm-loader": "^2.5.5"
+      },
+      "peerDependencies": {
+        "@tapjs/core": "0.0.0-8"
+      },
+      "dist": {
+        "integrity": "sha512-fArQ9KcgDVFxK4wP43mTpnqYlvcO/KCvwm1t1R6ypXPDgoRb3x43abFe4axJ6sdxVJ9VdWwx1Mv9tm9gdb6bdw==",
+        "shasum": "1520809250f9e128214de956edc15993cf175f4c",
+        "tarball": "https://registry.npmjs.org/@tapjs/esbuild-kit/-/esbuild-kit-0.0.0-8.tgz",
+        "fileCount": 13,
+        "unpackedSize": 14500,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDGQoeZUiZYgmxWySCz/mqiRVHuByzzIRSGWEdSRu60QgIhAMtC2MBRouw5WST1yxCRl7HBAd7ILfGhBaOltvCV+/E6"
+          }
+        ]
+      },
+      "engines": {
+        "node": ">=16.17"
+      }
+    },
+    "0.0.0-9": {
+      "name": "@tapjs/esbuild-kit",
+      "version": "0.0.0-9",
+      "dependencies": {
+        "@esbuild-kit/cjs-loader": "^2.4.2",
+        "@esbuild-kit/esm-loader": "^2.5.5"
+      },
+      "peerDependencies": {
+        "@tapjs/core": "0.0.0-9"
+      },
+      "dist": {
+        "integrity": "sha512-ulc9LyLPBVxUBdlXxXtkw/HFWcSIg84u214pUYg2NQe0bILjqLN/EoQibE338gzaVZ1VxUA2BOZirfP08mciYQ==",
+        "shasum": "04fcf08f826fb31838af55e2b5b5935bac16ed4f",
+        "tarball": "https://registry.npmjs.org/@tapjs/esbuild-kit/-/esbuild-kit-0.0.0-9.tgz",
+        "fileCount": 13,
+        "unpackedSize": 14500,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCICI4OoXjCW99mRk7PsCa7ZIMb6KuMiUKywmM/7jQmSsKAiEAlIG7E/17EUcwl6XS/XN2mRTtEezUQZ5fuUQq/tFWdMw="
+          }
+        ]
+      },
+      "engines": {
+        "node": ">=16.17"
+      }
+    },
+    "0.0.0-10": {
+      "name": "@tapjs/esbuild-kit",
+      "version": "0.0.0-10",
+      "dependencies": {
+        "@esbuild-kit/cjs-loader": "^2.4.2",
+        "@esbuild-kit/esm-loader": "^2.5.5"
+      },
+      "peerDependencies": {
+        "@tapjs/core": "0.0.0-10"
+      },
+      "dist": {
+        "integrity": "sha512-e56OJbl+Vv/9YgDliUQxzCt+FoLc9XT9cZxoNZPk6I4ZoVgYcT+/dPeuWTY0+tvT89xfqyM6O1QvTMF16ZVYFw==",
+        "shasum": "6efc766b6cc8a7be92ba28432596023b55496f94",
+        "tarball": "https://registry.npmjs.org/@tapjs/esbuild-kit/-/esbuild-kit-0.0.0-10.tgz",
+        "fileCount": 13,
+        "unpackedSize": 14454,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIEzGn255+uEaKlOkjBv0F8tbbDYMD3mWyqW+ABukxQPbAiB85X2GBYtGwvnkyl10UiYfS7JJqqqf6oi32wRKLMeOeA=="
+          }
+        ]
+      },
+      "engines": {
+        "node": ">=16.17"
+      }
+    },
+    "0.0.0-11": {
+      "name": "@tapjs/esbuild-kit",
+      "version": "0.0.0-11",
+      "dependencies": {
+        "@esbuild-kit/cjs-loader": "^2.4.2",
+        "@esbuild-kit/esm-loader": "^2.5.5"
+      },
+      "peerDependencies": {
+        "@tapjs/core": "0.0.0-11"
+      },
+      "dist": {
+        "integrity": "sha512-je0PYnRoLf+TVWBOkSvt0CPXepAjnyMgKT+qOzC+aP1Dy5ZMLhLMjuic2uWOXoUyW5tfg8vG4qyK1RnZAM7fLA==",
+        "shasum": "7a53b4a7bc637fc22cd3e4ce97f043582a42b739",
+        "tarball": "https://registry.npmjs.org/@tapjs/esbuild-kit/-/esbuild-kit-0.0.0-11.tgz",
+        "fileCount": 13,
+        "unpackedSize": 15948,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIACcxFWSB/XSQTMKvLk+211o0OjQ/4Pl+W0clr7gQOLPAiBgRC/1kJWlunT4Na3oxfcdP10lwel5hbMRp5poDbI/RA=="
+          }
+        ]
+      },
+      "engines": {
+        "node": ">=16.17"
+      }
+    },
+    "0.0.0-12": {
+      "name": "@tapjs/esbuild-kit",
+      "version": "0.0.0-12",
+      "dependencies": {
+        "@esbuild-kit/cjs-loader": "^2.4.2",
+        "@esbuild-kit/esm-loader": "^2.5.5"
+      },
+      "peerDependencies": {
+        "@tapjs/core": "0.0.0-12"
+      },
+      "dist": {
+        "integrity": "sha512-zVXad64Qj1H1e+KR0+BZgekPCWsRb1gxjyAU2UtD2v55lXFr6jqUTncc8wYZL7CWBZ6RnfXqkXQJJOt0RyZc+A==",
+        "shasum": "7ef2108309aeceeb9ae808d3bbe7f1fc56d0512e",
+        "tarball": "https://registry.npmjs.org/@tapjs/esbuild-kit/-/esbuild-kit-0.0.0-12.tgz",
+        "fileCount": 13,
+        "unpackedSize": 15948,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIDyuRlCwKdbxditIuvyuppaS5+Vg6/Ck+Mc9BlfdGH87AiAR1s0k/4G6lBClNYaHZpBHT8so/7VNXRa9mlvAytqm3Q=="
+          }
+        ]
+      },
+      "engines": {
+        "node": ">=16.17"
+      }
+    },
+    "0.0.0-13": {
+      "name": "@tapjs/esbuild-kit",
+      "version": "0.0.0-13",
+      "dependencies": {
+        "@esbuild-kit/cjs-loader": "^2.4.2",
+        "@esbuild-kit/esm-loader": "^2.5.5"
+      },
+      "peerDependencies": {
+        "@tapjs/core": "0.0.0-13"
+      },
+      "dist": {
+        "integrity": "sha512-VJzKMuUpZvmBW4TTF2iL3bfA7OYb4lYSj0O1WyjC/tz98BqBB+dX6nqQ9xBh6ko4Ve/HQb0c+jCvtc48GKamLQ==",
+        "shasum": "c6d2a58538206a2184d59f1815739eb879dac32f",
+        "tarball": "https://registry.npmjs.org/@tapjs/esbuild-kit/-/esbuild-kit-0.0.0-13.tgz",
+        "fileCount": 13,
+        "unpackedSize": 15874,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIHNMtlh3c86BH66h7G/3skv53M04ZTRcj7BMhlAftridAiBZFkCbivl7uBO6L9t8JeKOe6VbJjuAQaFEV5203KttmA=="
+          }
+        ]
+      },
+      "engines": {
+        "node": ">=16.17"
+      }
+    },
+    "0.0.0-14": {
+      "name": "@tapjs/esbuild-kit",
+      "version": "0.0.0-14",
+      "dependencies": {
+        "@esbuild-kit/cjs-loader": "^2.4.2",
+        "@esbuild-kit/esm-loader": "^2.5.5"
+      },
+      "peerDependencies": {
+        "@tapjs/core": "0.0.0-14"
+      },
+      "dist": {
+        "integrity": "sha512-RZdMTAwaE0jN6CEh2Uc9/YIYYw+HqW54iJ8OJmK6IkMxsEwN6aoBkj3tu6lP08K4r//xDxSSWL6Ika5M7liJIA==",
+        "shasum": "0fcde5067bfc88663e4f1f1b8f0a20d58b78f9bb",
+        "tarball": "https://registry.npmjs.org/@tapjs/esbuild-kit/-/esbuild-kit-0.0.0-14.tgz",
+        "fileCount": 13,
+        "unpackedSize": 16914,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIHSoYe/oUybpGvzgccAj+vS+Nz8Fn2sjLkX2PTnkG5EJAiEAu/SYSZ202caxeeYJMHh0Hp9sU8LOm9gxIwAVtyZ+u78="
+          }
+        ]
+      },
+      "engines": {
+        "node": ">=16.17"
+      }
+    },
+    "0.0.0-15": {
+      "name": "@tapjs/esbuild-kit",
+      "version": "0.0.0-15",
+      "dependencies": {
+        "@esbuild-kit/cjs-loader": "^2.4.2",
+        "@esbuild-kit/esm-loader": "^2.5.5"
+      },
+      "peerDependencies": {
+        "@tapjs/core": "0.0.0-15"
+      },
+      "dist": {
+        "integrity": "sha512-YXZ/Mpue6x6JztcGeWF+rrDZ6UDHKJmxcnSmhYgkdULKeTITCFHruTmaMV0o/KS8HcGP+QVwFtPDrjhh5l56lw==",
+        "shasum": "9adb651226057d1ac31191605137339b1ebc7d23",
+        "tarball": "https://registry.npmjs.org/@tapjs/esbuild-kit/-/esbuild-kit-0.0.0-15.tgz",
+        "fileCount": 13,
+        "unpackedSize": 16914,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIE/4Bt0fGnDAg8f98queAMPSK2tLwpnAbjKLSkSHh8PAAiEA1FNQLgK/PKij1tEqJCZQL6p9j/RasmOFRygy72IzJg4="
+          }
+        ]
+      },
+      "engines": {
+        "node": ">=16.17"
+      }
+    },
+    "0.0.0-16": {
+      "name": "@tapjs/esbuild-kit",
+      "version": "0.0.0-16",
+      "dependencies": {
+        "@esbuild-kit/cjs-loader": "^2.4.2",
+        "@esbuild-kit/esm-loader": "^2.5.5"
+      },
+      "peerDependencies": {
+        "@tapjs/core": "0.0.0-16"
+      },
+      "dist": {
+        "integrity": "sha512-AWglnqdG8QxTLXoQ15iuO7CBub7jcKtgdmciLWWPCgbZFpx3blQUPRnblsRJUlnuc248I79wJqBQ1vwvvRW80A==",
+        "shasum": "ecdb387c95e4c87512a66f8a3ccaa8c1e2d65799",
+        "tarball": "https://registry.npmjs.org/@tapjs/esbuild-kit/-/esbuild-kit-0.0.0-16.tgz",
+        "fileCount": 13,
+        "unpackedSize": 17248,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIEqlmaQyp8j/Nt6RSkHFBpKZFDI4FHZFCQg9Up2Pm1b7AiEAshWMP9+80Q98c3Ao+4pb/dAWHRH3P4Xuq4klDK6D5A8="
+          }
+        ]
+      },
+      "engines": {
+        "node": ">=16"
+      }
+    },
+    "0.0.0-17": {
+      "name": "@tapjs/esbuild-kit",
+      "version": "0.0.0-17",
+      "dependencies": {
+        "@esbuild-kit/cjs-loader": "^2.4.2",
+        "@esbuild-kit/esm-loader": "^2.5.5"
+      },
+      "peerDependencies": {
+        "@tapjs/core": "0.0.0-17"
+      },
+      "dist": {
+        "integrity": "sha512-clshEQdlTzd4lRgRZ1vzapPdYsfbiqsty0Vr4FAvk5uWc1Vx1viyGyeA/UWGSc1NO+HrLYbhlZA5O4+83NFLAA==",
+        "shasum": "03d6443aec59d0f52190edfcba88863d50ff4cdb",
+        "tarball": "https://registry.npmjs.org/@tapjs/esbuild-kit/-/esbuild-kit-0.0.0-17.tgz",
+        "fileCount": 13,
+        "unpackedSize": 17248,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIFUbnk1BMWPpvjSUI9tuVEYO0cs+GZyzMt8gScOeV6ZFAiEAzcKOgTkVZTHXbyBxn7Xhp24qeu8LUZYeN1iPd79fUyg="
+          }
+        ]
+      },
+      "engines": {
+        "node": ">=16"
+      }
+    }
+  },
+  "modified": "2023-08-29T10:48:30.079Z",
+  "_contentLength": 11971
+}

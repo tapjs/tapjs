@@ -72,7 +72,13 @@ export default jack({
 
     If the plugin is not a module on disk, then tap will attempt to install
     the plugin package as a dev dependency by running
-    \`npm install --save-dev <plugin>\`.`
+    \`npm install --save-dev <plugin>\`.
+
+    Specifying a version or range is supported. For example,
+    \`tap plugin add my-plugin@1.x\` will try to install a version that
+    satisfies the semver range. It will be saved in the configuration without
+    the version. If the plugin is updated in node_modules, it _may_ require
+    running \`tap build\`, if the types or interfaces change between versions.`
   )
   .heading('tap plugin rm <plugin>', 4, { pre: true })
   .description(
@@ -81,8 +87,8 @@ export default jack({
     If the plugin is one of tap's builtin plugins, then it will be disabled
     by adding \`!<plugin>\` to the \`plugin\` tap config.
 
-    If the plugin is an installed devDependency, then it will be removed by
-    running \`npm rm <plugin>\`.`
+    Node-tap will *not* automatically uninstall plugin dependencies when
+    removed.`
   )
   .heading('tap plugin list', 4, { pre: true })
   .description('List the plugins in use')
@@ -166,7 +172,9 @@ export default jack({
     any highlighting or sorting.`
   )
 
-  .heading('tap config set <key=val> [<key=val> ...]', 4, { pre: true })
+  .heading('tap config set <key=val> [<key=val> ...]', 4, {
+    pre: true,
+  })
   .description(
     `Set the specified keys and values.
 

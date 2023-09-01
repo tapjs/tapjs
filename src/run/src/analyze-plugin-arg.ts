@@ -1,6 +1,10 @@
+// import this first so Test exists when we need it.
+import '@tapjs/core'
+
 import { LoadedConfig } from '@tapjs/config'
 import { defaultPlugins } from '@tapjs/test'
-import { getInstalled, selectVersion } from './select-version.js'
+import { getInstalledVersion } from './get-installed-version.js'
+import { selectVersion } from './select-version.js'
 
 // @scope/pkg
 // @scope/pkg@semver
@@ -27,7 +31,7 @@ export const analyzePluginArg = async (
     }
   }
   const name = pkgMatch[1]
-  const versionInstalled = getInstalled(name, config)
+  const versionInstalled = getInstalledVersion(name, config)
   const versionWant = await selectVersion(name, pkgMatch[2], config)
   return { name, versionInstalled, versionWant }
 }

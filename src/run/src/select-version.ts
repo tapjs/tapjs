@@ -1,7 +1,5 @@
 import { LoadedConfig } from '@tapjs/config'
-import { readFileSync } from 'fs'
-import pacote, { Manifest } from 'pacote'
-import { resolve } from 'path'
+import pacote from 'pacote'
 import { gt, satisfies } from 'semver'
 import { npmBg } from './npm.js'
 
@@ -24,23 +22,6 @@ const getPackument = async (pkg: string, config: LoadedConfig) => {
     registry = regLookup.stdout.trim()
   }
   return await pacote.packument(pkg, { registry })
-}
-
-/**
- * get the versions of a package that is installed at top level
- */
-export const getInstalled = (name: string, config: LoadedConfig) => {
-  const pj = resolve(
-    config.globCwd,
-    'node_modules',
-    name,
-    'package.json'
-  )
-  try {
-    return (JSON.parse(readFileSync(pj, 'utf8')) as Manifest).version
-  } catch {
-    return ''
-  }
 }
 
 /**

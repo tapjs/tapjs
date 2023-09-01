@@ -1,3 +1,5 @@
+import '@tapjs/core'
+
 import { LoadedConfig } from '@tapjs/config'
 import { defaultPlugins } from '@tapjs/test'
 import chalk from 'chalk'
@@ -56,8 +58,12 @@ export const getInstallSet = async (
     }
 
     // if it's not a file on disk, need to try to install it
-    if (!(await exists(plugin))) {
-      needInstall.add(versionWant ? `${name}@${versionWant}` : name)
+    if (
+      !(await exists(plugin)) &&
+      versionWant &&
+      versionWant !== versionInstalled
+    ) {
+      needInstall.add(`${name}@${versionWant}`)
       // only rollback if it wasn't there to begin with
       if (!(await pkgExists(name))) {
         needCleanup.add(name)
