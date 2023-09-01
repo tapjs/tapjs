@@ -451,15 +451,18 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
     let color: boolean
     if (
       env.TAP !== '1' &&
+      env.NO_COLOR !== '1' &&
       (c === true || (c === undefined && chalk.level > 0))
     ) {
       color = true
       chalk.level = Math.max(chalk.level, 1) as 0 | 1 | 2 | 3
       env.FORCE_COLOR = String(chalk.level)
+      env.NO_COLOR = '0'
     } else {
       color = false
       chalk.level = 0
       env.FORCE_COLOR = '0'
+      env.NO_COLOR = '1'
     }
     const { values } = this.parse()
     ;(values as OptionsResults<C> & { color: boolean }).color = color

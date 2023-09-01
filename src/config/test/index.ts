@@ -22,6 +22,7 @@ t.test('reporter from env or config', t => {
           env: {
             TAP: undefined,
             TAP_REPORTER: undefined,
+            NO_COLOR: undefined,
             TAP_COLOR: '1',
           },
         }),
@@ -38,6 +39,7 @@ t.test('reporter from env or config', t => {
         env: {
           TAP: undefined,
           TAP_REPORTER: undefined,
+          NO_COLOR: undefined,
           TAP_COLOR: '0',
         },
       }),
@@ -78,6 +80,7 @@ t.test('reporter from env or config', t => {
         env: {
           TAP: undefined,
           TAP_COLOR: undefined,
+          NO_COLOR: undefined,
           TAP_REPORTER: 'base',
         },
       }),
@@ -229,7 +232,7 @@ t.test('config from .taprc', async t => {
       // filter out all TAP* envs
       env: Object.fromEntries(
         Object.keys(core.env)
-          .filter(k => k.startsWith('TAP'))
+          .filter(k => k.startsWith('TAP') || k === 'NO_COLOR')
           .map(k => [k, undefined])
       ),
     }),
@@ -256,7 +259,7 @@ t.test('config from package.json', async t => {
       // filter out all TAP* envs
       env: Object.fromEntries(
         Object.keys(core.env)
-          .filter(k => k.startsWith('TAP'))
+          .filter(k => k.startsWith('TAP') || k === 'NO_COLOR')
           .map(k => [k, undefined])
       ),
     }),
@@ -284,7 +287,7 @@ this
       // filter out all TAP* envs
       env: Object.fromEntries(
         Object.keys(core.env)
-          .filter(k => k.startsWith('TAP'))
+          .filter(k => k.startsWith('TAP') || k === 'NO_COLOR')
           .map(k => [k, undefined])
       ),
     }),
@@ -317,7 +320,7 @@ this
       // filter out all TAP* envs
       env: Object.fromEntries(
         Object.keys(core.env)
-          .filter(k => k.startsWith('TAP'))
+          .filter(k => k.startsWith('TAP') || k === 'NO_COLOR')
           .map(k => [k, undefined])
       ),
     }),
@@ -344,7 +347,7 @@ t.test('.taprc extends file', async t => {
       // filter out all TAP* envs
       env: Object.fromEntries(
         Object.keys(core.env)
-          .filter(k => k.startsWith('TAP'))
+          .filter(k => k.startsWith('TAP') || k === 'NO_COLOR')
           .map(k => [k, undefined])
       ),
     }),
@@ -373,7 +376,7 @@ t.test('package.json extends file', async t => {
       // filter out all TAP* envs
       env: Object.fromEntries(
         Object.keys(core.env)
-          .filter(k => k.startsWith('TAP'))
+          .filter(k => k.startsWith('TAP') || k === 'NO_COLOR')
           .map(k => [k, undefined])
       ),
     }),
@@ -395,7 +398,7 @@ t.test('extension has invalid field', async t => {
       // filter out all TAP* envs
       env: Object.fromEntries(
         Object.keys(core.env)
-          .filter(k => k.startsWith('TAP'))
+          .filter(k => k.startsWith('TAP') || k === 'NO_COLOR')
           .map(k => [k, undefined])
       ),
     }),
@@ -427,7 +430,7 @@ t.test('extend from dep .taprc', async t => {
       // filter out all TAP* envs
       env: Object.fromEntries(
         Object.keys(core.env)
-          .filter(k => k.startsWith('TAP'))
+          .filter(k => k.startsWith('TAP') || k === 'NO_COLOR')
           .map(k => [k, undefined])
       ),
     }),
@@ -460,7 +463,7 @@ t.test('extend from dep package.json', async t => {
       // filter out all TAP* envs
       env: Object.fromEntries(
         Object.keys(core.env)
-          .filter(k => k.startsWith('TAP'))
+          .filter(k => k.startsWith('TAP') || k === 'NO_COLOR')
           .map(k => [k, undefined])
       ),
     }),
@@ -489,7 +492,7 @@ t.test('extend from dep package.json, but no config', async t => {
       // filter out all TAP* envs
       env: Object.fromEntries(
         Object.keys(core.env)
-          .filter(k => k.startsWith('TAP'))
+          .filter(k => k.startsWith('TAP') || k === 'NO_COLOR')
           .map(k => [k, undefined])
       ),
     }),
@@ -512,7 +515,7 @@ t.test('extend from missing dep', async t => {
       // filter out all TAP* envs
       env: Object.fromEntries(
         Object.keys(core.env)
-          .filter(k => k.startsWith('TAP'))
+          .filter(k => k.startsWith('TAP') || k === 'NO_COLOR')
           .map(k => [k, undefined])
       ),
     }),
@@ -536,7 +539,7 @@ t.test('edit .taprc config, add fields only', async t => {
       // filter out all TAP* envs
       env: Object.fromEntries(
         Object.keys(core.env)
-          .filter(k => k.startsWith('TAP'))
+          .filter(k => k.startsWith('TAP') || k === 'NO_COLOR')
           .map(k => [k, undefined])
       ),
     }),
@@ -564,7 +567,7 @@ t.test('edit .taprc config, overwrite', async t => {
       // filter out all TAP* envs
       env: Object.fromEntries(
         Object.keys(core.env)
-          .filter(k => k.startsWith('TAP'))
+          .filter(k => k.startsWith('TAP') || k === 'NO_COLOR')
           .map(k => [k, undefined])
       ),
     }),
@@ -577,8 +580,7 @@ t.test('edit .taprc config, overwrite', async t => {
   t.equal(tc.get('reporter'), 'newrep')
   t.equal(
     readFileSync(resolve(dir, '.taprc'), 'utf8'),
-    '# vi' +
-      'm: set filetype=yaml :\nreporter: newrep\n'
+    '# vi' + 'm: set filetype=yaml :\nreporter: newrep\n'
   )
 })
 
@@ -590,7 +592,7 @@ t.test('create .taprc config', async t => {
       // filter out all TAP* envs
       env: Object.fromEntries(
         Object.keys(core.env)
-          .filter(k => k.startsWith('TAP'))
+          .filter(k => k.startsWith('TAP') || k === 'NO_COLOR')
           .map(k => [k, undefined])
       ),
     }),
@@ -629,7 +631,7 @@ t.test('edit package.json config', async t => {
       // filter out all TAP* envs
       env: Object.fromEntries(
         Object.keys(core.env)
-          .filter(k => k.startsWith('TAP'))
+          .filter(k => k.startsWith('TAP') || k === 'NO_COLOR')
           .map(k => [k, undefined])
       ),
     }),
@@ -677,7 +679,7 @@ t.test('edit package.json config, overwrite', async t => {
       // filter out all TAP* envs
       env: Object.fromEntries(
         Object.keys(core.env)
-          .filter(k => k.startsWith('TAP'))
+          .filter(k => k.startsWith('TAP') || k === 'NO_COLOR')
           .map(k => [k, undefined])
       ),
     }),
@@ -717,7 +719,7 @@ t.test('edit package.json config create tap obj', async t => {
       // filter out all TAP* envs
       env: Object.fromEntries(
         Object.keys(core.env)
-          .filter(k => k.startsWith('TAP'))
+          .filter(k => k.startsWith('TAP') || k === 'NO_COLOR')
           .map(k => [k, undefined])
       ),
     }),
@@ -757,7 +759,7 @@ t.test('create package.json config', async t => {
       // filter out all TAP* envs
       env: Object.fromEntries(
         Object.keys(core.env)
-          .filter(k => k.startsWith('TAP'))
+          .filter(k => k.startsWith('TAP') || k === 'NO_COLOR')
           .map(k => [k, undefined])
       ),
     }),
@@ -794,7 +796,7 @@ t.test('cannot write config file with unrecognized name', async t => {
       // filter out all TAP* envs
       env: Object.fromEntries(
         Object.keys(core.env)
-          .filter(k => k.startsWith('TAP'))
+          .filter(k => k.startsWith('TAP') || k === 'NO_COLOR')
           .map(k => [k, undefined])
       ),
     }),
