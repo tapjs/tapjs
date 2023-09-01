@@ -366,7 +366,7 @@ a:hover {
   bottom: 0;
   position: absolute;
 }
-.why-tap img {
+.EncircledImage__GreyCircle img {
   box-sizing: border-box;
   max-width: 100%;
   height: auto;
@@ -518,4 +518,20 @@ pre {
   background: #2d2d2d;
   padding: 1em;
   line-height: 1.55 !important;
+}
+
+body.not-found main {
+  margin: 5rem auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: min-content;
+}
+body.not-found main h1 {
+  margin: 1rem 0 0;
+}
+.not-found main > div,
+.not-found main h1,
+.not-found main p {
+  width: 100%;
 }

@@ -13,7 +13,7 @@
     <meta name="description" content="{{ description or metadata.description }}">
   </head>
 
-  <body class="{% if page.url != "/" %}content {{ page.url | slugify }}{% else %}index{% endif %}">
+  <body class="{% if bodyClass %}{{ bodyClass }}{% else %}{% if page.url != "/" %}content {{ page.url | slugify }}{% else %}index{% endif %}{% endif %}">
     {% renderFile "./_includes/layouts/top-nav.njk", {
       collections: collections,
       eleventyNavigation: eleventyNavigation,
