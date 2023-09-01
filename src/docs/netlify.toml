@@ -1,0 +1,41 @@
+# Redirect with a 301
+[[redirects]]
+from = "/docs/basics"
+to = "/basics"
+status = 301
+[[redirects]]
+from = "/docs/getting-started"
+to = "/basics"
+status = 301
+[[redirects]]
+from = "/docs/api"
+to = "/api"
+status = 301
+[[redirects]]
+from = "/docs/changelog"
+to = "/changelog"
+status = 301
+[[redirects]]
+from = "/docs/reporting"
+to = "/reporter"
+status = 301
+[[redirects]]
+from = "/docs/configuring"
+to = "/cli/#configuration"
+status = 301
+[[redirects]]
+from = "/docs/structure"
+to = "/structure"
+status = 301
+[[redirects]]
+from = "/docs/coverage"
+to = "/coverage"
+status = 301
+[[redirects]]
+from = "/docs/cli"
+to = "/cli"
+status = 301
+[[redirects]]
+from = "/tap-protocol"
+to = "/tao-format"
+status = 301
