@@ -22,6 +22,7 @@ export class AfterEach {
     const pae = t.parent && AfterEach.#refs.get(t.parent)
     if (
       pae &&
+      !t.silent &&
       (pae.#onAfterEach.length || pae.#parentOnAfterEach.length)
     ) {
       this.#parentOnAfterEach = [

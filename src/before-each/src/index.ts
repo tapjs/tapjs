@@ -21,7 +21,7 @@ export class BeforeEach {
     this.#t = t
     BeforeEach.#refs.set(t, this)
     const pbe = t.parent && BeforeEach.#refs.get(t.parent)
-    if (pbe) {
+    if (pbe && !t.silent) {
       this.#onBeforeEach = [...pbe.#onBeforeEach]
     } else {
       this.#onBeforeEach = []

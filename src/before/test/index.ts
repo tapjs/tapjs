@@ -99,3 +99,36 @@ t.test('throwing before fails test', async t => {
 `
   )
 })
+
+t.test('all parallel tests wait for async t.before()', async t => {
+  const log: string[] = []
+  const wait =
+    (msg: string, n = 100) =>
+    async () => {
+      log.push('start ' + msg)
+      await new Promise<void>(r => setTimeout(r, n))
+      log.push('end ' + msg)
+    }
+
+  const tb = new Test({ name: 'parallel', jobs: 8 } as TestOpts)
+  tb.before(wait('before', 100))
+  const sub = (msg: string, n = 10, opts: TestOpts = {}) =>
+    tb.test(msg, opts, wait(msg, n))
+  sub('zro')
+  sub('one')
+  sub('noparallel 12', 100, { buffered: false })
+  sub('two')
+  sub('tre')
+  sub('fur')
+  sub('fiv')
+  tb.before(wait('second before', 100))
+  sub('six')
+  sub('svn')
+  sub('eit')
+  sub('shhh', 10, { silent: true })
+  sub('nin')
+  tb.end()
+
+  t.matchSnapshot(await tb.concat(), 'output')
+  t.matchSnapshot(log, 'log')
+})

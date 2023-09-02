@@ -689,7 +689,9 @@ class TestBase extends base_js_1.Base {
             }
             /* c8 ignore stop */
         }
-        while (!this.#noparallel && this.pool.size < this.jobs) {
+        // waiters are serial
+        const ow = !!this.#occupied && this.#occupied instanceof waiter_js_1.Waiter;
+        while (!this.#noparallel && !ow && this.pool.size < this.jobs) {
             const p = this.subtests.shift();
             if (!p) {
                 break;
@@ -789,7 +791,11 @@ class TestBase extends base_js_1.Base {
         this.#occupied = null;
         this.debug('OIE(%s) >shift into queue', this.name, this.queue);
         p.options.stack = '';
-        this.#printResult(p.passing(), p.name, p.options, true);
+        if (!p.silent || !p.passing()) {
+            if (p.silent)
+                p.options.tapChildBuffer = p.output;
+            this.#printResult(p.passing(), p.name, p.options, true);
+        }
         this.debug('OIE(%s) shifted into queue', this.name, this.queue);
         this.activeSubtests.delete(p);
         p.deferred?.resolve(p.results);
@@ -868,7 +874,8 @@ class TestBase extends base_js_1.Base {
             this.emit('subtestStart', p);
             this.debug(' > subtest indented');
             p.pipe(this.parser, { end: false });
-            this.#writeSubComment(p);
+            if (!p.silent)
+                this.#writeSubComment(p);
             this.debug('calling runMain', p.name);
             p.runMain(() => this.#onIndentedEnd(p));
         }
@@ -971,13 +978,8 @@ class TestBase extends base_js_1.Base {
             });
         }
         extra.indent = '    ';
-        if (extra.buffered === undefined) {
-            if (this.jobs > 1) {
-                extra.buffered = true;
-            }
-            else {
-                extra.buffered = false;
-            }
+        if (extra.buffered === undefined && !extra.silent) {
+            extra.buffered = this.jobs > 1;
         }
         extra.bail ??= this.bail;
         extra.parent = this;

@@ -18,6 +18,7 @@ t.test('basic behavior', async t => {
     tt.test('child', tt => {
       log.push(['child main'])
       tt.pass('this is fine')
+      tt.test('silent', { silent: true }, tt => tt.end())
       tt.end()
     })
     tt.end()

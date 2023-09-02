@@ -1413,3 +1413,55 @@ t.test('asserts while occupied and ended', async t => {
   t.equal(tb.passing(), true)
   t.matchSnapshot(output)
 })
+
+t.test('wait for waiters before entering subtests', async t => {
+  // this simulates a before() that returns a promise, followed
+  // by some parallel subtests.
+  const tb = new T({ name: 'waiter test', jobs: 8 })
+  const log: string[] = []
+  const wait =
+    (msg: string, n = 100) =>
+    async () => {
+      log.push('start ' + msg)
+      await new Promise<void>(r => setTimeout(r, n))
+      log.push('end ' + msg)
+    }
+
+  // t.before(wait('before', 100))
+  tb.waitOn(wait('before', 100)())
+
+  const sub = (msg: string, n = 10, opts: TestBaseOpts = {}) =>
+    tb.test(msg, opts, wait(msg, n))
+  sub('zro')
+  sub('one')
+  sub('noparallel 12', 100, { buffered: false })
+  sub('two')
+  sub('tre')
+  sub('fur')
+  sub('fiv')
+  // t.before() adds a roadblock test like this
+  tb.test('pause', { silent: true, buffered: false }, t => t.end())
+  tb.queue.push(wait('second before', 100))
+  sub('six')
+  sub('svn')
+  sub('eit')
+  sub('shhh', 10, { silent: true })
+  sub('nin')
+  tb.end()
+
+  t.matchSnapshot(await tb.concat(), 'output')
+  t.matchSnapshot(log, 'log')
+})
+
+t.test('failing silent unbuffered subtest', async t => {
+  const tb = new T({ name: 'parent' })
+  tb.test('one', t => t.end())
+  tb.test('silent fail', { silent: true, buffered: false }, t => {
+    t.fail('nope', { stack: '', at: null })
+    t.end()
+  })
+  tb.test('silent pass', { silent: true, buffered: false }, t => t.end())
+  tb.test('two', t => t.end())
+  tb.end()
+  t.matchSnapshot(await tb.concat())
+})

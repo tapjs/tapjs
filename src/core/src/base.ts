@@ -407,8 +407,9 @@ export class Base<
     this.strict = !!options.strict
     this.omitVersion = !!options.omitVersion
     this.preserveWhitespace = options.preserveWhitespace !== false
-    // silent has to be buffered
-    this.buffered = !!options.buffered || !!this.silent
+    this.buffered = this.silent
+      ? options.buffered === undefined
+      : !!options.buffered
     this.bailedOut = false
     this.errors = []
     this.parent = options.parent
@@ -607,7 +608,8 @@ export class Base<
    */
   write(c: string) {
     this.#printedOutput = true
-    if (this.buffered) {
+    if (this.buffered || this.silent) {
+      // need the silent output if it fails
       this.output += c
       return true
     }

@@ -30,6 +30,15 @@ export class Before {
   before(fn: () => any) {
     this.#t.currentAssert = this.before
     if (this.#t.occupied) {
+      // use a silent test as a roadblock so that async subtests
+      // scheduled after this will have to wait for it.
+      if (this.#t.jobs > 1) {
+        this.#t.t.test(
+          'pause for before()',
+          { silent: true, buffered: false },
+          t => t.end()
+        )
+      }
       this.#t.queue.push(() => this.#call(fn, true))
     } else {
       this.#call(fn)

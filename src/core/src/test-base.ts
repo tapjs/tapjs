@@ -901,7 +901,9 @@ export class TestBase extends Base<TestBaseEvents> {
       /* c8 ignore stop */
     }
 
-    while (!this.#noparallel && this.pool.size < this.jobs) {
+    // waiters are serial
+    const ow = !!this.#occupied && this.#occupied instanceof Waiter
+    while (!this.#noparallel && !ow && this.pool.size < this.jobs) {
       const p = this.subtests.shift()
       if (!p) {
         break
@@ -1012,7 +1014,10 @@ export class TestBase extends Base<TestBaseEvents> {
     this.debug('OIE(%s) >shift into queue', this.name, this.queue)
     p.options.stack = ''
 
-    this.#printResult(p.passing(), p.name, p.options, true)
+    if (!p.silent || !p.passing()) {
+      if (p.silent) p.options.tapChildBuffer = p.output
+      this.#printResult(p.passing(), p.name, p.options, true)
+    }
 
     this.debug('OIE(%s) shifted into queue', this.name, this.queue)
     this.activeSubtests.delete(p)
@@ -1094,7 +1099,7 @@ export class TestBase extends Base<TestBaseEvents> {
       this.emit('subtestStart', p)
       this.debug(' > subtest indented')
       p.pipe(this.parser, { end: false })
-      this.#writeSubComment(p)
+      if (!p.silent) this.#writeSubComment(p)
       this.debug('calling runMain', p.name)
       p.runMain(() => this.#onIndentedEnd(p))
     } else if (p.readyToProcess) {
@@ -1212,12 +1217,8 @@ export class TestBase extends Base<TestBaseEvents> {
     }
 
     extra.indent = '    '
-    if (extra.buffered === undefined) {
-      if (this.jobs > 1) {
-        extra.buffered = true
-      } else {
-        extra.buffered = false
-      }
+    if (extra.buffered === undefined && !extra.silent) {
+      extra.buffered = this.jobs > 1
     }
 
     extra.bail ??= this.bail
