@@ -31,6 +31,7 @@
     "@types/npmcli__promise-spawn": "^6.0.0",
     "@types/opener": "^1.4.0",
     "@types/pacote": "^11.1.5",
+    "@types/react": "^18.2.21",
     "@types/semver": "^7.5.1",
     "@types/sinon": "^10.0.16",
     "@types/which": "^3.0.0",
