@@ -1,0 +1,335 @@
+<!DOCTYPE html><html class="default" lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>tap-parser - v15.0.0-2 | Node TAP</title><meta name="description" content="Documentation for Node TAP"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="../assets/style.css"/><link rel="stylesheet" href="../assets/highlight.css"/><link rel="stylesheet" href="../assets/custom.css"/><script defer src="../assets/main.js"></script><script async src="../assets/search.js" id="tsd-search-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os"</script><header class="tsd-page-toolbar">
+<div class="tsd-toolbar-contents container">
+<div class="table-cell" id="tsd-search" data-base="..">
+<div class="field"><label for="tsd-search-field" class="tsd-widget tsd-toolbar-icon search no-caption"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M15.7824 13.833L12.6666 10.7177C12.5259 10.5771 12.3353 10.499 12.1353 10.499H11.6259C12.4884 9.39596 13.001 8.00859 13.001 6.49937C13.001 2.90909 10.0914 0 6.50048 0C2.90959 0 0 2.90909 0 6.49937C0 10.0896 2.90959 12.9987 6.50048 12.9987C8.00996 12.9987 9.39756 12.4863 10.5008 11.6239V12.1332C10.5008 12.3332 10.5789 12.5238 10.7195 12.6644L13.8354 15.7797C14.1292 16.0734 14.6042 16.0734 14.8948 15.7797L15.7793 14.8954C16.0731 14.6017 16.0731 14.1267 15.7824 13.833ZM6.50048 10.499C4.29094 10.499 2.50018 8.71165 2.50018 6.49937C2.50018 4.29021 4.28781 2.49976 6.50048 2.49976C8.71001 2.49976 10.5008 4.28708 10.5008 6.49937C10.5008 8.70852 8.71314 10.499 6.50048 10.499Z" fill="var(--color-text)"></path></svg></label><input type="text" id="tsd-search-field" aria-label="Search"/></div>
+<div class="field">
+<div id="tsd-toolbar-links"></div></div>
+<ul class="results">
+<li class="state loading">Preparing search index...</li>
+<li class="state failure">The search index is not available</li></ul><a href="../index.html" class="title">Node TAP</a></div>
+<div class="table-cell" id="tsd-widgets"><a href="#" class="tsd-widget tsd-toolbar-icon menu no-caption" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="2" fill="var(--color-text)"></rect><rect x="1" y="7" width="14" height="2" fill="var(--color-text)"></rect><rect x="1" y="11" width="14" height="2" fill="var(--color-text)"></rect></svg></a></div></div></header>
+<div class="container container-main">
+<div class="col-content">
+<div class="tsd-page-title">
+<ul class="tsd-breadcrumb">
+<li><a href="../index.html">Node TAP</a></li>
+<li><a href="tap_parser.html">tap-parser</a></li></ul>
+<h1>Module tap-parser - v15.0.0-2</h1></div>
+<section class="tsd-panel tsd-typography"><a id="md:tap-parser" class="tsd-anchor"></a><h1><a href="#md:tap-parser">tap-parser</a></h1><p>parse the <a href="http://testanything.org/">test anything protocol</a></p>
+<p>This parser implements <a href="https://testanything.org/tap-version-14-specification.html">version 14 of the TAP
+Specification</a>.</p>
+<a id="md:example" class="tsd-anchor"></a><h1><a href="#md:example">example</a></h1><pre><code class="language-js"><span class="hl-6">// cjs style</span><br/><span class="hl-5">const</span><span class="hl-1"> { </span><span class="hl-9">Parser</span><span class="hl-1"> } = </span><span class="hl-4">require</span><span class="hl-1">(</span><span class="hl-3">&#39;tap-parser&#39;</span><span class="hl-1">)</span><br/><span class="hl-6">// or, you can do it this way:</span><br/><span class="hl-6">// import { Parser } from &#39;tap-parser&#39;</span><br/><span class="hl-6">// or this way:</span><br/><span class="hl-6">// import { Parser } from &#39;https://unpkg.com/tap-parser@latest/dist/mjs/index.js&#39;</span><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-9">p</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-4">Parser</span><span class="hl-1">(</span><span class="hl-0">results</span><span class="hl-1"> </span><span class="hl-5">=&gt;</span><span class="hl-1"> </span><span class="hl-0">console</span><span class="hl-1">.</span><span class="hl-4">dir</span><span class="hl-1">(</span><span class="hl-0">results</span><span class="hl-1">))</span><br/><span class="hl-0">process</span><span class="hl-1">.</span><span class="hl-0">stdin</span><span class="hl-1">.</span><span class="hl-4">pipe</span><span class="hl-1">(</span><span class="hl-0">p</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
+<p>given some <a href="http://testanything.org/">TAP</a>-formatted input:</p>
+<pre><code><span class="hl-0">$</span><span class="hl-1"> </span><span class="hl-0">node</span><span class="hl-1"> </span><span class="hl-0">test</span><span class="hl-1">.</span><span class="hl-0">js</span><br/><span class="hl-9">TAP</span><span class="hl-1"> </span><span class="hl-0">version</span><span class="hl-1"> </span><span class="hl-8">14</span><br/><span class="hl-1"># </span><span class="hl-0">beep</span><br/><span class="hl-0">ok</span><span class="hl-1"> </span><span class="hl-8">1</span><span class="hl-1"> </span><span class="hl-0">should</span><span class="hl-1"> </span><span class="hl-0">be</span><span class="hl-1"> </span><span class="hl-0">equal</span><br/><span class="hl-0">ok</span><span class="hl-1"> </span><span class="hl-8">2</span><span class="hl-1"> </span><span class="hl-0">should</span><span class="hl-1"> </span><span class="hl-0">be</span><span class="hl-1"> </span><span class="hl-0">equivalent</span><br/><span class="hl-1"># </span><span class="hl-0">boop</span><br/><span class="hl-0">ok</span><span class="hl-1"> </span><span class="hl-8">3</span><span class="hl-1"> </span><span class="hl-0">should</span><span class="hl-1"> </span><span class="hl-0">be</span><span class="hl-1"> </span><span class="hl-0">equal</span><br/><span class="hl-0">ok</span><span class="hl-1"> </span><span class="hl-8">4</span><span class="hl-1"> (</span><span class="hl-0">unnamed</span><span class="hl-1"> </span><span class="hl-0">assert</span><span class="hl-1">)</span><br/><br/><span class="hl-8">1..4</span><br/><span class="hl-1"># </span><span class="hl-0">tests</span><span class="hl-1"> </span><span class="hl-8">4</span><br/><span class="hl-1"># </span><span class="hl-0">pass</span><span class="hl-1">  </span><span class="hl-8">4</span><br/><br/><span class="hl-1"># </span><span class="hl-0">ok</span>
+</code><button>Copy</button></pre>
+<p>parse the output:</p>
+<pre><code><span class="hl-0">$</span><span class="hl-1"> </span><span class="hl-0">node</span><span class="hl-1"> </span><span class="hl-0">test</span><span class="hl-1">.</span><span class="hl-0">js</span><span class="hl-1"> | </span><span class="hl-0">node</span><span class="hl-1"> </span><span class="hl-0">parse</span><span class="hl-1">.</span><span class="hl-0">js</span><br/><span class="hl-1">{ </span><span class="hl-17">ok</span><span class="hl-1">: </span><span class="hl-5">true</span><span class="hl-1">, </span><span class="hl-17">count</span><span class="hl-1">: </span><span class="hl-8">4</span><span class="hl-1">, </span><span class="hl-17">pass</span><span class="hl-1">: </span><span class="hl-8">4</span><span class="hl-1">, </span><span class="hl-17">plan</span><span class="hl-1">: { </span><span class="hl-17">start</span><span class="hl-1">: </span><span class="hl-8">1</span><span class="hl-1">, </span><span class="hl-17">end</span><span class="hl-1">: </span><span class="hl-8">4</span><span class="hl-1"> } }</span>
+</code><button>Copy</button></pre>
+<p>If you have a string, you can also turn it into an array of parse events,
+and turn such an array back into a TAP string with <code>Parser.parse()</code> and
+<code>Parser.stringify()</code>, respectively.</p>
+<pre><code class="language-js"><span class="hl-6">// JSON.parse/stringify style</span><br/><br/><span class="hl-6">// Note that stringifying arbitrary object types isn&#39;t supported,</span><br/><span class="hl-6">// because TAP is a streaming line-based protocol, not an object</span><br/><span class="hl-6">// serialization notation like JSON or YAML.</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> { </span><span class="hl-9">parse</span><span class="hl-1">, </span><span class="hl-9">stringify</span><span class="hl-1"> } = </span><span class="hl-4">require</span><span class="hl-1">(</span><span class="hl-3">&#39;tap-parser&#39;</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-9">fs</span><span class="hl-1"> = </span><span class="hl-4">require</span><span class="hl-1">(</span><span class="hl-3">&#39;fs&#39;</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-9">tapData</span><span class="hl-1"> = </span><span class="hl-0">fs</span><span class="hl-1">.</span><span class="hl-4">readFileSync</span><span class="hl-1">(</span><span class="hl-3">&#39;previous-test-output.tap&#39;</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-9">result</span><span class="hl-1"> = </span><span class="hl-4">parse</span><span class="hl-1">(</span><span class="hl-0">tapData</span><span class="hl-1">)</span><br/><span class="hl-0">console</span><span class="hl-1">.</span><span class="hl-4">dir</span><span class="hl-1">(</span><span class="hl-0">result</span><span class="hl-1">)</span><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-9">reEncodedAsTap</span><span class="hl-1"> = </span><span class="hl-4">stringify</span><span class="hl-1">(</span><span class="hl-0">result</span><span class="hl-1">)</span><br/><span class="hl-0">console</span><span class="hl-1">.</span><span class="hl-4">log</span><span class="hl-1">(</span><span class="hl-0">reEncodedAsTap</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
+<a id="md:usage" class="tsd-anchor"></a><h1><a href="#md:usage">usage</a></h1><p>This package also has a <code>tap-parser</code> command.</p>
+<pre><code><span class="hl-17">Usage</span><span class="hl-1">:</span><br/><span class="hl-1">  </span><span class="hl-0">tap</span><span class="hl-1">-</span><span class="hl-0">parser</span><span class="hl-1"> &lt;</span><span class="hl-0">options</span><span class="hl-1">&gt;</span><br/><br/><span class="hl-0">Parses</span><span class="hl-1"> </span><span class="hl-9">TAP</span><span class="hl-1"> </span><span class="hl-0">data</span><span class="hl-1"> </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-0">stdin</span><span class="hl-1">, </span><span class="hl-0">and</span><span class="hl-1"> </span><span class="hl-0">outputs</span><span class="hl-1"> </span><span class="hl-0">the</span><span class="hl-1"> </span><span class="hl-0">parsed</span><span class="hl-1"> </span><span class="hl-0">result</span><br/><span class="hl-5">in</span><span class="hl-1"> </span><span class="hl-0">the</span><span class="hl-1"> </span><span class="hl-0">format</span><span class="hl-1"> </span><span class="hl-0">specified</span><span class="hl-1"> </span><span class="hl-0">by</span><span class="hl-1"> </span><span class="hl-0">the</span><span class="hl-1"> </span><span class="hl-0">options</span><span class="hl-1">.  </span><span class="hl-0">Default</span><span class="hl-1"> </span><span class="hl-0">output</span><br/><span class="hl-0">uses</span><span class="hl-1"> </span><span class="hl-0">node</span><span class="hl-3">&#39;s `util.inspect()` method</span><span class="hl-16">.</span><br/><br/><span class="hl-17">Options</span><span class="hl-1">:</span><br/><br/><span class="hl-1">  -</span><span class="hl-0">j</span><span class="hl-1"> [&lt;</span><span class="hl-0">indent</span><span class="hl-1">&gt;] | --</span><span class="hl-0">json</span><span class="hl-1">[=</span><span class="hl-0">indent</span><span class="hl-1">]</span><br/><span class="hl-1">    </span><span class="hl-0">Output</span><span class="hl-1"> </span><span class="hl-0">event</span><span class="hl-1"> </span><span class="hl-0">data</span><span class="hl-1"> </span><span class="hl-2">as</span><span class="hl-1"> </span><span class="hl-7">JSON</span><span class="hl-1"> </span><span class="hl-7">with</span><span class="hl-1"> </span><span class="hl-7">the</span><span class="hl-1"> </span><span class="hl-7">specified</span><span class="hl-1"> </span><span class="hl-7">indentation</span><span class="hl-1"> (</span><span class="hl-0">default</span><span class="hl-1">=</span><span class="hl-8">2</span><span class="hl-1">)</span><br/><br/><span class="hl-1">  -</span><span class="hl-0">t</span><span class="hl-1"> | --</span><span class="hl-0">tap</span><br/><span class="hl-1">    </span><span class="hl-0">Output</span><span class="hl-1"> </span><span class="hl-0">data</span><span class="hl-1"> </span><span class="hl-2">as</span><span class="hl-1"> </span><span class="hl-7">reconstituted</span><span class="hl-1"> </span><span class="hl-7">TAP</span><span class="hl-1"> </span><span class="hl-7">based</span><span class="hl-1"> </span><span class="hl-7">on</span><span class="hl-1"> </span><span class="hl-7">parsed</span><span class="hl-1"> </span><span class="hl-7">results</span><br/><br/><span class="hl-1">  -</span><span class="hl-0">l</span><span class="hl-1"> | --</span><span class="hl-0">lines</span><br/><span class="hl-1">    </span><span class="hl-0">Output</span><span class="hl-1"> </span><span class="hl-0">each</span><span class="hl-1"> </span><span class="hl-0">parsed</span><span class="hl-1"> </span><span class="hl-0">line</span><span class="hl-1"> </span><span class="hl-2">as</span><span class="hl-1"> </span><span class="hl-7">it</span><span class="hl-1"> </span><span class="hl-7">is</span><span class="hl-1"> </span><span class="hl-7">recognized</span><span class="hl-1"> </span><span class="hl-7">by</span><span class="hl-1"> </span><span class="hl-7">the</span><span class="hl-1"> </span><span class="hl-7">parser</span><br/><br/><span class="hl-1">  -</span><span class="hl-0">b</span><span class="hl-1"> | --</span><span class="hl-0">bail</span><br/><span class="hl-1">    </span><span class="hl-0">Emit</span><span class="hl-1"> </span><span class="hl-0">a</span><span class="hl-1"> </span><span class="hl-3">`Bail out!`</span><span class="hl-1"> </span><span class="hl-0">at</span><span class="hl-1"> </span><span class="hl-0">the</span><span class="hl-1"> </span><span class="hl-0">first</span><span class="hl-1"> </span><span class="hl-0">failed</span><span class="hl-1"> </span><span class="hl-0">test</span><span class="hl-1"> </span><span class="hl-0">point</span><span class="hl-1"> </span><span class="hl-0">encountered</span><br/><br/><span class="hl-1">  -</span><span class="hl-9">B</span><span class="hl-1"> | --</span><span class="hl-0">no</span><span class="hl-1">-</span><span class="hl-0">bail</span><br/><span class="hl-1">    </span><span class="hl-0">Do</span><span class="hl-1"> </span><span class="hl-0">not</span><span class="hl-1"> </span><span class="hl-0">bail</span><span class="hl-1"> </span><span class="hl-0">out</span><span class="hl-1"> </span><span class="hl-0">at</span><span class="hl-1"> </span><span class="hl-0">the</span><span class="hl-1"> </span><span class="hl-0">first</span><span class="hl-1"> </span><span class="hl-0">failed</span><span class="hl-1"> </span><span class="hl-0">test</span><span class="hl-1"> </span><span class="hl-0">point</span><span class="hl-1"> </span><span class="hl-0">encountered</span><br/><span class="hl-1">    (</span><span class="hl-0">Default</span><span class="hl-1">)</span><br/><br/><span class="hl-1">  -</span><span class="hl-0">f</span><span class="hl-1"> | --</span><span class="hl-0">flat</span><br/><span class="hl-1">    </span><span class="hl-0">Flatten</span><span class="hl-1"> </span><span class="hl-0">all</span><span class="hl-1"> </span><span class="hl-0">assertions</span><span class="hl-1"> </span><span class="hl-0">to</span><span class="hl-1"> </span><span class="hl-0">the</span><span class="hl-1"> </span><span class="hl-0">top</span><span class="hl-1"> </span><span class="hl-0">level</span><span class="hl-1"> </span><span class="hl-0">parser</span><br/><br/><span class="hl-1">  -</span><span class="hl-9">F</span><span class="hl-1"> | --</span><span class="hl-0">no</span><span class="hl-1">-</span><span class="hl-0">flat</span><br/><span class="hl-1">    </span><span class="hl-0">Do</span><span class="hl-1"> </span><span class="hl-0">not</span><span class="hl-1"> </span><span class="hl-0">flatten</span><span class="hl-1"> </span><span class="hl-0">all</span><span class="hl-1"> </span><span class="hl-0">assertions</span><span class="hl-1"> </span><span class="hl-0">to</span><span class="hl-1"> </span><span class="hl-0">the</span><span class="hl-1"> </span><span class="hl-0">top</span><span class="hl-1"> </span><span class="hl-0">level</span><span class="hl-1"> </span><span class="hl-0">parser</span><br/><span class="hl-1">    (</span><span class="hl-0">Default</span><span class="hl-1">)</span><br/><br/><span class="hl-1">  -</span><span class="hl-0">w</span><span class="hl-1"> | --</span><span class="hl-0">ignore</span><span class="hl-1">-</span><span class="hl-0">all</span><span class="hl-1">-</span><span class="hl-0">whitespace</span><br/><span class="hl-1">    </span><span class="hl-0">Skip</span><span class="hl-1"> </span><span class="hl-0">over</span><span class="hl-1"> </span><span class="hl-0">blank</span><span class="hl-1"> </span><span class="hl-0">lines</span><span class="hl-1"> </span><span class="hl-0">outside</span><span class="hl-1"> </span><span class="hl-5">of</span><span class="hl-1"> </span><span class="hl-9">YAML</span><span class="hl-1"> </span><span class="hl-0">blocks</span><br/><br/><span class="hl-1">  -</span><span class="hl-0">o</span><span class="hl-1"> | --</span><span class="hl-0">omit</span><span class="hl-1">-</span><span class="hl-0">version</span><br/><span class="hl-1">    </span><span class="hl-0">Ignore</span><span class="hl-1"> </span><span class="hl-0">the</span><span class="hl-1"> </span><span class="hl-3">`TAP version 13`</span><span class="hl-1"> </span><span class="hl-0">or</span><span class="hl-1"> </span><span class="hl-3">`TAP version 14`</span><span class="hl-1"> </span><span class="hl-0">line</span><span class="hl-1"> </span><span class="hl-0">at</span><span class="hl-1"> </span><span class="hl-0">the</span><span class="hl-1"> </span><span class="hl-0">start</span><span class="hl-1"> </span><span class="hl-5">of</span><span class="hl-1"> </span><span class="hl-0">tests</span><br/><br/><span class="hl-1">  --</span><span class="hl-0">strict</span><br/><span class="hl-1">    </span><span class="hl-0">Run</span><span class="hl-1"> </span><span class="hl-0">the</span><span class="hl-1"> </span><span class="hl-0">parser</span><span class="hl-1"> </span><span class="hl-5">in</span><span class="hl-1"> </span><span class="hl-0">strict</span><span class="hl-1"> </span><span class="hl-0">mode</span><br/><br/><span class="hl-1">  --</span><span class="hl-0">no</span><span class="hl-1">-</span><span class="hl-0">strict</span><br/><span class="hl-1">    </span><span class="hl-0">Do</span><span class="hl-1"> </span><span class="hl-0">not</span><span class="hl-1"> </span><span class="hl-0">run</span><span class="hl-1"> </span><span class="hl-0">the</span><span class="hl-1"> </span><span class="hl-0">parser</span><span class="hl-1"> </span><span class="hl-5">in</span><span class="hl-1"> </span><span class="hl-0">strict</span><span class="hl-1"> </span><span class="hl-0">mode</span><br/><br/><span class="hl-1">  -</span><span class="hl-0">s</span><span class="hl-1"> | --</span><span class="hl-0">silent</span><br/><span class="hl-1">    </span><span class="hl-0">Do</span><span class="hl-1"> </span><span class="hl-0">not</span><span class="hl-1"> </span><span class="hl-0">print</span><span class="hl-1"> </span><span class="hl-0">output</span><span class="hl-1">, </span><span class="hl-0">just</span><span class="hl-1"> </span><span class="hl-0">exit</span><span class="hl-1"> </span><span class="hl-0">success</span><span class="hl-1">/</span><span class="hl-0">failure</span><span class="hl-1"> </span><span class="hl-0">based</span><span class="hl-1"> </span><span class="hl-0">on</span><span class="hl-1"> </span><span class="hl-9">TAP</span><span class="hl-1"> </span><span class="hl-0">stream</span>
+</code><button>Copy</button></pre>
+<a id="md:methods" class="tsd-anchor"></a><h1><a href="#md:methods">methods</a></h1><pre><code class="language-js"><span class="hl-5">const</span><span class="hl-1"> { </span><span class="hl-9">Parser</span><span class="hl-1"> } = </span><span class="hl-4">require</span><span class="hl-1">(</span><span class="hl-3">&#39;tap-parser&#39;</span><span class="hl-1">)</span>
+</code><button>Copy</button></pre>
+<a id="md:const-p--new-parseroptions-cb" class="tsd-anchor"></a><h2><a href="#md:const-p--new-parseroptions-cb"><code>const p = new Parser(options, cb)</code></a></h2><p>Return a writable stream <code>p</code> that emits parse events.</p>
+<p>If <code>cb</code> is given it will listen for the <code>&#39;complete&#39;</code> event.</p>
+<p>If <code>options</code> is given, it may contain the following flags:</p>
+<ul>
+<li><p><code>preserveWhitespace</code> boolean which is <code>false</code> by default and will
+cause the parser to emit <code>line</code> events even for lines containing
+only whitespace. (Whitespace lines in yaml blocks are always
+emitted, because whitespace is semantically relevant for yaml.)</p>
+</li>
+<li><p><code>strict</code> boolean which is <code>false</code> by default and causes the parser
+to treat non-TAP input as a failure. Strictness is heritable to
+child subtests. You can also turn strictness on or off by using the
+<code>pragma +strict</code> line in the TAP data to turn strictness on, or
+<code>pragma -strict</code> to turn strictness off.</p>
+</li>
+<li><p><code>bail</code> boolean which is <code>false</code> by default and will cause the parser
+to bail out (including emitting a synthetic <code>Bail out!</code> line)
+whenever a failed test point is encountered.</p>
+</li>
+<li><p><code>omitVersion</code> boolean which is <code>false</code> by default and will cause the
+parser to ignore <code>TAP version 13</code> or <code>TAP version 14</code> lines.
+Version lines in subtests cause problems with some parsers, so
+they are always ignored.</p>
+</li>
+<li><p><code>passes</code> boolean which is false by default and will add &quot;passes&quot; property
+for that contains the result of all passed tests</p>
+</li>
+</ul>
+<p>The <code>parent</code>, <code>level</code> and <code>buffered</code> options are reserved for internal
+use.</p>
+<a id="md:events" class="tsd-anchor"></a><h1><a href="#md:events">events</a></h1><a id="md:pon39complete39-function-results-" class="tsd-anchor"></a><h2><a href="#md:pon39complete39-function-results-"><code>p.on(&#39;complete&#39;, function (results) {})</code></a></h2><p>The <code>results</code> object contains a summary of the number of tests
+skipped, failed, passed, etc., as well as a boolean <code>ok</code> member which
+is true if and only if the planned test were all found, and either
+&quot;ok&quot; or marked as &quot;TODO&quot;.</p>
+<a id="md:pon39line39-function-line-" class="tsd-anchor"></a><h2><a href="#md:pon39line39-function-line-"><code>p.on(&#39;line&#39;, function (line) {})</code></a></h2><p>As each line of input is parsed, a <code>line</code> event is emitted.</p>
+<p>&quot;Synthetic&quot; line events will be emitted to support the <code>bail</code>
+behavior, and to inject <code>1..0</code> plan lines in subtests that have no
+test points. They can be used as a sort of &quot;passthrough stream&quot; to
+sanitize and filter a TAP stream, with the caveat that, while <code>line</code>
+events will be semantically equivalent to the TAP input, they will not
+be a perfect replica of the input.</p>
+<a id="md:pon39assert39-function-assert-" class="tsd-anchor"></a><h2><a href="#md:pon39assert39-function-assert-"><code>p.on(&#39;assert&#39;, function (assert) {})</code></a></h2><p>Every <code>/^(not )?ok\b/</code> line will emit an <code>&#39;assert&#39;</code> event.</p>
+<p>Every <code>assert</code> object has these keys:</p>
+<ul>
+<li><code>assert.ok</code> - true if the assertion succeeded, false if failed</li>
+<li><code>assert.id</code> - the assertion number</li>
+<li><code>assert.name</code> - optional short description of the assertion</li>
+</ul>
+<p>and may also have</p>
+<ul>
+<li><code>assert.todo</code> - optional description of why the assertion failure is
+not a problem. (Boolean <code>true</code> if no explaination provided)</li>
+<li><code>assert.skip</code> - optional description of why this assertion was
+skipped (boolean <code>true</code> if no explanation provided)</li>
+<li><code>assert.diag</code> - a diagnostic object with additional information
+about the test point.</li>
+</ul>
+<a id="md:pon39comment39-function-comment-" class="tsd-anchor"></a><h2><a href="#md:pon39comment39-function-comment-"><code>p.on(&#39;comment&#39;, function (comment) {})</code></a></h2><p>Every <code>/^# (.+)/</code> line will emit the string contents of <code>comment</code>.</p>
+<a id="md:pon39plan39-function-plan-" class="tsd-anchor"></a><h2><a href="#md:pon39plan39-function-plan-"><code>p.on(&#39;plan&#39;, function (plan) {})</code></a></h2><p>Every <code>/^\d+\.\.\d+/</code> line emits a <code>&#39;plan&#39;</code> event for the test numbers
+<code>plan.start</code> through <code>plan.end</code>, inclusive.</p>
+<p>If the test is <a href="http://podwiki.hexten.net/TAP/TAP.html?page=TAP#Skippingeverything">completely
+skipped</a>
+the result will look like</p>
+<pre><code><span class="hl-1">{ </span><span class="hl-17">ok</span><span class="hl-1">: </span><span class="hl-5">true</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-17">count</span><span class="hl-1">: </span><span class="hl-8">0</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-17">pass</span><span class="hl-1">: </span><span class="hl-8">0</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-17">plan</span><span class="hl-1">:</span><br/><span class="hl-1">   { </span><span class="hl-17">start</span><span class="hl-1">: </span><span class="hl-8">1</span><span class="hl-1">,</span><br/><span class="hl-1">     </span><span class="hl-17">end</span><span class="hl-1">: </span><span class="hl-8">0</span><span class="hl-1">,</span><br/><span class="hl-1">     </span><span class="hl-17">skipAll</span><span class="hl-1">: </span><span class="hl-5">true</span><span class="hl-1">,</span><br/><span class="hl-1">     </span><span class="hl-17">skipReason</span><span class="hl-1">: </span><span class="hl-3">&#39;This code has no seat belt&#39;</span><span class="hl-1"> } }</span>
+</code><button>Copy</button></pre>
+<a id="md:pon39version39-function-version-" class="tsd-anchor"></a><h2><a href="#md:pon39version39-function-version-"><code>p.on(&#39;version&#39;, function (version) {})</code></a></h2><p>A <code>/^TAP version (\d+)/</code> line emits a <code>&#39;version&#39;</code> event with a version
+number or string.</p>
+<a id="md:pon39bailout39-function-reason-" class="tsd-anchor"></a><h2><a href="#md:pon39bailout39-function-reason-"><code>p.on(&#39;bailout&#39;, function (reason) {})</code></a></h2><p>A <code>bail out!</code> line will cause the parser to completely stop doing
+anything. Child parser bailouts will bail out their parents as well.</p>
+<a id="md:pon39child39-function-childparser-" class="tsd-anchor"></a><h2><a href="#md:pon39child39-function-childparser-"><code>p.on(&#39;child&#39;, function (childParser) {})</code></a></h2><p>If a child test set is embedded in the stream like this:</p>
+<pre><code><span class="hl-9">TAP</span><span class="hl-1"> </span><span class="hl-0">Version</span><span class="hl-1"> </span><span class="hl-8">14</span><br/><span class="hl-8">1..2</span><br/><span class="hl-1"># </span><span class="hl-0">nesting</span><br/><span class="hl-1">    </span><span class="hl-8">1..2</span><br/><span class="hl-1">    </span><span class="hl-0">ok</span><span class="hl-1"> </span><span class="hl-8">1</span><span class="hl-1"> - </span><span class="hl-5">true</span><span class="hl-1"> </span><span class="hl-0">is</span><span class="hl-1"> </span><span class="hl-0">ok</span><br/><span class="hl-1">    </span><span class="hl-0">ok</span><span class="hl-1"> </span><span class="hl-8">2</span><span class="hl-1"> - </span><span class="hl-0">doag</span><span class="hl-1"> </span><span class="hl-0">is</span><span class="hl-1"> </span><span class="hl-0">also</span><span class="hl-1"> </span><span class="hl-0">okay</span><br/><span class="hl-0">ok</span><span class="hl-1"> </span><span class="hl-8">1</span><span class="hl-1"> - </span><span class="hl-0">nesting</span><br/><span class="hl-0">ok</span><span class="hl-1"> </span><span class="hl-8">2</span><span class="hl-1"> - </span><span class="hl-0">second</span>
+</code><button>Copy</button></pre>
+<p>then the child stream will be parsed and events will be raised on the
+<code>childParser</code> object.</p>
+<p>Since TAP streams with child tests <em>must</em> follow child test sets
+with a pass or fail assert based on the child test&#39;s results, failing
+to handle child tests should always result in the same end result.
+However, additional information from those child tests will obviously
+be lost.</p>
+<p>See <code>Subtests</code> below for more information on which sorts of subtest
+formats are supported by this parser.</p>
+<a id="md:pon39result39-function-assert-" class="tsd-anchor"></a><h2><a href="#md:pon39result39-function-assert-"><code>p.on(&#39;result&#39;, function (assert) {})</code></a></h2><p>This is the same as the <code>assert</code> event, except that it only emits on the root
+parser, whenever it or any child parser has an <code>assert</code> event that is not
+merely closing a child test block.</p>
+<a id="md:pon39pass39-function-assert-" class="tsd-anchor"></a><h2><a href="#md:pon39pass39-function-assert-"><code>p.on(&#39;pass&#39;, function (assert) {})</code></a></h2><a id="md:pon39fail39-function-assert-" class="tsd-anchor"></a><h2><a href="#md:pon39fail39-function-assert-"><code>p.on(&#39;fail&#39;, function (assert) {})</code></a></h2><a id="md:pon39skip39-function-assert-" class="tsd-anchor"></a><h2><a href="#md:pon39skip39-function-assert-"><code>p.on(&#39;skip&#39;, function (assert) {})</code></a></h2><a id="md:pon39todo39-function-assert-" class="tsd-anchor"></a><h2><a href="#md:pon39todo39-function-assert-"><code>p.on(&#39;todo&#39;, function (assert) {})</code></a></h2><p>Emitted on the root parser object, whenever it or any child parser has an
+<code>assert</code> event that is not merely closing a child test block, if the result is
+of the appropriate type.</p>
+<a id="md:pon39extra39-function-extra-" class="tsd-anchor"></a><h2><a href="#md:pon39extra39-function-extra-"><code>p.on(&#39;extra&#39;, function (extra) {})</code></a></h2><p>All other lines will trigger an <code>&#39;extra&#39;</code> event with the line text.</p>
+<a id="md:static-method-const-results--parserparsestring-options--" class="tsd-anchor"></a><h1><a href="#md:static-method-const-results--parserparsestring-options--">static method: <code>const results = Parser.parse(string, options = {})</code></a></h1><p>This will return an array of all the events encountered in the parsed TAP
+string.</p>
+<p>Any options to the <code>Parser</code> constructor may be provided, in addition to the
+following:</p>
+<ul>
+<li><code>flat</code>: Boolean, default false, flatten nested child tests into a single
+level. Note that this will lose child test information, and will result
+in a <code>complete</code> event that may not match the counts of assertions in the
+list. This is useful if you are transforming TAP strings for use by a
+parser that does not support child tests, or just simply don&#39;t care about
+that level of detail. Result <code>id</code> values will be coerced to an
+incrementing numeric values, and a valid <code>plan</code> will be generated at the
+end of the stream.</li>
+</ul>
+<a id="md:static-method-const-tap--parserstringifyresults-options--" class="tsd-anchor"></a><h1><a href="#md:static-method-const-tap--parserstringifyresults-options--">static method: <code>const tap = Parser.stringify(results, options = {})</code></a></h1><p>Turn a <code>results</code> list of the sort returned by <code>Parser.parse()</code> into a TAP
+string.</p>
+<p>The following options are supported:</p>
+<ul>
+<li><code>flat</code>: Boolean, default false, flatten nested child tests into a single
+level. Note that this will lose child test information, and will result
+in a <code>complete</code> event that may not match the counts of assertions in the
+list. This is useful if you are transforming TAP strings for use by a
+parser that does not support child tests, or just simply don&#39;t care about
+that level of detail. Result <code>id</code> values will be coerced to an
+incrementing numeric values, and a valid <code>plan</code> will be generated at the
+end of the stream.</li>
+</ul>
+<p>The <code>indent</code> and <code>id</code> options are used internally, and should not be
+modified.</p>
+<a id="md:install" class="tsd-anchor"></a><h1><a href="#md:install">install</a></h1><p>With <a href="https://npmjs.org">npm</a> do:</p>
+<pre><code><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-0">install</span><span class="hl-1"> </span><span class="hl-0">tap</span><span class="hl-1">-</span><span class="hl-0">parser</span>
+</code><button>Copy</button></pre>
+<p>You can use <a href="http://browserify.org">browserify</a> to <code>require(&#39;tap-parser&#39;)</code> in
+the browser.</p>
+<a id="md:license" class="tsd-anchor"></a><h1><a href="#md:license">license</a></h1><p>MIT</p>
+<a id="md:subtests" class="tsd-anchor"></a><h1><a href="#md:subtests">subtests</a></h1><p>5 flavors of Subtests are suppored by this parser.</p>
+<ol>
+<li><p>Unadorned.
+Indented TAP data with no comment, followed by a test
+point at the parent level.</p>
+<pre><code><span class="hl-1">    </span><span class="hl-0">ok</span><span class="hl-1"> </span><span class="hl-8">1</span><br/><span class="hl-1">    </span><span class="hl-8">1..1</span><br/><span class="hl-0">ok</span><span class="hl-1"> </span><span class="hl-8">1</span><span class="hl-1"> - </span><span class="hl-0">child</span><span class="hl-1"> </span><span class="hl-0">test</span><br/><span class="hl-8">1..1</span>
+</code><button>Copy</button></pre>
+</li>
+<li><p>Indented comment.
+An indented <code># Subtest: &lt;name&gt;</code> comment, followed by indented TAP
+data, and then a not-indented test point with a matching name.
+The summary test point may have yaml diagnostics.</p>
+<pre><code><span class="hl-1">    # </span><span class="hl-17">Subtest</span><span class="hl-1">: </span><span class="hl-0">child</span><span class="hl-1"> </span><span class="hl-0">test</span><br/><span class="hl-1">    </span><span class="hl-0">ok</span><span class="hl-1"> </span><span class="hl-8">1</span><br/><span class="hl-1">    </span><span class="hl-8">1..1</span><br/><span class="hl-0">ok</span><span class="hl-1"> </span><span class="hl-8">1</span><span class="hl-1"> - </span><span class="hl-0">child</span><span class="hl-1"> </span><span class="hl-0">test</span><br/><span class="hl-8">1..1</span>
+</code><button>Copy</button></pre>
+</li>
+<li><p>Unindented comment.
+A not-indented <code># Subtest: &lt;name&gt;</code> comment, followed by indented TAP
+content, followed by a test point with a matching name.
+The summary test point may have yaml diagnostics.</p>
+<pre><code><span class="hl-1"># </span><span class="hl-17">Subtest</span><span class="hl-1">: </span><span class="hl-0">child</span><span class="hl-1"> </span><span class="hl-0">test</span><br/><span class="hl-1">    </span><span class="hl-0">ok</span><span class="hl-1"> </span><span class="hl-8">1</span><br/><span class="hl-1">    </span><span class="hl-8">1..1</span><br/><span class="hl-0">ok</span><span class="hl-1"> </span><span class="hl-8">1</span><span class="hl-1"> - </span><span class="hl-0">child</span><span class="hl-1"> </span><span class="hl-0">test</span><br/><span class="hl-8">1..1</span>
+</code><button>Copy</button></pre>
+</li>
+<li><p>Buffered, without diagnostics.
+A test point line ending in {, followed by indented TAP content, ended
+with a } to close the block. todo/skip directives may come <em>either</em>
+before or after the <code>{</code> character. Yaml diagnostics are not allowed.</p>
+<pre><code><span class="hl-0">ok</span><span class="hl-1"> </span><span class="hl-8">1</span><span class="hl-1"> - </span><span class="hl-0">child</span><span class="hl-1"> </span><span class="hl-0">test</span><span class="hl-1"> {</span><br/><span class="hl-1">    </span><span class="hl-0">ok</span><span class="hl-1"> </span><span class="hl-8">1</span><br/><span class="hl-1">    </span><span class="hl-8">1..1</span><br/><span class="hl-1">}</span><br/><span class="hl-8">1..1</span>
+</code><button>Copy</button></pre>
+</li>
+<li><p>Buffered, with diagnostics.
+A test point line with yaml diagnostics, followed by <code>{</code> alone on a
+line, indented TAP data, and then a <code>}</code>.</p>
+<pre><code><span class="hl-0">ok</span><span class="hl-1"> </span><span class="hl-8">1</span><span class="hl-1"> - </span><span class="hl-0">child</span><span class="hl-1"> </span><span class="hl-0">test</span><br/><span class="hl-1">  ---</span><br/><span class="hl-1">  </span><span class="hl-17">some</span><span class="hl-1">: </span><span class="hl-0">diagnostic</span><br/><span class="hl-1">  </span><span class="hl-17">data</span><span class="hl-1">: </span><span class="hl-5">true</span><br/><span class="hl-1">  ...</span><br/><span class="hl-1">{</span><br/><span class="hl-1">    </span><span class="hl-0">ok</span><span class="hl-1"> </span><span class="hl-8">1</span><br/><span class="hl-1">    </span><span class="hl-8">1..1</span><br/><span class="hl-1">}</span>
+</code><button>Copy</button></pre>
+</li>
+</ol>
+<p>In all cases, the parsed behavior is identical:</p>
+<ol>
+<li>The parent emits a <code>child</code> event with the <code>childParser</code> as an
+argument.</li>
+<li>The <code>childParser</code> emits a <code>comment</code> with <code># Subtest: &lt;name&gt;</code> (or
+<code>(anonymous)</code> for Unadorned subtests.)</li>
+<li>When the test is over, the closing test point is emitted on parent
+test.</li>
+</ol>
+<p>That is, buffered and nonindented/indented comment subtests are parsed
+as if they are identical input, since their semantics are the same. This
+simplifies implementation of test harness and reporter modules.</p>
+<p>Since unadorned subtests have no introduction, a child event is not
+emitted until the first &quot;relevant tap&quot; line is encountered. This can
+cause confusion if the test output contains a spurious &quot; 1..2&quot; line
+or something, but such cases are rare.</p>
+<p>Similarly, this means that a test point ending in <code>{</code> needs to wait to
+emit <em>either</em> the &#39;assert&#39; or &#39;child&#39; events until an indented line is
+encountered. <em>Any</em> test point with yaml diagnostics needs to wait to
+see if it will be followed by a <code>{</code> indicating a subtest.</p>
+</section>
+<section class="tsd-panel-group tsd-index-group">
+<section class="tsd-panel tsd-index-panel">
+<h3 class="tsd-index-heading uppercase">Index</h3>
+<section class="tsd-index-section">
+<h3 class="tsd-index-heading">Modules</h3>
+<div class="tsd-index-list"><a href="tap_parser.brace_patterns.html" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-4"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-namespace)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6"></rect><path d="M9.33 16V7.24H10.77L13.446 14.74C13.43 14.54 13.41 14.296 13.386 14.008C13.37 13.712 13.354 13.404 13.338 13.084C13.33 12.756 13.326 12.448 13.326 12.16V7.24H14.37V16H12.93L10.266 8.5C10.282 8.692 10.298 8.936 10.314 9.232C10.33 9.52 10.342 9.828 10.35 10.156C10.366 10.476 10.374 10.784 10.374 11.08V16H9.33Z" fill="var(--color-text)"></path></g></svg><span>brace-<wbr/>patterns</span></a>
+<a href="tap_parser.escape.html" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>escape</span></a>
+<a href="tap_parser.final_plan.html" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>final-<wbr/>plan</span></a>
+<a href="tap_parser.final_results.html" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>final-<wbr/>results</span></a>
+<a href="tap_parser.index.html" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>index</span></a>
+<a href="tap_parser.line_type.html" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>line-<wbr/>type</span></a>
+<a href="tap_parser.parse_directive.html" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>parse-<wbr/>directive</span></a>
+<a href="tap_parser.plan.html" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>plan</span></a>
+<a href="tap_parser.result.html" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>result</span></a>
+<a href="tap_parser.statics.html" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>statics</span></a>
+</div></section></section></section></div>
+<div class="col-sidebar">
+<div class="page-menu">
+<div class="tsd-navigation settings">
+<details class="tsd-index-accordion"><summary class="tsd-accordion-summary">
+<h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4.93896 8.531L12 15.591L19.061 8.531L16.939 6.409L12 11.349L7.06098 6.409L4.93896 8.531Z" fill="var(--color-text)" id="icon-chevronDown"></path></svg>Settings</h3></summary>
+<div class="tsd-accordion-details">
+<div class="tsd-filter-visibility">
+<h4 class="uppercase">Member Visibility</h4><form>
+<ul id="tsd-filter-options">
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li>
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-private" name="private"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Private</span></label></li>
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li>
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-external" name="external"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>External</span></label></li></ul></form></div>
+<div class="tsd-theme-toggle">
+<h4 class="uppercase">Theme</h4><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div>
+<details open class="tsd-index-accordion tsd-page-navigation"><summary class="tsd-accordion-summary">
+<h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="#icon-chevronDown"></use></svg>On This Page</h3></summary>
+<div class="tsd-accordion-details">
+<ul>
+<li>
+<ul>
+<li><a href="#md:tap-parser"><span>tap-<wbr/>parser</span></a></li>
+<li><a href="#md:example"><span>example</span></a></li>
+<li><a href="#md:usage"><span>usage</span></a></li>
+<li><a href="#md:methods"><span>methods</span></a></li>
+<li>
+<ul>
+<li><a href="#md:const-p--new-parseroptions-cb"><span>const p = new <wbr/>Parser(options, cb)</span></a></li></ul></li>
+<li><a href="#md:events"><span>events</span></a></li>
+<li>
+<ul>
+<li><a href="#md:pon39complete39-function-results-"><span>p.on(&#39;complete&#39;, function (results) {})</span></a></li>
+<li><a href="#md:pon39line39-function-line-"><span>p.on(&#39;line&#39;, function (line) {})</span></a></li>
+<li><a href="#md:pon39assert39-function-assert-"><span>p.on(&#39;assert&#39;, function (assert) {})</span></a></li>
+<li><a href="#md:pon39comment39-function-comment-"><span>p.on(&#39;comment&#39;, function (comment) {})</span></a></li>
+<li><a href="#md:pon39plan39-function-plan-"><span>p.on(&#39;plan&#39;, function (plan) {})</span></a></li>
+<li><a href="#md:pon39version39-function-version-"><span>p.on(&#39;version&#39;, function (version) {})</span></a></li>
+<li><a href="#md:pon39bailout39-function-reason-"><span>p.on(&#39;bailout&#39;, function (reason) {})</span></a></li>
+<li><a href="#md:pon39child39-function-childparser-"><span>p.on(&#39;child&#39;, function (child<wbr/>Parser) {})</span></a></li>
+<li><a href="#md:pon39result39-function-assert-"><span>p.on(&#39;result&#39;, function (assert) {})</span></a></li>
+<li><a href="#md:pon39pass39-function-assert-"><span>p.on(&#39;pass&#39;, function (assert) {})</span></a></li>
+<li><a href="#md:pon39fail39-function-assert-"><span>p.on(&#39;fail&#39;, function (assert) {})</span></a></li>
+<li><a href="#md:pon39skip39-function-assert-"><span>p.on(&#39;skip&#39;, function (assert) {})</span></a></li>
+<li><a href="#md:pon39todo39-function-assert-"><span>p.on(&#39;todo&#39;, function (assert) {})</span></a></li>
+<li><a href="#md:pon39extra39-function-extra-"><span>p.on(&#39;extra&#39;, function (extra) {})</span></a></li></ul></li>
+<li><a href="#md:static-method-const-results--parserparsestring-options--"><span>static method: const results = <wbr/>Parser.parse(string, options = {})</span></a></li>
+<li><a href="#md:static-method-const-tap--parserstringifyresults-options--"><span>static method: const tap = <wbr/>Parser.stringify(results, options = {})</span></a></li>
+<li><a href="#md:install"><span>install</span></a></li>
+<li><a href="#md:license"><span>license</span></a></li>
+<li><a href="#md:subtests"><span>subtests</span></a></li></ul></li></ul></div></details></div>
+<div class="site-menu">
+<nav class="tsd-navigation"><a href="../index.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Node TAP</span></a>
+<ul class="tsd-small-nested-navigation">
+<li><a href="_tapjs_after.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/after -<wbr/> v0.0.0-<wbr/>18</span></a></li>
+<li><a href="_tapjs_after_each.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/after-<wbr/>each -<wbr/> v0.0.0-<wbr/>18</span></a></li>
+<li><a href="_tapjs_asserts.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/asserts -<wbr/> v0.0.0-<wbr/>18</span></a></li>
+<li><a href="_tapjs_before.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/before -<wbr/> v0.0.0-<wbr/>18</span></a></li>
+<li><a href="_tapjs_before_each.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/before-<wbr/>each -<wbr/> v0.0.0-<wbr/>18</span></a></li>
+<li><a href="_tapjs_clock.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/clock -<wbr/> v0.0.0-<wbr/>8</span></a></li>
+<li><a href="_tapjs_config.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/config -<wbr/> v2.0.0-<wbr/>19</span></a></li>
+<li><a href="_tapjs_core.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/core -<wbr/> v0.0.0-<wbr/>18</span></a></li>
+<li><a href="_tapjs_create_plugin.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/create-<wbr/>plugin -<wbr/> v1.0.3-<wbr/>18</span></a></li>
+<li><a href="_tapjs_docs.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/docs</span></a></li>
+<li><a href="_tapjs_dummy_plugin.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/dummy-<wbr/>plugin -<wbr/> v0.0.0-<wbr/>18</span></a></li>
+<li><a href="_tapjs_esbuild_kit.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/esbuild-<wbr/>kit -<wbr/> v0.0.0-<wbr/>18</span></a></li>
+<li><a href="_tapjs_filter.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/filter -<wbr/> v0.0.0-<wbr/>18</span></a></li>
+<li><a href="_tapjs_fixture.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/fixture -<wbr/> v0.0.0-<wbr/>18</span></a></li>
+<li><a href="_tapjs_intercept.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/intercept -<wbr/> v0.0.0-<wbr/>18</span></a></li>
+<li><a href="_tapjs_mock.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/mock -<wbr/> v0.0.0-<wbr/>19</span></a></li>
+<li><a href="_tapjs_nock.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/nock -<wbr/> v3.0.0-<wbr/>18</span></a></li>
+<li><a href="npm_init_template.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>npm-<wbr/>init-<wbr/>template -<wbr/> v1.0.3-<wbr/>1</span></a></li>
+<li>
+<details class="tsd-index-accordion" open data-key="tap-parser"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="#icon-chevronDown"></use></svg><a href="tap_parser.html" class="current"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>tap-<wbr/>parser -<wbr/> v15.0.0-<wbr/>2</span></a></summary>
+<div class="tsd-accordion-details">
+<ul class="tsd-nested-navigation">
+<li><a href="tap_parser.brace_patterns.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>brace-<wbr/>patterns</span></a></li>
+<li><a href="tap_parser.escape.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>escape</span></a></li>
+<li><a href="tap_parser.final_plan.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>final-<wbr/>plan</span></a></li>
+<li><a href="tap_parser.final_results.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>final-<wbr/>results</span></a></li>
+<li><a href="tap_parser.index.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>index</span></a></li>
+<li><a href="tap_parser.line_type.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>line-<wbr/>type</span></a></li>
+<li><a href="tap_parser.parse_directive.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>parse-<wbr/>directive</span></a></li>
+<li><a href="tap_parser.plan.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>plan</span></a></li>
+<li><a href="tap_parser.result.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>result</span></a></li>
+<li><a href="tap_parser.statics.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>statics</span></a></li></ul></div></details></li>
+<li><a href="_tapjs_reporter.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/reporter -<wbr/> v0.0.0-<wbr/>20</span></a></li>
+<li><a href="_tapjs_run.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/run -<wbr/> v0.0.0-<wbr/>20</span></a></li>
+<li><a href="_tapjs_sinon.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/sinon -<wbr/> v0.0.0-<wbr/>18</span></a></li>
+<li><a href="_tapjs_snapshot.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/snapshot -<wbr/> v0.0.0-<wbr/>18</span></a></li>
+<li><a href="_tapjs_spawn.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/spawn -<wbr/> v0.0.0-<wbr/>18</span></a></li>
+<li><a href="_tapjs_stack.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/stack -<wbr/> v0.0.0-<wbr/>6</span></a></li>
+<li><a href="_tapjs_stdin.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/stdin -<wbr/> v0.0.0-<wbr/>18</span></a></li>
+<li><a href="tap.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>tap -<wbr/> v18.0.0-<wbr/>22</span></a></li>
+<li><a href="tcompare.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>tcompare -<wbr/> v6.0.1-<wbr/>4</span></a></li>
+<li><a href="_tapjs_test.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/test -<wbr/> v0.0.0-<wbr/>18</span></a></li>
+<li><a href="_tapjs_typescript.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/typescript -<wbr/> v0.0.0-<wbr/>18</span></a></li>
+<li><a href="_tapjs_worker.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/worker -<wbr/> v0.0.0-<wbr/>18</span></a></li>
+<li><a href="tap_yaml.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>tap-<wbr/>yaml -<wbr/> v2.1.1-<wbr/>1</span></a></li></ul></nav></div></div></div>
+<div class="tsd-generator">
+<p>Generated using <a href="https://typedoc.org/" rel="noopener" target="_blank">TypeDoc</a></p></div>
+<div class="overlay"></div></body></html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html><html class="default" lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>@tapjs/mock - v0.0.0-19 | Node TAP</title><meta name="description" content="Documentation for Node TAP"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="../assets/style.css"/><link rel="stylesheet" href="../assets/highlight.css"/><link rel="stylesheet" href="../assets/custom.css"/><script defer src="../assets/main.js"></script><script async src="../assets/search.js" id="tsd-search-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os"</script><header class="tsd-page-toolbar">
+<div class="tsd-toolbar-contents container">
+<div class="table-cell" id="tsd-search" data-base="..">
+<div class="field"><label for="tsd-search-field" class="tsd-widget tsd-toolbar-icon search no-caption"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M15.7824 13.833L12.6666 10.7177C12.5259 10.5771 12.3353 10.499 12.1353 10.499H11.6259C12.4884 9.39596 13.001 8.00859 13.001 6.49937C13.001 2.90909 10.0914 0 6.50048 0C2.90959 0 0 2.90909 0 6.49937C0 10.0896 2.90959 12.9987 6.50048 12.9987C8.00996 12.9987 9.39756 12.4863 10.5008 11.6239V12.1332C10.5008 12.3332 10.5789 12.5238 10.7195 12.6644L13.8354 15.7797C14.1292 16.0734 14.6042 16.0734 14.8948 15.7797L15.7793 14.8954C16.0731 14.6017 16.0731 14.1267 15.7824 13.833ZM6.50048 10.499C4.29094 10.499 2.50018 8.71165 2.50018 6.49937C2.50018 4.29021 4.28781 2.49976 6.50048 2.49976C8.71001 2.49976 10.5008 4.28708 10.5008 6.49937C10.5008 8.70852 8.71314 10.499 6.50048 10.499Z" fill="var(--color-text)"></path></svg></label><input type="text" id="tsd-search-field" aria-label="Search"/></div>
+<div class="field">
+<div id="tsd-toolbar-links"></div></div>
+<ul class="results">
+<li class="state loading">Preparing search index...</li>
+<li class="state failure">The search index is not available</li></ul><a href="../index.html" class="title">Node TAP</a></div>
+<div class="table-cell" id="tsd-widgets"><a href="#" class="tsd-widget tsd-toolbar-icon menu no-caption" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="2" fill="var(--color-text)"></rect><rect x="1" y="7" width="14" height="2" fill="var(--color-text)"></rect><rect x="1" y="11" width="14" height="2" fill="var(--color-text)"></rect></svg></a></div></div></header>
+<div class="container container-main">
+<div class="col-content">
+<div class="tsd-page-title">
+<ul class="tsd-breadcrumb">
+<li><a href="../index.html">Node TAP</a></li>
+<li><a href="_tapjs_mock.html">@tapjs/mock</a></li></ul>
+<h1>Module @tapjs/mock - v0.0.0-19</h1></div>
+<section class="tsd-panel tsd-typography"><a id="md:tapjsmock" class="tsd-anchor"></a><h1><a href="#md:tapjsmock"><code>@tapjs/mock</code></a></h1><p>A default tap plugin adding <code>t.mockRequire()</code>, <code>t.mockImport()</code>,
+and <code>t.createMock()</code></p>
+<a id="md:usage" class="tsd-anchor"></a><h2><a href="#md:usage">USAGE</a></h2><p>This plugin is installed with tap by default. If you had
+previously removed it, you can <code>tap plugin add @tapjs/mock</code> to
+bring it back.</p>
+<p>This is the way to do dependency injection at the module level.
+When the loaded module, or anything it loads, loads something
+that you&#39;ve mocked, it&#39;ll get your mock instead of the real
+thing. Useful for getting into those hard to trigger code paths.</p>
+<pre><code class="language-ts"><span class="hl-6">// test.mts</span><br/><span class="hl-2">import</span><span class="hl-1"> </span><span class="hl-0">t</span><span class="hl-1"> </span><span class="hl-2">from</span><span class="hl-1"> </span><span class="hl-3">&#39;tap&#39;</span><br/><br/><span class="hl-0">t</span><span class="hl-1">.</span><span class="hl-4">test</span><span class="hl-1">(</span><span class="hl-3">&#39;handls stat failure by throwing&#39;</span><span class="hl-1">, </span><span class="hl-5">async</span><span class="hl-1"> </span><span class="hl-0">t</span><span class="hl-1"> </span><span class="hl-5">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-4">mockStatSync</span><span class="hl-1"> = (</span><span class="hl-0">p</span><span class="hl-1">: </span><span class="hl-7">string</span><span class="hl-1">) </span><span class="hl-5">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">    </span><span class="hl-0">t</span><span class="hl-1">.</span><span class="hl-4">equal</span><span class="hl-1">(</span><span class="hl-0">p</span><span class="hl-1">, </span><span class="hl-3">&#39;filename.txt&#39;</span><span class="hl-1">)</span><br/><span class="hl-1">    </span><span class="hl-2">throw</span><span class="hl-1"> </span><span class="hl-0">Object</span><span class="hl-1">.</span><span class="hl-4">assign</span><span class="hl-1">(</span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-4">Error</span><span class="hl-1">(</span><span class="hl-3">&#39;expected error&#39;</span><span class="hl-1">), { </span><span class="hl-0">code:</span><span class="hl-1"> </span><span class="hl-3">&#39;ENOENT&#39;</span><span class="hl-1"> })</span><br/><span class="hl-1">  }</span><br/><span class="hl-1">  </span><span class="hl-6">// do &#39;as typeof import(...)&#39; so that TS knows what it returns</span><br/><span class="hl-1">  </span><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-9">thingThatDoesStat</span><span class="hl-1"> = </span><span class="hl-2">await</span><span class="hl-1"> </span><span class="hl-0">t</span><span class="hl-1">.</span><span class="hl-4">import</span><span class="hl-1">(</span><br/><span class="hl-1">    </span><span class="hl-3">&#39;../dist/my-statty-thing.js&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">    { </span><span class="hl-3">&#39;node:fs&#39;</span><span class="hl-0">:</span><span class="hl-1"> { </span><span class="hl-0">statSync:</span><span class="hl-1"> </span><span class="hl-0">mockStatSync</span><span class="hl-1"> } }</span><br/><span class="hl-1">  ) </span><span class="hl-2">as</span><span class="hl-1"> </span><span class="hl-5">typeof</span><span class="hl-1"> </span><span class="hl-5">import</span><span class="hl-1">(</span><span class="hl-3">&#39;../dist/my-statty-thing.js&#39;</span><span class="hl-1">)</span><br/><br/><span class="hl-1">  </span><span class="hl-0">t</span><span class="hl-1">.</span><span class="hl-4">throws</span><span class="hl-1">(() </span><span class="hl-5">=&gt;</span><span class="hl-1"> </span><span class="hl-4">thingThatDoesStat</span><span class="hl-1">(</span><span class="hl-3">&#39;filename.txt&#39;</span><span class="hl-1">), {</span><br/><span class="hl-1">    </span><span class="hl-0">message:</span><span class="hl-1"> </span><span class="hl-3">&#39;expected error&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-0">code:</span><span class="hl-1"> </span><span class="hl-3">&#39;ENOENT&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  })</span><br/><span class="hl-1">})</span>
+</code><button>Copy</button></pre>
+<a id="md:tmockimportmodule-mocks-promiseltanygt" class="tsd-anchor"></a><h3><a href="#md:tmockimportmodule-mocks-promiseltanygt"><code>t.mockImport(module, [mocks]): Promise&lt;any&gt;</code></a></h3><p>Load the module with <code>import()</code>.  If any mocks are provided, then
+they&#39;ll override the module&#39;s imported deps. This works for both
+ESM and CommonJS modules.</p>
+<a id="md:tmockrequiremodule-mocks-any" class="tsd-anchor"></a><h3><a href="#md:tmockrequiremodule-mocks-any"><code>t.mockRequire(module, [mocks]): any</code></a></h3><p>Same as <code>t.mockImport()</code>, but synchronously using <code>require()</code>
+instead. This only works with CommonJS, and only mocks CommonJS
+modules loaded.</p>
+<a id="md:tcreatemockoriginalmodule-mockoverrides-mockedmodule" class="tsd-anchor"></a><h3><a href="#md:tcreatemockoriginalmodule-mockoverrides-mockedmodule"><code>t.createMock(originalModule, mockOverrides): mockedModule</code></a></h3><p>Sometimes you only want to override one function or property,
+perhaps buried deep within a module&#39;s exports, but leave all the
+rest of it intact.</p>
+<p>This function makes it easy to do that.</p>
+<pre><code class="language-ts"><span class="hl-2">import</span><span class="hl-1"> </span><span class="hl-5">*</span><span class="hl-1"> </span><span class="hl-2">from</span><span class="hl-1"> </span><span class="hl-3">&#39;tap&#39;</span><br/><span class="hl-2">import</span><span class="hl-1"> </span><span class="hl-5">*</span><span class="hl-1"> </span><span class="hl-2">as</span><span class="hl-1"> </span><span class="hl-0">FS</span><span class="hl-1"> </span><span class="hl-2">from</span><span class="hl-1"> </span><span class="hl-3">&#39;node:fs&#39;</span><br/><br/><span class="hl-0">t</span><span class="hl-1">.</span><span class="hl-4">test</span><span class="hl-1">(</span><span class="hl-3">&#39;situation where we get a bogus file descriptor&#39;</span><span class="hl-1">, </span><span class="hl-5">async</span><span class="hl-1"> </span><span class="hl-0">t</span><span class="hl-1"> </span><span class="hl-5">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-5">const</span><span class="hl-1"> { </span><span class="hl-9">thing</span><span class="hl-1"> } = </span><span class="hl-2">await</span><span class="hl-1"> </span><span class="hl-0">t</span><span class="hl-1">.</span><span class="hl-4">mockImport</span><span class="hl-1">(</span><br/><span class="hl-1">    </span><span class="hl-3">&#39;../dist/my-thing.js&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">    { </span><span class="hl-3">&#39;node:fs&#39;</span><span class="hl-0">:</span><span class="hl-1"> </span><span class="hl-0">t</span><span class="hl-1">.</span><span class="hl-4">createMock</span><span class="hl-1">(</span><span class="hl-9">FS</span><span class="hl-1">, { </span><span class="hl-4">openSync</span><span class="hl-0">:</span><span class="hl-1"> () </span><span class="hl-5">=&gt;</span><span class="hl-1"> </span><span class="hl-5">true</span><span class="hl-1"> }) }</span><br/><span class="hl-1">  ) </span><span class="hl-2">as</span><span class="hl-1"> </span><span class="hl-5">typeof</span><span class="hl-1"> </span><span class="hl-5">import</span><span class="hl-1">(</span><span class="hl-3">&#39;../dist/my-thing.js&#39;</span><span class="hl-1">)</span><br/><span class="hl-1">  </span><span class="hl-0">t</span><span class="hl-1">.</span><span class="hl-4">throws</span><span class="hl-1">(() </span><span class="hl-5">=&gt;</span><span class="hl-1"> </span><span class="hl-4">thing</span><span class="hl-1">(), {</span><br/><span class="hl-1">    </span><span class="hl-6">// imagine this is the error we get for some reason</span><br/><span class="hl-1">    </span><span class="hl-0">message:</span><span class="hl-1"> </span><span class="hl-3">&#39;got non-numeric file descriptor: true&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  })</span><br/><span class="hl-1">})</span>
+</code><button>Copy</button></pre>
+<a id="md:loader" class="tsd-anchor"></a><h2><a href="#md:loader">Loader</a></h2><p>The <code>t.mockImport()</code> function relies on the <code>@tapjs/mock/loader</code>
+loader being used, which this plugin adds to tap&#39;s set of
+loaders.</p>
+<p>If you run tests directly with node, and they use <code>t.mockImport</code>
+then you&#39;ll have to include <code>--loader=@tapjs/mock/loader</code> to the
+command line arguments ahead of the main script filename.</p>
+</section>
+<section class="tsd-panel-group tsd-index-group">
+<section class="tsd-panel tsd-index-panel">
+<h3 class="tsd-index-heading uppercase">Index</h3>
+<section class="tsd-index-section">
+<h3 class="tsd-index-heading">Modules</h3>
+<div class="tsd-index-list"><a href="_tapjs_mock.export_line.html" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-4"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-namespace)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6"></rect><path d="M9.33 16V7.24H10.77L13.446 14.74C13.43 14.54 13.41 14.296 13.386 14.008C13.37 13.712 13.354 13.404 13.338 13.084C13.33 12.756 13.326 12.448 13.326 12.16V7.24H14.37V16H12.93L10.266 8.5C10.282 8.692 10.298 8.936 10.314 9.232C10.33 9.52 10.342 9.828 10.35 10.156C10.366 10.476 10.374 10.784 10.374 11.08V16H9.33Z" fill="var(--color-text)"></path></g></svg><span>export-<wbr/>line</span></a>
+<a href="_tapjs_mock.index.html" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>index</span></a>
+<a href="_tapjs_mock.loader.html" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>loader</span></a>
+<a href="_tapjs_mock.loader_url.html" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>loader-<wbr/>url</span></a>
+<a href="_tapjs_mock.loader_url_esm.html" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>loader-<wbr/>url-<wbr/>esm</span></a>
+<a href="_tapjs_mock.mock_import.html" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>mock-<wbr/>import</span></a>
+<a href="_tapjs_mock.mock_require.html" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>mock-<wbr/>require</span></a>
+<a href="_tapjs_mock.mocks.html" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>mocks</span></a>
+</div></section></section></section></div>
+<div class="col-sidebar">
+<div class="page-menu">
+<div class="tsd-navigation settings">
+<details class="tsd-index-accordion"><summary class="tsd-accordion-summary">
+<h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4.93896 8.531L12 15.591L19.061 8.531L16.939 6.409L12 11.349L7.06098 6.409L4.93896 8.531Z" fill="var(--color-text)" id="icon-chevronDown"></path></svg>Settings</h3></summary>
+<div class="tsd-accordion-details">
+<div class="tsd-filter-visibility">
+<h4 class="uppercase">Member Visibility</h4><form>
+<ul id="tsd-filter-options">
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li>
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-private" name="private"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Private</span></label></li>
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li>
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-external" name="external"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>External</span></label></li></ul></form></div>
+<div class="tsd-theme-toggle">
+<h4 class="uppercase">Theme</h4><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div>
+<details open class="tsd-index-accordion tsd-page-navigation"><summary class="tsd-accordion-summary">
+<h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="#icon-chevronDown"></use></svg>On This Page</h3></summary>
+<div class="tsd-accordion-details">
+<ul>
+<li>
+<ul>
+<li><a href="#md:tapjsmock"><span>@tapjs/mock</span></a></li>
+<li>
+<ul>
+<li><a href="#md:usage"><span>USAGE</span></a></li>
+<li>
+<ul>
+<li><a href="#md:tmockimportmodule-mocks-promiseltanygt"><span>t.mock<wbr/>Import(module, [mocks]): <wbr/>Promise&lt;any&gt;</span></a></li>
+<li><a href="#md:tmockrequiremodule-mocks-any"><span>t.mock<wbr/>Require(module, [mocks]): any</span></a></li>
+<li><a href="#md:tcreatemockoriginalmodule-mockoverrides-mockedmodule"><span>t.create<wbr/>Mock(original<wbr/>Module, mock<wbr/>Overrides): mocked<wbr/>Module</span></a></li></ul></li>
+<li><a href="#md:loader"><span>Loader</span></a></li></ul></li></ul></li></ul></div></details></div>
+<div class="site-menu">
+<nav class="tsd-navigation"><a href="../index.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>Node TAP</span></a>
+<ul class="tsd-small-nested-navigation">
+<li><a href="_tapjs_after.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/after -<wbr/> v0.0.0-<wbr/>18</span></a></li>
+<li><a href="_tapjs_after_each.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/after-<wbr/>each -<wbr/> v0.0.0-<wbr/>18</span></a></li>
+<li><a href="_tapjs_asserts.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/asserts -<wbr/> v0.0.0-<wbr/>18</span></a></li>
+<li><a href="_tapjs_before.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/before -<wbr/> v0.0.0-<wbr/>18</span></a></li>
+<li><a href="_tapjs_before_each.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/before-<wbr/>each -<wbr/> v0.0.0-<wbr/>18</span></a></li>
+<li><a href="_tapjs_clock.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/clock -<wbr/> v0.0.0-<wbr/>8</span></a></li>
+<li><a href="_tapjs_config.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/config -<wbr/> v2.0.0-<wbr/>19</span></a></li>
+<li><a href="_tapjs_core.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/core -<wbr/> v0.0.0-<wbr/>18</span></a></li>
+<li><a href="_tapjs_create_plugin.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/create-<wbr/>plugin -<wbr/> v1.0.3-<wbr/>18</span></a></li>
+<li><a href="_tapjs_docs.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/docs</span></a></li>
+<li><a href="_tapjs_dummy_plugin.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/dummy-<wbr/>plugin -<wbr/> v0.0.0-<wbr/>18</span></a></li>
+<li><a href="_tapjs_esbuild_kit.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/esbuild-<wbr/>kit -<wbr/> v0.0.0-<wbr/>18</span></a></li>
+<li><a href="_tapjs_filter.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/filter -<wbr/> v0.0.0-<wbr/>18</span></a></li>
+<li><a href="_tapjs_fixture.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/fixture -<wbr/> v0.0.0-<wbr/>18</span></a></li>
+<li><a href="_tapjs_intercept.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/intercept -<wbr/> v0.0.0-<wbr/>18</span></a></li>
+<li>
+<details class="tsd-index-accordion" open data-key="@tapjs/mock"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="#icon-chevronDown"></use></svg><a href="_tapjs_mock.html" class="current"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/mock -<wbr/> v0.0.0-<wbr/>19</span></a></summary>
+<div class="tsd-accordion-details">
+<ul class="tsd-nested-navigation">
+<li><a href="_tapjs_mock.export_line.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>export-<wbr/>line</span></a></li>
+<li><a href="_tapjs_mock.index.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>index</span></a></li>
+<li><a href="_tapjs_mock.loader.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>loader</span></a></li>
+<li><a href="_tapjs_mock.loader_url.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>loader-<wbr/>url</span></a></li>
+<li><a href="_tapjs_mock.loader_url_esm.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>loader-<wbr/>url-<wbr/>esm</span></a></li>
+<li><a href="_tapjs_mock.mock_import.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>mock-<wbr/>import</span></a></li>
+<li><a href="_tapjs_mock.mock_require.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>mock-<wbr/>require</span></a></li>
+<li><a href="_tapjs_mock.mocks.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>mocks</span></a></li></ul></div></details></li>
+<li><a href="_tapjs_nock.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/nock -<wbr/> v3.0.0-<wbr/>18</span></a></li>
+<li><a href="npm_init_template.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>npm-<wbr/>init-<wbr/>template -<wbr/> v1.0.3-<wbr/>1</span></a></li>
+<li><a href="tap_parser.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>tap-<wbr/>parser -<wbr/> v15.0.0-<wbr/>2</span></a></li>
+<li><a href="_tapjs_reporter.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/reporter -<wbr/> v0.0.0-<wbr/>20</span></a></li>
+<li><a href="_tapjs_run.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/run -<wbr/> v0.0.0-<wbr/>20</span></a></li>
+<li><a href="_tapjs_sinon.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/sinon -<wbr/> v0.0.0-<wbr/>18</span></a></li>
+<li><a href="_tapjs_snapshot.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/snapshot -<wbr/> v0.0.0-<wbr/>18</span></a></li>
+<li><a href="_tapjs_spawn.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/spawn -<wbr/> v0.0.0-<wbr/>18</span></a></li>
+<li><a href="_tapjs_stack.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/stack -<wbr/> v0.0.0-<wbr/>6</span></a></li>
+<li><a href="_tapjs_stdin.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/stdin -<wbr/> v0.0.0-<wbr/>18</span></a></li>
+<li><a href="tap.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>tap -<wbr/> v18.0.0-<wbr/>22</span></a></li>
+<li><a href="tcompare.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>tcompare -<wbr/> v6.0.1-<wbr/>4</span></a></li>
+<li><a href="_tapjs_test.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/test -<wbr/> v0.0.0-<wbr/>18</span></a></li>
+<li><a href="_tapjs_typescript.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/typescript -<wbr/> v0.0.0-<wbr/>18</span></a></li>
+<li><a href="_tapjs_worker.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>@tapjs/worker -<wbr/> v0.0.0-<wbr/>18</span></a></li>
+<li><a href="tap_yaml.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>tap-<wbr/>yaml -<wbr/> v2.1.1-<wbr/>1</span></a></li></ul></nav></div></div></div>
+<div class="tsd-generator">
+<p>Generated using <a href="https://typedoc.org/" rel="noopener" target="_blank">TypeDoc</a></p></div>
+<div class="overlay"></div></body></html>
