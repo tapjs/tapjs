@@ -3,11 +3,8 @@ import pacote from 'pacote'
 import { gt, satisfies } from 'semver'
 import { npmBg } from './npm.js'
 
-const {
-  default: { version: coreVersion },
-} = await import('@tapjs/core/package.json', {
-  assert: { type: 'json' },
-})
+import corePkg from '@tapjs/core/package.json' assert { type: 'json' }
+const { version: coreVersion } = corePkg
 
 let registry: string | undefined = undefined
 const getPackument = async (pkg: string, config: LoadedConfig) => {

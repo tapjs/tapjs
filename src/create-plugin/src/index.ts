@@ -1,12 +1,9 @@
 #!/usr/bin/env node
+import corePkg from '@tapjs/core/package.json' assert { type: 'json' }
 import { randomInt } from 'node:crypto'
 import { basename } from 'node:path'
 import { Init } from 'npm-init-template'
-const {
-  default: { version: coreVersion },
-} = await import('@tapjs/core/package.json', {
-  assert: { type: 'json' },
-})
+const { version: coreVersion } = corePkg
 
 const { prompt, build, values, positionals, run } = new Init(
   import.meta.url

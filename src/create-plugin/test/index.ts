@@ -8,11 +8,8 @@ import { fileURLToPath } from 'url'
 const binURL = await resolveImport('../dist/index.js', import.meta.url)
 const bin = fileURLToPath(binURL)
 
-const {
-  default: { version: coreVersion },
-} = await import('@tapjs/core/package.json', {
-  assert: { type: 'json' },
-})
+import corePkg from '@tapjs/core/package.json' assert { type: 'json' }
+const { version: coreVersion } = corePkg
 
 class MockInit {
   constructor(from: string) {
