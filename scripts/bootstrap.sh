@@ -5,6 +5,8 @@ if [ "$DEBUG" = "1" ]; then
 fi
 set -e
 
+echo "tapjs bootstrap $(uname -a)" >&2
+
 # install all the dev deps from the root package
 npm install --no-workspaces
 
