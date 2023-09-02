@@ -5,7 +5,6 @@ export const date: ScalarTag = {
 
   // use !!timestamp instead, this is for parsing only
   /* c8 ignore start */
-  /* istanbul ignore next */
   identify() {
     return false
   },

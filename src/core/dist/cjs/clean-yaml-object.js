@@ -112,12 +112,10 @@ const cleanYamlObject = (object) => {
         }
         else {
             // some mixed stringly bits
-            // XXX tcompare needs better string diffs
             const ff = (0, tcompare_1.format)(f);
             const fw = (0, tcompare_1.format)(w);
             const fs = (typeof f === 'string' ? f : ff) + '\n';
             const ws = (typeof w === 'string' ? w : fw) + '\n';
-            /* istanbul ignore else - impossible without bug in tcompare */
             if (fw !== ff) {
                 res.diff = (0, diff_1.createTwoFilesPatch)('expected', 'actual', ws, fs).replace(/^=+\n/, '');
             }
