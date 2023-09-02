@@ -3,6 +3,28 @@ import t, { Test } from 'tap'
 import { LoadedConfig } from '@tapjs/config'
 import { resolve } from 'node:path'
 
+const CWD = process.cwd().toUpperCase()
+const deCwd = <T extends any>(obj: T): T => {
+  if (!obj) return obj
+  if (typeof obj === 'string') {
+    const i = obj.toUpperCase().indexOf(CWD)
+    return i === -1
+      ? obj
+      : ((
+          obj.substring(0, i) +
+          '{CWD}' +
+          obj.substring(i + CWD.length)
+        ).replace(/\\/g, '/') as T)
+  }
+  if (typeof obj !== 'object') return obj
+  if (Array.isArray(obj)) return obj.map(v => deCwd(v)) as T
+  return Object.fromEntries(
+    Object.entries(obj).map(([k, v]) => [k, deCwd(v)])
+  ) as T
+}
+
+t.formatSnapshot = (o: any) => deCwd(o)
+
 const nope = () => {
   throw new Error('nope')
 }

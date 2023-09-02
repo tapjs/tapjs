@@ -11,7 +11,7 @@ Array [
     "successfully added plugin(s):",
   ],
   Array [
-    "/Users/isaacs/dev/tapjs/tapjs/src/run/test/tap-testdir-plugin-adding-plugins-add-a-plugin-that-is-a-file-on-disk/my-plugin",
+    "{CWD}/test/tap-testdir-plugin-adding-plugins-add-a-plugin-that-is-a-file-on-disk/my-plugin",
   ],
 ]
 `
@@ -21,7 +21,7 @@ Array [
   Array [
     "adding plugins:",
     Array [
-      "/Users/isaacs/dev/tapjs/tapjs/src/run/test/tap-testdir-plugin-adding-plugins-add-a-plugin-that-is-a-file-on-disk/my-plugin",
+      "{CWD}/test/tap-testdir-plugin-adding-plugins-add-a-plugin-that-is-a-file-on-disk/my-plugin",
     ],
   ],
 ]
