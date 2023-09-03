@@ -168,9 +168,12 @@ class TAP extends Test {
   }
 
   onbail(reason?: string) {
-    super.onbail(reason)
     if (registered) {
       this.debug('bailout, exit 1')
+      super.write(`Bail out!${reason ? ' ' + reason : ''}\n`)
+    }
+    super.onbail(reason)
+    if (registered) {
       proc?.exit(1)
     }
   }

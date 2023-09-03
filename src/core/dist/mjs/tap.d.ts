@@ -73,6 +73,7 @@ declare class TAP extends Test {
      * Happens automatically if piped to stdout.
      */
     register(): void;
+    onbail(reason?: string): void;
     /**
      * Just the normal Minipass.pipe method, but automatically registers
      * if the destination is stdout.

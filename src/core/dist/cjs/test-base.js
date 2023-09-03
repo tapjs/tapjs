@@ -1120,6 +1120,9 @@ class TestBase extends base_js_1.Base {
         if (!this.parent) {
             this.endAll();
         }
+        else {
+            throw 'bailout';
+        }
     }
     /**
      * Called when a test times out or bails out, or the process ends,

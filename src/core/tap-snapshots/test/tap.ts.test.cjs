@@ -14,6 +14,7 @@ Object {
   "stdout": String(
     TAP version 14
     Bail out! cannot proceed
+    Bail out! cannot proceed
     
   ),
 }
@@ -29,6 +30,24 @@ Object {
     TAP version 14
     ok 1 - this is fine
     Bail out! do not continue
+    Bail out! do not continue
+    
+  ),
+}
+`
+
+exports[`test/tap.ts > TAP > bailoutSubtestKillsProcess > must match snapshot 1`] = `
+Object {
+  "code": 1,
+  "name": "bailoutSubtestKillsProcess",
+  "signal": null,
+  "stderr": "",
+  "stdout": String(
+    TAP version 14
+    # Subtest: bailer
+        ok 1 - this is fine
+        Bail out!
+    Bail out!
     
   ),
 }

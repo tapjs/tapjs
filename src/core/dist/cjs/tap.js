@@ -128,12 +128,6 @@ class TAP extends test_1.Test {
         registered = true;
         registerTimeoutListener(this);
         ignoreEPIPE();
-        /* c8 ignore start */
-        this.once('bail', () => {
-            this.debug('bailout, exit 1');
-            proc_js_1.proc?.exit(1);
-        });
-        /* c8 ignore stop */
         proc_js_1.proc?.once('beforeExit', () => {
             ;
             this.end(implicit_end_sigil_js_1.IMPLICIT);
@@ -147,6 +141,16 @@ class TAP extends test_1.Test {
         // of any subtest.
         const rootDomain = new async_hook_domain_1.Domain((er, type) => this.hookDomain.onerror(er, type));
         this.hook.onDestroy = () => rootDomain.destroy();
+    }
+    onbail(reason) {
+        if (registered) {
+            this.debug('bailout, exit 1');
+            super.write(`Bail out!${reason ? ' ' + reason : ''}\n`);
+        }
+        super.onbail(reason);
+        if (registered) {
+            proc_js_1.proc?.exit(1);
+        }
     }
     /**
      * Just the normal Minipass.pipe method, but automatically registers

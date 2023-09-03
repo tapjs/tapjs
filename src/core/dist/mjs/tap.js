@@ -125,12 +125,6 @@ class TAP extends Test {
         registered = true;
         registerTimeoutListener(this);
         ignoreEPIPE();
-        /* c8 ignore start */
-        this.once('bail', () => {
-            this.debug('bailout, exit 1');
-            proc?.exit(1);
-        });
-        /* c8 ignore stop */
         proc?.once('beforeExit', () => {
             ;
             this.end(IMPLICIT);
@@ -144,6 +138,16 @@ class TAP extends Test {
         // of any subtest.
         const rootDomain = new Domain((er, type) => this.hookDomain.onerror(er, type));
         this.hook.onDestroy = () => rootDomain.destroy();
+    }
+    onbail(reason) {
+        if (registered) {
+            this.debug('bailout, exit 1');
+            super.write(`Bail out!${reason ? ' ' + reason : ''}\n`);
+        }
+        super.onbail(reason);
+        if (registered) {
+            proc?.exit(1);
+        }
     }
     /**
      * Just the normal Minipass.pipe method, but automatically registers
