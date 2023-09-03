@@ -2,11 +2,12 @@
 import { plugin as AfterPlugin } from '@tapjs/after'
 import { plugin as BeforePlugin } from '@tapjs/before'
 import { LoadedConfig } from '@tapjs/config'
-import type { TAP } from '@tapjs/core'
+import { TapFile, TapFileOpts, type TAP } from '@tapjs/core'
 import { plugin as SpawnPlugin } from '@tapjs/spawn'
 import { plugin as StdinPlugin } from '@tapjs/stdin'
 import { loaders } from '@tapjs/test'
 import { glob } from 'glob'
+import { stat } from 'node:fs/promises'
 import { relative, resolve } from 'node:path'
 import { resolveImport } from 'resolve-import'
 import { rimraf } from 'rimraf'
@@ -142,21 +143,34 @@ export const run = async (args: string[], config: LoadedConfig) => {
       )
       const buffered = !testIsSerial(file) && t.jobs > 1
       const args = [...argv, file, ...testArgs]
-      return t.spawn(node, args, {
-        at: null,
-        stack: '',
-        buffered,
-        timeout,
-        stdio,
-        env: {
-          ...env,
-          _TAPJS_PROCESSINFO_COVERAGE_,
-          _TAPJS_PROCESSINFO_COV_FILES_,
-        },
-        name,
-        cwd: config.globCwd,
-        externalID: name,
-      })
+      // support stuff like `tap <(...)` or raw .tap files.
+      const st = await stat(file)
+      const raw =
+        st.isCharacterDevice() ||
+        st.isBlockDevice() ||
+        st.isFIFO() ||
+        file.toLowerCase().endsWith('.tap')
+      return raw
+        ? t.sub<TapFile, TapFileOpts>(TapFile, {
+            cwd: config.globCwd,
+            buffered,
+            filename: file,
+          })
+        : t.spawn(node, args, {
+            at: null,
+            stack: '',
+            buffered,
+            timeout,
+            stdio,
+            env: {
+              ...env,
+              _TAPJS_PROCESSINFO_COVERAGE_,
+              _TAPJS_PROCESSINFO_COV_FILES_,
+            },
+            name,
+            cwd: config.globCwd,
+            externalID: name,
+          })
     }
   )
 }

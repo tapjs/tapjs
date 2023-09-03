@@ -28,7 +28,7 @@ import { inspect } from 'node:util'
  * If plugins export a `testFileExtensions` string array, then the
  * entries will be added to this set.
  */
-export const testFileExtensions = new Set(['js', 'cjs', 'mjs'])
+export const testFileExtensions = new Set(['js', 'cjs', 'mjs', 'tap'])
 //{{FILE TYPES START}}
 //{{FILE TYPES END}}
 

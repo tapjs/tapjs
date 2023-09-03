@@ -84,6 +84,10 @@ t.test('run some tests', async t => {
       import t from 'tap'
       t.pass('foo')
     `,
+    'raw.test.tap': `TAP version 14
+ok 1 - raw
+1..1
+`,
     // make it think this is the project root
     '.taprc': 'jobs: 1\n',
     '.git': {},

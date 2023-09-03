@@ -53,7 +53,7 @@ const node_util_1 = require("node:util");
  * If plugins export a `testFileExtensions` string array, then the
  * entries will be added to this set.
  */
-exports.testFileExtensions = new Set(['js', 'cjs', 'mjs']);
+exports.testFileExtensions = new Set(['js', 'cjs', 'mjs', 'tap']);
 //{{FILE TYPES START}}
 exports.testFileExtensions.add("ts");
 exports.testFileExtensions.add("cts");
@@ -150,6 +150,10 @@ const config = (jack) => {
     if (!(0, jackspeak_1.isConfigOption)(config_Plugin_typescript_0, "boolean", false)) {
         throw new Error("Invalid config option 'typecheck' defined in plugin: '@tapjs/typescript'");
     }
+    const config_Plugin_typescript_1 = Plugin_typescript.config["tsconfig"];
+    if (!(0, jackspeak_1.isConfigOption)(config_Plugin_typescript_1, "string", false)) {
+        throw new Error("Invalid config option 'tsconfig' defined in plugin: '@tapjs/typescript'");
+    }
     return jack
         .heading("From plugin: @tapjs/filter")
         .flag({ "only": config_Plugin_filter_0 })
@@ -161,7 +165,8 @@ const config = (jack) => {
         .heading("From plugin: @tapjs/snapshot")
         .flag({ "snapshot": config_Plugin_snapshot_0 })
         .heading("From plugin: @tapjs/typescript")
-        .flag({ "typecheck": config_Plugin_typescript_0 });
+        .flag({ "typecheck": config_Plugin_typescript_0 })
+        .opt({ "tsconfig": config_Plugin_typescript_1 });
 };
 exports.config = config;
 //{{PLUGINS CONFIG END}}

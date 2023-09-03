@@ -112,10 +112,6 @@ export declare const config: <C extends ConfigSet>(jack: Jack<C>) => Jack<C & im
     };
 }> & import("jackspeak").ConfigSetFromMetaSet<"boolean", false, {
     invert: {
-        /**
-         * Utility type to combine the array of plugins into a single combined
-         * return type.
-         */
         type: string;
         short: string;
         description: string;
@@ -190,6 +186,21 @@ export declare const config: <C extends ConfigSet>(jack: Jack<C>) => Jack<C & im
         description?: string | undefined;
         hint?: undefined;
         validate?: ((v: any) => v is boolean) | undefined;
+    } & {
+        multiple?: false | undefined;
+        delim?: undefined;
+    };
+}> & import("jackspeak").ConfigSetFromMetaSet<"string", false, {
+    tsconfig: {
+        type: string;
+        description: string;
+    } & {
+        type: "string";
+        short?: string | undefined;
+        default?: string | undefined;
+        description?: string | undefined;
+        hint?: string | undefined;
+        validate?: ((v: any) => v is string) | undefined;
     } & {
         multiple?: false | undefined;
         delim?: undefined;

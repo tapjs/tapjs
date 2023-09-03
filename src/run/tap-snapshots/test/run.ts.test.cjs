@@ -12,7 +12,7 @@ No valid test files found matching "blah.test.js"
 
 exports[`test/run.ts > TAP > run some tests > must match snapshot 1`] = `
 TAP version 14
-1..2
+1..3
 # Subtest: bar.test.js
     ok 1 - bar
     1..1
@@ -23,8 +23,13 @@ ok 1 - bar.test.js # time={TIME}
     1..1
 ok 2 - foo.test.js # time={TIME}
 
+# Subtest: raw.test
+    ok 1 - raw
+    1..1
+ok 3 - raw.test # time={TIME}
+
 # No coverage generated
-# { total: 2, pass: 2 }
+# { total: 3, pass: 3 }
 # time={TIME}
 
 `
