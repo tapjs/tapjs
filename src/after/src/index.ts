@@ -59,7 +59,7 @@ export class After {
    */
   #callTeardown(): void | Promise<void> {
     let fn: (() => any) | undefined
-    while ((fn = this.#onTeardown.shift())) {
+    while ((fn = this.#onTeardown.pop())) {
       try {
         const ret = fn.call(this.#t.t)
         if (isPromise(ret)) {

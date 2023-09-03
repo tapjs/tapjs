@@ -86,9 +86,6 @@ export class NockRecorder {
       /\.test\.cjs$/,
       '.nock.json'
     )
-    this.#test.t.teardown(() => {
-      this.writeSnapshot()
-    })
   }
 
   #getKey(name: string) {

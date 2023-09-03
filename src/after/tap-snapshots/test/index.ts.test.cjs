@@ -5,6 +5,13 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
+exports[`test/index.ts > TAP > basic teardown timing > must match snapshot 1`] = `
+Array [
+  "second",
+  "first",
+]
+`
+
 exports[`test/index.ts > TAP > basic teardown timing > test output 1`] = `
 TAP version 14
 ok 1 - this is fine

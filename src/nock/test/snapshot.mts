@@ -58,7 +58,7 @@ t.test(
       writeSnapshot: true,
       snapshotFile: sf,
     }).applyPlugin(plugin)
-    const writeTestP = writeTest.test('child test', async t => {
+    writeTest.test('child test', async t => {
       t.nock.snapshot()
       await t.resolves(async () => {
         const res = await fetch('http://127.0.0.1:65200')
@@ -68,7 +68,7 @@ t.test(
       }, 'real request worked')
     })
     writeTest.end()
-    await writeTestP
+    await writeTest.concat()
     t.ok(writeTest.results?.ok, 'writeTest passed')
 
     const snapshotFile = writeTest.snapshotFile.replace(

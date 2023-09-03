@@ -189,6 +189,11 @@ The `expectFail` assertion option is removed.
 
 Assertion aliases are removed.
 
+`t.teardown()` and `t.after()` are the same now.
+
+Multiple methods provided to `t.teardown()` and `t.after()` will
+be run in reverse order.
+
 ## 16.2 - 2022-05-04
 
 - Do not limit the `--coverage-report` option to just the

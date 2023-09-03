@@ -49,3 +49,55 @@ in first test
 end of first test teardown
 in second test
 ```
+
+## Order
+
+If multiple teardown methods are assigned to a single test, they
+will be run in _reverse_ order of how they are assigned. This is
+a change from earlier versions of tap, and provides symmetry with
+`t.before()`.
+
+In practice, it can make things more straightforward, by keeping
+cleanup methods close to their associated setup logic. For
+example:
+
+```js
+const connection = await connectToDB()
+t.ok(connection, 'connected to database')
+t.teardown(() => disconnectFromDB(connection))
+
+const user1 = await createUser(connection)
+t.ok(user1, 'created user 1')
+t.teardown(() => deleteUser(connection, user1))
+
+const user2 = await createUser(connection)
+t.ok(user2, 'created user 2')
+t.teardown(() => deleteUser(connection, user2))
+```
+
+If we delete the connection created in the first step _before_
+deleting the user records, then we can't use that connection to
+delete the user records.
+
+This can also be accomplished with subtests, and a single
+teardown in each section:
+
+```js
+t.test('user db tests', async t => {
+  const connection = await connectToDB()
+  t.ok(connection, 'connected to database')
+  t.teardown(() => disconnectFromDB(connection))
+
+  t.test('user 1', async t => {
+    const user1 = await createUser(connection)
+    t.ok(user1, 'created user 1')
+    t.teardown(() => deleteUser(connection, user1))
+  })
+
+  t.test('user 2', async t => {
+    const user2 = await createUser(connection)
+    t.ok(user2, 'created user 2')
+    t.teardown(() => deleteUser(connection, user2))
+  })
+})
+```

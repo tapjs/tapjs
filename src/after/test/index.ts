@@ -20,8 +20,15 @@ t.test('basic teardown timing', async t => {
   const output = tt.concat()
   let teardownRan = false
   let afterRan = false
-  tt.teardown(() => (teardownRan = true))
-  tt.after(() => (afterRan = true))
+  const log: string[] = []
+  tt.teardown(() => {
+    teardownRan = true
+    log.push('first')
+  })
+  tt.after(() => {
+    afterRan = true
+    log.push('second')
+  })
   tt.pass('this is fine')
   const p = tt.test('child test', async t => {
     t.pass('child test is fine')
@@ -35,6 +42,7 @@ t.test('basic teardown timing', async t => {
   t.equal(teardownRan, true, 'ran teardown')
   t.equal(afterRan, true, 'ran after')
   t.matchSnapshot(await output, 'test output')
+  t.matchSnapshot(log)
 })
 
 t.test('handle async teardown', async t => {

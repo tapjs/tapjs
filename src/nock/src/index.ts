@@ -127,6 +127,10 @@ export class TapNock {
     if (!this.#ancestorNocked()) {
       nock.enableNetConnect()
     }
+
+    if (this.#recorder) {
+      this.#recorder.writeSnapshot()
+    }
   }
 
   #ancestorNocked() {
@@ -196,6 +200,8 @@ export class TapNock {
     }
     if (!tn.#recorder) {
       tn.#recorder = new NockRecorder(t, this.nock.snapshot)
+      // get nock so that we trigger the teardown registration
+      if (!tn.#didTeardown) tn.nock
     }
     return tn.#recorder
   }

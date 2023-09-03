@@ -54,7 +54,7 @@ class After {
      */
     #callTeardown() {
         let fn;
-        while ((fn = this.#onTeardown.shift())) {
+        while ((fn = this.#onTeardown.pop())) {
             try {
                 const ret = fn.call(this.#t.t);
                 if ((0, is_actual_promise_1.isPromise)(ret)) {
