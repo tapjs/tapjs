@@ -259,6 +259,16 @@ export class SnapshotPlugin {
       found = this.#cleanSnapshot(found)
     }
 
+    // \r\n line endings are annoying with git and other systems that
+    // will "helpfully" make them into \n instead. Plus, when loaded
+    // as JavaScript, they're just turned into \n anyway.
+    if (found.includes('\r\n')) {
+      found = defaultFormatSnapshot({
+        ...this.compareOptions,
+        bufferChunkSize: 16,
+      })(Buffer.from(found))
+    }
+
     if (this.writeSnapshot) {
       this.#snapshot.snap(found, m)
       return this.#t.pass(...me)

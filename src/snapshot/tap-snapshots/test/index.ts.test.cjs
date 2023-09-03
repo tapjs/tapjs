@@ -27,6 +27,21 @@ Object {
 }
 `
 
+exports[`test/index.ts > TAP > curl f > do not get confused by the escape 1`] = `
+line 1\\r
+line 2\\r
+line 3\\r
+line 4\\r
+
+`
+
+exports[`test/index.ts > TAP > curl f > escape CRLF line endings 1`] = `
+Buffer <
+  0000: 6c69 6e65 2031 0d0a 6c69 6e65 2032 0d0a  line.1..line.2..
+  0010: 6c69 6e65 2033 0d0a 6c69 6e65 2034 0d0a  line.3..line.4..
+>
+`
+
 exports[`test/index.ts > TAP > just some basic snapshots > array 1`] = `
 Array [
   "x",

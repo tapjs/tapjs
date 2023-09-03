@@ -369,3 +369,16 @@ t.test('snapshot filename includes args', t => {
   t.equal(basename(tt.snapshotFile), 'index.ts-some-args.test.cjs')
   t.end()
 })
+
+t.test('curl f', t => {
+  // https://github.com/tapjs/tapjs/issues/641
+  t.matchSnapshot(
+    ['line 1', 'line 2', 'line 3', 'line 4', ''].join('\r\n'),
+    'escape CRLF line endings'
+  )
+  t.matchSnapshot(
+    ['line 1', 'line 2', 'line 3', 'line 4', ''].join('\\r\n'),
+    'do not get confused by the escape'
+  )
+  t.end()
+})
