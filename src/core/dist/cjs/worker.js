@@ -21,7 +21,7 @@ class Worker extends base_js_1.Base {
     #childId;
     env;
     // doesn't have to be cryptographically secure, just a gut check
-    #tapAbortKey = String(Math.random());
+    #childKey = String(Math.random());
     #timedOut;
     #workerEnded = false;
     constructor(options) {
@@ -40,7 +40,7 @@ class Worker extends base_js_1.Base {
             TAP: '1',
             TAP_CHILD_ID: this.#childId,
             TAP_BAIL: this.bail ? '1' : '0',
-            TAP_ABORT_KEY: this.#tapAbortKey,
+            TAP_CHILD_KEY: this.#childKey,
         };
         this.bail = !!options.bail;
     }
@@ -65,7 +65,16 @@ class Worker extends base_js_1.Base {
         this.worker.stdout.pipe(this.parser);
         this.worker.on('error', e => this.threw(e));
         this.worker.on('exit', () => this.#onworkerexit());
-        this.worker.on('message', m => this.comment(m));
+        this.worker.on('message', msg => {
+            const m = msg;
+            if (m &&
+                m.key === this.#childKey &&
+                m.child === this.#childId) {
+                this.setTimeout(m.setTimeout);
+                return;
+            }
+            this.comment(...(Array.isArray(msg) ? msg : [msg]));
+        });
         this.emit('process', this.worker);
     }
     threw(er, extra) {
@@ -75,7 +84,6 @@ class Worker extends base_js_1.Base {
         this.#workerEnded = true;
         if (this.results)
             this.#callCb();
-        this.setTimeout(0);
     }
     timeout(options = { expired: this.name }) {
         this.#timedOut = options;
@@ -88,7 +96,7 @@ class Worker extends base_js_1.Base {
             try {
                 worker.postMessage({
                     tapAbort: 'timeout',
-                    key: this.#tapAbortKey,
+                    key: this.#childKey,
                     child: this.childId,
                 });
                 /* c8 ignore start */

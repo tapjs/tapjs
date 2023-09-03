@@ -59,7 +59,7 @@ export class Worker extends Base<WorkerEvents> {
   #childId: string
   env: { [k: string]: string } | NodeJS.ProcessEnv
   // doesn't have to be cryptographically secure, just a gut check
-  #tapAbortKey: string = String(Math.random())
+  #childKey: string = String(Math.random())
   #timedOut?: { expired?: string }
   #workerEnded: boolean = false
 
@@ -79,7 +79,7 @@ export class Worker extends Base<WorkerEvents> {
       TAP: '1',
       TAP_CHILD_ID: this.#childId,
       TAP_BAIL: this.bail ? '1' : '0',
-      TAP_ABORT_KEY: this.#tapAbortKey,
+      TAP_CHILD_KEY: this.#childKey,
     }
     this.bail = !!options.bail
   }
@@ -107,7 +107,22 @@ export class Worker extends Base<WorkerEvents> {
     this.worker.stdout.pipe(this.parser)
     this.worker.on('error', e => this.threw(e))
     this.worker.on('exit', () => this.#onworkerexit())
-    this.worker.on('message', m => this.comment(m))
+    this.worker.on('message', msg => {
+      const m = msg as {
+        key: string
+        child: string
+        setTimeout: number
+      }
+      if (
+        m &&
+        m.key === this.#childKey &&
+        m.child === this.#childId
+      ) {
+        this.setTimeout(m.setTimeout)
+        return
+      }
+      this.comment(...(Array.isArray(msg) ? msg : [msg]))
+    })
     this.emit('process', this.worker)
   }
 
@@ -118,7 +133,6 @@ export class Worker extends Base<WorkerEvents> {
   #onworkerexit() {
     this.#workerEnded = true
     if (this.results) this.#callCb()
-    this.setTimeout(0)
   }
 
   timeout(options: { expired?: string } = { expired: this.name }) {
@@ -132,7 +146,7 @@ export class Worker extends Base<WorkerEvents> {
       try {
         worker.postMessage({
           tapAbort: 'timeout',
-          key: this.#tapAbortKey,
+          key: this.#childKey,
           child: this.childId,
         })
         /* c8 ignore start */

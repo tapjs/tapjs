@@ -19,7 +19,7 @@ import { Handler, onExit } from 'signal-exit'
 import { FinalResults } from 'tap-parser'
 import { diags } from './diags.js'
 import { IMPLICIT } from './implicit-end-sigil.js'
-import { Extra } from './index.js'
+import { Extra, MILLISECONDS } from './index.js'
 import { env, proc } from './proc.js'
 import { TestBase } from './test-base.js'
 
@@ -246,6 +246,21 @@ class TAP extends Test {
     }
     /* c8 ignore stop */
   }
+
+  // tell our parent process about our intended timeout
+  setTimeout(n: MILLISECONDS) {
+    const msg = {
+      setTimeout: n,
+      key: env.TAP_CHILD_KEY,
+      child: env.TAP_CHILD_ID,
+    }
+    proc?.send?.(msg)
+    // workers can't generate coverage
+    /* c8 ignore start */
+    parentPort?.postMessage(msg)
+    /* c8 ignore stop */
+    return super.setTimeout(n)
+  }
 }
 
 const shouldAutoend = (instance: TAP | undefined): instance is TAP =>
@@ -292,7 +307,7 @@ const registerTimeoutListener = (t: TAP) => {
       msg &&
       typeof msg === 'object' &&
       msg.tapAbort === 'timeout' &&
-      msg.key === env.TAP_ABORT_KEY &&
+      msg.key === env.TAP_CHILD_KEY &&
       msg.child === env.TAP_CHILD_ID
     ) {
       onProcessTimeout(t, 'SIGALRM')

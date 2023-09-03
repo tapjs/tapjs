@@ -28,7 +28,6 @@ TAP version 14
       ...
 not ok 1 - file input # time={TIME}
   ---
-  timeout: 999
   at:
     fileName: test/tap-file.ts
     lineNumber: ##

@@ -14,6 +14,7 @@
  */
 import { Test, TestOpts } from '@tapjs/test';
 import { Minipass, PipeOptions } from 'minipass';
+import { MILLISECONDS } from './index.js';
 declare const privSym: unique symbol;
 type PrivateTAPCtor = {
     [privSym]: true;
@@ -97,6 +98,7 @@ declare class TAP extends Test {
         expired?: string;
         signal?: NodeJS.Signals | null;
     }): void;
+    setTimeout(n: MILLISECONDS): void;
 }
 /**
  * The exported function instantiates a {@link @tapjs/core!tap.TAP} object if

@@ -4,6 +4,7 @@ exports.Spawn = void 0;
 const base_js_1 = require("./base.js");
 const processinfo_1 = require("@tapjs/processinfo");
 const node_path_1 = require("node:path");
+const node_util_1 = require("node:util");
 const throw_to_parser_js_1 = require("./throw-to-parser.js");
 const hasStdout = (p) => !!p.stdout;
 /**
@@ -22,9 +23,8 @@ class Spawn extends base_js_1.Base {
     proc = null;
     cb = null;
     externalID;
-    // Used when providing timeout signal.
     // doesn't have to be cryptographically secure, just a gut check
-    #tapAbortKey = String(Math.random());
+    #childKey = String(Math.random());
     #timedOut;
     #childId;
     constructor(options) {
@@ -65,7 +65,7 @@ class Spawn extends base_js_1.Base {
             TAP_CHILD_ID: this.#childId,
             TAP: '1',
             TAP_BAIL: this.bail ? '1' : '0',
-            TAP_ABORT_KEY: this.#tapAbortKey,
+            TAP_CHILD_KEY: this.#childKey,
         };
     }
     endAll() {
@@ -105,18 +105,43 @@ class Spawn extends base_js_1.Base {
         }
         /* c8 ignore stop */
         proc.stdout.pipe(this.parser);
-        try {
-            //@ts-ignore
-            proc.stdio[3].unref();
-            /* c8 ignore start */
-        }
-        catch (_) { }
-        /* c8 ignore stop */
+        proc.on('message', msg => {
+            const m = msg;
+            if (!!msg &&
+                typeof msg === 'object' &&
+                m.key === this.#childKey &&
+                m.child === this.#childId) {
+                this.setTimeout(m.setTimeout);
+                return;
+            }
+            this.comment(...(Array.isArray(msg) ? msg : [msg]));
+        });
         proc.on('close', (code, signal) => {
             this.#onprocclose(code, signal);
         });
         proc.on('error', er => this.threw(er));
         this.emit('process', proc);
+    }
+    comment(...args) {
+        const body = (0, node_util_1.format)(...args);
+        const message = ('# ' + body.split(/\r?\n/).join('\n# ')).trim() + '\n';
+        // it's almost impossible to send a message that will arrive
+        // AFTER the stdout closes, as this only happens when the worker
+        // thread closes, but it is theoretically possible, since messages
+        // are asynchronous.
+        /* c8 ignore start */
+        if (this.parser.results) {
+            if (this.parent && !this.parent.results) {
+                this.parent.parser.write(message);
+            }
+            else {
+                console.log(message.trimEnd());
+            }
+        }
+        else {
+            /* c8 ignore stop */
+            this.parser.write(message);
+        }
     }
     #onprocclose(code, signal) {
         this.options.exitCode = this.options.exitCode || code;
@@ -154,7 +179,7 @@ class Spawn extends base_js_1.Base {
             try {
                 proc.send({
                     tapAbort: 'timeout',
-                    key: this.#tapAbortKey,
+                    key: this.#childKey,
                     child: this.#childId,
                     // If the process ends while/before sending this message,
                     // then just ignore it. the eventual kills will be no-ops,

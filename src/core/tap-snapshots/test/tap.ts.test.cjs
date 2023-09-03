@@ -261,6 +261,51 @@ Object {
 }
 `
 
+exports[`test/tap.ts > TAP > setTimeoutInSpawn > must match snapshot 1`] = `
+Object {
+  "code": 0,
+  "name": "setTimeoutInSpawn",
+  "signal": null,
+  "stderr": "",
+  "stdout": String(
+    TAP version 14
+    # Subtest: node -e 
+        const t = require('tap')
+        t.setTimeout(12345)
+        // give the message time to land
+        setTimeout(() => {}, 100)
+        t.pass('this is fine')
+        ok 1 - this is fine
+        1..1
+    ok 1 - node -e      const t = require('tap')     t.setTimeout(12345)     // give the message time to land     setTimeout(() => {}, 100)     t.pass('this is fine') # time={TIME}
+    
+    ok 2 - updated timeout
+    1..2
+    
+  ),
+}
+`
+
+exports[`test/tap.ts > TAP > setTimeoutInWorker > must match snapshot 1`] = `
+Object {
+  "code": 0,
+  "name": "setTimeoutInWorker",
+  "signal": null,
+  "stderr": "",
+  "stdout": String(
+    TAP version 14
+    # Subtest: <worker> node -e <inline code>
+        ok 1 - this is fine
+        1..1
+    ok 1 - <worker> node -e <inline code> # time={TIME}
+    
+    ok 2 - updated timeout
+    1..2
+    
+  ),
+}
+`
+
 exports[`test/tap.ts > TAP > stdoutEpipe > must match snapshot 1`] = `
 Object {
   "code": 0,

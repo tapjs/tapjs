@@ -10,6 +10,7 @@ import {
 } from 'node:child_process'
 import { basename } from 'node:path'
 import { Readable, Stream, Writable } from 'node:stream'
+import { format } from 'node:util'
 import { Extra } from './index.js'
 import { TestBaseOpts } from './test-base.js'
 import { throwToParser } from './throw-to-parser.js'
@@ -93,9 +94,8 @@ export class Spawn extends Base<SpawnEvents> {
   cb: null | (() => void) = null
   externalID?: string
 
-  // Used when providing timeout signal.
   // doesn't have to be cryptographically secure, just a gut check
-  #tapAbortKey: string = String(Math.random())
+  #childKey: string = String(Math.random())
 
   #timedOut?: { expired?: string }
 
@@ -143,7 +143,7 @@ export class Spawn extends Base<SpawnEvents> {
       TAP_CHILD_ID: this.#childId,
       TAP: '1',
       TAP_BAIL: this.bail ? '1' : '0',
-      TAP_ABORT_KEY: this.#tapAbortKey,
+      TAP_CHILD_KEY: this.#childKey,
     }
   }
 
@@ -196,17 +196,51 @@ export class Spawn extends Base<SpawnEvents> {
     }
     /* c8 ignore stop */
     proc.stdout.pipe(this.parser)
-    try {
-      //@ts-ignore
-      proc.stdio[3].unref()
-      /* c8 ignore start */
-    } catch (_) {}
-    /* c8 ignore stop */
+
+    proc.on('message', msg => {
+      const m = msg as {
+        key: string
+        child: string
+        setTimeout: number
+      }
+      if (
+        !!msg &&
+        typeof msg === 'object' &&
+        m.key === this.#childKey &&
+        m.child === this.#childId
+      ) {
+        this.setTimeout(m.setTimeout)
+        return
+      }
+      this.comment(...(Array.isArray(msg) ? msg : [msg]))
+    })
+
     proc.on('close', (code, signal) => {
       this.#onprocclose(code, signal)
     })
     proc.on('error', er => this.threw(er))
     this.emit('process', proc)
+  }
+
+  comment(...args: any[]) {
+    const body = format(...args)
+    const message =
+      ('# ' + body.split(/\r?\n/).join('\n# ')).trim() + '\n'
+    // it's almost impossible to send a message that will arrive
+    // AFTER the stdout closes, as this only happens when the worker
+    // thread closes, but it is theoretically possible, since messages
+    // are asynchronous.
+    /* c8 ignore start */
+    if (this.parser.results) {
+      if (this.parent && !this.parent.results) {
+        this.parent.parser.write(message)
+      } else {
+        console.log(message.trimEnd())
+      }
+    } else {
+      /* c8 ignore stop */
+      this.parser.write(message)
+    }
   }
 
   #onprocclose(code: number | null, signal: string | null) {
@@ -250,7 +284,7 @@ export class Spawn extends Base<SpawnEvents> {
         proc.send(
           {
             tapAbort: 'timeout',
-            key: this.#tapAbortKey,
+            key: this.#childKey,
             child: this.#childId,
             // If the process ends while/before sending this message,
             // then just ignore it. the eventual kills will be no-ops,

@@ -210,6 +210,20 @@ class TAP extends test_1.Test {
         }
         /* c8 ignore stop */
     }
+    // tell our parent process about our intended timeout
+    setTimeout(n) {
+        const msg = {
+            setTimeout: n,
+            key: proc_js_1.env.TAP_CHILD_KEY,
+            child: proc_js_1.env.TAP_CHILD_ID,
+        };
+        proc_js_1.proc?.send?.(msg);
+        // workers can't generate coverage
+        /* c8 ignore start */
+        node_worker_threads_1.parentPort?.postMessage(msg);
+        /* c8 ignore stop */
+        return super.setTimeout(n);
+    }
 }
 const shouldAutoend = (instance) => !!autoend && !!instance?.idle;
 let autoendTimer = undefined;
@@ -245,7 +259,7 @@ const registerTimeoutListener = (t) => {
         if (msg &&
             typeof msg === 'object' &&
             msg.tapAbort === 'timeout' &&
-            msg.key === proc_js_1.env.TAP_ABORT_KEY &&
+            msg.key === proc_js_1.env.TAP_CHILD_KEY &&
             msg.child === proc_js_1.env.TAP_CHILD_ID) {
             onProcessTimeout(t, 'SIGALRM');
         }

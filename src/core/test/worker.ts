@@ -18,7 +18,7 @@ t.test('basic instantiation', t => {
     filename: __filename,
     env: {
       ...process.env,
-      TAP_ABORT_KEY: String,
+      TAP_CHILD_KEY: String,
       TAP_CHILD_ID: String,
       TAP: '1',
       TAP_BAIL: '0',
@@ -58,7 +58,7 @@ t.test('spawn something', t => {
         TAP_CHILD_ID: '99',
         TAP: '1',
         TAP_BAIL: '0',
-        TAP_ABORT_KEY: String,
+        TAP_CHILD_KEY: String,
       },
     })
   })
@@ -142,6 +142,60 @@ not ok 1 - timeout!
 `
     )
 
+    t.end()
+  })
+})
+
+t.test('more time plz', t => {
+  const parent = new TestBase({})
+  parent.main(() => {})
+  const w = new Worker({
+    eval: true,
+    filename: `
+    const t = require('tap')
+    t.setTimeout(12345)
+    // give the message time to land
+    setTimeout(() => {}, 100)
+    t.pass('this is fine')
+    `,
+    timeout: 4321,
+    parent,
+  })
+  w.main(async () => {
+    parent.end()
+    t.equal(w.options.timeout, 12345)
+    t.end()
+  })
+})
+
+t.test('other ipc becomes comments', t => {
+  const parent = new TestBase({})
+  parent.main(() => {})
+  const w = new Worker({
+    eval: true,
+    filename: `
+    const { isMainThread, parentPort } = require('node:worker_threads')
+    const t = require('tap')
+    parentPort.postMessage(['this is %j', { a: { formatted: 'message' }}])
+    parentPort.postMessage({ but: { 'this is': [ 'just', 'an', 'object'] }})
+    // give the message time to land
+    setTimeout(() => {}, 100)
+    t.pass('this is fine')
+    `,
+    parent,
+  })
+  w.main(async () => {
+    parent.end()
+    // messages can occur out of order from stdio
+    const found = new Set((await w.concat()).trim().split('\n'))
+    const wanted = new Set([
+      `# this is {"a":{"formatted":"message"}}`,
+      `# { but: { 'this is': [ 'just', 'an', 'object' ] } }`,
+      'TAP version 14',
+      'ok 1 - this is fine',
+      '1..1',
+    ])
+    t.strictSame(found, wanted, 'output lines, in any order')
     t.end()
   })
 })

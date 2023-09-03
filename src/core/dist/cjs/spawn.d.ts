@@ -83,6 +83,7 @@ export declare class Spawn extends Base<SpawnEvents> {
     constructor(options: SpawnOpts);
     endAll(): void;
     main(cb: () => void): void | Extra;
+    comment(...args: any[]): void;
     timeout(options?: {
         expired?: string;
     }): void;

@@ -116,14 +116,14 @@ const cases: Record<string, () => any> = {
   },
 
   timeoutMessage: () => {
-    process.env.TAP_ABORT_KEY = 'tap abort key'
+    process.env.TAP_CHILD_KEY = 'tap abort key'
     process.env.TAP_CHILD_ID = 'tap child id'
     const t = tap()
     t.pass('this is fine')
     //@ts-ignore
     process.emit('message', {
       tapAbort: 'timeout',
-      key: process.env.TAP_ABORT_KEY,
+      key: process.env.TAP_CHILD_KEY,
       child: process.env.TAP_CHILD_ID,
     })
   },
@@ -214,6 +214,49 @@ const cases: Record<string, () => any> = {
     const t = tap()
     t.setTimeout(1234)
     t.pass('fine')
+  },
+
+  setTimeoutInSpawn: () => {
+    const t = tap()
+    const { subtest } = t.spawn(
+      process.execPath,
+      [
+        '-e',
+        `
+    const t = require('tap')
+    t.setTimeout(12345)
+    // give the message time to land
+    setTimeout(() => {}, 100)
+    t.pass('this is fine')
+        `,
+      ],
+      {
+        timeout: 4321,
+      }
+    )
+    subtest!.on('end', () => {
+      t.equal(subtest?.options.timeout, 12345, 'updated timeout')
+    })
+  },
+
+  setTimeoutInWorker: () => {
+    const t = tap()
+    const { subtest } = t.worker(
+        `
+    const t = require('tap')
+    t.setTimeout(12345)
+    // give the message time to land
+    setTimeout(() => {}, 100)
+    t.pass('this is fine')
+        `,
+      {
+        eval: true,
+        timeout: 4321,
+      }
+    )
+    subtest!.on('end', () => {
+      t.equal(subtest?.options.timeout, 12345, 'updated timeout')
+    })
   },
 
   stdoutEpipe: () => {

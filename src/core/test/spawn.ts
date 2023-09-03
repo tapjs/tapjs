@@ -53,7 +53,7 @@ t.test('basic instantiation', t => {
     stdio: [0, 'pipe', 2, 'ipc'],
     env: {
       ...process.env,
-      TAP_ABORT_KEY: String,
+      TAP_CHILD_KEY: String,
       TAP_CHILD_ID: String,
       TAP: '1',
       TAP_BAIL: '0',
@@ -92,7 +92,7 @@ t.test('spawn something', t => {
         TAP_CHILD_ID: String,
         TAP: '1',
         TAP_BAIL: '0',
-        TAP_ABORT_KEY: String,
+        TAP_CHILD_KEY: String,
       },
       stdio: [0, 'pipe', 2, 'ipc'],
       externalID: 'yolo',
@@ -172,6 +172,65 @@ not ok 1 - timeout!
 1..1
 `
     )
+    t.end()
+  })
+})
+
+t.test('more time plz', t => {
+  const parent = new TestBase({})
+  parent.main(() => {})
+  const s = new Spawn({
+    command: process.execPath,
+    args: [
+      '-e',
+      `
+    const t = require('tap')
+    t.setTimeout(12345)
+    // give the message time to land
+    setTimeout(() => {}, 100)
+    t.pass('this is fine')
+    `,
+    ],
+    timeout: 4321,
+    parent,
+  })
+  s.main(async () => {
+    parent.end()
+    t.equal(s.options.timeout, 12345)
+    t.end()
+  })
+})
+
+t.test('other ipc becomes comments', t => {
+  const parent = new TestBase({})
+  parent.main(() => {})
+  const s = new Spawn({
+    command: process.execPath,
+    args: [
+      '-e',
+      `
+    const t = require('tap')
+    process.send(['this is %j', { a: { formatted: 'message' }}])
+    process.send({ but: { 'this is': [ 'just', 'an', 'object'] }})
+    // give the message time to land
+    setTimeout(() => {}, 100)
+    t.pass('this is fine')
+    `,
+    ],
+    parent,
+  })
+  s.main(async () => {
+    parent.end()
+    // messages can occur out of order from stdio
+    const found = new Set((await s.concat()).trim().split('\n'))
+    const wanted = new Set([
+      `# this is {"a":{"formatted":"message"}}`,
+      `# { but: { 'this is': [ 'just', 'an', 'object' ] } }`,
+      'TAP version 14',
+      'ok 1 - this is fine',
+      '1..1',
+    ])
+    t.strictSame(found, wanted, 'output lines, in any order')
     t.end()
   })
 })

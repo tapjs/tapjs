@@ -327,8 +327,10 @@ class Base extends minipass_1.Minipass {
         }
         if (n <= 0) {
             this.timer = undefined;
+            delete this.options.timeout;
         }
         else {
+            this.options.timeout = n;
             this.timer = setTimeout(() => this.timeout(), n);
             /* c8 ignore start */
             if (this.timer.unref)
