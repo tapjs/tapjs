@@ -86,3 +86,11 @@ t.test('error on stream', async t => {
   t.matchSnapshot(await parent.concat())
   t.end()
 })
+
+t.test('name is not .. path', t => {
+  const rel = resolve('x.tap')
+  const abs = resolve('/absolute/path.tap')
+  t.equal(TapFile.getName(undefined, rel, process.cwd()), 'x')
+  t.equal(TapFile.getName(undefined, abs, process.cwd()), '/absolute/path')
+  t.end()
+})

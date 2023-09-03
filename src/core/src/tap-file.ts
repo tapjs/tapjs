@@ -6,7 +6,7 @@
  */
 import { Minipass } from 'minipass'
 import { createReadStream } from 'node:fs'
-import { relative } from 'node:path'
+import { relative, sep } from 'node:path'
 import { Base, BaseOpts, TapBaseEvents } from './base.js'
 import { cwd as procCwd } from './proc.js'
 import { throwToParser } from './throw-to-parser.js'
@@ -52,18 +52,27 @@ export class TapFile extends Base<TapFileEvents> {
     | Minipass<string>
   constructor(options: TapFileOpts) {
     const { filename, tapStream, cwd = procCwd } = options
-    const name =
-      options.name ||
-      (filename
-        ? relative(cwd, filename).replace(/\.tap$/, '')
-        : 'file input')
-
+    const name = TapFile.getName(options.name, filename, cwd)
     super({ ...options, name })
 
     this.filename = filename
     this.cwd = cwd
     this.tapStream = tapStream
     this.tapStream?.pause()
+  }
+
+  static getName(
+    name?: string,
+    filename?: string,
+    cwd: string = procCwd
+  ) {
+    if (name) return name
+    if (!filename) return 'file input'
+    const rel = relative(cwd, filename)
+    return (rel.startsWith('..' + sep) ? filename : rel).replace(
+      /\.tap$/,
+      ''
+    )
   }
 
   main(cb: () => void) {

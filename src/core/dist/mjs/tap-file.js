@@ -1,5 +1,5 @@
 import { createReadStream } from 'node:fs';
-import { relative } from 'node:path';
+import { relative, sep } from 'node:path';
 import { Base } from './base.js';
 import { cwd as procCwd } from './proc.js';
 import { throwToParser } from './throw-to-parser.js';
@@ -16,15 +16,20 @@ export class TapFile extends Base {
     tapStream;
     constructor(options) {
         const { filename, tapStream, cwd = procCwd } = options;
-        const name = options.name ||
-            (filename
-                ? relative(cwd, filename).replace(/\.tap$/, '')
-                : 'file input');
+        const name = TapFile.getName(options.name, filename, cwd);
         super({ ...options, name });
         this.filename = filename;
         this.cwd = cwd;
         this.tapStream = tapStream;
         this.tapStream?.pause();
+    }
+    static getName(name, filename, cwd = procCwd) {
+        if (name)
+            return name;
+        if (!filename)
+            return 'file input';
+        const rel = relative(cwd, filename);
+        return (rel.startsWith('..' + sep) ? filename : rel).replace(/\.tap$/, '');
     }
     main(cb) {
         const { tapStream, filename } = this;

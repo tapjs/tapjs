@@ -41,6 +41,7 @@ export declare class TapFile extends Base<TapFileEvents> {
     filename?: string;
     tapStream?: NodeJS.ReadableStream | Minipass<Buffer> | Minipass<string>;
     constructor(options: TapFileOpts);
+    static getName(name?: string, filename?: string, cwd?: string): string;
     main(cb: () => void): void;
     threw(er: any, extra?: any): import("./index.js").Extra | undefined;
 }

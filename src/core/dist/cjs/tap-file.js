@@ -19,15 +19,20 @@ class TapFile extends base_js_1.Base {
     tapStream;
     constructor(options) {
         const { filename, tapStream, cwd = proc_js_1.cwd } = options;
-        const name = options.name ||
-            (filename
-                ? (0, node_path_1.relative)(cwd, filename).replace(/\.tap$/, '')
-                : 'file input');
+        const name = TapFile.getName(options.name, filename, cwd);
         super({ ...options, name });
         this.filename = filename;
         this.cwd = cwd;
         this.tapStream = tapStream;
         this.tapStream?.pause();
+    }
+    static getName(name, filename, cwd = proc_js_1.cwd) {
+        if (name)
+            return name;
+        if (!filename)
+            return 'file input';
+        const rel = (0, node_path_1.relative)(cwd, filename);
+        return (rel.startsWith('..' + node_path_1.sep) ? filename : rel).replace(/\.tap$/, '');
     }
     main(cb) {
         const { tapStream, filename } = this;
