@@ -145,7 +145,9 @@ class TAP extends Test {
             super.write(`Bail out!${reason ? ' ' + reason : ''}\n`);
         }
         super.onbail(reason);
-        if (registered) {
+        // don't fast-exit in the runner, so we can print the reason for
+        // the bailout on test failure.
+        if (registered && this.context !== Symbol.for('tap.isRunner')) {
             proc?.exit(1);
         }
     }
