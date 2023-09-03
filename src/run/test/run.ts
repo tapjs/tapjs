@@ -85,7 +85,7 @@ t.test('run some tests', async t => {
       t.pass('foo')
     `,
     // make it think this is the project root
-    '.taprc': 'jobs: 2\n',
+    '.taprc': 'jobs: 1\n',
     '.git': {},
   })
   const { code, signal, stdout, stderr } = await run(cwd)
@@ -106,7 +106,7 @@ t.test('fail to find all named test files', async t => {
       t.pass('foo')
     `,
     // make it think this is the project root
-    '.taprc': 'jobs: 2\n',
+    '.taprc': 'jobs: 1\n',
 
     '.git': {},
   })
