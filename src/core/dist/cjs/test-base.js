@@ -963,7 +963,16 @@ class TestBase extends base_js_1.Base {
             });
         }
         if (this.results || this.ended) {
-            const er = new Error('cannot create subtest after parent test ends');
+            const msg = this.#explicitEnded
+                ? 'subtest after parent test end()'
+                : this.#explicitPlan
+                    ? 'test count exceeds plan'
+                    : this.#promiseEnded
+                        ? 'cannot create subtest after parent promise resolves'
+                        : /* c8 ignore start */
+                            'cannot create subtest after parent test ends';
+            /* c8 ignore stop */
+            const er = new Error(msg);
             Error.captureStackTrace(er, caller);
             this.threw(er);
             return Object.assign(Promise.resolve(null), {

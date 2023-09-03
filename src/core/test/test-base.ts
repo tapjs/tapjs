@@ -8,8 +8,8 @@ import { TestBase, TestBaseOpts } from '../dist/mjs/test-base.js'
 const clean = (s: string): string =>
   s
     .replace(/# time=[0-9\.]+m?s/g, '# time={TIME}')
-    .replace(/lineNumber: [0-9]+/, 'lineNumber: ##')
-    .replace(/columnNumber: [0-9]+/, 'columnNumber: ##')
+    .replace(/lineNumber: [0-9]+/g, 'lineNumber: ##')
+    .replace(/columnNumber: [0-9]+/g, 'columnNumber: ##')
 
 t.cleanSnapshot = clean
 
@@ -903,22 +903,29 @@ t.test('subtest stuff', t => {
   })
   t.test('sub after end', async t => {
     const tb = new T({ name: 'root' })
-    tb.test('dom', async tb => {
-      tb.end()
-      const p = tb.test('sub', t => t.end())
-      t.hasStrict(p, { subtest: null })
-      t.equal(await p, null)
+    tb.test('extra subtest with plan', t => {
+      t.plan(1)
+      t.test('first subtest', t => t.end())
+      t.test('second subtest', t => t.end())
     })
+    tb.test('extra subtest with t.end()', t => {
+      t.test('first subtest', t => t.end())
+      t.end()
+      t.test('second subtest', t => t.end())
+    })
+    const p = tb.test('extra subtest with promise', async t => {
+      t.test('first subtest', t => t.end())
+    })
+    await p
+    p.subtest?.test('second subtest', t => t.end())
     tb.end()
-    const res = await tb.concat()
-    t.match(
-      res,
-      `
-# Subtest: dom
-    1..0
-not ok 1 - dom # time=`
+    const out = await tb.concat()
+    t.matchSnapshot(
+      out.replace(
+        /stack: \|((?:.|\n)*?)(\n\s+at:)/g,
+        'stack: {STACK}$2'
+      )
     )
-    t.match(res, 'cannot create subtest after parent test ends')
   })
   t.test('skipped sub', async t => {
     const tb = new T({ name: 'skipsub' })
@@ -1460,7 +1467,9 @@ t.test('failing silent unbuffered subtest', async t => {
     t.fail('nope', { stack: '', at: null })
     t.end()
   })
-  tb.test('silent pass', { silent: true, buffered: false }, t => t.end())
+  tb.test('silent pass', { silent: true, buffered: false }, t =>
+    t.end()
+  )
   tb.test('two', t => t.end())
   tb.end()
   t.matchSnapshot(await tb.concat())

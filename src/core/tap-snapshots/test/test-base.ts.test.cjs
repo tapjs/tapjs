@@ -335,6 +335,124 @@ Bail out!
 
 `
 
+exports[`test/test-base.ts > TAP > subtest stuff > sub after end > must match snapshot 1`] = `
+TAP version 14
+# Subtest: extra subtest with plan
+    1..1
+    # Subtest: first subtest
+        1..0
+    ok 1 - first subtest # time={TIME}
+    
+not ok 1 - extra subtest with plan # time={TIME}
+  ---
+  at:
+    fileName: test/test-base.ts
+    lineNumber: ##
+    columnNumber: ##
+    typeName: Test
+  source: |2
+      t.test('sub after end', async t => {
+        const tb = new T({ name: 'root' })
+        tb.test('extra subtest with plan', t => {
+    -------^
+          t.plan(1)
+          t.test('first subtest', t => t.end())
+  ...
+
+not ok 2 - test count exceeds plan
+  ---
+  stack: {STACK}
+  at:
+    fileName: test/test-base.ts
+    lineNumber: ##
+    columnNumber: ##
+    typeName: Minimal
+    methodName: <anonymous>
+    functionName: Minimal.<anonymous>
+  test: extra subtest with plan
+  source: |2
+          t.plan(1)
+          t.test('first subtest', t => t.end())
+          t.test('second subtest', t => t.end())
+    --------^
+        })
+        tb.test('extra subtest with t.end()', t => {
+  ...
+
+# Subtest: extra subtest with t.end()
+    # Subtest: first subtest
+        1..0
+    ok 1 - first subtest # time={TIME}
+    
+    1..1
+not ok 3 - extra subtest with t.end() # time={TIME}
+  ---
+  at:
+    fileName: test/test-base.ts
+    lineNumber: ##
+    columnNumber: ##
+    typeName: Test
+  source: |2
+          t.test('second subtest', t => t.end())
+        })
+        tb.test('extra subtest with t.end()', t => {
+    -------^
+          t.test('first subtest', t => t.end())
+          t.end()
+  ...
+
+not ok 4 - subtest after parent test end()
+  ---
+  stack: {STACK}
+  at:
+    fileName: test/test-base.ts
+    lineNumber: ##
+    columnNumber: ##
+    typeName: Minimal
+    methodName: <anonymous>
+    functionName: Minimal.<anonymous>
+  test: extra subtest with t.end()
+  source: |2
+          t.test('first subtest', t => t.end())
+          t.end()
+          t.test('second subtest', t => t.end())
+    --------^
+        })
+        const p = tb.test('extra subtest with promise', async t => {
+  ...
+
+# Subtest: extra subtest with promise
+    # Subtest: first subtest
+        1..0
+    ok 1 - first subtest # time={TIME}
+    
+    1..1
+ok 5 - extra subtest with promise # time={TIME}
+
+not ok 6 - cannot create subtest after parent promise resolves
+  ---
+  stack: {STACK}
+  at:
+    fileName: test/test-base.ts
+    lineNumber: ##
+    columnNumber: ##
+    typeName: Test
+    methodName: <anonymous>
+    functionName: Test.<anonymous>
+  test: extra subtest with promise
+  source: |2
+        })
+        await p
+        p.subtest?.test('second subtest', t => t.end())
+    ---------------^
+        tb.end()
+        const out = await tb.concat()
+  ...
+
+1..6
+
+`
+
 exports[`test/test-base.ts > TAP > throw an error with entirely internal frames > must match snapshot 1`] = `
 TAP version 14
 # Subtest: child
