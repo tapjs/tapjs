@@ -252,6 +252,10 @@ export const config = <C extends ConfigSet>(jack: Jack<C>) => {
   if (!isConfigOption(config_Plugin_typescript_0, "boolean", false)) {
     throw new Error("Invalid config option 'typecheck' defined in plugin: '@tapjs/typescript'")
   }
+  const config_Plugin_typescript_1 = Plugin_typescript.config["tsconfig"]
+  if (!isConfigOption(config_Plugin_typescript_1, "string", false)) {
+    throw new Error("Invalid config option 'tsconfig' defined in plugin: '@tapjs/typescript'")
+  }
   return jack
     .heading("From plugin: @tapjs/filter")
     .flag({ "only": config_Plugin_filter_0 })
@@ -264,6 +268,7 @@ export const config = <C extends ConfigSet>(jack: Jack<C>) => {
     .flag({ "snapshot": config_Plugin_snapshot_0 })
     .heading("From plugin: @tapjs/typescript")
     .flag({ "typecheck": config_Plugin_typescript_0 })
+    .opt({ "tsconfig": config_Plugin_typescript_1 })
 }
 //{{PLUGINS CONFIG END}}
 

@@ -8,7 +8,6 @@
 exports[`test/index.ts > TAP > must match snapshot 1`] = `
 Object {
   "tsconfig": Object {
-    "default": true,
     "description": String(
       Path to the \`tsconfig.json\` file containing project
                         settings provided to ts-node when running tests.

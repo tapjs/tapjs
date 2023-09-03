@@ -89,7 +89,6 @@ export const config = {
    */
   tsconfig: {
     type: 'string',
-    default: true,
     description: `Path to the \`tsconfig.json\` file containing project
                   settings provided to ts-node when running tests.
 
