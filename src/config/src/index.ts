@@ -12,7 +12,6 @@ import {
 } from '@tapjs/test'
 import { lstat, readdir, readFile, writeFile } from 'fs/promises'
 import { ConfigSet, Jack, OptionsResults, Unwrap } from 'jackspeak'
-import { createRequire } from 'module'
 import { relative, resolve } from 'node:path'
 import { basename, dirname } from 'path'
 import {
@@ -178,7 +177,11 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
   /**
    * Edit a yaml .taprc file
    */
-  async editYAMLConfig(data: OptionsResults<C>, configFile: string, overwrite: boolean = false) {
+  async editYAMLConfig(
+    data: OptionsResults<C>,
+    configFile: string,
+    overwrite: boolean = false
+  ) {
     const src: OptionsResults<C> =
       (await this.readYAMLConfig(configFile, true)) || {}
     return writeFile(
@@ -275,24 +278,22 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
     if (await exists(asFile)) {
       return asFile
     }
-    // try to require.resolve it, then pluck off everything after the
-    // ext string, to get the root of the package.
-    const require = createRequire(file)
-    try {
-      const resolved = require.resolve(ext)
-      const split = resolved.split(ext)
-      split.pop()
-      const pkgroot = split.join(ext) + ext
-      const rc = resolve(pkgroot, '.taprc')
-      if (await exists(rc)) return rc
-      return resolve(pkgroot, 'package.json')
-    } catch (er) {
-      throw new Error(
-        `Could not read TAP config from package ${ext}, ` +
-          `via the config file at ${file}. ` +
-          `Maybe try: npm install --save-dev ${ext}`
-      )
+    // the dep might ONLY have a package.json or .taprc, so we cannot
+    // use require.resolve or resolveImport for this.
+    // Just walk up the paths ourselves.
+    for (const path of walkUp(dirname(file))) {
+      const pkgRoot = resolve(path, `node_modules/${ext}`)
+      const pj = resolve(pkgRoot, 'package.json')
+      // pj MUST exist, but we prefer .taprc
+      if (!(await exists(pj))) continue
+      const rc = resolve(pkgRoot, '.taprc')
+      return (await exists(rc)) ? rc : pj
     }
+    throw new Error(
+      `Could not read TAP config from package ${ext}, ` +
+        `via the config file at ${file}. ` +
+        `Maybe try: npm install --save-dev ${ext}`
+    )
   }
 
   /**

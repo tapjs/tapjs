@@ -419,7 +419,6 @@ t.test('extend from dep .taprc', async t => {
       'config-base': {
         // needs to be *something* there to require.resolve to
         'package.json': JSON.stringify({ name: 'config-base' }),
-        'index.js': '',
         '.taprc': 'jobs: 3\nreporter: blargggg\n',
       },
     },
@@ -453,7 +452,6 @@ t.test('extend from dep package.json', async t => {
             reporter: 'blargggg',
           },
         }),
-        'index.js': '',
       },
     },
   })
