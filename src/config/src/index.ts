@@ -457,7 +457,7 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
       color = true
       chalk.level = Math.max(chalk.level, 1) as 0 | 1 | 2 | 3
       env.FORCE_COLOR = String(chalk.level)
-      env.NO_COLOR = '0'
+      delete env.NO_COLOR
     } else {
       color = false
       chalk.level = 0

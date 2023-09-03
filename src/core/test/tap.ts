@@ -151,6 +151,13 @@ const cases: Record<string, () => any> = {
     t.bailout('cannot proceed')
   },
 
+  bailoutKillsProcess: () => {
+    const t = tap()
+    t.pass('this is fine')
+    setInterval(() => {}, 10000)
+    t.bailout('do not continue')
+  },
+
   closeEvenIfExitingHard: () => {
     const t = tap()
     process.on('exit', code => process.exit(code))

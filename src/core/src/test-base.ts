@@ -1383,6 +1383,8 @@ export class TestBase extends Base<TestBaseEvents> {
     this.#end(IMPLICIT)
     if (!this.parent) {
       this.endAll()
+    } else {
+      throw 'bailout'
     }
   }
 

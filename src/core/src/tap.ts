@@ -151,12 +151,6 @@ class TAP extends Test {
     registered = true
     registerTimeoutListener(this)
     ignoreEPIPE()
-    /* c8 ignore start */
-    this.once('bail', () => {
-      this.debug('bailout, exit 1')
-      proc?.exit(1)
-    })
-    /* c8 ignore stop */
     proc?.once('beforeExit', () => {
       ;(this as unknown as TestBase).end(IMPLICIT)
     })
@@ -171,6 +165,14 @@ class TAP extends Test {
       this.hookDomain.onerror(er, type)
     )
     this.hook.onDestroy = () => rootDomain.destroy()
+  }
+
+  onbail(reason?: string) {
+    super.onbail(reason)
+    if (registered) {
+      this.debug('bailout, exit 1')
+      proc?.exit(1)
+    }
   }
 
   /**

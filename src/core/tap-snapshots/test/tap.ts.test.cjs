@@ -19,6 +19,21 @@ Object {
 }
 `
 
+exports[`test/tap.ts > TAP > bailoutKillsProcess > must match snapshot 1`] = `
+Object {
+  "code": 1,
+  "name": "bailoutKillsProcess",
+  "signal": null,
+  "stderr": "",
+  "stdout": String(
+    TAP version 14
+    ok 1 - this is fine
+    Bail out! do not continue
+    
+  ),
+}
+`
+
 exports[`test/tap.ts > TAP > boundMethods > must match snapshot 1`] = `
 Object {
   "code": 0,
