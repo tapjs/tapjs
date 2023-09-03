@@ -7,6 +7,20 @@
 'use strict'
 exports[`test/index.ts > TAP > must match snapshot 1`] = `
 Object {
+  "tsconfig": Object {
+    "default": true,
+    "description": String(
+      Path to the \`tsconfig.json\` file containing project
+                        settings provided to ts-node when running tests.
+      
+                        Similar to the \`--project\` option to ts-node. Sets the
+                        \`TS_NODE_PROJECT\` environment variable.
+      
+                        If this is a relative directory, then it is resolved
+                        against the project root directory.
+    ),
+    "type": "string",
+  },
   "typecheck": Object {
     "default": true,
     "description": String(

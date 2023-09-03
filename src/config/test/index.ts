@@ -140,16 +140,18 @@ t.test('default config file in cwd if walkup gets home', async t => {
     },
   })
 
+  const coreMock = t.createMock(core, {
+    cwd: resolve(dir, 'where/the/heart/is'),
+    env: {
+      HOME: dir,
+    },
+  })
   const { TapConfig } = await t.mockImport('../dist/mjs/index.js', {
-    '@tapjs/core': t.createMock(core, {
-      cwd: resolve(dir, 'where/the/heart/is'),
-      env: {
-        HOME: dir,
-      },
-    }),
+    '@tapjs/core': coreMock,
   })
   const tc = await TapConfig.load()
   t.equal(tc.configFile, resolve(dir, 'where/the/heart/is/.taprc'))
+  t.equal(coreMock.env.TAP_CWD, resolve(dir, 'where/the/heart/is'))
 })
 
 t.test('home defaults to . if not in env', async t => {
@@ -162,14 +164,14 @@ t.test('home defaults to . if not in env', async t => {
       },
     },
   })
-
+  const coreMock = t.createMock(core, {
+    cwd: resolve(dir, 'where/the/heart/is'),
+    env: {
+      HOME: undefined,
+    },
+  })
   const { TapConfig } = await t.mockImport('../dist/mjs/index.js', {
-    '@tapjs/core': t.createMock(core, {
-      cwd: resolve(dir, 'where/the/heart/is'),
-      env: {
-        HOME: undefined,
-      },
-    }),
+    '@tapjs/core': coreMock,
   })
   const tc = await TapConfig.load()
   t.equal(tc.configFile, resolve(dir, 'where/the/heart/is/.taprc'))

@@ -1,4 +1,5 @@
 import { env, TapPlugin } from '@tapjs/core'
+import { resolve } from 'node:path'
 
 // This just adds the ts-node/esm loader
 export const loader = 'ts-node/esm'
@@ -14,6 +15,9 @@ export const plugin: TapPlugin<{}> = () => {
       env.TS_NODE_TRANSPILE_ONLY = '1'
     } else if (env.TAP_TYPECHECK === '1') {
       env.TS_NODE_TRANSPILE_ONLY = '0'
+    }
+    if (env.TAP_TSCONFIG && env.TAP_CWD) {
+      env.TS_NODE_PROJECT = resolve(env.TAP_CWD, env.TAP_TSCONFIG)
     }
     didSet = true
   }
@@ -71,5 +75,28 @@ export const config = {
                   The \`"skipLibCheck": true\` option in tsconfig will also
                   speed things up a bit, at the expense of some type safety.
     `,
+  },
+
+  /**
+   * Path to the `tsconfig.json` file containing project settings provided to
+   * ts-node when running tests.
+   *
+   * Similar to the `--project` option to ts-node. Sets the `TS_NODE_PROJECT`
+   * environment variable.
+   *
+   * If this is a relative directory, then it is resolved against the project
+   * root directory.
+   */
+  tsconfig: {
+    type: 'string',
+    default: true,
+    description: `Path to the \`tsconfig.json\` file containing project
+                  settings provided to ts-node when running tests.
+
+                  Similar to the \`--project\` option to ts-node. Sets the
+                  \`TS_NODE_PROJECT\` environment variable.
+
+                  If this is a relative directory, then it is resolved
+                  against the project root directory.`,
   },
 }

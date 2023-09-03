@@ -381,6 +381,7 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
       if (!entries) break
       if (entries.includes('.taprc')) {
         this.globCwd = p
+        env.TAP_CWD = p
         const file = resolve(p, '.taprc')
         return this.loadConfigData(
           await this.readYAMLConfig(file),
@@ -388,6 +389,7 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
         )
       } else if (entries.includes('package.json')) {
         this.globCwd = p
+        env.TAP_CWD = p
         const file = resolve(p, 'package.json')
         return this.loadConfigData(
           await this.readPackageJsonConfig(file),
@@ -397,6 +399,7 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
         // this just sets the default config file, even though we didn't
         // get anything from it, so `tap plugin <add|rm>` knows where to
         // write the resulting config to.
+        env.TAP_CWD = p
         return Object.assign(this, {
           globCwd: p,
           configFile: resolve(p, '.taprc'),
@@ -407,6 +410,7 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
         break
       }
     }
+    env.TAP_CWD = cwd
     return Object.assign(this, {
       globCwd: cwd,
       configFile: resolve(cwd, '.taprc'),
