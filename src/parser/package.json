@@ -1,6 +1,6 @@
 {
   "name": "tap-parser",
-  "version": "15.0.0-2",
+  "version": "15.0.0-3",
   "description": "parse the test anything protocol",
   "type": "module",
   "exports": {
@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "events-to-array": "^2.0.3",
-    "tap-yaml": "2.1.1-1"
+    "tap-yaml": "2.1.1-2"
   },
   "scripts": {
     "snap": "tap",

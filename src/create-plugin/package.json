@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/create-plugin",
-  "version": "1.0.3-18",
+  "version": "1.0.3-19",
   "description": "Create a tap plugin with 'npm init @tapjs/plugin'",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "bin": {
@@ -38,7 +38,7 @@
     "typedoc": "typedoc ./index.ts"
   },
   "dependencies": {
-    "@tapjs/core": "0.0.0-18",
+    "@tapjs/core": "0.0.0-19",
     "npm-init-template": "1.0.3-1"
   },
   "engines": {

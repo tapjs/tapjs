@@ -1,7 +1,7 @@
 {
   "name": "@tapjs/dummy-plugin",
   "private": true,
-  "version": "0.0.0-18",
+  "version": "0.0.0-19",
   "description": "an example plugin for use in testing tap itself",
   "type": "module",
   "keywords": [
@@ -61,7 +61,7 @@
     "url": "https://github.com/tapjs/tapjs/issues"
   },
   "peerDependencies": {
-    "@tapjs/core": "0.0.0-18"
+    "@tapjs/core": "0.0.0-19"
   },
   "engines": {
     "node": ">=16"
