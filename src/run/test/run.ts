@@ -96,7 +96,9 @@ ok 1 - raw
   t.equal(code, 1, 'fail because no coverage')
   t.equal(signal, null)
   t.equal(stderr, '')
-  t.matchSnapshot(stdout)
+  t.match(stdout, /ok [1-3] - bar.test.js # time=/m, 'bar pass')
+  t.match(stdout, /ok [1-3] - foo.test.js # time=/m, 'foo pass')
+  t.match(stdout, /ok [1-3] - raw.test # time=/m, 'raw pass')
 })
 
 t.test('fail to find all named test files', async t => {
@@ -204,12 +206,9 @@ save: test-failures.txt
     t.equal(code, 1)
     t.equal(signal, null)
     t.equal(stderr, '')
-    t.matchSnapshot(
-      stdout.replace(
-        /^\s*stack: (\|-\n)?\s*failer\.test\.js:[0-9]+:[0-9]+$/gm,
-        '{STACK}\n'
-      )
-    )
+    // the order here is nondeterministic
+    t.match(stdout, /^not ok [12] - failer.test.js # time=/m, 'failer failed')
+    t.match(stdout, /^ok [12] - env.test.js # time=/m, 'env passed')
     t.equal(
       readFileSync(resolve(cwd, 'test-failures.txt'), 'utf8'),
       'failer.test.js\n'
