@@ -19,7 +19,8 @@ Major rewrite.
 - update cli behavior
 - more powerful repl
 - lots of added functionality
-- Mocha-like DSL removed (may return someday as an optional plugin)
+- Mocha-like DSL moved to the optional `@tapjs/mocha-globals`
+  plugin.
 
 ### CLI
 
