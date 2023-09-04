@@ -12,19 +12,19 @@ TAP version 14
         not ok 1 - yolo
           ---
           stack: >
-            Test.<anonymous> (test/done-called-with-error.ts:21:21)
+            Test.<anonymous> (test/done-called-with-error.ts:#:#)
           
-            Test.<anonymous> (src/index.ts:121:25)
+            Test.<anonymous> (src/index.ts:#:#)
           
-            Test.cb ({}/core/src/test-base.ts:339:17)
+            Test.cb ({}/core/src/test-base.ts:#:#)
           
-            {}/core/src/test-base.ts:1068:21
+            {}/core/src/test-base.ts:#:#
           
-            Test.main ({}/core/src/test-base.ts:1076:7)
+            Test.main ({}/core/src/test-base.ts:#:#)
           
-            Test.runMain ({}/core/src/base.ts:563:15)
+            Test.runMain ({}/core/src/base.ts:#:#)
           
-            Test.#processSubtest ({}/core/src/test-base.ts:1104:9)
+            Test.#processSubtest ({}/core/src/test-base.ts:#:#)
           at:
             fileName: test/done-called-with-error.ts
             lineNumber: 21
@@ -64,47 +64,47 @@ TAP version 14
         TypeError [ERR_INVALID_ARG_TYPE]: The "callback" argument must be of type
         function. Received undefined
       
-        Test.<anonymous> (test/done-called-with-error.ts:21:5)
+        Test.<anonymous> (test/done-called-with-error.ts:#:#)
       
-        Test.<anonymous> (src/index.ts:121:25)
+        Test.<anonymous> (src/index.ts:#:#)
       
-        Test.cb ({}/core/src/test-base.ts:339:17)
+        Test.cb ({}/core/src/test-base.ts:#:#)
       
-        {}/core/src/test-base.ts:1068:21
+        {}/core/src/test-base.ts:#:#
       
-        Test.main ({}/core/src/test-base.ts:1076:7)
+        Test.main ({}/core/src/test-base.ts:#:#)
       
-        Test.runMain ({}/core/src/base.ts:563:15)
+        Test.runMain ({}/core/src/base.ts:#:#)
       
-        Test.#processSubtest ({}/core/src/test-base.ts:1104:9)
+        Test.#processSubtest ({}/core/src/test-base.ts:#:#)
       
-        Test.#process ({}/core/src/test-base.ts:824:29)
+        Test.#process ({}/core/src/test-base.ts:#:#)
       
-        Test.sub ({}/core/src/test-base.ts:1261:18)
+        Test.sub ({}/core/src/test-base.ts:#:#)
       
-        it (src/index.ts:99:6)
+        it (src/index.ts:#:#)
       
-        Test.<anonymous> (test/done-called-with-error.ts:20:3)
+        Test.<anonymous> (test/done-called-with-error.ts:#:#)
       
-        Test.<anonymous> (src/index.ts:55:8)
+        Test.<anonymous> (src/index.ts:#:#)
       
-        Test.cb ({}/core/src/test-base.ts:339:17)
+        Test.cb ({}/core/src/test-base.ts:#:#)
       
-        {}/core/src/test-base.ts:1068:21
+        {}/core/src/test-base.ts:#:#
       
-        Test.main ({}/core/src/test-base.ts:1076:7)
+        Test.main ({}/core/src/test-base.ts:#:#)
       
-        Test.runMain ({}/core/src/base.ts:563:15)
+        Test.runMain ({}/core/src/base.ts:#:#)
       
-        Test.#processSubtest ({}/core/src/test-base.ts:1104:9)
+        Test.#processSubtest ({}/core/src/test-base.ts:#:#)
       
-        Test.#process ({}/core/src/test-base.ts:824:29)
+        Test.#process ({}/core/src/test-base.ts:#:#)
       
-        Test.sub ({}/core/src/test-base.ts:1261:18)
+        Test.sub ({}/core/src/test-base.ts:#:#)
       
-        describe (src/index.ts:53:18)
+        describe (src/index.ts:#:#)
       
-        test/done-called-with-error.ts:19:1
+        test/done-called-with-error.ts:#:#
       at:
         typeName: 'TypeError [ERR_INVALID_ARG_TYPE]: The "callback" argument must be of
           type function'

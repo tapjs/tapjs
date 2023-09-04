@@ -9,7 +9,7 @@ t.cleanSnapshot = s => {
   while ((i = s.toUpperCase().indexOf(CWD)) !== -1) {
     s = s.substring(0, i) + '{}' + s.substring(i + CWD.length)
   }
-  return s
+  return s.replace(/([^:]+):[0-9]+:[0-9]+(\)?)\n/g, '$1:#:#$2\n')
 }
 
 const tt = new Test({ name: 'macchiatto' })
