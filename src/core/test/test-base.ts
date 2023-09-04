@@ -1474,3 +1474,48 @@ t.test('failing silent unbuffered subtest', async t => {
   tb.end()
   t.matchSnapshot(await tb.concat())
 })
+
+t.test('job id generation edge case', async t => {
+  // every even-numberred childId is slow, ensuring that they
+  // conflict with the first pick of jobId and have to cycle
+  // at least once.
+  // This is just a coverage test.
+  const tb = new T({ name: 'parent', jobs: 2 })
+  const { subtest: one } = tb.test('one', async () => {})
+  const { subtest: two } = tb.test('two', t =>
+    setTimeout(() => t.end(), 10)
+  )
+  const { subtest: tre } = tb.test('tre', async () => {})
+  const { subtest: fur } = tb.test('fur', t =>
+    setTimeout(() => t.end(), 10)
+  )
+  const { subtest: fiv } = tb.test('fiv', async () => {})
+  const { subtest: six } = tb.test('six', t =>
+    setTimeout(() => t.end(), 10)
+  )
+  tb.end()
+  await tb.concat()
+  t.pass('this is fine')
+  t.match(
+    [one, two, tre, fur, fiv, six].map(
+      t => t && [t.name, t.options.childId, t.options.jobId]
+    ),
+    [
+      ['one', 1, Number],
+      ['two', 2, Number],
+      ['tre', 3, Number],
+      ['fur', 4, Number],
+      ['fiv', 5, Number],
+      ['six', 6, Number],
+    ],
+    'all child tests created with jobId numbers'
+  )
+  for (const sub of [one, two, tre, fur, fiv, six]) {
+    t.ok(
+      sub &&
+        typeof sub.options.jobId === 'number' &&
+        sub.options.jobId < 2,
+      'jobId less than parent.jobs'
+    )
+  }
+})

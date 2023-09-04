@@ -90,6 +90,7 @@ class Spawn extends base_js_1.Base {
                 this.setTimeout(+tomatch[1]);
             }
         });
+        this.env.TAP_JOB_ID = String(this.options.jobId || 0);
         const options = {
             cwd: this.cwd,
             env: this.env,

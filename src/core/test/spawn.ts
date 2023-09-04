@@ -93,6 +93,7 @@ t.test('spawn something', t => {
         TAP: '1',
         TAP_BAIL: '0',
         TAP_CHILD_KEY: String,
+        TAP_JOB_ID: String,
       },
       stdio: [0, 'pipe', 2, 'ipc'],
       externalID: 'yolo',
