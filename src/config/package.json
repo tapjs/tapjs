@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "chalk": "^5.2.0",
-    "jackspeak": "^2.3.1",
+    "jackspeak": "^2.3.3",
     "polite-json": "^4.0.1",
     "walk-up-path": "^3.0.1"
   },
