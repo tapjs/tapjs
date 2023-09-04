@@ -173,6 +173,7 @@ export class Spawn extends Base<SpawnEvents> {
       }
     })
 
+    this.env.TAP_JOB_ID = String(this.options.jobId || 0)
     const options = {
       cwd: this.cwd,
       env: this.env,

@@ -144,6 +144,7 @@ class TestBase extends base_js_1.Base {
     #processing = false;
     #doingStdinOnly = false;
     #calledOnEOF = false;
+    #jobIds;
     /**
      * Subtests that are currently in process.
      *
@@ -192,6 +193,7 @@ class TestBase extends base_js_1.Base {
         if (options.cb) {
             this.#setCB(options.cb);
         }
+        this.#jobIds = new Set();
     }
     #setCB(cb) {
         this.cb = (...args) => this.hook.runInAsyncScope(cb, this.t || this, ...args);
@@ -708,6 +710,7 @@ class TestBase extends base_js_1.Base {
                 this.#onBufferedEnd(p);
             }
             else {
+                p.options.jobId = this.#getJobId(p.options.childId || 0);
                 p.runMain(() => this.#onBufferedEnd(p));
             }
         }
@@ -727,6 +730,21 @@ class TestBase extends base_js_1.Base {
             this.emit('idle');
         }
     }
+    // virtual "worker" id, even though it's just a pool
+    #getJobId(childId = 0) {
+        let j = childId % this.jobs;
+        const start = j;
+        while (this.#jobIds.has(j)) {
+            j = (j + 1) % this.jobs;
+            // impossible because math
+            /* c8 ignore start */
+            if (j === start)
+                return 0;
+            /* c8 ignore stop */
+        }
+        this.#jobIds.add(j);
+        return j;
+    }
     /**
      * True if the test is currently in an idle state
      */
@@ -740,6 +758,7 @@ class TestBase extends base_js_1.Base {
             this.#planEnd === -1);
     }
     #onBufferedEnd(p) {
+        this.#jobIds.delete(p.options.jobId || 0);
         p.results = p.results || new tap_parser_1.FinalResults(true, p.parser);
         p.readyToProcess = true;
         const to = p.options.timeout;
