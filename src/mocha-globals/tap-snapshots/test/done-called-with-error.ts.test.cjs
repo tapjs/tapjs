@@ -12,22 +12,22 @@ TAP version 14
         not ok 1 - yolo
           ---
           stack: >
-            Test.<anonymous> (test/done-called-with-error.ts:10:21)
+            Test.<anonymous> (test/done-called-with-error.ts:21:21)
           
             Test.<anonymous> (src/index.ts:121:25)
           
-            Test.cb (/Users/isaacs/dev/tapjs/tapjs/src/core/src/test-base.ts:339:17)
+            Test.cb ({}/core/src/test-base.ts:339:17)
           
-            /Users/isaacs/dev/tapjs/tapjs/src/core/src/test-base.ts:1068:21
+            {}/core/src/test-base.ts:1068:21
           
-            Test.main (/Users/isaacs/dev/tapjs/tapjs/src/core/src/test-base.ts:1076:7)
+            Test.main ({}/core/src/test-base.ts:1076:7)
           
-            Test.runMain (/Users/isaacs/dev/tapjs/tapjs/src/core/src/base.ts:563:15)
+            Test.runMain ({}/core/src/base.ts:563:15)
           
-            Test.#processSubtest (/Users/isaacs/dev/tapjs/tapjs/src/core/src/test-base.ts:1104:9)
+            Test.#processSubtest ({}/core/src/test-base.ts:1104:9)
           at:
             fileName: test/done-called-with-error.ts
-            lineNumber: 10
+            lineNumber: 21
             columnNumber: 21
             typeName: Test
             methodName: <anonymous>
@@ -42,11 +42,11 @@ TAP version 14
           ...
         
         1..1
-    not ok 1 - unnamed test # time=33.209ms
+    not ok 1 - unnamed test # time={TIME}
       ---
       at:
         fileName: test/done-called-with-error.ts
-        lineNumber: 9
+        lineNumber: 20
         columnNumber: 3
         typeName: Test
       source: |
@@ -64,47 +64,47 @@ TAP version 14
         TypeError [ERR_INVALID_ARG_TYPE]: The "callback" argument must be of type
         function. Received undefined
       
-        Test.<anonymous> (test/done-called-with-error.ts:10:5)
+        Test.<anonymous> (test/done-called-with-error.ts:21:5)
       
         Test.<anonymous> (src/index.ts:121:25)
       
-        Test.cb (/Users/isaacs/dev/tapjs/tapjs/src/core/src/test-base.ts:339:17)
+        Test.cb ({}/core/src/test-base.ts:339:17)
       
-        /Users/isaacs/dev/tapjs/tapjs/src/core/src/test-base.ts:1068:21
+        {}/core/src/test-base.ts:1068:21
       
-        Test.main (/Users/isaacs/dev/tapjs/tapjs/src/core/src/test-base.ts:1076:7)
+        Test.main ({}/core/src/test-base.ts:1076:7)
       
-        Test.runMain (/Users/isaacs/dev/tapjs/tapjs/src/core/src/base.ts:563:15)
+        Test.runMain ({}/core/src/base.ts:563:15)
       
-        Test.#processSubtest (/Users/isaacs/dev/tapjs/tapjs/src/core/src/test-base.ts:1104:9)
+        Test.#processSubtest ({}/core/src/test-base.ts:1104:9)
       
-        Test.#process (/Users/isaacs/dev/tapjs/tapjs/src/core/src/test-base.ts:824:29)
+        Test.#process ({}/core/src/test-base.ts:824:29)
       
-        Test.sub (/Users/isaacs/dev/tapjs/tapjs/src/core/src/test-base.ts:1261:18)
+        Test.sub ({}/core/src/test-base.ts:1261:18)
       
         it (src/index.ts:99:6)
       
-        Test.<anonymous> (test/done-called-with-error.ts:9:3)
+        Test.<anonymous> (test/done-called-with-error.ts:20:3)
       
         Test.<anonymous> (src/index.ts:55:8)
       
-        Test.cb (/Users/isaacs/dev/tapjs/tapjs/src/core/src/test-base.ts:339:17)
+        Test.cb ({}/core/src/test-base.ts:339:17)
       
-        /Users/isaacs/dev/tapjs/tapjs/src/core/src/test-base.ts:1068:21
+        {}/core/src/test-base.ts:1068:21
       
-        Test.main (/Users/isaacs/dev/tapjs/tapjs/src/core/src/test-base.ts:1076:7)
+        Test.main ({}/core/src/test-base.ts:1076:7)
       
-        Test.runMain (/Users/isaacs/dev/tapjs/tapjs/src/core/src/base.ts:563:15)
+        Test.runMain ({}/core/src/base.ts:563:15)
       
-        Test.#processSubtest (/Users/isaacs/dev/tapjs/tapjs/src/core/src/test-base.ts:1104:9)
+        Test.#processSubtest ({}/core/src/test-base.ts:1104:9)
       
-        Test.#process (/Users/isaacs/dev/tapjs/tapjs/src/core/src/test-base.ts:824:29)
+        Test.#process ({}/core/src/test-base.ts:824:29)
       
-        Test.sub (/Users/isaacs/dev/tapjs/tapjs/src/core/src/test-base.ts:1261:18)
+        Test.sub ({}/core/src/test-base.ts:1261:18)
       
         describe (src/index.ts:53:18)
       
-        test/done-called-with-error.ts:8:1
+        test/done-called-with-error.ts:19:1
       at:
         typeName: 'TypeError [ERR_INVALID_ARG_TYPE]: The "callback" argument must be of
           type function'
@@ -118,11 +118,11 @@ TAP version 14
       ...
     
     1..2
-not ok 1 - unnamed suite # time=74.46ms
+not ok 1 - unnamed suite # time={TIME}
   ---
   at:
     fileName: test/done-called-with-error.ts
-    lineNumber: 8
+    lineNumber: 19
     columnNumber: 1
     isToplevel: true
   source: |

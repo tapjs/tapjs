@@ -10,7 +10,7 @@ TAP version 14
 # Subtest: without a function
     ok 1 - is a todo test # TODO
     1..1
-ok 1 - without a function # time=47.002ms
+ok 1 - without a function # time={TIME}
 
 1..1
 

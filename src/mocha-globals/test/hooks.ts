@@ -5,6 +5,17 @@ import {
   currentTest,
 } from '../dist/mjs/index.js'
 
+import { dirname } from 'node:path'
+const CWD = dirname(process.cwd().toUpperCase())
+t.cleanSnapshot = s => {
+  s = s.replace(/# time=[0-9\.]+m?s/g, '# time={TIME}')
+  let i = -1
+  while ((i = s.toUpperCase().indexOf(CWD)) !== -1) {
+    s = s.substring(0, i) + '{}' + s.substring(i + CWD.length)
+  }
+  return s
+}
+
 globalize()
 mount(t)
 

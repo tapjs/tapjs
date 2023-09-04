@@ -11,10 +11,10 @@ TAP version 14
     # Subtest: unnamed test
         ok 1 - has no name
         1..1
-    ok 1 - unnamed test # time=1.293ms
+    ok 1 - unnamed test # time={TIME}
     
     1..1
-ok 1 - unnamed suite # time=38.781ms
+ok 1 - unnamed suite # time={TIME}
 
 1..1
 
