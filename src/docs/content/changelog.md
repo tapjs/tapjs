@@ -188,7 +188,8 @@ made.
 
 The `expectFail` assertion option is removed.
 
-Assertion aliases are removed.
+Assertion aliases are moved to the optional `@tapjs/synonyms`
+plugin.
 
 `t.teardown()` and `t.after()` are the same now.
 
