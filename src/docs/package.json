@@ -24,6 +24,7 @@
     "build": "eleventy",
     "test": "npm run build",
     "predeploy": "npm run build",
+    "predeploy:prod": "npm run build",
     "deploy": "surge ./_site/",
     "deploy:preview": "npm run deploy -- node-tap.surge.sh",
     "deploy:prod": "netlify deploy --site node-tap.org --dir src/docs/_site --prod"
