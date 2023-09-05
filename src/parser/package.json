@@ -49,7 +49,8 @@
     "include": [
       "test/*.ts"
     ],
-    "coverage-map": "map.js"
+    "coverage-map": "map.js",
+    "typecheck": false
   },
   "engines": {
     "node": ">=16"

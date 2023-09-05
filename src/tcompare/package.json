@@ -45,6 +45,7 @@
     "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
   },
   "tap": {
+    "typecheck": false,
     "coverage-map": "map.js"
   },
   "engines": {

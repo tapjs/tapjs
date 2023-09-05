@@ -50,6 +50,8 @@ export const run = async (args: string[], config: LoadedConfig) => {
   process.env._TAPJS_PROCESSINFO_EXCLUDE_ = String(
     // don't consider snapshots and fixtures, or else we'll
     // always think that all tests are new after generating!
+    // TODO: these come from plugins, they should be able to export
+    // this, like with testFileExtensions.
     /(^(node|tapmock):|[\\\/](tap-testdir-[^\\\/]+|tap-snapshots)[\\\/])/
   )
 
@@ -61,17 +63,7 @@ export const run = async (args: string[], config: LoadedConfig) => {
     ...nodeArgs,
   ]
 
-  const env = { ...process.env }
-  for (const e of testEnv) {
-    if (!e.includes('=')) {
-      delete env[e]
-    } else {
-      const split = e.split('=')
-      const k = split[0]
-      const v = split.slice(1).join('=')
-      env[k] = v
-    }
-  }
+  let env: NodeJS.ProcessEnv | undefined = undefined
 
   const saveList = await readSave(config)
   const map = await getCoverageMap(config)
@@ -86,6 +78,20 @@ export const run = async (args: string[], config: LoadedConfig) => {
       ReturnType<typeof SpawnPlugin> &
       ReturnType<typeof BeforePlugin> &
       ReturnType<typeof StdinPlugin> => {
+
+      // generate the env here, in case any plugins updated it
+      env = { ...process.env }
+      for (const e of testEnv) {
+        if (!e.includes('=')) {
+          delete env[e]
+        } else {
+          const split = e.split('=')
+          const k = split[0]
+          const v = split.slice(1).join('=')
+          env[k] = v
+        }
+      }
+
       // always set in dev, and the applyPlugin behavior is well tested
       /* c8 ignore start */
       const a = (t as TAP).pluginLoaded(SpawnPlugin)
