@@ -30,6 +30,9 @@ export class DummyPlugin {
   whoami(): any {
     return this as any
   }
+  get whoAmI(): () => any {
+    return this.whoami
+  }
   get testBase() {
     return this.#t
   }
@@ -66,6 +69,9 @@ export class DummyPlugin {
   }
   method() {
     return 1
+  }
+  get methodAlias() {
+    return this.method
   }
 }
 

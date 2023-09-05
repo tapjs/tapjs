@@ -84,10 +84,12 @@ const copyFunction = <
     copyToString(v),
     copyInspect(v)
   )
+  vv.prototype = v.prototype
   const nameProp = Reflect.getOwnPropertyDescriptor(v, 'name')
   if (nameProp) {
     Reflect.defineProperty(f, 'name', nameProp)
   }
+
   return vv
 }
 
@@ -410,8 +412,11 @@ const applyPlugins = <
             // the correct toString and are called on the correct object
             // Otherwise attempting to access #private props will fail.
             if (typeof v === 'function') {
+              if (getCache.has(v)) return getCache.get(v)
               const vv: Function = copyFunction<Ext, Opts>(t, plug, v)
               getCache.set(p, vv)
+              // aliases remain aliases
+              getCache.set(v, vv)
               return vv
             } else {
               return v
@@ -592,7 +597,7 @@ export class Test<
     }
     extended.#pluginSet = pluginSetExtended
     extended.#Class = TestExtended
-    Object.defineProperty(TestExtended,  'name', {
+    Object.defineProperty(TestExtended, 'name', {
       value: 'Test',
       configurable: true,
     })

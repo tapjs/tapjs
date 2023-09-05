@@ -18,6 +18,7 @@ t.test('make a test, do some stuff with it', async t => {
     message: 'Plugin already applied',
   })
   t.type(td.method, 'function')
+  t.equal(td.method, td.methodAlias, 'aliases stay aliased')
   t.equal(tt.pluginLoaded(plugin), false, 'plugin not on og object')
   //@ts-expect-error
   t.equal(tt.method, undefined, 'method still undefined on og object')

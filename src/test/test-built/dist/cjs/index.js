@@ -82,6 +82,7 @@ const copyFunction = (t, plug, v) => {
         return ret === thisArg && thisArg === plug ? t : ret;
     };
     const vv = Object.assign(Object.assign(f, v), copyToString(v), copyInspect(v));
+    vv.prototype = v.prototype;
     const nameProp = Reflect.getOwnPropertyDescriptor(v, 'name');
     if (nameProp) {
         Reflect.defineProperty(f, 'name', nameProp);
@@ -278,8 +279,12 @@ const applyPlugins = (base, plugs = plugins()) => {
                     // the correct toString and are called on the correct object
                     // Otherwise attempting to access #private props will fail.
                     if (typeof v === 'function') {
+                        if (getCache.has(v))
+                            return getCache.get(v);
                         const vv = copyFunction(t, plug, v);
                         getCache.set(p, vv);
+                        // aliases remain aliases
+                        getCache.set(v, vv);
                         return vv;
                     }
                     else {
