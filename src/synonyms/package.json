@@ -1,0 +1,57 @@
+{
+  "name": "@tapjs/synonyms",
+  "version": "0.0.0-0",
+  "description": "extend the @tapjs/asserts methods with various aliases",
+  "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
+  "type": "module",
+  "exports": {
+    "./package.json": {
+      "import": "./package.json",
+      "require": "./package.json"
+    },
+    ".": {
+      "import": {
+        "types": "./dist/mjs/index.d.ts",
+        "default": "./dist/mjs/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    }
+  },
+  "keywords": [
+    "tapjs plugin"
+  ],
+  "files": [
+    "dist"
+  ],
+  "license": "BlueOak-1.0.0",
+  "scripts": {
+    "prepare": "tsc -p tsconfig/cjs.json && tsc -p tsconfig/esm.json && bash ./scripts/fixup.sh",
+    "pretest": "npm run prepare",
+    "presnap": "npm run prepare",
+    "test": "tap",
+    "snap": "tap",
+    "format": "prettier --write . --loglevel warn --ignore-path ../../.prettierignore --cache",
+    "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
+  },
+  "peerDependencies": {
+    "@tapjs/core": "0.0.0-19"
+  },
+  "dependencies": {
+    "is-actual-promise": "^1.0.0",
+    "tcompare": "6.0.1-4",
+    "trivial-deferred": "^2.0.0"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "funding": {
+    "url": "https://github.com/sponsors/isaacs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tapjs/tapjs.git"
+  }
+}
