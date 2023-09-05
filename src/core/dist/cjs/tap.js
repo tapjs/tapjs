@@ -94,6 +94,11 @@ class TAP extends test_1.Test {
             preserveWhitespace: !envFlag('TAP_OMIT_WHITESPACE'),
             timeout,
             passes: envFlag('TAP_PASSES'),
+            // these are always set in our tests.
+            /* c8 ignore start */
+            childId: Number(proc_js_1.env.TAP_CHILD_ID) || 0,
+            jobId: Number(proc_js_1.env.TAP_JOB_ID) || 0,
+            /* c8 ignore stop */
             ...opts,
         };
         super(options);
