@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/filter",
-  "version": "0.0.0-19",
+  "version": "0.0.0-20",
   "description": "tap plugin providing t.only() and grep option",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "type": "module",
@@ -37,7 +37,7 @@
     "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
   },
   "peerDependencies": {
-    "@tapjs/core": "0.0.0-19"
+    "@tapjs/core": "0.0.0-20"
   },
   "dependencies": {
     "tcompare": "6.0.1-4",

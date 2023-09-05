@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/typescript",
-  "version": "0.0.0-19",
+  "version": "0.0.0-20",
   "description": "a built-in tap extension that adds typescript support",
   "type": "module",
   "exports": {
@@ -41,7 +41,7 @@
   },
   "homepage": "https://github.com/tapjs/tapjs/src/spawn#readme",
   "peerDependencies": {
-    "@tapjs/core": "0.0.0-19"
+    "@tapjs/core": "0.0.0-20"
   },
   "dependencies": {
     "ts-node": "github:TypeStrong/ts-node#8f6f4e5"

@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/synonyms",
-  "version": "0.0.0-0",
+  "version": "0.0.0-1",
   "description": "extend the @tapjs/asserts methods with various aliases",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "type": "module",
@@ -37,7 +37,7 @@
     "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
   },
   "peerDependencies": {
-    "@tapjs/core": "0.0.0-19"
+    "@tapjs/core": "0.0.0-20"
   },
   "dependencies": {
     "is-actual-promise": "^1.0.0",

@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/fixture",
-  "version": "0.0.0-19",
+  "version": "0.0.0-20",
   "description": "Tap plugin to provide t.testdir() and t.fixture()",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "type": "module",
@@ -40,7 +40,7 @@
     "coverage-map": "map.js"
   },
   "peerDependencies": {
-    "@tapjs/core": "0.0.0-19"
+    "@tapjs/core": "0.0.0-20"
   },
   "dependencies": {
     "mkdirp": "^3.0.0",
