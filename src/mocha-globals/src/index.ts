@@ -423,7 +423,7 @@ if (process.env.TAP_MOCHA_GLOBALS === '1') {
  * encounters (by default, this is the root TAP test when active).
  */
 export const plugin: TapPlugin<{}> = (t: TestBase) => {
-  if (!rootSuite) {
+  if (!rootSuite && t.context !== Symbol.for('tap.isRunner')) {
     rootSuite = t
     currentSuite = t
   }
