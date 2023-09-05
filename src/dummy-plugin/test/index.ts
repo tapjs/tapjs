@@ -21,6 +21,8 @@ t.test('plugin adds stuff', async t => {
   const o = {}
   t.equal(withPlug.whoami.call(o), o)
   t.equal(withPlug.method(), 1)
+  t.equal(withPlug.methodAlias, withPlug.method, 'aliases are aliases')
+  t.equal(withPlug.whoami, withPlug.whoAmI, 'aliases are aliases')
   t.strictSame(withPlug.dummyConfig, {
     flag: false,
     flagSet: [],
