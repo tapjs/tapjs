@@ -619,8 +619,6 @@ Object {
     not ok 2 - timeout!
       ---
       signal: SIGALRM
-      requests:
-        - type: FileHandleCloseReq
       expired: TAP
       test: TAP
       ...
@@ -643,8 +641,6 @@ Object {
     not ok 2 - timeout!
       ---
       signal: SIGALRM
-      requests:
-        - type: FileHandleCloseReq
       expired: TAP
       test: TAP
       ...
@@ -667,8 +663,6 @@ Object {
         not ok 1 - timeout!
           ---
           signal: SIGALRM
-          requests:
-            - type: FileHandleCloseReq
           expired: TAP
           ...
         
@@ -687,7 +681,7 @@ Object {
             t.test('child test', () => {})
         ------^
             process.emit('SIGALRM')
-          },
+            setTimeout(() => {}, 10000)
       ...
     
     1..1
@@ -709,18 +703,27 @@ Object {
         not ok 2 - timeout!
           ---
           signal: SIGALRM
-          requests:
-            - type: FileHandleCloseReq
-          handles:
-            - type: Server
-              events:
-                - request
-                - connection
-              connectionKey: {...}
-          expired: TAP
-          ...
+          {{OPEN THINGS}}
         
         1..2
+    not ok 1 - server # time={TIME}
+      ---
+      at:
+        fileName: test/tap.ts
+        lineNumber: ##
+        columnNumber: ##
+        functionName: timeoutSigalrmWithHandle
+        isToplevel: true
+      source: |2
+          timeoutSigalrmWithHandle: () => {
+            const t = tap()
+            t.test('server', async t => {
+        ------^
+              t.pass('this is fine')
+              const http = await import('http')
+      ...
+    
+    1..1
     
   ),
 }

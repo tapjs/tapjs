@@ -141,7 +141,7 @@ export class Init {
     return new Promise<void>(res => {
       foregroundChild(
         cmd,
-        { shell: true, cwd: this.#target },
+        { shell: true, cwd: this.#target, env: process.env },
         (code, signal) => {
           res()
           return code || signal || false

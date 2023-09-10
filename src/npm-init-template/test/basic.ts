@@ -57,7 +57,7 @@ const bridgeKeeper = async (
   const p = spawn(node, [script, ...args], {
     cwd,
     stdio: 'pipe',
-    env,
+    env: { ...env, PATH: process.env.PATH },
   })
 
   const { stdin, stdout, stderr } = p
