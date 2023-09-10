@@ -41,6 +41,21 @@ const main = () => {
       // node 16 puts this here and node 18 doesn't
       .replace(/^\s*Function\.all\n/gm, '')
       .replace(/^\s*async Promise\.all[^\n]*\n/gm, '')
+      // node 20 puts <anonymous> on some stack trace frames
+      .replace(
+        /(\s|^)<anonymous> \(test\/tap\.ts:##:##\)\n/g,
+        '$1test/tap.ts:##:##\n'
+      )
+      // node 20 puts cruft around thrown strings
+      .replace(
+        /^\s*node:internal[^:]+:[0-9]+\s+internalBinding[^\n]+\s+\^\s+([^\n]+)(.|\s)*$/,
+        "'$1'\n"
+      )
+      // non-deterministic and version-specific
+      .replace(/ +requests:\n +- type: FileHandleCloseReq\n/g, '')
+      .replace(/requests:\n( {6,}[^\n]+\n)+/g, '__REQUESTS__')
+      .replace(/handles:\n( {6,}[^\n]+\n)+/g, '__HANDLES__')
+      .replace(/(__REQUESTS__|__HANDLES__)+/g, '{{OPEN THINGS}}\n')
 
   t.formatSnapshot = (res: Result) => {
     return {
@@ -67,8 +82,11 @@ const main = () => {
       const err: Buffer[] = []
       child.stdout.on('data', c => out.push(c))
       child.stderr.on('data', c => err.push(c))
+      let outEnded = false
+      child.stdout.on('end', () => outEnded = true)
       const res = await new Promise<Result>(res => {
         child.on('close', (code, signal) => {
+          t.equal(outEnded, true, 'output ended')
           res({
             name: c,
             code,
@@ -95,12 +113,14 @@ const cases: Record<string, () => any> = {
     const t = tap()
     t.pass('this is fine')
     process.emit('SIGALRM')
+    setTimeout(() => {}, 10000)
   },
 
   timeoutSigalrmWithChild: () => {
     const t = tap()
     t.test('child test', () => {})
     process.emit('SIGALRM')
+    setTimeout(() => {}, 10000)
   },
 
   timeoutSigalrmWithHandle: () => {
@@ -111,7 +131,7 @@ const cases: Record<string, () => any> = {
       const s = http.createServer(() => {})
       s.listen(13245)
       process.emit('SIGALRM')
-      setTimeout(() => s.close())
+      setTimeout(() => s.close(), 10000)
     })
   },
 
@@ -120,12 +140,14 @@ const cases: Record<string, () => any> = {
     process.env.TAP_CHILD_ID = 'tap child id'
     const t = tap()
     t.pass('this is fine')
+    setTimeout(() => {}, 10000)
     //@ts-ignore
     process.emit('message', {
       tapAbort: 'timeout',
       key: process.env.TAP_CHILD_KEY,
       child: process.env.TAP_CHILD_ID,
     })
+    setTimeout(() => {}, 10000)
   },
 
   ok: () => tap().pass('this is fine'),
@@ -258,7 +280,7 @@ const cases: Record<string, () => any> = {
   setTimeoutInWorker: () => {
     const t = tap()
     const { subtest } = t.worker(
-        `
+      `
     const t = require('tap')
     t.setTimeout(12345)
     // give the message time to land

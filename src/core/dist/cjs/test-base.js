@@ -836,14 +836,8 @@ class TestBase extends base_js_1.Base {
         if (typeof this.options.timeout === 'number') {
             this.setTimeout(this.options.timeout);
         }
-        this.debug('MAIN pre', this.name);
-        const end = () => {
-            this.debug(' > implicit end for promise');
-            this.#promiseEnded = true;
-            this.#end(implicit_end_sigil_js_1.IMPLICIT);
-            done();
-        };
         const done = (er) => {
+            this.donePromise = undefined;
             if (er)
                 this.threw(er);
             if (this.results || this.bailedOut)
@@ -873,9 +867,16 @@ class TestBase extends base_js_1.Base {
             }
         })();
         if (ret && ret.then) {
-            this.donePromise = ret;
-            ret.tapAbortPromise = done;
-            ret.then(end, (er) => {
+            this.donePromise = Object.assign(ret, {
+                tapAbortPromise: done,
+            });
+            ret.then(() => {
+                this.debug(' > implicit end for promise');
+                this.#promiseEnded = true;
+                if (!this.ended && !this.#awaitingEnd)
+                    this.#end(implicit_end_sigil_js_1.IMPLICIT);
+                done();
+            }, (er) => {
                 if (!er || typeof er !== 'object') {
                     er = { error: er, at: null };
                 }
@@ -883,8 +884,9 @@ class TestBase extends base_js_1.Base {
                 done(er);
             });
         }
-        else
+        else {
             done();
+        }
         this.debug('MAIN post', this.name);
     }
     #processSubtest(p) {
@@ -1128,6 +1130,9 @@ class TestBase extends base_js_1.Base {
             this.#processing = false;
         }
         this.#process();
+        /* c8 ignore start */
+        this.donePromise?.tapAbortPromise?.();
+        /* c8 ignore stop */
     }
     /**
      * Method called when the parser encounters a bail out
@@ -1194,8 +1199,7 @@ class TestBase extends base_js_1.Base {
                 this.fail('test unfinished', options);
             }
         }
-        if (this.donePromise && this.donePromise.tapAbortPromise)
-            this.donePromise.tapAbortPromise();
+        this.donePromise?.tapAbortPromise?.();
         for (let i = 0; i < this.queue.length; i++) {
             const p = this.queue[i];
             if (p instanceof base_js_1.Base && !p.readyToProcess) {

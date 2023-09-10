@@ -304,36 +304,31 @@ const getTimeoutExtra = (signal = null) => {
         at: undefined,
         signal,
     };
+    // node 20 doesn't have requests in the same way as node 18
+    // we get different objects, handles vs requests, etc.
+    // it's all very "internal machinery", version specific and unstable
+    // there are tests to show that we can get SOMETHING in expected cases,
+    // but it'll be completely differerent across node versions.
+    /* c8 ignore start */
     if (requests.length) {
         extra.requests = requests.map(r => {
-            /* c8 ignore start */
             if (!r || typeof r !== 'object')
                 return r;
-            /* c8 ignore stop */
             const ret = {
                 type: r.constructor.name,
             };
-            // most everything in node has a context these days
-            /* c8 ignore start */
             if (r.context)
                 ret.context = r.context;
-            /* c8 ignore stop */
             return ret;
         });
     }
-    // Newer node versions don't have this as reliably.
-    /* c8 ignore start */
     if (handles.length) {
         extra.handles = handles.map(h => {
-            /* c8 ignore start */
             if (!h || typeof h !== 'object')
                 return h;
-            /* c8 ignore stop */
             const ret = {
                 type: h.constructor.name,
             };
-            // all of this is very internal-ish
-            /* c8 ignore start */
             if (h.msecs)
                 ret.msecs = h.msecs;
             if (h._events)
@@ -342,10 +337,10 @@ const getTimeoutExtra = (signal = null) => {
                 ret.sockname = h._sockname;
             if (h._connectionKey)
                 ret.connectionKey = h._connectionKey;
-            /* c8 ignore stop */
             return ret;
         });
     }
+    /* c8 ignore stop */
     return extra;
 };
 let didProcessTimeout = false;

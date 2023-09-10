@@ -7,7 +7,7 @@ const proc_js_1 = require("./proc.js");
  */
 const mainScript = (def = 'TAP') => {
     //@ts-ignore
-    if (typeof repl !== 'undefined' || '_eval' in proc_js_1.proc) {
+    if (typeof repl !== 'undefined' || proc_js_1.proc._forceRepl || '_eval' in proc_js_1.proc) {
         return def;
     }
     return proc_js_1.argv[1] || def;
