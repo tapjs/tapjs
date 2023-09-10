@@ -53,8 +53,16 @@ const seen = new Set<string>()
 // raise an error and do not continue.
 const hasConfig = new Map<string, string>()
 const hasPlugin = new Map<string, string>()
+
+// has a loader, and no importLoader
 const hasLoader = new Map<string, string>()
+// has an importLoader
+const hasImport = new Map<string, string>()
+// the loader export, if an importLoader is present
+const hasLoaderFallback = new Map<string, string>()
+
 const preloaders = new Map<string, string>()
+const preimports = new Map<string, string>()
 const testFileExtensions = new Set<string>()
 
 const signature = plugins
@@ -85,6 +93,7 @@ const pluginNames = plugins.map(p => {
       >
     }
     loader?: string
+    importLoader?: string
     preload?: boolean
     testFileExtensions?: string[]
   }
@@ -128,9 +137,15 @@ const pluginNames = plugins.map(p => {
     hasPlugin.set(p, name)
     isPlugin = true
   }
+  if (typeof imp.importLoader === 'string') {
+    if (imp.preload === true) preimports.set(p, imp.importLoader)
+    hasImport.set(p, imp.importLoader)
+    isPlugin = true
+  }
   if (typeof imp.loader === 'string') {
-    hasLoader.set(p, imp.loader)
     if (imp.preload === true) preloaders.set(p, imp.loader)
+    if (!imp.importLoader) hasLoader.set(p, imp.loader)
+    else hasLoaderFallback.set(p, imp.loader)
     isPlugin = true
   }
   if (!isPlugin) {
@@ -243,6 +258,12 @@ const pluginLoaders = `const preloaders = new Set<string>(${JSON.stringify(
   2
 )})
 
+const preimports = new Set<string>(${JSON.stringify(
+  [...preimports.values()],
+  null,
+  2
+)})
+
 /**
  * The set of \`loader\` strings exported by plugins. If a plugin exports
  * \`preload = true\`, then it will be sorted to the start of this list, so
@@ -253,8 +274,39 @@ export const loaders: string[] = ${JSON.stringify(
   null,
   2
 )}.sort(
-  (a, b) => preloaders.has(a) ? -1 : preloaders.has(b) ? 1 : 0
+  (a, b) => preloaders.has(a) && !preloaders.has(b) ? -1
+    : !preloaders.has(a) && preloaders.has(b) ? 1
+    : 0
 )
+
+/**
+ * The set of \`importLoader\` strings exported by plugins, for use with
+ * \`Module.register\` in node v20.6 and higher.
+ */
+export const importLoaders: string[] = ${JSON.stringify(
+  [...hasImport.values()],
+  null,
+  2
+)}.sort(
+  (a, b) => preimports.has(a) && !preimports.has(b) ? -1
+    : !preimports.has(a) && preimports.has(b) ? 1
+    : 0
+)
+
+/**
+ * All \`loader\` strings exported by plugins, including fallbacks provided
+ * for those that also export an \`importLoader\`
+ */
+export const loaderFallbacks: string[] = ${JSON.stringify(
+  [...hasLoaderFallback.values()].concat([...hasLoader.values()]),
+  null,
+  2
+)}.sort(
+  (a, b) => preloaders.has(a) && !preloaders.has(b) ? -1
+    : !preloaders.has(a) && preloaders.has(b) ? 1
+    : 0
+)
+
 `
 
 const testFileExtensionsCode = [...testFileExtensions]

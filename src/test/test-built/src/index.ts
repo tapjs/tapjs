@@ -275,10 +275,17 @@ export const config = <C extends ConfigSet>(jack: Jack<C>) => {
 //{{PLUGINS CONFIG END}}
 
 //{{LOADERS START}}
+// // these are always added with --loader
 // export const loaders = []
+// // these are added with --import, if available
+// export const importLoaders = []
+// // these are added with --loader, only if --import is unavailable
+// export const loaderFallbacks = []
 const preloaders = new Set<string>([
   "ts-node/esm"
 ])
+
+const preimports = new Set<string>([])
 
 /**
  * The set of `loader` strings exported by plugins. If a plugin exports
@@ -286,11 +293,38 @@ const preloaders = new Set<string>([
  * that Node loads it before other loaders.
  */
 export const loaders: string[] = [
+  "ts-node/esm"
+].sort(
+  (a, b) => preloaders.has(a) && !preloaders.has(b) ? -1
+    : !preloaders.has(a) && preloaders.has(b) ? 1
+    : 0
+)
+
+/**
+ * The set of `importLoader` strings exported by plugins, for use with
+ * `Module.register` in node v20.6 and higher.
+ */
+export const importLoaders: string[] = [
+  "@tapjs/mock/import"
+].sort(
+  (a, b) => preimports.has(a) && !preimports.has(b) ? -1
+    : !preimports.has(a) && preimports.has(b) ? 1
+    : 0
+)
+
+/**
+ * All `loader` strings exported by plugins, including fallbacks provided
+ * for those that also export an `importLoader`
+ */
+export const loaderFallbacks: string[] = [
   "@tapjs/mock/loader",
   "ts-node/esm"
 ].sort(
-  (a, b) => preloaders.has(a) ? -1 : preloaders.has(b) ? 1 : 0
+  (a, b) => preloaders.has(a) && !preloaders.has(b) ? -1
+    : !preloaders.has(a) && preloaders.has(b) ? 1
+    : 0
 )
+
 //{{LOADERS END}}
 
 /**

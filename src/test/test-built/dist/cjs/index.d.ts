@@ -213,6 +213,16 @@ export declare const config: <C extends ConfigSet>(jack: Jack<C>) => Jack<C & im
  */
 export declare const loaders: string[];
 /**
+ * The set of `importLoader` strings exported by plugins, for use with
+ * `Module.register` in node v20.6 and higher.
+ */
+export declare const importLoaders: string[];
+/**
+ * All `loader` strings exported by plugins, including fallbacks provided
+ * for those that also export an `importLoader`
+ */
+export declare const loaderFallbacks: string[];
+/**
  * The string signature that lists all loaded plugins alphabetically, used
  * to determine whether a rebuild is necessary by comparing it to the `plugin`
  * config value.

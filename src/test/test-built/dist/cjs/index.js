@@ -26,7 +26,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Test = exports.signature = exports.loaders = exports.config = exports.testFileExtensions = void 0;
+exports.Test = exports.signature = exports.loaderFallbacks = exports.importLoaders = exports.loaders = exports.config = exports.testFileExtensions = void 0;
 const core_1 = require("@tapjs/core");
 //{{PLUGIN IMPORT START}}
 const Plugin_after = __importStar(require("@tapjs/after"));
@@ -172,19 +172,45 @@ const config = (jack) => {
 exports.config = config;
 //{{PLUGINS CONFIG END}}
 //{{LOADERS START}}
+// // these are always added with --loader
 // export const loaders = []
+// // these are added with --import, if available
+// export const importLoaders = []
+// // these are added with --loader, only if --import is unavailable
+// export const loaderFallbacks = []
 const preloaders = new Set([
     "ts-node/esm"
 ]);
+const preimports = new Set([]);
 /**
  * The set of `loader` strings exported by plugins. If a plugin exports
  * `preload = true`, then it will be sorted to the start of this list, so
  * that Node loads it before other loaders.
  */
 exports.loaders = [
+    "ts-node/esm"
+].sort((a, b) => preloaders.has(a) && !preloaders.has(b) ? -1
+    : !preloaders.has(a) && preloaders.has(b) ? 1
+        : 0);
+/**
+ * The set of `importLoader` strings exported by plugins, for use with
+ * `Module.register` in node v20.6 and higher.
+ */
+exports.importLoaders = [
+    "@tapjs/mock/import"
+].sort((a, b) => preimports.has(a) && !preimports.has(b) ? -1
+    : !preimports.has(a) && preimports.has(b) ? 1
+        : 0);
+/**
+ * All `loader` strings exported by plugins, including fallbacks provided
+ * for those that also export an `importLoader`
+ */
+exports.loaderFallbacks = [
     "@tapjs/mock/loader",
     "ts-node/esm"
-].sort((a, b) => preloaders.has(a) ? -1 : preloaders.has(b) ? 1 : 0);
+].sort((a, b) => preloaders.has(a) && !preloaders.has(b) ? -1
+    : !preloaders.has(a) && preloaders.has(b) ? 1
+        : 0);
 //{{LOADERS END}}
 /**
  * The string signature that lists all loaded plugins alphabetically, used

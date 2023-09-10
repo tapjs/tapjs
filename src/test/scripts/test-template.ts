@@ -175,7 +175,12 @@ c
 //{{PLUGINS CONFIG END}}
 
 //{{LOADERS START}}
+// these are always added with --loader
 export const loaders = []
+// these are added with --import, if available
+export const importLoaders = []
+// these are added with --loader, only if --import is unavailable
+export const loaderFallbacks = []
 //{{LOADERS END}}
 
 /**
