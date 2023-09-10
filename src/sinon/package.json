@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/sinon",
-  "version": "0.0.0-20",
+  "version": "0.0.0-21",
   "description": "a sinon extension for tap",
   "type": "module",
   "exports": {
@@ -45,10 +45,10 @@
   },
   "homepage": "https://github.com/tapjs/tapjs/src/sinon#readme",
   "peerDependencies": {
-    "@tapjs/core": "0.0.0-20"
+    "@tapjs/core": "0.0.0-21"
   },
   "dependencies": {
-    "@tapjs/after": "0.0.0-20",
+    "@tapjs/after": "0.0.0-21",
     "sinon": "^15.2.0"
   },
   "engines": {

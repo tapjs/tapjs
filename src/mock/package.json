@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/mock",
-  "version": "0.0.0-21",
+  "version": "0.0.0-22",
   "description": "tap plugin adding t.mockRequire() and t.mockImport()",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "type": "module",
@@ -63,11 +63,11 @@
     "url": "git+https://github.com/tapjs/tapjs.git"
   },
   "peerDependencies": {
-    "@tapjs/core": "0.0.0-20"
+    "@tapjs/core": "0.0.0-21"
   },
   "dependencies": {
-    "@tapjs/after": "0.0.0-20",
-    "@tapjs/stack": "0.0.0-6",
+    "@tapjs/after": "0.0.0-21",
+    "@tapjs/stack": "0.0.0-7",
     "resolve-import": "^1.2.1"
   }
 }
