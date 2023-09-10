@@ -11,7 +11,10 @@ const __dirname = path.dirname(__filename)
 const t = tap.applyPlugin(plugin)
 
 const server = http.createServer((req, res) => {
-  res.writeHead(200, { 'content-type': 'application/json' })
+  res.writeHead(200, {
+    'content-type': 'application/json',
+    connection: 'close',
+  })
   res.end(
     JSON.stringify({
       hello: req.url === '/' ? 'world' : String(req.url).slice(1),
