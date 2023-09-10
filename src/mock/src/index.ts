@@ -1,13 +1,8 @@
 import { plugin as AfterPlugin } from '@tapjs/after'
 import { TapPlugin, TestBase } from '@tapjs/core'
 import * as stack from '@tapjs/stack'
-import { mockImport } from './mock-import.js'
 import { mockRequire } from './mock-require.js'
-import type { Mocks } from './mocks.js'
-
-declare var global: {
-  [k: `__tapmock${string}`]: Mocks
-}
+import { MockService } from './mock-service.js'
 
 /**
  * Implementation class providing the
@@ -17,8 +12,8 @@ declare var global: {
  */
 export class TapMock {
   #t: TestBase
-  #keys: string[] = []
   #didTeardown: boolean = false
+  #mocks: MockService[] = []
 
   constructor(t: TestBase) {
     this.#t = t
@@ -105,10 +100,6 @@ export class TapMock {
       't.mock() is now t.mockRequire(). Please update your tests.',
       at
     )
-    if (!this.#didTeardown && this.#t.t.pluginLoaded(AfterPlugin)) {
-      this.#didTeardown = true
-      this.#t.t.teardown(() => this.unmock())
-    }
     return mockRequire(module, mocks, this.#t.t.mock)
   }
 
@@ -139,9 +130,13 @@ export class TapMock {
       this.#didTeardown = true
       this.#t.t.teardown(() => this.unmock())
     }
-    const [key, imp] = mockImport(module, mocks, this.#t.t.mockImport)
-    this.#keys.push(key)
-    return imp()
+    const service = MockService.create(
+      module,
+      mocks,
+      this.#t.t.mockImport
+    )
+    this.#mocks.push(service)
+    return import(service.module)
   }
 
   /**
@@ -164,10 +159,6 @@ export class TapMock {
    * @group Spies, Mocks, and Fixtures
    */
   mockRequire(module: string, mocks: { [k: string]: any } = {}) {
-    if (!this.#didTeardown && this.#t.t.pluginLoaded(AfterPlugin)) {
-      this.#didTeardown = true
-      this.#t.t.teardown(() => this.unmock())
-    }
     return mockRequire(module, mocks, this.#t.t.mockRequire)
   }
 
@@ -179,11 +170,8 @@ export class TapMock {
    * @group Spies, Mocks, and Fixtures
    */
   unmock() {
-    for (const k of this.#keys) {
-      const m = global[`__tapmock${k}`]
-      if (m) {
-        m.unmock()
-      }
+    for (const m of this.#mocks) {
+      m.unmock()
     }
   }
 }
@@ -204,13 +192,15 @@ export type MockedObject<B, O> = O extends Array<any>
     : O
   : O
 
-export { mockImport } from './mock-import.js'
-export { mockRequire } from './mock-require.js'
-
 /**
  * Loader that supports {@link @tapjs/mock!index.TapMock#mockImport}
  */
 export const loader = '@tapjs/mock/loader'
+
+/**
+ * Importer for use with node --import
+ */
+export const importLoader = '@tapjs/mock/import'
 
 /**
  * plugin method that instantiates {@link @tapjs/mock!index.TapMock}

@@ -1,10 +1,11 @@
 {
   "extends": "./build.json",
   "exclude": [
-    "../test",
-    "../tap-snapshots",
-    "../src/loader-url-esm.ts",
-    "../src/loader.ts"
+    "../src/hooks.ts",
+    "../src/import.ts",
+    "../src/legacy-loader.ts",
+    "../src/loader.ts",
+    "../src/mock-service-client.ts"
   ],
   "compilerOptions": {
     "module": "commonjs",

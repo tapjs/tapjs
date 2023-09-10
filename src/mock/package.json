@@ -24,8 +24,14 @@
     },
     "./loader": {
       "import": {
-        "types": "./dist/mjs/loader.d.ts",
-        "default": "./dist/mjs/loader.js"
+        "types": "./dist/mjs/legacy-loader.d.ts",
+        "default": "./dist/mjs/legacy-loader.js"
+      }
+    },
+    "./import": {
+      "import": {
+        "types": "./dist/mjs/import.d.ts",
+        "default": "./dist/mjs/import.js"
       }
     }
   },
@@ -43,6 +49,7 @@
     "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
   },
   "tap": {
+    "typecheck": false,
     "coverage-map": "map.js"
   },
   "engines": {
@@ -61,6 +68,6 @@
   "dependencies": {
     "@tapjs/after": "0.0.0-20",
     "@tapjs/stack": "0.0.0-6",
-    "resolve-import": "^1.0.4"
+    "resolve-import": "^1.2.1"
   }
 }

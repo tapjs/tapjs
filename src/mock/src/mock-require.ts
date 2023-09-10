@@ -2,12 +2,7 @@
  * Implementation of the {@link TapMock#mockRequire} method
  */
 import * as stack from '@tapjs/stack'
-import Module, { builtinModules, createRequire } from 'module'
-
-const builtinSet = new Set([
-  ...builtinModules,
-  ...builtinModules.map(m => `node:${m}`),
-])
+import Module, { isBuiltin, createRequire } from 'module'
 
 // for some reason @types/node incorrectly believes that
 // Module.prototype.require is a RequireFunction, but it isn't.
@@ -68,7 +63,7 @@ export class MockedModule extends CorrectModule {
       return this.#mocker.getMock(requiredFilePath)
     }
 
-    if (builtinSet.has(requiredFilePath)) {
+    if (isBuiltin(requiredFilePath)) {
       // has to be a builtin module, and we didn't mock it.
       return super.require(id)
     }
@@ -103,10 +98,10 @@ export class Mocker {
       // builtins can be either with or without the node: prefix
       if (mockFilePath.startsWith('node:')) {
         const bare = mockFilePath.substring('node:'.length)
-        if (!(bare in mocks) && builtinSet.has(bare)) {
+        if (!(bare in mocks) && isBuiltin(bare)) {
           this.#mocks.set(bare, mock)
         }
-      } else if (builtinSet.has(mockFilePath)) {
+      } else if (isBuiltin(mockFilePath)) {
         const prefixed = `node:${mockFilePath}`
         if (!(prefixed in mocks)) {
           this.#mocks.set(prefixed, mock)

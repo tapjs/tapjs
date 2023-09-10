@@ -1,21 +1,12 @@
 import { relative } from 'path'
 import t from 'tap'
-import {
-  loader,
-  mockImport as MIfromIndex,
-  mockRequire as MRfromIndex,
-  plugin,
-} from '../dist/mjs/index.js'
-import { mockImport } from '../dist/mjs/mock-import.js'
-import { mockRequire } from '../dist/mjs/mock-require.js'
+import { loader, plugin } from '../dist/mjs/index.js'
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
 
 import * as fs from 'node:fs'
-import {fileURLToPath} from 'url'
+import { fileURLToPath } from 'url'
 
-t.equal(mockImport, MIfromIndex)
-t.equal(mockRequire, MRfromIndex)
 t.equal(t.pluginLoaded(plugin), true, 'plugin loaded by default')
 t.equal(loader, '@tapjs/mock/loader', 'loader')
 

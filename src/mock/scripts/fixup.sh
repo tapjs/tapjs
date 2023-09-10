@@ -11,18 +11,25 @@ cat >dist-tmp/mjs/package.json <<!EOF
 }
 !EOF
 
-# looking up the loader needs to use either require.resolve
-# or import.meta.url, and each blows up in the other import
-# system.
-mv dist-tmp/cjs/loader-url-cjs.js dist-tmp/cjs/loader-url.js
-rm dist-tmp/cjs/loader-url.js.map
-mv dist-tmp/cjs/loader-url-cjs.d.ts dist-tmp/cjs/loader-url.d.ts
-rm dist-tmp/cjs/loader-url.d.ts.map
+# dialect-specific workarounds
+# copy all -{mjs,cjs}.* files to their expected locations
+types=(cjs mjs)
+shopt -s nullglob
+for dir in ./dist-tmp/*; do
+  t=$(basename -- $dir)
+  if [ -d "$dir" ]; then
+    for file in $dir/*-${t}.js; do
+      base="$(basename -- $file)"
+      stem=${base%-$t.js}
+      for stemfile in $dir/$stem.*; do
+        rm $stemfile
+      done
+      mv $dir/$stem-$t.js $dir/$stem.js
+      mv $dir/$stem-$t.d.ts $dir/$stem.d.ts
+    done
+  fi
+done
 
-mv dist-tmp/mjs/loader-url-esm.js dist-tmp/mjs/loader-url.js
-rm dist-tmp/mjs/loader-url.js.map
-mv dist-tmp/mjs/loader-url-esm.d.ts dist-tmp/mjs/loader-url.d.ts
-rm dist-tmp/mjs/loader-url.d.ts.map
 
 sync-content dist-tmp dist
 rm -rf dist-tmp
