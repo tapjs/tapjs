@@ -111,3 +111,8 @@ export const config = {
  * A node es loader used when this plugin is active
  */
 export const loader = '@tapjs/dummy-plugin/loader'
+
+/**
+ * A --import style loader for node 20.6 and higher
+ */
+export const importLoader = '@tapjs/dummy-plugin/import'

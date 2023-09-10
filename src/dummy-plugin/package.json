@@ -28,6 +28,12 @@
         "default": "./dist/mjs/loader.mjs"
       }
     },
+    "./import": {
+      "import": {
+        "types": "./dist/mjs/import.d.mts",
+        "default": "./dist/mjs/import.mjs"
+      }
+    },
     "./reporter": {
       "import": {
         "types": "./dist/mjs/reporter.d.ts",
@@ -54,6 +60,9 @@
     "snap": "tap",
     "format": "prettier --write . --loglevel warn --ignore-path ../../.prettierignore --cache",
     "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
+  },
+  "tap": {
+    "typecheck": false
   },
   "author": "Isaac Z. Schlueter",
   "license": "BlueOak-1.0.0",

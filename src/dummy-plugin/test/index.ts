@@ -1,5 +1,10 @@
 import t from 'tap'
-import { config, loader, plugin } from '../dist/mjs/index.js'
+import {
+  config,
+  importLoader,
+  loader,
+  plugin,
+} from '../dist/mjs/index.js'
 
 const withPlug = t.applyPlugin(plugin)
 t.test('loader has global preload only', async t => {
@@ -11,6 +16,7 @@ t.test('loader has global preload only', async t => {
 
 t.test('just verify the other exports', t => {
   t.equal(loader, '@tapjs/dummy-plugin/loader')
+  t.equal(importLoader, '@tapjs/dummy-plugin/import')
   t.matchSnapshot(config)
   t.end()
 })
@@ -21,7 +27,11 @@ t.test('plugin adds stuff', async t => {
   const o = {}
   t.equal(withPlug.whoami.call(o), o)
   t.equal(withPlug.method(), 1)
-  t.equal(withPlug.methodAlias, withPlug.method, 'aliases are aliases')
+  t.equal(
+    withPlug.methodAlias,
+    withPlug.method,
+    'aliases are aliases'
+  )
   t.equal(withPlug.whoami, withPlug.whoAmI, 'aliases are aliases')
   t.strictSame(withPlug.dummyConfig, {
     flag: false,

@@ -1,6 +1,11 @@
 {
   "extends": "./build.json",
-  "exclude": ["../src/reporter.tsx", "../src/load-reporter.ts"],
+  "exclude": [
+    "../src/import.mts",
+    "../src/loader.mts",
+    "../src/reporter.tsx",
+    "../src/load-reporter.ts"
+  ],
   "compilerOptions": {
     "module": "commonjs",
     "outDir": "../dist-tmp/cjs"
