@@ -5,19 +5,20 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
+exports[`test/result-details.tsx > TAP > diff and compare === > diags and details 1`] = `
+    DIFF mock diff
+    AT {"mock":"callsite"}
+    SOURCE mock source
+    STACK mock stack
+    [2mcompare: ===[22m
+    [2msome:[22m
+    [2m  other:[22m
+    [2m    diags: true[22m
+`
+
 exports[`test/result-details.tsx > TAP > result with only known diags > diags and details 1`] = `
     DIFF mock diff
     AT {"mock":"callsite"}
     SOURCE mock source
     STACK mock stack
-`
-
-exports[`test/result-details.tsx > TAP > result with only known diags > diags and details 2`] = `
-    DIFF mock diff
-    AT {"mock":"callsite"}
-    SOURCE mock source
-    STACK mock stack
-    [2msome:[22m
-    [2m  other:[22m
-    [2m    diags: true[22m
 `

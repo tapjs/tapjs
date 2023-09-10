@@ -18,6 +18,13 @@ export const ResultDetails: FC<{ result: Result }> = ({ result }) => {
     ...otherDiags
   } = result.diag
 
+  // if we're just comparing equality, and have a diff, no value showing
+  // the found/wanted, as it is frequently huge.
+  if (diff?.trimEnd() && otherDiags.compare === '===') {
+    delete otherDiags.found
+    delete otherDiags.wanted
+  }
+
   return (
     <Box paddingLeft={4} flexDirection="column">
       <Diff diff={diff} />

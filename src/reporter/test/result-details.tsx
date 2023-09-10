@@ -83,7 +83,7 @@ t.test('result with only known diags', t => {
   t.end()
 })
 
-t.test('result with only known diags', t => {
+t.test('diff and compare ===', t => {
   const res = {
     ok: true,
     name: 'fake result',
@@ -99,6 +99,7 @@ t.test('result with only known diags', t => {
       stack: 'mock stack',
       source: 'mock source',
       diff: 'mock diff',
+      compare: '===',
       some: {
         other: {
           diags: true,

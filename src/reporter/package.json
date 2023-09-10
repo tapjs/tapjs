@@ -43,6 +43,7 @@
     }
   },
   "tap": {
+    "typecheck": false,
     "coverage-map": "map.js"
   },
   "license": "BlueOak-1.0.0",
