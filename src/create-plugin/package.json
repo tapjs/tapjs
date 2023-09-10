@@ -37,9 +37,13 @@
     "format": "prettier --write . --loglevel warn --ignore-path ../../.prettierignore --cache",
     "typedoc": "typedoc ./index.ts"
   },
+  "tap": {
+    "typecheck": false
+  },
   "dependencies": {
     "@tapjs/core": "0.0.0-20",
-    "npm-init-template": "1.0.3-1"
+    "npm-init-template": "1.0.3-1",
+    "resolve-import": "^1.2.1"
   },
   "engines": {
     "node": ">=16"

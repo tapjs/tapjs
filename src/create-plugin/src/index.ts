@@ -1,8 +1,16 @@
 #!/usr/bin/env node
-import corePkg from '@tapjs/core/package.json' assert { type: 'json' }
+import { readFileSync } from 'node:fs'
+import { resolveImport } from 'resolve-import'
 import { randomInt } from 'node:crypto'
 import { basename } from 'node:path'
 import { Init } from 'npm-init-template'
+
+const corePkg = JSON.parse(
+  readFileSync(
+    await resolveImport('@tapjs/core/package.json', import.meta.url),
+    'utf8'
+  )
+)
 const { version: coreVersion } = corePkg
 
 const { prompt, build, values, positionals, run } = new Init(

@@ -30,6 +30,18 @@ Object {
         "types": "./dist/cjs/index.d.ts",
       },
     },
+    "./import": Object {
+      "import": Object {
+        "default": "./dist/mjs/import.js",
+        "types": "./dist/mjs/import.d.ts",
+      },
+    },
+    "./loader": Object {
+      "import": Object {
+        "default": "./dist/mjs/loader.js",
+        "types": "./dist/mjs/loader.d.ts",
+      },
+    },
     "./package.json": Object {
       "import": "./package.json",
       "require": "./package.json",

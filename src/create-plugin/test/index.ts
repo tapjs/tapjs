@@ -5,10 +5,18 @@ import { readFileSync } from 'fs'
 import { relative } from 'path'
 import { resolveImport } from 'resolve-import'
 import { fileURLToPath } from 'url'
-const binURL = await resolveImport('../dist/index.js', import.meta.url)
+const binURL = await resolveImport(
+  '../dist/index.js',
+  import.meta.url
+)
 const bin = fileURLToPath(binURL)
 
-import corePkg from '@tapjs/core/package.json' assert { type: 'json' }
+const corePkg = JSON.parse(
+  readFileSync(
+    await resolveImport('@tapjs/core/package.json', import.meta.url),
+    'utf8'
+  )
+)
 const { version: coreVersion } = corePkg
 
 class MockInit {

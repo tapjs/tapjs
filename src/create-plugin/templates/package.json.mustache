@@ -20,6 +20,18 @@
         "types": "./dist/cjs/index.d.ts",
         "default": "./dist/cjs/index.js"
       }
+    },
+    "./loader": {
+      "import": {
+        "types": "./dist/mjs/loader.d.ts",
+        "default": "./dist/mjs/loader.js"
+      }
+    },
+    "./import": {
+      "import": {
+        "types": "./dist/mjs/import.d.ts",
+        "default": "./dist/mjs/import.js"
+      }
     }
   },
   "files": [
@@ -37,6 +49,9 @@
     "snap": "tap",
     "format": "prettier --write . --loglevel warn",
     "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
+  },
+  "tap": {
+    "typecheck": false
   },
   "prettier": {
     "semi": false,
