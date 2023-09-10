@@ -11,7 +11,8 @@ TAP version 14
     1..1
     not ok 1 - oops
       ---
-      stack: Timeout._onTimeout (test/tap-file.ts:##:##)
+      stack: |
+        Timeout._onTimeout (test/tap-file.ts:##:##)
       at:
         fileName: test/tap-file.ts
         lineNumber: ##

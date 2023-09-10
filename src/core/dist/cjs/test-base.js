@@ -1101,13 +1101,15 @@ class TestBase extends base_js_1.Base {
             if (extra.error === msg) {
                 delete extra.error;
             }
-            if (er.stack && typeof er.stack === 'string') {
+            if (!extra.stack && er.stack && typeof er.stack === 'string') {
                 // trim off the first line if it looks like the standard
                 // error `Name: message` line.
+                /* c8 ignore start */
                 const f = `${er.name || 'Error'}: ${er.message}\n`;
                 const st = er.stack.startsWith(f)
                     ? er.stack.substring(f.length)
                     : er.stack;
+                /* c8 ignore stop */
                 const p = stack.parseStack(st);
                 extra.at = p[0] || null;
                 extra.stack = p.map(c => String(c) + '\n').join('');

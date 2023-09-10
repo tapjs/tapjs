@@ -5,14 +5,17 @@
 export const messageFromError = (er: unknown): string => {
   if (typeof er === 'string') return er
   if (isErrorLike(er)) {
-    const { name, message, stack, error } = er
+    const { name, message, stack, error, code } = er
     if (error && typeof error == 'string') return error
     const nc = name && typeof name === 'string' ? `${name}: ` : ''
+    const ncCode = nc && typeof code === 'string' ? `${name} [${code}]: `: ''
     if (message && typeof message === 'string') return message
     if (typeof stack === 'string' && stack.trim()) {
       const lines = stack.trim().split('\n')
       return name && lines[0].startsWith(nc)
         ? lines[0].substring(nc.length)
+        : ncCode && lines[0].startsWith(ncCode)
+        ? lines[0].substring(ncCode.length)
         : lines[0]
     }
   }
@@ -20,12 +23,13 @@ export const messageFromError = (er: unknown): string => {
 }
 
 type ErrorLike =
-  | (Error & { error?: any })
+  | (Error & { error?: any; code?: string })
   | {
       error?: any
       name?: string
       message?: string
       stack?: any
+      code?: string
     }
 
 const isErrorLike = (er: unknown): er is ErrorLike =>
@@ -35,4 +39,6 @@ const isErrorLike = (er: unknown): er is ErrorLike =>
     typeof (er as ErrorLike).error !== 'undefined' ||
     typeof (er as ErrorLike).name !== 'undefined' ||
     typeof (er as ErrorLike).message !== 'undefined' ||
-    typeof (er as ErrorLike).stack !== 'undefined')
+    typeof (er as ErrorLike).stack !== 'undefined') &&
+  ((er as ErrorLike).code === undefined ||
+    typeof (er as ErrorLike).code === 'string')

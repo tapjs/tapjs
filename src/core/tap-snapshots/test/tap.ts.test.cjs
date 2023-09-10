@@ -161,7 +161,7 @@ Object {
         columnNumber: ##
         functionName: notOk
         isToplevel: true
-      stack: |-
+      stack: |
         notOk (test/tap.ts:##:##)
         test/tap.ts:##:##
       source: |2
@@ -221,7 +221,7 @@ Object {
   "stderr": String(
     Error: test assertion count exceeds plan
       ---
-      stack: |-
+      stack: |
         planExceeded (test/tap.ts:##:##)
         test/tap.ts:##:##
       at:
@@ -416,7 +416,7 @@ Object {
   "stderr": String(
     Error: poop
       ---
-      stack: >-
+      stack: >
         TAP.<anonymous> (test/tap.ts:##:##)
     
         After.#callTeardown (...)
@@ -482,7 +482,7 @@ Object {
   "stderr": String(
     Error: poop
       ---
-      stack: >-
+      stack: >
         TAP.<anonymous> (test/tap.ts:##:##)
     
         After.#callTeardown (...)
@@ -761,7 +761,7 @@ Object {
             columnNumber: ##
             functionName: unfinished
             isToplevel: true
-          stack: |-
+          stack: |
             unfinished (test/tap.ts:##:##)
             test/tap.ts:##:##
           test: child test

@@ -311,3 +311,16 @@ t.test('do not delete non-string message', t => {
   t.strictSame(cleanYamlObject({ message: 'x' }), {})
   t.end()
 })
+
+t.test('normalize stack line ending', t => {
+  const st = new Error('test')
+    .stack!.split('\n')
+    .slice(1)
+    .join('\n')
+    .trimEnd()
+  t.equal(
+    cleanYamlObject({ at: null, stack: st }).stack.endsWith('\n'),
+    true
+  )
+  t.end()
+})

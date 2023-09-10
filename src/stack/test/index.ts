@@ -456,6 +456,25 @@ ${short.stack?.split('\n').slice(1).join('\n')}`
       t.end()
     })
 
+    t.test('node errnoExceptions have coded messages', t => {
+      const er: NodeJS.ErrnoException = Object.assign(
+        new TypeError('blah'),
+        {
+          code: 'ERR_BLAH_DEE_BLOO',
+        }
+      )
+      er.stack = String(er.stack).replace(
+        /^TypeError:/,
+        'TypeError [ERR_BLAH_DEE_BLOO]:'
+      )
+      t.match(captureError(er)[0], {
+        lineNumber: Number,
+        columnNumber: Number,
+        fileName: String,
+      })
+      t.end()
+    })
+
     t.end()
   })
 }

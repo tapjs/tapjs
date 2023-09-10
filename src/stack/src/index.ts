@@ -302,12 +302,27 @@ export function captureString(
  * contains `\n` and some lines after the first look like stack trace lines,
  * incorrect data may result. It's only as good as the stack you pass to it.
  */
-export const captureError = (e: Error): CallSiteLike[] => {
+export const captureError = (
+  e: Error | NodeJS.ErrnoException
+): CallSiteLike[] => {
   // errors almost always have these fields
-  const { stack = '', message = '', name = '' } = e
+  const {
+    stack = '',
+    message = '',
+    name = '',
+    code,
+  } = e as NodeJS.ErrnoException
   const head = name && message ? `${name}: ${message}\n` : ''
+  const errnoHead =
+    name && message && code ? `${name} [${code}]: ${message}` : ''
   const cleanHead = !!head && stack.startsWith(head)
-  const s = cleanHead ? stack.substring(head.length) : stack
+  const cleanErrnoHead = !!errnoHead && stack.startsWith(errnoHead)
+
+  const s = cleanHead
+    ? stack.substring(head.length)
+    : cleanErrnoHead
+    ? stack.substring(errnoHead.length)
+    : stack
   const cleaned = clean(
     s
       .trimEnd()

@@ -26,6 +26,11 @@ export const cleanYamlObject = (object) => {
         res.at = p[0];
         res.stack = p.map(c => String(c) + '\n').join('');
     }
+    if (typeof res.stack === 'string' &&
+        res.stack &&
+        !res.stack.endsWith('\n')) {
+        res.stack = res.stack.trimEnd() + '\n';
+    }
     if (res.errorOrigin && typeof res.errorOrigin === 'object') {
         res.errorOrigin = cleanYamlObject(res.errorOrigin);
     }
