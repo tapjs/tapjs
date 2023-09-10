@@ -114,7 +114,6 @@ Object {
   "signal": null,
   "stderr": String(
     TAP {PID} TAP: BASE runMain
-    TAP {PID} TAP: MAIN pre TAP
     TAP {PID} TAP: MAIN post TAP
     TAP {PID} TAP: END TAP implicit=true
     TAP {PID} TAP: push obe
@@ -362,7 +361,6 @@ Object {
   "signal": null,
   "stderr": String(
     TAP {PID} TAP: BASE runMain
-    TAP {PID} TAP: MAIN pre TAP
     TAP {PID} TAP: MAIN post TAP
     TAP {PID} TAP: END TAP implicit=true
     TAP {PID} TAP: push obe

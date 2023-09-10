@@ -345,10 +345,10 @@ not ok 1 - test unfinished
       setTimeout(() => {
         console.log('1..1')
         console.log('ok 1 - this is fine')
-      }, 200)
+      }, 300)
     `,
         ],
-        timeout: 200,
+        timeout: 250,
       })
       s.on('process', () => {
         const { setTimeout } = s
