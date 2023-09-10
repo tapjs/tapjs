@@ -39,7 +39,7 @@ export const run = async (args: string[], config: LoadedConfig) => {
     // always think that all tests are new after generating!
     // TODO: these come from plugins, they should be able to export
     // this, like with testFileExtensions.
-    /(^(node|tapmock):|[\\\/](tap-testdir-[^\\\/]+|tap-snapshots)[\\\/])/
+    /(^(node|tapmock):|[\\\/](\.tap|tap-snapshots)[\\\/])/
   )
 
   const argv = testArgv(config)

@@ -1,12 +1,13 @@
 // module code goes here
 import {
   argv,
+  cwd,
   env,
   mainScript,
   TapPlugin,
   TestBase,
 } from '@tapjs/core'
-import { basename, dirname, resolve, sep } from 'node:path'
+import { basename, dirname, relative, resolve } from 'node:path'
 import { rimraf, rimrafSync } from 'rimraf'
 import {
   Fixture,
@@ -19,7 +20,7 @@ export * from './fixture.js'
 export interface TestFixturesOptions {
   /**
    * Directory to store test fixtures.
-   * Defaults to `./tap-testdir-${test name}`
+   * Defaults to `./.tap/fixtures/${test name}`
    */
   testdir?: string
 
@@ -111,8 +112,7 @@ export class TestFixtures {
    * {@link @tapjs/fixture!index.TestFixtures#testdir}.
    *
    * By default, it uses a folder name based on the name of the test file
-   * and subtest, prepended with `tap-testdir-...`, which is automatically
-   * omitted from consideration in coverage and other analysis.
+   * and subtest, within \`.tap/fixtures\` in the root of the project.
    *
    * @group Spies, Mocks, and Fixtures
    */
@@ -132,18 +132,18 @@ export class TestFixtures {
     const p = t.parent && TestFixtures.#refs.get(t.parent)
     if (!p) {
       const main = mainScript()
-      // put in a prefix in the dirname so do not inadvertently run it
-      // on a subsequent tap invocation, if it was saved.
-      const dir = dirname(main)
-      const base = [
-        'tap-testdir',
-        basename(main).replace(/\.[^.]+$/, ''),
+      /* c8 ignore start */
+      const root = env.TAP_CWD || cwd
+      /* c8 ignore stop */
+      const name = [
+        dirname(relative(root, main)),
+        basename(main),
         ...argv.slice(2),
       ]
         .join(' ')
         .trim()
         .replace(re, '-')
-      return dir + sep + base
+      return resolve(root, '.tap/fixtures', name)
     }
 
     /* c8 ignore start */
@@ -175,6 +175,7 @@ export const config = {
   'save-fixture': {
     type: 'boolean',
     short: 'F',
-    description: 'Do not clean up fixtures created with `t.testdir()`',
+    description:
+      'Do not clean up fixtures created with `t.testdir()`',
   },
 }

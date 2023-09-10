@@ -329,7 +329,7 @@ ok 2 - other assertion
 
 t.test('run the suite', async t => {
   // testdirs are excluded file file tracking, so use a different name
-  t.testdirName = t.testdirName.replace(/tap-testdir/, 'XXX-testdir')
+  t.testdirName = t.testdirName.replace(/\.tap[\\\/]fixtures/, 'XXX')
 
   const dir = t.testdir({
     '.tap': {

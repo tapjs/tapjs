@@ -127,7 +127,7 @@ t.test('fail to find all named test files', async t => {
 
 t.test('set test envs', async t => {
   // testdirs are excluded by default, so use a different name
-  t.testdirName = t.testdirName.replace(/tap-testdir/, 'XXX-testdir')
+  t.testdirName = t.testdirName.replace(/\.tap[\\\/]fixtures/, 'XXX')
   const cwd = t.testdir({
     'env.test.js': `
       import t from 'tap'
@@ -165,7 +165,7 @@ coverage-map: map.js
 })
 
 t.test('save test failures', async t => {
-  t.testdirName = t.testdirName.replace(/tap-testdir/, 'XXX-testdir')
+  t.testdirName = t.testdirName.replace(/\.tap[\\\/]fixtures/, 'XXX')
   const cwd = t.testdir({
     'failer.test.js': `
       import t from 'tap'
@@ -256,7 +256,7 @@ ok 1 - this is standard input
 
 t.test('no files found to run', async t => {
   // testdirs are excluded by default, so use a different name
-  t.testdirName = t.testdirName.replace(/tap-testdir/, 'XXX-testdir')
+  t.testdirName = t.testdirName.replace(/\.tap[\\\/]fixtures/, 'XXX')
 
   const cwd = t.testdir({
     '.taprc': `
@@ -354,7 +354,7 @@ coverage-map: map.mjs
 
 t.test('run stdin with a file', async t => {
   // testdirs are excluded by default, so use a different name
-  t.testdirName = t.testdirName.replace(/tap-testdir/, 'XXX-testdir')
+  t.testdirName = t.testdirName.replace(/\.tap[\\\/]fixtures/, 'XXX')
 
   const cwd = t.testdir({
     'env.test.js': `

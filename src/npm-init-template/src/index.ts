@@ -260,8 +260,8 @@ export class Init {
         ? resolve(target, f)
         : resolve(target, p.dir, p.name)
       if (
-        exc.some(p => minimatch(tf, p)) ||
-        !inc.some(p => minimatch(tf, p))
+        exc.some(p => minimatch(relative(target, tf), p)) ||
+        !inc.some(p => minimatch(relative(target, tf), p))
       ) {
         continue
       }

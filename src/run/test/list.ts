@@ -35,9 +35,6 @@ t.test('list some test files', async t => {
       sub: {
         'sub.mts': '',
       },
-      'tap-testdir-foo.mts': {
-        'test.js': '',
-      },
       // fixtures excluded by default
       fixture: {
         'test.js': '',
@@ -223,9 +220,11 @@ t.test('list some test files', async t => {
 t.test('filter changed files', async t => {
   // testdirs are excluded from file tracking by default, so
   // use a different directory name.
-  t.testdirName = t.testdirName.replace(/tap-testdir/, 'XXX-testdir')
+  t.testdirName = t.testdirName.replace(/\.tap[\\\/]fixtures/, 'XXX')
 
-  const fixture = fileURLToPath(new URL('fixtures/project', import.meta.url))
+  const fixture = fileURLToPath(
+    new URL('fixtures/project', import.meta.url)
+  )
   const cwd = process.cwd()
 
   const files = (dir: string): Record<string, Buffer> =>

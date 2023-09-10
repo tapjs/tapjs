@@ -11,7 +11,7 @@ Array [
     "successfully added plugin(s):",
   ],
   Array [
-    "{CWD}/test/tap-testdir-plugin-adding-plugins-add-a-plugin-that-is-a-file-on-disk/my-plugin",
+    "{CWD}/.tap/fixtures/test-plugin.ts-adding-plugins-add-a-plugin-that-is-a-file-on-disk/my-plugin",
   ],
 ]
 `
@@ -21,7 +21,7 @@ Array [
   Array [
     "adding plugins:",
     Array [
-      "{CWD}/test/tap-testdir-plugin-adding-plugins-add-a-plugin-that-is-a-file-on-disk/my-plugin",
+      "{CWD}/.tap/fixtures/test-plugin.ts-adding-plugins-add-a-plugin-that-is-a-file-on-disk/my-plugin",
     ],
   ],
 ]

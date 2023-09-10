@@ -2,7 +2,7 @@
 import { readFileSync } from 'node:fs'
 import { resolveImport } from 'resolve-import'
 import { randomInt } from 'node:crypto'
-import { basename } from 'node:path'
+import { basename, dirname } from 'node:path'
 import { Init } from 'npm-init-template'
 
 const corePkg = JSON.parse(
@@ -41,9 +41,13 @@ const pkgName = (s: string) => {
       '/' +
       slugify(sp.slice(1).join('/'))
     )
-  } else {
-    return slugify(s)
   }
+  const base = basename(s)
+  const dir = basename(dirname(s))
+  if (dir !== '.') {
+    return `@${slugify(dir)}/${slugify(base)}`
+  }
+  return slugify(base)
 }
 
 const defName =

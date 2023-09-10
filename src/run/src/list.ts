@@ -17,7 +17,7 @@ const alwaysExcludeNames = [
 
 const alwaysExcludePattern = `**/@(${alwaysExcludeNames.join(
   '|'
-)}|tap-testdir-*)/**`
+)})/**`
 
 const defaultInclude =
   '**/{' +

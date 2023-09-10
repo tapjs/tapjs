@@ -195,7 +195,7 @@ t.test('actually build and verify', async t => {
           Buffer.concat(err).toString(),
         ],
         [
-          `Plugin package name: (test-tap-testdir-index-actually-build-and-verify) Plugin description: Run npm install? (Yes) Run git init? (Yes) Folder to create in? (test/tap-testdir-index-actually-build-and-verify) 
+          `Plugin package name: (@fixtures/test-index.ts-actually-build-and-verify) Plugin description: Run npm install? (Yes) Run git init? (Yes) Folder to create in? (.tap/fixtures/test-index.ts-actually-build-and-verify) 
 Done!
 
 Stubbed source at ${dir}/src/index.ts

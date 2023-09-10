@@ -4,6 +4,23 @@ A default tap plugin providing `t.testdir()` and `t.fixture()`
 methods, for creating temporary directories with stuff for tests
 to operate on.
 
+Fixtures created with this plugin live folders under
+`./.tap/fixtures`, in the root of the project. The folder name is
+based on the name of the test file, and the name of the test.
+
+For example, if a file at `./src/foo.test.mjs` had this:
+
+```js
+import t from 'tap'
+t.test('child test', async t => {
+  t.testdir({ file: 'contents' })
+})
+```
+
+Then a file would be created at
+`.tap/fixtures/src-foo.test.mjs-child-test/file` containing
+`'contents'`.
+
 ## USAGE
 
 This plugin is installed with tap by default. If you had
