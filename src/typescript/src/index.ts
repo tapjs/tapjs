@@ -4,6 +4,9 @@ import { resolve } from 'node:path'
 // This just adds the ts-node/esm loader
 export const loader = 'ts-node/esm'
 
+// https://github.com/TypeStrong/ts-node/pull/2009
+// export const importLoader = 'ts-node/import'
+
 // ts-node/esm should come AHEAD of other loaders in the args list,
 // otherwise any other resolve()'s won't be run
 export const preload = true
