@@ -1,4 +1,5 @@
 /node_modules
+/docs
 /src/*/node_modules
 /src/*/.tap
 /src/*/docs
