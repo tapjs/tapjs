@@ -78,6 +78,9 @@ Object {
     "test": "tap",
     "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts",
   },
+  "tap": Object {
+    "typecheck": false,
+  },
   "type": "module",
   "version": "0.0.0-0",
 }
