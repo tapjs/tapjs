@@ -27,8 +27,8 @@ TAP version 14
             Test.#processSubtest ({}/core/src/test-base.ts:#:#)
           at:
             fileName: test/done-called-with-error.ts
-            lineNumber: 21
-            columnNumber: 21
+            lineNumber: ##
+            columnNumber: ##
             typeName: Test
             methodName: <anonymous>
             functionName: Test.<anonymous>
@@ -46,8 +46,8 @@ TAP version 14
       ---
       at:
         fileName: test/done-called-with-error.ts
-        lineNumber: 20
-        columnNumber: 3
+        lineNumber: ##
+        columnNumber: ##
         typeName: Test
       source: |
       
@@ -122,8 +122,8 @@ not ok 1 - unnamed suite # time={TIME}
   ---
   at:
     fileName: test/done-called-with-error.ts
-    lineNumber: 19
-    columnNumber: 1
+    lineNumber: ##
+    columnNumber: ##
     isToplevel: true
   source: |
     mount(tt)

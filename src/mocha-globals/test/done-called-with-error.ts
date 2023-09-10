@@ -10,6 +10,9 @@ t.cleanSnapshot = s => {
     s = s.substring(0, i) + '{}' + s.substring(i + CWD.length)
   }
   return s.replace(/([^:]+):[0-9]+:[0-9]+(\)?)\n/g, '$1:#:#$2\n')
+    .replace(/(\n +)<anonymous> \(([^\)]+)\)/g, '$1$2')
+    .replace(/lineNumber: [0-9]+/g, 'lineNumber: ##')
+    .replace(/columnNumber: [0-9]+/g, 'columnNumber: ##')
 }
 
 const tt = new Test({ name: 'macchiatto' })
