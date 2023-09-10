@@ -131,8 +131,8 @@ export const plugin = (t: TestBase) => {
 - Plugins must be able to be loaded both with `require()` and
   `import()`. This maintains tap's ability to run in all
   JavaScript dialects.
-- Plugins must export at least one of `loader`, `plugin`, or
-  `config`.
+- Plugins must export at least one of `loader`, `importLoader`,
+  `plugin`, or `config`.
 - Plugins _should_ be written in TypeScript, or failing that,
   provide complete type information so that users' tests can
   infer the types of added properties and methods appropriately.

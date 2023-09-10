@@ -101,6 +101,23 @@ ahead of non-preload loaders. This is necessary when the loader
 needs to be attached early, as in the case of loading different
 JavaScript dialects.
 
+## `importLoader`
+
+The `--loader` API is experimental, and replaced by `--import`
+and `Module.register` starting at Node.js version 20.6.
+
+If a plugin exports an `importLoader` string, then this will be
+added to the test arguments with `--import` instead of the
+`--loader` argument.
+
+On Node versions that do not support `--import`, the `--loader`
+argument will be used instead if the plugin exports a `loader`
+string.
+
+See [the Node.js ES Module Hooks
+documentation](https://nodejs.org/api/esm.html#loaders) for more
+information.
+
 ## `config`
 
 The `config` export allows a plugin to define configuration
