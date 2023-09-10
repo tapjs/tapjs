@@ -155,7 +155,7 @@ Object {
       
       By default, tap will search for all files ending in these known file type extensions in the following ways:
       
-      - a top-level folder named test, tests, or __tests__
+      - a top-level folder named \`test\`, \`tests\`, or \`__tests__\`
       - any file ending in \`.spec.\` or \`.test.\` before a supported extension, or
       - a top-level file named \`test.(js,jsx,...)\` or \`tests.(js,jsx,...)\`
       
