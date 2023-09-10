@@ -5,11 +5,9 @@ import { LoadedConfig } from '@tapjs/config'
 import { TapFile, TapFileOpts, type TAP } from '@tapjs/core'
 import { plugin as SpawnPlugin } from '@tapjs/spawn'
 import { plugin as StdinPlugin } from '@tapjs/stdin'
-import { loaders } from '@tapjs/test'
 import { glob } from 'glob'
 import { stat } from 'node:fs/promises'
 import { relative, resolve } from 'node:path'
-import { resolveImport } from 'resolve-import'
 import { rimraf } from 'rimraf'
 import { runAfter } from './after.js'
 import { runBefore } from './before.js'
@@ -18,18 +16,8 @@ import { executeTestSuite } from './execute-test-suite.js'
 import { values } from './main-config.js'
 import { outputDir } from './output-dir.js'
 import { readSave } from './save-list.js'
+import { testArgv } from './test-argv.js'
 import { testIsSerial } from './test-is-serial.js'
-
-const piLoaderURL = await resolveImport(
-  '@tapjs/processinfo/esm',
-  import.meta.url
-)
-/* c8 ignore start */
-if (!piLoaderURL) {
-  throw new Error('could not get @tapjs/processinfo loader')
-}
-/* c8 ignore stop */
-const piLoader = String(piLoaderURL)
 
 const node = process.execPath
 
@@ -44,7 +32,6 @@ export const run = async (args: string[], config: LoadedConfig) => {
   /* c8 ignore start */
   const testArgs: string[] = values['test-arg'] || []
   const testEnv: string[] = values['test-env'] || []
-  const nodeArgs: string[] = values['node-arg'] || []
   /* c8 ignore stop */
   process.env._TAPJS_PROCESSINFO_CWD_ = config.globCwd
   process.env._TAPJS_PROCESSINFO_EXCLUDE_ = String(
@@ -55,13 +42,7 @@ export const run = async (args: string[], config: LoadedConfig) => {
     /(^(node|tapmock):|[\\\/](tap-testdir-[^\\\/]+|tap-snapshots)[\\\/])/
   )
 
-  const argv = [
-    '--no-warnings=ExperimentalLoader',
-    ...loaders.map(l => `--loader=${l}`),
-    '--enable-source-maps',
-    `--loader=${piLoader}`,
-    ...nodeArgs,
-  ]
+  const argv = testArgv(config)
 
   let env: NodeJS.ProcessEnv | undefined = undefined
 
@@ -78,7 +59,6 @@ export const run = async (args: string[], config: LoadedConfig) => {
       ReturnType<typeof SpawnPlugin> &
       ReturnType<typeof BeforePlugin> &
       ReturnType<typeof StdinPlugin> => {
-
       // generate the env here, in case any plugins updated it
       env = { ...process.env }
       for (const e of testEnv) {

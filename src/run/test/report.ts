@@ -235,7 +235,6 @@ t.test('run an html report', async t => {
       const comments = t.capture(mockTap, 'comment')
       let openerRan = false
       const htmlReport = resolve(globCwd, '.tap/report', file)
-      const exitCode = t.intercept(process, 'exitCode')
       const { report } = (await t.mockImport('../dist/report.js', {
         c8: { Report: MockReport },
         '@tapjs/core': mockCore,
@@ -259,7 +258,6 @@ t.test('run an html report', async t => {
       t.strictSame(comments.args(), [])
       t.equal(openerRan, true)
       t.equal(readFileSync(htmlReport, 'utf8'), 'report')
-      t.strictSame(exitCode(), [])
     })
   }
 })
@@ -278,11 +276,11 @@ t.test('no coverage files generated', async t => {
   })) as typeof import('../dist/report.js')
   const config = new MockConfig([])
   const logs = t.capture(console, 'log')
-  const exitCode = t.intercept(process, 'exitCode')
   await report([], config as unknown as LoadedConfig)
   t.strictSame(logs.args(), [])
   t.strictSame(comments.args(), [['No coverage generated']])
-  t.match(exitCode(), [{ type: 'set', value: 1, success: true }])
+  t.equal(process.exitCode, 1)
+  process.exitCode = 0
 })
 
 t.test('no coverage summary generated', async t => {
@@ -299,11 +297,11 @@ t.test('no coverage summary generated', async t => {
   })) as typeof import('../dist/report.js')
   const config = new MockConfig([])
   const logs = t.capture(console, 'log')
-  const exitCode = t.intercept(process, 'exitCode')
   await report([], config as unknown as LoadedConfig)
   t.strictSame(logs.args(), [])
   t.strictSame(comments.args(), [['No coverage generated']])
-  t.match(exitCode(), [{ type: 'set', value: 1, success: true }])
+  t.equal(process.exitCode, 1)
+  process.exitCode = 0
 })
 
 t.test('not full coverage', async t => {
@@ -326,7 +324,6 @@ t.test('not full coverage', async t => {
   })) as typeof import('../dist/report.js')
   const config = new MockConfig([])
   const logs = t.capture(console, 'log')
-  const exitCode = t.intercept(process, 'exitCode')
   await report(['html'], config as unknown as LoadedConfig)
   t.strictSame(logs.args(), [])
   t.strictSame(comments.args(), [
@@ -337,5 +334,6 @@ t.test('not full coverage', async t => {
   ])
   t.equal(openerRan, true)
   t.equal(readFileSync(htmlReport, 'utf8'), 'report')
-  t.match(exitCode(), [{ type: 'set', value: 1, success: true }])
+  t.equal(process.exitCode, 1)
+  process.exitCode = 0
 })

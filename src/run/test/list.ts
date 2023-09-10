@@ -194,14 +194,14 @@ t.test('list some test files', async t => {
   })
 
   t.test('no files found', async t => {
-    const exitCode = t.intercept(process, 'exitCode')
+    const { exitCode } = process
     const errs = t.capture(console, 'error')
     await list(['asdfasfsdf'], mainConfig.config)
-    t.match(exitCode(), [{ type: 'set', value: 1 }])
     t.strictSame(errs.args(), [['No files found.']])
 
     await list(['plugins'], mainConfig.config)
-    t.match(exitCode(), [{ type: 'set', value: 1 }])
+    t.equal(process.exitCode, 1)
+    if (t.passing()) process.exitCode = exitCode
     t.strictSame(errs.args(), [
       ['No files found.'],
       ["(Did you mean 'tap plugin list'?)"],

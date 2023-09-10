@@ -212,7 +212,6 @@ t.test('remove plugin', async t => {
 t.test('adding plugins', async t => {
   const logs = t.capture(console, 'log')
   const errs = t.capture(console, 'error')
-  const exitCode = t.intercept(process, 'exitCode')
 
   t.test('fail if no name provided', async t => {
     const config = new MockConfig(t)
@@ -385,7 +384,8 @@ t.test('adding plugins', async t => {
     t.strictSame(config.edited, undefined)
     t.matchSnapshot(logs.args())
     t.matchSnapshot(errs.args())
-    t.match(exitCode(), [{ type: 'set', value: 1 }])
+    t.equal(process.exitCode, 1)
+    process.exitCode = 0
   })
 
   t.test('fail to build installed plugin, with cleanup', async t => {
@@ -432,12 +432,12 @@ t.test('adding plugins', async t => {
     t.strictSame(config.edited, undefined)
     t.matchSnapshot(logs.args())
     t.matchSnapshot(errs.args())
-    t.match(exitCode(), [{ type: 'set', value: 1 }])
+    t.equal(process.exitCode, 1)
+    process.exitCode = 0
   })
 
   t.test('fail to install plugin', async t => {
     const errs = t.capture(console, 'error')
-    const exitCode = t.intercept(process, 'exitCode')
     let buildRan = false
     let installRan = false
     const p = 'dep-plugin'
@@ -473,12 +473,12 @@ t.test('adding plugins', async t => {
     t.strictSame(config.edited, undefined)
     t.matchSnapshot(logs.args())
     t.matchSnapshot(errs.args())
-    t.match(exitCode(), [{ type: 'set', value: 1 }])
+    t.equal(process.exitCode, 1)
+    process.exitCode = 0
   })
 
   t.test(`fail uninstall after build fail`, async t => {
     const errs = t.capture(console, 'error')
-    const exitCode = t.intercept(process, 'exitCode')
     let buildRan = false
     let installRan = false
     let uninstallRan = false
@@ -523,6 +523,7 @@ t.test('adding plugins', async t => {
     t.strictSame(config.edited, undefined)
     t.strictSame(logs(), [])
     t.matchSnapshot(errs.args())
-    t.match(exitCode(), [{ type: 'set', value: 1 }])
+    t.equal(process.exitCode, 1)
+    process.exitCode = 0
   })
 })

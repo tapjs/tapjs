@@ -11,13 +11,13 @@ t.beforeEach(t =>
 t.test('do not run if already in the repl', async t => {
   process.env._TAP_REPL = '1'
   const errs = t.capture(console, 'error')
-  const code = t.intercept(process, 'exitCode')
   const { repl } = (await t.mockImport(
     '../dist/repl.js'
   )) as typeof import('../dist/repl.js')
   await repl([], {} as unknown as LoadedConfig)
   t.strictSame(errs.args(), [['you are already in the tap repl']])
-  t.match(code(), [{ type: 'set', value: 1 }])
+  t.equal(process.exitCode, 1)
+  process.exitCode = 0
 })
 
 class MockRepl {
