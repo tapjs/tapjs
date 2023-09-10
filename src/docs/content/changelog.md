@@ -21,6 +21,8 @@ Major rewrite.
 - lots of added functionality
 - Mocha-like DSL moved to the optional `@tapjs/mocha-globals`
   plugin.
+- Assertion aliases moved to the optional `@tapjs/synonyms`
+  plugin (so no longer deprecated, but opt-in)
 
 ### CLI
 
@@ -190,6 +192,10 @@ The `expectFail` assertion option is removed.
 
 Assertion aliases are moved to the optional `@tapjs/synonyms`
 plugin.
+
+The `t.testdir()` method now stores its fixtures in
+`.tap/fixtures` in the project root, rather than
+`tap-testdir-{name}` as a sibling to the test file.
 
 `t.teardown()` and `t.after()` are the same now.
 
