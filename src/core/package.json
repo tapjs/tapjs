@@ -46,7 +46,7 @@
     "coverage-map": "map.js"
   },
   "dependencies": {
-    "@tapjs/processinfo": "^3.0.2",
+    "@tapjs/processinfo": "^3.1.0",
     "@tapjs/stack": "0.0.0-7",
     "@tapjs/test": "0.0.0-21",
     "async-hook-domain": "^4.0.1",

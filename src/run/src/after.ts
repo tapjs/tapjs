@@ -19,5 +19,6 @@ export const runAfter = (
           )
         })
     )
+    return resolve(after)
   }
 }

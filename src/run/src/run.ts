@@ -49,6 +49,9 @@ export const run = async (args: string[], config: LoadedConfig) => {
   const saveList = await readSave(config)
   const map = await getCoverageMap(config)
 
+  const covExcludeFiles: (string | undefined)[] = []
+  let _TAPJS_PROCESSINFO_COV_EXCLUDE_FILES_: string | undefined = undefined
+
   return executeTestSuite(
     args,
     config,
@@ -92,8 +95,8 @@ export const run = async (args: string[], config: LoadedConfig) => {
     },
 
     async t => {
-      runBefore(t, argv, config)
-      runAfter(t, argv, config)
+      covExcludeFiles.push(runBefore(t, argv, config))
+      covExcludeFiles.push(runAfter(t, argv, config))
 
       // don't delete old coverage if only running subset of suites
       if (!config.get('changed') && !saveList.length) {
@@ -105,6 +108,13 @@ export const run = async (args: string[], config: LoadedConfig) => {
     },
 
     async (t, file, files, hasReporter) => {
+      if (!_TAPJS_PROCESSINFO_COV_EXCLUDE_FILES_) {
+        _TAPJS_PROCESSINFO_COV_EXCLUDE_FILES_ = [
+          ...covExcludeFiles.filter(f => typeof f === 'string'),
+          ...files.map(f => resolve(config.globCwd, f)),
+        ].join('\n')
+      }
+
       /* c8 ignore start */
       const stdio = hasReporter ? 'pipe' : 'inherit'
       /* c8 ignore end */
@@ -152,6 +162,7 @@ export const run = async (args: string[], config: LoadedConfig) => {
               ...env,
               _TAPJS_PROCESSINFO_COVERAGE_,
               _TAPJS_PROCESSINFO_COV_FILES_,
+              _TAPJS_PROCESSINFO_COV_EXCLUDE_FILES_,
             },
             name,
             cwd: config.globCwd,

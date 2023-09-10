@@ -22,5 +22,6 @@ export const runBefore = (t: TAP, argv: string[], config: LoadedConfig) => {
           )
         })
     )
+    return resolve(before)
   }
 }

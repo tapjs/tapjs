@@ -44,7 +44,7 @@
     "@tapjs/after": "0.0.0-21",
     "@tapjs/before": "0.0.0-21",
     "@tapjs/config": "2.0.0-22",
-    "@tapjs/processinfo": "^3.0.2",
+    "@tapjs/processinfo": "^3.1.0",
     "@tapjs/reporter": "0.0.0-23",
     "@tapjs/spawn": "0.0.0-21",
     "@tapjs/stdin": "0.0.0-21",
