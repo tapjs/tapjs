@@ -348,7 +348,6 @@ not ok 1 - test unfinished
       }, 300)
     `,
         ],
-        timeout: 250,
       })
       s.on('process', () => {
         const { setTimeout } = s
