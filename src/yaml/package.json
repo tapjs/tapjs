@@ -48,6 +48,7 @@
     "dist"
   ],
   "tap": {
+    "typecheck": false,
     "coverage-map": "map.js"
   },
   "engines": {

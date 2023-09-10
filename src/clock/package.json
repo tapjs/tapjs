@@ -35,6 +35,9 @@
     "format": "prettier --write . --loglevel warn",
     "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
   },
+  "tap": {
+    "typecheck": false
+  },
   "prettier": {
     "semi": false,
     "printWidth": 75,

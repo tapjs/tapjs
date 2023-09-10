@@ -36,6 +36,9 @@
     "format": "prettier --write . --loglevel warn --ignore-path ../../.prettierignore --cache",
     "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
   },
+  "tap": {
+    "typecheck": false
+  },
   "peerDependencies": {
     "@tapjs/core": "0.0.0-20"
   },

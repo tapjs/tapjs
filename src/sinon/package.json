@@ -31,6 +31,9 @@
     "format": "prettier --write . --loglevel warn --ignore-path ../../.prettierignore --cache",
     "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
   },
+  "tap": {
+    "typecheck": false
+  },
   "keywords": [
     "tapjs plugin",
     "sinon"

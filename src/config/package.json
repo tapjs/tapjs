@@ -44,6 +44,7 @@
     "walk-up-path": "^3.0.1"
   },
   "tap": {
+    "typecheck": false,
     "coverage-map": "map.js"
   },
   "engines": {

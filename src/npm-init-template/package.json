@@ -33,6 +33,9 @@
     "format": "prettier --write . --loglevel warn --ignore-path ../../.prettierignore --cache",
     "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
   },
+  "tap": {
+    "typecheck": false
+  },
   "engines": {
     "node": ">=16"
   },

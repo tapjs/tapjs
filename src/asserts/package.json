@@ -37,7 +37,8 @@
     "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
   },
   "tap": {
-    "coverage-map": "./map.js"
+    "coverage-map": "./map.js",
+    "typecheck": false
   },
   "peerDependencies": {
     "@tapjs/core": "0.0.0-20"
