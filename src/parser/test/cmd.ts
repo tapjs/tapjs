@@ -11,14 +11,6 @@ const require = createRequire(import.meta.url)
 const bin = require.resolve('../bin/cmd.cjs')
 const node = process.execPath
 
-// util.inspect output changed in node v12
-// so don't test it unless we're at that version.
-const skipInspect = {
-  skip: /^v1[2-9]\./.test(process.version)
-    ? false
-    : 'do not test util.inspect prior to node v12',
-}
-
 const code = readFileSync(bin, 'utf8').replace(/^#!.*/, '')
 class MockProc extends EE {
   public exitCode: number = 0
@@ -162,7 +154,7 @@ ok 1 - child
   const runTest = (tap: string) => (t: Test, args: string[]) => {
     run(tap, args, (er, o, e) => {
       t.matchSnapshot(er, 'error')
-      t.matchSnapshot(o, 'output', skipInspect)
+      t.matchSnapshot(o, 'output')
       t.matchSnapshot(e, 'stderr')
       t.end()
     })
@@ -217,7 +209,7 @@ ok 1 - child
 t.test('unrecognized arg', t =>
   run('', ['--blarg'], (er, o, e) => {
     t.matchSnapshot(er, 'error')
-    t.matchSnapshot(o, 'output', skipInspect)
+    t.matchSnapshot(o, 'output')
     t.matchSnapshot(e, 'stderr')
     t.end()
   })
