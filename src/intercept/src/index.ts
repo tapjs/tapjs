@@ -2,6 +2,20 @@ import { plugin as TeardownPlugin } from '@tapjs/after'
 import { TapPlugin, TestBase } from '@tapjs/core'
 import { at, CallSiteLike, captureString } from '@tapjs/stack'
 
+const notConfig = (
+  m: string,
+  property: PropertyKey,
+  caller: ((...a: any[]) => any) | Function
+) => {
+  const s =
+    typeof property === 'string'
+      ? `'${property}'`
+      : property.toString()
+  const er = new Error(`Cannot ${m} ${s}, defined {configurable:false}`)
+  Error.captureStackTrace(er, caller)
+  return er
+}
+
 /**
  * An object type containing all of the methods of the object
  * type provided
@@ -281,6 +295,13 @@ export class Interceptor {
         src = Object.getPrototypeOf(src)
       }
     }
+    if (orig && !orig.configurable) {
+      throw notConfig(
+        'intercept property',
+        prop,
+        this.#t.t.intercept
+      )
+    }
 
     let restore: () => void
 
@@ -430,6 +451,13 @@ export class Interceptor {
     impl: (...a: any[]) => any = (..._: any[]) => {}
   ): CaptureResultsMethod<T, M> {
     const prop = Object.getOwnPropertyDescriptor(obj, method)
+    if (prop && !prop.configurable) {
+      throw notConfig(
+        'capture method',
+        method,
+        this.#t.t.capture
+      )
+    }
 
     // if we don't have a prop we can restore by just deleting
     // otherwise, we restore by putting it back as it was

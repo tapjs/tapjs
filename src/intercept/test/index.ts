@@ -450,3 +450,50 @@ t.test('capture', t => {
 
   t.end()
 })
+
+t.test('non-configurable properties cannot be intercepted', t => {
+  const m = Symbol('symMethod')
+  const p = Symbol('symProp')
+  const o = Object.defineProperties(
+    {},
+    {
+      method: {
+        value: () => true,
+        configurable: false,
+      },
+      [m]: {
+        value: () => true,
+        configurable: false,
+      },
+      property: {
+        value: true,
+        configurable: false,
+      },
+      [p]: {
+        value: false,
+        configurable: false,
+      },
+    }
+  ) as {
+    method: () => true
+    [m]: () => true
+    property: true
+    [p]: true
+  }
+
+  t.throws(() => t.intercept(o, 'property'), {
+    message: `Cannot intercept property 'property', defined {configurable:false}`,
+  })
+  t.throws(() => t.intercept(o, p), {
+    message: `Cannot intercept property Symbol(symProp), defined {configurable:false}`,
+  })
+
+  t.throws(() => t.capture(o, 'method'), {
+    message: `Cannot capture method 'method', defined {configurable:false}`,
+  })
+  t.throws(() => t.capture(o, m), {
+    message: `Cannot capture method Symbol(symMethod), defined {configurable:false}`,
+  })
+
+  t.end()
+})
