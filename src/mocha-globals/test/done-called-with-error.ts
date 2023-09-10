@@ -21,7 +21,7 @@ mount(tt)
 
 describe(() => {
   it(done => {
-    setTimeout(done(new Error('yolo')))
+    setTimeout(() => done(new Error('yolo')))
   })
 })
 

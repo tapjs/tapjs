@@ -11,32 +11,20 @@ TAP version 14
     # Subtest: unnamed test
         not ok 1 - yolo
           ---
-          stack: >
-            Test.<anonymous> (test/done-called-with-error.ts:#:#)
-          
-            Test.<anonymous> (src/index.ts:#:#)
-          
-            Test.cb ({}/core/src/test-base.ts:#:#)
-          
-            {}/core/src/test-base.ts:#:#
-          
-            Test.main ({}/core/src/test-base.ts:#:#)
-          
-            Test.runMain ({}/core/src/base.ts:#:#)
-          
-            Test.#processSubtest ({}/core/src/test-base.ts:#:#)
+          stack: |
+            Timeout._onTimeout (test/done-called-with-error.ts:#:#)
           at:
             fileName: test/done-called-with-error.ts
             lineNumber: ##
             columnNumber: ##
-            typeName: Test
-            methodName: <anonymous>
-            functionName: Test.<anonymous>
+            typeName: Timeout
+            methodName: _onTimeout
+            functionName: Timeout._onTimeout
           source: |
             describe(() => {
               it(done => {
-                setTimeout(done(new Error('yolo')))
-            --------------------^
+                setTimeout(() => done(new Error('yolo')))
+            --------------------------^
               })
             })
           ...
@@ -54,70 +42,11 @@ TAP version 14
         describe(() => {
           it(done => {
         --^
-            setTimeout(done(new Error('yolo')))
+            setTimeout(() => done(new Error('yolo')))
           })
       ...
     
-    not ok 2 - The "callback" argument must be of type function. Received undefined
-      ---
-      stack: >
-        TypeError [ERR_INVALID_ARG_TYPE]: The "callback" argument must be of type
-        function. Received undefined
-      
-        Test.<anonymous> (test/done-called-with-error.ts:#:#)
-      
-        Test.<anonymous> (src/index.ts:#:#)
-      
-        Test.cb ({}/core/src/test-base.ts:#:#)
-      
-        {}/core/src/test-base.ts:#:#
-      
-        Test.main ({}/core/src/test-base.ts:#:#)
-      
-        Test.runMain ({}/core/src/base.ts:#:#)
-      
-        Test.#processSubtest ({}/core/src/test-base.ts:#:#)
-      
-        Test.#process ({}/core/src/test-base.ts:#:#)
-      
-        Test.sub ({}/core/src/test-base.ts:#:#)
-      
-        it (src/index.ts:#:#)
-      
-        Test.<anonymous> (test/done-called-with-error.ts:#:#)
-      
-        Test.<anonymous> (src/index.ts:#:#)
-      
-        Test.cb ({}/core/src/test-base.ts:#:#)
-      
-        {}/core/src/test-base.ts:#:#
-      
-        Test.main ({}/core/src/test-base.ts:#:#)
-      
-        Test.runMain ({}/core/src/base.ts:#:#)
-      
-        Test.#processSubtest ({}/core/src/test-base.ts:#:#)
-      
-        Test.#process ({}/core/src/test-base.ts:#:#)
-      
-        Test.sub ({}/core/src/test-base.ts:#:#)
-      
-        describe (src/index.ts:#:#)
-      
-        test/done-called-with-error.ts:#:#
-      at:
-        typeName: 'TypeError [ERR_INVALID_ARG_TYPE]: The "callback" argument must be of
-          type function'
-        methodName: " Received undefined"
-        functionName: 'TypeError [ERR_INVALID_ARG_TYPE]: The "callback" argument must be
-          of type function. Received undefined'
-      type: TypeError
-      code: ERR_INVALID_ARG_TYPE
-      tapCaught: testFunctionThrow
-      test: unnamed test
-      ...
-    
-    1..2
+    1..1
 not ok 1 - unnamed suite # time={TIME}
   ---
   at:
@@ -131,7 +60,7 @@ not ok 1 - unnamed suite # time={TIME}
     describe(() => {
     ^
       it(done => {
-        setTimeout(done(new Error('yolo')))
+        setTimeout(() => done(new Error('yolo')))
   ...
 
 1..1
