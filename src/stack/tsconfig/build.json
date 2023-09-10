@@ -6,5 +6,8 @@
     "../src/**/*.mts",
     "../src/**/*.cts"
   ],
-  "exclude": ["../test", "../tap-snapshots"]
+  "exclude": ["../test", "../tap-snapshots"],
+  "compilerOptions": {
+    "rootDir": "../src"
+  }
 }

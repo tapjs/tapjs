@@ -272,7 +272,7 @@ export function captureString(
 ): string
 export function captureString(limit: number): string
 export function captureString(
-  fn: Function | ((...a: any[]) => any)
+  fn?: Function | ((...a: any[]) => any)
 ): string
 export function captureString(): string
 export function captureString(
