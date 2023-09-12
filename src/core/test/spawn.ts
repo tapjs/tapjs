@@ -341,11 +341,11 @@ not ok 1 - test unfinished
           `
       console.log('TAP version 14')
       console.log('# ' + process.env.TAP_BAIL)
-      console.log('# timeout=1234')
+      console.log('# timeout=12345')
       setTimeout(() => {
         console.log('1..1')
         console.log('ok 1 - this is fine')
-      }, 300)
+      })
     `,
         ],
       })
@@ -353,7 +353,7 @@ not ok 1 - test unfinished
         const { setTimeout } = s
         s.setTimeout = (n: number) => {
           setTimeout.call(s, n)
-          t.equal(n, 1234)
+          t.equal(n, 12345)
           t.end()
           s.setTimeout = setTimeout
         }
