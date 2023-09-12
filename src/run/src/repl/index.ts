@@ -2,6 +2,7 @@ import { LoadedConfig } from '@tapjs/config'
 import { ProcessInfo, ProcessInfoNode } from '@tapjs/processinfo'
 import chalk from 'chalk'
 import { FSWatcher, watch } from 'chokidar'
+import { mkdirpSync } from 'mkdirp'
 import { ChildProcess, spawn, SpawnOptions } from 'node:child_process'
 import { readFile } from 'node:fs/promises'
 import { isAbsolute, relative, resolve } from 'node:path'
@@ -217,6 +218,7 @@ export class Repl {
 
     // ignore the callback, it's best-effort
     /* c8 ignore start */
+    mkdirpSync(this.dir)
     this.repl.setupHistory(
       resolve(this.dir, 'repl_history'),
       () => {}
