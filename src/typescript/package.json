@@ -47,7 +47,7 @@
     "@tapjs/core": "0.0.0-21"
   },
   "dependencies": {
-    "ts-node": "github:TypeStrong/ts-node#8f6f4e5"
+    "ts-node": "npm:@isaacs/ts-node-temp-fork-for-pr-2009@^10.9.1"
   },
   "engines": {
     "node": ">=16"

@@ -63,8 +63,8 @@
     "mkdirp": "^3.0.0",
     "sync-content": "^1.0.1",
     "tap-parser": "15.0.0-3",
-    "ts-node": "github:TypeStrong/ts-node#8f6f4e5",
-    "typescript": "^5.1.6"
+    "ts-node": "npm:@isaacs/ts-node-temp-fork-for-pr-2009@^10.9.1",
+    "typescript": "5.1"
   },
   "license": "BlueOak-1.0.0",
   "repository": {
