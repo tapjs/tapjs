@@ -1,6 +1,9 @@
 {
   "entryPoints": ["src/*"],
   "name": "Node TAP",
+  "navigationLinks": {
+    "node-tap.org": "https://node-tap.org/"
+  },
   "entryPointStrategy": "packages",
   "includeVersion": true,
   "readme": "./README.md",
