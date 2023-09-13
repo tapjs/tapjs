@@ -12,7 +12,7 @@ not ok 2
   ...
 `
 
-import { Parser as P } from '../dist/mjs/index.js'
+import { Parser as P } from '../dist/esm/index.js'
 import etoa from 'events-to-array'
 const ignore = [
   'pipe',

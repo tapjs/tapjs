@@ -29,10 +29,11 @@ export const report = async (
   config: LoadedConfig
 ) => {
   if (typeof Type === 'string') {
-    if (!types.hasOwnProperty(Type)) {
+    if (types.hasOwnProperty(Type)) {
+      Type = types[Type] as Reporter
+    } else {
       throw new TypeError(`unknown report type: ${Type}`)
     }
-    Type = types[Type]
   }
   tap.register()
   // always show the cursor when we finish

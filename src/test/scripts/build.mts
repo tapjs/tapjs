@@ -6,8 +6,7 @@ import { readFileSync, writeFileSync } from 'node:fs'
 import { createRequire } from 'node:module'
 import { basename, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
-
-const require = createRequire(import.meta.url)
+import { resolveImport } from 'resolve-import'
 
 if (typeof process.argv[2] !== 'string') {
   console.error('usage: generate-tap-test-class [...plugins]')
@@ -26,21 +25,15 @@ const defaultTarget = resolve(__dirname, '../test-built')
 const dir = process.env._TESTING_TEST_BUILD_TARGET_ || defaultTarget
 /* c8 ignore stop */
 
+const require = createRequire(dir)
+
 mkdirp.sync(resolve(dir, 'src'))
-mkdirp.sync(resolve(dir, 'tsconfig'))
 mkdirp.sync(resolve(dir, 'scripts'))
 const out = resolve(dir, 'src/index.ts')
 
-const copies = globSync(
-  [
-    'LICENSE.md',
-    'tsconfig.json',
-    'tsconfig/*.json',
-    'scripts/fixup.sh',
-    'package-template.json',
-  ],
-  { cwd: __dirname }
-)
+const copies = globSync(['LICENSE.md', 'package-template.json'], {
+  cwd: __dirname,
+})
 for (const f of copies) {
   const t = f === 'package-template.json' ? 'package.json' : f
   writeFileSync(resolve(dir, t), readFileSync(resolve(__dirname, f)))
@@ -81,102 +74,150 @@ const configs = new Map<
   }
 >()
 
-const pluginNames = plugins.map(p => {
-  // this also verifies that all plugins can be loaded, or it'll blow
-  // up at this point.
-  let imp: {
-    plugin?: (...a: any[]) => any
-    config?: {
-      [k: string]: ConfigOptionBase<
-        'string' | 'number' | 'boolean',
-        boolean
-      >
-    }
-    loader?: string
-    importLoader?: string
-    preload?: boolean
-    testFileExtensions?: string[]
+type PluginExport = {
+  plugin?: (...a: any[]) => any
+  config?: {
+    [k: string]: ConfigOptionBase<
+      'string' | 'number' | 'boolean',
+      boolean
+    >
   }
-  try {
-    imp = require(p)
-  } catch (er) {
-    /* c8 ignore start */
-    console.error(
-      `'${p}' does not appear to be a tap plugin. Could not load ` +
-        `module with require().`,
-      er instanceof Error ? er.message : er
-    )
-    /* c8 ignore start */
-    process.exit(1)
-  }
-  const n =
-    'Plugin_' +
-    basename(p)
-      .replace(/\.([cm]?[jt]sx?)$/, '')
-      .replace(/[-_.]+(.)/g, (_, $1) => $1.toUpperCase())
-      .replace(/[^a-zA-Z0-9]+/g, ' ')
-      .trim()
-      .replace(' ', '_')
-  let name: string
-  if (!seen.has(n)) {
-    name = n
-  } else {
-    let i = 0
-    while (seen.has(n + '_' + ++i)) {}
-    const ni = `${n}_${i}`
-    name = ni
-  }
-  seen.add(name)
-  let isPlugin = false
-  if (imp.config) {
-    hasConfig.set(p, name)
-    configs.set(p, imp.config)
-    isPlugin = true
-  }
-  if (typeof imp.plugin === 'function') {
-    hasPlugin.set(p, name)
-    isPlugin = true
-  }
-  if (typeof imp.importLoader === 'string') {
-    if (imp.preload === true) preimports.set(p, imp.importLoader)
-    hasImport.set(p, imp.importLoader)
-    isPlugin = true
-  }
-  if (typeof imp.loader === 'string') {
-    if (imp.preload === true) preloaders.set(p, imp.loader)
-    if (!imp.importLoader) hasLoader.set(p, imp.loader)
-    else hasLoaderFallback.set(p, imp.loader)
-    isPlugin = true
-  }
-  if (!isPlugin) {
-    console.error(
-      `'${p}' does not appear to be a tap plugin, as it does not export ` +
-        'a plugin function, config object, or loader module identifier.'
-    )
-    process.exit(1)
-  }
-  // we can't reasonably add more file types if we didn't add some
-  // functionality.
-  if (imp.testFileExtensions !== undefined) {
-    const invalidTestFileExtensions = () => {
-      console.error(
-        `'${p}' exports an invalid testFileExtensions. Must be string[].`
-      )
-      process.exit(1)
-    }
-    if (!Array.isArray(imp.testFileExtensions)) {
-      invalidTestFileExtensions()
-    } else {
-      for (const k of imp.testFileExtensions) {
-        if (typeof k !== 'string') {
-          invalidTestFileExtensions()
-        }
-        testFileExtensions.add(k)
+  loader?: string
+  importLoader?: string
+  preload?: boolean
+  testFileExtensions?: string[]
+}
+
+const validPlugin = (p: any): p is PluginExport =>
+  !!p &&
+  typeof p === 'object' &&
+  !!(p.plugin || p.loader || p.importLoader || p.config) &&
+  (p.plugin === undefined || typeof p.plugin === 'function') &&
+  (p.config === undefined ||
+    (!!p.config && typeof p.config === 'object')) &&
+  (p.loader === undefined || typeof p.loader === 'string') &&
+  (p.importLoader === undefined ||
+    typeof p.importLoader === 'string') &&
+  (p.preload === undefined || typeof p.preload === 'boolean')
+
+const pluginNames = (
+  await Promise.all(
+    plugins.map(async p => {
+      // this also verifies that all plugins can be loaded, or it'll blow
+      // up at this point.
+      let imp: any
+      let req: any
+
+      try {
+        req = require(p)
+      } catch (er) {
+        /* c8 ignore start */
+        console.error(
+          `'${p}' does not appear to be a tap plugin. Could not load ` +
+            `module with require().`,
+          er instanceof Error ? er.message : er
+        )
+        /* c8 ignore start */
+        process.exit(1)
       }
-    }
-  }
-  return name
-})
+      if (!validPlugin(req)) {
+        console.error(
+          `'${p}' does not appear to be a tap plugin. When ` +
+            `loaded with require(), must export at least one of: ` +
+            'a plugin function, config object, loader module identifier, ' +
+            'or importLoader module identifier. Got: ' +
+            Object.keys(req)
+        )
+        process.exit(1)
+      }
+
+      try {
+        imp = await import(String(await resolveImport(p, dir)))
+      } catch (er) {
+        /* c8 ignore start */
+        console.error(
+          `'${p}' does not appear to be a tap plugin. Could not load ` +
+            `module with import().`,
+          er instanceof Error ? er.message : er
+        )
+        /* c8 ignore start */
+        process.exit(1)
+      }
+      if (!validPlugin(imp)) {
+        console.error(
+          `'${p}' does not appear to be a tap plugin. When ` +
+            `loaded with import(), must export at least one of: ` +
+            'a plugin function, config object, loader module identifier, ' +
+            'or importLoader module identifier. Got: ' +
+            Object.keys(req)
+        )
+        process.exit(1)
+      }
+
+      const n =
+        'Plugin_' +
+        basename(p)
+          .replace(/\.([cm]?[jt]sx?)$/, '')
+          .replace(/[-_.]+(.)/g, (_, $1) => $1.toUpperCase())
+          .replace(/[^a-zA-Z0-9]+/g, ' ')
+          .trim()
+          .replace(' ', '_')
+      let name: string
+      if (!seen.has(n)) {
+        name = n
+      } else {
+        let i = 0
+        while (seen.has(n + '_' + ++i)) {}
+        const ni = `${n}_${i}`
+        name = ni
+      }
+      seen.add(name)
+      let isPlugin = false
+      if (imp.config) {
+        hasConfig.set(p, name)
+        configs.set(p, imp.config)
+        isPlugin = true
+      }
+      if (typeof imp.plugin === 'function') {
+        hasPlugin.set(p, name)
+        isPlugin = true
+      }
+      if (typeof imp.importLoader === 'string') {
+        if (imp.preload === true) preimports.set(p, imp.importLoader)
+        hasImport.set(p, imp.importLoader)
+        isPlugin = true
+      }
+      if (typeof imp.loader === 'string') {
+        if (imp.preload === true) preloaders.set(p, imp.loader)
+        if (!imp.importLoader) hasLoader.set(p, imp.loader)
+        else hasLoaderFallback.set(p, imp.loader)
+        isPlugin = true
+      }
+
+      // we can't reasonably add more file types if we didn't add some
+      // functionality.
+      if (imp.testFileExtensions !== undefined) {
+        const invalidTestFileExtensions = () => {
+          console.error(
+            `'${p}' exports an invalid testFileExtensions. Must be string[].`
+          )
+          process.exit(1)
+        }
+        if (!Array.isArray(imp.testFileExtensions)) {
+          invalidTestFileExtensions()
+        } else {
+          for (const k of imp.testFileExtensions) {
+            if (typeof k !== 'string') {
+              invalidTestFileExtensions()
+            }
+            testFileExtensions.add(k)
+          }
+        }
+      }
+      return name
+    })
+  )
+).sort((a, b) => a.localeCompare(b))
 
 const pluginImport = plugins
   .map(
@@ -190,7 +231,10 @@ const pluginsConfig = (() => {
   if (!hasConfig.size) return code + 'jack\n'
 
   code += '{\n'
-  for (const [p, name] of hasConfig.entries()) {
+  const hasConfigEntries = [...hasConfig.entries()].sort(([a], [b]) =>
+    a.localeCompare(b, 'en')
+  )
+  for (const [p, name] of hasConfigEntries) {
     let c = 0
     for (const [field, cfg] of Object.entries(configs.get(p) || {})) {
       const jf = JSON.stringify(field)
@@ -213,7 +257,7 @@ const pluginsConfig = (() => {
   // now ts should know that they're all legit, and we've verified
   // here as well, so the build would fail if they weren't.
   code += '  return jack\n'
-  for (const [p, name] of hasConfig.entries()) {
+  for (const [p, name] of hasConfigEntries) {
     let c = 0
     const fp = `From plugin: ${p}`
     code += `    .heading(${JSON.stringify(fp)})\n`
@@ -238,6 +282,7 @@ const pluginsCode = `export type PluginSet = ${
   hasPlugin.size
     ? `[
 ${[...hasPlugin.values()]
+  .sort((a, b) => a.localeCompare(b, 'en'))
   .map(name => `  typeof ${name}.plugin,\n`)
   .join('')}]`
     : '(TapPlugin<any> | TapPlugin<any, TestBaseOpts>)[]'
@@ -247,19 +292,20 @@ const plugins = () => {
   if (plugins_) return plugins_
   return (plugins_ = [
 ${[...hasPlugin.values()]
+  .sort((a, b) => a.localeCompare(b, 'en'))
   .map(name => `    ${name}.plugin,\n`)
   .join('')}  ])
 }
 `
 
 const pluginLoaders = `const preloaders = new Set<string>(${JSON.stringify(
-  [...preloaders.values()],
+  [...preloaders.values()].sort((a, b) => a.localeCompare(b, 'en')),
   null,
   2
 )})
 
 const preimports = new Set<string>(${JSON.stringify(
-  [...preimports.values()],
+  [...preimports.values()].sort((a, b) => a.localeCompare(b, 'en')),
   null,
   2
 )})
@@ -270,7 +316,7 @@ const preimports = new Set<string>(${JSON.stringify(
  * that Node loads it before other loaders.
  */
 export const loaders: string[] = ${JSON.stringify(
-  [...hasLoader.values()],
+  [...hasLoader.values()].sort((a, b) => a.localeCompare(b, 'en')),
   null,
   2
 )}.sort(
@@ -284,7 +330,7 @@ export const loaders: string[] = ${JSON.stringify(
  * \`Module.register\` in node v20.6 and higher.
  */
 export const importLoaders: string[] = ${JSON.stringify(
-  [...hasImport.values()],
+  [...hasImport.values()].sort((a, b) => a.localeCompare(b, 'en')),
   null,
   2
 )}.sort(
@@ -298,7 +344,9 @@ export const importLoaders: string[] = ${JSON.stringify(
  * for those that also export an \`importLoader\`
  */
 export const loaderFallbacks: string[] = ${JSON.stringify(
-  [...hasLoaderFallback.values()].concat([...hasLoader.values()]),
+  [...hasLoaderFallback.values()]
+    .concat([...hasLoader.values()])
+    .sort((a, b) => a.localeCompare(b, 'en')),
   null,
   2
 )}.sort(
@@ -310,6 +358,7 @@ export const loaderFallbacks: string[] = ${JSON.stringify(
 `
 
 const testFileExtensionsCode = [...testFileExtensions]
+  .sort((a, b) => a.localeCompare(b, 'en'))
   .map(ext => `testFileExtensions.add(${JSON.stringify(ext)})\n`)
   .join('')
 

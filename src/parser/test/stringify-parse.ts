@@ -1,5 +1,5 @@
 import t from 'tap'
-import { Parser } from '../dist/mjs/index.js'
+import { Parser } from '../dist/esm/index.js'
 t.test('just parse some tap', t => {
   const tap = `TAP version 13
 not ok - 1

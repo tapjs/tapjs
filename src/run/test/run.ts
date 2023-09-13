@@ -6,7 +6,7 @@ import { resolve } from 'path'
 import { resolveImport } from 'resolve-import'
 import { fileURLToPath } from 'url'
 const bin = fileURLToPath(
-  await resolveImport('../dist/index.js', import.meta.url)
+  await resolveImport('../dist/esm/index.js', import.meta.url)
 )
 const node = process.execPath
 

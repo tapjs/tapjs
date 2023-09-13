@@ -1,6 +1,6 @@
 import type {ProcessInfo} from '@tapjs/processinfo'
 import t from 'tap'
-import { processinfoCompletions as comp } from '../../dist/repl/processinfo-completions.js'
+import { processinfoCompletions as comp } from '../../dist/esm/repl/processinfo-completions.js'
 
 const mockPI = {
   uuids: new Map([

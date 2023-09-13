@@ -33,20 +33,20 @@ t.test('after plugin always loaded', async t => {
   fakeTap.pass('just an assertion so it has at least one')
 
   const { executeTestSuite } = (await t.mockImport(
-    '../dist/execute-test-suite.js',
+    '../dist/esm/execute-test-suite.js',
     {
       '@tapjs/core': t.createMock(CORE, {
         tap: () => fakeTap,
       }),
       '@tapjs/after': { plugin: AfterPlugin },
-      '../dist/proxy-fatal-signals.js': {
+      '../dist/esm/proxy-fatal-signals.js': {
         proxyFatalSignals: (tap: any) => {
           t.equal(tap, fakeTap, 'proxying fatal signals on root test')
           signalsProxied = true
         },
       },
     }
-  )) as typeof import('../dist/execute-test-suite.js')
+  )) as typeof import('../dist/esm/execute-test-suite.js')
 
   const dir = t.testdir({
     'test.js': '',

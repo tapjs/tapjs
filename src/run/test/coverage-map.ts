@@ -1,7 +1,7 @@
 import { LoadedConfig } from '@tapjs/config'
 import t from 'tap'
 
-import { getCoverageMap } from '../dist/coverage-map.js'
+import { getCoverageMap } from '../dist/esm/coverage-map.js'
 
 t.test('load no-op coverage map', async t => {
   const dir = t.testdir({

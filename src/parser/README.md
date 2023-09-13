@@ -13,7 +13,7 @@ const { Parser } = require('tap-parser')
 // or, you can do it this way:
 // import { Parser } from 'tap-parser'
 // or this way:
-// import { Parser } from 'https://unpkg.com/tap-parser@latest/dist/mjs/index.js'
+// import { Parser } from 'https://unpkg.com/tap-parser@latest/dist/esm/index.js'
 const p = new Parser(results => console.dir(results))
 process.stdin.pipe(p)
 ```

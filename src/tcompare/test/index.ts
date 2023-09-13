@@ -1,6 +1,6 @@
 import t from 'tap'
-import * as compare from '../dist/mjs/index.js'
-import { StyleType } from '../dist/mjs/styles.js'
+import * as compare from '../dist/esm/index.js'
+import { StyleType } from '../dist/esm/styles.js'
 
 // not much of a test, but just verifying the interface exists
 const obj = { a: 1 }

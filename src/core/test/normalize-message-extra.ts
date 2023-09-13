@@ -1,6 +1,6 @@
 import t from 'tap'
-import { normalizeMessageExtra } from '../dist/mjs/normalize-message-extra.js'
-import { Extra, MessageExtra } from '../dist/mjs/index.js'
+import { normalizeMessageExtra } from '../dist/esm/normalize-message-extra.js'
+import { Extra, MessageExtra } from '../dist/esm/index.js'
 
 const cases: [string, MessageExtra, [string, Extra]][] = [
   ['defmsg', [], ['defmsg', {}]],

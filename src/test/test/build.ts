@@ -76,7 +76,7 @@ t.test('good plugins', async t => {
     stderr: '',
     stdout: `
 > @tapjs/test-built@0.0.0 prepare
-> tsc -p tsconfig/cjs.json && tsc -p tsconfig/esm.json && bash scripts/fixup.sh
+> tshy
 
 `,
   })
@@ -101,48 +101,56 @@ t.test('missing plugin', async t => {
 
 t.test('invalid plugin', async t => {
   const dir = t.testdir({
-    plugin: {
-      'index.cjs': 'exports.pullGrin = () => console.log("yolo")',
-      'index.mjs':
-        'export const pullGrin = () => console.log("yolo")',
-      'package.json': JSON.stringify({
-        name: 'bad-plugin',
-        main: 'index.cjs',
-        module: 'index.mjs',
-      }),
+    node_modules: {
+      plugin: {
+        'index.cjs': 'exports.pullGrin = () => console.log("yolo")',
+        'index.mjs':
+          'export const pullGrin = () => console.log("yolo")',
+        'package.json': JSON.stringify({
+          name: 'bad-plugin',
+          exports: {
+            import: './index.mjs',
+            require: './index.cjs',
+            types: './index.d.ts',
+          },
+        }),
+      },
     },
     target: {},
   })
-  const plugin = resolve(dir, 'plugin')
+  const plugin = 'plugin'
   const target = resolve(dir, 'target')
   const res = await build(target, [plugin], true)
-  t.same(res, {
+  t.matchOnly(res, {
     target,
     plugins: [plugin],
     code: 1,
     signal: null,
     stderr:
-      `'${plugin}' does not appear to be a tap plugin, ` +
-      'as it does not export a plugin function, config object, ' +
-      'or loader module identifier.\n',
+      `'${plugin}' does not appear to be a tap plugin. `,
     stdout: '',
   })
 })
 
 t.test('invalid config', async t => {
   const dir = t.testdir({
-    plugin: {
-      'index.cjs': `exports.config = { foo: { bar: 'baz' }}`,
-      'index.mjs': `export const config = { foo: { bar: 'baz' }}`,
-      'package.json': JSON.stringify({
-        name: 'bad-plugin',
-        main: 'index.cjs',
-        module: 'index.mjs',
-      }),
+    node_modules: {
+      plugin: {
+        'index.cjs': `exports.config = { foo: { bar: 'baz' }}`,
+        'index.mjs': `export const config = { foo: { bar: 'baz' }}`,
+        'package.json': JSON.stringify({
+          name: 'bad-plugin',
+          exports: {
+            import: './index.mjs',
+            require: './index.cjs',
+            types: './index.d.ts',
+          },
+        }),
+      },
     },
     target: {},
   })
-  const plugin = resolve(dir, 'plugin')
+  const plugin = 'plugin'
   const target = resolve(dir, 'target')
   const res = await build(target, [plugin], true)
   t.same(res, {
@@ -157,24 +165,29 @@ t.test('invalid config', async t => {
 
 t.test('invalid testFileExtensions, not an array', async t => {
   const dir = t.testdir({
-    plugin: {
-      'index.cjs': `
+    node_modules: {
+      plugin: {
+        'index.cjs': `
         exports.plugin = () => ({ x: true })
         exports.testFileExtensions = true
       `,
-      'index.mjs': `
+        'index.mjs': `
         export const plugin = () => ({ x: true })
-        exports const testFileExtensions = true
+        export const testFileExtensions = true
       `,
-      'package.json': JSON.stringify({
-        name: 'bad-plugin',
-        main: 'index.cjs',
-        module: 'index.mjs',
-      }),
+        'package.json': JSON.stringify({
+          name: 'bad-plugin',
+          exports: {
+            import: './index.mjs',
+            require: './index.cjs',
+            types: './index.d.ts',
+          },
+        }),
+      },
     },
     target: {},
   })
-  const plugin = resolve(dir, 'plugin')
+  const plugin = 'plugin'
   const target = resolve(dir, 'target')
   const res = await build(target, [plugin], true)
   t.same(res, {
@@ -189,24 +202,29 @@ t.test('invalid testFileExtensions, not an array', async t => {
 
 t.test('invalid testFileExtensions, contains non-string', async t => {
   const dir = t.testdir({
-    plugin: {
-      'index.cjs': `
+    node_modules: {
+      plugin: {
+        'index.cjs': `
         exports.plugin = () => ({ x: true })
         exports.testFileExtensions = ['a', 1]
       `,
-      'index.mjs': `
+        'index.mjs': `
         export const plugin = () => ({ x: true })
-        exports const testFileExtensions = ['a', 1]
+        export const testFileExtensions = ['a', 1]
       `,
-      'package.json': JSON.stringify({
-        name: 'bad-plugin',
-        main: 'index.cjs',
-        module: 'index.mjs',
-      }),
+        'package.json': JSON.stringify({
+          name: 'bad-plugin',
+          exports: {
+            import: './index.mjs',
+            require: './index.cjs',
+            types: './index.d.ts',
+          },
+        }),
+      },
     },
     target: {},
   })
-  const plugin = resolve(dir, 'plugin')
+  const plugin = 'plugin'
   const target = resolve(dir, 'target')
   const res = await build(target, [plugin], true)
   t.same(res, {
@@ -236,30 +254,38 @@ t.test('no plugins specified', async t => {
 
 t.test('disambiguate plugin names', async t => {
   const dir = t.testdir({
-    'plug-in': {
-      'index.cjs': `exports.plugin = () => ({})`,
-      'index.mjs': `const plugin = () => ({})`,
-      'index.d.ts': `export const plugin: (t: any, opts?: any) => ({})`,
-      'package.json': JSON.stringify({
-        main: 'index.cjs',
-        module: 'index.mjs',
-        types: 'index.d.ts',
-      }),
-    },
-    plugIn: {
-      'index.cjs': `exports.plugin = () => ({})`,
-      'index.mjs': `const plugin = () => ({})`,
-      'index.d.ts': `export const plugin: (t: any, opts?: any) => ({})`,
-      'package.json': JSON.stringify({
-        main: 'index.cjs',
-        module: 'index.mjs',
-        types: 'index.d.ts',
-      }),
+    node_modules: {
+      'plug-in': {
+        'index.cjs': `exports.plugin = () => ({})`,
+        'index.mjs': `export const plugin = () => ({})`,
+        'index.d.ts': `export const plugin: (t: any, opts?: any) => ({})`,
+        'package.json': JSON.stringify({
+          name: 'plug-in',
+          exports: {
+            import: './index.mjs',
+            require: './index.cjs',
+            types: './index.d.ts',
+          },
+        }),
+      },
+      plugIn: {
+        'index.cjs': `exports.plugin = () => ({})`,
+        'index.mjs': `export const plugin = () => ({})`,
+        'index.d.ts': `export const plugin: (t: any, opts?: any) => ({})`,
+        'package.json': JSON.stringify({
+          name: 'plugIn',
+          exports: {
+            import: './index.mjs',
+            require: './index.cjs',
+            types: './index.d.ts',
+          },
+        }),
+      },
     },
     target: {},
   })
-  const p1 = resolve(dir, 'plug-in')
-  const p2 = resolve(dir, 'plugIn')
+  const p1 = 'plug-in'
+  const p2 = 'plugIn'
   const target = resolve(dir, 'target')
   const res = await build(target, [p1, p2])
   t.same(res, {
@@ -270,7 +296,7 @@ t.test('disambiguate plugin names', async t => {
     stderr: '',
     stdout: `
 > @tapjs/test-built@0.0.0 prepare
-> tsc -p tsconfig/cjs.json && tsc -p tsconfig/esm.json && bash scripts/fixup.sh
+> tshy
 
 `,
   })

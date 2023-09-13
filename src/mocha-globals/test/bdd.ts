@@ -4,12 +4,12 @@ import {
   currentTest,
   globalize,
   mount,
-} from '../dist/mjs/index.js'
+} from '../dist/esm/index.js'
 
 globalize()
 mount(t)
 
-type mg = typeof import('../dist/mjs/index.js')
+type mg = typeof import('../dist/esm/index.js')
 declare var describe: mg['describe']
 declare var it: mg['it']
 

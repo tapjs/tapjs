@@ -7,7 +7,7 @@ import { format } from 'node:util'
 import { resolve } from 'path'
 import t from 'tap'
 import * as yaml from 'tap-yaml'
-import { config, firstOf } from '../dist/config.js'
+import { config, firstOf } from '../dist/esm/config.js'
 
 const logs = t.capture(console, 'log').args
 const errs = t.capture(console, 'error').args
@@ -310,9 +310,9 @@ t.test('edit', t => {
           return spawnResponse
         },
       })
-      const { config } = (await t.mockImport('../dist/config.js', {
+      const { config } = (await t.mockImport('../dist/esm/config.js', {
         'node:child_process': cp,
-      })) as typeof import('../dist/config.js')
+      })) as typeof import('../dist/esm/config.js')
 
       t.test(
         'edit resume fails without a file there already',

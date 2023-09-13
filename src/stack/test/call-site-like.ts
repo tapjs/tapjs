@@ -1,7 +1,7 @@
 import { dirname, resolve } from 'path'
 import t from 'tap'
-import { CallSiteLike as CSLCJS } from '../dist/cjs/index.js'
-import { CallSiteLike as CSLMJS } from '../dist/mjs/index.js'
+import { CallSiteLike as CSLCJS } from '../dist/commonjs/index.js'
+import { CallSiteLike as CSLMJS } from '../dist/esm/index.js'
 import { callSiteStack } from './fixtures/eval-call-site.js'
 
 const __dirname = resolve(
@@ -30,7 +30,7 @@ for (const [dialect, CallSiteLike] of Object.entries({
     })
 
     t.test('create from string error stack line', t => {
-      const line = error.stack.split('\n')[1]
+      const line = String(error.stack.split('\n')[1])
       const c = new CallSiteLike(error, line)
       t.match(c.fileName, /.+test\/fixtures\/capture\.ts$/)
       c.cwd = cwd
@@ -60,7 +60,7 @@ for (const [dialect, CallSiteLike] of Object.entries({
     })
 
     t.test('create from node call site', t => {
-      const cs = stack[0]
+      const cs = stack[0] as NodeJS.CallSite
       const c = new CallSiteLike(null, cs)
       t.match(c.fileName, /.+test\/fixtures\/capture\.ts$/)
       t.match(c.generated?.fileName, /.+test\/fixtures\/capture\.js$/)

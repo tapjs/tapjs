@@ -1,5 +1,5 @@
 import t from 'tap'
-import { Parser } from '../dist/mjs/index.js'
+import { Parser } from '../dist/esm/index.js'
 
 t.test('strictness is inherited', function (t) {
   var data = [

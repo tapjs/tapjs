@@ -1,5 +1,5 @@
 import t from 'tap'
-import { config, plugin } from '../dist/mjs/index.js'
+import { config, plugin } from '../dist/esm/index.js'
 
 import { dirname } from 'node:path'
 const CWD = dirname(process.cwd().toUpperCase())
@@ -24,8 +24,8 @@ t.beforeEach(t =>
 t.test('without global injection', async t => {
   process.env.TAP_MOCHA_GLOBALS = '0'
   const mg = (await t.mockImport(
-    '../dist/mjs/index.js'
-  )) as typeof import('../dist/mjs/index.js')
+    '../dist/esm/index.js'
+  )) as typeof import('../dist/esm/index.js')
   t.match(
     mg,
     {
@@ -71,8 +71,8 @@ t.test('without global injection', async t => {
 t.test('with global injection', async t => {
   process.env.TAP_MOCHA_GLOBALS = '1'
   const mg = (await t.mockImport(
-    '../dist/mjs/index.js'
-  )) as typeof import('../dist/mjs/index.js')
+    '../dist/esm/index.js'
+  )) as typeof import('../dist/esm/index.js')
   t.match(
     mg,
     {

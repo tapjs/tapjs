@@ -103,7 +103,7 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
     const { include } = values as unknown as { include: string[] }
     for (let i = 0; i < include.length; i++) {
       const inc = include[i]
-      if (inc.includes('__EXTENSIONS__')) {
+      if (inc && inc.includes('__EXTENSIONS__')) {
         include[i] = this.expandInclude(inc)
       }
     }
@@ -350,7 +350,7 @@ export class TapConfig<C extends ConfigSet = BaseConfigSet> {
 
     // now we have a stack of all the configs, apply in reverse order so the
     // nearest overrides the furthest
-    while (stack.length) {
+    while (stack.length && stack[0]) {
       const [data, _, resolved] = stack[0]
       const { extends: ext, ...rest } = data
       try {

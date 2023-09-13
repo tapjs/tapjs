@@ -6,6 +6,11 @@
   "keywords": [
     "tapjs plugin"
   ],
+  "tshy": {
+    "./package.json": "./package.json",
+    "./import": "./src/import.mts",
+    "./loader": "./src/legacy-loader.mts"
+  },
   "exports": {
     "./package.json": {
       "import": "./package.json",
@@ -13,24 +18,24 @@
     },
     ".": {
       "import": {
-        "types": "./dist/mjs/index.d.ts",
-        "default": "./dist/mjs/index.js"
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
       },
       "require": {
-        "types": "./dist/cjs/index.d.ts",
-        "default": "./dist/cjs/index.js"
+        "types": "./dist/commonjs/index.d.ts",
+        "default": "./dist/commonjs/index.js"
       }
     },
     "./loader": {
       "import": {
-        "types": "./dist/mjs/loader.d.ts",
-        "default": "./dist/mjs/loader.js"
+        "types": "./dist/esm/legacy-loader.d.mts",
+        "default": "./dist/esm/legacy-loader.mjs"
       }
     },
     "./import": {
       "import": {
-        "types": "./dist/mjs/import.d.ts",
-        "default": "./dist/mjs/import.js"
+        "types": "./dist/esm/import.d.mts",
+        "default": "./dist/esm/import.mjs"
       }
     }
   },
@@ -42,13 +47,13 @@
     "preversion": "npm test",
     "postversion": "npm publish",
     "prepublishOnly": "git push origin --follow-tags",
-    "prepare": "tsc -p tsconfig/cjs.json && tsc -p tsconfig/esm.json && bash ./scripts/fixup.sh",
+    "prepare": "tshy",
     "pretest": "npm run prepare",
     "presnap": "npm run prepare",
     "test": "tap",
     "snap": "tap",
     "format": "prettier --write . --loglevel warn",
-    "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
+    "typedoc": "typedoc --tsconfig .tshy/esm.json ./src/*.ts ./src/*.mts"
   },
   "tap": {
     "typecheck": false

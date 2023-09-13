@@ -190,7 +190,7 @@ export class Repl {
         this.parseCommand(input).then((res?: any) => {
           cb(null, res)
           while (this.#queue.length && !this.proc) {
-            const [input, d] = this.#queue[0]
+            const [input, d] = this.#queue[0] as [string, Deferred<any>]
             this.#queue.shift()
             d.resolve(this.parseCommand(input))
           }
@@ -520,7 +520,7 @@ export class Repl {
     const args = [...node.execArgv, ...node.argv.slice(1)]
     const pin: PrintedProcessInfoNode = {
       date: node.date,
-      command: node.argv[0],
+      command: node.argv[0] as string,
       args,
       cwd: node.cwd,
       pid: node.pid,

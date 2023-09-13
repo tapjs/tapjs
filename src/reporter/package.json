@@ -12,34 +12,43 @@
   "files": [
     "dist"
   ],
+  "tshy": {
+    "dialects": [
+      "esm"
+    ],
+    "exports": {
+      "./package.json": "./package.json",
+      ".": "./src/index.tsx",
+      "./hooks": "./src/hooks.ts",
+      "./components": "./src/components.ts",
+      "./utils": "./src/utils.ts"
+    }
+  },
   "exports": {
+    "./package.json": "./package.json",
     ".": {
       "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
       }
     },
     "./hooks": {
       "import": {
-        "types": "./dist/hooks.d.ts",
-        "default": "./dist/hooks.js"
+        "types": "./dist/esm/hooks.d.ts",
+        "default": "./dist/esm/hooks.js"
       }
     },
     "./components": {
       "import": {
-        "types": "./dist/components.d.ts",
-        "default": "./dist/components.js"
+        "types": "./dist/esm/components.d.ts",
+        "default": "./dist/esm/components.js"
       }
     },
     "./utils": {
       "import": {
-        "types": "./dist/utils.d.ts",
-        "default": "./dist/utils.js"
+        "types": "./dist/esm/utils.d.ts",
+        "default": "./dist/esm/utils.js"
       }
-    },
-    "./package.json": {
-      "import": "./package.json",
-      "require": "./package.json"
     }
   },
   "tap": {
@@ -48,7 +57,7 @@
   },
   "license": "BlueOak-1.0.0",
   "scripts": {
-    "prepare": "tsc -p tsconfig/esm.json && bash scripts/fixup.sh",
+    "prepare": "tshy",
     "pretest": "npm run prepare",
     "presnap": "npm run prepare",
     "test": "tap",

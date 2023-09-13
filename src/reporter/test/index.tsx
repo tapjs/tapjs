@@ -4,7 +4,7 @@ import * as INK from 'ink'
 import { render } from 'ink-testing-library'
 import React, { FC } from 'react'
 import t from 'tap'
-import { TapReportOpts } from '../dist/index.js'
+import { TapReportOpts } from '../dist/esm/index.js'
 
 // fresh env every time, with no tap configs
 const originalEnv = { ...process.env }
@@ -17,8 +17,8 @@ t.beforeEach(t =>
 
 t.test('unknown report type', async t => {
   const { report } = (await t.mockImport(
-    '../dist/index.js'
-  )) as typeof import('../dist/index.js')
+    '../dist/esm/index.js'
+  )) as typeof import('../dist/esm/index.js')
   await t.rejects(
     report(
       'blorgeebloop',
@@ -37,11 +37,11 @@ t.test('render with a custom tag', async t => {
     rendered = opts
     return <></>
   }
-  const { report } = (await t.mockImport('../dist/index.js', {
+  const { report } = (await t.mockImport('../dist/esm/index.js', {
     ink: t.createMock(INK, {
       render,
     }),
-  })) as typeof import('../dist/index.js')
+  })) as typeof import('../dist/esm/index.js')
   let registered = false
   const mockTap = {
     register: () => (registered = true),
@@ -66,14 +66,14 @@ t.test('render with known type', async t => {
     rendered = opts
     return <></>
   }
-  const { report } = (await t.mockImport('../dist/index.js', {
+  const { report } = (await t.mockImport('../dist/esm/index.js', {
     ink: t.createMock(INK, {
       render,
     }),
-    '../dist/base.js': {
+    '../dist/esm/base.js': {
       Base: Tag,
     },
-  })) as typeof import('../dist/index.js')
+  })) as typeof import('../dist/esm/index.js')
   let registered = false
   const mockTap = {
     register: () => (registered = true),

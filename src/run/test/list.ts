@@ -10,7 +10,7 @@ import {
 } from 'fs'
 import { resolve } from 'path'
 import { fileURLToPath } from 'url'
-import * as mainConfig from '../dist/main-config.js'
+import * as mainConfig from '../dist/esm/main-config.js'
 
 t.test('list some test files', async t => {
   const dir = t.testdir({
@@ -68,20 +68,20 @@ t.test('list some test files', async t => {
 
   let saveList: string[] = []
   const mocks = {
-    '../dist/main-config.js': t.createMock(mainConfig, {
+    '../dist/esm/main-config.js': t.createMock(mainConfig, {
       mainCommand: 'list',
     }),
     '@tapjs/core': t.createMock(core, { cwd: dir }),
-    '../dist/save-list.js': {
+    '../dist/esm/save-list.js': {
       readSave: async () => saveList,
     },
   }
 
   const logs = t.capture(console, 'log')
   const { list } = (await t.mockImport(
-    '../dist/list.js',
+    '../dist/esm/list.js',
     mocks
-  )) as typeof import('../dist/list.js')
+  )) as typeof import('../dist/esm/list.js')
 
   const sortedLog = () =>
     logs
@@ -310,19 +310,19 @@ t.test('filter changed files', async t => {
   let date = start
 
   const mocks = {
-    '../dist/main-config.js': t.createMock(mainConfig, {
+    '../dist/esm/main-config.js': t.createMock(mainConfig, {
       mainCommand: 'run',
     }),
     '@tapjs/core': t.createMock(core, { cwd: dir }),
-    '../dist/save-list.js': {
+    '../dist/esm/save-list.js': {
       readSave: async () => [],
     },
   }
 
   const { list } = (await t.mockImport(
-    '../dist/list.js',
+    '../dist/esm/list.js',
     mocks
-  )) as typeof import('../dist/list.js')
+  )) as typeof import('../dist/esm/list.js')
   const sort = (a: string[]) =>
     a.sort((a, b) => a.localeCompare(b, 'en'))
 

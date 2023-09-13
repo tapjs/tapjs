@@ -3,7 +3,7 @@ import EventEmitter from 'node:events'
 import t from 'tap'
 
 import type { ProcessInfo } from '@tapjs/processinfo'
-import { options } from '../../dist/repl/chokidar-options.js'
+import { options } from '../../dist/esm/repl/chokidar-options.js'
 
 const mockFSWatcher = new (class extends EventEmitter {
   running: boolean = true
@@ -26,9 +26,9 @@ const mockChokidar = new (class {
 
 t.afterEach(() => (mockChokidar.files = undefined))
 
-const { Watch } = (await t.mockImport('../../dist/repl/watch.js', {
+const { Watch } = (await t.mockImport('../../dist/esm/repl/watch.js', {
   chokidar: { watch: mockChokidar.watch.bind(mockChokidar) },
-})) as typeof import('../../dist/repl/watch.js')
+})) as typeof import('../../dist/esm/repl/watch.js')
 
 t.test('watch some files', async t => {
   const pi = {

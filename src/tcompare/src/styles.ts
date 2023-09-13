@@ -14,7 +14,7 @@ export type StyleType = 'pretty' | 'js' | 'tight'
  */
 export interface Style {
   /** a function, optionally with a class name */
-  fn: (fn: Function, cls: string) => string
+  fn: (fn: Function | ((...a: any[]) => any), cls: string) => string
   /** an empty `Set` */
   setEmpty: (cls: string) => string
   /** start of a `Set` */
@@ -127,10 +127,10 @@ const pretty: Style = {
   fn: (fn, cls) => {
     const name = fn.name
     const args = fn
-      .toString()
+      .toString?.()
       .split('{')[0]
-      .split('=>')[0]
-      .replace(/[\n\r\s\t]+/g, '')
+      ?.split('=>')[0]
+      ?.replace(/[\n\r\s\t]+/g, '')
       .replace(/^[^\(]*\( */, '')
       .replace(/ *\).*/g, '')
       .split(',')

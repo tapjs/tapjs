@@ -1,4 +1,4 @@
-import { at as stackAt, capture as stackCapture, } from '../../dist/mjs/index.js';
+import { at as stackAt, capture as stackCapture, } from '../../dist/esm/index.js';
 const getError = () => new Error('test error');
 export const error = getError();
 const getCapture = () => stackCapture();

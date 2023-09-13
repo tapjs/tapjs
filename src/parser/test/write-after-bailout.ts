@@ -1,5 +1,5 @@
 import t from 'tap'
-import { Parser } from '../dist/mjs/index.js'
+import { Parser } from '../dist/esm/index.js'
 import etoa from 'events-to-array'
 const p = new Parser()
 

@@ -3,9 +3,9 @@ import { CallSiteLike } from '@tapjs/stack'
 import { relative, resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import t from 'tap'
-import { MockService as MSCJS, isMockServiceResponse as isMSRCJS } from '../dist/cjs/mock-service.js'
-import { MockService, isMockServiceResponse as isMSRMJS } from '../dist/mjs/mock-service.js'
-import { serviceKey } from '../dist/mjs/service-key.js'
+import { MockService as MSCJS, isMockServiceResponse as isMSRCJS } from '../dist/commonjs/mock-service.js'
+import { MockService, isMockServiceResponse as isMSRMJS } from '../dist/esm/mock-service.js'
+import { serviceKey } from '../dist/esm/service-key.js'
 
 t.pass('this is fine')
 

@@ -1,6 +1,6 @@
 import { CallSiteLike } from '@tapjs/stack'
 import t from 'tap'
-import { extraFromError } from '../dist/mjs/extra-from-error.js'
+import { extraFromError } from '../dist/esm/extra-from-error.js'
 
 t.matchOnly(
   extraFromError(new Error('hello')),

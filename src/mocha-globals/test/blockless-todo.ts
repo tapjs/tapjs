@@ -1,5 +1,5 @@
 import t, { Test } from 'tap'
-import { mount, describe, it } from "../dist/mjs/index.js";
+import { mount, describe, it } from "../dist/esm/index.js";
 
 import { dirname } from 'node:path'
 const CWD = dirname(process.cwd().toUpperCase())

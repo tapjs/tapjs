@@ -75,14 +75,18 @@ export const parseCallSiteLine = (line: string): Compiled => {
   }
   // if we ended up with an fname and nothing else, try a more liberal approach
   if (c.fname && !c.fileName && !c.columnNumber && !c.lineNumber) {
-    const bl = c.fname.match(bareLineRefLooseRe)
+    const bl = c.fname.match(bareLineRefLooseRe) as
+      | null
+      | [string, string, string, string]
     if (bl) {
       c.fname = undefined
       c.fileName = bl[1]
       c.lineNumber = +bl[2]
       c.columnNumber = +bl[3]
     } else {
-      const pl = c.fname.match(parenLineRefLooseRe)
+      const pl = c.fname.match(parenLineRefLooseRe) as
+        | null
+        | [string, string, string, string, string]
       if (pl) {
         c.fname = pl[1]
         c.fileName = pl[2]
@@ -98,7 +102,9 @@ const parseCallSiteLine_ = (line: string): Compiled => {
   line = line.replace(/^\s+at /, '')
 
   // just a lineref, nothing else:
-  const bm = line.match(bareLineRefRe)
+  const bm = line.match(bareLineRefRe) as
+    | null
+    | [string, string, string, string, string]
   if (bm && bm[4] && !bm[1] && !bm[2] && !bm[3]) {
     return { fileName: bm[4], [isCompiled]: true }
   }
@@ -112,7 +118,9 @@ const parseCallSiteLine_ = (line: string): Compiled => {
   }
 
   // an eval origin subsection
-  const em = line.match(bareEvalOriginRe)
+  const em = line.match(bareEvalOriginRe) as
+    | null
+    | [string, string, string]
   if (em) {
     // we ignore the part that comes after the `,` because that is part of
     // the parent's call site, not the evalOrigin
@@ -122,7 +130,20 @@ const parseCallSiteLine_ = (line: string): Compiled => {
     }
   }
 
-  const wem = line.match(withEvalOriginRe)
+  const wem = line.match(withEvalOriginRe) as
+    | null
+    | [
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string
+      ]
   if (wem) {
     const evalOrigin = parseCallSiteLine(wem[2])
     return {

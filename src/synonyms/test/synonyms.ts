@@ -1,3 +1,3 @@
 import t from 'tap'
-import { synonyms } from '../dist/mjs/synonyms.js'
+import { synonyms } from '../dist/esm/synonyms.js'
 t.matchSnapshot(synonyms)

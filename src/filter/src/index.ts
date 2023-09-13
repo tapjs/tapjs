@@ -76,7 +76,7 @@ export class Filter {
     } else if (env.TAP_GREP !== undefined) {
       this.#grep = env.TAP_GREP.split('\n').map(g => {
         const p = g.match(/^\/(.*)\/([a-z]*)$/)
-        g = p ? p[1] : g
+        g = p && p[1] ? p[1] : g
         const flags = p ? p[2] : ''
         return new RegExp(g, flags)
       })

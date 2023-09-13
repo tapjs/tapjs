@@ -4,8 +4,8 @@ import { createPatch } from 'diff'
 import { globSync } from 'glob'
 import { dirname } from 'path'
 import { fileURLToPath } from 'url'
-import * as cjs from '../dist/cjs/index.js'
-import * as mjs from '../dist/mjs/index.js'
+import * as cjs from '../dist/commonjs/index.js'
+import * as mjs from '../dist/esm/index.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -423,7 +423,7 @@ for (const [dialect, mod] of Object.entries({ cjs, mjs })) {
     t.test('not fooled by long messages', t => {
       const foo = () => bar()
       const bar = () => baz()
-      const baz = () => {
+      const baz = (): [Error, Error, Error, Error] => {
         const short = new Error('trace')
         const long = new Error(`long
 message

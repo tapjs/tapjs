@@ -2,7 +2,7 @@ import * as stack from '@tapjs/stack'
 import { relative, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import t from 'tap'
-import { mockRequire } from '../dist/mjs/mock-require.js'
+import { mockRequire } from '../dist/esm/mock-require.js'
 
 import { createRequire } from 'node:module'
 const require = createRequire(import.meta.url)

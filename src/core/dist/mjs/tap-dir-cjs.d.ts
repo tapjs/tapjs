@@ -1,2 +1,0 @@
-export declare const tapDir: string;
-//# sourceMappingURL=tap-dir-cjs.d.ts.map

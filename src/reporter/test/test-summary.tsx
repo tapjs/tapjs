@@ -7,14 +7,14 @@ import React from 'react'
 import t from 'tap'
 
 const { TestSummary } = (await t.mockImport(
-  '../dist/test-summary.js',
+  '../dist/esm/test-summary.js',
   {
     chalk,
-    '../dist/ms.js': { ms: () => '{TIME}' },
-    '../dist/hooks/use-test-time.js': {
+    '../dist/esm/ms.js': { ms: () => '{TIME}' },
+    '../dist/esm/hooks/use-test-time.js': {
       useTestTime: () => 123,
     },
-    '../dist/stack.js': {
+    '../dist/esm/stack.js': {
       Stack: () => (
         <Box>
           <Text>XXX mock stack XXX</Text>
@@ -22,7 +22,7 @@ const { TestSummary } = (await t.mockImport(
       ),
     },
   }
-)) as typeof import('../dist/test-summary.js')
+)) as typeof import('../dist/esm/test-summary.js')
 
 t.test('simple passing', async t => {
   const tb = new Minimal({ name: 'pass' })

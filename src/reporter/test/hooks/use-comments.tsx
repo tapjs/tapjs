@@ -3,7 +3,7 @@ import { Box, Text } from 'ink'
 import { render } from 'ink-testing-library'
 import React, { FC } from 'react'
 import t from 'tap'
-import { useComments } from '../../dist/hooks/use-comments.js'
+import { useComments } from '../../dist/esm/hooks/use-comments.js'
 import { reduce } from '../fixtures/reduce.js'
 
 const Tag: FC<{ test: Minimal }> = ({ test }) => {

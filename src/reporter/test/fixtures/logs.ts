@@ -1,5 +1,5 @@
 import { TestBase } from '@tapjs/core'
-import { LogEntry } from '../../dist/hooks/use-log.js'
+import { LogEntry } from '../../dist/esm/hooks/use-log.js'
 
 export const logs: LogEntry[] = [
   { test: { name: 'zro', parser: {} } as TestBase },
@@ -19,5 +19,7 @@ export const logs: LogEntry[] = [
 logs.push(...logs)
 
 for (let i = 1; i < logs.length; i++) {
-  logs[i].previous = logs[i - 1]
+  const l = logs[i]
+  if (!l) continue
+  l.previous = logs[i - 1]
 }

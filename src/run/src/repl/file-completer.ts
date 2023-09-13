@@ -18,7 +18,7 @@ export const fileCompleter = (args: string[], input: string) => {
         .map(f => stem + dir + f),
       input
     )
-    if (matches.length === 1 && !matches[0].endsWith(sep)) {
+    if (matches.length === 1 && !matches[0]?.endsWith(sep)) {
       matches[0] += ' '
     }
     return [matches, input]

@@ -45,7 +45,7 @@ const mockCP = t.createMock(CP, {
 import which from 'which'
 
 const { handleReporter } = (await t.mockImport(
-  '../dist/handle-reporter.js',
+  '../dist/esm/handle-reporter.js',
   {
     '@tapjs/reporter': mockReporter,
     'node:child_process': mockCP,
@@ -58,7 +58,7 @@ const { handleReporter } = (await t.mockImport(
     which: (path: string) =>
       path === 'test-exe-reporter' ? `/bin/${path}` : which(path),
   }
-)) as typeof import('../dist/handle-reporter.js')
+)) as typeof import('../dist/esm/handle-reporter.js')
 
 t.beforeEach(() => {
   reporterCalled.length = 0

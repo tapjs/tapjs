@@ -4,7 +4,7 @@ import t from 'tap'
 import './fixtures/chalk.js'
 
 import { at, CallSiteLike } from '@tapjs/stack'
-import { Source } from '../dist/source.js'
+import { Source } from '../dist/esm/source.js'
 
 t.test('show source with callsite', t => {
   const app = render(<Source at={at()} source={'diag source'} />)

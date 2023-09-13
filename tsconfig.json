@@ -6,12 +6,12 @@
     "inlineSources": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "Node16",
+    "moduleResolution": "nodenext",
     "resolveJsonModule": true,
     "sourceMap": true,
     "strict": true,
     "target": "es2022",
-    "module": "esnext"
+    "module": "nodenext"
   },
   "references": [
     { "path": "./src/after" },

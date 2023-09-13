@@ -1,7 +1,7 @@
 import { render } from 'ink-testing-library'
 import React from 'react'
 import t from 'tap'
-import { HangingIndent } from '../dist/hanging-indent.js'
+import { HangingIndent } from '../dist/esm/hanging-indent.js'
 
 const str =
   'WHEN I WROTE the following pages, or rather the bulk of them, ' +

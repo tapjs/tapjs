@@ -1,7 +1,7 @@
 import t from 'tap'
 import { MessageChannel } from 'worker_threads'
-import { MockServiceClient } from '../dist/mjs/mock-service-client.js'
-import { MockServiceRequest } from '../dist/mjs/mock-service.js'
+import { MockServiceClient } from '../dist/esm/mock-service-client.js'
+import { MockServiceRequest } from '../dist/esm/mock-service.js'
 
 const { port1, port2 } = new MessageChannel()
 port1.unref()

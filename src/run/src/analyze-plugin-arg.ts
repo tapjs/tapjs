@@ -30,7 +30,7 @@ export const analyzePluginArg = async (
       versionInstalled: '',
     }
   }
-  const name = pkgMatch[1]
+  const name = pkgMatch[1] as string
   const versionInstalled = getInstalledVersion(name, config)
   const versionWant = await selectVersion(name, pkgMatch[2], config)
   return { name, versionInstalled, versionWant }

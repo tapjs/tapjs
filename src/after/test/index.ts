@@ -1,6 +1,6 @@
 import { TestOpts } from '@tapjs/test'
 import t, { Test } from 'tap'
-import { plugin } from '../dist/mjs/index.js'
+import { plugin } from '../dist/esm/index.js'
 t.equal(t.pluginLoaded(plugin), true, 'plugin is loaded')
 
 t.cleanSnapshot = s =>

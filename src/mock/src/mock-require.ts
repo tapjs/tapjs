@@ -2,7 +2,9 @@
  * Implementation of the {@link TapMock#mockRequire} method
  */
 import * as stack from '@tapjs/stack'
-import Module, { isBuiltin, createRequire } from 'module'
+import Module, { createRequire, isBuiltin } from 'module'
+import { dirname, resolve } from 'path'
+import { walkUp } from 'walk-up-path'
 
 // for some reason @types/node incorrectly believes that
 // Module.prototype.require is a RequireFunction, but it isn't.
@@ -15,7 +17,7 @@ export type CorrectModule = Omit<Module, 'require'> & {
   load(id: string): void
 }
 
-const CorrectModule = Module as unknown as Omit<
+export type CorrectModuleCtor = Omit<
   typeof Module,
   'new' | 'prototype'
 > & {
@@ -25,6 +27,9 @@ const CorrectModule = Module as unknown as Omit<
   ): CorrectModule
   _cache: { [k: string]: CorrectModule }
 }
+
+const CorrectModule: CorrectModuleCtor =
+  Module as unknown as CorrectModuleCtor
 
 /**
  * A child class of Module, which loads modules from the mock object
@@ -111,7 +116,22 @@ export class Mocker {
 
     this.#seen = new Map<string, Module>()
     const callerModule = CorrectModule._cache[parentFileName]
-    this.module = new MockedModule(filePath, callerModule, this)
+    let p: CorrectModule
+    /* c8 ignore start */
+    if (callerModule) p = callerModule
+    else {
+      /* c8 ignore stop */
+      // if calling t.mockRequire from esm, you won't get a parent
+      // but we should still pretend to have one.
+      p = new Module(parentFileName) as unknown as CorrectModule
+      p.filename = parentFileName
+      p.loaded = true
+      p.paths = [...walkUp(dirname(parentFileName))].map(path =>
+        resolve(path, 'node_modules')
+      )
+    }
+
+    this.module = new MockedModule(filePath, p, this)
     this.module.load(filePath)
   }
 

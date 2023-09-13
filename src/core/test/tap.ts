@@ -2,8 +2,8 @@ import { spawn } from 'child_process'
 import { Minipass } from 'minipass'
 import stripAnsi from 'strip-ansi-cjs'
 import { fileURLToPath } from 'url'
-import { env } from '../dist/mjs/proc.js'
-import { tap } from '../dist/mjs/tap.js'
+import { env } from '../dist/esm/proc.js'
+import { tap } from '../dist/esm/tap.js'
 
 const __filename = fileURLToPath(import.meta.url)
 

@@ -1,6 +1,6 @@
 import { Test } from '@tapjs/test'
 import t from 'tap'
-import * as compare from '../dist/mjs/index.js'
+import * as compare from '../dist/esm/index.js'
 
 const hasStrict = (t: Test, a: any, b: any) => {
   const h = compare.hasStrict(a, b)

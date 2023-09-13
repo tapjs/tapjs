@@ -3,7 +3,7 @@ import {
   globalize,
   mount,
   currentTest,
-} from '../dist/mjs/index.js'
+} from '../dist/esm/index.js'
 
 import { dirname } from 'node:path'
 const CWD = dirname(process.cwd().toUpperCase())
@@ -19,7 +19,7 @@ t.cleanSnapshot = s => {
 globalize()
 mount(t)
 
-type mg = typeof import('../dist/mjs/index.js')
+type mg = typeof import('../dist/esm/index.js')
 declare var describe: mg['describe']
 declare var it: mg['it']
 declare var before: mg['before']

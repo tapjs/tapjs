@@ -14,7 +14,7 @@ import { pathToFileURL } from 'url'
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
 
-import * as hooks from '../dist/mjs/hooks.js'
+import * as hooks from '../dist/esm/hooks.mjs'
 
 t.test('loader exists', async t => {
   t.matchOnly(hooks, {
@@ -44,11 +44,11 @@ t.test('globalPreload', async t => {
     }
   }
   let client: MockMockClient | undefined = undefined
-  const hooks = (await t.mockImport('../dist/mjs/hooks.js', {
-    '../dist/mjs/mock-service-client.js': {
+  const hooks = (await t.mockImport('../dist/esm/hooks.mjs', {
+    '../dist/esm/mock-service-client.js': {
       MockServiceClient: MockMockClient,
     },
-  })) as typeof import('../dist/mjs/hooks.js')
+  })) as typeof import('../dist/esm/hooks.mjs')
   t.equal(client, undefined, 'no client until initialized')
   const message = (hook: 'load' | 'resolve') =>
     'initialize() or globalPreload() must be run prior to ' +
@@ -134,11 +134,11 @@ t.test('initialize', async t => {
     }
   }
   let client: MockMockClient | undefined = undefined
-  const hooks = (await t.mockImport('../dist/mjs/hooks.js', {
-    '../dist/mjs/mock-service-client.js': {
+  const hooks = (await t.mockImport('../dist/esm/hooks.mjs', {
+    '../dist/esm/mock-service-client.js': {
       MockServiceClient: MockMockClient,
     },
-  })) as typeof import('../dist/mjs/hooks.js')
+  })) as typeof import('../dist/esm/hooks.mjs')
   t.equal(client, undefined, 'no client until initialized')
   const message = (hook: 'load' | 'resolve') =>
     'initialize() or globalPreload() must be run prior to ' +

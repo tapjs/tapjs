@@ -1,6 +1,6 @@
 import eventsToArray from 'events-to-array'
 import t, { Test } from 'tap'
-import { Parser } from '../dist/mjs/index.js'
+import { Parser } from '../dist/esm/index.js'
 const tapContent = `ok 1 - nesting {
     1..2
     # Subtest: first

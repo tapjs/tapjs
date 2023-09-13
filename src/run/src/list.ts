@@ -146,7 +146,7 @@ export const list = async (
       console.error('No files found.')
       process.exitCode = 1
       if (args.length === 1) {
-        const maybe = args[0].match(/^(plugin|config)s?$/)
+        const maybe = args[0]?.match(/^(plugin|config)s?$/)
         if (maybe) {
           console.error(`(Did you mean 'tap ${maybe[1]} list'?)`)
         }

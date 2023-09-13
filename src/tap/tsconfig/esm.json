@@ -1,8 +1,0 @@
-{
-  "extends": "./build.json",
-  "include": ["../src/**/*.ts", "../src/**/*.mts"],
-  "compilerOptions": {
-    "module": "esnext",
-    "outDir": "../dist-tmp/mjs"
-  }
-}

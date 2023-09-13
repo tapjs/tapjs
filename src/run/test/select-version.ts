@@ -33,15 +33,15 @@ const abbrevPacku: Packument = {
 
 t.test('registry lookup returns error', async t => {
   const { selectVersion } = (await t.mockImport(
-    '../dist/select-version.js',
+    '../dist/esm/select-version.js',
     {
-      '../dist/npm.js': {
+      '../dist/esm/npm.js': {
         npmBg: () => ({
           error: new Error('nope'),
         }),
       },
     }
-  )) as typeof import('../dist/select-version.js')
+  )) as typeof import('../dist/esm/select-version.js')
   t.rejects(selectVersion('x', '*', config), {
     message: 'nope',
   })
@@ -49,16 +49,16 @@ t.test('registry lookup returns error', async t => {
 
 t.test('registry lookup fails', async t => {
   const { selectVersion } = (await t.mockImport(
-    '../dist/select-version.js',
+    '../dist/esm/select-version.js',
     {
-      '../dist/npm.js': {
+      '../dist/esm/npm.js': {
         npmBg: () => ({
           status: 1,
           stderr: 'some error messages',
         }),
       },
     }
-  )) as typeof import('../dist/select-version.js')
+  )) as typeof import('../dist/esm/select-version.js')
   t.rejects(selectVersion('x', '*', config), {
     message: 'failed to look up npm registry: some error messages',
   })
@@ -66,9 +66,9 @@ t.test('registry lookup fails', async t => {
 
 t.test('look up a version that has a peer dep', async t => {
   const { selectVersion } = (await t.mockImport(
-    '../dist/select-version.js',
+    '../dist/esm/select-version.js',
     {
-      '../dist/npm.js': {
+      '../dist/esm/npm.js': {
         npmBg: () => ({
           stdout: 'https://npm.registry',
         }),
@@ -82,7 +82,7 @@ t.test('look up a version that has a peer dep', async t => {
         },
       },
     }
-  )) as typeof import('../dist/select-version.js')
+  )) as typeof import('../dist/esm/select-version.js')
   t.equal(
     await selectVersion('@tapjs/esbuild-kit', '*', config),
     '0.0.0-5'
@@ -91,9 +91,9 @@ t.test('look up a version that has a peer dep', async t => {
 
 t.test('look up a version that is latest', async t => {
   const { selectVersion } = (await t.mockImport(
-    '../dist/select-version.js',
+    '../dist/esm/select-version.js',
     {
-      '../dist/npm.js': {
+      '../dist/esm/npm.js': {
         npmBg: () => ({
           stdout: 'https://npm.registry',
         }),
@@ -107,7 +107,7 @@ t.test('look up a version that is latest', async t => {
         },
       },
     }
-  )) as typeof import('../dist/select-version.js')
+  )) as typeof import('../dist/esm/select-version.js')
   t.equal(
     await selectVersion('@tapjs/esbuild-kit', '*', config),
     '0.0.0-17'
@@ -116,9 +116,9 @@ t.test('look up a version that is latest', async t => {
 
 t.test('fail to find a satisfying version', async t => {
   const { selectVersion } = (await t.mockImport(
-    '../dist/select-version.js',
+    '../dist/esm/select-version.js',
     {
-      '../dist/npm.js': {
+      '../dist/esm/npm.js': {
         npmBg: () => ({
           stdout: 'https://npm.registry',
         }),
@@ -132,7 +132,7 @@ t.test('fail to find a satisfying version', async t => {
         },
       },
     }
-  )) as typeof import('../dist/select-version.js')
+  )) as typeof import('../dist/esm/select-version.js')
   t.equal(
     await selectVersion('@tapjs/esbuild-kit', '1.0.0', config),
     undefined
@@ -141,9 +141,9 @@ t.test('fail to find a satisfying version', async t => {
 
 t.test('plugin that does not have peer dep on core', async t => {
   const { selectVersion } = (await t.mockImport(
-    '../dist/select-version.js',
+    '../dist/esm/select-version.js',
     {
-      '../dist/npm.js': {
+      '../dist/esm/npm.js': {
         npmBg: () => ({
           stdout: 'https://npm.registry',
         }),
@@ -157,7 +157,7 @@ t.test('plugin that does not have peer dep on core', async t => {
         },
       },
     }
-  )) as typeof import('../dist/select-version.js')
+  )) as typeof import('../dist/esm/select-version.js')
   t.equal(await selectVersion('abbrev', '*', config), '2.0.0')
   t.equal(await selectVersion('abbrev', '^2.0.1', config), '2.0.1')
   t.equal(await selectVersion('abbrev', '1', config), '1.1.1')

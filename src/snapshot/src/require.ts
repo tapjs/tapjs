@@ -1,2 +1,3 @@
-// this is overridden with the createRequire variant in require-esm.ts
-export const req = require
+import { createRequire } from 'node:module'
+//@ts-ignore
+export const req = createRequire(import.meta.url)

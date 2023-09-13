@@ -101,7 +101,7 @@ export class NockRecorder {
     }
     const plays = nock.recorder.play() as nock.Definition[]
     const recordings = plays.map(scope => clean(scope))
-    this.#snapshot[key].push(...recordings)
+    this.#snapshot[key]?.push(...recordings)
     nock.recorder.clear()
   }
 
@@ -146,7 +146,12 @@ export class NockRecorder {
         : scope => scope
 
     // turn the json data into real nocks and return them
-    const nocks = this.#snapshot[key].map(scope => load(scope))
+    const nocks = this.#snapshot[key]?.map(scope => load(scope))
+    /* c8 ignore start */
+    if (!nocks) {
+      throw new Error(`could not get nocks for ${key}`)
+    }
+    /* c8 ignore stop */
     const scopes = nock.define(nocks)
     return scopes
   }
@@ -156,7 +161,11 @@ export class NockRecorder {
    */
   start(name: string, options: NockRecorderOptionsMaybe = {}) {
     if (this.#stack.length) {
-      this.#saveState(this.#stack[this.#stack.length - 1])
+      const state = this.#stack[this.#stack.length - 1]
+      /* c8 ignore start */
+      if (!state) throw new Error('could not get current nock state')
+      /* c8 ignore stop */
+      this.#saveState(state)
     }
 
     const key = this.#getKey(name)
@@ -197,7 +206,11 @@ export class NockRecorder {
     }
 
     if (this.#stack.length) {
-      this.#saveState(this.#stack[this.#stack.length - 1])
+      const state = this.#stack[this.#stack.length - 1]
+      /* c8 ignore start */
+      if (!state) throw new Error('could not get current nock state')
+      /* c8 ignore stop */
+      this.#saveState(state)
     }
 
     nock.restore()

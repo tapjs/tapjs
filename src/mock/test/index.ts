@@ -1,6 +1,6 @@
 import { relative } from 'path'
 import t from 'tap'
-import { loader, plugin } from '../dist/mjs/index.js'
+import { loader, plugin } from '../dist/esm/index.js'
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
 

@@ -3,7 +3,7 @@ import { Box, Text } from 'ink'
 import { render } from 'ink-testing-library'
 import React, { FC } from 'react'
 import t from 'tap'
-import { useTestTime } from '../../dist/hooks/use-test-time.js'
+import { useTestTime } from '../../dist/esm/hooks/use-test-time.js'
 import { sleep } from '../fixtures/sleep.js'
 
 const Tag: FC<{ test: Minimal }> = ({ test }) => {
@@ -32,7 +32,12 @@ t.test('get the time', async t => {
   t.equal(f[0], 0, 'first time is 0')
   t.ok(f.length > 1, 'got some time numbers')
   for (let i = 1; i < f.length; i++) {
-    t.ok(f[i] >= f[i - 1], 'numbers inreasing')
+    const n = f[i]
+    const p = f[i - 1]
+    t.ok(
+      typeof n === 'number' && typeof p === 'number' && n >= p,
+      'numbers inreasing'
+    )
     t.ok(f[i] === f[i], 'not NaN')
   }
 })

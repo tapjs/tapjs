@@ -6,8 +6,8 @@ import t from 'tap'
 
 t.test('no after config, nothing to do', async t => {
   const { runAfter } = (await t.mockImport(
-    '../dist/after.js'
-  )) as typeof import('../dist/after.js')
+    '../dist/esm/after.js'
+  )) as typeof import('../dist/esm/after.js')
   let afterCalled = false
   const tt = Object.assign(new EventEmitter(), {
     after: () => (afterCalled = true),
@@ -21,7 +21,7 @@ t.test('no after config, nothing to do', async t => {
 t.test('have after config, adds after that spawns', async t => {
   const expectArgs = ['a', 'b']
   let foregroundChildCalled = false
-  const { runAfter } = (await t.mockImport('../dist/after.js', {
+  const { runAfter } = (await t.mockImport('../dist/esm/after.js', {
     'foreground-child': {
       foregroundChild: (
         cmd: string,
@@ -34,7 +34,7 @@ t.test('have after config, adds after that spawns', async t => {
         cb()
       },
     },
-  })) as typeof import('../dist/after.js')
+  })) as typeof import('../dist/esm/after.js')
   let afterFunction!: () => Promise<void>
   let afterCalled = false
   const tt = Object.assign(new EventEmitter(), {

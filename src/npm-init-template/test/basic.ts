@@ -3,7 +3,7 @@ import { dirname, resolve } from 'path'
 import { Readable, Writable } from 'stream'
 import t from 'tap'
 import { fileURLToPath } from 'url'
-import { Init } from '../dist/mjs/index.js'
+import { Init } from '../dist/esm/index.js'
 
 // filter out node's --loader warnings
 const loaderLine =

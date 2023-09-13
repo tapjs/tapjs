@@ -95,9 +95,9 @@ const mockConfig = {
 
 t.test('passing commands', async t => {
   const { npmBg, install, uninstall } = (await t.mockImport(
-    '../dist/npm.js',
+    '../dist/esm/npm.js',
     mockPass
-  )) as typeof import('../dist/npm.js')
+  )) as typeof import('../dist/esm/npm.js')
   t.test('random command', async t => {
     const res = npmBg(['config', 'get', 'registry'], mockConfig)
     t.match(res, { status: 0, signal: null })
@@ -118,9 +118,9 @@ t.test('passing commands', async t => {
 
 t.test('failing commands', async t => {
   const { npmBg, install, uninstall } = (await t.mockImport(
-    '../dist/npm.js',
+    '../dist/esm/npm.js',
     mockFail
-  )) as typeof import('../dist/npm.js')
+  )) as typeof import('../dist/esm/npm.js')
   t.test('random command', async t => {
     const res = npmBg(['config', 'get', 'registry'], mockConfig)
     t.match(res, { status: 1, signal: 'SIGTERM' })

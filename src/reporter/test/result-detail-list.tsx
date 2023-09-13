@@ -7,16 +7,16 @@ import t from 'tap'
 import { getTest } from './fixtures/get-test.js'
 
 const { ResultDetailList } = (await t.mockImport(
-  '../dist/result-detail-list.js',
+  '../dist/esm/result-detail-list.js',
   {
-    '../dist/ms.js': {
+    '../dist/esm/ms.js': {
       ms: () => '{TIME}',
     },
-    '../dist/hooks/use-test-time.js': {
+    '../dist/esm/hooks/use-test-time.js': {
       useTestTime: () => 123,
     },
     chalk,
-    '../dist/stack.js': {
+    '../dist/esm/stack.js': {
       Stack: () => (
         <Box>
           <Text>XXX mock stack XXX</Text>
@@ -24,7 +24,7 @@ const { ResultDetailList } = (await t.mockImport(
       ),
     },
   }
-)) as typeof import('../dist/result-detail-list.js')
+)) as typeof import('../dist/esm/result-detail-list.js')
 
 const Banner: FC<{}> = () => (
   <Box>

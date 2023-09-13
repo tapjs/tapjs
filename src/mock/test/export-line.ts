@@ -1,5 +1,5 @@
 import t from 'tap'
-import { exportLine } from '../dist/mjs/export-line.js'
+import { exportLine } from '../dist/esm/export-line.js'
 
 t.test('create some export lines', t => {
   t.equal(

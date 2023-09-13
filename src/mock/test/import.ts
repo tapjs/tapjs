@@ -1,11 +1,11 @@
 import {resolveImport} from "resolve-import"
 import t from "tap"
 
-const importer = await resolveImport('../dist/mjs/import.js', import.meta.url)
-const loader = await resolveImport('../dist/mjs/loader.js', import.meta.url)
+const importer = await resolveImport('../dist/esm/import.mjs', import.meta.url)
+const loader = await resolveImport('../dist/esm/loader.mjs', import.meta.url)
 let registered = false
 let serviceStarted = false
-await t.mockImport('../dist/mjs/import.js', {
+await t.mockImport('../dist/esm/import.mjs', {
   module: {
     register: (url: URL|string, data:any) => {
       registered = true
@@ -26,7 +26,7 @@ await t.mockImport('../dist/mjs/import.js', {
       port2 = 'PORT 2'
     },
   },
-  '../dist/mjs/mock-service.js': {
+  '../dist/esm/mock-service.js': {
     MockService: {
       listen: (port: any) => {
         serviceStarted = true

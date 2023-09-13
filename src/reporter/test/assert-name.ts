@@ -1,7 +1,7 @@
 import type { Base } from '@tapjs/core'
 import t from 'tap'
 import type { Result } from 'tap-parser'
-import { assertName } from '../dist/assert-name.js'
+import { assertName } from '../dist/esm/assert-name.js'
 
 t.equal(
   assertName(

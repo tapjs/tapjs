@@ -1,5 +1,5 @@
 import t from 'tap'
-import { messageFromError } from '../dist/mjs/message-from-error.js'
+import { messageFromError } from '../dist/esm/message-from-error.js'
 
 t.equal(messageFromError('string'), 'string')
 t.equal(messageFromError(new Error('err obj')), 'err obj')

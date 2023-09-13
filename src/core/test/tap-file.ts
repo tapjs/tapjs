@@ -1,8 +1,8 @@
 import { Minipass } from 'minipass'
 import { relative, resolve } from 'path'
 import t from 'tap'
-import { Minimal } from '../dist/mjs/minimal.js'
-import { TapFile, TapFileOpts } from '../dist/mjs/tap-file.js'
+import { Minimal } from '../dist/esm/minimal.js'
+import { TapFile, TapFileOpts } from '../dist/esm/tap-file.js'
 
 t.cleanSnapshot = s =>
   s

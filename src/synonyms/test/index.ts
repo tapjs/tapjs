@@ -1,5 +1,5 @@
 import t from 'tap'
-import { plugin as SynonymPlugin } from '../dist/mjs/index.js'
+import { plugin as SynonymPlugin } from '../dist/esm/index.js'
 
 t.applyPlugin(SynonymPlugin).test(ts => {
   ts.not_ok(t.pluginLoaded(SynonymPlugin), 'not loaded by default')

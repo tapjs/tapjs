@@ -1,8 +1,8 @@
 import { fileURLToPath } from 'node:url'
 import { Worker as NodeWorker } from 'node:worker_threads'
 import t from 'tap'
-import { TestBase } from '../dist/mjs/test-base.js'
-import { Worker } from '../dist/mjs/worker.js'
+import { TestBase } from '../dist/esm/test-base.js'
+import { Worker } from '../dist/esm/worker.js'
 
 const __filename = fileURLToPath(import.meta.url)
 

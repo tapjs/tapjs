@@ -4,7 +4,7 @@ import { render } from 'ink-testing-library'
 import React from 'react'
 import t from 'tap'
 import { Result } from 'tap-parser'
-import { ResultTag } from '../dist/result-tag.js'
+import { ResultTag } from '../dist/esm/result-tag.js'
 
 import { at } from '@tapjs/stack'
 import { createTwoFilesPatch } from 'diff'

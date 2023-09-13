@@ -5,7 +5,7 @@ import {
   captureString,
 } from '@tapjs/stack'
 import t from 'tap'
-import { cleanYamlObject } from '../dist/mjs/clean-yaml-object.js'
+import { cleanYamlObject } from '../dist/esm/clean-yaml-object.js'
 
 t.cleanSnapshot = s =>
   s

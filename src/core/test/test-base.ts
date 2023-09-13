@@ -1,9 +1,9 @@
 import { Minipass } from 'minipass'
 import t from 'tap'
 import { FinalResults } from 'tap-parser'
-import { Counts } from '../dist/mjs/counts.js'
-import { Minimal as T } from '../dist/mjs/minimal.js'
-import { TestBase, TestBaseOpts } from '../dist/mjs/test-base.js'
+import { Counts } from '../dist/esm/counts.js'
+import { Minimal as T } from '../dist/esm/minimal.js'
+import { TestBase, TestBaseOpts } from '../dist/esm/test-base.js'
 
 const clean = (s: string): string =>
   s
@@ -645,11 +645,11 @@ t.test('end stuff', t => {
 })
 
 t.test('fullname when mainScript not available', async t => {
-  const { TestBase } = (await t.mockImport('../dist/mjs/index.js', {
-    '../dist/mjs/main-script.js': {
+  const { TestBase } = (await t.mockImport('../dist/esm/index.js', {
+    '../dist/esm/main-script.js': {
       mainScript: (def: string) => def,
     },
-  })) as typeof import('../dist/mjs/index.js')
+  })) as typeof import('../dist/esm/index.js')
   const tb = new TestBase({ name: 'full name' })
   t.equal(tb.fullname, 'TAP > full name')
 })

@@ -1,5 +1,5 @@
 import t from 'tap'
-import { Minimal } from '../dist/mjs/minimal.js'
+import { Minimal } from '../dist/esm/minimal.js'
 
 t.cleanSnapshot = (s: string): string =>
   s

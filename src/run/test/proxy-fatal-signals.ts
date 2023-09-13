@@ -1,7 +1,7 @@
 import { Minimal, Spawn, Worker } from '@tapjs/core'
 import t from 'tap'
 import { FinalResults } from 'tap-parser'
-import { proxyFatalSignals } from '../dist/proxy-fatal-signals.js'
+import { proxyFatalSignals } from '../dist/esm/proxy-fatal-signals.js'
 
 t.intercept(process, 'pid', { value: 123 })
 const kills = t.capture(process, 'kill')

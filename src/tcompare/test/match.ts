@@ -1,5 +1,5 @@
 import t, { Test } from 'tap'
-import * as compare from '../dist/mjs/index.js'
+import * as compare from '../dist/esm/index.js'
 
 const match = (t: Test, a: any, b: any) => {
   const m = compare.match(a, b)

@@ -1,5 +1,5 @@
 import t from 'tap'
-import { ms } from '../dist/ms.js'
+import { ms } from '../dist/esm/ms.js'
 t.equal(ms(0.123), '123µs')
 t.equal(ms(3), '3ms')
 t.equal(ms(3.333345678), '3.333ms')

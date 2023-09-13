@@ -4,25 +4,32 @@
   "version": "0.0.0",
   "description": "the plugged in Test class for node-tap",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/mjs/index.js",
-  "types": "./dist/mjs/index.d.ts",
   "exports": {
+    "./package.json": "./package.json",
     ".": {
       "import": {
-        "types": "./dist/mjs/index.d.ts",
-        "default": "./dist/mjs/index.js"
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
       },
       "require": {
-        "types": "./dist/cjs/index.d.ts",
-        "default": "./dist/cjs/index.js"
+        "types": "./dist/commonjs/index.d.ts",
+        "default": "./dist/commonjs/index.js"
       }
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "prepare": "tsc -p tsconfig/cjs.json && tsc -p tsconfig/esm.json && bash scripts/fixup.sh",
-    "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts"
+    "prepare": "tshy",
+    "typedoc": "typedoc --tsconfig .tshy/esm.json ./src/*.ts"
   },
-  "license": "BlueOak-1.0.0"
+  "license": "BlueOak-1.0.0",
+  "type": "module",
+  "tshy": {
+    "exports": {
+      "./package.json": "./package.json",
+      ".": "./src/index.ts"
+    }
+  }
 }

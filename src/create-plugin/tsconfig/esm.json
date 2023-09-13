@@ -1,7 +1,0 @@
-{
-  "extends": "./build.json",
-  "compilerOptions": {
-    "resolveJsonModule": true,
-    "module": "esnext"
-  }
-}

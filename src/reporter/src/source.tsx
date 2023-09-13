@@ -60,14 +60,15 @@ export const Source: FC<SourceOpts> = ({
           process.stdout.columns && process.stdout.columns - 5,
         /* c8 ignore stop */
       }).split('\n')
-      if (stringLength(lines[lines.length - 1]) === 0) lines.pop()
+      const lastLine = lines[lines.length - 1]
+      if (lastLine && stringLength(lastLine) === 0) lines.pop()
       const ctx = 4
       const startLine = Math.max(at.lineNumber - ctx, 0)
       const endLine = Math.min(at.lineNumber + ctx, lines.length)
       const numLen = at.lineNumber.toString().length
       const maxNumLen = lines.length.toString().length
       const excess = maxNumLen - numLen
-      const line = lines[at.lineNumber - 1]
+      const atLine = lines[at.lineNumber - 1] as string
       const before = lines.slice(startLine, at.lineNumber - 1)
       const after = lines.slice(at.lineNumber, endLine)
       const len = Math.min(...before.map(l => stringLength(l)))
@@ -76,7 +77,7 @@ export const Source: FC<SourceOpts> = ({
       const title = chalk.bgAnsi256(234).dim(msg.padEnd(len))
       const caret =
         at.columnNumber &&
-        at.columnNumber < stringLength(line) &&
+        at.columnNumber < stringLength(atLine) &&
         at.columnNumber > 0
           ? chalk.ansi256(252).bgAnsi256(234)(
               chalk.red(
@@ -91,11 +92,11 @@ export const Source: FC<SourceOpts> = ({
       if (!caret) {
         context.push(
           ...before.map(b => ' ' + b),
-          chalk.bold.red('▶') + line,
+          chalk.bold.red('▶') + atLine,
           ...after.map(l => ' ' + l)
         )
       } else {
-        context.push(...before, line, caret, ...after)
+        context.push(...before, atLine, caret, ...after)
       }
       return (
         <Box flexDirection="column">

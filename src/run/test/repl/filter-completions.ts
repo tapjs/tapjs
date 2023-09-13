@@ -1,5 +1,5 @@
 import t from 'tap'
-import { filterCompletions } from '../../dist/repl/filter-completions.js'
+import { filterCompletions } from '../../dist/esm/repl/filter-completions.js'
 
 const list = ['apple', 'approbium', 'application', 'banana', 'barbie', 'boggle']
 t.strictSame(filterCompletions(list, 'a'), ['apple', 'approbium', 'application'])

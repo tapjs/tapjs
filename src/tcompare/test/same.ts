@@ -1,6 +1,6 @@
 import t, { Test } from 'tap'
-import type { FormatOptions } from '../dist/mjs/index.js'
-import * as compare from '../dist/mjs/index.js'
+import type { FormatOptions } from '../dist/esm/index.js'
+import * as compare from '../dist/esm/index.js'
 
 const same = (
   t: Test,

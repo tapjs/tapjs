@@ -50,7 +50,8 @@ export const run = async (args: string[], config: LoadedConfig) => {
   const map = await getCoverageMap(config)
 
   const covExcludeFiles: (string | undefined)[] = []
-  let _TAPJS_PROCESSINFO_COV_EXCLUDE_FILES_: string | undefined = undefined
+  let _TAPJS_PROCESSINFO_COV_EXCLUDE_FILES_: string | undefined =
+    undefined
 
   return executeTestSuite(
     args,
@@ -69,7 +70,7 @@ export const run = async (args: string[], config: LoadedConfig) => {
           delete env[e]
         } else {
           const split = e.split('=')
-          const k = split[0]
+          const k = split[0] as string
           const v = split.slice(1).join('=')
           env[k] = v
         }

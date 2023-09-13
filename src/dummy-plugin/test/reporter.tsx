@@ -2,7 +2,7 @@ import { LoadedConfig } from '@tapjs/config'
 import { render } from 'ink-testing-library'
 import React from 'react'
 import t, { Minimal } from 'tap'
-import DummyReporter from '../dist/mjs/reporter.js'
+import DummyReporter from '../dist/esm/reporter.js'
 
 t.cleanSnapshot = s => s.replace(/# time=.*/g, '# time={TIME}')
 

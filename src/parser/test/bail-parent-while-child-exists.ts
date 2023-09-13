@@ -5,7 +5,7 @@ ok 1 - this is fine
 Bail out! # saw that coming
 `
 
-import { Parser as P } from '../dist/mjs/index.js'
+import { Parser as P } from '../dist/esm/index.js'
 import etoa from 'events-to-array'
 const ignore = [
   'pipe',

@@ -11,7 +11,7 @@ import {
   isTestLog,
   LogEntry,
   useLog,
-} from '../../dist/hooks/use-log.js'
+} from '../../dist/esm/hooks/use-log.js'
 import { reduce } from '../fixtures/reduce.js'
 
 const Tag: FC<{

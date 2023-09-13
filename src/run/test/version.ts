@@ -3,8 +3,8 @@ import t from 'tap'
 import { LoadedConfig } from '@tapjs/config'
 import { signature } from '@tapjs/test'
 
-import { tryGetVersion } from '../dist/try-get-version.js'
-import { version } from '../dist/version.js'
+import { tryGetVersion } from '../dist/esm/try-get-version.js'
+import { version } from '../dist/esm/version.js'
 
 // any time the runner loads, it sets the envs to the resolved config
 // reset it after every test. Use a fake intercept version instead.
@@ -27,8 +27,8 @@ t.test('basic version', async t => {
       const result = logs.args()
       t.match(result, [[String]])
       t.equal(result.length, 1)
-      t.equal(result[0].length, 1)
-      if (!v) v = result[0][0]
+      t.equal(result[0]?.length, 1)
+      if (!v) v = result[0]?.[0]
       else t.strictSame(result, [[v]])
     })
   }
@@ -59,15 +59,15 @@ t.test('fallback if version not found', async t => {
   type T = typeof t
 
   const runTest = async (t: T, tv: RegExp | null) => {
-    const { version } = (await t.mockImport('../dist/version.js', {
+    const { version } = (await t.mockImport('../dist/esm/version.js', {
       '@tapjs/test': {
         signature,
       },
-      '../dist/try-get-version.js': {
+      '../dist/esm/try-get-version.js': {
         tryGetVersion: (pkg: string) =>
           broken.includes(pkg) ? undefined : tryGetVersion(pkg),
       },
-    })) as typeof import('../dist/version.js')
+    })) as typeof import('../dist/esm/version.js')
     const logs = t.capture(console, 'log')
     const config = { get: () => false } as unknown as LoadedConfig
     if (tv === null) {

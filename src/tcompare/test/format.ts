@@ -1,8 +1,8 @@
 import t from 'tap'
 import { Minipass } from 'minipass'
 import assert from 'node:assert'
-import { format, Format } from '../dist/mjs/index.js'
-import { StyleType } from '../dist/mjs/styles.js'
+import { format, Format } from '../dist/esm/index.js'
+import { StyleType } from '../dist/esm/styles.js'
 
 // this is here so we can work with assertion errors and other
 // inspection output from node 12 and 13, where cyclical refs

@@ -3,7 +3,7 @@ import { Box, Text } from 'ink'
 import { render } from 'ink-testing-library'
 import React, { FC } from 'react'
 import t from 'tap'
-import { useAssertTotals } from '../../dist/hooks/use-assert-totals.js'
+import { useAssertTotals } from '../../dist/esm/hooks/use-assert-totals.js'
 
 const Tag: FC<{ test: Minimal }> = ({ test }) => {
   const totals = useAssertTotals(test)

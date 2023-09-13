@@ -2,7 +2,7 @@ import nock from 'nock'
 import fetch from 'node-fetch'
 import { createServer } from 'node:http'
 import tap, { Test } from 'tap'
-import { plugin } from '../dist/mjs/index.js'
+import { plugin } from '../dist/esm/index.js'
 const t = tap.applyPlugin(plugin)
 
 t.equal(

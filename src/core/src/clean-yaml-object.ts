@@ -56,9 +56,11 @@ export const cleanYamlObject = (object: { [k: string]: any }) => {
       if (res.at.lineNumber <= lines.length) {
         const startLine = Math.max(res.at.lineNumber - 3, 0)
         const endLine = Math.min(res.at.lineNumber + 2, lines.length)
+        const line = lines[res.at.lineNumber - 1]
         const caret =
           res.at.columnNumber &&
-          res.at.columnNumber <= lines[res.at.lineNumber - 1].length
+          line &&
+          res.at.columnNumber <= line.length
             ? ['-'.repeat(res.at.columnNumber - 1) + '^']
             : []
         const context = lines

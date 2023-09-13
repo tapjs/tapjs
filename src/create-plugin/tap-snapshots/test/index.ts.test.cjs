@@ -22,24 +22,24 @@ Object {
   "exports": Object {
     ".": Object {
       "import": Object {
-        "default": "./dist/mjs/index.js",
-        "types": "./dist/mjs/index.d.ts",
+        "default": "./dist/esm/index.js",
+        "types": "./dist/esm/index.d.ts",
       },
       "require": Object {
-        "default": "./dist/cjs/index.js",
-        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/commonjs/index.js",
+        "types": "./dist/commonjs/index.d.ts",
       },
     },
     "./import": Object {
       "import": Object {
-        "default": "./dist/mjs/import.js",
-        "types": "./dist/mjs/import.d.ts",
+        "default": "./dist/esm/import.mjs",
+        "types": "./dist/esm/import.d.mts",
       },
     },
     "./loader": Object {
       "import": Object {
-        "default": "./dist/mjs/loader.js",
-        "types": "./dist/mjs/loader.d.ts",
+        "default": "./dist/esm/legacy-loader.mjs",
+        "types": "./dist/esm/legacy-loader.d.mts",
       },
     },
     "./package.json": Object {
@@ -69,17 +69,22 @@ Object {
   "scripts": Object {
     "format": "prettier --write . --loglevel warn",
     "postversion": "npm publish",
-    "prepare": "tsc -p tsconfig/cjs.json && tsc -p tsconfig/esm.json && bash ./scripts/fixup.sh",
+    "prepare": "tshy",
     "prepublishOnly": "git push origin --follow-tags",
     "presnap": "npm run prepare",
     "pretest": "npm run prepare",
     "preversion": "npm test",
     "snap": "tap",
     "test": "tap",
-    "typedoc": "typedoc --tsconfig tsconfig/esm.json ./src/*.ts",
+    "typedoc": "typedoc --tsconfig .tshy/esm.json ./src/*.ts ./src/*.mts",
   },
   "tap": Object {
     "typecheck": false,
+  },
+  "tshy": Object {
+    "./import": "./src/import.mts",
+    "./loader": "./src/legacy-loader.mts",
+    "./package.json": "./package.json",
   },
   "type": "module",
   "version": "0.0.0-0",

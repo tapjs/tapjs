@@ -1,6 +1,6 @@
 import { LoadedConfig } from '@tapjs/config'
 import t from 'tap'
-import { getInstalledVersion } from '../dist/get-installed-version.js'
+import { getInstalledVersion } from '../dist/esm/get-installed-version.js'
 
 const dir = t.testdir({
   node_modules: {

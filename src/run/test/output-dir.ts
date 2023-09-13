@@ -6,11 +6,11 @@ import t from 'tap'
 
 t.test('if no output-dir, do nothing special', async t => {
   const mkdirpCalled: string[] = []
-  const { outputDir } = (await t.mockImport('../dist/output-dir.js', {
+  const { outputDir } = (await t.mockImport('../dist/esm/output-dir.js', {
     mkdirp: {
       mkdirpSync: (p: string) => mkdirpCalled.push(p),
     },
-  })) as typeof import('../dist/output-dir.js')
+  })) as typeof import('../dist/esm/output-dir.js')
   const tt = new EventEmitter()
   outputDir(
     tt as unknown as TAP,
@@ -36,7 +36,7 @@ t.test('if has output-dir, do stuff on spawn', async t => {
   let pipeCalled = false
   const expectDir = resolve('output-dir')
   const expectFile = resolve(expectDir, 'test-name.tap')
-  const { outputDir } = (await t.mockImport('../dist/output-dir.js', {
+  const { outputDir } = (await t.mockImport('../dist/esm/output-dir.js', {
     mkdirp: {
       mkdirpSync: (p: string) => mkdirpCalled.push(p),
     },
@@ -44,7 +44,7 @@ t.test('if has output-dir, do stuff on spawn', async t => {
       createWriteStream: (file: string) =>
         createWriteStreamCalled.push(file),
     },
-  })) as typeof import('../dist/output-dir.js')
+  })) as typeof import('../dist/esm/output-dir.js')
   const tt = new EventEmitter()
   outputDir(
     tt as unknown as TAP,

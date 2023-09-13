@@ -1,5 +1,5 @@
 import t, { Test } from 'tap'
-import { MatchOnlyStrict } from '../dist/mjs/index.js'
+import { MatchOnlyStrict } from '../dist/esm/index.js'
 
 const match = (t: Test, a: any, b: any) => {
   const m = new MatchOnlyStrict(a, { expect: b })

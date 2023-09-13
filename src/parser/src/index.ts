@@ -580,8 +580,8 @@ export class Parser
   }
 
   clearExtraQueue() {
-    for (let c = 0; c < this.#extraQueue.length; c++) {
-      this.emit(this.#extraQueue[c][0], this.#extraQueue[c][1])
+    for (const [ev, data] of this.#extraQueue) {
+      this.emit(ev, data)
     }
     this.#extraQueue.length = 0
   }
@@ -921,25 +921,31 @@ export class Parser
 
     // ok, now it's maybe a thing
     if (type[0] === 'bailout') {
-      this.bailout(unesc(type[1][1].trim()), false)
+      const msg = type[1]?.[1] || ''
+      this.bailout(unesc(msg), false)
       return
     }
 
     if (type[0] === 'pragma') {
-      const pragma = type[1]
-      this.pragma(pragma[2], pragma[1] === '+', line)
+      const [_, posNeg, key] = type[1]
+      this.pragma(String(key), posNeg === '+', line)
       return
     }
 
     if (type[0] === 'version') {
       const version = type[1]
-      this.version(parseInt(version[1], 10), line)
+      this.version(parseInt(String(version[1]), 10), line)
       return
     }
 
     if (type[0] === 'plan') {
       const plan = type[1]
-      this.plan(+plan[1], +plan[2], unesc(plan[3] || '').trim(), line)
+      this.plan(
+        +String(plan[1]),
+        +String(plan[2]),
+        unesc(plan[3] || '').trim(),
+        line
+      )
       return
     }
 
@@ -1038,9 +1044,9 @@ export class Parser
       // between an anonymous subtest with a non-indented Subtest comment,
       // and an indented Subtest comment.
       const s = line.match(/( {4})+(.*\n)$/)
-      if (s && s[2].charAt(0) !== ' ') {
+      if (s && s[2]?.charAt(0) !== ' ') {
         // integer number of indentations.
-        const type = lineType(s[2])
+        const type = lineType(String(s[2]))
         if (type) {
           if (type[0] === 'comment') {
             this.emit('line', line)

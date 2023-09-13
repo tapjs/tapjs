@@ -4,7 +4,7 @@ import {
   importLoader,
   loader,
   plugin,
-} from '../dist/mjs/index.js'
+} from '../dist/esm/index.js'
 
 const withPlug = t.applyPlugin(plugin)
 t.test('loader has global preload only', async t => {

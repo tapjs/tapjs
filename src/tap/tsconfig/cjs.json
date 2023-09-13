@@ -1,8 +1,0 @@
-{
-  "extends": "./build.json",
-  "include": ["../src/**/*.ts", "../src/**/*.cts"],
-  "compilerOptions": {
-    "module": "commonjs",
-    "outDir": "../dist-tmp/cjs"
-  }
-}

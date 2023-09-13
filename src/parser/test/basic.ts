@@ -1,7 +1,7 @@
 import t from 'tap'
-import type { FinalResults } from '../dist/mjs/index.js'
-import * as DefaultExport from '../dist/mjs/index.js'
-import { Parser } from '../dist/mjs/index.js'
+import type { FinalResults } from '../dist/esm/index.js'
+import * as DefaultExport from '../dist/esm/index.js'
+import { Parser } from '../dist/esm/index.js'
 
 t.test('re-exports stuff', t => {
   t.match(DefaultExport, {

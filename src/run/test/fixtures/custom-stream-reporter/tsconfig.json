@@ -10,8 +10,8 @@
     "sourceMap": true,
     "strict": true,
     "target": "es2022",
-    "module": "esnext",
-    "moduleResolution": "Node16",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
     "skipLibCheck": true
   }
 }

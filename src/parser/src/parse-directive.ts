@@ -22,9 +22,11 @@ export const parseDirective = (
   const time = line.match(
     /^time=((?:[1-9][0-9]*|0)(?:\.[0-9]+)?)(ms|s)$/i
   )
-  if (time) {
-    let n = +time[1]
-    if (time[2] === 's') {
+  const t = time?.[1]
+  const s = time?.[2]
+  if (typeof t === 'string') {
+    let n = +t
+    if (s === 's') {
       // JS does weird things with floats.  Round it off a bit.
       n *= 1000000
       n = Math.round(n)
@@ -33,10 +35,12 @@ export const parseDirective = (
     return ['time', n]
   }
 
-  const type = line.match(/^(todo|skip)(?:\S*)\b(.*)$/i)
+  const ts = line.match(/^(todo|skip)(?:\S*)\b(.*)$/i)
+  const type = ts?.[1]?.toLowerCase()
+  const msg = ts?.[2]?.trim()
   if (!type) return false
 
   // we know at this point it must be either 'todo' or 'skip',
   // in unknown upper/lower case
-  return [type[1].toLowerCase() as Directive, type[2].trim() || true]
+  return [type as Directive, msg || true]
 }

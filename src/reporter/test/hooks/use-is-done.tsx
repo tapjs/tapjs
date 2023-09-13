@@ -3,7 +3,7 @@ import { Box, Text } from 'ink'
 import { render } from 'ink-testing-library'
 import React, { FC } from 'react'
 import t from 'tap'
-import { useIsDone } from '../../dist/hooks/use-is-done.js'
+import { useIsDone } from '../../dist/esm/hooks/use-is-done.js'
 import { reduce } from '../fixtures/reduce.js'
 import { sleep } from '../fixtures/sleep.js'
 

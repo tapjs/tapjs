@@ -18,7 +18,9 @@ export const mungeMocks = (
         : { default: v }
     if (isBuiltin(k)) {
       mocks[k] = m
+      /* c8 ignore start */
       if (k.startsWith('node:')) {
+        /* c8 ignore stop */
         const bare = k.substring('node:'.length)
         if (!(bare in mocksInput)) {
           mocks[bare] = m

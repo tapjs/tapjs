@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import t from 'tap'
 import { fileURLToPath } from 'url'
-import { Parser } from '../dist/mjs/index.js'
+import { Parser } from '../dist/esm/index.js'
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
 

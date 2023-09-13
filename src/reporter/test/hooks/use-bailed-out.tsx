@@ -3,7 +3,7 @@ import { Box, Text } from 'ink'
 import { render } from 'ink-testing-library'
 import React, { FC } from 'react'
 import t from 'tap'
-import { useBailedOut } from '../../dist/hooks/use-bailed-out.js'
+import { useBailedOut } from '../../dist/esm/hooks/use-bailed-out.js'
 import { reduce } from '../fixtures/reduce.js'
 import { sleep } from '../fixtures/sleep.js'
 

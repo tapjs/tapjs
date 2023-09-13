@@ -4,16 +4,23 @@ import { resolve } from 'path'
 const isStringArray = (a: any): a is string[] =>
   Array.isArray(a) && !a.some(s => typeof s !== 'string')
 
+type CoverageMapFn = (file: string) => null | string | string[]
+
 export const getCoverageMap = async (config: LoadedConfig) => {
   const coverageMap = config.get('coverage-map')
   if (!coverageMap) return () => []
-  const map = (
-    await import(resolve(config.globCwd, coverageMap)).catch(er => {
-      throw new Error(
-        `Coverage map ${coverageMap} is not a valid module. ${er.message}`
-      )
-    })
-  ).default as (file: string) => null | string | string[]
+  const mapModule = (await import(
+    resolve(config.globCwd, coverageMap)
+  ).catch(er => {
+    throw new Error(
+      `Coverage map ${coverageMap} is not a valid module. ${er.message}`
+    )
+  })) as CoverageMapFn | { default: CoverageMapFn }
+  /* c8 ignore start */
+  const map =
+    typeof mapModule === 'object' ? mapModule.default : mapModule
+  /* c8 ignore stop */
+
   if (typeof map !== 'function') {
     throw new Error(
       `Coverage map ${coverageMap} did not default export a function`

@@ -12,8 +12,8 @@ t.test('do not run if already in the repl', async t => {
   process.env._TAP_REPL = '1'
   const errs = t.capture(console, 'error')
   const { repl } = (await t.mockImport(
-    '../dist/repl.js'
-  )) as typeof import('../dist/repl.js')
+    '../dist/esm/repl.js'
+  )) as typeof import('../dist/esm/repl.js')
   await repl([], {} as unknown as LoadedConfig)
   t.strictSame(errs.args(), [['you are already in the tap repl']])
   t.equal(process.exitCode, 1)
@@ -45,20 +45,20 @@ t.test('run a repl with no args', async t => {
   const r = new MockRepl()
   const logs = t.capture(console, 'log')
   const errs = t.capture(console, 'error')
-  const { repl } = (await t.mockImport('../dist/repl.js', {
+  const { repl } = (await t.mockImport('../dist/esm/repl.js', {
     '@tapjs/processinfo': {
       ProcessInfo: {
         load: () => ({}),
       },
     },
-    '../dist/repl/index.js': {
+    '../dist/esm/repl/index.js': {
       Repl: class Repl {
         constructor() {
           return r
         }
       },
     },
-  })) as typeof import('../dist/repl.js')
+  })) as typeof import('../dist/esm/repl.js')
   r.result = 'result'
   await repl([], { globCwd: 'cwd' } as unknown as LoadedConfig)
   t.equal(r.parsed, undefined)
@@ -71,20 +71,20 @@ t.test('run a repl with args', async t => {
   const r = new MockRepl()
   const logs = t.capture(console, 'log')
   const errs = t.capture(console, 'error')
-  const { repl } = (await t.mockImport('../dist/repl.js', {
+  const { repl } = (await t.mockImport('../dist/esm/repl.js', {
     '@tapjs/processinfo': {
       ProcessInfo: {
         load: () => ({}),
       },
     },
-    '../dist/repl/index.js': {
+    '../dist/esm/repl/index.js': {
       Repl: class Repl {
         constructor() {
           return r
         }
       },
     },
-  })) as typeof import('../dist/repl.js')
+  })) as typeof import('../dist/esm/repl.js')
   r.result = 'result'
   await repl(['a', 'b', 'c'], {
     globCwd: 'cwd',

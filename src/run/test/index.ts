@@ -17,8 +17,8 @@ t.test('help', async t => {
       })
       let helpRan = false
       t.not(process.env.TAP_HELP, '1')
-      await t.mockImport('../dist/index.js', {
-        '../dist/help.js': {
+      await t.mockImport('../dist/esm/index.js', {
+        '../dist/esm/help.js': {
           help: () => {
             helpRan = true
           },
@@ -40,8 +40,8 @@ t.test('version', async t => {
       })
       t.not(process.env.TAP_VERSION, '1')
       let versionRan = false
-      await t.mockImport('../dist/index.js', {
-        '../dist/version.js': {
+      await t.mockImport('../dist/esm/index.js', {
+        '../dist/esm/version.js': {
           version: () => {
             versionRan = true
           },
@@ -63,8 +63,8 @@ t.test('run', async t => {
         })
       }
       let runRan = false
-      await t.mockImport('../dist/index.js', {
-        '../dist/run.js': {
+      await t.mockImport('../dist/esm/index.js', {
+        '../dist/esm/run.js': {
           run: () => {
             runRan = true
           },
@@ -80,8 +80,8 @@ t.test('config', async t => {
   t.intercept(process, 'argv', {
     value: [...process.argv.slice(0, 2), 'config'],
   })
-  await t.mockImport('../dist/index.js', {
-    '../dist/config.js': {
+  await t.mockImport('../dist/esm/index.js', {
+    '../dist/esm/config.js': {
       config: () => {
         configRan = true
       },
@@ -99,8 +99,8 @@ t.test('other commands', t => {
         value: [...process.argv.slice(0, 2), cmd],
       })
       let cmdRan = false
-      await t.mockImport('../dist/index.js', {
-        [`../dist/${cmd}.js`]: {
+      await t.mockImport('../dist/esm/index.js', {
+        [`../dist/esm/${cmd}.js`]: {
           [cmd]: () => {
             cmdRan = true
             return []

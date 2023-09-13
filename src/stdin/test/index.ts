@@ -1,6 +1,6 @@
 import { Minipass } from 'minipass'
 import t from 'tap'
-import { plugin } from '../dist/mjs/index.js'
+import { plugin } from '../dist/esm/index.js'
 
 t.equal(t.pluginLoaded(plugin), true, 'plugin loaded by default')
 

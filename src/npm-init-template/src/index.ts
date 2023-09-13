@@ -54,18 +54,20 @@ export interface TemplateSetting {
   escape?: (raw: string) => string
 }
 
+const json: TemplateSetting = {
+  tags: ['<%', '%>'],
+  escape: s => JSON.stringify(s, null, 2),
+}
+const html: TemplateSetting = {}
 /**
  * Default settings passed to mustache
  */
 export const defaultTemplateSettings: TemplateSettings = {
   // html-likes use the default mustache escaping
-  html: {},
+  html,
 
   // json uses JSON.stringify
-  json: {
-    tags: ['<%', '%>'],
-    escape: s => JSON.stringify(s, null, 2),
-  },
+  json,
 
   // everything else passes the raw values through
   '*': {
@@ -73,12 +75,12 @@ export const defaultTemplateSettings: TemplateSettings = {
   },
 }
 
-defaultTemplateSettings.js = defaultTemplateSettings.json
-defaultTemplateSettings.jsx = defaultTemplateSettings.json
-defaultTemplateSettings.ts = defaultTemplateSettings.json
-defaultTemplateSettings.tsx = defaultTemplateSettings.json
-defaultTemplateSettings.xhtml = defaultTemplateSettings.html
-defaultTemplateSettings.xml = defaultTemplateSettings.html
+defaultTemplateSettings.js = json
+defaultTemplateSettings.jsx = json
+defaultTemplateSettings.ts = json
+defaultTemplateSettings.tsx = json
+defaultTemplateSettings.xhtml = html
+defaultTemplateSettings.xml = html
 
 /**
  * Main class instantiated to prompt for values, build up the data
@@ -166,7 +168,8 @@ export class Init {
     key: string,
     options: ReadOptions<string> = {}
   ): Promise<string> {
-    if (this.values[key] !== undefined) return this.values[key]
+    const v = this.values[key]
+    if (v !== undefined) return v
     if (
       options.default !== undefined &&
       (this.values.yes ||

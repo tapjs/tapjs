@@ -1,7 +1,7 @@
 import t from 'tap'
 
 import { Test, TestOpts } from '@tapjs/test'
-import { plugin } from '../dist/mjs/index.js'
+import { plugin } from '../dist/esm/index.js'
 
 t.equal(t.pluginLoaded(plugin), true, 'plugin is loaded')
 

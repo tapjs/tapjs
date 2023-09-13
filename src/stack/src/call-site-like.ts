@@ -134,7 +134,11 @@ export class CallSiteLike {
           this.isConstructor = false
         }
         this.methodName = null
-        const methodMatch = fname.match(methodRe)
+        const methodMatch = fname.match(methodRe) as [
+          string,
+          string,
+          string
+        ]
         if (methodMatch) {
           fname = methodMatch[1]
           method = methodMatch[2]
@@ -212,7 +216,7 @@ export class CallSiteLike {
           /* c8 ignore stop */
         )
         if (payload) {
-          const offset = [
+          const offset: [number, number] = [
             this.lineNumber - payload.generatedLine,
             /* c8 ignore start */
             (this.columnNumber || 1) - payload.generatedColumn,

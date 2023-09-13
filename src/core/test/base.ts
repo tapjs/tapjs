@@ -1,7 +1,7 @@
 import { CallSiteLike } from '@tapjs/stack'
 import t from 'tap'
-import { Base } from '../dist/mjs/base.js'
-import { Minimal } from '../dist/mjs/minimal.js'
+import { Base } from '../dist/esm/base.js'
+import { Minimal } from '../dist/esm/minimal.js'
 
 t.test('basic instantiation', t => {
   const b = new Base({})

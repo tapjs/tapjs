@@ -5,7 +5,7 @@ import {
   CaptureResultsMethod,
   InterceptResultsMethod,
   plugin,
-} from '../dist/mjs/index.js'
+} from '../dist/esm/index.js'
 t.equal(t.pluginLoaded(plugin), true, 'plugin is loaded')
 
 // restore() calls are duplicated to cover the no-op, just ensure

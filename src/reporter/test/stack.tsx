@@ -4,7 +4,7 @@ import t from 'tap'
 
 import { render } from 'ink-testing-library'
 import React from 'react'
-import { Stack } from '../dist/stack.js'
+import { Stack } from '../dist/esm/stack.js'
 
 // output generated from the @tapjs/stack parser test fixture
 const stack = [

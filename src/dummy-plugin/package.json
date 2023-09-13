@@ -7,53 +7,66 @@
   "keywords": [
     "tapjs plugin"
   ],
+  "tshy": {
+    "exports": {
+      "./package.json": "./package.json",
+      ".": "./src/index.ts",
+      "./loader": "./src/loader.mts",
+      "./import": "./src/import.mts",
+      "./reporter": "./src/reporter.tsx",
+      "./load-reporter": "./src/load-reporter.ts"
+    }
+  },
   "exports": {
-    "./package.json": {
-      "import": "./package.json",
-      "require": "./package.json"
-    },
+    "./package.json": "./package.json",
     ".": {
       "import": {
-        "types": "./dist/mjs/index.d.ts",
-        "default": "./dist/mjs/index.js"
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
       },
       "require": {
-        "types": "./dist/cjs/index.d.ts",
-        "default": "./dist/cjs/index.js"
+        "types": "./dist/commonjs/index.d.ts",
+        "default": "./dist/commonjs/index.js"
       }
     },
     "./loader": {
       "import": {
-        "types": "./dist/mjs/loader.d.mts",
-        "default": "./dist/mjs/loader.mjs"
+        "types": "./dist/esm/loader.d.mts",
+        "default": "./dist/esm/loader.mjs"
       }
     },
     "./import": {
       "import": {
-        "types": "./dist/mjs/import.d.mts",
-        "default": "./dist/mjs/import.mjs"
+        "types": "./dist/esm/import.d.mts",
+        "default": "./dist/esm/import.mjs"
       }
     },
     "./reporter": {
       "import": {
-        "types": "./dist/mjs/reporter.d.ts",
-        "default": "./dist/mjs/reporter.js"
+        "types": "./dist/esm/reporter.d.ts",
+        "default": "./dist/esm/reporter.js"
       },
-      "require": "./dist/cjs/no-op.js"
+      "require": {
+        "types": "./dist/commonjs/reporter.d.ts",
+        "default": "./dist/commonjs/reporter.js"
+      }
     },
     "./load-reporter": {
       "import": {
-        "types": "./dist/mjs/load-reporter.d.ts",
-        "default": "./dist/mjs/load-reporter.js"
+        "types": "./dist/esm/load-reporter.d.ts",
+        "default": "./dist/esm/load-reporter.js"
       },
-      "require": "./dist/cjs/no-op.js"
+      "require": {
+        "types": "./dist/commonjs/load-reporter.d.ts",
+        "default": "./dist/commonjs/load-reporter.js"
+      }
     }
   },
   "files": [
     "dist"
   ],
   "scripts": {
-    "prepare": "tsc -p tsconfig/cjs.json && tsc -p tsconfig/esm.json && bash ./scripts/fixup.sh",
+    "prepare": "tshy",
     "pretest": "npm run prepare",
     "presnap": "npm run prepare",
     "test": "tap",

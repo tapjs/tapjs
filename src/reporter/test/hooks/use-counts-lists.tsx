@@ -4,7 +4,7 @@ import { render } from 'ink-testing-library'
 import React, { FC } from 'react'
 import t from 'tap'
 import { Result } from 'tap-parser'
-import { useCountsLists } from '../../dist/hooks/use-counts-lists.js'
+import { useCountsLists } from '../../dist/esm/hooks/use-counts-lists.js'
 import { reduce } from '../fixtures/reduce.js'
 
 const Tag: FC<{ test: Minimal }> = ({ test }) => {

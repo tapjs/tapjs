@@ -10,7 +10,7 @@ import {
   mount,
   specify,
   tt,
-} from '../dist/mjs/index.js'
+} from '../dist/esm/index.js'
 
 const m = (n: string) => ({
   message: `must import 'tap' before calling ${n}()`,

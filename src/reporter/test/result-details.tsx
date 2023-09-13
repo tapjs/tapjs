@@ -5,17 +5,17 @@ import React from 'react'
 import t from 'tap'
 
 const { ResultDetails } = (await t.mockImport(
-  '../dist/result-details.js',
+  '../dist/esm/result-details.js',
   {
     chalk,
-    '../dist/stack.js': {
+    '../dist/esm/stack.js': {
       Stack: ({ stack }: { stack: string }) => (
         <Box>
           <Text>STACK {stack}</Text>
         </Box>
       ),
     },
-    '../dist/source.js': {
+    '../dist/esm/source.js': {
       Source: ({ at, source }: { at: any; source: string }) => (
         <Box flexDirection="column">
           <Text>AT {JSON.stringify(at)}</Text>
@@ -23,7 +23,7 @@ const { ResultDetails } = (await t.mockImport(
         </Box>
       ),
     },
-    '../dist/diff.js': {
+    '../dist/esm/diff.js': {
       Diff: ({ diff }: { diff: string }) => (
         <Box>
           <Text>DIFF {diff}</Text>
@@ -31,7 +31,7 @@ const { ResultDetails } = (await t.mockImport(
       ),
     },
   }
-)) as typeof import('../dist/result-details.js')
+)) as typeof import('../dist/esm/result-details.js')
 
 import { Result } from 'tap-parser'
 

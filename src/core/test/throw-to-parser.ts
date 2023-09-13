@@ -1,6 +1,6 @@
 import t from 'tap'
-import { Base } from '../dist/mjs/base.js'
-import { throwToParser } from '../dist/mjs/throw-to-parser.js'
+import { Base } from '../dist/esm/base.js'
+import { throwToParser } from '../dist/esm/throw-to-parser.js'
 
 t.test('already proxied', async t =>
   t.equal(throwToParser(t.parser, undefined), undefined)

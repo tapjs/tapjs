@@ -9,9 +9,9 @@
     "--loader=ts-node/esm",
     "--loader=@tapjs/mock/loader",
     "--enable-source-maps",
-    "--loader=file:///Users/isaacs/dev/tapjs/tapjs/node_modules/@tapjs/processinfo/dist/mjs/esm.mjs"
+    "--loader=file:///Users/isaacs/dev/tapjs/tapjs/node_modules/@tapjs/processinfo/dist/esm/esm.mjs"
   ],
-  "NODE_OPTIONS": "\"--loader=file:///Users/isaacs/dev/tapjs/tapjs/node_modules/@tapjs/processinfo/dist/mjs/esm.mjs\" \"--no-warnings=ExperimentalLoader\"",
+  "NODE_OPTIONS": "\"--loader=file:///Users/isaacs/dev/tapjs/tapjs/node_modules/@tapjs/processinfo/dist/esm/esm.mjs\" \"--no-warnings=ExperimentalLoader\"",
   "cwd": "/Users/isaacs/dev/tapjs/tapjs/src/run/test/fixtures/project",
   "pid": 7582,
   "ppid": 7580,

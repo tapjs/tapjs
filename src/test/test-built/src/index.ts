@@ -42,11 +42,11 @@ import { inspect } from 'node:util'
  */
 export const testFileExtensions = new Set(['js', 'cjs', 'mjs', 'tap'])
 //{{FILE TYPES START}}
-testFileExtensions.add("ts")
 testFileExtensions.add("cts")
-testFileExtensions.add("mts")
-testFileExtensions.add("tsx")
 testFileExtensions.add("jsx")
+testFileExtensions.add("mts")
+testFileExtensions.add("ts")
+testFileExtensions.add("tsx")
 //{{FILE TYPES END}}
 
 const kInspect = Symbol.for('nodejs.util.inspect.custom')

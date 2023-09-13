@@ -3,8 +3,8 @@ import t from 'tap'
 
 t.test('not a package spec to install', async t => {
   const { analyzePluginArg } = (await t.mockImport(
-    '../dist/analyze-plugin-arg.js'
-  )) as typeof import('../dist/analyze-plugin-arg.js')
+    '../dist/esm/analyze-plugin-arg.js'
+  )) as typeof import('../dist/esm/analyze-plugin-arg.js')
   t.strictSame(
     await analyzePluginArg('./blah', {} as unknown as LoadedConfig),
     {
@@ -30,16 +30,16 @@ t.test('not a package spec to install', async t => {
 
 t.test('package spec', async t => {
   const { analyzePluginArg } = (await t.mockImport(
-    '../dist/analyze-plugin-arg.js',
+    '../dist/esm/analyze-plugin-arg.js',
     {
-      '../dist/get-installed-version.js': {
+      '../dist/esm/get-installed-version.js': {
         getInstalledVersion: () => '1.0.0',
       },
-      '../dist/select-version.js': {
+      '../dist/esm/select-version.js': {
         selectVersion: () => '1.2.3',
       },
     }
-  )) as typeof import('../dist/analyze-plugin-arg.js')
+  )) as typeof import('../dist/esm/analyze-plugin-arg.js')
   t.strictSame(
     await analyzePluginArg('foo@1', {} as unknown as LoadedConfig),
     {

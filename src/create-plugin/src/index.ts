@@ -35,9 +35,10 @@ const slugify = (s: string) =>
 const pkgName = (s: string) => {
   if (/^@[^\/]+\/.+$/.test(s)) {
     const sp = s.split('/')
+    const ns = String(sp[0])
     return (
       '@' +
-      slugify(sp[0].substring(1)) +
+      slugify(ns.substring(1)) +
       '/' +
       slugify(sp.slice(1).join('/'))
     )
@@ -76,18 +77,19 @@ const target = await prompt('Folder to create in? ', 'target', {
 })
 
 await build({
-  templates: '../templates',
+  // from the build location, not the src location
+  templates: '../../templates',
   target,
-  exclude: values.git.trim().toLowerCase().startsWith('y')
+  exclude: values.git?.trim().toLowerCase().startsWith('y')
     ? []
     : ['.git*', '.github/**'],
 })
 
-if (values.install.trim().toLowerCase().startsWith('y')) {
+if (values.install?.trim().toLowerCase().startsWith('y')) {
   await run('npm install')
 }
 
-if (values.git.trim().toLowerCase().startsWith('y')) {
+if (values.git?.trim().toLowerCase().startsWith('y')) {
   await run('git init')
 }
 

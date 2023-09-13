@@ -20,7 +20,7 @@ const expect: [number, number][] = [
 t.test('availableParallelism ramp-up', async t => {
   for (const [o, e] of expect) {
     t.test(`n=${o}`, async t => {
-      const { jobs } = await t.mockImport('../dist/mjs/jobs.js', {
+      const { jobs } = await t.mockImport('../dist/esm/jobs.js', {
         os: {
           availableParallelism: () => o,
         },
@@ -33,7 +33,7 @@ t.test('availableParallelism ramp-up', async t => {
 t.test('cpus().length ramp-up', async t => {
   for (const [o, e] of expect) {
     t.test(`n=${o}`, async t => {
-      const { jobs } = await t.mockImport('../dist/mjs/jobs.js', {
+      const { jobs } = await t.mockImport('../dist/esm/jobs.js', {
         os: {
           cpus: () => new Array(o).fill({}),
         },

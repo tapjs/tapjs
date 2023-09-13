@@ -2,7 +2,7 @@ import { Minimal } from '@tapjs/core'
 import { render } from 'ink-testing-library'
 import React from 'react'
 import t from 'tap'
-import { TimedOut } from '../dist/timed-out.js'
+import { TimedOut } from '../dist/esm/timed-out.js'
 import './fixtures/chalk.js'
 
 t.test('time out a test with SIGALRM', async t => {

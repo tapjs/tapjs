@@ -12,9 +12,9 @@ const exits = t.capture(process, 'exit', () => {
 
 t.test('plugin already built into tap', async t => {
   const { getInstallSet } = (await t.mockImport(
-    '../dist/get-install-set.js',
+    '../dist/esm/get-install-set.js',
     {
-      '../dist/analyze-plugin-arg.js': {
+      '../dist/esm/analyze-plugin-arg.js': {
         analyzePluginArg: async () => ({
           name: 'a',
           versionInstalled: '1.2.3',
@@ -22,7 +22,7 @@ t.test('plugin already built into tap', async t => {
         }),
       },
     }
-  )) as typeof import('../dist/get-install-set.js')
+  )) as typeof import('../dist/esm/get-install-set.js')
   const config = {
     get: () => ['a', 'b', 'c'],
     values: {
@@ -43,9 +43,9 @@ t.test('plugin already built into tap', async t => {
 
 t.test('plugin already installed', async t => {
   const { getInstallSet } = (await t.mockImport(
-    '../dist/get-install-set.js',
+    '../dist/esm/get-install-set.js',
     {
-      '../dist/analyze-plugin-arg.js': {
+      '../dist/esm/analyze-plugin-arg.js': {
         analyzePluginArg: async () => ({
           name: 'x',
           versionInstalled: '1.2.3',
@@ -53,7 +53,7 @@ t.test('plugin already installed', async t => {
         }),
       },
     }
-  )) as typeof import('../dist/get-install-set.js')
+  )) as typeof import('../dist/esm/get-install-set.js')
   const config = {
     get: () => ['a', 'b', 'c'],
     values: {
@@ -74,12 +74,12 @@ t.test('plugin already installed', async t => {
 
 t.test('plugin exists, but wrong version', async t => {
   const { getInstallSet } = (await t.mockImport(
-    '../dist/get-install-set.js',
+    '../dist/esm/get-install-set.js',
     {
-      '../dist/pkg-exists.js': {
+      '../dist/esm/pkg-exists.js': {
         pkgExists: async () => true,
       },
-      '../dist/analyze-plugin-arg.js': {
+      '../dist/esm/analyze-plugin-arg.js': {
         analyzePluginArg: async () => ({
           name: 'x',
           versionInstalled: '1.2.0',
@@ -87,7 +87,7 @@ t.test('plugin exists, but wrong version', async t => {
         }),
       },
     }
-  )) as typeof import('../dist/get-install-set.js')
+  )) as typeof import('../dist/esm/get-install-set.js')
   const config = {
     get: () => ['a', 'b', 'c'],
     values: {
@@ -108,12 +108,12 @@ t.test('plugin exists, but wrong version', async t => {
 
 t.test('plugin not installed', async t => {
   const { getInstallSet } = (await t.mockImport(
-    '../dist/get-install-set.js',
+    '../dist/esm/get-install-set.js',
     {
-      '../dist/pkg-exists.js': {
+      '../dist/esm/pkg-exists.js': {
         pkgExists: async () => false,
       },
-      '../dist/analyze-plugin-arg.js': {
+      '../dist/esm/analyze-plugin-arg.js': {
         analyzePluginArg: async () => ({
           name: 'x',
           versionInstalled: '',
@@ -121,7 +121,7 @@ t.test('plugin not installed', async t => {
         }),
       },
     }
-  )) as typeof import('../dist/get-install-set.js')
+  )) as typeof import('../dist/esm/get-install-set.js')
   const config = {
     get: () => ['a', 'b', 'c'],
     values: {
@@ -142,12 +142,12 @@ t.test('plugin not installed', async t => {
 
 t.test('cannot resolve version', async t => {
   const { getInstallSet } = (await t.mockImport(
-    '../dist/get-install-set.js',
+    '../dist/esm/get-install-set.js',
     {
-      '../dist/pkg-exists.js': {
+      '../dist/esm/pkg-exists.js': {
         pkgExists: async () => false,
       },
-      '../dist/analyze-plugin-arg.js': {
+      '../dist/esm/analyze-plugin-arg.js': {
         analyzePluginArg: async () => ({
           name: 'x',
           versionInstalled: '',
@@ -155,7 +155,7 @@ t.test('cannot resolve version', async t => {
         }),
       },
     }
-  )) as typeof import('../dist/get-install-set.js')
+  )) as typeof import('../dist/esm/get-install-set.js')
   const config = {
     get: () => ['a', 'b', 'c'],
     values: {
@@ -172,9 +172,9 @@ t.test('cannot resolve version', async t => {
 
 t.test('re-adding disabled builtin', async t => {
   const { getInstallSet } = (await t.mockImport(
-    '../dist/get-install-set.js',
+    '../dist/esm/get-install-set.js',
     {
-      '../dist/analyze-plugin-arg.js': {
+      '../dist/esm/analyze-plugin-arg.js': {
         analyzePluginArg: async () => ({
           name: '@tapjs/mock',
           versionInstalled: '',
@@ -182,7 +182,7 @@ t.test('re-adding disabled builtin', async t => {
         }),
       },
     }
-  )) as typeof import('../dist/get-install-set.js')
+  )) as typeof import('../dist/esm/get-install-set.js')
   const config = {
     get: () => ['a', 'b', 'c', '!@tapjs/mock'],
     values: {

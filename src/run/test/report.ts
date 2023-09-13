@@ -156,11 +156,11 @@ t.test('omit text report for full coverage run', async t => {
     },
   })
   const comments = t.capture(mockTap, 'comment')
-  const { report } = (await t.mockImport('../dist/report.js', {
+  const { report } = (await t.mockImport('../dist/esm/report.js', {
     c8: { Report: MockReport },
     '@tapjs/core': mockCore,
-    '../dist/main-config.js': mockMainConf,
-  })) as typeof import('../dist/report.js')
+    '../dist/esm/main-config.js': mockMainConf,
+  })) as typeof import('../dist/esm/report.js')
   const config = new MockConfig(['text'])
   const logs = t.capture(console, 'log')
   await report([], config as unknown as LoadedConfig)
@@ -178,11 +178,11 @@ t.test('show full coverage explicit report', async t => {
     },
   })
   const comments = t.capture(mockTap, 'comment')
-  const { report } = (await t.mockImport('../dist/report.js', {
+  const { report } = (await t.mockImport('../dist/esm/report.js', {
     c8: { Report: MockReport },
     '@tapjs/core': mockCore,
-    '../dist/main-config.js': { mainCommand: 'report' },
-  })) as typeof import('../dist/report.js')
+    '../dist/esm/main-config.js': { mainCommand: 'report' },
+  })) as typeof import('../dist/esm/report.js')
   const config = new MockConfig(['text'])
   const logs = t.capture(console, 'log')
   await report([], config as unknown as LoadedConfig)
@@ -200,11 +200,11 @@ t.test('explicit report, full cov report explicit off', async t => {
     },
   })
   const comments = t.capture(mockTap, 'comment')
-  const { report } = (await t.mockImport('../dist/report.js', {
+  const { report } = (await t.mockImport('../dist/esm/report.js', {
     c8: { Report: MockReport },
     '@tapjs/core': mockCore,
-    '../dist/main-config.js': { mainCommand: 'report' },
-  })) as typeof import('../dist/report.js')
+    '../dist/esm/main-config.js': { mainCommand: 'report' },
+  })) as typeof import('../dist/esm/report.js')
   const config = new MockConfig(['text'])
   config.showFullCoverage = false
   const logs = t.capture(console, 'log')
@@ -235,15 +235,15 @@ t.test('run an html report', async t => {
       const comments = t.capture(mockTap, 'comment')
       let openerRan = false
       const htmlReport = resolve(globCwd, '.tap/report', file)
-      const { report } = (await t.mockImport('../dist/report.js', {
+      const { report } = (await t.mockImport('../dist/esm/report.js', {
         c8: { Report: MockReport },
         '@tapjs/core': mockCore,
         opener: (file: string) => {
           t.equal(file, htmlReport)
           openerRan = true
         },
-        '../dist/main-config.js': { mainCommand: 'report' },
-      })) as typeof import('../dist/report.js')
+        '../dist/esm/main-config.js': { mainCommand: 'report' },
+      })) as typeof import('../dist/esm/report.js')
       const config = new MockConfig([])
       const logs = t.capture(console, 'log')
       await report([style], config as unknown as LoadedConfig)
@@ -270,10 +270,10 @@ t.test('no coverage files generated', async t => {
     },
   })
   const comments = t.capture(mockTap, 'comment')
-  const { report } = (await t.mockImport('../dist/report.js', {
+  const { report } = (await t.mockImport('../dist/esm/report.js', {
     c8: { Report: MockReport },
     '@tapjs/core': mockCore,
-  })) as typeof import('../dist/report.js')
+  })) as typeof import('../dist/esm/report.js')
   const config = new MockConfig([])
   const logs = t.capture(console, 'log')
   await report([], config as unknown as LoadedConfig)
@@ -291,10 +291,10 @@ t.test('no coverage summary generated', async t => {
     },
   })
   const comments = t.capture(mockTap, 'comment')
-  const { report } = (await t.mockImport('../dist/report.js', {
+  const { report } = (await t.mockImport('../dist/esm/report.js', {
     c8: { Report: MockReport },
     '@tapjs/core': mockCore,
-  })) as typeof import('../dist/report.js')
+  })) as typeof import('../dist/esm/report.js')
   const config = new MockConfig([])
   const logs = t.capture(console, 'log')
   await report([], config as unknown as LoadedConfig)
@@ -314,14 +314,14 @@ t.test('not full coverage', async t => {
   const comments = t.capture(mockTap, 'comment')
   let openerRan = false
   const htmlReport = resolve(globCwd, '.tap/report/index.html')
-  const { report } = (await t.mockImport('../dist/report.js', {
+  const { report } = (await t.mockImport('../dist/esm/report.js', {
     c8: { Report: MockReport },
     '@tapjs/core': mockCore,
     opener: (file: string) => {
       t.equal(file, htmlReport)
       openerRan = true
     },
-  })) as typeof import('../dist/report.js')
+  })) as typeof import('../dist/esm/report.js')
   const config = new MockConfig([])
   const logs = t.capture(console, 'log')
   await report(['html'], config as unknown as LoadedConfig)

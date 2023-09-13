@@ -1,6 +1,6 @@
 import EventEmitter from 'node:events'
 import t, { Test } from 'tap'
-import { strict as compareStrict } from '../dist/mjs/index.js'
+import { strict as compareStrict } from '../dist/esm/index.js'
 
 const strict = (t: Test, a: any, b: any) => {
   const s = compareStrict(a, b)

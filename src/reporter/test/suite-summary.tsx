@@ -14,30 +14,30 @@ const run = async (
   bailedOut: string | boolean = false
 ) => {
   const { SuiteSummary } = (await t.mockImport(
-    '../dist/suite-summary.js',
+    '../dist/esm/suite-summary.js',
     {
       chalk,
-      '../dist/hooks/use-test-time.js': {
+      '../dist/esm/hooks/use-test-time.js': {
         useTestTime: () => 123,
       },
-      '../dist/hooks/use-timed-out.js': {
+      '../dist/esm/hooks/use-timed-out.js': {
         useTimedOut: () => timedOut,
       },
-      '../dist/hooks/use-comments.js': {
+      '../dist/esm/hooks/use-comments.js': {
         useComments: () => comments,
       },
-      '../dist/ms.js': { ms: () => '{TIME}' },
-      '../dist/hooks/use-assert-totals.js': {
+      '../dist/esm/ms.js': { ms: () => '{TIME}' },
+      '../dist/esm/hooks/use-assert-totals.js': {
         useAssertTotals: () => new Counts(asserts),
       },
-      '../dist/hooks/use-suite-totals.js': {
+      '../dist/esm/hooks/use-suite-totals.js': {
         useSuiteTotals: () => new Counts(suites),
       },
-      '../dist/hooks/use-bailed-out.js': {
+      '../dist/esm/hooks/use-bailed-out.js': {
         useBailedOut: () => bailedOut,
       },
     }
-  )) as typeof import('../dist/suite-summary.js')
+  )) as typeof import('../dist/esm/suite-summary.js')
   t.matchSnapshot(render(<SuiteSummary test={t} />).lastFrame())
 }
 

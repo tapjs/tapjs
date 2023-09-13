@@ -5,22 +5,25 @@
   "description": "A Test-Anything-Protocol library for JavaScript",
   "homepage": "http://www.node-tap.org/",
   "bin": {
-    "tap": "dist/mjs/run.mjs"
+    "tap": "dist/esm/run.mjs"
   },
   "type": "module",
+  "tshy": {
+    "exports": {
+      "./package.json": "./package.json",
+      ".": "./src/index.ts"
+    }
+  },
   "exports": {
-    "./package.json": {
-      "import": "./package.json",
-      "require": "./package.json"
-    },
+    "./package.json": "./package.json",
     ".": {
       "import": {
-        "types": "./dist/mjs/esm.d.mts",
-        "default": "./dist/mjs/esm.mjs"
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
       },
       "require": {
-        "types": "./dist/cjs/cjs.d.cts",
-        "default": "./dist/cjs/cjs.cjs"
+        "types": "./dist/commonjs/index.d.ts",
+        "default": "./dist/commonjs/index.js"
       }
     }
   },
@@ -61,7 +64,7 @@
   ],
   "license": "BlueOak-1.0.0",
   "scripts": {
-    "prepare": "tsc -p tsconfig/cjs.json && tsc -p tsconfig/esm.json && bash ./scripts/fixup.sh",
+    "prepare": "tshy",
     "pretest": "npm run prepare",
     "presnap": "npm run prepare",
     "test": "tap",

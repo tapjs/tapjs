@@ -3,7 +3,7 @@ import { Test } from '@tapjs/test'
 import { render } from 'ink-testing-library'
 import React from 'react'
 import t from 'tap'
-import { TestBadge } from '../dist/test-badge.js'
+import { TestBadge } from '../dist/esm/test-badge.js'
 import './fixtures/chalk.js'
 
 const run = async (t: Test, test: any) =>

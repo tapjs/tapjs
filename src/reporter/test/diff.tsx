@@ -3,7 +3,7 @@ import { createTwoFilesPatch } from 'diff'
 import { render } from 'ink-testing-library'
 import React from 'react'
 import t from 'tap'
-import { Diff } from '../dist/diff.js'
+import { Diff } from '../dist/esm/diff.js'
 
 t.test('diff some stuff', async t => {
   const found = {

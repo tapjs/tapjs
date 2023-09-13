@@ -1,5 +1,5 @@
 import t from 'tap'
-import { TestPoint } from '../dist/mjs/test-point.js'
+import { TestPoint } from '../dist/esm/test-point.js'
 
 for (const ok of [true, false]) {
   t.test(`ok=${ok}`, t => {

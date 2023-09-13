@@ -1,13 +1,13 @@
-import '../dist/mjs/index.js'
-import '../dist/cjs/index.js'
+import '../dist/esm/index.js'
+import '../dist/commonjs/index.js'
 
 import { ChildProcess } from 'child_process'
 import { basename } from 'path'
 import t from 'tap'
-import { Spawn as SpawnCJS } from '../dist/cjs/spawn.js'
-import { TestBase as TestBaseCJS } from '../dist/cjs/test-base.js'
-import { Spawn as SpawnMJS } from '../dist/mjs/spawn.js'
-import { TestBase as TestBaseMJS } from '../dist/mjs/test-base.js'
+import { Spawn as SpawnCJS } from '../dist/commonjs/spawn.js'
+import { TestBase as TestBaseCJS } from '../dist/commonjs/test-base.js'
+import { Spawn as SpawnMJS } from '../dist/esm/spawn.js'
+import { TestBase as TestBaseMJS } from '../dist/esm/test-base.js'
 
 const classes = [
   ['cjs', SpawnCJS, TestBaseCJS],

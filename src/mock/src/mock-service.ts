@@ -35,10 +35,10 @@ const getKey = () => randomBytes(8).toString('hex')
  * Build the source code for a mocked module.
  */
 const buildSrc = (m: MockService, url: string) => {
+  const mock = m?.mocks?.[url]
   /* c8 ignore start */
-  if (!m.mocks || !hasOwn(m.mocks, url)) return
+  if (!mock) return
   /* c8 ignore stop */
-  const mock = m.mocks[url]
 
   const { key } = m
 
@@ -198,6 +198,9 @@ export class MockService {
     if (!url.startsWith(`tapmock://${serviceKey}.`)) return
     const u = new URL(url)
     const [_, key] = u.host.split('.')
+    /* c8 ignore start */
+    if (!key) return
+    /* c8 ignore stop */
     return this.get(key).load(req)
   }
   async load({ url }: MockServiceLoadRequest) {

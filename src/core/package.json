@@ -4,29 +4,33 @@
   "description": "pluggable core of node-tap",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "type": "module",
+  "tshy": {
+    "exports": {
+      "./package.json": "./package.json",
+      ".": "./src/index.ts",
+      "./proc": "./src/proc.ts"
+    }
+  },
   "exports": {
-    "./package.json": {
-      "import": "./package.json",
-      "require": "./package.json"
-    },
+    "./package.json": "./package.json",
     ".": {
       "import": {
-        "types": "./dist/mjs/index.d.ts",
-        "default": "./dist/mjs/index.js"
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
       },
       "require": {
-        "types": "./dist/cjs/index.d.ts",
-        "default": "./dist/cjs/index.js"
+        "types": "./dist/commonjs/index.d.ts",
+        "default": "./dist/commonjs/index.js"
       }
     },
     "./proc": {
       "import": {
-        "types": "./dist/mjs/proc.d.ts",
-        "default": "./dist/mjs/proc.js"
+        "types": "./dist/esm/proc.d.ts",
+        "default": "./dist/esm/proc.js"
       },
       "require": {
-        "types": "./dist/cjs/proc.d.ts",
-        "default": "./dist/cjs/proc.js"
+        "types": "./dist/commonjs/proc.d.ts",
+        "default": "./dist/commonjs/proc.js"
       }
     }
   },
@@ -36,7 +40,7 @@
   "scripts": {
     "snap": "tap",
     "test": "tap",
-    "prepare": "tsc -p tsconfig/cjs.json && tsc -p tsconfig/esm.json && bash scripts/fixup.sh",
+    "prepare": "tshy",
     "pretest": "npm run prepare",
     "presnap": "npm run prepare",
     "format": "prettier --write . --loglevel warn --ignore-path ../../.prettierignore --cache",
@@ -46,7 +50,7 @@
     "coverage-map": "map.js"
   },
   "dependencies": {
-    "@tapjs/processinfo": "^3.1.0",
+    "@tapjs/processinfo": "^3.1.1",
     "@tapjs/stack": "0.0.0-7",
     "@tapjs/test": "0.0.0-21",
     "async-hook-domain": "^4.0.1",

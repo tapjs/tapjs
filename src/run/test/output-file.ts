@@ -7,7 +7,7 @@ import t from 'tap'
 t.test('if no output-file, do nothing special', async t => {
   let mkdirpCalled = false
   const { outputFile } = (await t.mockImport(
-    '../dist/output-file.js',
+    '../dist/esm/output-file.js',
     {
       mkdirp: {
         mkdirpSync: () => (mkdirpCalled = true),
@@ -18,7 +18,7 @@ t.test('if no output-file, do nothing special', async t => {
         },
       },
     }
-  )) as typeof import('../dist/output-file.js')
+  )) as typeof import('../dist/esm/output-file.js')
   const tt = new EventEmitter()
   outputFile(
     tt as unknown as TAP,
@@ -40,7 +40,7 @@ t.test('output-file, no reporter, pipe stdout and file', async t => {
   const mockWriteStream = { name: 'not a real write stream' }
   const expectFile = resolve('output-file')
   const { outputFile } = (await t.mockImport(
-    '../dist/output-file.js',
+    '../dist/esm/output-file.js',
     {
       mkdirp: {
         mkdirpSync: (dir: string) => {
@@ -69,7 +69,7 @@ t.test('output-file, no reporter, pipe stdout and file', async t => {
         },
       },
     }
-  )) as typeof import('../dist/output-file.js')
+  )) as typeof import('../dist/esm/output-file.js')
 
   const tt = Object.assign(new EventEmitter(), {
     register: () => (registerCalled = true),
@@ -103,7 +103,7 @@ t.test('output-file and reporter, pipe to file', async t => {
   const mockWriteStream = { name: 'not a real write stream' }
   const expectFile = resolve('output-file')
   const { outputFile } = (await t.mockImport(
-    '../dist/output-file.js',
+    '../dist/esm/output-file.js',
     {
       mkdirp: {
         mkdirpSync: (dir: string) => {
@@ -132,7 +132,7 @@ t.test('output-file and reporter, pipe to file', async t => {
         },
       },
     }
-  )) as typeof import('../dist/output-file.js')
+  )) as typeof import('../dist/esm/output-file.js')
 
   const tt = Object.assign(new EventEmitter(), {
     register: () => (registerCalled = true),

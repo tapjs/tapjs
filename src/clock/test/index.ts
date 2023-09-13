@@ -1,4 +1,4 @@
-import { plugin, Clock } from '../dist/mjs/index.js'
+import { plugin, Clock } from '../dist/esm/index.js'
 import t from 'tap'
 const withClock = t.applyPlugin(plugin)
 

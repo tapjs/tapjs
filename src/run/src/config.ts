@@ -39,14 +39,14 @@ const set = async (args: string[], config: LoadedConfig) => {
 
   const allDefs = config.jack.toJSON()
   for (const kv of args) {
-    const [key, ...r] = kv.split('=')
+    const [key, ...r] = kv.split('=') as [string, ...string[]]
     if (!r.length) {
       console.error(chalk.red(`no value provided for ${key}`))
       console.error(usage)
       process.exit(1)
     }
     const val = r.join('=')
-    const def = allDefs[key]
+    const def = allDefs[key as string]
     if (!def) {
       console.error(chalk.red('Unknown config key: ' + key))
       continue

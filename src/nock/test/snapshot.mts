@@ -5,7 +5,7 @@ import fetch from 'node-fetch'
 import path, { resolve } from 'path'
 import tap, { Test } from 'tap'
 import { fileURLToPath } from 'url'
-import { plugin } from '../dist/mjs/index.js'
+import { plugin } from '../dist/esm/index.js'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const t = tap.applyPlugin(plugin)

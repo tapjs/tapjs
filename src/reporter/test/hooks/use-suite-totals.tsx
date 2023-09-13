@@ -3,7 +3,7 @@ import { Box, Text } from 'ink'
 import { render } from 'ink-testing-library'
 import React, { FC } from 'react'
 import t from 'tap'
-import { useSuiteTotals } from '../../dist/hooks/use-suite-totals.js'
+import { useSuiteTotals } from '../../dist/esm/hooks/use-suite-totals.js'
 import { sleep } from '../fixtures/sleep.js'
 import { reduce } from '../fixtures/reduce.js'
 

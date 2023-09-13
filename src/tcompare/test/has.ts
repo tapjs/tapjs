@@ -1,5 +1,5 @@
 import t, { Test } from 'tap'
-import { has as compareHas, Has } from '../dist/mjs/index.js'
+import { has as compareHas, Has } from '../dist/esm/index.js'
 
 const has = (t: Test, a: any, b: any) => {
   const h = compareHas(a, b)

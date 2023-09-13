@@ -10,26 +10,32 @@
     "cli"
   ],
   "bin": {
-    "tap-run": "dist/index.js"
+    "tap-run": "dist/esm/index.js"
   },
   "files": [
     "dist"
   ],
+  "tshy": {
+    "dialects": [
+      "esm"
+    ],
+    "exports": {
+      "./package.json": "./package.json",
+      ".": "./src/index.ts"
+    }
+  },
   "exports": {
+    "./package.json": "./package.json",
     ".": {
       "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
       }
-    },
-    "./package.json": {
-      "import": "./package.json",
-      "require": "./package.json"
     }
   },
   "license": "BlueOak-1.0.0",
   "scripts": {
-    "prepare": "tsc -p tsconfig/esm.json && bash scripts/fixup.sh",
+    "prepare": "tshy",
     "pretest": "npm run prepare",
     "presnap": "npm run prepare",
     "test": "tap",
@@ -44,7 +50,7 @@
     "@tapjs/after": "0.0.0-21",
     "@tapjs/before": "0.0.0-21",
     "@tapjs/config": "2.0.0-22",
-    "@tapjs/processinfo": "^3.1.0",
+    "@tapjs/processinfo": "^3.1.1",
     "@tapjs/reporter": "0.0.0-23",
     "@tapjs/spawn": "0.0.0-21",
     "@tapjs/stdin": "0.0.0-21",

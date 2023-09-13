@@ -1,6 +1,6 @@
 import { LoadedConfig } from '@tapjs/config'
 import t from 'tap'
-import { help } from '../dist/help.js'
+import { help } from '../dist/esm/help.js'
 let usageCalled = false
 let usageMarkdownCalled = false
 const config = {

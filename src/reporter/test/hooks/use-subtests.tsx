@@ -4,7 +4,7 @@ import { Box, Text } from 'ink'
 import { render } from 'ink-testing-library'
 import React, { FC } from 'react'
 import t from 'tap'
-import { useSubtests } from '../../dist/hooks/use-subtests.js'
+import { useSubtests } from '../../dist/esm/hooks/use-subtests.js'
 
 import { getTest } from '../fixtures/get-test.js'
 import { reduce } from '../fixtures/reduce.js'
@@ -23,7 +23,9 @@ const Tag: FC<{
 
 const containsPrevious = (t: Test, list: string[][]) => {
   for (let i = 1; i < list.length; i++) {
-    t.strictSame(list[i - 1], list[i].slice(0, -1))
+    const l = list[i]
+    if (!l) continue
+    t.strictSame(list[i - 1], l.slice(0, -1))
   }
 }
 
