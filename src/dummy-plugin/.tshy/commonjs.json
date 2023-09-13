@@ -1,0 +1,16 @@
+{
+  "extends": "./build.json",
+  "include": [
+    "../src/**/*.ts",
+    "../src/**/*.cts",
+    "../src/**/*.tsx"
+  ],
+  "exclude": [
+    ".../src/**/*.mts",
+    "../src/load-reporter.ts",
+    "../src/reporter.tsx"
+  ],
+  "compilerOptions": {
+    "outDir": "../.tshy-build-tmp/commonjs"
+  }
+}
