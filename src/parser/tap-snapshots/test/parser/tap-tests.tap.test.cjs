@@ -5159,14 +5159,6 @@ Array [
   ],
   Array [
     "line",
-    "# /Users/isaacs/dev/js/tap/test/nested-tests-fixture.js\\n",
-  ],
-  Array [
-    "comment",
-    "# /Users/isaacs/dev/js/tap/test/nested-tests-fixture.js\\n",
-  ],
-  Array [
-    "line",
     "# TAP version 13\\n",
   ],
   Array [
@@ -7676,7 +7668,7 @@ Array [
   ],
   Array [
     "line",
-    "        getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\\n",
+    "        getCaller (/some/path/tap-assert.js:439:17)\\n",
   ],
   Array [
     "line",
@@ -7684,7 +7676,7 @@ Array [
   ],
   Array [
     "line",
-    "        Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\\n",
+    "        Function.assert (/some/path/tap-assert.js:21:16)\\n",
   ],
   Array [
     "line",
@@ -7692,7 +7684,7 @@ Array [
   ],
   Array [
     "line",
-    "        Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\\n",
+    "        Test._testAssert (/some/path/tap-test.js:87:16)\\n",
   ],
   Array [
     "line",
@@ -7700,7 +7692,7 @@ Array [
   ],
   Array [
     "line",
-    "        /Users/isaacs/dev/js/tap/test/test-descriptions.js:32:7\\n",
+    "        /some/path/test/test-descriptions.js:32:7\\n",
   ],
   Array [
     "line",
@@ -7763,10 +7755,10 @@ Array [
         "file": "child_process.js",
         "line": 707,
         "stack": Array [
-          "getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\\n",
-          "Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\\n",
-          "Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\\n",
-          "/Users/isaacs/dev/js/tap/test/test-descriptions.js:32:7\\n",
+          "getCaller (/some/path/tap-assert.js:439:17)\\n",
+          "Function.assert (/some/path/tap-assert.js:21:16)\\n",
+          "Test._testAssert (/some/path/tap-test.js:87:16)\\n",
+          "/some/path/test/test-descriptions.js:32:7\\n",
           "ChildProcess.exithandler (child_process.js:707:7)\\n",
           "emitTwo (events.js:87:13)\\n",
           "ChildProcess.emit (events.js:169:7)\\n",
@@ -7796,10 +7788,10 @@ Array [
         "file": "child_process.js",
         "line": 707,
         "stack": Array [
-          "getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\\n",
-          "Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\\n",
-          "Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\\n",
-          "/Users/isaacs/dev/js/tap/test/test-descriptions.js:32:7\\n",
+          "getCaller (/some/path/tap-assert.js:439:17)\\n",
+          "Function.assert (/some/path/tap-assert.js:21:16)\\n",
+          "Test._testAssert (/some/path/tap-test.js:87:16)\\n",
+          "/some/path/test/test-descriptions.js:32:7\\n",
           "ChildProcess.exithandler (child_process.js:707:7)\\n",
           "emitTwo (events.js:87:13)\\n",
           "ChildProcess.emit (events.js:169:7)\\n",
@@ -7829,10 +7821,10 @@ Array [
         "file": "child_process.js",
         "line": 707,
         "stack": Array [
-          "getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\\n",
-          "Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\\n",
-          "Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\\n",
-          "/Users/isaacs/dev/js/tap/test/test-descriptions.js:32:7\\n",
+          "getCaller (/some/path/tap-assert.js:439:17)\\n",
+          "Function.assert (/some/path/tap-assert.js:21:16)\\n",
+          "Test._testAssert (/some/path/tap-test.js:87:16)\\n",
+          "/some/path/test/test-descriptions.js:32:7\\n",
           "ChildProcess.exithandler (child_process.js:707:7)\\n",
           "emitTwo (events.js:87:13)\\n",
           "ChildProcess.emit (events.js:169:7)\\n",
@@ -8103,7 +8095,7 @@ Array [
   ],
   Array [
     "line",
-    "        getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\\n",
+    "        getCaller (/some/path/tap-assert.js:439:17)\\n",
   ],
   Array [
     "line",
@@ -8111,7 +8103,7 @@ Array [
   ],
   Array [
     "line",
-    "        Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\\n",
+    "        Function.assert (/some/path/tap-assert.js:21:16)\\n",
   ],
   Array [
     "line",
@@ -8119,7 +8111,7 @@ Array [
   ],
   Array [
     "line",
-    "        Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\\n",
+    "        Test._testAssert (/some/path/tap-test.js:87:16)\\n",
   ],
   Array [
     "line",
@@ -8127,7 +8119,7 @@ Array [
   ],
   Array [
     "line",
-    "        /Users/isaacs/dev/js/tap/test/test-descriptions.js:18:7\\n",
+    "        /some/path/test/test-descriptions.js:18:7\\n",
   ],
   Array [
     "line",
@@ -8182,10 +8174,10 @@ Array [
         "file": "child_process.js",
         "line": 707,
         "stack": Array [
-          "getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\\n",
-          "Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\\n",
-          "Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\\n",
-          "/Users/isaacs/dev/js/tap/test/test-descriptions.js:18:7\\n",
+          "getCaller (/some/path/tap-assert.js:439:17)\\n",
+          "Function.assert (/some/path/tap-assert.js:21:16)\\n",
+          "Test._testAssert (/some/path/tap-test.js:87:16)\\n",
+          "/some/path/test/test-descriptions.js:18:7\\n",
           "ChildProcess.exithandler (child_process.js:707:7)\\n",
           "emitTwo (events.js:87:13)\\n",
           "ChildProcess.emit (events.js:169:7)\\n",
@@ -8214,10 +8206,10 @@ Array [
         "file": "child_process.js",
         "line": 707,
         "stack": Array [
-          "getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\\n",
-          "Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\\n",
-          "Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\\n",
-          "/Users/isaacs/dev/js/tap/test/test-descriptions.js:18:7\\n",
+          "getCaller (/some/path/tap-assert.js:439:17)\\n",
+          "Function.assert (/some/path/tap-assert.js:21:16)\\n",
+          "Test._testAssert (/some/path/tap-test.js:87:16)\\n",
+          "/some/path/test/test-descriptions.js:18:7\\n",
           "ChildProcess.exithandler (child_process.js:707:7)\\n",
           "emitTwo (events.js:87:13)\\n",
           "ChildProcess.emit (events.js:169:7)\\n",
@@ -8246,10 +8238,10 @@ Array [
         "file": "child_process.js",
         "line": 707,
         "stack": Array [
-          "getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\\n",
-          "Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\\n",
-          "Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\\n",
-          "/Users/isaacs/dev/js/tap/test/test-descriptions.js:18:7\\n",
+          "getCaller (/some/path/tap-assert.js:439:17)\\n",
+          "Function.assert (/some/path/tap-assert.js:21:16)\\n",
+          "Test._testAssert (/some/path/tap-test.js:87:16)\\n",
+          "/some/path/test/test-descriptions.js:18:7\\n",
           "ChildProcess.exithandler (child_process.js:707:7)\\n",
           "emitTwo (events.js:87:13)\\n",
           "ChildProcess.emit (events.js:169:7)\\n",
@@ -8354,7 +8346,7 @@ Array [
   ],
   Array [
     "line",
-    "        getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\\n",
+    "        getCaller (/some/path/tap-assert.js:439:17)\\n",
   ],
   Array [
     "line",
@@ -8362,7 +8354,7 @@ Array [
   ],
   Array [
     "line",
-    "        Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\\n",
+    "        Function.assert (/some/path/tap-assert.js:21:16)\\n",
   ],
   Array [
     "line",
@@ -8370,7 +8362,7 @@ Array [
   ],
   Array [
     "line",
-    "        Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\\n",
+    "        Test._testAssert (/some/path/tap-test.js:87:16)\\n",
   ],
   Array [
     "line",
@@ -8378,7 +8370,7 @@ Array [
   ],
   Array [
     "line",
-    "        /Users/isaacs/dev/js/tap/test/test-descriptions.js:23:7\\n",
+    "        /some/path/test/test-descriptions.js:23:7\\n",
   ],
   Array [
     "line",
@@ -8433,10 +8425,10 @@ Array [
         "file": "child_process.js",
         "line": 707,
         "stack": Array [
-          "getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\\n",
-          "Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\\n",
-          "Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\\n",
-          "/Users/isaacs/dev/js/tap/test/test-descriptions.js:23:7\\n",
+          "getCaller (/some/path/tap-assert.js:439:17)\\n",
+          "Function.assert (/some/path/tap-assert.js:21:16)\\n",
+          "Test._testAssert (/some/path/tap-test.js:87:16)\\n",
+          "/some/path/test/test-descriptions.js:23:7\\n",
           "ChildProcess.exithandler (child_process.js:707:7)\\n",
           "emitTwo (events.js:87:13)\\n",
           "ChildProcess.emit (events.js:169:7)\\n",
@@ -8465,10 +8457,10 @@ Array [
         "file": "child_process.js",
         "line": 707,
         "stack": Array [
-          "getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\\n",
-          "Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\\n",
-          "Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\\n",
-          "/Users/isaacs/dev/js/tap/test/test-descriptions.js:23:7\\n",
+          "getCaller (/some/path/tap-assert.js:439:17)\\n",
+          "Function.assert (/some/path/tap-assert.js:21:16)\\n",
+          "Test._testAssert (/some/path/tap-test.js:87:16)\\n",
+          "/some/path/test/test-descriptions.js:23:7\\n",
           "ChildProcess.exithandler (child_process.js:707:7)\\n",
           "emitTwo (events.js:87:13)\\n",
           "ChildProcess.emit (events.js:169:7)\\n",
@@ -8497,10 +8489,10 @@ Array [
         "file": "child_process.js",
         "line": 707,
         "stack": Array [
-          "getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\\n",
-          "Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\\n",
-          "Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\\n",
-          "/Users/isaacs/dev/js/tap/test/test-descriptions.js:23:7\\n",
+          "getCaller (/some/path/tap-assert.js:439:17)\\n",
+          "Function.assert (/some/path/tap-assert.js:21:16)\\n",
+          "Test._testAssert (/some/path/tap-test.js:87:16)\\n",
+          "/some/path/test/test-descriptions.js:23:7\\n",
           "ChildProcess.exithandler (child_process.js:707:7)\\n",
           "emitTwo (events.js:87:13)\\n",
           "ChildProcess.emit (events.js:169:7)\\n",
@@ -8550,7 +8542,7 @@ Array [
   ],
   Array [
     "line",
-    "        getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\\n",
+    "        getCaller (/some/path/tap-assert.js:439:17)\\n",
   ],
   Array [
     "line",
@@ -8558,7 +8550,7 @@ Array [
   ],
   Array [
     "line",
-    "        Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\\n",
+    "        Function.assert (/some/path/tap-assert.js:21:16)\\n",
   ],
   Array [
     "line",
@@ -8566,7 +8558,7 @@ Array [
   ],
   Array [
     "line",
-    "        Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\\n",
+    "        Test._testAssert (/some/path/tap-test.js:87:16)\\n",
   ],
   Array [
     "line",
@@ -8574,7 +8566,7 @@ Array [
   ],
   Array [
     "line",
-    "        /Users/isaacs/dev/js/tap/test/test-descriptions.js:24:7\\n",
+    "        /some/path/test/test-descriptions.js:24:7\\n",
   ],
   Array [
     "line",
@@ -8629,10 +8621,10 @@ Array [
         "file": "child_process.js",
         "line": 707,
         "stack": Array [
-          "getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\\n",
-          "Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\\n",
-          "Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\\n",
-          "/Users/isaacs/dev/js/tap/test/test-descriptions.js:24:7\\n",
+          "getCaller (/some/path/tap-assert.js:439:17)\\n",
+          "Function.assert (/some/path/tap-assert.js:21:16)\\n",
+          "Test._testAssert (/some/path/tap-test.js:87:16)\\n",
+          "/some/path/test/test-descriptions.js:24:7\\n",
           "ChildProcess.exithandler (child_process.js:707:7)\\n",
           "emitTwo (events.js:87:13)\\n",
           "ChildProcess.emit (events.js:169:7)\\n",
@@ -8661,10 +8653,10 @@ Array [
         "file": "child_process.js",
         "line": 707,
         "stack": Array [
-          "getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\\n",
-          "Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\\n",
-          "Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\\n",
-          "/Users/isaacs/dev/js/tap/test/test-descriptions.js:24:7\\n",
+          "getCaller (/some/path/tap-assert.js:439:17)\\n",
+          "Function.assert (/some/path/tap-assert.js:21:16)\\n",
+          "Test._testAssert (/some/path/tap-test.js:87:16)\\n",
+          "/some/path/test/test-descriptions.js:24:7\\n",
           "ChildProcess.exithandler (child_process.js:707:7)\\n",
           "emitTwo (events.js:87:13)\\n",
           "ChildProcess.emit (events.js:169:7)\\n",
@@ -8693,10 +8685,10 @@ Array [
         "file": "child_process.js",
         "line": 707,
         "stack": Array [
-          "getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\\n",
-          "Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\\n",
-          "Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\\n",
-          "/Users/isaacs/dev/js/tap/test/test-descriptions.js:24:7\\n",
+          "getCaller (/some/path/tap-assert.js:439:17)\\n",
+          "Function.assert (/some/path/tap-assert.js:21:16)\\n",
+          "Test._testAssert (/some/path/tap-test.js:87:16)\\n",
+          "/some/path/test/test-descriptions.js:24:7\\n",
           "ChildProcess.exithandler (child_process.js:707:7)\\n",
           "emitTwo (events.js:87:13)\\n",
           "ChildProcess.emit (events.js:169:7)\\n",
@@ -19602,10 +19594,10 @@ Array [
             "file": "child_process.js",
             "line": 707,
             "stack": Array [
-              "getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\\n",
-              "Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\\n",
-              "Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\\n",
-              "/Users/isaacs/dev/js/tap/test/test-descriptions.js:32:7\\n",
+              "getCaller (/some/path/tap-assert.js:439:17)\\n",
+              "Function.assert (/some/path/tap-assert.js:21:16)\\n",
+              "Test._testAssert (/some/path/tap-test.js:87:16)\\n",
+              "/some/path/test/test-descriptions.js:32:7\\n",
               "ChildProcess.exithandler (child_process.js:707:7)\\n",
               "emitTwo (events.js:87:13)\\n",
               "ChildProcess.emit (events.js:169:7)\\n",
@@ -19632,10 +19624,10 @@ Array [
             "file": "child_process.js",
             "line": 707,
             "stack": Array [
-              "getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\\n",
-              "Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\\n",
-              "Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\\n",
-              "/Users/isaacs/dev/js/tap/test/test-descriptions.js:18:7\\n",
+              "getCaller (/some/path/tap-assert.js:439:17)\\n",
+              "Function.assert (/some/path/tap-assert.js:21:16)\\n",
+              "Test._testAssert (/some/path/tap-test.js:87:16)\\n",
+              "/some/path/test/test-descriptions.js:18:7\\n",
               "ChildProcess.exithandler (child_process.js:707:7)\\n",
               "emitTwo (events.js:87:13)\\n",
               "ChildProcess.emit (events.js:169:7)\\n",
@@ -19661,10 +19653,10 @@ Array [
             "file": "child_process.js",
             "line": 707,
             "stack": Array [
-              "getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\\n",
-              "Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\\n",
-              "Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\\n",
-              "/Users/isaacs/dev/js/tap/test/test-descriptions.js:23:7\\n",
+              "getCaller (/some/path/tap-assert.js:439:17)\\n",
+              "Function.assert (/some/path/tap-assert.js:21:16)\\n",
+              "Test._testAssert (/some/path/tap-test.js:87:16)\\n",
+              "/some/path/test/test-descriptions.js:23:7\\n",
               "ChildProcess.exithandler (child_process.js:707:7)\\n",
               "emitTwo (events.js:87:13)\\n",
               "ChildProcess.emit (events.js:169:7)\\n",
@@ -19690,10 +19682,10 @@ Array [
             "file": "child_process.js",
             "line": 707,
             "stack": Array [
-              "getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\\n",
-              "Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\\n",
-              "Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\\n",
-              "/Users/isaacs/dev/js/tap/test/test-descriptions.js:24:7\\n",
+              "getCaller (/some/path/tap-assert.js:439:17)\\n",
+              "Function.assert (/some/path/tap-assert.js:21:16)\\n",
+              "Test._testAssert (/some/path/tap-test.js:87:16)\\n",
+              "/some/path/test/test-descriptions.js:24:7\\n",
               "ChildProcess.exithandler (child_process.js:707:7)\\n",
               "emitTwo (events.js:87:13)\\n",
               "ChildProcess.emit (events.js:169:7)\\n",
@@ -25032,14 +25024,6 @@ Array [
   ],
   Array [
     "line",
-    "# /Users/isaacs/dev/js/tap/test/nested-tests-fixture.js\\n",
-  ],
-  Array [
-    "comment",
-    "# /Users/isaacs/dev/js/tap/test/nested-tests-fixture.js\\n",
-  ],
-  Array [
-    "line",
     "# TAP version 13\\n",
   ],
   Array [
@@ -27549,7 +27533,7 @@ Array [
   ],
   Array [
     "line",
-    "        getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\\n",
+    "        getCaller (/some/path/tap-assert.js:439:17)\\n",
   ],
   Array [
     "line",
@@ -27557,7 +27541,7 @@ Array [
   ],
   Array [
     "line",
-    "        Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\\n",
+    "        Function.assert (/some/path/tap-assert.js:21:16)\\n",
   ],
   Array [
     "line",
@@ -27565,7 +27549,7 @@ Array [
   ],
   Array [
     "line",
-    "        Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\\n",
+    "        Test._testAssert (/some/path/tap-test.js:87:16)\\n",
   ],
   Array [
     "line",
@@ -27573,7 +27557,7 @@ Array [
   ],
   Array [
     "line",
-    "        /Users/isaacs/dev/js/tap/test/test-descriptions.js:32:7\\n",
+    "        /some/path/test/test-descriptions.js:32:7\\n",
   ],
   Array [
     "line",
@@ -27636,10 +27620,10 @@ Array [
         "file": "child_process.js",
         "line": 707,
         "stack": Array [
-          "getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\\n",
-          "Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\\n",
-          "Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\\n",
-          "/Users/isaacs/dev/js/tap/test/test-descriptions.js:32:7\\n",
+          "getCaller (/some/path/tap-assert.js:439:17)\\n",
+          "Function.assert (/some/path/tap-assert.js:21:16)\\n",
+          "Test._testAssert (/some/path/tap-test.js:87:16)\\n",
+          "/some/path/test/test-descriptions.js:32:7\\n",
           "ChildProcess.exithandler (child_process.js:707:7)\\n",
           "emitTwo (events.js:87:13)\\n",
           "ChildProcess.emit (events.js:169:7)\\n",
@@ -27669,10 +27653,10 @@ Array [
         "file": "child_process.js",
         "line": 707,
         "stack": Array [
-          "getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\\n",
-          "Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\\n",
-          "Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\\n",
-          "/Users/isaacs/dev/js/tap/test/test-descriptions.js:32:7\\n",
+          "getCaller (/some/path/tap-assert.js:439:17)\\n",
+          "Function.assert (/some/path/tap-assert.js:21:16)\\n",
+          "Test._testAssert (/some/path/tap-test.js:87:16)\\n",
+          "/some/path/test/test-descriptions.js:32:7\\n",
           "ChildProcess.exithandler (child_process.js:707:7)\\n",
           "emitTwo (events.js:87:13)\\n",
           "ChildProcess.emit (events.js:169:7)\\n",
@@ -27702,10 +27686,10 @@ Array [
         "file": "child_process.js",
         "line": 707,
         "stack": Array [
-          "getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\\n",
-          "Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\\n",
-          "Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\\n",
-          "/Users/isaacs/dev/js/tap/test/test-descriptions.js:32:7\\n",
+          "getCaller (/some/path/tap-assert.js:439:17)\\n",
+          "Function.assert (/some/path/tap-assert.js:21:16)\\n",
+          "Test._testAssert (/some/path/tap-test.js:87:16)\\n",
+          "/some/path/test/test-descriptions.js:32:7\\n",
           "ChildProcess.exithandler (child_process.js:707:7)\\n",
           "emitTwo (events.js:87:13)\\n",
           "ChildProcess.emit (events.js:169:7)\\n",
@@ -27748,10 +27732,10 @@ Array [
             "file": "child_process.js",
             "line": 707,
             "stack": Array [
-              "getCaller (/Users/isaacs/dev/js/tap/lib/tap-assert.js:439:17)\\n",
-              "Function.assert (/Users/isaacs/dev/js/tap/lib/tap-assert.js:21:16)\\n",
-              "Test._testAssert (/Users/isaacs/dev/js/tap/lib/tap-test.js:87:16)\\n",
-              "/Users/isaacs/dev/js/tap/test/test-descriptions.js:32:7\\n",
+              "getCaller (/some/path/tap-assert.js:439:17)\\n",
+              "Function.assert (/some/path/tap-assert.js:21:16)\\n",
+              "Test._testAssert (/some/path/tap-test.js:87:16)\\n",
+              "/some/path/test/test-descriptions.js:32:7\\n",
               "ChildProcess.exithandler (child_process.js:707:7)\\n",
               "emitTwo (events.js:87:13)\\n",
               "ChildProcess.emit (events.js:169:7)\\n",
