@@ -1,6 +1,6 @@
 {
   "name": "tap-yaml",
-  "version": "2.1.1-2",
+  "version": "2.1.1-3",
   "description": "Yaml handling for TAP parsers and generators",
   "type": "module",
   "exports": {

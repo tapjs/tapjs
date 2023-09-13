@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/stdin",
-  "version": "0.0.0-21",
+  "version": "0.0.0-22",
   "description": "a built-in tap extension for t.stdin()",
   "type": "module",
   "exports": {
@@ -41,7 +41,7 @@
   },
   "homepage": "https://github.com/tapjs/tapjs/src/stdin#readme",
   "peerDependencies": {
-    "@tapjs/core": "0.0.0-21"
+    "@tapjs/core": "0.0.0-22"
   },
   "engines": {
     "node": ">=16"

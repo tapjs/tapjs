@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/clock",
-  "version": "0.0.0-11",
+  "version": "0.0.0-12",
   "description": "a make believe clock for tests involving time",
   "type": "module",
   "exports": {
@@ -47,7 +47,7 @@
     "endOfLine": "lf"
   },
   "peerDependencies": {
-    "@tapjs/core": "0.0.0-21"
+    "@tapjs/core": "0.0.0-22"
   },
   "engines": {
     "node": ">=16"

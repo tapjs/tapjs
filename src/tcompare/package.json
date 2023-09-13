@@ -1,6 +1,6 @@
 {
   "name": "tcompare",
-  "version": "6.0.1-4",
+  "version": "6.0.1-5",
   "description": "A comprehensive comparison library, for use in test frameworks",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://izs.me)",
   "license": "BlueOak-1.0.0",
