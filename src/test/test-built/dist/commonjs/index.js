@@ -148,6 +148,14 @@ const config = (jack) => {
     if (!(0, jackspeak_1.isConfigOption)(config_Plugin_snapshot_0, "boolean", false)) {
         throw new Error("Invalid config option 'snapshot' defined in plugin: '@tapjs/snapshot'");
     }
+    const config_Plugin_snapshot_1 = Plugin_snapshot.config["snapshot-clean-cwd"];
+    if (!(0, jackspeak_1.isConfigOption)(config_Plugin_snapshot_1, "boolean", false)) {
+        throw new Error("Invalid config option 'snapshot-clean-cwd' defined in plugin: '@tapjs/snapshot'");
+    }
+    const config_Plugin_snapshot_2 = Plugin_snapshot.config["no-snapshot-clean-cwd"];
+    if (!(0, jackspeak_1.isConfigOption)(config_Plugin_snapshot_2, "boolean", false)) {
+        throw new Error("Invalid config option 'no-snapshot-clean-cwd' defined in plugin: '@tapjs/snapshot'");
+    }
     const config_Plugin_typescript_0 = Plugin_typescript.config["typecheck"];
     if (!(0, jackspeak_1.isConfigOption)(config_Plugin_typescript_0, "boolean", false)) {
         throw new Error("Invalid config option 'typecheck' defined in plugin: '@tapjs/typescript'");
@@ -166,6 +174,8 @@ const config = (jack) => {
         .flag({ "save-fixture": config_Plugin_fixture_0 })
         .heading("From plugin: @tapjs/snapshot")
         .flag({ "snapshot": config_Plugin_snapshot_0 })
+        .flag({ "snapshot-clean-cwd": config_Plugin_snapshot_1 })
+        .flag({ "no-snapshot-clean-cwd": config_Plugin_snapshot_2 })
         .heading("From plugin: @tapjs/typescript")
         .flag({ "typecheck": config_Plugin_typescript_0 })
         .opt({ "tsconfig": config_Plugin_typescript_1 });

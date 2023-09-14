@@ -175,6 +175,37 @@ export declare const config: <C extends ConfigSet>(jack: Jack<C>) => Jack<C & im
         delim?: undefined;
     };
 }> & import("jackspeak").ConfigSetFromMetaSet<"boolean", false, {
+    "snapshot-clean-cwd": {
+        type: string;
+        default: boolean;
+        description: string;
+    } & {
+        type: "boolean";
+        short?: string | undefined;
+        default?: boolean | undefined;
+        description?: string | undefined;
+        hint?: undefined;
+        validate?: ((v: any) => v is boolean) | undefined;
+    } & {
+        multiple?: false | undefined;
+        delim?: undefined;
+    };
+}> & import("jackspeak").ConfigSetFromMetaSet<"boolean", false, {
+    "no-snapshot-clean-cwd": {
+        type: string;
+        description: string;
+    } & {
+        type: "boolean";
+        short?: string | undefined;
+        default?: boolean | undefined;
+        description?: string | undefined;
+        hint?: undefined;
+        validate?: ((v: any) => v is boolean) | undefined;
+    } & {
+        multiple?: false | undefined;
+        delim?: undefined;
+    };
+}> & import("jackspeak").ConfigSetFromMetaSet<"boolean", false, {
     typecheck: {
         type: string;
         default: boolean;

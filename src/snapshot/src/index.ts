@@ -12,6 +12,7 @@ import { relative, resolve } from 'path'
 import { CompareOptions, format, strict } from 'tcompare'
 import { Deferred } from 'trivial-deferred'
 import { fileURLToPath } from 'url'
+import { cleanCWD } from './clean-cwd.js'
 import { SnapshotProviderDefault } from './provider.js'
 
 const defaultFormatSnapshot =
@@ -269,6 +270,12 @@ export class SnapshotPlugin {
       })(Buffer.from(found))
     }
 
+    // for the cwd, probably the most common error in snapshot
+    // testing, see https://github.com/tapjs/tapjs/issues/885
+    if (process.env.TAP_SNAPSHOT_CLEAN_CWD !== '0') {
+      found = cleanCWD(found)
+    }
+
     if (this.writeSnapshot) {
       this.#snapshot.snap(found, m)
       return this.#t.pass(...me)
@@ -351,17 +358,17 @@ export class SnapshotPlugin {
   }
 }
 
-/**
- * Generate snapshot files for `t.matchSnapshot()` assertions.
- *
- * Defaults to true if the `TAP_SNAPSHOT` environment variable is set to
- * `1`, or if the `npm_lifecycle_event` environment variable is set to
- * either `snap` or `snapshot`.
- *
- * That is, if you put `"scripts": { "snap": "tap" }` in your package.json
- * file, then `npm run snap` will generate snapshots.
- */
 export const config = {
+  /**
+   * Generate snapshot files for `t.matchSnapshot()` assertions.
+   *
+   * Defaults to true if the `TAP_SNAPSHOT` environment variable is set to
+   * `1`, or if the `npm_lifecycle_event` environment variable is set to
+   * either `snap` or `snapshot`.
+   *
+   * That is, if you put `"scripts": { "snap": "tap" }` in your package.json
+   * file, then `npm run snap` will generate snapshots.
+   */
   snapshot: {
     type: 'boolean',
     short: 'S',
@@ -376,5 +383,47 @@ export const config = {
                   package.json file, then \`npm run snap\` will generate
                   snapshots.
     `,
+  },
+
+  /**
+   * Automatically clean the current working directory out of snapshot data,
+   * replacing it with a token.
+   *
+   * This helps prevent frustrating "works on my machine" when tests capture an
+   * error message or file path, but then fail when run on any other system,
+   * and so is enabled by default.`,
+   */
+  'snapshot-clean-cwd': {
+    type: 'boolean',
+    default: true,
+    description: `Automatically clean the current working directory out of
+                  snapshot data, replacing it with a token.
+
+                  This helps prevent frustrating "works on my machine" when
+                  tests capture an error message or file path, but then fail
+                  when run on any other system, and so is enabled by default.`,
+  },
+
+  /**
+   * Do not automatically clean the current working directory out of snapshot
+   * data, replacing it with a token.
+   *
+   * May be required when using fixtures or other snapshot data sources that
+   * intentionally include strings which happen to match the current working
+   * directory.
+   *
+   * Not recommended! It's better to leave this protection on, and edit your
+   * fixtures so that they do not include the cwd.
+   */
+  'no-snapshot-clean-cwd': {
+    type: 'boolean',
+    description: `Do not clean the current working directory out of snapshots
+
+                  May be required when using fixtures or other snapshot data
+                  sources that intentionally include strings which happen to
+                  match the current working directory.
+
+                  Not recommended! It's better to leave this protection on, and
+                  edit your fixtures so that they do not include the cwd.`,
   },
 }

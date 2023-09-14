@@ -27,7 +27,7 @@ class TestSnapshotProvider implements SnapshotProvider {
     testProviders.add(this)
   }
   read(msg: string) {
-    return this.data[msg]
+    return this.data[msg] as string
   }
   snap(data: string, msg: string) {
     this.data[msg] = data

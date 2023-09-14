@@ -7,6 +7,18 @@
 'use strict'
 exports[`test/index.ts > TAP > config 1`] = `
 Object {
+  "no-snapshot-clean-cwd": Object {
+    "description": String(
+      Do not clean the current working directory out of snapshots
+      
+                        May be required when using fixtures or other snapshot data
+                        sources that intentionally include strings which happen to
+                        match the current working directory.
+      
+                        Not recommended! It's better to leave this protection on, and
+                        edit your fixtures so that they do not include the cwd.
+    ),
+  },
   "snapshot": Object {
     "description": String(
       Generate snapshot files for \`t.matchSnapshot()\`
@@ -22,6 +34,18 @@ Object {
           
     ),
     "short": "S",
+    "type": "boolean",
+  },
+  "snapshot-clean-cwd": Object {
+    "default": true,
+    "description": String(
+      Automatically clean the current working directory out of
+                        snapshot data, replacing it with a token.
+      
+                        This helps prevent frustrating "works on my machine" when
+                        tests capture an error message or file path, but then fail
+                        when run on any other system, and so is enabled by default.
+    ),
     "type": "boolean",
   },
 }

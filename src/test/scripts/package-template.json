@@ -5,6 +5,7 @@
   "description": "the plugged in Test class for node-tap",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "exports": {
+    "./package.json": "./package.json",
     ".": {
       "import": {
         "types": "./dist/esm/index.d.ts",
@@ -16,10 +17,19 @@
       }
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "prepare": "tshy",
     "typedoc": "typedoc --tsconfig .tshy/esm.json ./src/*.ts"
   },
-  "license": "BlueOak-1.0.0"
+  "license": "BlueOak-1.0.0",
+  "type": "module",
+  "tshy": {
+    "exports": {
+      "./package.json": "./package.json",
+      ".": "./src/index.ts"
+    }
+  }
 }
