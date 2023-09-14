@@ -21,13 +21,15 @@ import t from 'tap'
 t.test('handls stat failure by throwing', async t => {
   const mockStatSync = (p: string) => {
     t.equal(p, 'filename.txt')
-    throw Object.assign(new Error('expected error'), { code: 'ENOENT' })
+    throw Object.assign(new Error('expected error'), {
+      code: 'ENOENT',
+    })
   }
   // do 'as typeof import(...)' so that TS knows what it returns
-  const thingThatDoesStat = await t.import(
+  const thingThatDoesStat = (await t.import(
     '../dist/my-statty-thing.js',
     { 'node:fs': { statSync: mockStatSync } }
-  ) as typeof import('../dist/my-statty-thing.js')
+  )) as typeof import('../dist/my-statty-thing.js')
 
   t.throws(() => thingThatDoesStat('filename.txt'), {
     message: 'expected error',
@@ -38,7 +40,7 @@ t.test('handls stat failure by throwing', async t => {
 
 ### `t.mockImport(module, [mocks]): Promise<any>`
 
-Load the module with `import()`.  If any mocks are provided, then
+Load the module with `import()`. If any mocks are provided, then
 they'll override the module's imported deps. This works for both
 ESM and CommonJS modules.
 
@@ -47,6 +49,22 @@ ESM and CommonJS modules.
 Same as `t.mockImport()`, but synchronously using `require()`
 instead. This only works with CommonJS, and only mocks CommonJS
 modules loaded.
+
+### `t.mockAll(mocks: Record<string,any> | null): Record<string, any>`
+
+Convenience method to set the mocks for all subsequent calls to
+`t.mockRequire` or `t.mockImport` for the remainder of the test.
+
+Mocks added with `mockAll` are overridden by any explicit mocks
+set in the `t.mockRequire` or `t.mockImport` call.
+
+Repeated calls to `t.mockAll()` will _add_ mocks to the set. If the same
+name is used again, it will replace the previous value, not merge.
+
+If a key is set to `undefined` or `null`, then it will be removed from
+the `mockAll` set.
+
+Reset by calling `t.mockAll(null)`
 
 ### `t.createMock(originalModule, mockOverrides): mockedModule`
 

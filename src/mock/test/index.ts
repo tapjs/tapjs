@@ -27,6 +27,24 @@ t.test('mockRequire', t => {
   t.end()
 })
 
+t.test('mockRequire with mockAll', t => {
+  const dir = t.testdir({
+    'file.cjs': `
+      exports.foo = require('./foo.cjs')
+    `,
+    'foo.cjs': `
+      module.exports = 'original foo'
+    `,
+  })
+  const rel = './' + relative(__dirname, dir) + '/'
+  t.mockAll({
+    [rel + 'foo.cjs']: 'mocked foo',
+  })
+  const mocked = t.mockRequire(rel + 'file.cjs')
+  t.strictSame(mocked, { foo: 'mocked foo' })
+  t.end()
+})
+
 t.test('deprecated t.mock alias', t => {
   const logs = t.capture(console, 'error')
   const dir = t.testdir({
@@ -66,6 +84,25 @@ t.test('mockImport', async t => {
   const mocked = await t.mockImport(rel + 'file.mjs', {
     [rel + 'foo.mjs']: 'mocked foo',
   })
+  t.strictSame(mocked, { __proto__: null, foo: 'mocked foo' })
+  t.end()
+})
+
+t.test('mockImport with mockAll', async t => {
+  const dir = t.testdir({
+    'file.mjs': `
+      import f from './foo.mjs'
+      export const foo = f
+    `,
+    'foo.mjs': `
+      export default 'original foo'
+    `,
+  })
+  const rel = './' + relative(__dirname, dir) + '/'
+  t.mockAll({
+    [rel + 'foo.mjs']: 'mocked foo',
+  })
+  const mocked = await t.mockImport(rel + 'file.mjs')
   t.strictSame(mocked, { __proto__: null, foo: 'mocked foo' })
   t.end()
 })
@@ -118,5 +155,16 @@ t.test('createMock nested', t => {
 
 t.test('createMock array', t => {
   t.strictSame(t.createMock([1, 2, 3], [3, 2, 1]), [3, 2, 1])
+  t.end()
+})
+
+t.test('mockAll editing', t => {
+  t.strictSame(t.mockAll({ a: 'blah' }), { a: 'blah' })
+  t.strictSame(t.mockAll({ b: 'blah' }), { a: 'blah', b: 'blah' })
+  const x = t.mockAll({ c: 'c', b: undefined })
+  t.strictSame(new Set(Object.keys(x)), new Set(['a', 'c']))
+  const y = t.mockAll({ c: null })
+  t.strictSame(Object.keys(y), ['a'])
+  t.strictSame(t.mockAll(null), {})
   t.end()
 })

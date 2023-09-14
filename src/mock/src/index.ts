@@ -15,6 +15,8 @@ export class TapMock {
   #didTeardown: boolean = false
   #mocks: MockService[] = []
 
+  #allMock: Record<string, any> = {}
+
   constructor(t: TestBase) {
     this.#t = t
   }
@@ -125,7 +127,8 @@ export class TapMock {
    *
    * @group Spies, Mocks, and Fixtures
    */
-  mockImport(module: string, mocks: { [k: string]: any } = {}) {
+  mockImport(module: string, mocks: Record<string, any> = {}) {
+    mocks = Object.assign({}, this.#allMock, mocks)
     if (!this.#didTeardown && this.#t.t.pluginLoaded(AfterPlugin)) {
       this.#didTeardown = true
       this.#t.t.teardown(() => this.unmock())
@@ -158,8 +161,36 @@ export class TapMock {
    *
    * @group Spies, Mocks, and Fixtures
    */
-  mockRequire(module: string, mocks: { [k: string]: any } = {}) {
+  mockRequire(module: string, mocks: Record<string, any> = {}) {
+    mocks = Object.assign({}, this.#allMock, mocks)
     return mockRequire(module, mocks, this.#t.t.mockRequire)
+  }
+
+  /**
+   * Set some mocks that will be used for all subsequent
+   * {@link @tapjs/mock!index.TapMock#mockImport} and
+   * {@link @tapjs/mock!index.TapMock#mockRequire} calls made by this test.
+   *
+   * Mocks added with `mockAll` are overridden by any explicit mocks set in the
+   * `t.mockRequire` or `t.mockImport` call.
+   *
+   * Repeated calls to `t.mockAll()` will *add* mocks to the set. If the same
+   * name is used again, it will replace the previous value, not merge.
+   *
+   * If a key is set to `undefined` or `null`, then it will be removed from
+   * the `mockAll` set.
+   *
+   * Reset by calling `t.mockAll(null)`
+   */
+  mockAll(mocks: Record<string, any> | null): Record<string, any> {
+    if (mocks === null) this.#allMock = {}
+    else {
+      this.#allMock = Object.assign(this.#allMock, mocks)
+      for (const [k, v] of Object.entries(this.#allMock)) {
+        if (v === undefined || v === null) delete this.#allMock[k]
+      }
+    }
+    return this.#allMock
   }
 
   /**
