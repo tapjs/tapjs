@@ -228,7 +228,7 @@ const version = (pkgs: string[], level: string) => {
     const l = names.has(p)
       ? level
       : level.startsWith('pre')
-      ? parse(pkg.version)?.prerelease
+      ? parse(pkg.version)?.prerelease?.length
         ? 'prerelease'
         : 'prepatch'
       : 'patch'
@@ -424,23 +424,45 @@ const publish = (names: string[], pre: boolean = false) => {
 
 // publish any packages whose versions do not match what's on npm
 const pubAll = () => {
-  const pkgs: Manifest[] = []
+  const pubs: Manifest[] = []
+  const tags = new Map<string, string>()
   for (const mani of new Set([...Object.values(manifests)])) {
     if (mani.private) continue
-    const v = JSON.parse(
-      npm({ quiet: true }, 'view', mani.name, 'versions', '--json')
-        .stdout
+
+    const { versions: v, 'dist-tags': distTags } = JSON.parse(
+      npm(
+        { quiet: true },
+        'view',
+        mani.name,
+        'versions',
+        'dist-tags',
+        '--json'
+      ).stdout
     )
-    if (v === mani.version || v.includes(mani.version)) continue
-    pkgs.push(mani)
+    if (!(v === mani.version || v.includes(mani.version))) {
+      pubs.push(mani)
+    }
+    const t = parse(mani.version)?.prerelease?.length
+      ? 'pre'
+      : 'latest'
+    if (distTags[t] !== mani.version) {
+      tags.set(`${mani.name}@${mani.version}`, t)
+    }
   }
-  if (!pkgs.length) {
+  if (!pubs.length) {
     console.log('all packages published')
-    return
   }
-  for (const p of pkgs) {
-    const tag = parse(p.version)?.prerelease ? 'pre' : 'latest'
+  for (const p of pubs) {
+    const tag = parse(p.version)?.prerelease?.length
+      ? 'pre'
+      : 'latest'
     npm({ stdio: 'inherit' }, 'publish', '-ws', p.name, '--tag', tag)
+  }
+  if (!tags.size) {
+    console.log('all dist-tags set')
+  }
+  for (const [pkg, tag] of tags.entries()) {
+    npm({ stdio: 'inherit' }, 'dist-tag', 'add', pkg, tag)
   }
 }
 
