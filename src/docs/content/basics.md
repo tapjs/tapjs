@@ -4,6 +4,7 @@ eleventyNavigation:
   key: Docs
   order: 6
 ---
+
 Node-tap is a test framework library that you can use to write
 tests, and a command line program that can be used to run tests
 (and manage plugins, watch code for changes, analyze coverage,
@@ -19,6 +20,58 @@ You know the drill.
 ```bash
 npm install tap --save-dev
 ```
+
+## "Zero Patience Just Get Going" Guide
+
+Write a test file like this:
+
+```js
+// give this a testy lookin filename, like
+// test/foo.js or ./lib/foo.test.js
+
+import t from 'tap'
+import { myThing } from '../src/whatever.js'
+
+t.test('this is a child test', t => {
+  t.pass('this passes')
+  t.fail('this fails')
+  t.ok(myThing, 'this passes if truthy')
+  t.equal(myThing, 5, 'this passes if the values are equal')
+  t.match( myThing, {
+    property: String,
+  }, 'this passes if myThing.property is a string')
+  // call this when you're done
+  t.end()
+})
+
+t.test('async tests work like you would expect', async t => {
+  t.equal(await myThing(), 'whatever')
+  // don't have to call t.end(), it'll just end when the
+  // async stuff is all resolved.
+})
+```
+
+Run it like this:
+
+```
+$ tap run
+```
+
+And you'll get reports like this:
+
+<pre>$ tap run
+<span style="color:black;background:green"> PASS </span> foo.test.js 2 <span style="color:green">OK</span> <span color="#999">1.052s</span>
+
+<div style="width:min-content;background:white;color:black">                       
+  🌈 TEST COMPLETE 🌈  
+                       </div>
+<b>Asserts:</b>  <span style="color:green">2 pass</span>  <span style="color:#900">0 fail</span>  <span style="color:#999">2 of 2 complete</span>
+<b>Suites:</b>   <span style="color:green">1 pass</span>  <span style="color:#900">0 fail</span>  <span style="color:#999">1 of 1 complete</span>
+
+<span style="color:#999"># { total: 2, pass: 2 }
+# time=1091.538ms</span></pre>
+
+Keep reading if you want to know more.
 
 ## Writing Tests
 
@@ -239,12 +292,12 @@ in order to trigger certain code paths and verify that they
 behave properly. Check out the docs on these plugins for helpful
 information as you write your tests:
 
-* [`@tapjs/intercept`](./plugins/intercept.md) Spies and
+- [`@tapjs/intercept`](./plugins/intercept.md) Spies and
   property/method interception.
-* [`@tapjs/mock`](./plugins/mock.md) Dependency injection by
+- [`@tapjs/mock`](./plugins/mock.md) Dependency injection by
   overriding the behavior of `require()` and `import`, providing
   your mock modules in place of the actual versions.
-* [`@tapjs/fixture`](./plugins/fixture.md) Create temporary test
+- [`@tapjs/fixture`](./plugins/fixture.md) Create temporary test
   directories which are automatically cleaned up when the test
   ends.
 
@@ -285,7 +338,9 @@ t.test('unixy thing', {
 })
 
 // this is also fine
-t.test('froblz is the blortsh', { todo: 'froblz not yet implemented' }, t => {
+t.test('froblz is the blortsh', {
+  todo: 'froblz not yet implemented',
+}, t => {
   t.equal(froblz(), 'the blortsh')
 })
 ```
