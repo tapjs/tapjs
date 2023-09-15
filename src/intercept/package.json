@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/intercept",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a built-in tap extension for t.intercept() and t.capture()",
   "type": "module",
   "exports": {
@@ -41,10 +41,10 @@
   },
   "homepage": "https://github.com/tapjs/tapjs/src/intercept#readme",
   "peerDependencies": {
-    "@tapjs/core": "1.0.0"
+    "@tapjs/core": "1.0.1"
   },
   "dependencies": {
-    "@tapjs/after": "1.0.0",
+    "@tapjs/after": "1.0.1",
     "@tapjs/stack": "1.0.0"
   },
   "engines": {

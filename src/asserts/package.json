@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/asserts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "type": "module",
@@ -38,7 +38,7 @@
     "typecheck": false
   },
   "peerDependencies": {
-    "@tapjs/core": "1.0.0"
+    "@tapjs/core": "1.0.1"
   },
   "dependencies": {
     "is-actual-promise": "^1.0.0",
