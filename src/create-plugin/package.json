@@ -8,7 +8,8 @@
   },
   "type": "module",
   "files": [
-    "dist"
+    "dist",
+    "templates"
   ],
   "tshy": {
     "dialects": [
