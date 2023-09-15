@@ -1,6 +1,13 @@
+import type { CallSiteLike } from '@tapjs/stack'
 import * as stack from '@tapjs/stack'
 import type { BaseOpts } from './base.js'
 import { Extra } from './index.js'
+
+// test that a CallSiteLike is "useful", ie, has a file/line/col
+const useful = (at: CallSiteLike | undefined) =>
+  !!at?.fileName &&
+  typeof at.lineNumber === 'number' &&
+  typeof at.columnNumber === 'number'
 
 /**
  * Create an {@link @tapjs/core!index.Extra} object based on a thrown Error
@@ -44,7 +51,15 @@ export const extraFromError = (
   const st = stack.captureError(er)
   if (st && st.length) {
     extra.stack = st.map(c => String(c)).join('\n')
-    extra.at = st[0]
+    let at: CallSiteLike | undefined
+    // walk down the stack until we find the first "useful" stack frame
+    for (let i = 0; i < st.length; i++) {
+      if (useful(st[i])) {
+        at = st[i]
+        break
+      }
+    }
+    extra.at = at || st[0]
   } else if (typeof er.stack === 'string') {
     // if we failed to capture it, but it has a stack, then that means
     // that all of the stack frames were internal, because the error was
