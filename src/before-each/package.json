@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/before-each",
-  "version": "0.0.0-22",
+  "version": "1.0.0",
   "description": "a built-in tap extension for t.beforeEach()",
   "type": "module",
   "exports": {
@@ -41,7 +41,7 @@
   },
   "homepage": "https://github.com/tapjs/tapjs/src/spawn#readme",
   "peerDependencies": {
-    "@tapjs/core": "0.0.0-22"
+    "@tapjs/core": "1.0.0"
   },
   "dependencies": {
     "function-loop": "^4.0.0"

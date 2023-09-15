@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/snapshot",
-  "version": "0.0.0-22",
+  "version": "1.0.0",
   "description": "",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "type": "module",
@@ -38,11 +38,11 @@
     "coverage-map": "map.js"
   },
   "peerDependencies": {
-    "@tapjs/core": "0.0.0-22"
+    "@tapjs/core": "1.0.0"
   },
   "dependencies": {
     "is-actual-promise": "^1.0.0",
-    "tcompare": "6.0.1-5",
+    "tcompare": "6.1.0",
     "trivial-deferred": "^2.0.0"
   },
   "engines": {

@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/stack",
-  "version": "0.0.0-8",
+  "version": "1.0.0",
   "description": "Utility for working with stack traces",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "type": "module",
@@ -35,7 +35,7 @@
     "coverage-map": "map.js"
   },
   "dependencies": {
-    "tcompare": "6.0.1-5",
+    "tcompare": "6.1.0",
     "trivial-deferred": "^2.0.0"
   },
   "engines": {
