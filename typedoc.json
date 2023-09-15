@@ -2,6 +2,7 @@
   "entryPoints": ["src/*"],
   "name": "Node TAP",
   "navigationLinks": {
+    "GitHub": "https://github.com/tapjs/tapjs",
     "node-tap.org": "https://node-tap.org/"
   },
   "entryPointStrategy": "packages",
