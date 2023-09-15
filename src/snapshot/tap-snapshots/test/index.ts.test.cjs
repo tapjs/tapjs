@@ -18,6 +18,7 @@ Object {
                         Not recommended! It's better to leave this protection on, and
                         edit your fixtures so that they do not include the cwd.
     ),
+    "type": "boolean",
   },
   "snapshot": Object {
     "description": String(
