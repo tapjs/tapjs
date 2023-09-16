@@ -217,7 +217,7 @@ const pluginNames = (
       return name
     })
   )
-).sort((a, b) => a.localeCompare(b))
+)
 
 const pluginImport = plugins
   .map(
