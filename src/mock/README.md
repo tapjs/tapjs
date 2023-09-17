@@ -50,7 +50,7 @@ Same as `t.mockImport()`, but synchronously using `require()`
 instead. This only works with CommonJS, and only mocks CommonJS
 modules loaded.
 
-### `t.mockAll(mocks: Record<string,any> | null): Record<string, any>`
+### `t.mockAll(mocks?: Record<string,any> | null): Record<string, any>`
 
 Convenience method to set the mocks for all subsequent calls to
 `t.mockRequire` or `t.mockImport` for the remainder of the test.
@@ -65,6 +65,8 @@ If a key is set to `undefined` or `null`, then it will be removed from
 the `mockAll` set.
 
 Reset by calling `t.mockAll(null)`
+
+Call with no args to return the current `mockAll` object.
 
 ### `t.createMock(originalModule, mockOverrides): mockedModule`
 

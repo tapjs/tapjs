@@ -15,10 +15,15 @@ export class TapMock {
   #didTeardown: boolean = false
   #mocks: MockService[] = []
 
-  #allMock: Record<string, any> = {}
+  #allMock: Record<string, any>
+  static #refs = new Map<TestBase, TapMock>()
 
   constructor(t: TestBase) {
     this.#t = t
+    TapMock.#refs.set(t, this)
+    // inherit #allMock
+    const p = t.parent && TapMock.#refs.get(t.parent)
+    this.#allMock = Object.assign(Object.create(null), p ? p.#allMock : {})
   }
 
   /**
@@ -181,10 +186,12 @@ export class TapMock {
    * the `mockAll` set.
    *
    * Reset by calling `t.mockAll(null)`
+   *
+   * Call with no args to return the current `mockAll` object.
    */
-  mockAll(mocks: Record<string, any> | null): Record<string, any> {
-    if (mocks === null) this.#allMock = {}
-    else {
+  mockAll(mocks?: Record<string, any> | null): Record<string, any> {
+    if (mocks === null) this.#allMock = Object.create(null)
+    else if (mocks !== undefined) {
       this.#allMock = Object.assign(this.#allMock, mocks)
       for (const [k, v] of Object.entries(this.#allMock)) {
         if (v === undefined || v === null) delete this.#allMock[k]

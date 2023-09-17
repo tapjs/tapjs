@@ -40,6 +40,10 @@ t.test('mockRequire with mockAll', t => {
   t.mockAll({
     [rel + 'foo.cjs']: 'mocked foo',
   })
+  t.test('child test inherits', t => {
+    t.strictSame(t.mockAll(), t.parent?.t.mockAll())
+    t.end()
+  })
   const mocked = t.mockRequire(rel + 'file.cjs')
   t.strictSame(mocked, { foo: 'mocked foo' })
   t.end()
@@ -159,12 +163,12 @@ t.test('createMock array', t => {
 })
 
 t.test('mockAll editing', t => {
-  t.strictSame(t.mockAll({ a: 'blah' }), { a: 'blah' })
-  t.strictSame(t.mockAll({ b: 'blah' }), { a: 'blah', b: 'blah' })
+  t.same(t.mockAll({ a: 'blah' }), { a: 'blah' })
+  t.same(t.mockAll({ b: 'blah' }), { a: 'blah', b: 'blah' })
   const x = t.mockAll({ c: 'c', b: undefined })
   t.strictSame(new Set(Object.keys(x)), new Set(['a', 'c']))
   const y = t.mockAll({ c: null })
-  t.strictSame(Object.keys(y), ['a'])
-  t.strictSame(t.mockAll(null), {})
+  t.same(Object.keys(y), ['a'])
+  t.same(t.mockAll(null), {})
   t.end()
 })
