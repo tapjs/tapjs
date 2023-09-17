@@ -1,5 +1,6 @@
 import { LoadedConfig } from '@tapjs/config'
 import { resolve } from 'path'
+import { pathToFileURL } from 'url'
 
 const isStringArray = (a: any): a is string[] =>
   Array.isArray(a) && !a.some(s => typeof s !== 'string')
@@ -10,7 +11,7 @@ export const getCoverageMap = async (config: LoadedConfig) => {
   const coverageMap = config.get('coverage-map')
   if (!coverageMap) return () => []
   const mapModule = (await import(
-    resolve(config.globCwd, coverageMap)
+    String(pathToFileURL(resolve(config.globCwd, coverageMap)))
   ).catch(er => {
     throw new Error(
       `Coverage map ${coverageMap} is not a valid module. ${er.message}`
