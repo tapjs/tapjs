@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/after",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "a built-in tap extension for t.after() and t.teardown()",
   "type": "module",
   "exports": {
@@ -41,7 +41,7 @@
   },
   "homepage": "https://github.com/tapjs/tapjs/src/spawn#readme",
   "peerDependencies": {
-    "@tapjs/core": "1.0.1"
+    "@tapjs/core": "1.0.2"
   },
   "engines": {
     "node": ">=16"
