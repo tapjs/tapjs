@@ -10,6 +10,7 @@ const buildScriptURL = await resolveImport(
 if (!buildScriptURL) throw new Error('could not load build script')
 const buildScript = fileURLToPath(buildScriptURL)
 
+import { readFileSync } from 'node:fs'
 import os from 'node:os'
 import { fileURLToPath } from 'node:url'
 const p = os.availableParallelism
@@ -62,25 +63,62 @@ const build = async (
   })
 }
 
-t.test('good plugins', async t => {
-  const dir = t.testdir()
-  const res = await build(dir, [
-    '@tapjs/asserts',
-    '@tapjs/dummy-plugin',
-  ])
-  t.same(res, {
-    target: dir,
-    plugins: ['@tapjs/asserts', '@tapjs/dummy-plugin'],
-    code: 0,
-    signal: null,
-    stderr: '',
-    stdout: `
+t.test(
+  'good plugins, sort order tests',
+  { saveFixture: true },
+  async t => {
+    const dir = t.testdir()
+    const plugins = [
+      // intentionally unsorted
+      '@tapjs/typescript',
+      '@tapjs/dummy-plugin',
+      '@tapjs/worker',
+      '@tapjs/asserts',
+    ]
+    const res = await build(dir, plugins)
+    t.same(res, {
+      target: dir,
+      plugins,
+      code: 0,
+      signal: null,
+      stderr: '',
+      stdout: `
 > @tapjs/test-built@0.0.0 prepare
 > tshy
 
 `,
-  })
-})
+    })
+    const built = readFileSync(resolve(dir, 'src/index.ts'), 'utf8')
+    const sorted = plugins.sort((a, b) => a.localeCompare(b, 'en'))
+    t.same(await build(dir, sorted), {
+      target: dir,
+      plugins: sorted,
+      code: 0,
+      signal: null,
+      stderr: '',
+      stdout: `
+> @tapjs/test-built@0.0.0 prepare
+> tshy
+
+`,
+    })
+    t.equal(readFileSync(resolve(dir, 'src/index.ts'), 'utf8'), built)
+    const rsorted = plugins.sort((a, b) => a.localeCompare(b, 'en'))
+    t.same(await build(dir, rsorted), {
+      target: dir,
+      plugins: rsorted,
+      code: 0,
+      signal: null,
+      stderr: '',
+      stdout: `
+> @tapjs/test-built@0.0.0 prepare
+> tshy
+
+`,
+    })
+    t.equal(readFileSync(resolve(dir, 'src/index.ts'), 'utf8'), built)
+  }
+)
 
 t.test('missing plugin', async t => {
   const dir = t.testdir()
@@ -126,8 +164,7 @@ t.test('invalid plugin', async t => {
     plugins: [plugin],
     code: 1,
     signal: null,
-    stderr:
-      `'${plugin}' does not appear to be a tap plugin. `,
+    stderr: `'${plugin}' does not appear to be a tap plugin. `,
     stdout: '',
   })
 })

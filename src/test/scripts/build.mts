@@ -20,6 +20,13 @@ let template = readFileSync(templateFile, 'utf8')
 
 const defaultTarget = resolve(__dirname, '../test-built')
 
+const sortedStrings = (s: string[]) =>
+  s.sort((a, b) => a.localeCompare(b, 'en'))
+const sortedMapEntries = <T extends any>(m: Map<string, T>) =>
+  [...m.entries()].sort(([a], [b]) => a.localeCompare(b, 'en'))
+const sortedMapValues = <T extends any>(m: Map<string, T>) =>
+  sortedMapEntries(m).map(([_, v]) => v)
+
 // override in testing, otherwise always the default
 /* c8 ignore start */
 const dir = process.env._TESTING_TEST_BUILD_TARGET_ || defaultTarget
@@ -39,7 +46,7 @@ for (const f of copies) {
   writeFileSync(resolve(dir, t), readFileSync(resolve(__dirname, f)))
 }
 
-const plugins = process.argv.slice(2)
+const plugins = sortedStrings(process.argv.slice(2))
 const seen = new Set<string>()
 
 // If a plugin does not appear in hasConfig, hasPlugin, or hasLoader,
@@ -58,9 +65,7 @@ const preloaders = new Map<string, string>()
 const preimports = new Map<string, string>()
 const testFileExtensions = new Set<string>()
 
-const signature = plugins
-  .sort((a, b) => a.localeCompare(b, 'en'))
-  .join('\n')
+const signature = plugins.join('\n')
 const signatureCode = `export const signature = \`${signature}\`
 `
 const configs = new Map<
@@ -100,7 +105,7 @@ const validPlugin = (p: any): p is PluginExport =>
     typeof p.importLoader === 'string') &&
   (p.preload === undefined || typeof p.preload === 'boolean')
 
-const pluginNames = (
+const pluginNames = sortedStrings(
   await Promise.all(
     plugins.map(async p => {
       // this also verifies that all plugins can be loaded, or it'll blow
@@ -172,26 +177,21 @@ const pluginNames = (
         name = ni
       }
       seen.add(name)
-      let isPlugin = false
       if (imp.config) {
         hasConfig.set(p, name)
         configs.set(p, imp.config)
-        isPlugin = true
       }
       if (typeof imp.plugin === 'function') {
         hasPlugin.set(p, name)
-        isPlugin = true
       }
       if (typeof imp.importLoader === 'string') {
         if (imp.preload === true) preimports.set(p, imp.importLoader)
         hasImport.set(p, imp.importLoader)
-        isPlugin = true
       }
       if (typeof imp.loader === 'string') {
         if (imp.preload === true) preloaders.set(p, imp.loader)
         if (!imp.importLoader) hasLoader.set(p, imp.loader)
         else hasLoaderFallback.set(p, imp.loader)
-        isPlugin = true
       }
 
       // we can't reasonably add more file types if we didn't add some
@@ -217,7 +217,7 @@ const pluginNames = (
       return name
     })
   )
-).sort((a, b) => a.localeCompare(b))
+)
 
 const pluginImport = plugins
   .map(
@@ -231,9 +231,7 @@ const pluginsConfig = (() => {
   if (!hasConfig.size) return code + 'jack\n'
 
   code += '{\n'
-  const hasConfigEntries = [...hasConfig.entries()].sort(([a], [b]) =>
-    a.localeCompare(b, 'en')
-  )
+  const hasConfigEntries = sortedMapEntries(hasConfig)
   for (const [p, name] of hasConfigEntries) {
     let c = 0
     for (const [field, cfg] of Object.entries(configs.get(p) || {})) {
@@ -281,8 +279,7 @@ const pluginsConfig = (() => {
 const pluginsCode = `export type PluginSet = ${
   hasPlugin.size
     ? `[
-${[...hasPlugin.values()]
-  .sort((a, b) => a.localeCompare(b, 'en'))
+${sortedMapValues(hasPlugin)
   .map(name => `  typeof ${name}.plugin,\n`)
   .join('')}]`
     : '(TapPlugin<any> | TapPlugin<any, TestBaseOpts>)[]'
@@ -291,21 +288,20 @@ ${[...hasPlugin.values()]
 const plugins = () => {
   if (plugins_) return plugins_
   return (plugins_ = [
-${[...hasPlugin.values()]
-  .sort((a, b) => a.localeCompare(b, 'en'))
+${sortedMapValues(hasPlugin)
   .map(name => `    ${name}.plugin,\n`)
   .join('')}  ])
 }
 `
 
 const pluginLoaders = `const preloaders = new Set<string>(${JSON.stringify(
-  [...preloaders.values()].sort((a, b) => a.localeCompare(b, 'en')),
+  sortedMapValues(preloaders),
   null,
   2
 )})
 
 const preimports = new Set<string>(${JSON.stringify(
-  [...preimports.values()].sort((a, b) => a.localeCompare(b, 'en')),
+  sortedMapValues(preimports),
   null,
   2
 )})
@@ -316,7 +312,7 @@ const preimports = new Set<string>(${JSON.stringify(
  * that Node loads it before other loaders.
  */
 export const loaders: string[] = ${JSON.stringify(
-  [...hasLoader.values()].sort((a, b) => a.localeCompare(b, 'en')),
+  sortedMapValues(hasLoader),
   null,
   2
 )}.sort(
@@ -330,7 +326,7 @@ export const loaders: string[] = ${JSON.stringify(
  * \`Module.register\` in node v20.6 and higher.
  */
 export const importLoaders: string[] = ${JSON.stringify(
-  [...hasImport.values()].sort((a, b) => a.localeCompare(b, 'en')),
+  sortedMapValues(hasImport),
   null,
   2
 )}.sort(
@@ -344,9 +340,7 @@ export const importLoaders: string[] = ${JSON.stringify(
  * for those that also export an \`importLoader\`
  */
 export const loaderFallbacks: string[] = ${JSON.stringify(
-  [...hasLoaderFallback.values()]
-    .concat([...hasLoader.values()])
-    .sort((a, b) => a.localeCompare(b, 'en')),
+  sortedMapValues(new Map([...hasLoaderFallback, ...hasLoader])),
   null,
   2
 )}.sort(
@@ -357,8 +351,7 @@ export const loaderFallbacks: string[] = ${JSON.stringify(
 
 `
 
-const testFileExtensionsCode = [...testFileExtensions]
-  .sort((a, b) => a.localeCompare(b, 'en'))
+const testFileExtensionsCode = sortedStrings([...testFileExtensions])
   .map(ext => `testFileExtensions.add(${JSON.stringify(ext)})\n`)
   .join('')
 
