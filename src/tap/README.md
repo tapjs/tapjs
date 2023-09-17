@@ -12,26 +12,20 @@ writing such scripts.
 
 <!-- TODO: update with new website docs links -->
 
-- [Getting started guide](http://www.node-tap.org/basics/)
-- Built-in [test coverage](http://www.node-tap.org/coverage/)
-- Many [reporter formats](http://www.node-tap.org/reporting/)
-- Extensive [API](http://www.node-tap.org/api/) featuring:
-  - Great [promise support](http://www.node-tap.org/promises/)
-  - Comprehensive [assert
-    library](http://www.node-tap.org/asserts/)
-  - Other [advanced stuff](http://www.node-tap.org/advanced/)
-  - Mocha-like [BDD DSL](http://www.node-tap.org/mochalike/)
-  - [Parallel Testing](http://www.node-tap.org/parallel/)
-- [Command-line interface](http://www.node-tap.org/cli/) for
+- [Getting started guide](http://node-tap.org/basics/)
+- Built-in [test coverage](http://node-tap.org/coverage/)
+- Many [reporter formats](http://node-tap.org/reporter/)
+- Extensive [API](http://node-tap.org/api/)
+- [Command-line interface](http://node-tap.org/cli/) for
   running tests (whether they use node-tap or not)
 - [Machine-generated API docs](https://tapjs.github.io/tapjs)
 
-See [the changelog](http://www.node-tap.org/changelog/) for
-recent updates, or just get started with [the
+See [the changelog](http://node-tap.org/changelog/) for recent
+updates, or just get started with [the
 basics](http://www.node-tap.org/basics/).
 
 All this is too much to manage in a single README file, so head
-over to [the website](http://www.node-tap.org/) to learn more.
+over to [the website](http://node-tap.org/) to learn more.
 
 ## Why TAP?
 
