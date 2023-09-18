@@ -1,7 +1,8 @@
 import t from 'tap'
 
 import { LoadedConfig } from '@tapjs/config'
-import { readFileSync } from 'fs'
+import * as fs from 'node:fs'
+import { readFileSync } from 'node:fs'
 import { Packument } from 'pacote'
 
 const config = {} as unknown as LoadedConfig
@@ -73,9 +74,12 @@ t.test('look up a version that has a peer dep', async t => {
           stdout: 'https://npm.registry',
         }),
       },
-      '@tapjs/core/package.json': {
-        version: '0.0.0-5',
-      },
+      fs: t.createMock(fs, {
+        readFileSync: () =>
+          JSON.stringify({
+            version: '0.0.0-5',
+          }),
+      }),
       pacote: {
         default: {
           packument: async () => esbkPacku,
@@ -98,9 +102,12 @@ t.test('look up a version that is latest', async t => {
           stdout: 'https://npm.registry',
         }),
       },
-      '@tapjs/core/package.json': {
-        version: '0.0.0-17',
-      },
+      fs: t.createMock(fs, {
+        readFileSync: () =>
+          JSON.stringify({
+            version: '0.0.0-17',
+          }),
+      }),
       pacote: {
         default: {
           packument: async () => esbkPacku,
@@ -123,9 +130,12 @@ t.test('fail to find a satisfying version', async t => {
           stdout: 'https://npm.registry',
         }),
       },
-      '@tapjs/core/package.json': {
-        version: '0.0.0-17',
-      },
+      fs: t.createMock(fs, {
+        readFileSync: () =>
+          JSON.stringify({
+            version: '0.0.0-17',
+          }),
+      }),
       pacote: {
         default: {
           packument: async () => esbkPacku,
@@ -148,9 +158,12 @@ t.test('plugin that does not have peer dep on core', async t => {
           stdout: 'https://npm.registry',
         }),
       },
-      '@tapjs/core/package.json': {
-        version: '0.0.0-17',
-      },
+      fs: t.createMock(fs, {
+        readFileSync: () =>
+          JSON.stringify({
+            version: '0.0.0-17',
+          }),
+      }),
       pacote: {
         default: {
           packument: async () => abbrevPacku,
