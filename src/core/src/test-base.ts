@@ -514,6 +514,25 @@ export class TestBase extends Base<TestBaseEvents> {
     }
   }
 
+  // apply flags from our options onto an Extra or TestOpts object
+  #inheritFlags(extra: Extra) {
+    const inheritedFlags = [
+      'bail',
+      'debug',
+      'passes',
+      'failTodo',
+      'failSkip',
+    ] as const
+    for (const k of inheritedFlags) {
+      if (
+        extra[k] === undefined &&
+        typeof this.options[k] === 'boolean'
+      ) {
+        extra[k] = this.options[k]
+      }
+    }
+  }
+
   /**
    * Print a Test Point.
    *
@@ -563,6 +582,23 @@ export class TestBase extends Base<TestBaseEvents> {
       return
     }
 
+    const diagnostic =
+      typeof extra.diagnostic === 'boolean'
+        ? extra.diagnostic
+        : typeof this.diagnostic === 'boolean'
+        ? this.diagnostic
+        : extra.skip && this.options.failSkip
+        ? true
+        : extra.todo && this.options.failTodo
+        ? true
+        : extra.skip || extra.todo
+        ? false
+        : !ok
+
+    if (diagnostic) {
+      extra.diagnostic = true
+    }
+
     if (extra.at === null) {
       delete extra.at
       delete extra.stack
@@ -586,23 +622,11 @@ export class TestBase extends Base<TestBaseEvents> {
       }
     }
 
-    const diagnostic =
-      typeof extra.diagnostic === 'boolean'
-        ? extra.diagnostic
-        : typeof this.diagnostic === 'boolean'
-        ? this.diagnostic
-        : extra.skip || extra.todo
-        ? false
-        : !ok
-
-    if (diagnostic) {
-      extra.diagnostic = true
-    }
-
     this.count = n
     message = message + ''
     const res: Result = { ok, message, extra }
 
+    this.#inheritFlags(extra)
     const tp = new TestPoint(ok, message, extra)
 
     // when we jump the queue, skip an extra line
@@ -775,7 +799,9 @@ export class TestBase extends Base<TestBaseEvents> {
 
     if (this.#planEnd === -1 && !this.#doingStdinOnly) {
       this.debug('END(%s) implicit plan', this.name, this.count)
-      this.plan(this.count, '', IMPLICIT)
+      const c =
+        this.count === 0 && !this.parent ? 'no tests found' : ''
+      this.plan(this.count, c, IMPLICIT)
     }
 
     this.queue.push(EOF)
@@ -1243,6 +1269,7 @@ export class TestBase extends Base<TestBaseEvents> {
 
     extra.childId = this.#nextChildId++
     if (this.shouldSkipChild(extra)) {
+      this.currentAssert = this.sub
       this.pass(extra.name || '', extra)
       return Object.assign(Promise.resolve(null), {
         subtest: null,
@@ -1254,7 +1281,6 @@ export class TestBase extends Base<TestBaseEvents> {
       extra.buffered = this.jobs > 1
     }
 
-    extra.bail ??= this.bail
     extra.parent = this
     if (!extra.at && extra.at !== null) {
       const st = stack.capture(80, caller)
@@ -1263,14 +1289,7 @@ export class TestBase extends Base<TestBaseEvents> {
     }
     extra.context = this.context
 
-    if (this.options.debug) extra.debug ??= true
-
-    if (
-      extra.passes === undefined &&
-      this.options.passes !== undefined
-    ) {
-      extra.passes = !!this.options.passes
-    }
+    this.#inheritFlags(extra)
 
     const t = new Class(extra as O)
 

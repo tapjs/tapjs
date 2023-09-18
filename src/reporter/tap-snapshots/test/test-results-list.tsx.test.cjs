@@ -34,7 +34,7 @@ exports[`test/test-results-list.tsx > TAP > skipAll default no tests found messa
 `
 
 exports[`test/test-results-list.tsx > TAP > skipAll no message > must match snapshot 1`] = `
-
+ [1m[36m~[39m[22m no tests found
 `
 
 exports[`test/test-results-list.tsx > TAP > test with other types of points > must match snapshot 1`] = `

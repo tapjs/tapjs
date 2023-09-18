@@ -90,6 +90,8 @@ class TAP extends Test {
             omitVersion: envFlag('TAP_OMIT_VERSION'),
             preserveWhitespace: !envFlag('TAP_OMIT_WHITESPACE'),
             timeout,
+            failTodo: envFlag('TAP_FAIL_TODO'),
+            failSkip: envFlag('TAP_FAIL_SKIP'),
             passes: envFlag('TAP_PASSES'),
             // these are always set in our tests.
             /* c8 ignore start */

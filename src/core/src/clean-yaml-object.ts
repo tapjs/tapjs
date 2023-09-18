@@ -171,6 +171,9 @@ export const deleteAlways = new Set([
   'diagnostic',
   'buffered',
   'parent',
+  // only relevant if activated, a failedTodo or failedSkip will be added
+  'failSkip',
+  'failTodo',
   // TODO: keys added by plugins, but referenced here
   // How can this list be adjusted by plugins?
   'grep',
@@ -188,6 +191,7 @@ export const deleteIfEmpty = new Set([
   'at',
   'stack',
   'context',
+  'debug',
 
   // TODO: keys added by plugins, but referenced here
   // How can this list be adjusted by plugins?

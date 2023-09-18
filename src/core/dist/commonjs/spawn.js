@@ -156,7 +156,7 @@ class Spawn extends base_js_1.Base {
             this.results.plan.skipAll &&
             !code &&
             !signal) {
-            this.options.skip = this.results.plan.skipReason || true;
+            this.options.skip = this.results.plan.skipReason || 'no tests found';
         }
         if (code || signal) {
             if (this.results) {

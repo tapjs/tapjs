@@ -1,6 +1,14 @@
 import t from 'tap'
 import { TestPoint } from '../dist/esm/test-point.js'
 
+t.cleanSnapshot = s =>
+  s
+    .replace(/\n  at:[^\n]*(\n    [^\n]+)/g, '\n  at: {CALLSITE}')
+    .replace(
+      /\n  source: [^\n]*(\n    [^\n]+)/g,
+      '\n  source: {SOURCE}'
+    )
+
 for (const ok of [true, false]) {
   t.test(`ok=${ok}`, t => {
     t.matchSnapshot(new TestPoint(ok, 'name'), 'basic test point')
@@ -38,6 +46,22 @@ for (const ok of [true, false]) {
     t.matchSnapshot(
       new TestPoint(ok, '  a\nb\t# c \\  '),
       'escape/trim'
+    )
+    t.matchSnapshot(
+      new TestPoint(ok, 's', { skip: true, failSkip: true }),
+      'failSkip and skip:true'
+    )
+    t.matchSnapshot(
+      new TestPoint(ok, 's', { skip: 'msg', failSkip: true }),
+      'failSkip and skip:msg'
+    )
+    t.matchSnapshot(
+      new TestPoint(ok, 's', { todo: true, failTodo: true }),
+      'failTodo and todo:true'
+    )
+    t.matchSnapshot(
+      new TestPoint(ok, 's', { todo: 'msg', failTodo: true }),
+      'failTodo and todo:msg'
     )
     t.end()
   })

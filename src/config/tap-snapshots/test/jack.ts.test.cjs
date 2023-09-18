@@ -117,6 +117,14 @@ Object {
     "multiple": true,
     "type": "string",
   },
+  "fail-skip": Object {
+    "description": "Treat \`# SKIP\` assertions as failures",
+    "type": "boolean",
+  },
+  "fail-todo": Object {
+    "description": "Treat \`# TODO\` tests as failures",
+    "type": "boolean",
+  },
   "files": Object {
     "description": "Alternative way to specify test set rather than using positional arguments. Supported as an option so that test file arguments can be specified in .taprc and package.json files.",
     "multiple": true,
@@ -227,6 +235,8 @@ Object {
   "passes": Object {
     "description": String(
       Include passing tests in assertion summary reports.
+      
+      Has no effect on TAP output if a reporter is not used, but will cause passing assertions to be included in the \`Test.lists\` collection by default.
       
       Note: this usually makes test output QUITE noisy.
     ),

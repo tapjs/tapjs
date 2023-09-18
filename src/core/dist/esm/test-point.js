@@ -10,8 +10,18 @@ export class TestPoint {
     extra;
     res;
     constructor(ok, message, extra) {
-        this.ok = ok ? 'ok ' : 'not ok ';
         extra = extra || {};
+        if (extra.failTodo && extra.todo) {
+            ok = false;
+            extra.failedTodo = extra.todo;
+            delete extra.todo;
+        }
+        if (extra.failSkip && extra.skip) {
+            ok = false;
+            extra.failedSkip = extra.skip;
+            delete extra.skip;
+        }
+        this.ok = ok ? 'ok ' : 'not ok ';
         message = message
             .trim()
             .replace(/[\n\r]/g, ' ')
@@ -39,6 +49,7 @@ const tpMessage = (description, extra) => {
     else if (extra.time) {
         message += ' # time=' + extra.time + 'ms';
     }
+    // TODO: add # time if duration_ms in extra
     const diagYaml = extra.diagnostic ? '\n' + diags(extra) : '';
     message += diagYaml + '\n';
     return message;

@@ -410,7 +410,19 @@ export default jack({
     passes: {
       description: `Include passing tests in assertion summary reports.
 
+      Has no effect on TAP output if a reporter is not used, but will
+      cause passing assertions to be included in the \`Test.lists\` collection
+      by default.
+
       Note: this usually makes test output QUITE noisy.`,
+    },
+
+    'fail-todo': {
+      description: `Treat \`# TODO\` tests as failures`,
+    },
+
+    'fail-skip': {
+      description: `Treat \`# SKIP\` assertions as failures`,
     },
 
     color: {

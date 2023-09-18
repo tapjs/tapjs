@@ -120,7 +120,7 @@ ok 1 - child # time={TIME}
 exports[`test/test-base.ts > TAP > comments > before end > must match snapshot 1`] = `
 # before end { world: true }
 TAP version 14
-1..0
+1..0 # no tests found
 
 `
 
