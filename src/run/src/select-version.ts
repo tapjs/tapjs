@@ -1,10 +1,15 @@
 import { LoadedConfig } from '@tapjs/config'
+import { readFileSync } from 'fs'
 import pacote from 'pacote'
+import { resolveImport } from 'resolve-import'
 import { gt, satisfies } from 'semver'
+import { fileURLToPath } from 'url'
 import { npmBg } from './npm.js'
 
-import corePkg from '@tapjs/core/package.json' assert { type: 'json' }
-const { version: coreVersion } = corePkg
+const corePJ = await resolveImport('@tapjs/core/package.json')
+const { version: coreVersion } = JSON.parse(
+  readFileSync(fileURLToPath(corePJ), 'utf8')
+) as { version: 'string' }
 
 let registry: string | undefined = undefined
 const getPackument = async (pkg: string, config: LoadedConfig) => {
