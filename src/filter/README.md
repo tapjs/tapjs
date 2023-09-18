@@ -163,3 +163,22 @@ t.runOnly = false
 t.only('this will run', t => t.end())
 t.test('so will this, even with --only', t => t.end())
 ```
+
+## `--filter-quietly`
+
+By default, when a test is skipped with `--grep` or `--only`, a
+skip message is applied, indicating why it was omitted.
+
+This is often desireable, but can be noisy. The
+`--filter-quietly` config flag will disable this reporting,
+making filtered tests look like empty passing assertions.
+
+Since a skip message will cause failures when `--fail-skip` is
+set, in that case `--filter-quietly` will be enabled by default.
+Presumably, if you tell tap "fail on skipped tests", you don't
+also mean for it to fail on tests that you have told it to skip
+in that very same command with `--grep` or `--only`.
+
+If you _do_ mean to have it fail on intentionally skipped tests,
+then you can set `--no-filter-quietly` (or `filter-quietly:
+false` in a `.taprc` file) along with `--fail-skip`.

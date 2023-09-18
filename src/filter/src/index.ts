@@ -50,6 +50,7 @@ export class Filter {
   #grep: (string | RegExp)[] = []
   #grepInvert: boolean
   #runOnly: boolean
+  #filterQuietly: boolean
 
   get runOnly() {
     return this.#runOnly
@@ -60,6 +61,9 @@ export class Filter {
 
   constructor(t: TestBase, opts: FilterOptions) {
     this.#t = t
+    const eq = env?.TAP_FILTER_QUIETLY
+    this.#filterQuietly =
+      eq === '1' || (!!t.options.failSkip && eq !== '0')
 
     // don't filter test files when we're the cli test runner
     const { grep, grepInvert, runOnly } =
@@ -116,11 +120,13 @@ export class Filter {
           : pattern.test(name)
       const match = this.#grepInvert ? !m : m
       if (!match) {
-        const p = `filter${
-          this.#grepInvert ? ' out' : ''
-        }: ${pattern}`
-        opts.skip = p
-        return shouldSkipChild(opts)
+        if (!this.#filterQuietly) {
+          opts.skip = `filter${
+            this.#grepInvert ? ' out' : ''
+          }: ${pattern}`
+        }
+        shouldSkipChild(opts)
+        return true
       } else {
         opts.grep = rest
       }
@@ -130,9 +136,11 @@ export class Filter {
       opts.grep = []
     }
     if (this.#runOnly && !opts.only) {
-      const p = 'filter: only'
-      opts.skip = p
-      return shouldSkipChild(opts)
+      if (!this.#filterQuietly) {
+        opts.skip = 'filter: only'
+      }
+      shouldSkipChild(opts)
+      return true
     }
     if (opts.only && !this.#runOnly) {
       this.#t.comment(
@@ -256,5 +264,30 @@ export const config = {
     short: 'I',
     description:
       'Do not invert the matches to --grep patterns. (default)',
+  },
+
+  /**
+   * flag
+   *
+   * Do not apply a skip message to tests filtered using `--grep`
+   * and `--only`.
+   *
+   * Enabled by default if `--fail-skip` is set.
+   */
+  'filter-quietly': {
+    type: 'boolean',
+    description: `
+       Do not apply a skip message to tests filtered using \`--grep\`
+       and \`--only\`.
+
+       Defaults to true if \`--fail-skip\` is set.
+   `,
+  },
+  'no-filter-quietly': {
+    type: 'boolean',
+    description: `
+       Always set a skip message on filtered tests, even if \`--fail-skip\`
+       is enabled.
+   `,
   },
 }

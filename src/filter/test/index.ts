@@ -53,6 +53,12 @@ t.test('grep', async t =>
   )
 )
 
+t.test('grep, failSkip:true', async t =>
+  t.matchSnapshot(
+    await run({ name: 'grepper', failSkip: true, grep: ['cat', 'purr'] })
+  )
+)
+
 t.test('grep invert', async t =>
   t.matchSnapshot(
     await run({
@@ -63,9 +69,26 @@ t.test('grep invert', async t =>
   )
 )
 
+t.test('grep invert, failSkip:true', async t =>
+  t.matchSnapshot(
+    await run({
+      name: 'grep invert',
+      grep: /unicorn|dog/,
+      grepInvert: true,
+      failSkip: true,
+    })
+  )
+)
+
 t.test('only', async t =>
   t.matchSnapshot(
     await run({ name: 'only the lonely', runOnly: true })
+  )
+)
+
+t.test('only, failSkip: true', async t =>
+  t.matchSnapshot(
+    await run({ name: 'only the lonely', runOnly: true, failSkip: true })
   )
 )
 
