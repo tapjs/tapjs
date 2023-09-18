@@ -46,7 +46,7 @@
     "events-to-array": "^2.0.3",
     "foreground-child": "^3.1.1",
     "function-loop": "^4.0.0",
-    "ink": "^4.3.1",
+    "ink": "^4.4.1",
     "ink-testing-library": "^3.0.0",
     "is-actual-promise": "^1.0.0",
     "jackspeak": "^2.3.3",
