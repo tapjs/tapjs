@@ -21,6 +21,7 @@ exports[`test/base.tsx > TAP > no comments or passes > must match snapshot 1`] =
 [1m[44m[38;2;255;255;255m SKIP [39m[49m[22m six [36m1 skip[39m of [1m1[22m [2m{TIME}[22m
  [1m[36m~[39m[22m nope [36mmessage[39m
 [1m[44m[38;2;255;255;255m SKIP [39m[49m[22m zro [1m0[22m [32mOK[39m [2m{TIME}[22m
+ [1m[36m~[39m[22m no tests found
 
 [48;2;255;255;255m                       [49m
 [1m[48;2;255;255;255m[30m  🌈 TEST COMPLETE 🌈  [39m[49m[22m
@@ -83,6 +84,7 @@ exports[`test/base.tsx > TAP > yes comments and passes > must match snapshot 1`]
 [1m[44m[38;2;255;255;255m SKIP [39m[49m[22m six [36m1 skip[39m of [1m1[22m [2m{TIME}[22m
  [1m[36m~[39m[22m nope [36mmessage[39m
 [1m[44m[38;2;255;255;255m SKIP [39m[49m[22m zro [1m0[22m [32mOK[39m [2m{TIME}[22m
+ [1m[36m~[39m[22m no tests found
 
 [48;2;255;255;255m                       [49m
 [1m[48;2;255;255;255m[30m  🌈 TEST COMPLETE 🌈  [39m[49m[22m

@@ -281,7 +281,7 @@ not ok 1 - timeout!
       t.strictSame(s.stdio, ['pipe', 'pipe', 'pipe', 'ipc'])
       s.main(async () => {
         t.equal(await s.concat(), 'TAP version 14\n1..0\n')
-        t.equal(s.options.skip, true)
+        t.equal(s.options.skip, 'no tests found')
         t.equal(s.results?.plan.skipAll, true)
         t.end()
       })

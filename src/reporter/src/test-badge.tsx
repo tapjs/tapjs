@@ -8,7 +8,7 @@ export interface TestBadgeOpts {
 
 export const TestBadge: FC<TestBadgeOpts> = ({ test }) => {
   const { results, counts, options, bailedOut } = test
-  const { exitCode, signal } = options
+  const { exitCode, signal, failSkip, failTodo } = options
   if (!results) {
     return (
       <Text backgroundColor="yellow" color="#000" bold>
@@ -20,7 +20,16 @@ export const TestBadge: FC<TestBadgeOpts> = ({ test }) => {
   // we don't get these things on a bailout
   const { skipAll } = plan || {}
   const { fail, todo, skip } = counts || {}
-  return !ok || !!fail || signal || bailedOut || exitCode ? (
+  const isSkip = !!skip || skipAll || !!resultsSkip
+  const isFail =
+    !ok ||
+    !!fail ||
+    signal ||
+    bailedOut ||
+    exitCode ||
+    (!!todo && failTodo) ||
+    (isSkip && failSkip)
+  return isFail ? (
     <Text backgroundColor="red" color="#fff" bold>
       {' FAIL '}
     </Text>
@@ -28,7 +37,7 @@ export const TestBadge: FC<TestBadgeOpts> = ({ test }) => {
     <Text backgroundColor="#808" color="#fff" bold>
       {' TODO '}
     </Text>
-  ) : !!skip || skipAll || !!resultsSkip ? (
+  ) : isSkip ? (
     <Text backgroundColor="blue" color="#fff" bold>
       {' SKIP '}
     </Text>

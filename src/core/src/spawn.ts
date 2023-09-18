@@ -258,7 +258,7 @@ export class Spawn extends Base<SpawnEvents> {
       !code &&
       !signal
     ) {
-      this.options.skip = this.results.plan.skipReason || true
+      this.options.skip = this.results.plan.skipReason || 'no tests found'
     }
 
     if (code || signal) {

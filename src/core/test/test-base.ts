@@ -110,16 +110,15 @@ t.test('diagnostic', t => {
   const expect = `TAP version 14
 # Subtest: subtest
     ok 1 - in subtest
-    
-    1..1
-ok 1 - subtest # time={TIME}
-  ---
-  at:
-    fileName: src/test-base.ts
-    lineNumber: `
+      ---
+      at:
+        fileName: `
   tb.runMain(async () => {
     const res = clean(String(await tb.concat()))
+    // prints diags for all points in a diagnostic: true test
     t.equal(res.substring(0, expect.length), expect)
+    // also prints diags for the test itself
+    t.match(res, 'ok 1 - subtest # time={TIME}\n  ---\n  at:\n')
     t.end()
   })
 })
@@ -1517,5 +1516,39 @@ t.test('job id generation edge case', async t => {
         sub.options.jobId < 2,
       'jobId less than parent.jobs'
     )
+  }
+})
+
+t.test('failSkip', async t => {
+  const tb = new T({ name: 'root', failSkip: true })
+  tb.test('empty', t => t.end())
+  tb.test('skipped', { skip: true }, t => t.end())
+  tb.test('skipped message', { skip: 'message' }, t => t.end())
+  tb.end()
+  const res = clean(await tb.concat())
+  const expects = [
+    'ok 1 - empty # time={TIME}',
+    'not ok 2 - skipped',
+    'not ok 3 - skipped message',
+  ]
+  for (const e of expects) {
+    t.match(res, e)
+  }
+})
+
+t.test('failTodo', async t => {
+  const tb = new T({ name: 'root', failTodo: true })
+  tb.test('empty', t => t.end())
+  tb.test('todo', { todo: true }, t => t.end())
+  tb.test('todo message', { todo: 'message' }, t => t.end())
+  tb.end()
+  const res = clean(await tb.concat())
+  const expects = [
+    'ok 1 - empty # time={TIME}',
+    'not ok 2 - todo',
+    'not ok 3 - todo message',
+  ]
+  for (const e of expects) {
+    t.match(res, e)
   }
 })

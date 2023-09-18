@@ -109,6 +109,16 @@ export interface BaseOpts extends Extra {
   passes?: boolean
 
   /**
+   * treat todo tests as failures, default false
+   */
+  failTodo?: boolean
+
+  /**
+   * treat skip tests as failures, default false
+   */
+  failSkip?: boolean
+
+  /**
    * The amount of time that this test took to complete.
    *
    * Typically, this is not set explicitly, but inferred from the actual

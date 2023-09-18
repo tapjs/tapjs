@@ -1,4 +1,4 @@
-import { Base, Lists } from '@tapjs/core'
+import { Base } from '@tapjs/core'
 import { Box, Text } from 'ink'
 import React, { FC, ReactElement } from 'react'
 import { Result } from 'tap-parser'
@@ -24,7 +24,6 @@ export const TestResultsList: FC<TestResultsListOpts> = ({
   const resultsList: (ReactElement | Result)[] = []
   if (
     results.plan.skipAll &&
-    results.plan.skipReason &&
     !bailedOut &&
     !signal &&
     !exitCode
@@ -34,7 +33,7 @@ export const TestResultsList: FC<TestResultsListOpts> = ({
         <Text color="cyan" bold>
           ~
         </Text>
-        <Text>{results.plan.skipReason}</Text>
+        <Text>{results.plan.skipReason || 'no tests found'}</Text>
       </Box>
     )
   }
