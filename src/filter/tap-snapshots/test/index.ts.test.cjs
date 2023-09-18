@@ -174,6 +174,48 @@ ok 3 - dog # SKIP filter out: /unicorn|dog/
 
 `
 
+exports[`test/index.ts > TAP > grep invert, failSkip:true > must match snapshot 1`] = `
+TAP version 14
+# Subtest: cat
+    # Subtest: hiss
+        ok 1 - sssss
+        1..1
+    ok 1 - hiss # time={TIME}
+    
+    # Subtest: purr
+        ok 1 - rrrrr
+        1..1
+    ok 2 - purr # time={TIME}
+    
+    ok 3 - meow
+    1..3
+ok 1 - cat # time={TIME}
+
+ok 2 - unicorn
+ok 3 - dog
+1..3
+
+`
+
+exports[`test/index.ts > TAP > grep, failSkip:true > must match snapshot 1`] = `
+TAP version 14
+# Subtest: cat
+    ok 1 - hiss
+    # Subtest: purr
+        ok 1 - rrrrr
+        1..1
+    ok 2 - purr # time={TIME}
+    
+    ok 3 - meow
+    1..3
+ok 1 - cat # time={TIME}
+
+ok 2 - unicorn
+ok 3 - dog
+1..3
+
+`
+
 exports[`test/index.ts > TAP > only > must match snapshot 1`] = `
 TAP version 14
 ok 1 - cat # SKIP filter: only
@@ -196,6 +238,19 @@ ok 1 - cat # SKIP filter: only
 ok 2 - unicorn # time={TIME}
 
 ok 3 - dog # SKIP filter: only
+1..3
+
+`
+
+exports[`test/index.ts > TAP > only, failSkip: true > must match snapshot 1`] = `
+TAP version 14
+ok 1 - cat
+# Subtest: unicorn
+    ok 1 - this is fine
+    1..1
+ok 2 - unicorn # time={TIME}
+
+ok 3 - dog
 1..3
 
 `
