@@ -47,7 +47,7 @@ export const selectVersion = async (
     }
     if (
       typeof corePeerDep === 'string' &&
-      !satisfies(corePeerDep, coreVersion)
+      !satisfies(coreVersion, corePeerDep)
     ) {
       continue
     }
