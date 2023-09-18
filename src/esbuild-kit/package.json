@@ -39,8 +39,8 @@
     "@tapjs/core": "1.0.2"
   },
   "dependencies": {
-    "@esbuild-kit/cjs-loader": "^2.4.2",
-    "@esbuild-kit/esm-loader": "^2.5.5"
+    "@esbuild-kit/cjs-loader": "^2.4.4",
+    "@esbuild-kit/esm-loader": "^2.6.5"
   },
   "engines": {
     "node": ">=16"
