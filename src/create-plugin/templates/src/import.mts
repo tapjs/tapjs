@@ -37,7 +37,9 @@ import { register } from 'node:module'
 // This is the main thread, do whatever setup needs to be done here.
 // This triggers a call to initialize() to be run in the laoder thread,
 // which is defined in ./hooks.mts
-register(new URL('./loader.mjs', import.meta.url), {
+//@ts-ignore
+register(String(new URL('./loader.mjs', import.meta.url)), {
+  parentURL: import.meta.url,
   // to communicate with loader thread, pass MessagePort as shown
   // in the comment above.
 })
