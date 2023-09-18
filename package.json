@@ -69,7 +69,7 @@
     "polite-json": "^4.0.1",
     "prettier": "^2.8.7",
     "prismjs": "^1.29.0",
-    "prismjs-terminal": "^1.2.2",
+    "prismjs-terminal": "^1.2.3",
     "react": "^18.2.0",
     "read": "^2.1.0",
     "resolve-import": "^1.4.1",
