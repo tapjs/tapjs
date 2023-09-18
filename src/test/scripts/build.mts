@@ -106,118 +106,116 @@ const validPlugin = (p: any): p is PluginExport =>
     typeof p.importLoader === 'string') &&
   (p.preload === undefined || typeof p.preload === 'boolean')
 
-const pluginNames = (
-  await Promise.all(
-    plugins.map(async p => {
-      // this also verifies that all plugins can be loaded, or it'll blow
-      // up at this point.
-      let imp: any
-      let req: any
+const pluginNames = await Promise.all(
+  plugins.map(async p => {
+    // this also verifies that all plugins can be loaded, or it'll blow
+    // up at this point.
+    let imp: any
+    let req: any
 
-      try {
-        req = require(p)
-      } catch (er) {
-        /* c8 ignore start */
-        console.error(
-          `'${p}' does not appear to be a tap plugin. Could not load ` +
-            `module with require().`,
-          er instanceof Error ? er.message : er
-        )
-        /* c8 ignore start */
-        process.exit(1)
-      }
-      if (!validPlugin(req)) {
-        console.error(
-          `'${p}' does not appear to be a tap plugin. When ` +
-            `loaded with require(), must export at least one of: ` +
-            'a plugin function, config object, loader module identifier, ' +
-            'or importLoader module identifier. Got: ' +
-            Object.keys(req)
-        )
-        process.exit(1)
-      }
+    try {
+      req = require(p)
+    } catch (er) {
+      /* c8 ignore start */
+      console.error(
+        `'${p}' does not appear to be a tap plugin. Could not load ` +
+          `module with require().`,
+        er instanceof Error ? er.message : er
+      )
+      /* c8 ignore start */
+      process.exit(1)
+    }
+    if (!validPlugin(req)) {
+      console.error(
+        `'${p}' does not appear to be a tap plugin. When ` +
+          `loaded with require(), must export at least one of: ` +
+          'a plugin function, config object, loader module identifier, ' +
+          'or importLoader module identifier. Got: ' +
+          Object.keys(req)
+      )
+      process.exit(1)
+    }
 
-      try {
-        imp = await import(String(await resolveImport(p, dir)))
-      } catch (er) {
-        /* c8 ignore start */
-        console.error(
-          `'${p}' does not appear to be a tap plugin. Could not load ` +
-            `module with import().`,
-          er instanceof Error ? er.message : er
-        )
-        /* c8 ignore start */
-        process.exit(1)
-      }
-      if (!validPlugin(imp)) {
-        console.error(
-          `'${p}' does not appear to be a tap plugin. When ` +
-            `loaded with import(), must export at least one of: ` +
-            'a plugin function, config object, loader module identifier, ' +
-            'or importLoader module identifier. Got: ' +
-            Object.keys(req)
-        )
-        process.exit(1)
-      }
+    try {
+      imp = await import(String(await resolveImport(p, dir)))
+    } catch (er) {
+      /* c8 ignore start */
+      console.error(
+        `'${p}' does not appear to be a tap plugin. Could not load ` +
+          `module with import().`,
+        er instanceof Error ? er.message : er
+      )
+      /* c8 ignore start */
+      process.exit(1)
+    }
+    if (!validPlugin(imp)) {
+      console.error(
+        `'${p}' does not appear to be a tap plugin. When ` +
+          `loaded with import(), must export at least one of: ` +
+          'a plugin function, config object, loader module identifier, ' +
+          'or importLoader module identifier. Got: ' +
+          Object.keys(req)
+      )
+      process.exit(1)
+    }
 
-      const n =
-        'Plugin_' +
-        basename(p)
-          .replace(/\.([cm]?[jt]sx?)$/, '')
-          .replace(/[-_.]+(.)/g, (_, $1) => $1.toUpperCase())
-          .replace(/[^a-zA-Z0-9]+/g, ' ')
-          .trim()
-          .replace(' ', '_')
-      let name: string
-      if (!seen.has(n)) {
-        name = n
+    const n =
+      'Plugin_' +
+      basename(p)
+        .replace(/\.([cm]?[jt]sx?)$/, '')
+        .replace(/[-_.]+(.)/g, (_, $1) => $1.toUpperCase())
+        .replace(/[^a-zA-Z0-9]+/g, ' ')
+        .trim()
+        .replace(' ', '_')
+    let name: string
+    if (!seen.has(n)) {
+      name = n
+    } else {
+      let i = 0
+      while (seen.has(n + '_' + ++i)) {}
+      const ni = `${n}_${i}`
+      name = ni
+    }
+    seen.add(name)
+    if (imp.config) {
+      hasConfig.set(p, name)
+      configs.set(p, imp.config)
+    }
+    if (typeof imp.plugin === 'function') {
+      hasPlugin.set(p, name)
+    }
+    if (typeof imp.importLoader === 'string') {
+      if (imp.preload === true) preimports.set(p, imp.importLoader)
+      hasImport.set(p, imp.importLoader)
+    }
+    if (typeof imp.loader === 'string') {
+      if (imp.preload === true) preloaders.set(p, imp.loader)
+      if (!imp.importLoader) hasLoader.set(p, imp.loader)
+      else hasLoaderFallback.set(p, imp.loader)
+    }
+
+    // we can't reasonably add more file types if we didn't add some
+    // functionality.
+    if (imp.testFileExtensions !== undefined) {
+      const invalidTestFileExtensions = () => {
+        console.error(
+          `'${p}' exports an invalid testFileExtensions. Must be string[].`
+        )
+        process.exit(1)
+      }
+      if (!Array.isArray(imp.testFileExtensions)) {
+        invalidTestFileExtensions()
       } else {
-        let i = 0
-        while (seen.has(n + '_' + ++i)) {}
-        const ni = `${n}_${i}`
-        name = ni
-      }
-      seen.add(name)
-      if (imp.config) {
-        hasConfig.set(p, name)
-        configs.set(p, imp.config)
-      }
-      if (typeof imp.plugin === 'function') {
-        hasPlugin.set(p, name)
-      }
-      if (typeof imp.importLoader === 'string') {
-        if (imp.preload === true) preimports.set(p, imp.importLoader)
-        hasImport.set(p, imp.importLoader)
-      }
-      if (typeof imp.loader === 'string') {
-        if (imp.preload === true) preloaders.set(p, imp.loader)
-        if (!imp.importLoader) hasLoader.set(p, imp.loader)
-        else hasLoaderFallback.set(p, imp.loader)
-      }
-
-      // we can't reasonably add more file types if we didn't add some
-      // functionality.
-      if (imp.testFileExtensions !== undefined) {
-        const invalidTestFileExtensions = () => {
-          console.error(
-            `'${p}' exports an invalid testFileExtensions. Must be string[].`
-          )
-          process.exit(1)
-        }
-        if (!Array.isArray(imp.testFileExtensions)) {
-          invalidTestFileExtensions()
-        } else {
-          for (const k of imp.testFileExtensions) {
-            if (typeof k !== 'string') {
-              invalidTestFileExtensions()
-            }
-            testFileExtensions.add(k)
+        for (const k of imp.testFileExtensions) {
+          if (typeof k !== 'string') {
+            invalidTestFileExtensions()
           }
+          testFileExtensions.add(k)
         }
       }
-      return name
-    })
-  )
+    }
+    return name
+  })
 )
 
 const pluginImport = plugins
