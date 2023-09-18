@@ -94,6 +94,8 @@
     "start": "npm run start -w src/docs",
     "predocsbuild": "npm run bootstrap",
     "docsbuild": "npm run build -w src/docs",
+    "pretest": "rimraf src/test/test-built/dist/node_modules",
+    "presnap": "rimraf src/test/test-built/dist/node_modules",
     "test": "nx run-many -t test",
     "test:bootstrap": "bash ./scripts/test-bootstrap.sh",
     "snap": "TAP_TYPECHECK=0 TAP_TIMEOUT=240 nx run-many -t snap",

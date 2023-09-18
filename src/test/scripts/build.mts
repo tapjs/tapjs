@@ -1,12 +1,13 @@
 import { globSync } from 'glob'
 import { ConfigOptionBase, isConfigOption } from 'jackspeak'
-import { mkdirp } from 'mkdirp'
+import { mkdirp, mkdirpSync } from 'mkdirp'
 import { spawnSync } from 'node:child_process'
-import { readFileSync, writeFileSync } from 'node:fs'
+import { readFileSync, symlinkSync, writeFileSync } from 'node:fs'
 import { createRequire } from 'node:module'
 import { basename, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { resolveImport } from 'resolve-import'
+import { rimrafSync } from 'rimraf'
 
 if (typeof process.argv[2] !== 'string') {
   console.error('usage: generate-tap-test-class [...plugins]')
@@ -395,6 +396,12 @@ writeFileSync(
   })
 )
 
+// prevent tshy from creating this, then delete it
+// irrelevant in production, but causes nx problems in tapjs project
+const nm = resolve(dir, 'node_modules')
+mkdirpSync(resolve(nm, '@tapjs'))
+symlinkSync('../..', resolve(nm, '@tapjs/test-built'))
 spawnSync('npm', ['run', 'prepare'], { cwd: dir, stdio: 'inherit' })
+rimrafSync(nm)
 
 export {}
