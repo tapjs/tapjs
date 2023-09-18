@@ -358,6 +358,14 @@ export class Parser
       return
     }
 
+    if (
+      typeof diags.duration_ms === 'number' &&
+      this.#current.time === null
+    ) {
+      this.#current.time = diags.duration_ms
+      delete diags.duration_ms
+    }
+
     this.#current.diag = diags
     // we still don't emit the result here yet, to support diags
     // that come ahead of buffered subtests.

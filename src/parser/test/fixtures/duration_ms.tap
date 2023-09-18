@@ -1,0 +1,12 @@
+TAP version 14
+# Subtest: subtest
+    ok 1 - this is fine
+    1..1
+ok 1 - subtest
+  ---
+  duration_ms: 1.432
+  ...
+
+1..1
+# { total: 1, pass: 1 }
+# duration_ms 9.118
