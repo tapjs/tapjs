@@ -8,7 +8,7 @@ const { port1, port2 } = new MessageChannel()
 
 MockService.listen(port1)
 
-register(new URL('./loader.mjs', import.meta.url), {
+register(String(new URL('./loader.mjs', import.meta.url)), {
   parentURL: import.meta.url,
   data: { port: port2 },
   transferList: [port2],
