@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/core",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "pluggable core of node-tap",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "type": "module",
@@ -52,7 +52,7 @@
   "dependencies": {
     "@tapjs/processinfo": "^3.1.1",
     "@tapjs/stack": "1.0.0",
-    "@tapjs/test": "1.0.2",
+    "@tapjs/test": "1.0.3",
     "async-hook-domain": "^4.0.1",
     "is-actual-promise": "^1.0.0",
     "jackspeak": "^2.3.3",

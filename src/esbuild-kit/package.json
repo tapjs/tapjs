@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/esbuild-kit",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Alternative to @tapjs/typescript. Load typescript using @esbuild-kit/cjs-loader and @esbuild-kit/esm-loader instead of ts-node.",
   "type": "module",
   "keywords": [
@@ -36,7 +36,7 @@
     "typecheck": false
   },
   "peerDependencies": {
-    "@tapjs/core": "1.0.2"
+    "@tapjs/core": "1.0.3"
   },
   "dependencies": {
     "@esbuild-kit/cjs-loader": "^2.4.4",
