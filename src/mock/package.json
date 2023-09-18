@@ -73,7 +73,7 @@
   "dependencies": {
     "@tapjs/after": "1.0.2",
     "@tapjs/stack": "1.0.0",
-    "resolve-import": "^1.2.1",
+    "resolve-import": "^1.4.1",
     "walk-up-path": "^3.0.1"
   }
 }
