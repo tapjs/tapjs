@@ -82,9 +82,12 @@ Object {
     "typecheck": false,
   },
   "tshy": Object {
-    "./import": "./src/import.mts",
-    "./loader": "./src/legacy-loader.mts",
-    "./package.json": "./package.json",
+    "exports": Object {
+      ".": "./src/index.ts",
+      "./import": "./src/import.mts",
+      "./loader": "./src/legacy-loader.mts",
+      "./package.json": "./package.json",
+    },
   },
   "type": "module",
   "version": "0.0.0-0",

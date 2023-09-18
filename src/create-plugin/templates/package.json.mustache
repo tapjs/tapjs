@@ -7,9 +7,12 @@
     "tapjs plugin"
   ],
   "tshy": {
-    "./package.json": "./package.json",
-    "./import": "./src/import.mts",
-    "./loader": "./src/legacy-loader.mts"
+    "exports": {
+      "./package.json": "./package.json",
+      ".": "./src/index.ts",
+      "./import": "./src/import.mts",
+      "./loader": "./src/legacy-loader.mts"
+    }
   },
   "exports": {
     "./package.json": {
