@@ -105,7 +105,7 @@ const validPlugin = (p: any): p is PluginExport =>
     typeof p.importLoader === 'string') &&
   (p.preload === undefined || typeof p.preload === 'boolean')
 
-const pluginNames = sortedStrings(
+const pluginNames = (
   await Promise.all(
     plugins.map(async p => {
       // this also verifies that all plugins can be loaded, or it'll blow
