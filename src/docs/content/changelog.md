@@ -23,6 +23,7 @@ Major rewrite.
   plugin.
 - Assertion aliases moved to the optional `@tapjs/synonyms`
   plugin (so no longer deprecated, but opt-in)
+- Dropped support for node 14 and earlier.
 
 ### CLI
 
