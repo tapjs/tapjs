@@ -1,0 +1,55 @@
+TAP version 13
+# Subtest: uhoh, this one throws
+not ok 1 - uhoh, this one throws
+  ---
+  duration_ms: 0.711
+  location: 'file:///path/to/node-test-example/test/node.test.js:35:1'
+  failureType: 'testCodeFailure'
+  error: 'Invalid time value'
+  code: 'ERR_TEST_FAILURE'
+  name: 'RangeError'
+  stack: |-
+    Date.toISOString (<anonymous>)
+    thrower (file:///path/to/node-test-example/lib/index.mjs:11:43)
+    TestContext.<anonymous> (file:///path/to/node-test-example/test/node.test.js:38:16)
+    Test.runInAsyncScope (node:async_hooks:206:9)
+    Test.run (node:internal/test_runner/test:631:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:374:18)
+    Test.postRun (node:internal/test_runner/test:715:19)
+    Test.run (node:internal/test_runner/test:673:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:374:7)
+  ...
+# Subtest: A thing
+    # Subtest: nesting suite
+    not ok 1 - nesting suite
+      ---
+      duration_ms: 0.036708
+      type: 'suite'
+      location: 'file:///path/to/node-test-example/test/node.test.js:65:3'
+      failureType: 'testCodeFailure'
+      error: 'ok'
+      code: 'ERR_TEST_FAILURE'
+      stack: |-
+        SuiteContext.<anonymous> (file:///path/to/node-test-example/test/node.test.js:66:9)
+        Suite.runInAsyncScope (node:async_hooks:206:9)
+        new Suite (node:internal/test_runner/test:901:26)
+        Suite.createSubtest (node:internal/test_runner/test:442:18)
+        run (node:internal/test_runner/harness:214:28)
+        test (node:internal/test_runner/harness:227:12)
+        SuiteContext.<anonymous> (file:///path/to/node-test-example/test/node.test.js:65:3)
+        Suite.runInAsyncScope (node:async_hooks:206:9)
+        new Suite (node:internal/test_runner/test:901:26)
+        Test.createSubtest (node:internal/test_runner/test:442:18)
+      ...
+    1..1
+not ok 2 - A thing
+  ---
+  duration_ms: 0.191416
+  type: 'suite'
+  location: 'file:///path/to/node-test-example/test/node.test.js:64:1'
+  failureType: 'subtestsFailed'
+  error: '1 subtest failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+1..2
+# duration_ms 13.879834

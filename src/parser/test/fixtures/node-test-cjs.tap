@@ -1,0 +1,53 @@
+TAP version 13
+# Subtest: uhoh, this one throws
+not ok 1 - uhoh, this one throws
+  ---
+  duration_ms: 0.686334
+  location: '/path/to/node-test-example/test/node.test.cjs:36:1'
+  failureType: 'testCodeFailure'
+  error: 'Invalid time value'
+  code: 'ERR_TEST_FAILURE'
+  name: 'RangeError'
+  stack: |-
+    Date.toISOString (<anonymous>)
+    exports.thrower (/path/to/node-test-example/lib/index.cjs:11:38)
+    TestContext.<anonymous> (/path/to/node-test-example/test/node.test.cjs:39:16)
+    Test.runInAsyncScope (node:async_hooks:206:9)
+    Test.run (node:internal/test_runner/test:631:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:374:18)
+    Test.postRun (node:internal/test_runner/test:715:19)
+    Test.run (node:internal/test_runner/test:673:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:374:7)
+  ...
+# Subtest: test thing
+    # Subtest: nesting test
+    not ok 1 - nesting test
+      ---
+      duration_ms: 0.053
+      location: '/path/to/node-test-example/test/node.test.cjs:72:11'
+      failureType: 'testCodeFailure'
+      error: 'ok'
+      code: 'ERR_TEST_FAILURE'
+      stack: |-
+        TestContext.<anonymous> (/path/to/node-test-example/test/node.test.cjs:73:9)
+        Test.runInAsyncScope (node:async_hooks:206:9)
+        Test.run (node:internal/test_runner/test:631:25)
+        Test.start (node:internal/test_runner/test:542:17)
+        TestContext.test (node:internal/test_runner/test:167:20)
+        TestContext.<anonymous> (/path/to/node-test-example/test/node.test.cjs:72:11)
+        Test.runInAsyncScope (node:async_hooks:206:9)
+        Test.run (node:internal/test_runner/test:631:25)
+        Test.processPendingSubtests (node:internal/test_runner/test:374:18)
+        Suite.postRun (node:internal/test_runner/test:715:19)
+      ...
+    1..1
+not ok 2 - test thing
+  ---
+  duration_ms: 0.200792
+  location: '/path/to/node-test-example/test/node.test.cjs:71:1'
+  failureType: 'subtestsFailed'
+  error: '1 subtest failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+1..2
+# duration_ms 14.422
