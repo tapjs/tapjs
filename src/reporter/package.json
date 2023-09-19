@@ -78,7 +78,8 @@
     "prismjs": "^1.29.0",
     "prismjs-terminal": "^1.2.3",
     "react": "^18.2.0",
-    "string-length": "^6.0.0"
+    "string-length": "^6.0.0",
+    "tcompare": "6.1.0"
   },
   "engines": {
     "node": ">=16"

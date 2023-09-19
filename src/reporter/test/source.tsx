@@ -71,3 +71,31 @@ t.test('file not readable, fall back to source', t => {
   t.matchSnapshot(app.lastFrame())
   t.end()
 })
+
+t.test('get at from stack', t => {
+  const getStack = () => {
+    try {
+      //@ts-expect-error
+      new Date({}).toISOString()
+    } catch (er) {
+      return (er as Error).stack
+    }
+  }
+  const getStackAndLocation = () => {
+    const loc = at(getStackAndLocation)
+    if (!loc) throw new Error('failed to get callsite')
+    return [
+      [loc.absoluteFileName, loc.lineNumber, loc.columnNumber].join(
+        ':'
+      ),
+      getStack(),
+    ]
+  }
+  const test = () => getStackAndLocation()
+  const app = render(<Source stack={getStack()} />)
+  t.matchSnapshot(app.lastFrame())
+  const [ location, stack ] = test()
+  const withLoc = render(<Source stack={stack} location={location} />)
+  t.matchSnapshot(withLoc.lastFrame())
+  t.end()
+})
