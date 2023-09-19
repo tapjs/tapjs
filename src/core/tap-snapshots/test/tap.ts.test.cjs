@@ -416,19 +416,13 @@ Object {
   "stderr": String(
     Error: poop
       ---
-      stack: >
+      stack: |
         TAP.<anonymous> (test/tap.ts:##:##)
-    
         After.#callTeardown (...)
-    
         TAP.#t.onEOF (...)
-    
         TAP.#process (src/test-base.ts:##:##)
-    
         TAP.#end (src/test-base.ts:##:##)
-    
         TAP.end (src/test-base.ts:##:##)
-    
         Timeout.<anonymous> (src/tap.ts:##:##)
       at:
         fileName: test/tap.ts
@@ -482,19 +476,13 @@ Object {
   "stderr": String(
     Error: poop
       ---
-      stack: >
+      stack: |
         TAP.<anonymous> (test/tap.ts:##:##)
-    
         After.#callTeardown (...)
-    
         TAP.#t.onEOF (...)
-    
         TAP.#process (src/test-base.ts:##:##)
-    
         TAP.#end (src/test-base.ts:##:##)
-    
         TAP.end (src/test-base.ts:##:##)
-    
         Timeout.<anonymous> (src/tap.ts:##:##)
       at:
         fileName: test/tap.ts
