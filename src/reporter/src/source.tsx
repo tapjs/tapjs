@@ -53,6 +53,19 @@ export const Source: FC<SourceOpts> = ({
       </>
     )
   }
+  if (location && !stack) {
+    return (
+      <Source
+        {...{
+          source,
+          at,
+          errorOrigin,
+          stack: location,
+          isErrorOrigin,
+        }}
+      />
+    )
+  }
   if (stack && !at) {
     if (location) {
       return (
