@@ -82,8 +82,8 @@ export const cleanYamlObject = (object: { [k: string]: any }) => {
   // the shipped compare methods will generally supply
   // their own diff, which is much nicer.
   if (
-    res.found &&
-    res.wanted &&
+    'found' in res &&
+    'wanted' in res &&
     res.found !== res.wanted &&
     !res.diff
   ) {
