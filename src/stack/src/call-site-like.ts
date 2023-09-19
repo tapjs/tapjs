@@ -1,4 +1,5 @@
 import { findSourceMap, SourceMap } from 'module'
+import { relative } from 'path'
 import { fileURLToPath } from 'url'
 import {
   Compiled,
@@ -248,10 +249,8 @@ export class CallSiteLike {
     if (f.startsWith('file://')) f = fileURLToPath(f)
     if (this.#cwd === undefined) return f
     else f = f.replace(/\\/g, '/')
-    if (f.startsWith(`${this.#cwd}/`)) {
-      return f.substring(this.#cwd.length + 1)
-    }
-    return f
+    const rel = relative(this.#cwd, f)
+    return rel.length < f.length ? rel : f
   }
 
   toString(): string {
