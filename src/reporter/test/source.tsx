@@ -97,5 +97,7 @@ t.test('get at from stack', t => {
   const [ location, stack ] = test()
   const withLoc = render(<Source stack={stack} location={location} />)
   t.matchSnapshot(withLoc.lastFrame())
+  const locOnly = render(<Source location={location} />)
+  t.matchSnapshot(locOnly.lastFrame())
   t.end()
 })
