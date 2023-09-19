@@ -5,13 +5,13 @@
     "/Users/isaacs/dev/tapjs/tapjs/src/run/test/fixtures/project/test/bar.mjs"
   ],
   "execArgv": [
-    "--no-warnings=ExperimentalLoader",
+    "--no-warnings",
     "--loader=ts-node/esm",
     "--loader=@tapjs/mock/loader",
     "--enable-source-maps",
     "--loader=file:///Users/isaacs/dev/tapjs/tapjs/node_modules/@tapjs/processinfo/dist/esm/esm.mjs"
   ],
-  "NODE_OPTIONS": "\"--loader=file:///Users/isaacs/dev/tapjs/tapjs/node_modules/@tapjs/processinfo/dist/esm/esm.mjs\" \"--no-warnings=ExperimentalLoader\"",
+  "NODE_OPTIONS": "\"--loader=file:///Users/isaacs/dev/tapjs/tapjs/node_modules/@tapjs/processinfo/dist/esm/esm.mjs\" \"--no-warnings\"",
   "cwd": "/Users/isaacs/dev/tapjs/tapjs/src/run/test/fixtures/project",
   "pid": 7581,
   "ppid": 7580,

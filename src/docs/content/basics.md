@@ -110,7 +110,7 @@ t.pass('this is fine')
 When run, that outputs:
 
 ```
-$ node --loader=ts-node/esm --no-warnings=ExperimentalLoader --enable-source-maps t.mts
+$ node --loader=ts-node/esm --no-warnings --enable-source-maps t.mts
 TAP version 14
 ok 1 - this is fine
 1..1
@@ -136,7 +136,7 @@ However, the `t.matchOnly()` does _not_ pass, because the object
 has other properties not specified in the comparison pattern.
 
 ```
-$ node --loader=ts-node/esm --no-warnings=ExperimentalLoader --enable-source-maps t.mts
+$ node --loader=ts-node/esm --no-warnings --enable-source-maps t.mts
 TAP version 14
 ok 1 - this passes
 not ok 2 - this fails

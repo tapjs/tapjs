@@ -132,6 +132,23 @@ config](https://github.com/tapjs/tapjs/blob/0b315bf/src/snapshot/src/index.ts#L3
 which tells it to save new snapshots rather than compare against
 stored snapshots.
 
+### `config[field].nodeArgs` Function
+
+If a config field has a `nodeArgs` method, then this method will
+be called with the current value of the configuration field, and
+is expected to return an array of strings, which will be added to
+the `execArgv` of the test process.
+
+This is provided primarily for interoperability with `node:test`
+tests, so that for example `--grep` can be translated to
+`--test-name-pattern`. However, it's also a way for a plugin to
+modify the arguments passed to node, _ahead_ of the main test
+script file.
+
+**Do not use this to add --loader or --import arguments.** Those
+should be done using the `loader` or `importLoader` exports,
+respectively.
+
 ## `testFileExtensions`
 
 If an array of strings is exported as `testFileExtensions`, then

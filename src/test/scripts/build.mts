@@ -75,6 +75,7 @@ const configs = new Map<
     [field: string]: {
       type: 'boolean' | 'string' | 'number'
       multiple?: boolean | undefined
+      nodeArgs?: (value: any) => string[]
       [k: string]: any
     }
   }
@@ -87,7 +88,7 @@ type PluginExport = {
       'string' | 'number' | 'boolean',
       boolean
     >
-  }
+  } & { nodeArgs?: (value: any) => string[] }
   loader?: string
   importLoader?: string
   preload?: boolean
@@ -229,13 +230,24 @@ const pluginsConfig = (() => {
   let code = `export const config = <C extends ConfigSet>(jack: Jack<C>) => `
   if (!hasConfig.size) return code + 'jack\n'
 
+  const nodeArgsHead =
+    `export const execArgv = (\n` +
+    `  values: ReturnType<ReturnType<typeof config>['parse']>['values']\n` +
+    `) => {\n` +
+    `  const argv = []\n`
+  const nodeArgsTail = '  return argv\n}\n\n'
+  let nodeArgsDefs = ''
+  let nodeArgsBody = ''
+
   code += '{\n'
   const hasConfigEntries = sortedMapEntries(hasConfig)
   for (const [p, name] of hasConfigEntries) {
     let c = 0
     for (const [field, cfg] of Object.entries(configs.get(p) || {})) {
       const jf = JSON.stringify(field)
-      code += `  const config_${name}_${c} = ${name}.config[${jf}]\n`
+      const cn = `config_${name}_${c}`
+      const def = `  const ${cn} = ${name}.config[${jf}]\n`
+      code += def
       const t = JSON.stringify(cfg.type)
       const m = JSON.stringify(!!cfg.multiple)
       const msg = `Invalid config option '${field}' defined in plugin: '${p}'`
@@ -244,9 +256,17 @@ const pluginsConfig = (() => {
         process.exit(1)
       }
       const mc = JSON.stringify(msg)
-      code += `  if (!isConfigOption(config_${name}_${c}, ${t}, ${m})) {\n`
+      code += `  if (!isConfigOption(${cn}, ${t}, ${m})) {\n`
       code += `    throw new Error(${mc})\n`
       code += '  }\n'
+      if (typeof cfg.nodeArgs === 'function') {
+        const cv = `${cn}_value`
+        nodeArgsDefs += def
+        nodeArgsDefs += `  const ${cv} = values[${JSON.stringify(field)}]\n`
+        nodeArgsBody += `  if (${cv} !== undefined) {\n` +
+          `    argv.push(...${cn}.nodeArgs(${cv}))\n` +
+          `  }\n`
+      }
       c++
     }
   }
@@ -272,7 +292,10 @@ const pluginsConfig = (() => {
 
   code += '}\n'
 
-  return code
+  const nodeArgs = !nodeArgsDefs ? '' : (
+    nodeArgsHead + nodeArgsDefs + nodeArgsBody + nodeArgsTail
+  )
+  return nodeArgs + code
 })()
 
 const pluginsCode = `export type PluginSet = ${

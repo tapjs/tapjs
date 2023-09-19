@@ -27,7 +27,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Test = exports.signature = exports.loaderFallbacks = exports.importLoaders = exports.loaders = exports.config = exports.testFileExtensions = void 0;
+exports.Test = exports.signature = exports.loaderFallbacks = exports.importLoaders = exports.loaders = exports.config = exports.execArgv = exports.testFileExtensions = void 0;
 const core_1 = require("@tapjs/core");
 //{{PLUGIN IMPORT START}}
 const Plugin_after = __importStar(require("@tapjs/after"));
@@ -123,6 +123,21 @@ const plugins = () => {
 // const c = <T extends ConfigSet>(j: Jack<T>) => j
 // c
 // /* c8 ignore stop */
+const execArgv = (values) => {
+    const argv = [];
+    const config_Plugin_filter_0 = Plugin_filter.config["only"];
+    const config_Plugin_filter_0_value = values["only"];
+    const config_Plugin_filter_1 = Plugin_filter.config["grep"];
+    const config_Plugin_filter_1_value = values["grep"];
+    if (config_Plugin_filter_0_value !== undefined) {
+        argv.push(...config_Plugin_filter_0.nodeArgs(config_Plugin_filter_0_value));
+    }
+    if (config_Plugin_filter_1_value !== undefined) {
+        argv.push(...config_Plugin_filter_1.nodeArgs(config_Plugin_filter_1_value));
+    }
+    return argv;
+};
+exports.execArgv = execArgv;
 const config = (jack) => {
     const config_Plugin_filter_0 = Plugin_filter.config["only"];
     if (!(0, jackspeak_1.isConfigOption)(config_Plugin_filter_0, "boolean", false)) {
@@ -139,6 +154,14 @@ const config = (jack) => {
     const config_Plugin_filter_3 = Plugin_filter.config["no-invert"];
     if (!(0, jackspeak_1.isConfigOption)(config_Plugin_filter_3, "boolean", false)) {
         throw new Error("Invalid config option 'no-invert' defined in plugin: '@tapjs/filter'");
+    }
+    const config_Plugin_filter_4 = Plugin_filter.config["filter-quietly"];
+    if (!(0, jackspeak_1.isConfigOption)(config_Plugin_filter_4, "boolean", false)) {
+        throw new Error("Invalid config option 'filter-quietly' defined in plugin: '@tapjs/filter'");
+    }
+    const config_Plugin_filter_5 = Plugin_filter.config["no-filter-quietly"];
+    if (!(0, jackspeak_1.isConfigOption)(config_Plugin_filter_5, "boolean", false)) {
+        throw new Error("Invalid config option 'no-filter-quietly' defined in plugin: '@tapjs/filter'");
     }
     const config_Plugin_fixture_0 = Plugin_fixture.config["save-fixture"];
     if (!(0, jackspeak_1.isConfigOption)(config_Plugin_fixture_0, "boolean", false)) {
@@ -170,6 +193,8 @@ const config = (jack) => {
         .optList({ "grep": config_Plugin_filter_1 })
         .flag({ "invert": config_Plugin_filter_2 })
         .flag({ "no-invert": config_Plugin_filter_3 })
+        .flag({ "filter-quietly": config_Plugin_filter_4 })
+        .flag({ "no-filter-quietly": config_Plugin_filter_5 })
         .heading("From plugin: @tapjs/fixture")
         .flag({ "save-fixture": config_Plugin_fixture_0 })
         .heading("From plugin: @tapjs/snapshot")

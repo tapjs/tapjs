@@ -6,7 +6,7 @@ const require = createRequire(import.meta.url)
 const tmbin = require.resolve('.bin/generate-tap-test-class')
 const execArgs = [
   '--loader=ts-node/esm',
-  '--no-warnings=ExperimentalLoader',
+  '--no-warnings',
 ]
 const node = process.execPath
 

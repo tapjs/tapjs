@@ -11,6 +11,8 @@ import {
 } from '@tapjs/core'
 import type { Test, TestOpts } from '@tapjs/test'
 
+const reRegExpLiteral = /^\/(.*)\/([a-z]*)$/
+
 /**
  * Options added by this plugin
  *
@@ -79,7 +81,7 @@ export class Filter {
       this.#grep = !Array.isArray(grep) ? [grep] : grep
     } else if (env.TAP_GREP !== undefined) {
       this.#grep = env.TAP_GREP.split('\n').map(g => {
-        const p = g.match(/^\/(.*)\/([a-z]*)$/)
+        const p = g.match(reRegExpLiteral)
         g = p && p[1] ? p[1] : g
         const flags = p ? p[2] : ''
         return new RegExp(g, flags)
@@ -205,6 +207,7 @@ export const config = {
     short: 'O',
     description: `Only run tests with \`{only: true}\` option, or created with
                   the \`t.only(...)\` function.`,
+    nodeArgs: (v: boolean) => v ? ['--test-only'] : []
   },
 
   /**
@@ -236,6 +239,8 @@ export const config = {
                   To specify regular expression flags, format pattern like a
                   JavaScript RegExp literal.  For example: \`/xyz/i\` for
                   case-insensitive matching.`,
+    nodeArgs: (value: string[]) =>
+      value.map(g => `--test-name-pattern=${g}`),
   },
 
   /**

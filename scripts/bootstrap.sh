@@ -49,7 +49,7 @@ nx run-many --target=prepare -p @tapjs/run
 nx run-many --target=prepare -p tap
 node \
   --loader=ts-node/esm \
-  --no-warnings=ExperimentalLoader \
+  --no-warnings \
   scripts/default-build.mts
 # lastly, run the actual install to do all the linking
 npm install

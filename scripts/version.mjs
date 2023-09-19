@@ -7,7 +7,7 @@ const res = spawnSync(
   process.execPath,
   [
     '--loader=ts-node/esm',
-    '--no-warnings=ExperimentalLoader',
+    '--no-warnings',
     resolve(dirname(fileURLToPath(import.meta.url)), './version.mts'),
     ...process.argv.slice(2)
   ],
