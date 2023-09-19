@@ -45,5 +45,7 @@ exports[`test/test-results-list.tsx > TAP > test with other types of points > mu
 
  [1m[31m✖[39m[22m not so fine
     SOURCE
+    [2m{}[22m
+    [2m{}[22m
     STACK
 `

@@ -1,7 +1,7 @@
 // @tapjs/stack makes stack traces a bit nicer, but we can do even better
 // with some colors and highlighting.
 
-import { CallSiteLike } from '@tapjs/stack'
+import { CallSiteLike, parseStack } from '@tapjs/stack'
 import chalk from 'chalk'
 import { Box, Text } from 'ink'
 import { isAbsolute } from 'path'
@@ -47,7 +47,9 @@ const highlightFilename = (s: string, f?: string | null) => {
 export const Stack: FC<{ stack?: string }> = ({ stack }) => {
   if (!stack?.trim()) return <></>
 
-  const st = stack
+  const st = parseStack(stack)
+    .map(c => String(c))
+    .join('\n')
     .replace(/\n+$/, '')
     .split('\n')
     .map(l => {

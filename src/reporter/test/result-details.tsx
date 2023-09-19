@@ -72,6 +72,8 @@ t.test('result with only known diags', t => {
       stack: 'mock stack',
       source: 'mock source',
       diff: 'mock diff',
+      error: 'message',
+      code: 'ERR_EXPECTED',
     },
     time: null,
     fullname: 'test name > fake result',
@@ -83,7 +85,35 @@ t.test('result with only known diags', t => {
   t.end()
 })
 
-t.test('diff and compare ===', t => {
+t.test('error without code', t => {
+  const res = {
+    ok: true,
+    name: 'fake result',
+    id: 1,
+    buffered: false,
+    skip: false,
+    previous: null,
+    plan: null,
+    diag: {
+      at: {
+        mock: 'callsite',
+      },
+      stack: 'mock stack',
+      source: 'mock source',
+      diff: 'mock diff',
+      error: 'message',
+    },
+    time: null,
+    fullname: 'test name > fake result',
+  } as Result
+  t.matchSnapshot(
+    render(<ResultDetails result={res} />).lastFrame(),
+    'diags and details'
+  )
+  t.end()
+})
+
+t.test('diff', t => {
   const res = {
     ok: true,
     name: 'fake result',
@@ -112,6 +142,42 @@ t.test('diff and compare ===', t => {
   t.matchSnapshot(
     render(<ResultDetails result={res} />).lastFrame(),
     'diags and details'
+  )
+  t.end()
+})
+
+t.test('no diff, but expected and actual', t => {
+  // this handles node assert errors similarly
+  const res = {
+    ok: true,
+    name: 'fake result',
+    id: 1,
+    buffered: false,
+    skip: false,
+    previous: null,
+    plan: null,
+    diag: {
+      at: {
+        mock: 'callsite',
+      },
+      stack: 'mock stack',
+      source: 'mock source',
+      operator: 'deepEqual',
+      actual: {
+        some: {
+          thing: true,
+        },
+      },
+      expected: {
+        something: true
+      },
+    },
+    time: null,
+    fullname: 'test name > fake result',
+  } as Result
+  t.matchSnapshot(
+    render(<ResultDetails result={res} />).lastFrame(),
+    'generated diff'
   )
   t.end()
 })

@@ -1,6 +1,6 @@
 // Syntax-highlighted source code tag
 
-import { CallSiteLike } from '@tapjs/stack'
+import { CallSiteLike, parseStack } from '@tapjs/stack'
 import { highlightFileSync } from 'prismjs-terminal'
 
 import chalk from 'chalk'
@@ -10,6 +10,8 @@ import stringLength from 'string-length'
 
 export interface SourceOpts {
   source?: string
+  stack?: string
+  location?: string
   at?:
     | CallSiteLike
     | {
@@ -39,6 +41,8 @@ export const Source: FC<SourceOpts> = ({
   source,
   at,
   errorOrigin,
+  stack,
+  location,
   isErrorOrigin = false,
 }) => {
   if (errorOrigin && typeof errorOrigin === 'object') {
@@ -48,6 +52,23 @@ export const Source: FC<SourceOpts> = ({
         <Source {...errorOrigin} isErrorOrigin={true} />
       </>
     )
+  }
+  if (stack && !at) {
+    if (location) {
+      return (
+        <>
+          <Source stack={location} />
+          <Source stack={stack} isErrorOrigin={true} />
+        </>
+      )
+    }
+    const parsed = parseStack(stack)
+    for (const p of parsed) {
+      if (p.fileName) {
+        at = p
+        break
+      }
+    }
   }
   if (at && at.lineNumber && at.columnNumber && at.fileName) {
     try {
