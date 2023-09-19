@@ -6,7 +6,7 @@ const require = createRequire(import.meta.url)
 const __filename = fileURLToPath(import.meta.url)
 
 const args = [
-  '--no-warnings=ExperimentalLoader',
+  '--no-warnings',
   '--enable-source-maps',
   '--loader',
   'ts-node/esm',

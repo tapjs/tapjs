@@ -51,7 +51,7 @@ spawnSync(
   process.execPath,
   [
     '--loader=ts-node/esm',
-    '--no-warnings=ExperimentalLoader',
+    '--no-warnings',
     build,
     ...builtins,
   ],

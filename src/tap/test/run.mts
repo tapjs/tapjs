@@ -7,7 +7,7 @@ const bin = fileURLToPath(
 t.test('runner just loads runner', t => {
   const proc = spawn(process.execPath, [
     '--loader=ts-node/esm',
-    '--no-warnings=ExperimentalLoader',
+    '--no-warnings',
     bin,
     '-h',
   ])

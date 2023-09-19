@@ -225,6 +225,23 @@ const plugins = () => {
 // const c = <T extends ConfigSet>(j: Jack<T>) => j
 // c
 // /* c8 ignore stop */
+export const execArgv = (
+  values: ReturnType<ReturnType<typeof config>['parse']>['values']
+) => {
+  const argv = []
+  const config_Plugin_filter_0 = Plugin_filter.config["only"]
+  const config_Plugin_filter_0_value = values["only"]
+  const config_Plugin_filter_1 = Plugin_filter.config["grep"]
+  const config_Plugin_filter_1_value = values["grep"]
+  if (config_Plugin_filter_0_value !== undefined) {
+    argv.push(...config_Plugin_filter_0.nodeArgs(config_Plugin_filter_0_value))
+  }
+  if (config_Plugin_filter_1_value !== undefined) {
+    argv.push(...config_Plugin_filter_1.nodeArgs(config_Plugin_filter_1_value))
+  }
+  return argv
+}
+
 export const config = <C extends ConfigSet>(jack: Jack<C>) => {
   const config_Plugin_filter_0 = Plugin_filter.config["only"]
   if (!isConfigOption(config_Plugin_filter_0, "boolean", false)) {
@@ -241,6 +258,14 @@ export const config = <C extends ConfigSet>(jack: Jack<C>) => {
   const config_Plugin_filter_3 = Plugin_filter.config["no-invert"]
   if (!isConfigOption(config_Plugin_filter_3, "boolean", false)) {
     throw new Error("Invalid config option 'no-invert' defined in plugin: '@tapjs/filter'")
+  }
+  const config_Plugin_filter_4 = Plugin_filter.config["filter-quietly"]
+  if (!isConfigOption(config_Plugin_filter_4, "boolean", false)) {
+    throw new Error("Invalid config option 'filter-quietly' defined in plugin: '@tapjs/filter'")
+  }
+  const config_Plugin_filter_5 = Plugin_filter.config["no-filter-quietly"]
+  if (!isConfigOption(config_Plugin_filter_5, "boolean", false)) {
+    throw new Error("Invalid config option 'no-filter-quietly' defined in plugin: '@tapjs/filter'")
   }
   const config_Plugin_fixture_0 = Plugin_fixture.config["save-fixture"]
   if (!isConfigOption(config_Plugin_fixture_0, "boolean", false)) {
@@ -272,6 +297,8 @@ export const config = <C extends ConfigSet>(jack: Jack<C>) => {
     .optList({ "grep": config_Plugin_filter_1 })
     .flag({ "invert": config_Plugin_filter_2 })
     .flag({ "no-invert": config_Plugin_filter_3 })
+    .flag({ "filter-quietly": config_Plugin_filter_4 })
+    .flag({ "no-filter-quietly": config_Plugin_filter_5 })
     .heading("From plugin: @tapjs/fixture")
     .flag({ "save-fixture": config_Plugin_fixture_0 })
     .heading("From plugin: @tapjs/snapshot")

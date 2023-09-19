@@ -4,7 +4,7 @@ import { spawnSync } from 'node:child_process'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-const no = ['--no-warnings=ExperimentalLoader']
+const no = ['--no-warnings']
 
 // We'll always have *something* here when testing.
 /* c8 ignore start */
@@ -22,7 +22,7 @@ const res = spawnSync(
   process.execPath,
   [
     '--loader=ts-node/esm',
-    '--no-warnings=ExperimentalLoader',
+    '--no-warnings',
     resolve(__dirname, './build.mts'),
     ...process.argv.slice(2),
   ],

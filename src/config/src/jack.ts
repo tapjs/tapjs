@@ -274,7 +274,7 @@ export default jack({
                     Even if excluded, the runner will use some of these plugins
                     in its own operation.
   `,
-      default: [],
+      default: [] as string[],
     },
   })
 

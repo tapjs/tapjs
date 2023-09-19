@@ -1,6 +1,6 @@
 import { TestOpts } from '@tapjs/test'
 import t, { Test } from 'tap'
-import { plugin } from '../dist/esm/index.js'
+import { config, plugin } from '../dist/esm/index.js'
 
 t.equal(t.pluginLoaded(plugin), true, 'plugin is loaded')
 
@@ -55,7 +55,11 @@ t.test('grep', async t =>
 
 t.test('grep, failSkip:true', async t =>
   t.matchSnapshot(
-    await run({ name: 'grepper', failSkip: true, grep: ['cat', 'purr'] })
+    await run({
+      name: 'grepper',
+      failSkip: true,
+      grep: ['cat', 'purr'],
+    })
   )
 )
 
@@ -88,7 +92,11 @@ t.test('only', async t =>
 
 t.test('only, failSkip: true', async t =>
   t.matchSnapshot(
-    await run({ name: 'only the lonely', runOnly: true, failSkip: true })
+    await run({
+      name: 'only the lonely',
+      runOnly: true,
+      failSkip: true,
+    })
   )
 )
 
@@ -147,5 +155,15 @@ t.test('get defaults from env', t => {
     process.env.TAP_ONLY = '1'
     t.matchSnapshot(await run({ name: 'only the lonely' }))
   })
+  t.end()
+})
+
+t.test('assign filter args for node as well', t => {
+  t.strictSame(config.grep.nodeArgs(['a', 'b']), [
+    '--test-name-pattern=a',
+    '--test-name-pattern=b',
+  ])
+  t.strictSame(config.only.nodeArgs(true), ['--test-only'])
+  t.strictSame(config.only.nodeArgs(false), [])
   t.end()
 })
