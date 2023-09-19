@@ -71,8 +71,8 @@ export const cleanYamlObject = (object) => {
     // when strings or buffers are very large or multi-line
     // the shipped compare methods will generally supply
     // their own diff, which is much nicer.
-    if (res.found &&
-        res.wanted &&
+    if ('found' in res &&
+        'wanted' in res &&
         res.found !== res.wanted &&
         !res.diff) {
         const f = res.found;
