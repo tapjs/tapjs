@@ -1,5 +1,5 @@
 import { findSourceMap, SourceMap } from 'module'
-import { relative } from 'path'
+import { isAbsolute, relative, resolve } from 'path'
 import { fileURLToPath } from 'url'
 import {
   Compiled,
@@ -29,8 +29,8 @@ export interface CallSiteLikeJSON {
 }
 
 export interface GeneratedResult {
-  fileName: string | null
-  lineNumber: number | null
+  fileName?: string | null
+  lineNumber?: number | null
   columnNumber?: number | null
 }
 
@@ -42,7 +42,7 @@ export class CallSiteLike {
     return c.map(c => new CallSiteLike(e, c))
   }
 
-  #fileName: string | null
+  #fileName?: string | null
   #cwd?: string
   lineNumber: ReturnType<NodeJS.CallSite['getLineNumber']>
   columnNumber: ReturnType<NodeJS.CallSite['getColumnNumber']>
@@ -78,7 +78,21 @@ export class CallSiteLike {
   }
 
   set cwd(cwd: string | undefined) {
+    if (cwd === undefined) {
+      if (this.generated) {
+        this.generated.fileName = this.#derelativize(
+          this.generated?.fileName
+        )
+      }
+    }
     this.#cwd = cwd?.replace(/\\/g, '/')
+    if (cwd !== undefined) {
+      if (this.generated) {
+        this.generated.fileName = this.#relativize(
+          this.generated?.fileName
+        )
+      }
+    }
     if (this.evalOrigin) this.evalOrigin.cwd = cwd
   }
 
@@ -122,7 +136,11 @@ export class CallSiteLike {
         c.columnNumber === undefined ? null : c.columnNumber
       const fileName = c.fileName
       this.#fileName = typeof fileName === 'string' ? fileName : null
-      this.generated = c.generated
+      const { generated } = c
+      if (generated) {
+        this.generated = generated
+        this.generated.fileName = this.#relativize(generated.fileName)
+      }
       let fname = c.fname?.trim()
       let method: null | string = null
       this.isNative = !!c.isNative
@@ -228,7 +246,7 @@ export class CallSiteLike {
           const genFilename = this.#relativize(this.#fileName)
           this.generated = {
             /* c8 ignore start */
-            fileName: genFilename || null,
+            fileName: this.#relativize(genFilename || null),
             /* c8 ignore stop */
             lineNumber: this.lineNumber,
             columnNumber: this.columnNumber,
@@ -252,8 +270,49 @@ export class CallSiteLike {
     const rel = relative(this.#cwd, f)
     return rel.length < f.length ? rel : f
   }
+  #derelativize(fileName?: string | null) {
+    let f = fileName
+    if (!f) return f
+    if (f.startsWith('node:')) return f
+    if (f.startsWith('file://')) f = fileURLToPath(f)
+    if (this.#cwd === undefined) return f
+    return resolve(this.#cwd, f)
+  }
 
-  toString(): string {
+  toString(jsStyle = false): string {
+    // in js style mode, use the origin source file if it is within
+    // our cwd. Otherwise, use the generated source location.
+    const useGen =
+      jsStyle &&
+      this.generated?.fileName &&
+      this.fileName &&
+      this.generated.fileName !== this.fileName &&
+      (isAbsolute(this.fileName) || this.fileName.startsWith('..'))
+    const { fileName, lineNumber, columnNumber, generated } =
+      useGen && this.generated
+        ? {
+            fileName: this.#derelativize(this.generated.fileName),
+            lineNumber: this.generated.lineNumber,
+            columnNumber: this.generated.columnNumber,
+            generated: undefined,
+          }
+        : jsStyle
+        ? {
+            fileName: this.#derelativize(this.fileName),
+            lineNumber: this.lineNumber,
+            columnNumber: this.columnNumber,
+            generated: undefined,
+          }
+        : this
+    const loc = { fileName, lineNumber, columnNumber, generated }
+    for (const l of [loc, loc.generated]) {
+      if (l?.fileName) {
+        l.fileName = jsStyle
+          ? this.#derelativize(l.fileName)
+          : this.#relativize(l.fileName)
+      }
+    }
+
     let fname = this.functionName || ''
     let tn = ''
     let tnGet = ''
@@ -283,16 +342,16 @@ export class CallSiteLike {
     }
     let ev = ''
     const nat = this.isNative ? 'native' : ''
-    let file = this.fileName || ''
-    const hasLC = this.lineNumber && this.columnNumber
+    let file = loc.fileName || ''
+    const hasLC = loc.lineNumber && loc.columnNumber
     if (this.evalOrigin) {
-      ev = `eval at ${this.evalOrigin.toString()}`
+      ev = `eval at ${this.evalOrigin.toString(jsStyle)}`
       if (hasLC) {
-        const f = this.fileName || '<anonymous>'
-        let lr = `${f}:${this.lineNumber}:${this.columnNumber}`
-        if (this.generated && this.generated.fileName) {
-          const f = this.generated.fileName
-          const { lineNumber: l, columnNumber: c } = this.generated
+        const f = loc.fileName || '<anonymous>'
+        let lr = `${f}:${loc.lineNumber}:${loc.columnNumber}`
+        if (loc.generated && loc.generated.fileName) {
+          const f = loc.generated.fileName
+          const { lineNumber: l, columnNumber: c } = loc.generated
           lr = `${f}:${l}:${c} (${lr})`
         }
         ev += `, ${lr}`
@@ -309,7 +368,7 @@ export class CallSiteLike {
         /* c8 ignore start */
         file = file || '<anonymous>'
         /* c8 ignore stop */
-        file += `:${this.lineNumber}:${this.columnNumber}`
+        file += `:${loc.lineNumber}:${loc.columnNumber}`
       }
     } else if (nat) {
       file = 'native'
@@ -320,13 +379,13 @@ export class CallSiteLike {
     }
     /* c8 ignore stop */
     let g = ''
-    if (this.generated && this.generated.fileName) {
-      const { fileName, lineNumber, columnNumber } = this.generated
-      g = this.#relativize(fileName) as string
+    if (loc.generated && loc.generated.fileName) {
+      const { fileName, lineNumber, columnNumber } = loc.generated
+      g = fileName
       /* c8 ignore start */
       if (!g) g = ''
       /* c8 ignore stop */
-      if (g === this.fileName) g = ''
+      if (g === loc.fileName) g = ''
       if (g) {
         if (
           typeof lineNumber === 'number' &&
@@ -342,7 +401,8 @@ export class CallSiteLike {
     if (file && (ev || fname || g)) {
       file = ` (${file})`
     }
-    return `${fname}${ev}${g}${file}`
+    const pre = jsStyle ? '    at ' : ''
+    return `${pre}${fname}${ev}${g}${file}`
   }
 
   toJSON(): CallSiteLikeJSON {

@@ -107,6 +107,18 @@ Error object) into an array of CallSiteLike objects.
 Only useful in some niche situations, most of the time you're
 better off using `capture()` or `captureError()`.
 
+## `expandStack(stack?: string | CallSiteLike[]): string`
+
+Expand a stack string (either from `@tapjs/stack` or from a
+JS Error object) into its conventional `Error.stack` form,
+complete with absolute paths, indentation, and repetitive `at`
+prefixes.
+
+When a call site is source mapped, the origin source will be
+shown if the generated source is outside the cwd. If the cwd is
+not set on the CallSiteLike object, then generated location is
+always shown.
+
 ## `setCwd(cwd: string | undefined)`
 
 Set the current working directory used to shorten filename paths
