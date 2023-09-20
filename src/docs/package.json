@@ -22,6 +22,7 @@
     "start": "eleventy --serve",
     "prebuild": "rm -rf _site",
     "build": "eleventy",
+    "postbuild": "cp ./misc/* _site/",
     "test": "npm run build",
     "predeploy": "npm run build",
     "predeploy:prod": "npm run build",
