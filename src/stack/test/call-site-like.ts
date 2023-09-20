@@ -11,8 +11,8 @@ const cwd = resolve(__dirname, '..')
 
 t.options.compareOptions = { style: 'js' }
 
-import { fileURLToPath } from 'url'
-import { at, error, stack } from './fixtures/capture.js'
+import { fileURLToPath, pathToFileURL } from 'url'
+import { at, capture, error, stack } from './fixtures/capture.js'
 
 t.plan(2)
 
@@ -29,10 +29,97 @@ for (const [dialect, CallSiteLike] of Object.entries({
       t.end()
     })
 
+    t.test('turn into js style stack trace line', t => {
+      const c = capture[0]
+      if (!c) throw new Error('did not get capture')
+      c.cwd = undefined
+      const ts = c.toString(true)
+      t.match(ts, /.+test.fixtures.capture.js/)
+
+      if (typeof c.generated?.fileName !== 'string') {
+        throw new Error('did not get generated sourcemap bits')
+      }
+      c.generated.fileName = String(
+        pathToFileURL(c.generated.fileName as string)
+      )
+      t.equal(
+        c.toString(true),
+        ts,
+        'same toString(true) when file url'
+      )
+      t.end()
+    })
+
+    t.test('no relativize/derelativize builtin module paths', t => {
+      const c = new CallSiteLike(null, 'node:fs:1:3')
+      t.equal(c.fileName, 'node:fs')
+      // not sure how this would ever happen, but it works
+      c.generated = { fileName: 'node:url' }
+      c.cwd = '/x'
+      t.equal(c.fileName, 'node:fs')
+      t.equal(c.generated.fileName, 'node:url')
+      c.cwd = undefined
+      t.equal(c.fileName, 'node:fs')
+      t.equal(c.generated.fileName, 'node:url')
+      t.end()
+    })
+
+    t.test('no relativize/derelativize fileName-less paths', t => {
+      const c = new CallSiteLike(null, 'Foo.bar (native)')
+      t.equal(c.fileName, null)
+      c.generated = { fileName: null }
+      c.cwd = '/x'
+      t.equal(c.fileName, null)
+      t.equal(c.generated.fileName, null)
+      c.cwd = undefined
+      t.equal(c.fileName, null)
+      t.equal(c.generated.fileName, null)
+      t.end()
+    })
+
+    t.test('turn tap stack into js stack, absolute path', t => {
+      const c = new CallSiteLike(null, '/a/b/c:1:2 (/a/b/c.ts:420:69)')
+      t.equal(c.fileName,'/a/b/c.ts')
+      t.equal(c.generated?.fileName,'/a/b/c')
+      const j = c.toString(true)
+      t.matchSnapshot(j)
+      c.cwd = '/x/y/z'
+      t.equal(c.fileName,'/a/b/c.ts')
+      t.equal(c.generated?.fileName,'/a/b/c')
+      t.equal(c.toString(true), j)
+      c.cwd = undefined
+      t.equal(c.fileName,'/a/b/c.ts')
+      t.equal(c.generated?.fileName,'/a/b/c')
+      t.equal(c.toString(true), j)
+      t.end()
+    })
+
+    t.test('turn pretty stack into tap stack, relative external path', t => {
+      const c = new CallSiteLike(null, '/a/b/c:1:2 (/a/b/d/c.ts:420:69)')
+      t.equal(c.fileName,'/a/b/d/c.ts')
+      t.equal(c.generated?.fileName,'/a/b/c')
+      const j = c.toString(true)
+      t.matchSnapshot(j)
+      c.cwd = '/a/b/d'
+      t.equal(c.fileName,'c.ts')
+      t.equal(c.generated?.fileName,'../c')
+      t.equal(c.toString(true), '    at /a/b/d/c.ts:420:69')
+      c.cwd = undefined
+      t.equal(c.fileName,'/a/b/d/c.ts')
+      t.equal(c.generated?.fileName,'/a/b/c')
+      t.equal(c.toString(true), j)
+      t.end()
+    })
+
+
     t.test('create from string error stack line', t => {
       const line = String(error.stack.split('\n')[1])
       const c = new CallSiteLike(error, line)
       t.match(c.fileName, /.+test\/fixtures\/capture\.ts$/)
+      t.match(
+        c.toString(true),
+        /.+test\/fixtures\/capture\.ts:[0-9]+:[0-9]+\)$/
+      )
       c.cwd = cwd
       t.equal(c.cwd, cwd)
       t.equal(c.fileName, 'test/fixtures/capture.ts')
@@ -46,6 +133,10 @@ for (const [dialect, CallSiteLike] of Object.entries({
         lineNumber: Number,
         columnNumber: Number,
         functionName: 'getError',
+      })
+      t.matchSnapshot({
+        toString: c.toString(),
+        jsStyle: c.toString(true),
       })
       t.end()
     })
@@ -89,8 +180,7 @@ for (const [dialect, CallSiteLike] of Object.entries({
       if (!c) throw new Error('no callsite found')
       // cwd set by default by at() method
       t.equal(c.fileName, 'test/fixtures/capture.ts')
-      // generated is always full path, rarely used anyway
-      t.match(c.generated?.fileName, /.+test\/fixtures\/capture\.js$/)
+      t.match(c.generated?.fileName, c.fileName?.replace(/ts$/, 'js'))
       const s = String(c)
       t.match(
         s,
@@ -373,6 +463,7 @@ for (const [dialect, CallSiteLike] of Object.entries({
       t.equal(c.toString(), `Type.<anonymous> (${p}:420:69)`)
       t.end()
     })
+
     t.end()
   })
 }

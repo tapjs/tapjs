@@ -365,3 +365,11 @@ export const parseStack = (s: string): CallSiteLike[] =>
       .filter(l => !!l.trim())
       .map(line => new CallSiteLike(null, line))
   )
+
+export const expandStack = (s?: string | CallSiteLike[]): string => {
+  if (!s) return ''
+  if (typeof s === 'string') return expandStack(parseStack(s))
+  return clean(s)
+    .map(c => c.toString(true) + '\n')
+    .join('')
+}

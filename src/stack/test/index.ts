@@ -3,6 +3,7 @@ import t from 'tap'
 import { createPatch } from 'diff'
 import { globSync } from 'glob'
 import { dirname } from 'path'
+import { resolveImport } from 'resolve-import'
 import { fileURLToPath } from 'url'
 import * as cjs from '../dist/commonjs/index.js'
 import * as mjs from '../dist/esm/index.js'
@@ -27,6 +28,7 @@ for (const [dialect, mod] of Object.entries({ cjs, mjs })) {
       getIgnoredPackages,
       getIgnoredPackagesRE,
       parseStack,
+      expandStack,
       removeIgnoredPackage,
       setCwd,
       setFilterIgnoredPackages,
@@ -67,7 +69,7 @@ for (const [dialect, mod] of Object.entries({ cjs, mjs })) {
           isToplevel: true,
           isConstructor: false,
           generated: {
-            fileName: __filename,
+            fileName: 'test/index.ts',
             lineNumber: Number,
             columnNumber: Number,
           },
@@ -89,7 +91,7 @@ for (const [dialect, mod] of Object.entries({ cjs, mjs })) {
           isToplevel: true,
           isConstructor: false,
           generated: {
-            fileName: __filename,
+            fileName: 'test/index.ts',
             lineNumber: Number,
             columnNumber: Number,
           },
@@ -270,7 +272,7 @@ for (const [dialect, mod] of Object.entries({ cjs, mjs })) {
       })
     })
 
-    t.test('filterDeps', t => {
+    t.test('filterDeps', async t => {
       // this function raises an error with both glob and diff in the stack
       const getStack = (): string => {
         try {
@@ -352,6 +354,11 @@ for (const [dialect, mod] of Object.entries({ cjs, mjs })) {
       t.notMatch(noGlobDiff, /node_modules.glob/)
       t.notMatch(noGlobDiff, /node_modules.diff/)
 
+      const globNM = fileURLToPath(
+        await resolveImport('glob')
+      ).toLowerCase().replace(/(node_modules.glob).*$/, '$1')
+      t.match(expandStack(unfiltered).toLowerCase(), globNM)
+
       t.end()
     })
 
@@ -365,6 +372,18 @@ for (const [dialect, mod] of Object.entries({ cjs, mjs })) {
       t.equal(getCwd(), __dirname)
       const b = at()
       t.match(b?.fileName, /^index.ts$/)
+      const st = captureString()
+      const cap = capture()
+      t.notMatch(st, __dirname, 'no full dir when cwd set')
+      setCwd(undefined)
+      const noCwd = captureString()
+      t.match(noCwd, __dirname, 'contains full dir when no cwd set')
+      t.match(
+        expandStack(cap as any),
+        __dirname,
+        'expanded stack has dir in it'
+      )
+      t.equal(expandStack(), '', 'expands undefined to empty string')
       t.end()
     })
 
