@@ -14,7 +14,35 @@ t.options.compareOptions = { style: 'js' }
 import { fileURLToPath, pathToFileURL } from 'url'
 import { at, capture, error, stack } from './fixtures/capture.js'
 
-t.plan(2)
+t.plan(3)
+
+t.test('relativize no-ops if path methods throw', async t => {
+  const nope = () => {
+    throw new Error('nope')
+  }
+  const overrides = { resolve: nope, relative: nope }
+  const PATH = await import('node:path')
+  const { CallSiteLike } = (await t.mockImport(
+    '../dist/esm/call-site-like.js',
+    {
+      path: {
+        ...PATH,
+        ...overrides,
+        posix: { ...PATH.posix, ...overrides },
+        win32: { ...PATH.win32, ...overrides },
+      },
+    }
+  )) as typeof import('../dist/esm/call-site-like.js')
+  const c = new CallSiteLike(
+    null,
+    '/some/path/to/file.js:1:2 (/src/x.js:33:44)'
+  )
+  t.equal(c.generated?.fileName, '/some/path/to/file.js')
+  c.cwd = '/some/path'
+  t.equal(c.generated?.fileName, '/some/path/to/file.js')
+  c.cwd = undefined
+  t.equal(c.generated?.fileName, '/some/path/to/file.js')
+})
 
 for (const [dialect, CallSiteLike] of Object.entries({
   mjs: CSLMJS,
@@ -78,39 +106,47 @@ for (const [dialect, CallSiteLike] of Object.entries({
     })
 
     t.test('turn tap stack into js stack, absolute path', t => {
-      const c = new CallSiteLike(null, '/a/b/c:1:2 (/a/b/c.ts:420:69)')
-      t.equal(c.fileName,'/a/b/c.ts')
-      t.equal(c.generated?.fileName,'/a/b/c')
+      const c = new CallSiteLike(
+        null,
+        '/a/b/c:1:2 (/a/b/c.ts:420:69)'
+      )
+      t.equal(c.fileName, '/a/b/c.ts')
+      t.equal(c.generated?.fileName, '/a/b/c')
       const j = c.toString(true)
       t.matchSnapshot(j)
       c.cwd = '/x/y/z'
-      t.equal(c.fileName,'/a/b/c.ts')
-      t.equal(c.generated?.fileName,'/a/b/c')
+      t.equal(c.fileName, '/a/b/c.ts')
+      t.equal(c.generated?.fileName, '/a/b/c')
       t.equal(c.toString(true), j)
       c.cwd = undefined
-      t.equal(c.fileName,'/a/b/c.ts')
-      t.equal(c.generated?.fileName,'/a/b/c')
+      t.equal(c.fileName, '/a/b/c.ts')
+      t.equal(c.generated?.fileName, '/a/b/c')
       t.equal(c.toString(true), j)
       t.end()
     })
 
-    t.test('turn pretty stack into tap stack, relative external path', t => {
-      const c = new CallSiteLike(null, '/a/b/c:1:2 (/a/b/d/c.ts:420:69)')
-      t.equal(c.fileName,'/a/b/d/c.ts')
-      t.equal(c.generated?.fileName,'/a/b/c')
-      const j = c.toString(true)
-      t.matchSnapshot(j)
-      c.cwd = '/a/b/d'
-      t.equal(c.fileName,'c.ts')
-      t.equal(c.generated?.fileName,'../c')
-      t.equal(c.toString(true), '    at /a/b/d/c.ts:420:69')
-      c.cwd = undefined
-      t.equal(c.fileName,'/a/b/d/c.ts')
-      t.equal(c.generated?.fileName,'/a/b/c')
-      t.equal(c.toString(true), j)
-      t.end()
-    })
-
+    t.test(
+      'turn pretty stack into tap stack, relative external path',
+      t => {
+        const c = new CallSiteLike(
+          null,
+          '/a/b/c:1:2 (/a/b/d/c.ts:420:69)'
+        )
+        t.equal(c.fileName, '/a/b/d/c.ts')
+        t.equal(c.generated?.fileName, '/a/b/c')
+        const j = c.toString(true)
+        t.matchSnapshot(j)
+        c.cwd = '/a/b/d'
+        t.equal(c.fileName, 'c.ts')
+        t.equal(c.generated?.fileName, '../c')
+        t.equal(c.toString(true), '    at /a/b/d/c.ts:420:69')
+        c.cwd = undefined
+        t.equal(c.fileName, '/a/b/d/c.ts')
+        t.equal(c.generated?.fileName, '/a/b/c')
+        t.equal(c.toString(true), j)
+        t.end()
+      }
+    )
 
     t.test('create from string error stack line', t => {
       const line = String(error.stack.split('\n')[1])
