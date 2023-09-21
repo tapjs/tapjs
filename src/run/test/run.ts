@@ -101,6 +101,31 @@ ok 1 - raw
   t.match(stdout, /ok [1-3] - raw.test # time=/m, 'raw pass')
 })
 
+t.test('run with --before and --after', async t => {
+  const cwd = t.testdir({
+    // put it in a timeout so that it can potentially
+    // interleave inappropriately with the tests themselves
+    'before.js': `
+      setTimeout(() => console.log('before'))
+    `,
+    'after.js': `
+      setTimeout(() => console.log('after'))
+    `,
+    'test.js': `
+      console.log('TAP version 14')
+      console.log('1..1')
+      console.log('ok')
+    `,
+    '.taprc': `before: before.js\nafter: after.js\n`,
+    '.git': {},
+  })
+  const { code, signal, stdout, stderr } = await run(cwd, ['test.js'])
+  t.equal(code, 1, 'fail tests, because no coverage')
+  t.equal(signal, null, 'no killer signals')
+  t.match(stderr, '')
+  t.matchSnapshot(stdout)
+})
+
 t.test('fail to find all named test files', async t => {
   const cwd = t.testdir({
     'bar.test.js': `
@@ -207,7 +232,11 @@ save: test-failures.txt
     t.equal(signal, null)
     t.equal(stderr, '')
     // the order here is nondeterministic
-    t.match(stdout, /^not ok [12] - failer.test.js # time=/m, 'failer failed')
+    t.match(
+      stdout,
+      /^not ok [12] - failer.test.js # time=/m,
+      'failer failed'
+    )
     t.match(stdout, /^ok [12] - env.test.js # time=/m, 'env passed')
     t.equal(
       readFileSync(resolve(cwd, 'test-failures.txt'), 'utf8'),

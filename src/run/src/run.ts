@@ -96,6 +96,9 @@ export const run = async (args: string[], config: LoadedConfig) => {
     },
 
     async t => {
+      // have to register before doing before/after because otherwise
+      // that will trigger a pipe to stdout.
+      t.register()
       covExcludeFiles.push(runBefore(t, argv, config))
       covExcludeFiles.push(runAfter(t, argv, config))
 

@@ -37,6 +37,22 @@ ok 2 - env.test.js # time={TIME}
 
 `
 
+exports[`test/run.ts > TAP > run with --before and --after > must match snapshot 1`] = `
+TAP version 14
+before
+1..1
+# Subtest: test.js
+    1..1
+    ok
+ok 1 - test.js # time={TIME}
+
+# No coverage generated
+after
+# { total: 1, pass: 1 }
+# time={TIME}
+
+`
+
 exports[`test/run.ts > TAP > save test failures > fix the failure > must match snapshot 1`] = `
 TAP version 14
 1..1
