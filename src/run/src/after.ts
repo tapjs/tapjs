@@ -11,14 +11,19 @@ export const runAfter = (
 ) => {
   const after = config.get('after')
   if (after) {
-    t.after(
-      async () =>
-        new Promise<void>(res => {
-          foregroundChild(node, [...argv, resolve(after)], () =>
+    t.after(async () => {
+      await new Promise<void>(res => {
+        foregroundChild(
+          node,
+          [...argv, resolve(after)],
+          (code, signal) => {
             res()
-          )
-        })
-    )
+            if (code || signal) return
+            return false
+          }
+        )
+      })
+    })
     return resolve(after)
   }
 }
