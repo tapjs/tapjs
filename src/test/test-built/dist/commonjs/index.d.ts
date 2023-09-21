@@ -8,6 +8,7 @@ import * as Plugin_filter from "@tapjs/filter";
 import * as Plugin_fixture from "@tapjs/fixture";
 import * as Plugin_intercept from "@tapjs/intercept";
 import * as Plugin_mock from "@tapjs/mock";
+import * as Plugin_nodeSerialize from "@tapjs/node-serialize";
 import * as Plugin_snapshot from "@tapjs/snapshot";
 import * as Plugin_spawn from "@tapjs/spawn";
 import * as Plugin_stdin from "@tapjs/stdin";
@@ -66,6 +67,7 @@ export type PluginSet = [
     typeof Plugin_fixture.plugin,
     typeof Plugin_intercept.plugin,
     typeof Plugin_mock.plugin,
+    typeof Plugin_nodeSerialize.plugin,
     typeof Plugin_snapshot.plugin,
     typeof Plugin_spawn.plugin,
     typeof Plugin_stdin.plugin,
@@ -291,7 +293,7 @@ export declare const loaderFallbacks: string[];
  * to determine whether a rebuild is necessary by comparing it to the `plugin`
  * config value.
  */
-export declare const signature = "@tapjs/after\n@tapjs/after-each\n@tapjs/asserts\n@tapjs/before\n@tapjs/before-each\n@tapjs/filter\n@tapjs/fixture\n@tapjs/intercept\n@tapjs/mock\n@tapjs/snapshot\n@tapjs/spawn\n@tapjs/stdin\n@tapjs/typescript\n@tapjs/worker";
+export declare const signature = "@tapjs/after\n@tapjs/after-each\n@tapjs/asserts\n@tapjs/before\n@tapjs/before-each\n@tapjs/filter\n@tapjs/fixture\n@tapjs/intercept\n@tapjs/mock\n@tapjs/node-serialize\n@tapjs/snapshot\n@tapjs/spawn\n@tapjs/stdin\n@tapjs/typescript\n@tapjs/worker";
 /**
  * Union of {@link @tapjs/core!test-base.TestBase} plus all plugin
  * return values

@@ -66,6 +66,7 @@ declare class TAP extends Test {
      * @internal
      */
     constructor(priv: PrivateTAPCtor, opts?: TestOpts);
+    get registered(): boolean;
     /**
      * register this tap instance as being in charge of the current process
      * ignore epipe errors, set exit code, etc.

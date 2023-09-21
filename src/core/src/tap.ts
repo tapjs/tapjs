@@ -119,7 +119,9 @@ class TAP extends Test {
       ...opts,
     }
 
+    // plugins get applied right here:
     super(options)
+
     instance = this
     this.on('idle', () => maybeAutoend())
     this.on('complete', (results: FinalResults) =>
@@ -145,6 +147,10 @@ class TAP extends Test {
     }
 
     this.runMain(() => {})
+  }
+
+  get registered() {
+    return registered
   }
 
   /**

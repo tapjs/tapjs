@@ -253,6 +253,13 @@ export declare class Base<Events extends TapBaseEvents = TapBaseEvents> extends 
      */
     parent?: Base | TestBase;
     /**
+     * Nesting level, for serialization to node test runner
+     *
+     * Note that this is zero for parent-less tests, and *also* zero
+     * for the first level of children.
+     */
+    nestingLevel: number;
+    /**
      * Bail out on the first failed test point
      */
     bail: boolean;

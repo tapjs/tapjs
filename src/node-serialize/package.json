@@ -1,0 +1,71 @@
+{
+  "name": "@tapjs/node-serialize",
+  "version": "1.0.0-0",
+  "description": "Stream TAP test data as a serialized node:test stream",
+  "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
+  "type": "module",
+  "tshy": {
+    "exports": {
+      ".": "./src/index.ts",
+      "./package.json": "./package.json"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "v8",
+    "error",
+    "serialization",
+    "serialize",
+    "tapjs plugin",
+    "node --test",
+    "node:test",
+    "serdes"
+  ],
+  "license": "BlueOak-1.0.0",
+  "scripts": {
+    "prepare": "tshy",
+    "pretest": "npm run prepare",
+    "presnap": "npm run prepare",
+    "test": "tap",
+    "snap": "tap",
+    "format": "prettier --write . --loglevel warn --ignore-path ../../.prettierignore --cache",
+    "typedoc": "typedoc --tsconfig .tshy/esm.json ./src/*.ts"
+  },
+  "tap": {
+    "fail-skip": true,
+    "fail-todo": true,
+    "typecheck": false,
+    "coverage-map": "map.js"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "funding": {
+    "url": "https://github.com/sponsors/isaacs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tapjs/tapjs.git"
+  },
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/commonjs/index.d.ts",
+        "default": "./dist/commonjs/index.js"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "dependencies": {
+    "@tapjs/error-serdes": "1.0.0-0"
+  },
+  "peerDependencies": {
+    "@tapjs/core": "1.0.3"
+  }
+}

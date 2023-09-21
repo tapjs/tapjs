@@ -39,6 +39,7 @@ const Plugin_filter = __importStar(require("@tapjs/filter"));
 const Plugin_fixture = __importStar(require("@tapjs/fixture"));
 const Plugin_intercept = __importStar(require("@tapjs/intercept"));
 const Plugin_mock = __importStar(require("@tapjs/mock"));
+const Plugin_nodeSerialize = __importStar(require("@tapjs/node-serialize"));
 const Plugin_snapshot = __importStar(require("@tapjs/snapshot"));
 const Plugin_spawn = __importStar(require("@tapjs/spawn"));
 const Plugin_stdin = __importStar(require("@tapjs/stdin"));
@@ -104,6 +105,7 @@ const plugins = () => {
         Plugin_fixture.plugin,
         Plugin_intercept.plugin,
         Plugin_mock.plugin,
+        Plugin_nodeSerialize.plugin,
         Plugin_snapshot.plugin,
         Plugin_spawn.plugin,
         Plugin_stdin.plugin,
@@ -264,6 +266,7 @@ exports.signature = `@tapjs/after
 @tapjs/fixture
 @tapjs/intercept
 @tapjs/mock
+@tapjs/node-serialize
 @tapjs/snapshot
 @tapjs/spawn
 @tapjs/stdin

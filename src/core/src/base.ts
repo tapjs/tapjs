@@ -288,6 +288,14 @@ export class Base<
   parent?: Base | TestBase
 
   /**
+   * Nesting level, for serialization to node test runner
+   *
+   * Note that this is zero for parent-less tests, and *also* zero
+   * for the first level of children.
+   */
+  nestingLevel: number = 0
+
+  /**
    * Bail out on the first failed test point
    */
   bail: boolean
@@ -423,6 +431,9 @@ export class Base<
     this.bailedOut = false
     this.errors = []
     this.parent = options.parent
+    if (this.parent?.parent) {
+      this.nestingLevel = this.parent.nestingLevel + 1
+    }
 
     this.time = 0
     this.hrtime = 0n

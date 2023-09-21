@@ -113,7 +113,7 @@ class TestBase extends base_js_1.Base {
      */
     cb;
     /**
-     * The count of all assertions this test has seen
+     * The count of all assertions made directly on this test.
      *
      * @group Test Reflection
      */

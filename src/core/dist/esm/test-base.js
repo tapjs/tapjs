@@ -84,7 +84,7 @@ export class TestBase extends Base {
      */
     cb;
     /**
-     * The count of all assertions this test has seen
+     * The count of all assertions made directly on this test.
      *
      * @group Test Reflection
      */
