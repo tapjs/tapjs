@@ -1,0 +1,110 @@
+{
+  "name": "@tapjs/error-serdes",
+  "version": "1.0.0-0",
+  "description": "Port of node's error_serdes.js to userland, plus test message streaming",
+  "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
+  "type": "module",
+  "tshy": {
+    "exports": {
+      ".": "./src/index.ts",
+      "./ser": "./src/serialize.ts",
+      "./des": "./src/deserialize.ts",
+      "./test-stream-deserialize": "./src/test-stream-deserialize.ts",
+      "./test-stream-serialize": "./src/test-stream-serialize.ts",
+      "./package.json": "./package.json"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "v8",
+    "error",
+    "serialization",
+    "deserialization",
+    "serialize",
+    "deserialize"
+  ],
+  "license": "BlueOak-1.0.0",
+  "scripts": {
+    "prepare": "tshy",
+    "pretest": "npm run prepare",
+    "presnap": "npm run prepare",
+    "test": "tap",
+    "snap": "tap",
+    "format": "prettier --write . --loglevel warn --ignore-path ../../.prettierignore --cache",
+    "typedoc": "typedoc --tsconfig .tshy/esm.json ./src/*.ts"
+  },
+  "tap": {
+    "fail-skip": true,
+    "fail-todo": true,
+    "typecheck": false,
+    "coverage-map": "map.js"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "funding": {
+    "url": "https://github.com/sponsors/isaacs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tapjs/tapjs.git"
+  },
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/commonjs/index.d.ts",
+        "default": "./dist/commonjs/index.js"
+      }
+    },
+    "./ser": {
+      "import": {
+        "types": "./dist/esm/serialize.d.ts",
+        "default": "./dist/esm/serialize.js"
+      },
+      "require": {
+        "types": "./dist/commonjs/serialize.d.ts",
+        "default": "./dist/commonjs/serialize.js"
+      }
+    },
+    "./des": {
+      "import": {
+        "types": "./dist/esm/deserialize.d.ts",
+        "default": "./dist/esm/deserialize.js"
+      },
+      "require": {
+        "types": "./dist/commonjs/deserialize.d.ts",
+        "default": "./dist/commonjs/deserialize.js"
+      }
+    },
+    "./test-stream-deserialize": {
+      "import": {
+        "types": "./dist/esm/test-stream-deserialize.d.ts",
+        "default": "./dist/esm/test-stream-deserialize.js"
+      },
+      "require": {
+        "types": "./dist/commonjs/test-stream-deserialize.d.ts",
+        "default": "./dist/commonjs/test-stream-deserialize.js"
+      }
+    },
+    "./test-stream-serialize": {
+      "import": {
+        "types": "./dist/esm/test-stream-serialize.d.ts",
+        "default": "./dist/esm/test-stream-serialize.js"
+      },
+      "require": {
+        "types": "./dist/commonjs/test-stream-serialize.d.ts",
+        "default": "./dist/commonjs/test-stream-serialize.js"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "dependencies": {
+    "minipass": "^7.0.3"
+  }
+}

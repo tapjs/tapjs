@@ -1,0 +1,5 @@
+{
+  "extends": ["../../typedoc.base.json"],
+  "tsconfig": "./.tshy/esm.json",
+  "entryPoints": ["./src/**/*.+(ts|tsx|mts)"]
+}
