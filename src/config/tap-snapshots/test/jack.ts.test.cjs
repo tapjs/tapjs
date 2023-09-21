@@ -264,6 +264,7 @@ Object {
       - @tapjs/fixture
       - @tapjs/intercept
       - @tapjs/mock
+      - @tapjs/node-serialize
       - @tapjs/snapshot
       - @tapjs/spawn
       - @tapjs/stdin

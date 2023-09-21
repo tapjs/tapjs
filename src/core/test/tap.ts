@@ -209,8 +209,11 @@ const cases: Record<string, () => any> = {
 
   doubleRegister: () => {
     const t = tap()
+    const before = t.registered
     t.register()
+    const after = t.registered
     t.register()
+    t.strictSame([before, after], [false, true])
   },
 
   planUnsatisfied: () => tap().plan(99),

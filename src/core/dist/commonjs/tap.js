@@ -103,6 +103,7 @@ class TAP extends test_1.Test {
             /* c8 ignore stop */
             ...opts,
         };
+        // plugins get applied right here:
         super(options);
         instance = this;
         this.on('idle', () => maybeAutoend());
@@ -122,6 +123,9 @@ class TAP extends test_1.Test {
             };
         }
         this.runMain(() => { });
+    }
+    get registered() {
+        return registered;
     }
     /**
      * register this tap instance as being in charge of the current process

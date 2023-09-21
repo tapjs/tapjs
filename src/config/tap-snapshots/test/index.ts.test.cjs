@@ -15,6 +15,7 @@ exports[`test/index.ts > TAP > get plugin list > must match snapshot 1`] = `
 @tapjs/fixture
 @tapjs/intercept
 @tapjs/nock
+@tapjs/node-serialize
 @tapjs/snapshot
 @tapjs/spawn
 @tapjs/stdin

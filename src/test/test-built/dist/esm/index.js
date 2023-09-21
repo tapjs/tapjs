@@ -13,6 +13,7 @@ import * as Plugin_filter from "@tapjs/filter";
 import * as Plugin_fixture from "@tapjs/fixture";
 import * as Plugin_intercept from "@tapjs/intercept";
 import * as Plugin_mock from "@tapjs/mock";
+import * as Plugin_nodeSerialize from "@tapjs/node-serialize";
 import * as Plugin_snapshot from "@tapjs/snapshot";
 import * as Plugin_spawn from "@tapjs/spawn";
 import * as Plugin_stdin from "@tapjs/stdin";
@@ -78,6 +79,7 @@ const plugins = () => {
         Plugin_fixture.plugin,
         Plugin_intercept.plugin,
         Plugin_mock.plugin,
+        Plugin_nodeSerialize.plugin,
         Plugin_snapshot.plugin,
         Plugin_spawn.plugin,
         Plugin_stdin.plugin,
@@ -236,6 +238,7 @@ export const signature = `@tapjs/after
 @tapjs/fixture
 @tapjs/intercept
 @tapjs/mock
+@tapjs/node-serialize
 @tapjs/snapshot
 @tapjs/spawn
 @tapjs/stdin

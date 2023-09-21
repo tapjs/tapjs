@@ -152,6 +152,7 @@ export const run = async (args: string[], config: LoadedConfig) => {
         file.toLowerCase().endsWith('.tap')
       return raw
         ? t.sub<TapFile, TapFileOpts>(TapFile, {
+            at: null,
             cwd: config.globCwd,
             buffered,
             filename: file,
