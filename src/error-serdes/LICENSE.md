@@ -1,10 +1,20 @@
-All packages under `src/` are licensed according to the terms in
-their respective `LICENSE` or `LICENSE.md` files.
+`@tapjs/error-serdes` contains code ported from the Node.js
+project in the following source files:
 
----
+- src/constants.ts
+- src/serialize.ts
+- src/deserialize.ts
 
-`@tapjs/error-serdes`, at `src/error-serdes` contains a port of
-code from the Node.js project, used under the following license:
+Which are built in the following files in the distribution:
+
+- dist/esm/constants.ts
+- dist/esm/serialize.ts
+- dist/esm/deserialize.ts
+- dist/commonjs/constants.ts
+- dist/commonjs/serialize.ts
+- dist/commonjs/deserialize.ts
+
+Used under the following license:
 
 > Copyright Node.js contributors. All rights reserved.
 >
@@ -31,13 +41,9 @@ code from the Node.js project, used under the following license:
 
 Node.js can be found at: https://github.com/nodejs/node
 
-Modifications from the Node.js original are licensed under the
-Blue Oak Model License version 1.0.0, as shown below.
-
----
-
-The remainder of this project is licensed under the Blue Oak
-Model License, as follows:
+Modifications from the Node.js original, and all other additions
+to this work, are licensed under the Blue Oak Model License
+version 1.0.0, as shown below.
 
 ---
 
