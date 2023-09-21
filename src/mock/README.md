@@ -26,7 +26,7 @@ t.test('handls stat failure by throwing', async t => {
     })
   }
   // do 'as typeof import(...)' so that TS knows what it returns
-  const thingThatDoesStat = (await t.import(
+  const thingThatDoesStat = (await t.mockImport(
     '../dist/my-statty-thing.js',
     { 'node:fs': { statSync: mockStatSync } }
   )) as typeof import('../dist/my-statty-thing.js')
