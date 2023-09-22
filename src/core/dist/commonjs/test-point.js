@@ -14,16 +14,6 @@ class TestPoint {
     res;
     constructor(ok, message, extra) {
         extra = extra || {};
-        if (extra.failTodo && extra.todo) {
-            ok = false;
-            extra.failedTodo = extra.todo;
-            delete extra.todo;
-        }
-        if (extra.failSkip && extra.skip) {
-            ok = false;
-            extra.failedSkip = extra.skip;
-            delete extra.skip;
-        }
         this.ok = ok ? 'ok ' : 'not ok ';
         message = message
             .trim()

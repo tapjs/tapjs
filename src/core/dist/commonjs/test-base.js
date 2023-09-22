@@ -402,17 +402,23 @@ class TestBase extends base_js_1.Base {
             this.threw(er, (0, extra_from_error_js_1.extraFromError)(er));
             return;
         }
+        if (extra.skip && this.options.failSkip) {
+            extra.failedSkip = extra.skip;
+            delete extra.skip;
+            ok = false;
+        }
+        if (extra.todo && this.options.failTodo) {
+            extra.failedTodo = extra.todo;
+            delete extra.todo;
+            ok = false;
+        }
         const diagnostic = typeof extra.diagnostic === 'boolean'
             ? extra.diagnostic
             : typeof this.diagnostic === 'boolean'
                 ? this.diagnostic
-                : extra.skip && this.options.failSkip
-                    ? true
-                    : extra.todo && this.options.failTodo
-                        ? true
-                        : extra.skip || extra.todo
-                            ? false
-                            : !ok;
+                : extra.skip || extra.todo
+                    ? false
+                    : !ok;
         if (diagnostic) {
             extra.diagnostic = true;
         }
@@ -1223,6 +1229,8 @@ class TestBase extends base_js_1.Base {
             const p = this.queue[i];
             if (p instanceof base_js_1.Base && !p.readyToProcess) {
                 const msg = `child test left in queue: ${p.name}`;
+                delete p.options.skip;
+                delete p.options.todo;
                 this.queue[i] = new test_point_js_1.TestPoint(false, msg, p.options);
                 this.count++;
             }
