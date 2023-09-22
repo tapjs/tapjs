@@ -21,6 +21,7 @@ t.test('intercept', t => {
     obj.a = 2
     t.match(res(), [
       {
+        target: obj,
         type: 'set',
         value: 2,
         success: true,
@@ -32,6 +33,7 @@ t.test('intercept', t => {
     t.equal(obj.a, 2)
     t.match(res(), [
       {
+        target: obj,
         type: 'get',
         value: 2,
         success: true,
@@ -40,6 +42,9 @@ t.test('intercept', t => {
         threw: false,
       },
     ])
+    const child = Object.create(obj)
+    t.equal(child.a, 2)
+    t.equal(res()[0]?.target, child)
     res.restore()
     res.restore()
     obj.a = 1
@@ -62,6 +67,7 @@ t.test('intercept', t => {
     })
     t.match(res(), [
       {
+        target: obj,
         type: 'set',
         value: 2,
         threw: true,
@@ -73,6 +79,7 @@ t.test('intercept', t => {
     t.equal(obj.a, 1)
     t.match(res(), [
       {
+        target: obj,
         type: 'get',
         value: 1,
         success: true,
@@ -101,6 +108,7 @@ t.test('intercept', t => {
     obj.a = 2
     t.match(res(), [
       {
+        target: obj,
         type: 'set',
         value: 2,
         threw: false,
@@ -112,6 +120,7 @@ t.test('intercept', t => {
     t.equal(obj.a, 1)
     t.match(res(), [
       {
+        target: obj,
         type: 'get',
         value: 1,
         success: true,
@@ -151,6 +160,7 @@ t.test('intercept', t => {
     t.equal(calledGetter, false)
     t.match(res(), [
       {
+        target: obj,
         type: 'set',
         value: 2,
         success: true,
@@ -163,6 +173,7 @@ t.test('intercept', t => {
     t.equal(calledGetter, true)
     t.match(res(), [
       {
+        target: obj,
         type: 'get',
         value: 2,
         success: true,
@@ -196,6 +207,7 @@ t.test('intercept', t => {
     })
     t.match(res(), [
       {
+        target: obj,
         type: 'set',
         value: 2,
         threw: true,
@@ -209,6 +221,7 @@ t.test('intercept', t => {
     t.equal(calledGetter, true)
     t.match(res(), [
       {
+        target: obj,
         type: 'get',
         value: 1,
         success: true,
@@ -239,6 +252,7 @@ t.test('intercept', t => {
     obj.a = 2
     t.match(res(), [
       {
+        target: obj,
         type: 'set',
         value: 2,
         threw: false,
@@ -252,6 +266,7 @@ t.test('intercept', t => {
     t.equal(calledGetter, true)
     t.match(res(), [
       {
+        target: obj,
         type: 'get',
         value: 1,
         success: true,
@@ -285,6 +300,7 @@ t.test('intercept', t => {
     obj.a = 2
     t.match(res(), [
       {
+        target: obj,
         type: 'set',
         value: 2,
         success: true,
@@ -296,6 +312,7 @@ t.test('intercept', t => {
     t.equal(obj.a, 2)
     t.match(res(), [
       {
+        target: obj,
         type: 'get',
         value: 2,
         success: true,
@@ -317,7 +334,7 @@ t.test('intercept', t => {
     t.test('child test that does the intercepting', t => {
       res = t.intercept(obj, 'a')
       obj.a = 2
-      t.match(res(), [{ type: 'set', value: 2 }])
+      t.match(res(), [{ target: obj, type: 'set', value: 2 }])
       t.end()
     })
     obj.a = 3
@@ -331,9 +348,9 @@ t.test('intercept', t => {
     t.test('child test that does the intercepting', t => {
       res = t.intercept(obj, 'a')
       obj.a = 1
-      t.match(res(), [{ type: 'set', value: 1 }])
+      t.match(res(), [{ target: obj, type: 'set', value: 1 }])
       t.equal(obj.a, 1)
-      t.match(res(), [{ type: 'get', value: 1 }])
+      t.match(res(), [{ target: obj, type: 'get', value: 1 }])
       t.end()
     })
     t.equal(obj.a, undefined, 'restored to original state')
@@ -351,6 +368,7 @@ t.test('captureFn', t => {
     t.equal(wrapped(2), 1)
     t.match(wrapped.calls, [
       {
+        target: undefined,
         args: [],
         at: CallSiteLike,
         stack: String,
@@ -358,6 +376,9 @@ t.test('captureFn', t => {
       },
     ])
     t.strictSame(wrapped.args(), [[2]])
+    const obj = { wrapped }
+    t.equal(obj.wrapped(3), 1)
+    t.equal(wrapped.calls[1]?.target, obj)
     t.end()
   })
 
@@ -388,7 +409,7 @@ t.test('capture', t => {
     const i = plugin(tt)
     const res = i.capture(obj, 'a')
     t.equal(obj.a(), undefined)
-    t.match(res(), [{ returned: undefined, threw: false }])
+    t.match(res(), [{ target: obj, returned: undefined, threw: false }])
     res.restore()
     t.equal(obj.a(), 1)
     t.strictSame(res(), [])

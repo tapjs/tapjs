@@ -70,9 +70,9 @@ t.test('intercept a property set/get', t => {
   // we didn't make it writable, so this didn't do anything.
   t.equal(process.version, '1.2.3')
   t.match(results(), [
-    { type: 'get', value: '1.2.3', success: true },
-    { type: 'set', value: '2.4.6', success: false },
-    { type: 'get', value: '1.2.3', success: true },
+    { target: process, type: 'get', value: '1.2.3', success: true },
+    { target: process, type: 'set', value: '2.4.6', success: false },
+    { target: process, type: 'get', value: '1.2.3', success: true },
   ])
 })
 ```
@@ -88,8 +88,9 @@ t.test('intercept a property set/get', t => {
 
   Replaces `obj[method]` with the supplied implementation.
 
-  The `results()` method will return an array of objects with
-  an `args` array, an `at` CallSiteLike object, and either
+  The `results()` method will return an array of objects with a
+  `target` property indicating the `this`-context of the method
+  call, an `args` array, an `at` CallSiteLike object, and either
   `threw: true` or `returned: <value>`.
 
   If `t.teardown()` is available (ie, if the `@tapjs/after`
@@ -106,6 +107,7 @@ t.test('intercept a property set/get', t => {
   operations for any arbitrary property. The results function
   returns a list of objects with:
 
+  - `target` the object where the set/get is happening
   - `type` 'get' for get operations, 'set' for set operations
   - `value` The value that was returned by a get, or set in a
     set.
