@@ -38,7 +38,7 @@ export type Methods<O extends object> =
  */
 export interface CaptureResultBase<F extends (...a: any[]) => any> {
   args: OverloadParams<F>
-  target: any
+  receiver: any
   at?: CallSiteLike
   stack?: string
 }
@@ -223,7 +223,7 @@ export type CaptureResultsMethod<
  * {@link @tapjs/intercept!Interceptor#intercept}
  */
 export interface InterceptResultBase {
-  target: any
+  receiver: any
   at?: CallSiteLike
   stack?: string
   value: any
@@ -359,7 +359,7 @@ export class Interceptor {
           success = true
         } finally {
           resList.push({
-            target: this,
+            receiver: this,
             type: 'get',
             at: at(interceptor.get),
             stack: captureString(interceptor.get),
@@ -409,7 +409,7 @@ export class Interceptor {
           threw = false
         } finally {
           resList.push({
-            target: this,
+            receiver: this,
             type: 'set',
             at: at(interceptor.set),
             stack: captureString(interceptor.set),
@@ -533,7 +533,7 @@ export class Interceptor {
     return Object.assign(
       function wrapped(this: any, ...args: OverloadParams<F>) {
         const res: CaptureResultBase<F> = {
-          target: this,
+          receiver: this,
           args,
           at: at(wrapped),
           stack: captureString(wrapped),
