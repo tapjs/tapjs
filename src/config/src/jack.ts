@@ -394,6 +394,49 @@ export default jack({
   })
 
   .flag({
+    'allow-empty-coverage': {
+      description: `Suppress the error exit if the test run produces no
+                    coverage whatsoever.
+
+                    The \`# No coverage generated\` message will still be
+                    printed.
+
+                    If coverage is generated, but incomplete, then the process
+                    will exit in error, unless \`allow-incomplete-coverage\`
+                    is also set.
+
+                    WARNING: tests that do not produce coverage are
+                    untrustworthy. This should only be used when coverage is
+                    being generated and tracked by some other mechanism.`,
+    },
+    'allow-incomplete-coverage': {
+      description: `Suppress the error exit if the test run produces incomplete
+                    coverage information.
+
+                    The coverage report showing missing coverage will still be
+                    generated.
+
+                    If no coverage is generated, then the process will exit in
+                    error, unless \`allow-empty-coverage\` is also set.
+
+                    WARNING: tests that produce incomplete coverage are
+                    untrustworthy. This should only be used when coverage is
+                    being generated and tracked by some other mechanism.`,
+    },
+    'disable-coverage': {
+      description: `Do not generate code coverage information for the test run.
+
+                    This will always result in a \`# No coverage generated\`
+                    message being printed, and will cause the test run to exit
+                    in error unless \`allow-empty-coverage\` is also set.
+
+                    WARNING: tests that do not produce coverage are
+                    untrustworthy. This should only be used when coverage is
+                    being generated and tracked by some other mechanism.`,
+    },
+  })
+
+  .flag({
     bail: {
       short: 'b',
       description: 'Bail out on first failure',

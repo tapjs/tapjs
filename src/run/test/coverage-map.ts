@@ -25,7 +25,7 @@ t.test('load a coverage map from cjs', async t => {
   })
   const map = await getCoverageMap({
     globCwd: dir,
-    get: () => 'map.js',
+    get: (cfg: string) => (cfg === 'coverage-map' ? 'map.js' : false),
   } as unknown as LoadedConfig)
   t.equal(map('x'), 'this is fine')
 })
@@ -37,9 +37,21 @@ t.test('load a coverage map from esm', async t => {
   })
   const map = await getCoverageMap({
     globCwd: dir,
-    get: () => 'map.js',
+    get: (cfg: string) => (cfg === 'coverage-map' ? 'map.js' : false),
   } as unknown as LoadedConfig)
   t.equal(map('x'), 'this is fine')
+})
+
+t.test('no coverage map when --disable-coverage set', async t => {
+  const dir = t.testdir({
+    'package.json': '{ "type": "module" }',
+    'map.js': 'export default () => "this is fine"',
+  })
+  const map = await getCoverageMap({
+    globCwd: dir,
+    get: (cfg: string) => (cfg === 'coverage-map' ? 'map.js' : true),
+  } as unknown as LoadedConfig)
+  t.equal(map('x'), null)
 })
 
 t.test('coverage-map config must be a module', async t => {
@@ -47,7 +59,8 @@ t.test('coverage-map config must be a module', async t => {
   await t.rejects(
     getCoverageMap({
       globCwd: dir,
-      get: () => 'map.js',
+      get: (cfg: string) =>
+        cfg === 'coverage-map' ? 'map.js' : false,
     } as unknown as LoadedConfig)
   )
 })
@@ -60,7 +73,8 @@ t.test('map must be a function', async t => {
   await t.rejects(
     getCoverageMap({
       globCwd: dir,
-      get: () => 'map.js',
+      get: (cfg: string) =>
+        cfg === 'coverage-map' ? 'map.js' : false,
     } as unknown as LoadedConfig)
   )
 })
@@ -78,7 +92,7 @@ t.test('map must return string, string[], or null', async t => {
   })
   const map = await getCoverageMap({
     globCwd: dir,
-    get: () => 'map.js',
+    get: (cfg: string) => (cfg === 'coverage-map' ? 'map.js' : false),
   } as unknown as LoadedConfig)
   t.equal(map('string'), 'string')
   t.strictSame(map('arr'), ['a', 'b'])

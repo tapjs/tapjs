@@ -8,6 +8,7 @@ const isStringArray = (a: any): a is string[] =>
 type CoverageMapFn = (file: string) => null | string | string[]
 
 export const getCoverageMap = async (config: LoadedConfig) => {
+  if (config.get('disable-coverage')) return () => null
   const coverageMap = config.get('coverage-map')
   if (!coverageMap) return () => []
   const mapModule = (await import(

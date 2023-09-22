@@ -39,6 +39,8 @@ class MockConfig {
   #coverageReport: string[]
   globCwd: string = globCwd
   showFullCoverage?: boolean
+  allowEmptyCoverage?: boolean
+  allowIncompleteCoverage?: boolean
   constructor(coverageReport: string[] = []) {
     this.#coverageReport = coverageReport
   }
@@ -48,6 +50,10 @@ class MockConfig {
         return this.#coverageReport
       case 'show-full-coverage':
         return this.showFullCoverage
+      case 'allow-empty-coverage':
+        return this.allowEmptyCoverage
+      case 'allow-incomplete-coverage':
+        return this.allowIncompleteCoverage
       default:
         throw new Error('should only look up coverage configs')
     }
@@ -235,15 +241,18 @@ t.test('run an html report', async t => {
       const comments = t.capture(mockTap, 'comment')
       let openerRan = false
       const htmlReport = resolve(globCwd, '.tap/report', file)
-      const { report } = (await t.mockImport('../dist/esm/report.js', {
-        c8: { Report: MockReport },
-        '@tapjs/core': mockCore,
-        opener: (file: string) => {
-          t.equal(file, htmlReport)
-          openerRan = true
-        },
-        '../dist/esm/main-config.js': { mainCommand: 'report' },
-      })) as typeof import('../dist/esm/report.js')
+      const { report } = (await t.mockImport(
+        '../dist/esm/report.js',
+        {
+          c8: { Report: MockReport },
+          '@tapjs/core': mockCore,
+          opener: (file: string) => {
+            t.equal(file, htmlReport)
+            openerRan = true
+          },
+          '../dist/esm/main-config.js': { mainCommand: 'report' },
+        }
+      )) as typeof import('../dist/esm/report.js')
       const config = new MockConfig([])
       const logs = t.capture(console, 'log')
       await report([style], config as unknown as LoadedConfig)
@@ -283,6 +292,27 @@ t.test('no coverage files generated', async t => {
   process.exitCode = 0
 })
 
+t.test('no coverage files generated, allowed', async t => {
+  summary = summaryZero
+  t.testdir({
+    '.tap': {
+      coverage: {},
+    },
+  })
+  const comments = t.capture(mockTap, 'comment')
+  const { report } = (await t.mockImport('../dist/esm/report.js', {
+    c8: { Report: MockReport },
+    '@tapjs/core': mockCore,
+  })) as typeof import('../dist/esm/report.js')
+  const config = new MockConfig([])
+  config.allowEmptyCoverage = true
+  const logs = t.capture(console, 'log')
+  await report([], config as unknown as LoadedConfig)
+  t.strictSame(logs.args(), [])
+  t.strictSame(comments.args(), [['No coverage generated']])
+  t.equal(process.exitCode, 0)
+})
+
 t.test('no coverage summary generated', async t => {
   summary = summaryZero
   t.testdir({
@@ -302,6 +332,27 @@ t.test('no coverage summary generated', async t => {
   t.strictSame(comments.args(), [['No coverage generated']])
   t.equal(process.exitCode, 1)
   process.exitCode = 0
+})
+
+t.test('no coverage summary generated, allowed', async t => {
+  summary = summaryZero
+  t.testdir({
+    '.tap': {
+      coverage: { 'file.json': '{}' },
+    },
+  })
+  const comments = t.capture(mockTap, 'comment')
+  const { report } = (await t.mockImport('../dist/esm/report.js', {
+    c8: { Report: MockReport },
+    '@tapjs/core': mockCore,
+  })) as typeof import('../dist/esm/report.js')
+  const config = new MockConfig([])
+  config.allowEmptyCoverage = true
+  const logs = t.capture(console, 'log')
+  await report([], config as unknown as LoadedConfig)
+  t.strictSame(logs.args(), [])
+  t.strictSame(comments.args(), [['No coverage generated']])
+  t.equal(process.exitCode, 0)
 })
 
 t.test('not full coverage', async t => {
@@ -335,5 +386,40 @@ t.test('not full coverage', async t => {
   t.equal(openerRan, true)
   t.equal(readFileSync(htmlReport, 'utf8'), 'report')
   t.equal(process.exitCode, 1)
+  process.exitCode = 0
+})
+
+t.test('not full coverage, allowed', async t => {
+  summary = summary50
+  t.testdir({
+    '.tap': {
+      coverage: { 'file.json': '{}' },
+    },
+  })
+  const comments = t.capture(mockTap, 'comment')
+  let openerRan = false
+  const htmlReport = resolve(globCwd, '.tap/report/index.html')
+  const { report } = (await t.mockImport('../dist/esm/report.js', {
+    c8: { Report: MockReport },
+    '@tapjs/core': mockCore,
+    opener: (file: string) => {
+      t.equal(file, htmlReport)
+      openerRan = true
+    },
+  })) as typeof import('../dist/esm/report.js')
+  const config = new MockConfig([])
+  config.allowIncompleteCoverage = true
+  const logs = t.capture(console, 'log')
+  await report(['html'], config as unknown as LoadedConfig)
+  t.strictSame(logs.args(), [])
+  t.strictSame(comments.args(), [
+    ['ERROR: incomplete statements coverage (50%)'],
+    ['ERROR: incomplete branches coverage (50%)'],
+    ['ERROR: incomplete functions coverage (0%)'],
+    ['ERROR: incomplete lines coverage (50%)'],
+  ])
+  t.equal(openerRan, true)
+  t.equal(readFileSync(htmlReport, 'utf8'), 'report')
+  t.equal(process.exitCode, 0)
   process.exitCode = 0
 })

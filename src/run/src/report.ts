@@ -40,7 +40,9 @@ export const report = async (
   if (!ok) {
     tap().comment('No coverage generated')
     tap().debug('run/report exit=1 no coverage generated')
-    process.exitCode = 1
+    if (!config.get('allow-empty-coverage')) {
+      process.exitCode = 1
+    }
     return
   }
 
@@ -183,7 +185,9 @@ const checkCoverage = async (
   if (isEmptyCoverage(summary)) {
     t.comment('No coverage generated')
     t.debug('run/report exit=1 coverage is empty', summary)
-    process.exitCode = 1
+    if (!config.get('allow-empty-coverage')) {
+      process.exitCode = 1
+    }
     return
   }
 
@@ -201,6 +205,8 @@ const checkCoverage = async (
   }
   if (success === false) {
     t.debug('run/report exit=1 coverage not 100', summary)
-    process.exitCode = 1
+    if (!config.get('allow-incomplete-coverage')) {
+      process.exitCode = 1
+    }
   }
 }
