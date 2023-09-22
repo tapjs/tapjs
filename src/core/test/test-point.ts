@@ -47,22 +47,6 @@ for (const ok of [true, false]) {
       new TestPoint(ok, '  a\nb\t# c \\  '),
       'escape/trim'
     )
-    t.matchSnapshot(
-      new TestPoint(ok, 's', { skip: true, failSkip: true }),
-      'failSkip and skip:true'
-    )
-    t.matchSnapshot(
-      new TestPoint(ok, 's', { skip: 'msg', failSkip: true }),
-      'failSkip and skip:msg'
-    )
-    t.matchSnapshot(
-      new TestPoint(ok, 's', { todo: true, failTodo: true }),
-      'failTodo and todo:true'
-    )
-    t.matchSnapshot(
-      new TestPoint(ok, 's', { todo: 'msg', failTodo: true }),
-      'failTodo and todo:msg'
-    )
     t.end()
   })
 }

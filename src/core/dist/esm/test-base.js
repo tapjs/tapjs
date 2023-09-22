@@ -373,17 +373,23 @@ export class TestBase extends Base {
             this.threw(er, extraFromError(er));
             return;
         }
+        if (extra.skip && this.options.failSkip) {
+            extra.failedSkip = extra.skip;
+            delete extra.skip;
+            ok = false;
+        }
+        if (extra.todo && this.options.failTodo) {
+            extra.failedTodo = extra.todo;
+            delete extra.todo;
+            ok = false;
+        }
         const diagnostic = typeof extra.diagnostic === 'boolean'
             ? extra.diagnostic
             : typeof this.diagnostic === 'boolean'
                 ? this.diagnostic
-                : extra.skip && this.options.failSkip
-                    ? true
-                    : extra.todo && this.options.failTodo
-                        ? true
-                        : extra.skip || extra.todo
-                            ? false
-                            : !ok;
+                : extra.skip || extra.todo
+                    ? false
+                    : !ok;
         if (diagnostic) {
             extra.diagnostic = true;
         }
@@ -1194,6 +1200,8 @@ export class TestBase extends Base {
             const p = this.queue[i];
             if (p instanceof Base && !p.readyToProcess) {
                 const msg = `child test left in queue: ${p.name}`;
+                delete p.options.skip;
+                delete p.options.todo;
                 this.queue[i] = new TestPoint(false, msg, p.options);
                 this.count++;
             }
