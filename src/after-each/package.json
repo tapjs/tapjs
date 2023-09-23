@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/after-each",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "a built-in tap extension for t.afterEach()",
   "type": "module",
   "exports": {
@@ -41,7 +41,7 @@
   },
   "homepage": "https://github.com/tapjs/tapjs/src/spawn#readme",
   "peerDependencies": {
-    "@tapjs/core": "1.0.3"
+    "@tapjs/core": "1.1.0"
   },
   "dependencies": {
     "function-loop": "^4.0.0"

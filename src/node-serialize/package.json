@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/node-serialize",
-  "version": "1.0.0-0",
+  "version": "1.0.0",
   "description": "Stream TAP test data as a serialized node:test stream",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "type": "module",
@@ -63,9 +63,9 @@
     "./package.json": "./package.json"
   },
   "dependencies": {
-    "@tapjs/error-serdes": "1.0.0-0"
+    "@tapjs/error-serdes": "1.0.0"
   },
   "peerDependencies": {
-    "@tapjs/core": "1.0.3"
+    "@tapjs/core": "1.1.0"
   }
 }
