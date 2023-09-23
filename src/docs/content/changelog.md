@@ -5,6 +5,52 @@ eleventyNavigation:
   key: Changelog
 ---
 
+## 18.1
+
+This release adds much better support for interoperating with
+the Node.js built-in test runner and framework.
+
+When tap is run with `NODE_TEST_CONTEXT=child-v8` in the
+environment, it will output a stream of serialized test messages,
+rather than `TAP` output.
+
+## Features
+
+- Add `@tapjs/node-serialize` default plugin, which serializes
+  test output for the `node --test` runner.
+- First-class support for parsing the TAP produced by `node:test`
+  tests. (Look at `duration_ms` along with `# time` directives,
+  etc.)
+- Add options to be less strict about coverage:
+  `--disable-coverage`, `--allow-empty-coverage`,
+  `--allow-incomplete-coverage`.
+- Add options to be more strict about skipped tests:
+  `--fail-skip`, `--fail-todo`
+- Default the `typecheck` option to `false`. It's just too slow
+  to be enabled by default.
+- Add `receiver` to `@tapjs/intercept` result objects, indicating
+  the `this`-context of method calls and set/get operations.
+- Inherit the `t.mockAll` object in subtests.
+- Add `--filter-quietly` config option, to suppress the `SKIP`
+  notices when filtering out tests. This is enabled by default
+  when using `--fail-skip`.
+- Stack trace paths are now relativized if their relative path is
+  shorter than absolute. (Eg, show `../x` instead of
+  `/full/path/to/x`.)
+- Add `expandStack` method to the `@tapjs/stack` utility, to turn
+  a tap-style terse stack back into a standard JavaScript style
+  stack trace.
+
+## Fixes
+
+- Fix several bugs related to using userland plugins installed
+  from npm and issues where the `@tapjs/create-plugin`
+  initializer created incorrect stub code.
+- Fix issue where plugin names were sorted improperly, leading to
+  a failure to build config-exporting userland plugins.
+- Avoid triggering warning about `import {...} assert
+  {type:'json'}` being experimental.
+
 ## 18.0
 
 Major rewrite.
