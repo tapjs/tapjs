@@ -41,42 +41,46 @@ export const config = {
   /**
    * flag
    *
-   * Type-check typescript test files, in addition to transpiling and running
-   * them.
+   * Type-check test files, in addition to transpiling and running them.
    *
-   * This defaults to being set, and type checking your tests is generally a
-   * good idea. However, it is also often considerably slower, adding as much
-   * as half a second to each test suite file, which can be painful if you have
-   * a lot of test files.
+   * This defaults to false, even though type checking your tests is generally
+   * a good idea. Unfortunately, it is also often considerably slower, adding
+   * as much as 500-750ms to each test suite file, which can be painful if you
+   * have a lot of tests. In large project folders, the effect can be even more
+   * pronounced.
    *
-   * If you find that your typescript tests are taking too long to run, and
-   * decide to disable type checking, it is best to enable it in CI, for
-   * example by setting `TAP_TYPECHECK=1` in the environment.
+   * It is a good idea to enable this in CI environments, where test speed is
+   * less of an ergonomic drawback.
    *
    * The `"skipLibCheck": true` option in tsconfig will also speed things up a
    * bit, at the expense of some type safety.
+   *
+   * Note that even if you pre-compile your tests, they will still be subject
+   * to type checking if `"allowJs": true` is set in your tsconfig.
    *
    * @group Configuration
    */
   typecheck: {
     type: 'boolean',
-    default: true,
-    description: `Type-check typescript test files, in addition to
-                  transpiling and running them.
+    description: `Type-check test files, in addition to transpiling and running
+                  them.
 
-                  This defaults to being set, and type checking your tests
-                  is generally a good idea. However, it is also often
-                  considerably slower, adding as much as half a second to
-                  each test suite file, which can be painful if you have
-                  a lot of test files.
+                  This defaults to false, even though type checking your tests
+                  is generally a good idea. Unfortunately, it is also often
+                  considerably slower, adding as much as 500-750ms to each test
+                  suite file, which can be painful if you have a lot of tests.
+                  In large project folders, the effect can be even more
+                  pronounced.
 
-                  If you find that your typescript tests are taking too
-                  long to run, and decide to disable type checking, it is
-                  best to enable it in CI, for example by setting
-                  \`TAP_TYPECHECK=1\` in the environment.
+                  It is a good idea to enable this in CI environments, where
+                  test speed is less of an ergonomic drawback.
 
-                  The \`"skipLibCheck": true\` option in tsconfig will also
+                  The \`"skipLibCheck": true"\` option in tsconfig will also
                   speed things up a bit, at the expense of some type safety.
+
+                  Note that even if you pre-compile your tests, they will still
+                  be subject to type checking if \`"allowJs": true\` is set in
+                  your tsconfig.
     `,
   },
 
