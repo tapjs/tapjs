@@ -28,6 +28,7 @@ const highlightFilename = (s: string, f?: string | null) => {
     f === 'native' ||
     f === '<anonymous>' ||
     isAbsolute(f) ||
+    f.startsWith('..') ||
     !s.includes(f)
   ) {
     return <Text>{chalk.dim(s)}</Text>
