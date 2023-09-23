@@ -11,7 +11,9 @@ const notConfig = (
     typeof property === 'string'
       ? `'${property}'`
       : property.toString()
-  const er = new Error(`Cannot ${m} ${s}, defined {configurable:false}`)
+  const er = new Error(
+    `Cannot ${m} ${s}, defined {configurable:false}`
+  )
   Error.captureStackTrace(er, caller)
   return er
 }
@@ -38,7 +40,7 @@ export type Methods<O extends object> =
  */
 export interface CaptureResultBase<F extends (...a: any[]) => any> {
   args: OverloadParams<F>
-  receiver: any
+  receiver: Receiver<F>
   at?: CallSiteLike
   stack?: string
 }
@@ -197,6 +199,16 @@ export type TupleUnion<L> = L extends [infer H, ...infer T]
   : never
 
 /**
+ * Infer the `this` target of a function
+ */
+export type Receiver<F> = F extends (
+  this: infer T,
+  ...a: any[]
+) => any
+  ? T
+  : never
+
+/**
  * The method returned by {@link @tapjs/intercept!Interceptor#capture},
  * which returns the {@link @tapjs/intercept!CaptureResult} array when
  * called, and has methods to restore or get args, and exposes the list of
@@ -298,11 +310,7 @@ export class Interceptor {
       }
     }
     if (orig && !orig.configurable) {
-      throw notConfig(
-        'intercept property',
-        prop,
-        this.#t.t.intercept
-      )
+      throw notConfig('intercept property', prop, this.#t.t.intercept)
     }
 
     let restore: () => void
@@ -452,15 +460,11 @@ export class Interceptor {
   capture<T extends {}, M extends Methods<T>>(
     obj: T,
     method: M,
-    impl: (...a: any[]) => any = (..._: any[]) => {}
+    impl: (this: T, ...a: any[]) => any = (..._: any[]) => {}
   ): CaptureResultsMethod<T, M> {
     const prop = Object.getOwnPropertyDescriptor(obj, method)
     if (prop && !prop.configurable) {
-      throw notConfig(
-        'capture method',
-        method,
-        this.#t.t.capture
-      )
+      throw notConfig('capture method', method, this.#t.t.capture)
     }
 
     // if we don't have a prop we can restore by just deleting
@@ -524,14 +528,17 @@ export class Interceptor {
    */
   captureFn<F extends (this: any, ...a: any[]) => any>(
     original: F
-  ): ((...a: any[]) => any) & {
+  ): F & {
     calls: CaptureResult<F>[]
     args: () => OverloadParams<F>[]
   } {
     const calls: CaptureResult<F>[] = []
     const args = () => calls.map(({ args }) => args)
     return Object.assign(
-      function wrapped(this: any, ...args: OverloadParams<F>) {
+      function wrapped(
+        this: Receiver<F>,
+        ...args: OverloadParams<F>
+      ) {
         const res: CaptureResultBase<F> = {
           receiver: this,
           args,
@@ -550,7 +557,7 @@ export class Interceptor {
             calls.push(res)
           }
         }
-      },
+      } as F,
       { calls, args }
     )
   }

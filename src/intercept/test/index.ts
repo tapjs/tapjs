@@ -5,6 +5,7 @@ import {
   CaptureResultsMethod,
   InterceptResultsMethod,
   plugin,
+  Receiver,
 } from '../dist/esm/index.js'
 t.equal(t.pluginLoaded(plugin), true, 'plugin is loaded')
 
@@ -365,6 +366,8 @@ t.test('captureFn', t => {
   t.test('return', t => {
     const fn = () => 1
     const wrapped = t.captureFn(fn)
+    // type error because wrapped expects
+    //@ts-expect-error
     t.equal(wrapped(2), 1)
     t.match(wrapped.calls, [
       {
@@ -377,7 +380,7 @@ t.test('captureFn', t => {
     ])
     t.strictSame(wrapped.args(), [[2]])
     const obj = { wrapped }
-    t.equal(obj.wrapped(3), 1)
+    t.equal(obj.wrapped(), 1)
     t.equal(wrapped.calls[1]?.receiver, obj)
     t.end()
   })
@@ -399,6 +402,48 @@ t.test('captureFn', t => {
     t.end()
   })
 
+  t.test('wrapped function preserves receiver type', t => {
+    type O = { a: 1 }
+    const o: O = { a: 1 }
+    const fn: (this: O) => number = function () {
+      return this?.a
+    }
+    const wrapped = t.captureFn(fn)
+    //@ts-expect-error
+    const p: Receiver<typeof wrapped> = { b: 2 }
+    p
+    const q = { b: 2 }
+    //@ts-expect-error
+    wrapped()
+    wrapped.call(o)
+    //@ts-expect-error
+    wrapped.call(q)
+
+    type M = { x(this: M, b:number): number; a: number }
+    const m: M = {
+      x(b) {
+        return this?.a + b
+      },
+      a: 1,
+    }
+    const w = t.captureFn(m.x)
+    //@ts-expect-error
+    w(1)
+    //@ts-expect-error
+    w.call(m)
+    //@ts-expect-error
+    w.call({a: 2})
+    t.equal(w.call(m, 1), 2)
+    const c = w.calls[0]
+    if (!c) {
+      throw new Error('should have had at least one call')
+    }
+    //@ts-expect-error
+    c.receiver = { a: 1 }
+    c.receiver = m
+    t.end()
+  })
+
   t.end()
 })
 
@@ -409,7 +454,10 @@ t.test('capture', t => {
     const i = plugin(tt)
     const res = i.capture(obj, 'a')
     t.equal(obj.a(), undefined)
-    t.match(res(), [{ receiver: obj, returned: undefined, threw: false }])
+
+    t.match(res(), [
+      { receiver: obj, returned: undefined, threw: false },
+    ])
     res.restore()
     t.equal(obj.a(), 1)
     t.strictSame(res(), [])
@@ -422,7 +470,7 @@ t.test('capture', t => {
     t.test('child test that does the capturing', t => {
       res = t.capture(obj, 'a', () => 2)
       t.equal(obj.a(), 2)
-      t.match(res(), [{ returned: 2, threw: false }])
+      t.match(res(), [{ receiver: obj, returned: 2, threw: false }])
       t.equal(obj.a(1, 2, 3), 2)
       t.strictSame(res.args(), [[1, 2, 3]])
       //@ts-expect-error
@@ -466,6 +514,39 @@ t.test('capture', t => {
     res.restore()
     t.equal(obj.a(1), 1)
     t.strictSame(res(), [])
+    t.end()
+  })
+
+  t.test('receiver type is preserved', t => {
+    class A {
+      b: number = 1
+      a(this: A, n: number) {
+        return n + this.b
+      }
+    }
+    class B {
+      #b: boolean = true
+      b() {
+        return this.#b
+      }
+    }
+    const a = new A()
+    // do not allow passing in a function that expects a given this
+    // receiver that isn't satisfied by the object it's applied to.
+    //@ts-expect-error
+    t.capture(a, 'a', function(this: B) { return 2 })
+    // this is fine, though, because unknown can be anything
+    const res = t.capture(a, 'a', function() {
+      // with the impl, it knows 'this' is same type as object
+      //@ts-expect-error
+      this.x = 'y'
+      return this.b + 99
+    })
+    const rec = res()[0]
+    if (rec) {
+      //@ts-expect-error
+      rec.receiver.x = 'x'
+    }
     t.end()
   })
 
