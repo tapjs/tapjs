@@ -243,7 +243,6 @@ export declare const config: <C extends ConfigSet>(jack: Jack<C>) => Jack<C & im
 }> & import("jackspeak").ConfigSetFromMetaSet<"boolean", false, {
     typecheck: {
         type: string;
-        default: boolean;
         description: string;
     } & {
         type: "boolean";
