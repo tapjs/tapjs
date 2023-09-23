@@ -1,6 +1,6 @@
 {
   "name": "@tapjs/run",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Command-line interface for the node-tap runner",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://blog.izs.me)",
   "type": "module",
@@ -51,7 +51,7 @@
     "@tapjs/before": "1.0.4",
     "@tapjs/config": "2.1.0",
     "@tapjs/processinfo": "^3.1.1",
-    "@tapjs/reporter": "1.1.0",
+    "@tapjs/reporter": "1.1.1",
     "@tapjs/spawn": "1.0.4",
     "@tapjs/stdin": "1.0.4",
     "@tapjs/test": "1.1.0",
