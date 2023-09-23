@@ -25,14 +25,12 @@ A module with 99% code coverage can be considered as two modules;
 a large one that is tested, and a smaller one with no tests at
 all. If code is worth testing, it's worth testing completely.
 
-For that reason, the tap runner _always_ instruments code using
-the built in V8 coverage API, and considers incomplete coverage
-to be a test failure. If code coverage is complete, no coverage
-report is generated. If it is incomplete, or if no coverage is
-generated at all, then a report is printed and the process exits
-with an error status code.
-
-There is no way to disable this behavior.
+For that reason, the tap runner instruments code using the built
+in V8 coverage API, and considers incomplete coverage to be a
+test failure. If code coverage is complete, no coverage report is
+generated. If it is incomplete, or if no coverage is generated at
+all, then a report is printed and the process exits with an error
+status code.
 
 ## Reporting Coverage
 
@@ -185,3 +183,30 @@ If you find yourself using `c8 ignore` for things like error
 conditions and platform-specific behaviors, it should be treated
 as a code smell indicating that the code can likely be more
 effectively factored and tested.
+
+## Disabling Coverage, Accepting Missing/Incomplete Coverage
+
+**WARNING: This is almost always a bad idea. It reduces the value
+of your tests.**
+
+In some cases, you may need to tell the test runner to _not_ fail
+if the coverage is missing or incomplete. For example, you may be
+in the process of transitioning a legacy codebase to proper test
+coverage, or using `tap` along with another tool to test other
+parts of your program.
+
+You can use the following options to facilitate this unusual
+situation:
+
+* `--disable-coverage` Prevent tap from generating code coverage.
+  This will make the test run fail unless
+  `--allow-missing-coverage` is set, because the coverage will
+  always be missing.
+* `--allow-missing-coverage` Do not fail if no coverage was
+  generated. Note that it _will_ still fail if _incomplete_
+  coverage is generated, unless `--allow-incomplete-coverage` is
+  also set.
+* `--allow-incomplete-coverage` Do not fail if the generated
+  coverage was incomplete. Note that it _will_ still fail if _no_
+  coverage was generated, unless `--allow-empty-coverage` is also
+  set.
