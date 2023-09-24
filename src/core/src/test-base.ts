@@ -1131,7 +1131,13 @@ export class TestBase extends Base<TestBaseEvents> {
         () => {
           this.debug(' > implicit end for promise')
           this.#promiseEnded = true
-          if (!this.ended && !this.#awaitingEnd) this.#end(IMPLICIT)
+          if (
+            !this.ended &&
+            !this.#awaitingEnd &&
+            !this.#explicitPlan
+          ) {
+            this.#end(IMPLICIT)
+          }
           done()
         },
         (er: any) => {

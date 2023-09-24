@@ -1552,3 +1552,21 @@ t.test('failTodo', async t => {
     t.match(res, e)
   }
 })
+
+t.test('plan plus promise', async t => {
+  const tb = new T({ name: 'root' })
+  tb.test('parent', async t => {
+    t.plan(2)
+    t.test('child', async t => {
+      await new Promise<void>(res => setTimeout(res))
+      t.pass('this is fine')
+    })
+    t.test('sync child', t => {
+      t.pass('this is fine')
+      t.end()
+    })
+  })
+  tb.end()
+  t.matchSnapshot(await tb.concat())
+  t.ok(tb.passing())
+})

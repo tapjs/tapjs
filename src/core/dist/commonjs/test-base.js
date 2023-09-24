@@ -901,8 +901,11 @@ class TestBase extends base_js_1.Base {
             ret.then(() => {
                 this.debug(' > implicit end for promise');
                 this.#promiseEnded = true;
-                if (!this.ended && !this.#awaitingEnd)
+                if (!this.ended &&
+                    !this.#awaitingEnd &&
+                    !this.#explicitPlan) {
                     this.#end(implicit_end_sigil_js_1.IMPLICIT);
+                }
                 done();
             }, (er) => {
                 if (!er || typeof er !== 'object') {

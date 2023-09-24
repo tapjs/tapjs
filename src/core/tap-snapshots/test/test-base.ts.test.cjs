@@ -227,6 +227,26 @@ ok 2 - also ok
 
 `
 
+exports[`test/test-base.ts > TAP > plan plus promise > must match snapshot 1`] = `
+TAP version 14
+# Subtest: parent
+    1..2
+    # Subtest: child
+        ok 1 - this is fine
+        1..1
+    ok 1 - child # time={TIME}
+    
+    # Subtest: sync child
+        ok 1 - this is fine
+        1..1
+    ok 2 - sync child # time={TIME}
+    
+ok 1 - parent # time={TIME}
+
+1..1
+
+`
+
 exports[`test/test-base.ts > TAP > processing edge cases > async method gets awaited > must match snapshot 1`] = `
 TAP version 14
 ok 1 - this is fine
