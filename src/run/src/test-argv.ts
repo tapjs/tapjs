@@ -13,7 +13,9 @@ import { resolveImport } from 'resolve-import'
 const useImport = !!(module as { register?: (...a: any) => any })
   .register
 
-const testModule = String(await resolveImport('@tapjs/test'))
+const testModule = String(
+  await resolveImport('@tapjs/test', import.meta.url)
+)
 
 const resolveLoaders = (loaders: string[]) =>
   Promise.all(
